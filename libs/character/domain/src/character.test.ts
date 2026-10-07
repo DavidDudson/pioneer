@@ -20,7 +20,7 @@ describe('Character', () => {
 
   test('codec round-trips to wire JSON and back to a class', () => {
     const wire = z.encode(Character.codec, new CharacterBuilder().build());
-    expect(wire.createdAt).toBe('2026-01-01T00:00:00Z');
+    expect(wire.createdAt).toBe('2026-01-01T00:00:00.000Z');
     expect(wire.attributes).toStrictEqual({ str: 0, dex: 0, con: 0, int: 0, wis: 0, cha: 0 });
     const decoded = Character.codec.parse(structuredClone(wire));
     expect(decoded).toBeInstanceOf(Character);

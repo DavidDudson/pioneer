@@ -1,5 +1,5 @@
 import { Character, CharacterId, CharacterPatchField } from '@pioneer/character/domain';
-import type { CharacterPatch, CreateCharacterBody } from '@pioneer/character/domain';
+import type { CharacterListQuery, CharacterPatch, CreateCharacterBody } from '@pioneer/character/domain';
 import type { AncestryId, ContentRegistry } from '@pioneer/rules/sdk';
 import { newId, NotFoundError, ValidationError } from '@pioneer/shared/kernel';
 import type { Clock, Version } from '@pioneer/shared/kernel';
@@ -18,8 +18,8 @@ export class CharacterService {
     this.#clock = clock;
   }
 
-  public async list(): Promise<readonly Character[]> {
-    return this.#repository.list();
+  public async list(query: CharacterListQuery): Promise<readonly Character[]> {
+    return this.#repository.list(query);
   }
 
   public async get(id: CharacterId): Promise<Character> {

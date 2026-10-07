@@ -1,4 +1,4 @@
-import type { Character, CharacterId } from '@pioneer/character/domain';
+import type { Character, CharacterId, CharacterListQuery } from '@pioneer/character/domain';
 import type { Version } from '@pioneer/shared/kernel';
 
 /**
@@ -6,7 +6,8 @@ import type { Version } from '@pioneer/shared/kernel';
  * `character-infrastructure`; `InMemoryCharacterRepository` is for tests.
  */
 export abstract class CharacterRepository {
-  public abstract list(): Promise<readonly Character[]>;
+  /** Sorted by an enumerated, indexed option; `id` breaks ties so pages are stable. */
+  public abstract list(query: CharacterListQuery): Promise<readonly Character[]>;
 
   public abstract findById(id: CharacterId): Promise<Character | undefined>;
 

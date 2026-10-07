@@ -1,7 +1,7 @@
 import { provideHttpClient } from '@angular/common/http';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
-import { Endpoint, HttpMethod, NoBody } from '@pioneer/shared/kernel';
+import { Endpoint, HttpMethod, NoBody, NoQuery } from '@pioneer/shared/kernel';
 import { beforeEach, describe, expect, it } from 'vitest';
 import { z } from 'zod';
 
@@ -12,6 +12,7 @@ const getThing = new Endpoint({
   method: HttpMethod.Get,
   path: '/things/:id',
   params: z.object({ id: z.string() }),
+  query: NoQuery,
   body: NoBody,
   response: z.object({ count: z.number() }),
 });

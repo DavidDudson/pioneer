@@ -1,5 +1,5 @@
 {
-  "id": "9332359e-9d8b-4809-a9f3-bc582f94ec29",
+  "id": "818453c4-3b9a-448a-b611-200d820b88ed",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -58,11 +58,38 @@
         }
       },
       "indexes": {
-        "characters_created_at_idx": {
-          "name": "characters_created_at_idx",
+        "characters_created_at_id_idx": {
+          "name": "characters_created_at_id_idx",
           "columns": [
             {
               "expression": "created_at",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "characters_name_id_idx": {
+          "name": "characters_name_id_idx",
+          "columns": [
+            {
+              "expression": "name",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "id",
               "isExpression": false,
               "asc": true,
               "nulls": "last"

@@ -1,5 +1,6 @@
-import type { Character, CharacterId } from '@pioneer/character/domain';
-import { VersionConflictError } from '@pioneer/shared/kernel';
+import { CharacterSort } from '@pioneer/character/domain';
+import type { Character, CharacterId, CharacterListQuery } from '@pioneer/character/domain';
+import { SortDirection, VersionConflictError } from '@pioneer/shared/kernel';
 import type { Version } from '@pioneer/shared/kernel';
 
 import { CharacterRepository } from './character-repository';
@@ -8,8 +9,13 @@ import { CharacterRepository } from './character-repository';
 export class InMemoryCharacterRepository extends CharacterRepository {
   readonly #rows = new Map<CharacterId, Character>();
 
-  public override async list(): Promise<readonly Character[]> {
-    return [...this.#rows.values()];
+  public override async list(query: CharacterListQuery): Promise<readonly Character[]> {
+    const sign = query.direction === SortDirection.Asc ? 1 : -1;
+    const key = (character: Character): string =>
+      query.sort === CharacterSort.Name ? character.name : character.createdAt.toString();
+    return [...this.#rows.values()].toSorted(
+      (left, right) => sign * (key(left).localeCompare(key(right)) || left.id.localeCompare(right.id)),
+    );
   }
 
   public override async findById(id: CharacterId): Promise<Character | undefined> {

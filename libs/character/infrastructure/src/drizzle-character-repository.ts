@@ -1,14 +1,24 @@
 import { CharacterRepository } from '@pioneer/character/application';
 import { Character, CharacterId } from '@pioneer/character/domain';
+import type { CharacterListQuery, CharacterSort } from '@pioneer/character/domain';
 import { AncestryId, AttributeModifiers } from '@pioneer/rules/sdk';
-import { Temporal, VersionConflictError } from '@pioneer/shared/kernel';
+import { SortDirection, Temporal, VersionConflictError } from '@pioneer/shared/kernel';
 import type { Version } from '@pioneer/shared/kernel';
-import { and, asc, eq } from 'drizzle-orm';
+import { and, asc, desc, eq } from 'drizzle-orm';
 import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
 
 import { characters } from './character.table';
 
 type Row = typeof characters.$inferSelect;
+
+/**
+ * Exhaustive: adding a CharacterSort option without a column (and an index,
+ * see character.table.ts) does not compile / fails the plan guard.
+ */
+const SORT_COLUMNS = {
+  'created-at': characters.createdAt,
+  name: characters.name,
+} as const satisfies Record<CharacterSort, unknown>;
 
 function toCharacter(row: Row): Character {
   return new Character({
@@ -44,8 +54,12 @@ export class DrizzleCharacterRepository extends CharacterRepository {
     this.#db = db;
   }
 
-  public override async list(): Promise<readonly Character[]> {
-    const rows = await this.#db.select().from(characters).orderBy(asc(characters.createdAt));
+  public override async list(query: CharacterListQuery): Promise<readonly Character[]> {
+    const order = query.direction === SortDirection.Asc ? asc : desc;
+    const rows = await this.#db
+      .select()
+      .from(characters)
+      .orderBy(order(SORT_COLUMNS[query.sort]), order(characters.id));
     return rows.map((row) => toCharacter(row));
   }
 

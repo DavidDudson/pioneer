@@ -33,7 +33,7 @@ describe('character routes', () => {
     expect(created.status).toBe(200);
     const character = (await created.json()) as { id: string; version: number; createdAt: string };
     expect(character.version).toBe(1);
-    expect(character.createdAt).toBe('2026-10-07T10:00:00Z');
+    expect(character.createdAt).toBe('2026-10-07T10:00:00.000Z');
 
     const patch = { expectedVersion: 1, patch: { field: 'level', value: 5 } };
     const patched = await api.handle(new Request(`http://localhost/characters/${character.id}`, json('PATCH', patch)));
@@ -47,5 +47,17 @@ describe('character routes', () => {
   test('invalid body is 422', async () => {
     const response = await app().handle(new Request('http://localhost/characters', json('POST', { name: '' })));
     expect(response.status).toBe(422);
+  });
+});
+
+describe('character list query', () => {
+  test('only enumerated sort options are accepted', async () => {
+    const api = app();
+    const ok = await api.handle(new Request('http://localhost/characters?sort=name&direction=desc'));
+    expect(ok.status).toBe(200);
+    const raw = await api.handle(new Request('http://localhost/characters?sort=password'));
+    expect(raw.status).toBe(422);
+    const filter = await api.handle(new Request('http://localhost/characters?where=1%3D1'));
+    expect(filter.status).toBe(422);
   });
 });

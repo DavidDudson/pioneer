@@ -1,8 +1,8 @@
 import { afterAll, beforeAll, describe, expect, test } from 'bun:test';
 
-import { CharacterPatchField } from '@pioneer/character/domain';
+import { CharacterPatchField, CharacterSort } from '@pioneer/character/domain';
 import { CharacterBuilder } from '@pioneer/character/domain/testing';
-import { fixedClock, VersionConflictError } from '@pioneer/shared/kernel';
+import { fixedClock, SortDirection, VersionConflictError } from '@pioneer/shared/kernel';
 import { rejection } from '@pioneer/shared/kernel/testing';
 import { createTestDatabase, QueryRecorder, unindexedQueries } from '@pioneer/shared/server/testing';
 import type { TestDatabase } from '@pioneer/shared/server/testing';
@@ -36,13 +36,19 @@ describe.skipIf(adminUrl === undefined)('DrizzleCharacterRepository (postgres)',
     await repository.insert(new CharacterBuilder().named('Kyra').build());
     const found = await repository.findById(valeros.id);
     expect(found?.name).toBe('Valeros');
-    expect(await repository.list()).toHaveLength(2);
+    const byName = await repository.list({ sort: CharacterSort.Name, direction: SortDirection.Asc });
+    expect(byName.map((character) => character.name)).toStrictEqual(['Kyra', 'Valeros']);
     const updated = await repository.update(valeros.apply({ field: CharacterPatchField.Level, value: 2 }, later), 1);
     expect(updated.version).toBe(2);
     expect(await rejection(repository.update(updated, 1))).toBeInstanceOf(VersionConflictError);
   });
 
   test('every query the repository issued is served by an index', async () => {
+    // Exercise every sort option in both directions so each one is planned.
+    const options = Object.values(CharacterSort).flatMap((sort) =>
+      Object.values(SortDirection).map((direction) => ({ sort, direction })),
+    );
+    await Promise.all(options.map(async (query) => repository.list(query)));
     expect(await unindexedQueries(database.db, recorder)).toStrictEqual([]);
   });
 });

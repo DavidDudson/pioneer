@@ -22,7 +22,9 @@ export const characters = pgTable(
     updatedAt: timestamp({ withTimezone: true, mode: 'string' }).notNull(),
   },
   (table) => [
-    // List(): ORDER BY created_at.
-    index('characters_created_at_idx').on(table.createdAt),
+    // One index per CharacterSort option, with id as the tie-breaker the list
+    // Query orders by. Asc and desc both use it (backward index scan).
+    index('characters_created_at_id_idx').on(table.createdAt, table.id),
+    index('characters_name_id_idx').on(table.name, table.id),
   ],
 );

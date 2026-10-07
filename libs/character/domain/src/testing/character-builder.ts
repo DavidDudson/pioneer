@@ -1,7 +1,9 @@
 import { AncestryId, AttributeModifiers, contentId } from '@pioneer/rules/sdk';
 import type { Attribute } from '@pioneer/rules/sdk';
+import { installRulesFakes } from '@pioneer/rules/sdk/testing';
 import { derivedId, FixtureNamespace, fixedClock } from '@pioneer/shared/kernel';
 import type { Temporal } from '@pioneer/shared/kernel';
+import { fakeSeeded } from '@pioneer/shared/kernel/testing';
 
 import { Character } from '../character';
 import { CharacterId } from '../character-fields';
@@ -15,6 +17,7 @@ export const humanAncestryId: AncestryId = AncestryId.parse(contentId('player-co
  *
  * ```ts
  * const valeros = new CharacterBuilder().named('Valeros').atLevel(3).build();
+ * const anyone = CharacterBuilder.random(42).atLevel(20).build(); // fake, reproducible
  * ```
  */
 export class CharacterBuilder {
@@ -24,6 +27,20 @@ export class CharacterBuilder {
   #version = 1;
   #attributes = AttributeModifiers.none;
   #at: Temporal.Instant = fixedClock('2026-01-01T00:00:00Z').now();
+
+  /** Every field from a seeded fake (zod-schema-faker); same seed, same character. */
+  public static random(seedValue: number): CharacterBuilder {
+    installRulesFakes();
+    const fake = fakeSeeded(Character.codec, seedValue);
+    const builder = new CharacterBuilder()
+      .named(fake.name)
+      .withAncestry(fake.ancestry)
+      .atLevel(fake.level)
+      .atVersion(fake.version)
+      .createdAt(fake.createdAt);
+    builder.#attributes = fake.attributes;
+    return builder;
+  }
 
   public named(name: string): this {
     this.#name = name;

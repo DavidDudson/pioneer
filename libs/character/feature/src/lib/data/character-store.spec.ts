@@ -25,8 +25,8 @@ function wire(version: number, level: number): WireCharacter & Record<string, un
     ancestry: contentId('player-core', 'elf'),
     level,
     attributes: { str: 0, dex: 4, con: 1, int: 0, wis: 0, cha: 1 },
-    createdAt: '2026-10-07T10:00:00Z',
-    updatedAt: '2026-10-07T10:00:00Z',
+    createdAt: '2026-10-07T10:00:00.000Z',
+    updatedAt: '2026-10-07T10:00:00.000Z',
   };
 }
 

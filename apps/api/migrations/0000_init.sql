@@ -23,5 +23,6 @@ CREATE TABLE "audit"."log" (
 	"after" jsonb
 );
 --> statement-breakpoint
-CREATE INDEX "characters_created_at_idx" ON "characters" USING btree ("created_at");--> statement-breakpoint
+CREATE INDEX "characters_created_at_id_idx" ON "characters" USING btree ("created_at","id");--> statement-breakpoint
+CREATE INDEX "characters_name_id_idx" ON "characters" USING btree ("name","id");--> statement-breakpoint
 CREATE INDEX "log_row_idx" ON "audit"."log" USING btree ("table_name","row_id","changed_at");

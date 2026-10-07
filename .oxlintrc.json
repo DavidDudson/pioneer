@@ -93,6 +93,9 @@
 
     // ---- Tuned, not disabled -----------------------------------------------
     "eslint/one-var": ["error", "never"],
+    // Hoisted function declarations are safe to reference early (mutual recursion);
+    // variables and classes still must be declared first.
+    "eslint/no-use-before-define": ["error", { "functions": false }],
     "eslint/no-duplicate-imports": ["error", { "allowSeparateTypeImports": true }],
     "eslint/func-style": ["error", "declaration", { "allowArrowFunctions": true }],
     "eslint/no-magic-numbers": [
@@ -241,6 +244,12 @@
       // Bun tests import from bun:test, which the vitest plugin does not recognise.
       "files": ["**/*.test.ts"],
       "rules": { "vitest/prefer-importing-vitest-globals": "off", "vitest/prefer-describe-function-title": "off" }
+    },
+    {
+      // Property tests compute the expected value from the input; that oracle is
+      // usually a conditional. Keep the logic in the oracle, not in branches.
+      "files": ["**/*.property.test.ts"],
+      "rules": { "vitest/no-conditional-in-test": "off" }
     },
     {
       // Book data and generated token tables are numbers by nature.
