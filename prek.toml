@@ -1,0 +1,118 @@
+# Git hooks (prek). Install with `just hooks`. Every hook is a local system
+# command using the devshell or node_modules, so no third-party hook repos
+# are fetched (see bunfig.toml for the supply-chain policy). Hooks only see
+# staged files; whole-project checks (knip, typecheck, tests) stay in
+# `just check` and CI.
+default_install_hook_types = ["pre-commit", "commit-msg"]
+
+# ---- Format first: fixes files, so the commit fails and you re-stage -------
+
+[[repos]]
+repo = "local"
+
+[[repos.hooks]]
+id = "oxfmt"
+name = "oxfmt"
+language = "system"
+# oxfmt skips files it does not support or ignores.
+entry = "node_modules/.bin/oxfmt --no-error-on-unmatched-pattern"
+priority = 0
+
+[[repos.hooks]]
+id = "taplo-fmt"
+name = "taplo fmt"
+language = "system"
+entry = "taplo fmt"
+files = "\\.toml$"
+priority = 0
+
+# ---- Lint: read-only, run in parallel --------------------------------------
+
+[[repos]]
+repo = "local"
+
+[[repos.hooks]]
+id = "oxlint"
+name = "oxlint"
+language = "system"
+entry = "node_modules/.bin/oxlint"
+files = "\\.[cm]?[jt]s$"
+priority = 10
+
+[[repos.hooks]]
+id = "eslint-templates"
+name = "eslint (templates)"
+language = "system"
+entry = "node_modules/.bin/eslint --max-warnings=0"
+files = "^(apps|libs)/.*\\.html$"
+priority = 10
+
+[[repos.hooks]]
+id = "biome"
+name = "biome (css)"
+language = "system"
+entry = "node_modules/.bin/biome lint --error-on-warnings --no-errors-on-unmatched --files-ignore-unknown=true"
+files = "\\.css$"
+priority = 10
+
+[[repos.hooks]]
+id = "taplo-check"
+name = "taplo check"
+language = "system"
+entry = "taplo check"
+files = "\\.toml$"
+priority = 10
+
+[[repos.hooks]]
+id = "rumdl"
+name = "rumdl"
+language = "system"
+entry = "rumdl check"
+files = "\\.md$"
+priority = 10
+
+[[repos.hooks]]
+id = "typos"
+name = "typos"
+language = "system"
+entry = "typos --force-exclude"
+types = ["text"]
+priority = 10
+
+[[repos.hooks]]
+id = "actionlint"
+name = "actionlint"
+language = "system"
+entry = "actionlint"
+files = "^\\.github/workflows/.*\\.ya?ml$"
+priority = 10
+
+[[repos.hooks]]
+id = "zizmor"
+name = "zizmor"
+language = "system"
+# Online audits run in CI, where a token is available.
+entry = "zizmor --offline"
+files = "^\\.github/.*\\.ya?ml$"
+priority = 10
+
+[[repos.hooks]]
+id = "gitleaks"
+name = "gitleaks"
+language = "system"
+entry = "gitleaks git --pre-commit --staged --redact --no-banner"
+pass_filenames = false
+always_run = true
+priority = 10
+
+# ---- Commit message ---------------------------------------------------------
+
+[[repos]]
+repo = "local"
+
+[[repos.hooks]]
+id = "committed"
+name = "conventional commit"
+language = "system"
+entry = "committed --commit-file"
+stages = ["commit-msg"]
