@@ -32,6 +32,7 @@
             prek
             ripsecrets
             actionlint
+            shellcheck # used by actionlint for run: scripts
 
             # Go: no Rust equivalent with the same coverage.
             gitleaks
@@ -42,9 +43,10 @@
             export PGDATA="$PWD/.data/postgres"
             export PGHOST=127.0.0.1
             export PGPORT=54329
-            export DATABASE_URL="postgres://$USER@127.0.0.1:54329/pioneer"
-            # Separate database: DB tests drop and recreate its schema.
-            export TEST_DATABASE_URL="postgres://$USER@127.0.0.1:54329/pioneer_test"
+            export DATABASE_URL="''${DATABASE_URL:-postgres://$USER@127.0.0.1:54329/pioneer}"
+            # Separate database: DB tests create and drop their own databases on it.
+            # Defaults only, so CI can point both at its Postgres service.
+            export TEST_DATABASE_URL="''${TEST_DATABASE_URL:-postgres://$USER@127.0.0.1:54329/pioneer_test}"
           '';
         };
       });
