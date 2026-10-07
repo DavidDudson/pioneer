@@ -9,10 +9,10 @@
   "json": { "linter": { "enabled": false } },
   "css": {
     "parser": { "tailwindDirectives": true },
-    "linter": { "enabled": true }
+    "linter": { "enabled": true },
   },
   "linter": {
     "enabled": true,
-    "rules": { "recommended": true }
-  }
+    "rules": { "recommended": true },
+  },
 }

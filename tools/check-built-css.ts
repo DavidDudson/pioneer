@@ -17,7 +17,9 @@ if (stylesheet === undefined) {
 }
 const css = readFileSync(path.join(OUTPUT, stylesheet), 'utf8');
 const problems = [
-  ...FORBIDDEN_DIRECTIVES.filter((directive) => css.includes(directive)).map((directive) => `raw ${directive} left in output`),
+  ...FORBIDDEN_DIRECTIVES.filter((directive) => css.includes(directive)).map(
+    (directive) => `raw ${directive} left in output`,
+  ),
   ...REQUIRED_UTILITIES.filter((utility) => !css.includes(utility)).map((utility) => `missing utility ${utility}`),
 ];
 if (problems.length > 0) {

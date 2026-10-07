@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { form, FormField, submit, validateStandardSchema } from '@angular/forms/signals';
-import { Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { CharacterNameSchema } from '@pioneer/character/domain';
 import {
   Button,
@@ -47,6 +47,7 @@ export class CharacterListPage {
   protected readonly store = inject(CharacterStore);
   protected readonly ancestries = inject(AncestryOptions);
   readonly #router = inject(Router);
+  readonly #route = inject(ActivatedRoute);
 
   // Signal forms needs concrete field types, so "no ancestry yet" is ''.
   protected readonly model = signal({ name: '', ancestry: '' });
@@ -58,7 +59,7 @@ export class CharacterListPage {
     event.preventDefault();
     await submit(this.form, async () => {
       const character = await this.store.create(CreateForm.parse(this.model()));
-      await this.#router.navigate([character.id]);
+      await this.#router.navigate([character.id], { relativeTo: this.#route });
       return undefined;
     });
   }
