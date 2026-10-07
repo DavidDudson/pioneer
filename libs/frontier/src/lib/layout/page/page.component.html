@@ -1,0 +1,14 @@
+<fr-stack gap="xl">
+  <header class="flex flex-wrap items-end justify-between gap-md">
+    <fr-stack gap="2xs">
+      <h1 frText="title">{{ title() }}</h1>
+      @if (description(); as description) {
+        <p frText tone="muted">{{ description }}</p>
+      }
+    </fr-stack>
+    <ng-content select="[frPageActions]" />
+  </header>
+  <main>
+    <ng-content />
+  </main>
+</fr-stack>

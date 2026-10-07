@@ -1,0 +1,280 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  // Strict by default: every category is an error, including nursery and
+  // restriction. A rule is only relaxed below with a reason, usually because
+  // it contradicts another enabled rule or a deliberate design choice
+  // recorded in AGENTS.md. Do not add rules here without a reason.
+  "plugins": ["eslint", "typescript", "unicorn", "oxc", "import", "jsdoc", "promise", "node", "vitest"],
+  "jsPlugins": [
+    "@nx/oxlint/boundaries-plugin",
+    "eslint-plugin-security",
+    "@angular-eslint/eslint-plugin",
+    "./tools/oxlint/pioneer-plugin.ts"
+  ],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "error",
+    "pedantic": "error",
+    "perf": "error",
+    "style": "error",
+    "restriction": "error",
+    "nursery": "error"
+  },
+  "options": {
+    "typeAware": true,
+    "denyWarnings": true,
+    "reportUnusedDisableDirectives": "error"
+  },
+  "env": { "es2024": true },
+  "ignorePatterns": ["dist", "coverage", "node_modules", ".nx", ".angular", "apps/api/migrations"],
+  "settings": {
+    "jsdoc": { "ignoreInternal": true }
+  },
+  "rules": {
+    // ---- Contradictory pairs: keep one side --------------------------------
+    // Named exports only (no-default-export stays on).
+    "import/no-named-export": "off",
+    "import/prefer-default-export": "off",
+    // Explicit imports over test globals (prefer-importing-vitest-globals stays on).
+    "vitest/no-importing-vitest-globals": "off",
+    // Inline `type` specifiers flagged by no-import-type-side-effects; prefer top-level `import type`.
+    "import/consistent-type-specifier-style": ["error", "prefer-top-level"],
+
+    // ---- ES5-era restrictions: this codebase targets ES2024 ----------------
+    "oxc/no-async-await": "off",
+    "oxc/no-optional-chaining": "off",
+    "oxc/no-rest-spread-properties": "off",
+
+    // ---- Design choices (see AGENTS.md) -------------------------------------
+    // `undefined` is the only absent value; null is banned instead.
+    "eslint/no-undefined": "off",
+    "unicorn/no-null": "error",
+    // Explicit `input<T | undefined>(undefined)` is required under exactOptionalPropertyTypes.
+    "unicorn/no-useless-undefined": "off",
+    // Const-object pattern: `export const Ancestry = {...}` + `export type Ancestry`.
+    "eslint/no-redeclare": "off",
+    // Decorators (@Component) and Zod/Temporal factories are capitalised calls.
+    "eslint/new-cap": "off",
+    // TypeScript resolves identifiers; no-undef cannot see type-only globals.
+    "eslint/no-undef": "off",
+    // Key order is meaningful (schemas, token ramps, wire shapes).
+    "eslint/sort-keys": "off",
+    // oxfmt sorts imports; two sorters fight.
+    "eslint/sort-imports": "off",
+    // Co-located `export const X` / `export type X` is the house style.
+    "import/group-exports": "off",
+    "import/exports-last": "off",
+    // Libs nest folders (frontier/lib/layout/...); parent imports inside a lib are fine. Cross-lib imports go through aliases (enforced by boundaries).
+    "import/no-relative-parent-imports": "off",
+    // Ternaries are fine; nesting them is not (unicorn/no-nested-ternary stays on).
+    "eslint/no-ternary": "off",
+    // Deep readonly is impossible for classes with methods (signals, Zod, Temporal).
+    "typescript/prefer-readonly-parameter-types": "off",
+    // TS types document params/returns; JSDoc duplicates would drift.
+    "jsdoc/require-param": "off",
+    "jsdoc/require-returns": "off",
+    // promise-function-async stays on: every Promise-returning function is async, so
+    // synchronous throws surface as rejections. require-await contradicts it.
+    "eslint/require-await": "off",
+    "typescript/require-await": "off",
+    // Strict boolean matchers (toBe(true)) over truthiness.
+    "vitest/prefer-to-be-truthy": "off",
+    "vitest/prefer-to-be-falsy": "off",
+    // ESM-only codebase: nothing require()s our modules, so top-level await is fine
+    // (unicorn/prefer-top-level-await stays on).
+    "node/no-top-level-await": "off",
+    // Test-only rules; enabled for test files in overrides.
+    "vitest/require-hook": "off",
+    // TS exhaustiveness is stronger than a default branch.
+    "eslint/default-case": "off",
+    "typescript/switch-exhaustiveness-check": "error",
+    // Angular directives/components may legitimately have empty bodies.
+    "typescript/no-extraneous-class": ["error", { "allowWithDecorator": true }],
+
+    // ---- Tuned, not disabled -----------------------------------------------
+    "eslint/one-var": ["error", "never"],
+    "eslint/no-duplicate-imports": ["error", { "allowSeparateTypeImports": true }],
+    "eslint/func-style": ["error", "declaration", { "allowArrowFunctions": true }],
+    "eslint/no-magic-numbers": [
+      "error",
+      {
+        "ignore": [-1, 0, 1, 2],
+        "ignoreArrayIndexes": true,
+        "ignoreDefaultValues": true,
+        "ignoreClassFieldInitialValues": true,
+        "enforceConst": true
+      }
+    ],
+    "eslint/max-classes-per-file": ["error", { "max": 1, "ignoreExpressions": true }],
+    "eslint/max-statements": ["error", 12],
+
+    // ---- Security ------------------------------------------------------------
+    "security/detect-bidi-characters": "error",
+    "security/detect-buffer-noassert": "error",
+    "security/detect-child-process": "error",
+    "security/detect-disable-mustache-escape": "error",
+    "security/detect-eval-with-expression": "error",
+    "security/detect-new-buffer": "error",
+    "security/detect-no-csrf-before-method-override": "error",
+    "security/detect-non-literal-fs-filename": "error",
+    "security/detect-non-literal-regexp": "error",
+    "security/detect-non-literal-require": "error",
+    "security/detect-possible-timing-attacks": "error",
+    "security/detect-pseudoRandomBytes": "error",
+    "security/detect-unsafe-regex": "error",
+    "pioneer/no-bypass-security-trust": "error",
+    "eslint/no-restricted-globals": [
+      "error",
+      { "name": "Date", "message": "Use Temporal from @pioneer/shared/kernel." }
+    ],
+    "eslint/no-restricted-imports": [
+      "error",
+      {
+        "paths": [
+          { "name": "temporal-polyfill", "message": "Import Temporal from @pioneer/shared/kernel." },
+          { "name": "@js-temporal/polyfill", "message": "Import Temporal from @pioneer/shared/kernel." },
+          { "name": "luxon", "message": "Use Temporal." },
+          { "name": "date-fns", "message": "Use Temporal." },
+          { "name": "dayjs", "message": "Use Temporal." },
+          { "name": "moment", "message": "Use Temporal." }
+        ]
+      }
+    ],
+
+    // ---- Angular (TypeScript side; templates are linted by ESLint) ----------
+    "@angular-eslint/component-max-inline-declarations": ["error", { "template": 0, "styles": 0, "animations": 0 }],
+    "@angular-eslint/prefer-on-push-component-change-detection": "error",
+    "@angular-eslint/prefer-signals": "error",
+    "@angular-eslint/prefer-standalone": "error",
+    "@angular-eslint/prefer-output-readonly": "error",
+    "@angular-eslint/no-input-rename": "error",
+    "@angular-eslint/no-output-rename": "error",
+    "@angular-eslint/no-output-native": "error",
+    "@angular-eslint/no-output-on-prefix": "error",
+    "@angular-eslint/no-inputs-metadata-property": "error",
+    "@angular-eslint/no-outputs-metadata-property": "error",
+    "@angular-eslint/no-lifecycle-call": "error",
+    "@angular-eslint/no-empty-lifecycle-method": "error",
+    "@angular-eslint/no-async-lifecycle-method": "error",
+    "@angular-eslint/no-attribute-decorator": "error",
+    "@angular-eslint/no-forward-ref": "error",
+    "@angular-eslint/no-queries-metadata-property": "error",
+    "@angular-eslint/no-pipe-impure": "error",
+    "@angular-eslint/use-component-selector": "error",
+    "@angular-eslint/use-lifecycle-interface": "error",
+    "@angular-eslint/use-pipe-transform-interface": "error",
+    "@angular-eslint/use-injectable-provided-in": "off",
+    "@angular-eslint/relative-url-prefix": "error",
+    "@angular-eslint/sort-keys-in-type-decorator": "error",
+    "@angular-eslint/consistent-component-styles": "error",
+    "@angular-eslint/component-class-suffix": "off",
+    "@angular-eslint/directive-class-suffix": "off",
+    "@angular-eslint/component-selector": [
+      "error",
+      { "type": ["element", "attribute"], "prefix": ["pio", "fr"], "style": "kebab-case" }
+    ],
+    "@angular-eslint/directive-selector": [
+      "error",
+      { "type": "attribute", "prefix": ["pio", "fr"], "style": "camelCase" }
+    ],
+    "pioneer/no-styles-outside-frontier": "error",
+
+    // ---- DDD boundaries ------------------------------------------------------
+    "@nx/enforce-module-boundaries": [
+      "error",
+      {
+        "enforceBuildableLibDependency": true,
+        "banTransitiveDependencies": true,
+        "checkDynamicDependenciesExceptions": ["@pioneer/content/*"],
+        "allow": ["bun:test"],
+        "depConstraints": [
+          { "sourceTag": "type:domain", "onlyDependOnLibsWithTags": ["type:domain"] },
+          { "sourceTag": "type:content", "onlyDependOnLibsWithTags": ["scope:rules"] },
+          { "sourceTag": "type:catalog", "onlyDependOnLibsWithTags": ["type:domain", "type:content"] },
+          { "sourceTag": "type:application", "onlyDependOnLibsWithTags": ["type:domain", "type:application"] },
+          {
+            "sourceTag": "type:infrastructure",
+            "onlyDependOnLibsWithTags": ["type:domain", "type:application", "type:infrastructure"]
+          },
+          { "sourceTag": "type:ui", "onlyDependOnLibsWithTags": ["type:domain", "type:ui"] },
+          { "sourceTag": "type:data-access", "onlyDependOnLibsWithTags": ["type:domain", "type:data-access"] },
+          {
+            "sourceTag": "type:feature",
+            "onlyDependOnLibsWithTags": ["type:domain", "type:catalog", "type:ui", "type:data-access", "type:feature"]
+          },
+          { "sourceTag": "platform:web", "notDependOnLibsWithTags": ["platform:server"] },
+          { "sourceTag": "platform:server", "notDependOnLibsWithTags": ["platform:web"] },
+          { "sourceTag": "platform:any", "onlyDependOnLibsWithTags": ["platform:any"] },
+          { "sourceTag": "scope:rules", "onlyDependOnLibsWithTags": ["scope:rules", "scope:shared", "scope:content"] },
+          { "sourceTag": "scope:content", "onlyDependOnLibsWithTags": ["scope:rules"] },
+          {
+            "sourceTag": "scope:character",
+            "onlyDependOnLibsWithTags": ["scope:character", "scope:rules", "scope:shared"]
+          }
+        ]
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["**/*.test.ts", "**/*.spec.ts"],
+      "rules": {
+        "eslint/no-magic-numbers": "off",
+        "eslint/no-empty-function": "off",
+        "eslint/init-declarations": "off",
+        "eslint/max-statements": "off",
+        "eslint/max-lines-per-function": "off",
+        "eslint/max-classes-per-file": "off",
+        "typescript/no-unsafe-type-assertion": "off",
+        "promise/avoid-new": "off",
+        "vitest/no-hooks": "off",
+        // describe(ClassName) per prefer-describe-function-title.
+        "vitest/valid-title": ["error", { "allowArguments": true }],
+        "vitest/require-test-timeout": "off",
+        "vitest/prefer-expect-assertions": "off",
+        "vitest/prefer-lowercase-title": "off",
+        // Bun tests are *.test.ts, Angular/Vitest tests are *.spec.ts (see AGENTS.md).
+        "vitest/consistent-test-filename": "off"
+      }
+    },
+    {
+      // Bun tests import from bun:test, which the vitest plugin does not recognise.
+      "files": ["**/*.test.ts"],
+      "rules": { "vitest/prefer-importing-vitest-globals": "off", "vitest/prefer-describe-function-title": "off" }
+    },
+    {
+      // Book data and generated token tables are numbers by nature.
+      "files": ["libs/content/**/*.ts", "libs/frontier/scripts/*.ts"],
+      "rules": { "eslint/no-magic-numbers": "off" }
+    },
+    {
+      // Process entry points: Bun supports top-level await; logging is the point.
+      "files": ["apps/api/src/main.ts", "apps/api/src/migrate.ts", "libs/frontier/scripts/*.ts"],
+      "rules": { "eslint/no-console": "off" }
+    },
+    {
+      "files": ["libs/shared/server/src/problem-handler.ts"],
+      "rules": { "eslint/no-console": "off" }
+    },
+    {
+      "files": ["libs/shared/kernel/src/temporal.ts"],
+      "rules": { "eslint/no-restricted-imports": "off" }
+    },
+    {
+      // Small related error types live together.
+      "files": ["libs/shared/kernel/src/errors.ts"],
+      "rules": { "eslint/max-classes-per-file": "off" }
+    },
+    {
+      // Build tooling runs on Node/Bun and needs fs/path; config files need default exports.
+      "files": ["tools/**/*.ts", "**/drizzle.config.ts"],
+      "rules": {
+        "import/no-nodejs-modules": "off",
+        "node/no-sync": "off",
+        "import/no-default-export": "off",
+        "security/detect-non-literal-fs-filename": "off",
+        "typescript/no-unsafe-type-assertion": "off"
+      }
+    }
+  ]
+}

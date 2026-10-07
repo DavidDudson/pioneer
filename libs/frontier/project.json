@@ -1,0 +1,18 @@
+{
+  "name": "frontier",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/frontier/src",
+  "prefix": "fr",
+  "tags": ["scope:shared", "type:ui", "platform:web"],
+  "targets": {
+    "test": {
+      "executor": "@angular/build:unit-test",
+      "options": {
+        "buildTarget": "web:build:development",
+        "tsConfig": "libs/frontier/tsconfig.spec.json",
+        "runner": "vitest"
+      }
+    }
+  }
+}

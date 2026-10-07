@@ -1,0 +1,10 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "printWidth": 120,
+  "singleQuote": true,
+  "trailingComma": "all",
+  "sortImports": true,
+  "sortPackageJson": true,
+  "sortTailwindcss": { "stylesheet": "./libs/frontier/src/styles/frontier.css" },
+  "ignorePatterns": ["apps/api/migrations/**", "libs/frontier/src/styles/primitives.color.css", "bun.lock"]
+}

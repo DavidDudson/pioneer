@@ -1,0 +1,25 @@
+{
+  "name": "api",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/api/src",
+  "tags": ["scope:api", "type:app", "platform:server"],
+  "targets": {
+    "serve": {
+      "continuous": true,
+      "command": "bun --watch apps/api/src/main.ts"
+    },
+    "build": {
+      "cache": true,
+      "inputs": ["production", "^production"],
+      "outputs": ["{workspaceRoot}/dist/apps/api"],
+      "command": "bun build apps/api/src/main.ts --compile --minify --sourcemap --target=bun-linux-x64 --outfile dist/apps/api/pioneer-api"
+    },
+    "db-generate": {
+      "command": "drizzle-kit generate --config apps/api/drizzle.config.ts"
+    },
+    "db-migrate": {
+      "command": "bun apps/api/src/migrate.ts"
+    }
+  }
+}

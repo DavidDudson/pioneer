@@ -1,0 +1,143 @@
+/*
+ * frontier: the Pioneer design system. Apps import this one file.
+ *
+ * Tailwind only exists here: `source(none)` stops it scanning the app, and
+ * `@source` points it at frontier's own components. Its default palette,
+ * spacing, type and radius scales are wiped so the only utilities that exist
+ * are the semantic tokens below (tier 3, the Tailwind mapping).
+ */
+@import 'tailwindcss' source(none);
+@import './primitives.color.css';
+@import './primitives.scale.css';
+@import './semantic.css';
+
+@source '../lib';
+
+@theme inline {
+  --color-*: initial;
+  --spacing-*: initial;
+  --text-*: initial;
+  --font-*: initial;
+  --font-weight-*: initial;
+  --radius-*: initial;
+  --shadow-*: initial;
+
+  --color-surface-canvas: var(--fr-surface-canvas);
+  --color-surface-base: var(--fr-surface-base);
+  --color-surface-raised: var(--fr-surface-raised);
+  --color-surface-sunken: var(--fr-surface-sunken);
+  --color-surface-overlay: var(--fr-surface-overlay);
+  --color-surface-inverse: var(--fr-surface-inverse);
+  --color-surface-skeleton: var(--fr-surface-skeleton);
+
+  --color-fg-default: var(--fr-fg-default);
+  --color-fg-muted: var(--fr-fg-muted);
+  --color-fg-subtle: var(--fr-fg-subtle);
+  --color-fg-disabled: var(--fr-fg-disabled);
+  --color-fg-inverse: var(--fr-fg-inverse);
+
+  --color-line-subtle: var(--fr-line-subtle);
+  --color-line-default: var(--fr-line-default);
+  --color-line-strong: var(--fr-line-strong);
+  --color-line-focus: var(--fr-line-focus);
+
+  --color-accent-solid: var(--fr-accent-solid);
+  --color-accent-solid-hover: var(--fr-accent-solid-hover);
+  --color-accent-solid-active: var(--fr-accent-solid-active);
+  --color-accent-subtle: var(--fr-accent-subtle);
+  --color-accent-fg: var(--fr-accent-fg);
+  --color-accent-on-solid: var(--fr-accent-on-solid);
+
+  --color-danger-solid: var(--fr-danger-solid);
+  --color-danger-subtle: var(--fr-danger-subtle);
+  --color-danger-fg: var(--fr-danger-fg);
+  --color-danger-line: var(--fr-danger-line);
+  --color-success-solid: var(--fr-success-solid);
+  --color-success-subtle: var(--fr-success-subtle);
+  --color-success-fg: var(--fr-success-fg);
+  --color-success-line: var(--fr-success-line);
+  --color-warning-solid: var(--fr-warning-solid);
+  --color-warning-subtle: var(--fr-warning-subtle);
+  --color-warning-fg: var(--fr-warning-fg);
+  --color-warning-line: var(--fr-warning-line);
+  --color-info-solid: var(--fr-info-solid);
+  --color-info-subtle: var(--fr-info-subtle);
+  --color-info-fg: var(--fr-info-fg);
+  --color-info-line: var(--fr-info-line);
+
+  --spacing-none: var(--fr-space-none);
+  --spacing-3xs: var(--fr-space-3xs);
+  --spacing-2xs: var(--fr-space-2xs);
+  --spacing-xs: var(--fr-space-xs);
+  --spacing-sm: var(--fr-space-sm);
+  --spacing-md: var(--fr-space-md);
+  --spacing-lg: var(--fr-space-lg);
+  --spacing-xl: var(--fr-space-xl);
+  --spacing-2xl: var(--fr-space-2xl);
+  --spacing-3xl: var(--fr-space-3xl);
+
+  --font-sans: var(--fr-font-sans);
+  --font-display: var(--fr-font-display);
+  --font-mono: var(--fr-font-mono);
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --text-caption: var(--fr-scale-font-1);
+  --text-caption--line-height: 1.35;
+  --text-label: var(--fr-scale-font-2);
+  --text-label--line-height: 1.4;
+  --text-body: var(--fr-scale-font-3);
+  --text-body--line-height: 1.5;
+  --text-lead: var(--fr-scale-font-4);
+  --text-lead--line-height: 1.5;
+  --text-subheading: var(--fr-scale-font-5);
+  --text-subheading--line-height: 1.4;
+  --text-heading: var(--fr-scale-font-6);
+  --text-heading--line-height: 1.3;
+  --text-title: var(--fr-scale-font-7);
+  --text-title--line-height: 1.2;
+  --text-display: var(--fr-scale-font-9);
+  --text-display--line-height: 1.1;
+
+  --radius-control: var(--fr-radius-control);
+  --radius-surface: var(--fr-radius-surface);
+  --radius-overlay: var(--fr-radius-overlay);
+  --radius-pill: var(--fr-radius-pill);
+
+  --shadow-raised: var(--fr-shadow-raised);
+  --shadow-overlay: var(--fr-shadow-overlay);
+
+  --ease-standard: var(--fr-ease-standard);
+  --animate-shimmer: fr-shimmer 1.4s var(--fr-ease-standard) infinite;
+
+  @keyframes fr-shimmer {
+    50% {
+      opacity: 0.5;
+    }
+  }
+}
+
+@utility focus-ring {
+  outline: 2px solid var(--color-line-focus);
+  outline-offset: 2px;
+}
+
+@layer base {
+  html {
+    background: var(--fr-surface-canvas);
+    color: var(--fr-fg-default);
+    font-family: var(--fr-font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}

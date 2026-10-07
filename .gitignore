@@ -1,0 +1,12 @@
+node_modules/
+dist/
+tmp/
+coverage/
+.nx/
+.angular/
+.data/
+.direnv/
+*.tsbuildinfo
+.env
+.env.*
+!.env.example

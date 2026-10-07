@@ -1,0 +1,9 @@
+<fr-stack gap="2xs">
+  <label frText="label" [attr.for]="controlId()" [class.sr-only]="hideLabel()">{{ label() }}</label>
+  <ng-content />
+  @if (error(); as error) {
+    <span frText="caption" tone="danger" role="alert">{{ error }}</span>
+  } @else if (hint(); as hint) {
+    <span frText="caption" tone="subtle">{{ hint }}</span>
+  }
+</fr-stack>

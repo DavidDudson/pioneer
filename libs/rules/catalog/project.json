@@ -1,0 +1,7 @@
+{
+  "name": "rules-catalog",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/rules/catalog/src",
+  "tags": ["scope:rules", "type:catalog", "platform:any"]
+}

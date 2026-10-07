@@ -1,0 +1,12 @@
+<header class="sticky top-none z-10 border-b border-line-subtle bg-surface-base">
+  <div class="mx-auto flex max-w-6xl items-center justify-between gap-md px-md py-sm sm:px-xl">
+    <span frText="subheading" class="font-display">{{ brand() }}</span>
+    <nav aria-label="Main"><ng-content select="[frShellNav]" /></nav>
+  </div>
+</header>
+<div class="flex-1"><ng-content /></div>
+<footer class="border-t border-line-subtle bg-surface-base">
+  <div class="mx-auto max-w-6xl px-md py-md sm:px-xl">
+    <ng-content select="[frShellFooter]" />
+  </div>
+</footer>

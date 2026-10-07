@@ -1,0 +1,75 @@
+<fr-page [title]="title()">
+  <fr-stack gap="lg">
+    <fr-surface>
+      <fr-stack gap="md">
+        <h2 frText="subheading">Identity</h2>
+        <fr-grid [columns]="3">
+          <fr-inline-field label="Name" [edit]="name">
+            <fr-text-input
+              frInlineEditor
+              label="Name"
+              hideLabel
+              [(value)]="name.draft"
+              (committed)="name.commit()"
+              (cancelled)="name.cancel()"
+            />
+          </fr-inline-field>
+          <fr-inline-field label="Ancestry" [edit]="ancestry">
+            <fr-select
+              frInlineEditor
+              label="Ancestry"
+              hideLabel
+              [options]="ancestries.options()"
+              [(value)]="ancestry.draft"
+              (committed)="ancestry.commit()"
+              (cancelled)="ancestry.cancel()"
+            />
+          </fr-inline-field>
+          <fr-inline-field label="Level" [edit]="level">
+            <fr-number-input
+              frInlineEditor
+              label="Level"
+              hideLabel
+              [min]="levelMin"
+              [max]="levelMax"
+              [(value)]="level.draft"
+              (committed)="level.commit()"
+              (cancelled)="level.cancel()"
+            />
+          </fr-inline-field>
+        </fr-grid>
+      </fr-stack>
+    </fr-surface>
+
+    <fr-surface>
+      <fr-stack gap="md">
+        <h2 frText="subheading">Attributes</h2>
+        <fr-grid [columns]="6">
+          @for (item of attributes; track item.attribute) {
+            <fr-inline-field [label]="item.label" [edit]="item.edit">
+              <fr-number-input
+                frInlineEditor
+                hideLabel
+                [label]="item.label"
+                [min]="modifierMin"
+                [max]="modifierMax"
+                [(value)]="item.edit.draft"
+                (committed)="item.edit.commit()"
+                (cancelled)="item.edit.cancel()"
+              />
+            </fr-inline-field>
+          }
+        </fr-grid>
+      </fr-stack>
+    </fr-surface>
+
+    @if (character(); as character) {
+      <p frText="caption" tone="subtle">
+        Created <fr-date format="datetime" [value]="character.createdAt" /> · updated
+        <fr-date format="relative" [value]="character.updatedAt" /> · version {{ character.version }}
+      </p>
+    } @else {
+      <fr-skeleton width="lg" />
+    }
+  </fr-stack>
+</fr-page>

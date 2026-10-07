@@ -1,0 +1,18 @@
+<fr-field #field [label]="label()" [hint]="hint()" [error]="message()" [hideLabel]="hideLabel()">
+  <input
+    #control
+    type="number"
+    inputmode="numeric"
+    step="1"
+    [id]="field.controlId()"
+    [class]="controlClasses"
+    [value]="value()"
+    [attr.min]="min() ?? null"
+    [attr.max]="max() ?? null"
+    [disabled]="disabled()"
+    [attr.aria-invalid]="message() === undefined ? null : true"
+    (input)="onInput(control.value)"
+    (keydown.enter)="committed.emit()"
+    (keydown.escape)="cancelled.emit()"
+  />
+</fr-field>

@@ -1,0 +1,7 @@
+{
+  "name": "character-domain",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/character/domain/src",
+  "tags": ["scope:character", "type:domain", "platform:any"]
+}

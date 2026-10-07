@@ -1,0 +1,176 @@
+/*
+ * Tier 2: semantic tokens. Components and the Tailwind theme reference only
+ * these. Light values on :root, dark values remapped below; the ramp step
+ * numbers are the only thing that change between themes.
+ */
+:root {
+  color-scheme: light;
+
+  --fr-surface-canvas: var(--fr-stone-50);
+  --fr-surface-base: oklch(1 0 0);
+  --fr-surface-raised: oklch(1 0 0);
+  --fr-surface-sunken: var(--fr-stone-100);
+  --fr-surface-overlay: oklch(1 0 0);
+  --fr-surface-inverse: var(--fr-stone-900);
+  --fr-surface-skeleton: var(--fr-stone-200);
+
+  --fr-fg-default: var(--fr-stone-900);
+  --fr-fg-muted: var(--fr-stone-700);
+  --fr-fg-subtle: var(--fr-stone-600);
+  --fr-fg-disabled: var(--fr-stone-400);
+  --fr-fg-inverse: var(--fr-stone-50);
+
+  --fr-line-subtle: var(--fr-stone-200);
+  --fr-line-default: var(--fr-stone-300);
+  --fr-line-strong: var(--fr-stone-500);
+  --fr-line-focus: var(--fr-ember-500);
+
+  --fr-accent-solid: var(--fr-ember-600);
+  --fr-accent-solid-hover: var(--fr-ember-700);
+  --fr-accent-solid-active: var(--fr-ember-800);
+  --fr-accent-subtle: var(--fr-ember-100);
+  --fr-accent-fg: var(--fr-ember-700);
+  --fr-accent-on-solid: oklch(1 0 0);
+
+  --fr-danger-solid: var(--fr-blood-600);
+  --fr-danger-subtle: var(--fr-blood-100);
+  --fr-danger-fg: var(--fr-blood-700);
+  --fr-danger-line: var(--fr-blood-300);
+  --fr-success-solid: var(--fr-moss-600);
+  --fr-success-subtle: var(--fr-moss-100);
+  --fr-success-fg: var(--fr-moss-700);
+  --fr-success-line: var(--fr-moss-300);
+  --fr-warning-solid: var(--fr-gold-500);
+  --fr-warning-subtle: var(--fr-gold-100);
+  --fr-warning-fg: var(--fr-gold-800);
+  --fr-warning-line: var(--fr-gold-300);
+  --fr-info-solid: var(--fr-sky-600);
+  --fr-info-subtle: var(--fr-sky-100);
+  --fr-info-fg: var(--fr-sky-700);
+  --fr-info-line: var(--fr-sky-300);
+
+  --fr-space-none: var(--fr-scale-space-0);
+  --fr-space-3xs: var(--fr-scale-space-1);
+  --fr-space-2xs: var(--fr-scale-space-2);
+  --fr-space-xs: var(--fr-scale-space-3);
+  --fr-space-sm: var(--fr-scale-space-4);
+  --fr-space-md: var(--fr-scale-space-5);
+  --fr-space-lg: var(--fr-scale-space-6);
+  --fr-space-xl: var(--fr-scale-space-7);
+  --fr-space-2xl: var(--fr-scale-space-8);
+  --fr-space-3xl: var(--fr-scale-space-9);
+
+  --fr-font-sans: ui-sans-serif, system-ui, sans-serif;
+  --fr-font-display: ui-serif, Georgia, serif;
+  --fr-font-mono: ui-monospace, monospace;
+
+  --fr-radius-control: var(--fr-scale-radius-1);
+  --fr-radius-surface: var(--fr-scale-radius-2);
+  --fr-radius-overlay: var(--fr-scale-radius-3);
+  --fr-radius-pill: 9999px;
+
+  --fr-shadow-raised: 0 1px 2px oklch(0 0 0 / 0.06), 0 1px 3px oklch(0 0 0 / 0.1);
+  --fr-shadow-overlay: 0 8px 24px oklch(0 0 0 / 0.14), 0 2px 6px oklch(0 0 0 / 0.08);
+
+  --fr-duration-fast: var(--fr-scale-duration-1);
+  --fr-duration-base: var(--fr-scale-duration-2);
+  --fr-duration-slow: var(--fr-scale-duration-3);
+  --fr-ease-standard: cubic-bezier(0.2, 0, 0, 1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+
+    --fr-surface-canvas: var(--fr-stone-950);
+    --fr-surface-base: oklch(0.24 0.006 70);
+    --fr-surface-raised: oklch(0.28 0.007 70);
+    --fr-surface-sunken: oklch(0.2 0.005 70);
+    --fr-surface-overlay: oklch(0.3 0.008 70);
+    --fr-surface-inverse: var(--fr-stone-100);
+    --fr-surface-skeleton: var(--fr-stone-800);
+
+    --fr-fg-default: var(--fr-stone-50);
+    --fr-fg-muted: var(--fr-stone-300);
+    --fr-fg-subtle: var(--fr-stone-400);
+    --fr-fg-disabled: var(--fr-stone-600);
+    --fr-fg-inverse: var(--fr-stone-900);
+
+    --fr-line-subtle: var(--fr-stone-800);
+    --fr-line-default: var(--fr-stone-700);
+    --fr-line-strong: var(--fr-stone-500);
+    --fr-line-focus: var(--fr-ember-400);
+
+    --fr-accent-solid: var(--fr-ember-500);
+    --fr-accent-solid-hover: var(--fr-ember-400);
+    --fr-accent-solid-active: var(--fr-ember-300);
+    --fr-accent-subtle: var(--fr-ember-950);
+    --fr-accent-fg: var(--fr-ember-300);
+    --fr-accent-on-solid: var(--fr-stone-950);
+
+    --fr-danger-solid: var(--fr-blood-500);
+    --fr-danger-subtle: var(--fr-blood-950);
+    --fr-danger-fg: var(--fr-blood-300);
+    --fr-danger-line: var(--fr-blood-700);
+    --fr-success-solid: var(--fr-moss-500);
+    --fr-success-subtle: var(--fr-moss-950);
+    --fr-success-fg: var(--fr-moss-300);
+    --fr-success-line: var(--fr-moss-700);
+    --fr-warning-solid: var(--fr-gold-400);
+    --fr-warning-subtle: var(--fr-gold-950);
+    --fr-warning-fg: var(--fr-gold-300);
+    --fr-warning-line: var(--fr-gold-700);
+    --fr-info-solid: var(--fr-sky-500);
+    --fr-info-subtle: var(--fr-sky-950);
+    --fr-info-fg: var(--fr-sky-300);
+    --fr-info-line: var(--fr-sky-700);
+  }
+}
+
+/* Explicit dark override, for a theme toggle. Keep in sync with the media query above. */
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  --fr-surface-canvas: var(--fr-stone-950);
+  --fr-surface-base: oklch(0.24 0.006 70);
+  --fr-surface-raised: oklch(0.28 0.007 70);
+  --fr-surface-sunken: oklch(0.2 0.005 70);
+  --fr-surface-overlay: oklch(0.3 0.008 70);
+  --fr-surface-inverse: var(--fr-stone-100);
+  --fr-surface-skeleton: var(--fr-stone-800);
+
+  --fr-fg-default: var(--fr-stone-50);
+  --fr-fg-muted: var(--fr-stone-300);
+  --fr-fg-subtle: var(--fr-stone-400);
+  --fr-fg-disabled: var(--fr-stone-600);
+  --fr-fg-inverse: var(--fr-stone-900);
+
+  --fr-line-subtle: var(--fr-stone-800);
+  --fr-line-default: var(--fr-stone-700);
+  --fr-line-strong: var(--fr-stone-500);
+  --fr-line-focus: var(--fr-ember-400);
+
+  --fr-accent-solid: var(--fr-ember-500);
+  --fr-accent-solid-hover: var(--fr-ember-400);
+  --fr-accent-solid-active: var(--fr-ember-300);
+  --fr-accent-subtle: var(--fr-ember-950);
+  --fr-accent-fg: var(--fr-ember-300);
+  --fr-accent-on-solid: var(--fr-stone-950);
+
+  --fr-danger-solid: var(--fr-blood-500);
+  --fr-danger-subtle: var(--fr-blood-950);
+  --fr-danger-fg: var(--fr-blood-300);
+  --fr-danger-line: var(--fr-blood-700);
+  --fr-success-solid: var(--fr-moss-500);
+  --fr-success-subtle: var(--fr-moss-950);
+  --fr-success-fg: var(--fr-moss-300);
+  --fr-success-line: var(--fr-moss-700);
+  --fr-warning-solid: var(--fr-gold-400);
+  --fr-warning-subtle: var(--fr-gold-950);
+  --fr-warning-fg: var(--fr-gold-300);
+  --fr-warning-line: var(--fr-gold-700);
+  --fr-info-solid: var(--fr-sky-500);
+  --fr-info-subtle: var(--fr-sky-950);
+  --fr-info-fg: var(--fr-sky-300);
+  --fr-info-line: var(--fr-sky-700);
+}

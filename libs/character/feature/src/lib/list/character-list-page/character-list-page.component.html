@@ -1,0 +1,44 @@
+<fr-page title="Characters" description="Your Pathfinder heroes.">
+  <fr-stack gap="xl">
+    <fr-surface>
+      <form novalidate (submit)="create($event)">
+        <fr-stack gap="md">
+          <h2 frText="subheading">New character</h2>
+          <fr-grid [columns]="2">
+            <fr-text-input label="Name" placeholder="Valeros" [formField]="form.name" />
+            <fr-select label="Ancestry" [options]="ancestries.options()" [formField]="form.ancestry" />
+          </fr-grid>
+          <fr-stack direction="horizontal" justify="end">
+            <button fr-button="primary" type="submit" [loading]="form().submitting()">Create character</button>
+          </fr-stack>
+        </fr-stack>
+      </form>
+    </fr-surface>
+
+    @if (store.list.isLoading()) {
+      <fr-grid minItem="md">
+        @for (placeholder of [1, 2, 3]; track placeholder) {
+          <fr-surface><fr-skeleton width="lg" /></fr-surface>
+        }
+      </fr-grid>
+    } @else if (store.list.error()) {
+      <p frText tone="danger" role="alert">Could not load characters.</p>
+    } @else {
+      <fr-grid minItem="md">
+        @for (character of store.list.value() ?? []; track character.id) {
+          <fr-surface>
+            <fr-stack gap="2xs">
+              <a frLink frText="subheading" [routerLink]="[character.id]">{{ character.name }}</a>
+              <span frText tone="muted">{{ ancestries.name(character.ancestry) }} · Level {{ character.level }}</span>
+              <span frText="caption" tone="subtle"
+                >Updated <fr-date format="relative" [value]="character.updatedAt"
+              /></span>
+            </fr-stack>
+          </fr-surface>
+        } @empty {
+          <p frText tone="muted">No characters yet.</p>
+        }
+      </fr-grid>
+    }
+  </fr-stack>
+</fr-page>

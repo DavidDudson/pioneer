@@ -1,0 +1,15 @@
+<fr-field #field [label]="label()" [hint]="hint()" [error]="message()" [hideLabel]="hideLabel()">
+  <input
+    #control
+    type="text"
+    [id]="field.controlId()"
+    [class]="controlClasses"
+    [value]="value()"
+    [placeholder]="placeholder()"
+    [disabled]="disabled()"
+    [attr.aria-invalid]="message() === undefined ? null : true"
+    (input)="value.set(control.value)"
+    (keydown.enter)="committed.emit()"
+    (keydown.escape)="cancelled.emit()"
+  />
+</fr-field>

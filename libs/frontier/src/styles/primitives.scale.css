@@ -1,0 +1,33 @@
+/* Tier 1: raw scales. Never referenced outside frontier's semantic tier. */
+:root {
+  /* Spacing, 4px base. */
+  --fr-scale-space-0: 0;
+  --fr-scale-space-1: 0.125rem;
+  --fr-scale-space-2: 0.25rem;
+  --fr-scale-space-3: 0.5rem;
+  --fr-scale-space-4: 0.75rem;
+  --fr-scale-space-5: 1rem;
+  --fr-scale-space-6: 1.5rem;
+  --fr-scale-space-7: 2rem;
+  --fr-scale-space-8: 3rem;
+  --fr-scale-space-9: 4rem;
+
+  /* Type, ~1.2 ratio. */
+  --fr-scale-font-1: 0.75rem;
+  --fr-scale-font-2: 0.875rem;
+  --fr-scale-font-3: 1rem;
+  --fr-scale-font-4: 1.125rem;
+  --fr-scale-font-5: 1.25rem;
+  --fr-scale-font-6: 1.5rem;
+  --fr-scale-font-7: 1.875rem;
+  --fr-scale-font-8: 2.25rem;
+  --fr-scale-font-9: 3rem;
+
+  --fr-scale-radius-1: 0.25rem;
+  --fr-scale-radius-2: 0.5rem;
+  --fr-scale-radius-3: 0.75rem;
+
+  --fr-scale-duration-1: 120ms;
+  --fr-scale-duration-2: 200ms;
+  --fr-scale-duration-3: 320ms;
+}

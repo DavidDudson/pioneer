@@ -1,0 +1,49 @@
+{
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "defaultBase": "main",
+  "namedInputs": {
+    "default": ["{projectRoot}/**/*", "sharedGlobals"],
+    "production": ["default", "!{projectRoot}/**/*.{spec,test}.ts", "!{projectRoot}/tsconfig.spec.json"],
+    "sharedGlobals": ["{workspaceRoot}/tsconfig.base.json", "{workspaceRoot}/bun.lock", "{workspaceRoot}/bunfig.toml"]
+  },
+  "targetDefaults": {
+    "@angular/build:application": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": ["production", "^production"]
+    },
+    "@angular/build:unit-test": {
+      "cache": true,
+      "inputs": ["default", "^production"]
+    }
+  },
+  "generators": {
+    "@nx/angular:component": {
+      "inlineStyle": false,
+      "inlineTemplate": false,
+      "style": "none",
+      "changeDetection": "OnPush",
+      "type": "component"
+    },
+    "@nx/angular:library": {
+      "linter": "none",
+      "unitTestRunner": "vitest-angular"
+    },
+    "@nx/angular:directive": {
+      "type": "directive"
+    }
+  },
+  "analytics": false,
+  "useInferencePlugins": true,
+  "plugins": [
+    {
+      "plugin": "./tools/nx/pioneer-plugin.ts"
+    },
+    {
+      "plugin": "@nx/oxlint",
+      "options": {
+        "targetName": "lint"
+      }
+    }
+  ]
+}

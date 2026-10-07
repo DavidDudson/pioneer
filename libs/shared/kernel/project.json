@@ -1,0 +1,7 @@
+{
+  "name": "shared-kernel",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/shared/kernel/src",
+  "tags": ["scope:shared", "type:domain", "platform:any"]
+}
