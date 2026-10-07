@@ -12,22 +12,9 @@
     "**/*.{test,spec}.ts",
     "apps/web/src/styles.css"
   ],
-  "project": [
-    "apps/**/*.ts",
-    "libs/**/*.ts",
-    "tools/**/*.ts",
-    "libs/frontier/src/styles/*.css",
-    "apps/web/src/*.css"
-  ],
-  "ignoreBinaries": [
-    "typos",
-    "rumdl",
-    "taplo"
-  ],
-  "ignoreDependencies": [
-    "@angular/language-service",
-    "@socketsecurity/bun-security-scanner"
-  ],
+  "project": ["apps/**/*.ts", "libs/**/*.ts", "tools/**/*.ts", "libs/frontier/src/styles/*.css", "apps/web/src/*.css"],
+  "ignoreBinaries": ["typos", "rumdl", "taplo"],
+  "ignoreDependencies": ["@angular/language-service", "@socketsecurity/bun-security-scanner"],
   "nx": true,
   "angular": false
 }

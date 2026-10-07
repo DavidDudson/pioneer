@@ -4,17 +4,11 @@
   "projectType": "application",
   "prefix": "pio",
   "sourceRoot": "apps/web/src",
-  "tags": [
-    "scope:web",
-    "type:app",
-    "platform:web"
-  ],
+  "tags": ["scope:web", "type:app", "platform:web"],
   "targets": {
     "build": {
       "executor": "@angular/build:application",
-      "outputs": [
-        "{options.outputPath}"
-      ],
+      "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/apps/web",
         "browser": "apps/web/src/main.ts",
@@ -25,9 +19,7 @@
             "input": "apps/web/public"
           }
         ],
-        "styles": [
-          "apps/web/src/styles.css"
-        ]
+        "styles": ["apps/web/src/styles.css"]
       },
       "configurations": {
         "production": {
@@ -78,14 +70,9 @@
       }
     },
     "verify-styles": {
-      "dependsOn": [
-        "build"
-      ],
+      "dependsOn": ["build"],
       "cache": true,
-      "inputs": [
-        "production",
-        "^production"
-      ],
+      "inputs": ["production", "^production"],
       "command": "bun tools/check-built-css.ts"
     }
   }
