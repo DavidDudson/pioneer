@@ -28,3 +28,9 @@ check:
 # Install git hooks (pre-commit + commit-msg)
 hooks:
     prek install --hook-type pre-commit --hook-type commit-msg
+
+# Drop and recreate the local dev database, then migrate (destroys local data)
+db-reset: db-up
+    dropdb --if-exists pioneer
+    createdb pioneer
+    bun apps/api/src/migrate.ts

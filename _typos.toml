@@ -1,0 +1,7 @@
+[files]
+extend-exclude = ["bun.lock", "apps/api/migrations/meta/**", "libs/frontier/src/styles/primitives.color.css"]
+
+[default.extend-words]
+# Pathfinder terms and deliberate spellings.
+leshy = "leshy"
+sherif = "sherif"

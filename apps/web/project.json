@@ -4,23 +4,44 @@
   "projectType": "application",
   "prefix": "pio",
   "sourceRoot": "apps/web/src",
-  "tags": ["scope:web", "type:app", "platform:web"],
+  "tags": [
+    "scope:web",
+    "type:app",
+    "platform:web"
+  ],
   "targets": {
     "build": {
       "executor": "@angular/build:application",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/web",
         "browser": "apps/web/src/main.ts",
         "tsConfig": "apps/web/tsconfig.app.json",
-        "assets": [{ "glob": "**/*", "input": "apps/web/public" }],
-        "styles": ["apps/web/src/styles.css"]
+        "assets": [
+          {
+            "glob": "**/*",
+            "input": "apps/web/public"
+          }
+        ],
+        "styles": [
+          "apps/web/src/styles.css"
+        ]
       },
       "configurations": {
         "production": {
           "budgets": [
-            { "type": "initial", "maximumWarning": "1mb", "maximumError": "1.2mb" },
-            { "type": "anyComponentStyle", "maximumWarning": "2kb", "maximumError": "4kb" }
+            {
+              "type": "initial",
+              "maximumWarning": "1mb",
+              "maximumError": "1.2mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
           ],
           "outputHashing": "all"
         },
@@ -35,10 +56,16 @@
     "serve": {
       "continuous": true,
       "executor": "@angular/build:dev-server",
-      "options": { "proxyConfig": "apps/web/proxy.conf.json" },
+      "options": {
+        "proxyConfig": "apps/web/proxy.conf.json"
+      },
       "configurations": {
-        "production": { "buildTarget": "web:build:production" },
-        "development": { "buildTarget": "web:build:development" }
+        "production": {
+          "buildTarget": "web:build:production"
+        },
+        "development": {
+          "buildTarget": "web:build:development"
+        }
       },
       "defaultConfiguration": "development"
     },
@@ -49,6 +76,17 @@
         "tsConfig": "apps/web/tsconfig.spec.json",
         "runner": "vitest"
       }
+    },
+    "verify-styles": {
+      "dependsOn": [
+        "build"
+      ],
+      "cache": true,
+      "inputs": [
+        "production",
+        "^production"
+      ],
+      "command": "bun tools/check-built-css.ts"
     }
   }
 }

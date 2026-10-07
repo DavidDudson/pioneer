@@ -5,6 +5,7 @@
  *
  * - `typecheck`: `ngc` for Angular projects (template type-checking),
  *   `tsc` for everything else.
+ * - `lint-templates`: ESLint (angular-eslint) on Angular projects' templates.
  * - `test`: `bun test` for projects with `*.test.ts` files (Bun-run code).
  *   Angular projects use `*.spec.ts` with the Angular Vitest builder instead.
  */
@@ -36,6 +37,13 @@ function inferTargets(root: string, absoluteRoot: string): Record<string, Target
       command: angular ? `ngc -p ${root}/${angularConfig} --noEmit` : `tsc -p ${root}/tsconfig.json`,
     },
   };
+  if (angular && hasMatchingFile(absoluteRoot, (file) => file.endsWith('.html'))) {
+    targets['lint-templates'] = {
+      cache: true,
+      inputs: ['{projectRoot}/**/*.html', '{workspaceRoot}/eslint.config.ts', '{workspaceRoot}/tools/eslint/**/*'],
+      command: `eslint --max-warnings=0 '${root}/**/*.html'`,
+    };
+  }
   if (hasMatchingFile(absoluteRoot, (file) => file.endsWith('.test.ts'))) {
     targets['test'] = { cache: true, inputs: ['default', '^production'], command: `bun test ${root}` };
   }

@@ -136,7 +136,9 @@
     *,
     ::before,
     ::after {
+      /* biome-ignore lint/complexity/noImportantStyles: reduced-motion must beat every component animation */
       animation-duration: 0.01ms !important;
+      /* biome-ignore lint/complexity/noImportantStyles: reduced-motion must beat every component transition */
       transition-duration: 0.01ms !important;
     }
   }

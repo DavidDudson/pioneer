@@ -1,0 +1,33 @@
+{
+  "$schema": "https://unpkg.com/knip@6/schema.json",
+  "entry": [
+    "apps/web/src/main.ts",
+    "apps/api/src/{main,migrate}.ts",
+    "apps/api/drizzle.config.ts",
+    "libs/*/src/index.ts",
+    "libs/*/*/src/index.ts",
+    "libs/*/*/src/testing/index.ts",
+    "libs/frontier/scripts/*.ts",
+    "tools/**/*.ts",
+    "**/*.{test,spec}.ts",
+    "apps/web/src/styles.css"
+  ],
+  "project": [
+    "apps/**/*.ts",
+    "libs/**/*.ts",
+    "tools/**/*.ts",
+    "libs/frontier/src/styles/*.css",
+    "apps/web/src/*.css"
+  ],
+  "ignoreBinaries": [
+    "typos",
+    "rumdl",
+    "taplo"
+  ],
+  "ignoreDependencies": [
+    "@angular/language-service",
+    "@socketsecurity/bun-security-scanner"
+  ],
+  "nx": true,
+  "angular": false
+}
