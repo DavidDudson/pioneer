@@ -25,9 +25,9 @@ dev: db-up
 check:
     bun run check
 
-# Install git hooks (pre-commit + commit-msg)
+# Install git hooks (types and hooks are in prek.toml)
 hooks:
-    prek install --hook-type pre-commit --hook-type commit-msg
+    prek install
 
 # Drop and recreate the local dev database, then migrate (destroys local data)
 db-reset: db-up

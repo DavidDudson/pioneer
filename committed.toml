@@ -1,0 +1,11 @@
+# Commit message policy (committed). Conventional Commits drive release-please,
+# so the type decides the version bump: feat = minor, fix = patch, `!` = major.
+style = "conventional"
+subject_length = 72
+# Conventional subjects are lowercase after the type.
+subject_capitalized = false
+# Bodies are prose; GitHub reflows them, so no wrap rule.
+line_length = 0
+allowed_types = ["feat", "fix", "perf", "refactor", "style", "test", "docs", "build", "ci", "chore", "revert"]
+# fixup!/squash! are fine locally for autosquash; CI rejects them on PRs.
+no_fixup = false
