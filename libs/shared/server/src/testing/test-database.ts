@@ -12,6 +12,18 @@ export interface TestDatabase {
 }
 
 /**
+ * The admin URL for database suites, or `undefined` to skip them locally.
+ * In CI a missing URL throws instead, so the suites can never skip silently.
+ */
+export function testDatabaseUrl(): string | undefined {
+  const url = Bun.env['TEST_DATABASE_URL'];
+  if (url === undefined && Bun.env['CI'] !== undefined) {
+    throw new Error('TEST_DATABASE_URL must be set in CI; database suites would otherwise skip');
+  }
+  return url;
+}
+
+/**
  * A fresh, fully migrated database for one test file: `pioneer_test_<random>`
  * on the server behind TEST_DATABASE_URL (which is only used as the admin
  * connection). Files never share state, so Nx can run them in parallel.
