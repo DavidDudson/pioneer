@@ -4,6 +4,7 @@
  */
 import type { Rule } from 'eslint';
 
+import { CLASS_TOKEN_MESSAGES, classTokenProblem } from '../class-tokens.ts';
 import { LAYOUT_PRIMITIVE, LAYOUT_VARIANT_MESSAGES, layoutVariantProblem } from '../layout-variants.ts';
 
 const FRONTIER = /(?:^|\/)libs\/frontier\//u;
@@ -166,6 +167,88 @@ const layoutVariants: Rule.RuleModule = {
   },
 };
 
+const CLASS_BUILDERS = new Set(['cva', 'cx']);
+const LAYOUT_MESSAGE_IDS = new Set(Object.keys(LAYOUT_VARIANT_MESSAGES));
+
+interface AstNode {
+  readonly type?: unknown;
+  readonly value?: unknown;
+}
+
+function isString(node: AstNode): boolean {
+  return (node.type === 'Literal' && typeof node.value === 'string') || node.type === 'TemplateElement';
+}
+
+/** AST children of `node`, skipping the parent link and object keys (keys are variant names, not classes). */
+function childrenOf(node: object): unknown[] {
+  return Array.isArray(node)
+    ? (node as unknown[])
+    : Object.entries(node as Readonly<Record<string, unknown>>).flatMap(([key, child]) =>
+        key === 'parent' || key === 'key' ? [] : [child],
+      );
+}
+
+/** String literals (and template text) anywhere under `node`. */
+function stringsUnder(node: unknown): Rule.Node[] {
+  if (typeof node !== 'object' || node === null) {
+    return [];
+  }
+  if (!Array.isArray(node) && isString(node)) {
+    return [node as Rule.Node];
+  }
+  return childrenOf(node).flatMap((child) => stringsUnder(child));
+}
+
+/**
+ * Frontier class strings come from semantic tokens: no arbitrary values or
+ * variants, pixels, raw scale numbers or `!important` (tools/class-tokens.ts).
+ * Class strings live in `cva()` / `cx()` calls, a component's `host.class`, or
+ * a `{…} satisfies Record<Token, string>` variant map; those are checked.
+ * Layout-variant problems are reported by `layout-variants`.
+ */
+const classTokens: Rule.RuleModule = {
+  meta: {
+    type: 'problem',
+    docs: { description: 'Require frontier class strings to use semantic token utilities' },
+    messages: CLASS_TOKEN_MESSAGES,
+    schema: [],
+  },
+  create(context) {
+    if (!FRONTIER.test(context.filename)) {
+      return {};
+    }
+    const inPrimitive = LAYOUT_PRIMITIVE.test(context.filename);
+    const checkAll = (root: unknown): void => {
+      for (const node of stringsUnder(root)) {
+        const { type, value } = node as AstNode & { readonly value: unknown };
+        const text = type === 'TemplateElement' ? (value as { readonly cooked?: unknown }).cooked : value;
+        const problem = typeof text === 'string' ? classTokenProblem(text, inPrimitive) : undefined;
+        if (problem !== undefined && !LAYOUT_MESSAGE_IDS.has(problem.messageId)) {
+          context.report({ node, messageId: problem.messageId, data: { variant: problem.variant } });
+        }
+      }
+    };
+    return {
+      CallExpression(node): void {
+        if (node.callee.type === 'Identifier' && CLASS_BUILDERS.has(node.callee.name)) {
+          checkAll(node.arguments);
+        }
+      },
+      Property(node): void {
+        if (node.key.type === 'Identifier' && node.key.name === 'class') {
+          checkAll(node.value);
+        }
+      },
+      TSSatisfiesExpression(node: unknown): void {
+        const { expression } = node as { readonly expression?: AstNode };
+        if (expression?.type === 'ObjectExpression') {
+          checkAll(expression);
+        }
+      },
+    };
+  },
+};
+
 const plugin = {
   meta: { name: 'pioneer' },
   rules: {
@@ -174,6 +257,7 @@ const plugin = {
     'no-full-page-load': noFullPageLoad,
     'no-route-resolvers': noRouteResolvers,
     'layout-variants': layoutVariants,
+    'class-tokens': classTokens,
   },
 };
 

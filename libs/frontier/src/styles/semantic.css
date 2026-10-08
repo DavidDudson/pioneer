@@ -33,6 +33,7 @@
   --fr-accent-on-solid: oklch(1 0 0);
 
   --fr-danger-solid: var(--fr-blood-600);
+  --fr-danger-solid-hover: var(--fr-blood-700);
   --fr-danger-subtle: var(--fr-blood-100);
   --fr-danger-fg: var(--fr-blood-700);
   --fr-danger-line: var(--fr-blood-300);
@@ -63,6 +64,33 @@
   --fr-font-sans: ui-sans-serif, system-ui, sans-serif;
   --fr-font-display: ui-serif, Georgia, serif;
   --fr-font-mono: ui-monospace, monospace;
+
+  /* Sizes. Touch targets are 2.75rem (44px); controls shrink only under a fine pointer. */
+  --fr-size-touch: 2.75rem;
+  --fr-size-control-sm: 2rem;
+  --fr-size-control-md: 2.5rem;
+  --fr-size-control-lg: 3rem;
+  --fr-size-listbox: 16rem;
+  --fr-size-placeholder-md: 8rem;
+  --fr-size-placeholder-lg: 14rem;
+  --fr-size-item-sm: 10rem;
+  --fr-size-item-md: 16rem;
+  --fr-size-item-lg: 24rem;
+
+  --fr-focus-ring-width: 0.125rem;
+  --fr-focus-ring-offset: 0.125rem;
+  --fr-underline-offset: 0.25rem;
+  --fr-opacity-disabled: 0.5;
+  --fr-z-sticky: 10;
+  --fr-z-overlay: 20;
+
+  /* Categorical chart series, in order. Feeds TanStack Charts' --ts-chart-* palette. */
+  --fr-chart-1: var(--fr-ember-600);
+  --fr-chart-2: var(--fr-sky-600);
+  --fr-chart-3: var(--fr-moss-600);
+  --fr-chart-4: var(--fr-gold-500);
+  --fr-chart-5: var(--fr-blood-600);
+  --fr-chart-6: var(--fr-stone-600);
 
   --fr-radius-control: var(--fr-scale-radius-1);
   --fr-radius-surface: var(--fr-scale-radius-2);
@@ -109,6 +137,7 @@
     --fr-accent-on-solid: var(--fr-stone-950);
 
     --fr-danger-solid: var(--fr-blood-500);
+    --fr-danger-solid-hover: var(--fr-blood-400);
     --fr-danger-subtle: var(--fr-blood-950);
     --fr-danger-fg: var(--fr-blood-300);
     --fr-danger-line: var(--fr-blood-700);
@@ -124,6 +153,13 @@
     --fr-info-subtle: var(--fr-sky-950);
     --fr-info-fg: var(--fr-sky-300);
     --fr-info-line: var(--fr-sky-700);
+
+    --fr-chart-1: var(--fr-ember-400);
+    --fr-chart-2: var(--fr-sky-400);
+    --fr-chart-3: var(--fr-moss-400);
+    --fr-chart-4: var(--fr-gold-400);
+    --fr-chart-5: var(--fr-blood-400);
+    --fr-chart-6: var(--fr-stone-400);
   }
 }
 
@@ -158,6 +194,7 @@
   --fr-accent-on-solid: var(--fr-stone-950);
 
   --fr-danger-solid: var(--fr-blood-500);
+  --fr-danger-solid-hover: var(--fr-blood-400);
   --fr-danger-subtle: var(--fr-blood-950);
   --fr-danger-fg: var(--fr-blood-300);
   --fr-danger-line: var(--fr-blood-700);
@@ -173,4 +210,11 @@
   --fr-info-subtle: var(--fr-sky-950);
   --fr-info-fg: var(--fr-sky-300);
   --fr-info-line: var(--fr-sky-700);
+
+  --fr-chart-1: var(--fr-ember-400);
+  --fr-chart-2: var(--fr-sky-400);
+  --fr-chart-3: var(--fr-moss-400);
+  --fr-chart-4: var(--fr-gold-400);
+  --fr-chart-5: var(--fr-blood-400);
+  --fr-chart-6: var(--fr-stone-400);
 }

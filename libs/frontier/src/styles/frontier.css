@@ -23,6 +23,8 @@
   --shadow-*: initial;
   --breakpoint-*: initial;
   --container-*: initial;
+  --transition-duration-*: initial;
+  --animate-*: initial;
 
   /*
    * No viewport breakpoints. Layout responds to the space it is given via
@@ -64,6 +66,7 @@
   --color-accent-on-solid: var(--fr-accent-on-solid);
 
   --color-danger-solid: var(--fr-danger-solid);
+  --color-danger-solid-hover: var(--fr-danger-solid-hover);
   --color-danger-subtle: var(--fr-danger-subtle);
   --color-danger-fg: var(--fr-danger-fg);
   --color-danger-line: var(--fr-danger-line);
@@ -90,6 +93,26 @@
   --spacing-xl: var(--fr-space-xl);
   --spacing-2xl: var(--fr-space-2xl);
   --spacing-3xl: var(--fr-space-3xl);
+
+  /* Named sizes (h-touch, min-h-touch, max-h-listbox). Use them for size, not for gaps. */
+  --spacing-touch: var(--fr-size-touch);
+  --spacing-control-sm: var(--fr-size-control-sm);
+  --spacing-control-md: var(--fr-size-control-md);
+  --spacing-control-lg: var(--fr-size-control-lg);
+  --spacing-listbox: var(--fr-size-listbox);
+  /* Safe-area insets for anything fixed to a screen edge (pt-safe-top, …). */
+  --spacing-safe-top: env(safe-area-inset-top);
+  --spacing-safe-right: env(safe-area-inset-right);
+  --spacing-safe-bottom: env(safe-area-inset-bottom);
+  --spacing-safe-left: env(safe-area-inset-left);
+
+  --width-placeholder-md: var(--fr-size-placeholder-md);
+  --width-placeholder-lg: var(--fr-size-placeholder-lg);
+
+  /* Fluid grids: as many columns as fit at the minimum item width. */
+  --grid-template-columns-fill-sm: repeat(auto-fill, minmax(min(var(--fr-size-item-sm), 100%), 1fr));
+  --grid-template-columns-fill-md: repeat(auto-fill, minmax(min(var(--fr-size-item-md), 100%), 1fr));
+  --grid-template-columns-fill-lg: repeat(auto-fill, minmax(min(var(--fr-size-item-lg), 100%), 1fr));
 
   --font-sans: var(--fr-font-sans);
   --font-display: var(--fr-font-display);
@@ -124,8 +147,24 @@
   --shadow-raised: var(--fr-shadow-raised);
   --shadow-overlay: var(--fr-shadow-overlay);
 
+  --transition-duration-fast: var(--fr-duration-fast);
+  --transition-duration-base: var(--fr-duration-base);
+  --transition-duration-slow: var(--fr-duration-slow);
   --ease-standard: var(--fr-ease-standard);
+
+  --opacity-disabled: var(--fr-opacity-disabled);
+  --z-index-sticky: var(--fr-z-sticky);
+  --z-index-overlay: var(--fr-z-overlay);
+  --text-underline-offset-link: var(--fr-underline-offset);
+
+  --animate-spin: fr-spin 1s linear infinite;
   --animate-shimmer: fr-shimmer 1.4s var(--fr-ease-standard) infinite;
+
+  @keyframes fr-spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
 
   @keyframes fr-shimmer {
     50% {
@@ -135,8 +174,21 @@
 }
 
 @utility focus-ring {
-  outline: 2px solid var(--color-line-focus);
-  outline-offset: 2px;
+  outline: var(--fr-focus-ring-width) solid var(--color-line-focus);
+  outline-offset: var(--fr-focus-ring-offset);
+}
+
+/* The keyboard-highlighted option in an @angular/aria listbox (it sets data-active="true|false"). */
+@custom-variant highlighted (&[data-active='true']);
+
+/* TanStack Charts reads its categorical palette from --ts-chart-*; fr-chart sets it from tokens. */
+@utility chart-palette {
+  --ts-chart-1: var(--fr-chart-1);
+  --ts-chart-2: var(--fr-chart-2);
+  --ts-chart-3: var(--fr-chart-3);
+  --ts-chart-4: var(--fr-chart-4);
+  --ts-chart-5: var(--fr-chart-5);
+  --ts-chart-6: var(--fr-chart-6);
 }
 
 @layer base {

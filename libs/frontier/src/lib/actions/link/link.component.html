@@ -1,0 +1,7 @@
+<ng-template #content><ng-content /></ng-template>
+@if (href(); as href) {
+  <!-- eslint-disable-next-line pioneer/no-interruptions -- external only: consumers' literal `href` is linted, and bound hrefs on fr-link are banned. -->
+  <a rel="noopener" [class]="classes()" [href]="href"><ng-container [ngTemplateOutlet]="content" /></a>
+} @else {
+  <a [class]="classes()" [routerLink]="to()"><ng-container [ngTemplateOutlet]="content" /></a>
+}

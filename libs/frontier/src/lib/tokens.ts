@@ -47,8 +47,11 @@ export const Container = {
 } as const;
 export type Container = ValueOf<typeof Container>;
 
-/** Literal class maps so Tailwind's scanner sees every class. */
-export const GAP: Record<Space, string> = {
+/**
+ * Shared CVA variant maps. Every class string is a literal so Tailwind's
+ * scanner sees it; components spread these into their own `cva()` configs.
+ */
+export const gapVariants = {
   none: 'gap-none',
   '3xs': 'gap-3xs',
   '2xs': 'gap-2xs',
@@ -59,9 +62,9 @@ export const GAP: Record<Space, string> = {
   xl: 'gap-xl',
   '2xl': 'gap-2xl',
   '3xl': 'gap-3xl',
-};
+} as const satisfies Record<Space, string>;
 
-export const PADDING: Record<Space, string> = {
+export const paddingVariants = {
   none: 'p-none',
   '3xs': 'p-3xs',
   '2xs': 'p-2xs',
@@ -72,9 +75,9 @@ export const PADDING: Record<Space, string> = {
   xl: 'p-xl',
   '2xl': 'p-2xl',
   '3xl': 'p-3xl',
-};
+} as const satisfies Record<Space, string>;
 
-export const TEXT_TONE: Record<Tone, string> = {
+export const toneVariants = {
   default: 'text-fg-default',
   muted: 'text-fg-muted',
   subtle: 'text-fg-subtle',
@@ -83,4 +86,4 @@ export const TEXT_TONE: Record<Tone, string> = {
   success: 'text-success-fg',
   warning: 'text-warning-fg',
   info: 'text-info-fg',
-};
+} as const satisfies Record<Tone, string>;

@@ -71,7 +71,7 @@ describe(InlineEdit, () => {
       expect(save).not.toHaveBeenCalled();
       await vi.advanceTimersByTimeAsync(1);
       expect(save).toHaveBeenCalledExactlyOnceWith(5);
-      expect(edit.status()).toBe(InlineEditStatus.Saved);
+      expect(edit.status()).toBe(InlineEditStatus.Success);
     });
 
     it('goes saving → saved', async () => {
@@ -82,11 +82,11 @@ describe(InlineEdit, () => {
       });
       edit.change(4);
       const pending = edit.flush();
-      expect(edit.status()).toBe(InlineEditStatus.Saving);
+      expect(edit.status()).toBe(InlineEditStatus.Pending);
       expect(edit.busy()).toBe(true);
       gate.resolve(undefined);
       await pending;
-      expect(edit.status()).toBe(InlineEditStatus.Saved);
+      expect(edit.status()).toBe(InlineEditStatus.Success);
     });
 
     it('never saves a draft the shared schema rejects', async () => {
@@ -191,7 +191,7 @@ describe(InlineEdit, () => {
       const { edit } = opened(() => new Error('offline'));
       edit.change(4);
       await edit.flush();
-      expect(edit.status()).toBe(InlineEditStatus.Failed);
+      expect(edit.status()).toBe(InlineEditStatus.Error);
       expect(edit.draft()).toBe(4);
       expect(edit.dirty()).toBe(true);
     });

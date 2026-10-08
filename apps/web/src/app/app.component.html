@@ -1,15 +1,14 @@
 <fr-shell brand="Pioneer">
   <fr-stack frShellNav direction="horizontal" gap="md">
-    <a frLink routerLink="/characters">Characters</a>
+    <fr-link to="/characters">Characters</fr-link>
   </fr-stack>
   <router-outlet />
-  <p frShellFooter frText="caption" tone="subtle">
-    Pioneer uses trademarks and/or copyrights owned by Paizo Inc., used under Paizo's Community Use Policy (<a
-      frLink
+  <fr-text frShellFooter element="p" variant="caption" tone="subtle">
+    Pioneer uses trademarks and/or copyrights owned by Paizo Inc., used under Paizo's Community Use Policy (<fr-link
       href="https://paizo.com/licenses/communityuse"
-      >paizo.com/licenses/communityuse</a
+      >paizo.com/licenses/communityuse</fr-link
     >). We are expressly prohibited from charging you to use or access this content. Pioneer is not published, endorsed,
     or specifically approved by Paizo. For more information about Paizo Inc. and Paizo products, visit
-    <a frLink href="https://paizo.com">paizo.com</a>.
-  </p>
+    <fr-link href="https://paizo.com">paizo.com</fr-link>.
+  </fr-text>
 </fr-shell>

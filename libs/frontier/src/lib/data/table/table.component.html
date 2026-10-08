@@ -1,0 +1,33 @@
+<div [class]="scrollerClasses">
+  <table [class]="tableClasses">
+    <caption [class]="captionClasses()">
+      {{
+        caption()
+      }}
+    </caption>
+    <thead>
+      @for (group of table.getHeaderGroups(); track group.id) {
+        <tr>
+          @for (header of group.headers; track header.id) {
+            <th scope="col" [class]="headerCellClasses" [attr.aria-sort]="ariaSort(header) ?? null">
+              @if (!header.isPlaceholder) {
+                <fr-table-header-cell [header]="header" />
+              }
+            </th>
+          }
+        </tr>
+      }
+    </thead>
+    <tbody>
+      @for (row of table.getRowModel().rows; track row.id) {
+        <tr>
+          @for (cell of row.getAllCells(); track cell.id) {
+            <td [class]="cellClasses">
+              <ng-container *flexRenderCell="cell; let value">{{ value }}</ng-container>
+            </td>
+          }
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>

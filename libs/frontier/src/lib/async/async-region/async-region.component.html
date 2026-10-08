@@ -1,0 +1,11 @@
+@if (pending()) {
+  <ng-container [ngTemplateOutlet]="pendingSlot().template" />
+} @else if (failed()) {
+  @if (errorSlot(); as slot) {
+    <ng-container [ngTemplateOutlet]="slot.template" [ngTemplateOutletContext]="{ $implicit: error() }" />
+  } @else {
+    <fr-message>{{ errorMessage() }}</fr-message>
+  }
+} @else if (value(); as value) {
+  <ng-container [ngTemplateOutlet]="data().template" [ngTemplateOutletContext]="{ $implicit: value }" />
+}

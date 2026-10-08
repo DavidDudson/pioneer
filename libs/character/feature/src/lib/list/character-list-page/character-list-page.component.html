@@ -1,44 +1,48 @@
 <fr-page title="Characters" description="Your Pathfinder heroes.">
   <fr-stack gap="xl">
     <fr-surface>
-      <form novalidate (submit)="create($event)">
+      <fr-async-form [form]="form" [action]="create" [describeError]="describeCreateError">
         <fr-stack gap="md">
-          <h2 frText="subheading">New character</h2>
+          <fr-heading variant="subheading" [level]="2">New character</fr-heading>
           <fr-grid [columns]="2">
-            <fr-text-input label="Name" placeholder="Valeros" [formField]="form.name" />
-            <fr-select label="Ancestry" [options]="ancestries.options()" [formField]="form.ancestry" />
+            <fr-text-field label="Name" placeholder="Valeros" [formField]="form.name" />
+            <fr-select-field label="Ancestry" [options]="ancestries.options()" [formField]="form.ancestry" />
           </fr-grid>
           <fr-stack direction="horizontal" justify="end">
-            <button fr-button="primary" type="submit" [loading]="form().submitting()">Create character</button>
+            <fr-async-button type="submit" variant="primary" pendingLabel="Creating" successLabel="Created">
+              Create character
+            </fr-async-button>
           </fr-stack>
         </fr-stack>
-      </form>
+      </fr-async-form>
     </fr-surface>
 
-    @if (store.list.isLoading()) {
-      <fr-grid minItem="md">
-        @for (placeholder of [1, 2, 3]; track placeholder) {
-          <fr-surface><fr-skeleton width="lg" /></fr-surface>
+    <fr-async-region errorMessage="Could not load characters.">
+      <ng-template frAsyncPending>
+        <fr-stack gap="md">
+          @for (placeholder of placeholders; track placeholder) {
+            <fr-surface><fr-skeleton width="lg" /></fr-surface>
+          }
+        </fr-stack>
+      </ng-template>
+      <ng-template let-characters [frAsyncData]="store.list">
+        <fr-virtual-list gap="md" estimate="md" [itemKey]="characterKey">
+          <ng-template let-character [frVirtualItem]="characters">
+            <fr-surface>
+              <fr-stack gap="2xs">
+                <fr-link variant="subheading" [to]="[character.id]">{{ character.name }}</fr-link>
+                <fr-text tone="muted">{{ ancestries.name(character.ancestry) }} · Level {{ character.level }}</fr-text>
+                <fr-text variant="caption" tone="subtle"
+                  >Updated <fr-date format="relative" [value]="character.updatedAt"
+                /></fr-text>
+              </fr-stack>
+            </fr-surface>
+          </ng-template>
+        </fr-virtual-list>
+        @if (characters.length === 0) {
+          <fr-text element="p" tone="muted">No characters yet.</fr-text>
         }
-      </fr-grid>
-    } @else if (store.list.error()) {
-      <p frText tone="danger" role="alert">Could not load characters.</p>
-    } @else {
-      <fr-grid minItem="md">
-        @for (character of store.list.value() ?? []; track character.id) {
-          <fr-surface>
-            <fr-stack gap="2xs">
-              <a frLink frText="subheading" [routerLink]="[character.id]">{{ character.name }}</a>
-              <span frText tone="muted">{{ ancestries.name(character.ancestry) }} · Level {{ character.level }}</span>
-              <span frText="caption" tone="subtle"
-                >Updated <fr-date format="relative" [value]="character.updatedAt"
-              /></span>
-            </fr-stack>
-          </fr-surface>
-        } @empty {
-          <p frText tone="muted">No characters yet.</p>
-        }
-      </fr-grid>
-    }
+      </ng-template>
+    </fr-async-region>
   </fr-stack>
 </fr-page>

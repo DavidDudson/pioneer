@@ -2,13 +2,12 @@
   <fr-stack gap="lg">
     <fr-surface>
       <fr-stack gap="md">
-        <h2 frText="subheading">Identity</h2>
+        <fr-heading variant="subheading" [level]="2">Identity</fr-heading>
         <fr-grid [columns]="3">
           <fr-inline-field label="Name" [edit]="name">
             <fr-text-input
               frInlineEditor
-              label="Name"
-              hideLabel
+              ariaLabel="Name"
               [value]="name.draft()"
               (valueChange)="name.change($event)"
               (committed)="name.flushSoon()"
@@ -18,8 +17,7 @@
           <fr-inline-field label="Ancestry" [edit]="ancestry">
             <fr-select
               frInlineEditor
-              label="Ancestry"
-              hideLabel
+              ariaLabel="Ancestry"
               [options]="ancestries.options()"
               [value]="ancestry.draft()"
               (valueChange)="ancestry.change($event)"
@@ -30,8 +28,7 @@
           <fr-inline-field label="Level" [edit]="level">
             <fr-number-input
               frInlineEditor
-              label="Level"
-              hideLabel
+              ariaLabel="Level"
               [min]="levelMin"
               [max]="levelMax"
               [value]="level.draft()"
@@ -46,14 +43,13 @@
 
     <fr-surface>
       <fr-stack gap="md">
-        <h2 frText="subheading">Attributes</h2>
+        <fr-heading variant="subheading" [level]="2">Attributes</fr-heading>
         <fr-grid [columns]="6">
           @for (item of attributes; track item.attribute) {
             <fr-inline-field [label]="item.label" [edit]="item.edit">
               <fr-number-input
                 frInlineEditor
-                hideLabel
-                [label]="item.label"
+                [ariaLabel]="item.label"
                 [min]="modifierMin"
                 [max]="modifierMax"
                 [value]="item.edit.draft()"
@@ -68,10 +64,10 @@
     </fr-surface>
 
     @if (character(); as character) {
-      <p frText="caption" tone="subtle">
+      <fr-text element="p" variant="caption" tone="subtle">
         Created <fr-date format="datetime" [value]="character.createdAt" /> · updated
         <fr-date format="relative" [value]="character.updatedAt" /> · version {{ character.version }}
-      </p>
+      </fr-text>
     } @else {
       <fr-skeleton width="lg" />
     }

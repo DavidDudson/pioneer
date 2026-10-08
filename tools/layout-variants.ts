@@ -1,6 +1,7 @@
 /**
- * Shared by the ESLint (templates) and oxlint (TypeScript) `layout-variants`
- * rules, which check every class string in libs/frontier.
+ * Used by the oxlint `layout-variants` rule (every string in libs/frontier) and
+ * by `class-tokens` (tools/class-tokens.ts). Frontier templates hold no class
+ * strings: they bind `[class]` to a cva, so all classes are in TypeScript.
  *
  * Frontier has no viewport breakpoints. Layout responds to the space it is
  * given, through container queries, and only the layout primitives (fr-box,

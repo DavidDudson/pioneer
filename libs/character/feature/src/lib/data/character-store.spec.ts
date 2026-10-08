@@ -1,12 +1,12 @@
-import { provideHttpClient } from '@angular/common/http';
-import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
+import { HttpTestingController } from '@angular/common/http/testing';
 import { ApplicationRef } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { CharacterId, CharacterPatchField } from '@pioneer/character/domain';
 import { contentId } from '@pioneer/rules/sdk';
 import { ApiError } from '@pioneer/shared/web';
-import { beforeEach, describe, expect, it } from 'vitest';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 
+import { provideServerStateTesting } from '../testing/provide-server-state-testing';
 import { CharacterStore } from './character-store';
 
 const id = CharacterId.parse('0d9f7c1e-3b7a-4c55-9d1f-2a8f2b9c6e10');
@@ -46,7 +46,9 @@ describe(CharacterStore, () => {
   }
 
   beforeEach(() => {
-    TestBed.configureTestingModule({ providers: [CharacterStore, provideHttpClient(), provideHttpClientTesting()] });
+    TestBed.configureTestingModule({
+      providers: [CharacterStore, ...provideServerStateTesting()],
+    });
     store = TestBed.inject(CharacterStore);
     http = TestBed.inject(HttpTestingController);
     TestBed.tick();
@@ -74,8 +76,11 @@ describe(CharacterStore, () => {
     http
       .expectOne({ method: 'PATCH' })
       .flush({ type: 'version-conflict', title: 'Changed', status: 409 }, { status: 409, statusText: 'Conflict' });
+    // The conflict refetches the character before the save reports it, so the field can show theirs.
+    await vi.waitFor(() => {
+      http.expectOne({ method: 'GET', url: `/api/characters/${id}` }).flush(wire(3, 5));
+    });
     await expect(pending).rejects.toSatisfy((error: unknown) => ApiError.isConflict(error));
-    TestBed.tick();
-    http.expectOne({ method: 'GET', url: `/api/characters/${id}` }).flush(wire(3, 5));
+    expect(store.selected()?.version).toBe(3);
   });
 });

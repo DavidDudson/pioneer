@@ -1,0 +1,12 @@
+<input
+  #control
+  type="date"
+  [class]="classes"
+  [attr.id]="id() ?? null"
+  [value]="iso()"
+  [disabled]="disabled()"
+  [attr.aria-label]="ariaLabel() ?? null"
+  [attr.aria-describedby]="describedBy() ?? null"
+  [attr.aria-invalid]="ariaInvalid() || null"
+  (input)="onInput(control.value)"
+/>

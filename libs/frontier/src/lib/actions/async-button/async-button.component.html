@@ -1,0 +1,17 @@
+<fr-stack gap="3xs" align="start">
+  <fr-button
+    [variant]="variant()"
+    [size]="size()"
+    [type]="type()"
+    [disabled]="disabled()"
+    [busy]="state().isPending()"
+    [describedBy]="state().isError() ? errorId : undefined"
+    (pressed)="press()"
+  >
+    <fr-async-indicator [status]="state().status()" [pendingLabel]="pendingLabel()" [successLabel]="successLabel()" />
+    <ng-content />
+  </fr-button>
+  @if (state().errorMessage(); as message) {
+    <fr-message [id]="errorId">{{ message }}</fr-message>
+  }
+</fr-stack>

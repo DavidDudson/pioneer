@@ -1,53 +1,89 @@
-import { booleanAttribute, ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
+import { booleanAttribute, ChangeDetectionStrategy, Component, computed, input, output } from '@angular/core';
 import type { ValueOf } from '@pioneer/shared/kernel';
+import { cva } from 'class-variance-authority';
 
-import { Spinner } from '../../feedback/spinner/spinner.component';
 import { Size } from '../../tokens';
 
-export const ButtonVariant = { Primary: 'primary', Secondary: 'secondary', Ghost: 'ghost', Danger: 'danger' } as const;
+export const ButtonVariant = {
+  Primary: 'primary',
+  Secondary: 'secondary',
+  Ghost: 'ghost',
+  Danger: 'danger',
+  /** Looks like the text it sits in; e.g. an inline-edit read view. Sized by its content. */
+  Inline: 'inline',
+} as const;
 export type ButtonVariant = ValueOf<typeof ButtonVariant>;
 
-const VARIANT: Record<ButtonVariant, string> = {
-  primary: 'bg-accent-solid text-accent-on-solid hover:bg-accent-solid-hover active:bg-accent-solid-active',
-  secondary: 'bg-surface-base text-fg-default border border-line-default hover:bg-surface-sunken',
-  ghost: 'text-fg-default hover:bg-surface-sunken',
-  danger: 'bg-danger-solid text-accent-on-solid hover:opacity-90',
-};
+export const ButtonType = { Button: 'button', Submit: 'submit' } as const;
+export type ButtonType = ValueOf<typeof ButtonType>;
 
-/** Touch first: every size is at least 2.75rem (44px) tall unless the pointer is fine. */
-const SIZE: Record<Size, string> = {
-  sm: 'h-[2.75rem] pointer-fine:h-[2rem] px-sm text-label',
-  md: 'h-[2.75rem] pointer-fine:h-[2.5rem] px-md text-body',
-  lg: 'h-[3rem] px-lg text-lead',
-};
+/** Touch first: every size is at least `h-touch` (44px) unless the pointer is fine. */
+const buttonVariants = cva(
+  [
+    'inline-flex items-center gap-xs rounded-control whitespace-nowrap',
+    'transition-colors duration-fast ease-standard focus-visible:focus-ring',
+    'disabled:cursor-not-allowed disabled:opacity-disabled aria-busy:cursor-progress',
+  ],
+  {
+    variants: {
+      variant: {
+        primary:
+          'justify-center font-medium bg-accent-solid text-accent-on-solid hover:bg-accent-solid-hover active:bg-accent-solid-active',
+        secondary:
+          'justify-center font-medium bg-surface-base text-fg-default border border-line-default hover:bg-surface-sunken',
+        ghost: 'justify-center font-medium text-fg-default hover:bg-surface-sunken',
+        danger: 'justify-center font-medium bg-danger-solid text-accent-on-solid hover:bg-danger-solid-hover',
+        inline:
+          '-mx-2xs min-h-touch min-w-none px-2xs text-left text-body text-fg-default hover:bg-surface-sunken pointer-fine:min-h-control-sm',
+      } satisfies Record<ButtonVariant, string>,
+      size: {
+        sm: 'h-touch px-sm text-label pointer-fine:h-control-sm',
+        md: 'h-touch px-md text-body pointer-fine:h-control-md',
+        lg: 'h-control-lg px-lg text-lead',
+        /** Content-sized; used by the inline variant. */
+        fit: '',
+      },
+    },
+  },
+);
 
-/** Native `<button fr-button>`; keeps button semantics, adds loading state. */
+/**
+ * A button. Renders a native `<button>`; handle presses with `(pressed)`.
+ * For actions that call the server use `fr-async-button`.
+ *
+ * ```html
+ * <fr-button variant="primary" (pressed)="next()">Next</fr-button>
+ * ```
+ */
 @Component({
-  selector: 'button[fr-button]',
-  imports: [Spinner],
+  selector: 'fr-button',
   templateUrl: './button.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: {
-    '[class]': 'classes()',
-    '[attr.aria-busy]': 'loading() || null',
-    '[attr.aria-disabled]': 'loading() || null',
-    '[disabled]': 'disabled()',
-  },
+  host: { class: 'contents' },
 })
 export class Button {
-  public readonly variant = input<ButtonVariant | ''>(ButtonVariant.Secondary, { alias: 'fr-button' });
+  public readonly variant = input<ButtonVariant>(ButtonVariant.Secondary);
   public readonly size = input<Size>(Size.Md);
-  public readonly loading = input(false, { transform: booleanAttribute });
+  public readonly type = input<ButtonType>(ButtonType.Button);
   public readonly disabled = input(false, { transform: booleanAttribute });
+  /** Work is in flight: announced as busy and presses are ignored, but focus stays. */
+  public readonly busy = input(false, { transform: booleanAttribute });
+  /** Accessible name when the visible content is not enough (e.g. a value to edit). */
+  public readonly ariaLabel = input<string | undefined>(undefined);
+  public readonly describedBy = input<string | undefined>(undefined);
+  public readonly pressed = output<MouseEvent>();
 
   protected readonly classes = computed(() => {
     const variant = this.variant();
-    return [
-      'inline-flex items-center justify-center gap-xs rounded-control font-medium whitespace-nowrap',
-      'transition-colors duration-150 ease-standard focus-visible:focus-ring',
-      'disabled:cursor-not-allowed disabled:opacity-50 aria-busy:cursor-progress',
-      VARIANT[variant === '' ? ButtonVariant.Secondary : variant],
-      SIZE[this.size()],
-    ].join(' ');
+    return buttonVariants({ variant, size: variant === ButtonVariant.Inline ? 'fit' : this.size() });
   });
+
+  protected press(event: MouseEvent): void {
+    if (this.busy()) {
+      // Also stops a busy submit button from submitting its form again.
+      event.preventDefault();
+      return;
+    }
+    this.pressed.emit(event);
+  }
 }

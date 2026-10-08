@@ -11,6 +11,7 @@ import type { Character, CharacterPatch } from '@pioneer/character/domain';
 import {
   DateDisplay,
   Grid,
+  Heading,
   InlineEdit,
   InlineField,
   NumberInput,
@@ -62,7 +63,20 @@ function signed(value: number): string {
 /** Character sheet: every value is its own inline edit with its own state. */
 @Component({
   selector: 'pio-character-sheet-page',
-  imports: [DateDisplay, Grid, InlineField, NumberInput, Page, Select, Skeleton, Stack, Surface, Text, TextInput],
+  imports: [
+    DateDisplay,
+    Grid,
+    Heading,
+    InlineField,
+    NumberInput,
+    Page,
+    Select,
+    Skeleton,
+    Stack,
+    Surface,
+    Text,
+    TextInput,
+  ],
   templateUrl: './character-sheet-page.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

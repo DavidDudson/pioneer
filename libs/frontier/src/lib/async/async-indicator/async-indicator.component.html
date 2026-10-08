@@ -1,0 +1,8 @@
+@if (status() === Status.Pending) {
+  <span [class]="classes()"><fr-spinner [label]="pendingLabel()" /></span>
+} @else if (status() === Status.Success) {
+  <span role="status" [class]="classes()"
+    ><span [class]="labelClasses()">{{ successLabel() }}</span
+    ><span aria-hidden="true">✓</span></span
+  >
+}

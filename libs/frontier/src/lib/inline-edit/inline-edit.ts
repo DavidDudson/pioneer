@@ -1,6 +1,7 @@
 import { computed, linkedSignal, signal } from '@angular/core';
 import type { Signal } from '@angular/core';
 import type { ValueOf } from '@pioneer/shared/kernel';
+import { Debouncer } from '@tanstack/angular-pacer';
 import type { z } from 'zod';
 
 export const InlineEditStatus = {
@@ -10,10 +11,11 @@ export const InlineEditStatus = {
   Idle: 'idle',
   /** Control open, nothing in flight. */
   Editing: 'editing',
-  Saving: 'saving',
+  /** A save is in flight (TanStack's `pending`). */
+  Pending: 'pending',
   /** After a successful save; the revert window is open (see `canRevert`). */
-  Saved: 'saved',
-  Failed: 'failed',
+  Success: 'success',
+  Error: 'error',
   /** The server rejected the save because the record changed elsewhere. */
   Conflict: 'conflict',
 } as const;
@@ -29,9 +31,9 @@ const REVERTED_FLASH_MS = 1500;
 /** Server-side phase; the open/closed view is tracked separately. */
 const Phase = {
   Idle: 'idle',
-  Saving: 'saving',
-  Saved: 'saved',
-  Failed: 'failed',
+  Pending: 'pending',
+  Success: 'success',
+  Error: 'error',
   Conflict: 'conflict',
 } as const;
 type Phase = ValueOf<typeof Phase>;
@@ -87,7 +89,13 @@ export class InlineEdit<TValue> {
   #queued = false;
   /** Latest background flush; held so it isn't a floating promise. Never rejects. */
   #flushing: Promise<void> = Promise.resolve();
-  #debounceTimer: ReturnType<typeof setTimeout> | undefined;
+  /** Saves once typing goes quiet (TanStack Pacer). */
+  readonly #debouncer = new Debouncer(
+    () => {
+      this.flushSoon();
+    },
+    { wait: SAVE_DEBOUNCE_MS },
+  );
   #revertTimer: ReturnType<typeof setTimeout> | undefined;
 
   public constructor(options: InlineEditOptions<TValue>) {
@@ -120,7 +128,7 @@ export class InlineEdit<TValue> {
       return result.success ? undefined : (result.error.issues[0]?.message ?? 'Invalid value');
     });
     this.display = computed(() => (source() === undefined ? '' : format(this.draft())));
-    this.busy = computed(() => this.#phase() === Phase.Saving);
+    this.busy = computed(() => this.#phase() === Phase.Pending);
   }
 
   /** Open the control. Keeps the original value if reopened inside the revert window. */
@@ -137,17 +145,15 @@ export class InlineEdit<TValue> {
   /** A new value from the control: validate now, save once input goes quiet. */
   public change(value: TValue): void {
     this.draft.set(value);
-    clearTimeout(this.#debounceTimer);
+    this.#debouncer.cancel();
     if (this.validationError() === undefined) {
-      this.#debounceTimer = setTimeout(() => {
-        this.flushSoon();
-      }, SAVE_DEBOUNCE_MS);
+      this.#debouncer.maybeExecute();
     }
   }
 
   /** Save a pending change now (Enter, a select pick, blur). */
   public async flush(): Promise<void> {
-    clearTimeout(this.#debounceTimer);
+    this.#debouncer.cancel();
     if (this.dirty() && this.validationError() === undefined) {
       await this.#save(this.draft(), true);
     }
@@ -174,10 +180,10 @@ export class InlineEdit<TValue> {
 
   /** Escape: drop the unsaved change and close. Saved changes stay; use Revert for those. */
   public cancel(): void {
-    clearTimeout(this.#debounceTimer);
+    this.#debouncer.cancel();
     this.draft.set(this.#options.source() ?? this.#options.empty);
     this.#error.set(undefined);
-    if (this.#phase() === Phase.Failed || this.#phase() === Phase.Conflict) {
+    if (this.#phase() === Phase.Error || this.#phase() === Phase.Conflict) {
       this.#phase.set(Phase.Idle);
     }
     this.#open.set(false);
@@ -189,7 +195,7 @@ export class InlineEdit<TValue> {
     if (!this.#canRevert() || original === undefined) {
       return;
     }
-    clearTimeout(this.#debounceTimer);
+    this.#debouncer.cancel();
     clearTimeout(this.#revertTimer);
     this.#canRevert.set(false);
     this.#open.set(false);
@@ -214,7 +220,7 @@ export class InlineEdit<TValue> {
   async #attempt(value: TValue, revertible: boolean): Promise<boolean> {
     clearTimeout(this.#revertTimer);
     this.#error.set(undefined);
-    this.#phase.set(Phase.Saving);
+    this.#phase.set(Phase.Pending);
     try {
       await this.#options.save(value);
     } catch (error: unknown) {
@@ -226,12 +232,12 @@ export class InlineEdit<TValue> {
   }
 
   #saved(revertible: boolean): void {
-    this.#phase.set(Phase.Saved);
+    this.#phase.set(Phase.Success);
     this.#canRevert.set(revertible);
     this.#revertTimer = setTimeout(
       () => {
         this.#canRevert.set(false);
-        if (this.#phase() === Phase.Saved) {
+        if (this.#phase() === Phase.Success) {
           this.#phase.set(Phase.Idle);
         }
         if (!this.dirty() && !this.busy()) {
@@ -245,7 +251,7 @@ export class InlineEdit<TValue> {
   #fail(error: unknown): void {
     const conflict = this.#options.isConflict?.(error) ?? false;
     this.#error.set(this.#options.describeError?.(error) ?? (conflict ? 'Changed elsewhere' : 'Could not save'));
-    this.#phase.set(conflict ? Phase.Conflict : Phase.Failed);
+    this.#phase.set(conflict ? Phase.Conflict : Phase.Error);
     if (conflict) {
       // Drop the losing change so the draft adopts the server's version when it reloads.
       this.draft.set(this.#options.source() ?? this.#options.empty);
