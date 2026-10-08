@@ -35,5 +35,8 @@
     "version": "· version {version}",
     "conflict": "Someone else changed this character. Showing their latest version.",
     "saveFailed": "Could not save. Try again."
+  },
+  "validation": {
+    "unknownAncestry": "That ancestry is not available. Choose another."
   }
 }

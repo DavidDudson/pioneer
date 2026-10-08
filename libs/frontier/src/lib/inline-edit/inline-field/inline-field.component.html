@@ -21,7 +21,7 @@
       <fr-save-status [edit]="edit()" [label]="label()" />
     </fr-stack>
     @if (message(); as message) {
-      <fr-message [tone]="messageTone()">{{ message }}</fr-message>
+      <fr-message [tone]="messageTone()">{{ message.key | transloco: message.params }}</fr-message>
     }
   }
 </fr-stack>

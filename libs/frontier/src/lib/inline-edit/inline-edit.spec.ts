@@ -93,7 +93,10 @@ describe(InlineEdit, () => {
     it('never saves a draft the shared schema rejects', async () => {
       const { edit, save } = opened();
       edit.change(25);
-      expect(edit.validationError()).toBeDefined();
+      expect(edit.validationError()).toStrictEqual({
+        key: 'validation.tooBig',
+        params: { origin: 'number', maximum: 20 },
+      });
       await vi.advanceTimersByTimeAsync(SAVE_DEBOUNCE);
       await edit.flush();
       edit.close();
@@ -183,7 +186,7 @@ describe(InlineEdit, () => {
       edit.change(4);
       await edit.flush();
       expect(edit.status()).toBe(InlineEditStatus.Conflict);
-      expect(edit.error()).toBeDefined();
+      expect(edit.error()).toStrictEqual({ key: 'frontier.inlineEdit.conflict' });
       expect(edit.draft()).toBe(3);
       expect(edit.canRevert()).toBe(false);
     });
@@ -193,6 +196,7 @@ describe(InlineEdit, () => {
       edit.change(4);
       await edit.flush();
       expect(edit.status()).toBe(InlineEditStatus.Error);
+      expect(edit.error()).toStrictEqual({ key: 'frontier.inlineEdit.saveFailed' });
       expect(edit.draft()).toBe(4);
       expect(edit.dirty()).toBe(true);
     });

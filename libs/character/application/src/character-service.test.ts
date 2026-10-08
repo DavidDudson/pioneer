@@ -56,11 +56,17 @@ describe('CharacterService', () => {
   test('unknown ancestry is rejected', async () => {
     const unknown = AncestryId.parse(newId());
     const created = service.create({ name: CharacterName.parse('X'), ancestry: unknown });
-    expect(await rejection(created)).toBeInstanceOf(ValidationError);
+    const error = await rejection(created);
+    expect(error).toBeInstanceOf(ValidationError);
+    expect((error as ValidationError).issues).toStrictEqual([
+      { path: ['ancestry'], message: { key: 'character.validation.unknownAncestry', params: { ancestry: unknown } } },
+    ]);
   });
 
   test('missing character is not found', async () => {
     const missing = CharacterId.parse(newId());
-    expect(await rejection(service.get(missing))).toBeInstanceOf(NotFoundError);
+    const error = await rejection(service.get(missing));
+    expect(error).toBeInstanceOf(NotFoundError);
+    expect((error as NotFoundError).descriptor).toStrictEqual({ key: 'problem.notFound' });
   });
 });

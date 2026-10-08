@@ -1,5 +1,6 @@
 import { z } from 'zod';
 
+import { issueParams, message, ValidationMessage } from './message';
 import { InstantCodec, PlainDateCodec } from './temporal-codecs';
 
 /** Int2 bounds. */
@@ -39,9 +40,12 @@ export const Pg = {
    * values keep every digit. Do arithmetic with a decimal library, not `Number`.
    */
   numeric: (precision: number, scale: number): z.ZodString =>
-    z.string().refine((value) => fitsNumeric(value, precision, scale), {
-      message: `Must be a decimal with at most ${precision} digits, ${scale} after the point`,
-    }),
+    z
+      .string()
+      .refine(
+        (value) => fitsNumeric(value, precision, scale),
+        issueParams(message(ValidationMessage.Decimal, { precision, scale })),
+      ),
   /** Float4. */
   real: (): z.ZodNumber => z.float32(),
   /** Float8. */

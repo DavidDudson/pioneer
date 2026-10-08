@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, computed, effect, inject, input } from '@angular/core';
-import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
+import { TranslocoPipe } from '@jsverse/transloco';
 import {
   CharacterId,
   CharacterLevel,
@@ -31,6 +31,8 @@ import {
   Attribute,
   AttributeModifier,
 } from '@pioneer/rules/sdk';
+import { message } from '@pioneer/shared/kernel';
+import type { MessageDescriptor } from '@pioneer/shared/kernel';
 import { ApiError } from '@pioneer/shared/web';
 import type { z } from 'zod';
 
@@ -55,6 +57,15 @@ interface FieldSpec<TValue> {
   readonly schema: z.ZodType;
   readonly toPatch: (value: TValue) => CharacterPatch;
   readonly format?: (value: TValue) => string;
+}
+
+/** A rejected save: the server's field issue when it sent one, else the sheet's own wording. */
+function describeSaveError(error: unknown): MessageDescriptor {
+  if (ApiError.isConflict(error)) {
+    return message('character.sheet.conflict');
+  }
+  const [issue] = error instanceof ApiError ? error.issues : [];
+  return issue?.message ?? message('character.sheet.saveFailed');
 }
 
 function signed(value: number): string {
@@ -86,7 +97,6 @@ export class CharacterSheetPage {
   /** Route param, bound by `withComponentInputBinding`. */
   public readonly id = input.required({ transform: (id: string): CharacterId => CharacterId.parse(id) });
 
-  readonly #i18n = inject(TranslocoService);
   protected readonly store = inject(CharacterStore);
   protected readonly ancestries = inject(AncestryOptions);
   protected readonly character = this.store.selected;
@@ -143,10 +153,7 @@ export class CharacterSheetPage {
       schema,
       save: async (value) => this.store.patch(toPatch(value)),
       isConflict: (error) => ApiError.isConflict(error),
-      describeError: (error) =>
-        ApiError.isConflict(error)
-          ? this.#i18n.translate('character.sheet.conflict')
-          : this.#i18n.translate('character.sheet.saveFailed'),
+      describeError: describeSaveError,
       ...(format === undefined ? {} : { format }),
     });
   }
