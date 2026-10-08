@@ -11,3 +11,40 @@ export const LocaleSchema = z.enum(Locale);
 
 /** Messages are authored in this locale; every other locale falls back to it per key. */
 export const SOURCE_LOCALE = Locale.English;
+
+export const TextDirection = {
+  LeftToRight: 'ltr',
+  RightToLeft: 'rtl',
+} as const;
+export type TextDirection = ValueOf<typeof TextDirection>;
+
+/** Languages written right to left, by primary language subtag. */
+const RIGHT_TO_LEFT = new Set(['ar', 'ckb', 'dv', 'fa', 'he', 'ps', 'sd', 'ug', 'ur', 'yi']);
+
+function language(tag: string): string {
+  return tag.split('-')[0]?.toLowerCase() ?? '';
+}
+
+/**
+ * The first candidate Pioneer supports, in preference order (stored preference first, then the
+ * browser's `Accept-Language` list). A candidate matches exactly, ignoring case, or by language
+ * (`de-AT` → `de`). Falls back to the source locale.
+ */
+export function resolveLocale<TLocale extends string>(
+  candidates: readonly string[],
+  supported: readonly TLocale[],
+  fallback: TLocale,
+): TLocale {
+  for (const candidate of candidates) {
+    const exact = supported.find((locale) => locale.toLowerCase() === candidate.toLowerCase());
+    const byLanguage = exact ?? supported.find((locale) => language(locale) === language(candidate));
+    if (byLanguage !== undefined) {
+      return byLanguage;
+    }
+  }
+  return fallback;
+}
+
+export function textDirection(locale: string): TextDirection {
+  return RIGHT_TO_LEFT.has(language(locale)) ? TextDirection.RightToLeft : TextDirection.LeftToRight;
+}
