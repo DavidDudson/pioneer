@@ -9,8 +9,8 @@ import { TextPosition } from './units';
 import type { DiceExpressionText } from './units';
 
 /** A slice of expression text, kept so errors can quote what was found. */
-export const Lexeme = z.string().brand<'Lexeme'>();
-export type Lexeme = z.infer<typeof Lexeme>;
+const Lexeme = z.string().brand<'Lexeme'>();
+type Lexeme = z.infer<typeof Lexeme>;
 
 /** An unsigned whole number as written. Range checks happen where its meaning is known (count, size, flat). */
 export const Numeral = z.number().int().nonnegative().brand<'Numeral'>();
@@ -40,18 +40,18 @@ export interface NumberToken extends TokenBase {
   readonly kind: typeof TokenKind.Number;
   readonly value: Numeral;
 }
-export interface DieToken extends TokenBase {
+interface DieToken extends TokenBase {
   readonly kind: typeof TokenKind.Die;
 }
-export interface KeepToken extends TokenBase {
+interface KeepToken extends TokenBase {
   readonly kind: typeof TokenKind.Keep;
   readonly mode: KeepMode;
 }
-export interface SignToken extends TokenBase {
+interface SignToken extends TokenBase {
   readonly kind: typeof TokenKind.Sign;
   readonly sign: Sign;
 }
-export interface TagsToken extends TokenBase {
+interface TagsToken extends TokenBase {
   readonly kind: typeof TokenKind.Tags;
   readonly tags: readonly Tag[];
 }

@@ -160,7 +160,7 @@ function diceTerm(stream: TokenStream, sign: Sign, count: DiceCount): Term {
     : { kind: TermKind.Dice, sign, count, size, keep: kept, tags };
 }
 
-/** `NdS`, `dS` or a flat number, with optional keep and tags. */
+/** Dice (`2d6`, or `d6` for one die) or a flat number, with optional keep and tags. */
 function term(stream: TokenStream, sign: Sign): Term {
   const first = stream.take();
   if (first.kind === TokenKind.Die) {
