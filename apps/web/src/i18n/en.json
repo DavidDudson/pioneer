@@ -19,6 +19,9 @@
       },
       "lightMode": "Light mode",
       "darkMode": "Dark mode"
+    },
+    "footer": {
+      "legal": "Legal"
     }
   }
 }

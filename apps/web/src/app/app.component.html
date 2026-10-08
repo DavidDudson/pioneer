@@ -14,11 +14,16 @@
     }}</fr-button>
   </fr-stack>
   <router-outlet />
-  <fr-text frShellFooter element="p" variant="caption" tone="subtle">
-    {{ 'shell.communityUse.beforePolicyLink' | transloco
-    }}<fr-link href="https://paizo.com/licenses/communityuse">{{ 'shell.communityUse.policyLink' | transloco }}</fr-link
-    >{{ 'shell.communityUse.afterPolicyLink' | transloco }}
-    <fr-link href="https://paizo.com">{{ 'shell.communityUse.siteLink' | transloco }}</fr-link
-    >{{ 'shell.communityUse.end' | transloco }}
-  </fr-text>
+  <fr-stack frShellFooter gap="xs">
+    <fr-link to="/legal" variant="caption">{{ 'shell.footer.legal' | transloco }}</fr-link>
+    <fr-text element="p" variant="caption" tone="subtle">
+      {{ 'shell.communityUse.beforePolicyLink' | transloco
+      }}<fr-link href="https://paizo.com/licenses/communityuse">{{
+        'shell.communityUse.policyLink' | transloco
+      }}</fr-link
+      >{{ 'shell.communityUse.afterPolicyLink' | transloco }}
+      <fr-link href="https://paizo.com">{{ 'shell.communityUse.siteLink' | transloco }}</fr-link
+      >{{ 'shell.communityUse.end' | transloco }}
+    </fr-text>
+  </fr-stack>
 </fr-shell>

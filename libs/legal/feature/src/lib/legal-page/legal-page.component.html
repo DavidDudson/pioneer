@@ -1,0 +1,38 @@
+<fr-page [title]="'legal.page.title' | transloco" [description]="'legal.page.description' | transloco">
+  <fr-stack gap="lg">
+    <fr-surface>
+      <fr-stack gap="md">
+        <fr-heading variant="subheading" [level]="2">{{ 'legal.communityUse.heading' | transloco }}</fr-heading>
+        <fr-text element="p">
+          {{ 'legal.communityUse.beforePolicyLink' | transloco
+          }}<fr-link href="https://paizo.com/licenses/communityuse">{{
+            'legal.communityUse.policyLink' | transloco
+          }}</fr-link
+          >{{ 'legal.communityUse.afterPolicyLink' | transloco }}
+          <fr-link href="https://paizo.com">{{ 'legal.communityUse.siteLink' | transloco }}</fr-link
+          >{{ 'legal.communityUse.end' | transloco }}
+        </fr-text>
+        <fr-text element="p">{{ 'legal.communityUse.free' | transloco }}</fr-text>
+      </fr-stack>
+    </fr-surface>
+
+    <fr-surface>
+      <fr-stack gap="md">
+        <fr-heading variant="subheading" [level]="2">{{ 'legal.orc.heading' | transloco }}</fr-heading>
+        <fr-text element="p">{{ 'legal.orc.scope' | transloco }}</fr-text>
+        <fr-text element="p">{{ 'legal.orc.reserved' | transloco }}</fr-text>
+        <fr-text element="p" tone="muted">{{ 'legal.orc.notice' | transloco }}</fr-text>
+        <fr-link href="https://paizo.com/orclicense">{{ 'legal.orc.licenseLink' | transloco }}</fr-link>
+      </fr-stack>
+    </fr-surface>
+
+    <fr-surface>
+      <fr-stack gap="md">
+        <fr-heading variant="subheading" [level]="2">{{ 'legal.foundry.heading' | transloco }}</fr-heading>
+        <fr-text element="p">{{ 'legal.foundry.derived' | transloco }}</fr-text>
+        <fr-text element="p">{{ 'legal.foundry.affiliation' | transloco }}</fr-text>
+        <fr-link href="https://github.com/foundryvtt/pf2e">{{ 'legal.foundry.repositoryLink' | transloco }}</fr-link>
+      </fr-stack>
+    </fr-surface>
+  </fr-stack>
+</fr-page>

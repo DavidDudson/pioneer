@@ -18,4 +18,16 @@ describe(App, () => {
     expect(element.textContent).toContain('Pioneer');
     expect(element.textContent).toContain("Paizo's Community Use Policy");
   });
+
+  it('links the public Legal page from the footer', async () => {
+    await TestBed.configureTestingModule({
+      imports: [App],
+      providers: [provideRouter([]), provideI18n(appMessages)],
+    }).compileComponents();
+    const fixture = TestBed.createComponent(App);
+    await fixture.whenStable();
+    const element = fixture.nativeElement as HTMLElement;
+    const legal = element.querySelector('footer a[href="/legal"]');
+    expect(legal?.textContent.trim()).toBe('Legal');
+  });
 });
