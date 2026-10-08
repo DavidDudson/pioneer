@@ -1,0 +1,35 @@
+name: Story
+description: One full-stack vertical slice, delivered in one PR.
+labels: ['type:story']
+body:
+  - type: textarea
+    id: behaviour
+    attributes:
+      label: Behaviour
+      description: What a user (or developer, for library work) can do when this lands.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+    validations:
+      required: true
+  - type: checkboxes
+    id: slice
+    attributes:
+      label: Full-stack slice
+      description: Tick the layers this story touches. All layers for one behaviour go in this ticket.
+      options:
+        - label: Migration / schema
+        - label: Domain or engine logic
+        - label: API contract and handler
+        - label: Angular feature (frontier components only)
+        - label: Message keys in the `en` source locale
+        - label: Tests (unit, property, db, component)
+        - label: Docs or ADR updated
+  - type: textarea
+    id: blocked-by
+    attributes:
+      label: Blocked by
+      description: Also set with GitHub's "blocked by" relationship.

@@ -1,0 +1,31 @@
+name: Epic
+description: A milestone-sized body of work. Stories are added as sub-issues.
+labels: ['type:epic']
+body:
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      description: What this epic delivers, end to end.
+    validations:
+      required: true
+  - type: textarea
+    id: out-of-scope
+    attributes:
+      label: Out of scope
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+    validations:
+      required: true
+  - type: textarea
+    id: blocked-by
+    attributes:
+      label: Blocked by
+      description: Epics that must land first. Also set them with GitHub's "blocked by" relationship.
+  - type: input
+    id: docs
+    attributes:
+      label: Design docs
+      description: Link to the architecture section or ADR.

@@ -88,7 +88,8 @@ libs/
     foundry/        Foundry pf2e actor export, rule element translation (shared with importer)
     pathbuilder/    Pathbuilder JSON import
   shared/           kernel, server, web (exists)
-  frontier/         design system (exists, text-only components)
+  frontier/         design system (exists, text-only components, logical CSS for RTL)
+  shared/i18n/      locale resolution, message loading by scope, ICU formatting, unit display
 content/
   books.json        book registry
   packs/<pack>/     generated JSON per content kind
@@ -109,5 +110,9 @@ Content data never imports code.
   Policy. All official content is derived from the Foundry pf2e system; a public Legal page (footer link) states
   this, carries the Paizo and ORC notices, and offers the content caches for download. See
   [`../../NOTICE.md`](../../NOTICE.md) and [ADR-0003](../adr/0003-content-as-data-imported-from-foundry.md).
+- **Internationalisation.** Runtime locale switching with ICU messages and `Intl`. No user-facing strings in code;
+  the engine returns message descriptors. UI messages load per route scope; content ships locale-free mechanics
+  bundles plus per-locale name and sharded description bundles, prefetched when idle. See
+  [ADR-0009](../adr/0009-i18n-and-lazy-loading.md).
 - **Testing.** Property tests for the engine and dice (fast-check, already in use). Golden tests: Paizo pregenerated
   characters imported and compared against their published numbers. Importer coverage reports gate content PRs.

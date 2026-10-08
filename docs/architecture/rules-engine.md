@@ -48,7 +48,7 @@ JavaScript in content.
 ```ts
 interface Modifier {
   id: string;
-  label: string;
+  label: Message; // message descriptor or content text ref, never a raw string
   value: number | Formula;
   type: 'untyped' | 'status' | 'circumstance' | 'item' | 'proficiency' | 'attribute' | 'potency';
   targets: readonly Selector[]; // selectors or domains
@@ -159,8 +159,15 @@ sheet, where the situation is unknown, so predicates use **three-valued (Kleene)
   known situation (in an encounter, using Stealth for initiative). Choosing them supplies facts, re-evaluates, and
   the roll records which were used.
 
-Summaries for conditional lines are generated from the predicate with a vocabulary table (`terrain:forest` reads
-"in forest"), with an optional authored `summary` for anything the generator renders badly.
+Summaries for conditional lines are generated from the predicate with a per-locale vocabulary table
+(`terrain:forest` reads "in forest"), with an optional authored `summary` for anything the generator renders badly.
+
+## Messages, not strings
+
+The engine never produces display text. Labels, suppression reasons, conditional summaries, unavailability reasons
+and validation errors are message descriptors (`{ key: 'breakdown.suppressed.stacking', params: { by } }`) or
+content text references (`{ entry, field: 'name' }`). The UI formats them in the viewer's locale with ICU
+MessageFormat. Tests assert on keys and params. See [ADR-0009](../adr/0009-i18n-and-lazy-loading.md).
 
 ## Provenance
 

@@ -13,6 +13,7 @@ Accepted. To change a decision, add a new ADR that supersedes the old one; do no
 | [0006](0006-campaign-event-log-and-live-sync.md)      | Campaign event log with WebSocket and LISTEN/NOTIFY            |
 | [0007](0007-oauth-required-public-content.md)         | OAuth required for saving; Paizo content public via legal page |
 | [0008](0008-rule-element-vocabulary.md)               | Foundry-aligned rule element semantics, typed schema           |
+| [0009](0009-i18n-and-lazy-loading.md)                 | i18n: runtime locales, lazy messages and content text          |
 
 Template:
 

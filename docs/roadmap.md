@@ -27,9 +27,11 @@ M7 needs M6 only for per-campaign variant rules; the rest of M7, and all of M8, 
 
 Exit: architecture and ADRs merged and accepted; labels, milestones, epics and board exist.
 
-- **Architecture and ADRs** (this PR).
+- **Architecture and ADRs** (PR #4), including the NOTICE.md licensing update.
 - **GitHub project setup**: labels, milestones, project board, issue templates (epic, story, bug, content error).
-- **Licensing update**: NOTICE.md reflects stored ORC rules text and the Foundry pf2e data source.
+- **i18n foundation**: runtime locale switching, ICU messages, route-scoped lazy message loading with idle
+  prefetch, locale resolution, `Intl` formatting, unit display, lint against literal template text, missing-key
+  CI check; extract the existing UI strings. Library spike (Transloco vs signal-based loader).
 - **Legal page**: public page linked from every footer: Paizo Community Use notice, ORC attribution, "all content
   derived from Foundry pf2e" with the pinned release link. Content cache downloads join it in M2.
 
@@ -69,6 +71,8 @@ rule elements translated; public content browser live.
   coverage of pages and URLs.
 - **Public content caches**: official pack bundles downloadable from the Legal page with Foundry release and
   content hash, generated from pack manifests.
+- **Content localisation**: mechanics and per-locale text bundles, sharded descriptions loaded on demand,
+  `content_entry_texts` with per-field `en` fallback, per-locale search.
 - **Content browser** (public, no account): search, filters (kind, level, traits, rarity, book), entry view with
   rich text, live references and source line.
 
@@ -150,6 +154,7 @@ Exit: Player Core, Player Core 2, GM Core and Monster Core imported to the cover
 - **Monster Core** import (creatures for the encounter tracker).
 - **Translator gap closing**: work through the untranslatable report.
 - **Source enrichment completion**: page numbers and AoN URLs for all imported entries.
+- **Content translation import**: community Foundry translation modules as text-only packs keyed by Foundry id.
 
 ## Open questions and risks
 
@@ -174,6 +179,8 @@ Issue types are organisation-only, so this personal repository uses labels for t
 - **Dependency order.** Epics and stories are created and ranked in dependency order, following the milestone graph
   above and the bullet order inside each milestone. A story that needs another is linked with GitHub's
   "blocked by" relationship, and the board's Ready column only holds unblocked work.
+- **Translatable from day one.** Every UI ticket adds its strings as message keys in the `en` source locale; no
+  literal user-facing text in templates or engine output.
 - Areas are feature domains, not layers.
 
 ### Setup

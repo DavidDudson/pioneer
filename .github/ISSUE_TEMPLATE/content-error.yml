@@ -1,0 +1,24 @@
+name: Content error
+description: A rules entry has wrong data, a wrong number, or a missing or wrong source.
+labels: ['type:content']
+body:
+  - type: input
+    id: entry
+    attributes:
+      label: Entry
+      description: Name and id or URL of the content entry in Pioneer.
+    validations:
+      required: true
+  - type: textarea
+    id: wrong
+    attributes:
+      label: Expected vs actual
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Source
+      description: Book and page, or exact 2e.aonprd.com URL, that shows the correct rule.
+    validations:
+      required: true

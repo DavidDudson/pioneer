@@ -107,8 +107,24 @@ of entries as TypeScript would slow typechecking for no benefit, and homebrew ca
 ### Delivery to the browser
 
 The engine runs client-side, so the browser needs content. Packs are served as immutable, content-hashed bundles
-split by kind (`/api/content/player-core/feat.<hash>.json`), cached in IndexedDB, and loaded lazily (spells only
-when a caster needs them). Content browser search is server-side through `tsvector` and trait/level indexes.
+split by kind and by purpose, cached in IndexedDB, and loaded lazily (spells only when a caster needs them):
+
+| Bundle                                               | Contents                                 | Loaded                         |
+| ---------------------------------------------------- | ---------------------------------------- | ------------------------------ |
+| `player-core/feat.mech.<hash>.json`                  | ids, levels, traits, rule elements, data | when the engine needs the kind |
+| `player-core/feat.names.<locale>.<hash>.json`        | names, short summaries                   | with the mechanics bundle      |
+| `player-core/feat.desc.<locale>.<shard>.<hash>.json` | descriptions, sharded by id prefix       | when an entry is opened        |
+
+Mechanics never depend on locale, so switching language downloads only text. Likely-next bundles are prefetched
+when idle. Content browser search is server-side through per-locale `tsvector` and trait/level indexes.
+
+## Localisation
+
+Names, descriptions, summaries and rule element labels are translatable; mechanics are not. Text lives in
+`content_entry_texts (entry_id, locale, field, text)`, with `en` as the source and per-field fallback, marked in
+the UI when a fallback is shown. Homebrew authors can add translations for their packs. Community Foundry
+translation modules (Babele-based) can be imported as text-only packs keyed by Foundry id. See
+[ADR-0009](../adr/0009-i18n-and-lazy-loading.md).
 
 ## Foundry import
 
