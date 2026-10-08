@@ -118,8 +118,9 @@ campaign_events       id, campaign_id, seq bigint, at, actor_id, character_id?, 
 ## Accounts
 
 OAuth sign-in (Discord, Google, GitHub) is required to save characters, use homebrew and join campaigns. The
-content browser and rules reference are public and need no account. See
-[ADR-0007](../adr/0007-oauth-required-public-content.md) for the Community Use Policy reasoning.
+content browser, rules reference and the public Legal page (footer link: Paizo notices, Foundry pf2e derivation,
+downloadable content caches) need no account, so no Paizo material sits behind sign-in. See
+[ADR-0007](../adr/0007-oauth-required-public-content.md).
 
 ## Foundry export
 

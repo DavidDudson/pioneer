@@ -46,9 +46,15 @@ both.
 Official content packs are generated from the data in the
 [Foundry VTT pf2e system](https://github.com/foundryvtt/pf2e), whose code is
 Apache-2.0 and whose game content is published under the ORC License (and the
-Community Use Policy where applicable). Only remastered, ORC-licensed entries
-are imported. Pioneer is not affiliated with Foundry Gaming LLC or the pf2e
-system maintainers.
+Community Use Policy where applicable).
+
+All official content in Pioneer is derived from that data. The app's public
+Legal page, linked from every page footer, states this, links the exact Foundry
+release used, and offers the generated content caches for download without an
+account.
+
+Only remastered, ORC-licensed entries are imported. Pioneer is not affiliated
+with Foundry Gaming LLC or the pf2e system maintainers.
 
 ## Contributor checklist for content packs
 
@@ -57,4 +63,5 @@ system maintainers.
    source reference.
 3. No Paizo art, logos or trade dress.
 4. Never put Paizo content behind anything that costs money or requires sign-up.
-   The content browser and rules text stay public without an account.
+   The content browser, rules text and the Legal page (with content cache
+   downloads) stay public without an account.

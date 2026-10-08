@@ -106,6 +106,7 @@ Content data never imports code.
 - **Audit.** The existing `audit.log` trigger covers every table holding user data. Campaign events are their own
   append-only log on top of that.
 - **Licensing.** Remaster mechanics and rules text are ORC; Paizo IP outside ORC falls under the Community Use
-  Policy. See [`../../NOTICE.md`](../../NOTICE.md) and [ADR-0003](../adr/0003-content-as-data-imported-from-foundry.md).
+  Policy. All official content is derived from the Foundry pf2e system; a public Legal page (footer link) states
+  this, carries the Paizo and ORC notices, and offers the content caches for download. See [`../../NOTICE.md`](../../NOTICE.md) and [ADR-0003](../adr/0003-content-as-data-imported-from-foundry.md).
 - **Testing.** Property tests for the engine and dice (fast-check, already in use). Golden tests: Paizo pregenerated
   characters imported and compared against their published numbers. Importer coverage reports gate content PRs.

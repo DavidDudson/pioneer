@@ -28,6 +28,8 @@ Exit: architecture and ADRs merged and accepted; labels, milestones, epics and b
 - **Architecture and ADRs** (this PR).
 - **GitHub project setup**: labels, milestones, project board, issue templates (epic, story, bug, content error).
 - **Licensing update**: NOTICE.md reflects stored ORC rules text and the Foundry pf2e data source.
+- **Legal page**: public page linked from every footer: Paizo Community Use notice, ORC attribution, "all content
+  derived from Foundry pf2e" with the pinned release link. Content cache downloads join it in M2.
 
 ## M1 Rules engine core
 
@@ -63,6 +65,8 @@ rule elements translated; public content browser live.
 - **Rule element translators**: one story per Foundry rule element group; untranslatable report.
 - **Source enrichment**: spike on obtaining AoN page and URL data within their terms; mapping files; matcher;
   coverage of pages and URLs.
+- **Public content caches**: official pack bundles downloadable from the Legal page with Foundry release and
+  content hash, generated from pack manifests.
 - **Content browser** (public, no account): search, filters (kind, level, traits, rarity, book), entry view with
   rich text, live references and source line.
 
@@ -147,14 +151,13 @@ Exit: Player Core, Player Core 2, GM Core and Monster Core imported to the cover
 
 ## Open questions and risks
 
-| Item                                                                         | Plan                                                                                          |
-| ---------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| How to obtain AoN page numbers and URLs within AoN's terms                   | Spike in M2; ask AoN if needed                                                                |
-| OAuth-required builder vs Community Use Policy "no sign-up gate"             | Public content browser; revisit in M3 ([ADR-0007](adr/0007-oauth-required-public-content.md)) |
-| Foundry data model changes between releases                                  | Pin release; upgrade as a deliberate PR with coverage diff                                    |
-| Rule elements with no clean typed equivalent (path-based `ActiveEffectLike`) | Per-path translators; report the rest                                                         |
-| Browser bundle size once spells and equipment load                           | Per-kind lazy bundles; measure in M2                                                          |
-| OAuth library for Elysia                                                     | Spike in M3                                                                                   |
+| Item                                                                         | Plan                                                       |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------- |
+| How to obtain AoN page numbers and URLs within AoN's terms                   | Spike in M2; ask AoN if needed                             |
+| Foundry data model changes between releases                                  | Pin release; upgrade as a deliberate PR with coverage diff |
+| Rule elements with no clean typed equivalent (path-based `ActiveEffectLike`) | Per-path translators; report the rest                      |
+| Browser bundle size once spells and equipment load                           | Per-kind lazy bundles; measure in M2                       |
+| OAuth library for Elysia                                                     | Spike in M3                                                |
 
 ## GitHub project management
 
