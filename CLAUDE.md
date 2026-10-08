@@ -48,6 +48,9 @@ relax a rule without a reason recorded beside it. Rules that trip agents most:
   `Brand.parse(...)`, never `as`.
 - A brand carries the unit, so names don't repeat it: `REVERT_WINDOW: Milliseconds`, `speed: Feet`.
   `const NAME = Brand.parse(5000)` is a named constant (`pioneer/no-magic-numbers`).
+- Text is a message key in the `en` bundle (`src/i18n/en.json`), spelled out in full: never build a key at
+  runtime (`'character.attribute.' + id`); map to full keys in a const object instead. Templates may not hold
+  literal copy (`pioneer/no-literal-text`), and `bun run check:messages` fails on missing or unused keys.
 - Project rules oxlint lacks go in `tools/oxlint/pioneer-plugin.ts` (TypeScript) or `tools/eslint/` (templates).
 
 ## Checks

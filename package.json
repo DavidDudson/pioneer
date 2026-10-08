@@ -7,11 +7,13 @@
   "type": "module",
   "scripts": {
     "dev": "nx serve web --port=${WEB_PORT:-4200}",
-    "check": "nx run-many -t lint lint-templates typecheck test build verify-styles && bun run lint:workspace",
-    "lint:workspace": "knip --treat-config-hints-as-errors && typos && rumdl check . && taplo check && taplo fmt --check && biome lint --error-on-warnings && oxlint tools && oxfmt --check .",
+    "check": "nx run-many -t lint lint-templates typecheck test build verify-styles && bun run lint:workspace && bun run test:tools",
+    "lint:workspace": "knip --treat-config-hints-as-errors && bun run check:messages && typos && rumdl check . && taplo check && taplo fmt --check && biome lint --error-on-warnings && oxlint tools && oxfmt --check .",
     "format": "oxfmt .",
     "format:check": "oxfmt --check .",
-    "affected": "nx affected -t lint lint-templates typecheck test build verify-styles"
+    "affected": "nx affected -t lint lint-templates typecheck test build verify-styles",
+    "test:tools": "bun test tools",
+    "check:messages": "bun tools/check-message-keys.ts"
   },
   "dependencies": {
     "@angular/aria": "22.2.0",
