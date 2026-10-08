@@ -1,4 +1,5 @@
 import { booleanAttribute, ChangeDetectionStrategy, Component, computed, inject, input, output } from '@angular/core';
+import { TranslocoService } from '@jsverse/transloco';
 
 import { injectAsyncAction } from '../../async/async-action';
 import { AsyncIndicator } from '../../async/async-indicator/async-indicator.component';
@@ -34,14 +35,16 @@ export class AsyncButton {
   public readonly size = input<Size>(Size.Md);
   public readonly type = input<ButtonType>(ButtonType.Button);
   public readonly disabled = input(false, { transform: booleanAttribute });
-  public readonly pendingLabel = input('Working');
-  public readonly successLabel = input('Done');
-  public readonly describeError = input<(error: unknown) => string>(() => 'Something went wrong. Try again.');
+  public readonly pendingLabel = input<string | undefined>(undefined);
+  public readonly successLabel = input<string | undefined>(undefined);
+  /** Defaults to a generic "Something went wrong" in the viewer's locale. */
+  public readonly describeError = input<((error: unknown) => string) | undefined>(undefined);
   public readonly succeeded = output();
 
+  readonly #i18n = inject(TranslocoService);
   readonly #form = inject(AsyncForm, { optional: true }) ?? undefined;
   readonly #own = injectAsyncAction(() => this.action(), {
-    describeError: (error) => this.describeError()(error),
+    describeError: (error) => this.describeError()?.(error) ?? this.#i18n.translate('frontier.async.actionFailed'),
     onSuccess: () => {
       this.succeeded.emit();
     },

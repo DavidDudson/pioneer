@@ -1,8 +1,8 @@
 @if (status() === Status.Pending) {
-  <span [class]="classes()"><fr-spinner [label]="pendingLabel()" /></span>
+  <span [class]="classes()"><fr-spinner [label]="pendingLabel() ?? ('frontier.async.pending' | transloco)" /></span>
 } @else if (status() === Status.Success) {
   <span role="status" [class]="classes()"
-    ><span [class]="labelClasses()">{{ successLabel() }}</span
+    ><span [class]="labelClasses()">{{ successLabel() ?? ('frontier.async.success' | transloco) }}</span
     ><span aria-hidden="true">✓</span></span
   >
 }

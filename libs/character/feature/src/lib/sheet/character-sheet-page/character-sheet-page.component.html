@@ -2,22 +2,22 @@
   <fr-stack gap="lg">
     <fr-surface>
       <fr-stack gap="md">
-        <fr-heading variant="subheading" [level]="2">Identity</fr-heading>
+        <fr-heading variant="subheading" [level]="2">{{ 'character.sheet.identityHeading' | transloco }}</fr-heading>
         <fr-grid [columns]="3">
-          <fr-inline-field label="Name" [edit]="name">
+          <fr-inline-field [label]="'character.sheet.name' | transloco" [edit]="name">
             <fr-text-input
               frInlineEditor
-              ariaLabel="Name"
+              [ariaLabel]="'character.sheet.name' | transloco"
               [value]="name.draft()"
               (valueChange)="name.change($event)"
               (committed)="name.flushSoon()"
               (cancelled)="name.cancel()"
             />
           </fr-inline-field>
-          <fr-inline-field label="Ancestry" [edit]="ancestry">
+          <fr-inline-field [label]="'character.sheet.ancestry' | transloco" [edit]="ancestry">
             <fr-select
               frInlineEditor
-              ariaLabel="Ancestry"
+              [ariaLabel]="'character.sheet.ancestry' | transloco"
               [options]="ancestries.options()"
               [value]="ancestry.draft()"
               (valueChange)="ancestry.change($event)"
@@ -25,10 +25,10 @@
               (cancelled)="ancestry.cancel()"
             />
           </fr-inline-field>
-          <fr-inline-field label="Level" [edit]="level">
+          <fr-inline-field [label]="'character.sheet.level' | transloco" [edit]="level">
             <fr-number-input
               frInlineEditor
-              ariaLabel="Level"
+              [ariaLabel]="'character.sheet.level' | transloco"
               [min]="levelMin"
               [max]="levelMax"
               [value]="level.draft()"
@@ -43,13 +43,13 @@
 
     <fr-surface>
       <fr-stack gap="md">
-        <fr-heading variant="subheading" [level]="2">Attributes</fr-heading>
+        <fr-heading variant="subheading" [level]="2">{{ 'character.sheet.attributesHeading' | transloco }}</fr-heading>
         <fr-grid [columns]="6">
           @for (item of attributes; track item.attribute) {
-            <fr-inline-field [label]="item.label" [edit]="item.edit">
+            <fr-inline-field [label]="item.labelKey | transloco" [edit]="item.edit">
               <fr-number-input
                 frInlineEditor
-                [ariaLabel]="item.label"
+                [ariaLabel]="item.labelKey | transloco"
                 [min]="modifierMin"
                 [max]="modifierMax"
                 [value]="item.edit.draft()"
@@ -65,8 +65,11 @@
 
     @if (character(); as character) {
       <fr-text element="p" variant="caption" tone="subtle">
-        Created <fr-date format="datetime" [value]="character.createdAt" /> · updated
-        <fr-date format="relative" [value]="character.updatedAt" /> · version {{ character.version }}
+        {{ 'character.sheet.created' | transloco }}
+        <fr-date format="datetime" [value]="character.createdAt" />
+        {{ 'character.sheet.updated' | transloco }}
+        <fr-date format="relative" [value]="character.updatedAt" />
+        {{ 'character.sheet.version' | transloco: { version: character.version } }}
       </fr-text>
     } @else {
       <fr-skeleton width="lg" />

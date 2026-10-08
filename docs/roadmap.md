@@ -31,7 +31,7 @@ Exit: architecture and ADRs merged and accepted; labels, milestones, epics and b
 - **GitHub project setup**: labels, milestones, project board, issue templates (epic, story, bug, content error).
 - **i18n foundation**: runtime locale switching, ICU messages, route-scoped lazy message loading with idle
   prefetch, locale resolution, `Intl` formatting, unit display, lint against literal template text, missing-key
-  CI check; extract the existing UI strings. Library spike (Transloco vs signal-based loader).
+  CI check; extract the existing UI strings. Library: Transloco (ADR 0009).
 - **Legal page**: public page linked from every footer: Paizo Community Use notice, ORC attribution, "all content
   derived from Foundry pf2e" with the pinned release link. Content cache downloads join it in M2.
 

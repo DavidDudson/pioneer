@@ -1,4 +1,6 @@
 import type { Routes } from '@angular/router';
+import { provideTranslocoScope } from '@jsverse/transloco';
+import { Locale } from '@pioneer/shared/kernel';
 
 import { CharacterStore } from './data/character-store';
 
@@ -6,7 +8,14 @@ import { CharacterStore } from './data/character-store';
 export const characterRoutes: Routes = [
   {
     path: '',
-    providers: [CharacterStore],
+    providers: [
+      CharacterStore,
+      // Keys are `character.*`; the messages load with this route, not with the shell.
+      provideTranslocoScope({
+        scope: 'character',
+        loader: { [Locale.English]: async () => import('../i18n/en.json') },
+      }),
+    ],
     children: [
       {
         path: '',

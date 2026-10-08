@@ -1,10 +1,10 @@
 import { HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
 import { provideRouter, Router, withComponentInputBinding } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
-import { Select } from '@pioneer/frontier';
+import { frontierMessages, Select } from '@pioneer/frontier';
 import { contentId } from '@pioneer/rules/sdk';
+import { provideI18n } from '@pioneer/shared/web';
 import { describe, expect, it, vi } from 'vitest';
 
 import { characterRoutes } from '../../character.routes';
@@ -27,6 +27,7 @@ describe('CharacterListPage', () => {
         // Mounted below a parent path like the app does, so absolute navigation would miss.
         provideRouter([{ path: 'characters', children: characterRoutes }], withComponentInputBinding()),
         ...provideServerStateTesting(),
+        provideI18n({ en: async () => frontierMessages }),
       ],
     });
     const http = TestBed.inject(HttpTestingController);
@@ -39,7 +40,10 @@ describe('CharacterListPage', () => {
     name.value = 'Merisiel';
     name.dispatchEvent(new Event('input'));
     // The aria listbox renders in an overlay; set the control's model the way a pick would.
-    (harness.fixture.debugElement.query(By.directive(Select)).componentInstance as Select<string>).value.set(elf);
+    (
+      harness.fixture.debugElement.query((element) => element.componentInstance instanceof Select)
+        .componentInstance as Select<string>
+    ).value.set(elf);
     harness.detectChanges();
     present(root.querySelector<HTMLButtonElement>('button[type="submit"]')).click();
     await harness.fixture.whenStable();

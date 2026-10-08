@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, computed, effect, inject, input } from '@angular/core';
+import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import {
   CharacterId,
   CharacterLevelSchema,
@@ -36,13 +37,13 @@ import type { z } from 'zod';
 import { AncestryOptions } from '../../data/ancestry-options';
 import { CharacterStore } from '../../data/character-store';
 
-const ATTRIBUTE_LABELS: Readonly<Record<Attribute, string>> = {
-  [Attribute.Strength]: 'Strength',
-  [Attribute.Dexterity]: 'Dexterity',
-  [Attribute.Constitution]: 'Constitution',
-  [Attribute.Intelligence]: 'Intelligence',
-  [Attribute.Wisdom]: 'Wisdom',
-  [Attribute.Charisma]: 'Charisma',
+const ATTRIBUTE_LABEL_KEYS: Readonly<Record<Attribute, string>> = {
+  [Attribute.Strength]: 'character.attribute.str',
+  [Attribute.Dexterity]: 'character.attribute.dex',
+  [Attribute.Constitution]: 'character.attribute.con',
+  [Attribute.Intelligence]: 'character.attribute.int',
+  [Attribute.Wisdom]: 'character.attribute.wis',
+  [Attribute.Charisma]: 'character.attribute.cha',
 };
 
 /** How one sheet value maps to the aggregate and back. */
@@ -76,6 +77,7 @@ function signed(value: number): string {
     Surface,
     Text,
     TextInput,
+    TranslocoPipe,
   ],
   templateUrl: './character-sheet-page.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -84,6 +86,7 @@ export class CharacterSheetPage {
   /** Route param, bound by `withComponentInputBinding`. */
   public readonly id = input.required<string>();
 
+  readonly #i18n = inject(TranslocoService);
   protected readonly store = inject(CharacterStore);
   protected readonly ancestries = inject(AncestryOptions);
   protected readonly character = this.store.selected;
@@ -114,7 +117,7 @@ export class CharacterSheetPage {
   });
   protected readonly attributes = Object.values(Attribute).map((attribute) => ({
     attribute,
-    label: ATTRIBUTE_LABELS[attribute],
+    labelKey: ATTRIBUTE_LABEL_KEYS[attribute],
     edit: this.#field({
       read: (character) => character.modifier(attribute),
       empty: 0,
@@ -142,8 +145,8 @@ export class CharacterSheetPage {
       isConflict: (error) => ApiError.isConflict(error),
       describeError: (error) =>
         ApiError.isConflict(error)
-          ? 'Someone else changed this character. Showing their latest version.'
-          : 'Could not save. Try again.',
+          ? this.#i18n.translate('character.sheet.conflict')
+          : this.#i18n.translate('character.sheet.saveFailed'),
       ...(format === undefined ? {} : { format }),
     });
   }

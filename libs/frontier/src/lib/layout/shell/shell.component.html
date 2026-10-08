@@ -4,7 +4,9 @@
       <span [class]="brandClasses"
         ><fr-text variant="brand">{{ brand() }}</fr-text></span
       >
-      <nav aria-label="Main" [class]="navClasses"><ng-content select="[frShellNav]" /></nav>
+      <nav [attr.aria-label]="'frontier.shell.mainNav' | transloco" [class]="navClasses">
+        <ng-content select="[frShellNav]" />
+      </nav>
     </fr-stack>
   </fr-box>
 </header>

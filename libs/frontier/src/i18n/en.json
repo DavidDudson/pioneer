@@ -1,0 +1,25 @@
+{
+  "frontier": {
+    "async": {
+      "pending": "Working",
+      "success": "Done",
+      "loadFailed": "Could not load this. Try again later.",
+      "actionFailed": "Something went wrong. Try again.",
+      "saveFailed": "Could not save. Try again."
+    },
+    "inlineField": {
+      "edit": "Edit {label}: {value}"
+    },
+    "saveStatus": {
+      "saving": "Saving {label}",
+      "saved": "Saved",
+      "revert": "Revert"
+    },
+    "select": {
+      "placeholder": "Select…"
+    },
+    "shell": {
+      "mainNav": "Main"
+    }
+  }
+}

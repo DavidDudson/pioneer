@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { form, FormField, validateStandardSchema } from '@angular/forms/signals';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CharacterNameSchema } from '@pioneer/character/domain';
+import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import type { Character } from '@pioneer/character/domain';
 import {
   AsyncButton,
@@ -22,13 +22,11 @@ import {
   TextField,
 } from '@pioneer/frontier';
 import { VirtualItem, VirtualList } from '@pioneer/frontier/data';
-import { AncestryId } from '@pioneer/rules/sdk';
-import { z } from 'zod';
 
 import { AncestryOptions } from '../../data/ancestry-options';
 import { CharacterStore } from '../../data/character-store';
+import { CreateCharacterForm } from '../../data/create-character-form';
 
-const CreateForm = z.object({ name: CharacterNameSchema, ancestry: AncestryId });
 interface CreateModel {
   readonly name: string;
   readonly ancestry: string;
@@ -37,7 +35,6 @@ interface CreateModel {
 /** Skeleton cards shown while the list loads. */
 const PLACEHOLDERS = ['first', 'second', 'third'] as const;
 
-const describeCreateError = (): string => 'Could not create the character. Try again.';
 const characterKey = (character: Character): string => character.id;
 
 @Component({
@@ -60,6 +57,7 @@ const characterKey = (character: Character): string => character.id;
     Surface,
     Text,
     TextField,
+    TranslocoPipe,
     VirtualItem,
     VirtualList,
   ],
@@ -77,15 +75,16 @@ export class CharacterListPage {
   // Signal forms needs concrete field types, so "no ancestry yet" is ''.
   protected readonly model = signal<CreateModel>({ name: '', ancestry: '' });
   protected readonly form = form(this.model, (path) => {
-    validateStandardSchema(path, CreateForm);
+    validateStandardSchema(path, CreateCharacterForm);
   });
 
   protected readonly create = async (value: CreateModel): Promise<void> => {
-    const character = await this.store.create(CreateForm.parse(value));
+    const character = await this.store.create(CreateCharacterForm.parse(value));
     await this.#router.navigate([character.id], { relativeTo: this.#route });
   };
 
-  protected readonly describeCreateError = describeCreateError;
+  readonly #i18n = inject(TranslocoService);
+  protected readonly describeCreateError = (): string => this.#i18n.translate('character.list.createFailed');
 
   protected readonly characterKey = characterKey;
 }

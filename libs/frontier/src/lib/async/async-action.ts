@@ -1,5 +1,6 @@
 import { computed, DestroyRef, inject } from '@angular/core';
 import type { Signal } from '@angular/core';
+import { TranslocoService } from '@jsverse/transloco';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import { injectMutation } from '@tanstack/angular-query-experimental';
 import type { MutationStatus } from '@tanstack/angular-query-experimental';
@@ -19,8 +20,6 @@ export type AsyncStatus = ValueOf<typeof AsyncStatus>;
 
 /** How long a success tick shows before the action returns to idle. */
 export const SUCCESS_FLASH_MS = 2000;
-
-const DEFAULT_ERROR = 'Something went wrong. Try again.';
 
 export interface AsyncActionOptions<TData> {
   /** Return false when the run did nothing (e.g. an invalid form): the action goes straight back to idle. */
@@ -82,7 +81,12 @@ export function injectAsyncAction<TData, TVariables = void>(
   action: () => (variables: TVariables) => Promise<TData>,
   options: AsyncActionOptions<TData> = {},
 ): AsyncAction<TVariables> {
-  const { accept = (): boolean => true, describeError = (): string => DEFAULT_ERROR, onSuccess } = options;
+  const i18n = inject(TranslocoService);
+  const {
+    accept = (): boolean => true,
+    describeError = (): string => i18n.translate('frontier.async.actionFailed'),
+    onSuccess,
+  } = options;
   const flash = injectFlash();
   const mutation = injectMutation(() => ({
     mutationFn: async (variables: TVariables): Promise<TData> => action()(variables),
