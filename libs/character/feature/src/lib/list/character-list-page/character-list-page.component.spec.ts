@@ -3,7 +3,7 @@ import { TestBed } from '@angular/core/testing';
 import { provideRouter, Router, withComponentInputBinding } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
 import { frontierMessages, Select } from '@pioneer/frontier';
-import { contentId } from '@pioneer/rules/sdk';
+import { contentId, PackId, Slug } from '@pioneer/rules/sdk';
 import { provideI18n } from '@pioneer/shared/web';
 import { describe, expect, it, vi } from 'vitest';
 
@@ -11,7 +11,7 @@ import { characterRoutes } from '../../character.routes';
 import { provideServerStateTesting } from '../../testing/provide-server-state-testing';
 
 const id = '0d9f7c1e-3b7a-4c55-9d1f-2a8f2b9c6e10';
-const elf = contentId('player-core', 'elf');
+const elf = contentId(PackId.parse('player-core'), Slug.parse('elf'));
 
 function present<TValue>(value: TValue | null | undefined): TValue {
   if (value === null || value === undefined) {

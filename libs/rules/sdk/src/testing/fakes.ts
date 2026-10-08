@@ -1,7 +1,7 @@
 import { faker } from '@faker-js/faker';
 import { registerFake } from '@pioneer/shared/kernel/testing';
 
-import { SlugSchema } from '../content-id';
+import { Slug } from '../content-id';
 
 const SLUG_WORDS = 2;
 
@@ -12,7 +12,7 @@ const SLUG_WORDS = 2;
  * Idempotent; call explicitly (no side-effect imports).
  */
 export function installRulesFakes(): void {
-  registerFake(SlugSchema, () =>
+  registerFake(Slug, () =>
     faker.word
       .words(SLUG_WORDS)
       .toLowerCase()

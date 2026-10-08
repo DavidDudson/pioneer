@@ -219,7 +219,7 @@ states, named as TanStack Query names them: **idle → pending → success →
 idle**, or **error**.
 
 - **pending**: spinner in place, `aria-busy`, further presses ignored.
-- **success**: a tick for `SUCCESS_FLASH_MS` (2s), then back to idle.
+- **success**: a tick for `SUCCESS_FLASH` (2s), then back to idle.
 - **error**: the message inline next to the trigger (`fr-message`, linked by
   `aria-describedby`) until the next attempt. Never a toast.
 
@@ -262,11 +262,11 @@ error/conflict state. Saves are one PATCH per field with the aggregate's
 **There are no save or cancel buttons.** Values save themselves:
 
 1. Tap the value: the read view becomes the control, focused.
-2. Typing saves 600ms after the last change (`SAVE_DEBOUNCE_MS`). Enter, a
+2. Typing saves 600ms after the last change (`SAVE_DEBOUNCE`). Enter, a
    select pick, or blur saves at once. Invalid drafts never save; the
    schema's message shows inline.
 3. Spinner while saving (`pending`), then "Saved ✓" (`success`) and a **Revert** button for 5s
-   (`REVERT_WINDOW_MS`). Revert restores the value from before the edit
+   (`REVERT_WINDOW`). Revert restores the value from before the edit
    session and saves it. Revert is a visible button, not hover-only.
 4. Blur, or 5s untouched after a save, returns to the read view. Revert
    stays available in the read view until its window ends.

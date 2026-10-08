@@ -5,7 +5,7 @@ export {
   CHARACTER_LEVEL_MIN,
   CHARACTER_NAME_MAX_LENGTH,
   CharacterId,
-  CharacterLevelSchema,
-  CharacterNameSchema,
+  CharacterLevel,
+  CharacterName,
 } from './character-fields';
 export { type CharacterPatch, CharacterPatchField, CharacterPatchSchema, PatchCharacterBody } from './character-patch';

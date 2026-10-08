@@ -19,7 +19,8 @@ export function spa(root: string): AnyElysia {
       return serve(index, REVALIDATE);
     }
     const file = Bun.file(`${root}${path}`);
-    if (!(await file.exists())) {
+    const fileExists = await file.exists();
+    if (!fileExists) {
       return serve(index, REVALIDATE);
     }
     return serve(file, HASHED_ASSET.test(path) ? IMMUTABLE : REVALIDATE);

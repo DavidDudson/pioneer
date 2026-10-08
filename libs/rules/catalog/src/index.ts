@@ -1,3 +1,4 @@
+import { PackId } from '@pioneer/rules/sdk';
 import type { ContentPackLoader } from '@pioneer/rules/sdk';
 
 /**
@@ -8,14 +9,14 @@ import type { ContentPackLoader } from '@pioneer/rules/sdk';
  */
 export const contentCatalog: readonly ContentPackLoader[] = [
   {
-    id: 'player-core',
+    id: PackId.parse('player-core'),
     load: async () => {
       const { playerCore } = await import('@pioneer/content/player-core');
       return playerCore;
     },
   },
   {
-    id: 'monster-core',
+    id: PackId.parse('monster-core'),
     load: async () => {
       const { monsterCore } = await import('@pioneer/content/monster-core');
       return monsterCore;

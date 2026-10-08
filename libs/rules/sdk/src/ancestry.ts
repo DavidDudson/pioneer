@@ -1,21 +1,23 @@
-import { UuidSchema } from '@pioneer/shared/kernel';
+import { Uuid } from '@pioneer/shared/kernel';
 import { z } from 'zod';
 
-import { SlugSchema } from './content-id';
+import { Slug } from './content-id';
+import { ContentText } from './content-text';
 import { SizeSchema } from './size';
+import { Trait } from './trait';
 import { Feet, HitPoints } from './units';
 
 /** Id of an ancestry content entry (UUIDv5 of `<pack>/<slug>`). */
-export const AncestryId = UuidSchema.brand<'AncestryId'>();
+export const AncestryId = Uuid.brand<'AncestryId'>();
 export type AncestryId = z.infer<typeof AncestryId>;
 
 /** Schema every pack's ancestry entries must satisfy. */
 export const AncestryDefinition = z.object({
-  slug: SlugSchema,
-  name: z.string().min(1),
+  slug: Slug,
+  name: ContentText,
   hitPoints: HitPoints,
   size: SizeSchema,
-  speedFeet: Feet,
-  traits: z.array(SlugSchema).readonly(),
+  speed: Feet,
+  traits: z.array(Trait).readonly(),
 });
 export type AncestryDefinition = z.infer<typeof AncestryDefinition>;

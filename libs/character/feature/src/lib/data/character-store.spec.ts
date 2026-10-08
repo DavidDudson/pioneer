@@ -1,8 +1,8 @@
 import { HttpTestingController } from '@angular/common/http/testing';
 import { ApplicationRef } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { CharacterId, CharacterPatchField } from '@pioneer/character/domain';
-import { contentId } from '@pioneer/rules/sdk';
+import { CharacterId, CharacterLevel, CharacterPatchField } from '@pioneer/character/domain';
+import { contentId, PackId, Slug } from '@pioneer/rules/sdk';
 import { ApiError } from '@pioneer/shared/web';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
@@ -22,7 +22,7 @@ function wire(version: number, level: number): WireCharacter & Record<string, un
     id,
     version,
     name: 'Merisiel',
-    ancestry: contentId('player-core', 'elf'),
+    ancestry: contentId(PackId.parse('player-core'), Slug.parse('elf')),
     level,
     attributes: { str: 0, dex: 4, con: 1, int: 0, wis: 0, cha: 1 },
     createdAt: '2026-10-07T10:00:00.000Z',
@@ -62,7 +62,7 @@ describe(CharacterStore, () => {
 
   it('patch sends the expected version and adopts the server result', async () => {
     await loadSelected();
-    const pending = store.patch({ field: CharacterPatchField.Level, value: 2 });
+    const pending = store.patch({ field: CharacterPatchField.Level, value: CharacterLevel.parse(2) });
     const request = http.expectOne({ method: 'PATCH', url: `/api/characters/${id}` });
     expect(request.request.body).toStrictEqual({ expectedVersion: 1, patch: { field: 'level', value: 2 } });
     request.flush(wire(2, 2));
@@ -72,7 +72,7 @@ describe(CharacterStore, () => {
 
   it('a conflict rethrows and reloads the latest version', async () => {
     await loadSelected();
-    const pending = store.patch({ field: CharacterPatchField.Level, value: 2 });
+    const pending = store.patch({ field: CharacterPatchField.Level, value: CharacterLevel.parse(2) });
     http
       .expectOne({ method: 'PATCH' })
       .flush({ type: 'version-conflict', title: 'Changed', status: 409 }, { status: 409, statusText: 'Conflict' });

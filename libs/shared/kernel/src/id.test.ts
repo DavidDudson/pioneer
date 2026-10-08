@@ -1,11 +1,11 @@
 import { describe, expect, test } from 'bun:test';
 
-import { ContentNamespace, derivedId, newId, UuidSchema } from './id';
+import { ContentNamespace, derivedId, newId, Uuid } from './id';
 
 describe('ids', () => {
   test('newId is a random UUIDv4', () => {
     const id = newId();
-    expect(UuidSchema.safeParse(id).success).toBe(true);
+    expect(Uuid.safeParse(id).success).toBe(true);
     expect(id[14]).toBe('4');
     expect(newId()).not.toBe(id);
   });

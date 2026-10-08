@@ -1,8 +1,8 @@
 import { CharacterRepository } from '@pioneer/character/application';
-import { Character, CharacterId } from '@pioneer/character/domain';
-import type { CharacterListQuery, CharacterSort } from '@pioneer/character/domain';
-import { AncestryId, AttributeModifiers } from '@pioneer/rules/sdk';
-import { SortDirection, Temporal, VersionConflictError } from '@pioneer/shared/kernel';
+import { Character } from '@pioneer/character/domain';
+import type { CharacterId, CharacterListQuery, CharacterSort } from '@pioneer/character/domain';
+import { AttributeModifiers } from '@pioneer/rules/sdk';
+import { nextVersion, SortDirection, Temporal, VersionConflictError } from '@pioneer/shared/kernel';
 import type { Version } from '@pioneer/shared/kernel';
 import { and, asc, desc, eq } from 'drizzle-orm';
 import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
@@ -22,10 +22,10 @@ const SORT_COLUMNS = {
 
 function toCharacter(row: Row): Character {
   return new Character({
-    id: CharacterId.parse(row.id),
+    id: row.id,
     version: row.version,
     name: row.name,
-    ancestry: AncestryId.parse(row.ancestry),
+    ancestry: row.ancestry,
     level: row.level,
     attributes: AttributeModifiers.codec.parse(row.attributes),
     createdAt: Temporal.Instant.from(row.createdAt),
@@ -77,7 +77,7 @@ export class DrizzleCharacterRepository extends CharacterRepository {
   }
 
   public override async update(character: Character, expectedVersion: Version): Promise<Character> {
-    const next = toRow(character.withVersion(expectedVersion + 1));
+    const next = toRow(character.withVersion(nextVersion(expectedVersion)));
     const [row] = await this.#db
       .update(characters)
       .set(next)

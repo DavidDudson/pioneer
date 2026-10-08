@@ -1,9 +1,10 @@
 import { signal } from '@angular/core';
 import type { WritableSignal } from '@angular/core';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import type { Mock } from 'vitest';
 import { z } from 'zod';
 
-import { InlineEdit, InlineEditStatus, REVERT_WINDOW_MS, SAVE_DEBOUNCE_MS } from './inline-edit';
+import { InlineEdit, InlineEditStatus, REVERT_WINDOW, SAVE_DEBOUNCE } from './inline-edit';
 
 class ConflictError extends Error {
   public override readonly name = 'ConflictError';
@@ -12,7 +13,7 @@ class ConflictError extends Error {
 interface Harness {
   readonly source: WritableSignal<number | undefined>;
   readonly edit: InlineEdit<number>;
-  readonly save: ReturnType<typeof vi.fn<(value: number) => Promise<void>>>;
+  readonly save: Mock<(value: number) => Promise<void>>;
 }
 
 /** A save that behaves like the store: on success the source becomes the saved value. */
@@ -65,9 +66,9 @@ describe(InlineEdit, () => {
     it('saves once input has been quiet for the debounce', async () => {
       const { edit, save } = opened();
       edit.change(4);
-      await vi.advanceTimersByTimeAsync(SAVE_DEBOUNCE_MS - 1);
+      await vi.advanceTimersByTimeAsync(SAVE_DEBOUNCE - 1);
       edit.change(5);
-      await vi.advanceTimersByTimeAsync(SAVE_DEBOUNCE_MS - 1);
+      await vi.advanceTimersByTimeAsync(SAVE_DEBOUNCE - 1);
       expect(save).not.toHaveBeenCalled();
       await vi.advanceTimersByTimeAsync(1);
       expect(save).toHaveBeenCalledExactlyOnceWith(5);
@@ -93,7 +94,7 @@ describe(InlineEdit, () => {
       const { edit, save } = opened();
       edit.change(25);
       expect(edit.validationError()).toBeDefined();
-      await vi.advanceTimersByTimeAsync(SAVE_DEBOUNCE_MS);
+      await vi.advanceTimersByTimeAsync(SAVE_DEBOUNCE);
       await edit.flush();
       edit.close();
       await edit.settled();
@@ -135,7 +136,7 @@ describe(InlineEdit, () => {
       edit.change(4);
       await edit.flush();
       expect(edit.open()).toBe(true);
-      await vi.advanceTimersByTimeAsync(REVERT_WINDOW_MS);
+      await vi.advanceTimersByTimeAsync(REVERT_WINDOW);
       expect(edit.open()).toBe(false);
       expect(edit.canRevert()).toBe(false);
       expect(edit.status()).toBe(InlineEditStatus.Idle);
@@ -145,7 +146,7 @@ describe(InlineEdit, () => {
       const { edit, save } = opened();
       edit.change(9);
       edit.cancel();
-      await vi.advanceTimersByTimeAsync(SAVE_DEBOUNCE_MS);
+      await vi.advanceTimersByTimeAsync(SAVE_DEBOUNCE);
       expect(save).not.toHaveBeenCalled();
       expect(edit.draft()).toBe(3);
       expect(edit.open()).toBe(false);
@@ -171,7 +172,7 @@ describe(InlineEdit, () => {
       const { edit } = opened();
       edit.change(4);
       await edit.flush();
-      await vi.advanceTimersByTimeAsync(REVERT_WINDOW_MS);
+      await vi.advanceTimersByTimeAsync(REVERT_WINDOW);
       expect(edit.canRevert()).toBe(false);
     });
   });

@@ -9,7 +9,7 @@ export {
   type AsyncActionOptions,
   AsyncStatus,
   injectAsyncAction,
-  SUCCESS_FLASH_MS,
+  SUCCESS_FLASH,
 } from './lib/async/async-action';
 export { AsyncIndicator } from './lib/async/async-indicator/async-indicator.component';
 export { AsyncData } from './lib/async/async-region/async-data.directive';

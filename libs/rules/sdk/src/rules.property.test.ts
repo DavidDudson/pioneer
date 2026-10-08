@@ -4,20 +4,20 @@ import { fakeSeeded } from '@pioneer/shared/kernel/testing';
 import { assert, constantFrom, integer, nat, property } from 'fast-check';
 
 import { AncestryDefinition } from './ancestry';
-import { Attribute, AttributeModifierSchema, AttributeModifiers } from './attribute';
-import { SlugSchema } from './content-id';
+import { Attribute, AttributeModifier, AttributeModifiers } from './attribute';
+import { Slug } from './content-id';
 import { installRulesFakes } from './testing';
 
 installRulesFakes();
 
 const attribute = constantFrom(...Object.values(Attribute));
-const modifier = integer({ min: -5, max: 7 });
+const modifier = integer({ min: -5, max: 7 }).map((value) => AttributeModifier.parse(value));
 
 describe('rules SDK (properties)', () => {
   test('faked ancestries are valid (the fakers honour the schemas)', () => {
     assert(
       property(nat(), (seed) => {
-        expect(SlugSchema.safeParse(fakeSeeded(SlugSchema, seed)).success).toBe(true);
+        expect(Slug.safeParse(fakeSeeded(Slug, seed)).success).toBe(true);
         expect(AncestryDefinition.safeParse(fakeSeeded(AncestryDefinition, seed)).success).toBe(true);
       }),
     );
@@ -38,7 +38,7 @@ describe('rules SDK (properties)', () => {
   test('modifiers outside -5..+7 are rejected', () => {
     assert(
       property(integer(), (value) => {
-        expect(AttributeModifierSchema.safeParse(value).success).toBe(value >= -5 && value <= 7);
+        expect(AttributeModifier.safeParse(value).success).toBe(value >= -5 && value <= 7);
       }),
     );
   });

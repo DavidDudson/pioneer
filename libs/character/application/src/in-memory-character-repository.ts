@@ -1,6 +1,6 @@
 import { CharacterSort } from '@pioneer/character/domain';
 import type { Character, CharacterId, CharacterListQuery } from '@pioneer/character/domain';
-import { SortDirection, VersionConflictError } from '@pioneer/shared/kernel';
+import { nextVersion, SortDirection, VersionConflictError } from '@pioneer/shared/kernel';
 import type { Version } from '@pioneer/shared/kernel';
 
 import { CharacterRepository } from './character-repository';
@@ -32,7 +32,7 @@ export class InMemoryCharacterRepository extends CharacterRepository {
     if (stored?.version !== expectedVersion) {
       throw new VersionConflictError('Character', character.id);
     }
-    const saved = character.withVersion(expectedVersion + 1);
+    const saved = character.withVersion(nextVersion(expectedVersion));
     this.#rows.set(saved.id, saved);
     return saved;
   }

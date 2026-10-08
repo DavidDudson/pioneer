@@ -2,19 +2,21 @@ import { z } from 'zod';
 
 import { AncestryDefinition } from './ancestry';
 import { PackId } from './content-id';
+import type { Slug } from './content-id';
+import { ContentText } from './content-text';
 import { CreatureDefinition } from './creature';
 import { ContentLicenseSchema } from './license';
 
 export const ContentPackManifest = z.object({
   /** Prefix of every content key in the pack, e.g. `player-core`. */
   id: PackId,
-  title: z.string().min(1),
-  publisher: z.string().min(1),
+  title: ContentText,
+  publisher: ContentText,
   license: ContentLicenseSchema,
 });
 export type ContentPackManifest = z.infer<typeof ContentPackManifest>;
 
-function uniqueSlugs(entries: readonly { readonly slug: string }[]): boolean {
+function uniqueSlugs(entries: readonly { readonly slug: Slug }[]): boolean {
   return new Set(entries.map((entry) => entry.slug)).size === entries.length;
 }
 
@@ -44,13 +46,13 @@ export class ContentPack {
     return new ContentPack(ContentPackSchema.parse(data));
   }
 
-  public get id(): string {
+  public get id(): PackId {
     return this.manifest.id;
   }
 }
 
 /** How apps reference a pack without bundling it: a lazy dynamic import. */
 export interface ContentPackLoader {
-  readonly id: string;
+  readonly id: PackId;
   readonly load: () => Promise<ContentPack>;
 }

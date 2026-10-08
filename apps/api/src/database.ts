@@ -1,7 +1,8 @@
 import { drizzle } from 'drizzle-orm/bun-sql';
+import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
 import { migrate } from 'drizzle-orm/bun-sql/migrator';
 
-export type Database = ReturnType<typeof drizzle>;
+export type Database = BunSQLDatabase;
 
 export function connect(url: string): Database {
   return drizzle(url, { casing: 'snake_case' });

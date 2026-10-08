@@ -1,12 +1,12 @@
 import { describe, expect, test } from 'bun:test';
 
-import { Attribute, Proficiency } from '@pioneer/rules/sdk';
+import { Attribute, Modifier, Proficiency } from '@pioneer/rules/sdk';
 import { fixedClock, FixtureNamespace, derivedId } from '@pioneer/shared/kernel';
 import { z } from 'zod';
 
 import { Character } from './character';
-import { CharacterId } from './character-fields';
-import { CharacterPatchField } from './character-patch';
+import { CharacterId, CharacterName } from './character-fields';
+import { CharacterPatchField, CharacterPatchSchema } from './character-patch';
 import { CharacterBuilder } from './testing';
 
 const later = fixedClock('2026-10-07T10:00:00Z').now();
@@ -24,26 +24,24 @@ describe('Character', () => {
     expect(wire.attributes).toStrictEqual({ str: 0, dex: 0, con: 0, int: 0, wis: 0, cha: 0 });
     const decoded = Character.codec.parse(structuredClone(wire));
     expect(decoded).toBeInstanceOf(Character);
-    expect(decoded.name).toBe('Valeros');
+    expect(decoded.name).toBe(CharacterName.parse('Valeros'));
   });
 
   test('apply returns a new instance and leaves the original alone', () => {
     const original = new CharacterBuilder().build();
-    const renamed = original.apply({ field: CharacterPatchField.Name, value: 'Seelah' }, later);
-    expect(renamed.name).toBe('Seelah');
+    const renamed = original.apply({ field: CharacterPatchField.Name, value: CharacterName.parse('Seelah') }, later);
+    expect(renamed.name).toBe(CharacterName.parse('Seelah'));
     expect(renamed.updatedAt.equals(later)).toBe(true);
-    expect(original.name).toBe('Valeros');
+    expect(original.name).toBe(CharacterName.parse('Valeros'));
   });
 
   test('check modifier is attribute plus proficiency', () => {
     const character = new CharacterBuilder().atLevel(3).withAttribute(Attribute.Strength, 4).build();
-    expect(character.checkModifier(Attribute.Strength, Proficiency.Expert)).toBe(4 + 4 + 3);
-    expect(character.checkModifier(Attribute.Strength, Proficiency.Untrained)).toBe(4);
+    expect(character.checkModifier(Attribute.Strength, Proficiency.Expert)).toBe(Modifier.parse(4 + 4 + 3));
+    expect(character.checkModifier(Attribute.Strength, Proficiency.Untrained)).toBe(Modifier.parse(4));
   });
 
   test('rejects out-of-range level', () => {
-    expect(() =>
-      new CharacterBuilder().build().apply({ field: CharacterPatchField.Level, value: 21 }, later),
-    ).toThrow();
+    expect(CharacterPatchSchema.safeParse({ field: CharacterPatchField.Level, value: 21 }).success).toBe(false);
   });
 });

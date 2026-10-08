@@ -1,6 +1,7 @@
 import { AncestryId } from './ancestry';
 import type { AncestryDefinition } from './ancestry';
 import { ContentEntry } from './content-entry';
+import type { PackId } from './content-id';
 import type { ContentPack, ContentPackLoader } from './content-pack';
 import { CreatureId } from './creature';
 import type { CreatureDefinition } from './creature';
@@ -13,9 +14,9 @@ export type CreatureEntry = ContentEntry<CreatureId, CreatureDefinition>;
  * hold one; packs are added with `load` (lazy) or `register` (already loaded).
  */
 export class ContentRegistry {
-  readonly #packs = new Map<string, ContentPack>();
-  readonly #ancestries = new Map<string, AncestryEntry>();
-  readonly #creatures = new Map<string, CreatureEntry>();
+  readonly #packs = new Map<PackId, ContentPack>();
+  readonly #ancestries = new Map<AncestryId, AncestryEntry>();
+  readonly #creatures = new Map<CreatureId, CreatureEntry>();
 
   public async load(loader: ContentPackLoader): Promise<ContentPack> {
     const existing = this.#packs.get(loader.id);

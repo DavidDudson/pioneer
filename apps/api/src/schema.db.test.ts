@@ -1,9 +1,9 @@
 import { afterAll, beforeAll, describe, expect, test } from 'bun:test';
 
-import { CharacterPatchField } from '@pioneer/character/domain';
+import { CharacterLevel, CharacterPatchField } from '@pioneer/character/domain';
 import { CharacterBuilder } from '@pioneer/character/domain/testing';
 import { DrizzleCharacterRepository } from '@pioneer/character/infrastructure';
-import { fixedClock } from '@pioneer/shared/kernel';
+import { FIRST_VERSION, fixedClock } from '@pioneer/shared/kernel';
 import { rejection } from '@pioneer/shared/kernel/testing';
 import { auditLog } from '@pioneer/shared/server';
 import { createTestDatabase, testDatabaseUrl } from '@pioneer/shared/server/testing';
@@ -52,8 +52,8 @@ describe.skipIf(adminUrl === undefined)('database schema (postgres)', () => {
   test('writes are logged with before/after and version; the log is append-only', async () => {
     const repository = new DrizzleCharacterRepository(database.db);
     const character = await repository.insert(new CharacterBuilder().named('Amiri').build());
-    const patch = { field: CharacterPatchField.Level, value: 4 } as const;
-    await repository.update(character.apply(patch, fixedClock('2026-10-07T10:00:00Z').now()), 1);
+    const patch = { field: CharacterPatchField.Level, value: CharacterLevel.parse(4) } as const;
+    await repository.update(character.apply(patch, fixedClock('2026-10-07T10:00:00Z').now()), FIRST_VERSION);
 
     const entries = await database.db
       .select()

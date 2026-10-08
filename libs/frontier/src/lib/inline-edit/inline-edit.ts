@@ -1,5 +1,6 @@
 import { computed, linkedSignal, signal } from '@angular/core';
 import type { Signal } from '@angular/core';
+import { Milliseconds } from '@pioneer/shared/kernel';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import { Debouncer } from '@tanstack/angular-pacer';
 import type { z } from 'zod';
@@ -22,11 +23,11 @@ export const InlineEditStatus = {
 export type InlineEditStatus = ValueOf<typeof InlineEditStatus>;
 
 /** Quiet time after the last change before it saves. */
-export const SAVE_DEBOUNCE_MS = 600;
+export const SAVE_DEBOUNCE: Milliseconds = Milliseconds.parse(600);
 /** How long Revert is offered after a save; the field then closes if untouched. */
-export const REVERT_WINDOW_MS = 5000;
+export const REVERT_WINDOW: Milliseconds = Milliseconds.parse(5000);
 /** How long the tick shows after a revert, which itself can't be reverted. */
-const REVERTED_FLASH_MS = 1500;
+const REVERTED_FLASH: Milliseconds = Milliseconds.parse(1500);
 
 /** Server-side phase; the open/closed view is tracked separately. */
 const Phase = {
@@ -94,9 +95,9 @@ export class InlineEdit<TValue> {
     () => {
       this.flushSoon();
     },
-    { wait: SAVE_DEBOUNCE_MS },
+    { wait: SAVE_DEBOUNCE },
   );
-  #revertTimer: ReturnType<typeof setTimeout> | undefined;
+  #revertTimer: number | undefined;
 
   public constructor(options: InlineEditOptions<TValue>) {
     this.#options = options;
@@ -244,7 +245,7 @@ export class InlineEdit<TValue> {
           this.#open.set(false);
         }
       },
-      revertible ? REVERT_WINDOW_MS : REVERTED_FLASH_MS,
+      revertible ? REVERT_WINDOW : REVERTED_FLASH,
     );
   }
 

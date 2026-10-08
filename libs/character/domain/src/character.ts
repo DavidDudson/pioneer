@@ -1,20 +1,20 @@
-import { AncestryId, AttributeModifiers, proficiencyBonus } from '@pioneer/rules/sdk';
-import type { Attribute, Proficiency } from '@pioneer/rules/sdk';
-import { InstantCodec, VersionSchema } from '@pioneer/shared/kernel';
-import type { Temporal, Version } from '@pioneer/shared/kernel';
+import { AncestryId, AttributeModifiers, Modifier, proficiencyBonus } from '@pioneer/rules/sdk';
+import type { Attribute, AttributeModifier, Proficiency } from '@pioneer/rules/sdk';
+import { FIRST_VERSION, InstantCodec, Version } from '@pioneer/shared/kernel';
+import type { Temporal } from '@pioneer/shared/kernel';
 import { z } from 'zod';
 
-import { CHARACTER_LEVEL_MIN, CharacterId, CharacterLevelSchema, CharacterNameSchema } from './character-fields';
+import { CHARACTER_LEVEL_MIN, CharacterId, CharacterLevel, CharacterName } from './character-fields';
 import { CharacterPatchField } from './character-patch';
 import type { CharacterPatch } from './character-patch';
 
 /** JSON shape of a character on the wire and in storage. */
 export const CharacterWire = z.object({
   id: CharacterId,
-  version: VersionSchema,
-  name: CharacterNameSchema,
+  version: Version,
+  name: CharacterName,
   ancestry: AncestryId,
-  level: CharacterLevelSchema,
+  level: CharacterLevel,
   attributes: AttributeModifiers.codec,
   createdAt: InstantCodec,
   updatedAt: InstantCodec,
@@ -23,9 +23,9 @@ export const CharacterWire = z.object({
 interface CharacterProps {
   readonly id: CharacterId;
   readonly version: Version;
-  readonly name: string;
+  readonly name: CharacterName;
   readonly ancestry: AncestryId;
-  readonly level: number;
+  readonly level: CharacterLevel;
   readonly attributes: AttributeModifiers;
   readonly createdAt: Temporal.Instant;
   readonly updatedAt: Temporal.Instant;
@@ -47,9 +47,9 @@ export class Character {
 
   public readonly id: CharacterId;
   public readonly version: Version;
-  public readonly name: string;
+  public readonly name: CharacterName;
   public readonly ancestry: AncestryId;
-  public readonly level: number;
+  public readonly level: CharacterLevel;
   public readonly attributes: AttributeModifiers;
   public readonly createdAt: Temporal.Instant;
   public readonly updatedAt: Temporal.Instant;
@@ -57,9 +57,9 @@ export class Character {
   public constructor(props: CharacterProps) {
     this.id = props.id;
     this.version = props.version;
-    this.name = CharacterNameSchema.parse(props.name);
+    this.name = props.name;
     this.ancestry = props.ancestry;
-    this.level = CharacterLevelSchema.parse(props.level);
+    this.level = props.level;
     this.attributes = props.attributes;
     this.createdAt = props.createdAt;
     this.updatedAt = props.updatedAt;
@@ -67,29 +67,29 @@ export class Character {
 
   public static create(input: {
     readonly id: CharacterId;
-    readonly name: string;
+    readonly name: CharacterName;
     readonly ancestry: AncestryId;
     readonly now: Temporal.Instant;
   }): Character {
     return new Character({
       id: input.id,
-      version: 1,
+      version: FIRST_VERSION,
       name: input.name,
       ancestry: input.ancestry,
-      level: CHARACTER_LEVEL_MIN,
+      level: CharacterLevel.parse(CHARACTER_LEVEL_MIN),
       attributes: AttributeModifiers.none,
       createdAt: input.now,
       updatedAt: input.now,
     });
   }
 
-  public modifier(attribute: Attribute): number {
+  public modifier(attribute: Attribute): AttributeModifier {
     return this.attributes.get(attribute);
   }
 
   /** Total modifier for a check: attribute modifier plus proficiency bonus. */
-  public checkModifier(attribute: Attribute, rank: Proficiency): number {
-    return this.modifier(attribute) + proficiencyBonus(rank, this.level);
+  public checkModifier(attribute: Attribute, rank: Proficiency): Modifier {
+    return Modifier.parse(this.modifier(attribute) + proficiencyBonus(rank, this.level));
   }
 
   /** Apply one field-level edit. Version bump is the repository's job. */

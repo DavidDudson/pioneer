@@ -1,6 +1,9 @@
 import type { ValueOf } from '@pioneer/shared/kernel';
 import { z } from 'zod';
 
+import { Modifier } from './units';
+import type { Level } from './units';
+
 export const Proficiency = {
   Untrained: 'untrained',
   Trained: 'trained',
@@ -20,6 +23,6 @@ const RANK_BONUS = {
 } as const satisfies Record<Proficiency, number>;
 
 /** Proficiency bonus: untrained adds nothing, otherwise rank bonus + level. */
-export function proficiencyBonus(rank: Proficiency, level: number): number {
-  return rank === Proficiency.Untrained ? 0 : RANK_BONUS[rank] + level;
+export function proficiencyBonus(rank: Proficiency, level: Level): Modifier {
+  return Modifier.parse(rank === Proficiency.Untrained ? 0 : RANK_BONUS[rank] + level);
 }
