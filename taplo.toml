@@ -1,5 +1,5 @@
 include = ["*.toml", "**/*.toml"]
-exclude = ["node_modules/**"]
+exclude = ["node_modules/**", ".direnv/**"]
 
 [formatting]
 align_entries = false
