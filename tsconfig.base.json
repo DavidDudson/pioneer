@@ -40,6 +40,8 @@
       "@pioneer/shared/web": ["./libs/shared/web/src/index.ts"],
       "@pioneer/rules/sdk": ["./libs/rules/sdk/src/index.ts"],
       "@pioneer/rules/sdk/testing": ["./libs/rules/sdk/src/testing/index.ts"],
+      "@pioneer/rules/dice": ["./libs/rules/dice/src/index.ts"],
+      "@pioneer/rules/dice/testing": ["./libs/rules/dice/src/testing/index.ts"],
       "@pioneer/rules/catalog": ["./libs/rules/catalog/src/index.ts"],
       "@pioneer/content/player-core": ["./libs/content/player-core/src/index.ts"],
       "@pioneer/content/monster-core": ["./libs/content/monster-core/src/index.ts"],

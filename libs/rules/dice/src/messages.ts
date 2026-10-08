@@ -1,0 +1,15 @@
+/** Keys for dice text; their `en` text ships in this lib's `i18n/en.json` under `dice.*`. */
+export const DiceMessage = {
+  Empty: 'dice.parse.empty',
+  TooLong: 'dice.parse.tooLong',
+  TooManyTerms: 'dice.parse.tooManyTerms',
+  UnexpectedCharacter: 'dice.parse.unexpectedCharacter',
+  UnexpectedToken: 'dice.parse.unexpectedToken',
+  UnexpectedEnd: 'dice.parse.unexpectedEnd',
+  DiceCount: 'dice.parse.diceCount',
+  DieSize: 'dice.parse.dieSize',
+  FlatValue: 'dice.parse.flatValue',
+  KeepCount: 'dice.parse.keepCount',
+  UnknownTag: 'dice.parse.unknownTag',
+  ConflictingTag: 'dice.parse.conflictingTag',
+} as const;

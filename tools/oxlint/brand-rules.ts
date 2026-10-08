@@ -119,7 +119,7 @@ export const noMagicNumbers: Rule.RuleModule = {
 };
 
 /** Domain and rules code: where every value has a meaning a brand or const object can carry. */
-const DOMAIN = /(?:^|\/)libs\/(?:[^/]+\/domain|rules\/sdk)\/src\/(?!testing\/)/u;
+const DOMAIN = /(?:^|\/)libs\/(?:[^/]+\/domain|rules\/(?:sdk|dice))\/src\/(?!testing\/)/u;
 const TEST_FILE = /\.(?:test|spec)\.ts$/u;
 /** Wrappers a primitive can sit in and still be the annotated type (`readonly string[]`, `number | undefined`). */
 const TYPE_WRAPPERS = new Set(['TSUnionType', 'TSArrayType', 'TSTypeOperator']);
