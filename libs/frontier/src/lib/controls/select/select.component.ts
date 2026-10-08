@@ -2,7 +2,7 @@ import { Combobox, ComboboxPopup, ComboboxWidget } from '@angular/aria/combobox'
 import { Listbox, Option } from '@angular/aria/listbox';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { ChangeDetectionStrategy, Component, computed, input, model, signal } from '@angular/core';
-import { translateSignal } from '@jsverse/transloco';
+import { TranslocoPipe } from '@jsverse/transloco';
 import { cva } from 'class-variance-authority';
 
 import { Control } from '../control';
@@ -29,7 +29,7 @@ const caretClasses = cva('text-fg-subtle')();
  */
 @Component({
   selector: 'fr-select',
-  imports: [Combobox, ComboboxPopup, ComboboxWidget, Listbox, Option, OverlayModule],
+  imports: [Combobox, ComboboxPopup, ComboboxWidget, Listbox, Option, OverlayModule, TranslocoPipe],
   templateUrl: './select.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'block' },
@@ -37,7 +37,6 @@ const caretClasses = cva('text-fg-subtle')();
 export class Select<TValue extends string> extends Control {
   /** Selected value; `undefined` or `''` shows the placeholder. */
   public readonly value = model<TValue | undefined>(undefined);
-  readonly #defaultPlaceholder = translateSignal('frontier.select.placeholder');
   public readonly options = input.required<readonly SelectOption<TValue>[]>();
   /** Defaults to "Select…" in the viewer's locale. */
   public readonly placeholder = input<string | undefined>(undefined);
@@ -47,11 +46,13 @@ export class Select<TValue extends string> extends Control {
     const value = this.value();
     return value === undefined || value === '' ? [] : [value];
   });
+  /**
+   * The chosen option's label, else the caller's placeholder. `undefined` falls back to the
+   * default placeholder through the transloco pipe in the template: unlike `translateSignal`, the
+   * pipe doesn't prefix the key with a feature route's message scope.
+   */
   protected readonly selectedLabel = computed(
-    () =>
-      this.options().find((option) => option.value === this.value())?.label ??
-      this.placeholder() ??
-      this.#defaultPlaceholder(),
+    () => this.options().find((option) => option.value === this.value())?.label ?? this.placeholder(),
   );
   protected readonly triggerClasses = controlVariants({ trigger: true });
   protected readonly listboxClasses = listboxClasses;
