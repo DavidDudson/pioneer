@@ -1,6 +1,7 @@
 import { computed, inject, Injectable } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoService } from '@jsverse/transloco';
+import { LocaleFormat } from '@pioneer/frontier';
 import type { SelectOption } from '@pioneer/frontier';
 import { contentCatalog } from '@pioneer/rules/catalog';
 import { ContentRegistry } from '@pioneer/rules/sdk';
@@ -12,6 +13,7 @@ import { filter, merge } from 'rxjs';
 @Injectable({ providedIn: 'root' })
 export class AncestryOptions {
   readonly #i18n = inject(TranslocoService);
+  readonly #format = inject(LocaleFormat);
   readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
   /** Ticks when the locale changes or a message scope (e.g. `character`) finishes loading. */
   readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
@@ -36,7 +38,7 @@ export class AncestryOptions {
           pack: entry.pack.manifest.title,
         }),
       }))
-      .toSorted((left, right) => left.label.localeCompare(right.label));
+      .toSorted((left, right) => this.#format.compare(left.label, right.label));
   });
 
   public name(id: AncestryId): string {

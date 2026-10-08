@@ -10,6 +10,10 @@
  * - `!important` modifiers;
  * - rounded corners and shadows (`rounded-*`, `shadow-*`, `ring-*`, …):
  *   frontier is sharp and flat, so no theme can bring them back;
+ * - physical directions (`ml-*`, `pr-*`, `left-*`, `border-l`, `text-right`, …):
+ *   logical ones (`ms-*`, `pe-*`, `start-*`, `border-s`, `text-end`) flip for
+ *   right-to-left locales. Safe-area padding (`pl-safe-left`) stays physical,
+ *   because a notch is on a physical edge;
  * plus the layout-variant rules in ./layout-variants.ts.
  *
  * Numbers that are counts, not sizes, are allowed (`grid-cols-3`, `flex-1`).
@@ -25,6 +29,8 @@ export const CLASS_TOKEN_MESSAGES = {
   numeric:
     '`{{variant}}` uses a raw scale number. Use a semantic token (e.g. `opacity-disabled`, `z-sticky`, `duration-fast`).',
   important: '`{{variant}}` forces `!important`. Fix the conflicting classes in the cva instead.',
+  physical:
+    '`{{variant}}` is a physical direction and will not flip for right-to-left locales. Use the logical utility (`ms`/`me`, `ps`/`pe`, `start`/`end`, `border-s`/`border-e`, `text-start`/`text-end`).',
   sharp:
     '`{{variant}}` rounds corners or casts a shadow. Frontier is sharp and flat: separate with borders and surface colours.',
 } as const;
@@ -41,6 +47,9 @@ const SHARP = /^(?:rounded|shadow|inset-shadow|ring|inset-ring|drop-shadow|text-
 /** Token steps like `2xs` / `3xl`: digits that are part of a name, not a value. */
 const TOKEN_STEP = /(?<=-)\d?x[sl](?=$|-)/gu;
 const DIGIT = /\d/u;
+/** Left/right utilities; logical equivalents flip with `dir`. Safe-area insets are physical by nature. */
+const PHYSICAL =
+  /^(?:(?:scroll-)?[mp][lr]-(?!safe-)|(?:left|right)-|border-[lr](?:-|$)|(?:text|float|clear)-(?:left|right)$|rounded-[lr])/u;
 /** Utilities whose number is a count or a flex factor, not a length. */
 const COUNTS =
   /^(?:grid-cols-\d+|grid-rows-\d+|col-span-\d+|row-span-\d+|line-clamp-\d+|order-\d+|flex-1|grow-0|shrink-0)$/u;
@@ -49,6 +58,9 @@ const COUNTS =
 function baseProblem(base: string, token: string): ClassTokenProblem | undefined {
   if (SHARP.test(base)) {
     return { messageId: 'sharp', variant: token };
+  }
+  if (PHYSICAL.test(base)) {
+    return { messageId: 'physical', variant: token };
   }
   if (PIXEL.test(base)) {
     return { messageId: 'px', variant: token };

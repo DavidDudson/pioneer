@@ -69,3 +69,5 @@ export { ColorMode, Theme, ThemeStore } from './lib/theme/theme-store';
 
 export { Container, Size, Space, Tone } from './lib/tokens';
 export { default as frontierMessages } from './i18n/en.json';
+export { Distance } from './lib/locale/distance/distance.component';
+export { DISTANCE_UNIT, LocaleFormat } from './lib/locale/locale-format';

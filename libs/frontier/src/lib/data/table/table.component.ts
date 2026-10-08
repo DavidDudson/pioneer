@@ -16,11 +16,11 @@ function ariaSort<TData extends RowData>(header: TableHeader<TData>): string | u
 
 const scrollerClasses = cva('block w-full overflow-x-auto')();
 const tableClasses = cva('w-full border-collapse text-body tabular-nums')();
-const captionVariants = cva('pb-xs text-left text-label font-medium text-fg-muted', {
+const captionVariants = cva('pb-xs text-start text-label font-medium text-fg-muted', {
   variants: { hidden: { true: 'sr-only', false: '' } },
 });
 const headerCellClasses = cva(
-  'border-b border-line-default px-sm py-xs text-left text-label font-medium text-fg-muted',
+  'border-b border-line-default px-sm py-xs text-start text-label font-medium text-fg-muted',
 )();
 const cellClasses = cva('border-b border-line-subtle px-sm py-xs text-fg-default')();
 

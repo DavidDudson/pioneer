@@ -1,9 +1,10 @@
 import { provideHttpClient } from '@angular/common/http';
-import { provideBrowserGlobalErrorListeners, provideZonelessChangeDetection } from '@angular/core';
+import { inject, provideBrowserGlobalErrorListeners, provideZonelessChangeDetection } from '@angular/core';
 import type { ApplicationConfig } from '@angular/core';
 import { provideRouter, withComponentInputBinding, withPreloading } from '@angular/router';
+import { DISTANCE_UNIT } from '@pioneer/frontier';
 import { Milliseconds } from '@pioneer/shared/kernel';
-import { IdlePreloading, provideI18n } from '@pioneer/shared/web';
+import { IdlePreloading, LocalePreferences, provideI18n } from '@pioneer/shared/web';
 import { provideTanStackQuery, QueryClient } from '@tanstack/angular-query-experimental';
 
 import { appRoutes } from './app.routes';
@@ -21,5 +22,6 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(),
     provideTanStackQuery(new QueryClient({ defaultOptions: { queries: { staleTime: STALE_TIME } } })),
     provideI18n(appMessages),
+    { provide: DISTANCE_UNIT, useFactory: () => inject(LocalePreferences).distanceUnit },
   ],
 };

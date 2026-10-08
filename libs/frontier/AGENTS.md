@@ -69,6 +69,16 @@ Read this before touching any UI.
   templates or styles.
 - **Const objects, not enums** for every variant set (`Space.Md`,
   `ButtonVariant.Primary`).
+- **Logical directions only.** `ms`/`me`, `ps`/`pe`, `start`/`end`,
+  `border-s`/`border-e`, `text-start`/`text-end`, so layouts flip for
+  right-to-left locales. `class-tokens` rejects `ml-*`, `left-*`,
+  `text-left` and the rest. Safe-area padding (`pl-safe-left`) is the
+  exception: a notch sits on a physical edge.
+- **Format through `LocaleFormat`.** Numbers, lists, distances and sorting use
+  the active UI locale (`fr-date` and `fr-distance` already do). Never call
+  `toLocaleString()` or `Intl` with the browser default. Format inside a
+  `computed` so a locale switch re-renders. Rules distances are feet; show
+  them with `fr-distance`, which honours the feet/metres preference.
 - **Entry points.** `@pioneer/frontier` is everything the shell and forms
   need. `@pioneer/frontier/data` (Table, Chart, VirtualList) is separate so
   their TanStack libraries load only on routes that use them: the Angular

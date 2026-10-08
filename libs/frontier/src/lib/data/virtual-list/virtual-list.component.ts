@@ -29,7 +29,7 @@ const ESTIMATE_PX: Record<VirtualEstimate, number> = { sm: 48, md: 96, lg: 160 }
 const OVERSCAN = 4;
 
 const listClasses = cva('relative block w-full')();
-const rowVariants = cva('absolute top-none left-none block w-full', {
+const rowVariants = cva('absolute top-none start-none block w-full', {
   variants: {
     gap: {
       none: 'pb-none',

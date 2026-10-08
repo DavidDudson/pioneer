@@ -50,5 +50,5 @@ export {
   ValidationMessage,
 } from './message';
 export { default as kernelMessages } from './i18n/en.json';
-export { Milliseconds } from './units';
+export { DistanceUnit, DistanceUnitSchema, feetToMetres, Milliseconds } from './units';
 export type { ValueOf } from './value-of';

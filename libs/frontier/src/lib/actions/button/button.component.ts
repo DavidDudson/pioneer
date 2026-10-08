@@ -34,7 +34,7 @@ const buttonVariants = cva(
         ghost: 'justify-center font-medium text-fg-default hover:bg-surface-sunken',
         danger: 'justify-center font-medium bg-danger-solid text-accent-on-solid hover:bg-danger-solid-hover',
         inline:
-          '-mx-2xs min-h-touch min-w-none px-2xs text-left text-body text-fg-default hover:bg-surface-sunken pointer-fine:min-h-control-sm',
+          '-mx-2xs min-h-touch min-w-none px-2xs text-start text-body text-fg-default hover:bg-surface-sunken pointer-fine:min-h-control-sm',
       } satisfies Record<ButtonVariant, string>,
       size: {
         sm: 'h-touch px-sm text-label pointer-fine:h-control-sm',

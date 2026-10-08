@@ -1,11 +1,22 @@
 import { DOCUMENT, inject, Injectable, InjectionToken, signal } from '@angular/core';
 import { TranslocoService } from '@jsverse/transloco';
-import { Locale, resolveLocale, SOURCE_LOCALE, textDirection } from '@pioneer/shared/kernel';
+import {
+  DistanceUnit,
+  DistanceUnitSchema,
+  Locale,
+  resolveLocale,
+  SOURCE_LOCALE,
+  textDirection,
+} from '@pioneer/shared/kernel';
 import { firstValueFrom } from 'rxjs';
 import { z } from 'zod';
 
 const STORAGE_KEY = 'pioneer.locale';
-const StoredPreferences = z.object({ ui: z.string().optional(), content: z.string().optional() });
+const StoredPreferences = z.object({
+  ui: z.string().optional(),
+  content: z.string().optional(),
+  distanceUnit: z.string().optional(),
+});
 type StoredPreferences = z.infer<typeof StoredPreferences>;
 
 /** The browser's `Accept-Language` list, most preferred first. */
@@ -38,10 +49,16 @@ function readStored(storage: Storage | undefined): StoredPreferences {
   }
 }
 
+function storedUnit(stored: string | undefined): DistanceUnit {
+  const unit = DistanceUnitSchema.safeParse(stored);
+  return unit.success ? unit.data : DistanceUnit.Feet;
+}
+
 /**
  * The viewer's UI and content locales. Each resolves from the stored preference, then the
  * browser's languages, then `en`. They are independent: English rules text with a German UI is
- * valid. Account preferences slot in ahead of storage once accounts exist.
+ * valid. Also the distance unit (feet as written, or metres as translated books use). Account
+ * preferences slot in ahead of storage once accounts exist.
  */
 @Injectable({ providedIn: 'root' })
 export class LocalePreferences {
@@ -52,9 +69,11 @@ export class LocalePreferences {
   readonly #stored = readStored(this.#storage);
   readonly #ui = signal(this.#resolve(this.#stored.ui));
   readonly #content = signal(this.#resolve(this.#stored.content));
+  readonly #distanceUnit = signal(storedUnit(this.#stored.distanceUnit));
 
   public readonly ui = this.#ui.asReadonly();
   public readonly content = this.#content.asReadonly();
+  public readonly distanceUnit = this.#distanceUnit.asReadonly();
 
   /** Loads the UI locale's root messages and activates it. Runs once before bootstrap. */
   public async apply(): Promise<void> {
@@ -70,6 +89,11 @@ export class LocalePreferences {
 
   public setContent(locale: Locale): void {
     this.#content.set(locale);
+    this.#persist();
+  }
+
+  public setDistanceUnit(unit: DistanceUnit): void {
+    this.#distanceUnit.set(unit);
     this.#persist();
   }
 
@@ -89,7 +113,10 @@ export class LocalePreferences {
 
   #persist(): void {
     try {
-      this.#storage?.setItem(STORAGE_KEY, JSON.stringify({ ui: this.#ui(), content: this.#content() }));
+      this.#storage?.setItem(
+        STORAGE_KEY,
+        JSON.stringify({ ui: this.#ui(), content: this.#content(), distanceUnit: this.#distanceUnit() }),
+      );
     } catch {
       // Quota or blocked storage: the choice still applies for this session.
     }
