@@ -22,7 +22,8 @@ Read this before touching any UI.
   select trigger), `<input>` only in the plain controls, `<a>` only in
   `fr-link`, `<label>` only in `fr-label`, `<form>` only in `fr-form` /
   `fr-async-form`, `<h1>`–`<h4>` only in `fr-heading`, `<p>` only in
-  `fr-text`, table elements only in `fr-table`, `<svg>` only in `fr-icon`.
+  `fr-text`, `<ul>` / `<ol>` only in `fr-list`, `<li>` only in
+  `fr-list-item`, table elements only in `fr-table`, `<svg>` only in `fr-icon`.
   `select`, `textarea` and
   `img` have no owner yet: add a primitive first. The ownership map lives in
   `tools/eslint/no-native-elements.ts`.
@@ -193,6 +194,7 @@ after `themes/frontier.css`, and add it to `Theme` in
 | Area           | Components                                                                                                                                                          |
 | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Layout         | Primitives `fr-box`, `fr-grid`, `fr-stack`; composed `fr-shell`, `fr-page`, `fr-surface`                                                                            |
+| Lists          | `fr-list` (`ordered` for `<ol>`, `markers` for bullets or numbers, `gap`) with `fr-list-item`                                                                       |
 | Text           | `fr-text` (`element="span\|p"`), `fr-heading` (`[level]` for the outline, `variant` for the look)                                                                   |
 | Actions        | `fr-button` (`(pressed)`), `fr-async-button`, `fr-link` (`to` routes, `href` external only)                                                                         |
 | Async          | `injectAsyncAction`, `fr-async-indicator`, `fr-async-region` (+ `frAsyncPending` / `frAsyncData` / `frAsyncError` slots)                                            |
