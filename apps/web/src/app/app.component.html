@@ -2,6 +2,17 @@
   <fr-stack frShellNav direction="horizontal" gap="md">
     <fr-link to="/characters">{{ 'shell.nav.characters' | transloco }}</fr-link>
   </fr-stack>
+  <fr-stack frShellActions direction="horizontal" gap="xs" align="center">
+    <fr-select
+      [ariaLabel]="'shell.appearance.theme' | transloco"
+      [options]="themes()"
+      [value]="appearance.theme()"
+      (valueChange)="chooseTheme($event)"
+    />
+    <fr-button variant="ghost" size="sm" (pressed)="appearance.toggleMode()">{{
+      modeToggleKey() | transloco
+    }}</fr-button>
+  </fr-stack>
   <router-outlet />
   <fr-text frShellFooter element="p" variant="caption" tone="subtle">
     {{ 'shell.communityUse.beforePolicyLink' | transloco

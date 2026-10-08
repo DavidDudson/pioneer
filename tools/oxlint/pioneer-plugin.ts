@@ -201,7 +201,8 @@ function stringsUnder(node: unknown): Rule.Node[] {
 
 /**
  * Frontier class strings come from semantic tokens: no arbitrary values or
- * variants, pixels, raw scale numbers or `!important` (tools/class-tokens.ts).
+ * variants, pixels, raw scale numbers, `!important`, rounded corners or
+ * shadows (tools/class-tokens.ts).
  * Class strings live in `cva()` / `cx()` calls, a component's `host.class`, or
  * a `{…} satisfies Record<Token, string>` variant map; those are checked.
  * Layout-variant problems are reported by `layout-variants`.

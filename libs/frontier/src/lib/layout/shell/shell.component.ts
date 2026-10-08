@@ -11,7 +11,8 @@ const headerClasses = cva('sticky top-none z-sticky border-b border-line-subtle 
 const footerClasses = cva('border-t border-line-subtle bg-surface-base pb-safe-bottom')();
 
 /**
- * App chrome: top bar with brand and nav slot, routed content below.
+ * App chrome: top bar with brand, nav slot and actions slot (`frShellActions`,
+ * e.g. appearance controls), routed content below.
  * Pads for notches and home indicators (needs `viewport-fit=cover`).
  * Built only from layout primitives; it has no responsive CSS of its own.
  */
@@ -29,6 +30,7 @@ export class Shell {
   protected readonly headerClasses = headerClasses;
   protected readonly brandClasses = cva('shrink-0')();
   protected readonly navClasses = cva('min-w-none overflow-x-auto')();
+  protected readonly actionsClasses = cva('ml-auto shrink-0')();
   protected readonly contentClasses = cva('flex-1')();
   protected readonly footerClasses = footerClasses;
 }

@@ -10,6 +10,15 @@
       "afterPolicyLink": "). We are expressly prohibited from charging you to use or access this content. Pioneer is not published, endorsed, or specifically approved by Paizo. For more information about Paizo Inc. and Paizo products, visit",
       "siteLink": "paizo.com",
       "end": "."
+    },
+    "appearance": {
+      "theme": "Theme",
+      "themes": {
+        "frontier": "Frontier",
+        "tavern": "Tavern"
+      },
+      "lightMode": "Light mode",
+      "darkMode": "Dark mode"
     }
   }
 }

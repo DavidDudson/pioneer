@@ -1,55 +1,13 @@
 /*
  * Tier 2: semantic tokens. Components and the Tailwind theme reference only
- * these. Light values on :root, dark values remapped below; the ramp step
- * numbers are the only thing that change between themes.
+ * these. Colours reference role ramps (`--fr-ramp-<role>-<step>`) only, never
+ * a hue, so every theme gets both modes for free: a theme picks the ramps'
+ * hues (themes/), a mode picks the steps (here).
+ *
+ * Dark is the default, on plain :root. Light is opt-in with
+ * <html data-mode="light">; ThemeStore sets it.
  */
 :root {
-  color-scheme: light;
-
-  --fr-surface-canvas: var(--fr-stone-50);
-  --fr-surface-base: oklch(1 0 0);
-  --fr-surface-raised: oklch(1 0 0);
-  --fr-surface-sunken: var(--fr-stone-100);
-  --fr-surface-overlay: oklch(1 0 0);
-  --fr-surface-inverse: var(--fr-stone-900);
-  --fr-surface-skeleton: var(--fr-stone-200);
-
-  --fr-fg-default: var(--fr-stone-900);
-  --fr-fg-muted: var(--fr-stone-700);
-  --fr-fg-subtle: var(--fr-stone-600);
-  --fr-fg-disabled: var(--fr-stone-400);
-  --fr-fg-inverse: var(--fr-stone-50);
-
-  --fr-line-subtle: var(--fr-stone-200);
-  --fr-line-default: var(--fr-stone-300);
-  --fr-line-strong: var(--fr-stone-500);
-  --fr-line-focus: var(--fr-ember-500);
-
-  --fr-accent-solid: var(--fr-ember-600);
-  --fr-accent-solid-hover: var(--fr-ember-700);
-  --fr-accent-solid-active: var(--fr-ember-800);
-  --fr-accent-subtle: var(--fr-ember-100);
-  --fr-accent-fg: var(--fr-ember-700);
-  --fr-accent-on-solid: oklch(1 0 0);
-
-  --fr-danger-solid: var(--fr-blood-600);
-  --fr-danger-solid-hover: var(--fr-blood-700);
-  --fr-danger-subtle: var(--fr-blood-100);
-  --fr-danger-fg: var(--fr-blood-700);
-  --fr-danger-line: var(--fr-blood-300);
-  --fr-success-solid: var(--fr-moss-600);
-  --fr-success-subtle: var(--fr-moss-100);
-  --fr-success-fg: var(--fr-moss-700);
-  --fr-success-line: var(--fr-moss-300);
-  --fr-warning-solid: var(--fr-gold-500);
-  --fr-warning-subtle: var(--fr-gold-100);
-  --fr-warning-fg: var(--fr-gold-800);
-  --fr-warning-line: var(--fr-gold-300);
-  --fr-info-solid: var(--fr-sky-600);
-  --fr-info-subtle: var(--fr-sky-100);
-  --fr-info-fg: var(--fr-sky-700);
-  --fr-info-line: var(--fr-sky-300);
-
   --fr-space-none: var(--fr-scale-space-0);
   --fr-space-3xs: var(--fr-scale-space-1);
   --fr-space-2xs: var(--fr-scale-space-2);
@@ -60,10 +18,6 @@
   --fr-space-xl: var(--fr-scale-space-7);
   --fr-space-2xl: var(--fr-scale-space-8);
   --fr-space-3xl: var(--fr-scale-space-9);
-
-  --fr-font-sans: ui-sans-serif, system-ui, sans-serif;
-  --fr-font-display: ui-serif, Georgia, serif;
-  --fr-font-mono: ui-monospace, monospace;
 
   /* Sizes. Touch targets are 2.75rem (44px); controls shrink only under a fine pointer. */
   --fr-size-touch: 2.75rem;
@@ -84,137 +38,121 @@
   --fr-z-sticky: 10;
   --fr-z-overlay: 20;
 
-  /* Categorical chart series, in order. Feeds TanStack Charts' --ts-chart-* palette. */
-  --fr-chart-1: var(--fr-ember-600);
-  --fr-chart-2: var(--fr-sky-600);
-  --fr-chart-3: var(--fr-moss-600);
-  --fr-chart-4: var(--fr-gold-500);
-  --fr-chart-5: var(--fr-blood-600);
-  --fr-chart-6: var(--fr-stone-600);
-
-  --fr-radius-control: var(--fr-scale-radius-1);
-  --fr-radius-surface: var(--fr-scale-radius-2);
-  --fr-radius-overlay: var(--fr-scale-radius-3);
-  --fr-radius-pill: 9999px;
-
-  --fr-shadow-raised: 0 1px 2px oklch(0 0 0 / 0.06), 0 1px 3px oklch(0 0 0 / 0.1);
-  --fr-shadow-overlay: 0 8px 24px oklch(0 0 0 / 0.14), 0 2px 6px oklch(0 0 0 / 0.08);
-
   --fr-duration-fast: var(--fr-scale-duration-1);
   --fr-duration-base: var(--fr-scale-duration-2);
   --fr-duration-slow: var(--fr-scale-duration-3);
   --fr-ease-standard: cubic-bezier(0.2, 0, 0, 1);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme='light']) {
-    color-scheme: dark;
-
-    --fr-surface-canvas: var(--fr-stone-950);
-    --fr-surface-base: oklch(0.24 0.006 70);
-    --fr-surface-raised: oklch(0.28 0.007 70);
-    --fr-surface-sunken: oklch(0.2 0.005 70);
-    --fr-surface-overlay: oklch(0.3 0.008 70);
-    --fr-surface-inverse: var(--fr-stone-100);
-    --fr-surface-skeleton: var(--fr-stone-800);
-
-    --fr-fg-default: var(--fr-stone-50);
-    --fr-fg-muted: var(--fr-stone-300);
-    --fr-fg-subtle: var(--fr-stone-400);
-    --fr-fg-disabled: var(--fr-stone-600);
-    --fr-fg-inverse: var(--fr-stone-900);
-
-    --fr-line-subtle: var(--fr-stone-800);
-    --fr-line-default: var(--fr-stone-700);
-    --fr-line-strong: var(--fr-stone-500);
-    --fr-line-focus: var(--fr-ember-400);
-
-    --fr-accent-solid: var(--fr-ember-500);
-    --fr-accent-solid-hover: var(--fr-ember-400);
-    --fr-accent-solid-active: var(--fr-ember-300);
-    --fr-accent-subtle: var(--fr-ember-950);
-    --fr-accent-fg: var(--fr-ember-300);
-    --fr-accent-on-solid: var(--fr-stone-950);
-
-    --fr-danger-solid: var(--fr-blood-500);
-    --fr-danger-solid-hover: var(--fr-blood-400);
-    --fr-danger-subtle: var(--fr-blood-950);
-    --fr-danger-fg: var(--fr-blood-300);
-    --fr-danger-line: var(--fr-blood-700);
-    --fr-success-solid: var(--fr-moss-500);
-    --fr-success-subtle: var(--fr-moss-950);
-    --fr-success-fg: var(--fr-moss-300);
-    --fr-success-line: var(--fr-moss-700);
-    --fr-warning-solid: var(--fr-gold-400);
-    --fr-warning-subtle: var(--fr-gold-950);
-    --fr-warning-fg: var(--fr-gold-300);
-    --fr-warning-line: var(--fr-gold-700);
-    --fr-info-solid: var(--fr-sky-500);
-    --fr-info-subtle: var(--fr-sky-950);
-    --fr-info-fg: var(--fr-sky-300);
-    --fr-info-line: var(--fr-sky-700);
-
-    --fr-chart-1: var(--fr-ember-400);
-    --fr-chart-2: var(--fr-sky-400);
-    --fr-chart-3: var(--fr-moss-400);
-    --fr-chart-4: var(--fr-gold-400);
-    --fr-chart-5: var(--fr-blood-400);
-    --fr-chart-6: var(--fr-stone-400);
-  }
-}
-
-/* Explicit dark override, for a theme toggle. Keep in sync with the media query above. */
-:root[data-theme='dark'] {
+/* Dark mode (default). Elevated surfaces sit between ramp steps, tinted by the neutral hue. */
+:root {
   color-scheme: dark;
 
-  --fr-surface-canvas: var(--fr-stone-950);
-  --fr-surface-base: oklch(0.24 0.006 70);
-  --fr-surface-raised: oklch(0.28 0.007 70);
-  --fr-surface-sunken: oklch(0.2 0.005 70);
-  --fr-surface-overlay: oklch(0.3 0.008 70);
-  --fr-surface-inverse: var(--fr-stone-100);
-  --fr-surface-skeleton: var(--fr-stone-800);
+  --fr-surface-canvas: var(--fr-ramp-neutral-950);
+  --fr-surface-base: oklch(0.24 calc(var(--fr-ramp-neutral-chroma) * 0.33) var(--fr-ramp-neutral-hue));
+  --fr-surface-raised: oklch(0.28 calc(var(--fr-ramp-neutral-chroma) * 0.39) var(--fr-ramp-neutral-hue));
+  --fr-surface-sunken: oklch(0.2 calc(var(--fr-ramp-neutral-chroma) * 0.28) var(--fr-ramp-neutral-hue));
+  --fr-surface-overlay: oklch(0.3 calc(var(--fr-ramp-neutral-chroma) * 0.44) var(--fr-ramp-neutral-hue));
+  --fr-surface-inverse: var(--fr-ramp-neutral-100);
+  --fr-surface-skeleton: var(--fr-ramp-neutral-800);
 
-  --fr-fg-default: var(--fr-stone-50);
-  --fr-fg-muted: var(--fr-stone-300);
-  --fr-fg-subtle: var(--fr-stone-400);
-  --fr-fg-disabled: var(--fr-stone-600);
-  --fr-fg-inverse: var(--fr-stone-900);
+  --fr-fg-default: var(--fr-ramp-neutral-50);
+  --fr-fg-muted: var(--fr-ramp-neutral-300);
+  --fr-fg-subtle: var(--fr-ramp-neutral-400);
+  --fr-fg-disabled: var(--fr-ramp-neutral-600);
+  --fr-fg-inverse: var(--fr-ramp-neutral-900);
 
-  --fr-line-subtle: var(--fr-stone-800);
-  --fr-line-default: var(--fr-stone-700);
-  --fr-line-strong: var(--fr-stone-500);
-  --fr-line-focus: var(--fr-ember-400);
+  --fr-line-subtle: var(--fr-ramp-neutral-800);
+  --fr-line-default: var(--fr-ramp-neutral-700);
+  --fr-line-strong: var(--fr-ramp-neutral-500);
+  --fr-line-focus: var(--fr-ramp-accent-400);
 
-  --fr-accent-solid: var(--fr-ember-500);
-  --fr-accent-solid-hover: var(--fr-ember-400);
-  --fr-accent-solid-active: var(--fr-ember-300);
-  --fr-accent-subtle: var(--fr-ember-950);
-  --fr-accent-fg: var(--fr-ember-300);
-  --fr-accent-on-solid: var(--fr-stone-950);
+  --fr-accent-solid: var(--fr-ramp-accent-500);
+  --fr-accent-solid-hover: var(--fr-ramp-accent-400);
+  --fr-accent-solid-active: var(--fr-ramp-accent-300);
+  --fr-accent-subtle: var(--fr-ramp-accent-950);
+  --fr-accent-fg: var(--fr-ramp-accent-300);
+  --fr-accent-on-solid: var(--fr-ramp-neutral-950);
 
-  --fr-danger-solid: var(--fr-blood-500);
-  --fr-danger-solid-hover: var(--fr-blood-400);
-  --fr-danger-subtle: var(--fr-blood-950);
-  --fr-danger-fg: var(--fr-blood-300);
-  --fr-danger-line: var(--fr-blood-700);
-  --fr-success-solid: var(--fr-moss-500);
-  --fr-success-subtle: var(--fr-moss-950);
-  --fr-success-fg: var(--fr-moss-300);
-  --fr-success-line: var(--fr-moss-700);
-  --fr-warning-solid: var(--fr-gold-400);
-  --fr-warning-subtle: var(--fr-gold-950);
-  --fr-warning-fg: var(--fr-gold-300);
-  --fr-warning-line: var(--fr-gold-700);
-  --fr-info-solid: var(--fr-sky-500);
-  --fr-info-subtle: var(--fr-sky-950);
-  --fr-info-fg: var(--fr-sky-300);
-  --fr-info-line: var(--fr-sky-700);
+  --fr-danger-solid: var(--fr-ramp-danger-500);
+  --fr-danger-solid-hover: var(--fr-ramp-danger-400);
+  --fr-danger-subtle: var(--fr-ramp-danger-950);
+  --fr-danger-fg: var(--fr-ramp-danger-300);
+  --fr-danger-line: var(--fr-ramp-danger-700);
+  --fr-success-solid: var(--fr-ramp-success-500);
+  --fr-success-subtle: var(--fr-ramp-success-950);
+  --fr-success-fg: var(--fr-ramp-success-300);
+  --fr-success-line: var(--fr-ramp-success-700);
+  --fr-warning-solid: var(--fr-ramp-warning-400);
+  --fr-warning-subtle: var(--fr-ramp-warning-950);
+  --fr-warning-fg: var(--fr-ramp-warning-300);
+  --fr-warning-line: var(--fr-ramp-warning-700);
+  --fr-info-solid: var(--fr-ramp-info-500);
+  --fr-info-subtle: var(--fr-ramp-info-950);
+  --fr-info-fg: var(--fr-ramp-info-300);
+  --fr-info-line: var(--fr-ramp-info-700);
 
-  --fr-chart-1: var(--fr-ember-400);
-  --fr-chart-2: var(--fr-sky-400);
-  --fr-chart-3: var(--fr-moss-400);
-  --fr-chart-4: var(--fr-gold-400);
-  --fr-chart-5: var(--fr-blood-400);
-  --fr-chart-6: var(--fr-stone-400);
+  /* Categorical chart series, in order. Feeds TanStack Charts' --ts-chart-* palette. */
+  --fr-chart-1: var(--fr-ramp-accent-400);
+  --fr-chart-2: var(--fr-ramp-info-400);
+  --fr-chart-3: var(--fr-ramp-success-400);
+  --fr-chart-4: var(--fr-ramp-warning-400);
+  --fr-chart-5: var(--fr-ramp-danger-400);
+  --fr-chart-6: var(--fr-ramp-neutral-400);
+}
+
+/* Light mode. Same tokens as above; only the ramp steps change. */
+:root[data-mode='light'] {
+  color-scheme: light;
+
+  --fr-surface-canvas: var(--fr-ramp-neutral-50);
+  --fr-surface-base: oklch(1 0 0);
+  --fr-surface-raised: oklch(1 0 0);
+  --fr-surface-sunken: var(--fr-ramp-neutral-100);
+  --fr-surface-overlay: oklch(1 0 0);
+  --fr-surface-inverse: var(--fr-ramp-neutral-900);
+  --fr-surface-skeleton: var(--fr-ramp-neutral-200);
+
+  --fr-fg-default: var(--fr-ramp-neutral-900);
+  --fr-fg-muted: var(--fr-ramp-neutral-700);
+  --fr-fg-subtle: var(--fr-ramp-neutral-600);
+  --fr-fg-disabled: var(--fr-ramp-neutral-400);
+  --fr-fg-inverse: var(--fr-ramp-neutral-50);
+
+  --fr-line-subtle: var(--fr-ramp-neutral-200);
+  --fr-line-default: var(--fr-ramp-neutral-300);
+  --fr-line-strong: var(--fr-ramp-neutral-500);
+  --fr-line-focus: var(--fr-ramp-accent-500);
+
+  --fr-accent-solid: var(--fr-ramp-accent-600);
+  --fr-accent-solid-hover: var(--fr-ramp-accent-700);
+  --fr-accent-solid-active: var(--fr-ramp-accent-800);
+  --fr-accent-subtle: var(--fr-ramp-accent-100);
+  --fr-accent-fg: var(--fr-ramp-accent-700);
+  --fr-accent-on-solid: oklch(1 0 0);
+
+  --fr-danger-solid: var(--fr-ramp-danger-600);
+  --fr-danger-solid-hover: var(--fr-ramp-danger-700);
+  --fr-danger-subtle: var(--fr-ramp-danger-100);
+  --fr-danger-fg: var(--fr-ramp-danger-700);
+  --fr-danger-line: var(--fr-ramp-danger-300);
+  --fr-success-solid: var(--fr-ramp-success-600);
+  --fr-success-subtle: var(--fr-ramp-success-100);
+  --fr-success-fg: var(--fr-ramp-success-700);
+  --fr-success-line: var(--fr-ramp-success-300);
+  --fr-warning-solid: var(--fr-ramp-warning-500);
+  --fr-warning-subtle: var(--fr-ramp-warning-100);
+  --fr-warning-fg: var(--fr-ramp-warning-800);
+  --fr-warning-line: var(--fr-ramp-warning-300);
+  --fr-info-solid: var(--fr-ramp-info-600);
+  --fr-info-subtle: var(--fr-ramp-info-100);
+  --fr-info-fg: var(--fr-ramp-info-700);
+  --fr-info-line: var(--fr-ramp-info-300);
+
+  --fr-chart-1: var(--fr-ramp-accent-600);
+  --fr-chart-2: var(--fr-ramp-info-600);
+  --fr-chart-3: var(--fr-ramp-success-600);
+  --fr-chart-4: var(--fr-ramp-warning-500);
+  --fr-chart-5: var(--fr-ramp-danger-600);
+  --fr-chart-6: var(--fr-ramp-neutral-600);
 }

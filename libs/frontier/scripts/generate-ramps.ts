@@ -1,35 +1,25 @@
 /**
- * Generates src/styles/primitives.color.css: perceptually even OKLCH ramps.
- * Run `bun libs/frontier/scripts/generate-ramps.ts` after changing a ramp.
- * Lightness is shared by every ramp so the same step means the same contrast.
+ * Generates src/styles/primitives.color.css: perceptually even OKLCH ramps,
+ * one per colour role. A ramp has no fixed colour: each step reads its role's
+ * `--fr-ramp-<role>-hue` and `--fr-ramp-<role>-chroma` (peak chroma, at steps
+ * 500-600), which themes set in `src/styles/themes/`. Lightness is shared by
+ * every ramp and every theme so the same step means the same contrast.
+ * Run `bun libs/frontier/scripts/generate-ramps.ts` after changing a curve or role.
  */
 const STEPS = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950] as const;
 const LIGHTNESS = [0.985, 0.962, 0.922, 0.87, 0.8, 0.705, 0.6, 0.51, 0.43, 0.37, 0.27] as const;
 const CHROMA_CURVE = [0.08, 0.18, 0.36, 0.58, 0.8, 1, 1, 0.9, 0.74, 0.6, 0.44] as const;
 
-interface Ramp {
-  readonly name: string;
-  readonly hue: number;
-  /** Peak chroma at steps 500-600. */
-  readonly chroma: number;
-}
-
-const RAMPS: readonly Ramp[] = [
-  { name: 'stone', hue: 70, chroma: 0.018 },
-  { name: 'ember', hue: 52, chroma: 0.16 },
-  { name: 'moss', hue: 145, chroma: 0.14 },
-  { name: 'gold', hue: 85, chroma: 0.15 },
-  { name: 'blood', hue: 25, chroma: 0.19 },
-  { name: 'sky', hue: 245, chroma: 0.14 },
-];
+/** Colour roles. Semantic tokens reference only these ramps; themes pick each role's hue and chroma. */
+const ROLES = ['neutral', 'accent', 'danger', 'success', 'warning', 'info'] as const;
 
 const round = (value: number): string => value.toFixed(3).replace(/0+$/u, '').replace(/\.$/u, '');
 
-const lines = RAMPS.flatMap((ramp) =>
+const lines = ROLES.flatMap((role) =>
   STEPS.map((step, index) => {
-    const lightness = LIGHTNESS[index] ?? 0;
-    const chroma = ramp.chroma * (CHROMA_CURVE[index] ?? 0);
-    return `  --fr-${ramp.name}-${step}: oklch(${round(lightness)} ${round(chroma)} ${ramp.hue});`;
+    const lightness = round(LIGHTNESS[index] ?? 0);
+    const chroma = `calc(var(--fr-ramp-${role}-chroma) * ${round(CHROMA_CURVE[index] ?? 0)})`;
+    return `  --fr-ramp-${role}-${step}: oklch(${lightness} ${chroma} var(--fr-ramp-${role}-hue));`;
   }),
 );
 

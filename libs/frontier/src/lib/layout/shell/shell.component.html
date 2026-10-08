@@ -1,12 +1,13 @@
 <header [class]="headerClasses">
   <fr-box width="page" padding="sm" gutter>
-    <fr-stack direction="horizontal" align="center" justify="between">
+    <fr-stack direction="horizontal" align="center" justify="between" wrap>
       <span [class]="brandClasses"
         ><fr-text variant="brand">{{ brand() }}</fr-text></span
       >
       <nav [attr.aria-label]="'frontier.shell.mainNav' | transloco" [class]="navClasses">
         <ng-content select="[frShellNav]" />
       </nav>
+      <div [class]="actionsClasses"><ng-content select="[frShellActions]" /></div>
     </fr-stack>
   </fr-box>
 </header>

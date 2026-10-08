@@ -6,7 +6,7 @@ import { cva } from 'class-variance-authority';
  */
 export const controlVariants = cva(
   [
-    'block h-touch w-full rounded-control border border-line-default bg-surface-base px-sm text-body text-fg-default',
+    'block h-touch w-full border border-line-default bg-surface-base px-sm text-body text-fg-default',
     'placeholder:text-fg-subtle focus-visible:focus-ring pointer-fine:h-control-md',
     'disabled:cursor-not-allowed disabled:opacity-disabled aria-invalid:border-danger-line',
   ],
@@ -14,7 +14,7 @@ export const controlVariants = cva(
     variants: {
       numeric: { true: 'tabular-nums', false: '' },
       /** A button that opens a popup (select trigger). */
-      trigger: { true: 'flex items-center justify-between text-left', false: '' },
+      trigger: { true: 'flex items-center justify-between gap-xs text-left', false: '' },
     },
   },
 );

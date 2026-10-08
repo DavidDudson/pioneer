@@ -19,6 +19,9 @@ const REQUIRED_UTILITIES = [
 const FORBIDDEN_DIRECTIVES = ['@theme', '@source', '@utility'];
 // Frontier has no viewport breakpoints; only media queries for preferences and input remain.
 const VIEWPORT_QUERY = /@media\s*\((?:min-|max-)?width/u;
+// Frontier is sharp and flat; the only radius and shadow allowed are the base layer's resets.
+const ROUNDED = /radius:(?!0[;}])/u;
+const SHADOW = /(?:box|text)-shadow:(?!none[;}])|drop-shadow\(/u;
 
 const stylesheet = readdirSync(OUTPUT).find((file) => file.startsWith('styles') && file.endsWith('.css'));
 if (stylesheet === undefined) {
@@ -31,6 +34,8 @@ const problems = [
   ),
   ...REQUIRED_UTILITIES.filter((utility) => !css.includes(utility)).map((utility) => `missing utility ${utility}`),
   ...(VIEWPORT_QUERY.test(css) ? ['viewport width media query in output; use container queries'] : []),
+  ...(ROUNDED.test(css) ? ['rounded corners in output; frontier is sharp'] : []),
+  ...(SHADOW.test(css) ? ['shadow in output; frontier is flat'] : []),
 ];
 if (problems.length > 0) {
   throw new Error(`Built CSS is wrong:\n- ${problems.join('\n- ')}`);
