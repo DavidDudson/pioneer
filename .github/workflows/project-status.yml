@@ -1,0 +1,50 @@
+name: Project status
+
+# Keeps the "Pioneer" project board in step with issues and PRs.
+# Rules live in .github/scripts/project-status.cjs.
+
+on:
+  issues:
+    types: [opened, reopened, closed]
+  pull_request:
+    types: [opened, reopened, edited, ready_for_review, converted_to_draft, closed]
+  pull_request_review:
+    types: [submitted]
+  # Manual run reconciles the whole board.
+  workflow_dispatch:
+
+permissions: {}
+
+# One run at a time so status moves apply in event order.
+concurrency:
+  group: project-status
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    name: Sync board
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    steps:
+      # User-owned projects need a token with the `project` scope (PROJECT_TOKEN).
+      # Fork PRs never receive secrets, so those runs skip quietly.
+      - name: Check token
+        id: token
+        run: |
+          if [ -n "$PROJECT_TOKEN" ]; then echo "present=true" >> "$GITHUB_OUTPUT"; else echo "::notice::PROJECT_TOKEN not set; skipping"; fi
+        env:
+          PROJECT_TOKEN: ${{ secrets.PROJECT_TOKEN }}
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        if: steps.token.outputs.present == 'true'
+        with:
+          persist-credentials: false
+          sparse-checkout: .github/scripts
+      - uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        if: steps.token.outputs.present == 'true'
+        with:
+          github-token: ${{ secrets.PROJECT_TOKEN }}
+          script: |
+            const run = require('./.github/scripts/project-status.cjs');
+            await run({ github, context, core });

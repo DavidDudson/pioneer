@@ -199,6 +199,10 @@ Issue types are organisation-only, so this personal repository uses labels for t
     (dependency rank).
   - Views: Board by Status; Roadmap by Milestone; Epics table with sub-issue progress; Current milestone sorted
     by Order.
-  - Built-in workflows: new items to Backlog, linked PR opened to In review, merged or closed to Done.
+  - Automation: `.github/workflows/project-status.yml` (rules in `.github/scripts/project-status.cjs`). Opened
+    issues go to Backlog; closing an issue moves it to Done and moves dependents with no open blockers to Ready; a
+    linked draft PR moves its issues to In progress, a PR ready for review to In review, requested changes back to
+    In progress, a merge to Done, and an unmerged close back to Ready; starting work moves the parent epic to In
+    progress. A manual run reconciles the board. Needs a `PROJECT_TOKEN` secret with the `project` scope.
 - **Issue templates**: epic, story (with a full-stack checklist: migration, domain, contract, API, UI, tests),
   bug, content error (entry id, expected vs actual, source page).
