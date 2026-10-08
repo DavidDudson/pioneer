@@ -3,7 +3,12 @@ import { describe, expect, it } from 'vitest';
 
 import { Stack } from './stack.component';
 
-async function render(inputs: Readonly<Record<string, unknown>>): Promise<{ host: HTMLElement; flex: Element }> {
+interface Rendered {
+  readonly host: HTMLElement;
+  readonly flex: Element;
+}
+
+async function render(inputs: Readonly<Record<string, unknown>>): Promise<Rendered> {
   const fixture = TestBed.createComponent(Stack);
   for (const [name, value] of Object.entries(inputs)) {
     fixture.componentRef.setInput(name, value);

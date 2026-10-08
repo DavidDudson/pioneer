@@ -51,7 +51,7 @@ interface Flash {
 }
 
 function injectFlash(): Flash {
-  let timer: ReturnType<typeof setTimeout> | undefined = undefined;
+  let timer: number | undefined = undefined;
   let destroyed = false;
   inject(DestroyRef).onDestroy(() => {
     destroyed = true;

@@ -30,6 +30,20 @@ Repo skills in `.claude/skills`:
 Helpers: `.claude/scripts/pr-threads.sh` (unresolved review threads as JSON) and
 `.claude/scripts/wait-for-review.sh` (block until Copilot, CodeRabbit or CI finish; run in the background).
 
+## Code style
+
+Lint is strict (`.oxlintrc.json`, every category an error) and is the source of truth; fix the code, never
+relax a rule without a reason recorded beside it. Rules that trip agents most:
+
+- Braces on every `if`/`else`/loop body, one-liners included (`eslint/curly`).
+- Await into a named const, then branch on the name. `const fileExists = await file.exists(); if (!fileExists)`,
+  never `if (!(await file.exists()))` (`pioneer/no-await-in-condition`, also covers loops and ternaries).
+- Every function declares its return type, arrow consts included (`explicit-function-return-type`).
+- Return types are named and short: an object shape gets an `interface`/`type` (`pioneer/no-inline-return-types`),
+  and types are declared or imported, never derived with `ReturnType`/`Parameters`/`InstanceType`
+  (`pioneer/no-derived-types`).
+- Project rules oxlint lacks go in `tools/oxlint/pioneer-plugin.ts` (TypeScript) or `tools/eslint/` (templates).
+
 ## Checks
 
 `just db-up` for Postgres, then `bun run affected` and `bun run lint:workspace` before every PR; CI runs

@@ -6,6 +6,7 @@ import type { Rule } from 'eslint';
 
 import { CLASS_TOKEN_MESSAGES, classTokenProblem } from '../class-tokens.ts';
 import { LAYOUT_PRIMITIVE, LAYOUT_VARIANT_MESSAGES, layoutVariantProblem } from '../layout-variants.ts';
+import { noAwaitInCondition, noDerivedTypes, noInlineReturnTypes } from './code-rules.ts';
 
 const FRONTIER = /(?:^|\/)libs\/frontier\//u;
 const STYLE_KEYS = new Set(['styles', 'styleUrl', 'styleUrls']);
@@ -258,6 +259,9 @@ const plugin = {
     'no-route-resolvers': noRouteResolvers,
     'layout-variants': layoutVariants,
     'class-tokens': classTokens,
+    'no-await-in-condition': noAwaitInCondition,
+    'no-inline-return-types': noInlineReturnTypes,
+    'no-derived-types': noDerivedTypes,
   },
 };
 

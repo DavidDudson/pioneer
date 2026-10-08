@@ -95,6 +95,9 @@
 
     // ---- Tuned, not disabled -----------------------------------------------
     "eslint/one-var": ["error", "never"],
+    // Every if/else/loop body is a block, one-liners included. The style category
+    // already enables it; pinned so it is never relaxed to "multi-line".
+    "eslint/curly": ["error", "all"],
     // Hoisted function declarations are safe to reference early (mutual recursion);
     // variables and classes still must be declared first.
     "eslint/no-use-before-define": ["error", { "functions": false }],
@@ -133,6 +136,16 @@
     "pioneer/no-route-resolvers": "error",
     "pioneer/layout-variants": "error",
     "pioneer/class-tokens": "error",
+    // `const fileExists = await file.exists(); if (!fileExists)`, never `if (!(await file.exists()))`.
+    "pioneer/no-await-in-condition": "error",
+    // Every function, arrow consts included, declares its return type (restriction
+    // category enables both; pinned). Callbacks typed by their call site are exempt.
+    "typescript/explicit-function-return-type": "error",
+    "typescript/explicit-module-boundary-types": "error",
+    // Return types are named, short and declared: no inline object shapes, no
+    // `ReturnType<typeof fn>` reverse-engineering.
+    "pioneer/no-inline-return-types": "error",
+    "pioneer/no-derived-types": "error",
     "eslint/no-restricted-globals": [
       "error",
       { "name": "Date", "message": "Use Temporal from @pioneer/shared/kernel." },

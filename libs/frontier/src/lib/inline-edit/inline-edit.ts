@@ -96,7 +96,7 @@ export class InlineEdit<TValue> {
     },
     { wait: SAVE_DEBOUNCE_MS },
   );
-  #revertTimer: ReturnType<typeof setTimeout> | undefined;
+  #revertTimer: number | undefined;
 
   public constructor(options: InlineEditOptions<TValue>) {
     this.#options = options;

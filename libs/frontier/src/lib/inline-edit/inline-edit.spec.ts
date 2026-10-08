@@ -1,6 +1,7 @@
 import { signal } from '@angular/core';
 import type { WritableSignal } from '@angular/core';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import type { Mock } from 'vitest';
 import { z } from 'zod';
 
 import { InlineEdit, InlineEditStatus, REVERT_WINDOW_MS, SAVE_DEBOUNCE_MS } from './inline-edit';
@@ -12,7 +13,7 @@ class ConflictError extends Error {
 interface Harness {
   readonly source: WritableSignal<number | undefined>;
   readonly edit: InlineEdit<number>;
-  readonly save: ReturnType<typeof vi.fn<(value: number) => Promise<void>>>;
+  readonly save: Mock<(value: number) => Promise<void>>;
 }
 
 /** A save that behaves like the store: on success the source becomes the saved value. */
