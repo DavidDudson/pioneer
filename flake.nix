@@ -47,6 +47,7 @@
             ws_offset="''${WS_NAME:-$(basename "$(dirname "$PWD")")}"
             ws_offset="''${ws_offset#ws}"
             case "$ws_offset" in ""|*[!0-9]*) ws_offset=0 ;; esac
+            ws_offset=$(( 10#$ws_offset )) # ws08: leading zero is not octal
             export PGPORT=$(( 54329 + ws_offset ))
             # Not PORT: the Angular dev server reads PORT too. api:serve maps it.
             export API_PORT=$(( 3000 + ws_offset ))

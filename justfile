@@ -21,6 +21,8 @@ db-down:
 dev: db-up
     #!/usr/bin/env bash
     set -euo pipefail
+    # exec keeps nx in the foreground with the TTY, so there is no shell left to
+    # clean up the pid file; `down` checks ownership before trusting it.
     echo $$ > .data/dev.pid
     exec bunx nx serve web --port="$WEB_PORT"
 
@@ -28,16 +30,23 @@ dev: db-up
 down: && db-down
     #!/usr/bin/env bash
     set -uo pipefail
+    # Only signal processes running from this checkout: the pid file may be stale
+    # (PID reused) and the ports may be held by something else.
+    owned() { [ "$(readlink "/proc/$1/cwd" 2>/dev/null)" = "$PWD" ]; }
     if [ -f .data/dev.pid ]; then
-      kill -TERM "$(cat .data/dev.pid)" 2>/dev/null || true
+      pid=$(cat .data/dev.pid)
+      if owned "$pid" && tr '\0' ' ' < "/proc/$pid/cmdline" | grep -q 'nx serve web'; then
+        kill -TERM "$pid" 2>/dev/null && sleep 2
+      fi
       rm -f .data/dev.pid
-      sleep 2
     fi
-    # Anything still holding this workspace's ports (e.g. orphaned watchers).
+    # Orphaned watchers still holding this workspace's ports.
     for port in "$API_PORT" "$WEB_PORT"; do
-      pids=$(ss -ltnpH "sport = :$port" | grep -o 'pid=[0-9]*' | cut -d= -f2 | sort -u)
-      [ -n "$pids" ] && kill -TERM $pids 2>/dev/null || true
+      for pid in $(ss -ltnpH "sport = :$port" | grep -o 'pid=[0-9]*' | cut -d= -f2 | sort -u); do
+        if owned "$pid"; then kill -TERM "$pid" 2>/dev/null; else echo "port $port held by pid $pid outside this checkout; leaving it" >&2; fi
+      done
     done
+    true
 
 # Everything CI runs
 check:
