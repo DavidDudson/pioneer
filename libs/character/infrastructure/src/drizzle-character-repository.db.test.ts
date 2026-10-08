@@ -4,7 +4,7 @@ import { CharacterPatchField, CharacterSort } from '@pioneer/character/domain';
 import { CharacterBuilder } from '@pioneer/character/domain/testing';
 import { fixedClock, SortDirection, VersionConflictError } from '@pioneer/shared/kernel';
 import { rejection } from '@pioneer/shared/kernel/testing';
-import { createTestDatabase, QueryRecorder, unindexedQueries } from '@pioneer/shared/server/testing';
+import { createTestDatabase, QueryRecorder, testDatabaseUrl, unindexedQueries } from '@pioneer/shared/server/testing';
 import type { TestDatabase } from '@pioneer/shared/server/testing';
 
 import { DrizzleCharacterRepository } from './drizzle-character-repository';
@@ -13,7 +13,7 @@ import { DrizzleCharacterRepository } from './drizzle-character-repository';
  * Runs against a throwaway Postgres database (see createTestDatabase).
  * Skipped when TEST_DATABASE_URL is unset; CI always sets it.
  */
-const adminUrl = Bun.env['TEST_DATABASE_URL'];
+const adminUrl = testDatabaseUrl();
 const later = fixedClock('2026-10-07T10:00:00Z').now();
 
 describe.skipIf(adminUrl === undefined)('DrizzleCharacterRepository (postgres)', () => {

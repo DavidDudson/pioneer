@@ -6,7 +6,7 @@ import { DrizzleCharacterRepository } from '@pioneer/character/infrastructure';
 import { fixedClock } from '@pioneer/shared/kernel';
 import { rejection } from '@pioneer/shared/kernel/testing';
 import { auditLog } from '@pioneer/shared/server';
-import { createTestDatabase } from '@pioneer/shared/server/testing';
+import { createTestDatabase, testDatabaseUrl } from '@pioneer/shared/server/testing';
 import type { TestDatabase } from '@pioneer/shared/server/testing';
 import { asc, eq, sql } from 'drizzle-orm';
 import { z } from 'zod';
@@ -14,7 +14,7 @@ import { z } from 'zod';
 /** Schema-wide invariants. Uses the disposable TEST_DATABASE_URL (see AGENTS.md). */
 const TableRows = z.array(z.object({ table_name: z.string() }));
 const ColumnRows = z.array(z.object({ column: z.string() }));
-const adminUrl = Bun.env['TEST_DATABASE_URL'];
+const adminUrl = testDatabaseUrl();
 
 describe.skipIf(adminUrl === undefined)('database schema (postgres)', () => {
   let database: TestDatabase;
