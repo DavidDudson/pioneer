@@ -3,7 +3,7 @@
 default:
     @just --list
 
-# Start a local Postgres in .data/ on 127.0.0.1:54329
+# Start a local Postgres in .data/ on 127.0.0.1:$PGPORT
 db-up:
     #!/usr/bin/env bash
     set -euo pipefail
@@ -15,11 +15,29 @@ db-up:
     createdb pioneer_test 2>/dev/null || true
 
 db-down:
-    pg_ctl stop
+    pg_ctl status >/dev/null 2>&1 && pg_ctl stop || true
 
-# API + web dev servers
+# API + web dev servers (web:serve pulls in api:serve). Ports are offset per ws workspace, see flake.nix.
 dev: db-up
-    bunx nx run-many -t serve -p api web
+    #!/usr/bin/env bash
+    set -euo pipefail
+    echo $$ > .data/dev.pid
+    exec bunx nx serve web --port="$WEB_PORT"
+
+# Stop the dev servers (from any terminal) and Postgres
+down: && db-down
+    #!/usr/bin/env bash
+    set -uo pipefail
+    if [ -f .data/dev.pid ]; then
+      kill -TERM "$(cat .data/dev.pid)" 2>/dev/null || true
+      rm -f .data/dev.pid
+      sleep 2
+    fi
+    # Anything still holding this workspace's ports (e.g. orphaned watchers).
+    for port in "$API_PORT" "$WEB_PORT"; do
+      pids=$(ss -ltnpH "sport = :$port" | grep -o 'pid=[0-9]*' | cut -d= -f2 | sort -u)
+      [ -n "$pids" ] && kill -TERM $pids 2>/dev/null || true
+    done
 
 # Everything CI runs
 check:
