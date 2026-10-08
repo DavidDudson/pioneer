@@ -36,5 +36,19 @@ export { Pg } from './pg';
 export { listQuery, SortDirection } from './list-query';
 export { InstantCodec, PlainDateCodec } from './temporal-codecs';
 export { Locale, LocaleSchema, SOURCE_LOCALE } from './locale';
+export {
+  type FieldIssue,
+  FieldIssueSchema,
+  fieldIssues,
+  issueMessage,
+  issueParams,
+  message,
+  type MessageDescriptor,
+  MessageDescriptorSchema,
+  type MessageParams,
+  ProblemMessage,
+  ValidationMessage,
+} from './message';
+export { default as kernelMessages } from './i18n/en.json';
 export { Milliseconds } from './units';
 export type { ValueOf } from './value-of';

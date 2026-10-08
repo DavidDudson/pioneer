@@ -5,6 +5,7 @@ import { humanAncestryId } from '@pioneer/character/domain/testing';
 import { ContentRegistry } from '@pioneer/rules/sdk';
 import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
 import { fixedClock } from '@pioneer/shared/kernel';
+import type { Problem } from '@pioneer/shared/kernel';
 import { problemHandler } from '@pioneer/shared/server';
 import { Elysia } from 'elysia';
 import type { AnyElysia } from 'elysia';
@@ -42,11 +43,18 @@ describe('character routes', () => {
     const stale = await api.handle(new Request(`http://localhost/characters/${character.id}`, json('PATCH', patch)));
     expect(stale.status).toBe(409);
     expect(stale.headers.get('content-type')).toContain('application/problem+json');
+    expect(((await stale.json()) as Problem).message).toStrictEqual({ key: 'problem.versionConflict' });
   });
 
   test('invalid body is 422', async () => {
     const response = await app().handle(new Request('http://localhost/characters', json('POST', { name: '' })));
     expect(response.status).toBe(422);
+    const problem = (await response.json()) as Problem;
+    expect(problem.message).toStrictEqual({ key: 'problem.validation' });
+    expect(problem.issues).toContainEqual({
+      path: ['name'],
+      message: { key: 'validation.tooSmall', params: { origin: 'string', minimum: 1 } },
+    });
   });
 });
 

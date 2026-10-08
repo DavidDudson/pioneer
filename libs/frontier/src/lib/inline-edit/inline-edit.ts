@@ -1,7 +1,7 @@
 import { computed, linkedSignal, signal } from '@angular/core';
 import type { Signal } from '@angular/core';
-import { Milliseconds } from '@pioneer/shared/kernel';
-import type { ValueOf } from '@pioneer/shared/kernel';
+import { issueMessage, message, Milliseconds } from '@pioneer/shared/kernel';
+import type { MessageDescriptor, ValueOf } from '@pioneer/shared/kernel';
 import { Debouncer } from '@tanstack/angular-pacer';
 import type { z } from 'zod';
 
@@ -21,6 +21,12 @@ export const InlineEditStatus = {
   Conflict: 'conflict',
 } as const;
 export type InlineEditStatus = ValueOf<typeof InlineEditStatus>;
+
+/** Fallback messages; their `en` text is in frontier's `i18n/en.json`. */
+const InlineEditMessage = {
+  Conflict: 'frontier.inlineEdit.conflict',
+  SaveFailed: 'frontier.inlineEdit.saveFailed',
+} as const;
 
 /** Quiet time after the last change before it saves. */
 export const SAVE_DEBOUNCE: Milliseconds = Milliseconds.parse(600);
@@ -50,7 +56,8 @@ export interface InlineEditOptions<TValue> {
   readonly save: (value: TValue) => Promise<void>;
   readonly format?: (value: TValue) => string;
   readonly isConflict?: (error: unknown) => boolean;
-  readonly describeError?: (error: unknown) => string;
+  /** What to show when a save fails; defaults to a generic conflict or save-failed message. */
+  readonly describeError?: (error: unknown) => MessageDescriptor;
 }
 
 /**
@@ -74,8 +81,10 @@ export class InlineEdit<TValue> {
   /** Whether the control is shown instead of the read view. */
   public readonly open: Signal<boolean>;
   public readonly canRevert: Signal<boolean>;
-  public readonly error: Signal<string | undefined>;
-  public readonly validationError: Signal<string | undefined>;
+  /** Why the last save failed, to format in the viewer's locale. */
+  public readonly error: Signal<MessageDescriptor | undefined>;
+  /** Why the draft is invalid, to format in the viewer's locale. */
+  public readonly validationError: Signal<MessageDescriptor | undefined>;
   public readonly display: Signal<string>;
   public readonly busy: Signal<boolean>;
   public readonly dirty: Signal<boolean>;
@@ -83,7 +92,7 @@ export class InlineEdit<TValue> {
   readonly #options: InlineEditOptions<TValue>;
   readonly #open = signal(false);
   readonly #phase = signal<Phase>(Phase.Idle);
-  readonly #error = signal<string | undefined>(undefined);
+  readonly #error = signal<MessageDescriptor | undefined>(undefined);
   readonly #canRevert = signal(false);
   /** Value before this edit session; what Revert restores. */
   #original: TValue | undefined;
@@ -126,7 +135,8 @@ export class InlineEdit<TValue> {
     });
     this.validationError = computed(() => {
       const result = schema.safeParse(this.draft());
-      return result.success ? undefined : (result.error.issues[0]?.message ?? 'Invalid value');
+      const [issue] = result.success ? [] : result.error.issues;
+      return issue === undefined ? undefined : issueMessage(issue);
     });
     this.display = computed(() => (source() === undefined ? '' : format(this.draft())));
     this.busy = computed(() => this.#phase() === Phase.Pending);
@@ -251,7 +261,10 @@ export class InlineEdit<TValue> {
 
   #fail(error: unknown): void {
     const conflict = this.#options.isConflict?.(error) ?? false;
-    this.#error.set(this.#options.describeError?.(error) ?? (conflict ? 'Changed elsewhere' : 'Could not save'));
+    this.#error.set(
+      this.#options.describeError?.(error) ??
+        message(conflict ? InlineEditMessage.Conflict : InlineEditMessage.SaveFailed),
+    );
     this.#phase.set(conflict ? Phase.Conflict : Phase.Error);
     if (conflict) {
       // Drop the losing change so the draft adopts the server's version when it reloads.

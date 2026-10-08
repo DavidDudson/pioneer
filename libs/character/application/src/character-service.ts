@@ -1,7 +1,7 @@
 import { Character, CharacterId, CharacterPatchField } from '@pioneer/character/domain';
 import type { CharacterListQuery, CharacterPatch, CreateCharacterBody } from '@pioneer/character/domain';
 import type { AncestryId, ContentRegistry } from '@pioneer/rules/sdk';
-import { newId, NotFoundError, ValidationError } from '@pioneer/shared/kernel';
+import { message, newId, NotFoundError, ValidationError } from '@pioneer/shared/kernel';
 import type { Clock, Version } from '@pioneer/shared/kernel';
 
 import type { CharacterRepository } from './character-repository';
@@ -48,7 +48,7 @@ export class CharacterService {
   #assertAncestryExists(ref: AncestryId): void {
     if (this.#content.ancestry(ref) === undefined) {
       throw new ValidationError([
-        { code: 'custom', path: ['ancestry'], message: `Unknown ancestry ${ref}`, input: ref },
+        { path: ['ancestry'], message: message('character.validation.unknownAncestry', { ancestry: ref }) },
       ]);
     }
   }

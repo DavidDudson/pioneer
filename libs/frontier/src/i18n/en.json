@@ -20,6 +20,10 @@
     },
     "shell": {
       "mainNav": "Main"
+    },
+    "inlineEdit": {
+      "conflict": "Changed elsewhere. Showing the latest version.",
+      "saveFailed": "Could not save. Try again."
     }
   }
 }

@@ -1,0 +1,20 @@
+{
+  "problem": {
+    "notFound": "That no longer exists.",
+    "routeNotFound": "That address does not exist.",
+    "versionConflict": "Someone else changed this. Showing their latest version.",
+    "validation": "Some values need fixing.",
+    "internal": "Something went wrong on our side. Try again.",
+    "unreachable": "Could not reach the server. Check your connection and try again."
+  },
+  "validation": {
+    "invalid": "This value is not valid.",
+    "invalidType": "This value is not valid.",
+    "tooSmall": "{origin, select, string {Use at least {minimum, plural, one {# character} other {# characters}}.} array {Choose at least {minimum}.} other {Must be {minimum} or more.}}",
+    "tooBig": "{origin, select, string {Use at most {maximum, plural, one {# character} other {# characters}}.} array {Choose at most {maximum}.} other {Must be {maximum} or less.}}",
+    "invalidFormat": "{format, select, uuid {Not a valid identifier.} date {Not a valid date.} datetime {Not a valid date and time.} other {Not in the expected format.}}",
+    "notMultipleOf": "Must be a multiple of {divisor}.",
+    "invalidValue": "Choose one of the listed options.",
+    "decimal": "Use at most {precision} digits, {scale} after the decimal point."
+  }
+}
