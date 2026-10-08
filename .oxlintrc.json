@@ -297,6 +297,15 @@
         "security/detect-non-literal-fs-filename": "off",
         "typescript/no-unsafe-type-assertion": "off"
       }
+    },
+    {
+      // Angular dev-server proxy runs on Node: default export required, port from the dev shell.
+      "files": ["apps/web/proxy.conf.mjs"],
+      "rules": {
+        "import/no-default-export": "off",
+        "node/no-process-env": "off",
+        "typescript/no-unsafe-member-access": "off"
+      }
     }
   ]
 }

@@ -48,8 +48,9 @@
     "serve": {
       "continuous": true,
       "executor": "@angular/build:dev-server",
+      "dependsOn": [{ "projects": ["api"], "target": "serve" }],
       "options": {
-        "proxyConfig": "apps/web/proxy.conf.json"
+        "proxyConfig": "apps/web/proxy.conf.mjs"
       },
       "configurations": {
         "production": {

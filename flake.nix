@@ -42,11 +42,20 @@
           shellHook = ''
             export PGDATA="$PWD/.data/postgres"
             export PGHOST=127.0.0.1
-            export PGPORT=54329
-            export DATABASE_URL="''${DATABASE_URL:-postgres://$USER@127.0.0.1:54329/pioneer}"
+            # Offset dev ports by the ws workspace number (ws3 -> +3) so parallel
+            # workspaces don't collide. 0 outside a workspace (main checkout, CI).
+            ws_offset="''${WS_NAME:-$(basename "$(dirname "$PWD")")}"
+            ws_offset="''${ws_offset#ws}"
+            case "$ws_offset" in ""|*[!0-9]*) ws_offset=0 ;; esac
+            export PGPORT=$(( 54329 + ws_offset ))
+            # Not PORT: the Angular dev server reads PORT too. api:serve maps it.
+            export API_PORT=$(( 3000 + ws_offset ))
+            export WEB_PORT=$(( 4200 + ws_offset ))
+            unset ws_offset
+            export DATABASE_URL="''${DATABASE_URL:-postgres://$USER@127.0.0.1:$PGPORT/pioneer}"
             # Separate database: DB tests create and drop their own databases on it.
             # Defaults only, so CI can point both at its Postgres service.
-            export TEST_DATABASE_URL="''${TEST_DATABASE_URL:-postgres://$USER@127.0.0.1:54329/pioneer_test}"
+            export TEST_DATABASE_URL="''${TEST_DATABASE_URL:-postgres://$USER@127.0.0.1:$PGPORT/pioneer_test}"
           '';
         };
       });

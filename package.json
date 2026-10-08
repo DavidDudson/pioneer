@@ -6,7 +6,7 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "dev": "nx run-many -t serve -p api web",
+    "dev": "nx serve web --port=${WEB_PORT:-4200}",
     "check": "nx run-many -t lint lint-templates typecheck test build verify-styles && bun run lint:workspace",
     "lint:workspace": "knip --treat-config-hints-as-errors && typos && rumdl check . && taplo check && taplo fmt --check && biome lint --error-on-warnings && oxlint tools && oxfmt --check .",
     "format": "oxfmt .",
