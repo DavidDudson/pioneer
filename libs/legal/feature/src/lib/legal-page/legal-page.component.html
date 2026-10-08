@@ -20,10 +20,24 @@
       <fr-stack gap="md">
         <fr-heading variant="subheading" [level]="2">{{ 'legal.orc.heading' | transloco }}</fr-heading>
         <fr-text element="p">{{ 'legal.orc.scope' | transloco }}</fr-text>
+        <fr-text element="p">{{ 'legal.orc.notice' | transloco }}</fr-text>
+        <fr-link href="https://paizo.com/orclicense">{{ 'legal.orc.licenseLink' | transloco }}</fr-link>
         <fr-text element="p">{{ 'legal.orc.reserved' | transloco }}</fr-text>
         <fr-text element="p">{{ 'legal.orc.designated' | transloco }}</fr-text>
-        <fr-text element="p" tone="muted">{{ 'legal.orc.notice' | transloco }}</fr-text>
-        <fr-link href="https://paizo.com/orclicense">{{ 'legal.orc.licenseLink' | transloco }}</fr-link>
+        <fr-heading [level]="3">{{ 'legal.orc.attribution.heading' | transloco }}</fr-heading>
+        <fr-text element="p">{{ 'legal.orc.attribution.intro' | transloco }}</fr-text>
+        @for (group of attribution; track group.headingKey) {
+          <fr-stack gap="xs">
+            <fr-heading [level]="4">{{ group.headingKey | transloco }}</fr-heading>
+            <fr-list>
+              @for (work of group.works; track work) {
+                <fr-list-item>
+                  <fr-text variant="caption" tone="muted">{{ work }}</fr-text>
+                </fr-list-item>
+              }
+            </fr-list>
+          </fr-stack>
+        }
       </fr-stack>
     </fr-surface>
 

@@ -6,6 +6,7 @@ import { provideI18n } from '@pioneer/shared/web';
 import { describe, expect, it } from 'vitest';
 
 import { legalRoutes } from '../legal.routes';
+import { ORC_ATTRIBUTION } from './orc-attribution';
 
 function present<TValue>(value: TValue | null | undefined): TValue {
   if (value === null || value === undefined) {
@@ -39,6 +40,14 @@ describe('LegalPage', () => {
     );
     expect(root.textContent).toContain('This product contains no Expressly Designated Licensed Material.');
     expect(root.textContent).toContain('not affiliated with Foundry Gaming LLC');
+  });
+
+  it('credits every upstream ORC work as a list item, Monster Core included', async () => {
+    const root = await renderLegalPage();
+    const credits = [...root.querySelectorAll('ul li')].map((item) => item.textContent.trim());
+    expect(credits).toHaveLength(ORC_ATTRIBUTION.flatMap((group) => group.works).length);
+    expect(credits).toContain('Pathfinder NPC Core © 2025, Paizo Inc.');
+    expect(credits.some((credit) => credit.startsWith('Pathfinder Monster Core © 2024, Paizo Inc.'))).toBe(true);
   });
 
   it('links the Community Use Policy, Paizo, the ORC License and the Foundry pf2e repository', async () => {
