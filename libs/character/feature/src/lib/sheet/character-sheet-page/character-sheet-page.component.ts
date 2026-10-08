@@ -77,7 +77,7 @@ export class CharacterSheetPage {
   protected readonly levelMax = CHARACTER_LEVEL_MAX;
   protected readonly modifierMin = ATTRIBUTE_MODIFIER_MIN;
   protected readonly modifierMax = ATTRIBUTE_MODIFIER_MAX;
-  protected readonly title = computed(() => this.character()?.name ?? 'Character');
+  protected readonly title = computed(() => this.character()?.name);
 
   protected readonly name = this.#field({
     read: (character) => character.name,

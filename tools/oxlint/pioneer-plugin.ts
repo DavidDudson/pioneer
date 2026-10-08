@@ -4,6 +4,8 @@
  */
 import type { Rule } from 'eslint';
 
+import { LAYOUT_PRIMITIVE, LAYOUT_VARIANT_MESSAGES, layoutVariantProblem } from '../layout-variants.ts';
+
 const FRONTIER = /(?:^|\/)libs\/frontier\//u;
 const STYLE_KEYS = new Set(['styles', 'styleUrl', 'styleUrls']);
 
@@ -68,11 +70,110 @@ const noBypassSecurityTrust: Rule.RuleModule = {
   },
 };
 
+const RELOADS = new Set(['reload', 'assign', 'replace']);
+
+/** `location` or `<anything>.location`. */
+function isLocation(node: unknown): boolean {
+  const target = node as {
+    readonly type?: unknown;
+    readonly name?: unknown;
+    readonly property?: { readonly name?: unknown };
+  };
+  return (
+    (target.type === 'Identifier' && target.name === 'location') ||
+    (target.type === 'MemberExpression' && target.property?.name === 'location')
+  );
+}
+
+/** Never load a whole document: navigate with the router, load regions with skeletons. */
+const noFullPageLoad: Rule.RuleModule = {
+  meta: {
+    type: 'problem',
+    docs: { description: 'Disallow full page loads via location' },
+    messages: { reload: 'Full page load via {{what}}. Use the Router and reload only the region that changed.' },
+    schema: [],
+  },
+  create(context) {
+    return {
+      CallExpression(node): void {
+        const { callee } = node;
+        if (
+          callee.type === 'MemberExpression' &&
+          callee.property.type === 'Identifier' &&
+          RELOADS.has(callee.property.name) &&
+          isLocation(callee.object)
+        ) {
+          context.report({ node, messageId: 'reload', data: { what: `location.${callee.property.name}()` } });
+        }
+      },
+      AssignmentExpression(node): void {
+        const { left } = node;
+        const isLocationPart = left.type === 'MemberExpression' && isLocation(left.object);
+        if (isLocation(left) || isLocationPart) {
+          context.report({ node, messageId: 'reload', data: { what: 'assigning location' } });
+        }
+      },
+    };
+  },
+};
+
+/** Resolvers hold the whole page blank until data arrives. Render the page, skeleton the data. */
+const noRouteResolvers: Rule.RuleModule = {
+  meta: {
+    type: 'problem',
+    docs: { description: 'Disallow route resolvers' },
+    messages: { resolve: 'Route resolvers block the page. Render immediately and show skeletons while data loads.' },
+    schema: [],
+  },
+  create(context) {
+    return {
+      Property(node): void {
+        if (node.key.type === 'Identifier' && node.key.name === 'resolve' && node.value.type === 'ObjectExpression') {
+          context.report({ node, messageId: 'resolve' });
+        }
+      },
+    };
+  },
+};
+
+/** Responsive classes live only in frontier's layout primitives; see tools/layout-variants.ts. */
+const layoutVariants: Rule.RuleModule = {
+  meta: {
+    type: 'problem',
+    docs: { description: 'Restrict responsive variants in libs/frontier to layout primitives' },
+    messages: LAYOUT_VARIANT_MESSAGES,
+    schema: [],
+  },
+  create(context) {
+    if (!FRONTIER.test(context.filename)) {
+      return {};
+    }
+    const inPrimitive = LAYOUT_PRIMITIVE.test(context.filename);
+    const check = (node: Rule.Node, text: unknown): void => {
+      const problem = typeof text === 'string' ? layoutVariantProblem(text, inPrimitive) : undefined;
+      if (problem !== undefined) {
+        context.report({ node, messageId: problem.messageId, data: { variant: problem.variant } });
+      }
+    };
+    return {
+      Literal(node): void {
+        check(node, node.value);
+      },
+      TemplateElement(node): void {
+        check(node, node.value.cooked);
+      },
+    };
+  },
+};
+
 const plugin = {
   meta: { name: 'pioneer' },
   rules: {
     'no-styles-outside-frontier': noStylesOutsideFrontier,
     'no-bypass-security-trust': noBypassSecurityTrust,
+    'no-full-page-load': noFullPageLoad,
+    'no-route-resolvers': noRouteResolvers,
+    'layout-variants': layoutVariants,
   },
 };
 

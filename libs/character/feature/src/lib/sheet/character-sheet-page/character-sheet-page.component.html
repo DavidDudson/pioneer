@@ -9,8 +9,9 @@
               frInlineEditor
               label="Name"
               hideLabel
-              [(value)]="name.draft"
-              (committed)="name.commit()"
+              [value]="name.draft()"
+              (valueChange)="name.change($event)"
+              (committed)="name.flushSoon()"
               (cancelled)="name.cancel()"
             />
           </fr-inline-field>
@@ -20,8 +21,9 @@
               label="Ancestry"
               hideLabel
               [options]="ancestries.options()"
-              [(value)]="ancestry.draft"
-              (committed)="ancestry.commit()"
+              [value]="ancestry.draft()"
+              (valueChange)="ancestry.change($event)"
+              (committed)="ancestry.flushSoon()"
               (cancelled)="ancestry.cancel()"
             />
           </fr-inline-field>
@@ -32,8 +34,9 @@
               hideLabel
               [min]="levelMin"
               [max]="levelMax"
-              [(value)]="level.draft"
-              (committed)="level.commit()"
+              [value]="level.draft()"
+              (valueChange)="level.change($event)"
+              (committed)="level.flushSoon()"
               (cancelled)="level.cancel()"
             />
           </fr-inline-field>
@@ -53,8 +56,9 @@
                 [label]="item.label"
                 [min]="modifierMin"
                 [max]="modifierMax"
-                [(value)]="item.edit.draft"
-                (committed)="item.edit.commit()"
+                [value]="item.edit.draft()"
+                (valueChange)="item.edit.change($event)"
+                (committed)="item.edit.flushSoon()"
                 (cancelled)="item.edit.cancel()"
               />
             </fr-inline-field>

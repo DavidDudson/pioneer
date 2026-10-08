@@ -1,41 +1,28 @@
 <fr-stack gap="3xs">
   <span frText="caption" tone="subtle">{{ label() }}</span>
 
-  @switch (status()) {
-    @case (Status.Loading) {
-      <fr-skeleton width="md" />
-    }
-    @default {
-      @if (editing()) {
-        <fr-stack align="end" direction="horizontal" gap="xs">
-          <div class="min-w-0 flex-1" [class.opacity-60]="saving()">
-            <ng-content select="[frInlineEditor]" />
-          </div>
-          @if (saving()) {
-            <fr-spinner [label]="`Saving ${label()}`" />
-          } @else {
-            <button fr-button="primary" size="sm" type="button" [disabled]="invalid()" (click)="edit().commit()">
-              Save
-            </button>
-            <button fr-button="ghost" size="sm" type="button" (click)="edit().cancel()">Cancel</button>
-          }
-        </fr-stack>
-        @if (message(); as message) {
-          <span frText="caption" role="alert" [tone]="messageTone()">{{ message }}</span>
-        }
+  @if (status() === Status.Loading) {
+    <fr-skeleton width="md" />
+  } @else {
+    <fr-stack align="center" direction="horizontal" gap="xs">
+      @if (edit().open()) {
+        <div #editor class="min-w-0 flex-1" (focusout)="focusOut($event)">
+          <ng-content select="[frInlineEditor]" />
+        </div>
       } @else {
         <button
-          class="group -mx-2xs flex min-h-[2rem] items-center gap-xs rounded-control px-2xs text-left hover:bg-surface-sunken focus-visible:focus-ring"
+          class="min-w-0 -mx-2xs flex min-h-[2.75rem] items-center rounded-control px-2xs text-left hover:bg-surface-sunken focus-visible:focus-ring pointer-fine:min-h-[2rem]"
           type="button"
           [attr.aria-label]="`Edit ${label()}: ${edit().display()}`"
           (click)="edit().edit()"
         >
           <span frText>{{ edit().display() }}</span>
-          <span frText="caption" [attr.role]="hint().role" [class]="hint().classes" [tone]="hint().tone">{{
-            hint().text
-          }}</span>
         </button>
       }
+      <fr-save-status [edit]="edit()" [label]="label()" />
+    </fr-stack>
+    @if (message(); as message) {
+      <span frText="caption" role="alert" [tone]="messageTone()">{{ message }}</span>
     }
   }
 </fr-stack>

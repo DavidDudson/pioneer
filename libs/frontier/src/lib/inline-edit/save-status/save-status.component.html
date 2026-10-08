@@ -1,0 +1,8 @@
+@if (status() === Status.Saving) {
+  <fr-spinner [label]="`Saving ${label()}`" />
+} @else if (status() === Status.Saved) {
+  <span frText="caption" role="status" tone="success">Saved ✓</span>
+}
+@if (edit().canRevert()) {
+  <button fr-button="ghost" size="sm" type="button" (click)="edit().revert()">Revert</button>
+}
