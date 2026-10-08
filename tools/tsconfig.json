@@ -1,7 +1,9 @@
 {
   "extends": "../tsconfig.base.json",
   "compilerOptions": {
-    "types": ["bun"]
+    "types": ["bun"],
+    // oxlint loads its JS plugin with Node type stripping, which needs real extensions.
+    "allowImportingTsExtensions": true
   },
   "include": ["**/*.ts"]
 }

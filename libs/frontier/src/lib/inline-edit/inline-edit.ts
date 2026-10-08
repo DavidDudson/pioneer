@@ -6,10 +6,12 @@ import type { z } from 'zod';
 export const InlineEditStatus = {
   /** No server value yet: render a skeleton. */
   Loading: 'loading',
+  /** Read view. */
   Idle: 'idle',
+  /** Control open, nothing in flight. */
   Editing: 'editing',
   Saving: 'saving',
-  /** Briefly after a successful save, for a confirmation tick. */
+  /** After a successful save; the revert window is open (see `canRevert`). */
   Saved: 'saved',
   Failed: 'failed',
   /** The server rejected the save because the record changed elsewhere. */
@@ -17,7 +19,22 @@ export const InlineEditStatus = {
 } as const;
 export type InlineEditStatus = ValueOf<typeof InlineEditStatus>;
 
-const SAVED_FLASH_MS = 1500;
+/** Quiet time after the last change before it saves. */
+export const SAVE_DEBOUNCE_MS = 600;
+/** How long Revert is offered after a save; the field then closes if untouched. */
+export const REVERT_WINDOW_MS = 5000;
+/** How long the tick shows after a revert, which itself can't be reverted. */
+const REVERTED_FLASH_MS = 1500;
+
+/** Server-side phase; the open/closed view is tracked separately. */
+const Phase = {
+  Idle: 'idle',
+  Saving: 'saving',
+  Saved: 'saved',
+  Failed: 'failed',
+  Conflict: 'conflict',
+} as const;
+type Phase = ValueOf<typeof Phase>;
 
 export interface InlineEditOptions<TValue> {
   /** Latest server value; `undefined` while loading. */
@@ -35,89 +52,204 @@ export interface InlineEditOptions<TValue> {
 
 /**
  * State machine for one inline-editable field. Each field on a page owns one,
- * so loading, saving and errors are per field, not per form:
+ * so loading, saving and errors are per field, not per form. There are no
+ * save or cancel buttons: changes save themselves.
  *
- * loading → idle → editing → saving → saved → idle
- *                     ↑          ↘ failed / conflict
- *                     └── cancel ──┘
+ * tap → open → change … (600ms quiet) → saving → saved (+ Revert for 5s)
+ *  ↑                                                  ↓ blur, or 5s untouched
+ *  └──────────────────────────── read view ←──────────┘
+ *
+ * Enter or blur saves a pending change at once; Escape drops an unsaved
+ * change and closes. Revert puts back the value from before the edit
+ * session and saves that. One save is in flight at a time; changes made
+ * meanwhile save after it.
  */
 export class InlineEdit<TValue> {
-  /** The value being edited; resets to the server value whenever it changes. */
+  /** The value being edited. Follows the server value unless it holds unsaved changes. */
   public readonly draft;
   public readonly status: Signal<InlineEditStatus>;
+  /** Whether the control is shown instead of the read view. */
+  public readonly open: Signal<boolean>;
+  public readonly canRevert: Signal<boolean>;
   public readonly error: Signal<string | undefined>;
   public readonly validationError: Signal<string | undefined>;
   public readonly display: Signal<string>;
   public readonly busy: Signal<boolean>;
+  public readonly dirty: Signal<boolean>;
 
   readonly #options: InlineEditOptions<TValue>;
-  readonly #mode = signal<InlineEditStatus>(InlineEditStatus.Idle);
+  readonly #open = signal(false);
+  readonly #phase = signal<Phase>(Phase.Idle);
   readonly #error = signal<string | undefined>(undefined);
-  #flashTimer: ReturnType<typeof setTimeout> | undefined;
+  readonly #canRevert = signal(false);
+  /** Value before this edit session; what Revert restores. */
+  #original: TValue | undefined;
+  #queued = false;
+  /** Latest background flush; held so it isn't a floating promise. Never rejects. */
+  #flushing: Promise<void> = Promise.resolve();
+  #debounceTimer: ReturnType<typeof setTimeout> | undefined;
+  #revertTimer: ReturnType<typeof setTimeout> | undefined;
 
   public constructor(options: InlineEditOptions<TValue>) {
     this.#options = options;
-    const { source, schema, format = String } = options;
-    this.draft = linkedSignal<TValue>(() => source() ?? options.empty);
-    this.status = computed(() => (source() === undefined ? InlineEditStatus.Loading : this.#mode()));
+    const { source, schema, empty, format = String } = options;
+    this.draft = linkedSignal<TValue | undefined, TValue>({
+      source,
+      // Adopt a new server value only if the draft had no unsaved changes.
+      computation: (value, previous) =>
+        previous === undefined || Object.is(previous.value, previous.source ?? empty)
+          ? (value ?? empty)
+          : previous.value,
+    });
+    this.dirty = computed(() => !Object.is(this.draft(), source() ?? empty));
+    this.open = this.#open.asReadonly();
+    this.canRevert = this.#canRevert.asReadonly();
     this.error = this.#error.asReadonly();
+    this.status = computed(() => {
+      if (source() === undefined) {
+        return InlineEditStatus.Loading;
+      }
+      const phase = this.#phase();
+      if (phase !== Phase.Idle) {
+        return phase;
+      }
+      return this.#open() ? InlineEditStatus.Editing : InlineEditStatus.Idle;
+    });
     this.validationError = computed(() => {
       const result = schema.safeParse(this.draft());
       return result.success ? undefined : (result.error.issues[0]?.message ?? 'Invalid value');
     });
-    this.display = computed(() => {
-      const value = source();
-      return value === undefined ? '' : format(value);
-    });
-    this.busy = computed(() => this.status() === InlineEditStatus.Saving);
+    this.display = computed(() => (source() === undefined ? '' : format(this.draft())));
+    this.busy = computed(() => this.#phase() === Phase.Saving);
   }
 
+  /** Open the control. Keeps the original value if reopened inside the revert window. */
   public edit(): void {
-    if (this.status() === InlineEditStatus.Loading || this.busy()) {
+    if (this.status() === InlineEditStatus.Loading || this.#open()) {
       return;
     }
-    this.draft.set(this.#options.source() ?? this.#options.empty);
-    this.#error.set(undefined);
-    this.#mode.set(InlineEditStatus.Editing);
+    if (!this.#canRevert()) {
+      this.#original = this.#options.source();
+    }
+    this.#open.set(true);
   }
 
+  /** A new value from the control: validate now, save once input goes quiet. */
+  public change(value: TValue): void {
+    this.draft.set(value);
+    clearTimeout(this.#debounceTimer);
+    if (this.validationError() === undefined) {
+      this.#debounceTimer = setTimeout(() => {
+        this.flushSoon();
+      }, SAVE_DEBOUNCE_MS);
+    }
+  }
+
+  /** Save a pending change now (Enter, a select pick, blur). */
+  public async flush(): Promise<void> {
+    clearTimeout(this.#debounceTimer);
+    if (this.dirty() && this.validationError() === undefined) {
+      await this.#save(this.draft(), true);
+    }
+  }
+
+  /** `flush` for event handlers and timers. Saves never reject: failures land in `status`/`error`. */
+  public flushSoon(): void {
+    this.#flushing = this.flush();
+  }
+
+  /** Resolves once the latest background save (debounce, blur) has finished. */
+  public async settled(): Promise<void> {
+    await this.#flushing;
+  }
+
+  /** Focus left the field: save what is pending and show the read view. Invalid drafts stay open. */
+  public close(): void {
+    if (this.validationError() !== undefined) {
+      return;
+    }
+    this.#open.set(false);
+    this.flushSoon();
+  }
+
+  /** Escape: drop the unsaved change and close. Saved changes stay; use Revert for those. */
   public cancel(): void {
+    clearTimeout(this.#debounceTimer);
     this.draft.set(this.#options.source() ?? this.#options.empty);
     this.#error.set(undefined);
-    this.#mode.set(InlineEditStatus.Idle);
+    if (this.#phase() === Phase.Failed || this.#phase() === Phase.Conflict) {
+      this.#phase.set(Phase.Idle);
+    }
+    this.#open.set(false);
   }
 
-  public async commit(): Promise<void> {
-    const draft = this.draft();
-    if (this.status() === InlineEditStatus.Loading || this.validationError() !== undefined || this.busy()) {
+  /** Put back the value from before this edit session. */
+  public async revert(): Promise<void> {
+    const original = this.#original;
+    if (!this.#canRevert() || original === undefined) {
       return;
     }
-    if (Object.is(draft, this.#options.source())) {
-      this.#mode.set(InlineEditStatus.Idle);
+    clearTimeout(this.#debounceTimer);
+    clearTimeout(this.#revertTimer);
+    this.#canRevert.set(false);
+    this.#open.set(false);
+    this.draft.set(original);
+    await this.#save(original, false);
+  }
+
+  /** One save at a time; a change made meanwhile saves once this one lands. */
+  async #save(value: TValue, revertible: boolean): Promise<void> {
+    if (this.busy()) {
+      this.#queued = true;
       return;
     }
-    this.#mode.set(InlineEditStatus.Saving);
+    const ok = await this.#attempt(value, revertible);
+    const queued = this.#queued;
+    this.#queued = false;
+    if (ok && queued) {
+      await this.flush();
+    }
+  }
+
+  async #attempt(value: TValue, revertible: boolean): Promise<boolean> {
+    clearTimeout(this.#revertTimer);
+    this.#error.set(undefined);
+    this.#phase.set(Phase.Saving);
     try {
-      await this.#options.save(draft);
-      this.#flash();
+      await this.#options.save(value);
     } catch (error: unknown) {
       this.#fail(error);
+      return false;
     }
+    this.#saved(revertible);
+    return true;
+  }
+
+  #saved(revertible: boolean): void {
+    this.#phase.set(Phase.Saved);
+    this.#canRevert.set(revertible);
+    this.#revertTimer = setTimeout(
+      () => {
+        this.#canRevert.set(false);
+        if (this.#phase() === Phase.Saved) {
+          this.#phase.set(Phase.Idle);
+        }
+        if (!this.dirty() && !this.busy()) {
+          this.#open.set(false);
+        }
+      },
+      revertible ? REVERT_WINDOW_MS : REVERTED_FLASH_MS,
+    );
   }
 
   #fail(error: unknown): void {
     const conflict = this.#options.isConflict?.(error) ?? false;
     this.#error.set(this.#options.describeError?.(error) ?? (conflict ? 'Changed elsewhere' : 'Could not save'));
-    this.#mode.set(conflict ? InlineEditStatus.Conflict : InlineEditStatus.Failed);
-  }
-
-  #flash(): void {
-    clearTimeout(this.#flashTimer);
-    this.#mode.set(InlineEditStatus.Saved);
-    this.#flashTimer = setTimeout(() => {
-      if (this.#mode() === InlineEditStatus.Saved) {
-        this.#mode.set(InlineEditStatus.Idle);
-      }
-    }, SAVED_FLASH_MS);
+    this.#phase.set(conflict ? Phase.Conflict : Phase.Failed);
+    if (conflict) {
+      // Drop the losing change so the draft adopts the server's version when it reloads.
+      this.draft.set(this.#options.source() ?? this.#options.empty);
+      this.#canRevert.set(false);
+    }
   }
 }

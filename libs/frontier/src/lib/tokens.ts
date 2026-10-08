@@ -35,6 +35,18 @@ export const Size = {
 } as const;
 export type Size = ValueOf<typeof Size>;
 
+/**
+ * Container widths layout primitives expand at (24 / 40 / 56rem). Narrower
+ * than `sm` is the unnamed base: design for it first and only grow from here.
+ * These measure the primitive's own width, never the viewport.
+ */
+export const Container = {
+  Sm: 'sm',
+  Md: 'md',
+  Lg: 'lg',
+} as const;
+export type Container = ValueOf<typeof Container>;
+
 /** Literal class maps so Tailwind's scanner sees every class. */
 export const GAP: Record<Space, string> = {
   none: 'gap-none',

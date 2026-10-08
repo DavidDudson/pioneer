@@ -21,6 +21,21 @@
   --font-weight-*: initial;
   --radius-*: initial;
   --shadow-*: initial;
+  --breakpoint-*: initial;
+  --container-*: initial;
+
+  /*
+   * No viewport breakpoints. Layout responds to the space it is given via
+   * container queries, and only the layout primitives (fr-grid, fr-stack,
+   * fr-box) use them. Unprefixed utilities are the narrowest (phone) layout;
+   * `@sm:` / `@md:` / `@lg:` only ever expand it. Container query values
+   * can't be var()s, so these are literal.
+   */
+  --container-sm: 24rem;
+  --container-md: 40rem;
+  --container-lg: 56rem;
+  /* Max width of page content (`max-w-page`), not a query size. */
+  --container-page: 72rem;
 
   --color-surface-canvas: var(--fr-surface-canvas);
   --color-surface-base: var(--fr-surface-base);

@@ -13,9 +13,11 @@ const VARIANT: Record<ButtonVariant, string> = {
   ghost: 'text-fg-default hover:bg-surface-sunken',
   danger: 'bg-danger-solid text-accent-on-solid hover:opacity-90',
 };
+
+/** Touch first: every size is at least 2.75rem (44px) tall unless the pointer is fine. */
 const SIZE: Record<Size, string> = {
-  sm: 'h-[2rem] px-sm text-label',
-  md: 'h-[2.5rem] px-md text-body',
+  sm: 'h-[2.75rem] pointer-fine:h-[2rem] px-sm text-label',
+  md: 'h-[2.75rem] pointer-fine:h-[2.5rem] px-md text-body',
   lg: 'h-[3rem] px-lg text-lead',
 };
 

@@ -126,9 +126,16 @@
     "security/detect-pseudoRandomBytes": "error",
     "security/detect-unsafe-regex": "error",
     "pioneer/no-bypass-security-trust": "error",
+    // No modals, no toasts, no full page loads (libs/frontier/AGENTS.md#interaction-rules).
+    "pioneer/no-full-page-load": "error",
+    "pioneer/no-route-resolvers": "error",
+    "pioneer/layout-variants": "error",
     "eslint/no-restricted-globals": [
       "error",
-      { "name": "Date", "message": "Use Temporal from @pioneer/shared/kernel." }
+      { "name": "Date", "message": "Use Temporal from @pioneer/shared/kernel." },
+      { "name": "alert", "message": "No modals. Show feedback inline." },
+      { "name": "confirm", "message": "No modals. Confirm inline (e.g. a second click or an undo)." },
+      { "name": "prompt", "message": "No modals. Ask with an inline field." }
     ],
     "eslint/no-restricted-imports": [
       "error",
@@ -139,7 +146,13 @@
           { "name": "luxon", "message": "Use Temporal." },
           { "name": "date-fns", "message": "Use Temporal." },
           { "name": "dayjs", "message": "Use Temporal." },
-          { "name": "moment", "message": "Use Temporal." }
+          { "name": "moment", "message": "Use Temporal." },
+          { "name": "@angular/cdk/dialog", "message": "No modals. Show the content inline or route to it." },
+          { "name": "@angular/material/dialog", "message": "No modals. Show the content inline or route to it." },
+          { "name": "@angular/material/bottom-sheet", "message": "No modals. Show the content inline." },
+          { "name": "@angular/material/snack-bar", "message": "No toasts. Show feedback inline, next to its cause." },
+          { "name": "ngx-toastr", "message": "No toasts. Show feedback inline, next to its cause." },
+          { "name": "ngx-sonner", "message": "No toasts. Show feedback inline, next to its cause." }
         ]
       }
     ],
