@@ -163,17 +163,33 @@ Exit: Player Core, Player Core 2, GM Core and Monster Core imported to the cover
 
 Issue types are organisation-only, so this personal repository uses labels for type.
 
+### Ticket rules
+
+- **Every ticket is full stack.** One story delivers a vertical slice: schema and migration, domain and engine
+  logic, API contract and handler, Angular feature, and tests, together in one ticket and one PR. No separate
+  "backend" and "frontend" tickets for the same behaviour. Pure-library work (engine, dice, importer) is full stack
+  for its layer: code, tests, and the smallest UI or CLI surface that makes it observable.
+- **Dependency order.** Epics and stories are created and ranked in dependency order, following the milestone graph
+  above and the bullet order inside each milestone. A story that needs another is linked with GitHub's
+  "blocked by" relationship, and the board's Ready column only holds unblocked work.
+- Areas are feature domains, not layers.
+
+### Setup
+
 - **Labels**
   - Type: `type:epic`, `type:story`, `type:bug`, `type:spike`, `type:content` (data error), `type:chore`.
   - Area: `area:engine`, `area:content`, `area:importer`, `area:builder`, `area:sheet`, `area:play`,
-    `area:campaign`, `area:homebrew`, `area:interop`, `area:identity`, `area:ui`, `area:infra`.
+    `area:campaign`, `area:homebrew`, `area:interop`, `area:identity`, `area:legal`, `area:infra`.
   - Priority: `p0`, `p1`, `p2`.
 - **Milestones**: M0 to M9 as above, with the exit criteria in the description. No due dates until velocity is
   known.
 - **Epics**: one issue per epic bullet, in its milestone, with stories as sub-issues. Epic bodies hold scope,
-  out-of-scope and acceptance criteria.
+  out-of-scope, acceptance criteria and blocking epics.
 - **Project board** (user-level GitHub Project "Pioneer"):
-  - Fields: Status (Backlog, Ready, In progress, In review, Done), Priority, Size (XS to XL), Area.
-  - Views: Board by Status; Roadmap by Milestone; Epics table with sub-issue progress; Current milestone.
+  - Fields: Status (Backlog, Ready, In progress, In review, Done), Priority, Size (XS to XL), Area, Order
+    (dependency rank).
+  - Views: Board by Status; Roadmap by Milestone; Epics table with sub-issue progress; Current milestone sorted
+    by Order.
   - Built-in workflows: new items to Backlog, linked PR opened to In review, merged or closed to Done.
-- **Issue templates**: epic, story, bug, content error (entry id, expected vs actual, source page).
+- **Issue templates**: epic, story (with a full-stack checklist: migration, domain, contract, API, UI, tests),
+  bug, content error (entry id, expected vs actual, source page).
