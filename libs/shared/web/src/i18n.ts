@@ -7,11 +7,12 @@ import {
   provideAppInitializer,
 } from '@angular/core';
 import type { EnvironmentProviders } from '@angular/core';
-import { provideTransloco, TranslocoService } from '@jsverse/transloco';
+import { provideTransloco } from '@jsverse/transloco';
 import type { Translation, TranslocoLoader } from '@jsverse/transloco';
 import { provideTranslocoMessageformat } from '@jsverse/transloco-messageformat';
 import { Locale, LocaleSchema, SOURCE_LOCALE } from '@pioneer/shared/kernel';
-import { firstValueFrom } from 'rxjs';
+
+import { LocalePreferences } from './locale-preferences';
 
 /** How to fetch each locale's root messages. Keys are ICU MessageFormat strings. */
 export type LocaleMessages = Readonly<Record<Locale, () => Promise<Translation>>>;
@@ -32,8 +33,8 @@ class MessageLoader implements TranslocoLoader {
 }
 
 /**
- * Runtime i18n: one build, locale switched with `TranslocoService.setActiveLang`.
- * The source locale loads before bootstrap so the shell never renders keys.
+ * Runtime i18n: one build, locale switched with `LocalePreferences.setUi`.
+ * The viewer's locale loads before bootstrap so the shell never renders keys.
  */
 export function provideI18n(messages: LocaleMessages): EnvironmentProviders {
   return makeEnvironmentProviders([
@@ -51,7 +52,7 @@ export function provideI18n(messages: LocaleMessages): EnvironmentProviders {
     }),
     provideTranslocoMessageformat(),
     provideAppInitializer(async () => {
-      await firstValueFrom(inject(TranslocoService).load(SOURCE_LOCALE));
+      await inject(LocalePreferences).apply();
     }),
   ]);
 }
