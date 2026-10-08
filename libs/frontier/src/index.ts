@@ -44,6 +44,9 @@ export { NumberField } from './lib/forms/number-field/number-field.component';
 export { SelectField } from './lib/forms/select-field/select-field.component';
 export { TextField } from './lib/forms/text-field/text-field.component';
 
+// Icons (Lucide)
+export { Icon } from './lib/icon/icon.component';
+
 // Inline edit
 export { InlineEdit, type InlineEditOptions, InlineEditStatus } from './lib/inline-edit/inline-edit';
 export { InlineField } from './lib/inline-edit/inline-field/inline-field.component';

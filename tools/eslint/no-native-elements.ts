@@ -8,8 +8,8 @@
  * Inside frontier each native element that carries behaviour or semantics
  * has exactly one owning primitive: only `fr-button` renders `<button>`, only
  * the text controls render `<input>`, and so on. Everything else composes
- * those primitives. Structural elements (`div`, `span`, landmarks, `svg`)
- * stay free inside frontier.
+ * those primitives (`<svg>` only in `fr-icon`, which draws Lucide icons).
+ * Structural elements (`div`, `span`, landmarks) stay free inside frontier.
  */
 import type { Rule } from 'eslint';
 
@@ -39,6 +39,7 @@ const OWNERS: ReadonlyMap<string, readonly string[]> = new Map([
   ['th', ['data/table/']],
   ['td', ['data/table/']],
   ['time', ['date/']],
+  ['svg', ['icon/']],
   ['select', []],
   ['textarea', []],
   ['img', []],

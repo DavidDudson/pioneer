@@ -84,12 +84,12 @@ describe(AsyncButton, () => {
 
     button(fixture).click();
     await settle();
-    expect((fixture.nativeElement as HTMLElement).textContent).toContain('✓');
+    expect((fixture.nativeElement as HTMLElement).querySelector('[role="status"] fr-icon')).not.toBeNull();
 
     await settle(SUCCESS_FLASH);
     // The reset is published on TanStack's notify timer, queued after the flash timer.
     await settle(RESET_NOTIFY_MS);
-    expect((fixture.nativeElement as HTMLElement).textContent).not.toContain('✓');
+    expect((fixture.nativeElement as HTMLElement).querySelector('[role="status"] fr-icon')).toBeNull();
     expect(button(fixture).getAttribute('aria-busy')).toBeNull();
   });
 
