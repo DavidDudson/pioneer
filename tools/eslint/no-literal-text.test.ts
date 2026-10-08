@@ -7,7 +7,7 @@ import { noLiteralText } from './no-literal-text';
 
 RuleTester.describe = describe;
 RuleTester.it = it;
-RuleTester.itOnly = it.only;
+// No itOnly: Bun throws on reading `it.only` when CI is set, and no case uses `only`.
 
 const tester = new RuleTester({ languageOptions: { parser: angular.templateParser } });
 
