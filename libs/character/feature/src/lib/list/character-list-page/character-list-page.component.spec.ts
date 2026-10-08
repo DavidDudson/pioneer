@@ -36,6 +36,8 @@ describe('CharacterListPage', () => {
     await harness.fixture.whenStable();
 
     const root = present(harness.routeNativeElement);
+    // Text comes from the route's `character` message scope, loaded with the page's code.
+    expect(root.textContent).toContain('New character');
     const name = present(root.querySelector('input'));
     name.value = 'Merisiel';
     name.dispatchEvent(new Event('input'));
