@@ -1,7 +1,9 @@
 @if (header().column.getCanSort()) {
   <fr-button variant="inline" (pressed)="header().column.toggleSorting()">
     <ng-container *flexRenderHeader="header(); let value">{{ value }}</ng-container>
-    <span aria-hidden="true">{{ sortIcon() }}</span>
+    @if (sortIcon(); as icon) {
+      <fr-icon [icon]="icon" />
+    }
   </fr-button>
 } @else {
   <ng-container *flexRenderHeader="header(); let value">{{ value }}</ng-container>

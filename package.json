@@ -24,6 +24,7 @@
     "@angular/router": "22.2.0",
     "@jsverse/transloco": "8.4.0",
     "@jsverse/transloco-messageformat": "8.4.0",
+    "@lucide/angular": "1.52.0",
     "@tanstack/angular-hotkeys": "0.13.0",
     "@tanstack/angular-pacer": "0.26.0",
     "@tanstack/angular-query-experimental": "5.104.1",

@@ -3,6 +3,6 @@
 } @else if (status() === Status.Success) {
   <span role="status" [class]="classes()"
     ><span [class]="labelClasses()">{{ successLabel() ?? ('frontier.async.success' | transloco) }}</span
-    ><span aria-hidden="true">✓</span></span
-  >
+    ><fr-icon [icon]="TickIcon"
+  /></span>
 }

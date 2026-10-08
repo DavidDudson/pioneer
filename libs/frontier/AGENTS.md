@@ -22,7 +22,8 @@ Read this before touching any UI.
   select trigger), `<input>` only in the plain controls, `<a>` only in
   `fr-link`, `<label>` only in `fr-label`, `<form>` only in `fr-form` /
   `fr-async-form`, `<h1>`–`<h4>` only in `fr-heading`, `<p>` only in
-  `fr-text`, table elements only in `fr-table`. `select`, `textarea` and
+  `fr-text`, table elements only in `fr-table`, `<svg>` only in `fr-icon`.
+  `select`, `textarea` and
   `img` have no owner yet: add a primitive first. The ownership map lives in
   `tools/eslint/no-native-elements.ts`.
 - **Tokens only.** Components take token names (`gap="md"`, `tone="muted"`),
@@ -53,6 +54,13 @@ Read this before touching any UI.
   class strings: they bind `[class]` to a cva result
   (`pioneer/no-template-styling`). Customisation is a new variant, never a
   class passed in. Never build a class name by concatenation (`'gap-' + gap`).
+- **Icons are Lucide, through `fr-icon`.** Pass the icon class
+  (`import { LucideCheck } from '@lucide/angular'`, `[icon]="Check"`), never
+  a name string, so unused icons tree-shake. No other icon sets, no unicode
+  glyphs (`✓`, `▲`) and no hand-drawn SVG. Lines are always 2px at every
+  size (`nonScalingStroke`); there is no stroke-width input. Size is a token
+  (`sm|md|lg`), colour follows the text unless `tone` is set. Icons are
+  decorative unless given a `label`; an icon-only button labels the button.
 - **Small parts, composed.** Like Radix / Reka: a primitive owns one element
   and its variants; bigger components assemble primitives and parts, which
   find their root through DI (`fr-label` and the control inject `Field`).
@@ -189,6 +197,7 @@ after `themes/frontier.css`, and add it to `Theme` in
 | Actions        | `fr-button` (`(pressed)`), `fr-async-button`, `fr-link` (`to` routes, `href` external only)                                                                         |
 | Async          | `injectAsyncAction`, `fr-async-indicator`, `fr-async-region` (+ `frAsyncPending` / `frAsyncData` / `frAsyncError` slots)                                            |
 | Feedback       | `fr-message` (inline, never a toast), `fr-skeleton` (loading content), `fr-spinner` (action progress only)                                                          |
+| Icons          | `fr-icon` (Lucide; `[icon]`, `size`, `tone`, `label`, `spin`)                                                                                                       |
 | Dates          | `fr-date` (Temporal values only)                                                                                                                                    |
 | Controls       | Plain: `fr-text-input`, `fr-number-input`, `fr-date-input`, `fr-select` (`@angular/aria`)                                                                           |
 | Forms          | `fr-form`, `fr-async-form`; `fr-text-field`, `fr-number-field`, `fr-date-field`, `fr-select-field`; parts `fr-field`, `fr-label`, `fr-field-hint`, `fr-field-error` |
@@ -265,7 +274,7 @@ error/conflict state. Saves are one PATCH per field with the aggregate's
 2. Typing saves 600ms after the last change (`SAVE_DEBOUNCE`). Enter, a
    select pick, or blur saves at once. Invalid drafts never save; the
    schema's message shows inline.
-3. Spinner while saving (`pending`), then "Saved ✓" (`success`) and a **Revert** button for 5s
+3. Spinner while saving (`pending`), then "Saved" with a tick (`success`) and a **Revert** button for 5s
    (`REVERT_WINDOW`). Revert restores the value from before the edit
    session and saves it. Revert is a visible button, not hover-only.
 4. Blur, or 5s untouched after a save, returns to the read view. Revert

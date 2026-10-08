@@ -7,7 +7,7 @@ import { AsyncIndicator } from '../../async/async-indicator/async-indicator.comp
 import type { InlineEdit } from '../inline-edit';
 import { InlineEditStatus } from '../inline-edit';
 
-/** Spinner while saving, "Saved ✓" once saved, and Revert while the revert window is open. */
+/** Spinner while saving, "Saved" and a tick once saved, and Revert while the revert window is open. */
 @Component({
   selector: 'fr-save-status',
   imports: [AsyncIndicator, Button, TranslocoPipe],
