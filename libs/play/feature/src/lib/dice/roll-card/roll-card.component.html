@@ -1,0 +1,26 @@
+<fr-surface>
+  <fr-stack gap="sm">
+    <fr-stack direction="horizontal" justify="between" align="baseline" wrap>
+      <fr-text variant="code">{{ roll().notation }}</fr-text>
+      <fr-heading variant="heading" [level]="3">{{
+        'play.dice.total' | transloco: { total: roll().total }
+      }}</fr-heading>
+    </fr-stack>
+    @for (term of roll().terms; track $index) {
+      <fr-stack direction="horizontal" gap="sm" align="baseline" wrap>
+        <fr-text variant="code" tone="muted">{{ term.notation }}</fr-text>
+        @for (damageKey of term.damageKeys; track damageKey) {
+          <fr-text variant="caption" tone="muted">{{ damageKey | transloco }}</fr-text>
+        }
+        @for (die of term.dice; track $index) {
+          @if (die.kept) {
+            <fr-text numeric>{{ 'play.dice.die' | transloco: { face: die.face } }}</fr-text>
+          } @else {
+            <fr-text numeric tone="subtle">{{ 'play.dice.droppedDie' | transloco: { face: die.face } }}</fr-text>
+          }
+        }
+        <fr-text numeric weight="semibold">{{ 'play.dice.termValue' | transloco: { value: term.value } }}</fr-text>
+      </fr-stack>
+    }
+  </fr-stack>
+</fr-surface>

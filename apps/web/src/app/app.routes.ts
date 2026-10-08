@@ -19,4 +19,11 @@ export const appRoutes: Routes = [
       return legalRoutes;
     },
   },
+  {
+    path: 'play',
+    loadChildren: async () => {
+      const { playRoutes } = await import('@pioneer/play/feature');
+      return playRoutes;
+    },
+  },
 ];

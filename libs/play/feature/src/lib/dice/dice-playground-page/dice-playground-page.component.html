@@ -1,0 +1,31 @@
+<fr-page [title]="'play.dice.title' | transloco" [description]="'play.dice.description' | transloco">
+  <fr-stack gap="xl">
+    <fr-surface>
+      <fr-stack gap="md">
+        <fr-field [invalid]="error() !== undefined">
+          <fr-label>{{ 'play.dice.expressionLabel' | transloco }}</fr-label>
+          <fr-text-input [(value)]="text" (committed)="roll()" />
+          @if (error(); as error) {
+            <fr-field-error>{{ error.key | transloco: error.params }}</fr-field-error>
+          } @else {
+            <fr-field-hint>{{ 'play.dice.expressionHint' | transloco }}</fr-field-hint>
+          }
+        </fr-field>
+        <fr-stack direction="horizontal" justify="end">
+          <fr-button variant="primary" [disabled]="error() !== undefined" (pressed)="roll()">{{
+            'play.dice.roll' | transloco
+          }}</fr-button>
+        </fr-stack>
+      </fr-stack>
+    </fr-surface>
+
+    <fr-stack gap="md">
+      <fr-heading variant="subheading" [level]="2">{{ 'play.dice.historyHeading' | transloco }}</fr-heading>
+      @for (entry of rolls(); track entry.id) {
+        <pio-roll-card [roll]="entry" />
+      } @empty {
+        <fr-text element="p" tone="muted">{{ 'play.dice.empty' | transloco }}</fr-text>
+      }
+    </fr-stack>
+  </fr-stack>
+</fr-page>

@@ -1,0 +1,37 @@
+{
+  "dice": {
+    "title": "Dice",
+    "description": "Try dice expressions: 1d20+7, 2d6+1d4[fire]+4, 4d6kh3, 1d6[persistent,bleed].",
+    "expressionLabel": "Expression",
+    "expressionHint": "Dice, numbers, kh or kl to keep the highest or lowest, and damage tags in brackets.",
+    "roll": "Roll",
+    "historyHeading": "Rolls",
+    "empty": "No rolls yet.",
+    "total": "Total {total}",
+    "die": "{face}",
+    "droppedDie": "{face} dropped",
+    "termValue": "= {value}"
+  },
+  "damageType": {
+    "bludgeoning": "Bludgeoning",
+    "piercing": "Piercing",
+    "slashing": "Slashing",
+    "acid": "Acid",
+    "cold": "Cold",
+    "electricity": "Electricity",
+    "fire": "Fire",
+    "sonic": "Sonic",
+    "vitality": "Vitality",
+    "void": "Void",
+    "force": "Force",
+    "spirit": "Spirit",
+    "mental": "Mental",
+    "poison": "Poison",
+    "bleed": "Bleed",
+    "precision": "Precision"
+  },
+  "damageCategory": {
+    "persistent": "Persistent",
+    "splash": "Splash"
+  }
+}

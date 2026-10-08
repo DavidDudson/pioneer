@@ -51,6 +51,7 @@
       "@pioneer/character/infrastructure": ["./libs/character/infrastructure/src/index.ts"],
       "@pioneer/character/feature": ["./libs/character/feature/src/index.ts"],
       "@pioneer/legal/feature": ["./libs/legal/feature/src/index.ts"],
+      "@pioneer/play/feature": ["./libs/play/feature/src/index.ts"],
       "@pioneer/frontier": ["./libs/frontier/src/index.ts"],
       "@pioneer/frontier/data": ["./libs/frontier/src/data.ts"]
     }
