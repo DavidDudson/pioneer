@@ -38,8 +38,6 @@
   --fr-z-sticky: 10;
   --fr-z-overlay: 20;
 
-  --fr-radius-pill: 9999px;
-
   --fr-duration-fast: var(--fr-scale-duration-1);
   --fr-duration-base: var(--fr-scale-duration-2);
   --fr-duration-slow: var(--fr-scale-duration-3);

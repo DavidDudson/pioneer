@@ -20,7 +20,7 @@ export type ButtonType = ValueOf<typeof ButtonType>;
 /** Touch first: every size is at least `h-touch` (44px) unless the pointer is fine. */
 const buttonVariants = cva(
   [
-    'inline-flex items-center gap-xs rounded-control whitespace-nowrap',
+    'inline-flex items-center gap-xs whitespace-nowrap',
     'transition-colors duration-fast ease-standard focus-visible:focus-ring',
     'disabled:cursor-not-allowed disabled:opacity-disabled aria-busy:cursor-progress',
   ],

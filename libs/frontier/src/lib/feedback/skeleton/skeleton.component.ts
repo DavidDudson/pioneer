@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, computed, input } from '@angular/co
 import type { ValueOf } from '@pioneer/shared/kernel';
 import { cva } from 'class-variance-authority';
 
-export const SkeletonShape = { Text: 'text', Block: 'block', Circle: 'circle' } as const;
+export const SkeletonShape = { Text: 'text', Block: 'block', Square: 'square' } as const;
 export type SkeletonShape = ValueOf<typeof SkeletonShape>;
 
 export const SkeletonWidth = { Xs: 'xs', Sm: 'sm', Md: 'md', Lg: 'lg', Full: 'full' } as const;
@@ -11,9 +11,9 @@ export type SkeletonWidth = ValueOf<typeof SkeletonWidth>;
 const skeletonVariants = cva('block animate-shimmer bg-surface-skeleton', {
   variants: {
     shape: {
-      text: 'h-lh rounded-control',
-      block: 'h-2xl rounded-surface',
-      circle: 'size-xl rounded-pill',
+      text: 'h-lh',
+      block: 'h-2xl',
+      square: 'size-xl',
     } satisfies Record<SkeletonShape, string>,
     width: {
       xs: 'w-xl',
@@ -38,6 +38,6 @@ export class Skeleton {
 
   protected readonly classes = computed(() => {
     const shape = this.shape();
-    return skeletonVariants(shape === SkeletonShape.Circle ? { shape } : { shape, width: this.width() });
+    return skeletonVariants(shape === SkeletonShape.Square ? { shape } : { shape, width: this.width() });
   });
 }

@@ -7,7 +7,7 @@ import { textVariants } from '../../text/text.variants';
 import type { TextVariant } from '../../text/text.variants';
 
 const linkVariants = cva(
-  'rounded-control text-accent-fg underline decoration-line-strong underline-offset-link hover:decoration-accent-fg focus-visible:focus-ring',
+  'text-accent-fg underline decoration-line-strong underline-offset-link hover:decoration-accent-fg focus-visible:focus-ring',
 );
 
 /** Router commands, as `routerLink` takes them. */

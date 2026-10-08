@@ -7,11 +7,11 @@ import { paddingVariants, Space } from '../../tokens';
 export const SurfaceVariant = { Base: 'base', Raised: 'raised', Sunken: 'sunken', Outline: 'outline' } as const;
 export type SurfaceVariant = ValueOf<typeof SurfaceVariant>;
 
-const surfaceVariants = cva('block rounded-surface', {
+const surfaceVariants = cva('block', {
   variants: {
     variant: {
       base: 'bg-surface-base',
-      raised: 'bg-surface-raised shadow-raised border border-line-subtle',
+      raised: 'bg-surface-raised border border-line-default',
       sunken: 'bg-surface-sunken',
       outline: 'border border-line-default',
     } satisfies Record<SurfaceVariant, string>,
@@ -19,7 +19,7 @@ const surfaceVariants = cva('block rounded-surface', {
   },
 });
 
-/** A panel: background, border, radius and padding from tokens. */
+/** A panel: background, border and padding from tokens. Sharp and flat: raised means a stronger border, not a shadow. */
 @Component({
   selector: 'fr-surface',
   templateUrl: './surface.component.html',

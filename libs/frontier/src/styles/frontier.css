@@ -3,8 +3,12 @@
  *
  * Tailwind only exists here: `source(none)` stops it scanning the app, and
  * `@source` points it at frontier's own components. Its default palette,
- * spacing, type and radius scales are wiped so the only utilities that exist
- * are the semantic tokens below (tier 3, the Tailwind mapping).
+ * spacing, type, radius and shadow scales are wiped so the only utilities
+ * that exist are the semantic tokens below (tier 3, the Tailwind mapping).
+ *
+ * Frontier is sharp and flat: no rounded corners and no shadows, in any
+ * theme. Lint bans the utilities (tools/class-tokens.ts), the base layer
+ * squares off native controls, and the built-CSS check fails on either.
  */
 @import 'tailwindcss' source(none);
 @import './primitives.color.css';
@@ -23,6 +27,9 @@
   --font-weight-*: initial;
   --radius-*: initial;
   --shadow-*: initial;
+  --inset-shadow-*: initial;
+  --drop-shadow-*: initial;
+  --text-shadow-*: initial;
   --breakpoint-*: initial;
   --container-*: initial;
   --transition-duration-*: initial;
@@ -141,14 +148,6 @@
   --text-display: var(--fr-scale-font-9);
   --text-display--line-height: 1.1;
 
-  --radius-control: var(--fr-radius-control);
-  --radius-surface: var(--fr-radius-surface);
-  --radius-overlay: var(--fr-radius-overlay);
-  --radius-pill: var(--fr-radius-pill);
-
-  --shadow-raised: var(--fr-shadow-raised);
-  --shadow-overlay: var(--fr-shadow-overlay);
-
   --transition-duration-fast: var(--fr-duration-fast);
   --transition-duration-base: var(--fr-duration-base);
   --transition-duration-slow: var(--fr-duration-slow);
@@ -199,6 +198,15 @@
     color: var(--fr-fg-default);
     font-family: var(--fr-font-body);
     -webkit-font-smoothing: antialiased;
+  }
+
+  /* Sharp and flat: undo the user agent's rounded, shadowed controls (iOS inputs, buttons). */
+  *,
+  ::before,
+  ::after,
+  ::file-selector-button {
+    border-radius: 0;
+    box-shadow: none;
   }
 
   @media (prefers-reduced-motion: reduce) {
