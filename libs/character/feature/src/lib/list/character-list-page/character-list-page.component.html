@@ -1,23 +1,36 @@
-<fr-page title="Characters" description="Your Pathfinder heroes.">
+<fr-page [title]="'character.list.title' | transloco" [description]="'character.list.description' | transloco">
   <fr-stack gap="xl">
     <fr-surface>
       <fr-async-form [form]="form" [action]="create" [describeError]="describeCreateError">
         <fr-stack gap="md">
-          <fr-heading variant="subheading" [level]="2">New character</fr-heading>
+          <fr-heading variant="subheading" [level]="2">{{ 'character.list.newHeading' | transloco }}</fr-heading>
           <fr-grid [columns]="2">
-            <fr-text-field label="Name" placeholder="Valeros" [formField]="form.name" />
-            <fr-select-field label="Ancestry" [options]="ancestries.options()" [formField]="form.ancestry" />
+            <fr-text-field
+              [label]="'character.list.nameLabel' | transloco"
+              [placeholder]="'character.list.namePlaceholder' | transloco"
+              [formField]="form.name"
+            />
+            <fr-select-field
+              [label]="'character.list.ancestryLabel' | transloco"
+              [options]="ancestries.options()"
+              [formField]="form.ancestry"
+            />
           </fr-grid>
           <fr-stack direction="horizontal" justify="end">
-            <fr-async-button type="submit" variant="primary" pendingLabel="Creating" successLabel="Created">
-              Create character
+            <fr-async-button
+              type="submit"
+              variant="primary"
+              [pendingLabel]="'character.list.creating' | transloco"
+              [successLabel]="'character.list.created' | transloco"
+            >
+              {{ 'character.list.create' | transloco }}
             </fr-async-button>
           </fr-stack>
         </fr-stack>
       </fr-async-form>
     </fr-surface>
 
-    <fr-async-region errorMessage="Could not load characters.">
+    <fr-async-region [errorMessage]="'character.list.loadError' | transloco">
       <ng-template frAsyncPending>
         <fr-stack gap="md">
           @for (placeholder of placeholders; track placeholder) {
@@ -31,16 +44,19 @@
             <fr-surface>
               <fr-stack gap="2xs">
                 <fr-link variant="subheading" [to]="[character.id]">{{ character.name }}</fr-link>
-                <fr-text tone="muted">{{ ancestries.name(character.ancestry) }} · Level {{ character.level }}</fr-text>
+                <fr-text tone="muted">{{
+                  'character.list.summary'
+                    | transloco: { ancestry: ancestries.name(character.ancestry), level: character.level }
+                }}</fr-text>
                 <fr-text variant="caption" tone="subtle"
-                  >Updated <fr-date format="relative" [value]="character.updatedAt"
+                  >{{ 'character.list.updated' | transloco }} <fr-date format="relative" [value]="character.updatedAt"
                 /></fr-text>
               </fr-stack>
             </fr-surface>
           </ng-template>
         </fr-virtual-list>
         @if (characters.length === 0) {
-          <fr-text element="p" tone="muted">No characters yet.</fr-text>
+          <fr-text element="p" tone="muted">{{ 'character.list.empty' | transloco }}</fr-text>
         }
       </ng-template>
     </fr-async-region>

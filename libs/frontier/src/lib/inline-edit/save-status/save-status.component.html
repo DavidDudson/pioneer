@@ -1,4 +1,11 @@
-<fr-async-indicator showLabel successLabel="Saved" [status]="indicatorStatus()" [pendingLabel]="`Saving ${label()}`" />
+<fr-async-indicator
+  showLabel
+  [status]="indicatorStatus()"
+  [pendingLabel]="'frontier.saveStatus.saving' | transloco: { label: label() }"
+  [successLabel]="'frontier.saveStatus.saved' | transloco"
+/>
 @if (edit().canRevert()) {
-  <fr-button variant="ghost" size="sm" (pressed)="edit().revert()">Revert</fr-button>
+  <fr-button variant="ghost" size="sm" (pressed)="edit().revert()">{{
+    'frontier.saveStatus.revert' | transloco
+  }}</fr-button>
 }

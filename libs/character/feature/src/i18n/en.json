@@ -1,0 +1,39 @@
+{
+  "attribute": {
+    "str": "Strength",
+    "dex": "Dexterity",
+    "con": "Constitution",
+    "int": "Intelligence",
+    "wis": "Wisdom",
+    "cha": "Charisma"
+  },
+  "ancestryOption": "{name} ({pack})",
+  "list": {
+    "title": "Characters",
+    "description": "Your Pathfinder heroes.",
+    "newHeading": "New character",
+    "nameLabel": "Name",
+    "namePlaceholder": "Valeros",
+    "ancestryLabel": "Ancestry",
+    "create": "Create character",
+    "loadError": "Could not load characters.",
+    "summary": "{ancestry} · Level {level}",
+    "updated": "Updated",
+    "empty": "No characters yet.",
+    "creating": "Creating",
+    "created": "Created",
+    "createFailed": "Could not create the character. Try again."
+  },
+  "sheet": {
+    "identityHeading": "Identity",
+    "attributesHeading": "Attributes",
+    "name": "Name",
+    "ancestry": "Ancestry",
+    "level": "Level",
+    "created": "Created",
+    "updated": "· updated",
+    "version": "· version {version}",
+    "conflict": "Someone else changed this character. Showing their latest version.",
+    "saveFailed": "Could not save. Try again."
+  }
+}

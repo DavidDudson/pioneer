@@ -1,7 +1,8 @@
-import { ChangeDetectionStrategy, Component, input, output, viewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, input, output, viewChild } from '@angular/core';
 import type { ElementRef } from '@angular/core';
 import { submit } from '@angular/forms/signals';
 import type { FieldTree } from '@angular/forms/signals';
+import { TranslocoService } from '@jsverse/transloco';
 import { injectHotkey } from '@tanstack/angular-hotkeys';
 import type { InjectHotkeyOptions } from '@tanstack/angular-hotkeys';
 import { cva } from 'class-variance-authority';
@@ -34,16 +35,20 @@ const formClasses = cva('block')();
   host: { class: 'block' },
 })
 export class AsyncForm<TModel> {
+  readonly #i18n = inject(TranslocoService);
   public readonly form = input.required<FieldTree<TModel>>();
   public readonly action = input.required<(value: TModel) => Promise<unknown>>();
-  public readonly describeError = input<(error: unknown) => string>(() => 'Could not save. Try again.');
+  /** Defaults to a generic "Could not save" in the viewer's locale. */
+  public readonly describeError = input<((error: unknown) => string) | undefined>(undefined);
   public readonly succeeded = output();
 
   /** The submission's state, for the submit button and anything else in the form. */
   public readonly submission: AsyncAction<void> = injectAsyncAction(() => async () => this.#submit(), {
     // An invalid form never ran the action: back to idle, no tick.
     accept: (submitted) => submitted,
-    describeError: (error) => this.describeError()(error instanceof SubmitFailureError ? error.cause : error),
+    describeError: (error) =>
+      this.describeError()?.(error instanceof SubmitFailureError ? error.cause : error) ??
+      this.#i18n.translate('frontier.async.saveFailed'),
     onSuccess: () => {
       this.succeeded.emit();
     },

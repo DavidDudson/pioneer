@@ -2,6 +2,7 @@ import { Combobox, ComboboxPopup, ComboboxWidget } from '@angular/aria/combobox'
 import { Listbox, Option } from '@angular/aria/listbox';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { ChangeDetectionStrategy, Component, computed, input, model, signal } from '@angular/core';
+import { translateSignal } from '@jsverse/transloco';
 import { cva } from 'class-variance-authority';
 
 import { Control } from '../control';
@@ -36,8 +37,10 @@ const caretClasses = cva('text-fg-subtle')();
 export class Select<TValue extends string> extends Control {
   /** Selected value; `undefined` or `''` shows the placeholder. */
   public readonly value = model<TValue | undefined>(undefined);
+  readonly #defaultPlaceholder = translateSignal('frontier.select.placeholder');
   public readonly options = input.required<readonly SelectOption<TValue>[]>();
-  public readonly placeholder = input('Select…');
+  /** Defaults to "Select…" in the viewer's locale. */
+  public readonly placeholder = input<string | undefined>(undefined);
 
   protected readonly expanded = signal(false);
   protected readonly selected = computed<TValue[]>(() => {
@@ -45,7 +48,10 @@ export class Select<TValue extends string> extends Control {
     return value === undefined || value === '' ? [] : [value];
   });
   protected readonly selectedLabel = computed(
-    () => this.options().find((option) => option.value === this.value())?.label ?? this.placeholder(),
+    () =>
+      this.options().find((option) => option.value === this.value())?.label ??
+      this.placeholder() ??
+      this.#defaultPlaceholder(),
   );
   protected readonly triggerClasses = controlVariants({ trigger: true });
   protected readonly listboxClasses = listboxClasses;

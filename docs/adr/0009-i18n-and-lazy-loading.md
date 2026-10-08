@@ -1,6 +1,6 @@
 # 0009. Internationalisation with lazy-loaded messages and content text
 
-- Status: Proposed
+- Status: Accepted
 - Date: 2026-10-08
 
 ## Context
@@ -13,7 +13,8 @@ the engine produces. Translations also add weight, so they must load only when n
 
 - **Runtime i18n, one build.** The Angular app switches locale at runtime (no per-locale builds). Messages use ICU
   MessageFormat (plurals, select); numbers, dates and lists use `Intl`. Library: Transloco (runtime, scoped lazy
-  loading), confirmed by a spike in epic 0.4; a small signal-based loader is the fallback.
+  loading) with `@jsverse/transloco-messageformat` for ICU. Chosen without a separate spike: it supports Angular 22
+  and ships scope loading. A small signal-based loader remains the fallback.
 - **No user-facing strings in code.** Templates use message keys; a lint rule rejects literal text in templates and
   a CI check fails on missing or unused keys in the source locale (`en`).
 - **The engine returns message descriptors, not strings.** Breakdown labels, reasons ("suppressed by a higher

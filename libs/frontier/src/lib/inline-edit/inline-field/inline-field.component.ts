@@ -8,6 +8,7 @@ import {
   input,
   viewChild,
 } from '@angular/core';
+import { TranslocoPipe } from '@jsverse/transloco';
 
 import { Button } from '../../actions/button/button.component';
 import { Message, MessageTone } from '../../feedback/message/message.component';
@@ -35,7 +36,7 @@ const FOCUSABLE = 'input, select, textarea, button, [tabindex]:not([tabindex="-1
  */
 @Component({
   selector: 'fr-inline-field',
-  imports: [Button, Message, SaveStatus, Skeleton, Stack, Text],
+  imports: [Button, Message, SaveStatus, Skeleton, Stack, Text, TranslocoPipe],
   templateUrl: './inline-field.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'block', '[attr.aria-busy]': 'edit().busy() || null' },

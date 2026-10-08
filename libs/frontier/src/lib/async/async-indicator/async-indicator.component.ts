@@ -1,4 +1,5 @@
 import { booleanAttribute, ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
+import { TranslocoPipe } from '@jsverse/transloco';
 import { cva } from 'class-variance-authority';
 
 import { Spinner } from '../../feedback/spinner/spinner.component';
@@ -16,15 +17,16 @@ const labelVariants = cva('', { variants: { visible: { true: 'text-caption', fal
  */
 @Component({
   selector: 'fr-async-indicator',
-  imports: [Spinner],
+  imports: [Spinner, TranslocoPipe],
   templateUrl: './async-indicator.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'contents' },
 })
 export class AsyncIndicator {
   public readonly status = input.required<AsyncStatus>();
-  public readonly pendingLabel = input('Working');
-  public readonly successLabel = input('Done');
+  /** Defaults to a generic "Working" / "Done" in the viewer's locale. */
+  public readonly pendingLabel = input<string | undefined>(undefined);
+  public readonly successLabel = input<string | undefined>(undefined);
   /** Show the success label as text (e.g. "Saved ✓"); otherwise it is for screen readers only. */
   public readonly showLabel = input(false, { transform: booleanAttribute });
 

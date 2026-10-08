@@ -1,14 +1,13 @@
-<fr-shell brand="Pioneer">
+<fr-shell [brand]="'shell.brand' | transloco">
   <fr-stack frShellNav direction="horizontal" gap="md">
-    <fr-link to="/characters">Characters</fr-link>
+    <fr-link to="/characters">{{ 'shell.nav.characters' | transloco }}</fr-link>
   </fr-stack>
   <router-outlet />
   <fr-text frShellFooter element="p" variant="caption" tone="subtle">
-    Pioneer uses trademarks and/or copyrights owned by Paizo Inc., used under Paizo's Community Use Policy (<fr-link
-      href="https://paizo.com/licenses/communityuse"
-      >paizo.com/licenses/communityuse</fr-link
-    >). We are expressly prohibited from charging you to use or access this content. Pioneer is not published, endorsed,
-    or specifically approved by Paizo. For more information about Paizo Inc. and Paizo products, visit
-    <fr-link href="https://paizo.com">paizo.com</fr-link>.
+    {{ 'shell.communityUse.beforePolicyLink' | transloco
+    }}<fr-link href="https://paizo.com/licenses/communityuse">{{ 'shell.communityUse.policyLink' | transloco }}</fr-link
+    >{{ 'shell.communityUse.afterPolicyLink' | transloco }}
+    <fr-link href="https://paizo.com">{{ 'shell.communityUse.siteLink' | transloco }}</fr-link
+    >{{ 'shell.communityUse.end' | transloco }}
   </fr-text>
 </fr-shell>

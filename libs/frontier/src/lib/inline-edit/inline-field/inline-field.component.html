@@ -10,7 +10,11 @@
           <ng-content select="[frInlineEditor]" />
         </fr-stack>
       } @else {
-        <fr-button variant="inline" [ariaLabel]="`Edit ${label()}: ${edit().display()}`" (pressed)="edit().edit()">
+        <fr-button
+          variant="inline"
+          [ariaLabel]="'frontier.inlineField.edit' | transloco: { label: label(), value: edit().display() }"
+          (pressed)="edit().edit()"
+        >
           {{ edit().display() }}
         </fr-button>
       }

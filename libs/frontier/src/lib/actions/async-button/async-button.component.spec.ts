@@ -4,6 +4,7 @@ import { provideTanStackQuery, QueryClient } from '@tanstack/angular-query-exper
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { SUCCESS_FLASH_MS } from '../../async/async-action';
+import { provideFrontierI18nTesting } from '../../testing/provide-frontier-i18n-testing';
 import { AsyncButton } from './async-button.component';
 
 const RESET_NOTIFY_MS = 10;
@@ -27,7 +28,9 @@ function deferred(): Deferred {
 }
 
 async function render(action: () => Promise<unknown>): Promise<ComponentFixture<AsyncButton>> {
-  TestBed.configureTestingModule({ providers: [provideTanStackQuery(new QueryClient())] });
+  TestBed.configureTestingModule({
+    providers: [provideTanStackQuery(new QueryClient()), ...provideFrontierI18nTesting()],
+  });
   const fixture = TestBed.createComponent(AsyncButton);
   fixture.componentRef.setInput('action', action);
   fixture.componentRef.setInput('describeError', (failure: unknown) =>

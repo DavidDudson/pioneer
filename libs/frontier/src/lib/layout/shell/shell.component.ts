@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { TranslocoPipe } from '@jsverse/transloco';
 import { cva } from 'class-variance-authority';
 
 import { Text } from '../../text/text/text.component';
@@ -16,7 +17,7 @@ const footerClasses = cva('border-t border-line-subtle bg-surface-base pb-safe-b
  */
 @Component({
   selector: 'fr-shell',
-  imports: [Box, Stack, Text],
+  imports: [Box, Stack, Text, TranslocoPipe],
   templateUrl: './shell.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { '[class]': 'hostClasses' },

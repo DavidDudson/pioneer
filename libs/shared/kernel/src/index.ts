@@ -23,5 +23,6 @@ export { Temporal } from './temporal';
 export { Pg } from './pg';
 export { listQuery, SortDirection } from './list-query';
 export { InstantCodec, PlainDateCodec } from './temporal-codecs';
+export { Locale, LocaleSchema, SOURCE_LOCALE } from './locale';
 export { Milliseconds } from './units';
 export type { ValueOf } from './value-of';

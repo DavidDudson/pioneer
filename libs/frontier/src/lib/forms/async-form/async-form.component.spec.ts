@@ -6,6 +6,7 @@ import { provideTanStackQuery, QueryClient } from '@tanstack/angular-query-exper
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { AsyncStatus } from '../../async/async-action';
+import { provideFrontierI18nTesting } from '../../testing/provide-frontier-i18n-testing';
 import { AsyncForm } from './async-form.component';
 
 interface Model {
@@ -16,7 +17,9 @@ async function render(
   name: string,
   action: (value: Model) => Promise<unknown>,
 ): Promise<ComponentFixture<AsyncForm<Model>>> {
-  TestBed.configureTestingModule({ providers: [provideTanStackQuery(new QueryClient())] });
+  TestBed.configureTestingModule({
+    providers: [provideTanStackQuery(new QueryClient()), ...provideFrontierI18nTesting()],
+  });
   const tree = TestBed.runInInjectionContext(() =>
     form(signal<Model>({ name }), (path) => {
       required(path.name);

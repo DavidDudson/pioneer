@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
+import { TranslocoPipe } from '@jsverse/transloco';
 
 import { Button } from '../../actions/button/button.component';
 import { AsyncStatus } from '../../async/async-action';
@@ -9,7 +10,7 @@ import { InlineEditStatus } from '../inline-edit';
 /** Spinner while saving, "Saved ✓" once saved, and Revert while the revert window is open. */
 @Component({
   selector: 'fr-save-status',
-  imports: [AsyncIndicator, Button],
+  imports: [AsyncIndicator, Button, TranslocoPipe],
   templateUrl: './save-status.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'flex shrink-0 items-center gap-xs' },

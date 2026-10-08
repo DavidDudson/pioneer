@@ -1,5 +1,6 @@
 import { NgTemplateOutlet } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, contentChild, input } from '@angular/core';
+import { TranslocoPipe } from '@jsverse/transloco';
 
 import { Message } from '../../feedback/message/message.component';
 import { AsyncData } from './async-data.directive';
@@ -21,13 +22,14 @@ import { AsyncPending } from './async-pending.directive';
  */
 @Component({
   selector: 'fr-async-region',
-  imports: [Message, NgTemplateOutlet],
+  imports: [Message, NgTemplateOutlet, TranslocoPipe],
   templateUrl: './async-region.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'block', '[attr.aria-busy]': 'pending() || null' },
 })
 export class AsyncRegion<TData> {
-  public readonly errorMessage = input('Could not load this. Try again later.');
+  /** Defaults to a generic "Could not load" in the viewer's locale. */
+  public readonly errorMessage = input<string | undefined>(undefined);
 
   protected readonly data = contentChild.required<AsyncData<TData>>(AsyncData);
   protected readonly pendingSlot = contentChild.required(AsyncPending);
