@@ -14,25 +14,35 @@ function present<TValue>(value: TValue | null | undefined): TValue {
   return value;
 }
 
-describe('LegalPage', () => {
-  it('shows the Paizo, ORC and Foundry notices with their links, without an account', async () => {
-    TestBed.configureTestingModule({
-      providers: [
-        provideRouter([{ path: 'legal', children: legalRoutes }]),
-        provideI18n({ en: async () => frontierMessages }),
-      ],
-    });
-    const harness = await RouterTestingHarness.create('/legal');
-    await harness.fixture.whenStable();
+async function renderLegalPage(): Promise<HTMLElement> {
+  TestBed.configureTestingModule({
+    providers: [
+      provideRouter([{ path: 'legal', children: legalRoutes }]),
+      provideI18n({ en: async () => frontierMessages }),
+    ],
+  });
+  const harness = await RouterTestingHarness.create('/legal');
+  await harness.fixture.whenStable();
+  return present(harness.routeNativeElement);
+}
 
-    const root = present(harness.routeNativeElement);
+describe('LegalPage', () => {
+  it('shows the Paizo, ORC and Foundry notices without an account', async () => {
+    const root = await renderLegalPage();
     // Text comes from the route's `legal` message scope, loaded with the page's code.
     const headings = [...root.querySelectorAll('h1, h2')].map((heading) => heading.textContent.trim());
     expect(headings).toStrictEqual(['Legal', 'Paizo Community Use Policy', 'ORC License', 'Foundry VTT pf2e system']);
     expect(root.textContent).toContain('We are expressly prohibited from charging you to use or access this content.');
-    expect(root.textContent).toContain('TX 9-307-067');
+    // ORC License section III(a), verbatim.
+    expect(root.textContent).toContain(
+      'This product is licensed under the ORC License located at the Library of Congress at TX 9-307-067 and available online at various locations. All warranties are disclaimed as set forth therein.',
+    );
+    expect(root.textContent).toContain('This product contains no Expressly Designated Licensed Material.');
     expect(root.textContent).toContain('not affiliated with Foundry Gaming LLC');
+  });
 
+  it('links the Community Use Policy, Paizo, the ORC License and the Foundry pf2e repository', async () => {
+    const root = await renderLegalPage();
     const links = [...root.querySelectorAll('a')].map((link) => link.getAttribute('href'));
     expect(links).toStrictEqual([
       'https://paizo.com/licenses/communityuse',

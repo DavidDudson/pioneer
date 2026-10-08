@@ -15,13 +15,14 @@
   "orc": {
     "heading": "ORC License",
     "scope": "The remastered rules (Player Core, GM Core, Monster Core and later books) are published under the ORC License, which covers their game mechanics and rules text. Pioneer shows that rules text with attribution to its source book.",
-    "reserved": "Reserved Material is not covered by the ORC License and is not used: Paizo trade dress, logos, art, and the setting names Paizo reserves.",
-    "notice": "This product is licensed under the ORC License held in the Library of Congress at TX 9-307-067 and available online at various locations including www.paizo.com/orclicense, www.azoralaw.com/orclicense, www.gencon.com/orclicense and others. All warranties are disclaimed as set forth therein.",
-    "licenseLink": "Read the ORC License"
+    "reserved": "Reserved Material elements in this product include all elements designated as Reserved Material under the ORC License, such as trademarks, proper nouns, artwork, characters, locations, organizations, plots, storylines and trade dress.",
+    "notice": "This product is licensed under the ORC License located at the Library of Congress at TX 9-307-067 and available online at various locations. All warranties are disclaimed as set forth therein.",
+    "licenseLink": "Read the ORC License",
+    "designated": "This product contains no Expressly Designated Licensed Material."
   },
   "foundry": {
     "heading": "Foundry VTT pf2e system",
-    "derived": "All official content in Pioneer is derived from the data in the Foundry VTT pf2e system. Its code is Apache-2.0, and its game content is published under the ORC License and, where applicable, the Paizo Community Use Policy. Only remastered, ORC-licensed entries are imported.",
+    "derived": "All official content in Pioneer is derived from the data in the Foundry VTT pf2e system, whose code is Apache-2.0. Pioneer imports only its remastered, ORC-licensed entries.",
     "affiliation": "Pioneer is not affiliated with Foundry Gaming LLC or the pf2e system maintainers.",
     "repositoryLink": "foundryvtt/pf2e on GitHub"
   }
