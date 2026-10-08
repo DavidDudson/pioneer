@@ -4,12 +4,12 @@
       <fr-stack horizontalFrom="md" gap="md" justify="between">
         <fr-stack gap="2xs">
           @if (title(); as title) {
-            <h1 frText="title">{{ title }}</h1>
+            <fr-heading [level]="1">{{ title }}</fr-heading>
           } @else {
-            <h1 frText="title" aria-busy="true"><fr-skeleton width="md" /></h1>
+            <fr-heading busy [level]="1"><fr-skeleton width="md" /></fr-heading>
           }
           @if (description(); as description) {
-            <p frText tone="muted">{{ description }}</p>
+            <fr-text element="p" tone="muted">{{ description }}</fr-text>
           }
         </fr-stack>
         <ng-content select="[frPageActions]" />

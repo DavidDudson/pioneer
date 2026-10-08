@@ -1,28 +1,23 @@
 <fr-stack gap="3xs">
-  <span frText="caption" tone="subtle">{{ label() }}</span>
+  <fr-text variant="caption" tone="subtle">{{ label() }}</fr-text>
 
   @if (status() === Status.Loading) {
     <fr-skeleton width="md" />
   } @else {
     <fr-stack align="center" direction="horizontal" gap="xs">
       @if (edit().open()) {
-        <div #editor class="min-w-0 flex-1" (focusout)="focusOut($event)">
+        <fr-stack #editor grow (focusout)="focusOut($event)">
           <ng-content select="[frInlineEditor]" />
-        </div>
+        </fr-stack>
       } @else {
-        <button
-          class="min-w-0 -mx-2xs flex min-h-[2.75rem] items-center rounded-control px-2xs text-left hover:bg-surface-sunken focus-visible:focus-ring pointer-fine:min-h-[2rem]"
-          type="button"
-          [attr.aria-label]="`Edit ${label()}: ${edit().display()}`"
-          (click)="edit().edit()"
-        >
-          <span frText>{{ edit().display() }}</span>
-        </button>
+        <fr-button variant="inline" [ariaLabel]="`Edit ${label()}: ${edit().display()}`" (pressed)="edit().edit()">
+          {{ edit().display() }}
+        </fr-button>
       }
       <fr-save-status [edit]="edit()" [label]="label()" />
     </fr-stack>
     @if (message(); as message) {
-      <span frText="caption" role="alert" [tone]="messageTone()">{{ message }}</span>
+      <fr-message [tone]="messageTone()">{{ message }}</fr-message>
     }
   }
 </fr-stack>

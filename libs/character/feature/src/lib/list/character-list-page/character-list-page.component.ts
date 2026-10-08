@@ -1,20 +1,27 @@
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
-import { form, FormField, submit, validateStandardSchema } from '@angular/forms/signals';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { form, FormField, validateStandardSchema } from '@angular/forms/signals';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CharacterNameSchema } from '@pioneer/character/domain';
+import type { Character } from '@pioneer/character/domain';
 import {
-  Button,
+  AsyncButton,
+  AsyncData,
+  AsyncForm,
+  AsyncPending,
+  AsyncRegion,
   DateDisplay,
   Grid,
+  Heading,
   Link,
   Page,
-  Select,
+  SelectField,
   Skeleton,
   Stack,
   Surface,
   Text,
-  TextInput,
+  TextField,
 } from '@pioneer/frontier';
+import { VirtualItem, VirtualList } from '@pioneer/frontier/data';
 import { AncestryId } from '@pioneer/rules/sdk';
 import { z } from 'zod';
 
@@ -22,23 +29,39 @@ import { AncestryOptions } from '../../data/ancestry-options';
 import { CharacterStore } from '../../data/character-store';
 
 const CreateForm = z.object({ name: CharacterNameSchema, ancestry: AncestryId });
+interface CreateModel {
+  readonly name: string;
+  readonly ancestry: string;
+}
+
+/** Skeleton cards shown while the list loads. */
+const PLACEHOLDERS = ['first', 'second', 'third'] as const;
+
+const describeCreateError = (): string => 'Could not create the character. Try again.';
+const characterKey = (character: Character): string => character.id;
 
 @Component({
   selector: 'pio-character-list-page',
   imports: [
-    Button,
+    AsyncButton,
+    AsyncData,
+    AsyncForm,
+    AsyncPending,
+    AsyncRegion,
     DateDisplay,
     FormField,
     Grid,
+    Heading,
     Link,
     Page,
-    RouterLink,
-    Select,
+    SelectField,
     Skeleton,
     Stack,
     Surface,
     Text,
-    TextInput,
+    TextField,
+    VirtualItem,
+    VirtualList,
   ],
   templateUrl: './character-list-page.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -49,18 +72,20 @@ export class CharacterListPage {
   readonly #router = inject(Router);
   readonly #route = inject(ActivatedRoute);
 
+  protected readonly placeholders = PLACEHOLDERS;
+
   // Signal forms needs concrete field types, so "no ancestry yet" is ''.
-  protected readonly model = signal({ name: '', ancestry: '' });
+  protected readonly model = signal<CreateModel>({ name: '', ancestry: '' });
   protected readonly form = form(this.model, (path) => {
     validateStandardSchema(path, CreateForm);
   });
 
-  protected async create(event: SubmitEvent): Promise<void> {
-    event.preventDefault();
-    await submit(this.form, async () => {
-      const character = await this.store.create(CreateForm.parse(this.model()));
-      await this.#router.navigate([character.id], { relativeTo: this.#route });
-      return undefined;
-    });
-  }
+  protected readonly create = async (value: CreateModel): Promise<void> => {
+    const character = await this.store.create(CreateForm.parse(value));
+    await this.#router.navigate([character.id], { relativeTo: this.#route });
+  };
+
+  protected readonly describeCreateError = describeCreateError;
+
+  protected readonly characterKey = characterKey;
 }

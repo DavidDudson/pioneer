@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
-import { Link, Shell, Stack } from '@pioneer/frontier';
+import { RouterOutlet } from '@angular/router';
+import { Link, Shell, Stack, Text } from '@pioneer/frontier';
 
 @Component({
   selector: 'pio-root',
-  imports: [Link, RouterLink, RouterOutlet, Shell, Stack],
+  imports: [Link, RouterOutlet, Shell, Stack, Text],
   templateUrl: './app.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

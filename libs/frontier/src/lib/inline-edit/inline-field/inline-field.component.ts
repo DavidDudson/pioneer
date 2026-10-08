@@ -9,10 +9,11 @@ import {
   viewChild,
 } from '@angular/core';
 
+import { Button } from '../../actions/button/button.component';
+import { Message, MessageTone } from '../../feedback/message/message.component';
 import { Skeleton } from '../../feedback/skeleton/skeleton.component';
 import { Stack } from '../../layout/stack/stack.component';
-import { Text } from '../../text/text.directive';
-import { Tone } from '../../tokens';
+import { Text } from '../../text/text/text.component';
 import type { InlineEdit } from '../inline-edit';
 import { InlineEditStatus } from '../inline-edit';
 import { SaveStatus } from '../save-status/save-status.component';
@@ -27,14 +28,14 @@ const FOCUSABLE = 'input, select, textarea, button, [tabindex]:not([tabindex="-1
  *
  * ```html
  * <fr-inline-field label="Name" [edit]="name">
- *   <fr-text-input frInlineEditor label="Name" hideLabel [value]="name.draft()" (valueChange)="name.change($event)"
+ *   <fr-text-input frInlineEditor ariaLabel="Name" [value]="name.draft()" (valueChange)="name.change($event)"
  *     (committed)="name.flushSoon()" (cancelled)="name.cancel()" />
  * </fr-inline-field>
  * ```
  */
 @Component({
   selector: 'fr-inline-field',
-  imports: [SaveStatus, Skeleton, Stack, Text],
+  imports: [Button, Message, SaveStatus, Skeleton, Stack, Text],
   templateUrl: './inline-field.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'block', '[attr.aria-busy]': 'edit().busy() || null' },
@@ -48,12 +49,12 @@ export class InlineField<TValue> {
   protected readonly message = computed(() => this.edit().validationError() ?? this.edit().error());
   protected readonly messageTone = computed(() =>
     this.status() === InlineEditStatus.Conflict && this.edit().validationError() === undefined
-      ? Tone.Warning
-      : Tone.Danger,
+      ? MessageTone.Warning
+      : MessageTone.Danger,
   );
 
   readonly #host = inject<ElementRef<HTMLElement>>(ElementRef);
-  protected readonly editor = viewChild<ElementRef<HTMLElement>>('editor');
+  protected readonly editor = viewChild<string, ElementRef<HTMLElement>>('editor', { read: ElementRef });
 
   public constructor() {
     afterRenderEffect(() => {

@@ -1,0 +1,44 @@
+<button
+  #combobox="ngCombobox"
+  #origin="cdkOverlayOrigin"
+  type="button"
+  ngCombobox
+  cdkOverlayOrigin
+  [class]="triggerClasses"
+  [attr.id]="id() ?? null"
+  [disabled]="disabled()"
+  [attr.aria-label]="ariaLabel() ?? null"
+  [attr.aria-describedby]="describedBy() ?? null"
+  [attr.aria-invalid]="ariaInvalid() || null"
+  [(expanded)]="expanded"
+  (keydown.escape)="cancelled.emit()"
+>
+  <span [class]="labelClasses()">{{ selectedLabel() }}</span>
+  <span aria-hidden="true" [class]="caretClasses">▾</span>
+</button>
+
+<ng-template
+  cdkConnectedOverlay
+  [cdkConnectedOverlayOrigin]="origin"
+  [cdkConnectedOverlayOpen]="expanded()"
+  [cdkConnectedOverlayMinWidth]="origin.elementRef.nativeElement.offsetWidth"
+>
+  <ng-template ngComboboxPopup [combobox]="combobox">
+    <div
+      #listbox="ngListbox"
+      ngListbox
+      ngComboboxWidget
+      focusMode="activedescendant"
+      selectionMode="explicit"
+      [class]="listboxClasses"
+      [value]="selected()"
+      (valueChange)="choose($event)"
+    >
+      @for (option of options(); track option.value) {
+        <div ngOption [class]="optionClasses" [value]="option.value" [label]="option.label">
+          {{ option.label }}
+        </div>
+      }
+    </div>
+  </ng-template>
+</ng-template>

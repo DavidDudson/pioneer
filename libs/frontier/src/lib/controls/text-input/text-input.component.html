@@ -1,0 +1,13 @@
+<input
+  #control
+  type="text"
+  [class]="classes"
+  [attr.id]="id() ?? null"
+  [value]="value()"
+  [placeholder]="placeholder()"
+  [disabled]="disabled()"
+  [attr.aria-label]="ariaLabel() ?? null"
+  [attr.aria-describedby]="describedBy() ?? null"
+  [attr.aria-invalid]="ariaInvalid() || null"
+  (input)="value.set(control.value)"
+/>

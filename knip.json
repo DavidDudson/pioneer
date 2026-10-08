@@ -7,6 +7,7 @@
     "libs/*/src/index.ts",
     "libs/*/*/src/index.ts",
     "libs/*/*/src/testing/index.ts",
+    "libs/frontier/src/data.ts",
     "libs/frontier/scripts/*.ts",
     "tools/**/*.ts",
     "**/*.{test,spec}.ts",

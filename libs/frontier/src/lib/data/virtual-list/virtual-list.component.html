@@ -1,0 +1,13 @@
+<!-- Inline styles: the virtualizer measures rows at runtime, so heights and offsets can't be tokens. -->
+<!-- eslint-disable-next-line pioneer/no-template-styling, @angular-eslint/template/no-inline-styles -- runtime-measured total height -->
+<div #list [class]="listClasses" [style.height.px]="totalSize()">
+  @for (row of virtualRows(); track row.key) {
+    <!-- eslint-disable-next-line pioneer/no-template-styling, @angular-eslint/template/no-inline-styles -- runtime-measured row offset -->
+    <div #row role="listitem" [class]="rowClasses()" [attr.data-index]="row.index" [style.transform]="translate(row)">
+      <ng-container
+        [ngTemplateOutlet]="slot().template"
+        [ngTemplateOutletContext]="{ $implicit: items()[row.index], index: row.index }"
+      />
+    </div>
+  }
+</div>

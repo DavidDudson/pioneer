@@ -1,0 +1,6 @@
+<ng-template #content><ng-content /></ng-template>
+@if (element() === 'p') {
+  <p [class]="classes()"><ng-container [ngTemplateOutlet]="content" /></p>
+} @else {
+  <span [class]="classes()"><ng-container [ngTemplateOutlet]="content" /></span>
+}

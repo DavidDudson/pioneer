@@ -1,8 +1,9 @@
 import { booleanAttribute, ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 import type { ValueOf } from '@pioneer/shared/kernel';
+import { cva } from 'class-variance-authority';
 
 import type { Container } from '../../tokens';
-import { GAP, Space } from '../../tokens';
+import { gapVariants, Space } from '../../tokens';
 
 export const StackDirection = { Vertical: 'vertical', Horizontal: 'horizontal' } as const;
 export type StackDirection = ValueOf<typeof StackDirection>;
@@ -19,25 +20,34 @@ export type StackAlign = ValueOf<typeof StackAlign>;
 export const StackJustify = { Start: 'start', Center: 'center', End: 'end', Between: 'between' } as const;
 export type StackJustify = ValueOf<typeof StackJustify>;
 
-const DIRECTION: Record<StackDirection, string> = { vertical: 'flex-col', horizontal: 'flex-row' };
-const HORIZONTAL_FROM: Record<Container, string> = {
-  sm: '@sm:flex-row',
-  md: '@md:flex-row',
-  lg: '@lg:flex-row',
-};
-const ALIGN: Record<StackAlign, string> = {
-  start: 'items-start',
-  center: 'items-center',
-  end: 'items-end',
-  stretch: 'items-stretch',
-  baseline: 'items-baseline',
-};
-const JUSTIFY: Record<StackJustify, string> = {
-  start: 'justify-start',
-  center: 'justify-center',
-  end: 'justify-end',
-  between: 'justify-between',
-};
+const hostVariants = cva('block min-w-none', {
+  variants: { responsive: { true: '@container', false: '' }, grow: { true: 'flex-1', false: '' } },
+});
+const stackVariants = cva('flex', {
+  variants: {
+    direction: { vertical: 'flex-col', horizontal: 'flex-row' } satisfies Record<StackDirection, string>,
+    horizontalFrom: {
+      sm: '@sm:flex-row',
+      md: '@md:flex-row',
+      lg: '@lg:flex-row',
+    } satisfies Record<Container, string>,
+    gap: gapVariants,
+    align: {
+      start: 'items-start',
+      center: 'items-center',
+      end: 'items-end',
+      stretch: 'items-stretch',
+      baseline: 'items-baseline',
+    } satisfies Record<StackAlign, string>,
+    justify: {
+      start: 'justify-start',
+      center: 'justify-center',
+      end: 'justify-end',
+      between: 'justify-between',
+    } satisfies Record<StackJustify, string>,
+    wrap: { true: 'flex-wrap', false: '' },
+  },
+});
 
 /**
  * One-dimensional layout with token gaps. The default building block.
@@ -62,20 +72,20 @@ export class Stack {
   public readonly justify = input<StackJustify>(StackJustify.Start);
   public readonly wrap = input(false, { transform: booleanAttribute });
   public readonly horizontalFrom = input<Container | undefined>(undefined);
+  /** Take the remaining space when this stack sits in a row. */
+  public readonly grow = input(false, { transform: booleanAttribute });
 
   protected readonly hostClasses = computed(() =>
-    this.horizontalFrom() === undefined ? 'block min-w-0' : '@container block min-w-0',
+    hostVariants({ responsive: this.horizontalFrom() !== undefined, grow: this.grow() }),
   );
-  protected readonly classes = computed(() => {
-    const horizontalFrom = this.horizontalFrom();
-    return [
-      'flex',
-      DIRECTION[this.direction()],
-      horizontalFrom === undefined ? '' : HORIZONTAL_FROM[horizontalFrom],
-      GAP[this.gap()],
-      ALIGN[this.align()],
-      JUSTIFY[this.justify()],
-      this.wrap() ? 'flex-wrap' : '',
-    ].join(' ');
-  });
+  protected readonly classes = computed(() =>
+    stackVariants({
+      direction: this.direction(),
+      horizontalFrom: this.horizontalFrom(),
+      gap: this.gap(),
+      align: this.align(),
+      justify: this.justify(),
+      wrap: this.wrap(),
+    }),
+  );
 }

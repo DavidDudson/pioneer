@@ -1,16 +1,27 @@
 import { booleanAttribute, ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 import type { ValueOf } from '@pioneer/shared/kernel';
+import { cva } from 'class-variance-authority';
 
-import { PADDING, Space } from '../../tokens';
+import { paddingVariants, Space } from '../../tokens';
 
 export const BoxWidth = { Full: 'full', Prose: 'prose', Page: 'page' } as const;
 export type BoxWidth = ValueOf<typeof BoxWidth>;
 
-const WIDTH: Record<BoxWidth, string> = {
-  full: 'w-full',
-  prose: 'mx-auto w-full max-w-prose',
-  page: 'mx-auto w-full max-w-page',
-};
+const hostVariants = cva('@container block min-w-none', {
+  variants: {
+    width: {
+      full: 'w-full',
+      prose: 'mx-auto w-full max-w-prose',
+      page: 'mx-auto w-full max-w-page',
+    } satisfies Record<BoxWidth, string>,
+  },
+});
+const innerVariants = cva('', {
+  variants: {
+    padding: paddingVariants,
+    gutter: { true: 'px-md @lg:px-xl', false: '' },
+  },
+});
 
 /**
  * A region: query container, max width and padding. Wrap a region in a box
@@ -29,8 +40,6 @@ export class Box {
   public readonly padding = input<Space>(Space.None);
   public readonly gutter = input(false, { transform: booleanAttribute });
 
-  protected readonly hostClasses = computed(() => `@container block min-w-0 ${WIDTH[this.width()]}`);
-  protected readonly classes = computed(() =>
-    [PADDING[this.padding()], this.gutter() ? 'px-md @lg:px-xl' : ''].join(' '),
-  );
+  protected readonly hostClasses = computed(() => hostVariants({ width: this.width() }));
+  protected readonly classes = computed(() => innerVariants({ padding: this.padding(), gutter: this.gutter() }));
 }

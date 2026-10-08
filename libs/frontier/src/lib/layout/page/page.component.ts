@@ -1,7 +1,8 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 import { Skeleton } from '../../feedback/skeleton/skeleton.component';
-import { Text } from '../../text/text.directive';
+import { Heading } from '../../text/heading/heading.component';
+import { Text } from '../../text/text/text.component';
 import { Box } from '../box/box.component';
 import { Stack } from '../stack/stack.component';
 
@@ -13,7 +14,7 @@ import { Stack } from '../stack/stack.component';
  */
 @Component({
   selector: 'fr-page',
-  imports: [Box, Skeleton, Stack, Text],
+  imports: [Box, Heading, Skeleton, Stack, Text],
   templateUrl: './page.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'block' },

@@ -1,7 +1,8 @@
 import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 import type { ValueOf } from '@pioneer/shared/kernel';
+import { cva } from 'class-variance-authority';
 
-import { GAP, Space } from '../../tokens';
+import { gapVariants, Space } from '../../tokens';
 
 /**
  * Column count once the grid is wide enough. Columns respond to the grid's
@@ -15,18 +16,23 @@ export type GridColumns = ValueOf<typeof GridColumns>;
 export const GridMinItem = { Sm: 'sm', Md: 'md', Lg: 'lg' } as const;
 export type GridMinItem = ValueOf<typeof GridMinItem>;
 
-const COLUMNS: Record<GridColumns, string> = {
-  1: 'grid-cols-1',
-  2: 'grid-cols-1 @md:grid-cols-2',
-  3: 'grid-cols-1 @md:grid-cols-2 @lg:grid-cols-3',
-  4: 'grid-cols-1 @md:grid-cols-2 @lg:grid-cols-4',
-  6: 'grid-cols-2 @sm:grid-cols-3 @lg:grid-cols-6',
-};
-const MIN_ITEM: Record<GridMinItem, string> = {
-  sm: 'grid-cols-[repeat(auto-fill,minmax(min(10rem,100%),1fr))]',
-  md: 'grid-cols-[repeat(auto-fill,minmax(min(16rem,100%),1fr))]',
-  lg: 'grid-cols-[repeat(auto-fill,minmax(min(24rem,100%),1fr))]',
-};
+const gridVariants = cva('grid', {
+  variants: {
+    columns: {
+      1: 'grid-cols-1',
+      2: 'grid-cols-1 @md:grid-cols-2',
+      3: 'grid-cols-1 @md:grid-cols-2 @lg:grid-cols-3',
+      4: 'grid-cols-1 @md:grid-cols-2 @lg:grid-cols-4',
+      6: 'grid-cols-2 @sm:grid-cols-3 @lg:grid-cols-6',
+    } satisfies Record<GridColumns, string>,
+    minItem: {
+      sm: 'grid-cols-fill-sm',
+      md: 'grid-cols-fill-md',
+      lg: 'grid-cols-fill-lg',
+    } satisfies Record<GridMinItem, string>,
+    gap: gapVariants,
+  },
+});
 
 /**
  * Two-dimensional layout primitive. The host is the query container and an
@@ -37,7 +43,7 @@ const MIN_ITEM: Record<GridMinItem, string> = {
   selector: 'fr-grid',
   templateUrl: './grid.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { class: '@container block min-w-0' },
+  host: { class: '@container block min-w-none' },
 })
 export class Grid {
   public readonly columns = input<GridColumns>(GridColumns.Two);
@@ -46,6 +52,8 @@ export class Grid {
 
   protected readonly classes = computed(() => {
     const minItem = this.minItem();
-    return ['grid', minItem === undefined ? COLUMNS[this.columns()] : MIN_ITEM[minItem], GAP[this.gap()]].join(' ');
+    return gridVariants(
+      minItem === undefined ? { columns: this.columns(), gap: this.gap() } : { minItem, gap: this.gap() },
+    );
   });
 }

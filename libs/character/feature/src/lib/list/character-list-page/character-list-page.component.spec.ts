@@ -1,5 +1,4 @@
-import { provideHttpClient } from '@angular/common/http';
-import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
+import { HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { provideRouter, Router, withComponentInputBinding } from '@angular/router';
@@ -9,6 +8,7 @@ import { contentId } from '@pioneer/rules/sdk';
 import { describe, expect, it, vi } from 'vitest';
 
 import { characterRoutes } from '../../character.routes';
+import { provideServerStateTesting } from '../../testing/provide-server-state-testing';
 
 const id = '0d9f7c1e-3b7a-4c55-9d1f-2a8f2b9c6e10';
 const elf = contentId('player-core', 'elf');
@@ -26,8 +26,7 @@ describe('CharacterListPage', () => {
       providers: [
         // Mounted below a parent path like the app does, so absolute navigation would miss.
         provideRouter([{ path: 'characters', children: characterRoutes }], withComponentInputBinding()),
-        provideHttpClient(),
-        provideHttpClientTesting(),
+        ...provideServerStateTesting(),
       ],
     });
     const http = TestBed.inject(HttpTestingController);

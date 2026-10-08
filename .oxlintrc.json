@@ -37,6 +37,8 @@
     "import/prefer-default-export": "off",
     // Explicit imports over test globals (prefer-importing-vitest-globals stays on).
     "vitest/no-importing-vitest-globals": "off",
+    // toHaveBeenCalledTimes(n) everywhere (prefer-called-times stays on).
+    "vitest/prefer-called-once": "off",
     // Inline `type` specifiers flagged by no-import-type-side-effects; prefer top-level `import type`.
     "import/consistent-type-specifier-style": ["error", "prefer-top-level"],
 
@@ -130,6 +132,7 @@
     "pioneer/no-full-page-load": "error",
     "pioneer/no-route-resolvers": "error",
     "pioneer/layout-variants": "error",
+    "pioneer/class-tokens": "error",
     "eslint/no-restricted-globals": [
       "error",
       { "name": "Date", "message": "Use Temporal from @pioneer/shared/kernel." },
