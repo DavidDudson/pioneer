@@ -13,13 +13,15 @@ flowchart LR
   M4 --> M5[M5 Solo play]
   M5 --> M6[M6 Campaigns and live play]
   M4 --> M7[M7 Homebrew authoring]
+  M6 --> M7
   M4 --> M8[M8 Interop]
   M2 --> M9[M9 Remaster core coverage]
   M6 --> M9
+  M7 --> M9
 ```
 
 M1 and M2 overlap: once the M1 schemas land, the importer can be built against them while the engine grows.
-M7 and M8 can run in parallel with M5 and M6 if there is capacity.
+M7 needs M6 only for per-campaign variant rules; the rest of M7, and all of M8, can run alongside M5 and M6.
 
 ## M0 Foundations
 
