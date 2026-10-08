@@ -9,6 +9,8 @@
 @import 'tailwindcss' source(none);
 @import './primitives.color.css';
 @import './primitives.scale.css';
+@import './themes/frontier.css';
+@import './themes/tavern.css';
 @import './semantic.css';
 
 @source '../lib';
@@ -114,7 +116,7 @@
   --grid-template-columns-fill-md: repeat(auto-fill, minmax(min(var(--fr-size-item-md), 100%), 1fr));
   --grid-template-columns-fill-lg: repeat(auto-fill, minmax(min(var(--fr-size-item-lg), 100%), 1fr));
 
-  --font-sans: var(--fr-font-sans);
+  --font-body: var(--fr-font-body);
   --font-display: var(--fr-font-display);
   --font-mono: var(--fr-font-mono);
   --font-weight-regular: 400;
@@ -195,7 +197,7 @@
   html {
     background: var(--fr-surface-canvas);
     color: var(--fr-fg-default);
-    font-family: var(--fr-font-sans);
+    font-family: var(--fr-font-body);
     -webkit-font-smoothing: antialiased;
   }
 

@@ -1,0 +1,40 @@
+/*
+ * Theme "tavern": a medieval tavern. Smoked oak and candlelit copper by
+ * night (dark), ink on parchment by day (light). Sealing-wax danger, hop
+ * green success, mead warning, pewter info; old-style serif throughout and
+ * squarer, hand-cut corners.
+ */
+:root[data-theme='tavern'] {
+  --fr-ramp-neutral-hue: 55;
+  --fr-ramp-neutral-chroma: 0.045;
+  --fr-ramp-accent-hue: 58;
+  --fr-ramp-accent-chroma: 0.15;
+  --fr-ramp-danger-hue: 22;
+  --fr-ramp-danger-chroma: 0.17;
+  --fr-ramp-success-hue: 130;
+  --fr-ramp-success-chroma: 0.11;
+  --fr-ramp-warning-hue: 88;
+  --fr-ramp-warning-chroma: 0.14;
+  --fr-ramp-info-hue: 235;
+  --fr-ramp-info-chroma: 0.06;
+
+  --fr-font-body: 'Iowan Old Style', 'Palatino Linotype', Palatino, 'Book Antiqua', 'URW Palladio L', Georgia, serif;
+  --fr-font-display: Luminari, 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
+
+  --fr-radius-control: var(--fr-scale-radius-0);
+  --fr-radius-surface: var(--fr-scale-radius-1);
+  --fr-radius-overlay: var(--fr-scale-radius-1);
+
+  --fr-shadow-raised: 0 1px 2px oklch(0.2 0.03 55 / 0.25), 0 2px 4px oklch(0.2 0.03 55 / 0.2);
+  --fr-shadow-overlay: 0 10px 28px oklch(0.15 0.03 55 / 0.4), 0 3px 8px oklch(0.15 0.03 55 / 0.25);
+}
+
+/* Parchment by day. The ramp-derived surfaces are too pale and grey for paper. */
+:root[data-theme='tavern'][data-mode='light'] {
+  --fr-surface-canvas: oklch(0.93 0.035 80);
+  --fr-surface-base: oklch(0.965 0.025 85);
+  --fr-surface-raised: oklch(0.965 0.025 85);
+  --fr-surface-sunken: oklch(0.9 0.035 78);
+  --fr-surface-overlay: oklch(0.975 0.02 85);
+  --fr-surface-skeleton: oklch(0.88 0.04 78);
+}
