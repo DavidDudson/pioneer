@@ -2,8 +2,8 @@ import { ChangeDetectionStrategy, Component, computed, effect, inject, input } f
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import {
   CharacterId,
-  CharacterLevelSchema,
-  CharacterNameSchema,
+  CharacterLevel,
+  CharacterName,
   CHARACTER_LEVEL_MAX,
   CHARACTER_LEVEL_MIN,
   CharacterPatchField,
@@ -29,7 +29,7 @@ import {
   ATTRIBUTE_MODIFIER_MIN,
   AncestryId,
   Attribute,
-  AttributeModifierSchema,
+  AttributeModifier,
 } from '@pioneer/rules/sdk';
 import { ApiError } from '@pioneer/shared/web';
 import type { z } from 'zod';
@@ -84,7 +84,7 @@ function signed(value: number): string {
 })
 export class CharacterSheetPage {
   /** Route param, bound by `withComponentInputBinding`. */
-  public readonly id = input.required<string>();
+  public readonly id = input.required({ transform: (id: string): CharacterId => CharacterId.parse(id) });
 
   readonly #i18n = inject(TranslocoService);
   protected readonly store = inject(CharacterStore);
@@ -96,11 +96,11 @@ export class CharacterSheetPage {
   protected readonly modifierMax = ATTRIBUTE_MODIFIER_MAX;
   protected readonly title = computed(() => this.character()?.name);
 
-  protected readonly name = this.#field({
+  protected readonly name = this.#field<string>({
     read: (character) => character.name,
     empty: '',
-    schema: CharacterNameSchema,
-    toPatch: (value) => ({ field: CharacterPatchField.Name, value }),
+    schema: CharacterName,
+    toPatch: (value) => ({ field: CharacterPatchField.Name, value: CharacterName.parse(value) }),
   });
   protected readonly ancestry = this.#field<AncestryId | undefined>({
     read: (character) => character.ancestry,
@@ -109,27 +109,27 @@ export class CharacterSheetPage {
     toPatch: (value) => ({ field: CharacterPatchField.Ancestry, value: AncestryId.parse(value) }),
     format: (value) => (value === undefined ? '' : this.ancestries.name(value)),
   });
-  protected readonly level = this.#field({
+  protected readonly level = this.#field<number>({
     read: (character) => character.level,
     empty: CHARACTER_LEVEL_MIN,
-    schema: CharacterLevelSchema,
-    toPatch: (value) => ({ field: CharacterPatchField.Level, value }),
+    schema: CharacterLevel,
+    toPatch: (value) => ({ field: CharacterPatchField.Level, value: CharacterLevel.parse(value) }),
   });
   protected readonly attributes = Object.values(Attribute).map((attribute) => ({
     attribute,
     labelKey: ATTRIBUTE_LABEL_KEYS[attribute],
-    edit: this.#field({
+    edit: this.#field<number>({
       read: (character) => character.modifier(attribute),
       empty: 0,
-      schema: AttributeModifierSchema,
-      toPatch: (value) => ({ field: CharacterPatchField.Attribute, attribute, value }),
+      schema: AttributeModifier,
+      toPatch: (value) => ({ field: CharacterPatchField.Attribute, attribute, value: AttributeModifier.parse(value) }),
       format: signed,
     }),
   }));
 
   public constructor() {
     effect(() => {
-      this.store.select(CharacterId.parse(this.id()));
+      this.store.select(this.id());
     });
   }
 

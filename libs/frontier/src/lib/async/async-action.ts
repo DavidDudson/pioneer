@@ -1,6 +1,7 @@
 import { computed, DestroyRef, inject } from '@angular/core';
 import type { Signal } from '@angular/core';
 import { TranslocoService } from '@jsverse/transloco';
+import { Milliseconds } from '@pioneer/shared/kernel';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import { injectMutation } from '@tanstack/angular-query-experimental';
 import type { MutationStatus } from '@tanstack/angular-query-experimental';
@@ -11,7 +12,7 @@ export const AsyncStatus = {
   Idle: 'idle',
   /** In flight: show a spinner in place, block a second press. */
   Pending: 'pending',
-  /** Just succeeded: show a tick for `SUCCESS_FLASH_MS`, then return to idle. */
+  /** Just succeeded: show a tick for `SUCCESS_FLASH`, then return to idle. */
   Success: 'success',
   /** Failed: show the message inline until the next attempt. */
   Error: 'error',
@@ -19,7 +20,7 @@ export const AsyncStatus = {
 export type AsyncStatus = ValueOf<typeof AsyncStatus>;
 
 /** How long a success tick shows before the action returns to idle. */
-export const SUCCESS_FLASH_MS = 2000;
+export const SUCCESS_FLASH: Milliseconds = Milliseconds.parse(2000);
 
 export interface AsyncActionOptions<TData> {
   /** Return false when the run did nothing (e.g. an invalid form): the action goes straight back to idle. */
@@ -59,7 +60,7 @@ function injectFlash(): Flash {
   });
   return {
     start: (done) => {
-      timer = setTimeout(done, SUCCESS_FLASH_MS);
+      timer = setTimeout(done, SUCCESS_FLASH);
     },
     stop: () => {
       clearTimeout(timer);
@@ -70,7 +71,7 @@ function injectFlash(): Flash {
 
 /**
  * A TanStack mutation with frontier's feedback timing: pending while in
- * flight, success for `SUCCESS_FLASH_MS`, then idle again; errors stay until
+ * flight, success for `SUCCESS_FLASH`, then idle again; errors stay until
  * the next run. Call in an injection context. Needs `provideTanStackQuery`.
  *
  * ```ts

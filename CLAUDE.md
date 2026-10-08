@@ -42,6 +42,12 @@ relax a rule without a reason recorded beside it. Rules that trip agents most:
 - Return types are named and short: an object shape gets an `interface`/`type` (`pioneer/no-inline-return-types`),
   and types are declared or imported, never derived with `ReturnType`/`Parameters`/`InstanceType`
   (`pioneer/no-derived-types`).
+- No bare `string`/`number` in domain or rules code (`libs/*/domain`, `libs/rules/sdk`;
+  `pioneer/no-primitive-domain-types`). Ids and quantities are Zod brands (`CharacterId`, `Feet`, `Level`,
+  `Milliseconds`); closed sets are const objects (`Attribute`, `DamageType`, `ProblemType`). Build a brand with
+  `Brand.parse(...)`, never `as`.
+- A brand carries the unit, so names don't repeat it: `REVERT_WINDOW: Milliseconds`, `speed: Feet`.
+  `const NAME = Brand.parse(5000)` is a named constant (`pioneer/no-magic-numbers`).
 - Project rules oxlint lacks go in `tools/oxlint/pioneer-plugin.ts` (TypeScript) or `tools/eslint/` (templates).
 
 ## Checks

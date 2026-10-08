@@ -6,6 +6,7 @@ import type { Rule } from 'eslint';
 
 import { CLASS_TOKEN_MESSAGES, classTokenProblem } from '../class-tokens.ts';
 import { LAYOUT_PRIMITIVE, LAYOUT_VARIANT_MESSAGES, layoutVariantProblem } from '../layout-variants.ts';
+import { noMagicNumbers, noPrimitiveDomainTypes } from './brand-rules.ts';
 import { noAwaitInCondition, noDerivedTypes, noInlineReturnTypes } from './code-rules.ts';
 
 const FRONTIER = /(?:^|\/)libs\/frontier\//u;
@@ -262,6 +263,8 @@ const plugin = {
     'no-await-in-condition': noAwaitInCondition,
     'no-inline-return-types': noInlineReturnTypes,
     'no-derived-types': noDerivedTypes,
+    'no-magic-numbers': noMagicNumbers,
+    'no-primitive-domain-types': noPrimitiveDomainTypes,
   },
 };
 

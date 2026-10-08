@@ -1,16 +1,36 @@
 import { z } from 'zod';
 
+import type { ValueOf } from './value-of';
+
+/** HTTP statuses the API answers errors with. */
+export const HttpStatus = {
+  NotFound: 404,
+  Conflict: 409,
+  UnprocessableContent: 422,
+  InternalServerError: 500,
+} as const;
+export type HttpStatus = ValueOf<typeof HttpStatus>;
+
+/** RFC 9457 `type` of every problem the API returns. */
+export const ProblemType = {
+  NotFound: 'not-found',
+  VersionConflict: 'version-conflict',
+  Validation: 'validation',
+  Internal: 'internal',
+} as const;
+export type ProblemType = ValueOf<typeof ProblemType>;
+
 /** Base for errors that carry domain meaning across the API boundary. */
 export abstract class DomainError extends Error {
   public override readonly name: string = 'DomainError';
-  public abstract readonly status: number;
-  public abstract readonly type: string;
+  public abstract readonly status: HttpStatus;
+  public abstract readonly type: ProblemType;
 }
 
 export class NotFoundError extends DomainError {
   public override readonly name = 'NotFoundError';
-  public readonly status = 404;
-  public readonly type = 'not-found';
+  public readonly status = HttpStatus.NotFound;
+  public readonly type = ProblemType.NotFound;
 
   public constructor(resource: string, id: string) {
     super(`${resource} ${id} was not found`);
@@ -20,8 +40,8 @@ export class NotFoundError extends DomainError {
 /** Optimistic concurrency failure: the aggregate changed since the client read it. */
 export class VersionConflictError extends DomainError {
   public override readonly name = 'VersionConflictError';
-  public readonly status = 409;
-  public readonly type = 'version-conflict';
+  public readonly status = HttpStatus.Conflict;
+  public readonly type = ProblemType.VersionConflict;
 
   public constructor(resource: string, id: string) {
     super(`${resource} ${id} was changed by someone else`);
@@ -30,8 +50,8 @@ export class VersionConflictError extends DomainError {
 
 export class ValidationError extends DomainError {
   public override readonly name = 'ValidationError';
-  public readonly status = 422;
-  public readonly type = 'validation';
+  public readonly status = HttpStatus.UnprocessableContent;
+  public readonly type = ProblemType.Validation;
   public readonly issues: readonly z.core.$ZodIssue[];
 
   public constructor(issues: readonly z.core.$ZodIssue[]) {
@@ -42,9 +62,9 @@ export class ValidationError extends DomainError {
 
 /** RFC 9457 problem details, the wire shape of every API error. */
 export const ProblemSchema = z.object({
-  type: z.string(),
+  type: z.enum(ProblemType),
   title: z.string(),
-  status: z.number().int(),
+  status: z.enum(HttpStatus),
   detail: z.string().optional(),
 });
 export type Problem = z.infer<typeof ProblemSchema>;

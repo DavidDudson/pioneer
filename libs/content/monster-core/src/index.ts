@@ -25,7 +25,7 @@ export const monsterCore = ContentPack.define({
         { type: 'vitality', value: 5 },
       ],
       resistances: [],
-      speedFeet: 25,
+      speed: 25,
     },
   ],
 });

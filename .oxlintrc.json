@@ -103,7 +103,10 @@
     "eslint/no-use-before-define": ["error", { "functions": false }],
     "eslint/no-duplicate-imports": ["error", { "allowSeparateTypeImports": true }],
     "eslint/func-style": ["error", "declaration", { "allowArrowFunctions": true }],
-    "eslint/no-magic-numbers": [
+    // ESLint's no-magic-numbers, wrapped so `const SAVE_DEBOUNCE = Milliseconds.parse(600)` counts as
+    // a named constant (tools/oxlint/brand-rules.ts). Same options.
+    "eslint/no-magic-numbers": "off",
+    "pioneer/no-magic-numbers": [
       "error",
       {
         "ignore": [-1, 0, 1, 2],
@@ -146,6 +149,9 @@
     // `ReturnType<typeof fn>` reverse-engineering.
     "pioneer/no-inline-return-types": "error",
     "pioneer/no-derived-types": "error",
+    // Domain and rules values are branded or const objects, never bare string/number
+    // (tools/oxlint/brand-rules.ts; tests and testing/ builders are exempt).
+    "pioneer/no-primitive-domain-types": "error",
     "eslint/no-restricted-globals": [
       "error",
       { "name": "Date", "message": "Use Temporal from @pioneer/shared/kernel." },
@@ -251,7 +257,7 @@
     {
       "files": ["**/*.test.ts", "**/*.spec.ts"],
       "rules": {
-        "eslint/no-magic-numbers": "off",
+        "pioneer/no-magic-numbers": "off",
         "eslint/no-empty-function": "off",
         "eslint/init-declarations": "off",
         "eslint/max-statements": "off",
@@ -283,7 +289,7 @@
     {
       // Book data and generated token tables are numbers by nature.
       "files": ["libs/content/**/*.ts", "libs/frontier/scripts/*.ts"],
-      "rules": { "eslint/no-magic-numbers": "off" }
+      "rules": { "pioneer/no-magic-numbers": "off" }
     },
     {
       // Process entry points: Bun supports top-level await; logging is the point.

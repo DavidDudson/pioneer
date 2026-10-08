@@ -30,7 +30,7 @@ export class ContentPackBuilder {
       name: slug.charAt(0).toUpperCase() + slug.slice(1),
       hitPoints: 8,
       size: Size.Medium,
-      speedFeet: 25,
+      speed: 25,
       traits: ['humanoid'],
       ...overrides,
     });

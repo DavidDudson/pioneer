@@ -3,7 +3,7 @@ import type { ComponentFixture } from '@angular/core/testing';
 import { provideTanStackQuery, QueryClient } from '@tanstack/angular-query-experimental';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { SUCCESS_FLASH_MS } from '../../async/async-action';
+import { SUCCESS_FLASH } from '../../async/async-action';
 import { provideFrontierI18nTesting } from '../../testing/provide-frontier-i18n-testing';
 import { AsyncButton } from './async-button.component';
 
@@ -86,7 +86,7 @@ describe(AsyncButton, () => {
     await settle();
     expect((fixture.nativeElement as HTMLElement).textContent).toContain('✓');
 
-    await settle(SUCCESS_FLASH_MS);
+    await settle(SUCCESS_FLASH);
     // The reset is published on TanStack's notify timer, queued after the flash timer.
     await settle(RESET_NOTIFY_MS);
     expect((fixture.nativeElement as HTMLElement).textContent).not.toContain('✓');

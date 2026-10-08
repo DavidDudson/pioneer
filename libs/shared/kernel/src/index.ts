@@ -12,13 +12,25 @@ export {
 } from './endpoint';
 export {
   DomainError,
+  HttpStatus,
   NotFoundError,
   type Problem,
+  ProblemType,
   ProblemSchema,
   ValidationError,
   VersionConflictError,
 } from './errors';
-export { ContentNamespace, derivedId, FixtureNamespace, newId, UuidSchema, type Version, VersionSchema } from './id';
+export {
+  ContentNamespace,
+  derivedId,
+  FIRST_VERSION,
+  FixtureNamespace,
+  newId,
+  nextVersion,
+  Uuid,
+  UuidNamespace,
+  Version,
+} from './id';
 export { Temporal } from './temporal';
 export { Pg } from './pg';
 export { listQuery, SortDirection } from './list-query';

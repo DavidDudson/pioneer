@@ -4,7 +4,7 @@ import type { ValueOf } from '@pioneer/shared/kernel';
 import { z } from 'zod';
 
 import { Character } from './character';
-import { CharacterId, CharacterNameSchema } from './character-fields';
+import { CharacterId, CharacterName } from './character-fields';
 import { PatchCharacterBody } from './character-patch';
 
 const ById = z.object({ id: CharacterId });
@@ -16,7 +16,7 @@ export type CharacterSort = ValueOf<typeof CharacterSort>;
 export const CharacterListQuery = listQuery(CharacterSort, CharacterSort.CreatedAt);
 export type CharacterListQuery = z.output<typeof CharacterListQuery>;
 
-export const CreateCharacterBody = z.object({ name: CharacterNameSchema, ancestry: AncestryId });
+export const CreateCharacterBody = z.object({ name: CharacterName, ancestry: AncestryId });
 export type CreateCharacterBody = z.infer<typeof CreateCharacterBody>;
 
 /** The character HTTP API, shared by `character-infrastructure` and `character-feature`. */

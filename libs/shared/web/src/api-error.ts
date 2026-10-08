@@ -1,6 +1,5 @@
+import { HttpStatus } from '@pioneer/shared/kernel';
 import type { Problem } from '@pioneer/shared/kernel';
-
-const HTTP_CONFLICT = 409;
 
 /** A failed API call, carrying the server's problem details when it sent them. */
 export class ApiError extends Error {
@@ -15,7 +14,7 @@ export class ApiError extends Error {
   }
 
   public get isConflict(): boolean {
-    return this.status === HTTP_CONFLICT;
+    return this.status === HttpStatus.Conflict;
   }
 
   public static isConflict(error: unknown): boolean {
