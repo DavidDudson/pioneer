@@ -11,7 +11,7 @@ import { noNativeElements } from './tools/eslint/no-native-elements';
 import { noTemplateStyling } from './tools/eslint/no-template-styling';
 
 const config: Linter.Config[] = [
-  { ignores: ['dist/**', 'coverage/**', '.angular/**', '.nx/**', 'apps/web/src/index.html'] },
+  { ignores: ['dist/**', 'coverage/**', '.angular/**', '.nx/**', '**/storybook-static/**', 'apps/web/src/index.html'] },
   ...angular.configs.templateAll.map((entry) => ({ ...entry, files: ['**/*.html'] })),
   ...angular.configs.templateAccessibility.map((entry) => ({ ...entry, files: ['**/*.html'] })),
   {

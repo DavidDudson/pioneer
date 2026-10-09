@@ -17,5 +17,9 @@
   "ignoreBinaries": ["typos", "rumdl", "taplo"],
   "ignoreDependencies": ["@angular/language-service", "@socketsecurity/bun-security-scanner"],
   "nx": true,
-  "angular": false
+  "angular": false,
+  "storybook": {
+    "config": ["libs/*/.storybook/main.ts"],
+    "entry": ["libs/*/.storybook/preview.ts", "libs/**/*.stories.ts"]
+  }
 }
