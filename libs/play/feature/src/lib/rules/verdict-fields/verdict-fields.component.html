@@ -1,0 +1,25 @@
+@let result = check();
+<fr-stack gap="md">
+  <fr-field [invalid]="result.status === VerdictStatus.NotJson || result.status === VerdictStatus.Invalid">
+    <fr-label>{{ 'play.rules.predicateLabel' | transloco }}</fr-label>
+    <fr-text-area monospace [rows]="predicateRows" [(value)]="predicate" />
+    @if (result.status === VerdictStatus.NotJson) {
+      <fr-field-error>{{ 'play.rules.notJson' | transloco }}</fr-field-error>
+    } @else if (result.status === VerdictStatus.Invalid) {
+      <fr-field-error>{{ 'play.rules.invalidSummary' | transloco: { count: result.issues.length } }}</fr-field-error>
+    } @else {
+      <fr-field-hint>{{ 'play.rules.jsonHint' | transloco }}</fr-field-hint>
+    }
+  </fr-field>
+  <fr-field [invalid]="result.status === VerdictStatus.InvalidFacts">
+    <fr-label>{{ 'play.rules.factsLabel' | transloco }}</fr-label>
+    <fr-text-area monospace [rows]="factRows" [(value)]="facts" />
+    @if (result.status === VerdictStatus.InvalidFacts) {
+      <fr-field-error>{{
+        'play.rules.badFacts' | transloco: { count: result.lines.length, lines: badLines() }
+      }}</fr-field-error>
+    } @else {
+      <fr-field-hint>{{ 'play.rules.factsHint' | transloco }}</fr-field-hint>
+    }
+  </fr-field>
+</fr-stack>

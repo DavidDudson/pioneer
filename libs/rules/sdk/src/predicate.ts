@@ -107,3 +107,11 @@ export const PredicateStatement: z.ZodType<PredicateStatement> = depthGuarded(St
 
 /** A whole predicate: the statements that must all hold. */
 export const Predicate: z.ZodType<Predicate> = depthGuarded(z.array(Statement));
+
+/** Whether a statement is a numeric or text comparison (`eq`, `gt`, `gte`, `lt`, `lte`) rather than an option or compound. */
+export function isPredicateComparison(statement: PredicateStatement): statement is PredicateComparison {
+  return (
+    typeof statement !== 'string' &&
+    ('eq' in statement || 'gt' in statement || 'gte' in statement || 'lt' in statement || 'lte' in statement)
+  );
+}

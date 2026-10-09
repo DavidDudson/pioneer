@@ -17,19 +17,19 @@ import {
 import type { SelectOption } from '@pioneer/frontier';
 import { filter, merge } from 'rxjs';
 
-import { checkFormula } from '../formula-check';
-import type { FormulaCheck, ReferenceEntries } from '../formula-check';
 import { FormulaReferences } from '../formula-references/formula-references.component';
-import { FormulaResult } from '../formula-result/formula-result.component';
-import { CheckStatus, checkRulesJson, RULES_TOOL_KEYS, rulesExample, RulesTool } from '../rules-check';
-import type { CheckOutcome } from '../rules-check';
-import { RulesResult } from '../rules-result/rules-result.component';
+import { CheckStatus, RULES_TOOL_KEYS, rulesExample, RulesTool } from '../rules-check';
+import { checkTool, EXAMPLE_FACTS, ToolKind } from '../rules-tool';
+import type { ReferenceEntries, ToolCheck } from '../rules-tool';
+import { ToolResult } from '../tool-result/tool-result.component';
+import { VerdictFields } from '../verdict-fields/verdict-fields.component';
 
 const JSON_ROWS = 12;
 
 /**
  * Paste rules JSON, pick a schema, and see whether it validates and, if not, where and why. The formula
- * tool parses formula text instead, points at the first mistake, and evaluates it with reference values.
+ * tool parses formula text instead, points at the first mistake, and evaluates it with reference values; the verdict tool evaluates a predicate
+ * against roll options and shows which statements hold.
  */
 @Component({
   selector: 'pio-rules-playground-page',
@@ -38,23 +38,24 @@ const JSON_ROWS = 12;
     FieldError,
     FieldHint,
     FormulaReferences,
-    FormulaResult,
     Heading,
     Label,
     Page,
-    RulesResult,
     Select,
     Stack,
     Surface,
     TextArea,
     TextInput,
+    ToolResult,
     TranslocoPipe,
+    VerdictFields,
   ],
   templateUrl: './rules-playground-page.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RulesPlaygroundPage {
   protected readonly CheckStatus = CheckStatus;
+  protected readonly ToolKind = ToolKind;
   protected readonly rows = JSON_ROWS;
 
   readonly #i18n = inject(TranslocoService);
@@ -73,16 +74,15 @@ export class RulesPlaygroundPage {
   protected readonly text = signal(rulesExample(RulesTool.Predicate));
   /** What has been typed for each formula reference; kept across edits so a value survives retyping. */
   protected readonly referenceEntries = signal<ReferenceEntries>(new Map());
-  /** The formula check while the formula tool is chosen, otherwise undefined. */
-  protected readonly formula = computed((): FormulaCheck | undefined => {
-    const tool = this.schema();
-    return tool === RulesTool.Formula ? checkFormula(this.text(), this.referenceEntries()) : undefined;
-  });
-  /** The JSON check while a schema is chosen, otherwise undefined. */
-  protected readonly outcome = computed((): CheckOutcome | undefined => {
-    const tool = this.schema();
-    return tool === RulesTool.Formula ? undefined : checkRulesJson(tool, this.text());
-  });
+  /** Roll options for the verdict tool, one per line. Kept when switching tools. */
+  protected readonly facts = signal(EXAMPLE_FACTS);
+  /** The chosen tool's answer for the current text. */
+  protected readonly result = computed((): ToolCheck =>
+    checkTool(this.schema(), this.text(), {
+      facts: this.facts(),
+      entries: this.referenceEntries(),
+    }),
+  );
 
   /** A new schema starts from its example, so the page always shows something that passes. */
   protected choose(tool: RulesTool | undefined): void {
