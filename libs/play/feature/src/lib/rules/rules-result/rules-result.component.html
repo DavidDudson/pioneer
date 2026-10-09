@@ -1,0 +1,22 @@
+@let result = outcome();
+@if (result.status === CheckStatus.Valid) {
+  <fr-message tone="success">{{ 'play.rules.valid' | transloco }}</fr-message>
+  <fr-text element="p" variant="code" preformatted>{{ result.parsed }}</fr-text>
+} @else if (result.status === CheckStatus.Invalid) {
+  <fr-list gap="sm">
+    @for (issue of result.issues; track $index) {
+      <fr-list-item>
+        <fr-stack gap="3xs">
+          @if (formatPath(issue.path); as path) {
+            <fr-text variant="code">{{ path }}</fr-text>
+          } @else {
+            <fr-text variant="caption" tone="muted">{{ 'play.rules.wholeValue' | transloco }}</fr-text>
+          }
+          <fr-text>{{ issue.message.key | transloco: issue.message.params }}</fr-text>
+        </fr-stack>
+      </fr-list-item>
+    }
+  </fr-list>
+} @else {
+  <fr-text element="p" tone="muted">{{ 'play.rules.nothingToShow' | transloco }}</fr-text>
+}
