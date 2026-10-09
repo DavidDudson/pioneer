@@ -34,6 +34,14 @@ async function typeJson(harness: RouterTestingHarness, text: string): Promise<vo
   await harness.fixture.whenStable();
 }
 
+async function chooseSchema(harness: RouterTestingHarness, label: string): Promise<void> {
+  present(harness.routeNativeElement?.querySelector('button')).click();
+  await harness.fixture.whenStable();
+  const options = [...document.querySelectorAll<HTMLElement>('[role="option"]')];
+  present(options.find((option) => option.textContent.trim() === label)).click();
+  await harness.fixture.whenStable();
+}
+
 function pageText(harness: RouterTestingHarness): string {
   return present(harness.routeNativeElement).textContent;
 }
@@ -78,5 +86,18 @@ describe('RulesPlaygroundPage', () => {
     const harness = await openPlayground();
     await typeJson(harness, '[self:condition:frightened');
     expect(pageText(harness)).toContain('This is not valid JSON yet.');
+  });
+
+  it('checks rule elements, naming an element it does not know', async () => {
+    const harness = await openPlayground();
+    await chooseSchema(harness, 'Rule element');
+    expect(pageText(harness)).toContain('Valid.');
+    expect(pageText(harness)).toContain('"FlatModifier"');
+
+    await typeJson(harness, '{ "key": "ActiveEffectLike", "path": "system.attributes.ac.value" }');
+    const text = pageText(harness);
+    expect(text).toContain('1 problem');
+    expect(text).toContain('key');
+    expect(text).toContain('“ActiveEffectLike” is not a rule element Pioneer knows yet.');
   });
 });

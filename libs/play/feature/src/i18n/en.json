@@ -24,7 +24,7 @@
   },
   "rules": {
     "title": "Rules",
-    "description": "Check rules data against Pioneer’s schemas: predicates, selectors, domains, roll options, sources and origins.",
+    "description": "Check rules data against Pioneer’s schemas: predicates, selectors, domains, roll options, sources, origins and rule elements.",
     "schemaLabel": "Schema",
     "schemaHint": "Changing the schema loads a valid example for it.",
     "jsonLabel": "JSON",
@@ -39,7 +39,8 @@
       "domain": "Domain",
       "rollOption": "Roll option",
       "source": "Source",
-      "origin": "Origin"
+      "origin": "Origin",
+      "ruleElement": "Rule element"
     },
     "invalidSummary": "{count, plural, one {# problem, listed under Result.} other {# problems, listed under Result.}}",
     "nothingToShow": "Nothing to check until the JSON parses."
