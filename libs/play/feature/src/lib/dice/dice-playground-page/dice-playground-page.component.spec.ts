@@ -1,6 +1,14 @@
 import { describe, expect, it } from 'vitest';
 
-import { button, openPlayground, present, press, rollButton, typeDc, typeExpression } from './playground-harness';
+import {
+  button,
+  openPlayground,
+  present,
+  press,
+  rollButton,
+  typeDc,
+  typeExpression,
+} from './testing/playground-harness';
 
 describe('DicePlaygroundPage', () => {
   it('rolls an expression and shows every die behind the total', async () => {

@@ -175,6 +175,14 @@
           { "name": "@angular/material/snack-bar", "message": "No toasts. Show feedback inline, next to its cause." },
           { "name": "ngx-toastr", "message": "No toasts. Show feedback inline, next to its cause." },
           { "name": "ngx-sonner", "message": "No toasts. Show feedback inline, next to its cause." }
+        ],
+        // Testing barrels hold fakes such as FakeAuthenticator, which trusts any caller. Only tests and
+        // other testing helpers may import them (re-allowed in overrides below).
+        "patterns": [
+          {
+            "group": ["@pioneer/*/testing", "@pioneer/*/*/testing"],
+            "message": "Testing barrels are for tests. Import them from *.test.ts, *.spec.ts or a testing/ folder."
+          }
         ]
       }
     ],
@@ -287,6 +295,35 @@
       // usually a conditional. Keep the logic in the oracle, not in branches.
       "files": ["**/*.property.test.ts"],
       "rules": { "vitest/no-conditional-in-test": "off" }
+    },
+    {
+      // Tests and testing helpers may import testing barrels. Oxlint replaces a rule's options per
+      // override, so the `paths` list above is repeated here without the testing patterns.
+      "files": ["**/*.test.ts", "**/*.spec.ts", "**/testing/**"],
+      "rules": {
+        "eslint/no-restricted-imports": [
+          "error",
+          {
+            "paths": [
+              { "name": "temporal-polyfill", "message": "Import Temporal from @pioneer/shared/kernel." },
+              { "name": "@js-temporal/polyfill", "message": "Import Temporal from @pioneer/shared/kernel." },
+              { "name": "luxon", "message": "Use Temporal." },
+              { "name": "date-fns", "message": "Use Temporal." },
+              { "name": "dayjs", "message": "Use Temporal." },
+              { "name": "moment", "message": "Use Temporal." },
+              { "name": "@angular/cdk/dialog", "message": "No modals. Show the content inline or route to it." },
+              { "name": "@angular/material/dialog", "message": "No modals. Show the content inline or route to it." },
+              { "name": "@angular/material/bottom-sheet", "message": "No modals. Show the content inline." },
+              {
+                "name": "@angular/material/snack-bar",
+                "message": "No toasts. Show feedback inline, next to its cause."
+              },
+              { "name": "ngx-toastr", "message": "No toasts. Show feedback inline, next to its cause." },
+              { "name": "ngx-sonner", "message": "No toasts. Show feedback inline, next to its cause." }
+            ]
+          }
+        ]
+      }
     },
     {
       // Book data and generated token tables are numbers by nature.
