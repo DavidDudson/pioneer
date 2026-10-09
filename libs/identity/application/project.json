@@ -1,0 +1,7 @@
+{
+  "name": "identity-application",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/identity/application/src",
+  "tags": ["scope:identity", "type:application", "platform:any"]
+}

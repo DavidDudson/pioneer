@@ -249,7 +249,8 @@
             "sourceTag": "scope:character",
             "onlyDependOnLibsWithTags": ["scope:character", "scope:rules", "scope:shared"]
           },
-          { "sourceTag": "scope:play", "onlyDependOnLibsWithTags": ["scope:play", "scope:rules", "scope:shared"] }
+          { "sourceTag": "scope:play", "onlyDependOnLibsWithTags": ["scope:play", "scope:rules", "scope:shared"] },
+          { "sourceTag": "scope:identity", "onlyDependOnLibsWithTags": ["scope:identity", "scope:shared"] }
         ]
       }
     ]
@@ -300,6 +301,16 @@
     {
       "files": ["libs/shared/server/src/problem-handler.ts"],
       "rules": { "eslint/no-console": "off" }
+    },
+    {
+      // A failed OAuth callback only shows the browser a generic page; operators need the cause.
+      "files": ["libs/identity/infrastructure/src/identity-routes.ts"],
+      "rules": { "eslint/no-console": "off" }
+    },
+    {
+      // Sign-in leaves the app for the OAuth provider; there is no in-app route to navigate to.
+      "files": ["libs/identity/data-access/src/session-store.ts"],
+      "rules": { "pioneer/no-full-page-load": "off" }
     },
     {
       "files": ["libs/shared/kernel/src/temporal.ts"],

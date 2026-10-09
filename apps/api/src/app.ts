@@ -8,17 +8,20 @@ import { Elysia } from 'elysia';
 import type { AnyElysia } from 'elysia';
 
 import type { Database } from './database';
+import type { Env } from './env';
+import { API_PREFIX, identity } from './identity';
 
 /** Composition root: the only place adapters, services and routes meet. */
-export async function createApp(db: Database): Promise<AnyElysia> {
+export async function createApp(db: Database, env: Env): Promise<AnyElysia> {
   const content = new ContentRegistry();
   await Promise.all(contentCatalog.map(async (loader) => content.load(loader)));
 
   const clock = systemClock;
   const characters = new CharacterService(new DrizzleCharacterRepository(db), content, clock);
 
-  return new Elysia({ prefix: '/api' })
+  return new Elysia({ prefix: API_PREFIX })
     .use(problemHandler)
     .get('/health', () => ({ status: 'ok' }))
+    .use(identity(db, env, clock))
     .use(characterRoutes(characters));
 }

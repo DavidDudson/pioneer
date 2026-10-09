@@ -1,0 +1,7 @@
+{
+  "signInFailed": {
+    "title": "Sign-in did not complete",
+    "body": "GitHub did not confirm who you are, or the attempt took too long. Nothing was saved. You can try again.",
+    "retry": "Sign in with GitHub"
+  }
+}

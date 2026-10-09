@@ -9,7 +9,7 @@ const env = readEnv();
 const db = connect(env.DATABASE_URL);
 await runMigrations(db);
 
-const server = new Elysia().use(await createApp(db));
+const server = new Elysia().use(await createApp(db, env));
 if (env.WEB_DIST !== undefined) {
   server.use(spa(env.WEB_DIST));
 }

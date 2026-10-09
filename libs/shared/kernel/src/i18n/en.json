@@ -1,5 +1,6 @@
 {
   "problem": {
+    "unauthorized": "Sign in to continue.",
     "notFound": "That no longer exists.",
     "routeNotFound": "That address does not exist.",
     "versionConflict": "Someone else changed this. Showing their latest version.",

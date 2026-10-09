@@ -56,6 +56,8 @@
             # Separate database: DB tests create and drop their own databases on it.
             # Defaults only, so CI can point both at its Postgres service.
             export TEST_DATABASE_URL="''${TEST_DATABASE_URL:-postgres://$USER@127.0.0.1:$PGPORT/pioneer_test}"
+            # The origin browsers use in dev: the Angular server, which proxies /api. OAuth callbacks live under it.
+            export PUBLIC_ORIGIN="''${PUBLIC_ORIGIN:-http://localhost:$WEB_PORT}"
           '';
         };
       });

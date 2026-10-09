@@ -13,6 +13,13 @@ export const appRoutes: Routes = [
     },
   },
   {
+    path: 'account',
+    loadChildren: async () => {
+      const { identityRoutes } = await import('@pioneer/identity/feature');
+      return identityRoutes;
+    },
+  },
+  {
     path: 'legal',
     loadChildren: async () => {
       const { legalRoutes } = await import('@pioneer/legal/feature');

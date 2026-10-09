@@ -6,6 +6,8 @@ interface HandlerInput<TParams extends z.ZodObject, TBody extends z.ZodType, TQu
   readonly params: z.output<TParams>;
   readonly query: z.output<TQuery>;
   readonly body: z.output<TBody>;
+  /** The raw request, for transport concerns such as the session cookie. */
+  readonly request: Request;
 }
 
 /**
@@ -29,13 +31,14 @@ export class ContractRouter {
     endpoint: Endpoint<TParams, TBody, TResponse, TQuery>,
     handler: (input: HandlerInput<TParams, TBody, TQuery>) => Promise<z.output<TResponse>>,
   ): this {
-    this.app.route(endpoint.method, endpoint.path, async ({ params, query, body }) => {
+    this.app.route(endpoint.method, endpoint.path, async ({ params, query, body, request }) => {
       // Elysia passes undefined params for routes without path params, despite its types.
       const pathParams: unknown = params;
       const output = await handler({
         params: endpoint.params.parse(pathParams ?? {}),
         query: endpoint.query.parse(query),
         body: endpoint.body.parse(body),
+        request,
       });
       return z.encode(endpoint.response, output);
     });

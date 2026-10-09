@@ -4,9 +4,11 @@ import { TranslocoPipe, translateSignal } from '@jsverse/transloco';
 import { Button, ColorMode, Link, Select, Shell, Stack, Text, Theme, ThemeStore } from '@pioneer/frontier';
 import type { SelectOption } from '@pioneer/frontier';
 
+import { AccountMenu } from './account-menu/account-menu.component';
+
 @Component({
   selector: 'pio-root',
-  imports: [Button, Link, RouterOutlet, Select, Shell, Stack, Text, TranslocoPipe],
+  imports: [AccountMenu, Button, Link, RouterOutlet, Select, Shell, Stack, Text, TranslocoPipe],
   templateUrl: './app.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
