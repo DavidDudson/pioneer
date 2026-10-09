@@ -39,7 +39,8 @@ function failure(selector: Selector, error: MessageDescriptor, position: TextPos
 
 /** A statistic in a cycle, failing at `edge`, its reference into the cycle; `members` are named in selector order. */
 function cycle(selector: Selector, edge: StatisticEdge, members: readonly Selector[]): StatisticFailure {
-  const params = { found: `${SIGIL}${edge.path}`, position: edge.position, statistics: members.join(LIST_SEPARATOR) };
+  const statistics = members.join(LIST_SEPARATOR);
+  const params = { found: `${SIGIL}${edge.path}`, position: edge.position, statistics, count: members.length };
   return failure(selector, message(EngineMessage.StatisticCycle, params), edge.position);
 }
 

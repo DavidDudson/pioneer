@@ -111,7 +111,7 @@ describe('deriveStatistics', () => {
     expect(resultOf(results, 'a')).toStrictEqual({
       ok: false,
       selector: 'a',
-      error: message(EngineMessage.StatisticCycle, { found: '@stat.b', position: 1, statistics }),
+      error: message(EngineMessage.StatisticCycle, { found: '@stat.b', position: 1, statistics, count: 3 }),
       position: 1,
     } as unknown as StatisticResult);
     expect(resultOf(results, 'b')).toMatchObject({ error: { params: { found: '@stat.c', position: 5, statistics } } });
@@ -126,7 +126,7 @@ describe('deriveStatistics', () => {
   test('a statistic that reads itself is a cycle of one', () => {
     expect(alone('ac', '10 + @stat.ac')).toMatchObject({
       ok: false,
-      error: message(EngineMessage.StatisticCycle, { found: '@stat.ac', position: 6, statistics: 'ac' }),
+      error: message(EngineMessage.StatisticCycle, { found: '@stat.ac', position: 6, statistics: 'ac', count: 1 }),
       position: 6,
     });
   });

@@ -5,11 +5,12 @@ import { PredicateVerdictResult } from '../predicate-verdict-result/predicate-ve
 import { RulesResult } from '../rules-result/rules-result.component';
 import { ToolKind } from '../rules-tool';
 import type { ToolCheck } from '../rules-tool';
+import { StatisticsResult } from '../statistics-result/statistics-result.component';
 
 /** The result of whichever tool is chosen. */
 @Component({
   selector: 'pio-tool-result',
-  imports: [FormulaResult, PredicateVerdictResult, RulesResult],
+  imports: [FormulaResult, PredicateVerdictResult, RulesResult, StatisticsResult],
   templateUrl: './tool-result.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

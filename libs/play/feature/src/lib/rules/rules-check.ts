@@ -57,13 +57,14 @@ const RULES_SCHEMA_KEYS: Readonly<Record<RulesSchema, string>> = {
 };
 
 /** What the playground does: check JSON against one of the rules schemas, parse formula text, or evaluate a predicate. */
-export const RulesTool = { ...RulesSchema, Formula: 'formula', Verdict: 'verdict' } as const;
+export const RulesTool = { ...RulesSchema, Formula: 'formula', Verdict: 'verdict', Statistics: 'statistics' } as const;
 export type RulesTool = ValueOf<typeof RulesTool>;
 
 export const RULES_TOOL_KEYS: Readonly<Record<RulesTool, string>> = {
   ...RULES_SCHEMA_KEYS,
   [RulesTool.Formula]: 'play.rules.schema.formula',
   [RulesTool.Verdict]: 'play.rules.schema.verdict',
+  [RulesTool.Statistics]: 'play.rules.schema.statistics',
 };
 
 const PLAYER_CORE = PackId.parse('player-core');
@@ -115,10 +116,44 @@ const EXAMPLE_VALUES: Readonly<Record<RulesSchema, unknown>> = {
   },
 };
 
+/** Statistics for the statistics tool: AC, a save, and a spell DC that reads the spell attack modifier. */
+const EXAMPLE_STATISTICS = [
+  EXAMPLE_VALUES[RulesSchema.Statistic],
+  {
+    slug: 'fortitude',
+    name: 'Fortitude',
+    selector: 'save:fortitude',
+    domains: ['saving-throw', 'con-based'],
+    base: '@attr.con + @prof.save.fortitude',
+    kind: StatisticKind.Check,
+    keyAttribute: Attribute.Constitution,
+  },
+  {
+    slug: 'arcane-spell-attack',
+    name: 'Arcane spell attack modifier',
+    selector: 'spell-attack:arcane',
+    domains: ['spell-attack-roll'],
+    base: '@attr.int + @prof.spell-attack.arcane',
+    kind: StatisticKind.Check,
+    keyAttribute: Attribute.Intelligence,
+  },
+  {
+    slug: 'arcane-spell-dc',
+    name: 'Arcane spell DC',
+    selector: 'spell-dc:arcane',
+    domains: ['spell-dc'],
+    base: '10 + @stat.spell-attack.arcane',
+    kind: StatisticKind.Dc,
+  },
+];
+
 /** A valid starting text per tool: JSON for a schema, formula text for formulas, a predicate to evaluate. */
 export function rulesExample(tool: RulesTool): string {
   if (tool === RulesTool.Formula) {
     return EXAMPLE_FORMULA;
+  }
+  if (tool === RulesTool.Statistics) {
+    return JSON.stringify(EXAMPLE_STATISTICS, undefined, JSON_INDENT);
   }
   const schema = tool === RulesTool.Verdict ? RulesSchema.Predicate : tool;
   return JSON.stringify(EXAMPLE_VALUES[schema], undefined, JSON_INDENT);
@@ -169,20 +204,33 @@ function withPointer(json: unknown, issue: FieldIssue): CheckIssue {
     : issue;
 }
 
-/** Parse `text` as JSON, then validate it against `schema`. Never throws. */
-export function checkRulesJson(schema: RulesSchema, text: string): CheckOutcome {
+/** What stops JSON text from reading: it is not JSON, or the value has issues. */
+export type JsonProblem = Exclude<CheckOutcome, { readonly status: typeof CheckStatus.Valid }>;
+
+export type JsonRead<Value> = { readonly status: typeof CheckStatus.Valid; readonly value: Value } | JsonProblem;
+
+/** Parse `text` as JSON, then decode it with `target`, pointing into formulas that fail. Never throws. */
+export function readJson<Value>(target: z.ZodType<Value>, text: string): JsonRead<Value> {
   const json = parseJson(text);
   if (!json.ok) {
     return { status: CheckStatus.NotJson };
   }
-  const target = SCHEMAS[schema];
   const result = target.safeParse(json.value);
   return result.success
-    ? { status: CheckStatus.Valid, parsed: JSON.stringify(z.encode(target, result.data), undefined, JSON_INDENT) }
+    ? { status: CheckStatus.Valid, value: result.data }
     : {
         status: CheckStatus.Invalid,
         issues: fieldIssues(result.error.issues).map((issue) => withPointer(json.value, issue)),
       };
+}
+
+/** Parse `text` as JSON, then validate it against `schema`. Never throws. */
+export function checkRulesJson(schema: RulesSchema, text: string): CheckOutcome {
+  const target = SCHEMAS[schema];
+  const read = readJson(target, text);
+  return read.status === CheckStatus.Valid
+    ? { status: CheckStatus.Valid, parsed: JSON.stringify(z.encode(target, read.value), undefined, JSON_INDENT) }
+    : read;
 }
 
 /** A key that reads unambiguously after a dot; anything else is quoted in brackets. */

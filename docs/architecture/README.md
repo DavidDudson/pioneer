@@ -76,7 +76,7 @@ The existing Nx layering stays: `domain` (pure model, no framework), `applicatio
 libs/
   rules/
     sdk/            content schemas, rule element schemas, source refs, predicates (exists, grows)
-    engine/         derivation pipeline, statistics, breakdowns, action availability
+    engine/         derivation pipeline, statistics, breakdowns, action availability (exists, grows)
     dice/           dice expressions, RNG port, degree of success, damage application
     formula/        formula language: parser to a positioned tree, printer, references, evaluator (kernel only)
     predicate/      three-valued (Kleene) predicate evaluation, roll option namespace table

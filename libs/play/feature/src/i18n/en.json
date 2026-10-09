@@ -47,7 +47,7 @@
   },
   "rules": {
     "title": "Rules",
-    "description": "Check rules data against Pioneer’s schemas: predicates, selectors, domains, roll options, sources, origins and rule elements, try a formula with your own reference values, or see whether a predicate holds.",
+    "description": "Check rules data against Pioneer’s schemas: predicates, selectors, domains, roll options, sources, origins and rule elements, try a formula with your own reference values, see whether a predicate holds, or derive statistics from their definitions.",
     "schemaLabel": "Schema",
     "schemaHint": "Changing the schema loads a valid example for it.",
     "jsonLabel": "JSON",
@@ -70,6 +70,15 @@
     "badFacts": "{count, plural, one {Line {lines} is not a roll option.} other {Lines {lines} are not roll options.}}",
     "factsNotChecked": "Fix the roll options to see the verdict.",
     "summary": "It holds when {summary}.",
+    "statisticsLabel": "Statistic definitions",
+    "statisticsHint": "A JSON array of statistic definitions. A statistic reads another one’s total with @stat, like @stat.spell-attack.arcane.",
+    "inputsLabel": "Character inputs",
+    "inputsHint": "Level, the six attribute modifiers, a proficiency rank per selector (a selector left out is untrained) and an optional Dexterity cap.",
+    "statisticTotal": "Base {total}",
+    "statisticFailed": "Error",
+    "termValue": "gives {value}",
+    "rounding": "Rounding",
+    "noStatistics": "The array has no statistics.",
     "verdict": {
       "true": "The predicate holds.",
       "false": "The predicate does not hold.",
@@ -94,7 +103,8 @@
       "ruleElement": "Rule element",
       "statistic": "Statistic definition",
       "formula": "Formula",
-      "verdict": "Predicate verdict"
+      "verdict": "Predicate verdict",
+      "statistics": "Statistics"
     },
     "invalidSummary": "{count, plural, one {# problem, listed under Result.} other {# problems, listed under Result.}}",
     "nothingToShow": "Nothing to check until the JSON parses."

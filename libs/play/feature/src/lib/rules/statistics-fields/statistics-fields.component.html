@@ -1,0 +1,28 @@
+<fr-stack gap="md">
+  <fr-field [invalid]="definitionsProblem() !== undefined">
+    <fr-label>{{ 'play.rules.statisticsLabel' | transloco }}</fr-label>
+    <fr-text-area monospace [rows]="definitionRows" [(value)]="definitions" />
+    @if (definitionsProblem(); as problem) {
+      @if (problem.status === CheckStatus.NotJson) {
+        <fr-field-error>{{ 'play.rules.notJson' | transloco }}</fr-field-error>
+      } @else {
+        <fr-field-error>{{ 'play.rules.invalidSummary' | transloco: { count: problem.issues.length } }}</fr-field-error>
+      }
+    } @else {
+      <fr-field-hint>{{ 'play.rules.statisticsHint' | transloco }}</fr-field-hint>
+    }
+  </fr-field>
+  <fr-field [invalid]="inputsProblem() !== undefined">
+    <fr-label>{{ 'play.rules.inputsLabel' | transloco }}</fr-label>
+    <fr-text-area monospace [rows]="inputRows" [(value)]="inputs" />
+    @if (inputsProblem(); as problem) {
+      @if (problem.status === CheckStatus.NotJson) {
+        <fr-field-error>{{ 'play.rules.notJson' | transloco }}</fr-field-error>
+      } @else {
+        <fr-field-error>{{ 'play.rules.invalidSummary' | transloco: { count: problem.issues.length } }}</fr-field-error>
+      }
+    } @else {
+      <fr-field-hint>{{ 'play.rules.inputsHint' | transloco }}</fr-field-hint>
+    }
+  </fr-field>
+</fr-stack>

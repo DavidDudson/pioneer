@@ -137,6 +137,7 @@ Statistic base formulas and rule element values share one vocabulary of referenc
 | `@attr.dex.capped`  | actor | The Dexterity modifier after the armor's Dexterity cap (`DexterityCap`)           |
 | `@prof.<selector>`  | actor | The proficiency bonus for a statistic: rank bonus plus level, or 0 when untrained |
 | `@rank.<selector>`  | actor | The proficiency rank for a statistic, 0 (untrained) to 4 (legendary)              |
+| `@stat.<selector>`  | actor | Another statistic's total, such as the spell attack modifier in a spell DC        |
 | `@item.level`       | item  | The level of the item the rule element is on                                      |
 
 - A selector's colons are written as dots, since references have none: `@prof.save.fortitude` is the bonus for
@@ -272,6 +273,33 @@ flowchart TD
    boosts). Evaluated in topological order, memoised, cycles reported with the offending formula.
 6. **Modifiers.** Collected per selector through domains, predicates evaluated, stacking applied.
 7. **Synthetics.** Strikes per wielded weapon, spellcasting entries, the available action list, roll notes.
+
+### Statistic graph
+
+`deriveStatistics(definitions, inputs)` in `libs/rules/engine` is step 5 on its own. The inputs are the character's
+level, attribute modifiers, proficiency rank per selector (a selector left out is untrained) and the armor's Dexterity
+cap; grant resolution (Epic 1.4) will produce them, and until then they are supplied directly.
+
+- Edges come from `references(formula)`. `@prof.<selector>` and `@rank.<selector>` read that selector's rank, an
+  input, so they add no edge between statistics. `@stat.<selector>` reads another statistic's total and is the
+  edge.
+- A later definition of a selector replaces an earlier one, as a pack registered later (homebrew after core)
+  restates a statistic.
+- Evaluation follows Tarjan's strongly connected components, which come out dependencies first, so each statistic
+  is evaluated once and the work is linear in statistics plus references. Statistics are visited in selector order,
+  so the result does not depend on the order of the definitions.
+- A component of several statistics, or one that reads itself, is a cycle. Each statistic in it fails at its
+  first reference into the cycle, and the error names every statistic in it. A reference to a missing statistic,
+  or to one that failed, is an error at that reference. A formula that fails to evaluate fails as the formula
+  evaluator reports. None of these throws, and the other statistics still evaluate.
+- Each top-level term of the base formula becomes a `BaseTerm` with its printed text, sign, value and position:
+  `10`, `@attr.dex.capped`, `@prof.ac`. A bracketed sum stays one term. Each term is evaluated and rounded down on
+  its own; if the terms then miss the formula's value (`@level / 2 + @level / 2` at an odd level), a rounding line
+  makes up the difference, so the lines always add up to the base.
+
+Until modifiers join in step 6, a total is its base. Whether `@stat.<selector>` then reads the total with all of
+the other statistic's modifiers, or only those for its own domains (a bonus to spell attack rolls does not raise a
+spell DC), is decided with the modifier phase.
 
 Performance target: full derivation of a level 20 character in under 10 ms in the browser, so the builder can
 re-derive on every keystroke. Incremental recomputation is an optimisation for later, not a design constraint.
