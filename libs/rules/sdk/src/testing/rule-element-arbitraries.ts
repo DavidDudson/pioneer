@@ -18,8 +18,10 @@ import { Attribute } from '../attribute';
 import { ContentKind } from '../content-kind';
 import { DamageType } from '../damage';
 import { ModifierType } from '../modifier-type';
+import { Proficiency } from '../proficiency';
 import { NumericAlterationMode, NumericItemProperty, TraitAlterationMode } from '../rule-element-item-alteration';
 import { AdjustMode, ChangeMode } from '../rule-element-numbers';
+import { ArmorCategory, MartialKind, WeaponCategory } from '../rule-element-proficiency';
 import { keyPathText, predicateJson, rollOptionText } from './arbitraries';
 
 const LIST_MAX = 3;
@@ -146,6 +148,20 @@ const dexterityCap = element('DexterityCap', { value: modifierValue });
 const penaltyStep = oneof(integer({ min: -SMALLINT_MAX, max: 0 }), formulaText);
 const multipleAttackPenalty = element('MultipleAttackPenalty', { selectors: targets, value: penaltyStep });
 
+const raisedRank = constantFrom(...Object.values(Proficiency).filter((rank) => rank !== Proficiency.Untrained));
+const proficiency = element('Proficiency', { selector: keyPathText, rank: raisedRank });
+
+/** A martial proficiency of one `kind`: a category of that kind, or a group that may follow one. */
+function martialProficiency(kind: MartialKind, categories: Readonly<Record<string, string>>): Arbitrary<object> {
+  const category = anyOf(categories);
+  const group = withOptional(record({ slug: slugText, label: contentText, definition: predicateJson }), {
+    sameAs: category,
+  });
+  return element('MartialProficiency', { kind: constant(kind), category: oneof(category, group), rank: raisedRank });
+}
+const attackProficiency = martialProficiency(MartialKind.Attack, WeaponCategory);
+const defenseProficiency = martialProficiency(MartialKind.Defense, ArmorCategory);
+
 /**
  * Valid rule elements of every `key` the SDK knows, as plain JSON (unparsed). Use with
  * `RuleElement.parse` to get the typed value.
@@ -165,4 +181,7 @@ export const ruleElementJson: Arbitrary<object> = oneof(
   change,
   dexterityCap,
   multipleAttackPenalty,
+  proficiency,
+  attackProficiency,
+  defenseProficiency,
 );

@@ -57,6 +57,21 @@ const examples: object[] = [
   { key: 'Change', selector: 'hit-points', mode: 'multiply', value: 0.5 },
   { key: 'DexterityCap', value: 1 },
   { key: 'MultipleAttackPenalty', selectors: ['strike-attack-roll'], value: -4, predicate: ['item:trait:agile'] },
+  { key: 'Proficiency', selector: 'save:will', rank: 'expert' },
+  { key: 'Proficiency', selector: 'perception', rank: 'master', predicate: [{ gte: ['self:level', 7] }] },
+  { key: 'MartialProficiency', kind: 'attack', category: 'martial', rank: 'expert' },
+  { key: 'MartialProficiency', kind: 'defense', category: 'heavy', rank: 'trained' },
+  {
+    key: 'MartialProficiency',
+    kind: 'attack',
+    category: {
+      slug: 'advanced-crossbows',
+      label: 'Advanced crossbows',
+      definition: ['item:category:advanced', 'item:group:crossbow'],
+      sameAs: 'martial',
+    },
+    rank: 'trained',
+  },
 ];
 
 describe('RuleElement', () => {
@@ -148,6 +163,32 @@ describe('RuleElement', () => {
   test('a Change targets one statistic, never a list', () => {
     expect(issues({ key: 'Change', selector: ['ac'], mode: 'add', value: 1 })).toStrictEqual([
       { path: ['selector'], message: message(ValidationMessage.InvalidType, { expected: 'string' }) },
+    ]);
+  });
+
+  test('a proficiency raise never lowers to untrained', () => {
+    expect(issues({ key: 'Proficiency', selector: 'perception', rank: 'untrained' })).toStrictEqual([
+      { path: ['rank'], message: message(ValidationMessage.InvalidValue) },
+    ]);
+  });
+
+  test('an attack proficiency names a weapon category, not an armour one', () => {
+    expect(issues({ key: 'MartialProficiency', kind: 'attack', category: 'heavy', rank: 'trained' })).toStrictEqual([
+      { path: ['category'], message: message(ValidationMessage.InvalidValue) },
+    ]);
+  });
+
+  test('a group follows a category of its own kind', () => {
+    const category = { slug: 'shields', label: 'Shields', definition: ['item:trait:shield'], sameAs: 'martial' };
+    expect(issues({ key: 'MartialProficiency', kind: 'defense', category, rank: 'trained' })).toStrictEqual([
+      { path: ['category', 'sameAs'], message: message(ValidationMessage.InvalidValue) },
+    ]);
+  });
+
+  test('a group points at its missing field', () => {
+    const category = { slug: 'firearms', label: 'Firearms' };
+    expect(issues({ key: 'MartialProficiency', kind: 'attack', category, rank: 'trained' })).toStrictEqual([
+      { path: ['category', 'definition'], message: message(ValidationMessage.InvalidType, { expected: 'array' }) },
     ]);
   });
 });

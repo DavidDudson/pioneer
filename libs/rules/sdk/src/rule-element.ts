@@ -12,6 +12,7 @@ import {
   FlatModifierElement,
   MultipleAttackPenaltyElement,
 } from './rule-element-numbers';
+import { MartialProficiencyElement, ProficiencyElement } from './rule-element-proficiency';
 import { ChoiceSetElement, GrantItemElement, RollOptionElement } from './rule-element-structure';
 
 const KNOWN_KEYS: ReadonlySet<unknown> = new Set(Object.values(RuleElementKey));
@@ -27,6 +28,8 @@ const Element = z.discriminatedUnion('key', [
   ChangeElement,
   DexterityCapElement,
   MultipleAttackPenaltyElement,
+  ProficiencyElement,
+  MartialProficiencyElement,
 ]);
 
 /** Names the `key` when the value is an object whose `key` is a string Pioneer does not know. */

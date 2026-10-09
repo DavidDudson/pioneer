@@ -97,3 +97,15 @@ export {
   NumericItemProperty,
   TraitAlterationMode,
 } from './rule-element-item-alteration';
+export {
+  ArmorCategory,
+  ArmorCategorySchema,
+  ArmorGroup,
+  MartialKind,
+  MartialProficiencyElement,
+  ProficiencyElement,
+  RaisedRank,
+  WeaponCategory,
+  WeaponCategorySchema,
+  WeaponGroup,
+} from './rule-element-proficiency';
