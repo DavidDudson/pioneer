@@ -28,9 +28,17 @@ Run the `review` skill with fixes enabled. Do not continue while it reports unfi
 ## 3. Commit and push
 
 - Conventional Commits, subject at most 72 characters, lowercase after the type, body explains why. The PR is
-  squash-merged, so the PR title must also be conventional (CI checks it). CI checks it only when the PR is
-  opened or gets new commits, never on an edit, so pass the final title at creation. If it is fixed later, `gh run rerun`
-  does not help (it replays the old event's title): push a commit, or `gh pr close <pr> && gh pr reopen <pr>`.
+  squash-merged, so the PR title becomes the commit subject and follows the same rules, **72 characters included**
+  (`committed.toml`). CI checks it only when the PR is opened or gets new commits, never on an edit, so pass the
+  final title at creation. If it is fixed later, `gh run rerun` does not help (it replays the old event's title):
+  push a commit, or `gh pr close <pr> && gh pr reopen <pr>`.
+- Check commits and the title locally before pushing or opening the PR:
+
+  ```sh
+  committed --no-fixup --no-wip origin/main..HEAD
+  printf '%s\n' "<pr title>" | committed --commit-file -
+  ```
+
 - End commit messages with the attribution line given in the session's system reminder, if any.
 - Push: `git push -u origin HEAD`. If GitHub refuses an HTTPS push that touches `.github/workflows` (the token
   lacks the `workflow` scope), push over SSH instead:

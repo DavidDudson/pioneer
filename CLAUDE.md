@@ -14,7 +14,8 @@ Project management is GitHub only: milestones M0-M9, epics as issues, stories as
 - Epics are split into story sub-issues before work starts and delivered as stacked PRs with `gh stack`, one
   story per layer.
 - No literal user-facing text in templates or engine output (ADR-0009).
-- Commits and PR titles are Conventional Commits (squash merge). The user merges.
+- Commits and PR titles are Conventional Commits with subjects of at most 72 characters (squash merge;
+  `committed.toml`). The user merges.
 
 Repo skills in `.claude/skills`:
 
