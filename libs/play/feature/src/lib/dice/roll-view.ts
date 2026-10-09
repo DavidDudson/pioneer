@@ -1,5 +1,13 @@
-import { DiceExpressionText, formatExpression, formatTerm, Sign } from '@pioneer/rules/dice';
-import type { DieResult, RollResult, RollTotal, TermResult } from '@pioneer/rules/dice';
+import { DiceExpressionText, formatExpression, formatTerm, RollMode, Sign } from '@pioneer/rules/dice';
+import type {
+  DiceExpression,
+  DieResult,
+  FortunedRoll,
+  FortuneRollEntry,
+  RollTotal,
+  TermResult,
+} from '@pioneer/rules/dice';
+import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 import { DAMAGE_CATEGORY_KEYS, DAMAGE_TYPE_KEYS } from './dice-labels';
 
@@ -12,11 +20,20 @@ interface TermView {
   readonly value: RollTotal;
 }
 
+/** One roll of the expression; fortune and misfortune make two, and only one is kept. */
+export interface AttemptView {
+  readonly kept: boolean;
+  readonly total: RollTotal;
+  readonly terms: readonly TermView[];
+}
+
 export interface RollView {
   readonly id: number;
   readonly notation: DiceExpressionText;
   readonly total: RollTotal;
-  readonly terms: readonly TermView[];
+  /** Why one roll or two, and which was kept; unset for a plain roll. */
+  readonly explanation: MessageDescriptor | undefined;
+  readonly attempts: readonly AttemptView[];
 }
 
 function termView(result: TermResult, index: number): TermView {
@@ -34,11 +51,16 @@ function termView(result: TermResult, index: number): TermView {
   };
 }
 
-export function rollView(id: number, result: RollResult): RollView {
+function attemptView(entry: FortuneRollEntry): AttemptView {
+  return { kept: entry.kept, total: entry.result.total, terms: entry.result.terms.map(termView) };
+}
+
+export function rollView(id: number, expression: DiceExpression, roll: FortunedRoll): RollView {
   return {
     id,
-    notation: formatExpression(result.expression),
-    total: result.total,
-    terms: result.terms.map(termView),
+    notation: formatExpression(expression),
+    total: roll.total,
+    explanation: roll.mode === RollMode.Normal ? undefined : roll.explanation,
+    attempts: roll.rolls.map(attemptView),
   };
 }

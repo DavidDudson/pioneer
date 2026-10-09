@@ -5,20 +5,19 @@
       <fr-text variant="code">{{ shown.notation }}</fr-text>
       <fr-heading variant="heading" [level]="3">{{ 'play.dice.total' | transloco: { total: shown.total } }}</fr-heading>
     </fr-stack>
-    @for (term of shown.terms; track $index) {
-      <fr-stack direction="horizontal" gap="sm" align="baseline" wrap>
-        <fr-text variant="code" tone="muted">{{ term.notation }}</fr-text>
-        @for (damageKey of term.damageKeys; track damageKey) {
-          <fr-text variant="caption" tone="muted">{{ damageKey | transloco }}</fr-text>
+    @if (shown.explanation; as explanation) {
+      <fr-text variant="caption" tone="muted">{{ explanation.key | transloco: explanation.params }}</fr-text>
+    }
+    @for (attempt of shown.attempts; track $index) {
+      <fr-stack gap="sm">
+        @if (attempt.heading; as heading) {
+          <fr-text [tone]="attempt.tone" [weight]="attempt.weight">{{
+            heading.key | transloco: heading.params
+          }}</fr-text>
         }
-        @for (die of term.dice; track $index) {
-          @if (die.kept) {
-            <fr-text numeric>{{ 'play.dice.die' | transloco: { face: die.face } }}</fr-text>
-          } @else {
-            <fr-text numeric tone="subtle">{{ 'play.dice.droppedDie' | transloco: { face: die.face } }}</fr-text>
-          }
+        @for (term of attempt.terms; track $index) {
+          <pio-roll-term [term]="term" />
         }
-        <fr-text numeric weight="semibold">{{ 'play.dice.termValue' | transloco: { value: term.value } }}</fr-text>
       </fr-stack>
     }
   </fr-stack>

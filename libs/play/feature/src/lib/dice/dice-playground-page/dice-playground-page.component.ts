@@ -13,8 +13,9 @@ import {
   Text,
   TextInput,
 } from '@pioneer/frontier';
-import { DiceExpressionText, parseDiceExpression, rollDice } from '@pioneer/rules/dice';
-import type { ParseOutcome } from '@pioneer/rules/dice';
+import { DiceExpressionText, parseDiceExpression, rollWithFortune } from '@pioneer/rules/dice';
+import type { FortuneSources, ParseOutcome } from '@pioneer/rules/dice';
+import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 import { RANDOM_SOURCE } from '../random-source';
@@ -26,7 +27,11 @@ import type { RollView } from '../roll-view';
 const HISTORY_LIMIT = 10;
 const STARTING_EXPRESSION = '1d20+7';
 
-/** Type an expression, roll it, and see every die behind the total. */
+/** What the playground's toggles stand in for; real effects will name the feat or spell granting them. */
+const PLAYGROUND_FORTUNE = message('play.dice.playgroundFortune');
+const PLAYGROUND_MISFORTUNE = message('play.dice.playgroundMisfortune');
+
+/** Type an expression, roll it with or without fortune and misfortune, and see every die behind the total. */
 @Component({
   selector: 'pio-dice-playground-page',
   imports: [
@@ -57,7 +62,21 @@ export class DicePlaygroundPage {
     const outcome = this.#outcome();
     return outcome.ok ? undefined : outcome.error;
   });
+  protected readonly fortune = signal(false);
+  protected readonly misfortune = signal(false);
+  readonly #sources = computed((): FortuneSources => ({
+    fortune: this.fortune() ? [PLAYGROUND_FORTUNE] : [],
+    misfortune: this.misfortune() ? [PLAYGROUND_MISFORTUNE] : [],
+  }));
   protected readonly rolls = signal<readonly RollView[]>([]);
+
+  protected toggleFortune(): void {
+    this.fortune.update((on) => !on);
+  }
+
+  protected toggleMisfortune(): void {
+    this.misfortune.update((on) => !on);
+  }
 
   protected roll(): void {
     const outcome = this.#outcome();
@@ -65,7 +84,8 @@ export class DicePlaygroundPage {
       return;
     }
     this.#rolled += 1;
-    const view = rollView(this.#rolled, rollDice(outcome.expression, this.#random));
+    const roll = rollWithFortune(outcome.expression, this.#sources(), this.#random);
+    const view = rollView(this.#rolled, outcome.expression, roll);
     this.rolls.update((rolls) => [view, ...rolls].slice(0, HISTORY_LIMIT));
   }
 }
