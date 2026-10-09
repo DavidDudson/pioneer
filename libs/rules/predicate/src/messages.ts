@@ -1,0 +1,20 @@
+/** Keys for predicate summaries; their `en` text ships in this lib's `i18n/en.json` under `predicate.*`. */
+export const PredicateMessage = {
+  Action: 'predicate.summary.action',
+  Terrain: 'predicate.summary.terrain',
+  Lighting: 'predicate.summary.lighting',
+  TargetTrait: 'predicate.summary.targetTrait',
+  TargetCondition: 'predicate.summary.targetCondition',
+  TargetMark: 'predicate.summary.targetMark',
+  InitiativeStatistic: 'predicate.summary.initiativeStatistic',
+  Option: 'predicate.summary.option',
+  Equals: 'predicate.summary.equals',
+  Greater: 'predicate.summary.greater',
+  GreaterOrEqual: 'predicate.summary.greaterOrEqual',
+  Less: 'predicate.summary.less',
+  LessOrEqual: 'predicate.summary.lessOrEqual',
+  Either: 'predicate.summary.either',
+  Both: 'predicate.summary.both',
+  ExactlyOne: 'predicate.summary.exactlyOne',
+  AllOrNone: 'predicate.summary.allOrNone',
+} as const;
