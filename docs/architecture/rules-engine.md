@@ -144,7 +144,7 @@ interface BreakdownLine {
   status:
     | { kind: 'applied' }
     | { kind: 'suppressed'; by: ModifierId; reason: 'stacking' } // e.g. lower status bonus
-    | { kind: 'conditional'; when: Predicate; summary: string } // depends on unknown situation
+    | { kind: 'conditional'; when: Predicate; summary: PredicateSummary } // depends on unknown situation
     | { kind: 'inactive'; reason: string }; // predicate known false, toggle off
 }
 
@@ -289,14 +289,18 @@ formatSummary(summary, { message, list }); // text in the viewer's locale
 ```
 
 `summarisePredicate` returns a tree only while the predicate is unknown. It keeps the unknown parts and drops the
-parts known to hold: `["self:effect:rage", "terrain:forest"]` while raging summarises as "in forest". `and` and `or`
-become locale lists, `not`, `nand` and `nor` become "unless …", and `if`/`then`, `xor` and `iff` reduce to what is
-left to decide. The vocabulary is a prefix table in `libs/rules/predicate` (`action`, `terrain`, `lighting`,
-`target:trait`, `target:condition`, `target:mark`, `self:participant:initiative:stat`). Each prefix has one message
-whose ICU `select` maps the rest of the option to words, with the slug as the fallback, so translators extend the
-vocabulary in message files. Select keys use `_` for `-`, which ICU does not allow. Other options read "when
-`option` applies", and comparisons name the option and the value. An authored `display.summary` on the rule element
-replaces the whole generated summary.
+parts known to hold: `["self:effect:rage", "terrain:forest"]` while raging summarises as "you are in forest".
+Phrases are bare conditions, and negation is pushed down to them (each message has a `negated` select: "you are not
+in darkness"), so no "unless" has to reach over a list. `and` and `or` become locale lists, and a list inside another
+is introduced with "either" or "both" so its scope reads clearly. `if`/`then` reads as "not the condition, or the
+consequence", and `xor` and `iff` reduce to what is left to decide. The UI wraps the result: "It holds when
+…".
+
+The vocabulary is a prefix table in `libs/rules/predicate` (`action`, `terrain`, `lighting`, `target:trait`,
+`target:condition`, `target:mark`, `self:participant:initiative:stat`). Each prefix has one message whose ICU `select`
+maps the rest of the option to words, with the slug as the fallback, so translators extend the vocabulary in message
+files. Select keys use `_` for `-`, which ICU does not allow. Other options read "`option` applies", and comparisons
+name the option and the value. An authored `display.summary` on the rule element replaces the whole generated summary.
 
 ## Messages, not strings
 

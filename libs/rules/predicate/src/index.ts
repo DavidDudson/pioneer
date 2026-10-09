@@ -14,5 +14,5 @@ export { type PredicateTrace, type StatementTrace, tracePredicate } from './trac
 export { Truth } from './truth';
 export { formatSummary, ListStyle, type SummaryFormat } from './format';
 export { PredicateMessage } from './messages';
-export { type PredicateSummary, SummaryKind, summarisePredicate } from './summary';
+export { Negated, type PredicateSummary, SummaryKind, summarisePredicate } from './summary';
 export { default as predicateMessages } from './i18n/en.json';

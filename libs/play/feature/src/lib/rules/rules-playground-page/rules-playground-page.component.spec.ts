@@ -211,17 +211,25 @@ describe('RulesPlaygroundPage', () => {
   it('says in English when a predicate that depends on the situation would hold', async () => {
     const harness = await openPlayground();
     await chooseSchema(harness, 'Predicate verdict');
-    expect(pageText(harness)).toContain('It holds when you use Seek or in forest.');
+    expect(pageText(harness)).toContain('It holds when you use Seek or you are in forest.');
   });
 
-  // Player Core conditions, worded from the vocabulary in the rules/predicate bundle.
+  // Snapshot of the en wording for Player Core conditions, from the rules/predicate vocabulary.
   it.each([
-    ['["target:mark:hunted-prey"]', 'It holds against your hunted prey.'],
-    ['["terrain:forest", { "not": "lighting:darkness" }]', 'It holds in forest and unless in darkness.'],
-    ['[{ "gte": ["target:level", 5] }]', 'It holds when target:level is at least 5.'],
+    ['["target:mark:hunted-prey"]', 'It holds when the target is your hunted prey.'],
+    ['["terrain:forest"]', 'It holds when you are in forest.'],
     [
       '["encounter:round:1", { "or": ["self:participant:initiative:stat:deception", "self:participant:initiative:stat:stealth"] }]',
-      'It holds when encounter:round:1 applies and when you rolled initiative with Deception or when you rolled initiative with Stealth.',
+      'It holds when encounter:round:1 applies and either you rolled initiative with Deception or you rolled initiative with Stealth.',
+    ],
+    [
+      '["terrain:forest", { "not": "lighting:darkness" }]',
+      'It holds when you are in forest and you are not in darkness.',
+    ],
+    ['[{ "if": "terrain:forest", "then": "action:seek" }]', 'It holds when you are not in forest or you use Seek.'],
+    [
+      '[{ "not": "target:trait:undead" }, { "gte": ["target:level", 5] }]',
+      'It holds when the target is not undead and target:level is at least 5.',
     ],
   ] as const)('words %s in English', async (predicate, expected) => {
     const harness = await openPlayground();

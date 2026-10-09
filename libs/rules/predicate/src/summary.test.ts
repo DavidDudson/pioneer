@@ -11,7 +11,7 @@ import { formatSummary, ListStyle } from './format';
 import type { SummaryFormat } from './format';
 import messages from './i18n/en.json';
 import { PredicateMessage } from './messages';
-import { SummaryKind, summarisePredicate } from './summary';
+import { Negated, SummaryKind, summarisePredicate } from './summary';
 import type { PredicateSummary } from './summary';
 
 function facts(...options: readonly string[]): PredicateFacts {
@@ -22,23 +22,25 @@ function summary(predicate: unknown, given = facts()): PredicateSummary | undefi
   return summarisePredicate(Predicate.parse(predicate), given);
 }
 
-const phrase = (key: string, params: Record<string, string | number>): PredicateSummary => ({
-  kind: SummaryKind.Phrase,
-  message: message(key, params),
-});
-
-/** A vocabulary phrase: the slug, and the same with `_` for `-` as the ICU `select` key. */
-const named = (key: string, slug: string): PredicateSummary => phrase(key, { name: slug.replaceAll('-', '_'), slug });
-
-/** Formats as `key(params)` and lists as `[a & b]` or `[a | b]`, so tests see the structure. */
+/**
+ * Formats a message as its last key word, `!` when negated, and its subject (`terrain(forest)`, `terrain!(forest)`),
+ * and lists as `[a & b]` or `[a | b]`, so tests read the structure.
+ */
 const DEBUG_FORMAT: SummaryFormat = {
-  message: (descriptor: MessageDescriptor): string => `${descriptor.key}(${JSON.stringify(descriptor.params ?? {})})`,
+  message: (descriptor: MessageDescriptor): string => {
+    const params = descriptor.params ?? {};
+    const name = descriptor.key.slice(descriptor.key.lastIndexOf('.') + 1);
+    const negated = params['negated'] === 'yes' ? '!' : '';
+    const subject = params['slug'] ?? params['list'] ?? `${params['option']}${params['value'] ?? ''}`;
+    return `${name}${negated}(${subject})`;
+  },
   list: (items: readonly string[], style: ListStyle): string =>
     `[${items.join(style === ListStyle.Conjunction ? ' & ' : ' | ')}]`,
 };
 
 /** The summary as `DEBUG_FORMAT` text; empty when there is none. */
-function formatted(result: PredicateSummary | undefined): string {
+function formatted(predicate: unknown, given = facts()): string {
+  const result = summary(predicate, given);
   return result === undefined ? '' : formatSummary(result, DEBUG_FORMAT);
 }
 
@@ -68,48 +70,59 @@ describe('summarisePredicate', () => {
     expect(summary(['self:effect:rage'], facts('self:effect:rage'))).toBeUndefined();
   });
 
-  test('words situational options from the vocabulary, the rest of the option as the name', () => {
-    expect(summary(['terrain:forest'])).toEqual(named(PredicateMessage.Terrain, 'forest'));
-    expect(summary(['target:trait:undead'])).toEqual(named(PredicateMessage.TargetTrait, 'undead'));
-    expect(summary(['target:mark:hunted-prey'])).toEqual(named(PredicateMessage.TargetMark, 'hunted-prey'));
+  test('words situational options from the vocabulary, with the slug and its select key', () => {
+    expect(summary(['target:mark:hunted-prey'])).toEqual({
+      kind: SummaryKind.Phrase,
+      message: message(PredicateMessage.TargetMark, { name: 'hunted_prey', slug: 'hunted-prey', negated: Negated.No }),
+    });
+    expect(formatted(['terrain:forest'])).toBe('terrain(forest)');
+    expect(formatted(['target:trait:undead'])).toBe('targetTrait(undead)');
   });
 
-  test('names options the vocabulary does not know', () => {
-    expect(summary(['origin:trait:fire'])).toEqual(phrase(PredicateMessage.Option, { option: 'origin:trait:fire' }));
+  test('names options the vocabulary does not know, and words comparisons', () => {
+    expect(formatted(['origin:trait:fire'])).toBe('option(origin:trait:fire)');
+    expect(formatted([{ gte: ['target:level', 5] }])).toBe('greaterOrEqual(target:level5)');
   });
 
   test('drops the parts already known to hold', () => {
-    // Favored Terrain while raging: the rage is known, the terrain is not.
-    const given = facts('self:effect:rage');
-    expect(summary(['self:effect:rage', 'terrain:forest'], given)).toEqual(named(PredicateMessage.Terrain, 'forest'));
+    expect(formatted(['self:effect:rage', 'terrain:forest'], facts('self:effect:rage'))).toBe('terrain(forest)');
   });
 
-  test('joins unknown parts with and, or and unless', () => {
-    const result = summary([
-      { or: ['action:seek', 'terrain:forest', 'feat:power-attack'] },
-      { not: 'lighting:darkness' },
-    ]);
-    const unlessDark = String.raw`predicate.summary.not({"summary":"predicate.summary.lighting({\"name\":\"darkness\",\"slug\":\"darkness\"})"})`;
-    expect(formatted(result)).toBe(
-      `[[predicate.summary.action({"name":"seek","slug":"seek"}) | predicate.summary.terrain({"name":"forest","slug":"forest"})] & ${unlessDark}]`,
+  test('pushes negation down to the phrases', () => {
+    expect(formatted([{ not: 'lighting:darkness' }])).toBe('lighting!(darkness)');
+    expect(formatted([{ not: { not: 'lighting:darkness' } }])).toBe('lighting(darkness)');
+    expect(formatted([{ nor: ['terrain:forest', 'action:seek'] }])).toBe('[terrain!(forest) & action!(seek)]');
+    expect(formatted([{ nand: ['terrain:forest', 'action:seek'] }])).toBe('[terrain!(forest) | action!(seek)]');
+  });
+
+  test('introduces a list nested in another, so its scope is clear', () => {
+    expect(formatted(['terrain:forest', { or: ['action:seek', 'action:hide'] }])).toBe(
+      '[terrain(forest) & either([action(seek) | action(hide)])]',
+    );
+    expect(formatted([{ or: ['terrain:forest', { and: ['action:seek', 'lighting:darkness'] }] }])).toBe(
+      '[terrain(forest) | both([action(seek) & lighting(darkness)])]',
     );
   });
 
-  test('words comparisons with the option and the value', () => {
-    expect(summary([{ gte: ['target:level', 5] }])).toEqual(
-      phrase(PredicateMessage.GreaterOrEqual, { option: 'target:level', value: 5 }),
-    );
-  });
-
-  test('reduces if/then, xor and iff to what is left to decide', () => {
+  test('if/then reads as "not the condition, or the consequence", unlike nor', () => {
     // oxlint-disable-next-line unicorn/no-thenable -- Foundry spells the conditional { if, then } (ADR-0002)
-    const conditional = [{ if: 'self:effect:rage', then: 'terrain:forest' }];
-    expect(summary(conditional, facts('self:effect:rage'))).toEqual(named(PredicateMessage.Terrain, 'forest'));
-    expect(summary([{ xor: ['self:effect:rage', 'terrain:forest'] }], facts('self:effect:rage'))).toEqual({
-      kind: SummaryKind.Not,
-      part: named(PredicateMessage.Terrain, 'forest'),
-    });
-    expect(summary([{ iff: ['terrain:forest', 'action:seek'] }])).toMatchObject({ kind: SummaryKind.AllOrNone });
+    const conditional = [{ if: 'terrain:forest', then: 'action:seek' }];
+    expect(formatted(conditional)).toBe('[terrain!(forest) | action(seek)]');
+    expect(formatted(conditional, facts('terrain:forest'))).toBe('action(seek)');
+    // oxlint-disable-next-line unicorn/no-thenable -- Foundry spells the conditional { if, then } (ADR-0002)
+    expect(formatted([{ if: 'terrain:forest', then: 'feat:power-attack' }])).toBe('terrain!(forest)');
+  });
+
+  test('reduces xor and iff to what is left to decide', () => {
+    expect(formatted([{ xor: ['self:effect:rage', 'terrain:forest'] }], facts('self:effect:rage'))).toBe(
+      'terrain!(forest)',
+    );
+    expect(formatted([{ xor: ['self:effect:rage', 'terrain:forest'] }])).toBe('terrain(forest)');
+    expect(formatted([{ xor: ['terrain:forest', 'action:seek'] }])).toBe(
+      'exactlyOne([terrain(forest) & action(seek)])',
+    );
+    expect(formatted([{ iff: ['terrain:forest', 'action:seek'] }])).toBe('allOrNone([terrain(forest) & action(seek)])');
+    expect(formatted([{ iff: ['self:effect:rage', 'terrain:forest'] }])).toBe('terrain!(forest)');
   });
 
   test('an authored summary replaces the generated one, only while unknown', () => {
@@ -124,12 +137,10 @@ describe('summarisePredicate', () => {
       property(predicateJson, array(rollOptionText, { maxLength: 8 }), (json, present) => {
         const result = summarisePredicate(Predicate.parse(json), facts(...present));
         expect(keysUsed(result).filter((key) => !ENGLISH_KEYS.has(key))).toEqual([]);
-        expect(formatted(result)).toBeString();
       }),
     );
   });
 });
-
 describe('en vocabulary', () => {
   const texts = Object.values(messages.predicate.summary);
 

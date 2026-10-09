@@ -14,37 +14,41 @@ export interface SummaryFormat {
   readonly list: (items: readonly string[], style: ListStyle) => string;
 }
 
-/** A phrase, authored text or negation as text; `undefined` for the kinds that join parts. */
-function formatLeaf(summary: PredicateSummary, format: SummaryFormat): string | undefined {
+/** A list inside another list is introduced ("either … or …", "both … and …"), so its scope reads clearly. */
+function formatPart(part: PredicateSummary, format: SummaryFormat): string {
+  const text = formatSummary(part, format);
+  if (part.kind === SummaryKind.Any) {
+    return format.message(message(PredicateMessage.Either, { list: text }));
+  }
+  if (part.kind === SummaryKind.All) {
+    return format.message(message(PredicateMessage.Both, { list: text }));
+  }
+  return text;
+}
+
+function formatParts(parts: readonly PredicateSummary[], style: ListStyle, format: SummaryFormat): string {
+  return format.list(
+    parts.map((part) => formatPart(part, format)),
+    style,
+  );
+}
+
+/**
+ * A summary as text in the viewer's locale: phrases translated, parts joined with the locale's "and" and "or",
+ * and counts wrapped in their own messages. Pure; the locale lives in `format`.
+ */
+export function formatSummary(summary: PredicateSummary, format: SummaryFormat): string {
   if (summary.kind === SummaryKind.Phrase) {
     return format.message(summary.message);
   }
   if (summary.kind === SummaryKind.Authored) {
     return summary.text;
   }
-  if (summary.kind === SummaryKind.Not) {
-    return format.message(message(PredicateMessage.Not, { summary: formatSummary(summary.part, format) }));
+  if (!('negated' in summary)) {
+    const style = summary.kind === SummaryKind.All ? ListStyle.Conjunction : ListStyle.Disjunction;
+    return formatParts(summary.parts, style, format);
   }
-  return undefined;
-}
-
-/**
- * A summary as text in the viewer's locale: phrases translated, parts joined with the locale's "and" and "or",
- * and negations and counts wrapped in their own messages. Pure; the locale lives in `format`.
- */
-export function formatSummary(summary: PredicateSummary, format: SummaryFormat): string {
-  const leaf = formatLeaf(summary, format);
-  if (leaf !== undefined || !('parts' in summary)) {
-    return leaf ?? '';
-  }
-  const parts = summary.parts.map((item) => formatSummary(item, format));
-  if (summary.kind === SummaryKind.Any) {
-    return format.list(parts, ListStyle.Disjunction);
-  }
-  const list = format.list(parts, ListStyle.Conjunction);
-  if (summary.kind === SummaryKind.All) {
-    return list;
-  }
+  const list = formatParts(summary.parts, ListStyle.Conjunction, format);
   const key = summary.kind === SummaryKind.ExactlyOne ? PredicateMessage.ExactlyOne : PredicateMessage.AllOrNone;
-  return format.message(message(key, { list }));
+  return format.message(message(key, { list, negated: summary.negated }));
 }

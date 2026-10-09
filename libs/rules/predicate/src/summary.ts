@@ -9,7 +9,7 @@ import type {
   RollOption,
 } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
-import type { MessageDescriptor, ValueOf } from '@pioneer/shared/kernel';
+import type { MessageDescriptor, MessageParams, ValueOf } from '@pioneer/shared/kernel';
 
 import { childStatements, evaluatePredicate, evaluateStatement } from './evaluate';
 import type { PredicateFacts } from './facts';
@@ -17,34 +17,37 @@ import { PredicateMessage } from './messages';
 import { Truth } from './truth';
 
 export const SummaryKind = {
-  /** One fact, as a message: "in forest". */
+  /** One condition, as a message: "you are in forest". */
   Phrase: 'phrase',
   /** An author's own wording for the whole condition, from content. */
   Authored: 'authored',
   All: 'all',
   Any: 'any',
-  Not: 'not',
   ExactlyOne: 'exactly-one',
   AllOrNone: 'all-or-none',
 } as const;
 export type SummaryKind = ValueOf<typeof SummaryKind>;
 
+/** The `negated` param every phrase and count message takes, for its ICU `select`. */
+export const Negated = { Yes: 'yes', No: 'no' } as const;
+export type Negated = ValueOf<typeof Negated>;
+
 /**
  * When a predicate would hold, as data: the parts still unknown, with parts already known to hold left out.
- * The UI turns it into text in the viewer's locale with `formatSummary` (ADR-0009).
+ * Negation is pushed down to the phrases (each says "you use" or "you do not use"), so wording never depends on
+ * where an "unless" would reach. The UI turns it into text in the viewer's locale with `formatSummary` (ADR-0009).
  */
 export type PredicateSummary =
   | { readonly kind: typeof SummaryKind.Phrase; readonly message: MessageDescriptor }
   | { readonly kind: typeof SummaryKind.Authored; readonly text: ContentText }
-  | {
-      readonly kind: typeof SummaryKind.All | typeof SummaryKind.Any;
-      readonly parts: readonly PredicateSummary[];
-    }
+  | { readonly kind: typeof SummaryKind.All | typeof SummaryKind.Any; readonly parts: readonly PredicateSummary[] }
   | {
       readonly kind: typeof SummaryKind.ExactlyOne | typeof SummaryKind.AllOrNone;
       readonly parts: readonly PredicateSummary[];
-    }
-  | { readonly kind: typeof SummaryKind.Not; readonly part: PredicateSummary };
+      readonly negated: Negated;
+    };
+
+type ListKind = typeof SummaryKind.All | typeof SummaryKind.Any;
 
 const SEPARATOR = ':';
 
@@ -63,16 +66,8 @@ const VOCABULARY: ReadonlyMap<string, string> = new Map([
   ['self:participant:initiative:stat', PredicateMessage.InitiativeStatistic],
 ]);
 
-const COMPARISON_KEYS = {
-  eq: PredicateMessage.Equals,
-  gt: PredicateMessage.Greater,
-  gte: PredicateMessage.GreaterOrEqual,
-  lt: PredicateMessage.Less,
-  lte: PredicateMessage.LessOrEqual,
-} as const;
-
-function phrase(descriptor: MessageDescriptor): PredicateSummary {
-  return { kind: SummaryKind.Phrase, message: descriptor };
+function phrase(key: string, params: MessageParams): PredicateSummary {
+  return { kind: SummaryKind.Phrase, message: message(key, { ...params, negated: Negated.No }) };
 }
 
 /** An option's phrase: from the vocabulary when a prefix matches, else a generic one naming the option. */
@@ -81,44 +76,64 @@ function optionPhrase(option: RollOption): PredicateSummary {
     const key = VOCABULARY.get(option.slice(0, end));
     if (key !== undefined) {
       const slug = option.slice(end + 1);
-      return phrase(message(key, { name: slug.replaceAll('-', '_'), slug }));
+      return phrase(key, { name: slug.replaceAll('-', '_'), slug });
     }
   }
-  return phrase(message(PredicateMessage.Option, { option }));
+  return phrase(PredicateMessage.Option, { option });
 }
 
 function comparisonParts(statement: PredicateComparison): readonly [string, ComparisonOperands] {
   if ('eq' in statement) {
-    return [COMPARISON_KEYS.eq, statement.eq];
+    return [PredicateMessage.Equals, statement.eq];
   }
   if ('gt' in statement) {
-    return [COMPARISON_KEYS.gt, statement.gt];
+    return [PredicateMessage.Greater, statement.gt];
   }
   if ('gte' in statement) {
-    return [COMPARISON_KEYS.gte, statement.gte];
+    return [PredicateMessage.GreaterOrEqual, statement.gte];
   }
   if ('lt' in statement) {
-    return [COMPARISON_KEYS.lt, statement.lt];
+    return [PredicateMessage.Less, statement.lt];
   }
-  return [COMPARISON_KEYS.lte, statement.lte];
+  return [PredicateMessage.LessOrEqual, statement.lte];
 }
 
 function comparisonPhrase(statement: PredicateComparison): PredicateSummary {
   const [key, [option, value]] = comparisonParts(statement);
-  return phrase(message(key, { option, value }));
+  return phrase(key, { option, value });
 }
 
-/** One part, or several joined by `kind`. Never empty: the caller only joins parts it found unknown. */
-function join(
-  kind: typeof SummaryKind.All | typeof SummaryKind.Any,
-  parts: readonly PredicateSummary[],
-): PredicateSummary {
-  const [only] = parts;
-  return parts.length === 1 && only !== undefined ? only : { kind, parts };
+/** One part, or several joined by `kind`, with nested lists of the same kind flattened. Never called empty. */
+function join(kind: ListKind, parts: readonly PredicateSummary[]): PredicateSummary {
+  const flat = parts.flatMap((part) => (part.kind === kind ? part.parts : [part]));
+  const [only] = flat;
+  return flat.length === 1 && only !== undefined ? only : { kind, parts: flat };
 }
 
-function negate(part: PredicateSummary): PredicateSummary {
-  return { kind: SummaryKind.Not, part };
+const flip = (negated: Negated): Negated => (negated === Negated.Yes ? Negated.No : Negated.Yes);
+
+function negatePhrase(descriptor: MessageDescriptor): PredicateSummary {
+  const params = descriptor.params ?? {};
+  const negated = params['negated'] === Negated.Yes ? Negated.Yes : Negated.No;
+  return { kind: SummaryKind.Phrase, message: message(descriptor.key, { ...params, negated: flip(negated) }) };
+}
+
+/** The opposite condition, with the negation pushed down to the phrases (De Morgan for lists). */
+function negate(summary: PredicateSummary): PredicateSummary {
+  if (summary.kind === SummaryKind.Phrase) {
+    return negatePhrase(summary.message);
+  }
+  if (summary.kind === SummaryKind.Authored) {
+    return summary;
+  }
+  if ('negated' in summary) {
+    return { ...summary, negated: flip(summary.negated) };
+  }
+  const opposite = summary.kind === SummaryKind.All ? SummaryKind.Any : SummaryKind.All;
+  return join(
+    opposite,
+    summary.parts.map((part) => negate(part)),
+  );
 }
 
 interface Verdicts {
@@ -135,49 +150,40 @@ function verdicts(children: readonly PredicateStatement[], facts: PredicateFacts
   return { truths, unknown };
 }
 
-/** `xor` and `iff`: what is left to decide, given the children already known. */
-function summariseCount(isExactlyOne: boolean, children: Verdicts): PredicateSummary {
-  const anyTrue = children.truths.includes(Truth.True);
-  const anyFalse = children.truths.includes(Truth.False);
-  if (isExactlyOne) {
-    // One child already holds, so the rest must not.
-    return anyTrue
-      ? negate(join(SummaryKind.Any, children.unknown))
-      : { kind: SummaryKind.ExactlyOne, parts: children.unknown };
+/** `xor`: once one child holds the rest must not; with a single unknown child left, that child decides. */
+function summariseExactlyOne(children: Verdicts): PredicateSummary {
+  if (children.truths.includes(Truth.True)) {
+    return negate(join(SummaryKind.Any, children.unknown));
   }
-  if (anyTrue) {
-    return join(SummaryKind.All, children.unknown);
+  const [only] = children.unknown;
+  if (children.unknown.length === 1 && only !== undefined) {
+    return only;
   }
-  return anyFalse
-    ? negate(join(SummaryKind.Any, children.unknown))
-    : { kind: SummaryKind.AllOrNone, parts: children.unknown };
+  return { kind: SummaryKind.ExactlyOne, parts: children.unknown, negated: Negated.No };
 }
 
-/** `if a then b`, which holds unless `a` holds and `b` does not. */
+/** `iff`: once one child is known, the unknown ones must match it. */
+function summariseAllOrNone(children: Verdicts): PredicateSummary {
+  if (children.truths.includes(Truth.True)) {
+    return join(SummaryKind.All, children.unknown);
+  }
+  if (children.truths.includes(Truth.False)) {
+    return negate(join(SummaryKind.Any, children.unknown));
+  }
+  return { kind: SummaryKind.AllOrNone, parts: children.unknown, negated: Negated.No };
+}
+
+/** `if a then b`, which holds when `a` does not or `b` does. */
 function summariseConditional(children: Verdicts): PredicateSummary {
   const [condition, consequence] = children.truths;
   const [first, second] = children.unknown;
-  if (condition === Truth.True && first !== undefined) {
-    return first;
-  }
-  if (consequence === Truth.False && first !== undefined) {
-    return negate(first);
-  }
-  if (first !== undefined && second !== undefined) {
+  if (condition === Truth.Unknown && consequence === Truth.Unknown && first !== undefined && second !== undefined) {
     return join(SummaryKind.Any, [negate(first), second]);
   }
-  return join(SummaryKind.Any, children.unknown);
-}
-
-/** The summary of a statement already known to be unknown. */
-function summariseStatement(statement: PredicateStatement, facts: PredicateFacts): PredicateSummary {
-  if (typeof statement === 'string') {
-    return optionPhrase(statement);
+  if (condition === Truth.Unknown && first !== undefined) {
+    return negate(first);
   }
-  if (isPredicateComparison(statement)) {
-    return comparisonPhrase(statement);
-  }
-  return summariseCompound(statement, facts);
+  return join(SummaryKind.All, children.unknown);
 }
 
 function summariseCompound(statement: PredicateCompound, facts: PredicateFacts): PredicateSummary {
@@ -196,7 +202,18 @@ function summariseCompound(statement: PredicateCompound, facts: PredicateFacts):
   if ('if' in statement) {
     return summariseConditional(children);
   }
-  return summariseCount('xor' in statement, children);
+  return 'xor' in statement ? summariseExactlyOne(children) : summariseAllOrNone(children);
+}
+
+/** The summary of a statement already known to be unknown. */
+function summariseStatement(statement: PredicateStatement, facts: PredicateFacts): PredicateSummary {
+  if (typeof statement === 'string') {
+    return optionPhrase(statement);
+  }
+  if (isPredicateComparison(statement)) {
+    return comparisonPhrase(statement);
+  }
+  return summariseCompound(statement, facts);
 }
 
 /**

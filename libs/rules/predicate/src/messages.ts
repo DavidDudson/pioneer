@@ -13,7 +13,8 @@ export const PredicateMessage = {
   GreaterOrEqual: 'predicate.summary.greaterOrEqual',
   Less: 'predicate.summary.less',
   LessOrEqual: 'predicate.summary.lessOrEqual',
-  Not: 'predicate.summary.not',
+  Either: 'predicate.summary.either',
+  Both: 'predicate.summary.both',
   ExactlyOne: 'predicate.summary.exactlyOne',
   AllOrNone: 'predicate.summary.allOrNone',
 } as const;
