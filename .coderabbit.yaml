@@ -1,0 +1,5 @@
+# yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
+reviews:
+  auto_review:
+    # PRs open as drafts and get one CodeRabbit round before leaving draft, so drafts must be reviewed.
+    drafts: true
