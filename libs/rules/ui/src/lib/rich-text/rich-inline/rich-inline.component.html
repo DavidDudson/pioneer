@@ -1,0 +1,16 @@
+@for (node of content(); track $index) {
+  @switch (node.type) {
+    @case ('text') {
+      <pio-rich-run [node]="node" />
+    }
+    @case ('ref') {
+      <pio-rich-ref [node]="node" />
+    }
+    @case ('action-cost') {
+      <pio-rich-action-cost [node]="node" />
+    }
+    @default {
+      <pio-rich-value [node]="node" />
+    }
+  }
+}

@@ -66,7 +66,6 @@ export type DurationCount = z.infer<typeof DurationCount>;
 /** Every kind of inline node. */
 export const InlineKind = {
   Text: 'text',
-  Break: 'break',
   Ref: 'ref',
   Check: 'check',
   Damage: 'damage',
@@ -98,9 +97,6 @@ const TextNode = z.strictObject({
   marks: textMarks.optional(),
 });
 export type TextNode = z.infer<typeof TextNode>;
-
-const BreakNode = z.strictObject({ type: z.literal(InlineKind.Break) });
-export type BreakNode = z.infer<typeof BreakNode>;
 
 /** A live link to another entry ("Off-Guard", "Seek"); its name comes from the entry unless `label` is given. */
 const RefNode = z.strictObject({ type: z.literal(InlineKind.Ref), id: ContentId, label: InlineLabel.optional() });
@@ -142,19 +138,10 @@ export type DurationNode = z.infer<typeof DurationNode>;
 const ActionCostNode = z.strictObject({ type: z.literal(InlineKind.ActionCost), cost: ActionCostSchema });
 export type ActionCostNode = z.infer<typeof ActionCostNode>;
 
-export type InlineNode =
-  | TextNode
-  | BreakNode
-  | RefNode
-  | CheckNode
-  | DamageNode
-  | TemplateNode
-  | DurationNode
-  | ActionCostNode;
+export type InlineNode = TextNode | RefNode | CheckNode | DamageNode | TemplateNode | DurationNode | ActionCostNode;
 
 const Inline: z.ZodType<InlineNode> = z.discriminatedUnion('type', [
   TextNode,
-  BreakNode,
   RefNode,
   CheckNode,
   DamageNode,
@@ -184,9 +171,10 @@ export interface ListNode {
   readonly items: readonly (readonly BlockNode[])[];
 }
 
-/** A grid of inline cells; `header` is the optional first row of column headings. */
+/** A grid of inline cells; `header` is the optional first row of column headings, `caption` names the table. */
 export interface TableNode {
   readonly type: typeof BlockKind.Table;
+  readonly caption?: InlineLabel | undefined;
   readonly header?: readonly InlineContent[] | undefined;
   readonly rows: readonly (readonly InlineContent[])[];
 }
@@ -225,7 +213,12 @@ const Block: z.ZodType<BlockNode> = z.lazy(() => {
       ordered: z.boolean(),
       items: z.array(item).min(1).readonly(),
     }),
-    z.strictObject({ type: z.literal(BlockKind.Table), header: cells.optional(), rows }),
+    z.strictObject({
+      type: z.literal(BlockKind.Table),
+      caption: InlineLabel.optional(),
+      header: cells.optional(),
+      rows,
+    }),
     z.strictObject({ type: z.literal(BlockKind.Rule) }),
   ]);
 });
@@ -237,7 +230,7 @@ const BOUND_MESSAGES = {
 
 /**
  * Content text as a small, safe document (content-model.md, "Rich text"): paragraphs, headings, lists, tables
- * and breaks, with inline nodes that keep their meaning (links to entries, checks, damage, areas, durations,
+ * and thematic breaks, with inline nodes that keep their meaning (links to entries, checks, damage, areas, durations,
  * action glyphs). Never HTML. Input past the bounds is rejected before the schema walks it.
  */
 export const RichText: z.ZodType<RichText> = z

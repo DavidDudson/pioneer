@@ -28,7 +28,35 @@
     },
     "richText": {
       "tooDeep": "Rich text can nest at most {maximum} levels deep.",
-      "tooLarge": "Rich text can hold at most {maximum} nodes, lists and rows together."
+      "tooLarge": "Rich text can hold at most {maximum} nodes, lists and rows together.",
+      "check": "{hasDc, select, yes {DC {dc} } other {}}{basic, select, yes {basic } other {}}{statistic}",
+      "damage": "{formula}{damageType, select, bludgeoning { bludgeoning} piercing { piercing} slashing { slashing} acid { acid} cold { cold} electricity { electricity} fire { fire} sonic { sonic} vitality { vitality} void { void} force { force} spirit { spirit} mental { mental} poison { poison} bleed { bleed} precision { precision} other {}}",
+      "template": "{size}-foot {shape, select, burst {burst} cone {cone} cube {cube} cylinder {cylinder} emanation {emanation} line {line} other {area}}",
+      "duration": "{count, plural, one {# {unit, select, round {round} minute {minute} hour {hour} other {day}}} other {# {unit, select, round {rounds} minute {minutes} hour {hours} other {days}}}}",
+      "unnamedEntry": "linked entry",
+      "table": "Table",
+      "actionCost": {
+        "one": {
+          "label": "Single action",
+          "glyph": "◆"
+        },
+        "two": {
+          "label": "Two actions",
+          "glyph": "◆◆"
+        },
+        "three": {
+          "label": "Three actions",
+          "glyph": "◆◆◆"
+        },
+        "free": {
+          "label": "Free action",
+          "glyph": "◇"
+        },
+        "reaction": {
+          "label": "Reaction",
+          "glyph": "⤾"
+        }
+      }
     },
     "reference": {
       "level": "The character’s level.",

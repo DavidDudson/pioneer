@@ -70,7 +70,6 @@ export const inlineNodeJson: Arbitrary<unknown> = oneof(
     { type: constant(InlineKind.Text), text, marks: array(marks, { maxLength: 2 }) },
     { requiredKeys: ['type', 'text'] },
   ),
-  record({ type: constant(InlineKind.Break) }),
   record({ type: constant(InlineKind.Ref), id: contentIds, label }, { requiredKeys: ['type', 'id'] }),
   record(
     {
@@ -122,7 +121,12 @@ export const blockNodeJson: Arbitrary<unknown> = letrec<{ block: unknown }>((tie
         content: run,
       }),
       record(
-        { type: constant(BlockKind.Table), header: cells, rows: array(cells, { minLength: 1, maxLength: ROWS_MAX }) },
+        {
+          type: constant(BlockKind.Table),
+          caption: label,
+          header: cells,
+          rows: array(cells, { minLength: 1, maxLength: ROWS_MAX }),
+        },
         { requiredKeys: ['type', 'rows'] },
       ),
       record({

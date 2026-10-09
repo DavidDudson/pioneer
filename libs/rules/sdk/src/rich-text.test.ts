@@ -43,7 +43,6 @@ describe('RichText', () => {
           { type: 'template', shape: 'burst', size: 20 },
           { type: 'text', text: ', ' },
           { type: 'check', statistic: 'save:reflex', basic: true, options: ['item:trait:fire'] },
-          { type: 'break' },
           { type: 'text', text: 'Targets are ' },
           { type: 'ref', id: offGuard, label: 'off-guard' },
           { type: 'text', text: ' for ' },

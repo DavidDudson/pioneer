@@ -1,0 +1,12 @@
+@let leaf = block();
+@switch (leaf.type) {
+  @case ('table') {
+    <pio-rich-table [table]="leaf" />
+  }
+  @case ('rule') {
+    <fr-divider />
+  }
+  @default {
+    <pio-rich-prose [block]="leaf" />
+  }
+}

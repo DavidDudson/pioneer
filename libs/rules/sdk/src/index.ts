@@ -129,7 +129,6 @@ export {
   AreaShapeSchema,
   BlockKind,
   type BlockNode,
-  type BreakNode,
   type CheckNode,
   type DamageNode,
   DurationCount,

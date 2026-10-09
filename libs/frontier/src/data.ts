@@ -11,3 +11,8 @@ export { VirtualItem } from './lib/data/virtual-list/virtual-item.directive';
 export { VirtualEstimate, VirtualList } from './lib/data/virtual-list/virtual-list.component';
 export { Combobox } from './lib/controls/combobox/combobox.component';
 export { ComboboxField } from './lib/forms/combobox-field/combobox-field.component';
+/**
+ * A header or cell that renders a component instead of a plain value, for content richer than text:
+ * `cell: ({ row }) => tableComponent(RuleText, { inputs: { text: row.original.text } })`.
+ */
+export { flexRenderComponent as tableComponent } from '@tanstack/angular-table';
