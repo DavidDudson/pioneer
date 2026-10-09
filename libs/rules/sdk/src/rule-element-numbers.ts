@@ -1,5 +1,5 @@
 import type { ValueOf } from '@pioneer/shared/kernel';
-import { issueParams, message } from '@pioneer/shared/kernel';
+import { issueParams, message, Pg } from '@pioneer/shared/kernel';
 import { z } from 'zod';
 
 import { AttributeSchema } from './attribute';
@@ -107,11 +107,14 @@ export const DexterityCapElement = z.strictObject({
 });
 export type DexterityCapElement = z.infer<typeof DexterityCapElement>;
 
+/** A multiple attack penalty step: zero or less, as Foundry requires. Brands as `Modifier`, so it is one. */
+const PenaltyStep = Pg.smallint().max(0).brand<'Modifier'>();
+
 /** The multiple attack penalty step for the targeted attacks (`-4` for agile); the best applies. */
 export const MultipleAttackPenaltyElement = z.strictObject({
   key: z.literal(RuleElementKey.MultipleAttackPenalty),
   selectors: ModifierTargets,
-  value: ModifierValue,
+  value: z.union([PenaltyStep, FormulaSource]),
   ...ruleElementBase,
 });
 export type MultipleAttackPenaltyElement = z.infer<typeof MultipleAttackPenaltyElement>;

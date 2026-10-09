@@ -143,7 +143,8 @@ const suppressModifier = element(
 );
 const change = element('Change', { selector: keyPathText, mode: anyOf(ChangeMode), value: ruleValue });
 const dexterityCap = element('DexterityCap', { value: modifierValue });
-const multipleAttackPenalty = element('MultipleAttackPenalty', { selectors: targets, value: modifierValue });
+const penaltyStep = oneof(integer({ min: -SMALLINT_MAX, max: 0 }), formulaText);
+const multipleAttackPenalty = element('MultipleAttackPenalty', { selectors: targets, value: penaltyStep });
 
 /**
  * Valid rule elements of every `key` the SDK knows, as plain JSON (unparsed). Use with

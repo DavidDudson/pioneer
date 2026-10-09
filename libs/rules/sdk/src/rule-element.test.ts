@@ -127,6 +127,12 @@ describe('RuleElement', () => {
     expect(issues(element)).toStrictEqual([{ path: [], message: message(RulesMessage.AdjustModeOrSuppress) }]);
   });
 
+  test('a multiple attack penalty is never a bonus', () => {
+    expect(issues({ key: 'MultipleAttackPenalty', selectors: ['strike-attack-roll'], value: 1 })).toStrictEqual([
+      { path: ['value'], message: message(ValidationMessage.TooBig, { origin: 'number', maximum: 0 }) },
+    ]);
+  });
+
   test('only a toggle offers suboptions', () => {
     const element = { key: 'RollOption', option: 'self:stance', suboptions: [{ value: 'a', label: 'A' }] };
     expect(issues(element)).toStrictEqual([
