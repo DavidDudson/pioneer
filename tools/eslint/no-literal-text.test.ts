@@ -20,6 +20,7 @@ tester.run('no-literal-text', noLiteralText, {
     { code: `<span>+</span>` },
     { code: `<fr-stack gap="md" direction="horizontal" />` },
     { code: `<fr-description-item [term]="'character.sheet.speed' | transloco" />` },
+    { code: `<fr-description-item [term]="speedLabel()" />` },
     { code: `<fr-link href="https://paizo.com">{{ 'shell.communityUse.siteLink' | transloco }}</fr-link>` },
   ],
   invalid: [
@@ -30,6 +31,8 @@ tester.run('no-literal-text', noLiteralText, {
     { code: `<nav aria-label="Main"></nav>`, errors: [{ messageId: 'attribute' }] },
     { code: `<fr-select ariaLabel="Theme" />`, errors: [{ messageId: 'attribute' }] },
     { code: `<fr-description-item term="Speed" />`, errors: [{ messageId: 'attribute' }] },
+    { code: `<fr-description-item [term]="'Speed'" />`, errors: [{ messageId: 'attribute' }] },
+    { code: `<fr-text-field [label]="'Name'" />`, errors: [{ messageId: 'attribute' }] },
     { code: `<p>Größe</p>`, errors: [{ messageId: 'text' }] },
   ],
 });

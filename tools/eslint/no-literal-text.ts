@@ -51,6 +51,12 @@ interface AttributeNode {
   readonly value?: unknown;
   readonly keySpan?: Span;
 }
+/** `[label]="'Name'"`: the bound expression, which is a string literal when the copy is inline. */
+interface BoundAttributeNode {
+  readonly name?: unknown;
+  readonly value?: { readonly ast?: { readonly value?: unknown } };
+  readonly keySpan?: Span;
+}
 
 function hasLetters(value: unknown): boolean {
   return typeof value === 'string' && LETTER.test(value);
@@ -96,6 +102,13 @@ export const noLiteralText: Rule.RuleModule = {
         const { name, value, keySpan } = node as AttributeNode;
         if (typeof name === 'string' && TEXT_ATTRIBUTES.has(name) && hasLetters(value)) {
           report(keySpan, 'attribute', { name, text: String(value) });
+        }
+      },
+      BoundAttribute(node: unknown): void {
+        const { name, value, keySpan } = node as BoundAttributeNode;
+        const literal = value?.ast?.value;
+        if (typeof name === 'string' && TEXT_ATTRIBUTES.has(name) && hasLetters(literal)) {
+          report(keySpan, 'attribute', { name, text: String(literal) });
         }
       },
     };
