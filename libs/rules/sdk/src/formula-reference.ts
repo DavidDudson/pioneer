@@ -23,6 +23,7 @@ export const ReferenceKind = {
   CappedDexterity: 'capped-dexterity',
   ProficiencyBonus: 'proficiency-bonus',
   ProficiencyRank: 'proficiency-rank',
+  Statistic: 'statistic',
   ItemLevel: 'item-level',
 } as const;
 export type ReferenceKind = ValueOf<typeof ReferenceKind>;
@@ -34,6 +35,7 @@ export type KnownReference =
   | { readonly kind: typeof ReferenceKind.CappedDexterity }
   | { readonly kind: typeof ReferenceKind.ProficiencyBonus; readonly selector: Selector }
   | { readonly kind: typeof ReferenceKind.ProficiencyRank; readonly selector: Selector }
+  | { readonly kind: typeof ReferenceKind.Statistic; readonly selector: Selector }
   | { readonly kind: typeof ReferenceKind.ItemLevel };
 
 /**
@@ -84,6 +86,11 @@ export const REFERENCE_CATALOGUE: Readonly<Record<ReferenceKind, ReferenceDefini
     pattern: ReferencePattern.parse('rank.<selector>'),
     scope: ReferenceScope.Actor,
     meaning: RulesMessage.ReferenceProficiencyRank,
+  },
+  [ReferenceKind.Statistic]: {
+    pattern: ReferencePattern.parse('stat.<selector>'),
+    scope: ReferenceScope.Actor,
+    meaning: RulesMessage.ReferenceStatistic,
   },
   [ReferenceKind.ItemLevel]: {
     pattern: ReferencePattern.parse('item.level'),
@@ -200,7 +207,8 @@ function referenceOf(kind: ReferenceKind, captures: Captures): KnownReference | 
       return attributeReference(captures);
     }
     case ReferenceKind.ProficiencyBonus:
-    case ReferenceKind.ProficiencyRank: {
+    case ReferenceKind.ProficiencyRank:
+    case ReferenceKind.Statistic: {
       const selector = selectorIn(captures);
       return selector === undefined ? undefined : { kind, selector };
     }
