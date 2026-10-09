@@ -3,7 +3,7 @@
     <fr-list-item>
       <fr-stack direction="horizontal" gap="xs" align="center" wrap>
         @if (term.code; as code) {
-          <fr-text variant="code">{{ code }}</fr-text>
+          <fr-text element="code">{{ code }}</fr-text>
         } @else {
           <fr-text tone="muted">{{ 'play.rules.rounding' | transloco }}</fr-text>
         }
