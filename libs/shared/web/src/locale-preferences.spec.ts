@@ -5,18 +5,14 @@ import { DistanceUnit, Locale } from '@pioneer/shared/kernel';
 import { beforeEach, describe, expect, it } from 'vitest';
 
 import { provideI18n } from './i18n';
-import { BROWSER_LANGUAGES, LocalePreferences, PREFERENCE_STORAGE } from './locale-preferences';
+import { LocalePreferences, PREFERENCE_STORAGE } from './locale-preferences';
 
 const STORAGE_KEY = 'pioneer.locale';
 
-async function setup(
-  browser: readonly string[],
-  storage: Storage | undefined = localStorage,
-): Promise<LocalePreferences> {
+async function setup(storage: Storage | undefined = localStorage): Promise<LocalePreferences> {
   TestBed.configureTestingModule({
     providers: [
       provideI18n({ en: async () => ({ hello: 'Hello' }) }),
-      { provide: BROWSER_LANGUAGES, useValue: browser },
       { provide: PREFERENCE_STORAGE, useValue: storage },
     ],
   });
@@ -29,64 +25,60 @@ describe(LocalePreferences, () => {
     localStorage.clear();
   });
 
-  it('resolves from the browser languages and applies the locale before bootstrap', async () => {
-    const preferences = await setup(['en-GB', 'fr']);
+  it('shows the defaults with nothing cached, and applies the locale before bootstrap', async () => {
+    const preferences = await setup();
     const root = TestBed.inject(DOCUMENT).documentElement;
 
-    expect(preferences.ui()).toBe(Locale.English);
+    expect([preferences.ui(), preferences.content(), preferences.distanceUnit()]).toStrictEqual(['en', 'en', 'feet']);
     expect(TestBed.inject(TranslocoService).translate('hello')).toBe('Hello');
     expect(root.lang).toBe('en');
     expect(root.dir).toBe('ltr');
   });
 
-  it('falls back to en when neither storage nor browser has a supported locale', async () => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify({ ui: 'xx', content: 'yy' }));
-    const preferences = await setup(['fr-FR', 'ja']);
+  it('starts from the cached choices of the last signed-in user', async () => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({ ui: 'en', distanceUnit: 'metres' }));
+    const preferences = await setup();
 
-    expect(preferences.ui()).toBe(Locale.English);
-    expect(preferences.content()).toBe(Locale.English);
+    expect(preferences.distanceUnit()).toBe(DistanceUnit.Metres);
   });
 
-  it('treats corrupt stored preferences as none', async () => {
-    localStorage.setItem(STORAGE_KEY, '{not json');
-    const preferences = await setup(['en']);
-
-    expect(preferences.ui()).toBe(Locale.English);
-  });
-
-  it('persists UI and content locales independently', async () => {
-    const preferences = await setup(['en']);
-
-    preferences.setContent(Locale.English);
-    await preferences.setUi(Locale.English);
-
-    expect(localStorage.getItem(STORAGE_KEY)).toBe(JSON.stringify({ ui: 'en', content: 'en', distanceUnit: 'feet' }));
-  });
-
-  it('defaults to feet and persists a metres preference', async () => {
-    const preferences = await setup(['en']);
-    expect(preferences.distanceUnit()).toBe(DistanceUnit.Feet);
-
-    preferences.setDistanceUnit(DistanceUnit.Metres);
-
-    expect(localStorage.getItem(STORAGE_KEY)).toBe(JSON.stringify({ ui: 'en', content: 'en', distanceUnit: 'metres' }));
-  });
-
-  it('restores a stored unit and ignores an unknown one', async () => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify({ distanceUnit: 'metres' }));
-    const restored = await setup(['en']);
-    expect(restored.distanceUnit()).toBe(DistanceUnit.Metres);
+  it('ignores unknown cached values and corrupt storage', async () => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({ ui: 'xx', content: 'yy', distanceUnit: 'cubits' }));
+    const unknown = await setup();
+    expect([unknown.ui(), unknown.content(), unknown.distanceUnit()]).toStrictEqual(['en', 'en', 'feet']);
 
     TestBed.resetTestingModule();
-    localStorage.setItem(STORAGE_KEY, JSON.stringify({ ui: 'en', distanceUnit: 'cubits' }));
-    const fallback = await setup(['en']);
-    expect(fallback.distanceUnit()).toBe(DistanceUnit.Feet);
+    localStorage.setItem(STORAGE_KEY, '{not json');
+    const corrupt = await setup();
+    expect(corrupt.distanceUnit()).toBe(DistanceUnit.Feet);
+  });
+
+  it('adopts account choices, defaults for the rest, and caches them', async () => {
+    const preferences = await setup();
+
+    await preferences.adopt({ content: Locale.English, distanceUnit: DistanceUnit.Metres });
+
+    expect(preferences.ui()).toBe(Locale.English);
+    expect(preferences.distanceUnit()).toBe(DistanceUnit.Metres);
+    expect(localStorage.getItem(STORAGE_KEY)).toBe(JSON.stringify({ content: 'en', distanceUnit: 'metres' }));
+  });
+
+  it('resets to the defaults and forgets the cache when nobody is signed in', async () => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({ distanceUnit: 'metres' }));
+    const preferences = await setup();
+
+    await preferences.reset();
+
+    expect(preferences.distanceUnit()).toBe(DistanceUnit.Feet);
+    expect(localStorage.getItem(STORAGE_KEY)).toBeNull();
   });
 
   it('still works when storage is blocked', async () => {
-    const preferences = await setup(['en'], undefined);
+    const preferences = await setup(undefined);
 
-    preferences.setContent(Locale.English);
-    expect(preferences.content()).toBe(Locale.English);
+    await preferences.adopt({ distanceUnit: DistanceUnit.Metres });
+    expect(preferences.distanceUnit()).toBe(DistanceUnit.Metres);
+    await preferences.reset();
+    expect(preferences.distanceUnit()).toBe(DistanceUnit.Feet);
   });
 });

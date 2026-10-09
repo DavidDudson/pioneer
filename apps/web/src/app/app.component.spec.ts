@@ -57,7 +57,7 @@ describe(App, () => {
     expect(legal?.textContent.trim()).toBe('Legal');
   });
 
-  it('offers sign-in when signed out', async () => {
+  it('offers sign-in, and no settings, when signed out', async () => {
     const element = await answerMe(await renderShell(), 401, {
       type: 'unauthorized',
       title: 'Unauthorized',
@@ -67,9 +67,10 @@ describe(App, () => {
     await vi.waitFor(() => {
       expect(buttonLabels(element)).toContain('Sign in');
     });
+    expect(element.querySelector('a[href="/account/settings"]')).toBeNull();
   });
 
-  it('shows who is signed in, with sign-out', async () => {
+  it('shows who is signed in, with their settings and sign-out', async () => {
     const element = await answerMe(await renderShell(), 200, {
       id: '8f6d2c1a-0b3e-4f5a-9c7d-1e2f3a4b5c6d',
       displayName: 'Amiri',
@@ -81,6 +82,7 @@ describe(App, () => {
       expect(element.textContent).toContain('Amiri');
     });
     expect(element.querySelector('a[href="/account"]')?.textContent.trim()).toBe('Amiri');
+    expect(element.querySelector('a[href="/account/settings"]')?.textContent.trim()).toBe('Settings');
     expect(buttonLabels(element)).toContain('Sign out');
     expect(buttonLabels(element)).not.toContain('Sign in');
   });

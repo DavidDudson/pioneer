@@ -3,7 +3,7 @@ import { inject, provideBrowserGlobalErrorListeners, provideZonelessChangeDetect
 import type { ApplicationConfig } from '@angular/core';
 import { provideRouter, withComponentInputBinding, withPreloading } from '@angular/router';
 import { DISTANCE_UNIT } from '@pioneer/frontier';
-import { provideSignInOnUnauthorized } from '@pioneer/identity/data-access';
+import { provideAccountPreferences, provideSignInOnUnauthorized } from '@pioneer/identity/data-access';
 import { Milliseconds } from '@pioneer/shared/kernel';
 import { IdlePreloading, LocalePreferences, provideI18n } from '@pioneer/shared/web';
 import { provideTanStackQuery, QueryClient } from '@tanstack/angular-query-experimental';
@@ -24,6 +24,7 @@ export const appConfig: ApplicationConfig = {
     provideTanStackQuery(new QueryClient({ defaultOptions: { queries: { staleTime: STALE_TIME } } })),
     provideI18n(appMessages),
     provideSignInOnUnauthorized(),
+    provideAccountPreferences(),
     { provide: DISTANCE_UNIT, useFactory: () => inject(LocalePreferences).distanceUnit },
   ],
 };

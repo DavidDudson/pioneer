@@ -36,5 +36,22 @@
     "title": "Sign-in did not complete",
     "body": "The provider did not confirm who you are, or the attempt took too long. Nothing was saved. You can try again.",
     "retry": "Try again"
+  },
+  "settings": {
+    "title": "Settings",
+    "uiLocale": "Language",
+    "uiLocaleHint": "Menus, buttons and messages.",
+    "contentLocale": "Rules language",
+    "contentLocaleHint": "Rules text, feats, spells and items. Can differ from the language above.",
+    "distanceUnit": "Distances",
+    "distanceUnitHint": "Metres use 1.5 m per 5 ft square, as translated books do.",
+    "distanceUnits": {
+      "feet": "Feet",
+      "metres": "Metres"
+    },
+    "locales": {
+      "en": "English"
+    },
+    "saveFailed": "Could not save that to your account. Your previous choice is back."
   }
 }

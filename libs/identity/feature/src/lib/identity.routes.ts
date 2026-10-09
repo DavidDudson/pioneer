@@ -1,4 +1,5 @@
 import type { Routes } from '@angular/router';
+import { signInRequired } from '@pioneer/identity/data-access';
 import { Locale } from '@pioneer/shared/kernel';
 import { loadWithMessages, provideMessageScope } from '@pioneer/shared/web';
 
@@ -14,6 +15,17 @@ export const identityRoutes: Routes = [
         loadComponent: loadWithMessages(async () => {
           const { AccountPage } = await import('./account/account-page.component');
           return AccountPage;
+        }),
+      },
+      {
+        path: 'settings',
+        // Preferences belong to an account; signed-out visitors get the defaults.
+        canActivate: [signInRequired],
+        // Signing out re-runs guards on the current page (SessionStore), so it is left at once.
+        runGuardsAndResolvers: 'always',
+        loadComponent: loadWithMessages(async () => {
+          const { SettingsPage } = await import('./settings/settings-page.component');
+          return SettingsPage;
         }),
       },
       {
