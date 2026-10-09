@@ -22,7 +22,7 @@ import { Proficiency } from '../proficiency';
 import { NumericAlterationMode, NumericItemProperty, TraitAlterationMode } from '../rule-element-item-alteration';
 import { AdjustMode, ChangeMode } from '../rule-element-numbers';
 import { ArmorCategory, MartialKind, WeaponCategory } from '../rule-element-proficiency';
-import { keyPathText, predicateJson, rollOptionText } from './arbitraries';
+import { keyPathText, predicateJson, rollOptionText, validFormulaText } from './arbitraries';
 
 const LIST_MAX = 3;
 const SMALLINT_MAX = 32_767;
@@ -34,7 +34,6 @@ const slugText: Arbitrary<string> = array(word, { minLength: 1, maxLength: SLUG_
   words.join('-'),
 );
 const contentText: Arbitrary<string> = stringMatching(/^[A-Za-z][A-Za-z ]{0,19}$/u);
-const formulaText: Arbitrary<string> = constantFrom('@actor.level', 'floor(@actor.level / 2)', 'max(1, @item.level)');
 const modifierNumber: Arbitrary<number> = integer({ min: -SMALLINT_MAX, max: SMALLINT_MAX });
 const ruleNumber: Arbitrary<number> = double({ noNaN: true, noDefaultInfinity: true });
 const targets: Arbitrary<string[]> = array(keyPathText, { minLength: 1, maxLength: LIST_MAX });
@@ -74,8 +73,8 @@ function anyOf<TValue>(values: Readonly<Record<string, TValue>>): Arbitrary<TVal
   return constantFrom(...Object.values(values));
 }
 
-const modifierValue = oneof(modifierNumber, formulaText);
-const ruleValue = oneof(ruleNumber, formulaText);
+const modifierValue = oneof(modifierNumber, validFormulaText);
+const ruleValue = oneof(ruleNumber, validFormulaText);
 const nonAttributeTypes = Object.values(ModifierType).filter((type) => type !== ModifierType.Attribute);
 const damageType = anyOf(DamageType);
 
@@ -145,7 +144,7 @@ const suppressModifier = element(
 );
 const change = element('Change', { selector: keyPathText, mode: anyOf(ChangeMode), value: ruleValue });
 const dexterityCap = element('DexterityCap', { value: modifierValue });
-const penaltyStep = oneof(integer({ min: -SMALLINT_MAX, max: 0 }), formulaText);
+const penaltyStep = oneof(integer({ min: -SMALLINT_MAX, max: 0 }), validFormulaText);
 const multipleAttackPenalty = element('MultipleAttackPenalty', { selectors: targets, value: penaltyStep });
 
 const raisedRank = constantFrom(...Object.values(Proficiency).filter((rank) => rank !== Proficiency.Untrained));
@@ -158,7 +157,7 @@ const martialProficiency = element(
     kind: anyOf(MartialKind),
     sameAs: anyOf({ ...WeaponCategory, ...ArmorCategory }),
     maxRank: raisedRank,
-    value: raisedRank,
+    value: oneof(raisedRank, validFormulaText),
     visible: boolean(),
   },
 );

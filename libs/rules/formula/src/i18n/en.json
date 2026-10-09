@@ -1,7 +1,7 @@
 {
   "formula": {
     "parse": {
-      "empty": "Enter a formula, like 10 + @actor.level.",
+      "empty": "Enter a formula, like 10 + @level.",
       "tooLong": "Keep formulas to {maximum} characters or fewer.",
       "tooDeep": "Nesting goes more than {maximum} levels deep at position {position}. Simplify the formula.",
       "tooManyNodes": "Use at most {maximum} numbers, references, operators and calls in one formula.",
@@ -9,8 +9,8 @@
       "unexpectedToken": "“{found}” at position {position} is out of place.",
       "unexpectedEnd": "The formula ends too early. Add a number, reference or closing bracket at the end.",
       "numberTooLarge": "Numbers can be at most {maximum} (position {position}).",
-      "invalidReference": "“{found}” at position {position} is not a reference. References look like @actor.level.",
-      "unknownFunction": "“{found}” at position {position} is not a function. Character values start with @, like @actor.level.",
+      "invalidReference": "“{found}” at position {position} is not a reference. References look like @level.",
+      "unknownFunction": "“{found}” at position {position} is not a function. Character values start with @, like @level.",
       "notCalled": "“{found}” at position {position} is a function. Call it with brackets, like {found}(…).",
       "argumentCount": "{name} takes {expected, plural, one {# value} other {# values}}, not {given} (position {position}).",
       "argumentCountAtLeast": "{name} needs at least {minimum, plural, one {# value} other {# values}} (position {position})."

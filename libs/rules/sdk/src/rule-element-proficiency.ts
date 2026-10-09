@@ -1,6 +1,7 @@
 import type { ValueOf } from '@pioneer/shared/kernel';
 import { z } from 'zod';
 
+import { FormulaSource } from './formula-source';
 import { Predicate } from './predicate';
 import { ProficiencySchema } from './proficiency';
 import { RuleElementKey, ruleElementBase, RuleSlug } from './rule-element-base';
@@ -22,6 +23,23 @@ export const ProficiencyElement = z.strictObject({
   ...ruleElementBase,
 });
 export type ProficiencyElement = z.infer<typeof ProficiencyElement>;
+
+/**
+ * A raised rank by name, or a formula giving one from 1 (trained) to 4 (legendary), as Foundry allows. A string
+ * that names no rank is checked as a formula first, so the issue says what is wrong with the formula instead of a
+ * plain union's "no match".
+ */
+const RankOrFormula: z.ZodType<RaisedRank | FormulaSource> = z
+  .unknown()
+  .check((context) => {
+    const named = RaisedRank.safeParse(context.value);
+    const formula =
+      named.success || typeof context.value !== 'string' ? undefined : FormulaSource.safeParse(context.value);
+    if (formula?.success === false) {
+      context.issues.push(...formula.error.issues);
+    }
+  })
+  .pipe(z.union([RaisedRank, FormulaSource]));
 
 /** Whether a martial proficiency covers weapons and unarmed attacks, or armour (Foundry's `kind`). */
 export const MartialKind = {
@@ -64,7 +82,7 @@ export const MartialProficiencyElement = z.strictObject({
   definition: Predicate,
   sameAs: MartialCategory.optional(),
   maxRank: RaisedRank.optional(),
-  value: RaisedRank.optional(),
+  value: RankOrFormula.optional(),
   visible: z.boolean().optional(),
   ...ruleElementBase,
 });

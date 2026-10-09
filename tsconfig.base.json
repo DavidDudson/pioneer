@@ -43,6 +43,7 @@
       "@pioneer/rules/dice": ["./libs/rules/dice/src/index.ts"],
       "@pioneer/rules/dice/testing": ["./libs/rules/dice/src/testing/index.ts"],
       "@pioneer/rules/formula": ["./libs/rules/formula/src/index.ts"],
+      "@pioneer/rules/formula/testing": ["./libs/rules/formula/src/testing/index.ts"],
       "@pioneer/rules/predicate": ["./libs/rules/predicate/src/index.ts"],
       "@pioneer/rules/catalog": ["./libs/rules/catalog/src/index.ts"],
       "@pioneer/content/player-core": ["./libs/content/player-core/src/index.ts"],
