@@ -1,4 +1,4 @@
-import { evaluate, FormulaText, FormulaValue, parseFormula } from '@pioneer/rules/formula';
+import { evaluate, FORMULA_VALUE_MAX, FormulaText, FormulaValue, parseFormula } from '@pioneer/rules/formula';
 import type { ResolveReference, TextPosition } from '@pioneer/rules/formula';
 import { evaluatePredicate, summarisePredicate, Truth } from '@pioneer/rules/predicate';
 import type { PredicateFacts } from '@pioneer/rules/predicate';
@@ -11,10 +11,12 @@ import type {
   RuleValue,
   StatisticDefinition,
 } from '@pioneer/rules/sdk';
+import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 import { InactiveReason, LineStatusKind, SuppressionReason } from './breakdown';
 import type { BreakdownLine, LineStatus } from './breakdown';
+import { EngineMessage } from './messages';
 import type { Adjustment, ModifierRules, ModifierSource } from './modifier';
 import type { RuleId } from './rule-in-play';
 import { stack } from './stacking';
@@ -59,30 +61,46 @@ function valueOf(value: ModifierValue | RuleValue, resolve: ResolveReference): V
   return outcome.ok ? { ok: true, value: RuleNumber.parse(outcome.value) } : outcome;
 }
 
+/** An adjustment whose result left the safe integer range; a number has no formula position to point at. */
+const OUT_OF_RANGE: LineStatus = {
+  kind: LineStatusKind.Failed,
+  error: message(EngineMessage.AdjustmentOutOfRange, { maximum: FORMULA_VALUE_MAX }),
+  position: undefined,
+};
+
 function failed({ error, position }: Failure): LineStatus {
   return { kind: LineStatusKind.Failed, error, position };
 }
 
-/** A whole number from an adjustment, rounded down as PF2e rounds (`multiply` by 0.5 halves a +3 to +1). */
-function adjusted(mode: AdjustMode, current: FormulaValue, change: RuleNumber): FormulaValue {
+/** `value` rounded down, if it is a number inside the safe integer range; undefined when it is not. */
+function whole(value: unknown): FormulaValue | undefined {
+  const parsed = FormulaValue.safeParse(typeof value === 'number' ? Math.floor(value) : value);
+  return parsed.success ? parsed.data : undefined;
+}
+
+/**
+ * A whole number from an adjustment, rounded down as PF2e rounds (`multiply` by 0.5 halves a +3 to +1); undefined
+ * when the result leaves the safe integer range (`multiply` by 1e12).
+ */
+function adjusted(mode: AdjustMode, current: FormulaValue, change: RuleNumber): FormulaValue | undefined {
   switch (mode) {
     case AdjustMode.Add: {
-      return FormulaValue.parse(Math.floor(current + change));
+      return whole(current + change);
     }
     case AdjustMode.Subtract: {
-      return FormulaValue.parse(Math.floor(current - change));
+      return whole(current - change);
     }
     case AdjustMode.Multiply: {
-      return FormulaValue.parse(Math.floor(current * change));
+      return whole(current * change);
     }
     case AdjustMode.Upgrade: {
-      return FormulaValue.parse(Math.floor(Math.max(current, change)));
+      return whole(Math.max(current, change));
     }
     case AdjustMode.Downgrade: {
-      return FormulaValue.parse(Math.floor(Math.min(current, change)));
+      return whole(Math.min(current, change));
     }
     case AdjustMode.Override: {
-      return FormulaValue.parse(Math.floor(change));
+      return whole(change);
     }
     default: {
       return mode satisfies never;
@@ -140,9 +158,11 @@ class Collection {
       };
     }
     const outcome = valueOf(change.value, this.#context.resolve(adjustment.itemLevel));
-    return outcome.ok
-      ? { value: adjusted(change.mode, value, outcome.value) }
-      : { value: undefined, status: failed(outcome) };
+    if (!outcome.ok) {
+      return { value: undefined, status: failed(outcome) };
+    }
+    const result = adjusted(change.mode, value, outcome.value);
+    return result === undefined ? { value: undefined, status: OUT_OF_RANGE } : { value: result };
   }
 
   /** Applied when the predicate holds, inactive when it does not, conditional while it depends on the situation. */

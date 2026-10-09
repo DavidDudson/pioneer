@@ -56,7 +56,12 @@ export type LineStatus =
     }
   | { readonly kind: typeof LineStatusKind.Inactive; readonly reason: InactiveReason }
   /** The value's formula, or an adjustment's, failed to evaluate; the error points into that formula. */
-  | { readonly kind: typeof LineStatusKind.Failed; readonly error: MessageDescriptor; readonly position: TextPosition };
+  | {
+      readonly kind: typeof LineStatusKind.Failed;
+      readonly error: MessageDescriptor;
+      /** Where in the failing formula; undefined when an adjustment took the value out of range. */
+      readonly position: TextPosition | undefined;
+    };
 
 /** One modifier as it bears on one statistic: its value after adjustments, and whether it counts. */
 export interface BreakdownLine {

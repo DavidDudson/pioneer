@@ -8,7 +8,7 @@ import { collectLines } from './collect';
 import type { CollectContext } from './collect';
 import { modifierRules } from './modifier';
 import type { RuleInPlay } from './rule-in-play';
-import { StatisticBases } from './statistic-bases';
+import { StatisticBases, totalOutOfRange } from './statistic-bases';
 import type { StatisticResult } from './statistic-bases';
 import { resolverFor } from './statistic-inputs';
 import type { StatisticInputs } from './statistic-inputs';
@@ -21,18 +21,22 @@ export interface ModifierInputs {
 
 const NO_MODIFIERS: ModifierInputs = { rules: [], facts: new PredicateFacts([]) };
 
-/** The base result with its lines, its total the base plus every applied line. A failed statistic has no lines. */
+/**
+ * The base result with its lines, its total the base plus every applied line. A failed statistic has no lines, and
+ * one whose lines add up past the safe integer range fails rather than throwing.
+ */
 function withLines(result: StatisticResult, lines: readonly BreakdownLine[]): StatisticResult {
   if (!result.ok) {
     return result;
   }
-  let total = result.baseValue;
+  let sum = 0;
   for (const { status, value } of lines) {
     if (status.kind === LineStatusKind.Applied && value !== undefined) {
-      total = FormulaValue.parse(total + value);
+      sum += value;
     }
   }
-  return { ...result, lines, total };
+  const total = FormulaValue.safeParse(result.baseValue + sum);
+  return total.success ? { ...result, lines, total: total.data } : totalOutOfRange(result.selector);
 }
 
 /**

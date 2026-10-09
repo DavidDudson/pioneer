@@ -1,5 +1,5 @@
-import { evaluate } from '@pioneer/rules/formula';
-import type { FormulaValue, TextPosition } from '@pioneer/rules/formula';
+import { evaluate, FORMULA_VALUE_MAX, TextPosition } from '@pioneer/rules/formula';
+import type { FormulaValue } from '@pioneer/rules/formula';
 import type { Selector, StatisticDefinition } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
@@ -41,6 +41,15 @@ const LIST_SEPARATOR = ', ';
 
 function failure(selector: Selector, error: MessageDescriptor, position: TextPosition): StatisticFailure {
   return { ok: false, selector, error, position };
+}
+
+/** Where a total that leaves the safe integer range points: the start of the base formula, as no line is to blame. */
+const TOTAL_POSITION = TextPosition.parse(1);
+
+/** A statistic whose applied lines add up past the safe integer range. */
+export function totalOutOfRange(selector: Selector): StatisticFailure {
+  const error = message(EngineMessage.TotalOutOfRange, { maximum: FORMULA_VALUE_MAX });
+  return failure(selector, error, TOTAL_POSITION);
 }
 
 /** A statistic in a cycle, failing at `edge`, its reference into the cycle; `members` are named in selector order. */
