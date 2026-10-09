@@ -96,6 +96,11 @@ jobs:
       - uses: cachix/install-nix-action@13d8dd58da0234aa297dedd986986ccb8e7f3e24 # v31.11.1
         with:
           github_access_token: ${{ github.token }}
+      # The Worker script is uploaded from the built bundle, and validate hashes it.
+      - name: Build the Worker
+        run: |
+          bun install --frozen-lockfile
+          bunx nx build edge
       # No backend and no credentials: providers come from the lock file, nothing is planned or applied.
       - name: Validate
         working-directory: infra
