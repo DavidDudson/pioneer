@@ -7,12 +7,12 @@ import type { DisplayChoices } from '@pioneer/shared/web';
 
 import { SessionStore } from './session-store';
 
-/** The queue moves on whether a save works or not; the caller of `update` still gets its error. */
-async function settled(saving: Promise<void>): Promise<void> {
+/** A queue moves on whether its step works or not; whoever awaits the step still gets its error. */
+async function settled(step: Promise<void>): Promise<void> {
   try {
-    await saving;
+    await step;
   } catch {
-    // Reported to the caller of `update`.
+    // Reported to whoever awaits the step.
   }
 }
 
@@ -26,7 +26,8 @@ function toChoices(preferences: Preferences): DisplayChoices {
  * nothing to choose.
  *
  * Every answer is checked against the session it was asked for: once the user signs out, a late
- * answer is dropped instead of bringing their choices back. Saves run one at a time, in order.
+ * answer is dropped instead of bringing their choices back. Saves run one at a time, in order, and
+ * locale switches never overlap, so a sign-out reset always has the last word.
  */
 @Injectable({ providedIn: 'root' })
 export class AccountPreferences {
@@ -39,8 +40,12 @@ export class AccountPreferences {
   #showing: Preferences = NO_PREFERENCES;
   /** Bumped on every sign-out, so answers to requests made before it are dropped. */
   #generation = 0;
+  /** Bumped on every change, so a load answered after a change began can't undo it. */
+  #changes = 0;
   /** The save under way; the next one waits for it. */
   #saving: Promise<void> = Promise.resolve();
+  /** The locale switch under way; showing and resetting take turns, so a reset is never overtaken. */
+  #applying: Promise<void> = Promise.resolve();
 
   public constructor() {
     // Signing out, or a session that expired, leaves nobody whose preferences apply.
@@ -60,6 +65,7 @@ export class AccountPreferences {
    */
   public async load(): Promise<void> {
     const generation = this.#generation;
+    const changes = this.#changes;
     try {
       const user = await this.#session.whenKnown();
       if (user === undefined) {
@@ -71,10 +77,7 @@ export class AccountPreferences {
         body: undefined,
         signedOutIsAnswer: true,
       });
-      if (generation === this.#generation) {
-        this.#saved = loaded;
-        await this.#show(loaded);
-      }
+      await this.#loaded(loaded, generation, changes);
     } catch (error: unknown) {
       if (ApiError.isUnauthorized(error)) {
         await this.#forget();
@@ -83,11 +86,21 @@ export class AccountPreferences {
     }
   }
 
+  /** Shows what the account holds, unless the user signed out or changed something since asking. */
+  async #loaded(loaded: Preferences, generation: number, changes: number): Promise<void> {
+    // A change made meanwhile is newer than this answer, and its own save shows what the account holds.
+    if (generation === this.#generation && changes === this.#changes) {
+      this.#saved = loaded;
+      await this.#show(loaded, generation);
+    }
+  }
+
   /**
    * Changes the given preferences. They show at once and save after any save under way. If the
    * account can't save them, what it last saved comes back and the error reaches the caller.
    */
   public async update(patch: Preferences): Promise<void> {
+    this.#changes += 1;
     const generation = this.#generation;
     const before = this.#saving;
     const saving = (async (): Promise<void> => {
@@ -100,16 +113,16 @@ export class AccountPreferences {
 
   async #save(patch: Preferences, generation: number): Promise<void> {
     try {
-      await this.#show(patchPreferences(this.#showing, patch));
+      await this.#show(patchPreferences(this.#showing, patch), generation);
       const saved = await this.#api.call(IdentityContract.updatePreferences, { params: {}, body: patch });
       if (generation === this.#generation) {
         this.#saved = saved;
-        await this.#show(saved);
+        await this.#show(saved, generation);
       }
     } catch (error: unknown) {
       // Signed out meanwhile: the defaults are showing and stay.
       if (generation === this.#generation && !ApiError.isUnauthorized(error)) {
-        await this.#show(this.#saved);
+        await this.#show(this.#saved, generation);
       }
       throw error;
     }
@@ -121,15 +134,30 @@ export class AccountPreferences {
     this.#saved = NO_PREFERENCES;
     this.#showing = NO_PREFERENCES;
     try {
-      await this.#locale.reset();
+      await this.#apply(async () => this.#locale.reset());
     } catch {
       // The messages for the default locale could not load; what is showing stays.
     }
   }
 
-  async #show(preferences: Preferences): Promise<void> {
-    this.#showing = preferences;
-    await this.#locale.adopt(toChoices(preferences));
+  /** Shows `preferences` once any switch under way is done, unless the user signed out first. */
+  async #show(preferences: Preferences, generation: number): Promise<void> {
+    await this.#apply(async () => {
+      if (generation === this.#generation) {
+        this.#showing = preferences;
+        await this.#locale.adopt(toChoices(preferences));
+      }
+    });
+  }
+
+  async #apply(change: () => Promise<void>): Promise<void> {
+    const before = this.#applying;
+    const applying = (async (): Promise<void> => {
+      await before;
+      await change();
+    })();
+    this.#applying = settled(applying);
+    return applying;
   }
 }
 

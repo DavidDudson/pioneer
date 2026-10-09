@@ -209,4 +209,53 @@ describe(AccountPreferences, () => {
     await answering;
     expect(adopt).toHaveBeenCalledTimes(adopted);
   });
+
+  it('keeps a change made while the preferences were still loading', async () => {
+    const { preferences, http, adopt } = setup();
+    const loading = preferences.load();
+    await signedInAs(http, amiri);
+    const load = await vi.waitFor(() => http.expectOne('/api/me/preferences'));
+
+    const updating = preferences.update({ uiLocale: Locale.English });
+    await vi.waitFor(() => {
+      http.expectOne({ method: 'PATCH', url: '/api/me/preferences' }).flush({ uiLocale: 'en' });
+    });
+    await updating;
+    load.flush(metresOnly);
+    await loading;
+
+    expect(adopt).toHaveBeenLastCalledWith({ ui: Locale.English, content: undefined, distanceUnit: undefined });
+  });
+
+  it('lets a locale switch under way finish before signing out resets it', async () => {
+    const { preferences, http, adopt, reset } = setup();
+    const order: string[] = [];
+    const { promise: switched, resolve: finishSwitch } = Promise.withResolvers<undefined>();
+    adopt.mockImplementationOnce(async () => {
+      await switched;
+      order.push('adopt');
+    });
+    reset.mockImplementation(async () => {
+      order.push('reset');
+    });
+    const loading = preferences.load();
+    await signedInAs(http, amiri);
+    await vi.waitFor(() => {
+      http.expectOne('/api/me/preferences').flush(metresOnly);
+    });
+    await vi.waitFor(() => {
+      expect(adopt).toHaveBeenCalledWith({ ui: undefined, content: undefined, distanceUnit: DistanceUnit.Metres });
+    });
+
+    await TestBed.inject(SessionStore).signedOut();
+    TestBed.tick();
+    expect(reset).not.toHaveBeenCalled();
+    finishSwitch(undefined);
+    await loading;
+
+    await vi.waitFor(() => {
+      TestBed.tick();
+      expect(order).toStrictEqual(['adopt', 'reset']);
+    });
+  });
 });
