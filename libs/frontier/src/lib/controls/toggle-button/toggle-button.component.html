@@ -1,0 +1,13 @@
+<fr-button
+  [variant]="variant"
+  [size]="size()"
+  [disabled]="disabled()"
+  [toggled]="value()"
+  [ariaLabel]="ariaLabel()"
+  [controlId]="id()"
+  [describedBy]="describedBy()"
+  [invalid]="ariaInvalid()"
+  (pressed)="toggle()"
+>
+  <ng-content />
+</fr-button>

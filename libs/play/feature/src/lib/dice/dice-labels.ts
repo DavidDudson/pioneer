@@ -1,5 +1,6 @@
 import { DamageCategory } from '@pioneer/rules/dice';
-import { DamageType, DegreeOfSuccess } from '@pioneer/rules/sdk';
+import { DamageGroup, DamageType, DegreeOfSuccess } from '@pioneer/rules/sdk';
+import type { DamageAdjustmentTarget } from '@pioneer/rules/sdk';
 
 /** Message keys for damage type names, spelled out so the key check sees them. */
 export const DAMAGE_TYPE_KEYS: Readonly<Record<DamageType, string>> = {
@@ -31,4 +32,15 @@ export const DEGREE_KEYS: Readonly<Record<DegreeOfSuccess, string>> = {
   [DegreeOfSuccess.Success]: 'play.degree.success',
   [DegreeOfSuccess.Failure]: 'play.degree.failure',
   [DegreeOfSuccess.CriticalFailure]: 'play.degree.criticalFailure',
+};
+
+/** Label for damage with no type tag: its own instance, touched only by `all`-damage weakness and resistance. */
+export const UNTYPED_DAMAGE_KEY = 'play.damageType.untyped';
+
+/** Message keys for what a weakness or resistance can name: any damage type, or a group of them. */
+export const DAMAGE_ADJUSTMENT_TARGET_KEYS: Readonly<Record<DamageAdjustmentTarget, string>> = {
+  ...DAMAGE_TYPE_KEYS,
+  [DamageGroup.All]: 'play.damageGroup.all',
+  [DamageGroup.Physical]: 'play.damageGroup.physical',
+  [DamageGroup.Energy]: 'play.damageGroup.energy',
 };

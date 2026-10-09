@@ -40,3 +40,7 @@ export type DiceExpressionText = z.infer<typeof DiceExpressionText>;
 /** A 1-based character position in expression text, for pointing at a mistake. */
 export const TextPosition = Pg.smallint().positive().brand<'TextPosition'>();
 export type TextPosition = z.infer<typeof TextPosition>;
+
+/** Damage after the roll: dealt to or taken by a target. Never negative; doubling can pass `RollTotal`'s range. */
+export const DamageTotal = Pg.integer().nonnegative().brand<'DamageTotal'>();
+export type DamageTotal = z.infer<typeof DamageTotal>;

@@ -22,4 +22,10 @@ export const DiceMessage = {
   DegreeBaseCriticalFailure: 'dice.degree.baseCriticalFailure',
   DegreeNatural20: 'dice.degree.natural20',
   DegreeNatural1: 'dice.degree.natural1',
+  DamageCritical: 'dice.damage.critical',
+  DamageCriticalImmune: 'dice.damage.criticalImmune',
+  DamageSplash: 'dice.damage.splash',
+  DamageImmune: 'dice.damage.immune',
+  DamageWeakness: 'dice.damage.weakness',
+  DamageResistance: 'dice.damage.resistance',
 } as const;

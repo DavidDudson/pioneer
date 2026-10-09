@@ -1,0 +1,25 @@
+<fr-stack gap="sm">
+  <fr-heading [level]="3">{{ 'play.dice.immunities' | transloco }}</fr-heading>
+  @for (type of immunities(); track type) {
+    <fr-stack direction="horizontal" justify="between" align="center" gap="sm">
+      <fr-text>{{ labels[type] | transloco }}</fr-text>
+      <fr-button
+        size="sm"
+        [ariaLabel]="'play.dice.removeImmunity' | transloco: { type: (labels[type] | transloco) }"
+        (pressed)="remove(type)"
+        >{{ 'play.dice.remove' | transloco }}</fr-button
+      >
+    </fr-stack>
+  } @empty {
+    <fr-text variant="caption" tone="muted">{{ 'play.dice.none' | transloco }}</fr-text>
+  }
+  <fr-stack direction="horizontal" align="end" gap="sm" wrap>
+    <fr-field>
+      <fr-label>{{ 'play.dice.immunityType' | transloco }}</fr-label>
+      <fr-select [options]="options.types()" [(value)]="choice" />
+    </fr-field>
+    <fr-button [disabled]="choice() === undefined" (pressed)="add()">{{
+      'play.dice.addImmunity' | transloco
+    }}</fr-button>
+  </fr-stack>
+</fr-stack>

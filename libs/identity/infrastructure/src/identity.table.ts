@@ -66,10 +66,14 @@ export const sessions = pgTable(
       .references(() => users.id, { onDelete: 'cascade' }),
     tokenHash: text().$type<TokenHash>().notNull(),
     createdAt: timestamp({ withTimezone: true, mode: 'string' }).notNull(),
+    lastSeenAt: timestamp({ withTimezone: true, mode: 'string' }).notNull(),
     expiresAt: timestamp({ withTimezone: true, mode: 'string' }).notNull(),
   },
   (table) => [
     uniqueIndex('sessions_token_hash_idx').on(table.tokenHash),
-    index('sessions_user_id_idx').on(table.userId),
+    // A user's sessions, most recently seen first; also serves deleting them all.
+    index('sessions_user_last_seen_idx').on(table.userId, table.lastSeenAt, table.id),
+    // The expiry sweep deletes by expiry.
+    index('sessions_expires_at_idx').on(table.expiresAt),
   ],
 );

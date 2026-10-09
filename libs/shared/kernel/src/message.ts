@@ -21,6 +21,7 @@ export function message(key: string, params?: MessageParams): MessageDescriptor 
 /** Keys for API problems; their `en` text ships in this lib's `i18n/en.json`. */
 export const ProblemMessage = {
   Unauthorized: 'problem.unauthorized',
+  Forbidden: 'problem.forbidden',
   NotFound: 'problem.notFound',
   RouteNotFound: 'problem.routeNotFound',
   VersionConflict: 'problem.versionConflict',

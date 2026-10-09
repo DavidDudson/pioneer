@@ -33,12 +33,21 @@ export {
   degreeOfSuccess,
   naturalD20,
 } from './degree';
+export {
+  applyDamage,
+  DamageApplication,
+  DamageInstance,
+  type DamageOptions,
+  DamageTarget,
+  NO_DEFENCES,
+} from './damage';
 export { formatExpression, formatTerm } from './format';
 export { DiceMessage } from './messages';
 export { type ParseFailure, type ParseOutcome, type ParseSuccess, parseDiceExpression } from './parse';
 export { cryptoRandom, type RandomSource } from './random';
 export { DiceTermResult, DieResult, FlatTermResult, rollDice, RollResult, TermResult } from './roll';
 export {
+  DamageTotal,
   DICE_COUNT_MAX,
   DICE_COUNT_MIN,
   DiceCount,

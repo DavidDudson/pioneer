@@ -20,7 +20,30 @@
     "againstDc": "Against a DC",
     "dcLabel": "DC",
     "dcHint": "The kept roll is compared with this DC for a degree of success.",
-    "dcInvalid": "Enter a DC from {minimum} to {maximum}."
+    "dcInvalid": "Enter a DC from {minimum} to {maximum}.",
+    "againstTarget": "Apply to a target",
+    "critical": "Critical hit",
+    "targetHeading": "Target",
+    "targetHint": "The kept roll is dealt to this target as damage. Untagged dice and numbers are untyped.",
+    "immunities": "Immunities",
+    "weaknesses": "Weaknesses",
+    "resistances": "Resistances",
+    "none": "None.",
+    "remove": "Remove",
+    "immunityType": "Damage type",
+    "addImmunity": "Add immunity",
+    "removeImmunity": "Remove immunity to {type}",
+    "adjustmentType": "Damage type or group",
+    "adjustmentValue": "Value",
+    "adjustmentValueInvalid": "Enter a value from {minimum} to {maximum}.",
+    "adjustmentEntry": "{target} {value}",
+    "addWeakness": "Add weakness",
+    "removeWeakness": "Remove weakness {target} {value}",
+    "addResistance": "Add resistance",
+    "removeResistance": "Remove resistance {target} {value}",
+    "damageTaken": "Damage taken: {taken}",
+    "persistentTaken": "Persistent damage: {taken} at the end of each turn",
+    "instanceTaken": "{dealt} dealt, {taken} taken"
   },
   "rules": {
     "title": "Rules",
@@ -61,7 +84,13 @@
     "mental": "Mental",
     "poison": "Poison",
     "bleed": "Bleed",
-    "precision": "Precision"
+    "precision": "Precision",
+    "untyped": "Untyped"
+  },
+  "damageGroup": {
+    "all": "All damage",
+    "physical": "Physical",
+    "energy": "Energy"
   },
   "degree": {
     "criticalSuccess": "Critical success",

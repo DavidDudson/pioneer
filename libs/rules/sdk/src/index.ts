@@ -12,7 +12,16 @@ export { ContentKind, ContentKindSchema } from './content-kind';
 export { ContentPack, type ContentPackLoader, ContentPackManifest, ContentPackSchema } from './content-pack';
 export { contentId, ContentKey, contentKey, PackId, Slug } from './content-id';
 export { ContentText } from './content-text';
-export { DamageAdjustment, DamageType, DamageTypeSchema } from './damage';
+export {
+  DAMAGE_GROUP_TYPES,
+  DamageAdjustment,
+  DamageAdjustmentTarget,
+  DamageAdjustmentTargetSchema,
+  DamageGroup,
+  DamageGroupSchema,
+  DamageType,
+  DamageTypeSchema,
+} from './damage';
 export { DegreeChange, DegreeChangeSchema, DegreeOfSuccess, DegreeOfSuccessSchema } from './degree-of-success';
 export { Immunity, Trait } from './trait';
 export { ContentEntry } from './content-entry';

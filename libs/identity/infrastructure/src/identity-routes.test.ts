@@ -10,8 +10,8 @@ import type { AuthorizationRequest } from '@pioneer/identity/application';
 import { OAuthProvider } from '@pioneer/identity/domain';
 import type { ProviderProfile } from '@pioneer/identity/domain';
 import { ProfileBuilder } from '@pioneer/identity/domain/testing';
-import { fixedClock } from '@pioneer/shared/kernel';
-import type { Problem } from '@pioneer/shared/kernel';
+import { fixedClock, Temporal } from '@pioneer/shared/kernel';
+import type { Clock, Problem } from '@pioneer/shared/kernel';
 import { problemHandler } from '@pioneer/shared/server';
 import { Elysia } from 'elysia';
 import type { AnyElysia } from 'elysia';
@@ -41,9 +41,8 @@ class FakeProvider extends OAuthProviderPort {
   }
 }
 
-function app(): AnyElysia {
+function app(clock: Clock = fixedClock('2026-10-09T08:00:00Z')): AnyElysia {
   const users = new InMemoryUserRepository();
-  const clock = fixedClock('2026-10-09T08:00:00Z');
   const service = new IdentityService(users, new InMemorySessionRepository(users), clock);
   return new Elysia().use(problemHandler).use(identityRoutes(service, [new FakeProvider()], { secure: true }));
 }
@@ -78,6 +77,33 @@ async function returnFromProvider(api: AnyElysia, started: Response, query: stri
 async function signIn(api: AnyElysia, returnTo: string): Promise<Response> {
   const started = await login(api, returnTo);
   return returnFromProvider(api, started, `code=${GOOD_CODE}&state=s1`);
+}
+
+interface ListedSession {
+  readonly id: string;
+  readonly createdAt: string;
+  readonly current: boolean;
+}
+
+async function meAs(api: AnyElysia, session: string): Promise<Response> {
+  return api.handle(new Request('http://localhost/me', { headers: { cookie: `pioneer_session=${session}` } }));
+}
+
+async function sessionsOf(api: AnyElysia, session: string): Promise<ListedSession[]> {
+  const response = await api.handle(
+    new Request('http://localhost/me/sessions', { headers: { cookie: `pioneer_session=${session}` } }),
+  );
+  expect(response.status).toBe(200);
+  return (await response.json()) as ListedSession[];
+}
+
+async function revoke(api: AnyElysia, session: string, id: string): Promise<Response> {
+  return api.handle(
+    new Request(`http://localhost/me/sessions/${id}`, {
+      method: 'DELETE',
+      headers: { cookie: `pioneer_session=${session}` },
+    }),
+  );
 }
 
 describe('identity routes', () => {
@@ -156,5 +182,82 @@ describe('identity routes', () => {
     expect(signOut.headers.get('set-cookie')).toContain('Max-Age=0');
     const me = await api.handle(new Request('http://localhost/me', { headers }));
     expect(me.status).toBe(401);
+  });
+
+  test('a request in the second half of the session re-issues the cookie with a full lifetime', async () => {
+    let now = Temporal.Instant.from('2026-10-09T08:00:00Z');
+    const api = app({ now: () => now });
+    const session = sessionFrom(await signIn(api, '/'));
+    const headers = { cookie: `pioneer_session=${session}` };
+
+    const early = await api.handle(new Request('http://localhost/me', { headers }));
+    expect(early.headers.get('set-cookie')).toBeNull();
+
+    now = now.add({ hours: 24 * 16 });
+    const late = await api.handle(new Request('http://localhost/me', { headers }));
+    expect(late.status).toBe(200);
+    expect(sessionFrom(late)).toBe(session);
+    expect(late.headers.get('set-cookie')).toContain(`Max-Age=${24 * 30 * 3600}`);
+  });
+
+  test('lists the signed-in user sessions, marking the current one', async () => {
+    const api = app();
+    const laptop = sessionFrom(await signIn(api, '/'));
+    await signIn(api, '/');
+    const listed = await sessionsOf(api, laptop);
+    expect(listed).toHaveLength(2);
+    expect(listed.filter((each) => each.current)).toHaveLength(1);
+    expect(listed.map((each) => each.createdAt)).toContain('2026-10-09T08:00:00.000Z');
+  });
+
+  test('revoking another session keeps the cookie; revoking the current one expires it', async () => {
+    const api = app();
+    const laptop = sessionFrom(await signIn(api, '/'));
+    const phone = sessionFrom(await signIn(api, '/'));
+    const listed = await sessionsOf(api, laptop);
+    const ids = new Map(listed.map((each) => [each.current, each.id]));
+
+    const revokeOther = await revoke(api, laptop, String(ids.get(false)));
+    expect(revokeOther.status).toBe(200);
+    expect(revokeOther.headers.get('set-cookie')).toBeNull();
+    const phoneMe = await meAs(api, phone);
+    expect(phoneMe.status).toBe(401);
+
+    const revokeSelf = await revoke(api, laptop, String(ids.get(true)));
+    expect(revokeSelf.headers.get('set-cookie')).toContain('Max-Age=0');
+    const laptopMe = await meAs(api, laptop);
+    expect(laptopMe.status).toBe(401);
+  });
+
+  test("revoking another user's session is a 404 problem", async () => {
+    const api = app();
+    const amiri = sessionFrom(await signIn(api, '/'));
+    const response = await revoke(api, amiri, '0199d2a0-0000-7000-8000-00000000ffff');
+    expect(response.status).toBe(404);
+    const problem = (await response.json()) as Problem;
+    expect(problem.type).toBe('not-found');
+  });
+
+  test('sign out everywhere ends every session and expires the cookie', async () => {
+    const api = app();
+    const laptop = sessionFrom(await signIn(api, '/'));
+    const phone = sessionFrom(await signIn(api, '/'));
+    const response = await api.handle(
+      new Request('http://localhost/auth/sign-out-everywhere', {
+        method: 'POST',
+        headers: { cookie: `pioneer_session=${laptop}` },
+      }),
+    );
+    expect(response.status).toBe(200);
+    expect(response.headers.get('set-cookie')).toContain('Max-Age=0');
+    const after = await Promise.all([meAs(api, laptop), meAs(api, phone)]);
+    expect(after.map((each) => each.status)).toStrictEqual([401, 401]);
+  });
+
+  test('session endpoints need a session', async () => {
+    const api = app();
+    const list = await api.handle(new Request('http://localhost/me/sessions'));
+    const everywhere = await api.handle(new Request('http://localhost/auth/sign-out-everywhere', { method: 'POST' }));
+    expect([list.status, everywhere.status]).toStrictEqual([401, 401]);
   });
 });

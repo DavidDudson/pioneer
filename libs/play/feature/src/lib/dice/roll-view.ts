@@ -1,5 +1,8 @@
 import { DiceExpressionText, formatExpression, formatTerm, RollMode, Sign } from '@pioneer/rules/dice';
 import type {
+  DamageApplication,
+  DamageInstance,
+  DamageTotal,
   DegreeResult,
   DiceExpression,
   DieResult,
@@ -10,7 +13,7 @@ import type {
 } from '@pioneer/rules/dice';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
-import { DAMAGE_CATEGORY_KEYS, DAMAGE_TYPE_KEYS, DEGREE_KEYS } from './dice-labels';
+import { DAMAGE_CATEGORY_KEYS, DAMAGE_TYPE_KEYS, DEGREE_KEYS, UNTYPED_DAMAGE_KEY } from './dice-labels';
 
 /** One term of a roll as shown: signed notation, damage labels, dice and its share of the total. */
 interface TermView {
@@ -40,6 +43,22 @@ export interface DegreeView {
   readonly steps: readonly DegreeStepView[];
 }
 
+/** One instance of damage: its type's label key, what was dealt and taken, and why they differ. */
+export interface DamageInstanceView {
+  readonly typeKey: string;
+  readonly dealt: DamageTotal;
+  readonly taken: DamageTotal;
+  readonly lines: readonly MessageDescriptor[];
+}
+
+/** The kept roll applied to the target: taken now, and persistent damage taken each turn. */
+export interface DamageView {
+  readonly taken: DamageTotal;
+  readonly persistentTaken: DamageTotal;
+  readonly immediate: readonly DamageInstanceView[];
+  readonly persistent: readonly DamageInstanceView[];
+}
+
 export interface RollView {
   readonly id: number;
   readonly notation: DiceExpressionText;
@@ -49,6 +68,8 @@ export interface RollView {
   readonly attempts: readonly AttemptView[];
   /** Unset when the roll was not against a DC. */
   readonly degree: DegreeView | undefined;
+  /** Unset when the roll was not applied to a target. */
+  readonly damage: DamageView | undefined;
 }
 
 function termView(result: TermResult, index: number): TermView {
@@ -77,15 +98,35 @@ function degreeView(result: DegreeResult): DegreeView {
   };
 }
 
+function damageInstanceView(instance: DamageInstance): DamageInstanceView {
+  return {
+    typeKey: instance.type === undefined ? UNTYPED_DAMAGE_KEY : DAMAGE_TYPE_KEYS[instance.type],
+    dealt: instance.dealt,
+    taken: instance.taken,
+    lines: instance.lines,
+  };
+}
+
+function damageView(result: DamageApplication): DamageView {
+  return {
+    taken: result.taken,
+    persistentTaken: result.persistentTaken,
+    immediate: result.immediate.map(damageInstanceView),
+    persistent: result.persistent.map(damageInstanceView),
+  };
+}
+
 /** Everything one press of Roll produced. */
 export interface FinishedRoll {
   readonly expression: DiceExpression;
   readonly roll: FortunedRoll;
   /** Unset when not rolled against a DC. */
   readonly degree: DegreeResult | undefined;
+  /** Unset when not applied to a target. */
+  readonly damage: DamageApplication | undefined;
 }
 
-export function rollView(id: number, { expression, roll, degree }: FinishedRoll): RollView {
+export function rollView(id: number, { expression, roll, degree, damage }: FinishedRoll): RollView {
   return {
     id,
     notation: formatExpression(expression),
@@ -93,5 +134,6 @@ export function rollView(id: number, { expression, roll, degree }: FinishedRoll)
     explanation: roll.mode === RollMode.Normal ? undefined : roll.explanation,
     attempts: roll.rolls.map(attemptView),
     degree: degree === undefined ? undefined : degreeView(degree),
+    damage: damage === undefined ? undefined : damageView(damage),
   };
 }

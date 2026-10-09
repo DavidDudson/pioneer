@@ -1,0 +1,67 @@
+<fr-page [title]="'identity.account.title' | transloco">
+  @if (session.user()) {
+    <fr-surface>
+      <fr-stack gap="md">
+        <fr-stack gap="2xs">
+          <fr-heading variant="subheading" [level]="2">{{
+            'identity.account.sessions.heading' | transloco
+          }}</fr-heading>
+          <fr-text element="p" tone="muted">{{ 'identity.account.sessions.description' | transloco }}</fr-text>
+        </fr-stack>
+        <fr-async-region [errorMessage]="'identity.account.sessions.loadError' | transloco">
+          <ng-template frAsyncPending>
+            <fr-list gap="md">
+              @for (placeholder of placeholders; track placeholder) {
+                <fr-list-item>
+                  <fr-stack direction="horizontal" justify="between" align="center" gap="sm" wrap>
+                    <fr-stack gap="2xs">
+                      <fr-skeleton width="sm" />
+                      <fr-skeleton width="md" />
+                      <fr-skeleton width="md" />
+                    </fr-stack>
+                    <fr-skeleton width="xs" />
+                  </fr-stack>
+                </fr-list-item>
+              }
+            </fr-list>
+          </ng-template>
+          <ng-template let-listed [frAsyncData]="sessions.list">
+            <fr-list gap="md">
+              @for (each of listed; track each.id) {
+                <fr-list-item><pio-session-row [session]="each" /></fr-list-item>
+              }
+            </fr-list>
+          </ng-template>
+        </fr-async-region>
+        @if (confirmingEverywhere()) {
+          <fr-stack gap="sm" align="start">
+            <fr-text element="p">{{ 'identity.account.everywhere.confirm' | transloco }}</fr-text>
+            <fr-stack direction="horizontal" gap="sm" wrap>
+              <fr-async-button variant="danger" [action]="signOutEverywhere">{{
+                'identity.account.everywhere.confirmAction' | transloco
+              }}</fr-async-button>
+              <fr-button variant="ghost" (pressed)="confirmingEverywhere.set(false)">{{
+                'identity.account.everywhere.cancel' | transloco
+              }}</fr-button>
+            </fr-stack>
+          </fr-stack>
+        } @else {
+          <fr-stack align="start">
+            <fr-button (pressed)="confirmingEverywhere.set(true)">{{
+              'identity.account.everywhere.action' | transloco
+            }}</fr-button>
+          </fr-stack>
+        }
+      </fr-stack>
+    </fr-surface>
+  } @else if (session.known()) {
+    <fr-stack gap="sm" align="start">
+      <fr-text element="p" tone="muted">{{ 'identity.account.signedOut' | transloco }}</fr-text>
+      <fr-button variant="primary" (pressed)="session.showSignIn()">{{
+        'identity.account.signIn' | transloco
+      }}</fr-button>
+    </fr-stack>
+  } @else {
+    <fr-skeleton width="lg" />
+  }
+</fr-page>

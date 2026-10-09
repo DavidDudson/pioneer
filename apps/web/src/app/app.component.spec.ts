@@ -80,6 +80,7 @@ describe(App, () => {
     await vi.waitFor(() => {
       expect(element.textContent).toContain('Amiri');
     });
+    expect(element.querySelector('a[href="/account"]')?.textContent.trim()).toBe('Amiri');
     expect(buttonLabels(element)).toContain('Sign out');
     expect(buttonLabels(element)).not.toContain('Sign in');
   });

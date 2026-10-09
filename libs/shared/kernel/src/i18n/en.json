@@ -1,6 +1,7 @@
 {
   "problem": {
     "unauthorized": "Sign in to continue.",
+    "forbidden": "That request was refused. Reload the page and try again.",
     "notFound": "That no longer exists.",
     "routeNotFound": "That address does not exist.",
     "versionConflict": "Someone else changed this. Showing their latest version.",

@@ -30,15 +30,13 @@
         }
         <fr-stack direction="horizontal" justify="between" align="center" gap="sm" wrap>
           <fr-stack direction="horizontal" gap="sm" wrap>
-            <fr-button [toggled]="fortune()" (pressed)="toggleFortune()">{{
-              'play.dice.fortune' | transloco
-            }}</fr-button>
-            <fr-button [toggled]="misfortune()" (pressed)="toggleMisfortune()">{{
-              'play.dice.misfortune' | transloco
-            }}</fr-button>
-            <fr-button [toggled]="againstDc()" (pressed)="toggleAgainstDc()">{{
-              'play.dice.againstDc' | transloco
-            }}</fr-button>
+            <fr-toggle-button [(value)]="fortune">{{ 'play.dice.fortune' | transloco }}</fr-toggle-button>
+            <fr-toggle-button [(value)]="misfortune">{{ 'play.dice.misfortune' | transloco }}</fr-toggle-button>
+            <fr-toggle-button [(value)]="againstDc">{{ 'play.dice.againstDc' | transloco }}</fr-toggle-button>
+            <fr-toggle-button [(value)]="againstTarget">{{ 'play.dice.againstTarget' | transloco }}</fr-toggle-button>
+            <fr-toggle-button [disabled]="!againstTarget()" [(value)]="critical">{{
+              'play.dice.critical' | transloco
+            }}</fr-toggle-button>
           </fr-stack>
           <fr-button variant="primary" [disabled]="!canRoll()" (pressed)="roll()">{{
             'play.dice.roll' | transloco
@@ -46,6 +44,10 @@
         </fr-stack>
       </fr-stack>
     </fr-surface>
+
+    @if (againstTarget()) {
+      <pio-damage-target-editor [(target)]="target" />
+    }
 
     <fr-stack gap="md">
       <fr-heading variant="subheading" [level]="2">{{ 'play.dice.historyHeading' | transloco }}</fr-heading>

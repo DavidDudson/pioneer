@@ -8,20 +8,14 @@
     @if (shown.degree; as degree) {
       <pio-roll-degree [degree]="degree" />
     }
+    @if (shown.damage; as damage) {
+      <pio-roll-damage [damage]="damage" />
+    }
     @if (shown.explanation; as explanation) {
       <fr-text variant="caption" tone="muted">{{ explanation.key | transloco: explanation.params }}</fr-text>
     }
     @for (attempt of shown.attempts; track $index) {
-      <fr-stack gap="sm">
-        @if (attempt.heading; as heading) {
-          <fr-text [tone]="attempt.tone" [weight]="attempt.weight">{{
-            heading.key | transloco: heading.params
-          }}</fr-text>
-        }
-        @for (term of attempt.terms; track $index) {
-          <pio-roll-term [term]="term" />
-        }
-      </fr-stack>
+      <pio-roll-attempt [attempt]="attempt" />
     }
   </fr-stack>
 </fr-surface>

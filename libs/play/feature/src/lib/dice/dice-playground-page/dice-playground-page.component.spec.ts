@@ -1,62 +1,6 @@
-import { TestBed } from '@angular/core/testing';
-import { provideRouter } from '@angular/router';
-import { RouterTestingHarness } from '@angular/router/testing';
-import { frontierMessages } from '@pioneer/frontier';
-import { DieFace } from '@pioneer/rules/dice';
-import { scriptedRandom } from '@pioneer/rules/dice/testing';
-import { provideI18n } from '@pioneer/shared/web';
 import { describe, expect, it } from 'vitest';
 
-import { playRoutes } from '../../play.routes';
-import { RANDOM_SOURCE } from '../random-source';
-
-function present<TValue>(value: TValue | null | undefined): TValue {
-  if (value === null || value === undefined) {
-    throw new Error('Expected element to be rendered');
-  }
-  return value;
-}
-
-async function openPlayground(faces: readonly number[]): Promise<RouterTestingHarness> {
-  TestBed.configureTestingModule({
-    providers: [
-      provideRouter([{ path: 'play', children: playRoutes }]),
-      provideI18n({ en: async () => frontierMessages }),
-      { provide: RANDOM_SOURCE, useValue: scriptedRandom(faces.map((face) => DieFace.parse(face))) },
-    ],
-  });
-  const harness = await RouterTestingHarness.create('/play/dice');
-  await harness.fixture.whenStable();
-  return harness;
-}
-
-async function typeExpression(harness: RouterTestingHarness, text: string): Promise<void> {
-  const input = present(harness.routeNativeElement?.querySelector('input'));
-  input.value = text;
-  input.dispatchEvent(new Event('input'));
-  await harness.fixture.whenStable();
-}
-
-async function typeDc(harness: RouterTestingHarness, value: string): Promise<void> {
-  const input = present(harness.routeNativeElement?.querySelector<HTMLInputElement>('input[type="number"]'));
-  input.value = value;
-  input.dispatchEvent(new Event('input'));
-  await harness.fixture.whenStable();
-}
-
-function button(harness: RouterTestingHarness, label: string): HTMLButtonElement {
-  const buttons = harness.routeNativeElement?.querySelectorAll<HTMLButtonElement>('button') ?? [];
-  return present([...buttons].find((candidate) => candidate.textContent.trim() === label));
-}
-
-function rollButton(harness: RouterTestingHarness): HTMLButtonElement {
-  return button(harness, 'Roll');
-}
-
-async function press(harness: RouterTestingHarness, label: string): Promise<void> {
-  button(harness, label).click();
-  await harness.fixture.whenStable();
-}
+import { button, openPlayground, present, press, rollButton, typeDc, typeExpression } from './playground-harness';
 
 describe('DicePlaygroundPage', () => {
   it('rolls an expression and shows every die behind the total', async () => {
