@@ -30,9 +30,8 @@
     "jsonLabel": "JSON",
     "jsonHint": "Strings need double quotes, as in any JSON.",
     "resultHeading": "Result",
-    "valid": "Valid.",
+    "valid": "Valid. This is the value as Pioneer reads it:",
     "notJson": "This is not valid JSON yet. Check quotes, commas and brackets.",
-    "invalid": "{count, plural, one {# problem} other {# problems}}:",
     "wholeValue": "Whole value",
     "schema": {
       "predicate": "Predicate",
@@ -41,7 +40,9 @@
       "rollOption": "Roll option",
       "source": "Source",
       "origin": "Origin"
-    }
+    },
+    "invalidSummary": "{count, plural, one {# problem, listed under Result.} other {# problems, listed under Result.}}",
+    "nothingToShow": "Nothing to check until the JSON parses."
   },
   "damageType": {
     "bludgeoning": "Bludgeoning",

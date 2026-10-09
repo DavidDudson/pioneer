@@ -3,6 +3,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import {
   Field,
+  FieldError,
   FieldHint,
   Heading,
   Label,
@@ -29,6 +30,7 @@ const JSON_ROWS = 12;
   selector: 'pio-rules-playground-page',
   imports: [
     Field,
+    FieldError,
     FieldHint,
     Heading,
     Label,

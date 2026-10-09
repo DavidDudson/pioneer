@@ -11,7 +11,7 @@ import {
 } from '@pioneer/rules/sdk';
 import { fieldIssues } from '@pioneer/shared/kernel';
 import type { FieldIssue, ValueOf } from '@pioneer/shared/kernel';
-import type { z } from 'zod';
+import { z } from 'zod';
 
 /** The rules schemas the playground can check. */
 export const RulesSchema = {
@@ -79,7 +79,8 @@ export const CheckStatus = { Valid: 'valid', NotJson: 'not-json', Invalid: 'inva
 export type CheckStatus = ValueOf<typeof CheckStatus>;
 
 export type CheckOutcome =
-  | { readonly status: typeof CheckStatus.Valid }
+  /** `parsed` is the validated value encoded back to JSON, as Pioneer would store or send it. */
+  | { readonly status: typeof CheckStatus.Valid; readonly parsed: string }
   | { readonly status: typeof CheckStatus.NotJson }
   | { readonly status: typeof CheckStatus.Invalid; readonly issues: readonly FieldIssue[] };
 
@@ -99,20 +100,30 @@ export function checkRulesJson(schema: RulesSchema, text: string): CheckOutcome 
   if (!json.ok) {
     return { status: CheckStatus.NotJson };
   }
-  const result = SCHEMAS[schema].safeParse(json.value);
+  const target = SCHEMAS[schema];
+  const result = target.safeParse(json.value);
   return result.success
-    ? { status: CheckStatus.Valid }
+    ? { status: CheckStatus.Valid, parsed: JSON.stringify(z.encode(target, result.data), undefined, JSON_INDENT) }
     : { status: CheckStatus.Invalid, issues: fieldIssues(result.error.issues) };
 }
 
-/** A path as it reads in JSON tooling: `[0].or[1].not`. Empty for the whole value. */
+/** A key that reads unambiguously after a dot; anything else is quoted in brackets. */
+const IDENTIFIER = /^[A-Za-z_$][\w$]*$/u;
+
+function formatSegment(segment: FieldIssue['path'][number], index: number): string {
+  if (typeof segment === 'number') {
+    return `[${segment}]`;
+  }
+  if (!IDENTIFIER.test(segment)) {
+    return `[${JSON.stringify(segment)}]`;
+  }
+  return index === 0 ? segment : `.${segment}`;
+}
+
+/**
+ * A path as it reads in JSON tooling: `[0].or[1].not`, with awkward keys quoted (`["a.b"]`, `[""]`).
+ * Empty for the whole value.
+ */
 export function formatPath(path: FieldIssue['path']): string {
-  return path
-    .map((segment, index) => {
-      if (typeof segment === 'number') {
-        return `[${segment}]`;
-      }
-      return index === 0 ? segment : `.${segment}`;
-    })
-    .join('');
+  return path.map((segment, index) => formatSegment(segment, index)).join('');
 }

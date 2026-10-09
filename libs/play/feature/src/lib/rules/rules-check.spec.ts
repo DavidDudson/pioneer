@@ -5,8 +5,16 @@ import { describe, expect, it } from 'vitest';
 import { CheckStatus, checkRulesJson, formatPath, RulesSchema, rulesExample } from './rules-check';
 
 describe(checkRulesJson, () => {
-  it.each(Object.values(RulesSchema))('passes the %s example', (schema) => {
-    expect(checkRulesJson(schema, rulesExample(schema))).toStrictEqual({ status: CheckStatus.Valid });
+  it.each(Object.values(RulesSchema))('passes the %s example and returns it unchanged', (schema) => {
+    const example = rulesExample(schema);
+    expect(checkRulesJson(schema, example)).toStrictEqual({ status: CheckStatus.Valid, parsed: example });
+  });
+
+  it('returns the value as Pioneer encodes it, not as typed', () => {
+    expect(checkRulesJson(RulesSchema.Predicate, '["a:b",{"not":"c:d"}]')).toStrictEqual({
+      status: CheckStatus.Valid,
+      parsed: '[\n  "a:b",\n  {\n    "not": "c:d"\n  }\n]',
+    });
   });
 
   it('says when the text is not JSON at all', () => {
@@ -33,6 +41,9 @@ describe(formatPath, () => {
     { path: [0], expected: '[0]' },
     { path: ['sources', 0, 'aon'], expected: 'sources[0].aon' },
     { path: [0, 'or', 1, 'not'], expected: '[0].or[1].not' },
+    { path: ['a.b'], expected: '["a.b"]' },
+    { path: [0, ''], expected: '[0][""]' },
+    { path: ['hops', 0, 'two words'], expected: 'hops[0]["two words"]' },
   ])('formats $path as "$expected"', ({ path, expected }) => {
     expect(formatPath(path)).toBe(expected);
   });

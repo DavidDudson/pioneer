@@ -43,6 +43,7 @@ describe('RulesPlaygroundPage', () => {
     const harness = await openPlayground();
     // Text from the route's `play` scope, loaded with the page's code.
     expect(pageText(harness)).toContain('Valid.');
+    expect(pageText(harness)).toContain('"gte"');
     // The schema picker's label comes from the `play` scope, not a scope-prefixed key.
     const picker = present(harness.routeNativeElement?.querySelector('button')).textContent;
     expect(picker).toContain('Predicate');
@@ -60,6 +61,17 @@ describe('RulesPlaygroundPage', () => {
     expect(text).toContain('Use a namespace and a name joined by colons, like self:condition:frightened.');
     expect(text).toContain('[1].label');
     expect(text).toContain('“label” is not a field here.');
+  });
+
+  it('describes the textarea with the problem summary, so screen readers announce it', async () => {
+    const harness = await openPlayground();
+    await typeJson(harness, '["Frightened", { "and": ["a:b"], "label": "x" }]');
+
+    const textarea = present(harness.routeNativeElement?.querySelector('textarea'));
+    const describedBy = present(textarea.getAttribute('aria-describedby'));
+    const description = present(document.querySelector(`#${CSS.escape(describedBy)}`));
+    expect(description.textContent).toContain('2 problems, listed under Result.');
+    expect(textarea.getAttribute('aria-invalid')).toBe('true');
   });
 
   it('says when the text is not JSON yet', async () => {
