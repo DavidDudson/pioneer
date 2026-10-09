@@ -1,6 +1,7 @@
 import { Endpoint, HttpMethod, NoBody, NoParams, NoQuery } from '@pioneer/shared/kernel';
 import { z } from 'zod';
 
+import { OAuthProviderSchema } from './identity-fields';
 import type { OAuthProvider } from './identity-fields';
 import { User } from './user';
 
@@ -17,6 +18,15 @@ export const IdentityContract = {
     query: NoQuery,
     body: NoBody,
     response: User.codec,
+  }),
+  /** The sign-in providers this server has credentials for, in display order. */
+  providers: new Endpoint({
+    method: HttpMethod.Get,
+    path: '/auth/providers',
+    params: NoParams,
+    query: NoQuery,
+    body: NoBody,
+    response: z.array(OAuthProviderSchema),
   }),
   /** Ends the current session and clears its cookie. Succeeds when already signed out. */
   signOut: new Endpoint({
@@ -40,6 +50,9 @@ export const AuthPath = {
   login: (provider: OAuthProvider): `/auth/${OAuthProvider}/login` => `/auth/${provider}/login`,
   callback: (provider: OAuthProvider): `/auth/${OAuthProvider}/callback` => `/auth/${provider}/callback`,
 } as const;
+
+/** Web route listing the sign-in providers. */
+export const SIGN_IN_PATH = '/account/sign-in';
 
 /** Web route shown when a sign-in attempt fails (denied, expired or tampered state). */
 export const SIGN_IN_FAILED_PATH = '/account/sign-in-failed';

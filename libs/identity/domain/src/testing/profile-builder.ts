@@ -9,12 +9,17 @@ import type { ProviderProfile } from '../provider-profile';
  * ```
  */
 export class ProfileBuilder {
-  readonly #provider: OAuthProvider = OAuthProvider.GitHub;
+  #provider: OAuthProvider = OAuthProvider.GitHub;
   #subject: ProviderSubject = ProviderSubject.parse('1001');
   #displayName: DisplayName = DisplayName.parse('Amiri');
   #avatarUrl: AvatarUrl | undefined = undefined;
   #email: EmailAddress | undefined = undefined;
   #emailVerified = false;
+
+  public from(provider: OAuthProvider): this {
+    this.#provider = provider;
+    return this;
+  }
 
   public withSubject(id: string): this {
     this.#subject = ProviderSubject.parse(id);

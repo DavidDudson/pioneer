@@ -9,6 +9,13 @@ export const identityRoutes: Routes = [
     providers: [provideMessageScope('identity', { [Locale.English]: async () => import('../i18n/en.json') })],
     children: [
       {
+        path: 'sign-in',
+        loadComponent: loadWithMessages(async () => {
+          const { SignInPage } = await import('./sign-in/sign-in-page.component');
+          return SignInPage;
+        }),
+      },
+      {
         path: 'sign-in-failed',
         loadComponent: loadWithMessages(async () => {
           const { SignInFailedPage } = await import('./sign-in-failed/sign-in-failed-page.component');

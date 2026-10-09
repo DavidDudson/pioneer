@@ -1,6 +1,6 @@
 <fr-page [title]="'identity.signInFailed.title' | transloco">
   <fr-stack gap="md" align="start">
     <fr-text element="p">{{ 'identity.signInFailed.body' | transloco }}</fr-text>
-    <fr-button (pressed)="session.signIn(home)">{{ 'identity.signInFailed.retry' | transloco }}</fr-button>
+    <fr-link [to]="signInPath">{{ 'identity.signInFailed.retry' | transloco }}</fr-link>
   </fr-stack>
 </fr-page>

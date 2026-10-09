@@ -1,0 +1,18 @@
+<fr-page [title]="'identity.signIn.title' | transloco" [description]="'identity.signIn.description' | transloco">
+  <fr-async-region [errorMessage]="'identity.signIn.loadError' | transloco">
+    <ng-template frAsyncPending>
+      <fr-stack gap="sm" align="start"><fr-skeleton width="md" /></fr-stack>
+    </ng-template>
+    <ng-template let-available [frAsyncData]="providers">
+      <fr-stack gap="sm" align="start">
+        @for (provider of available; track provider) {
+          <fr-button variant="primary" (pressed)="session.signIn(provider, destination())">{{
+            continueWith[provider] | transloco
+          }}</fr-button>
+        } @empty {
+          <fr-text element="p" tone="muted">{{ 'identity.signIn.unavailable' | transloco }}</fr-text>
+        }
+      </fr-stack>
+    </ng-template>
+  </fr-async-region>
+</fr-page>

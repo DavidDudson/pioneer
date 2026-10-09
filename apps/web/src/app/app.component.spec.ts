@@ -65,7 +65,7 @@ describe(App, () => {
       message: { key: 'problem.unauthorized' },
     });
     await vi.waitFor(() => {
-      expect(buttonLabels(element)).toContain('Sign in with GitHub');
+      expect(buttonLabels(element)).toContain('Sign in');
     });
   });
 
@@ -81,6 +81,6 @@ describe(App, () => {
       expect(element.textContent).toContain('Amiri');
     });
     expect(buttonLabels(element)).toContain('Sign out');
-    expect(buttonLabels(element)).not.toContain('Sign in with GitHub');
+    expect(buttonLabels(element)).not.toContain('Sign in');
   });
 });

@@ -3,7 +3,7 @@ import { HttpTestingController, provideHttpClientTesting } from '@angular/common
 import { ApplicationRef, DOCUMENT } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { provideRouter, Router } from '@angular/router';
-import { DisplayName } from '@pioneer/identity/domain';
+import { DisplayName, OAuthProvider, ReturnPath } from '@pioneer/identity/domain';
 import { provideTanStackQuery, QueryClient } from '@tanstack/angular-query-experimental';
 import { describe, expect, it, vi } from 'vitest';
 import type { Mock } from 'vitest';
@@ -34,7 +34,7 @@ function setup(): Harness {
   const assign = vi.fn<(url: string) => void>();
   TestBed.configureTestingModule({
     providers: [
-      provideRouter([]),
+      provideRouter([{ path: '**', children: [] }]),
       provideHttpClient(),
       provideHttpClientTesting(),
       provideTanStackQuery(new QueryClient({ defaultOptions: { queries: { retry: false } } })),
@@ -67,11 +67,18 @@ describe(SessionStore, () => {
     expect(store.user()).toBeUndefined();
   });
 
-  it('signs in through the API, coming back to the current page', async () => {
+  it('signs in through the API with the chosen provider, returning where asked', () => {
     const { store, assign } = setup();
-    await TestBed.inject(Router).navigateByUrl('/');
-    store.signIn();
-    expect(assign).toHaveBeenCalledWith('/api/auth/github/login?returnTo=%2F');
+    store.signIn(OAuthProvider.Discord, ReturnPath.parse('/characters'));
+    expect(assign).toHaveBeenCalledWith('/api/auth/discord/login?returnTo=%2Fcharacters');
+  });
+
+  it('opens the sign-in page, remembering the current page', async () => {
+    const { store } = setup();
+    const router = TestBed.inject(Router);
+    await router.navigateByUrl('/characters');
+    await store.showSignIn();
+    expect(router.url).toBe('/account/sign-in?returnTo=%2Fcharacters');
   });
 
   it('signing out forgets the user', async () => {

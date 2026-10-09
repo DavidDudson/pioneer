@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { DisplayName, SessionToken } from '@pioneer/identity/domain';
+import { DisplayName, OAuthProvider, SessionToken } from '@pioneer/identity/domain';
 import { ProfileBuilder } from '@pioneer/identity/domain/testing';
 import { Temporal, UnauthorizedError } from '@pioneer/shared/kernel';
 import type { Clock } from '@pioneer/shared/kernel';
@@ -14,6 +14,7 @@ import { hashSessionToken } from './session-tokens';
 interface Harness {
   readonly service: IdentityService;
   readonly sessions: InMemorySessionRepository;
+  readonly users: InMemoryUserRepository;
   readonly advance: (duration: Temporal.DurationLike) => void;
 }
 
@@ -25,6 +26,7 @@ function harness(): Harness {
   return {
     service: new IdentityService(users, sessions, clock),
     sessions,
+    users,
     advance: (duration): void => {
       now = now.add(duration);
     },
@@ -54,6 +56,40 @@ describe('IdentityService', () => {
     const amiri = await service.signIn(new ProfileBuilder().withSubject('1').build());
     const ezren = await service.signIn(new ProfileBuilder().withSubject('2').build());
     expect(ezren.user.id).not.toBe(amiri.user.id);
+  });
+
+  test('a verified email from another provider signs in to the same user', async () => {
+    const { service, users } = harness();
+    const github = await service.signIn(new ProfileBuilder().withSubject('1').withEmail('amiri@example.com').build());
+    const google = await service.signIn(
+      new ProfileBuilder().from(OAuthProvider.Google).withSubject('g-1').withEmail('Amiri@Example.com').build(),
+    );
+    expect(google.user.id).toBe(github.user.id);
+    expect(users.size).toBe(1);
+
+    const again = await service.signIn(new ProfileBuilder().from(OAuthProvider.Google).withSubject('g-1').build());
+    expect(again.user.id).toBe(github.user.id);
+  });
+
+  test('an unverified email never links, on either side', async () => {
+    const { service, users } = harness();
+    await service.signIn(new ProfileBuilder().withSubject('1').withEmail('amiri@example.com', false).build());
+    const verified = new ProfileBuilder().from(OAuthProvider.Discord).withSubject('d-1').withEmail('amiri@example.com');
+    await service.signIn(verified.build());
+    const unverified = new ProfileBuilder().from(OAuthProvider.Google).withSubject('g-1');
+    await service.signIn(unverified.withEmail('amiri@example.com', false).build());
+    expect(users.size).toBe(3);
+  });
+
+  test('linking picks the oldest matching user', async () => {
+    const { service, advance } = harness();
+    const first = await service.signIn(new ProfileBuilder().withSubject('1').withEmail('kyra@example.com').build());
+    advance({ hours: 1 });
+    await service.signIn(new ProfileBuilder().from(OAuthProvider.Discord).withSubject('d-9').build());
+    const linked = await service.signIn(
+      new ProfileBuilder().from(OAuthProvider.Google).withSubject('g-2').withEmail('kyra@example.com').build(),
+    );
+    expect(linked.user.id).toBe(first.user.id);
   });
 
   test('only the hash is stored', async () => {

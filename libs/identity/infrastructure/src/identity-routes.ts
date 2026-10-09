@@ -109,8 +109,8 @@ export function identityRoutes(
       return {};
     })
     .use(
-      new ContractRouter('identity-contract').handle(IdentityContract.me, async ({ request }) =>
-        service.requireUser(sessionToken(request)),
-      ).app,
+      new ContractRouter('identity-contract')
+        .handle(IdentityContract.me, async ({ request }) => service.requireUser(sessionToken(request)))
+        .handle(IdentityContract.providers, async () => providers.map((provider) => provider.provider)).app,
     );
 }

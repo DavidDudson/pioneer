@@ -12,6 +12,9 @@ import type { ProviderProfile } from '@pioneer/identity/domain';
 import { CodeChallengeMethod, generateCodeVerifier, generateState, OAuth2Client } from 'arctic';
 import { z } from 'zod';
 
+import { getJson } from './provider-http';
+import type { OAuthCredentials } from './provider-http';
+
 const AUTHORIZE_URL = 'https://github.com/login/oauth/authorize';
 const TOKEN_URL = 'https://github.com/login/oauth/access_token';
 const API_URL = 'https://api.github.com';
@@ -29,13 +32,6 @@ type GitHubUser = z.infer<typeof GitHubUser>;
 const GitHubEmails = z.array(z.object({ email: z.string(), primary: z.boolean(), verified: z.boolean() }));
 type GitHubEmails = z.infer<typeof GitHubEmails>;
 
-export interface GitHubCredentials {
-  readonly clientId: string;
-  readonly clientSecret: string;
-  /** `<PUBLIC_ORIGIN>/api/auth/github/callback`, registered on the GitHub OAuth app. */
-  readonly redirectUri: URL;
-}
-
 /** GitHub's user and emails responses as a Pioneer profile. Exported for tests. */
 export function gitHubProfile(user: GitHubUser, emails: GitHubEmails): ProviderProfile {
   const primary = emails.find((entry) => entry.primary);
@@ -52,33 +48,12 @@ export function gitHubProfile(user: GitHubUser, emails: GitHubEmails): ProviderP
   };
 }
 
-/** One authenticated GitHub REST call, validated. */
-async function getJson<TSchema extends z.ZodType>(
-  accessToken: string,
-  path: string,
-  schema: TSchema,
-): Promise<z.output<TSchema>> {
-  const response = await fetch(`${API_URL}${path}`, {
-    headers: {
-      accept: 'application/vnd.github+json',
-      authorization: `Bearer ${accessToken}`,
-      'user-agent': 'pioneer',
-      'x-github-api-version': '2022-11-28',
-    },
-  });
-  if (!response.ok) {
-    throw new Error(`GitHub ${path} answered ${response.status}`);
-  }
-  const body: unknown = await response.json();
-  return schema.parse(body);
-}
-
 /** Sign in with GitHub: authorization code flow with PKCE (S256), through Arctic. */
 export class GitHubProvider extends OAuthProviderPort {
   public readonly provider = OAuthProvider.GitHub;
   readonly #client: OAuth2Client;
 
-  public constructor(credentials: GitHubCredentials) {
+  public constructor(credentials: OAuthCredentials) {
     super();
     this.#client = new OAuth2Client(credentials.clientId, credentials.clientSecret, credentials.redirectUri.toString());
   }
@@ -100,8 +75,8 @@ export class GitHubProvider extends OAuthProviderPort {
     const tokens = await this.#client.validateAuthorizationCode(TOKEN_URL, code, codeVerifier);
     const accessToken = tokens.accessToken();
     const [user, emails] = await Promise.all([
-      getJson(accessToken, '/user', GitHubUser),
-      getJson(accessToken, '/user/emails', GitHubEmails),
+      getJson(`${API_URL}/user`, accessToken, GitHubUser),
+      getJson(`${API_URL}/user/emails`, accessToken, GitHubEmails),
     ]);
     return gitHubProfile(user, emails);
   }

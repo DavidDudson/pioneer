@@ -9,6 +9,7 @@ import type {
   TokenHash,
   UserId,
 } from '@pioneer/identity/domain';
+import { sql } from 'drizzle-orm';
 import { boolean, index, pgTable, text, timestamp, uniqueIndex, uuid } from 'drizzle-orm/pg-core';
 
 /**
@@ -16,17 +17,26 @@ import { boolean, index, pgTable, text, timestamp, uniqueIndex, uuid } from 'dri
  * repository issues is served by an index here; the query-plan guard in the repository tests
  * enforces it.
  */
-export const users = pgTable('users', {
-  id: uuid().$type<UserId>().primaryKey(),
-  displayName: text().$type<DisplayName>().notNull(),
-  avatarUrl: text().$type<AvatarUrl>(),
-  email: text().$type<EmailAddress>(),
-  emailVerified: boolean().notNull(),
-  createdAt: timestamp({ withTimezone: true, mode: 'string' }).notNull(),
-  updatedAt: timestamp({ withTimezone: true, mode: 'string' }).notNull(),
-});
+export const users = pgTable(
+  'users',
+  {
+    id: uuid().$type<UserId>().primaryKey(),
+    displayName: text().$type<DisplayName>().notNull(),
+    avatarUrl: text().$type<AvatarUrl>(),
+    email: text().$type<EmailAddress>(),
+    emailVerified: boolean().notNull(),
+    createdAt: timestamp({ withTimezone: true, mode: 'string' }).notNull(),
+    updatedAt: timestamp({ withTimezone: true, mode: 'string' }).notNull(),
+  },
+  (table) => [
+    // Account linking looks up verified addresses, oldest user first (ADR-0010).
+    index('users_verified_email_idx')
+      .on(table.email, table.createdAt, table.id)
+      .where(sql`${table.emailVerified}`),
+  ],
+);
 
-/** A provider identity linked to a user. One user may link several (story #91). */
+/** A provider identity linked to a user. One user may link several, by verified email (ADR-0010). */
 export const oauthAccounts = pgTable(
   'oauth_accounts',
   {

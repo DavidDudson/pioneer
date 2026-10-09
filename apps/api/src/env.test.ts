@@ -17,6 +17,19 @@ describe('readEnv', () => {
     expect(readEnv({ DATABASE_URL }).GITHUB_CLIENT_ID).toBeUndefined();
   });
 
+  test('each provider is checked on its own', () => {
+    expect(() =>
+      readEnv({ DATABASE_URL, DISCORD_CLIENT_SECRET: 'secret', PUBLIC_ORIGIN: 'https://pioneer.example' }),
+    ).toThrow(/DISCORD_CLIENT_ID/u);
+    const env = readEnv({
+      DATABASE_URL,
+      GOOGLE_CLIENT_ID: 'id',
+      GOOGLE_CLIENT_SECRET: 'secret',
+      PUBLIC_ORIGIN: 'https://pioneer.example',
+    });
+    expect(env.GOOGLE_CLIENT_ID).toBe('id');
+  });
+
   test('a provider needs both its credentials and the public origin', () => {
     expect(() => readEnv({ DATABASE_URL, GITHUB_CLIENT_ID: 'id', PUBLIC_ORIGIN: 'http://localhost:4200' })).toThrow(
       /GITHUB_CLIENT_SECRET/u,

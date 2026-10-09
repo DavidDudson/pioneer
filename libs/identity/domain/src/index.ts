@@ -1,4 +1,4 @@
-export { AuthPath, IdentityContract, RETURN_TO_PARAM, SIGN_IN_FAILED_PATH } from './identity-contract';
+export { AuthPath, IdentityContract, RETURN_TO_PARAM, SIGN_IN_FAILED_PATH, SIGN_IN_PATH } from './identity-contract';
 export {
   AvatarUrl,
   DISPLAY_NAME_MAX_LENGTH,
