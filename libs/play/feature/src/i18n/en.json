@@ -16,7 +16,11 @@
     "playgroundFortune": "Fortune toggle",
     "playgroundMisfortune": "Misfortune toggle",
     "keptRoll": "Roll {number}: {total}, kept",
-    "discardedRoll": "Roll {number}: {total}, discarded"
+    "discardedRoll": "Roll {number}: {total}, discarded",
+    "againstDc": "Against a DC",
+    "dcLabel": "DC",
+    "dcHint": "The kept roll is compared with this DC for a degree of success.",
+    "dcInvalid": "Enter a DC from {minimum} to {maximum}."
   },
   "damageType": {
     "bludgeoning": "Bludgeoning",
@@ -35,6 +39,12 @@
     "poison": "Poison",
     "bleed": "Bleed",
     "precision": "Precision"
+  },
+  "degree": {
+    "criticalSuccess": "Critical success",
+    "success": "Success",
+    "failure": "Failure",
+    "criticalFailure": "Critical failure"
   },
   "damageCategory": {
     "persistent": "Persistent",

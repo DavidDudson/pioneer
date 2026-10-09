@@ -5,6 +5,9 @@
       <fr-text variant="code">{{ shown.notation }}</fr-text>
       <fr-heading variant="heading" [level]="3">{{ 'play.dice.total' | transloco: { total: shown.total } }}</fr-heading>
     </fr-stack>
+    @if (shown.degree; as degree) {
+      <pio-roll-degree [degree]="degree" />
+    }
     @if (shown.explanation; as explanation) {
       <fr-text variant="caption" tone="muted">{{ explanation.key | transloco: explanation.params }}</fr-text>
     }

@@ -22,6 +22,17 @@ export {
   RollModeSchema,
   rollWithFortune,
 } from './fortune';
+export {
+  type CheckOutcome,
+  checkOutcome,
+  DegreeAdjustment,
+  DegreeResult,
+  DegreeStep,
+  DegreeStepKind,
+  DegreeStepKindSchema,
+  degreeOfSuccess,
+  naturalD20,
+} from './degree';
 export { formatExpression, formatTerm } from './format';
 export { DiceMessage } from './messages';
 export { type ParseFailure, type ParseOutcome, type ParseSuccess, parseDiceExpression } from './parse';

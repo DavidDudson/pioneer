@@ -19,6 +19,10 @@ export type DamageAmount = z.infer<typeof DamageAmount>;
 export const Modifier = Pg.smallint().brand<'Modifier'>();
 export type Modifier = z.infer<typeof Modifier>;
 
+/** A difficulty class a check is rolled against. */
+export const Dc = Pg.smallint().nonnegative().brand<'Dc'>();
+export type Dc = z.infer<typeof Dc>;
+
 export const ArmorClass = Pg.smallint().nonnegative().brand<'ArmorClass'>();
 export type ArmorClass = z.infer<typeof ArmorClass>;
 

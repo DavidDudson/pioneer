@@ -37,6 +37,13 @@ async function typeExpression(harness: RouterTestingHarness, text: string): Prom
   await harness.fixture.whenStable();
 }
 
+async function typeDc(harness: RouterTestingHarness, value: string): Promise<void> {
+  const input = present(harness.routeNativeElement?.querySelector<HTMLInputElement>('input[type="number"]'));
+  input.value = value;
+  input.dispatchEvent(new Event('input'));
+  await harness.fixture.whenStable();
+}
+
 function button(harness: RouterTestingHarness, label: string): HTMLButtonElement {
   const buttons = harness.routeNativeElement?.querySelectorAll<HTMLButtonElement>('button') ?? [];
   return present([...buttons].find((candidate) => candidate.textContent.trim() === label));
@@ -110,6 +117,57 @@ describe('DicePlaygroundPage', () => {
     expect(text).toContain('Total 12');
     expect(text).toContain('Fortune and misfortune cancel out: rolled once.');
     expect(text).not.toContain('Roll 1');
+  });
+
+  it('shows the degree of success against a DC and every step to it', async () => {
+    const harness = await openPlayground([20]);
+    await press(harness, 'Against a DC');
+    expect(button(harness, 'Against a DC').getAttribute('aria-pressed')).toBe('true');
+    await typeDc(harness, '30');
+    await press(harness, 'Roll');
+
+    const text = present(harness.routeNativeElement).textContent;
+    expect(text).toContain('Total 27');
+    expect(text).toContain('27 misses DC 30.');
+    expect(text).toContain('Natural 20: one degree better.');
+    expect(text).toContain('Success');
+  });
+
+  it('compares the kept roll when fortune rolls twice', async () => {
+    const harness = await openPlayground([1, 14]);
+    await press(harness, 'Fortune');
+    await press(harness, 'Against a DC');
+    await press(harness, 'Roll');
+
+    const text = present(harness.routeNativeElement).textContent;
+    expect(text).toContain('21 meets or exceeds DC 20.');
+    expect(text).not.toContain('Natural 1');
+  });
+
+  it('rolls on Enter in the DC box', async () => {
+    const harness = await openPlayground([12]);
+    await press(harness, 'Against a DC');
+    const root = present(harness.routeNativeElement);
+    const dcInput = present(root.querySelector<HTMLInputElement>('input[type="number"]'));
+    dcInput.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true }));
+    await harness.fixture.whenStable();
+
+    expect(root.textContent).toContain('19 misses DC 20.');
+  });
+
+  it.each(['-3', '100', ''])('does not roll with the DC box holding “%s”', async (entry) => {
+    const harness = await openPlayground([20]);
+    await press(harness, 'Against a DC');
+    await typeDc(harness, entry);
+
+    const root = present(harness.routeNativeElement);
+    expect(root.textContent).toContain('Enter a DC from 0 to 99.');
+    expect(rollButton(harness).disabled).toBe(true);
+
+    const dcInput = present(root.querySelector<HTMLInputElement>('input[type="number"]'));
+    dcInput.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true }));
+    await harness.fixture.whenStable();
+    expect(root.textContent).toContain('No rolls yet.');
   });
 
   it('switches fortune back off and rolls once again', async () => {

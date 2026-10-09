@@ -16,4 +16,10 @@ export const DiceMessage = {
   FortuneKeptHigher: 'dice.fortune.keptHigher',
   FortuneKeptLower: 'dice.fortune.keptLower',
   FortuneCancelled: 'dice.fortune.cancelled',
+  DegreeBaseCriticalSuccess: 'dice.degree.baseCriticalSuccess',
+  DegreeBaseSuccess: 'dice.degree.baseSuccess',
+  DegreeBaseFailure: 'dice.degree.baseFailure',
+  DegreeBaseCriticalFailure: 'dice.degree.baseCriticalFailure',
+  DegreeNatural20: 'dice.degree.natural20',
+  DegreeNatural1: 'dice.degree.natural1',
 } as const;

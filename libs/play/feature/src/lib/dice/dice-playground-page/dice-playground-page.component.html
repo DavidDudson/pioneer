@@ -11,6 +11,23 @@
             <fr-field-hint>{{ 'play.dice.expressionHint' | transloco }}</fr-field-hint>
           }
         </fr-field>
+        @if (againstDc()) {
+          <fr-field [invalid]="dcInvalid()">
+            <fr-label>{{ 'play.dice.dcLabel' | transloco }}</fr-label>
+            <fr-number-input
+              [min]="dcMin"
+              [max]="dcMax"
+              [(value)]="dcValue"
+              [(complete)]="dcComplete"
+              (committed)="roll()"
+            />
+            @if (dcInvalid()) {
+              <fr-field-error>{{ 'play.dice.dcInvalid' | transloco: dcRange() }}</fr-field-error>
+            } @else {
+              <fr-field-hint>{{ 'play.dice.dcHint' | transloco }}</fr-field-hint>
+            }
+          </fr-field>
+        }
         <fr-stack direction="horizontal" justify="between" align="center" gap="sm" wrap>
           <fr-stack direction="horizontal" gap="sm" wrap>
             <fr-button [toggled]="fortune()" (pressed)="toggleFortune()">{{
@@ -19,8 +36,11 @@
             <fr-button [toggled]="misfortune()" (pressed)="toggleMisfortune()">{{
               'play.dice.misfortune' | transloco
             }}</fr-button>
+            <fr-button [toggled]="againstDc()" (pressed)="toggleAgainstDc()">{{
+              'play.dice.againstDc' | transloco
+            }}</fr-button>
           </fr-stack>
-          <fr-button variant="primary" [disabled]="error() !== undefined" (pressed)="roll()">{{
+          <fr-button variant="primary" [disabled]="!canRoll()" (pressed)="roll()">{{
             'play.dice.roll' | transloco
           }}</fr-button>
         </fr-stack>

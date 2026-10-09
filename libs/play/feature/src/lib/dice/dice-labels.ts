@@ -1,5 +1,5 @@
 import { DamageCategory } from '@pioneer/rules/dice';
-import { DamageType } from '@pioneer/rules/sdk';
+import { DamageType, DegreeOfSuccess } from '@pioneer/rules/sdk';
 
 /** Message keys for damage type names, spelled out so the key check sees them. */
 export const DAMAGE_TYPE_KEYS: Readonly<Record<DamageType, string>> = {
@@ -24,4 +24,11 @@ export const DAMAGE_TYPE_KEYS: Readonly<Record<DamageType, string>> = {
 export const DAMAGE_CATEGORY_KEYS: Readonly<Record<DamageCategory, string>> = {
   [DamageCategory.Persistent]: 'play.damageCategory.persistent',
   [DamageCategory.Splash]: 'play.damageCategory.splash',
+};
+
+export const DEGREE_KEYS: Readonly<Record<DegreeOfSuccess, string>> = {
+  [DegreeOfSuccess.CriticalSuccess]: 'play.degree.criticalSuccess',
+  [DegreeOfSuccess.Success]: 'play.degree.success',
+  [DegreeOfSuccess.Failure]: 'play.degree.failure',
+  [DegreeOfSuccess.CriticalFailure]: 'play.degree.criticalFailure',
 };
