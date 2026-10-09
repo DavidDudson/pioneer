@@ -26,7 +26,7 @@ Read this before touching any UI.
   `fr-list-item`, `<dl>` only in `fr-description-list`, `<dt>` / `<dd>` only in
   `fr-description-item`, table elements only in `fr-table`, `<svg>` only in `fr-icon`,
   `<textarea>` only in `fr-text-area`, `<details>` / `<summary>` only in
-  `fr-disclosure`. `select` and `img` have no owner yet:
+  `fr-disclosure`, `<hr>` only in `fr-divider`. `select` and `img` have no owner yet:
   add a primitive first. The ownership map lives in
   `tools/eslint/no-native-elements.ts`.
 - **Tokens only.** Components take token names (`gap="md"`, `tone="muted"`),
@@ -39,7 +39,8 @@ Read this before touching any UI.
   `ring-*` / `drop-shadow-*` / `text-shadow-*` are banned
   (`pioneer/class-tokens`), the base layer squares off native controls, and
   the built-CSS check fails on any radius or shadow. Separate and elevate
-  with borders (`border-line-*`) and surface colours instead.
+  with borders (`border-line-*`, or `fr-divider` between regions) and
+  surface colours instead.
 - **No arbitrary values, pixels or raw numbers** in class strings
   (`pioneer/class-tokens`): no `h-[2.75rem]`, `p-(--x)`, `data-[x=y]:`,
   `h-px`, `opacity-50`, `z-10`, `duration-150`, `w-1/2`, `bg-x/50` or `!`.
@@ -233,7 +234,7 @@ after `themes/frontier.css`, and add it to `Theme` in
 
 | Area           | Components                                                                                                                                                                                |
 | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Layout         | Primitives `fr-box`, `fr-grid`, `fr-stack`; composed `fr-shell`, `fr-page`, `fr-surface`                                                                                                  |
+| Layout         | Primitives `fr-box`, `fr-grid`, `fr-stack`; composed `fr-shell`, `fr-page`, `fr-surface`; `fr-divider` (`orientation`, `tone` subtle/default/strong; vertical is decorative)              |
 | Disclosure     | `fr-disclosure` (expand in place; `frDisclosureSummary` takes phrasing content only, nothing interactive)                                                                                 |
 | Lists          | `fr-list` (`ordered` for `<ol>`, `markers` for bullets or numbers, `gap`) with `fr-list-item`; `fr-description-list` (`gap`, `columnsFrom`) with `fr-description-item [term]`             |
 | Text           | `fr-text` (`element="span\|p"`), `fr-heading` (`[level]` for the outline, `variant` for the look), `fr-badge` (`tone` neutral/accent/status, `variant` subtle/solid, `[icon]`)            |
