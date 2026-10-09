@@ -17,6 +17,8 @@ const RUN_TIMEOUT = 30_000;
 const CHILD_TIMEOUT = 20_000;
 const FETCH_TIMEOUT = 5000;
 const CONCURRENT_MIGRATIONS = 3;
+/** Seconds the first migration sleeps in the concurrency test. */
+const MIGRATION_DELAY = 2;
 const LISTENING = /listening on :(?<port>\d+)/u;
 
 const JournalEntry = z.object({ tag: z.string() });
@@ -200,7 +202,14 @@ describe.skipIf(adminUrl === undefined)('compiled api binary (postgres)', () => 
     'instances migrating at once serialise on the lock and all succeed',
     async () => {
       const databaseUrl = await emptyDatabase();
-      const env = await environment(databaseUrl, {});
+      /* A slow first migration keeps every run reading an empty journal before any commits, so without the lock
+         they all apply the same migrations and collide. */
+      const slowMigrations = `${workspace.folder}/slow-migrations`;
+      await $`cp -R ${workspace.migrations} ${slowMigrations}`;
+      const first = Bun.file(`${slowMigrations}/0000_init.sql`);
+      const firstSql = await first.text();
+      await Bun.write(first, `select pg_sleep(${MIGRATION_DELAY});--> statement-breakpoint\n${firstSql}`);
+      const env = await environment(databaseUrl, { MIGRATIONS_DIR: slowMigrations });
       const runs = Array.from({ length: CONCURRENT_MIGRATIONS }, async (): Promise<Exit> => run(['migrate'], env));
       const results = await Promise.all(runs);
       expect(results.map(({ code }) => code)).toStrictEqual([0, 0, 0]);
