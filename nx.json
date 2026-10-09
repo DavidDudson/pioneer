@@ -3,7 +3,13 @@
   "defaultBase": "main",
   "namedInputs": {
     "default": ["{projectRoot}/**/*", "sharedGlobals"],
-    "production": ["default", "!{projectRoot}/**/*.{spec,test}.ts", "!{projectRoot}/tsconfig.spec.json"],
+    "production": [
+      "default",
+      "!{projectRoot}/**/*.{spec,test}.ts",
+      "!{projectRoot}/tsconfig.spec.json",
+      "!{projectRoot}/**/*.stories.@(js|jsx|ts|tsx|mdx)",
+      "!{projectRoot}/.storybook/**/*"
+    ],
     "sharedGlobals": ["{workspaceRoot}/tsconfig.base.json", "{workspaceRoot}/bun.lock", "{workspaceRoot}/bunfig.toml"]
   },
   "targetDefaults": {
@@ -15,6 +21,10 @@
     "@angular/build:unit-test": {
       "cache": true,
       "inputs": ["default", "^production"]
+    },
+    "build-storybook": {
+      "cache": true,
+      "inputs": ["default", "^production", "{projectRoot}/.storybook/**/*"]
     }
   },
   "generators": {
@@ -43,6 +53,14 @@
       "plugin": "@nx/oxlint",
       "options": {
         "targetName": "lint"
+      }
+    },
+    {
+      "plugin": "@nx/storybook/plugin",
+      "options": {
+        "serveStorybookTargetName": "storybook",
+        "buildStorybookTargetName": "build-storybook",
+        "staticStorybookTargetName": "static-storybook"
       }
     }
   ]

@@ -216,6 +216,25 @@ after `themes/frontier.css`, and add it to `Theme` in
 | Inline edit    | `InlineEdit<T>` controller + `fr-inline-field`                                                                                                                      |
 | Data (`/data`) | `fr-table` (TanStack Table), `fr-chart` (TanStack Charts), `fr-virtual-list` (TanStack Virtual)                                                                     |
 
+## Storybook
+
+Every component has a story next to it (`<name>.stories.ts`). Add one with
+each new component or variant. `nx storybook frontier` serves it,
+`nx build-storybook frontier` builds it (targets come from
+`@nx/storybook/plugin`). It runs on Vite through
+`@analogjs/storybook-angular`, zoneless, with frontier's CSS, router,
+TanStack Query and the `en` messages provided in `.storybook/preview.ts`;
+the toolbar switches theme and colour mode.
+
+- Import story types from `@analogjs/storybook-angular`, never
+  `@storybook/angular`.
+- Story templates use only `fr-*` components, like feature templates. Demo
+  copy may be literal: stories are not shipped, and Tailwind doesn't scan them.
+- Simulated server work uses `succeedSlowly` / `failSlowly`
+  (`testing/story-actions.ts`), so pending states are visible.
+- Storybook's types bring in `@types/node`. Code that keeps a timer id as a
+  `number` calls `window.setTimeout`, which stays the DOM overload.
+
 ## Plain controls vs form fields
 
 Prefer inline editing; use a form only where values must go in together,

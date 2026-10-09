@@ -333,6 +333,29 @@
       }
     },
     {
+      // Storybook stories: Component Story Format requires the meta as the default export,
+      // and story args are sample data (levels, counts) by nature. A story composes the component with
+      // the primitives around it, so it imports more than a component does. Chart marks take `x`/`y` channels.
+      "files": ["**/*.stories.ts"],
+      "rules": {
+        "import/no-default-export": "off",
+        "pioneer/no-magic-numbers": "off",
+        "import/max-dependencies": "off",
+        "eslint/id-length": ["error", { "exceptions": ["x", "y"] }]
+      }
+    },
+    {
+      // Storybook config: main.ts runs on Node and both files need default exports; preview.ts
+      // imports frontier's CSS for its side effect; `resolve` in main.ts is Vite config, not a router resolver.
+      "files": ["**/.storybook/*.ts"],
+      "rules": {
+        "import/no-default-export": "off",
+        "import/no-nodejs-modules": "off",
+        "import/no-unassigned-import": "off",
+        "pioneer/no-route-resolvers": "off"
+      }
+    },
+    {
       // Angular dev-server proxy runs on Node: default export required, port from the dev shell.
       "files": ["apps/web/proxy.conf.mjs"],
       "rules": {

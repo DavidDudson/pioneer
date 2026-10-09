@@ -245,7 +245,9 @@ export class InlineEdit<TValue> {
   #saved(revertible: boolean): void {
     this.#phase.set(Phase.Success);
     this.#canRevert.set(revertible);
-    this.#revertTimer = setTimeout(
+    // DOM timer (a number id): Storybook's types bring in @types/node, whose global setTimeout returns a Timeout.
+    // oxlint-disable-next-line unicorn/prefer-global-this -- globalThis.setTimeout resolves to Node's overload there
+    this.#revertTimer = window.setTimeout(
       () => {
         this.#canRevert.set(false);
         if (this.#phase() === Phase.Success) {

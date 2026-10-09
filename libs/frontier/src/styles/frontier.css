@@ -18,6 +18,8 @@
 @import './semantic.css';
 
 @source '../lib';
+/* Stories are demo copy, not components: keep their words out of the app's CSS. */
+@source not '../lib/**/*.stories.ts';
 
 @theme inline {
   --color-*: initial;

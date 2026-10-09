@@ -60,7 +60,9 @@ function injectFlash(): Flash {
   });
   return {
     start: (done) => {
-      timer = setTimeout(done, SUCCESS_FLASH);
+      // DOM timer (a number id): Storybook's types bring in @types/node, whose global setTimeout returns a Timeout.
+      // oxlint-disable-next-line unicorn/prefer-global-this -- globalThis.setTimeout resolves to Node's overload there
+      timer = window.setTimeout(done, SUCCESS_FLASH);
     },
     stop: () => {
       clearTimeout(timer);
