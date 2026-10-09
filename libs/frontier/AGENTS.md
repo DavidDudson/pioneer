@@ -23,7 +23,8 @@ Read this before touching any UI.
   `fr-link`, `<label>` only in `fr-label`, `<form>` only in `fr-form` /
   `fr-async-form`, `<h1>`–`<h4>` only in `fr-heading`, `<p>` only in
   `fr-text`, `<ul>` / `<ol>` only in `fr-list`, `<li>` only in
-  `fr-list-item`, table elements only in `fr-table`, `<svg>` only in `fr-icon`,
+  `fr-list-item`, `<dl>` only in `fr-description-list`, `<dt>` / `<dd>` only in
+  `fr-description-item`, table elements only in `fr-table`, `<svg>` only in `fr-icon`,
   `<textarea>` only in `fr-text-area`, `<details>` / `<summary>` only in
   `fr-disclosure`. `select` and `img` have no owner yet:
   add a primitive first. The ownership map lives in
@@ -160,7 +161,10 @@ more room, never a separate design.
     `padding`, and `gutter` (inline padding that widens with the box).
   - `fr-grid`: `[columns]` is the count once the grid is wide enough: one
     column when narrow (two for six-up), more at `@md` / `@lg` of the grid's
-    own width. `minItem` is fluid at every width.
+    own width. `minItem` is fluid at every width. `termFrom="sm|md|lg"` is
+    the term/value layout: one column, then a fixed term column and a value
+    column. `query="parent"` follows the nearest container around the grid
+    and gives the host no box, for rows inside semantic lists (`<dl>`).
   - `fr-stack`: vertical by default; `horizontalFrom="sm|md|lg"` makes it a
     row once the stack itself is that wide.
   - An element can't query its own size, so grid, box and responsive stacks
@@ -229,7 +233,7 @@ after `themes/frontier.css`, and add it to `Theme` in
 | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Layout         | Primitives `fr-box`, `fr-grid`, `fr-stack`; composed `fr-shell`, `fr-page`, `fr-surface`                                                                                                  |
 | Disclosure     | `fr-disclosure` (expand in place; `frDisclosureSummary` takes phrasing content only, nothing interactive)                                                                                 |
-| Lists          | `fr-list` (`ordered` for `<ol>`, `markers` for bullets or numbers, `gap`) with `fr-list-item`                                                                                             |
+| Lists          | `fr-list` (`ordered` for `<ol>`, `markers` for bullets or numbers, `gap`) with `fr-list-item`; `fr-description-list` (`gap`, `columnsFrom`) with `fr-description-item [term]`             |
 | Text           | `fr-text` (`element="span\|p"`), `fr-heading` (`[level]` for the outline, `variant` for the look)                                                                                         |
 | Actions        | `fr-button` (`(pressed)`), `fr-async-button`, `fr-link` (`to` routes, `href` external only)                                                                                               |
 | Async          | `injectAsyncAction`, `fr-async-indicator`, `fr-async-region` (+ `frAsyncPending` / `frAsyncData` / `frAsyncError` slots)                                                                  |

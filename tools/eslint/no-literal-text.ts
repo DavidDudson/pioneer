@@ -28,6 +28,7 @@ const TEXT_ATTRIBUTES = new Set([
   'pendingLabel',
   'placeholder',
   'successLabel',
+  'term',
   'title',
 ]);
 

@@ -124,6 +124,8 @@
   --grid-template-columns-fill-sm: repeat(auto-fill, minmax(min(var(--fr-size-item-sm), 100%), 1fr));
   --grid-template-columns-fill-md: repeat(auto-fill, minmax(min(var(--fr-size-item-md), 100%), 1fr));
   --grid-template-columns-fill-lg: repeat(auto-fill, minmax(min(var(--fr-size-item-lg), 100%), 1fr));
+  /* fr-grid termFrom: a fixed term column, so terms line up across rows, and the value takes the rest. */
+  --grid-template-columns-term: var(--fr-size-term) minmax(0, 1fr);
 
   --font-body: var(--fr-font-body);
   --font-display: var(--fr-font-display);
