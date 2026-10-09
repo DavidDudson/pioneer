@@ -41,7 +41,6 @@ const OverrideMode = z.literal(NumericAlterationMode.Override);
 /** Fields of every alteration: which items it reaches (their roll options, `item:trait:shield`). */
 const alterationBase = {
   key: z.literal(RuleElementKey.ItemAlteration),
-  ...ruleElementBase,
   items: Predicate,
 };
 
@@ -55,18 +54,21 @@ export const ItemAlterationElement = z.discriminatedUnion('property', [
     property: z.enum(NumericItemProperty),
     mode: z.enum(NumericAlterationMode),
     value: RuleValue,
+    ...ruleElementBase,
   }),
   z.strictObject({
     ...alterationBase,
     property: z.literal(ItemProperty.Traits),
     mode: z.enum(TraitAlterationMode),
     value: Trait,
+    ...ruleElementBase,
   }),
   z.strictObject({
     ...alterationBase,
     property: z.literal(ItemProperty.DamageType),
     mode: OverrideMode,
     value: DamageTypeSchema,
+    ...ruleElementBase,
   }),
 ]);
 export type ItemAlterationElement = z.infer<typeof ItemAlterationElement>;

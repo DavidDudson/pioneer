@@ -21,12 +21,12 @@ export type ChoiceRef = z.infer<typeof ChoiceRef>;
 /** Gives the character another content entry (a feature, action, spell or item), with its own rules. */
 export const GrantItemElement = z.strictObject({
   key: z.literal(RuleElementKey.GrantItem),
-  ...ruleElementBase,
   item: z.union([ContentId, ChoiceRef]),
   /** Name of the granted entry, for later elements to refer to. */
   flag: RuleSlug.optional(),
   /** Grant it even when the character already has it. */
   allowDuplicate: z.boolean().optional(),
+  ...ruleElementBase,
 });
 export type GrantItemElement = z.infer<typeof GrantItemElement>;
 
@@ -53,11 +53,11 @@ export type ChoiceQuery = z.infer<typeof ChoiceQuery>;
  */
 export const ChoiceSetElement = z.strictObject({
   key: z.literal(RuleElementKey.ChoiceSet),
-  ...ruleElementBase,
   flag: RuleSlug,
   choices: z.union([z.array(ChoiceOption).min(1).max(CHOICES_MAX), ChoiceQuery]),
   prompt: ContentText.optional(),
   rollOption: RuleSlug.optional(),
+  ...ruleElementBase,
 });
 export type ChoiceSetElement = z.infer<typeof ChoiceSetElement>;
 
@@ -78,12 +78,12 @@ const SUBOPTIONS_MAX = 32;
 export const RollOptionElement = z
   .strictObject({
     key: z.literal(RuleElementKey.RollOption),
-    ...ruleElementBase,
     domain: Domain.optional(),
     option: RollOption,
     toggleable: z.boolean().optional(),
     value: z.boolean().optional(),
     suboptions: z.array(RollOptionSuboption).min(1).max(SUBOPTIONS_MAX).optional(),
+    ...ruleElementBase,
   })
   .refine((element) => element.suboptions === undefined || element.toggleable === true, {
     ...issueParams(message(RulesMessage.SuboptionsNeedToggle)),

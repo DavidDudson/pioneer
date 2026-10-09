@@ -15,16 +15,15 @@ import { Modifier } from './units';
 export const ModifierValue = z.union([Modifier, FormulaSource]);
 export type ModifierValue = z.infer<typeof ModifierValue>;
 
-const flatModifierBase = {
-  key: z.literal(RuleElementKey.FlatModifier),
-  ...ruleElementBase,
-  selectors: ModifierTargets,
+const flatModifierFields = {
   value: ModifierValue,
   /** Lets an `AdjustModifier` find this modifier. */
   slug: RuleSlug.optional(),
   /** On a damage selector, the damage type the bonus deals. */
   damageType: DamageTypeSchema.optional(),
+  ...ruleElementBase,
 };
+const flatModifierKey = { key: z.literal(RuleElementKey.FlatModifier), selectors: ModifierTargets };
 
 const { Attribute: attributeType, ...otherTypes } = ModifierType;
 
@@ -33,8 +32,13 @@ const { Attribute: attributeType, ...otherTypes } = ModifierType;
  * so the engine can swap it when the key attribute changes.
  */
 export const FlatModifierElement = z.discriminatedUnion('type', [
-  z.strictObject({ ...flatModifierBase, type: z.literal(attributeType), attribute: AttributeSchema }),
-  z.strictObject({ ...flatModifierBase, type: z.enum(otherTypes) }),
+  z.strictObject({
+    ...flatModifierKey,
+    type: z.literal(attributeType),
+    attribute: AttributeSchema,
+    ...flatModifierFields,
+  }),
+  z.strictObject({ ...flatModifierKey, type: z.enum(otherTypes), ...flatModifierFields }),
 ]);
 export type FlatModifierElement = z.infer<typeof FlatModifierElement>;
 
@@ -56,12 +60,12 @@ export type AdjustMode = ValueOf<typeof AdjustMode>;
 export const AdjustModifierElement = z
   .strictObject({
     key: z.literal(RuleElementKey.AdjustModifier),
-    ...ruleElementBase,
     selectors: ModifierTargets,
     slug: RuleSlug.optional(),
     mode: z.enum(AdjustMode).optional(),
     value: RuleValue.optional(),
     suppress: z.literal(true).optional(),
+    ...ruleElementBase,
   })
   .refine(
     (element) =>
@@ -88,26 +92,26 @@ export type ChangeMode = ValueOf<typeof ChangeMode>;
  */
 export const ChangeElement = z.strictObject({
   key: z.literal(RuleElementKey.Change),
-  ...ruleElementBase,
   selector: Selector,
   mode: z.enum(ChangeMode),
   value: RuleValue,
+  ...ruleElementBase,
 });
 export type ChangeElement = z.infer<typeof ChangeElement>;
 
 /** Caps the Dexterity modifier added to AC (armour, some conditions); the lowest cap wins. */
 export const DexterityCapElement = z.strictObject({
   key: z.literal(RuleElementKey.DexterityCap),
-  ...ruleElementBase,
   value: ModifierValue,
+  ...ruleElementBase,
 });
 export type DexterityCapElement = z.infer<typeof DexterityCapElement>;
 
 /** The multiple attack penalty step for the targeted attacks (`-4` for agile); the best applies. */
 export const MultipleAttackPenaltyElement = z.strictObject({
   key: z.literal(RuleElementKey.MultipleAttackPenalty),
-  ...ruleElementBase,
   selectors: ModifierTargets,
   value: ModifierValue,
+  ...ruleElementBase,
 });
 export type MultipleAttackPenaltyElement = z.infer<typeof MultipleAttackPenaltyElement>;
