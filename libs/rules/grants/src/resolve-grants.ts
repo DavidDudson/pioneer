@@ -75,7 +75,15 @@ function originOf(entry: GrantEntry, hops: readonly OriginHop[]): Origin {
 
 /** Roots in entry id order, then by how they got there, so the order they are given in never matters. */
 function byEntry(left: GrantRoot, right: GrantRoot): number {
-  return left.entry.localeCompare(right.entry) || JSON.stringify(left.hop).localeCompare(JSON.stringify(right.hop));
+  return byCodeUnit(left.entry, right.entry) || byCodeUnit(JSON.stringify(left.hop), JSON.stringify(right.hop));
+}
+
+/** Plain code unit order, the same in every locale, so server and browser agree. */
+function byCodeUnit(left: string, right: string): number {
+  if (left === right) {
+    return 0;
+  }
+  return left < right ? -1 : 1;
 }
 
 /** Why `entry` cannot be followed from here: it is already above itself, or the chain is too long. */
