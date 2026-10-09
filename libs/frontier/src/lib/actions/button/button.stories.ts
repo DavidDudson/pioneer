@@ -79,7 +79,7 @@ export const WithIcon: ButtonStory = {
 export const IconOnly: ButtonStory = {
   render: () => ({
     props: { plus: LucidePlus },
-    template: `<fr-button variant="ghost" ariaLabel="New character"><fr-icon [icon]="plus" /></fr-button>`,
+    template: `<fr-button variant="ghost" iconOnly ariaLabel="New character"><fr-icon [icon]="plus" /></fr-button>`,
     moduleMetadata: { imports: [Icon] },
   }),
 };

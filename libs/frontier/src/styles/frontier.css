@@ -247,6 +247,12 @@
     display: none;
   }
 
+  /* fr-search-input draws its own icon and clear button; drop WebKit's. */
+  input[type='search']::-webkit-search-decoration,
+  input[type='search']::-webkit-search-cancel-button {
+    appearance: none;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     *,
     ::before,

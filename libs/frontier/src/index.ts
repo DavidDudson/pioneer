@@ -21,6 +21,7 @@ export { AsyncRegion } from './lib/async/async-region/async-region.component';
 // Plain controls (inline editing)
 export { DateInput } from './lib/controls/date-input/date-input.component';
 export { NumberInput } from './lib/controls/number-input/number-input.component';
+export { SEARCH_DEBOUNCE, SearchInput } from './lib/controls/search-input/search-input.component';
 export { Segmented } from './lib/controls/segmented/segmented.component';
 export { Select, type SelectOption } from './lib/controls/select/select.component';
 export { TextArea } from './lib/controls/text-area/text-area.component';
