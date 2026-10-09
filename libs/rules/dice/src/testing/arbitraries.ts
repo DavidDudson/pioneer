@@ -1,7 +1,8 @@
-import { DamageType } from '@pioneer/rules/sdk';
+import { DamageAdjustment, DamageAdjustmentTarget, DamageType, Immunity } from '@pioneer/rules/sdk';
 import { array, constantFrom, integer, oneof, option, record } from 'fast-check';
 import type { Arbitrary } from 'fast-check';
 
+import type { DamageTarget } from '../damage';
 import { DamageCategory, DiceExpression, KeepMode, Sign, TermKind } from '../expression';
 import type { Term } from '../expression';
 import { DIE_SIZE_MAX, DIE_SIZE_MIN, FLAT_VALUE_MAX, TERM_COUNT_MAX } from '../units';
@@ -60,3 +61,18 @@ export function expressionBounds(parsed: DiceExpression): Bounds {
   }
   return { min, max };
 }
+
+const adjustmentTarget = constantFrom(...Object.values(DamageAdjustmentTarget));
+export const damageAdjustment: Arbitrary<DamageAdjustment> = record({
+  type: adjustmentTarget,
+  value: integer({ min: 1, max: 30 }),
+}).map((raw) => DamageAdjustment.parse(raw));
+const adjustments = array(damageAdjustment, { maxLength: 4 });
+const immunity = constantFrom(...Object.values(DamageType), 'paralyzed').map((slug) => Immunity.parse(slug));
+
+/** Targets with a few immunities, weaknesses and resistances drawn from every type and group. */
+export const damageTarget: Arbitrary<DamageTarget> = record({
+  immunities: array(immunity, { maxLength: 4 }),
+  weaknesses: adjustments,
+  resistances: adjustments,
+});
