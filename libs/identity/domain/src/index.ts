@@ -20,11 +20,5 @@ export {
 } from './identity-fields';
 export type { ProviderProfile } from './provider-profile';
 export { HOME_PATH, ReturnPath, returnPathOr } from './return-path';
-export {
-  Session,
-  SESSION_LIFETIME,
-  SessionSummary,
-  SessionToken,
-  TokenHash,
-} from './session';
+export { Session, SESSION_LIFETIME, SessionSummary, SessionToken, TokenHash } from './session';
 export { User, UserWire } from './user';
