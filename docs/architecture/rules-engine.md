@@ -124,26 +124,29 @@ is one Foundry's JavaScript met too.
 Statistic base formulas and rule element values share one vocabulary of references (ADR-0016), catalogued in
 `libs/rules/sdk` (`formula-reference.ts`). Stored formulas use these paths only:
 
-| Reference           | Scope | Value                                                                                                |
-| ------------------- | ----- | ---------------------------------------------------------------------------------------------------- |
-| `@level`            | actor | The character's level                                                                                |
-| `@attr.<attribute>` | actor | The attribute modifier: `@attr.str`, `@attr.dex`, `@attr.con`, `@attr.int`, `@attr.wis`, `@attr.cha` |
-| `@attr.dex.capped`  | actor | The Dexterity modifier after the armor's Dexterity cap (`DexterityCap`)                              |
-| `@prof.<selector>`  | actor | The proficiency bonus for a statistic: rank bonus plus level, or 0 when untrained                    |
-| `@rank.<selector>`  | actor | The proficiency rank for a statistic, 0 (untrained) to 4 (legendary)                                 |
-| `@item.level`       | item  | The level of the item the rule element is on                                                         |
+| Reference           | Scope | Value                                                                             |
+| ------------------- | ----- | --------------------------------------------------------------------------------- |
+| `@level`            | actor | The character's level                                                             |
+| `@attr.<attribute>` | actor | The attribute modifier, `@attr.str` to `@attr.cha`                                |
+| `@attr.dex.capped`  | actor | The Dexterity modifier after the armor's Dexterity cap (`DexterityCap`)           |
+| `@prof.<selector>`  | actor | The proficiency bonus for a statistic: rank bonus plus level, or 0 when untrained |
+| `@rank.<selector>`  | actor | The proficiency rank for a statistic, 0 (untrained) to 4 (legendary)              |
+| `@item.level`       | item  | The level of the item the rule element is on                                      |
 
 - A selector's colons are written as dots, since references have none: `@prof.save.fortitude` is the bonus for
   `save:fortitude`, `@rank.attack.martial` the rank for `attack:martial`.
 - Scope says whose value a reference reads. A rule element may sit on any content entry, so its formulas may use
-  both scopes. Statistic base formulas have no item, so they may only use actor references.
+  both scopes. Statistic base formulas have no item, so they may only use actor references (checked once
+  statistic definitions have a schema).
 - `FormulaSource` checks a formula when content is validated: it must parse, and every reference must be in the
-  catalogue and in scope. Each problem is a field issue at the formula's JSON path. Its descriptor includes
-  `position`, the 1-based position in the formula. A Foundry spelling gets an error naming the path to write
-  instead.
+  catalogue and in scope. A `<selector>` is checked for shape only. Each problem is a field issue at the
+  formula's JSON path. Its descriptor includes `position`, the 1-based position in the formula. A Foundry spelling
+  gets an error naming the path to write instead.
 - The fields checked are `FlatModifier.value`, `DexterityCap.value`, `AdjustModifier.value`, `Change.value`,
   `MultipleAttackPenalty.value`, a numeric `ItemAlteration.value` and `MartialProficiency.value`. The last takes a
-  rank name or, as in Foundry, a formula giving a rank from 1 to 4.
+  rank name or, as in Foundry, a formula giving a rank. The engine resolves it as pf2e does: a result of 0 or no
+  value becomes 1 (trained), and anything else is clamped to 1 to 4. Foundry also allows a bare number, which the
+  importer turns into the rank name.
 
 The catalogue also holds the Foundry spellings the importer translates (`FOUNDRY_REFERENCES`, with
 `fromFoundryPath`). Placeholders carry across by name:

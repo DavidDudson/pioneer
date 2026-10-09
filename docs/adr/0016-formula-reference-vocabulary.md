@@ -38,14 +38,21 @@ to `attr.<attribute>`). `docs/architecture/rules-engine.md` ("Formula references
 
 - The importer (Epic 2.5, translators in Epic 2.6) rewrites each Foundry reference with the catalogue's table and
   reports any reference the table does not cover, as it does for rule elements it cannot translate.
-- The exporter (Epic 8.3) writes the table's first Foundry spelling for each path. Paths without a Foundry spelling
-  (`@attr.dex.capped`, `@prof.<selector>`) only occur in Pioneer's own statistic formulas, which are not exported.
+- The exporter (Epic 8.3) writes the table's first Foundry spelling for each path. Some paths have none
+  (`@attr.dex.capped`, `@prof.<selector>`, `@rank.<selector>` for selectors outside the table such as `ac`). Rule
+  elements may still use them, since homebrew needs them. The exporter reports such a formula as untranslatable,
+  the way it reports any other Pioneer-only content. This narrows ADR-0008's "exports cleanly" to formulas that
+  stay within the table.
 - The table grows with the engine: a path joins the catalogue when the engine can supply its value.
 
 ## Consequences
 
-- Rule element and statistic formulas are checked when content is validated: they must parse, and every reference
-  must be in the catalogue. Typos fail at import or authoring time instead of evaluating to an unknown reference.
+- Rule element formulas are checked when content is validated: they must parse, and every reference must be in
+  the catalogue. A typo in a fixed path (`@lvl`, `@attr.strength`) fails at import or authoring time instead of
+  evaluating to an unknown reference. A `<selector>` is checked for shape only, since statistics are content
+  (`@prof.athletcs` passes). Checking it against the loaded statistic definitions is left to pack validation.
+- Statistic base formulas will be checked the same way, limited to actor references, once statistic definitions
+  have a schema. The check already takes the allowed scopes for that.
 - A Foundry spelling in authored content gets an error naming the Pioneer path to write instead.
 - `@item.level` is spelled the same in both systems; everything else under `@actor.` changes on import.
 - Formulas inside Foundry's bracketed values and `{item|...}` injections are not covered here; they belong to the

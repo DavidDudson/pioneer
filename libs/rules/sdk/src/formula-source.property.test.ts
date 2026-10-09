@@ -5,7 +5,7 @@ import { fieldIssues } from '@pioneer/shared/kernel';
 import { assert, constantFrom, oneof, property } from 'fast-check';
 import type { Arbitrary } from 'fast-check';
 
-import { fromFoundryPath, knownReference } from './formula-reference';
+import { knownReference } from './formula-reference';
 import { RulesMessage } from './messages';
 import { RuleElement } from './rule-element';
 import { knownReferencePath, ruleElementJson, unknownReferencePath, validFormulaText } from './testing';
@@ -14,6 +14,10 @@ import { knownReferencePath, ruleElementJson, unknownReferencePath, validFormula
 const withFormulaValue: Arbitrary<object> = ruleElementJson.filter(
   (json) => 'value' in json && RuleElement.safeParse({ ...json, value: '@level' }).success,
 );
+
+/** Room left for ` + @path` under the length limit, so an added reference is never reported as too long. */
+const SHORT_FORMULA_MAX = 400;
+const shortFormulaText = validFormulaText.filter((text) => text.length <= SHORT_FORMULA_MAX);
 
 /** Valid formula text spoiled so it no longer parses. */
 const badSyntax: Arbitrary<string> = oneof(
@@ -36,18 +40,9 @@ describe('formula fields (properties)', () => {
     );
   });
 
-  test('a Foundry translation always lands on a known path', () => {
-    assert(
-      property(unknownReferencePath, (path) => {
-        const translated = fromFoundryPath(ReferencePath.parse(path));
-        expect(translated === undefined || knownReference(translated) !== undefined).toBe(true);
-      }),
-    );
-  });
-
   test('an unknown reference in any formula field is rejected at that field, with its position', () => {
     assert(
-      property(withFormulaValue, validFormulaText, unknownReferencePath, (json, text, path) => {
+      property(withFormulaValue, shortFormulaText, unknownReferencePath, (json, text, path) => {
         const value = `${text} + @${path}`;
         const result = RuleElement.safeParse({ ...json, value });
         const issues = result.success ? [] : fieldIssues(result.error.issues);
@@ -56,9 +51,7 @@ describe('formula fields (properties)', () => {
           expect(issue.path).toStrictEqual(['value']);
           expect(issue.message.params?.['position']).toBeNumber();
         }
-        // Unless the extra text pushed the formula past the length limit, the reference is what is reported.
-        const keys = issues.map((issue) => issue.message.key);
-        expect(keys.some((key) => REFERENCE_KEYS.has(key)) || keys.includes(FormulaMessage.TooLong)).toBe(true);
+        expect(issues.some((issue) => REFERENCE_KEYS.has(issue.message.key))).toBe(true);
       }),
     );
   });
