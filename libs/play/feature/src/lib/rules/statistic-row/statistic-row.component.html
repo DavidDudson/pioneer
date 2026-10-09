@@ -1,7 +1,7 @@
 @let shown = row();
 <fr-stack gap="xs">
   <fr-stack direction="horizontal" gap="xs" align="center" wrap>
-    <fr-text variant="code">{{ shown.selector }}</fr-text>
+    <fr-text element="code">{{ shown.selector }}</fr-text>
     @if (shown.ok) {
       <fr-badge variant="solid" tone="success">{{
         'play.rules.statisticTotal' | transloco: { total: total() }
@@ -16,7 +16,7 @@
         <fr-list-item>
           <fr-stack direction="horizontal" gap="xs" align="center" wrap>
             @if (term.code; as code) {
-              <fr-text variant="code">{{ code }}</fr-text>
+              <fr-text element="code">{{ code }}</fr-text>
             } @else {
               <fr-text tone="muted">{{ 'play.rules.rounding' | transloco }}</fr-text>
             }
@@ -27,6 +27,6 @@
     </fr-list>
   } @else {
     <fr-text element="p">{{ shown.error.key | transloco: shown.error.params }}</fr-text>
-    <fr-text element="p" variant="code" preformatted>{{ shown.pointer }}</fr-text>
+    <fr-text element="pre">{{ shown.pointer }}</fr-text>
   }
 </fr-stack>
