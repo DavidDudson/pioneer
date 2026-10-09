@@ -55,12 +55,15 @@ function unexpected(token: Token): never {
  */
 class Parser {
   readonly #tokens: readonly Token[];
+  /** Just past the last character, trailing whitespace included: where "ends too early" points. */
+  readonly #end: TextPosition;
   #next = 0;
   #depth = NodeCount.parse(0);
   #nodes = NodeCount.parse(0);
 
-  public constructor(tokens: readonly Token[]) {
-    this.#tokens = tokens;
+  public constructor(text: FormulaText) {
+    this.#tokens = tokenize(text);
+    this.#end = TextPosition.parse(text.length + 1);
   }
 
   public formula(): FormulaNode {
@@ -76,7 +79,7 @@ class Parser {
   #take(): Token {
     const current = this.#tokens[this.#next];
     if (current === undefined) {
-      return fail(message(FormulaMessage.UnexpectedEnd), this.#end());
+      return fail(message(FormulaMessage.UnexpectedEnd), this.#end);
     }
     this.#next += 1;
     return current;
@@ -85,11 +88,6 @@ class Parser {
   #expect(kind: TokenKind): Token {
     const token = this.#take();
     return token.kind === kind ? token : unexpected(token);
-  }
-
-  #end(): TextPosition {
-    const last = this.#tokens.at(-1);
-    return last === undefined ? FIRST : TextPosition.parse(last.position + last.lexeme.length);
   }
 
   /** Counts a node at `position`, failing once the formula has more than the limit. */
@@ -267,7 +265,7 @@ export function parseFormula(text: FormulaText): ParseOutcome {
     return { ok: false, error: message(FormulaMessage.TooLong, { maximum: FORMULA_LENGTH_MAX }), position };
   }
   try {
-    return { ok: true, formula: new Parser(tokenize(text)).formula() };
+    return { ok: true, formula: new Parser(text).formula() };
   } catch (error) {
     if (error instanceof FormulaSyntaxError) {
       return { ok: false, error: error.descriptor, position: error.position };

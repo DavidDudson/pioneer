@@ -104,6 +104,7 @@ describe('parseFormula', () => {
     ['1.5', FormulaMessage.UnexpectedCharacter, 2],
     ['1 +', FormulaMessage.UnexpectedEnd, 4],
     ['(1 + 2', FormulaMessage.UnexpectedEnd, 7],
+    ['(1   ', FormulaMessage.UnexpectedEnd, 6],
     ['1 2', FormulaMessage.UnexpectedToken, 3],
     ['1 + * 2', FormulaMessage.UnexpectedToken, 5],
     ['+1', FormulaMessage.UnexpectedToken, 1],
