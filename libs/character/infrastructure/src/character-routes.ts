@@ -9,16 +9,10 @@ import type { RequestAuthenticator } from '@pioneer/shared/server';
  */
 export function characterRoutes(service: CharacterService, auth: RequestAuthenticator): ContractRouter['app'] {
   return new ContractRouter('character-routes')
-    .handle(CharacterContract.list, async ({ query, ...exchange }) => [
-      ...(await service.list(await auth.actingUser(exchange), query)),
-    ])
-    .handle(CharacterContract.get, async ({ params, ...exchange }) =>
-      service.get(await auth.actingUser(exchange), params.id),
-    )
-    .handle(CharacterContract.create, async ({ body, ...exchange }) =>
-      service.create(await auth.actingUser(exchange), body),
-    )
-    .handle(CharacterContract.patch, async ({ params, body, ...exchange }) =>
-      service.patch(await auth.actingUser(exchange), params.id, body),
+    .handleSignedIn(CharacterContract.list, auth, async ({ actor, query }) => [...(await service.list(actor, query))])
+    .handleSignedIn(CharacterContract.get, auth, async ({ actor, params }) => service.get(actor, params.id))
+    .handleSignedIn(CharacterContract.create, auth, async ({ actor, body }) => service.create(actor, body))
+    .handleSignedIn(CharacterContract.patch, auth, async ({ actor, params, body }) =>
+      service.patch(actor, params.id, body),
     ).app;
 }

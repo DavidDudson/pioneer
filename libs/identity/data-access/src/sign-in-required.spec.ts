@@ -39,7 +39,7 @@ function setup(): HttpTestingController {
   TestBed.configureTestingModule({
     providers: [
       provideRouter([
-        { path: 'mine', canActivate: [signInRequired], children: [] },
+        { path: 'mine', canActivate: [signInRequired], runGuardsAndResolvers: 'always', children: [] },
         { path: '**', children: [] },
       ]),
       provideHttpClient(),
@@ -72,6 +72,17 @@ describe(signInRequired, () => {
     });
     await navigating;
     expect(router.url).toBe('/account/sign-in?returnTo=%2Fmine%3Fsort%3Dname');
+  });
+
+  it('opens the page when the server cannot say who is signed in', async () => {
+    const http = setup();
+    const router = TestBed.inject(Router);
+    const navigating = router.navigateByUrl('/mine');
+    await vi.waitFor(() => {
+      http.expectOne('/api/me').flush('', { status: 503, statusText: 'Unavailable' });
+    });
+    await navigating;
+    expect(router.url).toBe('/mine');
   });
 });
 

@@ -98,6 +98,10 @@ describe('character routes without a signed-in user', () => {
         body: { expectedVersion: 1, patch: { field: 'level', value: 2 } },
       }),
     ],
+    // Authentication comes before decoding: bad input never turns a 401 into a 422.
+    ['list with an unknown sort', request('GET', '/characters?sort=password', { as: anonymous })],
+    ['get with a malformed id', request('GET', '/characters/not-a-uuid', { as: anonymous })],
+    ['create with an empty body', request('POST', '/characters', { as: anonymous, body: {} })],
   ];
 
   test.each(cases)('%s is a 401 problem', async (_name, unsigned) => {

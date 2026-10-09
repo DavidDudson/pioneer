@@ -27,8 +27,8 @@ export const characters = pgTable(
     updatedAt: timestamp({ withTimezone: true, mode: 'string' }).notNull(),
   },
   (table) => [
-    // One index per CharacterSort option within an owner's characters, with id as the tie-breaker
-    // The list query orders by. Asc and desc both use it (backward index scan).
+    // One index per CharacterSort option within an owner's characters, ending in id (the tie-breaker).
+    // Asc and desc both use it (backward index scan).
     index('characters_owner_created_at_id_idx').on(table.ownerId, table.createdAt, table.id),
     index('characters_owner_name_id_idx').on(table.ownerId, table.name, table.id),
   ],

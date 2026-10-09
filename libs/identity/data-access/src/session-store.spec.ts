@@ -9,6 +9,7 @@ import { describe, expect, it, vi } from 'vitest';
 import type { Mock } from 'vitest';
 
 import { SessionStore } from './session-store';
+import { signInRequired } from './sign-in-required';
 
 const amiri = {
   id: '8f6d2c1a-0b3e-4f5a-9c7d-1e2f3a4b5c6d',
@@ -34,7 +35,10 @@ function setup(): Harness {
   const assign = vi.fn<(url: string) => void>();
   TestBed.configureTestingModule({
     providers: [
-      provideRouter([{ path: '**', children: [] }]),
+      provideRouter([
+        { path: 'mine', canActivate: [signInRequired], runGuardsAndResolvers: 'always', children: [] },
+        { path: '**', children: [] },
+      ]),
       provideHttpClient(),
       provideHttpClientTesting(),
       provideTanStackQuery(new QueryClient({ defaultOptions: { queries: { retry: false } } })),
@@ -141,5 +145,37 @@ describe(SessionStore, () => {
     store.signedOut();
     expect(client.getQueryData(['character', 'list'])).toBeUndefined();
     expect(client.getQueryData(['identity', 'me'])).toStrictEqual({ user: undefined });
+  });
+
+  it('signing out on the page leaves it for sign-in', async () => {
+    const { store, http } = setup();
+    const router = TestBed.inject(Router);
+    const navigating = router.navigateByUrl('/mine');
+    await vi.waitFor(() => {
+      http.expectOne('/api/me').flush(amiri);
+    });
+    await navigating;
+    const signingOut = store.signOut();
+    http.expectOne('/api/auth/sign-out').flush({});
+    await signingOut;
+    expect(router.url).toBe('/account/sign-in?returnTo=%2Fmine');
+  });
+
+  it('shares one prompt between calls that fail together', async () => {
+    const { store } = setup();
+    const router = TestBed.inject(Router);
+    await router.navigateByUrl('/elsewhere');
+    const navigate = vi.spyOn(router, 'navigate');
+    await Promise.all([store.promptSignIn(), store.promptSignIn()]);
+    expect(navigate).toHaveBeenCalledTimes(1);
+    expect(router.url).toBe('/account/sign-in?returnTo=%2Felsewhere');
+  });
+
+  it('prompts from the sign-in-failed page, which is not the sign-in page', async () => {
+    const { store } = setup();
+    const router = TestBed.inject(Router);
+    await router.navigateByUrl('/account/sign-in-failed');
+    await store.promptSignIn();
+    expect(router.url).toBe('/account/sign-in?returnTo=%2Faccount%2Fsign-in-failed');
   });
 });

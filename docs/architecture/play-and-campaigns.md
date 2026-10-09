@@ -112,8 +112,9 @@ campaign_events       id, campaign_id, seq bigint, at, actor_id, character_id?, 
   IWR applied, conditions with their sources. Filterable by character and round.
 - **Encounter tracker.** Initiative order (players roll from their sheets; GM adds creatures from Monster Core
   or ad hoc stat lines), round and turn, delay and ready. Deliberately no map, tokens or measurement.
-- **Permissions.** Policies live in `libs/identity` and are checked in application services: owner edits build;
-  GM can apply damage, conditions, effects and overrides to campaign characters; players act on their own.
+- **Permissions.** Each context's policies live in its own application layer and are checked in application
+  services, with the acting user from identity's `RequestAuthenticator` (ADR-0007): owner edits build; GM can
+  apply damage, conditions, effects and overrides to campaign characters; players act on their own.
 
 ## Accounts
 

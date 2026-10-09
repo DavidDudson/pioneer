@@ -24,6 +24,8 @@ export class SessionStore {
   readonly #document = inject(DOCUMENT);
   readonly #router = inject(Router);
   readonly #baseUrl = inject(API_BASE_URL);
+  /** The sign-in prompt under way, if any. */
+  #prompting: Promise<void> | undefined;
 
   readonly #me = injectQuery(() => ({
     queryKey: sessionKeys.me,
@@ -56,11 +58,9 @@ export class SessionStore {
    * the user and offer sign-in, unless the sign-in page is already showing.
    */
   public async promptSignIn(): Promise<void> {
-    this.signedOut();
-    const onSignIn = this.#router.url.startsWith(SIGN_IN_PATH);
-    if (!onSignIn) {
-      await this.showSignIn();
-    }
+    // Calls often fail together (a page's list and detail); they share one prompt.
+    this.#prompting ??= this.#promptOnce();
+    return this.#prompting;
   }
 
   /** Leaves for the provider, returning to `returnTo` afterwards. */
@@ -69,15 +69,18 @@ export class SessionStore {
     this.#document.location.assign(`${this.#baseUrl}${AuthPath.login(provider)}?${query.toString()}`);
   }
 
+  /** Ends this browser's session; a page that needs an account then sends it to sign-in. */
   public async signOut(): Promise<void> {
     await this.#api.call(IdentityContract.signOut, { params: {}, body: undefined });
     this.signedOut();
+    await this.#recheckAccess();
   }
 
   /** Ends every session this user has, here and on other devices. */
   public async signOutEverywhere(): Promise<void> {
     await this.#api.call(IdentityContract.signOutEverywhere, { params: {}, body: undefined });
     this.signedOut();
+    await this.#recheckAccess();
   }
 
   /**
@@ -88,6 +91,30 @@ export class SessionStore {
     const me = hashKey(sessionKeys.me);
     this.#client.removeQueries({ predicate: (query) => query.queryHash !== me });
     this.#client.setQueryData<SessionState>(sessionKeys.me, { user: undefined });
+  }
+
+  async #promptOnce(): Promise<void> {
+    try {
+      await this.#prompt();
+    } finally {
+      this.#prompting = undefined;
+    }
+  }
+
+  async #prompt(): Promise<void> {
+    this.signedOut();
+    const path = this.#router.parseUrl(this.#router.url).root.children['primary']?.toString();
+    if (`/${path ?? ''}` !== SIGN_IN_PATH) {
+      await this.showSignIn();
+    }
+  }
+
+  /**
+   * Runs the current page's guards again (routes that need an account set
+   * `runGuardsAndResolvers: 'always'`), so it is left once nobody is signed in.
+   */
+  async #recheckAccess(): Promise<void> {
+    await this.#router.navigateByUrl(this.#router.url, { onSameUrlNavigation: 'reload' });
   }
 
   async #fetchMe(): Promise<SessionState> {

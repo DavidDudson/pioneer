@@ -9,6 +9,8 @@ export const appRoutes: Routes = [
     path: 'characters',
     // Saved characters need an account (ADR-0007); content stays public.
     canActivate: [signInRequired],
+    // Signing out re-runs guards on the current page (SessionStore), so it is left at once.
+    runGuardsAndResolvers: 'always',
     data: PREFETCH_WHEN_IDLE,
     loadChildren: async () => {
       const { characterRoutes } = await import('@pioneer/character/feature');

@@ -26,9 +26,10 @@ The account gates our own features (saving, homebrew, campaigns), never the cont
 
 ## Consequences
 
-- Every user-owned table has an owner and authorisation checks in application services. Services take the acting
-  user from a `RequestAuthenticator` that identity implements, and treat another user's record as not found. An
-  owner's foreign key to `users` is written in the migration, since a context's tables may not import identity's.
+- Every user-owned table has an owner and authorisation checks in application services. Routes get the acting
+  user from a `RequestAuthenticator` that identity implements and pass it to services, which treat another
+  user's record as not found. An owner's foreign key to `users` is written in the migration, since a context's
+  tables may not import identity's.
 - The legal page is generated from pack manifests and `content/books.json`, so it cannot drift from what is
   served.
 - Public cache downloads reuse the immutable, content-hashed bundles the browser already loads; no extra storage.
