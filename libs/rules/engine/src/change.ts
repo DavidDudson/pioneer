@@ -92,11 +92,13 @@ export function changeRules(rules: readonly RuleInPlay[]): ChangeRules {
       (left, right) =>
         MODE_ORDER.indexOf(left.mode) - MODE_ORDER.indexOf(right.mode) ||
         left.priority - right.priority ||
-        (left.id < right.id ? -1 : 1),
+        Number(left.id > right.id) - Number(left.id < right.id),
     );
   const set = sources
     .filter((source) => isSetOverride(source))
-    .toSorted((left, right) => left.priority - right.priority || (left.id < right.id ? -1 : 1));
+    .toSorted(
+      (left, right) => left.priority - right.priority || Number(left.id > right.id) - Number(left.id < right.id),
+    );
   return { base: bySelector(base), set: bySelector(set) };
 }
 

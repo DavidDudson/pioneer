@@ -126,11 +126,15 @@ export function collectLines(
 ): readonly BreakdownLine[] {
   const adjustments = rules.adjustments
     .filter((adjustment) => reaches(adjustment.targets, definition) && holds(adjustment.predicate, context.facts))
-    .toSorted((left, right) => left.priority - right.priority || (left.id < right.id ? -1 : 1));
+    .toSorted(
+      (left, right) => left.priority - right.priority || Number(left.id > right.id) - Number(left.id < right.id),
+    );
   const collection = new Collection(context, adjustments);
   const lines = rules.modifiers
     .filter(({ modifier }) => reaches(modifier.targets, definition))
-    .toSorted((left, right) => (left.modifier.id < right.modifier.id ? -1 : 1))
+    .toSorted(
+      (left, right) => Number(left.modifier.id > right.modifier.id) - Number(left.modifier.id < right.modifier.id),
+    )
     .map((source) => collection.line(source));
   return stack(lines);
 }

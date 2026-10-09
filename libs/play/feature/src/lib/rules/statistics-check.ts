@@ -82,13 +82,13 @@ export interface TermLine {
   readonly value: number;
 }
 
+/** A statistic that derived. */
+export type DerivedRow = Extract<StatisticRow, { readonly ok: true }>;
+
 /**
  * A statistic's base terms, lines, overrides and totals, or its error with a caret under the reference or node
  * that failed.
  */
-/** A statistic that derived. */
-export type DerivedRow = Extract<StatisticRow, { readonly ok: true }>;
-
 export type StatisticRow =
   | {
       readonly ok: true;
