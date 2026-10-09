@@ -5,4 +5,7 @@ export const RulesMessage = {
   PredicateTooDeep: 'rules.predicate.tooDeep',
   BookLocation: 'rules.source.bookLocation',
   AonUrl: 'rules.source.aonUrl',
+  UnknownElement: 'rules.element.unknown',
+  SuboptionsNeedToggle: 'rules.element.suboptionsNeedToggle',
+  AdjustModeOrSuppress: 'rules.element.adjustModeOrSuppress',
 } as const;

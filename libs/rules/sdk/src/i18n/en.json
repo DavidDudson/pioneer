@@ -12,6 +12,11 @@
     "source": {
       "bookLocation": "Give a page number, an Archives of Nethys link, or both.",
       "aonUrl": "Link to one entry on 2e.aonprd.com, like https://2e.aonprd.com/Feats.aspx?ID=1."
+    },
+    "element": {
+      "unknown": "“{key}” is not a rule element Pioneer knows yet.",
+      "suboptionsNeedToggle": "Only a toggle (toggleable: true) can offer suboptions.",
+      "adjustModeOrSuppress": "Give a mode and a value, or suppress: true, but not both."
     }
   }
 }

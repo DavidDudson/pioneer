@@ -5,3 +5,4 @@
 export { ContentPackBuilder } from './content-pack-builder';
 export { installRulesFakes } from './fakes';
 export { keyPathText, predicateJson, predicateStatementJson, rollOptionText } from './arbitraries';
+export { ruleElementJson } from './rule-element-arbitraries';
