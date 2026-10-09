@@ -2,7 +2,8 @@
   "shell": {
     "brand": "Pioneer",
     "nav": {
-      "characters": "Characters"
+      "characters": "Characters",
+      "dice": "Dice"
     },
     "communityUse": {
       "beforePolicyLink": "Pioneer uses trademarks and/or copyrights owned by Paizo Inc., used under Paizo's Community Use Policy (",

@@ -248,7 +248,8 @@
           {
             "sourceTag": "scope:character",
             "onlyDependOnLibsWithTags": ["scope:character", "scope:rules", "scope:shared"]
-          }
+          },
+          { "sourceTag": "scope:play", "onlyDependOnLibsWithTags": ["scope:play", "scope:rules", "scope:shared"] }
         ]
       }
     ]

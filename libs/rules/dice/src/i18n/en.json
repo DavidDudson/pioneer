@@ -1,0 +1,18 @@
+{
+  "dice": {
+    "parse": {
+      "empty": "Enter a dice expression, like 1d20+7.",
+      "tooLong": "Keep expressions to {maximum} characters or fewer.",
+      "tooManyTerms": "Use at most {maximum} dice and numbers in one expression.",
+      "unexpectedCharacter": "“{found}” at position {position} is not part of a dice expression.",
+      "unexpectedToken": "“{found}” at position {position} is out of place.",
+      "unexpectedEnd": "The expression ends too early. Add dice or a number at the end.",
+      "diceCount": "Roll between {minimum} and {maximum} dice at a time (position {position}).",
+      "dieSize": "Dice need between {minimum} and {maximum} sides (position {position}).",
+      "flatValue": "Numbers can be at most {maximum} (position {position}).",
+      "keepCount": "Cannot keep {keep} of {count} dice (position {position}).",
+      "unknownTag": "“{found}” at position {position} is not a damage type, persistent or splash.",
+      "conflictingTag": "“{found}” at position {position} conflicts with an earlier tag on the same dice."
+    }
+  }
+}
