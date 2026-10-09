@@ -140,6 +140,25 @@ describe('RulesPlaygroundPage', () => {
     expect(level.getAttribute('aria-invalid')).toBe('true');
   });
 
+  it('keeps the boxes while the formula is mid-edit, and resets one whose reference left the formula', async () => {
+    const harness = await openPlayground();
+    await chooseSchema(harness, 'Formula');
+    const formula = present(harness.routeNativeElement?.querySelector<HTMLInputElement>('input:not([type="number"])'));
+    const level = present(
+      [...present(harness.routeNativeElement).querySelectorAll<HTMLInputElement>('input[type="number"]')][2],
+    );
+    await typeInto(harness, level, '');
+
+    await typeInto(harness, formula, '10 + @attr.dex.capped + @prof.armor + @level *');
+    expect(level.isConnected).toBe(true);
+
+    await typeInto(harness, formula, '10 + @attr.dex.capped + @prof.armor');
+    await typeInto(harness, formula, '10 + @attr.dex.capped + @prof.armor + @level');
+    const boxes = [...present(harness.routeNativeElement).querySelectorAll<HTMLInputElement>('input[type="number"]')];
+    expect(present(boxes[2]).value).toBe('5');
+    expect(pageText(harness)).toContain('Value: 20');
+  });
+
   it('points at the first mistake in a formula with text from the formula bundle', async () => {
     const harness = await openPlayground();
     await chooseSchema(harness, 'Formula');

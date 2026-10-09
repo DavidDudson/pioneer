@@ -69,6 +69,8 @@ describe('evaluate', () => {
     expect(value('floor(@actor.level / 2) * 2')).toBe(4);
     expect(value('ceil(@actor.level / 2)')).toBe(3);
     expect(value('7 / 2 + 7 / 2')).toBe(7);
+    expect(value('0 / 5')).toBe(0);
+    expect(value('@zero / @negative')).toBe(0);
   });
 
   test('the result rounds down, negative values included', () => {

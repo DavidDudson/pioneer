@@ -2,9 +2,7 @@
 @if (result.status === CheckStatus.Valid) {
   @let evaluation = result.evaluation;
   @if (evaluation.status === CheckStatus.Valid) {
-    <fr-heading variant="heading" [level]="3">{{
-      'play.rules.formulaValue' | transloco: { value: value() }
-    }}</fr-heading>
+    <fr-message tone="success">{{ 'play.rules.formulaValue' | transloco: { value: value() } }}</fr-message>
   } @else {
     <fr-message tone="danger">{{ evaluation.error.key | transloco: evaluation.error.params }}</fr-message>
     <fr-text element="p" variant="code" preformatted>{{ evaluation.pointer }}</fr-text>

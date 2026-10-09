@@ -6,7 +6,14 @@ import type { FormulaNode } from '../ast';
 import { ARITY, FormulaFunction } from '../functions';
 import { parseFormula } from '../parse';
 import { printFormula } from '../print';
-import { FORMULA_NUMBER_MAX, FormulaNumber, FormulaValue, ReferencePath, TextPosition } from '../units';
+import {
+  FORMULA_NUMBER_MAX,
+  FORMULA_VALUE_MAX,
+  FormulaNumber,
+  FormulaValue,
+  ReferencePath,
+  TextPosition,
+} from '../units';
 import type { Bindings } from './foundry';
 
 /*
@@ -79,10 +86,16 @@ const boundValue = integer({ min: -SMALL_VALUE_MAX, max: SMALL_VALUE_MAX }).map(
 const toBindings = (values: Partial<Record<ReferencePath, FormulaValue>>): Bindings =>
   new Map(Object.entries(values).map(([key, value]) => [ReferencePath.parse(key), FormulaValue.parse(value)]));
 
-/** Values for some or all of {@link BOUND_PATHS}, small and of either sign. */
-export const bindings: Arbitrary<Bindings> = dictionary(constantFrom(...BOUND_PATHS), boundValue).map((values) =>
-  toBindings(values),
-);
+const extremeValue = constantFrom(FORMULA_VALUE_MAX, -FORMULA_VALUE_MAX).map((value) => FormulaValue.parse(value));
+
+/**
+ * Values for some or all of {@link BOUND_PATHS}: mostly small and of either sign, now and then at the edge of the
+ * safe range, so values leave it.
+ */
+export const bindings: Arbitrary<Bindings> = dictionary(
+  constantFrom(...BOUND_PATHS),
+  oneof({ arbitrary: boundValue, weight: 4 }, { arbitrary: extremeValue, weight: 1 }),
+).map((values) => toBindings(values));
 
 /** Values for every one of {@link BOUND_PATHS}. */
 export const allBindings: Arbitrary<Bindings> = record(

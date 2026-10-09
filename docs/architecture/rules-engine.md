@@ -85,26 +85,39 @@ function   = min | max | floor | ceil | abs | round | sign
 unknown, and the outcome is `{ ok: true, value }` or `{ ok: false, error, position }`, the error a message
 descriptor pointing at the node that failed.
 
-The semantics are Foundry's. pf2e's `RuleElementPF2e#resolveValue` substitutes the reference values into the
-text and runs it through `Roll.safeEval`, which evaluates it as JavaScript with `Math` and pf2e's helpers in
-scope and does not round; `FlatModifier` then uses that number as is. So:
+The semantics follow Foundry's. pf2e's `RuleElementPF2e#resolveValue` pastes the reference values into the text
+(its own `#replaceFormulaData`) and runs it through `Roll.safeEval`, which evaluates it as JavaScript with `Math`
+and pf2e's helpers in scope and does not round. `FlatModifier` reads the result with `Number(value) || 0` and
+clamps it to its `min` and `max`. So:
 
 - Arithmetic is JavaScript's double arithmetic, in the tree's order. Division keeps fractions: `@level / 2 * 2`
   is `@level`, and `floor`, `ceil` and `round` see the fraction. `round` is `Math.round`, which rounds halves
   up (`round(-2.5)` is -2).
 - The language rounds once: the final value is rounded **down** (`Math.floor`), so `@level / 2` at level 5 is
-  2 and `-5 / 2` is -3. This is where Pioneer differs from Foundry, which would keep 2.5. Rounding down is the
-  PF2e default (Player Core, "Rounding"), and the content that divides already wraps the division in
-  `floor`, where both agree.
+  2 and `-5 / 2` is -3. Foundry would keep 2.5 (ADR-0014). Rounding down is the PF2e default (Player Core,
+  "Rounding"), and where a fraction matters Foundry content wraps the division in `floor`, so both agree.
 - Comparisons (`eq`, `ne`, `gt`, `gte`, `lt`, `lte`) give 1 or 0, as pf2e's `true` and `false` do in
-  arithmetic. `ternary` treats any value but 0 as true and evaluates only the branch it takes; pf2e evaluates
-  both, which only matters when the other branch fails.
-- Failures Foundry does not have: an unknown reference (Foundry warns and uses the rule element's default),
-  division by zero (JavaScript gives `Infinity` or `NaN`), and any value, intermediate ones included, outside
-  the safe integer range (where doubles stop holding every whole number).
+  arithmetic. `ternary` treats any value but 0 as true and evaluates only the branch it takes.
 
-The property tests check the evaluator against a model of Foundry's evaluation: the tree printed as
-JavaScript, run with pf2e's `Math` helpers, and rounded down.
+Where Pioneer deliberately differs from Foundry:
+
+- Pioneer evaluates every formula. pf2e only evaluates text with a reference in it: `1 + 2` stays a string,
+  which `FlatModifier` reads as 0.
+- A comparison result is 1 or 0 everywhere. pf2e's helpers return booleans and compare strictly, so
+  `eq(gte(@level, 5), 1)` is `true === 1`, false, in Foundry and 1 in Pioneer.
+- pf2e evaluates both branches of a `ternary`. That only matters when the branch not taken fails.
+- A negated negative reference works: pf2e turns `-@x` with `@x = -2` into `--2`, a syntax error, and falls back
+  to the rule element's default. Pioneer gives 2.
+- Failures Foundry does not have, each pointing at the failing node: an unknown reference (Foundry warns and uses
+  the default), division by zero (JavaScript gives `Infinity` or `NaN`), and any value, intermediate ones
+  included, outside the safe integer range (where doubles stop holding every whole number). As far as we know,
+  Foundry core's `Roll.safeEval` also rejects a result that is not a finite number (a top-level `Infinity` or a
+  bare boolean) and falls back to the default. Its source is not public, so this is unverified.
+
+The property tests check the evaluator against a model of Foundry's evaluation: the tree printed as JavaScript,
+run with pf2e's `Math` helpers, and rounded down. The model brackets reference values and reads comparisons as
+1 or 0, as listed above, and records zero divisors and unsafe values so that every failure the evaluator reports
+is one Foundry's JavaScript met too.
 
 ## Modifiers and stacking
 

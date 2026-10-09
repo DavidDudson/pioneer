@@ -91,5 +91,7 @@ export class RulesPlaygroundPage {
     }
     this.schema.set(tool);
     this.text.set(rulesExample(tool));
+    // The boxes go with the tool, and a box made again would show a stale number for an emptied entry.
+    this.referenceEntries.set(new Map());
   }
 }

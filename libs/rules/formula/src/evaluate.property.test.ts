@@ -10,18 +10,21 @@ import { FormulaFunction } from './functions';
 import { FormulaMessage } from './messages';
 import { references } from './references';
 import { allBindings, bindings, evaluableFormula, formula, positions, reparsed } from './testing/arbitraries';
-import { foundryValue } from './testing/foundry';
-import type { Bindings } from './testing/foundry';
+import { foundryOutcome } from './testing/foundry';
+import type { Bindings, FoundryOutcome } from './testing/foundry';
 import { FormulaNumber, TextPosition } from './units';
-import type { ReferencePath } from './units';
+import type { FormulaValue, ReferencePath } from './units';
 
 const resolverFor =
   (values: Bindings): ResolveReference =>
   (path) =>
     values.get(path);
 
-/** Failures the reference implementation has no counterpart for: JavaScript gives `Infinity` or `NaN` instead. */
-const ARITHMETIC_FAILURES = new Set<string>([FormulaMessage.DivisionByZero, FormulaMessage.OutOfRange]);
+/** For each failure the reference has no counterpart for (JavaScript gives `Infinity` or `NaN`), what it must have seen. */
+const FLAGGED: Readonly<Record<string, (foundry: FoundryOutcome) => boolean>> = {
+  [FormulaMessage.DivisionByZero]: (foundry) => foundry.dividedByZero,
+  [FormulaMessage.OutOfRange]: (foundry) => foundry.leftSafeRange,
+};
 
 const CONDITION_MAX = 9;
 /** A ternary with a non-zero number as its condition. */
@@ -37,10 +40,12 @@ describe('evaluate (properties)', () => {
     assert(
       property(evaluableFormula, allBindings, (tree, values) => {
         const outcome = evaluate(tree, resolverFor(values));
+        const foundry = foundryOutcome(tree, values);
         if (outcome.ok) {
-          expect(outcome.value).toBe(foundryValue(tree, values));
+          expect<FormulaValue | undefined>(outcome.value).toBe(foundry.value);
         } else {
-          expect(ARITHMETIC_FAILURES.has(outcome.error.key)).toBe(true);
+          // A failure only where Foundry's JavaScript met the same arithmetic: a zero divisor or an unsafe value.
+          expect(FLAGGED[outcome.error.key]?.(foundry)).toBe(true);
         }
       }),
     );

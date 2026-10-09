@@ -21,3 +21,4 @@ are errors. Translation in both directions lives in `libs/interop/foundry`.
 - Most imported rule elements translate one to one; path-based ones need per-path translators.
 - Homebrew authors learn one vocabulary that also exports cleanly to Foundry.
 - When Foundry adds or changes an element, the importer reports it and we decide whether to follow.
+- Formula results are rounded down to whole numbers, where Foundry keeps fractions (ADR-0014).
