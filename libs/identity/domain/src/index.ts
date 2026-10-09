@@ -13,5 +13,13 @@ export {
 } from './identity-fields';
 export type { ProviderProfile } from './provider-profile';
 export { HOME_PATH, ReturnPath, returnPathOr } from './return-path';
-export { Session, SESSION_LIFETIME, SessionToken, TokenHash } from './session';
+export {
+  LAST_SEEN_RESOLUTION,
+  Session,
+  SESSION_LIFETIME,
+  SESSION_RENEWAL_WINDOW,
+  SessionSummary,
+  SessionToken,
+  TokenHash,
+} from './session';
 export { User, UserWire } from './user';

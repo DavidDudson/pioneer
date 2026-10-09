@@ -1,12 +1,15 @@
 import { Endpoint, HttpMethod, NoBody, NoParams, NoQuery } from '@pioneer/shared/kernel';
 import { z } from 'zod';
 
-import { OAuthProviderSchema } from './identity-fields';
+import { OAuthProviderSchema, SessionId } from './identity-fields';
 import type { OAuthProvider } from './identity-fields';
+import { SessionSummary } from './session';
 import { User } from './user';
 
 /** Acknowledgement with nothing to return. */
 const Done = z.strictObject({});
+
+const BySessionId = z.object({ id: SessionId });
 
 /** The identity HTTP API, shared by `identity-infrastructure` and `identity-feature`. */
 export const IdentityContract = {
@@ -32,6 +35,33 @@ export const IdentityContract = {
   signOut: new Endpoint({
     method: HttpMethod.Post,
     path: '/auth/sign-out',
+    params: NoParams,
+    query: NoQuery,
+    body: NoBody,
+    response: Done,
+  }),
+  /** The signed-in user's unexpired sessions, most recently seen first. */
+  sessions: new Endpoint({
+    method: HttpMethod.Get,
+    path: '/me/sessions',
+    params: NoParams,
+    query: NoQuery,
+    body: NoBody,
+    response: z.array(SessionSummary),
+  }),
+  /** Ends one of the signed-in user's sessions; 404 for anyone else's. Ending the current one signs out. */
+  revokeSession: new Endpoint({
+    method: HttpMethod.Delete,
+    path: '/me/sessions/:id',
+    params: BySessionId,
+    query: NoQuery,
+    body: NoBody,
+    response: Done,
+  }),
+  /** Ends every session the signed-in user has, this one included, and clears its cookie. */
+  signOutEverywhere: new Endpoint({
+    method: HttpMethod.Post,
+    path: '/auth/sign-out-everywhere',
     params: NoParams,
     query: NoQuery,
     body: NoBody,

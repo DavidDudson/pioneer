@@ -3,7 +3,7 @@ import { afterAll, beforeAll, describe, expect, test } from 'bun:test';
 import { hashSessionToken, IdentityService } from '@pioneer/identity/application';
 import { DisplayName, OAuthProvider, SessionToken } from '@pioneer/identity/domain';
 import { ProfileBuilder } from '@pioneer/identity/domain/testing';
-import { Temporal } from '@pioneer/shared/kernel';
+import { NotFoundError, Temporal } from '@pioneer/shared/kernel';
 import type { Clock } from '@pioneer/shared/kernel';
 import { createTestDatabase, QueryRecorder, testDatabaseUrl, unindexedQueries } from '@pioneer/shared/server/testing';
 import type { TestDatabase } from '@pioneer/shared/server/testing';
@@ -42,7 +42,7 @@ describe.skipIf(adminUrl === undefined)('Drizzle identity repositories (postgres
     expect(again.user.id).toBe(first.user.id);
     expect(again.user.displayName).toBe(DisplayName.parse('Kyra of Sarenrae'));
     const authenticated = await service.authenticate(first.token);
-    expect(authenticated?.displayName).toBe(DisplayName.parse('Kyra of Sarenrae'));
+    expect(authenticated?.user.displayName).toBe(DisplayName.parse('Kyra of Sarenrae'));
   });
 
   test('only the token hash is stored, and expired sessions do not authenticate', async () => {
@@ -78,6 +78,51 @@ describe.skipIf(adminUrl === undefined)('Drizzle identity repositories (postgres
     expect(linked.user.id).toBe(github.user.id);
     const accounts = await database.db.select().from(oauthAccounts).where(eq(oauthAccounts.userId, github.user.id));
     expect(accounts.map((account) => account.provider).toSorted()).toStrictEqual(['github', 'google']);
+  });
+
+  test('use renews the session and records last seen', async () => {
+    const { token, session } = await service.signIn(new ProfileBuilder().withSubject('47').build());
+    now = now.add({ hours: 24 * 20 });
+    const used = await service.requireSession(token);
+    expect(used.renewed).toBe(true);
+    const stored = await service.requireSession(token);
+    expect(stored.renewed).toBe(false);
+    expect(stored.session.id).toBe(session.id);
+    expect(stored.session.lastSeenAt).toEqual(now);
+    expect(stored.session.expiresAt).toEqual(now.add({ hours: 24 * 30 }));
+    now = Temporal.Instant.from('2026-10-09T08:00:00Z');
+  });
+
+  test("lists and revokes the user's own sessions; another user's is not found", async () => {
+    const profile = new ProfileBuilder().withSubject('48').build();
+    const laptop = await service.signIn(profile);
+    now = now.add({ hours: 2 });
+    const phone = await service.signIn(profile);
+    const other = await service.signIn(new ProfileBuilder().withSubject('49').build());
+    now = now.add({ hours: 2 });
+    const current = await service.requireSession(laptop.token);
+
+    const listed = await service.listSessions(current);
+    expect(listed.map((each) => each.id)).toStrictEqual([laptop.session.id, phone.session.id]);
+    expect(listed.map((each) => each.current)).toStrictEqual([true, false]);
+
+    expect(service.revokeSession(current, other.session.id)).rejects.toBeInstanceOf(NotFoundError);
+    expect(await service.revokeSession(current, phone.session.id)).toStrictEqual({ current: false });
+    expect(await service.authenticate(phone.token)).toBeUndefined();
+
+    await service.signOutEverywhere(current);
+    expect(await service.authenticate(laptop.token)).toBeUndefined();
+    expect(await service.authenticate(other.token)).toBeDefined();
+    now = Temporal.Instant.from('2026-10-09T08:00:00Z');
+  });
+
+  test('the sweep deletes expired sessions', async () => {
+    const { session } = await service.signIn(new ProfileBuilder().withSubject('50').build());
+    now = now.add({ hours: 24 * 60 });
+    expect(await service.sweepExpired()).toBeGreaterThanOrEqual(1);
+    const rows = await database.db.select().from(sessions).where(eq(sessions.id, session.id));
+    expect(rows).toStrictEqual([]);
+    now = Temporal.Instant.from('2026-10-09T08:00:00Z');
   });
 
   test('every query the repositories issued is served by an index', async () => {

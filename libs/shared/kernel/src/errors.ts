@@ -7,6 +7,7 @@ import type { ValueOf } from './value-of';
 /** HTTP statuses the API answers errors with. */
 export const HttpStatus = {
   Unauthorized: 401,
+  Forbidden: 403,
   NotFound: 404,
   Conflict: 409,
   UnprocessableContent: 422,
@@ -17,6 +18,7 @@ export type HttpStatus = ValueOf<typeof HttpStatus>;
 /** RFC 9457 `type` of every problem the API returns. */
 export const ProblemType = {
   Unauthorized: 'unauthorized',
+  Forbidden: 'forbidden',
   NotFound: 'not-found',
   VersionConflict: 'version-conflict',
   Validation: 'validation',
@@ -44,6 +46,18 @@ export class UnauthorizedError extends DomainError {
 
   public constructor() {
     super('No signed-in user');
+  }
+}
+
+/** Refused whoever is signed in, such as a cookie-authenticated write sent from another site. */
+export class ForbiddenError extends DomainError {
+  public override readonly name = 'ForbiddenError';
+  public readonly status = HttpStatus.Forbidden;
+  public readonly type = ProblemType.Forbidden;
+  public readonly descriptor = message(ProblemMessage.Forbidden);
+
+  public constructor(reason: string) {
+    super(reason);
   }
 }
 

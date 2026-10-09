@@ -9,7 +9,7 @@ import type { AnyElysia } from 'elysia';
 
 import type { Database } from './database';
 import type { Env } from './env';
-import { API_PREFIX, identity } from './identity';
+import { API_PREFIX, csrf, identity } from './identity';
 
 /** Composition root: the only place adapters, services and routes meet. */
 export async function createApp(db: Database, env: Env): Promise<AnyElysia> {
@@ -21,6 +21,7 @@ export async function createApp(db: Database, env: Env): Promise<AnyElysia> {
 
   return new Elysia({ prefix: API_PREFIX })
     .use(problemHandler)
+    .use(csrf(env))
     .get('/health', () => ({ status: 'ok' }))
     .use(identity(db, env, clock))
     .use(characterRoutes(characters));
