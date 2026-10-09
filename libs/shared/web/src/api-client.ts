@@ -6,6 +6,7 @@ import { firstValueFrom } from 'rxjs';
 import { z } from 'zod';
 
 import { ApiError } from './api-error';
+import { UNAUTHORIZED_HANDLER } from './unauthorized-handler';
 
 /** Base URL every contract path is resolved against. */
 export const API_BASE_URL = new InjectionToken<string>('API_BASE_URL', { factory: (): string => '/api' });
@@ -15,17 +16,21 @@ interface CallInput<TParams extends z.ZodObject, TBody extends z.ZodType, TQuery
   /** Omit for endpoints without a query; list endpoints fall back to their defaults. */
   readonly query?: z.output<TQuery>;
   readonly body: z.output<TBody>;
+  /** True for calls that ask whether anyone is signed in, where a 401 is an answer, not a prompt. */
+  readonly signedOutIsAnswer?: boolean;
 }
 
 /**
  * Calls a shared `Endpoint` contract. Encodes params/body through the
  * contract's codecs and decodes the response into domain classes, so feature
- * code never handles raw JSON.
+ * code never handles raw JSON. A 401 also goes to the `UNAUTHORIZED_HANDLER`,
+ * so an expired session prompts sign-in wherever it is noticed.
  */
 @Injectable({ providedIn: 'root' })
 export class ApiClient {
   readonly #http = inject(HttpClient);
   readonly #baseUrl = inject(API_BASE_URL);
+  readonly #unauthorized = inject(UNAUTHORIZED_HANDLER, { optional: true });
 
   public async call<
     TParams extends z.ZodObject,
@@ -47,7 +52,11 @@ export class ApiClient {
     } catch (error: unknown) {
       if (error instanceof HttpErrorResponse) {
         const problem = ProblemSchema.safeParse(error.error);
-        throw new ApiError(error.status, problem.success ? problem.data : undefined);
+        const failure = new ApiError(error.status, problem.success ? problem.data : undefined);
+        if (failure.isUnauthorized && input.signedOutIsAnswer !== true) {
+          await this.#unauthorized?.();
+        }
+        throw failure;
       }
       throw error;
     }

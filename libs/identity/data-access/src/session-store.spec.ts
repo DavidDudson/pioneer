@@ -106,4 +106,40 @@ describe(SessionStore, () => {
       expect(store.user()).toBeUndefined();
     });
   });
+
+  it('whenKnown waits for the server, then answers from the cache', async () => {
+    const { store, http } = setup();
+    const first = store.whenKnown();
+    await vi.waitFor(() => {
+      http.expectOne('/api/me').flush(amiri);
+    });
+    const user = await first;
+    expect(user?.displayName).toBe(DisplayName.parse('Amiri'));
+    const again = await store.whenKnown();
+    expect(again?.displayName).toBe(DisplayName.parse('Amiri'));
+    http.expectNone('/api/me');
+  });
+
+  it('promptSignIn forgets the user and opens sign-in, returning to the current page', async () => {
+    const { store, http } = setup();
+    TestBed.tick();
+    http.expectOne('/api/me').flush(amiri);
+    await settle();
+    const router = TestBed.inject(Router);
+    await router.navigateByUrl('/characters');
+    await store.promptSignIn();
+    expect(store.user()).toBeUndefined();
+    expect(router.url).toBe('/account/sign-in?returnTo=%2Fcharacters');
+    await store.promptSignIn();
+    expect(router.url).toBe('/account/sign-in?returnTo=%2Fcharacters');
+  });
+
+  it('signing out drops everything cached for the user', () => {
+    const { store } = setup();
+    const client = TestBed.inject(QueryClient);
+    client.setQueryData(['character', 'list'], ['Kyra']);
+    store.signedOut();
+    expect(client.getQueryData(['character', 'list'])).toBeUndefined();
+    expect(client.getQueryData(['identity', 'me'])).toStrictEqual({ user: undefined });
+  });
 });
