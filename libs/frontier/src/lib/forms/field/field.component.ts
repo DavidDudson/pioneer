@@ -32,6 +32,7 @@ export class Field {
 
   readonly #id = uniqueId('fr-field');
   public readonly controlId = `${this.#id}-control`;
+  public readonly labelId = `${this.#id}-label`;
   public readonly hintId = `${this.#id}-hint`;
   public readonly errorId = `${this.#id}-error`;
 

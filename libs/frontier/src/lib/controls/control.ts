@@ -20,6 +20,8 @@ export abstract class Control {
 
   readonly #field = inject(Field, { optional: true }) ?? undefined;
   protected readonly id = computed(() => this.#field?.controlId);
+  /** The field label's id, for controls a `<label for>` cannot name (a group of buttons). */
+  protected readonly labelledBy = computed(() => this.#field?.labelId);
   protected readonly describedBy = computed(() => this.#field?.describedBy());
   protected readonly ariaInvalid = computed(() => this.invalid() || (this.#field?.invalid() ?? false));
 }

@@ -50,10 +50,10 @@ export const Disabled: ButtonStory = { args: { variant: ButtonVariant.Primary, d
 
 export const Busy: ButtonStory = { args: { variant: ButtonVariant.Primary, busy: true } };
 
-/** A toggle button: announced as pressed, with a tick when on. Styled for the secondary variant. */
-export const ToggledOn: ButtonStory = { args: { label: 'Flat-footed', toggled: true } };
+/** The look behind `fr-toggle-button`: filled with the accent when pressed. Features use that component. */
+export const ToggleOn: ButtonStory = { args: { variant: ButtonVariant.Toggle, label: 'Flat-footed', toggled: true } };
 
-export const ToggledOff: ButtonStory = { args: { label: 'Flat-footed', toggled: false } };
+export const ToggleOff: ButtonStory = { args: { variant: ButtonVariant.Toggle, label: 'Flat-footed', toggled: false } };
 
 export const Sizes: ButtonStory = {
   render: () => ({

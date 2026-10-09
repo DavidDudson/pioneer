@@ -14,6 +14,7 @@ import {
   Surface,
   Text,
   TextInput,
+  ToggleButton,
 } from '@pioneer/frontier';
 import {
   checkOutcome,
@@ -66,6 +67,7 @@ const PLAYGROUND_MISFORTUNE = message('play.dice.playgroundMisfortune');
     Surface,
     Text,
     TextInput,
+    ToggleButton,
     TranslocoPipe,
   ],
   templateUrl: './dice-playground-page.component.html',
@@ -108,18 +110,6 @@ export class DicePlaygroundPage {
   protected readonly dcInvalid = computed((): boolean => this.againstDc() && this.#dc() === undefined);
   protected readonly canRoll = computed((): boolean => this.error() === undefined && !this.dcInvalid());
   protected readonly rolls = signal<readonly RollView[]>([]);
-
-  protected toggleFortune(): void {
-    this.fortune.update((on) => !on);
-  }
-
-  protected toggleMisfortune(): void {
-    this.misfortune.update((on) => !on);
-  }
-
-  protected toggleAgainstDc(): void {
-    this.againstDc.update((on) => !on);
-  }
 
   protected roll(): void {
     const outcome = this.#outcome();

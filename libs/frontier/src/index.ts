@@ -21,9 +21,11 @@ export { AsyncRegion } from './lib/async/async-region/async-region.component';
 // Plain controls (inline editing)
 export { DateInput } from './lib/controls/date-input/date-input.component';
 export { NumberInput } from './lib/controls/number-input/number-input.component';
+export { Segmented } from './lib/controls/segmented/segmented.component';
 export { Select, type SelectOption } from './lib/controls/select/select.component';
 export { TextArea } from './lib/controls/text-area/text-area.component';
 export { TextInput } from './lib/controls/text-input/text-input.component';
+export { ToggleButton } from './lib/controls/toggle-button/toggle-button.component';
 
 // Dates
 export { DateDisplay, DateFormat, type DateValue } from './lib/date/date.component';
@@ -42,6 +44,7 @@ export { FieldHint } from './lib/forms/field/hint/hint.component';
 export { Label } from './lib/forms/field/label/label.component';
 export { Form } from './lib/forms/form/form.component';
 export { NumberField } from './lib/forms/number-field/number-field.component';
+export { SegmentedField } from './lib/forms/segmented-field/segmented-field.component';
 export { SelectField } from './lib/forms/select-field/select-field.component';
 export { TextField } from './lib/forms/text-field/text-field.component';
 
