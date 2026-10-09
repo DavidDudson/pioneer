@@ -75,17 +75,13 @@ describe('degreeOfSuccess', () => {
     expect(degreeOfSuccess(check(20, 13), DC_20).steps).toHaveLength(1);
   });
 
-  test('adjustments apply after the natural step, in order, each to the degree left before it', () => {
+  test('an adjustment is matched against the degree after the natural step', () => {
     const adjustments: DegreeAdjustment[] = [
-      { appliesTo: DegreeOfSuccess.Success, change: DegreeChange.ToCriticalSuccess, reason: INCISIVE },
-      { change: DegreeChange.OneDegreeWorse, reason: CLUMSY },
+      { appliesTo: DegreeOfSuccess.Failure, change: DegreeChange.ToSuccess, reason: INCISIVE },
     ];
-    /*
-     * Ten below the DC is a critical failure; the natural 20 makes it a failure, so the success-only
-     * adjustment skips and the any-degree one makes it a critical failure again.
-     */
+    // Ten below the DC is a critical failure; the natural 20 makes it a failure, which the adjustment matches.
     const result = degreeOfSuccess(check(10, 20), DC_20, adjustments);
-    expect(result.degree).toBe(DegreeOfSuccess.CriticalFailure);
+    expect(result.degree).toBe(DegreeOfSuccess.Success);
     expect(result.steps.map((step) => step.kind)).toEqual([
       DegreeStepKind.Base,
       DegreeStepKind.Natural,
@@ -93,9 +89,43 @@ describe('degreeOfSuccess', () => {
     ]);
     expect(result.steps[2]).toEqual({
       kind: DegreeStepKind.Adjustment,
-      degree: DegreeOfSuccess.CriticalFailure,
-      reason: CLUMSY,
+      degree: DegreeOfSuccess.Success,
+      reason: INCISIVE,
     });
+  });
+
+  test('only one adjustment applies, so they do not chain', () => {
+    const result = degreeOfSuccess(check(15), DC_20, [
+      { appliesTo: DegreeOfSuccess.Failure, change: DegreeChange.ToSuccess, reason: INCISIVE },
+      { appliesTo: DegreeOfSuccess.Success, change: DegreeChange.ToCriticalSuccess, reason: CLUMSY },
+    ]);
+    expect(result.degree).toBe(DegreeOfSuccess.Success);
+    expect(result.steps).toHaveLength(2);
+  });
+
+  test('an any-degree adjustment wins over one for the degree, as in Foundry', () => {
+    const result = degreeOfSuccess(check(20), DC_20, [
+      { appliesTo: DegreeOfSuccess.Success, change: DegreeChange.ToCriticalSuccess, reason: INCISIVE },
+      { change: DegreeChange.OneDegreeWorse, reason: CLUMSY },
+    ]);
+    expect(result.degree).toBe(DegreeOfSuccess.Failure);
+    expect(result.steps[1]?.reason).toEqual(CLUMSY);
+  });
+
+  test('a one-degree move that the end of the ladder would swallow is passed over', () => {
+    const result = degreeOfSuccess(check(30), DC_20, [
+      { change: DegreeChange.OneDegreeBetter, reason: INCISIVE },
+      { appliesTo: DegreeOfSuccess.CriticalSuccess, change: DegreeChange.ToSuccess, reason: CLUMSY },
+    ]);
+    expect(result.degree).toBe(DegreeOfSuccess.Success);
+    expect(result.steps[1]?.reason).toEqual(CLUMSY);
+  });
+
+  test('an adjustment for another degree does not apply', () => {
+    const result = degreeOfSuccess(check(22), DC_20, [
+      { appliesTo: DegreeOfSuccess.Failure, change: DegreeChange.ToSuccess, reason: INCISIVE },
+    ]);
+    expect(result.steps).toHaveLength(1);
   });
 
   test('a matching adjustment sets the degree and gives its reason', () => {
@@ -113,6 +143,8 @@ describe('degreeOfSuccess', () => {
   test.each([
     [DegreeChange.OneDegreeBetter, DegreeOfSuccess.CriticalSuccess],
     [DegreeChange.OneDegreeWorse, DegreeOfSuccess.Failure],
+    [DegreeChange.TwoDegreesBetter, DegreeOfSuccess.CriticalSuccess],
+    [DegreeChange.TwoDegreesWorse, DegreeOfSuccess.CriticalFailure],
     [DegreeChange.ToCriticalSuccess, DegreeOfSuccess.CriticalSuccess],
     [DegreeChange.ToSuccess, DegreeOfSuccess.Success],
     [DegreeChange.ToFailure, DegreeOfSuccess.Failure],

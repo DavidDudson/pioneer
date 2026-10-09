@@ -33,8 +33,8 @@ export const DegreeStep = z.object({
 export type DegreeStep = z.infer<typeof DegreeStep>;
 
 /**
- * A check's degree of success with every step taken to reach it (base comparison, natural die, each
- * adjustment that applied, in order), so a log can explain the outcome.
+ * A check's degree of success with every step taken to reach it (base comparison, natural die, the
+ * adjustment if one applied), so a log can explain the outcome.
  */
 export const DegreeResult = z.object({
   dc: Dc,
@@ -66,9 +66,9 @@ const LADDER: readonly DegreeOfSuccess[] = [
   DegreeOfSuccess.CriticalSuccess,
 ];
 
-const BETTER = 1;
-const WORSE = -1;
-type Direction = typeof BETTER | typeof WORSE;
+/** Moves along the ladder, in degrees. */
+const Shift = { TwoWorse: -2, Worse: -1, Better: 1, TwoBetter: 2 } as const;
+type Shift = ValueOf<typeof Shift>;
 
 const BASE_KEYS: Readonly<Record<DegreeOfSuccess, string>> = {
   [DegreeOfSuccess.CriticalSuccess]: DiceMessage.DegreeBaseCriticalSuccess,
@@ -77,15 +77,18 @@ const BASE_KEYS: Readonly<Record<DegreeOfSuccess, string>> = {
   [DegreeOfSuccess.CriticalFailure]: DiceMessage.DegreeBaseCriticalFailure,
 };
 
-/** Moves one degree along the ladder, staying at the ends. */
-function step(degree: DegreeOfSuccess, direction: Direction): DegreeOfSuccess {
-  const index = LADDER.indexOf(degree) + direction;
+/** Moves `by` degrees along the ladder, staying at the ends. */
+function step(degree: DegreeOfSuccess, by: Shift): DegreeOfSuccess {
+  const index = LADDER.indexOf(degree) + by;
   return LADDER[Math.min(Math.max(index, 0), LADDER.length - 1)] ?? degree;
 }
 
-const TARGETS: Readonly<Record<DegreeChange, DegreeOfSuccess | undefined>> = {
-  [DegreeChange.OneDegreeBetter]: undefined,
-  [DegreeChange.OneDegreeWorse]: undefined,
+/** Each change as a move along the ladder, or a degree to land on. */
+const CHANGES: Readonly<Record<DegreeChange, Shift | DegreeOfSuccess>> = {
+  [DegreeChange.OneDegreeBetter]: Shift.Better,
+  [DegreeChange.OneDegreeWorse]: Shift.Worse,
+  [DegreeChange.TwoDegreesBetter]: Shift.TwoBetter,
+  [DegreeChange.TwoDegreesWorse]: Shift.TwoWorse,
   [DegreeChange.ToCriticalSuccess]: DegreeOfSuccess.CriticalSuccess,
   [DegreeChange.ToSuccess]: DegreeOfSuccess.Success,
   [DegreeChange.ToFailure]: DegreeOfSuccess.Failure,
@@ -93,13 +96,32 @@ const TARGETS: Readonly<Record<DegreeChange, DegreeOfSuccess | undefined>> = {
 };
 
 function applyChange(degree: DegreeOfSuccess, change: DegreeChange): DegreeOfSuccess {
-  if (change === DegreeChange.OneDegreeBetter) {
-    return step(degree, BETTER);
-  }
-  if (change === DegreeChange.OneDegreeWorse) {
-    return step(degree, WORSE);
-  }
-  return TARGETS[change] ?? degree;
+  const target = CHANGES[change];
+  return typeof target === 'number' ? step(degree, target) : target;
+}
+
+/** A one-degree move that the ladder's end would swallow; Foundry passes over these to the next match. */
+function isNoOp(degree: DegreeOfSuccess, change: DegreeChange): boolean {
+  return (
+    (degree === DegreeOfSuccess.CriticalSuccess && change === DegreeChange.OneDegreeBetter) ||
+    (degree === DegreeOfSuccess.CriticalFailure && change === DegreeChange.OneDegreeWorse)
+  );
+}
+
+/**
+ * The one adjustment that applies to `degree`, as Foundry pf2e picks it: the first for any degree,
+ * else the first for this degree, skipping one-degree moves that would do nothing. The rules give no
+ * way to combine several, so the others are ignored.
+ */
+function chooseAdjustment(
+  degree: DegreeOfSuccess,
+  adjustments: readonly DegreeAdjustment[],
+): DegreeAdjustment | undefined {
+  const usable = adjustments.filter((adjustment) => !isNoOp(degree, adjustment.change));
+  return (
+    usable.find((adjustment) => adjustment.appliesTo === undefined) ??
+    usable.find((adjustment) => adjustment.appliesTo === degree)
+  );
 }
 
 function baseDegree(total: RollTotal, dc: Dc): DegreeOfSuccess {
@@ -114,10 +136,18 @@ function baseDegree(total: RollTotal, dc: Dc): DegreeOfSuccess {
 
 function naturalStep(degree: DegreeOfSuccess, natural: DieFace | undefined): DegreeStep | undefined {
   if (natural === NATURAL_20) {
-    return { kind: DegreeStepKind.Natural, degree: step(degree, BETTER), reason: message(DiceMessage.DegreeNatural20) };
+    return {
+      kind: DegreeStepKind.Natural,
+      degree: step(degree, Shift.Better),
+      reason: message(DiceMessage.DegreeNatural20),
+    };
   }
   if (natural === NATURAL_1) {
-    return { kind: DegreeStepKind.Natural, degree: step(degree, WORSE), reason: message(DiceMessage.DegreeNatural1) };
+    return {
+      kind: DegreeStepKind.Natural,
+      degree: step(degree, Shift.Worse),
+      reason: message(DiceMessage.DegreeNatural1),
+    };
   }
   return undefined;
 }
@@ -125,8 +155,8 @@ function naturalStep(degree: DegreeOfSuccess, natural: DieFace | undefined): Deg
 /**
  * The degree of success of `check` against `dc`: beat it by 10 or more for a critical success, meet it
  * for a success, miss it for a failure, miss by 10 or more for a critical failure. A natural 20 then
- * steps one degree better and a natural 1 one worse, and `adjustments` apply last, in order, each to
- * the degree the previous steps left.
+ * steps one degree better and a natural 1 one worse, and last one of `adjustments` may apply, chosen
+ * against the degree after the natural step (see `chooseAdjustment`).
  */
 export function degreeOfSuccess(
   check: CheckOutcome,
@@ -141,12 +171,11 @@ export function degreeOfSuccess(
   if (natural !== undefined) {
     steps.push(natural);
   }
-  let degree = natural?.degree ?? base;
-  for (const adjustment of adjustments) {
-    if (adjustment.appliesTo === undefined || adjustment.appliesTo === degree) {
-      degree = applyChange(degree, adjustment.change);
-      steps.push({ kind: DegreeStepKind.Adjustment, degree, reason: adjustment.reason });
-    }
+  const settled = natural?.degree ?? base;
+  const adjustment = chooseAdjustment(settled, adjustments);
+  const degree = adjustment === undefined ? settled : applyChange(settled, adjustment.change);
+  if (adjustment !== undefined) {
+    steps.push({ kind: DegreeStepKind.Adjustment, degree, reason: adjustment.reason });
   }
   const result: DegreeResult = { dc, total: check.total, degree, steps };
   return check.natural === undefined ? result : { ...result, natural: check.natural };

@@ -12,12 +12,14 @@ export type DegreeOfSuccess = ValueOf<typeof DegreeOfSuccess>;
 export const DegreeOfSuccessSchema = z.enum(DegreeOfSuccess);
 
 /**
- * How an `AdjustDegreeOfSuccess` effect changes a degree: one step better or worse, or straight to a
- * given degree. Values follow Foundry pf2e (ADR-0008).
+ * How an `AdjustDegreeOfSuccess` effect changes a degree: one or two steps better or worse, or
+ * straight to a given degree. Values follow Foundry pf2e (ADR-0008).
  */
 export const DegreeChange = {
   OneDegreeBetter: 'one-degree-better',
   OneDegreeWorse: 'one-degree-worse',
+  TwoDegreesBetter: 'two-degrees-better',
+  TwoDegreesWorse: 'two-degrees-worse',
   ToCriticalSuccess: 'to-critical-success',
   ToSuccess: 'to-success',
   ToFailure: 'to-failure',

@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 
 import { Dc, DegreeOfSuccess } from '@pioneer/rules/sdk';
-import { assert, constantFrom, integer, option, property, tuple } from 'fast-check';
+import { assert, constantFrom, integer, oneof, option, property, tuple } from 'fast-check';
 
 import { degreeOfSuccess, DegreeStepKind } from './degree';
 import { DieFace, RollTotal } from './units';
@@ -16,10 +16,10 @@ const rank = (degree: DegreeOfSuccess): number => LADDER.indexOf(degree);
 
 const dc = integer({ min: 0, max: 60 }).map((value) => Dc.parse(value));
 const total = integer({ min: -20, max: 80 });
-const face = option(
-  integer({ min: 1, max: 20 }).map((value) => DieFace.parse(value)),
-  { nil: undefined },
-);
+const anyFace = integer({ min: 1, max: 20 }).map((value) => DieFace.parse(value));
+const naturals = constantFrom(DieFace.parse(1), DieFace.parse(20));
+/** Naturals 1 and 20 weighted up so the clamped steps at both ends come up in every run. */
+const face = option(oneof({ arbitrary: naturals, weight: 3 }, { arbitrary: anyFace, weight: 1 }), { nil: undefined });
 
 /** Degrees a natural die moves the result: up for a 20, down for a 1. */
 function naturalShift(natural: DieFace | undefined): number {
