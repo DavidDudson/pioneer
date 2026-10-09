@@ -9,6 +9,7 @@ import type {
   TokenHash,
   UserId,
 } from '@pioneer/identity/domain';
+import type { DistanceUnit, Locale } from '@pioneer/shared/kernel';
 import { sql } from 'drizzle-orm';
 import { boolean, index, pgTable, text, timestamp, uniqueIndex, uuid } from 'drizzle-orm/pg-core';
 
@@ -77,3 +78,18 @@ export const sessions = pgTable(
     index('sessions_expires_at_idx').on(table.expiresAt),
   ],
 );
+
+/**
+ * Each user's display preferences, one row once they first choose one. `null` is not chosen. Only
+ * ever read by primary key, which is the user's id (named `id` so the audit trail keys on it).
+ */
+export const userPreferences = pgTable('user_preferences', {
+  id: uuid()
+    .$type<UserId>()
+    .primaryKey()
+    .references(() => users.id, { onDelete: 'cascade' }),
+  uiLocale: text().$type<Locale>(),
+  contentLocale: text().$type<Locale>(),
+  distanceUnit: text().$type<DistanceUnit>(),
+  updatedAt: timestamp({ withTimezone: true, mode: 'string' }).notNull(),
+});

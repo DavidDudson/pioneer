@@ -1,9 +1,10 @@
-import { IdentityService } from '@pioneer/identity/application';
+import { IdentityService, PreferencesService } from '@pioneer/identity/application';
 import type { OAuthProviderPort } from '@pioneer/identity/application';
 import { AuthPath, OAuthProvider } from '@pioneer/identity/domain';
 import {
   csrfGuard,
   DiscordProvider,
+  DrizzlePreferencesRepository,
   DrizzleSessionRepository,
   DrizzleUserRepository,
   GitHubProvider,
@@ -78,11 +79,12 @@ export interface Identity {
 /** Identity's part of the composition root: service, configured providers, routes and authenticator. */
 export function identity(db: Database, env: Env, clock: Clock): Identity {
   const service = new IdentityService(new DrizzleUserRepository(db), new DrizzleSessionRepository(db), clock);
+  const preferences = new PreferencesService(new DrizzlePreferencesRepository(db), clock);
   // Secure cookies unless the public origin is plain http (local development).
   const secure = env.PUBLIC_ORIGIN?.startsWith('https:') ?? true;
   const policy = { secure };
   return {
-    routes: identityRoutes(service, providers(env), policy).use(sessionSweep(service, SESSION_SWEEP_INTERVAL)),
+    routes: identityRoutes(service, preferences, providers(env), policy).use(sessionSweep(service, SESSION_SWEEP_INTERVAL)),
     authenticator: new SessionAuthenticator(service, policy),
   };
 }

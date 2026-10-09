@@ -1,4 +1,4 @@
-import type { IdentityService, OAuthProviderPort } from '@pioneer/identity/application';
+import type { IdentityService, OAuthProviderPort, PreferencesService } from '@pioneer/identity/application';
 import {
   AuthPath,
   IdentityContract,
@@ -90,9 +90,10 @@ async function completeSignIn({ provider, service, policy }: SignInFlow, request
   }
 }
 
-/** HTTP adapter for identity: provider redirects, sign-out, the current user and their sessions. */
+/** HTTP adapter for identity: provider redirects, sign-out, the current user, their sessions and preferences. */
 export function identityRoutes(
   service: IdentityService,
+  preferences: PreferencesService,
   providers: readonly OAuthProviderPort[],
   policy: CookiePolicy,
 ): Elysia {
@@ -129,6 +130,10 @@ export function identityRoutes(
         await service.signOutEverywhere(await auth.signedIn(exchange));
         exchange.responseHeaders['set-cookie'] = signedOut;
         return {};
-      }).app,
+      })
+      .handleSignedIn(IdentityContract.preferences, auth, async ({ actor }) => preferences.get(actor))
+      .handleSignedIn(IdentityContract.updatePreferences, auth, async ({ actor, body }) =>
+        preferences.update(actor, body),
+      ).app,
   );
 }

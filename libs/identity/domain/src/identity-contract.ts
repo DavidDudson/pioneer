@@ -3,6 +3,7 @@ import { z } from 'zod';
 
 import { OAuthProviderSchema, SessionId } from './identity-fields';
 import type { OAuthProvider } from './identity-fields';
+import { Preferences, PreferencesPatch } from './preferences';
 import { SessionSummary } from './session';
 import { User } from './user';
 
@@ -67,6 +68,24 @@ export const IdentityContract = {
     body: NoBody,
     response: Done,
   }),
+  /** The signed-in user's display preferences; fields never chosen are `null`. */
+  preferences: new Endpoint({
+    method: HttpMethod.Get,
+    path: '/me/preferences',
+    params: NoParams,
+    query: NoQuery,
+    body: NoBody,
+    response: Preferences,
+  }),
+  /** Changes the given preferences and leaves the rest; answers with all of them. */
+  updatePreferences: new Endpoint({
+    method: HttpMethod.Patch,
+    path: '/me/preferences',
+    params: NoParams,
+    query: NoQuery,
+    body: PreferencesPatch,
+    response: Preferences,
+  }),
 } as const;
 
 /** Query parameter carrying the path to return to after sign-in. */
@@ -83,6 +102,9 @@ export const AuthPath = {
 
 /** Web route of the signed-in user's account page. */
 export const ACCOUNT_PATH = '/account';
+
+/** Web route of the signed-in user's display preferences. */
+export const SETTINGS_PATH = '/account/settings';
 
 /** Web route listing the sign-in providers. */
 export const SIGN_IN_PATH = '/account/sign-in';
