@@ -51,6 +51,15 @@ describe('StatisticDefinition', () => {
     ]);
   });
 
+  test('a Foundry spelling of an item reference is out of scope, not a suggestion to write @item.level', () => {
+    expect(issues({ ...armorClass, base: '@item.system.level.value' })).toStrictEqual([
+      {
+        path: ['base'],
+        message: message(RulesMessage.ReferenceOutOfScope, { found: '@item.system.level.value', position: 1 }),
+      },
+    ]);
+  });
+
   test('rejects unknown keys and a malformed selector', () => {
     expect(issues({ ...armorClass, extra: true }).map((issue) => issue.path)).toStrictEqual([['extra']]);
     expect(issues({ ...armorClass, selector: 'Armor Class' }).map((issue) => issue.path)).toStrictEqual([['selector']]);

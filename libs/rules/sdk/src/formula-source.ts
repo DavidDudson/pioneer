@@ -5,6 +5,7 @@ import type { MessageDescriptor } from '@pioneer/shared/kernel';
 import { z } from 'zod';
 
 import { fromFoundryPath, knownReference, REFERENCE_CATALOGUE, ReferenceScope } from './formula-reference';
+import type { KnownReference } from './formula-reference';
 import { RulesMessage } from './messages';
 
 /** What is wrong with a formula, and where (1-based) in its text. The descriptor carries the position too. */
@@ -20,20 +21,29 @@ function problem(error: MessageDescriptor, position: TextPosition): FormulaProbl
   return { error: message(error.key, { ...error.params, position }), position };
 }
 
+function inScope(reference: KnownReference, scopes: ReadonlySet<ReferenceScope>): boolean {
+  return scopes.has(REFERENCE_CATALOGUE[reference.kind].scope);
+}
+
 function referenceProblem(
   { path, position }: FormulaReference,
   scopes: ReadonlySet<ReferenceScope>,
 ): FormulaProblem | undefined {
   const found = `${SIGIL}${path}`;
+  const outOfScope = problem(message(RulesMessage.ReferenceOutOfScope, { found }), position);
   const known = knownReference(path);
   if (known !== undefined) {
-    const inScope = scopes.has(REFERENCE_CATALOGUE[known.kind].scope);
-    return inScope ? undefined : problem(message(RulesMessage.ReferenceOutOfScope, { found }), position);
+    return inScope(known, scopes) ? undefined : outOfScope;
   }
   const translated = fromFoundryPath(path);
-  return translated === undefined
-    ? problem(message(RulesMessage.UnknownReference, { found }), position)
-    : problem(message(RulesMessage.FoundryReference, { found, suggestion: `${SIGIL}${translated}` }), position);
+  if (translated === undefined) {
+    return problem(message(RulesMessage.UnknownReference, { found }), position);
+  }
+  // Suggesting Pioneer's spelling only helps when that spelling is allowed here.
+  const target = knownReference(translated);
+  return target === undefined || inScope(target, scopes)
+    ? problem(message(RulesMessage.FoundryReference, { found, suggestion: `${SIGIL}${translated}` }), position)
+    : outOfScope;
 }
 
 /**
