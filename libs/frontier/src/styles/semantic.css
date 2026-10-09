@@ -31,6 +31,17 @@
   --fr-size-item-md: 16rem;
   --fr-size-item-lg: 24rem;
   --fr-size-term: 10rem;
+  /* fr-image widths (the height follows the aspect ratio) and fr-avatar squares. */
+  --fr-size-image-sm: 4rem;
+  --fr-size-image-md: 8rem;
+  --fr-size-image-lg: 16rem;
+  --fr-size-avatar-sm: 2rem;
+  --fr-size-avatar-md: 3rem;
+  --fr-size-avatar-lg: 5rem;
+  --fr-aspect-square: 1 / 1;
+  --fr-aspect-portrait: 3 / 4;
+  --fr-aspect-landscape: 4 / 3;
+  --fr-aspect-wide: 16 / 9;
 
   --fr-focus-ring-width: 0.125rem;
   --fr-focus-ring-offset: 0.125rem;

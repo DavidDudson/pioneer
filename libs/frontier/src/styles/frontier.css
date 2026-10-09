@@ -36,6 +36,7 @@
   --container-*: initial;
   --transition-duration-*: initial;
   --animate-*: initial;
+  --aspect-*: initial;
 
   /*
    * No viewport breakpoints. Layout responds to the space it is given via
@@ -123,6 +124,9 @@
   --spacing-control-md: var(--fr-size-control-md);
   --spacing-control-lg: var(--fr-size-control-lg);
   --spacing-listbox: var(--fr-size-listbox);
+  --spacing-avatar-sm: var(--fr-size-avatar-sm);
+  --spacing-avatar-md: var(--fr-size-avatar-md);
+  --spacing-avatar-lg: var(--fr-size-avatar-lg);
   /* Safe-area insets for anything fixed to a screen edge (pt-safe-top, …). */
   --spacing-safe-top: env(safe-area-inset-top);
   --spacing-safe-right: env(safe-area-inset-right);
@@ -131,6 +135,15 @@
 
   --width-placeholder-md: var(--fr-size-placeholder-md);
   --width-placeholder-lg: var(--fr-size-placeholder-lg);
+  --width-image-sm: var(--fr-size-image-sm);
+  --width-image-md: var(--fr-size-image-md);
+  --width-image-lg: var(--fr-size-image-lg);
+
+  /* Image shapes (aspect-portrait, …). The default set's aspect-video is wiped above. */
+  --aspect-square: var(--fr-aspect-square);
+  --aspect-portrait: var(--fr-aspect-portrait);
+  --aspect-landscape: var(--fr-aspect-landscape);
+  --aspect-wide: var(--fr-aspect-wide);
 
   /* Fluid grids: as many columns as fit at the minimum item width. */
   --grid-template-columns-fill-sm: repeat(auto-fill, minmax(min(var(--fr-size-item-sm), 100%), 1fr));

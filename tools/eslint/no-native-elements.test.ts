@@ -76,7 +76,7 @@ tester.run('no-native-elements', noNativeElements, {
       code: `<${name}></${name}>`,
       errors: [{ messageId: 'banned' }],
     })),
-    { filename: frontier('layout/card/card.component.html'), code: `<img />`, errors: [{ messageId: 'unowned' }] },
+    { filename: frontier('layout/card/card.component.html'), code: `<kbd></kbd>`, errors: [{ messageId: 'unowned' }] },
     {
       filename: frontier('layout/card/card.component.html'),
       code: `<svg><g><path d="M0 0" /></g></svg>`,

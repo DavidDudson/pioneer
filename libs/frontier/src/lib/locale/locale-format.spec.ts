@@ -11,8 +11,8 @@ function setup(unit: DistanceUnit = DistanceUnit.Feet): LocaleFormat {
   TestBed.configureTestingModule({
     imports: [
       TranslocoTestingModule.forRoot({
-        langs: { en: {}, de: {} },
-        translocoConfig: { availableLangs: ['en', 'de'], defaultLang: 'en' },
+        langs: { en: {}, de: {}, tr: {} },
+        translocoConfig: { availableLangs: ['en', 'de', 'tr'], defaultLang: 'en' },
       }),
     ],
     providers: [{ provide: DISTANCE_UNIT, useValue: signal(unit).asReadonly() }],
@@ -54,6 +54,27 @@ describe(LocaleFormat, () => {
     expect(format.distance(30)).toBe('9 m');
     switchTo('de');
     expect(format.distance(25)).toBe('7,5 m');
+  });
+
+  it('takes initials from the first and last words of a name', () => {
+    const format = setup();
+    expect(format.initials('Valeros')).toBe('V');
+    expect(format.initials('seelah of the dawn')).toBe('SD');
+    expect(format.initials('  Ezren   the  Wizard ')).toBe('EW');
+  });
+
+  it('skips punctuation and keeps whole characters', () => {
+    const format = setup();
+    expect(format.initials('"Kyra" Al-Hakim')).toBe('KH');
+    expect(format.initials('e\u0301lodie Moreau')).toBe('E\u0301M');
+    expect(format.initials('👩‍🚀 Astra')).toBe('A');
+    expect(format.initials('—')).toBe('');
+  });
+
+  it('upper-cases initials the locale way', () => {
+    const format = setup();
+    switchTo('tr');
+    expect(format.initials('ilker yılmaz')).toBe('İY');
   });
 
   it('sorts with the locale collation', () => {
