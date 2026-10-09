@@ -127,9 +127,9 @@ describe('evaluate', () => {
   });
 
   test('an unknown reference fails at the reference', () => {
-    expect(failure('1 + @actor.levle')).toEqual({
+    expect(failure('1 + @actor.rank')).toEqual({
       ok: false,
-      error: { key: FormulaMessage.UnknownReference, params: { found: '@actor.levle', position: 5 } },
+      error: { key: FormulaMessage.UnknownReference, params: { found: '@actor.rank', position: 5 } },
       position: TextPosition.parse(5),
     });
   });

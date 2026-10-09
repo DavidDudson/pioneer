@@ -78,7 +78,7 @@ libs/
     sdk/            content schemas, rule element schemas, source refs, predicates (exists, grows)
     engine/         derivation pipeline, statistics, breakdowns, action availability
     dice/           dice expressions, RNG port, degree of success, damage application
-    formula/        formula grammar: parser to a positioned tree, printer, references (kernel only)
+    formula/        formula language: parser to a positioned tree, printer, references, evaluator (kernel only)
     catalog/        pack loaders (exists; switches from TS imports to API/DB loading)
   content/          (TS packs retired; replaced by content/ JSON data, see content-model.md)
   character/        domain, application, infrastructure, feature (exists)

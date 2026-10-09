@@ -19,6 +19,9 @@
               <fr-field-hint>{{ 'play.rules.formulaHint' | transloco }}</fr-field-hint>
             }
           </fr-field>
+          @if (formulaResult.status === CheckStatus.Valid) {
+            <pio-formula-references [references]="formulaResult.references" [(entries)]="referenceEntries" />
+          }
         } @else if (result) {
           <fr-field [invalid]="result.status !== CheckStatus.Valid">
             <fr-label>{{ 'play.rules.jsonLabel' | transloco }}</fr-label>

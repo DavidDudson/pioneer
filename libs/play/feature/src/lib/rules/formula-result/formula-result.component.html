@@ -1,6 +1,15 @@
 @let result = check();
 @if (result.status === CheckStatus.Valid) {
-  <fr-message tone="success">{{ 'play.rules.formulaValid' | transloco }}</fr-message>
+  @let evaluation = result.evaluation;
+  @if (evaluation.status === CheckStatus.Valid) {
+    <fr-heading variant="heading" [level]="3">{{
+      'play.rules.formulaValue' | transloco: { value: value() }
+    }}</fr-heading>
+  } @else {
+    <fr-message tone="danger">{{ evaluation.error.key | transloco: evaluation.error.params }}</fr-message>
+    <fr-text element="p" variant="code" preformatted>{{ evaluation.pointer }}</fr-text>
+  }
+  <fr-text element="p" tone="muted">{{ 'play.rules.formulaValid' | transloco }}</fr-text>
   <fr-text element="p" variant="code" preformatted>{{ result.canonical }}</fr-text>
   <fr-text element="p" tone="muted">{{ 'play.rules.formulaTree' | transloco }}</fr-text>
   <fr-text element="p" variant="code" preformatted>{{ result.tree }}</fr-text>

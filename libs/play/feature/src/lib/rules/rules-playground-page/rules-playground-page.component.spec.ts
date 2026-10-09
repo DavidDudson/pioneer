@@ -42,6 +42,12 @@ async function chooseSchema(harness: RouterTestingHarness, label: string): Promi
   await harness.fixture.whenStable();
 }
 
+async function typeInto(harness: RouterTestingHarness, input: HTMLInputElement, text: string): Promise<void> {
+  input.value = text;
+  input.dispatchEvent(new Event('input'));
+  await harness.fixture.whenStable();
+}
+
 function pageText(harness: RouterTestingHarness): string {
   return present(harness.routeNativeElement).textContent;
 }
@@ -104,9 +110,34 @@ describe('RulesPlaygroundPage', () => {
   it('switches to a one-line formula input that opens on a valid example', async () => {
     const harness = await openPlayground();
     await chooseSchema(harness, 'Formula');
-    expect(pageText(harness)).toContain('Valid.');
+    expect(pageText(harness)).toContain('Value: 20');
     expect(pageText(harness)).toContain('10 + @attr.dex.capped + @prof.armor + @level');
     expect(harness.routeNativeElement?.querySelector('textarea')).toBeNull();
+  });
+
+  it('evaluates the formula with a number box per reference', async () => {
+    const harness = await openPlayground();
+    await chooseSchema(harness, 'Formula');
+    expect(pageText(harness)).toContain('Value: 20');
+    expect(pageText(harness)).toContain('@attr.dex.capped');
+
+    const boxes = [...present(harness.routeNativeElement).querySelectorAll<HTMLInputElement>('input[type="number"]')];
+    expect(boxes).toHaveLength(3);
+    const level = present(boxes[2]);
+    await typeInto(harness, level, '10');
+    expect(pageText(harness)).toContain('Value: 25');
+  });
+
+  it('leaves a reference without a value while its box is empty, and points at it', async () => {
+    const harness = await openPlayground();
+    await chooseSchema(harness, 'Formula');
+    const boxes = [...present(harness.routeNativeElement).querySelectorAll<HTMLInputElement>('input[type="number"]')];
+    const level = present(boxes[2]);
+    await typeInto(harness, level, '');
+    const text = pageText(harness);
+    expect(text).toContain('“@level” at position 39 has no value.');
+    expect(text).toContain(`10 + @attr.dex.capped + @prof.armor + @level\n${' '.repeat(38)}^`);
+    expect(level.getAttribute('aria-invalid')).toBe('true');
   });
 
   it('points at the first mistake in a formula with text from the formula bundle', async () => {

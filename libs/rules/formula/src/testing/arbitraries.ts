@@ -31,7 +31,7 @@ const operator = constantFrom(...Object.values(BinaryOperator));
 const functionName = constantFrom(...Object.values(FormulaFunction));
 
 /** Formula trees built from `leaves`, up to a few levels deep, every node kind and function included. */
-export function formulaFrom(leaves: Arbitrary<FormulaNode>): Arbitrary<FormulaNode> {
+function formulaFrom(leaves: Arbitrary<FormulaNode>): Arbitrary<FormulaNode> {
   return letrec<{ node: FormulaNode }>((tie) => ({
     node: oneof(
       { depthSize: 'small', maxDepth: MAX_DEPTH, withCrossShrink: true },
@@ -56,8 +56,8 @@ export function formulaFrom(leaves: Arbitrary<FormulaNode>): Arbitrary<FormulaNo
 export const formula: Arbitrary<FormulaNode> = formulaFrom(oneof(number, reference));
 
 /** The references {@link evaluableFormula} draws from: few, so generated bindings cover them. */
-export const BOUND_PATHS: readonly ReferencePath[] = ['level', 'actor.level', 'item.level', 'attr.dex.capped'].map(
-  (text) => ReferencePath.parse(text),
+const BOUND_PATHS: readonly ReferencePath[] = ['level', 'actor.level', 'item.level', 'attr.dex.capped'].map((text) =>
+  ReferencePath.parse(text),
 );
 const SMALL_NUMBER_MAX = 12;
 const SMALL_VALUE_MAX = 20;

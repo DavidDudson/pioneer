@@ -79,6 +79,33 @@ function   = min | max | floor | ceil | abs | round | sign
 - Which reference paths exist and what they mean belongs to the reference vocabulary. The parser only checks
   their syntax.
 
+#### Evaluation and rounding
+
+`evaluate(formula, resolve)` is pure: `resolve` gives each reference's value (a safe integer) or reports it
+unknown, and the outcome is `{ ok: true, value }` or `{ ok: false, error, position }`, the error a message
+descriptor pointing at the node that failed.
+
+The semantics are Foundry's. pf2e's `RuleElementPF2e#resolveValue` substitutes the reference values into the
+text and runs it through `Roll.safeEval`, which evaluates it as JavaScript with `Math` and pf2e's helpers in
+scope and does not round; `FlatModifier` then uses that number as is. So:
+
+- Arithmetic is JavaScript's double arithmetic, in the tree's order. Division keeps fractions: `@level / 2 * 2`
+  is `@level`, and `floor`, `ceil` and `round` see the fraction. `round` is `Math.round`, which rounds halves
+  up (`round(-2.5)` is -2).
+- The language rounds once: the final value is rounded **down** (`Math.floor`), so `@level / 2` at level 5 is
+  2 and `-5 / 2` is -3. This is where Pioneer differs from Foundry, which would keep 2.5. Rounding down is the
+  PF2e default (Player Core, "Rounding"), and the content that divides already wraps the division in
+  `floor`, where both agree.
+- Comparisons (`eq`, `ne`, `gt`, `gte`, `lt`, `lte`) give 1 or 0, as pf2e's `true` and `false` do in
+  arithmetic. `ternary` treats any value but 0 as true and evaluates only the branch it takes; pf2e evaluates
+  both, which only matters when the other branch fails.
+- Failures Foundry does not have: an unknown reference (Foundry warns and uses the rule element's default),
+  division by zero (JavaScript gives `Infinity` or `NaN`), and any value, intermediate ones included, outside
+  the safe integer range (where doubles stop holding every whole number).
+
+The property tests check the evaluator against a model of Foundry's evaluation: the tree printed as
+JavaScript, run with pf2e's `Math` helpers, and rounded down.
+
 ## Modifiers and stacking
 
 ```ts

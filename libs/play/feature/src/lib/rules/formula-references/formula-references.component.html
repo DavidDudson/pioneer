@@ -1,0 +1,24 @@
+<fr-stack gap="md">
+  <fr-stack gap="xs">
+    <fr-heading variant="subheading" [level]="2">{{ 'play.rules.referencesHeading' | transloco }}</fr-heading>
+    <fr-text tone="muted">{{ 'play.rules.referencesHint' | transloco }}</fr-text>
+  </fr-stack>
+  @for (row of rows(); track row.path) {
+    <fr-field [invalid]="row.invalid">
+      <fr-label>{{ 'play.rules.referenceLabel' | transloco: { path: row.path } }}</fr-label>
+      <fr-number-input
+        [min]="valueMin"
+        [max]="valueMax"
+        [value]="row.entry.value"
+        [complete]="row.entry.complete"
+        (valueChange)="setValue(row.path, $event)"
+        (completeChange)="setComplete(row.path, $event)"
+      />
+      @if (row.invalid) {
+        <fr-field-error>{{ 'play.rules.referenceInvalid' | transloco: valueRange() }}</fr-field-error>
+      }
+    </fr-field>
+  } @empty {
+    <fr-text variant="caption" tone="muted">{{ 'play.rules.noReferences' | transloco }}</fr-text>
+  }
+</fr-stack>
