@@ -1,5 +1,6 @@
 import { DiceExpressionText, formatExpression, formatTerm, RollMode, Sign } from '@pioneer/rules/dice';
 import type {
+  DegreeResult,
   DiceExpression,
   DieResult,
   FortunedRoll,
@@ -9,7 +10,7 @@ import type {
 } from '@pioneer/rules/dice';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
-import { DAMAGE_CATEGORY_KEYS, DAMAGE_TYPE_KEYS } from './dice-labels';
+import { DAMAGE_CATEGORY_KEYS, DAMAGE_TYPE_KEYS, DEGREE_KEYS } from './dice-labels';
 
 /** One term of a roll as shown: signed notation, damage labels, dice and its share of the total. */
 interface TermView {
@@ -27,6 +28,18 @@ export interface AttemptView {
   readonly terms: readonly TermView[];
 }
 
+/** One step towards the degree of success: the degree's label key after it, and why. */
+interface DegreeStepView {
+  readonly degreeKey: string;
+  readonly reason: MessageDescriptor;
+}
+
+/** The kept roll's degree of success against the DC, with every step that led to it. */
+export interface DegreeView {
+  readonly degreeKey: string;
+  readonly steps: readonly DegreeStepView[];
+}
+
 export interface RollView {
   readonly id: number;
   readonly notation: DiceExpressionText;
@@ -34,6 +47,8 @@ export interface RollView {
   /** Why one roll or two, and which was kept; unset for a plain roll. */
   readonly explanation: MessageDescriptor | undefined;
   readonly attempts: readonly AttemptView[];
+  /** Unset when the roll was not against a DC. */
+  readonly degree: DegreeView | undefined;
 }
 
 function termView(result: TermResult, index: number): TermView {
@@ -55,12 +70,28 @@ function attemptView(entry: FortuneRollEntry): AttemptView {
   return { kept: entry.kept, total: entry.result.total, terms: entry.result.terms.map(termView) };
 }
 
-export function rollView(id: number, expression: DiceExpression, roll: FortunedRoll): RollView {
+function degreeView(result: DegreeResult): DegreeView {
+  return {
+    degreeKey: DEGREE_KEYS[result.degree],
+    steps: result.steps.map((step) => ({ degreeKey: DEGREE_KEYS[step.degree], reason: step.reason })),
+  };
+}
+
+/** Everything one press of Roll produced. */
+export interface FinishedRoll {
+  readonly expression: DiceExpression;
+  readonly roll: FortunedRoll;
+  /** Unset when not rolled against a DC. */
+  readonly degree: DegreeResult | undefined;
+}
+
+export function rollView(id: number, { expression, roll, degree }: FinishedRoll): RollView {
   return {
     id,
     notation: formatExpression(expression),
     total: roll.total,
     explanation: roll.mode === RollMode.Normal ? undefined : roll.explanation,
     attempts: roll.rolls.map(attemptView),
+    degree: degree === undefined ? undefined : degreeView(degree),
   };
 }

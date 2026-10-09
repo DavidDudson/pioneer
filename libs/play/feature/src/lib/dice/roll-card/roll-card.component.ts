@@ -5,9 +5,10 @@ import type { DiceExpressionText } from '@pioneer/rules/dice';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
+import { RollDegree } from '../roll-degree/roll-degree.component';
 import { RollTerm } from '../roll-term/roll-term.component';
 import type { TermDisplay } from '../roll-term/roll-term.component';
-import type { AttemptView, RollView } from '../roll-view';
+import type { AttemptView, DegreeView, RollView } from '../roll-view';
 
 interface AttemptDisplay {
   /** "Roll 2: 21, kept"; unset when there was only one roll. */
@@ -22,15 +23,16 @@ interface RollDisplay {
   readonly total: string;
   readonly explanation: MessageDescriptor | undefined;
   readonly attempts: readonly AttemptDisplay[];
+  readonly degree: DegreeView | undefined;
 }
 
 /**
  * One finished roll: its expression and total, then each roll made (two with fortune or misfortune)
- * with the dice behind it.
+ * with the dice behind it, and its degree of success when rolled against a DC.
  */
 @Component({
   selector: 'pio-roll-card',
-  imports: [Heading, RollTerm, Stack, Surface, Text, TranslocoPipe],
+  imports: [Heading, RollDegree, RollTerm, Stack, Surface, Text, TranslocoPipe],
   templateUrl: './roll-card.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -47,6 +49,7 @@ export class RollCard {
       total: this.#format.number(roll.total),
       explanation: roll.explanation,
       attempts: roll.attempts.map((attempt, index) => this.#attempt(attempt, several ? index : undefined)),
+      degree: roll.degree,
     };
   });
 

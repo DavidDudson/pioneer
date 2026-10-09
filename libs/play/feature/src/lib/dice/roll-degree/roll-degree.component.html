@@ -1,0 +1,10 @@
+@let shown = display();
+<fr-stack gap="xs">
+  <fr-text weight="semibold">{{ shown.degreeKey | transloco }}</fr-text>
+  @for (step of shown.steps; track $index) {
+    <fr-stack direction="horizontal" gap="sm" align="baseline" wrap>
+      <fr-text variant="caption">{{ step.degreeKey | transloco }}</fr-text>
+      <fr-text variant="caption" tone="muted">{{ step.reason.key | transloco: step.reason.params }}</fr-text>
+    </fr-stack>
+  }
+</fr-stack>
