@@ -1,0 +1,6 @@
+# Copy to production.tfvars (gitignored). Non-secret settings only: secrets come from TF_VAR_* in the environment,
+# see docs/production.md.
+domain                = "pioneer.example.com"
+cloudflare_zone       = "example.com"
+cloudflare_account_id = "<cloudflare-account-id>"
+image_tag             = "sha-0000000"

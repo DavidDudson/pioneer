@@ -11,3 +11,8 @@ coverage/
 .env.*
 !.env.example
 storybook-static/
+# OpenTofu (infra/): provider cache, account-specific backend settings, variable files and plans.
+infra/.terraform/
+infra/backend.hcl
+infra/*.tfvars
+infra/*.tfplan
