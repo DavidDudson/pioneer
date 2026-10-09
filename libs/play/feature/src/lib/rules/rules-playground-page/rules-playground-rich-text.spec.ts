@@ -8,12 +8,9 @@ describe('RulesPlaygroundPage rich text', () => {
     await chooseSchema(harness, 'Rich text');
     const text = pageText(harness);
 
-    expect(text).toContain('Valid.');
-    expect(text).toContain('Preview');
-    expect(text).toContain('20-foot burst');
-    expect(text).toContain('6d6 fire');
-    expect(text).toContain('DC 18 basic save:reflex');
-    expect(text).toContain('1 round');
+    const expected = ['Valid.', 'Preview', '20-foot burst', '6d6 fire', 'DC 18 basic save:reflex', '1 round'];
+
+    expect(expected.filter((phrase) => !text.includes(phrase))).toStrictEqual([]);
     expect(harness.routeNativeElement?.querySelector('abbr')?.getAttribute('title')).toBe('Two actions');
   });
 
