@@ -15,6 +15,7 @@ Accepted. To change a decision, add a new ADR that supersedes the old one; do no
 | [0008](0008-rule-element-vocabulary.md)               | Foundry-aligned rule element semantics, typed schema           |
 | [0009](0009-i18n-and-lazy-loading.md)                 | i18n: runtime locales, lazy messages and content text          |
 | [0010](0010-oauth-with-arctic-and-own-sessions.md)    | OAuth through Arctic; sessions owned by Pioneer                |
+| [0011](0011-api-binary-and-migrations.md)             | One compiled API binary; migrations ship beside it             |
 
 Template:
 

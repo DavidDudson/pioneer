@@ -118,7 +118,8 @@ Content data never imports code.
 - **Deployment.** The API compiles to one `pioneer-api` binary (`nx build api`; `-c linux-x64` or `-c linux-arm64`
   to cross-compile, host platform otherwise). It serves the built web app from `WEB_DIST` on the same origin.
   Migrations ship beside it, not inside it: set `MIGRATIONS_DIR` to their folder, since the repo-relative default
-  points into the binary's virtual FS. The server migrates on start; with more than one instance set
-  `MIGRATE_ON_START=false` and run `pioneer-api migrate` once per deploy instead.
+  points into the binary's virtual FS. The server migrates on start under an advisory lock, so instances starting
+  together take turns. To migrate as a separate deploy step, set `MIGRATE_ON_START=false` and run
+  `pioneer-api migrate`. See [ADR-0011](../adr/0011-api-binary-and-migrations.md).
 - **Testing.** Property tests for the engine and dice (fast-check, already in use). Golden tests: Paizo pregenerated
   characters imported and compared against their published numbers. Importer coverage reports gate content PRs.

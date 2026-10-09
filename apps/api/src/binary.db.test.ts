@@ -164,7 +164,7 @@ describe.skipIf(adminUrl === undefined)('compiled api binary (postgres)', () => 
   );
 
   test(
-    'MIGRATE_ON_START=false serves without migrating, and `migrate` applies them',
+    'MIGRATE_ON_START=false serves without migrating, and `migrate` applies them ignoring server settings',
     async () => {
       const databaseUrl = await emptyDatabase();
       const env = await environment(databaseUrl, {
@@ -172,7 +172,8 @@ describe.skipIf(adminUrl === undefined)('compiled api binary (postgres)', () => 
       });
       expect(await serveHealth(env)).toStrictEqual({ status: 'ok' });
       expect(await appliedMigrations(databaseUrl)).toBe(0);
-      expect(await run(['migrate'], env)).toStrictEqual({
+      // A provider id without its secret stops the server, never a migrate job.
+      expect(await run(['migrate'], { ...env, GITHUB_CLIENT_ID: 'id' })).toStrictEqual({
         code: 0,
         output: 'migrations applied\n',
       });

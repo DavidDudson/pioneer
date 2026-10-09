@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { readEnv } from './env';
+import { readEnv, readMigrateEnv } from './env';
 
 const DATABASE_URL = 'postgres://localhost/pioneer';
 
@@ -61,5 +61,23 @@ describe('readEnv', () => {
       PUBLIC_ORIGIN: 'https://pioneer.example',
     });
     expect(env.GITHUB_CLIENT_ID).toBe('id');
+  });
+});
+
+describe('readMigrateEnv', () => {
+  test('reads only the database and the migrations folder', () => {
+    expect(readMigrateEnv({ DATABASE_URL, MIGRATIONS_DIR: '/app/migrations', PORT: '80' })).toStrictEqual({
+      DATABASE_URL,
+      MIGRATIONS_DIR: '/app/migrations',
+    });
+  });
+
+  test('ignores server settings the server would reject', () => {
+    expect(() => readEnv({ DATABASE_URL, GITHUB_CLIENT_ID: 'id', PORT: 'web' })).toThrow(/PORT/u);
+    expect(readMigrateEnv({ DATABASE_URL, GITHUB_CLIENT_ID: 'id', PORT: 'web' }).DATABASE_URL).toBe(DATABASE_URL);
+  });
+
+  test('still requires a postgres url', () => {
+    expect(() => readMigrateEnv({})).toThrow(/DATABASE_URL/u);
   });
 });
