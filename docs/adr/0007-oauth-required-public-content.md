@@ -30,4 +30,4 @@ The account gates our own features (saving, homebrew, campaigns), never the cont
 - The legal page is generated from pack manifests and `content/books.json`, so it cannot drift from what is
   served.
 - Public cache downloads reuse the immutable, content-hashed bundles the browser already loads; no extra storage.
-- Library choice for OAuth sessions on Elysia is a spike in milestone 3.
+- OAuth library and session design: [ADR-0010](0010-oauth-with-arctic-and-own-sessions.md) (Arctic, own sessions).
