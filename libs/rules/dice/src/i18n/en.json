@@ -19,6 +19,14 @@
       "keptHigher": "Fortune: rolled twice and kept the higher.",
       "keptLower": "Misfortune: rolled twice and kept the lower.",
       "cancelled": "Fortune and misfortune cancel out: rolled once."
+    },
+    "degree": {
+      "baseCriticalSuccess": "{total} beats DC {dc} by 10 or more.",
+      "baseSuccess": "{total} meets or exceeds DC {dc}.",
+      "baseFailure": "{total} misses DC {dc}.",
+      "baseCriticalFailure": "{total} misses DC {dc} by 10 or more.",
+      "natural20": "Natural 20: one degree better.",
+      "natural1": "Natural 1: one degree worse."
     }
   }
 }
