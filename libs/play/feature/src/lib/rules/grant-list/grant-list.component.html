@@ -1,0 +1,17 @@
+@if (rows().length > 0) {
+  <fr-stack gap="xs">
+    <fr-heading variant="subheading" [level]="3"><ng-content /></fr-heading>
+    <fr-list gap="xs" markers>
+      @for (row of rows(); track $index) {
+        <fr-list-item>
+          <fr-stack gap="3xs">
+            <fr-text>{{ row.title }}</fr-text>
+            @for (detail of row.details; track $index) {
+              <fr-text variant="caption" tone="muted">{{ detail }}</fr-text>
+            }
+          </fr-stack>
+        </fr-list-item>
+      }
+    </fr-list>
+  </fr-stack>
+}

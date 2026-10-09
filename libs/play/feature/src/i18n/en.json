@@ -79,6 +79,17 @@
     "termValue": "gives {value}",
     "rounding": "Rounding",
     "noStatistics": "The array has no statistics.",
+    "grantEntriesLabel": "Content entries",
+    "grantEntriesHint": "A JSON array of entries, each with a slug, a name and rule elements. A GrantItem may name its entry by slug here.",
+    "grantRootsLabel": "Character has",
+    "grantRootsHint": "The slugs of the entries the character has directly, one per line, like fighter or woodland-elf.",
+    "badRoots": "{count, plural, one {Line {lines} is not a slug.} other {Lines {lines} are not slugs.}}",
+    "grantedHeading": "On the character",
+    "noGrants": "Nothing is on the character yet.",
+    "duplicatesHeading": "Already on the character",
+    "conditionalHeading": "Depends on the situation",
+    "grantErrorsHeading": "Problems",
+    "grantedThrough": "Granted through {path}",
     "verdict": {
       "true": "The predicate holds.",
       "false": "The predicate does not hold.",
@@ -104,7 +115,8 @@
       "statistic": "Statistic definition",
       "formula": "Formula",
       "verdict": "Predicate verdict",
-      "statistics": "Statistics"
+      "statistics": "Statistics",
+      "grants": "Grants"
     },
     "invalidSummary": "{count, plural, one {# problem, listed under Result.} other {# problems, listed under Result.}}",
     "nothingToShow": "Nothing to check until the JSON parses.",

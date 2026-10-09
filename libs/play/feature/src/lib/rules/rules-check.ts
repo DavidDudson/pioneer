@@ -18,6 +18,7 @@ import { fieldIssues } from '@pioneer/shared/kernel';
 import type { FieldIssue, ValueOf } from '@pioneer/shared/kernel';
 import { z } from 'zod';
 
+import { EXAMPLE_GRANT_ENTRIES } from './grant-examples';
 import { pointAt } from './point-at';
 
 /** The rules schemas the playground can check. */
@@ -56,8 +57,17 @@ const RULES_SCHEMA_KEYS: Readonly<Record<RulesSchema, string>> = {
   [RulesSchema.Statistic]: 'play.rules.schema.statistic',
 };
 
-/** What the playground does: check JSON against one of the rules schemas, parse formula text, or evaluate a predicate. */
-export const RulesTool = { ...RulesSchema, Formula: 'formula', Verdict: 'verdict', Statistics: 'statistics' } as const;
+/**
+ * What the playground does: check JSON against one of the rules schemas, parse formula text, evaluate a predicate,
+ * derive statistics, or resolve grants.
+ */
+export const RulesTool = {
+  ...RulesSchema,
+  Formula: 'formula',
+  Verdict: 'verdict',
+  Statistics: 'statistics',
+  Grants: 'grants',
+} as const;
 export type RulesTool = ValueOf<typeof RulesTool>;
 
 export const RULES_TOOL_KEYS: Readonly<Record<RulesTool, string>> = {
@@ -65,6 +75,7 @@ export const RULES_TOOL_KEYS: Readonly<Record<RulesTool, string>> = {
   [RulesTool.Formula]: 'play.rules.schema.formula',
   [RulesTool.Verdict]: 'play.rules.schema.verdict',
   [RulesTool.Statistics]: 'play.rules.schema.statistics',
+  [RulesTool.Grants]: 'play.rules.schema.grants',
 };
 
 const PLAYER_CORE = PackId.parse('player-core');
@@ -154,6 +165,9 @@ export function rulesExample(tool: RulesTool): string {
   }
   if (tool === RulesTool.Statistics) {
     return JSON.stringify(EXAMPLE_STATISTICS, undefined, JSON_INDENT);
+  }
+  if (tool === RulesTool.Grants) {
+    return EXAMPLE_GRANT_ENTRIES;
   }
   const schema = tool === RulesTool.Verdict ? RulesSchema.Predicate : tool;
   return JSON.stringify(EXAMPLE_VALUES[schema], undefined, JSON_INDENT);
