@@ -46,13 +46,14 @@ function inRange(value: unknown, position: TextPosition): PartialValue {
     : fail(message(FormulaMessage.OutOfRange, { maximum: FORMULA_VALUE_MAX, position }), position);
 }
 
-type Apply = (values: readonly PartialValue[]) => PartialValue;
+/** A function on evaluated arguments, giving a raw number that the caller range-checks at the call. */
+type Apply = (values: readonly PartialValue[]) => unknown;
 
 /** `fn` on a one-argument call's value. */
 const unary =
   (fn: (value: PartialValue) => unknown): Apply =>
   ([value = ZERO]) =>
-    PartialValue.parse(fn(value));
+    fn(value);
 
 /** A comparison, 1 when it holds and 0 when it does not, as pf2e's helpers give `true` and `false`. */
 const comparison =
@@ -62,8 +63,8 @@ const comparison =
 
 /** Every function but `ternary`, on evaluated arguments; the parser has checked the count. */
 const APPLY: Readonly<Record<Exclude<FormulaFunction, typeof FormulaFunction.Ternary>, Apply>> = {
-  [FormulaFunction.Min]: (values) => PartialValue.parse(Math.min(...values)),
-  [FormulaFunction.Max]: (values) => PartialValue.parse(Math.max(...values)),
+  [FormulaFunction.Min]: (values) => Math.min(...values),
+  [FormulaFunction.Max]: (values) => Math.max(...values),
   [FormulaFunction.Floor]: unary(Math.floor),
   [FormulaFunction.Ceil]: unary(Math.ceil),
   [FormulaFunction.Abs]: unary(Math.abs),
@@ -157,7 +158,8 @@ class Evaluator {
       return this.value(condition) === ZERO ? this.value(ifFalse) : this.value(ifTrue);
     }
     const values = args.map((arg) => this.value(arg));
-    return APPLY[node.name](values);
+    // None of these grows a value today; the check keeps any future one from throwing instead of failing.
+    return inRange(APPLY[node.name](values), node.position);
   }
 }
 
