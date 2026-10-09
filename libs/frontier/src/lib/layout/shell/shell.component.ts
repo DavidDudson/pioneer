@@ -30,7 +30,7 @@ export class Shell {
   protected readonly headerClasses = headerClasses;
   protected readonly brandClasses = cva('shrink-0')();
   protected readonly navClasses = cva('min-w-none overflow-x-auto')();
-  protected readonly actionsClasses = cva('ml-auto shrink-0')();
+  protected readonly actionsClasses = cva('ms-auto shrink-0')();
   protected readonly contentClasses = cva('flex-1')();
   protected readonly footerClasses = footerClasses;
 }

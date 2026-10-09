@@ -2,10 +2,12 @@ import { TestBed } from '@angular/core/testing';
 import { Temporal } from '@pioneer/shared/kernel';
 import { describe, expect, it } from 'vitest';
 
+import { provideFrontierI18nTesting } from '../testing/provide-frontier-i18n-testing';
 import { DateDisplay } from './date.component';
 
 describe(DateDisplay, () => {
   it('renders a <time> with the ISO value', async () => {
+    TestBed.configureTestingModule({ providers: [...provideFrontierI18nTesting()] });
     const fixture = TestBed.createComponent(DateDisplay);
     fixture.componentRef.setInput('value', Temporal.PlainDate.from('2026-10-07'));
     await fixture.whenStable();

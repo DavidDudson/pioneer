@@ -1,7 +1,7 @@
 import { ApplicationInitStatus, DOCUMENT } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { TranslocoService } from '@jsverse/transloco';
-import { Locale } from '@pioneer/shared/kernel';
+import { DistanceUnit, Locale } from '@pioneer/shared/kernel';
 import { beforeEach, describe, expect, it } from 'vitest';
 
 import { provideI18n } from './i18n';
@@ -60,7 +60,27 @@ describe(LocalePreferences, () => {
     preferences.setContent(Locale.English);
     await preferences.setUi(Locale.English);
 
-    expect(localStorage.getItem(STORAGE_KEY)).toBe(JSON.stringify({ ui: 'en', content: 'en' }));
+    expect(localStorage.getItem(STORAGE_KEY)).toBe(JSON.stringify({ ui: 'en', content: 'en', distanceUnit: 'feet' }));
+  });
+
+  it('defaults to feet and persists a metres preference', async () => {
+    const preferences = await setup(['en']);
+    expect(preferences.distanceUnit()).toBe(DistanceUnit.Feet);
+
+    preferences.setDistanceUnit(DistanceUnit.Metres);
+
+    expect(localStorage.getItem(STORAGE_KEY)).toBe(JSON.stringify({ ui: 'en', content: 'en', distanceUnit: 'metres' }));
+  });
+
+  it('restores a stored unit and ignores an unknown one', async () => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({ distanceUnit: 'metres' }));
+    const restored = await setup(['en']);
+    expect(restored.distanceUnit()).toBe(DistanceUnit.Metres);
+
+    TestBed.resetTestingModule();
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({ ui: 'en', distanceUnit: 'cubits' }));
+    const fallback = await setup(['en']);
+    expect(fallback.distanceUnit()).toBe(DistanceUnit.Feet);
   });
 
   it('still works when storage is blocked', async () => {

@@ -13,7 +13,7 @@
   [(expanded)]="expanded"
   (keydown.escape)="cancelled.emit()"
 >
-  <span [class]="labelClasses()">{{ selectedLabel() }}</span>
+  <span [class]="labelClasses()">{{ selectedLabel() ?? ('frontier.select.placeholder' | transloco) }}</span>
   <span aria-hidden="true" [class]="caretClasses">▾</span>
 </button>
 

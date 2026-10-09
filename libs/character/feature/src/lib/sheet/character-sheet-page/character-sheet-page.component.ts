@@ -15,6 +15,7 @@ import {
   Heading,
   InlineEdit,
   InlineField,
+  LocaleFormat,
   NumberInput,
   Page,
   Select,
@@ -68,9 +69,8 @@ function describeSaveError(error: unknown): MessageDescriptor {
   return issue?.message ?? message('character.sheet.saveFailed');
 }
 
-function signed(value: number): string {
-  return value >= 0 ? `+${value}` : String(value);
-}
+/** PF2e modifiers always show their sign, `+0` included. */
+const SIGNED: Intl.NumberFormatOptions = { signDisplay: 'always' };
 
 /** Character sheet: every value is its own inline edit with its own state. */
 @Component({
@@ -97,6 +97,7 @@ export class CharacterSheetPage {
   /** Route param, bound by `withComponentInputBinding`. */
   public readonly id = input.required({ transform: (id: string): CharacterId => CharacterId.parse(id) });
 
+  readonly #format = inject(LocaleFormat);
   protected readonly store = inject(CharacterStore);
   protected readonly ancestries = inject(AncestryOptions);
   protected readonly character = this.store.selected;
@@ -133,7 +134,7 @@ export class CharacterSheetPage {
       empty: 0,
       schema: AttributeModifier,
       toPatch: (value) => ({ field: CharacterPatchField.Attribute, attribute, value: AttributeModifier.parse(value) }),
-      format: signed,
+      format: (value) => this.#format.number(value, SIGNED),
     }),
   }));
 
