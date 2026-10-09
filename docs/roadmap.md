@@ -115,7 +115,7 @@ gain and lose conditions, end the turn with correct bookkeeping.
 ## M6 Campaigns and Foundry sync
 
 Exit: a GM links a campaign to a Foundry world; four players' characters import as pf2e actors, build changes
-reach Foundry and play state comes back.
+reach Foundry and play state syncs in the direction the GM chose.
 
 Live play runs in Foundry VTT, not in Pioneer (ADR-0018). Pioneer builds and explains characters; campaigns exist
 to group a party and link it to a Foundry world.
@@ -124,7 +124,8 @@ to group a party and link it to a Foundry world.
 - **Foundry export**: actor JSON, compendium links, choice flags, inventory, spellcasting, reverse rule element
   translation, golden pregen checklist (moved from M8).
 - **Foundry sync**: a Foundry module that imports the campaign's characters as actors, re-syncs build changes,
-  and sends play state (HP, conditions, effects, resources) back to Pioneer; party overview.
+  and syncs play state (HP, conditions, effects, resources) in a per-campaign mode: Foundry is the source of
+  truth, Pioneer is the source of truth, or disconnected; party overview.
 
 ## M7 Homebrew authoring
 

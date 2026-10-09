@@ -103,23 +103,26 @@ build an event log, combat log, encounter tracker or GM tools; a campaign groups
 world.
 
 ```text
-campaigns             id, name, gm_id, created_at
+campaigns             id, name, gm_id, play_sync (foundry | pioneer | disconnected), created_at
 campaign_members      campaign_id, user_id, role (gm | player)
 campaign_invites      id, campaign_id, token hash, expires_at, revoked_at
 campaign_characters   campaign_id, character_id (a character is in one campaign at most)
 campaign_links        id, campaign_id, token hash, last_used_at, revoked_at
 ```
 
-- **Ownership of data.** Pioneer owns the build (choices, inventory, spells). Foundry owns play state during a
-  session: HP, temporary HP, dying, wounded, conditions, effects and resources. Each side only writes what it owns.
+- **Ownership of data.** Pioneer always owns the build (choices, inventory, spells). Play state (HP, temporary
+  HP, dying, wounded, conditions, effects, resources) follows the campaign's `play_sync` mode, set by the GM:
+  `foundry` (Foundry is the source of truth; Pioneer mirrors it read-only), `pioneer` (players manage it in
+  Pioneer; the actor follows and Foundry edits are overwritten by the next push) or `disconnected` (the default;
+  each side tracks its own).
 - **Foundry module.** A Pioneer module for Foundry, configured with the Pioneer URL and a per-campaign link token,
   pulls the campaign's characters as pf2e actors (see [Foundry export](#foundry-export)) and flags each actor
   with its character id and revision. Foundry servers are often behind NAT, so the module always calls Pioneer,
   never the reverse.
 - **Build changes** reach Foundry when the module sees a new character revision; a re-sync replaces build items
-  and keeps Foundry's play state.
-- **Play state** flows back: the module posts actor changes to Pioneer, which stores them in the character's
-  `document.play`, so the sheet and the campaign's party overview show the current state.
+  and leaves play state to the sync mode.
+- **Play state** syncs per mode: in `foundry` mode the module posts actor changes to Pioneer, which stores them in
+  the character's `document.play`; in `pioneer` mode the module writes Pioneer's play state to the actor.
 - **Permissions.** Policies live in the campaign context's application layer, with the acting user from identity's
   `RequestAuthenticator` (ADR-0007), or the campaign from a link token for module routes. Owners edit builds;
   members see the party overview.

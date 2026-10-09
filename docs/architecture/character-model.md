@@ -69,8 +69,8 @@ The document is one aggregate, validated by zod and versioned with the existing 
 Edits stay field-level commands (`selectSlot`, `addItem`, `setHp`, `addCondition`), so the API stays small and each
 command is auditable. List queries use the scalar columns; the document is never queried into.
 
-Campaign characters keep their build and inventory here; during a campaign, play state is synced back from Foundry
-into `document.play` (see [play-and-campaigns.md](play-and-campaigns.md#campaigns)).
+Campaign characters keep their build and inventory here; play state lives in `document.play` and syncs
+with Foundry per the campaign's mode (see [play-and-campaigns.md](play-and-campaigns.md#campaigns)).
 
 ## Overrides
 

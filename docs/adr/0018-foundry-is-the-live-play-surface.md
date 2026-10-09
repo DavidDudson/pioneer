@@ -17,15 +17,20 @@ Pioneer's strengths are building and explaining characters. Its content is impor
 
 ## Decision
 
-- **Live play runs in Foundry.** Pioneer does not build a campaign event log, live sync, combat log, encounter
+- **Table play runs in Foundry.** Pioneer does not build a campaign event log, live sync, combat log, encounter
   tracker, server dice or GM tools.
 - **A campaign groups a party and links it to a Foundry world**: members, invites, attached characters and a
   per-campaign link token.
 - **A Pioneer module for Foundry pulls from Pioneer.** It imports the campaign's characters as pf2e actors
-  through the Foundry export, re-syncs them when a build changes, and posts play state back. Foundry servers are
-  often behind NAT, so Pioneer never calls Foundry.
-- **Each side owns its fields.** Pioneer owns the build; Foundry owns play state (HP, temporary HP, dying,
-  wounded, conditions, effects, resources) and Pioneer stores what Foundry reports in `document.play`.
+  through the Foundry export, re-syncs them when a build changes, and syncs play state in the campaign's chosen mode.
+  Foundry servers are often behind NAT, so Pioneer never calls Foundry; the module does all the calling.
+- **Pioneer always owns the build.** Play state (HP, temporary HP, dying, wounded, conditions, effects,
+  resources) follows a per-campaign sync mode the GM sets:
+  - `foundry`: Foundry is the source of truth. The module posts play state to Pioneer, and Pioneer's play-state
+    editing is read-only for the campaign's characters.
+  - `pioneer`: Pioneer is the source of truth. Players manage HP and resources on their sheet and the module
+    writes them to the actor. Edits made in Foundry do not reach Pioneer and are overwritten by the next push.
+  - `disconnected` (the default): no play-state sync; each side tracks its own. Builds still sync.
 - Distribution, version compatibility, change detection (polling or a stream) and condition mapping are left to
   the spike #216, which records its own ADR.
 
@@ -34,7 +39,7 @@ Pioneer's strengths are building and explaining characters. Its content is impor
 - Supersedes ADR-0006 and ADR-0017. Neither was built; the stream design in ADR-0017 may still inform the
   module's change detection.
 - The Foundry export moves from M8 to M6, since the module imports its output.
-- Pioneer's dice, roll experience and play state stay for solo play and for showing synced state; nothing in them
-  needs to work across a table.
+- Pioneer's dice and roll experience stay for solo play. Play state (#38) is a live feature in every mode: edited
+  in Pioneer, or mirrored from Foundry. Nothing in them needs to work across a table.
 - A new deliverable outside the web app: the Foundry module, versioned against Foundry core and the pf2e system.
 - Players without Foundry get no shared play in Pioneer. If that is ever needed, it is a new ADR.
