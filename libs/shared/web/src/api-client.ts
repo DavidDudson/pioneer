@@ -54,11 +54,20 @@ export class ApiClient {
         const problem = ProblemSchema.safeParse(error.error);
         const failure = new ApiError(error.status, problem.success ? problem.data : undefined);
         if (failure.isUnauthorized && input.signedOutIsAnswer !== true) {
-          await this.#unauthorized?.();
+          await this.#promptSignIn();
         }
         throw failure;
       }
       throw error;
+    }
+  }
+
+  /** Runs the unauthorized handler; the caller still gets the 401, whatever the prompt does. */
+  async #promptSignIn(): Promise<void> {
+    try {
+      await this.#unauthorized?.();
+    } catch {
+      // A failed prompt (say, a cancelled navigation) must not replace the 401 the caller is owed.
     }
   }
 }

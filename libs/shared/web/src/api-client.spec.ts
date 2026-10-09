@@ -92,3 +92,28 @@ describe('ApiClient on a 401', () => {
     expect(handler).not.toHaveBeenCalled();
   });
 });
+
+describe('ApiClient when the unauthorized handler fails', () => {
+  it('still rejects with the 401', async () => {
+    TestBed.configureTestingModule({
+      providers: [
+        provideHttpClient(),
+        provideHttpClientTesting(),
+        {
+          provide: UNAUTHORIZED_HANDLER,
+          useValue: async (): Promise<void> => {
+            throw new Error('navigation cancelled');
+          },
+        },
+      ],
+    });
+    const pending = TestBed.inject(ApiClient).call(getThing, { params: { id: 'x' }, body: undefined });
+    TestBed.inject(HttpTestingController)
+      .expectOne('/api/things/x')
+      .flush(
+        { type: 'unauthorized', title: 'Unauthorized', status: 401, message: { key: 'problem.unauthorized' } },
+        { status: 401, statusText: 'Unauthorized' },
+      );
+    await expect(pending).rejects.toSatisfy((error: unknown) => ApiError.isUnauthorized(error));
+  });
+});
