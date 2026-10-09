@@ -19,6 +19,7 @@ tester.run('no-native-elements', noNativeElements, {
     { filename: FEATURE, code: `<fr-stack gap="md"><pio-breakdown /></fr-stack>` },
     { filename: FEATURE, code: `<ng-container><router-outlet /></ng-container>` },
     { filename: frontier('layout/box/box.component.html'), code: `<div><span><ng-content /></span></div>` },
+    { filename: frontier('media/image/image.component.html'), code: `<img />` },
     {
       filename: frontier('shell/shell.component.html'),
       code: `<header></header><nav></nav><main></main><footer></footer>`,
@@ -76,7 +77,7 @@ tester.run('no-native-elements', noNativeElements, {
       code: `<${name}></${name}>`,
       errors: [{ messageId: 'banned' }],
     })),
-    { filename: frontier('layout/card/card.component.html'), code: `<kbd></kbd>`, errors: [{ messageId: 'unowned' }] },
+    { filename: frontier('layout/card/card.component.html'), code: `<img />`, errors: [{ messageId: 'owned' }] },
     {
       filename: frontier('layout/card/card.component.html'),
       code: `<svg><g><path d="M0 0" /></g></svg>`,
