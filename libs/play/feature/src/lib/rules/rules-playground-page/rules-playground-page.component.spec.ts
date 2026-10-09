@@ -118,7 +118,6 @@ describe('RulesPlaygroundPage', () => {
     await harness.fixture.whenStable();
 
     const text = pageText(harness);
-    expect(text).toContain('Problem at position 8, shown under Result.');
     expect(text).toContain('max(1, level)\n       ^');
     expect(text).toContain('“level” at position 8 is not a function.');
     expect(input.getAttribute('aria-invalid')).toBe('true');

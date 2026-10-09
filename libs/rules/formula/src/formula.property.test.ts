@@ -12,6 +12,19 @@ import { FormulaText } from './units';
 /** Generated trees can be too long, deep or big to type; those limits are tested apart. */
 const LIMITS = new Set<string>([FormulaMessage.TooLong, FormulaMessage.TooDeep, FormulaMessage.TooManyNodes]);
 const formulaChar = constantFrom('0', '1', '9', '@', 'a', 'x', '.', '_', '-', '+', '*', '/', '(', ')', ',', ' ');
+/** The second half of an emoji or other astral character. */
+const LOW_SURROGATE = /^[\uDC00-\uDFFF]$/u;
+
+/** Parsing never throws; a failure points inside the text or one past it, never into the middle of an emoji. */
+function expectErrorInBounds(raw: string): void {
+  const text = FormulaText.parse(raw);
+  const outcome = parseFormula(text);
+  const position = outcome.ok ? 1 : outcome.position;
+  const unit = text.slice(position - 1, position);
+  expect(position).toBeGreaterThanOrEqual(1);
+  expect(position).toBeLessThanOrEqual(text.length + 1);
+  expect(LOW_SURROGATE.test(unit)).toBe(false);
+}
 
 describe('formula (properties)', () => {
   test('print then parse gives the same tree back', () => {
@@ -29,26 +42,12 @@ describe('formula (properties)', () => {
     );
   });
 
-  test('parsing never throws, and every error points inside the text or just past it', () => {
-    assert(
-      property(string({ maxLength: 60 }), (raw) => {
-        const text = FormulaText.parse(raw);
-        const outcome = parseFormula(text);
-        if (!outcome.ok) {
-          expect(outcome.position).toBeGreaterThanOrEqual(1);
-          expect(outcome.position).toBeLessThanOrEqual(Math.max(text.length, 1) + 1);
-        }
-      }),
-    );
+  test('parsing any text never throws, and errors point at the start of a character or just past the end', () => {
+    assert(property(string({ unit: 'binary', maxLength: 60 }), expectErrorInBounds));
   });
 
-  test('formula-shaped noise never throws either', () => {
-    assert(
-      property(string({ unit: formulaChar, maxLength: 40 }), (raw) => {
-        const outcome = parseFormula(FormulaText.parse(raw));
-        expect(typeof outcome.ok).toBe('boolean');
-      }),
-    );
+  test('formula-shaped noise gets the same guarantees', () => {
+    assert(property(string({ unit: formulaChar, maxLength: 40 }), expectErrorInBounds));
   });
 
   test('references lists every reference in the printed text, positions included', () => {

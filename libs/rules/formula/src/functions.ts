@@ -3,7 +3,7 @@ import { z } from 'zod';
 
 /**
  * The functions a formula may call: Foundry's `Math` subset plus the comparison helpers pf2e adds to
- * its roll data (`ternary`, `eq`, `gte`, ...). Nothing else is callable.
+ * `Math` (`ternary`, `eq`, `gte`, ...). Nothing else is callable.
  */
 export const FormulaFunction = {
   Min: 'min',

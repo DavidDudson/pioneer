@@ -46,7 +46,9 @@ JavaScript in content.
 ### Formula language
 
 `libs/rules/formula` parses formula text into a tree. It depends only on the kernel, so `rules/sdk` can check
-the formulas in rule elements with it.
+the formulas in rule elements with it, and the engine evaluates statistic formulas with it. The parser takes any
+`FormulaText`, so it can report empty or overlong text; `FormulaSource` in `rules/sdk` is the stored, bounded form,
+passed in as `FormulaText.parse(source)`.
 
 ```text
 formula    = sum
@@ -56,13 +58,13 @@ unary      = "-" unary | primary
 primary    = number | reference | call | "(" sum ")"
 number     = digits                                  (whole, 0 to 999999)
 reference  = "@" segment ("." segment)*              (@actor.level, @attr.dex.capped)
-segment    = [A-Za-z_] [A-Za-z0-9_-]*
+segment    = [A-Za-z0-9_-]+
 call       = function "(" (sum ("," sum)*)? ")"
 function   = min | max | floor | ceil | abs | round | sign
            | ternary | eq | ne | gt | gte | lt | lte
 ```
 
-- The functions are Foundry's `Math` subset and the comparison helpers pf2e adds to roll data. `min` and `max`
+- The functions are Foundry's `Math` subset and the comparison helpers pf2e adds to `Math`. `min` and `max`
   take one or more arguments, `ternary` three, the comparisons two and the rest one. Any other name is an error.
 - Hyphens belong to the reference, as in Foundry's data paths: `@level-1` is one reference, so write `@level - 1`
   to subtract.

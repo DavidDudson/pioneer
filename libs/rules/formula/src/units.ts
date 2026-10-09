@@ -26,11 +26,11 @@ export const FormulaNumber = z.int().nonnegative().max(FORMULA_NUMBER_MAX).brand
 export type FormulaNumber = z.infer<typeof FormulaNumber>;
 
 /**
- * One dotted segment of a reference: letters, digits, `_` and `-`, starting with a letter or `_`.
- * Hyphens are allowed because Foundry's data paths allow them, so `@level-1` is one reference: write
- * `@level - 1` to subtract.
+ * One dotted segment of a reference: letters, digits, `_` and `-` in any order, as in Foundry's data paths
+ * (`/@([a-z.0-9_-]+)/gi`), so array indexes like `@item.runes.0` work. Hyphens belong to the path, so
+ * `@level-1` is one reference: write `@level - 1` to subtract.
  */
-const SEGMENT = /^[A-Za-z_][\w-]*$/u;
+const SEGMENT = /^[\w-]+$/u;
 const SEPARATOR = '.';
 
 /** The path of a reference without its `@`: `actor.level`, `attr.dex.capped`. What it means is the engine's call. */

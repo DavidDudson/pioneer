@@ -54,7 +54,6 @@
     "jsonHint": "Strings need double quotes, as in any JSON.",
     "formulaLabel": "Formula",
     "formulaHint": "Numbers, + - * /, brackets, @ references like @actor.level, and functions like max and floor.",
-    "formulaInvalid": "Problem at position {position}, shown under Result.",
     "formulaValid": "Valid. This is the formula as Pioneer prints it:",
     "formulaTree": "Parsed tree, with each part’s position:",
     "resultHeading": "Result",

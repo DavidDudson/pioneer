@@ -33,8 +33,8 @@ const canonical = (text: string): string => printFormula(parsed(text));
 const found = (formula: FormulaNode): string[] =>
   references(formula).map((reference) => `${reference.path}@${reference.position}`);
 
-/** `1` inside `depth - 1` pairs of brackets: `depth` levels of nesting. */
-const nested = (depth: number): string => `${'('.repeat(depth - 1)}1${')'.repeat(depth - 1)}`;
+/** `1` inside `depth` pairs of brackets: `depth` levels of nesting. */
+const nested = (depth: number): string => `${'('.repeat(depth)}1${')'.repeat(depth)}`;
 
 /** `1+1+...`: `terms` numbers and `terms - 1` additions. */
 function sum(terms: number): string {
@@ -100,6 +100,7 @@ describe('parseFormula', () => {
     ['', FormulaMessage.Empty, 1],
     ['   ', FormulaMessage.Empty, 1],
     ['1 + #', FormulaMessage.UnexpectedCharacter, 5],
+    ['1 + 😀', FormulaMessage.UnexpectedCharacter, 5],
     ['1.5', FormulaMessage.UnexpectedCharacter, 2],
     ['1 +', FormulaMessage.UnexpectedEnd, 4],
     ['(1 + 2', FormulaMessage.UnexpectedEnd, 7],
@@ -111,7 +112,7 @@ describe('parseFormula', () => {
     ['1000000', FormulaMessage.NumberTooLarge, 1],
     ['2 * @', FormulaMessage.InvalidReference, 5],
     ['@actor.', FormulaMessage.InvalidReference, 1],
-    ['@1st', FormulaMessage.InvalidReference, 1],
+    ['@a..b', FormulaMessage.InvalidReference, 1],
     ['level + 1', FormulaMessage.UnknownFunction, 1],
     ['sqrt(4)', FormulaMessage.UnknownFunction, 1],
     ['1 + floor', FormulaMessage.NotCalled, 5],
@@ -142,10 +143,11 @@ describe('parseFormula', () => {
     expect(parsed(nested(NESTING_DEPTH_MAX)).kind).toBe(NodeKind.Number);
     expect(failure(nested(NESTING_DEPTH_MAX + 1))).toMatchObject({
       error: { key: FormulaMessage.TooDeep },
-      position: NESTING_DEPTH_MAX,
+      position: NESTING_DEPTH_MAX + 1,
     });
-    expect(failure(`${'-'.repeat(NESTING_DEPTH_MAX)}1`).error.key).toBe(FormulaMessage.TooDeep);
-    const calls = `${'abs('.repeat(NESTING_DEPTH_MAX)}1${')'.repeat(NESTING_DEPTH_MAX)}`;
+    expect(parsed(`${'-'.repeat(NESTING_DEPTH_MAX)}1`).kind).toBe(NodeKind.Negate);
+    expect(failure(`${'-'.repeat(NESTING_DEPTH_MAX + 1)}1`).error.key).toBe(FormulaMessage.TooDeep);
+    const calls = `${'abs('.repeat(NESTING_DEPTH_MAX + 1)}1${')'.repeat(NESTING_DEPTH_MAX + 1)}`;
     expect(failure(calls).error.key).toBe(FormulaMessage.TooDeep);
   });
 

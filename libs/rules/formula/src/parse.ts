@@ -64,7 +64,7 @@ class Parser {
   }
 
   public formula(): FormulaNode {
-    const formula = this.#expression(FIRST);
+    const formula = this.#sum();
     const extra = this.#peek();
     return extra === undefined ? formula : unexpected(extra);
   }
@@ -112,20 +112,23 @@ class Parser {
     return node;
   }
 
-  /** `term (('+' | '-') term)*`, left-associative. */
+  /** A sum one level deeper: inside a group or a call's arguments. */
   #expression(position: TextPosition): FormulaNode {
-    return this.#nested(position, () => {
-      let left = this.#term();
-      for (let next = this.#peek(); next?.kind === TokenKind.Operator; next = this.#peek()) {
-        if (next.operator !== BinaryOperator.Add && next.operator !== BinaryOperator.Subtract) {
-          break;
-        }
-        this.#take();
-        const right = this.#term();
-        left = this.#node({ kind: NodeKind.Binary, operator: next.operator, left, right, position: next.position });
+    return this.#nested(position, () => this.#sum());
+  }
+
+  /** `term (('+' | '-') term)*`, left-associative. */
+  #sum(): FormulaNode {
+    let left = this.#term();
+    for (let next = this.#peek(); next?.kind === TokenKind.Operator; next = this.#peek()) {
+      if (next.operator !== BinaryOperator.Add && next.operator !== BinaryOperator.Subtract) {
+        break;
       }
-      return left;
-    });
+      this.#take();
+      const right = this.#term();
+      left = this.#node({ kind: NodeKind.Binary, operator: next.operator, left, right, position: next.position });
+    }
+    return left;
   }
 
   /** `unary (('*' | '/') unary)*`, left-associative. */

@@ -96,8 +96,8 @@ export function tokenize(text: FormulaText): Token[] {
   STRAY.lastIndex = end;
   const found = STRAY.exec(text)?.groups?.['found'] ?? '';
   if (found !== '') {
-    // `lastIndex` is just past the stray character: its 1-based position.
-    const position = TextPosition.parse(STRAY.lastIndex);
+    // `lastIndex` is just past the stray character, which may be two code units (an emoji): step back to its start.
+    const position = TextPosition.parse(STRAY.lastIndex - found.length + 1);
     throw new FormulaSyntaxError(message(FormulaMessage.UnexpectedCharacter, { found, position }), position);
   }
   return tokens;
