@@ -1,6 +1,6 @@
 # 0009. Internationalisation with lazy-loaded messages and content text
 
-- Status: Accepted
+- Status: Accepted; locale resolution superseded by [0013](0013-account-only-display-preferences.md)
 - Date: 2026-10-08
 
 ## Context
@@ -30,13 +30,10 @@ the engine produces. Translations also add weight, so they must load only when n
     the character's class).
   - All bundles are content-hashed, immutable and cached in IndexedDB keyed by hash, so a locale switch
     downloads only text, never mechanics.
-- **Locale resolution:** the signed-in user's account preference, else `en`. Preferences belong to accounts
-  (`/account/settings`): signed-out visitors get the defaults and have nothing to choose, and `Accept-Language`
-  is not consulted (changed in #95). The last signed-in user's choices are cached in the browser so they apply
-  before bootstrap. Content locale can differ from UI locale (English rules text with a German UI is a valid
-  choice).
-- **Units and layout:** distances render per the account's preference (feet as written by default, or metres at
-  1.5 m per 5 ft as translated books do); frontier uses logical CSS properties so right-to-left locales work.
+- **Locale resolution:** account preference, then `Accept-Language`, then `en`. Content locale can differ from UI
+  locale (English rules text with a German UI is a valid choice).
+- **Units and layout:** distances render per locale preference (feet, or metres at 1.5 m per 5 ft as translated
+  books do); frontier uses logical CSS properties so right-to-left locales work.
 
 ## Consequences
 

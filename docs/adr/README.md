@@ -17,6 +17,7 @@ Accepted. To change a decision, add a new ADR that supersedes the old one; do no
 | [0010](0010-oauth-with-arctic-and-own-sessions.md)    | OAuth through Arctic; sessions owned by Pioneer                |
 | [0011](0011-api-binary-and-migrations.md)             | One compiled API binary; migrations ship beside it             |
 | [0012](0012-container-image.md)                       | Distroless container image that checks its own health          |
+| [0013](0013-account-only-display-preferences.md)      | Display preferences belong to accounts; signed out is defaults |
 
 Template:
 
