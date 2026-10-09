@@ -1,0 +1,9 @@
+@let result = check();
+@if (result.status === VerdictStatus.Valid) {
+  <fr-message [tone]="TRUTH_TONES[result.truth]">{{ VERDICT_KEYS[result.truth] | transloco }}</fr-message>
+  <pio-verdict-statements [nodes]="result.statements" />
+} @else if (result.status === VerdictStatus.InvalidFacts) {
+  <fr-text element="p" tone="muted">{{ 'play.rules.factsNotChecked' | transloco }}</fr-text>
+} @else {
+  <pio-rules-result [outcome]="result" />
+}

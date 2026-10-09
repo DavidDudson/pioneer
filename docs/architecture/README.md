@@ -79,6 +79,7 @@ libs/
     engine/         derivation pipeline, statistics, breakdowns, action availability
     dice/           dice expressions, RNG port, degree of success, damage application
     formula/        formula language: parser to a positioned tree, printer, references, evaluator (kernel only)
+    predicate/      three-valued (Kleene) predicate evaluation, roll option namespace table
     catalog/        pack loaders (exists; switches from TS imports to API/DB loading)
   content/          (TS packs retired; replaced by content/ JSON data, see content-model.md)
   character/        domain, application, infrastructure, feature (exists)
@@ -100,8 +101,8 @@ tools/
 ```
 
 Dependency rule: `rules/*` depends only on `shared/kernel` and other `rules/*` libraries: `rules/formula` on the kernel
-alone, `rules/sdk` on `rules/formula`, and `dice`, `engine` and `catalog` on `rules/sdk`. Feature areas depend on
-`rules/*`, never the reverse.
+alone, `rules/sdk` on `rules/formula`, and `dice`, `predicate`, `engine` and `catalog` on `rules/sdk`. Feature areas
+depend on `rules/*`, never the reverse.
 Content data never imports code.
 
 ## Cross-cutting

@@ -242,6 +242,42 @@ sheet, where the situation is unknown, so predicates use **three-valued (Kleene)
   known situation (in an encounter, using Stealth for initiative). Choosing them supplies facts, re-evaluates, and
   the roll records which were used.
 
+### Evaluation
+
+`libs/rules/predicate` evaluates predicates. It depends only on `rules/sdk`, so grants and statistics share it.
+
+```ts
+const facts = new PredicateFacts(rollOptions, namespaces); // once per derivation; indexes numeric suffixes
+evaluatePredicate(predicate, facts); // 'true' | 'false' | 'unknown'
+tracePredicate(predicate, facts); // the same, with every nested statement's verdict, for explaining
+```
+
+The namespace is a roll option's first word. `DEFAULT_NAMESPACES` was checked against the roll options in Foundry's
+feats, class and ancestry features, conditions, effects and equipment:
+
+| Kind        | Namespaces                                                                                                                                                                           |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Known       | `self`, `item`, `parent`, `class`, `feat`, `feature`, `ancestry`, `heritage`, `background`, `deity`, `armor`, `skill`, `defense`                                                     |
+| Situational | `action`, `attack`, `bonus`, `check`, `damage`, `encounter`, `inflicts`, `lighting`, `origin`, `penalty`, `proficiency`, `situation`, `spellcasting`, `target`, `terrain`, any other |
+
+`item` and `parent` are known because the engine always evaluates them against a specific item. A namespace missing
+from the table is situational, so a gap shows up as a conditional line instead of hiding a modifier. The namespaces a
+`ChoiceSet` writes its pick to (`kinetic-gate:air`) are the character's own facts: the engine adds them as known with
+`withKnown`. The core rules pack will own the table (Epic 1.6).
+
+Statements follow Foundry's `Predicate.test`, lifted to three values:
+
+- A plain option is true when present. Missing, it is false in a known namespace and unknown otherwise.
+- `and`, `or` and `not` are Kleene's. `nand` and `nor` are their negations, and `if`/`then` is `not if or then`.
+  `xor` is true when exactly one is true and nothing is unknown, false once two are true. `iff` is false once one
+  is true and another false, and unknown while any is unknown.
+- `{ "eq": [a, b] }` with two options compares their text, as Foundry does, so it never depends on the facts. With a
+  number, it looks for `a:b`. Missing, that is false once `a` is in a known namespace or has some other value, and
+  unknown before.
+- `gt`, `gte`, `lt` and `lte` read every number after `a:` (`self:level:5` gives 5) and hold when some value of `a`
+  beats every value of `b`. An operand with no value makes the test false if its namespace is known, and unknown if
+  it is situational. Once an option has a value, it is settled: further values of the same option are not expected.
+
 Summaries for conditional lines are generated from the predicate with a per-locale vocabulary table
 (`terrain:forest` reads "in forest"), with an optional authored `summary` for anything the generator renders badly.
 

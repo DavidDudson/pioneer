@@ -52,6 +52,11 @@ function pageText(harness: RouterTestingHarness): string {
   return present(harness.routeNativeElement).textContent;
 }
 
+/** The verdict tool's second text area. */
+function factsInput(harness: RouterTestingHarness): HTMLTextAreaElement {
+  return present(present(harness.routeNativeElement).querySelectorAll('textarea').item(1));
+}
+
 describe('RulesPlaygroundPage', () => {
   it('opens on a valid example predicate', async () => {
     const harness = await openPlayground();
@@ -171,5 +176,35 @@ describe('RulesPlaygroundPage', () => {
     expect(text).toContain('max(1, level)\n       ^');
     expect(text).toContain('“level” at position 8 is not a function.');
     expect(input.getAttribute('aria-invalid')).toBe('true');
+  });
+
+  it('evaluates a predicate against roll options and shows each statement verdict', async () => {
+    const harness = await openPlayground();
+    await chooseSchema(harness, 'Predicate verdict');
+
+    const text = pageText(harness);
+    expect(text).toContain('The predicate depends on the situation');
+    expect(text).toContain('Holds');
+    expect(text).toContain('Depends');
+    expect(text).toContain('{"gte":["self:level",5]}');
+
+    const facts = factsInput(harness);
+    facts.value = 'self:condition:frightened\nself:level:5\naction:seek';
+    facts.dispatchEvent(new Event('input'));
+    await harness.fixture.whenStable();
+    expect(pageText(harness)).toContain('The predicate holds.');
+  });
+
+  it('points at roll option lines that are not roll options', async () => {
+    const harness = await openPlayground();
+    await chooseSchema(harness, 'Predicate verdict');
+
+    const facts = factsInput(harness);
+    facts.value = 'self:level:5\nFrightened';
+    facts.dispatchEvent(new Event('input'));
+    await harness.fixture.whenStable();
+
+    expect(pageText(harness)).toContain('Line 2 is not a roll option.');
+    expect(facts.getAttribute('aria-invalid')).toBe('true');
   });
 });

@@ -47,13 +47,14 @@ const RULES_SCHEMA_KEYS: Readonly<Record<RulesSchema, string>> = {
   [RulesSchema.RuleElement]: 'play.rules.schema.ruleElement',
 };
 
-/** What the playground checks: JSON against one of the rules schemas, or formula text. */
-export const RulesTool = { ...RulesSchema, Formula: 'formula' } as const;
+/** What the playground does: check JSON against one of the rules schemas, parse formula text, or evaluate a predicate. */
+export const RulesTool = { ...RulesSchema, Formula: 'formula', Verdict: 'verdict' } as const;
 export type RulesTool = ValueOf<typeof RulesTool>;
 
 export const RULES_TOOL_KEYS: Readonly<Record<RulesTool, string>> = {
   ...RULES_SCHEMA_KEYS,
   [RulesTool.Formula]: 'play.rules.schema.formula',
+  [RulesTool.Verdict]: 'play.rules.schema.verdict',
 };
 
 const PLAYER_CORE = PackId.parse('player-core');
@@ -96,9 +97,13 @@ const EXAMPLE_VALUES: Readonly<Record<RulesSchema, unknown>> = {
 /** A statistic base formula: AC from Dexterity, armour proficiency and level. */
 const EXAMPLE_FORMULA = '10 + @attr.dex.capped + @prof.armor + @level';
 
-/** A valid starting text per tool: JSON for a schema, formula text for formulas. */
+/** A valid starting text per tool: JSON for a schema, formula text for formulas, a predicate to evaluate. */
 export function rulesExample(tool: RulesTool): string {
-  return tool === RulesTool.Formula ? EXAMPLE_FORMULA : JSON.stringify(EXAMPLE_VALUES[tool], undefined, JSON_INDENT);
+  if (tool === RulesTool.Formula) {
+    return EXAMPLE_FORMULA;
+  }
+  const schema = tool === RulesTool.Verdict ? RulesSchema.Predicate : tool;
+  return JSON.stringify(EXAMPLE_VALUES[schema], undefined, JSON_INDENT);
 }
 
 export const CheckStatus = { Valid: 'valid', NotJson: 'not-json', Invalid: 'invalid' } as const;

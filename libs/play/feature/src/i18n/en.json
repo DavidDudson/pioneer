@@ -47,7 +47,7 @@
   },
   "rules": {
     "title": "Rules",
-    "description": "Check rules data against Pioneer’s schemas: predicates, selectors, domains, roll options, sources, origins and rule elements, or try a formula with your own reference values.",
+    "description": "Check rules data against Pioneer’s schemas: predicates, selectors, domains, roll options, sources, origins and rule elements, try a formula with your own reference values, or see whether a predicate holds.",
     "schemaLabel": "Schema",
     "schemaHint": "Changing the schema loads a valid example for it.",
     "jsonLabel": "JSON",
@@ -62,6 +62,21 @@
     "referenceInvalid": "Enter a whole number from {minimum} to {maximum}. Until then, this reference has no value.",
     "noReferences": "This formula has no references.",
     "formulaTree": "Parsed tree, with each part’s position:",
+    "predicateLabel": "Predicate",
+    "factsLabel": "Roll options",
+    "factsHint": "One per line, like self:level:5 or terrain:forest. A missing self, feat or class option counts as false; a missing terrain, target or action option is unknown.",
+    "badFacts": "{count, plural, one {Line {lines} is not a roll option.} other {Lines {lines} are not roll options.}}",
+    "factsNotChecked": "Fix the roll options to see the verdict.",
+    "verdict": {
+      "true": "The predicate holds.",
+      "false": "The predicate does not hold.",
+      "unknown": "The predicate depends on the situation: some roll options it needs were not given."
+    },
+    "truth": {
+      "true": "Holds",
+      "false": "Fails",
+      "unknown": "Depends"
+    },
     "resultHeading": "Result",
     "valid": "Valid. This is the value as Pioneer reads it:",
     "notJson": "This is not valid JSON yet. Check quotes, commas and brackets.",
@@ -74,7 +89,8 @@
       "source": "Source",
       "origin": "Origin",
       "ruleElement": "Rule element",
-      "formula": "Formula"
+      "formula": "Formula",
+      "verdict": "Predicate verdict"
     },
     "invalidSummary": "{count, plural, one {# problem, listed under Result.} other {# problems, listed under Result.}}",
     "nothingToShow": "Nothing to check until the JSON parses."

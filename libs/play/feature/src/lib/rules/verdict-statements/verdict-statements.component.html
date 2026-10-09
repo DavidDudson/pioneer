@@ -1,0 +1,15 @@
+<fr-list gap="xs">
+  @for (node of nodes(); track $index) {
+    <fr-list-item>
+      <fr-stack gap="xs">
+        <fr-stack direction="horizontal" gap="xs" align="center" wrap>
+          <fr-badge [tone]="TRUTH_TONES[node.truth]">{{ TRUTH_KEYS[node.truth] | transloco }}</fr-badge>
+          <fr-text variant="code">{{ node.code }}</fr-text>
+        </fr-stack>
+        @if (node.children.length > 0) {
+          <pio-verdict-statements [nodes]="node.children" />
+        }
+      </fr-stack>
+    </fr-list-item>
+  }
+</fr-list>
