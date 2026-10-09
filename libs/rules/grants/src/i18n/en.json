@@ -2,6 +2,9 @@
   "grants": {
     "unknownEntry": "No content entry has the id {entry}.",
     "cycle": "{count, plural, one {{entries} grants itself} other {{entries} grant one another in a loop}}.",
-    "tooDeep": "This grant is more than {maximum} steps from the character, so it is not followed."
+    "tooDeep": "This grant is more than {maximum} steps from the character, so it is not followed.",
+    "pickNotOffered": "{value} is not one of the options {entry} offers, so the choice is open again.",
+    "unknownChoice": "{entry} grants the pick for {flag}, but has no choice by that name.",
+    "pickNotEntry": "The pick {value} for {flag} is an option, not a content entry, so it cannot be granted."
   }
 }

@@ -8,7 +8,7 @@ import type { GrantEntry, GrantRoot } from './grant-entry';
 import { GrantsMessage } from './messages';
 import { resolveGrants } from './resolve-grants';
 import type { GrantResolution } from './resolve-grants';
-import { entry, grantOf, idOf, lookupOf, picked } from './testing/builders';
+import { entry, grantOf, idOf, lookupOf, picked, picksOf } from './testing/builders';
 
 function resolve(
   entries: readonly GrantEntry[],
@@ -16,7 +16,7 @@ function resolve(
   options: readonly string[] = [],
 ): GrantResolution {
   const facts = new PredicateFacts(options.map((option) => RollOption.parse(option)));
-  return resolveGrants({ roots, lookup: lookupOf(entries), facts });
+  return resolveGrants({ roots, lookup: lookupOf(entries), facts, picks: picksOf() });
 }
 
 /** The player picked it for `slot`. */
@@ -171,13 +171,6 @@ describe('resolveGrants', () => {
     ];
     const summary = resolve(content, [picked('ranger')]).conditional[0]?.summary;
     expect(summary).toEqual({ kind: SummaryKind.Authored, text: ContentText.parse('in a forest') });
-  });
-
-  test('leaves grants through a choice for the picks to resolve', () => {
-    const content = [entry('rogue', [{ key: 'GrantItem', item: { choice: 'racket' } }])];
-    const result = resolve(content, [picked('rogue')]);
-    expect(names(result.items)).toEqual(['rogue']);
-    expect(result.errors).toEqual([]);
   });
 
   test('stops a chain longer than an origin records', () => {

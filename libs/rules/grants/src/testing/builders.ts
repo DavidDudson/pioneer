@@ -1,5 +1,16 @@
-import { contentId, ContentId, ContentText, PackId, RuleElement, SlotKey, Slug, SourceRef } from '@pioneer/rules/sdk';
+import {
+  ChoiceValue,
+  contentId,
+  ContentId,
+  ContentText,
+  PackId,
+  RuleElement,
+  SlotKey,
+  Slug,
+  SourceRef,
+} from '@pioneer/rules/sdk';
 
+import type { ChoicePicks } from '../choices';
 import type { ContentLookup, GrantEntry, GrantRoot } from '../grant-entry';
 
 const TEST_PACK = PackId.parse('grants-test');
@@ -34,4 +45,14 @@ export function lookupOf(entries: readonly GrantEntry[]): ContentLookup {
 /** The player picked the test pack's entry `slug` for `slot`. */
 export function picked(slug: string, slot = slug): GrantRoot {
   return { entry: idOf(slug), hop: { kind: 'choice', slot: SlotKey.parse(slot) } };
+}
+
+/** The player's picks, as `[slot, value]` pairs. */
+export function picksOf(pairs: readonly (readonly [SlotKey, string])[] = []): ChoicePicks {
+  return new Map(pairs.map(([slot, value]) => [slot, ChoiceValue.parse(value)]));
+}
+
+/** The slot of rule `rule` on the test pack's entry `slug`. */
+export function slotOf(slug: string, rule: number): SlotKey {
+  return SlotKey.parse(`${idOf(slug)}:${rule}`);
 }

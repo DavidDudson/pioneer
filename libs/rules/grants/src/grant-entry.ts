@@ -1,4 +1,5 @@
 import type { ContentId, ContentText, OriginHop, RuleElement, SourceRef } from '@pioneer/rules/sdk';
+import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 /**
  * What grant resolution reads of a content entry: its name, its rule elements and its sources. Any kind of entry
@@ -23,4 +24,10 @@ export type ContentLookup = (id: ContentId) => GrantEntry | undefined;
 export interface GrantRoot {
   readonly entry: ContentId;
   readonly hop: OriginHop;
+}
+
+/** A grant that failed, and the hops down to the element that made it (or the root, for a root that failed). */
+export interface GrantError {
+  readonly error: MessageDescriptor;
+  readonly hops: readonly OriginHop[];
 }
