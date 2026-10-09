@@ -47,11 +47,26 @@ since the runtime image has no `curl`. Podman ignores `HEALTHCHECK` unless the i
 
 Size, linux/amd64: about 110 MB uncompressed, of which 83 MB is the Bun binary.
 
+## Published image
+
+The `Image` workflow (`.github/workflows/image.yml`) runs on every PR and every push to `main`:
+
+- **Every PR** builds the image with Buildx and the GitHub Actions layer cache, then smoke tests it: it starts the
+  amd64 image against a Postgres service, waits for `/api/health`, runs `pioneer-api health` in the container and
+  checks that `/` serves the web app. It then builds amd64 and arm64 to prove the cross-compile. Nothing is pushed.
+- **Every push to `main`**, once that passes, publishes `ghcr.io/daviddudson/pioneer` for linux/amd64 and
+  linux/arm64, tagged `sha-<short commit>` and `main`. The images carry the OCI labels (`source`, `revision`,
+  `created` and others) and the multi-arch index carries them as annotations.
+
+Deploy a `sha-` tag; `main` moves on every merge.
+
 ## Without Compose
 
-Run the image against any Postgres:
+Run the image against any Postgres, either the published one or a local build:
 
 ```sh
+docker run -p 8080:3000 -e DATABASE_URL=postgres://... --env-file .env ghcr.io/daviddudson/pioneer:main
+# or
 docker build -t pioneer .
 docker run -p 8080:3000 -e DATABASE_URL=postgres://... --env-file .env pioneer
 ```
