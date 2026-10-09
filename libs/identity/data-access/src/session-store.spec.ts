@@ -93,4 +93,17 @@ describe(SessionStore, () => {
       expect(store.user()).toBeUndefined();
     });
   });
+
+  it('signing out everywhere forgets the user', async () => {
+    const { store, http } = setup();
+    TestBed.tick();
+    http.expectOne('/api/me').flush(amiri);
+    await settle();
+    const signingOut = store.signOutEverywhere();
+    http.expectOne({ method: 'POST', url: '/api/auth/sign-out-everywhere' }).flush({});
+    await signingOut;
+    await vi.waitFor(() => {
+      expect(store.user()).toBeUndefined();
+    });
+  });
 });

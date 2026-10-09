@@ -12,6 +12,7 @@ export {
 } from './endpoint';
 export {
   DomainError,
+  ForbiddenError,
   HttpStatus,
   NotFoundError,
   type Problem,

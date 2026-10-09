@@ -1,0 +1,24 @@
+<fr-stack direction="horizontal" justify="between" align="center" gap="sm" wrap>
+  <fr-stack gap="2xs">
+    @if (session().current) {
+      <fr-text weight="semibold" tone="accent">{{ 'identity.account.sessions.current' | transloco }}</fr-text>
+    } @else {
+      <fr-text weight="semibold">{{ 'identity.account.sessions.other' | transloco }}</fr-text>
+    }
+    <fr-text variant="caption" tone="muted"
+      >{{ 'identity.account.sessions.signedIn' | transloco }} <fr-date format="datetime" [value]="session().createdAt"
+    /></fr-text>
+    <fr-text variant="caption" tone="muted"
+      >{{ 'identity.account.sessions.lastSeen' | transloco }} <fr-date format="relative" [value]="session().lastSeenAt"
+    /></fr-text>
+  </fr-stack>
+  @if (session().current) {
+    <fr-async-button variant="ghost" size="sm" [action]="revoke">{{
+      'identity.account.sessions.signOutHere' | transloco
+    }}</fr-async-button>
+  } @else {
+    <fr-async-button variant="ghost" size="sm" [action]="revoke">{{
+      'identity.account.sessions.revoke' | transloco
+    }}</fr-async-button>
+  }
+</fr-stack>

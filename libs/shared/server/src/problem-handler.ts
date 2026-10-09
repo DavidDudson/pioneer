@@ -14,6 +14,7 @@ import { z } from 'zod';
 /** RFC 9457 titles: fixed developer summaries per type. Users see `message`, formatted in their locale. */
 const TITLE: Readonly<Record<ProblemType, string>> = {
   [ProblemType.Unauthorized]: 'Unauthorized',
+  [ProblemType.Forbidden]: 'Forbidden',
   [ProblemType.NotFound]: 'Not found',
   [ProblemType.VersionConflict]: 'Version conflict',
   [ProblemType.Validation]: 'The request is invalid',

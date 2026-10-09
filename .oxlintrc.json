@@ -308,6 +308,11 @@
       "rules": { "eslint/no-console": "off" }
     },
     {
+      // The sweep runs on a timer with no caller to report to; operators need to see failures.
+      "files": ["libs/identity/infrastructure/src/session-sweep.ts"],
+      "rules": { "eslint/no-console": "off" }
+    },
+    {
       // Sign-in leaves the app for the OAuth provider; there is no in-app route to navigate to.
       "files": ["libs/identity/data-access/src/session-store.ts"],
       "rules": { "pioneer/no-full-page-load": "off" }
