@@ -1,0 +1,126 @@
+name: Image
+
+# Every PR proves the image builds and starts; every merge to main publishes it to GHCR for amd64 and arm64.
+# See docs/deployment.md.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions: {}
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+env:
+  IMAGE: ghcr.io/daviddudson/pioneer
+  PLATFORMS: linux/amd64,linux/arm64
+
+jobs:
+  build:
+    name: Build and smoke test
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    permissions:
+      contents: read
+    services:
+      postgres:
+        # Same image as compose.yaml and the CI check job.
+        image: postgres:18.6@sha256:74935e72241653ca55e0414067e6d8763aceb8a810eb51b452253ec3dcfc4336
+        env:
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: pioneer
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 # v4.4.1
+      # The runner's own platform, loaded into the local daemon so it can be run.
+      - name: Build (amd64)
+        uses: docker/build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc # v7.4.0
+        with:
+          context: .
+          platforms: linux/amd64
+          load: true
+          tags: pioneer:ci
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+      - name: Smoke test
+        run: |
+          docker run --detach --name pioneer --network host \
+            --env DATABASE_URL=postgres://postgres:postgres@localhost:5432/pioneer \
+            pioneer:ci
+          # The app migrates before it listens; give it up to 60 seconds.
+          for _ in $(seq 60); do
+            if curl --silent --fail --output /dev/null http://localhost:3000/api/health; then
+              break
+            fi
+            sleep 1
+          done
+          curl --silent --show-error --fail http://localhost:3000/api/health
+          echo
+          # The HEALTHCHECK command, run directly rather than waiting out its interval.
+          docker exec pioneer /app/pioneer-api health
+          # The web app is served on the same origin.
+          index=$(curl --silent --show-error --fail http://localhost:3000/)
+          grep --quiet '<pio-root' <<<"$index"
+      - name: Container logs
+        if: always()
+        run: docker logs pioneer || true
+      # Proves the arm64 cross-compile; nothing is pushed. Reuses the amd64 layers from the cache.
+      - name: Build (all platforms)
+        uses: docker/build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc # v7.4.0
+        with:
+          context: .
+          platforms: ${{ env.PLATFORMS }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  publish:
+    name: Publish
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    permissions:
+      contents: read
+      packages: write # push to ghcr.io
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 # v4.4.1
+      - uses: docker/login-action@dbcb813823bdd20940b903addbd779551569679f # v4.6.0
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      # Tags sha-<short> and main; OCI labels (source, revision, ...) on each image and annotations on the index.
+      - id: meta
+        uses: docker/metadata-action@dc802804100637a589fabce1cb79ff13a1411302 # v6.2.0
+        with:
+          images: ${{ env.IMAGE }}
+          tags: |
+            type=sha
+            type=raw,value=main
+        env:
+          DOCKER_METADATA_ANNOTATIONS_LEVELS: manifest,index
+      - name: Build and push
+        uses: docker/build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc # v7.4.0
+        with:
+          context: .
+          platforms: ${{ env.PLATFORMS }}
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          annotations: ${{ steps.meta.outputs.annotations }}
+          cache-from: type=gha
