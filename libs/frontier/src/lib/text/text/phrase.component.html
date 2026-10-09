@@ -1,14 +1,15 @@
+<ng-template #content><ng-content /></ng-template>
 @switch (element()) {
   @case ('code') {
-    <code [class]="classes()"><ng-content /></code>
+    <code [class]="classes()"><ng-container [ngTemplateOutlet]="content" /></code>
   }
   @case ('kbd') {
-    <kbd [class]="classes()"><ng-content /></kbd>
+    <kbd [class]="classes()"><ng-container [ngTemplateOutlet]="content" /></kbd>
   }
   @case ('abbr') {
-    <abbr [class]="classes()" [attr.title]="expansion()"><ng-content /></abbr>
+    <abbr [class]="classes()" [attr.title]="expansion()"><ng-container [ngTemplateOutlet]="content" /></abbr>
   }
   @default {
-    <q [class]="classes()"><ng-content /></q>
+    <q [class]="classes()"><ng-container [ngTemplateOutlet]="content" /></q>
   }
 }

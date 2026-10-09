@@ -1,3 +1,4 @@
+import { NgTemplateOutlet } from '@angular/common';
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import type { ValueOf } from '@pioneer/shared/kernel';
 
@@ -17,6 +18,7 @@ export type PhraseElement = ValueOf<typeof PhraseElement>;
 /** `fr-text`'s inline semantic elements, styled by `fr-text`. Internal: features use `fr-text element="…"`. */
 @Component({
   selector: 'fr-text-phrase',
+  imports: [NgTemplateOutlet],
   templateUrl: './phrase.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'contents' },

@@ -41,6 +41,7 @@ describe(Text, () => {
   it.each(Object.values(TextElement))('renders <%s> when asked', async (element) => {
     const rendered = await render({ element });
     expect(rendered.tagName).toBe(element.toUpperCase());
+    expect(rendered.textContent.trim()).toBe('AC');
   });
 
   it.each([TextElement.Code, TextElement.Keyboard])('sets <%s> in the mono font', async (element) => {
