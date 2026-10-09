@@ -1,20 +1,20 @@
 @let result = outcome();
 @if (result.status === CheckStatus.Valid) {
   <fr-message tone="success">{{ 'play.rules.valid' | transloco }}</fr-message>
-  <fr-text element="p" variant="code" preformatted>{{ result.parsed }}</fr-text>
+  <fr-text element="pre">{{ result.parsed }}</fr-text>
 } @else if (result.status === CheckStatus.Invalid) {
   <fr-list gap="sm">
     @for (issue of result.issues; track $index) {
       <fr-list-item>
         <fr-stack gap="3xs">
           @if (formatPath(issue.path); as path) {
-            <fr-text variant="code">{{ path }}</fr-text>
+            <fr-text element="code">{{ path }}</fr-text>
           } @else {
             <fr-text variant="caption" tone="muted">{{ 'play.rules.wholeValue' | transloco }}</fr-text>
           }
           <fr-text>{{ issue.message.key | transloco: issue.message.params }}</fr-text>
           @if (issue.pointer; as pointer) {
-            <fr-text element="p" variant="code" preformatted>{{ pointer }}</fr-text>
+            <fr-text element="pre">{{ pointer }}</fr-text>
           }
         </fr-stack>
       </fr-list-item>

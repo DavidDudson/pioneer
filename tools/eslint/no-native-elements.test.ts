@@ -35,7 +35,10 @@ tester.run('no-native-elements', noNativeElements, {
     { filename: frontier('data/chart/chart.component.html'), code: `<tanstack-chart />` },
     { filename: frontier('icon/icon.component.html'), code: `<svg><path d="M0 0" /></svg>` },
     { filename: frontier('layout/stack/stack.component.html'), code: `<fr-text><fr-icon /></fr-text>` },
-    { filename: frontier('text/text/text.component.html'), code: `<code></code><kbd></kbd><abbr></abbr><q></q>` },
+    {
+      filename: frontier('text/text/text.component.html'),
+      code: `<pre></pre><code></code><kbd></kbd><abbr></abbr><q></q>`,
+    },
     { filename: frontier('text/quote/quote.component.html'), code: `<blockquote><fr-text /></blockquote>` },
   ],
   invalid: [
@@ -51,29 +54,18 @@ tester.run('no-native-elements', noNativeElements, {
       code: `<tanstack-chart />`,
       errors: [{ messageId: 'owned' }],
     },
-    ...['code', 'kbd', 'abbr', 'q', 'blockquote'].map((name) => ({
+    ...['pre', 'code', 'kbd', 'abbr', 'q', 'blockquote'].map((name) => ({
       filename: frontier('layout/card/card.component.html'),
       code: `<${name}></${name}>`,
       errors: [{ messageId: 'owned' }],
     })),
-    ...[
-      'pre',
-      'cite',
-      'fieldset',
-      'legend',
-      'progress',
-      'meter',
-      'output',
-      'picture',
-      'video',
-      'audio',
-      'canvas',
-      'h5',
-    ].map((name) => ({
-      filename: frontier('layout/card/card.component.html'),
-      code: `<${name}></${name}>`,
-      errors: [{ messageId: 'unowned' }],
-    })),
+    ...['cite', 'fieldset', 'legend', 'progress', 'meter', 'output', 'picture', 'video', 'audio', 'canvas', 'h5'].map(
+      (name) => ({
+        filename: frontier('layout/card/card.component.html'),
+        code: `<${name}></${name}>`,
+        errors: [{ messageId: 'unowned' }],
+      }),
+    ),
     ...['select', 'template', 'slot', 'dialog', 'noscript'].map((name) => ({
       filename: frontier('controls/select/select.component.html'),
       code: `<${name}></${name}>`,

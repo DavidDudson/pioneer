@@ -42,7 +42,7 @@ const OWNERS: ReadonlyMap<string, readonly string[]> = new Map([
   // Grouping
   ['p', ['text/text/']],
   ['hr', ['layout/divider/']],
-  ['pre', []],
+  ['pre', ['text/text/']],
   ['blockquote', ['text/quote/']],
   ['ul', ['list/list/']],
   ['ol', ['list/list/']],

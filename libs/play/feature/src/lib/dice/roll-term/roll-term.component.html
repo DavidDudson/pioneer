@@ -1,6 +1,6 @@
 @let shown = term();
 <fr-stack direction="horizontal" gap="sm" align="baseline" wrap>
-  <fr-text variant="code" tone="muted">{{ shown.notation }}</fr-text>
+  <fr-text element="code" tone="muted">{{ shown.notation }}</fr-text>
   @for (damageKey of shown.damageKeys; track damageKey) {
     <fr-text variant="caption" tone="muted">{{ damageKey | transloco }}</fr-text>
   }

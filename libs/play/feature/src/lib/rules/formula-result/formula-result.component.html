@@ -5,12 +5,12 @@
     <fr-message tone="success">{{ 'play.rules.formulaValue' | transloco: { value: value() } }}</fr-message>
   } @else {
     <fr-message tone="danger">{{ evaluation.error.key | transloco: evaluation.error.params }}</fr-message>
-    <fr-text element="p" variant="code" preformatted>{{ evaluation.pointer }}</fr-text>
+    <fr-text element="pre">{{ evaluation.pointer }}</fr-text>
   }
   <fr-text element="p" tone="muted">{{ 'play.rules.formulaValid' | transloco }}</fr-text>
-  <fr-text element="p" variant="code" preformatted>{{ result.canonical }}</fr-text>
+  <fr-text element="pre">{{ result.canonical }}</fr-text>
   <fr-text element="p" tone="muted">{{ 'play.rules.formulaTree' | transloco }}</fr-text>
-  <fr-text element="p" variant="code" preformatted>{{ result.tree }}</fr-text>
+  <fr-text element="pre">{{ result.tree }}</fr-text>
 } @else {
-  <fr-text element="p" variant="code" preformatted>{{ result.pointer }}</fr-text>
+  <fr-text element="pre">{{ result.pointer }}</fr-text>
 }

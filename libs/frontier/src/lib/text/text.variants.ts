@@ -12,7 +12,6 @@ export const TextVariant = {
   Body: 'body',
   Label: 'label',
   Caption: 'caption',
-  Code: 'code',
   /** The app's wordmark. */
   Brand: 'brand',
 } as const;
@@ -33,7 +32,6 @@ export const textVariants = cva('', {
       body: 'text-body',
       label: 'text-label font-medium',
       caption: 'text-caption',
-      code: 'font-mono text-label',
       brand: 'font-display text-subheading font-semibold',
     } satisfies Record<TextVariant, string>,
     tone: toneVariants,
@@ -45,7 +43,5 @@ export const textVariants = cva('', {
     } satisfies Record<FontWeight, string>,
     truncate: { true: 'truncate', false: '' },
     numeric: { true: 'tabular-nums', false: '' },
-    /** Keeps line breaks and indentation (formatted JSON), wrapping long lines instead of scrolling. */
-    preformatted: { true: 'whitespace-pre-wrap break-words', false: '' },
   },
 });
