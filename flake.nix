@@ -37,6 +37,9 @@
             # Go: no Rust equivalent with the same coverage.
             gitleaks
             osv-scanner
+
+            # Haskell: the Dockerfile linter; nothing else checks Dockerfile best practice.
+            hadolint
           ];
 
           shellHook = ''

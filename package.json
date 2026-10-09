@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "nx serve web --port=${WEB_PORT:-4200}",
     "check": "nx run-many -t lint lint-templates typecheck test build verify-styles && bun run lint:workspace && bun run test:tools",
-    "lint:workspace": "knip --treat-config-hints-as-errors && bun run check:messages && typos && rumdl check . && taplo check && taplo fmt --check && biome lint --error-on-warnings && oxlint tools && oxfmt --check .",
+    "lint:workspace": "hadolint Dockerfile && knip --treat-config-hints-as-errors && bun run check:messages && typos && rumdl check . && taplo check && taplo fmt --check && biome lint --error-on-warnings && oxlint tools && oxfmt --check .",
     "format": "oxfmt .",
     "format:check": "oxfmt --check .",
     "affected": "nx affected -t lint lint-templates typecheck test build verify-styles",
