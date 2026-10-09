@@ -7,9 +7,9 @@ import { message } from '@pioneer/shared/kernel';
 import { BaseTermKind, TermSign } from './base-term';
 import { deriveStatistics } from './derive-statistics';
 import { EngineMessage } from './messages';
-import type { StatisticResult } from './statistic-bases';
 import { StatisticInputsJson } from './statistic-inputs';
 import type { StatisticInputs } from './statistic-inputs';
+import type { StatisticResult } from './statistic-result';
 
 function statistic(selector: string, base: string): StatisticDefinition {
   return StatisticDefinition.parse({
@@ -49,9 +49,13 @@ describe('deriveStatistics', () => {
     expect(ac).toStrictEqual({
       ok: true,
       selector: 'ac',
+      formulaValue: 16,
       baseValue: 16,
       lines: [],
+      computed: 16,
       total: 16,
+      overrides: [],
+      pinnedBy: undefined,
       base: [
         { kind: BaseTermKind.Term, formula: '10', sign: TermSign.Plus, value: 10, position: 1 },
         { kind: BaseTermKind.Term, formula: '@attr.dex.capped', sign: TermSign.Plus, value: 1, position: 6 },

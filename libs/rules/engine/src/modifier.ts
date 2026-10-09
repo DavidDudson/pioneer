@@ -49,9 +49,9 @@ export interface ModifierRules {
 }
 
 /** Foundry's default rule element priority, for an element that sets none. */
-const DEFAULT_PRIORITY = RulePriority.parse(100);
+export const DEFAULT_PRIORITY = RulePriority.parse(100);
 
-function labelOf(rule: RuleInPlay): ModifierLabel {
+export function labelOf(rule: RuleInPlay): ModifierLabel {
   const text = rule.element.display?.label;
   return text === undefined ? { entry: rule.origin.entry } : { text };
 }

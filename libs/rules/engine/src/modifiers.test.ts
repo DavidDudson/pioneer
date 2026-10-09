@@ -10,8 +10,8 @@ import type { BreakdownLine } from './breakdown';
 import { deriveStatistics } from './derive-statistics';
 import { ruleIdOf } from './rule-in-play';
 import type { RuleInPlay } from './rule-in-play';
-import type { StatisticValue } from './statistic-bases';
 import { StatisticInputsJson } from './statistic-inputs';
+import type { StatisticValue } from './statistic-result';
 import { flatModifier, inPlay, statistic } from './testing';
 
 const inputs = StatisticInputsJson.parse({
