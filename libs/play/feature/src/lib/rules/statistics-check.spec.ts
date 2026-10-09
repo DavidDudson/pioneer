@@ -3,7 +3,13 @@ import { describe, expect, it } from 'vitest';
 
 import { EXAMPLE_FACTS } from './predicate-verdict';
 import { CheckStatus, rulesExample, RulesTool } from './rules-check';
-import { checkStatistics, EXAMPLE_RULE_ELEMENTS, EXAMPLE_STATISTIC_INPUTS, StatisticsStatus } from './statistics-check';
+import {
+  checkStatistics,
+  EXAMPLE_OVERRIDES,
+  EXAMPLE_RULE_ELEMENTS,
+  EXAMPLE_STATISTIC_INPUTS,
+  StatisticsStatus,
+} from './statistics-check';
 import type { StatisticsCheck, StatisticsTexts } from './statistics-check';
 
 const statistic = (selector: string, base: string): object => ({
@@ -19,7 +25,14 @@ const definitions = (...statistics: readonly object[]): string => JSON.stringify
 
 /** The statistics tool with the example inputs and no rule elements unless given. */
 function check(texts: Partial<StatisticsTexts>): StatisticsCheck {
-  return checkStatistics({ definitions: '[]', inputs: EXAMPLE_STATISTIC_INPUTS, rules: '[]', facts: '', ...texts });
+  return checkStatistics({
+    definitions: '[]',
+    inputs: EXAMPLE_STATISTIC_INPUTS,
+    rules: '[]',
+    overrides: '[]',
+    facts: '',
+    ...texts,
+  });
 }
 
 describe(checkStatistics, () => {
@@ -28,6 +41,7 @@ describe(checkStatistics, () => {
       definitions: rulesExample(RulesTool.Statistics),
       inputs: EXAMPLE_STATISTIC_INPUTS,
       rules: EXAMPLE_RULE_ELEMENTS,
+      overrides: EXAMPLE_OVERRIDES,
       facts: EXAMPLE_FACTS,
     });
     expect(result).toMatchObject({
@@ -39,16 +53,38 @@ describe(checkStatistics, () => {
           baseValue: 16,
           total: 19,
           lines: [
-            { rule: 1, label: 'Breastplate', type: 'item', value: 4, state: { kind: LineStatusKind.Applied } },
-            { rule: 2, label: 'Mage Armor', state: { kind: LineStatusKind.Suppressed, by: 1 } },
-            { rule: 3, label: 'Raise a Shield', state: { kind: LineStatusKind.Inactive } },
-            { rule: 4, label: 'Undergrowth', state: { kind: LineStatusKind.Conditional } },
-            { rule: 5, label: 'Frightened 1', value: -1, state: { kind: LineStatusKind.Applied } },
+            {
+              name: { source: 'rule', number: 1 },
+              label: 'Breastplate',
+              type: 'item',
+              value: 4,
+              state: { kind: LineStatusKind.Applied },
+            },
+            {
+              name: { source: 'rule', number: 2 },
+              label: 'Mage Armor',
+              state: { kind: LineStatusKind.Suppressed, by: { source: 'rule', number: 1 } },
+            },
+            { name: { source: 'rule', number: 3 }, label: 'Raise a Shield', state: { kind: LineStatusKind.Inactive } },
+            { name: { source: 'rule', number: 4 }, label: 'Undergrowth', state: { kind: LineStatusKind.Conditional } },
+            {
+              name: { source: 'rule', number: 5 },
+              label: 'Frightened 1',
+              value: -1,
+              state: { kind: LineStatusKind.Applied },
+            },
           ],
         },
-        { ok: true, selector: 'save:fortitude', total: 8 },
+        { ok: true, selector: 'save:fortitude', total: 9 },
         { ok: true, selector: 'spell-attack:arcane', baseValue: 6, total: 5 },
-        { ok: true, selector: 'spell-dc:arcane', baseValue: 16, total: 15 },
+        {
+          ok: true,
+          selector: 'spell-dc:arcane',
+          baseValue: 16,
+          computed: 15,
+          total: 18,
+          pinnedBy: { source: 'override', number: 2 },
+        },
       ],
     });
   });
@@ -62,7 +98,9 @@ describe(checkStatistics, () => {
           ok: true,
           selector: 'odd',
           baseValue: 2,
+          computed: 2,
           total: 2,
+          pinnedBy: undefined,
           terms: [
             { code: '@level / 2', value: 1 },
             { code: '- 1', value: -1 },
@@ -70,6 +108,7 @@ describe(checkStatistics, () => {
             { code: undefined, value: 1 },
           ],
           lines: [],
+          overrides: [],
         },
       ],
     });
@@ -116,7 +155,18 @@ describe(checkStatistics, () => {
     const rules = JSON.stringify([{ key: 'FlatModifier', selectors: ['ac'], type: 'untyped', value: '1 / 0' }]);
     const plain = definitions(statistic('ac', '10'));
     expect(check({ definitions: plain, rules })).toMatchObject({
-      rows: [{ lines: [{ rule: 1, label: undefined, value: undefined, state: { kind: LineStatusKind.Failed } }] }],
+      rows: [
+        {
+          lines: [
+            {
+              name: { source: 'rule', number: 1 },
+              label: undefined,
+              value: undefined,
+              state: { kind: LineStatusKind.Failed },
+            },
+          ],
+        },
+      ],
     });
   });
 });

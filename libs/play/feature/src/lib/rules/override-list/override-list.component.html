@@ -3,9 +3,14 @@
     <fr-list-item>
       <fr-stack gap="3xs">
         <fr-stack direction="horizontal" gap="xs" align="center" wrap>
-          <fr-badge [tone]="LINE_STATE_TONES[line.state]">{{ LINE_STATE_KEYS[line.state] | transloco }}</fr-badge>
+          <fr-badge [tone]="OVERRIDE_STATE_TONES[line.state]">{{
+            OVERRIDE_STATE_KEYS[line.state] | transloco
+          }}</fr-badge>
+          @if (line.manual) {
+            <fr-badge tone="warning">{{ 'play.rules.manual' | transloco }}</fr-badge>
+          }
           <fr-text>{{ line.name }}</fr-text>
-          <fr-text tone="muted">{{ line.value }}</fr-text>
+          <fr-text tone="muted">{{ line.effect }}</fr-text>
         </fr-stack>
         @if (line.detail; as detail) {
           <fr-text variant="caption" tone="muted">{{ detail }}</fr-text>

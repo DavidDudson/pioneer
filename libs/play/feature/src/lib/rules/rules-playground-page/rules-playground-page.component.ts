@@ -22,6 +22,7 @@ import {
   checkTool,
   EXAMPLE_FACTS,
   EXAMPLE_GRANT_ROOTS,
+  EXAMPLE_OVERRIDES,
   EXAMPLE_RULE_ELEMENTS,
   EXAMPLE_STATISTIC_INPUTS,
   RULES_TOOL_KEYS,
@@ -92,6 +93,8 @@ export class RulesPlaygroundPage {
   protected readonly statisticRules = signal(EXAMPLE_RULE_ELEMENTS);
   /** The grants tool's root entries, one slug per line. Kept when switching tools. */
   protected readonly grantRoots = signal(EXAMPLE_GRANT_ROOTS);
+  /** Rule elements set by hand for the statistics tool, as a JSON array. Kept when switching tools. */
+  protected readonly statisticOverrides = signal(EXAMPLE_OVERRIDES);
   /** The chosen tool's answer for the current text. */
   protected readonly result = computed((): ToolCheck =>
     checkTool(this.schema(), this.text(), {
@@ -100,6 +103,7 @@ export class RulesPlaygroundPage {
       statisticInputs: this.statisticInputs(),
       statisticRules: this.statisticRules(),
       grantRoots: this.grantRoots(),
+      statisticOverrides: this.statisticOverrides(),
     }),
   );
 

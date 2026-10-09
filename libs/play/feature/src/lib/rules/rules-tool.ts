@@ -24,7 +24,7 @@ export type ToolKind = ValueOf<typeof ToolKind>;
 export type { ReferenceEntries } from './formula-check';
 export { EXAMPLE_GRANT_ROOTS } from './grant-examples';
 export { EXAMPLE_FACTS } from './predicate-verdict';
-export { EXAMPLE_RULE_ELEMENTS, EXAMPLE_STATISTIC_INPUTS } from './statistics-check';
+export { EXAMPLE_OVERRIDES, EXAMPLE_RULE_ELEMENTS, EXAMPLE_STATISTIC_INPUTS } from './statistics-check';
 export { CheckStatus, RULES_TOOL_KEYS, rulesExample, RulesTool } from './rules-check';
 
 /**
@@ -38,6 +38,7 @@ export interface ToolInputs {
   readonly statisticInputs: string;
   readonly statisticRules: string;
   readonly grantRoots: string;
+  readonly statisticOverrides: string;
 }
 
 export type ToolCheck =
@@ -62,6 +63,7 @@ export function checkTool(tool: RulesTool, text: string, inputs: ToolInputs): To
         definitions: text,
         inputs: inputs.statisticInputs,
         rules: inputs.statisticRules,
+        overrides: inputs.statisticOverrides,
         facts: inputs.facts,
       }),
     };

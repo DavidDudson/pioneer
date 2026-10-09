@@ -2,21 +2,19 @@
 <fr-stack gap="xs">
   <fr-stack direction="horizontal" gap="xs" align="center" wrap>
     <fr-text element="code">{{ shown.selector }}</fr-text>
-    @if (shown.ok) {
-      <fr-badge variant="solid" tone="success">{{
+    @if (!shown.ok) {
+      <fr-badge variant="solid" tone="danger">{{ 'play.rules.statisticFailed' | transloco }}</fr-badge>
+    } @else {
+      <fr-badge variant="solid" [tone]="shown.pinnedBy === undefined ? 'success' : 'warning'">{{
         'play.rules.statisticTotal' | transloco: { total: total() }
       }}</fr-badge>
-    } @else {
-      <fr-badge variant="solid" tone="danger">{{ 'play.rules.statisticFailed' | transloco }}</fr-badge>
+      @if (shown.pinnedBy !== undefined) {
+        <fr-badge tone="warning">{{ 'play.rules.pinnedFlag' | transloco }}</fr-badge>
+      }
     }
   </fr-stack>
   @if (shown.ok) {
-    <fr-text variant="caption" tone="muted">{{ 'play.rules.baseHeading' | transloco: { base: baseValue() } }}</fr-text>
-    <pio-base-terms [terms]="shown.terms" />
-    @if (shown.lines.length > 0) {
-      <fr-text variant="caption" tone="muted">{{ 'play.rules.linesHeading' | transloco }}</fr-text>
-      <pio-breakdown-list [lines]="shown.lines" />
-    }
+    <pio-statistic-breakdown [row]="shown" />
   } @else {
     <fr-text element="p">{{ shown.error.key | transloco: shown.error.params }}</fr-text>
     <fr-text element="pre">{{ shown.pointer }}</fr-text>
