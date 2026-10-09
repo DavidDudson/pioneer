@@ -30,6 +30,10 @@ export function derivedId(namespace: UuidNamespace, name: string): Uuid {
   return Uuid.parse(uuidV5(name, namespace));
 }
 
+/** A signed-in person: the author of homebrew, the GM who set an override. */
+export const UserId = Uuid.brand<'UserId'>();
+export type UserId = z.infer<typeof UserId>;
+
 /** Aggregate version for optimistic concurrency; starts at 1, bumps on every save. */
 export const Version = z.int32().positive().brand<'Version'>();
 export type Version = z.infer<typeof Version>;

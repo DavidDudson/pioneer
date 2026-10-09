@@ -22,3 +22,29 @@ export { ContentLicense, ContentLicenseSchema } from './license';
 export { Proficiency, proficiencyBonus, ProficiencySchema } from './proficiency';
 export { Size, SizeSchema } from './size';
 export { ArmorClass, DamageAmount, Dc, Feet, HitPoints, Level, LEVEL_MAX, LEVEL_MIN, Modifier } from './units';
+export { ContentId } from './content-id';
+export { RulesMessage } from './messages';
+export {
+  ConditionValue,
+  EventRef,
+  InventoryItemId,
+  ItemState,
+  Origin,
+  OriginHop,
+  OriginHopKind,
+  OverrideNote,
+  RuleIndex,
+} from './origin';
+export {
+  type ComparisonOperands,
+  Predicate,
+  type PredicateComparison,
+  type PredicateCompound,
+  PREDICATE_DEPTH_MAX,
+  PredicateNumber,
+  PredicateStatement,
+} from './predicate';
+export { RollOption } from './roll-option';
+export { Domain, Selector, SlotKey } from './selector';
+export { AonUrl, BookId, PageNumber, SourceKind, SourceRef, SourceTitle, WebUrl } from './source-ref';
+export { default as rulesMessages } from './i18n/en.json';

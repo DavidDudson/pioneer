@@ -28,6 +28,7 @@ export {
   FixtureNamespace,
   newId,
   nextVersion,
+  UserId,
   Uuid,
   UuidNamespace,
   Version,

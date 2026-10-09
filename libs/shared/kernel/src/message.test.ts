@@ -18,6 +18,9 @@ const carriesOwn = z.string().refine(() => false, issueParams(unknownAncestry));
 const plainEnglish = z.string().refine(() => false, 'Plain English');
 const decimal = Pg.numeric(4, 2);
 const named = z.object({ name: z.string().min(1) });
+const strict = z.strictObject({ name: z.string() });
+const stringOrNumber = z.union([z.string(), z.number()]);
+const tagged = z.discriminatedUnion('kind', [z.object({ kind: z.literal('a') }), z.object({ kind: z.literal('b') })]);
 
 interface Case {
   readonly name: string;
@@ -61,6 +64,24 @@ const cases: readonly Case[] = [
   { name: 'custom with its own descriptor', schema: carriesOwn, value: 'gnoll', expected: unknownAncestry },
   { name: 'custom with English only', schema: plainEnglish, value: 'x', expected: message(ValidationMessage.Invalid) },
   {
+    name: 'unknown keys',
+    schema: strict,
+    value: { name: 'x', extra: 1, more: 2 },
+    expected: message(ValidationMessage.UnrecognizedKeys, { count: 2, keys: 'extra, more' }),
+  },
+  {
+    name: 'no union member matches',
+    schema: stringOrNumber,
+    value: true,
+    expected: message(ValidationMessage.NoMatch),
+  },
+  {
+    name: 'unknown discriminator',
+    schema: tagged,
+    value: { kind: 'c' },
+    expected: message(ValidationMessage.InvalidValue),
+  },
+  {
     name: 'decimal codec',
     schema: decimal,
     value: '123.456',
@@ -75,6 +96,10 @@ function issuesOf(schema: z.ZodType, value: unknown): readonly z.core.$ZodIssue[
 
 function described(schema: z.ZodType, value: unknown): readonly MessageDescriptor[] {
   return issuesOf(schema, value).map((issue) => issueMessage(issue));
+}
+
+function unknownKey(key: string): MessageDescriptor {
+  return message(ValidationMessage.UnrecognizedKeys, { count: 1, keys: key });
 }
 
 function hasKey(key: string): boolean {
@@ -94,6 +119,14 @@ describe('fieldIssues', () => {
     const issues = issuesOf(named, { name: '' });
     const tooShort = message(ValidationMessage.TooSmall, { origin: 'string', minimum: 1 });
     expect(fieldIssues(issues)).toStrictEqual([{ path: ['name'], message: tooShort }]);
+  });
+
+  test('splits unknown keys into one issue per key, pointing at the key', () => {
+    const issues = issuesOf(z.object({ inner: strict }), { inner: { name: 'x', extra: 1, more: 2 } });
+    expect(fieldIssues(issues)).toStrictEqual([
+      { path: ['inner', 'extra'], message: unknownKey('extra') },
+      { path: ['inner', 'more'], message: unknownKey('more') },
+    ]);
   });
 });
 

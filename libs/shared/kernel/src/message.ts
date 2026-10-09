@@ -39,6 +39,8 @@ export const ValidationMessage = {
   NotMultipleOf: 'validation.notMultipleOf',
   InvalidValue: 'validation.invalidValue',
   Decimal: 'validation.decimal',
+  UnrecognizedKeys: 'validation.unrecognizedKeys',
+  NoMatch: 'validation.noMatch',
 } as const;
 
 /**
@@ -56,6 +58,10 @@ export interface IssueParams {
 
 export function issueParams(descriptor: MessageDescriptor): IssueParams {
   return { params: { message: descriptor } };
+}
+
+function unrecognizedKeys(keys: readonly string[]): MessageDescriptor {
+  return message(ValidationMessage.UnrecognizedKeys, { count: keys.length, keys: keys.join(', ') });
 }
 
 function customMessage(issue: z.core.$ZodIssueCustom): MessageDescriptor {
@@ -87,10 +93,15 @@ export function issueMessage(issue: z.core.$ZodIssue): MessageDescriptor {
     case 'custom': {
       return customMessage(issue);
     }
-    case 'invalid_union':
-    case 'invalid_key':
-    case 'invalid_element':
     case 'unrecognized_keys': {
+      return unrecognizedKeys(issue.keys);
+    }
+    case 'invalid_union': {
+      // A discriminated union names the field that picks the option; a plain union matched nothing.
+      return message(issue.discriminator === undefined ? ValidationMessage.NoMatch : ValidationMessage.InvalidValue);
+    }
+    case 'invalid_key':
+    case 'invalid_element': {
       break;
     }
   }
@@ -106,9 +117,16 @@ export const FieldIssueSchema = z.object({
 });
 export type FieldIssue = z.infer<typeof FieldIssueSchema>;
 
+/**
+ * One field issue per Zod issue, except unknown keys: each becomes its own issue whose path ends at
+ * that key, so the UI can point at the field that should not be there.
+ */
 export function fieldIssues(issues: readonly z.core.$ZodIssue[]): FieldIssue[] {
-  return issues.map((issue) => ({
-    path: issue.path.filter((segment) => typeof segment !== 'symbol'),
-    message: issueMessage(issue),
-  }));
+  return issues.flatMap((issue): FieldIssue[] => {
+    const path = issue.path.filter((segment) => typeof segment !== 'symbol');
+    if (issue.code === 'unrecognized_keys') {
+      return issue.keys.map((key) => ({ path: [...path, key], message: unrecognizedKeys([key]) }));
+    }
+    return [{ path, message: issueMessage(issue) }];
+  });
 }
