@@ -42,8 +42,12 @@ export const PREDICATE_DEPTH_MAX = 32;
 
 const Operands = z.tuple([RollOption, z.union([RollOption, PredicateNumber])]);
 
-export const PredicateStatement: z.ZodType<PredicateStatement> = z.lazy(() => {
-  const statements = z.array(PredicateStatement).min(1);
+/**
+ * One statement, unguarded. Private: every exported schema runs `depthGuarded` first, because this
+ * recursion has no limit of its own.
+ */
+const Statement: z.ZodType<PredicateStatement> = z.lazy(() => {
+  const statements = z.array(Statement).min(1);
   return z.union([
     RollOption,
     z.strictObject({ eq: Operands }),
@@ -57,9 +61,9 @@ export const PredicateStatement: z.ZodType<PredicateStatement> = z.lazy(() => {
     z.strictObject({ nand: statements }),
     z.strictObject({ nor: statements }),
     z.strictObject({ iff: statements }),
-    z.strictObject({ not: PredicateStatement }),
+    z.strictObject({ not: Statement }),
     // oxlint-disable-next-line unicorn/no-thenable -- Foundry spells the conditional { if, then } (ADR-0002); then is a statement, never a function
-    z.strictObject({ if: PredicateStatement, then: PredicateStatement }),
+    z.strictObject({ if: Statement, then: Statement }),
   ]);
 });
 
@@ -86,16 +90,24 @@ function tooDeep(value: unknown): boolean {
   return false;
 }
 
-/** A whole predicate: the statements that must all hold. Too-deep input is rejected before it is walked. */
-export const Predicate: z.ZodType<Predicate> = z.preprocess((value, context) => {
-  if (tooDeep(value)) {
-    context.issues.push({
-      code: 'custom',
-      input: value,
-      message: RulesMessage.PredicateTooDeep,
-      ...issueParams(message(RulesMessage.PredicateTooDeep, { maximum: PREDICATE_DEPTH_MAX })),
-    });
-    return z.NEVER;
-  }
-  return value;
-}, z.array(PredicateStatement));
+/** Rejects too-deep input before `schema` walks it, so untrusted JSON cannot exhaust the stack. */
+function depthGuarded<TOutput>(schema: z.ZodType<TOutput>): z.ZodType<TOutput> {
+  return z.preprocess((value, context) => {
+    if (tooDeep(value)) {
+      context.issues.push({
+        code: 'custom',
+        input: value,
+        message: RulesMessage.PredicateTooDeep,
+        ...issueParams(message(RulesMessage.PredicateTooDeep, { maximum: PREDICATE_DEPTH_MAX })),
+      });
+      return z.NEVER;
+    }
+    return value;
+  }, schema);
+}
+
+/** One statement on its own, as a rule element's nested condition might hold it. */
+export const PredicateStatement: z.ZodType<PredicateStatement> = depthGuarded(Statement);
+
+/** A whole predicate: the statements that must all hold. */
+export const Predicate: z.ZodType<Predicate> = depthGuarded(z.array(Statement));

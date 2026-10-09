@@ -5,7 +5,7 @@ import type { FieldIssue } from '@pioneer/shared/kernel';
 import type { z } from 'zod';
 
 import { RulesMessage } from './messages';
-import { Predicate, PREDICATE_DEPTH_MAX } from './predicate';
+import { Predicate, PREDICATE_DEPTH_MAX, PredicateStatement } from './predicate';
 import { RollOption } from './roll-option';
 import { Domain, Selector } from './selector';
 
@@ -14,12 +14,16 @@ function issues(schema: z.ZodType, value: unknown): readonly FieldIssue[] {
   return result.success ? [] : fieldIssues(result.error.issues);
 }
 
-function nestedNot(depth: number): unknown {
+function notChain(depth: number): unknown {
   let statement: unknown = 'self:condition:frightened';
   for (let level = 0; level < depth; level += 1) {
     statement = { not: statement };
   }
-  return [statement];
+  return statement;
+}
+
+function nestedNot(depth: number): unknown {
+  return [notChain(depth)];
 }
 
 const keyFormat = message(RulesMessage.KeyFormat);
@@ -117,5 +121,11 @@ describe('Predicate', () => {
   test('very deep input is rejected, not a stack overflow', () => {
     const deep = nestedNot(100_000);
     expect(Predicate.safeParse(deep).success).toBe(false);
+  });
+
+  test('a lone statement has the same depth guard as a whole predicate', () => {
+    expect(issues(PredicateStatement, notChain(100_000))).toStrictEqual([
+      { path: [], message: message(RulesMessage.PredicateTooDeep, { maximum: PREDICATE_DEPTH_MAX }) },
+    ]);
   });
 });
