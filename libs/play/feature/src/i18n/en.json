@@ -22,6 +22,28 @@
     "dcHint": "The kept roll is compared with this DC for a degree of success.",
     "dcInvalid": "Enter a DC from {minimum} to {maximum}."
   },
+  "rules": {
+    "title": "Rules",
+    "description": "Check rules data against Pioneer’s schemas: predicates, selectors, domains, roll options, sources and origins.",
+    "schemaLabel": "Schema",
+    "schemaHint": "Changing the schema loads a valid example for it.",
+    "jsonLabel": "JSON",
+    "jsonHint": "Strings need double quotes, as in any JSON.",
+    "resultHeading": "Result",
+    "valid": "Valid. This is the value as Pioneer reads it:",
+    "notJson": "This is not valid JSON yet. Check quotes, commas and brackets.",
+    "wholeValue": "Whole value",
+    "schema": {
+      "predicate": "Predicate",
+      "selector": "Selector",
+      "domain": "Domain",
+      "rollOption": "Roll option",
+      "source": "Source",
+      "origin": "Origin"
+    },
+    "invalidSummary": "{count, plural, one {# problem, listed under Result.} other {# problems, listed under Result.}}",
+    "nothingToShow": "Nothing to check until the JSON parses."
+  },
   "damageType": {
     "bludgeoning": "Bludgeoning",
     "piercing": "Piercing",

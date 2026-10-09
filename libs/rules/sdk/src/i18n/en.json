@@ -1,0 +1,17 @@
+{
+  "rules": {
+    "key": {
+      "format": "Use lowercase words joined by hyphens and colons, like save:fortitude or skill-check."
+    },
+    "rollOption": {
+      "format": "Use a namespace and a name joined by colons, like self:condition:frightened."
+    },
+    "predicate": {
+      "tooDeep": "Predicates can nest at most {maximum} levels deep."
+    },
+    "source": {
+      "bookLocation": "Give a page number, an Archives of Nethys link, or both.",
+      "aonUrl": "Link to one entry on 2e.aonprd.com, like https://2e.aonprd.com/Feats.aspx?ID=1."
+    }
+  }
+}

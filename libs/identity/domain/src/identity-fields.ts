@@ -2,8 +2,8 @@ import { Uuid } from '@pioneer/shared/kernel';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import { z } from 'zod';
 
-export const UserId = Uuid.brand<'UserId'>();
-export type UserId = z.infer<typeof UserId>;
+/** Defined in the kernel so rules origins and identity share one brand. */
+export { UserId } from '@pioneer/shared/kernel';
 
 export const OAuthAccountId = Uuid.brand<'OAuthAccountId'>();
 export type OAuthAccountId = z.infer<typeof OAuthAccountId>;

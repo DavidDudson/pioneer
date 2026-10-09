@@ -1,5 +1,4 @@
-import { ContentNamespace, derivedId } from '@pioneer/shared/kernel';
-import type { Uuid } from '@pioneer/shared/kernel';
+import { ContentNamespace, derivedId, Uuid } from '@pioneer/shared/kernel';
 import { z } from 'zod';
 
 /**
@@ -15,6 +14,13 @@ export type Slug = z.infer<typeof Slug>;
 /** A content pack's id: its slug, branded so it can't be confused with an entry slug. */
 export const PackId = Slug.brand<'PackId'>();
 export type PackId = z.infer<typeof PackId>;
+
+/**
+ * The stored id of any content entry, whatever its kind. Kind-specific ids (`AncestryId`) brand
+ * `Uuid` themselves; use this where any entry will do (an origin, a grant).
+ */
+export const ContentId = Uuid.brand<'ContentId'>();
+export type ContentId = z.infer<typeof ContentId>;
 
 /** Human-readable key for a content entry, e.g. `player-core/human`. Never stored. */
 export const ContentKey = z.string().brand<'ContentKey'>();

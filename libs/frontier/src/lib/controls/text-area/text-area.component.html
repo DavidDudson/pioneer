@@ -1,0 +1,14 @@
+<textarea
+  #control
+  spellcheck="false"
+  [class]="classes()"
+  [attr.id]="id() ?? null"
+  [rows]="rows()"
+  [value]="value()"
+  [placeholder]="placeholder()"
+  [disabled]="disabled()"
+  [attr.aria-label]="ariaLabel() ?? null"
+  [attr.aria-describedby]="describedBy() ?? null"
+  [attr.aria-invalid]="ariaInvalid() || null"
+  (input)="value.set(control.value)"
+></textarea>

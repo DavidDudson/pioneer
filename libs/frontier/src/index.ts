@@ -22,6 +22,7 @@ export { AsyncRegion } from './lib/async/async-region/async-region.component';
 export { DateInput } from './lib/controls/date-input/date-input.component';
 export { NumberInput } from './lib/controls/number-input/number-input.component';
 export { Select, type SelectOption } from './lib/controls/select/select.component';
+export { TextArea } from './lib/controls/text-area/text-area.component';
 export { TextInput } from './lib/controls/text-input/text-input.component';
 
 // Dates

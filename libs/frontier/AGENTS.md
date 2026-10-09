@@ -23,9 +23,9 @@ Read this before touching any UI.
   `fr-link`, `<label>` only in `fr-label`, `<form>` only in `fr-form` /
   `fr-async-form`, `<h1>`–`<h4>` only in `fr-heading`, `<p>` only in
   `fr-text`, `<ul>` / `<ol>` only in `fr-list`, `<li>` only in
-  `fr-list-item`, table elements only in `fr-table`, `<svg>` only in `fr-icon`.
-  `select`, `textarea` and
-  `img` have no owner yet: add a primitive first. The ownership map lives in
+  `fr-list-item`, table elements only in `fr-table`, `<svg>` only in `fr-icon`,
+  `<textarea>` only in `fr-text-area`. `select` and `img` have no owner yet:
+  add a primitive first. The ownership map lives in
   `tools/eslint/no-native-elements.ts`.
 - **Tokens only.** Components take token names (`gap="md"`, `tone="muted"`),
   never lengths or colours. Inside frontier, only semantic utilities exist:

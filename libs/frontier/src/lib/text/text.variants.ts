@@ -45,5 +45,7 @@ export const textVariants = cva('', {
     } satisfies Record<FontWeight, string>,
     truncate: { true: 'truncate', false: '' },
     numeric: { true: 'tabular-nums', false: '' },
+    /** Keeps line breaks and indentation (formatted JSON), wrapping long lines instead of scrolling. */
+    preformatted: { true: 'whitespace-pre-wrap break-words', false: '' },
   },
 });

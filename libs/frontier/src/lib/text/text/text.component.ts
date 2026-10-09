@@ -31,6 +31,7 @@ export class Text {
   public readonly weight = input<FontWeight | undefined>(undefined);
   public readonly truncate = input(false, { transform: booleanAttribute });
   public readonly numeric = input(false, { transform: booleanAttribute });
+  public readonly preformatted = input(false, { transform: booleanAttribute });
 
   protected readonly classes = computed(() =>
     textVariants({
@@ -39,6 +40,7 @@ export class Text {
       weight: this.weight(),
       truncate: this.truncate(),
       numeric: this.numeric(),
+      preformatted: this.preformatted(),
     }),
   );
 }

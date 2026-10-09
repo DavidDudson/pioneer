@@ -1,0 +1,52 @@
+@let result = outcome();
+<fr-page [title]="'play.rules.title' | transloco" [description]="'play.rules.description' | transloco">
+  <fr-stack gap="xl">
+    <fr-surface>
+      <fr-stack gap="md">
+        <fr-field>
+          <fr-label>{{ 'play.rules.schemaLabel' | transloco }}</fr-label>
+          <fr-select [options]="schemas()" [value]="schema()" (valueChange)="choose($event)" />
+          <fr-field-hint>{{ 'play.rules.schemaHint' | transloco }}</fr-field-hint>
+        </fr-field>
+        <fr-field [invalid]="result.status !== CheckStatus.Valid">
+          <fr-label>{{ 'play.rules.jsonLabel' | transloco }}</fr-label>
+          <fr-text-area monospace [rows]="rows" [(value)]="text" />
+          @if (result.status === CheckStatus.NotJson) {
+            <fr-field-error>{{ 'play.rules.notJson' | transloco }}</fr-field-error>
+          } @else if (result.status === CheckStatus.Invalid) {
+            <fr-field-error>{{
+              'play.rules.invalidSummary' | transloco: { count: result.issues.length }
+            }}</fr-field-error>
+          } @else {
+            <fr-field-hint>{{ 'play.rules.jsonHint' | transloco }}</fr-field-hint>
+          }
+        </fr-field>
+      </fr-stack>
+    </fr-surface>
+
+    <fr-stack gap="md">
+      <fr-heading variant="subheading" [level]="2">{{ 'play.rules.resultHeading' | transloco }}</fr-heading>
+      @if (result.status === CheckStatus.Valid) {
+        <fr-message tone="success">{{ 'play.rules.valid' | transloco }}</fr-message>
+        <fr-text element="p" variant="code" preformatted>{{ result.parsed }}</fr-text>
+      } @else if (result.status === CheckStatus.Invalid) {
+        <fr-list gap="sm">
+          @for (issue of result.issues; track $index) {
+            <fr-list-item>
+              <fr-stack gap="3xs">
+                @if (formatPath(issue.path); as path) {
+                  <fr-text variant="code">{{ path }}</fr-text>
+                } @else {
+                  <fr-text variant="caption" tone="muted">{{ 'play.rules.wholeValue' | transloco }}</fr-text>
+                }
+                <fr-text>{{ issue.message.key | transloco: issue.message.params }}</fr-text>
+              </fr-stack>
+            </fr-list-item>
+          }
+        </fr-list>
+      } @else {
+        <fr-text element="p" tone="muted">{{ 'play.rules.nothingToShow' | transloco }}</fr-text>
+      }
+    </fr-stack>
+  </fr-stack>
+</fr-page>

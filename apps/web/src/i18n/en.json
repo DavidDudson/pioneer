@@ -3,7 +3,8 @@
     "brand": "Pioneer",
     "nav": {
       "characters": "Characters",
-      "dice": "Dice"
+      "dice": "Dice",
+      "rules": "Rules"
     },
     "communityUse": {
       "beforePolicyLink": "Pioneer uses trademarks and/or copyrights owned by Paizo Inc., used under Paizo's Community Use Policy (",

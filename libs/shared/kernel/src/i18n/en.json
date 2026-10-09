@@ -16,6 +16,8 @@
     "invalidFormat": "{format, select, uuid {Not a valid identifier.} date {Not a valid date.} datetime {Not a valid date and time.} other {Not in the expected format.}}",
     "notMultipleOf": "Must be a multiple of {divisor}.",
     "invalidValue": "Choose one of the listed options.",
-    "decimal": "Use at most {precision} digits, {scale} after the decimal point."
+    "decimal": "Use at most {precision} digits, {scale} after the decimal point.",
+    "unrecognizedKeys": "{count, plural, one {“{keys}” is not a field here.} other {These are not fields here: {keys}.}}",
+    "noMatch": "This does not match any of the allowed forms."
   }
 }
