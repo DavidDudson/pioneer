@@ -23,7 +23,13 @@
         } @else if (tool.kind === ToolKind.Verdict) {
           <pio-verdict-fields [check]="tool.check" [(predicate)]="text" [(facts)]="facts" />
         } @else if (tool.kind === ToolKind.Statistics) {
-          <pio-statistics-fields [check]="tool.check" [(definitions)]="text" [(inputs)]="statisticInputs" />
+          <pio-statistics-fields
+            [check]="tool.check"
+            [(definitions)]="text"
+            [(inputs)]="statisticInputs"
+            [(rules)]="statisticRules"
+            [(facts)]="facts"
+          />
         } @else {
           @let schemaResult = tool.check;
           <fr-field [invalid]="schemaResult.status !== CheckStatus.Valid">

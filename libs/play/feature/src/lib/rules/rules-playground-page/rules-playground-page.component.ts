@@ -22,6 +22,7 @@ import {
   CheckStatus,
   checkTool,
   EXAMPLE_FACTS,
+  EXAMPLE_RULE_ELEMENTS,
   EXAMPLE_STATISTIC_INPUTS,
   RULES_TOOL_KEYS,
   rulesExample,
@@ -38,8 +39,8 @@ const JSON_ROWS = 12;
 /**
  * Paste rules JSON, pick a schema, and see whether it validates and, if not, where and why. The formula
  * tool parses formula text instead, points at the first mistake, and evaluates it with reference values; the verdict tool evaluates a predicate
- * against roll options and shows which statements hold; the statistics tool derives each statistic's base from
- * definitions and the character's inputs.
+ * against roll options and shows which statements hold; the statistics tool derives each statistic's breakdown from
+ * definitions, the character's inputs, rule elements and roll options.
  */
 @Component({
   selector: 'pio-rules-playground-page',
@@ -85,16 +86,19 @@ export class RulesPlaygroundPage {
   protected readonly text = signal(rulesExample(RulesTool.Predicate));
   /** What has been typed for each formula reference; kept across edits so a value survives retyping. */
   protected readonly referenceEntries = signal<ReferenceEntries>(new Map());
-  /** Roll options for the verdict tool, one per line. Kept when switching tools. */
+  /** Roll options for the verdict and statistics tools, one per line. Kept when switching tools. */
   protected readonly facts = signal(EXAMPLE_FACTS);
   /** The character's inputs for the statistics tool, as JSON. Kept when switching tools. */
   protected readonly statisticInputs = signal(EXAMPLE_STATISTIC_INPUTS);
+  /** Rule elements for the statistics tool, as a JSON array. Kept when switching tools. */
+  protected readonly statisticRules = signal(EXAMPLE_RULE_ELEMENTS);
   /** The chosen tool's answer for the current text. */
   protected readonly result = computed((): ToolCheck =>
     checkTool(this.schema(), this.text(), {
       facts: this.facts(),
       entries: this.referenceEntries(),
       statisticInputs: this.statisticInputs(),
+      statisticRules: this.statisticRules(),
     }),
   );
 

@@ -87,13 +87,22 @@ function inputValue(reference: KnownReference, inputs: StatisticInputs): Formula
 /** Reads a statistic's value by selector, or undefined when it has none. */
 export type StatisticValues = (selector: Selector) => FormulaValue | undefined;
 
-/** Resolves a base formula's references from the inputs, and `@stat.<selector>` from `statistics`. */
-export function resolverFor(inputs: StatisticInputs, statistics: StatisticValues): ResolveReference {
+/**
+ * Resolves a formula's references from the inputs, `@stat.<selector>` from `statistics`, and `@item.level` from
+ * `itemLevel`: the level of the item a rule element is on, which a statistic's base formula never has.
+ */
+export function resolverFor(inputs: StatisticInputs, statistics: StatisticValues, itemLevel?: Level): ResolveReference {
   return (path) => {
     const reference = knownReference(path);
     if (reference === undefined) {
       return undefined;
     }
-    return reference.kind === ReferenceKind.Statistic ? statistics(reference.selector) : inputValue(reference, inputs);
+    if (reference.kind === ReferenceKind.Statistic) {
+      return statistics(reference.selector);
+    }
+    if (reference.kind === ReferenceKind.ItemLevel) {
+      return itemLevel === undefined ? undefined : FormulaValue.parse(itemLevel);
+    }
+    return inputValue(reference, inputs);
   };
 }

@@ -3,4 +3,6 @@ export const EngineMessage = {
   StatisticCycle: 'engine.statistic.cycle',
   MissingStatistic: 'engine.statistic.missing',
   FailedDependency: 'engine.statistic.failedDependency',
+  TotalOutOfRange: 'engine.statistic.outOfRange',
+  AdjustmentOutOfRange: 'engine.modifier.outOfRange',
 } as const;

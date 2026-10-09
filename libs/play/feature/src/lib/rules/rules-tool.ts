@@ -15,17 +15,18 @@ export type ToolKind = ValueOf<typeof ToolKind>;
 
 export type { ReferenceEntries } from './formula-check';
 export { EXAMPLE_FACTS } from './predicate-verdict';
-export { EXAMPLE_STATISTIC_INPUTS } from './statistics-check';
+export { EXAMPLE_RULE_ELEMENTS, EXAMPLE_STATISTIC_INPUTS } from './statistics-check';
 export { CheckStatus, RULES_TOOL_KEYS, rulesExample, RulesTool } from './rules-check';
 
 /**
  * What the tools read besides the main text: roll options for the verdict, reference values for formulas, the
- * character's inputs for statistics.
+ * character's inputs and rule elements for statistics, which read the roll options too.
  */
 export interface ToolInputs {
   readonly facts: string;
   readonly entries: ReferenceEntries;
   readonly statisticInputs: string;
+  readonly statisticRules: string;
 }
 
 export type ToolCheck =
@@ -43,7 +44,15 @@ export function checkTool(tool: RulesTool, text: string, inputs: ToolInputs): To
     return { kind: ToolKind.Verdict, check: checkVerdict(text, inputs.facts) };
   }
   if (tool === RulesTool.Statistics) {
-    return { kind: ToolKind.Statistics, check: checkStatistics(text, inputs.statisticInputs) };
+    return {
+      kind: ToolKind.Statistics,
+      check: checkStatistics({
+        definitions: text,
+        inputs: inputs.statisticInputs,
+        rules: inputs.statisticRules,
+        facts: inputs.facts,
+      }),
+    };
   }
   return { kind: ToolKind.Schema, check: checkRulesJson(tool, text) };
 }

@@ -11,20 +11,12 @@
     }
   </fr-stack>
   @if (shown.ok) {
-    <fr-list gap="xs" markers>
-      @for (term of terms(); track $index) {
-        <fr-list-item>
-          <fr-stack direction="horizontal" gap="xs" align="center" wrap>
-            @if (term.code; as code) {
-              <fr-text element="code">{{ code }}</fr-text>
-            } @else {
-              <fr-text tone="muted">{{ 'play.rules.rounding' | transloco }}</fr-text>
-            }
-            <fr-text>{{ 'play.rules.termValue' | transloco: { value: term.value } }}</fr-text>
-          </fr-stack>
-        </fr-list-item>
-      }
-    </fr-list>
+    <fr-text variant="caption" tone="muted">{{ 'play.rules.baseHeading' | transloco: { base: baseValue() } }}</fr-text>
+    <pio-base-terms [terms]="shown.terms" />
+    @if (shown.lines.length > 0) {
+      <fr-text variant="caption" tone="muted">{{ 'play.rules.linesHeading' | transloco }}</fr-text>
+      <pio-breakdown-list [lines]="shown.lines" />
+    }
   } @else {
     <fr-text element="p">{{ shown.error.key | transloco: shown.error.params }}</fr-text>
     <fr-text element="pre">{{ shown.pointer }}</fr-text>

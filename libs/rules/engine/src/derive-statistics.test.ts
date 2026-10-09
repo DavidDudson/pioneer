@@ -6,8 +6,8 @@ import { message } from '@pioneer/shared/kernel';
 
 import { BaseTermKind, TermSign } from './base-term';
 import { deriveStatistics } from './derive-statistics';
-import type { StatisticResult } from './derive-statistics';
 import { EngineMessage } from './messages';
+import type { StatisticResult } from './statistic-bases';
 import { StatisticInputsJson } from './statistic-inputs';
 import type { StatisticInputs } from './statistic-inputs';
 
@@ -49,6 +49,8 @@ describe('deriveStatistics', () => {
     expect(ac).toStrictEqual({
       ok: true,
       selector: 'ac',
+      baseValue: 16,
+      lines: [],
       total: 16,
       base: [
         { kind: BaseTermKind.Term, formula: '10', sign: TermSign.Plus, value: 10, position: 1 },

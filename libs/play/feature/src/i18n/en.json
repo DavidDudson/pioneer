@@ -71,10 +71,10 @@
     "factsNotChecked": "Fix the roll options to see the verdict.",
     "summary": "It holds when {summary}.",
     "statisticsLabel": "Statistic definitions",
-    "statisticsHint": "A JSON array of statistic definitions. A statistic reads another one’s total with @stat, like @stat.spell-attack.arcane.",
+    "statisticsHint": "A JSON array of statistic definitions. A statistic reads another one’s base with @stat, like @stat.spell-attack.arcane.",
     "inputsLabel": "Character inputs",
     "inputsHint": "Level, the six attribute modifiers, a proficiency rank per selector (a selector left out is untrained) and an optional Dexterity cap.",
-    "statisticTotal": "Base {total}",
+    "statisticTotal": "Total {total}",
     "statisticFailed": "Error",
     "termValue": "gives {value}",
     "rounding": "Rounding",
@@ -107,7 +107,31 @@
       "statistics": "Statistics"
     },
     "invalidSummary": "{count, plural, one {# problem, listed under Result.} other {# problems, listed under Result.}}",
-    "nothingToShow": "Nothing to check until the JSON parses."
+    "nothingToShow": "Nothing to check until the JSON parses.",
+    "baseHeading": "Base {base}, from:",
+    "linesHeading": "Modifiers:",
+    "ruleElementsLabel": "Rule elements",
+    "ruleElementsHint": "A JSON array of rule elements, numbered from 1 in the order written. FlatModifier adds a bonus or penalty; AdjustModifier changes or suppresses one by its slug.",
+    "ruleNumber": "Rule element {number}",
+    "lineValue": "{type} {value}",
+    "line": {
+      "applied": "Applied",
+      "suppressed": "Suppressed",
+      "conditional": "Conditional",
+      "inactive": "Inactive",
+      "failed": "Error",
+      "suppressedBy": "Rule element {rule} beats or removes it.",
+      "predicateFails": "Its predicate does not hold."
+    },
+    "modifierType": {
+      "untyped": "untyped",
+      "status": "status",
+      "circumstance": "circumstance",
+      "item": "item",
+      "proficiency": "proficiency",
+      "attribute": "attribute",
+      "potency": "potency"
+    }
   },
   "damageType": {
     "bludgeoning": "Bludgeoning",

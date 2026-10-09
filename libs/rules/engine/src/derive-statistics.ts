@@ -1,133 +1,67 @@
-import { evaluate } from '@pioneer/rules/formula';
-import type { FormulaValue, TextPosition } from '@pioneer/rules/formula';
+import { FormulaValue } from '@pioneer/rules/formula';
+import { PredicateFacts } from '@pioneer/rules/predicate';
 import type { Selector, StatisticDefinition } from '@pioneer/rules/sdk';
-import { message } from '@pioneer/shared/kernel';
-import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
-import { baseTerms } from './base-term';
-import type { BaseTerm } from './base-term';
-import { EngineMessage } from './messages';
-import { Components, statisticGraph } from './statistic-graph';
-import type { StatisticEdge, StatisticNode } from './statistic-graph';
+import { LineStatusKind } from './breakdown';
+import type { BreakdownLine } from './breakdown';
+import { collectLines } from './collect';
+import type { CollectContext } from './collect';
+import { modifierRules } from './modifier';
+import type { RuleInPlay } from './rule-in-play';
+import { StatisticBases, totalOutOfRange } from './statistic-bases';
+import type { StatisticResult } from './statistic-bases';
 import { resolverFor } from './statistic-inputs';
 import type { StatisticInputs } from './statistic-inputs';
 
-/** A statistic's value: its base, term by term, and its total. Modifiers join the total in a later phase. */
-export interface StatisticValue {
-  readonly ok: true;
-  readonly selector: Selector;
-  readonly base: readonly BaseTerm[];
-  readonly total: FormulaValue;
+/** The rule elements in play and the roll options their predicates are tested against. */
+export interface ModifierInputs {
+  readonly rules: readonly RuleInPlay[];
+  readonly facts: PredicateFacts;
 }
 
-/** Why a statistic has no value, pointing into its base formula. */
-export interface StatisticFailure {
-  readonly ok: false;
-  readonly selector: Selector;
-  readonly error: MessageDescriptor;
-  readonly position: TextPosition;
-}
+const NO_MODIFIERS: ModifierInputs = { rules: [], facts: new PredicateFacts([]) };
 
-export type StatisticResult = StatisticValue | StatisticFailure;
-
-const SIGIL = '@';
-const LIST_SEPARATOR = ', ';
-
-function failure(selector: Selector, error: MessageDescriptor, position: TextPosition): StatisticFailure {
-  return { ok: false, selector, error, position };
-}
-
-/** A statistic in a cycle, failing at `edge`, its reference into the cycle; `members` are named in selector order. */
-function cycle(selector: Selector, edge: StatisticEdge, members: readonly Selector[]): StatisticFailure {
-  const statistics = members.join(LIST_SEPARATOR);
-  const params = { found: `${SIGIL}${edge.path}`, position: edge.position, statistics, count: members.length };
-  return failure(selector, message(EngineMessage.StatisticCycle, params), edge.position);
-}
-
-/** Evaluates the statistic graph component by component, each statistic once, keeping every result. */
-class Derivation {
-  readonly #graph: ReadonlyMap<Selector, StatisticNode>;
-  readonly #inputs: StatisticInputs;
-  readonly #results = new Map<Selector, StatisticResult>();
-
-  public constructor(definitions: readonly StatisticDefinition[], inputs: StatisticInputs) {
-    this.#graph = statisticGraph(definitions);
-    this.#inputs = inputs;
-    for (const component of new Components(this.#graph).inOrder) {
-      this.#evaluateComponent(component);
+/**
+ * The base result with its lines, its total the base plus every applied line. A failed statistic has no lines, and
+ * one whose lines add up past the safe integer range fails rather than throwing.
+ */
+function withLines(result: StatisticResult, lines: readonly BreakdownLine[]): StatisticResult {
+  if (!result.ok) {
+    return result;
+  }
+  let sum = 0;
+  for (const { status, value } of lines) {
+    if (status.kind === LineStatusKind.Applied && value !== undefined) {
+      sum += value;
     }
   }
-
-  /** Every result in selector order. */
-  public get results(): ReadonlyMap<Selector, StatisticResult> {
-    return new Map(
-      [...this.#graph.keys()].flatMap((selector) => {
-        const result = this.#results.get(selector);
-        return result === undefined ? [] : [[selector, result] as const];
-      }),
-    );
-  }
-
-  /**
-   * A component that reads itself is a cycle: each member fails at its first reference into the cycle, which for
-   * the last statistic reached is the one that closes it. Otherwise it is one statistic, evaluated.
-   */
-  #evaluateComponent(members: readonly Selector[]): void {
-    const inCycle = new Set(members);
-    for (const selector of members) {
-      const node = this.#graph.get(selector);
-      const closing = node?.edges.find((edge) => inCycle.has(edge.selector));
-      if (closing !== undefined) {
-        this.#results.set(selector, cycle(selector, closing, members));
-      } else if (node !== undefined) {
-        this.#results.set(selector, this.#evaluate(selector, node));
-      }
-    }
-  }
-
-  /** Why a statistic this one reads leaves it without a value, checked in the order the references are written. */
-  #dependencyFailure(selector: Selector, edges: readonly StatisticEdge[]): StatisticFailure | undefined {
-    for (const edge of edges) {
-      const params = { found: `${SIGIL}${edge.path}`, position: edge.position, selector: edge.selector };
-      if (!this.#graph.has(edge.selector)) {
-        return failure(selector, message(EngineMessage.MissingStatistic, params), edge.position);
-      }
-      if (this.#results.get(edge.selector)?.ok !== true) {
-        return failure(selector, message(EngineMessage.FailedDependency, params), edge.position);
-      }
-    }
-    return undefined;
-  }
-
-  #evaluate(selector: Selector, { formula, edges }: StatisticNode): StatisticResult {
-    if ('ok' in formula) {
-      return failure(selector, formula.error, formula.position);
-    }
-    const blocked = this.#dependencyFailure(selector, edges);
-    if (blocked !== undefined) {
-      return blocked;
-    }
-    const resolve = resolverFor(this.#inputs, (read) => {
-      const result = this.#results.get(read);
-      return result?.ok === true ? result.total : undefined;
-    });
-    const outcome = evaluate(formula, resolve);
-    return outcome.ok
-      ? { ok: true, selector, base: baseTerms(formula, resolve, outcome.value), total: outcome.value }
-      : failure(selector, outcome.error, outcome.position);
-  }
+  const total = FormulaValue.safeParse(result.baseValue + sum);
+  return total.success ? { ...result, lines, total: total.data } : totalOutOfRange(result.selector);
 }
 
 /**
- * Every statistic's base value from its base formula and the character's inputs (rules-engine.md, step 5).
- * Statistics are evaluated in dependency order, each once, so the work is linear in statistics and references.
- * A cycle, a reference to a missing statistic, a reference to one that failed, or a formula that fails to evaluate
- * is that statistic's error, pointing into its formula; the others still evaluate. Never throws. The result does
- * not depend on the definitions' order, except that a later definition of a selector replaces an earlier one.
+ * Every statistic's breakdown (rules-engine.md, steps 5 and 6). The base phase evaluates each base formula in
+ * dependency order (`StatisticBases`); the modifier phase then collects the modifiers that reach each statistic,
+ * gates them by predicate and stacks them (`collectLines`). Modifier formulas read the inputs, statistics' bases
+ * through `@stat.<selector>`, and the level of the item they are on. Never throws: a statistic's failure, or a
+ * line's, is reported in the result. The result does not depend on the order of the definitions or rules, except
+ * that a later definition of a selector replaces an earlier one.
  */
 export function deriveStatistics(
   definitions: readonly StatisticDefinition[],
   inputs: StatisticInputs,
+  modifiers: ModifierInputs = NO_MODIFIERS,
 ): ReadonlyMap<Selector, StatisticResult> {
-  return new Derivation(definitions, inputs).results;
+  const bases = new StatisticBases(definitions, inputs);
+  const rules = modifierRules(modifiers.rules);
+  const context: CollectContext = {
+    facts: modifiers.facts,
+    resolve: (itemLevel) => resolverFor(inputs, (selector) => bases.baseValue(selector), itemLevel),
+  };
+  return new Map(
+    bases.bases.map(({ definition, result }) => [
+      definition.selector,
+      withLines(result, collectLines(definition, rules, context)),
+    ]),
+  );
 }

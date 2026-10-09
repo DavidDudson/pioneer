@@ -1,19 +1,15 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { Badge, List, ListItem, LocaleFormat, Stack, Text } from '@pioneer/frontier';
+import { Badge, LocaleFormat, Stack, Text } from '@pioneer/frontier';
 
+import { BaseTerms } from '../base-terms/base-terms.component';
+import { BreakdownList } from '../breakdown-list/breakdown-list.component';
 import type { StatisticRow as Row } from '../statistics-check';
 
-/** A base term with its value in the viewer's locale. */
-interface ShownTerm {
-  readonly code: string | undefined;
-  readonly value: string;
-}
-
-/** One statistic: its selector and base total, then its terms; or its error with a caret under the mistake. */
+/** One statistic: its selector and total, its base term by term, then its modifier lines; or its error. */
 @Component({
   selector: 'pio-statistic-row',
-  imports: [Badge, List, ListItem, Stack, Text, TranslocoPipe],
+  imports: [Badge, BaseTerms, BreakdownList, Stack, Text, TranslocoPipe],
   templateUrl: './statistic-row.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -28,10 +24,10 @@ export class StatisticRow {
     return row.ok ? this.#format.number(row.total) : '';
   });
 
-  protected readonly terms = computed((): readonly ShownTerm[] => {
+  /** The base before modifiers, in the viewer's locale. */
+  protected readonly baseValue = computed((): string => {
     this.#format.locale();
     const row = this.row();
-    const terms = row.ok ? row.terms : [];
-    return terms.map((term): ShownTerm => ({ code: term.code, value: this.#format.number(term.value) }));
+    return row.ok ? this.#format.number(row.baseValue) : '';
   });
 }
