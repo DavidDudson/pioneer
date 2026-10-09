@@ -3,6 +3,7 @@ export { OptionValue, PredicateFacts } from './facts';
 export {
   DEFAULT_NAMESPACES,
   NamespaceKind,
+  kindOf,
   namespaceOf,
   RollOptionNamespace,
   namespaceTable,

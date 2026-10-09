@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { Predicate, PredicateStatement, RollOption } from '@pioneer/rules/sdk';
+import { isPredicateComparison, Predicate, PredicateStatement, RollOption } from '@pioneer/rules/sdk';
 import type { ComparisonOperands, PredicateComparison, PredicateCompound } from '@pioneer/rules/sdk';
 import { predicateJson, rollOptionText } from '@pioneer/rules/sdk/testing';
 import type { Arbitrary } from 'fast-check';
@@ -9,6 +9,7 @@ import { array, assert, constantFrom, integer, letrec, oneof, property, record, 
 import { evaluatePredicate, evaluateStatement } from './evaluate';
 import { PredicateFacts } from './facts';
 import { NamespaceKind, namespaceTable } from './namespaces';
+import type { NamespaceTable } from './namespaces';
 import { Truth } from './truth';
 
 /** A small vocabulary, so generated predicates and facts actually meet. */
@@ -59,7 +60,7 @@ const options: Arbitrary<readonly string[]> = tuple(
   numericOptions(SITUATIONAL_PREFIX),
 ).map((parts) => parts.flat());
 
-function toFacts(present: readonly string[], table = namespaceTable({})): PredicateFacts {
+function toFacts(present: readonly string[], table: NamespaceTable): PredicateFacts {
   return new PredicateFacts(
     present.map((option) => RollOption.parse(option)),
     table,
@@ -152,8 +153,7 @@ function foundryStatement(item: PredicateStatement, domain: ReadonlySet<string>)
   if (typeof item === 'string') {
     return domain.has(item);
   }
-  const isComparison = 'eq' in item || 'gt' in item || 'gte' in item || 'lt' in item || 'lte' in item;
-  return isComparison ? foundryComparison(item, domain) : foundryCompound(item, domain);
+  return isPredicateComparison(item) ? foundryComparison(item, domain) : foundryCompound(item, domain);
 }
 
 describe('evaluatePredicate (properties)', () => {
@@ -166,7 +166,7 @@ describe('evaluatePredicate (properties)', () => {
     );
   });
 
-  test('and and or are commutative', () => {
+  test('and, or, xor and iff are commutative', () => {
     assert(
       property(statement, statement, options, (left, right, present) => {
         const given = defaultFacts(present);
@@ -206,13 +206,33 @@ describe('evaluatePredicate (properties)', () => {
     );
   });
 
-  test('unknown is not excluded: a statement or its negation is not always true', () => {
-    const given = defaultFacts([]);
-    const middle = PredicateStatement.parse({ or: ['terrain:forest', { not: 'terrain:forest' }] });
-    expect(evaluateStatement(middle, given)).toBe(Truth.Unknown);
+  test('unknown breaks excluded middle and non-contradiction; definite verdicts keep them', () => {
+    assert(
+      property(statement, options, (item, present) => {
+        const given = defaultFacts(present);
+        const either = evaluateStatement(PredicateStatement.parse({ or: [item, { not: item }] }), given);
+        const both = evaluateStatement(PredicateStatement.parse({ and: [item, { not: item }] }), given);
+        const unknown = evaluateStatement(item, given) === Truth.Unknown;
+        expect([either, both]).toEqual(unknown ? [Truth.Unknown, Truth.Unknown] : [Truth.True, Truth.False]);
+      }),
+    );
   });
 
-  test('supplying more situational facts never changes a true or false verdict', () => {
+  test('with the default table, every definite verdict agrees with Foundry', () => {
+    assert(
+      property(predicate, options, (given, present) => {
+        const verdict = evaluatePredicate(given, defaultFacts(present));
+        const expected = given.every((item) => foundryStatement(item, new Set(present))) ? Truth.True : Truth.False;
+        expect(verdict === Truth.Unknown || verdict === expected).toBe(true);
+      }),
+    );
+  });
+
+  /**
+   * An option with a value is settled (rules-engine.md, ADR-0002): a second value of the same option could flip a
+   * comparison, so only options not given yet are added.
+   */
+  test('supplying situational facts not given yet never changes a true or false verdict', () => {
     assert(
       property(predicate, options, options, (given, before, extra) => {
         const settled = new Set(before.map((option) => option.slice(0, option.lastIndexOf(':'))));

@@ -1,3 +1,4 @@
+import { isPredicateComparison } from '@pioneer/rules/sdk';
 import type {
   ComparisonOperands,
   Predicate,
@@ -23,10 +24,6 @@ const greater: Order = (left, right) => left > right;
 const greaterOrEqual: Order = (left, right) => left >= right;
 const less: Order = (left, right) => left < right;
 const lessOrEqual: Order = (left, right) => left <= right;
-
-function isComparison(statement: Exclude<PredicateStatement, RollOption>): statement is PredicateComparison {
-  return 'eq' in statement || 'gt' in statement || 'gte' in statement || 'lt' in statement || 'lte' in statement;
-}
 
 /** A plain option: present is true; missing is false in a known namespace and unknown in a situational one. */
 export function testOption(option: RollOption, facts: PredicateFacts): Truth {
@@ -114,7 +111,7 @@ export function combine(
   children: readonly Truth[],
   facts: PredicateFacts,
 ): Truth {
-  if (isComparison(statement)) {
+  if (isPredicateComparison(statement)) {
     return testComparison(statement, facts);
   }
   if ('not' in statement) {
@@ -148,7 +145,7 @@ function listStatements(statement: ListCompound): readonly PredicateStatement[] 
 
 /** The statements directly inside `statement`, in order: `[if, then]` for a conditional. */
 export function childStatements(statement: PredicateStatement): readonly PredicateStatement[] {
-  if (typeof statement === 'string' || isComparison(statement)) {
+  if (typeof statement === 'string' || isPredicateComparison(statement)) {
     return [];
   }
   if ('not' in statement) {

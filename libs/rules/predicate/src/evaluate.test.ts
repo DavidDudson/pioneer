@@ -162,3 +162,24 @@ describe('namespaces', () => {
     expect(verdict(['self:effect:rage'], given)).toBe(Truth.Unknown);
   });
 });
+
+describe('settled options', () => {
+  test('a second value of a situational option can change a comparison, so callers give one value', () => {
+    expect(verdict([{ gt: ['target:level', 1] }], facts('target:level:0'))).toBe(Truth.False);
+    expect(verdict([{ gt: ['target:level', 1] }], facts('target:level:0', 'target:level:3'))).toBe(Truth.True);
+  });
+});
+
+describe('mixed namespaces', () => {
+  test('the longest listed namespace decides, so encounter facts under self stay unknown', () => {
+    // Surprise Attack (rogue): first round, before the target, initiative rolled with Deception or Stealth.
+    const surpriseAttack = [
+      'encounter:round:1',
+      { lt: ['self:participant:initiative:rank', 'target:participant:initiative:rank'] },
+      { or: ['self:participant:initiative:stat:deception', 'self:participant:initiative:stat:stealth'] },
+    ];
+    expect(verdict(surpriseAttack, facts())).toBe(Truth.Unknown);
+    expect(verdict(['self:action:trait:impulse'], facts())).toBe(Truth.Unknown);
+    expect(verdict(['self:effect:rage'], facts())).toBe(Truth.False);
+  });
+});

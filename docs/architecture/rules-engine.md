@@ -244,7 +244,8 @@ sheet, where the situation is unknown, so predicates use **three-valued (Kleene)
 
 ### Evaluation
 
-`libs/rules/predicate` evaluates predicates. It depends only on `rules/sdk`, so grants and statistics share it.
+`libs/rules/predicate` evaluates predicates. It depends only on `rules/sdk` and the kernel, so grants and statistics
+share it.
 
 ```ts
 const facts = new PredicateFacts(rollOptions, namespaces); // once per derivation; indexes numeric suffixes
@@ -255,15 +256,16 @@ tracePredicate(predicate, facts); // the same, with every nested statement's ver
 The namespace is a roll option's first word. `DEFAULT_NAMESPACES` was checked against the roll options in Foundry's
 feats, class and ancestry features, conditions, effects and equipment:
 
-| Kind        | Namespaces                                                                                                                                                                           |
-| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Known       | `self`, `item`, `parent`, `class`, `feat`, `feature`, `ancestry`, `heritage`, `background`, `deity`, `armor`, `skill`, `defense`                                                     |
-| Situational | `action`, `attack`, `bonus`, `check`, `damage`, `encounter`, `inflicts`, `lighting`, `origin`, `penalty`, `proficiency`, `situation`, `spellcasting`, `target`, `terrain`, any other |
+| Kind        | Namespaces                                                                                                                                                                                                                               |
+| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Known       | `self`, `item`, `parent`, `class`, `feat`, `feature`, `ancestry`, `heritage`, `background`, `deity`, `armor`, `skill`, `defense`                                                                                                         |
+| Situational | `self:action`, `self:flanking`, `self:participant`, `action`, `attack`, `bonus`, `check`, `damage`, `encounter`, `inflicts`, `lighting`, `origin`, `penalty`, `proficiency`, `situation`, `spellcasting`, `target`, `terrain`, any other |
 
-`item` and `parent` are known because the engine always evaluates them against a specific item. A namespace missing
-from the table is situational, so a gap shows up as a conditional line instead of hiding a modifier. The namespaces a
-`ChoiceSet` writes its pick to (`kinetic-gate:air`) are the character's own facts: the engine adds them as known with
-`withKnown`. The core rules pack will own the table (Epic 1.6).
+The longest listed namespace an option starts with decides, so `self:participant:initiative:rank` is situational
+while `self:effect:rage` is known. `item` and `parent` are known because the engine always evaluates them against a
+specific item. A namespace missing from the table is situational, so a gap shows up as a conditional line instead of
+hiding a modifier. The namespaces a `ChoiceSet` writes its pick to (`kinetic-gate:air`) are the character's own
+facts: the engine adds them as known with `withKnown`. The core rules pack will own the table (Epic 1.6).
 
 Statements follow Foundry's `Predicate.test`, lifted to three values:
 

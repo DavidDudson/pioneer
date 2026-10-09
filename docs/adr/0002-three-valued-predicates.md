@@ -21,3 +21,6 @@ choice.
 - Imported predicates work unchanged; only the namespace classification table is ours.
 - A namespace misclassified as known would hide conditional modifiers; the table needs tests and review.
 - Summaries are generated from a vocabulary table with authored overrides for awkward cases.
+- Numeric comparisons (`{ "gte": ["target:level", 5] }`) treat an option as settled once any value of it is given,
+  so a roll with a known target answers definitely. Supplying a second value of the same option could change that
+  answer; callers give one value per option.

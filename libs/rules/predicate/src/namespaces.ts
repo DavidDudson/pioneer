@@ -11,20 +11,34 @@ export const NamespaceKind = {
 } as const;
 export type NamespaceKind = ValueOf<typeof NamespaceKind>;
 
-/** The first word of a roll option: `self` in `self:condition:frightened`. */
+/**
+ * The leading words of a roll option that the table classifies: usually the first word (`self` in
+ * `self:condition:frightened`), sometimes more where one namespace mixes kinds (`self:action`).
+ */
 export const RollOptionNamespace = z
   .string()
-  .regex(/^[a-z\d](?:[a-z\d]|-(?=[a-z\d]))*$/u)
+  .regex(/^[a-z\d](?:[a-z\d]|[-:](?=[a-z\d]))*$/u)
   .brand<'RollOptionNamespace'>();
 export type RollOptionNamespace = z.infer<typeof RollOptionNamespace>;
 
-/** Which namespaces are known. Anything not listed is situational. */
+/** Which namespaces are known. The longest listed namespace an option starts with decides; unlisted is situational. */
 export type NamespaceTable = ReadonlyMap<RollOptionNamespace, NamespaceKind>;
 
 const SEPARATOR = ':';
 
 export function namespaceOf(option: RollOption): RollOptionNamespace {
   return RollOptionNamespace.parse(option.slice(0, option.indexOf(SEPARATOR)));
+}
+
+/** How `table` reads a missing `option`: by the longest listed namespace it starts with, else situational. */
+export function kindOf(option: RollOption, table: NamespaceTable): NamespaceKind {
+  for (let end = option.length; end > 0; end = option.lastIndexOf(SEPARATOR, end - 1)) {
+    const kind = table.get(RollOptionNamespace.parse(option.slice(0, end)));
+    if (kind !== undefined) {
+      return kind;
+    }
+  }
+  return NamespaceKind.Situational;
 }
 
 /** A table from plain entries, for tests and for packs that extend the default. */
@@ -48,11 +62,15 @@ export function withKnown(table: NamespaceTable, namespaces: Iterable<RollOption
  * so a namespace missing from here shows as a conditional line instead of hiding a modifier.
  *
  * `item` and `parent` are known because the engine always evaluates them for a specific item (the Strike's
- * weapon, the granting feature). Namespaces a `ChoiceSet` writes (`kinetic-gate`, `werecreature`) are added
+ * weapon, the granting feature). Inside `self`, the action being used, flanking and initiative in the current
+ * encounter are situational. Namespaces a `ChoiceSet` writes (`kinetic-gate`, `werecreature`) are added
  * per character with `withKnown`.
  */
 export const DEFAULT_NAMESPACES: NamespaceTable = namespaceTable({
   self: NamespaceKind.Known,
+  'self:action': NamespaceKind.Situational,
+  'self:flanking': NamespaceKind.Situational,
+  'self:participant': NamespaceKind.Situational,
   item: NamespaceKind.Known,
   parent: NamespaceKind.Known,
   class: NamespaceKind.Known,

@@ -1,6 +1,6 @@
-import { ChangeDetectionStrategy, Component, input, model } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, input, model } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { Field, FieldError, FieldHint, Label, Stack, TextArea } from '@pioneer/frontier';
+import { Field, FieldError, FieldHint, Label, LocaleFormat, Stack, TextArea } from '@pioneer/frontier';
 
 import { VerdictStatus } from '../predicate-verdict';
 import type { VerdictCheck } from '../predicate-verdict';
@@ -22,4 +22,13 @@ export class VerdictFields {
   public readonly check = input.required<VerdictCheck>();
   public readonly predicate = model.required<string>();
   public readonly facts = model.required<string>();
+
+  readonly #format = inject(LocaleFormat);
+  /** The roll option lines that are not roll options, as a list in the UI locale ("2, 4 and 7"). */
+  protected readonly badLines = computed((): string => {
+    this.#format.locale();
+    const result = this.check();
+    const lines = result.status === VerdictStatus.InvalidFacts ? result.lines : [];
+    return this.#format.list(lines.map((line) => this.#format.number(line)));
+  });
 }

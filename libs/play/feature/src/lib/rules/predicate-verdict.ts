@@ -1,6 +1,6 @@
 import { PredicateFacts, tracePredicate, Truth } from '@pioneer/rules/predicate';
 import type { StatementTrace } from '@pioneer/rules/predicate';
-import { Predicate, RollOption } from '@pioneer/rules/sdk';
+import { isPredicateComparison, Predicate, RollOption } from '@pioneer/rules/sdk';
 import type { PredicateStatement } from '@pioneer/rules/sdk';
 import type { FieldIssue, ValueOf } from '@pioneer/shared/kernel';
 
@@ -55,9 +55,7 @@ function codeOf(statement: PredicateStatement): string {
   if (typeof statement === 'string') {
     return statement;
   }
-  const isComparison =
-    'eq' in statement || 'gt' in statement || 'gte' in statement || 'lt' in statement || 'lte' in statement;
-  return isComparison ? JSON.stringify(statement) : Object.keys(statement).join('/');
+  return isPredicateComparison(statement) ? JSON.stringify(statement) : Object.keys(statement).join('/');
 }
 
 function toNode(trace: StatementTrace): VerdictNode {

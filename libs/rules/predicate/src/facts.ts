@@ -1,7 +1,7 @@
 import type { RollOption } from '@pioneer/rules/sdk';
 import { z } from 'zod';
 
-import { DEFAULT_NAMESPACES, NamespaceKind, namespaceOf } from './namespaces';
+import { DEFAULT_NAMESPACES, kindOf, NamespaceKind } from './namespaces';
 import type { NamespaceTable } from './namespaces';
 
 /** The number at the end of a roll option, `5` in `self:level:5`, as Foundry reads it with `Number`. */
@@ -54,6 +54,6 @@ export class PredicateFacts {
 
   /** Whether a missing `option` is false (known namespace) rather than unknown (situational). */
   public isKnown(option: RollOption): boolean {
-    return this.#namespaces.get(namespaceOf(option)) === NamespaceKind.Known;
+    return kindOf(option, this.#namespaces) === NamespaceKind.Known;
   }
 }

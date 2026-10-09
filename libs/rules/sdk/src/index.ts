@@ -46,6 +46,7 @@ export {
 } from './origin';
 export {
   type ComparisonOperands,
+  isPredicateComparison,
   Predicate,
   type PredicateComparison,
   type PredicateCompound,
