@@ -3,6 +3,7 @@ import { z } from 'zod';
 const DEFAULT_PORT = 3000;
 
 const Credential = z.string().min(1).optional();
+const Port = z.coerce.number().int().positive().default(DEFAULT_PORT);
 
 /**
  * The repo's migrations folder. Inside a `--compile` binary this resolves into Bun's virtual FS, which holds no
@@ -25,8 +26,12 @@ const MigrateEnvSchema = z.object({
 });
 export type MigrateEnv = z.infer<typeof MigrateEnvSchema>;
 
+/** What `pioneer-api health` needs: the port the server listens on. */
+const HealthEnvSchema = z.object({ PORT: Port });
+export type HealthEnv = z.infer<typeof HealthEnvSchema>;
+
 const EnvSchema = MigrateEnvSchema.extend({
-  PORT: z.coerce.number().int().positive().default(DEFAULT_PORT),
+  PORT: Port,
   /**
    * Apply migrations before serving. Off when a separate `migrate` step owns them. Accepts true/false, 1/0,
    * yes/no, on/off, y/n and enabled/disabled, in any case.
@@ -81,4 +86,9 @@ export function readEnv(source: EnvSource = Bun.env): Env {
 /** Validate only what `pioneer-api migrate` needs. */
 export function readMigrateEnv(source: EnvSource = Bun.env): MigrateEnv {
   return parseEnv(MigrateEnvSchema, source);
+}
+
+/** Validate only what `pioneer-api health` needs. */
+export function readHealthEnv(source: EnvSource = Bun.env): HealthEnv {
+  return parseEnv(HealthEnvSchema, source);
 }

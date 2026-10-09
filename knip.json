@@ -13,7 +13,7 @@
     "apps/web/src/styles.css"
   ],
   "project": ["apps/**/*.ts", "libs/**/*.ts", "tools/**/*.ts", "libs/frontier/src/styles/*.css", "apps/web/src/*.css"],
-  "ignoreBinaries": ["typos", "rumdl", "taplo"],
+  "ignoreBinaries": ["typos", "rumdl", "taplo", "hadolint"],
   "ignoreDependencies": ["@angular/language-service", "@socketsecurity/bun-security-scanner"],
   "nx": true,
   "angular": false,

@@ -1,0 +1,45 @@
+# Pioneer and its Postgres on one machine. Secrets come from .env (copy .env.example); none are baked in.
+# See docs/deployment.md.
+name: pioneer
+
+services:
+  app:
+    build: .
+    image: pioneer:local
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      # Pinned over .env (the file Bun also loads in dev): the port mapping and HEALTHCHECK assume 3000.
+      PORT: 3000
+      # The password goes in PGPASSWORD, which the driver reads, not in the URL, so URL delimiters are safe.
+      # Compose expands `$` in .env values; single-quote a password that contains one.
+      DATABASE_URL: postgres://pioneer@db:5432/pioneer
+      PGPASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+      PUBLIC_ORIGIN: ${PUBLIC_ORIGIN:-http://localhost:${PIONEER_PORT:-8080}}
+    ports:
+      - ${PIONEER_PORT:-8080}:3000
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+
+  db:
+    # Same version as CI and the devshell's postgresql_18.
+    image: docker.io/library/postgres:18.6@sha256:74935e72241653ca55e0414067e6d8763aceb8a810eb51b452253ec3dcfc4336
+    environment:
+      POSTGRES_USER: pioneer
+      POSTGRES_DB: pioneer
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+    volumes:
+      # Postgres 18 images keep data in a versioned folder under this path.
+      - pgdata:/var/lib/postgresql
+    healthcheck:
+      test: [CMD, pg_isready, --username=pioneer, --dbname=pioneer]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
+volumes:
+  pgdata:

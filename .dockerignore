@@ -1,0 +1,27 @@
+# Build context for the Dockerfile: sources only. Dependencies and outputs are rebuilt inside the image.
+**/node_modules
+.data
+.nx
+.angular
+dist
+tmp
+coverage
+storybook-static
+**/*.tsbuildinfo
+
+# Secrets stay out of the image; compose passes them at run time.
+**/.env
+**/.env.*
+!**/.env.example
+**/*.pem
+**/*.key
+
+# Not needed to build.
+.git
+.github
+.claude
+.direnv
+docs
+Dockerfile
+compose.yaml
+.dockerignore
