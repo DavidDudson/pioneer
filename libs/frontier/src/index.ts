@@ -46,7 +46,9 @@ export { Form } from './lib/forms/form/form.component';
 export { NumberField } from './lib/forms/number-field/number-field.component';
 export { SegmentedField } from './lib/forms/segmented-field/segmented-field.component';
 export { SelectField } from './lib/forms/select-field/select-field.component';
+export { TextAreaField } from './lib/forms/text-area-field/text-area-field.component';
 export { TextField } from './lib/forms/text-field/text-field.component';
+export { ToggleButtonField } from './lib/forms/toggle-button-field/toggle-button-field.component';
 
 // Icons (Lucide)
 export { Icon } from './lib/icon/icon.component';

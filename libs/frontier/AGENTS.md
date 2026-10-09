@@ -127,9 +127,10 @@ otherwise, and say why in the PR when you don't.
 
 - **Avoid checkbox and radio lists.** Pick the control by how many options
   there are:
-  - **On/off:** `fr-toggle-button`, outlined when off and filled with the
-    accent when on. The label names the setting and stays the same in both
-    states. Several independent settings are a row of toggle buttons.
+  - **On/off:** `fr-toggle-button` (`fr-toggle-button-field` in forms),
+    outlined when off and filled with the accent when on. The label names
+    the setting and stays the same in both states; in the field it is the
+    button's text. Several independent settings are a row of toggle buttons.
   - **One of 2-3 options:** `fr-segmented` (`fr-segmented-field` in forms),
     every option visible as a button group.
   - **One of 4 or more:** `fr-select` (`fr-select-field`). Past three, a row
@@ -232,21 +233,21 @@ after `themes/frontier.css`, and add it to `Theme` in
 
 ## Components
 
-| Area           | Components                                                                                                                                                                                |
-| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Layout         | Primitives `fr-box`, `fr-grid`, `fr-stack`; composed `fr-shell`, `fr-page`, `fr-surface`; `fr-divider` (`orientation`, `tone` subtle/default/strong; vertical is decorative)              |
-| Disclosure     | `fr-disclosure` (expand in place; `frDisclosureSummary` takes phrasing content only, nothing interactive)                                                                                 |
-| Lists          | `fr-list` (`ordered` for `<ol>`, `markers` for bullets or numbers, `gap`) with `fr-list-item`; `fr-description-list` (`gap`, `columnsFrom`) with `fr-description-item [term]`             |
-| Text           | `fr-text` (`element="span\|p"`), `fr-heading` (`[level]` for the outline, `variant` for the look), `fr-badge` (`tone` neutral/accent/status, `variant` subtle/solid, `[icon]`)            |
-| Actions        | `fr-button` (`(pressed)`), `fr-async-button`, `fr-link` (`to` routes, `href` external only)                                                                                               |
-| Async          | `injectAsyncAction`, `fr-async-indicator`, `fr-async-region` (+ `frAsyncPending` / `frAsyncData` / `frAsyncError` slots)                                                                  |
-| Feedback       | `fr-message` (inline, never a toast), `fr-skeleton` (loading content), `fr-spinner` (action progress only)                                                                                |
-| Icons          | `fr-icon` (Lucide; `[icon]`, `size`, `tone`, `label`, `spin`)                                                                                                                             |
-| Dates          | `fr-date` (Temporal values only)                                                                                                                                                          |
-| Controls       | Plain: `fr-text-input`, `fr-number-input`, `fr-date-input`, `fr-toggle-button` (on/off), `fr-segmented` (2-3 options), `fr-select` (4+, `@angular/aria`)                                  |
-| Forms          | `fr-form`, `fr-async-form`; `fr-text-field`, `fr-number-field`, `fr-date-field`, `fr-segmented-field`, `fr-select-field`; parts `fr-field`, `fr-label`, `fr-field-hint`, `fr-field-error` |
-| Inline edit    | `InlineEdit<T>` controller + `fr-inline-field`                                                                                                                                            |
-| Data (`/data`) | `fr-table` (TanStack Table), `fr-chart` (TanStack Charts), `fr-virtual-list` (TanStack Virtual)                                                                                           |
+| Area           | Components                                                                                                                                                                                                                                |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Layout         | Primitives `fr-box`, `fr-grid`, `fr-stack`; composed `fr-shell`, `fr-page`, `fr-surface`; `fr-divider` (`orientation`, `tone` subtle/default/strong; vertical is decorative)                                                              |
+| Disclosure     | `fr-disclosure` (expand in place; `frDisclosureSummary` takes phrasing content only, nothing interactive)                                                                                                                                 |
+| Lists          | `fr-list` (`ordered` for `<ol>`, `markers` for bullets or numbers, `gap`) with `fr-list-item`; `fr-description-list` (`gap`, `columnsFrom`) with `fr-description-item [term]`                                                             |
+| Text           | `fr-text` (`element="span\|p"`), `fr-heading` (`[level]` for the outline, `variant` for the look), `fr-badge` (`tone` neutral/accent/status, `variant` subtle/solid, `[icon]`)                                                            |
+| Actions        | `fr-button` (`(pressed)`), `fr-async-button`, `fr-link` (`to` routes, `href` external only)                                                                                                                                               |
+| Async          | `injectAsyncAction`, `fr-async-indicator`, `fr-async-region` (+ `frAsyncPending` / `frAsyncData` / `frAsyncError` slots)                                                                                                                  |
+| Feedback       | `fr-message` (inline, never a toast), `fr-skeleton` (loading content), `fr-spinner` (action progress only)                                                                                                                                |
+| Icons          | `fr-icon` (Lucide; `[icon]`, `size`, `tone`, `label`, `spin`)                                                                                                                                                                             |
+| Dates          | `fr-date` (Temporal values only)                                                                                                                                                                                                          |
+| Controls       | Plain: `fr-text-input`, `fr-text-area`, `fr-number-input`, `fr-date-input`, `fr-toggle-button` (on/off), `fr-segmented` (2-3 options), `fr-select` (4+, `@angular/aria`)                                                                  |
+| Forms          | `fr-form`, `fr-async-form`; `fr-text-field`, `fr-text-area-field`, `fr-number-field`, `fr-date-field`, `fr-toggle-button-field`, `fr-segmented-field`, `fr-select-field`; parts `fr-field`, `fr-label`, `fr-field-hint`, `fr-field-error` |
+| Inline edit    | `InlineEdit<T>` controller + `fr-inline-field`                                                                                                                                                                                            |
+| Data (`/data`) | `fr-table` (TanStack Table), `fr-chart` (TanStack Charts), `fr-virtual-list` (TanStack Virtual)                                                                                                                                           |
 
 ## Storybook
 

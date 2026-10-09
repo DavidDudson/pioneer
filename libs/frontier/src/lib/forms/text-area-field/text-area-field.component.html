@@ -1,0 +1,15 @@
+<fr-field [invalid]="message() !== undefined">
+  <fr-label [visuallyHidden]="hideLabel()">{{ label() }}</fr-label>
+  <fr-text-area
+    [disabled]="disabled()"
+    [placeholder]="placeholder()"
+    [rows]="rows()"
+    [monospace]="monospace()"
+    [(value)]="value"
+  />
+  @if (message(); as message) {
+    <fr-field-error>{{ message }}</fr-field-error>
+  } @else if (hint(); as hint) {
+    <fr-field-hint>{{ hint }}</fr-field-hint>
+  }
+</fr-field>
