@@ -355,10 +355,6 @@
       "rules": { "pioneer/no-full-page-load": "off" }
     },
     {
-      "files": ["libs/shared/kernel/src/temporal.ts"],
-      "rules": { "eslint/no-restricted-imports": "off" }
-    },
-    {
       // Small related error types live together.
       "files": ["libs/shared/kernel/src/errors.ts"],
       "rules": { "eslint/max-classes-per-file": "off" }
