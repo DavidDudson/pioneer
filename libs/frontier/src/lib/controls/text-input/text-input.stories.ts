@@ -25,6 +25,10 @@ export const Empty: TextInputStory = {};
 
 export const Filled: TextInputStory = { args: { value: 'Valeros' } };
 
+export const Monospace: TextInputStory = {
+  args: { value: 'max(1, floor(@actor.level / 2))', ariaLabel: 'Formula', monospace: true },
+};
+
 export const Invalid: TextInputStory = { args: { value: '', invalid: true } };
 
 export const Disabled: TextInputStory = { args: { value: 'Valeros', disabled: true } };

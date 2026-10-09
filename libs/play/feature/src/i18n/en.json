@@ -47,11 +47,15 @@
   },
   "rules": {
     "title": "Rules",
-    "description": "Check rules data against Pioneer’s schemas: predicates, selectors, domains, roll options, sources, origins and rule elements.",
+    "description": "Check rules data against Pioneer’s schemas: predicates, selectors, domains, roll options, sources, origins and rule elements, or parse a formula.",
     "schemaLabel": "Schema",
     "schemaHint": "Changing the schema loads a valid example for it.",
     "jsonLabel": "JSON",
     "jsonHint": "Strings need double quotes, as in any JSON.",
+    "formulaLabel": "Formula",
+    "formulaHint": "Numbers, + - * /, brackets, @ references like @actor.level, and functions like max and floor.",
+    "formulaValid": "Valid. This is the formula as Pioneer prints it:",
+    "formulaTree": "Parsed tree, with each part’s position:",
     "resultHeading": "Result",
     "valid": "Valid. This is the value as Pioneer reads it:",
     "notJson": "This is not valid JSON yet. Check quotes, commas and brackets.",
@@ -63,7 +67,8 @@
       "rollOption": "Roll option",
       "source": "Source",
       "origin": "Origin",
-      "ruleElement": "Rule element"
+      "ruleElement": "Rule element",
+      "formula": "Formula"
     },
     "invalidSummary": "{count, plural, one {# problem, listed under Result.} other {# problems, listed under Result.}}",
     "nothingToShow": "Nothing to check until the JSON parses."

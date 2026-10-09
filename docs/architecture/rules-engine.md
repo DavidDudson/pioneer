@@ -43,6 +43,42 @@ express those three as data, it can express most homebrew; they are acceptance t
 Formulas are parsed into an AST at import or authoring time and evaluated by an interpreter. No `eval`, no
 JavaScript in content.
 
+### Formula language
+
+`libs/rules/formula` parses formula text into a tree. It depends only on the kernel, so `rules/sdk` can check
+the formulas in rule elements with it, and the engine evaluates statistic formulas with it. The parser takes any
+`FormulaText`, so it can report empty or overlong text; `FormulaSource` in `rules/sdk` is the stored, bounded form,
+passed in as `FormulaText.parse(source)`.
+
+```text
+formula    = sum
+sum        = product (("+" | "-") product)*
+product    = unary (("*" | "/") unary)*
+unary      = "-" unary | primary
+primary    = number | reference | call | "(" sum ")"
+number     = digits                                  (whole, 0 to 999999)
+reference  = "@" segment ("." segment)*              (@actor.level, @attr.dex.capped)
+segment    = [A-Za-z0-9_-]+
+call       = function "(" (sum ("," sum)*)? ")"
+function   = min | max | floor | ceil | abs | round | sign
+           | ternary | eq | ne | gt | gte | lt | lte
+```
+
+- The functions are Foundry's `Math` subset and the comparison helpers pf2e adds to `Math`. `min` and `max`
+  take one or more arguments, `ternary` three, the comparisons two and the rest one. Any other name is an error.
+- Hyphens belong to the reference, as in Foundry's data paths: `@level-1` is one reference, so write `@level - 1`
+  to subtract.
+- Every node keeps its 1-based position. Errors are message descriptors with a position, and the parse
+  outcome has the same shape as the dice parser's.
+- `references(formula)` lists every reference with its position. The statistic graph uses it for dependency
+  edges.
+- `printFormula` prints canonical text with single spaces around operators and only the parentheses the
+  tree needs. Parsing that text gives the same tree back.
+- Limits: 500 characters (`FormulaSource` uses the same maximum), 32 levels of nesting (groups, call arguments
+  and negations) and 200 nodes.
+- Which reference paths exist and what they mean belongs to the reference vocabulary. The parser only checks
+  their syntax.
+
 ## Modifiers and stacking
 
 ```ts

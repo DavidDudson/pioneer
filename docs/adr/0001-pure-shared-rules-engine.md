@@ -10,9 +10,9 @@ numbers players see, for party views, GM tools, validation and export. Two imple
 
 ## Decision
 
-`libs/rules/engine` is pure TypeScript with no I/O, clock or randomness, depending only on `shared/kernel` and
-`rules/sdk`. The browser and the Bun server both run it. Derivation is a function of character document, content
-registry, variant rules and optional situation, and returns values with full breakdowns.
+`libs/rules/engine` is pure TypeScript with no I/O, clock or randomness, depending only on `shared/kernel`,
+`rules/sdk` and `rules/formula`. The browser and the Bun server both run it. Derivation is a function of character
+document, content registry, variant rules and optional situation, and returns values with full breakdowns.
 
 ## Consequences
 

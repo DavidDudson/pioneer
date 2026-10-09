@@ -1,7 +1,10 @@
 <input
   #control
   type="text"
-  [class]="classes"
+  [class]="classes()"
+  [attr.spellcheck]="monospace() ? false : null"
+  [attr.autocapitalize]="monospace() ? 'off' : null"
+  [attr.autocorrect]="monospace() ? 'off' : null"
   [attr.id]="id() ?? null"
   [value]="value()"
   [placeholder]="placeholder()"

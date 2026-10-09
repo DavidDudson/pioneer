@@ -100,4 +100,26 @@ describe('RulesPlaygroundPage', () => {
     expect(text).toContain('key');
     expect(text).toContain('“ActiveEffectLike” is not a rule element Pioneer knows yet.');
   });
+
+  it('switches to a one-line formula input that opens on a valid example', async () => {
+    const harness = await openPlayground();
+    await chooseSchema(harness, 'Formula');
+    expect(pageText(harness)).toContain('Valid.');
+    expect(pageText(harness)).toContain('10 + @attr.dex.capped + @prof.armor + @level');
+    expect(harness.routeNativeElement?.querySelector('textarea')).toBeNull();
+  });
+
+  it('points at the first mistake in a formula with text from the formula bundle', async () => {
+    const harness = await openPlayground();
+    await chooseSchema(harness, 'Formula');
+    const input = present(harness.routeNativeElement?.querySelector('input'));
+    input.value = 'max(1, level)';
+    input.dispatchEvent(new Event('input'));
+    await harness.fixture.whenStable();
+
+    const text = pageText(harness);
+    expect(text).toContain('max(1, level)\n       ^');
+    expect(text).toContain('“level” at position 8 is not a function.');
+    expect(input.getAttribute('aria-invalid')).toBe('true');
+  });
 });

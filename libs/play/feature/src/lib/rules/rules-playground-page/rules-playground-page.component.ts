@@ -7,42 +7,45 @@ import {
   FieldHint,
   Heading,
   Label,
-  List,
-  ListItem,
-  Message,
   Page,
   Select,
   Stack,
   Surface,
-  Text,
   TextArea,
+  TextInput,
 } from '@pioneer/frontier';
 import type { SelectOption } from '@pioneer/frontier';
 import { filter, merge } from 'rxjs';
 
-import { CheckStatus, checkRulesJson, formatPath, RULES_SCHEMA_KEYS, RulesSchema, rulesExample } from '../rules-check';
+import { checkFormula } from '../formula-check';
+import type { FormulaCheck } from '../formula-check';
+import { FormulaResult } from '../formula-result/formula-result.component';
+import { CheckStatus, checkRulesJson, RULES_TOOL_KEYS, rulesExample, RulesTool } from '../rules-check';
 import type { CheckOutcome } from '../rules-check';
+import { RulesResult } from '../rules-result/rules-result.component';
 
 const JSON_ROWS = 12;
 
-/** Paste rules JSON, pick a schema, and see whether it validates and, if not, where and why. */
+/**
+ * Paste rules JSON, pick a schema, and see whether it validates and, if not, where and why. The formula
+ * tool parses formula text instead and points at the first mistake.
+ */
 @Component({
   selector: 'pio-rules-playground-page',
   imports: [
     Field,
     FieldError,
     FieldHint,
+    FormulaResult,
     Heading,
     Label,
-    List,
-    ListItem,
-    Message,
     Page,
+    RulesResult,
     Select,
     Stack,
     Surface,
-    Text,
     TextArea,
+    TextInput,
     TranslocoPipe,
   ],
   templateUrl: './rules-playground-page.component.html',
@@ -51,30 +54,38 @@ const JSON_ROWS = 12;
 export class RulesPlaygroundPage {
   protected readonly CheckStatus = CheckStatus;
   protected readonly rows = JSON_ROWS;
-  protected readonly formatPath = formatPath;
 
   readonly #i18n = inject(TranslocoService);
   readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
   /** Ticks when the locale changes or a message scope (`play`) finishes loading. */
   readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
-  protected readonly schemas = computed((): readonly SelectOption<RulesSchema>[] => {
+  protected readonly schemas = computed((): readonly SelectOption<RulesTool>[] => {
     this.#messages();
-    return Object.values(RulesSchema).map((schema) => ({
-      value: schema,
-      label: this.#i18n.translate(RULES_SCHEMA_KEYS[schema]),
+    return Object.values(RulesTool).map((tool) => ({
+      value: tool,
+      label: this.#i18n.translate(RULES_TOOL_KEYS[tool]),
     }));
   });
 
-  protected readonly schema = signal<RulesSchema>(RulesSchema.Predicate);
-  protected readonly text = signal(rulesExample(RulesSchema.Predicate));
-  protected readonly outcome = computed((): CheckOutcome => checkRulesJson(this.schema(), this.text()));
+  protected readonly schema = signal<RulesTool>(RulesTool.Predicate);
+  protected readonly text = signal(rulesExample(RulesTool.Predicate));
+  /** The formula check while the formula tool is chosen, otherwise undefined. */
+  protected readonly formula = computed((): FormulaCheck | undefined => {
+    const tool = this.schema();
+    return tool === RulesTool.Formula ? checkFormula(this.text()) : undefined;
+  });
+  /** The JSON check while a schema is chosen, otherwise undefined. */
+  protected readonly outcome = computed((): CheckOutcome | undefined => {
+    const tool = this.schema();
+    return tool === RulesTool.Formula ? undefined : checkRulesJson(tool, this.text());
+  });
 
   /** A new schema starts from its example, so the page always shows something that passes. */
-  protected choose(schema: RulesSchema | undefined): void {
-    if (schema === undefined || schema === this.schema()) {
+  protected choose(tool: RulesTool | undefined): void {
+    if (tool === undefined || tool === this.schema()) {
       return;
     }
-    this.schema.set(schema);
-    this.text.set(rulesExample(schema));
+    this.schema.set(tool);
+    this.text.set(rulesExample(tool));
   }
 }

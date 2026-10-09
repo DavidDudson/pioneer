@@ -1,0 +1,9 @@
+@let result = check();
+@if (result.status === CheckStatus.Valid) {
+  <fr-message tone="success">{{ 'play.rules.formulaValid' | transloco }}</fr-message>
+  <fr-text element="p" variant="code" preformatted>{{ result.canonical }}</fr-text>
+  <fr-text element="p" tone="muted">{{ 'play.rules.formulaTree' | transloco }}</fr-text>
+  <fr-text element="p" variant="code" preformatted>{{ result.tree }}</fr-text>
+} @else {
+  <fr-text element="p" variant="code" preformatted>{{ result.pointer }}</fr-text>
+}
