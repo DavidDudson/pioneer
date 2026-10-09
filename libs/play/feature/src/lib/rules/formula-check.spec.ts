@@ -45,4 +45,8 @@ describe(pointAt, () => {
   it('keeps tabs so the caret lines up', () => {
     expect(pointAt('\t1 # 2', TextPosition.parse(4))).toBe('\t1 # 2\n\t  ^');
   });
+
+  it('puts the caret line under the line holding the position', () => {
+    expect(pointAt('1\n+ #\n2', TextPosition.parse(5))).toBe('1\n+ #\n  ^\n2');
+  });
 });
