@@ -99,7 +99,9 @@ tools/
   content-import/   Foundry pf2e -> Pioneer translator, coverage report, AoN enrichment
 ```
 
-Dependency rule: `rules/*` depends only on `shared/kernel`. Feature areas depend on `rules/*`, never the reverse.
+Dependency rule: `rules/*` depends only on `shared/kernel` and other `rules/*` libraries: `rules/formula` on the kernel
+alone, `rules/sdk` on `rules/formula`, and `dice`, `engine` and `catalog` on `rules/sdk`. Feature areas depend on
+`rules/*`, never the reverse.
 Content data never imports code.
 
 ## Cross-cutting
