@@ -26,6 +26,10 @@
     "statistic": {
       "duplicateSelector": "Another statistic in this pack already uses the selector {selector}."
     },
+    "richText": {
+      "tooDeep": "Rich text can nest at most {maximum} levels deep.",
+      "tooLarge": "Rich text can hold at most {maximum} nodes, lists and rows together."
+    },
     "reference": {
       "level": "The character’s level.",
       "attributeModifier": "The character’s modifier for that attribute.",

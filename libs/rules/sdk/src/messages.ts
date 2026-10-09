@@ -12,6 +12,8 @@ export const RulesMessage = {
   FoundryReference: 'rules.formula.foundryReference',
   ReferenceOutOfScope: 'rules.formula.referenceOutOfScope',
   DuplicateSelector: 'rules.statistic.duplicateSelector',
+  RichTextTooDeep: 'rules.richText.tooDeep',
+  RichTextTooLarge: 'rules.richText.tooLarge',
   ReferenceLevel: 'rules.reference.level',
   ReferenceAttributeModifier: 'rules.reference.attributeModifier',
   ReferenceCappedDexterity: 'rules.reference.cappedDexterity',
