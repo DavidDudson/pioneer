@@ -154,6 +154,13 @@ describe('fieldIssues', () => {
     expect(fieldIssues(issues)).toStrictEqual([{ path: ['value'], message: message(ValidationMessage.NoMatch) }]);
   });
 
+  test('a union whose closest options agree reports that failure', () => {
+    const value = z.union([aOrB, named, z.object({ name: z.string().min(1), title: z.string().optional() })]);
+    const issues = issuesOf(z.object({ value }), { value: { name: '' } });
+    const tooShort = message(ValidationMessage.TooSmall, { origin: 'string', minimum: 1 });
+    expect(fieldIssues(issues)).toStrictEqual([{ path: ['value', 'name'], message: tooShort }]);
+  });
+
   test('splits unknown keys into one issue per key, pointing at the key', () => {
     const issues = issuesOf(z.object({ inner: strict }), { inner: { name: 'x', extra: 1, more: 2 } });
     expect(fieldIssues(issues)).toStrictEqual([

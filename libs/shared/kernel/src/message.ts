@@ -140,19 +140,17 @@ function closestOptions(issue: z.core.$ZodIssueInvalidUnion): readonly (readonly
 }
 
 /**
- * What a plain union's options said, when one option is closest to the value or all of them said
- * the same: `Selector | Domain` share a grammar, so both fail alike and that failure is the useful
- * message. Undefined when they differ.
+ * What a plain union's closest options said, when they all said the same (every option when none
+ * took the value's type): `Selector | Domain` share a grammar, so both fail alike and that failure
+ * is the useful message. Undefined when they differ.
  */
 function sharedUnionIssues(issue: z.core.$ZodIssueInvalidUnion): FieldIssue[] | undefined {
   if (issue.discriminator !== undefined) {
     return undefined;
   }
-  const [closest, ...others] = closestOptions(issue);
-  if (closest !== undefined && others.length === 0) {
-    return fieldIssues(closest);
-  }
-  const [first, ...rest] = issue.errors.map((errors) => fieldIssues(errors));
+  const closest = closestOptions(issue);
+  const compared = closest.length > 0 ? closest : issue.errors;
+  const [first, ...rest] = compared.map((errors) => fieldIssues(errors));
   const firstText = JSON.stringify(first);
   const allSame = first !== undefined && first.length > 0 && rest.every((other) => JSON.stringify(other) === firstText);
   return allSame ? first : undefined;
