@@ -109,7 +109,7 @@ const badgeVariants = cva('inline-flex items-center gap-3xs border px-2xs text-c
  * `icon` is decorative and takes the badge's text colour.
  *
  * ```html
- * <fr-badge tone="danger" variant="solid" [icon]="Skull">{{ 'condition.dying' | transloco }} 2</fr-badge>
+ * <fr-badge tone="danger" variant="solid" [icon]="Skull">{{ 'condition.dying' | transloco: { value: 2 } }}</fr-badge>
  * ```
  */
 @Component({
