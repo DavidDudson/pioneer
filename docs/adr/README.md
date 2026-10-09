@@ -19,6 +19,7 @@ Accepted. To change a decision, add a new ADR that supersedes the old one; do no
 | [0012](0012-container-image.md)                       | Distroless container image that checks its own health          |
 | [0013](0013-account-only-display-preferences.md)      | Display preferences belong to accounts; signed out is defaults |
 | [0014](0014-formula-results-round-down.md)            | Formula results are whole numbers, rounded down                |
+| [0015](0015-production-host.md)                       | Production on AWS Lambda and Neon free tiers, in Sydney        |
 
 Template:
 
