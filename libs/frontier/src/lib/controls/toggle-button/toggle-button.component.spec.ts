@@ -23,7 +23,7 @@ describe(ToggleButton, () => {
     expect(button(render(false))?.getAttribute('aria-pressed')).toBe('false');
   });
 
-  it('flips its value both ways and commits on each press', () => {
+  it('turns on and commits on press', () => {
     const fixture = render(false);
     let commits = 0;
     fixture.componentInstance.committed.subscribe(() => {
@@ -34,11 +34,19 @@ describe(ToggleButton, () => {
     expect(fixture.componentInstance.value()).toBe(true);
     expect(button(fixture)?.getAttribute('aria-pressed')).toBe('true');
     expect(commits).toBe(1);
+  });
+
+  it('turns off and commits on a press while on', () => {
+    const fixture = render(true);
+    let commits = 0;
+    fixture.componentInstance.committed.subscribe(() => {
+      commits += 1;
+    });
     button(fixture)?.click();
     fixture.detectChanges();
     expect(fixture.componentInstance.value()).toBe(false);
     expect(button(fixture)?.getAttribute('aria-pressed')).toBe('false');
-    expect(commits).toBe(2);
+    expect(commits).toBe(1);
   });
 
   it('shows no icon: the fill is the state', () => {
