@@ -43,6 +43,8 @@ For each thread and body finding, open the code at the location and decide:
 | **Decline**       | False, conflicts with an ADR or repo rule, or out of scope                | Reply with the specific reason and the rule or file that supports it |
 | **Ask**           | Needs a product or design decision                                        | Leave unresolved, list it for the user                               |
 
+Fix, Already fixed and Decline threads from Copilot or CodeRabbit are resolved once replied to (step 4).
+
 Severity labels from the bot (Critical, Major, Minor, Nitpick) set priority, not truth. A declined Critical needs
 a strong, cited reason.
 
@@ -63,10 +65,18 @@ gh api "repos/{owner}/{repo}/pulls/<pr>/comments/<comment>/replies" -f body="Fix
 gh api "repos/{owner}/{repo}/pulls/<pr>/comments/<comment>/replies" -f body="Not changing: <reason, citing the ADR, rule or file>."
 ```
 
-- CodeRabbit re-checks fixes and resolves its own threads; do not resolve them yourself.
-- Copilot does not follow up. Resolve a Copilot thread yourself once it is fixed:
-  `gh api graphql -f query='mutation($id: ID!) { resolveReviewThread(input: {threadId: $id}) { thread { id } } }' -f id=<thread>`.
-  Leave declined Copilot threads open with the reply, for the user to close.
+Then resolve the thread. You may resolve any Copilot or CodeRabbit thread you have replied to: **Fix**, **Already
+fixed** and **Decline** alike. The reply records the outcome, and nothing waits on a bot to close it:
+
+```sh
+gh api graphql -f query='mutation($id: ID!) { resolveReviewThread(input: {threadId: $id}) { thread { isResolved } } }' -f id=<thread>
+```
+
+- Resolve only after the reply is posted, and for a fix only after the fixing commit is pushed.
+- Leave **Ask** threads open; they wait on the user. Never resolve a thread started by a human reviewer.
+- A bot can answer a thread after you resolve it. `pr-threads.sh` hides resolved threads, so on each loop also
+  check `.claude/scripts/pr-threads.sh <pr> --all | jq 'map(select(.resolved and .awaitingUs))'`; triage any
+  hit like a new finding (the three-round limit in step 5 still applies).
 - Body-only findings have no thread: summarise what you fixed and declined in one PR comment
   (`gh pr comment <pr> --body-file -`).
 

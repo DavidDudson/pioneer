@@ -63,18 +63,31 @@ down, fix it there, and restack (below), rather than patching it in a higher lay
 
 Each layer passes the `review` skill before it is submitted.
 
+**Open each PR with its final title before `gh stack submit`.** CI's PR-title check (`committed` in `ci.yml`)
+runs only on `opened`, `synchronize` and `reopened`, not `edited`. `gh stack submit --auto` opens PRs with
+auto-generated, non-conventional titles, so the check fails at once, and retitling afterwards never re-runs
+it. Create each layer's PR yourself, bottom-up, then let `submit` link them:
+
 ```sh
-gh stack submit --auto            # pushes every layer, creates draft PRs chained base-to-head, links the stack
+git push -u origin <layer-branch>
+gh pr create --head <layer-branch> --base <branch below, or main for the bottom layer> --draft \
+  --title "<conventional title>" --body-file -   # create-pr template, `Closes #<story>`,
+                                                  # `Part of #<epic> (stack layer k of n)`
+# repeat for every layer that has no PR yet, then:
+gh stack submit --auto            # pushes, keeps the existing PRs and their titles, links the stack
 ```
 
-Then for every new PR in the stack (`gh stack view --json`):
+Check `gh pr list --head <branch> --json title` afterwards: every title must be conventional. Then for every
+PR in the stack (`gh stack view --json`):
 
-- Set the title (conventional) and body from the `create-pr` template, including `Closes #<story>` and a line
-  `Part of #<epic> (stack layer k of n)`: `gh pr edit <pr> --title … --body-file -`.
 - Mark ready when the layer is complete: `gh pr ready <pr>`.
 - Request Copilot once per PR: `gh pr edit <pr> --add-reviewer "@copilot"`.
 - Wait for reviewers per PR with `.claude/scripts/wait-for-review.sh <pr> <copilot|coderabbit|ci>` in the
   background, then run `resolve-coderabbit` per PR, lowest layer first.
+- If a title ever has to change after the PR is open, the check needs a new event: it reads
+  `github.event.pull_request.title`, and `gh run rerun` replays the old payload with the old title. Push the
+  next commit (a `synchronize` event carries the new title), or with nothing to push,
+  `gh pr close <pr> && gh pr reopen <pr>`.
 
 ## 4. Keep it current
 
