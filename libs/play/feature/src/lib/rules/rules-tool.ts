@@ -1,3 +1,4 @@
+import { RichText } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
 
 import { checkFormula } from './formula-check';
@@ -6,14 +7,18 @@ import { checkGrants } from './grants-check';
 import type { GrantsCheck } from './grants-check';
 import { checkVerdict } from './predicate-verdict';
 import type { VerdictCheck } from './predicate-verdict';
-import { checkRulesJson, RulesTool } from './rules-check';
+import { CheckStatus, checkRulesJson, readJson, RulesSchema, RulesTool } from './rules-check';
 import type { CheckOutcome } from './rules-check';
 import { checkStatistics } from './statistics-check';
 import type { StatisticsCheck } from './statistics-check';
 
-/** What kind of answer a tool gives: a schema check, a parsed formula, a predicate's verdict, statistics or grants. */
+/**
+ * What kind of answer a tool gives: a schema check, a schema check with a rich text preview, a parsed formula, a
+ * predicate's verdict, statistics or grants.
+ */
 export const ToolKind = {
   Schema: 'schema',
+  RichText: 'rich-text',
   Formula: 'formula',
   Verdict: 'verdict',
   Statistics: 'statistics',
@@ -43,6 +48,7 @@ export interface ToolInputs {
 
 export type ToolCheck =
   | { readonly kind: typeof ToolKind.Schema; readonly check: CheckOutcome }
+  | { readonly kind: typeof ToolKind.RichText; readonly check: CheckOutcome; readonly preview: RichText | undefined }
   | { readonly kind: typeof ToolKind.Formula; readonly check: FormulaCheck }
   | { readonly kind: typeof ToolKind.Verdict; readonly check: VerdictCheck }
   | { readonly kind: typeof ToolKind.Statistics; readonly check: StatisticsCheck }
@@ -73,6 +79,11 @@ export function checkTool(tool: RulesTool, text: string, inputs: ToolInputs): To
       kind: ToolKind.Grants,
       check: checkGrants({ entries: text, roots: inputs.grantRoots, facts: inputs.facts }),
     };
+  }
+  if (tool === RulesTool.RichText) {
+    const read = readJson(RichText, text);
+    const preview = read.status === CheckStatus.Valid ? read.value : undefined;
+    return { kind: ToolKind.RichText, check: checkRulesJson(RulesSchema.RichText, text), preview };
   }
   return { kind: ToolKind.Schema, check: checkRulesJson(tool, text) };
 }

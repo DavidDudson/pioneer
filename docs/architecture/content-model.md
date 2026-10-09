@@ -48,13 +48,35 @@ whether it is a check or a DC (see [rules-engine.md](rules-engine.md#statistics-
 
 ### Rich text
 
-Descriptions are stored as a small, safe document AST (paragraphs, lists, emphasis, tables, and inline nodes), not
-HTML. Inline nodes carry semantics so text stays live:
+Descriptions are stored as a small, safe document AST, not HTML: `RichText` in `libs/rules/sdk` (`rich-text.ts`).
+A document is an array of blocks:
 
-- `ref`: a link to another content entry ("[Off-Guard]", "[Seek]") that opens in place.
-- `check`: "DC 20 Athletics", rollable from the text.
-- `damage`: "2d6 fire", rollable.
-- `template`, `duration`, `action-cost` glyph rendered as text (`[one-action]`, `[reaction]`).
+| Block       | Fields                                                                       |
+| ----------- | ---------------------------------------------------------------------------- |
+| `paragraph` | `content`: inline nodes                                                      |
+| `heading`   | `level` 1 to 3, below the entry's own title; `content`                       |
+| `list`      | `ordered`; `items`, each a run of blocks, so items hold paragraphs and lists |
+| `table`     | `caption?`, `header?` (one row of cells), `rows`; a cell is inline nodes     |
+| `rule`      | a thematic break, as before a spell's heightened entries                     |
+
+Inline nodes carry semantics so text stays live:
+
+- `text`: a run of text, with `marks` `emphasis` and `strong`. Always text: `<b>` in it is four characters.
+- `ref`: a link to another content entry by `ContentId` ("[Off-Guard]", "[Seek]"), with an optional `label`; the
+  name comes from the entry otherwise.
+- `check`: a `statistic` selector, optional `dc`, `basic` and roll `options` ("DC 20 Athletics"), rollable later.
+- `damage`: a `formula` of dice and a formula (`2d6`, `1d8 + @attr.str`) and an optional `damageType` ("2d6
+  fire"), rollable later. The non-dice part is checked against the formula reference vocabulary.
+- `template`: an area `shape` and `size` in feet ("20-foot burst").
+- `duration`: a `count` of rounds, minutes, hours or days.
+- `action-cost`: an action glyph (`one`, `two`, `three`, `free`, `reaction`), spelled out for screen readers.
+
+There is no line break node: the importer splits `<br>` into paragraphs. A document may nest at most 24 levels of
+JSON and hold at most 5000 arrays and objects; anything bigger is rejected before the schema walks it.
+
+`libs/rules/ui` renders it: `pio-rich-text` builds every node from frontier components and never sets HTML. Pages
+give it links and names for references and statistics with `provideRichTextLinks`; without them a reference shows
+its label and links nowhere. The rules playground's "Rich text" mode validates a document and previews it.
 
 The importer converts Foundry's HTML and enrichers (`@UUID[...]`, `@Check[...]`, `@Damage[...]`, `@Template[...]`)
 into this AST.

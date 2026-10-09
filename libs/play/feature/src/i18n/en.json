@@ -116,7 +116,8 @@
       "formula": "Formula",
       "verdict": "Predicate verdict",
       "statistics": "Statistics",
-      "grants": "Grants"
+      "grants": "Grants",
+      "richText": "Rich text"
     },
     "invalidSummary": "{count, plural, one {# problem, listed under Result.} other {# problems, listed under Result.}}",
     "nothingToShow": "Nothing to check until the JSON parses.",
@@ -153,7 +154,8 @@
     "overrideEffect": "{mode, select, add {add} multiply {multiply} upgrade {at least} downgrade {at most} other {set}}: {replaced} to {result}",
     "pinned": "Computed {computed}; {rule} pinned it to {total}.",
     "pinnedFlag": "Pinned",
-    "manual": "Set by hand"
+    "manual": "Set by hand",
+    "previewHeading": "Preview"
   },
   "damageType": {
     "bludgeoning": "Bludgeoning",
