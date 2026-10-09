@@ -18,6 +18,9 @@
     "combobox": {
       "noMatches": "No matches"
     },
+    "filterChips": {
+      "clearAll": "Clear all"
+    },
     "searchInput": {
       "clear": "Clear search"
     },

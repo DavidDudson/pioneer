@@ -20,6 +20,7 @@ export { AsyncRegion } from './lib/async/async-region/async-region.component';
 
 // Plain controls (inline editing)
 export { DateInput } from './lib/controls/date-input/date-input.component';
+export { FilterChips } from './lib/controls/filter-chips/filter-chips.component';
 export { NumberInput } from './lib/controls/number-input/number-input.component';
 export { SearchInput } from './lib/controls/search-input/search-input.component';
 export { Segmented } from './lib/controls/segmented/segmented.component';

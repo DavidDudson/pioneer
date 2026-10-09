@@ -1,0 +1,25 @@
+<div
+  frChipGroup
+  role="group"
+  [class]="groupClasses"
+  [attr.id]="id() ?? null"
+  [attr.aria-label]="ariaLabel() ?? null"
+  [attr.aria-labelledby]="labelledBy() ?? null"
+  [attr.aria-describedby]="describedBy() ?? null"
+  [attr.aria-invalid]="ariaInvalid() || null"
+>
+  @for (option of options(); track option.value) {
+    <fr-toggle-button
+      [size]="chipSize"
+      [disabled]="disabled()"
+      [value]="isSelected(option.value)"
+      (valueChange)="setSelected(option.value, $event)"
+      >{{ option.label }}</fr-toggle-button
+    >
+  }
+  @if (anySelected()) {
+    <fr-button [variant]="clearVariant" [size]="chipSize" [disabled]="disabled()" (pressed)="clear()">{{
+      'frontier.filterChips.clearAll' | transloco
+    }}</fr-button>
+  }
+</div>
