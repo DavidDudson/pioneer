@@ -135,6 +135,11 @@ describe('identity routes', () => {
     expect(response.headers.get('location')).toBe('/account/sign-in-failed');
   });
 
+  test('lists the configured providers', async () => {
+    const response = await app().handle(new Request('http://localhost/auth/providers'));
+    expect(await response.json()).toStrictEqual(['github']);
+  });
+
   test('/me without a session is a 401 problem', async () => {
     const response = await app().handle(new Request('http://localhost/me'));
     expect(response.status).toBe(401);

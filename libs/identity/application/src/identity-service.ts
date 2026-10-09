@@ -69,12 +69,32 @@ export class IdentityService {
     await this.#sessions.delete(tokenHash);
   }
 
+  /**
+   * Known provider account: that user. Otherwise a verified email matching a user's verified
+   * email links to that user (ADR-0010). Otherwise a new user.
+   */
   async #upsertUser(profile: ProviderProfile, now: Temporal.Instant): Promise<User> {
     const existing = await this.#users.findByProviderAccount(profile.provider, profile.subject);
     if (existing !== undefined) {
       return this.#users.update(existing.withProfile(profile, now));
     }
+    const linked = await this.#linkByVerifiedEmail(profile, now);
+    if (linked !== undefined) {
+      return linked;
+    }
     const created = User.fromProfile(UserId.parse(newId()), profile, now);
     return this.#users.insertWithAccount(created, profile.provider, profile.subject);
+  }
+
+  async #linkByVerifiedEmail(profile: ProviderProfile, now: Temporal.Instant): Promise<User | undefined> {
+    if (!profile.emailVerified || profile.email === undefined) {
+      return undefined;
+    }
+    const match = await this.#users.findByVerifiedEmail(profile.email);
+    if (match === undefined) {
+      return undefined;
+    }
+    await this.#users.linkAccount(match.id, profile, now);
+    return this.#users.update(match.withProfile(profile, now));
   }
 }

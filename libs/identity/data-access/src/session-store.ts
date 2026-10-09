@@ -1,8 +1,8 @@
 import { computed, DOCUMENT, inject, Injectable } from '@angular/core';
 import type { Signal } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthPath, IdentityContract, OAuthProvider, RETURN_TO_PARAM, returnPathOr } from '@pioneer/identity/domain';
-import type { ReturnPath, User } from '@pioneer/identity/domain';
+import { AuthPath, IdentityContract, RETURN_TO_PARAM, returnPathOr, SIGN_IN_PATH } from '@pioneer/identity/domain';
+import type { OAuthProvider, ReturnPath, User } from '@pioneer/identity/domain';
 import { API_BASE_URL, ApiClient, ApiError } from '@pioneer/shared/web';
 import { injectQuery, QueryClient } from '@tanstack/angular-query-experimental';
 
@@ -44,10 +44,16 @@ export class SessionStore {
   /** True once the server has answered, either way. */
   public readonly known: Signal<boolean> = computed(() => this.#me.data() !== undefined);
 
-  /** Leaves for GitHub, returning to `returnTo` (by default the current page) afterwards. */
-  public signIn(returnTo: ReturnPath = returnPathOr(this.#router.url)): void {
+  /** Opens the sign-in page, which comes back to the current page afterwards. */
+  public async showSignIn(): Promise<void> {
+    const returnTo = returnPathOr(this.#router.url);
+    await this.#router.navigate([SIGN_IN_PATH], { queryParams: { [RETURN_TO_PARAM]: returnTo } });
+  }
+
+  /** Leaves for the provider, returning to `returnTo` afterwards. */
+  public signIn(provider: OAuthProvider, returnTo: ReturnPath): void {
     const query = new URLSearchParams({ [RETURN_TO_PARAM]: returnTo });
-    this.#document.location.assign(`${this.#baseUrl}${AuthPath.login(OAuthProvider.GitHub)}?${query.toString()}`);
+    this.#document.location.assign(`${this.#baseUrl}${AuthPath.login(provider)}?${query.toString()}`);
   }
 
   public async signOut(): Promise<void> {

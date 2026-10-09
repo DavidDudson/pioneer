@@ -4,4 +4,4 @@ export { InMemoryUserRepository } from './in-memory-user-repository';
 export { type AuthorizationRequest, OAuthProviderPort } from './oauth-provider';
 export { SessionRepository } from './session-repository';
 export { hashSessionToken, newSessionToken } from './session-tokens';
-export { UserRepository } from './user-repository';
+export { type ProviderAccount, UserRepository } from './user-repository';

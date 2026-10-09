@@ -28,6 +28,8 @@ export type AvatarUrl = z.infer<typeof AvatarUrl>;
 /** OAuth providers Pioneer signs in with (ADR-0007). No passwords, no email accounts. */
 export const OAuthProvider = {
   GitHub: 'github',
+  Discord: 'discord',
+  Google: 'google',
 } as const;
 export type OAuthProvider = ValueOf<typeof OAuthProvider>;
 export const OAuthProviderSchema = z.enum(OAuthProvider);

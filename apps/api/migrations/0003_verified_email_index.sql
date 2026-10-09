@@ -1,0 +1,1 @@
+CREATE INDEX "users_verified_email_idx" ON "users" USING btree ("email","created_at","id") WHERE "users"."email_verified";

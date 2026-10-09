@@ -1,7 +1,18 @@
 {
+  "signIn": {
+    "title": "Sign in",
+    "description": "Sign in to save characters. Rules and content stay open to everyone.",
+    "continueWith": {
+      "github": "Continue with GitHub",
+      "discord": "Continue with Discord",
+      "google": "Continue with Google"
+    },
+    "unavailable": "Sign-in is not set up on this server.",
+    "loadError": "Could not load the ways to sign in."
+  },
   "signInFailed": {
     "title": "Sign-in did not complete",
-    "body": "GitHub did not confirm who you are, or the attempt took too long. Nothing was saved. You can try again.",
-    "retry": "Sign in with GitHub"
+    "body": "The provider did not confirm who you are, or the attempt took too long. Nothing was saved. You can try again.",
+    "retry": "Try again"
   }
 }

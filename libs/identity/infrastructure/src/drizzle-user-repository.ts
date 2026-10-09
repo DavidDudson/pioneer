@@ -1,8 +1,9 @@
 import { UserRepository } from '@pioneer/identity/application';
+import type { ProviderAccount } from '@pioneer/identity/application';
 import { OAuthAccountId, User } from '@pioneer/identity/domain';
-import type { OAuthProvider, ProviderSubject } from '@pioneer/identity/domain';
+import type { EmailAddress, OAuthProvider, ProviderSubject, UserId } from '@pioneer/identity/domain';
 import { newId, Temporal } from '@pioneer/shared/kernel';
-import { and, eq, sql } from 'drizzle-orm';
+import { and, asc, eq, sql } from 'drizzle-orm';
 import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
 import type { PgInsertValue, PgUpdateSetSource } from 'drizzle-orm/pg-core';
 
@@ -60,6 +61,16 @@ export class DrizzleUserRepository extends UserRepository {
     return row === undefined ? undefined : toUser(row.user);
   }
 
+  public override async findByVerifiedEmail(email: EmailAddress): Promise<User | undefined> {
+    const [row] = await this.#db
+      .select()
+      .from(users)
+      .where(and(eq(users.email, email), eq(users.emailVerified, true)))
+      .orderBy(asc(users.createdAt), asc(users.id))
+      .limit(1);
+    return row === undefined ? undefined : toUser(row);
+  }
+
   public override async insertWithAccount(
     user: User,
     provider: OAuthProvider,
@@ -76,6 +87,15 @@ export class DrizzleUserRepository extends UserRepository {
         .values({ id: accountId, userId: user.id, provider, subject, createdAt: user.createdAt.toString() });
       return toUser(row);
     });
+  }
+
+  public override async linkAccount(
+    userId: UserId,
+    { provider, subject }: ProviderAccount,
+    now: Temporal.Instant,
+  ): Promise<void> {
+    const id = OAuthAccountId.parse(newId());
+    await this.#db.insert(oauthAccounts).values({ id, userId, provider, subject, createdAt: now.toString() });
   }
 
   public override async update(user: User): Promise<User> {

@@ -1,7 +1,7 @@
 import { afterAll, beforeAll, describe, expect, test } from 'bun:test';
 
 import { hashSessionToken, IdentityService } from '@pioneer/identity/application';
-import { DisplayName, SessionToken } from '@pioneer/identity/domain';
+import { DisplayName, OAuthProvider, SessionToken } from '@pioneer/identity/domain';
 import { ProfileBuilder } from '@pioneer/identity/domain/testing';
 import { Temporal } from '@pioneer/shared/kernel';
 import type { Clock } from '@pioneer/shared/kernel';
@@ -11,7 +11,7 @@ import { eq } from 'drizzle-orm';
 
 import { DrizzleSessionRepository } from './drizzle-session-repository';
 import { DrizzleUserRepository } from './drizzle-user-repository';
-import { sessions, users } from './identity.table';
+import { oauthAccounts, sessions, users } from './identity.table';
 
 /** Runs against a throwaway Postgres database (see createTestDatabase); skipped without TEST_DATABASE_URL. */
 const adminUrl = testDatabaseUrl();
@@ -69,6 +69,15 @@ describe.skipIf(adminUrl === undefined)('Drizzle identity repositories (postgres
     const [row] = await database.db.select().from(users).where(eq(users.id, user.id));
     expect(row?.email).toBeNull();
     expect(row?.emailVerified).toBe(false);
+  });
+
+  test('a verified email from another provider links to the existing user', async () => {
+    const github = await service.signIn(new ProfileBuilder().withSubject('46').withEmail('seoni@example.com').build());
+    const google = new ProfileBuilder().from(OAuthProvider.Google).withSubject('g-46').withEmail('seoni@example.com');
+    const linked = await service.signIn(google.build());
+    expect(linked.user.id).toBe(github.user.id);
+    const accounts = await database.db.select().from(oauthAccounts).where(eq(oauthAccounts.userId, github.user.id));
+    expect(accounts.map((account) => account.provider).toSorted()).toStrictEqual(['github', 'google']);
   });
 
   test('every query the repositories issued is served by an index', async () => {

@@ -6,5 +6,7 @@
     }}</fr-async-button>
   </fr-stack>
 } @else if (session.known()) {
-  <fr-button variant="ghost" size="sm" (pressed)="session.signIn()">{{ 'shell.account.signIn' | transloco }}</fr-button>
+  <fr-button variant="ghost" size="sm" (pressed)="session.showSignIn()">{{
+    'shell.account.signIn' | transloco
+  }}</fr-button>
 }
