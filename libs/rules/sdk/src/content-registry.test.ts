@@ -7,6 +7,8 @@ import { contentId, ContentKey, PackId, Slug } from './content-id';
 import type { ContentPack } from './content-pack';
 import { ContentRegistry } from './content-registry';
 import { ContentText } from './content-text';
+import { Selector } from './selector';
+import { StatisticId } from './statistic';
 import { ContentPackBuilder } from './testing';
 
 const pack = new ContentPackBuilder().withAncestry('tester').build();
@@ -37,6 +39,20 @@ describe('ContentRegistry', () => {
     const registry = new ContentRegistry();
     const wrongPack = { id: PackId.parse('other'), load: async (): Promise<ContentPack> => pack };
     expect(await rejection(registry.load(wrongPack))).toBeInstanceOf(Error);
+  });
+
+  test('indexes statistics by id and by selector, in pack order', () => {
+    const registry = new ContentRegistry();
+    registry.register(new ContentPackBuilder().withStatistic('sanity').build());
+    registry.register(new ContentPackBuilder().withId('homebrew').withStatistic('sanity', { base: '10' }).build());
+    const id = StatisticId.parse(contentId(testPack, Slug.parse('sanity')));
+    expect(registry.statistic(id)?.definition.selector).toBe(Selector.parse('sanity'));
+    expect(registry.statistics()).toHaveLength(2);
+    expect(registry.statisticsFor(Selector.parse('sanity')).map((entry) => entry.pack.id)).toStrictEqual([
+      testPack,
+      PackId.parse('homebrew'),
+    ]);
+    expect(registry.statisticsFor(Selector.parse('ac'))).toStrictEqual([]);
   });
 
   test('define rejects duplicate slugs', () => {

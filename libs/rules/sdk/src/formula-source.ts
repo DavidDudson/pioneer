@@ -51,12 +51,30 @@ export function formulaProblems(text: FormulaText, scopes: ReadonlySet<Reference
 /** A rule element sits on a content entry that may or may not be an item, so its formulas may read either. */
 const RULE_ELEMENT_SCOPES: ReadonlySet<ReferenceScope> = new Set(Object.values(ReferenceScope));
 
-/** One custom issue per problem with `text` as a rule element formula, for a schema's `check`. */
-export function formulaIssues(text: FormulaText): z.core.$ZodRawIssue[] {
-  return formulaProblems(text, RULE_ELEMENT_SCOPES).map(({ error }) => {
+/** A statistic's base formula belongs to the character, with no item to read. */
+const ACTOR_SCOPES: ReadonlySet<ReferenceScope> = new Set([ReferenceScope.Actor]);
+
+/** One custom issue per problem with `text` as a formula reading `scopes`, for a schema's `check`. */
+export function formulaIssues(
+  text: FormulaText,
+  scopes: ReadonlySet<ReferenceScope> = RULE_ELEMENT_SCOPES,
+): z.core.$ZodRawIssue[] {
+  return formulaProblems(text, scopes).map(({ error }) => {
     const { params } = issueParams(error);
     return { code: 'custom', input: text, params };
   });
+}
+
+type FormulaSourceSchema = z.core.$ZodBranded<z.ZodString, 'FormulaSource'>;
+
+/** Stored formula text whose references may read `scopes`; each problem is a field issue (see `FormulaSource`). */
+function checkedFormula(scopes: ReadonlySet<ReferenceScope>): FormulaSourceSchema {
+  return z
+    .string()
+    .check((context) => {
+      context.issues.push(...formulaIssues(FormulaText.parse(context.value), scopes));
+    })
+    .brand<'FormulaSource'>();
 }
 
 /**
@@ -64,10 +82,8 @@ export function formulaIssues(text: FormulaText): z.core.$ZodRawIssue[] {
  * parse, and every reference must be one the vocabulary knows; a failure is a field issue whose descriptor names
  * the position in the formula.
  */
-export const FormulaSource = z
-  .string()
-  .check((context) => {
-    context.issues.push(...formulaIssues(FormulaText.parse(context.value)));
-  })
-  .brand<'FormulaSource'>();
+export const FormulaSource = checkedFormula(RULE_ELEMENT_SCOPES);
 export type FormulaSource = z.infer<typeof FormulaSource>;
+
+/** A `FormulaSource` that reads only the character's values, as a statistic's base formula must. */
+export const ActorFormulaSource = checkedFormula(ACTOR_SCOPES);

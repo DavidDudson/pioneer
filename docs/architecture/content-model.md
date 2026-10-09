@@ -43,6 +43,9 @@ Class progression (features by level, feat slots, skill increases, boosts) is da
 as `GrantItem` and slot-granting rule elements keyed by level. The builder's choice slots fall out of the engine;
 nothing about level 1 to 20 is hard-coded.
 
+Statistics are content too: a `statistic` entry names a selector, its domains, an actor-only base formula, and
+whether it is a check or a DC (see [rules-engine.md](rules-engine.md#statistics-are-content)).
+
 ### Rich text
 
 Descriptions are stored as a small, safe document AST (paragraphs, lists, emphasis, tables, and inline nodes), not

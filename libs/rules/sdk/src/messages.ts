@@ -11,6 +11,7 @@ export const RulesMessage = {
   UnknownReference: 'rules.formula.unknownReference',
   FoundryReference: 'rules.formula.foundryReference',
   ReferenceOutOfScope: 'rules.formula.referenceOutOfScope',
+  DuplicateSelector: 'rules.statistic.duplicateSelector',
   ReferenceLevel: 'rules.reference.level',
   ReferenceAttributeModifier: 'rules.reference.attributeModifier',
   ReferenceCappedDexterity: 'rules.reference.cappedDexterity',

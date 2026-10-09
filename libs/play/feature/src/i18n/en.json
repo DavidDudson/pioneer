@@ -92,6 +92,7 @@
       "source": "Source",
       "origin": "Origin",
       "ruleElement": "Rule element",
+      "statistic": "Statistic definition",
       "formula": "Formula",
       "verdict": "Predicate verdict"
     },

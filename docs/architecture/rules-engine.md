@@ -28,12 +28,18 @@ derive(input: {
 
 ### Statistics are content
 
-Statistic definitions are a content kind, not hard-coded. The core rules pack defines AC, saves, Perception, the
-skills, class DC, spell attack and DC, Strikes, speeds, HP and so on, each with:
+Statistic definitions are a content kind (`statistic`), not hard-coded. The core rules pack defines AC, saves,
+Perception, the skills, class DC, spell attack and DC, Strikes, speeds, HP and so on. `StatisticDefinition` in
+`libs/rules/sdk` (`statistic.ts`) gives each:
 
-- its selector and domains,
-- its base formula, written in a small safe expression language (`10 + @attr.dex.capped + @prof.ac`),
-- whether it is a check (rolled) or a DC (static), and its key attribute when relevant.
+- its `selector` and `domains`,
+- its `base` formula, written in a small safe expression language (`10 + @attr.dex.capped + @prof.ac`) and
+  limited to actor references (`ActorFormulaSource`), since a statistic has no item,
+- its `kind`: `check` (rolled) or `dc` (static), and its `keyAttribute` when it has one.
+
+A pack uses each selector once; a second statistic with the same selector is an issue at its `selector`. Two packs
+may share one, and `ContentRegistry#statisticsFor(selector)` returns them in registration order; which applies is
+the engine's choice.
 
 Homebrew can add statistics (a "Sanity" check, a new skill, a new speed). Variant rules from GM Core are packs
 that change formulas or add slots: Proficiency Without Level overrides the proficiency formula, Automatic Bonus
@@ -136,8 +142,7 @@ Statistic base formulas and rule element values share one vocabulary of referenc
 - A selector's colons are written as dots, since references have none: `@prof.save.fortitude` is the bonus for
   `save:fortitude`, `@rank.attack.martial` the rank for `attack:martial`.
 - Scope says whose value a reference reads. A rule element may sit on any content entry, so its formulas may use
-  both scopes. Statistic base formulas have no item, so they may only use actor references (checked once
-  statistic definitions have a schema).
+  both scopes. Statistic base formulas have no item, so they may only use actor references (`ActorFormulaSource`).
 - `FormulaSource` checks a formula when content is validated: it must parse, and every reference must be in the
   catalogue and in scope. A `<selector>` is checked for shape only. Each problem is a field issue at the
   formula's JSON path. Its descriptor includes `position`, the 1-based position in the formula. A Foundry spelling
