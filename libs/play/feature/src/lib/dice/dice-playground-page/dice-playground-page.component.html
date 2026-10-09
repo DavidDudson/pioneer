@@ -34,7 +34,7 @@
             <fr-toggle-button [(value)]="misfortune">{{ 'play.dice.misfortune' | transloco }}</fr-toggle-button>
             <fr-toggle-button [(value)]="againstDc">{{ 'play.dice.againstDc' | transloco }}</fr-toggle-button>
             <fr-toggle-button [(value)]="againstTarget">{{ 'play.dice.againstTarget' | transloco }}</fr-toggle-button>
-            <fr-toggle-button [(value)]="critical" [disabled]="!againstTarget()">{{
+            <fr-toggle-button [disabled]="!againstTarget()" [(value)]="critical">{{
               'play.dice.critical' | transloco
             }}</fr-toggle-button>
           </fr-stack>
