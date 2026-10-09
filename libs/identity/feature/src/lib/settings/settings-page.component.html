@@ -4,6 +4,7 @@
       <fr-select-field
         [label]="'identity.settings.uiLocale' | transloco"
         [hint]="'identity.settings.uiLocaleHint' | transloco"
+        [error]="uiError()"
         [options]="locales()"
         [value]="shown.ui()"
         (valueChange)="chooseUi($event)"
@@ -11,6 +12,7 @@
       <fr-select-field
         [label]="'identity.settings.contentLocale' | transloco"
         [hint]="'identity.settings.contentLocaleHint' | transloco"
+        [error]="contentError()"
         [options]="locales()"
         [value]="shown.content()"
         (valueChange)="chooseContent($event)"
@@ -18,13 +20,11 @@
       <fr-segmented-field
         [label]="'identity.settings.distanceUnit' | transloco"
         [hint]="'identity.settings.distanceUnitHint' | transloco"
+        [error]="distanceUnitError()"
         [options]="distanceUnits()"
         [value]="shown.distanceUnit()"
         (valueChange)="chooseDistanceUnit($event)"
       />
-      @if (saveFailed()) {
-        <fr-message>{{ 'identity.settings.saveFailed' | transloco }}</fr-message>
-      }
     </fr-stack>
   </fr-surface>
 </fr-page>

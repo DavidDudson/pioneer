@@ -81,7 +81,9 @@ export const sessions = pgTable(
 
 /**
  * Each user's display preferences, one row once they first choose one. `null` is not chosen. Only
- * ever read by primary key, which is the user's id (named `id` so the audit trail keys on it).
+ * ever read by primary key, which is the user's id (named `id` so the audit trail keys on it). No
+ * `version`: unlike characters, a PATCH sets whole fields and the last write of each field wins. Two
+ * devices changing different fields both keep their change; racing on one field keeps the latest choice.
  */
 export const userPreferences = pgTable('user_preferences', {
   id: uuid()

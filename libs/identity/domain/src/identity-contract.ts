@@ -12,6 +12,9 @@ const Done = z.strictObject({});
 
 const BySessionId = z.object({ id: SessionId });
 
+/** A PATCH that changes nothing would only touch `updated_at` and the audit log, so it is a 422. */
+const PreferencesChange = Preferences.refine((change) => Object.values(change).some((value) => value !== undefined));
+
 /** The identity HTTP API, shared by `identity-infrastructure` and `identity-feature`. */
 export const IdentityContract = {
   /** The signed-in user; 401 when there is no valid session. */
@@ -68,7 +71,7 @@ export const IdentityContract = {
     body: NoBody,
     response: Done,
   }),
-  /** The signed-in user's display preferences; fields never chosen are `null`. */
+  /** The signed-in user's display preferences; fields never chosen are absent. */
   preferences: new Endpoint({
     method: HttpMethod.Get,
     path: '/me/preferences',
@@ -83,7 +86,7 @@ export const IdentityContract = {
     path: '/me/preferences',
     params: NoParams,
     query: NoQuery,
-    body: Preferences,
+    body: PreferencesChange,
     response: Preferences,
   }),
 } as const;

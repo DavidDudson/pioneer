@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import { Message, Page, SegmentedField, SelectField, Stack, Surface } from '@pioneer/frontier';
+import { Page, SegmentedField, SelectField, Stack, Surface } from '@pioneer/frontier';
 import type { SelectOption } from '@pioneer/frontier';
 import { AccountPreferences } from '@pioneer/identity/data-access';
 import type { Preferences } from '@pioneer/identity/domain';
@@ -19,14 +19,18 @@ const DISTANCE_UNIT_NAMES = {
   [DistanceUnit.Metres]: 'identity.settings.distanceUnits.metres',
 } as const satisfies Record<DistanceUnit, string>;
 
+/** A preference the page saves, for telling the user which one failed. */
+type PreferenceField = keyof Preferences;
+
 /**
  * The signed-in user's display preferences: UI language, content language and distance unit. Each
- * applies and saves to the account as it changes; if the save fails it is undone and the page says
- * so. Signed-out visitors never get here (`signInRequired`) and see the defaults.
+ * applies and saves to the account as it changes; if a save fails, what the account saved comes back
+ * and that field says so. Signed-out visitors never get here (`signInRequired`) and see the defaults.
+ * One tap is the whole edit, so there is no pending or saved marker: the change shows at once.
  */
 @Component({
   selector: 'pio-settings-page',
-  imports: [Message, Page, SegmentedField, SelectField, Stack, Surface, TranslocoPipe],
+  imports: [Page, SegmentedField, SelectField, Stack, Surface, TranslocoPipe],
   templateUrl: './settings-page.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -53,35 +57,46 @@ export class SettingsPage {
     }));
   });
 
-  /** True after a change the account could not save, until the next change. */
-  protected readonly saveFailed = signal(false);
+  /** The field whose last change the account could not save, until the next change. */
+  readonly #failed = signal<PreferenceField | undefined>(undefined);
+  readonly #saveFailed = computed((): string => {
+    this.#messages();
+    return this.#i18n.translate('identity.settings.saveFailed');
+  });
+  protected readonly uiError = computed((): string | undefined => this.#errorFor('uiLocale'));
+  protected readonly contentError = computed((): string | undefined => this.#errorFor('contentLocale'));
+  protected readonly distanceUnitError = computed((): string | undefined => this.#errorFor('distanceUnit'));
 
   protected async chooseUi(locale: Locale | undefined): Promise<void> {
     if (locale !== undefined) {
-      await this.#save({ uiLocale: locale });
+      await this.#save({ uiLocale: locale }, 'uiLocale');
     }
   }
 
   protected async chooseContent(locale: Locale | undefined): Promise<void> {
     if (locale !== undefined) {
-      await this.#save({ contentLocale: locale });
+      await this.#save({ contentLocale: locale }, 'contentLocale');
     }
   }
 
   /** The segmented control ignores a press on the chosen unit, so every change is a new one. */
   protected async chooseDistanceUnit(unit: DistanceUnit | undefined): Promise<void> {
     if (unit !== undefined) {
-      await this.#save({ distanceUnit: unit });
+      await this.#save({ distanceUnit: unit }, 'distanceUnit');
     }
   }
 
-  async #save(patch: Preferences): Promise<void> {
-    this.saveFailed.set(false);
+  #errorFor(field: PreferenceField): string | undefined {
+    return this.#failed() === field ? this.#saveFailed() : undefined;
+  }
+
+  async #save(patch: Preferences, field: PreferenceField): Promise<void> {
+    this.#failed.set(undefined);
     try {
       await this.#account.update(patch);
     } catch {
-      // The previous choice is back on screen; the message says why.
-      this.saveFailed.set(true);
+      // What the account saved is back on screen; the field says why.
+      this.#failed.set(field);
     }
   }
 }

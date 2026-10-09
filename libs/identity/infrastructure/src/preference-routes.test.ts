@@ -58,7 +58,9 @@ describe('preference routes', () => {
     ['an unknown content locale', { contentLocale: 'de' }],
     ['an unknown distance unit', { distanceUnit: 'leagues' }],
     ['an unknown field', { theme: 'tavern' }],
-    ['a removed choice', { uiLocale: undefined, distanceUnit: false }],
+    // JSON null, which removing a choice would send.
+    ['a removed choice', JSON.parse('{ "uiLocale": null }')],
+    ['no change at all', {}],
   ])('PATCH with %s is a 422 problem', async (_case, body) => {
     const response = await patch(app(), body, UserId.parse(newId()));
     expect(response.status).toBe(422);

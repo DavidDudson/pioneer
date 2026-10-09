@@ -61,6 +61,16 @@ async function signedInAs(http: HttpTestingController, user: object | undefined)
   });
 }
 
+/** Loads preferences for a signed-in user, answering with `answer`. */
+async function loadedAs(preferences: AccountPreferences, http: HttpTestingController, answer: object): Promise<void> {
+  const loading = preferences.load();
+  await signedInAs(http, amiri);
+  await vi.waitFor(() => {
+    http.expectOne('/api/me/preferences').flush(answer);
+  });
+  await loading;
+}
+
 describe(AccountPreferences, () => {
   it('shows a signed-in user their account preferences, defaults for what they never chose', async () => {
     const { preferences, http, adopt } = setup();
@@ -101,9 +111,9 @@ describe(AccountPreferences, () => {
   it('shows a change at once, then what the account saved', async () => {
     const { preferences, http, adopt } = setup();
     const updating = preferences.update({ uiLocale: Locale.English });
-    expect(adopt).toHaveBeenLastCalledWith({ ui: Locale.English, content: undefined, distanceUnit: undefined });
 
     await vi.waitFor(() => {
+      expect(adopt).toHaveBeenLastCalledWith({ ui: Locale.English, content: undefined, distanceUnit: undefined });
       const request = http.expectOne({ method: 'PATCH', url: '/api/me/preferences' });
       expect(request.request.body).toStrictEqual({ uiLocale: 'en' });
       request.flush({ ...metresOnly, uiLocale: 'en' });
@@ -117,27 +127,43 @@ describe(AccountPreferences, () => {
     });
   });
 
-  it('puts the previous preferences back when the account cannot save', async () => {
+  it('puts what the account saved back when it cannot save a change', async () => {
     const { preferences, http, adopt } = setup();
+    await loadedAs(preferences, http, metresOnly);
     const answering = vi.waitFor(() => {
       http
         .expectOne({ method: 'PATCH', url: '/api/me/preferences' })
         .flush({}, { status: 503, statusText: 'Unavailable' });
     });
 
-    await expect(preferences.update({ distanceUnit: DistanceUnit.Metres })).rejects.toBeInstanceOf(ApiError);
+    await expect(preferences.update({ uiLocale: Locale.English })).rejects.toBeInstanceOf(ApiError);
     await answering;
-    expect(adopt).toHaveBeenLastCalledWith({ ui: undefined, content: undefined, distanceUnit: undefined });
+    expect(adopt).toHaveBeenLastCalledWith({ ui: undefined, content: undefined, distanceUnit: DistanceUnit.Metres });
+  });
+
+  it('saves one change at a time, in order', async () => {
+    const { preferences, http } = setup();
+    const first = preferences.update({ distanceUnit: DistanceUnit.Metres });
+    const second = preferences.update({ distanceUnit: DistanceUnit.Feet });
+
+    await vi.waitFor(() => {
+      const [pending, ...others] = http.match({ method: 'PATCH', url: '/api/me/preferences' });
+      expect(others).toHaveLength(0);
+      expect(pending?.request.body).toStrictEqual({ distanceUnit: 'metres' });
+      pending?.flush(metresOnly);
+    });
+    await first;
+    await vi.waitFor(() => {
+      const request = http.expectOne({ method: 'PATCH', url: '/api/me/preferences' });
+      expect(request.request.body).toStrictEqual({ distanceUnit: 'feet' });
+      request.flush({ distanceUnit: 'feet' });
+    });
+    await second;
   });
 
   it('goes back to the defaults when the user signs out', async () => {
     const { preferences, http, reset } = setup();
-    const loading = preferences.load();
-    await signedInAs(http, amiri);
-    await vi.waitFor(() => {
-      http.expectOne('/api/me/preferences').flush(metresOnly);
-    });
-    await loading;
+    await loadedAs(preferences, http, metresOnly);
     expect(reset).not.toHaveBeenCalled();
 
     await TestBed.inject(SessionStore).signedOut();
@@ -145,5 +171,42 @@ describe(AccountPreferences, () => {
       TestBed.tick();
       expect(reset).toHaveBeenCalledWith();
     });
+  });
+
+  it('drops preferences that arrive after the user signed out', async () => {
+    const { preferences, http, adopt, reset } = setup();
+    const loading = preferences.load();
+    await signedInAs(http, amiri);
+    const request = await vi.waitFor(() => http.expectOne('/api/me/preferences'));
+
+    await TestBed.inject(SessionStore).signedOut();
+    await vi.waitFor(() => {
+      TestBed.tick();
+      expect(reset).toHaveBeenCalledWith();
+    });
+    request.flush(metresOnly);
+    await loading;
+
+    expect(adopt).not.toHaveBeenCalled();
+  });
+
+  it('leaves the defaults showing when a save finds the session gone', async () => {
+    const { preferences, http, adopt, reset } = setup();
+    await loadedAs(preferences, http, metresOnly);
+    let adopted = 0;
+    const answering = (async (): Promise<void> => {
+      const request = await vi.waitFor(() => http.expectOne({ method: 'PATCH', url: '/api/me/preferences' }));
+      await TestBed.inject(SessionStore).signedOut();
+      await vi.waitFor(() => {
+        TestBed.tick();
+        expect(reset).toHaveBeenCalledWith();
+      });
+      adopted = adopt.mock.calls.length;
+      request.flush(unauthorized, { status: 401, statusText: 'Unauthorized' });
+    })();
+
+    await expect(preferences.update({ uiLocale: Locale.English })).rejects.toBeInstanceOf(ApiError);
+    await answering;
+    expect(adopt).toHaveBeenCalledTimes(adopted);
   });
 });

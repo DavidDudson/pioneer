@@ -1,10 +1,10 @@
 import { TestBed } from '@angular/core/testing';
 import { provideRouter, Router } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
-import { frontierMessages } from '@pioneer/frontier';
+import { frontierMessages, SelectField } from '@pioneer/frontier';
 import { AccountPreferences, SessionStore } from '@pioneer/identity/data-access';
-import { DistanceUnit } from '@pioneer/shared/kernel';
-import { ApiClient, LocalePreferences, PREFERENCE_STORAGE, provideI18n } from '@pioneer/shared/web';
+import { DistanceUnit, Locale } from '@pioneer/shared/kernel';
+import { ApiClient, PREFERENCE_STORAGE, provideI18n } from '@pioneer/shared/web';
 import { provideTanStackQuery, QueryClient } from '@tanstack/angular-query-experimental';
 import { describe, expect, it, vi } from 'vitest';
 import type { Mock } from 'vitest';
@@ -89,9 +89,28 @@ describe('SettingsPage', () => {
     });
     button(page, 'Metres').click();
     await vi.waitFor(() => {
-      expect(page.textContent).toContain('Could not save that to your account.');
+      expect(page.querySelector('fr-segmented-field')?.textContent).toContain('Could not save that to your account.');
     });
-    expect(TestBed.inject(LocalePreferences).distanceUnit()).toBe(DistanceUnit.Feet);
+    expect([...page.querySelectorAll('fr-select-field')].map((field) => field.textContent)).not.toContain(
+      expect.stringContaining('Could not save'),
+    );
+  });
+
+  it('saves the UI language and the rules language as their own preferences', async () => {
+    const { harness, update } = await render(true);
+    await vi.waitFor(() => {
+      expect(root(harness).textContent).toContain('Rules language');
+    });
+    const [ui, content] = harness.fixture.debugElement.queryAll(
+      (each) => each.componentInstance instanceof SelectField,
+    );
+    // English is the only locale, so no pick in the DOM changes the value; fire each field's output instead.
+    ui?.triggerEventHandler('valueChange', Locale.English);
+    content?.triggerEventHandler('valueChange', Locale.English);
+
+    await vi.waitFor(() => {
+      expect(update.mock.calls).toStrictEqual([[{ uiLocale: Locale.English }], [{ contentLocale: Locale.English }]]);
+    });
   });
 
   it('sends signed-out visitors to sign in instead', async () => {
