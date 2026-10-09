@@ -32,7 +32,7 @@
       "cappedDexterity": "The character’s Dexterity modifier, limited by the Dexterity cap of their armor.",
       "proficiencyBonus": "The proficiency bonus for that statistic: the rank bonus plus level, or 0 when untrained.",
       "proficiencyRank": "The proficiency rank for that statistic, from 0 (untrained) to 4 (legendary).",
-      "statistic": "The total of that statistic, such as the spell attack modifier in a spell DC.",
+      "statistic": "The base of that statistic, before its modifiers, such as the spell attack modifier in a spell DC.",
       "itemLevel": "The level of the item the rule element is on."
     }
   }
