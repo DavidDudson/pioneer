@@ -55,8 +55,8 @@ const OWNERS: ReadonlyMap<string, readonly string[]> = new Map([
   ['figcaption', []],
   // Text-level
   ['a', ['actions/link/']],
-  ['em', []],
-  ['strong', []],
+  ['em', ['text/text/']],
+  ['strong', ['text/text/']],
   ['small', []],
   ['s', []],
   ['cite', []],

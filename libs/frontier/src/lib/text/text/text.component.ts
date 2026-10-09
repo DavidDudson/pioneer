@@ -7,18 +7,31 @@ import { Tone } from '../../tokens';
 import { textVariants, TextVariant } from '../text.variants';
 import type { FontWeight } from '../text.variants';
 import { PhraseElement, TextPhrase } from './phrase.component';
+import { StressElement, TextStress } from './stress.component';
 
 /**
  * The element `fr-text` renders. Pick `p` for a paragraph, `span` inside other text, `pre` for a block of code
  * (formulas, JSON, rule trees) that keeps its line breaks.
  */
-export const TextElement = { Span: 'span', Paragraph: 'p', Preformatted: 'pre', ...PhraseElement } as const;
+export const TextElement = {
+  Span: 'span',
+  Paragraph: 'p',
+  Preformatted: 'pre',
+  ...PhraseElement,
+  ...StressElement,
+} as const;
 export type TextElement = ValueOf<typeof TextElement>;
 
 const PHRASE_ELEMENTS: ReadonlySet<TextElement> = new Set(Object.values(PhraseElement));
 
 function isPhraseElement(element: TextElement): element is PhraseElement {
   return PHRASE_ELEMENTS.has(element);
+}
+
+const STRESS_ELEMENTS: ReadonlySet<TextElement> = new Set(Object.values(StressElement));
+
+function isStressElement(element: TextElement): element is StressElement {
+  return STRESS_ELEMENTS.has(element);
 }
 
 /**
@@ -35,13 +48,15 @@ const elementVariants = cva('', {
       [TextElement.Keyboard]: 'border border-line-default bg-surface-sunken px-3xs font-mono',
       [TextElement.Abbreviation]: '',
       [TextElement.Quotation]: '',
+      [TextElement.Emphasis]: 'italic',
+      [TextElement.Strong]: 'font-semibold',
     } satisfies Record<TextElement, string>,
   },
 });
 
 /**
  * Body copy. Renders a `<span>` (default), `<p>` (`element="p"`) or block code `<pre>` (`element="pre"`), or
- * inline `<code>`, `<kbd>`, `<abbr>` or `<q>`; headings use `fr-heading`, block quotes `fr-quote`.
+ * inline `<code>`, `<kbd>`, `<abbr>`, `<q>`, `<em>` or `<strong>`; headings use `fr-heading`, block quotes `fr-quote`.
  *
  * ```html
  * <fr-text element="p" tone="muted">Your Pathfinder heroes.</fr-text>
@@ -50,7 +65,7 @@ const elementVariants = cva('', {
  */
 @Component({
   selector: 'fr-text',
-  imports: [NgTemplateOutlet, TextPhrase],
+  imports: [NgTemplateOutlet, TextPhrase, TextStress],
   templateUrl: './text.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'contents' },
@@ -68,6 +83,11 @@ export class Text {
   protected readonly phraseElement = computed((): PhraseElement | undefined => {
     const element = this.element();
     return isPhraseElement(element) ? element : undefined;
+  });
+
+  protected readonly stressElement = computed((): StressElement | undefined => {
+    const element = this.element();
+    return isStressElement(element) ? element : undefined;
   });
 
   protected readonly classes = computed(() =>
