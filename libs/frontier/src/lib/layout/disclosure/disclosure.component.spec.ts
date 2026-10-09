@@ -24,11 +24,12 @@ function iconName(fixture: ComponentFixture<Disclosure>): string | undefined {
   return (fixture.nativeElement as HTMLElement).querySelector('summary svg')?.getAttribute('class') ?? undefined;
 }
 
-/** The browser fires `toggle` after `open` changes; jsdom does not, so the spec dispatches it. */
-function toggleFromBrowser(fixture: ComponentFixture<Disclosure>, open: boolean): void {
-  const element = details(fixture);
-  element.open = open;
-  element.dispatchEvent(new Event('toggle'));
+/** Presses the summary like a user; the browser queues `toggle` as a task, so wait for it. */
+async function press(fixture: ComponentFixture<Disclosure>): Promise<void> {
+  details(fixture).querySelector('summary')?.click();
+  await new Promise<void>((resolve) => {
+    setTimeout(resolve, 0);
+  });
   fixture.detectChanges();
 }
 
@@ -39,22 +40,33 @@ describe(Disclosure, () => {
     expect(details(fixture).open).toBe(false);
   });
 
-  it('opens the details when open is set', () => {
-    expect(details(render(true)).open).toBe(true);
+  it('opens and closes from the open input', () => {
+    const fixture = render(true);
+    expect(details(fixture).open).toBe(true);
+    fixture.componentRef.setInput('open', false);
+    fixture.detectChanges();
+    expect(details(fixture).open).toBe(false);
   });
 
-  it('mirrors a toggle by the user into open', () => {
+  it('opens and closes on a press of the summary, and tells the parent', async () => {
     const fixture = render(false);
-    toggleFromBrowser(fixture, true);
+    const changes: boolean[] = [];
+    fixture.componentInstance.open.subscribe((open) => {
+      changes.push(open);
+    });
+    await press(fixture);
+    expect(details(fixture).open).toBe(true);
     expect(fixture.componentInstance.open()).toBe(true);
-    toggleFromBrowser(fixture, false);
+    await press(fixture);
+    expect(details(fixture).open).toBe(false);
     expect(fixture.componentInstance.open()).toBe(false);
+    expect(changes).toStrictEqual([true, false]);
   });
 
-  it('points the chevron down when closed and up when open', () => {
+  it('points the chevron down when closed and up when open', async () => {
     const fixture = render(false);
     expect(iconName(fixture)).toContain('chevron-down');
-    toggleFromBrowser(fixture, true);
+    await press(fixture);
     expect(iconName(fixture)).toContain('chevron-up');
   });
 

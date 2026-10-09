@@ -227,7 +227,8 @@ after `themes/frontier.css`, and add it to `Theme` in
 
 | Area           | Components                                                                                                                                                                                |
 | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Layout         | Primitives `fr-box`, `fr-grid`, `fr-stack`; composed `fr-shell`, `fr-page`, `fr-surface`, `fr-disclosure` (expand in place)                                                               |
+| Layout         | Primitives `fr-box`, `fr-grid`, `fr-stack`; composed `fr-shell`, `fr-page`, `fr-surface`                                                                                                  |
+| Disclosure     | `fr-disclosure` (expand in place; `frDisclosureSummary` takes phrasing content only, nothing interactive)                                                                                 |
 | Lists          | `fr-list` (`ordered` for `<ol>`, `markers` for bullets or numbers, `gap`) with `fr-list-item`                                                                                             |
 | Text           | `fr-text` (`element="span\|p"`), `fr-heading` (`[level]` for the outline, `variant` for the look)                                                                                         |
 | Actions        | `fr-button` (`(pressed)`), `fr-async-button`, `fr-link` (`to` routes, `href` external only)                                                                                               |

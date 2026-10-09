@@ -53,7 +53,9 @@ const contentVariants = cva('block', {
  * The way to show secondary content without a modal or a route change. The only owner of
  * `<details>` and `<summary>`, so the browser handles keyboard, expanded state and find-in-page
  * (searching for hidden text opens the disclosure). Put the trigger's content in `frDisclosureSummary`;
- * everything else is the expanded content. `[(open)]` follows the user's toggles.
+ * everything else is the expanded content. The summary is one button to assistive tech, so its slot takes
+ * phrasing content only (`fr-text` as a `span`, `fr-icon`): no `<p>`, and nothing interactive.
+ * `[(open)]` follows the user's toggles.
  *
  * ```html
  * <fr-disclosure [(open)]="showBreakdown">
