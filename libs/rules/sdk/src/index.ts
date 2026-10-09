@@ -25,7 +25,8 @@ export {
 export { DegreeChange, DegreeChangeSchema, DegreeOfSuccess, DegreeOfSuccessSchema } from './degree-of-success';
 export { Immunity, Trait } from './trait';
 export { ContentEntry } from './content-entry';
-export { type AncestryEntry, ContentRegistry, type CreatureEntry } from './content-registry';
+export { type AncestryEntry, ContentRegistry, type CreatureEntry, type StatisticEntry } from './content-registry';
+export { StatisticDefinition, StatisticId, StatisticKind, StatisticKindSchema } from './statistic';
 export { CreatureDefinition, CreatureId } from './creature';
 export { ContentLicense, ContentLicenseSchema } from './license';
 export { Proficiency, proficiencyBonus, ProficiencySchema } from './proficiency';
@@ -58,7 +59,7 @@ export { RollOption } from './roll-option';
 export { Domain, Selector, SlotKey } from './selector';
 export { AonUrl, BookId, PageNumber, SourceKind, SourceRef, SourceTitle, WebUrl } from './source-ref';
 export { default as rulesMessages } from './i18n/en.json';
-export { type FormulaProblem, formulaProblems, FormulaSource } from './formula-source';
+export { ActorFormulaSource, type FormulaProblem, formulaProblems, FormulaSource } from './formula-source';
 export {
   FOUNDRY_REFERENCES,
   type FoundryReference,

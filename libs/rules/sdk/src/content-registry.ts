@@ -5,9 +5,13 @@ import type { PackId } from './content-id';
 import type { ContentPack, ContentPackLoader } from './content-pack';
 import { CreatureId } from './creature';
 import type { CreatureDefinition } from './creature';
+import type { Selector } from './selector';
+import { StatisticId } from './statistic';
+import type { StatisticDefinition } from './statistic';
 
 export type AncestryEntry = ContentEntry<AncestryId, AncestryDefinition>;
 export type CreatureEntry = ContentEntry<CreatureId, CreatureDefinition>;
+export type StatisticEntry = ContentEntry<StatisticId, StatisticDefinition>;
 
 /**
  * Everything loaded from content packs, indexed by id. Server and client each
@@ -17,6 +21,8 @@ export class ContentRegistry {
   readonly #packs = new Map<PackId, ContentPack>();
   readonly #ancestries = new Map<AncestryId, AncestryEntry>();
   readonly #creatures = new Map<CreatureId, CreatureEntry>();
+  readonly #statistics = new Map<StatisticId, StatisticEntry>();
+  readonly #statisticsBySelector = new Map<Selector, readonly StatisticEntry[]>();
 
   public async load(loader: ContentPackLoader): Promise<ContentPack> {
     const existing = this.#packs.get(loader.id);
@@ -44,6 +50,16 @@ export class ContentRegistry {
       const entry: CreatureEntry = new ContentEntry(pack, definition, CreatureId);
       this.#creatures.set(entry.id, entry);
     }
+    this.#registerStatistics(pack);
+  }
+
+  #registerStatistics(pack: ContentPack): void {
+    for (const definition of pack.statistics) {
+      const entry: StatisticEntry = new ContentEntry(pack, definition, StatisticId);
+      this.#statistics.set(entry.id, entry);
+      const sharing = this.#statisticsBySelector.get(definition.selector) ?? [];
+      this.#statisticsBySelector.set(definition.selector, [...sharing, entry]);
+    }
   }
 
   public get packs(): readonly ContentPack[] {
@@ -64,5 +80,21 @@ export class ContentRegistry {
 
   public creature(id: CreatureId): CreatureEntry | undefined {
     return this.#creatures.get(id);
+  }
+
+  public statistics(): readonly StatisticEntry[] {
+    return [...this.#statistics.values()];
+  }
+
+  public statistic(id: StatisticId): StatisticEntry | undefined {
+    return this.#statistics.get(id);
+  }
+
+  /**
+   * Every statistic with `selector`, in the order their packs were registered. A pack uses each selector once,
+   * but two packs may share one; which of them applies is the engine's choice.
+   */
+  public statisticsFor(selector: Selector): readonly StatisticEntry[] {
+    return this.#statisticsBySelector.get(selector) ?? [];
   }
 }

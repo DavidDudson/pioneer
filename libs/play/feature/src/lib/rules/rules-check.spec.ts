@@ -78,6 +78,21 @@ describe('checkRulesJson for rule elements', () => {
     });
   });
 
+  it('points into a statistic base formula that reads an item', () => {
+    const json =
+      '{ "slug": "sanity", "name": "Sanity", "selector": "sanity", "domains": [], "kind": "check", "base": "@item.level" }';
+    expect(checkRulesJson(RulesSchema.Statistic, json)).toStrictEqual({
+      status: CheckStatus.Invalid,
+      issues: [
+        {
+          path: ['base'],
+          message: message(RulesMessage.ReferenceOutOfScope, { found: '@item.level', position: 1 }),
+          pointer: '@item.level\n^',
+        },
+      ],
+    });
+  });
+
   it('points at the end of a formula that ends too early', () => {
     const json = '{ "key": "Change", "selector": "ac", "mode": "add", "value": "max(1," }';
     expect(checkRulesJson(RulesSchema.RuleElement, json)).toMatchObject({

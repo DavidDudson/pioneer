@@ -5,6 +5,9 @@
 export { ContentPackBuilder } from './content-pack-builder';
 export { installRulesFakes } from './fakes';
 export {
+  actorFormulaText,
+  actorReferencePath,
+  itemReferencePath,
   keyPathText,
   knownReferencePath,
   predicateJson,

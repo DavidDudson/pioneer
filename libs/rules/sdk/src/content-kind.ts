@@ -8,6 +8,7 @@ import { z } from 'zod';
 export const ContentKind = {
   Ancestry: 'ancestry',
   Creature: 'creature',
+  Statistic: 'statistic',
 } as const;
 export type ContentKind = ValueOf<typeof ContentKind>;
 export const ContentKindSchema = z.enum(ContentKind);

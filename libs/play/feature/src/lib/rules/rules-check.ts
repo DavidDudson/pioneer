@@ -1,5 +1,6 @@
 import { TextPosition } from '@pioneer/rules/formula';
 import {
+  Attribute,
   contentId,
   Domain,
   Origin,
@@ -10,6 +11,8 @@ import {
   Selector,
   Slug,
   SourceRef,
+  StatisticDefinition,
+  StatisticKind,
 } from '@pioneer/rules/sdk';
 import { fieldIssues } from '@pioneer/shared/kernel';
 import type { FieldIssue, ValueOf } from '@pioneer/shared/kernel';
@@ -26,6 +29,7 @@ export const RulesSchema = {
   Source: 'source',
   Origin: 'origin',
   RuleElement: 'rule-element',
+  Statistic: 'statistic',
 } as const;
 export type RulesSchema = ValueOf<typeof RulesSchema>;
 
@@ -37,6 +41,7 @@ const SCHEMAS: Readonly<Record<RulesSchema, z.ZodType>> = {
   [RulesSchema.Source]: SourceRef,
   [RulesSchema.Origin]: Origin,
   [RulesSchema.RuleElement]: RuleElement,
+  [RulesSchema.Statistic]: StatisticDefinition,
 };
 
 /** Message keys for schema names, spelled out so the key check sees them. */
@@ -48,6 +53,7 @@ const RULES_SCHEMA_KEYS: Readonly<Record<RulesSchema, string>> = {
   [RulesSchema.Source]: 'play.rules.schema.source',
   [RulesSchema.Origin]: 'play.rules.schema.origin',
   [RulesSchema.RuleElement]: 'play.rules.schema.ruleElement',
+  [RulesSchema.Statistic]: 'play.rules.schema.statistic',
 };
 
 /** What the playground does: check JSON against one of the rules schemas, parse formula text, or evaluate a predicate. */
@@ -68,6 +74,9 @@ const JSON_INDENT = 2;
 const EXAMPLE_LEVEL = 5;
 /** Raise a Shield's circumstance bonus to AC. */
 const RAISED_SHIELD_BONUS = 2;
+
+/** A statistic base formula: AC from capped Dexterity and the AC proficiency bonus, which includes level. */
+const EXAMPLE_FORMULA = '10 + @attr.dex.capped + @prof.ac';
 
 /** A valid starting value per schema, so the page opens on something that passes. */
 const EXAMPLE_VALUES: Readonly<Record<RulesSchema, unknown>> = {
@@ -95,10 +104,16 @@ const EXAMPLE_VALUES: Readonly<Record<RulesSchema, unknown>> = {
     value: RAISED_SHIELD_BONUS,
     predicate: ['self:effect:raise-a-shield'],
   },
+  [RulesSchema.Statistic]: {
+    slug: 'armor-class',
+    name: 'Armor Class',
+    selector: 'ac',
+    domains: ['dex-based'],
+    base: EXAMPLE_FORMULA,
+    kind: StatisticKind.Dc,
+    keyAttribute: Attribute.Dexterity,
+  },
 };
-
-/** A statistic base formula: AC from capped Dexterity and the AC proficiency bonus, which includes level. */
-const EXAMPLE_FORMULA = '10 + @attr.dex.capped + @prof.ac';
 
 /** A valid starting text per tool: JSON for a schema, formula text for formulas, a predicate to evaluate. */
 export function rulesExample(tool: RulesTool): string {

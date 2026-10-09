@@ -23,6 +23,9 @@
       "foundryReference": "“{found}” at position {position} is Foundry’s spelling. Write {suggestion} instead.",
       "referenceOutOfScope": "“{found}” at position {position} reads an item’s value, which this formula has no item for."
     },
+    "statistic": {
+      "duplicateSelector": "Another statistic in this pack already uses the selector {selector}."
+    },
     "reference": {
       "level": "The character’s level.",
       "attributeModifier": "The character’s modifier for that attribute.",

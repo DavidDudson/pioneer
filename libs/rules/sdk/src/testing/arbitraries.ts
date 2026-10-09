@@ -83,15 +83,20 @@ const SMALL_NUMBER_MAX = 20;
 /** A selector as a reference writes it: colons become dots (`save.fortitude`). */
 const selectorPath = keyPathText.map((text) => text.replaceAll(':', '.'));
 
-/** Paths the reference vocabulary knows, one family each (ADR-0016). */
-export const knownReferencePath: Arbitrary<string> = oneof(
+/** Paths the reference vocabulary knows that read the character's values (ADR-0016). */
+export const actorReferencePath: Arbitrary<string> = oneof(
   constant('level'),
   constantFrom(...Object.values(Attribute)).map((attribute) => `attr.${attribute}`),
   constant('attr.dex.capped'),
   selectorPath.map((path) => `prof.${path}`),
   selectorPath.map((path) => `rank.${path}`),
-  constant('item.level'),
 );
+
+/** Paths the reference vocabulary knows that read the item a rule element is on. */
+export const itemReferencePath: Arbitrary<string> = constant('item.level');
+
+/** Paths the reference vocabulary knows, one family each (ADR-0016). */
+export const knownReferencePath: Arbitrary<string> = oneof(actorReferencePath, itemReferencePath);
 
 const PATH_SEGMENTS_MAX = 4;
 const segment = stringMatching(/^[A-Za-z_][\w-]{0,8}$/u);
@@ -102,23 +107,27 @@ export const unknownReferencePath: Arbitrary<string> = oneof(
   constantFrom('actor.level', 'actor.abilities.str.mod', 'attr.luck', 'attr.str.capped', 'prof', 'item.badge.value'),
 ).filter((path) => knownReference(ReferencePath.parse(path)) === undefined);
 
-const leaf: Arbitrary<FormulaNode> = oneof(
-  integer({ min: 0, max: SMALL_NUMBER_MAX }).map((value): FormulaNode => ({
-    kind: NodeKind.Number,
-    value: FormulaNumber.parse(value),
-    position: AT,
-  })),
-  knownReferencePath.map((path): FormulaNode => ({
-    kind: NodeKind.Reference,
-    path: ReferencePath.parse(path),
-    position: AT,
-  })),
-);
+/** Canonical text of generated trees over `paths`, kept when it fits the parser's limits. */
+function formulaTextOver(paths: Arbitrary<string>): Arbitrary<string> {
+  const leaf: Arbitrary<FormulaNode> = oneof(
+    integer({ min: 0, max: SMALL_NUMBER_MAX }).map((value): FormulaNode => ({
+      kind: NodeKind.Number,
+      value: FormulaNumber.parse(value),
+      position: AT,
+    })),
+    paths.map((path): FormulaNode => ({
+      kind: NodeKind.Reference,
+      path: ReferencePath.parse(path),
+      position: AT,
+    })),
+  );
+  return formulaFrom(leaf)
+    .map((tree) => printFormula(tree))
+    .filter((text) => parseFormula(text).ok);
+}
 
-/**
- * Formula text that parses and reads only known references, so a rule element accepts it: canonical text of a
- * generated tree, kept when it fits the parser's limits.
- */
-export const validFormulaText: Arbitrary<string> = formulaFrom(leaf)
-  .map((tree) => printFormula(tree))
-  .filter((text) => parseFormula(text).ok);
+/** Formula text that parses and reads only known references, so a rule element accepts it. */
+export const validFormulaText: Arbitrary<string> = formulaTextOver(knownReferencePath);
+
+/** Formula text that parses and reads only the character's values, so a statistic's base formula accepts it. */
+export const actorFormulaText: Arbitrary<string> = formulaTextOver(actorReferencePath);
