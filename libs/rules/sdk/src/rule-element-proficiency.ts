@@ -1,7 +1,9 @@
 import type { ValueOf } from '@pioneer/shared/kernel';
+import { issueParams, message } from '@pioneer/shared/kernel';
 import { z } from 'zod';
 
 import { ContentText } from './content-text';
+import { RulesMessage } from './messages';
 import { Predicate } from './predicate';
 import { ProficiencySchema } from './proficiency';
 import { RuleElementKey, ruleElementBase, RuleSlug } from './rule-element-base';
@@ -54,34 +56,65 @@ const martialGroupFields = {
   label: ContentText,
   /** The weapons or armour in the group, by their roll options. */
   definition: Predicate,
+  /** With `sameAs`, the highest rank the category's rank carries over as. */
+  maxRank: RaisedRank.optional(),
+};
+
+const maxRankNeedsSameAs = {
+  ...issueParams(message(RulesMessage.MaxRankNeedsSameAs)),
+  path: ['maxRank'],
 };
 
 /**
  * Weapons that are not a category, defined by predicate ("advanced firearms"). With `sameAs`, the
- * group also has that category's rank when it is higher.
+ * group's rank is that category's, capped at `maxRank` (Foundry's linked proficiency).
  */
-export const WeaponGroup = z.strictObject({ ...martialGroupFields, sameAs: WeaponCategorySchema.optional() });
+export const WeaponGroup = z
+  .strictObject({ ...martialGroupFields, sameAs: WeaponCategorySchema.optional() })
+  .refine((group) => group.maxRank === undefined || group.sameAs !== undefined, maxRankNeedsSameAs);
 export type WeaponGroup = z.infer<typeof WeaponGroup>;
 
 /** Armour that is not a category, defined like a `WeaponGroup`. */
-export const ArmorGroup = z.strictObject({ ...martialGroupFields, sameAs: ArmorCategorySchema.optional() });
+export const ArmorGroup = z
+  .strictObject({ ...martialGroupFields, sameAs: ArmorCategorySchema.optional() })
+  .refine((group) => group.maxRank === undefined || group.sameAs !== undefined, maxRankNeedsSameAs);
 export type ArmorGroup = z.infer<typeof ArmorGroup>;
 
-/** Raises the rank in a weapon or armour category, or in a group defined by predicate, to at least `rank`. */
+interface MartialRanking {
+  readonly category: WeaponCategory | ArmorCategory | WeaponGroup | ArmorGroup;
+  readonly rank?: RaisedRank | undefined;
+}
+
+/** A group linked by `sameAs` takes its category's rank; anything else names its own. */
+function ranksOnce(element: MartialRanking): boolean {
+  const linked = typeof element.category === 'object' && element.category.sameAs !== undefined;
+  return linked === (element.rank === undefined);
+}
+
+const rankOrSameAs = issueParams(message(RulesMessage.RankOrSameAs));
+
+/**
+ * Raises the rank in a weapon or armour category, or in a group defined by predicate, to at least
+ * `rank`. Foundry's `visible: false` on a group is `display.hidden`.
+ */
 export const MartialProficiencyElement = z.discriminatedUnion('kind', [
-  z.strictObject({
-    key: z.literal(RuleElementKey.MartialProficiency),
-    kind: z.literal(MartialKind.Attack),
-    category: z.union([WeaponCategorySchema, WeaponGroup]),
-    rank: RaisedRank,
-    ...ruleElementBase,
-  }),
-  z.strictObject({
-    key: z.literal(RuleElementKey.MartialProficiency),
-    kind: z.literal(MartialKind.Defense),
-    category: z.union([ArmorCategorySchema, ArmorGroup]),
-    rank: RaisedRank,
-    ...ruleElementBase,
-  }),
+  z
+    .strictObject({
+      key: z.literal(RuleElementKey.MartialProficiency),
+      kind: z.literal(MartialKind.Attack),
+      category: z.union([WeaponCategorySchema, WeaponGroup]),
+      rank: RaisedRank.optional(),
+      ...ruleElementBase,
+    })
+    .refine(ranksOnce, rankOrSameAs),
+  z
+    .strictObject({
+      key: z.literal(RuleElementKey.MartialProficiency),
+      kind: z.literal(MartialKind.Defense),
+      category: z.union([ArmorCategorySchema, ArmorGroup]),
+      rank: RaisedRank.optional(),
+      ...ruleElementBase,
+    })
+    .refine(ranksOnce, rankOrSameAs),
 ]);
 export type MartialProficiencyElement = z.infer<typeof MartialProficiencyElement>;

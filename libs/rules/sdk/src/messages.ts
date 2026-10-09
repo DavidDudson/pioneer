@@ -8,4 +8,6 @@ export const RulesMessage = {
   UnknownElement: 'rules.element.unknown',
   SuboptionsNeedToggle: 'rules.element.suboptionsNeedToggle',
   AdjustModeOrSuppress: 'rules.element.adjustModeOrSuppress',
+  RankOrSameAs: 'rules.element.rankOrSameAs',
+  MaxRankNeedsSameAs: 'rules.element.maxRankNeedsSameAs',
 } as const;

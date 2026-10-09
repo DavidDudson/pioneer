@@ -151,13 +151,19 @@ const multipleAttackPenalty = element('MultipleAttackPenalty', { selectors: targ
 const raisedRank = constantFrom(...Object.values(Proficiency).filter((rank) => rank !== Proficiency.Untrained));
 const proficiency = element('Proficiency', { selector: keyPathText, rank: raisedRank });
 
-/** A martial proficiency of one `kind`: a category of that kind, or a group that may follow one. */
+/**
+ * A martial proficiency of one `kind`: a category of that kind or a group, each with its own rank,
+ * or a group linked to a category, which takes the category's rank instead.
+ */
 function martialProficiency(kind: MartialKind, categories: Readonly<Record<string, string>>): Arbitrary<object> {
   const category = anyOf(categories);
-  const group = withOptional(record({ slug: slugText, label: contentText, definition: predicateJson }), {
-    sameAs: category,
-  });
-  return element('MartialProficiency', { kind: constant(kind), category: oneof(category, group), rank: raisedRank });
+  const groupFields = { slug: slugText, label: contentText, definition: predicateJson };
+  const group = record(groupFields);
+  const linkedGroup = withOptional(record({ ...groupFields, sameAs: category }), { maxRank: raisedRank });
+  return oneof(
+    element('MartialProficiency', { kind: constant(kind), category: oneof(category, group), rank: raisedRank }),
+    element('MartialProficiency', { kind: constant(kind), category: linkedGroup }),
+  );
 }
 const attackProficiency = martialProficiency(MartialKind.Attack, WeaponCategory);
 const defenseProficiency = martialProficiency(MartialKind.Defense, ArmorCategory);

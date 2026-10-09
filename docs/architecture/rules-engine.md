@@ -113,9 +113,9 @@ importer reports Foundry elements it cannot translate rather than dropping them 
 
 The Structure, Numbers and Proficiency groups are in the SDK. `Proficiency` raises one statistic's rank on its
 selector, standing in for Foundry's rank `ActiveEffectLike` upgrades; `MartialProficiency` raises a weapon or armour
-category, or a group defined by predicate that can follow a category's rank (`sameAs`). The Checks, Strikes,
-Defences, Creature and Actions groups land with their Epic 2.6 translator stories, so each schema arrives with the
-Foundry content that exercises it.
+category, or a group defined by predicate. A group linked to a category (`sameAs`) takes that category's rank,
+capped at `maxRank`, as Foundry's linked proficiencies do. The Checks, Strikes, Defences, Creature and Actions groups
+land with their Epic 2.6 translator stories, so each schema arrives with the Foundry content that exercises it.
 
 ## Derivation pipeline
 

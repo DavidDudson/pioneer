@@ -13,6 +13,7 @@ function issues(value: unknown): readonly FieldIssue[] {
 }
 
 const SHIELD_BLOCK = '5c2d9a7e-3b1f-5e8c-a4d6-7f0b1c2e3d4f';
+const FIREARMS = { slug: 'firearms', label: 'Firearms', definition: ['item:group:firearm'] };
 
 /** Remastered content written as rule elements, one or more per key. */
 const examples: object[] = [
@@ -69,8 +70,15 @@ const examples: object[] = [
       label: 'Advanced crossbows',
       definition: ['item:category:advanced', 'item:group:crossbow'],
       sameAs: 'martial',
+      maxRank: 'expert',
     },
+  },
+  {
+    key: 'MartialProficiency',
+    kind: 'defense',
+    category: { slug: 'bulwark-armor', label: 'Bulwark armour', definition: ['item:trait:bulwark'] },
     rank: 'trained',
+    display: { hidden: true },
   },
 ];
 
@@ -180,8 +188,22 @@ describe('RuleElement', () => {
 
   test('a group follows a category of its own kind', () => {
     const category = { slug: 'shields', label: 'Shields', definition: ['item:trait:shield'], sameAs: 'martial' };
-    expect(issues({ key: 'MartialProficiency', kind: 'defense', category, rank: 'trained' })).toStrictEqual([
+    expect(issues({ key: 'MartialProficiency', kind: 'defense', category })).toStrictEqual([
       { path: ['category', 'sameAs'], message: message(ValidationMessage.InvalidValue) },
+    ]);
+  });
+
+  test.each([
+    { key: 'MartialProficiency', kind: 'attack', category: { ...FIREARMS, sameAs: 'martial' }, rank: 'expert' },
+    { key: 'MartialProficiency', kind: 'attack', category: FIREARMS },
+  ])('a group has its own rank or follows a category: %o', (element) => {
+    expect(issues(element)).toStrictEqual([{ path: [], message: message(RulesMessage.RankOrSameAs) }]);
+  });
+
+  test('only a linked group caps its rank', () => {
+    const category = { slug: 'firearms', label: 'Firearms', definition: [], maxRank: 'expert' };
+    expect(issues({ key: 'MartialProficiency', kind: 'attack', category, rank: 'trained' })).toStrictEqual([
+      { path: ['category', 'maxRank'], message: message(RulesMessage.MaxRankNeedsSameAs) },
     ]);
   });
 
