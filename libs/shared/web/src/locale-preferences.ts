@@ -93,11 +93,11 @@ export class LocalePreferences {
 
   /** Nobody is signed in: back to the defaults, and forget the cached choices. */
   public async reset(): Promise<void> {
-    await this.adopt({});
     try {
-      this.#storage?.removeItem(STORAGE_KEY);
-    } catch {
-      // Blocked storage has nothing cached.
+      await this.adopt({});
+    } finally {
+      // Even if the default locale fails to load, the signed-out user's choices must not outlive them.
+      this.#forgetCache();
     }
   }
 
@@ -108,6 +108,14 @@ export class LocalePreferences {
     const root = this.#document.documentElement;
     root.lang = locale;
     root.dir = textDirection(locale);
+  }
+
+  #forgetCache(): void {
+    try {
+      this.#storage?.removeItem(STORAGE_KEY);
+    } catch {
+      // Blocked storage has nothing cached.
+    }
   }
 
   #cache(choices: DisplayChoices): void {

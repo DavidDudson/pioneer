@@ -2,7 +2,8 @@ import { ApplicationInitStatus, DOCUMENT } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { TranslocoService } from '@jsverse/transloco';
 import { DistanceUnit, Locale } from '@pioneer/shared/kernel';
-import { beforeEach, describe, expect, it } from 'vitest';
+import { throwError } from 'rxjs';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { provideI18n } from './i18n';
 import { LocalePreferences, PREFERENCE_STORAGE } from './locale-preferences';
@@ -70,6 +71,16 @@ describe(LocalePreferences, () => {
     await preferences.reset();
 
     expect(preferences.distanceUnit()).toBe(DistanceUnit.Feet);
+    expect(localStorage.getItem(STORAGE_KEY)).toBeNull();
+  });
+
+  it('forgets the cache even when the default locale fails to load', async () => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({ distanceUnit: 'metres' }));
+    const preferences = await setup();
+    vi.spyOn(TestBed.inject(TranslocoService), 'load').mockReturnValue(throwError(() => new Error('offline')));
+
+    await expect(preferences.reset()).rejects.toThrow('offline');
+
     expect(localStorage.getItem(STORAGE_KEY)).toBeNull();
   });
 
