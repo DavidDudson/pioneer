@@ -1,0 +1,7 @@
+{
+  "name": "identity-infrastructure",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/identity/infrastructure/src",
+  "tags": ["scope:identity", "type:infrastructure", "platform:server"]
+}

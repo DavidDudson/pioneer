@@ -83,7 +83,8 @@ libs/
   character/        domain, application, infrastructure, feature (exists)
   campaign/         domain, application, infrastructure, feature
   homebrew/         authoring use cases and editor UI
-  identity/         accounts, OAuth sessions, authorisation policies
+  identity/         domain, application, infrastructure, data-access, feature (exists): accounts, OAuth
+                    sessions, authorisation policies (ADR-0010)
   interop/
     foundry/        Foundry pf2e actor export, rule element translation (shared with importer)
     pathbuilder/    Pathbuilder JSON import

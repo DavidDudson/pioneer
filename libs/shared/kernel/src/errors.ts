@@ -6,6 +6,7 @@ import type { ValueOf } from './value-of';
 
 /** HTTP statuses the API answers errors with. */
 export const HttpStatus = {
+  Unauthorized: 401,
   NotFound: 404,
   Conflict: 409,
   UnprocessableContent: 422,
@@ -15,6 +16,7 @@ export type HttpStatus = ValueOf<typeof HttpStatus>;
 
 /** RFC 9457 `type` of every problem the API returns. */
 export const ProblemType = {
+  Unauthorized: 'unauthorized',
   NotFound: 'not-found',
   VersionConflict: 'version-conflict',
   Validation: 'validation',
@@ -31,6 +33,18 @@ export abstract class DomainError extends Error {
   public abstract readonly status: HttpStatus;
   public abstract readonly type: ProblemType;
   public abstract readonly descriptor: MessageDescriptor;
+}
+
+/** The request needs a signed-in user and carries no valid session. */
+export class UnauthorizedError extends DomainError {
+  public override readonly name = 'UnauthorizedError';
+  public readonly status = HttpStatus.Unauthorized;
+  public readonly type = ProblemType.Unauthorized;
+  public readonly descriptor = message(ProblemMessage.Unauthorized);
+
+  public constructor() {
+    super('No signed-in user');
+  }
 }
 
 export class NotFoundError extends DomainError {

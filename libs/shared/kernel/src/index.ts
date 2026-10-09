@@ -17,6 +17,7 @@ export {
   type Problem,
   ProblemType,
   ProblemSchema,
+  UnauthorizedError,
   ValidationError,
   VersionConflictError,
 } from './errors';

@@ -21,6 +21,10 @@
       "lightMode": "Light mode",
       "darkMode": "Dark mode"
     },
+    "account": {
+      "signIn": "Sign in with GitHub",
+      "signOut": "Sign out"
+    },
     "footer": {
       "legal": "Legal"
     }

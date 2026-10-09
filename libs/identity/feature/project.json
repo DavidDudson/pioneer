@@ -1,0 +1,17 @@
+{
+  "name": "identity-feature",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/identity/feature/src",
+  "tags": ["scope:identity", "type:feature", "platform:web"],
+  "targets": {
+    "test": {
+      "executor": "@angular/build:unit-test",
+      "options": {
+        "buildTarget": "web:build:development",
+        "tsConfig": "libs/identity/feature/tsconfig.spec.json",
+        "runner": "vitest"
+      }
+    }
+  }
+}

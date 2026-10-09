@@ -16,6 +16,10 @@ export class ApiError extends Error {
     this.problem = problem;
   }
 
+  public get isUnauthorized(): boolean {
+    return this.status === HttpStatus.Unauthorized;
+  }
+
   public get isConflict(): boolean {
     return this.status === HttpStatus.Conflict;
   }
@@ -31,6 +35,10 @@ export class ApiError extends Error {
   /** Per-field validation issues from a 422, empty otherwise. */
   public get issues(): readonly FieldIssue[] {
     return this.problem?.issues ?? [];
+  }
+
+  public static isUnauthorized(error: unknown): boolean {
+    return error instanceof ApiError && error.isUnauthorized;
   }
 
   public static isConflict(error: unknown): boolean {
