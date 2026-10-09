@@ -10,6 +10,8 @@ services:
       - path: .env
         required: false
     environment:
+      # Pinned over .env (the file Bun also loads in dev): the port mapping and HEALTHCHECK assume 3000.
+      PORT: 3000
       DATABASE_URL: postgres://pioneer:${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}@db:5432/pioneer
       PUBLIC_ORIGIN: ${PUBLIC_ORIGIN:-http://localhost:${PIONEER_PORT:-8080}}
     ports:

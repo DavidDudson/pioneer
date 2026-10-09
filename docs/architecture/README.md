@@ -122,6 +122,7 @@ Content data never imports code.
   together take turns. To migrate as a separate deploy step, set `MIGRATE_ON_START=false` and run
   `pioneer-api migrate`. `pioneer-api health` checks a running server, for container healthchecks. The
   `Dockerfile` packages all of it as one image and `compose.yaml` runs it with Postgres; see
-  [Deployment](../deployment.md) and [ADR-0011](../adr/0011-api-binary-and-migrations.md).
+  [Deployment](../deployment.md), [ADR-0011](../adr/0011-api-binary-and-migrations.md) and
+  [ADR-0012](../adr/0012-container-image.md).
 - **Testing.** Property tests for the engine and dice (fast-check, already in use). Golden tests: Paizo pregenerated
   characters imported and compared against their published numbers. Importer coverage reports gate content PRs.

@@ -2,7 +2,7 @@
 
 Pioneer ships as one container image: the compiled `pioneer-api` binary serving the API under `/api` and the
 built web app on the same origin, with its migrations beside it
-([ADR-0011](adr/0011-api-binary-and-migrations.md)). It needs only Postgres.
+([ADR-0011](adr/0011-api-binary-and-migrations.md), [ADR-0012](adr/0012-container-image.md)). It needs only Postgres.
 
 ## Run it with Docker Compose
 

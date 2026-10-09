@@ -90,5 +90,6 @@ describe('readHealthEnv', () => {
 
   test('rejects a port that is not a number', () => {
     expect(() => readHealthEnv({ PORT: 'web' })).toThrow(/PORT/u);
+    expect(() => readHealthEnv({ PORT: '0' })).toThrow(/PORT/u);
   });
 });

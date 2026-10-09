@@ -10,9 +10,11 @@ storybook-static
 **/*.tsbuildinfo
 
 # Secrets stay out of the image; compose passes them at run time.
-.env
-.env.*
-!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+**/*.pem
+**/*.key
 
 # Not needed to build.
 .git

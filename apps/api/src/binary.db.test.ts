@@ -242,6 +242,20 @@ describe.skipIf(adminUrl === undefined)('compiled api binary (postgres)', () => 
   );
 
   test(
+    '`health` fails when the server answers but is not healthy',
+    async () => {
+      const unhealthy = Bun.serve({ port: 0, fetch: (): Response => new Response(undefined, { status: 503 }) });
+      try {
+        const env = await environment('postgres://127.0.0.1:1/unused', { PORT: String(unhealthy.port) });
+        expect(await run(['health'], env)).toStrictEqual({ code: 1, output: 'health check failed: HTTP 503\n' });
+      } finally {
+        await unhealthy.stop(true);
+      }
+    },
+    RUN_TIMEOUT,
+  );
+
+  test(
     'rejects an unknown command before touching the database',
     async () => {
       const env = await environment('postgres://127.0.0.1:1/unreachable', {});

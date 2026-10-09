@@ -30,10 +30,9 @@ The alternatives considered:
 - **Migrations ship as files beside the binary.** `MIGRATIONS_DIR` names their folder. It defaults to the repo's
   `apps/api/migrations`, so development needs no setting; a compiled binary must set it, and fails with an error
   naming the variable when the folder has no journal.
-- **One binary, three commands.** `pioneer-api` serves; `pioneer-api migrate` applies migrations and exits. The
+- **One binary, two commands.** `pioneer-api` serves; `pioneer-api migrate` applies migrations and exits. The
   migrate command validates only `DATABASE_URL` and `MIGRATIONS_DIR`, so a migrate job needs no OAuth or web
-  settings. `pioneer-api health` calls the running server's `/api/health` on `PORT` and exits non-zero on
-  failure: the image's `HEALTHCHECK`, so the runtime image needs no shell or `curl`.
+  settings.
 - **Migrate on start by default, under a lock.** `MIGRATE_ON_START` (default true) migrates before serving.
   Migrations always run while holding a Postgres session advisory lock on one reserved connection, so instances
   that start together run them one at a time, and the later ones find nothing pending. With more than one instance,
@@ -44,8 +43,7 @@ The alternatives considered:
 
 ## Consequences
 
-- The Dockerfile copies `dist/apps/api/pioneer-api` and `apps/api/migrations`, and sets `MIGRATIONS_DIR`. Its
-  runtime stage is distroless (`cc-debian12:nonroot`); see [Deployment](../deployment.md).
+- The Dockerfile copies `dist/apps/api/pioneer-api` and `apps/api/migrations`, and sets `MIGRATIONS_DIR`.
 - A migration must be safe to run inside Drizzle's single transaction, as before; the lock adds no new limits.
 - `apps/api/src/binary.db.test.ts` compiles the binary and runs it against Postgres with migrations outside the
   source tree, including several `migrate` commands at once.
