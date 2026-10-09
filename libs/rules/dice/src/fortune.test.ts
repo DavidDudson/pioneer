@@ -31,7 +31,7 @@ describe('rollWithFortune', () => {
     expect(keptFlags(result)).toEqual([true]);
     expect(result.total).toBe(RollTotal.parse(19));
     expect(result.explanation).toEqual(message(DiceMessage.FortuneNormal));
-    expect(result.sources).toEqual([]);
+    expect(result.sources).toEqual({ fortune: [], misfortune: [] });
   });
 
   test('fortune rolls twice and keeps the higher', () => {
@@ -41,7 +41,7 @@ describe('rollWithFortune', () => {
     expect(keptFlags(result)).toEqual([false, true]);
     expect(result.total).toBe(RollTotal.parse(21));
     expect(result.explanation).toEqual(message(DiceMessage.FortuneKeptHigher));
-    expect(result.sources).toEqual([LUCKY]);
+    expect(result.sources).toEqual({ fortune: [LUCKY], misfortune: [] });
   });
 
   test('misfortune rolls twice and keeps the lower', () => {
@@ -61,16 +61,16 @@ describe('rollWithFortune', () => {
     const result = roll('1d20', { fortune: [LUCKY, LUCKY, LUCKY], misfortune: [] }, [2, 8, 17]);
     expect(result.rolls).toHaveLength(2);
     expect(result.total).toBe(RollTotal.parse(8));
-    expect(result.sources).toEqual([LUCKY, LUCKY, LUCKY]);
+    expect(result.sources.fortune).toEqual([LUCKY, LUCKY, LUCKY]);
   });
 
-  test('fortune and misfortune cancel to one roll and keep both sources', () => {
+  test('fortune and misfortune cancel to one roll and keep each source by kind', () => {
     const result = roll('1d20+7', { fortune: [LUCKY], misfortune: [CURSED] }, [5, 14]);
     expect(result.mode).toBe(RollMode.Cancelled);
     expect(keptFlags(result)).toEqual([true]);
     expect(result.total).toBe(RollTotal.parse(12));
     expect(result.explanation).toEqual(message(DiceMessage.FortuneCancelled));
-    expect(result.sources).toEqual([LUCKY, CURSED]);
+    expect(result.sources).toEqual({ fortune: [LUCKY], misfortune: [CURSED] });
   });
 
   test('rerolls the whole expression and compares totals', () => {

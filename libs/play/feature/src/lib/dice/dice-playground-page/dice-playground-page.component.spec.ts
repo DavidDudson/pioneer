@@ -111,4 +111,16 @@ describe('DicePlaygroundPage', () => {
     expect(text).toContain('Fortune and misfortune cancel out: rolled once.');
     expect(text).not.toContain('Roll 1');
   });
+
+  it('switches fortune back off and rolls once again', async () => {
+    const harness = await openPlayground([5, 14]);
+    await press(harness, 'Fortune');
+    await press(harness, 'Fortune');
+    expect(button(harness, 'Fortune').getAttribute('aria-pressed')).toBe('false');
+    await press(harness, 'Roll');
+
+    const text = present(harness.routeNativeElement).textContent;
+    expect(text).toContain('Total 12');
+    expect(text).not.toContain('Roll 1');
+  });
 });

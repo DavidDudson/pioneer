@@ -9,5 +9,8 @@
   [attr.aria-disabled]="busy() || null"
   (click)="press($event)"
 >
+  @if (toggled()) {
+    <fr-icon [icon]="TickIcon" />
+  }
   <ng-content />
 </button>

@@ -1,7 +1,9 @@
 import { booleanAttribute, ChangeDetectionStrategy, Component, computed, input, output } from '@angular/core';
+import { LucideCheck } from '@lucide/angular';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import { cva } from 'class-variance-authority';
 
+import { Icon } from '../../icon/icon.component';
 import { Size } from '../../tokens';
 
 export const ButtonVariant = {
@@ -57,6 +59,7 @@ const buttonVariants = cva(
  */
 @Component({
   selector: 'fr-button',
+  imports: [Icon],
   templateUrl: './button.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'contents' },
@@ -71,9 +74,13 @@ export class Button {
   /** Accessible name when the visible content is not enough (e.g. a value to edit). */
   public readonly ariaLabel = input<string | undefined>(undefined);
   public readonly describedBy = input<string | undefined>(undefined);
-  /** Makes this a toggle button: announced as pressed or not, and styled when on. Unset for a plain button. */
+  /**
+   * Makes this a toggle button: announced as pressed or not, and marked with a tick when on. The on
+   * colours are styled for the secondary variant only. Unset for a plain button.
+   */
   public readonly toggled = input<boolean | undefined>(undefined);
   public readonly pressed = output<MouseEvent>();
+  protected readonly TickIcon = LucideCheck;
 
   protected readonly classes = computed(() => {
     const variant = this.variant();

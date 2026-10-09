@@ -22,8 +22,9 @@ export type RollMode = ValueOf<typeof RollMode>;
 export const RollModeSchema = z.enum(RollMode);
 
 /**
- * The fortune and misfortune effects on a roll, each named by what grants it. Several of one kind
- * still mean one extra roll: only whether any are present matters, the rest is for the log.
+ * The fortune and misfortune effects present on a roll, each named by what grants it. Only one of each
+ * kind ever applies (you pick the fortune, the GM the worse misfortune), so several of one kind still
+ * mean one extra roll; the roll only needs to know whether any are present.
  */
 export interface FortuneSources {
   readonly fortune: readonly MessageDescriptor[];
@@ -38,14 +39,14 @@ export type FortuneRollEntry = z.infer<typeof FortuneRollEntry>;
 
 /**
  * A roll after fortune and misfortune: every roll made in the order rolled, which one was kept, the
- * mode with an explanation, and the effects behind it, so a log can show both rolls and say why.
+ * mode with an explanation, and the effects present by kind, so a log can show both rolls and say why.
  */
 export const FortunedRoll = z.object({
   mode: RollModeSchema,
   rolls: z.array(FortuneRollEntry).min(1).max(2),
   total: RollTotal,
   explanation: MessageDescriptorSchema,
-  sources: z.array(MessageDescriptorSchema),
+  sources: z.object({ fortune: z.array(MessageDescriptorSchema), misfortune: z.array(MessageDescriptorSchema) }),
 });
 export type FortunedRoll = z.infer<typeof FortunedRoll>;
 
@@ -84,10 +85,10 @@ export function rollWithFortune(
 ): FortunedRoll {
   const mode = modeOf(sources);
   const explanation = message(EXPLANATION_KEYS[mode]);
-  const reasons = [...sources.fortune, ...sources.misfortune];
+  const present = { fortune: [...sources.fortune], misfortune: [...sources.misfortune] };
   const first = rollDice(expression, random);
   if (mode === RollMode.Normal || mode === RollMode.Cancelled) {
-    return { mode, rolls: [{ result: first, kept: true }], total: first.total, explanation, sources: reasons };
+    return { mode, rolls: [{ result: first, kept: true }], total: first.total, explanation, sources: present };
   }
   const second = rollDice(expression, random);
   const keepSecond = prefersSecond(mode, first, second);
@@ -99,6 +100,6 @@ export function rollWithFortune(
     ],
     total: keepSecond ? second.total : first.total,
     explanation,
-    sources: reasons,
+    sources: present,
   };
 }
