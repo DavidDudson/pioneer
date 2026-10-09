@@ -1,0 +1,64 @@
+<input
+  #combobox="ngCombobox"
+  ngCombobox
+  type="text"
+  autocomplete="off"
+  [class]="inputClasses"
+  [attr.id]="id() ?? null"
+  [placeholder]="placeholder()"
+  [disabled]="disabled()"
+  [softDisabled]="false"
+  [attr.aria-label]="ariaLabel() ?? null"
+  [attr.aria-describedby]="describedBy() ?? null"
+  [attr.aria-invalid]="ariaInvalid() || null"
+  [value]="text()"
+  [expanded]="expanded()"
+  (valueChange)="type($event)"
+  (expandedChange)="expandedChange($event)"
+  (keydown.escape)="escape()"
+  (keydown.enter)="enter()"
+/>
+
+<ng-template ngComboboxPopup [combobox]="combobox">
+  <div #scroller [class]="popupClasses">
+    <fr-combobox-status [loading]="loading()" [empty]="options().length === 0" />
+    <!-- Inline styles: the virtualizer measures options at runtime, so heights and offsets can't be tokens. -->
+    <!-- eslint-disable pioneer/no-template-styling, @angular-eslint/template/no-inline-styles -- runtime-measured listbox height and option offsets -->
+    <div
+      #listbox="ngListbox"
+      ngListbox
+      ngComboboxWidget
+      focusMode="activedescendant"
+      selectionMode="explicit"
+      [activeDescendant]="listbox.activeDescendant()"
+      [wrap]="false"
+      [class]="listboxClasses"
+      [attr.aria-label]="ariaLabel() ?? null"
+      [attr.aria-labelledby]="labelledBy() ?? null"
+      [attr.aria-busy]="loading() || null"
+      [style.height.px]="loading() ? 0 : totalSize()"
+      [value]="selected()"
+      (valueChange)="choose($event)"
+    >
+      <!-- While loading, the skeleton replaces the last query's options rather than sitting above them. -->
+      @for (row of loading() ? [] : virtualRows(); track row.key) {
+        @if (optionAt(row.index); as option) {
+          <div
+            #optionElement
+            ngOption
+            [class]="optionClasses"
+            [value]="option.value"
+            [label]="option.label"
+            [attr.data-index]="row.index"
+            [attr.aria-setsize]="options().length"
+            [attr.aria-posinset]="row.index + 1"
+            [style.transform]="translate(row)"
+          >
+            {{ option.label }}
+          </div>
+        }
+      }
+    </div>
+    <!-- eslint-enable pioneer/no-template-styling, @angular-eslint/template/no-inline-styles -->
+  </div>
+</ng-template>

@@ -15,6 +15,9 @@
       "saved": "Saved",
       "revert": "Revert"
     },
+    "combobox": {
+      "noMatches": "No matches"
+    },
     "searchInput": {
       "clear": "Clear search"
     },
