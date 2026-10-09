@@ -14,17 +14,17 @@ option to move.
 Prices were checked on 2026-10-09 (USD unless noted; low traffic means one region, ~5 GB of data, ~50 GB of
 egress a month):
 
-| Option                                                    | Region         | ~Monthly         | Egress: included, then                                        | Long-lived conn + `LISTEN`   | Backups            | Ops    |
-| --------------------------------------------------------- | -------------- | ---------------- | ------------------------------------------------------------- | ---------------------------- | ------------------ | ------ |
-| Hetzner CAX11 + compose + Cloudflare                      | EU only        | €7.70            | 20 TB, then €1/TB                                             | Yes                          | +20% (disk)        | High   |
-| OVHcloud VPS-1 + compose + Cloudflare                     | Sydney         | A$6.29 (from)    | 500 GB, then throttled to 10 Mbps                             | Yes                          | Daily, included    | High   |
-| Lightsail 2 GB + compose + Cloudflare                     | Sydney         | 12               | 1.5 TB (half the bundle in Sydney), then per GB               | Yes                          | Snapshots $0.05/GB | High   |
-| Fly.io app + self-run Postgres                            | Sydney         | ~16              | None, $0.04/GB (~$2 of the total)                             | Yes                          | Volume snapshots   | Medium |
-| Railway Hobby                                             | Singapore only | ~10              | None, $0.05/GB (~$2.50 of the total)                          | Yes                          | Volume backups     | Low    |
-| Cloud Run + Neon (direct endpoint) + Cloudflare           | Sydney         | ~70+             | 1 GB in North America, then from $0.12/GiB (~$6 of the total) | Only pinned warm             | Neon PITR          | Low    |
-| Vercel + Neon                                             | Sydney         | 0 Hobby / 20 Pro | 100 GB on Hobby                                               | No: functions, not our image | Neon               | Low    |
-| Oracle Always Free (Arm 2 OCPU / 12 GB)                   | Sydney         | 0                | 10 TB                                                         | Yes                          | Own                | High   |
-| **AWS Lambda + Neon Free (direct endpoint) + Cloudflare** | Sydney         | **0**            | AWS 100 GB, then from $0.09/GB; Neon 5 GB to Lambda           | Per stream, see below        | Own `pg_dump`      | Medium |
+| Option                                                    | Region         | ~Monthly         | Egress: included, then                                        | Long-lived conn + `LISTEN`   | Backups                    | Ops    | Exit cost                                                           |
+| --------------------------------------------------------- | -------------- | ---------------- | ------------------------------------------------------------- | ---------------------------- | -------------------------- | ------ | ------------------------------------------------------------------- |
+| Hetzner CAX11 + compose + Cloudflare                      | EU only        | €7.70            | 20 TB, then €1/TB                                             | Yes                          | +20% (disk)                | High   | Low: compose and `pg_dump`                                          |
+| OVHcloud VPS-1 + compose + Cloudflare                     | Sydney         | A$6.29 (from)    | 500 GB, then throttled to 10 Mbps                             | Yes                          | Daily, included            | High   | Low: compose and `pg_dump`; any commitment runs out                 |
+| Lightsail 2 GB + compose + Cloudflare                     | Sydney         | 12               | 1.5 TB (half the bundle in Sydney), then per GB               | Yes                          | Snapshots $0.05/GB         | High   | Low: compose and `pg_dump`                                          |
+| Fly.io app + self-run Postgres                            | Sydney         | ~16              | None, $0.04/GB (~$2 of the total)                             | Yes                          | Volume snapshots           | Medium | Low: same image; `pg_dump`                                          |
+| Railway Hobby                                             | Singapore only | ~10              | None, $0.05/GB (~$2.50 of the total)                          | Yes                          | Volume backups             | Low    | Low: same image; `pg_dump` over its public proxy                    |
+| Cloud Run + Neon (direct endpoint) + Cloudflare           | Sydney         | ~70+             | 1 GB in North America, then from $0.12/GiB (~$6 of the total) | Only pinned warm             | Neon PITR                  | Low    | Low: same image; `pg_dump` from Neon                                |
+| Vercel + Neon                                             | Sydney         | 0 Hobby / 20 Pro | 100 GB on Hobby                                               | No: functions, not our image | Neon                       | Low    | High: the API rewritten as Vercel functions                         |
+| Oracle Always Free (Arm 2 OCPU / 12 GB)                   | Sydney         | 0                | 10 TB                                                         | Yes                          | Own                        | High   | Low: compose and `pg_dump`                                          |
+| **AWS Lambda + Neon Free (direct endpoint) + Cloudflare** | Sydney         | **0**            | AWS 100 GB, then from $0.09/GB; Neon 5 GB to Lambda           | Per stream, see below        | Own `pg_dump` to R2 (free) | Medium | Low: same image under compose; the Worker and IAM setup are dropped |
 
 Notes behind the table:
 
@@ -54,8 +54,10 @@ Notes behind the table:
   Function URL, since the free plan cannot rewrite `Host`; Workers Free allows 100k requests a day. CloudFront in
   front of the Function URL is the alternative if that limit is ever reached.
 - **Only the Worker can reach the Function URL.** The Function URL uses `AWS_IAM` auth, and the Worker signs each
-  request with SigV4 using an IAM user that may only call `lambda:InvokeFunctionUrl` on this function, its keys
-  held as Worker secrets. Unsigned requests to the `*.lambda-url.ap-southeast-2.on.aws` hostname are refused, so
+  request with SigV4 using an IAM user whose keys are held as Worker secrets. A Function URL with `AWS_IAM` auth
+  needs both `lambda:InvokeFunctionUrl` and `lambda:InvokeFunction`; that user gets both on this function only,
+  with `lambda:InvokeFunction` conditioned on `lambda:InvokedViaFunctionUrl` so the keys cannot invoke the
+  function any other way. Unsigned requests to the `*.lambda-url.ap-southeast-2.on.aws` hostname are refused, so
   nothing bypasses Cloudflare's TLS, caching and rate limits. With CloudFront instead, origin access control signs
   the requests.
 - **Postgres is Neon Free in `aws-ap-southeast-2`**, over the direct endpoint, never the pooler, with autoscaling
@@ -65,8 +67,9 @@ Notes behind the table:
   few minutes, well inside Lambda's 15-minute timeout, and clients resume from their last sequence. The short cap
   bounds what a stream costs after its client has gone. The transport (SSE or WebSockets) is decided in #175.
 - **Migrations run as a deploy step**, not on start (`MIGRATE_ON_START=false`, [ADR-0011](0011-api-binary-and-migrations.md)).
-- **Backups are ours**: a nightly `pg_dump` to object storage with a restore drill (#115), since Neon Free keeps
-  only 6 hours of history.
+- **Backups are ours**: a nightly compressed `pg_dump` to Cloudflare R2 with a restore drill (#115), since Neon
+  Free keeps only 6 hours of history. Keeping 7 daily and 4 weekly dumps of a database capped at 1 GB stays well
+  inside R2's free 10 GB-month of storage, and R2 does not charge for egress, so restores are free too.
 - **Fallback**: if a free tier is cut or outgrown, the same image moves to a Sydney VPS under compose (OVHcloud
   VPS-1, ~A$6.29 a month) with no code change.
 
