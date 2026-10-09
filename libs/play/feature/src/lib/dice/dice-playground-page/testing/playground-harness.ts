@@ -6,8 +6,8 @@ import { DieFace } from '@pioneer/rules/dice';
 import { scriptedRandom } from '@pioneer/rules/dice/testing';
 import { provideI18n } from '@pioneer/shared/web';
 
-import { playRoutes } from '../../play.routes';
-import { RANDOM_SOURCE } from '../random-source';
+import { playRoutes } from '../../../play.routes';
+import { RANDOM_SOURCE } from '../../random-source';
 
 /* Drives the dice playground through its route, as the page specs do. */
 

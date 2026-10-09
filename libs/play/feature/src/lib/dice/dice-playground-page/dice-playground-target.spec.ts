@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { button, openPlayground, pick, present, press, typeExpression, typeNumber } from './playground-harness';
+import { button, openPlayground, pick, present, press, typeExpression, typeNumber } from './testing/playground-harness';
 
 describe('DicePlaygroundPage with a target', () => {
   it('applies damage to a target with immunity, weakness and resistance and explains each', async () => {
