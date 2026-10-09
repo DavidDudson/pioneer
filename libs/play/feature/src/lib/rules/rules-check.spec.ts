@@ -63,6 +63,27 @@ describe('checkRulesJson for rule elements', () => {
       issues: [{ path: ['value'], message: message(ValidationMessage.InvalidValue) }],
     });
   });
+
+  it('points into a formula field at the mistake', () => {
+    const json = '{ "key": "FlatModifier", "selectors": ["ac"], "type": "item", "value": "1 + @actor.level" }';
+    expect(checkRulesJson(RulesSchema.RuleElement, json)).toStrictEqual({
+      status: CheckStatus.Invalid,
+      issues: [
+        {
+          path: ['value'],
+          message: message(RulesMessage.FoundryReference, { found: '@actor.level', suggestion: '@level', position: 5 }),
+          pointer: '1 + @actor.level\n    ^',
+        },
+      ],
+    });
+  });
+
+  it('points at the end of a formula that ends too early', () => {
+    const json = '{ "key": "Change", "selector": "ac", "mode": "add", "value": "max(1," }';
+    expect(checkRulesJson(RulesSchema.RuleElement, json)).toMatchObject({
+      issues: [{ path: ['value'], pointer: 'max(1,\n      ^' }],
+    });
+  });
 });
 
 describe(formatPath, () => {

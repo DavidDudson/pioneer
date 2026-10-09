@@ -1,7 +1,8 @@
+import { FormulaText } from '@pioneer/rules/formula';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import { z } from 'zod';
 
-import { FormulaSource } from './formula-source';
+import { formulaIssues, FormulaSource } from './formula-source';
 import { Predicate } from './predicate';
 import { ProficiencySchema } from './proficiency';
 import { RuleElementKey, ruleElementBase, RuleSlug } from './rule-element-base';
@@ -32,11 +33,10 @@ export type ProficiencyElement = z.infer<typeof ProficiencyElement>;
 const RankOrFormula: z.ZodType<RaisedRank | FormulaSource> = z
   .unknown()
   .check((context) => {
-    const named = RaisedRank.safeParse(context.value);
-    const formula =
-      named.success || typeof context.value !== 'string' ? undefined : FormulaSource.safeParse(context.value);
-    if (formula?.success === false) {
-      context.issues.push(...formula.error.issues);
+    const { value } = context;
+    const named = RaisedRank.safeParse(value);
+    if (typeof value === 'string' && !named.success) {
+      context.issues.push(...formulaIssues(FormulaText.parse(value)));
     }
   })
   .pipe(z.union([RaisedRank, FormulaSource]));

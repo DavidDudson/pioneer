@@ -11,8 +11,8 @@ export interface ReferenceEntry {
 export const REFERENCE_VALUE_MIN = -FORMULA_NUMBER_MAX;
 export const REFERENCE_VALUE_MAX = FORMULA_NUMBER_MAX;
 
-/** Starting values for the example formula's references, so it opens on a value: AC 20 at level 5. */
-const STARTING_VALUES: Readonly<Record<string, number>> = { level: 5, 'attr.dex.capped': 3, 'prof.armor': 2 };
+/** Starting values for the example formula's references, so it opens on a value: AC 20 at level 5, trained. */
+const STARTING_VALUES: Readonly<Record<string, number>> = { level: 5, 'attr.dex.capped': 3, 'prof.ac': 7 };
 const STARTING_VALUE = 0;
 
 /** The entry for `path`, or its starting value while nothing has been typed for it. */

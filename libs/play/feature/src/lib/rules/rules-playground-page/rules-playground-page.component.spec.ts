@@ -116,7 +116,7 @@ describe('RulesPlaygroundPage', () => {
     const harness = await openPlayground();
     await chooseSchema(harness, 'Formula');
     expect(pageText(harness)).toContain('Value: 20');
-    expect(pageText(harness)).toContain('10 + @attr.dex.capped + @prof.armor + @level');
+    expect(pageText(harness)).toContain('10 + @attr.dex.capped + @prof.ac');
     expect(harness.routeNativeElement?.querySelector('textarea')).toBeNull();
   });
 
@@ -127,9 +127,9 @@ describe('RulesPlaygroundPage', () => {
     expect(pageText(harness)).toContain('@attr.dex.capped');
 
     const boxes = [...present(harness.routeNativeElement).querySelectorAll<HTMLInputElement>('input[type="number"]')];
-    expect(boxes).toHaveLength(3);
-    const level = present(boxes[2]);
-    await typeInto(harness, level, '10');
+    expect(boxes).toHaveLength(2);
+    const proficiency = present(boxes[1]);
+    await typeInto(harness, proficiency, '12');
     expect(pageText(harness)).toContain('Value: 25');
   });
 
@@ -137,31 +137,57 @@ describe('RulesPlaygroundPage', () => {
     const harness = await openPlayground();
     await chooseSchema(harness, 'Formula');
     const boxes = [...present(harness.routeNativeElement).querySelectorAll<HTMLInputElement>('input[type="number"]')];
-    const level = present(boxes[2]);
-    await typeInto(harness, level, '');
+    const proficiency = present(boxes[1]);
+    await typeInto(harness, proficiency, '');
     const text = pageText(harness);
-    expect(text).toContain('“@level” at position 39 has no value.');
-    expect(text).toContain(`10 + @attr.dex.capped + @prof.armor + @level\n${' '.repeat(38)}^`);
-    expect(level.getAttribute('aria-invalid')).toBe('true');
+    expect(text).toContain('“@prof.ac” at position 25 has no value.');
+    expect(text).toContain(`10 + @attr.dex.capped + @prof.ac\n${' '.repeat(24)}^`);
+    expect(proficiency.getAttribute('aria-invalid')).toBe('true');
   });
 
   it('keeps the boxes while the formula is mid-edit, and resets one whose reference left the formula', async () => {
     const harness = await openPlayground();
     await chooseSchema(harness, 'Formula');
     const formula = present(harness.routeNativeElement?.querySelector<HTMLInputElement>('input:not([type="number"])'));
-    const level = present(
-      [...present(harness.routeNativeElement).querySelectorAll<HTMLInputElement>('input[type="number"]')][2],
+    const proficiency = present(
+      [...present(harness.routeNativeElement).querySelectorAll<HTMLInputElement>('input[type="number"]')][1],
     );
-    await typeInto(harness, level, '');
+    await typeInto(harness, proficiency, '');
 
-    await typeInto(harness, formula, '10 + @attr.dex.capped + @prof.armor + @level *');
-    expect(level.isConnected).toBe(true);
+    await typeInto(harness, formula, '10 + @attr.dex.capped + @prof.ac *');
+    expect(proficiency.isConnected).toBe(true);
 
-    await typeInto(harness, formula, '10 + @attr.dex.capped + @prof.armor');
-    await typeInto(harness, formula, '10 + @attr.dex.capped + @prof.armor + @level');
+    await typeInto(harness, formula, '10 + @attr.dex.capped');
+    await typeInto(harness, formula, '10 + @attr.dex.capped + @prof.ac');
     const boxes = [...present(harness.routeNativeElement).querySelectorAll<HTMLInputElement>('input[type="number"]')];
-    expect(present(boxes[2]).value).toBe('5');
+    expect(present(boxes[1]).value).toBe('7');
     expect(pageText(harness)).toContain('Value: 20');
+  });
+
+  it('says what each reference reads, and which ones stored formulas cannot use', async () => {
+    const harness = await openPlayground();
+    await chooseSchema(harness, 'Formula');
+    const formula = present(harness.routeNativeElement?.querySelector<HTMLInputElement>('input:not([type="number"])'));
+    await typeInto(harness, formula, '@prof.ac + @actor.level + @luck');
+
+    const text = pageText(harness);
+    expect(text).toContain('The proficiency bonus for that statistic');
+    expect(text).toContain('This is Foundry’s spelling. Stored formulas write @level.');
+    expect(text).toContain('Pioneer has no such reference, so stored formulas cannot use it.');
+  });
+
+  it('points into a bad formula in a rule element', async () => {
+    const harness = await openPlayground();
+    await chooseSchema(harness, 'Rule element');
+    await typeJson(
+      harness,
+      '{ "key": "FlatModifier", "selectors": ["ac"], "type": "item", "value": "@level + @attr.luck" }',
+    );
+
+    const text = pageText(harness);
+    expect(text).toContain('1 problem');
+    expect(text).toContain('“@attr.luck” at position 10 is not a reference Pioneer knows.');
+    expect(text).toContain(`@level + @attr.luck\n${' '.repeat(9)}^`);
   });
 
   it('points at the first mistake in a formula with text from the formula bundle', async () => {

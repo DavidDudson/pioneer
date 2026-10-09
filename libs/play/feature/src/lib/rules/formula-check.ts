@@ -2,6 +2,7 @@ import { evaluate, FormulaText, parseFormula, printFormula, references } from '@
 import type { FormulaValue, ReferencePath, TextPosition } from '@pioneer/rules/formula';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
+import { pointAt } from './point-at';
 import { resolverFor } from './reference-values';
 import type { ReferenceEntries } from './reference-values';
 import { CheckStatus } from './rules-check';
@@ -9,10 +10,6 @@ import { CheckStatus } from './rules-check';
 export type { ReferenceEntries } from './reference-values';
 
 const JSON_INDENT = 2;
-const CARET = '^';
-/** Anything but a tab becomes a space, so the caret lines up under tabbed text too. */
-const NOT_TAB = /[^\t]/gu;
-const NEWLINE = '\n';
 
 /** A mistake in the formula: the descriptor, where it is, and the text with a caret line under it. */
 interface FormulaMistake {
@@ -38,19 +35,6 @@ export type FormulaCheck =
       readonly evaluation: FormulaEvaluation;
     }
   | FormulaMistake;
-
-/**
- * The text with a caret line under the 1-based `position` (one past the end for "ends too early"). The caret
- * line goes straight after the line holding the position, so multi-line text points at the right line.
- */
-export function pointAt(text: string, position: TextPosition): string {
-  const index = position - 1;
-  const lineStart = text.lastIndexOf(NEWLINE, index - 1) + 1;
-  const nextNewline = text.indexOf(NEWLINE, index);
-  const lineEnd = nextNewline === -1 ? text.length : nextNewline;
-  const lead = text.slice(lineStart, index).replace(NOT_TAB, ' ');
-  return `${text.slice(0, lineEnd)}\n${lead}${CARET}${text.slice(lineEnd)}`;
-}
 
 function mistake(text: string, error: MessageDescriptor, position: TextPosition): FormulaMistake {
   return { status: CheckStatus.Invalid, error, position, pointer: pointAt(text, position) };

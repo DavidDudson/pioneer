@@ -51,6 +51,14 @@ export function formulaProblems(text: FormulaText, scopes: ReadonlySet<Reference
 /** A rule element sits on a content entry that may or may not be an item, so its formulas may read either. */
 const RULE_ELEMENT_SCOPES: ReadonlySet<ReferenceScope> = new Set(Object.values(ReferenceScope));
 
+/** One custom issue per problem with `text` as a rule element formula, for a schema's `check`. */
+export function formulaIssues(text: FormulaText): z.core.$ZodRawIssue[] {
+  return formulaProblems(text, RULE_ELEMENT_SCOPES).map(({ error }) => {
+    const { params } = issueParams(error);
+    return { code: 'custom', input: text, params };
+  });
+}
+
 /**
  * A value written as a formula (`@level`, `max(1, floor(@item.level / 2))`), kept as its source text. It must
  * parse, and every reference must be one the vocabulary knows; a failure is a field issue whose descriptor names
@@ -59,9 +67,7 @@ const RULE_ELEMENT_SCOPES: ReadonlySet<ReferenceScope> = new Set(Object.values(R
 export const FormulaSource = z
   .string()
   .check((context) => {
-    for (const { error } of formulaProblems(FormulaText.parse(context.value), RULE_ELEMENT_SCOPES)) {
-      context.issues.push({ code: 'custom', input: context.value, ...issueParams(error) });
-    }
+    context.issues.push(...formulaIssues(FormulaText.parse(context.value)));
   })
   .brand<'FormulaSource'>();
 export type FormulaSource = z.infer<typeof FormulaSource>;
