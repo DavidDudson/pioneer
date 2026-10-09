@@ -30,7 +30,7 @@ export class SessionList {
     await this.#client.cancelQueries({ queryKey: sessionListKey });
     if (session.current) {
       this.#client.removeQueries({ queryKey: sessionListKey });
-      this.#session.signedOut();
+      await this.#session.signedOut();
       return;
     }
     this.#client.setQueryData<SessionSummary[]>(sessionListKey, (sessions) =>

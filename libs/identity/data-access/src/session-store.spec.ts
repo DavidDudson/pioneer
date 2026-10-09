@@ -138,11 +138,21 @@ describe(SessionStore, () => {
     expect(router.url).toBe('/account/sign-in?returnTo=%2Fcharacters');
   });
 
-  it('signing out drops everything cached for the user', () => {
+  it('a /me answer that arrives after signing out does not sign the user back in', async () => {
+    const { store, http } = setup();
+    TestBed.tick();
+    const pending = http.expectOne('/api/me');
+    await store.signedOut();
+    pending.flush(amiri);
+    await settle();
+    expect(store.user()).toBeUndefined();
+  });
+
+  it('signing out drops everything cached for the user', async () => {
     const { store } = setup();
     const client = TestBed.inject(QueryClient);
     client.setQueryData(['character', 'list'], ['Kyra']);
-    store.signedOut();
+    await store.signedOut();
     expect(client.getQueryData(['character', 'list'])).toBeUndefined();
     expect(client.getQueryData(['identity', 'me'])).toStrictEqual({ user: undefined });
   });

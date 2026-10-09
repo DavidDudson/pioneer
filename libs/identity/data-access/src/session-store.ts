@@ -72,14 +72,14 @@ export class SessionStore {
   /** Ends this browser's session; a page that needs an account then sends it to sign-in. */
   public async signOut(): Promise<void> {
     await this.#api.call(IdentityContract.signOut, { params: {}, body: undefined });
-    this.signedOut();
+    await this.signedOut();
     await this.#recheckAccess();
   }
 
   /** Ends every session this user has, here and on other devices. */
   public async signOutEverywhere(): Promise<void> {
     await this.#api.call(IdentityContract.signOutEverywhere, { params: {}, body: undefined });
-    this.signedOut();
+    await this.signedOut();
     await this.#recheckAccess();
   }
 
@@ -87,7 +87,9 @@ export class SessionStore {
    * Records that the server ended this browser's session, e.g. after it revoked the current one.
    * Everything cached was the signed-out user's, so it all goes.
    */
-  public signedOut(): void {
+  public async signedOut(): Promise<void> {
+    // A /me answer still in flight would otherwise sign the user back in.
+    await this.#client.cancelQueries({ queryKey: sessionKeys.me });
     const me = hashKey(sessionKeys.me);
     this.#client.removeQueries({ predicate: (query) => query.queryHash !== me });
     this.#client.setQueryData<SessionState>(sessionKeys.me, { user: undefined });
@@ -102,7 +104,7 @@ export class SessionStore {
   }
 
   async #prompt(): Promise<void> {
-    this.signedOut();
+    await this.signedOut();
     const path = this.#router.parseUrl(this.#router.url).root.children['primary']?.toString();
     if (`/${path ?? ''}` !== SIGN_IN_PATH) {
       await this.showSignIn();
