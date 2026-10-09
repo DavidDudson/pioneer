@@ -170,6 +170,14 @@ describe('applyDamage', () => {
     expect(result.taken).toBe(amount(0));
   });
 
+  test('resistance says nothing when the instance deals no damage', () => {
+    const result = applyDamage(
+      roll('1d4[cold]-5[cold]', [1]),
+      target({ resistances: [adjustment(DamageType.Cold, 5)] }),
+    );
+    expect(result.immediate[0]?.lines).toEqual([]);
+  });
+
   test('resistance removes up to its value and never below zero', () => {
     const result = applyDamage(
       roll('1d8[bludgeoning]+1d4[fire]', [6, 2]),

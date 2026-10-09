@@ -1,6 +1,17 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input, model, signal } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { Button, Field, FieldError, Label, LocaleFormat, NumberInput, Select, Stack, Text } from '@pioneer/frontier';
+import {
+  Button,
+  Field,
+  FieldError,
+  Heading,
+  Label,
+  LocaleFormat,
+  NumberInput,
+  Select,
+  Stack,
+  Text,
+} from '@pioneer/frontier';
 import { DamageAdjustment, DamageAmount } from '@pioneer/rules/sdk';
 import type { DamageAdjustmentTarget } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
@@ -52,7 +63,7 @@ interface ValueRangeParams {
  */
 @Component({
   selector: 'pio-adjustment-editor',
-  imports: [Button, Field, FieldError, Label, NumberInput, Select, Stack, Text, TranslocoPipe],
+  imports: [Button, Field, FieldError, Heading, Label, NumberInput, Select, Stack, Text, TranslocoPipe],
   templateUrl: './adjustment-editor.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

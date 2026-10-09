@@ -1,5 +1,5 @@
 <fr-stack gap="sm">
-  <fr-text weight="semibold">{{ 'play.dice.immunities' | transloco }}</fr-text>
+  <fr-heading [level]="3">{{ 'play.dice.immunities' | transloco }}</fr-heading>
   @for (type of immunities(); track type) {
     <fr-stack direction="horizontal" justify="between" align="center" gap="sm">
       <fr-text>{{ labels[type] | transloco }}</fr-text>

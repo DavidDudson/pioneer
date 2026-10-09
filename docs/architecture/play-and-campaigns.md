@@ -83,6 +83,11 @@ over play state and the turn event, so it can run in the browser and on the serv
 - Degree of success: compare to DC, ±10 for critical, natural 20 and natural 1 step the result, then
   `AdjustDegreeOfSuccess` effects.
 - Damage application: critical doubling, immunity, weakness and resistance with the applied lines shown.
+  Terms pool into one instance per damage type; untagged terms are untyped. Persistent damage stays apart, and
+  splash joins the immediate damage of its type without doubling. Only the highest applicable weakness and
+  resistance count per instance. A weakness or resistance names a damage type or a group: `physical`
+  (bludgeoning, piercing, slashing), `energy` (acid, cold, electricity, fire, force, sonic, vitality, void) or
+  `all`, which also covers untyped damage. Importers map Foundry's all-damage key onto `all`.
 - Every roll result keeps the full breakdown it was rolled with and the conditional toggles chosen, so the log can
   always answer "why 23?".
 
