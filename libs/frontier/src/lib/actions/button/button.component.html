@@ -4,6 +4,7 @@
   [disabled]="disabled()"
   [attr.aria-label]="ariaLabel() ?? null"
   [attr.aria-describedby]="describedBy() ?? null"
+  [attr.aria-pressed]="toggled() ?? null"
   [attr.aria-busy]="busy() || null"
   [attr.aria-disabled]="busy() || null"
   (click)="press($event)"

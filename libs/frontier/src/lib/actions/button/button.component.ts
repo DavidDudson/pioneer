@@ -30,7 +30,7 @@ const buttonVariants = cva(
         primary:
           'justify-center font-medium bg-accent-solid text-accent-on-solid hover:bg-accent-solid-hover active:bg-accent-solid-active',
         secondary:
-          'justify-center font-medium bg-surface-base text-fg-default border border-line-default hover:bg-surface-sunken',
+          'justify-center font-medium bg-surface-base text-fg-default border border-line-default hover:bg-surface-sunken aria-pressed:border-accent-solid aria-pressed:bg-accent-subtle aria-pressed:text-accent-fg',
         ghost: 'justify-center font-medium text-fg-default hover:bg-surface-sunken',
         danger: 'justify-center font-medium bg-danger-solid text-accent-on-solid hover:bg-danger-solid-hover',
         inline:
@@ -71,6 +71,8 @@ export class Button {
   /** Accessible name when the visible content is not enough (e.g. a value to edit). */
   public readonly ariaLabel = input<string | undefined>(undefined);
   public readonly describedBy = input<string | undefined>(undefined);
+  /** Makes this a toggle button: announced as pressed or not, and styled when on. Unset for a plain button. */
+  public readonly toggled = input<boolean | undefined>(undefined);
   public readonly pressed = output<MouseEvent>();
 
   protected readonly classes = computed(() => {
