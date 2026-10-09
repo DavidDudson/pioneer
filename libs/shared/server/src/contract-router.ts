@@ -1,16 +1,17 @@
 import type { Endpoint } from '@pioneer/shared/kernel';
 import { Elysia } from 'elysia';
-import type { HTTPHeaders } from 'elysia';
 import { z } from 'zod';
 
-interface HandlerInput<TParams extends z.ZodObject, TBody extends z.ZodType, TQuery extends z.ZodObject> {
+import type { RequestExchange } from './request-authenticator';
+
+interface HandlerInput<
+  TParams extends z.ZodObject,
+  TBody extends z.ZodType,
+  TQuery extends z.ZodObject,
+> extends RequestExchange {
   readonly params: z.output<TParams>;
   readonly query: z.output<TQuery>;
   readonly body: z.output<TBody>;
-  /** The raw request, for transport concerns such as the session cookie. */
-  readonly request: Request;
-  /** Headers to add to the response, for transport concerns such as a renewed session cookie. */
-  readonly responseHeaders: HTTPHeaders;
 }
 
 /**

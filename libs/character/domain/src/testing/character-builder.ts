@@ -1,7 +1,7 @@
 import { AncestryId, AttributeModifier, AttributeModifiers, contentId, PackId, Slug } from '@pioneer/rules/sdk';
 import type { Attribute } from '@pioneer/rules/sdk';
 import { installRulesFakes } from '@pioneer/rules/sdk/testing';
-import { derivedId, FIRST_VERSION, FixtureNamespace, fixedClock, Version } from '@pioneer/shared/kernel';
+import { derivedId, FIRST_VERSION, FixtureNamespace, fixedClock, UserId, Version } from '@pioneer/shared/kernel';
 import type { Temporal } from '@pioneer/shared/kernel';
 import { fakeSeeded } from '@pioneer/shared/kernel/testing';
 
@@ -12,6 +12,9 @@ import { CharacterId, CharacterLevel, CharacterName } from '../character-fields'
 export const humanAncestryId: AncestryId = AncestryId.parse(
   contentId(PackId.parse('player-core'), Slug.parse('human')),
 );
+
+/** Owner of fixtures unless `ownedBy` says otherwise; same id in every run. */
+export const fixtureOwnerId: UserId = UserId.parse(derivedId(FixtureNamespace, 'user:Amiri'));
 
 /**
  * Test builder for characters. The id is a UUIDv5 of the name, so a fixture
@@ -27,6 +30,7 @@ export class CharacterBuilder {
   #ancestry: AncestryId = humanAncestryId;
   #level: CharacterLevel = CharacterLevel.parse(1);
   #version: Version = FIRST_VERSION;
+  #ownerId: UserId = fixtureOwnerId;
   #attributes = AttributeModifiers.none;
   #at: Temporal.Instant = fixedClock('2026-01-01T00:00:00Z').now();
 
@@ -39,6 +43,7 @@ export class CharacterBuilder {
       .withAncestry(fake.ancestry)
       .atLevel(fake.level)
       .atVersion(fake.version)
+      .ownedBy(fake.ownerId)
       .createdAt(fake.createdAt);
     builder.#attributes = fake.attributes;
     return builder;
@@ -46,6 +51,11 @@ export class CharacterBuilder {
 
   public named(name: string): this {
     this.#name = CharacterName.parse(name);
+    return this;
+  }
+
+  public ownedBy(ownerId: UserId): this {
+    this.#ownerId = ownerId;
     return this;
   }
 
@@ -78,6 +88,7 @@ export class CharacterBuilder {
     return new Character({
       id: CharacterId.parse(derivedId(FixtureNamespace, `character:${this.#name}`)),
       version: this.#version,
+      ownerId: this.#ownerId,
       name: this.#name,
       ancestry: this.#ancestry,
       level: this.#level,

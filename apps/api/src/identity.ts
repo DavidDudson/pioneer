@@ -9,11 +9,13 @@ import {
   GitHubProvider,
   GoogleProvider,
   identityRoutes,
+  SessionAuthenticator,
   sessionSweep,
 } from '@pioneer/identity/infrastructure';
 import type { OAuthCredentials } from '@pioneer/identity/infrastructure';
 import { Milliseconds } from '@pioneer/shared/kernel';
 import type { Clock } from '@pioneer/shared/kernel';
+import type { RequestAuthenticator } from '@pioneer/shared/server';
 import type { Elysia } from 'elysia';
 
 import type { Database } from './database';
@@ -65,15 +67,24 @@ function providers(env: Env): OAuthProviderPort[] {
   ];
 }
 
-/**
- * Identity's part of the composition root: service, configured providers and routes, plus an
- * hourly sweep of expired sessions while the server runs.
- */
-export function identity(db: Database, env: Env, clock: Clock): Elysia {
+/** Identity as the rest of the app uses it. */
+export interface Identity {
+  /** Sign-in, session and account routes, plus an hourly sweep of expired sessions while the server runs. */
+  readonly routes: Elysia;
+  /** Who sent a request, for every other context's routes. */
+  readonly authenticator: RequestAuthenticator;
+}
+
+/** Identity's part of the composition root: service, configured providers, routes and authenticator. */
+export function identity(db: Database, env: Env, clock: Clock): Identity {
   const service = new IdentityService(new DrizzleUserRepository(db), new DrizzleSessionRepository(db), clock);
   // Secure cookies unless the public origin is plain http (local development).
   const secure = env.PUBLIC_ORIGIN?.startsWith('https:') ?? true;
-  return identityRoutes(service, providers(env), { secure }).use(sessionSweep(service, SESSION_SWEEP_INTERVAL));
+  const policy = { secure };
+  return {
+    routes: identityRoutes(service, providers(env), policy).use(sessionSweep(service, SESSION_SWEEP_INTERVAL)),
+    authenticator: new SessionAuthenticator(service, policy),
+  };
 }
 
 /** Refuses cross-site writes that carry the session cookie, on every API route. */
