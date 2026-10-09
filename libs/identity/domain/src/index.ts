@@ -3,6 +3,7 @@ export {
   AuthPath,
   IdentityContract,
   RETURN_TO_PARAM,
+  SETTINGS_PATH,
   SIGN_IN_FAILED_PATH,
   SIGN_IN_PATH,
 } from './identity-contract';
@@ -18,6 +19,7 @@ export {
   SessionId,
   UserId,
 } from './identity-fields';
+export { NO_PREFERENCES, patchPreferences, Preferences } from './preferences';
 export type { ProviderProfile } from './provider-profile';
 export { HOME_PATH, ReturnPath, returnPathOr } from './return-path';
 export { Session, SESSION_LIFETIME, SessionSummary, SessionToken, TokenHash } from './session';

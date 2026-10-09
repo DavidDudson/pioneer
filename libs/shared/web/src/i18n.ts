@@ -33,7 +33,7 @@ class MessageLoader implements TranslocoLoader {
 }
 
 /**
- * Runtime i18n: one build, locale switched with `LocalePreferences.setUi`.
+ * Runtime i18n: one build, locale switched by the signed-in account (`AccountPreferences` calls `LocalePreferences.adopt`).
  * The viewer's locale loads before bootstrap so the shell never renders keys.
  */
 export function provideI18n(messages: LocaleMessages): EnvironmentProviders {

@@ -1,12 +1,14 @@
 export { csrfGuard } from './csrf-guard';
 export { DiscordProvider } from './discord-provider';
+export { DrizzlePreferencesRepository } from './drizzle-preferences-repository';
 export { DrizzleSessionRepository } from './drizzle-session-repository';
 export { DrizzleUserRepository } from './drizzle-user-repository';
 export { GitHubProvider } from './github-provider';
 export { GoogleProvider } from './google-provider';
 export { identityRoutes } from './identity-routes';
+export { preferenceRoutes } from './preference-routes';
 export { SessionAuthenticator } from './session-authenticator';
 export { sessionSweep } from './session-sweep';
-export { oauthAccounts, sessions, users } from './identity.table';
+export { oauthAccounts, sessions, userPreferences, users } from './identity.table';
 export type { OAuthCredentials } from './provider-http';
 export { type CookiePolicy, sessionToken } from './session-cookie';

@@ -1,31 +1,23 @@
 import { DOCUMENT, inject, Injectable, InjectionToken, signal } from '@angular/core';
 import { TranslocoService } from '@jsverse/transloco';
-import {
-  DistanceUnit,
-  DistanceUnitSchema,
-  Locale,
-  resolveLocale,
-  SOURCE_LOCALE,
-  textDirection,
-} from '@pioneer/shared/kernel';
+import { DistanceUnit, DistanceUnitSchema, LocaleSchema, SOURCE_LOCALE, textDirection } from '@pioneer/shared/kernel';
+import type { Locale } from '@pioneer/shared/kernel';
 import { firstValueFrom } from 'rxjs';
 import { z } from 'zod';
 
 const STORAGE_KEY = 'pioneer.locale';
-const StoredPreferences = z.object({
-  ui: z.string().optional(),
-  content: z.string().optional(),
-  distanceUnit: z.string().optional(),
-});
-type StoredPreferences = z.infer<typeof StoredPreferences>;
 
-/** The browser's `Accept-Language` list, most preferred first. */
-export const BROWSER_LANGUAGES = new InjectionToken<readonly string[]>('BROWSER_LANGUAGES', {
-  providedIn: 'root',
-  factory: (): readonly string[] => inject(DOCUMENT).defaultView?.navigator.languages ?? [],
-});
+/** The choices a signed-in user made; a field left out shows the default. */
+export interface DisplayChoices {
+  readonly ui?: Locale | undefined;
+  readonly content?: Locale | undefined;
+  readonly distanceUnit?: DistanceUnit | undefined;
+}
 
-/** Where preferences persist until accounts exist; `undefined` when storage is blocked. */
+/** The cache as stored; each field is checked on its own, so one unknown value loses only itself. */
+const CachedChoices = z.object({ ui: z.unknown(), content: z.unknown(), distanceUnit: z.unknown() }).partial();
+
+/** Where the signed-in user's choices are cached between visits; `undefined` when storage is blocked. */
 export const PREFERENCE_STORAGE = new InjectionToken<Storage | undefined>('PREFERENCE_STORAGE', {
   providedIn: 'root',
   factory: (): Storage | undefined => {
@@ -38,38 +30,43 @@ export const PREFERENCE_STORAGE = new InjectionToken<Storage | undefined>('PREFE
   },
 });
 
-function readStored(storage: Storage | undefined): StoredPreferences {
+function readCached(storage: Storage | undefined): DisplayChoices {
   try {
     const raw = storage?.getItem(STORAGE_KEY);
-    const parsed = StoredPreferences.safeParse(raw === null || raw === undefined ? {} : JSON.parse(raw));
-    return parsed.success ? parsed.data : {};
+    const parsed = CachedChoices.safeParse(raw === null || raw === undefined ? {} : JSON.parse(raw));
+    if (!parsed.success) {
+      return {};
+    }
+    return {
+      ui: LocaleSchema.safeParse(parsed.data.ui).data,
+      content: LocaleSchema.safeParse(parsed.data.content).data,
+      distanceUnit: DistanceUnitSchema.safeParse(parsed.data.distanceUnit).data,
+    };
   } catch {
-    // Unreadable or corrupt preferences behave like none.
+    // Unreadable or corrupt choices behave like none.
     return {};
   }
 }
 
-function storedUnit(stored: string | undefined): DistanceUnit {
-  const unit = DistanceUnitSchema.safeParse(stored);
-  return unit.success ? unit.data : DistanceUnit.Feet;
-}
-
 /**
- * The viewer's UI and content locales. Each resolves from the stored preference, then the
- * browser's languages, then `en`. They are independent: English rules text with a German UI is
- * valid. Also the distance unit (feet as written, or metres as translated books use). Account
- * preferences slot in ahead of storage once accounts exist.
+ * The viewer's UI locale, content locale and distance unit. A signed-in user's account choices
+ * win; anything not chosen, and everything for signed-out visitors, is the default: the source
+ * locale (`en`) and feet as written. The two locales are independent: English rules text with a
+ * German UI is valid.
+ *
+ * Identity owns the account: it calls `adopt` with the signed-in user's choices and `reset` when
+ * nobody is signed in. The last adopted choices are cached in storage, so a returning user's
+ * locale applies before bootstrap instead of after `/api/me` answers.
  */
 @Injectable({ providedIn: 'root' })
 export class LocalePreferences {
   readonly #i18n = inject(TranslocoService);
   readonly #document = inject(DOCUMENT);
   readonly #storage = inject(PREFERENCE_STORAGE);
-  readonly #browser = inject(BROWSER_LANGUAGES);
-  readonly #stored = readStored(this.#storage);
-  readonly #ui = signal(this.#resolve(this.#stored.ui));
-  readonly #content = signal(this.#resolve(this.#stored.content));
-  readonly #distanceUnit = signal(storedUnit(this.#stored.distanceUnit));
+  readonly #cached = readCached(this.#storage);
+  readonly #ui = signal(this.#cached.ui ?? SOURCE_LOCALE);
+  readonly #content = signal(this.#cached.content ?? SOURCE_LOCALE);
+  readonly #distanceUnit = signal(this.#cached.distanceUnit ?? DistanceUnit.Feet);
 
   public readonly ui = this.#ui.asReadonly();
   public readonly content = this.#content.asReadonly();
@@ -80,26 +77,28 @@ export class LocalePreferences {
     await this.#activate(this.#ui());
   }
 
-  /** Switches the UI locale in place: downloads only its text, then re-renders. */
-  public async setUi(locale: Locale): Promise<void> {
-    await this.#activate(locale);
-    this.#ui.set(locale);
-    this.#persist();
+  /**
+   * Shows the signed-in user's choices, defaults for the rest. A new UI locale downloads only its
+   * text, then re-renders.
+   */
+  public async adopt(choices: DisplayChoices): Promise<void> {
+    // Activating the current locale again is cheap: its messages are already loaded.
+    const ui = choices.ui ?? SOURCE_LOCALE;
+    await this.#activate(ui);
+    this.#ui.set(ui);
+    this.#content.set(choices.content ?? SOURCE_LOCALE);
+    this.#distanceUnit.set(choices.distanceUnit ?? DistanceUnit.Feet);
+    this.#cache(choices);
   }
 
-  public setContent(locale: Locale): void {
-    this.#content.set(locale);
-    this.#persist();
-  }
-
-  public setDistanceUnit(unit: DistanceUnit): void {
-    this.#distanceUnit.set(unit);
-    this.#persist();
-  }
-
-  #resolve(stored: string | undefined): Locale {
-    const candidates = stored === undefined ? this.#browser : [stored, ...this.#browser];
-    return resolveLocale(candidates, Object.values(Locale), SOURCE_LOCALE);
+  /** Nobody is signed in: back to the defaults, and forget the cached choices. */
+  public async reset(): Promise<void> {
+    try {
+      await this.adopt({});
+    } finally {
+      // Even if the default locale fails to load, the signed-out user's choices must not outlive them.
+      this.#forgetCache();
+    }
   }
 
   async #activate(locale: Locale): Promise<void> {
@@ -111,14 +110,19 @@ export class LocalePreferences {
     root.dir = textDirection(locale);
   }
 
-  #persist(): void {
+  #forgetCache(): void {
     try {
-      this.#storage?.setItem(
-        STORAGE_KEY,
-        JSON.stringify({ ui: this.#ui(), content: this.#content(), distanceUnit: this.#distanceUnit() }),
-      );
+      this.#storage?.removeItem(STORAGE_KEY);
     } catch {
-      // Quota or blocked storage: the choice still applies for this session.
+      // Blocked storage has nothing cached.
+    }
+  }
+
+  #cache(choices: DisplayChoices): void {
+    try {
+      this.#storage?.setItem(STORAGE_KEY, JSON.stringify(choices));
+    } catch {
+      // Quota or blocked storage: the choices still apply for this visit.
     }
   }
 }

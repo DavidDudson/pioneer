@@ -38,7 +38,7 @@ export { Temporal } from './temporal';
 export { Pg } from './pg';
 export { listQuery, SortDirection } from './list-query';
 export { InstantCodec, PlainDateCodec } from './temporal-codecs';
-export { Locale, LocaleSchema, resolveLocale, SOURCE_LOCALE, TextDirection, textDirection } from './locale';
+export { Locale, LocaleSchema, SOURCE_LOCALE, TextDirection, textDirection } from './locale';
 export {
   type FieldIssue,
   FieldIssueSchema,

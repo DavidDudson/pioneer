@@ -1,0 +1,30 @@
+<fr-page [title]="'identity.settings.title' | transloco">
+  <fr-surface>
+    <fr-stack gap="md">
+      <fr-select-field
+        [label]="'identity.settings.uiLocale' | transloco"
+        [hint]="'identity.settings.uiLocaleHint' | transloco"
+        [error]="uiError()"
+        [options]="locales()"
+        [value]="shown.ui()"
+        (valueChange)="chooseUi($event)"
+      />
+      <fr-select-field
+        [label]="'identity.settings.contentLocale' | transloco"
+        [hint]="'identity.settings.contentLocaleHint' | transloco"
+        [error]="contentError()"
+        [options]="locales()"
+        [value]="shown.content()"
+        (valueChange)="chooseContent($event)"
+      />
+      <fr-segmented-field
+        [label]="'identity.settings.distanceUnit' | transloco"
+        [hint]="'identity.settings.distanceUnitHint' | transloco"
+        [error]="distanceUnitError()"
+        [options]="distanceUnits()"
+        [value]="shown.distanceUnit()"
+        (valueChange)="chooseDistanceUnit($event)"
+      />
+    </fr-stack>
+  </fr-surface>
+</fr-page>

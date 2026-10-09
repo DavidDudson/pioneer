@@ -1,6 +1,6 @@
 # 0009. Internationalisation with lazy-loaded messages and content text
 
-- Status: Accepted
+- Status: Accepted; locale resolution superseded by [0013](0013-account-only-display-preferences.md)
 - Date: 2026-10-08
 
 ## Context

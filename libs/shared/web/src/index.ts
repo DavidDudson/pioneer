@@ -5,4 +5,4 @@ export { type LocaleMessages, provideI18n } from './i18n';
 export { IdlePreloading, PREFETCH_WHEN_IDLE } from './idle-preloading';
 export { IDLE_SCHEDULER, type IdleScheduler } from './idle-scheduler';
 export { loadWithMessages, provideMessageScope } from './message-scope';
-export { BROWSER_LANGUAGES, LocalePreferences, PREFERENCE_STORAGE } from './locale-preferences';
+export { type DisplayChoices, LocalePreferences, PREFERENCE_STORAGE } from './locale-preferences';

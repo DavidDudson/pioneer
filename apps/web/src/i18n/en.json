@@ -24,6 +24,7 @@
     },
     "account": {
       "signIn": "Sign in",
+      "settings": "Settings",
       "signOut": "Sign out"
     },
     "footer": {

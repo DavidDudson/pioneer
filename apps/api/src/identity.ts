@@ -1,14 +1,16 @@
-import { IdentityService } from '@pioneer/identity/application';
+import { IdentityService, PreferencesService } from '@pioneer/identity/application';
 import type { OAuthProviderPort } from '@pioneer/identity/application';
 import { AuthPath, OAuthProvider } from '@pioneer/identity/domain';
 import {
   csrfGuard,
   DiscordProvider,
+  DrizzlePreferencesRepository,
   DrizzleSessionRepository,
   DrizzleUserRepository,
   GitHubProvider,
   GoogleProvider,
   identityRoutes,
+  preferenceRoutes,
   SessionAuthenticator,
   sessionSweep,
 } from '@pioneer/identity/infrastructure';
@@ -69,7 +71,7 @@ function providers(env: Env): OAuthProviderPort[] {
 
 /** Identity as the rest of the app uses it. */
 export interface Identity {
-  /** Sign-in, session and account routes, plus an hourly sweep of expired sessions while the server runs. */
+  /** Sign-in, session, account and preference routes, plus an hourly sweep of expired sessions while the server runs. */
   readonly routes: Elysia;
   /** Who sent a request, for every other context's routes. */
   readonly authenticator: RequestAuthenticator;
@@ -78,12 +80,16 @@ export interface Identity {
 /** Identity's part of the composition root: service, configured providers, routes and authenticator. */
 export function identity(db: Database, env: Env, clock: Clock): Identity {
   const service = new IdentityService(new DrizzleUserRepository(db), new DrizzleSessionRepository(db), clock);
+  const preferences = new PreferencesService(new DrizzlePreferencesRepository(db), clock);
   // Secure cookies unless the public origin is plain http (local development).
   const secure = env.PUBLIC_ORIGIN?.startsWith('https:') ?? true;
   const policy = { secure };
+  const authenticator = new SessionAuthenticator(service, policy);
   return {
-    routes: identityRoutes(service, providers(env), policy).use(sessionSweep(service, SESSION_SWEEP_INTERVAL)),
-    authenticator: new SessionAuthenticator(service, policy),
+    routes: identityRoutes(service, providers(env), policy)
+      .use(preferenceRoutes(preferences, authenticator))
+      .use(sessionSweep(service, SESSION_SWEEP_INTERVAL)),
+    authenticator,
   };
 }
 
