@@ -34,7 +34,8 @@ export const DamageGroupSchema = z.enum(DamageGroup);
 export const DAMAGE_GROUP_TYPES: Readonly<
   Record<typeof DamageGroup.Physical | typeof DamageGroup.Energy, readonly DamageType[]>
 > = {
-  [DamageGroup.Physical]: [DamageType.Bludgeoning, DamageType.Piercing, DamageType.Slashing],
+  // Foundry pf2e counts bleed as physical (ADR-0008), so physical resistance reduces it.
+  [DamageGroup.Physical]: [DamageType.Bleed, DamageType.Bludgeoning, DamageType.Piercing, DamageType.Slashing],
   [DamageGroup.Energy]: [
     DamageType.Acid,
     DamageType.Cold,

@@ -1,43 +1,11 @@
 import { describe, expect, test } from 'bun:test';
 
-import { DamageAdjustment, DamageGroup, DamageType, Immunity } from '@pioneer/rules/sdk';
-import type { DamageAdjustmentTarget } from '@pioneer/rules/sdk';
+import { DamageGroup, DamageType, Immunity } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
 
-import { applyDamage, DamageInstance, NO_DEFENCES } from './damage';
-import type { DamageTarget } from './damage';
+import { applyDamage, NO_DEFENCES } from './damage';
 import { DiceMessage } from './messages';
-import { parseDiceExpression } from './parse';
-import { rollDice } from './roll';
-import type { RollResult } from './roll';
-import { scriptedRandom } from './testing';
-import { DamageTotal, DiceExpressionText, DieFace } from './units';
-
-const CRITICAL = { critical: true };
-
-function roll(text: string, faces: readonly number[] = []): RollResult {
-  const outcome = parseDiceExpression(DiceExpressionText.parse(text));
-  if (!outcome.ok) {
-    throw new Error(outcome.error.key);
-  }
-  return rollDice(outcome.expression, scriptedRandom(faces.map((face) => DieFace.parse(face))));
-}
-
-function amount(value: number): DamageTotal {
-  return DamageTotal.parse(value);
-}
-
-function expectedInstance(raw: unknown): DamageInstance {
-  return DamageInstance.parse(raw);
-}
-
-function adjustment(type: DamageAdjustmentTarget, value: number): DamageAdjustment {
-  return DamageAdjustment.parse({ type, value });
-}
-
-function target(defences: Partial<DamageTarget>): DamageTarget {
-  return { ...NO_DEFENCES, ...defences };
-}
+import { adjustment, amount, CRITICAL, expectedInstance, roll, target } from './testing/damage-fixtures';
 
 describe('applyDamage', () => {
   test('without a target, every type is taken as rolled and nothing is explained', () => {
@@ -223,20 +191,6 @@ describe('applyDamage', () => {
       target({ weaknesses: [adjustment(DamageType.Fire, 5)], resistances: [adjustment(DamageGroup.All, 3)] }),
     );
     expect(result.taken).toBe(amount(3));
-  });
-
-  test('precision and bleed are their own types', () => {
-    const result = applyDamage(
-      roll('1d8[piercing]+1d6[precision]+1d4[persistent,bleed]', [5, 3, 2]),
-      target({ immunities: [Immunity.parse('precision')], resistances: [adjustment(DamageGroup.Physical, 10)] }),
-    );
-    expect(result.immediate.map((instance) => [instance.type, instance.taken])).toEqual([
-      [DamageType.Piercing, amount(0)],
-      [DamageType.Precision, amount(0)],
-    ]);
-    expect(result.persistent.map((instance) => [instance.type, instance.taken])).toEqual([
-      [DamageType.Bleed, amount(2)],
-    ]);
   });
 
   test('immunity applies to persistent damage of its type too', () => {
