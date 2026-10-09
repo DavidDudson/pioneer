@@ -160,8 +160,9 @@ flowchart LR
 
 Imported content is ORC-licensed remaster material, so rules text is stored and displayed with ORC attribution.
 Reserved Material (Paizo trade dress, art, Golarion names outside ORC) is not imported, or is handled under the
-Community Use Policy where Foundry already does so. NOTICE.md is updated in milestone 0 to reflect that prose is
-stored.
+Community Use Policy. Foundry's own permission comes from its partnership agreement with Paizo, which does not
+extend to Pioneer, so Foundry's data is never a licence for anything outside ORC. NOTICE.md is updated in
+milestone 0 to reflect that prose is stored.
 
 The public Legal page (footer link on every page, no account) states that all official content is derived from
 the Foundry pf2e system at the pinned release, carries the Paizo Community Use and ORC notices, and lists the

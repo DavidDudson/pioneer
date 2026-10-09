@@ -1,5 +1,11 @@
 [files]
-extend-exclude = ["bun.lock", "apps/api/migrations/meta/**", "libs/frontier/src/styles/primitives.color.css"]
+# orc-attribution.ts: author names copied verbatim from licensors' credits.
+extend-exclude = [
+  "bun.lock",
+  "apps/api/migrations/meta/**",
+  "libs/frontier/src/styles/primitives.color.css",
+  "libs/legal/feature/src/lib/legal-page/orc-attribution.ts",
+]
 
 [default.extend-words]
 # Pathfinder terms and deliberate spellings.

@@ -12,4 +12,11 @@ export const appRoutes: Routes = [
       return characterRoutes;
     },
   },
+  {
+    path: 'legal',
+    loadChildren: async () => {
+      const { legalRoutes } = await import('@pioneer/legal/feature');
+      return legalRoutes;
+    },
+  },
 ];

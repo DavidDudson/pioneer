@@ -1,0 +1,38 @@
+{
+  "page": {
+    "title": "Legal",
+    "description": "Pioneer's code is MIT-licensed. Pathfinder content is not ours: it is used under the terms below, and it stays free and public without an account."
+  },
+  "communityUse": {
+    "heading": "Paizo Community Use Policy",
+    "beforePolicyLink": "Pioneer uses trademarks and/or copyrights owned by Paizo Inc., used under Paizo's Community Use Policy (",
+    "policyLink": "paizo.com/licenses/communityuse",
+    "afterPolicyLink": "). We are expressly prohibited from charging you to use or access this content. Pioneer is not published, endorsed, or specifically approved by Paizo. For more information about Paizo Inc. and Paizo products, visit",
+    "siteLink": "paizo.com",
+    "end": ".",
+    "free": "Pioneer is free. Nothing that contains Paizo material sits behind a payment, a paid tier, a sign-up or an email address."
+  },
+  "orc": {
+    "heading": "ORC License",
+    "scope": "The remastered rules (Player Core, GM Core, Monster Core and later books) are published under the ORC License, which covers their game mechanics and rules text. Pioneer shows that rules text with attribution to its source book.",
+    "reserved": "Reserved Material elements in this product include all elements designated as Reserved Material under the ORC License, such as trademarks, proper nouns, artwork, characters, locations, organizations, plots, storylines and trade dress.",
+    "notice": "This product is licensed under the ORC License located at the Library of Congress at TX 9-307-067 and available online at various locations. All warranties are disclaimed as set forth therein.",
+    "licenseLink": "Read the ORC License",
+    "designated": "This product contains no Expressly Designated Licensed Material.",
+    "attribution": {
+      "heading": "Attribution",
+      "intro": "This product is based on the following Licensed Material:",
+      "rulebooks": "Rulebooks",
+      "lostOmens": "Lost Omens",
+      "adventures": "Adventures and Adventure Paths",
+      "society": "Pathfinder Society",
+      "blog": "Paizo blog"
+    }
+  },
+  "foundry": {
+    "heading": "Foundry VTT pf2e system",
+    "derived": "All official content in Pioneer is derived from the data in the Foundry VTT pf2e system, whose code is Apache-2.0. Pioneer imports only its remastered, ORC-licensed entries.",
+    "affiliation": "Pioneer is not affiliated with Foundry Gaming LLC or the pf2e system maintainers.",
+    "repositoryLink": "foundryvtt/pf2e on GitHub"
+  }
+}

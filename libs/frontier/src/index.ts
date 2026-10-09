@@ -59,6 +59,10 @@ export { Shell } from './lib/layout/shell/shell.component';
 export { Stack, StackAlign, StackDirection, StackJustify } from './lib/layout/stack/stack.component';
 export { Surface, SurfaceVariant } from './lib/layout/surface/surface.component';
 
+// Lists
+export { List } from './lib/list/list/list.component';
+export { ListItem } from './lib/list/list-item/list-item.component';
+
 // Text
 export { Heading, HeadingLevel } from './lib/text/heading/heading.component';
 export { FontWeight, TextVariant } from './lib/text/text.variants';

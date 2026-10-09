@@ -1,0 +1,10 @@
+<ng-template #items><ng-content /></ng-template>
+@if (ordered()) {
+  <ol [class]="classes()">
+    <ng-container [ngTemplateOutlet]="items" />
+  </ol>
+} @else {
+  <ul [class]="classes()">
+    <ng-container [ngTemplateOutlet]="items" />
+  </ul>
+}

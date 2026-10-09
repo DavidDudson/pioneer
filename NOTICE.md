@@ -45,8 +45,14 @@ both.
 
 Official content packs are generated from the data in the
 [Foundry VTT pf2e system](https://github.com/foundryvtt/pf2e), whose code is
-Apache-2.0 and whose game content is published under the ORC License (and the
-Community Use Policy where applicable).
+Apache-2.0. Foundry uses Paizo material under its own partnership agreement
+with Paizo, which does not extend to Pioneer: Pioneer takes only the
+remastered rules content, under the ORC License, and relies on the Community
+Use Policy for everything else.
+
+The ORC attribution notice on the Legal page carries every upstream credit in
+Foundry's `static/licenses/ORCLicense.md`, plus any book Pioneer imports that
+the file omits.
 
 All official content in Pioneer is derived from that data. The app's public
 Legal page, linked from every page footer, states this, links the exact Foundry
