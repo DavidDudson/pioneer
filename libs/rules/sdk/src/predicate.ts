@@ -90,20 +90,16 @@ function tooDeep(value: unknown): boolean {
   return false;
 }
 
-/** Rejects too-deep input before `schema` walks it, so untrusted JSON cannot exhaust the stack. */
+/**
+ * Rejects too-deep input before `schema` walks it, so untrusted JSON cannot exhaust the stack. A
+ * check piped into the schema, not a preprocess, so the result still encodes (`z.encode`).
+ */
 function depthGuarded<TOutput>(schema: z.ZodType<TOutput>): z.ZodType<TOutput> {
-  return z.preprocess((value, context) => {
-    if (tooDeep(value)) {
-      context.issues.push({
-        code: 'custom',
-        input: value,
-        message: RulesMessage.PredicateTooDeep,
-        ...issueParams(message(RulesMessage.PredicateTooDeep, { maximum: PREDICATE_DEPTH_MAX })),
-      });
-      return z.NEVER;
-    }
-    return value;
-  }, schema);
+  const tooDeepMessage = message(RulesMessage.PredicateTooDeep, { maximum: PREDICATE_DEPTH_MAX });
+  return z
+    .unknown()
+    .refine((value) => !tooDeep(value), { ...issueParams(tooDeepMessage), abort: true })
+    .pipe(schema);
 }
 
 /** One statement on its own, as a rule element's nested condition might hold it. */

@@ -2,7 +2,7 @@ import { describe, expect, test } from 'bun:test';
 
 import { fieldIssues, message, ValidationMessage } from '@pioneer/shared/kernel';
 import type { FieldIssue } from '@pioneer/shared/kernel';
-import type { z } from 'zod';
+import { z } from 'zod';
 
 import { RulesMessage } from './messages';
 import { Predicate, PREDICATE_DEPTH_MAX, PredicateStatement } from './predicate';
@@ -80,6 +80,12 @@ describe('Predicate', () => {
     ];
     const parsed: unknown = Predicate.parse(foundry);
     expect(parsed).toStrictEqual(foundry);
+  });
+
+  test('encodes back to the same JSON (the depth guard is not a one-way transform)', () => {
+    const json = ['a:b', { not: 'c:d' }, { gte: ['self:level', 5] }];
+    const encoded: unknown = z.encode(Predicate, Predicate.parse(json));
+    expect(encoded).toStrictEqual(json);
   });
 
   test('an empty predicate always holds, so it is valid', () => {
