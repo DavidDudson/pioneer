@@ -19,13 +19,16 @@ describe('RulesPlaygroundPage statistics', () => {
     await chooseSchema(harness, 'Statistics');
 
     const text = pageText(harness);
-    expect(text).toContain('Total 19');
-    expect(text).toContain('Breastplate');
-    expect(text).toContain('item +4');
-    expect(text).toContain('Rule element 1 beats or removes it.');
-    expect(text).toContain('It holds when you are in forest.');
-    expect(text).toContain('Its predicate does not hold.');
-    expect(text).toContain('status -1');
+    const expected = [
+      'Total 19',
+      'Breastplate',
+      'item +4',
+      'Rule element 1 beats or removes it.',
+      'It holds when you are in forest.',
+      'Its predicate does not hold.',
+      'status -1',
+    ];
+    expect(expected.filter((shown) => !text.includes(shown))).toStrictEqual([]);
   });
 
   it('shows a statistic cycle with text from the engine bundle and a caret', async () => {

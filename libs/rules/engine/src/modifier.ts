@@ -26,7 +26,7 @@ export interface ModifierSource {
 }
 
 /** What an `AdjustModifier` does to each modifier it finds. */
-export type AdjustmentChange =
+type AdjustmentChange =
   | { readonly suppress: true }
   | { readonly suppress: false; readonly mode: AdjustMode; readonly value: RuleValue };
 
