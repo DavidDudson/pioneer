@@ -14,6 +14,11 @@
       "notCalled": "“{found}” at position {position} is a function. Call it with brackets, like {found}(…).",
       "argumentCount": "{name} takes {expected, plural, one {# value} other {# values}}, not {given} (position {position}).",
       "argumentCountAtLeast": "{name} needs at least {minimum, plural, one {# value} other {# values}} (position {position})."
+    },
+    "evaluate": {
+      "unknownReference": "“{found}” at position {position} has no value.",
+      "divisionByZero": "The division at position {position} divides by zero.",
+      "outOfRange": "The value at position {position} is out of range. Values must stay between −{maximum} and {maximum}."
     }
   }
 }

@@ -4,8 +4,8 @@ import { z } from 'zod';
 
 import { BinaryOperatorSchema } from './ast';
 import type { BinaryOperator } from './ast';
+import { FormulaError } from './formula-error';
 import { FormulaMessage } from './messages';
-import { FormulaSyntaxError } from './syntax-error';
 import { TextPosition } from './units';
 import type { FormulaText } from './units';
 
@@ -83,7 +83,7 @@ function tokenFrom(match: RegExpExecArray): Token {
   return tokenOf(match, lexeme, TextPosition.parse(match.index + matched.length - lexeme.length + 1));
 }
 
-/** Splits formula text into tokens, or throws a {@link FormulaSyntaxError} at the first character that fits none. */
+/** Splits formula text into tokens, or throws a {@link FormulaError} at the first character that fits none. */
 export function tokenize(text: FormulaText): Token[] {
   const tokens: Token[] = [];
   // A failed sticky match resets `lastIndex` to 0, so track where the last token ended.
@@ -98,7 +98,7 @@ export function tokenize(text: FormulaText): Token[] {
   if (found !== '') {
     // `lastIndex` is just past the stray character, which may be two code units (an emoji): step back to its start.
     const position = TextPosition.parse(STRAY.lastIndex - found.length + 1);
-    throw new FormulaSyntaxError(message(FormulaMessage.UnexpectedCharacter, { found, position }), position);
+    throw new FormulaError(message(FormulaMessage.UnexpectedCharacter, { found, position }), position);
   }
   return tokens;
 }

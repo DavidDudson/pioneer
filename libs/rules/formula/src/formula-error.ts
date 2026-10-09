@@ -2,9 +2,9 @@ import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 import type { TextPosition } from './units';
 
-/** Thrown inside the parser to unwind to `parseFormula`, which reports it as a failed outcome. */
-export class FormulaSyntaxError extends Error {
-  public override readonly name = 'FormulaSyntaxError';
+/** Thrown inside the parser or evaluator to unwind to `parseFormula` or `evaluate`, which report it as a failed outcome. */
+export class FormulaError extends Error {
+  public override readonly name = 'FormulaError';
   public readonly descriptor: MessageDescriptor;
   public readonly position: TextPosition;
 

@@ -3,10 +3,10 @@ import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 import { BinaryOperator, NodeKind } from './ast';
 import type { FormulaNode } from './ast';
+import { FormulaError } from './formula-error';
 import { ARITY, ArgumentCount, FormulaFunctionSchema } from './functions';
 import type { FormulaFunction } from './functions';
 import { FormulaMessage } from './messages';
-import { FormulaSyntaxError } from './syntax-error';
 import { TokenKind, tokenize } from './tokens';
 import type { NameToken, Token } from './tokens';
 import {
@@ -39,7 +39,7 @@ const FIRST = TextPosition.parse(1);
 const REFERENCE_SIGIL = '@';
 
 function fail(descriptor: MessageDescriptor, position: TextPosition): never {
-  throw new FormulaSyntaxError(descriptor, position);
+  throw new FormulaError(descriptor, position);
 }
 
 function unexpected(token: Token): never {
@@ -267,7 +267,7 @@ export function parseFormula(text: FormulaText): ParseOutcome {
   try {
     return { ok: true, formula: new Parser(text).formula() };
   } catch (error) {
-    if (error instanceof FormulaSyntaxError) {
+    if (error instanceof FormulaError) {
       return { ok: false, error: error.descriptor, position: error.position };
     }
     throw error;
