@@ -13,7 +13,6 @@ function issues(value: unknown): readonly FieldIssue[] {
 }
 
 const SHIELD_BLOCK = '5c2d9a7e-3b1f-5e8c-a4d6-7f0b1c2e3d4f';
-const FIREARMS = { slug: 'firearms', label: 'Firearms', definition: ['item:group:firearm'] };
 
 /** Remastered content written as rule elements, one or more per key. */
 const examples: object[] = [
@@ -60,26 +59,25 @@ const examples: object[] = [
   { key: 'MultipleAttackPenalty', selectors: ['strike-attack-roll'], value: -4, predicate: ['item:trait:agile'] },
   { key: 'Proficiency', selector: 'save:will', rank: 'expert' },
   { key: 'Proficiency', selector: 'perception', rank: 'master', predicate: [{ gte: ['self:level', 7] }] },
-  { key: 'MartialProficiency', kind: 'attack', category: 'martial', rank: 'expert' },
-  { key: 'MartialProficiency', kind: 'defense', category: 'heavy', rank: 'trained' },
+  { key: 'Proficiency', selector: 'attack:martial', rank: 'expert' },
+  { key: 'Proficiency', selector: 'defense:heavy', rank: 'trained' },
   {
     key: 'MartialProficiency',
     kind: 'attack',
-    category: {
-      slug: 'advanced-crossbows',
-      label: 'Advanced crossbows',
-      definition: ['item:category:advanced', 'item:group:crossbow'],
-      sameAs: 'martial',
-      maxRank: 'expert',
-    },
+    slug: 'advanced-crossbows',
+    definition: ['item:category:advanced', 'item:group:crossbow'],
+    sameAs: 'martial',
+    maxRank: 'expert',
+    display: { label: 'Advanced crossbows' },
   },
   {
     key: 'MartialProficiency',
     kind: 'defense',
-    category: { slug: 'bulwark-armor', label: 'Bulwark armour', definition: ['item:trait:bulwark'] },
-    rank: 'trained',
-    display: { hidden: true },
+    slug: 'bulwark-armor',
+    definition: ['item:trait:bulwark'],
+    value: 'trained',
   },
+  { key: 'MartialProficiency', slug: 'firearms', definition: ['item:group:firearm'], visible: false },
 ];
 
 describe('RuleElement', () => {
@@ -180,37 +178,15 @@ describe('RuleElement', () => {
     ]);
   });
 
-  test('an attack proficiency names a weapon category, not an armour one', () => {
-    expect(issues({ key: 'MartialProficiency', kind: 'attack', category: 'heavy', rank: 'trained' })).toStrictEqual([
-      { path: ['category'], message: message(ValidationMessage.InvalidValue) },
+  test('a martial proficiency links only to a weapon or armour category', () => {
+    expect(issues({ key: 'MartialProficiency', slug: 'bombs', definition: [], sameAs: 'bomb' })).toStrictEqual([
+      { path: ['sameAs'], message: message(ValidationMessage.InvalidValue) },
     ]);
   });
 
-  test('a group follows a category of its own kind', () => {
-    const category = { slug: 'shields', label: 'Shields', definition: ['item:trait:shield'], sameAs: 'martial' };
-    expect(issues({ key: 'MartialProficiency', kind: 'defense', category })).toStrictEqual([
-      { path: ['category', 'sameAs'], message: message(ValidationMessage.InvalidValue) },
-    ]);
-  });
-
-  test.each([
-    { key: 'MartialProficiency', kind: 'attack', category: { ...FIREARMS, sameAs: 'martial' }, rank: 'expert' },
-    { key: 'MartialProficiency', kind: 'attack', category: FIREARMS },
-  ])('a group has its own rank or follows a category: %o', (element) => {
-    expect(issues(element)).toStrictEqual([{ path: [], message: message(RulesMessage.RankOrSameAs) }]);
-  });
-
-  test('only a linked group caps its rank', () => {
-    const category = { slug: 'firearms', label: 'Firearms', definition: [], maxRank: 'expert' };
-    expect(issues({ key: 'MartialProficiency', kind: 'attack', category, rank: 'trained' })).toStrictEqual([
-      { path: ['category', 'maxRank'], message: message(RulesMessage.MaxRankNeedsSameAs) },
-    ]);
-  });
-
-  test('a group points at its missing field', () => {
-    const category = { slug: 'firearms', label: 'Firearms' };
-    expect(issues({ key: 'MartialProficiency', kind: 'attack', category, rank: 'trained' })).toStrictEqual([
-      { path: ['category', 'definition'], message: message(ValidationMessage.InvalidType, { expected: 'array' }) },
+  test('a martial proficiency defines what it covers', () => {
+    expect(issues({ key: 'MartialProficiency', slug: 'firearms' })).toStrictEqual([
+      { path: ['definition'], message: message(ValidationMessage.InvalidType, { expected: 'array' }) },
     ]);
   });
 });

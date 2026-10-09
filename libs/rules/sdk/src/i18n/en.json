@@ -16,9 +16,7 @@
     "element": {
       "unknown": "“{key}” is not a rule element Pioneer knows yet.",
       "suboptionsNeedToggle": "Only a toggle (toggleable: true) can offer suboptions.",
-      "adjustModeOrSuppress": "Give a mode and a value, or suppress: true, but not both.",
-      "rankOrSameAs": "Give a rank, or link the group to a category with sameAs, but not both.",
-      "maxRankNeedsSameAs": "Only a group linked to a category (sameAs) can cap its rank."
+      "adjustModeOrSuppress": "Give a mode and a value, or suppress: true, but not both."
     }
   }
 }

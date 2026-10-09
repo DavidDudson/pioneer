@@ -56,12 +56,11 @@ describe('checkRulesJson for rule elements', () => {
     expect(checkRulesJson(RulesSchema.RuleElement, json).status).toBe(CheckStatus.Valid);
   });
 
-  it('points into a martial proficiency group', () => {
-    const group = '{ "slug": "shields", "label": "Shields", "definition": [], "sameAs": "martial" }';
-    const json = `{ "key": "MartialProficiency", "kind": "defense", "category": ${group} }`;
+  it('points into a martial proficiency', () => {
+    const json = '{ "key": "MartialProficiency", "slug": "shields", "definition": ["item:trait:shield"], "value": 2 }';
     expect(checkRulesJson(RulesSchema.RuleElement, json)).toStrictEqual({
       status: CheckStatus.Invalid,
-      issues: [{ path: ['category', 'sameAs'], message: message(ValidationMessage.InvalidValue) }],
+      issues: [{ path: ['value'], message: message(ValidationMessage.InvalidValue) }],
     });
   });
 });

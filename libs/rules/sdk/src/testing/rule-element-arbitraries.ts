@@ -151,22 +151,17 @@ const multipleAttackPenalty = element('MultipleAttackPenalty', { selectors: targ
 const raisedRank = constantFrom(...Object.values(Proficiency).filter((rank) => rank !== Proficiency.Untrained));
 const proficiency = element('Proficiency', { selector: keyPathText, rank: raisedRank });
 
-/**
- * A martial proficiency of one `kind`: a category of that kind or a group, each with its own rank,
- * or a group linked to a category, which takes the category's rank instead.
- */
-function martialProficiency(kind: MartialKind, categories: Readonly<Record<string, string>>): Arbitrary<object> {
-  const category = anyOf(categories);
-  const groupFields = { slug: slugText, label: contentText, definition: predicateJson };
-  const group = record(groupFields);
-  const linkedGroup = withOptional(record({ ...groupFields, sameAs: category }), { maxRank: raisedRank });
-  return oneof(
-    element('MartialProficiency', { kind: constant(kind), category: oneof(category, group), rank: raisedRank }),
-    element('MartialProficiency', { kind: constant(kind), category: linkedGroup }),
-  );
-}
-const attackProficiency = martialProficiency(MartialKind.Attack, WeaponCategory);
-const defenseProficiency = martialProficiency(MartialKind.Defense, ArmorCategory);
+const martialProficiency = element(
+  'MartialProficiency',
+  { slug: slugText, definition: predicateJson },
+  {
+    kind: anyOf(MartialKind),
+    sameAs: anyOf({ ...WeaponCategory, ...ArmorCategory }),
+    maxRank: raisedRank,
+    value: raisedRank,
+    visible: boolean(),
+  },
+);
 
 /**
  * Valid rule elements of every `key` the SDK knows, as plain JSON (unparsed). Use with
@@ -188,6 +183,5 @@ export const ruleElementJson: Arbitrary<object> = oneof(
   dexterityCap,
   multipleAttackPenalty,
   proficiency,
-  attackProficiency,
-  defenseProficiency,
+  martialProficiency,
 );

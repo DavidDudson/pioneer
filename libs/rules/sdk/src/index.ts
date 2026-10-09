@@ -99,13 +99,10 @@ export {
 } from './rule-element-item-alteration';
 export {
   ArmorCategory,
-  ArmorCategorySchema,
-  ArmorGroup,
+  MartialCategory,
   MartialKind,
   MartialProficiencyElement,
   ProficiencyElement,
   RaisedRank,
   WeaponCategory,
-  WeaponCategorySchema,
-  WeaponGroup,
 } from './rule-element-proficiency';
