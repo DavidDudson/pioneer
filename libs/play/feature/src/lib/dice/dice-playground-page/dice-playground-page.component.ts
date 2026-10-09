@@ -17,17 +17,27 @@ import {
   ToggleButton,
 } from '@pioneer/frontier';
 import {
+  applyDamage,
   checkOutcome,
   degreeOfSuccess,
   DiceExpressionText,
+  NO_DEFENCES,
   parseDiceExpression,
   rollWithFortune,
 } from '@pioneer/rules/dice';
-import type { DegreeResult, FortunedRoll, FortuneSources, ParseOutcome } from '@pioneer/rules/dice';
+import type {
+  DamageApplication,
+  DamageTarget,
+  DegreeResult,
+  FortunedRoll,
+  FortuneSources,
+  ParseOutcome,
+} from '@pioneer/rules/dice';
 import { Dc } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
+import { DamageTargetEditor } from '../damage-target-editor/damage-target-editor.component';
 import { RANDOM_SOURCE } from '../random-source';
 import { RollCard } from '../roll-card/roll-card.component';
 import { rollView } from '../roll-view';
@@ -50,11 +60,16 @@ interface DcRangeParams {
 const PLAYGROUND_FORTUNE = message('play.dice.playgroundFortune');
 const PLAYGROUND_MISFORTUNE = message('play.dice.playgroundMisfortune');
 
-/** Type an expression, roll it with or without fortune and misfortune, and see every die behind the total. */
+/**
+ * Type an expression, roll it with or without fortune and misfortune, and see every die behind the total;
+ * optionally compare it with a DC, or apply it as damage to a target with immunities, weaknesses and
+ * resistances.
+ */
 @Component({
   selector: 'pio-dice-playground-page',
   imports: [
     Button,
+    DamageTargetEditor,
     Field,
     FieldError,
     FieldHint,
@@ -109,6 +124,9 @@ export class DicePlaygroundPage {
   });
   protected readonly dcInvalid = computed((): boolean => this.againstDc() && this.#dc() === undefined);
   protected readonly canRoll = computed((): boolean => this.error() === undefined && !this.dcInvalid());
+  protected readonly againstTarget = signal(false);
+  protected readonly critical = signal(false);
+  protected readonly target = signal<DamageTarget>(NO_DEFENCES);
   protected readonly rolls = signal<readonly RollView[]>([]);
 
   protected roll(): void {
@@ -118,8 +136,22 @@ export class DicePlaygroundPage {
     }
     this.#rolled += 1;
     const roll = rollWithFortune(outcome.expression, this.#sources(), this.#random);
-    const view = rollView(this.#rolled, { expression: outcome.expression, roll, degree: this.#degree(roll) });
+    const view = rollView(this.#rolled, {
+      expression: outcome.expression,
+      roll,
+      degree: this.#degree(roll),
+      damage: this.#damage(roll),
+    });
     this.rolls.update((rolls) => [view, ...rolls].slice(0, HISTORY_LIMIT));
+  }
+
+  /** The kept roll applied to the target, when one is set up. */
+  #damage(roll: FortunedRoll): DamageApplication | undefined {
+    const kept = roll.rolls.find((entry) => entry.kept);
+    if (!this.againstTarget() || kept === undefined) {
+      return undefined;
+    }
+    return applyDamage(kept.result, this.target(), { critical: this.critical() });
   }
 
   /** The kept roll's degree of success, when rolling against a DC. */

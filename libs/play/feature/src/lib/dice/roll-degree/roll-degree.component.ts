@@ -1,9 +1,8 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { LocaleFormat, Stack, Text } from '@pioneer/frontier';
-import { message } from '@pioneer/shared/kernel';
-import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
+import { localised } from '../localise';
 import type { DegreeView } from '../roll-view';
 
 /** A roll's degree of success, then each step that led to it (comparison, natural die, adjustments) and why. */
@@ -22,20 +21,10 @@ export class RollDegree {
     const degree = this.degree();
     return {
       degreeKey: degree.degreeKey,
-      steps: degree.steps.map((step) => ({ degreeKey: step.degreeKey, reason: this.#localised(step.reason) })),
+      steps: degree.steps.map((step) => ({
+        degreeKey: step.degreeKey,
+        reason: localised(this.#format, step.reason),
+      })),
     };
   });
-
-  #localised(descriptor: MessageDescriptor): MessageDescriptor {
-    if (descriptor.params === undefined) {
-      return descriptor;
-    }
-    const params = Object.fromEntries(
-      Object.entries(descriptor.params).map(([name, value]) => [
-        name,
-        typeof value === 'number' ? this.#format.number(value) : value,
-      ]),
-    );
-    return message(descriptor.key, params);
-  }
 }

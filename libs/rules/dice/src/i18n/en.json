@@ -27,6 +27,14 @@
       "baseCriticalFailure": "{total} misses DC {dc} by 10 or more.",
       "natural20": "Natural 20: one degree better.",
       "natural1": "Natural 1: one degree worse."
+    },
+    "damage": {
+      "critical": "Critical hit: {rolled} doubled to {doubled}.",
+      "criticalImmune": "Immune to critical hits: not doubled.",
+      "splash": "Splash: {splash} added, never doubled.",
+      "immune": "Immune to {type, select, bludgeoning {bludgeoning} piercing {piercing} slashing {slashing} acid {acid} cold {cold} electricity {electricity} fire {fire} sonic {sonic} vitality {vitality} void {void} force {force} spirit {spirit} mental {mental} poison {poison} bleed {bleed} precision {precision} other {this damage}}: {prevented} ignored.",
+      "weakness": "Weakness {value} to {target, select, all {all damage} physical {physical} energy {energy} bludgeoning {bludgeoning} piercing {piercing} slashing {slashing} acid {acid} cold {cold} electricity {electricity} fire {fire} sonic {sonic} vitality {vitality} void {void} force {force} spirit {spirit} mental {mental} poison {poison} bleed {bleed} precision {precision} other {this damage}}: {value} more.",
+      "resistance": "Resistance {value} to {target, select, all {all damage} physical {physical} energy {energy} bludgeoning {bludgeoning} piercing {piercing} slashing {slashing} acid {acid} cold {cold} electricity {electricity} fire {fire} sonic {sonic} vitality {vitality} void {void} force {force} spirit {spirit} mental {mental} poison {poison} bleed {bleed} precision {precision} other {this damage}}: {prevented} prevented."
     }
   }
 }

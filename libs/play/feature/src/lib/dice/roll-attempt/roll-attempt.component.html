@@ -1,0 +1,9 @@
+@let shown = attempt();
+<fr-stack gap="sm">
+  @if (shown.heading; as heading) {
+    <fr-text [tone]="shown.tone" [weight]="shown.weight">{{ heading.key | transloco: heading.params }}</fr-text>
+  }
+  @for (term of shown.terms; track $index) {
+    <pio-roll-term [term]="term" />
+  }
+</fr-stack>

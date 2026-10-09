@@ -1,0 +1,18 @@
+@let defences = target();
+<fr-surface>
+  <fr-stack gap="md">
+    <fr-heading variant="subheading" [level]="2">{{ 'play.dice.targetHeading' | transloco }}</fr-heading>
+    <fr-text element="p" tone="muted">{{ 'play.dice.targetHint' | transloco }}</fr-text>
+    <pio-immunity-editor [immunities]="immunities()" (immunitiesChange)="setImmunities($event)" />
+    <pio-adjustment-editor
+      [kind]="weakness"
+      [adjustments]="defences.weaknesses"
+      (adjustmentsChange)="setWeaknesses($event)"
+    />
+    <pio-adjustment-editor
+      [kind]="resistance"
+      [adjustments]="defences.resistances"
+      (adjustmentsChange)="setResistances($event)"
+    />
+  </fr-stack>
+</fr-surface>
