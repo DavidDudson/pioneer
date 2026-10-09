@@ -1,0 +1,9 @@
+{
+  "engine": {
+    "statistic": {
+      "cycle": "“{found}” at position {position} closes a loop: {count, plural, one {{statistics} depends on itself} other {{statistics} depend on one another}}.",
+      "missing": "“{found}” at position {position} reads {selector}, but no statistic has that selector.",
+      "failedDependency": "“{found}” at position {position} reads {selector}, which has an error of its own."
+    }
+  }
+}

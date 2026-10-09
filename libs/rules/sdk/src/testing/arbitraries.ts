@@ -90,6 +90,7 @@ export const actorReferencePath: Arbitrary<string> = oneof(
   constant('attr.dex.capped'),
   selectorPath.map((path) => `prof.${path}`),
   selectorPath.map((path) => `rank.${path}`),
+  selectorPath.map((path) => `stat.${path}`),
 );
 
 /** Paths the reference vocabulary knows that read the item a rule element is on. */

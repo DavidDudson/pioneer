@@ -22,6 +22,8 @@
           <pio-formula-references [check]="formulaResult" [(entries)]="referenceEntries" />
         } @else if (tool.kind === ToolKind.Verdict) {
           <pio-verdict-fields [check]="tool.check" [(predicate)]="text" [(facts)]="facts" />
+        } @else if (tool.kind === ToolKind.Statistics) {
+          <pio-statistics-fields [check]="tool.check" [(definitions)]="text" [(inputs)]="statisticInputs" />
         } @else {
           @let schemaResult = tool.check;
           <fr-field [invalid]="schemaResult.status !== CheckStatus.Valid">

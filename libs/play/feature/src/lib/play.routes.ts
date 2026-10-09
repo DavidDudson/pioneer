@@ -1,5 +1,6 @@
 import type { Routes } from '@angular/router';
 import { diceMessages } from '@pioneer/rules/dice';
+import { engineMessages } from '@pioneer/rules/engine';
 import { formulaMessages } from '@pioneer/rules/formula';
 import { predicateMessages } from '@pioneer/rules/predicate';
 import { rulesMessages } from '@pioneer/rules/sdk';
@@ -8,7 +9,8 @@ import { loadWithMessages, provideMessageScope } from '@pioneer/shared/web';
 
 /**
  * Lazy routes for solo play and the rules playground. Rules text from `rules/dice`, `rules/sdk`,
- * `rules/formula` and `rules/predicate` loads as their own `dice`, `rules`, `formula` and `predicate` scopes.
+ * `rules/formula`, `rules/predicate` and `rules/engine` loads as their own `dice`, `rules`, `formula`,
+ * `predicate` and `engine` scopes.
  */
 export const playRoutes: Routes = [
   {
@@ -19,6 +21,7 @@ export const playRoutes: Routes = [
       provideMessageScope('rules', { [Locale.English]: async () => rulesMessages.rules }),
       provideMessageScope('formula', { [Locale.English]: async () => formulaMessages.formula }),
       provideMessageScope('predicate', { [Locale.English]: async () => predicateMessages.predicate }),
+      provideMessageScope('engine', { [Locale.English]: async () => engineMessages.engine }),
     ],
     children: [
       { path: '', pathMatch: 'full', redirectTo: 'dice' },

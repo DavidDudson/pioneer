@@ -1,0 +1,19 @@
+@let result = check();
+@if (result.status === StatisticsStatus.Valid) {
+  <fr-list gap="md">
+    @for (row of result.rows; track row.selector) {
+      <fr-list-item><pio-statistic-row [row]="row" /></fr-list-item>
+    } @empty {
+      <fr-text element="p" tone="muted">{{ 'play.rules.noStatistics' | transloco }}</fr-text>
+    }
+  </fr-list>
+} @else {
+  @if (result.definitions; as definitions) {
+    <fr-heading variant="subheading" [level]="3">{{ 'play.rules.statisticsLabel' | transloco }}</fr-heading>
+    <pio-rules-result [outcome]="definitions" />
+  }
+  @if (result.inputs; as inputs) {
+    <fr-heading variant="subheading" [level]="3">{{ 'play.rules.inputsLabel' | transloco }}</fr-heading>
+    <pio-rules-result [outcome]="inputs" />
+  }
+}

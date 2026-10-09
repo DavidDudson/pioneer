@@ -1,61 +1,14 @@
-import { TestBed } from '@angular/core/testing';
-import { provideRouter } from '@angular/router';
-import { RouterTestingHarness } from '@angular/router/testing';
-import { frontierMessages } from '@pioneer/frontier';
-import { kernelMessages } from '@pioneer/shared/kernel';
-import { provideI18n } from '@pioneer/shared/web';
 import { describe, expect, it } from 'vitest';
 
-import { playRoutes } from '../../play.routes';
-
-function present<TValue>(value: TValue | null | undefined): TValue {
-  if (value === null || value === undefined) {
-    throw new Error('Expected element to be rendered');
-  }
-  return value;
-}
-
-async function openPlayground(): Promise<RouterTestingHarness> {
-  TestBed.configureTestingModule({
-    providers: [
-      provideRouter([{ path: 'play', children: playRoutes }]),
-      provideI18n({ en: async () => ({ ...kernelMessages, ...frontierMessages }) }),
-    ],
-  });
-  const harness = await RouterTestingHarness.create('/play/rules');
-  await harness.fixture.whenStable();
-  return harness;
-}
-
-async function typeJson(harness: RouterTestingHarness, text: string): Promise<void> {
-  const textarea = present(harness.routeNativeElement?.querySelector('textarea'));
-  textarea.value = text;
-  textarea.dispatchEvent(new Event('input'));
-  await harness.fixture.whenStable();
-}
-
-async function chooseSchema(harness: RouterTestingHarness, label: string): Promise<void> {
-  present(harness.routeNativeElement?.querySelector('button')).click();
-  await harness.fixture.whenStable();
-  const options = [...document.querySelectorAll<HTMLElement>('[role="option"]')];
-  present(options.find((option) => option.textContent.trim() === label)).click();
-  await harness.fixture.whenStable();
-}
-
-async function typeInto(harness: RouterTestingHarness, input: HTMLInputElement, text: string): Promise<void> {
-  input.value = text;
-  input.dispatchEvent(new Event('input'));
-  await harness.fixture.whenStable();
-}
-
-function pageText(harness: RouterTestingHarness): string {
-  return present(harness.routeNativeElement).textContent;
-}
-
-/** The verdict tool's second text area. */
-function factsInput(harness: RouterTestingHarness): HTMLTextAreaElement {
-  return present(present(harness.routeNativeElement).querySelectorAll('textarea').item(1));
-}
+import {
+  chooseSchema,
+  secondTextArea,
+  openPlayground,
+  pageText,
+  present,
+  typeInto,
+  typeJson,
+} from './playground-harness';
 
 describe('RulesPlaygroundPage', () => {
   it('opens on a valid example predicate', async () => {
@@ -214,7 +167,7 @@ describe('RulesPlaygroundPage', () => {
     expect(text).toContain('Depends');
     expect(text).toContain('{"gte":["self:level",5]}');
 
-    const facts = factsInput(harness);
+    const facts = secondTextArea(harness);
     facts.value = 'self:condition:frightened\nself:level:5\naction:seek';
     facts.dispatchEvent(new Event('input'));
     await harness.fixture.whenStable();
@@ -225,7 +178,7 @@ describe('RulesPlaygroundPage', () => {
     const harness = await openPlayground();
     await chooseSchema(harness, 'Predicate verdict');
 
-    const facts = factsInput(harness);
+    const facts = secondTextArea(harness);
     facts.value = 'self:level:5\nFrightened';
     facts.dispatchEvent(new Event('input'));
     await harness.fixture.whenStable();

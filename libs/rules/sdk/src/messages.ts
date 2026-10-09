@@ -17,5 +17,6 @@ export const RulesMessage = {
   ReferenceCappedDexterity: 'rules.reference.cappedDexterity',
   ReferenceProficiencyBonus: 'rules.reference.proficiencyBonus',
   ReferenceProficiencyRank: 'rules.reference.proficiencyRank',
+  ReferenceStatistic: 'rules.reference.statistic',
   ReferenceItemLevel: 'rules.reference.itemLevel',
 } as const;

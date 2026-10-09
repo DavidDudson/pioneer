@@ -18,9 +18,18 @@ import type { SelectOption } from '@pioneer/frontier';
 import { filter, merge } from 'rxjs';
 
 import { FormulaReferences } from '../formula-references/formula-references.component';
-import { CheckStatus, RULES_TOOL_KEYS, rulesExample, RulesTool } from '../rules-check';
-import { checkTool, EXAMPLE_FACTS, ToolKind } from '../rules-tool';
+import {
+  CheckStatus,
+  checkTool,
+  EXAMPLE_FACTS,
+  EXAMPLE_STATISTIC_INPUTS,
+  RULES_TOOL_KEYS,
+  rulesExample,
+  RulesTool,
+  ToolKind,
+} from '../rules-tool';
 import type { ReferenceEntries, ToolCheck } from '../rules-tool';
+import { StatisticsFields } from '../statistics-fields/statistics-fields.component';
 import { ToolResult } from '../tool-result/tool-result.component';
 import { VerdictFields } from '../verdict-fields/verdict-fields.component';
 
@@ -29,7 +38,8 @@ const JSON_ROWS = 12;
 /**
  * Paste rules JSON, pick a schema, and see whether it validates and, if not, where and why. The formula
  * tool parses formula text instead, points at the first mistake, and evaluates it with reference values; the verdict tool evaluates a predicate
- * against roll options and shows which statements hold.
+ * against roll options and shows which statements hold; the statistics tool derives each statistic's base from
+ * definitions and the character's inputs.
  */
 @Component({
   selector: 'pio-rules-playground-page',
@@ -43,6 +53,7 @@ const JSON_ROWS = 12;
     Page,
     Select,
     Stack,
+    StatisticsFields,
     Surface,
     TextArea,
     TextInput,
@@ -76,11 +87,14 @@ export class RulesPlaygroundPage {
   protected readonly referenceEntries = signal<ReferenceEntries>(new Map());
   /** Roll options for the verdict tool, one per line. Kept when switching tools. */
   protected readonly facts = signal(EXAMPLE_FACTS);
+  /** The character's inputs for the statistics tool, as JSON. Kept when switching tools. */
+  protected readonly statisticInputs = signal(EXAMPLE_STATISTIC_INPUTS);
   /** The chosen tool's answer for the current text. */
   protected readonly result = computed((): ToolCheck =>
     checkTool(this.schema(), this.text(), {
       facts: this.facts(),
       entries: this.referenceEntries(),
+      statisticInputs: this.statisticInputs(),
     }),
   );
 

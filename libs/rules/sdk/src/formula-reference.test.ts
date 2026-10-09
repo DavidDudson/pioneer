@@ -23,6 +23,7 @@ describe('formula reference vocabulary', () => {
     ['prof.save.fortitude', { kind: ReferenceKind.ProficiencyBonus, selector: 'save:fortitude' }],
     ['prof.skill.lore-sailing', { kind: ReferenceKind.ProficiencyBonus, selector: 'skill:lore-sailing' }],
     ['rank.attack.martial', { kind: ReferenceKind.ProficiencyRank, selector: 'attack:martial' }],
+    ['stat.spell-attack.arcane', { kind: ReferenceKind.Statistic, selector: 'spell-attack:arcane' }],
     ['item.level', { kind: ReferenceKind.ItemLevel }],
   ])('@%s is known', (path, reference) => {
     expect(known(path)).toStrictEqual(reference);
@@ -41,6 +42,7 @@ describe('formula reference vocabulary', () => {
     'prof.Save',
     'prof.save.-fortitude',
     'rank.save_fortitude',
+    'stat',
     'item.badge.value',
   ])('@%s is unknown', (path) => {
     expect(known(path)).toBeUndefined();
