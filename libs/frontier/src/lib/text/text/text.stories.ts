@@ -29,7 +29,6 @@ const meta: Meta<TextStoryArgs> = {
     tone: Tone.Default,
     truncate: false,
     numeric: false,
-    preformatted: false,
   },
   render: ({ content, ...args }) => ({
     props: args,
@@ -84,12 +83,10 @@ export const Weights: TextStory = {
 /** Tabular figures, so columns of numbers line up. */
 export const Numeric: TextStory = { args: { content: '1,234,567', numeric: true } };
 
-/** Keeps line breaks and indentation, for formatted JSON; long lines wrap. */
+/** Block code: keeps line breaks and indentation, for formatted JSON; long lines wrap. */
 export const Preformatted: TextStory = {
   args: {
-    element: TextElement.Paragraph,
-    variant: TextVariant.Code,
-    preformatted: true,
+    element: TextElement.Preformatted,
     content: '[\n  "self:condition:frightened",\n  { "not": "item:trait:agile" }\n]',
   },
 };

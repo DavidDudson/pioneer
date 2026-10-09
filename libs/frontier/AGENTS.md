@@ -21,15 +21,15 @@ Read this before touching any UI.
   else composes that primitive: `<button>` only in `fr-button` (and the
   select trigger), `<input>` only in the plain controls, `<a>` only in
   `fr-link`, `<label>` only in `fr-label`, `<form>` only in `fr-form` /
-  `fr-async-form`, `<h1>`–`<h4>` only in `fr-heading`, `<p>`, `<code>`,
-  `<kbd>`, `<abbr>` and `<q>` only in `fr-text`, `<blockquote>` only in
+  `fr-async-form`, `<h1>`–`<h4>` only in `fr-heading`, `<p>`, `<pre>`,
+  `<code>`, `<kbd>`, `<abbr>` and `<q>` only in `fr-text`, `<blockquote>` only in
   `fr-quote`, `<ul>` / `<ol>` only in `fr-list`, `<li>` only in
   `fr-list-item`, `<dl>` only in `fr-description-list`, `<dt>` / `<dd>` only in
   `fr-description-item`, table elements only in `fr-table`, `<svg>` only in `fr-icon`,
   `<textarea>` only in `fr-text-area`, `<details>` / `<summary>` only in
   `fr-disclosure`, `<hr>` only in `fr-divider`, `<img>` only in `fr-image`.
   Elements with no owner yet
-  (`pre`, `cite`, `fieldset`, `progress`, …) fail lint:
+  (`cite`, `fieldset`, `progress`, …) fail lint:
   add a primitive first. `<select>` is banned for good (`fr-select` builds on
   `@angular/aria`), as is `<dialog>` (no modals). Only `div`, `span` and the landmark and sectioning
   elements are free; any element missing from the ownership map
@@ -238,22 +238,22 @@ after `themes/frontier.css`, and add it to `Theme` in
 
 ## Components
 
-| Area           | Components                                                                                                                                                                                                                                                          |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Layout         | Primitives `fr-box`, `fr-grid`, `fr-stack`; composed `fr-shell`, `fr-page`, `fr-surface`; `fr-divider` (`orientation`, `tone` subtle/default/strong; vertical is decorative)                                                                                        |
-| Disclosure     | `fr-disclosure` (expand in place; `frDisclosureSummary` takes phrasing content only, nothing interactive)                                                                                                                                                           |
-| Lists          | `fr-list` (`ordered` for `<ol>`, `markers` for bullets or numbers, `gap`) with `fr-list-item`; `fr-description-list` (`gap`, `columnsFrom`) with `fr-description-item [term]`                                                                                       |
-| Text           | `fr-text` (`element="span\|p\|code\|kbd\|abbr\|q"`, `expansion` for `abbr`), `fr-quote` (block quote, `attribution`), `fr-heading` (`[level]` for the outline, `variant` for the look), `fr-badge` (`tone` neutral/accent/status, `variant` subtle/solid, `[icon]`) |
-| Actions        | `fr-button` (`(pressed)`, `iconOnly` for a square icon button), `fr-async-button`, `fr-link` (`to` routes, `href` external only)                                                                                                                                    |
-| Async          | `injectAsyncAction`, `fr-async-indicator`, `fr-async-region` (+ `frAsyncPending` / `frAsyncData` / `frAsyncError` slots)                                                                                                                                            |
-| Feedback       | `fr-message` (inline, never a toast), `fr-skeleton` (loading content), `fr-spinner` (action progress only)                                                                                                                                                          |
-| Icons          | `fr-icon` (Lucide; `[icon]`, `size`, `tone`, `label`, `spin`)                                                                                                                                                                                                       |
-| Media          | `fr-image` (`alt` required, `decorative` for `alt=""`; `size`, `aspect`, `fit`; lazy, shimmers until loaded, `(failed)`), `fr-avatar` (`name`, optional `src`, `size`; initials when there is no image)                                                             |
-| Dates          | `fr-date` (Temporal values only)                                                                                                                                                                                                                                    |
-| Controls       | Plain: `fr-text-input`, `fr-search-input` (`(searched)` debounced), `fr-text-area`, `fr-number-input`, `fr-date-input`, `fr-toggle-button` (on/off), `fr-segmented` (2-3 options), `fr-select` (4+, `@angular/aria`)                                                |
-| Forms          | `fr-form`, `fr-async-form`; `fr-text-field`, `fr-text-area-field`, `fr-number-field`, `fr-date-field`, `fr-toggle-button-field`, `fr-segmented-field`, `fr-select-field`; parts `fr-field`, `fr-label`, `fr-field-hint`, `fr-field-error`                           |
-| Inline edit    | `InlineEdit<T>` controller + `fr-inline-field`                                                                                                                                                                                                                      |
-| Data (`/data`) | `fr-table` (TanStack Table), `fr-chart` (TanStack Charts), `fr-virtual-list` (TanStack Virtual)                                                                                                                                                                     |
+| Area           | Components                                                                                                                                                                                                                                                               |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Layout         | Primitives `fr-box`, `fr-grid`, `fr-stack`; composed `fr-shell`, `fr-page`, `fr-surface`; `fr-divider` (`orientation`, `tone` subtle/default/strong; vertical is decorative)                                                                                             |
+| Disclosure     | `fr-disclosure` (expand in place; `frDisclosureSummary` takes phrasing content only, nothing interactive)                                                                                                                                                                |
+| Lists          | `fr-list` (`ordered` for `<ol>`, `markers` for bullets or numbers, `gap`) with `fr-list-item`; `fr-description-list` (`gap`, `columnsFrom`) with `fr-description-item [term]`                                                                                            |
+| Text           | `fr-text` (`element="span\|p\|pre\|code\|kbd\|abbr\|q"`, `expansion` for `abbr`), `fr-quote` (block quote, `attribution`), `fr-heading` (`[level]` for the outline, `variant` for the look), `fr-badge` (`tone` neutral/accent/status, `variant` subtle/solid, `[icon]`) |
+| Actions        | `fr-button` (`(pressed)`, `iconOnly` for a square icon button), `fr-async-button`, `fr-link` (`to` routes, `href` external only)                                                                                                                                         |
+| Async          | `injectAsyncAction`, `fr-async-indicator`, `fr-async-region` (+ `frAsyncPending` / `frAsyncData` / `frAsyncError` slots)                                                                                                                                                 |
+| Feedback       | `fr-message` (inline, never a toast), `fr-skeleton` (loading content), `fr-spinner` (action progress only)                                                                                                                                                               |
+| Icons          | `fr-icon` (Lucide; `[icon]`, `size`, `tone`, `label`, `spin`)                                                                                                                                                                                                            |
+| Media          | `fr-image` (`alt` required, `decorative` for `alt=""`; `size`, `aspect`, `fit`; lazy, shimmers until loaded, `(failed)`), `fr-avatar` (`name`, optional `src`, `size`; initials when there is no image)                                                                  |
+| Dates          | `fr-date` (Temporal values only)                                                                                                                                                                                                                                         |
+| Controls       | Plain: `fr-text-input`, `fr-search-input` (`(searched)` debounced), `fr-text-area`, `fr-number-input`, `fr-date-input`, `fr-toggle-button` (on/off), `fr-segmented` (2-3 options), `fr-select` (4+, `@angular/aria`)                                                     |
+| Forms          | `fr-form`, `fr-async-form`; `fr-text-field`, `fr-text-area-field`, `fr-number-field`, `fr-date-field`, `fr-toggle-button-field`, `fr-segmented-field`, `fr-select-field`; parts `fr-field`, `fr-label`, `fr-field-hint`, `fr-field-error`                                |
+| Inline edit    | `InlineEdit<T>` controller + `fr-inline-field`                                                                                                                                                                                                                           |
+| Data (`/data`) | `fr-table` (TanStack Table), `fr-chart` (TanStack Charts), `fr-virtual-list` (TanStack Virtual)                                                                                                                                                                          |
 
 ## Storybook
 

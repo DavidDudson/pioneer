@@ -44,9 +44,18 @@ describe(Text, () => {
     expect(rendered.textContent.trim()).toBe('AC');
   });
 
-  it.each([TextElement.Code, TextElement.Keyboard])('sets <%s> in the mono font', async (element) => {
-    const rendered = await render({ element });
-    expect([...rendered.classList]).toContain('font-mono');
+  it.each([TextElement.Preformatted, TextElement.Code, TextElement.Keyboard])(
+    'sets <%s> in the mono font',
+    async (element) => {
+      const rendered = await render({ element });
+      expect([...rendered.classList]).toContain('font-mono');
+    },
+  );
+
+  it('keeps the line breaks in a <pre>', async () => {
+    const rendered = await render({ element: TextElement.Preformatted }, '[\n  "a"\n]');
+    expect(rendered.textContent).toBe('[\n  "a"\n]');
+    expect([...rendered.classList]).toContain('whitespace-pre-wrap');
   });
 
   it('boxes a <kbd> like a key', async () => {

@@ -5,6 +5,8 @@
   /></fr-text-phrase>
 } @else if (element() === 'p') {
   <p [class]="classes()"><ng-container [ngTemplateOutlet]="content" /></p>
+} @else if (element() === 'pre') {
+  <pre [class]="classes()"><ng-container [ngTemplateOutlet]="content" /></pre>
 } @else {
   <span [class]="classes()"><ng-container [ngTemplateOutlet]="content" /></span>
 }

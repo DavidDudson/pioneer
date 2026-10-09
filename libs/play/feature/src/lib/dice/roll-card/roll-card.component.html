@@ -2,7 +2,7 @@
 <fr-surface>
   <fr-stack gap="sm">
     <fr-stack direction="horizontal" justify="between" align="baseline" wrap>
-      <fr-text variant="code">{{ shown.notation }}</fr-text>
+      <fr-text element="code">{{ shown.notation }}</fr-text>
       <fr-heading variant="heading" [level]="3">{{ 'play.dice.total' | transloco: { total: shown.total } }}</fr-heading>
     </fr-stack>
     @if (shown.degree; as degree) {
