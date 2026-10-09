@@ -1,8 +1,9 @@
 import { FormulaMessage, ReferencePath, TextPosition } from '@pioneer/rules/formula';
 import { describe, expect, it } from 'vitest';
 
-import { checkFormula, pointAt } from './formula-check';
+import { checkFormula } from './formula-check';
 import type { ReferenceEntries } from './formula-check';
+import { pointAt } from './point-at';
 import { CheckStatus, rulesExample, RulesTool } from './rules-check';
 
 const NONE: ReferenceEntries = new Map();
@@ -15,7 +16,7 @@ describe(checkFormula, () => {
     expect(checkFormula(example, NONE)).toMatchObject({
       status: CheckStatus.Valid,
       canonical: example,
-      references: ['attr.dex.capped', 'prof.armor', 'level'],
+      references: ['attr.dex.capped', 'prof.ac'],
       evaluation: { status: CheckStatus.Valid, value: 20 },
     });
   });

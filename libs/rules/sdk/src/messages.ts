@@ -8,4 +8,13 @@ export const RulesMessage = {
   UnknownElement: 'rules.element.unknown',
   SuboptionsNeedToggle: 'rules.element.suboptionsNeedToggle',
   AdjustModeOrSuppress: 'rules.element.adjustModeOrSuppress',
+  UnknownReference: 'rules.formula.unknownReference',
+  FoundryReference: 'rules.formula.foundryReference',
+  ReferenceOutOfScope: 'rules.formula.referenceOutOfScope',
+  ReferenceLevel: 'rules.reference.level',
+  ReferenceAttributeModifier: 'rules.reference.attributeModifier',
+  ReferenceCappedDexterity: 'rules.reference.cappedDexterity',
+  ReferenceProficiencyBonus: 'rules.reference.proficiencyBonus',
+  ReferenceProficiencyRank: 'rules.reference.proficiencyRank',
+  ReferenceItemLevel: 'rules.reference.itemLevel',
 } as const;

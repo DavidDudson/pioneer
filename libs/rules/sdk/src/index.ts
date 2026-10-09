@@ -58,7 +58,20 @@ export { RollOption } from './roll-option';
 export { Domain, Selector, SlotKey } from './selector';
 export { AonUrl, BookId, PageNumber, SourceKind, SourceRef, SourceTitle, WebUrl } from './source-ref';
 export { default as rulesMessages } from './i18n/en.json';
-export { FormulaSource } from './formula-source';
+export { type FormulaProblem, formulaProblems, FormulaSource } from './formula-source';
+export {
+  FOUNDRY_REFERENCES,
+  type FoundryReference,
+  FoundryReferencePattern,
+  fromFoundryPath,
+  type KnownReference,
+  knownReference,
+  REFERENCE_CATALOGUE,
+  type ReferenceDefinition,
+  ReferenceKind,
+  ReferencePattern,
+  ReferenceScope,
+} from './formula-reference';
 export { ModifierType, ModifierTypeSchema } from './modifier-type';
 export { RuleElement, RuleElements } from './rule-element';
 export {

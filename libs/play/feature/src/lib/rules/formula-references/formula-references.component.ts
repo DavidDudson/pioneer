@@ -10,10 +10,22 @@ import {
   untracked,
 } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { Field, FieldError, Heading, Label, LocaleFormat, NumberInput, Stack, Text } from '@pioneer/frontier';
+import {
+  Field,
+  FieldError,
+  FieldHint,
+  Heading,
+  Label,
+  LocaleFormat,
+  NumberInput,
+  Stack,
+  Text,
+} from '@pioneer/frontier';
 import type { ReferencePath } from '@pioneer/rules/formula';
+import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 import type { FormulaCheck } from '../formula-check';
+import { referenceMeaning } from '../reference-meaning';
 import { entryFor, REFERENCE_VALUE_MAX, REFERENCE_VALUE_MIN, usableValue } from '../reference-values';
 import type { ReferenceEntries, ReferenceEntry } from '../reference-values';
 import { CheckStatus } from '../rules-check';
@@ -22,6 +34,8 @@ interface ReferenceRow {
   readonly path: ReferencePath;
   readonly entry: ReferenceEntry;
   readonly invalid: boolean;
+  /** What the reference reads, or that stored formulas cannot use it. */
+  readonly meaning: MessageDescriptor;
 }
 
 interface ValueRangeParams {
@@ -32,7 +46,7 @@ interface ValueRangeParams {
 /** A number box for each reference in a formula, so the formula can be evaluated with those values. */
 @Component({
   selector: 'pio-formula-references',
-  imports: [Field, FieldError, Heading, Label, NumberInput, Stack, Text, TranslocoPipe],
+  imports: [Field, FieldError, FieldHint, Heading, Label, NumberInput, Stack, Text, TranslocoPipe],
   templateUrl: './formula-references.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -62,7 +76,7 @@ export class FormulaReferences {
     const entries = this.entries();
     return this.references().map((path) => {
       const entry = entryFor(entries, path);
-      return { path, entry, invalid: usableValue(entry) === undefined };
+      return { path, entry, invalid: usableValue(entry) === undefined, meaning: referenceMeaning(path) };
     });
   });
 

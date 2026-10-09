@@ -1,3 +1,4 @@
+import { TextPosition } from '@pioneer/rules/formula';
 import {
   contentId,
   Domain,
@@ -13,6 +14,8 @@ import {
 import { fieldIssues } from '@pioneer/shared/kernel';
 import type { FieldIssue, ValueOf } from '@pioneer/shared/kernel';
 import { z } from 'zod';
+
+import { pointAt } from './point-at';
 
 /** The rules schemas the playground can check. */
 export const RulesSchema = {
@@ -94,8 +97,8 @@ const EXAMPLE_VALUES: Readonly<Record<RulesSchema, unknown>> = {
   },
 };
 
-/** A statistic base formula: AC from Dexterity, armour proficiency and level. */
-const EXAMPLE_FORMULA = '10 + @attr.dex.capped + @prof.armor + @level';
+/** A statistic base formula: AC from capped Dexterity and the AC proficiency bonus, which includes level. */
+const EXAMPLE_FORMULA = '10 + @attr.dex.capped + @prof.ac';
 
 /** A valid starting text per tool: JSON for a schema, formula text for formulas, a predicate to evaluate. */
 export function rulesExample(tool: RulesTool): string {
@@ -113,7 +116,12 @@ export type CheckOutcome =
   /** `parsed` is the validated value encoded back to JSON, as Pioneer would store or send it. */
   | { readonly status: typeof CheckStatus.Valid; readonly parsed: string }
   | { readonly status: typeof CheckStatus.NotJson }
-  | { readonly status: typeof CheckStatus.Invalid; readonly issues: readonly FieldIssue[] };
+  | { readonly status: typeof CheckStatus.Invalid; readonly issues: readonly CheckIssue[] };
+
+/** A problem with the checked value; one in a formula also has the formula with a caret under the mistake. */
+interface CheckIssue extends FieldIssue {
+  readonly pointer?: string;
+}
 
 type JsonParse = { readonly ok: true; readonly value: unknown } | { readonly ok: false };
 
@@ -123,6 +131,27 @@ function parseJson(text: string): JsonParse {
   } catch {
     return { ok: false };
   }
+}
+
+/** The value at `path` inside `value`, or undefined when the path leads nowhere. */
+function valueAt(value: unknown, path: FieldIssue['path']): unknown {
+  let inside = value;
+  for (const segment of path) {
+    inside = typeof inside === 'object' && inside !== null ? Reflect.get(inside, segment) : undefined;
+  }
+  return inside;
+}
+
+/**
+ * The issue, with a pointer when its descriptor names a formula position (`FormulaSource`) and the field holds
+ * the formula's text.
+ */
+function withPointer(json: unknown, issue: FieldIssue): CheckIssue {
+  const formula = valueAt(json, issue.path);
+  const position = TextPosition.safeParse(issue.message.params?.['position']);
+  return typeof formula === 'string' && position.success
+    ? { ...issue, pointer: pointAt(formula, position.data) }
+    : issue;
 }
 
 /** Parse `text` as JSON, then validate it against `schema`. Never throws. */
@@ -135,7 +164,10 @@ export function checkRulesJson(schema: RulesSchema, text: string): CheckOutcome 
   const result = target.safeParse(json.value);
   return result.success
     ? { status: CheckStatus.Valid, parsed: JSON.stringify(z.encode(target, result.data), undefined, JSON_INDENT) }
-    : { status: CheckStatus.Invalid, issues: fieldIssues(result.error.issues) };
+    : {
+        status: CheckStatus.Invalid,
+        issues: fieldIssues(result.error.issues).map((issue) => withPointer(json.value, issue)),
+      };
 }
 
 /** A key that reads unambiguously after a dot; anything else is quoted in brackets. */

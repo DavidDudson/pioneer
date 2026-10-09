@@ -32,7 +32,7 @@ Statistic definitions are a content kind, not hard-coded. The core rules pack de
 skills, class DC, spell attack and DC, Strikes, speeds, HP and so on, each with:
 
 - its selector and domains,
-- its base formula, written in a small safe expression language (`10 + @attr.dex.capped + @prof.armor + @level`),
+- its base formula, written in a small safe expression language (`10 + @attr.dex.capped + @prof.ac`),
 - whether it is a check (rolled) or a DC (static), and its key attribute when relevant.
 
 Homebrew can add statistics (a "Sanity" check, a new skill, a new speed). Variant rules from GM Core are packs
@@ -57,7 +57,7 @@ product    = unary (("*" | "/") unary)*
 unary      = "-" unary | primary
 primary    = number | reference | call | "(" sum ")"
 number     = digits                                  (whole, 0 to 999999)
-reference  = "@" segment ("." segment)*              (@actor.level, @attr.dex.capped)
+reference  = "@" segment ("." segment)*              (@level, @attr.dex.capped)
 segment    = [A-Za-z0-9_-]+
 call       = function "(" (sum ("," sum)*)? ")"
 function   = min | max | floor | ceil | abs | round | sign
@@ -74,10 +74,10 @@ function   = min | max | floor | ceil | abs | round | sign
   edges.
 - `printFormula` prints canonical text with single spaces around operators and only the parentheses the
   tree needs. Parsing that text gives the same tree back.
-- Limits: 500 characters (`FormulaSource` uses the same maximum), 32 levels of nesting (groups, call arguments
+- Limits: 500 characters, 32 levels of nesting (groups, call arguments
   and negations) and 200 nodes.
-- Which reference paths exist and what they mean belongs to the reference vocabulary. The parser only checks
-  their syntax.
+- Which reference paths exist and what they mean belongs to the reference vocabulary ("Formula references"
+  below). The parser only checks their syntax.
 
 #### Evaluation and rounding
 
@@ -118,6 +118,53 @@ The property tests check the evaluator against a model of Foundry's evaluation: 
 run with pf2e's `Math` helpers, and rounded down. The model brackets reference values and reads comparisons as
 1 or 0, as listed above, and records zero divisors and unsafe values so that every failure the evaluator reports
 is one Foundry's JavaScript met too.
+
+#### Formula references
+
+Statistic base formulas and rule element values share one vocabulary of references (ADR-0016), catalogued in
+`libs/rules/sdk` (`formula-reference.ts`). Stored formulas use these paths only:
+
+| Reference           | Scope | Value                                                                             |
+| ------------------- | ----- | --------------------------------------------------------------------------------- |
+| `@level`            | actor | The character's level                                                             |
+| `@attr.<attribute>` | actor | The attribute modifier, `@attr.str` to `@attr.cha`                                |
+| `@attr.dex.capped`  | actor | The Dexterity modifier after the armor's Dexterity cap (`DexterityCap`)           |
+| `@prof.<selector>`  | actor | The proficiency bonus for a statistic: rank bonus plus level, or 0 when untrained |
+| `@rank.<selector>`  | actor | The proficiency rank for a statistic, 0 (untrained) to 4 (legendary)              |
+| `@item.level`       | item  | The level of the item the rule element is on                                      |
+
+- A selector's colons are written as dots, since references have none: `@prof.save.fortitude` is the bonus for
+  `save:fortitude`, `@rank.attack.martial` the rank for `attack:martial`.
+- Scope says whose value a reference reads. A rule element may sit on any content entry, so its formulas may use
+  both scopes. Statistic base formulas have no item, so they may only use actor references (checked once
+  statistic definitions have a schema).
+- `FormulaSource` checks a formula when content is validated: it must parse, and every reference must be in the
+  catalogue and in scope. A `<selector>` is checked for shape only. Each problem is a field issue at the
+  formula's JSON path. Its descriptor includes `position`, the 1-based position in the formula. A Foundry spelling
+  gets an error naming the path to write instead.
+- The fields checked are `FlatModifier.value`, `DexterityCap.value`, `AdjustModifier.value`, `Change.value`,
+  `MultipleAttackPenalty.value`, a numeric `ItemAlteration.value` and `MartialProficiency.value`. The last takes a
+  rank name or, as in Foundry, a formula giving a rank. The engine resolves it as pf2e does: a result of 0 or no
+  value becomes 1 (trained), and anything else is clamped to 1 to 4. Foundry also allows a bare number, which the
+  importer turns into the rank name.
+
+The catalogue also holds the Foundry spellings the importer translates (`FOUNDRY_REFERENCES`, with
+`fromFoundryPath`). Placeholders carry across by name:
+
+| Foundry                                                                       | Pioneer                    |
+| ----------------------------------------------------------------------------- | -------------------------- |
+| `@actor.level`, `@actor.system.details.level.value`                           | `@level`                   |
+| `@actor.abilities.<attribute>.mod`, `@actor.system.abilities.<attribute>.mod` | `@attr.<attribute>`        |
+| `@actor.skills.<skill>.rank`, `@actor.system.skills.<skill>.rank`             | `@rank.skill.<skill>`      |
+| `@actor.saves.<save>.rank`, `@actor.system.saves.<save>.rank`                 | `@rank.save.<save>`        |
+| `@actor.perception.rank`, `@actor.system.perception.rank`                     | `@rank.perception`         |
+| `@actor.system.proficiencies.attacks.<category>.rank`                         | `@rank.attack.<category>`  |
+| `@actor.system.proficiencies.defenses.<category>.rank`                        | `@rank.defense.<category>` |
+| `@item.level`, `@item.system.level.value`                                     | `@item.level`              |
+
+The importer reports any other Foundry path as untranslatable. The exporter writes the first spelling listed. Paths
+join the catalogue when the engine can supply their values. Formulas inside Foundry's bracketed values and
+`{item|...}` injections are left to the Epic 2.6 translators.
 
 ## Modifiers and stacking
 

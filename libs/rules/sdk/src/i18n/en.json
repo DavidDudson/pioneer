@@ -17,6 +17,19 @@
       "unknown": "“{key}” is not a rule element Pioneer knows yet.",
       "suboptionsNeedToggle": "Only a toggle (toggleable: true) can offer suboptions.",
       "adjustModeOrSuppress": "Give a mode and a value, or suppress: true, but not both."
+    },
+    "formula": {
+      "unknownReference": "“{found}” at position {position} is not a reference Pioneer knows. References look like @level, @attr.str or @prof.skill.athletics.",
+      "foundryReference": "“{found}” at position {position} is Foundry’s spelling. Write {suggestion} instead.",
+      "referenceOutOfScope": "“{found}” at position {position} reads an item’s value, which this formula has no item for."
+    },
+    "reference": {
+      "level": "The character’s level.",
+      "attributeModifier": "The character’s modifier for that attribute.",
+      "cappedDexterity": "The character’s Dexterity modifier, limited by the Dexterity cap of their armor.",
+      "proficiencyBonus": "The proficiency bonus for that statistic: the rank bonus plus level, or 0 when untrained.",
+      "proficiencyRank": "The proficiency rank for that statistic, from 0 (untrained) to 4 (legendary).",
+      "itemLevel": "The level of the item the rule element is on."
     }
   }
 }

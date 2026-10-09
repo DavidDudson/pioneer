@@ -1,5 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
+import { FormulaMessage } from '@pioneer/rules/formula';
 import { fieldIssues, message, ValidationMessage } from '@pioneer/shared/kernel';
 import type { FieldIssue } from '@pioneer/shared/kernel';
 import { z } from 'zod';
@@ -50,7 +51,7 @@ const examples: object[] = [
     display: { label: 'Raise a Shield' },
   },
   { key: 'FlatModifier', selectors: ['skill-check', 'perception'], type: 'status', value: -1, slug: 'frightened' },
-  { key: 'FlatModifier', selectors: ['strike-damage'], type: 'attribute', attribute: 'str', value: '@actor.str' },
+  { key: 'FlatModifier', selectors: ['strike-damage'], type: 'attribute', attribute: 'str', value: '@attr.str' },
   { key: 'AdjustModifier', selectors: ['all'], slug: 'frightened', mode: 'subtract', value: 1 },
   { key: 'AdjustModifier', selectors: ['ac'], slug: 'off-guard', suppress: true, priority: 99 },
   { key: 'Change', selector: 'speed:land', mode: 'add', value: 5 },
@@ -187,6 +188,27 @@ describe('RuleElement', () => {
   test('a martial proficiency defines what it covers', () => {
     expect(issues({ key: 'MartialProficiency', slug: 'firearms' })).toStrictEqual([
       { path: ['definition'], message: message(ValidationMessage.InvalidType, { expected: 'array' }) },
+    ]);
+  });
+
+  test('a formula field reports a bad formula at its path, with the position', () => {
+    expect(issues({ key: 'FlatModifier', selectors: ['ac'], type: 'item', value: '1 + @actor.level' })).toStrictEqual([
+      {
+        path: ['value'],
+        message: message(RulesMessage.FoundryReference, { found: '@actor.level', suggestion: '@level', position: 5 }),
+      },
+    ]);
+    expect(issues({ key: 'Change', selector: 'speed:land', mode: 'add', value: 'floor(@level' })).toStrictEqual([
+      { path: ['value'], message: message(FormulaMessage.UnexpectedEnd, { position: 13 }) },
+    ]);
+  });
+
+  test('a martial proficiency rank may be a formula, checked like any other', () => {
+    const element = { key: 'MartialProficiency', slug: 'firearms', definition: ['item:group:firearm'] };
+    expect(issues({ ...element, value: 'ternary(gte(@level, 5), 2, 1)' })).toStrictEqual([]);
+    expect(issues({ ...element, value: '@rank.attack.martial' })).toStrictEqual([]);
+    expect(issues({ ...element, value: '@actor.rank' })).toStrictEqual([
+      { path: ['value'], message: message(RulesMessage.UnknownReference, { found: '@actor.rank', position: 1 }) },
     ]);
   });
 });

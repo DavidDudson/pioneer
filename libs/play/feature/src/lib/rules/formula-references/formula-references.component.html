@@ -14,6 +14,7 @@
         (valueChange)="setValue(row.path, $event)"
         (completeChange)="setComplete(row.path, $event)"
       />
+      <fr-field-hint>{{ row.meaning.key | transloco: row.meaning.params }}</fr-field-hint>
       @if (row.invalid) {
         <fr-field-error>{{ 'play.rules.referenceInvalid' | transloco: valueRange() }}</fr-field-error>
       }

@@ -38,7 +38,7 @@ const operator = constantFrom(...Object.values(BinaryOperator));
 const functionName = constantFrom(...Object.values(FormulaFunction));
 
 /** Formula trees built from `leaves`, up to a few levels deep, every node kind and function included. */
-function formulaFrom(leaves: Arbitrary<FormulaNode>): Arbitrary<FormulaNode> {
+export function formulaFrom(leaves: Arbitrary<FormulaNode>): Arbitrary<FormulaNode> {
   return letrec<{ node: FormulaNode }>((tie) => ({
     node: oneof(
       { depthSize: 'small', maxDepth: MAX_DEPTH, withCrossShrink: true },
