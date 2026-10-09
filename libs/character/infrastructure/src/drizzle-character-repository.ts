@@ -3,7 +3,7 @@ import { Character } from '@pioneer/character/domain';
 import type { CharacterId, CharacterListQuery, CharacterSort } from '@pioneer/character/domain';
 import { AttributeModifiers } from '@pioneer/rules/sdk';
 import { nextVersion, SortDirection, Temporal, VersionConflictError } from '@pioneer/shared/kernel';
-import type { Version } from '@pioneer/shared/kernel';
+import type { UserId, Version } from '@pioneer/shared/kernel';
 import { and, asc, desc, eq } from 'drizzle-orm';
 import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
 
@@ -24,6 +24,7 @@ function toCharacter(row: Row): Character {
   return new Character({
     id: row.id,
     version: row.version,
+    ownerId: row.ownerId,
     name: row.name,
     ancestry: row.ancestry,
     level: row.level,
@@ -37,6 +38,7 @@ function toRow(character: Character): Row {
   return {
     id: character.id,
     version: character.version,
+    ownerId: character.ownerId,
     name: character.name,
     ancestry: character.ancestry,
     level: character.level,
@@ -54,11 +56,12 @@ export class DrizzleCharacterRepository extends CharacterRepository {
     this.#db = db;
   }
 
-  public override async list(query: CharacterListQuery): Promise<readonly Character[]> {
+  public override async listForOwner(ownerId: UserId, query: CharacterListQuery): Promise<readonly Character[]> {
     const order = query.direction === SortDirection.Asc ? asc : desc;
     const rows = await this.#db
       .select()
       .from(characters)
+      .where(eq(characters.ownerId, ownerId))
       .orderBy(order(SORT_COLUMNS[query.sort]), order(characters.id));
     return rows.map((row) => toCharacter(row));
   }

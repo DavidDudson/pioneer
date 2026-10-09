@@ -1,14 +1,18 @@
 import type { Character, CharacterId, CharacterListQuery } from '@pioneer/character/domain';
-import type { Version } from '@pioneer/shared/kernel';
+import type { UserId, Version } from '@pioneer/shared/kernel';
 
 /**
  * Port for character persistence. Adapters live in
  * `character-infrastructure`; `InMemoryCharacterRepository` is for tests.
  */
 export abstract class CharacterRepository {
-  /** Sorted by an enumerated, indexed option; `id` breaks ties so pages are stable. */
-  public abstract list(query: CharacterListQuery): Promise<readonly Character[]>;
+  /**
+   * One owner's characters, sorted by an enumerated, indexed option; `id` breaks ties so pages
+   * are stable.
+   */
+  public abstract listForOwner(ownerId: UserId, query: CharacterListQuery): Promise<readonly Character[]>;
 
+  /** Any owner's; the service applies the access policy. */
   public abstract findById(id: CharacterId): Promise<Character | undefined>;
 
   /** Insert a new character at version 1. */

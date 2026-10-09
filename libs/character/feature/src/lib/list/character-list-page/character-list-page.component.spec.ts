@@ -53,6 +53,7 @@ describe('CharacterListPage', () => {
     http.expectOne({ method: 'POST', url: '/api/characters' }).flush({
       id,
       version: 1,
+      ownerId: '8f6d2c1a-0b3e-4f5a-9c7d-1e2f3a4b5c6d',
       name: 'Merisiel',
       ancestry: elf,
       level: 1,

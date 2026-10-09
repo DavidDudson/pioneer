@@ -9,6 +9,7 @@ import { describe, expect, it, vi } from 'vitest';
 import type { Mock } from 'vitest';
 
 import { SessionStore } from './session-store';
+import { signInRequired } from './sign-in-required';
 
 const amiri = {
   id: '8f6d2c1a-0b3e-4f5a-9c7d-1e2f3a4b5c6d',
@@ -34,7 +35,10 @@ function setup(): Harness {
   const assign = vi.fn<(url: string) => void>();
   TestBed.configureTestingModule({
     providers: [
-      provideRouter([{ path: '**', children: [] }]),
+      provideRouter([
+        { path: 'mine', canActivate: [signInRequired], runGuardsAndResolvers: 'always', children: [] },
+        { path: '**', children: [] },
+      ]),
       provideHttpClient(),
       provideHttpClientTesting(),
       provideTanStackQuery(new QueryClient({ defaultOptions: { queries: { retry: false } } })),
@@ -105,5 +109,83 @@ describe(SessionStore, () => {
     await vi.waitFor(() => {
       expect(store.user()).toBeUndefined();
     });
+  });
+
+  it('whenKnown waits for the server, then answers from the cache', async () => {
+    const { store, http } = setup();
+    const first = store.whenKnown();
+    await vi.waitFor(() => {
+      http.expectOne('/api/me').flush(amiri);
+    });
+    const user = await first;
+    expect(user?.displayName).toBe(DisplayName.parse('Amiri'));
+    const again = await store.whenKnown();
+    expect(again?.displayName).toBe(DisplayName.parse('Amiri'));
+    http.expectNone('/api/me');
+  });
+
+  it('promptSignIn forgets the user and opens sign-in, returning to the current page', async () => {
+    const { store, http } = setup();
+    TestBed.tick();
+    http.expectOne('/api/me').flush(amiri);
+    await settle();
+    const router = TestBed.inject(Router);
+    await router.navigateByUrl('/characters');
+    await store.promptSignIn();
+    expect(store.user()).toBeUndefined();
+    expect(router.url).toBe('/account/sign-in?returnTo=%2Fcharacters');
+    await store.promptSignIn();
+    expect(router.url).toBe('/account/sign-in?returnTo=%2Fcharacters');
+  });
+
+  it('a /me answer that arrives after signing out does not sign the user back in', async () => {
+    const { store, http } = setup();
+    TestBed.tick();
+    const pending = http.expectOne('/api/me');
+    await store.signedOut();
+    pending.flush(amiri);
+    await settle();
+    expect(store.user()).toBeUndefined();
+  });
+
+  it('signing out drops everything cached for the user', async () => {
+    const { store } = setup();
+    const client = TestBed.inject(QueryClient);
+    client.setQueryData(['character', 'list'], ['Kyra']);
+    await store.signedOut();
+    expect(client.getQueryData(['character', 'list'])).toBeUndefined();
+    expect(client.getQueryData(['identity', 'me'])).toStrictEqual({ user: undefined });
+  });
+
+  it('signing out on the page leaves it for sign-in', async () => {
+    const { store, http } = setup();
+    const router = TestBed.inject(Router);
+    const navigating = router.navigateByUrl('/mine');
+    await vi.waitFor(() => {
+      http.expectOne('/api/me').flush(amiri);
+    });
+    await navigating;
+    const signingOut = store.signOut();
+    http.expectOne('/api/auth/sign-out').flush({});
+    await signingOut;
+    expect(router.url).toBe('/account/sign-in?returnTo=%2Fmine');
+  });
+
+  it('shares one prompt between calls that fail together', async () => {
+    const { store } = setup();
+    const router = TestBed.inject(Router);
+    await router.navigateByUrl('/elsewhere');
+    const navigate = vi.spyOn(router, 'navigate');
+    await Promise.all([store.promptSignIn(), store.promptSignIn()]);
+    expect(navigate).toHaveBeenCalledTimes(1);
+    expect(router.url).toBe('/account/sign-in?returnTo=%2Felsewhere');
+  });
+
+  it('prompts from the sign-in-failed page, which is not the sign-in page', async () => {
+    const { store } = setup();
+    const router = TestBed.inject(Router);
+    await router.navigateByUrl('/account/sign-in-failed');
+    await store.promptSignIn();
+    expect(router.url).toBe('/account/sign-in?returnTo=%2Faccount%2Fsign-in-failed');
   });
 });

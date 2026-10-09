@@ -1,6 +1,6 @@
 import { AncestryId, AttributeModifiers, Modifier, proficiencyBonus } from '@pioneer/rules/sdk';
 import type { Attribute, AttributeModifier, Proficiency } from '@pioneer/rules/sdk';
-import { FIRST_VERSION, InstantCodec, Version } from '@pioneer/shared/kernel';
+import { FIRST_VERSION, InstantCodec, UserId, Version } from '@pioneer/shared/kernel';
 import type { Temporal } from '@pioneer/shared/kernel';
 import { z } from 'zod';
 
@@ -12,6 +12,7 @@ import type { CharacterPatch } from './character-patch';
 export const CharacterWire = z.object({
   id: CharacterId,
   version: Version,
+  ownerId: UserId,
   name: CharacterName,
   ancestry: AncestryId,
   level: CharacterLevel,
@@ -23,6 +24,8 @@ export const CharacterWire = z.object({
 interface CharacterProps {
   readonly id: CharacterId;
   readonly version: Version;
+  /** The user who created it; only they may see or change it. */
+  readonly ownerId: UserId;
   readonly name: CharacterName;
   readonly ancestry: AncestryId;
   readonly level: CharacterLevel;
@@ -47,6 +50,7 @@ export class Character {
 
   public readonly id: CharacterId;
   public readonly version: Version;
+  public readonly ownerId: UserId;
   public readonly name: CharacterName;
   public readonly ancestry: AncestryId;
   public readonly level: CharacterLevel;
@@ -57,6 +61,7 @@ export class Character {
   public constructor(props: CharacterProps) {
     this.id = props.id;
     this.version = props.version;
+    this.ownerId = props.ownerId;
     this.name = props.name;
     this.ancestry = props.ancestry;
     this.level = props.level;
@@ -67,6 +72,7 @@ export class Character {
 
   public static create(input: {
     readonly id: CharacterId;
+    readonly ownerId: UserId;
     readonly name: CharacterName;
     readonly ancestry: AncestryId;
     readonly now: Temporal.Instant;
@@ -74,6 +80,7 @@ export class Character {
     return new Character({
       id: input.id,
       version: FIRST_VERSION,
+      ownerId: input.ownerId,
       name: input.name,
       ancestry: input.ancestry,
       level: CharacterLevel.parse(CHARACTER_LEVEL_MIN),
@@ -126,6 +133,7 @@ export class Character {
     return {
       id: this.id,
       version: this.version,
+      ownerId: this.ownerId,
       name: this.name,
       ancestry: this.ancestry,
       level: this.level,

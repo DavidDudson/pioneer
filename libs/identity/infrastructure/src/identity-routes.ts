@@ -1,4 +1,4 @@
-import type { Authenticated, IdentityService, OAuthProviderPort } from '@pioneer/identity/application';
+import type { IdentityService, OAuthProviderPort } from '@pioneer/identity/application';
 import {
   AuthPath,
   IdentityContract,
@@ -9,8 +9,8 @@ import {
 import type { ReturnPath } from '@pioneer/identity/domain';
 import { ContractRouter } from '@pioneer/shared/server';
 import { Elysia } from 'elysia';
-import type { HTTPHeaders } from 'elysia';
 
+import { SessionAuthenticator } from './session-authenticator';
 import {
   AttemptCookie,
   attemptCookie,
@@ -90,29 +90,6 @@ async function completeSignIn({ provider, service, policy }: SignInFlow, request
   }
 }
 
-/** Where a handler reads the session cookie and writes cookie changes. */
-interface CookieExchange {
-  readonly request: Request;
-  readonly responseHeaders: HTTPHeaders;
-}
-
-/**
- * The request's session, or a 401. A session renewed by this request gets its cookie re-issued,
- * so the browser keeps it as long as the server does.
- */
-async function signedIn(
-  service: IdentityService,
-  policy: CookiePolicy,
-  { request, responseHeaders }: CookieExchange,
-): Promise<Authenticated> {
-  const token = sessionToken(request);
-  const authenticated = await service.requireSession(token);
-  if (authenticated.renewed && token !== undefined) {
-    responseHeaders['set-cookie'] = sessionCookie(policy, token);
-  }
-  return authenticated;
-}
-
 /** HTTP adapter for identity: provider redirects, sign-out, the current user and their sessions. */
 export function identityRoutes(
   service: IdentityService,
@@ -126,11 +103,12 @@ export function identityRoutes(
       .get(AuthPath.login(provider.provider), ({ request }) => startSignIn(flow, request))
       .get(AuthPath.callback(provider.provider), async ({ request }) => completeSignIn(flow, request));
   }
+  const auth = new SessionAuthenticator(service, policy);
   const signedOut = clearedCookie(policy, SESSION_COOKIE);
   return app.use(
     new ContractRouter('identity-contract')
       .handle(IdentityContract.me, async (exchange) => {
-        const { user } = await signedIn(service, policy, exchange);
+        const { user } = await auth.signedIn(exchange);
         return user;
       })
       .handle(IdentityContract.providers, async () => providers.map((provider) => provider.provider))
@@ -139,18 +117,16 @@ export function identityRoutes(
         responseHeaders['set-cookie'] = signedOut;
         return {};
       })
-      .handle(IdentityContract.sessions, async (exchange) =>
-        service.listSessions(await signedIn(service, policy, exchange)),
-      )
+      .handle(IdentityContract.sessions, async (exchange) => service.listSessions(await auth.signedIn(exchange)))
       .handle(IdentityContract.revokeSession, async ({ params, ...exchange }) => {
-        const { current } = await service.revokeSession(await signedIn(service, policy, exchange), params.id);
+        const { current } = await service.revokeSession(await auth.signedIn(exchange), params.id);
         if (current) {
           exchange.responseHeaders['set-cookie'] = signedOut;
         }
         return {};
       })
       .handle(IdentityContract.signOutEverywhere, async (exchange) => {
-        await service.signOutEverywhere(await signedIn(service, policy, exchange));
+        await service.signOutEverywhere(await auth.signedIn(exchange));
         exchange.responseHeaders['set-cookie'] = signedOut;
         return {};
       }).app,
