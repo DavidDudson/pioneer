@@ -26,7 +26,7 @@ export const EXAMPLE_STATISTIC_INPUTS = JSON.stringify(
 const Definitions = z.array(StatisticDefinition);
 
 /** One line of a base as the playground shows it: the term with its sign, or rounding; and what it adds. */
-export interface TermLine {
+interface TermLine {
   /** The term as written with its sign (`+ @prof.ac`), the first without a plus; undefined for rounding. */
   readonly code: string | undefined;
   readonly value: number;

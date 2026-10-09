@@ -1,61 +1,14 @@
-import { TestBed } from '@angular/core/testing';
-import { provideRouter } from '@angular/router';
-import { RouterTestingHarness } from '@angular/router/testing';
-import { frontierMessages } from '@pioneer/frontier';
-import { kernelMessages } from '@pioneer/shared/kernel';
-import { provideI18n } from '@pioneer/shared/web';
 import { describe, expect, it } from 'vitest';
 
-import { playRoutes } from '../../play.routes';
-
-function present<TValue>(value: TValue | null | undefined): TValue {
-  if (value === null || value === undefined) {
-    throw new Error('Expected element to be rendered');
-  }
-  return value;
-}
-
-async function openPlayground(): Promise<RouterTestingHarness> {
-  TestBed.configureTestingModule({
-    providers: [
-      provideRouter([{ path: 'play', children: playRoutes }]),
-      provideI18n({ en: async () => ({ ...kernelMessages, ...frontierMessages }) }),
-    ],
-  });
-  const harness = await RouterTestingHarness.create('/play/rules');
-  await harness.fixture.whenStable();
-  return harness;
-}
-
-async function typeJson(harness: RouterTestingHarness, text: string): Promise<void> {
-  const textarea = present(harness.routeNativeElement?.querySelector('textarea'));
-  textarea.value = text;
-  textarea.dispatchEvent(new Event('input'));
-  await harness.fixture.whenStable();
-}
-
-async function chooseSchema(harness: RouterTestingHarness, label: string): Promise<void> {
-  present(harness.routeNativeElement?.querySelector('button')).click();
-  await harness.fixture.whenStable();
-  const options = [...document.querySelectorAll<HTMLElement>('[role="option"]')];
-  present(options.find((option) => option.textContent.trim() === label)).click();
-  await harness.fixture.whenStable();
-}
-
-async function typeInto(harness: RouterTestingHarness, input: HTMLInputElement, text: string): Promise<void> {
-  input.value = text;
-  input.dispatchEvent(new Event('input'));
-  await harness.fixture.whenStable();
-}
-
-function pageText(harness: RouterTestingHarness): string {
-  return present(harness.routeNativeElement).textContent;
-}
-
-/** The second text area: roll options for the verdict tool, character inputs for statistics. */
-function factsInput(harness: RouterTestingHarness): HTMLTextAreaElement {
-  return present(present(harness.routeNativeElement).querySelectorAll('textarea').item(1));
-}
+import {
+  chooseSchema,
+  secondTextArea,
+  openPlayground,
+  pageText,
+  present,
+  typeInto,
+  typeJson,
+} from './playground-harness';
 
 describe('RulesPlaygroundPage', () => {
   it('opens on a valid example predicate', async () => {
@@ -214,7 +167,7 @@ describe('RulesPlaygroundPage', () => {
     expect(text).toContain('Depends');
     expect(text).toContain('{"gte":["self:level",5]}');
 
-    const facts = factsInput(harness);
+    const facts = secondTextArea(harness);
     facts.value = 'self:condition:frightened\nself:level:5\naction:seek';
     facts.dispatchEvent(new Event('input'));
     await harness.fixture.whenStable();
@@ -225,51 +178,13 @@ describe('RulesPlaygroundPage', () => {
     const harness = await openPlayground();
     await chooseSchema(harness, 'Predicate verdict');
 
-    const facts = factsInput(harness);
+    const facts = secondTextArea(harness);
     facts.value = 'self:level:5\nFrightened';
     facts.dispatchEvent(new Event('input'));
     await harness.fixture.whenStable();
 
     expect(pageText(harness)).toContain('Line 2 is not a roll option.');
     expect(facts.getAttribute('aria-invalid')).toBe('true');
-  });
-
-  it('derives statistics from definitions and inputs, term by term', async () => {
-    const harness = await openPlayground();
-    await chooseSchema(harness, 'Statistics');
-
-    const text = pageText(harness);
-    expect(text).toContain('spell-dc:arcane');
-    expect(text).toContain('Base 16');
-    expect(text).toContain('+ @stat.spell-attack.arcane');
-    expect(text).toContain('gives 6');
-  });
-
-  it('shows a statistic cycle with text from the engine bundle and a caret', async () => {
-    const harness = await openPlayground();
-    await chooseSchema(harness, 'Statistics');
-    await typeJson(
-      harness,
-      '[{ "slug": "ac", "name": "AC", "selector": "ac", "domains": [], "base": "10 + @stat.ac", "kind": "dc" }]',
-    );
-
-    const text = pageText(harness);
-    expect(text).toContain('Error');
-    expect(text).toContain('“@stat.ac” at position 6 closes a loop: ac depends on itself.');
-    expect(text).toContain('10 + @stat.ac\n     ^');
-  });
-
-  it('points at bad character inputs', async () => {
-    const harness = await openPlayground();
-    await chooseSchema(harness, 'Statistics');
-
-    const inputs = factsInput(harness);
-    inputs.value = '{ "level": 3 }';
-    inputs.dispatchEvent(new Event('input'));
-    await harness.fixture.whenStable();
-
-    expect(pageText(harness)).toContain('Character inputs');
-    expect(inputs.getAttribute('aria-invalid')).toBe('true');
   });
 
   it('says in English when a predicate that depends on the situation would hold', async () => {
