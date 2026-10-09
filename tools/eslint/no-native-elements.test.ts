@@ -35,6 +35,8 @@ tester.run('no-native-elements', noNativeElements, {
     { filename: frontier('data/chart/chart.component.html'), code: `<tanstack-chart />` },
     { filename: frontier('icon/icon.component.html'), code: `<svg><path d="M0 0" /></svg>` },
     { filename: frontier('layout/stack/stack.component.html'), code: `<fr-text><fr-icon /></fr-text>` },
+    { filename: frontier('text/text/text.component.html'), code: `<code></code><kbd></kbd><abbr></abbr><q></q>` },
+    { filename: frontier('text/quote/quote.component.html'), code: `<blockquote><fr-text /></blockquote>` },
   ],
   invalid: [
     { filename: FEATURE, code: `<div></div>`, errors: [{ messageId: 'outside' }] },
@@ -49,13 +51,13 @@ tester.run('no-native-elements', noNativeElements, {
       code: `<tanstack-chart />`,
       errors: [{ messageId: 'owned' }],
     },
+    ...['code', 'kbd', 'abbr', 'q', 'blockquote'].map((name) => ({
+      filename: frontier('layout/card/card.component.html'),
+      code: `<${name}></${name}>`,
+      errors: [{ messageId: 'owned' }],
+    })),
     ...[
-      'code',
-      'kbd',
       'pre',
-      'abbr',
-      'blockquote',
-      'q',
       'cite',
       'fieldset',
       'legend',

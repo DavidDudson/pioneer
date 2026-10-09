@@ -1,0 +1,14 @@
+@switch (element()) {
+  @case ('code') {
+    <code [class]="classes()"><ng-content /></code>
+  }
+  @case ('kbd') {
+    <kbd [class]="classes()"><ng-content /></kbd>
+  }
+  @case ('abbr') {
+    <abbr [class]="classes()" [attr.title]="expansion()"><ng-content /></abbr>
+  }
+  @default {
+    <q [class]="classes()"><ng-content /></q>
+  }
+}

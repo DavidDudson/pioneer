@@ -1,0 +1,6 @@
+<div [class]="frameClasses">
+  <blockquote [class]="quoteClasses"><ng-content /></blockquote>
+  @if (attribution(); as attribution) {
+    <fr-text element="p" [variant]="TextVariant.Caption" [tone]="Tone.Muted">{{ attribution }}</fr-text>
+  }
+</div>
