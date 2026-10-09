@@ -6,8 +6,8 @@ import { cva } from 'class-variance-authority';
  */
 export const controlVariants = cva(
   [
-    'block h-touch w-full border border-line-default bg-surface-base px-sm text-body text-fg-default',
-    'placeholder:text-fg-subtle focus-visible:focus-ring pointer-fine:h-control-md',
+    'block w-full border border-line-default bg-surface-base px-sm text-body text-fg-default',
+    'placeholder:text-fg-subtle focus-visible:focus-ring',
     'disabled:cursor-not-allowed disabled:opacity-disabled aria-invalid:border-danger-line',
   ],
   {
@@ -15,6 +15,11 @@ export const controlVariants = cva(
       numeric: { true: 'tabular-nums', false: '' },
       /** A button that opens a popup (select trigger). */
       trigger: { true: 'flex items-center justify-between gap-xs text-start', false: '' },
+      /** Several lines (text area): grows with `rows`, resizable in height only. */
+      multiline: { true: 'resize-y py-xs', false: 'h-touch pointer-fine:h-control-md' },
+      /** Code-like text (JSON, formulas), where every character matters. */
+      monospace: { true: 'font-mono', false: '' },
     },
+    defaultVariants: { multiline: false, monospace: false },
   },
 );
