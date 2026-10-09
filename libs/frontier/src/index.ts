@@ -58,13 +58,15 @@ export { InlineField } from './lib/inline-edit/inline-field/inline-field.compone
 // Layout
 export { Box, BoxWidth } from './lib/layout/box/box.component';
 export { Disclosure, DisclosureVariant } from './lib/layout/disclosure/disclosure.component';
-export { Grid, GridColumns, GridMinItem } from './lib/layout/grid/grid.component';
+export { Grid, GridAlign, GridColumns, GridMinItem, GridQuery } from './lib/layout/grid/grid.component';
 export { Page } from './lib/layout/page/page.component';
 export { Shell } from './lib/layout/shell/shell.component';
 export { Stack, StackAlign, StackDirection, StackJustify } from './lib/layout/stack/stack.component';
 export { Surface, SurfaceVariant } from './lib/layout/surface/surface.component';
 
 // Lists
+export { DescriptionItem } from './lib/list/description-item/description-item.component';
+export { DescriptionList } from './lib/list/description-list/description-list.component';
 export { List } from './lib/list/list/list.component';
 export { ListItem } from './lib/list/list-item/list-item.component';
 
