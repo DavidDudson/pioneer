@@ -57,3 +57,43 @@ export { RollOption } from './roll-option';
 export { Domain, Selector, SlotKey } from './selector';
 export { AonUrl, BookId, PageNumber, SourceKind, SourceRef, SourceTitle, WebUrl } from './source-ref';
 export { default as rulesMessages } from './i18n/en.json';
+export { FormulaSource } from './formula-source';
+export { ModifierType, ModifierTypeSchema } from './modifier-type';
+export { RuleElement, RuleElements } from './rule-element';
+export {
+  ModifierTarget,
+  ModifierTargets,
+  RuleDisplay,
+  RuleElementKey,
+  RuleNumber,
+  RulePriority,
+  RuleSlug,
+  RuleValue,
+} from './rule-element-base';
+export {
+  AdjustMode,
+  AdjustModifierElement,
+  ChangeElement,
+  ChangeMode,
+  DexterityCapElement,
+  FlatModifierElement,
+  ModifierValue,
+  MultipleAttackPenaltyElement,
+} from './rule-element-numbers';
+export {
+  ChoiceOption,
+  ChoiceQuery,
+  ChoiceRef,
+  ChoiceSetElement,
+  ChoiceValue,
+  GrantItemElement,
+  RollOptionElement,
+  RollOptionSuboption,
+} from './rule-element-structure';
+export {
+  ItemAlterationElement,
+  ItemProperty,
+  NumericAlterationMode,
+  NumericItemProperty,
+  TraitAlterationMode,
+} from './rule-element-item-alteration';

@@ -5,6 +5,7 @@ import {
   PackId,
   Predicate,
   RollOption,
+  RuleElement,
   Selector,
   Slug,
   SourceRef,
@@ -21,6 +22,7 @@ export const RulesSchema = {
   RollOption: 'roll-option',
   Source: 'source',
   Origin: 'origin',
+  RuleElement: 'rule-element',
 } as const;
 export type RulesSchema = ValueOf<typeof RulesSchema>;
 
@@ -31,6 +33,7 @@ const SCHEMAS: Readonly<Record<RulesSchema, z.ZodType>> = {
   [RulesSchema.RollOption]: RollOption,
   [RulesSchema.Source]: SourceRef,
   [RulesSchema.Origin]: Origin,
+  [RulesSchema.RuleElement]: RuleElement,
 };
 
 /** Message keys for schema names, spelled out so the key check sees them. */
@@ -41,6 +44,7 @@ export const RULES_SCHEMA_KEYS: Readonly<Record<RulesSchema, string>> = {
   [RulesSchema.RollOption]: 'play.rules.schema.rollOption',
   [RulesSchema.Source]: 'play.rules.schema.source',
   [RulesSchema.Origin]: 'play.rules.schema.origin',
+  [RulesSchema.RuleElement]: 'play.rules.schema.ruleElement',
 };
 
 const PLAYER_CORE = PackId.parse('player-core');
@@ -49,6 +53,8 @@ const playerCorePage = { kind: 'book', book: 'player-core', page: 1 };
 const JSON_INDENT = 2;
 /** The level the example predicate tests for. */
 const EXAMPLE_LEVEL = 5;
+/** Raise a Shield's circumstance bonus to AC. */
+const RAISED_SHIELD_BONUS = 2;
 
 /** A valid starting value per schema, so the page opens on something that passes. */
 const EXAMPLE_VALUES: Readonly<Record<RulesSchema, unknown>> = {
@@ -68,6 +74,13 @@ const EXAMPLE_VALUES: Readonly<Record<RulesSchema, unknown>> = {
     ],
     entry: playerCoreId('shield-block'),
     sources: [playerCorePage],
+  },
+  [RulesSchema.RuleElement]: {
+    key: 'FlatModifier',
+    selectors: ['ac'],
+    type: 'circumstance',
+    value: RAISED_SHIELD_BONUS,
+    predicate: ['self:effect:raise-a-shield'],
   },
 };
 

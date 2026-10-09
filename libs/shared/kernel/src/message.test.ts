@@ -20,6 +20,7 @@ const decimal = Pg.numeric(4, 2);
 const named = z.object({ name: z.string().min(1) });
 const strict = z.strictObject({ name: z.string() });
 const stringOrNumber = z.union([z.string(), z.number()]);
+const lowercase = z.string().regex(/^[a-z]+$/u);
 const tagged = z.discriminatedUnion('kind', [z.object({ kind: z.literal('a') }), z.object({ kind: z.literal('b') })]);
 
 interface Case {
@@ -119,6 +120,19 @@ describe('fieldIssues', () => {
     const issues = issuesOf(named, { name: '' });
     const tooShort = message(ValidationMessage.TooSmall, { origin: 'string', minimum: 1 });
     expect(fieldIssues(issues)).toStrictEqual([{ path: ['name'], message: tooShort }]);
+  });
+
+  test('a union whose options all fail alike reports that failure', () => {
+    const tag = z.union([lowercase.brand<'A'>(), lowercase.brand<'B'>()]);
+    const issues = issuesOf(z.object({ tag }), { tag: 'X' });
+    expect(fieldIssues(issues)).toStrictEqual([
+      { path: ['tag'], message: message(ValidationMessage.InvalidFormat, { format: 'regex' }) },
+    ]);
+  });
+
+  test('a union whose options fail differently reports no match', () => {
+    const issues = issuesOf(z.object({ value: stringOrNumber }), { value: true });
+    expect(fieldIssues(issues)).toStrictEqual([{ path: ['value'], message: message(ValidationMessage.NoMatch) }]);
   });
 
   test('splits unknown keys into one issue per key, pointing at the key', () => {

@@ -35,6 +35,23 @@ describe(checkRulesJson, () => {
   });
 });
 
+describe('checkRulesJson for rule elements', () => {
+  it('names an unknown element key', () => {
+    expect(checkRulesJson(RulesSchema.RuleElement, '{ "key": "Aura", "radius": 10 }')).toStrictEqual({
+      status: CheckStatus.Invalid,
+      issues: [{ path: ['key'], message: message(RulesMessage.UnknownElement, { key: 'Aura' }) }],
+    });
+  });
+
+  it('points into a nested field', () => {
+    const json = '{ "key": "FlatModifier", "selectors": ["AC"], "type": "item", "value": 1 }';
+    expect(checkRulesJson(RulesSchema.RuleElement, json)).toStrictEqual({
+      status: CheckStatus.Invalid,
+      issues: [{ path: ['selectors', 0], message: message(RulesMessage.KeyFormat) }],
+    });
+  });
+});
+
 describe(formatPath, () => {
   it.each([
     { path: [], expected: '' },
