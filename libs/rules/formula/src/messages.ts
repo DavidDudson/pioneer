@@ -13,4 +13,7 @@ export const FormulaMessage = {
   NotCalled: 'formula.parse.notCalled',
   ArgumentCount: 'formula.parse.argumentCount',
   ArgumentCountAtLeast: 'formula.parse.argumentCountAtLeast',
+  UnknownReference: 'formula.evaluate.unknownReference',
+  DivisionByZero: 'formula.evaluate.divisionByZero',
+  OutOfRange: 'formula.evaluate.outOfRange',
 } as const;

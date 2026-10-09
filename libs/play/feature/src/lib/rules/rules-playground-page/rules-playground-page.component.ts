@@ -18,7 +18,8 @@ import type { SelectOption } from '@pioneer/frontier';
 import { filter, merge } from 'rxjs';
 
 import { checkFormula } from '../formula-check';
-import type { FormulaCheck } from '../formula-check';
+import type { FormulaCheck, ReferenceEntries } from '../formula-check';
+import { FormulaReferences } from '../formula-references/formula-references.component';
 import { FormulaResult } from '../formula-result/formula-result.component';
 import { CheckStatus, checkRulesJson, RULES_TOOL_KEYS, rulesExample, RulesTool } from '../rules-check';
 import type { CheckOutcome } from '../rules-check';
@@ -28,7 +29,7 @@ const JSON_ROWS = 12;
 
 /**
  * Paste rules JSON, pick a schema, and see whether it validates and, if not, where and why. The formula
- * tool parses formula text instead and points at the first mistake.
+ * tool parses formula text instead, points at the first mistake, and evaluates it with reference values.
  */
 @Component({
   selector: 'pio-rules-playground-page',
@@ -36,6 +37,7 @@ const JSON_ROWS = 12;
     Field,
     FieldError,
     FieldHint,
+    FormulaReferences,
     FormulaResult,
     Heading,
     Label,
@@ -69,10 +71,12 @@ export class RulesPlaygroundPage {
 
   protected readonly schema = signal<RulesTool>(RulesTool.Predicate);
   protected readonly text = signal(rulesExample(RulesTool.Predicate));
+  /** What has been typed for each formula reference; kept across edits so a value survives retyping. */
+  protected readonly referenceEntries = signal<ReferenceEntries>(new Map());
   /** The formula check while the formula tool is chosen, otherwise undefined. */
   protected readonly formula = computed((): FormulaCheck | undefined => {
     const tool = this.schema();
-    return tool === RulesTool.Formula ? checkFormula(this.text()) : undefined;
+    return tool === RulesTool.Formula ? checkFormula(this.text(), this.referenceEntries()) : undefined;
   });
   /** The JSON check while a schema is chosen, otherwise undefined. */
   protected readonly outcome = computed((): CheckOutcome | undefined => {
@@ -87,5 +91,7 @@ export class RulesPlaygroundPage {
     }
     this.schema.set(tool);
     this.text.set(rulesExample(tool));
+    // The boxes go with the tool, and a box made again would show a stale number for an emptied entry.
+    this.referenceEntries.set(new Map());
   }
 }

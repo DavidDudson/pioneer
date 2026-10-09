@@ -77,8 +77,8 @@ gh pr create --head <layer-branch> --base <branch below, or main for the bottom 
 gh stack submit --auto            # pushes, keeps the existing PRs and their titles, links the stack
 ```
 
-Check `gh pr list --head <branch> --json title` afterwards: every title must be conventional. Then for every
-PR in the stack (`gh stack view --json`):
+Check `gh pr list --head <branch> --json title` afterwards: every title must be conventional and at most 72
+characters (see `create-pr`). Then for every PR in the stack (`gh stack view --json`):
 
 - Mark ready when the layer is complete: `gh pr ready <pr>`.
 - Request Copilot once per PR: `gh pr edit <pr> --add-reviewer "@copilot"`.

@@ -43,3 +43,17 @@ export type ReferencePath = z.infer<typeof ReferencePath>;
 /** How many nodes deep a formula nests, or how many it has; checked against the limits above. */
 export const NodeCount = z.int().nonnegative().brand<'NodeCount'>();
 export type NodeCount = z.infer<typeof NodeCount>;
+
+/** The largest magnitude a formula value may have: beyond it, JavaScript numbers skip whole numbers. */
+export const FORMULA_VALUE_MAX = Number.MAX_SAFE_INTEGER;
+
+/** A whole number a reference supplies or a formula evaluates to, inside the safe integer range. */
+export const FormulaValue = z.int().min(-FORMULA_VALUE_MAX).max(FORMULA_VALUE_MAX).brand<'FormulaValue'>();
+export type FormulaValue = z.infer<typeof FormulaValue>;
+
+/**
+ * A value partway through evaluation. Division can leave a fraction, as it does in Foundry, which evaluates
+ * formulas as JavaScript; only the result is rounded. Kept inside the safe integer range like the result.
+ */
+export const PartialValue = z.number().min(-FORMULA_VALUE_MAX).max(FORMULA_VALUE_MAX).brand<'PartialValue'>();
+export type PartialValue = z.infer<typeof PartialValue>;
