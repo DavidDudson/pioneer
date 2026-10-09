@@ -1,0 +1,7 @@
+{
+  "name": "rules-formula",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/rules/formula/src",
+  "tags": ["scope:rules", "type:domain", "platform:any"]
+}
