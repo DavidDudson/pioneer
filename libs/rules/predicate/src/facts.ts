@@ -11,13 +11,16 @@ export type OptionValue = z.infer<typeof OptionValue>;
 const SEPARATOR = ':';
 const NO_VALUES: readonly OptionValue[] = [];
 
-/** Each option's number, if its last word is one, grouped by the text before it: `self:level` → `[5]`. */
+/**
+ * Each option's number, if its last word is a finite one, grouped by the text before it: `self:level` → `[5]`.
+ * `1e309` reads as Infinity, which no level or rank reaches, so it gives no value.
+ */
 function indexValues(options: Iterable<string>): ReadonlyMap<string, readonly OptionValue[]> {
   const values = new Map<string, OptionValue[]>();
   for (const option of options) {
     const split = option.lastIndexOf(SEPARATOR);
     const value = Number(option.slice(split + 1));
-    if (!Number.isNaN(value)) {
+    if (Number.isFinite(value)) {
       const prefix = option.slice(0, split);
       const list = values.get(prefix) ?? [];
       list.push(OptionValue.parse(value));

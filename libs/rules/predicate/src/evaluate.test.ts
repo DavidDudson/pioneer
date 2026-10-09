@@ -184,3 +184,9 @@ describe('mixed namespaces', () => {
     expect(verdict(['self:effect:rage'], facts())).toBe(Truth.False);
   });
 });
+
+describe('option values', () => {
+  test('a last word that overflows to Infinity gives no value instead of throwing', () => {
+    expect(verdict([{ gte: ['self:level', 1] }], facts('self:level:1e309'))).toBe(Truth.False);
+  });
+});
