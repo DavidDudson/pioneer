@@ -7,7 +7,7 @@ import type { ChangeMode, Level, ModifierValue, Predicate, RuleValue } from '@pi
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 /** Resolves a rule element's formula references, given the level of the item it is on. */
-export type ResolveFor = (itemLevel: Level | undefined) => ResolveReference;
+type ResolveFor = (itemLevel: Level | undefined) => ResolveReference;
 
 /** What rule elements need besides themselves: the facts predicates read and the formula references' values. */
 export interface RuleContext {
