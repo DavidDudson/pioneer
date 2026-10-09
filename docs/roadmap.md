@@ -11,12 +11,11 @@ flowchart LR
   M2 --> M3
   M3 --> M4[M4 Sheet and introspection]
   M4 --> M5[M5 Solo play]
-  M5 --> M6[M6 Campaigns and live play]
+  M5 --> M6[M6 Campaigns and Foundry sync]
   M4 --> M7[M7 Homebrew authoring]
   M6 --> M7
   M4 --> M8[M8 Interop]
   M2 --> M9[M9 Remaster core coverage]
-  M6 --> M9
   M7 --> M9
 ```
 
@@ -113,18 +112,20 @@ gain and lose conditions, end the turn with correct bookkeeping.
 - **Conditions and effects**: apply and remove, values, implied conditions, durations, end-of-turn bookkeeping.
 - **Action economy**: available actions in the engine; Now and All views; actions remaining and reaction tracker.
 
-## M6 Campaigns and live play
+## M6 Campaigns and Foundry sync
 
-Exit: a GM and four players run a session end to end: party view, shared rolls, encounter with initiative, and a
-complete combat log.
+Exit: a GM links a campaign to a Foundry world; four players' characters import as pf2e actors, build changes
+reach Foundry and play state syncs in the direction the GM chose.
 
-- **Campaign management**: create, invite links, roles, enabled packs and variant rules, visibility settings.
-- **Event log and live sync**: events table, command handlers, projections, Server-Sent Events streams, LISTEN/NOTIFY,
-  resume from sequence.
-- **Party introspection**: party summary, read-only sheets with breakdowns, visibility rules.
-- **Combat log**: rendered event stream, expandable roll breakdowns, filters.
-- **Encounter tracker**: initiative from sheets, ad hoc and Monster Core creatures, rounds, turns, delay, ready.
-- **GM tools**: apply damage, conditions, effects and overrides to party members; secret rolls; server dice.
+Live play runs in Foundry VTT, not in Pioneer (ADR-0018). Pioneer builds and explains characters; campaigns exist
+to group a party and link it to a Foundry world.
+
+- **Campaign management**: create, invite links, members, attach characters.
+- **Foundry export**: actor JSON, compendium links, choice flags, inventory, spellcasting, reverse rule element
+  translation, golden pregen checklist (moved from M8).
+- **Foundry sync**: a Foundry module that imports the campaign's characters as actors, re-syncs build changes,
+  and syncs play state (HP, conditions, effects, resources) in a per-campaign mode: Foundry is the source of
+  truth, Pioneer is the source of truth, or disconnected; party overview.
 
 ## M7 Homebrew authoring
 
@@ -139,11 +140,10 @@ Exit: a homebrew class with its feats is authored entirely in the app, enabled i
 
 ## M8 Interop
 
-Exit: pregens export to Foundry and import cleanly; Pathbuilder exports import with a discrepancy report.
+Exit: Pathbuilder exports import with a discrepancy report; Pioneer JSON round-trips with embedded homebrew.
 
 - **Pathbuilder import**: name mapping, slot filling, unmatched report, numeric comparison.
 - **Pioneer JSON**: export and import with embedded homebrew.
-- **Foundry export**: actor JSON, compendium links, choice flags, reverse rule element translation, checklist.
 
 ## M9 Remaster core coverage
 
@@ -151,7 +151,7 @@ Exit: Player Core, Player Core 2, GM Core and Monster Core imported to the cover
 
 - **Player Core 2** import.
 - **GM Core** import (items, variant rules, rules elements needed by them).
-- **Monster Core** import (creatures for the encounter tracker).
+- **Monster Core** import (creature content).
 - **Translator gap closing**: work through the untranslatable report.
 - **Source enrichment completion**: page numbers and AoN URLs for all imported entries.
 - **Content translation import**: community Foundry translation modules as text-only packs keyed by Foundry id.
