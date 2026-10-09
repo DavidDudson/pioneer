@@ -317,12 +317,6 @@
       "rules": { "eslint/no-restricted-imports": "off" }
     },
     {
-      // Foundry's conditional predicate is spelled `{ "if": …, "then": … }` (ADR-0002). Its `then`
-      // is a statement, never a function, so a predicate is not a thenable when awaited.
-      "files": ["libs/rules/sdk/src/predicate*.ts", "libs/rules/sdk/src/testing/*.ts"],
-      "rules": { "unicorn/no-thenable": "off" }
-    },
-    {
       // Small related error types live together.
       "files": ["libs/shared/kernel/src/errors.ts"],
       "rules": { "eslint/max-classes-per-file": "off" }

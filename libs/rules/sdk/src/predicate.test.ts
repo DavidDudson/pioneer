@@ -68,6 +68,7 @@ describe('Predicate', () => {
       { xor: ['a:b', 'c:d'] },
       { nand: ['a:b', 'c:d'] },
       { iff: ['a:b', 'c:d'] },
+      // oxlint-disable-next-line unicorn/no-thenable -- Foundry spells the conditional { if, then } (ADR-0002); then is a statement, never a function
       { if: 'target:trait:undead', then: 'item:damage:type:vitality' },
       { gte: ['self:level', 5] },
       { lt: ['target:level', 'self:level'] },

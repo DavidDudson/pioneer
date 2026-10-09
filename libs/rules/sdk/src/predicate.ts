@@ -58,6 +58,7 @@ export const PredicateStatement: z.ZodType<PredicateStatement> = z.lazy(() => {
     z.strictObject({ nor: statements }),
     z.strictObject({ iff: statements }),
     z.strictObject({ not: PredicateStatement }),
+    // oxlint-disable-next-line unicorn/no-thenable -- Foundry spells the conditional { if, then } (ADR-0002); then is a statement, never a function
     z.strictObject({ if: PredicateStatement, then: PredicateStatement }),
   ]);
 });

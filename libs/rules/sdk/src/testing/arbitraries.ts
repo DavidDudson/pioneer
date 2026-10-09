@@ -44,6 +44,7 @@ export const predicateStatementJson: Arbitrary<unknown> = letrec<{ statement: un
       })),
       tuple(constantFrom(...LIST_OPERATORS), list).map(([operator, statements]) => ({ [operator]: statements })),
       record({ not: statement }),
+      // oxlint-disable-next-line unicorn/no-thenable -- Foundry spells the conditional { if, then } (ADR-0002); then is a statement, never a function
       record({ if: statement, then: statement }),
     ),
   };
