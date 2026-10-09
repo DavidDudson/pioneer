@@ -30,6 +30,11 @@ import {
 } from './combobox.variants';
 import { injectOptionVirtualizer, optionOffset } from './option-virtualizer';
 
+interface Picked<TValue extends string> {
+  readonly value: TValue | undefined;
+  readonly label: string | undefined;
+}
+
 /**
  * Plain single pick from a long list (feats, spells, items) by typing to
  * filter, on `@angular/aria` (combobox + listbox). The listbox opens inline
@@ -62,14 +67,42 @@ export class Combobox<TValue extends string> extends Control {
   public readonly searched = output<string>();
 
   protected readonly expanded = signal(false);
-  /** The input's text: the typed query, or the picked option's label. */
-  protected readonly text = linkedSignal<TValue | undefined, string>({
-    source: this.value,
-    computation: (value, previous) => {
-      if (value === undefined) {
+  /** The picked value and its label, once an option for it has loaded. */
+  readonly #picked = computed<Picked<TValue>>(
+    () => {
+      const value = this.value();
+      return { value, label: value === undefined ? undefined : this.#labelOf(value) };
+    },
+    { equal: (left, right) => left.value === right.value && left.label === right.label },
+  );
+  /** The picked option's last known label, kept while a search leaves the option out. */
+  readonly #pickedLabel = linkedSignal<Picked<TValue>, string | undefined>({
+    source: this.#picked,
+    computation: (picked, previous) => {
+      if (picked.label !== undefined || previous === undefined) {
+        return picked.label;
+      }
+      return previous.source.value === picked.value ? previous.value : undefined;
+    },
+  });
+  /** The picked value with its last known label; `text` reads it, so the label is remembered from the start. */
+  readonly #shown = computed<Picked<TValue>>(() => ({ value: this.value(), label: this.#pickedLabel() }), {
+    equal: (left, right) => left.value === right.value && left.label === right.label,
+  });
+  /**
+   * The input's text: the typed query, or the picked option's label. The label also fills in when
+   * its option arrives after the value (an async source), but never over typing in an open list.
+   */
+  protected readonly text = linkedSignal<Picked<TValue>, string>({
+    source: this.#shown,
+    computation: (picked, previous) => {
+      if (picked.value === undefined) {
         return '';
       }
-      return untracked(() => this.#labelOf(value)) ?? previous?.value ?? '';
+      if (previous !== undefined && untracked(this.expanded)) {
+        return previous.value;
+      }
+      return picked.label ?? previous?.value ?? '';
     },
   });
   /** The picked value while it is among the options; the listbox drops values it has no option for. */
@@ -183,8 +216,13 @@ export class Combobox<TValue extends string> extends Control {
   }
 
   protected choose(values: readonly TValue[]): void {
-    const [value] = values;
-    if (value === undefined || this.#syncing) {
+    if (this.#syncing) {
+      return;
+    }
+    // The listbox toggles: picking the picked option again empties it. That is still a pick.
+    const repicked = this.#activeIndex() !== undefined && this.#activeIndex() === this.#pickedIndex();
+    const value = values[0] ?? (repicked ? this.value() : undefined);
+    if (value === undefined) {
       return;
     }
     this.expanded.set(false);
@@ -216,7 +254,7 @@ export class Combobox<TValue extends string> extends Control {
 
   #restore(): void {
     const value = this.value();
-    this.text.set(value === undefined ? '' : (this.#labelOf(value) ?? this.text()));
+    this.text.set(value === undefined ? '' : (this.#pickedLabel() ?? this.text()));
   }
 
   #labelOf(value: TValue): string | undefined {

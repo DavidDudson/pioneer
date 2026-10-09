@@ -36,11 +36,12 @@
       [attr.aria-label]="ariaLabel() ?? null"
       [attr.aria-labelledby]="labelledBy() ?? null"
       [attr.aria-busy]="loading() || null"
-      [style.height.px]="totalSize()"
+      [style.height.px]="loading() ? 0 : totalSize()"
       [value]="selected()"
       (valueChange)="choose($event)"
     >
-      @for (row of virtualRows(); track row.key) {
+      <!-- While loading, the skeleton replaces the last query's options rather than sitting above them. -->
+      @for (row of loading() ? [] : virtualRows(); track row.key) {
         @if (optionAt(row.index); as option) {
           <div
             #optionElement
