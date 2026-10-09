@@ -12,4 +12,8 @@ export const DiceMessage = {
   KeepCount: 'dice.parse.keepCount',
   UnknownTag: 'dice.parse.unknownTag',
   ConflictingTag: 'dice.parse.conflictingTag',
+  FortuneNormal: 'dice.fortune.normal',
+  FortuneKeptHigher: 'dice.fortune.keptHigher',
+  FortuneKeptLower: 'dice.fortune.keptLower',
+  FortuneCancelled: 'dice.fortune.cancelled',
 } as const;
