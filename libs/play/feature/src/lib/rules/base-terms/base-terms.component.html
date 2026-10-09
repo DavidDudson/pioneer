@@ -1,0 +1,14 @@
+<fr-list gap="xs" markers>
+  @for (term of shown(); track $index) {
+    <fr-list-item>
+      <fr-stack direction="horizontal" gap="xs" align="center" wrap>
+        @if (term.code; as code) {
+          <fr-text variant="code">{{ code }}</fr-text>
+        } @else {
+          <fr-text tone="muted">{{ 'play.rules.rounding' | transloco }}</fr-text>
+        }
+        <fr-text>{{ 'play.rules.termValue' | transloco: { value: term.value } }}</fr-text>
+      </fr-stack>
+    </fr-list-item>
+  }
+</fr-list>

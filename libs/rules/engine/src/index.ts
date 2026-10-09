@@ -10,7 +10,7 @@ export {
 } from './breakdown';
 export { deriveStatistics, type ModifierInputs } from './derive-statistics';
 export { EngineMessage } from './messages';
-export { RuleId, RuleInPlay } from './rule-in-play';
+export { RuleId, ruleIdOf, RuleInPlay } from './rule-in-play';
 export { type StatisticFailure, type StatisticResult, type StatisticValue } from './statistic-bases';
 export { type StatisticInputs, StatisticInputsJson } from './statistic-inputs';
 export { default as engineMessages } from './i18n/en.json';

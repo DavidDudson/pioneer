@@ -1,0 +1,16 @@
+<fr-list gap="xs" markers>
+  @for (line of shown(); track line.rule) {
+    <fr-list-item>
+      <fr-stack gap="3xs">
+        <fr-stack direction="horizontal" gap="xs" align="center" wrap>
+          <fr-badge [tone]="LINE_STATE_TONES[line.state]">{{ LINE_STATE_KEYS[line.state] | transloco }}</fr-badge>
+          <fr-text>{{ line.name }}</fr-text>
+          <fr-text tone="muted">{{ line.value }}</fr-text>
+        </fr-stack>
+        @if (line.detail; as detail) {
+          <fr-text variant="caption" tone="muted">{{ detail }}</fr-text>
+        }
+      </fr-stack>
+    </fr-list-item>
+  }
+</fr-list>

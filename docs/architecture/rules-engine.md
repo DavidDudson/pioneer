@@ -130,15 +130,15 @@ is one Foundry's JavaScript met too.
 Statistic base formulas and rule element values share one vocabulary of references (ADR-0016), catalogued in
 `libs/rules/sdk` (`formula-reference.ts`). Stored formulas use these paths only:
 
-| Reference           | Scope | Value                                                                             |
-| ------------------- | ----- | --------------------------------------------------------------------------------- |
-| `@level`            | actor | The character's level                                                             |
-| `@attr.<attribute>` | actor | The attribute modifier, `@attr.str` to `@attr.cha`                                |
-| `@attr.dex.capped`  | actor | The Dexterity modifier after the armor's Dexterity cap (`DexterityCap`)           |
-| `@prof.<selector>`  | actor | The proficiency bonus for a statistic: rank bonus plus level, or 0 when untrained |
-| `@rank.<selector>`  | actor | The proficiency rank for a statistic, 0 (untrained) to 4 (legendary)              |
-| `@stat.<selector>`  | actor | Another statistic's total, such as the spell attack modifier in a spell DC        |
-| `@item.level`       | item  | The level of the item the rule element is on                                      |
+| Reference           | Scope | Value                                                                                  |
+| ------------------- | ----- | -------------------------------------------------------------------------------------- |
+| `@level`            | actor | The character's level                                                                  |
+| `@attr.<attribute>` | actor | The attribute modifier, `@attr.str` to `@attr.cha`                                     |
+| `@attr.dex.capped`  | actor | The Dexterity modifier after the armor's Dexterity cap (`DexterityCap`)                |
+| `@prof.<selector>`  | actor | The proficiency bonus for a statistic: rank bonus plus level, or 0 when untrained      |
+| `@rank.<selector>`  | actor | The proficiency rank for a statistic, 0 (untrained) to 4 (legendary)                   |
+| `@stat.<selector>`  | actor | Another statistic's base, before its modifiers, such as the spell attack in a spell DC |
+| `@item.level`       | item  | The level of the item the rule element is on                                           |
 
 - A selector's colons are written as dots, since references have none: `@prof.save.fortitude` is the bonus for
   `save:fortitude`, `@rank.attack.martial` the rank for `attack:martial`.
@@ -174,14 +174,17 @@ join the catalogue when the engine can supply their values. Formulas inside Foun
 
 ## Modifiers and stacking
 
+`libs/rules/engine` (`breakdown.ts`) defines these types. Overrides and roll notes join the breakdown with their own
+stories.
+
 ```ts
 interface Modifier {
-  id: string;
-  label: Message; // message descriptor or content text ref, never a raw string
-  value: number | Formula;
+  id: RuleId; // `<entry>#<rule>`: the rule element that made it, stable across derivations
+  slug: RuleSlug | undefined; // lets an AdjustModifier find it
+  label: { text: ContentText } | { entry: ContentId }; // the element's display.label, else its entry's name
   type: 'untyped' | 'status' | 'circumstance' | 'item' | 'proficiency' | 'attribute' | 'potency';
-  targets: readonly Selector[]; // selectors or domains
-  predicate?: Predicate;
+  targets: readonly ModifierTarget[]; // selectors or domains
+  predicate: Predicate | undefined;
   origin: Origin;
 }
 ```
@@ -193,23 +196,45 @@ this and keeps the losers:
 ```ts
 interface BreakdownLine {
   modifier: Modifier;
-  value: number;
+  value: FormulaValue | undefined; // after adjustments; undefined only when failed
+  adjustedBy: readonly RuleId[]; // the AdjustModifiers that changed it, in order
   status:
     | { kind: 'applied' }
-    | { kind: 'suppressed'; by: ModifierId; reason: 'stacking' } // e.g. lower status bonus
-    | { kind: 'conditional'; when: Predicate; summary: PredicateSummary } // depends on unknown situation
-    | { kind: 'inactive'; reason: string }; // predicate known false, toggle off
+    | { kind: 'suppressed'; by: RuleId; reason: 'stacking' | 'adjustment' } // lower status bonus; AdjustModifier suppress
+    | { kind: 'conditional'; when: Predicate; summary: PredicateSummary | undefined } // depends on unknown situation
+    | { kind: 'inactive'; reason: 'predicate' } // predicate known false
+    | { kind: 'failed'; error: MessageDescriptor; position: TextPosition }; // a formula failed to evaluate
 }
 
-interface Breakdown {
+interface StatisticValue {
   selector: Selector;
-  total: number;
-  base: BaseTerm[]; // each formula term, with its own origin
+  base: BaseTerm[]; // each formula term
+  baseValue: FormulaValue;
   lines: BreakdownLine[];
-  overrides: OverrideLine[]; // "set to X" effects, with the value they replaced
-  notes: RollNote[]; // text-only reminders, also predicate-gated
+  total: FormulaValue; // baseValue plus the applied lines
 }
 ```
+
+`deriveStatistics(definitions, inputs, { rules, facts })` runs the base phase (below), then for each statistic:
+
+1. **Collect.** A `FlatModifier` in play becomes a modifier. It reaches a statistic when one of its targets is the
+   statistic's selector, one of its `domains`, or `all`.
+2. **Value.** A number is used as written. A formula is evaluated with the character's inputs, `@stat.<selector>`
+   (another statistic's base) and `@item.level` (the level of the item the element is on). A failure makes the line
+   `failed`; it never throws.
+3. **Adjust.** Each `AdjustModifier` that reaches the statistic and whose predicate is known to hold runs, in
+   priority order (Foundry's default 100) and then id order, on the modifiers with its `slug` (all of them when it
+   has none). `add`, `subtract`, `multiply`, `upgrade` (at least), `downgrade` (at most) and `override` change the
+   value, rounded down; `suppress` removes the line, naming the adjustment. An adjustment whose predicate depends on
+   the situation does not run yet.
+4. **Gate.** The predicate, in Kleene logic against the derivation's roll options: true applies, false is inactive,
+   unknown is conditional, with a `PredicateSummary` (or the element's `display.summary`).
+5. **Stack.** Among applied, typed lines, each type's highest bonus and lowest penalty apply and the rest are
+   suppressed by the winner. A tie goes to the smaller id, so the result does not depend on the order of the rules.
+
+The total is the base plus the applied lines. Property tests check order independence, that the total is the base
+plus the applied lines, that untyped modifiers always sum, and that adding a typed bonus no higher than one already
+applied never raises the total.
 
 That is the AC stack the sheet shows: base 10, Dexterity capped by the armour, proficiency from the class, the
 armour's item bonus, a shield raised (conditional), _frightened 1_ (status penalty, applied, from the condition,
@@ -276,12 +301,12 @@ flowchart TD
 
 ### Statistic graph
 
-`deriveStatistics(definitions, inputs)` in `libs/rules/engine` is step 5 on its own. The inputs are the character's
+The base phase in `libs/rules/engine` (`StatisticBases`) is step 5. The inputs are the character's
 level, attribute modifiers, proficiency rank per selector (a selector left out is untrained) and the armor's Dexterity
 cap; grant resolution (Epic 1.4) will produce them, and until then they are supplied directly.
 
 - Edges come from `references(formula)`. `@prof.<selector>` and `@rank.<selector>` read that selector's rank, an
-  input, so they add no edge between statistics. `@stat.<selector>` reads another statistic's total and is the
+  input, so they add no edge between statistics. `@stat.<selector>` reads another statistic's base and is the
   edge.
 - A later definition of a selector replaces an earlier one, as a pack registered later (homebrew after core)
   restates a statistic.
@@ -297,9 +322,9 @@ cap; grant resolution (Epic 1.4) will produce them, and until then they are supp
   its own; if the terms then miss the formula's value (`@level / 2 + @level / 2` at an odd level), a rounding line
   makes up the difference, so the lines always add up to the base.
 
-Until modifiers join in step 6, a total is its base. Whether `@stat.<selector>` then reads the total with all of
-the other statistic's modifiers, or only those for its own domains (a bonus to spell attack rolls does not raise a
-spell DC), is decided with the modifier phase.
+`@stat.<selector>` reads the other statistic's base, not its total. Modifiers reach each statistic through its own
+selector and domains, so a bonus to spell attack rolls does not leak into a spell DC built on the spell attack, and
+modifiers never depend on other modifiers.
 
 Performance target: full derivation of a level 20 character in under 10 ms in the browser, so the builder can
 re-derive on every keystroke. Incremental recomputation is an optimisation for later, not a design constraint.

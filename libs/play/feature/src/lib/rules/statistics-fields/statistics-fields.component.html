@@ -3,11 +3,11 @@
     <fr-label>{{ 'play.rules.statisticsLabel' | transloco }}</fr-label>
     <fr-text-area monospace [rows]="definitionRows" [(value)]="definitions" />
     @if (definitionsProblem(); as problem) {
-      @if (problem.status === CheckStatus.NotJson) {
-        <fr-field-error>{{ 'play.rules.notJson' | transloco }}</fr-field-error>
-      } @else {
-        <fr-field-error>{{ 'play.rules.invalidSummary' | transloco: { count: problem.issues.length } }}</fr-field-error>
-      }
+      <fr-field-error>{{
+        problem.status === CheckStatus.NotJson
+          ? ('play.rules.notJson' | transloco)
+          : ('play.rules.invalidSummary' | transloco: { count: problem.issues.length })
+      }}</fr-field-error>
     } @else {
       <fr-field-hint>{{ 'play.rules.statisticsHint' | transloco }}</fr-field-hint>
     }
@@ -16,13 +16,37 @@
     <fr-label>{{ 'play.rules.inputsLabel' | transloco }}</fr-label>
     <fr-text-area monospace [rows]="inputRows" [(value)]="inputs" />
     @if (inputsProblem(); as problem) {
-      @if (problem.status === CheckStatus.NotJson) {
-        <fr-field-error>{{ 'play.rules.notJson' | transloco }}</fr-field-error>
-      } @else {
-        <fr-field-error>{{ 'play.rules.invalidSummary' | transloco: { count: problem.issues.length } }}</fr-field-error>
-      }
+      <fr-field-error>{{
+        problem.status === CheckStatus.NotJson
+          ? ('play.rules.notJson' | transloco)
+          : ('play.rules.invalidSummary' | transloco: { count: problem.issues.length })
+      }}</fr-field-error>
     } @else {
       <fr-field-hint>{{ 'play.rules.inputsHint' | transloco }}</fr-field-hint>
+    }
+  </fr-field>
+  <fr-field [invalid]="rulesProblem() !== undefined">
+    <fr-label>{{ 'play.rules.ruleElementsLabel' | transloco }}</fr-label>
+    <fr-text-area monospace [rows]="definitionRows" [(value)]="rules" />
+    @if (rulesProblem(); as problem) {
+      <fr-field-error>{{
+        problem.status === CheckStatus.NotJson
+          ? ('play.rules.notJson' | transloco)
+          : ('play.rules.invalidSummary' | transloco: { count: problem.issues.length })
+      }}</fr-field-error>
+    } @else {
+      <fr-field-hint>{{ 'play.rules.ruleElementsHint' | transloco }}</fr-field-hint>
+    }
+  </fr-field>
+  <fr-field [invalid]="badLines().length > 0">
+    <fr-label>{{ 'play.rules.factsLabel' | transloco }}</fr-label>
+    <fr-text-area monospace [rows]="factRows" [(value)]="facts" />
+    @if (badLines().length > 0) {
+      <fr-field-error>{{
+        'play.rules.badFacts' | transloco: { count: badLines().length, lines: badLineList() }
+      }}</fr-field-error>
+    } @else {
+      <fr-field-hint>{{ 'play.rules.factsHint' | transloco }}</fr-field-hint>
     }
   </fr-field>
 </fr-stack>

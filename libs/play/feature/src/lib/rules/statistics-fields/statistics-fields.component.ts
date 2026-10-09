@@ -1,6 +1,6 @@
-import { ChangeDetectionStrategy, Component, computed, input, model } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, input, model } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { Field, FieldError, FieldHint, Label, Stack, TextArea } from '@pioneer/frontier';
+import { Field, FieldError, FieldHint, Label, LocaleFormat, Stack, TextArea } from '@pioneer/frontier';
 
 import { CheckStatus } from '../rules-check';
 import type { JsonProblem } from '../rules-check';
@@ -9,8 +9,12 @@ import type { StatisticsCheck } from '../statistics-check';
 
 const DEFINITION_ROWS = 16;
 const INPUT_ROWS = 8;
+const FACT_ROWS = 4;
 
-/** The statistics tool's inputs: the definitions as a JSON array and the character's inputs, each with its problem. */
+/**
+ * The statistics tool's inputs, each with its own problem: the definitions, the character's inputs and the rule
+ * elements as JSON, and the roll options their predicates read.
+ */
 @Component({
   selector: 'pio-statistics-fields',
   imports: [Field, FieldError, FieldHint, Label, Stack, TextArea, TranslocoPipe],
@@ -18,12 +22,16 @@ const INPUT_ROWS = 8;
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class StatisticsFields {
+  readonly #format = inject(LocaleFormat);
   protected readonly CheckStatus = CheckStatus;
   protected readonly definitionRows = DEFINITION_ROWS;
   protected readonly inputRows = INPUT_ROWS;
+  protected readonly factRows = FACT_ROWS;
   public readonly check = input.required<StatisticsCheck>();
   public readonly definitions = model.required<string>();
   public readonly inputs = model.required<string>();
+  public readonly rules = model.required<string>();
+  public readonly facts = model.required<string>();
 
   protected readonly definitionsProblem = computed((): JsonProblem | undefined => {
     const result = this.check();
@@ -33,5 +41,21 @@ export class StatisticsFields {
   protected readonly inputsProblem = computed((): JsonProblem | undefined => {
     const result = this.check();
     return result.status === StatisticsStatus.Problems ? result.inputs : undefined;
+  });
+
+  protected readonly rulesProblem = computed((): JsonProblem | undefined => {
+    const result = this.check();
+    return result.status === StatisticsStatus.Problems ? result.rules : undefined;
+  });
+
+  /** The roll option lines that are not roll options, as a list in the UI locale; empty when there are none. */
+  protected readonly badLines = computed((): readonly number[] => {
+    const result = this.check();
+    return result.status === StatisticsStatus.Problems ? result.factLines : [];
+  });
+
+  protected readonly badLineList = computed((): string => {
+    this.#format.locale();
+    return this.#format.list(this.badLines().map((line) => this.#format.number(line)));
   });
 }

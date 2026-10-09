@@ -14,6 +14,20 @@ describe('RulesPlaygroundPage statistics', () => {
     expect(text).toContain('gives 6');
   });
 
+  it('shows each modifier line: applied, suppressed by what, conditional on what, inactive', async () => {
+    const harness = await openPlayground();
+    await chooseSchema(harness, 'Statistics');
+
+    const text = pageText(harness);
+    expect(text).toContain('Total 19');
+    expect(text).toContain('Breastplate');
+    expect(text).toContain('item +4');
+    expect(text).toContain('Rule element 1 beats or removes it.');
+    expect(text).toContain('It holds when you are in forest.');
+    expect(text).toContain('Its predicate does not hold.');
+    expect(text).toContain('status -1');
+  });
+
   it('shows a statistic cycle with text from the engine bundle and a caret', async () => {
     const harness = await openPlayground();
     await chooseSchema(harness, 'Statistics');

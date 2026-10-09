@@ -73,10 +73,10 @@ function toNode(trace: StatementTrace): VerdictNode {
 }
 
 /** Roll options read from text, or the 1-based lines that are not roll options. */
-type FactsParse = { readonly options: readonly RollOption[] } | { readonly lines: readonly number[] };
+export type FactsParse = { readonly options: readonly RollOption[] } | { readonly lines: readonly number[] };
 
 /** The roll options, one per line, blank lines skipped; or the lines that are not roll options. */
-function parseFacts(text: string): FactsParse {
+export function parseFacts(text: string): FactsParse {
   const lines = text.split(LINE).map((line, index) => ({ text: line.trim(), number: index + 1 }));
   const filled = lines.filter((line) => line.text !== '');
   const bad = filled.filter((line) => !RollOption.safeParse(line.text).success).map((line) => line.number);
