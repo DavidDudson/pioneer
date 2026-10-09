@@ -42,6 +42,8 @@ const OWNERS: ReadonlyMap<string, readonly string[]> = new Map([
   ['th', ['data/table/']],
   ['td', ['data/table/']],
   ['time', ['date/']],
+  ['details', ['layout/disclosure/']],
+  ['summary', ['layout/disclosure/']],
   ['svg', ['icon/']],
   ['select', []],
   ['textarea', ['controls/text-area/']],

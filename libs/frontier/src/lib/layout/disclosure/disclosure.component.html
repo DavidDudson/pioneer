@@ -1,0 +1,7 @@
+<details #details [class]="rootClasses()" [open]="open()" (toggle)="sync(details.open)">
+  <summary [class]="summaryClasses()">
+    <ng-content select="[frDisclosureSummary]" />
+    <fr-icon [icon]="chevron()" />
+  </summary>
+  <div [class]="contentClasses()"><ng-content /></div>
+</details>
