@@ -1,0 +1,13 @@
+@if (loading()) {
+  <div [class]="classes">
+    <fr-stack gap="xs">
+      @for (row of skeletonRows; track row) {
+        <fr-skeleton width="full" />
+      }
+    </fr-stack>
+  </div>
+} @else if (empty()) {
+  <div [class]="classes">
+    <fr-text tone="muted">{{ 'frontier.combobox.noMatches' | transloco }}</fr-text>
+  </div>
+}
