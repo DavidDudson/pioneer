@@ -21,10 +21,8 @@ export {
 export type { ProviderProfile } from './provider-profile';
 export { HOME_PATH, ReturnPath, returnPathOr } from './return-path';
 export {
-  LAST_SEEN_RESOLUTION,
   Session,
   SESSION_LIFETIME,
-  SESSION_RENEWAL_WINDOW,
   SessionSummary,
   SessionToken,
   TokenHash,

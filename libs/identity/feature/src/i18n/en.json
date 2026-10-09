@@ -5,7 +5,7 @@
     "signIn": "Sign in",
     "sessions": {
       "heading": "Where you're signed in",
-      "description": "Each browser stays signed in for 30 days after it was last used. End any you don't recognise.",
+      "description": "A browser you stop using is signed out within 30 days. Sign out any you don't recognise.",
       "loadError": "Could not load where you're signed in.",
       "current": "This browser",
       "other": "Another browser",

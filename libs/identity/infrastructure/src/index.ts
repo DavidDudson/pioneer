@@ -1,4 +1,4 @@
-export { csrfGuard, isCrossSiteWrite } from './csrf-guard';
+export { csrfGuard } from './csrf-guard';
 export { DiscordProvider } from './discord-provider';
 export { DrizzleSessionRepository } from './drizzle-session-repository';
 export { DrizzleUserRepository } from './drizzle-user-repository';
