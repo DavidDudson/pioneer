@@ -20,12 +20,12 @@ migrates the database on start. Data lives in the `pgdata` volume; `docker compo
 
 Settings, all read from `.env`:
 
-| Variable                               | Default                 | Purpose                                                                                            |
-| -------------------------------------- | ----------------------- | -------------------------------------------------------------------------------------------------- |
-| `POSTGRES_PASSWORD`                    | none, required          | Password of the `pioneer` database user; passed to the app as `PGPASSWORD`, so any character works |
-| `PIONEER_PORT`                         | `8080`                  | Host port                                                                                          |
-| `PUBLIC_ORIGIN`                        | `http://localhost:8080` | Address browsers use; OAuth callbacks are registered under it                                      |
-| `GITHUB_CLIENT_ID`, `..._SECRET`, etc. | unset                   | Sign-in providers, as in `.env.example`; each is off unless both are set                           |
+| Variable                               | Default                 | Purpose                                                                                             |
+| -------------------------------------- | ----------------------- | --------------------------------------------------------------------------------------------------- |
+| `POSTGRES_PASSWORD`                    | none, required          | Password of the `pioneer` database user; passed as `PGPASSWORD`; single-quote it if it contains `$` |
+| `PIONEER_PORT`                         | `8080`                  | Host port                                                                                           |
+| `PUBLIC_ORIGIN`                        | `http://localhost:8080` | Address browsers use; OAuth callbacks are registered under it                                       |
+| `GITHUB_CLIENT_ID`, `..._SECRET`, etc. | unset                   | Sign-in providers, as in `.env.example`; each is off unless both are set                            |
 
 Nothing secret is built into the image: `.dockerignore` keeps `.env` out of the build context, and compose passes
 it to the container at run time.

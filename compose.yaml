@@ -12,7 +12,8 @@ services:
     environment:
       # Pinned over .env (the file Bun also loads in dev): the port mapping and HEALTHCHECK assume 3000.
       PORT: 3000
-      # The password goes in PGPASSWORD, which the driver reads, not in the URL, so any character is safe.
+      # The password goes in PGPASSWORD, which the driver reads, not in the URL, so URL delimiters are safe.
+      # Compose expands `$` in .env values; single-quote a password that contains one.
       DATABASE_URL: postgres://pioneer@db:5432/pioneer
       PGPASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
       PUBLIC_ORIGIN: ${PUBLIC_ORIGIN:-http://localhost:${PIONEER_PORT:-8080}}
