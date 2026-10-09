@@ -126,6 +126,8 @@ Content data never imports code.
   `pioneer-api migrate`. `pioneer-api health` checks a running server, for container healthchecks. The
   `Dockerfile` packages all of it as one image and `compose.yaml` runs it with Postgres; see
   [Deployment](../deployment.md), [ADR-0011](../adr/0011-api-binary-and-migrations.md) and
-  [ADR-0012](../adr/0012-container-image.md).
+  [ADR-0012](../adr/0012-container-image.md). Production runs that image on AWS Lambda behind a Cloudflare Worker
+  (`apps/edge`), with Neon for Postgres, all provisioned by OpenTofu in `infra/`; see [Production](../production.md)
+  and [ADR-0015](../adr/0015-production-host.md).
 - **Testing.** Property tests for the engine and dice (fast-check, already in use). Golden tests: Paizo pregenerated
   characters imported and compared against their published numbers. Importer coverage reports gate content PRs.

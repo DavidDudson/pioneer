@@ -49,6 +49,11 @@ Notes behind the table:
 - **The API image runs on AWS Lambda in `ap-southeast-2`** (arm64), through the AWS Lambda Web Adapter: one extra
   `COPY` of the adapter into `/opt/extensions`. The binary is unchanged, so the same image still runs under compose
   on any VPS.
+- **Lambda runs a copy of the arm64 image from ECR.** Lambda pulls only from ECR in its own account and only
+  single-architecture images, not the multi-arch index on GHCR. Each deploy copies the arm64 image for its
+  `sha-` tag into a private ECR repository that keeps the last five images, a few cents a month in storage.
+- **Provisioning is OpenTofu in `infra/`**, covering AWS, Cloudflare and Neon. Its state lives in R2 and is
+  encrypted on the client, since it holds the generated secrets. The runbook is [Production](../production.md).
 - **It is served through a Lambda Function URL in response-streaming mode**, behind Cloudflare (free plan) for
   the domain, TLS and caching of the web app's static files. A small Cloudflare Worker forwards each request to the
   Function URL, since the free plan cannot rewrite `Host`; Workers Free allows 100k requests a day. CloudFront in
@@ -90,4 +95,7 @@ Notes behind the table:
     free tier is a plan change, not a migration. Alert on usage before the limits (#116).
 - No in-process state may outlive a request: caches are per instance and timers do not run between requests.
 - The Worker is one more deployable, every request counts against its daily limit, and its IAM keys need rotating.
-- Response streaming is not offered in every AWS region; confirm `ap-southeast-2` when provisioning (#113).
+- Response streaming through Function URLs is offered in every commercial AWS region since April 2026, so
+  `ap-southeast-2` is covered (checked when provisioning, #113).
+- Production costs a few cents a month, not exactly nothing, for ECR storage of the last five images (~110 MB
+  each).
