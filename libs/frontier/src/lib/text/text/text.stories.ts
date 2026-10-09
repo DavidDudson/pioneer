@@ -94,6 +94,33 @@ export const Preformatted: TextStory = {
   },
 };
 
+/** A formula or identifier, set in the mono font. */
+export const Code: TextStory = { args: { element: TextElement.Code, content: '@actor.level + 3' } };
+
+/** A key the user presses. */
+export const Keyboard: TextStory = { args: { element: TextElement.Keyboard, content: 'Enter' } };
+
+/** An abbreviation; `expansion` spells it out. */
+export const Abbreviation: TextStory = {
+  args: { element: TextElement.Abbreviation, expansion: 'Armor Class', content: 'AC' },
+};
+
+/** A short inline quotation; the browser adds the quotation marks. */
+export const Quotation: TextStory = { args: { element: TextElement.Quotation, content: 'Strike true' } };
+
+/** Inline elements in running text. */
+export const InlineElements: TextStory = {
+  render: () => ({
+    template: `
+      <fr-text element="p">
+        Press <fr-text element="kbd">Enter</fr-text> to roll <fr-text element="code">1d20 + 7</fr-text> against
+        the target's <fr-text element="abbr" expansion="Armor Class">AC</fr-text>. The GM calls out
+        <fr-text element="q">Strike true</fr-text>.
+      </fr-text>
+    `,
+  }),
+};
+
 export const Truncated: TextStory = {
   args: {
     truncate: true,
