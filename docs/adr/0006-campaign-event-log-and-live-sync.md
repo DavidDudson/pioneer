@@ -1,6 +1,6 @@
 # 0006. Campaign event log with WebSocket and LISTEN/NOTIFY
 
-- Status: Proposed
+- Status: Proposed; the WebSocket transport is superseded by [0017](0017-live-sync-over-server-sent-events.md)
 - Date: 2026-10-08
 
 ## Context

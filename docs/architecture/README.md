@@ -42,7 +42,7 @@ flowchart LR
   subgraph Server
     API[Elysia API<br/>apps/api]
     EngineS[rules engine<br/>same lib]
-    WS[Campaign socket hub]
+    WS[Campaign event streams]
     API --> EngineS
   end
   PG[(Postgres<br/>content, characters,<br/>campaigns, events, audit)]
@@ -51,7 +51,7 @@ flowchart LR
   OAuth[[Discord / Google / GitHub]]
 
   Web -- HTTP JSON contracts --> API
-  Web <-- WebSocket --> WS
+  WS -- Server-Sent Events --> Web
   API --> PG
   WS -- LISTEN/NOTIFY --> PG
   Import[tools/content-import] --> Foundry

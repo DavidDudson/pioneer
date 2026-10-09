@@ -51,9 +51,9 @@ variable "lambda_memory" {
 }
 
 variable "lambda_timeout" {
-  description = "Function timeout in seconds: the longest any request, live sync streams included, can run and bill."
+  description = "Function timeout in seconds: the longest any request, live sync streams included, can run and bill. Streams end after 5 minutes (ADR-0017)."
   type        = number
-  default     = 900
+  default     = 360
 }
 
 variable "oauth" {
