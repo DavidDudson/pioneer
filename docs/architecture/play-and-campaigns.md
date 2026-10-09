@@ -44,8 +44,8 @@ UI behaviour:
 - **All view:** everything the character can ever do, filterable by mode, trait, cost and source.
 - Actions with rolls are one click to roll, and conditional modifiers for that roll are offered as toggles.
 
-Turn tracking (actions spent, reaction used, start/end of turn effects such as frightened decreasing) is local in
-solo play and driven by the encounter tracker in a campaign.
+Turn tracking (actions spent, reaction used, start/end of turn effects such as frightened decreasing) is local to the
+sheet. Campaign play runs in Foundry VTT, which tracks turns itself (ADR-0018).
 
 ## Feat display
 
@@ -93,37 +93,37 @@ over play state and the turn event, so it can run in the browser and on the serv
 - Every roll result keeps the full breakdown it was rolled with and the conditional toggles chosen, so the log can
   always answer "why 23?".
 
-RNG: browser `crypto.getRandomValues` for solo play; in a campaign, rolls are made **on the server** with a
-CSPRNG and broadcast, so every player sees the same, untampered result. GM secret rolls are visible only to the GM.
+RNG: browser `crypto.getRandomValues`. Pioneer rolls are for solo play; shared and secret rolls in a campaign are
+Foundry's.
 
 ## Campaigns
 
+Live play runs in Foundry VTT ([ADR-0018](../adr/0018-foundry-is-the-live-play-surface.md)). Pioneer does not
+build an event log, combat log, encounter tracker or GM tools; a campaign groups a party and links it to a Foundry
+world.
+
 ```text
-campaigns             id, name, gm_id, settings jsonb (visibility, variant rules), packs
-campaign_members      campaign_id, user_id, role (gm | player | observer)
-campaign_characters   campaign_id, character_id, visibility overrides
-encounters            id, campaign_id, status, round, turn_index, combatants jsonb
-campaign_events       id, campaign_id, seq bigint, at, actor_id, character_id?, kind, payload jsonb
+campaigns             id, name, gm_id, created_at
+campaign_members      campaign_id, user_id, role (gm | player)
+campaign_invites      id, campaign_id, token hash, expires_at, revoked_at
+campaign_characters   campaign_id, character_id (a character is in one campaign at most)
+campaign_links        id, campaign_id, token hash, last_used_at, revoked_at
 ```
 
-- **Events are the source of truth for live play.** Rolls, damage, healing, condition and effect changes,
-  resource spending, initiative, turn changes, chat notes. `campaign_events` is append-only with a per-campaign
-  sequence. Applying a command writes the event and updates the character's `play` projection in one transaction.
-- **Live sync.** Clients hold a Server-Sent Events stream per open campaign; commands are plain `POST`s. After
-  commit the API sends `NOTIFY` on the campaign's channel with the sequence; each open stream listens and sends
-  the new events. Each event's SSE `id` is its sequence, so the browser resumes with `Last-Event-ID` and the
-  server replays the gap: delivery is at-least-once and ordered. Streams end after 5 minutes and resume, which
-  also re-checks the session. See [ADR-0017](../adr/0017-live-sync-over-server-sent-events.md).
-- **Introspection.** Every member can open any party character's sheet with the same breakdowns (read-only). The
-  GM controls what players see of each other (full sheet, summary, HP band only) in campaign settings; GMs see
-  everything. The party view shows HP, conditions, AC, saves, Perception and the current turn at a glance.
-- **Combat log.** A rendered view of the event stream: who did what, rolls with expandable breakdowns, damage with
-  IWR applied, conditions with their sources. Filterable by character and round.
-- **Encounter tracker.** Initiative order (players roll from their sheets; GM adds creatures from Monster Core
-  or ad hoc stat lines), round and turn, delay and ready. Deliberately no map, tokens or measurement.
-- **Permissions.** Each context's policies live in its own application layer and are checked in application
-  services, with the acting user from identity's `RequestAuthenticator` (ADR-0007): owner edits build; GM can
-  apply damage, conditions, effects and overrides to campaign characters; players act on their own.
+- **Ownership of data.** Pioneer owns the build (choices, inventory, spells). Foundry owns play state during a
+  session: HP, temporary HP, dying, wounded, conditions, effects and resources. Each side only writes what it owns.
+- **Foundry module.** A Pioneer module for Foundry, configured with the Pioneer URL and a per-campaign link token,
+  pulls the campaign's characters as pf2e actors (see [Foundry export](#foundry-export)) and flags each actor
+  with its character id and revision. Foundry servers are often behind NAT, so the module always calls Pioneer,
+  never the reverse.
+- **Build changes** reach Foundry when the module sees a new character revision; a re-sync replaces build items
+  and keeps Foundry's play state.
+- **Play state** flows back: the module posts actor changes to Pioneer, which stores them in the character's
+  `document.play`, so the sheet and the campaign's party overview show the current state.
+- **Permissions.** Policies live in the campaign context's application layer, with the acting user from identity's
+  `RequestAuthenticator` (ADR-0007), or the campaign from a link token for module routes. Owners edit builds;
+  members see the party overview.
+- The module's distribution, change detection and condition mapping are settled by the spike #216.
 
 ## Accounts
 
