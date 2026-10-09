@@ -12,7 +12,9 @@ services:
     environment:
       # Pinned over .env (the file Bun also loads in dev): the port mapping and HEALTHCHECK assume 3000.
       PORT: 3000
-      DATABASE_URL: postgres://pioneer:${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}@db:5432/pioneer
+      # The password goes in PGPASSWORD, which the driver reads, not in the URL, so any character is safe.
+      DATABASE_URL: postgres://pioneer@db:5432/pioneer
+      PGPASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
       PUBLIC_ORIGIN: ${PUBLIC_ORIGIN:-http://localhost:${PIONEER_PORT:-8080}}
     ports:
       - ${PIONEER_PORT:-8080}:3000
