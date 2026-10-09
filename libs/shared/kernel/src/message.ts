@@ -118,14 +118,33 @@ export const FieldIssueSchema = z.object({
 export type FieldIssue = z.infer<typeof FieldIssueSchema>;
 
 /**
+ * What every option of a plain union said, when they all said the same: `Selector | Domain` share a
+ * grammar, so both fail alike and that failure is the useful message. Undefined when they differ.
+ */
+function sharedUnionIssues(issue: z.core.$ZodIssueInvalidUnion): FieldIssue[] | undefined {
+  if (issue.discriminator !== undefined) {
+    return undefined;
+  }
+  const [first, ...rest] = issue.errors.map((errors) => fieldIssues(errors));
+  const firstText = JSON.stringify(first);
+  const allSame = first !== undefined && first.length > 0 && rest.every((other) => JSON.stringify(other) === firstText);
+  return allSame ? first : undefined;
+}
+
+/**
  * One field issue per Zod issue, except unknown keys: each becomes its own issue whose path ends at
- * that key, so the UI can point at the field that should not be there.
+ * that key, so the UI can point at the field that should not be there. A plain union whose options
+ * all fail the same way reports that failure instead of "no match".
  */
 export function fieldIssues(issues: readonly z.core.$ZodIssue[]): FieldIssue[] {
   return issues.flatMap((issue): FieldIssue[] => {
     const path = issue.path.filter((segment) => typeof segment !== 'symbol');
     if (issue.code === 'unrecognized_keys') {
       return issue.keys.map((key) => ({ path: [...path, key], message: unrecognizedKeys([key]) }));
+    }
+    const shared = issue.code === 'invalid_union' ? sharedUnionIssues(issue) : undefined;
+    if (shared !== undefined) {
+      return shared.map((inner) => ({ path: [...path, ...inner.path], message: inner.message }));
     }
     return [{ path, message: issueMessage(issue) }];
   });
