@@ -1,12 +1,29 @@
 import { describe, expect, test } from 'bun:test';
 
-import { readEnv } from './env';
+import { readEnv, readMigrateEnv } from './env';
 
 const DATABASE_URL = 'postgres://localhost/pioneer';
 
 describe('readEnv', () => {
   test('defaults the port', () => {
     expect(readEnv({ DATABASE_URL }).PORT).toBe(3000);
+  });
+
+  test('defaults the migrations folder to the repo and migrates on start', () => {
+    const env = readEnv({ DATABASE_URL });
+    expect(env.MIGRATIONS_DIR).toEndWith('/apps/api/src/../migrations');
+    expect(env.MIGRATE_ON_START).toBe(true);
+  });
+
+  test('reads the migrations folder and the migrate-on-start flag', () => {
+    const env = readEnv({ DATABASE_URL, MIGRATIONS_DIR: '/app/migrations', MIGRATE_ON_START: 'false' });
+    expect(env.MIGRATIONS_DIR).toBe('/app/migrations');
+    expect(env.MIGRATE_ON_START).toBe(false);
+  });
+
+  test('rejects an empty migrations folder and a flag that is not a boolean', () => {
+    expect(() => readEnv({ DATABASE_URL, MIGRATIONS_DIR: '' })).toThrow(/MIGRATIONS_DIR/u);
+    expect(() => readEnv({ DATABASE_URL, MIGRATE_ON_START: 'sometimes' })).toThrow(/MIGRATE_ON_START/u);
   });
 
   test('rejects a non-postgres url', () => {
@@ -44,5 +61,23 @@ describe('readEnv', () => {
       PUBLIC_ORIGIN: 'https://pioneer.example',
     });
     expect(env.GITHUB_CLIENT_ID).toBe('id');
+  });
+});
+
+describe('readMigrateEnv', () => {
+  test('reads only the database and the migrations folder', () => {
+    expect(readMigrateEnv({ DATABASE_URL, MIGRATIONS_DIR: '/app/migrations', PORT: '80' })).toStrictEqual({
+      DATABASE_URL,
+      MIGRATIONS_DIR: '/app/migrations',
+    });
+  });
+
+  test('ignores server settings the server would reject', () => {
+    expect(() => readEnv({ DATABASE_URL, GITHUB_CLIENT_ID: 'id', PORT: 'web' })).toThrow(/PORT/u);
+    expect(readMigrateEnv({ DATABASE_URL, GITHUB_CLIENT_ID: 'id', PORT: 'web' }).DATABASE_URL).toBe(DATABASE_URL);
+  });
+
+  test('still requires a postgres url', () => {
+    expect(() => readMigrateEnv({})).toThrow(/DATABASE_URL/u);
   });
 });

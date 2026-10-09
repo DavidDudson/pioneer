@@ -51,4 +51,4 @@ hooks:
 db-reset: db-up
     dropdb --if-exists pioneer
     createdb pioneer
-    bun apps/api/src/migrate.ts
+    bun apps/api/src/main.ts migrate

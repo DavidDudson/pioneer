@@ -10,16 +10,28 @@
       "command": "PORT=${API_PORT:-3000} bun --watch apps/api/src/main.ts"
     },
     "build": {
+      "executor": "nx:run-commands",
       "cache": true,
       "inputs": ["production", "^production"],
       "outputs": ["{workspaceRoot}/dist/apps/api"],
-      "command": "bun build apps/api/src/main.ts --compile --minify --sourcemap --target=bun-linux-x64 --outfile dist/apps/api/pioneer-api"
+      "options": {
+        "command": "bun build apps/api/src/main.ts --compile --minify --sourcemap --target={args.target} --outfile dist/apps/api/pioneer-api",
+        "target": "bun"
+      },
+      "configurations": {
+        "linux-x64": {
+          "target": "bun-linux-x64"
+        },
+        "linux-arm64": {
+          "target": "bun-linux-arm64"
+        }
+      }
     },
     "db-generate": {
       "command": "drizzle-kit generate --config apps/api/drizzle.config.ts"
     },
     "db-migrate": {
-      "command": "bun apps/api/src/migrate.ts"
+      "command": "bun apps/api/src/main.ts migrate"
     }
   }
 }
