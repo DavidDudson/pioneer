@@ -88,6 +88,13 @@ tester.run('no-native-elements', noNativeElements, {
       errors: [{ messageId: 'unowned' }],
     },
     { filename: FEATURE, code: `<svg></svg>`, errors: [{ messageId: 'outside' }] },
+    { filename: FEATURE, code: `<svg:rect />`, errors: [{ messageId: 'outside' }] },
+    { filename: frontier('layout/card/card.component.html'), code: `<svg:rect />`, errors: [{ messageId: 'owned' }] },
+    {
+      filename: frontier('layout/card/card.component.html'),
+      code: `<svg></svg><svg:rect />`,
+      errors: [{ messageId: 'owned' }, { messageId: 'owned' }],
+    },
     {
       filename: frontier('layout/card/card.component.html'),
       code: `<marquee></marquee>`,
