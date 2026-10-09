@@ -4,6 +4,12 @@ const DEFAULT_PORT = 3000;
 
 const Credential = z.string().min(1).optional();
 
+/**
+ * The repo's migrations folder. Inside a `--compile` binary this resolves into Bun's virtual FS, which holds no
+ * migrations, so a binary sets MIGRATIONS_DIR.
+ */
+const REPO_MIGRATIONS_DIR = `${import.meta.dir}/../migrations`;
+
 /** Each sign-in provider's OAuth app: both variables or neither. */
 const PROVIDER_CREDENTIALS = [
   ['GITHUB_CLIENT_ID', 'GITHUB_CLIENT_SECRET'],
@@ -15,6 +21,10 @@ const EnvSchema = z
   .object({
     DATABASE_URL: z.url({ protocol: /^postgres(?:ql)?$/u }),
     PORT: z.coerce.number().int().positive().default(DEFAULT_PORT),
+    /** Drizzle migrations folder, the one holding `meta/_journal.json`. */
+    MIGRATIONS_DIR: z.string().min(1).default(REPO_MIGRATIONS_DIR),
+    /** Apply migrations before serving. Off when a separate `migrate` step owns them (more than one instance). */
+    MIGRATE_ON_START: z.stringbool().default(true),
     /** Built web app to serve as a SPA; unset in dev (Angular dev server proxies /api). */
     WEB_DIST: z.string().min(1).optional(),
     /** Origin browsers use (the web app's in dev). OAuth callbacks are registered under it. */

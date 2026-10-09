@@ -9,6 +9,23 @@ describe('readEnv', () => {
     expect(readEnv({ DATABASE_URL }).PORT).toBe(3000);
   });
 
+  test('defaults the migrations folder to the repo and migrates on start', () => {
+    const env = readEnv({ DATABASE_URL });
+    expect(env.MIGRATIONS_DIR).toEndWith('/apps/api/src/../migrations');
+    expect(env.MIGRATE_ON_START).toBe(true);
+  });
+
+  test('reads the migrations folder and the migrate-on-start flag', () => {
+    const env = readEnv({ DATABASE_URL, MIGRATIONS_DIR: '/app/migrations', MIGRATE_ON_START: 'false' });
+    expect(env.MIGRATIONS_DIR).toBe('/app/migrations');
+    expect(env.MIGRATE_ON_START).toBe(false);
+  });
+
+  test('rejects an empty migrations folder and a flag that is not a boolean', () => {
+    expect(() => readEnv({ DATABASE_URL, MIGRATIONS_DIR: '' })).toThrow(/MIGRATIONS_DIR/u);
+    expect(() => readEnv({ DATABASE_URL, MIGRATE_ON_START: 'sometimes' })).toThrow(/MIGRATE_ON_START/u);
+  });
+
   test('rejects a non-postgres url', () => {
     expect(() => readEnv({ DATABASE_URL: 'mysql://localhost/pioneer' })).toThrow(/DATABASE_URL/u);
   });

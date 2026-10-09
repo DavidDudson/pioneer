@@ -115,5 +115,10 @@ Content data never imports code.
   the engine returns message descriptors. UI messages load per route scope; content ships locale-free mechanics
   bundles plus per-locale name and sharded description bundles, prefetched when idle. See
   [ADR-0009](../adr/0009-i18n-and-lazy-loading.md).
+- **Deployment.** The API compiles to one `pioneer-api` binary (`nx build api`; `-c linux-x64` or `-c linux-arm64`
+  to cross-compile, host platform otherwise). It serves the built web app from `WEB_DIST` on the same origin.
+  Migrations ship beside it, not inside it: set `MIGRATIONS_DIR` to their folder, since the repo-relative default
+  points into the binary's virtual FS. The server migrates on start; with more than one instance set
+  `MIGRATE_ON_START=false` and run `pioneer-api migrate` once per deploy instead.
 - **Testing.** Property tests for the engine and dice (fast-check, already in use). Golden tests: Paizo pregenerated
   characters imported and compared against their published numbers. Importer coverage reports gate content PRs.
