@@ -11,7 +11,15 @@
             <fr-field-hint>{{ 'play.dice.expressionHint' | transloco }}</fr-field-hint>
           }
         </fr-field>
-        <fr-stack direction="horizontal" justify="end">
+        <fr-stack direction="horizontal" justify="between" align="center" gap="sm" wrap>
+          <fr-stack direction="horizontal" gap="sm" wrap>
+            <fr-button [toggled]="fortune()" (pressed)="toggleFortune()">{{
+              'play.dice.fortune' | transloco
+            }}</fr-button>
+            <fr-button [toggled]="misfortune()" (pressed)="toggleMisfortune()">{{
+              'play.dice.misfortune' | transloco
+            }}</fr-button>
+          </fr-stack>
           <fr-button variant="primary" [disabled]="error() !== undefined" (pressed)="roll()">{{
             'play.dice.roll' | transloco
           }}</fr-button>

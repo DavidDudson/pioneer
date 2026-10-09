@@ -13,6 +13,12 @@
       "keepCount": "Cannot keep {keep} of {count} dice (position {position}).",
       "unknownTag": "“{found}” at position {position} is not a damage type, persistent or splash.",
       "conflictingTag": "“{found}” at position {position} conflicts with an earlier tag on the same dice."
+    },
+    "fortune": {
+      "normal": "Rolled once.",
+      "keptHigher": "Fortune: rolled twice and kept the higher.",
+      "keptLower": "Misfortune: rolled twice and kept the lower.",
+      "cancelled": "Fortune and misfortune cancel out: rolled once."
     }
   }
 }

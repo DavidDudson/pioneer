@@ -13,6 +13,15 @@ export {
   Term,
   TermKind,
 } from './expression';
+export {
+  FortunedRoll,
+  FortuneRollEntry,
+  type FortuneSources,
+  NO_FORTUNE,
+  RollMode,
+  RollModeSchema,
+  rollWithFortune,
+} from './fortune';
 export { formatExpression, formatTerm } from './format';
 export { DiceMessage } from './messages';
 export { type ParseFailure, type ParseOutcome, type ParseSuccess, parseDiceExpression } from './parse';

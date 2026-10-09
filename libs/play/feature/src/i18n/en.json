@@ -10,7 +10,13 @@
     "total": "Total {total}",
     "die": "{face}",
     "droppedDie": "{face} dropped",
-    "termValue": "= {value}"
+    "termValue": "= {value}",
+    "fortune": "Fortune",
+    "misfortune": "Misfortune",
+    "playgroundFortune": "Fortune toggle",
+    "playgroundMisfortune": "Misfortune toggle",
+    "keptRoll": "Roll {number}: {total}, kept",
+    "discardedRoll": "Roll {number}: {total}, discarded"
   },
   "damageType": {
     "bludgeoning": "Bludgeoning",

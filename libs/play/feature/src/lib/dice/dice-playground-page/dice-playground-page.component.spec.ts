@@ -37,8 +37,18 @@ async function typeExpression(harness: RouterTestingHarness, text: string): Prom
   await harness.fixture.whenStable();
 }
 
+function button(harness: RouterTestingHarness, label: string): HTMLButtonElement {
+  const buttons = harness.routeNativeElement?.querySelectorAll<HTMLButtonElement>('button') ?? [];
+  return present([...buttons].find((candidate) => candidate.textContent.trim() === label));
+}
+
 function rollButton(harness: RouterTestingHarness): HTMLButtonElement {
-  return present(harness.routeNativeElement?.querySelector<HTMLButtonElement>('button'));
+  return button(harness, 'Roll');
+}
+
+async function press(harness: RouterTestingHarness, label: string): Promise<void> {
+  button(harness, label).click();
+  await harness.fixture.whenStable();
 }
 
 describe('DicePlaygroundPage', () => {
@@ -64,5 +74,53 @@ describe('DicePlaygroundPage', () => {
     expect(root.textContent).toContain('“x” at position 6 is not part of a dice expression.');
     expect(rollButton(harness).disabled).toBe(true);
     expect(root.textContent).toContain('No rolls yet.');
+  });
+
+  it('rolls twice with fortune, keeps the higher and marks the other discarded', async () => {
+    const harness = await openPlayground([5, 14]);
+    await press(harness, 'Fortune');
+    expect(button(harness, 'Fortune').getAttribute('aria-pressed')).toBe('true');
+    await press(harness, 'Roll');
+
+    const text = present(harness.routeNativeElement).textContent;
+    expect(text).toContain('Total 21');
+    expect(text).toContain('Fortune: rolled twice and kept the higher.');
+    expect(text).toContain('Roll 1: 12, discarded');
+    expect(text).toContain('Roll 2: 21, kept');
+  });
+
+  it('keeps the lower with misfortune', async () => {
+    const harness = await openPlayground([5, 14]);
+    await press(harness, 'Misfortune');
+    await press(harness, 'Roll');
+
+    const text = present(harness.routeNativeElement).textContent;
+    expect(text).toContain('Total 12');
+    expect(text).toContain('Roll 1: 12, kept');
+    expect(text).toContain('Roll 2: 21, discarded');
+  });
+
+  it('rolls once when fortune and misfortune cancel', async () => {
+    const harness = await openPlayground([5, 14]);
+    await press(harness, 'Fortune');
+    await press(harness, 'Misfortune');
+    await press(harness, 'Roll');
+
+    const text = present(harness.routeNativeElement).textContent;
+    expect(text).toContain('Total 12');
+    expect(text).toContain('Fortune and misfortune cancel out: rolled once.');
+    expect(text).not.toContain('Roll 1');
+  });
+
+  it('switches fortune back off and rolls once again', async () => {
+    const harness = await openPlayground([5, 14]);
+    await press(harness, 'Fortune');
+    await press(harness, 'Fortune');
+    expect(button(harness, 'Fortune').getAttribute('aria-pressed')).toBe('false');
+    await press(harness, 'Roll');
+
+    const text = present(harness.routeNativeElement).textContent;
+    expect(text).toContain('Total 12');
+    expect(text).not.toContain('Roll 1');
   });
 });

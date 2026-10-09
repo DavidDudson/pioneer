@@ -1,79 +1,18 @@
 import { describe, expect, test } from 'bun:test';
 
-import { DamageType } from '@pioneer/rules/sdk';
-import { array, assert, constantFrom, integer, nat, oneof, option, property, record, string } from 'fast-check';
-import type { Arbitrary } from 'fast-check';
+import { assert, integer, nat, property, string } from 'fast-check';
 
-import { DamageCategory, DiceExpression, KeepMode, Sign, TermKind } from './expression';
-import type { Term } from './expression';
+import { TermKind } from './expression';
 import { formatExpression } from './format';
 import { parseDiceExpression } from './parse';
 import { cryptoRandom } from './random';
 import { rollDice } from './roll';
 import { RandomSeed, seededRandom } from './testing';
-import {
-  DICE_COUNT_MAX,
-  DiceExpressionText,
-  DIE_SIZE_MAX,
-  DIE_SIZE_MIN,
-  DieSize,
-  EXPRESSION_LENGTH_MAX,
-  FLAT_VALUE_MAX,
-  RollTotal,
-  TERM_COUNT_MAX,
-} from './units';
-
-/** Few dice per term keeps runs fast; the parser's own limit is covered separately. */
-const MAX_TEST_COUNT = 12;
-
-const damageType = option(constantFrom(...Object.values(DamageType)), { nil: undefined });
-const category = option(constantFrom(...Object.values(DamageCategory)), { nil: undefined });
-const tags = record({ type: damageType, category }, { requiredKeys: [] });
-const sign = constantFrom(Sign.Plus, Sign.Minus);
-const size = integer({ min: DIE_SIZE_MIN, max: DIE_SIZE_MAX });
-const keepMode = constantFrom(KeepMode.Highest, KeepMode.Lowest);
-
-/** Raw shapes; `DiceExpression.parse` validates and brands them. */
-const keepOf = (count: number): Arbitrary<unknown> =>
-  option(record({ mode: keepMode, count: integer({ min: 1, max: count }) }), { nil: undefined });
-
-const diceTerm = integer({ min: 1, max: MAX_TEST_COUNT }).chain((count) =>
-  record({ kind: constantFrom(TermKind.Dice), sign, count: constantFrom(count), size, keep: keepOf(count), tags }),
-);
-const flatTerm = record({
-  kind: constantFrom(TermKind.Flat),
-  sign,
-  value: integer({ min: 0, max: FLAT_VALUE_MAX }),
-  tags,
-});
-const terms = array(oneof(diceTerm, flatTerm), { minLength: 1, maxLength: TERM_COUNT_MAX });
-const expression: Arbitrary<DiceExpression> = terms.map((raw) => DiceExpression.parse({ terms: raw }));
+import { expression, expressionBounds, size } from './testing/arbitraries';
+import { DICE_COUNT_MAX, DiceExpressionText, DieSize, EXPRESSION_LENGTH_MAX, RollTotal } from './units';
 
 /** Long expressions are valid but over the text limit, so they cannot be typed. */
 const typeable = expression.filter((parsed) => formatExpression(parsed).length <= EXPRESSION_LENGTH_MAX);
-
-interface Bounds {
-  readonly min: number;
-  readonly max: number;
-}
-
-function bounds(term: Term): Bounds {
-  const kept = term.kind === TermKind.Dice ? (term.keep?.count ?? term.count) : 0;
-  const low = term.kind === TermKind.Dice ? kept : term.value;
-  const high = term.kind === TermKind.Dice ? kept * term.size : term.value;
-  return term.sign === Sign.Plus ? { min: low, max: high } : { min: 0 - high, max: 0 - low };
-}
-
-function expressionBounds(parsed: DiceExpression): Bounds {
-  let min = 0;
-  let max = 0;
-  for (const term of parsed.terms) {
-    const termBounds = bounds(term);
-    min += termBounds.min;
-    max += termBounds.max;
-  }
-  return { min, max };
-}
 
 describe('dice (properties)', () => {
   test('format then parse gives the same expression back', () => {
