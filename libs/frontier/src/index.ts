@@ -71,6 +71,7 @@ export { List } from './lib/list/list/list.component';
 export { ListItem } from './lib/list/list-item/list-item.component';
 
 // Text
+export { Badge, BadgeTone, BadgeVariant } from './lib/text/badge/badge.component';
 export { Heading, HeadingLevel } from './lib/text/heading/heading.component';
 export { FontWeight, TextVariant } from './lib/text/text.variants';
 export { Text, TextElement } from './lib/text/text/text.component';

@@ -75,6 +75,7 @@
   --color-accent-subtle: var(--fr-accent-subtle);
   --color-accent-fg: var(--fr-accent-fg);
   --color-accent-on-solid: var(--fr-accent-on-solid);
+  --color-accent-line: var(--fr-accent-line);
 
   --color-danger-solid: var(--fr-danger-solid);
   --color-danger-solid-hover: var(--fr-danger-solid-hover);
@@ -93,6 +94,17 @@
   --color-info-subtle: var(--fr-info-subtle);
   --color-info-fg: var(--fr-info-fg);
   --color-info-line: var(--fr-info-line);
+
+  --color-accent-emphasis: var(--fr-accent-emphasis);
+  --color-accent-on-emphasis: var(--fr-accent-on-emphasis);
+  --color-danger-emphasis: var(--fr-danger-emphasis);
+  --color-danger-on-emphasis: var(--fr-danger-on-emphasis);
+  --color-success-emphasis: var(--fr-success-emphasis);
+  --color-success-on-emphasis: var(--fr-success-on-emphasis);
+  --color-warning-emphasis: var(--fr-warning-emphasis);
+  --color-warning-on-emphasis: var(--fr-warning-on-emphasis);
+  --color-info-emphasis: var(--fr-info-emphasis);
+  --color-info-on-emphasis: var(--fr-info-on-emphasis);
 
   --spacing-none: var(--fr-space-none);
   --spacing-3xs: var(--fr-space-3xs);
