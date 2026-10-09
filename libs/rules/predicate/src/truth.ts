@@ -51,8 +51,14 @@ export function exactlyOne(truths: readonly Truth[]): Truth {
   return truthOf(trueCount === 1);
 }
 
-/** All true or all false. False as soon as one is true and another false; otherwise unknown while any is. */
+/**
+ * All true or all false. One statement on its own is always the same as itself; otherwise false as soon as one is
+ * true and another false, and unknown while any is.
+ */
 export function allSame(truths: readonly Truth[]): Truth {
+  if (truths.length <= 1) {
+    return Truth.True;
+  }
   if (truths.includes(Truth.True) && truths.includes(Truth.False)) {
     return Truth.False;
   }

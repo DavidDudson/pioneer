@@ -88,6 +88,7 @@ describe('evaluatePredicate', () => {
       expect(verdict([{ iff: [known, 'feat:power-attack'] }], facts(known))).toBe(Truth.False);
       expect(verdict([{ iff: [known, unknown] }], facts(known))).toBe(Truth.Unknown);
       expect(verdict([{ iff: [known, 'feat:power-attack', unknown] }], facts(known))).toBe(Truth.False);
+      expect(verdict([{ iff: [unknown] }], facts())).toBe(Truth.True);
     });
 
     test('if/then is implication', () => {
