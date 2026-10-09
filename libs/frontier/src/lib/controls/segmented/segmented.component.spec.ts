@@ -54,4 +54,12 @@ describe(Segmented, () => {
     expect(fixture.componentInstance.value()).toBe('feet');
     expect(commits).toBe(0);
   });
+
+  it('announces an invalid group', () => {
+    const fixture = render(undefined);
+    fixture.componentRef.setInput('invalid', true);
+    fixture.detectChanges();
+    const group = (fixture.nativeElement as HTMLElement).querySelector('[role="group"]');
+    expect(group?.getAttribute('aria-invalid')).toBe('true');
+  });
 });

@@ -5,6 +5,7 @@
   [attr.aria-label]="ariaLabel() ?? null"
   [attr.aria-labelledby]="labelledBy() ?? null"
   [attr.aria-describedby]="describedBy() ?? null"
+  [attr.aria-invalid]="ariaInvalid() || null"
 >
   @for (option of options(); track option.value) {
     <fr-button

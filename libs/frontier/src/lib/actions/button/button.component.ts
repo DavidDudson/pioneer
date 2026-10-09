@@ -85,6 +85,10 @@ export class Button {
   /** Accessible name when the visible content is not enough (e.g. a value to edit). */
   public readonly ariaLabel = input<string | undefined>(undefined);
   public readonly describedBy = input<string | undefined>(undefined);
+  /** Id of the native button, so a field's `<label for>` can name it. */
+  public readonly controlId = input<string | undefined>(undefined);
+  /** Announced as invalid; set by a control composed inside `fr-field`. */
+  public readonly invalid = input(false, { transform: booleanAttribute });
   /**
    * Announces the button as pressed or not (`aria-pressed`); the `toggle` and `segment` variants fill
    * with the accent when on. Unset for a plain button. Features use `fr-toggle-button` or `fr-segmented`.
