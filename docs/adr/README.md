@@ -21,6 +21,7 @@ Accepted. To change a decision, add a new ADR that supersedes the old one; do no
 | [0014](0014-formula-results-round-down.md)            | Formula results are whole numbers, rounded down                 |
 | [0015](0015-production-host.md)                       | Production on AWS Lambda and Neon free tiers, in Sydney         |
 | [0016](0016-formula-reference-vocabulary.md)          | Formula references use Pioneer's paths, translated from Foundry |
+| [0017](0017-live-sync-over-server-sent-events.md)     | Live sync over Server-Sent Events, fanned out per stream        |
 
 Template:
 

@@ -119,7 +119,7 @@ Exit: a GM and four players run a session end to end: party view, shared rolls, 
 complete combat log.
 
 - **Campaign management**: create, invite links, roles, enabled packs and variant rules, visibility settings.
-- **Event log and live sync**: events table, command handlers, projections, WebSocket hub, LISTEN/NOTIFY,
+- **Event log and live sync**: events table, command handlers, projections, Server-Sent Events streams, LISTEN/NOTIFY,
   resume from sequence.
 - **Party introspection**: party summary, read-only sheets with breakdowns, visibility rules.
 - **Combat log**: rendered event stream, expandable roll breakdowns, filters.

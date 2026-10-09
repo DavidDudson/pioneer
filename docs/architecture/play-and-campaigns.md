@@ -109,9 +109,11 @@ campaign_events       id, campaign_id, seq bigint, at, actor_id, character_id?, 
 - **Events are the source of truth for live play.** Rolls, damage, healing, condition and effect changes,
   resource spending, initiative, turn changes, chat notes. `campaign_events` is append-only with a per-campaign
   sequence. Applying a command writes the event and updates the character's `play` projection in one transaction.
-- **Live sync.** Clients hold a WebSocket per open campaign. After commit the API sends `NOTIFY` with the
-  campaign and sequence; every API instance listening fans it out to its sockets. Clients track the last sequence
-  seen and fetch the gap on reconnect, so delivery is at-least-once and ordered.
+- **Live sync.** Clients hold a Server-Sent Events stream per open campaign; commands are plain `POST`s. After
+  commit the API sends `NOTIFY` on the campaign's channel with the sequence; each open stream listens and sends
+  the new events. Each event's SSE `id` is its sequence, so the browser resumes with `Last-Event-ID` and the
+  server replays the gap: delivery is at-least-once and ordered. Streams end after 5 minutes and resume, which
+  also re-checks the session. See [ADR-0017](../adr/0017-live-sync-over-server-sent-events.md).
 - **Introspection.** Every member can open any party character's sheet with the same breakdowns (read-only). The
   GM controls what players see of each other (full sheet, summary, HP band only) in campaign settings; GMs see
   everything. The party view shows HP, conditions, AC, saves, Perception and the current turn at a glance.
