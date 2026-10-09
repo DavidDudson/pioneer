@@ -1,0 +1,38 @@
+@let kindKeys = keys();
+<fr-stack gap="sm">
+  <fr-text weight="semibold">{{ kindKeys.heading | transloco }}</fr-text>
+  @for (entry of entries(); track entry.adjustment.type) {
+    @let target = labels[entry.adjustment.type] | transloco;
+    <fr-stack direction="horizontal" justify="between" align="center" gap="sm">
+      <fr-text>{{ 'play.dice.adjustmentEntry' | transloco: { target, value: entry.value } }}</fr-text>
+      <fr-button
+        size="sm"
+        [ariaLabel]="kindKeys.remove | transloco: { target, value: entry.value }"
+        (pressed)="remove(entry.adjustment.type)"
+        >{{ 'play.dice.remove' | transloco }}</fr-button
+      >
+    </fr-stack>
+  } @empty {
+    <fr-text variant="caption" tone="muted">{{ 'play.dice.none' | transloco }}</fr-text>
+  }
+  <fr-stack direction="horizontal" align="end" gap="sm" wrap>
+    <fr-field>
+      <fr-label>{{ 'play.dice.adjustmentType' | transloco }}</fr-label>
+      <fr-select [options]="options.targets()" [(value)]="choice" />
+    </fr-field>
+    <fr-field [invalid]="valueInvalid()">
+      <fr-label>{{ 'play.dice.adjustmentValue' | transloco }}</fr-label>
+      <fr-number-input
+        [min]="valueMin"
+        [max]="valueMax"
+        [(value)]="value"
+        [(complete)]="valueComplete"
+        (committed)="add()"
+      />
+      @if (valueInvalid()) {
+        <fr-field-error>{{ 'play.dice.adjustmentValueInvalid' | transloco: valueRange() }}</fr-field-error>
+      }
+    </fr-field>
+    <fr-button [disabled]="!canAdd()" (pressed)="add()">{{ kindKeys.add | transloco }}</fr-button>
+  </fr-stack>
+</fr-stack>

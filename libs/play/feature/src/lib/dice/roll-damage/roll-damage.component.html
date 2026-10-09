@@ -1,0 +1,18 @@
+<fr-stack gap="sm">
+  @for (section of sections(); track section.headingKey) {
+    <fr-stack gap="xs">
+      <fr-text weight="semibold">{{ section.headingKey | transloco: { taken: section.taken } }}</fr-text>
+      @for (instance of section.instances; track $index) {
+        <fr-stack direction="horizontal" gap="sm" align="baseline" wrap>
+          <fr-text variant="caption">{{ instance.typeKey | transloco }}</fr-text>
+          <fr-text variant="caption" numeric>{{
+            'play.dice.instanceTaken' | transloco: { dealt: instance.dealt, taken: instance.taken }
+          }}</fr-text>
+        </fr-stack>
+        @for (line of instance.lines; track $index) {
+          <fr-text variant="caption" tone="muted">{{ line.key | transloco: line.params }}</fr-text>
+        }
+      }
+    </fr-stack>
+  }
+</fr-stack>

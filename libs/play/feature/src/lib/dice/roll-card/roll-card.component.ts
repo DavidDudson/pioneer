@@ -5,18 +5,11 @@ import type { DiceExpressionText } from '@pioneer/rules/dice';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
+import { RollAttempt } from '../roll-attempt/roll-attempt.component';
+import type { AttemptDisplay } from '../roll-attempt/roll-attempt.component';
+import { RollDamage } from '../roll-damage/roll-damage.component';
 import { RollDegree } from '../roll-degree/roll-degree.component';
-import { RollTerm } from '../roll-term/roll-term.component';
-import type { TermDisplay } from '../roll-term/roll-term.component';
-import type { AttemptView, DegreeView, RollView } from '../roll-view';
-
-interface AttemptDisplay {
-  /** "Roll 2: 21, kept"; unset when there was only one roll. */
-  readonly heading: MessageDescriptor | undefined;
-  readonly tone: Tone;
-  readonly weight: FontWeight | undefined;
-  readonly terms: readonly TermDisplay[];
-}
+import type { AttemptView, DamageView, DegreeView, RollView } from '../roll-view';
 
 interface RollDisplay {
   readonly notation: DiceExpressionText;
@@ -24,15 +17,16 @@ interface RollDisplay {
   readonly explanation: MessageDescriptor | undefined;
   readonly attempts: readonly AttemptDisplay[];
   readonly degree: DegreeView | undefined;
+  readonly damage: DamageView | undefined;
 }
 
 /**
  * One finished roll: its expression and total, then each roll made (two with fortune or misfortune)
- * with the dice behind it, and its degree of success when rolled against a DC.
+ * with the dice behind it, its degree of success when rolled against a DC, and the damage a target takes.
  */
 @Component({
   selector: 'pio-roll-card',
-  imports: [Heading, RollDegree, RollTerm, Stack, Surface, Text, TranslocoPipe],
+  imports: [Heading, RollAttempt, RollDamage, RollDegree, Stack, Surface, Text, TranslocoPipe],
   templateUrl: './roll-card.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -50,6 +44,7 @@ export class RollCard {
       explanation: roll.explanation,
       attempts: roll.attempts.map((attempt, index) => this.#attempt(attempt, several ? index : undefined)),
       degree: roll.degree,
+      damage: roll.damage,
     };
   });
 
