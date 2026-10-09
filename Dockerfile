@@ -27,6 +27,9 @@ WORKDIR /app
 COPY --from=build /src/dist/apps/api/pioneer-api ./pioneer-api
 COPY --from=build /src/apps/api/migrations ./migrations
 COPY --from=build /src/dist/apps/web/browser ./web
+# AWS Lambda Web Adapter (ADR-0015): a Lambda extension that turns invocations into HTTP requests on PORT. Only
+# Lambda loads /opt/extensions; under compose or any other runtime it is never started.
+COPY --from=public.ecr.aws/awsguru/aws-lambda-adapter:1.1.0@sha256:17cfd08eff1dfea3f6a9a1e9c65fdac80aa4919b6085e746615530f43f57d2f1 /lambda-adapter /opt/extensions/lambda-adapter
 
 ENV PORT=3000 MIGRATIONS_DIR=/app/migrations WEB_DIST=/app/web
 USER nonroot

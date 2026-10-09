@@ -49,6 +49,22 @@ export class LocaleFormat {
     return this.number(feet, { style: 'unit', unit: 'foot' });
   }
 
+  /**
+   * Up to two initials for a name: the first character of its first and last words, upper-cased the locale's
+   * way. Words and characters are segmented in the locale, so a combining accent or an emoji stays whole and
+   * punctuation is skipped. Empty when the name has no words.
+   */
+  public initials(name: string): string {
+    const locale = this.locale();
+    const words = [...new Intl.Segmenter(locale, { granularity: 'word' }).segment(name)]
+      .filter((segment) => segment.isWordLike === true)
+      .map((segment) => segment.segment);
+    const graphemes = new Intl.Segmenter(locale, { granularity: 'grapheme' });
+    const first = (word: string | undefined): string => [...graphemes.segment(word ?? '')][0]?.segment ?? '';
+    const last = words.length > 1 ? first(words.at(-1)) : '';
+    return `${first(words[0])}${last}`.toLocaleUpperCase(locale);
+  }
+
   /** Locale-aware ordering for sorting labels. */
   public compare(left: string, right: string): number {
     return new Intl.Collator(this.locale()).compare(left, right);

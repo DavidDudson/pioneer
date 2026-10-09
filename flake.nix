@@ -40,6 +40,12 @@
 
             # Haskell: the Dockerfile linter; nothing else checks Dockerfile best practice.
             hadolint
+
+            # Production (infra/, docs/production.md): OpenTofu, the AWS CLI for deploy steps, and skopeo to copy
+            # the arm64 image from GHCR to ECR.
+            opentofu
+            awscli2
+            skopeo
           ];
 
           shellHook = ''

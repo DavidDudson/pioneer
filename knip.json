@@ -2,6 +2,7 @@
   "$schema": "https://unpkg.com/knip@6/schema.json",
   "entry": [
     "apps/web/src/main.ts",
+    "apps/edge/src/main.ts",
     "apps/api/drizzle.config.ts",
     "libs/*/src/index.ts",
     "libs/*/*/src/index.ts",
@@ -13,7 +14,7 @@
     "apps/web/src/styles.css"
   ],
   "project": ["apps/**/*.ts", "libs/**/*.ts", "tools/**/*.ts", "libs/frontier/src/styles/*.css", "apps/web/src/*.css"],
-  "ignoreBinaries": ["typos", "rumdl", "taplo", "hadolint"],
+  "ignoreBinaries": ["typos", "rumdl", "taplo", "hadolint", "tofu"],
   "ignoreDependencies": ["@angular/language-service", "@socketsecurity/bun-security-scanner"],
   "nx": true,
   "angular": false,

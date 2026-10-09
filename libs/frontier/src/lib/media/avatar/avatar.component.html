@@ -1,0 +1,20 @@
+<span [class]="classes()">
+  @if (showImage()) {
+    <fr-image
+      [src]="src() ?? ''"
+      [alt]="imageAlt()"
+      [decorative]="imageDecorative()"
+      [size]="imageSize"
+      [aspect]="imageAspect"
+      (failed)="onImageFailed()"
+    />
+  } @else {
+    <span
+      [class]="initialsClasses()"
+      [attr.role]="label() === undefined ? undefined : 'img'"
+      [attr.aria-label]="label()"
+    >
+      <span aria-hidden="true">{{ initials() }}</span>
+    </span>
+  }
+</span>

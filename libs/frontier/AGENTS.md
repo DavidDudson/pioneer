@@ -26,9 +26,13 @@ Read this before touching any UI.
   `fr-list-item`, `<dl>` only in `fr-description-list`, `<dt>` / `<dd>` only in
   `fr-description-item`, table elements only in `fr-table`, `<svg>` only in `fr-icon`,
   `<textarea>` only in `fr-text-area`, `<details>` / `<summary>` only in
-  `fr-disclosure`, `<hr>` only in `fr-divider`. `select` and `img` have no owner yet:
-  add a primitive first. The ownership map lives in
-  `tools/eslint/no-native-elements.ts`.
+  `fr-disclosure`, `<hr>` only in `fr-divider`, `<img>` only in `fr-image`.
+  Elements with no owner yet
+  (`code`, `kbd`, `blockquote`, `fieldset`, `progress`, …) fail lint:
+  add a primitive first. `<select>` is banned for good (`fr-select` builds on
+  `@angular/aria`), as is `<dialog>` (no modals). Only `div`, `span` and the landmark and sectioning
+  elements are free; any element missing from the ownership map
+  (`tools/eslint/no-native-elements.ts`) fails, so classify it there first.
 - **Tokens only.** Components take token names (`gap="md"`, `tone="muted"`),
   never lengths or colours. Inside frontier, only semantic utilities exist:
   the default Tailwind palette, spacing, type, radius, shadow, duration,
@@ -243,6 +247,7 @@ after `themes/frontier.css`, and add it to `Theme` in
 | Async          | `injectAsyncAction`, `fr-async-indicator`, `fr-async-region` (+ `frAsyncPending` / `frAsyncData` / `frAsyncError` slots)                                                                                                                  |
 | Feedback       | `fr-message` (inline, never a toast), `fr-skeleton` (loading content), `fr-spinner` (action progress only)                                                                                                                                |
 | Icons          | `fr-icon` (Lucide; `[icon]`, `size`, `tone`, `label`, `spin`)                                                                                                                                                                             |
+| Media          | `fr-image` (`alt` required, `decorative` for `alt=""`; `size`, `aspect`, `fit`; lazy, shimmers until loaded, `(failed)`), `fr-avatar` (`name`, optional `src`, `size`; initials when there is no image)                                   |
 | Dates          | `fr-date` (Temporal values only)                                                                                                                                                                                                          |
 | Controls       | Plain: `fr-text-input`, `fr-text-area`, `fr-number-input`, `fr-date-input`, `fr-toggle-button` (on/off), `fr-segmented` (2-3 options), `fr-select` (4+, `@angular/aria`)                                                                  |
 | Forms          | `fr-form`, `fr-async-form`; `fr-text-field`, `fr-text-area-field`, `fr-number-field`, `fr-date-field`, `fr-toggle-button-field`, `fr-segmented-field`, `fr-select-field`; parts `fr-field`, `fr-label`, `fr-field-hint`, `fr-field-error` |
