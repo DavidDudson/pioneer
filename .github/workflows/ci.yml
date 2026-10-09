@@ -80,6 +80,37 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
 
+  infra:
+    name: OpenTofu
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    defaults:
+      run:
+        shell: nix develop --command bash -euo pipefail {0}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: cachix/install-nix-action@13d8dd58da0234aa297dedd986986ccb8e7f3e24 # v31.11.1
+        with:
+          github_access_token: ${{ github.token }}
+      # The Worker script is uploaded from the built bundle, and validate hashes it.
+      - name: Build the Worker
+        run: |
+          bun install --frozen-lockfile
+          bunx nx build edge
+      # No backend and no credentials: providers come from the lock file, nothing is planned or applied.
+      - name: Validate
+        working-directory: infra
+        run: |
+          tofu init -backend=false -input=false -lockfile=readonly
+          tofu validate
+        env:
+          # Only so the encryption block evaluates; nothing is encrypted without a backend.
+          TF_VAR_state_passphrase: validate-only-passphrase
+
   commits:
     name: Conventional commits
     if: github.event_name == 'pull_request'

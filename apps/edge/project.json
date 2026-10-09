@@ -1,0 +1,18 @@
+{
+  "name": "edge",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/edge/src",
+  "tags": ["scope:edge", "type:app", "platform:edge"],
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "cache": true,
+      "inputs": ["production", "^production"],
+      "outputs": ["{workspaceRoot}/dist/apps/edge"],
+      "options": {
+        "command": "bun build apps/edge/src/main.ts --target=browser --format=esm --minify --outfile dist/apps/edge/worker.js"
+      }
+    }
+  }
+}

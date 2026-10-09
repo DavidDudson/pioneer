@@ -73,3 +73,9 @@ docker run -p 8080:3000 -e DATABASE_URL=postgres://... --env-file .env pioneer
 
 With more than one instance, set `MIGRATE_ON_START=false` on the servers and run the migrations once per deploy
 with `docker run ... pioneer migrate` (see the ADR).
+
+## Production
+
+Production runs this image on AWS Lambda through the Lambda Web Adapter, behind a Cloudflare Worker, with Neon
+for Postgres. The adapter is copied into `/opt/extensions` and only Lambda starts it, so the same image still runs
+under compose. See [Production](production.md) and [ADR-0015](adr/0015-production-host.md).
