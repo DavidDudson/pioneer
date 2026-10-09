@@ -135,6 +135,19 @@ describe('fieldIssues', () => {
     expect(fieldIssues(issues)).toStrictEqual([{ path: ['value'], message: message(ValidationMessage.NoMatch) }]);
   });
 
+  test('a union reports the one option that takes the value’s type', () => {
+    const value = z.union([aOrB, named]);
+    const issues = issuesOf(z.object({ value }), { value: 'c' });
+    expect(fieldIssues(issues)).toStrictEqual([{ path: ['value'], message: message(ValidationMessage.InvalidValue) }]);
+  });
+
+  test('a union reports the one option that got inside the value', () => {
+    const value = z.union([aOrB, named]);
+    const issues = issuesOf(z.object({ value }), { value: { name: '' } });
+    const tooShort = message(ValidationMessage.TooSmall, { origin: 'string', minimum: 1 });
+    expect(fieldIssues(issues)).toStrictEqual([{ path: ['value', 'name'], message: tooShort }]);
+  });
+
   test('splits unknown keys into one issue per key, pointing at the key', () => {
     const issues = issuesOf(z.object({ inner: strict }), { inner: { name: 'x', extra: 1, more: 2 } });
     expect(fieldIssues(issues)).toStrictEqual([
