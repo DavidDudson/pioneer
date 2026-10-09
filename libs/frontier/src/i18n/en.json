@@ -15,6 +15,9 @@
       "saved": "Saved",
       "revert": "Revert"
     },
+    "searchInput": {
+      "clear": "Clear search"
+    },
     "select": {
       "placeholder": "Select…"
     },

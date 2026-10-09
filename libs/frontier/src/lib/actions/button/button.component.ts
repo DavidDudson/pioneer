@@ -51,13 +51,21 @@ const buttonVariants = cva(
         ].join(' '),
       } satisfies Record<ButtonVariant, string>,
       size: {
-        sm: 'h-touch px-sm text-label pointer-fine:h-control-sm',
-        md: 'h-touch px-md text-body pointer-fine:h-control-md',
-        lg: 'h-control-lg px-lg text-lead',
+        sm: 'h-touch text-label pointer-fine:h-control-sm',
+        md: 'h-touch text-body pointer-fine:h-control-md',
+        lg: 'h-control-lg text-lead',
         /** Content-sized; used by the inline variant. */
         fit: '',
       },
+      /** Just an icon: as wide as it is tall, so the touch target stays square. */
+      iconOnly: { true: 'aspect-square justify-center', false: '' },
     },
+    compoundVariants: [
+      { iconOnly: false, size: 'sm', class: 'px-sm' },
+      { iconOnly: false, size: 'md', class: 'px-md' },
+      { iconOnly: false, size: 'lg', class: 'px-lg' },
+    ],
+    defaultVariants: { iconOnly: false },
   },
 );
 
@@ -94,11 +102,17 @@ export class Button {
    * with the accent when on. Unset for a plain button. Features use `fr-toggle-button` or `fr-segmented`.
    */
   public readonly toggled = input<boolean | undefined>(undefined);
+  /** The content is a lone `fr-icon`: a square button. Give it an `ariaLabel`. */
+  public readonly iconOnly = input(false, { transform: booleanAttribute });
   public readonly pressed = output<MouseEvent>();
 
   protected readonly classes = computed(() => {
     const variant = this.variant();
-    return buttonVariants({ variant, size: variant === ButtonVariant.Inline ? 'fit' : this.size() });
+    return buttonVariants({
+      variant,
+      size: variant === ButtonVariant.Inline ? 'fit' : this.size(),
+      iconOnly: this.iconOnly(),
+    });
   });
 
   protected press(event: MouseEvent): void {

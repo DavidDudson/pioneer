@@ -1,0 +1,27 @@
+<span [class]="iconSlotClasses()"><fr-icon [icon]="SearchIcon" /></span>
+<input
+  #control
+  type="search"
+  enterkeyhint="search"
+  [class]="classes"
+  [attr.id]="id() ?? null"
+  [value]="value()"
+  [placeholder]="placeholder()"
+  [disabled]="disabled()"
+  [attr.aria-label]="ariaLabel() ?? null"
+  [attr.aria-describedby]="describedBy() ?? null"
+  [attr.aria-invalid]="ariaInvalid() || null"
+  (input)="type(control.value)"
+/>
+@if (clearable()) {
+  <span [class]="clearSlotClasses">
+    <fr-button
+      variant="ghost"
+      size="sm"
+      iconOnly
+      [ariaLabel]="'frontier.searchInput.clear' | transloco"
+      (pressed)="clearAndFocus()"
+      ><fr-icon [icon]="ClearIcon"
+    /></fr-button>
+  </span>
+}
