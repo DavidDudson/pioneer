@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { readEnv, readMigrateEnv } from './env';
+import { readEnv, readHealthEnv, readMigrateEnv } from './env';
 
 const DATABASE_URL = 'postgres://localhost/pioneer';
 
@@ -79,5 +79,16 @@ describe('readMigrateEnv', () => {
 
   test('still requires a postgres url', () => {
     expect(() => readMigrateEnv({})).toThrow(/DATABASE_URL/u);
+  });
+});
+
+describe('readHealthEnv', () => {
+  test('reads only the port, defaulting it like the server', () => {
+    expect(readHealthEnv({ PORT: '8080', GITHUB_CLIENT_ID: 'id' })).toStrictEqual({ PORT: 8080 });
+    expect(readHealthEnv({}).PORT).toBe(readEnv({ DATABASE_URL }).PORT);
+  });
+
+  test('rejects a port that is not a number', () => {
+    expect(() => readHealthEnv({ PORT: 'web' })).toThrow(/PORT/u);
   });
 });

@@ -104,8 +104,11 @@ describe.skipIf(adminUrl === undefined)('compiled api binary (postgres)', () => 
     return { code, output: `${stdout}${stderr}` };
   }
 
-  /** Start the server, wait until it listens, check health, then stop it. */
-  async function serveHealth(env: Record<string, string>): Promise<Health> {
+  /** Start the server, wait until it listens, run `check` against its port, then stop it. */
+  async function whileServing<Result>(
+    env: Record<string, string>,
+    check: (port: string) => Promise<Result>,
+  ): Promise<Result> {
     const child = Bun.spawn([workspace.binary], {
       cwd: workspace.folder,
       env,
@@ -120,11 +123,7 @@ describe.skipIf(adminUrl === undefined)('compiled api binary (postgres)', () => 
         output += decoder.decode(chunk);
         const port = LISTENING.exec(output)?.groups?.['port'];
         if (port !== undefined) {
-          const response = await fetch(`http://127.0.0.1:${port}/api/health`, {
-            signal: AbortSignal.timeout(FETCH_TIMEOUT),
-          });
-          const body: unknown = await response.json();
-          return Health.parse(body);
+          return await check(port);
         }
       }
       throw new Error(`pioneer-api exited before listening: ${output}`);
@@ -132,6 +131,16 @@ describe.skipIf(adminUrl === undefined)('compiled api binary (postgres)', () => 
       child.kill();
       await child.exited;
     }
+  }
+
+  async function serveHealth(env: Record<string, string>): Promise<Health> {
+    return whileServing(env, async (port): Promise<Health> => {
+      const response = await fetch(`http://127.0.0.1:${port}/api/health`, {
+        signal: AbortSignal.timeout(FETCH_TIMEOUT),
+      });
+      const body: unknown = await response.json();
+      return Health.parse(body);
+    });
   }
 
   beforeAll(async () => {
@@ -214,6 +223,20 @@ describe.skipIf(adminUrl === undefined)('compiled api binary (postgres)', () => 
       const results = await Promise.all(runs);
       expect(results.map(({ code }) => code)).toStrictEqual([0, 0, 0]);
       expect(await appliedMigrations(databaseUrl)).toBe(migrationCount);
+    },
+    RUN_TIMEOUT,
+  );
+
+  test(
+    '`health` succeeds against a serving instance and fails when nothing listens',
+    async () => {
+      const databaseUrl = await emptyDatabase();
+      const env = await environment(databaseUrl, {});
+      const serving = await whileServing(env, async (): Promise<Exit> => run(['health'], env));
+      expect(serving).toStrictEqual({ code: 0, output: '' });
+      const stopped = await run(['health'], env);
+      expect(stopped.code).not.toBe(0);
+      expect(stopped.output).toStartWith('health check failed: ');
     },
     RUN_TIMEOUT,
   );
