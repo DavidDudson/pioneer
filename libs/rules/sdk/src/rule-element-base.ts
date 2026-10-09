@@ -33,10 +33,12 @@ export type RulePriority = z.infer<typeof RulePriority>;
 
 /**
  * How the sheet shows what the element produces. `label` replaces the entry's name on breakdown
- * lines; `hidden` keeps the line out of breakdowns (it still applies).
+ * lines; `hidden` keeps the line out of breakdowns (it still applies). `summary` replaces the generated
+ * wording of when a conditional line applies ("while Hunting Prey"), for predicates it words badly.
  */
 export const RuleDisplay = z.strictObject({
   label: ContentText.optional(),
+  summary: ContentText.optional(),
   hidden: z.boolean().optional(),
 });
 export type RuleDisplay = z.infer<typeof RuleDisplay>;

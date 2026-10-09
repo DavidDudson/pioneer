@@ -1,5 +1,5 @@
-import { PredicateFacts, tracePredicate, Truth } from '@pioneer/rules/predicate';
-import type { StatementTrace } from '@pioneer/rules/predicate';
+import { PredicateFacts, summarisePredicate, tracePredicate, Truth } from '@pioneer/rules/predicate';
+import type { PredicateSummary, StatementTrace } from '@pioneer/rules/predicate';
 import { isPredicateComparison, Predicate, RollOption } from '@pioneer/rules/sdk';
 import type { PredicateStatement } from '@pioneer/rules/sdk';
 import type { FieldIssue, ValueOf } from '@pioneer/shared/kernel';
@@ -42,7 +42,13 @@ export const VerdictStatus = { ...CheckStatus, InvalidFacts: 'invalid-facts' } a
 export type VerdictStatus = ValueOf<typeof VerdictStatus>;
 
 export type VerdictCheck =
-  | { readonly status: typeof VerdictStatus.Valid; readonly truth: Truth; readonly statements: readonly VerdictNode[] }
+  | {
+      readonly status: typeof VerdictStatus.Valid;
+      readonly truth: Truth;
+      readonly statements: readonly VerdictNode[];
+      /** When the predicate would hold, while it is unknown. */
+      readonly summary: PredicateSummary | undefined;
+    }
   | { readonly status: typeof VerdictStatus.NotJson }
   | { readonly status: typeof VerdictStatus.Invalid; readonly issues: readonly FieldIssue[] }
   /** `lines` are the 1-based lines of the roll option list that are not roll options. */
@@ -90,6 +96,13 @@ export function checkVerdict(predicateText: string, factsText: string): VerdictC
   if ('lines' in facts) {
     return { status: VerdictStatus.InvalidFacts, lines: facts.lines };
   }
-  const trace = tracePredicate(Predicate.parse(JSON.parse(checked.parsed)), new PredicateFacts(facts.options));
-  return { status: VerdictStatus.Valid, truth: trace.truth, statements: trace.statements.map((node) => toNode(node)) };
+  const predicate = Predicate.parse(JSON.parse(checked.parsed));
+  const given = new PredicateFacts(facts.options);
+  const trace = tracePredicate(predicate, given);
+  return {
+    status: VerdictStatus.Valid,
+    truth: trace.truth,
+    statements: trace.statements.map((node) => toNode(node)),
+    summary: summarisePredicate(predicate, given),
+  };
 }

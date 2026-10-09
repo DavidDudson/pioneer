@@ -67,6 +67,7 @@
     "factsHint": "One per line, like self:level:5 or terrain:forest. A missing self, feat or class option counts as false; a missing terrain, target or action option is unknown.",
     "badFacts": "{count, plural, one {Line {lines} is not a roll option.} other {Lines {lines} are not roll options.}}",
     "factsNotChecked": "Fix the roll options to see the verdict.",
+    "summary": "It holds {summary}.",
     "verdict": {
       "true": "The predicate holds.",
       "false": "The predicate does not hold.",

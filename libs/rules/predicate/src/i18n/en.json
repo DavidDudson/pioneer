@@ -1,0 +1,22 @@
+{
+  "predicate": {
+    "summary": {
+      "action": "when you use {name, select, balance {Balance} climb {Climb} coerce {Coerce} craft {Craft} demoralize {Demoralize} disarm {Disarm} escape {Escape} feint {Feint} force_open {Force Open} gather_information {Gather Information} grapple {Grapple} hide {Hide} high_jump {High Jump} identify_magic {Identify Magic} impersonate {Impersonate} lie {Lie} long_jump {Long Jump} make_an_impression {Make an Impression} pick_a_lock {Pick a Lock} recall_knowledge {Recall Knowledge} reposition {Reposition} request {Request} seek {Seek} sense_direction {Sense Direction} sense_motive {Sense Motive} shove {Shove} sneak {Sneak} subsist {Subsist} swim {Swim} track {Track} treat_wounds {Treat Wounds} trip {Trip} tumble_through {Tumble Through} other {the {slug} action}}",
+      "terrain": "in {name, select, aquatic {aquatic terrain} arctic {arctic terrain} desert {the desert} forest {forest} mountain {mountains} plains {plains} sky {the sky} swamp {a swamp} underground {underground terrain} other {the {slug} terrain}}",
+      "lighting": "in {name, select, darkness {darkness} dim_light {dim light} bright_light {bright light} other {the {slug} light}}",
+      "targetTrait": "against {name, select, animal {animals} beast {beasts} construct {constructs} dragon {dragons} fiend {fiends} holy {holy creatures} undead {undead} unholy {unholy creatures} other {creatures with the {slug} trait}}",
+      "targetCondition": "against {name, select, off_guard {an off-guard target} prone {a prone target} grabbed {a grabbed target} other {a {slug} target}}",
+      "targetMark": "against {name, select, hunted_prey {your hunted prey} share_hunters_edge {a target you share your hunter’s edge against} other {a target you marked ({slug})}}",
+      "initiativeStatistic": "when you rolled initiative with {name, select, deception {Deception} perception {Perception} stealth {Stealth} other {the {slug} statistic}}",
+      "option": "when {option} applies",
+      "equals": "when {option} is {value}",
+      "greater": "when {option} is more than {value}",
+      "greaterOrEqual": "when {option} is at least {value}",
+      "less": "when {option} is less than {value}",
+      "lessOrEqual": "when {option} is at most {value}",
+      "not": "unless {summary}",
+      "exactlyOne": "when exactly one of these holds: {list}",
+      "allOrNone": "when all or none of these hold: {list}"
+    }
+  }
+}

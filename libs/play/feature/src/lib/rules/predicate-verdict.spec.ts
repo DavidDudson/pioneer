@@ -1,4 +1,4 @@
-import { Truth } from '@pioneer/rules/predicate';
+import { PredicateMessage, SummaryKind, Truth } from '@pioneer/rules/predicate';
 import { describe, expect, it } from 'vitest';
 
 import { checkVerdict, EXAMPLE_FACTS, VerdictStatus } from './predicate-verdict';
@@ -29,6 +29,10 @@ describe(checkVerdict, () => {
           ],
         },
       ],
+      summary: {
+        kind: SummaryKind.Phrase,
+        message: { key: PredicateMessage.Terrain, params: { name: 'forest', slug: 'forest' } },
+      },
     });
   });
 

@@ -207,4 +207,26 @@ describe('RulesPlaygroundPage', () => {
     expect(pageText(harness)).toContain('Line 2 is not a roll option.');
     expect(facts.getAttribute('aria-invalid')).toBe('true');
   });
+
+  it('says in English when a predicate that depends on the situation would hold', async () => {
+    const harness = await openPlayground();
+    await chooseSchema(harness, 'Predicate verdict');
+    expect(pageText(harness)).toContain('It holds when you use Seek or in forest.');
+  });
+
+  // Player Core conditions, worded from the vocabulary in the rules/predicate bundle.
+  it.each([
+    ['["target:mark:hunted-prey"]', 'It holds against your hunted prey.'],
+    ['["terrain:forest", { "not": "lighting:darkness" }]', 'It holds in forest and unless in darkness.'],
+    ['[{ "gte": ["target:level", 5] }]', 'It holds when target:level is at least 5.'],
+    [
+      '["encounter:round:1", { "or": ["self:participant:initiative:stat:deception", "self:participant:initiative:stat:stealth"] }]',
+      'It holds when encounter:round:1 applies and when you rolled initiative with Deception or when you rolled initiative with Stealth.',
+    ],
+  ] as const)('words %s in English', async (predicate, expected) => {
+    const harness = await openPlayground();
+    await chooseSchema(harness, 'Predicate verdict');
+    await typeJson(harness, predicate);
+    expect(pageText(harness)).toContain(expected);
+  });
 });

@@ -283,6 +283,21 @@ Statements follow Foundry's `Predicate.test`, lifted to three values:
 Summaries for conditional lines are generated from the predicate with a per-locale vocabulary table
 (`terrain:forest` reads "in forest"), with an optional authored `summary` for anything the generator renders badly.
 
+```ts
+summarisePredicate(predicate, facts, element.display?.summary); // PredicateSummary | undefined
+formatSummary(summary, { message, list }); // text in the viewer's locale
+```
+
+`summarisePredicate` returns a tree only while the predicate is unknown. It keeps the unknown parts and drops the
+parts known to hold: `["self:effect:rage", "terrain:forest"]` while raging summarises as "in forest". `and` and `or`
+become locale lists, `not`, `nand` and `nor` become "unless …", and `if`/`then`, `xor` and `iff` reduce to what is
+left to decide. The vocabulary is a prefix table in `libs/rules/predicate` (`action`, `terrain`, `lighting`,
+`target:trait`, `target:condition`, `target:mark`, `self:participant:initiative:stat`). Each prefix has one message
+whose ICU `select` maps the rest of the option to words, with the slug as the fallback, so translators extend the
+vocabulary in message files. Select keys use `_` for `-`, which ICU does not allow. Other options read "when
+`option` applies", and comparisons name the option and the value. An authored `display.summary` on the rule element
+replaces the whole generated summary.
+
 ## Messages, not strings
 
 The engine never produces display text. Labels, suppression reasons, conditional summaries, unavailability reasons
