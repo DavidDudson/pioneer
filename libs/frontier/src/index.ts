@@ -73,6 +73,10 @@ export { DescriptionList } from './lib/list/description-list/description-list.co
 export { List } from './lib/list/list/list.component';
 export { ListItem } from './lib/list/list-item/list-item.component';
 
+// Media
+export { Avatar } from './lib/media/avatar/avatar.component';
+export { ImageAspect, ImageDisplay, ImageFit, ImageLoading, ImageSize } from './lib/media/image/image.component';
+
 // Text
 export { Badge, BadgeTone, BadgeVariant } from './lib/text/badge/badge.component';
 export { Heading, HeadingLevel } from './lib/text/heading/heading.component';

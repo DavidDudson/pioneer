@@ -87,7 +87,7 @@ const OWNERS: ReadonlyMap<string, readonly string[]> = new Map([
   // Embedded
   ['picture', []],
   ['source', []],
-  ['img', []],
+  ['img', ['media/image/']],
   ['iframe', []],
   ['embed', []],
   ['object', []],

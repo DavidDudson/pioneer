@@ -1,0 +1,13 @@
+<span [class]="frameClasses()">
+  <!-- eslint-disable @angular-eslint/template/prefer-ngsrc -- NgOptimizedImage throws on data: and blob: URLs (inlined logos, upload previews); the frame already sizes the image from tokens and we have no image CDN loader for it to target. -->
+  <img
+    decoding="async"
+    [src]="src()"
+    [alt]="altText()"
+    [attr.loading]="loading()"
+    [class]="imageClasses()"
+    (load)="onLoad()"
+    (error)="onError()"
+  />
+  <!-- eslint-enable @angular-eslint/template/prefer-ngsrc -->
+</span>
