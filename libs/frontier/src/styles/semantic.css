@@ -74,6 +74,7 @@
   --fr-accent-subtle: var(--fr-ramp-accent-950);
   --fr-accent-fg: var(--fr-ramp-accent-300);
   --fr-accent-on-solid: var(--fr-ramp-neutral-950);
+  --fr-accent-line: var(--fr-ramp-accent-700);
 
   --fr-danger-solid: var(--fr-ramp-danger-500);
   --fr-danger-solid-hover: var(--fr-ramp-danger-400);
@@ -92,6 +93,18 @@
   --fr-info-subtle: var(--fr-ramp-info-950);
   --fr-info-fg: var(--fr-ramp-info-300);
   --fr-info-line: var(--fr-ramp-info-700);
+
+  /* Badge fills: small text on a solid fill, at least 4.5:1 in every theme. Only fr-badge uses these. */
+  --fr-accent-emphasis: var(--fr-ramp-accent-500);
+  --fr-accent-on-emphasis: var(--fr-ramp-neutral-950);
+  --fr-danger-emphasis: var(--fr-ramp-danger-500);
+  --fr-danger-on-emphasis: var(--fr-ramp-neutral-950);
+  --fr-success-emphasis: var(--fr-ramp-success-500);
+  --fr-success-on-emphasis: var(--fr-ramp-neutral-950);
+  --fr-warning-emphasis: var(--fr-ramp-warning-400);
+  --fr-warning-on-emphasis: var(--fr-ramp-neutral-950);
+  --fr-info-emphasis: var(--fr-ramp-info-500);
+  --fr-info-on-emphasis: var(--fr-ramp-neutral-950);
 
   /* Categorical chart series, in order. Feeds TanStack Charts' --ts-chart-* palette. */
   --fr-chart-1: var(--fr-ramp-accent-400);
@@ -131,6 +144,7 @@
   --fr-accent-subtle: var(--fr-ramp-accent-100);
   --fr-accent-fg: var(--fr-ramp-accent-700);
   --fr-accent-on-solid: oklch(1 0 0);
+  --fr-accent-line: var(--fr-ramp-accent-300);
 
   --fr-danger-solid: var(--fr-ramp-danger-600);
   --fr-danger-solid-hover: var(--fr-ramp-danger-700);
@@ -149,6 +163,18 @@
   --fr-info-subtle: var(--fr-ramp-info-100);
   --fr-info-fg: var(--fr-ramp-info-700);
   --fr-info-line: var(--fr-ramp-info-300);
+
+  /* The *-solid steps (600) are under 4.5:1 for small text, so badges fill one step darker; warning stays light. */
+  --fr-accent-emphasis: var(--fr-ramp-accent-700);
+  --fr-accent-on-emphasis: oklch(1 0 0);
+  --fr-danger-emphasis: var(--fr-ramp-danger-700);
+  --fr-danger-on-emphasis: oklch(1 0 0);
+  --fr-success-emphasis: var(--fr-ramp-success-700);
+  --fr-success-on-emphasis: oklch(1 0 0);
+  --fr-warning-emphasis: var(--fr-ramp-warning-500);
+  --fr-warning-on-emphasis: var(--fr-ramp-neutral-950);
+  --fr-info-emphasis: var(--fr-ramp-info-700);
+  --fr-info-on-emphasis: oklch(1 0 0);
 
   --fr-chart-1: var(--fr-ramp-accent-600);
   --fr-chart-2: var(--fr-ramp-info-600);

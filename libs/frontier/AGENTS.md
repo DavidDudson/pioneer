@@ -198,6 +198,8 @@ more room, never a separate design.
    hand.
 2. **Semantic** (`semantic.css`): `--fr-surface-*`, `--fr-fg-*`,
    `--fr-line-*`, `--fr-accent-*`, status (`danger|success|warning|info`),
+   badge fills (`--fr-<role>-emphasis` / `-on-emphasis`: `*-solid` is too
+   light for small text in light mode),
    spacing names (`3xs … 3xl`), named sizes (`--fr-size-touch`,
    `--fr-size-control-*`, …), motion, opacity, z-index, chart series.
    Colours reference ramp steps only, never a hue.
@@ -234,7 +236,7 @@ after `themes/frontier.css`, and add it to `Theme` in
 | Layout         | Primitives `fr-box`, `fr-grid`, `fr-stack`; composed `fr-shell`, `fr-page`, `fr-surface`                                                                                                  |
 | Disclosure     | `fr-disclosure` (expand in place; `frDisclosureSummary` takes phrasing content only, nothing interactive)                                                                                 |
 | Lists          | `fr-list` (`ordered` for `<ol>`, `markers` for bullets or numbers, `gap`) with `fr-list-item`; `fr-description-list` (`gap`, `columnsFrom`) with `fr-description-item [term]`             |
-| Text           | `fr-text` (`element="span\|p"`), `fr-heading` (`[level]` for the outline, `variant` for the look)                                                                                         |
+| Text           | `fr-text` (`element="span\|p"`), `fr-heading` (`[level]` for the outline, `variant` for the look), `fr-badge` (`tone` neutral/accent/status, `variant` subtle/solid, `[icon]`)            |
 | Actions        | `fr-button` (`(pressed)`), `fr-async-button`, `fr-link` (`to` routes, `href` external only)                                                                                               |
 | Async          | `injectAsyncAction`, `fr-async-indicator`, `fr-async-region` (+ `frAsyncPending` / `frAsyncData` / `frAsyncError` slots)                                                                  |
 | Feedback       | `fr-message` (inline, never a toast), `fr-skeleton` (loading content), `fr-spinner` (action progress only)                                                                                |
