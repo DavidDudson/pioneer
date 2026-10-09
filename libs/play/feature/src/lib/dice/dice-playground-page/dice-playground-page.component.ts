@@ -7,6 +7,7 @@ import {
   FieldHint,
   Heading,
   Label,
+  LocaleFormat,
   NumberInput,
   Page,
   Stack,
@@ -35,9 +36,14 @@ import type { RollView } from '../roll-view';
 const HISTORY_LIMIT = 10;
 const STARTING_EXPRESSION = '1d20+7';
 const STARTING_DC = 20;
-/** DCs the playground accepts; the highest in the rules are in the 50s. */
+/** DCs the playground accepts: a generous range for trying rolls out. */
 const DC_MIN = 0;
 const DC_MAX = 99;
+
+interface DcRangeParams {
+  readonly minimum: string;
+  readonly maximum: string;
+}
 
 /** What the playground's toggles stand in for; real effects will name the feat or spell granting them. */
 const PLAYGROUND_FORTUNE = message('play.dice.playgroundFortune');
@@ -67,6 +73,7 @@ const PLAYGROUND_MISFORTUNE = message('play.dice.playgroundMisfortune');
 })
 export class DicePlaygroundPage {
   readonly #random = inject(RANDOM_SOURCE);
+  readonly #format = inject(LocaleFormat);
   #rolled = 0;
 
   protected readonly text = signal(STARTING_EXPRESSION);
@@ -83,12 +90,20 @@ export class DicePlaygroundPage {
   }));
   protected readonly againstDc = signal(false);
   protected readonly dcValue = signal(STARTING_DC);
+  /** False while the DC box is empty or not a whole number; `dcValue` then still holds the last one. */
+  protected readonly dcComplete = signal(true);
   protected readonly dcMin = DC_MIN;
   protected readonly dcMax = DC_MAX;
+  /** The range in the error, in the viewer's locale. */
+  protected readonly dcRange = computed((): DcRangeParams => ({
+    minimum: this.#format.number(DC_MIN),
+    maximum: this.#format.number(DC_MAX),
+  }));
   /** The DC to compare with: unset when off, or when the typed value is not a DC. */
   readonly #dc = computed((): Dc | undefined => {
     const parsed = Dc.safeParse(this.dcValue());
-    return this.againstDc() && parsed.success && parsed.data <= DC_MAX ? parsed.data : undefined;
+    const usable = this.againstDc() && this.dcComplete() && parsed.success && parsed.data <= DC_MAX;
+    return usable ? parsed.data : undefined;
   });
   protected readonly dcInvalid = computed((): boolean => this.againstDc() && this.#dc() === undefined);
   protected readonly canRoll = computed((): boolean => this.error() === undefined && !this.dcInvalid());

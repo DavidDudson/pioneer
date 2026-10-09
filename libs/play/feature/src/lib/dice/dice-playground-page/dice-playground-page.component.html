@@ -14,11 +14,15 @@
         @if (againstDc()) {
           <fr-field [invalid]="dcInvalid()">
             <fr-label>{{ 'play.dice.dcLabel' | transloco }}</fr-label>
-            <fr-number-input [min]="dcMin" [max]="dcMax" [(value)]="dcValue" (committed)="roll()" />
+            <fr-number-input
+              [min]="dcMin"
+              [max]="dcMax"
+              [(value)]="dcValue"
+              [(complete)]="dcComplete"
+              (committed)="roll()"
+            />
             @if (dcInvalid()) {
-              <fr-field-error>{{
-                'play.dice.dcInvalid' | transloco: { minimum: dcMin, maximum: dcMax }
-              }}</fr-field-error>
+              <fr-field-error>{{ 'play.dice.dcInvalid' | transloco: dcRange() }}</fr-field-error>
             } @else {
               <fr-field-hint>{{ 'play.dice.dcHint' | transloco }}</fr-field-hint>
             }
