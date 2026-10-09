@@ -1,4 +1,4 @@
-import { afterAll, beforeAll, describe, expect, test } from 'bun:test';
+import { afterAll, afterEach, beforeAll, describe, expect, test } from 'bun:test';
 
 import { hashSessionToken, IdentityService } from '@pioneer/identity/application';
 import { DisplayName, OAuthProvider, SessionToken } from '@pioneer/identity/domain';
@@ -19,7 +19,8 @@ const adminUrl = testDatabaseUrl();
 describe.skipIf(adminUrl === undefined)('Drizzle identity repositories (postgres)', () => {
   const recorder = new QueryRecorder();
   let database: TestDatabase;
-  let now = Temporal.Instant.from('2026-10-09T08:00:00Z');
+  const START = Temporal.Instant.from('2026-10-09T08:00:00Z');
+  let now = START;
   const clock: Clock = { now: () => now };
   let service: IdentityService;
 
@@ -30,6 +31,10 @@ describe.skipIf(adminUrl === undefined)('Drizzle identity repositories (postgres
       new DrizzleSessionRepository(database.db),
       clock,
     );
+  });
+
+  afterEach(() => {
+    now = START;
   });
 
   afterAll(async () => {
@@ -53,7 +58,6 @@ describe.skipIf(adminUrl === undefined)('Drizzle identity repositories (postgres
 
     now = now.add({ hours: 24 * 31 });
     expect(await service.authenticate(token)).toBeUndefined();
-    now = Temporal.Instant.from('2026-10-09T08:00:00Z');
   });
 
   test('sign-out deletes the session', async () => {
@@ -90,7 +94,6 @@ describe.skipIf(adminUrl === undefined)('Drizzle identity repositories (postgres
     expect(stored.session.id).toBe(session.id);
     expect(stored.session.lastSeenAt).toEqual(now);
     expect(stored.session.expiresAt).toEqual(now.add({ hours: 24 * 30 }));
-    now = Temporal.Instant.from('2026-10-09T08:00:00Z');
   });
 
   test("lists and revokes the user's own sessions; another user's is not found", async () => {
@@ -115,7 +118,6 @@ describe.skipIf(adminUrl === undefined)('Drizzle identity repositories (postgres
     await service.signOutEverywhere(current);
     expect(await service.authenticate(laptop.token)).toBeUndefined();
     expect(await service.authenticate(other.token)).toBeDefined();
-    now = Temporal.Instant.from('2026-10-09T08:00:00Z');
   });
 
   test('the sweep deletes expired sessions', async () => {
@@ -124,7 +126,6 @@ describe.skipIf(adminUrl === undefined)('Drizzle identity repositories (postgres
     expect(await service.sweepExpired()).toBeGreaterThanOrEqual(1);
     const rows = await database.db.select().from(sessions).where(eq(sessions.id, session.id));
     expect(rows).toStrictEqual([]);
-    now = Temporal.Instant.from('2026-10-09T08:00:00Z');
   });
 
   test('every query the repositories issued is served by an index', async () => {
