@@ -21,6 +21,7 @@ tester.run('no-literal-text', noLiteralText, {
     { code: `<fr-stack gap="md" direction="horizontal" />` },
     { code: `<fr-description-item [term]="'character.sheet.speed' | transloco" />` },
     { code: `<fr-description-item [term]="speedLabel()" />` },
+    { code: `<fr-quote [attribution]="'source.playerCore' | transloco" />` },
     { code: `<fr-link href="https://paizo.com">{{ 'shell.communityUse.siteLink' | transloco }}</fr-link>` },
   ],
   invalid: [
@@ -34,5 +35,7 @@ tester.run('no-literal-text', noLiteralText, {
     { code: `<fr-description-item [term]="'Speed'" />`, errors: [{ messageId: 'attribute' }] },
     { code: `<fr-text-field [label]="'Name'" />`, errors: [{ messageId: 'attribute' }] },
     { code: `<p>Größe</p>`, errors: [{ messageId: 'text' }] },
+    { code: `<fr-text element="abbr" expansion="Armor Class" />`, errors: [{ messageId: 'attribute' }] },
+    { code: `<fr-quote attribution="Player Core" />`, errors: [{ messageId: 'attribute' }] },
   ],
 });

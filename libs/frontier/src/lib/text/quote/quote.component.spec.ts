@@ -26,19 +26,30 @@ async function render(
   return quote.location.nativeElement as HTMLElement;
 }
 
+/** The element's classes, or none when it was not rendered. */
+function classesOf(element: Element | null | undefined): readonly string[] {
+  return element ? [...element.classList] : [];
+}
+
 describe(Quote, () => {
   it('projects the passage into a <blockquote> with no attribution by default', async () => {
     const host = await render({});
     const blockquote = host.querySelector('blockquote');
     expect(blockquote?.textContent.trim()).toBe('You are gripped by fear.');
-    expect(host.querySelector('p')).toBeNull();
+    expect(blockquote?.nextElementSibling).toBeNull();
   });
 
-  it('names the source below the quote, outside the <blockquote>', async () => {
+  it('sets the quote off with a strong rule at its inline start', async () => {
+    const host = await render({});
+    const frame = host.querySelector('blockquote')?.parentElement;
+    expect(classesOf(frame)).toStrictEqual(expect.arrayContaining(['border-s', 'border-line-strong']));
+  });
+
+  it('names the source in a muted caption below the quote, outside the <blockquote>', async () => {
     const host = await render({ attribution: 'Player Core' });
-    const attribution = host.querySelector('p');
+    const attribution = host.querySelector('blockquote')?.nextElementSibling?.querySelector('p');
     expect(attribution?.textContent.trim()).toBe('Player Core');
     expect(attribution?.closest('blockquote')).toBeNull();
-    expect(attribution?.classList.contains('text-caption')).toBe(true);
+    expect(classesOf(attribution)).toStrictEqual(expect.arrayContaining(['text-caption', 'text-fg-muted']));
   });
 });

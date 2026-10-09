@@ -1,6 +1,7 @@
 import { NgTemplateOutlet } from '@angular/common';
 import { booleanAttribute, ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 import type { ValueOf } from '@pioneer/shared/kernel';
+import { cva, cx } from 'class-variance-authority';
 
 import { Tone } from '../../tokens';
 import { textVariants, TextVariant } from '../text.variants';
@@ -18,10 +19,18 @@ function isPhraseElement(element: TextElement): element is PhraseElement {
 }
 
 /** Classes an element adds on top of the variant: `code` and `kbd` are always monospaced. */
-const elementClasses: Partial<Record<TextElement, string>> = {
-  code: 'font-mono',
-  kbd: 'border border-line-default bg-surface-sunken px-3xs font-mono',
-};
+const elementVariants = cva('', {
+  variants: {
+    element: {
+      [TextElement.Span]: '',
+      [TextElement.Paragraph]: '',
+      [TextElement.Code]: 'font-mono',
+      [TextElement.Keyboard]: 'border border-line-default bg-surface-sunken px-3xs font-mono',
+      [TextElement.Abbreviation]: '',
+      [TextElement.Quotation]: '',
+    } satisfies Record<TextElement, string>,
+  },
+});
 
 /**
  * Body copy. Renders a `<span>` (default) or `<p>` (`element="p"`), or inline `<code>`, `<kbd>`, `<abbr>` or
@@ -56,7 +65,7 @@ export class Text {
   });
 
   protected readonly classes = computed(() =>
-    [
+    cx(
       textVariants({
         variant: this.variant(),
         tone: this.tone(),
@@ -65,9 +74,7 @@ export class Text {
         numeric: this.numeric(),
         preformatted: this.preformatted(),
       }),
-      elementClasses[this.element()] ?? '',
-    ]
-      .filter((part) => part !== '')
-      .join(' '),
+      elementVariants({ element: this.element() }),
+    ),
   );
 }
