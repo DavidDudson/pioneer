@@ -38,6 +38,9 @@ export const adornmentVariants = cva(
   {
     variants: {
       edge: { start: 'pointer-events-none start-none text-fg-subtle', end: 'end-none' },
+      /** Dims with the disabled control. */
+      disabled: { true: 'opacity-disabled', false: '' },
     },
+    defaultVariants: { disabled: false },
   },
 );

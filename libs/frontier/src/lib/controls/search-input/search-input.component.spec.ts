@@ -133,5 +133,43 @@ describe(SearchInput, () => {
     rendered.fixture.componentRef.setInput('disabled', true);
     rendered.fixture.detectChanges();
     expect(clearButton(rendered)).toBeNull();
+    expect(rendered.input.disabled).toBe(true);
+  });
+
+  it('searches again for a query typed after Enter', () => {
+    const rendered = render();
+    type(rendered, 'Pow');
+    press(rendered, 'Enter');
+    type(rendered, 'Power');
+    vi.advanceTimersByTime(SEARCH_DEBOUNCE);
+    expect(rendered.searches).toStrictEqual(['Pow', 'Power']);
+  });
+
+  it('never repeats the query it last searched', () => {
+    const rendered = render();
+    type(rendered, 'Power');
+    vi.advanceTimersByTime(SEARCH_DEBOUNCE);
+    press(rendered, 'Enter');
+    press(rendered, 'Escape');
+    press(rendered, 'Escape');
+    expect(rendered.searches).toStrictEqual(['Power', '']);
+    expect(rendered.cancels()).toBe(2);
+  });
+
+  it('drops a pending query once the value is set from outside', () => {
+    const rendered = render();
+    type(rendered, 'Pow');
+    rendered.fixture.componentRef.setInput('value', 'Fighter');
+    rendered.fixture.detectChanges();
+    vi.advanceTimersByTime(SEARCH_DEBOUNCE);
+    expect(rendered.searches).toStrictEqual([]);
+  });
+
+  it('never searches once destroyed', () => {
+    const rendered = render();
+    type(rendered, 'Power');
+    rendered.fixture.destroy();
+    vi.advanceTimersByTime(SEARCH_DEBOUNCE);
+    expect(rendered.searches).toStrictEqual([]);
   });
 });

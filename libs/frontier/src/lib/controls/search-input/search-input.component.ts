@@ -19,7 +19,8 @@ export const SEARCH_DEBOUNCE: Milliseconds = Milliseconds.parse(300);
  * clear button. `value` follows every keystroke; `searched` fires with the
  * query once typing goes quiet (`SEARCH_DEBOUNCE`, TanStack Pacer), and at
  * once on Enter, Escape or clear, so a feature runs its query from
- * `searched` alone. Escape clears the query, then fires `cancelled`.
+ * `searched` alone. It never repeats the query it last fired. Escape clears
+ * the query, then fires `cancelled`.
  */
 @Component({
   selector: 'fr-search-input',
@@ -36,16 +37,21 @@ export class SearchInput extends Control {
 
   protected readonly SearchIcon = LucideSearch;
   protected readonly ClearIcon = LucideX;
-  protected readonly iconSlotClasses = adornmentVariants({ edge: 'start' });
+  protected readonly iconSlotClasses = computed(() => adornmentVariants({ edge: 'start', disabled: this.disabled() }));
   protected readonly clearSlotClasses = adornmentVariants({ edge: 'end' });
   protected readonly classes = controlVariants({ adorned: true });
   protected readonly control = viewChild<ElementRef<HTMLInputElement>>('control');
   protected readonly clearable = computed(() => this.value() !== '' && !this.disabled());
 
+  /** The query `searched` last fired; undefined until it first fires. */
+  #lastSearched: string | undefined;
   /** Cancelled on destroy, so a pending query never fires after the control is gone. */
   readonly #debouncer = injectDebouncer(
     (query: string) => {
-      this.searched.emit(query);
+      // `value` was set from outside since this keystroke: the typed query is stale.
+      if (query === this.value()) {
+        this.#search(query);
+      }
     },
     { wait: SEARCH_DEBOUNCE },
   );
@@ -82,6 +88,14 @@ export class SearchInput extends Control {
 
   #searchNow(): void {
     this.#debouncer.cancel();
-    this.searched.emit(this.value());
+    this.#search(this.value());
+  }
+
+  #search(query: string): void {
+    if (query === this.#lastSearched) {
+      return;
+    }
+    this.#lastSearched = query;
+    this.searched.emit(query);
   }
 }
