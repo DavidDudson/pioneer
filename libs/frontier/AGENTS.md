@@ -98,7 +98,7 @@ Pioneer never interrupts the user. Lint enforces each rule
 2. **No modals.** No `<dialog>`, `popover`, `role="dialog|alertdialog"`, CDK or
    Material dialogs, bottom sheets, or `alert`/`confirm`/`prompt`. Show the
    content inline (expand in place, inline edit) or give it its own route.
-   Confirm destructive actions inline, e.g. a second click or an undo.
+   See rule 4 for when a confirmation is allowed at all.
 3. **No full page loads. Always partial load + skeleton.**
    - Navigate with `routerLink` / `Router`. No internal `href`, no
      `location.reload|assign|replace`, no assigning `location`.
@@ -111,6 +111,29 @@ Pioneer never interrupts the user. Lint enforces each rule
      page or the whole list to show one updated value.
    - `fr-spinner` is for in-place action progress only (a button's `loading`,
      an inline save), never for loading content.
+4. **Avoid confirmations.** Act on the first press and make the action
+   reversible instead: inline edit's Revert, an undo next to what changed, a
+   restorable archive in place of a delete. Ask only before an action that is
+   both destructive and irreversible (deleting a character for good), and then
+   inline: a second press on the same button, never a modal.
+
+## Data entry
+
+Preferences, not lint rules: follow them unless a case clearly needs
+otherwise, and say why in the PR when you don't.
+
+- **Avoid checkbox and radio lists.** Pick the control by how many options
+  there are:
+  - **On/off:** `fr-toggle-button`, outlined when off and filled with the
+    accent when on. The label names the setting and stays the same in both
+    states. Several independent settings are a row of toggle buttons.
+  - **One of 2-3 options:** `fr-segmented` (`fr-segmented-field` in forms),
+    every option visible as a button group.
+  - **One of 4 or more:** `fr-select` (`fr-select-field`). Past three, a row
+    of buttons gets cramped on a phone; a dropdown scales.
+- **No confirmation steps** in data entry: values save as they change (see
+  [Inline editing](#inline-editing)) and Revert undoes them. Confirmation is
+  only for destructive, irreversible actions (rule 4 above).
 
 ## Mobile first
 
@@ -201,20 +224,20 @@ after `themes/frontier.css`, and add it to `Theme` in
 
 ## Components
 
-| Area           | Components                                                                                                                                                          |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Layout         | Primitives `fr-box`, `fr-grid`, `fr-stack`; composed `fr-shell`, `fr-page`, `fr-surface`                                                                            |
-| Lists          | `fr-list` (`ordered` for `<ol>`, `markers` for bullets or numbers, `gap`) with `fr-list-item`                                                                       |
-| Text           | `fr-text` (`element="span\|p"`), `fr-heading` (`[level]` for the outline, `variant` for the look)                                                                   |
-| Actions        | `fr-button` (`(pressed)`), `fr-async-button`, `fr-link` (`to` routes, `href` external only)                                                                         |
-| Async          | `injectAsyncAction`, `fr-async-indicator`, `fr-async-region` (+ `frAsyncPending` / `frAsyncData` / `frAsyncError` slots)                                            |
-| Feedback       | `fr-message` (inline, never a toast), `fr-skeleton` (loading content), `fr-spinner` (action progress only)                                                          |
-| Icons          | `fr-icon` (Lucide; `[icon]`, `size`, `tone`, `label`, `spin`)                                                                                                       |
-| Dates          | `fr-date` (Temporal values only)                                                                                                                                    |
-| Controls       | Plain: `fr-text-input`, `fr-number-input`, `fr-date-input`, `fr-select` (`@angular/aria`)                                                                           |
-| Forms          | `fr-form`, `fr-async-form`; `fr-text-field`, `fr-number-field`, `fr-date-field`, `fr-select-field`; parts `fr-field`, `fr-label`, `fr-field-hint`, `fr-field-error` |
-| Inline edit    | `InlineEdit<T>` controller + `fr-inline-field`                                                                                                                      |
-| Data (`/data`) | `fr-table` (TanStack Table), `fr-chart` (TanStack Charts), `fr-virtual-list` (TanStack Virtual)                                                                     |
+| Area           | Components                                                                                                                                                                                |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Layout         | Primitives `fr-box`, `fr-grid`, `fr-stack`; composed `fr-shell`, `fr-page`, `fr-surface`                                                                                                  |
+| Lists          | `fr-list` (`ordered` for `<ol>`, `markers` for bullets or numbers, `gap`) with `fr-list-item`                                                                                             |
+| Text           | `fr-text` (`element="span\|p"`), `fr-heading` (`[level]` for the outline, `variant` for the look)                                                                                         |
+| Actions        | `fr-button` (`(pressed)`), `fr-async-button`, `fr-link` (`to` routes, `href` external only)                                                                                               |
+| Async          | `injectAsyncAction`, `fr-async-indicator`, `fr-async-region` (+ `frAsyncPending` / `frAsyncData` / `frAsyncError` slots)                                                                  |
+| Feedback       | `fr-message` (inline, never a toast), `fr-skeleton` (loading content), `fr-spinner` (action progress only)                                                                                |
+| Icons          | `fr-icon` (Lucide; `[icon]`, `size`, `tone`, `label`, `spin`)                                                                                                                             |
+| Dates          | `fr-date` (Temporal values only)                                                                                                                                                          |
+| Controls       | Plain: `fr-text-input`, `fr-number-input`, `fr-date-input`, `fr-toggle-button` (on/off), `fr-segmented` (2-3 options), `fr-select` (4+, `@angular/aria`)                                  |
+| Forms          | `fr-form`, `fr-async-form`; `fr-text-field`, `fr-number-field`, `fr-date-field`, `fr-segmented-field`, `fr-select-field`; parts `fr-field`, `fr-label`, `fr-field-hint`, `fr-field-error` |
+| Inline edit    | `InlineEdit<T>` controller + `fr-inline-field`                                                                                                                                            |
+| Data (`/data`) | `fr-table` (TanStack Table), `fr-chart` (TanStack Charts), `fr-virtual-list` (TanStack Virtual)                                                                                           |
 
 ## Storybook
 

@@ -1,9 +1,7 @@
 import { booleanAttribute, ChangeDetectionStrategy, Component, computed, input, output } from '@angular/core';
-import { LucideCheck } from '@lucide/angular';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import { cva } from 'class-variance-authority';
 
-import { Icon } from '../../icon/icon.component';
 import { Size } from '../../tokens';
 
 export const ButtonVariant = {
@@ -13,6 +11,10 @@ export const ButtonVariant = {
   Danger: 'danger',
   /** Looks like the text it sits in; e.g. an inline-edit read view. Sized by its content. */
   Inline: 'inline',
+  /** A standalone on/off button, filled with the accent when on. Features use `fr-toggle-button`. */
+  Toggle: 'toggle',
+  /** One option of a segmented control, filled with the accent when chosen. Features use `fr-segmented`. */
+  Segment: 'segment',
 } as const;
 export type ButtonVariant = ValueOf<typeof ButtonVariant>;
 
@@ -32,11 +34,21 @@ const buttonVariants = cva(
         primary:
           'justify-center font-medium bg-accent-solid text-accent-on-solid hover:bg-accent-solid-hover active:bg-accent-solid-active',
         secondary:
-          'justify-center font-medium bg-surface-base text-fg-default border border-line-default hover:bg-surface-sunken aria-pressed:border-accent-solid aria-pressed:bg-accent-subtle aria-pressed:text-accent-fg',
+          'justify-center font-medium bg-surface-base text-fg-default border border-line-default hover:bg-surface-sunken',
         ghost: 'justify-center font-medium text-fg-default hover:bg-surface-sunken',
         danger: 'justify-center font-medium bg-danger-solid text-accent-on-solid hover:bg-danger-solid-hover',
         inline:
           '-mx-2xs min-h-touch min-w-none px-2xs text-start text-body text-fg-default hover:bg-surface-sunken pointer-fine:min-h-control-sm',
+        toggle: [
+          'justify-center font-medium border border-line-default bg-surface-base text-fg-default hover:bg-surface-sunken',
+          'aria-pressed:border-accent-solid aria-pressed:bg-accent-solid aria-pressed:text-accent-on-solid',
+          'aria-pressed:hover:bg-accent-solid-hover aria-pressed:active:bg-accent-solid-active',
+        ].join(' '),
+        segment: [
+          'w-full justify-center font-medium text-fg-muted hover:bg-surface-sunken hover:text-fg-default',
+          'aria-pressed:bg-accent-solid aria-pressed:text-accent-on-solid aria-pressed:hover:bg-accent-solid-hover',
+          'aria-pressed:hover:text-accent-on-solid',
+        ].join(' '),
       } satisfies Record<ButtonVariant, string>,
       size: {
         sm: 'h-touch px-sm text-label pointer-fine:h-control-sm',
@@ -59,7 +71,6 @@ const buttonVariants = cva(
  */
 @Component({
   selector: 'fr-button',
-  imports: [Icon],
   templateUrl: './button.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'contents' },
@@ -74,13 +85,16 @@ export class Button {
   /** Accessible name when the visible content is not enough (e.g. a value to edit). */
   public readonly ariaLabel = input<string | undefined>(undefined);
   public readonly describedBy = input<string | undefined>(undefined);
+  /** Id of the native button, so a field's `<label for>` can name it. */
+  public readonly controlId = input<string | undefined>(undefined);
+  /** Announced as invalid; set by a control composed inside `fr-field`. */
+  public readonly invalid = input(false, { transform: booleanAttribute });
   /**
-   * Makes this a toggle button: announced as pressed or not, and marked with a tick when on. The on
-   * colours are styled for the secondary variant only. Unset for a plain button.
+   * Announces the button as pressed or not (`aria-pressed`); the `toggle` and `segment` variants fill
+   * with the accent when on. Unset for a plain button. Features use `fr-toggle-button` or `fr-segmented`.
    */
   public readonly toggled = input<boolean | undefined>(undefined);
   public readonly pressed = output<MouseEvent>();
-  protected readonly TickIcon = LucideCheck;
 
   protected readonly classes = computed(() => {
     const variant = this.variant();

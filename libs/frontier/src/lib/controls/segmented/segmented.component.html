@@ -1,0 +1,19 @@
+<div
+  role="group"
+  [class]="trackClasses()"
+  [attr.id]="id() ?? null"
+  [attr.aria-label]="ariaLabel() ?? null"
+  [attr.aria-labelledby]="labelledBy() ?? null"
+  [attr.aria-describedby]="describedBy() ?? null"
+  [attr.aria-invalid]="ariaInvalid() || null"
+>
+  @for (option of options(); track option.value) {
+    <fr-button
+      [variant]="variant"
+      [disabled]="disabled()"
+      [toggled]="option.value === value()"
+      (pressed)="choose(option.value)"
+      >{{ option.label }}</fr-button
+    >
+  }
+</div>
