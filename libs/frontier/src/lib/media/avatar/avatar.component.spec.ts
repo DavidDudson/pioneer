@@ -65,6 +65,16 @@ describe(Avatar, () => {
     expect(initials?.hasAttribute('aria-label')).toBe(false);
   });
 
+  it.each(['', '   '])('stays decorative while the name is blank (%j)', async (name) => {
+    const withPicture = await render({ name, src: PORTRAIT });
+    expect(host(withPicture).querySelector('img')?.getAttribute('alt')).toBe('');
+
+    TestBed.resetTestingModule();
+    const withoutPicture = await render({ name });
+    expect(host(withoutPicture).querySelector('[role="img"]')).toBeNull();
+    expect(host(withoutPicture).textContent.trim()).toBe('');
+  });
+
   it.each([
     [Size.Sm, 'size-avatar-sm', 'text-caption'],
     [Size.Md, 'size-avatar-md', 'text-label'],

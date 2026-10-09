@@ -63,8 +63,13 @@ export class Avatar {
 
   protected readonly showImage = computed(() => this.src() !== undefined && !this.failed());
   protected readonly initials = computed(() => this.#format.initials(this.name()));
-  protected readonly imageAlt = computed(() => (this.decorative() ? '' : this.name()));
-  protected readonly label = computed(() => (this.decorative() ? undefined : this.name()));
+  /** The accessible name. A blank name (a display name not yet loaded) leaves the avatar decorative. */
+  protected readonly label = computed(() => {
+    const name = this.name().trim();
+    return this.decorative() || name === '' ? undefined : name;
+  });
+  protected readonly imageDecorative = computed(() => this.label() === undefined);
+  protected readonly imageAlt = computed(() => this.label() ?? '');
   protected readonly classes = computed(() => avatarVariants({ size: this.size() }));
   protected readonly initialsClasses = computed(() => initialsVariants({ size: this.size() }));
 

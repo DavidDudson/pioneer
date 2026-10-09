@@ -69,6 +69,7 @@ describe(LocaleFormat, () => {
     expect(format.initials('e\u0301lodie Moreau')).toBe('E\u0301M');
     expect(format.initials('👩‍🚀 Astra')).toBe('A');
     expect(format.initials('—')).toBe('');
+    expect(format.initials('   ')).toBe('');
   });
 
   it('upper-cases initials the locale way', () => {
