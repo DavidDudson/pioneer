@@ -57,6 +57,27 @@ const examples: object[] = [
   { key: 'Change', selector: 'hit-points', mode: 'multiply', value: 0.5 },
   { key: 'DexterityCap', value: 1 },
   { key: 'MultipleAttackPenalty', selectors: ['strike-attack-roll'], value: -4, predicate: ['item:trait:agile'] },
+  { key: 'Proficiency', selector: 'save:will', rank: 'expert' },
+  { key: 'Proficiency', selector: 'perception', rank: 'master', predicate: [{ gte: ['self:level', 7] }] },
+  { key: 'Proficiency', selector: 'attack:martial', rank: 'expert' },
+  { key: 'Proficiency', selector: 'defense:heavy', rank: 'trained' },
+  {
+    key: 'MartialProficiency',
+    kind: 'attack',
+    slug: 'advanced-crossbows',
+    definition: ['item:category:advanced', 'item:group:crossbow'],
+    sameAs: 'martial',
+    maxRank: 'expert',
+    display: { label: 'Advanced crossbows' },
+  },
+  {
+    key: 'MartialProficiency',
+    kind: 'defense',
+    slug: 'bulwark-armor',
+    definition: ['item:trait:bulwark'],
+    value: 'trained',
+  },
+  { key: 'MartialProficiency', slug: 'firearms', definition: ['item:group:firearm'], visible: false },
 ];
 
 describe('RuleElement', () => {
@@ -148,6 +169,24 @@ describe('RuleElement', () => {
   test('a Change targets one statistic, never a list', () => {
     expect(issues({ key: 'Change', selector: ['ac'], mode: 'add', value: 1 })).toStrictEqual([
       { path: ['selector'], message: message(ValidationMessage.InvalidType, { expected: 'string' }) },
+    ]);
+  });
+
+  test('a proficiency raise never lowers to untrained', () => {
+    expect(issues({ key: 'Proficiency', selector: 'perception', rank: 'untrained' })).toStrictEqual([
+      { path: ['rank'], message: message(ValidationMessage.InvalidValue) },
+    ]);
+  });
+
+  test('a martial proficiency links only to a weapon or armour category', () => {
+    expect(issues({ key: 'MartialProficiency', slug: 'bombs', definition: [], sameAs: 'bomb' })).toStrictEqual([
+      { path: ['sameAs'], message: message(ValidationMessage.InvalidValue) },
+    ]);
+  });
+
+  test('a martial proficiency defines what it covers', () => {
+    expect(issues({ key: 'MartialProficiency', slug: 'firearms' })).toStrictEqual([
+      { path: ['definition'], message: message(ValidationMessage.InvalidType, { expected: 'array' }) },
     ]);
   });
 });

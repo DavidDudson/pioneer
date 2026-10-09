@@ -111,6 +111,13 @@ Each element is a discriminated union member with its own zod schema in `libs/ru
 optional `predicate`, a `priority`, and an optional `display` hint. Unknown keys are a validation error; the
 importer reports Foundry elements it cannot translate rather than dropping them silently.
 
+The Structure, Numbers and Proficiency groups are in the SDK. `Proficiency` raises one statistic's rank on its
+selector, weapon and armour categories included (`attack:martial`), standing in for Foundry's rank
+`ActiveEffectLike` upgrades. `MartialProficiency` keeps Foundry's schema and defaults: a new proficiency for the
+weapons or armour a predicate defines, whose rank can follow a category's (`sameAs`) up to `maxRank`. The Checks,
+Strikes, Defences, Creature and Actions groups land with their Epic 2.6 translator stories, so each schema arrives
+with the Foundry content that exercises it.
+
 ## Derivation pipeline
 
 ```mermaid

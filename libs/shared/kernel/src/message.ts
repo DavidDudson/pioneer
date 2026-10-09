@@ -118,15 +118,39 @@ export const FieldIssueSchema = z.object({
 });
 export type FieldIssue = z.infer<typeof FieldIssueSchema>;
 
+/** The option rejected the value's type outright (an object where it wants a string). */
+function wrongType(errors: readonly z.core.$ZodIssue[]): boolean {
+  return errors.every((error) => error.code === 'invalid_type' && error.path.length === 0);
+}
+
+/** The option got inside the value before failing, so its issues point at a field. */
+function reachedField(errors: readonly z.core.$ZodIssue[]): boolean {
+  return errors.some((error) => error.path.length > 0);
+}
+
 /**
- * What every option of a plain union said, when they all said the same: `Selector | Domain` share a
- * grammar, so both fail alike and that failure is the useful message. Undefined when they differ.
+ * The options of a plain union worth reporting: those that took the value's type, and of those,
+ * the ones that got inside it when any did. `'heavy'` against `WeaponCategory | WeaponGroup` is
+ * a category that is not one; an object missing a field is a group missing that field.
+ */
+function closestOptions(issue: z.core.$ZodIssueInvalidUnion): readonly (readonly z.core.$ZodIssue[])[] {
+  const typed = issue.errors.filter((errors) => !wrongType(errors));
+  const inside = typed.filter((errors) => reachedField(errors));
+  return inside.length > 0 ? inside : typed;
+}
+
+/**
+ * What a plain union's closest options said, when they all said the same (every option when none
+ * took the value's type): `Selector | Domain` share a grammar, so both fail alike and that failure
+ * is the useful message. Undefined when they differ.
  */
 function sharedUnionIssues(issue: z.core.$ZodIssueInvalidUnion): FieldIssue[] | undefined {
   if (issue.discriminator !== undefined) {
     return undefined;
   }
-  const [first, ...rest] = issue.errors.map((errors) => fieldIssues(errors));
+  const closest = closestOptions(issue);
+  const compared = closest.length > 0 ? closest : issue.errors;
+  const [first, ...rest] = compared.map((errors) => fieldIssues(errors));
   const firstText = JSON.stringify(first);
   const allSame = first !== undefined && first.length > 0 && rest.every((other) => JSON.stringify(other) === firstText);
   return allSame ? first : undefined;
@@ -134,8 +158,8 @@ function sharedUnionIssues(issue: z.core.$ZodIssueInvalidUnion): FieldIssue[] | 
 
 /**
  * One field issue per Zod issue, except unknown keys: each becomes its own issue whose path ends at
- * that key, so the UI can point at the field that should not be there. A plain union whose options
- * all fail the same way reports that failure instead of "no match".
+ * that key, so the UI can point at the field that should not be there. A plain union reports its
+ * closest option's failure, or the failure all its options share, instead of "no match".
  */
 export function fieldIssues(issues: readonly z.core.$ZodIssue[]): FieldIssue[] {
   return issues.flatMap((issue): FieldIssue[] => {

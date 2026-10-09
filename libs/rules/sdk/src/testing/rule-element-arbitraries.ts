@@ -18,8 +18,10 @@ import { Attribute } from '../attribute';
 import { ContentKind } from '../content-kind';
 import { DamageType } from '../damage';
 import { ModifierType } from '../modifier-type';
+import { Proficiency } from '../proficiency';
 import { NumericAlterationMode, NumericItemProperty, TraitAlterationMode } from '../rule-element-item-alteration';
 import { AdjustMode, ChangeMode } from '../rule-element-numbers';
+import { ArmorCategory, MartialKind, WeaponCategory } from '../rule-element-proficiency';
 import { keyPathText, predicateJson, rollOptionText } from './arbitraries';
 
 const LIST_MAX = 3;
@@ -146,6 +148,21 @@ const dexterityCap = element('DexterityCap', { value: modifierValue });
 const penaltyStep = oneof(integer({ min: -SMALLINT_MAX, max: 0 }), formulaText);
 const multipleAttackPenalty = element('MultipleAttackPenalty', { selectors: targets, value: penaltyStep });
 
+const raisedRank = constantFrom(...Object.values(Proficiency).filter((rank) => rank !== Proficiency.Untrained));
+const proficiency = element('Proficiency', { selector: keyPathText, rank: raisedRank });
+
+const martialProficiency = element(
+  'MartialProficiency',
+  { slug: slugText, definition: predicateJson },
+  {
+    kind: anyOf(MartialKind),
+    sameAs: anyOf({ ...WeaponCategory, ...ArmorCategory }),
+    maxRank: raisedRank,
+    value: raisedRank,
+    visible: boolean(),
+  },
+);
+
 /**
  * Valid rule elements of every `key` the SDK knows, as plain JSON (unparsed). Use with
  * `RuleElement.parse` to get the typed value.
@@ -165,4 +182,6 @@ export const ruleElementJson: Arbitrary<object> = oneof(
   change,
   dexterityCap,
   multipleAttackPenalty,
+  proficiency,
+  martialProficiency,
 );
