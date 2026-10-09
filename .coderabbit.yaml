@@ -61,8 +61,7 @@ reviews:
     shellcheck:
       enabled: true
   finishing_touches:
-    # On demand only (checkbox or `@coderabbitai autofix`). Reserve for small nitpicks; verify with the
-    # resolve-coderabbit skill first, and prefer the top layer of a stack.
+    # On demand: checkbox or `@coderabbitai autofix`. Needs Essentials or higher.
     autofix:
       enabled: true
     simplify:
@@ -72,11 +71,11 @@ reviews:
       enabled: false
     docstrings:
       enabled: false
-    # Team plan only. Off: stacks are rebased and fixed through gh stack, not bot commits or stacked PRs.
+    # Team plan only; inert on the open source plan.
     fix_ci:
-      enabled: false
+      enabled: true
     resolve_merge_conflict:
-      enabled: false
+      enabled: true
 knowledge_base:
   code_guidelines:
     filePatterns:
