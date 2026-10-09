@@ -73,3 +73,6 @@ export const ManyTraits: FilterChipsStory = {
 };
 
 export const Disabled: FilterChipsStory = { args: { disabled: true } };
+
+/** Announced as invalid on the group (`aria-invalid`); the chips draw no error state of their own. */
+export const Invalid: FilterChipsStory = { args: { invalid: true } };

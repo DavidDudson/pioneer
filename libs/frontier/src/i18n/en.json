@@ -19,7 +19,8 @@
       "noMatches": "No matches"
     },
     "filterChips": {
-      "clearAll": "Clear all"
+      "clearAll": "Clear all",
+      "clearAllNamed": "Clear all {label}"
     },
     "searchInput": {
       "clear": "Clear search"

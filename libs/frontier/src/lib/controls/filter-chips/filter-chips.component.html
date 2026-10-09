@@ -18,8 +18,15 @@
     >
   }
   @if (anySelected()) {
-    <fr-button [variant]="clearVariant" [size]="chipSize" [disabled]="disabled()" (pressed)="clear()">{{
-      'frontier.filterChips.clearAll' | transloco
-    }}</fr-button>
+    <!-- Several groups share a page (kind, rarity, traits): the name says which one this clears. -->
+    <fr-button
+      [variant]="clearVariant"
+      [size]="chipSize"
+      [disabled]="disabled()"
+      [ariaLabel]="ariaLabel() ? ('frontier.filterChips.clearAllNamed' | transloco: { label: ariaLabel() }) : undefined"
+      [describedBy]="labelledBy()"
+      (pressed)="clear()"
+      >{{ 'frontier.filterChips.clearAll' | transloco }}</fr-button
+    >
   }
 </div>

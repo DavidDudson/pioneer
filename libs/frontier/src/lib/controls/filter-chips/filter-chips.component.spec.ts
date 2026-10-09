@@ -34,6 +34,17 @@ function render(selected: readonly Rarity[]): Rendered {
   return { fixture, commits: () => commits };
 }
 
+function provideField(): void {
+  // Only the members a control reads from its field.
+  const field = {
+    controlId: 'rarity-control',
+    labelId: 'rarity-label',
+    describedBy: signal('rarity-hint'),
+    invalid: signal(true),
+  };
+  TestBed.configureTestingModule({ providers: [{ provide: Field, useValue: field }] });
+}
+
 function host(fixture: ComponentFixture<FilterChips<Rarity>>): HTMLElement {
   return fixture.nativeElement as HTMLElement;
 }
@@ -74,6 +85,17 @@ describe(FilterChips, () => {
     expect(commits()).toBe(1);
   });
 
+  it('builds on the current set when several chips are pressed in turn', () => {
+    const { fixture, commits } = render([]);
+    chips(fixture)[0]?.click();
+    fixture.detectChanges();
+    chips(fixture)[2]?.click();
+    fixture.detectChanges();
+    expect([...fixture.componentInstance.value()]).toStrictEqual(['common', 'rare']);
+    expect(pressed(fixture)).toStrictEqual(['true', 'false', 'true']);
+    expect(commits()).toBe(2);
+  });
+
   it('removes a key on a press while selected', () => {
     const { fixture, commits } = render(['common', 'rare']);
     chips(fixture)[0]?.click();
@@ -90,6 +112,10 @@ describe(FilterChips, () => {
     expect(clearButton(render(['rare']).fixture)?.textContent.trim()).toBe('Clear all');
   });
 
+  it('names clear all after its group, so several groups on a page stay apart', () => {
+    expect(clearButton(render(['rare']).fixture)?.getAttribute('aria-label')).toBe('Clear all Rarity');
+  });
+
   it('clears every key, commits and keeps focus in the group', () => {
     const { fixture, commits } = render(['common', 'rare']);
     document.body.append(host(fixture));
@@ -104,29 +130,30 @@ describe(FilterChips, () => {
   });
 
   it('disables every chip and clear all', () => {
-    const { fixture } = render(['rare']);
+    const { fixture, commits } = render(['rare']);
     fixture.componentRef.setInput('disabled', true);
     fixture.detectChanges();
     expect([...host(fixture).querySelectorAll('button')].every((button) => button.disabled)).toBe(true);
+    chips(fixture)[0]?.click();
+    fixture.detectChanges();
+    expect([...fixture.componentInstance.value()]).toStrictEqual(['rare']);
+    expect(commits()).toBe(0);
   });
 
   it('takes the field label on the group, not on each chip', () => {
-    // Only the members a control reads from its field.
-    const field = {
-      controlId: 'rarity-control',
-      labelId: 'rarity-label',
-      describedBy: signal('rarity-hint'),
-      invalid: signal(true),
-    };
-    TestBed.configureTestingModule({
-      providers: [{ provide: Field, useValue: field }],
-    });
-    const { fixture } = render([]);
+    provideField();
+    const { fixture } = render(['rare']);
     const group = host(fixture).querySelector('[role="group"]');
     expect(group?.id).toBe('rarity-control');
     expect(group?.getAttribute('aria-labelledby')).toBe('rarity-label');
     expect(group?.getAttribute('aria-describedby')).toBe('rarity-hint');
     expect(group?.getAttribute('aria-invalid')).toBe('true');
     expect(chips(fixture).map((chip) => chip.id)).toStrictEqual(['', '', '']);
+  });
+
+  it('describes clear all by the field label', () => {
+    provideField();
+    const { fixture } = render(['rare']);
+    expect(clearButton(fixture)?.getAttribute('aria-describedby')).toBe('rarity-label');
   });
 });
