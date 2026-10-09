@@ -37,6 +37,33 @@ describe('applyDamage: precision, bleed and critical immunity', () => {
     );
   });
 
+  test('resistance to precision stops only the precision share', () => {
+    const result = applyDamage(
+      roll('1d8[piercing]+1d6[precision]', [5, 3]),
+      target({ resistances: [adjustment(DamageType.Precision, 10)] }),
+    );
+    expect(result.taken).toBe(amount(5));
+    expect(result.immediate[0]?.lines).toEqual([
+      message(DiceMessage.DamageResistance, { value: 10, target: DamageType.Precision, prevented: 3 }),
+    ]);
+  });
+
+  test('the resistance that prevents most wins, not the highest value', () => {
+    const result = applyDamage(
+      roll('1d8[piercing]+1d6[precision]', [5, 3]),
+      target({ resistances: [adjustment(DamageType.Precision, 10), adjustment(DamageGroup.Physical, 5)] }),
+    );
+    expect(result.taken).toBe(amount(3));
+  });
+
+  test('resistance to precision covers all of a precision-only instance', () => {
+    const result = applyDamage(
+      roll('1d6[precision]', [4]),
+      target({ resistances: [adjustment(DamageType.Precision, 10)] }),
+    );
+    expect(result.taken).toBe(amount(0));
+  });
+
   test('a weakness to precision applies only while precision is dealt', () => {
     const weak = target({ weaknesses: [adjustment(DamageType.Precision, 4)] });
     expect(applyDamage(roll('1d8[piercing]+1d6[precision]', [5, 3]), weak).taken).toBe(amount(12));

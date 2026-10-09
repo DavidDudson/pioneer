@@ -192,13 +192,31 @@ function weaken(amount: DamageTotal, types: readonly DamageType[], target: Damag
   };
 }
 
-/** The highest applicable resistance removes up to its value. */
-function resist(amount: DamageTotal, types: readonly DamageType[], target: DamageTarget): Applied {
-  const resistance = amount > 0 ? highest(target.resistances, types) : undefined;
+/** What a resistance can reach in an instance: the types it counts as, and how much of it is precision. */
+interface Exposure {
+  readonly types: readonly DamageType[];
+  /** The precision share; resistance to precision stops no more than this, as in Foundry. */
+  readonly precision: DamageTotal;
+}
+
+/** How much `resistance` would stop of `amount`. */
+function preventing(resistance: DamageAdjustment, amount: DamageTotal, exposure: Exposure): DamageTotal {
+  const reach = resistance.type === DamageType.Precision ? exposure.precision : amount;
+  return DamageTotal.parse(Math.min(resistance.value, amount, reach));
+}
+
+/** The applicable resistance that stops the most removes up to its value. */
+function resist(amount: DamageTotal, exposure: Exposure, target: DamageTarget): Applied {
+  const resistance =
+    amount > 0
+      ? target.resistances
+          .filter((candidate) => covers(candidate.type, exposure.types))
+          .toSorted((left, right) => preventing(right, amount, exposure) - preventing(left, amount, exposure))[0]
+      : undefined;
   if (resistance === undefined) {
     return { amount, lines: [] };
   }
-  const prevented = Math.min(resistance.value, amount);
+  const prevented = preventing(resistance, amount, exposure);
   return {
     amount: DamageTotal.parse(amount - prevented),
     lines: [message(DiceMessage.DamageResistance, { value: resistance.value, target: resistance.type, prevented })],
@@ -232,9 +250,12 @@ function deal(pooled: Pooled, target: DamageTarget, doubling: Doubling): DamageI
   const dealtNow = dealt(pooled, doubling);
   const type = pooled.type === undefined ? {} : { type: pooled.type };
   const immune = immunise(pooled, dealtNow, target);
-  const types = typesOf(pooled, dealtNow.precision > 0 && !target.immunities.includes(PRECISION));
+  const precisionLeft = target.immunities.includes(PRECISION) ? NONE : dealtNow.precision;
+  const types = typesOf(pooled, precisionLeft > 0);
   const weakened = weaken(immune.amount, types, target);
-  const resisted = resist(weakened.amount, types, target);
+  // Resistance to precision stops no more than the precision share, unless the instance is all precision.
+  const precisionCap = pooled.type === DamageType.Precision ? weakened.amount : precisionLeft;
+  const resisted = resist(weakened.amount, { types, precision: precisionCap }, target);
   return {
     ...type,
     rolled: dealtNow.rolled,
