@@ -299,6 +299,23 @@ flowchart TD
 6. **Modifiers.** Collected per selector through domains, predicates evaluated, stacking applied.
 7. **Synthetics.** Strikes per wielded weapon, spellcasting entries, the available action list, roll notes.
 
+### Grant resolution
+
+Steps 1 and 2 live in `libs/rules/grants` (`resolveGrants`), beside the engine rather than in it: it depends only on
+`rules/sdk`, `rules/predicate` and the kernel, and the engine composes it. It reads content through a lookup
+(`ContentId` to name, rule elements and sources), so any kind of entry can grant any other.
+
+- Roots are the character's direct entries, each with the hop that put it there (a `choice` slot, a `condition`, an
+  `effect`). They are visited in entry id order, so the result does not depend on the order they are given in.
+- A fixed `GrantItem` adds its entry with a `grant` hop naming the granter and the rule index. Each item's origin is
+  the hops from the character down to it, with the item itself as `entry`.
+- A grant of an entry already on the character is skipped and reported as a duplicate, unless `allowDuplicate`.
+- A grant back to an entry above it on the chain is a cycle, reported once with every entry on it and not followed.
+  A missing entry is an error at its grant, and a chain longer than an origin records (64 hops) stops there. The
+  other grants still resolve.
+- A grant's predicate is evaluated like a modifier's. True follows the grant, false drops it, and unknown reports it
+  as a **conditional grant** with its predicate summary: not on the character, and not followed further.
+
 ### Statistic graph
 
 The base phase in `libs/rules/engine` (`StatisticBases`) is step 5. The inputs are the character's

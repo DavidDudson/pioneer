@@ -1,0 +1,7 @@
+{
+  "name": "rules-grants",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/rules/grants/src",
+  "tags": ["scope:rules", "type:domain", "platform:any"]
+}

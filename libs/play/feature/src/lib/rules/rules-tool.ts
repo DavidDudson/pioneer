@@ -2,6 +2,8 @@ import type { ValueOf } from '@pioneer/shared/kernel';
 
 import { checkFormula } from './formula-check';
 import type { FormulaCheck, ReferenceEntries } from './formula-check';
+import { checkGrants } from './grants-check';
+import type { GrantsCheck } from './grants-check';
 import { checkVerdict } from './predicate-verdict';
 import type { VerdictCheck } from './predicate-verdict';
 import { checkRulesJson, RulesTool } from './rules-check';
@@ -9,31 +11,41 @@ import type { CheckOutcome } from './rules-check';
 import { checkStatistics } from './statistics-check';
 import type { StatisticsCheck } from './statistics-check';
 
-/** What kind of answer a tool gives: a schema check, a parsed formula, a predicate's verdict, or statistics. */
-export const ToolKind = { Schema: 'schema', Formula: 'formula', Verdict: 'verdict', Statistics: 'statistics' } as const;
+/** What kind of answer a tool gives: a schema check, a parsed formula, a predicate's verdict, statistics or grants. */
+export const ToolKind = {
+  Schema: 'schema',
+  Formula: 'formula',
+  Verdict: 'verdict',
+  Statistics: 'statistics',
+  Grants: 'grants',
+} as const;
 export type ToolKind = ValueOf<typeof ToolKind>;
 
 export type { ReferenceEntries } from './formula-check';
+export { EXAMPLE_GRANT_ROOTS } from './grant-examples';
 export { EXAMPLE_FACTS } from './predicate-verdict';
 export { EXAMPLE_RULE_ELEMENTS, EXAMPLE_STATISTIC_INPUTS } from './statistics-check';
 export { CheckStatus, RULES_TOOL_KEYS, rulesExample, RulesTool } from './rules-check';
 
 /**
  * What the tools read besides the main text: roll options for the verdict, reference values for formulas, the
- * character's inputs and rule elements for statistics, which read the roll options too.
+ * character's inputs and rule elements for statistics, and the root entries for grants; statistics and grants read
+ * the roll options too.
  */
 export interface ToolInputs {
   readonly facts: string;
   readonly entries: ReferenceEntries;
   readonly statisticInputs: string;
   readonly statisticRules: string;
+  readonly grantRoots: string;
 }
 
 export type ToolCheck =
   | { readonly kind: typeof ToolKind.Schema; readonly check: CheckOutcome }
   | { readonly kind: typeof ToolKind.Formula; readonly check: FormulaCheck }
   | { readonly kind: typeof ToolKind.Verdict; readonly check: VerdictCheck }
-  | { readonly kind: typeof ToolKind.Statistics; readonly check: StatisticsCheck };
+  | { readonly kind: typeof ToolKind.Statistics; readonly check: StatisticsCheck }
+  | { readonly kind: typeof ToolKind.Grants; readonly check: GrantsCheck };
 
 /** Run the chosen tool on the page's text and whichever extra inputs it reads. Never throws. */
 export function checkTool(tool: RulesTool, text: string, inputs: ToolInputs): ToolCheck {
@@ -52,6 +64,12 @@ export function checkTool(tool: RulesTool, text: string, inputs: ToolInputs): To
         rules: inputs.statisticRules,
         facts: inputs.facts,
       }),
+    };
+  }
+  if (tool === RulesTool.Grants) {
+    return {
+      kind: ToolKind.Grants,
+      check: checkGrants({ entries: text, roots: inputs.grantRoots, facts: inputs.facts }),
     };
   }
   return { kind: ToolKind.Schema, check: checkRulesJson(tool, text) };

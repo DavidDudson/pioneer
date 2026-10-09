@@ -1,0 +1,18 @@
+@let result = check();
+@if (result.status === GrantsStatus.Valid) {
+  @let rows = shown();
+  <fr-stack gap="lg">
+    @if (rows.items.length === 0) {
+      <fr-text element="p" tone="muted">{{ 'play.rules.noGrants' | transloco }}</fr-text>
+    }
+    <pio-grant-list [rows]="rows.items">{{ 'play.rules.grantedHeading' | transloco }}</pio-grant-list>
+    <pio-grant-list [rows]="rows.duplicates">{{ 'play.rules.duplicatesHeading' | transloco }}</pio-grant-list>
+    <pio-grant-list [rows]="rows.conditional">{{ 'play.rules.conditionalHeading' | transloco }}</pio-grant-list>
+    <pio-grant-list [rows]="rows.errors">{{ 'play.rules.grantErrorsHeading' | transloco }}</pio-grant-list>
+  </fr-stack>
+} @else {
+  @if (result.entries; as entries) {
+    <fr-heading variant="subheading" [level]="3">{{ 'play.rules.grantEntriesLabel' | transloco }}</fr-heading>
+    <pio-rules-result [outcome]="entries" />
+  }
+}

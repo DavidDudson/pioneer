@@ -1,0 +1,7 @@
+{
+  "grants": {
+    "unknownEntry": "No content entry has the id {entry}.",
+    "cycle": "{count, plural, one {{entries} grants itself} other {{entries} grant one another in a loop}}.",
+    "tooDeep": "This grant is more than {maximum} steps from the character, so it is not followed."
+  }
+}

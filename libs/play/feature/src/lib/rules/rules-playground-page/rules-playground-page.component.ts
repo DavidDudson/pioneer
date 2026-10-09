@@ -17,11 +17,11 @@ import {
 import type { SelectOption } from '@pioneer/frontier';
 import { filter, merge } from 'rxjs';
 
-import { FormulaReferences } from '../formula-references/formula-references.component';
 import {
   CheckStatus,
   checkTool,
   EXAMPLE_FACTS,
+  EXAMPLE_GRANT_ROOTS,
   EXAMPLE_RULE_ELEMENTS,
   EXAMPLE_STATISTIC_INPUTS,
   RULES_TOOL_KEYS,
@@ -30,9 +30,8 @@ import {
   ToolKind,
 } from '../rules-tool';
 import type { ReferenceEntries, ToolCheck } from '../rules-tool';
-import { StatisticsFields } from '../statistics-fields/statistics-fields.component';
+import { TOOL_FIELDS } from '../tool-fields';
 import { ToolResult } from '../tool-result/tool-result.component';
-import { VerdictFields } from '../verdict-fields/verdict-fields.component';
 
 const JSON_ROWS = 12;
 
@@ -40,7 +39,8 @@ const JSON_ROWS = 12;
  * Paste rules JSON, pick a schema, and see whether it validates and, if not, where and why. The formula
  * tool parses formula text instead, points at the first mistake, and evaluates it with reference values; the verdict tool evaluates a predicate
  * against roll options and shows which statements hold; the statistics tool derives each statistic's breakdown from
- * definitions, the character's inputs, rule elements and roll options.
+ * definitions, the character's inputs, rule elements and roll options; the grants tool resolves grants from root
+ * entries down, each with the chain that put it on the character.
  */
 @Component({
   selector: 'pio-rules-playground-page',
@@ -48,19 +48,17 @@ const JSON_ROWS = 12;
     Field,
     FieldError,
     FieldHint,
-    FormulaReferences,
     Heading,
     Label,
     Page,
     Select,
     Stack,
-    StatisticsFields,
     Surface,
     TextArea,
     TextInput,
     ToolResult,
     TranslocoPipe,
-    VerdictFields,
+    ...TOOL_FIELDS,
   ],
   templateUrl: './rules-playground-page.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -92,6 +90,8 @@ export class RulesPlaygroundPage {
   protected readonly statisticInputs = signal(EXAMPLE_STATISTIC_INPUTS);
   /** Rule elements for the statistics tool, as a JSON array. Kept when switching tools. */
   protected readonly statisticRules = signal(EXAMPLE_RULE_ELEMENTS);
+  /** The grants tool's root entries, one slug per line. Kept when switching tools. */
+  protected readonly grantRoots = signal(EXAMPLE_GRANT_ROOTS);
   /** The chosen tool's answer for the current text. */
   protected readonly result = computed((): ToolCheck =>
     checkTool(this.schema(), this.text(), {
@@ -99,6 +99,7 @@ export class RulesPlaygroundPage {
       entries: this.referenceEntries(),
       statisticInputs: this.statisticInputs(),
       statisticRules: this.statisticRules(),
+      grantRoots: this.grantRoots(),
     }),
   );
 
