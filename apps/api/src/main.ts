@@ -8,15 +8,22 @@ import { spa } from './spa';
 /** `pioneer-api migrate` applies migrations and exits; no argument serves. */
 const MIGRATE_COMMAND = 'migrate';
 
+const command = Bun.argv.at(2);
+if (command !== undefined && command !== MIGRATE_COMMAND) {
+  throw new Error(`Unknown command "${command}"; expected "${MIGRATE_COMMAND}" or none`);
+}
+
 const env = readEnv();
 const db = connect(env.DATABASE_URL);
-const command = Bun.argv.at(2);
 
 if (command === MIGRATE_COMMAND) {
-  await runMigrations(db, env.MIGRATIONS_DIR);
-  await db.$client.close();
+  try {
+    await runMigrations(db, env.MIGRATIONS_DIR);
+  } finally {
+    await db.$client.close();
+  }
   console.info('migrations applied');
-} else if (command === undefined) {
+} else {
   if (env.MIGRATE_ON_START) {
     await runMigrations(db, env.MIGRATIONS_DIR);
   }
@@ -26,6 +33,4 @@ if (command === MIGRATE_COMMAND) {
   }
   server.listen(env.PORT);
   console.info(`pioneer api listening on :${env.PORT}`);
-} else {
-  throw new Error(`Unknown command "${command}"; expected "${MIGRATE_COMMAND}" or none`);
 }

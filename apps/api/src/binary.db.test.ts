@@ -13,6 +13,10 @@ const SOURCE_MIGRATIONS = new URL('../migrations', import.meta.url).pathname;
 const MAIN = new URL('main.ts', import.meta.url).pathname;
 const COMPILE_TIMEOUT = 60_000;
 const RUN_TIMEOUT = 30_000;
+/** Kills a spawned binary that hangs, so a failing test never leaks a server. */
+const CHILD_TIMEOUT = 20_000;
+const FETCH_TIMEOUT = 5000;
+const CONCURRENT_MIGRATIONS = 3;
 const LISTENING = /listening on :(?<port>\d+)/u;
 
 const JournalEntry = z.object({ tag: z.string() });
@@ -86,6 +90,7 @@ describe.skipIf(adminUrl === undefined)('compiled api binary (postgres)', () => 
     const child = Bun.spawn([workspace.binary, ...args], {
       cwd: workspace.folder,
       env,
+      timeout: CHILD_TIMEOUT,
       stdout: 'pipe',
       stderr: 'pipe',
     });
@@ -102,6 +107,7 @@ describe.skipIf(adminUrl === undefined)('compiled api binary (postgres)', () => 
     const child = Bun.spawn([workspace.binary], {
       cwd: workspace.folder,
       env,
+      timeout: CHILD_TIMEOUT,
       stdout: 'pipe',
       stderr: 'inherit',
     });
@@ -112,7 +118,9 @@ describe.skipIf(adminUrl === undefined)('compiled api binary (postgres)', () => 
         output += decoder.decode(chunk);
         const port = LISTENING.exec(output)?.groups?.['port'];
         if (port !== undefined) {
-          const response = await fetch(`http://127.0.0.1:${port}/api/health`);
+          const response = await fetch(`http://127.0.0.1:${port}/api/health`, {
+            signal: AbortSignal.timeout(FETCH_TIMEOUT),
+          });
           const body: unknown = await response.json();
           return Health.parse(body);
         }
@@ -180,8 +188,33 @@ describe.skipIf(adminUrl === undefined)('compiled api binary (postgres)', () => 
       const { MIGRATIONS_DIR: _unset, ...env } = await environment(databaseUrl, {});
       const result = await run(['migrate'], env);
       expect(result.code).not.toBe(0);
-      expect(result.output).toContain('No migrations in MIGRATIONS_DIR=/$bunfs/');
+      expect(result.output).toContain('No migrations in MIGRATIONS_DIR=');
+      expect(result.output).toContain('meta/_journal.json is missing');
       expect(await appliedMigrations(databaseUrl)).toBe(0);
+    },
+    RUN_TIMEOUT,
+  );
+
+  test(
+    'instances migrating at once serialise on the lock and all succeed',
+    async () => {
+      const databaseUrl = await emptyDatabase();
+      const env = await environment(databaseUrl, {});
+      const runs = Array.from({ length: CONCURRENT_MIGRATIONS }, async (): Promise<Exit> => run(['migrate'], env));
+      const results = await Promise.all(runs);
+      expect(results.map(({ code }) => code)).toStrictEqual([0, 0, 0]);
+      expect(await appliedMigrations(databaseUrl)).toBe(migrationCount);
+    },
+    RUN_TIMEOUT,
+  );
+
+  test(
+    'rejects an unknown command before touching the database',
+    async () => {
+      const env = await environment('postgres://127.0.0.1:1/unreachable', {});
+      const result = await run(['migrat'], env);
+      expect(result.code).not.toBe(0);
+      expect(result.output).toContain('Unknown command "migrat"');
     },
     RUN_TIMEOUT,
   );

@@ -2,7 +2,6 @@
   "$schema": "https://unpkg.com/knip@6/schema.json",
   "entry": [
     "apps/web/src/main.ts",
-    "apps/api/src/{main,migrate}.ts",
     "apps/api/drizzle.config.ts",
     "libs/*/src/index.ts",
     "libs/*/*/src/index.ts",
