@@ -26,6 +26,8 @@ export class SessionList {
 
   public async revoke(session: SessionSummary): Promise<void> {
     await this.#api.call(IdentityContract.revokeSession, { params: { id: session.id }, body: undefined });
+    // An in-flight refetch could otherwise bring the revoked row back.
+    await this.#client.cancelQueries({ queryKey: sessionListKey });
     if (session.current) {
       this.#client.removeQueries({ queryKey: sessionListKey });
       this.#session.signedOut();

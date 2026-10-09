@@ -106,7 +106,9 @@ describe.skipIf(adminUrl === undefined)('Drizzle identity repositories (postgres
     expect(listed.map((each) => each.id)).toStrictEqual([laptop.session.id, phone.session.id]);
     expect(listed.map((each) => each.current)).toStrictEqual([true, false]);
 
-    expect(service.revokeSession(current, other.session.id)).rejects.toBeInstanceOf(NotFoundError);
+    const [othersSession] = await Promise.allSettled([service.revokeSession(current, other.session.id)]);
+    const notFound: unknown = expect.any(NotFoundError);
+    expect(othersSession).toMatchObject({ status: 'rejected', reason: notFound });
     expect(await service.revokeSession(current, phone.session.id)).toStrictEqual({ current: false });
     expect(await service.authenticate(phone.token)).toBeUndefined();
 

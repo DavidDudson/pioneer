@@ -10,11 +10,20 @@
         </fr-stack>
         <fr-async-region [errorMessage]="'identity.account.sessions.loadError' | transloco">
           <ng-template frAsyncPending>
-            <fr-stack gap="md">
+            <fr-list gap="md">
               @for (placeholder of placeholders; track placeholder) {
-                <fr-skeleton width="lg" />
+                <fr-list-item>
+                  <fr-stack direction="horizontal" justify="between" align="center" gap="sm" wrap>
+                    <fr-stack gap="2xs">
+                      <fr-skeleton width="sm" />
+                      <fr-skeleton width="md" />
+                      <fr-skeleton width="md" />
+                    </fr-stack>
+                    <fr-skeleton width="xs" />
+                  </fr-stack>
+                </fr-list-item>
               }
-            </fr-stack>
+            </fr-list>
           </ng-template>
           <ng-template let-listed [frAsyncData]="sessions.list">
             <fr-list gap="md">
