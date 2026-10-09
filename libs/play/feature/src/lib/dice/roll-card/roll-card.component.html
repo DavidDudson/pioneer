@@ -1,12 +1,11 @@
+@let shown = display();
 <fr-surface>
   <fr-stack gap="sm">
     <fr-stack direction="horizontal" justify="between" align="baseline" wrap>
-      <fr-text variant="code">{{ roll().notation }}</fr-text>
-      <fr-heading variant="heading" [level]="3">{{
-        'play.dice.total' | transloco: { total: roll().total }
-      }}</fr-heading>
+      <fr-text variant="code">{{ shown.notation }}</fr-text>
+      <fr-heading variant="heading" [level]="3">{{ 'play.dice.total' | transloco: { total: shown.total } }}</fr-heading>
     </fr-stack>
-    @for (term of roll().terms; track $index) {
+    @for (term of shown.terms; track $index) {
       <fr-stack direction="horizontal" gap="sm" align="baseline" wrap>
         <fr-text variant="code" tone="muted">{{ term.notation }}</fr-text>
         @for (damageKey of term.damageKeys; track damageKey) {
