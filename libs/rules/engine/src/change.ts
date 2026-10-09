@@ -14,10 +14,11 @@ import type {
 
 import { InactiveReason, OverridePhase, OverrideStatusKind } from './breakdown';
 import type { ModifierLabel, OverrideLine, OverrideStatus } from './breakdown';
+import { EngineMessage } from './messages';
 import { DEFAULT_PRIORITY, labelOf } from './modifier';
 import { ruleIdOf } from './rule-in-play';
 import type { RuleId, RuleInPlay } from './rule-in-play';
-import { changed, truthOf, valueOf } from './rule-value';
+import { changed, outOfRange, truthOf, valueOf } from './rule-value';
 import type { RuleContext } from './rule-value';
 
 /** A `Change` in play on one statistic. */
@@ -113,6 +114,13 @@ function gate(source: ChangeSource, context: RuleContext): OverrideStatus | unde
       };
 }
 
+/** A change whose result left the safe integer range; a number has no formula position to point at. */
+const OUT_OF_RANGE: OverrideStatus = {
+  kind: OverrideStatusKind.Failed,
+  error: outOfRange(EngineMessage.ChangeOutOfRange),
+  position: undefined,
+};
+
 /** A change about to act on `current` in `phase`. */
 interface Acting {
   readonly source: ChangeSource;
@@ -130,14 +138,13 @@ function lineFor({ source, current, phase }: Acting, context: RuleContext): Over
     const failure = { kind: OverrideStatusKind.Failed, error: outcome.error, position: outcome.position } as const;
     return { ...common, value: undefined, result: current, status: blocked ?? failure };
   }
-  return blocked === undefined
-    ? {
-        ...common,
-        value: outcome.value,
-        result: changed(mode, current, outcome.value),
-        status: { kind: OverrideStatusKind.Applied },
-      }
-    : { ...common, value: outcome.value, result: current, status: blocked };
+  if (blocked !== undefined) {
+    return { ...common, value: outcome.value, result: current, status: blocked };
+  }
+  const result = changed(mode, current, outcome.value);
+  return result === undefined
+    ? { ...common, value: outcome.value, result: current, status: OUT_OF_RANGE }
+    : { ...common, value: outcome.value, result, status: { kind: OverrideStatusKind.Applied } };
 }
 
 /** A value and the override lines that led to it. */

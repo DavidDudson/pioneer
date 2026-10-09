@@ -8,6 +8,9 @@
     },
     "modifier": {
       "outOfRange": "An adjustment takes this modifier out of range. Values must stay between −{maximum} and {maximum}."
+    },
+    "change": {
+      "outOfRange": "This change takes the value out of range. Values must stay between −{maximum} and {maximum}."
     }
   }
 }

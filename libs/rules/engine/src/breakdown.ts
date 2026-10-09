@@ -97,7 +97,8 @@ export type OverrideStatus =
   | {
       readonly kind: typeof OverrideStatusKind.Failed;
       readonly error: MessageDescriptor;
-      readonly position: TextPosition;
+      /** Where in the failing formula; undefined when the change took the value out of range. */
+      readonly position: TextPosition | undefined;
     };
 
 /**

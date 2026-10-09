@@ -6,9 +6,10 @@ import type { ModifierTarget, Predicate, StatisticDefinition } from '@pioneer/ru
 
 import { InactiveReason, LineStatusKind, SuppressionReason } from './breakdown';
 import type { BreakdownLine, LineStatus } from './breakdown';
+import { EngineMessage } from './messages';
 import type { Adjustment, ModifierRules, ModifierSource } from './modifier';
 import type { RuleId } from './rule-in-play';
-import { changed, truthOf, valueOf } from './rule-value';
+import { changed, outOfRange, truthOf, valueOf } from './rule-value';
 import type { RuleContext, ValueFailure } from './rule-value';
 import { stack } from './stacking';
 
@@ -20,6 +21,13 @@ function reaches(targets: readonly ModifierTarget[], definition: StatisticDefini
   const reached: ReadonlySet<string> = new Set([definition.selector, ALL, ...definition.domains]);
   return targets.some((target) => reached.has(target));
 }
+
+/** An adjustment whose result left the safe integer range; a number has no formula position to point at. */
+const OUT_OF_RANGE: LineStatus = {
+  kind: LineStatusKind.Failed,
+  error: outOfRange(EngineMessage.AdjustmentOutOfRange),
+  position: undefined,
+};
 
 function failed({ error, position }: ValueFailure): LineStatus {
   return { kind: LineStatusKind.Failed, error, position };
@@ -75,9 +83,11 @@ class Collection {
       };
     }
     const outcome = valueOf(change.value, this.#context.resolve(adjustment.itemLevel));
-    return outcome.ok
-      ? { value: changed(change.mode, value, outcome.value) }
-      : { value: undefined, status: failed(outcome) };
+    if (!outcome.ok) {
+      return { value: undefined, status: failed(outcome) };
+    }
+    const result = changed(change.mode, value, outcome.value);
+    return result === undefined ? { value: undefined, status: OUT_OF_RANGE } : { value: result };
   }
 
   /** Applied when the predicate holds, inactive when it does not, conditional while it depends on the situation. */
