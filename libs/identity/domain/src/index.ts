@@ -19,7 +19,7 @@ export {
   SessionId,
   UserId,
 } from './identity-fields';
-export { NO_PREFERENCES, patchPreferences, Preferences, PreferencesPatch } from './preferences';
+export { NO_PREFERENCES, patchPreferences, Preferences } from './preferences';
 export type { ProviderProfile } from './provider-profile';
 export { HOME_PATH, ReturnPath, returnPathOr } from './return-path';
 export { Session, SESSION_LIFETIME, SessionSummary, SessionToken, TokenHash } from './session';

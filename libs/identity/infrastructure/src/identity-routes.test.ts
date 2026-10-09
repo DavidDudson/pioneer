@@ -2,11 +2,9 @@ import { describe, expect, test } from 'bun:test';
 
 import {
   IdentityService,
-  InMemoryPreferencesRepository,
   InMemorySessionRepository,
   InMemoryUserRepository,
   OAuthProviderPort,
-  PreferencesService,
 } from '@pioneer/identity/application';
 import type { AuthorizationRequest } from '@pioneer/identity/application';
 import { OAuthProvider } from '@pioneer/identity/domain';
@@ -46,10 +44,7 @@ class FakeProvider extends OAuthProviderPort {
 function app(clock: Clock = fixedClock('2026-10-09T08:00:00Z')): AnyElysia {
   const users = new InMemoryUserRepository();
   const service = new IdentityService(users, new InMemorySessionRepository(users), clock);
-  const preferences = new PreferencesService(new InMemoryPreferencesRepository(), clock);
-  return new Elysia()
-    .use(problemHandler)
-    .use(identityRoutes(service, preferences, [new FakeProvider()], { secure: true }));
+  return new Elysia().use(problemHandler).use(identityRoutes(service, [new FakeProvider()], { secure: true }));
 }
 
 /** `name=value` pairs from Set-Cookie headers, for the next request's Cookie header. */
@@ -108,18 +103,6 @@ async function revoke(api: AnyElysia, session: string, id: string): Promise<Resp
       method: 'DELETE',
       headers: { cookie: `pioneer_session=${session}` },
     }),
-  );
-}
-
-/** A preferences request, signed in as `session` when given. */
-async function preferencesRequest(api: AnyElysia, session: string | undefined, patch?: unknown): Promise<Response> {
-  const headers = new Headers(session === undefined ? {} : { cookie: `pioneer_session=${session}` });
-  if (patch === undefined) {
-    return api.handle(new Request('http://localhost/me/preferences', { headers }));
-  }
-  headers.set('content-type', 'application/json');
-  return api.handle(
-    new Request('http://localhost/me/preferences', { method: 'PATCH', headers, body: JSON.stringify(patch) }),
   );
 }
 
@@ -276,49 +259,5 @@ describe('identity routes', () => {
     const list = await api.handle(new Request('http://localhost/me/sessions'));
     const everywhere = await api.handle(new Request('http://localhost/auth/sign-out-everywhere', { method: 'POST' }));
     expect([list.status, everywhere.status]).toStrictEqual([401, 401]);
-  });
-});
-
-describe('preference routes', () => {
-  test('a new account has nothing chosen', async () => {
-    const api = app();
-    const amiri = sessionFrom(await signIn(api, '/'));
-    const response = await preferencesRequest(api, amiri);
-    expect(response.status).toBe(200);
-    expect(await response.json()).toStrictEqual({ uiLocale: null, contentLocale: null, distanceUnit: null });
-  });
-
-  test('PATCH changes only the given fields, null clears one, and GET reads them back', async () => {
-    const api = app();
-    const amiri = sessionFrom(await signIn(api, '/'));
-    await preferencesRequest(api, amiri, { uiLocale: 'en', distanceUnit: 'metres' });
-    const patched = await preferencesRequest(api, amiri, { uiLocale: null, contentLocale: 'en' });
-    expect(patched.status).toBe(200);
-    const expected = { uiLocale: null, contentLocale: 'en', distanceUnit: 'metres' };
-    expect(await patched.json()).toStrictEqual(expected);
-    const read = await preferencesRequest(api, amiri);
-    expect(await read.json()).toStrictEqual(expected);
-  });
-
-  test.each([
-    ['an unknown UI locale', { uiLocale: 'xx' }],
-    ['an unknown content locale', { contentLocale: 'de' }],
-    ['an unknown distance unit', { distanceUnit: 'leagues' }],
-    ['an unknown field', { theme: 'tavern' }],
-  ])('PATCH with %s is a 422 problem', async (_case, patch) => {
-    const api = app();
-    const amiri = sessionFrom(await signIn(api, '/'));
-    const response = await preferencesRequest(api, amiri, patch);
-    expect(response.status).toBe(422);
-    const problem = (await response.json()) as Problem;
-    expect(problem.type).toBe('validation');
-  });
-
-  test('preferences need a session, and a bad body without one is still a 401', async () => {
-    const api = app();
-    const read = await preferencesRequest(api, undefined);
-    const write = await preferencesRequest(api, undefined, { uiLocale: 'en' });
-    const invalid = await preferencesRequest(api, undefined, { uiLocale: 'xx' });
-    expect([read.status, write.status, invalid.status]).toStrictEqual([401, 401, 401]);
   });
 });

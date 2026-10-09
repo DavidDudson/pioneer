@@ -3,7 +3,7 @@ import { z } from 'zod';
 
 import { OAuthProviderSchema, SessionId } from './identity-fields';
 import type { OAuthProvider } from './identity-fields';
-import { Preferences, PreferencesPatch } from './preferences';
+import { Preferences } from './preferences';
 import { SessionSummary } from './session';
 import { User } from './user';
 
@@ -83,7 +83,7 @@ export const IdentityContract = {
     path: '/me/preferences',
     params: NoParams,
     query: NoQuery,
-    body: PreferencesPatch,
+    body: Preferences,
     response: Preferences,
   }),
 } as const;

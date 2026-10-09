@@ -1,4 +1,4 @@
-import type { Preferences, PreferencesPatch, UserId } from '@pioneer/identity/domain';
+import type { Preferences, UserId } from '@pioneer/identity/domain';
 import type { Temporal } from '@pioneer/shared/kernel';
 
 /**
@@ -7,8 +7,8 @@ import type { Temporal } from '@pioneer/shared/kernel';
  * is for tests.
  */
 export abstract class PreferencesRepository {
-  public abstract find(userId: UserId): Promise<Preferences>;
+  public abstract findFor(userId: UserId): Promise<Preferences>;
 
   /** Applies the fields `patch` gives, leaving the rest, and returns the result. */
-  public abstract update(userId: UserId, patch: PreferencesPatch, now: Temporal.Instant): Promise<Preferences>;
+  public abstract update(userId: UserId, patch: Preferences, now: Temporal.Instant): Promise<Preferences>;
 }

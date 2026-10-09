@@ -1,19 +1,17 @@
 import { afterAll, afterEach, beforeAll, describe, expect, test } from 'bun:test';
 
 import { hashSessionToken, IdentityService } from '@pioneer/identity/application';
-import { DisplayName, NO_PREFERENCES, OAuthProvider, SessionToken, UserId } from '@pioneer/identity/domain';
+import { DisplayName, OAuthProvider, SessionToken } from '@pioneer/identity/domain';
 import { ProfileBuilder } from '@pioneer/identity/domain/testing';
-import { DistanceUnit, Locale, newId, NotFoundError, Temporal } from '@pioneer/shared/kernel';
+import { NotFoundError, Temporal } from '@pioneer/shared/kernel';
 import type { Clock } from '@pioneer/shared/kernel';
-import { rejection } from '@pioneer/shared/kernel/testing';
 import { createTestDatabase, QueryRecorder, testDatabaseUrl, unindexedQueries } from '@pioneer/shared/server/testing';
 import type { TestDatabase } from '@pioneer/shared/server/testing';
 import { eq } from 'drizzle-orm';
 
-import { DrizzlePreferencesRepository } from './drizzle-preferences-repository';
 import { DrizzleSessionRepository } from './drizzle-session-repository';
 import { DrizzleUserRepository } from './drizzle-user-repository';
-import { oauthAccounts, sessions, userPreferences, users } from './identity.table';
+import { oauthAccounts, sessions, users } from './identity.table';
 
 /** Runs against a throwaway Postgres database (see createTestDatabase); skipped without TEST_DATABASE_URL. */
 const adminUrl = testDatabaseUrl();
@@ -25,7 +23,6 @@ describe.skipIf(adminUrl === undefined)('Drizzle identity repositories (postgres
   let now = START;
   const clock: Clock = { now: () => now };
   let service: IdentityService;
-  let preferences: DrizzlePreferencesRepository;
 
   beforeAll(async () => {
     database = await createTestDatabase(adminUrl ?? '', recorder);
@@ -34,7 +31,6 @@ describe.skipIf(adminUrl === undefined)('Drizzle identity repositories (postgres
       new DrizzleSessionRepository(database.db),
       clock,
     );
-    preferences = new DrizzlePreferencesRepository(database.db);
   });
 
   afterEach(() => {
@@ -129,34 +125,6 @@ describe.skipIf(adminUrl === undefined)('Drizzle identity repositories (postgres
     now = now.add({ hours: 24 * 60 });
     expect(await service.sweepExpired()).toBeGreaterThanOrEqual(1);
     const rows = await database.db.select().from(sessions).where(eq(sessions.id, session.id));
-    expect(rows).toStrictEqual([]);
-  });
-
-  test('preferences start unchosen, upsert only the given fields, and clear with null', async () => {
-    const { user } = await service.signIn(new ProfileBuilder().withSubject('51').build());
-    expect(await preferences.find(user.id)).toStrictEqual(NO_PREFERENCES);
-
-    await preferences.update(user.id, { uiLocale: Locale.English }, now);
-    now = now.add({ minutes: 1 });
-    const updated = await preferences.update(user.id, { distanceUnit: DistanceUnit.Metres }, now);
-    expect(updated).toStrictEqual({ uiLocale: Locale.English, contentLocale: null, distanceUnit: DistanceUnit.Metres });
-    expect(await preferences.find(user.id)).toStrictEqual(updated);
-    const [row] = await database.db.select().from(userPreferences).where(eq(userPreferences.id, user.id));
-    expect(Temporal.Instant.from(row?.updatedAt ?? '').equals(now)).toBe(true);
-
-    const cleared = await preferences.update(user.id, { uiLocale: null }, now);
-    expect(cleared.uiLocale).toBeNull();
-    expect(cleared.distanceUnit).toBe(DistanceUnit.Metres);
-  });
-
-  test('preferences need an existing user and go when the user does', async () => {
-    const unknown = await rejection(preferences.update(UserId.parse(newId()), { uiLocale: Locale.English }, now));
-    expect(unknown).toBeInstanceOf(Error);
-
-    const { user } = await service.signIn(new ProfileBuilder().withSubject('52').build());
-    await preferences.update(user.id, { distanceUnit: DistanceUnit.Metres }, now);
-    await database.db.delete(users).where(eq(users.id, user.id));
-    const rows = await database.db.select().from(userPreferences).where(eq(userPreferences.id, user.id));
     expect(rows).toStrictEqual([]);
   });
 

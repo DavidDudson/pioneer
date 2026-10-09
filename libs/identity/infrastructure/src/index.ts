@@ -6,6 +6,7 @@ export { DrizzleUserRepository } from './drizzle-user-repository';
 export { GitHubProvider } from './github-provider';
 export { GoogleProvider } from './google-provider';
 export { identityRoutes } from './identity-routes';
+export { preferenceRoutes } from './preference-routes';
 export { SessionAuthenticator } from './session-authenticator';
 export { sessionSweep } from './session-sweep';
 export { oauthAccounts, sessions, userPreferences, users } from './identity.table';

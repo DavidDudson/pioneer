@@ -1,4 +1,4 @@
-import type { Preferences, PreferencesPatch, UserId } from '@pioneer/identity/domain';
+import type { Preferences, UserId } from '@pioneer/identity/domain';
 import type { Clock } from '@pioneer/shared/kernel';
 
 import type { PreferencesRepository } from './preferences-repository';
@@ -17,10 +17,10 @@ export class PreferencesService {
   }
 
   public async get(actor: UserId): Promise<Preferences> {
-    return this.#preferences.find(actor);
+    return this.#preferences.findFor(actor);
   }
 
-  public async update(actor: UserId, patch: PreferencesPatch): Promise<Preferences> {
+  public async update(actor: UserId, patch: Preferences): Promise<Preferences> {
     return this.#preferences.update(actor, patch, this.#clock.now());
   }
 }
