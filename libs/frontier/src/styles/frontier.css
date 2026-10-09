@@ -211,6 +211,15 @@
     box-shadow: none;
   }
 
+  /* fr-disclosure draws its own chevron; drop the user agent's triangle (WebKit needs the pseudo-element). */
+  summary {
+    list-style: none;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     *,
     ::before,

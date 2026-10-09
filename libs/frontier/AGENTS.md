@@ -24,7 +24,8 @@ Read this before touching any UI.
   `fr-async-form`, `<h1>`–`<h4>` only in `fr-heading`, `<p>` only in
   `fr-text`, `<ul>` / `<ol>` only in `fr-list`, `<li>` only in
   `fr-list-item`, table elements only in `fr-table`, `<svg>` only in `fr-icon`,
-  `<textarea>` only in `fr-text-area`. `select` and `img` have no owner yet:
+  `<textarea>` only in `fr-text-area`, `<details>` / `<summary>` only in
+  `fr-disclosure`. `select` and `img` have no owner yet:
   add a primitive first. The ownership map lives in
   `tools/eslint/no-native-elements.ts`.
 - **Tokens only.** Components take token names (`gap="md"`, `tone="muted"`),
@@ -97,7 +98,7 @@ Pioneer never interrupts the user. Lint enforces each rule
    libraries, no `role="status"` popups floating over the page.
 2. **No modals.** No `<dialog>`, `popover`, `role="dialog|alertdialog"`, CDK or
    Material dialogs, bottom sheets, or `alert`/`confirm`/`prompt`. Show the
-   content inline (expand in place, inline edit) or give it its own route.
+   content inline (expand in place with `fr-disclosure`, inline edit) or give it its own route.
    See rule 4 for when a confirmation is allowed at all.
 3. **No full page loads. Always partial load + skeleton.**
    - Navigate with `routerLink` / `Router`. No internal `href`, no
@@ -226,7 +227,7 @@ after `themes/frontier.css`, and add it to `Theme` in
 
 | Area           | Components                                                                                                                                                                                |
 | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Layout         | Primitives `fr-box`, `fr-grid`, `fr-stack`; composed `fr-shell`, `fr-page`, `fr-surface`                                                                                                  |
+| Layout         | Primitives `fr-box`, `fr-grid`, `fr-stack`; composed `fr-shell`, `fr-page`, `fr-surface`, `fr-disclosure` (expand in place)                                                               |
 | Lists          | `fr-list` (`ordered` for `<ol>`, `markers` for bullets or numbers, `gap`) with `fr-list-item`                                                                                             |
 | Text           | `fr-text` (`element="span\|p"`), `fr-heading` (`[level]` for the outline, `variant` for the look)                                                                                         |
 | Actions        | `fr-button` (`(pressed)`), `fr-async-button`, `fr-link` (`to` routes, `href` external only)                                                                                               |
