@@ -148,6 +148,12 @@ describe('fieldIssues', () => {
     expect(fieldIssues(issues)).toStrictEqual([{ path: ['value', 'name'], message: tooShort }]);
   });
 
+  test('a union whose closest options fail differently reports no match', () => {
+    const value = z.union([z.object({ name: z.string() }), z.object({ title: z.string() })]);
+    const issues = issuesOf(z.object({ value }), { value: { name: 1 } });
+    expect(fieldIssues(issues)).toStrictEqual([{ path: ['value'], message: message(ValidationMessage.NoMatch) }]);
+  });
+
   test('splits unknown keys into one issue per key, pointing at the key', () => {
     const issues = issuesOf(z.object({ inner: strict }), { inner: { name: 'x', extra: 1, more: 2 } });
     expect(fieldIssues(issues)).toStrictEqual([
