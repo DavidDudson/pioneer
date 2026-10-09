@@ -58,6 +58,17 @@ export class SessionStore {
 
   public async signOut(): Promise<void> {
     await this.#api.call(IdentityContract.signOut, { params: {}, body: undefined });
+    this.signedOut();
+  }
+
+  /** Ends every session this user has, here and on other devices. */
+  public async signOutEverywhere(): Promise<void> {
+    await this.#api.call(IdentityContract.signOutEverywhere, { params: {}, body: undefined });
+    this.signedOut();
+  }
+
+  /** Records that the server ended this browser's session, e.g. after it revoked the current one. */
+  public signedOut(): void {
     this.#client.setQueryData<SessionState>(sessionKeys.me, { user: undefined });
   }
 }

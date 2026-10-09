@@ -1,4 +1,26 @@
 {
+  "account": {
+    "title": "Account",
+    "signedOut": "Sign in to see your account.",
+    "signIn": "Sign in",
+    "sessions": {
+      "heading": "Where you're signed in",
+      "description": "Each browser stays signed in for 30 days after it was last used. End any you don't recognise.",
+      "loadError": "Could not load where you're signed in.",
+      "current": "This browser",
+      "other": "Another browser",
+      "signedIn": "Signed in",
+      "lastSeen": "Last used",
+      "revoke": "Sign it out",
+      "signOutHere": "Sign out"
+    },
+    "everywhere": {
+      "action": "Sign out everywhere",
+      "confirm": "Sign out of every browser, this one included?",
+      "confirmAction": "Yes, sign out everywhere",
+      "cancel": "Cancel"
+    }
+  },
   "signIn": {
     "title": "Sign in",
     "description": "Sign in to save characters. Rules and content stay open to everyone.",

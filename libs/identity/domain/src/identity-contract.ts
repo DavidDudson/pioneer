@@ -81,6 +81,9 @@ export const AuthPath = {
   callback: (provider: OAuthProvider): `/auth/${OAuthProvider}/callback` => `/auth/${provider}/callback`,
 } as const;
 
+/** Web route of the signed-in user's account page. */
+export const ACCOUNT_PATH = '/account';
+
 /** Web route listing the sign-in providers. */
 export const SIGN_IN_PATH = '/account/sign-in';
 
