@@ -6,12 +6,31 @@ import {
   PATCH_COMMANDS,
 } from '@pioneer/character/domain';
 import type { CharacterListQuery, CreateCharacterBody, PatchCharacterBody } from '@pioneer/character/domain';
-import type { AncestryId, ContentRegistry } from '@pioneer/rules/sdk';
-import { message, newId, NotFoundError, ValidationError } from '@pioneer/shared/kernel';
-import type { Clock, UserId } from '@pioneer/shared/kernel';
+import {
+  characterImportReport,
+  ImportKind,
+  PathbuilderProblem,
+  readPathbuilderExport,
+  registryLookup,
+} from '@pioneer/interop/pathbuilder';
+import type { PathbuilderImportResponse, PathbuilderReadFailure } from '@pioneer/interop/pathbuilder';
+import { AncestryId } from '@pioneer/rules/sdk';
+import type { ContentRegistry } from '@pioneer/rules/sdk';
+import { fieldIssues, message, newId, NotFoundError, ValidationError } from '@pioneer/shared/kernel';
+import type { Clock, FieldIssue, UserId } from '@pioneer/shared/kernel';
 
 import { mayAccessCharacter } from './character-policy';
 import type { CharacterRepository } from './character-repository';
+
+const PROBLEM_MESSAGES = {
+  [PathbuilderProblem.Malformed]: 'character.import.problem.malformed',
+  [PathbuilderProblem.ExportFailed]: 'character.import.problem.exportFailed',
+} as const satisfies Record<PathbuilderProblem, string>;
+
+/** The problem first, as the issue the UI shows, then the schema issues that explain it. */
+function readIssues({ problem, issues }: PathbuilderReadFailure): FieldIssue[] {
+  return [{ path: [], message: message(PROBLEM_MESSAGES[problem]) }, ...fieldIssues(issues)];
+}
 
 /**
  * Character use cases. Framework-free: the HTTP adapter calls these with the signed-in user as
@@ -54,6 +73,40 @@ export class CharacterService {
       now: this.#clock.now(),
     });
     return this.#repository.insert(character, { actor, command: CharacterCommand.CreateCharacter });
+  }
+
+  /**
+   * A new character from a Pathbuilder export: name, ancestry, level and attribute modifiers, written in one
+   * insert. The export is read again here, never taken from the client's preview. Refused, with nothing saved,
+   * when it can't be read or its ancestry isn't loaded.
+   */
+  public async importPathbuilder(actor: UserId, raw: unknown): Promise<PathbuilderImportResponse> {
+    const read = readPathbuilderExport(raw);
+    if (!read.ok) {
+      throw new ValidationError(readIssues(read));
+    }
+    const { value } = read;
+    const lookup = registryLookup(this.#content);
+    const match = lookup.resolve(ImportKind.Ancestry, value.identity.ancestry);
+    if (match === undefined) {
+      throw new ValidationError([
+        {
+          path: ['build', 'ancestry'],
+          message: message('character.validation.unmatchedAncestry', { ancestry: value.identity.ancestry }),
+        },
+      ]);
+    }
+    const character = Character.create({
+      id: CharacterId.parse(newId()),
+      ownerId: actor,
+      name: value.name,
+      ancestry: AncestryId.parse(match.id),
+      level: value.level,
+      attributes: value.attributes,
+      now: this.#clock.now(),
+    });
+    const saved = await this.#repository.insert(character, { actor, command: CharacterCommand.ImportPathbuilder });
+    return { character: saved, report: characterImportReport(value, lookup) };
   }
 
   /** One field-level edit to one of the actor's characters, if it is still at `expectedVersion`. */

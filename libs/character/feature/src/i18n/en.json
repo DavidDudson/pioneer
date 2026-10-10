@@ -39,7 +39,8 @@
     "saveFailed": "Could not save. Try again."
   },
   "validation": {
-    "unknownAncestry": "That ancestry is not available. Choose another."
+    "unknownAncestry": "That ancestry is not available. Choose another.",
+    "unmatchedAncestry": "No loaded content has the ancestry {ancestry}, so this character can't be imported yet."
   },
   "import": {
     "title": "Import from Pathbuilder",
