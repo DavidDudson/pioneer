@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { ContentKind } from '@pioneer/rules/sdk';
+import { ConditionValue, contentId, ContentId, ContentKind, PackId } from '@pioneer/rules/sdk';
 import { array, assert, constant, integer, oneof, property, shuffledSubarray } from 'fast-check';
 import type { Arbitrary } from 'fast-check';
 
@@ -75,6 +75,21 @@ describe('a valued condition', () => {
     expect(at(2)).toEqual(['frightened', 'steady', 'shaken']);
     expect(at(1)).toEqual(['frightened', 'steady', 'composed']);
     expect(at(1, 2)).toEqual(['frightened', 'steady', 'shaken']);
+  });
+
+  test('from two packs under one slug, sets the highest value of either alone', () => {
+    const homebrew: GrantEntry = {
+      ...frightened,
+      id: ContentId.parse(contentId(PackId.parse('homebrew'), frightened.slug)),
+    };
+    const roots: GrantRoot[] = [
+      afflicted('frightened', 3),
+      { entry: homebrew.id, hop: { kind: 'condition', condition: homebrew.id, value: ConditionValue.parse(1) } },
+    ];
+    expect(conditionOptions([frightened, homebrew], roots)).toEqual([
+      'self:condition:frightened',
+      'self:condition:frightened:3',
+    ]);
   });
 
   test('granted by another entry sets no value, as grants carry none', () => {

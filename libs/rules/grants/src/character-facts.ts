@@ -108,7 +108,7 @@ class FactCollector {
   readonly #seen = new Set<ContentId>();
   readonly #known = new Set<RollOptionNamespace>();
   readonly #toggles: ToggleSlot[] = [];
-  readonly #valued = new Map<ContentId, Valued>();
+  readonly #valued = new Map<RollOption, Valued>();
 
   public constructor(sources: FactSources) {
     this.#sources = sources;
@@ -146,20 +146,23 @@ class FactCollector {
     }
   }
 
-  /** Keeps the value `item` arrived with when it is a valued condition, and the highest yet; duplicates count. */
+  /**
+   * Keeps the value `item` arrived with when it is a valued condition, and the highest yet; duplicates count. Kept by
+   * the condition's option, so conditions of the same slug from different packs share one value.
+   */
   public value(item: PlacedEntry): void {
     const value = conditionValue(item);
-    const highest = this.#valued.get(item.entry.id);
-    if (value !== undefined && (highest === undefined || value > highest.value)) {
-      this.#valued.set(item.entry.id, { entry: item.entry, value });
+    const [kind] = kindOptions(item.entry);
+    const highest = kind === undefined ? undefined : this.#valued.get(kind);
+    if (kind !== undefined && value !== undefined && (highest === undefined || value > highest.value)) {
+      this.#valued.set(kind, { entry: item.entry, value });
     }
   }
 
   /** `self:condition:<slug>:<value>` for each valued condition, at its highest value only. */
   public valued(): void {
-    for (const { entry, value } of this.#valued.values()) {
-      const [kind] = kindOptions(entry);
-      const option = kind === undefined ? undefined : optionOf(kind, String(value));
+    for (const [kind, { entry, value }] of this.#valued) {
+      const option = optionOf(kind, String(value));
       if (option !== undefined) {
         tally(this.#setBy, option, entry.id);
       }
