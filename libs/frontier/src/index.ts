@@ -38,6 +38,11 @@ export { Message, MessageTone } from './lib/feedback/message/message.component';
 export { Skeleton, SkeletonShape, SkeletonWidth } from './lib/feedback/skeleton/skeleton.component';
 export { Spinner } from './lib/feedback/spinner/spinner.component';
 
+// Focus
+export { RovingFocus } from './lib/focus/roving-focus.directive';
+export { RovingFocusItem } from './lib/focus/roving-focus-item.directive';
+export { RovingOrientation } from './lib/focus/roving-keys';
+
 // Forms (create flows; prefer inline editing)
 export { AsyncForm } from './lib/forms/async-form/async-form.component';
 export { DateField } from './lib/forms/date-field/date-field.component';

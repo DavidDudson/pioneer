@@ -1,0 +1,7 @@
+<div role="group" [frRovingFocus]="orientation()" [rovingWrap]="wrap()" [rovingColumns]="columns()">
+  @for (item of items(); track item.label) {
+  <fr-button frRovingFocusItem [rovingSelected]="item.selected ?? false" [disabled]="item.disabled ?? false"
+    >{{ item.label }}</fr-button
+  >
+  }
+</div>
