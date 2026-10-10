@@ -1,6 +1,7 @@
 import { argsToTemplate, moduleMetadata } from '@analogjs/storybook-angular';
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
 
+import { Stack } from '../../layout/stack/stack.component';
 import { TextVariant } from '../../text/text.variants';
 import { Text } from '../../text/text/text.component';
 import { Link } from './link.component';
@@ -14,9 +15,10 @@ type LinkStory = StoryObj<LinkStoryArgs>;
 const meta: Meta<LinkStoryArgs> = {
   title: 'Actions/Link',
   component: Link,
-  decorators: [moduleMetadata({ imports: [Text] })],
+  decorators: [moduleMetadata({ imports: [Stack, Text] })],
   argTypes: {
     to: { control: 'text' },
+    exact: { control: 'boolean' },
     variant: { control: 'select', options: [undefined, ...Object.values(TextVariant)] },
   },
   args: { label: 'Valeros', to: '/characters/valeros' },
@@ -48,6 +50,22 @@ export const ExternalFromData: LinkStory = {
 /** An `external` URL that would not leave the app renders as plain text. */
 export const ExternalNotHttp: LinkStory = {
   args: { label: 'Not a link', to: undefined, external: '/characters' },
+};
+
+/**
+ * A `to` link to the page being shown is `aria-current="page"` with a heavier accent underline. Storybook starts at
+ * `/`, so Home is current; `exact` stops it matching every page. Follow a link to move the current page.
+ */
+export const CurrentPage: LinkStory = {
+  render: () => ({
+    template: `<nav aria-label="Sections">
+      <fr-stack direction="horizontal" gap="md">
+        <fr-link to="/" exact>Home</fr-link>
+        <fr-link to="/characters">Characters</fr-link>
+        <fr-link to="/campaigns">Campaigns</fr-link>
+      </fr-stack>
+    </nav>`,
+  }),
 };
 
 export const Subheading: LinkStory = { args: { variant: TextVariant.Subheading } };

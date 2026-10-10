@@ -209,6 +209,10 @@
   outline-offset: var(--fr-focus-ring-offset);
 }
 
+@utility underline-current {
+  text-decoration-thickness: var(--fr-underline-thickness-current);
+}
+
 /* The keyboard-highlighted option in an @angular/aria listbox (it sets data-active="true|false"). */
 @custom-variant highlighted (&[data-active='true']);
 

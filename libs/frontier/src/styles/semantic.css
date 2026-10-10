@@ -48,6 +48,8 @@
   --fr-focus-ring-width: 0.125rem;
   --fr-focus-ring-offset: 0.125rem;
   --fr-underline-offset: 0.25rem;
+  /* A link to the page being shown: a heavier underline, so the cue is not colour alone. */
+  --fr-underline-thickness-current: 0.125rem;
   --fr-opacity-disabled: 0.5;
   --fr-z-sticky: 10;
   --fr-z-overlay: 20;

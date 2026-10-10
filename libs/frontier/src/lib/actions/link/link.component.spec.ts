@@ -1,14 +1,16 @@
 import { ApplicationRef, createComponent, EnvironmentInjector } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { provideRouter } from '@angular/router';
+import { provideRouter, Router } from '@angular/router';
 import { describe, expect, it, onTestFinished } from 'vitest';
 
 import { TextVariant } from '../../text/text.variants';
 import { Link } from './link.component';
 
-/** Renders `fr-link` with "Valeros" projected and returns its host. */
-async function renderHost(inputs: Readonly<Record<string, unknown>>): Promise<HTMLElement> {
-  TestBed.configureTestingModule({ providers: [provideRouter([])] });
+/** Renders `fr-link` with "Valeros" projected, with the app at `url`, and returns its host. */
+async function renderHost(inputs: Readonly<Record<string, unknown>>, url = '/'): Promise<HTMLElement> {
+  TestBed.configureTestingModule({ providers: [provideRouter([{ path: '**', children: [] }])] });
+  const navigated = await TestBed.inject(Router).navigateByUrl(url);
+  expect(navigated).toBe(true);
   const link = createComponent(Link, {
     environmentInjector: TestBed.inject(EnvironmentInjector),
     projectableNodes: [[document.createTextNode('Valeros')]],
@@ -25,9 +27,9 @@ async function renderHost(inputs: Readonly<Record<string, unknown>>): Promise<HT
   return link.location.nativeElement as HTMLElement;
 }
 
-/** Renders `fr-link` with "Valeros" projected and returns its anchor. */
-async function render(inputs: Readonly<Record<string, unknown>>): Promise<HTMLAnchorElement> {
-  const host = await renderHost(inputs);
+/** Renders `fr-link` with "Valeros" projected, with the app at `url`, and returns its anchor. */
+async function render(inputs: Readonly<Record<string, unknown>>, url?: string): Promise<HTMLAnchorElement> {
+  const host = await renderHost(inputs, url);
   const anchor = host.querySelector('a');
   if (anchor === null) {
     throw new Error('fr-link rendered no <a>');
@@ -97,5 +99,39 @@ describe(Link, () => {
   it('takes the typography of its variant when it stands alone', async () => {
     const anchor = await render({ to: '/', variant: TextVariant.Subheading });
     expect([...anchor.classList]).toStrictEqual(expect.arrayContaining(['text-subheading', 'font-semibold']));
+  });
+
+  it('marks a link to the page being shown as the current page', async () => {
+    const anchor = await render({ to: '/characters' }, '/characters');
+    expect(anchor.getAttribute('aria-current')).toBe('page');
+    expect([...anchor.classList]).toStrictEqual(expect.arrayContaining(['decoration-accent-fg', 'underline-current']));
+  });
+
+  it('marks a link as current on the pages under it', async () => {
+    const anchor = await render({ to: '/characters' }, '/characters/valeros');
+    expect(anchor.getAttribute('aria-current')).toBe('page');
+  });
+
+  it('leaves a link to another page unmarked', async () => {
+    const anchor = await render({ to: '/campaigns' }, '/characters');
+    expect(anchor.hasAttribute('aria-current')).toBe(false);
+    expect([...anchor.classList]).not.toContain('underline-current');
+  });
+
+  it.each([
+    ['/', true],
+    ['/characters', false],
+  ])('marks an exact link to "/" as current at %j: %j', async (url, current) => {
+    const anchor = await render({ to: '/', exact: true }, url);
+    expect(anchor.getAttribute('aria-current') === 'page').toBe(current);
+  });
+
+  it('follows navigation away from the current page', async () => {
+    const anchor = await render({ to: '/characters' }, '/characters');
+    const navigated = await TestBed.inject(Router).navigateByUrl('/campaigns');
+    expect(navigated).toBe(true);
+    await TestBed.inject(ApplicationRef).whenStable();
+    expect(anchor.hasAttribute('aria-current')).toBe(false);
+    expect([...anchor.classList]).not.toContain('underline-current');
   });
 });
