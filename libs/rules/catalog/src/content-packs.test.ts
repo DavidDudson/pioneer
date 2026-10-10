@@ -59,12 +59,12 @@ async function registryIds(): Promise<Record<string, string>> {
   return Object.fromEntries(entries.map((entry) => [entry.key, entry.id]));
 }
 
-/** Every Player Core entry, read from its JSON files. */
-async function playerCoreEntries(): Promise<readonly ContentEntry[]> {
+/** The ancestries and the language and sense entries they name, read from their JSON files. */
+async function ancestryAndReferenceEntries(): Promise<readonly ContentEntry[]> {
   const files = await Promise.all([
     import('@pioneer/content/packs/player-core/ancestry.json'),
-    import('@pioneer/content/packs/player-core/language.json'),
-    import('@pioneer/content/packs/player-core/sense.json'),
+    import('@pioneer/content/packs/core-rules/language.json'),
+    import('@pioneer/content/packs/core-rules/sense.json'),
   ]);
   return files.flatMap((file) => ContentEntryFile.parse(file.default));
 }
@@ -93,8 +93,8 @@ describe('content packs', () => {
     expect(ids).toMatchObject(PINNED_IDS);
   });
 
-  test('every language and vision an ancestry names is a Player Core entry of that kind', async () => {
-    const entries = await playerCoreEntries();
+  test('every language and vision an ancestry names is a core rules entry of that kind', async () => {
+    const entries = await ancestryAndReferenceEntries();
     const languages = new Set(idsOf(entries, ContentKind.Language));
     const senses = new Set(idsOf(entries, ContentKind.Sense));
     const references = ancestryReferences(entries);

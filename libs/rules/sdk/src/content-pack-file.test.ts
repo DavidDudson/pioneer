@@ -121,7 +121,11 @@ describe('contentPackFromFiles', () => {
     expect(() => contentPackFromFiles({ ...packFile, extra: true }, [])).toThrow();
   });
 
-  test('two entries with one slug are refused', () => {
-    expect(() => contentPackFromFiles(packFile, [[ancestry], [ancestry]])).toThrow('Duplicate ancestry slug');
+  test('two entries with one slug are refused, whatever their kinds', () => {
+    expect(() => contentPackFromFiles(packFile, [[ancestry], [ancestry]])).toThrow('Slug "lizardfolk" is used twice');
+    const lizardfolkLanguage = entry({ kind: 'language', slug: 'lizardfolk', data: {} });
+    expect(() => contentPackFromFiles(packFile, [[ancestry], [lizardfolkLanguage]])).toThrow(
+      'Slug "lizardfolk" is used twice in pack "homebrew"',
+    );
   });
 });

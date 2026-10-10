@@ -1,7 +1,7 @@
 [
   {
-    "id": "d3268129-de81-586e-9fe0-0a3ece62e3f4",
-    "pack": "player-core",
+    "id": "8e335e9a-e966-529a-8b5d-5be7dba6a61d",
+    "pack": "core-rules",
     "kind": "sense",
     "slug": "darkvision",
     "name": "Darkvision",
@@ -23,8 +23,8 @@
     }
   },
   {
-    "id": "3e6bd7cc-4db3-5e2d-856e-718805c39a75",
-    "pack": "player-core",
+    "id": "d177c026-2e38-5147-b32d-66104c47e988",
+    "pack": "core-rules",
     "kind": "sense",
     "slug": "low-light-vision",
     "name": "Low-Light Vision",

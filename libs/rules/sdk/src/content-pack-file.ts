@@ -1,6 +1,7 @@
 import * as z from 'zod';
 
 import { ContentEntry } from './content-entry';
+import type { PackId, Slug } from './content-id';
 import { ContentKind } from './content-kind';
 import { ContentPack, ContentPackManifest } from './content-pack';
 import type { PackAncestry, PackCreature, PackStatistic } from './content-pack';
@@ -47,9 +48,23 @@ function addDefinition(definitions: PackDefinitions, entry: ContentEntry): void 
 }
 
 /**
+ * Throws unless `entry` belongs in `pack` under a slug no earlier entry took. The id is UUIDv5 of `<pack>/<slug>`
+ * whatever the kind, so a `goblin` language beside a `goblin` ancestry would share its id.
+ */
+function checkPlacement(pack: PackId, entry: ContentEntry, taken: Set<Slug>): void {
+  if (entry.pack !== pack) {
+    throw new Error(`Entry "${entry.pack}/${entry.slug}" is filed under pack "${pack}"`);
+  }
+  if (taken.has(entry.slug)) {
+    throw new Error(`Slug "${entry.slug}" is used twice in pack "${pack}"`);
+  }
+  taken.add(entry.slug);
+}
+
+/**
  * The `ContentPack` a pack's JSON files describe: `pack.json` and the entries of every `<kind>.json`. Until the
  * registry serves entries directly (Epic 2.3), entries become the definitions it holds today. An entry filed under
- * another pack is an error naming it.
+ * another pack, or a slug used twice across the pack's kinds, is an error naming it.
  */
 export function contentPackFromFiles(packFile: unknown, entryFiles: readonly unknown[]): ContentPack {
   const { proficiencyBonus, rollOptionNamespaces, ...manifest } = ContentPackFile.parse(packFile);
@@ -60,13 +75,10 @@ export function contentPackFromFiles(packFile: unknown, entryFiles: readonly unk
     variantRules: [],
     otherEntries: [],
   };
-  for (const file of entryFiles) {
-    for (const entry of ContentEntryFile.parse(file)) {
-      if (entry.pack !== manifest.id) {
-        throw new Error(`Entry "${entry.pack}/${entry.slug}" is filed under pack "${manifest.id}"`);
-      }
-      addDefinition(definitions, entry);
-    }
+  const taken = new Set<Slug>();
+  for (const entry of entryFiles.flatMap((file) => ContentEntryFile.parse(file))) {
+    checkPlacement(manifest.id, entry, taken);
+    addDefinition(definitions, entry);
   }
   return ContentPack.define({ manifest, proficiencyBonus, rollOptionNamespaces, ...definitions });
 }

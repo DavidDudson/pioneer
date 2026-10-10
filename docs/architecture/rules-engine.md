@@ -513,8 +513,8 @@ tracePredicate(predicate, facts); // the same, with every nested statement's ver
 ```
 
 The namespace is a roll option's first word. The table is content: the core rules pack lists it under
-`rollOptionNamespaces` (`content/packs/core-rules/pack.json`), checked against the roll options in Foundry's feats, class and
-ancestry features, conditions, effects and equipment:
+`rollOptionNamespaces` (`content/packs/core-rules/pack.json`), checked against the roll options in Foundry's feats,
+class and ancestry features, conditions, effects and equipment:
 
 | Kind        | Namespaces                                                                                                                                                                                                                               |
 | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

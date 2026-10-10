@@ -335,7 +335,9 @@ and homebrew cannot use that path. A pack directory holds:
 The hand-authored packs (`core-rules`, and the `player-core` and `monster-core` entries transcribed before the
 importer exists) live there too. `libs/rules/catalog` loads them lazily and checks every entry against its schema
 and the book registry, so a malformed or wrongly sourced entry fails `bun run affected`. Ids are stored on
-characters, so changing an entry's slug is a data migration; a catalog test pins every id that exists.
+characters, so changing an entry's slug is a data migration; a catalog test pins every id that exists. The id
+ignores the kind, so a slug is unique across every kind in its pack: rules core kinds (languages, senses) live in
+`core-rules`, where they cannot collide with an ancestry such as `goblin`.
 
 ### Delivery to the browser
 

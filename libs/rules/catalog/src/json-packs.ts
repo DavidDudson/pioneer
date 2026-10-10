@@ -17,6 +17,8 @@ async function pack(manifest: Promise<JsonModule>, kinds: readonly Promise<JsonM
 
 export async function coreRulesPack(): Promise<ContentPack> {
   return pack(import('@pioneer/content/packs/core-rules/pack.json'), [
+    import('@pioneer/content/packs/core-rules/language.json'),
+    import('@pioneer/content/packs/core-rules/sense.json'),
     import('@pioneer/content/packs/core-rules/statistic.json'),
     import('@pioneer/content/packs/core-rules/variant-rule.json'),
   ]);
@@ -25,8 +27,6 @@ export async function coreRulesPack(): Promise<ContentPack> {
 export async function playerCorePack(): Promise<ContentPack> {
   return pack(import('@pioneer/content/packs/player-core/pack.json'), [
     import('@pioneer/content/packs/player-core/ancestry.json'),
-    import('@pioneer/content/packs/player-core/language.json'),
-    import('@pioneer/content/packs/player-core/sense.json'),
   ]);
 }
 

@@ -1,7 +1,7 @@
 [
   {
-    "id": "eea2a565-3b1b-5d3d-9a31-de888c368acc",
-    "pack": "player-core",
+    "id": "9ef5b9f3-c3b1-57aa-a847-25f68ca30427",
+    "pack": "core-rules",
     "kind": "language",
     "slug": "common",
     "name": "Common",
@@ -20,8 +20,8 @@
     "data": {}
   },
   {
-    "id": "f1218ed7-9bab-5b8b-ac81-aa52365b6da6",
-    "pack": "player-core",
+    "id": "1367029e-6456-5a80-9772-2846e6747883",
+    "pack": "core-rules",
     "kind": "language",
     "slug": "draconic",
     "name": "Draconic",
@@ -40,8 +40,8 @@
     "data": {}
   },
   {
-    "id": "b117b4d1-9fef-51b9-952c-8468eeba6de8",
-    "pack": "player-core",
+    "id": "a54fbd03-5614-5607-87f9-e5a40846321f",
+    "pack": "core-rules",
     "kind": "language",
     "slug": "dwarven",
     "name": "Dwarven",
@@ -60,8 +60,8 @@
     "data": {}
   },
   {
-    "id": "591e77c4-b2a8-5c4e-b39b-27767786f5e1",
-    "pack": "player-core",
+    "id": "02d4ab36-444f-57c6-aea7-6f2ff6a09b22",
+    "pack": "core-rules",
     "kind": "language",
     "slug": "elven",
     "name": "Elven",
@@ -80,8 +80,8 @@
     "data": {}
   },
   {
-    "id": "542ff273-2fde-5f5a-88c4-d6039b12257e",
-    "pack": "player-core",
+    "id": "c2275701-b366-57f6-a6d8-b24f143ef9aa",
+    "pack": "core-rules",
     "kind": "language",
     "slug": "fey",
     "name": "Fey",
@@ -100,8 +100,8 @@
     "data": {}
   },
   {
-    "id": "93407363-6e8a-5f4c-a367-3adedc1536b6",
-    "pack": "player-core",
+    "id": "c5896f47-3872-5363-b5f9-01d6e6fe2568",
+    "pack": "core-rules",
     "kind": "language",
     "slug": "gnomish",
     "name": "Gnomish",
@@ -120,8 +120,8 @@
     "data": {}
   },
   {
-    "id": "19b27be4-62c2-5050-9ccd-2b960ba3194b",
-    "pack": "player-core",
+    "id": "c3522b95-89e6-575b-8591-02cbf7cbd645",
+    "pack": "core-rules",
     "kind": "language",
     "slug": "goblin",
     "name": "Goblin",
@@ -140,8 +140,8 @@
     "data": {}
   },
   {
-    "id": "da9f0ffe-16b0-5f1b-8f2f-4f0f253c057d",
-    "pack": "player-core",
+    "id": "2a3cd6da-1de8-57fd-9550-5f3e7a7998d6",
+    "pack": "core-rules",
     "kind": "language",
     "slug": "halfling",
     "name": "Halfling",
@@ -160,8 +160,8 @@
     "data": {}
   },
   {
-    "id": "d7027521-ef70-507b-8239-c700aee3046c",
-    "pack": "player-core",
+    "id": "0e759640-34b7-5999-91b4-d7c86a0e3875",
+    "pack": "core-rules",
     "kind": "language",
     "slug": "jotun",
     "name": "Jotun",
@@ -180,8 +180,8 @@
     "data": {}
   },
   {
-    "id": "62690a58-d0eb-5556-beb1-6b5ac73c707e",
-    "pack": "player-core",
+    "id": "9390a12d-a784-57d7-8af0-58fed47caf4a",
+    "pack": "core-rules",
     "kind": "language",
     "slug": "orcish",
     "name": "Orcish",
@@ -200,8 +200,8 @@
     "data": {}
   },
   {
-    "id": "59cff943-041e-5c97-9d8b-e807d3563007",
-    "pack": "player-core",
+    "id": "21afbe07-694e-5bd6-89ac-9b92206f50f5",
+    "pack": "core-rules",
     "kind": "language",
     "slug": "sakvroth",
     "name": "Sakvroth",
@@ -220,8 +220,8 @@
     "data": {}
   },
   {
-    "id": "a3ed5972-cd12-584e-8678-f3c571b61dba",
-    "pack": "player-core",
+    "id": "39cf7542-e68c-5298-8ab1-5c4b9f4efe43",
+    "pack": "core-rules",
     "kind": "language",
     "slug": "empyrean",
     "name": "Empyrean",
@@ -240,8 +240,8 @@
     "data": {}
   },
   {
-    "id": "c9b668af-a6b9-53cd-ae79-4a21cf651c46",
-    "pack": "player-core",
+    "id": "2f1eaa2b-d2ed-5095-9136-d10fb7ba7ccd",
+    "pack": "core-rules",
     "kind": "language",
     "slug": "kholo",
     "name": "Kholo",
@@ -260,8 +260,8 @@
     "data": {}
   },
   {
-    "id": "793ebd75-e141-5067-8ddc-e685b6eeb6b6",
-    "pack": "player-core",
+    "id": "d11e6f74-1846-5d0f-a28c-b67e7fe850a3",
+    "pack": "core-rules",
     "kind": "language",
     "slug": "petran",
     "name": "Petran",
