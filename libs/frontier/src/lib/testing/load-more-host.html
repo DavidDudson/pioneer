@@ -1,0 +1,8 @@
+<fr-load-more [query]="query()" [label]="label()" [errorMessage]="errorMessage()">
+  <ng-template frAsyncPending><fr-skeleton width="lg" /></ng-template>
+  <fr-list>
+    @for (item of query().items(); track item) {
+    <fr-list-item frLoadMoreItem><fr-text>{{ item }}</fr-text></fr-list-item>
+    }
+  </fr-list>
+</fr-load-more>

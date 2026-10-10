@@ -11,7 +11,8 @@ import { AsyncPending } from './async-pending.directive';
  * A region that loads its own data: the async version of a plain region.
  * Shows the pending template (skeletons) while the query loads, an inline
  * failure if it fails, and the data template once it has data. Other regions
- * and the page around it render at once.
+ * and the page around it render at once. A failed next page of an infinite
+ * query keeps the data: `fr-load-more` shows that failure under its button.
  *
  * ```html
  * <fr-async-region errorMessage="Could not load characters.">
@@ -36,7 +37,10 @@ export class AsyncRegion<TData> {
   protected readonly errorSlot = contentChild(AsyncError);
 
   protected readonly pending = computed(() => this.data().query().isPending());
-  protected readonly failed = computed(() => this.data().query().isError());
+  protected readonly failed = computed(() => {
+    const query = this.data().query();
+    return query.isError() && query.isFetchNextPageError?.() !== true;
+  });
   protected readonly error = computed(() => this.data().query().error());
   protected readonly value = computed(() => this.data().query().data());
 }
