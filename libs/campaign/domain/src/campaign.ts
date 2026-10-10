@@ -1,6 +1,6 @@
 import { FIRST_VERSION, InstantCodec, UserId, Version } from '@pioneer/shared/kernel';
 import type { Temporal } from '@pioneer/shared/kernel';
-import { z } from 'zod';
+import * as z from 'zod';
 
 import { CampaignId, CampaignMemberId, CampaignName, CampaignRole } from './campaign-fields';
 

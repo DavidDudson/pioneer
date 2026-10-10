@@ -1,6 +1,6 @@
 import { Uuid } from '@pioneer/shared/kernel';
 import type { ValueOf } from '@pioneer/shared/kernel';
-import { z } from 'zod';
+import * as z from 'zod';
 
 /** Branded so a campaign id can't be passed where another id is expected. */
 export const CampaignId = Uuid.brand<'CampaignId'>();

@@ -1,5 +1,5 @@
 import { Endpoint, HttpMethod, NoBody, NoParams, NoQuery } from '@pioneer/shared/kernel';
-import { z } from 'zod';
+import * as z from 'zod';
 
 import { Campaign } from './campaign';
 import { CampaignId, CampaignName } from './campaign-fields';
