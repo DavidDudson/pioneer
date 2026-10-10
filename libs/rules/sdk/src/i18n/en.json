@@ -138,7 +138,7 @@
       "save": "Use a saving throw’s selector, like save:reflex."
     },
     "spell": {
-      "castUpTo": "A range of actions runs from fewer to more, like one to three.",
+      "castUpTo": "A range of actions runs from fewer to more, like one to three; a reaction or free action has none.",
       "defenseEmpty": "Give a save, the statistic the spell is against, or both; leave defense out when the spell has none.",
       "damageKey": "The spell has no damage part {key} to heighten.",
       "heightenAbove": "A heightened entry is for a rank above the spell’s own, {rank}."

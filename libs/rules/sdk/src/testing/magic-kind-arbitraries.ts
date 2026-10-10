@@ -28,12 +28,10 @@ import {
 } from '../spell-casting';
 import { SPELL_RANK_MAX } from '../spell-rank';
 import { MagicTradition } from '../spellcasting-tradition';
-import { keyPathText } from './arbitraries';
+import { keyPathText, saveSelectorText, skillSelectorText } from './arbitraries';
 import { LIST_MAX, positive, slugText, smallint, withOptional } from './json-arbitraries';
 import { damageFormulaText, richTextJson } from './rich-text-arbitraries';
 
-const skillSelector: Arbitrary<string> = keyPathText.map((path) => `skill:${path}`);
-const saveSelector: Arbitrary<string> = keyPathText.map((path) => `save:${path}`);
 const spellRank: Arbitrary<number> = integer({ min: 1, max: SPELL_RANK_MAX });
 
 const actionCost: Arbitrary<string> = constantFrom(...Object.values(ActionCost));
@@ -93,7 +91,7 @@ const duration: Arbitrary<object> = oneof(
   constant({ type: SpellDurationType.Unlimited }),
 );
 
-const save: Arbitrary<object> = record({ statistic: saveSelector, basic: boolean() });
+const save: Arbitrary<object> = record({ statistic: saveSelectorText, basic: boolean() });
 /** A save, a statistic it is against, or both. */
 const defense: Arbitrary<object> = oneof(
   record({ save }),
@@ -149,7 +147,7 @@ function heightenedRank(rank: number): Arbitrary<object> {
 /** Fixed heightening at distinct ranks above `rank`, which must be below 10th. */
 function fixedHeightening(rank: number): Arbitrary<object> {
   const above = Array.from({ length: SPELL_RANK_MAX - rank }, (_unused, index) => rank + index + 1);
-  const picked = shuffledSubarray(above, { minLength: 1, maxLength: Math.min(LIST_MAX, above.length) });
+  const picked = shuffledSubarray(above, { minLength: 1, maxLength: above.length });
   const ranks = picked.chain((chosen) => tuple(...chosen.map((at) => heightenedRank(at))));
   return record({ type: constant(HeighteningType.Fixed), ranks });
 }
@@ -172,7 +170,7 @@ export const spellData: Arbitrary<object> = tuple(spellRank, damageKeys).chain((
 );
 
 const ritualCheck: Arbitrary<object> = withOptional(
-  record({ skills: uniqueArray(skillSelector, { minLength: 1, maxLength: LIST_MAX }) }),
+  record({ skills: uniqueArray(skillSelectorText, { minLength: 1, maxLength: LIST_MAX }) }),
   { proficiency },
 );
 const secondaryCasting: Arbitrary<object> = record({
@@ -187,7 +185,7 @@ function ritualDataAt(rank: number): Arbitrary<object> {
 
 export const ritualData: Arbitrary<object> = spellRank.chain((rank) => ritualDataAt(rank));
 
-export const spellcastingTraditionData: Arbitrary<object> = record({ skill: skillSelector });
+export const spellcastingTraditionData: Arbitrary<object> = record({ skill: skillSelectorText });
 
 const BADGE_MIN = -10;
 const BADGE_MAX = 10;

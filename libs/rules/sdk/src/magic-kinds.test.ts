@@ -171,6 +171,9 @@ describe('magic and effect kinds', () => {
 
     expect(found(backwards)).toStrictEqual([`data.time.upTo ${RulesMessage.SpellCastUpTo}`]);
     expect(found(reaction)).toStrictEqual([`data.time.upTo ${RulesMessage.SpellCastUpTo}`]);
+    expect(
+      found({ ...heal, data: { ...heal.data, time: { type: 'actions', cost: 'two', upTo: 'two' } } }),
+    ).toStrictEqual([`data.time.upTo ${RulesMessage.SpellCastUpTo}`]);
   });
 
   test('a defence names a save or what it is against', () => {
@@ -264,6 +267,8 @@ describe('magic and effect kinds', () => {
     };
 
     expect(found(outside)).toStrictEqual([`data.badge.value ${RulesMessage.EffectBadgeRange}`]);
+    const below = { ...heroism, data: { ...heroism.data, badge: { type: 'counter', value: 0, min: 1, max: 3 } } };
+    expect(found(below)).toStrictEqual([`data.badge.value ${RulesMessage.EffectBadgeRange}`]);
   });
 
   test('rejects data fields a kind does not have', () => {

@@ -4,7 +4,7 @@ import type { Arbitrary } from 'fast-check';
 import { Attribute } from '../attribute';
 import { DeityCategory, DivineFont, Sanctification, SanctificationModal } from '../deity';
 import { SPELL_RANK_MAX } from '../spell-rank';
-import { keyPathText } from './arbitraries';
+import { skillSelectorText } from './arbitraries';
 import { contentIdJson, LIST_MAX, size, slugText, smallint, withOptional } from './json-arbitraries';
 
 /** The most boosts the ancestry schema allows. */
@@ -44,8 +44,7 @@ const deityCategory: Arbitrary<string> = constantFrom(
   ...Object.values(DeityCategory).filter((category) => category !== DeityCategory.Philosophy),
 );
 const fonts: Arbitrary<string[]> = shuffledSubarray(Object.values(DivineFont));
-const skillSelector: Arbitrary<string> = keyPathText.map((path) => `skill:${path}`);
-const skills: Arbitrary<string[]> = uniqueArray(skillSelector, { maxLength: LIST_MAX });
+const skills: Arbitrary<string[]> = uniqueArray(skillSelectorText, { maxLength: LIST_MAX });
 const SPELL_RANKS = Array.from({ length: SPELL_RANK_MAX }, (_unused, index) => index + 1);
 const deitySpell = (rank: number): Arbitrary<object> => record({ rank: constant(rank), spell: contentIdJson });
 /** Spells at distinct ranks. */
