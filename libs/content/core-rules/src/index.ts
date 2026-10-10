@@ -2,9 +2,10 @@ import {
   Attribute,
   ContentLicense,
   ContentPack,
+  PackStatistic,
   RuleElementKey,
   SourceKind,
-  StatisticDefinition,
+  SourceRef,
   StatisticKind,
 } from '@pioneer/rules/sdk';
 
@@ -18,12 +19,28 @@ const ATTRIBUTE_DOMAIN: Readonly<Record<Attribute, string>> = {
   [Attribute.Charisma]: 'cha-based',
 };
 
+/** A Player Core page and its entry on Archives of Nethys (`Skills.aspx?ID=34`). */
+function playerCore(page: number, aonEntry: string): SourceRef {
+  return SourceRef.parse({
+    kind: SourceKind.Book,
+    book: 'player-core',
+    page,
+    aon: `https://2e.aonprd.com/${aonEntry}`,
+  });
+}
+
+/** AC, saving throws and Perception: one AoN rules entry each, all on Player Core p. 404. */
+const ARMOR_CLASS_SOURCE = playerCore(404, 'Rules.aspx?ID=2295');
+const SAVING_THROWS_SOURCE = playerCore(404, 'Rules.aspx?ID=2296');
+const PERCEPTION_SOURCE = playerCore(404, 'Rules.aspx?ID=2298');
+
 /**
  * A skill check: `skill:<slug>`, its key attribute plus its proficiency. Armor check penalties are rule elements on
- * armor, not part of the base.
+ * armor, not part of the base. Its slug is its name in lowercase.
  */
-function skill(slug: string, name: string, attribute: Attribute): StatisticDefinition {
-  return StatisticDefinition.parse({
+function skill(name: string, attribute: Attribute, source: SourceRef): PackStatistic {
+  const slug = name.toLowerCase();
+  return PackStatistic.parse({
     slug,
     name,
     selector: `skill:${slug}`,
@@ -31,6 +48,7 @@ function skill(slug: string, name: string, attribute: Attribute): StatisticDefin
     base: `@attr.${attribute} + @prof.skill.${slug}`,
     kind: StatisticKind.Check,
     keyAttribute: attribute,
+    sources: [source],
   });
 }
 
@@ -75,6 +93,7 @@ export const coreRules = ContentPack.define({
       base: '10 + @attr.dex.capped + @prof.ac',
       kind: StatisticKind.Dc,
       keyAttribute: Attribute.Dexterity,
+      sources: [ARMOR_CLASS_SOURCE],
     },
     {
       slug: 'fortitude',
@@ -84,6 +103,7 @@ export const coreRules = ContentPack.define({
       base: '@attr.con + @prof.save.fortitude',
       kind: StatisticKind.Check,
       keyAttribute: Attribute.Constitution,
+      sources: [SAVING_THROWS_SOURCE],
     },
     {
       slug: 'reflex',
@@ -93,6 +113,7 @@ export const coreRules = ContentPack.define({
       base: '@attr.dex + @prof.save.reflex',
       kind: StatisticKind.Check,
       keyAttribute: Attribute.Dexterity,
+      sources: [SAVING_THROWS_SOURCE],
     },
     {
       slug: 'will',
@@ -102,6 +123,7 @@ export const coreRules = ContentPack.define({
       base: '@attr.wis + @prof.save.will',
       kind: StatisticKind.Check,
       keyAttribute: Attribute.Wisdom,
+      sources: [SAVING_THROWS_SOURCE],
     },
     {
       slug: 'perception',
@@ -111,22 +133,23 @@ export const coreRules = ContentPack.define({
       base: '@attr.wis + @prof.perception',
       kind: StatisticKind.Check,
       keyAttribute: Attribute.Wisdom,
+      sources: [PERCEPTION_SOURCE],
     },
-    skill('acrobatics', 'Acrobatics', Attribute.Dexterity),
-    skill('arcana', 'Arcana', Attribute.Intelligence),
-    skill('athletics', 'Athletics', Attribute.Strength),
-    skill('crafting', 'Crafting', Attribute.Intelligence),
-    skill('deception', 'Deception', Attribute.Charisma),
-    skill('diplomacy', 'Diplomacy', Attribute.Charisma),
-    skill('intimidation', 'Intimidation', Attribute.Charisma),
-    skill('medicine', 'Medicine', Attribute.Wisdom),
-    skill('nature', 'Nature', Attribute.Wisdom),
-    skill('occultism', 'Occultism', Attribute.Intelligence),
-    skill('performance', 'Performance', Attribute.Charisma),
-    skill('religion', 'Religion', Attribute.Wisdom),
-    skill('society', 'Society', Attribute.Intelligence),
-    skill('stealth', 'Stealth', Attribute.Dexterity),
-    skill('survival', 'Survival', Attribute.Wisdom),
-    skill('thievery', 'Thievery', Attribute.Dexterity),
+    skill('Acrobatics', Attribute.Dexterity, playerCore(233, 'Skills.aspx?ID=34')),
+    skill('Arcana', Attribute.Intelligence, playerCore(234, 'Skills.aspx?ID=35')),
+    skill('Athletics', Attribute.Strength, playerCore(234, 'Skills.aspx?ID=36')),
+    skill('Crafting', Attribute.Intelligence, playerCore(236, 'Skills.aspx?ID=37')),
+    skill('Deception', Attribute.Charisma, playerCore(237, 'Skills.aspx?ID=38')),
+    skill('Diplomacy', Attribute.Charisma, playerCore(239, 'Skills.aspx?ID=39')),
+    skill('Intimidation', Attribute.Charisma, playerCore(240, 'Skills.aspx?ID=40')),
+    skill('Medicine', Attribute.Wisdom, playerCore(241, 'Skills.aspx?ID=42')),
+    skill('Nature', Attribute.Wisdom, playerCore(242, 'Skills.aspx?ID=43')),
+    skill('Occultism', Attribute.Intelligence, playerCore(243, 'Skills.aspx?ID=44')),
+    skill('Performance', Attribute.Charisma, playerCore(243, 'Skills.aspx?ID=45')),
+    skill('Religion', Attribute.Wisdom, playerCore(244, 'Skills.aspx?ID=46')),
+    skill('Society', Attribute.Intelligence, playerCore(244, 'Skills.aspx?ID=47')),
+    skill('Stealth', Attribute.Dexterity, playerCore(244, 'Skills.aspx?ID=48')),
+    skill('Survival', Attribute.Wisdom, playerCore(246, 'Skills.aspx?ID=49')),
+    skill('Thievery', Attribute.Dexterity, playerCore(246, 'Skills.aspx?ID=50')),
   ],
 });

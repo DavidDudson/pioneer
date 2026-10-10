@@ -53,6 +53,7 @@ const farmingLore = ContentPack.define({
       base: '@attr.int + @prof.skill.lore.farming',
       kind: StatisticKind.Check,
       keyAttribute: Attribute.Intelligence,
+      sources: [{ kind: 'book', book: 'player-core', page: 240, aon: 'https://2e.aonprd.com/Skills.aspx?ID=41' }],
     },
   ],
 });

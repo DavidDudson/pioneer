@@ -35,7 +35,9 @@ async function statisticDefinitions(source: StatisticSource): Promise<string> {
     throw new Error(`No content pack "${id}" in the catalog`);
   }
   const pack = await loader.load();
-  return JSON.stringify(pack.statistics, undefined, JSON_INDENT);
+  // The tool edits definitions alone; a pack's statistics also carry their sources.
+  const definitions = pack.statistics.map(({ sources: _sources, ...definition }) => definition);
+  return JSON.stringify(definitions, undefined, JSON_INDENT);
 }
 
 /** Loads a source's definitions as JSON. */

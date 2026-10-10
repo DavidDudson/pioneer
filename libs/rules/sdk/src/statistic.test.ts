@@ -68,11 +68,15 @@ describe('StatisticDefinition', () => {
 
 describe('statistics in a pack', () => {
   test('two statistics may not share a selector; the second is the problem', () => {
+    const sources = [{ kind: 'book', book: 'player-core', page: 404 }];
     const pack = {
       manifest: { id: 'test-pack', title: 'Test', publisher: 'Tests', license: 'homebrew' },
       ancestries: [],
       creatures: [],
-      statistics: [armorClass, { ...armorClass, slug: 'other-armor-class' }],
+      statistics: [
+        { ...armorClass, sources },
+        { ...armorClass, slug: 'other-armor-class', sources },
+      ],
     };
     expect(issuesFrom(ContentPackSchema, pack)).toStrictEqual([
       { path: ['statistics', 1, 'selector'], message: message(RulesMessage.DuplicateSelector, { selector: 'ac' }) },

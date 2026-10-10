@@ -1,4 +1,4 @@
-import { ContentLicense, ContentPack, Size } from '@pioneer/rules/sdk';
+import { ContentLicense, ContentPack, Size, SourceKind } from '@pioneer/rules/sdk';
 
 /**
  * Pathfinder Monster Core (2024 remaster). Mechanics are ORC-licensed; see
@@ -26,6 +26,9 @@ export const monsterCore = ContentPack.define({
       ],
       resistances: [],
       speed: 25,
+      sources: [
+        { kind: SourceKind.Book, book: 'monster-core', page: 356, aon: 'https://2e.aonprd.com/Monsters.aspx?ID=3249' },
+      ],
     },
   ],
 });
