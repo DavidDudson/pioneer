@@ -2,6 +2,7 @@ import { resolveGrants } from '@pioneer/rules/grants';
 import type {
   ChoiceSlot,
   ConditionalGrant,
+  ContentLookup,
   GrantEntry,
   GrantedItem,
   GrantResolution,
@@ -12,9 +13,12 @@ import type { PredicateSummary } from '@pioneer/rules/predicate';
 import {
   contentId,
   ContentId,
+  ContentKind,
+  ContentKindSchema,
   ContentText,
   OriginHopKind,
   PackId,
+  RollOption,
   RuleElement,
   RuleElementKey,
   SlotKey,
@@ -47,10 +51,15 @@ function slugGrantToId(value: unknown): unknown {
   return item?.success === true ? { ...value, item: idOfSlug(item.data) } : value;
 }
 
-/** An entry as the playground takes it: a slug, a name and its rule elements. */
+/**
+ * An entry as the playground takes it: a slug, a name and its rule elements; a kind (a class feature unless it says)
+ * and its own roll options (`trait:fighter`, `level:1`) for `ChoiceSet` queries to filter on.
+ */
 const PlaygroundEntry = z.strictObject({
   slug: Slug,
   name: ContentText,
+  kind: ContentKindSchema.default(ContentKind.ClassFeature),
+  rollOptions: z.array(RollOption).default([]),
   rules: z.array(z.preprocess(slugGrantToId, RuleElement)),
 });
 type PlaygroundEntry = z.output<typeof PlaygroundEntry>;
@@ -133,9 +142,18 @@ function slugTable(entries: readonly PlaygroundEntry[]): SlugTable {
   return { idOf: idOfSlug, slugOf: (id) => slugs.get(id), has: (slug) => known.has(slug) };
 }
 
-function entryOf({ slug, name, rules }: PlaygroundEntry, table: SlugTable): GrantEntry {
+function entryOf({ slug, name, kind, rollOptions, rules }: PlaygroundEntry, table: SlugTable): GrantEntry {
   const converted = rules.map((rule) => choiceSlugsToIds(rule, table));
-  return { id: idOfSlug(slug), name, rules: converted, sources: [PLAYGROUND_PAGE] };
+  return { id: idOfSlug(slug), kind, name, rules: converted, sources: [PLAYGROUND_PAGE], rollOptions };
+}
+
+function lookupOf(content: readonly GrantEntry[]): ContentLookup {
+  const byId = new Map(content.map((entry) => [entry.id, entry]));
+  const byKind = Map.groupBy(content, (entry) => entry.kind);
+  return {
+    entry: (id: ContentId): GrantEntry | undefined => byId.get(id),
+    ofKind: (kind: ContentKind): readonly GrantEntry[] => byKind.get(kind) ?? [],
+  };
 }
 
 /** Names the granting entries along `hops`, falling back to the id for one that is missing. */
@@ -186,11 +204,10 @@ export function checkGrants(texts: GrantsTexts): GrantsCheck {
     };
   }
   const content = entries.value.map((entry) => entryOf(entry, table));
-  const byId = new Map(content.map((entry) => [entry.id, entry]));
   const names = new Map(content.map((entry) => [entry.id, String(entry.name)]));
   const resolution = resolveGrants({
     roots: roots.roots,
-    lookup: (id) => byId.get(id),
+    lookup: lookupOf(content),
     facts: new PredicateFacts(facts.options),
     picks: picks.picks,
   });

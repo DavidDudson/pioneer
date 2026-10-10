@@ -18,6 +18,12 @@ function check(texts: Partial<GrantsTexts>): GrantsCheck {
   });
 }
 
+/** What the example's first open slot offers, as typed, given `facts`. */
+function offeredGiven(facts: string): string[] {
+  const result = check({ facts });
+  return result.status === GrantsStatus.Valid ? (result.open[0]?.options.map((option) => option.value) ?? []) : [];
+}
+
 describe(checkGrants, () => {
   it('opens on an example that resolves, roots in id order, each entry with the chain that granted it', () => {
     expect(check({})).toMatchObject({
@@ -35,6 +41,27 @@ describe(checkGrants, () => {
       open: [{ slot: 'fighter:4', title: 'Fighter feat', pick: undefined }],
       answered: [{ slot: 'fighter:6', title: 'Weapon group', pick: 'sword' }],
       rollOptions: ['weapon-group:sword'],
+      errors: [],
+    });
+  });
+
+  it('offers the fighter feats the query matches up to the character level, sorted by name', () => {
+    expect(offeredGiven(EXAMPLE_FACTS)).toStrictEqual(['aggressive-block', 'double-slice', 'sudden-charge']);
+    expect(offeredGiven('self:level:1')).toStrictEqual(['double-slice', 'sudden-charge']);
+  });
+
+  it('opens a query that matches nothing with an empty offer, not an error', () => {
+    const entries = JSON.stringify([
+      {
+        slug: 'fighter',
+        name: 'Fighter',
+        rules: [{ key: 'ChoiceSet', flag: 'feat', choices: { kind: 'feat', filter: ['item:trait:wizard'] } }],
+      },
+      { slug: 'sudden-charge', name: 'Sudden Charge', kind: 'feat', rollOptions: ['trait:fighter'], rules: [] },
+    ]);
+    expect(check({ entries, roots: 'fighter', picks: '' })).toMatchObject({
+      status: GrantsStatus.Valid,
+      open: [{ slot: 'fighter:0', options: [] }],
       errors: [],
     });
   });

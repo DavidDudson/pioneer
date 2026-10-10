@@ -207,13 +207,4 @@ describe('resolveGrants choices', () => {
     expect(names(result.items)).toEqual(['fighter', 'rogue', 'ruffian', 'rogue']);
     expect(names(result.duplicates)).toEqual(['ruffian']);
   });
-
-  test('leaves a ChoiceSet over a content query for query resolution', () => {
-    const content = [
-      entry('fighter', [{ key: 'ChoiceSet', flag: 'ancestry', choices: { kind: 'ancestry', filter: ['trait:elf'] } }]),
-    ];
-    const result = resolve(content, [picked('fighter')]);
-    expect(result.open).toEqual([]);
-    expect(result.errors).toEqual([]);
-  });
 });

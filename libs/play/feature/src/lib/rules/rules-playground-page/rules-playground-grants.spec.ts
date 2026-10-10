@@ -54,6 +54,17 @@ describe('RulesPlaygroundPage grants', () => {
     expect(textAreas(harness).some((area) => area.value.includes('fighter:4 = sudden-charge'))).toBe(true);
   });
 
+  it('says so when a query matches no entry', async () => {
+    const harness = await openPlayground();
+    await chooseSchema(harness, 'Grants');
+    await typeJson(
+      harness,
+      '[{ "slug": "fighter", "name": "Fighter", "rules": [{ "key": "ChoiceSet", "flag": "feat", "choices": { "kind": "feat", "filter": ["item:trait:wizard"] } }] }]',
+    );
+
+    expect(pageText(harness)).toContain('Nothing can be picked for this choice yet.');
+  });
+
   it('flags a root that is not a slug', async () => {
     const harness = await openPlayground();
     await chooseSchema(harness, 'Grants');

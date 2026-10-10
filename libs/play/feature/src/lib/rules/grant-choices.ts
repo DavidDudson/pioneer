@@ -81,7 +81,7 @@ export function choiceSlugsToIds(element: RuleElement, table: SlugTable): RuleEl
   return converted;
 }
 
-interface OptionRow {
+export interface OptionRow {
   readonly value: string;
   readonly label: string;
   readonly summary: PredicateSummary | undefined;

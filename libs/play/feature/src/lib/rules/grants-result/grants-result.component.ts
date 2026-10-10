@@ -7,6 +7,7 @@ import type { PredicateSummary } from '@pioneer/rules/predicate';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 import { filter, merge } from 'rxjs';
 
+import type { OptionRow } from '../grant-choices';
 import { GrantList } from '../grant-list/grant-list.component';
 import type { ShownRow } from '../grant-list/grant-list.component';
 import { GrantsStatus } from '../grants-check';
@@ -76,10 +77,7 @@ export class GrantsResult {
       })),
       open: result.open.map((row) => ({
         title: row.title,
-        details: [
-          ...this.#slot(row.slot, row.via),
-          ...row.options.map(({ value, label, summary }) => this.#option(label, value, summary)),
-        ],
+        details: [...this.#slot(row.slot, row.via), ...this.#options(row.options)],
       })),
       answered: result.answered.map((row) => ({
         title: row.title,
@@ -104,6 +102,13 @@ export class GrantsResult {
   /** The slot as typed, and the chain to its entry. */
   #slot(slot: string, via: readonly string[]): string[] {
     return [this.#i18n.translate('play.rules.slot', { slot }), ...this.#via(via)];
+  }
+
+  /** What a slot offers, or that nothing can be picked: a query no entry satisfies, or listed options none of which apply. */
+  #options(options: readonly OptionRow[]): string[] {
+    return options.length === 0
+      ? [this.#i18n.translate('play.rules.noOptions')]
+      : options.map(({ value, label, summary }) => this.#option(label, value, summary));
   }
 
   /** An option the slot offers, with when it holds for one that depends on the situation. */

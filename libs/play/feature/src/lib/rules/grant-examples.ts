@@ -3,15 +3,23 @@ const JSON_INDENT = 2;
 const grantOf = (slug: string, more: object = {}): object => ({ key: 'GrantItem', item: slug, ...more });
 const levelAtLeast = (level: number): object => ({ predicate: [{ gte: ['self:level', level] }] });
 const option = (value: string, label: string): object => ({ value, label });
+const featOf = (slug: string, name: string, rollOptions: readonly string[]): object => ({
+  slug,
+  name,
+  kind: 'feat',
+  rollOptions,
+  rules: [],
+});
 
 /** Levels the example's class features arrive at. */
 const BRAVERY_LEVEL = 3;
 const SURVEYOR_LEVEL = 7;
 
 /**
- * Entries the example starts with: a fighter whose features arrive by level, with a class feat to pick (rule 4, granted
- * by rule 5) and a weapon group to pick (rule 6, a roll option); a heritage with a grant that depends on terrain; and
- * Shield Block picked again as a general feat.
+ * Entries the example starts with: a fighter whose features arrive by level, with a class feat to pick (rule 4, a query
+ * over feats, granted by rule 5) and a weapon group to pick (rule 6, a roll option); a heritage with a grant that
+ * depends on terrain; and Shield Block picked again as a general feat. The query offers the fighter feats of the
+ * character's level or lower, so Brutal Finish (12th) and the rogue's Nimble Dodge are left out.
  */
 export const EXAMPLE_GRANT_ENTRIES = JSON.stringify(
   [
@@ -27,7 +35,7 @@ export const EXAMPLE_GRANT_ENTRIES = JSON.stringify(
           key: 'ChoiceSet',
           flag: 'class-feat',
           prompt: 'Fighter feat',
-          choices: [option('sudden-charge', 'Sudden Charge'), option('double-slice', 'Double Slice')],
+          choices: { kind: 'feat', filter: ['item:trait:fighter', { lte: ['item:level', 'self:level'] }] },
         },
         { key: 'GrantItem', item: { choice: 'class-feat' } },
         {
@@ -44,8 +52,11 @@ export const EXAMPLE_GRANT_ENTRIES = JSON.stringify(
     { slug: 'reactive-strike', name: 'Reactive Strike', rules: [] },
     { slug: 'bravery', name: 'Bravery', rules: [] },
     { slug: 'battlefield-surveyor', name: 'Battlefield Surveyor', rules: [] },
-    { slug: 'sudden-charge', name: 'Sudden Charge', rules: [] },
-    { slug: 'double-slice', name: 'Double Slice', rules: [] },
+    featOf('sudden-charge', 'Sudden Charge', ['trait:fighter', 'trait:flourish', 'level:1']),
+    featOf('double-slice', 'Double Slice', ['trait:fighter', 'level:1']),
+    featOf('aggressive-block', 'Aggressive Block', ['trait:fighter', 'level:2']),
+    featOf('brutal-finish', 'Brutal Finish', ['trait:fighter', 'level:12']),
+    featOf('nimble-dodge', 'Nimble Dodge', ['trait:rogue', 'level:1']),
     {
       slug: 'woodland-elf',
       name: 'Woodland Elf',

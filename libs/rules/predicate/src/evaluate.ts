@@ -47,6 +47,14 @@ function testEquals([left, right]: ComparisonOperands, facts: PredicateFacts): T
   return facts.isKnown(left) || facts.values(left).length > 0 ? Truth.False : Truth.Unknown;
 }
 
+/** An order test with an operand that has no value: false if a missing operand's namespace is known, else unknown. */
+function missingTruth([left, right]: ComparisonOperands, facts: PredicateFacts): Truth {
+  const missing = [left, right].filter(
+    (operand): operand is RollOption => typeof operand === 'string' && facts.values(operand).length === 0,
+  );
+  return missing.some((option) => facts.isKnown(option)) ? Truth.False : Truth.Unknown;
+}
+
 /**
  * `{ "gt": [a, b] }` and friends, as Foundry does them: some value of `a` beats every value of `b`. An
  * option with no value makes the test false if its namespace is known, and unknown if it is situational.
@@ -54,15 +62,8 @@ function testEquals([left, right]: ComparisonOperands, facts: PredicateFacts): T
 function testOrder(order: Order, [left, right]: ComparisonOperands, facts: PredicateFacts): Truth {
   const leftValues = facts.values(left);
   const rightValues = typeof right === 'string' ? facts.values(right) : [OptionValue.parse(right)];
-  const missing: readonly RollOption[] = [
-    ...(leftValues.length === 0 ? [left] : []),
-    ...(typeof right === 'string' && rightValues.length === 0 ? [right] : []),
-  ];
-  if (missing.some((option) => facts.isKnown(option))) {
-    return Truth.False;
-  }
-  if (missing.length > 0) {
-    return Truth.Unknown;
+  if (leftValues.length === 0 || rightValues.length === 0) {
+    return missingTruth([left, right], facts);
   }
   return truthOf(leftValues.some((value) => rightValues.every((bound) => order(value, bound))));
 }

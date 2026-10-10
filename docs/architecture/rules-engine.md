@@ -321,7 +321,8 @@ flowchart TD
 
 Steps 1 and 2 live in `libs/rules/grants` (`resolveGrants`), beside the engine rather than in it: it depends only on
 `rules/sdk`, `rules/predicate` and the kernel, and the engine composes it. It reads content through a lookup
-(`ContentId` to name, rule elements and sources), so any kind of entry can grant any other.
+(`ContentId` to kind, name, rule elements, sources and the entry's own roll options, and every entry of a kind), so
+any kind of entry can grant any other.
 
 - Roots are the character's direct entries, each with the hop that put it there (a `choice` slot, a `condition`, an
   `effect`). They are visited in entry id order, so the result does not depend on the order they are given in.
@@ -340,6 +341,12 @@ Steps 1 and 2 live in `libs/rules/grants` (`resolveGrants`), beside the engine r
   `GrantItem { choice: <flag> }` on the same entry grants the picked entry behind a `choice` hop, then a `grant` hop.
   With no pick the slot is **open** and the grant waits; a pick not on offer is an error and the slot reopens. A pick
   that is a plain option, not an entry, cannot be granted. Removing a pick drops everything granted through it.
+- A `ChoiceSet` whose `choices` is a query (`{ kind, filter }`) offers every entry of that kind whose filter is not
+  false, as one slot like any other. The filter reads the character's facts, with the candidate's own roll options
+  under `item:` (`item:trait:fighter`, `item:level:1`, as Foundry writes them). They replace whatever the character
+  has under `item:`, and never mix with its `feat:` or `self:` facts. Unknown candidates are offered with their
+  summary. Offers sort by name, then id, so a builder list is stable. A query that matches nothing is an open slot
+  with an empty offer, not an error.
 
 ### Statistic graph
 
