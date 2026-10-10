@@ -2,6 +2,7 @@ import type { ValueOf } from '@pioneer/shared/kernel';
 import { issueParams, message, Pg } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
+import { ACTION_COUNT } from './action';
 import { RulesMessage } from './messages';
 import { ActionCost, ActionCostSchema, AreaShape, AreaShapeSchema, RichText } from './rich-text';
 import { SaveSelector, Selector } from './selector';
@@ -32,13 +33,6 @@ const SpellTime = { count: SpellTimeCount, unit: SpellTimeUnitSchema };
 /** A casting time in action glyphs, or in time for longer castings and rituals. */
 export const CastTimeType = { Actions: 'actions', Time: 'time' } as const;
 export type CastTimeType = ValueOf<typeof CastTimeType>;
-
-/** How many actions each glyph that counts them is; a free action or reaction can't take a range. */
-const ACTION_COUNT: Readonly<Partial<Record<ActionCost, number>>> = {
-  [ActionCost.One]: 1,
-  [ActionCost.Two]: 2,
-  [ActionCost.Three]: 3,
-};
 
 /** The most actions a variable casting time can take. */
 const UpToCost = z.enum([ActionCost.Two, ActionCost.Three]);

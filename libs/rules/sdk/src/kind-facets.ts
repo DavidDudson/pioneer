@@ -1,3 +1,4 @@
+import { ACTION_FACETS, FEAT_FACETS } from './action-facets';
 import { COMMON_FACETS } from './facet';
 import type { FacetDefinition, FacetId } from './facet';
 import type { RegisteredKind } from './kind-data';
@@ -8,6 +9,8 @@ import { SPELL_FACETS } from './spell-facets';
  * are defined.
  */
 const KIND_FACETS: Readonly<Partial<Record<RegisteredKind, readonly FacetDefinition[]>>> = {
+  action: ACTION_FACETS,
+  feat: FEAT_FACETS,
   spell: SPELL_FACETS,
 };
 

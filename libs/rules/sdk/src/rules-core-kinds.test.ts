@@ -78,6 +78,8 @@ const raiseAShield = {
   kind: 'action',
   data: { cost: 'one', category: 'defensive', selfEffect: idOf('effect-raise-a-shield') },
 };
+/** Raise a Shield with `data` merged over its own. */
+const variable = (data: object): object => ({ ...raiseAShield, data: { ...raiseAShield.data, ...data } });
 
 const fire = { ...entry('fire', 'Fire'), kind: 'damage-type', data: {} };
 const darkvision = {
@@ -151,6 +153,17 @@ describe('rules core kinds', () => {
       { path: ['data', 'trigger'], message: message(RulesMessage.ActionReactionTrigger) },
     ]);
     expect(issues({ ...aidAction, data: { ...untriggered, cost: 'free' } })).toStrictEqual([]);
+  });
+
+  test('a variable cost runs from a counted glyph to more actions, at most six', () => {
+    const upToIssue = { path: ['data', 'upTo'], message: message(RulesMessage.ActionUpTo) };
+
+    expect(issues(variable({ cost: 'one', upTo: 2 }))).toStrictEqual([]);
+    expect(issues(variable({ cost: 'two', upTo: 6 }))).toStrictEqual([]);
+    expect(issues(variable({ cost: 'two', upTo: 2 }))).toStrictEqual([upToIssue]);
+    expect(issues(variable({ cost: 'free', upTo: 3 }))).toStrictEqual([upToIssue]);
+    expect(issues(variable({ cost: undefined, upTo: 3 }))).toStrictEqual([upToIssue]);
+    expect(found(variable({ cost: 'one', upTo: 7 }))).toStrictEqual([`data.upTo ${ValidationMessage.TooBig}`]);
   });
 
   test('checks action costs, categories and frequencies', () => {
