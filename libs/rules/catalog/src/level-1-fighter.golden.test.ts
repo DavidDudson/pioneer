@@ -2,15 +2,18 @@ import { describe, expect, test } from 'bun:test';
 
 import { BaseTermKind, deriveStatistics } from '@pioneer/rules/engine';
 import type { BaseTerm, BreakdownLine, ModifierLabel, OverrideLine, StatisticResult } from '@pioneer/rules/engine';
-import { Proficiency } from '@pioneer/rules/sdk';
-import type { Selector } from '@pioneer/rules/sdk';
+import { OriginHopKind, Proficiency } from '@pioneer/rules/sdk';
+import type { Origin, OriginHop, Selector } from '@pioneer/rules/sdk';
 
-import { AC_BASE, core, noFacts, withoutLevel } from './testing/core-rules';
+import { AC_BASE, core, PWL, withoutLevel } from './testing/core-rules';
 import {
   level1Fighter,
+  level1FighterFacts,
   level1FighterItems,
   level1FighterRules,
   SCALE_MAIL_AC,
+  SCALE_MAIL_CHECK_PENALTY,
+  SCALE_MAIL_SPEED_PENALTY,
   STEEL_SHIELD_AC,
 } from './testing/level-1-fighter';
 
@@ -25,15 +28,26 @@ interface Checked {
   readonly total: number;
 }
 
-const VARIANT_MARK = ' (variant)';
+/** How a term set by Proficiency Without Level is marked: its origin's variant hop, naming the rule. */
+const VARIANT_MARK = ` (variant ${PWL})`;
 
-const itemNames = new Map(Object.entries(level1FighterItems).map(([slug, rule]) => [String(rule.origin.entry), slug]));
+function hopText(hop: OriginHop): string {
+  return hop.kind === OriginHopKind.Variant ? `variant ${hop.rule}` : hop.kind;
+}
+
+function originText(origin: Origin | undefined): string {
+  return origin === undefined ? '' : ` (${origin.hops.map((hop) => hopText(hop)).join(', ')})`;
+}
+
+const itemNames = new Map(
+  Object.entries(level1FighterItems).flatMap(([slug, rules]) => rules.map((rule) => [String(rule.origin.entry), slug])),
+);
 
 function termText(line: BaseTerm): string {
   if (line.kind === BaseTermKind.Rounding) {
     return `rounding = ${line.value}`;
   }
-  return `${line.sign} ${line.formula} = ${line.value}${line.origin === undefined ? '' : VARIANT_MARK}`;
+  return `${line.sign} ${line.formula} = ${line.value}${originText(line.origin)}`;
 }
 
 function labelText(label: ModifierLabel): string {
@@ -114,8 +128,10 @@ function statistic(terms: readonly Term[], lines: readonly string[] = [], added 
 /** The fighter's breakdowns, with proficiency bonuses from `table`. */
 function golden({ bonus, mark }: ProficiencyTable): Record<string, Checked> {
   const prof = (formula: string, rank: Proficiency): Term => term(formula, bonus[rank], mark);
+  // Scale mail's check penalty is inactive on the Strength- and Dexterity-based skills: its Strength is met.
+  const checkPenalty = [`item ${SCALE_MAIL_CHECK_PENALTY} inactive (scale-mail)`];
   const skill = (slug: string, key: AttributeSlug, rank: Proficiency): Checked =>
-    statistic([attribute(key), prof(`@prof.skill.${slug}`, rank)]);
+    statistic([attribute(key), prof(`@prof.skill.${slug}`, rank)], key === 'str' || key === 'dex' ? checkPenalty : []);
   const ten = term('10', AC_BASE);
   const potency = term('@weapon.potency', 0);
   const { Untrained, Trained, Expert } = Proficiency;
@@ -132,7 +148,8 @@ function golden({ bonus, mark }: ProficiencyTable): Record<string, Checked> {
     perception: statistic([attribute('wis'), prof('@prof.perception', Expert)]),
     // Human 8, then fighter 10 plus Constitution 2 per level.
     'hp:max': statistic([term('@ancestry.hp', 8), term('(@class.hp + @attr.con) * @level', 12)]),
-    'speed:land': statistic([term('@ancestry.speed', 25)]),
+    // Scale mail's Speed penalty is inactive too.
+    'speed:land': statistic([term('@ancestry.speed', 25)], [`item ${SCALE_MAIL_SPEED_PENALTY} inactive (scale-mail)`]),
     'class-dc': statistic([ten, attribute('str', '@attr.key'), prof('@prof.class-dc', Trained)]),
     // Melee with Strength; the javelin has a range increment, so it attacks with Dexterity.
     'strike:longsword': statistic([attribute('str', '@weapon.attr'), prof('@weapon.prof', Expert), potency]),
@@ -160,7 +177,7 @@ function totals(sheet: Record<string, Checked>): Record<string, number> {
   return Object.fromEntries(Object.entries(sheet).map(([selector, { total }]) => [selector, total]));
 }
 
-const facts = noFacts();
+const facts = level1FighterFacts();
 
 describe('Level 1 Fighter (golden)', () => {
   const derived = checked(deriveStatistics(core, level1Fighter, { rules: level1FighterRules, facts }));
