@@ -1,20 +1,20 @@
 import { describe, expect, test } from 'bun:test';
 
-import { BaseTermKind, deriveStatistics, LineStatusKind, variantRulesInPlay } from '@pioneer/rules/engine';
+import { BaseTermKind, deriveStatistics, LineStatusKind } from '@pioneer/rules/engine';
 import type { RuleInPlay, StatisticResult, StatisticValue } from '@pioneer/rules/engine';
-import {
-  contentId,
-  ContentId,
-  ContentRegistry,
-  OriginHopKind,
-  Selector,
-  Slug,
-  VariantRuleId,
-} from '@pioneer/rules/sdk';
+import { ContentId, OriginHopKind, Selector } from '@pioneer/rules/sdk';
 import type { Origin } from '@pioneer/rules/sdk';
 
-import { core, coreRules, SELECTORS } from './testing/core-rules';
-import { fighterFacts, gear, goldenFighter, SCALE_MAIL, STEEL_SHIELD } from './testing/golden-fighter';
+import { core, PWL, SELECTORS, withoutLevel } from './testing/core-rules';
+import {
+  fighterFacts,
+  gear,
+  goldenFighter,
+  SCALE_MAIL,
+  SHIELD_RAISED,
+  STEEL_SHIELD,
+  STRENGTH_MET,
+} from './testing/golden-fighter';
 
 /** A base term as a player checks it: what it reads, its sign and its value. */
 interface Term {
@@ -110,13 +110,13 @@ const CHA = plus('@attr.cha', 0);
  * +4, Dexterity +2, Constitution +2, Intelligence +0, Wisdom +1, Charisma +0 at 1st level.
  */
 const GOLDEN: Readonly<Record<string, Breakdown>> = {
-  // Dexterity +2 is within scale mail's cap; the shield counts only while raised.
+  // Dexterity +2 is within scale mail's cap; the shield counts only while Raise a Shield is in effect.
   ac: {
     total: 18,
     base: [plus('10', 10), plus('@attr.dex.capped', 2), plus('@prof.ac', TRAINED)],
     lines: [
       { type: 'item', value: 3, status: LineStatusKind.Applied, source: SCALE_MAIL },
-      { type: 'circumstance', value: 2, status: LineStatusKind.Conditional, source: STEEL_SHIELD },
+      { type: 'circumstance', value: 2, status: LineStatusKind.Inactive, source: STEEL_SHIELD },
     ],
     overrides: [],
   },
@@ -164,30 +164,22 @@ const GOLDEN: Readonly<Record<string, Breakdown>> = {
   'strike:longsword': check(plus('@weapon.attr', 4), plus('@weapon.prof', EXPERT)),
 };
 
-/** The statistics scale mail's penalties reach, and their totals when its Strength is not met. */
-const PENALISED: Readonly<Record<string, number>> = {
-  'skill:acrobatics': 3,
-  'skill:athletics': 5,
-  'skill:stealth': 0,
-  'skill:thievery': 0,
-  'speed:land': 20,
+/**
+ * Scale mail's penalties when its Strength is not met: on Speed, applied; on the Strength- and Dexterity-based
+ * skills, conditional, since the sheet cannot know whether a check has the attack trait.
+ */
+const PENALISED: Readonly<Record<string, string[]>> = {
+  'skill:acrobatics': [LineStatusKind.Conditional],
+  'skill:athletics': [LineStatusKind.Conditional],
+  'skill:stealth': [LineStatusKind.Conditional],
+  'skill:thievery': [LineStatusKind.Conditional],
+  'speed:land': [LineStatusKind.Applied],
 };
 
-const PWL = VariantRuleId.parse(contentId(coreRules.id, Slug.parse('proficiency-without-level')));
 const VARIANT_HOP = { kind: OriginHopKind.Variant, rule: ContentId.parse(PWL) };
 /** GM Core: trained and up lose the level, untrained goes from +0 to -2. */
 const LEVEL = 1;
 const UNTRAINED_WITHOUT_LEVEL = -2;
-
-function withoutLevel(): readonly RuleInPlay[] {
-  const registry = new ContentRegistry();
-  registry.register(coreRules);
-  const variant = registry.variantRule(PWL);
-  if (variant === undefined) {
-    throw new Error('The core pack has no Proficiency Without Level');
-  }
-  return variantRulesInPlay([variant]);
-}
 
 function readsProficiency({ formula }: Term): boolean {
   return formula.startsWith('@prof.') || formula === '@weapon.prof';
@@ -230,15 +222,19 @@ describe('golden level 1 Fighter', () => {
     expect(breakdowns(derived)).toStrictEqual(GOLDEN);
   });
 
-  test('without its armor Strength met, the check and Speed penalties apply', () => {
+  test('without its armor Strength met, the Speed penalty applies and the check penalty is conditional', () => {
     const derived = breakdowns(derive([], []));
     const reached = Object.keys(PENALISED);
-    expect(Object.fromEntries(reached.map((selector) => [selector, derived[selector]?.total]))).toStrictEqual(
-      PENALISED,
-    );
-    expect(reached.map((selector) => derived[selector]?.lines.map(({ status }) => status))).toStrictEqual(
-      reached.map(() => [LineStatusKind.Applied]),
-    );
+    expect(
+      Object.fromEntries(reached.map((selector) => [selector, derived[selector]?.lines.map(({ status }) => status)])),
+    ).toStrictEqual(PENALISED);
+    expect(derived['speed:land']?.total).toBe(20);
+  });
+
+  test('with Raise a Shield in effect, the steel shield adds its +2 circumstance bonus to AC', () => {
+    const { ac } = breakdowns(derive([], [STRENGTH_MET, SHIELD_RAISED]));
+    expect(ac?.total).toBe(20);
+    expect(ac?.lines.map(({ status }) => status)).toStrictEqual([LineStatusKind.Applied, LineStatusKind.Applied]);
   });
 
   test('Proficiency Without Level moves exactly the proficiency terms, each naming the variant', () => {

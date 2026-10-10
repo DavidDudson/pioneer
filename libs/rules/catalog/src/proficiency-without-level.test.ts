@@ -1,17 +1,8 @@
 import { describe, expect, test } from 'bun:test';
 
-import { BaseTermKind, deriveStatistics, StatisticInputsJson, variantRulesInPlay } from '@pioneer/rules/engine';
-import type { RuleInPlay, StatisticResult } from '@pioneer/rules/engine';
-import {
-  ContentId,
-  contentId,
-  ContentRegistry,
-  OriginHopKind,
-  Proficiency,
-  Selector,
-  Slug,
-  VariantRuleId,
-} from '@pioneer/rules/sdk';
+import { BaseTermKind, deriveStatistics, StatisticInputsJson } from '@pioneer/rules/engine';
+import type { StatisticResult } from '@pioneer/rules/engine';
+import { ContentId, OriginHopKind, Proficiency, Selector } from '@pioneer/rules/sdk';
 import type { Origin } from '@pioneer/rules/sdk';
 import { assert, property } from 'fast-check';
 
@@ -19,33 +10,20 @@ import {
   AC_BASE,
   anyInputs,
   core,
-  coreRules,
   fighter,
   noFacts,
   PROFICIENCY_SELECTORS,
+  PWL,
   RANK_BONUS,
   SKILLS,
   totals,
+  withoutLevel,
 } from './testing/core-rules';
 
 /** GM Core's untrained modifier under Proficiency Without Level. */
 const UNTRAINED_WITHOUT_LEVEL = -2;
 
 const NO_FACTS = noFacts();
-
-/** The Proficiency Without Level variant rule in the core pack. */
-const PWL = VariantRuleId.parse(contentId(coreRules.id, Slug.parse('proficiency-without-level')));
-
-/** The rule elements of Proficiency Without Level, in play as an enabled variant. */
-function withoutLevel(): readonly RuleInPlay[] {
-  const registry = new ContentRegistry();
-  registry.register(coreRules);
-  const variant = registry.variantRule(PWL);
-  if (variant === undefined) {
-    throw new Error('The core pack has no Proficiency Without Level');
-  }
-  return variantRulesInPlay([variant]);
-}
 
 /** A proficiency bonus under the variant (GM Core): the rank's bonus without level, and -2 untrained. */
 function bonusWithoutLevel(rank: Proficiency): number {

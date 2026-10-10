@@ -43,9 +43,9 @@ const WEAPON: Carried = { entry: LONGSWORD, item: '00000000-0000-4000-8000-00000
  * Wearing armor whose Strength value the character meets: Player Core's armor check penalty goes away and the Speed
  * penalty drops by 5 feet. Inventory will set it; the golden Fighter's Strength +4 meets scale mail's +2.
  */
-const STRENGTH_MET = 'armor:strength-requirement-met';
-/** A raised shield, situational until play state tracks Raise a Shield. */
-const SHIELD_RAISED = 'self:action:raise-a-shield';
+export const STRENGTH_MET = 'armor:strength-requirement-met';
+/** Raise a Shield in effect, the option play state toggles; off on a sheet with no play state. */
+export const SHIELD_RAISED = 'self:effect:raise-a-shield';
 
 /** Why the character has a piece of gear, as JSON: an inventory hop to its entry. */
 function originOf({ entry, item, state }: Carried): object {
@@ -64,6 +64,8 @@ function onGear(element: object, on: Carried, rule: number): RuleInPlay {
 /** The Strength- and Dexterity-based skills an armor check penalty applies to. */
 const CHECK_PENALTY_SKILLS = ['skill:acrobatics', 'skill:athletics', 'skill:stealth', 'skill:thievery'];
 const UNLESS_STRENGTH_MET = [{ not: STRENGTH_MET }];
+/** Player Core: no check penalty on a check with the attack trait (Grapple, Trip). */
+const CHECK_PENALTY_APPLIES = [...UNLESS_STRENGTH_MET, { not: 'self:action:trait:attack' }];
 
 /** Scale mail (Player Core): +3 item bonus to AC, Dexterity cap +2, check penalty -2, Speed penalty -5 feet. */
 const scaleMail: readonly RuleInPlay[] = [
@@ -75,7 +77,7 @@ const scaleMail: readonly RuleInPlay[] = [
       value: -2,
       selectors: CHECK_PENALTY_SKILLS,
       slug: 'armor-check-penalty',
-      predicate: UNLESS_STRENGTH_MET,
+      predicate: CHECK_PENALTY_APPLIES,
     },
     ARMOR,
     1,
@@ -135,11 +137,16 @@ const LEVEL_1_RANKS: Readonly<Record<string, string>> = {
  */
 const LEVEL_1_ATTRIBUTES: Readonly<Record<string, number>> = { str: 4, dex: 2, con: 2, int: 0, wis: 1, cha: 0 };
 
-/** The golden Fighter's level, attributes and ranks; each one left out is the 1st level build's. */
+/** A plain longsword, held. */
+const LONGSWORD_INPUTS = { slug: 'longsword', category: 'martial', traits: ['versatile-p'], origin: originOf(WEAPON) };
+
+/** The golden Fighter's level, attributes, ranks and weapons; each one left out is the 1st level build's. */
 export interface FighterBuild {
   readonly level?: number;
   readonly attributes?: Readonly<Record<string, number>>;
   readonly ranks?: Readonly<Record<string, string>>;
+  /** The weapons as JSON, each with its origin. */
+  readonly weapons?: readonly object[];
 }
 
 /** The golden Fighter's statistic inputs: human (8 Hit Points, 25 feet), Fighter (10 Hit Points, Strength). */
@@ -147,6 +154,7 @@ export function goldenFighter({
   level = 1,
   attributes = LEVEL_1_ATTRIBUTES,
   ranks = LEVEL_1_RANKS,
+  weapons = [LONGSWORD_INPUTS],
 }: FighterBuild = {}): StatisticInputs {
   return StatisticInputsJson.parse({
     level,
@@ -155,7 +163,7 @@ export function goldenFighter({
     dexterityCap: SCALE_MAIL_DEXTERITY_CAP,
     ancestry: { hitPoints: 8, speed: 25 },
     class: { hitPoints: 10, keyAttribute: 'str' },
-    weapons: [{ slug: 'longsword', category: 'martial', traits: ['versatile-p'], origin: originOf(WEAPON) }],
+    weapons,
   });
 }
 
