@@ -262,7 +262,7 @@ export function checkStatistics(
   const rules = [...read.rules, ...(variant?.rules ?? [])];
   const content = { definitions: read.definitions, proficiencyBonus: table };
   const results = deriveStatistics(content, read.inputs, { rules, facts: read.facts });
-  const rows = ownedResults(read.definitions, results).map(({ definition, result }) =>
+  const rows = ownedResults(read.definitions, results, read.inputs).map(({ definition, result }) =>
     rowOf(result, definition.base, { rules: names, variant }),
   );
   return { status: StatisticsStatus.Valid, rows };

@@ -27,6 +27,19 @@ function check(definitions: readonly object[]): StatisticsCheck {
 }
 
 describe('checkStatistics per source', () => {
+  it('keeps a plain statistic given before the family under its own definition when no source matches it', () => {
+    const custom = { ...perSource('strike:custom', 'weapon', '@level'), slug: 'custom-strike', per: undefined };
+    const strike = perSource('strike', 'weapon', '@weapon.attr + @weapon.prof + @weapon.potency');
+    expect(check([custom, strike])).toMatchObject({
+      status: StatisticsStatus.Valid,
+      rows: [
+        { selector: 'strike:custom', total: 3, terms: [{ code: '@level' }] },
+        { selector: 'strike:dagger' },
+        { selector: 'strike:longsword' },
+      ],
+    });
+  });
+
   it('shows an instance a later family wins under the family, with its base, not under the earlier plain one', () => {
     const plain = { ...perSource('strike:longsword', 'weapon', '@level'), slug: 'plain-strike', per: undefined };
     const strike = perSource('strike', 'weapon', '@weapon.attr + @weapon.prof + @weapon.potency');
