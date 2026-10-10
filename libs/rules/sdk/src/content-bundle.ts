@@ -85,8 +85,8 @@ export const ContentManifest = z.strictObject({ packs: z.array(PackBundles).read
 export type ContentManifest = z.infer<typeof ContentManifest>;
 
 /** Names of a kind's entries, by id. Short summaries join them when entries have them. */
-export const NamesBundle = z.record(ContentId, z.strictObject({ name: ContentText }));
-export type NamesBundle = z.infer<typeof NamesBundle>;
+const NamesBundle = z.record(ContentId, z.strictObject({ name: ContentText }));
+type NamesBundle = z.infer<typeof NamesBundle>;
 
 /** A kind's mechanics: its entries without names or descriptions, each read once its name is added back. */
 const MechanicsBundle = z.array(z.looseObject({ id: ContentId })).readonly();
