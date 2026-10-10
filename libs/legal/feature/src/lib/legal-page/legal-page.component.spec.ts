@@ -15,6 +15,12 @@ function present<TValue>(value: TValue | null | undefined): TValue {
   return value;
 }
 
+/** The surface whose level-2 heading reads `heading`. */
+function section(root: HTMLElement, heading: string): HTMLElement {
+  const title = [...root.querySelectorAll('h2')].find((element) => element.textContent.trim() === heading);
+  return present(title?.closest<HTMLElement>('fr-surface'));
+}
+
 async function renderLegalPage(): Promise<HTMLElement> {
   TestBed.configureTestingModule({
     providers: [
@@ -28,11 +34,17 @@ async function renderLegalPage(): Promise<HTMLElement> {
 }
 
 describe('LegalPage', () => {
-  it('shows the Paizo, ORC and Foundry notices without an account', async () => {
+  it('shows the Paizo, ORC, books and Foundry notices without an account', async () => {
     const root = await renderLegalPage();
     // Text comes from the route's `legal` message scope, loaded with the page's code.
     const headings = [...root.querySelectorAll('h1, h2')].map((heading) => heading.textContent.trim());
-    expect(headings).toStrictEqual(['Legal', 'Paizo Community Use Policy', 'ORC License', 'Foundry VTT pf2e system']);
+    expect(headings).toStrictEqual([
+      'Legal',
+      'Paizo Community Use Policy',
+      'ORC License',
+      'Books',
+      'Foundry VTT pf2e system',
+    ]);
     expect(root.textContent).toContain('We are expressly prohibited from charging you to use or access this content.');
     // ORC License section III(a), verbatim.
     expect(root.textContent).toContain(
@@ -44,7 +56,9 @@ describe('LegalPage', () => {
 
   it('credits every upstream ORC work as a list item, Monster Core included', async () => {
     const root = await renderLegalPage();
-    const credits = [...root.querySelectorAll('ul [role="listitem"]')].map((item) => item.textContent.trim());
+    const credits = [...section(root, 'ORC License').querySelectorAll('ul [role="listitem"]')].map((item) =>
+      item.textContent.trim(),
+    );
     expect(credits).toHaveLength(ORC_ATTRIBUTION.flatMap((group) => group.works).length);
     expect(credits).toContain('Pathfinder NPC Core © 2025, Paizo Inc.');
     expect(credits.some((credit) => credit.startsWith('Pathfinder Monster Core © 2024, Paizo Inc.'))).toBe(true);
@@ -59,5 +73,19 @@ describe('LegalPage', () => {
       'https://paizo.com/orclicense',
       'https://github.com/foundryvtt/pf2e',
     ]);
+  });
+
+  it('lists every registered book with its publisher and licence', async () => {
+    const root = await renderLegalPage();
+    const books = [...section(root, 'Books').querySelectorAll('[role="listitem"]')];
+    expect(books.map((book) => book.querySelector('fr-text')?.textContent.trim())).toStrictEqual([
+      'Player Core',
+      'GM Core',
+      'Monster Core',
+      'Player Core 2',
+    ]);
+    for (const book of books) {
+      expect(book.textContent).toContain('Paizo · ORC License');
+    }
   });
 });

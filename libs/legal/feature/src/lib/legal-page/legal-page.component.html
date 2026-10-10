@@ -43,6 +43,26 @@
 
     <fr-surface>
       <fr-stack gap="md">
+        <fr-heading variant="subheading" [level]="2">{{ 'legal.books.heading' | transloco }}</fr-heading>
+        <fr-text element="p">{{ 'legal.books.intro' | transloco }}</fr-text>
+        <fr-list>
+          @for (book of books; track book.id) {
+            <fr-list-item>
+              <fr-stack gap="xs">
+                <fr-text>{{ book.titleKey | transloco }}</fr-text>
+                <fr-text variant="caption" tone="muted">{{
+                  'legal.books.detail'
+                    | transloco: { publisher: book.publisherKey | transloco, license: book.licenseKey | transloco }
+                }}</fr-text>
+              </fr-stack>
+            </fr-list-item>
+          }
+        </fr-list>
+      </fr-stack>
+    </fr-surface>
+
+    <fr-surface>
+      <fr-stack gap="md">
         <fr-heading variant="subheading" [level]="2">{{ 'legal.foundry.heading' | transloco }}</fr-heading>
         <fr-text element="p">{{ 'legal.foundry.derived' | transloco }}</fr-text>
         <fr-text element="p">{{ 'legal.foundry.affiliation' | transloco }}</fr-text>

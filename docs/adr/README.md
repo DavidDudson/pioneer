@@ -28,6 +28,7 @@ Accepted. To change a decision, add a new ADR that supersedes the old one; do no
 | [0021](0021-structured-spell-casting-fields.md)            | Spell casting fields are structured, parsed from Foundry text        |
 | [0022](0022-foundry-module-and-sync-model.md)              | Foundry module: link tokens, polling and field ownership             |
 | [0023](0023-equipment-kinds-diverge-from-foundry-items.md) | Equipment kinds diverge from Foundry's item types where the rules do |
+| [0024](0024-book-titles-are-message-keys.md)               | Book titles are message keys; the registry holds published books     |
 
 Template:
 
