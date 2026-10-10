@@ -113,6 +113,12 @@
       "proficiencyRank": "The proficiency rank for that statistic, from 0 (untrained) to 4 (legendary).",
       "statistic": "The base of that statistic, before its modifiers, such as the spell attack modifier in a spell DC.",
       "itemLevel": "The level of the item the rule element is on."
+    },
+    "action": {
+      "reactionTrigger": "A reaction needs a trigger."
+    },
+    "condition": {
+      "impliesWithoutGrant": "Add a GrantItem rule for each implied condition; it is what applies it."
     }
   }
 }

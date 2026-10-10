@@ -16,6 +16,8 @@ export const RulesMessage = {
   EntryIdMismatch: 'rules.entry.idMismatch',
   EntryDuplicateTrait: 'rules.entry.duplicateTrait',
   EntrySupersedesSelf: 'rules.entry.supersedesSelf',
+  ActionReactionTrigger: 'rules.action.reactionTrigger',
+  ConditionImpliesWithoutGrant: 'rules.condition.impliesWithoutGrant',
   RichTextTooDeep: 'rules.richText.tooDeep',
   RichTextTooLarge: 'rules.richText.tooLarge',
   RichTextBasicSave: 'rules.richText.basicSave',

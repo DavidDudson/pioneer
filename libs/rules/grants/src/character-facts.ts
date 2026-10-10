@@ -19,16 +19,22 @@ import type { PlacedEntry, ToggleSlot, ToggleStates } from './toggles';
 const LEVEL_PREFIX = 'self:level';
 
 const KIND_NAMESPACES: Readonly<Record<ContentKind, RollOptionNamespace | undefined>> = {
+  [ContentKind.Action]: undefined,
   [ContentKind.Ancestry]: RollOptionNamespace.parse('ancestry'),
   [ContentKind.Background]: RollOptionNamespace.parse('background'),
   [ContentKind.Class]: RollOptionNamespace.parse('class'),
   [ContentKind.ClassFeature]: RollOptionNamespace.parse('feature'),
   [ContentKind.Condition]: RollOptionNamespace.parse('self:condition'),
   [ContentKind.Creature]: undefined,
+  [ContentKind.DamageType]: undefined,
   [ContentKind.Effect]: RollOptionNamespace.parse('self:effect'),
   [ContentKind.Feat]: RollOptionNamespace.parse('feat'),
   [ContentKind.Heritage]: RollOptionNamespace.parse('heritage'),
+  [ContentKind.Language]: undefined,
+  [ContentKind.Sense]: undefined,
   [ContentKind.Statistic]: undefined,
+  [ContentKind.Trait]: undefined,
+  [ContentKind.VariantRule]: undefined,
 };
 
 /** What the facts of one round are built from, apart from the situation. */

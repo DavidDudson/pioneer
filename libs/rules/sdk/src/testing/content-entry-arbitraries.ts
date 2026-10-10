@@ -1,5 +1,6 @@
 import {
   array,
+  boolean,
   constant,
   constantFrom,
   integer,
@@ -13,12 +14,16 @@ import {
 } from 'fast-check';
 import type { Arbitrary } from 'fast-check';
 
+import { ActionCategory, FrequencyPeriod } from '../action';
 import { Attribute, ATTRIBUTE_MODIFIER_MAX, ATTRIBUTE_MODIFIER_MIN } from '../attribute';
+import { ConditionGroup } from '../condition';
 import { DisplayCategory, Rarity } from '../content-entry';
-import type { RegisteredKind } from '../content-entry';
 import { contentId, PackId, Slug } from '../content-id';
 import { ContentKind } from '../content-kind';
-import { DamageType } from '../damage';
+import { DamageType, DamageTypeGroup } from '../damage';
+import type { RegisteredKind } from '../kind-data';
+import { ActionCost } from '../rich-text';
+import { SenseAcuity } from '../sense';
 import { Size } from '../size';
 import { StatisticKind } from '../statistic';
 import { CONTENT_LEVEL_MAX, LEVEL_MAX, LEVEL_MIN } from '../units';
@@ -106,6 +111,47 @@ const statisticData: Arbitrary<object> = withOptional(
   { keyAttribute: attribute },
 );
 
+const contentIdJson: Arbitrary<string> = uuid({ version: 4 });
+
+const actionUse = {
+  category: constantFrom(...Object.values(ActionCategory)),
+  requirements: richTextJson,
+  frequency: record({ max: positive, per: constantFrom(...Object.values(FrequencyPeriod)) }),
+  selfEffect: contentIdJson,
+};
+const reaction: Arbitrary<object> = withOptional(
+  record({ cost: constant(ActionCost.Reaction), trigger: richTextJson }),
+  actionUse,
+);
+const otherCost: Arbitrary<string> = constantFrom(
+  ...Object.values(ActionCost).filter((cost) => cost !== ActionCost.Reaction),
+);
+/** A reaction always has a trigger; anything else may. */
+const actionData: Arbitrary<object> = oneof(
+  reaction,
+  withOptional(constant({}), { cost: otherCost, trigger: richTextJson, ...actionUse }),
+);
+
+const conditionRefs: Arbitrary<string[]> = uniqueArray(contentIdJson, { maxLength: LIST_MAX });
+const conditionData: Arbitrary<object> = withOptional(
+  record({ valued: boolean(), overrides: conditionRefs, implies: conditionRefs }),
+  { group: constantFrom(...Object.values(ConditionGroup)) },
+);
+
+const damageTypeData: Arbitrary<object> = withOptional(constant({}), {
+  group: constantFrom(...Object.values(DamageTypeGroup)),
+});
+
+const senseData: Arbitrary<object> = withOptional(constant({}), {
+  acuity: constantFrom(...Object.values(SenseAcuity)),
+  unlimitedRange: boolean(),
+});
+
+const contentKind: Arbitrary<string> = constantFrom(...Object.values(ContentKind));
+const traitData: Arbitrary<object> = record({ appliesTo: uniqueArray(contentKind, { maxLength: LIST_MAX }) });
+
+const emptyData: Arbitrary<object> = constant({});
+
 /** A level from any kind but creatures, and a creature's level. */
 const entryLevel: Arbitrary<number> = integer({ min: 0, max: CONTENT_LEVEL_MAX });
 const creatureLevel: Arbitrary<number> = integer({ min: LEVEL_MIN, max: LEVEL_MAX });
@@ -114,9 +160,16 @@ const creatureLevel: Arbitrary<number> = integer({ min: LEVEL_MIN, max: LEVEL_MA
 const KIND_ARBITRARIES: Readonly<
   Record<RegisteredKind, { readonly data: Arbitrary<object>; readonly level?: Arbitrary<number> }>
 > = {
+  [ContentKind.Action]: { data: actionData },
   [ContentKind.Ancestry]: { data: ancestryData },
+  [ContentKind.Condition]: { data: conditionData },
   [ContentKind.Creature]: { data: creatureData, level: creatureLevel },
+  [ContentKind.DamageType]: { data: damageTypeData },
+  [ContentKind.Language]: { data: emptyData },
+  [ContentKind.Sense]: { data: senseData },
   [ContentKind.Statistic]: { data: statisticData },
+  [ContentKind.Trait]: { data: traitData },
+  [ContentKind.VariantRule]: { data: emptyData },
 };
 
 const bookPage: Arbitrary<object> = record({ kind: constant('book'), book: slugText, page: positive });
@@ -141,10 +194,25 @@ const identity: Arbitrary<EntryIdentity> = tuple(slugText, slugText).map(([pack,
   slug,
 }));
 
+/** A condition grants each condition it implies; other kinds have no `implies`, so nothing. */
+function impliedGrants(data: object): object[] {
+  const implies: unknown = Reflect.get(data, 'implies');
+  return Array.isArray(implies) ? implies.map((item: unknown) => ({ key: 'GrantItem', item })) : [];
+}
+
+/** A kind's `data` with rules that keep it valid. */
+interface DataAndRules {
+  readonly data: object;
+  readonly rules: object[];
+}
+
 /** A valid content entry of `kind`, as plain JSON (unparsed), with every optional field sometimes present. */
 export function contentEntryJson(kind: RegisteredKind): Arbitrary<object> {
   const { data, level } = KIND_ARBITRARIES[kind];
-  const required = identity.chain(({ id, pack, slug }) =>
+  const dataAndRules: Arbitrary<DataAndRules> = tuple(data, array(ruleElementJson, { maxLength: LIST_MAX })).map(
+    ([picked, rules]) => ({ data: picked, rules: [...rules, ...impliedGrants(picked)] }),
+  );
+  const required = tuple(identity, dataAndRules).chain(([{ id, pack, slug }, kindFields]) =>
     record({
       id: constant(id),
       pack: constant(pack),
@@ -155,8 +223,8 @@ export function contentEntryJson(kind: RegisteredKind): Arbitrary<object> {
       traits: uniqueArray(slugText, { maxLength: LIST_MAX }),
       sources: array(source, { minLength: 1, maxLength: LIST_MAX }),
       description: richTextJson,
-      rules: array(ruleElementJson, { maxLength: LIST_MAX }),
-      data,
+      rules: constant(kindFields.rules),
+      data: constant(kindFields.data),
       ...(level === undefined ? {} : { level }),
     }),
   );

@@ -56,3 +56,15 @@ export const DamageAdjustmentTargetSchema = z.enum(DamageAdjustmentTarget);
 /** A weakness or resistance to a damage type or group. */
 export const DamageAdjustment = z.object({ type: DamageAdjustmentTargetSchema, value: DamageAmount });
 export type DamageAdjustment = z.infer<typeof DamageAdjustment>;
+
+/** The group a damage type belongs to; mental, poison and spirit belong to none. */
+export const DamageTypeGroup = { Physical: DamageGroup.Physical, Energy: DamageGroup.Energy } as const;
+export type DamageTypeGroup = ValueOf<typeof DamageTypeGroup>;
+export const DamageTypeGroupSchema = z.enum(DamageTypeGroup);
+
+/**
+ * A damage type's `data` on the `ContentEntry` envelope. The engine's types are `DamageType`; an entry gives one a
+ * name, description and source, and homebrew a way to add more.
+ */
+export const DamageTypeData = z.strictObject({ group: DamageTypeGroupSchema.optional() });
+export type DamageTypeData = z.infer<typeof DamageTypeData>;

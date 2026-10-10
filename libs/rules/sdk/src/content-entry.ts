@@ -2,16 +2,15 @@ import type { MessageDescriptor, ValueOf } from '@pioneer/shared/kernel';
 import { issueParams, message } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
-import { AncestryData } from './ancestry';
 import { ContentId, contentId, PackId, Slug } from './content-id';
 import { ContentKind } from './content-kind';
 import { ContentText } from './content-text';
-import { CreatureData } from './creature';
+import { KIND_DATA, REGISTERED_KINDS } from './kind-data';
 import { RulesMessage } from './messages';
 import { RichText } from './rich-text';
 import { RuleElements } from './rule-element';
+import { RuleElementKey } from './rule-element-base';
 import { AonUrl, SourceRef } from './source-ref';
-import { StatisticData } from './statistic';
 import { Trait } from './trait';
 import { ContentLevel, Level } from './units';
 
@@ -47,22 +46,6 @@ export const ExternalIds = z.strictObject({
 });
 export type ExternalIds = z.infer<typeof ExternalIds>;
 
-/**
- * The `data` schema for each kind that has one. A kind joins here with its schema module and an arm of `Entry`;
- * the rest of `ContentKind` is rejected until it does.
- */
-export const KIND_DATA = {
-  [ContentKind.Ancestry]: AncestryData,
-  [ContentKind.Creature]: CreatureData,
-  [ContentKind.Statistic]: StatisticData,
-} as const;
-export type RegisteredKind = keyof typeof KIND_DATA;
-
-/** Every kind with a `data` schema, in `ContentKind` order. */
-export const REGISTERED_KINDS: readonly RegisteredKind[] = Object.values(ContentKind).filter(
-  (kind): kind is RegisteredKind => Object.hasOwn(KIND_DATA, kind),
-);
-
 const KNOWN_KINDS: ReadonlySet<unknown> = new Set(REGISTERED_KINDS);
 
 const TRAITS_MAX = 32;
@@ -93,9 +76,21 @@ const envelope = {
 const Entry = z.discriminatedUnion('kind', [
   z.strictObject({
     ...address,
+    kind: z.literal(ContentKind.Action),
+    ...envelope,
+    data: KIND_DATA[ContentKind.Action],
+  }),
+  z.strictObject({
+    ...address,
     kind: z.literal(ContentKind.Ancestry),
     ...envelope,
     data: KIND_DATA[ContentKind.Ancestry],
+  }),
+  z.strictObject({
+    ...address,
+    kind: z.literal(ContentKind.Condition),
+    ...envelope,
+    data: KIND_DATA[ContentKind.Condition],
   }),
   z.strictObject({
     ...address,
@@ -107,9 +102,39 @@ const Entry = z.discriminatedUnion('kind', [
   }),
   z.strictObject({
     ...address,
+    kind: z.literal(ContentKind.DamageType),
+    ...envelope,
+    data: KIND_DATA[ContentKind.DamageType],
+  }),
+  z.strictObject({
+    ...address,
+    kind: z.literal(ContentKind.Language),
+    ...envelope,
+    data: KIND_DATA[ContentKind.Language],
+  }),
+  z.strictObject({
+    ...address,
+    kind: z.literal(ContentKind.Sense),
+    ...envelope,
+    data: KIND_DATA[ContentKind.Sense],
+  }),
+  z.strictObject({
+    ...address,
     kind: z.literal(ContentKind.Statistic),
     ...envelope,
     data: KIND_DATA[ContentKind.Statistic],
+  }),
+  z.strictObject({
+    ...address,
+    kind: z.literal(ContentKind.Trait),
+    ...envelope,
+    data: KIND_DATA[ContentKind.Trait],
+  }),
+  z.strictObject({
+    ...address,
+    kind: z.literal(ContentKind.VariantRule),
+    ...envelope,
+    data: KIND_DATA[ContentKind.VariantRule],
   }),
 ]);
 export type ContentEntry = z.output<typeof Entry>;
@@ -159,10 +184,25 @@ function checkSupersedes(context: EntryCheck): void {
   }
 }
 
+/** Every condition a condition implies is applied by a `GrantItem` of it in `rules`. */
+function checkImplies(context: EntryCheck): void {
+  const entry = context.value;
+  if (entry.kind !== ContentKind.Condition) {
+    return;
+  }
+  const granted = new Set(entry.rules.flatMap((rule) => (rule.key === RuleElementKey.GrantItem ? [rule.item] : [])));
+  for (const [index, implied] of entry.data.implies.entries()) {
+    if (!granted.has(implied)) {
+      push(context, ['data', 'implies', index], message(RulesMessage.ConditionImpliesWithoutGrant));
+    }
+  }
+}
+
 /**
  * One content entry of any kind (content-model.md): the shared envelope, with `data` checked by the schema for its
  * `kind`. A kind with no schema yet is an error naming it. The id must be UUIDv5 of `<pack>/<slug>`, traits are
- * unique, and an entry never supersedes itself.
+ * unique, an entry never supersedes itself, and a condition grants
+ * every condition it implies.
  */
 export const ContentEntry: z.ZodType<ContentEntry> = z
   .unknown()
@@ -183,5 +223,6 @@ export const ContentEntry: z.ZodType<ContentEntry> = z
       checkId(context);
       checkTraits(context);
       checkSupersedes(context);
+      checkImplies(context);
     }),
   );
