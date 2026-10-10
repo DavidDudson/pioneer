@@ -80,7 +80,8 @@ libs/
     dice/           dice expressions, RNG port, degree of success, damage application
     formula/        formula language: parser to a positioned tree, printer, references, evaluator (kernel only)
     predicate/      three-valued (Kleene) predicate evaluation, roll option namespace lookup
-    catalog/        pack loaders (exists; switches from TS imports to API/DB loading)
+    catalog/        pack loaders over content/packs: the registry's and the seed's source (exists)
+    infrastructure/ content tables and the official pack seed (Drizzle; server only)
     ui/             Angular rendering of rules data: rich text, source line (frontier components only;
                     presentational, own Storybook, ADR-0028)
   content/          (TS packs retired; replaced by content/ JSON data, see content-model.md)
@@ -107,7 +108,8 @@ tools/
 
 Dependency rule: `rules/*` depends only on `shared/kernel` and other `rules/*` libraries: `rules/formula` on the kernel
 alone, `rules/sdk` on `rules/formula`, and `dice`, `predicate`, `engine`, `catalog` and `ui` on `rules/sdk`. `rules/ui`,
-the one web-only `rules` library, also uses frontier. Feature areas depend on `rules/*`, never the reverse.
+the one web-only `rules` library, also uses frontier; `rules/infrastructure`, the one server-only one, also uses Drizzle
+and `shared/server` in its tests. Feature areas depend on `rules/*`, never the reverse.
 Frontier never depends on `rules/*`. Components that render rules data are presentational (in `ui` libraries, data in
 through inputs, a story each) or containers (in `feature` libraries, which load data and pass it in), per ADR-0028.
 `apps/storybook` composes every library's Storybook into one.

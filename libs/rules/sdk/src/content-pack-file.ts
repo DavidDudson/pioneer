@@ -61,13 +61,38 @@ function checkPlacement(pack: PackId, entry: ContentEntry, taken: Set<Slug>): vo
   taken.add(entry.slug);
 }
 
+/** A pack's JSON files once checked: its `pack.json`, and the entries of its `<kind>.json` files in file order. */
+export interface PackContents {
+  readonly file: ContentPackFile;
+  readonly entries: readonly ContentEntry[];
+}
+
+/** How the API reads a pack's files without bundling them up front: a lazy dynamic import, like `ContentPackLoader`. */
+export interface PackContentsLoader {
+  readonly id: PackId;
+  readonly load: () => Promise<PackContents>;
+}
+
 /**
- * The `ContentPack` a pack's JSON files describe: `pack.json` and the entries of every `<kind>.json`. Until the
- * registry serves entries directly (Epic 2.3), entries become the definitions it holds today. An entry filed under
- * another pack, or a slug used twice across the pack's kinds, is an error naming it.
+ * Checks a pack's JSON files: `pack.json` and the entries of every `<kind>.json`. An entry filed under another pack,
+ * or a slug used twice across the pack's kinds, is an error naming it.
  */
-export function contentPackFromFiles(packFile: unknown, entryFiles: readonly unknown[]): ContentPack {
-  const { proficiencyBonus, rollOptionNamespaces, ...manifest } = ContentPackFile.parse(packFile);
+export function packContentsFromFiles(packFile: unknown, entryFiles: readonly unknown[]): PackContents {
+  const file = ContentPackFile.parse(packFile);
+  const entries = entryFiles.flatMap((entryFile) => ContentEntryFile.parse(entryFile));
+  const taken = new Set<Slug>();
+  for (const entry of entries) {
+    checkPlacement(file.id, entry, taken);
+  }
+  return { file, entries };
+}
+
+/**
+ * The `ContentPack` a pack's checked files describe. Until the registry serves entries directly (Epic 2.3), entries
+ * become the definitions it holds today.
+ */
+export function contentPackFromContents({ file, entries }: PackContents): ContentPack {
+  const { proficiencyBonus, rollOptionNamespaces, ...manifest } = file;
   const definitions: PackDefinitions = {
     ancestries: [],
     creatures: [],
@@ -75,10 +100,13 @@ export function contentPackFromFiles(packFile: unknown, entryFiles: readonly unk
     variantRules: [],
     otherEntries: [],
   };
-  const taken = new Set<Slug>();
-  for (const entry of entryFiles.flatMap((file) => ContentEntryFile.parse(file))) {
-    checkPlacement(manifest.id, entry, taken);
+  for (const entry of entries) {
     addDefinition(definitions, entry);
   }
   return ContentPack.define({ manifest, proficiencyBonus, rollOptionNamespaces, ...definitions });
+}
+
+/** The `ContentPack` a pack's JSON files describe: `packContentsFromFiles`, then `contentPackFromContents`. */
+export function contentPackFromFiles(packFile: unknown, entryFiles: readonly unknown[]): ContentPack {
+  return contentPackFromContents(packContentsFromFiles(packFile, entryFiles));
 }

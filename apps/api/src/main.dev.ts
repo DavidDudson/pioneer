@@ -7,14 +7,19 @@ import { systemClock } from '@pioneer/shared/kernel';
 import { Elysia } from 'elysia';
 
 import { createApp } from './app';
+import { seedOfficialContent } from './content';
 import { connect, runMigrations } from './database';
 import { devSignInRoutes } from './dev/dev-sign-in';
 import { assertLocalOrigin, DEV_HOSTNAME } from './dev/local-only';
 import { seedDevData } from './dev/seed';
 import { readEnv } from './env';
 
-/** `main.dev.ts seed` migrates and seeds, then exits; no argument also serves. */
+/** `main.dev.ts seed` migrates and seeds content and the dev users, then exits; no argument also serves. */
 const SEED_COMMAND = 'seed';
+
+function log(line: string): void {
+  console.info(line);
+}
 
 const command = Bun.argv.at(2);
 if (command !== undefined && command !== SEED_COMMAND) {
@@ -26,6 +31,7 @@ assertLocalOrigin(env.PUBLIC_ORIGIN);
 
 const db = connect(env.DATABASE_URL);
 await runMigrations(db, env.MIGRATIONS_DIR);
+await seedOfficialContent(db, systemClock, log);
 await seedDevData(db, systemClock);
 
 if (command === SEED_COMMAND) {
