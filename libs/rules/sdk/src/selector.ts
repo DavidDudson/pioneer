@@ -38,3 +38,16 @@ export type SlotKey = z.infer<typeof SlotKey>;
 /** A toggleable `RollOption` on the character: its entry and rule index, `<entry id>:<rule>`. */
 export const ToggleKey = KeyPath.brand<'ToggleKey'>();
 export type ToggleKey = z.infer<typeof ToggleKey>;
+
+const SKILL_PREFIX = 'skill:';
+const SAVE_PREFIX = 'save:';
+
+/** A skill's selector (`skill:medicine`, `skill:lore-boneyard`): a divine skill, a ritual check. */
+export const SkillSelector = Selector.refine((selector) => selector.startsWith(SKILL_PREFIX), {
+  ...issueParams(message(RulesMessage.SkillSelector)),
+});
+
+/** A saving throw's selector (`save:reflex`): the save a spell asks for. */
+export const SaveSelector = Selector.refine((selector) => selector.startsWith(SAVE_PREFIX), {
+  ...issueParams(message(RulesMessage.SaveSelector)),
+});

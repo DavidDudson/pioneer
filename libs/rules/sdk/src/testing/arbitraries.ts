@@ -37,6 +37,10 @@ export const keyPathText: Arbitrary<string> = tuple(word, array(joinedWord, { ma
   ([first, rest]) => first + rest.join(''),
 );
 
+/** A skill selector (`skill:arcana`) and a saving throw selector (`save:reflex`). */
+export const skillSelectorText: Arbitrary<string> = keyPathText.map((path) => `skill:${path}`);
+export const saveSelectorText: Arbitrary<string> = keyPathText.map((path) => `save:${path}`);
+
 /** A namespace, then a key path: valid roll options. */
 export const rollOptionText: Arbitrary<string> = tuple(word, keyPathText).map(
   ([namespace, rest]) => `${namespace}:${rest}`,

@@ -257,7 +257,7 @@ describe('build kinds', () => {
 
   test('divine skills are skill selectors', () => {
     expect(found({ ...pharasma, data: { ...pharasma.data, skills: ['skill:lore-boneyard', 'ac'] } })).toStrictEqual([
-      `data.skills.1 ${RulesMessage.DeitySkill}`,
+      `data.skills.1 ${RulesMessage.SkillSelector}`,
     ]);
   });
 

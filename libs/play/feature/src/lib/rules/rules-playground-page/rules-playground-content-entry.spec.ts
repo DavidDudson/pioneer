@@ -18,10 +18,14 @@ const KIND_EXAMPLES = [
   ['creature', 'Creature'],
   ['damage-type', 'Damage type'],
   ['deity', 'Deity'],
+  ['effect', 'Effect'],
   ['feat', 'Feat'],
   ['heritage', 'Heritage'],
   ['language', 'Language'],
+  ['ritual', 'Ritual'],
   ['sense', 'Sense'],
+  ['spell', 'Spell'],
+  ['spellcasting-tradition', 'Spellcasting tradition'],
   ['statistic', 'Statistic'],
   ['trait', 'Trait'],
   ['variant-rule', 'Variant rule'],
@@ -60,11 +64,11 @@ describe('RulesPlaygroundPage content entry', () => {
   it('names a kind with no schema', async () => {
     const harness = await openPlayground();
     await chooseSchema(harness, 'Content entry');
-    await typeJson(harness, json(harness).replace('"kind": "ancestry"', '"kind": "spell"'));
+    await typeJson(harness, json(harness).replace('"kind": "ancestry"', '"kind": "weapon"'));
 
     const text = pageText(harness);
     expect(text).toContain('1 problem');
-    expect(text).toContain('“spell” is not a content kind Pioneer has a schema for yet.');
+    expect(text).toContain('“weapon” is not a content kind Pioneer has a schema for yet.');
   });
 
   it('points at the envelope or data field that is wrong', async () => {
