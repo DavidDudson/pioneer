@@ -21,7 +21,8 @@
     "check:components": "bun tools/check-component-coverage.ts",
     "check:contrast": "bun tools/check-token-contrast.ts",
     "content:coverage": "bun tools/content-coverage.ts",
-    "content:seed": "bun apps/api/src/main.ts content-seed"
+    "content:seed": "bun apps/api/src/main.ts content-seed",
+    "content:triggers": "bun tools/enrich-triggers.ts"
   },
   "dependencies": {
     "@angular/aria": "22.2.0",

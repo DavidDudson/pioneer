@@ -10,6 +10,10 @@ export { checkPackSources, packEntries, SourceCheckError, sourceIssues } from '.
 export type { MissourcedEntry, SourcedEntry } from './source-check';
 export { sourceCoverage } from './source-coverage';
 export type { BookCoverage } from './source-coverage';
+export { triggerCoverage } from './trigger-coverage';
+export type { TriggerCoverage } from './trigger-coverage';
+export { entryAction, matchTrigger, triggerMatches } from './trigger-matcher';
+export type { RefNames, TriggerMatch } from './trigger-matcher';
 
 /** A loader whose pack must also pass the registry source checks, so a wrongly sourced entry fails to load. */
 export function checkedLoader(id: string, load: () => Promise<PackContents>): PackContentsLoader {
