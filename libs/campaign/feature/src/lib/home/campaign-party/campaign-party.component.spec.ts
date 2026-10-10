@@ -86,12 +86,20 @@ async function open(party: PartyJson): Promise<RouterTestingHarness> {
   return harness;
 }
 
+/** The picker's control. */
+function picker(harness: RouterTestingHarness): Select<string> {
+  return harness.fixture.debugElement.query((element) => element.componentInstance instanceof Select)
+    .componentInstance as Select<string>;
+}
+
+/** The text of every badge, in document order. */
+function badges(root: HTMLElement): string[] {
+  return [...root.querySelectorAll('fr-badge')].map((badge) => badge.textContent.trim());
+}
+
 /** Picks `characterId` in the picker, the way choosing it from the overlay listbox would. */
 function pick(harness: RouterTestingHarness, characterId: string): void {
-  (
-    harness.fixture.debugElement.query((element) => element.componentInstance instanceof Select)
-      .componentInstance as Select<string>
-  ).value.set(characterId);
+  picker(harness).value.set(characterId);
   harness.detectChanges();
 }
 
@@ -129,6 +137,12 @@ describe('CampaignPartyPanel', () => {
       expect(root.textContent).toContain('Level 3, played by Ezren');
       expect(root.textContent).toContain('Brought in');
     });
+    expect(
+      picker(harness)
+        .options()
+        .map((option) => option.value),
+    ).toStrictEqual([merisiel.characterId]);
+    expect(picker(harness).value()).toBe('');
   });
 
   it('says so when another campaign took the character first', async () => {
@@ -175,5 +189,80 @@ describe('CampaignPartyPanel', () => {
       expect(root.querySelector('button[type="submit"]')).not.toBeNull();
     });
     expect(root.ownerDocument.activeElement).toBe(button);
+  });
+});
+
+describe('CampaignPartyPanel, past the first attach', () => {
+  it('keeps the form and its focus after bringing in the last free character', async () => {
+    const harness = await open({ characters: [], attachable: [valeros] });
+    const http = TestBed.inject(HttpTestingController);
+    const root = present(harness.routeNativeElement);
+
+    pick(harness, valeros.characterId);
+    const submit = present(root.querySelector<HTMLButtonElement>('button[type="submit"]'));
+    submit.focus();
+    submit.click();
+    await vi.waitFor(() => {
+      http
+        .expectOne({ method: 'POST', url: `/api/campaigns/${id}/characters` })
+        .flush({ characters: [inParty(valeros, true)], attachable: [] });
+    });
+    await vi.waitFor(() => {
+      expect(root.textContent).toContain('Brought in');
+      expect(root.textContent).toContain('None of your characters is free to bring.');
+    });
+    expect(root.ownerDocument.activeElement).toBe(submit);
+  });
+
+  it('drops the Detached mark when the character is brought back', async () => {
+    const harness = await open({ characters: [inParty(valeros, true)], attachable: [] });
+    const http = TestBed.inject(HttpTestingController);
+    const root = present(harness.routeNativeElement);
+
+    present(buttons(root, 'Detach')[0]).click();
+    await vi.waitFor(() => {
+      http
+        .expectOne({ method: 'DELETE', url: `/api/campaigns/${id}/characters/${valeros.characterId}` })
+        .flush({ characters: [], attachable: [valeros] });
+    });
+    await vi.waitFor(() => {
+      expect(badges(root)).toContain('Detached');
+    });
+
+    pick(harness, valeros.characterId);
+    present(root.querySelector<HTMLButtonElement>('button[type="submit"]')).click();
+    await vi.waitFor(() => {
+      http
+        .expectOne({ method: 'POST', url: `/api/campaigns/${id}/characters` })
+        .flush({ characters: [inParty(valeros, true)], attachable: [] });
+    });
+    await vi.waitFor(() => {
+      expect(badges(root)).not.toContain('Detached');
+    });
+  });
+
+  it('asks to try again when bringing in or detaching fails', async () => {
+    const harness = await open({ characters: [inParty(valeros, true)], attachable: [merisiel] });
+    const http = TestBed.inject(HttpTestingController);
+    const root = present(harness.routeNativeElement);
+    const failure = { type: 'internal', title: 'Internal error', status: 500, message: { key: 'problem.internal' } };
+
+    pick(harness, merisiel.characterId);
+    present(root.querySelector<HTMLButtonElement>('button[type="submit"]')).click();
+    await vi.waitFor(() => {
+      http
+        .expectOne({ method: 'POST', url: `/api/campaigns/${id}/characters` })
+        .flush(failure, { status: 500, statusText: 'Internal Server Error' });
+    });
+    present(buttons(root, 'Detach')[0]).click();
+    await vi.waitFor(() => {
+      http
+        .expectOne({ method: 'DELETE', url: `/api/campaigns/${id}/characters/${valeros.characterId}` })
+        .flush(failure, { status: 500, statusText: 'Internal Server Error' });
+    });
+    await vi.waitFor(() => {
+      expect(root.textContent).toContain('Could not bring the character in. Try again.');
+      expect(root.textContent).toContain('Could not detach the character. Try again.');
+    });
   });
 });

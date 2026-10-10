@@ -54,7 +54,7 @@
             </fr-list>
           }
 
-          <pio-campaign-attach-picker [attachable]="party.attachable" />
+          <pio-campaign-attach-picker [attachable]="party.attachable" (attached)="rejoined($event)" />
         </fr-stack>
       </ng-template>
     </fr-async-region>

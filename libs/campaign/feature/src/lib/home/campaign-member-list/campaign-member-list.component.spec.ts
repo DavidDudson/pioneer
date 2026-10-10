@@ -164,6 +164,10 @@ describe('CampaignMemberList', () => {
       http.expectOne(`/api/campaigns/${id}`).flush({ ...campaign, version: 2, gmId: playerId });
     });
     await vi.waitFor(() => {
+      // A player now, they may detach only their own characters.
+      http.expectOne(`/api/campaigns/${id}/party`).flush(emptyParty);
+    });
+    await vi.waitFor(() => {
       expect(buttons(root, 'Leave campaign')).toHaveLength(1);
       expect(buttons(root, 'Remove')).toHaveLength(0);
       expect(root.textContent).not.toContain('Invite players');

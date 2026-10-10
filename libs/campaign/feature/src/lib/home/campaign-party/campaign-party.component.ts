@@ -69,6 +69,11 @@ export class CampaignPartyPanel {
 
   protected readonly describeDetachError = (): string => this.#i18n.translate('campaign.party.detachFailed');
 
+  /** A character brought back into the party is no longer detached. */
+  protected rejoined(characterId: CharacterId): void {
+    this.detached.update((detached) => new Set([...detached].filter((id) => id !== characterId)));
+  }
+
   protected detach(character: PartyCharacter): () => Promise<void> {
     const existing = this.#detaches.get(character.characterId);
     if (existing !== undefined) {

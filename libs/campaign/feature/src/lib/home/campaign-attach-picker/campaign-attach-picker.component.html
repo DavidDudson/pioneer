@@ -1,11 +1,11 @@
 <fr-stack gap="sm">
   <fr-heading variant="label" [level]="3">{{ 'campaign.party.attachHeading' | transloco }}</fr-heading>
   @if (attachable().length === 0) {
-    <fr-stack gap="2xs">
-      <fr-text element="p" tone="muted">{{ 'campaign.party.noneToAttach' | transloco }}</fr-text>
+    <fr-empty-state [icon]="emptyIcon" [title]="'campaign.party.noneToAttach' | transloco">
       <fr-link [to]="['/characters']">{{ 'campaign.party.toCharacters' | transloco }}</fr-link>
-    </fr-stack>
-  } @else {
+    </fr-empty-state>
+  }
+  @if (showForm()) {
     <fr-async-form [form]="form" [action]="attach" [describeError]="describeAttachError">
       <fr-stack gap="sm">
         <fr-select-field
