@@ -66,6 +66,8 @@
       "@pioneer/character/application": ["./libs/character/application/src/index.ts"],
       "@pioneer/character/infrastructure": ["./libs/character/infrastructure/src/index.ts"],
       "@pioneer/character/feature": ["./libs/character/feature/src/index.ts"],
+      "@pioneer/interop/pathbuilder": ["./libs/interop/pathbuilder/src/index.ts"],
+      "@pioneer/interop/pathbuilder/testing": ["./libs/interop/pathbuilder/src/testing/index.ts"],
       "@pioneer/campaign/domain": ["./libs/campaign/domain/src/index.ts"],
       "@pioneer/campaign/domain/testing": ["./libs/campaign/domain/src/testing/index.ts"],
       "@pioneer/campaign/application": ["./libs/campaign/application/src/index.ts"],
