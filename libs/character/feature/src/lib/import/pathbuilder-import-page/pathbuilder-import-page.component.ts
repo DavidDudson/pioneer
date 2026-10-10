@@ -24,7 +24,8 @@ import {
   registryLookup,
 } from '@pioneer/interop/pathbuilder';
 import type { ImportReport, PathbuilderImport, PathbuilderReadResult } from '@pioneer/interop/pathbuilder';
-import { Attribute } from '@pioneer/rules/sdk';
+import { ContentLoader } from '@pioneer/rules/data-access';
+import { Attribute, ContentKind } from '@pioneer/rules/sdk';
 import { ApiError } from '@pioneer/shared/web';
 import { injectQuery } from '@tanstack/angular-query-experimental';
 
@@ -83,7 +84,9 @@ const SIGNED: Intl.NumberFormatOptions = { signDisplay: 'exceptZero' };
 })
 export class PathbuilderImportPage {
   readonly #format = inject(LocaleFormat);
-  readonly #registry = injectQuery(contentRegistryQuery);
+  readonly #content = inject(ContentLoader);
+  /** Pathbuilder names are matched against ancestries today; more kinds join as the report learns them. */
+  readonly #registry = injectQuery(() => contentRegistryQuery(this.#content, [ContentKind.Ancestry]));
   readonly #store = inject(CharacterStore);
   readonly #router = inject(Router);
   readonly #route = inject(ActivatedRoute);

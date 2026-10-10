@@ -1,9 +1,13 @@
 import { HttpTestingController } from '@angular/common/http/testing';
+import type { Provider } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { provideRouter, Router, withComponentInputBinding } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
 import { frontierMessages } from '@pioneer/frontier';
 import { briarRoseExport, mordredExport } from '@pioneer/interop/pathbuilder/testing';
+import { officialPacks } from '@pioneer/rules/catalog';
+import { MemoryBundleStore } from '@pioneer/rules/data-access';
+import { provideContentTesting, TestContentDelivery } from '@pioneer/rules/data-access/testing';
 import { contentId, PackId, Slug } from '@pioneer/rules/sdk';
 import { provideI18n } from '@pioneer/shared/web';
 import { describe, expect, it, vi } from 'vitest';
@@ -23,12 +27,14 @@ interface OpenPage {
   readonly root: HTMLElement;
 }
 
-async function openPage(): Promise<OpenPage> {
+/** Opens the import page; `content` replaces where its content comes from. */
+async function openPage(content: readonly Provider[] = []): Promise<OpenPage> {
   TestBed.configureTestingModule({
     providers: [
       provideRouter([{ path: 'characters', children: characterRoutes }], withComponentInputBinding()),
       ...provideServerStateTesting(),
       provideI18n({ en: async () => frontierMessages }),
+      ...content,
     ],
   });
   const harness = await RouterTestingHarness.create('/characters/import/pathbuilder');
@@ -66,6 +72,30 @@ describe('PathbuilderImportPage', () => {
     });
     expect(root.textContent).toContain('Ancestry · 0 of 1 matched');
     expect(root.textContent).toContain('Feats · 0 of 32 matched');
+  });
+
+  it('matches against content kept from an earlier visit while offline', async () => {
+    const store = new MemoryBundleStore();
+    const delivery = new TestContentDelivery(officialPacks);
+    const online = await openPage(provideContentTesting(delivery, store));
+    await paste(online.harness, online.root, JSON.stringify(mordredExport));
+    await vi.waitFor(() => {
+      online.harness.detectChanges();
+      expect(online.root.textContent).toContain('Ancestry · 1 of 1 matched');
+    });
+    TestBed.resetTestingModule();
+    delivery.offline = true;
+    const seen = delivery.requests.length;
+
+    const offline = await openPage(provideContentTesting(delivery, store));
+    await paste(offline.harness, offline.root, JSON.stringify(mordredExport));
+
+    await vi.waitFor(() => {
+      offline.harness.detectChanges();
+      expect(offline.root.textContent).toContain('Ancestry · 1 of 1 matched');
+    });
+    // Only the manifest was asked for, and it failed: every bundle came from the store.
+    expect(delivery.requests.slice(seen)).toStrictEqual(['manifest']);
   });
 
   it('explains text that is not a Pathbuilder export', async () => {
