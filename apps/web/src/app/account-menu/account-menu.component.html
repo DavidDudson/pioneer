@@ -1,6 +1,6 @@
 @if (session.user(); as user) {
   <fr-stack direction="horizontal" gap="xs" align="center">
-    <fr-link variant="caption" [to]="accountPath">{{ user.displayName }}</fr-link>
+    <fr-link variant="caption" exact [to]="accountPath">{{ user.displayName }}</fr-link>
     <fr-link variant="caption" [to]="settingsPath">{{ 'shell.account.settings' | transloco }}</fr-link>
     <fr-async-button variant="ghost" size="sm" [action]="signOut">{{
       'shell.account.signOut' | transloco

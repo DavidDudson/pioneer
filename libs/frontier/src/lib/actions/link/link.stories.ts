@@ -58,13 +58,11 @@ export const ExternalNotHttp: LinkStory = {
  */
 export const CurrentPage: LinkStory = {
   render: () => ({
-    template: `<nav aria-label="Sections">
-      <fr-stack direction="horizontal" gap="md">
-        <fr-link to="/" exact>Home</fr-link>
-        <fr-link to="/characters">Characters</fr-link>
-        <fr-link to="/campaigns">Campaigns</fr-link>
-      </fr-stack>
-    </nav>`,
+    template: `<fr-stack direction="horizontal" gap="md">
+      <fr-link to="/" exact>Home</fr-link>
+      <fr-link to="/characters">Characters</fr-link>
+      <fr-link to="/campaigns">Campaigns</fr-link>
+    </fr-stack>`,
   }),
 };
 

@@ -104,7 +104,10 @@ describe(Link, () => {
   it('marks a link to the page being shown as the current page', async () => {
     const anchor = await render({ to: '/characters' }, '/characters');
     expect(anchor.getAttribute('aria-current')).toBe('page');
-    expect([...anchor.classList]).toStrictEqual(expect.arrayContaining(['decoration-accent-fg', 'underline-current']));
+    expect([...anchor.classList]).toStrictEqual(
+      expect.arrayContaining(['decoration-accent-fg', 'decoration-link-current']),
+    );
+    expect([...anchor.classList]).not.toContain('decoration-line-strong');
   });
 
   it('marks a link as current on the pages under it', async () => {
@@ -115,8 +118,18 @@ describe(Link, () => {
   it('leaves a link to another page unmarked', async () => {
     const anchor = await render({ to: '/campaigns' }, '/characters');
     expect(anchor.hasAttribute('aria-current')).toBe(false);
-    expect([...anchor.classList]).not.toContain('underline-current');
+    expect([...anchor.classList]).not.toContain('decoration-link-current');
+    expect([...anchor.classList]).toContain('decoration-line-strong');
   });
+
+  it.each([{ href: 'https://paizo.com' }, { external: 'https://paizo.com' }])(
+    'never marks a link to another site as the current page (%j)',
+    async (inputs) => {
+      const anchor = await render(inputs, '/');
+      expect(anchor.hasAttribute('aria-current')).toBe(false);
+      expect([...anchor.classList]).not.toContain('decoration-link-current');
+    },
+  );
 
   it.each([
     ['/', true],
@@ -132,6 +145,6 @@ describe(Link, () => {
     expect(navigated).toBe(true);
     await TestBed.inject(ApplicationRef).whenStable();
     expect(anchor.hasAttribute('aria-current')).toBe(false);
-    expect([...anchor.classList]).not.toContain('underline-current');
+    expect([...anchor.classList]).not.toContain('decoration-link-current');
   });
 });

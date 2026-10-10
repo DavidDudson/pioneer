@@ -7,11 +7,11 @@ import { textVariants } from '../../text/text.variants';
 import type { TextVariant } from '../../text/text.variants';
 
 const linkVariants = cva(
-  'text-accent-fg underline decoration-line-strong underline-offset-link hover:decoration-accent-fg focus-visible:focus-ring',
+  'text-accent-fg underline underline-offset-link hover:decoration-accent-fg focus-visible:focus-ring',
   {
     variants: {
       // The page being shown: the underline turns accent and thickens, so the cue is not colour alone.
-      current: { true: 'decoration-accent-fg underline-current', false: '' },
+      current: { true: 'decoration-accent-fg decoration-link-current', false: 'decoration-line-strong' },
     },
   },
 );
