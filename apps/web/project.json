@@ -84,7 +84,7 @@
     "verify-styles": {
       "dependsOn": ["build"],
       "cache": true,
-      "inputs": ["production", "^production"],
+      "inputs": ["production", "^production", "{workspaceRoot}/tools/check-built-css.ts"],
       "command": "bun tools/check-built-css.ts"
     },
     "verify-dev-free": {

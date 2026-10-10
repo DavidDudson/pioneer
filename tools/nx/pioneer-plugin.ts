@@ -33,14 +33,21 @@ function inferTargets(root: string, absoluteRoot: string): Record<string, Target
   const targets: Record<string, TargetConfiguration> = {
     typecheck: {
       cache: true,
-      inputs: ['default', '^default'],
+      // Dependencies are compiled from their sources only: their specs and stories cannot change this result.
+      inputs: ['default', '^production'],
       command: angular ? `ngc -p ${root}/${angularConfig} --noEmit` : `tsc -p ${root}/tsconfig.json`,
     },
   };
   if (angular && hasMatchingFile(absoluteRoot, (file) => file.endsWith('.html'))) {
     targets['lint-templates'] = {
       cache: true,
-      inputs: ['{projectRoot}/**/*.html', '{workspaceRoot}/eslint.config.ts', '{workspaceRoot}/tools/eslint/**/*'],
+      // The sharedGlobals input carries bun.lock, so an ESLint or angular-eslint bump reruns it.
+      inputs: [
+        '{projectRoot}/**/*.html',
+        '{workspaceRoot}/eslint.config.ts',
+        '{workspaceRoot}/tools/eslint/**/*',
+        'sharedGlobals',
+      ],
       command: `eslint --max-warnings=0 '${root}/**/*.html'`,
     };
   }

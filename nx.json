@@ -10,9 +10,18 @@
       "!{projectRoot}/**/*.stories.@(js|jsx|ts|tsx|mdx)",
       "!{projectRoot}/.storybook/**/*"
     ],
-    "sharedGlobals": ["{workspaceRoot}/tsconfig.base.json", "{workspaceRoot}/bun.lock", "{workspaceRoot}/bunfig.toml"]
+    "sharedGlobals": ["{workspaceRoot}/tsconfig.base.json", "{workspaceRoot}/bun.lock", "{workspaceRoot}/bunfig.toml"],
+    "oxlintRules": [
+      "{workspaceRoot}/tools/oxlint/**/*.ts",
+      "!{workspaceRoot}/tools/oxlint/**/*.test.ts",
+      "{workspaceRoot}/tools/class-tokens.ts",
+      "{workspaceRoot}/tools/layout-variants.ts"
+    ]
   },
   "targetDefaults": {
+    "lint": {
+      "inputs": ["...", "oxlintRules", "sharedGlobals"]
+    },
     "@angular/build:application": {
       "cache": true,
       "dependsOn": ["^build"],
