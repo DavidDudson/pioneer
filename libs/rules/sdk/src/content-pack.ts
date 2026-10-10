@@ -8,8 +8,10 @@ import { ContentText } from './content-text';
 import { CreatureDefinition } from './creature';
 import { ContentLicenseSchema } from './license';
 import { RulesMessage } from './messages';
+import { ProficiencyBonusTable } from './proficiency';
 import type { Selector } from './selector';
 import { StatisticDefinition } from './statistic';
+import { VariantRuleDefinition } from './variant-rule';
 
 export const ContentPackManifest = z.object({
   /** Prefix of every content key in the pack, e.g. `player-core`. */
@@ -46,6 +48,13 @@ export const ContentPackSchema = z.object({
   creatures: z.array(CreatureDefinition).readonly().refine(uniqueSlugs, 'Duplicate creature slug'),
   /** Optional, so packs without statistics need not list them. */
   statistics: Statistics.default([]),
+  /** How proficiency ranks become bonuses: the core rules pack defines it, and a pack registered later may restate it. */
+  proficiencyBonus: ProficiencyBonusTable.optional(),
+  variantRules: z
+    .array(VariantRuleDefinition)
+    .readonly()
+    .refine(uniqueSlugs, 'Duplicate variant rule slug')
+    .default([]),
 });
 
 /**
@@ -58,12 +67,16 @@ export class ContentPack {
   public readonly ancestries: readonly AncestryDefinition[];
   public readonly creatures: readonly CreatureDefinition[];
   public readonly statistics: readonly StatisticDefinition[];
+  public readonly proficiencyBonus: ProficiencyBonusTable | undefined;
+  public readonly variantRules: readonly VariantRuleDefinition[];
 
   private constructor(data: z.output<typeof ContentPackSchema>) {
     this.manifest = data.manifest;
     this.ancestries = data.ancestries;
     this.creatures = data.creatures;
     this.statistics = data.statistics;
+    this.proficiencyBonus = data.proficiencyBonus;
+    this.variantRules = data.variantRules;
   }
 
   public static define(data: z.input<typeof ContentPackSchema>): ContentPack {

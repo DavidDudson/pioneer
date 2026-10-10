@@ -1,6 +1,5 @@
 import { describe, expect, test } from 'bun:test';
 
-import { Attribute, Modifier, Proficiency } from '@pioneer/rules/sdk';
 import { fixedClock, FixtureNamespace, derivedId } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
@@ -33,12 +32,6 @@ describe('Character', () => {
     expect(renamed.name).toBe(CharacterName.parse('Seelah'));
     expect(renamed.updatedAt.equals(later)).toBe(true);
     expect(original.name).toBe(CharacterName.parse('Valeros'));
-  });
-
-  test('check modifier is attribute plus proficiency', () => {
-    const character = new CharacterBuilder().atLevel(3).withAttribute(Attribute.Strength, 4).build();
-    expect(character.checkModifier(Attribute.Strength, Proficiency.Expert)).toBe(Modifier.parse(4 + 4 + 3));
-    expect(character.checkModifier(Attribute.Strength, Proficiency.Untrained)).toBe(Modifier.parse(4));
   });
 
   test('rejects out-of-range level', () => {

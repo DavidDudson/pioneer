@@ -16,6 +16,7 @@ export const RulesMessage = {
   FoundryReference: 'rules.formula.foundryReference',
   ReferenceOutOfScope: 'rules.formula.referenceOutOfScope',
   DuplicateSelector: 'rules.statistic.duplicateSelector',
+  ProficiencyBonusReference: 'rules.proficiencyBonus.reference',
   EntryUnknownKind: 'rules.entry.unknownKind',
   EntryIdMismatch: 'rules.entry.idMismatch',
   EntryDuplicateTrait: 'rules.entry.duplicateTrait',

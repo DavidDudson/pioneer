@@ -21,6 +21,7 @@ export const RuleElementKey = {
   MultipleAttackPenalty: 'MultipleAttackPenalty',
   Proficiency: 'Proficiency',
   MartialProficiency: 'MartialProficiency',
+  ProficiencyBonus: 'ProficiencyBonus',
 } as const;
 export type RuleElementKey = ValueOf<typeof RuleElementKey>;
 

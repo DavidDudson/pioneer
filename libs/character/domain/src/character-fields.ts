@@ -12,6 +12,6 @@ export const CHARACTER_NAME_MAX_LENGTH = 80;
 export const CharacterName = z.string().trim().min(1).max(CHARACTER_NAME_MAX_LENGTH).brand<'CharacterName'>();
 export type CharacterName = z.infer<typeof CharacterName>;
 
-/** A character's level, 1-20. Branded `Level` so it feeds the rules (`proficiencyBonus`) directly. */
+/** A character's level, 1-20. Branded `Level` so it feeds the rules (`@level`) directly. */
 export const CharacterLevel = Pg.smallint().min(CHARACTER_LEVEL_MIN).max(CHARACTER_LEVEL_MAX).brand<'Level'>();
 export type CharacterLevel = z.infer<typeof CharacterLevel>;
