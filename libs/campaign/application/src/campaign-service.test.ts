@@ -1,8 +1,9 @@
 import { beforeEach, describe, expect, test } from 'bun:test';
 
-import { CampaignId, CampaignName, CampaignRole } from '@pioneer/campaign/domain';
+import { CampaignId, CampaignMemberId, CampaignName, CampaignRole } from '@pioneer/campaign/domain';
+import type { Campaign, CampaignMember } from '@pioneer/campaign/domain';
 import { CampaignBuilder } from '@pioneer/campaign/domain/testing';
-import { fixedClock, newId, NotFoundError, UserId } from '@pioneer/shared/kernel';
+import { fixedClock, ForbiddenError, newId, NotFoundError, UserId, VersionConflictError } from '@pioneer/shared/kernel';
 import type { Clock, Temporal } from '@pioneer/shared/kernel';
 import { rejection } from '@pioneer/shared/kernel/testing';
 
@@ -118,5 +119,86 @@ describe('CampaignService roster', () => {
     );
     const theirs = await service.create(ezren, { name: vaults });
     expect(await rejection(service.roster(amiri, theirs.id))).toBeInstanceOf(NotFoundError);
+  });
+});
+
+describe('CampaignService member management', () => {
+  const seelah = UserId.parse(newId());
+  let campaigns: InMemoryCampaignRepository;
+  let service: CampaignService;
+  let party: Campaign;
+
+  function memberOf(campaign: Campaign, userId: UserId): CampaignMember {
+    const member = campaign.members.find((candidate) => candidate.userId === userId);
+    if (member === undefined) {
+      throw new Error(`No member ${userId}`);
+    }
+    return member;
+  }
+
+  beforeEach(async () => {
+    campaigns = new InMemoryCampaignRepository();
+    const directory = new InMemoryMemberDirectory().name(amiri, 'Amiri').name(ezren, 'Ezren').name(seelah, 'Seelah');
+    service = new CampaignService(campaigns, directory, fixedClock('2026-10-10T10:00:00Z'));
+    party = await campaigns.insert(new CampaignBuilder().ranBy(amiri).withPlayer(ezren).withPlayer(seelah).build());
+  });
+
+  test('the GM removes a player, who then reads the campaign as not found', async () => {
+    const roster = await service.removeMember(amiri, party.id, memberOf(party, ezren).id);
+    expect(roster.members.map((member) => member.userId)).toStrictEqual([amiri, seelah]);
+    expect(await rejection(service.get(ezren, party.id))).toBeInstanceOf(NotFoundError);
+    // Again: no change, no error.
+    const again = await service.removeMember(amiri, party.id, memberOf(party, ezren).id);
+    expect(again.members).toHaveLength(2);
+  });
+
+  test('the GM can’t remove themselves', async () => {
+    const error = await rejection(service.removeMember(amiri, party.id, memberOf(party, amiri).id));
+    expect(error).toBeInstanceOf(ForbiddenError);
+    expect((error as ForbiddenError).descriptor).toStrictEqual({ key: 'campaign.members.gmNotRemovable' });
+  });
+
+  test('a player may not remove or hand over; a stranger reads not found', async () => {
+    const stranger = UserId.parse(newId());
+    const seelahId = memberOf(party, seelah).id;
+    expect(await rejection(service.removeMember(ezren, party.id, seelahId))).toBeInstanceOf(ForbiddenError);
+    expect(await rejection(service.transferGm(ezren, party.id, { memberId: seelahId }))).toBeInstanceOf(
+      ForbiddenError,
+    );
+    expect(await rejection(service.removeMember(stranger, party.id, seelahId))).toBeInstanceOf(NotFoundError);
+    expect(await rejection(service.leave(stranger, party.id))).toBeInstanceOf(NotFoundError);
+  });
+
+  test('the GM hands the role over and stays on as a player', async () => {
+    const roster = await service.transferGm(amiri, party.id, { memberId: memberOf(party, ezren).id });
+    expect(roster.viewerRole).toBe(CampaignRole.Player);
+    const handed = await service.get(ezren, party.id);
+    expect(handed.gmId).toBe(ezren);
+    expect(handed.roleOf(amiri)).toBe(CampaignRole.Player);
+    // The old GM no longer manages members.
+    const seelahId = memberOf(party, seelah).id;
+    expect(await rejection(service.removeMember(amiri, party.id, seelahId))).toBeInstanceOf(ForbiddenError);
+  });
+
+  test('handing the role to yourself changes nothing; to a stranger is not found', async () => {
+    const roster = await service.transferGm(amiri, party.id, { memberId: memberOf(party, amiri).id });
+    expect(roster.viewerRole).toBe(CampaignRole.Gm);
+    expect((await service.get(amiri, party.id)).version).toBe(party.version);
+    const unknown = { memberId: CampaignMemberId.parse(newId()) };
+    expect(await rejection(service.transferGm(amiri, party.id, unknown))).toBeInstanceOf(NotFoundError);
+  });
+
+  test('a player leaves; the GM must hand the role over first', async () => {
+    await service.leave(ezren, party.id);
+    expect(await rejection(service.get(ezren, party.id))).toBeInstanceOf(NotFoundError);
+    const error = await rejection(service.leave(amiri, party.id));
+    expect(error).toBeInstanceOf(ForbiddenError);
+    expect((error as ForbiddenError).descriptor).toStrictEqual({ key: 'campaign.members.gmCannotLeave' });
+  });
+
+  test('a change made from a stale read is a version conflict', async () => {
+    await campaigns.updateMembers(party.withoutMember(memberOf(party, seelah).id), party.version);
+    const stale = party.withoutMember(memberOf(party, ezren).id);
+    expect(await rejection(campaigns.updateMembers(stale, party.version))).toBeInstanceOf(VersionConflictError);
   });
 });

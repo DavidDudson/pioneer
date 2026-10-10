@@ -1,9 +1,9 @@
 import { CampaignRepository } from '@pioneer/campaign/application';
-import { Campaign } from '@pioneer/campaign/domain';
+import { Campaign, CampaignRole } from '@pioneer/campaign/domain';
 import type { CampaignId, CampaignInvite, CampaignMember } from '@pioneer/campaign/domain';
-import { Temporal } from '@pioneer/shared/kernel';
-import type { UserId } from '@pioneer/shared/kernel';
-import { and, asc, eq, gt, inArray, isNull, sql } from 'drizzle-orm';
+import { Temporal, VersionConflictError } from '@pioneer/shared/kernel';
+import type { UserId, Version } from '@pioneer/shared/kernel';
+import { and, asc, eq, gt, inArray, isNull, ne, notInArray, sql } from 'drizzle-orm';
 import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
 
 import { campaignInvites, campaignMembers, campaigns } from './campaign.table';
@@ -123,6 +123,48 @@ export class DrizzleCampaignRepository extends CampaignRepository {
       return true;
     });
     return added ? this.findById(invite.campaignId) : undefined;
+  }
+
+  public override async updateMembers(campaign: Campaign, expectedVersion: Version): Promise<Campaign> {
+    const gm = campaign.members.find((member) => member.role === CampaignRole.Gm);
+    if (gm === undefined) {
+      throw new Error(`Campaign ${campaign.id} has no GM`);
+    }
+    await this.#db.transaction(async (tx) => {
+      // The version check takes the campaign row's lock, so membership changes to one campaign run one at a time.
+      const [updated] = await tx
+        .update(campaigns)
+        .set({ version: campaign.version, gmId: campaign.gmId })
+        .where(and(eq(campaigns.id, campaign.id), eq(campaigns.version, expectedVersion)))
+        .returning({ id: campaigns.id });
+      if (updated === undefined) {
+        throw new VersionConflictError('Campaign', campaign.id);
+      }
+      const kept = campaign.members.map((member) => member.id);
+      await tx
+        .delete(campaignMembers)
+        .where(and(eq(campaignMembers.campaignId, campaign.id), notInArray(campaignMembers.id, kept)));
+      // Demote first: at most one GM member at a time (campaign_members_one_gm_idx).
+      await tx
+        .update(campaignMembers)
+        .set({ role: CampaignRole.Player })
+        .where(
+          and(
+            eq(campaignMembers.campaignId, campaign.id),
+            eq(campaignMembers.role, CampaignRole.Gm),
+            ne(campaignMembers.id, gm.id),
+          ),
+        );
+      await tx
+        .update(campaignMembers)
+        .set({ role: CampaignRole.Gm })
+        .where(and(eq(campaignMembers.campaignId, campaign.id), eq(campaignMembers.id, gm.id)));
+    });
+    const stored = await this.findById(campaign.id);
+    if (stored === undefined) {
+      throw new Error(`Campaign ${campaign.id} vanished after its members were updated`);
+    }
+    return stored;
   }
 
   /** Every member of each campaign, grouped by campaign. */

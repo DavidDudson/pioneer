@@ -1,11 +1,12 @@
-import { Campaign, CampaignId, CampaignMemberId } from '@pioneer/campaign/domain';
-import type { CampaignRoster, CreateCampaignBody, NamedMember } from '@pioneer/campaign/domain';
-import { newId, NotFoundError } from '@pioneer/shared/kernel';
+import { Campaign, CampaignId, CampaignMemberId, CampaignRole } from '@pioneer/campaign/domain';
+import type { CampaignRoster, CreateCampaignBody, NamedMember, TransferGmBody } from '@pioneer/campaign/domain';
+import { ForbiddenError, message, newId, NotFoundError } from '@pioneer/shared/kernel';
 import type { Clock, UserId } from '@pioneer/shared/kernel';
 
-import { mayViewCampaign } from './campaign-policy';
+import { mayLeaveCampaign, mayManageMembers, mayViewCampaign } from './campaign-policy';
 import type { CampaignRepository } from './campaign-repository';
 import type { MemberDirectory } from './member-directory';
+import { MemberMessage } from './member-message';
 
 /**
  * Campaign use cases. Framework-free: the HTTP adapter calls these with the signed-in user as
@@ -39,17 +40,7 @@ export class CampaignService {
   /** One of the actor's campaigns' members with their names, and the actor's role in it. */
   public async roster(actor: UserId, id: CampaignId): Promise<CampaignRoster> {
     const campaign = await this.get(actor, id);
-    const viewerRole = campaign.roleOf(actor);
-    if (viewerRole === undefined) {
-      throw new NotFoundError('Campaign', id);
-    }
-    const names = await this.#directory.displayNames(campaign.members.map((member) => member.userId));
-    // Memberships cascade with their user, so a missing name is an account deleted since the campaign loaded.
-    const members = campaign.members.flatMap((member): NamedMember[] => {
-      const displayName = names.get(member.userId);
-      return displayName === undefined ? [] : [{ ...member, displayName }];
-    });
-    return { viewerRole, members };
+    return this.#rosterOf(actor, campaign);
   }
 
   /** A new campaign with the actor as its GM. */
@@ -62,5 +53,70 @@ export class CampaignService {
       now: this.#clock.now(),
     });
     return this.#repository.insert(campaign);
+  }
+
+  /**
+   * The GM takes a player out of the campaign; they lose access at once. A member already gone is
+   * no change, so removing someone twice is harmless. The GM can't remove themselves.
+   */
+  public async removeMember(actor: UserId, id: CampaignId, memberId: CampaignMemberId): Promise<CampaignRoster> {
+    const campaign = await this.#managedCampaign(actor, id);
+    const member = campaign.memberById(memberId);
+    if (member === undefined) {
+      return this.#rosterOf(actor, campaign);
+    }
+    if (member.role === CampaignRole.Gm) {
+      throw new ForbiddenError(`The GM of campaign ${id} can't be removed`, message(MemberMessage.GmNotRemovable));
+    }
+    const saved = await this.#repository.updateMembers(campaign.withoutMember(memberId), campaign.version);
+    return this.#rosterOf(actor, saved);
+  }
+
+  /** The GM hands the role to another member and stays on as a player. Handing it to themselves changes nothing. */
+  public async transferGm(actor: UserId, id: CampaignId, { memberId }: TransferGmBody): Promise<CampaignRoster> {
+    const campaign = await this.#managedCampaign(actor, id);
+    if (campaign.memberById(memberId) === undefined) {
+      throw new NotFoundError('CampaignMember', memberId);
+    }
+    const handed = campaign.withGm(memberId);
+    const saved = handed === campaign ? campaign : await this.#repository.updateMembers(handed, campaign.version);
+    return this.#rosterOf(actor, saved);
+  }
+
+  /** A player leaves the campaign. The GM hands the role over first, so a campaign always has one. */
+  public async leave(actor: UserId, id: CampaignId): Promise<void> {
+    const campaign = await this.get(actor, id);
+    const member = campaign.members.find((candidate) => candidate.userId === actor);
+    if (member === undefined || !mayLeaveCampaign(actor, campaign)) {
+      throw new ForbiddenError(`The GM of campaign ${id} can't leave it`, message(MemberMessage.GmCannotLeave));
+    }
+    await this.#repository.updateMembers(campaign.withoutMember(member.id), campaign.version);
+  }
+
+  /** The campaign's members with their names, as the actor sees them. */
+  async #rosterOf(actor: UserId, campaign: Campaign): Promise<CampaignRoster> {
+    const viewerRole = campaign.roleOf(actor);
+    if (viewerRole === undefined) {
+      throw new NotFoundError('Campaign', campaign.id);
+    }
+    const names = await this.#directory.displayNames(campaign.members.map((member) => member.userId));
+    // Memberships cascade with their user, so a missing name is an account deleted since the campaign loaded.
+    const members = campaign.members.flatMap((member): NamedMember[] => {
+      const displayName = names.get(member.userId);
+      return displayName === undefined ? [] : [{ ...member, displayName }];
+    });
+    return { viewerRole, members };
+  }
+
+  /**
+   * The campaign, when the actor is its GM. Not a member: 404, so its existence doesn't leak
+   * (ADR-0007). A player: 403, as they already know it exists.
+   */
+  async #managedCampaign(actor: UserId, id: CampaignId): Promise<Campaign> {
+    const campaign = await this.get(actor, id);
+    if (!mayManageMembers(actor, campaign)) {
+      throw new ForbiddenError(`Only the GM manages the members of campaign ${id}`);
+    }
+    return campaign;
   }
 }
