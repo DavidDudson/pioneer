@@ -1,10 +1,12 @@
 import { argsToTemplate, moduleMetadata } from '@analogjs/storybook-angular';
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
 import { LucideMoon } from '@lucide/angular';
+import { expect, within } from 'storybook/test';
 
 import { Button } from '../../actions/button/button.component';
 import { Link } from '../../actions/link/link.component';
 import { Icon } from '../../icon/icon.component';
+import { pressKeys } from '../../testing/story-keyboard';
 import { Text } from '../../text/text/text.component';
 import { Page } from '../page/page.component';
 import { Stack } from '../stack/stack.component';
@@ -18,19 +20,7 @@ const meta: Meta<Shell> = {
   component: Shell,
   decorators: [moduleMetadata({ imports: [Button, Icon, Link, Page, Stack, Surface, Text] })],
   args: { brand: 'Pioneer' },
-  parameters: {
-    layout: 'fullscreen',
-    a11y: {
-      config: {
-        // Known: the <header> of fr-page counts as a second banner while fr-page owns <main>.
-        // Moving <main> into fr-shell (#149) fixes it; drop these rules then.
-        rules: [
-          { id: 'landmark-no-duplicate-banner', enabled: false },
-          { id: 'landmark-unique', enabled: false },
-        ],
-      },
-    },
-  },
+  parameters: { layout: 'fullscreen' },
   render: (args) => ({
     props: { ...args, moon: LucideMoon },
     template: `
@@ -54,3 +44,21 @@ const meta: Meta<Shell> = {
 export default meta;
 
 export const Default: ShellStory = {};
+
+/**
+ * Keyboard: the first Tab shows the skip link, and Enter on it moves focus to `<main>`, so the next Tab lands in the
+ * page instead of the header nav. Runs only in `nx test-storybook frontier`.
+ */
+export const SkipLink: ShellStory = {
+  // Real key presses need the Vitest runner (testing/story-keyboard.ts), so this story is test-only.
+  tags: ['!dev'],
+  play: async ({ canvasElement, userEvent }) => {
+    const skipLink = within(canvasElement).getByRole('link', { name: 'Skip to content' });
+    const main = within(canvasElement).getByRole('main');
+    await userEvent.tab();
+    await expect(skipLink).toHaveFocus();
+    await expect(skipLink).toBeVisible();
+    await pressKeys('{Enter}');
+    await expect(main).toHaveFocus();
+  },
+};

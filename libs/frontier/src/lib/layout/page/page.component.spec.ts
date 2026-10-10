@@ -8,7 +8,7 @@ import { Page } from './page.component';
 
 interface Rendered {
   readonly header: HTMLElement;
-  readonly main: HTMLElement;
+  readonly content: HTMLElement;
   readonly box: Element;
 }
 
@@ -17,11 +17,11 @@ async function render(inputs: Readonly<Record<string, unknown>>): Promise<Render
   const action = document.createElement('button');
   action.setAttribute('frPageActions', '');
   action.textContent = 'Add character';
-  const content = document.createElement('p');
-  content.textContent = 'Character list';
+  const paragraph = document.createElement('p');
+  paragraph.textContent = 'Character list';
   const page = createComponent(Page, {
     environmentInjector: TestBed.inject(EnvironmentInjector),
-    projectableNodes: projectBySelector(Page, [action, content]),
+    projectableNodes: projectBySelector(Page, [action, paragraph]),
   });
   onTestFinished(() => {
     page.destroy();
@@ -34,12 +34,12 @@ async function render(inputs: Readonly<Record<string, unknown>>): Promise<Render
   await appRef.whenStable();
   const host = page.location.nativeElement as HTMLElement;
   const header = host.querySelector('header');
-  const main = host.querySelector('main');
+  const content = header?.nextElementSibling;
   const box = host.querySelector('fr-box');
-  if (header === null || main === null || box === null) {
-    throw new Error('fr-page rendered no box, header or main landmark');
+  if (header === null || !(content instanceof HTMLElement) || box === null) {
+    throw new Error('fr-page rendered no box, header or content');
   }
-  return { header, main, box };
+  return { header, content, box };
 }
 
 describe(Page, () => {
@@ -48,11 +48,11 @@ describe(Page, () => {
   });
 
   it('titles the page with its only h1, in the header', async () => {
-    const { header, main } = await render({ title: 'Characters' });
+    const { header, content } = await render({ title: 'Characters' });
     const headings = [...header.querySelectorAll('h1')];
     expect(headings.map((heading) => heading.textContent.trim())).toStrictEqual(['Characters']);
     expect(headings.map((heading) => heading.hasAttribute('aria-busy'))).toStrictEqual([false]);
-    expect(main.querySelector('h1')).toBeNull();
+    expect(content.querySelector('h1')).toBeNull();
   });
 
   it('shows a busy skeleton heading while the title is loading', async () => {
@@ -68,11 +68,16 @@ describe(Page, () => {
     expect(described.header.querySelector('p')?.textContent.trim()).toBe('Everyone in this campaign');
   });
 
-  it('projects frPageActions into the header and other content into main', async () => {
-    const { header, main } = await render({ title: 'Characters' });
+  it('projects frPageActions into the header and other content below it', async () => {
+    const { header, content } = await render({ title: 'Characters' });
     expect(header.querySelector('button')?.textContent).toBe('Add character');
-    expect(main.querySelector('button')).toBeNull();
-    expect(main.textContent.trim()).toBe('Character list');
+    expect(content.querySelector('button')).toBeNull();
+    expect(content.textContent.trim()).toBe('Character list');
+  });
+
+  it('leaves the main landmark to fr-shell', async () => {
+    const { header } = await render({ title: 'Characters' });
+    expect(header.closest('fr-page')?.querySelector('main')).toBeNull();
   });
 
   it('sits in a page-width box with a gutter', async () => {
