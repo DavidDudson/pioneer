@@ -545,23 +545,30 @@ statistics.
 
 Defences are synthetics (step 7). `Immunity`, `Weakness` and `Resistance` rule elements keep Foundry's fields:
 `type`, a formula `value` for weaknesses and resistances, `exceptions` (`resistance 5 physical except adamantine`)
-and `predicate`. The engine turns them into the character's immunities, weaknesses and resistances, each with its
-origin chain:
+and `predicate`. `deriveDefences` takes the same content, inputs and rules as `deriveStatistics` and turns them
+into the character's immunities, weaknesses and resistances, each line with its rule id, label and origin chain:
 
 - A predicate that is true applies the defence, false drops it, and unknown makes it **conditional**, as a
-  conditional modifier is ("Predicates and conditional modifiers").
-- Weaknesses and resistances do not stack. Per type or group, the highest unconditional value counts, and the
-  others are listed under it as superseded. A conditional one is kept beside it, since it may beat it when it
-  applies.
+  conditional modifier is ("Predicates and conditional modifiers"), with the same summary of when it holds.
+- A value is evaluated as a modifier's is (inputs, `@prof`, statistics' bases, `@item.level`) and rounded down.
+  Below 1 the defence does nothing and is dropped (`floor(@level / 2)` at level 1). A formula that fails, or a
+  value past the largest `DamageAmount`, makes the line **failed** with the error, never an exception.
+- Weaknesses and resistances do not stack. Lines compete when they share a type or group and the same exceptions:
+  of the unconditional ones, the highest counts (the lowest rule id on a tie) and the others are **superseded** by
+  it. Lines with different exceptions do not compete, since a hit may get past one and not the other. A
+  conditional one is kept beside the winner, since it may beat it when it applies.
 - A target is one damage type or a group (`physical`, `energy`, `all`), and group membership is
-  `DAMAGE_GROUP_TYPES` in the SDK, never content.
-- The unconditional defences, with conditional ones whose toggles are on, form a `DamageTarget`, so the damage
-  pipeline in `libs/rules/dice` takes the character's defences as it takes any creature's.
-- Exceptions travel with the defence: `DamageAdjustment` gains an optional `exceptions` list of damage traits
-  (materials such as adamantine or cold iron, `magical`). The engine never filters on them, since it does not know
-  the damage; `libs/rules/dice` checks them per instance when it picks the highest weakness or resistance, and
-  skips one whose exception the instance has. `DamageInstance` carries no traits yet, so until Strike damage
-  records them (Epic 4.6) an exception is shown on the sheet but never matches, and the defence applies in full.
+  `DAMAGE_GROUP_TYPES` in the SDK, never content. A group and a type in it never compete; the dice pipeline picks
+  the highest per damage instance.
+- The applied defences, conditional ones whose toggles are on included (their predicate then holds), form the
+  result's `target`, a `DamageTarget`, so the damage pipeline in `libs/rules/dice` takes the character's defences
+  as it takes any creature's. An immunity from two sources appears there once.
+- Exceptions travel with the defence: `DamageAdjustment` has an optional `exceptions` list from the closed
+  `DamageException` set (precious materials such as adamantine or cold iron, and `magical`), which grows as content
+  needs more. The engine never filters on them, since it does not know the damage; `libs/rules/dice` will check
+  them per instance when it picks the highest weakness or resistance, and skip one whose exception the instance
+  has. `DamageInstance` carries no traits yet, so until Strike damage records them (Epic 4.6) an exception is shown
+  on the sheet but never matches, and the defence applies in full.
 
 ## Predicates and conditional modifiers
 

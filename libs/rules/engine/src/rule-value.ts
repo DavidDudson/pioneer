@@ -3,7 +3,7 @@ import type { ResolveReference, TextPosition } from '@pioneer/rules/formula';
 import { evaluatePredicate, Truth } from '@pioneer/rules/predicate';
 import type { PredicateFacts } from '@pioneer/rules/predicate';
 import { AdjustMode, RuleNumber } from '@pioneer/rules/sdk';
-import type { ChangeMode, Level, ModifierValue, Predicate, RuleValue } from '@pioneer/rules/sdk';
+import type { ChangeMode, DefenceValue, Level, ModifierValue, Predicate, RuleValue } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
@@ -28,7 +28,7 @@ export interface ValueFailure {
 export type ValueOutcome = { readonly ok: true; readonly value: RuleNumber } | ValueFailure;
 
 /** A number as written, or a formula evaluated with the references' values. */
-export function valueOf(value: ModifierValue | RuleValue, resolve: ResolveReference): ValueOutcome {
+export function valueOf(value: ModifierValue | RuleValue | DefenceValue, resolve: ResolveReference): ValueOutcome {
   if (typeof value === 'number') {
     return { ok: true, value: RuleNumber.parse(value) };
   }

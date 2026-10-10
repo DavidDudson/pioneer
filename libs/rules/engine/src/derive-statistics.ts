@@ -2,11 +2,13 @@ import type { ResolveReference } from '@pioneer/rules/formula';
 import type { Level, ProficiencyBonusTable, Selector, StatisticDefinition } from '@pioneer/rules/sdk';
 
 import { changeRules } from './change';
+import type { ChangeRules } from './change';
 import { collectLines } from './collect';
 import { modifierRules } from './modifier';
 import { proficiencyBonuses } from './proficiency-bonuses';
 import { NO_MODIFIERS } from './rule-in-play';
 import type { ModifierInputs } from './rule-in-play';
+import type { RuleContext } from './rule-value';
 import { StatisticBases } from './statistic-bases';
 import { resolverFor } from './statistic-inputs';
 import type { StatisticInputs } from './statistic-inputs';
@@ -18,6 +20,34 @@ import { weaponPotencies } from './weapon-potency';
 export interface StatisticContent {
   readonly definitions: readonly StatisticDefinition[];
   readonly proficiencyBonus: ProficiencyBonusTable;
+}
+
+/** The base phase's result, the `Change`s in play, and what rule element formulas read. */
+interface BasePhase {
+  readonly bases: StatisticBases;
+  readonly changes: ChangeRules;
+  readonly context: RuleContext;
+}
+
+/**
+ * Every statistic's base (rules-engine.md, step 5), and the context rule element formulas are evaluated in: the
+ * inputs, `@prof.<selector>` from the table in force, statistics' bases through `@stat.<selector>`, and the level
+ * of the item the element is on.
+ */
+export function basePhase(
+  { definitions, proficiencyBonus }: StatisticContent,
+  inputs: StatisticInputs,
+  { rules, facts }: ModifierInputs,
+): BasePhase {
+  const changes = changeRules(rules);
+  const values = { inputs, proficiency: proficiencyBonuses(proficiencyBonus, { rules, facts, level: inputs.level }) };
+  const bases = new StatisticBases(definitions, values, { changes: changes.base, facts });
+  const context = {
+    facts,
+    resolve: (itemLevel: Level | undefined): ResolveReference =>
+      resolverFor(values, (selector) => bases.baseValue(selector), { itemLevel }),
+  };
+  return { bases, changes, context };
 }
 
 /**
@@ -32,20 +62,13 @@ export interface StatisticContent {
  * earlier one.
  */
 export function deriveStatistics(
-  { definitions, proficiencyBonus }: StatisticContent,
+  content: StatisticContent,
   inputs: StatisticInputs,
-  { rules, facts }: ModifierInputs = NO_MODIFIERS,
+  modifierInputs: ModifierInputs = NO_MODIFIERS,
 ): ReadonlyMap<Selector, StatisticResult> {
-  const changes = changeRules(rules);
-  const values = { inputs, proficiency: proficiencyBonuses(proficiencyBonus, { rules, facts, level: inputs.level }) };
-  const bases = new StatisticBases(definitions, values, { changes: changes.base, facts });
-  const fromRules = modifierRules(rules);
+  const { bases, changes, context } = basePhase(content, inputs, modifierInputs);
+  const fromRules = modifierRules(modifierInputs.rules);
   const modifiers = { ...fromRules, modifiers: [...fromRules.modifiers, ...weaponPotencies(inputs.weapons ?? [])] };
-  const context = {
-    facts,
-    resolve: (itemLevel: Level | undefined): ResolveReference =>
-      resolverFor(values, (selector) => bases.baseValue(selector), { itemLevel }),
-  };
   return new Map(
     bases.bases.map(({ definition, result }) => {
       const lines = collectLines(definition, modifiers, context);

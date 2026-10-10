@@ -11,4 +11,5 @@ export const EngineMessage = {
   AdjustmentOutOfRange: 'engine.modifier.outOfRange',
   WeaponPotency: 'engine.modifier.weaponPotency',
   ChangeOutOfRange: 'engine.change.outOfRange',
+  DefenceOutOfRange: 'engine.defence.outOfRange',
 } as const;

@@ -16,6 +16,9 @@
     },
     "change": {
       "outOfRange": "This change takes the value out of range. Values must stay between −{maximum} and {maximum}."
+    },
+    "defence": {
+      "outOfRange": "This value is out of range. A weakness or resistance can be at most {maximum}."
     }
   }
 }

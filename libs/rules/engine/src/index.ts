@@ -13,6 +13,16 @@ export {
   SuppressionReason,
 } from './breakdown';
 export { deriveStatistics, type StatisticContent } from './derive-statistics';
+export {
+  type AdjustmentLine,
+  type AdjustmentStatus,
+  type Defences,
+  DefenceStatusKind,
+  type DefenceTarget,
+  deriveDefences,
+  type ImmunityLine,
+  type ImmunityStatus,
+} from './defences';
 export { statisticContent, variantRulesInPlay } from './statistic-content';
 export { EngineMessage } from './messages';
 export { type ModifierInputs, RuleId, ruleIdOf, RuleInPlay } from './rule-in-play';
