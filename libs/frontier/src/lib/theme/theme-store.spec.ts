@@ -1,7 +1,8 @@
 import { TestBed } from '@angular/core/testing';
 import { afterEach, describe, expect, it } from 'vitest';
 
-import { ColorMode, Theme, ThemeStore } from './theme-store';
+import { ColorMode, Theme } from './theme';
+import { ThemeStore } from './theme-store';
 
 function create(): ThemeStore {
   const store = TestBed.inject(ThemeStore);

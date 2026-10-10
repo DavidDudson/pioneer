@@ -243,7 +243,8 @@ boot):
 
 Adding a theme: create `themes/<name>.css`, import it in `frontier.css`
 after `themes/frontier.css`, and add it to `Theme` in
-`lib/theme/theme-store.ts`. Check text contrast in both modes.
+`lib/theme/theme.ts`. Story tests then run axe, contrast included, on every
+story in the new theme in both modes.
 
 ## Components
 
@@ -282,6 +283,24 @@ the toolbar switches theme and colour mode.
   (`testing/story-actions.ts`), so pending states are visible.
 - Storybook's types bring in `@types/node`. Code that keeps a timer id as a
   `number` calls `window.setTimeout`, which stays the DOM overload.
+
+### Story tests
+
+`nx test-storybook frontier` (in `affected` and CI) runs every story as a
+test in headless Chromium through the Vitest addon, once per theme × colour
+mode (frontier/tavern × dark/light): its `play` function, then axe. Any axe
+violation fails, colour contrast included. The devshell provides Chromium
+from nixpkgs; keep the `playwright` version in `package.json` equal to
+nixpkgs' `playwright-driver`.
+
+- Fix a violation rather than silence it. A known one waits on its fix by
+  turning that rule off in the story's `parameters.a11y.config.rules`, with a
+  comment linking the issue (see `fr-shell`).
+- Interaction tests are `play` functions using `storybook/test`. Storybook's
+  `userEvent` sends synthetic events, which never trigger native behaviour
+  (Enter on a `<summary>`); press real keys with `pressKeys`
+  (`testing/story-keyboard.ts`) and tag that story `!dev` so it runs only in
+  the runner (`fr-disclosure`'s Keyboard story).
 
 ## Specs
 

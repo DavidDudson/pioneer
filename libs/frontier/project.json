@@ -13,6 +13,11 @@
         "tsConfig": "libs/frontier/tsconfig.spec.json",
         "runner": "vitest"
       }
+    },
+    "test-storybook": {
+      "cache": true,
+      "inputs": ["default", "^production"],
+      "command": "vitest run --config libs/frontier/.storybook/vitest.config.ts"
     }
   }
 }

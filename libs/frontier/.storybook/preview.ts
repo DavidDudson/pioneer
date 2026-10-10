@@ -5,7 +5,7 @@ import { provideRouter } from '@angular/router';
 import { provideTanStackQuery, QueryClient } from '@tanstack/angular-query-experimental';
 
 import { provideFrontierI18nTesting } from '../src/lib/testing/provide-frontier-i18n-testing';
-import { ColorMode, Theme } from '../src/lib/theme/theme-store';
+import { ColorMode, Theme } from '../src/lib/theme/theme';
 
 import '../src/styles/frontier.css';
 
@@ -49,6 +49,8 @@ const preview: Preview = {
     // The theme paints the canvas (`html` background); Storybook's backgrounds would fight it.
     backgrounds: { disable: true },
     controls: { expanded: true },
+    // Axe on every story: a violation fails `nx test-storybook frontier` and shows in the a11y panel.
+    a11y: { test: 'error' },
   },
 };
 

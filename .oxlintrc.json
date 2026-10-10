@@ -383,8 +383,10 @@
       // Storybook stories: Component Story Format requires the meta as the default export,
       // and story args are sample data (levels, counts) by nature. A story composes the component with
       // the primitives around it, so it imports more than a component does. Chart marks take `x`/`y` channels.
+      // Play functions assert with storybook/test's instrumented `expect`, which the vitest plugin takes for a global.
       "files": ["**/*.stories.ts"],
       "rules": {
+        "vitest/prefer-importing-vitest-globals": "off",
         "import/no-default-export": "off",
         "pioneer/no-magic-numbers": "off",
         "import/max-dependencies": "off",

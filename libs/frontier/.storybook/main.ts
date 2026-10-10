@@ -9,7 +9,7 @@ import { mergeConfig } from 'vite';
  */
 const config: StorybookConfig = {
   stories: ['../src/**/*.stories.ts'],
-  addons: [],
+  addons: ['@storybook/addon-a11y', '@storybook/addon-vitest'],
   framework: {
     name: '@analogjs/storybook-angular',
     options: {

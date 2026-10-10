@@ -18,7 +18,19 @@ const meta: Meta<Shell> = {
   component: Shell,
   decorators: [moduleMetadata({ imports: [Button, Icon, Link, Page, Stack, Surface, Text] })],
   args: { brand: 'Pioneer' },
-  parameters: { layout: 'fullscreen' },
+  parameters: {
+    layout: 'fullscreen',
+    a11y: {
+      config: {
+        // Known: the <header> of fr-page counts as a second banner while fr-page owns <main>.
+        // Moving <main> into fr-shell (#149) fixes it; drop these rules then.
+        rules: [
+          { id: 'landmark-no-duplicate-banner', enabled: false },
+          { id: 'landmark-unique', enabled: false },
+        ],
+      },
+    },
+  },
   render: (args) => ({
     props: { ...args, moon: LucideMoon },
     template: `
