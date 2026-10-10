@@ -163,7 +163,7 @@ Until `AWS_DEPLOY_ROLE_ARN` is set, the deploy job skips with a warning.
 
 Every merge to `main` deploys: the Image workflow publishes `sha-<short commit>`, then calls `deploy.yml`, which
 assumes `pioneer-deploy` over OIDC (`infra/github.tf`) and runs [`tools/deploy-production.ts`](../tools/deploy-production.ts).
-One deploy runs at a time. It:
+One deploy runs at a time; a newer merge replaces a deploy still waiting, since its image includes those commits. It:
 
 1. copies the arm64 image from GHCR to ECR, unless the tag is there already;
 2. migrates Neon with that image (`pioneer-api migrate`), reading `DATABASE_URL` from the function. This happens

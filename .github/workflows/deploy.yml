@@ -28,7 +28,8 @@ jobs:
     # Holds AWS_DEPLOY_ROLE_ARN, and limits deploys to main.
     environment:
       name: production
-    # One deploy at a time; a newer one waits rather than cancelling one half done.
+    # One deploy at a time; a newer one waits rather than cancelling one half done. A deploy still waiting is
+    # replaced by a newer one, which ships its commits too (migrations are cumulative).
     concurrency:
       group: production
       cancel-in-progress: false
