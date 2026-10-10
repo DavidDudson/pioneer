@@ -281,6 +281,12 @@
   },
   "overrides": [
     {
+      // The SDK's public barrel lists one export per line (oxfmt), so its length tracks the API, not complexity.
+      // `export *` is no way out: no-barrel-file rejects it at this size.
+      "files": ["libs/rules/sdk/src/index.ts"],
+      "rules": { "eslint/max-lines": "off" }
+    },
+    {
       "files": ["**/*.test.ts", "**/*.spec.ts"],
       "rules": {
         "pioneer/no-magic-numbers": "off",
