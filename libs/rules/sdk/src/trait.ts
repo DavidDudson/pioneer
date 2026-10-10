@@ -13,6 +13,13 @@ export type Trait = z.infer<typeof Trait>;
 export const Immunity = Slug.brand<'Immunity'>();
 export type Immunity = z.infer<typeof Immunity>;
 
+/**
+ * What a weakness or resistance does not cover: a damage trait, such as a material (`adamantine`, `cold-iron`) or
+ * `magical` (`resistance 5 physical except adamantine`). Foundry pf2e keeps the set in config, so it is a brand.
+ */
+export const DamageException = Slug.brand<'DamageException'>();
+export type DamageException = z.infer<typeof DamageException>;
+
 const KIND_COUNT = Object.keys(ContentKind).length;
 
 /**

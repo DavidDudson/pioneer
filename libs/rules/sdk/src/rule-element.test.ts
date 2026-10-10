@@ -79,6 +79,18 @@ const examples: object[] = [
     value: 'trained',
   },
   { key: 'MartialProficiency', slug: 'firearms', definition: ['item:group:firearm'], visible: false },
+  { key: 'Immunity', type: ['fire', 'sleep'] },
+  { key: 'Immunity', type: ['critical-hits'], predicate: ['self:effect:fortification'] },
+  { key: 'Weakness', type: ['fire', 'energy'], value: 5 },
+  { key: 'Weakness', type: ['vitality'], value: 'floor(@item.level / 2) + 2' },
+  { key: 'Resistance', type: ['physical'], value: 5, exceptions: ['adamantine'] },
+  {
+    key: 'Resistance',
+    type: ['fire'],
+    value: '@level',
+    predicate: ['self:effect:rage'],
+    display: { label: 'Draconic rage' },
+  },
 ];
 
 describe('RuleElement', () => {
@@ -210,5 +222,17 @@ describe('RuleElement', () => {
     expect(issues({ ...element, value: '@actor.rank' })).toStrictEqual([
       { path: ['value'], message: message(RulesMessage.UnknownReference, { found: '@actor.rank', position: 1 }) },
     ]);
+  });
+
+  test('a weakness or resistance names damage types or groups, never a material', () => {
+    expect(issues({ key: 'Weakness', type: ['cold-iron'], value: 5 })).toMatchObject([{ path: ['type', 0] }]);
+  });
+
+  test('a weakness or resistance is at least 1', () => {
+    expect(issues({ key: 'Resistance', type: ['fire'], value: 0 })).toMatchObject([{ path: ['value'] }]);
+  });
+
+  test('a defence names at least one type', () => {
+    expect(issues({ key: 'Immunity', type: [] })).toMatchObject([{ path: ['type'] }]);
   });
 });

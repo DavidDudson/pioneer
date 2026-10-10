@@ -1,6 +1,7 @@
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
+import { DamageException } from './trait';
 import { DamageAmount } from './units';
 
 /** Remaster damage types (Player Core). */
@@ -53,8 +54,17 @@ export const DamageAdjustmentTarget = { ...DamageType, ...DamageGroup } as const
 export type DamageAdjustmentTarget = ValueOf<typeof DamageAdjustmentTarget>;
 export const DamageAdjustmentTargetSchema = z.enum(DamageAdjustmentTarget);
 
-/** A weakness or resistance to a damage type or group. */
-export const DamageAdjustment = z.object({ type: DamageAdjustmentTargetSchema, value: DamageAmount });
+const EXCEPTIONS_MAX = 8;
+
+/** The damage traits a defence makes an exception for. */
+export const DamageExceptions = z.array(DamageException).max(EXCEPTIONS_MAX).readonly();
+
+/** A weakness or resistance to a damage type or group, and the damage traits it does not cover. */
+export const DamageAdjustment = z.object({
+  type: DamageAdjustmentTargetSchema,
+  value: DamageAmount,
+  exceptions: DamageExceptions.optional(),
+});
 export type DamageAdjustment = z.infer<typeof DamageAdjustment>;
 
 /**
