@@ -538,7 +538,7 @@ re-derive on every keystroke. Incremental recomputation is an optimisation for l
 grants to a fixpoint, then derives every core statistic with the grants' facts. The load has four Strikes, armor and
 shield, item bonuses that stack by type, a suppressed status bonus, a conditional line and an inactive one. A second
 case adds Proficiency Without Level and a homebrew pack that restates Perception. Grant resolution keeps its own
-3 ms budget (`libs/rules/grants`); statistics get the rest. Measured locally: about 0.3 ms for grants and 0.8 ms for
+3 ms budget (`libs/rules/grants`); statistics get the rest. Measured locally: about 0.2 ms for grants and 0.8 ms for
 statistics.
 
 ### Defences

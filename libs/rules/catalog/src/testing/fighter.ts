@@ -158,7 +158,7 @@ export const level20Fighter: StatisticInputs = StatisticInputsJson.parse({
   ],
 });
 
-/** Full plate (+6, Strength +3, check -3, Speed -10) with a +3 potency rune. */
+/** Full plate (+6, Strength +4, check -3, Speed -10) with a +3 potency rune. */
 const FULL_PLATE: Armor = { ac: 9, checkPenalty: -3, speedPenalty: -10, speedPenaltyWithStrength: -5 };
 /** A skill or save item's bonus at the top of its range (a major or greater item), and one tier below. */
 const TOP_ITEM_BONUS = 3;
@@ -190,7 +190,7 @@ export const level20FighterRules: readonly RuleInPlay[] = [
   ...WORN_ITEMS.map(([slug, value, selectors]) => inPlay(flatModifier('item', value, selectors), slug)),
   inPlay(
     {
-      ...flatModifier('status', HEROISM_BONUS, ['attack-roll', 'saving-throw', 'skill-check']),
+      ...flatModifier('status', HEROISM_BONUS, ['attack-roll', 'perception', 'saving-throw', 'skill-check']),
       predicate: ['self:effect:heroism'],
     },
     'heroism',
