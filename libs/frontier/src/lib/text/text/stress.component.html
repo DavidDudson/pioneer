@@ -1,0 +1,6 @@
+<ng-template #content><ng-content /></ng-template>
+@if (element() === 'em') {
+  <em [class]="classes()"><ng-container [ngTemplateOutlet]="content" /></em>
+} @else {
+  <strong [class]="classes()"><ng-container [ngTemplateOutlet]="content" /></strong>
+}

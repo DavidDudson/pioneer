@@ -6,6 +6,7 @@ import {
   Origin,
   PackId,
   Predicate,
+  RichText,
   RollOption,
   RuleElement,
   Selector,
@@ -20,6 +21,7 @@ import { z } from 'zod';
 
 import { EXAMPLE_GRANT_ENTRIES } from './grant-examples';
 import { pointAt } from './point-at';
+import { EXAMPLE_RICH_TEXT } from './rich-text-example';
 
 /** The rules schemas the playground can check. */
 export const RulesSchema = {
@@ -31,6 +33,7 @@ export const RulesSchema = {
   Origin: 'origin',
   RuleElement: 'rule-element',
   Statistic: 'statistic',
+  RichText: 'rich-text',
 } as const;
 export type RulesSchema = ValueOf<typeof RulesSchema>;
 
@@ -43,6 +46,7 @@ const SCHEMAS: Readonly<Record<RulesSchema, z.ZodType>> = {
   [RulesSchema.Origin]: Origin,
   [RulesSchema.RuleElement]: RuleElement,
   [RulesSchema.Statistic]: StatisticDefinition,
+  [RulesSchema.RichText]: RichText,
 };
 
 /** Message keys for schema names, spelled out so the key check sees them. */
@@ -55,6 +59,7 @@ const RULES_SCHEMA_KEYS: Readonly<Record<RulesSchema, string>> = {
   [RulesSchema.Origin]: 'play.rules.schema.origin',
   [RulesSchema.RuleElement]: 'play.rules.schema.ruleElement',
   [RulesSchema.Statistic]: 'play.rules.schema.statistic',
+  [RulesSchema.RichText]: 'play.rules.schema.richText',
 };
 
 /**
@@ -125,6 +130,7 @@ const EXAMPLE_VALUES: Readonly<Record<RulesSchema, unknown>> = {
     kind: StatisticKind.Dc,
     keyAttribute: Attribute.Dexterity,
   },
+  [RulesSchema.RichText]: EXAMPLE_RICH_TEXT,
 };
 
 /** Statistics for the statistics tool: AC, a save, and a spell DC that reads the spell attack modifier. */

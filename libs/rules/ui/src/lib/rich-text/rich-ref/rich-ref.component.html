@@ -1,0 +1,5 @@
+@if (target(); as to) {
+  <fr-link [to]="to">{{ label() ?? (unnamed | transloco) }}</fr-link>
+} @else {
+  <fr-text weight="medium">{{ label() ?? (unnamed | transloco) }}</fr-text>
+}

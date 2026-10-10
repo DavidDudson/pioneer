@@ -1,0 +1,5 @@
+@if (level(); as outline) {
+  <fr-heading [level]="outline"><pio-rich-inline [content]="block().content" /></fr-heading>
+} @else {
+  <fr-text element="p"><pio-rich-inline [content]="block().content" /></fr-text>
+}

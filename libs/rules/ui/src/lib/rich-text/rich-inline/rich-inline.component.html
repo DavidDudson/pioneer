@@ -1,0 +1,11 @@
+@for (node of content(); track $index) {
+  @if (node.type === 'text') {
+    <pio-rich-run [node]="node" />
+  } @else if (node.type === 'ref') {
+    <pio-rich-ref [node]="node" />
+  } @else if (node.type === 'line-break' || node.type === 'action-cost') {
+    <pio-rich-mark [node]="node" />
+  } @else {
+    <pio-rich-value [node]="node" />
+  }
+}

@@ -105,6 +105,12 @@ export const Abbreviation: TextStory = {
 /** A short inline quotation; the browser adds the quotation marks. */
 export const Quotation: TextStory = { args: { element: TextElement.Quotation, content: 'Strike true' } };
 
+/** Stress emphasis. */
+export const Emphasis: TextStory = { args: { element: TextElement.Emphasis, content: 'until the end of your turn' } };
+
+/** Strong importance. */
+export const Strong: TextStory = { args: { element: TextElement.Strong, content: 'Critical Success' } };
+
 /** Inline elements in running text. */
 export const InlineElements: TextStory = {
   render: () => ({

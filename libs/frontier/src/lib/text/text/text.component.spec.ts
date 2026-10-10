@@ -68,6 +68,15 @@ describe(Text, () => {
     expect(rendered.getAttribute('title')).toBe('Armor Class');
   });
 
+  it.each([
+    [TextElement.Emphasis, 'EM', 'italic'],
+    [TextElement.Strong, 'STRONG', 'font-semibold'],
+  ])('renders %s as <%s>, styled %s', async (element, tagName, style) => {
+    const rendered = await render({ element });
+    expect(rendered.tagName).toBe(tagName);
+    expect([...rendered.classList]).toContain(style);
+  });
+
   it('leaves the title off an <abbr> with no expansion', async () => {
     const rendered = await render({ element: TextElement.Abbreviation });
     expect(rendered.hasAttribute('title')).toBe(false);

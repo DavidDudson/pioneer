@@ -1,6 +1,8 @@
 import { issueParams, message } from '@pioneer/shared/kernel';
 import { z } from 'zod';
 
+import { exceededBound, JsonSize } from './json-bounds';
+import type { JsonBounds } from './json-bounds';
 import { RulesMessage } from './messages';
 import { RollOption } from './roll-option';
 
@@ -67,28 +69,11 @@ const Statement: z.ZodType<PredicateStatement> = z.lazy(() => {
   ]);
 });
 
-function isContainer(value: unknown): value is object {
-  return typeof value === 'object' && value !== null;
-}
-
-/** The arrays and objects directly inside an array or object. */
-function innerContainers(value: object): readonly object[] {
-  return Object.values(value).filter((child) => isContainer(child));
-}
-
-/** Breadth-first, level by level, so deeply nested input is measured without recursion. */
-function tooDeep(value: unknown): boolean {
-  let level: readonly object[] = isContainer(value) ? [value] : [];
-  let depth = 0;
-  while (level.length > 0) {
-    depth += 1;
-    if (depth > PREDICATE_DEPTH_MAX) {
-      return true;
-    }
-    level = level.flatMap((node) => innerContainers(node));
-  }
-  return false;
-}
+/** Only depth matters for a predicate; the content it sits in bounds its size. */
+const PREDICATE_BOUNDS: JsonBounds = {
+  depth: JsonSize.parse(PREDICATE_DEPTH_MAX),
+  containers: JsonSize.parse(Number.MAX_SAFE_INTEGER),
+};
 
 /**
  * Rejects too-deep input before `schema` walks it, so untrusted JSON cannot exhaust the stack. A
@@ -98,7 +83,10 @@ function depthGuarded<TOutput>(schema: z.ZodType<TOutput>): z.ZodType<TOutput> {
   const tooDeepMessage = message(RulesMessage.PredicateTooDeep, { maximum: PREDICATE_DEPTH_MAX });
   return z
     .unknown()
-    .refine((value) => !tooDeep(value), { ...issueParams(tooDeepMessage), abort: true })
+    .refine((value) => exceededBound(value, PREDICATE_BOUNDS) === undefined, {
+      ...issueParams(tooDeepMessage),
+      abort: true,
+    })
     .pipe(schema);
 }
 

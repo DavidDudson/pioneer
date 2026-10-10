@@ -1,0 +1,7 @@
+<fr-stack gap="md">
+  @if (preview(); as text) {
+    <fr-heading variant="label" [level]="3">{{ 'play.rules.previewHeading' | transloco }}</fr-heading>
+    <fr-surface><pio-rich-text [text]="text" [headingLevel]="4" /></fr-surface>
+  }
+  <pio-rules-result [outcome]="outcome()" />
+</fr-stack>

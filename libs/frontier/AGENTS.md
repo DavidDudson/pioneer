@@ -22,7 +22,7 @@ Read this before touching any UI.
   select trigger), `<input>` only in the plain controls, `<a>` only in
   `fr-link`, `<label>` only in `fr-label`, `<form>` only in `fr-form` /
   `fr-async-form`, `<h1>`–`<h4>` only in `fr-heading`, `<p>`, `<pre>`,
-  `<code>`, `<kbd>`, `<abbr>` and `<q>` only in `fr-text`, `<blockquote>` only in
+  `<code>`, `<kbd>`, `<abbr>`, `<q>`, `<em>` and `<strong>` only in `fr-text`, `<blockquote>` only in
   `fr-quote`, `<ul>` / `<ol>` only in `fr-list`, `<li>` only in
   `fr-list-item`, `<dl>` only in `fr-description-list`, `<dt>` / `<dd>` only in
   `fr-description-item`, table elements only in `fr-table`, `<svg>` only in `fr-icon`,
@@ -70,6 +70,9 @@ Read this before touching any UI.
   size (`nonScalingStroke`); there is no stroke-width input. Size is a token
   (`sm|md|lg`), colour follows the text unless `tone` is set. Icons are
   decorative unless given a `label`; an icon-only button labels the button.
+  A rules symbol with no Lucide icon (a PF2e action glyph) is text, not an
+  icon: `fr-glyph` shows it hidden from screen readers and reads out its
+  `label`.
 - **Small parts, composed.** Like Radix / Reka: a primitive owns one element
   and its variants; bigger components assemble primitives and parts, which
   find their root through DI (`fr-label` and the control inject `Field`).
@@ -249,7 +252,7 @@ after `themes/frontier.css`, and add it to `Theme` in
 | Layout         | Primitives `fr-box`, `fr-grid`, `fr-stack`; composed `fr-shell`, `fr-page`, `fr-surface`; `fr-divider` (`orientation`, `tone` subtle/default/strong; vertical is decorative)                                                                                                                                                                                                            |
 | Disclosure     | `fr-disclosure` (expand in place; `frDisclosureSummary` takes phrasing content only, nothing interactive)                                                                                                                                                                                                                                                                               |
 | Lists          | `fr-list` (`ordered` for `<ol>`, `markers` for bullets or numbers, `gap`) with `fr-list-item`; `fr-description-list` (`gap`, `columnsFrom`) with `fr-description-item [term]`                                                                                                                                                                                                           |
-| Text           | `fr-text` (`element="span\|p\|pre\|code\|kbd\|abbr\|q"`, `expansion` for `abbr`), `fr-quote` (block quote, `attribution`), `fr-heading` (`[level]` for the outline, `variant` for the look), `fr-badge` (`tone` neutral/accent/status, `variant` subtle/solid, `[icon]`)                                                                                                                |
+| Text           | `fr-text` (`element="span\|p\|pre\|code\|kbd\|abbr\|q\|em\|strong"`, `expansion` for `abbr`), `fr-line-break` (a break that is content), `fr-glyph` (a rules symbol read out as its `label`), `fr-quote` (block quote, `attribution`), `fr-heading` (`[level]` for the outline, `variant` for the look), `fr-badge` (`tone` neutral/accent/status, `variant` subtle/solid, `[icon]`)    |
 | Actions        | `fr-button` (`(pressed)`, `iconOnly` for a square icon button), `fr-async-button`, `fr-link` (`to` routes, `href` external only)                                                                                                                                                                                                                                                        |
 | Async          | `injectAsyncAction`, `fr-async-indicator`, `fr-async-region` (+ `frAsyncPending` / `frAsyncData` / `frAsyncError` slots)                                                                                                                                                                                                                                                                |
 | Feedback       | `fr-message` (inline, never a toast), `fr-empty-state` (a list or search region with nothing: `[icon]`, `title` (text, not a heading), `description`, projected action; never a bare muted line. A listbox's no-matches line stays plain text), `fr-skeleton` (loading content), `fr-spinner` (action progress only)                                                                    |

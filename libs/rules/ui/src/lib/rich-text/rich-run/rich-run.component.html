@@ -1,0 +1,11 @@
+@if (strong() && emphasis()) {
+  <fr-text element="strong"
+    ><fr-text element="em">{{ node().text }}</fr-text></fr-text
+  >
+} @else if (strong()) {
+  <fr-text element="strong">{{ node().text }}</fr-text>
+} @else if (emphasis()) {
+  <fr-text element="em">{{ node().text }}</fr-text>
+} @else {
+  {{ node().text }}
+}

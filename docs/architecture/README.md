@@ -81,6 +81,7 @@ libs/
     formula/        formula language: parser to a positioned tree, printer, references, evaluator (kernel only)
     predicate/      three-valued (Kleene) predicate evaluation, roll option namespace table
     catalog/        pack loaders (exists; switches from TS imports to API/DB loading)
+    ui/             Angular rendering of rules data: rich text (frontier components only)
   content/          (TS packs retired; replaced by content/ JSON data, see content-model.md)
   character/        domain, application, infrastructure, feature (exists)
   campaign/         domain, application, infrastructure, feature
@@ -101,8 +102,8 @@ tools/
 ```
 
 Dependency rule: `rules/*` depends only on `shared/kernel` and other `rules/*` libraries: `rules/formula` on the kernel
-alone, `rules/sdk` on `rules/formula`, and `dice`, `predicate`, `engine` and `catalog` on `rules/sdk`. Feature areas
-depend on `rules/*`, never the reverse.
+alone, `rules/sdk` on `rules/formula`, and `dice`, `predicate`, `engine`, `catalog` and `ui` on `rules/sdk`. `rules/ui`,
+the one web-only `rules` library, also uses frontier. Feature areas depend on `rules/*`, never the reverse.
 Content data never imports code.
 
 ## Cross-cutting

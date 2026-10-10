@@ -3,6 +3,10 @@
   <fr-text-phrase [element]="phrase" [classes]="classes()" [expansion]="expansion()"
     ><ng-container [ngTemplateOutlet]="content"
   /></fr-text-phrase>
+} @else if (stressElement(); as stress) {
+  <fr-text-stress [element]="stress" [classes]="classes()"
+    ><ng-container [ngTemplateOutlet]="content"
+  /></fr-text-stress>
 } @else if (element() === 'p') {
   <p [class]="classes()"><ng-container [ngTemplateOutlet]="content" /></p>
 } @else if (element() === 'pre') {

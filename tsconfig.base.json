@@ -50,6 +50,7 @@
       "@pioneer/rules/grants": ["./libs/rules/grants/src/index.ts"],
       "@pioneer/rules/grants/testing": ["./libs/rules/grants/src/testing/index.ts"],
       "@pioneer/rules/catalog": ["./libs/rules/catalog/src/index.ts"],
+      "@pioneer/rules/ui": ["./libs/rules/ui/src/index.ts"],
       "@pioneer/content/player-core": ["./libs/content/player-core/src/index.ts"],
       "@pioneer/content/monster-core": ["./libs/content/monster-core/src/index.ts"],
       "@pioneer/identity/domain": ["./libs/identity/domain/src/index.ts"],
