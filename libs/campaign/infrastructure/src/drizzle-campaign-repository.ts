@@ -1,12 +1,12 @@
 import { CampaignRepository } from '@pioneer/campaign/application';
 import { Campaign } from '@pioneer/campaign/domain';
-import type { CampaignId, CampaignMember } from '@pioneer/campaign/domain';
+import type { CampaignId, CampaignInvite, CampaignMember } from '@pioneer/campaign/domain';
 import { Temporal } from '@pioneer/shared/kernel';
 import type { UserId } from '@pioneer/shared/kernel';
-import { asc, eq, inArray } from 'drizzle-orm';
+import { and, asc, eq, gt, inArray, isNull, sql } from 'drizzle-orm';
 import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
 
-import { campaignMembers, campaigns } from './campaign.table';
+import { campaignInvites, campaignMembers, campaigns } from './campaign.table';
 
 type CampaignRow = typeof campaigns.$inferSelect;
 type MemberRow = typeof campaignMembers.$inferSelect;
@@ -91,6 +91,38 @@ export class DrizzleCampaignRepository extends CampaignRepository {
         .returning();
       return toCampaign(row, members);
     });
+  }
+
+  public override async joinByInvite(
+    invite: CampaignInvite,
+    member: CampaignMember,
+    now: Temporal.Instant,
+  ): Promise<Campaign | undefined> {
+    const added = await this.#db.transaction(async (tx) => {
+      // A share lock waits out a revoke in flight and then sees its result, so the revoke wins.
+      const open = and(
+        eq(campaignInvites.id, invite.id),
+        isNull(campaignInvites.revokedAt),
+        gt(campaignInvites.expiresAt, now.toString()),
+      );
+      const [stillOpen] = await tx.select({ id: campaignInvites.id }).from(campaignInvites).where(open).for('share');
+      if (stillOpen === undefined) {
+        return false;
+      }
+      const inserted = await tx
+        .insert(campaignMembers)
+        .values(toMemberRow(invite.campaignId, member))
+        .onConflictDoNothing({ target: [campaignMembers.campaignId, campaignMembers.userId] })
+        .returning({ id: campaignMembers.id });
+      if (inserted.length > 0) {
+        await tx
+          .update(campaigns)
+          .set({ version: sql`${campaigns.version} + 1` })
+          .where(eq(campaigns.id, invite.campaignId));
+      }
+      return true;
+    });
+    return added ? this.findById(invite.campaignId) : undefined;
   }
 
   /** Every member of each campaign, grouped by campaign. */

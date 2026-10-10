@@ -1,3 +1,9 @@
+export { CampaignInviteRepository } from './campaign-invite-repository';
+export { CampaignInviteService } from './campaign-invite-service';
 export { CampaignRepository } from './campaign-repository';
 export { CampaignService } from './campaign-service';
+export { InMemoryCampaignInviteRepository } from './in-memory-campaign-invite-repository';
 export { InMemoryCampaignRepository } from './in-memory-campaign-repository';
+export { InMemoryMemberDirectory } from './in-memory-member-directory';
+export { InviteMessage } from './invite-message';
+export { MemberDirectory } from './member-directory';

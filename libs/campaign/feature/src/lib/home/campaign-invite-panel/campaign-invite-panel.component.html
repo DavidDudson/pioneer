@@ -1,0 +1,79 @@
+<fr-surface>
+  <fr-stack gap="md">
+    <fr-stack gap="2xs">
+      <fr-heading variant="subheading" [level]="2">{{ 'campaign.invites.heading' | transloco }}</fr-heading>
+      <fr-text element="p" tone="muted">{{ 'campaign.invites.description' | transloco }}</fr-text>
+    </fr-stack>
+    <fr-stack direction="horizontal" justify="start">
+      <fr-async-button
+        variant="primary"
+        [action]="create"
+        [describeError]="describeCreateError"
+        [pendingLabel]="'campaign.invites.creating' | transloco"
+        [successLabel]="'campaign.invites.created' | transloco"
+      >
+        {{ 'campaign.invites.create' | transloco }}
+      </fr-async-button>
+    </fr-stack>
+
+    @if (newLink(); as link) {
+      <fr-stack gap="xs">
+        <fr-text weight="medium">{{ 'campaign.invites.newLink' | transloco }}</fr-text>
+        <fr-text element="code">{{ link }}</fr-text>
+        <fr-text variant="caption" tone="muted">{{ 'campaign.invites.newLinkHint' | transloco }}</fr-text>
+        <fr-stack direction="horizontal" justify="start">
+          <fr-async-button
+            [action]="copy"
+            [describeError]="describeCopyError"
+            [pendingLabel]="'campaign.invites.copying' | transloco"
+            [successLabel]="'campaign.invites.copied' | transloco"
+          >
+            {{ 'campaign.invites.copy' | transloco }}
+          </fr-async-button>
+        </fr-stack>
+      </fr-stack>
+    }
+
+    <fr-heading variant="label" [level]="3">{{ 'campaign.invites.openHeading' | transloco }}</fr-heading>
+    <fr-async-region [errorMessage]="'campaign.invites.loadError' | transloco">
+      <ng-template frAsyncPending>
+        <fr-stack direction="horizontal" gap="sm" align="center" justify="between">
+          <fr-skeleton width="md" />
+          <fr-skeleton shape="block" width="xs" />
+        </fr-stack>
+      </ng-template>
+      <ng-template let-invites [frAsyncData]="store.invites">
+        @if (invites.length === 0) {
+          <fr-empty-state [icon]="emptyIcon" [title]="'campaign.invites.empty' | transloco" />
+        } @else {
+          <fr-list gap="sm">
+            @for (invite of invites; track invite.id) {
+              <fr-list-item>
+                <fr-stack direction="horizontal" gap="sm" align="center" justify="between">
+                  <fr-stack direction="horizontal" gap="xs" align="center" wrap>
+                    <fr-text
+                      >{{ 'campaign.invites.expires' | transloco }}
+                      <fr-date format="datetime" [value]="invite.expiresAt"
+                    /></fr-text>
+                    @if (invite.revokedAt) {
+                      <fr-badge>{{ 'campaign.invites.revoked' | transloco }}</fr-badge>
+                    }
+                  </fr-stack>
+                  <fr-async-button
+                    size="sm"
+                    [action]="revoke(invite)"
+                    [describeError]="describeRevokeError"
+                    [pendingLabel]="'campaign.invites.revoking' | transloco"
+                    [successLabel]="'campaign.invites.revoked' | transloco"
+                  >
+                    {{ 'campaign.invites.revoke' | transloco }}
+                  </fr-async-button>
+                </fr-stack>
+              </fr-list-item>
+            }
+          </fr-list>
+        }
+      </ng-template>
+    </fr-async-region>
+  </fr-stack>
+</fr-surface>

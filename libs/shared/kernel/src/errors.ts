@@ -10,6 +10,7 @@ export const HttpStatus = {
   Forbidden: 403,
   NotFound: 404,
   Conflict: 409,
+  Gone: 410,
   UnprocessableContent: 422,
   InternalServerError: 500,
 } as const;
@@ -20,6 +21,7 @@ export const ProblemType = {
   Unauthorized: 'unauthorized',
   Forbidden: 'forbidden',
   NotFound: 'not-found',
+  Gone: 'gone',
   VersionConflict: 'version-conflict',
   Validation: 'validation',
   Internal: 'internal',
@@ -69,6 +71,19 @@ export class NotFoundError extends DomainError {
 
   public constructor(resource: string, id: string, descriptor: MessageDescriptor = message(ProblemMessage.NotFound)) {
     super(`${resource} ${id} was not found`);
+    this.descriptor = descriptor;
+  }
+}
+
+/** The resource existed but can no longer be used, such as an expired or revoked invite. */
+export class GoneError extends DomainError {
+  public override readonly name = 'GoneError';
+  public readonly status = HttpStatus.Gone;
+  public readonly type = ProblemType.Gone;
+  public readonly descriptor: MessageDescriptor;
+
+  public constructor(resource: string, id: string, descriptor: MessageDescriptor = message(ProblemMessage.Gone)) {
+    super(`${resource} ${id} is no longer available`);
     this.descriptor = descriptor;
   }
 }

@@ -1,6 +1,12 @@
 import { describe, expect, test } from 'bun:test';
 
-import { CampaignService, InMemoryCampaignRepository } from '@pioneer/campaign/application';
+import {
+  CampaignInviteService,
+  CampaignService,
+  InMemoryCampaignInviteRepository,
+  InMemoryCampaignRepository,
+  InMemoryMemberDirectory,
+} from '@pioneer/campaign/application';
 import { fixedClock, newId, UserId } from '@pioneer/shared/kernel';
 import type { Problem } from '@pioneer/shared/kernel';
 import { problemHandler } from '@pioneer/shared/server';
@@ -14,8 +20,11 @@ const amiri = UserId.parse(newId());
 const ezren = UserId.parse(newId());
 
 function app(): AnyElysia {
-  const service = new CampaignService(new InMemoryCampaignRepository(), fixedClock('2026-10-10T10:00:00Z'));
-  return new Elysia().use(problemHandler).use(campaignRoutes(service, new FakeAuthenticator()));
+  const clock = fixedClock('2026-10-10T10:00:00Z');
+  const campaigns = new InMemoryCampaignRepository();
+  const service = new CampaignService(campaigns, new InMemoryMemberDirectory(), clock);
+  const invites = new CampaignInviteService(campaigns, new InMemoryCampaignInviteRepository(), clock);
+  return new Elysia().use(problemHandler).use(campaignRoutes(service, invites, new FakeAuthenticator()));
 }
 
 /** No signed-in user. */
@@ -94,6 +103,11 @@ describe('campaign routes without a signed-in user', () => {
     ['list', request('GET', '/campaigns', { as: anonymous })],
     ['get', request('GET', `/campaigns/${id}`, { as: anonymous })],
     ['create', request('POST', '/campaigns', { as: anonymous, body: { name: 'Kingmaker' } })],
+    ['roster', request('GET', `/campaigns/${id}/members`, { as: anonymous })],
+    ['invites', request('GET', `/campaigns/${id}/invites`, { as: anonymous })],
+    ['create invite', request('POST', `/campaigns/${id}/invites`, { as: anonymous })],
+    ['revoke invite', request('DELETE', `/campaigns/${id}/invites/${newId()}`, { as: anonymous })],
+    ['join', request('POST', '/campaigns/join', { as: anonymous, body: { token: 'A'.repeat(43) } })],
     // Authentication comes before decoding: bad input never turns a 401 into a 422.
     ['get with a malformed id', request('GET', '/campaigns/not-a-uuid', { as: anonymous })],
     ['create with an empty body', request('POST', '/campaigns', { as: anonymous, body: {} })],

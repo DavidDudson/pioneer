@@ -106,7 +106,7 @@ world.
 campaigns             id, version, name, gm_id, play_sync (foundry | pioneer | disconnected), created_at
 campaign_members      id, campaign_id, user_id, role (gm | player), joined_at
                       (campaign_id, user_id) unique; one gm per campaign
-campaign_invites      id, campaign_id, token hash, expires_at, revoked_at
+campaign_invites      id, campaign_id, token_hash (unique), created_by, created_at, expires_at, revoked_at
 campaign_characters   campaign_id, character_id (a character is in one campaign at most)
 campaign_links        id, campaign_id, token hash, last_used_at, revoked_at
 ```
@@ -124,6 +124,14 @@ campaign_links        id, campaign_id, token hash, last_used_at, revoked_at
   and leaves play state to the sync mode.
 - **Play state** syncs per mode: in `foundry` mode the module posts actor changes to Pioneer, which stores them in
   the character's `document.play`; in `pioneer` mode the module writes Pioneer's play state to the actor.
+- **Invites.** The GM makes invite links that work for 7 days unless revoked. The token (256 random bits) is
+  shown once and only its SHA-256 is stored. A signed-in user who opens a working link joins as a player;
+  opening it again as a member is harmless. An unknown token is a 404 and an expired or revoked one a 410, each
+  with its own message. Member names come from identity through the `MemberDirectory` port, adapted in the
+  API's composition root. The link is `/campaigns/join#<token>`: browsers never send a
+  fragment, so the token stays out of request logs. The join page moves it to session storage and out of the
+  address bar before calling the API, so a signed-out visitor goes to sign in with a return path that holds no
+  token and joins when they come back.
 - **Permissions.** Policies live in the campaign context's application layer, with the acting user from identity's
   `RequestAuthenticator` (ADR-0007), or the campaign from a link token for module routes. Owners edit builds;
   members see the party overview.

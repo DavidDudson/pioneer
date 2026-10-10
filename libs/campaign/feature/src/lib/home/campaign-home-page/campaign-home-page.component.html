@@ -1,34 +1,40 @@
 <fr-page [title]="title() ?? (store.selected.isError() ? ('campaign.home.title' | transloco) : undefined)">
-  <fr-async-region [errorMessage]="'campaign.home.loadError' | transloco">
-    <ng-template frAsyncPending>
-      <fr-surface>
-        <fr-stack gap="md">
-          <fr-heading variant="subheading" [level]="2">{{ 'campaign.home.detailsHeading' | transloco }}</fr-heading>
-          <fr-description-list>
-            <fr-description-item [term]="'campaign.home.started' | transloco"
-              ><fr-skeleton width="sm"
-            /></fr-description-item>
-            <fr-description-item [term]="'campaign.home.members' | transloco"
-              ><fr-skeleton width="sm"
-            /></fr-description-item>
-          </fr-description-list>
-        </fr-stack>
-      </fr-surface>
-    </ng-template>
-    <ng-template let-campaign [frAsyncData]="store.selected">
-      <fr-surface>
-        <fr-stack gap="md">
-          <fr-heading variant="subheading" [level]="2">{{ 'campaign.home.detailsHeading' | transloco }}</fr-heading>
-          <fr-description-list>
-            <fr-description-item [term]="'campaign.home.started' | transloco">
-              <fr-text><fr-date [value]="campaign.createdAt" /></fr-text>
-            </fr-description-item>
-            <fr-description-item [term]="'campaign.home.members' | transloco">
-              <fr-text>{{ 'campaign.home.memberCount' | transloco: { count: campaign.members.length } }}</fr-text>
-            </fr-description-item>
-          </fr-description-list>
-        </fr-stack>
-      </fr-surface>
-    </ng-template>
-  </fr-async-region>
+  <fr-stack gap="xl">
+    <fr-async-region [errorMessage]="'campaign.home.loadError' | transloco">
+      <ng-template frAsyncPending>
+        <fr-surface>
+          <fr-stack gap="md">
+            <fr-heading variant="subheading" [level]="2">{{ 'campaign.home.detailsHeading' | transloco }}</fr-heading>
+            <fr-description-list>
+              <fr-description-item [term]="'campaign.home.started' | transloco"
+                ><fr-skeleton width="sm"
+              /></fr-description-item>
+              <fr-description-item [term]="'campaign.home.members' | transloco"
+                ><fr-skeleton width="sm"
+              /></fr-description-item>
+            </fr-description-list>
+          </fr-stack>
+        </fr-surface>
+      </ng-template>
+      <ng-template let-campaign [frAsyncData]="store.selected">
+        <fr-surface>
+          <fr-stack gap="md">
+            <fr-heading variant="subheading" [level]="2">{{ 'campaign.home.detailsHeading' | transloco }}</fr-heading>
+            <fr-description-list>
+              <fr-description-item [term]="'campaign.home.started' | transloco">
+                <fr-text><fr-date [value]="campaign.createdAt" /></fr-text>
+              </fr-description-item>
+              <fr-description-item [term]="'campaign.home.members' | transloco">
+                <fr-text>{{ 'campaign.home.memberCount' | transloco: { count: campaign.members.length } }}</fr-text>
+              </fr-description-item>
+            </fr-description-list>
+          </fr-stack>
+        </fr-surface>
+      </ng-template>
+    </fr-async-region>
+    <pio-campaign-member-list />
+    @if (store.isGm() && store.selected.data(); as campaign) {
+      <pio-campaign-invite-panel [campaignId]="campaign.id" />
+    }
+  </fr-stack>
 </fr-page>
