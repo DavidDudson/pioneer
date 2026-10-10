@@ -41,7 +41,7 @@ export type ProficiencyBonusFormula = z.infer<typeof ProficiencyBonusFormula>;
 
 /**
  * How each proficiency rank becomes a bonus: the formula `@prof.<selector>` evaluates for the rank the character
- * has. Content, not engine code, so a variant rule (Proficiency Without Level) can replace it (ADR-0024).
+ * has. Content, not engine code, so a variant rule (Proficiency Without Level) can replace it (ADR-0026).
  */
 export const ProficiencyBonusTable = z.strictObject({
   [Proficiency.Untrained]: ProficiencyBonusFormula,

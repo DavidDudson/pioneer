@@ -91,7 +91,7 @@ export type MartialProficiencyElement = z.infer<typeof MartialProficiencyElement
 /**
  * Replaces how every proficiency rank becomes a bonus: the table `@prof.<selector>` reads, which the core rules
  * pack defines. A Pioneer element with no Foundry counterpart (Foundry makes Proficiency Without Level a world
- * setting); a variant rule carries it (ADR-0024). Of several in play, the last by priority and then id wins.
+ * setting); a variant rule carries it (ADR-0026). Of several in play, the last by priority and then id wins.
  */
 export const ProficiencyBonusElement = z.strictObject({
   key: z.literal(RuleElementKey.ProficiencyBonus),

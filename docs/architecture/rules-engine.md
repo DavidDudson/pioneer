@@ -67,6 +67,12 @@ Domains use one vocabulary, following Foundry's names so imported selectors keep
 The skills are Acrobatics through Thievery, each keyed to its Player Core attribute (Arcana to Intelligence, Athletics
 to Strength). Armor check penalties are not in the base: they are rule elements on armor.
 
+The core pack also holds the proficiency bonus table `@prof` reads, one formula per rank over `@level` only (Player
+Core: untrained `0`, trained `2 + @level` up to legendary `8 + @level`), and the variant rule
+`proficiency-without-level` (GM Core): a `ProficiencyBonus` rule element whose table drops level and makes untrained
+-2. A variant enabled for a character is put in play like any rule element, with a `variant` origin hop, and each base
+term reading `@prof` names it ([ADR-0026](../adr/0026-proficiency-bonus-table-is-content.md)).
+
 Lore is open-ended, so the core pack defines none. Whatever grants a Lore (a background, a feat) brings its own
 `statistic` entry with the selector `skill:lore:<topic>`, base `@attr.int + @prof.skill.lore.<topic>`, key
 attribute Intelligence and domains `check`, `skill-check`, `int-based` and `lore`. Two packs granting the same Lore
@@ -161,15 +167,15 @@ is one Foundry's JavaScript met too.
 Statistic base formulas and rule element values share one vocabulary of references (ADR-0016), catalogued in
 `libs/rules/sdk` (`formula-reference.ts`). Stored formulas use these paths only:
 
-| Reference           | Scope | Value                                                                                  |
-| ------------------- | ----- | -------------------------------------------------------------------------------------- |
-| `@level`            | actor | The character's level                                                                  |
-| `@attr.<attribute>` | actor | The attribute modifier, `@attr.str` to `@attr.cha`                                     |
-| `@attr.dex.capped`  | actor | The Dexterity modifier after the armor's Dexterity cap (`DexterityCap`)                |
-| `@prof.<selector>`  | actor | The proficiency bonus for a statistic: rank bonus plus level, or 0 when untrained      |
-| `@rank.<selector>`  | actor | The proficiency rank for a statistic, 0 (untrained) to 4 (legendary)                   |
-| `@stat.<selector>`  | actor | Another statistic's base, before its modifiers, such as the spell attack in a spell DC |
-| `@item.level`       | item  | The level of the item the rule element is on                                           |
+| Reference           | Scope | Value                                                                                    |
+| ------------------- | ----- | ---------------------------------------------------------------------------------------- |
+| `@level`            | actor | The character's level                                                                    |
+| `@attr.<attribute>` | actor | The attribute modifier, `@attr.str` to `@attr.cha`                                       |
+| `@attr.dex.capped`  | actor | The Dexterity modifier after the armor's Dexterity cap (`DexterityCap`)                  |
+| `@prof.<selector>`  | actor | The proficiency bonus for a statistic: its rank's formula in the proficiency bonus table |
+| `@rank.<selector>`  | actor | The proficiency rank for a statistic, 0 (untrained) to 4 (legendary)                     |
+| `@stat.<selector>`  | actor | Another statistic's base, before its modifiers, such as the spell attack in a spell DC   |
+| `@item.level`       | item  | The level of the item the rule element is on                                             |
 
 - A selector's colons are written as dots, since references have none: `@prof.save.fortitude` is the bonus for
   `save:fortitude`, `@rank.attack.martial` the rank for `attack:martial`.
@@ -303,7 +309,7 @@ because that is the dataset we import and the system we export to (see
 | ----------- | --------------------------------------------------------------------------------------------------------------------------------- |
 | Structure   | `GrantItem`, `ChoiceSet`, `RollOption` (incl. toggles), `ItemAlteration`                                                          |
 | Numbers     | `FlatModifier`, `AdjustModifier`, `Change` (add, upgrade, downgrade, override, multiply), `DexterityCap`, `MultipleAttackPenalty` |
-| Proficiency | `Proficiency` (raise a rank), `MartialProficiency`                                                                                |
+| Proficiency | `Proficiency` (raise a rank), `MartialProficiency`, `ProficiencyBonus` (replace the bonus table)                                  |
 | Checks      | `RollTwice`, `SubstituteRoll`, `AdjustDegreeOfSuccess`, `RollNote`                                                                |
 | Strikes     | `Strike`, `AdjustStrike`, `DamageDice`, `DamageAlteration`, `CriticalSpecialization`                                              |
 | Defences    | `Immunity`, `Weakness`, `Resistance`, `TempHitPoints`, `FastHealing`                                                              |
@@ -316,7 +322,8 @@ importer reports Foundry elements it cannot translate rather than dropping them 
 
 The Structure, Numbers and Proficiency groups are in the SDK. `Proficiency` raises one statistic's rank on its
 selector, weapon and armour categories included (`attack:martial`), standing in for Foundry's rank
-`ActiveEffectLike` upgrades. `MartialProficiency` keeps Foundry's schema and defaults: a new proficiency for the
+`ActiveEffectLike` upgrades. `ProficiencyBonus` is Pioneer's own: it replaces the proficiency bonus table,
+as a variant rule does (ADR-0026). `MartialProficiency` keeps Foundry's schema and defaults: a new proficiency for the
 weapons or armour a predicate defines, whose rank can follow a category's (`sameAs`) up to `maxRank`. The Checks,
 Strikes, Defences, Creature and Actions groups land with their Epic 2.6 translator stories, so each schema arrives
 with the Foundry content that exercises it.

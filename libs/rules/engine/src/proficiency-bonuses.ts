@@ -65,7 +65,7 @@ function bonusAt(formula: ProficiencyBonusFormula, level: Level): FormulaValue |
 
 /**
  * Every rank's bonus at `level`, from `table` (the core rules pack's, through the registry) unless a
- * `ProficiencyBonus` element in play replaces it (ADR-0024). Evaluated once per derivation.
+ * `ProficiencyBonus` element in play replaces it (ADR-0026). Evaluated once per derivation.
  */
 export function proficiencyBonuses(
   table: ProficiencyBonusTable,

@@ -38,7 +38,7 @@ function skill(slug: string, name: string, attribute: Attribute): StatisticDefin
  * The core rules (Player Core, 2023 remaster): the statistics every character has, hand-authored rather than
  * imported, since Foundry hard-codes them. Mechanics are ORC-licensed; see NOTICE.md. Domains follow the
  * vocabulary in rules-engine.md ("Statistics are content"); `all` reaches every statistic without being listed. The proficiency bonus table is
- * here too, so a variant rule can replace it (ADR-0024).
+ * here too, so a variant rule can replace it (ADR-0026).
  */
 export const coreRules = ContentPack.define({
   manifest: { id: 'core-rules', title: 'Core Rules', publisher: 'Paizo Inc.', license: ContentLicense.Orc },

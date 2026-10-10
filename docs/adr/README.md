@@ -30,6 +30,7 @@ Accepted. To change a decision, add a new ADR that supersedes the old one; do no
 | [0023](0023-equipment-kinds-diverge-from-foundry-items.md) | Equipment kinds diverge from Foundry's item types where the rules do              |
 | [0024](0024-book-titles-are-message-keys.md)               | Book titles are message keys; the registry holds published books                  |
 | [0025](0025-feat-and-action-facet-fields.md)               | Feats and actions store the skills, archetype and variable cost their facets read |
+| [0026](0026-proficiency-bonus-table-is-content.md)         | The proficiency bonus table is content, replaced by a rule element                |
 
 Template:
 
