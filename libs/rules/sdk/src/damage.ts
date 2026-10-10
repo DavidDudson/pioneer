@@ -1,6 +1,7 @@
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
+import { uniqueItems } from './unique-items';
 import { DamageAmount } from './units';
 
 /** Remaster damage types (Player Core). */
@@ -53,8 +54,38 @@ export const DamageAdjustmentTarget = { ...DamageType, ...DamageGroup } as const
 export type DamageAdjustmentTarget = ValueOf<typeof DamageAdjustmentTarget>;
 export const DamageAdjustmentTargetSchema = z.enum(DamageAdjustmentTarget);
 
-/** A weakness or resistance to a damage type or group. */
-export const DamageAdjustment = z.object({ type: DamageAdjustmentTargetSchema, value: DamageAmount });
+/**
+ * What lets a damage instance get past a weakness, resistance or immunity: a precious material it is made of, or the
+ * `magical` trait (`resistance 5 physical except adamantine`). Foundry pf2e keeps the list in code; this one grows
+ * as content needs more.
+ */
+export const DamageException = {
+  Adamantine: 'adamantine',
+  ColdIron: 'cold-iron',
+  Silver: 'silver',
+  Orichalcum: 'orichalcum',
+  Magical: 'magical',
+} as const;
+export type DamageException = ValueOf<typeof DamageException>;
+export const DamageExceptionSchema = z.enum(DamageException);
+
+/** A defence's exceptions, each once. */
+export const DamageExceptions = z
+  .array(DamageExceptionSchema)
+  .max(Object.keys(DamageException).length)
+  .readonly()
+  .check(uniqueItems);
+export type DamageExceptions = z.infer<typeof DamageExceptions>;
+
+/**
+ * A weakness or resistance to a damage type or group. An instance with one of its `exceptions` gets past it; damage
+ * instances carry no traits yet, so none does.
+ */
+export const DamageAdjustment = z.object({
+  type: DamageAdjustmentTargetSchema,
+  value: DamageAmount,
+  exceptions: DamageExceptions.optional(),
+});
 export type DamageAdjustment = z.infer<typeof DamageAdjustment>;
 
 /**

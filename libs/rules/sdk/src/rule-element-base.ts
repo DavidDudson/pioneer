@@ -22,6 +22,9 @@ export const RuleElementKey = {
   Proficiency: 'Proficiency',
   MartialProficiency: 'MartialProficiency',
   ProficiencyBonus: 'ProficiencyBonus',
+  Immunity: 'Immunity',
+  Weakness: 'Weakness',
+  Resistance: 'Resistance',
 } as const;
 export type RuleElementKey = ValueOf<typeof RuleElementKey>;
 

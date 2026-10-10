@@ -4,6 +4,7 @@ import * as z from 'zod';
 
 import { RulesMessage } from './messages';
 import { RuleElementKey } from './rule-element-base';
+import { ImmunityElement, ResistanceElement, WeaknessElement } from './rule-element-defences';
 import { ItemAlterationElement } from './rule-element-item-alteration';
 import {
   AdjustModifierElement,
@@ -31,6 +32,9 @@ const Element = z.discriminatedUnion('key', [
   ProficiencyElement,
   MartialProficiencyElement,
   ProficiencyBonusElement,
+  ImmunityElement,
+  WeaknessElement,
+  ResistanceElement,
 ]);
 
 /** Names the `key` when the value is an object whose `key` is a string Pioneer does not know. */

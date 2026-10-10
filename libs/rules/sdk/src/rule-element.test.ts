@@ -79,6 +79,12 @@ const examples: object[] = [
     value: 'trained',
   },
   { key: 'MartialProficiency', slug: 'firearms', definition: ['item:group:firearm'], visible: false },
+  { key: 'Immunity', type: 'poison' },
+  { key: 'Immunity', type: 'paralyzed', predicate: ['self:effect:freedom-of-movement'] },
+  { key: 'Weakness', type: 'cold', value: 5 },
+  { key: 'Weakness', type: 'fire', value: 'max(1, floor(@level / 2))' },
+  { key: 'Resistance', type: 'physical', value: 5, exceptions: ['adamantine'] },
+  { key: 'Resistance', type: 'fire', value: 10, predicate: ['self:effect:fire-shield'], display: { label: 'Fire Shield' } },
 ];
 
 describe('RuleElement', () => {
@@ -188,6 +194,30 @@ describe('RuleElement', () => {
   test('a martial proficiency defines what it covers', () => {
     expect(issues({ key: 'MartialProficiency', slug: 'firearms' })).toStrictEqual([
       { path: ['definition'], message: message(ValidationMessage.InvalidType, { expected: 'array' }) },
+    ]);
+  });
+
+  test('a resistance or weakness is at least 1', () => {
+    expect(issues({ key: 'Resistance', type: 'fire', value: 0 })).toStrictEqual([
+      { path: ['value'], message: message(ValidationMessage.TooSmall, { origin: 'number', minimum: 0 }) },
+    ]);
+  });
+
+  test('a defence targets a damage type or group, never a material', () => {
+    expect(issues({ key: 'Weakness', type: 'cold-iron', value: 5 })).toStrictEqual([
+      { path: ['type'], message: message(ValidationMessage.InvalidValue) },
+    ]);
+  });
+
+  test('a defence names each exception once', () => {
+    expect(issues({ key: 'Resistance', type: 'physical', value: 5, exceptions: ['silver', 'silver'] })).toStrictEqual([
+      { path: ['exceptions', 1], message: message(RulesMessage.ListDuplicate, { value: 'silver' }) },
+    ]);
+  });
+
+  test('an immunity has no value', () => {
+    expect(issues({ key: 'Immunity', type: 'fire', value: 5 })).toStrictEqual([
+      { path: ['value'], message: message(ValidationMessage.UnrecognizedKeys, { count: 1, keys: 'value' }) },
     ]);
   });
 

@@ -53,6 +53,9 @@ export {
   DamageAdjustment,
   DamageAdjustmentTarget,
   DamageAdjustmentTargetSchema,
+  DamageException,
+  DamageExceptions,
+  DamageExceptionSchema,
   DamageGroup,
   DamageGroupSchema,
   DamageType,
@@ -243,6 +246,7 @@ export {
   RollOptionElement,
   RollOptionSuboption,
 } from './rule-element-structure';
+export { DefenceValue, ImmunityElement, ResistanceElement, WeaknessElement } from './rule-element-defences';
 export {
   ItemAlterationElement,
   ItemProperty,

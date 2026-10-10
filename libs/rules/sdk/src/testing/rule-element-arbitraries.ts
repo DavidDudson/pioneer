@@ -9,6 +9,7 @@ import {
   option,
   record,
   stringMatching,
+  subarray,
   tuple,
   uuid,
 } from 'fast-check';
@@ -16,7 +17,7 @@ import type { Arbitrary } from 'fast-check';
 
 import { Attribute } from '../attribute';
 import { ContentKind } from '../content-kind';
-import { DamageType } from '../damage';
+import { DamageAdjustmentTarget, DamageException, DamageType } from '../damage';
 import { ModifierType } from '../modifier-type';
 import { Proficiency } from '../proficiency';
 import { NumericAlterationMode, NumericItemProperty, TraitAlterationMode } from '../rule-element-item-alteration';
@@ -172,6 +173,13 @@ const bonusFormula: Arbitrary<string> = oneof(
 const bonusTable = Object.fromEntries(Object.values(Proficiency).map((rank) => [rank, bonusFormula]));
 const proficiencyBonus = element('ProficiencyBonus', { table: record(bonusTable) });
 
+const exceptions = { exceptions: subarray(Object.values(DamageException), { minLength: 1 }) };
+const defenceValue = oneof(integer({ min: 1, max: SMALLINT_MAX }), validFormulaText);
+const adjustmentFields = { type: anyOf(DamageAdjustmentTarget), value: defenceValue };
+const immunity = element('Immunity', { type: slugText }, exceptions);
+const weakness = element('Weakness', adjustmentFields, exceptions);
+const resistance = element('Resistance', adjustmentFields, exceptions);
+
 /**
  * Valid rule elements of every `key` the SDK knows, as plain JSON (unparsed). Use with
  * `RuleElement.parse` to get the typed value.
@@ -194,4 +202,7 @@ export const ruleElementJson: Arbitrary<object> = oneof(
   proficiency,
   martialProficiency,
   proficiencyBonus,
+  immunity,
+  weakness,
+  resistance,
 );
