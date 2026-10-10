@@ -1,6 +1,6 @@
 # 0005. Every content entry has a source reference
 
-- Status: Proposed
+- Status: Proposed; enrichment by the importer superseded by [0031](0031-official-packs-imported-once-from-foundry.md)
 - Date: 2026-10-08
 
 ## Context

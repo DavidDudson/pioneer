@@ -63,11 +63,11 @@ rule elements translated; public content browser live.
 - **Books and sources**: book registry, `SourceRef` validation, source line component.
 - **Content storage**: tables, migrations, deploy-time seeding, registry loading from the database,
   content-hashed per-kind bundles for the browser with IndexedDB caching. Retire `libs/content/*`.
-- **Foundry importer**: pinned checkout, selection, schema translation, i18n label resolution, HTML and enricher
-  conversion, validation, coverage report as a CI artefact.
-- **Rule element translators**: one story per Foundry rule element group; untranslatable report.
-- **Source enrichment**: spike on obtaining AoN page and URL data within their terms; mapping files; matcher;
-  coverage of pages and URLs.
+- **Foundry importer**: one-off import per pack (ADR-0031): pinned release, selection, schema translation, i18n
+  label resolution, HTML and enricher conversion, validation, import backlog, coverage report as a CI artefact.
+- **Rule element translators**: one story per Foundry rule element group; applied to the import backlog.
+- **Source enrichment**: spike on obtaining AoN page and URL data within their terms; matcher;
+  pages and URLs written into the committed packs; coverage of pages and URLs.
 - **Public content caches**: official pack bundles downloadable from the Legal page with Foundry release and
   content hash, generated from pack manifests.
 - **Content localisation**: mechanics and per-locale text bundles, sharded descriptions loaded on demand,
@@ -200,7 +200,7 @@ Exit: Player Core, Player Core 2, GM Core and Monster Core imported to the cover
 - **Player Core 2** import.
 - **GM Core** import (items, variant rules, rules elements needed by them).
 - **Monster Core** import (creature content).
-- **Translator gap closing**: work through the untranslatable report.
+- **Translator gap closing**: work through the import backlog.
 - **Source enrichment completion**: page numbers and AoN URLs for all imported entries.
 - **Content translation import**: community Foundry translation modules as text-only packs keyed by Foundry id.
 

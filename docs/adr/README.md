@@ -35,6 +35,7 @@ Accepted. To change a decision, add a new ADR that supersedes the old one; do no
 | [0028](0028-frontier-and-pioneer-components.md)            | Frontier knows no schemas; rules-aware UI is presentational or container          |
 | [0029](0029-official-content-seeded-by-migrate.md)         | Official content is seeded by `migrate`, one hash-checked transaction per pack    |
 | [0030](0030-statistics-derived-per-source.md)              | Statistics derived per weapon and spellcasting entry                              |
+| [0031](0031-official-packs-imported-once-from-foundry.md)  | Official packs are imported once from Foundry, then owned in the repo             |
 
 Template:
 

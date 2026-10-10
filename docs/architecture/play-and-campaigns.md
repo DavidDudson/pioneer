@@ -97,9 +97,9 @@ An ability that fires on an event ("after you cast a focus spell", "when you Str
 needs a structured trigger, since `trigger` is rich text. Actions and effects gain an optional `triggerEvent`
 (`turn-start`, `turn-end`, `cast-spell` with a predicate such as `trait:focus`, `strike`, `damage-taken`, ...) that
 the engine matches against turn events; the rich text stays as the displayed wording. Foundry has no such field, so
-the importer enriches it, like sources: mapping files plus a matcher over the trigger text, with unmatched triggers
-in the coverage report. An ability without a `triggerEvent` is never prompted or applied; it stays in the action
-lists for the player to use by hand.
+a matcher over the trigger text fills it, during a pack's import or as a pass over the committed packs (ADR-0031),
+and corrections are edits to the packs; entries without a `triggerEvent` show in the coverage report. An ability
+without a `triggerEvent` is never prompted or applied; it stays in the action lists for the player to use by hand.
 
 When an event fires, the matching abilities are collected:
 

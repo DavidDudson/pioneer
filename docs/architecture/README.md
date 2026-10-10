@@ -102,9 +102,10 @@ libs/
   shared/i18n/      locale resolution, message loading by scope, ICU formatting, unit display
 content/
   books.json        book registry
-  packs/<pack>/     generated JSON per content kind
+  packs/<pack>/     JSON per content kind, imported once then edited by hand
+  import/           Foundry pin and per-pack import backlog
 tools/
-  content-import/   Foundry pf2e -> Pioneer translator, coverage report, AoN enrichment
+  content-import/   one-off Foundry pf2e -> Pioneer import CLI over libs/interop/foundry
 ```
 
 Dependency rule: `rules/*` depends only on `shared/kernel` and other `rules/*` libraries: `rules/formula` on the kernel
@@ -149,4 +150,4 @@ Content data never imports code.
   binary never contains it, and `verify-dev-free` fails a production build that does; see
   [ADR-0020](../adr/0020-local-dev-sign-in.md).
 - **Testing.** Property tests for the engine and dice (fast-check, already in use). Golden tests: Paizo pregenerated
-  characters imported and compared against their published numbers. Importer coverage reports gate content PRs.
+  characters imported and compared against their published numbers. A content coverage report runs on content PRs.
