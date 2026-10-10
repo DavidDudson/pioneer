@@ -49,6 +49,15 @@ export class ContentBundleCache {
     this.#manifest = undefined;
   }
 
+  /** Drops `files` of `pack` from the store, so the next ask fetches them again. */
+  public async forget(pack: PackId, files: readonly BundleFile[]): Promise<void> {
+    try {
+      await this.#store.remove(files.map((file) => bundlePath(pack, file)));
+    } catch {
+      // Nothing more to do: the store already fails, so reads miss and fetch anyway.
+    }
+  }
+
   /** A bundle's body: from the store when kept, else fetched and kept. */
   public async bundle(pack: PackId, file: BundleFile): Promise<unknown> {
     const path = bundlePath(pack, file);

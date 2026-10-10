@@ -66,7 +66,14 @@ export class ContentLoader {
       this.#cache.bundle(pack.id, pack.file),
       ...kindsIn(pack, kinds).map(async (bundles) => this.#kind(pack.id, bundles)),
     ]);
-    return contentPackFromBundles(file, fetched);
+    try {
+      return contentPackFromBundles(file, fetched);
+    } catch (error) {
+      // A kept body that no longer reads (a truncated record) must not stick: drop it, so the retry fetches it again.
+      const used = kindsIn(pack, kinds).flatMap(({ mechanics, names }) => [mechanics, names]);
+      await this.#cache.forget(pack.id, [pack.file, ...used]);
+      throw error;
+    }
   }
 
   async #kind(pack: PackId, { mechanics, names }: KindBundles): Promise<FetchedKind> {

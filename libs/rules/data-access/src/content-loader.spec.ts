@@ -12,7 +12,9 @@ import type { PackContents, PackContentsLoader } from '@pioneer/rules/sdk';
 import { IDLE_SCHEDULER } from '@pioneer/shared/web';
 import { describe, expect, it } from 'vitest';
 
+import type { BundleStore } from './bundle-store';
 import { ContentLoader } from './content-loader';
+import { MemoryBundleStore } from './memory-bundle-store';
 import { provideContentTesting, TestContentDelivery } from './testing';
 
 const PACK = PackId.parse('homebrew');
@@ -58,12 +60,12 @@ interface Loaded {
   readonly idle: () => void;
 }
 
-function load(): Loaded {
+function load(store: BundleStore = new MemoryBundleStore()): Loaded {
   const delivery = new TestContentDelivery(packs);
   const waiting: (() => void)[] = [];
   TestBed.configureTestingModule({
     providers: [
-      ...provideContentTesting(delivery),
+      ...provideContentTesting(delivery, store),
       {
         provide: IDLE_SCHEDULER,
         useValue: (task: () => void): void => {
@@ -150,5 +152,20 @@ describe(ContentLoader, () => {
       'Common (Taldane)',
     ]);
     expect(delivery.requests.filter((request) => request === 'manifest')).toHaveLength(2);
+  });
+
+  it('a kept bundle that no longer reads is fetched again', async () => {
+    const store = new MemoryBundleStore();
+    const first = load(store);
+    await first.loader.registry([ContentKind.Ancestry]);
+    const keys = await store.keys();
+    const mechanics = keys.filter((kept) => kept.includes('ancestry.mech.'));
+    await Promise.all(mechanics.map(async (key) => store.write(key, [{ truncated: true }])));
+    TestBed.resetTestingModule();
+    const { loader } = load(store);
+
+    const registry = await loader.registry([ContentKind.Ancestry]);
+
+    expect(registry.ancestries()).toHaveLength(1);
   });
 });
