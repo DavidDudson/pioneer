@@ -380,6 +380,22 @@ split by kind and by purpose, cached in IndexedDB, and loaded lazily (spells onl
 Mechanics never depend on locale, so switching language downloads only text. Likely-next bundles are prefetched
 when idle. Content browser search is server-side through per-locale `tsvector` and trait/level indexes.
 
+- **Built from the seeded rows.** `contentBundles` (`libs/rules/sdk`) makes, per official pack, `pack.<hash>.json`
+  (its `pack.json`), and per kind `<kind>.mech.<hash>.json` (entries sorted by id, without `name` or `description`)
+  and `<kind>.names.en.<hash>.json` (id to name). The hash is the first 16 hex digits of SHA-256 of the bundle's
+  canonical JSON, so equal content gives equal names, and a changed name changes only that kind's names bundle.
+  `StoredContentBundles` (`libs/rules/infrastructure`) builds them once per set of stored `content_hash` values,
+  as `StoredContentSource` does its registry.
+- **Served publicly** (ADR-0007): `GET /api/content/manifest` (`public, max-age=60`) lists each pack's bundle files
+  by kind, and `GET /api/content/bundles/<pack>/<file>` (`public, max-age=31536000, immutable`) serves one. A file
+  no current manifest names is a 404, which the edge Worker does not cache.
+- **Kept in the browser.** `ContentBundleCache` (`libs/rules/data-access`) reads the manifest once a session,
+  keeps every bundle in IndexedDB by path, and evicts the paths a new manifest no longer names. Offline, the last
+  manifest read stands in, so every kind kept still loads. `ContentLoader` builds a `ContentRegistry` of every
+  pack with only the kinds a page asks for, then prefetches the likely next kinds (ancestry, then heritage and
+  languages, and so on through building a character) when idle. Descriptions arrive with their own bundles in
+  Epic 2.4; until then an entry read from bundles has none.
+
 ## Filters
 
 The content browser, the builder's slot pickers, spell preparation and the shop share one filter system. Each

@@ -1,8 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 
-import type { CanonicalJson } from './canonical-json';
 import { BundleHash, bundlePath, contentBundles, contentPackFromBundles } from './content-bundle';
-import type { BundleBody, BundleFile, ContentBundles, KindBundles, PackBundles } from './content-bundle';
+import type { BundleBody, CanonicalJson, BundleFile, ContentBundles, KindBundles, PackBundles } from './content-bundle';
 import { contentId, PackId, Slug } from './content-id';
 import type { ContentPack } from './content-pack';
 import { contentPackFromFiles, packContentsFromFiles } from './content-pack-file';
@@ -143,7 +142,7 @@ describe('contentPackFromBundles', () => {
     const fromBundles = fetched(bundles(), ['ancestry', 'language']);
     expect(fromBundles.manifest).toStrictEqual(fromFiles.manifest);
     expect(fromBundles.ancestries).toStrictEqual(fromFiles.ancestries);
-    expect(fromBundles.otherEntries.map((entry) => entry.name)).toStrictEqual(['Common', 'Draconic']);
+    expect(fromBundles.otherEntries.map((entry) => String(entry.name))).toStrictEqual(['Common', 'Draconic']);
   });
 
   test('holds only the kinds fetched', () => {

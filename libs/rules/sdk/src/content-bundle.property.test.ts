@@ -3,7 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import { assert, property, shuffledSubarray, uniqueArray } from 'fast-check';
 import type { Arbitrary } from 'fast-check';
 
-import type { CanonicalJson } from './canonical-json';
+import type { CanonicalJson } from './content-bundle';
 import { BundleHash, contentBundles } from './content-bundle';
 import { contentId, PackId, Slug } from './content-id';
 import { packContentsFromFiles } from './content-pack-file';
