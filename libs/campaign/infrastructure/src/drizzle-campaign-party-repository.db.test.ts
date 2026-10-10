@@ -68,7 +68,11 @@ describe.skipIf(adminUrl === undefined)('DrizzleCampaignPartyRepository (postgre
   }
 
   /** `userId` attaches `characterId` to `campaign` through their own membership of it. */
-  async function attachAs(campaign: Campaign, userId: UserId, characterId: CharacterId): Promise<CampaignId | undefined> {
+  async function attachAs(
+    campaign: Campaign,
+    userId: UserId,
+    characterId: CharacterId,
+  ): Promise<CampaignId | undefined> {
     return repository.attach(campaign.id, attachment(memberOf(campaign, userId), characterId));
   }
 
@@ -120,12 +124,12 @@ describe.skipIf(adminUrl === undefined)('DrizzleCampaignPartyRepository (postgre
   test('two attaches racing to different campaigns place the character in exactly one', async () => {
     const [vaults, kingmaker] = await Promise.all([newCampaign('Race one'), newCampaign('Race two')]);
     const valeros = await insertCharacter(database, ezren);
-    const placed = await Promise.all([
-      attachAs(vaults, ezren, valeros),
-      attachAs(kingmaker, ezren, valeros),
-    ]);
+    const placed = await Promise.all([attachAs(vaults, ezren, valeros), attachAs(kingmaker, ezren, valeros)]);
     expect(placed[0]).toBe(placed[1]);
-    const parties = await Promise.all([repository.listForCampaign(vaults.id), repository.listForCampaign(kingmaker.id)]);
+    const parties = await Promise.all([
+      repository.listForCampaign(vaults.id),
+      repository.listForCampaign(kingmaker.id),
+    ]);
     expect(parties.map((party) => party.length).toSorted((left, right) => left - right)).toStrictEqual([0, 1]);
   });
 

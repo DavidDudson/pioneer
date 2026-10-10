@@ -8,8 +8,8 @@ import {
 import type { Clock } from '@pioneer/shared/kernel';
 import type { ContractRouter, RequestAuthenticator } from '@pioneer/shared/server';
 
-import { OwnedCharacterDirectory } from './owned-character-directory';
 import type { Database } from './database';
+import { OwnedCharacterDirectory } from './owned-character-directory';
 import { UserMemberDirectory } from './user-member-directory';
 
 /** The campaign context's part of the composition root: services and routes. */

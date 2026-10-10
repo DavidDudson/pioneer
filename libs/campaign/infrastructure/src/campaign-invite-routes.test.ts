@@ -32,7 +32,12 @@ function app(clock: Clock = new ManualClock('2026-10-10T10:00:00Z')): AnyElysia 
   const service = new CampaignService({ campaigns, invites: inviteRepository, directory }, clock);
   const invites = new CampaignInviteService(campaigns, inviteRepository, clock);
   const partyService = new CampaignPartyService(
-    { campaigns, party: new InMemoryCampaignPartyRepository(), characters: new InMemoryCharacterDirectory(), directory },
+    {
+      campaigns,
+      party: new InMemoryCampaignPartyRepository(),
+      characters: new InMemoryCharacterDirectory(),
+      directory,
+    },
     clock,
   );
   return new Elysia()
