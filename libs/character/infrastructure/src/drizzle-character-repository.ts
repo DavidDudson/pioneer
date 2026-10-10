@@ -1,9 +1,11 @@
 import { CharacterRepository } from '@pioneer/character/application';
+import type { CharacterAudit } from '@pioneer/character/application';
 import { Character } from '@pioneer/character/domain';
 import type { CharacterId, CharacterListQuery, CharacterSort } from '@pioneer/character/domain';
 import { AttributeModifiers } from '@pioneer/rules/sdk';
 import { nextVersion, SortDirection, Temporal, VersionConflictError } from '@pioneer/shared/kernel';
 import type { UserId, Version } from '@pioneer/shared/kernel';
+import { stampAudit } from '@pioneer/shared/server';
 import { and, asc, desc, eq } from 'drizzle-orm';
 import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
 
@@ -71,21 +73,31 @@ export class DrizzleCharacterRepository extends CharacterRepository {
     return row === undefined ? undefined : toCharacter(row);
   }
 
-  public override async insert(character: Character): Promise<Character> {
-    const [row] = await this.#db.insert(characters).values(toRow(character)).returning();
+  public override async insert(character: Character, audit: CharacterAudit): Promise<Character> {
+    const [row] = await this.#db.transaction(async (tx) => {
+      await stampAudit(tx, audit);
+      return tx.insert(characters).values(toRow(character)).returning();
+    });
     if (row === undefined) {
       throw new Error(`Insert of character ${character.id} returned no row`);
     }
     return toCharacter(row);
   }
 
-  public override async update(character: Character, expectedVersion: Version): Promise<Character> {
+  public override async update(
+    character: Character,
+    expectedVersion: Version,
+    audit: CharacterAudit,
+  ): Promise<Character> {
     const next = toRow(character.withVersion(nextVersion(expectedVersion)));
-    const [row] = await this.#db
-      .update(characters)
-      .set(next)
-      .where(and(eq(characters.id, character.id), eq(characters.version, expectedVersion)))
-      .returning();
+    const [row] = await this.#db.transaction(async (tx) => {
+      await stampAudit(tx, audit);
+      return tx
+        .update(characters)
+        .set(next)
+        .where(and(eq(characters.id, character.id), eq(characters.version, expectedVersion)))
+        .returning();
+    });
     if (row === undefined) {
       throw new VersionConflictError('Character', character.id);
     }

@@ -1,4 +1,10 @@
-import { Character, CharacterId, CharacterPatchField } from '@pioneer/character/domain';
+import {
+  Character,
+  CharacterCommand,
+  CharacterId,
+  CharacterPatchField,
+  PATCH_COMMANDS,
+} from '@pioneer/character/domain';
 import type { CharacterListQuery, CreateCharacterBody, PatchCharacterBody } from '@pioneer/character/domain';
 import type { AncestryId, ContentRegistry } from '@pioneer/rules/sdk';
 import { message, newId, NotFoundError, ValidationError } from '@pioneer/shared/kernel';
@@ -47,7 +53,7 @@ export class CharacterService {
       ancestry: input.ancestry,
       now: this.#clock.now(),
     });
-    return this.#repository.insert(character);
+    return this.#repository.insert(character, { actor, command: CharacterCommand.CreateCharacter });
   }
 
   /** One field-level edit to one of the actor's characters, if it is still at `expectedVersion`. */
@@ -60,7 +66,10 @@ export class CharacterService {
     if (patch.field === CharacterPatchField.Ancestry) {
       this.#assertAncestryExists(patch.value);
     }
-    return this.#repository.update(current.apply(patch, this.#clock.now()), expectedVersion);
+    return this.#repository.update(current.apply(patch, this.#clock.now()), expectedVersion, {
+      actor,
+      command: PATCH_COMMANDS[patch.field],
+    });
   }
 
   #assertAncestryExists(ref: AncestryId): void {

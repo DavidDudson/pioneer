@@ -1,3 +1,4 @@
+export type { AuditContext } from './audit';
 export { type Clock, fixedClock, systemClock } from './clock';
 export {
   Endpoint,

@@ -4,10 +4,17 @@ import { nextVersion, SortDirection, VersionConflictError } from '@pioneer/share
 import type { UserId, Version } from '@pioneer/shared/kernel';
 
 import { CharacterRepository } from './character-repository';
+import type { CharacterAudit } from './character-repository';
 
 /** Repository adapter for tests and local experiments. */
 export class InMemoryCharacterRepository extends CharacterRepository {
   readonly #rows = new Map<CharacterId, Character>();
+  readonly #audits: CharacterAudit[] = [];
+
+  /** Every write's audit context, oldest first, for tests to assert which command ran. */
+  public get audits(): readonly CharacterAudit[] {
+    return this.#audits;
+  }
 
   public override async listForOwner(ownerId: UserId, query: CharacterListQuery): Promise<readonly Character[]> {
     const sign = query.direction === SortDirection.Asc ? 1 : -1;
@@ -22,18 +29,24 @@ export class InMemoryCharacterRepository extends CharacterRepository {
     return this.#rows.get(id);
   }
 
-  public override async insert(character: Character): Promise<Character> {
+  public override async insert(character: Character, audit: CharacterAudit): Promise<Character> {
     this.#rows.set(character.id, character);
+    this.#audits.push(audit);
     return character;
   }
 
-  public override async update(character: Character, expectedVersion: Version): Promise<Character> {
+  public override async update(
+    character: Character,
+    expectedVersion: Version,
+    audit: CharacterAudit,
+  ): Promise<Character> {
     const stored = this.#rows.get(character.id);
     if (stored?.version !== expectedVersion) {
       throw new VersionConflictError('Character', character.id);
     }
     const saved = character.withVersion(nextVersion(expectedVersion));
     this.#rows.set(saved.id, saved);
+    this.#audits.push(audit);
     return saved;
   }
 }
