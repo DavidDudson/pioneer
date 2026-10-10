@@ -19,16 +19,29 @@ const JSON_INDENT = 2;
 
 /**
  * Inputs the example starts with: a level 3 human fighter in a breastplate, trained in arcane spells, with what the
- * ancestry and class give, so the core rules pack's Hit Points, Speed and class DC derive too.
+ * ancestry and class give, a +1 longsword and a dagger, and an arcane spellcasting entry, so the core rules pack's Hit
+ * Points, Speed, class DC, Strikes, spell attack and spell DC derive too.
  */
 export const EXAMPLE_STATISTIC_INPUTS = JSON.stringify(
   {
     level: 3,
     attributes: { str: 4, dex: 2, con: 2, int: 1, wis: 1, cha: 0 },
-    ranks: { ac: 'trained', 'save:fortitude': 'expert', 'spell-attack:arcane': 'trained', 'class-dc': 'trained' },
+    ranks: {
+      ac: 'trained',
+      'save:fortitude': 'expert',
+      'spellcasting:arcane': 'trained',
+      'class-dc': 'trained',
+      'attack:simple': 'expert',
+      'attack:martial': 'expert',
+    },
     dexterityCap: 1,
     ancestry: { hitPoints: 8, speed: 25 },
     class: { hitPoints: 10, keyAttribute: 'str' },
+    weapons: [
+      { slug: 'longsword', category: 'martial', traits: ['versatile-p'], potency: 1 },
+      { slug: 'dagger', category: 'simple', traits: ['agile', 'finesse', 'thrown-10', 'versatile-s'] },
+    ],
+    spellcasting: [{ slug: 'arcane', tradition: 'arcane', attribute: 'int' }],
   },
   undefined,
   JSON_INDENT,
@@ -225,6 +238,26 @@ function readTexts(texts: StatisticsTexts, namespaces: NamespaceTable): TextsRea
   };
 }
 
+const INSTANCE_SEPARATOR = ':';
+
+/**
+ * A definition's results: its own, or for one derived per source, each source's `<selector>:<slug>`, in the order
+ * the engine gives them. A slug has no colon, so a deeper selector is not one of them.
+ */
+function resultsOf(
+  { selector, per }: StatisticDefinition,
+  results: ReadonlyMap<Selector, StatisticResult>,
+): readonly StatisticResult[] {
+  if (per === undefined) {
+    const result = results.get(selector);
+    return result === undefined ? [] : [result];
+  }
+  const prefix = `${selector}${INSTANCE_SEPARATOR}`;
+  return [...results].flatMap(([key, result]) =>
+    key.startsWith(prefix) && !key.slice(prefix.length).includes(INSTANCE_SEPARATOR) ? [result] : [],
+  );
+}
+
 /** How the statistics tool turns proficiency into bonuses: the pack's table, and the variant rule while it is on. */
 export interface StatisticProficiency {
   readonly table: ProficiencyBonusTable;
@@ -245,14 +278,14 @@ export function checkStatistics(
     return read.problems;
   }
   const names = ruleNames(read.rules);
-  const bases = new Map(read.definitions.map((definition) => [definition.selector, definition.base]));
+  const latest = new Map(read.definitions.map((definition) => [definition.selector, definition]));
   const rules = [...read.rules, ...(variant?.rules ?? [])];
   const content = { definitions: read.definitions, proficiencyBonus: table };
   const results = deriveStatistics(content, read.inputs, { rules, facts: read.facts });
   // Rows follow the order the statistics were written in; a selector written twice shows once.
-  const rows = [...bases].flatMap(([selector, base]) => {
-    const result = results.get(selector);
-    return result === undefined ? [] : [rowOf(result, base, { rules: names, variant })];
-  });
+  // A statistic derived per source shows each weapon's or entry's in turn.
+  const rows = [...latest.values()].flatMap((definition) =>
+    resultsOf(definition, results).map((result) => rowOf(result, definition.base, { rules: names, variant })),
+  );
   return { status: StatisticsStatus.Valid, rows };
 }

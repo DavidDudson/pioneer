@@ -65,9 +65,22 @@ describe('RulesPlaygroundPage statistics', () => {
     await harness.fixture.whenStable();
 
     const text = pageText(harness);
-    const expected = ['save:will', 'perception', 'skill:thievery', '+ @prof.save.will', '+ @prof.skill.athletics'];
+    const expected = [
+      'save:will',
+      'perception',
+      'skill:thievery',
+      '+ @prof.save.will',
+      '+ @prof.skill.athletics',
+      'strike:longsword',
+      'strike:dagger',
+      '+ @weapon.prof',
+      'spell-attack:arcane',
+      'spell-dc:arcane',
+      '+ @stat.spell-attack',
+    ];
     expect(expected.filter((shown) => !text.includes(shown))).toStrictEqual([]);
-    expect(text).not.toContain('spell-dc:arcane');
+    // The example's spell DC names its spell attack in full; the pack's reads its own entry's.
+    expect(text).not.toContain('+ @stat.spell-attack.arcane');
   });
 
   it('shows a statistic cycle with text from the engine bundle and a caret', async () => {
