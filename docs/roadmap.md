@@ -135,9 +135,16 @@ gain and lose conditions, end the turn with correct bookkeeping.
 - **Play state**: HP, temporary HP, dying, wounded, doomed, hero points, focus points, slots, item uses. Rest,
   daily preparations, Refocus and start of session are separate actions. Each is optional and previews what it
   restores before it applies.
-- **Conditions and effects**: apply and remove, values, implied conditions, durations, end-of-turn bookkeeping.
+- **Conditions and effects**: apply and remove, values, implied conditions, durations, start- and end-of-turn
+  bookkeeping; persistent damage rolls and applies at end of turn, then its flat check.
 - **Action economy**: available actions in the engine; Now and All views; actions remaining and reaction tracker;
   action lists follow the sheet mode.
+- **Turn cycle**: Start turn refills actions (quickened, slowed, stunned applied) and the reaction; Strikes, spells
+  and actions spend the economy, with undo; lists filter to what fits the actions left; End turn runs bookkeeping
+  and leaves reactions only. The Encounter tab carries the turn bar.
+- **Triggered abilities**: trigger enrichment gives actions and effects structured trigger events, since Foundry's
+  triggers are text only; free, purely beneficial triggers (temporary HP from casting a focus spell) auto-apply,
+  everything else prompts. Builds on the turn cycle.
 - **Boons**: effects with a source and a lifetime (a duration, permanent, or a number of uses). A GM's boon is an
   effect entry in the campaign's pack. Buffs from allies (Aid, Bless, a feat's +1) are applied by the receiving
   player with the giver recorded as the source.

@@ -47,6 +47,52 @@ UI behaviour:
 Turn tracking (actions spent, reaction used, start/end of turn effects such as frightened decreasing) is local to the
 sheet. Campaign play runs in Foundry VTT, which tracks turns itself (ADR-0018).
 
+### Turn cycle
+
+The sheet plays a turn as three phases: **turn** (between Start turn and End turn), **off-turn** (after End turn,
+until the next Start turn) and **out of encounter** (no turn running). The phase, actions remaining, reaction used
+and the turn's spend log are play state.
+
+- **Start turn** (button): runs start-of-turn bookkeeping (fast healing and regeneration, effects that end at the
+  start of the turn, start-of-turn triggers), then refills the economy: 3 actions, adjusted by quickened (+1, with
+  its restriction), slowed and stunned (minus their value, stunned counting down as actions are lost), and one
+  reaction.
+- **Spending**: Strike, Cast a Spell, activating an item or any other action deducts its cost when used. A
+  variable-cost spell asks for the count (1 to 3) and spends that; free actions spend nothing; a reaction spends the
+  reaction. Each spend is in the turn's log and can be undone, refunding the cost.
+- **Filtering**: the Now view, Strikes, spells and items show only what fits the economy left. Actions costing more
+  than remain are hidden from the Now view and shown as unavailable ("needs 2 actions, 1 left") in the All view.
+  Off-turn, only reactions (while the reaction is unspent) and free actions with a trigger are offered.
+- **End turn** (button): runs end-of-turn bookkeeping, then drops remaining actions to 0 and moves to off-turn, so
+  only reactions are offered until the next Start turn. Persistent damage happens here: each persistent damage
+  condition rolls its damage, applied through IWR, then its DC 15 flat check (lower with assisted recovery) to end
+  it. Then frightened decreases and effects ending at the end of the turn expire.
+
+The Encounter tab carries the turn bar: phase, action pips (spent, left, quickened-only), reaction pip, Start turn
+and End turn buttons, and the spend log with undo. Outside a turn the Encounter tab still lists actions, unfiltered
+by cost.
+
+### Triggered abilities
+
+An ability that fires on an event ("after you cast a focus spell", "when you Strike", "at the start of your turn")
+needs a structured trigger, since `trigger` is rich text. Actions and effects gain an optional `triggerEvent`
+(`turn-start`, `turn-end`, `cast-spell` with a predicate such as `trait:focus`, `strike`, `damage-taken`, ...) that
+the engine matches against turn events; the rich text stays as the displayed wording. Foundry has no such field, so
+the importer enriches it, like sources: mapping files plus a matcher over the trigger text, with unmatched triggers
+in the coverage report. An ability without a `triggerEvent` is never prompted or applied; it stays in the action
+lists for the player to use by hand.
+
+When an event fires, the matching abilities are collected:
+
+- **Auto-apply** when the ability costs nothing (no action, no reaction, no resource) and only grants beneficial
+  effects (temporary HP, a status bonus, healing). It applies at once with a toast naming the source, undoable from
+  the spend log.
+- **Prompt** otherwise: a reaction, a free action with a cost or frequency, anything with a choice, roll or
+  drawback. The prompt lists each triggered ability with its cost; accepting spends it like any other action.
+
+Whether an effect is beneficial is derived from its rule elements (temporary HP, healing, positive modifiers) and
+overridable in content with `autoApply: false`.
+
 ## Sheet modes
 
 The sheet is four tabs over the same character, with the header (name, level, HP, conditions, last roll) shared
