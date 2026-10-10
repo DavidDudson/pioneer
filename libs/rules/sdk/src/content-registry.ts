@@ -1,11 +1,17 @@
+import { issueParams, message } from '@pioneer/shared/kernel';
+import * as z from 'zod';
+
 import { AncestryId } from './ancestry';
 import type { AncestryDefinition } from './ancestry';
 import type { PackId } from './content-id';
 import type { ContentPack, ContentPackLoader } from './content-pack';
 import { CreatureId } from './creature';
 import type { CreatureDefinition } from './creature';
+import { RulesMessage } from './messages';
 import { PackEntry } from './pack-entry';
 import type { ProficiencyBonusTable } from './proficiency';
+import { RollOptionNamespace } from './roll-option-namespace';
+import type { NamespaceKind } from './roll-option-namespace';
 import type { Selector } from './selector';
 import { StatisticId } from './statistic';
 import type { StatisticDefinition } from './statistic';
@@ -16,6 +22,12 @@ export type AncestryEntry = PackEntry<AncestryId, AncestryDefinition>;
 export type CreatureEntry = PackEntry<CreatureId, CreatureDefinition>;
 export type StatisticEntry = PackEntry<StatisticId, StatisticDefinition>;
 export type VariantRuleEntry = PackEntry<VariantRuleId, VariantRuleDefinition>;
+
+/** A namespace's classification and the pack that first gave it, named when another pack disagrees. */
+interface NamespaceClassification {
+  readonly kind: NamespaceKind;
+  readonly pack: PackId;
+}
 
 /**
  * Everything loaded from content packs, indexed by id. Server and client each
@@ -29,6 +41,7 @@ export class ContentRegistry {
   readonly #statisticsBySelector = new Map<Selector, readonly StatisticEntry[]>();
   readonly #variantRules = new Map<VariantRuleId, VariantRuleEntry>();
   #proficiencyBonus: ProficiencyBonusTable | undefined;
+  readonly #namespaces = new Map<RollOptionNamespace, NamespaceClassification>();
 
   public async load(loader: ContentPackLoader): Promise<ContentPack> {
     const existing = this.#packs.get(loader.id);
@@ -47,7 +60,16 @@ export class ContentRegistry {
     if (this.#packs.has(pack.id)) {
       throw new Error(`Content pack "${pack.id}" is already registered`);
     }
+    this.#checkNamespaces(pack);
     this.#packs.set(pack.id, pack);
+    this.#registerAncestriesAndCreatures(pack);
+    this.#registerStatistics(pack);
+    this.#registerVariantRules(pack);
+    this.#registerNamespaces(pack);
+  }
+
+  /** A pack's ancestries and creatures. */
+  #registerAncestriesAndCreatures(pack: ContentPack): void {
     for (const definition of pack.ancestries) {
       const entry: AncestryEntry = new PackEntry(pack, definition, AncestryId);
       this.#ancestries.set(entry.id, entry);
@@ -56,8 +78,44 @@ export class ContentRegistry {
       const entry: CreatureEntry = new PackEntry(pack, definition, CreatureId);
       this.#creatures.set(entry.id, entry);
     }
-    this.#registerStatistics(pack);
-    this.#registerVariantRules(pack);
+  }
+
+  /**
+   * Throws if `pack` classifies a namespace the other way from a pack registered before, with an issue at each such
+   * entry. Checked before anything is registered, so a rejected pack leaves the registry as it was.
+   */
+  #checkNamespaces(pack: ContentPack): void {
+    const issues: z.core.$ZodIssue[] = [];
+    for (const [namespace, kind] of Object.entries(pack.rollOptionNamespaces)) {
+      const existing = this.#namespaces.get(RollOptionNamespace.parse(namespace));
+      if (existing !== undefined && existing.kind !== kind) {
+        const conflict = message(RulesMessage.NamespaceConflict, {
+          namespace,
+          kind: existing.kind,
+          pack: existing.pack,
+        });
+        issues.push({
+          code: 'custom',
+          input: kind,
+          path: ['rollOptionNamespaces', namespace],
+          message: '',
+          ...issueParams(conflict),
+        });
+      }
+    }
+    if (issues.length > 0) {
+      throw new z.ZodError(issues);
+    }
+  }
+
+  /** A pack's namespaces. `#checkNamespaces` ruled out disagreement, so a restated one keeps its first pack. */
+  #registerNamespaces(pack: ContentPack): void {
+    for (const [namespace, kind] of Object.entries(pack.rollOptionNamespaces)) {
+      const parsed = RollOptionNamespace.parse(namespace);
+      if (!this.#namespaces.has(parsed)) {
+        this.#namespaces.set(parsed, { kind, pack: pack.id });
+      }
+    }
   }
 
   /** A pack's variant rules, and its proficiency bonus table, which replaces the one before when it has one. */
@@ -129,5 +187,13 @@ export class ContentRegistry {
    */
   public proficiencyBonus(): ProficiencyBonusTable | undefined {
     return this.#proficiencyBonus;
+  }
+
+  /**
+   * Every registered pack's roll option namespaces, merged: what `PredicateFacts` reads to tell a missing option's
+   * false from unknown. Empty until a pack lists some (the core rules pack does).
+   */
+  public rollOptionNamespaces(): ReadonlyMap<RollOptionNamespace, NamespaceKind> {
+    return new Map([...this.#namespaces].map(([namespace, { kind }]) => [namespace, kind]));
   }
 }

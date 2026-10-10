@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 
 import { ContentText, Predicate, RollOption } from '@pioneer/rules/sdk';
-import { predicateJson, rollOptionText } from '@pioneer/rules/sdk/testing';
+import { CORE_NAMESPACES, predicateJson, rollOptionText } from '@pioneer/rules/sdk/testing';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 import { array, assert, property } from 'fast-check';
@@ -15,7 +15,10 @@ import { Negated, SummaryKind, summarisePredicate } from './summary';
 import type { PredicateSummary } from './summary';
 
 function facts(...options: readonly string[]): PredicateFacts {
-  return new PredicateFacts(options.map((option) => RollOption.parse(option)));
+  return new PredicateFacts(
+    options.map((option) => RollOption.parse(option)),
+    CORE_NAMESPACES,
+  );
 }
 
 function summary(predicate: unknown, given = facts()): PredicateSummary | undefined {

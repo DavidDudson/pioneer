@@ -21,3 +21,4 @@ export { richTextJson } from './rich-text-arbitraries';
 export { contentEntryJson } from './content-entry-arbitraries';
 export { slugText } from './json-arbitraries';
 export { PLAYER_CORE_PROFICIENCY_BONUS } from './proficiency-bonus';
+export { CORE_NAMESPACES } from './roll-option-namespaces';

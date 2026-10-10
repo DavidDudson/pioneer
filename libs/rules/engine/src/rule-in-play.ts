@@ -29,4 +29,5 @@ export interface ModifierInputs {
   readonly facts: PredicateFacts;
 }
 
-export const NO_MODIFIERS: ModifierInputs = { rules: [], facts: new PredicateFacts([]) };
+/** No rules, so no predicate reads the facts or their namespace table. */
+export const NO_MODIFIERS: ModifierInputs = { rules: [], facts: new PredicateFacts([], new Map()) };

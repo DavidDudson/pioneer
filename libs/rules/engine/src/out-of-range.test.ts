@@ -2,7 +2,7 @@ import { describe, expect, test } from 'bun:test';
 
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import { Selector } from '@pioneer/rules/sdk';
-import { PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
+import { CORE_NAMESPACES, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
 
 import { LineStatusKind, OverrideStatusKind } from './breakdown';
 import { deriveStatistics } from './derive-statistics';
@@ -24,7 +24,7 @@ const NEARLY_UNSAFE = '999999 * 999999 * 9000';
 function derive(rules: readonly RuleInPlay[]): StatisticResult | undefined {
   return deriveStatistics({ definitions: [ac], proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS }, inputs, {
     rules,
-    facts: new PredicateFacts([]),
+    facts: new PredicateFacts([], CORE_NAMESPACES),
   }).get(Selector.parse('ac'));
 }
 

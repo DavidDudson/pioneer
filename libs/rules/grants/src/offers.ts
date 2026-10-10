@@ -1,6 +1,6 @@
-import { evaluatePredicate, RollOptionNamespace, summarisePredicate, Truth } from '@pioneer/rules/predicate';
+import { evaluatePredicate, summarisePredicate, Truth } from '@pioneer/rules/predicate';
 import type { PredicateFacts, PredicateSummary } from '@pioneer/rules/predicate';
-import { ContentId } from '@pioneer/rules/sdk';
+import { ContentId, RollOptionNamespace } from '@pioneer/rules/sdk';
 import type { ChoiceOption, ChoiceQuery, ChoiceSetElement, ChoiceValue, ContentText } from '@pioneer/rules/sdk';
 
 import type { ChoiceContext } from './choices';

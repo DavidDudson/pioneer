@@ -1,6 +1,5 @@
-import { RollOptionNamespace } from '@pioneer/rules/predicate';
 import type { PredicateFacts } from '@pioneer/rules/predicate';
-import { ContentKind, OriginHopKind, RuleElementKey } from '@pioneer/rules/sdk';
+import { ContentKind, OriginHopKind, RollOptionNamespace, RuleElementKey } from '@pioneer/rules/sdk';
 import type { ConditionValue, ContentId, Level, RollOption } from '@pioneer/rules/sdk';
 
 import type { AnsweredSlot } from './choices';

@@ -1,14 +1,14 @@
 import { describe, expect, test } from 'bun:test';
 
-import { isPredicateComparison, Predicate, PredicateStatement, RollOption } from '@pioneer/rules/sdk';
+import { isPredicateComparison, NamespaceKind, Predicate, PredicateStatement, RollOption } from '@pioneer/rules/sdk';
 import type { ComparisonOperands, PredicateComparison, PredicateCompound } from '@pioneer/rules/sdk';
-import { predicateJson, rollOptionText } from '@pioneer/rules/sdk/testing';
+import { CORE_NAMESPACES, predicateJson, rollOptionText } from '@pioneer/rules/sdk/testing';
 import type { Arbitrary } from 'fast-check';
 import { array, assert, constantFrom, integer, letrec, oneof, property, record, subarray, tuple } from 'fast-check';
 
 import { evaluatePredicate, evaluateStatement } from './evaluate';
 import { PredicateFacts } from './facts';
-import { NamespaceKind, namespaceTable } from './namespaces';
+import { namespaceTable } from './namespaces';
 import type { NamespaceTable } from './namespaces';
 import { Truth } from './truth';
 
@@ -67,8 +67,7 @@ function toFacts(present: readonly string[], table: NamespaceTable): PredicateFa
   );
 }
 
-const defaultFacts = (present: readonly string[]): PredicateFacts =>
-  new PredicateFacts(present.map((option) => RollOption.parse(option)));
+const defaultFacts = (present: readonly string[]): PredicateFacts => toFacts(present, CORE_NAMESPACES);
 
 /** Every vocabulary namespace known: the two-valued world Foundry evaluates in. */
 const ALL_KNOWN = namespaceTable({

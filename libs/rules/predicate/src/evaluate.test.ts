@@ -1,15 +1,19 @@
 import { describe, expect, test } from 'bun:test';
 
-import { Predicate, RollOption } from '@pioneer/rules/sdk';
+import { NamespaceKind, Predicate, RollOption, RollOptionNamespace } from '@pioneer/rules/sdk';
+import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
 
 import { evaluatePredicate } from './evaluate';
 import { PredicateFacts } from './facts';
-import { NamespaceKind, namespaceOf, namespaceTable, RollOptionNamespace, withKnown } from './namespaces';
+import { namespaceOf, namespaceTable, withKnown } from './namespaces';
 import { tracePredicate } from './trace';
 import { Truth } from './truth';
 
 function facts(...options: readonly string[]): PredicateFacts {
-  return new PredicateFacts(options.map((option) => RollOption.parse(option)));
+  return new PredicateFacts(
+    options.map((option) => RollOption.parse(option)),
+    CORE_NAMESPACES,
+  );
 }
 
 function verdict(predicate: unknown, given: PredicateFacts): Truth {

@@ -2,6 +2,7 @@ import { describe, expect, test } from 'bun:test';
 
 import { evaluatePredicate, PredicateFacts, Truth } from '@pioneer/rules/predicate';
 import { Predicate, RollOption } from '@pioneer/rules/sdk';
+import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
 import { array, assert, constantFrom, integer, property, record, shuffledSubarray, subarray, tuple } from 'fast-check';
 import type { Arbitrary } from 'fast-check';
 
@@ -56,7 +57,10 @@ const drawn: Arbitrary<Drawn> = integer({ min: 0, max: ENTRIES_MAX }).chain((cou
 );
 
 const factsOf = (options: readonly string[]): PredicateFacts =>
-  new PredicateFacts(options.map((option) => RollOption.parse(option)));
+  new PredicateFacts(
+    options.map((option) => RollOption.parse(option)),
+    CORE_NAMESPACES,
+  );
 
 function resolve({ feats, filter, level, situation }: Drawn): GrantResolution {
   const asker = entry('asker', [{ key: 'ChoiceSet', flag: 'pick', choices: { kind: 'feat', filter } }]);

@@ -3,7 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import { FormulaMessage } from '@pioneer/rules/formula';
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import { RollOption, Selector } from '@pioneer/rules/sdk';
-import { PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
+import { CORE_NAMESPACES, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
 
 import { OverridePhase, OverrideStatusKind } from './breakdown';
 import { deriveStatistics } from './derive-statistics';
@@ -25,7 +25,10 @@ const ac = statistic('ac', '10 + @attr.dex.capped + @prof.ac');
 const perception = statistic('perception', '@attr.wis + @stat.ac');
 
 function derivedAll(rules: readonly RuleInPlay[], ...options: readonly string[]): ReadonlyMap<Selector, unknown> {
-  const facts = new PredicateFacts(options.map((option) => RollOption.parse(option)));
+  const facts = new PredicateFacts(
+    options.map((option) => RollOption.parse(option)),
+    CORE_NAMESPACES,
+  );
   return deriveStatistics({ definitions: [ac, perception], proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS }, inputs, {
     rules,
     facts,

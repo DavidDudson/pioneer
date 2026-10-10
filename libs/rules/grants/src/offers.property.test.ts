@@ -1,8 +1,8 @@
 import { describe, expect, test } from 'bun:test';
 
-import { evaluatePredicate, RollOptionNamespace, Truth } from '@pioneer/rules/predicate';
+import { evaluatePredicate, Truth } from '@pioneer/rules/predicate';
 import type { PredicateFacts } from '@pioneer/rules/predicate';
-import { Predicate } from '@pioneer/rules/sdk';
+import { Predicate, RollOptionNamespace } from '@pioneer/rules/sdk';
 import {
   array,
   assert,

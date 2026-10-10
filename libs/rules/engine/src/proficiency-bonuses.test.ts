@@ -10,7 +10,7 @@ import {
   RuleIndex,
   Selector,
 } from '@pioneer/rules/sdk';
-import { ContentPackBuilder, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
+import { ContentPackBuilder, CORE_NAMESPACES, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
 
 import { BaseTermKind } from './base-term';
 import { deriveStatistics } from './derive-statistics';
@@ -39,7 +39,10 @@ function replacing(table: object, entry: string, fields: object = {}): RuleInPla
 }
 
 function derived(rules: readonly RuleInPlay[], ...options: readonly string[]): ReadonlyMap<Selector, StatisticResult> {
-  const facts = new PredicateFacts(options.map((option) => RollOption.parse(option)));
+  const facts = new PredicateFacts(
+    options.map((option) => RollOption.parse(option)),
+    CORE_NAMESPACES,
+  );
   return deriveStatistics(content, inputs, { rules, facts });
 }
 
