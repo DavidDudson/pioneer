@@ -2,9 +2,12 @@ import { describe, expect, test } from 'bun:test';
 
 import {
   CampaignInviteService,
+  CampaignPartyService,
   CampaignService,
   InMemoryCampaignInviteRepository,
+  InMemoryCampaignPartyRepository,
   InMemoryCampaignRepository,
+  InMemoryCharacterDirectory,
   InMemoryMemberDirectory,
 } from '@pioneer/campaign/application';
 import { INVITE_LIFETIME } from '@pioneer/campaign/domain';
@@ -28,7 +31,18 @@ function app(clock: Clock = new ManualClock('2026-10-10T10:00:00Z')): AnyElysia 
   const inviteRepository = new InMemoryCampaignInviteRepository();
   const service = new CampaignService({ campaigns, invites: inviteRepository, directory }, clock);
   const invites = new CampaignInviteService(campaigns, inviteRepository, clock);
-  return new Elysia().use(problemHandler).use(campaignRoutes(service, invites, new FakeAuthenticator()));
+  const partyService = new CampaignPartyService(
+    {
+      campaigns,
+      party: new InMemoryCampaignPartyRepository(campaigns),
+      characters: new InMemoryCharacterDirectory(),
+      directory,
+    },
+    clock,
+  );
+  return new Elysia()
+    .use(problemHandler)
+    .use(campaignRoutes({ campaigns: service, invites, party: partyService }, new FakeAuthenticator()));
 }
 
 interface RequestOptions {

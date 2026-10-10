@@ -4,7 +4,9 @@ import type {
   Campaign,
   CampaignInviteId,
   CampaignMemberId,
+  CampaignParty,
   CampaignRoster,
+  CharacterId,
   CreateCampaignBody,
   InviteSummary,
   InviteToken,
@@ -20,6 +22,7 @@ const campaignKeys = {
   detail: (id: string | undefined) => [...campaignKeys.all, 'detail', id] as const,
   roster: (id: string | undefined) => [...campaignKeys.all, 'roster', id] as const,
   invites: (id: string | undefined) => [...campaignKeys.all, 'invites', id] as const,
+  party: (id: string | undefined) => [...campaignKeys.all, 'party', id] as const,
 };
 
 /** The route's campaign id, parsed; a malformed one fails the query that asked. */
@@ -83,6 +86,17 @@ export class CampaignStore {
     };
   });
 
+  /** The open campaign's party, and the user's characters that could join it. */
+  public readonly party = injectQuery(() => {
+    const id = this.#selectedId();
+    return {
+      queryKey: campaignKeys.party(id),
+      queryFn: async (): Promise<CampaignParty> =>
+        this.#api.call(CampaignContract.party, { params: { id: parsedId(id) }, body: undefined }),
+      enabled: id !== undefined,
+    };
+  });
+
   public select(id: string): void {
     this.#selectedId.set(id);
   }
@@ -130,27 +144,62 @@ export class CampaignStore {
 
   /**
    * The GM removes a player. Their row stays until the roster next loads, so the focused button and its
-   * confirmation survive; the campaign's member count refreshes now.
+   * confirmation survive. The campaign's member count refreshes now, and so does the party, as their
+   * characters left with them.
    */
   public async removeMember(id: CampaignId, memberId: CampaignMemberId): Promise<void> {
     await this.#api.call(CampaignContract.removeMember, { params: { id, memberId }, body: undefined });
     await this.#client.invalidateQueries({ queryKey: campaignKeys.roster(id), refetchType: 'none' });
     await this.#client.invalidateQueries({ queryKey: campaignKeys.detail(id) });
+    await this.#client.invalidateQueries({ queryKey: campaignKeys.party(id) });
   }
 
-  /** The GM hands the role to another member; the user is a player after, so their invite list goes. */
+  /**
+   * The GM hands the role to another member. The user is a player after, so their invite list goes and
+   * they may detach only their own characters.
+   */
   public async transferGm(id: CampaignId, memberId: CampaignMemberId): Promise<void> {
     const roster = await this.#api.call(CampaignContract.transferGm, { params: { id }, body: { memberId } });
     await this.#client.cancelQueries({ queryKey: campaignKeys.roster(id) });
     this.#client.setQueryData(campaignKeys.roster(id), roster);
     this.#client.removeQueries({ queryKey: campaignKeys.invites(id) });
     await this.#client.invalidateQueries({ queryKey: campaignKeys.detail(id) });
+    await this.#client.invalidateQueries({ queryKey: campaignKeys.party(id) });
+  }
+
+  /** Brings one of the user's characters into the party. */
+  public async attachCharacter(id: CampaignId, characterId: CharacterId): Promise<void> {
+    const party = await this.#api.call(CampaignContract.attachCharacter, { params: { id }, body: { characterId } });
+    await this.#client.cancelQueries({ queryKey: campaignKeys.party(id) });
+    this.#client.setQueryData(campaignKeys.party(id), party);
+  }
+
+  /**
+   * Takes a character out of the party. Its row stays until the party next loads, so the focused button
+   * and its tick survive; the picker offers it again now.
+   */
+  public async detachCharacter(id: CampaignId, characterId: CharacterId): Promise<void> {
+    const party = await this.#api.call(CampaignContract.detachCharacter, {
+      params: { id, characterId },
+      body: undefined,
+    });
+    await this.#client.cancelQueries({ queryKey: campaignKeys.party(id) });
+    this.#client.setQueryData(campaignKeys.party(id), (shown: CampaignParty | undefined) => ({
+      characters: shown?.characters ?? party.characters,
+      attachable: party.attachable,
+    }));
+    await this.#client.invalidateQueries({ queryKey: campaignKeys.party(id), refetchType: 'none' });
   }
 
   /** The user leaves the campaign; nothing of it is theirs to see after. */
   public async leave(id: CampaignId): Promise<void> {
     await this.#api.call(CampaignContract.leave, { params: { id }, body: undefined });
-    for (const key of [campaignKeys.detail(id), campaignKeys.roster(id), campaignKeys.invites(id)]) {
+    for (const key of [
+      campaignKeys.detail(id),
+      campaignKeys.roster(id),
+      campaignKeys.invites(id),
+      campaignKeys.party(id),
+    ]) {
       this.#client.removeQueries({ queryKey: key });
     }
     await this.#client.invalidateQueries({ queryKey: campaignKeys.list(), refetchType: 'none' });

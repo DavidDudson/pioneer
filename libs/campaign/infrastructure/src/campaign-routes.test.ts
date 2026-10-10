@@ -2,9 +2,12 @@ import { describe, expect, test } from 'bun:test';
 
 import {
   CampaignInviteService,
+  CampaignPartyService,
   CampaignService,
   InMemoryCampaignInviteRepository,
+  InMemoryCampaignPartyRepository,
   InMemoryCampaignRepository,
+  InMemoryCharacterDirectory,
   InMemoryMemberDirectory,
 } from '@pioneer/campaign/application';
 import { fixedClock, newId, UserId } from '@pioneer/shared/kernel';
@@ -23,12 +26,21 @@ function app(): AnyElysia {
   const clock = fixedClock('2026-10-10T10:00:00Z');
   const campaigns = new InMemoryCampaignRepository();
   const inviteRepository = new InMemoryCampaignInviteRepository();
-  const service = new CampaignService(
-    { campaigns, invites: inviteRepository, directory: new InMemoryMemberDirectory() },
+  const directory = new InMemoryMemberDirectory();
+  const service = new CampaignService({ campaigns, invites: inviteRepository, directory }, clock);
+  const invites = new CampaignInviteService(campaigns, inviteRepository, clock);
+  const partyService = new CampaignPartyService(
+    {
+      campaigns,
+      party: new InMemoryCampaignPartyRepository(campaigns),
+      characters: new InMemoryCharacterDirectory(),
+      directory,
+    },
     clock,
   );
-  const invites = new CampaignInviteService(campaigns, inviteRepository, clock);
-  return new Elysia().use(problemHandler).use(campaignRoutes(service, invites, new FakeAuthenticator()));
+  return new Elysia()
+    .use(problemHandler)
+    .use(campaignRoutes({ campaigns: service, invites, party: partyService }, new FakeAuthenticator()));
 }
 
 /** No signed-in user. */
@@ -111,6 +123,12 @@ describe('campaign routes without a signed-in user', () => {
     ['remove member', request('DELETE', `/campaigns/${id}/members/${newId()}`, { as: anonymous })],
     ['transfer GM', request('POST', `/campaigns/${id}/gm`, { as: anonymous, body: { memberId: newId() } })],
     ['leave', request('POST', `/campaigns/${id}/leave`, { as: anonymous })],
+    ['party', request('GET', `/campaigns/${id}/party`, { as: anonymous })],
+    [
+      'attach character',
+      request('POST', `/campaigns/${id}/characters`, { as: anonymous, body: { characterId: newId() } }),
+    ],
+    ['detach character', request('DELETE', `/campaigns/${id}/characters/${newId()}`, { as: anonymous })],
     ['invites', request('GET', `/campaigns/${id}/invites`, { as: anonymous })],
     ['create invite', request('POST', `/campaigns/${id}/invites`, { as: anonymous })],
     ['revoke invite', request('DELETE', `/campaigns/${id}/invites/${newId()}`, { as: anonymous })],

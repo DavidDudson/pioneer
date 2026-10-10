@@ -79,5 +79,24 @@
     "gmCannotLeave": "Hand the GM role to another member before you leave.",
     "gmNotRemovable": "The GM cannot be removed. Hand the role to another member first.",
     "gmHint": "Removing a player also revokes your open invite links, so an old link cannot bring them back. Only the new GM can hand the GM role back. To leave, first make another member the GM."
+  },
+  "party": {
+    "heading": "Party",
+    "loadError": "Could not load the party.",
+    "empty": "No characters in the party yet.",
+    "byline": "Level {level}, played by {owner}",
+    "detach": "Detach",
+    "detaching": "Detaching",
+    "detached": "Detached",
+    "detachFailed": "Could not detach the character. Try again.",
+    "attachHeading": "Bring a character",
+    "characterLabel": "Character",
+    "attach": "Bring into party",
+    "attaching": "Bringing in",
+    "attached": "Brought in",
+    "attachFailed": "Could not bring the character in. Try again.",
+    "inOtherCampaign": "That character is already in another campaign. Detach it there first.",
+    "noneToAttach": "None of your characters is free to bring. A character is in one campaign at a time.",
+    "toCharacters": "Go to your characters"
   }
 }

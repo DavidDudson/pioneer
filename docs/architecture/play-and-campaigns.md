@@ -107,7 +107,8 @@ campaigns             id, version, name, gm_id, play_sync (foundry | pioneer | d
 campaign_members      id, campaign_id, user_id, role (gm | player), joined_at
                       (campaign_id, user_id) unique; one gm per campaign
 campaign_invites      id, campaign_id, token_hash (unique), created_by, created_at, expires_at, revoked_at
-campaign_characters   campaign_id, character_id (a character is in one campaign at most)
+campaign_characters   id, campaign_id, member_id, character_id (unique), attached_at
+                      (a character is in one campaign at most and leaves with its member)
 campaign_links        id, campaign_id, token hash, last_used_at, revoked_at
 ```
 
@@ -140,6 +141,11 @@ campaign_links        id, campaign_id, token hash, last_used_at, revoked_at
   request read, and is a 409 otherwise. Requests name members by id, so a stale page removing someone already
   gone is no change and handing the role to them is a 404. Each button asks first with a second press (frontier
   rule 4).
+- **Party.** A member attaches a character they own; its owner or the GM detaches it. Another user's character
+  is a 404 (as for characters themselves) and one already in another campaign a 409. Each attachment belongs to
+  its owner's membership, so removing or leaving takes their characters out, and the attach checks the
+  membership under a key share lock so a removal that commits first stops it. Character names and levels come
+  from the character context through the `CharacterDirectory` port, adapted in the API's composition root.
 - **Permissions.** Policies live in the campaign context's application layer, with the acting user from identity's
   `RequestAuthenticator` (ADR-0007), or the campaign from a link token for module routes. Owners edit builds;
   members see the party overview.

@@ -22,6 +22,7 @@ export const ProblemType = {
   Forbidden: 'forbidden',
   NotFound: 'not-found',
   Gone: 'gone',
+  Conflict: 'conflict',
   VersionConflict: 'version-conflict',
   Validation: 'validation',
   Internal: 'internal',
@@ -88,6 +89,22 @@ export class GoneError extends DomainError {
 
   public constructor(resource: string, id: string, descriptor: MessageDescriptor = message(ProblemMessage.Gone)) {
     super(`${resource} ${id} is no longer available`);
+    this.descriptor = descriptor;
+  }
+}
+
+/**
+ * The request clashes with the resource's current state in a way the viewer can act on
+ * (`descriptor` says how), such as attaching a character that is already in another campaign.
+ */
+export class ConflictError extends DomainError {
+  public override readonly name = 'ConflictError';
+  public readonly status = HttpStatus.Conflict;
+  public readonly type = ProblemType.Conflict;
+  public readonly descriptor: MessageDescriptor;
+
+  public constructor(reason: string, descriptor: MessageDescriptor) {
+    super(reason);
     this.descriptor = descriptor;
   }
 }

@@ -1,0 +1,29 @@
+<fr-stack gap="sm">
+  <fr-heading variant="label" [level]="3">{{ 'campaign.party.attachHeading' | transloco }}</fr-heading>
+  @if (attachable().length === 0) {
+    <fr-empty-state [icon]="emptyIcon" [title]="'campaign.party.noneToAttach' | transloco">
+      <fr-link [to]="['/characters']">{{ 'campaign.party.toCharacters' | transloco }}</fr-link>
+    </fr-empty-state>
+  }
+  @if (showForm()) {
+    <fr-async-form [form]="form" [action]="attach" [describeError]="describeAttachError">
+      <fr-stack gap="sm">
+        <fr-select-field
+          [label]="'campaign.party.characterLabel' | transloco"
+          [options]="options()"
+          [formField]="form.characterId"
+        />
+        <fr-stack direction="horizontal" justify="start">
+          <fr-async-button
+            type="submit"
+            variant="primary"
+            [pendingLabel]="'campaign.party.attaching' | transloco"
+            [successLabel]="'campaign.party.attached' | transloco"
+          >
+            {{ 'campaign.party.attach' | transloco }}
+          </fr-async-button>
+        </fr-stack>
+      </fr-stack>
+    </fr-async-form>
+  }
+</fr-stack>

@@ -64,6 +64,13 @@
       "when": 1791596749923,
       "tag": "0008_campaign_invites",
       "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "7",
+      "when": 1791607243213,
+      "tag": "0009_campaign_characters",
+      "breakpoints": true
     }
   ]
 }

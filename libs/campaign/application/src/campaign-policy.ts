@@ -24,3 +24,17 @@ export function mayManageMembers(actor: UserId, campaign: Campaign): boolean {
 export function mayLeaveCampaign(actor: UserId, campaign: Campaign): boolean {
   return campaign.roleOf(actor) === CampaignRole.Player;
 }
+
+/**
+ * Who may bring a character into a campaign: a member who owns it. Services treat someone else's
+ * character as not found, so its id reveals nothing (as for characters themselves).
+ */
+export function mayAttachCharacter(actor: UserId, campaign: Campaign, ownerId: UserId): boolean {
+  return campaign.roleOf(actor) !== undefined && ownerId === actor;
+}
+
+/** Who may take a character out of a campaign: its owner, or the GM. */
+export function mayDetachCharacter(actor: UserId, campaign: Campaign, ownerId: UserId): boolean {
+  const role = campaign.roleOf(actor);
+  return role === CampaignRole.Gm || (role !== undefined && ownerId === actor);
+}
