@@ -35,3 +35,7 @@ export const StatisticDefinition = z.strictObject({
   keyAttribute: AttributeSchema.optional(),
 });
 export type StatisticDefinition = z.infer<typeof StatisticDefinition>;
+
+/** A statistic's `data` on the `ContentEntry` envelope: the definition less what the envelope carries. */
+export const StatisticData = StatisticDefinition.omit({ slug: true, name: true });
+export type StatisticData = z.infer<typeof StatisticData>;

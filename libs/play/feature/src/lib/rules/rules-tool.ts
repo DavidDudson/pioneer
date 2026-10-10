@@ -30,7 +30,8 @@ export type { ReferenceEntries } from './formula-check';
 export { EXAMPLE_GRANT_LEVEL, EXAMPLE_GRANT_PICKS, EXAMPLE_GRANT_ROOTS, EXAMPLE_GRANT_TOGGLES } from './grant-examples';
 export { EXAMPLE_FACTS } from './predicate-verdict';
 export { EXAMPLE_OVERRIDES, EXAMPLE_RULE_ELEMENTS, EXAMPLE_STATISTIC_INPUTS } from './statistics-check';
-export { CheckStatus, RULES_TOOL_KEYS, rulesExample, RulesTool } from './rules-check';
+export { CheckStatus, contentEntryExample, RULES_TOOL_KEYS, rulesExample, RulesTool } from './rules-check';
+export { CONTENT_KIND_KEYS } from './content-entry-examples';
 
 /**
  * What the tools read besides the main text: roll options for the verdict, reference values for formulas, the

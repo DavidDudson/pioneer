@@ -42,6 +42,13 @@
             [(facts)]="facts"
           />
         } @else {
+          @if (schema() === RulesTool.ContentEntry) {
+            <fr-field>
+              <fr-label>{{ 'play.rules.entryKindLabel' | transloco }}</fr-label>
+              <fr-select [options]="entryKinds()" [value]="entryKind()" (valueChange)="chooseEntryKind($event)" />
+              <fr-field-hint>{{ 'play.rules.entryKindHint' | transloco }}</fr-field-hint>
+            </fr-field>
+          }
           @let schemaResult = tool.check;
           <fr-field [invalid]="schemaResult.status !== CheckStatus.Valid">
             <fr-label>{{ 'play.rules.jsonLabel' | transloco }}</fr-label>

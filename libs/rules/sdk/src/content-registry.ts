@@ -1,17 +1,17 @@
 import { AncestryId } from './ancestry';
 import type { AncestryDefinition } from './ancestry';
-import { ContentEntry } from './content-entry';
 import type { PackId } from './content-id';
 import type { ContentPack, ContentPackLoader } from './content-pack';
 import { CreatureId } from './creature';
 import type { CreatureDefinition } from './creature';
+import { PackEntry } from './pack-entry';
 import type { Selector } from './selector';
 import { StatisticId } from './statistic';
 import type { StatisticDefinition } from './statistic';
 
-export type AncestryEntry = ContentEntry<AncestryId, AncestryDefinition>;
-export type CreatureEntry = ContentEntry<CreatureId, CreatureDefinition>;
-export type StatisticEntry = ContentEntry<StatisticId, StatisticDefinition>;
+export type AncestryEntry = PackEntry<AncestryId, AncestryDefinition>;
+export type CreatureEntry = PackEntry<CreatureId, CreatureDefinition>;
+export type StatisticEntry = PackEntry<StatisticId, StatisticDefinition>;
 
 /**
  * Everything loaded from content packs, indexed by id. Server and client each
@@ -43,11 +43,11 @@ export class ContentRegistry {
     }
     this.#packs.set(pack.id, pack);
     for (const definition of pack.ancestries) {
-      const entry: AncestryEntry = new ContentEntry(pack, definition, AncestryId);
+      const entry: AncestryEntry = new PackEntry(pack, definition, AncestryId);
       this.#ancestries.set(entry.id, entry);
     }
     for (const definition of pack.creatures) {
-      const entry: CreatureEntry = new ContentEntry(pack, definition, CreatureId);
+      const entry: CreatureEntry = new PackEntry(pack, definition, CreatureId);
       this.#creatures.set(entry.id, entry);
     }
     this.#registerStatistics(pack);
@@ -55,7 +55,7 @@ export class ContentRegistry {
 
   #registerStatistics(pack: ContentPack): void {
     for (const definition of pack.statistics) {
-      const entry: StatisticEntry = new ContentEntry(pack, definition, StatisticId);
+      const entry: StatisticEntry = new PackEntry(pack, definition, StatisticId);
       this.#statistics.set(entry.id, entry);
       const sharing = this.#statisticsBySelector.get(definition.selector) ?? [];
       this.#statisticsBySelector.set(definition.selector, [...sharing, entry]);

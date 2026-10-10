@@ -21,3 +21,7 @@ export const AncestryDefinition = z.object({
   traits: z.array(Trait).readonly(),
 });
 export type AncestryDefinition = z.infer<typeof AncestryDefinition>;
+
+/** An ancestry's `data` on the `ContentEntry` envelope: the definition less what the envelope carries. */
+export const AncestryData = z.strictObject(AncestryDefinition.omit({ slug: true, name: true, traits: true }).shape);
+export type AncestryData = z.infer<typeof AncestryData>;

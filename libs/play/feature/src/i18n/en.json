@@ -48,7 +48,7 @@
   },
   "rules": {
     "title": "Rules",
-    "description": "Check rules data against Pioneer’s schemas: predicates, selectors, domains, roll options, sources, origins and rule elements, try a formula with your own reference values, see whether a predicate holds, or derive statistics from their definitions.",
+    "description": "Check rules data against Pioneer’s schemas: predicates, selectors, domains, roll options, sources, origins, rule elements and content entries, try a formula with your own reference values, see whether a predicate holds, or derive statistics from their definitions.",
     "schemaLabel": "Schema",
     "schemaHint": "Changing the schema loads a valid example for it.",
     "jsonLabel": "JSON",
@@ -141,8 +141,16 @@
       "verdict": "Predicate verdict",
       "statistics": "Statistics",
       "grants": "Grants",
-      "richText": "Rich text"
+      "richText": "Rich text",
+      "contentEntry": "Content entry"
     },
+    "contentKind": {
+      "ancestry": "Ancestry",
+      "creature": "Creature",
+      "statistic": "Statistic"
+    },
+    "entryKindLabel": "Example",
+    "entryKindHint": "Picking another kind loads a valid entry of it. The kind field decides which schema checks data.",
     "invalidSummary": "{count, plural, one {# problem, listed under Result.} other {# problems, listed under Result.}}",
     "nothingToShow": "Nothing to check until the JSON parses.",
     "baseHeading": "Base {base}, from:",

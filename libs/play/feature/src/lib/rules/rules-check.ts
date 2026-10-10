@@ -1,6 +1,8 @@
 import { TextPosition } from '@pioneer/rules/formula';
 import {
   Attribute,
+  ContentEntry,
+  ContentKind,
   contentId,
   Domain,
   Origin,
@@ -15,10 +17,12 @@ import {
   StatisticDefinition,
   StatisticKind,
 } from '@pioneer/rules/sdk';
+import type { RegisteredKind } from '@pioneer/rules/sdk';
 import { fieldIssues } from '@pioneer/shared/kernel';
 import type { FieldIssue, ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
+import { EXAMPLE_CONTENT_ENTRIES } from './content-entry-examples';
 import { EXAMPLE_GRANT_ENTRIES } from './grant-examples';
 import { pointAt } from './point-at';
 import { EXAMPLE_RICH_TEXT } from './rich-text-example';
@@ -34,6 +38,7 @@ export const RulesSchema = {
   RuleElement: 'rule-element',
   Statistic: 'statistic',
   RichText: 'rich-text',
+  ContentEntry: 'content-entry',
 } as const;
 export type RulesSchema = ValueOf<typeof RulesSchema>;
 
@@ -47,6 +52,7 @@ const SCHEMAS: Readonly<Record<RulesSchema, z.ZodType>> = {
   [RulesSchema.RuleElement]: RuleElement,
   [RulesSchema.Statistic]: StatisticDefinition,
   [RulesSchema.RichText]: RichText,
+  [RulesSchema.ContentEntry]: ContentEntry,
 };
 
 /** Message keys for schema names, spelled out so the key check sees them. */
@@ -60,6 +66,7 @@ const RULES_SCHEMA_KEYS: Readonly<Record<RulesSchema, string>> = {
   [RulesSchema.RuleElement]: 'play.rules.schema.ruleElement',
   [RulesSchema.Statistic]: 'play.rules.schema.statistic',
   [RulesSchema.RichText]: 'play.rules.schema.richText',
+  [RulesSchema.ContentEntry]: 'play.rules.schema.contentEntry',
 };
 
 /**
@@ -131,6 +138,7 @@ const EXAMPLE_VALUES: Readonly<Record<RulesSchema, unknown>> = {
     keyAttribute: Attribute.Dexterity,
   },
   [RulesSchema.RichText]: EXAMPLE_RICH_TEXT,
+  [RulesSchema.ContentEntry]: EXAMPLE_CONTENT_ENTRIES[ContentKind.Ancestry],
 };
 
 /** Statistics for the statistics tool: AC, a save, and a spell DC that reads the spell attack modifier. */
@@ -163,6 +171,11 @@ const EXAMPLE_STATISTICS = [
     kind: StatisticKind.Dc,
   },
 ];
+
+/** The example entry of `kind` as JSON, for the content entry mode's example picker. */
+export function contentEntryExample(kind: RegisteredKind): string {
+  return JSON.stringify(EXAMPLE_CONTENT_ENTRIES[kind], undefined, JSON_INDENT);
+}
 
 /** A valid starting text per tool: JSON for a schema, formula text for formulas, a predicate to evaluate. */
 export function rulesExample(tool: RulesTool): string {
