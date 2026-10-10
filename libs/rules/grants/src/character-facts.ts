@@ -1,7 +1,7 @@
 import { RollOptionNamespace } from '@pioneer/rules/predicate';
 import type { PredicateFacts } from '@pioneer/rules/predicate';
-import { ContentKind, RuleElementKey } from '@pioneer/rules/sdk';
-import type { ContentId, Level, RollOption } from '@pioneer/rules/sdk';
+import { ContentKind, OriginHopKind, RuleElementKey } from '@pioneer/rules/sdk';
+import type { ConditionValue, ContentId, Level, RollOption } from '@pioneer/rules/sdk';
 
 import type { AnsweredSlot } from './choices';
 import type { GrantEntry } from './grant-entry';
@@ -75,6 +75,22 @@ function kindOptions(entry: GrantEntry): RollOption[] {
   return option === undefined ? [] : [option];
 }
 
+/**
+ * The value the hop that put `entry` on the character gives it: _frightened 2_ from a condition root. A condition
+ * granted by another entry has none, as grants carry no value yet.
+ */
+function conditionValue({ entry, origin }: PlacedEntry): ConditionValue | undefined {
+  const hop = origin.hops.at(-1);
+  const isCondition = entry.kind === ContentKind.Condition;
+  return isCondition && hop?.kind === OriginHopKind.Condition && hop.condition === entry.id ? hop.value : undefined;
+}
+
+/** A valued condition on the character, at the highest value it arrived with. */
+interface Valued {
+  readonly entry: GrantEntry;
+  readonly value: ConditionValue;
+}
+
 /** The namespaces `entry`'s `ChoiceSet`s write their picks to. */
 function pickNamespaces(entry: GrantEntry): RollOptionNamespace[] {
   return entry.rules.flatMap((element): RollOptionNamespace[] =>
@@ -100,6 +116,7 @@ class FactCollector {
   readonly #seen = new Set<ContentId>();
   readonly #known = new Set<RollOptionNamespace>();
   readonly #toggles: ToggleSlot[] = [];
+  readonly #valued = new Map<RollOption, Valued>();
 
   public constructor(sources: FactSources) {
     this.#sources = sources;
@@ -136,18 +153,49 @@ class FactCollector {
       tally(this.#setBy, option, origin.entry);
     }
   }
+
+  /**
+   * Keeps the value `item` arrived with when it is a valued condition, and the highest yet; duplicates count. Kept by
+   * the condition's option, so conditions of the same slug from different packs share one value.
+   */
+  public value(item: PlacedEntry): void {
+    const value = conditionValue(item);
+    const [kind] = kindOptions(item.entry);
+    const highest = kind === undefined ? undefined : this.#valued.get(kind);
+    if (kind !== undefined && value !== undefined && (highest === undefined || value > highest.value)) {
+      this.#valued.set(kind, { entry: item.entry, value });
+    }
+  }
+
+  /** `self:condition:<slug>:<value>` for each valued condition, at its highest value only. */
+  public valued(): void {
+    for (const [kind, { entry, value }] of this.#valued) {
+      const option = optionOf(kind, String(value));
+      if (option !== undefined) {
+        tally(this.#setBy, option, entry.id);
+      }
+    }
+  }
 }
 
 /**
  * The roll options the character has once `walk`'s set is on it: its level, the option each entry's kind sets, the
  * options its `RollOption` elements set (toggles while on) and its picks' `rollOption`s; and the namespaces those
  * picks write, as known. A copy granted with `allowDuplicate` adds nothing new.
+ *
+ * A condition put on with a value (_frightened 2_) also sets `self:condition:<slug>:<value>`. One that arrives twice
+ * keeps its highest value alone, as comparisons hold if any value does.
  */
 export function characterFacts(walk: GrantWalk, sources: FactSources): CharacterFacts {
   const collector = new FactCollector(sources);
   for (const item of walk.items) {
     collector.item(item);
+    collector.value(item);
   }
+  for (const duplicate of walk.duplicates) {
+    collector.value(duplicate);
+  }
+  collector.valued();
   for (const slot of walk.answered) {
     collector.answered(slot);
   }

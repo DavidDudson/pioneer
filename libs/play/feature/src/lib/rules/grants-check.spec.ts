@@ -145,6 +145,44 @@ describe(checkGrants, () => {
     });
   });
 
+  it('puts a condition root on with its value, and refuses a value on anything else', () => {
+    const entries = JSON.stringify([
+      { slug: 'frightened', name: 'Frightened', kind: 'condition', rules: [] },
+      {
+        slug: 'steady',
+        name: 'Steady',
+        rules: [{ key: 'GrantItem', item: 'shaken', predicate: [{ gte: ['self:condition:frightened', 2] }] }],
+      },
+      { slug: 'shaken', name: 'Shaken', rules: [] },
+    ]);
+    const valued = check({ entries, roots: 'steady\nfrightened 2', picks: '', toggles: '' });
+    expect(itemNames(valued)).toStrictEqual(['Frightened', 'Steady', 'Shaken']);
+    expect(valued).toMatchObject({
+      rollOptions: [
+        'feature:shaken',
+        'feature:steady',
+        'self:condition:frightened',
+        'self:condition:frightened:2',
+        'self:level:5',
+      ],
+    });
+    expect(itemNames(check({ entries, roots: 'steady\nfrightened', picks: '', toggles: '' }))).toStrictEqual([
+      'Frightened',
+      'Steady',
+    ]);
+    expect(
+      check({
+        entries,
+        roots: 'steady 2\nfrightened 0\nfrightened two\nfrightened 1e1\nfrightened 2 3',
+        picks: '',
+        toggles: '',
+      }),
+    ).toMatchObject({
+      status: GrantsStatus.Problems,
+      rootLines: [1, 2, 3, 4, 5],
+    });
+  });
+
   it('brings class features in and out with the level, whatever self:level the roll options say', () => {
     expect(itemNames(check({ level: 7 }))).toContain('Battlefield Surveyor');
     expect(itemNames(check({ level: 2, facts: 'self:level:20' }))).not.toContain('Bravery');

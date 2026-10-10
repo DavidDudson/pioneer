@@ -1,5 +1,6 @@
 import {
   ChoiceValue,
+  ConditionValue,
   contentId,
   ContentId,
   ContentKind,
@@ -71,6 +72,13 @@ export function lookupOf(entries: readonly GrantEntry[]): ContentLookup {
 /** The player picked the test pack's entry `slug` for `slot`. */
 export function picked(slug: string, slot = slug): GrantRoot {
   return { entry: idOf(slug), hop: { kind: 'choice', slot: SlotKey.parse(slot) } };
+}
+
+/** The test pack's condition `slug` is on the character, at `value` for a valued one: _frightened 2_. */
+export function afflicted(slug: string, value?: number): GrantRoot {
+  const condition = idOf(slug);
+  const valued = value === undefined ? {} : { value: ConditionValue.parse(value) };
+  return { entry: condition, hop: { kind: 'condition', condition, ...valued } };
 }
 
 /** The player's picks, as `[slot, value]` pairs. */
