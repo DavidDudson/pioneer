@@ -1,3 +1,5 @@
+import { CampaignService } from '@pioneer/campaign/application';
+import { campaignRoutes, DrizzleCampaignRepository } from '@pioneer/campaign/infrastructure';
 import { CharacterService } from '@pioneer/character/application';
 import { characterRoutes, DrizzleCharacterRepository } from '@pioneer/character/infrastructure';
 import { contentCatalog } from '@pioneer/rules/catalog';
@@ -18,6 +20,7 @@ export async function createApp(db: Database, env: Env): Promise<AnyElysia> {
 
   const clock = systemClock;
   const characters = new CharacterService(new DrizzleCharacterRepository(db), content, clock);
+  const campaigns = new CampaignService(new DrizzleCampaignRepository(db), clock);
   const { routes: identityRoutes, authenticator } = identity(db, env, clock);
 
   return new Elysia({ prefix: API_PREFIX })
@@ -25,5 +28,6 @@ export async function createApp(db: Database, env: Env): Promise<AnyElysia> {
     .use(csrf(env))
     .get('/health', () => ({ status: 'ok' }))
     .use(identityRoutes)
-    .use(characterRoutes(characters, authenticator));
+    .use(characterRoutes(characters, authenticator))
+    .use(campaignRoutes(campaigns, authenticator));
 }
