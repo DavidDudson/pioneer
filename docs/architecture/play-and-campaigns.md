@@ -73,7 +73,8 @@ and the turn's spend log are play state.
 - **Countdown**: Start turn counts down every active effect with a `time` duration by one round (a minute is 10
   rounds) and removes those that reach 0 with a `turn-start` expiry; End turn removes those with a `turn-end`
   expiry. An effect from another creature counts down on this character's Start turn, since the sheet does not
-  know the other creature's turns; its remaining rounds can be edited.
+  know the other creature's turns; its remaining rounds can be edited. Item use countdowns (see
+  [Staves and charged items](#staves-and-charged-items)) count down the same way.
 - **Sustain**: casting a sustained spell adds it to the active list, lasting until the end of the next turn. During
   a turn each sustained spell offers Sustain (1 action, spent like any other); sustaining extends it to the end of
   the following turn, up to its maximum (10 minutes unless the spell says otherwise). End turn lists the sustained
@@ -202,6 +203,14 @@ Overcharging a wand already overcharged that day destroys it without a roll, eve
 the overcharge reset at daily preparations. Broken is inventory state, so it outlasts preparations until the wand
 is marked repaired, and a broken wand can't be cast. A destroyed wand leaves the inventory through an inventory
 command.
+
+An item activation with a `frequency` has `max` uses per period, kept as a play state resource. Turn and round uses
+come back at Start turn. The first use in a minute, ten minutes or hour starts a countdown of 10, 100 or 600 rounds
+that Start turn counts down during an encounter, giving the uses back at 0. Out of an encounter, where the sheet has
+no clock, the item shows its uses spent and a Reset button, and Rest gives them back. Day uses come back at daily
+preparations. Uses per 24 hours, week, month or year come back only through Reset. An activation with no uses left
+is unavailable with the reason ("used this hour, 42 rounds left"), and undoing a use refunds it and clears the
+countdown it started.
 
 ## Dice
 

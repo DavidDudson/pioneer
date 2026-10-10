@@ -152,7 +152,8 @@ gain and lose conditions, end the turn with correct bookkeeping.
 - **Staves and charged items**: a held staff's spells in their own spell list section, titled with the staff; staff
   charges set at daily preparations for one staff a day, charge cost per spell (cantrips free), spontaneous casters
   paying 1 charge and a slot of the spell's rank or higher; wand once-per-day use and overcharge (DC 10 flat check,
-  broken or destroyed); item frequencies reset on the right boundary.
+  broken or destroyed); item frequencies reset on their boundary (Start turn, a round countdown in an encounter or
+  Reset out of one, daily preparations).
 
 ## M6 Campaigns and Foundry sync
 
