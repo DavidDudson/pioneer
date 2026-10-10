@@ -3,7 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import { assert, constantFrom, integer, oneof, option, property, record } from 'fast-check';
 import type { Arbitrary } from 'fast-check';
 
-import { bulkInTenths, priceInCopper } from './equipment-facet-values';
+import { bulkInTenths, CopperValue, priceInCopper } from './equipment-facet-values';
 import { Bulk, BulkWeight, Price } from './physical-item';
 
 const COINS_MAX = 2000;
@@ -44,7 +44,7 @@ describe('equipment facet values', () => {
     assert(
       property(price, ({ coins }) => {
         const expected = (coins.pp ?? 0) * 1000 + (coins.gp ?? 0) * 100 + (coins.sp ?? 0) * 10 + (coins.cp ?? 0);
-        expect(priceInCopper(Price.parse({ coins })) as number).toBe(expected);
+        expect(priceInCopper(Price.parse({ coins }))).toBe(CopperValue.parse(expected));
       }),
     );
   });

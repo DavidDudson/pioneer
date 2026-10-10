@@ -59,7 +59,11 @@ const BULK_WEIGHT_TENTHS: Readonly<Record<BulkWeight, BulkTenths>> = {
   [BulkWeight.Light]: BulkTenths.parse(1),
 };
 
-const MAGICAL = Trait.parse('magical');
+/** The magical trait, and the tradition traits an item may carry in its place (Player Core, "Magical"). */
+const MAGIC_TRAITS: ReadonlySet<Trait> = new Set(
+  ['magical', 'arcane', 'divine', 'occult', 'primal'].map((trait) => Trait.parse(trait)),
+);
+const CONSUMABLE = Trait.parse('consumable');
 
 /** A price as printed, in copper: a batch's price ("1 sp for 10") is the batch's, not one item's. */
 export function priceInCopper({ coins }: Price): CopperValue {
@@ -103,5 +107,10 @@ export function itemUsage(entry: EquipmentEntry): readonly (UsageValue | undefin
 }
 
 export function isMagical({ traits }: EquipmentEntry): boolean {
-  return traits.includes(MAGICAL);
+  return traits.some((trait) => MAGIC_TRAITS.has(trait));
+}
+
+/** A consumable item, or anything else with the `consumable` trait: an alchemical bomb is a weapon. */
+export function isConsumable({ kind, traits }: EquipmentEntry): boolean {
+  return kind === ContentKind.Consumable || traits.includes(CONSUMABLE);
 }

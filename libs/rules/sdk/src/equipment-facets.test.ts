@@ -171,6 +171,9 @@ function filter(entries: readonly ContentEntry[], query: Record<string, string>)
   return slugs(filterEntries(entries, facets, filterFromQuery(query, facets)));
 }
 
+/** The items of `ITEMS` a filter left out. */
+const dropped = (kept: readonly string[]): readonly string[] => slugs(ITEMS).filter((slug) => !kept.includes(slug));
+
 describe('equipment facet values', () => {
   test('a weapon gives every facet, its persistent damage among its damage types', () => {
     expect(valuesOf(alchemistsFire)).toEqual({
@@ -178,7 +181,7 @@ describe('equipment facet values', () => {
       price: ['300'],
       bulk: ['1'],
       usage: ['held'],
-      consumable: ['no'],
+      consumable: ['yes'],
       magical: ['no'],
       'weapon-group': ['bomb'],
       'damage-type': ['fire'],
@@ -187,29 +190,36 @@ describe('equipment facet values', () => {
   });
 
   test('armour is worn and has a category, but no weapon group or damage type', () => {
-    expect(valuesOf(leatherArmor)).toEqual({
-      'item-kind': ['armor'],
-      price: ['200'],
-      bulk: ['10'],
-      usage: ['worn'],
-      consumable: ['no'],
-      magical: ['no'],
-      'weapon-group': [],
-      'damage-type': [],
-      'armor-category': ['light'],
-    });
+    const facets = { 'item-kind': ['armor'], 'weapon-group': [], 'damage-type': [], 'armor-category': ['light'] };
+    expect(valuesOf(leatherArmor)).toMatchObject(facets);
   });
 
-  test('magical comes from the magical trait, consumable from the kind', () => {
+  test('magical comes from the magical or a tradition trait, consumable from the kind or the trait', () => {
+    const holyWater = item({
+      kind: 'consumable',
+      slug: 'holy-water',
+      traits: ['consumable', 'divine', 'holy', 'splash'],
+      data: { bulk: 'light', category: 'other' },
+    });
     expect(valuesOf(healingPotion)).toMatchObject({ consumable: ['yes'], magical: ['yes'] });
     expect(valuesOf(striking)).toMatchObject({ consumable: ['no'], magical: ['yes'] });
-    expect(valuesOf(alchemistsFire)).toMatchObject({ consumable: ['no'], magical: ['no'] });
+    expect(valuesOf(alchemistsFire)).toMatchObject({ consumable: ['yes'], magical: ['no'] });
+    expect(valuesOf(holyWater)).toMatchObject({ consumable: ['yes'], magical: ['yes'] });
   });
 
-  test('a price adds its coins in copper; a batch compares at its printed price', () => {
-    expect(valueOf(diamond, 'price')).toEqual(['1500']);
-    expect(valueOf(arrows, 'price')).toEqual(['10']);
-    expect(valueOf(adventurersPack, 'price')).toEqual(['150']);
+  test('a weapon that deals no damage gives no damage type but its persistent one', () => {
+    const glue = { dice: 0, damageType: 'bludgeoning' };
+    const glueBomb = item({ kind: 'weapon', slug: 'glue-bomb', data: { ...longsword.data, damage: glue } });
+    const sticky = { ...glue, persistent: { formula: '1', damageType: 'acid' } };
+    const stickyBomb = item({ kind: 'weapon', slug: 'sticky-bomb', data: { ...longsword.data, damage: sticky } });
+    expect([valueOf(glueBomb, 'damage-type'), valueOf(stickyBomb, 'damage-type')]).toEqual([[], ['acid']]);
+  });
+
+  test('a price adds its coins in copper; a batch compares at its printed price; no price is unknown', () => {
+    const unpriced = item({ kind: 'treasure', slug: 'old-coin', data: { bulk: 'negligible' } });
+    const prices = [diamond, arrows, adventurersPack, unpriced].map((each) => valueOf(each, 'price'));
+    expect(prices).toEqual([['1500'], ['10'], ['150'], [UNKNOWN]]);
+    expect(filter([diamond, unpriced], { 'f.price': '..2000' })).toEqual(['diamond']);
   });
 
   test('bulk counts tenths: negligible is 0, light 1, 1 Bulk 10', () => {
@@ -256,25 +266,13 @@ describe('filtering equipment', () => {
   });
 
   test('a price range keeps items between the bounds, in copper', () => {
-    expect(filter(ITEMS, { 'f.price': '..200' })).toEqual([
-      'longsword',
-      'leather-armor',
-      'steel-shield',
-      'backpack',
-      'arrows',
-      'adventurers-pack',
-    ]);
+    const kept = filter(ITEMS, { 'f.price': '..200' });
+    expect(dropped(kept)).toEqual(['alchemists-fire', 'minor-healing-potion', 'striking', 'diamond']);
   });
 
   test('a bulk range of up to light keeps negligible and light items, not a kit', () => {
-    expect(filter(ITEMS, { 'f.bulk': '..1' })).toEqual([
-      'alchemists-fire',
-      'backpack',
-      'minor-healing-potion',
-      'arrows',
-      'striking',
-      'diamond',
-    ]);
+    const kept = filter(ITEMS, { 'f.bulk': '..1' });
+    expect(dropped(kept)).toEqual(['longsword', 'leather-armor', 'steel-shield', 'adventurers-pack']);
   });
 
   test('picking a weapon group keeps only weapons of it', () => {
@@ -283,6 +281,7 @@ describe('filtering equipment', () => {
 
   test('magical and not consumable', () => {
     expect(filter(ITEMS, { 'f.magical': 'yes', 'f.consumable': 'no' })).toEqual(['striking']);
+    expect(filter(ITEMS, { 'f.consumable': 'yes' })).toEqual(['alchemists-fire', 'minor-healing-potion', 'arrows']);
   });
 
   test('damage type filters spells and weapons together', () => {

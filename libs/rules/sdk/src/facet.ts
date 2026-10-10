@@ -36,7 +36,10 @@ export type FacetValue = z.infer<typeof FacetValue>;
 export const RangeBound = z.int().brand<'RangeBound'>();
 export type RangeBound = z.infer<typeof RangeBound>;
 
-/** A range facet's values per unit shown: bulk counts tenths, so its scale is 10 and a value of 10 is 1 Bulk. */
+/**
+ * A range facet's values per unit shown: bulk counts tenths, so its scale is 10 and a value of 10 is 1 Bulk. Display
+ * only: URL bounds stay in the stored unit (`f.bulk=..10` is up to 1 Bulk).
+ */
 export const RangeScale = z.int().positive().brand<'RangeScale'>();
 export type RangeScale = z.infer<typeof RangeScale>;
 

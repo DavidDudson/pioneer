@@ -31,6 +31,7 @@ Accepted. To change a decision, add a new ADR that supersedes the old one; do no
 | [0024](0024-book-titles-are-message-keys.md)               | Book titles are message keys; the registry holds published books                  |
 | [0025](0025-feat-and-action-facet-fields.md)               | Feats and actions store the skills, archetype and variable cost their facets read |
 | [0026](0026-proficiency-bonus-table-is-content.md)         | The proficiency bonus table is content, replaced by a rule element                |
+| [0027](0027-equipment-facet-units.md)                      | Equipment facets compare printed price in copper and Bulk in tenths               |
 
 Template:
 

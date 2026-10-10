@@ -1,6 +1,15 @@
-import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { DescriptionItem, DescriptionList, Heading, List, ListItem, Stack, Text } from '@pioneer/frontier';
+import {
+  DescriptionItem,
+  DescriptionList,
+  Heading,
+  List,
+  ListItem,
+  LocaleFormat,
+  Stack,
+  Text,
+} from '@pioneer/frontier';
 import { FacetMessage, FacetType, FLAG_LABELS, UNKNOWN } from '@pioneer/rules/sdk';
 import type { FacetCounts, FacetDefinition, FacetValue } from '@pioneer/rules/sdk';
 
@@ -9,8 +18,8 @@ import type { FiltersCheck } from '../filters-check';
 import { RulesResult } from '../rules-result/rules-result.component';
 
 /**
- * A value as the result lists it: a message key for a closed set's value, else the value as shown (a range's in
- * its facet's unit: bulk's tenths as 0.1).
+ * A value as the result lists it: a message key for a closed set's value, else the value as shown (a range's as a
+ * number in the UI locale, in its facet's unit: bulk's tenths as 0.1).
  */
 interface ValueRow {
   readonly value: FacetValue;
@@ -32,15 +41,15 @@ function labelOf(facet: FacetDefinition, value: FacetValue): string | undefined 
   return facet.type === FacetType.Flag ? FLAG_LABELS.get(value) : facet.values?.get(value);
 }
 
-function shownValue(facet: FacetDefinition, value: FacetValue): string {
-  return facet.type === FacetType.Range && facet.scale !== undefined ? String(Number(value) / facet.scale) : value;
+function shownValue(format: LocaleFormat, facet: FacetDefinition, value: FacetValue): string {
+  return facet.type === FacetType.Range ? format.number(Number(value) / (facet.scale ?? 1)) : value;
 }
 
 /** A facet's values, with a range's unknown count last since it isn't one of the listed values. */
-function facetRow({ facet, values, unknown }: FacetCounts): FacetRow {
+function facetRow(format: LocaleFormat, { facet, values, unknown }: FacetCounts): FacetRow {
   const rows = values.map(({ value, count }) => ({
     value,
-    shown: shownValue(facet, value),
+    shown: shownValue(format, facet, value),
     key: labelOf(facet, value),
     count,
   }));
@@ -64,13 +73,15 @@ function facetRow({ facet, values, unknown }: FacetCounts): FacetRow {
 export class FiltersResult {
   protected readonly FiltersStatus = FiltersStatus;
   public readonly check = input.required<FiltersCheck>();
+  readonly #format = inject(LocaleFormat);
 
   protected readonly facets = computed((): readonly FacetRow[] => {
+    this.#format.locale();
     const result = this.check();
     return result.status === FiltersStatus.Valid
       ? result.counts
           .filter((counts) => counts.values.length > 0 || counts.unknown > 0)
-          .map((counts) => facetRow(counts))
+          .map((counts) => facetRow(this.#format, counts))
       : [];
   });
 }

@@ -3,6 +3,7 @@ import type { ContentEntry } from './content-entry';
 import { ContentKind } from './content-kind';
 import {
   EquipmentKind,
+  isConsumable,
   isEquipment,
   isMagical,
   itemBulk,
@@ -123,7 +124,7 @@ export const EQUIPMENT_FACETS: readonly FacetDefinition[] = [
     id: FacetId.parse('consumable'),
     type: FacetType.Flag,
     label: EquipmentFacetMessage.Consumable,
-    derive: ofItems(({ kind }) => [kind === ContentKind.Consumable]),
+    derive: ofItems((entry) => [isConsumable(entry)]),
   },
   {
     id: FacetId.parse('magical'),
