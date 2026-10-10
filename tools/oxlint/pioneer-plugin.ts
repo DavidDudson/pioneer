@@ -73,6 +73,32 @@ const noBypassSecurityTrust: Rule.RuleModule = {
   },
 };
 
+/**
+ * The named `z` export of zod is a namespace object the bundler cannot tree-shake, so it keeps all 64 locales
+ * (296 kB) in the bundle. Import zod as a namespace instead: `import * as z from 'zod'`.
+ */
+const zodNamespaceImport: Rule.RuleModule = {
+  meta: {
+    type: 'problem',
+    docs: { description: "Require `import * as z from 'zod'` over the named `z` export" },
+    messages: {
+      named: "Import zod as a namespace (import * as z from 'zod') so its locales tree-shake out of the bundle.",
+    },
+    schema: [],
+  },
+  create(context) {
+    return {
+      ImportSpecifier(node): void {
+        const declaration = node.parent;
+        const imported = node.imported.type === 'Identifier' ? node.imported.name : node.imported.value;
+        if (declaration.type === 'ImportDeclaration' && declaration.source.value === 'zod' && imported === 'z') {
+          context.report({ node, messageId: 'named' });
+        }
+      },
+    };
+  },
+};
+
 const RELOADS = new Set(['reload', 'assign', 'replace']);
 
 /** `location` or `<anything>.location`. */
@@ -257,6 +283,7 @@ const plugin = {
   rules: {
     'no-styles-outside-frontier': noStylesOutsideFrontier,
     'no-bypass-security-trust': noBypassSecurityTrust,
+    'zod-namespace-import': zodNamespaceImport,
     'no-full-page-load': noFullPageLoad,
     'no-route-resolvers': noRouteResolvers,
     'layout-variants': layoutVariants,

@@ -141,6 +141,7 @@
     "security/detect-pseudoRandomBytes": "error",
     "security/detect-unsafe-regex": "error",
     "pioneer/no-bypass-security-trust": "error",
+    "pioneer/zod-namespace-import": "error",
     // No modals, no toasts, no full page loads (libs/frontier/AGENTS.md#interaction-rules).
     "pioneer/no-full-page-load": "error",
     "pioneer/no-route-resolvers": "error",
@@ -173,11 +174,6 @@
           { "name": "temporal-polyfill", "message": "Import Temporal from @pioneer/shared/kernel." },
           { "name": "@js-temporal/polyfill", "message": "Import Temporal from @pioneer/shared/kernel." },
           { "name": "luxon", "message": "Use Temporal." },
-          {
-            "name": "zod",
-            "importNames": ["z"],
-            "message": "Import zod as a namespace (import * as z from 'zod') so its locales tree-shake out of the bundle."
-          },
           { "name": "date-fns", "message": "Use Temporal." },
           { "name": "dayjs", "message": "Use Temporal." },
           { "name": "moment", "message": "Use Temporal." },
@@ -320,11 +316,6 @@
               { "name": "temporal-polyfill", "message": "Import Temporal from @pioneer/shared/kernel." },
               { "name": "@js-temporal/polyfill", "message": "Import Temporal from @pioneer/shared/kernel." },
               { "name": "luxon", "message": "Use Temporal." },
-              {
-                "name": "zod",
-                "importNames": ["z"],
-                "message": "Import zod as a namespace (import * as z from 'zod') so its locales tree-shake out of the bundle."
-              },
               { "name": "date-fns", "message": "Use Temporal." },
               { "name": "dayjs", "message": "Use Temporal." },
               { "name": "moment", "message": "Use Temporal." },
