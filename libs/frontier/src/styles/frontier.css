@@ -107,6 +107,18 @@
   --color-info-emphasis: var(--fr-info-emphasis);
   --color-info-on-emphasis: var(--fr-info-on-emphasis);
 
+  /*
+   * Forced colours (Windows High Contrast). The browser swaps every author colour for the user's palette,
+   * except CSS system colours, so a state shown only by a fill (pressed, selected, a skeleton) disappears.
+   * These are those system colours, for `forced-colors:` variants only (`pioneer/class-tokens` checks both
+   * ways). Not themed: the user's palette picks them.
+   */
+  --color-system-canvas: Canvas;
+  --color-system-canvas-text: CanvasText;
+  --color-system-highlight: Highlight;
+  --color-system-highlight-text: HighlightText;
+  --color-system-gray-text: GrayText;
+
   --spacing-none: var(--fr-space-none);
   --spacing-3xs: var(--fr-space-3xs);
   --spacing-2xs: var(--fr-space-2xs);
@@ -208,6 +220,10 @@
 @utility focus-ring {
   outline: var(--fr-focus-ring-width) solid var(--color-line-focus);
   outline-offset: var(--fr-focus-ring-offset);
+
+  @media (forced-colors: active) {
+    outline-color: Highlight;
+  }
 }
 
 /* The keyboard-highlighted option in an @angular/aria listbox (it sets data-active="true|false"). */
