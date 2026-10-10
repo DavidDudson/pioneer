@@ -13,7 +13,7 @@
       >
     </fr-stack>
   } @empty {
-    <fr-text variant="caption" tone="muted">{{ 'play.dice.none' | transloco }}</fr-text>
+    <fr-empty-state [title]="'play.dice.none' | transloco" />
   }
   <fr-stack direction="horizontal" align="end" gap="sm" wrap>
     <fr-field>

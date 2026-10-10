@@ -3,7 +3,7 @@
   @let rows = shown();
   <fr-stack gap="lg">
     @if (rows.items.length === 0) {
-      <fr-text element="p" tone="muted">{{ 'play.rules.noGrants' | transloco }}</fr-text>
+      <fr-empty-state [title]="'play.rules.noGrants' | transloco" />
     }
     <pio-grant-list [rows]="rows.items">{{ 'play.rules.grantedHeading' | transloco }}</pio-grant-list>
     <pio-grant-list [rows]="rows.duplicates">{{ 'play.rules.duplicatesHeading' | transloco }}</pio-grant-list>

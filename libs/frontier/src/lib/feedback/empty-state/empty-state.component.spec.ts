@@ -1,77 +1,66 @@
-import { Component, input } from '@angular/core';
+import { ApplicationRef, createComponent, EnvironmentInjector } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import type { ComponentFixture } from '@angular/core/testing';
-import type { LucideIcon } from '@lucide/angular';
 import { LucideDices } from '@lucide/angular';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, onTestFinished } from 'vitest';
 
-import { Button } from '../../actions/button/button.component';
 import { EmptyState } from './empty-state.component';
 
-@Component({
-  imports: [EmptyState, Button],
-  template: `
-    <fr-empty-state [icon]="icon()" [title]="'No rolls yet'" [description]="description()">
-      @if (withAction()) {
-        <fr-button>Roll</fr-button>
-      }
-    </fr-empty-state>
-  `,
-})
-class Host {
-  public readonly icon = input<LucideIcon | undefined>(undefined);
-  public readonly description = input<string | undefined>(undefined);
-  public readonly withAction = input(false);
-}
-
-interface Options {
-  readonly icon?: LucideIcon;
-  readonly description?: string;
-  readonly withAction?: boolean;
-}
-
-function render(options: Options = {}): HTMLElement {
-  const fixture: ComponentFixture<Host> = TestBed.createComponent(Host);
-  fixture.componentRef.setInput('icon', options.icon);
-  fixture.componentRef.setInput('description', options.description);
-  fixture.componentRef.setInput('withAction', options.withAction ?? false);
-  fixture.detectChanges();
-  return fixture.nativeElement as HTMLElement;
+/** Renders an empty state with `action` projected (none by default) and returns its host element. */
+async function render(inputs: Readonly<Record<string, unknown>>, action: readonly Node[] = []): Promise<HTMLElement> {
+  const emptyState = createComponent(EmptyState, {
+    environmentInjector: TestBed.inject(EnvironmentInjector),
+    projectableNodes: [[...action]],
+  });
+  onTestFinished(() => {
+    emptyState.destroy();
+  });
+  emptyState.setInput('title', 'No rolls yet');
+  for (const [name, value] of Object.entries(inputs)) {
+    emptyState.setInput(name, value);
+  }
+  const appRef = TestBed.inject(ApplicationRef);
+  appRef.attachView(emptyState.hostView);
+  await appRef.whenStable();
+  return emptyState.location.nativeElement as HTMLElement;
 }
 
 function paragraphs(host: HTMLElement): string[] {
   return [...host.querySelectorAll('p')].map((paragraph) => paragraph.textContent.trim());
 }
 
+/** The row the action is projected into. */
+function actionRow(host: HTMLElement): HTMLDivElement | undefined {
+  return [...host.querySelectorAll('div')].find((div) => div.classList.contains('empty:hidden'));
+}
+
 describe(EmptyState, () => {
-  it('shows the title as text, not a heading', () => {
-    const host = render();
+  it('shows the title as text, not a heading', async () => {
+    const host = await render({});
     expect(paragraphs(host)).toStrictEqual(['No rolls yet']);
     expect(host.querySelector('h1, h2, h3, h4')).toBeNull();
   });
 
-  it('shows the description under the title when given', () => {
-    const host = render({ description: 'Enter an expression and roll.' });
+  it('shows the description under the title when given', async () => {
+    const host = await render({ description: 'Enter an expression and roll.' });
     expect(paragraphs(host)).toStrictEqual(['No rolls yet', 'Enter an expression and roll.']);
   });
 
-  it('shows the icon as decoration when given', () => {
-    expect(render().querySelector('svg')).toBeNull();
-    const icon = render({ icon: LucideDices }).querySelector('svg');
-    expect(icon).not.toBeNull();
-    expect(icon?.getAttribute('aria-hidden')).toBe('true');
+  it('shows no icon unless given one, and then as decoration', async () => {
+    const plain = await render({});
+    expect(plain.querySelector('svg')).toBeNull();
+    const withIcon = await render({ icon: LucideDices });
+    expect(withIcon.querySelector('svg')?.getAttribute('aria-hidden')).toBe('true');
   });
 
-  it('projects the action', () => {
-    const host = render({ withAction: true });
-    expect(host.querySelector('button')?.textContent.trim()).toBe('Roll');
+  it('projects the action into the action row', async () => {
+    const action = document.createElement('span');
+    action.textContent = 'Roll';
+    const host = await render({}, [action]);
+    expect(actionRow(host)?.textContent.trim()).toBe('Roll');
   });
 
-  it('leaves the action row empty when there is no action, so it collapses', () => {
-    const host = render();
-    const actions = [...host.querySelectorAll('div')].find((div) => div.className.includes('empty:hidden'));
-    expect(actions).toBeDefined();
-    expect(actions?.children).toHaveLength(0);
-    expect(host.querySelector('button')).toBeNull();
+  it('leaves the action row empty without an action, so it collapses', async () => {
+    const host = await render({});
+    expect(actionRow(host)?.childNodes).toHaveLength(0);
   });
 });

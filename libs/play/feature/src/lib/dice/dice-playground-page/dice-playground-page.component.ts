@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@a
 import { TranslocoPipe } from '@jsverse/transloco';
 import {
   Button,
+  EmptyState,
   Field,
   FieldError,
   FieldHint,
@@ -12,7 +13,6 @@ import {
   Page,
   Stack,
   Surface,
-  Text,
   TextInput,
   ToggleButton,
 } from '@pioneer/frontier';
@@ -70,6 +70,7 @@ const PLAYGROUND_MISFORTUNE = message('play.dice.playgroundMisfortune');
   imports: [
     Button,
     DamageTargetEditor,
+    EmptyState,
     Field,
     FieldError,
     FieldHint,
@@ -80,7 +81,6 @@ const PLAYGROUND_MISFORTUNE = message('play.dice.playgroundMisfortune');
     RollCard,
     Stack,
     Surface,
-    Text,
     TextInput,
     ToggleButton,
     TranslocoPipe,

@@ -7,6 +7,7 @@
     "roll": "Roll",
     "historyHeading": "Rolls",
     "empty": "No rolls yet.",
+    "emptyHint": "Enter an expression and roll; results show here.",
     "total": "Total {total}",
     "die": "{face}",
     "droppedDie": "{face} dropped",

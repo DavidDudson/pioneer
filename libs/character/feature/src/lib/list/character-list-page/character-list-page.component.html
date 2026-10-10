@@ -56,7 +56,10 @@
           </ng-template>
         </fr-virtual-list>
         @if (characters.length === 0) {
-          <fr-text element="p" tone="muted">{{ 'character.list.empty' | transloco }}</fr-text>
+          <fr-empty-state
+            [title]="'character.list.empty' | transloco"
+            [description]="'character.list.emptyHint' | transloco"
+          />
         }
       </ng-template>
     </fr-async-region>

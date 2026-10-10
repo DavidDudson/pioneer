@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { AsyncData, AsyncPending, AsyncRegion, Button, Page, Skeleton, Stack, Text } from '@pioneer/frontier';
+import { AsyncData, AsyncPending, AsyncRegion, Button, EmptyState, Page, Skeleton, Stack } from '@pioneer/frontier';
 import { SessionStore } from '@pioneer/identity/data-access';
 import { IdentityContract, OAuthProvider, returnPathOr } from '@pioneer/identity/domain';
 import type { ReturnPath } from '@pioneer/identity/domain';
@@ -17,7 +17,7 @@ const CONTINUE_WITH = {
 /** One button per configured provider; each leaves for that provider and comes back to `returnTo`. */
 @Component({
   selector: 'pio-sign-in-page',
-  imports: [AsyncData, AsyncPending, AsyncRegion, Button, Page, Skeleton, Stack, Text, TranslocoPipe],
+  imports: [AsyncData, AsyncPending, AsyncRegion, Button, EmptyState, Page, Skeleton, Stack, TranslocoPipe],
   templateUrl: './sign-in-page.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
