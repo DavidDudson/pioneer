@@ -84,7 +84,13 @@ const examples: object[] = [
   { key: 'Weakness', type: 'cold', value: 5 },
   { key: 'Weakness', type: 'fire', value: 'max(1, floor(@level / 2))' },
   { key: 'Resistance', type: 'physical', value: 5, exceptions: ['adamantine'] },
-  { key: 'Resistance', type: 'fire', value: 10, predicate: ['self:effect:fire-shield'], display: { label: 'Fire Shield' } },
+  {
+    key: 'Resistance',
+    type: 'fire',
+    value: 10,
+    predicate: ['self:effect:fire-shield'],
+    display: { label: 'Fire Shield' },
+  },
 ];
 
 describe('RuleElement', () => {
