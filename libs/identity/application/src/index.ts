@@ -1,4 +1,10 @@
-export { type Authenticated, IdentityService, type Revoked, type SignedIn } from './identity-service';
+export {
+  type Authenticated,
+  IdentityService,
+  type Revoked,
+  type SignedIn,
+  type StartedSession,
+} from './identity-service';
 export { InMemoryPreferencesRepository } from './in-memory-preferences-repository';
 export { InMemorySessionRepository } from './in-memory-session-repository';
 export { InMemoryUserRepository } from './in-memory-user-repository';

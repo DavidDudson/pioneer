@@ -14,6 +14,12 @@ export interface SignedIn {
   readonly session: Session;
 }
 
+/** A new session: its token for the cookie, and the session itself. */
+export interface StartedSession {
+  readonly token: SessionToken;
+  readonly session: Session;
+}
+
 /** A request's valid session and its user. `renewed` means the cookie needs a fresh expiry. */
 export interface Authenticated {
   readonly user: User;
@@ -48,11 +54,20 @@ export class IdentityService {
   public async signIn(profile: ProviderProfile): Promise<SignedIn> {
     const now = this.#clock.now();
     const user = await this.#upsertUser(profile, now);
+    const { token, session } = await this.startSession(user.id);
+    return { user, token, session };
+  }
+
+  /**
+   * A new session for an existing account, with no provider involved. Sign-in calls it once a provider has
+   * vouched for the user; the local dev sign-in calls it for a seeded user.
+   */
+  public async startSession(userId: UserId): Promise<StartedSession> {
     const token = newSessionToken();
     const tokenHash = await hashSessionToken(token);
-    const session = Session.start({ id: SessionId.parse(newId()), userId: user.id, tokenHash, now });
+    const session = Session.start({ id: SessionId.parse(newId()), userId, tokenHash, now: this.#clock.now() });
     await this.#sessions.insert(session);
-    return { user, token, session };
+    return { token, session };
   }
 
   /**
