@@ -84,8 +84,8 @@ export const CampaignContract = {
   }),
   /**
    * Join the campaign an invite token belongs to, as a player. A member who joins again gets the
-   * campaign back unchanged. The token goes in the body, keeping it out of this API's access logs; the
-   * invite link itself still carries it in its path (see play-and-campaigns.md#campaigns).
+   * campaign back unchanged. The token goes in the body and the invite link carries it in its
+   * fragment, so it is never in a URL a server sees.
    */
   join: new Endpoint({
     method: HttpMethod.Post,

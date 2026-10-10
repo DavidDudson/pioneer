@@ -18,6 +18,14 @@ export const appRoutes: Routes = [
     },
   },
   {
+    // An invite link, unguarded: the page takes its token out of the URL before any 401 prompts sign-in.
+    path: 'campaigns/join',
+    loadChildren: async () => {
+      const { campaignJoinRoutes } = await import('@pioneer/campaign/feature');
+      return campaignJoinRoutes;
+    },
+  },
+  {
     path: 'campaigns',
     // Campaigns are groups of accounts, so they need one too.
     canActivate: [signInRequired],

@@ -117,14 +117,14 @@ describe('CampaignHomePage members and invites', () => {
       created.flush({ invite, token });
     });
     await vi.waitFor(() => {
-      expect(root.textContent).toContain(`/campaigns/join/${token}`);
+      expect(root.textContent).toContain(`/campaigns/join#${token}`);
       expect(root.textContent).toContain('This link is shown only once.');
       expect(root.textContent).not.toContain('No open invite links.');
     });
 
     button(root, 'Copy link').click();
     await vi.waitFor(() => {
-      expect(writeText).toHaveBeenCalledWith(expect.stringMatching(new RegExp(`/campaigns/join/${token}$`, 'u')));
+      expect(writeText).toHaveBeenCalledWith(expect.stringMatching(new RegExp(`/campaigns/join#${token}$`, 'u')));
     });
 
     const revoke = button(root, 'Revoke');

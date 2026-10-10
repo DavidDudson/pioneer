@@ -1,15 +1,19 @@
-import { ChangeDetectionStrategy, Component, computed, effect, inject, input, untracked } from '@angular/core';
-import { Router } from '@angular/router';
+import { afterNextRender, ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { InviteToken } from '@pioneer/campaign/domain';
 import { injectAsyncAction, Link, Message, Page, Spinner, Stack, Surface, Text } from '@pioneer/frontier';
 import { ApiError } from '@pioneer/shared/web';
 
 import { CampaignStore } from '../../data/campaign-store';
+import { PendingInvite } from '../../data/pending-invite';
 
 /**
- * Where an invite link lands. Joins as soon as it opens (the route already made the visitor sign
- * in), then goes to the campaign, replacing this page in history so Back doesn't join again.
+ * Where an invite link (`/campaigns/join#<token>`) lands. The token is in the fragment, which
+ * browsers never send to a server. The page moves it to session storage and out of the address
+ * bar before joining, so a 401 sends the visitor to sign in with a return path that holds no token,
+ * and the stored token is picked up when they come back. On success it goes to the campaign,
+ * replacing this page in history so Back doesn't join again.
  */
 @Component({
   selector: 'pio-campaign-join-page',
@@ -18,21 +22,39 @@ import { CampaignStore } from '../../data/campaign-store';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CampaignJoinPage {
-  /** Route param, bound by `withComponentInputBinding`. */
-  public readonly token = input.required<string>();
-
   readonly #store = inject(CampaignStore);
+  readonly #pending = inject(PendingInvite);
   readonly #router = inject(Router);
+  readonly #route = inject(ActivatedRoute);
   readonly #i18n = inject(TranslocoService);
 
-  /** The link's token, or undefined when the link can't hold one: said like a token nobody knows. */
-  protected readonly parsed = computed(() => InviteToken.safeParse(this.token()).data);
+  /** The link's token, or the one kept from before sign-in; undefined when neither holds one. */
+  protected readonly parsed: InviteToken | undefined;
+  /** Whether the token came in this page's URL, and so must be taken out of it. */
+  readonly #inUrl: boolean;
 
   protected readonly joining = injectAsyncAction(
     () =>
-      async (token: InviteToken): Promise<void> => {
-        const campaign = await this.#store.join(token);
-        await this.#router.navigate(['/campaigns', campaign.id], { replaceUrl: true });
+      async (invite: InviteToken | undefined): Promise<void> => {
+        // First out of the URL, so a 401 below prompts sign-in with a return path that holds no token.
+        if (this.#inUrl) {
+          await this.#router.navigate([], { relativeTo: this.#route, replaceUrl: true });
+        }
+        if (invite === undefined) {
+          this.#pending.clear();
+          return;
+        }
+        try {
+          const campaign = await this.#store.join(invite);
+          this.#pending.clear();
+          await this.#router.navigate(['/campaigns', campaign.id], { replaceUrl: true });
+        } catch (error: unknown) {
+          // Signed out: keep the token for when sign-in brings the visitor back here.
+          if (!ApiError.isUnauthorized(error)) {
+            this.#pending.clear();
+          }
+          throw error;
+        }
       },
     {
       describeError: (error): string => {
@@ -43,14 +65,14 @@ export class CampaignJoinPage {
   );
 
   public constructor() {
-    // Only the token is tracked: running reads the action's status, which would rerun a failed join.
-    effect(() => {
-      const invite = this.parsed();
-      if (invite !== undefined) {
-        untracked(() => {
-          this.joining.run(invite);
-        });
-      }
+    const fragment = this.#route.snapshot.fragment ?? undefined;
+    if (fragment !== undefined) {
+      this.#pending.keep(fragment);
+    }
+    this.parsed = InviteToken.safeParse(fragment ?? this.#pending.read()).data;
+    this.#inUrl = fragment !== undefined;
+    afterNextRender(() => {
+      this.joining.run(this.parsed);
     });
   }
 }

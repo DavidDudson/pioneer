@@ -90,9 +90,9 @@ export class CampaignInvitePanel {
     return action;
   }
 
-  /** The absolute join URL for a token, on this app's origin. */
+  /** The absolute join URL for a token, on this app's origin. The token is the fragment, which browsers never send. */
   #linkFor(token: InviteToken): string {
-    const path = this.#router.serializeUrl(this.#router.createUrlTree(['/campaigns', 'join', token]));
+    const path = this.#router.serializeUrl(this.#router.createUrlTree(['/campaigns', 'join'], { fragment: token }));
     return `${this.#document.location.origin}${path}`;
   }
 }

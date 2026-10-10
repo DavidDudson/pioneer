@@ -1,1 +1,1 @@
-export { campaignRoutes } from './lib/campaign.routes';
+export { campaignJoinRoutes, campaignRoutes } from './lib/campaign.routes';

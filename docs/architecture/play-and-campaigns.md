@@ -128,10 +128,10 @@ campaign_links        id, campaign_id, token hash, last_used_at, revoked_at
   shown once and only its SHA-256 is stored. A signed-in user who opens a working link joins as a player;
   opening it again as a member is harmless. An unknown token is a 404 and an expired or revoked one a 410, each
   with its own message. Member names come from identity through the `MemberDirectory` port, adapted in the
-  API's composition root. The link carries the token in its path (`/campaigns/join/<token>`), so for its 7-day life it
-  can appear in edge and static-file request logs and, for a signed-out visitor, in the sign-in `returnTo`.
-  Revoking a link ends that exposure; moving the token to the URL fragment would also need sign-in to keep
-  fragments.
+  API's composition root. The link is `/campaigns/join#<token>`: browsers never send a
+  fragment, so the token stays out of request logs. The join page moves it to session storage and out of the
+  address bar before calling the API, so a signed-out visitor goes to sign in with a return path that holds no
+  token and joins when they come back.
 - **Permissions.** Policies live in the campaign context's application layer, with the acting user from identity's
   `RequestAuthenticator` (ADR-0007), or the campaign from a link token for module routes. Owners edit builds;
   members see the party overview.
