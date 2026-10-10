@@ -550,6 +550,11 @@ origin chain:
   `DAMAGE_GROUP_TYPES` in the SDK, never content.
 - The unconditional defences, with conditional ones whose toggles are on, form a `DamageTarget`, so the damage
   pipeline in `libs/rules/dice` takes the character's defences as it takes any creature's.
+- Exceptions travel with the defence: `DamageAdjustment` gains an optional `exceptions` list of damage traits
+  (materials such as adamantine or cold iron, `magical`). The engine never filters on them, since it does not know
+  the damage; `libs/rules/dice` checks them per instance when it picks the highest weakness or resistance, and
+  skips one whose exception the instance has. `DamageInstance` carries no traits yet, so until Strike damage
+  records them (Epic 4.6) an exception is shown on the sheet but never matches, and the defence applies in full.
 
 ## Predicates and conditional modifiers
 
