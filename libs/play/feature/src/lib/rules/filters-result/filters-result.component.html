@@ -28,9 +28,12 @@
       <fr-list gap="xs" markers>
         @for (entry of result.kept; track $index) {
           <fr-list-item>
-            <fr-text>{{
-              'play.rules.filterKeptEntry' | transloco: { name: entry.name, kind: (entry.kindKey | transloco) }
-            }}</fr-text>
+            <fr-stack gap="3xs">
+              <fr-text>{{
+                'play.rules.filterKeptEntry' | transloco: { name: entry.name, kind: (entry.kindKey | transloco) }
+              }}</fr-text>
+              <pio-source-line [sources]="entry.sources" />
+            </fr-stack>
           </fr-list-item>
         }
       </fr-list>

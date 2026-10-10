@@ -6,8 +6,8 @@ import { describe, expect, it, onTestFinished } from 'vitest';
 import { TextVariant } from '../../text/text.variants';
 import { Link } from './link.component';
 
-/** Renders `fr-link` with "Valeros" projected and returns its anchor. */
-async function render(inputs: Readonly<Record<string, unknown>>): Promise<HTMLAnchorElement> {
+/** Renders `fr-link` with "Valeros" projected and returns its host. */
+async function renderHost(inputs: Readonly<Record<string, unknown>>): Promise<HTMLElement> {
   TestBed.configureTestingModule({ providers: [provideRouter([])] });
   const link = createComponent(Link, {
     environmentInjector: TestBed.inject(EnvironmentInjector),
@@ -22,7 +22,13 @@ async function render(inputs: Readonly<Record<string, unknown>>): Promise<HTMLAn
   const appRef = TestBed.inject(ApplicationRef);
   appRef.attachView(link.hostView);
   await appRef.whenStable();
-  const anchor = (link.location.nativeElement as HTMLElement).querySelector('a');
+  return link.location.nativeElement as HTMLElement;
+}
+
+/** Renders `fr-link` with "Valeros" projected and returns its anchor. */
+async function render(inputs: Readonly<Record<string, unknown>>): Promise<HTMLAnchorElement> {
+  const host = await renderHost(inputs);
+  const anchor = host.querySelector('a');
   if (anchor === null) {
     throw new Error('fr-link rendered no <a>');
   }
@@ -41,6 +47,39 @@ describe(Link, () => {
     const anchor = await render({ href: 'https://paizo.com' });
     expect(anchor.getAttribute('href')).toBe('https://paizo.com');
     expect(anchor.getAttribute('rel')).toBe('noopener');
+  });
+
+  it.each(['https://angular.dev/guide', 'HTTP://example.com/x'])(
+    'links an external URL from data (%j) to the other site with rel="noopener"',
+    async (url) => {
+      const anchor = await render({ external: url });
+      expect(anchor.getAttribute('href')).toBe(url);
+      expect(anchor.getAttribute('rel')).toBe('noopener');
+    },
+  );
+
+  it.each([
+    '/characters',
+    'https:/characters',
+    'https:characters',
+    // oxlint-disable-next-line no-script-url -- the input fr-link must refuse, never code that runs
+    'javascript:alert(1)',
+    'data:text/html,hi',
+    '',
+  ])('shows an external URL that would not leave the app (%j) as plain text', async (url) => {
+    const host = await renderHost({ external: url });
+    expect(host.querySelector('a')).toBeNull();
+    expect(host.textContent.trim()).toBe('Valeros');
+  });
+
+  it('names the link with its aria label', async () => {
+    const anchor = await render({ external: 'https://angular.dev', ariaLabel: 'Valeros: Angular documentation' });
+    expect(anchor.getAttribute('aria-label')).toBe('Valeros: Angular documentation');
+  });
+
+  it('has no aria label unless given one', async () => {
+    const anchor = await render({ to: '/' });
+    expect(anchor.hasAttribute('aria-label')).toBe(false);
   });
 
   it('underlines in the accent and shows focus', async () => {

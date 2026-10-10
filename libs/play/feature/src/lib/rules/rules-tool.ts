@@ -1,6 +1,7 @@
 import { bookRegistry, sourceIssues } from '@pioneer/rules/catalog';
 import type { NamespaceTable } from '@pioneer/rules/predicate';
 import { ContentEntry, RichText } from '@pioneer/rules/sdk';
+import type { SourceRef } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
 
 import { checkFilters } from './filters-check';
@@ -17,12 +18,13 @@ import { checkStatistics, StatisticsStatus } from './statistics-check';
 import type { StatisticProficiency, StatisticsCheck } from './statistics-check';
 
 /**
- * What kind of answer a tool gives: a schema check, a schema check with a rich text preview, a parsed formula, a
- * predicate's verdict, statistics, grants or filtered content.
+ * What kind of answer a tool gives: a schema check, a schema check with a rich text preview or a content entry's
+ * source line, a parsed formula, a predicate's verdict, statistics, grants or filtered content.
  */
 export const ToolKind = {
   Schema: 'schema',
   RichText: 'rich-text',
+  ContentEntry: 'content-entry',
   Formula: 'formula',
   Verdict: 'verdict',
   Statistics: 'statistics',
@@ -64,6 +66,11 @@ export interface ToolInputs {
 export type ToolCheck =
   | { readonly kind: typeof ToolKind.Schema; readonly check: CheckOutcome }
   | { readonly kind: typeof ToolKind.RichText; readonly check: CheckOutcome; readonly preview: RichText | undefined }
+  | {
+      readonly kind: typeof ToolKind.ContentEntry;
+      readonly check: CheckOutcome;
+      readonly sources: readonly SourceRef[] | undefined;
+    }
   | { readonly kind: typeof ToolKind.Formula; readonly check: FormulaCheck }
   | { readonly kind: typeof ToolKind.Verdict; readonly check: VerdictCheck }
   | { readonly kind: typeof ToolKind.Statistics; readonly check: StatisticsCheck }
@@ -77,14 +84,20 @@ function checkRichText(text: string): ToolCheck {
   return { kind: ToolKind.RichText, check: checkOutcome(RichText, read), preview };
 }
 
-/** A content entry, then its sources against the book registry, so a wrong source shows on its own field. */
-function checkContentEntry(text: string): CheckOutcome {
+/**
+ * A content entry, then its sources against the book registry, so a wrong source shows on its own field. Once both
+ * pass, its sources are shown as the source line, as every view of content shows them (ADR-0005).
+ */
+function checkContentEntry(text: string): ToolCheck {
   const read = readJson(ContentEntry, text);
   if (read.status !== CheckStatus.Valid) {
-    return read;
+    return { kind: ToolKind.ContentEntry, check: read, sources: undefined };
   }
   const issues = sourceIssues(read.value, bookRegistry);
-  return issues.length > 0 ? { status: CheckStatus.Invalid, issues } : checkOutcome(ContentEntry, read);
+  if (issues.length > 0) {
+    return { kind: ToolKind.ContentEntry, check: { status: CheckStatus.Invalid, issues }, sources: undefined };
+  }
+  return { kind: ToolKind.ContentEntry, check: checkOutcome(ContentEntry, read), sources: read.value.sources };
 }
 
 /** The schema tools: a plain schema check, or one with a preview (rich text) or registry checks (content entries). */
@@ -93,7 +106,7 @@ function checkSchema(schema: RulesSchema, text: string): ToolCheck {
     return checkRichText(text);
   }
   if (schema === RulesSchema.ContentEntry) {
-    return { kind: ToolKind.Schema, check: checkContentEntry(text) };
+    return checkContentEntry(text);
   }
   return { kind: ToolKind.Schema, check: checkRulesJson(schema, text) };
 }

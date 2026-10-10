@@ -6,7 +6,7 @@ import {
   filterFromQuery,
   filterToQuery,
 } from '@pioneer/rules/sdk';
-import type { ContentText, FacetCounts, QueryParams } from '@pioneer/rules/sdk';
+import type { ContentText, FacetCounts, QueryParams, SourceRef } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
@@ -17,10 +17,11 @@ import type { JsonProblem } from './rules-check';
 export const FiltersStatus = { Valid: CheckStatus.Valid, Problems: 'problems' } as const;
 export type FiltersStatus = ValueOf<typeof FiltersStatus>;
 
-/** An entry the filters keep: its name and its kind's message key. */
+/** An entry the filters keep: its name, its kind's message key and its sources (ADR-0005). */
 interface KeptEntry {
   readonly name: ContentText;
   readonly kindKey: string;
+  readonly sources: readonly SourceRef[];
 }
 
 export type FiltersCheck =
@@ -63,7 +64,11 @@ export function checkFilters(entriesText: string, queryText: string): FiltersChe
   return {
     status: FiltersStatus.Valid,
     counts: facetCounts(entries, facets, state),
-    kept: filterEntries(entries, facets, state).map(({ name, kind }) => ({ name, kindKey: CONTENT_KIND_KEYS[kind] })),
+    kept: filterEntries(entries, facets, state).map(({ name, kind, sources }) => ({
+      name,
+      kindKey: CONTENT_KIND_KEYS[kind],
+      sources,
+    })),
     total: entries.length,
     query: decodeURIComponent(query),
   };
