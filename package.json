@@ -8,12 +8,13 @@
   "scripts": {
     "dev": "nx serve web --port=${WEB_PORT:-4200}",
     "check": "nx run-many -t lint lint-templates typecheck test build verify-styles verify-dev-free && bun run lint:workspace && bun run test:tools",
-    "lint:workspace": "hadolint Dockerfile && tofu fmt -check -recursive infra && knip --treat-config-hints-as-errors && bun run check:messages && typos && rumdl check . && taplo check && taplo fmt --check && biome lint --error-on-warnings && oxlint tools && oxfmt --check .",
+    "lint:workspace": "hadolint Dockerfile && tofu fmt -check -recursive infra && knip --treat-config-hints-as-errors && bun run check:messages && bun run check:components && typos && rumdl check . && taplo check && taplo fmt --check && biome lint --error-on-warnings && oxlint tools && oxfmt --check .",
     "format": "oxfmt .",
     "format:check": "oxfmt --check .",
     "affected": "nx affected -t lint lint-templates typecheck test build verify-styles verify-dev-free",
     "test:tools": "bun test tools",
-    "check:messages": "bun tools/check-message-keys.ts"
+    "check:messages": "bun tools/check-message-keys.ts",
+    "check:components": "bun tools/check-component-coverage.ts"
   },
   "dependencies": {
     "@angular/aria": "22.2.0",

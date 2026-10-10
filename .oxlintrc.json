@@ -392,6 +392,13 @@
       }
     },
     {
+      // Chart specs build chart definitions, whose marks and scales take `x`/`y` channels.
+      "files": ["**/chart/*.spec.ts"],
+      "rules": {
+        "eslint/id-length": ["error", { "exceptions": ["x", "y", "z"] }]
+      }
+    },
+    {
       // Storybook config: main.ts runs on Node and both files need default exports; preview.ts
       // imports frontier's CSS for its side effect; `resolve` in main.ts is Vite config, not a router resolver.
       "files": ["**/.storybook/*.ts"],

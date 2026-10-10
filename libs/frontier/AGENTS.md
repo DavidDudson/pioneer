@@ -267,7 +267,13 @@ after `themes/frontier.css`, and add it to `Theme` in
 ## Storybook
 
 Every component has a story next to it (`<name>.stories.ts`). Add one with
-each new component or variant. `nx storybook frontier` serves it,
+each new component or variant. It also has a sibling spec
+(`<name>.component.spec.ts`): `bun run check:components` fails on a
+component missing either. A part only reachable through the component that
+assembles it (`fr-list-item`, the field parts) opts out in
+`tools/check-component-coverage.ts`, naming the spec or story that covers it.
+Specs that need content projected into `ng-template` slots render a host
+component from `src/lib/testing/` (`AsyncRegionHost`, `VirtualListHost`). `nx storybook frontier` serves it,
 `nx build-storybook frontier` builds it (targets come from
 `@nx/storybook/plugin`). It runs on Vite through
 `@analogjs/storybook-angular`, zoneless, with frontier's CSS, router,
