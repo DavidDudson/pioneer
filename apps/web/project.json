@@ -40,7 +40,13 @@
         "development": {
           "optimization": false,
           "extractLicenses": false,
-          "sourceMap": true
+          "sourceMap": true,
+          "fileReplacements": [
+            {
+              "replace": "apps/web/src/app/environment.ts",
+              "with": "apps/web/src/app/environment.development.ts"
+            }
+          ]
         }
       },
       "defaultConfiguration": "production"
@@ -48,7 +54,12 @@
     "serve": {
       "continuous": true,
       "executor": "@angular/build:dev-server",
-      "dependsOn": [{ "projects": ["api"], "target": "serve" }],
+      "dependsOn": [
+        {
+          "projects": ["api"],
+          "target": "serve"
+        }
+      ],
       "options": {
         "proxyConfig": "apps/web/proxy.conf.mjs"
       },
@@ -75,6 +86,18 @@
       "cache": true,
       "inputs": ["production", "^production"],
       "command": "bun tools/check-built-css.ts"
+    },
+    "verify-dev-free": {
+      "dependsOn": ["build"],
+      "cache": true,
+      "inputs": [
+        "production",
+        "^production",
+        "{workspaceRoot}/tools/check-dev-free.ts",
+        "{workspaceRoot}/tools/dev-markers.ts",
+        "{workspaceRoot}/libs/identity/dev-users/src/**/*"
+      ],
+      "command": "bun tools/check-dev-free.ts dist/apps/web/browser"
     }
   }
 }

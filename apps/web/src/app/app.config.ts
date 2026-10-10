@@ -9,6 +9,7 @@ import { IdlePreloading, LocalePreferences, provideI18n } from '@pioneer/shared/
 import { provideTanStackQuery, QueryClient } from '@tanstack/angular-query-experimental';
 
 import { appRoutes } from './app.routes';
+import { environment } from './environment';
 import { appMessages } from './messages';
 
 /** Server state is fresh for 30s; after that a region refetches in the background when it is shown again. */
@@ -26,5 +27,6 @@ export const appConfig: ApplicationConfig = {
     provideSignInOnUnauthorized(),
     provideAccountPreferences(),
     { provide: DISTANCE_UNIT, useFactory: () => inject(LocalePreferences).distanceUnit },
+    ...environment.providers,
   ],
 };

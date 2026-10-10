@@ -8,18 +8,29 @@ import { characters } from './characters';
 import type { Database } from './database';
 import type { Env } from './env';
 import { API_PREFIX, csrf, identity } from './identity';
+import type { Identity } from './identity';
+
+/**
+ * Extra routes mounted under the API prefix, after the CSRF guard (which only checks unsafe methods). The dev
+ * entrypoint adds its sign-in this way.
+ */
+export type AppExtension = (identity: Identity) => AnyElysia;
 
 /** Composition root: the only place adapters, services and routes meet. */
-export async function createApp(db: Database, env: Env): Promise<AnyElysia> {
+export async function createApp(db: Database, env: Env, extensions: readonly AppExtension[] = []): Promise<AnyElysia> {
   const clock = systemClock;
-  const { routes: identityRoutes, authenticator } = identity(db, env, clock);
-  const characterRoutes = await characters(db, clock, authenticator);
+  const identityParts = identity(db, env, clock);
+  const characterRoutes = await characters(db, clock, identityParts.authenticator);
 
-  return new Elysia({ prefix: API_PREFIX })
+  let app: AnyElysia = new Elysia({ prefix: API_PREFIX })
     .use(problemHandler)
     .use(csrf(env))
     .get('/health', () => ({ status: 'ok' }))
-    .use(identityRoutes)
+    .use(identityParts.routes)
     .use(characterRoutes)
-    .use(campaigns(db, clock, authenticator));
+    .use(campaigns(db, clock, identityParts.authenticator));
+  for (const extend of extensions) {
+    app = app.use(extend(identityParts));
+  }
+  return app;
 }

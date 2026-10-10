@@ -341,7 +341,7 @@
     },
     {
       // Process entry points: Bun supports top-level await; logging is the point.
-      "files": ["apps/api/src/main.ts", "libs/frontier/scripts/*.ts"],
+      "files": ["apps/api/src/main.ts", "apps/api/src/main.dev.ts", "libs/frontier/scripts/*.ts"],
       "rules": { "eslint/no-console": "off" }
     },
     {

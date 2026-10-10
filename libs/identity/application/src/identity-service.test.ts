@@ -42,6 +42,16 @@ describe('IdentityService', () => {
     expect(authenticated?.user.id).toBe(user.id);
   });
 
+  test('a session started for an existing account authenticates as that account', async () => {
+    const { service } = harness();
+    const { user, session: first } = await service.signIn(new ProfileBuilder().named('Amiri').build());
+    const { token, session } = await service.startSession(user.id);
+    expect(session.id).not.toBe(first.id);
+    const authenticated = await service.authenticate(token);
+    expect(authenticated?.user.id).toBe(user.id);
+    expect(authenticated?.session.id).toBe(session.id);
+  });
+
   test('the same provider account signs in to the same user, with its new profile', async () => {
     const { service } = harness();
     const first = await service.signIn(new ProfileBuilder().named('Amiri').build());

@@ -1,0 +1,17 @@
+{
+  "name": "identity-dev-sign-in",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/identity/dev-sign-in/src",
+  "tags": ["scope:identity", "type:feature", "platform:web"],
+  "targets": {
+    "test": {
+      "executor": "@angular/build:unit-test",
+      "options": {
+        "buildTarget": "web:build:development",
+        "tsConfig": "libs/identity/dev-sign-in/tsconfig.spec.json",
+        "runner": "vitest"
+      }
+    }
+  }
+}

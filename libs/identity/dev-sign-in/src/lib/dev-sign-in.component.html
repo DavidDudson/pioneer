@@ -1,0 +1,12 @@
+<fr-surface>
+  <fr-stack gap="md">
+    <!-- Not a heading: the provider buttons below sit outside this section in the outline. -->
+    <fr-text element="p" variant="subheading">{{ 'identityDev.signIn.heading' | transloco }}</fr-text>
+    <fr-text element="p">{{ 'identityDev.signIn.description' | transloco }}</fr-text>
+    <fr-stack gap="sm" align="start">
+      @for (user of users; track user.id) {
+        <fr-button (pressed)="signIn(user)">{{ user.displayName }}</fr-button>
+      }
+    </fr-stack>
+  </fr-stack>
+</fr-surface>

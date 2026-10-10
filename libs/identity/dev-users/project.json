@@ -1,0 +1,7 @@
+{
+  "name": "identity-dev-users",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/identity/dev-users/src",
+  "tags": ["scope:identity", "type:domain", "platform:any"]
+}

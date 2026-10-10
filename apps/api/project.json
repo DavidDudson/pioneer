@@ -7,7 +7,7 @@
   "targets": {
     "serve": {
       "continuous": true,
-      "command": "PORT=${API_PORT:-3000} bun --watch apps/api/src/main.ts"
+      "command": "PORT=${API_PORT:-3000} bun --watch apps/api/src/main.dev.ts"
     },
     "build": {
       "executor": "nx:run-commands",
@@ -32,6 +32,18 @@
     },
     "db-migrate": {
       "command": "bun apps/api/src/main.ts migrate"
+    },
+    "verify-dev-free": {
+      "dependsOn": ["build"],
+      "cache": true,
+      "inputs": [
+        "production",
+        "^production",
+        "{workspaceRoot}/tools/check-dev-free.ts",
+        "{workspaceRoot}/tools/dev-markers.ts",
+        "{workspaceRoot}/libs/identity/dev-users/src/**/*"
+      ],
+      "command": "bun tools/check-dev-free.ts dist/apps/api"
     }
   }
 }

@@ -7,11 +7,11 @@
   "type": "module",
   "scripts": {
     "dev": "nx serve web --port=${WEB_PORT:-4200}",
-    "check": "nx run-many -t lint lint-templates typecheck test build verify-styles && bun run lint:workspace && bun run test:tools",
+    "check": "nx run-many -t lint lint-templates typecheck test build verify-styles verify-dev-free && bun run lint:workspace && bun run test:tools",
     "lint:workspace": "hadolint Dockerfile && tofu fmt -check -recursive infra && knip --treat-config-hints-as-errors && bun run check:messages && typos && rumdl check . && taplo check && taplo fmt --check && biome lint --error-on-warnings && oxlint tools && oxfmt --check .",
     "format": "oxfmt .",
     "format:check": "oxfmt --check .",
-    "affected": "nx affected -t lint lint-templates typecheck test build verify-styles",
+    "affected": "nx affected -t lint lint-templates typecheck test build verify-styles verify-dev-free",
     "test:tools": "bun test tools",
     "check:messages": "bun tools/check-message-keys.ts"
   },

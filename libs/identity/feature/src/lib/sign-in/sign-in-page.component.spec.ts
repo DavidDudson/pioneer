@@ -1,8 +1,10 @@
+import type { Type } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { provideRouter, withComponentInputBinding } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
 import { frontierMessages } from '@pioneer/frontier';
-import { SessionStore } from '@pioneer/identity/data-access';
+import { SessionStore, SIGN_IN_EXTRAS } from '@pioneer/identity/data-access';
+import type { SignInExtra } from '@pioneer/identity/data-access';
 import { OAuthProvider, ReturnPath } from '@pioneer/identity/domain';
 import { ApiClient, provideI18n } from '@pioneer/shared/web';
 import { provideTanStackQuery, QueryClient } from '@tanstack/angular-query-experimental';
@@ -10,14 +12,19 @@ import { describe, expect, it, vi } from 'vitest';
 import type { Mock } from 'vitest';
 
 import { identityRoutes } from '../identity.routes';
+import { StubSignInExtra } from '../testing/stub-sign-in-extra.component';
 
 interface Rendered {
   readonly root: HTMLElement;
   readonly signIn: Mock<(provider: OAuthProvider, returnTo: ReturnPath) => void>;
 }
 
-/** Renders the page with `/api/auth/providers` answering `providers`. */
-async function render(url: string, providers: readonly OAuthProvider[]): Promise<Rendered> {
+/** Renders the page with `/api/auth/providers` answering `providers`, and any sign-in `extras`. */
+async function render(
+  url: string,
+  providers: readonly OAuthProvider[],
+  extras?: readonly Type<SignInExtra>[],
+): Promise<Rendered> {
   const signIn = vi.fn<(provider: OAuthProvider, returnTo: ReturnPath) => void>();
   TestBed.configureTestingModule({
     providers: [
@@ -26,6 +33,8 @@ async function render(url: string, providers: readonly OAuthProvider[]): Promise
       provideTanStackQuery(new QueryClient({ defaultOptions: { queries: { retry: false } } })),
       { provide: ApiClient, useValue: { call: async (): Promise<readonly OAuthProvider[]> => providers } },
       { provide: SessionStore, useValue: { signIn } },
+      // Without extras, the token's own default applies, as in production.
+      ...(extras === undefined ? [] : [{ provide: SIGN_IN_EXTRAS, useValue: extras }]),
     ],
   });
   const harness = await RouterTestingHarness.create(url);
@@ -70,6 +79,21 @@ describe('SignInPage', () => {
     const { root } = await render('/account/sign-in', []);
     await vi.waitFor(() => {
       expect(root.textContent).toContain('Sign-in is not set up on this server.');
+    });
+  });
+});
+
+describe('SignInPage extras', () => {
+  it('shows none by default', async () => {
+    const { root } = await render('/account/sign-in', [OAuthProvider.GitHub]);
+    expect(root.querySelector('pio-stub-sign-in-extra')).toBeNull();
+  });
+
+  it('shows each extra above the providers, told where to return', async () => {
+    const { root } = await render('/account/sign-in?returnTo=%2Fcampaigns', [OAuthProvider.GitHub], [StubSignInExtra]);
+    await vi.waitFor(() => {
+      expect(root.querySelector('pio-stub-sign-in-extra')?.textContent.trim()).toBe('/campaigns');
+      expect(root.querySelector('pio-stub-sign-in-extra + fr-async-region')).not.toBeNull();
     });
   });
 });

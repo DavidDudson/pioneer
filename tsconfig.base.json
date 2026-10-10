@@ -55,6 +55,8 @@
       "@pioneer/content/monster-core": ["./libs/content/monster-core/src/index.ts"],
       "@pioneer/identity/domain": ["./libs/identity/domain/src/index.ts"],
       "@pioneer/identity/domain/testing": ["./libs/identity/domain/src/testing/index.ts"],
+      "@pioneer/identity/dev-users": ["./libs/identity/dev-users/src/index.ts"],
+      "@pioneer/identity/dev-sign-in": ["./libs/identity/dev-sign-in/src/index.ts"],
       "@pioneer/identity/application": ["./libs/identity/application/src/index.ts"],
       "@pioneer/identity/infrastructure": ["./libs/identity/infrastructure/src/index.ts"],
       "@pioneer/identity/data-access": ["./libs/identity/data-access/src/index.ts"],

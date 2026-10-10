@@ -11,4 +11,4 @@ export { SessionAuthenticator } from './session-authenticator';
 export { sessionSweep } from './session-sweep';
 export { oauthAccounts, sessions, userPreferences, users } from './identity.table';
 export type { OAuthCredentials } from './provider-http';
-export { type CookiePolicy, sessionToken } from './session-cookie';
+export { type CookiePolicy, sessionCookie, sessionToken } from './session-cookie';

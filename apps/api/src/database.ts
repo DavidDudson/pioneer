@@ -2,7 +2,7 @@ import { drizzle } from 'drizzle-orm/bun-sql';
 import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
 import { migrate } from 'drizzle-orm/bun-sql/migrator';
 
-export type Database = BunSQLDatabase & { readonly $client: Bun.SQL };
+export type Database = BunSQLDatabase<Record<string, unknown>> & { readonly $client: Bun.SQL };
 
 /** Session advisory lock key held while migrating. Any fixed value works; every instance must use the same one. */
 const MIGRATION_LOCK = 109_001;

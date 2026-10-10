@@ -87,7 +87,8 @@ libs/
   campaign/         domain, application, infrastructure, feature
   homebrew/         authoring use cases and editor UI
   identity/         domain, application, infrastructure, data-access, feature (exists): accounts, OAuth
-                    sessions, request authentication (ADR-0007, ADR-0010)
+                    sessions, request authentication (ADR-0007, ADR-0010); dev-users, dev-sign-in: local
+                    dev only, never in a production build (ADR-0020)
   interop/
     foundry/        Foundry pf2e actor export, rule element translation (shared with importer)
     pathbuilder/    Pathbuilder JSON import
@@ -131,5 +132,9 @@ Content data never imports code.
   [ADR-0012](../adr/0012-container-image.md). Production runs that image on AWS Lambda behind a Cloudflare Worker
   (`apps/edge`), with Neon for Postgres, all provisioned by OpenTofu in `infra/`; see [Production](../production.md)
   and [ADR-0015](../adr/0015-production-host.md).
+  Local development runs `apps/api/src/main.dev.ts` instead (`nx serve api`, `just dev`): the same server plus
+  seeded dev users (a GM and two players sharing a campaign) and their one-click sign-in, on loopback only. The
+  binary never contains it, and `verify-dev-free` fails a production build that does; see
+  [ADR-0020](../adr/0020-local-dev-sign-in.md).
 - **Testing.** Property tests for the engine and dice (fast-check, already in use). Golden tests: Paizo pregenerated
   characters imported and compared against their published numbers. Importer coverage reports gate content PRs.

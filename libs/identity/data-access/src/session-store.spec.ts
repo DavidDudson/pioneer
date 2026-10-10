@@ -77,6 +77,12 @@ describe(SessionStore, () => {
     expect(assign).toHaveBeenCalledWith('/api/auth/discord/login?returnTo=%2Fcharacters');
   });
 
+  it('signs in through any API sign-in path, returning where asked', () => {
+    const { store, assign } = setup();
+    store.signInAt('/auth/elsewhere', ReturnPath.parse('/campaigns'));
+    expect(assign).toHaveBeenCalledWith('/api/auth/elsewhere?returnTo=%2Fcampaigns');
+  });
+
   it('opens the sign-in page, remembering the current page', async () => {
     const { store } = setup();
     const router = TestBed.inject(Router);

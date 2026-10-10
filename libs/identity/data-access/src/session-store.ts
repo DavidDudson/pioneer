@@ -65,8 +65,16 @@ export class SessionStore {
 
   /** Leaves for the provider, returning to `returnTo` afterwards. */
   public signIn(provider: OAuthProvider, returnTo: ReturnPath): void {
+    this.signInAt(AuthPath.login(provider), returnTo);
+  }
+
+  /**
+   * Leaves for an API sign-in navigation at `path` (relative to the API base), which sets the session cookie and
+   * redirects to `returnTo`. Providers use `signIn`; the dev users' one-click sign-in uses this directly.
+   */
+  public signInAt(path: `/auth/${string}`, returnTo: ReturnPath): void {
     const query = new URLSearchParams({ [RETURN_TO_PARAM]: returnTo });
-    this.#document.location.assign(`${this.#baseUrl}${AuthPath.login(provider)}?${query.toString()}`);
+    this.#document.location.assign(`${this.#baseUrl}${path}?${query.toString()}`);
   }
 
   /** Ends this browser's session; a page that needs an account then sends it to sign-in. */
