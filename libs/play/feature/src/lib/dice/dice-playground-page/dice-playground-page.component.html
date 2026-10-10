@@ -54,7 +54,11 @@
       @for (entry of rolls(); track entry.id) {
         <pio-roll-card [roll]="entry" />
       } @empty {
-        <fr-empty-state [title]="'play.dice.empty' | transloco" [description]="'play.dice.emptyHint' | transloco" />
+        <fr-empty-state
+          [icon]="emptyIcon"
+          [title]="'play.dice.empty' | transloco"
+          [description]="'play.dice.emptyHint' | transloco"
+        />
       }
     </fr-stack>
   </fr-stack>

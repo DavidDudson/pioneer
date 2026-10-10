@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/cor
 import { form, FormField, validateStandardSchema } from '@angular/forms/signals';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
+import { LucideUsers } from '@lucide/angular';
 import type { Character } from '@pioneer/character/domain';
 import {
   AsyncButton,
@@ -73,6 +74,7 @@ export class CharacterListPage {
   readonly #route = inject(ActivatedRoute);
 
   protected readonly placeholders = PLACEHOLDERS;
+  protected readonly emptyIcon = LucideUsers;
 
   // Signal forms needs concrete field types, so "no ancestry yet" is ''.
   protected readonly model = signal<CreateModel>({ name: '', ancestry: '' });

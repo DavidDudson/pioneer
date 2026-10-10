@@ -57,6 +57,7 @@
         </fr-virtual-list>
         @if (characters.length === 0) {
           <fr-empty-state
+            [icon]="emptyIcon"
             [title]="'character.list.empty' | transloco"
             [description]="'character.list.emptyHint' | transloco"
           />

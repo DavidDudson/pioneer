@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
+import { LucideDices } from '@lucide/angular';
 import {
   Button,
   EmptyState,
@@ -93,6 +94,7 @@ export class DicePlaygroundPage {
   readonly #format = inject(LocaleFormat);
   #rolled = 0;
 
+  protected readonly emptyIcon = LucideDices;
   protected readonly text = signal(STARTING_EXPRESSION);
   readonly #outcome = computed((): ParseOutcome => parseDiceExpression(DiceExpressionText.parse(this.text())));
   protected readonly error = computed((): MessageDescriptor | undefined => {

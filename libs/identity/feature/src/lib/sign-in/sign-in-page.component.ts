@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
+import { LucideKeyRound } from '@lucide/angular';
 import { AsyncData, AsyncPending, AsyncRegion, Button, EmptyState, Page, Skeleton, Stack } from '@pioneer/frontier';
 import { SessionStore } from '@pioneer/identity/data-access';
 import { IdentityContract, OAuthProvider, returnPathOr } from '@pioneer/identity/domain';
@@ -28,6 +29,7 @@ export class SignInPage {
   protected readonly session = inject(SessionStore);
   readonly #api = inject(ApiClient);
   protected readonly continueWith = CONTINUE_WITH;
+  protected readonly unavailableIcon = LucideKeyRound;
   protected readonly destination = computed<ReturnPath>(() => returnPathOr(this.returnTo()));
   protected readonly providers = injectQuery(() => ({
     queryKey: ['identity', 'providers'] as const,
