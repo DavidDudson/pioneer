@@ -1,13 +1,11 @@
-import { evaluatePredicate, RollOptionNamespace, summarisePredicate, Truth } from '@pioneer/rules/predicate';
-import type { PredicateFacts, PredicateSummary } from '@pioneer/rules/predicate';
+import { evaluatePredicate, Truth } from '@pioneer/rules/predicate';
+import type { PredicateFacts } from '@pioneer/rules/predicate';
 import { ContentId, OriginHopKind, RuleElementKey, RuleIndex, SlotKey } from '@pioneer/rules/sdk';
 import type {
-  ChoiceOption,
-  RollOption,
-  ChoiceQuery,
   ChoiceSetElement,
   ChoiceValue,
   ContentText,
+  RollOption,
   Origin,
   OriginHop,
   RuleElement,
@@ -17,17 +15,15 @@ import { message } from '@pioneer/shared/kernel';
 
 import type { ContentLookup, GrantEntry, GrantError } from './grant-entry';
 import { GrantsMessage } from './messages';
+import { isOffered, Offer, offeredOptions } from './offers';
+import type { OfferedOption } from './offers';
 import { optionOf } from './option-of';
-import { byCodeUnit } from './order';
 
-/** An option the player may pick. `summary` says when it applies, for one whose predicate is unknown. */
-export interface OfferedOption {
-  readonly value: ChoiceValue;
-  readonly label: ContentText;
-  readonly summary: PredicateSummary | undefined;
-}
-
-/** A `ChoiceSet` on the character: where it is, what it asks and what it offers. */
+/**
+ * A `ChoiceSet` on the character: where it is, what it asks and what it offers. `options` is worked out the first
+ * time it is read, against the facts its walk read (for a settled resolution, its `facts`): no round of resolution
+ * needs it, so a query over every entry of its kind runs only for a builder that shows it.
+ */
 export interface ChoiceSlot {
   readonly key: SlotKey;
   /** The name the pick is stored under, for `GrantItem { choice }` on the same entry. */
@@ -102,44 +98,31 @@ export function slotKeyOf(entry: ContentId, rule: RuleIndex): SlotKey {
   return SlotKey.parse(`${entry}:${rule}`);
 }
 
-/** The listed options whose predicate is not false; one that is unknown carries when it would hold. */
-function listedOptions(choices: readonly ChoiceOption[], facts: PredicateFacts): OfferedOption[] {
-  return choices.flatMap(({ value, label, predicate }): OfferedOption[] => {
-    if (predicate === undefined) {
-      return [{ value, label, summary: undefined }];
-    }
-    const truth = evaluatePredicate(predicate, facts);
-    return truth === Truth.False ? [] : [{ value, label, summary: summarisePredicate(predicate, facts) }];
-  });
+/** What answering a slot adds to it. */
+type SlotAnswer = Omit<AnsweredSlot, keyof ChoiceSlot>;
+
+/** Where a slot is and what it asks: everything but its offer. */
+type SlotPlace = Omit<ChoiceSlot, 'options'>;
+
+/** `place` with its `options` read from `offer`, as a property like any other, so a slot copies and compares whole. */
+function slotOf(place: SlotPlace, offer: Offer): ChoiceSlot {
+  return {
+    ...place,
+    get options(): readonly OfferedOption[] {
+      return offer.options;
+    },
+  };
 }
 
-/** Where a query reads a candidate entry's own roll options, apart from the character's: `item:trait:fighter`. */
-const CANDIDATE_NAMESPACE = RollOptionNamespace.parse('item');
-
-/** By name, then id, so the list a builder shows keeps its order. */
-function byLabel(left: OfferedOption, right: OfferedOption): number {
-  return byCodeUnit(left.label, right.label) || byCodeUnit(left.value, right.value);
-}
-
-/**
- * Every entry of the query's kind whose filter is not false, read against the character's facts with the entry's
- * own options under `item:`. One whose filter is unknown carries when it would hold. Sorted by name, then id.
- */
-function queriedOptions({ kind, filter }: ChoiceQuery, { facts, lookup }: ChoiceContext): OfferedOption[] {
-  const offered = lookup.ofKind(kind).flatMap((candidate): OfferedOption[] => {
-    const candidateFacts = facts.withNamespace(CANDIDATE_NAMESPACE, candidate.rollOptions);
-    const truth = evaluatePredicate(filter, candidateFacts);
-    if (truth === Truth.False) {
-      return [];
-    }
-    const summary = truth === Truth.True ? undefined : summarisePredicate(filter, candidateFacts);
-    return [{ value: candidate.id, label: candidate.name, summary }];
-  });
-  return offered.toSorted(byLabel);
-}
-
-function offeredOptions({ choices }: ChoiceSetElement, context: ChoiceContext): OfferedOption[] {
-  return Array.isArray(choices) ? listedOptions(choices, context.facts) : queriedOptions(choices, context);
+/** `slotOf`, answered with `pick`. */
+function answeredOf(place: SlotPlace, offer: Offer, answer: SlotAnswer): AnsweredSlot {
+  return {
+    ...place,
+    ...answer,
+    get options(): readonly OfferedOption[] {
+      return offer.options;
+    },
+  };
 }
 
 const choiceHop = (slot: SlotKey): OriginHop => ({ kind: OriginHopKind.Choice, slot });
@@ -176,15 +159,16 @@ class ChoiceReader {
     if (predicate !== undefined && evaluatePredicate(predicate, this.#context.facts) !== Truth.True) {
       return;
     }
-    const slot = this.#slot({ element, rule });
-    const value = this.#context.picks.get(slot.key);
+    const place = this.#place({ element, rule });
+    const offer = new Offer(() => offeredOptions(element, this.#context));
+    const value = this.#context.picks.get(place.key);
     if (value === undefined) {
-      this.#open.push(slot);
-    } else if (slot.options.some((offered) => offered.value === value)) {
+      this.#open.push(slotOf(place, offer));
+    } else if (isOffered(element, value, this.#context)) {
       const option = element.rollOption === undefined ? undefined : optionOf(element.rollOption, value);
-      this.#answer({ ...slot, pick: value, option });
+      this.#answer(answeredOf(place, offer, { pick: value, option }));
     } else {
-      this.#refuse(slot, value);
+      this.#refuse(slotOf(place, offer), value);
     }
   }
 
@@ -196,11 +180,10 @@ class ChoiceReader {
     this.#open.push(slot);
   }
 
-  #slot({ element, rule }: IndexedChoice): ChoiceSlot {
+  #place({ element, rule }: IndexedChoice): SlotPlace {
     const { entry, hops } = this.#at;
     const origin: Origin = { hops: [...hops], entry: entry.id, sources: [...entry.sources] };
-    const options = offeredOptions(element, this.#context);
-    return { key: slotKeyOf(entry.id, rule), flag: element.flag, origin, rule, prompt: element.prompt, options };
+    return { key: slotKeyOf(entry.id, rule), flag: element.flag, origin, rule, prompt: element.prompt };
   }
 
   #answer(slot: AnsweredSlot): void {

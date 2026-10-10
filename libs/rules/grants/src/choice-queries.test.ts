@@ -5,9 +5,9 @@ import { ContentKind, ContentText, OriginHop, RollOption } from '@pioneer/rules/
 import type { SlotKey } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
 
-import type { OfferedOption } from './choices';
 import type { GrantEntry } from './grant-entry';
 import { GrantsMessage } from './messages';
+import type { OfferedOption } from './offers';
 import { resolveGrants } from './resolve-grants';
 import type { GrantResolution } from './resolve-grants';
 import { entry, feat, idOf, inputsOf, picked, picksOf, slotOf } from './testing/builders';
