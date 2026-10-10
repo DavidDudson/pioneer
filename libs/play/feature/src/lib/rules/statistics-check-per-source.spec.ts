@@ -29,12 +29,12 @@ function check(definitions: readonly object[]): StatisticsCheck {
 describe('checkStatistics per source', () => {
   it('shows an instance a later family wins under the family, with its base, not under the earlier plain one', () => {
     const plain = { ...perSource('strike:longsword', 'weapon', '@level'), slug: 'plain-strike', per: undefined };
-    const strike = perSource('strike', 'weapon', '@weapon.attr + @weapon.prof + @weapon.potency');
+    const strike = perSource('strike', 'weapon', '@weapon.attr + @weapon.prof');
     expect(check([plain, strike])).toMatchObject({
       status: StatisticsStatus.Valid,
       rows: [
         { selector: 'strike:dagger' },
-        { selector: 'strike:longsword', total: 12, terms: [{ code: '@weapon.attr' }, {}, {}] },
+        { selector: 'strike:longsword', total: 12, terms: [{ code: '@weapon.attr' }, {}] },
       ],
     });
   });
@@ -62,7 +62,7 @@ describe('checkStatistics per source', () => {
     const result = checkStatistics(
       {
         definitions: JSON.stringify([
-          perSource('strike', 'weapon', '@weapon.attr + @weapon.prof + @weapon.potency'),
+          perSource('strike', 'weapon', '@weapon.attr + @weapon.prof'),
           perSource('spell-dc', 'spellcasting', '10 + @stat.spell-attack'),
         ]),
         inputs: EXAMPLE_STATISTIC_INPUTS,
@@ -80,7 +80,7 @@ describe('checkStatistics per source', () => {
           ok: true,
           selector: 'strike:dagger',
           total: 11,
-          terms: [{ code: '@weapon.attr' }, { code: '+ @weapon.prof' }, { code: '+ @weapon.potency' }],
+          terms: [{ code: '@weapon.attr' }, { code: '+ @weapon.prof' }],
         },
         { ok: true, selector: 'strike:longsword', total: 12 },
         {
@@ -89,6 +89,63 @@ describe('checkStatistics per source', () => {
           error: { key: EngineMessage.MissingStatistic },
           pointer: '10 + @stat.spell-attack\n     ^',
         },
+      ],
+    });
+  });
+});
+
+const POTENCY_NAME = { message: { key: EngineMessage.WeaponPotency, params: { weapon: 'longsword' } } };
+
+/** The example inputs with the longsword's potency set to `grade`. */
+function withPotency(grade: number): string {
+  const inputs = JSON.parse(EXAMPLE_STATISTIC_INPUTS) as { weapons: object[] };
+  const [first, ...rest] = inputs.weapons;
+  return JSON.stringify({ ...inputs, weapons: [{ ...first, potency: grade }, ...rest] });
+}
+
+/** A typed item bonus of `value` to the longsword's Strike. */
+function itemBonus(value: number): object {
+  return { key: 'FlatModifier', selectors: ['strike:longsword'], type: 'item', value };
+}
+
+/** The longsword's Strike row with `rules` in play. */
+function longsword(rules: readonly object[], inputs = EXAMPLE_STATISTIC_INPUTS): unknown {
+  const texts = { inputs, rules: JSON.stringify(rules), overrides: '[]', facts: '' };
+  const strike = perSource('strike', 'weapon', '@weapon.attr + @weapon.prof');
+  const result = checkStatistics(
+    { definitions: JSON.stringify([strike]), ...texts },
+    { table: PLAYER_CORE_PROFICIENCY_BONUS, variant: undefined },
+    CORE_NAMESPACES,
+  );
+  return result.status === StatisticsStatus.Valid
+    ? result.rows.find((row) => row.selector === 'strike:longsword')
+    : undefined;
+}
+
+describe('checkStatistics weapon potency', () => {
+  it('shows the potency as an item line named by its message', () => {
+    expect(longsword([])).toMatchObject({
+      total: 12,
+      lines: [{ name: POTENCY_NAME, type: 'item', value: 1, state: { kind: 'applied' } }],
+    });
+  });
+
+  it('names the potency line as what suppresses a lower item bonus', () => {
+    expect(longsword([itemBonus(1)], withPotency(2))).toMatchObject({
+      total: 13,
+      lines: [
+        { name: { source: 'rule', number: 1 }, state: { kind: 'suppressed', by: POTENCY_NAME } },
+        { name: POTENCY_NAME, state: { kind: 'applied' } },
+      ],
+    });
+  });
+
+  it('suppresses the potency line under a higher item bonus', () => {
+    expect(longsword([itemBonus(2)])).toMatchObject({
+      total: 13,
+      lines: [
+        { state: { kind: 'applied' } },
+        { name: POTENCY_NAME, state: { kind: 'suppressed', by: { source: 'rule', number: 1 } } },
       ],
     });
   });

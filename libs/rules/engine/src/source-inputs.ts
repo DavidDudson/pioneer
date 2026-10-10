@@ -4,6 +4,7 @@ import {
   AttributeSchema,
   Feet,
   MagicTraditionSchema,
+  Origin,
   ReferenceKind,
   RuneGrade,
   Selector,
@@ -28,8 +29,13 @@ export interface WeaponInputs {
   readonly traits: readonly Trait[];
   /** The range increment of a ranged weapon, which attacks with Dexterity. A melee weapon, thrown ones included, has none. */
   readonly range?: Feet | undefined;
-  /** Its item bonus to attack rolls: the potency rune's grade, or the bonus it has without runes (a bomb's). */
+  /**
+   * Its item bonus to attack rolls: the potency rune's grade, or the bonus it has without runes (a bomb's). It reaches
+   * its Strike as an `item` modifier, so it competes with other item bonuses (`weaponPotencies`).
+   */
   readonly potency?: RuneGrade | undefined;
+  /** Why the character has it: its entry and how it got there (an inventory hop). Its potency line's origin. */
+  readonly origin: Origin;
 }
 
 /** A spellcasting entry, as its spell attack and DC read it. */
@@ -78,6 +84,7 @@ const WeaponInputsJson = z.strictObject({
   traits: z.array(Trait).readonly(),
   range: Feet.optional(),
   potency: RuneGrade.optional(),
+  origin: Origin,
 });
 
 const SpellcastingInputsJson = z.strictObject({
@@ -114,8 +121,6 @@ export interface SourceReading {
   readonly bonus: (selector: Selector) => FormulaValue | undefined;
 }
 
-const NO_POTENCY = FormulaValue.parse(0);
-
 function weaponValue(
   kind: ReferenceKind,
   weapon: WeaponInputs,
@@ -124,10 +129,7 @@ function weaponValue(
   if (kind === ReferenceKind.WeaponAttributeModifier) {
     return FormulaValue.parse(attributes.get(weaponAttribute(weapon, attributes)));
   }
-  if (kind === ReferenceKind.WeaponProficiencyBonus) {
-    return bonus(Selector.parse(`attack:${weapon.category}`));
-  }
-  return kind === ReferenceKind.WeaponPotency ? FormulaValue.parse(weapon.potency ?? NO_POTENCY) : undefined;
+  return kind === ReferenceKind.WeaponProficiencyBonus ? bonus(Selector.parse(`attack:${weapon.category}`)) : undefined;
 }
 
 function entryValue(

@@ -12,7 +12,7 @@ import type { RuleInPlay } from './rule-in-play';
 import { StatisticInputsJson } from './statistic-inputs';
 import type { StatisticInputs } from './statistic-inputs';
 import type { StatisticResult } from './statistic-result';
-import { flatModifier, inPlay } from './testing';
+import { flatModifier, inPlay, wielded } from './testing';
 
 interface Family {
   readonly selector: string;
@@ -30,7 +30,7 @@ function family({ selector, per, base, domains = [], kind = StatisticKind.Check 
 const STRIKE = family({
   selector: 'strike',
   per: 'weapon',
-  base: '@weapon.attr + @weapon.prof + @weapon.potency',
+  base: '@weapon.attr + @weapon.prof',
   domains: ['check', 'attack-roll', 'strike-attack-roll'],
 });
 const SPELL_ATTACK = family({
@@ -41,10 +41,10 @@ const SPELL_ATTACK = family({
 });
 const SPELL_DC = family({ selector: 'spell-dc', per: 'spellcasting', base: '10 + @stat.spell-attack', kind: 'dc' });
 
-const LONGSWORD = { slug: 'longsword', category: 'martial', traits: ['versatile-p'], potency: 1 };
-const DAGGER = { slug: 'dagger', category: 'simple', traits: ['agile', 'finesse', 'thrown-10'] };
-const SHORTBOW = { slug: 'shortbow', category: 'martial', traits: ['deadly-d10'], range: 60 };
-const FIST = { slug: 'fist', category: 'unarmed', traits: ['agile', 'finesse', 'nonlethal'] };
+const LONGSWORD = wielded({ slug: 'longsword', category: 'martial', traits: ['versatile-p'], potency: 1 });
+const DAGGER = wielded({ slug: 'dagger', category: 'simple', traits: ['agile', 'finesse', 'thrown-10'] });
+const SHORTBOW = wielded({ slug: 'shortbow', category: 'martial', traits: ['deadly-d10'], range: 60 });
+const FIST = wielded({ slug: 'fist', category: 'unarmed', traits: ['agile', 'finesse', 'nonlethal'] });
 
 /** A level 3 character, Dexterity higher than Strength: expert in simple weapons, trained in martial and arcane. */
 function character(json: object = {}): StatisticInputs {
@@ -84,7 +84,7 @@ function daggerStrike(attributes: object): number | undefined {
 describe('statistics derived per weapon', () => {
   test('each weapon gets its own Strike, under strike:<slug>', () => {
     const results = derive([STRIKE], character({ weapons: [LONGSWORD, DAGGER, SHORTBOW] }));
-    // Longsword: Strength 1 + trained 5 + potency 1. Dagger (finesse): Dexterity 4 + expert 7.
+    // Longsword: Strength 1 + trained 5, and its +1 potency line. Dagger (finesse): Dexterity 4 + expert 7.
     // Shortbow (ranged): Dexterity 4 + trained 5.
     expect(totals(results)).toStrictEqual({ 'strike:dagger': 11, 'strike:longsword': 7, 'strike:shortbow': 9 });
   });
@@ -104,7 +104,6 @@ describe('statistics derived per weapon', () => {
       base: [
         { formula: '@weapon.attr', value: 1 },
         { formula: '@weapon.prof', value: 5 },
-        { formula: '@weapon.potency', value: 1 },
       ],
     });
   });
@@ -123,7 +122,8 @@ describe('statistics derived per weapon', () => {
       inPlay(flatModifier('item', 3, ['str-based']), 'mighty'),
     ];
     const results = derive([STRIKE], character({ weapons: [LONGSWORD, SHORTBOW] }), rules);
-    expect(totals(results)).toStrictEqual({ 'strike:longsword': 7 + 1 + 3, 'strike:shortbow': 9 + 1 + 2 });
+    // The longsword's +1 potency loses to the +3 item bonus: only the highest item bonus applies.
+    expect(totals(results)).toStrictEqual({ 'strike:longsword': 6 + 1 + 3, 'strike:shortbow': 9 + 1 + 2 });
   });
 
   test('an unarmed attack is a weapon like any other, in the unarmed category', () => {

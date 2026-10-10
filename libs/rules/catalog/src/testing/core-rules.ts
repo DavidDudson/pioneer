@@ -1,5 +1,6 @@
 import { statisticContent, StatisticInputsJson } from '@pioneer/rules/engine';
 import type { StatisticContent, StatisticInputs, StatisticResult } from '@pioneer/rules/engine';
+import { wielded } from '@pioneer/rules/engine/testing';
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import { Attribute, ContentRegistry, contentPackFromContents, Proficiency } from '@pioneer/rules/sdk';
 import type { ContentPack, Selector } from '@pioneer/rules/sdk';
@@ -49,8 +50,8 @@ export const fighter: StatisticInputs = StatisticInputsJson.parse({
   ancestry: { hitPoints: 8, speed: 25 },
   class: { hitPoints: 10, keyAttribute: 'str' },
   weapons: [
-    { slug: 'longsword', category: 'martial', traits: ['versatile-p'], potency: 1 },
-    { slug: 'dagger', category: 'simple', traits: ['agile', 'finesse', 'thrown-10', 'versatile-s'] },
+    wielded({ slug: 'longsword', category: 'martial', traits: ['versatile-p'], potency: 1 }),
+    wielded({ slug: 'dagger', category: 'simple', traits: ['agile', 'finesse', 'thrown-10', 'versatile-s'] }),
   ],
 });
 

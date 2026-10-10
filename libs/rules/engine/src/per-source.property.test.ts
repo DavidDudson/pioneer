@@ -1,12 +1,22 @@
 import { describe, expect, test } from 'bun:test';
 
-import { Proficiency, StatisticDefinition, StatisticKind, WeaponCategory } from '@pioneer/rules/sdk';
-import { PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
-import { assert, boolean, constantFrom, integer, option, property, record, uniqueArray } from 'fast-check';
+import { PredicateFacts } from '@pioneer/rules/predicate';
+import {
+  ModifierType,
+  Proficiency,
+  Selector,
+  StatisticDefinition,
+  StatisticKind,
+  WeaponCategory,
+} from '@pioneer/rules/sdk';
+import { CORE_NAMESPACES, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
+import { array, assert, boolean, constantFrom, integer, option, property, record, uniqueArray } from 'fast-check';
 import type { Arbitrary } from 'fast-check';
 
+import { LineStatusKind } from './breakdown';
 import { deriveStatistics } from './derive-statistics';
 import { StatisticInputsJson } from './statistic-inputs';
+import { flatModifier, inPlay, wielded } from './testing';
 
 const ATTRIBUTE_MIN = -5;
 const ATTRIBUTE_MAX = 7;
@@ -29,7 +39,7 @@ const STRIKE = StatisticDefinition.parse({
   name: 'Strike',
   selector: 'strike',
   domains: ['attack-roll'],
-  base: '@weapon.attr + @weapon.prof + @weapon.potency',
+  base: '@weapon.attr + @weapon.prof',
   kind: StatisticKind.Check,
   per: 'weapon',
 });
@@ -67,13 +77,13 @@ const character = record({
 });
 
 function weaponJson({ slug, category, finesse, ranged, potency }: GeneratedWeapon): object {
-  return {
+  return wielded({
     slug,
     category,
     traits: finesse ? ['finesse'] : [],
     ...(ranged ? { range: RANGE } : {}),
     ...(potency === null ? {} : { potency }),
-  };
+  });
 }
 
 /** Player Core: Dexterity at range, the better of Strength and Dexterity with finesse, else Strength. */
@@ -85,7 +95,7 @@ function attackModifier({ finesse, ranged }: GeneratedWeapon, str: number, dex: 
 }
 
 describe('Strikes derived per weapon (properties)', () => {
-  test('each weapon has one Strike: its attack attribute, its category proficiency and its potency', () => {
+  test('each weapon has one Strike: its attack attribute, its category proficiency and its potency line', () => {
     assert(
       property(character, ({ level, str, dex, weapons, ranks }) => {
         const inputs = StatisticInputsJson.parse({
@@ -110,6 +120,42 @@ describe('Strikes derived per weapon (properties)', () => {
           [...results].map(([selector, result]) => [selector, result.ok && result.total]),
         );
         expect(totals).toStrictEqual(expected);
+      }),
+    );
+  });
+});
+
+/** Item bonuses to attack rolls from rule elements, such as a mutagen's, on the Strike's domain or on everything. */
+const itemBonuses = array(
+  record({ value: integer({ min: 1, max: POTENCY_MAX }), target: constantFrom('attack-roll', 'all') }),
+  { maxLength: 3 },
+);
+
+describe('weapon potency stacking (properties)', () => {
+  test("a Strike's total never counts two item bonuses: only the highest of its potency and the rest applies", () => {
+    assert(
+      property(weapon, itemBonuses, (generated, bonuses) => {
+        const inputs = StatisticInputsJson.parse({
+          level: 1,
+          attributes: { str: 0, dex: 0, con: 0, int: 0, wis: 0, cha: 0 },
+          ranks: {},
+          weapons: [weaponJson(generated)],
+        });
+        const rules = bonuses.map(({ value, target }, index) =>
+          inPlay(flatModifier(ModifierType.Item, value, [target]), `item-bonus-${index}`),
+        );
+        const result = deriveStatistics(
+          { definitions: [STRIKE], proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS },
+          inputs,
+          { rules, facts: new PredicateFacts([], CORE_NAMESPACES) },
+        ).get(Selector.parse(`strike:${generated.slug}`));
+        const lines = result?.ok === true ? result.lines : [];
+        const applied = lines.filter(
+          ({ modifier, status }) => modifier.type === ModifierType.Item && status.kind === LineStatusKind.Applied,
+        );
+        const highest = Math.max(0, generated.potency ?? 0, ...bonuses.map(({ value }) => value));
+        expect(applied.length).toBeLessThanOrEqual(1);
+        expect(result?.ok === true ? result.total - result.baseValue : undefined).toBe(highest);
       }),
     );
   });

@@ -147,7 +147,6 @@
       "itemLevel": "The level of the item the rule element is on.",
       "weaponAttributeModifier": "The modifier the weapon attacks with: Strength, Dexterity for a ranged weapon, or the higher of the two for a finesse weapon.",
       "weaponProficiencyBonus": "The proficiency bonus for the weapon’s category: simple, martial, advanced or unarmed.",
-      "weaponPotency": "The weapon’s item bonus to attack rolls: its potency rune, or the bonus it has without runes, such as a bomb’s.",
       "spellcastingAttributeModifier": "The modifier for the spellcasting entry’s attribute.",
       "spellcastingProficiencyBonus": "The proficiency bonus for the spellcasting entry’s tradition."
     },

@@ -1,6 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 
 import { deriveStatistics, RuleInPlay, StatisticInputsJson } from '@pioneer/rules/engine';
+import { wielded } from '@pioneer/rules/engine/testing';
 import {
   Attribute,
   ContentLicense,
@@ -150,7 +151,7 @@ describe('core rules pack', () => {
   });
 
   test('derives one Strike per weapon', () => {
-    // Longsword: Strength 4 plus expert 7 plus potency 1. Dagger: finesse, but Strength 4 beats Dexterity 2.
+    // Longsword: Strength 4 plus expert 7, and its +1 potency line. Dagger: finesse, but Strength 4 beats Dexterity 2.
     expect(totals(deriveStatistics(core, fighter))).toMatchObject({ 'strike:longsword': 12, 'strike:dagger': 11 });
   });
 
@@ -159,7 +160,7 @@ describe('core rules pack', () => {
       level: 3,
       attributes: { str: 1, dex: 4, con: 0, int: 0, wis: 0, cha: 0 },
       ranks: { 'attack:simple': 'expert' },
-      weapons: [{ slug: 'dagger', category: 'simple', traits: ['agile', 'finesse'] }],
+      weapons: [wielded({ slug: 'dagger', category: 'simple', traits: ['agile', 'finesse'] })],
     });
     const derived = totals(deriveStatistics(core, nimble));
     expect(derived['strike:dagger']).toBe(4 + 7);

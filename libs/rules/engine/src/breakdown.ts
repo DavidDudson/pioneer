@@ -15,8 +15,14 @@ import type { MessageDescriptor, ValueOf } from '@pioneer/shared/kernel';
 
 import type { RuleId } from './rule-in-play';
 
-/** What a breakdown line is called: the rule element's own label, or the name of the entry it is on. */
-export type ModifierLabel = { readonly text: ContentText } | { readonly entry: ContentId };
+/**
+ * What a breakdown line is called: the rule element's own label, the name of the entry it is on, or, for a line the
+ * engine adds itself (a weapon's potency), a message.
+ */
+export type ModifierLabel =
+  | { readonly text: ContentText }
+  | { readonly entry: ContentId }
+  | { readonly message: MessageDescriptor };
 
 /** A typed bonus or penalty aimed at selectors or domains, from a `FlatModifier` (rules-engine.md, "Modifiers"). */
 export interface Modifier {

@@ -65,7 +65,6 @@ export const RulesMessage = {
   ReferenceItemLevel: 'rules.reference.itemLevel',
   ReferenceWeaponAttributeModifier: 'rules.reference.weaponAttributeModifier',
   ReferenceWeaponProficiencyBonus: 'rules.reference.weaponProficiencyBonus',
-  ReferenceWeaponPotency: 'rules.reference.weaponPotency',
   ReferenceSpellcastingAttributeModifier: 'rules.reference.spellcastingAttributeModifier',
   ReferenceSpellcastingProficiencyBonus: 'rules.reference.spellcastingProficiencyBonus',
 } as const;
