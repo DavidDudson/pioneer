@@ -187,8 +187,16 @@ list in their own section, titled with the staff and showing its charges left, b
 spell shows its charge cost. At daily preparations the holder prepares one staff, which gets charges equal to their
 highest spell rank; a prepared caster can expend one slot to add charges equal to its rank. A character without
 spellcasting gets no charges. Preparing another staff clears the first one's charges, and charges left unspent are
-lost at the next daily preparations. A spontaneous caster can pay part of a cast with a slot. A wand has one cast
-per day and an overcharge with its flat check and broken state. Charges and uses are play state resources.
+lost at the next daily preparations. A spontaneous caster can pay part of a cast with a slot. Charges and uses are
+play state resources.
+
+A wand casts its spell once a day at the wand's rank, if the spell is on one of the holder's spell lists, with that
+entry's spell attack and DC. Once the day's cast is spent, the holder can overcharge it with a DC 10 flat check: on
+a success the spell is cast and the wand is broken; on a failure the wand is destroyed and nothing is cast.
+Overcharging a wand already overcharged that day destroys it without a roll, even if it was repaired. The use and
+the overcharge reset at daily preparations. Broken is inventory state, so it outlasts preparations until the wand
+is marked repaired, and a broken wand can't be cast. A destroyed wand leaves the inventory through an inventory
+command.
 
 ## Dice
 
