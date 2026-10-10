@@ -1,4 +1,7 @@
 <fr-page [title]="'identity.signIn.title' | transloco" [description]="'identity.signIn.description' | transloco">
+  @for (extra of extras; track extra) {
+    <ng-container *ngComponentOutlet="extra; inputs: { returnTo: destination() }" />
+  }
   <fr-async-region [errorMessage]="'identity.signIn.loadError' | transloco">
     <ng-template frAsyncPending>
       <fr-stack gap="sm" align="start"><fr-skeleton width="md" /></fr-stack>

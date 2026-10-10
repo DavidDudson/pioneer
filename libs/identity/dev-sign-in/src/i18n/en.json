@@ -1,0 +1,8 @@
+{
+  "identityDev": {
+    "signIn": {
+      "heading": "Dev users",
+      "description": "Local development only. Signs in as a seeded user without a provider."
+    }
+  }
+}
