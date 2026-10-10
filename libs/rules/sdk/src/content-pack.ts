@@ -77,9 +77,9 @@ export const ContentPackSchema = z.object({
 });
 
 /**
- * A book (or homebrew set) of rules content. Packs live in their own lazily
- * loaded libraries under `libs/content/*`, depend only on this SDK, and export
- * one pack built with `ContentPack.define`, which validates it eagerly.
+ * A book (or homebrew set) of rules content, as `ContentRegistry` holds it. Official packs are JSON under
+ * `content/packs`, read with `contentPackFromFiles`; tests build packs with `ContentPack.define`, which validates
+ * eagerly.
  */
 export class ContentPack {
   public readonly manifest: ContentPackManifest;

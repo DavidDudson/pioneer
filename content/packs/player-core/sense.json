@@ -1,0 +1,48 @@
+[
+  {
+    "id": "d3268129-de81-586e-9fe0-0a3ece62e3f4",
+    "pack": "player-core",
+    "kind": "sense",
+    "slug": "darkvision",
+    "name": "Darkvision",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 433,
+        "aon": "https://2e.aonprd.com/Rules.aspx?ID=2410"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "acuity": "precise",
+      "unlimitedRange": true
+    }
+  },
+  {
+    "id": "3e6bd7cc-4db3-5e2d-856e-718805c39a75",
+    "pack": "player-core",
+    "kind": "sense",
+    "slug": "low-light-vision",
+    "name": "Low-Light Vision",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 433,
+        "aon": "https://2e.aonprd.com/Rules.aspx?ID=2411"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "acuity": "precise",
+      "unlimitedRange": true
+    }
+  }
+]

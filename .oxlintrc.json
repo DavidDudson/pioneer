@@ -239,7 +239,7 @@
       {
         "enforceBuildableLibDependency": true,
         "banTransitiveDependencies": true,
-        "checkDynamicDependenciesExceptions": ["@pioneer/content/*"],
+        "checkDynamicDependenciesExceptions": ["@pioneer/content/packs/*"],
         "allow": ["bun:test"],
         "depConstraints": [
           { "sourceTag": "type:domain", "onlyDependOnLibsWithTags": ["type:domain"] },
@@ -340,8 +340,8 @@
       }
     },
     {
-      // Book data, generated token tables and published colour-science constants are numbers by nature.
-      "files": ["libs/content/**/*.ts", "libs/frontier/scripts/*.ts", "tools/colour-space.ts"],
+      // Generated token tables and published colour-science constants are numbers by nature.
+      "files": ["libs/frontier/scripts/*.ts", "tools/colour-space.ts"],
       "rules": { "pioneer/no-magic-numbers": "off" }
     },
     {

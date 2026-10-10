@@ -1,0 +1,54 @@
+[
+  {
+    "id": "8302a500-eb59-5cf8-812d-5c742447e1ae",
+    "pack": "monster-core",
+    "kind": "creature",
+    "slug": "zombie-shambler",
+    "name": "Zombie Shambler",
+    "level": -1,
+    "rarity": "common",
+    "traits": ["mindless", "undead", "unholy", "zombie"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core",
+        "page": 356,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3249"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "size": "medium",
+      "perception": 0,
+      "attributes": {
+        "str": 3,
+        "dex": -1,
+        "con": 2,
+        "int": -5,
+        "wis": 0,
+        "cha": -2
+      },
+      "armorClass": 12,
+      "saves": {
+        "fortitude": 6,
+        "reflex": 0,
+        "will": 2
+      },
+      "hitPoints": 20,
+      "immunities": ["death-effects", "disease", "mental", "paralyzed", "poison", "sleep"],
+      "weaknesses": [
+        {
+          "type": "slashing",
+          "value": 5
+        },
+        {
+          "type": "vitality",
+          "value": 5
+        }
+      ],
+      "resistances": [],
+      "speed": 25
+    }
+  }
+]

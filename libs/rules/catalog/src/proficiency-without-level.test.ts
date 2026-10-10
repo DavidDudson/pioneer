@@ -19,14 +19,14 @@ import {
   AC_BASE,
   anyInputs,
   core,
+  coreRules,
   fighter,
   noFacts,
   PROFICIENCY_SELECTORS,
   RANK_BONUS,
   SKILLS,
   totals,
-} from './fixtures';
-import { coreRules } from './index';
+} from './testing/core-rules';
 
 /** GM Core's untrained modifier under Proficiency Without Level. */
 const UNTRAINED_WITHOUT_LEVEL = -2;

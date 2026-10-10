@@ -65,6 +65,7 @@ export { SenseAcuity, SenseData } from './sense';
 export { VariantRuleData, VariantRuleDefinition, VariantRuleId } from './variant-rule';
 export { PackEntry } from './pack-entry';
 export { ContentEntry } from './content-entry';
+export { ContentEntryFile, ContentPackFile, contentPackFromFiles } from './content-pack-file';
 export {
   DisplayCategory,
   DisplayCategorySchema,

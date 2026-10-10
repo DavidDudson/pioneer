@@ -21,6 +21,7 @@ import {
   anyInputs,
   contentOf,
   core,
+  coreRules,
   fighter,
   noFacts,
   RANK_BONUS,
@@ -28,8 +29,7 @@ import {
   SKILL_SELECTORS,
   SKILLS,
   totals,
-} from './fixtures';
-import { coreRules } from './index';
+} from './testing/core-rules';
 
 /** How many times the level adds to the proficiency bonus: none when untrained. */
 const LEVEL_TIMES: Readonly<Record<Proficiency, number>> = {

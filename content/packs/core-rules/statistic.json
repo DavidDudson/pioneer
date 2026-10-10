@@ -1,0 +1,623 @@
+[
+  {
+    "id": "d81fa877-5d2c-590b-be51-2c848e447da4",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "armor-class",
+    "name": "Armor Class",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 404,
+        "aon": "https://2e.aonprd.com/Rules.aspx?ID=2295"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "ac",
+      "domains": ["dex-based"],
+      "base": "10 + @attr.dex.capped + @prof.ac",
+      "kind": "dc",
+      "keyAttribute": "dex"
+    }
+  },
+  {
+    "id": "aa960dea-e6c9-561d-85f2-8c33dc8d64be",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "fortitude",
+    "name": "Fortitude",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 404,
+        "aon": "https://2e.aonprd.com/Rules.aspx?ID=2296"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "save:fortitude",
+      "domains": ["check", "saving-throw", "con-based"],
+      "base": "@attr.con + @prof.save.fortitude",
+      "kind": "check",
+      "keyAttribute": "con"
+    }
+  },
+  {
+    "id": "ab19db15-90c5-511b-84b2-4421d45a317e",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "reflex",
+    "name": "Reflex",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 404,
+        "aon": "https://2e.aonprd.com/Rules.aspx?ID=2296"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "save:reflex",
+      "domains": ["check", "saving-throw", "dex-based"],
+      "base": "@attr.dex + @prof.save.reflex",
+      "kind": "check",
+      "keyAttribute": "dex"
+    }
+  },
+  {
+    "id": "3961124b-8b81-5793-99a2-bd45189b2a5c",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "will",
+    "name": "Will",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 404,
+        "aon": "https://2e.aonprd.com/Rules.aspx?ID=2296"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "save:will",
+      "domains": ["check", "saving-throw", "wis-based"],
+      "base": "@attr.wis + @prof.save.will",
+      "kind": "check",
+      "keyAttribute": "wis"
+    }
+  },
+  {
+    "id": "c37d410e-c489-596f-b8a7-9cd7640f674c",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "perception",
+    "name": "Perception",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 404,
+        "aon": "https://2e.aonprd.com/Rules.aspx?ID=2298"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "perception",
+      "domains": ["check", "wis-based"],
+      "base": "@attr.wis + @prof.perception",
+      "kind": "check",
+      "keyAttribute": "wis"
+    }
+  },
+  {
+    "id": "99017053-1d73-5d98-911e-846f6b168f26",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "hit-points",
+    "name": "Hit Points",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 410,
+        "aon": "https://2e.aonprd.com/Rules.aspx?ID=2320"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "hp:max",
+      "domains": ["hp"],
+      "base": "@ancestry.hp + (@class.hp + @attr.con) * @level",
+      "kind": "value"
+    }
+  },
+  {
+    "id": "b4ee899b-03a6-5180-a48e-8dd75ddfd8b4",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "land-speed",
+    "name": "Speed",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 420,
+        "aon": "https://2e.aonprd.com/Rules.aspx?ID=2347"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "speed:land",
+      "domains": ["speed", "all-speeds", "land-speed"],
+      "base": "@ancestry.speed",
+      "kind": "value"
+    }
+  },
+  {
+    "id": "3d4b4a27-6298-5549-aca6-d1df3619c89e",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "class-dc",
+    "name": "Class DC",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 27,
+        "aon": "https://2e.aonprd.com/Rules.aspx?ID=2051"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "class-dc",
+      "domains": ["class"],
+      "base": "10 + @attr.key + @prof.class-dc",
+      "kind": "dc"
+    }
+  },
+  {
+    "id": "5f93daa2-5dc6-5af6-b86e-b291be01f876",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "acrobatics",
+    "name": "Acrobatics",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 233,
+        "aon": "https://2e.aonprd.com/Skills.aspx?ID=34"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:acrobatics",
+      "domains": ["check", "skill-check", "dex-based"],
+      "base": "@attr.dex + @prof.skill.acrobatics",
+      "kind": "check",
+      "keyAttribute": "dex"
+    }
+  },
+  {
+    "id": "56be0bbc-a57a-542a-b8b4-570bf07dc8d8",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "arcana",
+    "name": "Arcana",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 234,
+        "aon": "https://2e.aonprd.com/Skills.aspx?ID=35"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:arcana",
+      "domains": ["check", "skill-check", "int-based"],
+      "base": "@attr.int + @prof.skill.arcana",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "fe748c5a-e667-58cc-b941-4fd6bf566bc3",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "athletics",
+    "name": "Athletics",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 234,
+        "aon": "https://2e.aonprd.com/Skills.aspx?ID=36"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:athletics",
+      "domains": ["check", "skill-check", "str-based"],
+      "base": "@attr.str + @prof.skill.athletics",
+      "kind": "check",
+      "keyAttribute": "str"
+    }
+  },
+  {
+    "id": "ae010692-344b-530a-9ddd-f8e31b289b76",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "crafting",
+    "name": "Crafting",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 236,
+        "aon": "https://2e.aonprd.com/Skills.aspx?ID=37"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:crafting",
+      "domains": ["check", "skill-check", "int-based"],
+      "base": "@attr.int + @prof.skill.crafting",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "78e74d14-6c63-5538-8b40-cad3590eb2e1",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "deception",
+    "name": "Deception",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 237,
+        "aon": "https://2e.aonprd.com/Skills.aspx?ID=38"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:deception",
+      "domains": ["check", "skill-check", "cha-based"],
+      "base": "@attr.cha + @prof.skill.deception",
+      "kind": "check",
+      "keyAttribute": "cha"
+    }
+  },
+  {
+    "id": "7ed070f0-3dbd-5ad0-a740-b030c1b04049",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "diplomacy",
+    "name": "Diplomacy",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 239,
+        "aon": "https://2e.aonprd.com/Skills.aspx?ID=39"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:diplomacy",
+      "domains": ["check", "skill-check", "cha-based"],
+      "base": "@attr.cha + @prof.skill.diplomacy",
+      "kind": "check",
+      "keyAttribute": "cha"
+    }
+  },
+  {
+    "id": "2b23951d-4642-55fa-9e70-03c7cb56ffa7",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "intimidation",
+    "name": "Intimidation",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 240,
+        "aon": "https://2e.aonprd.com/Skills.aspx?ID=40"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:intimidation",
+      "domains": ["check", "skill-check", "cha-based"],
+      "base": "@attr.cha + @prof.skill.intimidation",
+      "kind": "check",
+      "keyAttribute": "cha"
+    }
+  },
+  {
+    "id": "c824b20d-0e3c-51db-ae5f-020a4707bf46",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "medicine",
+    "name": "Medicine",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 241,
+        "aon": "https://2e.aonprd.com/Skills.aspx?ID=42"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:medicine",
+      "domains": ["check", "skill-check", "wis-based"],
+      "base": "@attr.wis + @prof.skill.medicine",
+      "kind": "check",
+      "keyAttribute": "wis"
+    }
+  },
+  {
+    "id": "9b00dcfa-e2f4-543a-8888-5900529949ef",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "nature",
+    "name": "Nature",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 242,
+        "aon": "https://2e.aonprd.com/Skills.aspx?ID=43"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:nature",
+      "domains": ["check", "skill-check", "wis-based"],
+      "base": "@attr.wis + @prof.skill.nature",
+      "kind": "check",
+      "keyAttribute": "wis"
+    }
+  },
+  {
+    "id": "306a75e4-5ecd-5ec6-8377-4a103b47ec93",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "occultism",
+    "name": "Occultism",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 243,
+        "aon": "https://2e.aonprd.com/Skills.aspx?ID=44"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:occultism",
+      "domains": ["check", "skill-check", "int-based"],
+      "base": "@attr.int + @prof.skill.occultism",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "06e3d009-ea5c-5472-af03-f17fbb297f20",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "performance",
+    "name": "Performance",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 243,
+        "aon": "https://2e.aonprd.com/Skills.aspx?ID=45"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:performance",
+      "domains": ["check", "skill-check", "cha-based"],
+      "base": "@attr.cha + @prof.skill.performance",
+      "kind": "check",
+      "keyAttribute": "cha"
+    }
+  },
+  {
+    "id": "a8f69f35-c442-52d2-894b-5266e1852b0b",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "religion",
+    "name": "Religion",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 244,
+        "aon": "https://2e.aonprd.com/Skills.aspx?ID=46"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:religion",
+      "domains": ["check", "skill-check", "wis-based"],
+      "base": "@attr.wis + @prof.skill.religion",
+      "kind": "check",
+      "keyAttribute": "wis"
+    }
+  },
+  {
+    "id": "be7a2bcd-7d42-5a36-9d29-fbe653ea6faa",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "society",
+    "name": "Society",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 244,
+        "aon": "https://2e.aonprd.com/Skills.aspx?ID=47"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:society",
+      "domains": ["check", "skill-check", "int-based"],
+      "base": "@attr.int + @prof.skill.society",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "1f21561d-63a0-5622-afb7-9e337cb46d62",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "stealth",
+    "name": "Stealth",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 244,
+        "aon": "https://2e.aonprd.com/Skills.aspx?ID=48"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:stealth",
+      "domains": ["check", "skill-check", "dex-based"],
+      "base": "@attr.dex + @prof.skill.stealth",
+      "kind": "check",
+      "keyAttribute": "dex"
+    }
+  },
+  {
+    "id": "6ee19ee3-33de-5792-9a4e-cc398084e346",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "survival",
+    "name": "Survival",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 246,
+        "aon": "https://2e.aonprd.com/Skills.aspx?ID=49"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:survival",
+      "domains": ["check", "skill-check", "wis-based"],
+      "base": "@attr.wis + @prof.skill.survival",
+      "kind": "check",
+      "keyAttribute": "wis"
+    }
+  },
+  {
+    "id": "ed635993-27d2-5866-9acb-039250e16e6c",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "thievery",
+    "name": "Thievery",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 246,
+        "aon": "https://2e.aonprd.com/Skills.aspx?ID=50"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:thievery",
+      "domains": ["check", "skill-check", "dex-based"],
+      "base": "@attr.dex + @prof.skill.thievery",
+      "kind": "check",
+      "keyAttribute": "dex"
+    }
+  }
+]

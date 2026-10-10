@@ -2,6 +2,7 @@ import { PackId } from '@pioneer/rules/sdk';
 import type { ContentPack, ContentPackLoader } from '@pioneer/rules/sdk';
 
 import { bookRegistry } from './book-registry';
+import { coreRulesPack, monsterCorePack, playerCorePack } from './json-packs';
 import { checkPackSources } from './source-check';
 
 export { BookRegistry, bookRegistry } from './book-registry';
@@ -22,22 +23,12 @@ export function checkedLoader(id: string, load: () => Promise<ContentPack>): Con
 }
 
 /**
- * Every installable content pack, as lazy loaders. Packs are only fetched
- * (browser) or imported (server) when `ContentRegistry.load` is called, so a
- * new book is one new lib plus one line here. This is the only module allowed
- * to reference `@pioneer/content/*`, and only through dynamic `import()`.
+ * Every installable content pack, as lazy loaders over the JSON under `content/packs` (ADR-0003). Packs are only
+ * fetched (browser) or read (server) when `ContentRegistry.load` is called, so a new pack is one directory there
+ * plus one line here.
  */
 export const contentCatalog: readonly ContentPackLoader[] = [
-  checkedLoader('core-rules', async () => {
-    const { coreRules } = await import('@pioneer/content/core-rules');
-    return coreRules;
-  }),
-  checkedLoader('player-core', async () => {
-    const { playerCore } = await import('@pioneer/content/player-core');
-    return playerCore;
-  }),
-  checkedLoader('monster-core', async () => {
-    const { monsterCore } = await import('@pioneer/content/monster-core');
-    return monsterCore;
-  }),
+  checkedLoader('core-rules', coreRulesPack),
+  checkedLoader('player-core', playerCorePack),
+  checkedLoader('monster-core', monsterCorePack),
 ];
