@@ -24,6 +24,7 @@ Accepted. To change a decision, add a new ADR that supersedes the old one; do no
 | [0017](0017-live-sync-over-server-sent-events.md)     | Live sync over Server-Sent Events, fanned out per stream        |
 | [0018](0018-foundry-is-the-live-play-surface.md)      | Foundry is the live play surface; Pioneer syncs to it           |
 | [0019](0019-rich-text-ast-rendered-in-rules-ui.md)    | Rich text is a document AST, rendered by `rules/ui`             |
+| [0020](0020-local-dev-sign-in.md)                     | Local dev sign-in, kept out of production builds                |
 
 Template:
 
