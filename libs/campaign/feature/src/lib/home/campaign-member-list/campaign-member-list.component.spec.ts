@@ -1,6 +1,6 @@
 import { HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
-import { provideRouter, withComponentInputBinding } from '@angular/router';
+import { provideRouter, Router, withComponentInputBinding } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
 import { frontierMessages } from '@pioneer/frontier';
 import { provideI18n } from '@pioneer/shared/web';
@@ -50,9 +50,11 @@ function buttons(root: HTMLElement, label: string): HTMLButtonElement[] {
   return [...root.querySelectorAll('button')].filter((candidate) => candidate.textContent.trim().startsWith(label));
 }
 
-/** The last button whose text starts with `label`: the confirming one, below the list. */
-function lastButton(root: HTMLElement, label: string): HTMLButtonElement {
-  return present(buttons(root, label).at(-1));
+/** The only button whose text starts with `label`. */
+function button(root: HTMLElement, label: string): HTMLButtonElement {
+  const [found, ...others] = buttons(root, label);
+  expect(others).toHaveLength(0);
+  return present(found);
 }
 
 /** Opens the campaign home with the user in `viewerRole`, answering its loads. */
@@ -80,22 +82,21 @@ async function open(viewerRole: 'gm' | 'player'): Promise<RouterTestingHarness> 
   });
   return harness;
 }
-
 describe('CampaignMemberList', () => {
-  it('asks before the GM removes a player, then marks them removed and keeps focus', async () => {
+  it('removes a player on a second press of the same button, then marks them removed with focus kept', async () => {
     const harness = await open('gm');
     const http = TestBed.inject(HttpTestingController);
     const root = present(harness.routeNativeElement);
 
-    lastButton(root, 'Remove').click();
+    const remove = button(root, 'Remove');
+    remove.focus();
+    remove.click();
     await vi.waitFor(() => {
-      expect(root.textContent).toContain('Remove Ezren from the campaign?');
+      expect(remove.textContent).toContain('Remove Ezren? Press again');
     });
     http.expectNone({ method: 'DELETE' });
 
-    const confirm = lastButton(root, 'Remove');
-    confirm.focus();
-    confirm.click();
+    remove.click();
     await vi.waitFor(() => {
       http
         .expectOne({ method: 'DELETE', url: `/api/campaigns/${id}/members/${playerMember.id}` })
@@ -108,22 +109,22 @@ describe('CampaignMemberList', () => {
     await vi.waitFor(() => {
       expect(root.textContent).toContain('Removed');
       expect(buttons(root, 'Make GM')).toHaveLength(0);
-      expect(buttons(root, 'Cancel')).toHaveLength(0);
     });
-    expect(root.ownerDocument.activeElement).toBe(confirm);
+    expect(root.ownerDocument.activeElement).toBe(remove);
   });
 
-  it('cancels without a request', async () => {
+  it('stands down when the GM moves away, without a request', async () => {
     const harness = await open('gm');
     const root = present(harness.routeNativeElement);
 
-    lastButton(root, 'Make GM').click();
+    const transfer = button(root, 'Make GM');
+    transfer.click();
     await vi.waitFor(() => {
-      expect(root.textContent).toContain('Make Ezren the GM?');
+      expect(transfer.textContent).toContain('Make Ezren the GM? Press again');
     });
-    lastButton(root, 'Cancel').click();
+    transfer.dispatchEvent(new FocusEvent('focusout', { bubbles: true }));
     await vi.waitFor(() => {
-      expect(root.textContent).not.toContain('Make Ezren the GM?');
+      expect(transfer.textContent).not.toContain('Press again');
     });
     TestBed.inject(HttpTestingController).expectNone({ method: 'POST' });
   });
@@ -135,11 +136,12 @@ describe('CampaignMemberList', () => {
     expect(root.textContent).toContain('To leave, first make another member the GM.');
     expect(buttons(root, 'Leave campaign')).toHaveLength(0);
 
-    lastButton(root, 'Make GM').click();
+    const transfer = button(root, 'Make GM');
+    transfer.click();
     await vi.waitFor(() => {
-      expect(root.textContent).toContain('Make Ezren the GM?');
+      expect(transfer.textContent).toContain('Press again');
     });
-    lastButton(root, 'Make GM').click();
+    transfer.click();
     await vi.waitFor(() => {
       const request = http.expectOne({ method: 'POST', url: `/api/campaigns/${id}/gm` });
       expect(request.request.body).toStrictEqual({ memberId: playerMember.id });
@@ -156,6 +158,7 @@ describe('CampaignMemberList', () => {
     });
     await vi.waitFor(() => {
       expect(buttons(root, 'Leave campaign')).toHaveLength(1);
+      expect(buttons(root, 'Remove')).toHaveLength(0);
       expect(root.textContent).not.toContain('Invite players');
     });
   });
@@ -166,16 +169,21 @@ describe('CampaignMemberList', () => {
     const root = present(harness.routeNativeElement);
     expect(buttons(root, 'Remove')).toHaveLength(0);
 
-    lastButton(root, 'Leave campaign').click();
+    const leave = button(root, 'Leave campaign');
+    leave.click();
     await vi.waitFor(() => {
-      expect(root.textContent).toContain('Leave this campaign?');
+      expect(leave.textContent).toContain('Leave for good? Press again');
     });
-    lastButton(root, 'Leave campaign').click();
+    leave.click();
     await vi.waitFor(() => {
       http.expectOne({ method: 'POST', url: `/api/campaigns/${id}/leave` }).flush({});
     });
     await vi.waitFor(() => {
       http.expectOne({ method: 'GET', url: '/api/campaigns' }).flush([]);
+    });
+    await vi.waitFor(() => {
+      expect(TestBed.inject(Router).url).toBe('/campaigns');
+      expect(present(harness.routeNativeElement).querySelector('pio-campaign-member-list')).toBeNull();
     });
   });
 
@@ -184,11 +192,12 @@ describe('CampaignMemberList', () => {
     const http = TestBed.inject(HttpTestingController);
     const root = present(harness.routeNativeElement);
 
-    lastButton(root, 'Leave campaign').click();
+    const leave = button(root, 'Leave campaign');
+    leave.click();
     await vi.waitFor(() => {
-      expect(root.textContent).toContain('Leave this campaign?');
+      expect(leave.textContent).toContain('Press again');
     });
-    lastButton(root, 'Leave campaign').click();
+    leave.click();
     await vi.waitFor(() => {
       http
         .expectOne({ method: 'POST', url: `/api/campaigns/${id}/leave` })

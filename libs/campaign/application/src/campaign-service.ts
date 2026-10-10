@@ -3,10 +3,19 @@ import type { CampaignRoster, CreateCampaignBody, NamedMember, TransferGmBody } 
 import { ForbiddenError, message, newId, NotFoundError } from '@pioneer/shared/kernel';
 import type { Clock, UserId } from '@pioneer/shared/kernel';
 
+import type { CampaignInviteRepository } from './campaign-invite-repository';
 import { mayLeaveCampaign, mayManageMembers, mayViewCampaign } from './campaign-policy';
 import type { CampaignRepository } from './campaign-repository';
 import type { MemberDirectory } from './member-directory';
 import { MemberMessage } from './member-message';
+
+/** The ports `CampaignService` works through. */
+export interface CampaignPorts {
+  readonly campaigns: CampaignRepository;
+  /** Removing a member revokes the campaign's open invites. */
+  readonly invites: CampaignInviteRepository;
+  readonly directory: MemberDirectory;
+}
 
 /**
  * Campaign use cases. Framework-free: the HTTP adapter calls these with the signed-in user as
@@ -14,11 +23,13 @@ import { MemberMessage } from './member-message';
  */
 export class CampaignService {
   readonly #repository: CampaignRepository;
+  readonly #invites: CampaignInviteRepository;
   readonly #directory: MemberDirectory;
   readonly #clock: Clock;
 
-  public constructor(repository: CampaignRepository, directory: MemberDirectory, clock: Clock) {
-    this.#repository = repository;
+  public constructor({ campaigns, invites, directory }: CampaignPorts, clock: Clock) {
+    this.#repository = campaigns;
+    this.#invites = invites;
     this.#directory = directory;
     this.#clock = clock;
   }
@@ -56,8 +67,10 @@ export class CampaignService {
   }
 
   /**
-   * The GM takes a player out of the campaign; they lose access at once. A member already gone is
-   * no change, so removing someone twice is harmless. The GM can't remove themselves.
+   * The GM takes a player out of the campaign; they lose access at once. The campaign's open invites
+   * are revoked first, so the player can't rejoin with a link they already have (a join holds the
+   * invite's lock, so none slips in between). A member already gone is no change, so removing someone
+   * twice is harmless. The GM can't remove themselves.
    */
   public async removeMember(actor: UserId, id: CampaignId, memberId: CampaignMemberId): Promise<CampaignRoster> {
     const campaign = await this.#managedCampaign(actor, id);
@@ -68,6 +81,7 @@ export class CampaignService {
     if (member.role === CampaignRole.Gm) {
       throw new ForbiddenError(`The GM of campaign ${id} can't be removed`, message(MemberMessage.GmNotRemovable));
     }
+    await this.#invites.revokeOpen(id, this.#clock.now());
     const saved = await this.#repository.updateMembers(campaign.withoutMember(memberId), campaign.version);
     return this.#rosterOf(actor, saved);
   }

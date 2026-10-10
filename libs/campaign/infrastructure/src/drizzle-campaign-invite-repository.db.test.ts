@@ -168,8 +168,26 @@ describe.skipIf(adminUrl === undefined)('DrizzleCampaignInviteRepository (postgr
     expect(found?.roleOf(seelah)).toBeUndefined();
   });
 
+  test('revokeOpen revokes every working invite of one campaign and keeps earlier revocations', async () => {
+    const outlaws = await campaigns.insert(new CampaignBuilder().named('Outlaws of Alkenstar').build());
+    const other = await campaigns.insert(new CampaignBuilder().named('Season of Ghosts').build());
+    const open = await repository.insert(await invite(outlaws));
+    const toRevoke = await repository.insert(await invite(outlaws));
+    const revokedEarlier = await repository.revoke(toRevoke.revoke(at));
+    const elsewhere = await repository.insert(await invite(other));
+
+    const later = at.add({ hours: 1 });
+    await repository.revokeOpen(outlaws.id, later);
+    expect(await repository.listOpen(outlaws.id, later)).toStrictEqual([]);
+    const revokedNow = await repository.findById(open.id);
+    expect(revokedNow?.revokedAt).toStrictEqual(later);
+    expect(await repository.findById(revokedEarlier.id)).toStrictEqual(revokedEarlier);
+    expect(await repository.listOpen(other.id, later)).toStrictEqual([elsewhere]);
+  });
+
   test('every query the repository issued is served by an index', async () => {
     const issued = await repository.insert(await invite(vaults));
+    await repository.revokeOpen(vaults.id, at);
     await repository.findById(issued.id);
     await repository.findByTokenHash(issued.tokenHash);
     await repository.listOpen(vaults.id, at);

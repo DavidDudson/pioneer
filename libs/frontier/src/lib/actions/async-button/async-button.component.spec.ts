@@ -115,4 +115,45 @@ describe(AsyncButton, () => {
     attempts[1]?.resolve();
     await settle();
   });
+
+  it('with a confirmLabel, runs only on the second press, in the same focused button', async () => {
+    const action = vi.fn<() => Promise<undefined>>(async () => undefined);
+    const fixture = await render(action);
+    fixture.componentRef.setInput('confirmLabel', 'Remove Ezren? Press again');
+    TestBed.tick();
+    const pressed = button(fixture);
+    pressed.focus();
+
+    pressed.click();
+    await settle();
+    expect(action).not.toHaveBeenCalled();
+    expect(button(fixture)).toBe(pressed);
+    expect(pressed.textContent).toContain('Remove Ezren? Press again');
+
+    pressed.click();
+    await settle();
+    expect(action).toHaveBeenCalledTimes(1);
+    expect(pressed.textContent).not.toContain('Press again');
+  });
+
+  it('stands down when the user leaves the button or presses Escape', async () => {
+    const action = vi.fn<() => Promise<undefined>>(async () => undefined);
+    const fixture = await render(action);
+    fixture.componentRef.setInput('confirmLabel', 'Remove Ezren? Press again');
+    TestBed.tick();
+
+    button(fixture).click();
+    TestBed.tick();
+    button(fixture).dispatchEvent(new FocusEvent('focusout', { bubbles: true }));
+    TestBed.tick();
+    expect(button(fixture).textContent).not.toContain('Press again');
+
+    button(fixture).click();
+    TestBed.tick();
+    button(fixture).dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
+    TestBed.tick();
+    button(fixture).click();
+    await settle();
+    expect(action).not.toHaveBeenCalled();
+  });
 });

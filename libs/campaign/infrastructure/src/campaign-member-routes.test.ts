@@ -24,8 +24,9 @@ function app(): AnyElysia {
   const clock = fixedClock('2026-10-10T10:00:00Z');
   const campaigns = new InMemoryCampaignRepository();
   const directory = new InMemoryMemberDirectory().name(amiri, 'Amiri').name(ezren, 'Ezren').name(seelah, 'Seelah');
-  const service = new CampaignService(campaigns, directory, clock);
-  const invites = new CampaignInviteService(campaigns, new InMemoryCampaignInviteRepository(), clock);
+  const inviteRepository = new InMemoryCampaignInviteRepository();
+  const service = new CampaignService({ campaigns, invites: inviteRepository, directory }, clock);
+  const invites = new CampaignInviteService(campaigns, inviteRepository, clock);
   return new Elysia().use(problemHandler).use(campaignRoutes(service, invites, new FakeAuthenticator()));
 }
 
@@ -61,6 +62,8 @@ async function json<TBody>(response: Response): Promise<TBody> {
 interface Party {
   readonly id: string;
   readonly memberIds: ReadonlyMap<UserId, string>;
+  /** The invite everyone joined with, still open. */
+  readonly token: string;
 }
 
 async function party(api: AnyElysia): Promise<Party> {
@@ -71,7 +74,8 @@ async function party(api: AnyElysia): Promise<Party> {
   await api.handle(request('POST', '/campaigns/join', { as: ezren, body: { token } }));
   await api.handle(request('POST', '/campaigns/join', { as: seelah, body: { token } }));
   const roster = await json<RosterJson>(await api.handle(request('GET', `/campaigns/${id}/members`, { as: amiri })));
-  return { id, memberIds: new Map(roster.members.map((member) => [UserId.parse(member.userId), member.id])) };
+  const memberIds = new Map(roster.members.map((member) => [UserId.parse(member.userId), member.id] as const));
+  return { id, memberIds, token };
 }
 
 function memberId({ memberIds }: Party, userId: UserId): string {
@@ -95,6 +99,27 @@ describe('member routes', () => {
 
     const got = await api.handle(request('GET', `/campaigns/${vaults.id}`, { as: ezren }));
     expect(got.status).toBe(404);
+  });
+
+  test('removing a player revokes the open invites, so they cannot rejoin with the old link', async () => {
+    const api = app();
+    const vaults = await party(api);
+    await api.handle(request('DELETE', `/campaigns/${vaults.id}/members/${memberId(vaults, ezren)}`, { as: amiri }));
+
+    const rejoin = await api.handle(request('POST', '/campaigns/join', { as: ezren, body: { token: vaults.token } }));
+    expect(rejoin.status).toBe(410);
+    const open = await json<readonly unknown[]>(
+      await api.handle(request('GET', `/campaigns/${vaults.id}/invites`, { as: amiri })),
+    );
+    expect(open).toStrictEqual([]);
+  });
+
+  test('a player who left may rejoin with a link that still works', async () => {
+    const api = app();
+    const vaults = await party(api);
+    await api.handle(request('POST', `/campaigns/${vaults.id}/leave`, { as: seelah }));
+    const rejoin = await api.handle(request('POST', '/campaigns/join', { as: seelah, body: { token: vaults.token } }));
+    expect(rejoin.status).toBe(200);
   });
 
   test('removing the GM is a 403 that says why', async () => {

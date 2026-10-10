@@ -8,6 +8,7 @@ import type { Clock, Temporal } from '@pioneer/shared/kernel';
 import { rejection } from '@pioneer/shared/kernel/testing';
 
 import { CampaignService } from './campaign-service';
+import { InMemoryCampaignInviteRepository } from './in-memory-campaign-invite-repository';
 import { InMemoryCampaignRepository } from './in-memory-campaign-repository';
 import { InMemoryMemberDirectory } from './in-memory-member-directory';
 
@@ -34,8 +35,11 @@ describe('CampaignService', () => {
 
   beforeEach(() => {
     service = new CampaignService(
-      new InMemoryCampaignRepository(),
-      new InMemoryMemberDirectory(),
+      {
+        campaigns: new InMemoryCampaignRepository(),
+        invites: new InMemoryCampaignInviteRepository(),
+        directory: new InMemoryMemberDirectory(),
+      },
       fixedClock('2026-10-10T10:00:00Z'),
     );
   });
@@ -60,7 +64,14 @@ describe('CampaignService membership', () => {
   test('list holds only the actor’s campaigns, oldest first', async () => {
     // Created newest first, so the order comes from the join times, not insertion.
     const clock = ticking('2026-10-10T12:00:00Z', '2026-10-10T11:00:00Z', '2026-10-10T10:00:00Z');
-    const service = new CampaignService(new InMemoryCampaignRepository(), new InMemoryMemberDirectory(), clock);
+    const service = new CampaignService(
+      {
+        campaigns: new InMemoryCampaignRepository(),
+        invites: new InMemoryCampaignInviteRepository(),
+        directory: new InMemoryMemberDirectory(),
+      },
+      clock,
+    );
     await service.create(amiri, { name: vaults });
     await service.create(ezren, { name: CampaignName.parse('Kingmaker') });
     await service.create(amiri, { name: CampaignName.parse('Outlaws of Alkenstar') });
@@ -70,8 +81,11 @@ describe('CampaignService membership', () => {
 
   test('a campaign the actor is not in reads as not found', async () => {
     const service = new CampaignService(
-      new InMemoryCampaignRepository(),
-      new InMemoryMemberDirectory(),
+      {
+        campaigns: new InMemoryCampaignRepository(),
+        invites: new InMemoryCampaignInviteRepository(),
+        directory: new InMemoryMemberDirectory(),
+      },
       fixedClock('2026-10-10T10:00:00Z'),
     );
     const theirs = await service.create(ezren, { name: vaults });
@@ -85,7 +99,10 @@ describe('CampaignService roster', () => {
   test('names each member and says the actor’s role', async () => {
     const campaigns = new InMemoryCampaignRepository();
     const directory = new InMemoryMemberDirectory().name(amiri, 'Amiri').name(ezren, 'Ezren');
-    const service = new CampaignService(campaigns, directory, fixedClock('2026-10-10T10:00:00Z'));
+    const service = new CampaignService(
+      { campaigns, invites: new InMemoryCampaignInviteRepository(), directory },
+      fixedClock('2026-10-10T10:00:00Z'),
+    );
     const created = await campaigns.insert(new CampaignBuilder().ranBy(amiri).withPlayer(ezren).build());
 
     const roster = await service.roster(ezren, created.id);
@@ -102,7 +119,10 @@ describe('CampaignService roster', () => {
     const campaigns = new InMemoryCampaignRepository();
     const seelah = UserId.parse(newId());
     const directory = new InMemoryMemberDirectory().name(amiri, 'Amiri').name(seelah, 'Seelah');
-    const service = new CampaignService(campaigns, directory, fixedClock('2026-10-10T10:00:00Z'));
+    const service = new CampaignService(
+      { campaigns, invites: new InMemoryCampaignInviteRepository(), directory },
+      fixedClock('2026-10-10T10:00:00Z'),
+    );
     const party = new CampaignBuilder().ranBy(amiri).withPlayer(ezren).withPlayer(seelah).build();
     await campaigns.insert(party);
 
@@ -113,8 +133,11 @@ describe('CampaignService roster', () => {
 
   test('a campaign the actor is not in has no roster for them', async () => {
     const service = new CampaignService(
-      new InMemoryCampaignRepository(),
-      new InMemoryMemberDirectory(),
+      {
+        campaigns: new InMemoryCampaignRepository(),
+        invites: new InMemoryCampaignInviteRepository(),
+        directory: new InMemoryMemberDirectory(),
+      },
       fixedClock('2026-10-10T10:00:00Z'),
     );
     const theirs = await service.create(ezren, { name: vaults });
@@ -139,7 +162,10 @@ describe('CampaignService member management', () => {
   beforeEach(async () => {
     campaigns = new InMemoryCampaignRepository();
     const directory = new InMemoryMemberDirectory().name(amiri, 'Amiri').name(ezren, 'Ezren').name(seelah, 'Seelah');
-    service = new CampaignService(campaigns, directory, fixedClock('2026-10-10T10:00:00Z'));
+    service = new CampaignService(
+      { campaigns, invites: new InMemoryCampaignInviteRepository(), directory },
+      fixedClock('2026-10-10T10:00:00Z'),
+    );
     party = await campaigns.insert(new CampaignBuilder().ranBy(amiri).withPlayer(ezren).withPlayer(seelah).build());
   });
 

@@ -13,7 +13,11 @@ import { UserMemberDirectory } from './user-member-directory';
 /** The campaign context's part of the composition root: services and routes. */
 export function campaigns(db: Database, clock: Clock, authenticator: RequestAuthenticator): ContractRouter['app'] {
   const repository = new DrizzleCampaignRepository(db);
-  const service = new CampaignService(repository, new UserMemberDirectory(db), clock);
-  const invites = new CampaignInviteService(repository, new DrizzleCampaignInviteRepository(db), clock);
+  const inviteRepository = new DrizzleCampaignInviteRepository(db);
+  const service = new CampaignService(
+    { campaigns: repository, invites: inviteRepository, directory: new UserMemberDirectory(db) },
+    clock,
+  );
+  const invites = new CampaignInviteService(repository, inviteRepository, clock);
   return campaignRoutes(service, invites, authenticator);
 }

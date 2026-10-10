@@ -1,6 +1,6 @@
 <fr-stack gap="3xs" align="start">
   <fr-button
-    [variant]="variant()"
+    [variant]="shownVariant()"
     [size]="size()"
     [type]="type()"
     [disabled]="disabled()"
@@ -9,7 +9,10 @@
     (pressed)="press()"
   >
     <fr-async-indicator [status]="state().status()" [pendingLabel]="pendingLabel()" [successLabel]="successLabel()" />
-    <ng-content />
+    <span [hidden]="asking()"><ng-content /></span>
+    @if (asking()) {
+      <span>{{ confirmLabel() }}</span>
+    }
   </fr-button>
   @if (state().errorMessage(); as message) {
     <fr-message [id]="errorId">{{ message }}</fr-message>

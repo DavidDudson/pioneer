@@ -22,8 +22,12 @@ const ezren = UserId.parse(newId());
 function app(): AnyElysia {
   const clock = fixedClock('2026-10-10T10:00:00Z');
   const campaigns = new InMemoryCampaignRepository();
-  const service = new CampaignService(campaigns, new InMemoryMemberDirectory(), clock);
-  const invites = new CampaignInviteService(campaigns, new InMemoryCampaignInviteRepository(), clock);
+  const inviteRepository = new InMemoryCampaignInviteRepository();
+  const service = new CampaignService(
+    { campaigns, invites: inviteRepository, directory: new InMemoryMemberDirectory() },
+    clock,
+  );
+  const invites = new CampaignInviteService(campaigns, inviteRepository, clock);
   return new Elysia().use(problemHandler).use(campaignRoutes(service, invites, new FakeAuthenticator()));
 }
 
