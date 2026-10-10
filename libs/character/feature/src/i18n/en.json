@@ -23,7 +23,8 @@
     "emptyHint": "Create one above to get started.",
     "creating": "Creating",
     "created": "Created",
-    "createFailed": "Could not create the character. Try again."
+    "createFailed": "Could not create the character. Try again.",
+    "import": "Import from Pathbuilder"
   },
   "sheet": {
     "identityHeading": "Identity",
@@ -39,5 +40,41 @@
   },
   "validation": {
     "unknownAncestry": "That ancestry is not available. Choose another."
+  },
+  "import": {
+    "title": "Import from Pathbuilder",
+    "description": "Paste a Pathbuilder 2e JSON export to see what Pioneer can read from it. Nothing is saved yet.",
+    "exportLabel": "Pathbuilder export (JSON)",
+    "exportPlaceholder": "Paste the text from Pathbuilder's Export JSON menu",
+    "problem": {
+      "malformed": "This isn't a Pathbuilder export Pioneer can read. Copy the whole text from Pathbuilder's Export JSON and paste it again.",
+      "exportFailed": "Pathbuilder marked this export as failed. Export again from Pathbuilder."
+    },
+    "readHeading": "What Pioneer read",
+    "name": "Name",
+    "level": "Level",
+    "none": "None",
+    "reportHeading": "Content",
+    "reportSummary": "{matched, number} of {total, number} names match content you have loaded.",
+    "groupSummary": "{kind} · {matched, number} of {total, number} matched",
+    "occurrences": "×{count, number}",
+    "kind": {
+      "ancestry": "Ancestry",
+      "heritage": "Heritage",
+      "background": "Background",
+      "class": "Class",
+      "deity": "Deity",
+      "feat": "Feats",
+      "classFeature": "Class features",
+      "spell": "Spells",
+      "ritual": "Rituals",
+      "item": "Items",
+      "language": "Languages"
+    },
+    "status": {
+      "matched": "Matched",
+      "unmatched": "Not found",
+      "kindNotLoaded": "Not loaded yet"
+    }
   }
 }

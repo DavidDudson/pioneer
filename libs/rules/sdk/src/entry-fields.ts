@@ -23,7 +23,7 @@ export type DisplayHints = z.infer<typeof DisplayHints>;
 
 const EXTERNAL_ID_LENGTH_MAX = 200;
 
-/** An entry's id in another tool: a Foundry compendium UUID, a Pathbuilder id. Never parsed, only matched. */
+/** An entry's id in another tool: a Foundry compendium UUID, Pathbuilder's name for it. Never parsed, only matched. */
 export const ExternalId = z.string().min(1).max(EXTERNAL_ID_LENGTH_MAX).brand<'ExternalId'>();
 export type ExternalId = z.infer<typeof ExternalId>;
 

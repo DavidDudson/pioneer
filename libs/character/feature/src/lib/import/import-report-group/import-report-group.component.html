@@ -1,0 +1,22 @@
+<fr-disclosure>
+  <fr-text frDisclosureSummary>{{
+    'character.import.groupSummary' | transloco: { kind: kindKey() | transloco, matched: matched(), total: total() }
+  }}</fr-text>
+  <fr-list>
+    @for (row of rows(); track row.name) {
+      <fr-list-item>
+        <fr-stack direction="horizontal" justify="between" align="center" gap="sm">
+          <fr-text>{{ row.name }}</fr-text>
+          <fr-stack direction="horizontal" align="center" gap="xs">
+            @if (row.repeated) {
+              <fr-text tone="subtle" numeric>{{
+                'character.import.occurrences' | transloco: { count: row.occurrences }
+              }}</fr-text>
+            }
+            <fr-badge [tone]="row.tone">{{ row.statusKey | transloco }}</fr-badge>
+          </fr-stack>
+        </fr-stack>
+      </fr-list-item>
+    }
+  </fr-list>
+</fr-disclosure>

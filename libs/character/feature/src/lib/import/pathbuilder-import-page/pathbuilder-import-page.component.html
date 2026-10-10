@@ -1,0 +1,64 @@
+<fr-page [title]="'character.import.title' | transloco" [description]="'character.import.description' | transloco">
+  <fr-stack gap="xl">
+    <fr-surface>
+      <fr-stack gap="md">
+        <fr-text-area-field
+          monospace
+          [label]="'character.import.exportLabel' | transloco"
+          [placeholder]="'character.import.exportPlaceholder' | transloco"
+          [formField]="form.json"
+        />
+        @if (problemKey(); as key) {
+          <fr-message>{{ key | transloco }}</fr-message>
+        }
+      </fr-stack>
+    </fr-surface>
+
+    @if (preview(); as character) {
+      <fr-surface>
+        <fr-stack gap="md">
+          <fr-heading variant="subheading" [level]="2">{{ 'character.import.readHeading' | transloco }}</fr-heading>
+          <fr-description-list>
+            <fr-description-item [term]="'character.import.name' | transloco">
+              <fr-text>{{ character.name }}</fr-text>
+            </fr-description-item>
+            <fr-description-item [term]="'character.import.level' | transloco">
+              <fr-text numeric>{{ character.level }}</fr-text>
+            </fr-description-item>
+            <fr-description-item [term]="'character.import.kind.class' | transloco">
+              <fr-text>{{ classes() }}</fr-text>
+            </fr-description-item>
+            <fr-description-item [term]="'character.import.kind.ancestry' | transloco">
+              <fr-text>{{ character.identity.ancestry }}</fr-text>
+            </fr-description-item>
+            <fr-description-item [term]="'character.import.kind.heritage' | transloco">
+              <fr-text>{{ character.identity.heritage ?? ('character.import.none' | transloco) }}</fr-text>
+            </fr-description-item>
+            <fr-description-item [term]="'character.import.kind.background' | transloco">
+              <fr-text>{{ character.identity.background ?? ('character.import.none' | transloco) }}</fr-text>
+            </fr-description-item>
+            @for (item of modifiers(); track item.attribute) {
+              <fr-description-item [term]="item.labelKey | transloco">
+                <fr-text numeric>{{ item.value }}</fr-text>
+              </fr-description-item>
+            }
+          </fr-description-list>
+        </fr-stack>
+      </fr-surface>
+
+      <fr-surface>
+        <fr-stack gap="md">
+          <fr-heading variant="subheading" [level]="2">{{ 'character.import.reportHeading' | transloco }}</fr-heading>
+          @if (summary(); as counts) {
+            <fr-text tone="muted">{{ 'character.import.reportSummary' | transloco: counts }}</fr-text>
+            @for (group of report()?.groups ?? []; track group.kind) {
+              <pio-import-report-group [group]="group" />
+            }
+          } @else {
+            <fr-skeleton width="lg" />
+          }
+        </fr-stack>
+      </fr-surface>
+    }
+  </fr-stack>
+</fr-page>
