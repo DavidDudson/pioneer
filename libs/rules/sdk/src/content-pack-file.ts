@@ -27,9 +27,10 @@ interface PackDefinitions {
   readonly creatures: PackCreature[];
   readonly statistics: PackStatistic[];
   readonly variantRules: VariantRuleDefinition[];
+  readonly otherEntries: ContentEntry[];
 }
 
-/** Files the definition shape `ContentRegistry` serves; kinds it doesn't serve yet (languages, senses) are skipped. */
+/** Files an entry as a definition `ContentRegistry` serves, or with the kinds it doesn't serve yet. */
 function addDefinition(definitions: PackDefinitions, entry: ContentEntry): void {
   const { slug, name, sources } = entry;
   if (entry.kind === ContentKind.Ancestry) {
@@ -40,6 +41,8 @@ function addDefinition(definitions: PackDefinitions, entry: ContentEntry): void 
     definitions.statistics.push({ slug, name, sources, ...entry.data });
   } else if (entry.kind === ContentKind.VariantRule) {
     definitions.variantRules.push({ slug, name, sources: [...sources], rules: [...entry.rules] });
+  } else {
+    definitions.otherEntries.push(entry);
   }
 }
 
@@ -50,7 +53,13 @@ function addDefinition(definitions: PackDefinitions, entry: ContentEntry): void 
  */
 export function contentPackFromFiles(packFile: unknown, entryFiles: readonly unknown[]): ContentPack {
   const { proficiencyBonus, rollOptionNamespaces, ...manifest } = ContentPackFile.parse(packFile);
-  const definitions: PackDefinitions = { ancestries: [], creatures: [], statistics: [], variantRules: [] };
+  const definitions: PackDefinitions = {
+    ancestries: [],
+    creatures: [],
+    statistics: [],
+    variantRules: [],
+    otherEntries: [],
+  };
   for (const file of entryFiles) {
     for (const entry of ContentEntryFile.parse(file)) {
       if (entry.pack !== manifest.id) {

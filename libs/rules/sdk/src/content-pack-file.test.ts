@@ -102,6 +102,7 @@ describe('contentPackFromFiles', () => {
     expect(pack.creatures).toMatchObject([{ slug: 'mud-crab', level: 1, traits: ['animal'], armorClass: 16 }]);
     expect(pack.statistics).toMatchObject([{ slug: 'swim-check', selector: 'skill:athletics', sources: page }]);
     expect(pack.variantRules).toMatchObject([{ slug: 'flat-bonus', rules: [{ key: 'ProficiencyBonus' }] }]);
+    expect(pack.otherEntries).toMatchObject([{ kind: 'language', slug: 'common' }]);
   });
 
   test('the proficiency bonus table comes from pack.json', () => {

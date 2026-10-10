@@ -2,6 +2,7 @@ import { issueParams, message } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { AncestryDefinition } from './ancestry';
+import { ContentEntry } from './content-entry';
 import { PackId } from './content-id';
 import type { Slug } from './content-id';
 import { ContentText } from './content-text';
@@ -74,6 +75,8 @@ export const ContentPackSchema = z.object({
     .default([]),
   /** How each roll option namespace reads when missing: the core rules pack lists Foundry's, and any pack may add more. */
   rollOptionNamespaces: RollOptionNamespaces.default({}),
+  /** Entries of kinds the registry doesn't hold yet (languages, senses), kept so source checks and coverage see them. */
+  otherEntries: z.array(ContentEntry).readonly().default([]),
 });
 
 /**
@@ -89,6 +92,7 @@ export class ContentPack {
   public readonly proficiencyBonus: ProficiencyBonusTable | undefined;
   public readonly variantRules: readonly VariantRuleDefinition[];
   public readonly rollOptionNamespaces: RollOptionNamespaces;
+  public readonly otherEntries: readonly ContentEntry[];
 
   private constructor(data: z.output<typeof ContentPackSchema>) {
     this.manifest = data.manifest;
@@ -98,6 +102,7 @@ export class ContentPack {
     this.proficiencyBonus = data.proficiencyBonus;
     this.variantRules = data.variantRules;
     this.rollOptionNamespaces = data.rollOptionNamespaces;
+    this.otherEntries = data.otherEntries;
   }
 
   public static define(data: z.input<typeof ContentPackSchema>): ContentPack {
