@@ -29,7 +29,8 @@ through a `homebrew` source (ADR-0005), so homebrew authoring never needs a regi
 
 - Book titles are translated with the rest of the UI and are available as soon as the route's `rules` scope loads.
   The Legal page, source lines and facet labels don't wait for a content text bundle.
-- Adding a book is a reviewed code change: one `books.json` row, one `BOOK_TITLES` entry and one `en` key. Books are
+- Adding a book is a reviewed code change: one `books.json` row, one `BOOK_TITLES` entry, one `en` key and, for the
+  Foundry import, one `FOUNDRY_BOOK_TITLES` entry in `libs/interop/foundry` (ADR-0031). Books are
   few and change only when a book is imported, so this is the same PR as the import.
 - Epic 2.3 (#18) seeds `content_books` from the registry without a title column; the title stays a key.
 - If books ever have to be added as data (for example third-party publishers through the app), this is superseded

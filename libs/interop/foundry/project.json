@@ -1,0 +1,7 @@
+{
+  "name": "interop-foundry",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/interop/foundry/src",
+  "tags": ["scope:interop", "type:domain", "platform:any"]
+}

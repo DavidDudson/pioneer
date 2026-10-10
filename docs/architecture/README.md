@@ -93,7 +93,8 @@ libs/
                     sessions, request authentication (ADR-0007, ADR-0010); dev-users, dev-sign-in: local
                     dev only, never in a production build (ADR-0020)
   interop/
-    foundry/        Foundry pf2e actor export, rule element translation (shared with importer)
+    foundry/        Foundry pf2e import (exists: release reader, pin, selection; translation to come) and actor
+                    export, sharing the same mappings; `scope:interop`, used by `tools/content-import`
     pathbuilder/    Pathbuilder JSON import (exists): export schema, import model, content lookup port,
                     unmatched report, import contract; `scope:interop`, called by the character feature and
                     character service
