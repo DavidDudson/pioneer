@@ -2,9 +2,12 @@ import { describe, expect, test } from 'bun:test';
 
 import {
   CampaignInviteService,
+  CampaignPartyService,
   CampaignService,
   InMemoryCampaignInviteRepository,
+  InMemoryCampaignPartyRepository,
   InMemoryCampaignRepository,
+  InMemoryCharacterDirectory,
   InMemoryMemberDirectory,
 } from '@pioneer/campaign/application';
 import { fixedClock, newId, UserId } from '@pioneer/shared/kernel';
@@ -27,7 +30,13 @@ function app(): AnyElysia {
   const inviteRepository = new InMemoryCampaignInviteRepository();
   const service = new CampaignService({ campaigns, invites: inviteRepository, directory }, clock);
   const invites = new CampaignInviteService(campaigns, inviteRepository, clock);
-  return new Elysia().use(problemHandler).use(campaignRoutes(service, invites, new FakeAuthenticator()));
+  const partyService = new CampaignPartyService(
+    { campaigns, party: new InMemoryCampaignPartyRepository(), characters: new InMemoryCharacterDirectory(), directory },
+    clock,
+  );
+  return new Elysia()
+    .use(problemHandler)
+    .use(campaignRoutes({ campaigns: service, invites, party: partyService }, new FakeAuthenticator()));
 }
 
 interface RequestOptions {

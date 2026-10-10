@@ -1,9 +1,11 @@
 import type {
+  CampaignCharacterId,
   CampaignId,
   CampaignInviteId,
   CampaignMemberId,
   CampaignName,
   CampaignRole,
+  CharacterId,
   InviteTokenHash,
 } from '@pioneer/campaign/domain';
 import type { UserId, Version } from '@pioneer/shared/kernel';
@@ -84,5 +86,36 @@ export const campaignInvites = pgTable(
     index('campaign_invites_campaign_created_at_idx').on(table.campaignId, table.createdAt, table.id),
     // Serves the cascade when the creating user is deleted.
     index('campaign_invites_created_by_idx').on(table.createdBy),
+  ],
+);
+
+/**
+ * The characters players bring into campaigns, one row each. The audit log keys rows by `id`, so an
+ * attachment has its own id. A character belongs to its member: removing or leaving takes it out.
+ * The foreign key on `character_id` (to characters, on delete cascade) is in the migration, as the
+ * character context's tables are outside this one's boundary.
+ */
+export const campaignCharacters = pgTable(
+  'campaign_characters',
+  {
+    id: uuid().$type<CampaignCharacterId>().primaryKey(),
+    campaignId: uuid()
+      .$type<CampaignId>()
+      .notNull()
+      .references(() => campaigns.id, { onDelete: 'cascade' }),
+    memberId: uuid()
+      .$type<CampaignMemberId>()
+      .notNull()
+      .references(() => campaignMembers.id, { onDelete: 'cascade' }),
+    characterId: uuid().$type<CharacterId>().notNull(),
+    attachedAt: timestamp({ withTimezone: true, mode: 'string' }).notNull(),
+  },
+  (table) => [
+    // A character is in one campaign at most; also serves finding where characters are.
+    uniqueIndex('campaign_characters_character_idx').on(table.characterId),
+    // The party, oldest attachment first; also serves the cascade when a campaign is deleted.
+    index('campaign_characters_campaign_attached_at_idx').on(table.campaignId, table.attachedAt, table.id),
+    // Serves the cascade when a member is removed or leaves.
+    index('campaign_characters_member_idx').on(table.memberId),
   ],
 );
