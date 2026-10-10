@@ -31,7 +31,7 @@ function shownValue(value: ChoiceValue, table: SlugTable): string {
   return id.success ? (table.slugOf(id.data) ?? value) : value;
 }
 
-interface PicksParse {
+export interface PicksParse {
   readonly picks: ChoicePicks;
   /** The 1-based lines that are not `entry:rule = value`. */
   readonly bad: readonly number[];

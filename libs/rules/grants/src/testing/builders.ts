@@ -4,6 +4,7 @@ import {
   ContentId,
   ContentKind,
   ContentText,
+  Level,
   PackId,
   RollOption,
   RuleElement,
@@ -12,10 +13,14 @@ import {
   Slug,
   SourceRef,
 } from '@pioneer/rules/sdk';
+import type { ToggleKey } from '@pioneer/rules/sdk';
 
 import { slotKeyOf } from '../choices';
 import type { ChoicePicks } from '../choices';
 import type { ContentLookup, GrantEntry, GrantRoot } from '../grant-entry';
+import type { GrantInputs } from '../resolve-grants';
+import { toggleKeyOf } from '../toggles';
+import type { ToggleStates } from '../toggles';
 
 const TEST_PACK = PackId.parse('grants-test');
 const TEST_PAGE = SourceRef.parse({ kind: 'book', book: 'player-core', page: 1 });
@@ -35,6 +40,7 @@ export function entry(slug: string, rules: readonly object[] = []): GrantEntry {
   return {
     id: idOf(slug),
     kind: ContentKind.ClassFeature,
+    slug: Slug.parse(slug),
     name: ContentText.parse(slug),
     rules: rules.map((rule) => RuleElement.parse(rule)),
     sources: [TEST_PAGE],
@@ -75,4 +81,33 @@ export function picksOf(pairs: readonly (readonly [SlotKey, string])[] = []): Ch
 /** The slot of rule `rule` on the test pack's entry `slug`. */
 export function slotOf(slug: string, rule: number): SlotKey {
   return slotKeyOf(idOf(slug), RuleIndex.parse(rule));
+}
+
+/** What a test resolves: everything but the content and roots has a default. */
+export interface TestInputs {
+  readonly entries: readonly GrantEntry[];
+  readonly roots: readonly GrantRoot[];
+  /** 1 unless given. */
+  readonly level?: number | undefined;
+  /** Roll options the caller supplies, situational or not. */
+  readonly situation?: readonly string[] | undefined;
+  readonly picks?: ChoicePicks | undefined;
+  readonly toggles?: ToggleStates | undefined;
+}
+
+/** Grant inputs for test content: a 1st-level character with no picks or toggles unless given. */
+export function inputsOf({ entries, roots, level = 1, situation = [], picks, toggles }: TestInputs): GrantInputs {
+  return {
+    roots,
+    lookup: lookupOf(entries),
+    level: Level.parse(level),
+    situation: situation.map((option) => RollOption.parse(option)),
+    picks: picks ?? picksOf(),
+    toggles: toggles ?? new Map(),
+  };
+}
+
+/** The toggle of rule `rule` on the test pack's entry `slug`. */
+export function toggleOf(slug: string, rule: number): ToggleKey {
+  return toggleKeyOf(idOf(slug), RuleIndex.parse(rule));
 }

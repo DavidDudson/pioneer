@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { PredicateFacts, SummaryKind } from '@pioneer/rules/predicate';
+import { SummaryKind } from '@pioneer/rules/predicate';
 import { ContentText, OriginHop, RollOption } from '@pioneer/rules/sdk';
 import type { SlotKey } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
@@ -9,21 +9,21 @@ import type { GrantEntry, GrantRoot } from './grant-entry';
 import { GrantsMessage } from './messages';
 import { resolveGrants } from './resolve-grants';
 import type { GrantResolution } from './resolve-grants';
-import { entry, grantOf, idOf, lookupOf, picked, picksOf, slotOf } from './testing/builders';
+import { entry, grantOf, idOf, inputsOf, picked, picksOf, slotOf } from './testing/builders';
 
-/** The player's picks, and the roll options that hold. */
+/** The player's picks, the character's level and the roll options supplied. */
 interface Situation {
   readonly picks?: readonly (readonly [SlotKey, string])[];
-  readonly options?: readonly string[];
+  readonly level?: number;
+  readonly situation?: readonly string[];
 }
 
 function resolve(
   entries: readonly GrantEntry[],
   roots: readonly GrantRoot[],
-  { picks = [], options = [] }: Situation = {},
+  { picks = [], level, situation }: Situation = {},
 ): GrantResolution {
-  const facts = new PredicateFacts(options.map((option) => RollOption.parse(option)));
-  return resolveGrants({ roots, lookup: lookupOf(entries), facts, picks: picksOf(picks) });
+  return resolveGrants(inputsOf({ entries, roots, level, situation, picks: picksOf(picks) }));
 }
 
 const chosen = (slot: string): OriginHop => OriginHop.parse({ kind: 'choice', slot });
@@ -111,7 +111,7 @@ describe('resolveGrants choices', () => {
         },
       ]),
     ];
-    const result = resolve(content, [picked('ranger')], { options: ['self:level:1'] });
+    const result = resolve(content, [picked('ranger')], { level: 1 });
     const offered = result.open.flatMap((slot) => slot.options);
     expect(offered.map((shown) => shown.value)).toEqual([idOf('flurry'), idOf('precision')]);
     expect(offered.map((shown) => shown.summary?.kind)).toEqual([undefined, SummaryKind.Phrase]);
@@ -181,7 +181,7 @@ describe('resolveGrants choices', () => {
       ]),
     ];
     const result = resolve(content, [picked('ranger')], { picks: [[slotOf('ranger', 0), 'forest']] });
-    expect(result.rollOptions).toEqual([RollOption.parse('favored-terrain:forest')]);
+    expect(result.rollOptions).toContain(RollOption.parse('favored-terrain:forest'));
     expect(result.errors).toEqual([]);
   });
 
@@ -192,7 +192,7 @@ describe('resolveGrants choices', () => {
         grantChoice('style'),
       ]),
     ];
-    const result = resolve(content, [picked('fighter')], { options: ['self:level:1'] });
+    const result = resolve(content, [picked('fighter')], { level: 1 });
     expect(result.open).toEqual([]);
     expect(result.errors).toEqual([]);
   });

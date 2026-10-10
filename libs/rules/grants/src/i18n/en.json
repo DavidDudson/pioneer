@@ -5,6 +5,8 @@
     "tooDeep": "This grant is more than {maximum} steps from the character, so it is not followed.",
     "pickNotOffered": "{value} is not one of the options {entry} offers, so the choice is open again.",
     "unknownChoice": "{entry} grants the pick for {flag}, but has no choice by that name.",
-    "pickNotEntry": "The pick {value} for {flag} is an option, not a content entry, so it cannot be granted."
+    "pickNotEntry": "The pick {value} for {flag} is an option, not a content entry, so it cannot be granted.",
+    "oscillates": "{count, plural, one {{entries} keeps} other {{entries} keep}} switching on and off, because a grant or roll option undoes what it depends on, so {count, plural, one {it is} other {they are}} left out.",
+    "tooManyRounds": "Grants did not settle within {maximum} rounds, so {entries} {count, plural, one {is} other {are}} left out."
   }
 }

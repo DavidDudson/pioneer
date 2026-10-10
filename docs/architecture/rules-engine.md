@@ -348,6 +348,35 @@ any kind of entry can grant any other.
   summary. Offers sort by name, then id, so a builder list is stable. A query that matches nothing is an open slot
   with an empty offer, not an error.
 
+#### Facts from the set, to a fixpoint
+
+Grant and choice predicates read facts the set itself provides, so resolution runs in rounds. Each round walks the
+grants as above against the facts of the round before, then derives the facts again from the set it reached:
+
+- the level, as `self:level:<level>` (an input; a negative level sets none);
+- each entry's kind option, as Foundry writes it: `class:fighter`, `feature:<slug>` for a class feature,
+  `feat:<slug>`, `ancestry:`, `heritage:`, `background:`, `self:condition:<slug>`, `self:effect:<slug>`. Creatures
+  and statistics set none;
+- each `RollOption` element in the `all` domain whose predicate holds: a static one unless its `value` is false, and
+  a toggle while it is on. A toggle's state comes from input keyed `<entry id>:<rule index>`, else its `value`; while
+  on it also sets `<option>:<suboption>` for the picked suboption if offered, else the first offered. Options in
+  other domains only reach rolls in them, so grants never read them;
+- each answered slot's `<rollOption>:<pick>`, with every namespace a `ChoiceSet` on the set writes to made known.
+
+The supplied situation (`terrain:forest`) is added on top. Facts are rebuilt from scratch every round, so an entry
+whose predicate stops holding drops out with what it set. Once a round's set derives the facts it read, it has
+settled: the result is that round's items, slots, conditional grants and toggles, its derived `rollOptions`, and
+its `facts` for step 3.
+
+A round that derives facts an earlier round read never settles: a grant negated by what it grants (or a roll
+option that undoes itself). Only the entries every round in the loop has are kept, with the options they all
+agree on, and an error names the entries that come and go or set what comes and goes. Rounds are capped at 32; past
+that the last two rounds are compared the same way. Resolution always ends.
+
+The golden Level 1 Fighter (`testing/fighter.ts`) resolves to its class, Shield Block, Reactive Strike, the skill
+choice and a class feat slot; at 20th level with every slot picked it settles in a few rounds well inside its 3 ms
+bench budget.
+
 ### Statistic graph
 
 The base phase in `libs/rules/engine` (`StatisticBases`) is step 5. The inputs are the character's
@@ -419,7 +448,7 @@ The longest listed namespace an option starts with decides, so `self:participant
 while `self:effect:rage` is known. `item` and `parent` are known because the engine always evaluates them against a
 specific item. A namespace missing from the table is situational, so a gap shows up as a conditional line instead of
 hiding a modifier. The namespaces a `ChoiceSet` writes its pick to (`kinetic-gate:air`) are the character's own
-facts: the engine adds them as known with `withKnown`. The core rules pack will own the table (Epic 1.6).
+facts: grant resolution adds them as known with `withKnown`. The core rules pack will own the table (Epic 1.6).
 
 Statements follow Foundry's `Predicate.test`, lifted to three values:
 

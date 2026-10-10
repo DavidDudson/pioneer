@@ -4,8 +4,8 @@ import { PredicateFacts } from '@pioneer/rules/predicate';
 import { RollOption } from '@pioneer/rules/sdk';
 
 import type { GrantEntry } from './grant-entry';
-import { resolveGrants } from './resolve-grants';
-import type { GrantInputs } from './resolve-grants';
+import { walkGrants } from './grant-walk';
+import type { WalkInputs } from './grant-walk';
 import { entry, feat, lookupOf, picked, picksOf } from './testing/builders';
 
 const ENTRIES = 1000;
@@ -29,7 +29,7 @@ function feats(): GrantEntry[] {
 }
 
 /** A 5th-level fighter with some facts, asking for a fighter feat of their level or lower. */
-function inputs(): GrantInputs {
+function inputs(): WalkInputs {
   const fighter = entry('fighter', [
     {
       key: 'ChoiceSet',
@@ -58,18 +58,19 @@ function fastestOf(times: readonly number[]): number {
   return Math.min(...times);
 }
 
+// One walk: the query runs once per round, and the fixpoint bench times a whole character.
 test(`a query over ${ENTRIES} entries resolves in under ${BUDGET_MS} ms`, () => {
   for (let run = 0; run < WARMUP_RUNS; run += 1) {
-    resolveGrants(inputs());
+    walkGrants(inputs());
   }
   // Fresh entries each run, as a caller building content per request has them; only resolution is timed.
   const times = Array.from({ length: TIMED_RUNS }, (): number => {
     const given = inputs();
     const start = performance.now();
-    resolveGrants(given);
+    walkGrants(given);
     return performance.now() - start;
   });
   const fastest = fastestOf(times);
-  expect(resolveGrants(inputs()).open[0]?.options.length).toBeGreaterThan(0);
+  expect(walkGrants(inputs()).open[0]?.options.length).toBeGreaterThan(0);
   expect(fastest).toBeLessThan(BUDGET_MS);
 });

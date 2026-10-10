@@ -10,6 +10,7 @@ import { filter, merge } from 'rxjs';
 import type { OptionRow } from '../grant-choices';
 import { GrantList } from '../grant-list/grant-list.component';
 import type { ShownRow } from '../grant-list/grant-list.component';
+import type { ToggleRow } from '../grant-toggles';
 import { GrantsStatus } from '../grants-check';
 import type { GrantsCheck } from '../grants-check';
 import { RulesResult } from '../rules-result/rules-result.component';
@@ -23,6 +24,7 @@ interface ShownGrants {
   readonly conditional: readonly ShownRow[];
   readonly open: readonly ShownRow[];
   readonly answered: readonly ShownRow[];
+  readonly toggles: readonly ShownRow[];
   readonly rollOptions: readonly ShownRow[];
   readonly errors: readonly ShownRow[];
 }
@@ -33,13 +35,15 @@ const NO_ROWS: ShownGrants = {
   conditional: [],
   open: [],
   answered: [],
+  toggles: [],
   rollOptions: [],
   errors: [],
 };
 
 /**
  * The entries on the character with the chain that put each there, the grants skipped as already there, those
- * that depend on the situation, the choices to make and made, the roll options the picks set, and what failed.
+ * that depend on the situation, the choices to make and made, the toggles, the roll options the set derives once it
+ * settles, and what failed.
  * Problems with the entries show instead.
  */
 @Component({
@@ -83,10 +87,24 @@ export class GrantsResult {
         title: row.title,
         details: [...this.#slot(row.slot, row.via), this.#i18n.translate('play.rules.picked', { pick: row.pick })],
       })),
+      toggles: result.toggles.map((row) => ({
+        title: row.option,
+        details: [this.#i18n.translate('play.rules.slot', { slot: row.slot }), this.#toggleState(row)],
+      })),
       rollOptions: result.rollOptions.map((option) => ({ title: option, details: [] })),
       errors: result.errors.map((row) => ({ title: this.#translate(row.error), details: this.#via(row.via) })),
     };
   });
+
+  /** Whether a toggle is on, and with which suboption. */
+  #toggleState({ on, suboption }: ToggleRow): string {
+    if (!on) {
+      return this.#i18n.translate('play.rules.toggleOff');
+    }
+    return suboption === undefined
+      ? this.#i18n.translate('play.rules.toggleOn')
+      : this.#i18n.translate('play.rules.toggleOnWith', { suboption });
+  }
 
   #translate(descriptor: MessageDescriptor): string {
     return this.#i18n.translate(descriptor.key, descriptor.params);

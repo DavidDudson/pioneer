@@ -1,6 +1,5 @@
 import { describe, expect, test } from 'bun:test';
 
-import { PredicateFacts } from '@pioneer/rules/predicate';
 import { OriginHopKind } from '@pioneer/rules/sdk';
 import type { SlotKey } from '@pioneer/rules/sdk';
 import { assert, constantFrom, integer, option, property, shuffledSubarray, subarray, tuple } from 'fast-check';
@@ -9,7 +8,7 @@ import type { Arbitrary } from 'fast-check';
 import type { GrantEntry } from './grant-entry';
 import { resolveGrants } from './resolve-grants';
 import type { GrantResolution } from './resolve-grants';
-import { entry, grantOf, idOf, lookupOf, picked, picksOf, slotOf } from './testing/builders';
+import { entry, grantOf, idOf, inputsOf, picked, picksOf, slotOf } from './testing/builders';
 
 const ENTRIES_MAX = 8;
 const FLAG = 'pick';
@@ -70,12 +69,9 @@ function resolve(
   roots: readonly number[],
   picks: readonly (readonly [SlotKey, string])[],
 ): GrantResolution {
-  return resolveGrants({
-    roots: roots.map((index) => picked(slugOf(index))),
-    lookup: lookupOf(content),
-    facts: new PredicateFacts([]),
-    picks: picksOf(picks),
-  });
+  return resolveGrants(
+    inputsOf({ entries: content, roots: roots.map((index) => picked(slugOf(index))), picks: picksOf(picks) }),
+  );
 }
 
 /** Whether `slot` is on the chain behind any item. */

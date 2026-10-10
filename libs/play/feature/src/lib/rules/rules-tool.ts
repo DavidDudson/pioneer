@@ -27,15 +27,15 @@ export const ToolKind = {
 export type ToolKind = ValueOf<typeof ToolKind>;
 
 export type { ReferenceEntries } from './formula-check';
-export { EXAMPLE_GRANT_PICKS, EXAMPLE_GRANT_ROOTS } from './grant-examples';
+export { EXAMPLE_GRANT_LEVEL, EXAMPLE_GRANT_PICKS, EXAMPLE_GRANT_ROOTS, EXAMPLE_GRANT_TOGGLES } from './grant-examples';
 export { EXAMPLE_FACTS } from './predicate-verdict';
 export { EXAMPLE_OVERRIDES, EXAMPLE_RULE_ELEMENTS, EXAMPLE_STATISTIC_INPUTS } from './statistics-check';
 export { CheckStatus, RULES_TOOL_KEYS, rulesExample, RulesTool } from './rules-check';
 
 /**
  * What the tools read besides the main text: roll options for the verdict, reference values for formulas, the
- * character's inputs and rule elements for statistics, and the root entries and picks for grants; statistics and grants read
- * the roll options too.
+ * character's inputs and rule elements for statistics, and the root entries, picks, toggles and level for grants;
+ * statistics and grants read the roll options too.
  */
 export interface ToolInputs {
   readonly facts: string;
@@ -45,6 +45,8 @@ export interface ToolInputs {
   readonly grantRoots: string;
   readonly statisticOverrides: string;
   readonly grantPicks: string;
+  readonly grantToggles: string;
+  readonly grantLevel: number;
 }
 
 export type ToolCheck =
@@ -85,7 +87,14 @@ export function checkTool(tool: RulesTool, text: string, inputs: ToolInputs): To
   if (tool === RulesTool.Grants) {
     return {
       kind: ToolKind.Grants,
-      check: checkGrants({ entries: text, roots: inputs.grantRoots, picks: inputs.grantPicks, facts: inputs.facts }),
+      check: checkGrants({
+        entries: text,
+        roots: inputs.grantRoots,
+        picks: inputs.grantPicks,
+        toggles: inputs.grantToggles,
+        facts: inputs.facts,
+        level: inputs.grantLevel,
+      }),
     };
   }
   if (tool === RulesTool.RichText) {

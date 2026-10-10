@@ -12,43 +12,51 @@
       <fr-field-hint>{{ 'play.rules.grantEntriesHint' | transloco }}</fr-field-hint>
     }
   </fr-field>
-  <fr-field [invalid]="badRoots().length > 0">
-    <fr-label>{{ 'play.rules.grantRootsLabel' | transloco }}</fr-label>
-    <fr-text-area monospace [rows]="rootRows" [(value)]="roots" />
-    @if (badRoots().length > 0) {
-      <fr-field-error>{{
-        'play.rules.badRoots' | transloco: { count: badRoots().length, lines: lineList(badRoots()) }
-      }}</fr-field-error>
+  <pio-lines-field
+    [errorKey]="lineErrors.roots"
+    [label]="'play.rules.grantRootsLabel' | transloco"
+    [hint]="'play.rules.grantRootsHint' | transloco"
+    [rows]="rootRows"
+    [bad]="badRoots()"
+    [(value)]="roots"
+  />
+  <fr-field [invalid]="badLevel()">
+    <fr-label>{{ 'play.rules.grantLevelLabel' | transloco }}</fr-label>
+    <fr-number-input [min]="levelRange.min" [max]="levelRange.max" [(value)]="level" />
+    @if (badLevel()) {
+      <fr-field-error>{{ 'play.rules.badLevel' | transloco: levelRange }}</fr-field-error>
     } @else {
-      <fr-field-hint>{{ 'play.rules.grantRootsHint' | transloco }}</fr-field-hint>
+      <fr-field-hint>{{ 'play.rules.grantLevelHint' | transloco }}</fr-field-hint>
     }
   </fr-field>
-  <fr-field [invalid]="badPicks().length > 0">
-    <fr-label>{{ 'play.rules.grantPicksLabel' | transloco }}</fr-label>
-    <fr-text-area monospace [rows]="pickRows" [(value)]="picks" />
-    @if (badPicks().length > 0) {
-      <fr-field-error>{{
-        'play.rules.badPicks' | transloco: { count: badPicks().length, lines: lineList(badPicks()) }
-      }}</fr-field-error>
-    } @else {
-      <fr-field-hint>{{ 'play.rules.grantPicksHint' | transloco }}</fr-field-hint>
-    }
-  </fr-field>
+  <pio-lines-field
+    [errorKey]="lineErrors.picks"
+    [label]="'play.rules.grantPicksLabel' | transloco"
+    [hint]="'play.rules.grantPicksHint' | transloco"
+    [rows]="pickRows"
+    [bad]="badPicks()"
+    [(value)]="picks"
+  />
   @for (slot of openSlots(); track slot.slot) {
     <fr-field>
       <fr-label>{{ 'play.rules.openSlotLabel' | transloco: { title: slot.title, slot: slot.slot } }}</fr-label>
       <fr-select [options]="slot.options" (valueChange)="answer(slot.slot, $event)" />
     </fr-field>
   }
-  <fr-field [invalid]="badFacts().length > 0">
-    <fr-label>{{ 'play.rules.factsLabel' | transloco }}</fr-label>
-    <fr-text-area monospace [rows]="factRows" [(value)]="facts" />
-    @if (badFacts().length > 0) {
-      <fr-field-error>{{
-        'play.rules.badFacts' | transloco: { count: badFacts().length, lines: lineList(badFacts()) }
-      }}</fr-field-error>
-    } @else {
-      <fr-field-hint>{{ 'play.rules.factsHint' | transloco }}</fr-field-hint>
-    }
-  </fr-field>
+  <pio-lines-field
+    [errorKey]="lineErrors.toggles"
+    [label]="'play.rules.grantTogglesLabel' | transloco"
+    [hint]="'play.rules.grantTogglesHint' | transloco"
+    [rows]="toggleRows"
+    [bad]="badToggles()"
+    [(value)]="toggles"
+  />
+  <pio-lines-field
+    [errorKey]="lineErrors.facts"
+    [label]="'play.rules.factsLabel' | transloco"
+    [hint]="'play.rules.grantFactsHint' | transloco"
+    [rows]="factRows"
+    [bad]="badFacts()"
+    [(value)]="facts"
+  />
 </fr-stack>

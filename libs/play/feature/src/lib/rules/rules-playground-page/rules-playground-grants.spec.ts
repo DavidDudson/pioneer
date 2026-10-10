@@ -5,8 +5,10 @@ import {
   chooseSchema,
   openPlayground,
   pageText,
+  present,
   secondTextArea,
   textAreas,
+  typeInto,
   typeJson,
 } from './playground-harness';
 
@@ -27,6 +29,30 @@ describe('RulesPlaygroundPage grants', () => {
     ];
     expect(expected.filter((shown) => !text.includes(shown))).toStrictEqual([]);
     expect(text).not.toContain('Battlefield Surveyor');
+  });
+
+  it('brings class features in and out as the level changes', async () => {
+    const harness = await openPlayground();
+    await chooseSchema(harness, 'Grants');
+    const level = present(harness.routeNativeElement?.querySelector<HTMLInputElement>('input[type="number"]'));
+
+    await typeInto(harness, level, '7');
+    expect(pageText(harness)).toContain('Battlefield Surveyor');
+    expect(pageText(harness)).toContain('self:level:7');
+
+    await typeInto(harness, level, '2');
+    expect(pageText(harness)).not.toContain('Battlefield Surveyor');
+    expect(pageText(harness)).not.toContain('Bravery');
+  });
+
+  it('lists the toggles and every roll option the set derives', async () => {
+    const harness = await openPlayground();
+    await chooseSchema(harness, 'Grants');
+
+    const text = pageText(harness);
+    const expected = ['Toggles', 'Slot fighter:7', 'Roll options the character has', 'feature:bravery'];
+    expect(expected.filter((shown) => !text.includes(shown))).toStrictEqual([]);
+    expect(text).toContain('self:effect:raise-a-shield');
   });
 
   it('shows a grant cycle with text from the grants bundle', async () => {

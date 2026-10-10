@@ -1,8 +1,9 @@
 import { evaluatePredicate, RollOptionNamespace, summarisePredicate, Truth } from '@pioneer/rules/predicate';
 import type { PredicateFacts, PredicateSummary } from '@pioneer/rules/predicate';
-import { ContentId, OriginHopKind, RollOption, RuleElementKey, RuleIndex, SlotKey } from '@pioneer/rules/sdk';
+import { ContentId, OriginHopKind, RuleElementKey, RuleIndex, SlotKey } from '@pioneer/rules/sdk';
 import type {
   ChoiceOption,
+  RollOption,
   ChoiceQuery,
   ChoiceSetElement,
   ChoiceValue,
@@ -16,6 +17,7 @@ import { message } from '@pioneer/shared/kernel';
 
 import type { ContentLookup, GrantEntry, GrantError } from './grant-entry';
 import { GrantsMessage } from './messages';
+import { optionOf } from './option-of';
 import { byCodeUnit } from './order';
 
 /** An option the player may pick. `summary` says when it applies, for one whose predicate is unknown. */
@@ -40,6 +42,8 @@ export interface ChoiceSlot {
 /** A slot the player has answered with one of its offered options. */
 export interface AnsweredSlot extends ChoiceSlot {
   readonly pick: ChoiceValue;
+  /** `<rollOption>:<pick>`, for a `ChoiceSet` with a `rollOption`. */
+  readonly option: RollOption | undefined;
 }
 
 /** The character's answers, by slot. A pick for a slot no longer on the character is ignored. */
@@ -71,7 +75,6 @@ export interface EntryChoices {
   readonly flags: ReadonlySet<RuleSlug>;
   readonly open: readonly ChoiceSlot[];
   readonly answered: readonly AnsweredSlot[];
-  readonly rollOptions: readonly RollOption[];
   readonly errors: readonly GrantError[];
 }
 
@@ -149,7 +152,6 @@ class ChoiceReader {
   readonly #flags = new Set<RuleSlug>();
   readonly #open: ChoiceSlot[] = [];
   readonly #answered: AnsweredSlot[] = [];
-  readonly #rollOptions: RollOption[] = [];
   readonly #errors: GrantError[] = [];
 
   public constructor(at: EntryAt, context: ChoiceContext) {
@@ -163,7 +165,6 @@ class ChoiceReader {
       flags: this.#flags,
       open: this.#open,
       answered: this.#answered,
-      rollOptions: this.#rollOptions,
       errors: this.#errors,
     };
   }
@@ -180,7 +181,8 @@ class ChoiceReader {
     if (value === undefined) {
       this.#open.push(slot);
     } else if (slot.options.some((offered) => offered.value === value)) {
-      this.#answer(element, { ...slot, pick: value });
+      const option = element.rollOption === undefined ? undefined : optionOf(element.rollOption, value);
+      this.#answer({ ...slot, pick: value, option });
     } else {
       this.#refuse(slot, value);
     }
@@ -201,13 +203,10 @@ class ChoiceReader {
     return { key: slotKeyOf(entry.id, rule), flag: element.flag, origin, rule, prompt: element.prompt, options };
   }
 
-  #answer(element: ChoiceSetElement, slot: AnsweredSlot): void {
+  #answer(slot: AnsweredSlot): void {
     this.#answered.push(slot);
     if (!this.#picks.has(slot.flag)) {
       this.#picks.set(slot.flag, { slot: slot.key, value: slot.pick });
-    }
-    if (element.rollOption !== undefined) {
-      this.#rollOptions.push(RollOption.parse(`${element.rollOption}:${slot.pick}`));
     }
   }
 }

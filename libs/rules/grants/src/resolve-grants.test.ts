@@ -1,22 +1,17 @@
 import { describe, expect, test } from 'bun:test';
 
-import { PredicateFacts, SummaryKind } from '@pioneer/rules/predicate';
-import { ContentText, Origin, OriginHop, Predicate, RollOption, RuleSlug } from '@pioneer/rules/sdk';
+import { SummaryKind } from '@pioneer/rules/predicate';
+import { ContentText, Origin, OriginHop, Predicate, RuleSlug } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
 
 import type { GrantEntry, GrantRoot } from './grant-entry';
 import { GrantsMessage } from './messages';
 import { resolveGrants } from './resolve-grants';
 import type { GrantResolution } from './resolve-grants';
-import { entry, grantOf, idOf, lookupOf, picked, picksOf } from './testing/builders';
+import { entry, grantOf, idOf, inputsOf, picked } from './testing/builders';
 
-function resolve(
-  entries: readonly GrantEntry[],
-  roots: readonly GrantRoot[],
-  options: readonly string[] = [],
-): GrantResolution {
-  const facts = new PredicateFacts(options.map((option) => RollOption.parse(option)));
-  return resolveGrants({ roots, lookup: lookupOf(entries), facts, picks: picksOf() });
+function resolve(entries: readonly GrantEntry[], roots: readonly GrantRoot[], level = 1): GrantResolution {
+  return resolveGrants(inputsOf({ entries, roots, level }));
 }
 
 /** The player picked it for `slot`. */
@@ -143,7 +138,7 @@ describe('resolveGrants', () => {
       entry('weapon-mastery'),
       entry('battlefield-surveyor'),
     ];
-    const result = resolve(content, [picked('fighter')], ['self:level:5']);
+    const result = resolve(content, [picked('fighter')], 5);
     expect(names(result.items)).toEqual(['fighter', 'weapon-mastery']);
     expect(result.conditional).toEqual([]);
   });

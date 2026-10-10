@@ -1,53 +1,39 @@
-import { evaluatePredicate, summarisePredicate, Truth } from '@pioneer/rules/predicate';
-import type { PredicateFacts, PredicateSummary } from '@pioneer/rules/predicate';
-import { OriginHopKind, RuleElementKey, RuleIndex } from '@pioneer/rules/sdk';
-import type {
-  ContentId,
-  GrantItemElement,
-  Origin,
-  OriginHop,
-  Predicate,
-  RollOption,
-  RuleElement,
-  RuleSlug,
-} from '@pioneer/rules/sdk';
+import { DEFAULT_NAMESPACES, PredicateFacts, withKnown } from '@pioneer/rules/predicate';
+import type { NamespaceTable } from '@pioneer/rules/predicate';
+import { OriginHopKind } from '@pioneer/rules/sdk';
+import type { ContentId, ContentText, Level, OriginHop, RollOption } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
-import { choiceTarget, readChoices } from './choices';
-import type {
-  AnsweredSlot,
-  ChoiceContext,
-  ChoicePicks,
-  ChoiceSlot,
-  EntryAt,
-  EntryChoices,
-  GrantTarget,
-} from './choices';
-import type { ContentLookup, GrantEntry, GrantError, GrantRoot } from './grant-entry';
+import { characterFacts, levelOptions } from './character-facts';
+import type { CharacterFacts, FactState } from './character-facts';
+import type { AnsweredSlot, ChoicePicks, ChoiceSlot } from './choices';
+import type { ContentLookup, GrantError, GrantRoot } from './grant-entry';
+import { walkGrants } from './grant-walk';
+import type { ConditionalGrant, GrantedItem } from './grant-walk';
 import { GrantsMessage } from './messages';
 import { byCodeUnit } from './order';
+import { RoundLog } from './round-log';
+import type { Round } from './round-log';
+import type { ToggleSlot, ToggleStates } from './toggles';
 
-/** An entry on the character, with the chain of hops that put it there. */
-export interface GrantedItem {
-  readonly entry: GrantEntry;
-  readonly origin: Origin;
-  /** The name the granting element gave it, for later elements to refer to. */
-  readonly flag: RuleSlug | undefined;
-}
-
-/** A grant whose predicate is unknown on the static sheet: not on the character, and shown with when it would be. */
-export interface ConditionalGrant {
-  readonly entry: GrantEntry;
-  readonly origin: Origin;
-  readonly predicate: Predicate;
-  readonly summary: PredicateSummary;
+export interface GrantInputs {
+  readonly roots: readonly GrantRoot[];
+  readonly lookup: ContentLookup;
+  /** The character's level, read as `self:level:<level>`. */
+  readonly level: Level;
+  /** What the caller knows of the moment (`terrain:forest`), on top of what the character's entries set. */
+  readonly situation: readonly RollOption[];
+  readonly picks: ChoicePicks;
+  readonly toggles: ToggleStates;
+  /** Which namespaces are known; the default table unless a pack extends it. */
+  readonly namespaces?: NamespaceTable;
 }
 
 /**
- * Pipeline steps 1 and 2 (rules-engine.md): every entry in play with its origin, the grants skipped because the
- * entry was already there, the grants that depend on the situation, the choices made and still to make, and what
- * failed.
+ * Pipeline steps 1 and 2 (rules-engine.md), ready for step 3: every entry in play with its origin, the grants
+ * skipped because the entry was already there, the grants that depend on the situation, the choices made and still
+ * to make, the toggles, the facts the set derives, and what failed.
  */
 export interface GrantResolution {
   readonly items: readonly GrantedItem[];
@@ -57,216 +43,170 @@ export interface GrantResolution {
   /** Choices the player has yet to make, or whose pick is not on offer. */
   readonly open: readonly ChoiceSlot[];
   readonly answered: readonly AnsweredSlot[];
-  /** Roll options the picks set through their `ChoiceSet`'s `rollOption`. */
+  readonly toggles: readonly ToggleSlot[];
+  /**
+   * What the set says of the character, sorted: its level, the option each entry's kind sets (`feat:shield-block`),
+   * its `RollOption` elements and the toggles that are on, and its picks' `rollOption`s.
+   */
   readonly rollOptions: readonly RollOption[];
+  /** `rollOptions` and the situation, with the namespaces the picks write known: what every predicate read last. */
+  readonly facts: PredicateFacts;
   readonly errors: readonly GrantError[];
 }
 
-export interface GrantInputs {
-  readonly roots: readonly GrantRoot[];
-  readonly lookup: ContentLookup;
-  readonly facts: PredicateFacts;
-  readonly picks: ChoicePicks;
-}
-
-/** Longest chain followed; matches the most hops an `Origin` records. */
-const HOPS_MAX = 64;
+/**
+ * Most walks before giving up. Each round of a set that only grows adds an entry or an option, and real content
+ * settles in a handful, so reaching this means a chain of dependencies no character has.
+ */
+const ROUNDS_MAX = 32;
+/** When rounds run out, the last two are compared to name what was still changing. */
+const LAST_ROUNDS = 2;
 const LIST_SEPARATOR = ', ';
+const STATE_SEPARATOR = '|';
+const WORD_SEPARATOR = ' ';
 
-function isGrant(element: RuleElement): element is GrantItemElement {
-  return element.key === RuleElementKey.GrantItem;
+/** Builds the error for rounds that never settle, from the entries involved. */
+type UnsettledError = (entries: string, count: number) => MessageDescriptor;
+
+/** Names one state of the facts, so a repeat is found by lookup. */
+function fingerprintOf({ options, known }: FactState): string {
+  return [options.join(WORD_SEPARATOR), known.join(WORD_SEPARATOR)].join(STATE_SEPARATOR);
 }
 
-/** A `GrantItem` and the hop it adds to what it grants. */
-interface GrantAt {
-  readonly element: GrantItemElement;
-  readonly hop: OriginHop;
+/** The values found in every list, in the first list's order. */
+function common<Value>(lists: readonly (readonly Value[])[]): Value[] {
+  const [first = [], ...rest] = lists;
+  const others = rest.map((list) => new Set(list));
+  return first.filter((value) => others.every((other) => other.has(value)));
 }
 
-/** How an entry is reached: the hops to it, the entries above it, and what the granting element asked for. */
-interface Visit {
-  readonly hops: readonly OriginHop[];
-  readonly chain: readonly GrantEntry[];
-  readonly flag: RuleSlug | undefined;
-  readonly allowDuplicate: boolean;
+/** The entries that set an option outside `kept`. */
+function settersOutside(derived: CharacterFacts, kept: ReadonlySet<RollOption>): ContentId[] {
+  return [...derived.setBy].flatMap(([option, setBy]) => (kept.has(option) ? [] : setBy));
 }
 
-function originOf(entry: GrantEntry, hops: readonly OriginHop[]): Origin {
-  return { hops: [...hops], entry: entry.id, sources: [...entry.sources] };
+/** A round whose set derives the facts it read: the resolution. */
+function settled({ walk, facts, derived }: Round): GrantResolution {
+  return { ...walk, toggles: derived.toggles, rollOptions: derived.options, facts };
 }
 
-/** Roots in entry id order, then by how they got there, so the order they are given in never matters. */
-function byEntry(left: GrantRoot, right: GrantRoot): number {
-  return byCodeUnit(left.entry, right.entry) || byCodeUnit(JSON.stringify(left.hop), JSON.stringify(right.hop));
+/** What `round` has that comes from entries in `core` alone. */
+type Kept = Omit<GrantResolution, 'rollOptions' | 'facts'>;
+
+/** The parts of `round` every entry behind which is in `core`. */
+function keptOf({ walk, derived }: Round, core: ReadonlySet<ContentId>): Kept {
+  const inCore = (hops: readonly OriginHop[]): boolean =>
+    hops.every((hop) => hop.kind !== OriginHopKind.Grant || core.has(hop.by));
+  return {
+    items: walk.items.filter((item) => core.has(item.entry.id)),
+    duplicates: walk.duplicates.filter((item) => inCore(item.origin.hops)),
+    conditional: walk.conditional.filter((grant) => inCore(grant.origin.hops)),
+    open: walk.open.filter((slot) => core.has(slot.origin.entry)),
+    answered: walk.answered.filter((slot) => core.has(slot.origin.entry)),
+    toggles: derived.toggles.filter((toggle) => core.has(toggle.origin.entry)),
+    errors: walk.errors.filter((each) => inCore(each.hops)),
+  };
 }
 
-/** Why `entry` cannot be followed from here: it is already above itself, or the chain is too long. */
-function blockedAt(entry: GrantEntry, visit: Visit): MessageDescriptor | undefined {
-  const start = visit.chain.findIndex((above) => above.id === entry.id);
-  if (start !== -1) {
-    const loop = visit.chain.slice(start);
-    const entries = loop.map((member) => member.name).join(LIST_SEPARATOR);
-    return message(GrantsMessage.Cycle, { entries, count: loop.length });
+/**
+ * The entries in `rounds` that some round lacks, or that set an option some round lacks, by name. A loop always has
+ * at least one, since its rounds differ in an entry or in an option an entry set.
+ */
+function involvedNames(
+  rounds: readonly Round[],
+  core: ReadonlySet<ContentId>,
+  kept: ReadonlySet<RollOption>,
+): string[] {
+  const names = new Map<ContentId, ContentText>();
+  const involved = new Set<ContentId>();
+  for (const { walk, derived } of rounds) {
+    for (const { entry } of walk.items) {
+      names.set(entry.id, entry.name);
+    }
+    const coming = walk.items.map((item) => item.entry.id).filter((id) => !core.has(id));
+    for (const id of [...coming, ...settersOutside(derived, kept)]) {
+      involved.add(id);
+    }
   }
-  return visit.hops.length > HOPS_MAX ? message(GrantsMessage.TooDeep, { maximum: HOPS_MAX }) : undefined;
+  return [...involved].flatMap((id) => names.get(id) ?? []).toSorted(byCodeUnit);
 }
 
-/** Walks grants depth first, in root order then rule order, recording what it finds. */
-class GrantWalk {
-  readonly #lookup: ContentLookup;
-  readonly #facts: PredicateFacts;
-  readonly #context: ChoiceContext;
-  readonly #present = new Set<ContentId>();
-  /** Entries whose slots are recorded. */
-  readonly #chosen = new Set<ContentId>();
-  readonly #items: GrantedItem[] = [];
-  readonly #duplicates: GrantedItem[] = [];
-  readonly #conditional: ConditionalGrant[] = [];
-  readonly #open: ChoiceSlot[] = [];
-  readonly #answered: AnsweredSlot[] = [];
-  readonly #rollOptions: RollOption[] = [];
-  readonly #errors: GrantError[] = [];
+/** Resolves rounds of grants until the facts they derive stop changing. */
+class Fixpoint {
+  readonly #inputs: GrantInputs;
+  readonly #namespaces: NamespaceTable;
 
-  public constructor({ lookup, facts, picks }: GrantInputs) {
-    this.#lookup = lookup;
-    this.#facts = facts;
-    this.#context = { facts, picks, lookup };
+  public constructor(inputs: GrantInputs) {
+    this.#inputs = inputs;
+    this.#namespaces = inputs.namespaces ?? DEFAULT_NAMESPACES;
   }
 
-  public get resolution(): GrantResolution {
+  public resolve(): GrantResolution {
+    return this.#settle({ options: levelOptions(this.#inputs.level), known: [] }, new RoundLog());
+  }
+
+  /** Walks against `state`; done once the set derives `state` again, else walks against what it derives. */
+  #settle(state: FactState, log: RoundLog): GrantResolution {
+    const fingerprint = fingerprintOf(state);
+    const round = this.#round(state);
+    log.add(fingerprint, round);
+    const next = fingerprintOf(round.derived);
+    if (next === fingerprint) {
+      return settled(round);
+    }
+    const loop = log.since(next);
+    if (loop !== undefined) {
+      return this.#unsettled(round, loop, (entries, count) => message(GrantsMessage.Oscillates, { entries, count }));
+    }
+    if (log.size === ROUNDS_MAX) {
+      return this.#unsettled(round, log.latest(LAST_ROUNDS), (entries, count) =>
+        message(GrantsMessage.TooManyRounds, { entries, count, maximum: ROUNDS_MAX }),
+      );
+    }
+    return this.#settle(round.derived, log);
+  }
+
+  /** Walks the grants against `state` and the situation, and derives the facts the set it reaches has. */
+  #round(state: FactState): Round {
+    const facts = this.#factsOf(state);
+    const walk = walkGrants({ ...this.#inputs, facts });
+    const derived = characterFacts(walk, { level: this.#inputs.level, facts, toggles: this.#inputs.toggles });
+    return { walk, facts, derived };
+  }
+
+  #factsOf({ options, known }: FactState): PredicateFacts {
+    return new PredicateFacts([...options, ...this.#inputs.situation], withKnown(this.#namespaces, known));
+  }
+
+  /**
+   * Rounds that never settle: only what every one of them agrees on stays, taken from `last`. The entries that come
+   * and go, or that set options that come and go, are named in an error.
+   */
+  #unsettled(last: Round, rounds: readonly Round[], error: UnsettledError): GrantResolution {
+    const core = new Set(common(rounds.map(({ walk }) => walk.items.map((item) => item.entry.id))));
+    const options = common(rounds.map(({ derived }) => derived.options));
+    const known = common(rounds.map(({ derived }) => derived.known));
+    const names = involvedNames(rounds, core, new Set(options));
+    const failed: GrantError = { error: error(names.join(LIST_SEPARATOR), names.length), hops: [] };
+    const kept = keptOf(last, core);
     return {
-      items: this.#items,
-      duplicates: this.#duplicates,
-      conditional: this.#conditional,
-      open: this.#open,
-      answered: this.#answered,
-      rollOptions: this.#rollOptions,
-      errors: this.#errors,
+      ...kept,
+      rollOptions: options,
+      facts: this.#factsOf({ options, known }),
+      errors: [...kept.errors, failed],
     };
-  }
-
-  public root({ entry, hop }: GrantRoot): void {
-    this.#visit(entry, { hops: [hop], chain: [], flag: undefined, allowDuplicate: false });
-  }
-
-  #find(id: ContentId, hops: readonly OriginHop[]): GrantEntry | undefined {
-    const entry = this.#lookup.entry(id);
-    if (entry === undefined) {
-      this.#errors.push({ error: message(GrantsMessage.UnknownEntry, { entry: id }), hops });
-    }
-    return entry;
-  }
-
-  /** The entry to add next, or undefined after recording why it cannot be: missing, in a cycle, or too deep. */
-  #reach(id: ContentId, visit: Visit): GrantEntry | undefined {
-    const entry = this.#find(id, visit.hops);
-    const blocked = entry === undefined ? undefined : blockedAt(entry, visit);
-    if (blocked !== undefined) {
-      this.#errors.push({ error: blocked, hops: visit.hops });
-      return undefined;
-    }
-    return entry;
-  }
-
-  #visit(id: ContentId, visit: Visit): void {
-    const entry = this.#reach(id, visit);
-    if (entry === undefined) {
-      return;
-    }
-    const item: GrantedItem = { entry, origin: originOf(entry, visit.hops), flag: visit.flag };
-    if (this.#present.has(id) && !visit.allowDuplicate) {
-      this.#duplicates.push(item);
-      return;
-    }
-    this.#present.add(id);
-    this.#items.push(item);
-    this.#follow(entry, visit);
-  }
-
-  /** Records `entry`'s choices, then follows each `GrantItem` on it, in rule order. */
-  #follow(entry: GrantEntry, visit: Visit): void {
-    const at: EntryAt = { entry, hops: visit.hops };
-    const choices = this.#choose(at);
-    const chain = [...visit.chain, entry];
-    for (const [index, element] of entry.rules.entries()) {
-      const hop: OriginHop = { kind: OriginHopKind.Grant, by: entry.id, rule: RuleIndex.parse(index) };
-      const target = isGrant(element) ? this.#target(at, { element, hop }, choices) : undefined;
-      if (isGrant(element) && target !== undefined) {
-        const hops = [...visit.hops, ...target.hops, hop];
-        const allowDuplicate = element.allowDuplicate === true;
-        this.#grant(element, target.id, { hops, chain, flag: element.flag, allowDuplicate });
-      }
-    }
-  }
-
-  /**
-   * Reads the entry's choices, and records its slots the first time the entry is followed. A copy granted again
-   * with `allowDuplicate` shares its slots (and so its picks), so they are not reported twice.
-   */
-  #choose(at: EntryAt): EntryChoices {
-    const choices = readChoices(at, this.#context);
-    if (this.#chosen.has(at.entry.id)) {
-      return choices;
-    }
-    this.#chosen.add(at.entry.id);
-    this.#open.push(...choices.open);
-    this.#answered.push(...choices.answered);
-    this.#rollOptions.push(...choices.rollOptions);
-    this.#errors.push(...choices.errors);
-    return choices;
-  }
-
-  /**
-   * What `element` grants; undefined while its pick is still to make, or after recording why it cannot grant, at
-   * the element's own grant hop.
-   */
-  #target(at: EntryAt, { element, hop }: GrantAt, choices: EntryChoices): GrantTarget | undefined {
-    const { item } = element;
-    if (typeof item === 'string') {
-      return { id: item, hops: [] };
-    }
-    const target = choiceTarget(at, item.choice, choices);
-    if (target !== undefined && 'error' in target) {
-      this.#errors.push({ error: target.error, hops: [...target.hops, hop] });
-      return undefined;
-    }
-    return target;
-  }
-
-  /** Follows a grant whose predicate holds; records one that depends on the situation; drops one that fails. */
-  #grant(element: GrantItemElement, id: ContentId, visit: Visit): void {
-    const { predicate } = element;
-    const truth = predicate === undefined ? Truth.True : evaluatePredicate(predicate, this.#facts);
-    if (truth === Truth.True) {
-      this.#visit(id, visit);
-      return;
-    }
-    if (truth === Truth.False || predicate === undefined) {
-      return;
-    }
-    const summary = summarisePredicate(predicate, this.#facts, element.display?.summary);
-    const entry = this.#find(id, visit.hops);
-    if (entry !== undefined && summary !== undefined) {
-      this.#conditional.push({ entry, origin: originOf(entry, visit.hops), predicate, summary });
-    }
   }
 }
 
 /**
- * Resolves `GrantItem` elements from the character's roots down, depth first. Roots are taken in entry id order,
- * so the result does not depend on the order they are given in. An entry already on the character is a duplicate
- * unless its grant allows one. A grant back to an entry above it is a cycle, reported once and not followed. A
- * missing entry is an error at its grant; the other grants still resolve.
+ * Resolves `GrantItem` and `ChoiceSet` elements from the character's roots down (see `walkGrants`), against facts
+ * derived from the set itself. Each round walks the grants against the level, the situation and the facts the last
+ * round's set derived (`characterFacts`), and derives them again; once they stop changing, the set is settled. Facts
+ * are rebuilt from scratch each round, so an entry whose predicate stops holding drops out with what it set.
  *
- * Each `ChoiceSet` whose predicate holds is a slot, keyed by its entry and rule index. A pick among the
- * offered options answers it, and a `GrantItem { choice }` on the same entry grants the picked entry behind a
- * `choice` hop. A slot with no pick, or a pick no longer on offer, is open, and its grants wait. A `ChoiceSet` with a
- * query offers every entry of its kind whose filter is not false, reading the entry's own roll options under `item:`.
+ * Rounds that return to facts seen before never settle: a grant negated by what it grants. Only the entries every
+ * such round has stay, and an error names the rest. Rounds are bounded, so resolution always ends.
  */
 export function resolveGrants(inputs: GrantInputs): GrantResolution {
-  const walk = new GrantWalk(inputs);
-  for (const root of inputs.roots.toSorted(byEntry)) {
-    walk.root(root);
-  }
-  return walk.resolution;
+  return new Fixpoint(inputs).resolve();
 }
