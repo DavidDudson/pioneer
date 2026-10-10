@@ -46,7 +46,7 @@ export {
   PackStatistic,
   PackVisibility,
 } from './content-pack';
-export { contentId, ContentKey, contentKey, ContentPackId, contentPackId, PackId, Slug } from './content-id';
+export { contentId, ContentId, ContentKey, contentKey, ContentPackId, contentPackId, PackId, Slug } from './content-id';
 export { ContentText } from './content-text';
 export {
   DAMAGE_GROUP_TYPES,
@@ -60,7 +60,7 @@ export {
   DamageTypeSchema,
 } from './damage';
 export { DegreeChange, DegreeChangeSchema, DegreeOfSuccess, DegreeOfSuccessSchema } from './degree-of-success';
-export { Immunity, Trait, TraitData } from './trait';
+export { DamageException, Immunity, Trait, TraitData } from './trait';
 export { LanguageData } from './language';
 export { SenseAcuity, SenseData } from './sense';
 export { VariantRuleData, VariantRuleDefinition, VariantRuleId } from './variant-rule';
@@ -165,7 +165,6 @@ export {
   LEVEL_MIN,
   Modifier,
 } from './units';
-export { ContentId } from './content-id';
 export { RulesMessage } from './messages';
 export {
   ConditionValue,
@@ -250,6 +249,7 @@ export {
   NumericItemProperty,
   TraitAlterationMode,
 } from './rule-element-item-alteration';
+export { DefenceValue, ImmunityElement, ResistanceElement, WeaknessElement } from './rule-element-defences';
 export {
   ArmorCategory,
   MartialCategory,

@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { DamageGroup, DamageType, Immunity } from '@pioneer/rules/sdk';
+import { DamageAdjustment, DamageGroup, DamageType, Immunity } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
 
 import { applyDamage, NO_DEFENCES } from './damage';
@@ -144,6 +144,12 @@ describe('applyDamage', () => {
       target({ resistances: [adjustment(DamageType.Cold, 5)] }),
     );
     expect(result.immediate[0]?.lines).toEqual([]);
+  });
+
+  test('an exception travels with a resistance but never matches until damage carries traits', () => {
+    const resistance = DamageAdjustment.parse({ type: DamageGroup.Physical, value: 5, exceptions: ['adamantine'] });
+    const result = applyDamage(roll('1d8[slashing]', [7]), target({ resistances: [resistance] }));
+    expect(result.taken).toBe(amount(2));
   });
 
   test('resistance removes up to its value and never below zero', () => {
