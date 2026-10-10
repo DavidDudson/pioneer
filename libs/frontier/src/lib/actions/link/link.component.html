@@ -14,7 +14,14 @@
     <ng-container [ngTemplateOutlet]="content" />
   }
 } @else {
-  <a [class]="classes()" [routerLink]="to()" [attr.aria-label]="ariaLabel()"
+  <a
+    routerLinkActive
+    ariaCurrentWhenActive="page"
+    [class]="classes()"
+    [routerLink]="to()"
+    [routerLinkActiveOptions]="activeOptions()"
+    [attr.aria-label]="ariaLabel()"
+    (isActiveChange)="current.set($event)"
     ><ng-container [ngTemplateOutlet]="content"
   /></a>
 }

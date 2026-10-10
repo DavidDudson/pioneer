@@ -187,6 +187,7 @@
   --z-index-sticky: var(--fr-z-sticky);
   --z-index-overlay: var(--fr-z-overlay);
   --text-underline-offset-link: var(--fr-underline-offset);
+  --text-decoration-thickness-link-current: var(--fr-underline-thickness-current);
 
   --animate-spin: fr-spin 1s linear infinite;
   --animate-shimmer: fr-shimmer 1.4s var(--fr-ease-standard) infinite;
