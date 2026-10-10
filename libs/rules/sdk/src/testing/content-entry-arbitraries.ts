@@ -18,7 +18,6 @@ import { Attribute, ATTRIBUTE_MODIFIER_MAX, ATTRIBUTE_MODIFIER_MIN } from '../at
 import { ConditionGroup } from '../condition';
 import { contentId, PackId, Slug } from '../content-id';
 import { ContentKind } from '../content-kind';
-import { DamageType } from '../damage';
 import { DisplayCategory, Rarity } from '../entry-fields';
 import { FeatCategory, UNLIMITED } from '../feat';
 import type { RegisteredKind } from '../kind-data';
@@ -35,8 +34,10 @@ import {
   deityOrPhilosophyData,
   heritageData,
 } from './build-kind-arbitraries';
+import { EQUIPMENT_KIND_ARBITRARIES } from './equipment-kind-arbitraries';
 import {
   contentIdJson,
+  damageType,
   LIST_MAX,
   positive,
   size,
@@ -57,7 +58,6 @@ const aonUrl: Arbitrary<string> = integer({ min: 1, max: AON_ID_MAX }).map(
   (id) => `https://2e.aonprd.com/Feats.aspx?ID=${id}`,
 );
 
-const damageType: Arbitrary<string> = constantFrom(...Object.values(DamageType));
 const rarity: Arbitrary<string> = constantFrom(...Object.values(Rarity));
 const displayCategory: Arbitrary<string> = constantFrom(...Object.values(DisplayCategory));
 const statisticKind: Arbitrary<string> = constantFrom(...Object.values(StatisticKind));
@@ -144,10 +144,14 @@ const emptyData: Arbitrary<object> = constant({});
 const entryLevel: Arbitrary<number> = integer({ min: 0, max: CONTENT_LEVEL_MAX });
 const creatureLevel: Arbitrary<number> = integer({ min: LEVEL_MIN, max: LEVEL_MAX });
 
-/** Valid `data` for each registered kind, and its level when the kind always has one. */
-const KIND_ARBITRARIES: Readonly<
-  Record<RegisteredKind, { readonly data: Arbitrary<object>; readonly level?: Arbitrary<number> }>
-> = {
+/** Valid `data` for each registered kind, its level when the kind always has one, and whether it never has one. */
+interface KindArbitrary {
+  readonly data: Arbitrary<object>;
+  readonly level?: Arbitrary<number>;
+  readonly levelless?: boolean;
+}
+
+const KIND_ARBITRARIES: Readonly<Record<RegisteredKind, KindArbitrary>> = {
   [ContentKind.Action]: { data: actionData },
   [ContentKind.Ancestry]: { data: ancestryData },
   [ContentKind.Archetype]: { data: archetypeData },
@@ -169,6 +173,7 @@ const KIND_ARBITRARIES: Readonly<
   [ContentKind.Statistic]: { data: statisticData },
   [ContentKind.Trait]: { data: traitData },
   [ContentKind.VariantRule]: { data: emptyData },
+  ...EQUIPMENT_KIND_ARBITRARIES,
 };
 
 const bookPage: Arbitrary<object> = record({ kind: constant('book'), book: slugText, page: positive });
@@ -207,7 +212,7 @@ interface DataAndRules {
 
 /** A valid content entry of `kind`, as plain JSON (unparsed), with every optional field sometimes present. */
 export function contentEntryJson(kind: RegisteredKind): Arbitrary<object> {
-  const { data, level } = KIND_ARBITRARIES[kind];
+  const { data, level, levelless = false } = KIND_ARBITRARIES[kind];
   const dataAndRules: Arbitrary<DataAndRules> = tuple(data, array(ruleElementJson, { maxLength: LIST_MAX })).map(
     ([picked, rules]) => ({ data: picked, rules: [...rules, ...impliedGrants(picked)] }),
   );
@@ -229,7 +234,7 @@ export function contentEntryJson(kind: RegisteredKind): Arbitrary<object> {
   );
   const externalIds = withOptional(constant({}), { foundry: contentText, aon: aonUrl, pathbuilder: contentText });
   return withOptional(required, {
-    ...(level === undefined ? { level: entryLevel } : {}),
+    ...(level === undefined && !levelless ? { level: entryLevel } : {}),
     display: record({ category: displayCategory }),
     externalIds,
     // A random UUID never equals a UUIDv5 id, so these never supersede the entry itself.

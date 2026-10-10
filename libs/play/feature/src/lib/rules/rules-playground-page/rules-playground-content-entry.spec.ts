@@ -11,24 +11,32 @@ function json(harness: RouterTestingHarness): string {
 const KIND_EXAMPLES = [
   ['action', 'Action'],
   ['archetype', 'Archetype'],
+  ['armor', 'Armor'],
   ['background', 'Background'],
   ['class', 'Class'],
   ['class-feature', 'Class feature'],
   ['condition', 'Condition'],
+  ['consumable', 'Consumable'],
   ['creature', 'Creature'],
   ['damage-type', 'Damage type'],
   ['deity', 'Deity'],
   ['effect', 'Effect'],
+  ['equipment', 'Equipment'],
   ['feat', 'Feat'],
   ['heritage', 'Heritage'],
+  ['kit', 'Kit'],
   ['language', 'Language'],
   ['ritual', 'Ritual'],
+  ['rune', 'Rune'],
   ['sense', 'Sense'],
+  ['shield', 'Shield'],
   ['spell', 'Spell'],
   ['spellcasting-tradition', 'Spellcasting tradition'],
   ['statistic', 'Statistic'],
   ['trait', 'Trait'],
+  ['treasure', 'Treasure'],
   ['variant-rule', 'Variant rule'],
+  ['weapon', 'Weapon'],
 ] as const;
 
 describe('RulesPlaygroundPage content entry', () => {
@@ -64,11 +72,11 @@ describe('RulesPlaygroundPage content entry', () => {
   it('names a kind with no schema', async () => {
     const harness = await openPlayground();
     await chooseSchema(harness, 'Content entry');
-    await typeJson(harness, json(harness).replace('"kind": "ancestry"', '"kind": "weapon"'));
+    await typeJson(harness, json(harness).replace('"kind": "ancestry"', '"kind": "hazard"'));
 
     const text = pageText(harness);
     expect(text).toContain('1 problem');
-    expect(text).toContain('“weapon” is not a content kind Pioneer has a schema for yet.');
+    expect(text).toContain('“hazard” is not a content kind Pioneer has a schema for yet.');
   });
 
   it('points at the envelope or data field that is wrong', async () => {

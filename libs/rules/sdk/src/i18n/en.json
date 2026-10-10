@@ -148,6 +148,16 @@
     },
     "effect": {
       "badgeRange": "The counter starts between its minimum and maximum."
+    },
+    "item": {
+      "priceEmpty": "Give at least one coin, or leave the price out when the item has none."
+    },
+    "rune": {
+      "etchedOnto": "A {rune} rune isn’t etched onto {item, select, weapon {a weapon} armor {armor} shield {a shield} other {{item}}}.",
+      "grade": "A {rune} rune goes up to grade {max}; only reinforcing runes go higher."
+    },
+    "consumable": {
+      "ammunition": "Only ammunition is fired as a kind of ammunition; use the ammunition category."
     }
   }
 }

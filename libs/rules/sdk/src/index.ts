@@ -12,6 +12,24 @@ export {
 export { DeityCategory, DivineFont } from './deity';
 export { EffectCategory, EffectData } from './effect';
 export { RitualData } from './ritual';
+export { ArmorData, ArmorGroup, ArmorItemCategory, ShieldData } from './armor';
+export { ConsumableCategory, ConsumableData } from './consumable';
+export { EquipmentData, KitData, TreasureCategory, TreasureData } from './equipment';
+export {
+  Bulk,
+  BulkCount,
+  BulkWeight,
+  Coin,
+  Hardness,
+  ItemCount,
+  MaterialGrade,
+  Price,
+  Usage,
+  UsageHands,
+  UsageType,
+} from './physical-item';
+export { FundamentalRune, ReinforcingGrade, RuneData, RunedItem, RuneGrade, RuneType } from './rune';
+export { AmmunitionType, BaseWeapon, DieSize, WeaponData, WeaponGroup } from './weapon';
 export { SpellData } from './spell';
 export { SPELL_RANK_MAX, SpellRank } from './spell-rank';
 export { MagicTradition, SpellcastingTraditionData } from './spellcasting-tradition';
