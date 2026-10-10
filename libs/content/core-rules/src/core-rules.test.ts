@@ -137,6 +137,14 @@ describe('core rules pack', () => {
     expect(totals(derived)).toMatchObject({ ac: 16, perception: 8 });
   });
 
+  test('with an ancestry but no class, Hit Points fail at the class reference and Speed derives', () => {
+    const { class: _class, ...ancestryOnly } = fighter;
+    const derived = deriveStatistics(core, ancestryOnly);
+    // `@class.hp` starts at position 17 of `@ancestry.hp + (@class.hp + @attr.con) * @level`.
+    expect(derived.get(Selector.parse('hp:max'))).toMatchObject(failure('engine.statistic.noClass', 17));
+    expect(totals(derived)['speed:land']).toBe(25);
+  });
+
   test('keys every skill to its Player Core attribute', () => {
     const derived = totals(deriveStatistics(core, fighter));
     const expected = Object.fromEntries(
@@ -155,6 +163,7 @@ describe('core rules pack', () => {
     expect(reachedBy('hp')).toStrictEqual(['hp:max']);
     expect(reachedBy('speed')).toStrictEqual(['speed:land']);
     expect(reachedBy('all-speeds')).toStrictEqual(['speed:land']);
+    expect(reachedBy('land-speed')).toStrictEqual(['speed:land']);
     expect(reachedBy('class')).toStrictEqual(['class-dc']);
     expect(reachedBy('dex-based')).toStrictEqual(sorted(['ac', 'save:reflex', ...skillsKeyedTo(Attribute.Dexterity)]));
     expect(reachedBy('wis-based')).toStrictEqual(

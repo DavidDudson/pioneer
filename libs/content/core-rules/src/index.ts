@@ -171,7 +171,7 @@ export const coreRules = ContentPack.define({
       slug: 'land-speed',
       name: 'Speed',
       selector: 'speed:land',
-      domains: ['speed', 'all-speeds'],
+      domains: ['speed', 'all-speeds', 'land-speed'],
       base: '@ancestry.speed',
       kind: StatisticKind.Value,
       sources: [SPEED_SOURCE],

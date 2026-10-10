@@ -1,5 +1,5 @@
-import { evaluate, references } from '@pioneer/rules/formula';
-import type { FormulaNode, FormulaValue, ResolveReference } from '@pioneer/rules/formula';
+import { evaluate, FormulaMessage, references } from '@pioneer/rules/formula';
+import type { EvaluateFailure, FormulaNode, FormulaValue, ResolveReference } from '@pioneer/rules/formula';
 import type { PredicateFacts } from '@pioneer/rules/predicate';
 import { knownReference } from '@pioneer/rules/sdk';
 import type { Selector, StatisticDefinition } from '@pioneer/rules/sdk';
@@ -108,30 +108,32 @@ export class StatisticBases {
     return undefined;
   }
 
-  /** The first reference, in the order written, to an ancestry or class the character has not chosen yet. */
-  #inputFailure(selector: Selector, formula: FormulaNode): StatisticFailure | undefined {
-    for (const written of references(formula)) {
-      const reference = knownReference(written.path);
-      const missing = reference === undefined ? undefined : missingInput(reference, this.#values.inputs);
-      if (missing !== undefined) {
-        return unchosen(selector, written, missing);
-      }
-    }
-    return undefined;
+  /**
+   * A formula that failed to evaluate. A reference with no value because the character has no ancestry or class yet
+   * says so; the check runs on the reference the evaluator reached, so one in a branch not taken never fails.
+   */
+  #evaluationFailure(selector: Selector, formula: FormulaNode, { error, position }: EvaluateFailure): StatisticFailure {
+    const written = references(formula).find((reference) => reference.position === position);
+    const reference =
+      error.key === FormulaMessage.UnknownReference && written !== undefined ? knownReference(written.path) : undefined;
+    const missing = reference === undefined ? undefined : missingInput(reference, this.#values.inputs);
+    return missing === undefined || written === undefined
+      ? failure(selector, error, position)
+      : unchosen(selector, written, missing);
   }
 
   #evaluate(selector: Selector, { formula, edges }: StatisticNode): StatisticResult {
     if ('ok' in formula) {
       return failure(selector, formula.error, formula.position);
     }
-    const blocked = this.#dependencyFailure(selector, edges) ?? this.#inputFailure(selector, formula);
+    const blocked = this.#dependencyFailure(selector, edges);
     if (blocked !== undefined) {
       return blocked;
     }
     const resolve = resolverFor(this.#values, (read) => this.baseValue(read));
     const outcome = evaluate(formula, resolve);
     if (!outcome.ok) {
-      return failure(selector, outcome.error, outcome.position);
+      return this.#evaluationFailure(selector, formula, outcome);
     }
     const changed = applyChanges(outcome.value, this.#changes.get(selector) ?? [], this.#context);
     return {

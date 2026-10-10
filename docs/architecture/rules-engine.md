@@ -54,7 +54,7 @@ these statistics in code rather than as items. So far it holds:
 | Perception | `perception`     | `check` | `@attr.wis + @prof.perception`                    | `check`, `wis-based`                  |
 | Skills     | `skill:<slug>`   | `check` | `@attr.<key> + @prof.skill.<slug>`                | `check`, `skill-check`, `<key>-based` |
 | Hit Points | `hp:max`         | `value` | `@ancestry.hp + (@class.hp + @attr.con) * @level` | `hp`                                  |
-| Speed      | `speed:land`     | `value` | `@ancestry.speed`                                 | `speed`, `all-speeds`                 |
+| Speed      | `speed:land`     | `value` | `@ancestry.speed`                                 | `speed`, `all-speeds`, `land-speed`   |
 | Class DC   | `class-dc`       | `dc`    | `10 + @attr.key + @prof.class-dc`                 | `class`                               |
 
 Domains use one vocabulary, following Foundry's names so imported selectors keep their meaning:
@@ -65,8 +65,9 @@ Domains use one vocabulary, following Foundry's names so imported selectors keep
 - `saving-throw`: the three saves.
 - `skill-check`: the 16 skills and every Lore.
 - `lore`: every Lore.
-- `hp`: maximum Hit Points. `speed` and `all-speeds`: every Speed (Foundry gives each movement type both). `class`:
-  the class DC, which has no `<attribute>-based` domain, since its key attribute is the character's choice.
+- `hp`: maximum Hit Points.
+- `speed` and `all-speeds`: every Speed. `<type>-speed` (`land-speed`): one movement type, as in Foundry.
+- `class`: the class DC, which has no `<attribute>-based` domain, since its key attribute is the character's choice.
 - Still to come with their statistics: `attack-roll` and `strike-attack-roll` (Strikes),
   `spell-attack-roll` and `spell-dc` (spellcasting).
 
@@ -83,7 +84,9 @@ Hit Points, Speed and class DC read what the character's ancestry and class give
 `@class.hp`, and `@attr.key`, the modifier of the key attribute chosen for the class. `StatisticInputs` carries them
 as `ancestry` (`hitPoints`, `speed`) and `class` (`hitPoints`, `keyAttribute`). Until an ancestry or class is
 chosen, a statistic whose base reads one fails at the first such reference (`engine.statistic.noAncestry`,
-`engine.statistic.noClass`), as a reference to a missing statistic does; the others still derive. Hit Points use
+`engine.statistic.noClass`), as a reference to a missing statistic does; the others still derive. The check runs on
+the reference the evaluator reached, so one in a `ternary` branch not taken never fails. A rule element value that
+reads them before they are chosen gets the formula language's general "has no value" error. Hit Points use
 the character's level as written, so level 0 play (GM Core) needs its own formula.
 
 Lore is open-ended, so the core pack defines none. Whatever grants a Lore (a background, a feat) brings its own
