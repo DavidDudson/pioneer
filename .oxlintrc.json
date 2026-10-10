@@ -335,8 +335,8 @@
       }
     },
     {
-      // Book data and generated token tables are numbers by nature.
-      "files": ["libs/content/**/*.ts", "libs/frontier/scripts/*.ts"],
+      // Book data, generated token tables and colour-space matrices are numbers by nature.
+      "files": ["libs/content/**/*.ts", "libs/frontier/scripts/*.ts", "tools/token-contrast.ts"],
       "rules": { "pioneer/no-magic-numbers": "off" }
     },
     {

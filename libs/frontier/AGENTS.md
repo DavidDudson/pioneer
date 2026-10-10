@@ -248,7 +248,22 @@ boot):
 Adding a theme: create `themes/<name>.css`, import it in `frontier.css`
 after `themes/frontier.css`, and add it to `Theme` in
 `lib/theme/theme.ts`. Story tests then run axe, contrast included, on every
-story in the new theme in both modes.
+story in the new theme in both modes, and `bun run check:contrast` checks
+every declared token pair in it.
+
+### Token contrast
+
+`styles/contrast-pairs.ts` lists the foreground/background token pairs
+components use: `fg-*` and `*-fg` on surfaces and subtle fills,
+`*-on-solid` / `*-on-emphasis` on their fills, `line-focus` on surfaces.
+`bun run check:contrast` (in `lint:workspace`, so in CI) works out each pair
+from the CSS in every theme × mode, OKLCH clipped to sRGB as Chromium paints
+it, and fails below the minimum. The measure is the WCAG 2 ratio, the one
+axe applies: 4.5:1 for text, 3:1 for non-text such as the focus ring. APCA
+is not used while it is only a WCAG 3 draft. Retune a ramp step or surface
+and the check says which pairs moved; add a pair when a component puts a new
+foreground on a new background. It covers pairs axe can miss: outlines, and
+combinations no story renders.
 
 ## Components
 
