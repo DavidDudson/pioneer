@@ -1,0 +1,15 @@
+<fr-stack [gap]="gap()">
+  <ng-content />
+  @if (loading()) {
+    <ng-container [ngTemplateOutlet]="pendingSlot().template" />
+  }
+  @if (more()) {
+    <fr-async-button
+      [action]="loadMore"
+      [describeError]="describeError"
+      [pendingLabel]="'frontier.async.loading' | transloco"
+    >
+      {{ label() ?? ('frontier.loadMore.label' | transloco) }}
+    </fr-async-button>
+  }
+</fr-stack>

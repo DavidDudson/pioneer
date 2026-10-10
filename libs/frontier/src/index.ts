@@ -17,6 +17,9 @@ export { AsyncError } from './lib/async/async-region/async-error.directive';
 export { AsyncPending } from './lib/async/async-region/async-pending.directive';
 export type { AsyncQuery } from './lib/async/async-region/async-query';
 export { AsyncRegion } from './lib/async/async-region/async-region.component';
+export { LoadMore } from './lib/async/load-more/load-more.component';
+export { LoadMoreItem } from './lib/async/load-more/load-more-item.directive';
+export type { LoadMoreQuery, PageFetch } from './lib/async/load-more/load-more-query';
 
 // Plain controls (inline editing)
 export { DateInput } from './lib/controls/date-input/date-input.component';

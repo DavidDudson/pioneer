@@ -121,6 +121,16 @@ describe(AsyncRegion, () => {
     expect(names(region)).toStrictEqual([]);
   });
 
+  it('keeps the data when only the next page of an infinite query fails', async () => {
+    const { query, region, stable } = await render();
+    query.succeed(PARTY);
+    await stable();
+    query.failNextPage(new Error('500'));
+    await stable();
+    expect(message(region)).toBeNull();
+    expect(names(region)).toStrictEqual([...PARTY]);
+  });
+
   it('drops the failure once a retry succeeds', async () => {
     const { query, region, stable } = await render();
     query.fail(new Error('500'));

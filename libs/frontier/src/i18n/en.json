@@ -23,6 +23,10 @@
       "clearAll": "Clear all",
       "clearAllNamed": "Clear all {label}"
     },
+    "loadMore": {
+      "label": "Load more",
+      "failed": "Could not load more. Try again."
+    },
     "searchInput": {
       "clear": "Clear search"
     },
