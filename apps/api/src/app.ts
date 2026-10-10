@@ -5,6 +5,7 @@ import type { AnyElysia } from 'elysia';
 
 import { campaigns } from './campaigns';
 import { characters } from './characters';
+import { content } from './content';
 import type { Database } from './database';
 import type { Env } from './env';
 import { API_PREFIX, csrf, identity } from './identity';
@@ -28,7 +29,8 @@ export function createApp(db: Database, env: Env, extensions: readonly AppExtens
     .get('/health', () => ({ status: 'ok' }))
     .use(identityParts.routes)
     .use(characterRoutes)
-    .use(campaigns(db, clock, identityParts.authenticator));
+    .use(campaigns(db, clock, identityParts.authenticator))
+    .use(content(db));
   for (const extend of extensions) {
     app = app.use(extend(identityParts));
   }

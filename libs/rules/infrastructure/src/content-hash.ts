@@ -1,19 +1,5 @@
+import { canonicalJson } from '@pioneer/rules/sdk';
 import type { PackContents } from '@pioneer/rules/sdk';
-
-/** JSON with every object's keys sorted, so equal values serialise to equal text whatever order the files wrote. */
-function canonical(value: unknown): unknown {
-  if (Array.isArray(value)) {
-    return value.map((item) => canonical(item));
-  }
-  if (typeof value === 'object' && value !== null) {
-    return Object.fromEntries(
-      Object.entries(value)
-        .toSorted(([left], [right]) => (left < right ? -1 : 1))
-        .map(([key, item]) => [key, canonical(item)]),
-    );
-  }
-  return value;
-}
 
 /**
  * How the seed turns a pack into rows. Bump it when that changes (a new column, a new mapping) so every stored hash
@@ -27,6 +13,7 @@ const SEED_FORMAT = 1;
  */
 export function contentHash({ file, entries }: PackContents): string {
   const sorted = entries.toSorted((left, right) => (left.id < right.id ? -1 : 1));
-  const canonicalJson = JSON.stringify(canonical({ format: SEED_FORMAT, file, entries: sorted }));
-  return new Bun.CryptoHasher('sha256').update(canonicalJson).digest('hex');
+  return new Bun.CryptoHasher('sha256')
+    .update(canonicalJson({ format: SEED_FORMAT, file, entries: sorted }))
+    .digest('hex');
 }
