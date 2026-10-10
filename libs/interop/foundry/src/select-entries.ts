@@ -1,4 +1,4 @@
-import { BookId } from '@pioneer/rules/sdk';
+import { BookId, ContentLicense } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
 
 import { isFoundryItemType } from './foundry-document';
@@ -24,6 +24,8 @@ export const SkipReason = {
   UnsupportedType: 'unsupported-type',
   /** `publication.remaster` is not `true`. */
   Legacy: 'legacy',
+  /** A remaster entry under a licence other than ORC, the only one that allows rules text in packs (NOTICE.md). */
+  NotOrc: 'not-orc',
   /** No publication, or a title missing from `FOUNDRY_BOOK_TITLES`. */
   UnknownBook: 'unknown-book',
   /** A registered book this run does not target. */
@@ -40,7 +42,7 @@ export interface SkippedEntry {
   readonly pack: FoundryPack;
   readonly path: string;
   readonly reason: SkipReason;
-  /** What the reason is about: the Foundry type, the publication title, the book, or the parse error. */
+  /** What the reason is about: the Foundry type, the publication title or licence, the book, or the parse error. */
   readonly detail: string;
 }
 
@@ -61,6 +63,9 @@ function targetBook(publication: FoundryPublication | undefined, targets: Readon
   }
   if (!publication.remaster) {
     return { reason: SkipReason.Legacy, detail: publication.title };
+  }
+  if (publication.license !== ContentLicense.Orc) {
+    return { reason: SkipReason.NotOrc, detail: publication.license ?? '' };
   }
   const book = FOUNDRY_BOOK_TITLES.get(publication.title);
   if (book === undefined) {

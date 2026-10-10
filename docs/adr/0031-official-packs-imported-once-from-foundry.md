@@ -27,12 +27,17 @@ fixes to any field Foundry also changed).
 - The importer only ever writes a pack that does not exist yet or replaces one as a whole, and is re-run only while
   it is being built and before its pack is merged. It never merges into a pack that has been edited by hand.
 - Each imported pack has one committed file, `content/import/<pack>.json`, holding its pin (the Foundry release tag
-  and the SHA-256 of that release's archive) and its backlog: what the import could not translate, per entry, with
+  and the SHA-256 of that tag's source archive) and its backlog: what the import could not translate, per entry, with
   Foundry's raw JSON (rule elements, fields, labels, links). The backlog is the work list for Epic 2.6 (#21) and
   later translator work. It only holds items from selected entries, under the same licence rules; art and image
   references are stripped, and it is never seeded, served or bundled.
-- The importer downloads the tagged release archive, checks it against the pack's SHA-256 and stops on a mismatch.
-  Moving a pack's pin is a PR that changes the tag and checksum together.
+- The importer downloads the tag's source archive from GitHub (`archive/refs/tags/<tag>.tar.gz`), checks it
+  against the pack's SHA-256 and stops on a mismatch. Moving a pack's pin is a PR that changes the tag and checksum
+  together. Release assets were rejected: `system.zip` holds built LevelDB packs, and `json-assets.zip`, though its
+  bytes are stored and stable, holds build output (one file per pack) rather than the JSON sources, and is a zip,
+  which Bun's archive reader does not open. A commit SHA fetched with git was rejected as a second tool for no gain. GitHub
+  generates source archives on request and changed their bytes once before (January 2023): if a checksum stops
+  matching for an unchanged tag, the import stops, and the pin is re-taken by PR after diffing the extracted tree.
 - Hand edits to official packs follow NOTICE.md's contributor checklist like any pack: rules text from the source
   book or the pinned Foundry data, and nothing from Archives of Nethys beyond page numbers and links.
 - A translator that lands after its pack is imported is applied to the backlog, not by re-importing: a command,

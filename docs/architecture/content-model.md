@@ -485,10 +485,10 @@ flowchart LR
 
 - **One-off.** The importer writes a pack that does not exist yet, or replaces one as a whole before its import
   PR merges. It never merges into a pack that has been edited by hand, and no CI job re-runs it.
-- **Selection.** Only `publication.remaster === true` from the target books. Legacy content is out of scope;
-  `supersedes` links are recorded where Foundry marks replacements. Target books are a CLI argument; Foundry's
-  publication title maps to a registered book in `libs/interop/foundry`. Only item packs are read, and only item
-  types with a Pioneer kind (`campaignFeature`, for one, has none).
+- **Selection.** Only `publication.remaster === true`, ORC-licensed entries from the target books. Legacy content
+  is out of scope; `supersedes` links are recorded where Foundry marks replacements. Target books are a CLI
+  argument; Foundry's publication title maps to a registered book in `libs/interop/foundry`. Only item packs are
+  read, and only item types with a Pioneer kind (`campaignFeature`, for one, has none).
   `just content-import --pack player-core --book player-core --dry-run` prints what would be imported by Foundry
   type and book, and what is skipped and why.
 - **Translation.** One translator per Foundry rule element key. Untranslatable elements, unresolved labels and

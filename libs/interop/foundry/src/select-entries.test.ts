@@ -90,10 +90,10 @@ describe('readFoundryRelease', () => {
     expect(documents).toHaveLength(8);
   });
 
-  test('fails without the manifest or the lang table', () => {
-    const withoutLang = new Map([...archiveFiles()].filter(([path]) => !path.endsWith('en.json')));
+  test.each(['system.pf2e.json', 'static/lang/en.json'])('fails without %s', (missing) => {
+    const without = new Map([...archiveFiles()].filter(([path]) => !path.endsWith(missing)));
 
-    expect(() => readFoundryRelease(withoutLang)).toThrow('static/lang/en.json');
+    expect(() => readFoundryRelease(without)).toThrow(missing);
   });
 });
 
@@ -121,6 +121,20 @@ describe('selectEntries', () => {
     ]);
   });
 
+  test('skips a remaster entry that is not ORC', () => {
+    const cup = item('CUP Feat', 'feat', { title: 'Pathfinder Player Core', license: 'Paizo CUP', remaster: true });
+    const { selected, skipped } = selectEntries(
+      release({ 'packs/pf2e/feats/cup.json': JSON.stringify(cup) }),
+      new Set([playerCore]),
+    );
+
+    expect(names(selected)).not.toContain('cup.json');
+    expect(skipped.find(({ path }) => path.endsWith('cup.json'))).toMatchObject({
+      reason: SkipReason.NotOrc,
+      detail: 'Paizo CUP',
+    });
+  });
+
   test('selects from every target book', () => {
     const { selected } = selectEntries(release(), new Set([playerCore, gmCore]));
 
@@ -130,7 +144,13 @@ describe('selectEntries', () => {
 
 describe('dryRunReport', () => {
   test('counts imports by book and type, and skips by reason', () => {
-    const report = dryRunReport(selectEntries(release(), new Set([playerCore])));
+    const legacy = item('Older Feat', 'feat', { title: 'Pathfinder Advanced Player\u2019s Guide', remaster: false });
+    const extra = {
+      'packs/pf2e/feats/broken.json': '{',
+      'packs/pf2e/feats/bad.json': '[',
+      'packs/pf2e/feats/older-feat.json': JSON.stringify(legacy),
+    };
+    const report = dryRunReport(selectEntries(release(extra), new Set([playerCore])));
 
     expect(report).toEqual({
       imported: [
@@ -138,8 +158,9 @@ describe('dryRunReport', () => {
         { book: playerCore, type: 'weapon', count: 1 },
       ],
       skipped: [
+        { reason: SkipReason.Unreadable, detail: '', count: 2 },
         { reason: SkipReason.UnsupportedType, detail: 'campaignFeature', count: 1 },
-        { reason: SkipReason.Legacy, detail: '', count: 1 },
+        { reason: SkipReason.Legacy, detail: '', count: 2 },
         { reason: SkipReason.UnknownBook, detail: '', count: 1 },
         { reason: SkipReason.UnknownBook, detail: 'Pathfinder #209: Destroyer’s Doom', count: 1 },
         { reason: SkipReason.NotTargeted, detail: 'gm-core', count: 1 },

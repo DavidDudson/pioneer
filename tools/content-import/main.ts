@@ -10,6 +10,7 @@ import { parseArgs } from 'node:util';
 
 import {
   archiveUrl,
+  FOUNDRY_BOOK_TITLES,
   dryRunReport,
   ImportFile,
   readFoundryRelease,
@@ -25,6 +26,7 @@ import { BookId, PackId } from '@pioneer/rules/sdk';
 const ROOT = path.resolve(import.meta.dir, '../..');
 const CACHE = path.join(ROOT, '.data/foundry');
 const UNREADABLE_SHOWN = 20;
+const FOUNDRY_TITLED: ReadonlySet<BookId> = new Set(FOUNDRY_BOOK_TITLES.values());
 
 interface Options {
   readonly pack: PackId;
@@ -44,6 +46,9 @@ function options(): Options {
   for (const book of books) {
     if (bookRegistry.book(book) === undefined) {
       throw new Error(`${book} is not in the book registry`);
+    }
+    if (!FOUNDRY_TITLED.has(book)) {
+      throw new Error(`${book} has no Foundry publication title in FOUNDRY_BOOK_TITLES`);
     }
   }
   if (books.length === 0) {
