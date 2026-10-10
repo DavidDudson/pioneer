@@ -1,8 +1,16 @@
-import { statisticContent, StatisticInputsJson } from '@pioneer/rules/engine';
-import type { StatisticContent, StatisticInputs, StatisticResult } from '@pioneer/rules/engine';
+import { statisticContent, StatisticInputsJson, variantRulesInPlay } from '@pioneer/rules/engine';
+import type { RuleInPlay, StatisticContent, StatisticInputs, StatisticResult } from '@pioneer/rules/engine';
 import { wielded } from '@pioneer/rules/engine/testing';
 import { PredicateFacts } from '@pioneer/rules/predicate';
-import { Attribute, ContentRegistry, contentPackFromContents, Proficiency } from '@pioneer/rules/sdk';
+import {
+  Attribute,
+  contentId,
+  ContentRegistry,
+  contentPackFromContents,
+  Proficiency,
+  Slug,
+  VariantRuleId,
+} from '@pioneer/rules/sdk';
 import type { ContentPack, Selector } from '@pioneer/rules/sdk';
 import { constantFrom, integer, record } from 'fast-check';
 import type { Arbitrary } from 'fast-check';
@@ -196,4 +204,18 @@ export function noFacts(): PredicateFacts {
   const registry = new ContentRegistry();
   registry.register(coreRules);
   return new PredicateFacts([], registry.rollOptionNamespaces());
+}
+
+/** The Proficiency Without Level variant rule in the core pack. */
+export const PWL = VariantRuleId.parse(contentId(coreRules.id, Slug.parse('proficiency-without-level')));
+
+/** The rule elements of Proficiency Without Level, in play as an enabled variant. */
+export function withoutLevel(): readonly RuleInPlay[] {
+  const registry = new ContentRegistry();
+  registry.register(coreRules);
+  const variant = registry.variantRule(PWL);
+  if (variant === undefined) {
+    throw new Error('The core pack has no Proficiency Without Level');
+  }
+  return variantRulesInPlay([variant]);
 }
