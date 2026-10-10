@@ -34,6 +34,7 @@ Accepted. To change a decision, add a new ADR that supersedes the old one; do no
 | [0027](0027-equipment-facet-units.md)                      | Equipment facets compare printed price in copper and Bulk in tenths               |
 | [0028](0028-frontier-and-pioneer-components.md)            | Frontier knows no schemas; rules-aware UI is presentational or container          |
 | [0029](0029-official-content-seeded-by-migrate.md)         | Official content is seeded by `migrate`, one hash-checked transaction per pack    |
+| [0030](0030-statistics-derived-per-source.md)              | Statistics derived per weapon and spellcasting entry                              |
 
 Template:
 
