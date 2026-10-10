@@ -230,7 +230,10 @@ more room, never a separate design.
    Colours reference ramp steps only, never a hue.
 3. **Tailwind mapping** (`frontier.css` `@theme`): exposes tier 2 as
    utilities (`bg-surface-raised`, `text-fg-muted`, `gap-md`,
-   `text-heading`, `border-line-subtle`).
+   `text-heading`, `border-line-subtle`). The one exception is the
+   `system-*` colours: CSS system-colour keywords set directly in `@theme`,
+   never in `semantic.css` or a theme, and allowed only under
+   `forced-colors:` (see [Forced colours](#forced-colours)).
 
 ## Themes and colour modes
 
@@ -288,7 +291,7 @@ restore it with `forced-colors:` variants:
   `forced-colors:` and a system colour anywhere else.
 - Pressed and highlighted states fill with Highlight / HighlightText. Every
   button gets a border, as do base and sunken surfaces. A selected option is
-  underlined. A solid badge inverts to CanvasText on Canvas, and skeletons
+  underlined. A solid badge inverts to Canvas text on a CanvasText fill, and skeletons
   are GrayText.
 - Spell out the hover and active pairs of a state
   (`forced-colors:aria-pressed:hover:`): `aria-pressed:hover:` is more

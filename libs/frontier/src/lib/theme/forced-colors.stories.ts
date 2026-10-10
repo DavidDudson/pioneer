@@ -158,7 +158,8 @@ export const Default: ForcedColorsStory = {
   tags: ['!dev'],
   beforeEach: emulateForcedColors,
   // Under forced colours the user's palette sets contrast, not frontier's tokens.
-  // Axe mixes author and forced colours there and reports nonsense; the theme stories check contrast.
+  // Axe measures theme text (#fbfaf9) on white here, 1.04:1, a pair in neither the theme nor the forced palette
+  // (the play function sees CanvasText). The theme stories check contrast.
   parameters: { a11y: { config: { rules: [{ id: 'color-contrast', enabled: false }] } } },
   play: async ({ canvasElement }) => {
     await expectEdgesAndFocus(canvasElement);
