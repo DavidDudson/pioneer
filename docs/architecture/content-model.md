@@ -334,8 +334,8 @@ the whole `pack.json` or `ContentEntry`, so a row reads back as the file it came
 fields the content browser filters on (GIN index on `traits`, btree on `level` and `(pack_id, kind)`). `search`
 waits for Epic 2.4.
 
-- **Official packs** are produced by the importer into `content/packs/<pack>/<kind>.json`, reviewed as normal PRs
-  (diffable), and upserted on deploy by id. Errata is a re-import and a diff. `pioneer-api migrate` seeds them
+- **Official packs** are imported once into `content/packs/<pack>/<kind>.json`, then edited by hand as normal PRs
+  (diffable), and upserted on deploy by id. Errata is a hand edit and a diff (ADR-0031). `pioneer-api migrate` seeds them
   after applying migrations; `pioneer-api content-seed` (`bun run content:seed`) seeds alone (ADR-0029). Each pack
   is one transaction: the pack row and its entries are upserted, entries no longer in the pack are deleted, and a
   failure leaves the pack as it was. `content_hash` is SHA-256 of the pack's canonical JSON and the seed format; a
@@ -467,8 +467,10 @@ translation modules (Babele-based) can be imported as text-only packs keyed by F
 
 ## Foundry import
 
-`tools/content-import` builds official packs from [foundryvtt/pf2e](https://github.com/foundryvtt/pf2e) at a pinned
-release. Their entries already carry rule elements, predicates, traits and `publication { title, license, remaster }`.
+`tools/content-import` bootstraps official packs from [foundryvtt/pf2e](https://github.com/foundryvtt/pf2e) at a
+pinned release. Their entries already carry rule elements, predicates, traits and
+`publication { title, license, remaster }`. The import is a one-off per pack (ADR-0031): once a pack's import PR
+merges, the committed JSON is the source of truth, and enrichment, corrections and errata are edits to it.
 
 ```mermaid
 flowchart LR
@@ -476,24 +478,33 @@ flowchart LR
   S --> T[Translate<br/>schema + rule elements]
   T --> L[Resolve i18n labels<br/>lang/en.json]
   L --> R[HTML + enrichers<br/>to RichText]
-  R --> E[Enrich sources<br/>page + AoN URL]
-  E --> V[Validate<br/>zod, refs resolve]
-  V --> O[content/packs JSON<br/>+ coverage report]
+  R --> V[Validate<br/>zod, refs resolve]
+  V --> O[content/packs JSON<br/>+ content/import backlog]
+  O -. once, then by hand .-> E[Enrich and correct<br/>page, AoN URL, errata]
 ```
 
+- **One-off.** The importer writes a pack that does not exist yet, or replaces one as a whole before its import
+  PR merges. It never merges into a pack that has been edited by hand, and no CI job re-runs it.
 - **Selection.** Only `publication.remaster === true` from the target books. Legacy content is out of scope;
   `supersedes` links are recorded where Foundry marks replacements.
-- **Translation.** One translator per Foundry rule element key. Untranslatable elements are kept in a report with
-  the entry and raw JSON; the report is the backlog for engine work and a CI artefact on content PRs.
-- **Coverage report.** Per kind: entries imported, entries with every rule element translated, entries with page
-  numbers, entries with AoN URLs. Milestone exit criteria are written against these numbers.
+- **Translation.** One translator per Foundry rule element key. Untranslatable elements, unresolved labels and
+  links, and fields with no place in a schema go to the pack's backlog, `content/import/<pack>.json`, with the
+  entry and Foundry's raw JSON; the entry is imported without them. The backlog is committed with the pack and is
+  the work list for engine and translator stories.
+- **Later translators.** A translator that lands after its pack is imported is applied to the backlog: a command
+  translates the items it now covers into the committed entries and removes them from the backlog, keeping hand
+  edits.
+- **Pin.** The release tag and archive checksum are committed under `content/import/`. They are the content's
+  provenance for the Legal page and NOTICE.md; each pack records the release it came from.
+- **Coverage report.** Per kind, over the committed packs and their backlog: entries, entries with nothing left in
+  the backlog, entries with page numbers, entries with AoN URLs. CI reports it on PRs touching `content/` and never
+  fails on it. Milestone exit criteria are written against these numbers.
 - **Ids.** Our ids stay UUIDv5 of `<pack>/<slug>`. The Foundry compendium UUID goes in `externalIds.foundry`,
   which is what makes Foundry export possible.
-- **Source enrichment.** Foundry has the book title but no page numbers or AoN links. Enrichment comes from a
-  committed mapping file (`content/sources/<book>.json`: slug → page, AoN id), filled by a matcher over AoN's
-  listing data and corrected by hand. The method of obtaining AoN data must respect their terms; this is an open
-  question tracked in the roadmap. Until resolved, entries ship with the book reference and whatever page or URL
-  is known, and the coverage report shows the gap.
+- **Source enrichment.** Foundry has the book title but no page numbers or AoN links. They are added to the
+  committed packs after the import, from a matcher over AoN's listing data and by hand. The method of obtaining
+  AoN data must respect their terms; this is an open question tracked in the roadmap. Until resolved, entries ship
+  with the book reference and whatever page or URL is known, and the coverage report shows the gap.
 
 ## Licensing
 

@@ -1,6 +1,6 @@
 # 0003. Content as data in Postgres, imported from Foundry pf2e
 
-- Status: Accepted
+- Status: Accepted; generated packs and errata by re-import superseded by [0031](0031-official-packs-imported-once-from-foundry.md)
 - Date: 2026-10-08
 
 ## Context

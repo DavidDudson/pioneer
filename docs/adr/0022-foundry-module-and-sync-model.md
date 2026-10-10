@@ -1,6 +1,6 @@
 # 0022. Foundry module: link tokens, polling and field ownership
 
-- Status: Proposed
+- Status: Proposed; export generation keyed on the content hash by [0031](0031-official-packs-imported-once-from-foundry.md)
 - Date: 2026-10-10
 
 ## Context
