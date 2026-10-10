@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { chooseSchema, openPlayground, pageText, secondTextArea, typeJson } from './playground-harness';
+import { chooseSchema, openPlayground, pageText, present, secondTextArea, typeJson } from './playground-harness';
 
 describe('RulesPlaygroundPage statistics', () => {
   it('derives statistics from definitions and inputs, term by term', async () => {
@@ -43,6 +43,16 @@ describe('RulesPlaygroundPage statistics', () => {
     expect(text).toContain('Error');
     expect(text).toContain('“@stat.ac” at position 6 closes a loop: ac depends on itself.');
     expect(text).toContain('10 + @stat.ac\n     ^');
+  });
+
+  it('shows an empty state, not an empty list, when there are no statistics', async () => {
+    const harness = await openPlayground();
+    await chooseSchema(harness, 'Statistics');
+    await typeJson(harness, '[]');
+
+    expect(pageText(harness)).toContain('The array has no statistics.');
+    const result = present(present(harness.routeNativeElement).querySelector('pio-statistics-result'));
+    expect(result.querySelector('ul')).toBeNull();
   });
 
   it('points at bad character inputs', async () => {

@@ -1,6 +1,6 @@
 <fr-stack direction="horizontal" gap="sm" align="start">
   @if (icon(); as icon) {
-    <fr-icon size="md" tone="muted" [icon]="icon" />
+    <span [class]="iconClasses"><fr-icon size="md" tone="muted" [icon]="icon" /></span>
   }
   <fr-stack gap="2xs" grow>
     <fr-text element="p" weight="medium">{{ title() }}</fr-text>
