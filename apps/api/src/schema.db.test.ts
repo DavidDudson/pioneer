@@ -72,12 +72,16 @@ describe.skipIf(adminUrl === undefined)('database schema (postgres)', () => {
       .from(auditLog)
       .where(eq(auditLog.rowId, character.id))
       .orderBy(asc(auditLog.changedAt));
-    expect(entries.map((entry) => [entry.action, entry.rowVersion, entry.actorId, entry.command])).toStrictEqual([
+    const [created, update, manual] = entries;
+    expect(
+      [created, update].map((entry) => [entry?.action, entry?.rowVersion, entry?.actorId, entry?.command]),
+    ).toStrictEqual([
       ['insert', 1, fixtureOwnerId, CharacterCommand.CreateCharacter],
       ['update', 2, fixtureOwnerId, CharacterCommand.SetLevel],
-      ['update', 2, null, null],
     ]);
-    const [, update] = entries;
+    expect(entries).toHaveLength(3);
+    expect(manual?.actorId).toBeNull();
+    expect(manual?.command).toBeNull();
     expect(update?.before).toMatchObject({ level: 1 });
     expect(update?.after).toMatchObject({ level: 4 });
 

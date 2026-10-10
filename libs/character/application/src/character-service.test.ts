@@ -75,8 +75,8 @@ describe('CharacterService', () => {
     ];
     let version = FIRST_VERSION;
     for (const patch of edits) {
-      const saved = await service.patch(amiri, created.id, { expectedVersion: version, patch });
-      version = saved.version;
+      // oxlint-disable-next-line no-await-in-loop -- each edit needs the version the previous one saved
+      ({ version } = await service.patch(amiri, created.id, { expectedVersion: version, patch }));
     }
     expect(repository.audits).toStrictEqual([
       { actor: amiri, command: CharacterCommand.CreateCharacter },
