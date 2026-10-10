@@ -19,7 +19,7 @@ function present<TValue>(value: TValue | null | undefined): TValue {
   return value;
 }
 
-async function open(): Promise<RouterTestingHarness> {
+async function open(campaignId = id): Promise<RouterTestingHarness> {
   TestBed.configureTestingModule({
     providers: [
       provideRouter([{ path: 'campaigns', children: campaignRoutes }], withComponentInputBinding()),
@@ -27,7 +27,7 @@ async function open(): Promise<RouterTestingHarness> {
       provideI18n({ en: async () => frontierMessages }),
     ],
   });
-  return RouterTestingHarness.create(`/campaigns/${id}`);
+  return RouterTestingHarness.create(`/campaigns/${campaignId}`);
 }
 
 describe('CampaignHomePage', () => {
@@ -75,5 +75,15 @@ describe('CampaignHomePage', () => {
       expect(present(present(harness.routeNativeElement).querySelector('h1')).textContent).toContain('Campaign');
       expect(present(harness.routeNativeElement).querySelector(`h1[aria-busy="true"]`)).toBeNull();
     });
+  });
+
+  it('says it could not load a malformed campaign id, without calling the API', async () => {
+    const harness = await open('not-a-uuid');
+    await harness.fixture.whenStable();
+
+    await vi.waitFor(() => {
+      expect(present(harness.routeNativeElement).textContent).toContain('Could not load this campaign.');
+    });
+    TestBed.inject(HttpTestingController).expectNone((request) => request.url.startsWith('/api/campaigns/'));
   });
 });

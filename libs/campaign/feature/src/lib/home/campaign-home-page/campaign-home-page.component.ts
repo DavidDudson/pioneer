@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, computed, effect, inject, input } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { CampaignId } from '@pioneer/campaign/domain';
 import {
   AsyncData,
   AsyncPending,
@@ -40,8 +39,8 @@ import { CampaignStore } from '../../data/campaign-store';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CampaignHomePage {
-  /** Route param, bound by `withComponentInputBinding`. */
-  public readonly id = input.required({ transform: (id: string): CampaignId => CampaignId.parse(id) });
+  /** Route param, bound by `withComponentInputBinding`; the store validates it. */
+  public readonly id = input.required<string>();
 
   protected readonly store = inject(CampaignStore);
   protected readonly title = computed(() => this.store.selected.data()?.name);

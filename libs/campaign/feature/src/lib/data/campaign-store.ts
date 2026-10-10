@@ -1,6 +1,6 @@
 import { inject, Injectable, signal } from '@angular/core';
-import { CampaignContract } from '@pioneer/campaign/domain';
-import type { Campaign, CampaignId, CreateCampaignBody } from '@pioneer/campaign/domain';
+import { CampaignContract, CampaignId } from '@pioneer/campaign/domain';
+import type { Campaign, CreateCampaignBody } from '@pioneer/campaign/domain';
 import { ApiClient } from '@pioneer/shared/web';
 import { injectQuery, QueryClient } from '@tanstack/angular-query-experimental';
 
@@ -8,7 +8,7 @@ import { injectQuery, QueryClient } from '@tanstack/angular-query-experimental';
 const campaignKeys = {
   all: ['campaigns'] as const,
   list: () => [...campaignKeys.all, 'list'] as const,
-  detail: (id: CampaignId | undefined) => [...campaignKeys.all, 'detail', id] as const,
+  detail: (id: string | undefined) => [...campaignKeys.all, 'detail', id] as const,
 };
 
 /**
@@ -19,7 +19,8 @@ const campaignKeys = {
 export class CampaignStore {
   readonly #api = inject(ApiClient);
   readonly #client = inject(QueryClient);
-  readonly #selectedId = signal<CampaignId | undefined>(undefined);
+  /** The route's id as given; parsed by the query, so a malformed one is a failed load, not a thrown binding. */
+  readonly #selectedId = signal<string | undefined>(undefined);
 
   /** Every campaign the user is in, as GM or player. */
   public readonly list = injectQuery(() => ({
@@ -36,13 +37,13 @@ export class CampaignStore {
         if (id === undefined) {
           throw new Error('No campaign selected');
         }
-        return this.#api.call(CampaignContract.get, { params: { id }, body: undefined });
+        return this.#api.call(CampaignContract.get, { params: { id: CampaignId.parse(id) }, body: undefined });
       },
       enabled: id !== undefined,
     };
   });
 
-  public select(id: CampaignId): void {
+  public select(id: string): void {
     this.#selectedId.set(id);
   }
 
