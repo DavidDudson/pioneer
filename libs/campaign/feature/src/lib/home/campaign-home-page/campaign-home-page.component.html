@@ -1,0 +1,22 @@
+<fr-page [title]="title()">
+  <fr-async-region [errorMessage]="'campaign.home.loadError' | transloco">
+    <ng-template frAsyncPending>
+      <fr-surface><fr-skeleton width="lg" /></fr-surface>
+    </ng-template>
+    <ng-template let-campaign [frAsyncData]="store.selected">
+      <fr-surface>
+        <fr-stack gap="md">
+          <fr-heading variant="subheading" [level]="2">{{ 'campaign.home.detailsHeading' | transloco }}</fr-heading>
+          <fr-description-list>
+            <fr-description-item [term]="'campaign.home.started' | transloco">
+              <fr-text><fr-date [value]="campaign.createdAt" /></fr-text>
+            </fr-description-item>
+            <fr-description-item [term]="'campaign.home.members' | transloco">
+              <fr-text>{{ 'campaign.home.memberCount' | transloco: { count: campaign.members.length } }}</fr-text>
+            </fr-description-item>
+          </fr-description-list>
+        </fr-stack>
+      </fr-surface>
+    </ng-template>
+  </fr-async-region>
+</fr-page>

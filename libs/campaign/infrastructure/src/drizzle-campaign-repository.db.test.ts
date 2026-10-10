@@ -59,13 +59,14 @@ describe.skipIf(adminUrl === undefined)('DrizzleCampaignRepository (postgres)', 
     await repository.insert(strangers);
 
     const listed = await repository.listForMember(seelah);
-    expect(listed.map((campaign) => campaign.name)).toStrictEqual(['Outlaws of Alkenstar', 'Kingmaker']);
+    expect(listed.map((campaign) => campaign.id)).toStrictEqual([alkenstar.id, kingmaker.id]);
     const [first] = listed;
     expect(first?.members.map((member) => [member.userId, member.role])).toStrictEqual([
       [seelah, CampaignRole.Gm],
       [ezren, CampaignRole.Player],
     ]);
-    expect(await repository.listForMember(UserId.parse(newId()))).toStrictEqual([]);
+    const stranger = UserId.parse(newId());
+    expect(await repository.listForMember(stranger)).toStrictEqual([]);
   });
 
   test('a user is a member of a campaign once', async () => {

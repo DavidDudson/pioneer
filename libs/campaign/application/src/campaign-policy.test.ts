@@ -18,6 +18,7 @@ describe('mayViewCampaign', () => {
   });
 
   test('anyone else may not', () => {
-    expect(mayViewCampaign(UserId.parse(newId()), campaign)).toBe(false);
+    const stranger = UserId.parse(newId());
+    expect(mayViewCampaign(stranger, campaign)).toBe(false);
   });
 });

@@ -18,6 +18,16 @@ export const appRoutes: Routes = [
     },
   },
   {
+    path: 'campaigns',
+    // Campaigns are groups of accounts, so they need one too.
+    canActivate: [signInRequired],
+    runGuardsAndResolvers: 'always',
+    loadChildren: async () => {
+      const { campaignRoutes } = await import('@pioneer/campaign/feature');
+      return campaignRoutes;
+    },
+  },
+  {
     path: 'account',
     loadChildren: async () => {
       const { identityRoutes } = await import('@pioneer/identity/feature');

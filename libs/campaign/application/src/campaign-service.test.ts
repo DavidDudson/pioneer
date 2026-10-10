@@ -42,7 +42,8 @@ describe('CampaignService', () => {
   });
 
   test('missing campaign is not found', async () => {
-    const error = await rejection(service.get(amiri, CampaignId.parse(newId())));
+    const missing = CampaignId.parse(newId());
+    const error = await rejection(service.get(amiri, missing));
     expect(error).toBeInstanceOf(NotFoundError);
     expect((error as NotFoundError).descriptor).toStrictEqual({ key: 'problem.notFound' });
   });
@@ -56,7 +57,7 @@ describe('CampaignService membership', () => {
     await service.create(ezren, { name: CampaignName.parse('Kingmaker') });
     await service.create(amiri, { name: CampaignName.parse('Outlaws of Alkenstar') });
     const listed = await service.list(amiri);
-    expect(listed.map((campaign) => campaign.name)).toStrictEqual([vaults, 'Outlaws of Alkenstar']);
+    expect(listed.map((campaign) => campaign.name)).toStrictEqual([vaults, CampaignName.parse('Outlaws of Alkenstar')]);
   });
 
   test('a campaign the actor is not in reads as not found', async () => {

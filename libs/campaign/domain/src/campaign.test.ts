@@ -31,12 +31,13 @@ describe('Campaign', () => {
     const campaign = new CampaignBuilder().withPlayer(ezren).build();
     expect(campaign.roleOf(fixtureGmId)).toBe(CampaignRole.Gm);
     expect(campaign.roleOf(ezren)).toBe(CampaignRole.Player);
-    expect(campaign.roleOf(UserId.parse(newId()))).toBeUndefined();
+    const stranger = UserId.parse(newId());
+    expect(campaign.roleOf(stranger)).toBeUndefined();
   });
 
   test('the codec round-trips through wire JSON', () => {
     const campaign = new CampaignBuilder().withPlayer(ezren).build();
-    const wire = JSON.parse(JSON.stringify(Campaign.codec.encode(campaign))) as unknown;
+    const wire = Campaign.codec.encode(campaign);
     expect(Campaign.codec.parse(wire)).toStrictEqual(campaign);
   });
 

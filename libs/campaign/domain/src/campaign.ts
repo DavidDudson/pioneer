@@ -21,7 +21,7 @@ export const CampaignWire = z.object({
   /** The member whose role is `gm`. */
   gmId: UserId,
   /** Oldest membership first. */
-  members: z.array(CampaignMemberWire),
+  members: z.array(CampaignMemberWire).readonly(),
   createdAt: InstantCodec,
 });
 

@@ -103,8 +103,9 @@ build an event log, combat log, encounter tracker or GM tools; a campaign groups
 world.
 
 ```text
-campaigns             id, name, gm_id, play_sync (foundry | pioneer | disconnected), created_at
-campaign_members      campaign_id, user_id, role (gm | player)
+campaigns             id, version, name, gm_id, play_sync (foundry | pioneer | disconnected), created_at
+campaign_members      id, campaign_id, user_id, role (gm | player), joined_at
+                      (campaign_id, user_id) unique; one gm per campaign
 campaign_invites      id, campaign_id, token hash, expires_at, revoked_at
 campaign_characters   campaign_id, character_id (a character is in one campaign at most)
 campaign_links        id, campaign_id, token hash, last_used_at, revoked_at

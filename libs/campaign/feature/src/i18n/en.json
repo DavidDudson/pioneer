@@ -1,0 +1,25 @@
+{
+  "list": {
+    "title": "Campaigns",
+    "description": "The parties you run or play in.",
+    "newHeading": "New campaign",
+    "nameLabel": "Name",
+    "namePlaceholder": "Abomination Vaults",
+    "nameHint": "You will be its GM.",
+    "create": "Create campaign",
+    "creating": "Creating",
+    "created": "Created",
+    "createFailed": "Could not create the campaign. Try again.",
+    "loadError": "Could not load campaigns.",
+    "members": "{count, plural, one {# member} other {# members}}",
+    "started": "Started",
+    "empty": "No campaigns yet. Create one to start a party."
+  },
+  "home": {
+    "loadError": "Could not load this campaign.",
+    "detailsHeading": "Campaign",
+    "started": "Started",
+    "members": "Members",
+    "memberCount": "{count, plural, one {# member} other {# members}}"
+  }
+}

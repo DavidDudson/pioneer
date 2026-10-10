@@ -98,7 +98,10 @@ export class DrizzleCampaignRepository extends CampaignRepository {
     if (ids.length === 0) {
       return new Map();
     }
-    const rows = await this.#db.select().from(campaignMembers).where(inArray(campaignMembers.campaignId, [...ids]));
+    const rows = await this.#db
+      .select()
+      .from(campaignMembers)
+      .where(inArray(campaignMembers.campaignId, [...ids]));
     return Map.groupBy(rows, (row) => row.campaignId);
   }
 }
