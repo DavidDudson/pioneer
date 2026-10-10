@@ -135,22 +135,54 @@ curl -sI "http://<domain>/" | head -1                        # 301 to https
 Then sign in with each configured provider. The first request after an idle spell takes a second or two while
 Lambda starts the binary and Neon wakes (ADR-0015).
 
-## Deploy a new image
+### Turn on deploys
 
-Until deploys run on merge (#114), by hand. Migrate first: migrations must be safe to run while the previous
-image is still serving.
+Merges deploy through the GitHub `production` environment, which holds the deploy role and allows `main` only.
+Once, after the first apply:
 
 ```sh
-tag=sha-1111111
-repo=$(tofu output -raw ecr_repository_url)
-skopeo copy --override-os linux --override-arch arm64 \
-  "docker://ghcr.io/daviddudson/pioneer:$tag" "docker://$repo:$tag"
-docker run --rm -e DATABASE_URL="$(tofu output -raw database_url)" "ghcr.io/daviddudson/pioneer:$tag" migrate
-aws lambda update-function-code --function-name pioneer-api --image-uri "$repo:$tag"
+gh api -X PUT repos/DavidDudson/pioneer/environments/production \
+  -F 'deployment_branch_policy[protected_branches]=false' -F 'deployment_branch_policy[custom_branch_policies]=true'
+gh api -X POST repos/DavidDudson/pioneer/environments/production/deployment-branch-policies -f name=main -f type=branch
+gh variable set AWS_DEPLOY_ROLE_ARN --env production --body "$(tofu output -raw deploy_role_arn)"
 ```
 
-OpenTofu ignores the function's image after creation, so later applies do not roll a deploy back. To roll back,
-run `update-function-code` with an earlier tag (ECR keeps the last five).
+Until `AWS_DEPLOY_ROLE_ARN` is set, the deploy job skips with a warning.
+
+## Deploys
+
+Every merge to `main` deploys: the Image workflow publishes `sha-<short commit>`, then calls `deploy.yml`, which
+assumes `pioneer-deploy` over OIDC (`infra/github.tf`) and runs [`tools/deploy-production.ts`](../tools/deploy-production.ts).
+One deploy runs at a time. It:
+
+1. copies the arm64 image from GHCR to ECR, unless the tag is there already;
+2. migrates Neon with that image (`pioneer-api migrate`), reading `DATABASE_URL` from the function. This happens
+   before the new code takes traffic, so migrations must be safe while the previous image is still serving;
+3. points `pioneer-api` at the image and waits for the update to finish;
+4. checks `https://<domain>/api/health` through the Worker for up to a minute. A failure fails the job.
+
+The log names the image it replaced. OpenTofu ignores the function's image after creation, so later applies do not
+roll a deploy back.
+
+### Roll back
+
+Deploy an earlier tag, from the Actions tab or:
+
+```sh
+gh workflow run deploy.yml -f tag=sha-1111111
+```
+
+or locally, with admin credentials and `docker login ghcr.io`:
+
+```sh
+bun tools/deploy-production.ts sha-1111111
+```
+
+ECR keeps the last five images; an older tag is copied from GHCR again. **Migrations are forward-only.** The
+rollback runs the earlier image's migrate, which finds nothing to apply, and leaves the schema at the newer version.
+The earlier code must therefore work with the newer schema: write migrations expand-then-contract (add columns and
+tables first; drop or rename only once no deployed image reads the old shape). A migration that breaks that cannot
+be rolled back by image; fix forward instead.
 
 ## Day two
 

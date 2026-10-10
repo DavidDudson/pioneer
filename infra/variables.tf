@@ -73,3 +73,9 @@ variable "oauth" {
     error_message = "Providers are github, discord and google."
   }
 }
+
+variable "github_repository" {
+  description = "owner/name of the GitHub repository whose production environment may assume the deploy role."
+  type        = string
+  default     = "DavidDudson/pioneer"
+}
