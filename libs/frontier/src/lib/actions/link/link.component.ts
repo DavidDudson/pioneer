@@ -1,5 +1,5 @@
-import { NgTemplateOutlet } from '@angular/common';
-import { booleanAttribute, ChangeDetectionStrategy, Component, computed, input, signal } from '@angular/core';
+import { DOCUMENT, NgTemplateOutlet } from '@angular/common';
+import { booleanAttribute, ChangeDetectionStrategy, Component, computed, inject, input, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { cva } from 'class-variance-authority';
 
@@ -32,6 +32,9 @@ const EXTERNAL_URL = /^https?:\/\//iu;
  * absolute `http(s)://` URL, and otherwise shows its content as plain text,
  * so data can never reload the app.
  *
+ * `skipTo` is the id of an element on this page: following it moves focus there without navigating (a skip link).
+ * A plain `href="#id"` can't: with `<base href="/">` it loads `/#id`.
+ *
  * A `to` link to the page being shown is marked `aria-current="page"` and drawn as current. It matches any page under
  * its target; `exact` matches the target alone, for a root link that would otherwise match every page.
  *
@@ -39,6 +42,7 @@ const EXTERNAL_URL = /^https?:\/\//iu;
  * <fr-link [to]="[character.id]" variant="subheading">{{ character.name }}</fr-link>
  * <fr-link to="/" exact>{{ 'shell.brand' | transloco }}</fr-link>
  * <fr-link href="https://paizo.com">paizo.com</fr-link>
+ * <fr-link skipTo="results">{{ 'search.skipToResults' | transloco }}</fr-link>
  * <fr-link [external]="url" [ariaLabel]="'docs.linkLabel' | transloco">{{ 'docs.link' | transloco }}</fr-link>
  * ```
  */
@@ -56,6 +60,8 @@ export class Link {
   public readonly href = input<string | undefined>(undefined);
   /** Another site's URL from data. Only absolute `http(s)://` URLs link; anything else renders as text. */
   public readonly external = input<string | undefined>(undefined);
+  /** The id of an element on this page to move focus to; give it `tabindex="-1"` unless it is focusable already. */
+  public readonly skipTo = input<string | undefined>(undefined);
   /**
    * The link's accessible name, already translated, when its text alone is too short ("Docs"). Start it with the
    * visible text ("Docs: Angular documentation"): axe's label-in-name check fails otherwise.
@@ -63,6 +69,8 @@ export class Link {
   public readonly ariaLabel = input<string | undefined>(undefined);
   /** Typography when the link stands alone; inside text it inherits. */
   public readonly variant = input<TextVariant | undefined>(undefined);
+
+  private readonly document = inject(DOCUMENT);
 
   /** Whether `to` is the page being shown; routerLinkActive keeps it up to date. */
   protected readonly current = signal(false);
@@ -78,4 +86,10 @@ export class Link {
     const link = linkVariants({ current: this.current() });
     return variant === undefined ? link : `${link} ${textVariants({ variant })}`;
   });
+
+  /** Focuses the `skipTo` element in place of following `#id`, which would load `/#id`. */
+  protected skip(event: Event, id: string): void {
+    event.preventDefault();
+    this.document.querySelector<HTMLElement>(`#${CSS.escape(id)}`)?.focus();
+  }
 }

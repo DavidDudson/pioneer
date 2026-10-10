@@ -38,7 +38,8 @@
       "placeholder": "Select…"
     },
     "shell": {
-      "mainNav": "Main"
+      "mainNav": "Main",
+      "skipToContent": "Skip to content"
     },
     "inlineEdit": {
       "conflict": "Changed elsewhere. Showing the latest version.",

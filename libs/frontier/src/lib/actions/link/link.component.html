@@ -13,6 +13,11 @@
   } @else {
     <ng-container [ngTemplateOutlet]="content" />
   }
+} @else if (skipTo(); as id) {
+  <!-- eslint-disable-next-line pioneer/no-interruptions -- in-page only: `#id` stays on the page, and skip() handles the click. -->
+  <a [class]="classes()" [href]="`#${id}`" [attr.aria-label]="ariaLabel()" (click)="skip($event, id)"
+    ><ng-container [ngTemplateOutlet]="content"
+  /></a>
 } @else {
   <a
     routerLinkActive
