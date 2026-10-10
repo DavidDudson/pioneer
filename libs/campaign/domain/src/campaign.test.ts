@@ -41,6 +41,16 @@ describe('Campaign', () => {
     expect(Campaign.codec.parse(wire)).toStrictEqual(campaign);
   });
 
+  test('wire data must have exactly one GM member, and it is the GM', () => {
+    const wire = Campaign.codec.encode(new CampaignBuilder().withPlayer(ezren).build());
+    const [gm, player] = wire.members;
+    expect(Campaign.codec.safeParse({ ...wire, members: [] }).success).toBe(false);
+    expect(Campaign.codec.safeParse({ ...wire, gmId: ezren }).success).toBe(false);
+    expect(Campaign.codec.safeParse({ ...wire, members: [gm, { ...player, role: CampaignRole.Gm }] }).success).toBe(
+      false,
+    );
+  });
+
   test('a blank or overlong name is rejected', () => {
     expect(CampaignName.safeParse('   ').success).toBe(false);
     expect(CampaignName.safeParse('x'.repeat(81)).success).toBe(false);

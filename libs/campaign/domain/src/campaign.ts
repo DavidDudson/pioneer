@@ -14,16 +14,25 @@ export const CampaignMemberWire = z.object({
 export type CampaignMember = z.output<typeof CampaignMemberWire>;
 
 /** JSON shape of a campaign on the wire and in storage. */
-export const CampaignWire = z.object({
-  id: CampaignId,
-  version: Version,
-  name: CampaignName,
-  /** The member whose role is `gm`. */
-  gmId: UserId,
-  /** Oldest membership first. */
-  members: z.array(CampaignMemberWire).readonly(),
-  createdAt: InstantCodec,
-});
+export const CampaignWire = z
+  .object({
+    id: CampaignId,
+    version: Version,
+    name: CampaignName,
+    /** The member whose role is `gm`. */
+    gmId: UserId,
+    /** Oldest membership first. */
+    members: z.array(CampaignMemberWire).readonly(),
+    createdAt: InstantCodec,
+  })
+  .refine(
+    // Exactly one GM member, and it is `gmId`: otherwise the GM would be refused their own campaign.
+    ({ gmId, members }) => {
+      const gms = members.filter((member) => member.role === CampaignRole.Gm);
+      return gms.length === 1 && gms[0]?.userId === gmId;
+    },
+    { path: ['members'] },
+  );
 
 interface CampaignProps {
   readonly id: CampaignId;
