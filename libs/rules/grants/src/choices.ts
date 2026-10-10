@@ -21,8 +21,8 @@ import { optionOf } from './option-of';
 
 /**
  * A `ChoiceSet` on the character: where it is, what it asks and what it offers. `options` is worked out the first
- * time it is read, against the facts of the round that found the slot: no round of resolution needs it, so a query
- * over every entry of its kind runs only for a builder that shows it.
+ * time it is read, against the facts its walk read (for a settled resolution, its `facts`): no round of resolution
+ * needs it, so a query over every entry of its kind runs only for a builder that shows it.
  */
 export interface ChoiceSlot {
   readonly key: SlotKey;
