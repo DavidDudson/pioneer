@@ -10,13 +10,17 @@ import { Meter } from '../feedback/meter/meter.component';
 import { Skeleton } from '../feedback/skeleton/skeleton.component';
 import { Stack } from '../layout/stack/stack.component';
 import { Surface } from '../layout/surface/surface.component';
-import { emulateForcedColors, systemColour } from '../testing/story-forced-colors';
+import { emulateForcedColors, paintedAcross, systemColour } from '../testing/story-forced-colors';
 import { pressKeys } from '../testing/story-keyboard';
 import { hover } from '../testing/story-pointer';
 import { Badge } from '../text/badge/badge.component';
 import { Text } from '../text/text/text.component';
 
 type ForcedColorsStory = StoryObj;
+
+/** Points across the bar meter, as fractions of its width: inside its 70% fill, and in the empty track. */
+const FILLED_AT = 0.2;
+const TRACK_AT = 0.9;
 
 /**
  * Windows High Contrast replaces every colour with the user's palette, except CSS system colours. Frontier keeps
@@ -63,8 +67,12 @@ const meta: Meta = {
           <fr-badge tone="danger" variant="solid">Solid</fr-badge>
         </fr-stack>
         <fr-meter label="Hero points" variant="segmented" [value]="2" [max]="3" />
+        <fr-meter label="Hit points" [value]="28" [max]="40" />
         <fr-surface variant="sunken" padding="sm">
           <fr-text element="p">A sunken panel</fr-text>
+        </fr-surface>
+        <fr-surface variant="base" padding="sm">
+          <fr-text element="p">A base panel</fr-text>
         </fr-surface>
         <fr-skeleton />
       </fr-stack>
@@ -118,7 +126,7 @@ async function expectPressed(root: HTMLElement): Promise<void> {
   await expect(unpressed.map((button) => style(button)?.backgroundColor === highlight)).toEqual([false, false]);
 }
 
-/** A solid badge inverts the palette; filled meter segments, a skeleton and a sunken panel stay visible. */
+/** A solid badge inverts the palette; meter fills, a skeleton and base and sunken panels stay visible. */
 async function expectFills(root: HTMLElement): Promise<void> {
   const canvas = within(root);
   const solid = style(canvas.getByText('Solid'));
@@ -127,7 +135,18 @@ async function expectFills(root: HTMLElement): Promise<void> {
   const highlight = systemColour('Highlight');
   await expect(segments.map((segment) => style(segment)?.backgroundColor === highlight)).toEqual([true, true, false]);
   await expect(style(root.querySelector('fr-skeleton'))?.backgroundColor).toBe(systemColour('GrayText'));
-  await expect(bordered(root.querySelector('fr-surface'))).toBe(true);
+  const panels = [...root.querySelectorAll('fr-surface')];
+  await expect(panels.map((panel) => bordered(panel))).toEqual([true, true]);
+}
+
+/**
+ * The bar meter's fill (28 of 40) paints a colour of its own, not the track's: only a screenshot can see it. Chromium
+ * already paints a forced meter fill Highlight; `forced-colors:meter-value:` says so for other engines.
+ */
+async function expectBarFilled(root: HTMLElement): Promise<void> {
+  const bar = within(root).getByRole('meter', { name: 'Hit points' });
+  const [filled, track] = await paintedAcross(bar, [FILLED_AT, TRACK_AT]);
+  await expect(filled).not.toBe(track);
 }
 
 /** In an open select the keyboard's option fills with Highlight and the selected one is underlined. */
@@ -165,6 +184,15 @@ export const Default: ForcedColorsStory = {
     await expectEdgesAndFocus(canvasElement);
     await expectPressed(canvasElement);
     await expectFills(canvasElement);
+    await expectBarFilled(canvasElement);
     await expectOptions(canvasElement);
+  },
+};
+
+/** Forced colours are off again for whatever runs next on the runner's page, even after the story above. */
+export const ResetAfterwards: ForcedColorsStory = {
+  tags: ['!dev'],
+  play: async () => {
+    await expect(globalThis.matchMedia('(forced-colors: active)').matches).toBe(false);
   },
 };

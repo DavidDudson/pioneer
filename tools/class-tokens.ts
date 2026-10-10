@@ -62,10 +62,11 @@ const COUNTS =
   /^(?:grid-cols-\d+|grid-rows-\d+|col-span-\d+|row-span-\d+|line-clamp-\d+|order-\d+|flex-1|grow-0|shrink-0)$/u;
 
 /** A colour utility (`bg-`, `text-`, `border-s-`, …) naming a system colour token (`bg-system-highlight`). */
-const SYSTEM_COLOUR = /^(?:bg|text|border(?:-[xyse])?|outline|decoration|fill|stroke)-system-/u;
+const SYSTEM_COLOUR =
+  /^(?:bg|text|border(?:-[xytbse])?|divide|outline|decoration|placeholder|caret|accent|fill|stroke)-system-/u;
 /** A colour utility naming a theme colour token (`text-accent-fg`). */
 const THEME_COLOUR =
-  /^(?:bg|text|border(?:-[xyse])?|outline|decoration|fill|stroke)-(?:surface|fg|line|accent|danger|success|warning|info)-/u;
+  /^(?:bg|text|border(?:-[xytbse])?|divide|outline|decoration|placeholder|caret|accent|fill|stroke)-(?:surface|fg|line|accent|danger|success|warning|info)-/u;
 const FORCED_COLORS = 'forced-colors';
 
 /** System colours only under `forced-colors:`, and only system colours there. */

@@ -300,7 +300,11 @@ restore it with `forced-colors:` variants:
 
 The `Accessibility/Forced Colours` story turns forced colours on through
 CDP (`emulateForcedColors`, `testing/story-forced-colors.ts`) and checks
-each state against the system colour it should resolve to. In Chrome
+each state against the system colour it should resolve to
+(`paintedAcross` reads a screenshot where `getComputedStyle` can't, such
+as a meter's fill). The emulation is on the runner's page, so it is turned
+off when the test finishes (`onTestFinished`), not in a Storybook cleanup,
+which never runs after a file's last story. In Chrome
 DevTools, Rendering → "Emulate CSS media feature forced-colors" shows any
 story the same way.
 
