@@ -7,20 +7,31 @@ import { Stack, StackAlign, StackJustify } from './stack.component';
 interface Rendered {
   readonly host: HTMLElement;
   readonly flex: Element;
+  readonly items: readonly Element[];
 }
 
+/** Renders `fr-stack` with two spans projected and returns its host, inner element and the spans. */
 async function render(inputs: Readonly<Record<string, unknown>>): Promise<Rendered> {
-  const fixture = TestBed.createComponent(Stack);
+  const items = [document.createElement('span'), document.createElement('span')];
+  const component = createComponent(Stack, {
+    environmentInjector: TestBed.inject(EnvironmentInjector),
+    projectableNodes: [items],
+  });
+  onTestFinished(() => {
+    component.destroy();
+  });
   for (const [name, value] of Object.entries(inputs)) {
-    fixture.componentRef.setInput(name, value);
+    component.setInput(name, value);
   }
-  await fixture.whenStable();
-  const host = fixture.nativeElement as HTMLElement;
+  const appRef = TestBed.inject(ApplicationRef);
+  appRef.attachView(component.hostView);
+  await appRef.whenStable();
+  const host = component.location.nativeElement as HTMLElement;
   const flex = host.firstElementChild;
   if (flex === null) {
     throw new Error('Stack rendered no inner element');
   }
-  return { host, flex };
+  return { host, flex, items };
 }
 
 describe(Stack, () => {
@@ -83,18 +94,7 @@ describe(Stack, () => {
   });
 
   it('projects its children into the inner flexbox', async () => {
-    const children = [document.createElement('span'), document.createElement('span')];
-    const stack = createComponent(Stack, {
-      environmentInjector: TestBed.inject(EnvironmentInjector),
-      projectableNodes: [children],
-    });
-    onTestFinished(() => {
-      stack.destroy();
-    });
-    const appRef = TestBed.inject(ApplicationRef);
-    appRef.attachView(stack.hostView);
-    await appRef.whenStable();
-    const flex = (stack.location.nativeElement as HTMLElement).firstElementChild;
-    expect(children.map((child) => child.parentElement)).toStrictEqual([flex, flex]);
+    const { flex, items } = await render({});
+    expect(items.map((item) => item.parentElement)).toStrictEqual([flex, flex]);
   });
 });

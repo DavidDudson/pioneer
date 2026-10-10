@@ -7,28 +7,42 @@ import { Grid } from './grid.component';
 interface Rendered {
   readonly host: HTMLElement;
   readonly grid: Element;
+  readonly items: readonly Element[];
 }
 
+/** Renders `fr-grid` with two spans projected and returns its host, inner element and the spans. */
 async function render(inputs: Readonly<Record<string, unknown>>): Promise<Rendered> {
-  const fixture = TestBed.createComponent(Grid);
+  const items = [document.createElement('span'), document.createElement('span')];
+  const component = createComponent(Grid, {
+    environmentInjector: TestBed.inject(EnvironmentInjector),
+    projectableNodes: [items],
+  });
+  onTestFinished(() => {
+    component.destroy();
+  });
   for (const [name, value] of Object.entries(inputs)) {
-    fixture.componentRef.setInput(name, value);
+    component.setInput(name, value);
   }
-  await fixture.whenStable();
-  const host = fixture.nativeElement as HTMLElement;
+  const appRef = TestBed.inject(ApplicationRef);
+  appRef.attachView(component.hostView);
+  await appRef.whenStable();
+  const host = component.location.nativeElement as HTMLElement;
   const grid = host.firstElementChild;
   if (grid === null) {
     throw new Error('Grid rendered no inner element');
   }
-  return { host, grid };
+  return { host, grid, items };
 }
 
 describe(Grid, () => {
-  it('is its own query container and stretches items by default', async () => {
+  it('is its own query container: two stretched columns at a medium gap by default', async () => {
     const { host, grid } = await render({});
     expect(host.className).toContain('@container');
-    expect(grid.className).toContain('grid-cols-1');
-    expect(grid.className).toContain('items-stretch');
+    expect([...grid.classList]).toStrictEqual(
+      expect.arrayContaining(['grid-cols-1', '@md:grid-cols-2', 'gap-md', 'items-stretch']),
+    );
+    expect([...grid.classList]).not.toContain('@lg:grid-cols-3');
+    expect([...grid.classList]).not.toContain('@lg:grid-cols-4');
   });
 
   it('takes no box and leaves the query to its parent container in parent mode', async () => {
@@ -71,19 +85,7 @@ describe(Grid, () => {
   });
 
   it('projects its items into the inner grid', async () => {
-    const items = [document.createElement('span'), document.createElement('span')];
-    const grid = createComponent(Grid, {
-      environmentInjector: TestBed.inject(EnvironmentInjector),
-      projectableNodes: [items],
-    });
-    onTestFinished(() => {
-      grid.destroy();
-    });
-    const appRef = TestBed.inject(ApplicationRef);
-    appRef.attachView(grid.hostView);
-    await appRef.whenStable();
-    const inner = (grid.location.nativeElement as HTMLElement).firstElementChild;
-    expect(items.map((item) => item.parentElement)).toStrictEqual([inner, inner]);
-    expect(inner?.classList.contains('grid')).toBe(true);
+    const { grid, items } = await render({});
+    expect(items.map((item) => item.parentElement)).toStrictEqual([grid, grid]);
   });
 });

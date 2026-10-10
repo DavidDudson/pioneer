@@ -36,7 +36,11 @@ describe(Surface, () => {
     [SurfaceVariant.Base, ['bg-surface-base'], ['border']],
     [SurfaceVariant.Raised, ['bg-surface-raised', 'border'], []],
     [SurfaceVariant.Sunken, ['bg-surface-sunken'], ['border']],
-    [SurfaceVariant.Outline, ['border', 'border-line-default'], ['bg-surface-raised', 'bg-surface-base']],
+    [
+      SurfaceVariant.Outline,
+      ['border', 'border-line-default'],
+      ['bg-surface-raised', 'bg-surface-base', 'bg-surface-sunken'],
+    ],
   ])('styles the %s variant without a look-alike class', async (variant, present, absent) => {
     const host = await render({ variant });
     expect([...host.classList]).toStrictEqual(expect.arrayContaining(present));
