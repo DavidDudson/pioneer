@@ -37,7 +37,10 @@
     <fr-heading variant="label" [level]="3">{{ 'campaign.invites.openHeading' | transloco }}</fr-heading>
     <fr-async-region [errorMessage]="'campaign.invites.loadError' | transloco">
       <ng-template frAsyncPending>
-        <fr-skeleton width="md" />
+        <fr-stack direction="horizontal" gap="sm" align="center" justify="between">
+          <fr-skeleton width="md" />
+          <fr-skeleton shape="block" width="xs" />
+        </fr-stack>
       </ng-template>
       <ng-template let-invites [frAsyncData]="store.invites">
         @if (invites.length === 0) {
@@ -47,9 +50,15 @@
             @for (invite of invites; track invite.id) {
               <fr-list-item>
                 <fr-stack direction="horizontal" gap="sm" align="center" justify="between">
-                  <fr-text
-                    >{{ 'campaign.invites.expires' | transloco }} <fr-date format="datetime" [value]="invite.expiresAt"
-                  /></fr-text>
+                  <fr-stack direction="horizontal" gap="xs" align="center" wrap>
+                    <fr-text
+                      >{{ 'campaign.invites.expires' | transloco }}
+                      <fr-date format="datetime" [value]="invite.expiresAt"
+                    /></fr-text>
+                    @if (invite.revokedAt) {
+                      <fr-badge>{{ 'campaign.invites.revoked' | transloco }}</fr-badge>
+                    }
+                  </fr-stack>
                   <fr-async-button
                     size="sm"
                     [action]="revoke(invite)"

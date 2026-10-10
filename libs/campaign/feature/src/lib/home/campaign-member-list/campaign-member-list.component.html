@@ -5,7 +5,14 @@
       <ng-template frAsyncPending>
         <fr-stack gap="sm">
           @for (placeholder of placeholders; track placeholder) {
-            <fr-skeleton width="md" />
+            <fr-stack direction="horizontal" gap="sm" align="center">
+              <fr-skeleton shape="square" width="xs" />
+              <fr-stack gap="3xs" grow>
+                <fr-skeleton width="sm" />
+                <fr-skeleton width="md" />
+              </fr-stack>
+              <fr-skeleton width="xs" />
+            </fr-stack>
           }
         </fr-stack>
       </ng-template>

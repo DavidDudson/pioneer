@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, computed, effect, inject, input, un
 import { Router } from '@angular/router';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { InviteToken } from '@pioneer/campaign/domain';
-import { injectAsyncAction, Link, Message, Page, Skeleton, Stack, Surface, Text } from '@pioneer/frontier';
+import { injectAsyncAction, Link, Message, Page, Spinner, Stack, Surface, Text } from '@pioneer/frontier';
 import { ApiError } from '@pioneer/shared/web';
 
 import { CampaignStore } from '../../data/campaign-store';
@@ -13,7 +13,7 @@ import { CampaignStore } from '../../data/campaign-store';
  */
 @Component({
   selector: 'pio-campaign-join-page',
-  imports: [Link, Message, Page, Skeleton, Stack, Surface, Text, TranslocoPipe],
+  imports: [Link, Message, Page, Spinner, Stack, Surface, Text, TranslocoPipe],
   templateUrl: './campaign-join-page.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

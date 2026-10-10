@@ -97,6 +97,8 @@ export class CampaignStore {
   /** A new invite to the open campaign. Its token is in the result and nowhere else. */
   public async createInvite(id: CampaignId): Promise<IssuedInvite> {
     const issued = await this.#api.call(CampaignContract.createInvite, { params: { id }, body: undefined });
+    // A list fetch already in flight predates this invite and would overwrite it.
+    await this.#client.cancelQueries({ queryKey: campaignKeys.invites(id) });
     this.#client.setQueryData(campaignKeys.invites(id), (invites: InviteSummary[] | undefined) => [
       issued.invite,
       ...(invites ?? []),
@@ -104,10 +106,15 @@ export class CampaignStore {
     return issued;
   }
 
+  /**
+   * Revokes an invite. Its row stays, marked revoked, until the list next loads: removing it at once
+   * would drop the focus on its button and the button's confirmation with it.
+   */
   public async revokeInvite(id: CampaignId, inviteId: CampaignInviteId): Promise<void> {
-    await this.#api.call(CampaignContract.revokeInvite, { params: { id, inviteId }, body: undefined });
+    const revoked = await this.#api.call(CampaignContract.revokeInvite, { params: { id, inviteId }, body: undefined });
+    await this.#client.cancelQueries({ queryKey: campaignKeys.invites(id) });
     this.#client.setQueryData(campaignKeys.invites(id), (invites: InviteSummary[] | undefined) =>
-      (invites ?? []).filter((invite) => invite.id !== inviteId),
+      (invites ?? []).map((invite) => (invite.id === inviteId ? revoked : invite)),
     );
   }
 

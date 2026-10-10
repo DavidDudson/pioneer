@@ -2,7 +2,6 @@ import {
   CampaignInvite,
   CampaignInviteId,
   CampaignMemberId,
-  CampaignRole,
   InviteStatus,
   InviteToken,
   InviteTokenHash,
@@ -103,12 +102,15 @@ export class CampaignInviteService {
     if (status !== InviteStatus.Open) {
       throw new GoneError('CampaignInvite', invite.id, message(CLOSED_MESSAGE[status]));
     }
-    return this.#campaigns.addMember(campaign.id, {
-      id: CampaignMemberId.parse(newId()),
-      userId: actor,
-      role: CampaignRole.Player,
-      joinedAt: now,
-    });
+    const player = campaign
+      .withPlayer({ memberId: CampaignMemberId.parse(newId()), userId: actor, now })
+      .members.find((member) => member.userId === actor);
+    const joined = player === undefined ? undefined : await this.#campaigns.joinByInvite(invite, player, now);
+    if (joined === undefined) {
+      // The invite stopped working between the check above and the insert: a revoke won the race.
+      throw new GoneError('CampaignInvite', invite.id, message(InviteMessage.Revoked));
+    }
+    return joined;
   }
 
   /** The invite a token belongs to and its campaign; an unknown token is a 404. */

@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { FIRST_VERSION, fixedClock, newId, UserId } from '@pioneer/shared/kernel';
+import { FIRST_VERSION, fixedClock, newId, nextVersion, UserId } from '@pioneer/shared/kernel';
 
 import { Campaign } from './campaign';
 import { CampaignId, CampaignMemberId, CampaignName, CampaignRole } from './campaign-fields';
@@ -15,6 +15,7 @@ describe('Campaign', () => {
     const playerId = CampaignMemberId.parse(newId());
     const joined = campaign.withPlayer({ memberId: playerId, userId: ezren, now });
     expect(joined.roleOf(ezren)).toBe(CampaignRole.Player);
+    expect(joined.version).toBe(nextVersion(campaign.version));
     expect(joined.members.at(-1)?.joinedAt).toStrictEqual(now);
     const memberId = CampaignMemberId.parse(newId());
     expect(joined.withPlayer({ memberId, userId: ezren, now })).toBe(joined);

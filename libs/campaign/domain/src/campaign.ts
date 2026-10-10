@@ -1,4 +1,4 @@
-import { FIRST_VERSION, InstantCodec, UserId, Version } from '@pioneer/shared/kernel';
+import { FIRST_VERSION, InstantCodec, nextVersion, UserId, Version } from '@pioneer/shared/kernel';
 import type { Temporal } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
@@ -95,7 +95,10 @@ export class Campaign {
     return this.members.find((member) => member.userId === user)?.role;
   }
 
-  /** This campaign with `userId` joined as a player at `now`; unchanged when they are already a member. */
+  /**
+   * This campaign with `userId` joined as a player at `now`, one version on; unchanged when they are
+   * already a member.
+   */
   public withPlayer(input: {
     readonly memberId: CampaignMemberId;
     readonly userId: UserId;
@@ -110,7 +113,7 @@ export class Campaign {
       role: CampaignRole.Player,
       joinedAt: input.now,
     };
-    return new Campaign({ ...this.toProps(), members: [...this.members, player] });
+    return new Campaign({ ...this.toProps(), version: nextVersion(this.version), members: [...this.members, player] });
   }
 
   private toProps(): CampaignProps {

@@ -79,6 +79,8 @@ describe('CampaignJoinPage', () => {
       expect(text).toContain('This invite link was revoked.');
       expect(text).toContain('Go to your campaigns');
     });
+    // A failed join is not retried.
+    TestBed.inject(HttpTestingController).expectNone('/api/campaigns/join');
   });
 
   it('says a malformed link is not valid, without calling the API', async () => {

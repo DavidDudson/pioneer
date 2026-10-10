@@ -1,5 +1,5 @@
-import type { Campaign, CampaignId, CampaignMember } from '@pioneer/campaign/domain';
-import type { UserId } from '@pioneer/shared/kernel';
+import type { Campaign, CampaignId, CampaignInvite, CampaignMember } from '@pioneer/campaign/domain';
+import type { Temporal, UserId } from '@pioneer/shared/kernel';
 
 /**
  * Port for campaign persistence. Adapters live in `campaign-infrastructure`;
@@ -16,8 +16,14 @@ export abstract class CampaignRepository {
   public abstract insert(campaign: Campaign): Promise<Campaign>;
 
   /**
-   * Add a member and return the campaign with them in it. A user who is already a member (say, two
-   * joins racing) stays as they were.
+   * Add `member` to the invite's campaign as one step with checking the invite still works at `now`,
+   * so a revoke that commits first stops the join. Undefined when the invite no longer works. Adding
+   * someone bumps the campaign's version; a user who is already a member (say, two joins racing)
+   * stays as they were.
    */
-  public abstract addMember(id: CampaignId, member: CampaignMember): Promise<Campaign>;
+  public abstract joinByInvite(
+    invite: CampaignInvite,
+    member: CampaignMember,
+    now: Temporal.Instant,
+  ): Promise<Campaign | undefined>;
 }

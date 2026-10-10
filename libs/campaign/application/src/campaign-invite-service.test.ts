@@ -3,8 +3,7 @@ import { beforeEach, describe, expect, test } from 'bun:test';
 import { CampaignInviteId, CampaignRole, INVITE_LIFETIME, InviteToken } from '@pioneer/campaign/domain';
 import { CampaignBuilder, fixtureGmId } from '@pioneer/campaign/domain/testing';
 import { ForbiddenError, GoneError, newId, NotFoundError, Temporal, UserId } from '@pioneer/shared/kernel';
-import type { Clock } from '@pioneer/shared/kernel';
-import { rejection } from '@pioneer/shared/kernel/testing';
+import { ManualClock, rejection } from '@pioneer/shared/kernel/testing';
 
 import { CampaignInviteService } from './campaign-invite-service';
 import { InMemoryCampaignInviteRepository } from './in-memory-campaign-invite-repository';
@@ -16,26 +15,13 @@ const seelah = UserId.parse(newId());
 const stranger = UserId.parse(newId());
 const vaults = new CampaignBuilder().named('Abomination Vaults').withPlayer(ezren).build();
 
-/** A clock the test moves by hand. */
-class ManualClock implements Clock {
-  #now = Temporal.Instant.from('2026-10-10T10:00:00Z');
-
-  public now(): Temporal.Instant {
-    return this.#now;
-  }
-
-  public advance(duration: Temporal.Duration): void {
-    this.#now = this.#now.add(duration);
-  }
-}
-
 describe('CampaignInviteService', () => {
   let clock: ManualClock;
   let campaigns: InMemoryCampaignRepository;
   let service: CampaignInviteService;
 
   beforeEach(async () => {
-    clock = new ManualClock();
+    clock = new ManualClock('2026-10-10T10:00:00Z');
     campaigns = new InMemoryCampaignRepository();
     await campaigns.insert(vaults);
     service = new CampaignInviteService(campaigns, new InMemoryCampaignInviteRepository(), clock);
@@ -97,7 +83,7 @@ describe('CampaignInviteService joining', () => {
   let service: CampaignInviteService;
 
   beforeEach(async () => {
-    clock = new ManualClock();
+    clock = new ManualClock('2026-10-10T10:00:00Z');
     const campaigns = new InMemoryCampaignRepository();
     await campaigns.insert(vaults);
     service = new CampaignInviteService(campaigns, new InMemoryCampaignInviteRepository(), clock);

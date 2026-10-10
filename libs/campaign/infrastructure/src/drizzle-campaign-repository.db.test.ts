@@ -1,6 +1,6 @@
 import { afterAll, beforeAll, describe, expect, test } from 'bun:test';
 
-import { CampaignMemberId, CampaignRole } from '@pioneer/campaign/domain';
+import { CampaignRole } from '@pioneer/campaign/domain';
 import { CampaignBuilder, fixtureGmId } from '@pioneer/campaign/domain/testing';
 import { fixedClock, newId, UserId } from '@pioneer/shared/kernel';
 import { rejection } from '@pioneer/shared/kernel/testing';
@@ -119,22 +119,6 @@ describe.skipIf(adminUrl === undefined)('DrizzleCampaignRepository (postgres)', 
     const theirs = await repository.insert(new CampaignBuilder().named('Blood Lords').ranBy(goneGm).build());
     await database.db.execute(sql`delete from users where id = ${goneGm}`);
     expect(await repository.findById(theirs.id)).toBeUndefined();
-  });
-
-  test('adding a member twice keeps the first membership', async () => {
-    const fists = await repository.insert(new CampaignBuilder().named('Fists of the Ruby Phoenix').build());
-    const member = { id: CampaignMemberId.parse(newId()), userId: ezren, role: CampaignRole.Player, joinedAt: at };
-    const joined = await repository.addMember(fists.id, member);
-    expect(joined.members.map(({ userId, role }) => [userId, role])).toStrictEqual([
-      [fixtureGmId, CampaignRole.Gm],
-      [ezren, CampaignRole.Player],
-    ]);
-    const again = await repository.addMember(fists.id, {
-      ...member,
-      id: CampaignMemberId.parse(newId()),
-      joinedAt: at.add({ hours: 1 }),
-    });
-    expect(again).toStrictEqual(joined);
   });
 
   test('every query the repository issued is served by an index', async () => {

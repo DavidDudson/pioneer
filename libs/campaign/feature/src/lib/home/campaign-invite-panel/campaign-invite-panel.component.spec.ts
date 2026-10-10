@@ -127,14 +127,41 @@ describe('CampaignHomePage members and invites', () => {
       expect(writeText).toHaveBeenCalledWith(expect.stringMatching(new RegExp(`/campaigns/join/${token}$`, 'u')));
     });
 
-    button(root, 'Revoke').click();
+    const revoke = button(root, 'Revoke');
+    revoke.focus();
+    revoke.click();
     await vi.waitFor(() => {
       http
         .expectOne({ method: 'DELETE', url: `/api/campaigns/${id}/invites/${inviteId}` })
         .flush({ ...invite, revokedAt: '2026-10-10T11:00:00.000Z' });
     });
+    // The row stays, marked revoked, so focus and the button's confirmation survive.
     await vi.waitFor(() => {
-      expect(root.textContent).toContain('No open invite links.');
+      expect(present(root.querySelector('pio-campaign-invite-panel fr-badge')).textContent).toContain('Revoked');
+    });
+    expect(revoke.isConnected).toBe(true);
+    expect(document.activeElement).toBe(revoke);
+  });
+
+  it('says when an invite link could not be created', async () => {
+    const harness = await open('gm');
+    const http = TestBed.inject(HttpTestingController);
+    await vi.waitFor(() => {
+      http.expectOne(`/api/campaigns/${id}/invites`).flush([]);
+    });
+    const root = present(harness.routeNativeElement);
+
+    button(root, 'Create invite link').click();
+    await vi.waitFor(() => {
+      http
+        .expectOne({ method: 'POST', url: `/api/campaigns/${id}/invites` })
+        .flush(
+          { type: 'internal', title: 'Internal error', status: 500, message: { key: 'problem.internal' } },
+          { status: 500, statusText: 'Internal Server Error' },
+        );
+    });
+    await vi.waitFor(() => {
+      expect(root.textContent).toContain('Could not create an invite link.');
     });
   });
 });

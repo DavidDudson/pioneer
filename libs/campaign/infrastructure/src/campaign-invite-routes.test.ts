@@ -7,8 +7,10 @@ import {
   InMemoryCampaignRepository,
   InMemoryMemberDirectory,
 } from '@pioneer/campaign/application';
-import { fixedClock, newId, UserId } from '@pioneer/shared/kernel';
-import type { Problem } from '@pioneer/shared/kernel';
+import { INVITE_LIFETIME } from '@pioneer/campaign/domain';
+import { newId, UserId } from '@pioneer/shared/kernel';
+import type { Clock, Problem } from '@pioneer/shared/kernel';
+import { ManualClock } from '@pioneer/shared/kernel/testing';
 import { problemHandler } from '@pioneer/shared/server';
 import { actingAs, FakeAuthenticator } from '@pioneer/shared/server/testing';
 import { Elysia } from 'elysia';
@@ -20,8 +22,7 @@ const amiri = UserId.parse(newId());
 const ezren = UserId.parse(newId());
 const seelah = UserId.parse(newId());
 
-function app(): AnyElysia {
-  const clock = fixedClock('2026-10-10T10:00:00Z');
+function app(clock: Clock = new ManualClock('2026-10-10T10:00:00Z')): AnyElysia {
   const campaigns = new InMemoryCampaignRepository();
   const directory = new InMemoryMemberDirectory().name(amiri, 'Amiri').name(ezren, 'Ezren');
   const service = new CampaignService(campaigns, directory, clock);
@@ -113,6 +114,19 @@ describe('invite routes', () => {
     const problem = await json<Problem>(response);
     expect(problem.type).toBe('gone');
     expect(problem.message).toStrictEqual({ key: 'campaign.join.revokedInvite' });
+  });
+
+  test('an expired invite is a 410 with its own message', async () => {
+    const clock = new ManualClock('2026-10-10T10:00:00Z');
+    const api = app(clock);
+    const { issued } = await campaignWithInvite(api);
+    clock.advance(INVITE_LIFETIME);
+
+    const response = await api.handle(request('POST', '/campaigns/join', { as: ezren, body: { token: issued.token } }));
+    expect(response.status).toBe(410);
+    const problem = await json<Problem>(response);
+    expect(problem.type).toBe('gone');
+    expect(problem.message).toStrictEqual({ key: 'campaign.join.expiredInvite' });
   });
 
   test('an unknown token is a 404 with its own message; a malformed one is a 422', async () => {

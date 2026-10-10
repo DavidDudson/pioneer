@@ -6,9 +6,9 @@
         <fr-link [to]="['/campaigns']">{{ 'campaign.join.toCampaigns' | transloco }}</fr-link>
       </fr-stack>
     } @else {
-      <fr-stack gap="sm">
+      <fr-stack direction="horizontal" gap="sm" align="center">
+        <fr-spinner [label]="'campaign.join.joining' | transloco" />
         <fr-text tone="muted">{{ 'campaign.join.joining' | transloco }}</fr-text>
-        <fr-skeleton width="lg" />
       </fr-stack>
     }
   </fr-surface>

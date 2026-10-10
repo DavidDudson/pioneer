@@ -1,9 +1,16 @@
 import { afterAll, beforeAll, describe, expect, test } from 'bun:test';
 
-import { CampaignInvite, CampaignInviteId, INVITE_LIFETIME, InviteTokenHash } from '@pioneer/campaign/domain';
-import type { Campaign } from '@pioneer/campaign/domain';
+import {
+  CampaignInvite,
+  CampaignInviteId,
+  CampaignMemberId,
+  CampaignRole,
+  INVITE_LIFETIME,
+  InviteTokenHash,
+} from '@pioneer/campaign/domain';
+import type { Campaign, CampaignMember } from '@pioneer/campaign/domain';
 import { CampaignBuilder, fixtureGmId } from '@pioneer/campaign/domain/testing';
-import { fixedClock, newId, sha256Hex, UserId } from '@pioneer/shared/kernel';
+import { fixedClock, newId, nextVersion, sha256Hex, UserId } from '@pioneer/shared/kernel';
 import type { Temporal } from '@pioneer/shared/kernel';
 import { rejection } from '@pioneer/shared/kernel/testing';
 import { createTestDatabase, QueryRecorder, testDatabaseUrl, unindexedQueries } from '@pioneer/shared/server/testing';
@@ -19,6 +26,15 @@ import { DrizzleCampaignRepository } from './drizzle-campaign-repository';
  */
 const adminUrl = testDatabaseUrl();
 const at = fixedClock('2026-10-10T10:00:00Z').now();
+const ezren = UserId.parse(newId());
+const seelah = UserId.parse(newId());
+/** Long enough for a join to reach the invite's row lock while the revoke holds it. */
+const RACE_WINDOW = 200;
+
+/** A new player membership for `userId`, joining at `at`. */
+function player(userId: UserId): CampaignMember {
+  return { id: CampaignMemberId.parse(newId()), userId, role: CampaignRole.Player, joinedAt: at };
+}
 
 /** A bare users row, written as SQL: identity's tables are outside this context's boundary. */
 async function insertUser(database: TestDatabase, id: UserId): Promise<void> {
@@ -51,7 +67,7 @@ describe.skipIf(adminUrl === undefined)('DrizzleCampaignInviteRepository (postgr
     database = await createTestDatabase(adminUrl ?? '', recorder);
     campaigns = new DrizzleCampaignRepository(database.db);
     repository = new DrizzleCampaignInviteRepository(database.db);
-    await insertUser(database, fixtureGmId);
+    await Promise.all([fixtureGmId, ezren, seelah].map(async (id) => insertUser(database, id)));
     vaults = await campaigns.insert(new CampaignBuilder().named('Abomination Vaults').build());
   });
 
@@ -117,12 +133,48 @@ describe.skipIf(adminUrl === undefined)('DrizzleCampaignInviteRepository (postgr
     expect(await repository.findById(fromGm.id)).toBeUndefined();
   });
 
+  test('joining through an open invite adds a player once and bumps the version once', async () => {
+    const issued = await repository.insert(await invite(vaults));
+    const joined = await campaigns.joinByInvite(issued, player(ezren), at);
+    expect(joined?.roleOf(ezren)).toBe(CampaignRole.Player);
+    expect(joined?.version).toBe(nextVersion(vaults.version));
+
+    const again = await campaigns.joinByInvite(issued, player(ezren), at.add({ hours: 1 }));
+    expect(again).toStrictEqual(joined);
+  });
+
+  test('joining through a revoked or expired invite adds nobody', async () => {
+    const revoked = await repository.insert(await invite(vaults));
+    await repository.revoke(revoked.revoke(at));
+    expect(await campaigns.joinByInvite(revoked, player(seelah), at)).toBeUndefined();
+
+    const expiring = await repository.insert(await invite(vaults));
+    expect(await campaigns.joinByInvite(expiring, player(seelah), expiring.expiresAt)).toBeUndefined();
+    const found = await campaigns.findById(vaults.id);
+    expect(found?.roleOf(seelah)).toBeUndefined();
+  });
+
+  test('a revoke in flight wins over a join that reaches the invite during it', async () => {
+    const racing = await repository.insert(await invite(vaults));
+    const joining = await database.db.transaction(async (tx) => {
+      await tx.execute(sql`update campaign_invites set revoked_at = ${at.toString()} where id = ${racing.id}`);
+      // The join reads the invite while the revoke holds its row lock, then sees it committed.
+      const pending = campaigns.joinByInvite(racing, player(seelah), at);
+      await Bun.sleep(RACE_WINDOW);
+      return { pending };
+    });
+    expect(await joining.pending).toBeUndefined();
+    const found = await campaigns.findById(vaults.id);
+    expect(found?.roleOf(seelah)).toBeUndefined();
+  });
+
   test('every query the repository issued is served by an index', async () => {
     const issued = await repository.insert(await invite(vaults));
     await repository.findById(issued.id);
     await repository.findByTokenHash(issued.tokenHash);
     await repository.listOpen(vaults.id, at);
     await repository.revoke(issued.revoke(at));
+    await campaigns.joinByInvite(await repository.insert(await invite(vaults)), player(ezren), at);
     expect(await unindexedQueries(database.db, recorder)).toStrictEqual([]);
   });
 });
