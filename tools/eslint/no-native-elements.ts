@@ -80,7 +80,7 @@ const OWNERS: ReadonlyMap<string, readonly string[]> = new Map([
   ['mark', []],
   ['bdi', []],
   ['bdo', []],
-  ['br', []],
+  ['br', ['text/line-break/']],
   ['wbr', []],
   ['ins', []],
   ['del', []],

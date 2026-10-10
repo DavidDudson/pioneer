@@ -83,6 +83,8 @@ export { ImageAspect, ImageDisplay, ImageFit, ImageLoading, ImageSize } from './
 export { Badge, BadgeTone, BadgeVariant } from './lib/text/badge/badge.component';
 export { Heading, HeadingLevel } from './lib/text/heading/heading.component';
 export { Quote } from './lib/text/quote/quote.component';
+export { LineBreak } from './lib/text/line-break/line-break.component';
+export { Glyph } from './lib/text/glyph/glyph.component';
 export { FontWeight, TextVariant } from './lib/text/text.variants';
 export { Text, TextElement } from './lib/text/text/text.component';
 
