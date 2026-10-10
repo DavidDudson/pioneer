@@ -88,7 +88,7 @@ const FINESSE = Trait.parse('finesse');
  * The attribute a weapon attacks with (Player Core, "Attack Rolls"): Dexterity for a ranged weapon, the higher of
  * Strength and Dexterity for a finesse one (Strength on a tie), else Strength.
  */
-export function weaponAttribute(weapon: WeaponInputs, attributes: AttributeModifiers): Attribute {
+function weaponAttribute(weapon: WeaponInputs, attributes: AttributeModifiers): Attribute {
   if (weapon.range !== undefined) {
     return Attribute.Dexterity;
   }
