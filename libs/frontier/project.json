@@ -16,6 +16,7 @@
     },
     "test-storybook": {
       "cache": true,
+      "parallelism": false,
       "inputs": [
         "default",
         "^production",
