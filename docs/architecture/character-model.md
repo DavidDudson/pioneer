@@ -133,7 +133,11 @@ the breakdown lists who set it, when and why. A GM can add overrides to campaign
   ignoring case, accents, apostrophes and punctuation. A name whose kind has no loaded content is reported as "not
   loaded" rather than "not found", so the report stays honest while content kinds are still being indexed. Stories:
   [#52](https://github.com/DavidDudson/pioneer/issues/52); `libs/interop/pathbuilder` holds a real export
-  (`fixtures/briar-rose.json`) as the reference sheet.
+  (`fixtures/briar-rose.json`) as the reference sheet. Creating a character posts the raw export to
+  `POST /characters/import/pathbuilder`, which reads it again rather than trusting the preview, refuses an ancestry
+  that matches no loaded content, and inserts name, ancestry, level and attribute modifiers in one write audited as
+  `importPathbuilder`. Its import report (unmatched names by kind, and the filled fields the character can't hold
+  yet) is returned, not stored: the sheet shows it until dismissed or reloaded.
 - **Pioneer JSON:** the `CharacterDocument` plus the ids and versions of packs used. Homebrew entries referenced by
   the character are embedded so the file is portable.
 - **Foundry export:** see [play-and-campaigns.md](play-and-campaigns.md#foundry-export).

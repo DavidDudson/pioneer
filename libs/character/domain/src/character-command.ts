@@ -9,6 +9,8 @@ export const CharacterCommand = {
   SetAncestry: 'setAncestry',
   SetLevel: 'setLevel',
   SetAttribute: 'setAttribute',
+  /** A character created from a Pathbuilder export, so an import reads apart from a manual create. */
+  ImportPathbuilder: 'importPathbuilder',
 } as const;
 export type CharacterCommand = ValueOf<typeof CharacterCommand>;
 

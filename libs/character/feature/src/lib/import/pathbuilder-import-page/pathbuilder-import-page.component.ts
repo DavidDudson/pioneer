@@ -1,7 +1,9 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { form, FormField } from '@angular/forms/signals';
-import { TranslocoPipe } from '@jsverse/transloco';
+import { ActivatedRoute, Router } from '@angular/router';
+import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import {
+  AsyncButton,
   DescriptionItem,
   DescriptionList,
   Heading,
@@ -23,9 +25,11 @@ import {
 } from '@pioneer/interop/pathbuilder';
 import type { ImportReport, PathbuilderImport, PathbuilderReadResult } from '@pioneer/interop/pathbuilder';
 import { Attribute } from '@pioneer/rules/sdk';
+import { ApiError } from '@pioneer/shared/web';
 import { injectQuery } from '@tanstack/angular-query-experimental';
 
 import { ATTRIBUTE_LABEL_KEYS } from '../../data/attribute-label-keys';
+import { CharacterStore } from '../../data/character-store';
 import { contentRegistryQuery } from '../../data/content-registry-query';
 import { ImportReportGroup } from '../import-report-group/import-report-group.component';
 
@@ -54,11 +58,12 @@ const SIGNED: Intl.NumberFormatOptions = { signDisplay: 'exceptZero' };
 
 /**
  * Paste a Pathbuilder 2e export and see what Pioneer reads from it and which names match loaded content (#306).
- * Read-only: nothing is saved until creating a character from it lands (#307).
+ * Creating the character sends the export to the server, which reads it again (#307).
  */
 @Component({
   selector: 'pio-pathbuilder-import-page',
   imports: [
+    AsyncButton,
     DescriptionItem,
     DescriptionList,
     FormField,
@@ -79,6 +84,10 @@ const SIGNED: Intl.NumberFormatOptions = { signDisplay: 'exceptZero' };
 export class PathbuilderImportPage {
   readonly #format = inject(LocaleFormat);
   readonly #registry = injectQuery(contentRegistryQuery);
+  readonly #store = inject(CharacterStore);
+  readonly #router = inject(Router);
+  readonly #route = inject(ActivatedRoute);
+  readonly #i18n = inject(TranslocoService);
 
   protected readonly model = signal<ImportModel>({ json: '' });
   protected readonly form = form(this.model);
@@ -127,4 +136,18 @@ export class PathbuilderImportPage {
       ? undefined
       : { matched: rows.filter((row) => row.status === MatchStatus.Matched).length, total: rows.length };
   });
+
+  /** Sends the export itself, not the preview; the server reads and checks it again. */
+  protected readonly create = async (): Promise<void> => {
+    const character = await this.#store.importPathbuilder(JSON.parse(this.model().json) as unknown);
+    await this.#router.navigate(['../..', character.id], { relativeTo: this.#route });
+  };
+
+  /** The server's reason when it gave one (an ancestry that isn't loaded), else a generic retry. */
+  protected readonly describeCreateError = (error: unknown): string => {
+    const [issue] = error instanceof ApiError ? error.issues : [];
+    return issue === undefined
+      ? this.#i18n.translate('character.import.createFailed')
+      : this.#i18n.translate(issue.message.key, issue.message.params);
+  };
 }

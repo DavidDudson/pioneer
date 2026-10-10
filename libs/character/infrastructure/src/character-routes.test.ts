@@ -2,6 +2,7 @@ import { describe, expect, test } from 'bun:test';
 
 import { CharacterService, InMemoryCharacterRepository } from '@pioneer/character/application';
 import { humanAncestryId } from '@pioneer/character/domain/testing';
+import { briarRoseExport, mordredExport } from '@pioneer/interop/pathbuilder/testing';
 import { ContentRegistry } from '@pioneer/rules/sdk';
 import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
 import { fixedClock, newId, UserId } from '@pioneer/shared/kernel';
@@ -102,6 +103,7 @@ describe('character routes without a signed-in user', () => {
     ['list with an unknown sort', request('GET', '/characters?sort=password', { as: anonymous })],
     ['get with a malformed id', request('GET', '/characters/not-a-uuid', { as: anonymous })],
     ['create with an empty body', request('POST', '/characters', { as: anonymous, body: {} })],
+    ['Pathbuilder import', request('POST', '/characters/import/pathbuilder', { as: anonymous, body: mordredExport })],
   ];
 
   test.each(cases)('%s is a 401 problem', async (_name, unsigned) => {
@@ -143,5 +145,50 @@ describe('character list query', () => {
     expect(raw.status).toBe(422);
     const filter = await api.handle(request('GET', '/characters?where=1%3D1'));
     expect(filter.status).toBe(422);
+  });
+});
+
+describe('Pathbuilder import route', () => {
+  const path = '/characters/import/pathbuilder';
+
+  test('creates the character and returns it with the import report', async () => {
+    const api = app();
+    const response = await api.handle(request('POST', path, { body: mordredExport }));
+    expect(response.status).toBe(200);
+    const { character, report } = (await response.json()) as {
+      character: { id: string; name: string; level: number; ownerId: string; version: number };
+      report: { unmatched: { kind: string }[]; notCarried: string[] };
+    };
+    expect(character).toMatchObject({ name: 'Mordred (Dual Class)', level: 12, ownerId: amiri, version: 1 });
+    expect(report.unmatched.map((group) => group.kind)).toContain('heritage');
+    expect(report.notCarried).toContain('lore');
+
+    const got = await api.handle(request('GET', `/characters/${character.id}`));
+    expect(((await got.json()) as { ancestry: string }).ancestry).toBe(humanAncestryId);
+  });
+
+  test('an ancestry that is not loaded is a 422 naming it, and nothing is created', async () => {
+    const api = app();
+    const response = await api.handle(request('POST', path, { body: briarRoseExport }));
+    expect(response.status).toBe(422);
+    const problem = (await response.json()) as Problem;
+    expect(problem.issues).toStrictEqual([
+      {
+        path: ['build', 'ancestry'],
+        message: { key: 'character.validation.unmatchedAncestry', params: { ancestry: 'Goloma' } },
+      },
+    ]);
+    const listed = await api.handle(request('GET', '/characters'));
+    expect(await listed.json()).toStrictEqual([]);
+  });
+
+  test.each([
+    ['a malformed export', { build: { name: 'Nobody' } }, 'character.import.problem.malformed'],
+    ['success: false', { ...mordredExport, success: false }, 'character.import.problem.exportFailed'],
+  ])('%s is a 422 with the problem first', async (_name, body, key) => {
+    const response = await app().handle(request('POST', path, { body }));
+    expect(response.status).toBe(422);
+    const problem = (await response.json()) as Problem;
+    expect(problem.issues?.[0]).toStrictEqual({ path: [], message: { key } });
   });
 });

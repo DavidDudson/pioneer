@@ -92,7 +92,8 @@ libs/
   interop/
     foundry/        Foundry pf2e actor export, rule element translation (shared with importer)
     pathbuilder/    Pathbuilder JSON import (exists): export schema, import model, content lookup port,
-                    unmatched report; `scope:interop`, called by the character feature
+                    unmatched report, import contract; `scope:interop`, called by the character feature and
+                    character service
   shared/           kernel, server, web (exists)
   frontier/         design system (exists, text-only components, logical CSS for RTL)
   shared/i18n/      locale resolution, message loading by scope, ICU formatting, unit display

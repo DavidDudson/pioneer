@@ -75,6 +75,10 @@ export class Character {
     readonly ownerId: UserId;
     readonly name: CharacterName;
     readonly ancestry: AncestryId;
+    /** Level 1 unless given, as when importing a built character. */
+    readonly level?: CharacterLevel;
+    /** All +0 unless given. */
+    readonly attributes?: AttributeModifiers;
     readonly now: Temporal.Instant;
   }): Character {
     return new Character({
@@ -83,8 +87,8 @@ export class Character {
       ownerId: input.ownerId,
       name: input.name,
       ancestry: input.ancestry,
-      level: CharacterLevel.parse(CHARACTER_LEVEL_MIN),
-      attributes: AttributeModifiers.none,
+      level: input.level ?? CharacterLevel.parse(CHARACTER_LEVEL_MIN),
+      attributes: input.attributes ?? AttributeModifiers.none,
       createdAt: input.now,
       updatedAt: input.now,
     });

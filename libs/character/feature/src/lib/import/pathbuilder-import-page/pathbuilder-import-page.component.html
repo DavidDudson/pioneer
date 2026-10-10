@@ -59,6 +59,18 @@
           }
         </fr-stack>
       </fr-surface>
+
+      <fr-stack direction="horizontal" justify="end">
+        <fr-async-button
+          variant="primary"
+          [action]="create"
+          [describeError]="describeCreateError"
+          [pendingLabel]="'character.import.creating' | transloco"
+          [successLabel]="'character.import.created' | transloco"
+        >
+          {{ 'character.import.create' | transloco }}
+        </fr-async-button>
+      </fr-stack>
     }
   </fr-stack>
 </fr-page>

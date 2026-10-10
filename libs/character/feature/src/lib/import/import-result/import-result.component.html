@@ -1,0 +1,41 @@
+<fr-surface>
+  <fr-stack gap="md">
+    <fr-stack direction="horizontal" justify="between" align="center" gap="sm">
+      <fr-heading variant="subheading" [level]="2">{{ 'character.import.result.heading' | transloco }}</fr-heading>
+      <fr-button variant="ghost" (pressed)="dismissed.emit()">{{
+        'character.import.result.dismiss' | transloco
+      }}</fr-button>
+    </fr-stack>
+    <fr-text tone="muted">{{ 'character.import.result.carried' | transloco }}</fr-text>
+    @if (notCarried() !== '') {
+      <fr-text>{{ 'character.import.result.notCarried' | transloco: { fields: notCarried() } }}</fr-text>
+    }
+    @for (group of groups(); track group.kind) {
+      <fr-disclosure>
+        <fr-text frDisclosureSummary>{{
+          'character.import.result.groupSummary'
+            | transloco: { kind: group.kindKey | transloco, count: group.names.length }
+        }}</fr-text>
+        <fr-list>
+          @for (row of group.names; track row.name) {
+            <fr-list-item>
+              <fr-stack direction="horizontal" justify="between" align="center" gap="sm">
+                <fr-text>{{ row.name }}</fr-text>
+                <fr-stack direction="horizontal" align="center" gap="xs">
+                  @if (row.repeated) {
+                    <fr-text tone="subtle" numeric>{{
+                      'character.import.occurrences' | transloco: { count: row.occurrences }
+                    }}</fr-text>
+                  }
+                  <fr-badge [tone]="row.tone">{{ row.reasonKey | transloco }}</fr-badge>
+                </fr-stack>
+              </fr-stack>
+            </fr-list-item>
+          }
+        </fr-list>
+      </fr-disclosure>
+    } @empty {
+      <fr-text>{{ 'character.import.result.allMatched' | transloco }}</fr-text>
+    }
+  </fr-stack>
+</fr-surface>

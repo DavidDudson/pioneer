@@ -1,4 +1,15 @@
-import { ChangeDetectionStrategy, Component, computed, effect, inject, input } from '@angular/core';
+import {
+  afterNextRender,
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  effect,
+  ElementRef,
+  inject,
+  Injector,
+  input,
+  viewChild,
+} from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 import {
   CharacterId,
@@ -40,6 +51,7 @@ import type * as z from 'zod';
 import { AncestryOptions } from '../../data/ancestry-options';
 import { ATTRIBUTE_LABEL_KEYS } from '../../data/attribute-label-keys';
 import { CharacterStore } from '../../data/character-store';
+import { ImportResult } from '../../import/import-result/import-result.component';
 
 /** How one sheet value maps to the aggregate and back. */
 interface FieldSpec<TValue> {
@@ -71,6 +83,7 @@ const SIGNED: Intl.NumberFormatOptions = { signDisplay: 'always' };
     DateDisplay,
     Grid,
     Heading,
+    ImportResult,
     InlineField,
     NumberInput,
     Page,
@@ -90,6 +103,8 @@ export class CharacterSheetPage {
   public readonly id = input.required({ transform: (id: string): CharacterId => CharacterId.parse(id) });
 
   readonly #format = inject(LocaleFormat);
+  readonly #injector = inject(Injector);
+  private readonly identity = viewChild.required<string, ElementRef<HTMLElement>>('identity', { read: ElementRef });
   protected readonly store = inject(CharacterStore);
   protected readonly ancestries = inject(AncestryOptions);
   protected readonly character = this.store.selected;
@@ -134,6 +149,20 @@ export class CharacterSheetPage {
     effect(() => {
       this.store.select(this.id());
     });
+  }
+
+  /**
+   * Dismissing removes the focused Dismiss button with the report, so focus moves to the first identity field rather
+   * than falling to the page body.
+   */
+  protected dismissImportReport(): void {
+    this.store.dismissImportReport();
+    afterNextRender(
+      () => {
+        this.identity().nativeElement.querySelector<HTMLElement>('button')?.focus();
+      },
+      { injector: this.#injector },
+    );
   }
 
   #field<TValue>({ read, empty, schema, toPatch, format }: FieldSpec<TValue>): InlineEdit<TValue> {

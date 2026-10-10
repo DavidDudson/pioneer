@@ -28,3 +28,13 @@ export {
   type PathbuilderReported,
   readPathbuilderExport,
 } from './read-pathbuilder-export';
+export {
+  CharacterImportReport,
+  characterImportReport,
+  PathbuilderImportContract,
+  PathbuilderImportResponse,
+  UncarriedField,
+  UnmatchedGroup,
+  UnmatchedName,
+  UnmatchedReason,
+} from './character-import';
