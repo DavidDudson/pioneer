@@ -51,15 +51,19 @@ export class UnauthorizedError extends DomainError {
   }
 }
 
-/** Refused whoever is signed in, such as a cookie-authenticated write sent from another site. */
+/**
+ * Refused whoever is signed in, such as a cookie-authenticated write sent from another site, or
+ * refused by a policy whose reason the viewer can act on (`descriptor`).
+ */
 export class ForbiddenError extends DomainError {
   public override readonly name = 'ForbiddenError';
   public readonly status = HttpStatus.Forbidden;
   public readonly type = ProblemType.Forbidden;
-  public readonly descriptor = message(ProblemMessage.Forbidden);
+  public readonly descriptor: MessageDescriptor;
 
-  public constructor(reason: string) {
+  public constructor(reason: string, descriptor: MessageDescriptor = message(ProblemMessage.Forbidden)) {
     super(reason);
+    this.descriptor = descriptor;
   }
 }
 

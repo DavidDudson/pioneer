@@ -1,5 +1,5 @@
 import type { Campaign, CampaignId, CampaignInvite, CampaignMember } from '@pioneer/campaign/domain';
-import type { Temporal, UserId } from '@pioneer/shared/kernel';
+import type { Temporal, UserId, Version } from '@pioneer/shared/kernel';
 
 /**
  * Port for campaign persistence. Adapters live in `campaign-infrastructure`;
@@ -26,4 +26,11 @@ export abstract class CampaignRepository {
     member: CampaignMember,
     now: Temporal.Instant,
   ): Promise<Campaign | undefined>;
+
+  /**
+   * Store `campaign`'s members and GM, if the stored campaign is still at `expectedVersion`: members it no
+   * longer lists are removed and roles change to match. Returns it as stored, at its own version.
+   * Throws `VersionConflictError` when someone changed the campaign first.
+   */
+  public abstract updateMembers(campaign: Campaign, expectedVersion: Version): Promise<Campaign>;
 }

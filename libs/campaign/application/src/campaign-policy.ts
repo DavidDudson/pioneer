@@ -14,3 +14,13 @@ export function mayViewCampaign(actor: UserId, campaign: Campaign): boolean {
 export function mayManageInvites(actor: UserId, campaign: Campaign): boolean {
   return campaign.roleOf(actor) === CampaignRole.Gm;
 }
+
+/** Who may remove players and hand the GM role over: the GM. */
+export function mayManageMembers(actor: UserId, campaign: Campaign): boolean {
+  return campaign.roleOf(actor) === CampaignRole.Gm;
+}
+
+/** Who may leave: a player. The GM hands the role over first, so a campaign always has one. */
+export function mayLeaveCampaign(actor: UserId, campaign: Campaign): boolean {
+  return campaign.roleOf(actor) === CampaignRole.Player;
+}

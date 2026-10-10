@@ -1,7 +1,7 @@
 import { Campaign } from '@pioneer/campaign/domain';
 import type { CampaignId, CampaignInvite, CampaignMember } from '@pioneer/campaign/domain';
-import { nextVersion } from '@pioneer/shared/kernel';
-import type { Temporal, UserId } from '@pioneer/shared/kernel';
+import { nextVersion, VersionConflictError } from '@pioneer/shared/kernel';
+import type { Temporal, UserId, Version } from '@pioneer/shared/kernel';
 
 import { CampaignRepository } from './campaign-repository';
 
@@ -57,5 +57,14 @@ export class InMemoryCampaignRepository extends CampaignRepository {
     });
     this.#rows.set(campaign.id, joined);
     return joined;
+  }
+
+  public override async updateMembers(campaign: Campaign, expectedVersion: Version): Promise<Campaign> {
+    const stored = this.#rows.get(campaign.id);
+    if (stored?.version !== expectedVersion) {
+      throw new VersionConflictError('Campaign', campaign.id);
+    }
+    this.#rows.set(campaign.id, campaign);
+    return campaign;
   }
 }
