@@ -13,6 +13,7 @@ export {
 export {
   DomainError,
   ForbiddenError,
+  GoneError,
   HttpStatus,
   NotFoundError,
   type Problem,
@@ -34,6 +35,7 @@ export {
   UuidNamespace,
   Version,
 } from './id';
+export { randomSecret, sha256Hex } from './secret';
 export { Temporal } from './temporal';
 export { Pg } from './pg';
 export { listQuery, SortDirection } from './list-query';

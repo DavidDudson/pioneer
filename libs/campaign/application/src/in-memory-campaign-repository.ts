@@ -1,4 +1,4 @@
-import type { Campaign, CampaignId } from '@pioneer/campaign/domain';
+import type { Campaign, CampaignId, CampaignMember } from '@pioneer/campaign/domain';
 import type { Temporal, UserId } from '@pioneer/shared/kernel';
 
 import { CampaignRepository } from './campaign-repository';
@@ -34,5 +34,15 @@ export class InMemoryCampaignRepository extends CampaignRepository {
   public override async insert(campaign: Campaign): Promise<Campaign> {
     this.#rows.set(campaign.id, campaign);
     return campaign;
+  }
+
+  public override async addMember(id: CampaignId, member: CampaignMember): Promise<Campaign> {
+    const campaign = this.#rows.get(id);
+    if (campaign === undefined) {
+      throw new Error(`No campaign ${id} to add a member to`);
+    }
+    const joined = campaign.withPlayer({ memberId: member.id, userId: member.userId, now: member.joinedAt });
+    this.#rows.set(id, joined);
+    return joined;
   }
 }

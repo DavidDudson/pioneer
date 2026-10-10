@@ -93,6 +93,18 @@ export class DrizzleCampaignRepository extends CampaignRepository {
     });
   }
 
+  public override async addMember(id: CampaignId, member: CampaignMember): Promise<Campaign> {
+    await this.#db
+      .insert(campaignMembers)
+      .values(toMemberRow(id, member))
+      .onConflictDoNothing({ target: [campaignMembers.campaignId, campaignMembers.userId] });
+    const campaign = await this.findById(id);
+    if (campaign === undefined) {
+      throw new Error(`Campaign ${id} vanished while adding a member`);
+    }
+    return campaign;
+  }
+
   /** Every member of each campaign, grouped by campaign. */
   async #membersOf(ids: readonly CampaignId[]): Promise<ReadonlyMap<CampaignId, readonly MemberRow[]>> {
     if (ids.length === 0) {

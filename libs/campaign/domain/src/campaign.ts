@@ -95,6 +95,24 @@ export class Campaign {
     return this.members.find((member) => member.userId === user)?.role;
   }
 
+  /** This campaign with `userId` joined as a player at `now`; unchanged when they are already a member. */
+  public withPlayer(input: {
+    readonly memberId: CampaignMemberId;
+    readonly userId: UserId;
+    readonly now: Temporal.Instant;
+  }): Campaign {
+    if (this.roleOf(input.userId) !== undefined) {
+      return this;
+    }
+    const player: CampaignMember = {
+      id: input.memberId,
+      userId: input.userId,
+      role: CampaignRole.Player,
+      joinedAt: input.now,
+    };
+    return new Campaign({ ...this.toProps(), members: [...this.members, player] });
+  }
+
   private toProps(): CampaignProps {
     return {
       id: this.id,

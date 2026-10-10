@@ -23,6 +23,7 @@ export const ProblemMessage = {
   Unauthorized: 'problem.unauthorized',
   Forbidden: 'problem.forbidden',
   NotFound: 'problem.notFound',
+  Gone: 'problem.gone',
   RouteNotFound: 'problem.routeNotFound',
   VersionConflict: 'problem.versionConflict',
   Validation: 'problem.validation',

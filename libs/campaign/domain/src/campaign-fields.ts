@@ -18,3 +18,24 @@ export type CampaignName = z.infer<typeof CampaignName>;
 /** A member's part in a campaign. Exactly one member is the GM. */
 export const CampaignRole = { Gm: 'gm', Player: 'player' } as const;
 export type CampaignRole = ValueOf<typeof CampaignRole>;
+
+export const CampaignInviteId = Uuid.brand<'CampaignInviteId'>();
+export type CampaignInviteId = z.infer<typeof CampaignInviteId>;
+
+/** The secret in an invite link: 256 random bits, base64url without padding. Shown once, never stored. */
+export const InviteToken = z
+  .string()
+  .regex(/^[\w-]{43}$/u)
+  .brand<'InviteToken'>();
+export type InviteToken = z.infer<typeof InviteToken>;
+
+/** SHA-256 of an `InviteToken`, lowercase hex. The only form a token is stored in. */
+export const InviteTokenHash = z
+  .string()
+  .regex(/^[\da-f]{64}$/u)
+  .brand<'InviteTokenHash'>();
+export type InviteTokenHash = z.infer<typeof InviteTokenHash>;
+
+/** A member's name as identity shows it; the campaign context only displays it. */
+export const MemberName = z.string().min(1).brand<'MemberName'>();
+export type MemberName = z.infer<typeof MemberName>;

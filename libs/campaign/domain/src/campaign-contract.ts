@@ -2,12 +2,22 @@ import { Endpoint, HttpMethod, NoBody, NoParams, NoQuery } from '@pioneer/shared
 import * as z from 'zod';
 
 import { Campaign } from './campaign';
-import { CampaignId, CampaignName } from './campaign-fields';
+import { CampaignId, CampaignInviteId, CampaignName, InviteToken } from './campaign-fields';
+import { InviteSummary } from './campaign-invite';
+import { CampaignRoster } from './campaign-roster';
 
 const ById = z.object({ id: CampaignId });
+const ByInvite = z.object({ id: CampaignId, inviteId: CampaignInviteId });
 
 export const CreateCampaignBody = z.object({ name: CampaignName });
 export type CreateCampaignBody = z.infer<typeof CreateCampaignBody>;
+
+/** What creating an invite returns: the invite, and its token, which is never shown again. */
+export const IssuedInvite = z.object({ invite: InviteSummary, token: InviteToken });
+export type IssuedInvite = z.output<typeof IssuedInvite>;
+
+export const JoinCampaignBody = z.object({ token: InviteToken });
+export type JoinCampaignBody = z.infer<typeof JoinCampaignBody>;
 
 /** The campaign HTTP API, shared by `campaign-infrastructure` and `campaign-feature`. */
 export const CampaignContract = {
@@ -34,6 +44,54 @@ export const CampaignContract = {
     params: NoParams,
     query: NoQuery,
     body: CreateCampaignBody,
+    response: Campaign.codec,
+  }),
+  /** The campaign's members with their names, and the actor's own role. */
+  roster: new Endpoint({
+    method: HttpMethod.Get,
+    path: '/campaigns/:id/members',
+    params: ById,
+    query: NoQuery,
+    body: NoBody,
+    response: CampaignRoster,
+  }),
+  /** GM only: invites that still work, newest first. */
+  invites: new Endpoint({
+    method: HttpMethod.Get,
+    path: '/campaigns/:id/invites',
+    params: ById,
+    query: NoQuery,
+    body: NoBody,
+    response: z.array(InviteSummary),
+  }),
+  /** GM only: a new invite link. The token is in this response and nowhere else. */
+  createInvite: new Endpoint({
+    method: HttpMethod.Post,
+    path: '/campaigns/:id/invites',
+    params: ById,
+    query: NoQuery,
+    body: NoBody,
+    response: IssuedInvite,
+  }),
+  /** GM only: stop an invite from working. Revoking twice is harmless. */
+  revokeInvite: new Endpoint({
+    method: HttpMethod.Delete,
+    path: '/campaigns/:id/invites/:inviteId',
+    params: ByInvite,
+    query: NoQuery,
+    body: NoBody,
+    response: InviteSummary,
+  }),
+  /**
+   * Join the campaign an invite token belongs to, as a player. The token travels in the body so it
+   * stays out of request logs. A member who joins again gets the campaign back unchanged.
+   */
+  join: new Endpoint({
+    method: HttpMethod.Post,
+    path: '/campaigns/join',
+    params: NoParams,
+    query: NoQuery,
+    body: JoinCampaignBody,
     response: Campaign.codec,
   }),
 } as const;

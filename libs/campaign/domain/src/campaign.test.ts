@@ -10,6 +10,17 @@ const ezren = UserId.parse(newId());
 const now = fixedClock('2026-10-10T10:00:00Z').now();
 
 describe('Campaign', () => {
+  test('withPlayer adds a player once', () => {
+    const campaign = new CampaignBuilder().build();
+    const playerId = CampaignMemberId.parse(newId());
+    const joined = campaign.withPlayer({ memberId: playerId, userId: ezren, now });
+    expect(joined.roleOf(ezren)).toBe(CampaignRole.Player);
+    expect(joined.members.at(-1)?.joinedAt).toStrictEqual(now);
+    const memberId = CampaignMemberId.parse(newId());
+    expect(joined.withPlayer({ memberId, userId: ezren, now })).toBe(joined);
+    expect(campaign.withPlayer({ memberId, userId: fixtureGmId, now })).toBe(campaign);
+  });
+
   test('create makes the creator its GM and only member', () => {
     const gmMemberId = CampaignMemberId.parse(newId());
     const campaign = Campaign.create({

@@ -1,4 +1,11 @@
-import type { CampaignId, CampaignMemberId, CampaignName, CampaignRole } from '@pioneer/campaign/domain';
+import type {
+  CampaignId,
+  CampaignInviteId,
+  CampaignMemberId,
+  CampaignName,
+  CampaignRole,
+  InviteTokenHash,
+} from '@pioneer/campaign/domain';
 import type { UserId, Version } from '@pioneer/shared/kernel';
 import { sql } from 'drizzle-orm';
 import { index, integer, pgTable, text, timestamp, uniqueIndex, uuid } from 'drizzle-orm/pg-core';
@@ -49,5 +56,33 @@ export const campaignMembers = pgTable(
       .where(sql`${table.role} = 'gm'`),
     // A member's campaign list, in the order they joined, campaign id breaking ties.
     index('campaign_members_user_joined_at_campaign_idx').on(table.userId, table.joinedAt, table.campaignId),
+  ],
+);
+
+/**
+ * Invite links. Only the token's SHA-256 is kept. The foreign key on `created_by` (to users, on
+ * delete cascade) is in the migration, like the others to identity.
+ */
+export const campaignInvites = pgTable(
+  'campaign_invites',
+  {
+    id: uuid().$type<CampaignInviteId>().primaryKey(),
+    campaignId: uuid()
+      .$type<CampaignId>()
+      .notNull()
+      .references(() => campaigns.id, { onDelete: 'cascade' }),
+    tokenHash: text().$type<InviteTokenHash>().notNull(),
+    createdBy: uuid().$type<UserId>().notNull(),
+    createdAt: timestamp({ withTimezone: true, mode: 'string' }).notNull(),
+    expiresAt: timestamp({ withTimezone: true, mode: 'string' }).notNull(),
+    revokedAt: timestamp({ withTimezone: true, mode: 'string' }),
+  },
+  (table) => [
+    // Joining looks a token up by its hash.
+    uniqueIndex('campaign_invites_token_hash_idx').on(table.tokenHash),
+    // The GM's list, newest first; also serves the cascade when a campaign is deleted.
+    index('campaign_invites_campaign_created_at_idx').on(table.campaignId, table.createdAt, table.id),
+    // Serves the cascade when the creating user is deleted.
+    index('campaign_invites_created_by_idx').on(table.createdBy),
   ],
 );
