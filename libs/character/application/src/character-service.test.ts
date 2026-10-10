@@ -1,6 +1,7 @@
 import { beforeEach, describe, expect, test } from 'bun:test';
 
 import {
+  CharacterCommand,
   CharacterId,
   CharacterLevel,
   CharacterName,
@@ -9,7 +10,7 @@ import {
 } from '@pioneer/character/domain';
 import type { CharacterPatch, PatchCharacterBody } from '@pioneer/character/domain';
 import { humanAncestryId } from '@pioneer/character/domain/testing';
-import { AncestryId, ContentRegistry } from '@pioneer/rules/sdk';
+import { AncestryId, Attribute, AttributeModifier, ContentRegistry } from '@pioneer/rules/sdk';
 import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
 import {
   FIRST_VERSION,
@@ -39,11 +40,13 @@ function firstVersion(patch: CharacterPatch): PatchCharacterBody {
 
 describe('CharacterService', () => {
   let service: CharacterService;
+  let repository: InMemoryCharacterRepository;
 
   beforeEach(() => {
     const content = new ContentRegistry();
     content.register(new ContentPackBuilder().withId('player-core').withAncestry('human').build());
-    service = new CharacterService(new InMemoryCharacterRepository(), content, fixedClock('2026-10-07T10:00:00Z'));
+    repository = new InMemoryCharacterRepository();
+    service = new CharacterService(repository, content, fixedClock('2026-10-07T10:00:00Z'));
   });
 
   test('create assigns a UUIDv4 row id and the actor as owner; patch bumps the version', async () => {
@@ -60,6 +63,28 @@ describe('CharacterService', () => {
     );
     expect(patched.version).toBe(Version.parse(2));
     expect(patched.level).toBe(CharacterLevel.parse(2));
+  });
+
+  test('every write names its actor and command for the audit log', async () => {
+    const created = await service.create(amiri, { name: kyra, ancestry: humanAncestryId });
+    const edits: readonly CharacterPatch[] = [
+      { field: CharacterPatchField.Name, value: CharacterName.parse('Kyra the Bold') },
+      { field: CharacterPatchField.Ancestry, value: humanAncestryId },
+      { field: CharacterPatchField.Level, value: CharacterLevel.parse(2) },
+      { field: CharacterPatchField.Attribute, attribute: Attribute.Wisdom, value: AttributeModifier.parse(1) },
+    ];
+    let version = FIRST_VERSION;
+    for (const patch of edits) {
+      const saved = await service.patch(amiri, created.id, { expectedVersion: version, patch });
+      version = saved.version;
+    }
+    expect(repository.audits).toStrictEqual([
+      { actor: amiri, command: CharacterCommand.CreateCharacter },
+      { actor: amiri, command: CharacterCommand.RenameCharacter },
+      { actor: amiri, command: CharacterCommand.SetAncestry },
+      { actor: amiri, command: CharacterCommand.SetLevel },
+      { actor: amiri, command: CharacterCommand.SetAttribute },
+    ]);
   });
 
   test('stale version is a conflict', async () => {

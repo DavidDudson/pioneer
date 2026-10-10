@@ -18,8 +18,10 @@ export const auditLog = audit.table(
     action: text({ enum: ['insert', 'update', 'delete'] }).notNull(),
     /** The row's optimistic-concurrency version after the change, if it has one. */
     rowVersion: integer(),
-    /** From `set local pioneer.actor_id = '<uuid>'`; null until auth exists. */
+    /** From `set local pioneer.actor_id = '<uuid>'`; null for writes outside a command. */
     actorId: uuid(),
+    /** From `set local pioneer.command = '<name>'`; null for writes outside a command (manual SQL, migrations). */
+    command: text(),
     changedAt: timestamp({ withTimezone: true, mode: 'string' }).notNull().defaultNow(),
     before: jsonb(),
     after: jsonb(),

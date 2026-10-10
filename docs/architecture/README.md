@@ -111,8 +111,10 @@ Content data never imports code.
 
 - **Validation at boundaries.** Zod schemas (already the house style) for every wire shape, content entry, rule
   element and stored document. Stored JSON documents carry a `schemaVersion` and are migrated on read.
-- **Audit.** The existing `audit.log` trigger covers every table holding user data. Campaign events are their own
-  append-only log on top of that.
+- **Audit.** The existing `audit.log` trigger covers every table holding user data. A repository write runs in a
+  transaction stamped with `stampAudit` (`@pioneer/shared/server`), so each row names its actor and command; writes
+  outside a command (manual SQL, migrations) leave both null. Campaign events are their own append-only log on top
+  of that.
 - **Licensing.** Remaster mechanics and rules text are ORC; Paizo IP outside ORC falls under the Community Use
   Policy. All official content is derived from the Foundry pf2e system; a public Legal page (footer link) states
   this, carries the Paizo and ORC notices, and offers the content caches for download. See

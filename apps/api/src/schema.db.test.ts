@@ -1,6 +1,6 @@
 import { afterAll, beforeAll, describe, expect, test } from 'bun:test';
 
-import { CharacterLevel, CharacterPatchField } from '@pioneer/character/domain';
+import { CharacterCommand, CharacterLevel, CharacterPatchField } from '@pioneer/character/domain';
 import { CharacterBuilder, fixtureOwnerId } from '@pioneer/character/domain/testing';
 import { DrizzleCharacterRepository } from '@pioneer/character/infrastructure';
 import { FIRST_VERSION, fixedClock } from '@pioneer/shared/kernel';
@@ -49,24 +49,33 @@ describe.skipIf(adminUrl === undefined)('database schema (postgres)', () => {
     expect(ColumnRows.parse([...nonUuid])).toStrictEqual([]);
   });
 
-  test('writes are logged with before/after and version; the log is append-only', async () => {
+  test('writes are logged with before/after, version, actor and command; the log is append-only', async () => {
     const at = fixedClock('2026-10-07T09:00:00Z').now().toString();
     await database.db.execute(
       sql`insert into users (id, display_name, email_verified, created_at, updated_at) values (${fixtureOwnerId}, 'Amiri', false, ${at}, ${at})`,
     );
     const repository = new DrizzleCharacterRepository(database.db);
-    const character = await repository.insert(new CharacterBuilder().named('Amiri').build());
+    const character = await repository.insert(new CharacterBuilder().named('Amiri').build(), {
+      actor: fixtureOwnerId,
+      command: CharacterCommand.CreateCharacter,
+    });
     const patch = { field: CharacterPatchField.Level, value: CharacterLevel.parse(4) } as const;
-    await repository.update(character.apply(patch, fixedClock('2026-10-07T10:00:00Z').now()), FIRST_VERSION);
+    await repository.update(character.apply(patch, fixedClock('2026-10-07T10:00:00Z').now()), FIRST_VERSION, {
+      actor: fixtureOwnerId,
+      command: CharacterCommand.SetLevel,
+    });
+    // Outside a command: the stamp was `set local`, so it ended with its transaction.
+    await database.db.execute(sql`update characters set name = 'Amiri the Bold' where id = ${character.id}`);
 
     const entries = await database.db
       .select()
       .from(auditLog)
       .where(eq(auditLog.rowId, character.id))
       .orderBy(asc(auditLog.changedAt));
-    expect(entries.map((entry) => [entry.action, entry.rowVersion])).toStrictEqual([
-      ['insert', 1],
-      ['update', 2],
+    expect(entries.map((entry) => [entry.action, entry.rowVersion, entry.actorId, entry.command])).toStrictEqual([
+      ['insert', 1, fixtureOwnerId, CharacterCommand.CreateCharacter],
+      ['update', 2, fixtureOwnerId, CharacterCommand.SetLevel],
+      ['update', 2, null, null],
     ]);
     const [, update] = entries;
     expect(update?.before).toMatchObject({ level: 1 });

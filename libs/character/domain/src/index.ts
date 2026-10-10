@@ -1,4 +1,5 @@
 export { Character, CharacterWire } from './character';
+export { CharacterCommand, PATCH_COMMANDS } from './character-command';
 export { CharacterContract, CharacterListQuery, CharacterSort, CreateCharacterBody } from './character-contract';
 export {
   CHARACTER_LEVEL_MAX,

@@ -1,6 +1,12 @@
 import { afterAll, beforeAll, describe, expect, test } from 'bun:test';
 
-import { CharacterLevel, CharacterName, CharacterPatchField, CharacterSort } from '@pioneer/character/domain';
+import {
+  CharacterCommand,
+  CharacterLevel,
+  CharacterName,
+  CharacterPatchField,
+  CharacterSort,
+} from '@pioneer/character/domain';
 import { CharacterBuilder, fixtureOwnerId } from '@pioneer/character/domain/testing';
 import {
   FIRST_VERSION,
@@ -25,6 +31,8 @@ import { DrizzleCharacterRepository } from './drizzle-character-repository';
 const adminUrl = testDatabaseUrl();
 const later = fixedClock('2026-10-07T10:00:00Z').now();
 const byName = { sort: CharacterSort.Name, direction: SortDirection.Asc } as const;
+const created = { actor: fixtureOwnerId, command: CharacterCommand.CreateCharacter } as const;
+const levelled = { actor: fixtureOwnerId, command: CharacterCommand.SetLevel } as const;
 
 /** A bare users row, written as SQL: identity's tables are outside this context's boundary. */
 async function insertUser(database: TestDatabase, id: UserId): Promise<void> {
@@ -53,8 +61,8 @@ describe.skipIf(adminUrl === undefined)('DrizzleCharacterRepository (postgres)',
 
   test('insert, find, list, update round-trip', async () => {
     const valeros = new CharacterBuilder().named('Valeros').build();
-    await repository.insert(valeros);
-    await repository.insert(new CharacterBuilder().named('Kyra').build());
+    await repository.insert(valeros, created);
+    await repository.insert(new CharacterBuilder().named('Kyra').build(), created);
     const found = await repository.findById(valeros.id);
     expect(found?.name).toBe(CharacterName.parse('Valeros'));
     expect(found?.ownerId).toBe(fixtureOwnerId);
@@ -66,14 +74,15 @@ describe.skipIf(adminUrl === undefined)('DrizzleCharacterRepository (postgres)',
     const updated = await repository.update(
       valeros.apply({ field: CharacterPatchField.Level, value: CharacterLevel.parse(2) }, later),
       FIRST_VERSION,
+      levelled,
     );
     expect(updated.version).toBe(Version.parse(2));
-    expect(await rejection(repository.update(updated, FIRST_VERSION))).toBeInstanceOf(VersionConflictError);
+    expect(await rejection(repository.update(updated, FIRST_VERSION, levelled))).toBeInstanceOf(VersionConflictError);
   });
 
   test('a list holds only its owner’s characters', async () => {
     const seelah = new CharacterBuilder().named('Seelah').ownedBy(otherOwnerId).build();
-    await repository.insert(seelah);
+    await repository.insert(seelah, created);
     const theirs = await repository.listForOwner(otherOwnerId, byName);
     expect(theirs.map((character) => character.id)).toStrictEqual([seelah.id]);
     const mine = await repository.listForOwner(fixtureOwnerId, byName);
@@ -82,7 +91,7 @@ describe.skipIf(adminUrl === undefined)('DrizzleCharacterRepository (postgres)',
 
   test('an owner must be an existing user', async () => {
     const orphan = new CharacterBuilder().named('Orphan').ownedBy(UserId.parse(newId())).build();
-    const error = await rejection(repository.insert(orphan));
+    const error = await rejection(repository.insert(orphan, created));
     // Drizzle wraps the driver's error; the violated constraint is on the cause.
     expect(error).toBeInstanceOf(Error);
     expect(String((error as Error).cause)).toContain('characters_owner_id_users_id_fk');
@@ -92,7 +101,7 @@ describe.skipIf(adminUrl === undefined)('DrizzleCharacterRepository (postgres)',
     const goneId = UserId.parse(newId());
     await insertUser(database, goneId);
     const lem = new CharacterBuilder().named('Lem').ownedBy(goneId).build();
-    await repository.insert(lem);
+    await repository.insert(lem, created);
     await database.db.execute(sql`delete from users where id = ${goneId}`);
     expect(await repository.findById(lem.id)).toBeUndefined();
   });

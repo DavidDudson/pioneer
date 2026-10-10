@@ -96,7 +96,8 @@ characters        id, owner_id, name, level, version, schema_version, document j
 
 The document is one aggregate, validated by zod and versioned with the existing `expectedVersion` PATCH pattern.
 Edits stay field-level commands (`selectSlot`, `addItem`, `setHp`, `addCondition`), so the API stays small and each
-command is auditable. List queries use the scalar columns; the document is never queried into.
+command is auditable: its name (`CharacterCommand`) lands in `audit.log.command`, so a gift reads apart from a
+purchase. List queries use the scalar columns; the document is never queried into.
 
 Campaign characters keep their build and inventory here. Play state is stored apart, in a `character_play` row
 with its own `play_revision`, and read into `document.play`: play-state commands never touch the character's
