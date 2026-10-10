@@ -45,6 +45,13 @@ describe(checkFilters, () => {
     expect(counts(result, 'level')).toStrictEqual(['-1:1', '0:5', '1:3', '3:1', '4:1']);
   });
 
+  it('offers the spell facets when the list holds a spell', () => {
+    const result = checkFilters(EXAMPLE_FILTER_ENTRIES, 'f.tradition=primal');
+
+    expect(valid(result).kept.map((entry) => entry.name)).toStrictEqual(['Fireball']);
+    expect(counts(result, 'tradition')).toStrictEqual(['arcane:1', 'primal:1']);
+  });
+
   it('writes the query back canonically, dropping what does not read', () => {
     const result = valid(checkFilters(EXAMPLE_FILTER_ENTRIES, '?f.traits=!fire,magical,Bad&f.level=x..&page=2'));
 

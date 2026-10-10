@@ -4,7 +4,6 @@ import * as z from 'zod';
 import type { ContentEntry } from './content-entry';
 import { Slug } from './content-id';
 import { Rarity } from './entry-fields';
-import type { RegisteredKind } from './kind-data';
 
 /**
  * How a facet narrows a list (content-model.md, "Filters"): `set` picks values (OR within, exclusions allowed),
@@ -47,16 +46,26 @@ export type FacetLabel = z.infer<typeof FacetLabel>;
 export type FacetPath = readonly PropertyKey[];
 
 /**
- * A facet as data: adding one is a definition, not a UI change. A `set` facet whose values are a closed list names
- * them with their labels; one whose values come from content (traits, books) leaves `values` out.
+ * Reads what a field path can't: the leaves an entry gives a facet, computed (a range band from a range in feet).
+ * `undefined` among them marks a missing field, as a path would; an entry of a kind the facet isn't about gives none.
  */
-export interface FacetDefinition {
+export type FacetDerive = (entry: ContentEntry) => readonly unknown[];
+
+interface FacetBase {
   readonly id: FacetId;
   readonly type: FacetType;
-  readonly path: FacetPath;
   readonly label: FacetLabel;
   readonly values?: ReadonlyMap<FacetValue, FacetLabel>;
 }
+
+/**
+ * A facet as data: adding one is a definition, not a UI change. It reads a field `path`, or `derive`s its values. A
+ * `set` facet whose values are a closed list names them with their labels; one whose values come from content
+ * (traits, books) leaves `values` out.
+ */
+export type FacetDefinition =
+  | (FacetBase & { readonly path: FacetPath; readonly derive?: undefined })
+  | (FacetBase & { readonly derive: FacetDerive; readonly path?: undefined });
 
 export const FacetMessage = {
   Level: FacetLabel.parse('rules.facet.label.level'),
@@ -101,23 +110,6 @@ export const COMMON_FACETS: readonly FacetDefinition[] = [
   { id: FacetId.parse('pack'), type: FacetType.Set, path: ['pack'], label: FacetMessage.Pack },
 ];
 
-/**
- * Facets a kind adds to the common ones. A kind joins here alongside its schema (`kind-data.ts`) when its facets
- * are defined.
- */
-const KIND_FACETS: Readonly<Partial<Record<RegisteredKind, readonly FacetDefinition[]>>> = {};
-
-/** The facets for a list holding `kinds`: the common ones, then each kind's own, each facet once. */
-export function facetsFor(kinds: readonly RegisteredKind[]): readonly FacetDefinition[] {
-  const byId = new Map<FacetId, FacetDefinition>(COMMON_FACETS.map((facet) => [facet.id, facet]));
-  for (const kind of kinds) {
-    for (const facet of KIND_FACETS[kind] ?? []) {
-      byId.set(facet.id, facet);
-    }
-  }
-  return [...byId.values()];
-}
-
 /** What a field path finds: the leaves it reaches, `undefined` where a step was missing. */
 function leaves(value: unknown, path: FacetPath): readonly unknown[] {
   if (Array.isArray(value)) {
@@ -152,7 +144,7 @@ function leafValue(leaf: unknown, type: FacetType): FacetValue | undefined {
  * value, so it stays findable; an empty list (no traits) gives none.
  */
 export function facetValues(entry: ContentEntry, facet: FacetDefinition): readonly FacetValue[] {
-  const found = leaves(entry, facet.path);
+  const found = facet.derive === undefined ? leaves(entry, facet.path) : facet.derive(entry);
   const values = new Set(found.flatMap((leaf) => leafValue(leaf, facet.type) ?? []));
   if (values.size === 0 && found.includes(undefined)) {
     return [UNKNOWN];

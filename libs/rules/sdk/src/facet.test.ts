@@ -3,12 +3,14 @@ import { describe, expect, test } from 'bun:test';
 import { ContentEntry } from './content-entry';
 import { contentId, PackId, Slug } from './content-id';
 import { ContentKind } from './content-kind';
-import { COMMON_FACETS, FacetId, facetsFor, FacetType, facetValues, FacetValue, RangeBound, UNKNOWN } from './facet';
+import { COMMON_FACETS, FacetId, FacetType, facetValues, FacetValue, RangeBound, UNKNOWN } from './facet';
 import type { FacetDefinition } from './facet';
 import { EntryCount, facetCounts, filterEntries, onlyValue, SelectionKind } from './facet-filter';
 import type { FacetCounts, FacetSelection, FilterState } from './facet-filter';
 import { filterFromQuery, filterToQuery } from './filter-query';
 import type { FilterQuery } from './filter-query';
+import { facetsFor } from './kind-facets';
+import { SPELL_FACETS } from './spell-facets';
 
 const description = [{ type: 'paragraph', content: [{ type: 'text', text: 'A trait.' }] }];
 
@@ -107,9 +109,9 @@ describe('facet values', () => {
 
   test('a flag reads a boolean as yes or no', () => {
     const flag: FacetDefinition = {
-      ...facet('rarity'),
       id: FacetId.parse('stub'),
       type: FacetType.Flag,
+      label: facet('rarity').label,
       path: ['data', 'flag'],
     };
     const withFlag = { ...fire, data: { flag: true } } as unknown as ContentEntry;
@@ -117,10 +119,13 @@ describe('facet values', () => {
     expect(facetValues(fire, flag)).toStrictEqual([UNKNOWN]);
   });
 
-  test('every kind has the common facets', () => {
-    expect(facetsFor([ContentKind.Spell, ContentKind.Feat]).map((each) => each.id)).toStrictEqual(
-      COMMON_FACETS.map((each) => each.id),
-    );
+  test('every kind has the common facets, then its own', () => {
+    const common = COMMON_FACETS.map((each) => each.id);
+    expect(facetsFor([ContentKind.Feat]).map((each) => each.id)).toStrictEqual(common);
+    expect(facetsFor([ContentKind.Spell, ContentKind.Feat]).map((each) => each.id)).toStrictEqual([
+      ...common,
+      ...SPELL_FACETS.map((each) => each.id),
+    ]);
   });
 });
 
