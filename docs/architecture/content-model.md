@@ -486,7 +486,11 @@ flowchart LR
 - **One-off.** The importer writes a pack that does not exist yet, or replaces one as a whole before its import
   PR merges. It never merges into a pack that has been edited by hand, and no CI job re-runs it.
 - **Selection.** Only `publication.remaster === true` from the target books. Legacy content is out of scope;
-  `supersedes` links are recorded where Foundry marks replacements.
+  `supersedes` links are recorded where Foundry marks replacements. Target books are a CLI argument; Foundry's
+  publication title maps to a registered book in `libs/interop/foundry`. Only item packs are read, and only item
+  types with a Pioneer kind (`campaignFeature`, for one, has none).
+  `just content-import --pack player-core --book player-core --dry-run` prints what would be imported by Foundry
+  type and book, and what is skipped and why.
 - **Translation.** One translator per Foundry rule element key. Untranslatable elements, unresolved labels and
   links, and fields with no place in a schema go to the pack's backlog, `content/import/<pack>.json`, with the
   entry and Foundry's raw JSON; the entry is imported without them. The backlog is committed with the pack and is
@@ -494,10 +498,11 @@ flowchart LR
 - **Later translators.** A translator that lands after its pack is imported is applied to the backlog: a command,
   built by Epic 2.6 (#21), translates the items it now covers into the committed entries and removes them from the
   backlog, keeping hand edits.
-- **Pin.** `content/import/<pack>.json` also holds the pack's release tag and the SHA-256 of its archive; the
-  importer stops on a checksum mismatch. The pin is the pack's provenance for the Legal page and NOTICE.md. The
-  backlog in the same file holds only selected entries' items, with art references stripped, and is never seeded,
-  served or bundled.
+- **Pin.** `content/import/<pack>.json` also holds the pack's release tag and the SHA-256 of its archive
+  (`{ "pin": { "tag", "sha256" }, "backlog" }`); the importer downloads the tag's source archive into
+  `.data/foundry/` (gitignored), reuses it on later runs, and stops on a checksum mismatch. The pin is the pack's
+  provenance for the Legal page and NOTICE.md. The backlog in the same file holds only selected entries' items, with
+  art references stripped, and is never seeded, served or bundled.
 - **Coverage report.** Per kind, over the committed packs and their backlog: entries, entries with nothing left in
   the backlog, entries with page numbers, entries with AoN URLs. CI reports it on PRs touching `content/` and never
   fails on it. Milestone exit criteria are written against these numbers.
