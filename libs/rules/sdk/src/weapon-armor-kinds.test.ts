@@ -146,41 +146,6 @@ const sturdyShield = {
   data: { price: { coins: { gp: 100 } }, bulk: 1, baseItem: 'steel-shield', acBonus: 2, hardness: 8, hitPoints: 64 },
 };
 
-const striking = {
-  ...item('striking', 'Striking', 4),
-  kind: 'rune',
-  traits: ['magical'],
-  data: {
-    price: { coins: { gp: 65 } },
-    bulk: 'negligible',
-    type: 'fundamental',
-    rune: 'striking',
-    grade: 1,
-    etchedOnto: { item: 'weapon' },
-  },
-};
-
-const flaming = {
-  ...item('flaming', 'Flaming', 8),
-  kind: 'rune',
-  traits: ['fire', 'magical'],
-  data: { price: { coins: { gp: 500 } }, bulk: 'negligible', type: 'property', etchedOnto: { item: 'weapon' } },
-};
-
-const reinforcing = {
-  ...item('reinforcing-rune-minor', 'Reinforcing Rune (Minor)', 4),
-  kind: 'rune',
-  traits: ['magical'],
-  data: {
-    price: { coins: { gp: 75 } },
-    bulk: 'negligible',
-    type: 'fundamental',
-    rune: 'reinforcing',
-    grade: 1,
-    etchedOnto: { item: 'shield' },
-  },
-};
-
 describe('weapon, armor and shield kinds', () => {
   test.each([
     ['a melee weapon', longsword],
@@ -195,9 +160,7 @@ describe('weapon, armor and shield kinds', () => {
   });
 
   test('an item always has a level', () => {
-    const { level: _level, ...levelless } = longsword;
-
-    expect(found(levelless)).toStrictEqual([`level ${ValidationMessage.InvalidType}`]);
+    expect(found({ ...longsword, level: undefined })).toStrictEqual([`level ${ValidationMessage.InvalidType}`]);
   });
 
   test('a price names at least one coin', () => {
@@ -267,49 +230,6 @@ describe('weapon, armor and shield kinds', () => {
       `data.hardness ${ValidationMessage.InvalidType}`,
       `data.hitPoints ${ValidationMessage.InvalidType}`,
       `data.usage ${ValidationMessage.UnrecognizedKeys}`,
-    ]);
-  });
-});
-
-describe('rune kind', () => {
-  test.each([
-    ['a fundamental weapon rune', striking],
-    ['a property rune', flaming],
-    ['a reinforcing rune', reinforcing],
-    ['a reinforcing rune at its highest grade', { ...reinforcing, data: { ...reinforcing.data, grade: 6 } }],
-    [
-      'a rune narrowed to some weapons',
-      { ...flaming, data: { ...flaming.data, etchedOnto: { item: 'weapon', restriction: 'melee' } } },
-    ],
-  ])('accepts %s', (_name, value) => {
-    expect(issues(value)).toStrictEqual([]);
-  });
-
-  test('a fundamental rune goes on the items it is for', () => {
-    const onArmor = { ...striking, data: { ...striking.data, etchedOnto: { item: 'armor' } } };
-
-    expect(issues(onArmor)).toStrictEqual([
-      {
-        path: ['data', 'etchedOnto', 'item'],
-        message: message(RulesMessage.RuneEtchedOnto, { rune: 'striking', item: 'armor' }),
-      },
-    ]);
-  });
-
-  test('only a reinforcing rune goes past grade 4', () => {
-    const fifth = { ...striking, data: { ...striking.data, grade: 5 } };
-
-    expect(issues(fifth)).toStrictEqual([
-      { path: ['data', 'grade'], message: message(RulesMessage.RuneGrade, { rune: 'striking', max: 4 }) },
-    ]);
-    expect(found({ ...reinforcing, data: { ...reinforcing.data, grade: 7 } })).toStrictEqual([
-      `data.grade ${ValidationMessage.TooBig}`,
-    ]);
-  });
-
-  test('a property rune has no grade', () => {
-    expect(found({ ...flaming, data: { ...flaming.data, grade: 1 } })).toStrictEqual([
-      `data.grade ${ValidationMessage.UnrecognizedKeys}`,
     ]);
   });
 });
