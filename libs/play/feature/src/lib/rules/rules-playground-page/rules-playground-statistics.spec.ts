@@ -1,6 +1,14 @@
 import { describe, expect, it, vi } from 'vitest';
 
-import { chooseIn, chooseSchema, openPlayground, pageText, present, secondTextArea, typeJson } from './playground-harness';
+import {
+  chooseIn,
+  chooseSchema,
+  openPlayground,
+  pageText,
+  present,
+  secondTextArea,
+  typeJson,
+} from './playground-harness';
 
 describe('RulesPlaygroundPage statistics', () => {
   it('derives statistics from definitions and inputs, term by term', async () => {

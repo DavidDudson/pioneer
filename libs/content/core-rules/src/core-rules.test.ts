@@ -47,9 +47,7 @@ const fighter: StatisticInputs = StatisticInputsJson.parse({
 const SELECTORS = ['ac', 'save:fortitude', 'save:reflex', 'save:will', 'perception'];
 
 function totals(results: ReadonlyMap<Selector, StatisticResult>): Record<string, number | undefined> {
-  return Object.fromEntries(
-    [...results].map(([selector, result]) => [selector, result.ok ? result.total : undefined]),
-  );
+  return Object.fromEntries([...results].map(([selector, result]) => [selector, result.ok ? result.total : undefined]));
 }
 
 /** A +1 status bonus to everything in `target`, as a rule on a test entry. */
@@ -87,31 +85,31 @@ interface GeneratedInputs {
 
 /** Inputs with every attribute, every core rank and the Dexterity cap generated. */
 const anyInputs: Arbitrary<GeneratedInputs> = record({
-    level: integer({ min: 1, max: LEVEL_MAX }),
-    str: attribute,
-    dex: attribute,
-    con: attribute,
-    int: attribute,
-    wis: attribute,
-    cha: attribute,
-    cap: attribute,
-    ac: proficiency,
-    fortitude: proficiency,
-    reflex: proficiency,
-    will: proficiency,
-    perception: proficiency,
-  }).map(({ level, str, dex, con, int, wis, cha, cap, ac, fortitude, reflex, will, perception }) => ({
-    json: {
-      level,
-      attributes: { str, dex, con, int, wis, cha },
-      ranks: { ac, 'save:fortitude': fortitude, 'save:reflex': reflex, 'save:will': will, perception },
-      dexterityCap: cap,
-    },
-    ac,
-    dex,
-    cap,
+  level: integer({ min: 1, max: LEVEL_MAX }),
+  str: attribute,
+  dex: attribute,
+  con: attribute,
+  int: attribute,
+  wis: attribute,
+  cha: attribute,
+  cap: attribute,
+  ac: proficiency,
+  fortitude: proficiency,
+  reflex: proficiency,
+  will: proficiency,
+  perception: proficiency,
+}).map(({ level, str, dex, con, int, wis, cha, cap, ac, fortitude, reflex, will, perception }) => ({
+  json: {
     level,
-  }));
+    attributes: { str, dex, con, int, wis, cha },
+    ranks: { ac, 'save:fortitude': fortitude, 'save:reflex': reflex, 'save:will': will, perception },
+    dexterityCap: cap,
+  },
+  ac,
+  dex,
+  cap,
+  level,
+}));
 
 describe('core rules pack', () => {
   test('registers with no duplicate selectors', () => {
