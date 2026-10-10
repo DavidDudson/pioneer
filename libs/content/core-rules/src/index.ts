@@ -1,4 +1,12 @@
-import { Attribute, ContentLicense, ContentPack, StatisticDefinition, StatisticKind } from '@pioneer/rules/sdk';
+import {
+  Attribute,
+  ContentLicense,
+  ContentPack,
+  RuleElementKey,
+  SourceKind,
+  StatisticDefinition,
+  StatisticKind,
+} from '@pioneer/rules/sdk';
 
 /** The domain of statistics keyed to each attribute. */
 const ATTRIBUTE_DOMAIN: Readonly<Record<Attribute, string>> = {
@@ -29,12 +37,35 @@ function skill(slug: string, name: string, attribute: Attribute): StatisticDefin
 /**
  * The core rules (Player Core, 2023 remaster): the statistics every character has, hand-authored rather than
  * imported, since Foundry hard-codes them. Mechanics are ORC-licensed; see NOTICE.md. Domains follow the
- * vocabulary in rules-engine.md ("Statistics are content"); `all` reaches every statistic without being listed.
+ * vocabulary in rules-engine.md ("Statistics are content"); `all` reaches every statistic without being listed. The proficiency bonus table is
+ * here too, so a variant rule can replace it (ADR-0024).
  */
 export const coreRules = ContentPack.define({
   manifest: { id: 'core-rules', title: 'Core Rules', publisher: 'Paizo Inc.', license: ContentLicense.Orc },
   ancestries: [],
   creatures: [],
+  // Player Core: untrained adds nothing; trained and up add the rank's bonus plus level.
+  proficiencyBonus: {
+    untrained: '0',
+    trained: '2 + @level',
+    expert: '4 + @level',
+    master: '6 + @level',
+    legendary: '8 + @level',
+  },
+  variantRules: [
+    {
+      slug: 'proficiency-without-level',
+      name: 'Proficiency Without Level',
+      sources: [{ kind: SourceKind.Book, book: 'gm-core', page: 85 }],
+      // GM Core: level leaves the bonus, and untrained becomes a -2 penalty.
+      rules: [
+        {
+          key: RuleElementKey.ProficiencyBonus,
+          table: { untrained: '-2', trained: '2', expert: '4', master: '6', legendary: '8' },
+        },
+      ],
+    },
+  ],
   statistics: [
     {
       slug: 'armor-class',
