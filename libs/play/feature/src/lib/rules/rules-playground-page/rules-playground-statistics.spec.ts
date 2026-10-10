@@ -65,7 +65,7 @@ describe('RulesPlaygroundPage statistics', () => {
     await harness.fixture.whenStable();
 
     const text = pageText(harness);
-    const expected = ['save:will', 'perception', '+ @prof.save.will', '+ @attr.dex.capped'];
+    const expected = ['save:will', 'perception', 'skill:thievery', '+ @prof.save.will', '+ @prof.skill.athletics'];
     expect(expected.filter((shown) => !text.includes(shown))).toStrictEqual([]);
     expect(text).not.toContain('spell-dc:arcane');
   });
