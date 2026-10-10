@@ -7,7 +7,7 @@ import { checkGrants } from './grants-check';
 import type { GrantsCheck } from './grants-check';
 import { checkVerdict } from './predicate-verdict';
 import type { VerdictCheck } from './predicate-verdict';
-import { CheckStatus, checkRulesJson, readJson, RulesSchema, RulesTool } from './rules-check';
+import { CheckStatus, checkOutcome, checkRulesJson, readJson, RulesTool } from './rules-check';
 import type { CheckOutcome } from './rules-check';
 import { checkStatistics } from './statistics-check';
 import type { StatisticsCheck } from './statistics-check';
@@ -55,11 +55,11 @@ export type ToolCheck =
   | { readonly kind: typeof ToolKind.Statistics; readonly check: StatisticsCheck }
   | { readonly kind: typeof ToolKind.Grants; readonly check: GrantsCheck };
 
-/** The rich text check, with the document to preview once it validates. */
+/** The rich text check, with the document to preview once it validates; the text is parsed once for both. */
 function checkRichText(text: string): ToolCheck {
   const read = readJson(RichText, text);
   const preview = read.status === CheckStatus.Valid ? read.value : undefined;
-  return { kind: ToolKind.RichText, check: checkRulesJson(RulesSchema.RichText, text), preview };
+  return { kind: ToolKind.RichText, check: checkOutcome(RichText, read), preview };
 }
 
 /** Run the chosen tool on the page's text and whichever extra inputs it reads. Never throws. */
