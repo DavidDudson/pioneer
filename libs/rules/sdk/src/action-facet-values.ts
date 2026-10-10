@@ -48,8 +48,11 @@ const SKILL_TRAIT = Trait.parse('skill');
 const EXPLORATION = Trait.parse('exploration');
 const DOWNTIME = Trait.parse('downtime');
 const ARCHETYPE = Trait.parse('archetype');
+/** The listed skills by selector. `none` and `lore` are facet values only: Lore is read by its prefix. */
 const SKILLS: ReadonlyMap<string, SkillValue> = new Map(
-  Object.values(SkillValue).map((value) => [`${SKILL_PREFIX}${value}`, value]),
+  Object.values(SkillValue)
+    .filter((value) => value !== SkillValue.None && value !== SkillValue.Lore)
+    .map((value) => [`${SKILL_PREFIX}${value}`, value]),
 );
 
 /** The cost of using `action`, or `passive` for an entry that isn't used. */

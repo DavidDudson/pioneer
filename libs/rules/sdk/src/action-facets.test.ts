@@ -65,6 +65,16 @@ const fighterDedication = feat('fighter-dedication', { category: 'class', archet
   'multiclass',
 ]);
 const unplacedArchetypeFeat = feat('basic-maneuver', { category: 'class' }, ['archetype']);
+/** Skills on the feat and on its action, overlapping. */
+const shieldPush = feat(
+  'shield-push',
+  {
+    category: 'class',
+    skills: ['skill:athletics'],
+    action: { cost: 'one', skills: ['skill:athletics', 'skill:intimidation'] },
+  },
+  ['fighter'],
+);
 
 const climb = action('climb', { cost: 'one', skills: ['skill:athletics'] }, ['move']);
 const aid = action('aid', { cost: 'reaction', trigger: prose });
@@ -101,6 +111,10 @@ describe('feat facets', () => {
     ]);
   });
 
+  test("a feat's skills and its action's merge, each once", () => {
+    expect(feats(shieldPush)['skill']).toStrictEqual(['athletics', 'intimidation']);
+  });
+
   test('archetype: the one named, unknown for an archetype feat naming none', () => {
     expect(feats(fighterDedication)['archetype']).toStrictEqual([idOf('fighter-archetype')]);
     expect(feats(unplacedArchetypeFeat)['archetype']).toStrictEqual([UNKNOWN]);
@@ -132,6 +146,12 @@ describe('action facets', () => {
     expect(actions(earnIncome)['skill']).toStrictEqual(['crafting', 'lore']);
     expect(actions(treatDisease)['skill']).toStrictEqual([UNKNOWN]);
     expect(actions(aid)['skill']).toStrictEqual(['none']);
+  });
+
+  test('a selector naming no listed skill is unknown', () => {
+    const unlisted = action('unlisted', { skills: ['skill:none', 'skill:foo'] }, ['skill']);
+
+    expect(actions(unlisted)['skill']).toStrictEqual([UNKNOWN]);
   });
 });
 

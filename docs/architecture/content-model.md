@@ -370,7 +370,7 @@ Behaviour:
   feat's and its action's); every Lore is one `lore`. With none named, a skill feat or an entry with the `skill`
   trait is unknown and any other is `none`. Archetype is the feat's `archetype`, unknown for an `archetype`-trait
   feat without one; other feats give no value. Mode is `exploration` or `downtime` from those traits, else
-  `encounter` (`action-facet-values.ts`).
+  `encounter` (`action-facet-values.ts`; [ADR-0024](../adr/0024-feat-and-action-facet-fields.md)).
 - **Available to you** is a preset made from the character: level at most the character's (or the slot's level
   for a feat slot), the class and ancestry traits the slot asks for, the traditions of the character's
   spellcasting entries, prerequisites not false, unique entries and the `artifact` trait hidden. Unknown
