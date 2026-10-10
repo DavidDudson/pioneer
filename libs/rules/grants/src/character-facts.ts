@@ -158,7 +158,8 @@ class FactCollector {
   /** `self:condition:<slug>:<value>` for each valued condition, at its highest value only. */
   public valued(): void {
     for (const { entry, value } of this.#valued.values()) {
-      const option = kindOptions(entry).map((kind) => optionOf(kind, String(value))).at(0);
+      const [kind] = kindOptions(entry);
+      const option = kind === undefined ? undefined : optionOf(kind, String(value));
       if (option !== undefined) {
         tally(this.#setBy, option, entry.id);
       }
