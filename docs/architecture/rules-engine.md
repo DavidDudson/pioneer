@@ -347,6 +347,10 @@ any kind of entry can grant any other.
   has under `item:`, and never mix with its `feat:` or `self:` facts. Unknown candidates are offered with their
   summary. Offers sort by name, then id, so a builder list is stable. A query that matches nothing is an open slot
   with an empty offer, not an error.
+- A slot's offer is worked out the first time it is read, against the facts of the round that found the slot, and
+  kept. No round needs it: an open slot grants nothing, and an answered slot tests only its pick (looked up by id,
+  of the query's kind, filter not false; or a listed option whose predicate is not false). So resolution costs the
+  same however much content is installed, and a query over every candidate runs only when a builder shows the slot.
 
 #### Facts from the set, to a fixpoint
 
@@ -375,7 +379,8 @@ that the last two rounds are compared the same way. Resolution always ends.
 
 The golden Level 1 Fighter (`testing/fighter.ts`) resolves to its class, Shield Block, Reactive Strike, the skill
 choice and a class feat slot; at 20th level with every slot picked it settles in a few rounds well inside its 3 ms
-bench budget.
+bench budget. The same budget holds with an ancestry adding ancestry, general and skill feat slots (about 30 query
+slots in all, every one picked) over a thousand more feats.
 
 ### Statistic graph
 
