@@ -367,9 +367,9 @@ always sum, that adding a typed bonus no higher than one already applied never r
 override always wins while the computed value is still reported.
 
 That is the AC stack the sheet shows: base 10, Dexterity capped by the armour, proficiency from the class, the
-armour's item bonus, a shield raised (conditional), _frightened 1_ (status penalty, applied, from the condition,
-caused by a Demoralize logged in the campaign), a lower status bonus suppressed by a higher one, and any manual
-override with who set it.
+armour's item bonus, a shield's bonus (inactive until a Raise a Shield effect is on the character), _frightened 1_
+(status penalty, applied, from the condition, caused by a Demoralize logged in the campaign), a lower status bonus
+suppressed by a higher one, and any manual override with who set it.
 
 Damage uses the same machinery with extra line kinds: damage dice, damage type changes, critical specialisation,
 and immunity, weakness and resistance adjustments.
