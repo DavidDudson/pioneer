@@ -114,7 +114,7 @@ interface Override {
   value: number;
   type?: ModifierType; // adjust only, defaults to untyped
   predicate?: Predicate; // overrides can be conditional too
-  note?: string;
+  reason: string; // required: why the statistic differs from what the rules give
   by: UserId;
   at: Instant;
 }
@@ -122,7 +122,9 @@ interface Override {
 
 Overrides are compiled into rule elements with an `override` origin and run through the engine like anything
 else (see [rules-engine.md](rules-engine.md#overrides)). The sheet shows a marker on every overridden statistic and
-the breakdown lists who set it, when and why. A GM can add overrides to campaign characters; the player sees them.
+the breakdown lists who set it, when and why. Overrides are the only way to change a derived statistic: the
+sheet never edits one in place, and an override without a reason is rejected. A GM can add overrides to campaign
+characters; the player sees them.
 
 ## Import and export
 

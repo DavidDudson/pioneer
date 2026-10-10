@@ -112,6 +112,45 @@ When an event fires, the matching abilities are collected:
 Whether an effect is beneficial is derived from its rule elements (temporary HP, healing, positive modifiers) and
 overridable in content with `autoApply: false`.
 
+## Sheet layout
+
+The sheet is text: values are words and numbers in frontier components, and no icon or colour carries meaning on
+its own. Sections come in one fixed order, and each sheet mode shows its sections in that order: identity (name,
+ancestry, level), attributes, defences, then the sections later epics fill (statistics, skills, Strikes, spells,
+actions, feats and features, inventory, notes).
+
+- **No statistic is edited in place.** Inputs the user chooses (name, ancestry, level, notes) are inline fields;
+  anything the engine derives (AC, saves, Perception, HP, speed, skills, Strikes, defences) is read-only text. A
+  statistic changes only through an override (character-model.md, Overrides), and both kinds need a reason:
+  - a **modifier**: a typed `+n` or `-n` with its reason, which stacks with everything else ("+1 status to AC, GM
+    blessing");
+  - a **set** value: a fixed number with its reason, which replaces the total and ignores every other source,
+    with the computed value kept beside it.
+- Each read-only statistic offers both kinds of override from its row, and an overridden one is marked in text.
+  Attribute modifiers are entered directly only until the builder derives them from boosts (Epic 3.3); then they
+  are read-only too.
+- Each section is a region labelled by its level 2 heading, so both the landmark list and the heading list reach
+  it.
+- A section index after the shell's skip link links to each section; following a link moves focus to that
+  section's heading.
+- In a grid of like values (attributes, skills, saves), arrow keys move between cells with roving focus, so Tab
+  crosses the grid in one stop. Enter opens a cell's inline editor and Escape cancels it, as elsewhere.
+- A feature container derives a section's data; a presentational component renders it from plain inputs
+  (ADR-0028). Sections that render rules data, such as defences, live in `libs/rules/ui` with their stories.
+
+### Defences panel
+
+The defences panel lists the character's immunities, weaknesses and resistances from the engine (see
+[rules-engine.md](rules-engine.md#defences)), each list under its own heading and empty lists saying so:
+
+- An entry reads as its value and target, then any exceptions: "Resistance 5 physical (bleed, bludgeoning,
+  piercing, slashing), except adamantine".
+- A group is spelled out with the types it covers, from `DAMAGE_GROUP_TYPES`; `all` reads as "all damage".
+- A conditional entry is marked in text, not only by style, and shows the condition it depends on: "Resistance 5
+  fire, conditional: while raging".
+- Each entry names its origin ("from Fire Resistance Ring"), so the panel explains itself before the breakdown
+  inspector lands.
+
 ## Sheet modes
 
 The sheet is four tabs over the same character, with the header (name, level, HP, conditions, last roll) shared
