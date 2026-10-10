@@ -8,6 +8,7 @@ import { RulesMessage } from './messages';
 import { SkillSelector } from './selector';
 import { SPELL_RANK_MAX, SpellRank } from './spell-rank';
 import { uniqueItems } from './unique-items';
+import { BaseWeapon } from './weapon';
 
 /** What a deity entry is, as Foundry pf2e sorts them. */
 export const DeityCategory = {
@@ -32,9 +33,6 @@ export type DivineFont = ValueOf<typeof DivineFont>;
 
 /** A cleric domain (`fire`, `healing`). Foundry pf2e keeps the set in config, so it is a brand. */
 const DeityDomain = Slug.brand<'DeityDomain'>();
-
-/** A base weapon (`longsword`), for favoured weapons until weapons are content (#232). */
-const BaseWeapon = Slug.brand<'BaseWeapon'>();
 
 const SANCTIFICATIONS = Object.keys(Sanctification).length;
 const FONTS = Object.keys(DivineFont).length;

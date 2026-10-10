@@ -2,45 +2,19 @@ import type { MessageDescriptor } from '@pioneer/shared/kernel';
 import { issueParams, message } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
-import { ContentId, contentId, PackId, Slug } from './content-id';
+import { contentId } from './content-id';
 import { ContentKind } from './content-kind';
-import { ContentText } from './content-text';
-import { DisplayHints, ExternalIds, RaritySchema } from './entry-fields';
+import { address, envelope } from './entry-envelope';
+import { EQUIPMENT_ENTRIES } from './equipment-entries';
 import { KIND_DATA, REGISTERED_KINDS } from './kind-data';
 import { RulesMessage } from './messages';
-import { RichText } from './rich-text';
-import { RuleElements } from './rule-element';
 import { RuleElementKey } from './rule-element-base';
-import { SourceRef } from './source-ref';
-import { Trait } from './trait';
+import type { Trait } from './trait';
 import { ContentLevel, Level } from './units';
 
 const KNOWN_KINDS: ReadonlySet<unknown> = new Set(REGISTERED_KINDS);
 
-const TRAITS_MAX = 32;
-const SOURCES_MAX = 8;
-const SUPERSEDES_MAX = 8;
 const FIRST_LEVEL = 1;
-
-/** Where an entry lives; `kind` follows, then the rest of the envelope (content-model.md, "Content entry"). */
-const address = { id: ContentId, pack: PackId };
-
-/** The fields every entry has after its kind, whatever the kind. */
-const envelope = {
-  slug: Slug,
-  name: ContentText,
-  level: ContentLevel.optional(),
-  rarity: RaritySchema,
-  traits: z.array(Trait).max(TRAITS_MAX).readonly(),
-  /** At least one (ADR-0005). */
-  sources: z.array(SourceRef).min(1).max(SOURCES_MAX).readonly(),
-  description: RichText,
-  rules: RuleElements.readonly(),
-  display: DisplayHints.optional(),
-  externalIds: ExternalIds.optional(),
-  /** Entries this one replaces, such as the legacy entry a remaster one supersedes. */
-  supersedes: z.array(ContentId).max(SUPERSEDES_MAX).readonly().optional(),
-};
 
 /** One arm per registered kind, `data` checked by that kind's schema. */
 const Entry = z.discriminatedUnion('kind', [
@@ -176,6 +150,7 @@ const Entry = z.discriminatedUnion('kind', [
     ...envelope,
     data: KIND_DATA[ContentKind.VariantRule],
   }),
+  ...EQUIPMENT_ENTRIES,
 ]);
 export type ContentEntry = z.output<typeof Entry>;
 

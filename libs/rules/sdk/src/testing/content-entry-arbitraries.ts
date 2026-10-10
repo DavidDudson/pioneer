@@ -18,7 +18,6 @@ import { Attribute, ATTRIBUTE_MODIFIER_MAX, ATTRIBUTE_MODIFIER_MIN } from '../at
 import { ConditionGroup } from '../condition';
 import { contentId, PackId, Slug } from '../content-id';
 import { ContentKind } from '../content-kind';
-import { DamageType } from '../damage';
 import { DisplayCategory, Rarity } from '../entry-fields';
 import { FeatCategory, UNLIMITED } from '../feat';
 import type { RegisteredKind } from '../kind-data';
@@ -35,8 +34,10 @@ import {
   deityOrPhilosophyData,
   heritageData,
 } from './build-kind-arbitraries';
+import { EQUIPMENT_KIND_ARBITRARIES } from './equipment-kind-arbitraries';
 import {
   contentIdJson,
+  damageType,
   LIST_MAX,
   positive,
   size,
@@ -57,7 +58,6 @@ const aonUrl: Arbitrary<string> = integer({ min: 1, max: AON_ID_MAX }).map(
   (id) => `https://2e.aonprd.com/Feats.aspx?ID=${id}`,
 );
 
-const damageType: Arbitrary<string> = constantFrom(...Object.values(DamageType));
 const rarity: Arbitrary<string> = constantFrom(...Object.values(Rarity));
 const displayCategory: Arbitrary<string> = constantFrom(...Object.values(DisplayCategory));
 const statisticKind: Arbitrary<string> = constantFrom(...Object.values(StatisticKind));
@@ -169,6 +169,7 @@ const KIND_ARBITRARIES: Readonly<
   [ContentKind.Statistic]: { data: statisticData },
   [ContentKind.Trait]: { data: traitData },
   [ContentKind.VariantRule]: { data: emptyData },
+  ...EQUIPMENT_KIND_ARBITRARIES,
 };
 
 const bookPage: Arbitrary<object> = record({ kind: constant('book'), book: slugText, page: positive });

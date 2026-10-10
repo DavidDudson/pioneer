@@ -12,7 +12,6 @@ import {
 } from 'fast-check';
 import type { Arbitrary } from 'fast-check';
 
-import { DamageType } from '../damage';
 import { BadgeReevaluation, EffectBadgeType, EffectCategory, EffectDurationType, EffectExpiry } from '../effect';
 import { Proficiency } from '../proficiency';
 import { ActionCost, AreaShape, DamageCategory, DurationUnit } from '../rich-text';
@@ -30,7 +29,7 @@ import {
 import { SPELL_RANK_MAX } from '../spell-rank';
 import { MagicTradition } from '../spellcasting-tradition';
 import { saveSelectorText, skillSelectorText } from './arbitraries';
-import { LIST_MAX, positive, slugText, smallint, withOptional } from './json-arbitraries';
+import { damageType, LIST_MAX, positive, slugText, smallint, withOptional } from './json-arbitraries';
 import { damageFormulaText, richTextJson } from './rich-text-arbitraries';
 
 const spellRank: Arbitrary<number> = integer({ min: 1, max: SPELL_RANK_MAX });
@@ -45,7 +44,6 @@ const TURN_ENDS = Object.values(SpellDurationEnd).filter((end) => end !== SpellD
 const turnEnd: Arbitrary<string> = constantFrom(...TURN_ENDS);
 const turnOwner: Arbitrary<string> = constantFrom(...Object.values(TurnOwner));
 const passiveDefense: Arbitrary<string> = oneof(constant('ac'), saveSelectorText);
-const damageType: Arbitrary<string> = constantFrom(...Object.values(DamageType));
 const damageCategory: Arbitrary<string> = constantFrom(...Object.values(DamageCategory));
 const damageKinds: Arbitrary<string[]> = shuffledSubarray(Object.values(DamageKind), { minLength: 1 });
 const traditions: Arbitrary<string[]> = shuffledSubarray(Object.values(MagicTradition));

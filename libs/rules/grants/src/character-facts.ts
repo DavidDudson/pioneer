@@ -19,30 +19,39 @@ const LEVEL_PREFIX = 'self:level';
  * `feature:shield-block`, `self:condition:grabbed`, `deity:primary:pharasma`. Kinds that never sit on a character
  * (creatures, statistics and the rules core kinds other than conditions) set nothing, and neither does an archetype,
  * which Foundry keeps as a journal page; its feats set `feat:<slug>`. Spells and rituals set nothing by being known:
- * their options belong to a casting.
+ * their options belong to a casting. Items and kits set nothing by being granted either: what a worn or held item
+ * says (`armor:category:light`) comes from the inventory.
  */
 const KIND_NAMESPACES: Readonly<Record<ContentKind, RollOptionNamespace | undefined>> = {
   [ContentKind.Action]: undefined,
   [ContentKind.Ancestry]: RollOptionNamespace.parse('ancestry'),
   [ContentKind.Archetype]: undefined,
+  [ContentKind.Armor]: undefined,
   [ContentKind.Background]: RollOptionNamespace.parse('background'),
   [ContentKind.Class]: RollOptionNamespace.parse('class'),
   [ContentKind.ClassFeature]: RollOptionNamespace.parse('feature'),
   [ContentKind.Condition]: RollOptionNamespace.parse('self:condition'),
+  [ContentKind.Consumable]: undefined,
   [ContentKind.Creature]: undefined,
   [ContentKind.DamageType]: undefined,
   [ContentKind.Deity]: RollOptionNamespace.parse('deity:primary'),
   [ContentKind.Effect]: RollOptionNamespace.parse('self:effect'),
+  [ContentKind.Equipment]: undefined,
   [ContentKind.Feat]: RollOptionNamespace.parse('feat'),
   [ContentKind.Heritage]: RollOptionNamespace.parse('heritage'),
+  [ContentKind.Kit]: undefined,
   [ContentKind.Language]: undefined,
   [ContentKind.Ritual]: undefined,
+  [ContentKind.Rune]: undefined,
   [ContentKind.Sense]: undefined,
+  [ContentKind.Shield]: undefined,
   [ContentKind.Spell]: undefined,
   [ContentKind.SpellcastingTradition]: undefined,
   [ContentKind.Statistic]: undefined,
   [ContentKind.Trait]: undefined,
+  [ContentKind.Treasure]: undefined,
   [ContentKind.VariantRule]: undefined,
+  [ContentKind.Weapon]: undefined,
 };
 
 /** What the facts of one round are built from, apart from the situation. */

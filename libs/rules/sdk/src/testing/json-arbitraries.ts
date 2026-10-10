@@ -1,6 +1,7 @@
 import { array, constantFrom, integer, option, stringMatching, tuple, uuid } from 'fast-check';
 import type { Arbitrary } from 'fast-check';
 
+import { DamageType } from '../damage';
 import { Size } from '../size';
 
 /** Longest list most arbitraries generate. */
@@ -16,6 +17,7 @@ export const slugText: Arbitrary<string> = array(word, { minLength: 1, maxLength
 export const smallint: Arbitrary<number> = integer({ min: 0, max: SMALLINT_MAX });
 export const positive: Arbitrary<number> = integer({ min: 1, max: SMALLINT_MAX });
 export const size: Arbitrary<string> = constantFrom(...Object.values(Size));
+export const damageType: Arbitrary<string> = constantFrom(...Object.values(DamageType));
 export const contentIdJson: Arbitrary<string> = uuid({ version: 4 });
 
 type OptionalEntry = readonly [string, unknown];
