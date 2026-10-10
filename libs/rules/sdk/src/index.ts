@@ -54,7 +54,7 @@ export { DegreeChange, DegreeChangeSchema, DegreeOfSuccess, DegreeOfSuccessSchem
 export { Immunity, Trait, TraitData } from './trait';
 export { LanguageData } from './language';
 export { SenseAcuity, SenseData } from './sense';
-export { VariantRuleData } from './variant-rule';
+export { VariantRuleData, VariantRuleDefinition, VariantRuleId } from './variant-rule';
 export { PackEntry } from './pack-entry';
 export { ContentEntry } from './content-entry';
 export {
@@ -107,7 +107,13 @@ export {
   filterToQuery,
   type QueryParams,
 } from './filter-query';
-export { type AncestryEntry, ContentRegistry, type CreatureEntry, type StatisticEntry } from './content-registry';
+export {
+  type AncestryEntry,
+  ContentRegistry,
+  type CreatureEntry,
+  type StatisticEntry,
+  type VariantRuleEntry,
+} from './content-registry';
 export { StatisticData, StatisticDefinition, StatisticId, StatisticKind, StatisticKindSchema } from './statistic';
 export { CreatureData, CreatureDefinition, CreatureId } from './creature';
 export {
@@ -122,7 +128,7 @@ export {
   PUBLISHER_LABELS,
 } from './book';
 export { ContentLicense, ContentLicenseSchema } from './license';
-export { Proficiency, proficiencyBonus, ProficiencySchema } from './proficiency';
+export { Proficiency, ProficiencyBonusFormula, ProficiencyBonusTable, ProficiencySchema } from './proficiency';
 export { Size, SizeSchema } from './size';
 export {
   ArmorClass,

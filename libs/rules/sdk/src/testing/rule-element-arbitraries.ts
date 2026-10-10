@@ -162,6 +162,16 @@ const martialProficiency = element(
   },
 );
 
+const BONUS_MAX = 99;
+const bonusNumber = integer({ min: -BONUS_MAX, max: BONUS_MAX });
+/** A proficiency bonus formula: a number, or a number plus `@level`. */
+const bonusFormula: Arbitrary<string> = oneof(
+  bonusNumber.map(String),
+  bonusNumber.map((bonus) => `${bonus} + @level`),
+);
+const bonusTable = Object.fromEntries(Object.values(Proficiency).map((rank) => [rank, bonusFormula]));
+const proficiencyBonus = element('ProficiencyBonus', { table: record(bonusTable) });
+
 /**
  * Valid rule elements of every `key` the SDK knows, as plain JSON (unparsed). Use with
  * `RuleElement.parse` to get the typed value.
@@ -183,4 +193,5 @@ export const ruleElementJson: Arbitrary<object> = oneof(
   multipleAttackPenalty,
   proficiency,
   martialProficiency,
+  proficiencyBonus,
 );

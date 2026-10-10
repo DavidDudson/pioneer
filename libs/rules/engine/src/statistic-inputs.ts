@@ -7,13 +7,14 @@ import {
   knownReference,
   Level,
   Proficiency,
-  proficiencyBonus,
   ProficiencySchema,
   ReferenceKind,
   Selector,
 } from '@pioneer/rules/sdk';
 import type { KnownReference } from '@pioneer/rules/sdk';
 import * as z from 'zod';
+
+import type { ProficiencyBonuses } from './proficiency-bonuses';
 
 /**
  * What the statistic graph reads besides the statistics themselves: the character's level, attribute modifiers,
@@ -57,7 +58,11 @@ function cappedDexterity(inputs: StatisticInputs): FormulaValue {
 }
 
 /** The value an input reference reads; undefined for statistic and item references, which inputs do not hold. */
-function inputValue(reference: KnownReference, inputs: StatisticInputs): FormulaValue | undefined {
+function inputValue(
+  reference: KnownReference,
+  inputs: StatisticInputs,
+  { bonuses }: ProficiencyBonuses,
+): FormulaValue | undefined {
   switch (reference.kind) {
     case ReferenceKind.Level: {
       return FormulaValue.parse(inputs.level);
@@ -69,7 +74,7 @@ function inputValue(reference: KnownReference, inputs: StatisticInputs): Formula
       return cappedDexterity(inputs);
     }
     case ReferenceKind.ProficiencyBonus: {
-      return FormulaValue.parse(proficiencyBonus(rankOf(inputs, reference.selector), inputs.level));
+      return bonuses.get(rankOf(inputs, reference.selector));
     }
     case ReferenceKind.ProficiencyRank: {
       return FormulaValue.parse(RANK_ORDER.indexOf(rankOf(inputs, reference.selector)));
@@ -87,11 +92,22 @@ function inputValue(reference: KnownReference, inputs: StatisticInputs): Formula
 /** Reads a statistic's value by selector, or undefined when it has none. */
 export type StatisticValues = (selector: Selector) => FormulaValue | undefined;
 
+/** What a resolver reads besides statistics: the character's inputs and the proficiency bonuses in force. */
+export interface CharacterValues {
+  readonly inputs: StatisticInputs;
+  readonly proficiency: ProficiencyBonuses;
+}
+
 /**
- * Resolves a formula's references from the inputs, `@stat.<selector>` from `statistics`, and `@item.level` from
- * `itemLevel`: the level of the item a rule element is on, which a statistic's base formula never has.
+ * Resolves a formula's references from the inputs, `@prof.<selector>` from the proficiency bonuses in force,
+ * `@stat.<selector>` from `statistics`, and `@item.level` from `itemLevel`: the level of the item a rule element is
+ * on, which a statistic's base formula never has.
  */
-export function resolverFor(inputs: StatisticInputs, statistics: StatisticValues, itemLevel?: Level): ResolveReference {
+export function resolverFor(
+  { inputs, proficiency }: CharacterValues,
+  statistics: StatisticValues,
+  itemLevel?: Level,
+): ResolveReference {
   return (path) => {
     const reference = knownReference(path);
     if (reference === undefined) {
@@ -103,6 +119,6 @@ export function resolverFor(inputs: StatisticInputs, statistics: StatisticValues
     if (reference.kind === ReferenceKind.ItemLevel) {
       return itemLevel === undefined ? undefined : FormulaValue.parse(itemLevel);
     }
-    return inputValue(reference, inputs);
+    return inputValue(reference, inputs, proficiency);
   };
 }

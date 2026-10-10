@@ -1,5 +1,5 @@
-import { AncestryId, AttributeModifiers, Modifier, proficiencyBonus } from '@pioneer/rules/sdk';
-import type { Attribute, AttributeModifier, Proficiency } from '@pioneer/rules/sdk';
+import { AncestryId, AttributeModifiers } from '@pioneer/rules/sdk';
+import type { Attribute, AttributeModifier } from '@pioneer/rules/sdk';
 import { FIRST_VERSION, InstantCodec, UserId, Version } from '@pioneer/shared/kernel';
 import type { Temporal } from '@pioneer/shared/kernel';
 import * as z from 'zod';
@@ -92,11 +92,6 @@ export class Character {
 
   public modifier(attribute: Attribute): AttributeModifier {
     return this.attributes.get(attribute);
-  }
-
-  /** Total modifier for a check: attribute modifier plus proficiency bonus. */
-  public checkModifier(attribute: Attribute, rank: Proficiency): Modifier {
-    return Modifier.parse(this.modifier(attribute) + proficiencyBonus(rank, this.level));
   }
 
   /** Apply one field-level edit. Version bump is the repository's job. */

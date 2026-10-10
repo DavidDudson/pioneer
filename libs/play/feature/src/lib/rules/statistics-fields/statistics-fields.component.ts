@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input, model } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { Field, FieldError, FieldHint, Label, LocaleFormat, Stack, TextArea } from '@pioneer/frontier';
+import { Field, FieldError, FieldHint, Label, LocaleFormat, Stack, TextArea, ToggleButton } from '@pioneer/frontier';
 
 import { JsonField } from '../json-field/json-field.component';
 import type { JsonProblem } from '../rules-check';
@@ -18,11 +18,12 @@ const NO_PROBLEMS: Problems = { definitions: undefined, inputs: undefined, rules
 
 /**
  * The statistics tool's inputs, each with its own problem: the definitions, the character's inputs, the rule
- * elements and the overrides as JSON, and the roll options their predicates read.
+ * elements and the overrides as JSON, the roll options their predicates read, and whether Proficiency Without Level
+ * is on.
  */
 @Component({
   selector: 'pio-statistics-fields',
-  imports: [Field, FieldError, FieldHint, JsonField, Label, Stack, TextArea, TranslocoPipe],
+  imports: [Field, FieldError, FieldHint, JsonField, Label, Stack, TextArea, ToggleButton, TranslocoPipe],
   templateUrl: './statistics-fields.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -37,6 +38,10 @@ export class StatisticsFields {
   public readonly rules = model.required<string>();
   public readonly overrides = model.required<string>();
   public readonly facts = model.required<string>();
+  /** Whether Proficiency Without Level is on. */
+  public readonly withoutLevel = model.required<boolean>();
+  /** The proficiency rules failed to load, so nothing derives and the variant cannot be turned on. */
+  public readonly proficiencyFailed = input(false);
 
   protected readonly problems = computed((): Problems => {
     const result = this.check();

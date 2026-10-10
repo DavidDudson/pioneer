@@ -2,6 +2,7 @@ import { describe, expect, test } from 'bun:test';
 
 import { FormulaMessage } from '@pioneer/rules/formula';
 import { Selector, StatisticDefinition, StatisticKind } from '@pioneer/rules/sdk';
+import { PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
 import { message } from '@pioneer/shared/kernel';
 
 import { BaseTermKind, TermSign } from './base-term';
@@ -31,7 +32,7 @@ const fighter: StatisticInputs = StatisticInputsJson.parse({
 });
 
 function derive(...definitions: readonly StatisticDefinition[]): ReadonlyMap<Selector, StatisticResult> {
-  return deriveStatistics(definitions, fighter);
+  return deriveStatistics({ definitions, proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS }, fighter);
 }
 
 function resultOf(results: ReadonlyMap<Selector, StatisticResult>, selector: string): StatisticResult | undefined {
@@ -57,9 +58,23 @@ describe('deriveStatistics', () => {
       overrides: [],
       pinnedBy: undefined,
       base: [
-        { kind: BaseTermKind.Term, formula: '10', sign: TermSign.Plus, value: 10, position: 1 },
-        { kind: BaseTermKind.Term, formula: '@attr.dex.capped', sign: TermSign.Plus, value: 1, position: 6 },
-        { kind: BaseTermKind.Term, formula: '@prof.ac', sign: TermSign.Plus, value: 5, position: 25 },
+        { kind: BaseTermKind.Term, formula: '10', sign: TermSign.Plus, value: 10, position: 1, origin: undefined },
+        {
+          kind: BaseTermKind.Term,
+          formula: '@attr.dex.capped',
+          sign: TermSign.Plus,
+          value: 1,
+          position: 6,
+          origin: undefined,
+        },
+        {
+          kind: BaseTermKind.Term,
+          formula: '@prof.ac',
+          sign: TermSign.Plus,
+          value: 5,
+          position: 25,
+          origin: undefined,
+        },
       ],
     } as unknown as StatisticResult);
   });
@@ -174,7 +189,10 @@ describe('deriveStatistics', () => {
 
   test('without a Dexterity cap, capped Dexterity is the modifier', () => {
     const uncapped: StatisticInputs = { level: fighter.level, attributes: fighter.attributes, ranks: fighter.ranks };
-    const results = deriveStatistics([statistic('ac', '@attr.dex.capped')], uncapped);
+    const results = deriveStatistics(
+      { definitions: [statistic('ac', '@attr.dex.capped')], proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS },
+      uncapped,
+    );
     expect(resultOf(results, 'ac')).toMatchObject({ ok: true, total: 2 });
   });
 });

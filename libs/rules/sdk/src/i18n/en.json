@@ -44,6 +44,9 @@
     "statistic": {
       "duplicateSelector": "Another statistic in this pack already uses the selector {selector}."
     },
+    "proficiencyBonus": {
+      "reference": "“{found}” at position {position} is not @level. A proficiency bonus formula reads only @level."
+    },
     "entry": {
       "unknownKind": "“{kind}” is not a content kind Pioneer has a schema for yet.",
       "idMismatch": "The id must be the one derived from {key}: {expected}.",

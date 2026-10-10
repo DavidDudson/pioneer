@@ -11,7 +11,7 @@ import type { RuleContext } from './rule-value';
 import { Components, statisticGraph } from './statistic-graph';
 import type { StatisticEdge, StatisticNode } from './statistic-graph';
 import { resolverFor } from './statistic-inputs';
-import type { StatisticInputs } from './statistic-inputs';
+import type { CharacterValues } from './statistic-inputs';
 import { cycle, failure, unreadable } from './statistic-result';
 import type { StatisticFailure, StatisticResult } from './statistic-result';
 
@@ -37,7 +37,7 @@ export interface StatisticBase {
  */
 export class StatisticBases {
   readonly #graph: ReadonlyMap<Selector, StatisticNode>;
-  readonly #inputs: StatisticInputs;
+  readonly #values: CharacterValues;
   readonly #changes: ReadonlyMap<Selector, readonly ChangeSource[]>;
   readonly #context: RuleContext;
   readonly #results = new Map<Selector, StatisticResult>();
@@ -48,15 +48,15 @@ export class StatisticBases {
    */
   public constructor(
     definitions: readonly StatisticDefinition[],
-    inputs: StatisticInputs,
+    values: CharacterValues,
     { changes, facts }: BaseChanges,
   ) {
     this.#graph = statisticGraph(definitions);
-    this.#inputs = inputs;
+    this.#values = values;
     this.#changes = changes;
     this.#context = {
       facts,
-      resolve: (itemLevel): ResolveReference => resolverFor(inputs, (): undefined => undefined, itemLevel),
+      resolve: (itemLevel): ResolveReference => resolverFor(values, (): undefined => undefined, itemLevel),
     };
     for (const component of new Components(this.#graph).inOrder) {
       this.#evaluateComponent(component);
@@ -115,7 +115,7 @@ export class StatisticBases {
     if (blocked !== undefined) {
       return blocked;
     }
-    const resolve = resolverFor(this.#inputs, (read) => this.baseValue(read));
+    const resolve = resolverFor(this.#values, (read) => this.baseValue(read));
     const outcome = evaluate(formula, resolve);
     if (!outcome.ok) {
       return failure(selector, outcome.error, outcome.position);
@@ -124,7 +124,7 @@ export class StatisticBases {
     return {
       ok: true,
       selector,
-      base: baseTerms(formula, resolve, outcome.value),
+      base: baseTerms(formula, resolve, { total: outcome.value, proficiencyOrigin: this.#values.proficiency.origin }),
       formulaValue: outcome.value,
       baseValue: changed.value,
       lines: [],

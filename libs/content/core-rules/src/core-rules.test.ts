@@ -1,7 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
 import { deriveStatistics, RuleInPlay, StatisticInputsJson } from '@pioneer/rules/engine';
-import type { StatisticInputs, StatisticResult } from '@pioneer/rules/engine';
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import {
   Attribute,
@@ -13,24 +12,24 @@ import {
   Selector,
   Slug,
   StatisticKind,
+  VariantRuleId,
 } from '@pioneer/rules/sdk';
-import { assert, constantFrom, integer, property, record } from 'fast-check';
-import type { Arbitrary } from 'fast-check';
+import { assert, property } from 'fast-check';
 
+import {
+  AC_BASE,
+  anyInputs,
+  contentOf,
+  core,
+  fighter,
+  RANK_BONUS,
+  SELECTORS,
+  SKILL_SELECTORS,
+  SKILLS,
+  totals,
+} from './fixtures';
 import { coreRules } from './index';
 
-const ATTRIBUTE_MIN = -5;
-const ATTRIBUTE_MAX = 7;
-const LEVEL_MAX = 20;
-const AC_BASE = 10;
-/** Proficiency bonus before level, per rank (Player Core). */
-const RANK_BONUS: Readonly<Record<Proficiency, number>> = {
-  [Proficiency.Untrained]: 0,
-  [Proficiency.Trained]: 2,
-  [Proficiency.Expert]: 4,
-  [Proficiency.Master]: 6,
-  [Proficiency.Legendary]: 8,
-};
 /** How many times the level adds to the proficiency bonus: none when untrained. */
 const LEVEL_TIMES: Readonly<Record<Proficiency, number>> = {
   [Proficiency.Untrained]: 0,
@@ -39,47 +38,6 @@ const LEVEL_TIMES: Readonly<Record<Proficiency, number>> = {
   [Proficiency.Master]: 1,
   [Proficiency.Legendary]: 1,
 };
-
-/** A level 3 fighter in a breastplate (Dexterity cap +1). */
-const fighter: StatisticInputs = StatisticInputsJson.parse({
-  level: 3,
-  attributes: { str: 4, dex: 2, con: 2, int: 0, wis: 1, cha: -1 },
-  ranks: {
-    ac: 'trained',
-    'save:fortitude': 'expert',
-    'save:reflex': 'expert',
-    'save:will': 'trained',
-    perception: 'expert',
-    'skill:athletics': 'trained',
-    'skill:lore:farming': 'trained',
-  },
-  dexterityCap: 1,
-});
-
-const DEFENCES = ['ac', 'save:fortitude', 'save:reflex', 'save:will', 'perception'];
-
-/** Each Player Core skill and its key attribute. */
-const SKILLS: Readonly<Record<string, Attribute>> = {
-  acrobatics: Attribute.Dexterity,
-  arcana: Attribute.Intelligence,
-  athletics: Attribute.Strength,
-  crafting: Attribute.Intelligence,
-  deception: Attribute.Charisma,
-  diplomacy: Attribute.Charisma,
-  intimidation: Attribute.Charisma,
-  medicine: Attribute.Wisdom,
-  nature: Attribute.Wisdom,
-  occultism: Attribute.Intelligence,
-  performance: Attribute.Charisma,
-  religion: Attribute.Wisdom,
-  society: Attribute.Intelligence,
-  stealth: Attribute.Dexterity,
-  survival: Attribute.Wisdom,
-  thievery: Attribute.Dexterity,
-};
-
-const SKILL_SELECTORS = Object.keys(SKILLS).map((slug) => `skill:${slug}`);
-const SELECTORS = [...DEFENCES, ...SKILL_SELECTORS];
 
 /** The Lore pattern: a pack that grants a Lore brings its own statistic (rules-engine.md). */
 const farmingLore = ContentPack.define({
@@ -99,10 +57,6 @@ const farmingLore = ContentPack.define({
   ],
 });
 
-function totals(results: ReadonlyMap<Selector, StatisticResult>): Record<string, number | undefined> {
-  return Object.fromEntries([...results].map(([selector, result]) => [selector, result.ok ? result.total : undefined]));
-}
-
 /** A +1 status bonus to everything in `target`, as a rule on a test entry. */
 function bonusTo(target: string): RuleInPlay {
   return RuleInPlay.parse({
@@ -117,10 +71,10 @@ function bonusTo(target: string): RuleInPlay {
 }
 
 /** Which of `statistics` a +1 to `target` raises, sorted. */
-function reachedBy(target: string, statistics = coreRules.statistics): readonly string[] {
-  const without = totals(deriveStatistics(statistics, fighter));
+function reachedBy(target: string, content = core): readonly string[] {
+  const without = totals(deriveStatistics(content, fighter));
   const facts = new PredicateFacts([]);
-  const withBonus = totals(deriveStatistics(statistics, fighter, { rules: [bonusTo(target)], facts }));
+  const withBonus = totals(deriveStatistics(content, fighter, { rules: [bonusTo(target)], facts }));
   return Object.keys(without)
     .filter((selector) => withBonus[selector] !== without[selector])
     .toSorted();
@@ -134,57 +88,6 @@ function skillsKeyedTo(attribute: Attribute): readonly string[] {
   return Object.entries(SKILLS).flatMap(([slug, key]) => (key === attribute ? [`skill:${slug}`] : []));
 }
 
-const proficiency: Arbitrary<Proficiency> = constantFrom(...Object.values(Proficiency));
-const attribute: Arbitrary<number> = integer({ min: ATTRIBUTE_MIN, max: ATTRIBUTE_MAX });
-
-/** Generated inputs as JSON, with the values AC reads kept beside them. */
-interface GeneratedInputs {
-  readonly json: object;
-  readonly ac: Proficiency;
-  readonly dex: number;
-  readonly cap: number;
-  readonly level: number;
-  /** The rank given to every skill. */
-  readonly skill: Proficiency;
-}
-
-/** Inputs with every attribute, every core rank and the Dexterity cap generated. */
-const anyInputs: Arbitrary<GeneratedInputs> = record({
-  level: integer({ min: 1, max: LEVEL_MAX }),
-  str: attribute,
-  dex: attribute,
-  con: attribute,
-  int: attribute,
-  wis: attribute,
-  cha: attribute,
-  cap: attribute,
-  ac: proficiency,
-  fortitude: proficiency,
-  reflex: proficiency,
-  will: proficiency,
-  perception: proficiency,
-  skill: proficiency,
-}).map(({ level, str, dex, con, int, wis, cha, cap, ac, fortitude, reflex, will, perception, skill }) => ({
-  json: {
-    level,
-    attributes: { str, dex, con, int, wis, cha },
-    ranks: {
-      ac,
-      'save:fortitude': fortitude,
-      'save:reflex': reflex,
-      'save:will': will,
-      perception,
-      ...Object.fromEntries(SKILL_SELECTORS.map((selector) => [selector, skill])),
-    },
-    dexterityCap: cap,
-  },
-  ac,
-  dex,
-  cap,
-  level,
-  skill,
-}));
-
 describe('core rules pack', () => {
   test('registers with no duplicate selectors', () => {
     const registry = new ContentRegistry();
@@ -193,10 +96,12 @@ describe('core rules pack', () => {
       expect(registry.statisticsFor(Selector.parse(selector))).toHaveLength(1);
     }
     expect(registry.statistics()).toHaveLength(SELECTORS.length);
+    const withoutLevel = contentId(coreRules.id, Slug.parse('proficiency-without-level'));
+    expect(registry.variantRules().map(({ id }) => id)).toStrictEqual([VariantRuleId.parse(withoutLevel)]);
   });
 
   test('derives AC, the saves and Perception for a level 3 fighter', () => {
-    expect(totals(deriveStatistics(coreRules.statistics, fighter))).toMatchObject({
+    expect(totals(deriveStatistics(core, fighter))).toMatchObject({
       ac: 16,
       'save:fortitude': 9,
       'save:reflex': 9,
@@ -206,7 +111,7 @@ describe('core rules pack', () => {
   });
 
   test('keys every skill to its Player Core attribute', () => {
-    const derived = totals(deriveStatistics(coreRules.statistics, fighter));
+    const derived = totals(deriveStatistics(core, fighter));
     const expected = Object.fromEntries(
       Object.entries(SKILLS).map(([slug, key]) => [`skill:${slug}`, fighter.attributes.get(key)]),
     );
@@ -227,7 +132,7 @@ describe('core rules pack', () => {
   });
 
   test('a Lore from another pack derives beside the skills and takes skill bonuses', () => {
-    const statistics = [...coreRules.statistics, ...farmingLore.statistics];
+    const statistics = contentOf(coreRules, farmingLore);
     // Trained at level 3 with Intelligence 0.
     expect(totals(deriveStatistics(statistics, fighter))['skill:lore:farming']).toBe(5);
     expect(reachedBy('skill-check', statistics)).toStrictEqual(sorted([...SKILL_SELECTORS, 'skill:lore:farming']));
@@ -238,7 +143,7 @@ describe('core rules pack', () => {
     assert(
       property(anyInputs, ({ json, ac, dex, cap, level, skill }) => {
         const inputs = StatisticInputsJson.parse(json);
-        const derived = totals(deriveStatistics(coreRules.statistics, inputs));
+        const derived = totals(deriveStatistics(core, inputs));
         expect(Object.values(derived).every((total) => total !== undefined)).toBe(true);
         const prof = (rank: Proficiency): number => RANK_BONUS[rank] + LEVEL_TIMES[rank] * level;
         expect(derived['ac']).toBe(AC_BASE + Math.min(dex, cap) + prof(ac));

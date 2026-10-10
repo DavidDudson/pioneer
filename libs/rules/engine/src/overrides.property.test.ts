@@ -2,6 +2,7 @@ import { describe, expect, test } from 'bun:test';
 
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import { ModifierType, Selector } from '@pioneer/rules/sdk';
+import { PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
 import { array, assert, constantFrom, integer, property, record, tuple } from 'fast-check';
 
 import { LineStatusKind } from './breakdown';
@@ -42,7 +43,10 @@ const pins = array(
 );
 
 function derive(rules: readonly RuleInPlay[]): StatisticResult | undefined {
-  return deriveStatistics([ac], inputs, { rules, facts }).get(Selector.parse('ac'));
+  return deriveStatistics({ definitions: [ac], proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS }, inputs, {
+    rules,
+    facts,
+  }).get(Selector.parse('ac'));
 }
 
 /** A test rule's priority; every pin sets one. */

@@ -5,13 +5,17 @@ import type { ContentPack, ContentPackLoader } from './content-pack';
 import { CreatureId } from './creature';
 import type { CreatureDefinition } from './creature';
 import { PackEntry } from './pack-entry';
+import type { ProficiencyBonusTable } from './proficiency';
 import type { Selector } from './selector';
 import { StatisticId } from './statistic';
 import type { StatisticDefinition } from './statistic';
+import { VariantRuleId } from './variant-rule';
+import type { VariantRuleDefinition } from './variant-rule';
 
 export type AncestryEntry = PackEntry<AncestryId, AncestryDefinition>;
 export type CreatureEntry = PackEntry<CreatureId, CreatureDefinition>;
 export type StatisticEntry = PackEntry<StatisticId, StatisticDefinition>;
+export type VariantRuleEntry = PackEntry<VariantRuleId, VariantRuleDefinition>;
 
 /**
  * Everything loaded from content packs, indexed by id. Server and client each
@@ -23,6 +27,8 @@ export class ContentRegistry {
   readonly #creatures = new Map<CreatureId, CreatureEntry>();
   readonly #statistics = new Map<StatisticId, StatisticEntry>();
   readonly #statisticsBySelector = new Map<Selector, readonly StatisticEntry[]>();
+  readonly #variantRules = new Map<VariantRuleId, VariantRuleEntry>();
+  #proficiencyBonus: ProficiencyBonusTable | undefined;
 
   public async load(loader: ContentPackLoader): Promise<ContentPack> {
     const existing = this.#packs.get(loader.id);
@@ -51,6 +57,16 @@ export class ContentRegistry {
       this.#creatures.set(entry.id, entry);
     }
     this.#registerStatistics(pack);
+    this.#registerVariantRules(pack);
+  }
+
+  /** A pack's variant rules, and its proficiency bonus table, which replaces the one before when it has one. */
+  #registerVariantRules(pack: ContentPack): void {
+    for (const definition of pack.variantRules) {
+      const entry: VariantRuleEntry = new PackEntry(pack, definition, VariantRuleId);
+      this.#variantRules.set(entry.id, entry);
+    }
+    this.#proficiencyBonus = pack.proficiencyBonus ?? this.#proficiencyBonus;
   }
 
   #registerStatistics(pack: ContentPack): void {
@@ -96,5 +112,22 @@ export class ContentRegistry {
    */
   public statisticsFor(selector: Selector): readonly StatisticEntry[] {
     return this.#statisticsBySelector.get(selector) ?? [];
+  }
+
+  public variantRules(): readonly VariantRuleEntry[] {
+    return [...this.#variantRules.values()];
+  }
+
+  public variantRule(id: VariantRuleId): VariantRuleEntry | undefined {
+    return this.#variantRules.get(id);
+  }
+
+  /**
+   * How proficiency ranks become bonuses: the table of the last registered pack that has one (the core rules pack,
+   * or homebrew restating it), or undefined before any pack defines one. Variant rules replace it per character
+   * through rule elements, not here.
+   */
+  public proficiencyBonus(): ProficiencyBonusTable | undefined {
+    return this.#proficiencyBonus;
   }
 }

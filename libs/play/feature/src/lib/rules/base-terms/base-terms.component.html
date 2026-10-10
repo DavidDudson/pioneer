@@ -8,6 +8,9 @@
           <fr-text tone="muted">{{ 'play.rules.rounding' | transloco }}</fr-text>
         }
         <fr-text>{{ 'play.rules.termValue' | transloco: { value: term.value } }}</fr-text>
+        @if (term.variant; as name) {
+          <fr-text tone="muted">{{ 'play.rules.termVariant' | transloco: { name } }}</fr-text>
+        }
       </fr-stack>
     </fr-list-item>
   }

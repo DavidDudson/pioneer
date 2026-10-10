@@ -1,5 +1,7 @@
-import { BinaryOperator, evaluate, FormulaValue, NodeKind, printFormula } from '@pioneer/rules/formula';
+import { BinaryOperator, evaluate, FormulaValue, NodeKind, printFormula, references } from '@pioneer/rules/formula';
 import type { FormulaNode, FormulaText, ResolveReference, TextPosition } from '@pioneer/rules/formula';
+import { knownReference, ReferenceKind } from '@pioneer/rules/sdk';
+import type { Origin } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
 
 export const BaseTermKind = { Term: 'term', Rounding: 'rounding' } as const;
@@ -23,6 +25,11 @@ export type BaseTerm =
       readonly value: FormulaValue;
       /** Where the term's first number, reference or call is written in the base formula; brackets are not kept. */
       readonly position: TextPosition;
+      /**
+       * Who replaced how proficiency becomes a bonus (a variant rule), on a term that reads `@prof`; undefined while
+       * the content's own table is in force.
+       */
+      readonly origin: Origin | undefined;
     }
   | { readonly kind: typeof BaseTermKind.Rounding; readonly value: FormulaValue };
 
@@ -48,17 +55,33 @@ function start(node: FormulaNode): TextPosition {
   return node.kind === NodeKind.Binary ? start(node.left) : node.position;
 }
 
+/** Whether a term reads a proficiency bonus (`@prof.<selector>`). */
+function readsProficiency(node: FormulaNode): boolean {
+  return references(node).some(({ path }) => knownReference(path)?.kind === ReferenceKind.ProficiencyBonus);
+}
+
 /** The term as evaluated on its own, negated when subtracted so it rounds as it does in the sum. */
 function signed({ node, sign }: SignedNode): FormulaNode {
   return sign === TermSign.Plus ? node : { kind: NodeKind.Negate, operand: node, position: node.position };
 }
 
+/** What the whole base formula came to, and the origin of the proficiency bonuses it read, if a rule replaced them. */
+interface Evaluated {
+  readonly total: FormulaValue;
+  readonly proficiencyOrigin: Origin | undefined;
+}
+
 /**
  * The base formula's terms with their values, given that the whole formula evaluated to `total` with `resolve`.
  * Each term is evaluated on its own; when their sum misses `total` (`@level / 2 + @level / 2` at an odd level), a
- * rounding line makes up the difference.
+ * rounding line makes up the difference. A term reading `@prof` carries `proficiencyOrigin`, the variant rule that
+ * replaced the proficiency bonuses, if any.
  */
-export function baseTerms(formula: FormulaNode, resolve: ResolveReference, total: FormulaValue): readonly BaseTerm[] {
+export function baseTerms(
+  formula: FormulaNode,
+  resolve: ResolveReference,
+  { total, proficiencyOrigin }: Evaluated,
+): readonly BaseTerm[] {
   const lines: BaseTerm[] = [];
   let sum = 0;
   for (const term of terms(formula)) {
@@ -74,6 +97,7 @@ export function baseTerms(formula: FormulaNode, resolve: ResolveReference, total
       sign: term.sign,
       value: outcome.value,
       position: start(term.node),
+      origin: readsProficiency(term.node) ? proficiencyOrigin : undefined,
     });
   }
   return sum === total ? lines : [...lines, { kind: BaseTermKind.Rounding, value: FormulaValue.parse(total - sum) }];
