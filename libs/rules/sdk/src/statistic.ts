@@ -12,8 +12,11 @@ import { Domain, Selector } from './selector';
 export const StatisticId = Uuid.brand<'StatisticId'>();
 export type StatisticId = z.infer<typeof StatisticId>;
 
-/** Whether a statistic is rolled (a check, such as Perception) or stands as a target (a DC, such as AC). */
-export const StatisticKind = { Check: 'check', Dc: 'dc' } as const;
+/**
+ * Whether a statistic is rolled (a check, such as Perception), stands as a target (a DC, such as AC), or is a value
+ * that is neither (Hit Points, a Speed).
+ */
+export const StatisticKind = { Check: 'check', Dc: 'dc', Value: 'value' } as const;
 export type StatisticKind = ValueOf<typeof StatisticKind>;
 export const StatisticKindSchema = z.enum(StatisticKind);
 

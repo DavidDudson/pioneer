@@ -21,6 +21,10 @@ export const ReferenceKind = {
   Level: 'level',
   AttributeModifier: 'attribute-modifier',
   CappedDexterity: 'capped-dexterity',
+  KeyAttributeModifier: 'key-attribute-modifier',
+  AncestryHitPoints: 'ancestry-hit-points',
+  AncestrySpeed: 'ancestry-speed',
+  ClassHitPoints: 'class-hit-points',
   ProficiencyBonus: 'proficiency-bonus',
   ProficiencyRank: 'proficiency-rank',
   Statistic: 'statistic',
@@ -33,6 +37,10 @@ export type KnownReference =
   | { readonly kind: typeof ReferenceKind.Level }
   | { readonly kind: typeof ReferenceKind.AttributeModifier; readonly attribute: Attribute }
   | { readonly kind: typeof ReferenceKind.CappedDexterity }
+  | { readonly kind: typeof ReferenceKind.KeyAttributeModifier }
+  | { readonly kind: typeof ReferenceKind.AncestryHitPoints }
+  | { readonly kind: typeof ReferenceKind.AncestrySpeed }
+  | { readonly kind: typeof ReferenceKind.ClassHitPoints }
   | { readonly kind: typeof ReferenceKind.ProficiencyBonus; readonly selector: Selector }
   | { readonly kind: typeof ReferenceKind.ProficiencyRank; readonly selector: Selector }
   | { readonly kind: typeof ReferenceKind.Statistic; readonly selector: Selector }
@@ -77,6 +85,26 @@ export const REFERENCE_CATALOGUE: Readonly<Record<ReferenceKind, ReferenceDefini
     scope: ReferenceScope.Actor,
     meaning: RulesMessage.ReferenceCappedDexterity,
   },
+  [ReferenceKind.KeyAttributeModifier]: {
+    pattern: ReferencePattern.parse('attr.key'),
+    scope: ReferenceScope.Actor,
+    meaning: RulesMessage.ReferenceKeyAttributeModifier,
+  },
+  [ReferenceKind.AncestryHitPoints]: {
+    pattern: ReferencePattern.parse('ancestry.hp'),
+    scope: ReferenceScope.Actor,
+    meaning: RulesMessage.ReferenceAncestryHitPoints,
+  },
+  [ReferenceKind.AncestrySpeed]: {
+    pattern: ReferencePattern.parse('ancestry.speed'),
+    scope: ReferenceScope.Actor,
+    meaning: RulesMessage.ReferenceAncestrySpeed,
+  },
+  [ReferenceKind.ClassHitPoints]: {
+    pattern: ReferencePattern.parse('class.hp'),
+    scope: ReferenceScope.Actor,
+    meaning: RulesMessage.ReferenceClassHitPoints,
+  },
   [ReferenceKind.ProficiencyBonus]: {
     pattern: ReferencePattern.parse('prof.<selector>'),
     scope: ReferenceScope.Actor,
@@ -111,6 +139,11 @@ const FOUNDRY_SPELLINGS = [
   ['actor.system.details.level.value', 'level'],
   ['actor.abilities.<attribute>.mod', 'attr.<attribute>'],
   ['actor.system.abilities.<attribute>.mod', 'attr.<attribute>'],
+  ['actor.system.attributes.ancestryhp', 'ancestry.hp'],
+  ['actor.ancestry.system.hp', 'ancestry.hp'],
+  ['actor.ancestry.system.speed', 'ancestry.speed'],
+  ['actor.system.attributes.classhp', 'class.hp'],
+  ['actor.class.system.hp', 'class.hp'],
   ['actor.skills.<skill>.rank', 'rank.skill.<skill>'],
   ['actor.system.skills.<skill>.rank', 'rank.skill.<skill>'],
   ['actor.saves.<save>.rank', 'rank.save.<save>'],
@@ -200,6 +233,10 @@ function referenceOf(kind: ReferenceKind, captures: Captures): KnownReference | 
   switch (kind) {
     case ReferenceKind.Level:
     case ReferenceKind.CappedDexterity:
+    case ReferenceKind.KeyAttributeModifier:
+    case ReferenceKind.AncestryHitPoints:
+    case ReferenceKind.AncestrySpeed:
+    case ReferenceKind.ClassHitPoints:
     case ReferenceKind.ItemLevel: {
       return { kind };
     }
