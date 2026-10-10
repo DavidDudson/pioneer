@@ -8,9 +8,13 @@ import { FiltersStatus } from '../filters-check';
 import type { FiltersCheck } from '../filters-check';
 import { RulesResult } from '../rules-result/rules-result.component';
 
-/** A value as the result lists it: a message key for a closed set's value, else the value itself. */
+/**
+ * A value as the result lists it: a message key for a closed set's value, else the value as shown (a range's in
+ * its facet's unit: bulk's tenths as 0.1).
+ */
 interface ValueRow {
   readonly value: FacetValue;
+  readonly shown: string;
   readonly key: string | undefined;
   readonly count: number;
 }
@@ -28,12 +32,21 @@ function labelOf(facet: FacetDefinition, value: FacetValue): string | undefined 
   return facet.type === FacetType.Flag ? FLAG_LABELS.get(value) : facet.values?.get(value);
 }
 
+function shownValue(facet: FacetDefinition, value: FacetValue): string {
+  return facet.type === FacetType.Range && facet.scale !== undefined ? String(Number(value) / facet.scale) : value;
+}
+
 /** A facet's values, with a range's unknown count last since it isn't one of the listed values. */
 function facetRow({ facet, values, unknown }: FacetCounts): FacetRow {
-  const rows = values.map(({ value, count }) => ({ value, key: labelOf(facet, value), count }));
+  const rows = values.map(({ value, count }) => ({
+    value,
+    shown: shownValue(facet, value),
+    key: labelOf(facet, value),
+    count,
+  }));
   const unknownRow =
     facet.type === FacetType.Range && unknown > 0
-      ? [{ value: UNKNOWN, key: FacetMessage.Unknown, count: unknown }]
+      ? [{ value: UNKNOWN, shown: UNKNOWN, key: FacetMessage.Unknown, count: unknown }]
       : [];
   return { id: facet.id, label: facet.label, values: [...rows, ...unknownRow] };
 }

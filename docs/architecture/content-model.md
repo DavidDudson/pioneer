@@ -376,6 +376,15 @@ Behaviour:
   trait is unknown and any other is `none`. Archetype is the feat's `archetype`, unknown for an `archetype`-trait
   feat without one; other feats give no value. Mode is `exploration` or `downtime` from those traits, else
   `encounter` (`action-facet-values.ts`; [ADR-0025](../adr/0025-feat-and-action-facet-fields.md)).
+- Every equipment kind (weapon, armour, shield, equipment, consumable, rune, treasure, kit) shares one facet
+  set, so a mixed list filters alike (`equipment-facet-values.ts`). Price is a range in copper over the printed
+  price, a batch's ("1 sp for 10") included; no price is unknown. Bulk is a range in tenths, so negligible is 0,
+  light 1 and 1 Bulk 10; the facet's `scale` (10) tells a UI to show it in Bulk, and a kit's Bulk is unknown.
+  Usage is armour worn, a shield held and a rune etched, else the item's usage (unknown when left out); treasure
+  and kits give none. Magical is the `magical` trait; consumable is the `consumable` kind. Damage type is one
+  facet shared with spells, a weapon's persistent damage included.
+- A facet that reads only some of the kinds it is listed for names them in `appliesTo` (weapon group: weapons;
+  armour category: armour; damage type: spells and weapons), so a UI can hide it when the list holds none.
 - **Available to you** is a preset made from the character: level at most the character's (or the slot's level
   for a feat slot), the class and ancestry traits the slot asks for, the traditions of the character's
   spellcasting entries, prerequisites not false, unique entries and the `artifact` trait hidden. Unknown
