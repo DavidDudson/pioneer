@@ -1,5 +1,5 @@
 import {
-  afterRenderEffect,
+  afterEveryRender,
   booleanAttribute,
   computed,
   contentChildren,
@@ -75,13 +75,31 @@ export class RovingFocus {
     return enabled.find((item) => item.selected()) ?? enabled[0];
   });
 
+  /** The element each item's tabindex was last written to, so a replaced target gives its tabindex back. */
+  #written = new Map<RovingFocusItem, HTMLElement>();
+
   public constructor() {
-    afterRenderEffect({
+    /*
+     * Every render, not only when a signal changes: an item's focusable element can be swapped without one (a
+     * skeleton becoming a button, an inline field opening its editor), and the new element needs its tabindex.
+     */
+    afterEveryRender({
       write: () => {
         const stop = this.#tabStop();
+        const written = new Map<RovingFocusItem, HTMLElement>();
         for (const item of this.items()) {
-          item.target().setAttribute('tabindex', item === stop ? TAB_STOP : SKIPPED);
+          const target = item.target();
+          const previous = this.#written.get(item);
+          if (previous !== undefined && previous !== target) {
+            previous.removeAttribute('tabindex');
+          }
+          const tabIndex = item === stop ? TAB_STOP : SKIPPED;
+          if (target.getAttribute('tabindex') !== tabIndex) {
+            target.setAttribute('tabindex', tabIndex);
+          }
+          written.set(item, target);
         }
+        this.#written = written;
       },
     });
   }
