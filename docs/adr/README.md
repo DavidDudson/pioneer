@@ -32,6 +32,7 @@ Accepted. To change a decision, add a new ADR that supersedes the old one; do no
 | [0025](0025-feat-and-action-facet-fields.md)               | Feats and actions store the skills, archetype and variable cost their facets read |
 | [0026](0026-proficiency-bonus-table-is-content.md)         | The proficiency bonus table is content, replaced by a rule element                |
 | [0027](0027-equipment-facet-units.md)                      | Equipment facets compare printed price in copper and Bulk in tenths               |
+| [0028](0028-frontier-and-pioneer-components.md)            | Frontier knows no schemas; rules-aware UI is presentational or container          |
 
 Template:
 

@@ -81,7 +81,8 @@ libs/
     formula/        formula language: parser to a positioned tree, printer, references, evaluator (kernel only)
     predicate/      three-valued (Kleene) predicate evaluation, roll option namespace lookup
     catalog/        pack loaders (exists; switches from TS imports to API/DB loading)
-    ui/             Angular rendering of rules data: rich text (frontier components only)
+    ui/             Angular rendering of rules data: rich text, source line (frontier components only;
+                    presentational, own Storybook, ADR-0028)
   content/          (TS packs retired; replaced by content/ JSON data, see content-model.md)
   character/        domain, application, infrastructure, feature (exists)
   campaign/         domain, application, infrastructure, feature
@@ -95,7 +96,7 @@ libs/
                     unmatched report, import contract; `scope:interop`, called by the character feature and
                     character service
   shared/           kernel, server, web (exists)
-  frontier/         design system (exists, text-only components, logical CSS for RTL)
+  frontier/         design system (exists, text-only components, logical CSS for RTL; no schema imports)
   shared/i18n/      locale resolution, message loading by scope, ICU formatting, unit display
 content/
   books.json        book registry
@@ -107,6 +108,9 @@ tools/
 Dependency rule: `rules/*` depends only on `shared/kernel` and other `rules/*` libraries: `rules/formula` on the kernel
 alone, `rules/sdk` on `rules/formula`, and `dice`, `predicate`, `engine`, `catalog` and `ui` on `rules/sdk`. `rules/ui`,
 the one web-only `rules` library, also uses frontier. Feature areas depend on `rules/*`, never the reverse.
+Frontier never depends on `rules/*`. Components that render rules data are presentational (in `ui` libraries, data in
+through inputs, a story each) or containers (in `feature` libraries, which load data and pass it in), per ADR-0028.
+`apps/storybook` composes every library's Storybook into one.
 Content data never imports code.
 
 ## Cross-cutting

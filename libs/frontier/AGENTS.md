@@ -5,6 +5,11 @@ Read this before touching any UI.
 
 ## Rules
 
+- **frontier knows no Pioneer schemas** (ADR-0028). It never imports
+  `rules/*` or a domain library. A component that renders content, a
+  source reference or engine output is a presentational component in a
+  `ui` library (`libs/rules/ui`), built from frontier components, with its
+  story in that library's Storybook.
 - **Apps and features never style.** Outside `libs/frontier`, templates may
   not use `class`, `[class]`, `[ngClass]`, `style`, `[style]` or `[ngStyle]`,
   and components may not have `styleUrl`/`styles`. Lint enforces it. If a
@@ -297,7 +302,10 @@ each new component or variant. `nx storybook frontier` serves it,
 `@nx/storybook/plugin`). It runs on Vite through
 `@analogjs/storybook-angular`, zoneless, with frontier's CSS, router,
 TanStack Query and the `en` messages provided in `.storybook/preview.ts`;
-the toolbar switches theme and colour mode.
+the toolbar switches theme and colour mode. That preview comes from
+`storybookPreview` (`src/storybook.ts`, `@pioneer/frontier/storybook`),
+which every `ui` library's Storybook shares; `nx storybook storybook`
+serves Pioneer's Storybook, which composes them all (`apps/storybook`).
 
 - Import story types from `@analogjs/storybook-angular`, never
   `@storybook/angular`.
@@ -310,7 +318,8 @@ the toolbar switches theme and colour mode.
 
 ### Story tests
 
-`nx test-storybook frontier` (in `affected` and CI) runs every story as a
+`nx test-storybook frontier` (in `affected` and CI; `ci:storybook` runs every
+library's) runs every story as a
 test in headless Chromium through the Vitest addon, once per theme × colour
 mode (frontier/tavern × dark/light): its `play` function, then axe. Any axe
 violation fails, colour contrast included. On Linux the devshell provides

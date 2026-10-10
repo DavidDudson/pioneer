@@ -13,6 +13,27 @@
         "tsConfig": "libs/rules/ui/tsconfig.spec.json",
         "runner": "vitest"
       }
+    },
+    "storybook": {
+      "options": {
+        "port": 6008
+      }
+    },
+    "test-storybook": {
+      "cache": true,
+      "parallelism": false,
+      "inputs": [
+        "default",
+        "^production",
+        {
+          "env": "PLAYWRIGHT_BROWSERS_PATH"
+        },
+        {
+          "env": "PLAYWRIGHT_DRIVER_VERSION"
+        },
+        "{workspaceRoot}/libs/frontier/.storybook/theme-projects.ts"
+      ],
+      "command": "vitest run --config libs/rules/ui/.storybook/vitest.config.ts"
     }
   }
 }

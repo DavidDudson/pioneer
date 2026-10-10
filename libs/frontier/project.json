@@ -20,10 +20,19 @@
       "inputs": [
         "default",
         "^production",
-        { "env": "PLAYWRIGHT_BROWSERS_PATH" },
-        { "env": "PLAYWRIGHT_DRIVER_VERSION" }
+        {
+          "env": "PLAYWRIGHT_BROWSERS_PATH"
+        },
+        {
+          "env": "PLAYWRIGHT_DRIVER_VERSION"
+        }
       ],
       "command": "vitest run --config libs/frontier/.storybook/vitest.config.ts"
+    },
+    "storybook": {
+      "options": {
+        "port": 6007
+      }
     }
   }
 }

@@ -15,13 +15,20 @@
     "apps/web/src/app/environment.development.ts",
     "apps/api/src/main.dev.ts"
   ],
-  "project": ["apps/**/*.ts", "libs/**/*.ts", "tools/**/*.ts", "libs/frontier/src/styles/*.css", "apps/web/src/*.css"],
+  "project": [
+    "apps/**/*.ts",
+    "libs/**/*.ts",
+    "tools/**/*.ts",
+    "libs/frontier/src/styles/*.css",
+    "apps/web/src/*.css",
+    "apps/storybook/src/*.mdx"
+  ],
   "ignoreBinaries": ["typos", "rumdl", "taplo", "hadolint", "tofu"],
   "ignoreDependencies": ["@angular/language-service", "@socketsecurity/bun-security-scanner"],
   "nx": true,
   "angular": false,
   "storybook": {
-    "config": ["libs/*/.storybook/main.ts"],
-    "entry": ["libs/*/.storybook/preview.ts", "libs/**/*.stories.ts"]
+    "config": ["libs/*/.storybook/main.ts", "libs/*/*/.storybook/main.ts", "apps/storybook/.storybook/main.ts"],
+    "entry": ["libs/*/.storybook/preview.ts", "libs/*/*/.storybook/preview.ts", "libs/**/*.stories.ts"]
   }
 }
