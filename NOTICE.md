@@ -43,7 +43,7 @@ both.
 
 ## Foundry pf2e system data
 
-Official content packs are generated from the data in the
+Official content packs are imported once from the data in the
 [Foundry VTT pf2e system](https://github.com/foundryvtt/pf2e), whose code is
 Apache-2.0. Foundry uses Paizo material under its own partnership agreement
 with Paizo, which does not extend to Pioneer: Pioneer takes only the
@@ -54,10 +54,11 @@ The ORC attribution notice on the Legal page carries every upstream credit in
 Foundry's `static/licenses/ORCLicense.md`, plus any book Pioneer imports that
 the file omits.
 
-All official content in Pioneer is derived from that data. The app's public
-Legal page, linked from every page footer, states this, links the exact Foundry
-release used, and offers the generated content caches for download without an
-account.
+All official content in Pioneer is derived from that data: each pack is
+imported once from a recorded Foundry release, then corrected and enriched by
+Pioneer contributors (ADR-0031). The app's public Legal page, linked from every
+page footer, states this, links the Foundry release each pack was imported
+from, and offers the content caches for download without an account.
 
 Only remastered, ORC-licensed entries are imported. Pioneer is not affiliated
 with Foundry Gaming LLC or the pf2e system maintainers.
@@ -66,7 +67,9 @@ with Foundry Gaming LLC or the pf2e system maintainers.
 
 1. Declare the licence in the pack manifest.
 2. Include rules text only for ORC-licensed material, and always include a
-   source reference.
+   source reference. This holds for hand edits to imported packs too: text
+   comes from the source book or the pinned Foundry data, and Archives of
+   Nethys supplies page numbers and links only.
 3. No Paizo art, logos or trade dress.
 4. Never put Paizo content behind anything that costs money or requires sign-up.
    The content browser, rules text and the Legal page (with content cache

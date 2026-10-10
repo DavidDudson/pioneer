@@ -491,11 +491,13 @@ flowchart LR
   links, and fields with no place in a schema go to the pack's backlog, `content/import/<pack>.json`, with the
   entry and Foundry's raw JSON; the entry is imported without them. The backlog is committed with the pack and is
   the work list for engine and translator stories.
-- **Later translators.** A translator that lands after its pack is imported is applied to the backlog: a command
-  translates the items it now covers into the committed entries and removes them from the backlog, keeping hand
-  edits.
-- **Pin.** The release tag and archive checksum are committed under `content/import/`. They are the content's
-  provenance for the Legal page and NOTICE.md; each pack records the release it came from.
+- **Later translators.** A translator that lands after its pack is imported is applied to the backlog: a command,
+  built by Epic 2.6 (#21), translates the items it now covers into the committed entries and removes them from the
+  backlog, keeping hand edits.
+- **Pin.** `content/import/<pack>.json` also holds the pack's release tag and the SHA-256 of its archive; the
+  importer stops on a checksum mismatch. The pin is the pack's provenance for the Legal page and NOTICE.md. The
+  backlog in the same file holds only selected entries' items, with art references stripped, and is never seeded,
+  served or bundled.
 - **Coverage report.** Per kind, over the committed packs and their backlog: entries, entries with nothing left in
   the backlog, entries with page numbers, entries with AoN URLs. CI reports it on PRs touching `content/` and never
   fails on it. Milestone exit criteria are written against these numbers.
@@ -515,7 +517,8 @@ extend to Pioneer, so Foundry's data is never a licence for anything outside ORC
 milestone 0 to reflect that prose is stored.
 
 The public Legal page (footer link on every page, no account) states that all official content is derived from
-the Foundry pf2e system at the pinned release, carries the Paizo Community Use and ORC notices, and lists the
+the Foundry pf2e system, each pack imported once from the release it records and edited by Pioneer contributors
+since (ADR-0031), carries the Paizo Community Use and ORC notices, and lists the
 content caches (pack bundles by kind, Foundry release, content hash) for download. It is generated from pack
 manifests and the book registry. See [ADR-0003](../adr/0003-content-as-data-imported-from-foundry.md) and
 [ADR-0007](../adr/0007-oauth-required-public-content.md).

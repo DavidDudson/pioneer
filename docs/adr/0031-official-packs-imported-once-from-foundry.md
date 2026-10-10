@@ -26,16 +26,22 @@ fixes to any field Foundry also changed).
   the source of truth: enriched, corrected and given errata by hand, reviewed as ordinary diffs.
 - The importer only ever writes a pack that does not exist yet or replaces one as a whole, and is re-run only while
   it is being built and before its pack is merged. It never merges into a pack that has been edited by hand.
-- The pin (release tag and archive checksum) and the import's leftovers live under `content/import/`, committed with
-  the pack: `content/import/<pack>.json` holds what the import could not translate, per entry, with Foundry's raw
-  JSON (rule elements, fields, labels, links). It is the backlog for Epic 2.6 (#21) and later translator work.
-- A translator that lands after its pack is imported is applied to the backlog, not by re-importing: a command
-  translates the backlog items it now covers, adds them to the committed entries and removes them from the backlog.
-  Hand edits to those entries are kept.
+- Each imported pack has one committed file, `content/import/<pack>.json`, holding its pin (the Foundry release tag
+  and the SHA-256 of that release's archive) and its backlog: what the import could not translate, per entry, with
+  Foundry's raw JSON (rule elements, fields, labels, links). The backlog is the work list for Epic 2.6 (#21) and
+  later translator work. It only holds items from selected entries, under the same licence rules; art and image
+  references are stripped, and it is never seeded, served or bundled.
+- The importer downloads the tagged release archive, checks it against the pack's SHA-256 and stops on a mismatch.
+  Moving a pack's pin is a PR that changes the tag and checksum together.
+- Hand edits to official packs follow NOTICE.md's contributor checklist like any pack: rules text from the source
+  book or the pinned Foundry data, and nothing from Archives of Nethys beyond page numbers and links.
+- A translator that lands after its pack is imported is applied to the backlog, not by re-importing: a command,
+  built by Epic 2.6 (#21), translates the backlog items it now covers, appends them to the committed entries' rules
+  and removes them from the backlog. Hand edits to those entries are kept.
 - The coverage report runs over the committed packs and their backlog, in CI on PRs touching `content/`. It
   reports; it never fails the build.
-- Supersedes ADR-0003's errata-by-re-import and generated-packs decisions; content as data, remaster-only selection
-  and the id scheme stand.
+- Supersedes ADR-0003's generated packs, errata by re-import and importer backlog, and ADR-0005's enrichment by the
+  importer; content as data, remaster-only selection, the id scheme and mandatory sources stand.
 
 ## Consequences
 
@@ -44,9 +50,10 @@ fixes to any field Foundry also changed).
   releases for the imported entries; nothing tracks it automatically.
 - A schema change to a kind migrates the committed JSON with a script in the same PR, amending ADR-0021's "migration
   of nothing".
-- An exported actor's generation (ADR-0022) combines the exporter's version with the official packs' content hash
-  (ADR-0029) instead of the Foundry release, since content changes without a new release.
-- The pinned release stays recorded as the content's provenance for the Legal page and NOTICE.md, and as the
-  Foundry system version the exporter targets until it is moved on deliberately.
+- An exported actor's generation (ADR-0022) combines the exporter's version with the content hashes (ADR-0029) of
+  the official packs the actor uses, instead of the Foundry release, since content changes without a new release.
+- Each pack's release stays recorded as its provenance: the Legal page and NOTICE.md name the release each pack was
+  imported from and say the packs have since been edited by Pioneer contributors. The Foundry system version the
+  exporter targets is its own setting, not read from the pins.
 - Packs for later books (Player Core 2, GM Core, Monster Core) are each their own one-off import, possibly at a
   newer pin; each pack records the release it came from.
