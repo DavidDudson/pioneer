@@ -1,7 +1,7 @@
 import { argsToTemplate, moduleMetadata } from '@analogjs/storybook-angular';
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
 import { signal } from '@angular/core';
-import { z } from 'zod';
+import * as z from 'zod';
 
 import { NumberInput } from '../../controls/number-input/number-input.component';
 import { InlineEdit } from '../../inline-edit/inline-edit';

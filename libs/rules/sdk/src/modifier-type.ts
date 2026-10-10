@@ -1,5 +1,5 @@
 import type { ValueOf } from '@pioneer/shared/kernel';
-import { z } from 'zod';
+import * as z from 'zod';
 
 /**
  * PF2e bonus and penalty types. Within a typed category only the highest bonus and the lowest

@@ -6,7 +6,7 @@ import { Endpoint, HttpMethod, NoBody, NoParams, NoQuery } from '@pioneer/shared
 import { ApiClient, ApiError } from '@pioneer/shared/web';
 import { provideTanStackQuery, QueryClient } from '@tanstack/angular-query-experimental';
 import { describe, expect, it, vi } from 'vitest';
-import { z } from 'zod';
+import * as z from 'zod';
 
 import { provideSignInOnUnauthorized, signInRequired } from './sign-in-required';
 

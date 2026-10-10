@@ -119,6 +119,10 @@
     // Pages compose many frontier parts, a store and an icon or two; 10 forced splits that added
     // nothing (an icon import on an empty state tipped two pages over).
     "import/max-dependencies": ["error", { "max": 20 }],
+    // zod is imported as a namespace (`import * as z from 'zod'`), as zod recommends: the named `{ z }` export
+    // kept all 64 of its locales (296 kB) in the initial bundle, because the bundler cannot tree-shake it.
+    "import/no-namespace": ["error", { "ignore": ["zod"] }],
+    "eslint/id-length": ["error", { "exceptions": ["z"] }],
     "eslint/max-classes-per-file": ["error", { "max": 1, "ignoreExpressions": true }],
     "eslint/max-statements": ["error", 12],
 
@@ -169,6 +173,11 @@
           { "name": "temporal-polyfill", "message": "Import Temporal from @pioneer/shared/kernel." },
           { "name": "@js-temporal/polyfill", "message": "Import Temporal from @pioneer/shared/kernel." },
           { "name": "luxon", "message": "Use Temporal." },
+          {
+            "name": "zod",
+            "importNames": ["z"],
+            "message": "Import zod as a namespace (import * as z from 'zod') so its locales tree-shake out of the bundle."
+          },
           { "name": "date-fns", "message": "Use Temporal." },
           { "name": "dayjs", "message": "Use Temporal." },
           { "name": "moment", "message": "Use Temporal." },
@@ -311,6 +320,11 @@
               { "name": "temporal-polyfill", "message": "Import Temporal from @pioneer/shared/kernel." },
               { "name": "@js-temporal/polyfill", "message": "Import Temporal from @pioneer/shared/kernel." },
               { "name": "luxon", "message": "Use Temporal." },
+              {
+                "name": "zod",
+                "importNames": ["z"],
+                "message": "Import zod as a namespace (import * as z from 'zod') so its locales tree-shake out of the bundle."
+              },
               { "name": "date-fns", "message": "Use Temporal." },
               { "name": "dayjs", "message": "Use Temporal." },
               { "name": "moment", "message": "Use Temporal." },
@@ -382,7 +396,7 @@
         "import/no-default-export": "off",
         "pioneer/no-magic-numbers": "off",
         "import/max-dependencies": "off",
-        "eslint/id-length": ["error", { "exceptions": ["x", "y"] }]
+        "eslint/id-length": ["error", { "exceptions": ["x", "y", "z"] }]
       }
     },
     {

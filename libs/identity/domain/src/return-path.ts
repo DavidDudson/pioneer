@@ -1,4 +1,4 @@
-import { z } from 'zod';
+import * as z from 'zod';
 
 const RETURN_PATH_MAX_LENGTH = 2048;
 

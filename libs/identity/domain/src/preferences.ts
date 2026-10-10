@@ -1,5 +1,5 @@
 import { DistanceUnitSchema, LocaleSchema } from '@pioneer/shared/kernel';
-import { z } from 'zod';
+import * as z from 'zod';
 
 /**
  * A signed-in user's display preferences. A field is absent until chosen, and absent shows the

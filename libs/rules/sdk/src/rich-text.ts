@@ -1,6 +1,6 @@
 import type { ValueOf } from '@pioneer/shared/kernel';
 import { issueParams, message, Pg } from '@pioneer/shared/kernel';
-import { z } from 'zod';
+import * as z from 'zod';
 
 import { ContentId } from './content-id';
 import { DamageTypeSchema } from './damage';

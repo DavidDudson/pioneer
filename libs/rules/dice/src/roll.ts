@@ -1,4 +1,4 @@
-import { z } from 'zod';
+import * as z from 'zod';
 
 import { DiceExpression, DiceTerm, FlatTerm, KeepMode, Sign, TermKind } from './expression';
 import type { Keep, Term } from './expression';

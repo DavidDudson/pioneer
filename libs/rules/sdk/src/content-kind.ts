@@ -1,5 +1,5 @@
 import type { ValueOf } from '@pioneer/shared/kernel';
-import { z } from 'zod';
+import * as z from 'zod';
 
 /**
  * Kinds of rules content a pack can contribute. The SDK owns the schema for

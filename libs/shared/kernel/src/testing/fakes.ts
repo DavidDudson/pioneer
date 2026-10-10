@@ -1,5 +1,5 @@
 import { faker } from '@faker-js/faker';
-import { z } from 'zod';
+import * as z from 'zod';
 import { custom, fake, seed, setFaker } from 'zod-schema-faker/v4';
 
 /**

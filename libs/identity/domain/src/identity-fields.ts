@@ -1,6 +1,6 @@
 import { Uuid } from '@pioneer/shared/kernel';
 import type { ValueOf } from '@pioneer/shared/kernel';
-import { z } from 'zod';
+import * as z from 'zod';
 
 /** Defined in the kernel so rules origins and identity share one brand. */
 export { UserId } from '@pioneer/shared/kernel';

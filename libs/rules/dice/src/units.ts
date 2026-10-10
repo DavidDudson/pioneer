@@ -1,5 +1,5 @@
 import { Pg } from '@pioneer/shared/kernel';
-import { z } from 'zod';
+import * as z from 'zod';
 
 /**
  * Dice quantities. Limits keep a typed expression cheap to roll and to show:

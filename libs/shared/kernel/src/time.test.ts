@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { z } from 'zod';
+import * as z from 'zod';
 
 import { fixedClock } from './clock';
 import { Temporal } from './temporal';

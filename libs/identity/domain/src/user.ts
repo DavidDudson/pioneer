@@ -1,6 +1,6 @@
 import { InstantCodec } from '@pioneer/shared/kernel';
 import type { Temporal } from '@pioneer/shared/kernel';
-import { z } from 'zod';
+import * as z from 'zod';
 
 import { AvatarUrl, DisplayName, EmailAddress, UserId } from './identity-fields';
 import type { ProviderProfile } from './provider-profile';

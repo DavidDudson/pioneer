@@ -3,7 +3,7 @@ import { TranslocoService } from '@jsverse/transloco';
 import { DistanceUnit, DistanceUnitSchema, LocaleSchema, SOURCE_LOCALE, textDirection } from '@pioneer/shared/kernel';
 import type { Locale } from '@pioneer/shared/kernel';
 import { firstValueFrom } from 'rxjs';
-import { z } from 'zod';
+import * as z from 'zod';
 
 const STORAGE_KEY = 'pioneer.locale';
 

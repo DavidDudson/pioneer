@@ -1,7 +1,7 @@
 import type { Endpoint, UserId } from '@pioneer/shared/kernel';
 import { Elysia } from 'elysia';
 import type { Context } from 'elysia';
-import { z } from 'zod';
+import * as z from 'zod';
 
 import type { RequestAuthenticator, RequestExchange } from './request-authenticator';
 

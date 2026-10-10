@@ -4,7 +4,7 @@ import { PredicateFacts } from '@pioneer/rules/predicate';
 import { RuleElement, StatisticDefinition } from '@pioneer/rules/sdk';
 import type { Selector } from '@pioneer/rules/sdk';
 import type { MessageDescriptor, ValueOf } from '@pioneer/shared/kernel';
-import { z } from 'zod';
+import * as z from 'zod';
 
 import { lineRow, overrideRow, ruleNames, RuleSource, rulesInPlay } from './breakdown-lines';
 import type { LineRow, OverrideRow, RuleName } from './breakdown-lines';

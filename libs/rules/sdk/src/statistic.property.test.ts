@@ -3,7 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import { fieldIssues } from '@pioneer/shared/kernel';
 import { assert, constantFrom, property, record } from 'fast-check';
 import type { Arbitrary } from 'fast-check';
-import { z } from 'zod';
+import * as z from 'zod';
 
 import { Attribute } from './attribute';
 import { RulesMessage } from './messages';

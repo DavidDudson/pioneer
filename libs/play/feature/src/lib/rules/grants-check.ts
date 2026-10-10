@@ -23,7 +23,7 @@ import {
 } from '@pioneer/rules/sdk';
 import type { OriginHop } from '@pioneer/rules/sdk';
 import type { MessageDescriptor, ValueOf } from '@pioneer/shared/kernel';
-import { z } from 'zod';
+import * as z from 'zod';
 
 import { choiceRow, choiceSlugsToIds, parsePicks } from './grant-choices';
 import type { ChoiceRow, SlugTable } from './grant-choices';

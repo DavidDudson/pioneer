@@ -1,4 +1,4 @@
-import type { z } from 'zod';
+import type * as z from 'zod';
 
 /** One authenticated provider REST call (bearer token), validated with `schema`. */
 export async function getJson<TSchema extends z.ZodType>(

@@ -2,7 +2,7 @@ import { describe, expect, test } from 'bun:test';
 
 import { fieldIssues, message } from '@pioneer/shared/kernel';
 import type { FieldIssue } from '@pioneer/shared/kernel';
-import type { z } from 'zod';
+import type * as z from 'zod';
 
 import { ContentPackSchema } from './content-pack';
 import { RulesMessage } from './messages';

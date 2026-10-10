@@ -1,6 +1,6 @@
 import { DamageTypeSchema } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
-import { z } from 'zod';
+import * as z from 'zod';
 
 import { DiceCount, DieSize, FlatValue, TERM_COUNT_MAX } from './units';
 

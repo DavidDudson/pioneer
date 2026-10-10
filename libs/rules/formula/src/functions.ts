@@ -1,5 +1,5 @@
 import type { ValueOf } from '@pioneer/shared/kernel';
-import { z } from 'zod';
+import * as z from 'zod';
 
 /**
  * The functions a formula may call: Foundry's `Math` subset plus the comparison helpers pf2e adds to

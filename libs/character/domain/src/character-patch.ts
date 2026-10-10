@@ -1,7 +1,7 @@
 import { AncestryId, AttributeModifier, AttributeSchema } from '@pioneer/rules/sdk';
 import { Version } from '@pioneer/shared/kernel';
 import type { ValueOf } from '@pioneer/shared/kernel';
-import { z } from 'zod';
+import * as z from 'zod';
 
 import { CharacterLevel, CharacterName } from './character-fields';
 

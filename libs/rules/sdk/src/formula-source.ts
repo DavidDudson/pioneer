@@ -2,7 +2,7 @@ import { FormulaText, parseFormula, references } from '@pioneer/rules/formula';
 import type { FormulaReference, TextPosition } from '@pioneer/rules/formula';
 import { issueParams, message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
-import { z } from 'zod';
+import * as z from 'zod';
 
 import { fromFoundryPath, knownReference, REFERENCE_CATALOGUE, ReferenceScope } from './formula-reference';
 import type { KnownReference } from './formula-reference';

@@ -13,7 +13,7 @@ import {
   Selector,
 } from '@pioneer/rules/sdk';
 import type { KnownReference } from '@pioneer/rules/sdk';
-import { z } from 'zod';
+import * as z from 'zod';
 
 /**
  * What the statistic graph reads besides the statistics themselves: the character's level, attribute modifiers,

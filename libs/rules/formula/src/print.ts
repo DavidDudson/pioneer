@@ -1,4 +1,4 @@
-import { z } from 'zod';
+import * as z from 'zod';
 
 import { BinaryOperator, NodeKind, unhandledNode } from './ast';
 import type { FormulaNode } from './ast';

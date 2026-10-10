@@ -2,7 +2,7 @@ import { describe, expect, test } from 'bun:test';
 
 import { fieldIssues, message } from '@pioneer/shared/kernel';
 import { assert, jsonValue, property, string } from 'fast-check';
-import { z } from 'zod';
+import * as z from 'zod';
 
 import { RulesMessage } from './messages';
 import { RuleElement, RuleElements } from './rule-element';

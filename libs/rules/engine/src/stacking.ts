@@ -1,7 +1,7 @@
 import type { FormulaValue } from '@pioneer/rules/formula';
 import { ModifierType } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
-import { z } from 'zod';
+import * as z from 'zod';
 
 import { LineStatusKind, SuppressionReason } from './breakdown';
 import type { BreakdownLine } from './breakdown';

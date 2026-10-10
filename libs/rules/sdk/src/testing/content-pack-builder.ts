@@ -1,4 +1,4 @@
-import type { z } from 'zod';
+import type * as z from 'zod';
 
 import type { AncestryDefinition } from '../ancestry';
 import { ContentPack } from '../content-pack';

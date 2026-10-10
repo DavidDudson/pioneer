@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 
 import { assert, property } from 'fast-check';
-import { z } from 'zod';
+import * as z from 'zod';
 
 import { RichText } from './rich-text';
 import { richTextJson } from './testing';
