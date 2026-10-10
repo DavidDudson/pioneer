@@ -1,5 +1,3 @@
-| Skills | `skill:<slug>` | `check` | `@attr.<key> + @prof.skill.<slug>` | `check`, `skill-check`, `<key>-based` |
-
 # Rules engine
 
 `libs/rules/engine` turns a character plus loaded content into a sheet, and explains every number on it.
