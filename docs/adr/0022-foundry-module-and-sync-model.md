@@ -90,7 +90,9 @@ are rarer still.
 - **The GM can see it is in use.** The campaign home shows the live link's creation time and last use.
   `last_used_at` is written at most once an hour, so polling writes nothing. Play-state writes made through the link
   are audited with the link's id as the actor, so writes after a suspected leak can be found.
-- **The token travels in a `Pioneer-Link-Token` header**, not `Authorization`, which the edge Worker owns.
+- **The token travels in a `Pioneer-Link-Token` header**, not `Authorization`, which the edge Worker owns, and only
+  over HTTPS: the module refuses a Pioneer URL that is not `https:` (loopback excepted, for local development) and
+  never sends the token anywhere else.
 - **The token's scope is one campaign and the module routes only.** It reads the campaign's party with each
   player's display name (no member email, no Pioneer user id), its sync mode, each attached character's actor JSON
   and play state; it writes play state. Module routes accept nothing else, and other routes ignore the header. It
@@ -171,9 +173,10 @@ are rarer still.
     Pioneer's play state to the actor and reconciles its condition and effect items to Pioneer's set, removing ones
     Pioneer does not have. Foundry edits stand until that next write. It never posts.
   - `disconnected`: neither direction.
-- **The sequence watermark is scoped to the actor.** Each snapshot names the Foundry actor's id, and
-  `character_play` keeps it beside the watermark; a snapshot from a different actor (a re-import, a fresh actor
-  after a re-attach, another world) starts a new watermark. It also resets when the campaign enters `foundry` mode,
+- **The sequence watermark is scoped to the world and the actor.** Actor ids are unique only within a world, and a
+  duplicated world keeps them, so each snapshot names both `game.world.id` and the actor's id, and `character_play`
+  keeps the pair beside the watermark. A snapshot from a different pair (a re-import, a fresh actor after a
+  re-attach, another or duplicated world) starts a new watermark. It also resets when the campaign enters `foundry` mode,
   when the character is attached, and when the link is created or revoked, so a leaked token's inflated sequence
   cannot lock out real snapshots.
 - **The module's own writes are marked** with `{ pioneer: true }` in the update options, and its hooks skip them, so
