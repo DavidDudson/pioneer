@@ -60,7 +60,7 @@ const frameVariants = cva('block shrink-0 overflow-hidden', {
       wide: 'aspect-wide',
     } satisfies Record<ImageAspect, string>,
     status: {
-      loading: 'animate-shimmer bg-surface-skeleton',
+      loading: 'animate-shimmer bg-surface-skeleton forced-colors:bg-system-gray-text',
       loaded: '',
       failed: 'bg-surface-sunken text-caption text-fg-muted',
     } satisfies Record<ImageStatus, string>,

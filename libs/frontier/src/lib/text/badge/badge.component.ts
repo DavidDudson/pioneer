@@ -38,7 +38,12 @@ const badgeVariants = cva('inline-flex items-center gap-3xs border px-2xs text-c
       warning: '',
       info: '',
     } satisfies Record<BadgeTone, string>,
-    variant: { subtle: '', solid: '' } satisfies Record<BadgeVariant, string>,
+    /** Under forced colours a solid badge inverts the user's palette, so it still stands out from a subtle one. */
+    variant: {
+      subtle: '',
+      solid:
+        'forced-colors:border-system-canvas-text forced-colors:bg-system-canvas-text forced-colors:text-system-canvas',
+    } satisfies Record<BadgeVariant, string>,
   },
   compoundVariants: [
     {

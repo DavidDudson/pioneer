@@ -8,7 +8,7 @@ export type SkeletonShape = ValueOf<typeof SkeletonShape>;
 export const SkeletonWidth = { Xs: 'xs', Sm: 'sm', Md: 'md', Lg: 'lg', Full: 'full' } as const;
 export type SkeletonWidth = ValueOf<typeof SkeletonWidth>;
 
-const skeletonVariants = cva('block animate-shimmer bg-surface-skeleton', {
+const skeletonVariants = cva('block animate-shimmer bg-surface-skeleton forced-colors:bg-system-gray-text', {
   variants: {
     shape: {
       text: 'h-lh',
@@ -25,7 +25,10 @@ const skeletonVariants = cva('block animate-shimmer bg-surface-skeleton', {
   },
 });
 
-/** Placeholder shaped like content that is still loading. Hidden from assistive tech. */
+/**
+ * Placeholder shaped like content that is still loading. Hidden from assistive tech. GrayText under forced
+ * colours, where its fill would match the page.
+ */
 @Component({
   selector: 'fr-skeleton',
   templateUrl: './skeleton.component.html',
