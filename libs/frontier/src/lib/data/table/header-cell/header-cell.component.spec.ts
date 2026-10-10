@@ -55,6 +55,15 @@ function arrow(host: HTMLElement): string | undefined {
   return host.querySelector('fr-icon svg')?.innerHTML;
 }
 
+/** Presses the sort button `times` times. */
+async function press({ fixture, host }: Rendered, times = 1): Promise<void> {
+  for (let count = 0; count < times; count += 1) {
+    host.querySelector('button')?.click();
+    // oxlint-disable-next-line no-await-in-loop -- each press renders before the next
+    await fixture.whenStable();
+  }
+}
+
 /** How `fr-icon` draws `icon`, to compare the arrow against. */
 async function drawing(icon: LucideIcon): Promise<string | undefined> {
   const fixture = TestBed.createComponent(Icon);
@@ -75,23 +84,29 @@ describe(TableHeaderCell, () => {
     expect(host.querySelector('button')?.textContent.trim()).toBe('Name');
   });
 
-  it('shows no arrow until sorted, then up for ascending and down for descending', async () => {
-    const { fixture, host, header } = await render('name');
+  it('shows no arrow while unsorted', async () => {
+    const { host } = await render('name');
     expect(host.querySelector('fr-icon')).toBeNull();
+  });
 
-    host.querySelector('button')?.click();
-    await fixture.whenStable();
-    expect(header.column.getIsSorted()).toBe('asc');
-    expect(arrow(host)).toBe(await drawing(LucideChevronUp));
+  it('sorts ascending on a press and points the arrow up', async () => {
+    const rendered = await render('name');
+    await press(rendered);
+    expect(rendered.header.column.getIsSorted()).toBe('asc');
+    expect(arrow(rendered.host)).toBe(await drawing(LucideChevronUp));
+  });
 
-    host.querySelector('button')?.click();
-    await fixture.whenStable();
-    expect(header.column.getIsSorted()).toBe('desc');
-    expect(arrow(host)).toBe(await drawing(LucideChevronDown));
+  it('sorts descending on a second press and points the arrow down', async () => {
+    const rendered = await render('name');
+    await press(rendered, 2);
+    expect(rendered.header.column.getIsSorted()).toBe('desc');
+    expect(arrow(rendered.host)).toBe(await drawing(LucideChevronDown));
+  });
 
-    host.querySelector('button')?.click();
-    await fixture.whenStable();
-    expect(header.column.getIsSorted()).toBe(false);
-    expect(host.querySelector('fr-icon')).toBeNull();
+  it('clears the sort and the arrow on a third press', async () => {
+    const rendered = await render('name');
+    await press(rendered, 3);
+    expect(rendered.header.column.getIsSorted()).toBe(false);
+    expect(rendered.host.querySelector('fr-icon')).toBeNull();
   });
 });

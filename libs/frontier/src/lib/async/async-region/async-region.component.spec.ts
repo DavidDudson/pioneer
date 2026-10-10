@@ -2,7 +2,8 @@ import { TestBed } from '@angular/core/testing';
 import type { ComponentFixture } from '@angular/core/testing';
 import { beforeEach, describe, expect, it } from 'vitest';
 
-import { AsyncRegionHost, FakeQuery } from '../../testing/async-region-host';
+import { AsyncRegionHost } from '../../testing/async-region-host';
+import { FakeQuery } from '../../testing/fake-query';
 import { provideFrontierI18nTesting } from '../../testing/provide-frontier-i18n-testing';
 import { AsyncRegion } from './async-region.component';
 
@@ -31,7 +32,9 @@ async function render(inputs: Readonly<Record<string, unknown>> = {}): Promise<R
     fixture,
     query,
     region,
-    stable: async (): Promise<void> => fixture.whenStable(),
+    stable: async (): Promise<void> => {
+      await fixture.whenStable();
+    },
   };
 }
 

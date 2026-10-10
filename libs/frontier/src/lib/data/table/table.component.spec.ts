@@ -47,7 +47,7 @@ function headers(host: HTMLElement): HTMLTableCellElement[] {
 }
 
 function nameHeader(host: HTMLElement): HTMLTableCellElement {
-  const header = headers(host)[0];
+  const [header] = headers(host);
   if (header === undefined) {
     throw new Error('Expected a Name header');
   }
@@ -61,9 +61,18 @@ function rows(host: HTMLElement): string[][] {
   );
 }
 
-async function sortByName({ fixture, host }: Rendered): Promise<void> {
-  nameHeader(host).querySelector('button')?.click();
-  await fixture.whenStable();
+/** The Name column, top to bottom. */
+function names(host: HTMLElement): string[] {
+  return [...host.querySelectorAll('tbody tr td:first-child')].map((cell) => cell.textContent.trim());
+}
+
+/** Presses the Name header `times` times. */
+async function sortByName({ fixture, host }: Rendered, times = 1): Promise<void> {
+  for (let press = 0; press < times; press += 1) {
+    nameHeader(host).querySelector('button')?.click();
+    // oxlint-disable-next-line no-await-in-loop -- each press renders before the next
+    await fixture.whenStable();
+  }
 }
 
 describe(Table, () => {
@@ -109,21 +118,25 @@ describe(Table, () => {
     expect(headers(host).map((header) => header.hasAttribute('aria-sort'))).toStrictEqual([false, false]);
   });
 
-  it('sorts ascending, then descending, then back to data order as the header is pressed', async () => {
+  it('sorts ascending on the first press of a header', async () => {
     const rendered = await render();
-    const names = (): string[] => rows(rendered.host).map(([name]) => name ?? '');
-
     await sortByName(rendered);
     expect(nameHeader(rendered.host).getAttribute('aria-sort')).toBe('ascending');
-    expect(names()).toStrictEqual(['Kyra', 'Merisiel', 'Valeros']);
+    expect(names(rendered.host)).toStrictEqual(['Kyra', 'Merisiel', 'Valeros']);
+  });
 
-    await sortByName(rendered);
+  it('sorts descending on the second press', async () => {
+    const rendered = await render();
+    await sortByName(rendered, 2);
     expect(nameHeader(rendered.host).getAttribute('aria-sort')).toBe('descending');
-    expect(names()).toStrictEqual(['Valeros', 'Merisiel', 'Kyra']);
+    expect(names(rendered.host)).toStrictEqual(['Valeros', 'Merisiel', 'Kyra']);
+  });
 
-    await sortByName(rendered);
+  it('goes back to data order on the third press', async () => {
+    const rendered = await render();
+    await sortByName(rendered, 3);
     expect(nameHeader(rendered.host).hasAttribute('aria-sort')).toBe(false);
-    expect(names()).toStrictEqual(['Valeros', 'Kyra', 'Merisiel']);
+    expect(names(rendered.host)).toStrictEqual(['Valeros', 'Kyra', 'Merisiel']);
   });
 
   it('keeps a sort when data changes', async () => {
@@ -131,6 +144,6 @@ describe(Table, () => {
     await sortByName(rendered);
     rendered.fixture.componentRef.setInput('data', [...PARTY, { id: 'amiri', name: 'Amiri', level: 1 }]);
     await rendered.fixture.whenStable();
-    expect(rows(rendered.host).map(([name]) => name)).toStrictEqual(['Amiri', 'Kyra', 'Merisiel', 'Valeros']);
+    expect(names(rendered.host)).toStrictEqual(['Amiri', 'Kyra', 'Merisiel', 'Valeros']);
   });
 });

@@ -10,9 +10,6 @@ import { VirtualList } from './virtual-list.component';
 const ROW_PX = 100;
 const LONG_LIST = 1000;
 
-/** The page's scroll position, as the stubbed `window.scrollY` reports it. */
-let pageScroll = 0;
-
 function creatures(count: number): string[] {
   return Array.from({ length: count }, (_slot, index) => `Creature ${index}`);
 }
@@ -50,6 +47,11 @@ function indices(list: HTMLElement): number[] {
   return rowElements(list).map((row) => Number(row.dataset['index']));
 }
 
+/** The text of each `fr-text` in a row. */
+function texts(row: HTMLElement): string[] {
+  return [...row.querySelectorAll('fr-text')].map((text) => text.textContent.trim());
+}
+
 function rowShowing(list: HTMLElement, item: string): HTMLElement | undefined {
   return rowElements(list).find((row) => row.querySelector('fr-text')?.textContent.trim() === item);
 }
@@ -65,8 +67,8 @@ function offsetOf(row: HTMLElement): number {
 }
 
 async function scrollPage(rendered: Rendered, top: number): Promise<void> {
-  pageScroll = top;
-  window.dispatchEvent(new Event('scroll'));
+  vi.spyOn(globalThis, 'scrollY', 'get').mockReturnValue(top);
+  globalThis.dispatchEvent(new Event('scroll'));
   await rendered.stable();
 }
 
@@ -77,22 +79,19 @@ describe(VirtualList, () => {
     vi.spyOn(HTMLElement.prototype, 'getBoundingClientRect').mockReturnValue(
       DOMRect.fromRect({ width: ROW_PX, height: ROW_PX }),
     );
-    vi.spyOn(window, 'scrollY', 'get').mockImplementation(() => pageScroll);
+    vi.spyOn(globalThis, 'scrollY', 'get').mockReturnValue(0);
     // The virtualizer scrolls to keep rows still as earlier ones are measured; jsdom can't scroll.
-    vi.spyOn(window, 'scrollTo').mockImplementation(() => undefined);
+    vi.spyOn(globalThis, 'scrollTo').mockReturnValue(undefined);
   });
 
   afterEach(() => {
     vi.restoreAllMocks();
-    pageScroll = 0;
   });
 
   it('is a list of list items, each rendered from the item template', async () => {
     const { list } = await render(['Goblin', 'Kobold']);
     expect(list.getAttribute('role')).toBe('list');
-    const texts = (row: HTMLElement): string[] =>
-      [...row.querySelectorAll('fr-text')].map((text) => text.textContent.trim());
-    expect(rowElements(list).map(texts)).toStrictEqual([
+    expect(rowElements(list).map((row) => texts(row))).toStrictEqual([
       ['Goblin', '0'],
       ['Kobold', '1'],
     ]);
@@ -102,7 +101,7 @@ describe(VirtualList, () => {
     const { list } = await render(creatures(LONG_LIST));
     const rendered = indices(list);
     expect(rendered[0]).toBe(0);
-    expect(rendered.length).toBeGreaterThan(window.innerHeight / ROW_PX);
+    expect(rendered.length).toBeGreaterThan(globalThis.innerHeight / ROW_PX);
     expect(rendered.length).toBeLessThan(LONG_LIST / 10);
   });
 
@@ -128,17 +127,18 @@ describe(VirtualList, () => {
     const rendered = await render(creatures(LONG_LIST));
     const top = 50_000;
     await scrollPage(rendered, top);
-    const offsets = rowElements(rendered.list).map(offsetOf);
+    const offsets = rowElements(rendered.list).map((row) => offsetOf(row));
     expect(indices(rendered.list)).not.toContain(0);
     expect(Math.min(...offsets)).toBeLessThanOrEqual(top);
-    expect(Math.max(...offsets) + ROW_PX).toBeGreaterThanOrEqual(top + window.innerHeight);
+    expect(Math.max(...offsets) + ROW_PX).toBeGreaterThanOrEqual(top + globalThis.innerHeight);
     const [first] = rowElements(rendered.list);
     expect(first?.querySelector('fr-text')?.textContent.trim()).toBe(`Creature ${first?.dataset['index']}`);
   });
 
   it('spaces rows by the gap token', async () => {
     const { list } = await render(['Goblin'], { gap: Space.Sm });
-    expect(rowElements(list)[0]?.classList).toContain('pb-sm');
+    const [row] = rowElements(list);
+    expect(row?.classList).toContain('pb-sm');
   });
 
   it('follows a shorter list', async () => {
@@ -159,7 +159,7 @@ describe(VirtualList, () => {
 
   it('reuses rows by position without an itemKey', async () => {
     const rendered = await render(['Goblin', 'Kobold']);
-    const first = rowElements(rendered.list)[0];
+    const [first] = rowElements(rendered.list);
     rendered.fixture.componentRef.setInput('items', ['Orc', 'Goblin', 'Kobold']);
     await rendered.stable();
     expect(rowShowing(rendered.list, 'Orc')).toBe(first);
