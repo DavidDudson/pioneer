@@ -1,8 +1,10 @@
+import { HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
-import { provideRouter } from '@angular/router';
+import { provideRouter, Router, withComponentInputBinding } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
 import { frontierMessages } from '@pioneer/frontier';
-import { briarRoseExport } from '@pioneer/interop/pathbuilder/testing';
+import { briarRoseExport, mordredExport } from '@pioneer/interop/pathbuilder/testing';
+import { contentId, PackId, Slug } from '@pioneer/rules/sdk';
 import { provideI18n } from '@pioneer/shared/web';
 import { describe, expect, it, vi } from 'vitest';
 
@@ -24,7 +26,7 @@ interface OpenPage {
 async function openPage(): Promise<OpenPage> {
   TestBed.configureTestingModule({
     providers: [
-      provideRouter([{ path: 'characters', children: characterRoutes }]),
+      provideRouter([{ path: 'characters', children: characterRoutes }], withComponentInputBinding()),
       ...provideServerStateTesting(),
       provideI18n({ en: async () => frontierMessages }),
     ],
@@ -73,5 +75,88 @@ describe('PathbuilderImportPage', () => {
 
     expect(present(root.querySelector('[role="alert"]')).textContent).toContain("isn't a Pathbuilder export");
     expect(root.textContent).not.toContain('What Pioneer read');
+  });
+});
+
+const id = '0d9f7c1e-3b7a-4c55-9d1f-2a8f2b9c6e10';
+const human = contentId(PackId.parse('player-core'), Slug.parse('human'));
+
+function button(root: HTMLElement, label: string): HTMLButtonElement {
+  return present([...root.querySelectorAll('button')].find((element) => element.textContent.includes(label)));
+}
+
+describe('PathbuilderImportPage create', () => {
+  it('sends the export, opens the new character and shows the report until dismissed', async () => {
+    const { harness, root } = await openPage();
+    const http = TestBed.inject(HttpTestingController);
+    await paste(harness, root, JSON.stringify(mordredExport));
+
+    button(root, 'Create character').click();
+    await harness.fixture.whenStable();
+    const request = http.expectOne({ method: 'POST', url: '/api/characters/import/pathbuilder' });
+    expect(request.request.body).toStrictEqual(mordredExport);
+    request.flush({
+      character: {
+        id,
+        version: 1,
+        ownerId: '8f6d2c1a-0b3e-4f5a-9c7d-1e2f3a4b5c6d',
+        name: 'Mordred (Dual Class)',
+        ancestry: human,
+        level: 12,
+        attributes: { str: 4, dex: 0, con: 2, int: 1, wis: 3, cha: 6 },
+        createdAt: '2026-10-07T10:00:00.000Z',
+        updatedAt: '2026-10-07T10:00:00.000Z',
+      },
+      report: {
+        unmatched: [{ kind: 'heritage', names: [{ name: 'Changeling', occurrences: 1, reason: 'kind-not-loaded' }] }],
+        notCarried: ['heritage', 'lore'],
+      },
+    });
+
+    const router = TestBed.inject(Router);
+    await vi.waitFor(() => {
+      expect(router.url).toBe(`/characters/${id}`);
+    });
+    const sheet = present(harness.routeNativeElement);
+    await vi.waitFor(() => {
+      harness.detectChanges();
+      expect(sheet.textContent).toContain('Imported from Pathbuilder');
+    });
+    expect(sheet.textContent).toContain('Heritage and Lores');
+    expect(sheet.textContent).toContain('Heritage · 1 not carried over');
+    expect(sheet.textContent).toContain('Changeling');
+
+    button(sheet, 'Dismiss').click();
+    harness.detectChanges();
+    expect(sheet.textContent).not.toContain('Imported from Pathbuilder');
+  });
+
+  it('shows the server’s reason when the ancestry is not loaded', async () => {
+    const { harness, root } = await openPage();
+    const http = TestBed.inject(HttpTestingController);
+    await paste(harness, root, JSON.stringify(briarRoseExport));
+
+    button(root, 'Create character').click();
+    await harness.fixture.whenStable();
+    http.expectOne({ method: 'POST', url: '/api/characters/import/pathbuilder' }).flush(
+      {
+        type: 'validation',
+        title: 'Validation failed',
+        status: 422,
+        message: { key: 'problem.validation' },
+        issues: [
+          {
+            path: ['build', 'ancestry'],
+            message: { key: 'character.validation.unmatchedAncestry', params: { ancestry: 'Goloma' } },
+          },
+        ],
+      },
+      { status: 422, statusText: 'Unprocessable Content' },
+    );
+
+    await vi.waitFor(() => {
+      harness.detectChanges();
+      expect(root.textContent).toContain('No loaded content has the ancestry Goloma');
+    });
   });
 });

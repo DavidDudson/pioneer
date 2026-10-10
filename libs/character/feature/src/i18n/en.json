@@ -44,7 +44,7 @@
   },
   "import": {
     "title": "Import from Pathbuilder",
-    "description": "Paste a Pathbuilder 2e JSON export to see what Pioneer can read from it. Nothing is saved yet.",
+    "description": "Paste a Pathbuilder 2e JSON export to see what Pioneer can read from it, then create a character from it.",
     "exportLabel": "Pathbuilder export (JSON)",
     "exportPlaceholder": "Paste the text from Pathbuilder's Export JSON menu",
     "problem": {
@@ -55,6 +55,10 @@
     "name": "Name",
     "level": "Level",
     "none": "None",
+    "create": "Create character",
+    "creating": "Creating",
+    "created": "Created",
+    "createFailed": "Could not create the character. Try again.",
     "reportHeading": "Content",
     "reportSummary": "{matched, number} of {total, number} names match content you have loaded.",
     "groupSummary": "{kind} · {matched, number} of {total, number} matched",
@@ -70,12 +74,21 @@
       "spell": "Spells",
       "ritual": "Rituals",
       "item": "Items",
-      "language": "Languages"
+      "language": "Languages",
+      "lore": "Lores"
     },
     "status": {
       "matched": "Matched",
       "unmatched": "Not found",
       "kindNotLoaded": "Not loaded yet"
+    },
+    "result": {
+      "heading": "Imported from Pathbuilder",
+      "dismiss": "Dismiss",
+      "carried": "Pioneer kept the name, ancestry, level and attribute modifiers.",
+      "notCarried": "Characters can't hold these yet, so they weren't kept: {fields}.",
+      "groupSummary": "{kind} · {count, number} not carried over",
+      "allMatched": "Every name matched content you have loaded."
     }
   }
 }

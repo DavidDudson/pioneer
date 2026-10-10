@@ -10,7 +10,13 @@ import {
 } from '@pioneer/character/domain';
 import type { CharacterPatch, PatchCharacterBody } from '@pioneer/character/domain';
 import { humanAncestryId } from '@pioneer/character/domain/testing';
-import { ImportKind, UncarriedField, UnmatchedReason } from '@pioneer/interop/pathbuilder';
+import {
+  ImportKind,
+  Occurrences,
+  PathbuilderName,
+  UncarriedField,
+  UnmatchedReason,
+} from '@pioneer/interop/pathbuilder';
 import { briarRoseExport, mordredExport } from '@pioneer/interop/pathbuilder/testing';
 import { AncestryId, Attribute, AttributeModifier, ContentRegistry } from '@pioneer/rules/sdk';
 import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
@@ -179,7 +185,8 @@ describe('CharacterService.importPathbuilder', () => {
     expect(character.ownerId).toBe(amiri);
     expect(character.ancestry).toBe(humanAncestryId);
     expect(character.level).toBe(CharacterLevel.parse(12));
-    expect(character.attributes.toWire()).toStrictEqual({ str: 4, dex: 0, con: 2, int: 1, wis: 3, cha: 6 });
+    const modifiers: Readonly<Record<string, number>> = character.attributes.toWire();
+    expect(modifiers).toStrictEqual({ str: 4, dex: 0, con: 2, int: 1, wis: 3, cha: 6 });
     expect(await service.get(amiri, character.id)).toStrictEqual(character);
   });
 
@@ -198,7 +205,11 @@ describe('CharacterService.importPathbuilder', () => {
     expect(report.unmatched.map((group) => group.kind)).not.toContain(ImportKind.Ancestry);
     const heritage = report.unmatched.find((group) => group.kind === ImportKind.Heritage);
     expect(heritage?.names).toStrictEqual([
-      { name: 'Changeling', occurrences: 1, reason: UnmatchedReason.KindNotLoaded },
+      {
+        name: PathbuilderName.parse('Changeling'),
+        occurrences: Occurrences.parse(1),
+        reason: UnmatchedReason.KindNotLoaded,
+      },
     ]);
     expect(report.notCarried).toContain(UncarriedField.Heritage);
     expect(report.notCarried).toContain(UncarriedField.Lore);

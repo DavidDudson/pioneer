@@ -40,6 +40,7 @@ import type * as z from 'zod';
 import { AncestryOptions } from '../../data/ancestry-options';
 import { ATTRIBUTE_LABEL_KEYS } from '../../data/attribute-label-keys';
 import { CharacterStore } from '../../data/character-store';
+import { ImportResult } from '../../import/import-result/import-result.component';
 
 /** How one sheet value maps to the aggregate and back. */
 interface FieldSpec<TValue> {
@@ -71,6 +72,7 @@ const SIGNED: Intl.NumberFormatOptions = { signDisplay: 'always' };
     DateDisplay,
     Grid,
     Heading,
+    ImportResult,
     InlineField,
     NumberInput,
     Page,

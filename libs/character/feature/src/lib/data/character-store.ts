@@ -1,7 +1,9 @@
-import { inject, Injectable, linkedSignal, signal } from '@angular/core';
+import { computed, inject, Injectable, linkedSignal, signal } from '@angular/core';
 import type { Signal } from '@angular/core';
 import { CharacterContract } from '@pioneer/character/domain';
 import type { Character, CharacterId, CharacterPatch, CreateCharacterBody } from '@pioneer/character/domain';
+import { PathbuilderImportContract } from '@pioneer/interop/pathbuilder';
+import type { CharacterImportReport } from '@pioneer/interop/pathbuilder';
 import { ApiClient, ApiError } from '@pioneer/shared/web';
 import { injectQuery, QueryClient } from '@tanstack/angular-query-experimental';
 
@@ -23,6 +25,7 @@ export class CharacterStore {
   readonly #api = inject(ApiClient);
   readonly #client = inject(QueryClient);
   readonly #selectedId = signal<CharacterId | undefined>(undefined);
+  readonly #importReports = signal<ReadonlyMap<CharacterId, CharacterImportReport>>(new Map());
 
   public readonly list = injectQuery(() => ({
     queryKey: characterKeys.list(),
@@ -63,6 +66,36 @@ export class CharacterStore {
     // Stale, not refetched now: the list refetches when it is next shown, so navigation isn't held up.
     await this.#client.invalidateQueries({ queryKey: characterKeys.list(), refetchType: 'none' });
     return character;
+  }
+
+  /**
+   * A new character from a Pathbuilder export (`raw`, the export as pasted). The server reads it again. Its import
+   * report is kept for the sheet until dismissed; it is held here, not stored, so a reload drops it.
+   */
+  public async importPathbuilder(raw: unknown): Promise<Character> {
+    const { character, report } = await this.#api.call(PathbuilderImportContract.import, { params: {}, body: raw });
+    this.#client.setQueryData(characterKeys.detail(character.id), character);
+    this.#importReports.update((reports) => new Map(reports).set(character.id, report));
+    await this.#client.invalidateQueries({ queryKey: characterKeys.list(), refetchType: 'none' });
+    return character;
+  }
+
+  /** The open character's import report, until dismissed; `undefined` for one that wasn't just imported. */
+  public readonly importReport: Signal<CharacterImportReport | undefined> = computed(() => {
+    const id = this.#selectedId();
+    return id === undefined ? undefined : this.#importReports().get(id);
+  });
+
+  public dismissImportReport(): void {
+    const id = this.#selectedId();
+    if (id === undefined) {
+      return;
+    }
+    this.#importReports.update((reports) => {
+      const next = new Map(reports);
+      next.delete(id);
+      return next;
+    });
   }
 
   /** One field edit. On success the cached character becomes the server's new version. */

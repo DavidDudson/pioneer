@@ -4,6 +4,7 @@ import { ContentText } from '@pioneer/rules/sdk';
 import { Uuid } from '@pioneer/shared/kernel';
 
 import { characterImportReport, UncarriedField, UnmatchedReason } from './character-import';
+import type { CharacterImportReport } from './character-import';
 import { entryLookup } from './content-lookup';
 import briarRose from './fixtures/briar-rose.json';
 import { ImportKind } from './import-kind';
@@ -18,6 +19,10 @@ function briar(): PathbuilderImport {
     throw new Error('Briar Rose fixture no longer reads');
   }
   return read.value;
+}
+
+function reasons(report: CharacterImportReport, kind: ImportKind): ReadonlySet<UnmatchedReason> {
+  return new Set(report.unmatched.find((group) => group.kind === kind)?.names.map((name) => name.reason));
 }
 
 describe('characterImportReport', () => {
@@ -35,10 +40,8 @@ describe('characterImportReport', () => {
   });
 
   test('says why each name was not carried over', () => {
-    const reasons = (kind: ImportKind): ReadonlySet<UnmatchedReason> =>
-      new Set(report.unmatched.find((group) => group.kind === kind)?.names.map((name) => name.reason));
-    expect(reasons(ImportKind.Feat)).toStrictEqual(new Set([UnmatchedReason.Unmatched]));
-    expect(reasons(ImportKind.Heritage)).toStrictEqual(new Set([UnmatchedReason.KindNotLoaded]));
+    expect(reasons(report, ImportKind.Feat)).toStrictEqual(new Set([UnmatchedReason.Unmatched]));
+    expect(reasons(report, ImportKind.Heritage)).toStrictEqual(new Set([UnmatchedReason.KindNotLoaded]));
   });
 
   test('lists the filled fields the character cannot hold yet, ancestry never among them', () => {

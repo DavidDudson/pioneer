@@ -1,5 +1,8 @@
 <fr-page [title]="title()">
   <fr-stack gap="lg">
+    @if (store.importReport(); as report) {
+      <pio-import-result [report]="report" (dismissed)="store.dismissImportReport()" />
+    }
     <fr-surface>
       <fr-stack gap="md">
         <fr-heading variant="subheading" [level]="2">{{ 'character.sheet.identityHeading' | transloco }}</fr-heading>
