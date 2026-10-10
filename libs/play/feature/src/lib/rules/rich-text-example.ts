@@ -46,6 +46,8 @@ export const EXAMPLE_RICH_TEXT = [
   {
     type: 'table',
     header: [[{ type: 'text', text: 'Rank' }], [{ type: 'text', text: 'Damage' }]],
-    rows: [[[{ type: 'text', text: '4th' }], [{ type: 'damage', instances: [{ formula: '8d6', damageType: 'fire' }] }]]],
+    rows: [
+      [[{ type: 'text', text: '4th' }], [{ type: 'damage', instances: [{ formula: '8d6', damageType: 'fire' }] }]],
+    ],
   },
 ];

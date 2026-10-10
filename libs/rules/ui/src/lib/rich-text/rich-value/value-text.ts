@@ -18,7 +18,7 @@ export type ValueNode = CheckNode | DamageNode | TemplateNode | DurationNode;
 type MessageParams = Readonly<Record<string, string | number>>;
 
 /** Translates a key in the active locale. */
-export type Translate = (key: string, params?: MessageParams) => string;
+type Translate = (key: string, params?: MessageParams) => string;
 
 /** What value text needs besides the node: names from the page, translation, and locale formatting. */
 export interface ValueTextContext {
