@@ -176,6 +176,11 @@ describe('counts', () => {
     expect(pairs(counts, 'traits')).toContainEqual(['sonic', 0]);
   });
 
+  test('onlyValue leaves a range alone for the unknown value', () => {
+    const before = state({ level: { kind: SelectionKind.Range, min: RangeBound.parse(1), max: undefined } });
+    expect(onlyValue(before, facet('level'), UNKNOWN)).toBe(before);
+  });
+
   test('onlyValue keeps the facet’s exclusions', () => {
     const picked = onlyValue(state({ traits: exclude('evocation') }), facet('traits'), FacetValue.parse('fire'));
     expect(slugs(filterEntries(ENTRIES, COMMON_FACETS, picked))).toStrictEqual(['acid']);

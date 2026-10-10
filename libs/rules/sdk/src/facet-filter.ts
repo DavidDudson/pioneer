@@ -82,18 +82,20 @@ export function filterEntries(
   return entries.filter((entry) => matches(entry, facets, state));
 }
 
-/** `state` with `facet` picking only `value`: its exclusions kept, or a range of just that value. */
+/**
+ * `state` with `facet` picking only `value`: its exclusions kept, or a range of just that value. A range can't pick
+ * the unknown value (its count stands apart), so `state` comes back unchanged for it.
+ */
 export function onlyValue(state: FilterState, facet: FacetDefinition, value: FacetValue): FilterState {
+  if (facet.type === FacetType.Range) {
+    const bound = RangeBound.safeParse(value === UNKNOWN ? undefined : Number(value));
+    return bound.success
+      ? new Map([...state, [facet.id, { kind: SelectionKind.Range, min: bound.data, max: bound.data }]])
+      : state;
+  }
   const current = state.get(facet.id);
-  const selection: FacetSelection =
-    facet.type === FacetType.Range
-      ? { kind: SelectionKind.Range, min: RangeBound.parse(Number(value)), max: RangeBound.parse(Number(value)) }
-      : {
-          kind: SelectionKind.Values,
-          include: [value],
-          exclude: current?.kind === SelectionKind.Values ? current.exclude : [],
-        };
-  return new Map([...state, [facet.id, selection]]);
+  const exclude = current?.kind === SelectionKind.Values ? current.exclude : [];
+  return new Map([...state, [facet.id, { kind: SelectionKind.Values, include: [value], exclude }]]);
 }
 
 function selectedValues(selection: FacetSelection | undefined): readonly FacetValue[] {
