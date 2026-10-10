@@ -11,6 +11,7 @@ export {
   NoQuery,
 } from './endpoint';
 export {
+  ConflictError,
   DomainError,
   ForbiddenError,
   GoneError,

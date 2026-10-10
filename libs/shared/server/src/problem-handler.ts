@@ -17,6 +17,7 @@ const TITLE: Readonly<Record<ProblemType, string>> = {
   [ProblemType.Forbidden]: 'Forbidden',
   [ProblemType.NotFound]: 'Not found',
   [ProblemType.Gone]: 'Gone',
+  [ProblemType.Conflict]: 'Conflict',
   [ProblemType.VersionConflict]: 'Version conflict',
   [ProblemType.Validation]: 'The request is invalid',
   [ProblemType.Internal]: 'Internal error',

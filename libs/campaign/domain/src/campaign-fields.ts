@@ -39,3 +39,25 @@ export type InviteTokenHash = z.infer<typeof InviteTokenHash>;
 /** A member's name as identity shows it; the campaign context only displays it. */
 export const MemberName = z.string().min(1).brand<'MemberName'>();
 export type MemberName = z.infer<typeof MemberName>;
+
+/**
+ * A character, as the character context names it. Same brand as there, so ids pass between the
+ * contexts at the composition root unchanged; the campaign context only refers to characters.
+ */
+export const CharacterId = Uuid.brand<'CharacterId'>();
+export type CharacterId = z.infer<typeof CharacterId>;
+
+/** Row id of one character attached to a campaign; the audit log keys every row by an `id`. */
+export const CampaignCharacterId = Uuid.brand<'CampaignCharacterId'>();
+export type CampaignCharacterId = z.infer<typeof CampaignCharacterId>;
+
+/** A character's name as the character context shows it; the campaign context only displays it. */
+export const PartyCharacterName = z.string().min(1).brand<'PartyCharacterName'>();
+export type PartyCharacterName = z.infer<typeof PartyCharacterName>;
+
+const LEVEL_MIN = 1;
+const LEVEL_MAX = 20;
+
+/** A character's level, 1-20, as the character context reports it. */
+export const PartyCharacterLevel = z.int().min(LEVEL_MIN).max(LEVEL_MAX).brand<'Level'>();
+export type PartyCharacterLevel = z.infer<typeof PartyCharacterLevel>;

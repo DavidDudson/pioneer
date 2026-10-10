@@ -2,13 +2,22 @@ import { Endpoint, HttpMethod, NoBody, NoParams, NoQuery } from '@pioneer/shared
 import * as z from 'zod';
 
 import { Campaign } from './campaign';
-import { CampaignId, CampaignInviteId, CampaignMemberId, CampaignName, InviteToken } from './campaign-fields';
+import {
+  CampaignId,
+  CampaignInviteId,
+  CampaignMemberId,
+  CampaignName,
+  CharacterId,
+  InviteToken,
+} from './campaign-fields';
 import { InviteSummary } from './campaign-invite';
+import { CampaignParty } from './campaign-party';
 import { CampaignRoster } from './campaign-roster';
 
 const ById = z.object({ id: CampaignId });
 const ByInvite = z.object({ id: CampaignId, inviteId: CampaignInviteId });
 const ByMember = z.object({ id: CampaignId, memberId: CampaignMemberId });
+const ByCharacter = z.object({ id: CampaignId, characterId: CharacterId });
 
 /** An empty answer: the request did what it says. */
 const Done = z.strictObject({});
@@ -26,6 +35,10 @@ export type JoinCampaignBody = z.infer<typeof JoinCampaignBody>;
 /** Who becomes the GM: one of the campaign's members. */
 export const TransferGmBody = z.object({ memberId: CampaignMemberId });
 export type TransferGmBody = z.infer<typeof TransferGmBody>;
+
+/** Which of the actor's characters joins the party. */
+export const AttachCharacterBody = z.object({ characterId: CharacterId });
+export type AttachCharacterBody = z.infer<typeof AttachCharacterBody>;
 
 /** The campaign HTTP API, shared by `campaign-infrastructure` and `campaign-feature`. */
 export const CampaignContract = {
@@ -89,6 +102,36 @@ export const CampaignContract = {
     query: NoQuery,
     body: NoBody,
     response: Done,
+  }),
+  /** The characters in the party, and the actor's own characters they could bring. */
+  party: new Endpoint({
+    method: HttpMethod.Get,
+    path: '/campaigns/:id/party',
+    params: ById,
+    query: NoQuery,
+    body: NoBody,
+    response: CampaignParty,
+  }),
+  /**
+   * A member brings one of their own characters into the party. Another user's character is a 404; one
+   * already in another campaign is a 409. Attaching it twice is harmless.
+   */
+  attachCharacter: new Endpoint({
+    method: HttpMethod.Post,
+    path: '/campaigns/:id/characters',
+    params: ById,
+    query: NoQuery,
+    body: AttachCharacterBody,
+    response: CampaignParty,
+  }),
+  /** The character's owner or the GM takes it out of the party. Detaching it twice is harmless. */
+  detachCharacter: new Endpoint({
+    method: HttpMethod.Delete,
+    path: '/campaigns/:id/characters/:characterId',
+    params: ByCharacter,
+    query: NoQuery,
+    body: NoBody,
+    response: CampaignParty,
   }),
   /** GM only: invites that still work, newest first. */
   invites: new Endpoint({

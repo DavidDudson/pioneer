@@ -1,10 +1,16 @@
 export { CampaignInviteRepository } from './campaign-invite-repository';
 export { CampaignInviteService } from './campaign-invite-service';
+export { CampaignPartyRepository } from './campaign-party-repository';
+export { CampaignPartyService } from './campaign-party-service';
 export { CampaignRepository } from './campaign-repository';
 export { CampaignService } from './campaign-service';
+export { CharacterDirectory, type CharacterSummary } from './character-directory';
 export { InMemoryCampaignInviteRepository } from './in-memory-campaign-invite-repository';
+export { InMemoryCampaignPartyRepository } from './in-memory-campaign-party-repository';
 export { InMemoryCampaignRepository } from './in-memory-campaign-repository';
+export { InMemoryCharacterDirectory } from './in-memory-character-directory';
 export { InMemoryMemberDirectory } from './in-memory-member-directory';
 export { InviteMessage } from './invite-message';
 export { MemberDirectory } from './member-directory';
 export { MemberMessage } from './member-message';
+export { PartyMessage } from './party-message';
