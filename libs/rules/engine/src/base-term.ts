@@ -55,9 +55,19 @@ function start(node: FormulaNode): TextPosition {
   return node.kind === NodeKind.Binary ? start(node.left) : node.position;
 }
 
-/** Whether a term reads a proficiency bonus (`@prof.<selector>`). */
+/** The references that read a proficiency bonus: `@prof.<selector>`, and a weapon's or spellcasting entry's. */
+const PROFICIENCY_BONUSES: ReadonlySet<ReferenceKind> = new Set([
+  ReferenceKind.ProficiencyBonus,
+  ReferenceKind.WeaponProficiencyBonus,
+  ReferenceKind.SpellcastingProficiencyBonus,
+]);
+
+/** Whether a term reads a proficiency bonus. */
 function readsProficiency(node: FormulaNode): boolean {
-  return references(node).some(({ path }) => knownReference(path)?.kind === ReferenceKind.ProficiencyBonus);
+  return references(node).some(({ path }) => {
+    const kind = knownReference(path)?.kind;
+    return kind !== undefined && PROFICIENCY_BONUSES.has(kind);
+  });
 }
 
 /** The term as evaluated on its own, negated when subtracted so it rounds as it does in the sum. */

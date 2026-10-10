@@ -54,11 +54,28 @@ export type KnownReference =
   | { readonly kind: typeof ReferenceKind.ProficiencyRank; readonly selector: Selector }
   | { readonly kind: typeof ReferenceKind.Statistic; readonly selector: Selector }
   | { readonly kind: typeof ReferenceKind.ItemLevel }
-  | { readonly kind: typeof ReferenceKind.WeaponAttributeModifier }
-  | { readonly kind: typeof ReferenceKind.WeaponProficiencyBonus }
-  | { readonly kind: typeof ReferenceKind.WeaponPotency }
-  | { readonly kind: typeof ReferenceKind.SpellcastingAttributeModifier }
-  | { readonly kind: typeof ReferenceKind.SpellcastingProficiencyBonus };
+  | SourceReference;
+
+/** The kinds that read a weapon or a spellcasting entry: only a statistic derived per that source has one. */
+const SOURCE_KINDS = [
+  ReferenceKind.WeaponAttributeModifier,
+  ReferenceKind.WeaponProficiencyBonus,
+  ReferenceKind.WeaponPotency,
+  ReferenceKind.SpellcastingAttributeModifier,
+  ReferenceKind.SpellcastingProficiencyBonus,
+] as const;
+type SourceReferenceKind = (typeof SOURCE_KINDS)[number];
+
+/** A reference to the weapon or spellcasting entry a statistic derived per source is derived for. */
+export interface SourceReference {
+  readonly kind: SourceReferenceKind;
+}
+
+const SOURCE_KIND_SET: ReadonlySet<ReferenceKind> = new Set(SOURCE_KINDS);
+
+export function isSourceReference(known: KnownReference): known is SourceReference {
+  return SOURCE_KIND_SET.has(known.kind);
+}
 
 /**
  * A path as the catalogue writes it, without its `@`: dotted segments, placeholders in angle brackets

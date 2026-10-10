@@ -4,7 +4,13 @@ import { knownReference, ReferenceKind } from '@pioneer/rules/sdk';
 import type { Selector, StatisticDefinition } from '@pioneer/rules/sdk';
 import * as z from 'zod';
 
-/** A `@stat.<selector>` reference in a base formula: the statistic it reads, and where it is written. */
+import type { SourceInputs } from './source-inputs';
+import type { StatisticInstance } from './statistic-instances';
+
+/**
+ * A `@stat.<selector>` reference in a base formula: the statistic it reads (in an instance, perhaps its sibling for the
+ * same source), and where it is written.
+ */
 export interface StatisticEdge {
   readonly path: ReferencePath;
   readonly selector: Selector;
@@ -14,24 +20,28 @@ export interface StatisticEdge {
 /** A statistic in the graph: its definition, its parsed base formula, and the statistics that formula reads. */
 export interface StatisticNode {
   readonly definition: StatisticDefinition;
+  /** The weapon or spellcasting entry an instance is derived for. */
+  readonly source: SourceInputs | undefined;
+  /** The statistic a `@stat.<selector>` in the formula reads (`StatisticInstance#reads`). */
+  readonly reads: (selector: Selector) => Selector;
   /** The parsed base, or why it does not parse (a definition built without its schema). */
   readonly formula: FormulaNode | ParseFailure;
   /** Every `@stat.<selector>` reference in the order written. Proficiency and rank references read inputs. */
   readonly edges: readonly StatisticEdge[];
 }
 
-function edgesOf(formula: FormulaNode): StatisticEdge[] {
+function edgesOf(formula: FormulaNode, reads: (selector: Selector) => Selector): StatisticEdge[] {
   return references(formula).flatMap(({ path, position }) => {
     const reference = knownReference(path);
-    return reference?.kind === ReferenceKind.Statistic ? [{ path, selector: reference.selector, position }] : [];
+    return reference?.kind === ReferenceKind.Statistic ? [{ path, selector: reads(reference.selector), position }] : [];
   });
 }
 
-function nodeOf(definition: StatisticDefinition): StatisticNode {
+function nodeOf({ definition, source, reads }: StatisticInstance): StatisticNode {
   const parsed = parseFormula(FormulaText.parse(definition.base));
   return parsed.ok
-    ? { definition, formula: parsed.formula, edges: edgesOf(parsed.formula) }
-    : { definition, formula: parsed, edges: [] };
+    ? { definition, source, reads, formula: parsed.formula, edges: edgesOf(parsed.formula, reads) }
+    : { definition, source, reads, formula: parsed, edges: [] };
 }
 
 /**
@@ -39,13 +49,13 @@ function nodeOf(definition: StatisticDefinition): StatisticNode {
  * later (homebrew after core) restates a statistic. Iteration follows selector order, so nothing downstream
  * depends on the order the definitions came in.
  */
-export function statisticGraph(definitions: readonly StatisticDefinition[]): ReadonlyMap<Selector, StatisticNode> {
-  const latest = new Map(definitions.map((definition) => [definition.selector, definition]));
+export function statisticGraph(instances: readonly StatisticInstance[]): ReadonlyMap<Selector, StatisticNode> {
+  const latest = new Map(instances.map((instance) => [instance.definition.selector, instance]));
   const selectors = [...latest.keys()].toSorted();
   return new Map(
     selectors.flatMap((selector) => {
-      const definition = latest.get(selector);
-      return definition === undefined ? [] : [[selector, nodeOf(definition)] as const];
+      const instance = latest.get(selector);
+      return instance === undefined ? [] : [[selector, nodeOf(instance)] as const];
     }),
   );
 }

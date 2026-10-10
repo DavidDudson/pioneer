@@ -32,7 +32,7 @@ export { FundamentalRune, ReinforcingGrade, RuneData, RunedItem, RuneGrade, Rune
 export { AmmunitionType, BaseWeapon, DieSize, WeaponData, WeaponGroup } from './weapon';
 export { SpellData } from './spell';
 export { SPELL_RANK_MAX, SpellRank } from './spell-rank';
-export { MagicTradition, SpellcastingTraditionData } from './spellcasting-tradition';
+export { MagicTradition, MagicTraditionSchema, SpellcastingTraditionData } from './spellcasting-tradition';
 export { FeatCategory } from './feat';
 export { ConditionData, ConditionGroup } from './condition';
 export { ContentKind, ContentKindSchema } from './content-kind';
@@ -211,6 +211,7 @@ export {
   fromFoundryPath,
 } from './foundry-reference';
 export {
+  isSourceReference,
   type KnownReference,
   knownReference,
   REFERENCE_CATALOGUE,
@@ -218,6 +219,7 @@ export {
   ReferenceKind,
   ReferencePattern,
   ReferenceScope,
+  type SourceReference,
 } from './formula-reference';
 export { ModifierType, ModifierTypeSchema } from './modifier-type';
 export { RuleElement, RuleElements } from './rule-element';

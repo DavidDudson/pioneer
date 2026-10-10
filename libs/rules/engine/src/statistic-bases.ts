@@ -13,6 +13,7 @@ import { Components, statisticGraph } from './statistic-graph';
 import type { StatisticEdge, StatisticNode } from './statistic-graph';
 import { missingInput, resolverFor } from './statistic-inputs';
 import type { CharacterValues } from './statistic-inputs';
+import { statisticInstances } from './statistic-instances';
 import { cycle, failure, unchosen, unreadable } from './statistic-result';
 import type { StatisticFailure, StatisticResult } from './statistic-result';
 
@@ -52,12 +53,12 @@ export class StatisticBases {
     values: CharacterValues,
     { changes, facts }: BaseChanges,
   ) {
-    this.#graph = statisticGraph(definitions);
+    this.#graph = statisticGraph(statisticInstances(definitions, values.inputs));
     this.#values = values;
     this.#changes = changes;
     this.#context = {
       facts,
-      resolve: (itemLevel): ResolveReference => resolverFor(values, (): undefined => undefined, itemLevel),
+      resolve: (itemLevel): ResolveReference => resolverFor(values, (): undefined => undefined, { itemLevel }),
     };
     for (const component of new Components(this.#graph).inOrder) {
       this.#evaluateComponent(component);
@@ -122,7 +123,7 @@ export class StatisticBases {
       : unchosen(selector, written, missing);
   }
 
-  #evaluate(selector: Selector, { formula, edges }: StatisticNode): StatisticResult {
+  #evaluate(selector: Selector, { formula, edges, source, reads }: StatisticNode): StatisticResult {
     if ('ok' in formula) {
       return failure(selector, formula.error, formula.position);
     }
@@ -130,7 +131,7 @@ export class StatisticBases {
     if (blocked !== undefined) {
       return blocked;
     }
-    const resolve = resolverFor(this.#values, (read) => this.baseValue(read));
+    const resolve = resolverFor(this.#values, (read) => this.baseValue(reads(read)), { source });
     const outcome = evaluate(formula, resolve);
     if (!outcome.ok) {
       return this.#evaluationFailure(selector, formula, outcome);
