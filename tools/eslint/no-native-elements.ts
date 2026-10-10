@@ -47,10 +47,6 @@ const OWNERS: ReadonlyMap<string, readonly string[]> = new Map([
   ['ul', ['list/list/']],
   ['ol', ['list/list/']],
   ['menu', []],
-  ['li', ['list/list-item/']],
-  ['dl', ['list/description-list/']],
-  ['dt', ['list/description-item/']],
-  ['dd', ['list/description-item/']],
   ['figure', []],
   ['figcaption', []],
   // Text-level
@@ -146,6 +142,12 @@ const BANNED: ReadonlyMap<string, string> = new Map([
   ['slot', 'Angular projects content with `ng-content`'],
   ['dialog', 'modals are banned (AGENTS.md interaction rules); show the content inline or route to it'],
   ['noscript', 'Angular templates only render with JavaScript running'],
+  // Rendered inside a component, these leave its custom-element host between list and item, which is invalid.
+  // Axe fails it and screen readers miscount the items.
+  ['li', '`fr-list-item` is the list item itself (`role="listitem"`)'],
+  ['dl', '`fr-description-list` is a `role="list"` of `fr-description-item`s'],
+  ['dt', '`fr-description-item` renders its term as `role="term"`'],
+  ['dd', '`fr-description-item` renders its value as `role="definition"`'],
 ]);
 
 interface ElementNode {

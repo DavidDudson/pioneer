@@ -30,7 +30,6 @@ tester.run('no-native-elements', noNativeElements, {
     },
     { filename: frontier('actions/button/button.component.html'), code: `<button type="button"></button>` },
     { filename: frontier('controls/select/select.component.html'), code: `<button type="button"></button>` },
-    { filename: frontier('list/description-item/description-item.component.html'), code: `<dt></dt><dd></dd>` },
     { filename: frontier('data/table/table.component.html'), code: `<table><colgroup><col /></colgroup></table>` },
     { filename: frontier('data/chart/chart.component.html'), code: `<tanstack-chart />` },
     { filename: frontier('icon/icon.component.html'), code: `<svg><path d="M0 0" /></svg>` },
@@ -68,6 +67,16 @@ tester.run('no-native-elements', noNativeElements, {
     ),
     ...['select', 'template', 'slot', 'dialog', 'noscript'].map((name) => ({
       filename: frontier('controls/select/select.component.html'),
+      code: `<${name}></${name}>`,
+      errors: [{ messageId: 'banned' }],
+    })),
+    ...[
+      ['list/list-item/list-item.component.html', 'li'],
+      ['list/description-list/description-list.component.html', 'dl'],
+      ['list/description-item/description-item.component.html', 'dt'],
+      ['list/description-item/description-item.component.html', 'dd'],
+    ].map(([path, name]) => ({
+      filename: frontier(path),
       code: `<${name}></${name}>`,
       errors: [{ messageId: 'banned' }],
     })),
