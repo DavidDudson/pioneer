@@ -362,6 +362,11 @@ grants as above against the facts of the round before, then derives the facts ag
 - each entry's kind option, as Foundry writes it: `class:fighter`, `feature:<slug>` for a class feature,
   `feat:<slug>`, `ancestry:`, `heritage:`, `background:`, `self:condition:<slug>`, `self:effect:<slug>`. Creatures
   and statistics set none;
+- a valued condition's value, as `self:condition:<slug>:<value>` beside `self:condition:<slug>` (_frightened 2_ sets
+  `self:condition:frightened:2`), so `{ "gte": ["self:condition:frightened", 2] }` reads it. The value comes from
+  the root's `condition` hop. A condition that arrives twice keeps its highest value alone, since a comparison holds
+  if any value does, and the second arrival is a duplicate as usual. A condition granted by another entry (_grabbed_
+  grants _off-guard_) sets no value yet: grants carry none until a `GrantItem` can give one;
 - each `RollOption` element in the `all` domain whose predicate holds: a static one unless its `value` is false, and
   a toggle while it is on. A toggle's state comes from input keyed `<entry id>:<rule index>`, else its `value`; while
   on it also sets `<option>:<suboption>` for the picked suboption if offered, else the first offered. Options in
