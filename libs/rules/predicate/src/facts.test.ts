@@ -27,7 +27,12 @@ describe('PredicateFacts.with', () => {
 
   test('joins the numbers under one prefix from both', () => {
     const extended = character.with(options('self:level:5'));
-    expect(extended.values(RollOption.parse('self:level')).map(Number).toSorted((left, right) => left - right)).toEqual([3, 5]);
+    expect(
+      extended
+        .values(RollOption.parse('self:level'))
+        .map(Number)
+        .toSorted((left, right) => left - right),
+    ).toEqual([3, 5]);
     expect(extended.values(RollOption.parse('item:level'))).toEqual([]);
   });
 

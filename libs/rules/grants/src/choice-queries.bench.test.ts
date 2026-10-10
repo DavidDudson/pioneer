@@ -37,7 +37,11 @@ function inputs(): GrantInputs {
       choices: { kind: 'feat', filter: ['item:trait:fighter', { lte: ['item:level', 'self:level'] }] },
     },
   ]);
-  const options = ['self:level:5', 'class:fighter', ...Array.from({ length: 40 }, (_value, index) => `feat:f-${index}`)];
+  const options = [
+    'self:level:5',
+    'class:fighter',
+    ...Array.from({ length: 40 }, (_value, index) => `feat:f-${index}`),
+  ];
   return {
     roots: [picked('fighter')],
     lookup: lookupOf([fighter, ...feats()]),

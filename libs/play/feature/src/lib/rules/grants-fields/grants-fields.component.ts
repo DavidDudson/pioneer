@@ -23,7 +23,8 @@ interface OpenSlot {
 
 /**
  * The grants tool's inputs, each with its own problem: the entries as JSON, the roots, the picks and the roll
- * options. Each open slot gets a select that writes its pick.
+ * options. Each open slot with something to pick gets a select that writes its pick; one whose query matches nothing
+ * says so in the result instead.
  */
 @Component({
   selector: 'pio-grants-fields',
@@ -62,7 +63,9 @@ export class GrantsFields {
   protected readonly openSlots = computed((): readonly OpenSlot[] => {
     const result = this.check();
     return result.status === GrantsStatus.Valid
-      ? result.open.map(({ slot, title, options }) => ({ slot, title, options }))
+      ? result.open
+          .filter((open) => open.options.length > 0)
+          .map(({ slot, title, options }) => ({ slot, title, options }))
       : [];
   });
 

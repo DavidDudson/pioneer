@@ -1,4 +1,12 @@
-import type { ContentId, ContentKind, ContentText, OriginHop, RollOption, RuleElement, SourceRef } from '@pioneer/rules/sdk';
+import type {
+  ContentId,
+  ContentKind,
+  ContentText,
+  OriginHop,
+  RollOption,
+  RuleElement,
+  SourceRef,
+} from '@pioneer/rules/sdk';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 /**
