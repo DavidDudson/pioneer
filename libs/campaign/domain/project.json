@@ -1,0 +1,7 @@
+{
+  "name": "campaign-domain",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/campaign/domain/src",
+  "tags": ["scope:campaign", "type:domain", "platform:any"]
+}

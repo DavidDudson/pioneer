@@ -1,0 +1,7 @@
+{
+  "name": "campaign-application",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/campaign/application/src",
+  "tags": ["scope:campaign", "type:application", "platform:any"]
+}

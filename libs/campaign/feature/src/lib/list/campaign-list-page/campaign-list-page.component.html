@@ -1,0 +1,57 @@
+<fr-page [title]="'campaign.list.title' | transloco" [description]="'campaign.list.description' | transloco">
+  <fr-stack gap="xl">
+    <fr-surface>
+      <fr-async-form [form]="form" [action]="create" [describeError]="describeCreateError">
+        <fr-stack gap="md">
+          <fr-heading variant="subheading" [level]="2">{{ 'campaign.list.newHeading' | transloco }}</fr-heading>
+          <fr-text-field
+            [label]="'campaign.list.nameLabel' | transloco"
+            [placeholder]="'campaign.list.namePlaceholder' | transloco"
+            [hint]="'campaign.list.nameHint' | transloco"
+            [formField]="form.name"
+          />
+          <fr-stack direction="horizontal" justify="end">
+            <fr-async-button
+              type="submit"
+              variant="primary"
+              [pendingLabel]="'campaign.list.creating' | transloco"
+              [successLabel]="'campaign.list.created' | transloco"
+            >
+              {{ 'campaign.list.create' | transloco }}
+            </fr-async-button>
+          </fr-stack>
+        </fr-stack>
+      </fr-async-form>
+    </fr-surface>
+
+    <fr-async-region [errorMessage]="'campaign.list.loadError' | transloco">
+      <ng-template frAsyncPending>
+        <fr-stack gap="md">
+          @for (placeholder of placeholders; track placeholder) {
+            <fr-surface><fr-skeleton width="lg" /></fr-surface>
+          }
+        </fr-stack>
+      </ng-template>
+      <ng-template let-campaigns [frAsyncData]="store.list">
+        <fr-virtual-list gap="md" estimate="md" [itemKey]="campaignKey">
+          <ng-template let-campaign [frVirtualItem]="campaigns">
+            <fr-surface>
+              <fr-stack gap="2xs">
+                <fr-link variant="subheading" [to]="[campaign.id]">{{ campaign.name }}</fr-link>
+                <fr-text tone="muted">{{
+                  'campaign.list.members' | transloco: { count: campaign.members.length }
+                }}</fr-text>
+                <fr-text variant="caption" tone="subtle"
+                  >{{ 'campaign.list.started' | transloco }} <fr-date format="relative" [value]="campaign.createdAt"
+                /></fr-text>
+              </fr-stack>
+            </fr-surface>
+          </ng-template>
+        </fr-virtual-list>
+        @if (campaigns.length === 0) {
+          <fr-text element="p" tone="muted">{{ 'campaign.list.empty' | transloco }}</fr-text>
+        }
+      </ng-template>
+    </fr-async-region>
+  </fr-stack>
+</fr-page>

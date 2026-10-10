@@ -265,6 +265,7 @@
             "sourceTag": "scope:character",
             "onlyDependOnLibsWithTags": ["scope:character", "scope:rules", "scope:shared"]
           },
+          { "sourceTag": "scope:campaign", "onlyDependOnLibsWithTags": ["scope:campaign", "scope:shared"] },
           { "sourceTag": "scope:play", "onlyDependOnLibsWithTags": ["scope:play", "scope:rules", "scope:shared"] },
           { "sourceTag": "scope:identity", "onlyDependOnLibsWithTags": ["scope:identity", "scope:shared"] }
         ]

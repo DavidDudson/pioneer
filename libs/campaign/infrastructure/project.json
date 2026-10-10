@@ -1,0 +1,7 @@
+{
+  "name": "campaign-infrastructure",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/campaign/infrastructure/src",
+  "tags": ["scope:campaign", "type:infrastructure", "platform:server"]
+}
