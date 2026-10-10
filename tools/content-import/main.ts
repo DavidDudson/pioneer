@@ -1,0 +1,128 @@
+/**
+ * One-off Foundry import (ADR-0031, content-model.md "Foundry import"): `just content-import --pack <pack>
+ * --book <book>... --dry-run`. Downloads the pack's pinned foundryvtt/pf2e release into a gitignored cache, checks
+ * its SHA-256, reads the item packs and reports what the import would select. Only `--dry-run` exists so far; the
+ * translation and pack output land in later stories of Epic 2.5.
+ */
+import { mkdir, rename } from 'node:fs/promises';
+import path from 'node:path';
+import { parseArgs } from 'node:util';
+
+import {
+  archiveUrl,
+  dryRunReport,
+  ImportFile,
+  readFoundryRelease,
+  RELEASE_FILES,
+  selectEntries,
+  sha256,
+  SkipReason,
+} from '@pioneer/interop/foundry';
+import type { DryRunReport, FoundryReleaseTag, ImportPin, Selection, Sha256 } from '@pioneer/interop/foundry';
+import { bookRegistry } from '@pioneer/rules/catalog';
+import { BookId, PackId } from '@pioneer/rules/sdk';
+
+const ROOT = path.resolve(import.meta.dir, '../..');
+const CACHE = path.join(ROOT, '.data/foundry');
+const UNREADABLE_SHOWN = 20;
+
+interface Options {
+  readonly pack: PackId;
+  readonly books: ReadonlySet<BookId>;
+  readonly dryRun: boolean;
+}
+
+function options(): Options {
+  const { values } = parseArgs({
+    options: {
+      pack: { type: 'string' },
+      book: { type: 'string', multiple: true },
+      'dry-run': { type: 'boolean', default: false },
+    },
+  });
+  const books = (values.book ?? []).map((book) => BookId.parse(book));
+  for (const book of books) {
+    if (bookRegistry.book(book) === undefined) {
+      throw new Error(`${book} is not in the book registry`);
+    }
+  }
+  if (books.length === 0) {
+    throw new Error('Name at least one target book with --book');
+  }
+  return { pack: PackId.parse(values.pack), books: new Set(books), dryRun: values['dry-run'] };
+}
+
+async function readPin(pack: PackId): Promise<ImportPin> {
+  const file = Bun.file(path.join(ROOT, 'content/import', `${pack}.json`));
+  const pinned = await file.exists();
+  if (!pinned) {
+    throw new Error(`content/import/${pack}.json is missing; commit the pack's pin first (ADR-0031)`);
+  }
+  const { pin } = ImportFile.parse(await file.json());
+  return pin;
+}
+
+async function verified(
+  bytes: Uint8Array<ArrayBuffer>,
+  expected: Sha256,
+  what: string,
+): Promise<Uint8Array<ArrayBuffer>> {
+  const actual = await sha256(bytes);
+  if (actual !== expected) {
+    throw new Error(`${what} has SHA-256 ${actual}, the pin says ${expected}`);
+  }
+  return bytes;
+}
+
+async function download(tag: FoundryReleaseTag, expected: Sha256, cachePath: string): Promise<Uint8Array<ArrayBuffer>> {
+  console.log(`Downloading ${archiveUrl(tag)}`);
+  const response = await fetch(archiveUrl(tag));
+  if (!response.ok) {
+    throw new Error(`Download of ${tag} failed: ${response.status} ${response.statusText}`);
+  }
+  const bytes = await verified(new Uint8Array(await response.arrayBuffer()), expected, `${tag} (not cached)`);
+  await mkdir(CACHE, { recursive: true });
+  // Written aside and renamed, so an interrupted run never leaves a partial archive in the cache.
+  await Bun.write(`${cachePath}.partial`, bytes);
+  await rename(`${cachePath}.partial`, cachePath);
+  return bytes;
+}
+
+/** The pinned archive, from the cache or downloaded into it; never returned unless its checksum matches the pin. */
+async function archive({ tag, sha256: expected }: ImportPin): Promise<Uint8Array<ArrayBuffer>> {
+  const cachePath = path.join(CACHE, `${tag}.tar.gz`);
+  const cached = Bun.file(cachePath);
+  const hit = await cached.exists();
+  return hit
+    ? verified(await cached.bytes(), expected, `${cachePath} (delete it to re-download)`)
+    : download(tag, expected, cachePath);
+}
+
+async function archiveFiles(bytes: Uint8Array<ArrayBuffer>): Promise<ReadonlyMap<string, string>> {
+  const members = await new Bun.Archive(bytes).files([...RELEASE_FILES]);
+  const texts = await Promise.all([...members].map(async ([name, file]) => [name, await file.text()] as const));
+  return new Map(texts);
+}
+
+function formatReport({ imported, skipped }: DryRunReport, { skipped: entries }: Selection): string {
+  const total = imported.reduce((sum, { count }) => sum + count, 0);
+  const skippedTotal = skipped.reduce((sum, { count }) => sum + count, 0);
+  const unreadable = entries.filter(({ reason }) => reason === SkipReason.Unreadable);
+  return [
+    `Would import ${total}:`,
+    ...imported.map(({ book, type, count }) => `  ${book}  ${type}  ${count}`),
+    `Skipped ${skippedTotal}:`,
+    ...skipped.map(({ reason, detail, count }) => `  ${reason}  ${detail === '' ? '-' : detail}  ${count}`),
+    ...unreadable.slice(0, UNREADABLE_SHOWN).map(({ path: file, detail }) => `  unreadable ${file}: ${detail}`),
+  ].join('\n');
+}
+
+const { pack, books, dryRun } = options();
+if (!dryRun) {
+  throw new Error('Only --dry-run is implemented so far (Epic 2.5 builds the rest)');
+}
+const pin = await readPin(pack);
+const release = readFoundryRelease(await archiveFiles(await archive(pin)));
+const selection = selectEntries(release, books);
+console.log(`${pack} at ${pin.tag}, books ${[...books].join(', ')}`);
+console.log(formatReport(dryRunReport(selection), selection));

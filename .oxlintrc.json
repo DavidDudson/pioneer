@@ -353,7 +353,8 @@
         "apps/api/src/main.dev.ts",
         "libs/frontier/scripts/*.ts",
         "tools/deploy-production.ts",
-        "tools/content-coverage.ts"
+        "tools/content-coverage.ts",
+        "tools/content-import/main.ts"
       ],
       "rules": { "eslint/no-console": "off" }
     },
