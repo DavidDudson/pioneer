@@ -21,6 +21,10 @@ export class LinesField {
   /** The 1-based lines that do not read. */
   public readonly bad = input.required<readonly number[]>();
   public readonly value = model.required<string>();
+  /** A problem with the whole text rather than some lines (roll options that cannot be read), shown in place of the hint. */
+  public readonly failure = input<string | undefined>(undefined);
+
+  protected readonly invalid = computed((): boolean => this.bad().length > 0 || this.failure() !== undefined);
 
   /** The bad lines as a list in the UI locale ("2, 4 and 7"). */
   protected readonly lineList = computed((): string => {

@@ -1,8 +1,10 @@
-<fr-field [invalid]="bad().length > 0">
+<fr-field [invalid]="invalid()">
   <fr-label>{{ label() }}</fr-label>
   <fr-text-area monospace [rows]="rows()" [(value)]="value" />
   @if (bad().length > 0) {
     <fr-field-error>{{ errorKey() | transloco: { count: bad().length, lines: lineList() } }}</fr-field-error>
+  } @else if (failure(); as failed) {
+    <fr-field-error>{{ failed }}</fr-field-error>
   } @else {
     <fr-field-hint>{{ hint() }}</fr-field-hint>
   }

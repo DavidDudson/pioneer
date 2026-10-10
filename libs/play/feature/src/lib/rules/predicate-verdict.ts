@@ -1,5 +1,5 @@
 import { PredicateFacts, summarisePredicate, tracePredicate, Truth } from '@pioneer/rules/predicate';
-import type { PredicateSummary, StatementTrace } from '@pioneer/rules/predicate';
+import type { NamespaceTable, PredicateSummary, StatementTrace } from '@pioneer/rules/predicate';
 import { isPredicateComparison, Predicate, RollOption } from '@pioneer/rules/sdk';
 import type { PredicateStatement } from '@pioneer/rules/sdk';
 import type { FieldIssue, ValueOf } from '@pioneer/shared/kernel';
@@ -38,10 +38,12 @@ export interface VerdictNode {
   readonly children: readonly VerdictNode[];
 }
 
-export const VerdictStatus = { ...CheckStatus, InvalidFacts: 'invalid-facts' } as const;
+export const VerdictStatus = { ...CheckStatus, InvalidFacts: 'invalid-facts', Pending: 'pending' } as const;
 export type VerdictStatus = ValueOf<typeof VerdictStatus>;
 
 export type VerdictCheck =
+  /** The core rules pack's roll option namespaces have not loaded yet, so nothing is evaluated. */
+  | { readonly status: typeof VerdictStatus.Pending }
   | {
       readonly status: typeof VerdictStatus.Valid;
       readonly truth: Truth;
@@ -84,10 +86,10 @@ export function parseFacts(text: string): FactsParse {
 }
 
 /**
- * Check `predicateText` as a predicate, read `factsText` as roll options (one per line), then evaluate with the
- * default namespace table and keep every statement's verdict. Never throws.
+ * Check `predicateText` as a predicate, read `factsText` as roll options (one per line), then evaluate with
+ * `namespaces` and keep every statement's verdict. Never throws.
  */
-export function checkVerdict(predicateText: string, factsText: string): VerdictCheck {
+export function checkVerdict(predicateText: string, factsText: string, namespaces: NamespaceTable): VerdictCheck {
   const checked = checkRulesJson(RulesSchema.Predicate, predicateText);
   if (checked.status !== CheckStatus.Valid) {
     return checked;
@@ -97,7 +99,7 @@ export function checkVerdict(predicateText: string, factsText: string): VerdictC
     return { status: VerdictStatus.InvalidFacts, lines: facts.lines };
   }
   const predicate = Predicate.parse(JSON.parse(checked.parsed));
-  const given = new PredicateFacts(facts.options);
+  const given = new PredicateFacts(facts.options, namespaces);
   const trace = tracePredicate(predicate, given);
   return {
     status: VerdictStatus.Valid,

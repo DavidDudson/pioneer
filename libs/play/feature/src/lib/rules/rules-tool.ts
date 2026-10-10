@@ -1,4 +1,5 @@
 import { bookRegistry, sourceIssues } from '@pioneer/rules/catalog';
+import type { NamespaceTable } from '@pioneer/rules/predicate';
 import { ContentEntry, RichText } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
 
@@ -6,9 +7,9 @@ import { checkFilters } from './filters-check';
 import type { FiltersCheck } from './filters-check';
 import { checkFormula } from './formula-check';
 import type { FormulaCheck, ReferenceEntries } from './formula-check';
-import { checkGrants } from './grants-check';
+import { checkGrants, GrantsStatus } from './grants-check';
 import type { GrantsCheck } from './grants-check';
-import { checkVerdict } from './predicate-verdict';
+import { checkVerdict, VerdictStatus } from './predicate-verdict';
 import type { VerdictCheck } from './predicate-verdict';
 import { CheckStatus, checkOutcome, checkRulesJson, readJson, RulesSchema, RulesTool } from './rules-check';
 import type { CheckOutcome } from './rules-check';
@@ -56,6 +57,8 @@ export interface ToolInputs {
   readonly filterQuery: string;
   /** How the statistics tool turns proficiency into bonuses; undefined until the core rules pack loads. */
   readonly proficiency: StatisticProficiency | undefined;
+  /** How the verdict, statistics and grants tools read missing roll options; undefined until the core rules pack loads. */
+  readonly namespaces: NamespaceTable | undefined;
 }
 
 export type ToolCheck =
@@ -100,8 +103,8 @@ type CharacterTool = typeof RulesTool.Grants | typeof RulesTool.Statistics;
 /** The tools that work on a character: statistics and grants. */
 function checkCharacter(tool: CharacterTool, text: string, inputs: ToolInputs): ToolCheck {
   if (tool === RulesTool.Statistics) {
-    const { proficiency } = inputs;
-    if (proficiency === undefined) {
+    const { proficiency, namespaces } = inputs;
+    if (proficiency === undefined || namespaces === undefined) {
       return { kind: ToolKind.Statistics, check: { status: StatisticsStatus.Pending } };
     }
     const texts = {
@@ -111,19 +114,31 @@ function checkCharacter(tool: CharacterTool, text: string, inputs: ToolInputs): 
       overrides: inputs.statisticOverrides,
       facts: inputs.facts,
     };
-    return { kind: ToolKind.Statistics, check: checkStatistics(texts, proficiency) };
+    return { kind: ToolKind.Statistics, check: checkStatistics(texts, proficiency, namespaces) };
+  }
+  const { namespaces } = inputs;
+  if (namespaces === undefined) {
+    return { kind: ToolKind.Grants, check: { status: GrantsStatus.Pending } };
   }
   return {
     kind: ToolKind.Grants,
-    check: checkGrants({
-      entries: text,
-      roots: inputs.grantRoots,
-      picks: inputs.grantPicks,
-      toggles: inputs.grantToggles,
-      facts: inputs.facts,
-      level: inputs.grantLevel,
-    }),
+    check: checkGrants(
+      {
+        entries: text,
+        roots: inputs.grantRoots,
+        picks: inputs.grantPicks,
+        toggles: inputs.grantToggles,
+        facts: inputs.facts,
+        level: inputs.grantLevel,
+      },
+      namespaces,
+    ),
   };
+}
+
+/** The predicate's verdict against the roll options, once the namespaces that read them have loaded. */
+function verdictOf(text: string, { facts, namespaces }: ToolInputs): VerdictCheck {
+  return namespaces === undefined ? { status: VerdictStatus.Pending } : checkVerdict(text, facts, namespaces);
 }
 
 /** Run the chosen tool on the page's text and whichever extra inputs it reads. Never throws. */
@@ -132,7 +147,7 @@ export function checkTool(tool: RulesTool, text: string, inputs: ToolInputs): To
     return { kind: ToolKind.Formula, check: checkFormula(text, inputs.entries) };
   }
   if (tool === RulesTool.Verdict) {
-    return { kind: ToolKind.Verdict, check: checkVerdict(text, inputs.facts) };
+    return { kind: ToolKind.Verdict, check: verdictOf(text, inputs) };
   }
   if (tool === RulesTool.Statistics || tool === RulesTool.Grants) {
     return checkCharacter(tool, text, inputs);

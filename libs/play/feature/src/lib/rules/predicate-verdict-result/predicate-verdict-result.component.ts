@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import { Badge, LocaleFormat, Stack, Text } from '@pioneer/frontier';
+import { Badge, LocaleFormat, Skeleton, Stack, Text } from '@pioneer/frontier';
 import { formatSummary } from '@pioneer/rules/predicate';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 import { filter, merge } from 'rxjs';
@@ -17,7 +17,7 @@ import { VerdictStatements } from '../verdict-statements/verdict-statements.comp
  */
 @Component({
   selector: 'pio-predicate-verdict-result',
-  imports: [Badge, RulesResult, Stack, Text, TranslocoPipe, VerdictStatements],
+  imports: [Badge, RulesResult, Skeleton, Stack, Text, TranslocoPipe, VerdictStatements],
   templateUrl: './predicate-verdict-result.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

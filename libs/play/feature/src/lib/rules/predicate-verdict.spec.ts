@@ -1,4 +1,5 @@
 import { Negated, PredicateMessage, SummaryKind, Truth } from '@pioneer/rules/predicate';
+import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
 import { describe, expect, it } from 'vitest';
 
 import { checkVerdict, EXAMPLE_FACTS, VerdictStatus } from './predicate-verdict';
@@ -6,7 +7,7 @@ import { rulesExample, RulesTool } from './rules-check';
 
 describe(checkVerdict, () => {
   it('opens on an example that depends on the situation', () => {
-    const check = checkVerdict(rulesExample(RulesTool.Verdict), EXAMPLE_FACTS);
+    const check = checkVerdict(rulesExample(RulesTool.Verdict), EXAMPLE_FACTS, CORE_NAMESPACES);
     expect(check).toMatchObject({ status: VerdictStatus.Valid, truth: Truth.Unknown });
   });
 
@@ -14,6 +15,7 @@ describe(checkVerdict, () => {
     const check = checkVerdict(
       '["self:effect:rage", { "or": ["terrain:forest", "feat:power-attack"] }]',
       'self:effect:rage',
+      CORE_NAMESPACES,
     );
     expect(check).toStrictEqual({
       status: VerdictStatus.Valid,
@@ -40,6 +42,7 @@ describe(checkVerdict, () => {
     const check = checkVerdict(
       '[{ "gte": ["self:level", 5] }, { "if": "self:effect:rage", "then": "action:strike" }]',
       '',
+      CORE_NAMESPACES,
     );
     expect(check).toMatchObject({
       status: VerdictStatus.Valid,
@@ -52,19 +55,21 @@ describe(checkVerdict, () => {
   });
 
   it('skips blank lines and surrounding spaces in the roll options', () => {
-    const check = checkVerdict('["terrain:forest"]', '\n  terrain:forest  \r\n\n');
+    const check = checkVerdict('["terrain:forest"]', '\n  terrain:forest  \r\n\n', CORE_NAMESPACES);
     expect(check).toMatchObject({ status: VerdictStatus.Valid, truth: Truth.True });
   });
 
   it('names the lines that are not roll options', () => {
-    expect(checkVerdict('[]', 'self:level:5\nFrightened\n\nnope')).toStrictEqual({
+    expect(checkVerdict('[]', 'self:level:5\nFrightened\n\nnope', CORE_NAMESPACES)).toStrictEqual({
       status: VerdictStatus.InvalidFacts,
       lines: [2, 4],
     });
   });
 
   it('reports the predicate before the roll options', () => {
-    expect(checkVerdict('[', 'Frightened')).toStrictEqual({ status: VerdictStatus.NotJson });
-    expect(checkVerdict('["Frightened"]', 'Frightened')).toMatchObject({ status: VerdictStatus.Invalid });
+    expect(checkVerdict('[', 'Frightened', CORE_NAMESPACES)).toStrictEqual({ status: VerdictStatus.NotJson });
+    expect(checkVerdict('["Frightened"]', 'Frightened', CORE_NAMESPACES)).toMatchObject({
+      status: VerdictStatus.Invalid,
+    });
   });
 });
