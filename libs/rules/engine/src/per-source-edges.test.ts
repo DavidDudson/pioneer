@@ -11,7 +11,7 @@ import { EngineMessage } from './messages';
 import type { RuleInPlay } from './rule-in-play';
 import { StatisticInputsJson } from './statistic-inputs';
 import type { StatisticResult } from './statistic-result';
-import { flatModifier, inPlay } from './testing';
+import { flatModifier, inPlay, wielded } from './testing';
 
 /* Edges of statistics derived per source: variants, cycles, domains, collisions and bounds. */
 
@@ -32,10 +32,10 @@ function cycleOf(entry: string): string {
   return `spell-attack:${entry}, spell-dc:${entry}`;
 }
 
-const STRIKE = perSource('strike', 'weapon', '@weapon.attr + @weapon.prof + @weapon.potency');
+const STRIKE = perSource('strike', 'weapon', '@weapon.attr + @weapon.prof');
 const SPELL_ATTACK = perSource('spell-attack', 'spellcasting', '@spellcasting.attr + @spellcasting.prof');
-const LONGSWORD = { slug: 'longsword', category: 'martial', traits: [], potency: 1 };
-const SHORTBOW = { slug: 'shortbow', category: 'martial', traits: [], range: 60 };
+const LONGSWORD = wielded({ slug: 'longsword', category: 'martial', traits: [], potency: 1 });
+const SHORTBOW = wielded({ slug: 'shortbow', category: 'martial', traits: [], range: 60 });
 const ARCANE = { slug: 'arcane', tradition: 'arcane', attribute: 'int' };
 
 /** Level 3: Strength 1, Dexterity 4, Intelligence 3; trained in martial weapons and arcane spells. */
@@ -75,13 +75,12 @@ const WITHOUT_LEVEL = inPlay(
 describe('statistics derived per source, at the edges', () => {
   test('a variant proficiency table reaches weapon and spellcasting proficiency, and names itself on that term', () => {
     const results = derive([STRIKE, SPELL_ATTACK], { weapons: [LONGSWORD], spellcasting: [ARCANE] }, [WITHOUT_LEVEL]);
-    // Trained is 2 without level: Strength 1 + 2 + potency 1, and Intelligence 3 + 2.
+    // Trained is 2 without level: Strength 1 + 2 and its +1 potency line, and Intelligence 3 + 2.
     expect(totals(results)).toStrictEqual({ 'spell-attack:arcane': 5, 'strike:longsword': 4 });
     expect(results.get(Selector.parse('strike:longsword'))).toMatchObject({
       base: [
         { formula: '@weapon.attr', origin: undefined },
         { formula: '@weapon.prof', origin: WITHOUT_LEVEL.origin },
-        { formula: '@weapon.potency', origin: undefined },
       ],
     });
     expect(results.get(Selector.parse('spell-attack:arcane'))).toMatchObject({
@@ -125,7 +124,8 @@ describe('statistics derived per source, at the edges', () => {
       base: '@level',
     });
     const weapons = { weapons: [LONGSWORD] };
-    expect(totals(derive([STRIKE, plain], weapons))).toStrictEqual({ 'strike:longsword': 3 });
+    // The weapon's potency line targets the selector, so it reaches whichever statistic holds it.
+    expect(totals(derive([STRIKE, plain], weapons))).toStrictEqual({ 'strike:longsword': 3 + 1 });
     expect(totals(derive([plain, STRIKE], weapons))).toStrictEqual({ 'strike:longsword': 7 });
   });
 

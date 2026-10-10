@@ -53,3 +53,18 @@ export function flatModifier(type: string, value: number | string, selectors: re
 export function change(selector: string, mode: string, value: number | string): object {
   return { key: 'Change', selector, mode, value };
 }
+
+/** A weapon's inputs as JSON, with its origin. */
+type Wielded<Weapon> = Weapon & { readonly origin: object };
+
+/** A weapon's inputs as JSON: `weapon` with an origin on the test pack's entry of the same slug. */
+export function wielded<Weapon extends { readonly slug: string }>(weapon: Weapon): Wielded<Weapon> {
+  return {
+    ...weapon,
+    origin: {
+      hops: [],
+      entry: contentId(TEST_PACK, Slug.parse(weapon.slug)),
+      sources: [{ kind: 'book', book: 'player-core', page: 1 }],
+    },
+  };
+}

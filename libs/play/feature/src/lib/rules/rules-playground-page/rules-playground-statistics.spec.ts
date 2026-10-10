@@ -74,6 +74,7 @@ describe('RulesPlaygroundPage statistics', () => {
       'strike:longsword',
       'strike:dagger',
       '+ @weapon.prof',
+      'Item bonus of longsword',
       'spell-attack:arcane',
       'spell-dc:arcane',
       '+ @stat.spell-attack',

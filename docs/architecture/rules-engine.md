@@ -58,7 +58,7 @@ these statistics in code rather than as items. So far it holds:
 | Hit Points   | `hp:max`               | `value` | `@ancestry.hp + (@class.hp + @attr.con) * @level` | `hp`                                                         |
 | Speed        | `speed:land`           | `value` | `@ancestry.speed`                                 | `speed`, `all-speeds`, `land-speed`                          |
 | Class DC     | `class-dc`             | `dc`    | `10 + @attr.key + @prof.class-dc`                 | `class`                                                      |
-| Strike       | `strike:<weapon>`      | `check` | `@weapon.attr + @weapon.prof + @weapon.potency`   | `check`, `attack-roll`, `strike-attack-roll`, `<attr>-based` |
+| Strike       | `strike:<weapon>`      | `check` | `@weapon.attr + @weapon.prof`                     | `check`, `attack-roll`, `strike-attack-roll`, `<attr>-based` |
 | Spell attack | `spell-attack:<entry>` | `check` | `@spellcasting.attr + @spellcasting.prof`         | `check`, `attack-roll`, `spell-attack-roll`, `<attr>-based`  |
 | Spell DC     | `spell-dc:<entry>`     | `dc`    | `10 + @stat.spell-attack`                         | `spell-dc`, `<attr>-based`                                   |
 
@@ -98,8 +98,8 @@ the character's level as written, so level 0 play (GM Core) needs its own formul
 ### Statistics per source
 
 A statistic with `per: weapon` or `per: spellcasting` is derived once for each weapon or spellcasting entry the
-character has (ADR-0030). `StatisticInputs` carries them: `weapons` (slug, category, traits, range, potency) and
-`spellcasting` (slug, tradition, attribute), slugs unique within each list. The definition's selector names the
+character has (ADR-0030). `StatisticInputs` carries them: `weapons` (slug, category, traits, range, potency, origin)
+and `spellcasting` (slug, tradition, attribute), slugs unique within each list. The definition's selector names the
 family; each instance is `<selector>:<slug>` (`strike:longsword`, `spell-dc:arcane`), so modifiers, overrides and
 `@stat` reach it as any statistic. With no weapons or entries a family has no instances, and removing one removes
 its statistics.
@@ -108,8 +108,12 @@ its statistics.
   family names no `keyAttribute`.
 - The base may read the source: `@weapon.attr` (Dexterity for a ranged weapon, the higher of Strength and Dexterity
   for a finesse one, else Strength, as Player Core's "Attack Rolls" has it), `@weapon.prof` (the bonus for
-  `attack:<category>`), `@weapon.potency` (its potency rune, or a bomb's item bonus), `@spellcasting.attr` and
-  `@spellcasting.prof` (the bonus for `spellcasting:<tradition>`).
+  `attack:<category>`), `@spellcasting.attr` and `@spellcasting.prof` (the bonus for `spellcasting:<tradition>`).
+- A weapon's potency (its potency rune, or a bomb's own item bonus) is not a base term. The engine adds it to the
+  weapon's `strike:<slug>` as a synthetic `item` modifier with the slug `weapon-potency`, labelled by a message and
+  with the weapon's origin, so it stacks with other item bonuses to attack rolls (a mutagen's): only the highest
+  applies, and the breakdown shows the potency line suppressed when another wins. Automatic Bonus Progression
+  replaces it with an `AdjustModifier` on that slug rather than a formula change.
 - Inside an instance, `@stat.<family>` naming another family derived per the same kind of source reads that
   family's instance for the same source: the spell DC's `@stat.spell-attack` reads its own entry's spell attack
   base, so a bonus to spell attack rolls stays off the DC.
@@ -118,9 +122,8 @@ its statistics.
 - A family's selector is at most 63 characters and a source's slug at most 64, so every instance's selector is a
   selector (128 at most). A longer one is a validation issue at the selector or the slug.
 
-Known limits: the weapon's item bonus is a base term, so it stacks with another item bonus to attack rolls where only
-the higher should apply; a thrown melee weapon gets its melee Strike only; the multiple attack penalty and Strike
-damage come later.
+Known limits: a thrown melee weapon gets its melee Strike only; the multiple attack penalty and Strike damage come
+later.
 
 Lore is open-ended, so the core pack defines none. Whatever grants a Lore (a background, a feat) brings its own
 `statistic` entry with the selector `skill:lore:<topic>`, base `@attr.int + @prof.skill.lore.<topic>`, key
@@ -231,7 +234,6 @@ Statistic base formulas and rule element values share one vocabulary of referenc
 | `@item.level`        | item         | The level of the item the rule element is on                                                |
 | `@weapon.attr`       | weapon       | The modifier the weapon attacks with: Strength, Dexterity at range, the higher with finesse |
 | `@weapon.prof`       | weapon       | The proficiency bonus for the weapon's category, `attack:<category>`                        |
-| `@weapon.potency`    | weapon       | The weapon's item bonus to attack rolls: its potency rune, or a bomb's own bonus            |
 | `@spellcasting.attr` | spellcasting | The modifier for the spellcasting entry's attribute                                         |
 | `@spellcasting.prof` | spellcasting | The proficiency bonus for the entry's tradition, `spellcasting:<tradition>`                 |
 

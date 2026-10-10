@@ -9,5 +9,6 @@ export const EngineMessage = {
   SourceSlugLength: 'engine.statistic.sourceSlugLength',
   TotalOutOfRange: 'engine.statistic.outOfRange',
   AdjustmentOutOfRange: 'engine.modifier.outOfRange',
+  WeaponPotency: 'engine.modifier.weaponPotency',
   ChangeOutOfRange: 'engine.change.outOfRange',
 } as const;

@@ -26,7 +26,6 @@ describe('formula reference vocabulary', () => {
     ['item.level', { kind: ReferenceKind.ItemLevel }],
     ['weapon.attr', { kind: ReferenceKind.WeaponAttributeModifier }],
     ['weapon.prof', { kind: ReferenceKind.WeaponProficiencyBonus }],
-    ['weapon.potency', { kind: ReferenceKind.WeaponPotency }],
     ['spellcasting.attr', { kind: ReferenceKind.SpellcastingAttributeModifier }],
     ['spellcasting.prof', { kind: ReferenceKind.SpellcastingProficiencyBonus }],
     ['rank.spellcasting.arcane', { kind: ReferenceKind.ProficiencyRank, selector: 'spellcasting:arcane' }],
@@ -68,10 +67,7 @@ describe('formula reference vocabulary', () => {
   });
 
   test.each([
-    [
-      'weapon',
-      [ReferenceKind.WeaponAttributeModifier, ReferenceKind.WeaponProficiencyBonus, ReferenceKind.WeaponPotency],
-    ],
+    ['weapon', [ReferenceKind.WeaponAttributeModifier, ReferenceKind.WeaponProficiencyBonus]],
     ['spellcasting', [ReferenceKind.SpellcastingAttributeModifier, ReferenceKind.SpellcastingProficiencyBonus]],
   ])('only the %s references read a %s', (scope, kinds) => {
     const scoped = Object.entries(REFERENCE_CATALOGUE)

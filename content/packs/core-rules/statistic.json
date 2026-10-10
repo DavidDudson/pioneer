@@ -225,7 +225,7 @@
     "data": {
       "selector": "strike",
       "domains": ["check", "attack-roll", "strike-attack-roll"],
-      "base": "@weapon.attr + @weapon.prof + @weapon.potency",
+      "base": "@weapon.attr + @weapon.prof",
       "kind": "check",
       "per": "weapon"
     }

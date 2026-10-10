@@ -74,7 +74,7 @@ describe('StatisticDefinition', () => {
     const { keyAttribute: _keyAttribute, ...strike } = {
       ...armorClass,
       selector: 'strike',
-      base: '@weapon.attr + @weapon.prof + @weapon.potency + @level * 0',
+      base: '@weapon.attr + @weapon.prof + @level * 0',
       kind: StatisticKind.Check,
       per: StatisticPer.Weapon,
     };

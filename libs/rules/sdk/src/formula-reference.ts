@@ -35,7 +35,6 @@ export const ReferenceKind = {
   ItemLevel: 'item-level',
   WeaponAttributeModifier: 'weapon-attribute-modifier',
   WeaponProficiencyBonus: 'weapon-proficiency-bonus',
-  WeaponPotency: 'weapon-potency',
   SpellcastingAttributeModifier: 'spellcasting-attribute-modifier',
   SpellcastingProficiencyBonus: 'spellcasting-proficiency-bonus',
 } as const;
@@ -60,7 +59,6 @@ export type KnownReference =
 const SOURCE_KINDS = [
   ReferenceKind.WeaponAttributeModifier,
   ReferenceKind.WeaponProficiencyBonus,
-  ReferenceKind.WeaponPotency,
   ReferenceKind.SpellcastingAttributeModifier,
   ReferenceKind.SpellcastingProficiencyBonus,
 ] as const;
@@ -131,7 +129,6 @@ export const REFERENCE_CATALOGUE: Readonly<Record<ReferenceKind, ReferenceDefini
     WEAPON,
     RulesMessage.ReferenceWeaponProficiencyBonus,
   ),
-  [ReferenceKind.WeaponPotency]: reference('weapon.potency', WEAPON, RulesMessage.ReferenceWeaponPotency),
   [ReferenceKind.SpellcastingAttributeModifier]: reference(
     'spellcasting.attr',
     SPELLCASTING,
@@ -218,7 +215,6 @@ function referenceOf(kind: ReferenceKind, captures: Captures): KnownReference | 
     case ReferenceKind.ItemLevel:
     case ReferenceKind.WeaponAttributeModifier:
     case ReferenceKind.WeaponProficiencyBonus:
-    case ReferenceKind.WeaponPotency:
     case ReferenceKind.SpellcastingAttributeModifier:
     case ReferenceKind.SpellcastingProficiencyBonus: {
       return { kind };

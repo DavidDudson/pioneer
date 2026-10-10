@@ -15,6 +15,9 @@ export interface RuleName {
   readonly number: number;
 }
 
+/** How a breakdown line is named: a typed rule element, or a line the engine adds itself (a weapon's potency). */
+export type LineName = RuleName | { readonly message: MessageDescriptor };
+
 const PLAYGROUND = PackId.parse('playground');
 const SOURCES = [{ kind: 'book', book: 'player-core', page: 1 }];
 
@@ -35,6 +38,11 @@ const ORIGINS: Readonly<Record<RuleSource, Origin>> = {
   }),
 };
 
+/** A weapon in the example inputs, on a made-up playground entry of its slug, as the inventory will supply it. */
+export function weaponOrigin(slug: string): Origin {
+  return Origin.parse({ hops: [], entry: contentId(PLAYGROUND, Slug.parse(slug)), sources: SOURCES });
+}
+
 /** The typed rule elements from one box as rules in play, each at its index in the array. */
 export function rulesInPlay(elements: readonly RuleElement[], source: RuleSource): RuleInPlay[] {
   return elements.map((element, index) => ({ element, origin: ORIGINS[source], rule: RuleIndex.parse(index) }));
@@ -51,6 +59,20 @@ export function ruleNames(rules: readonly RuleInPlay[]): ReadonlyMap<RuleId, Rul
 
 const UNKNOWN_RULE: RuleName = { source: RuleSource.Rule, number: 0 };
 
+/** The rule elements' names, and each line the engine labels itself named by its message. */
+export function lineNames(
+  lines: readonly BreakdownLine[],
+  rules: ReadonlyMap<RuleId, RuleName>,
+): ReadonlyMap<RuleId, LineName> {
+  const named = new Map<RuleId, LineName>(rules);
+  for (const { modifier } of lines) {
+    if ('message' in modifier.label) {
+      named.set(modifier.id, { message: modifier.label.message });
+    }
+  }
+  return named;
+}
+
 /** Message keys naming a rule element by its box, spelled out so the key check sees them. */
 export const RULE_NAME_KEYS: Readonly<Record<RuleSource, string>> = {
   [RuleSource.Rule]: 'play.rules.ruleNumber',
@@ -60,14 +82,14 @@ export const RULE_NAME_KEYS: Readonly<Record<RuleSource, string>> = {
 /** How a line stands, with rule elements named by box and number. */
 export type LineState =
   | { readonly kind: typeof LineStatusKind.Applied }
-  | { readonly kind: typeof LineStatusKind.Suppressed; readonly by: RuleName }
+  | { readonly kind: typeof LineStatusKind.Suppressed; readonly by: LineName }
   | { readonly kind: typeof LineStatusKind.Conditional; readonly summary: PredicateSummary | undefined }
   | { readonly kind: typeof LineStatusKind.Inactive }
   | { readonly kind: typeof LineStatusKind.Failed; readonly error: MessageDescriptor };
 
 /** One breakdown line as the playground shows it. */
 export interface LineRow {
-  readonly name: RuleName;
+  readonly name: LineName;
   /** Its `display.label`, if it has one. */
   readonly label: string | undefined;
   readonly type: ModifierType;
@@ -103,7 +125,7 @@ export const MODIFIER_TYPE_KEYS: Readonly<Record<ModifierType, string>> = {
   [ModifierType.Potency]: 'play.rules.modifierType.potency',
 };
 
-function stateOf(line: BreakdownLine, names: ReadonlyMap<RuleId, RuleName>): LineState {
+function stateOf(line: BreakdownLine, names: ReadonlyMap<RuleId, LineName>): LineState {
   const { status } = line;
   switch (status.kind) {
     case LineStatusKind.Suppressed: {
@@ -129,7 +151,7 @@ function labelText(label: BreakdownLine['modifier']['label']): string | undefine
   return 'text' in label ? label.text : undefined;
 }
 
-export function lineRow(line: BreakdownLine, names: ReadonlyMap<RuleId, RuleName>): LineRow {
+export function lineRow(line: BreakdownLine, names: ReadonlyMap<RuleId, LineName>): LineRow {
   const { modifier, value } = line;
   return {
     name: names.get(modifier.id) ?? UNKNOWN_RULE,

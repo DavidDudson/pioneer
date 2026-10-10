@@ -12,6 +12,7 @@ import { resolverFor } from './statistic-inputs';
 import type { StatisticInputs } from './statistic-inputs';
 import type { StatisticResult } from './statistic-result';
 import { finished } from './totals';
+import { weaponPotencies } from './weapon-potency';
 
 /** The content a derivation reads: the statistic definitions and the proficiency bonus table, from the registry. */
 export interface StatisticContent {
@@ -23,9 +24,10 @@ export interface StatisticContent {
  * Every statistic's breakdown (rules-engine.md, steps 4 to 6). The base phase evaluates each base formula in
  * dependency order and runs its `Change`s (`StatisticBases`); the modifier phase then collects the modifiers that
  * reach each statistic, gates them by predicate and stacks them (`collectLines`); last, set overrides may pin the
- * total. Modifier formulas read the inputs, statistics' bases through `@stat.<selector>`, and the level of the item
- * they are on. `@prof.<selector>` reads the proficiency bonus table, unless a `ProficiencyBonus` element in play (a
- * variant rule) replaces it. Never throws: a statistic's failure, or a line's, is reported in the result. The result does not
+ * total. Each weapon's potency joins the modifiers as an `item` line on its Strike (`weaponPotencies`). Modifier
+ * formulas read the inputs, statistics' bases through `@stat.<selector>`, and the level of the item they are on.
+ * `@prof.<selector>` reads the proficiency bonus table, unless a `ProficiencyBonus` element in play (a variant rule)
+ * replaces it. Never throws: a statistic's failure, or a line's, is reported in the result. The result does not
  * depend on the order of the definitions or rules, except that a later definition of a selector replaces an
  * earlier one.
  */
@@ -37,7 +39,8 @@ export function deriveStatistics(
   const changes = changeRules(rules);
   const values = { inputs, proficiency: proficiencyBonuses(proficiencyBonus, { rules, facts, level: inputs.level }) };
   const bases = new StatisticBases(definitions, values, { changes: changes.base, facts });
-  const modifiers = modifierRules(rules);
+  const fromRules = modifierRules(rules);
+  const modifiers = { ...fromRules, modifiers: [...fromRules.modifiers, ...weaponPotencies(inputs.weapons ?? [])] };
   const context = {
     facts,
     resolve: (itemLevel: Level | undefined): ResolveReference =>

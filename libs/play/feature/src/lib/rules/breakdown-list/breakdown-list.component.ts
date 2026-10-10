@@ -8,7 +8,7 @@ import type { MessageDescriptor } from '@pioneer/shared/kernel';
 import { filter, merge } from 'rxjs';
 
 import { LINE_STATE_KEYS, LINE_STATE_TONES, MODIFIER_TYPE_KEYS, RULE_NAME_KEYS } from '../breakdown-lines';
-import type { LineRow, LineState, RuleName } from '../breakdown-lines';
+import type { LineName, LineRow, LineState } from '../breakdown-lines';
 
 /** A line as shown: its state badge, its name, its typed value and what explains its state. */
 interface ShownLine {
@@ -17,6 +17,11 @@ interface ShownLine {
   readonly name: string;
   readonly value: string;
   readonly detail: string | undefined;
+}
+
+/** A line's track key: its box and number, or its message for a line the engine adds. */
+function lineKey(name: LineName): string {
+  return 'message' in name ? name.message.key : `${name.source}-${name.number}`;
 }
 
 /** A statistic's modifier lines: applied, suppressed by what, conditional on what, inactive, or failed and why. */
@@ -41,9 +46,9 @@ export class BreakdownList {
     this.#messages();
     this.#format.locale();
     return this.lines().map((line) => ({
-      key: `${line.name.source}-${line.name.number}`,
+      key: lineKey(line.name),
       state: line.state.kind,
-      name: line.label ?? this.#ruleName(line.name),
+      name: line.label ?? this.#lineName(line.name),
       value: this.#i18n.translate('play.rules.lineValue', {
         type: this.#translate({ key: MODIFIER_TYPE_KEYS[line.type] }),
         value: line.value === undefined ? '' : this.#format.number(line.value, { signDisplay: 'exceptZero' }),
@@ -52,8 +57,10 @@ export class BreakdownList {
     }));
   });
 
-  #ruleName({ source, number }: RuleName): string {
-    return this.#translate({ key: RULE_NAME_KEYS[source], params: { number } });
+  #lineName(name: LineName): string {
+    return 'message' in name
+      ? this.#translate(name.message)
+      : this.#translate({ key: RULE_NAME_KEYS[name.source], params: { number: name.number } });
   }
 
   #translate(descriptor: MessageDescriptor): string {
@@ -63,7 +70,7 @@ export class BreakdownList {
   #detail(state: LineState): string | undefined {
     switch (state.kind) {
       case LineStatusKind.Suppressed: {
-        return this.#i18n.translate('play.rules.line.suppressedBy', { rule: this.#ruleName(state.by) });
+        return this.#i18n.translate('play.rules.line.suppressedBy', { rule: this.#lineName(state.by) });
       }
       case LineStatusKind.Conditional: {
         const summary =

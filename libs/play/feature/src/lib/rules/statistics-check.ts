@@ -7,7 +7,7 @@ import type { ProficiencyBonusTable, Selector } from '@pioneer/rules/sdk';
 import type { MessageDescriptor, ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
-import { lineRow, overrideRow, ruleNames, RuleSource, rulesInPlay } from './breakdown-lines';
+import { lineNames, lineRow, overrideRow, ruleNames, RuleSource, rulesInPlay, weaponOrigin } from './breakdown-lines';
 import type { LineRow, OverrideRow, RuleName } from './breakdown-lines';
 import { pointAt } from './point-at';
 import { parseFacts } from './predicate-verdict';
@@ -39,8 +39,19 @@ export const EXAMPLE_STATISTIC_INPUTS = JSON.stringify(
     ancestry: { hitPoints: 8, speed: 25 },
     class: { hitPoints: 10, keyAttribute: 'str' },
     weapons: [
-      { slug: 'longsword', category: 'martial', traits: ['versatile-p'], potency: 1 },
-      { slug: 'dagger', category: 'simple', traits: ['agile', 'finesse', 'thrown-10', 'versatile-s'] },
+      {
+        slug: 'longsword',
+        category: 'martial',
+        traits: ['versatile-p'],
+        potency: 1,
+        origin: weaponOrigin('longsword'),
+      },
+      {
+        slug: 'dagger',
+        category: 'simple',
+        traits: ['agile', 'finesse', 'thrown-10', 'versatile-s'],
+        origin: weaponOrigin('dagger'),
+      },
     ],
     spellcasting: [{ slug: 'arcane', tradition: 'arcane', attribute: 'int' }],
   },
@@ -175,19 +186,21 @@ interface RowNames {
 }
 
 function rowOf(result: StatisticResult, base: string, { rules: names, variant }: RowNames): StatisticRow {
-  return result.ok
-    ? {
-        ok: true,
-        selector: result.selector,
-        baseValue: result.baseValue,
-        computed: result.computed,
-        total: result.total,
-        pinnedBy: result.pinnedBy === undefined ? undefined : names.get(result.pinnedBy),
-        terms: result.base.map((term, index) => termLine(term, index, variant)),
-        lines: result.lines.map((line) => lineRow(line, names)),
-        overrides: result.overrides.map((line) => overrideRow(line, names)),
-      }
-    : { ok: false, selector: result.selector, error: result.error, pointer: pointAt(base, result.position) };
+  if (!result.ok) {
+    return { ok: false, selector: result.selector, error: result.error, pointer: pointAt(base, result.position) };
+  }
+  const named = lineNames(result.lines, names);
+  return {
+    ok: true,
+    selector: result.selector,
+    baseValue: result.baseValue,
+    computed: result.computed,
+    total: result.total,
+    pinnedBy: result.pinnedBy === undefined ? undefined : names.get(result.pinnedBy),
+    terms: result.base.map((term, index) => termLine(term, index, variant)),
+    lines: result.lines.map((line) => lineRow(line, named)),
+    overrides: result.overrides.map((line) => overrideRow(line, names)),
+  };
 }
 
 function problemOf<Value>(read: JsonRead<Value>): JsonProblem | undefined {

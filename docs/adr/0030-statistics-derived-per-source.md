@@ -24,8 +24,8 @@ Options for the references:
 
 1. Reuse `@item.*`, the item a rule element is on. A weapon is an item, but a spellcasting entry is not one in
    Pioneer, and rule elements on a weapon would read different values than a Strike over the same weapon.
-2. New scopes, one per kind of source: `@weapon.attr`, `@weapon.prof`, `@weapon.potency`, `@spellcasting.attr`,
-   `@spellcasting.prof`. A statistic may read the scope of its own `per` only.
+2. New scopes, one per kind of source: `@weapon.attr`, `@weapon.prof`, `@spellcasting.attr`, `@spellcasting.prof`. A
+   statistic may read the scope of its own `per` only.
 
 A spell DC is built on its entry's spell attack (`10 + @stat.spell-attack...`), so a statistic derived per source
 also needs to read its sibling for the same source.
@@ -37,7 +37,7 @@ Option 3 for the definition, option 2 for the references.
 - `StatisticDefinition.per` is `weapon` or `spellcasting`. Its selector names the family (`strike`); each instance
   is `<selector>:<source slug>` (`strike:longsword`, `spell-dc:arcane`), so modifiers, set overrides and `@stat` find
   an instance as they find any statistic. Sources come from `StatisticInputs`: `weapons` (slug, category, traits,
-  range, potency) and `spellcasting` (slug, tradition, attribute), slugs unique within each list. A family's
+  range, potency, origin) and `spellcasting` (slug, tradition, attribute), slugs unique within each list. A family's
   selector is at most 63 characters and a slug at most 64, so an instance's selector always fits the 128 a selector
   allows. Where an instance and a plain statistic share a selector, the one given later wins.
 - Each instance takes its key attribute from its source and joins that attribute's `<attribute>-based` domain, since
@@ -61,8 +61,12 @@ Option 3 for the definition, option 2 for the references.
 - Removing a weapon or entry removes its statistics; with none, a family has no instances.
 - `@stat.<selector>` has a second reading inside instances. A plain statistic whose selector matches a family is
   replaced by a later definition of that selector before instances are made, so the two never coexist.
-- The weapon's item bonus is a base term (`@weapon.potency`), not a typed modifier, so another item bonus to attack
-  rolls (a mutagen's) stacks with it where PF2e says only the higher applies. Moving it to a synthetic `item`
-  modifier is left for the story that adds runes and Automatic Bonus Progression.
+- A weapon's item bonus (its potency rune, or a bomb's own) is not a reference. The engine adds it to
+  `strike:<slug>` as a synthetic `item` modifier, slug `weapon-potency`, labelled by an engine message and with the
+  weapon's origin, so it competes with other item bonuses to attack rolls (a mutagen's) and only the highest applies.
+  Every weapon input therefore carries its `origin`; grant resolution and inventory supply it. `@weapon.potency` was
+  removed (#338) rather than kept for homebrew: a base reading it beside the synthetic line would count the bonus
+  twice, and under Automatic Bonus Progression the rune's grade is not the bonus. Automatic Bonus Progression
+  replaces the line through an `AdjustModifier` on that slug, not a formula change.
 - One Strike per weapon: a thrown melee weapon's thrown Strike, the multiple attack penalty and damage are out of
   scope here.
