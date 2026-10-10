@@ -40,9 +40,10 @@ describe('book registry', () => {
     );
   });
 
-  test('every registered book has a title key', () => {
+  test('every registered book has a title key and its AoN Sources page', () => {
     for (const book of bookRegistry.books) {
       expect(BOOK_TITLES.has(book.id)).toBe(true);
+      expect(book.aonSourceUrl).toBeDefined();
     }
   });
 
@@ -65,11 +66,14 @@ describe('book registry', () => {
     ]);
   });
 
-  test('rejects an AoN Sources link that is not one entry', () => {
-    expect(
-      registryIssues([playerCore({ aonSourceUrl: 'https://2e.aonprd.com/Sources.aspx' })]).map((issue) => issue.path),
-    ).toStrictEqual([[0, 'aonSourceUrl']]);
-  });
+  test.each(['https://2e.aonprd.com/Sources.aspx', 'https://2e.aonprd.com/Feats.aspx?ID=1'])(
+    'rejects %s: a book links one page under AoN Sources',
+    (aonSourceUrl) => {
+      expect(registryIssues([playerCore({ aonSourceUrl })])).toStrictEqual([
+        { path: [0, 'aonSourceUrl'], message: message(RulesMessage.BookAonSourceUrl) },
+      ]);
+    },
+  );
 
   test('every registered book round-trips through the wire schema', () => {
     for (const book of bookRegistry.books) {

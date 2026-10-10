@@ -279,8 +279,9 @@ interface Book {
   aonSourceUrl?: Url; // the book's AoN Sources page
 }
 
-// Titles are not stored: BOOK_TITLES maps each BookId to a message key (ADR-0009), and the
-// registry rejects a book without one. Publishers and licences have label keys the same way.
+// Titles are not stored: BOOK_TITLES maps each BookId to a message key, and the registry rejects a
+// book without one (ADR-0024). Published books only: homebrew cites a `homebrew` source, and OGL
+// joins ContentLicense when a legacy book is imported.
 
 type SourceRef =
   | { kind: 'book'; book: BookId; page?: number; aon?: Url }
@@ -296,7 +297,7 @@ be filled in over time.
 ## Packs and storage
 
 ```text
-content_books        id, title, publisher, license, remaster, ...
+content_books        id, publisher, license, remaster, ...  -- title is a message key (ADR-0024)
 content_packs        id, title, owner_id (null = official), visibility, license, version, content_hash
 content_entries      id, pack_id, kind, slug, name, level, rarity, traits text[], data jsonb,
                      search tsvector, updated_at

@@ -8,6 +8,7 @@ export const RulesMessage = {
   BookLocation: 'rules.source.bookLocation',
   AonUrl: 'rules.source.aonUrl',
   BookUntitled: 'rules.book.untitled',
+  BookAonSourceUrl: 'rules.book.aonSourceUrl',
   UnknownElement: 'rules.element.unknown',
   SuboptionsNeedToggle: 'rules.element.suboptionsNeedToggle',
   AdjustModeOrSuppress: 'rules.element.adjustModeOrSuppress',

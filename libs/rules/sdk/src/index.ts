@@ -110,7 +110,17 @@ export {
 export { type AncestryEntry, ContentRegistry, type CreatureEntry, type StatisticEntry } from './content-registry';
 export { StatisticData, StatisticDefinition, StatisticId, StatisticKind, StatisticKindSchema } from './statistic';
 export { CreatureData, CreatureDefinition, CreatureId } from './creature';
-export { Book, BOOK_TITLES, bookTitle, BookLabel, Books, LICENSE_LABELS, Publisher, PUBLISHER_LABELS } from './book';
+export {
+  AonSourceUrl,
+  Book,
+  BOOK_TITLES,
+  bookTitle,
+  BookLabel,
+  Books,
+  LICENSE_LABELS,
+  Publisher,
+  PUBLISHER_LABELS,
+} from './book';
 export { ContentLicense, ContentLicenseSchema } from './license';
 export { Proficiency, proficiencyBonus, ProficiencySchema } from './proficiency';
 export { Size, SizeSchema } from './size';

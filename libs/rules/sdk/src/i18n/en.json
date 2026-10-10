@@ -15,6 +15,7 @@
     },
     "book": {
       "untitled": "{book} has no title. Add its title key to BOOK_TITLES.",
+      "aonSourceUrl": "Link to the book’s page under Sources on 2e.aonprd.com, like https://2e.aonprd.com/Sources.aspx?ID=216.",
       "title": {
         "playerCore": "Player Core",
         "playerCore2": "Player Core 2",

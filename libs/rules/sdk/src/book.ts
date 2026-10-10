@@ -4,7 +4,7 @@ import * as z from 'zod';
 
 import { ContentLicense, ContentLicenseSchema } from './license';
 import { RulesMessage } from './messages';
-import { AonUrl, BookId } from './source-ref';
+import { BookId } from './source-ref';
 
 /** Who published a book. Only Paizo for now; third-party books join as they are imported. */
 export const Publisher = { Paizo: 'paizo' } as const;
@@ -35,15 +35,25 @@ export const LICENSE_LABELS: Readonly<Record<ContentLicense, BookLabel>> = {
   [ContentLicense.Homebrew]: BookLabel.parse('rules.book.license.homebrew'),
 };
 
-/** One published book in the registry (content-model.md, "Books and source references"). */
+/** A book's own page on AoN, under Sources: `https://2e.aonprd.com/Sources.aspx?ID=216`. */
+const AON_SOURCE = /^https:\/\/2e\.aonprd\.com\/Sources\.aspx\?ID=\d+$/u;
+const URL_LENGTH_MAX = 2048;
+
+export const AonSourceUrl = z
+  .string()
+  .max(URL_LENGTH_MAX)
+  .refine((value) => AON_SOURCE.test(value), issueParams(message(RulesMessage.BookAonSourceUrl)))
+  .brand<'AonSourceUrl'>();
+export type AonSourceUrl = z.infer<typeof AonSourceUrl>;
+
+/** One published book in the registry (content-model.md, "Books and source references"; ADR-0024). */
 export const Book = z.strictObject({
   id: BookId,
   publisher: z.enum(Publisher),
   license: ContentLicenseSchema,
   remaster: z.boolean(),
   released: PlainDateCodec.optional(),
-  /** The book's own page on AoN: `https://2e.aonprd.com/Sources.aspx?ID=216`. */
-  aonSourceUrl: AonUrl.optional(),
+  aonSourceUrl: AonSourceUrl.optional(),
 });
 export type Book = z.infer<typeof Book>;
 

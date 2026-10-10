@@ -84,6 +84,8 @@ describe('LegalPage', () => {
       'Monster Core',
       'Player Core 2',
     ]);
-    expect(books[0]?.textContent).toContain('Paizo · ORC License');
+    for (const book of books) {
+      expect(book.textContent).toContain('Paizo · ORC License');
+    }
   });
 });
