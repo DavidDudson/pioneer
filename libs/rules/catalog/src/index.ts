@@ -9,6 +9,13 @@ import type { ContentPackLoader } from '@pioneer/rules/sdk';
  */
 export const contentCatalog: readonly ContentPackLoader[] = [
   {
+    id: PackId.parse('core-rules'),
+    load: async () => {
+      const { coreRules } = await import('@pioneer/content/core-rules');
+      return coreRules;
+    },
+  },
+  {
     id: PackId.parse('player-core'),
     load: async () => {
       const { playerCore } = await import('@pioneer/content/player-core');
