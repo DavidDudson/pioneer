@@ -1,6 +1,14 @@
 import { describe, expect, it } from 'vitest';
 
-import { chooseSchema, openPlayground, pageText, secondTextArea, typeJson } from './playground-harness';
+import {
+  chooseIn,
+  chooseSchema,
+  openPlayground,
+  pageText,
+  secondTextArea,
+  textAreas,
+  typeJson,
+} from './playground-harness';
 
 describe('RulesPlaygroundPage grants', () => {
   it('resolves grants from the roots down, with the chain behind each entry', async () => {
@@ -30,6 +38,20 @@ describe('RulesPlaygroundPage grants', () => {
     );
 
     expect(pageText(harness)).toContain('Fighter grants itself.');
+  });
+
+  it('answers an open choice from its select and grants the pick', async () => {
+    const harness = await openPlayground();
+    await chooseSchema(harness, 'Grants');
+    expect(pageText(harness)).toContain('Choices to make');
+
+    await chooseIn(harness, 'Fighter feat (fighter:4)', 'Sudden Charge');
+
+    const text = pageText(harness);
+    expect(text).toContain('Picked sudden-charge');
+    expect(text).toContain('weapon-group:sword');
+    expect(text).not.toContain('Choices to make');
+    expect(textAreas(harness).some((area) => area.value.includes('fighter:4 = sudden-charge'))).toBe(true);
   });
 
   it('flags a root that is not a slug', async () => {

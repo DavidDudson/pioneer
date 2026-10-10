@@ -1,9 +1,9 @@
-export type { ContentLookup, GrantEntry, GrantRoot } from './grant-entry';
+export { type AnsweredSlot, type ChoicePicks, type ChoiceSlot, type OfferedOption, slotKeyOf } from './choices';
+export type { ContentLookup, GrantEntry, GrantError, GrantRoot } from './grant-entry';
 export { GrantsMessage } from './messages';
 export {
   type ConditionalGrant,
   type GrantedItem,
-  type GrantError,
   type GrantInputs,
   type GrantResolution,
   resolveGrants,

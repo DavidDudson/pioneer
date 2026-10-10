@@ -23,6 +23,23 @@
       <fr-field-hint>{{ 'play.rules.grantRootsHint' | transloco }}</fr-field-hint>
     }
   </fr-field>
+  <fr-field [invalid]="badPicks().length > 0">
+    <fr-label>{{ 'play.rules.grantPicksLabel' | transloco }}</fr-label>
+    <fr-text-area monospace [rows]="pickRows" [(value)]="picks" />
+    @if (badPicks().length > 0) {
+      <fr-field-error>{{
+        'play.rules.badPicks' | transloco: { count: badPicks().length, lines: lineList(badPicks()) }
+      }}</fr-field-error>
+    } @else {
+      <fr-field-hint>{{ 'play.rules.grantPicksHint' | transloco }}</fr-field-hint>
+    }
+  </fr-field>
+  @for (slot of openSlots(); track slot.slot) {
+    <fr-field>
+      <fr-label>{{ 'play.rules.openSlotLabel' | transloco: { title: slot.title, slot: slot.slot } }}</fr-label>
+      <fr-select [options]="slot.options" (valueChange)="answer(slot.slot, $event)" />
+    </fr-field>
+  }
   <fr-field [invalid]="badFacts().length > 0">
     <fr-label>{{ 'play.rules.factsLabel' | transloco }}</fr-label>
     <fr-text-area monospace [rows]="factRows" [(value)]="facts" />

@@ -3,13 +3,14 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { Heading, LocaleFormat, Stack, Text } from '@pioneer/frontier';
 import { formatSummary } from '@pioneer/rules/predicate';
+import type { PredicateSummary } from '@pioneer/rules/predicate';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 import { filter, merge } from 'rxjs';
 
 import { GrantList } from '../grant-list/grant-list.component';
 import type { ShownRow } from '../grant-list/grant-list.component';
 import { GrantsStatus } from '../grants-check';
-import type { ConditionalRow, GrantsCheck } from '../grants-check';
+import type { GrantsCheck } from '../grants-check';
 import { RulesResult } from '../rules-result/rules-result.component';
 
 /** Between the entries on a grant chain; an arrow reads the same in every locale. */
@@ -19,14 +20,26 @@ interface ShownGrants {
   readonly items: readonly ShownRow[];
   readonly duplicates: readonly ShownRow[];
   readonly conditional: readonly ShownRow[];
+  readonly open: readonly ShownRow[];
+  readonly answered: readonly ShownRow[];
+  readonly rollOptions: readonly ShownRow[];
   readonly errors: readonly ShownRow[];
 }
 
-const NO_ROWS: ShownGrants = { items: [], duplicates: [], conditional: [], errors: [] };
+const NO_ROWS: ShownGrants = {
+  items: [],
+  duplicates: [],
+  conditional: [],
+  open: [],
+  answered: [],
+  rollOptions: [],
+  errors: [],
+};
 
 /**
  * The entries on the character with the chain that put each there, the grants skipped as already there, those
- * that depend on the situation, and what failed. Problems with the entries show instead.
+ * that depend on the situation, the choices to make and made, the roll options the picks set, and what failed.
+ * Problems with the entries show instead.
  */
 @Component({
   selector: 'pio-grants-result',
@@ -56,8 +69,23 @@ export class GrantsResult {
       duplicates: result.duplicates.map((row) => ({ title: row.name, details: this.#via(row.via) })),
       conditional: result.conditional.map((row) => ({
         title: row.name,
-        details: [...this.#via(row.via), this.#i18n.translate('play.rules.summary', { summary: this.#summary(row) })],
+        details: [
+          ...this.#via(row.via),
+          this.#i18n.translate('play.rules.summary', { summary: this.#summary(row.summary) }),
+        ],
       })),
+      open: result.open.map((row) => ({
+        title: row.title,
+        details: [
+          ...this.#slot(row.slot, row.via),
+          ...row.options.map(({ value, label, summary }) => this.#option(label, value, summary)),
+        ],
+      })),
+      answered: result.answered.map((row) => ({
+        title: row.title,
+        details: [...this.#slot(row.slot, row.via), this.#i18n.translate('play.rules.picked', { pick: row.pick })],
+      })),
+      rollOptions: result.rollOptions.map((option) => ({ title: option, details: [] })),
       errors: result.errors.map((row) => ({ title: this.#translate(row.error), details: this.#via(row.via) })),
     };
   });
@@ -73,8 +101,20 @@ export class GrantsResult {
       : [this.#i18n.translate('play.rules.grantedThrough', { path: via.join(PATH_SEPARATOR) })];
   }
 
-  #summary(row: ConditionalRow): string {
-    return formatSummary(row.summary, {
+  /** The slot as typed, and the chain to its entry. */
+  #slot(slot: string, via: readonly string[]): string[] {
+    return [this.#i18n.translate('play.rules.slot', { slot }), ...this.#via(via)];
+  }
+
+  /** An option the slot offers, with when it holds for one that depends on the situation. */
+  #option(label: string, value: string, summary: PredicateSummary | undefined): string {
+    return summary === undefined
+      ? this.#i18n.translate('play.rules.option', { label, value })
+      : this.#i18n.translate('play.rules.conditionalOption', { label, value, summary: this.#summary(summary) });
+  }
+
+  #summary(summary: PredicateSummary): string {
+    return formatSummary(summary, {
       message: (descriptor) => this.#translate(descriptor),
       list: (items, style): string => this.#format.list(items, style),
     });

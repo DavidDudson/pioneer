@@ -57,3 +57,18 @@ export function pageText(harness: RouterTestingHarness): string {
 export function secondTextArea(harness: RouterTestingHarness): HTMLTextAreaElement {
   return present(present(harness.routeNativeElement).querySelectorAll('textarea').item(1));
 }
+
+export function textAreas(harness: RouterTestingHarness): HTMLTextAreaElement[] {
+  return [...present(harness.routeNativeElement).querySelectorAll('textarea')];
+}
+
+/** Opens the select in the field labelled `label` and picks the option `option`. */
+export async function chooseIn(harness: RouterTestingHarness, label: string, option: string): Promise<void> {
+  const fields = [...present(harness.routeNativeElement).querySelectorAll<HTMLElement>('fr-field')];
+  const field = present(fields.find((candidate) => candidate.querySelector('fr-label')?.textContent.trim() === label));
+  present(field.querySelector('button')).click();
+  await harness.fixture.whenStable();
+  const options = [...document.querySelectorAll<HTMLElement>('[role="option"]')];
+  present(options.find((candidate) => candidate.textContent.trim() === option)).click();
+  await harness.fixture.whenStable();
+}

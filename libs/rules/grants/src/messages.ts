@@ -3,4 +3,7 @@ export const GrantsMessage = {
   UnknownEntry: 'grants.unknownEntry',
   Cycle: 'grants.cycle',
   TooDeep: 'grants.tooDeep',
+  PickNotOffered: 'grants.pickNotOffered',
+  UnknownChoice: 'grants.unknownChoice',
+  PickNotEntry: 'grants.pickNotEntry',
 } as const;

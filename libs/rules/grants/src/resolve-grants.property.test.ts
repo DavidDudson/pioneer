@@ -7,7 +7,7 @@ import type { Arbitrary } from 'fast-check';
 import type { GrantEntry } from './grant-entry';
 import { resolveGrants } from './resolve-grants';
 import type { GrantResolution } from './resolve-grants';
-import { entry, grantOf, idOf, lookupOf, picked } from './testing/builders';
+import { entry, grantOf, idOf, lookupOf, picked, picksOf } from './testing/builders';
 
 const ENTRIES_MAX = 10;
 
@@ -40,6 +40,7 @@ function resolve(content: readonly GrantEntry[], roots: readonly number[]): Gran
     roots: roots.map((index) => picked(slugOf(index))),
     lookup: lookupOf(content),
     facts: new PredicateFacts([]),
+    picks: picksOf(),
   });
 }
 
