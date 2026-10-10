@@ -27,6 +27,10 @@
       "label": "Load more",
       "failed": "Could not load more. Try again."
     },
+    "meter": {
+      "valueText": "{value} of {max}",
+      "fraction": "{value}/{max}"
+    },
     "searchInput": {
       "clear": "Clear search"
     },

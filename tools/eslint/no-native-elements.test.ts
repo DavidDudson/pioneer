@@ -20,6 +20,7 @@ tester.run('no-native-elements', noNativeElements, {
     { filename: FEATURE, code: `<ng-container><router-outlet /></ng-container>` },
     { filename: frontier('layout/box/box.component.html'), code: `<div><span><ng-content /></span></div>` },
     { filename: frontier('media/image/image.component.html'), code: `<img />` },
+    { filename: frontier('feedback/meter/meter.component.html'), code: `<meter></meter>` },
     {
       filename: frontier('shell/shell.component.html'),
       code: `<header></header><nav></nav><main></main><footer></footer>`,
@@ -53,12 +54,12 @@ tester.run('no-native-elements', noNativeElements, {
       code: `<tanstack-chart />`,
       errors: [{ messageId: 'owned' }],
     },
-    ...['pre', 'code', 'kbd', 'abbr', 'q', 'blockquote'].map((name) => ({
+    ...['pre', 'code', 'kbd', 'abbr', 'q', 'blockquote', 'meter'].map((name) => ({
       filename: frontier('layout/card/card.component.html'),
       code: `<${name}></${name}>`,
       errors: [{ messageId: 'owned' }],
     })),
-    ...['cite', 'fieldset', 'legend', 'progress', 'meter', 'output', 'picture', 'video', 'audio', 'canvas', 'h5'].map(
+    ...['cite', 'fieldset', 'legend', 'progress', 'output', 'picture', 'video', 'audio', 'canvas', 'h5'].map(
       (name) => ({
         filename: frontier('layout/card/card.component.html'),
         code: `<${name}></${name}>`,

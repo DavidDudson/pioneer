@@ -38,6 +38,8 @@
   --fr-size-avatar-sm: 2rem;
   --fr-size-avatar-md: 3rem;
   --fr-size-avatar-lg: 5rem;
+  /* fr-meter's bar and segment height. */
+  --fr-size-meter: 0.5rem;
   --fr-aspect-square: 1 / 1;
   --fr-aspect-portrait: 3 / 4;
   --fr-aspect-landscape: 4 / 3;
