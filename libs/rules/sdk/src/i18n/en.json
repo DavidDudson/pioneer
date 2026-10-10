@@ -127,7 +127,12 @@
       "duplicate": "{value} is listed more than once."
     },
     "deity": {
-      "spellRank": "A deity grants one spell per rank, and rank {rank} already has one."
+      "spellRank": "A deity grants one spell per rank, and rank {rank} already has one.",
+      "skill": "A divine skill is a skill selector, like skill:medicine.",
+      "philosophy": "A philosophy grants no divine font, domains or spells; leave this empty."
+    },
+    "feat": {
+      "onlyLevel1": "A feat taken only at 1st level must be a 1st-level feat."
     }
   }
 }

@@ -239,6 +239,37 @@ describe('build kinds', () => {
     ]);
   });
 
+  test('a philosophy grants no font, domains or spells', () => {
+    const philosophy = { ...pharasma, data: { ...pharasma.data, category: 'philosophy' } };
+    const empty = {
+      ...philosophy,
+      data: { ...philosophy.data, domains: { primary: [], alternate: [] }, font: [], spells: [] },
+    };
+
+    expect(found(philosophy)).toStrictEqual([
+      `data.domains.alternate ${RulesMessage.DeityPhilosophy}`,
+      `data.domains.primary ${RulesMessage.DeityPhilosophy}`,
+      `data.font ${RulesMessage.DeityPhilosophy}`,
+      `data.spells ${RulesMessage.DeityPhilosophy}`,
+    ]);
+    expect(issues(empty)).toStrictEqual([]);
+  });
+
+  test('divine skills are skill selectors', () => {
+    expect(found({ ...pharasma, data: { ...pharasma.data, skills: ['skill:lore-boneyard', 'ac'] } })).toStrictEqual([
+      `data.skills.1 ${RulesMessage.DeitySkill}`,
+    ]);
+  });
+
+  test('a feat taken only at 1st level is a 1st-level feat', () => {
+    const lineage = { ...suddenCharge, data: { ...suddenCharge.data, onlyLevel1: true } };
+
+    expect(issues(lineage)).toStrictEqual([]);
+    expect(issues({ ...lineage, level: 2 })).toStrictEqual([
+      { path: ['level'], message: message(RulesMessage.FeatOnlyLevel1) },
+    ]);
+  });
+
   test('rejects data fields a kind does not have', () => {
     expect(found({ ...farmhand, data: { ...farmhand.data, trainedSkills: ['athletics'] } })).toStrictEqual([
       `data.trainedSkills ${ValidationMessage.UnrecognizedKeys}`,

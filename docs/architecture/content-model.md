@@ -108,15 +108,17 @@ Lists of attributes, slugs and ids name each item once.
   behind the level it opens at. Foundry's `classFeatLevels` and the other level lists have no field here.
 - **Feats.** `category` is Foundry's: `ancestry`, `class`, `general`, `skill` or `bonus`; an archetype feat is a
   class feat with the `archetype` trait. `maxTakable` is a count or `unlimited` (Foundry's `null`), once when
-  absent. `action` is an `action` kind's `data`, for a feat or class feature used as an action. The sheet placement
-  override is the envelope's `display`. Foundry's feature categories on the same item type go elsewhere:
+  absent. A feat with `onlyLevel1` must be level 1. `action` is an `action` kind's `data`, for a feat or class
+  feature used as an action. The sheet placement override is the envelope's `display`. Foundry's feature
+  categories on the same item type go elsewhere:
   `classfeature` is the `class-feature` kind, and `ancestryfeature`, `calling`, `curse`, `deityboon` and `pfsboon`
   have no kind yet, so the importer reports them.
 - **Archetypes.** Foundry keeps them as journal pages; the importer builds the entry from the dedication feat.
 - **Deities.** `category` is `deity`, `pantheon`, `covenant` or `philosophy`. `sanctification` is `can` or `must`
   with `holy` and/or `unholy`. `domains` has `primary` and `alternate` domain slugs, `font` is `harm` and/or `heal`,
   `skills` are statistic selectors, `weapons` base weapon slugs until weapons are content, and `spells` one spell
-  per rank from 1 to 10. A deity on a character sets `deity:primary:<slug>`, as Foundry does.
+  per rank from 1 to 10. A philosophy has no font, domains or spells, and divine skills must be `skill:` selectors.
+  A deity on a character sets `deity:primary:<slug>`, as Foundry does.
 
 ### Rich text
 

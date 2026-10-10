@@ -51,6 +51,7 @@ const KNOWN_KINDS: ReadonlySet<unknown> = new Set(REGISTERED_KINDS);
 const TRAITS_MAX = 32;
 const SOURCES_MAX = 8;
 const SUPERSEDES_MAX = 8;
+const FIRST_LEVEL = 1;
 
 /** Where an entry lives; `kind` follows, then the rest of the envelope (content-model.md, "Content entry"). */
 const address = { id: ContentId, pack: PackId };
@@ -230,6 +231,14 @@ function checkSupersedes(context: EntryCheck): void {
   }
 }
 
+/** A feat only taken at 1st level is a 1st-level feat. */
+function checkOnlyLevel1(context: EntryCheck): void {
+  const entry = context.value;
+  if (entry.kind === ContentKind.Feat && entry.data.onlyLevel1 === true && entry.level !== FIRST_LEVEL) {
+    push(context, ['level'], message(RulesMessage.FeatOnlyLevel1));
+  }
+}
+
 /** Every condition a condition implies is applied by an unconditional `GrantItem` of it in `rules`. */
 function checkImplies(context: EntryCheck): void {
   const entry = context.value;
@@ -274,5 +283,6 @@ export const ContentEntry: z.ZodType<ContentEntry> = z
       checkTraits(context);
       checkSupersedes(context);
       checkImplies(context);
+      checkOnlyLevel1(context);
     }),
   );

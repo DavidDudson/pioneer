@@ -5,9 +5,7 @@ import {
   constantFrom,
   integer,
   oneof,
-  option,
   record,
-  shuffledSubarray,
   stringMatching,
   tuple,
   uniqueArray,
@@ -22,111 +20,47 @@ import { DisplayCategory, Rarity } from '../content-entry';
 import { contentId, PackId, Slug } from '../content-id';
 import { ContentKind } from '../content-kind';
 import { DamageType } from '../damage';
-import { DeityCategory, DivineFont, Sanctification, SanctificationModal, SPELL_RANK_MAX } from '../deity';
 import { FeatCategory, UNLIMITED } from '../feat';
 import type { RegisteredKind } from '../kind-data';
 import { ActionCost } from '../rich-text';
 import { SenseAcuity } from '../sense';
-import { Size } from '../size';
 import { StatisticKind } from '../statistic';
 import { CONTENT_LEVEL_MAX, LEVEL_MAX, LEVEL_MIN } from '../units';
 import { actorFormulaText, keyPathText } from './arbitraries';
+import {
+  ancestryData,
+  archetypeData,
+  backgroundData,
+  classData,
+  deityOrPhilosophyData,
+  heritageData,
+} from './build-kind-arbitraries';
+import {
+  contentIdJson,
+  LIST_MAX,
+  positive,
+  size,
+  SMALLINT_MAX,
+  slugText,
+  smallint,
+  withOptional,
+} from './json-arbitraries';
 import { richTextJson } from './rich-text-arbitraries';
 import { ruleElementJson } from './rule-element-arbitraries';
 
-const LIST_MAX = 3;
-/** The most boosts the ancestry schema allows. */
-const ANCESTRY_BOOSTS_MAX = 4;
-const SMALLINT_MAX = 32_767;
-const SLUG_WORDS_MAX = 3;
 const AON_ID_MAX = 99_999;
 
-const word: Arbitrary<string> = stringMatching(/^[a-z\d]{1,6}$/u);
-/** Kebab-case: pack ids, slugs, traits. */
-export const slugText: Arbitrary<string> = array(word, { minLength: 1, maxLength: SLUG_WORDS_MAX }).map((words) =>
-  words.join('-'),
-);
 const contentText: Arbitrary<string> = stringMatching(/^[A-Za-z][A-Za-z ]{0,19}$/u);
-const smallint: Arbitrary<number> = integer({ min: 0, max: SMALLINT_MAX });
 const modifier: Arbitrary<number> = integer({ min: -SMALLINT_MAX, max: SMALLINT_MAX });
 const aonUrl: Arbitrary<string> = integer({ min: 1, max: AON_ID_MAX }).map(
   (id) => `https://2e.aonprd.com/Feats.aspx?ID=${id}`,
 );
 
-type OptionalEntry = readonly [string, unknown];
-
-/** Builds a record whose optional keys are left out (not set to undefined) when absent. */
-function withOptional<TRequired extends object>(
-  required: Arbitrary<TRequired>,
-  optional: Readonly<Record<string, Arbitrary<unknown>>>,
-): Arbitrary<object> {
-  const optionals = Object.entries(optional).map(([key, value]) =>
-    option(value, { nil: undefined }).map((picked): OptionalEntry => [key, picked]),
-  );
-  return tuple(required, ...optionals).map(([fields, ...entries]): object => {
-    const present = entries.filter(([, picked]) => picked !== undefined);
-    return Object.fromEntries([...Object.entries(fields), ...present]);
-  });
-}
-
-const size: Arbitrary<string> = constantFrom(...Object.values(Size));
-const positive: Arbitrary<number> = integer({ min: 1, max: SMALLINT_MAX });
 const damageType: Arbitrary<string> = constantFrom(...Object.values(DamageType));
 const rarity: Arbitrary<string> = constantFrom(...Object.values(Rarity));
 const displayCategory: Arbitrary<string> = constantFrom(...Object.values(DisplayCategory));
 const statisticKind: Arbitrary<string> = constantFrom(...Object.values(StatisticKind));
 const attribute: Arbitrary<string> = constantFrom(...Object.values(Attribute));
-
-const attributes: Arbitrary<string[]> = shuffledSubarray(Object.values(Attribute));
-const boost: Arbitrary<string[]> = shuffledSubarray(Object.values(Attribute), { minLength: 1 });
-const contentIdJson: Arbitrary<string> = uuid({ version: 4 });
-const contentIds: Arbitrary<string[]> = uniqueArray(contentIdJson, { maxLength: LIST_MAX });
-
-const ancestryData: Arbitrary<object> = withOptional(
-  record({
-    hitPoints: smallint,
-    size,
-    speed: smallint,
-    boosts: array(boost, { maxLength: ANCESTRY_BOOSTS_MAX }),
-    flaws: attributes,
-    languages: contentIds,
-    additionalLanguages: record({ count: smallint, options: contentIds }),
-    reach: smallint,
-  }),
-  { vision: contentIdJson },
-);
-
-const heritageData: Arbitrary<object> = withOptional(constant({}), { ancestry: contentIdJson });
-const backgroundData: Arbitrary<object> = record({ boosts: array(boost, { maxLength: 2 }) });
-const classData: Arbitrary<object> = record({ keyAttribute: boost, hitPoints: smallint, additionalSkills: smallint });
-const archetypeData: Arbitrary<object> = withOptional(record({ dedication: contentIdJson }), {
-  multiclass: contentIdJson,
-});
-
-const slugs: Arbitrary<string[]> = uniqueArray(slugText, { maxLength: LIST_MAX });
-const deityCategory: Arbitrary<string> = constantFrom(...Object.values(DeityCategory));
-const fonts: Arbitrary<string[]> = shuffledSubarray(Object.values(DivineFont));
-const selectors: Arbitrary<string[]> = uniqueArray(keyPathText, { maxLength: LIST_MAX });
-const SPELL_RANKS = Array.from({ length: SPELL_RANK_MAX }, (_unused, index) => index + 1);
-const deitySpell = (rank: number): Arbitrary<object> => record({ rank: constant(rank), spell: contentIdJson });
-/** Spells at distinct ranks. */
-const deitySpells: Arbitrary<object[]> = shuffledSubarray(SPELL_RANKS, { maxLength: SPELL_RANK_MAX }).chain((ranks) =>
-  tuple(...ranks.map((rank) => deitySpell(rank))),
-);
-const sanctificationModal: Arbitrary<string> = constantFrom(...Object.values(SanctificationModal));
-const sanctified: Arbitrary<string[]> = shuffledSubarray(Object.values(Sanctification), { minLength: 1 });
-const deityData: Arbitrary<object> = withOptional(
-  record({
-    category: deityCategory,
-    domains: record({ primary: slugs, alternate: slugs }),
-    font: fonts,
-    attributes,
-    skills: selectors,
-    weapons: slugs,
-    spells: deitySpells,
-  }),
-  { sanctification: record({ modal: sanctificationModal, what: sanctified }) },
-);
 
 const attributeModifier: Arbitrary<number> = integer({ min: ATTRIBUTE_MODIFIER_MIN, max: ATTRIBUTE_MODIFIER_MAX });
 const adjustments: Arbitrary<object[]> = array(record({ type: damageType, value: positive }), { maxLength: LIST_MAX });
@@ -222,7 +156,7 @@ const KIND_ARBITRARIES: Readonly<
   [ContentKind.Condition]: { data: conditionData },
   [ContentKind.Creature]: { data: creatureData, level: creatureLevel },
   [ContentKind.DamageType]: { data: emptyData },
-  [ContentKind.Deity]: { data: deityData },
+  [ContentKind.Deity]: { data: deityOrPhilosophyData },
   [ContentKind.Feat]: { data: featData, level: entryLevel },
   [ContentKind.Heritage]: { data: heritageData },
   [ContentKind.Language]: { data: emptyData },
@@ -295,5 +229,11 @@ export function contentEntryJson(kind: RegisteredKind): Arbitrary<object> {
     externalIds,
     // A random UUID never equals a UUIDv5 id, so these never supersede the entry itself.
     supersedes: array(uuid({ version: 4 }), { maxLength: LIST_MAX }),
-  });
+  }).map((json) => (onlyLevel1(json) ? Object.assign(json, { level: 1 }) : json));
+}
+
+/** A feat taken only at 1st level, which must then be level 1. */
+function onlyLevel1(json: object): boolean {
+  const data: unknown = Reflect.get(json, 'data');
+  return typeof data === 'object' && data !== null && Reflect.get(data, 'onlyLevel1') === true;
 }
