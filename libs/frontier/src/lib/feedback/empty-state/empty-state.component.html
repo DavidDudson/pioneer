@@ -1,0 +1,12 @@
+<fr-stack direction="horizontal" gap="sm" align="start">
+  @if (icon(); as icon) {
+    <fr-icon size="md" tone="muted" [icon]="icon" />
+  }
+  <fr-stack gap="2xs" grow>
+    <fr-text element="p" weight="medium">{{ title() }}</fr-text>
+    @if (description(); as description) {
+      <fr-text element="p" tone="muted">{{ description }}</fr-text>
+    }
+    <div [class]="actionClasses"><ng-content /></div>
+  </fr-stack>
+</fr-stack>
