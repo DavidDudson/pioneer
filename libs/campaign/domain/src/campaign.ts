@@ -152,12 +152,10 @@ export class Campaign {
     if (member.role === CampaignRole.Gm) {
       return this;
     }
-    const members = this.members.map(
-      (candidate): CampaignMember => ({
-        ...candidate,
-        role: candidate.id === memberId ? CampaignRole.Gm : CampaignRole.Player,
-      }),
-    );
+    const members = this.members.map((candidate): CampaignMember => ({
+      ...candidate,
+      role: candidate.id === memberId ? CampaignRole.Gm : CampaignRole.Player,
+    }));
     return new Campaign({ ...this.toProps(), version: nextVersion(this.version), gmId: member.userId, members });
   }
 

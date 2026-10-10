@@ -3,6 +3,7 @@ import { CampaignContract, CampaignId, CampaignRole } from '@pioneer/campaign/do
 import type {
   Campaign,
   CampaignInviteId,
+  CampaignMemberId,
   CampaignRoster,
   CreateCampaignBody,
   InviteSummary,
@@ -125,5 +126,33 @@ export class CampaignStore {
     await this.#client.invalidateQueries({ queryKey: campaignKeys.list(), refetchType: 'none' });
     await this.#client.invalidateQueries({ queryKey: campaignKeys.roster(campaign.id), refetchType: 'none' });
     return campaign;
+  }
+
+  /**
+   * The GM removes a player. Their row stays until the roster next loads, so the focused button and its
+   * confirmation survive; the campaign's member count refreshes now.
+   */
+  public async removeMember(id: CampaignId, memberId: CampaignMemberId): Promise<void> {
+    await this.#api.call(CampaignContract.removeMember, { params: { id, memberId }, body: undefined });
+    await this.#client.invalidateQueries({ queryKey: campaignKeys.roster(id), refetchType: 'none' });
+    await this.#client.invalidateQueries({ queryKey: campaignKeys.detail(id) });
+  }
+
+  /** The GM hands the role to another member; the user is a player after, so their invite list goes. */
+  public async transferGm(id: CampaignId, memberId: CampaignMemberId): Promise<void> {
+    const roster = await this.#api.call(CampaignContract.transferGm, { params: { id }, body: { memberId } });
+    await this.#client.cancelQueries({ queryKey: campaignKeys.roster(id) });
+    this.#client.setQueryData(campaignKeys.roster(id), roster);
+    this.#client.removeQueries({ queryKey: campaignKeys.invites(id) });
+    await this.#client.invalidateQueries({ queryKey: campaignKeys.detail(id) });
+  }
+
+  /** The user leaves the campaign; nothing of it is theirs to see after. */
+  public async leave(id: CampaignId): Promise<void> {
+    await this.#api.call(CampaignContract.leave, { params: { id }, body: undefined });
+    for (const key of [campaignKeys.detail(id), campaignKeys.roster(id), campaignKeys.invites(id)]) {
+      this.#client.removeQueries({ queryKey: key });
+    }
+    await this.#client.invalidateQueries({ queryKey: campaignKeys.list(), refetchType: 'none' });
   }
 }

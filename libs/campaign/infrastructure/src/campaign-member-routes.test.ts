@@ -104,7 +104,8 @@ describe('member routes', () => {
       request('DELETE', `/campaigns/${vaults.id}/members/${memberId(vaults, amiri)}`, { as: amiri }),
     );
     expect(response.status).toBe(403);
-    expect((await json<Problem>(response)).message).toStrictEqual({ key: 'campaign.members.gmNotRemovable' });
+    const problem = await json<Problem>(response);
+    expect(problem.message).toStrictEqual({ key: 'campaign.members.gmNotRemovable' });
   });
 
   test('a player gets 403 on GM actions; a stranger gets 404', async () => {
@@ -170,6 +171,7 @@ describe('member routes', () => {
 
     const gm = await api.handle(request('POST', `/campaigns/${vaults.id}/leave`, { as: amiri }));
     expect(gm.status).toBe(403);
-    expect((await json<Problem>(gm)).message).toStrictEqual({ key: 'campaign.members.gmCannotLeave' });
+    const refusal = await json<Problem>(gm);
+    expect(refusal.message).toStrictEqual({ key: 'campaign.members.gmCannotLeave' });
   });
 });

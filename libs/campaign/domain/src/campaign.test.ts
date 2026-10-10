@@ -37,7 +37,8 @@ describe('Campaign', () => {
     expect(removed.roleOf(ezren)).toBeUndefined();
     expect(removed.members.map((member) => member.userId)).toStrictEqual([fixtureGmId]);
     expect(removed.version).toBe(nextVersion(campaign.version));
-    expect(campaign.withoutMember(CampaignMemberId.parse(newId()))).toBe(campaign);
+    const unknown = CampaignMemberId.parse(newId());
+    expect(campaign.withoutMember(unknown)).toBe(campaign);
   });
 
   test('withoutMember never removes the GM', () => {

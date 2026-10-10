@@ -162,7 +162,9 @@ describe.skipIf(adminUrl === undefined)('DrizzleCampaignRepository (postgres)', 
   });
 
   test('every query the repository issued is served by an index', async () => {
-    const party = await repository.insert(new CampaignBuilder().named('Fists of the Ruby Phoenix').withPlayer(ezren).build());
+    const party = await repository.insert(
+      new CampaignBuilder().named('Fists of the Ruby Phoenix').withPlayer(ezren).build(),
+    );
     const handed = party.withGm(memberOf(party, ezren).id);
     await repository.updateMembers(handed, party.version);
     await repository.updateMembers(handed.withoutMember(memberOf(party, fixtureGmId).id), handed.version);

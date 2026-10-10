@@ -17,22 +17,55 @@
         </fr-stack>
       </ng-template>
       <ng-template let-roster [frAsyncData]="store.roster">
-        <fr-list gap="sm">
-          @for (member of roster.members; track member.id) {
-            <fr-list-item>
-              <fr-stack direction="horizontal" gap="sm" align="center">
-                <fr-avatar size="sm" decorative [name]="member.displayName" />
-                <fr-stack gap="3xs" grow>
-                  <fr-text weight="medium">{{ member.displayName }}</fr-text>
-                  <fr-text variant="caption" tone="subtle"
-                    >{{ 'campaign.roster.joined' | transloco }} <fr-date [value]="member.joinedAt"
-                  /></fr-text>
+        <fr-stack gap="md">
+          <fr-list gap="sm">
+            @for (member of roster.members; track member.id) {
+              <fr-list-item>
+                <fr-stack direction="horizontal" gap="sm" align="center" wrap>
+                  <fr-avatar size="sm" decorative [name]="member.displayName" />
+                  <fr-stack gap="3xs" grow>
+                    <fr-text weight="medium">{{ member.displayName }}</fr-text>
+                    <fr-text variant="caption" tone="subtle"
+                      >{{ 'campaign.roster.joined' | transloco }} <fr-date [value]="member.joinedAt"
+                    /></fr-text>
+                  </fr-stack>
+                  <fr-badge>{{ roleLabel[member.role] | transloco }}</fr-badge>
+                  @if (removed().has(member.id)) {
+                    <fr-badge>{{ 'campaign.members.removed' | transloco }}</fr-badge>
+                  } @else if (roster.viewerRole === role.Gm && member.role === role.Player) {
+                    <fr-stack direction="horizontal" gap="xs" wrap>
+                      <fr-button size="sm" (pressed)="ask(change.Transfer, member)">{{
+                        'campaign.members.transfer' | transloco
+                      }}</fr-button>
+                      <fr-button size="sm" (pressed)="ask(change.Remove, member)">{{
+                        'campaign.members.remove' | transloco
+                      }}</fr-button>
+                    </fr-stack>
+                  }
                 </fr-stack>
-                <fr-badge>{{ roleLabel[member.role] | transloco }}</fr-badge>
-              </fr-stack>
-            </fr-list-item>
+              </fr-list-item>
+            }
+          </fr-list>
+
+          @if (roster.viewerRole === role.Player) {
+            <fr-stack align="start">
+              <fr-button (pressed)="ask(change.Leave)">{{ 'campaign.members.leave' | transloco }}</fr-button>
+            </fr-stack>
+          } @else {
+            <fr-text variant="caption" tone="muted">{{ 'campaign.members.gmLeaveHint' | transloco }}</fr-text>
           }
-        </fr-list>
+
+          @if (confirming(); as asked) {
+            <pio-campaign-member-confirm
+              [text]="changeText[asked.change]"
+              [name]="asked.name"
+              [action]="confirmAction()"
+              [describeError]="describeError"
+              [settled]="settled()"
+              (cancelled)="cancel()"
+            />
+          }
+        </fr-stack>
       </ng-template>
     </fr-async-region>
   </fr-stack>

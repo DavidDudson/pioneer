@@ -122,19 +122,19 @@ describe('CampaignService roster', () => {
   });
 });
 
+function memberOf(campaign: Campaign, userId: UserId): CampaignMember {
+  const member = campaign.members.find((candidate) => candidate.userId === userId);
+  if (member === undefined) {
+    throw new Error(`No member ${userId}`);
+  }
+  return member;
+}
+
 describe('CampaignService member management', () => {
   const seelah = UserId.parse(newId());
   let campaigns: InMemoryCampaignRepository;
   let service: CampaignService;
   let party: Campaign;
-
-  function memberOf(campaign: Campaign, userId: UserId): CampaignMember {
-    const member = campaign.members.find((candidate) => candidate.userId === userId);
-    if (member === undefined) {
-      throw new Error(`No member ${userId}`);
-    }
-    return member;
-  }
 
   beforeEach(async () => {
     campaigns = new InMemoryCampaignRepository();
@@ -162,9 +162,7 @@ describe('CampaignService member management', () => {
     const stranger = UserId.parse(newId());
     const seelahId = memberOf(party, seelah).id;
     expect(await rejection(service.removeMember(ezren, party.id, seelahId))).toBeInstanceOf(ForbiddenError);
-    expect(await rejection(service.transferGm(ezren, party.id, { memberId: seelahId }))).toBeInstanceOf(
-      ForbiddenError,
-    );
+    expect(await rejection(service.transferGm(ezren, party.id, { memberId: seelahId }))).toBeInstanceOf(ForbiddenError);
     expect(await rejection(service.removeMember(stranger, party.id, seelahId))).toBeInstanceOf(NotFoundError);
     expect(await rejection(service.leave(stranger, party.id))).toBeInstanceOf(NotFoundError);
   });
@@ -183,7 +181,8 @@ describe('CampaignService member management', () => {
   test('handing the role to yourself changes nothing; to a stranger is not found', async () => {
     const roster = await service.transferGm(amiri, party.id, { memberId: memberOf(party, amiri).id });
     expect(roster.viewerRole).toBe(CampaignRole.Gm);
-    expect((await service.get(amiri, party.id)).version).toBe(party.version);
+    const unchanged = await service.get(amiri, party.id);
+    expect(unchanged.version).toBe(party.version);
     const unknown = { memberId: CampaignMemberId.parse(newId()) };
     expect(await rejection(service.transferGm(amiri, party.id, unknown))).toBeInstanceOf(NotFoundError);
   });
