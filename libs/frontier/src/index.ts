@@ -38,6 +38,7 @@ export { DateDisplay, DateFormat, type DateValue } from './lib/date/date.compone
 // Feedback
 export { EmptyState } from './lib/feedback/empty-state/empty-state.component';
 export { Message, MessageTone } from './lib/feedback/message/message.component';
+export { Meter, MeterVariant } from './lib/feedback/meter/meter.component';
 export { Skeleton, SkeletonShape, SkeletonWidth } from './lib/feedback/skeleton/skeleton.component';
 export { Spinner } from './lib/feedback/spinner/spinner.component';
 

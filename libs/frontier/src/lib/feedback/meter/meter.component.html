@@ -1,0 +1,19 @@
+<meter
+  [class]="meterClasses()"
+  [attr.aria-label]="label()"
+  [attr.aria-valuetext]="'frontier.meter.valueText' | transloco: numbers()"
+  [value]="value()"
+  [min]="min()"
+  [max]="max()"
+  [attr.low]="low()"
+  [attr.high]="high()"
+  [attr.optimum]="optimum()"
+></meter>
+@if (segments(); as segments) {
+  <span aria-hidden="true" [class]="rowClasses">
+    @for (segment of segments; track $index) {
+      <span [class]="segment"></span>
+    }
+  </span>
+}
+<span aria-hidden="true" [class]="numberClasses">{{ 'frontier.meter.fraction' | transloco: numbers() }}</span>
