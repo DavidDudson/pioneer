@@ -3,6 +3,7 @@ import type { PredicateFacts, PredicateSummary } from '@pioneer/rules/predicate'
 import { ContentId, OriginHopKind, RollOption, RuleElementKey, RuleIndex, SlotKey } from '@pioneer/rules/sdk';
 import type {
   ChoiceOption,
+  ChoiceQuery,
   ChoiceSetElement,
   ChoiceValue,
   ContentText,
@@ -13,8 +14,9 @@ import type {
 } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
 
-import type { GrantEntry, GrantError } from './grant-entry';
+import type { ContentLookup, GrantEntry, GrantError } from './grant-entry';
 import { GrantsMessage } from './messages';
+import { byCodeUnit } from './order';
 
 /** An option the player may pick. `summary` says when it applies, for one whose predicate is unknown. */
 export interface OfferedOption {
@@ -43,10 +45,11 @@ export interface AnsweredSlot extends ChoiceSlot {
 /** The character's answers, by slot. A pick for a slot no longer on the character is ignored. */
 export type ChoicePicks = ReadonlyMap<SlotKey, ChoiceValue>;
 
-/** What choices are read against: the facts for predicates, and the player's picks. */
+/** What choices are read against: the facts for predicates, the player's picks, and the content queries offer. */
 export interface ChoiceContext {
   readonly facts: PredicateFacts;
   readonly picks: ChoicePicks;
+  readonly lookup: ContentLookup;
 }
 
 /** An entry on the character and the hops down to it. */
@@ -64,7 +67,7 @@ interface Pick {
 /** Everything one entry's `ChoiceSet`s produce, and the picks that stand by flag (the first slot wins a flag). */
 export interface EntryChoices {
   readonly picks: ReadonlyMap<RuleSlug, Pick>;
-  /** Every flag the entry's inline `ChoiceSet`s declare, whether or not their slot is open. */
+  /** Every flag the entry's `ChoiceSet`s declare, whether or not their slot is open. */
   readonly flags: ReadonlySet<RuleSlug>;
   readonly open: readonly ChoiceSlot[];
   readonly answered: readonly AnsweredSlot[];
@@ -78,19 +81,14 @@ export interface GrantTarget {
   readonly hops: readonly OriginHop[];
 }
 
-/** A `ChoiceSet` whose options are listed inline; one with a `ChoiceQuery` offers content entries instead. */
-interface InlineChoiceSet extends ChoiceSetElement {
-  readonly choices: ChoiceOption[];
-}
-
-/** An inline `ChoiceSet` and its place in its entry's rules. */
+/** A `ChoiceSet` and its place in its entry's rules. */
 interface IndexedChoice {
-  readonly element: InlineChoiceSet;
+  readonly element: ChoiceSetElement;
   readonly rule: RuleIndex;
 }
 
-function isInlineChoiceSet(element: RuleElement): element is InlineChoiceSet {
-  return element.key === RuleElementKey.ChoiceSet && Array.isArray(element.choices);
+function isChoiceSet(element: RuleElement): element is ChoiceSetElement {
+  return element.key === RuleElementKey.ChoiceSet;
 }
 
 /**
@@ -101,15 +99,57 @@ export function slotKeyOf(entry: ContentId, rule: RuleIndex): SlotKey {
   return SlotKey.parse(`${entry}:${rule}`);
 }
 
-/** The options whose predicate is not false; one that is unknown carries when it would hold. */
-function offeredOptions(element: InlineChoiceSet, facts: PredicateFacts): OfferedOption[] {
-  return element.choices.flatMap(({ value, label, predicate }): OfferedOption[] => {
+/** The listed options whose predicate is not false; one that is unknown carries when it would hold. */
+function listedOptions(choices: readonly ChoiceOption[], facts: PredicateFacts): OfferedOption[] {
+  return choices.flatMap(({ value, label, predicate }): OfferedOption[] => {
     if (predicate === undefined) {
       return [{ value, label, summary: undefined }];
     }
     const truth = evaluatePredicate(predicate, facts);
     return truth === Truth.False ? [] : [{ value, label, summary: summarisePredicate(predicate, facts) }];
   });
+}
+
+/** Where a query reads a candidate entry's own roll options, apart from the character's: `item:trait:fighter`. */
+const CANDIDATE_NAMESPACE = 'item';
+
+/** Each entry's options under `item:`, built once per entry: a query reads every entry of its kind each resolution. */
+const candidateOptionsCache = new WeakMap<GrantEntry, readonly RollOption[]>();
+
+function candidateOptions(candidate: GrantEntry): readonly RollOption[] {
+  const cached = candidateOptionsCache.get(candidate);
+  if (cached !== undefined) {
+    return cached;
+  }
+  const options = candidate.rollOptions.map((option) => RollOption.parse(`${CANDIDATE_NAMESPACE}:${option}`));
+  candidateOptionsCache.set(candidate, options);
+  return options;
+}
+
+/** By name, then id, so the list a builder shows keeps its order. */
+function byLabel(left: OfferedOption, right: OfferedOption): number {
+  return byCodeUnit(left.label, right.label) || byCodeUnit(left.value, right.value);
+}
+
+/**
+ * Every entry of the query's kind whose filter is not false, read against the character's facts with the entry's
+ * own options under `item:`. One whose filter is unknown carries when it would hold. Sorted by name, then id.
+ */
+function queriedOptions({ kind, filter }: ChoiceQuery, { facts, lookup }: ChoiceContext): OfferedOption[] {
+  const offered = lookup.ofKind(kind).flatMap((candidate): OfferedOption[] => {
+    const candidateFacts = facts.with(candidateOptions(candidate));
+    const truth = evaluatePredicate(filter, candidateFacts);
+    if (truth === Truth.False) {
+      return [];
+    }
+    const summary = truth === Truth.True ? undefined : summarisePredicate(filter, candidateFacts);
+    return [{ value: candidate.id, label: candidate.name, summary }];
+  });
+  return offered.toSorted(byLabel);
+}
+
+function offeredOptions({ choices }: ChoiceSetElement, context: ChoiceContext): OfferedOption[] {
+  return Array.isArray(choices) ? listedOptions(choices, context.facts) : queriedOptions(choices, context);
 }
 
 const choiceHop = (slot: SlotKey): OriginHop => ({ kind: OriginHopKind.Choice, slot });
@@ -170,11 +210,11 @@ class ChoiceReader {
   #slot({ element, rule }: IndexedChoice): ChoiceSlot {
     const { entry, hops } = this.#at;
     const origin: Origin = { hops: [...hops], entry: entry.id, sources: [...entry.sources] };
-    const options = offeredOptions(element, this.#context.facts);
+    const options = offeredOptions(element, this.#context);
     return { key: slotKeyOf(entry.id, rule), flag: element.flag, origin, rule, prompt: element.prompt, options };
   }
 
-  #answer(element: InlineChoiceSet, slot: AnsweredSlot): void {
+  #answer(element: ChoiceSetElement, slot: AnsweredSlot): void {
     this.#answered.push(slot);
     if (!this.#picks.has(slot.flag)) {
       this.#picks.set(slot.flag, { slot: slot.key, value: slot.pick });
@@ -186,14 +226,15 @@ class ChoiceReader {
 }
 
 /**
- * Each inline `ChoiceSet` on the entry whose predicate holds, as a slot keyed by the entry and rule index. A pick
- * among the offered options answers it; with `rollOption`, it also sets `<rollOption>:<pick>`. A slot with no pick,
- * or a pick no longer on offer, is open. `ChoiceSet`s whose options come from a query are left for query resolution.
+ * Each `ChoiceSet` on the entry whose predicate holds, as a slot keyed by the entry and rule index. It offers its
+ * listed options, or the entries its query matches. A pick among the offered options answers it; with `rollOption`,
+ * it also sets `<rollOption>:<pick>`. A slot with no pick, or a pick no longer on offer, is open; so is a query that
+ * matches nothing, with an empty offer.
  */
 export function readChoices(at: EntryAt, context: ChoiceContext): EntryChoices {
   const reader = new ChoiceReader(at, context);
   for (const [index, element] of at.entry.rules.entries()) {
-    if (isInlineChoiceSet(element)) {
+    if (isChoiceSet(element)) {
       reader.read({ element, rule: RuleIndex.parse(index) });
     }
   }

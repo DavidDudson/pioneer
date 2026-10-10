@@ -26,6 +26,7 @@ import type {
 } from './choices';
 import type { ContentLookup, GrantEntry, GrantError, GrantRoot } from './grant-entry';
 import { GrantsMessage } from './messages';
+import { byCodeUnit } from './order';
 
 /** An entry on the character, with the chain of hops that put it there. */
 export interface GrantedItem {
@@ -99,14 +100,6 @@ function byEntry(left: GrantRoot, right: GrantRoot): number {
   return byCodeUnit(left.entry, right.entry) || byCodeUnit(JSON.stringify(left.hop), JSON.stringify(right.hop));
 }
 
-/** Plain code unit order, the same in every locale, so server and browser agree. */
-function byCodeUnit(left: string, right: string): number {
-  if (left === right) {
-    return 0;
-  }
-  return left < right ? -1 : 1;
-}
-
 /** Why `entry` cannot be followed from here: it is already above itself, or the chain is too long. */
 function blockedAt(entry: GrantEntry, visit: Visit): MessageDescriptor | undefined {
   const start = visit.chain.findIndex((above) => above.id === entry.id);
@@ -137,7 +130,7 @@ class GrantWalk {
   public constructor({ lookup, facts, picks }: GrantInputs) {
     this.#lookup = lookup;
     this.#facts = facts;
-    this.#context = { facts, picks };
+    this.#context = { facts, picks, lookup };
   }
 
   public get resolution(): GrantResolution {
@@ -157,7 +150,7 @@ class GrantWalk {
   }
 
   #find(id: ContentId, hops: readonly OriginHop[]): GrantEntry | undefined {
-    const entry = this.#lookup(id);
+    const entry = this.#lookup.entry(id);
     if (entry === undefined) {
       this.#errors.push({ error: message(GrantsMessage.UnknownEntry, { entry: id }), hops });
     }
@@ -265,10 +258,10 @@ class GrantWalk {
  * unless its grant allows one. A grant back to an entry above it is a cycle, reported once and not followed. A
  * missing entry is an error at its grant; the other grants still resolve.
  *
- * Each inline `ChoiceSet` whose predicate holds is a slot, keyed by its entry and rule index. A pick among the
+ * Each `ChoiceSet` whose predicate holds is a slot, keyed by its entry and rule index. A pick among the
  * offered options answers it, and a `GrantItem { choice }` on the same entry grants the picked entry behind a
- * `choice` hop. A slot with no pick, or a pick no longer on offer, is open, and its grants wait. `ChoiceSet`s whose
- * options come from a query are left for query resolution.
+ * `choice` hop. A slot with no pick, or a pick no longer on offer, is open, and its grants wait. A `ChoiceSet` with a
+ * query offers every entry of its kind whose filter is not false, reading the entry's own roll options under `item:`.
  */
 export function resolveGrants(inputs: GrantInputs): GrantResolution {
   const walk = new GrantWalk(inputs);

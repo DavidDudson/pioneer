@@ -38,6 +38,8 @@ export class PredicateFacts {
   readonly #options: ReadonlySet<string>;
   readonly #values: ReadonlyMap<string, readonly OptionValue[]>;
   readonly #namespaces: NamespaceTable;
+  /** The facts these extend, set only by `with`. */
+  #base: PredicateFacts | undefined = undefined;
 
   public constructor(options: Iterable<RollOption>, namespaces: NamespaceTable = DEFAULT_NAMESPACES) {
     this.#options = new Set<string>(options);
@@ -45,14 +47,29 @@ export class PredicateFacts {
     this.#namespaces = namespaces;
   }
 
+  /**
+   * These facts plus `options`, under the same namespaces. The base is shared, not copied, so testing many
+   * candidates (each content entry a `ChoiceSet` query offers) against one character costs only their own options.
+   */
+  public with(options: Iterable<RollOption>): PredicateFacts {
+    const extended = new PredicateFacts(options, this.#namespaces);
+    extended.#base = this;
+    return extended;
+  }
+
   /** Whether `option` is present. Takes plain text because comparisons build options from their operands. */
   public has(option: string): boolean {
-    return this.#options.has(option);
+    return this.#options.has(option) || this.#base?.has(option) === true;
   }
 
   /** Every number written after `prefix:` in a present option: `[5]` for `self:level` given `self:level:5`. */
   public values(prefix: RollOption): readonly OptionValue[] {
-    return this.#values.get(prefix) ?? NO_VALUES;
+    const own = this.#values.get(prefix) ?? NO_VALUES;
+    const inherited = this.#base?.values(prefix) ?? NO_VALUES;
+    if (inherited.length === 0) {
+      return own;
+    }
+    return own.length === 0 ? inherited : [...inherited, ...own];
   }
 
   /** Whether a missing `option` is false (known namespace) rather than unknown (situational). */
