@@ -1,0 +1,8 @@
+<section [attr.aria-labelledby]="anchor()">
+  <fr-surface>
+    <fr-stack gap="md">
+      <fr-heading variant="subheading" [level]="2" [anchor]="anchor()">{{ heading() }}</fr-heading>
+      <ng-content />
+    </fr-stack>
+  </fr-surface>
+</section>

@@ -132,9 +132,12 @@ actions, feats and features, inventory, notes).
 - Each section is a region labelled by its level 2 heading, so both the landmark list and the heading list reach
   it.
 - A section index after the shell's skip link links to each section; following a link moves focus to that
-  section's heading.
+  section's heading. Sections are `fr-section`s and the index is `fr-section-index`; the order lives in one const in
+  the sheet feature (`SHEET_SECTIONS`), which later epics extend. A section whose content has not landed yet still
+  takes its place in the order, holding an empty state.
 - In a grid of like values (attributes, skills, saves), arrow keys move between cells with roving focus, so Tab
-  crosses the grid in one stop. Enter opens a cell's inline editor and Escape cancels it, as elsewhere.
+  crosses the grid in one stop. Enter opens a cell's inline editor and Escape cancels it, as elsewhere. The grid is
+  a `toolbar` named by its section, since its cells are buttons and inline editors rather than grid cells.
 - A feature container derives a section's data; a presentational component renders it from plain inputs
   (ADR-0028). Sections that render rules data, such as defences, live in `libs/rules/ui` with their stories.
 
