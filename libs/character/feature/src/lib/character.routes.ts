@@ -21,6 +21,14 @@ export const characterRoutes: Routes = [
         }),
       },
       {
+        path: 'import/pathbuilder',
+        loadComponent: loadWithMessages(async () => {
+          const { PathbuilderImportPage } =
+            await import('./import/pathbuilder-import-page/pathbuilder-import-page.component');
+          return PathbuilderImportPage;
+        }),
+      },
+      {
         path: ':id',
         // Opening a character is the likely next step from the list.
         data: PREFETCH_WHEN_IDLE,

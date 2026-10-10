@@ -128,7 +128,12 @@ the breakdown lists who set it, when and why. A GM can add overrides to campaign
 
 - **Pathbuilder import:** read Pathbuilder's JSON export, map names to entries via `externalIds.pathbuilder` and
   name matching, fill slots, and report anything unmatched. Their computed totals are used as a check: after
-  import, differences between their numbers and ours are listed.
+  import, differences between their numbers and ours are listed. Pathbuilder exports carry names, not ids, so
+  `externalIds.pathbuilder` holds Pathbuilder's name for an entry where it differs from ours; otherwise names match
+  ignoring case, accents, apostrophes and punctuation. A name whose kind has no loaded content is reported as "not
+  loaded" rather than "not found", so the report stays honest while content kinds are still being indexed. Stories:
+  [#52](https://github.com/DavidDudson/pioneer/issues/52); `libs/interop/pathbuilder` holds a real export
+  (`fixtures/briar-rose.json`) as the reference sheet.
 - **Pioneer JSON:** the `CharacterDocument` plus the ids and versions of packs used. Homebrew entries referenced by
   the character are embedded so the file is portable.
 - **Foundry export:** see [play-and-campaigns.md](play-and-campaigns.md#foundry-export).

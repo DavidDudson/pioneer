@@ -1,0 +1,7 @@
+{
+  "name": "interop-pathbuilder",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/interop/pathbuilder/src",
+  "tags": ["scope:interop", "type:domain", "platform:any"]
+}
