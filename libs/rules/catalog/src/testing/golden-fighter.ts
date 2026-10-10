@@ -26,7 +26,7 @@ const GEAR_PACK = PackId.parse('golden-fighter');
 
 export const SCALE_MAIL = ContentId.parse(contentId(GEAR_PACK, Slug.parse('scale-mail')));
 export const STEEL_SHIELD = ContentId.parse(contentId(GEAR_PACK, Slug.parse('steel-shield')));
-export const LONGSWORD = ContentId.parse(contentId(GEAR_PACK, Slug.parse('longsword')));
+const LONGSWORD = ContentId.parse(contentId(GEAR_PACK, Slug.parse('longsword')));
 
 /** A piece of gear in the inventory: its entry, its inventory item, and whether it is worn or held. */
 interface Carried {
@@ -43,7 +43,7 @@ const WEAPON: Carried = { entry: LONGSWORD, item: '00000000-0000-4000-8000-00000
  * Wearing armor whose Strength value the character meets: Player Core's armor check penalty goes away and the Speed
  * penalty drops by 5 feet. Inventory will set it; the golden Fighter's Strength +4 meets scale mail's +2.
  */
-export const STRENGTH_MET = 'armor:strength-requirement-met';
+const STRENGTH_MET = 'armor:strength-requirement-met';
 /** A raised shield, situational until play state tracks Raise a Shield. */
 const SHIELD_RAISED = 'self:action:raise-a-shield';
 
@@ -66,7 +66,7 @@ const CHECK_PENALTY_SKILLS = ['skill:acrobatics', 'skill:athletics', 'skill:stea
 const UNLESS_STRENGTH_MET = [{ not: STRENGTH_MET }];
 
 /** Scale mail (Player Core): +3 item bonus to AC, Dexterity cap +2, check penalty -2, Speed penalty -5 feet. */
-export const scaleMail: readonly RuleInPlay[] = [
+const scaleMail: readonly RuleInPlay[] = [
   onGear({ key: 'FlatModifier', type: 'item', value: 3, selectors: ['ac'] }, ARMOR, 0),
   onGear(
     {
@@ -98,7 +98,7 @@ export const scaleMail: readonly RuleInPlay[] = [
 const SCALE_MAIL_DEXTERITY_CAP = 2;
 
 /** A steel shield (Player Core): +2 circumstance bonus to AC while raised. */
-export const steelShield: readonly RuleInPlay[] = [
+const steelShield: readonly RuleInPlay[] = [
   onGear(
     { key: 'FlatModifier', type: 'circumstance', value: 2, selectors: ['ac'], predicate: [SHIELD_RAISED] },
     SHIELD,
@@ -110,7 +110,7 @@ export const steelShield: readonly RuleInPlay[] = [
 export const gear: readonly RuleInPlay[] = [...scaleMail, ...steelShield];
 
 /** The ranks a Fighter's class gives at 1st level, with the golden build's skills. */
-export const LEVEL_1_RANKS: Readonly<Record<string, string>> = {
+const LEVEL_1_RANKS: Readonly<Record<string, string>> = {
   perception: 'expert',
   'save:fortitude': 'expert',
   'save:reflex': 'expert',
@@ -133,7 +133,7 @@ export const LEVEL_1_RANKS: Readonly<Record<string, string>> = {
  * Attributes from a legal Player Core build: human boosts Strength and Dexterity, farmhand Strength and
  * Constitution, the class Strength, and the four free boosts Strength, Dexterity, Constitution and Wisdom.
  */
-export const LEVEL_1_ATTRIBUTES: Readonly<Record<string, number>> = { str: 4, dex: 2, con: 2, int: 0, wis: 1, cha: 0 };
+const LEVEL_1_ATTRIBUTES: Readonly<Record<string, number>> = { str: 4, dex: 2, con: 2, int: 0, wis: 1, cha: 0 };
 
 /** The golden Fighter's level, attributes and ranks; each one left out is the 1st level build's. */
 export interface FighterBuild {
