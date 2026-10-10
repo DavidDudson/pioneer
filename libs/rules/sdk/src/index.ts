@@ -1,4 +1,4 @@
-export { AncestryDefinition, AncestryId } from './ancestry';
+export { AncestryData, AncestryDefinition, AncestryId } from './ancestry';
 export {
   ATTRIBUTE_MODIFIER_MAX,
   ATTRIBUTE_MODIFIER_MIN,
@@ -24,14 +24,40 @@ export {
 } from './damage';
 export { DegreeChange, DegreeChangeSchema, DegreeOfSuccess, DegreeOfSuccessSchema } from './degree-of-success';
 export { Immunity, Trait } from './trait';
-export { ContentEntry } from './content-entry';
+export { PackEntry } from './pack-entry';
+export {
+  ContentEntry,
+  type ContentEntryOf,
+  DisplayCategory,
+  DisplayCategorySchema,
+  DisplayHints,
+  ExternalId,
+  ExternalIds,
+  KIND_DATA,
+  REGISTERED_KINDS,
+  Rarity,
+  RaritySchema,
+  type RegisteredKind,
+} from './content-entry';
 export { type AncestryEntry, ContentRegistry, type CreatureEntry, type StatisticEntry } from './content-registry';
-export { StatisticDefinition, StatisticId, StatisticKind, StatisticKindSchema } from './statistic';
-export { CreatureDefinition, CreatureId } from './creature';
+export { StatisticData, StatisticDefinition, StatisticId, StatisticKind, StatisticKindSchema } from './statistic';
+export { CreatureData, CreatureDefinition, CreatureId } from './creature';
 export { ContentLicense, ContentLicenseSchema } from './license';
 export { Proficiency, proficiencyBonus, ProficiencySchema } from './proficiency';
 export { Size, SizeSchema } from './size';
-export { ArmorClass, DamageAmount, Dc, Feet, HitPoints, Level, LEVEL_MAX, LEVEL_MIN, Modifier } from './units';
+export {
+  ArmorClass,
+  CONTENT_LEVEL_MAX,
+  ContentLevel,
+  DamageAmount,
+  Dc,
+  Feet,
+  HitPoints,
+  Level,
+  LEVEL_MAX,
+  LEVEL_MIN,
+  Modifier,
+} from './units';
 export { ContentId } from './content-id';
 export { RulesMessage } from './messages';
 export {

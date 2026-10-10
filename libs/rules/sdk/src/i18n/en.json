@@ -26,6 +26,13 @@
     "statistic": {
       "duplicateSelector": "Another statistic in this pack already uses the selector {selector}."
     },
+    "entry": {
+      "unknownKind": "“{kind}” is not a content kind Pioneer has a schema for yet.",
+      "idMismatch": "The id must be the one derived from {key}: {expected}.",
+      "duplicateTrait": "The trait {trait} is listed more than once.",
+      "levelRequired": "A {kind} entry needs a level.",
+      "supersedesSelf": "An entry cannot supersede itself."
+    },
     "richText": {
       "tooDeep": "Rich text can nest at most {maximum} levels deep.",
       "tooLarge": "Rich text can hold at most {maximum} JSON arrays and objects in all; each paragraph, list item and table row takes at least one.",

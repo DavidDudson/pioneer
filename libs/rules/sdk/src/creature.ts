@@ -32,3 +32,9 @@ export const CreatureDefinition = z.object({
   speed: Feet,
 });
 export type CreatureDefinition = z.infer<typeof CreatureDefinition>;
+
+/** A creature's `data` on the `ContentEntry` envelope: the stat block less what the envelope carries. */
+export const CreatureData = z.strictObject(
+  CreatureDefinition.omit({ slug: true, name: true, level: true, traits: true }).shape,
+);
+export type CreatureData = z.infer<typeof CreatureData>;

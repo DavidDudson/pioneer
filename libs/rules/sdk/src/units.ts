@@ -36,3 +36,10 @@ export const LEVEL_MAX = 25;
  */
 export const Level = Pg.smallint().min(LEVEL_MIN).max(LEVEL_MAX).brand<'Level'>();
 export type Level = z.infer<typeof Level>;
+
+/** Highest level a content entry has: items reach 30, creatures 25. */
+export const CONTENT_LEVEL_MAX = 30;
+
+/** A content entry's level, from a level -1 creature (Giant Rat) to a level 30 item. */
+export const ContentLevel = Pg.smallint().min(LEVEL_MIN).max(CONTENT_LEVEL_MAX).brand<'ContentLevel'>();
+export type ContentLevel = z.infer<typeof ContentLevel>;
