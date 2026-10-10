@@ -1,6 +1,6 @@
 # 0016. Formula references use Pioneer's own paths, translated from Foundry's
 
-- Status: Proposed; reference scopes extended by 0029
+- Status: Proposed; reference scopes extended by 0030
 - Date: 2026-10-09
 
 ## Context

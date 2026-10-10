@@ -131,15 +131,8 @@ export {
   type StatisticEntry,
   type VariantRuleEntry,
 } from './content-registry';
-export {
-  SOURCE_SLUG_MAX,
-  StatisticData,
-  StatisticDefinition,
-  StatisticId,
-  StatisticKind,
-  StatisticKindSchema,
-  StatisticPer,
-} from './statistic';
+export { StatisticData, StatisticDefinition, StatisticId, StatisticKind, StatisticKindSchema } from './statistic';
+export { SOURCE_SLUG_MAX, StatisticPer } from './statistic';
 export { CreatureData, CreatureDefinition, CreatureId } from './creature';
 export {
   AonSourceUrl,
