@@ -128,11 +128,23 @@
     },
     "deity": {
       "spellRank": "A deity grants one spell per rank, and rank {rank} already has one.",
-      "skill": "A divine skill is a skill selector, like skill:medicine.",
       "philosophy": "A philosophy grants no divine font, domains or spells; leave this empty."
     },
     "feat": {
       "onlyLevel1": "A feat taken only at 1st level must be a 1st-level feat."
+    },
+    "selector": {
+      "skill": "Use a skill’s selector, like skill:medicine.",
+      "save": "Use a saving throw’s selector, like save:reflex."
+    },
+    "spell": {
+      "castUpTo": "A range of actions runs from fewer to more, like one to three.",
+      "defenseEmpty": "Give a save, the statistic the spell is against, or both; leave defense out when the spell has none.",
+      "damageKey": "The spell has no damage part {key} to heighten.",
+      "heightenAbove": "A heightened entry is for a rank above the spell’s own, {rank}."
+    },
+    "effect": {
+      "badgeRange": "The counter starts between its minimum and maximum."
     }
   }
 }

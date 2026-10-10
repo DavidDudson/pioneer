@@ -16,10 +16,10 @@ import type { Arbitrary } from 'fast-check';
 import { ActionCategory, FrequencyPeriod } from '../action';
 import { Attribute, ATTRIBUTE_MODIFIER_MAX, ATTRIBUTE_MODIFIER_MIN } from '../attribute';
 import { ConditionGroup } from '../condition';
-import { DisplayCategory, Rarity } from '../content-entry';
 import { contentId, PackId, Slug } from '../content-id';
 import { ContentKind } from '../content-kind';
 import { DamageType } from '../damage';
+import { DisplayCategory, Rarity } from '../entry-fields';
 import { FeatCategory, UNLIMITED } from '../feat';
 import type { RegisteredKind } from '../kind-data';
 import { ActionCost } from '../rich-text';
@@ -45,6 +45,7 @@ import {
   smallint,
   withOptional,
 } from './json-arbitraries';
+import { effectData, ritualData, spellcastingTraditionData, spellData } from './magic-kind-arbitraries';
 import { richTextJson } from './rich-text-arbitraries';
 import { ruleElementJson } from './rule-element-arbitraries';
 
@@ -157,10 +158,14 @@ const KIND_ARBITRARIES: Readonly<
   [ContentKind.Creature]: { data: creatureData, level: creatureLevel },
   [ContentKind.DamageType]: { data: emptyData },
   [ContentKind.Deity]: { data: deityOrPhilosophyData },
+  [ContentKind.Effect]: { data: effectData },
   [ContentKind.Feat]: { data: featData, level: entryLevel },
   [ContentKind.Heritage]: { data: heritageData },
   [ContentKind.Language]: { data: emptyData },
+  [ContentKind.Ritual]: { data: ritualData },
   [ContentKind.Sense]: { data: senseData },
+  [ContentKind.Spell]: { data: spellData },
+  [ContentKind.SpellcastingTradition]: { data: spellcastingTraditionData },
   [ContentKind.Statistic]: { data: statisticData },
   [ContentKind.Trait]: { data: traitData },
   [ContentKind.VariantRule]: { data: emptyData },

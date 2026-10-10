@@ -18,7 +18,8 @@ const LEVEL_PREFIX = 'self:level';
  * Where each kind of entry says it is on the character, as Foundry pf2e writes it: `class:fighter`,
  * `feature:shield-block`, `self:condition:grabbed`, `deity:primary:pharasma`. Kinds that never sit on a character
  * (creatures, statistics and the rules core kinds other than conditions) set nothing, and neither does an archetype,
- * which Foundry keeps as a journal page; its feats set `feat:<slug>`.
+ * which Foundry keeps as a journal page; its feats set `feat:<slug>`. Spells and rituals set nothing by being known:
+ * their options belong to a casting.
  */
 const KIND_NAMESPACES: Readonly<Record<ContentKind, RollOptionNamespace | undefined>> = {
   [ContentKind.Action]: undefined,
@@ -35,7 +36,10 @@ const KIND_NAMESPACES: Readonly<Record<ContentKind, RollOptionNamespace | undefi
   [ContentKind.Feat]: RollOptionNamespace.parse('feat'),
   [ContentKind.Heritage]: RollOptionNamespace.parse('heritage'),
   [ContentKind.Language]: undefined,
+  [ContentKind.Ritual]: undefined,
   [ContentKind.Sense]: undefined,
+  [ContentKind.Spell]: undefined,
+  [ContentKind.SpellcastingTradition]: undefined,
   [ContentKind.Statistic]: undefined,
   [ContentKind.Trait]: undefined,
   [ContentKind.VariantRule]: undefined,

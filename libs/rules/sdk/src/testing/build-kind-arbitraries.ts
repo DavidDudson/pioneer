@@ -2,7 +2,8 @@ import { array, constant, constantFrom, oneof, record, shuffledSubarray, tuple, 
 import type { Arbitrary } from 'fast-check';
 
 import { Attribute } from '../attribute';
-import { DeityCategory, DivineFont, Sanctification, SanctificationModal, SPELL_RANK_MAX } from '../deity';
+import { DeityCategory, DivineFont, Sanctification, SanctificationModal } from '../deity';
+import { SPELL_RANK_MAX } from '../spell-rank';
 import { keyPathText } from './arbitraries';
 import { contentIdJson, LIST_MAX, size, slugText, smallint, withOptional } from './json-arbitraries';
 

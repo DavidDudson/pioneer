@@ -1,50 +1,19 @@
-import type { MessageDescriptor, ValueOf } from '@pioneer/shared/kernel';
+import type { MessageDescriptor } from '@pioneer/shared/kernel';
 import { issueParams, message } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { ContentId, contentId, PackId, Slug } from './content-id';
 import { ContentKind } from './content-kind';
 import { ContentText } from './content-text';
+import { DisplayHints, ExternalIds, RaritySchema } from './entry-fields';
 import { KIND_DATA, REGISTERED_KINDS } from './kind-data';
 import { RulesMessage } from './messages';
 import { RichText } from './rich-text';
 import { RuleElements } from './rule-element';
 import { RuleElementKey } from './rule-element-base';
-import { AonUrl, SourceRef } from './source-ref';
+import { SourceRef } from './source-ref';
 import { Trait } from './trait';
 import { ContentLevel, Level } from './units';
-
-export const Rarity = { Common: 'common', Uncommon: 'uncommon', Rare: 'rare', Unique: 'unique' } as const;
-export type Rarity = ValueOf<typeof Rarity>;
-export const RaritySchema = z.enum(Rarity);
-
-/** How a feat shows on the sheet when its rule elements alone would place it wrong (play-and-campaigns.md). */
-export const DisplayCategory = {
-  Active: 'active',
-  Modifier: 'modifier',
-  GrantOnly: 'grant-only',
-  Narrative: 'narrative',
-} as const;
-export type DisplayCategory = ValueOf<typeof DisplayCategory>;
-export const DisplayCategorySchema = z.enum(DisplayCategory);
-
-/** Content's overrides of how the app would show an entry. */
-export const DisplayHints = z.strictObject({ category: DisplayCategorySchema.optional() });
-export type DisplayHints = z.infer<typeof DisplayHints>;
-
-const EXTERNAL_ID_LENGTH_MAX = 200;
-
-/** An entry's id in another tool: a Foundry compendium UUID, a Pathbuilder id. Never parsed, only matched. */
-export const ExternalId = z.string().min(1).max(EXTERNAL_ID_LENGTH_MAX).brand<'ExternalId'>();
-export type ExternalId = z.infer<typeof ExternalId>;
-
-/** Where the entry lives elsewhere; `foundry` is what makes Foundry export possible. */
-export const ExternalIds = z.strictObject({
-  foundry: ExternalId.optional(),
-  aon: AonUrl.optional(),
-  pathbuilder: ExternalId.optional(),
-});
-export type ExternalIds = z.infer<typeof ExternalIds>;
 
 const KNOWN_KINDS: ReadonlySet<unknown> = new Set(REGISTERED_KINDS);
 
@@ -141,6 +110,12 @@ const Entry = z.discriminatedUnion('kind', [
   }),
   z.strictObject({
     ...address,
+    kind: z.literal(ContentKind.Effect),
+    ...envelope,
+    data: KIND_DATA[ContentKind.Effect],
+  }),
+  z.strictObject({
+    ...address,
     kind: z.literal(ContentKind.Feat),
     ...envelope,
     // A feat always has a level: the lowest a character can take it at.
@@ -161,9 +136,27 @@ const Entry = z.discriminatedUnion('kind', [
   }),
   z.strictObject({
     ...address,
+    kind: z.literal(ContentKind.Ritual),
+    ...envelope,
+    data: KIND_DATA[ContentKind.Ritual],
+  }),
+  z.strictObject({
+    ...address,
     kind: z.literal(ContentKind.Sense),
     ...envelope,
     data: KIND_DATA[ContentKind.Sense],
+  }),
+  z.strictObject({
+    ...address,
+    kind: z.literal(ContentKind.Spell),
+    ...envelope,
+    data: KIND_DATA[ContentKind.Spell],
+  }),
+  z.strictObject({
+    ...address,
+    kind: z.literal(ContentKind.SpellcastingTradition),
+    ...envelope,
+    data: KIND_DATA[ContentKind.SpellcastingTradition],
   }),
   z.strictObject({
     ...address,

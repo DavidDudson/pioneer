@@ -1,11 +1,12 @@
-import { issueParams, message, Pg } from '@pioneer/shared/kernel';
+import { issueParams, message } from '@pioneer/shared/kernel';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { Attributes } from './attribute';
 import { ContentId, Slug } from './content-id';
 import { RulesMessage } from './messages';
-import { Selector } from './selector';
+import { SkillSelector } from './selector';
+import { SPELL_RANK_MAX, SpellRank } from './spell-rank';
 import { uniqueItems } from './unique-items';
 
 /** What a deity entry is, as Foundry pf2e sorts them. */
@@ -35,17 +36,11 @@ const DeityDomain = Slug.brand<'DeityDomain'>();
 /** A base weapon (`longsword`), for favoured weapons until weapons are content (#232). */
 const BaseWeapon = Slug.brand<'BaseWeapon'>();
 
-/** A spell's rank, 1 to 10. */
-export const SPELL_RANK_MAX = 10;
-const SpellRank = Pg.smallint().min(1).max(SPELL_RANK_MAX).brand<'SpellRank'>();
-type SpellRank = z.infer<typeof SpellRank>;
-
 const SANCTIFICATIONS = Object.keys(Sanctification).length;
 const FONTS = Object.keys(DivineFont).length;
 const DOMAINS_MAX = 16;
 const SKILLS_MAX = 4;
 const WEAPONS_MAX = 8;
-const SKILL_PREFIX = 'skill:';
 
 /** "Can be holy or unholy", "must be holy". */
 const DeitySanctification = z.strictObject({
@@ -60,11 +55,6 @@ const DeityDomains = z.strictObject({
 
 /** A spell the deity grants its clerics at a rank. */
 const DeitySpell = z.strictObject({ rank: SpellRank, spell: ContentId });
-
-/** A divine skill: a skill's selector (`skill:medicine`, `skill:lore-boneyard`). */
-const DivineSkill = Selector.refine((selector) => selector.startsWith(SKILL_PREFIX), {
-  ...issueParams(message(RulesMessage.DeitySkill)),
-});
 
 /** A deity's spells, at most one per rank (Foundry pf2e keys them by rank). */
 const DeitySpells = z
@@ -99,7 +89,7 @@ export const DeityData = z
     /** Its divine attributes. */
     attributes: Attributes,
     /** Its divine skills, by statistic selector (`skill:athletics`). */
-    skills: z.array(DivineSkill).max(SKILLS_MAX).readonly().check(uniqueItems),
+    skills: z.array(SkillSelector).max(SKILLS_MAX).readonly().check(uniqueItems),
     /** Its favoured weapons. */
     weapons: z.array(BaseWeapon).max(WEAPONS_MAX).readonly().check(uniqueItems),
     spells: DeitySpells,

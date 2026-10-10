@@ -104,11 +104,8 @@ describe('ContentEntry', () => {
   });
 
   test('names a kind with no schema', () => {
-    expect(issues({ ...human, kind: 'spell' })).toStrictEqual([
-      { path: ['kind'], message: message(RulesMessage.EntryUnknownKind, { kind: 'spell' }) },
-    ]);
-    expect(issues({ ...human, kind: 'effect' })).toStrictEqual([
-      { path: ['kind'], message: message(RulesMessage.EntryUnknownKind, { kind: 'effect' }) },
+    expect(issues({ ...human, kind: 'weapon' })).toStrictEqual([
+      { path: ['kind'], message: message(RulesMessage.EntryUnknownKind, { kind: 'weapon' }) },
     ]);
   });
 

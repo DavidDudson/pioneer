@@ -56,7 +56,7 @@ const diceCount: Arbitrary<string> = oneof(
   constantFrom('(@item.level)', '(floor(@level / 2))'),
 );
 
-const damageFormula: Arbitrary<string> = tuple(
+export const damageFormulaText: Arbitrary<string> = tuple(
   diceCount,
   integer({ min: DIE_SIZE_MIN, max: DIE_SIZE_MAX }),
   constantFrom('', ' + @attr.str', ' + @level'),
@@ -75,7 +75,7 @@ const checkDc = oneof(integer({ min: 0, max: DC_MAX }), record({ against: keyPat
 const feet = integer({ min: 0, max: SIZE_MAX });
 
 const damageInstance = record(
-  { formula: damageFormula, damageType: damageTypes, category: damageCategories },
+  { formula: damageFormulaText, damageType: damageTypes, category: damageCategories },
   { requiredKeys: ['formula'] },
 );
 

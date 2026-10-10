@@ -10,6 +10,11 @@ export {
   AttributeSchema,
 } from './attribute';
 export { DeityCategory, DivineFont } from './deity';
+export { EffectCategory, EffectData } from './effect';
+export { RitualData } from './ritual';
+export { SpellData } from './spell';
+export { SPELL_RANK_MAX, SpellRank } from './spell-rank';
+export { MagicTradition, SpellcastingTraditionData } from './spellcasting-tradition';
 export { FeatCategory } from './feat';
 export { ConditionData, ConditionGroup } from './condition';
 export { ContentKind, ContentKindSchema } from './content-kind';
@@ -33,8 +38,8 @@ export { LanguageData } from './language';
 export { SenseAcuity, SenseData } from './sense';
 export { VariantRuleData } from './variant-rule';
 export { PackEntry } from './pack-entry';
+export { ContentEntry } from './content-entry';
 export {
-  ContentEntry,
   DisplayCategory,
   DisplayCategorySchema,
   DisplayHints,
@@ -42,7 +47,7 @@ export {
   ExternalIds,
   Rarity,
   RaritySchema,
-} from './content-entry';
+} from './entry-fields';
 export { KIND_DATA, REGISTERED_KINDS, type RegisteredKind } from './kind-data';
 export { type AncestryEntry, ContentRegistry, type CreatureEntry, type StatisticEntry } from './content-registry';
 export { StatisticData, StatisticDefinition, StatisticId, StatisticKind, StatisticKindSchema } from './statistic';
