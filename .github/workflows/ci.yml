@@ -7,13 +7,19 @@ on:
 
 permissions: {}
 
+env:
+  # Bounds the .nx/cache directory each job saves; Nx evicts the least recently used entries past it.
+  NX_MAX_CACHE_SIZE: 512MB
+
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   # `bun run check` split by runtime so each job stays near 4 minutes. The ci:* scripts together cover check;
-  # a target added to check goes in one of them too. Storybook is the longest task, so it is sharded.
+  # a target added to check goes in one of them too. Storybook is the longest task, so it runs one Vitest project
+  # (theme × colour mode) per job: each project runs every story, so the jobs take the same time, which
+  # `--shard` (an even split by file count) does not.
   check:
     name: Check (${{ matrix.name }})
     runs-on: ubuntu-24.04
@@ -24,12 +30,24 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - { name: lint, script: ci:lint, args: '' }
-          - { name: typecheck and build, script: ci:build, args: '' }
-          - { name: storybook 1/4, script: ci:storybook, args: --shard=1/4 }
-          - { name: storybook 2/4, script: ci:storybook, args: --shard=2/4 }
-          - { name: storybook 3/4, script: ci:storybook, args: --shard=3/4 }
-          - { name: storybook 4/4, script: ci:storybook, args: --shard=4/4 }
+          - { name: lint, id: lint, script: ci:lint, args: '' }
+          - { name: typecheck and build, id: build, script: ci:build, args: '' }
+          - name: storybook frontier dark
+            id: storybook-frontier-dark
+            script: ci:storybook
+            args: --args=--project=storybook:frontier-dark
+          - name: storybook frontier light
+            id: storybook-frontier-light
+            script: ci:storybook
+            args: --args=--project=storybook:frontier-light
+          - name: storybook tavern dark
+            id: storybook-tavern-dark
+            script: ci:storybook
+            args: --args=--project=storybook:tavern-dark
+          - name: storybook tavern light
+            id: storybook-tavern-light
+            script: ci:storybook
+            args: --args=--project=storybook:tavern-light
     defaults:
       run:
         # Same toolchain as local: every step runs inside the flake devshell.
@@ -45,6 +63,13 @@ jobs:
         with:
           path: ~/.bun/install/cache
           key: bun-${{ runner.os }}-${{ hashFiles('bun.lock') }}
+      # Nx's local cache, per job: a task whose inputs are unchanged since the last run on this branch (or on
+      # main, for a new branch) is restored instead of run. Pull requests read main's entries but write only their own.
+      - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: .nx/cache
+          key: nx-${{ runner.os }}-${{ matrix.id }}-${{ github.sha }}
+          restore-keys: nx-${{ runner.os }}-${{ matrix.id }}-
       - name: Install
         run: bun install --frozen-lockfile
       - name: Check
@@ -95,6 +120,13 @@ jobs:
         with:
           path: ~/.bun/install/cache
           key: bun-${{ runner.os }}-${{ hashFiles('bun.lock') }}
+      # Nx's local cache, per job: a task whose inputs are unchanged since the last run on this branch (or on
+      # main, for a new branch) is restored instead of run. Pull requests read main's entries but write only their own.
+      - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: .nx/cache
+          key: nx-${{ runner.os }}-test-${{ github.sha }}
+          restore-keys: nx-${{ runner.os }}-test-
       - name: Install
         run: bun install --frozen-lockfile
       - name: Test
