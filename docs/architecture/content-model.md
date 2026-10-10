@@ -120,6 +120,42 @@ Lists of attributes, slugs and ids name each item once.
   per rank from 1 to 10. A philosophy has no font, domains or spells, and divine skills must be `skill:` selectors.
   A deity on a character sets `deity:primary:<slug>`, as Foundry does.
 
+#### Magic and play data
+
+Foundry pf2e stores a spell's range, targets, casting time and duration as free text; Pioneer stores them as
+structures, and the importer reports a spell whose text doesn't map. Rule elements on a spell are rare: what it does
+beyond its damage is its description, and the effects it applies are `effect` entries.
+
+| Kind                     | `data`                                                                                                      |
+| ------------------------ | ----------------------------------------------------------------------------------------------------------- |
+| `spell`                  | casting fields; `traditions`; `damage`; `heightening?`; `counteraction?`                                    |
+| `ritual`                 | casting fields; `primary` check; `secondary` checks and `casters`                                           |
+| `spellcasting-tradition` | `skill`, the skill that recalls and identifies its magic (`skill:arcana`)                                   |
+| `effect`                 | `category`, `spell`, `feat`, `equipment` or `other` (a GM's); `duration`; `badge?`; level is the envelope's |
+
+- **Casting fields.** `rank` 1 to 10. `time` is `actions` with a glyph `cost`, and `upTo` for a range ("one to
+  three actions", Heal), or `time` with a `count` of rounds to years ("3 days"). `range?` is feet, `touch`,
+  `planetary` or `unlimited`. `area?` is a `shape` and `size`, with a `width` on a line. `targets?` lists the
+  alternatives in `any` ("1 willing living creature or 1 undead"), each a `count` (`upTo` for "up to"), what it
+  is (`creature`, `object`, `ally`, `corpse`), `qualifiers` (`willing`, `living`) and `traits`; `includesYou` for
+  "you and up to 4 allies". `duration?` is a `time` (with `sustained` for "sustained up to 1 minute"),
+  `sustained`, `until` the next turn's start or end or the next daily preparations, or `unlimited`; an instant
+  spell has none. `defense?` is a `save` (a `save:` selector and `basic`), the statistic whose DC it is
+  `against` (`ac` for a spell attack), or both. `cost?` and `requirements?` are rich text.
+- **Spells.** Cantrips and focus spells are spells with the `cantrip` or `focus` trait, as in Foundry. `traditions`
+  are `arcane`, `divine`, `occult`, `primal`. `damage` parts each have a `key` (Foundry's record key), a damage
+  formula, a `damageType`, an optional `category` and `kinds` (`damage`, `healing` or both). `heightening` is an
+  `interval` (every so many ranks, add a formula to named damage parts and feet to the area) or `fixed` (at each
+  listed rank above the spell's, replace damage, range, area, targets or duration). Foundry's overlays (Heal's
+  action variants) and spellcasting-entry `location` have no field yet.
+- **Rituals.** Foundry stores a ritual as a spell with ritual data. A check is one of its `skills` (`skill:`
+  selectors), at a `proficiency` when it names one; each secondary check is its own.
+- **Effects.** `duration` is a `time` of rounds to days with an `expiry` (`turn-start`, `turn-end`,
+  `round-end`) and `sustained`, `encounter` or `unlimited`. `badge` is a `counter` starting at `value` between
+  `min` and `max`, with `labels` and `loop`, or a rolled `formula` that may `reevaluate` at initiative or a turn's
+  start or end. Foundry's `tokenIcon`, `unidentified` and the context of the action that applied it are play
+  state, not content.
+
 ### Rich text
 
 Descriptions are stored as a small, safe document AST, not HTML: `RichText` in `libs/rules/sdk` (`rich-text.ts`),
