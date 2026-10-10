@@ -58,7 +58,8 @@ The `Image` workflow (`.github/workflows/image.yml`) runs on every PR and every 
   linux/arm64, tagged `sha-<short commit>` and `main`. The images carry the OCI labels (`source`, `revision`,
   `created` and others) and the multi-arch index carries them as annotations.
 
-Deploy a `sha-` tag; `main` moves on every merge.
+Each publish from `main` then deploys that `sha-` tag to production (`deploy.yml`, see
+[Production](production.md#deploys)). Deploy a `sha-` tag; `main` moves on every merge.
 
 ## Without Compose
 

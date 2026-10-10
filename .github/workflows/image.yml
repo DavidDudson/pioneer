@@ -1,6 +1,7 @@
 name: Image
 
-# Every PR proves the image builds and starts; every merge to main publishes it to GHCR for amd64 and arm64.
+# Every PR proves the image builds and starts; every merge to main publishes it to GHCR for amd64 and arm64, then
+# deploys it to production (deploy.yml).
 # See docs/deployment.md.
 
 on:
@@ -94,7 +95,12 @@ jobs:
     permissions:
       contents: read
       packages: write # push to ghcr.io
+    outputs:
+      # The immutable tag metadata-action's `type=sha` gives this commit; deploys use it, never `main`.
+      tag: sha-${{ steps.tag.outputs.short }}
     steps:
+      - id: tag
+        run: echo "short=${GITHUB_SHA::7}" >>"$GITHUB_OUTPUT"
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
@@ -124,3 +130,15 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           annotations: ${{ steps.meta.outputs.annotations }}
           cache-from: type=gha
+
+  # Every published image goes to production (deploy.yml, docs/production.md).
+  deploy:
+    name: Deploy
+    needs: publish
+    permissions:
+      contents: read
+      id-token: write
+      packages: read
+    uses: ./.github/workflows/deploy.yml # zizmor: ignore[self-repository] actionlint rejects the $/ form
+    with:
+      tag: ${{ needs.publish.outputs.tag }}

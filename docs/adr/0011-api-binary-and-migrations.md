@@ -45,6 +45,9 @@ The alternatives considered:
 
 - The Dockerfile copies `dist/apps/api/pioneer-api` and `apps/api/migrations`, and sets `MIGRATIONS_DIR`.
 - A migration must be safe to run inside Drizzle's single transaction, as before; the lock adds no new limits.
+- Migrations are forward-only: there are no down migrations, and rolling back a deploy runs the earlier image on
+  the newer schema. So a migration must keep the previous image working: add columns and tables first, and drop or
+  rename only once no deployed image reads the old shape (expand, then contract). One that cannot is fixed forward.
 - `apps/api/src/binary.db.test.ts` compiles the binary and runs it against Postgres with migrations outside the
   source tree, including several `migrate` commands at once.
 - Embedding the migrations stays open if a later host wants a single file; it would supersede the first decision.

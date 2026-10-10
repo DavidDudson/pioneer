@@ -23,3 +23,8 @@ output "database_url" {
   value       = neon_project.pioneer.connection_uri
   sensitive   = true
 }
+
+output "deploy_role_arn" {
+  description = "Role the deploy workflow assumes; set it as AWS_DEPLOY_ROLE_ARN on the production environment."
+  value       = aws_iam_role.deploy.arn
+}
