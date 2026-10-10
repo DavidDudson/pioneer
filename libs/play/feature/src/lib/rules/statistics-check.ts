@@ -16,13 +16,18 @@ import type { VariantInPlay } from './statistic-sources';
 
 const JSON_INDENT = 2;
 
-/** Inputs the example starts with: a level 3 fighter in a breastplate, trained in arcane spells. */
+/**
+ * Inputs the example starts with: a level 3 human fighter in a breastplate, trained in arcane spells, with what the
+ * ancestry and class give, so the core rules pack's Hit Points, Speed and class DC derive too.
+ */
 export const EXAMPLE_STATISTIC_INPUTS = JSON.stringify(
   {
     level: 3,
     attributes: { str: 4, dex: 2, con: 2, int: 1, wis: 1, cha: 0 },
-    ranks: { ac: 'trained', 'save:fortitude': 'expert', 'spell-attack:arcane': 'trained' },
+    ranks: { ac: 'trained', 'save:fortitude': 'expert', 'spell-attack:arcane': 'trained', 'class-dc': 'trained' },
     dexterityCap: 1,
+    ancestry: { hitPoints: 8, speed: 25 },
+    class: { hitPoints: 10, keyAttribute: 'str' },
   },
   undefined,
   JSON_INDENT,

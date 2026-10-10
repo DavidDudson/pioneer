@@ -3,6 +3,8 @@ export const EngineMessage = {
   StatisticCycle: 'engine.statistic.cycle',
   MissingStatistic: 'engine.statistic.missing',
   FailedDependency: 'engine.statistic.failedDependency',
+  NoAncestry: 'engine.statistic.noAncestry',
+  NoClass: 'engine.statistic.noClass',
   TotalOutOfRange: 'engine.statistic.outOfRange',
   AdjustmentOutOfRange: 'engine.modifier.outOfRange',
   ChangeOutOfRange: 'engine.change.outOfRange',

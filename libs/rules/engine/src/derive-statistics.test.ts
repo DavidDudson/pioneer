@@ -164,6 +164,23 @@ describe('deriveStatistics', () => {
     });
   });
 
+  test('a reference to an ancestry or class not chosen yet is an error at the reference', () => {
+    expect(alone('speed:land', '@ancestry.speed')).toMatchObject({
+      ok: false,
+      error: message(EngineMessage.NoAncestry, { found: '@ancestry.speed', position: 1 }),
+      position: 1,
+    });
+    expect(alone('class-dc', '10 + @attr.key + @prof.class-dc')).toMatchObject({
+      ok: false,
+      error: message(EngineMessage.NoClass, { found: '@attr.key', position: 6 }),
+      position: 6,
+    });
+  });
+
+  test('an ancestry reference in a ternary branch not taken is never read', () => {
+    expect(alone('speed:land', 'ternary(0, @ancestry.speed, 25)')).toMatchObject({ ok: true, total: 25 });
+  });
+
   test('a formula that fails to evaluate is that statistic’s error, and the rest evaluate', () => {
     const results = derive(statistic('broken', '@level / (@attr.int)'), statistic('perception', '@attr.wis'));
     expect(resultOf(results, 'broken')).toMatchObject({

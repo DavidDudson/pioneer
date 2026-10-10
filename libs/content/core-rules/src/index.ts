@@ -33,6 +33,9 @@ function playerCore(page: number, aonEntry: string): SourceRef {
 const ARMOR_CLASS_SOURCE = playerCore(404, 'Rules.aspx?ID=2295');
 const SAVING_THROWS_SOURCE = playerCore(404, 'Rules.aspx?ID=2296');
 const PERCEPTION_SOURCE = playerCore(404, 'Rules.aspx?ID=2298');
+const HIT_POINTS_SOURCE = playerCore(410, 'Rules.aspx?ID=2320');
+const SPEED_SOURCE = playerCore(420, 'Rules.aspx?ID=2347');
+const CLASS_DC_SOURCE = playerCore(27, 'Rules.aspx?ID=2051');
 
 /** Each skill's Player Core page and AoN skill entry. */
 const SKILL_SOURCES: Readonly<Record<string, SourceRef>> = {
@@ -153,6 +156,35 @@ export const coreRules = ContentPack.define({
       kind: StatisticKind.Check,
       keyAttribute: Attribute.Wisdom,
       sources: [PERCEPTION_SOURCE],
+    },
+    {
+      slug: 'hit-points',
+      name: 'Hit Points',
+      selector: 'hp:max',
+      domains: ['hp'],
+      // Player Core: the ancestry's Hit Points, plus the class's Hit Points and Constitution at each level.
+      base: '@ancestry.hp + (@class.hp + @attr.con) * @level',
+      kind: StatisticKind.Value,
+      sources: [HIT_POINTS_SOURCE],
+    },
+    {
+      slug: 'land-speed',
+      name: 'Speed',
+      selector: 'speed:land',
+      domains: ['speed', 'all-speeds', 'land-speed'],
+      base: '@ancestry.speed',
+      kind: StatisticKind.Value,
+      sources: [SPEED_SOURCE],
+    },
+    {
+      slug: 'class-dc',
+      name: 'Class DC',
+      selector: 'class-dc',
+      // No `<attribute>-based` domain: the key attribute is the character's choice, not the statistic's.
+      domains: ['class'],
+      base: '10 + @attr.key + @prof.class-dc',
+      kind: StatisticKind.Dc,
+      sources: [CLASS_DC_SOURCE],
     },
     skill('acrobatics', 'Acrobatics', Attribute.Dexterity),
     skill('arcana', 'Arcana', Attribute.Intelligence),

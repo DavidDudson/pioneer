@@ -1,6 +1,7 @@
-import { evaluate } from '@pioneer/rules/formula';
-import type { FormulaValue, ResolveReference } from '@pioneer/rules/formula';
+import { evaluate, FormulaMessage, references } from '@pioneer/rules/formula';
+import type { EvaluateFailure, FormulaNode, FormulaValue, ResolveReference } from '@pioneer/rules/formula';
 import type { PredicateFacts } from '@pioneer/rules/predicate';
+import { knownReference } from '@pioneer/rules/sdk';
 import type { Selector, StatisticDefinition } from '@pioneer/rules/sdk';
 
 import { baseTerms } from './base-term';
@@ -10,9 +11,9 @@ import { EngineMessage } from './messages';
 import type { RuleContext } from './rule-value';
 import { Components, statisticGraph } from './statistic-graph';
 import type { StatisticEdge, StatisticNode } from './statistic-graph';
-import { resolverFor } from './statistic-inputs';
+import { missingInput, resolverFor } from './statistic-inputs';
 import type { CharacterValues } from './statistic-inputs';
-import { cycle, failure, unreadable } from './statistic-result';
+import { cycle, failure, unchosen, unreadable } from './statistic-result';
 import type { StatisticFailure, StatisticResult } from './statistic-result';
 
 /** The base phase's `Change`s by selector, and the roll options their predicates read. */
@@ -30,10 +31,10 @@ export interface StatisticBase {
 /**
  * The base phase (rules-engine.md, step 5): every statistic's base from its base formula and the character's
  * inputs, evaluated component by component in dependency order, each statistic once, so the work is linear in
- * statistics and references. A cycle, a reference to a missing statistic or to one that failed, or a formula that
- * fails to evaluate is that statistic's error, pointing into its formula; the others still evaluate. Statistics
- * are visited in selector order, so nothing depends on the order of the definitions, except that a later
- * definition of a selector replaces an earlier one.
+ * statistics and references. A cycle, a reference to a missing statistic or to one that failed, a reference to an
+ * ancestry or class not chosen yet, or a formula that fails to evaluate is that statistic's error, pointing into its
+ * formula; the others still evaluate. Statistics are visited in selector order, so nothing depends on the order of
+ * the definitions, except that a later definition of a selector replaces an earlier one.
  */
 export class StatisticBases {
   readonly #graph: ReadonlyMap<Selector, StatisticNode>;
@@ -107,6 +108,20 @@ export class StatisticBases {
     return undefined;
   }
 
+  /**
+   * A formula that failed to evaluate. A reference with no value because the character has no ancestry or class yet
+   * says so; the check runs on the reference the evaluator reached, so one in a branch not taken never fails.
+   */
+  #evaluationFailure(selector: Selector, formula: FormulaNode, { error, position }: EvaluateFailure): StatisticFailure {
+    const written = references(formula).find((reference) => reference.position === position);
+    const reference =
+      error.key === FormulaMessage.UnknownReference && written !== undefined ? knownReference(written.path) : undefined;
+    const missing = reference === undefined ? undefined : missingInput(reference, this.#values.inputs);
+    return missing === undefined || written === undefined
+      ? failure(selector, error, position)
+      : unchosen(selector, written, missing);
+  }
+
   #evaluate(selector: Selector, { formula, edges }: StatisticNode): StatisticResult {
     if ('ok' in formula) {
       return failure(selector, formula.error, formula.position);
@@ -118,7 +133,7 @@ export class StatisticBases {
     const resolve = resolverFor(this.#values, (read) => this.baseValue(read));
     const outcome = evaluate(formula, resolve);
     if (!outcome.ok) {
-      return failure(selector, outcome.error, outcome.position);
+      return this.#evaluationFailure(selector, formula, outcome);
     }
     const changed = applyChanges(outcome.value, this.#changes.get(selector) ?? [], this.#context);
     return {

@@ -35,7 +35,8 @@ Perception, the skills, class DC, spell attack and DC, Strikes, speeds, HP and s
 - its `selector` and `domains`,
 - its `base` formula, written in a small safe expression language (`10 + @attr.dex.capped + @prof.ac`) and
   limited to actor references (`ActorFormulaSource`), since a statistic has no item,
-- its `kind`: `check` (rolled) or `dc` (static), and its `keyAttribute` when it has one.
+- its `kind`: `check` (rolled), `dc` (static) or `value` (neither, such as Hit Points or a Speed), and its
+  `keyAttribute` when it has one.
 
 A pack uses each selector once; a second statistic with the same selector is an issue at its `selector`. Two packs
 may share one, and `ContentRegistry#statisticsFor(selector)` returns them in registration order; which applies is
@@ -44,14 +45,17 @@ the engine's choice.
 The core rules pack is hand-authored in `libs/content/core-rules` (pack id `core-rules`), since Foundry defines
 these statistics in code rather than as items. So far it holds:
 
-| Statistic  | Selector         | Kind    | Base                               | Domains                               |
-| ---------- | ---------------- | ------- | ---------------------------------- | ------------------------------------- |
-| AC         | `ac`             | `dc`    | `10 + @attr.dex.capped + @prof.ac` | `dex-based`                           |
-| Fortitude  | `save:fortitude` | `check` | `@attr.con + @prof.save.fortitude` | `check`, `saving-throw`, `con-based`  |
-| Reflex     | `save:reflex`    | `check` | `@attr.dex + @prof.save.reflex`    | `check`, `saving-throw`, `dex-based`  |
-| Will       | `save:will`      | `check` | `@attr.wis + @prof.save.will`      | `check`, `saving-throw`, `wis-based`  |
-| Perception | `perception`     | `check` | `@attr.wis + @prof.perception`     | `check`, `wis-based`                  |
-| Skills     | `skill:<slug>`   | `check` | `@attr.<key> + @prof.skill.<slug>` | `check`, `skill-check`, `<key>-based` |
+| Statistic  | Selector         | Kind    | Base                                              | Domains                               |
+| ---------- | ---------------- | ------- | ------------------------------------------------- | ------------------------------------- |
+| AC         | `ac`             | `dc`    | `10 + @attr.dex.capped + @prof.ac`                | `dex-based`                           |
+| Fortitude  | `save:fortitude` | `check` | `@attr.con + @prof.save.fortitude`                | `check`, `saving-throw`, `con-based`  |
+| Reflex     | `save:reflex`    | `check` | `@attr.dex + @prof.save.reflex`                   | `check`, `saving-throw`, `dex-based`  |
+| Will       | `save:will`      | `check` | `@attr.wis + @prof.save.will`                     | `check`, `saving-throw`, `wis-based`  |
+| Perception | `perception`     | `check` | `@attr.wis + @prof.perception`                    | `check`, `wis-based`                  |
+| Skills     | `skill:<slug>`   | `check` | `@attr.<key> + @prof.skill.<slug>`                | `check`, `skill-check`, `<key>-based` |
+| Hit Points | `hp:max`         | `value` | `@ancestry.hp + (@class.hp + @attr.con) * @level` | `hp`                                  |
+| Speed      | `speed:land`     | `value` | `@ancestry.speed`                                 | `speed`, `all-speeds`, `land-speed`   |
+| Class DC   | `class-dc`       | `dc`    | `10 + @attr.key + @prof.class-dc`                 | `class`                               |
 
 Domains use one vocabulary, following Foundry's names so imported selectors keep their meaning:
 
@@ -61,6 +65,9 @@ Domains use one vocabulary, following Foundry's names so imported selectors keep
 - `saving-throw`: the three saves.
 - `skill-check`: the 16 skills and every Lore.
 - `lore`: every Lore.
+- `hp`: maximum Hit Points.
+- `speed` and `all-speeds`: every Speed. `<type>-speed` (`land-speed`): one movement type, as in Foundry.
+- `class`: the class DC, which has no `<attribute>-based` domain, since its key attribute is the character's choice.
 - Still to come with their statistics: `attack-roll` and `strike-attack-roll` (Strikes),
   `spell-attack-roll` and `spell-dc` (spellcasting).
 
@@ -72,6 +79,15 @@ Core: untrained `0`, trained `2 + @level` up to legendary `8 + @level`), and the
 `proficiency-without-level` (GM Core): a `ProficiencyBonus` rule element whose table drops level and makes untrained
 -2. A variant enabled for a character is put in play like any rule element, with a `variant` origin hop, and each base
 term reading `@prof` names it ([ADR-0026](../adr/0026-proficiency-bonus-table-is-content.md)).
+
+Hit Points, Speed and class DC read what the character's ancestry and class give: `@ancestry.hp`, `@ancestry.speed`,
+`@class.hp`, and `@attr.key`, the modifier of the key attribute chosen for the class. `StatisticInputs` carries them
+as `ancestry` (`hitPoints`, `speed`) and `class` (`hitPoints`, `keyAttribute`). Until an ancestry or class is
+chosen, a statistic whose base reads one fails at the first such reference (`engine.statistic.noAncestry`,
+`engine.statistic.noClass`), as a reference to a missing statistic does; the others still derive. The check runs on
+the reference the evaluator reached, so one in a `ternary` branch not taken never fails. A rule element value that
+reads them before they are chosen gets the formula language's general "has no value" error. Hit Points use
+the character's level as written, so level 0 play (GM Core) needs its own formula.
 
 Lore is open-ended, so the core pack defines none. Whatever grants a Lore (a background, a feat) brings its own
 `statistic` entry with the selector `skill:lore:<topic>`, base `@attr.int + @prof.skill.lore.<topic>`, key
@@ -172,6 +188,10 @@ Statistic base formulas and rule element values share one vocabulary of referenc
 | `@level`            | actor | The character's level                                                                    |
 | `@attr.<attribute>` | actor | The attribute modifier, `@attr.str` to `@attr.cha`                                       |
 | `@attr.dex.capped`  | actor | The Dexterity modifier after the armor's Dexterity cap (`DexterityCap`)                  |
+| `@attr.key`         | actor | The modifier of the key attribute chosen for the character's class                       |
+| `@ancestry.hp`      | actor | The Hit Points the character's ancestry gives                                            |
+| `@ancestry.speed`   | actor | The land Speed the character's ancestry gives                                            |
+| `@class.hp`         | actor | The Hit Points the character's class gives each level, before Constitution               |
 | `@prof.<selector>`  | actor | The proficiency bonus for a statistic: its rank's formula in the proficiency bonus table |
 | `@rank.<selector>`  | actor | The proficiency rank for a statistic, 0 (untrained) to 4 (legendary)                     |
 | `@stat.<selector>`  | actor | Another statistic's base, before its modifiers, such as the spell attack in a spell DC   |
@@ -198,6 +218,9 @@ The catalogue also holds the Foundry spellings the importer translates (`FOUNDRY
 | ----------------------------------------------------------------------------- | -------------------------- |
 | `@actor.level`, `@actor.system.details.level.value`                           | `@level`                   |
 | `@actor.abilities.<attribute>.mod`, `@actor.system.abilities.<attribute>.mod` | `@attr.<attribute>`        |
+| `@actor.system.attributes.ancestryhp`, `@actor.ancestry.system.hp`            | `@ancestry.hp`             |
+| `@actor.ancestry.system.speed`                                                | `@ancestry.speed`          |
+| `@actor.system.attributes.classhp`, `@actor.class.system.hp`                  | `@class.hp`                |
 | `@actor.skills.<skill>.rank`, `@actor.system.skills.<skill>.rank`             | `@rank.skill.<skill>`      |
 | `@actor.saves.<save>.rank`, `@actor.system.saves.<save>.rank`                 | `@rank.save.<save>`        |
 | `@actor.perception.rank`, `@actor.system.perception.rank`                     | `@rank.perception`         |
@@ -238,7 +261,11 @@ interface BreakdownLine {
   status:
     | { kind: 'applied' }
     | { kind: 'suppressed'; by: RuleId; reason: 'stacking' | 'adjustment' } // lower status bonus; AdjustModifier suppress
-    | { kind: 'conditional'; when: Predicate; summary: PredicateSummary | undefined } // depends on unknown situation
+    | {
+        kind: 'conditional';
+        when: Predicate;
+        summary: PredicateSummary | undefined;
+      } // depends on unknown situation
     | { kind: 'inactive'; reason: 'predicate' } // predicate known false
     | { kind: 'failed'; error: MessageDescriptor; position: TextPosition }; // a formula failed to evaluate
 }
@@ -547,8 +574,17 @@ MessageFormat. Tests assert on keys and params. See [ADR-0009](../adr/0009-i18n-
 type OriginHop =
   | { kind: 'choice'; slot: SlotKey } // the player picked it
   | { kind: 'grant'; by: ContentId; rule: number } // granted by another item's rule element
-  | { kind: 'inventory'; item: InventoryItemId; state: 'worn' | 'held' | 'invested' }
-  | { kind: 'condition'; condition: ContentId; value?: number; appliedBy?: EventRef }
+  | {
+      kind: 'inventory';
+      item: InventoryItemId;
+      state: 'worn' | 'held' | 'invested';
+    }
+  | {
+      kind: 'condition';
+      condition: ContentId;
+      value?: number;
+      appliedBy?: EventRef;
+    }
   | { kind: 'effect'; effect: ContentId; appliedBy?: EventRef }
   | { kind: 'override'; by: UserId; at: Instant; note?: string }
   | { kind: 'variant'; rule: ContentId };

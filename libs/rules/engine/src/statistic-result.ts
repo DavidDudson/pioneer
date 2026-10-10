@@ -1,5 +1,5 @@
 import { FORMULA_VALUE_MAX, TextPosition } from '@pioneer/rules/formula';
-import type { FormulaValue } from '@pioneer/rules/formula';
+import type { FormulaReference, FormulaValue } from '@pioneer/rules/formula';
 import type { Selector } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
@@ -9,6 +9,7 @@ import type { BreakdownLine, OverrideLine } from './breakdown';
 import { EngineMessage } from './messages';
 import type { RuleId } from './rule-in-play';
 import type { StatisticEdge } from './statistic-graph';
+import type { MissingInput } from './statistic-inputs';
 
 /**
  * A statistic's breakdown: its base formula term by term and the value they add up to, the `Change`s that turned
@@ -64,6 +65,15 @@ export function cycle(selector: Selector, edge: StatisticEdge, members: readonly
   const statistics = members.join(LIST_SEPARATOR);
   const params = { found: `${SIGIL}${edge.path}`, position: edge.position, statistics, count: members.length };
   return failure(selector, message(EngineMessage.StatisticCycle, params), edge.position);
+}
+
+/** A statistic whose formula reads, at `reference`, an ancestry or class the character has not chosen yet. */
+export function unchosen(
+  selector: Selector,
+  { path, position }: FormulaReference,
+  key: MissingInput,
+): StatisticFailure {
+  return failure(selector, message(key, { found: `${SIGIL}${path}`, position }), position);
 }
 
 /** A statistic that cannot read the statistic at `edge`: it is missing, or it failed. */
