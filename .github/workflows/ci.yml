@@ -8,7 +8,9 @@ on:
 permissions: {}
 
 env:
-  # Bounds the .nx/cache directory each job saves; Nx evicts the least recently used entries past it.
+  # Nx keeps its cache under ~/.nx by default; in the checkout it can be saved and restored with actions/cache.
+  NX_CACHE_DIRECTORY: .nx/cache
+  # Bounds the cache each job saves; Nx evicts the least recently used entries past it.
   NX_MAX_CACHE_SIZE: 512MB
 
 concurrency:
@@ -65,9 +67,12 @@ jobs:
           key: bun-${{ runner.os }}-${{ hashFiles('bun.lock') }}
       # Nx's local cache, per job: a task whose inputs are unchanged since the last run on this branch (or on
       # main, for a new branch) is restored instead of run. Pull requests read main's entries but write only their own.
+      # The cache is only read through the task database in workspace-data, so both are kept.
       - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
-          path: .nx/cache
+          path: |
+            .nx/cache
+            .nx/workspace-data/*.db
           key: nx-${{ runner.os }}-${{ matrix.id }}-${{ github.sha }}
           restore-keys: nx-${{ runner.os }}-${{ matrix.id }}-
       - name: Install
@@ -122,9 +127,12 @@ jobs:
           key: bun-${{ runner.os }}-${{ hashFiles('bun.lock') }}
       # Nx's local cache, per job: a task whose inputs are unchanged since the last run on this branch (or on
       # main, for a new branch) is restored instead of run. Pull requests read main's entries but write only their own.
+      # The cache is only read through the task database in workspace-data, so both are kept.
       - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
-          path: .nx/cache
+          path: |
+            .nx/cache
+            .nx/workspace-data/*.db
           key: nx-${{ runner.os }}-test-${{ github.sha }}
           restore-keys: nx-${{ runner.os }}-test-
       - name: Install
