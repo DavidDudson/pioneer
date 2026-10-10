@@ -16,7 +16,7 @@
         <fr-heading variant="subheading" [level]="3">{{ facet.label | transloco }}</fr-heading>
         <fr-description-list>
           @for (row of facet.values; track row.value) {
-            <fr-description-item [term]="row.key === undefined ? row.value : (row.key | transloco)">{{
+            <fr-description-item [term]="row.key === undefined ? row.shown : (row.key | transloco)">{{
               'play.rules.filterCount' | transloco: { count: row.count }
             }}</fr-description-item>
           }

@@ -102,6 +102,25 @@ const DURATION_LABELS = facetLabels({
   [DurationValue.Unlimited]: 'rules.facet.duration.unlimited',
 });
 
+/** Shared by spells and weapons, so a mixed list filters both by one facet; a weapon's persistent damage counts. */
+export const DAMAGE_TYPE_FACET: FacetDefinition = {
+  id: FacetId.parse('damage-type'),
+  type: FacetType.Set,
+  label: SpellFacetMessage.DamageType,
+  appliesTo: [ContentKind.Spell, ContentKind.Weapon],
+  derive: (entry): readonly unknown[] => {
+    if (entry.kind === ContentKind.Weapon) {
+      const { damage } = entry.data;
+      // `dice` counts dice, or flat damage with no `die`; at 0 the weapon deals none (a glue bomb).
+      const deals = damage.dice > 0;
+      return [deals ? damage.damageType : undefined, damage.persistent?.damageType].filter(
+        (type) => type !== undefined,
+      );
+    }
+    return entry.kind === ContentKind.Spell ? entry.data.damage.map((part) => part.damageType) : [];
+  },
+};
+
 /** The spell facets (content-model.md, "Filters"), beyond the common ones. */
 export const SPELL_FACETS: readonly FacetDefinition[] = [
   {
@@ -165,12 +184,7 @@ export const SPELL_FACETS: readonly FacetDefinition[] = [
     label: SpellFacetMessage.Sustained,
     derive: ofSpells(({ data }) => [isSustained(data)]),
   },
-  {
-    id: FacetId.parse('damage-type'),
-    type: FacetType.Set,
-    label: SpellFacetMessage.DamageType,
-    derive: ofSpells(({ data }) => data.damage.map((part) => part.damageType)),
-  },
+  DAMAGE_TYPE_FACET,
   {
     id: FacetId.parse('heightens'),
     type: FacetType.Flag,

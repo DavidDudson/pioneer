@@ -205,7 +205,15 @@
         "featCategory": "Feat type",
         "archetype": "Archetype",
         "skill": "Skill",
-        "mode": "Mode"
+        "mode": "Mode",
+        "itemKind": "Item type",
+        "price": "Price (cp)",
+        "bulk": "Bulk",
+        "usage": "Usage",
+        "consumable": "Consumable",
+        "magical": "Magical",
+        "weaponGroup": "Weapon group",
+        "armorCategory": "Armor category"
       },
       "tradition": {
         "arcane": "Arcane",
@@ -314,6 +322,56 @@
         "encounter": "Encounter",
         "exploration": "Exploration",
         "downtime": "Downtime"
+      },
+      "itemKind": {
+        "weapon": "Weapon",
+        "armor": "Armor",
+        "shield": "Shield",
+        "equipment": "Equipment",
+        "consumable": "Consumable",
+        "rune": "Rune",
+        "treasure": "Treasure",
+        "kit": "Kit"
+      },
+      "usage": {
+        "held": "Held",
+        "worn": "Worn",
+        "etched": "Etched",
+        "affixed": "Affixed",
+        "attached": "Attached",
+        "applied": "Applied",
+        "installed": "Installed",
+        "tattooed": "Tattooed",
+        "implanted": "Implanted",
+        "carried": "Carried",
+        "other": "Other"
+      },
+      "weaponGroup": {
+        "axe": "Axe",
+        "bomb": "Bomb",
+        "bow": "Bow",
+        "brawling": "Brawling",
+        "club": "Club",
+        "crossbow": "Crossbow",
+        "dart": "Dart",
+        "firearm": "Firearm",
+        "flail": "Flail",
+        "hammer": "Hammer",
+        "knife": "Knife",
+        "pick": "Pick",
+        "polearm": "Polearm",
+        "shield": "Shield",
+        "sling": "Sling",
+        "spear": "Spear",
+        "sword": "Sword"
+      },
+      "armorCategory": {
+        "unarmored": "Unarmored",
+        "light": "Light",
+        "medium": "Medium",
+        "heavy": "Heavy",
+        "lightBarding": "Light barding",
+        "heavyBarding": "Heavy barding"
       }
     }
   }

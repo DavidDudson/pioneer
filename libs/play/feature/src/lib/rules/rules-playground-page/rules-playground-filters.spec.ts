@@ -59,6 +59,32 @@ describe('RulesPlaygroundPage content filters', () => {
     expect(text).toContain('Encounter');
   });
 
+  it('filters equipment by weapon group and bulk', async () => {
+    const harness = await openPlayground();
+    await chooseSchema(harness, 'Content filters');
+    await typeInto(harness, queryInput(harness), 'f.weapon-group=sword');
+
+    expect(pageText(harness)).toContain('Longsword (Weapon)');
+    expect(pageText(harness)).not.toContain('Leather Armor (Armor)');
+
+    await typeInto(harness, queryInput(harness), 'f.bulk=..1&f.magical=no');
+    const text = pageText(harness);
+    expect(text).not.toContain('Longsword (Weapon)');
+    expect(text).toContain('Backpack (Equipment)');
+  });
+
+  it('labels equipment facets and shows bulk in Bulk', async () => {
+    const harness = await openPlayground();
+    await chooseSchema(harness, 'Content filters');
+    await typeInto(harness, queryInput(harness), '');
+
+    const text = pageText(harness);
+    expect(text).toContain('Weapon group');
+    expect(text).toContain('Armor category');
+    expect(text).toContain('Item type');
+    expect(text).toContain('0.1');
+  });
+
   it('says when nothing narrows the list', async () => {
     const harness = await openPlayground();
     await chooseSchema(harness, 'Content filters');
