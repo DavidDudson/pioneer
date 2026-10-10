@@ -247,7 +247,11 @@ export function readJson<Value>(target: z.ZodType<Value>, text: string): JsonRea
 /** Parse `text` as JSON, then validate it against `schema`. Never throws. */
 export function checkRulesJson(schema: RulesSchema, text: string): CheckOutcome {
   const target = SCHEMAS[schema];
-  const read = readJson(target, text);
+  return checkOutcome(target, readJson(target, text));
+}
+
+/** A read as the check reports it: the value encoded back to JSON, or what stopped it. */
+export function checkOutcome<Value>(target: z.ZodType<Value>, read: JsonRead<Value>): CheckOutcome {
   return read.status === CheckStatus.Valid
     ? { status: CheckStatus.Valid, parsed: JSON.stringify(z.encode(target, read.value), undefined, JSON_INDENT) }
     : read;

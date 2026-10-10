@@ -28,7 +28,7 @@
     },
     "richText": {
       "tooDeep": "Rich text can nest at most {maximum} levels deep.",
-      "tooLarge": "Rich text can hold at most {maximum} nodes, lists and rows together.",
+      "tooLarge": "Rich text can hold at most {maximum} JSON arrays and objects in all; each paragraph, list item and table row takes at least one.",
       "unnamedEntry": "linked entry",
       "table": "Table",
       "actionCost": {
