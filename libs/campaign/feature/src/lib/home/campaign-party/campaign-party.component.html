@@ -1,0 +1,62 @@
+<fr-surface>
+  <fr-stack gap="md">
+    <fr-heading variant="subheading" [level]="2">{{ 'campaign.party.heading' | transloco }}</fr-heading>
+    <fr-async-region [errorMessage]="'campaign.party.loadError' | transloco">
+      <ng-template frAsyncPending>
+        <fr-stack gap="md">
+          <fr-stack gap="sm">
+            @for (placeholder of placeholders; track placeholder) {
+              <fr-stack direction="horizontal" gap="sm" align="center">
+                <fr-skeleton shape="square" width="xs" />
+                <fr-stack gap="3xs" grow>
+                  <fr-skeleton width="sm" />
+                  <fr-skeleton width="md" />
+                </fr-stack>
+              </fr-stack>
+            }
+          </fr-stack>
+          <fr-skeleton width="sm" />
+          <fr-skeleton shape="block" width="md" />
+        </fr-stack>
+      </ng-template>
+      <ng-template let-party [frAsyncData]="store.party">
+        <fr-stack gap="md">
+          @if (party.characters.length === 0) {
+            <fr-empty-state [icon]="emptyIcon" [title]="'campaign.party.empty' | transloco" />
+          } @else {
+            <fr-list gap="sm">
+              @for (character of party.characters; track character.characterId) {
+                <fr-list-item>
+                  <fr-stack direction="horizontal" gap="sm" align="center" wrap>
+                    <fr-avatar size="sm" decorative [name]="character.name" />
+                    <fr-stack gap="3xs" grow>
+                      <fr-text weight="medium">{{ character.name }}</fr-text>
+                      <fr-text variant="caption" tone="subtle">{{
+                        'campaign.party.byline' | transloco: { level: character.level, owner: character.ownerName }
+                      }}</fr-text>
+                    </fr-stack>
+                    @if (detached().has(character.characterId)) {
+                      <fr-badge>{{ 'campaign.party.detached' | transloco }}</fr-badge>
+                    }
+                    @if (character.detachable) {
+                      <fr-async-button
+                        size="sm"
+                        [action]="detach(character)"
+                        [describeError]="describeDetachError"
+                        [pendingLabel]="'campaign.party.detaching' | transloco"
+                        [successLabel]="'campaign.party.detached' | transloco"
+                        >{{ 'campaign.party.detach' | transloco }}</fr-async-button
+                      >
+                    }
+                  </fr-stack>
+                </fr-list-item>
+              }
+            </fr-list>
+          }
+
+          <pio-campaign-attach-picker [attachable]="party.attachable" />
+        </fr-stack>
+      </ng-template>
+    </fr-async-region>
+  </fr-stack>
+</fr-surface>

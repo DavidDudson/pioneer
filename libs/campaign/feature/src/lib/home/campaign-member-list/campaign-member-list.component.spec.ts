@@ -37,6 +37,8 @@ const named = [
   { ...gmMember, displayName: 'Amiri' },
   { ...playerMember, displayName: 'Ezren' },
 ];
+/** No characters brought in yet, and none of the user's own to bring. */
+const emptyParty = { characters: [], attachable: [] };
 
 function present<TValue>(value: TValue | null | undefined): TValue {
   if (value === null || value === undefined) {
@@ -70,6 +72,7 @@ async function open(viewerRole: 'gm' | 'player'): Promise<RouterTestingHarness> 
   const http = TestBed.inject(HttpTestingController);
   http.expectOne(`/api/campaigns/${id}`).flush(campaign);
   http.expectOne(`/api/campaigns/${id}/members`).flush({ viewerRole, members: named });
+  http.expectOne(`/api/campaigns/${id}/party`).flush(emptyParty);
   await harness.fixture.whenStable();
   if (viewerRole === 'gm') {
     await vi.waitFor(() => {
@@ -105,6 +108,10 @@ describe('CampaignMemberList', () => {
     await vi.waitFor(() => {
       // The campaign's member count refreshes now.
       http.expectOne(`/api/campaigns/${id}`).flush({ ...campaign, version: 2, members: [gmMember] });
+    });
+    await vi.waitFor(() => {
+      // So does the party, which the player's characters left with them.
+      http.expectOne(`/api/campaigns/${id}/party`).flush(emptyParty);
     });
     await vi.waitFor(() => {
       expect(root.textContent).toContain('Removed');

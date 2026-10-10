@@ -18,8 +18,9 @@ import {
 import { CampaignStore } from '../../data/campaign-store';
 import { CampaignInvitePanel } from '../campaign-invite-panel/campaign-invite-panel.component';
 import { CampaignMemberList } from '../campaign-member-list/campaign-member-list.component';
+import { CampaignPartyPanel } from '../campaign-party/campaign-party.component';
 
-/** One campaign's home: when it started, who is in it, and for its GM, the invite links. */
+/** One campaign's home: when it started, who is in it, their characters, and for its GM, the invite links. */
 @Component({
   selector: 'pio-campaign-home-page',
   imports: [
@@ -28,6 +29,7 @@ import { CampaignMemberList } from '../campaign-member-list/campaign-member-list
     AsyncRegion,
     CampaignInvitePanel,
     CampaignMemberList,
+    CampaignPartyPanel,
     DateDisplay,
     DescriptionItem,
     DescriptionList,

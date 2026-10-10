@@ -33,6 +33,7 @@
       </ng-template>
     </fr-async-region>
     <pio-campaign-member-list />
+    <pio-campaign-party />
     @if (store.isGm() && store.selected.data(); as campaign) {
       <pio-campaign-invite-panel [campaignId]="campaign.id" />
     }
