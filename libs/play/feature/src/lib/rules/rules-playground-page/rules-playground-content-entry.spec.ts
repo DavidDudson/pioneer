@@ -10,9 +10,16 @@ function json(harness: RouterTestingHarness): string {
 
 const KIND_EXAMPLES = [
   ['action', 'Action'],
+  ['archetype', 'Archetype'],
+  ['background', 'Background'],
+  ['class', 'Class'],
+  ['class-feature', 'Class feature'],
   ['condition', 'Condition'],
   ['creature', 'Creature'],
   ['damage-type', 'Damage type'],
+  ['deity', 'Deity'],
+  ['feat', 'Feat'],
+  ['heritage', 'Heritage'],
   ['language', 'Language'],
   ['sense', 'Sense'],
   ['statistic', 'Statistic'],

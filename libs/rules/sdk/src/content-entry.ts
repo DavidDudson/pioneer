@@ -51,6 +51,7 @@ const KNOWN_KINDS: ReadonlySet<unknown> = new Set(REGISTERED_KINDS);
 const TRAITS_MAX = 32;
 const SOURCES_MAX = 8;
 const SUPERSEDES_MAX = 8;
+const FIRST_LEVEL = 1;
 
 /** Where an entry lives; `kind` follows, then the rest of the envelope (content-model.md, "Content entry"). */
 const address = { id: ContentId, pack: PackId };
@@ -88,6 +89,32 @@ const Entry = z.discriminatedUnion('kind', [
   }),
   z.strictObject({
     ...address,
+    kind: z.literal(ContentKind.Archetype),
+    ...envelope,
+    data: KIND_DATA[ContentKind.Archetype],
+  }),
+  z.strictObject({
+    ...address,
+    kind: z.literal(ContentKind.Background),
+    ...envelope,
+    data: KIND_DATA[ContentKind.Background],
+  }),
+  z.strictObject({
+    ...address,
+    kind: z.literal(ContentKind.Class),
+    ...envelope,
+    data: KIND_DATA[ContentKind.Class],
+  }),
+  z.strictObject({
+    ...address,
+    kind: z.literal(ContentKind.ClassFeature),
+    ...envelope,
+    // A class feature always has a level: the one its class gains it at.
+    level: ContentLevel,
+    data: KIND_DATA[ContentKind.ClassFeature],
+  }),
+  z.strictObject({
+    ...address,
     kind: z.literal(ContentKind.Condition),
     ...envelope,
     data: KIND_DATA[ContentKind.Condition],
@@ -105,6 +132,26 @@ const Entry = z.discriminatedUnion('kind', [
     kind: z.literal(ContentKind.DamageType),
     ...envelope,
     data: KIND_DATA[ContentKind.DamageType],
+  }),
+  z.strictObject({
+    ...address,
+    kind: z.literal(ContentKind.Deity),
+    ...envelope,
+    data: KIND_DATA[ContentKind.Deity],
+  }),
+  z.strictObject({
+    ...address,
+    kind: z.literal(ContentKind.Feat),
+    ...envelope,
+    // A feat always has a level: the lowest a character can take it at.
+    level: ContentLevel,
+    data: KIND_DATA[ContentKind.Feat],
+  }),
+  z.strictObject({
+    ...address,
+    kind: z.literal(ContentKind.Heritage),
+    ...envelope,
+    data: KIND_DATA[ContentKind.Heritage],
   }),
   z.strictObject({
     ...address,
@@ -184,6 +231,14 @@ function checkSupersedes(context: EntryCheck): void {
   }
 }
 
+/** A feat only taken at 1st level is a 1st-level feat. */
+function checkOnlyLevel1(context: EntryCheck): void {
+  const entry = context.value;
+  if (entry.kind === ContentKind.Feat && entry.data.onlyLevel1 === true && entry.level !== FIRST_LEVEL) {
+    push(context, ['level'], message(RulesMessage.FeatOnlyLevel1));
+  }
+}
+
 /** Every condition a condition implies is applied by an unconditional `GrantItem` of it in `rules`. */
 function checkImplies(context: EntryCheck): void {
   const entry = context.value;
@@ -228,5 +283,6 @@ export const ContentEntry: z.ZodType<ContentEntry> = z
       checkTraits(context);
       checkSupersedes(context);
       checkImplies(context);
+      checkOnlyLevel1(context);
     }),
   );

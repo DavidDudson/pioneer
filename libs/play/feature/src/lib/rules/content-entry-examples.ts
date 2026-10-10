@@ -1,6 +1,15 @@
 import { Attribute, ContentKind, contentId, PackId, Slug, StatisticKind } from '@pioneer/rules/sdk';
 import type { RegisteredKind } from '@pioneer/rules/sdk';
 
+import {
+  farmhand,
+  fighter,
+  fighterArchetype,
+  pharasma,
+  reactiveStrike,
+  skilledHuman,
+  suddenCharge,
+} from './build-examples';
 import { aid, darkvision, draconic, fire, freeArchetype, grabbed, manipulate } from './rules-core-examples';
 
 const PLAYER_CORE = PackId.parse('player-core');
@@ -13,6 +22,7 @@ const monsterCorePage = { kind: 'book', book: 'monster-core', page: 1 };
 /* Stat block numbers: Player Core's human, Monster Core's giant rat (Foundry pf2e). */
 const HUMAN_HIT_POINTS = 8;
 const HUMAN_SPEED = 25;
+const HUMAN_REACH = 5;
 const RAT_LEVEL = -1;
 const RAT_PERCEPTION = 5;
 const RAT_ARMOR_CLASS = 15;
@@ -41,7 +51,16 @@ const human = {
   sources: [playerCorePage],
   description: [paragraph('Humans are diverse and adaptable, with ambitions as varied as the lands they call home.')],
   rules: [],
-  data: { hitPoints: HUMAN_HIT_POINTS, size: 'medium', speed: HUMAN_SPEED },
+  data: {
+    hitPoints: HUMAN_HIT_POINTS,
+    size: 'medium',
+    speed: HUMAN_SPEED,
+    boosts: [Object.values(Attribute), Object.values(Attribute)],
+    flaws: [],
+    languages: [contentId(PLAYER_CORE, Slug.parse('common'))],
+    additionalLanguages: { count: 1, options: [] },
+    reach: HUMAN_REACH,
+  },
 };
 
 const giantRat = {
@@ -101,9 +120,16 @@ const armorClass = {
 export const EXAMPLE_CONTENT_ENTRIES: Readonly<Record<RegisteredKind, unknown>> = {
   [ContentKind.Action]: aid,
   [ContentKind.Ancestry]: human,
+  [ContentKind.Archetype]: fighterArchetype,
+  [ContentKind.Background]: farmhand,
+  [ContentKind.Class]: fighter,
+  [ContentKind.ClassFeature]: reactiveStrike,
   [ContentKind.Condition]: grabbed,
   [ContentKind.Creature]: giantRat,
   [ContentKind.DamageType]: fire,
+  [ContentKind.Deity]: pharasma,
+  [ContentKind.Feat]: suddenCharge,
+  [ContentKind.Heritage]: skilledHuman,
   [ContentKind.Language]: draconic,
   [ContentKind.Sense]: darkvision,
   [ContentKind.Statistic]: armorClass,
@@ -115,9 +141,16 @@ export const EXAMPLE_CONTENT_ENTRIES: Readonly<Record<RegisteredKind, unknown>> 
 export const CONTENT_KIND_KEYS: Readonly<Record<RegisteredKind, string>> = {
   [ContentKind.Action]: 'play.rules.contentKind.action',
   [ContentKind.Ancestry]: 'play.rules.contentKind.ancestry',
+  [ContentKind.Archetype]: 'play.rules.contentKind.archetype',
+  [ContentKind.Background]: 'play.rules.contentKind.background',
+  [ContentKind.Class]: 'play.rules.contentKind.class',
+  [ContentKind.ClassFeature]: 'play.rules.contentKind.classFeature',
   [ContentKind.Condition]: 'play.rules.contentKind.condition',
   [ContentKind.Creature]: 'play.rules.contentKind.creature',
   [ContentKind.DamageType]: 'play.rules.contentKind.damageType',
+  [ContentKind.Deity]: 'play.rules.contentKind.deity',
+  [ContentKind.Feat]: 'play.rules.contentKind.feat',
+  [ContentKind.Heritage]: 'play.rules.contentKind.heritage',
   [ContentKind.Language]: 'play.rules.contentKind.language',
   [ContentKind.Sense]: 'play.rules.contentKind.sense',
   [ContentKind.Statistic]: 'play.rules.contentKind.statistic',

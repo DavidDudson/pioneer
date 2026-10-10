@@ -81,6 +81,45 @@ Two checks span fields: a reaction needs a `trigger`, and every condition in `im
 `GrantItem`, and so does the engine; `implies` is the list the sheet shows. The check runs one way: a condition may
 grant more than it lists.
 
+#### Build data
+
+The same rule holds for build kinds: `data` is what Foundry pf2e stores, less what rule elements already express.
+Lists of attributes, slugs and ids name each item once.
+
+| Kind            | `data`                                                                                                      |
+| --------------- | ----------------------------------------------------------------------------------------------------------- |
+| `ancestry`      | `hitPoints`, `size`, `speed`, `reach`; `boosts`; `flaws`; `languages`; `additionalLanguages`; `vision?`     |
+| `heritage`      | `ancestry?`, absent for a versatile heritage                                                                |
+| `background`    | `boosts`; trained skills and lore are `Proficiency` elements, its skill feat a `GrantItem`                  |
+| `class`         | `keyAttribute`, the attributes it may be; `hitPoints` per level; `additionalSkills`; progression in `rules` |
+| `class-feature` | `action?`; always has a `level`                                                                             |
+| `feat`          | `category`; `prerequisites?` as rich text; `onlyLevel1?`; `maxTakable?`; `action?`; always has a `level`    |
+| `archetype`     | `dedication`; `multiclass?`, the class it is the multiclass archetype of                                    |
+| `deity`         | `category`; `sanctification?`; `domains`; `font`; `attributes`; `skills`; `weapons`; `spells`               |
+
+- **Boosts.** A boost is the attributes it may go to: one for a fixed boost, all six for a free one. An ancestry
+  lists up to four, a background two (Farmhand: Constitution or Wisdom, then free). `flaws` are fixed attributes.
+- **Languages.** `languages` and `additionalLanguages.options` are `language` entries by `ContentId`;
+  `additionalLanguages.count` is the number picked beyond those granted, before the Intelligence modifier.
+  `vision` is the `sense` entry an ancestry sees with (darkvision, low-light vision), absent for ordinary vision.
+- **Class progression.** Perception, save, attack, defence, skill and class DC ranks are `Proficiency` elements,
+  later ranks behind a level predicate (`{ "gte": ["self:level", 7] }`). Each class feature is a `GrantItem`, and
+  each feat slot a `ChoiceSet` querying feats (`["item:trait:fighter", { "lte": ["item:level", "self:level"] }]`)
+  behind the level it opens at. Foundry's `classFeatLevels` and the other level lists have no field here.
+- **Feats.** `category` is Foundry's: `ancestry`, `class`, `general`, `skill` or `bonus`; an archetype feat is a
+  class feat with the `archetype` trait. `maxTakable` is a count or `unlimited` (Foundry's `null`), once when
+  absent. A feat with `onlyLevel1` must be level 1. `action` is an `action` kind's `data`, for a feat or class
+  feature used as an action. The sheet placement override is the envelope's `display`. Foundry's feature
+  categories on the same item type go elsewhere:
+  `classfeature` is the `class-feature` kind, and `ancestryfeature`, `calling`, `curse`, `deityboon` and `pfsboon`
+  have no kind yet, so the importer reports them.
+- **Archetypes.** Foundry keeps them as journal pages; the importer builds the entry from the dedication feat.
+- **Deities.** `category` is `deity`, `pantheon`, `covenant` or `philosophy`. `sanctification` is `can` or `must`
+  with `holy` and/or `unholy`. `domains` has `primary` and `alternate` domain slugs, `font` is `harm` and/or `heal`,
+  `skills` are statistic selectors, `weapons` base weapon slugs until weapons are content, and `spells` one spell
+  per rank from 1 to 10. A philosophy has no font, domains or spells, and divine skills must be `skill:` selectors.
+  A deity on a character sets `deity:primary:<slug>`, as Foundry does.
+
 ### Rich text
 
 Descriptions are stored as a small, safe document AST, not HTML: `RichText` in `libs/rules/sdk` (`rich-text.ts`),

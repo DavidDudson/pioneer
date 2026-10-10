@@ -2,6 +2,8 @@ import { Pg } from '@pioneer/shared/kernel';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
+import { uniqueItems } from './unique-items';
+
 /** The six attributes (Player Core remaster terminology). */
 export const Attribute = {
   Strength: 'str',
@@ -13,6 +15,18 @@ export const Attribute = {
 } as const;
 export type Attribute = ValueOf<typeof Attribute>;
 export const AttributeSchema = z.enum(Attribute);
+
+const ATTRIBUTE_COUNT = Object.keys(Attribute).length;
+
+/** Attributes, each once: an ancestry's flaws, a deity's divine attributes. */
+export const Attributes = z.array(AttributeSchema).max(ATTRIBUTE_COUNT).readonly().check(uniqueItems);
+
+/**
+ * One attribute boost, as the attributes it may go to (Foundry pf2e's `boosts` entry). All six is a free boost;
+ * one is a fixed boost.
+ */
+export const AttributeBoost = z.array(AttributeSchema).min(1).max(ATTRIBUTE_COUNT).readonly().check(uniqueItems);
+export type AttributeBoost = z.infer<typeof AttributeBoost>;
 
 /** Remaster attribute modifiers. A level 20 character tops out at +7. */
 export const ATTRIBUTE_MODIFIER_MIN = -5;

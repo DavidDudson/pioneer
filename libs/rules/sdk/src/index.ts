@@ -9,6 +9,8 @@ export {
   AttributeModifiersWire,
   AttributeSchema,
 } from './attribute';
+export { DeityCategory, DivineFont } from './deity';
+export { FeatCategory } from './feat';
 export { ConditionData, ConditionGroup } from './condition';
 export { ContentKind, ContentKindSchema } from './content-kind';
 export { ContentPack, type ContentPackLoader, ContentPackManifest, ContentPackSchema } from './content-pack';
