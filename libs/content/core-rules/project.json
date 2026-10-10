@@ -1,0 +1,7 @@
+{
+  "name": "content-core-rules",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/content/core-rules/src",
+  "tags": ["scope:content", "type:content", "platform:any"]
+}

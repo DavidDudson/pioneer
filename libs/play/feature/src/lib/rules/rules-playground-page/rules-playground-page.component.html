@@ -23,14 +23,23 @@
         } @else if (tool.kind === ToolKind.Verdict) {
           <pio-verdict-fields [check]="tool.check" [(predicate)]="text" [(facts)]="facts" />
         } @else if (tool.kind === ToolKind.Statistics) {
-          <pio-statistics-fields
-            [check]="tool.check"
-            [(definitions)]="text"
-            [(inputs)]="statisticInputs"
-            [(rules)]="statisticRules"
-            [(overrides)]="statisticOverrides"
-            [(facts)]="facts"
+          <pio-statistic-source-field
+            [value]="statisticSource()"
+            [failed]="statisticLoad() === SourceLoad.Failed"
+            (chosen)="chooseStatisticSource($event)"
           />
+          @if (statisticLoad() === SourceLoad.Loading) {
+            <fr-skeleton shape="block" width="full" />
+          } @else {
+            <pio-statistics-fields
+              [check]="tool.check"
+              [(definitions)]="text"
+              [(inputs)]="statisticInputs"
+              [(rules)]="statisticRules"
+              [(overrides)]="statisticOverrides"
+              [(facts)]="facts"
+            />
+          }
         } @else if (tool.kind === ToolKind.Grants) {
           <pio-grants-fields
             [check]="tool.check"

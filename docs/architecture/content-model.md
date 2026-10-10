@@ -309,7 +309,8 @@ content_pack_deps    pack_id, depends_on            -- homebrew extending an off
 - **Enabled packs** are chosen per campaign (and per character outside campaigns). The registry is built from
   exactly those packs.
 
-The existing TS content libraries (`libs/content/player-core`, `libs/content/monster-core`) are retired. Thousands
+The existing TS content libraries (`libs/content/player-core`, `libs/content/monster-core`, and the hand-authored
+`libs/content/core-rules`, which is seeded instead) are retired. Thousands
 of entries as TypeScript would slow typechecking for no benefit, and homebrew cannot use that path.
 
 ### Delivery to the browser

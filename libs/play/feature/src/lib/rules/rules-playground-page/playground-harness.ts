@@ -1,3 +1,4 @@
+import type { Provider } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
@@ -16,9 +17,11 @@ export function present<TValue>(value: TValue | null | undefined): TValue {
   return value;
 }
 
-export async function openPlayground(): Promise<RouterTestingHarness> {
+/** Opens the playground; `providers` replace defaults such as the statistics loader. */
+export async function openPlayground(providers: readonly Provider[] = []): Promise<RouterTestingHarness> {
   TestBed.configureTestingModule({
     providers: [
+      ...providers,
       provideRouter([{ path: 'play', children: playRoutes }]),
       provideI18n({ en: async () => ({ ...kernelMessages, ...frontierMessages }) }),
     ],
@@ -70,5 +73,14 @@ export async function chooseIn(harness: RouterTestingHarness, label: string, opt
   await harness.fixture.whenStable();
   const options = [...document.querySelectorAll<HTMLElement>('[role="option"]')];
   present(options.find((candidate) => candidate.textContent.trim() === option)).click();
+  await harness.fixture.whenStable();
+}
+
+/** Presses the option `option` of the segmented control in the field labelled `label`. */
+export async function pressIn(harness: RouterTestingHarness, label: string, option: string): Promise<void> {
+  const fields = [...present(harness.routeNativeElement).querySelectorAll<HTMLElement>('fr-field')];
+  const field = present(fields.find((candidate) => candidate.querySelector('fr-label')?.textContent.trim() === label));
+  const buttons = [...field.querySelectorAll<HTMLButtonElement>('fr-segmented button')];
+  present(buttons.find((candidate) => candidate.textContent.trim() === option)).click();
   await harness.fixture.whenStable();
 }
