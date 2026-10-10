@@ -15,12 +15,14 @@ loading the pack or running the engine can only be shown or tested with a live b
 
 - **Frontier knows nothing about Pioneer's schemas.** It never imports `rules/*` or another domain library, and its
   stories never show content entries, source references or engine output. A component that needs a schema type is
-  a Pioneer component, not a frontier one.
+  a Pioneer component, not a frontier one. Lint enforces the import half: a `scope:shared` library may depend only
+  on `scope:shared` libraries (`.oxlintrc.json`).
 - **Pioneer components that render rules data come in two kinds:**
   - **Presentational** (dumb): in a `type:ui` library (`libs/rules/ui`, later `libs/<scope>/ui`). They take
     resolved data through inputs, such as an entry's `sources` and a map of author display names, and are built
-    from frontier components. They may inject Transloco and `LocaleFormat`, but no store, query, HTTP client or
-    engine call.
+    from frontier components. They may inject Transloco, `LocaleFormat`, and lookup tokens that the container
+    provides as plain data (rich text's `RICH_TEXT_LINKS`, which a story provides as fixed maps), but no store,
+    query, HTTP client or engine call.
   - **Container** (smart): in a `feature` library. They load or derive data (queries, stores, the engine) and pass
     it to presentational components.
 - **Every presentational component has a story** in its library's own Storybook. Each such library has a
