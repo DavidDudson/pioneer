@@ -21,6 +21,14 @@ export const campaignRoutes: Routes = [
         }),
       },
       {
+        // An invite link. The parent route's sign-in guard brings an anonymous visitor back here.
+        path: 'join/:token',
+        loadComponent: loadWithMessages(async () => {
+          const { CampaignJoinPage } = await import('./join/campaign-join-page/campaign-join-page.component');
+          return CampaignJoinPage;
+        }),
+      },
+      {
         path: ':id',
         // Opening a campaign is the likely next step from the list.
         data: PREFETCH_WHEN_IDLE,

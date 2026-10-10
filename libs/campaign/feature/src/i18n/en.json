@@ -22,5 +22,42 @@
     "started": "Started",
     "members": "Members",
     "memberCount": "{count, plural, one {# member} other {# members}}"
+  },
+  "roster": {
+    "heading": "Members",
+    "loadError": "Could not load the members.",
+    "joined": "Joined",
+    "gm": "GM",
+    "player": "Player"
+  },
+  "invites": {
+    "heading": "Invite players",
+    "description": "Anyone signed in who opens an invite link joins as a player. Links work for 7 days.",
+    "create": "Create invite link",
+    "creating": "Creating",
+    "created": "Created",
+    "createFailed": "Could not create an invite link. Try again.",
+    "newLink": "New invite link",
+    "newLinkHint": "This link is shown only once. Copy it now.",
+    "copy": "Copy link",
+    "copying": "Copying",
+    "copied": "Copied",
+    "copyFailed": "Could not copy. Select the link and copy it instead.",
+    "openHeading": "Open links",
+    "loadError": "Could not load invite links.",
+    "expires": "Expires",
+    "revoke": "Revoke",
+    "revoking": "Revoking",
+    "revoked": "Revoked",
+    "revokeFailed": "Could not revoke the link. Try again.",
+    "empty": "No open invite links."
+  },
+  "join": {
+    "title": "Join campaign",
+    "joining": "Joining the campaign",
+    "toCampaigns": "Go to your campaigns",
+    "unknownInvite": "This invite link is not valid. Ask your GM for a new one.",
+    "expiredInvite": "This invite link has expired. Ask your GM for a new one.",
+    "revokedInvite": "This invite link was revoked. Ask your GM for a new one."
   }
 }

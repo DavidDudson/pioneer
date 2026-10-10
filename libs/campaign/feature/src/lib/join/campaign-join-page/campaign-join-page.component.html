@@ -1,0 +1,15 @@
+<fr-page [title]="'campaign.join.title' | transloco">
+  <fr-surface>
+    @if (parsed() === undefined || joining.isError()) {
+      <fr-stack gap="md">
+        <fr-message>{{ joining.errorMessage() ?? ('campaign.join.unknownInvite' | transloco) }}</fr-message>
+        <fr-link [to]="['/campaigns']">{{ 'campaign.join.toCampaigns' | transloco }}</fr-link>
+      </fr-stack>
+    } @else {
+      <fr-stack gap="sm">
+        <fr-text tone="muted">{{ 'campaign.join.joining' | transloco }}</fr-text>
+        <fr-skeleton width="lg" />
+      </fr-stack>
+    }
+  </fr-surface>
+</fr-page>

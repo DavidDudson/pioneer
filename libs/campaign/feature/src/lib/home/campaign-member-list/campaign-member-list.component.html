@@ -1,0 +1,32 @@
+<fr-surface>
+  <fr-stack gap="md">
+    <fr-heading variant="subheading" [level]="2">{{ 'campaign.roster.heading' | transloco }}</fr-heading>
+    <fr-async-region [errorMessage]="'campaign.roster.loadError' | transloco">
+      <ng-template frAsyncPending>
+        <fr-stack gap="sm">
+          @for (placeholder of placeholders; track placeholder) {
+            <fr-skeleton width="md" />
+          }
+        </fr-stack>
+      </ng-template>
+      <ng-template let-roster [frAsyncData]="store.roster">
+        <fr-list gap="sm">
+          @for (member of roster.members; track member.id) {
+            <fr-list-item>
+              <fr-stack direction="horizontal" gap="sm" align="center">
+                <fr-avatar size="sm" decorative [name]="member.displayName" />
+                <fr-stack gap="3xs" grow>
+                  <fr-text weight="medium">{{ member.displayName }}</fr-text>
+                  <fr-text variant="caption" tone="subtle"
+                    >{{ 'campaign.roster.joined' | transloco }} <fr-date [value]="member.joinedAt"
+                  /></fr-text>
+                </fr-stack>
+                <fr-badge>{{ roleLabel[member.role] | transloco }}</fr-badge>
+              </fr-stack>
+            </fr-list-item>
+          }
+        </fr-list>
+      </ng-template>
+    </fr-async-region>
+  </fr-stack>
+</fr-surface>

@@ -16,14 +16,18 @@ import {
 } from '@pioneer/frontier';
 
 import { CampaignStore } from '../../data/campaign-store';
+import { CampaignInvitePanel } from '../campaign-invite-panel/campaign-invite-panel.component';
+import { CampaignMemberList } from '../campaign-member-list/campaign-member-list.component';
 
-/** One campaign's home: when it started and how many are in it. */
+/** One campaign's home: when it started, who is in it, and for its GM, the invite links. */
 @Component({
   selector: 'pio-campaign-home-page',
   imports: [
     AsyncData,
     AsyncPending,
     AsyncRegion,
+    CampaignInvitePanel,
+    CampaignMemberList,
     DateDisplay,
     DescriptionItem,
     DescriptionList,

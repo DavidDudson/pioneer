@@ -45,4 +45,25 @@ describe('app routes', () => {
     await navigation;
     expect(router.url).toBe(`/account/sign-in?returnTo=%2F${path}`);
   });
+
+  it('sends a signed-out visitor from an invite link to sign-in and back to the link', async () => {
+    const link = '/campaigns/join/Wm9vbS16b29tLXRoZS1pbnZpdGUtdG9rZW4tZm9yLXQ';
+    TestBed.configureTestingModule({
+      providers: [
+        provideRouter([route('campaigns'), { path: 'account/sign-in', children: [] }]),
+        provideHttpClient(),
+        provideHttpClientTesting(),
+        provideTanStackQuery(new QueryClient({ defaultOptions: { queries: { retry: false } } })),
+      ],
+    });
+    const router = TestBed.inject(Router);
+    const navigation = router.navigateByUrl(link);
+    await vi.waitFor(() => {
+      TestBed.inject(HttpTestingController)
+        .expectOne('/api/me')
+        .flush(unauthorized, { status: 401, statusText: 'Unauthorized' });
+    });
+    await navigation;
+    expect(router.url).toBe(`/account/sign-in?returnTo=${encodeURIComponent(link)}`);
+  });
 });
