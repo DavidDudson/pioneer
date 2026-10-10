@@ -1,4 +1,15 @@
-import { array, constant, constantFrom, integer, oneof, record, subarray, tuple, uniqueArray } from 'fast-check';
+import {
+  array,
+  boolean,
+  constant,
+  constantFrom,
+  integer,
+  oneof,
+  record,
+  subarray,
+  tuple,
+  uniqueArray,
+} from 'fast-check';
 import type { Arbitrary } from 'fast-check';
 
 import { ArmorGroup, ArmorItemCategory } from '../armor';
@@ -27,6 +38,7 @@ import { damageFormulaText } from './rich-text-arbitraries';
 
 const RUNE_GRADE_MAX = 4;
 const REINFORCING_GRADE_MAX = 6;
+const PROPERTY_RUNES_MAX = RUNE_GRADE_MAX + 1;
 const COIN_COUNT_MAX = 100_000;
 
 const runeGrade: Arbitrary<number> = integer({ min: 1, max: RUNE_GRADE_MAX });
@@ -71,21 +83,17 @@ function physical(
   });
 }
 
-/** Up to a potency rune's grade in property runes; no potency rune, no property runes. */
+/** A specific item's runes, property runes up to a potency rune's highest grade and one for orichalcum. */
 function runesWith(secondary: string): Arbitrary<object> {
-  return integer({ min: 0, max: RUNE_GRADE_MAX }).chain((potency) =>
-    withOptional(
-      record({
-        property: uniqueArray(contentIdJson, { maxLength: potency }),
-        ...(potency > 0 ? { potency: constant(potency) } : {}),
-      }),
-      { [secondary]: runeGrade },
-    ),
-  );
+  return withOptional(record({ property: uniqueArray(contentIdJson, { maxLength: PROPERTY_RUNES_MAX }) }), {
+    potency: runeGrade,
+    [secondary]: runeGrade,
+  });
 }
 
 const dieSize: Arbitrary<string> = constantFrom(...Object.values(DieSize));
-const weaponDamage: Arbitrary<object> = withOptional(record({ dice: positive, die: dieSize, damageType }), {
+const weaponDamage: Arbitrary<object> = withOptional(record({ dice: smallint, damageType }), {
+  die: dieSize,
   persistent: record({ formula: damageFormulaText, damageType }),
 });
 
@@ -98,7 +106,7 @@ const weaponData: Arbitrary<object> = physical(
     itemBonus: integer({ min: 1, max: RUNE_GRADE_MAX }),
     range: smallint,
     reload: smallint,
-    ammunition: withOptional(record({ type: slugText }), { capacity: positive }),
+    ammunition: withOptional(constant({}), { type: slugText, builtIn: boolean(), capacity: positive }),
     runes: runesWith('striking'),
   },
 );
@@ -122,6 +130,7 @@ const shieldData: Arbitrary<object> = physical(
     baseItem: slugText,
     speedPenalty: smallint,
     runes: record({ reinforcing: integer({ min: 1, max: REINFORCING_GRADE_MAX }) }),
+    integratedRunes: runesWith('striking'),
   },
 );
 
@@ -129,7 +138,7 @@ const equipmentData: Arbitrary<object> = physical(
   {},
   {
     usage,
-    container: withOptional(record({ capacity: positive }), { ignored: positive }),
+    container: withOptional(constant({}), { capacity: positive, ignored: positive, heldBulk: bulk }),
     apex: constantFrom(...Object.values(Attribute)),
   },
 );
@@ -139,6 +148,7 @@ const NOT_AMMUNITION = Object.values(ConsumableCategory).filter(
 );
 const consumableUse = {
   uses: positive,
+  kept: boolean(),
   damage: record({ formula: damageFormulaText, damageType, kind: constantFrom(...Object.values(DamageKind)) }),
   spell: record({ spell: contentIdJson, rank: integer({ min: 1, max: SPELL_RANK_MAX }) }),
   usage,

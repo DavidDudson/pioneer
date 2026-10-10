@@ -48,13 +48,16 @@ const AMMUNITION_TYPES_MAX = 8;
 
 /**
  * A consumable's `data` on the `ContentEntry` envelope, ammunition included. `uses` is how many times it can be used
- * before it is gone, once when absent. Ammunition names the kinds it can be fired as (`arrows`, `bolts`).
+ * before it is spent, once when absent; a `kept` one stays when spent (a wand, cast once a day). Ammunition names the
+ * kinds it can be fired as (`arrows`, `bolts`), a magazine its one kind, and ammunition that names none fits any
+ * weapon that doesn't take a magazine.
  */
 export const ConsumableData = z
   .strictObject({
     ...physicalFields,
     category: z.enum(ConsumableCategory),
     uses: Uses.optional(),
+    kept: z.boolean().optional(),
     damage: ConsumableDamage.optional(),
     spell: ConsumableSpell.optional(),
     ammunition: z.array(AmmunitionType).min(1).max(AMMUNITION_TYPES_MAX).readonly().check(uniqueItems).optional(),

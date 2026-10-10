@@ -6,8 +6,9 @@ import { AttributeModifier } from './attribute';
 import { Slug } from './content-id';
 import { Hardness, physicalFields } from './physical-item';
 import { ArmorCategory } from './rule-element-proficiency';
-import { checkPropertyRunes, PropertyRunes, ReinforcingGrade, RuneGrade } from './rune';
+import { PropertyRunes, ReinforcingGrade, RuneGrade } from './rune';
 import { Feet, HitPoints } from './units';
+import { WeaponRunes } from './weapon';
 
 /** Armour categories, barding included; barding has no proficiency of its own. */
 export const ArmorItemCategory = {
@@ -43,9 +44,11 @@ const DexCap = Pg.smallint().nonnegative().brand<'DexCap'>();
 const CheckPenalty = Pg.smallint().positive().brand<'CheckPenalty'>();
 
 /** A specific magic armour's runes ("+1 resilient"); armour that isn't one has none. */
-const ArmorRunes = z
-  .strictObject({ potency: RuneGrade.optional(), resilient: RuneGrade.optional(), property: PropertyRunes })
-  .check(checkPropertyRunes);
+const ArmorRunes = z.strictObject({
+  potency: RuneGrade.optional(),
+  resilient: RuneGrade.optional(),
+  property: PropertyRunes,
+});
 
 /**
  * Armour's `data` on the `ContentEntry` envelope. Penalties are their size: a check penalty of 1 is -1, a speed
@@ -68,7 +71,8 @@ export type ArmorData = z.infer<typeof ArmorData>;
 
 /**
  * A shield's `data` on the `ContentEntry` envelope: always held, so it has no usage. A shield that is also a weapon
- * says so with its `integrated-…` trait; a specific magic shield has its reinforcing rune.
+ * says so with its `integrated-…` trait; a specific magic shield has its reinforcing rune, and the runes on its
+ * integrated weapon (a sanguine klar's +1 striking wounding).
  */
 export const ShieldData = z.strictObject({
   ...physicalFields,
@@ -78,5 +82,6 @@ export const ShieldData = z.strictObject({
   hitPoints: HitPoints,
   speedPenalty: Feet.optional(),
   runes: z.strictObject({ reinforcing: ReinforcingGrade }).optional(),
+  integratedRunes: WeaponRunes.optional(),
 });
 export type ShieldData = z.infer<typeof ShieldData>;

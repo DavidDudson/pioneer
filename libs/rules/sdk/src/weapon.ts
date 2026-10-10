@@ -7,7 +7,7 @@ import { DamageTypeSchema } from './damage';
 import { DamageFormula } from './damage-formula';
 import { ItemCount, physicalFields, Usage } from './physical-item';
 import { WeaponCategory } from './rule-element-proficiency';
-import { checkPropertyRunes, PropertyRunes, RuneGrade } from './rune';
+import { PropertyRunes, RuneGrade } from './rune';
 import { DamageAmount, Feet } from './units';
 
 /** Remaster weapon groups, Foundry pf2e's less Starfinder's. */
@@ -40,16 +40,19 @@ export type BaseWeapon = z.infer<typeof BaseWeapon>;
 export const DieSize = { D4: 'd4', D6: 'd6', D8: 'd8', D10: 'd10', D12: 'd12' } as const;
 export type DieSize = ValueOf<typeof DieSize>;
 
-/** How many damage dice a weapon rolls before striking runes add more. */
-const DiceCount = Pg.smallint().positive().brand<'DiceCount'>();
+/** How many damage dice a weapon rolls before striking runes add more, or its flat damage when it has no die. */
+const DiceCount = Pg.smallint().nonnegative().brand<'DiceCount'>();
 
 /** "1d6 fire persistent": a formula, as damage writes it, and its type. */
 const PersistentDamage = z.strictObject({ formula: DamageFormula, damageType: DamageTypeSchema });
 
-/** "1d8 slashing", with persistent damage for bombs ("1d8 fire, 1 persistent fire"). */
+/**
+ * "1d8 slashing"; "1 piercing" (a blowgun) with no `die`, and none at all with no `die` and 0 `dice` (a glue bomb).
+ * Bombs add persistent damage ("1d8 fire, 1 persistent fire").
+ */
 const WeaponDamage = z.strictObject({
   dice: DiceCount,
-  die: z.enum(DieSize),
+  die: z.enum(DieSize).optional(),
   damageType: DamageTypeSchema,
   persistent: PersistentDamage.optional(),
 });
@@ -58,8 +61,15 @@ const WeaponDamage = z.strictObject({
 export const AmmunitionType = Slug.brand<'AmmunitionType'>();
 export type AmmunitionType = z.infer<typeof AmmunitionType>;
 
-/** What a weapon fires, and how many it holds loaded when it holds more than one at a time. */
-const WeaponAmmunition = z.strictObject({ type: AmmunitionType, capacity: ItemCount.optional() });
+/**
+ * What a weapon fires, and how many it holds loaded. A weapon with `builtIn` ammunition has no `type`; one with no
+ * `type` otherwise fires any ammunition that isn't a magazine.
+ */
+const WeaponAmmunition = z.strictObject({
+  type: AmmunitionType.optional(),
+  builtIn: z.boolean().optional(),
+  capacity: ItemCount.optional(),
+});
 
 /** The actions it takes to reload: 0 for a bow, 1 for most firearms, 10 for a cannon. */
 const ReloadActions = Pg.smallint().nonnegative().brand<'ReloadActions'>();
@@ -70,9 +80,11 @@ const ITEM_BONUS_MAX = 4;
 const ItemBonus = Pg.smallint().positive().max(ITEM_BONUS_MAX).brand<'ItemBonus'>();
 
 /** A specific magic weapon's runes ("+1 striking flaming"); a weapon that isn't one has none. */
-const WeaponRunes = z
-  .strictObject({ potency: RuneGrade.optional(), striking: RuneGrade.optional(), property: PropertyRunes })
-  .check(checkPropertyRunes);
+export const WeaponRunes = z.strictObject({
+  potency: RuneGrade.optional(),
+  striking: RuneGrade.optional(),
+  property: PropertyRunes,
+});
 
 /**
  * A weapon's `data` on the `ContentEntry` envelope, alchemical bombs included, as in Foundry pf2e. Its traits are

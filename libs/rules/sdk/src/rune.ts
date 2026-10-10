@@ -17,26 +17,14 @@ const REINFORCING_GRADE_MAX = 6;
 export const ReinforcingGrade = Pg.smallint().min(1).max(REINFORCING_GRADE_MAX).brand<'ReinforcingGrade'>();
 export type ReinforcingGrade = z.infer<typeof ReinforcingGrade>;
 
-/** A specific item's property runes, as `rune` entries; a potency rune holds one per grade. */
-export const PropertyRunes = z.array(ContentId).max(RUNE_GRADE_MAX).readonly().check(uniqueItems);
+/** A potency rune's grade, and one more for orichalcum: the most property runes an item can hold. */
+const PROPERTY_RUNES_MAX = RUNE_GRADE_MAX + 1;
 
-type PropertyRuneCheck = z.core.ParsePayload<{
-  readonly potency?: RuneGrade | undefined;
-  readonly property: readonly ContentId[];
-}>;
-
-/** An item has no more property runes than its potency rune's grade. */
-export function checkPropertyRunes(context: PropertyRuneCheck): void {
-  const { potency = 0, property } = context.value;
-  if (property.length > potency) {
-    context.issues.push({
-      code: 'custom',
-      input: context.value,
-      path: ['property'],
-      ...issueParams(message(RulesMessage.RunePropertySlots, { potency })),
-    });
-  }
-}
+/**
+ * A specific item's property runes, as `rune` entries, as printed. A potency rune's grade limits the runes etched
+ * later, but a specific item may come with more (a returning starknife has no potency rune).
+ */
+export const PropertyRunes = z.array(ContentId).max(PROPERTY_RUNES_MAX).readonly().check(uniqueItems);
 
 export const RuneType = { Fundamental: 'fundamental', Property: 'property' } as const;
 export type RuneType = ValueOf<typeof RuneType>;

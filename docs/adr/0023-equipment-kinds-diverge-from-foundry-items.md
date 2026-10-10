@@ -23,8 +23,8 @@ See [content-model.md](../architecture/content-model.md#equipment-data).
 
 ## Consequences
 
-- The builder and sheet find runes by kind, and check fundamental runes against the items they go on and property
-  runes against a potency rune's grade, without reading usage strings.
+- The builder and sheet find runes by kind, and check fundamental runes against the items they go on, without reading
+  usage strings.
 - The importer can't take property-rune `rules` from Foundry's items, because Foundry keeps them in code. They are
   translated from that code or written by hand, and the coverage report lists runes without them.
 - The importer maps `etched-onto-…` equipment to `rune`, `ammo` to `consumable` and `backpack` to `equipment`, and

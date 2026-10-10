@@ -74,6 +74,24 @@ const shortbow = {
   },
 };
 
+const blowgun = {
+  ...item('blowgun', 'Blowgun', 0),
+  kind: 'weapon',
+  traits: ['agile', 'nonlethal'],
+  data: {
+    price: { coins: { sp: 1 } },
+    bulk: 'light',
+    category: 'simple',
+    group: 'dart',
+    baseItem: 'blowgun',
+    damage: { dice: 1, damageType: 'piercing' },
+    range: 20,
+    reload: 1,
+    ammunition: { type: 'blowgun-darts', capacity: 1 },
+    usage: { type: 'held', hands: 'one' },
+  },
+};
+
 const alchemistsFire = {
   ...item('alchemists-fire-lesser', 'Alchemist’s Fire (Lesser)', 1),
   kind: 'weapon',
@@ -157,6 +175,15 @@ describe('weapon, armor and shield kinds', () => {
   test.each([
     ['a melee weapon', longsword],
     ['a ranged weapon firing ammunition', shortbow],
+    ['a weapon dealing flat damage', blowgun],
+    [
+      'a weapon with built-in ammunition',
+      { ...shortbow, data: { ...shortbow.data, ammunition: { builtIn: true, capacity: 1 } } },
+    ],
+    [
+      'a specific weapon with a property rune and no potency rune',
+      { ...spellguardBlade, data: { ...spellguardBlade.data, runes: { property: [idOf('returning')] } } },
+    ],
     ['an alchemical bomb with persistent and splash damage', alchemistsFire],
     ['a specific magic weapon with its runes', spellguardBlade],
     ['heavy armour with penalties and a Strength threshold', fullPlate],
@@ -165,6 +192,13 @@ describe('weapon, armor and shield kinds', () => {
     [
       'a shield with a reinforcing rune',
       { ...sturdyShield, data: { ...sturdyShield.data, runes: { reinforcing: 1 } } },
+    ],
+    [
+      'a shield with runes on its integrated weapon',
+      {
+        ...sturdyShield,
+        data: { ...sturdyShield.data, integratedRunes: { potency: 1, striking: 1, property: [idOf('wounding')] } },
+      },
     ],
   ])('accepts %s', (_name, value) => {
     expect(issues(value)).toStrictEqual([]);
@@ -180,26 +214,16 @@ describe('weapon, armor and shield kinds', () => {
     ]);
   });
 
-  test('a potency rune holds as many property runes as its grade', () => {
+  test("a specific item's property runes are each listed once, up to five", () => {
     const flamingId = idOf('flaming');
-    const unslotted = {
-      ...spellguardBlade,
-      data: { ...spellguardBlade.data, runes: { striking: 1, property: [flamingId] } },
-    };
-    const overfull = {
-      ...spellguardBlade,
-      data: { ...spellguardBlade.data, runes: { potency: 1, property: [flamingId, idOf('frost')] } },
-    };
     const repeated = {
       ...fullPlate,
       data: { ...fullPlate.data, runes: { potency: 2, property: [flamingId, flamingId] } },
     };
+    const six = ['a', 'b', 'c', 'd', 'e', 'f'].map((slug) => idOf(slug));
 
-    expect(issues(unslotted)).toStrictEqual([
-      { path: ['data', 'runes', 'property'], message: message(RulesMessage.RunePropertySlots, { potency: 0 }) },
-    ]);
-    expect(issues(overfull)).toStrictEqual([
-      { path: ['data', 'runes', 'property'], message: message(RulesMessage.RunePropertySlots, { potency: 1 }) },
+    expect(found({ ...fullPlate, data: { ...fullPlate.data, runes: { property: six } } })).toStrictEqual([
+      `data.runes.property ${ValidationMessage.TooBig}`,
     ]);
     expect(issues(repeated)).toStrictEqual([
       {
@@ -215,7 +239,7 @@ describe('weapon, armor and shield kinds', () => {
       data: {
         ...longsword.data,
         damage: {
-          dice: 0,
+          dice: -1,
           die: 'd20',
           damageType: 'slashing',
           persistent: { formula: '1 + @nope', damageType: 'fire' },

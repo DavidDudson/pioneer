@@ -192,16 +192,20 @@ invested or identified is play state, not content.
   (`armor-or-a-weapon`); or `tattooed`, `implanted`, `carried` or `other`. Armour and shields have none.
 - **Weapons.** `category` is `unarmed`, `simple`, `martial` or `advanced`; `group` one of the remaster groups;
   `baseItem` the base weapon slug, which a deity's favoured `weapons` also name. `damage` is `dice`, a `die` (`d4`
-  to `d12`) and a `damageType`, with `persistent` damage as a formula and type (bombs). `range` is the range
-  increment, `reload` the actions to reload, and `ammunition` the kind it fires with its `capacity`: the ranged
-  fields. Traits carry the rest (`versatile-p`, `thrown-20`). Alchemical bombs are weapons, as in Foundry; `splash`
-  and `itemBonus` are their splash damage and attack bonus.
+  to `d12`) and a `damageType`, with `persistent` damage as a formula and type (bombs); with no `die`, `dice` is flat
+  damage (a blowgun's 1), and 0 is none (a glue bomb). `range` is the range increment, `reload` the actions to
+  reload, and `ammunition` the `type` it fires, or `builtIn`, with its `capacity`: the ranged fields. With no `type`
+  and not built in, it fires any ammunition that isn't a magazine. Traits carry the rest (`versatile-p`,
+  `thrown-20`). Alchemical bombs are weapons, as in Foundry; `splash` and `itemBonus` are their splash damage and
+  attack bonus.
 - **Armour and shields.** Armour `category` adds `light-barding` and `heavy-barding` to the proficiency categories.
   Penalties are their size: `checkPenalty` 1 is -1, `speedPenalty` 5 is -5 feet, where Foundry stores them
   negated. `strength` is the Strength modifier at which the penalties go away. A shield that is also a weapon says
-  so with its `integrated-…` trait.
+  so with its `integrated-…` trait, and a specific one lists that weapon's `integratedRunes`.
 - **Runes on specific items.** A specific magic weapon or armour has the `runes` it comes with: `potency` and
-  `striking` or `resilient` grades 1 to 4, and `property` runes as `rune` entries, no more than its potency grade.
+  `striking` or `resilient` grades 1 to 4, and `property` runes as `rune` entries, up to five. A potency
+  rune's grade limits the runes etched later, not a specific item's, which may come with a property rune and no
+  potency rune (a returning starknife).
   A specific shield has a `reinforcing` grade 1 to 6.
 - **Runes.** Foundry stores a rune as equipment with an `etched-onto-…` usage and keeps what property runes do in
   code; here a rune is its own kind, and what a property rune does is its `rules`. A `fundamental` rune is
@@ -209,10 +213,14 @@ invested or identified is play state, not content.
   (shield), at a `grade` up to 4, or 6 for reinforcing. `etchedOnto` is the `item` (`weapon`, `armor`, `shield`)
   and a `restriction` slug from Foundry's usage (`melee`, `metal`).
 - **Consumables.** `category` is Foundry's (`potion`, `scroll`, `wand`, `talisman`…) plus `ammunition`. `uses` is
-  how many times it is used before it is gone, once when absent. `damage` is a formula, type and `kind`
+  how many times it is used before it is spent, once when absent; a `kept` one stays when spent (a wand, cast once a
+  day). `damage` is a formula, type and `kind`
   (`damage` or `healing`). `spell` is the spell a scroll or wand holds, by `ContentId`, and the `rank` it casts it
-  at. Only ammunition has `ammunition`, the kinds it can be fired as (`arrows`, `bolts`).
-- **Equipment.** `container` is its `capacity` in Bulk and how much is `ignored` when worn (a backpack's first 2).
+  at. Only ammunition has `ammunition`, the kinds it can be fired as (`arrows`, `bolts`), or a magazine's one
+  kind; ammunition that names none fits any weapon that doesn't take a magazine.
+- **Equipment.** `container` is its `capacity` in Bulk (no limit when absent), how much is `ignored` when worn
+  (a backpack's first 2), and its `heldBulk` when held or stowed differs from its `bulk` worn (a backpack is
+  negligible worn, light carried).
   `apex` is the attribute an apex item raises.
 - **Kits.** `items` are `ContentId`s with a `quantity`, and a container in a kit lists its `contents` the same
   way. A kit has no level or Bulk; a class kit carries its class's trait.

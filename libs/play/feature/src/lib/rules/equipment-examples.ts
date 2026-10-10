@@ -90,9 +90,9 @@ export const backpack = {
   level: 0,
   data: {
     price: { coins: { sp: 1 } },
-    bulk: 'light',
+    bulk: 'negligible',
     usage: { type: 'worn', slot: 'backpack' },
-    container: { capacity: BACKPACK_CAPACITY, ignored: BACKPACK_IGNORED },
+    container: { capacity: BACKPACK_CAPACITY, ignored: BACKPACK_IGNORED, heldBulk: 'light' },
   },
 };
 

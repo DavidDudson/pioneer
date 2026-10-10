@@ -34,7 +34,6 @@ export const RulesMessage = {
   SpellDurationOwner: 'rules.spell.durationOwner',
   EffectBadgeRange: 'rules.effect.badgeRange',
   ItemPriceEmpty: 'rules.item.priceEmpty',
-  RunePropertySlots: 'rules.rune.propertySlots',
   RuneEtchedOnto: 'rules.rune.etchedOnto',
   RuneGrade: 'rules.rune.grade',
   ConsumableAmmunition: 'rules.consumable.ammunition',

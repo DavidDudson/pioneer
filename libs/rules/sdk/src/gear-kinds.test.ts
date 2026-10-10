@@ -46,9 +46,9 @@ const backpack = {
   level: 0,
   data: {
     price: { coins: { sp: 1 } },
-    bulk: 'light',
+    bulk: 'negligible',
     usage: { type: 'worn', slot: 'backpack' },
-    container: { capacity: 4, ignored: 2 },
+    container: { capacity: 4, ignored: 2, heldBulk: 'light' },
   },
 };
 
@@ -97,6 +97,7 @@ const arborealWand = {
     price: { coins: { gp: 700 } },
     bulk: 'light',
     category: 'wand',
+    kept: true,
     spell: { spell: idOf('heal'), rank: 2 },
     usage: { type: 'held', hands: 'one' },
   },
@@ -144,6 +145,7 @@ const adventurersPack = {
 describe('equipment, consumable and treasure kinds', () => {
   test.each([
     ['a worn container', backpack],
+    ['a container with no Bulk limit', { ...backpack, data: { ...backpack.data, container: {} } }],
     ['held gear', rope],
     ['a consumable that heals', healingPotion],
     ['ammunition sold and carried in tens', arrows],
