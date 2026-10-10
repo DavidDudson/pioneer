@@ -2,7 +2,7 @@ import { describe, expect, test } from 'bun:test';
 
 import { fieldIssues, message, ValidationMessage } from '@pioneer/shared/kernel';
 import type { FieldIssue } from '@pioneer/shared/kernel';
-import { z } from 'zod';
+import * as z from 'zod';
 
 import { RulesMessage } from './messages';
 import { Predicate, PREDICATE_DEPTH_MAX, PredicateStatement } from './predicate';

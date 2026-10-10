@@ -1,5 +1,5 @@
 import type { RollOption } from '@pioneer/rules/sdk';
-import { z } from 'zod';
+import * as z from 'zod';
 
 import { DEFAULT_NAMESPACES, kindOf, NamespaceKind } from './namespaces';
 import type { NamespaceTable } from './namespaces';

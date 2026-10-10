@@ -9,7 +9,7 @@ import { auditLog } from '@pioneer/shared/server';
 import { createTestDatabase, testDatabaseUrl } from '@pioneer/shared/server/testing';
 import type { TestDatabase } from '@pioneer/shared/server/testing';
 import { asc, eq, sql } from 'drizzle-orm';
-import { z } from 'zod';
+import * as z from 'zod';
 
 /** Schema-wide invariants. Uses the disposable TEST_DATABASE_URL (see AGENTS.md). */
 const TableRows = z.array(z.object({ table_name: z.string() }));

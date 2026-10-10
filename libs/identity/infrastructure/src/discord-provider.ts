@@ -10,7 +10,7 @@ import {
 } from '@pioneer/identity/domain';
 import type { ProviderProfile } from '@pioneer/identity/domain';
 import { Discord, generateCodeVerifier, generateState } from 'arctic';
-import { z } from 'zod';
+import * as z from 'zod';
 
 import { getJson } from './provider-http';
 import type { OAuthCredentials } from './provider-http';

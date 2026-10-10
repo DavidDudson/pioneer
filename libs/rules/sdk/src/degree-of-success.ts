@@ -1,5 +1,5 @@
 import type { ValueOf } from '@pioneer/shared/kernel';
-import { z } from 'zod';
+import * as z from 'zod';
 
 /** The four outcomes of a check against a DC, worst first. Values follow Foundry pf2e (ADR-0008). */
 export const DegreeOfSuccess = {

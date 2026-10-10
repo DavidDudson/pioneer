@@ -1,6 +1,6 @@
 import { message, MessageDescriptorSchema } from '@pioneer/shared/kernel';
 import type { MessageDescriptor, ValueOf } from '@pioneer/shared/kernel';
-import { z } from 'zod';
+import * as z from 'zod';
 
 import type { DiceExpression } from './expression';
 import { DiceMessage } from './messages';

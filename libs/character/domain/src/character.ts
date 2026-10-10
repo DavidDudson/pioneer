@@ -2,7 +2,7 @@ import { AncestryId, AttributeModifiers, Modifier, proficiencyBonus } from '@pio
 import type { Attribute, AttributeModifier, Proficiency } from '@pioneer/rules/sdk';
 import { FIRST_VERSION, InstantCodec, UserId, Version } from '@pioneer/shared/kernel';
 import type { Temporal } from '@pioneer/shared/kernel';
-import { z } from 'zod';
+import * as z from 'zod';
 
 import { CHARACTER_LEVEL_MIN, CharacterId, CharacterLevel, CharacterName } from './character-fields';
 import { CharacterPatchField } from './character-patch';

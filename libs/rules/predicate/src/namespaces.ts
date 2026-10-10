@@ -1,6 +1,6 @@
 import type { RollOption } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
-import { z } from 'zod';
+import * as z from 'zod';
 
 /** How to read a missing roll option in a namespace (ADR-0002). */
 export const NamespaceKind = {

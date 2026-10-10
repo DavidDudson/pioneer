@@ -119,6 +119,10 @@
     // Pages compose many frontier parts, a store and an icon or two; 10 forced splits that added
     // nothing (an icon import on an empty state tipped two pages over).
     "import/max-dependencies": ["error", { "max": 20 }],
+    // zod is imported as a namespace (`import * as z from 'zod'`), as zod recommends: the named `{ z }` export
+    // kept all 64 of its locales (296 kB) in the initial bundle, because the bundler cannot tree-shake it.
+    "import/no-namespace": ["error", { "ignore": ["zod"] }],
+    "eslint/id-length": ["error", { "exceptions": ["z"] }],
     "eslint/max-classes-per-file": ["error", { "max": 1, "ignoreExpressions": true }],
     "eslint/max-statements": ["error", 12],
 
@@ -137,6 +141,7 @@
     "security/detect-pseudoRandomBytes": "error",
     "security/detect-unsafe-regex": "error",
     "pioneer/no-bypass-security-trust": "error",
+    "pioneer/zod-namespace-import": "error",
     // No modals, no toasts, no full page loads (libs/frontier/AGENTS.md#interaction-rules).
     "pioneer/no-full-page-load": "error",
     "pioneer/no-route-resolvers": "error",
@@ -382,7 +387,7 @@
         "import/no-default-export": "off",
         "pioneer/no-magic-numbers": "off",
         "import/max-dependencies": "off",
-        "eslint/id-length": ["error", { "exceptions": ["x", "y"] }]
+        "eslint/id-length": ["error", { "exceptions": ["x", "y", "z"] }]
       }
     },
     {

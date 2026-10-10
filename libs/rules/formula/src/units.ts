@@ -1,4 +1,4 @@
-import { z } from 'zod';
+import * as z from 'zod';
 
 /**
  * Formula limits. Formulas are content, so they are short; the limits keep a typed or imported

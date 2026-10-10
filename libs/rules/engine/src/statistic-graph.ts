@@ -2,7 +2,7 @@ import { FormulaText, parseFormula, references } from '@pioneer/rules/formula';
 import type { FormulaNode, ParseFailure, ReferencePath, TextPosition } from '@pioneer/rules/formula';
 import { knownReference, ReferenceKind } from '@pioneer/rules/sdk';
 import type { Selector, StatisticDefinition } from '@pioneer/rules/sdk';
-import { z } from 'zod';
+import * as z from 'zod';
 
 /** A `@stat.<selector>` reference in a base formula: the statistic it reads, and where it is written. */
 export interface StatisticEdge {

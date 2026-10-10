@@ -4,7 +4,7 @@ import { TestBed } from '@angular/core/testing';
 import { Endpoint, HttpMethod, NoBody, NoQuery } from '@pioneer/shared/kernel';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import type { Mock } from 'vitest';
-import { z } from 'zod';
+import * as z from 'zod';
 
 import { ApiClient } from './api-client';
 import { ApiError } from './api-error';

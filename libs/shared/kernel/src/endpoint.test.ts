@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { z } from 'zod';
+import * as z from 'zod';
 
 import { Endpoint, HttpMethod, NoBody, NoQuery } from './endpoint';
 import { listQuery, SortDirection } from './list-query';

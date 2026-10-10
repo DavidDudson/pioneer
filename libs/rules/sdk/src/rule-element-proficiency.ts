@@ -1,6 +1,6 @@
 import { FormulaText } from '@pioneer/rules/formula';
 import type { ValueOf } from '@pioneer/shared/kernel';
-import { z } from 'zod';
+import * as z from 'zod';
 
 import { formulaIssues, FormulaSource } from './formula-source';
 import { Predicate } from './predicate';

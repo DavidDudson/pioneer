@@ -1,4 +1,4 @@
-import { z } from 'zod';
+import * as z from 'zod';
 
 import { issueParams, message, ValidationMessage } from './message';
 import { InstantCodec, PlainDateCodec } from './temporal-codecs';

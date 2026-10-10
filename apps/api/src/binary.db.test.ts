@@ -2,7 +2,7 @@ import { afterAll, beforeAll, describe, expect, test } from 'bun:test';
 
 import { testDatabaseUrl } from '@pioneer/shared/server/testing';
 import { $ } from 'bun';
-import { z } from 'zod';
+import * as z from 'zod';
 
 /**
  * The compiled `pioneer-api` binary, run from a temp folder with its migrations copied beside it, as a container

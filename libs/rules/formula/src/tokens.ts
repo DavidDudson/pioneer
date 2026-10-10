@@ -1,6 +1,6 @@
 import { message } from '@pioneer/shared/kernel';
 import type { ValueOf } from '@pioneer/shared/kernel';
-import { z } from 'zod';
+import * as z from 'zod';
 
 import { BinaryOperatorSchema } from './ast';
 import type { BinaryOperator } from './ast';

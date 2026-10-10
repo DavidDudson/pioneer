@@ -3,7 +3,7 @@ import { inject, Injectable, InjectionToken } from '@angular/core';
 import { ProblemSchema } from '@pioneer/shared/kernel';
 import type { Endpoint } from '@pioneer/shared/kernel';
 import { firstValueFrom } from 'rxjs';
-import { z } from 'zod';
+import * as z from 'zod';
 
 import { ApiError } from './api-error';
 import { UNAUTHORIZED_HANDLER } from './unauthorized-handler';

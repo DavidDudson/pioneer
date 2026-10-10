@@ -1,6 +1,6 @@
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import { Level, Origin, RuleElement, RuleIndex } from '@pioneer/rules/sdk';
-import { z } from 'zod';
+import * as z from 'zod';
 
 /**
  * A rule element on the character: the element, where it came from, its position in its entry's `rules`, and the

@@ -1,4 +1,4 @@
-import { z } from 'zod';
+import * as z from 'zod';
 
 /**
  * Text that comes from a content pack (names, titles). The `en` source until

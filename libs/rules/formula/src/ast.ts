@@ -1,5 +1,5 @@
 import type { ValueOf } from '@pioneer/shared/kernel';
-import { z } from 'zod';
+import * as z from 'zod';
 
 import type { FormulaFunction } from './functions';
 import type { FormulaNumber, ReferencePath, TextPosition } from './units';

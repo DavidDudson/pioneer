@@ -1,5 +1,5 @@
 import type { ValueOf } from '@pioneer/shared/kernel';
-import { z } from 'zod';
+import * as z from 'zod';
 
 /** A count of JSON nesting levels or containers. */
 export const JsonSize = z.number().int().positive().brand<'JsonSize'>();
