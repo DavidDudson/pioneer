@@ -90,7 +90,7 @@ describe.skipIf(adminUrl === undefined)('dev sign-in through createApp (postgres
   });
 
   test('is mounted under /api and signs in as the seeded user', async () => {
-    const api = await createApp(database.db, env, [devSignInRoutes]);
+    const api = createApp(database.db, env, [devSignInRoutes]);
     const signIn = await api.handle(
       new Request(`http://localhost:4200/api${DevSignInPath.of(DevUser.Gm.id)}?returnTo=%2Fcampaigns`, {
         headers: { 'sec-fetch-site': 'same-origin' },

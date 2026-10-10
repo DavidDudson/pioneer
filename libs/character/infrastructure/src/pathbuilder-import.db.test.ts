@@ -4,8 +4,7 @@ import { CharacterService } from '@pioneer/character/application';
 import { CharacterCommand } from '@pioneer/character/domain';
 import { fixtureOwnerId } from '@pioneer/character/domain/testing';
 import { briarRoseExport, mordredExport } from '@pioneer/interop/pathbuilder/testing';
-import { ContentRegistry } from '@pioneer/rules/sdk';
-import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
+import { ContentPackBuilder, fixedContent } from '@pioneer/rules/sdk/testing';
 import { fixedClock } from '@pioneer/shared/kernel';
 import { rejection } from '@pioneer/shared/kernel/testing';
 import { auditLog } from '@pioneer/shared/server';
@@ -29,8 +28,7 @@ describe.skipIf(adminUrl === undefined)('Pathbuilder import (postgres)', () => {
     await database.db.execute(
       sql`insert into users (id, display_name, email_verified, created_at, updated_at) values (${fixtureOwnerId}, 'Owner', false, ${at}, ${at})`,
     );
-    const content = new ContentRegistry();
-    content.register(new ContentPackBuilder().withId('player-core').withAncestry('human').build());
+    const content = fixedContent(new ContentPackBuilder().withId('player-core').withAncestry('human').build());
     service = new CharacterService(new DrizzleCharacterRepository(database.db), content, clock);
   });
 

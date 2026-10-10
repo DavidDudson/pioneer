@@ -18,8 +18,8 @@ import {
   UnmatchedReason,
 } from '@pioneer/interop/pathbuilder';
 import { briarRoseExport, mordredExport } from '@pioneer/interop/pathbuilder/testing';
-import { AncestryId, Attribute, AttributeModifier, ContentRegistry } from '@pioneer/rules/sdk';
-import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
+import { AncestryId, Attribute, AttributeModifier } from '@pioneer/rules/sdk';
+import { ContentPackBuilder, fixedContent } from '@pioneer/rules/sdk/testing';
 import {
   FIRST_VERSION,
   fixedClock,
@@ -51,8 +51,7 @@ describe('CharacterService', () => {
   let repository: InMemoryCharacterRepository;
 
   beforeEach(() => {
-    const content = new ContentRegistry();
-    content.register(new ContentPackBuilder().withId('player-core').withAncestry('human').build());
+    const content = fixedContent(new ContentPackBuilder().withId('player-core').withAncestry('human').build());
     repository = new InMemoryCharacterRepository();
     service = new CharacterService(repository, content, fixedClock('2026-10-07T10:00:00Z'));
   });
@@ -138,8 +137,7 @@ describe('CharacterService ownership', () => {
   let service: CharacterService;
 
   beforeEach(() => {
-    const content = new ContentRegistry();
-    content.register(new ContentPackBuilder().withId('player-core').withAncestry('human').build());
+    const content = fixedContent(new ContentPackBuilder().withId('player-core').withAncestry('human').build());
     service = new CharacterService(new InMemoryCharacterRepository(), content, fixedClock('2026-10-07T10:00:00Z'));
   });
 
@@ -173,8 +171,7 @@ describe('CharacterService.importPathbuilder', () => {
   let repository: InMemoryCharacterRepository;
 
   beforeEach(() => {
-    const content = new ContentRegistry();
-    content.register(new ContentPackBuilder().withId('player-core').withAncestry('human').build());
+    const content = fixedContent(new ContentPackBuilder().withId('player-core').withAncestry('human').build());
     repository = new InMemoryCharacterRepository();
     service = new CharacterService(repository, content, fixedClock('2026-10-07T10:00:00Z'));
   });
