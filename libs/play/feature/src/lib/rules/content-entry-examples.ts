@@ -1,7 +1,15 @@
 import { Attribute, ContentKind, contentId, PackId, Slug, StatisticKind } from '@pioneer/rules/sdk';
 import type { RegisteredKind } from '@pioneer/rules/sdk';
 
-import { farmhand, fighter, fighterArchetype, pharasma, reactiveStrike, skilledHuman, suddenCharge } from './build-examples';
+import {
+  farmhand,
+  fighter,
+  fighterArchetype,
+  pharasma,
+  reactiveStrike,
+  skilledHuman,
+  suddenCharge,
+} from './build-examples';
 import { aid, darkvision, draconic, fire, freeArchetype, grabbed, manipulate } from './rules-core-examples';
 
 const PLAYER_CORE = PackId.parse('player-core');

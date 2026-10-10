@@ -52,7 +52,11 @@ export const skilledHuman = {
 };
 
 export const farmhand = {
-  ...playerCore('farmhand', 'Farmhand', 'With a strong back and an understanding of seasonal cycles, you tilled the land.'),
+  ...playerCore(
+    'farmhand',
+    'Farmhand',
+    'With a strong back and an understanding of seasonal cycles, you tilled the land.',
+  ),
   kind: ContentKind.Background,
   rules: [
     { key: 'Proficiency', selector: 'skill:athletics', rank: 'trained' },

@@ -97,7 +97,9 @@ const ancestryData: Arbitrary<object> = withOptional(
 const heritageData: Arbitrary<object> = withOptional(constant({}), { ancestry: contentIdJson });
 const backgroundData: Arbitrary<object> = record({ boosts: array(boost, { maxLength: 2 }) });
 const classData: Arbitrary<object> = record({ keyAttribute: boost, hitPoints: smallint, additionalSkills: smallint });
-const archetypeData: Arbitrary<object> = withOptional(record({ dedication: contentIdJson }), { multiclass: contentIdJson });
+const archetypeData: Arbitrary<object> = withOptional(record({ dedication: contentIdJson }), {
+  multiclass: contentIdJson,
+});
 
 const slugs: Arbitrary<string[]> = uniqueArray(slugText, { maxLength: LIST_MAX });
 const deityCategory: Arbitrary<string> = constantFrom(...Object.values(DeityCategory));
@@ -156,7 +158,6 @@ const statisticData: Arbitrary<object> = withOptional(
   }),
   { keyAttribute: attribute },
 );
-
 
 const actionUse = {
   category: constantFrom(...Object.values(ActionCategory)),

@@ -86,16 +86,16 @@ grant more than it lists.
 The same rule holds for build kinds: `data` is what Foundry pf2e stores, less what rule elements already express.
 Lists of attributes, slugs and ids name each item once.
 
-| Kind            | `data`                                                                                                     |
-| --------------- | ---------------------------------------------------------------------------------------------------------- |
-| `ancestry`      | `hitPoints`, `size`, `speed`, `reach`; `boosts`; `flaws`; `languages`; `additionalLanguages`; `vision?`    |
-| `heritage`      | `ancestry?`, absent for a versatile heritage                                                               |
-| `background`    | `boosts`; trained skills and lore are `Proficiency` elements, its skill feat a `GrantItem`                 |
+| Kind            | `data`                                                                                                      |
+| --------------- | ----------------------------------------------------------------------------------------------------------- |
+| `ancestry`      | `hitPoints`, `size`, `speed`, `reach`; `boosts`; `flaws`; `languages`; `additionalLanguages`; `vision?`     |
+| `heritage`      | `ancestry?`, absent for a versatile heritage                                                                |
+| `background`    | `boosts`; trained skills and lore are `Proficiency` elements, its skill feat a `GrantItem`                  |
 | `class`         | `keyAttribute`, the attributes it may be; `hitPoints` per level; `additionalSkills`; progression in `rules` |
-| `class-feature` | `action?`; always has a `level`                                                                            |
-| `feat`          | `category`; `prerequisites?` as rich text; `onlyLevel1?`; `maxTakable?`; `action?`; always has a `level`   |
-| `archetype`     | `dedication`; `multiclass?`, the class it is the multiclass archetype of                                   |
-| `deity`         | `category`; `sanctification?`; `domains`; `font`; `attributes`; `skills`; `weapons`; `spells`              |
+| `class-feature` | `action?`; always has a `level`                                                                             |
+| `feat`          | `category`; `prerequisites?` as rich text; `onlyLevel1?`; `maxTakable?`; `action?`; always has a `level`    |
+| `archetype`     | `dedication`; `multiclass?`, the class it is the multiclass archetype of                                    |
+| `deity`         | `category`; `sanctification?`; `domains`; `font`; `attributes`; `skills`; `weapons`; `spells`               |
 
 - **Boosts.** A boost is the attributes it may go to: one for a fixed boost, all six for a free one. An ancestry
   lists up to four, a background two (Farmhand: Constitution or Wisdom, then free). `flaws` are fixed attributes.
