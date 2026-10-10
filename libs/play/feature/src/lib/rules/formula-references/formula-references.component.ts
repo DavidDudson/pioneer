@@ -11,6 +11,7 @@ import {
 } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 import {
+  EmptyState,
   Field,
   FieldError,
   FieldHint,
@@ -46,7 +47,7 @@ interface ValueRangeParams {
 /** A number box for each reference in a formula, so the formula can be evaluated with those values. */
 @Component({
   selector: 'pio-formula-references',
-  imports: [Field, FieldError, FieldHint, Heading, Label, NumberInput, Stack, Text, TranslocoPipe],
+  imports: [EmptyState, Field, FieldError, FieldHint, Heading, Label, NumberInput, Stack, Text, TranslocoPipe],
   templateUrl: './formula-references.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

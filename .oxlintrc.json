@@ -116,6 +116,9 @@
         "enforceConst": true
       }
     ],
+    // Pages compose many frontier parts, a store and an icon or two; 10 forced splits that added
+    // nothing (an icon import on an empty state tipped two pages over).
+    "import/max-dependencies": ["error", { "max": 20 }],
     "eslint/max-classes-per-file": ["error", { "max": 1, "ignoreExpressions": true }],
     "eslint/max-statements": ["error", 12],
 

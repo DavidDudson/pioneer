@@ -1,7 +1,9 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
+import { LucideDices } from '@lucide/angular';
 import {
   Button,
+  EmptyState,
   Field,
   FieldError,
   FieldHint,
@@ -12,7 +14,6 @@ import {
   Page,
   Stack,
   Surface,
-  Text,
   TextInput,
   ToggleButton,
 } from '@pioneer/frontier';
@@ -70,6 +71,7 @@ const PLAYGROUND_MISFORTUNE = message('play.dice.playgroundMisfortune');
   imports: [
     Button,
     DamageTargetEditor,
+    EmptyState,
     Field,
     FieldError,
     FieldHint,
@@ -80,7 +82,6 @@ const PLAYGROUND_MISFORTUNE = message('play.dice.playgroundMisfortune');
     RollCard,
     Stack,
     Surface,
-    Text,
     TextInput,
     ToggleButton,
     TranslocoPipe,
@@ -93,6 +94,7 @@ export class DicePlaygroundPage {
   readonly #format = inject(LocaleFormat);
   #rolled = 0;
 
+  protected readonly emptyIcon = LucideDices;
   protected readonly text = signal(STARTING_EXPRESSION);
   readonly #outcome = computed((): ParseOutcome => parseDiceExpression(DiceExpressionText.parse(this.text())));
   protected readonly error = computed((): MessageDescriptor | undefined => {

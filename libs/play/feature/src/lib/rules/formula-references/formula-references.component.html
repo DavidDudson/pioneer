@@ -20,6 +20,6 @@
       }
     </fr-field>
   } @empty {
-    <fr-text variant="caption" tone="muted">{{ 'play.rules.noReferences' | transloco }}</fr-text>
+    <fr-empty-state [title]="'play.rules.noReferences' | transloco" />
   }
 </fr-stack>

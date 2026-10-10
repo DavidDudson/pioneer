@@ -33,6 +33,7 @@ describe('DicePlaygroundPage', () => {
     expect(root.textContent).toContain('“x” at position 6 is not part of a dice expression.');
     expect(rollButton(harness).disabled).toBe(true);
     expect(root.textContent).toContain('No rolls yet.');
+    expect(root.textContent).toContain('Enter an expression and roll; results show here.');
   });
 
   it('rolls twice with fortune, keeps the higher and marks the other discarded', async () => {

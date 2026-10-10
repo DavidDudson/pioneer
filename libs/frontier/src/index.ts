@@ -33,6 +33,7 @@ export { ToggleButton } from './lib/controls/toggle-button/toggle-button.compone
 export { DateDisplay, DateFormat, type DateValue } from './lib/date/date.component';
 
 // Feedback
+export { EmptyState } from './lib/feedback/empty-state/empty-state.component';
 export { Message, MessageTone } from './lib/feedback/message/message.component';
 export { Skeleton, SkeletonShape, SkeletonWidth } from './lib/feedback/skeleton/skeleton.component';
 export { Spinner } from './lib/feedback/spinner/spinner.component';

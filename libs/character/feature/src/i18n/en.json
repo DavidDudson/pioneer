@@ -20,6 +20,7 @@
     "summary": "{ancestry} · Level {level}",
     "updated": "Updated",
     "empty": "No characters yet.",
+    "emptyHint": "Create one above to get started.",
     "creating": "Creating",
     "created": "Created",
     "createFailed": "Could not create the character. Try again."
