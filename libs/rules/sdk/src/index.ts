@@ -11,6 +11,7 @@ export {
 } from './attribute';
 export { DeityCategory, DivineFont } from './deity';
 export { EffectCategory, EffectData } from './effect';
+export { TriggerEvent, TriggerEventType } from './trigger-event';
 export { RitualData } from './ritual';
 export { ArmorData, ArmorGroup, ArmorItemCategory, ShieldData } from './armor';
 export { ConsumableCategory, ConsumableData } from './consumable';

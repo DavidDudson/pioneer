@@ -186,6 +186,9 @@
     "effect": {
       "badgeRange": "The counter starts between its minimum and maximum."
     },
+    "trigger": {
+      "autoApplyWithoutEvent": "Give a trigger event too, or leave autoApply out: only an ability that fires on an event is applied automatically."
+    },
     "item": {
       "priceEmpty": "Give at least one coin, or leave the price out when the item has none."
     },

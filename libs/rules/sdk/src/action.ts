@@ -6,6 +6,7 @@ import { ContentId } from './content-id';
 import { RulesMessage } from './messages';
 import { ActionCost, ActionCostSchema, RichText } from './rich-text';
 import { SkillSelector } from './selector';
+import { AUTO_APPLY_NEEDS_EVENT, triggerFields } from './trigger-event';
 import { uniqueItems } from './unique-items';
 
 /** How Foundry pf2e sorts actions on the sheet. */
@@ -89,7 +90,9 @@ export const ActionData = z
     skills: Skills.optional(),
     category: ActionCategorySchema.optional(),
     requirements: RichText.optional(),
+    /** The wording shown; `triggerEvent` is what the engine matches. */
     trigger: RichText.optional(),
+    ...triggerFields,
     frequency: Frequency.optional(),
     /** The effect using it applies to the user (Raise a Shield's Shield Raised). */
     selfEffect: ContentId.optional(),
@@ -98,5 +101,6 @@ export const ActionData = z
     ...issueParams(message(RulesMessage.ActionReactionTrigger)),
     path: ['trigger'],
   })
-  .refine(({ cost, upTo }) => upTo === undefined || isVariableCost(cost, upTo), UP_TO);
+  .refine(({ cost, upTo }) => upTo === undefined || isVariableCost(cost, upTo), UP_TO)
+  .refine(AUTO_APPLY_NEEDS_EVENT.check, AUTO_APPLY_NEEDS_EVENT.params);
 export type ActionData = z.infer<typeof ActionData>;

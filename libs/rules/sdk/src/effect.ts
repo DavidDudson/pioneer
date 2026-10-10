@@ -6,6 +6,7 @@ import { ContentText } from './content-text';
 import { DamageFormula } from './damage-formula';
 import { RulesMessage } from './messages';
 import { DurationCount, DurationUnitSchema } from './rich-text';
+import { AUTO_APPLY_NEEDS_EVENT, triggerFields } from './trigger-event';
 
 /** What an effect comes from, as Foundry pf2e splits its effect packs; `other` is a GM's effect. */
 export const EffectCategory = { Spell: 'spell', Feat: 'feat', Equipment: 'equipment', Other: 'other' } as const;
@@ -70,13 +71,16 @@ const FormulaBadge = z.strictObject({
 });
 
 /**
- * An effect's `data` on the `ContentEntry` envelope: where it comes from and how long it lasts. What it does is its
- * `rules`; the level formulas read is the envelope's `level`.
+ * An effect's `data` on the `ContentEntry` envelope: where it comes from and how long it lasts, and the event it fires
+ * on if it is triggered. What it does is its `rules`; the level formulas read is the envelope's `level`.
  */
-export const EffectData = z.strictObject({
-  category: z.enum(EffectCategory),
-  duration: EffectDuration,
-  /** A number of rules significance shown on the effect: a counter or a rolled value. */
-  badge: z.discriminatedUnion('type', [CounterBadge, FormulaBadge]).optional(),
-});
+export const EffectData = z
+  .strictObject({
+    category: z.enum(EffectCategory),
+    duration: EffectDuration,
+    /** A number of rules significance shown on the effect: a counter or a rolled value. */
+    badge: z.discriminatedUnion('type', [CounterBadge, FormulaBadge]).optional(),
+    ...triggerFields,
+  })
+  .refine(AUTO_APPLY_NEEDS_EVENT.check, AUTO_APPLY_NEEDS_EVENT.params);
 export type EffectData = z.infer<typeof EffectData>;
