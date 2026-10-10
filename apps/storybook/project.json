@@ -1,0 +1,15 @@
+{
+  "name": "storybook",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "tags": ["scope:shared", "type:app", "platform:web"],
+  "targets": {
+    "storybook": {
+      "dependsOn": [{ "projects": ["frontier", "rules-ui"], "target": "storybook" }],
+      "options": { "port": 6006 }
+    },
+    "build-storybook": {
+      "dependsOn": [{ "projects": ["frontier", "rules-ui"], "target": "build-storybook" }]
+    }
+  }
+}

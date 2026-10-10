@@ -7,10 +7,9 @@ import { frontierMessages } from '@pioneer/frontier';
 import { rulesMessages } from '@pioneer/rules/sdk';
 import { kernelMessages } from '@pioneer/shared/kernel';
 
-/** The `en` messages rich text renders with, preloaded with the ICU transpiler, and a router for links. */
-export function provideRichTextTesting(): EnvironmentProviders[] {
+/** The `en` messages rules UI renders with, preloaded with the ICU transpiler, for specs and stories. */
+export function provideRulesUiI18nTesting(): EnvironmentProviders[] {
   return [
-    provideRouter([]),
     importProvidersFrom(
       TranslocoTestingModule.forRoot({
         langs: { en: { ...kernelMessages, ...frontierMessages, ...rulesMessages } },
@@ -21,4 +20,9 @@ export function provideRichTextTesting(): EnvironmentProviders[] {
     // After the testing module, so ICU replaces its default transpiler.
     provideTranslocoMessageformat(),
   ];
+}
+
+/** Rules UI's `en` messages and a router for links, for rich text specs. */
+export function provideRichTextTesting(): EnvironmentProviders[] {
+  return [provideRouter([]), ...provideRulesUiI18nTesting()];
 }

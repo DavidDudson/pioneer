@@ -75,7 +75,8 @@
       "@pioneer/legal/feature": ["./libs/legal/feature/src/index.ts"],
       "@pioneer/play/feature": ["./libs/play/feature/src/index.ts"],
       "@pioneer/frontier": ["./libs/frontier/src/index.ts"],
-      "@pioneer/frontier/data": ["./libs/frontier/src/data.ts"]
+      "@pioneer/frontier/data": ["./libs/frontier/src/data.ts"],
+      "@pioneer/frontier/storybook": ["./libs/frontier/src/storybook.ts"]
     }
   },
   "exclude": ["node_modules", "dist", "tmp"]

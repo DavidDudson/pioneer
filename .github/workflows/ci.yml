@@ -20,8 +20,8 @@ concurrency:
 jobs:
   # `bun run check` split by runtime so each job stays near 4 minutes. The ci:* scripts together cover check;
   # a target added to check goes in one of them too. Storybook is the longest task, so it runs one Vitest project
-  # (theme × colour mode) per job: each project runs every story, so the jobs take the same time, which
-  # `--shard` (an even split by file count) does not.
+  # (theme × colour mode) per job, in every library's Storybook: each project runs every story, so the jobs take
+  # the same time, which `--shard` (an even split by file count) does not.
   check:
     name: Check (${{ matrix.name }})
     runs-on: ubuntu-24.04

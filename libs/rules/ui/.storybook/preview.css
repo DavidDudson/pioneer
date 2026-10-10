@@ -1,0 +1,2 @@
+/* Frontier's styles, loaded the way the web app loads them (apps/web/src/styles.css). */
+@import '../../../frontier/src/styles/frontier.css';

@@ -1,0 +1,7 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    // The project config only type-checks; Analog's Angular compiler emits through this one.
+    "noEmit": false
+  }
+}

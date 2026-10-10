@@ -1,0 +1,14 @@
+# Pioneer Storybook
+
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Introduction" />
+
+This Storybook composes each library's own (ADR-0028). Pick a library in the sidebar.
+
+- **Frontier**: the design system. Its components know nothing about Pioneer's content schemas.
+- **Rules UI**: presentational components that render rules data (rich text, source lines). They take resolved
+  data through inputs; containers in `feature` libraries load it and pass it in.
+
+Each library runs its own stories as tests, with axe, in every theme and colour mode: `nx test-storybook <library>`.
+A component that renders rules data gets a story in its `ui` library, never in frontier.

@@ -272,7 +272,9 @@
           },
           { "sourceTag": "scope:campaign", "onlyDependOnLibsWithTags": ["scope:campaign", "scope:shared"] },
           { "sourceTag": "scope:play", "onlyDependOnLibsWithTags": ["scope:play", "scope:rules", "scope:shared"] },
-          { "sourceTag": "scope:identity", "onlyDependOnLibsWithTags": ["scope:identity", "scope:shared"] }
+          { "sourceTag": "scope:identity", "onlyDependOnLibsWithTags": ["scope:identity", "scope:shared"] },
+          // Shared libraries, frontier among them, know no Pioneer schemas or feature areas (ADR-0028).
+          { "sourceTag": "scope:shared", "onlyDependOnLibsWithTags": ["scope:shared"] }
         ]
       }
     ]

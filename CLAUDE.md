@@ -14,6 +14,8 @@ Project management is GitHub only: milestones M0-M9, epics as issues, stories as
 - Epics are split into story sub-issues before work starts and delivered as stacked PRs with `gh stack`, one
   story per layer.
 - No literal user-facing text in templates or engine output (ADR-0009).
+- Frontier knows no schemas. Components that render rules data are presentational ones in a `ui` library, with a
+  story each, or containers in a `feature` library (ADR-0028).
 - Commits and PR titles are Conventional Commits with subjects of at most 72 characters (squash merge;
   `committed.toml`). The user merges.
 
