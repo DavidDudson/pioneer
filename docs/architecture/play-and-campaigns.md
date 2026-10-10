@@ -187,8 +187,13 @@ list in their own section, titled with the staff and showing its charges left, b
 spell shows its charge cost. At daily preparations the holder prepares one staff, which gets charges equal to their
 highest spell rank; a prepared caster can expend one slot to add charges equal to its rank. A character without
 spellcasting gets no charges. Preparing another staff clears the first one's charges, and charges left unspent are
-lost at the next daily preparations. A spontaneous caster can pay part of a cast with a slot. Charges and uses are
-play state resources.
+lost at the next daily preparations. Charges and uses are play state resources.
+
+Casting from a held staff needs the spell on one of the holder's spell lists and the holder able to cast spells of
+its rank; the cast uses that entry's spell attack and DC. It costs charges equal to the spell's rank, and a cantrip
+costs none and is heightened like the holder's other cantrips. A spontaneous caster can instead pay 1 charge and one
+of that entry's slots of the spell's rank or higher. The cast previews what it spends, a cast the staff can't pay
+for is refused, and undoing it refunds the charges and the slot.
 
 A wand casts its spell once a day at the wand's rank, if the spell is on one of the holder's spell lists, with that
 entry's spell attack and DC. Once the day's cast is spent, the holder can overcharge it with a DC 10 flat check: on
