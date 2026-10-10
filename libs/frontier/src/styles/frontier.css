@@ -80,20 +80,31 @@
 
   --color-danger-solid: var(--fr-danger-solid);
   --color-danger-solid-hover: var(--fr-danger-solid-hover);
+  --color-danger-solid-active: var(--fr-danger-solid-active);
   --color-danger-subtle: var(--fr-danger-subtle);
   --color-danger-fg: var(--fr-danger-fg);
+  --color-danger-on-solid: var(--fr-danger-on-solid);
   --color-danger-line: var(--fr-danger-line);
   --color-success-solid: var(--fr-success-solid);
+  --color-success-solid-hover: var(--fr-success-solid-hover);
+  --color-success-solid-active: var(--fr-success-solid-active);
   --color-success-subtle: var(--fr-success-subtle);
   --color-success-fg: var(--fr-success-fg);
+  --color-success-on-solid: var(--fr-success-on-solid);
   --color-success-line: var(--fr-success-line);
   --color-warning-solid: var(--fr-warning-solid);
+  --color-warning-solid-hover: var(--fr-warning-solid-hover);
+  --color-warning-solid-active: var(--fr-warning-solid-active);
   --color-warning-subtle: var(--fr-warning-subtle);
   --color-warning-fg: var(--fr-warning-fg);
+  --color-warning-on-solid: var(--fr-warning-on-solid);
   --color-warning-line: var(--fr-warning-line);
   --color-info-solid: var(--fr-info-solid);
+  --color-info-solid-hover: var(--fr-info-solid-hover);
+  --color-info-solid-active: var(--fr-info-solid-active);
   --color-info-subtle: var(--fr-info-subtle);
   --color-info-fg: var(--fr-info-fg);
+  --color-info-on-solid: var(--fr-info-on-solid);
   --color-info-line: var(--fr-info-line);
 
   --color-accent-emphasis: var(--fr-accent-emphasis);

@@ -93,20 +93,34 @@
 
   --fr-danger-solid: var(--fr-ramp-danger-500);
   --fr-danger-solid-hover: var(--fr-ramp-danger-400);
+  --fr-danger-solid-active: var(--fr-ramp-danger-300);
   --fr-danger-subtle: var(--fr-ramp-danger-950);
   --fr-danger-fg: var(--fr-ramp-danger-300);
+  --fr-danger-on-solid: var(--fr-ramp-neutral-950);
   --fr-danger-line: var(--fr-ramp-danger-700);
+
   --fr-success-solid: var(--fr-ramp-success-500);
+  --fr-success-solid-hover: var(--fr-ramp-success-400);
+  --fr-success-solid-active: var(--fr-ramp-success-300);
   --fr-success-subtle: var(--fr-ramp-success-950);
   --fr-success-fg: var(--fr-ramp-success-300);
+  --fr-success-on-solid: var(--fr-ramp-neutral-950);
   --fr-success-line: var(--fr-ramp-success-700);
+
   --fr-warning-solid: var(--fr-ramp-warning-400);
+  --fr-warning-solid-hover: var(--fr-ramp-warning-300);
+  --fr-warning-solid-active: var(--fr-ramp-warning-200);
   --fr-warning-subtle: var(--fr-ramp-warning-950);
   --fr-warning-fg: var(--fr-ramp-warning-300);
+  --fr-warning-on-solid: var(--fr-ramp-neutral-950);
   --fr-warning-line: var(--fr-ramp-warning-700);
+
   --fr-info-solid: var(--fr-ramp-info-500);
+  --fr-info-solid-hover: var(--fr-ramp-info-400);
+  --fr-info-solid-active: var(--fr-ramp-info-300);
   --fr-info-subtle: var(--fr-ramp-info-950);
   --fr-info-fg: var(--fr-ramp-info-300);
+  --fr-info-on-solid: var(--fr-ramp-neutral-950);
   --fr-info-line: var(--fr-ramp-info-700);
 
   /* Badge fills: small text on a solid fill, at least 4.5:1 in every theme. Only fr-badge uses these. */
@@ -166,24 +180,38 @@
 
   --fr-danger-solid: var(--fr-ramp-danger-700);
   --fr-danger-solid-hover: var(--fr-ramp-danger-800);
+  --fr-danger-solid-active: var(--fr-ramp-danger-900);
   --fr-danger-subtle: var(--fr-ramp-danger-100);
   --fr-danger-fg: var(--fr-ramp-danger-700);
+  --fr-danger-on-solid: oklch(1 0 0);
   --fr-danger-line: var(--fr-ramp-danger-300);
-  /* Success, warning and info text at 800: at 700 they drop under 4.5:1 on tavern's sunken parchment. */
-  --fr-success-solid: var(--fr-ramp-success-600);
+  /*
+   * Success, warning and info text at 800: at 700 they drop under 4.5:1 on tavern's sunken parchment.
+   * Success and info solids at 700, not 600: no text colour reaches 4.5:1 on 600. Warning stays light, with dark text.
+   */
+  --fr-success-solid: var(--fr-ramp-success-700);
+  --fr-success-solid-hover: var(--fr-ramp-success-800);
+  --fr-success-solid-active: var(--fr-ramp-success-900);
   --fr-success-subtle: var(--fr-ramp-success-100);
   --fr-success-fg: var(--fr-ramp-success-800);
+  --fr-success-on-solid: oklch(1 0 0);
   --fr-success-line: var(--fr-ramp-success-300);
   --fr-warning-solid: var(--fr-ramp-warning-500);
+  --fr-warning-solid-hover: var(--fr-ramp-warning-400);
+  --fr-warning-solid-active: var(--fr-ramp-warning-300);
   --fr-warning-subtle: var(--fr-ramp-warning-100);
   --fr-warning-fg: var(--fr-ramp-warning-800);
+  --fr-warning-on-solid: var(--fr-ramp-neutral-950);
   --fr-warning-line: var(--fr-ramp-warning-300);
-  --fr-info-solid: var(--fr-ramp-info-600);
+  --fr-info-solid: var(--fr-ramp-info-700);
+  --fr-info-solid-hover: var(--fr-ramp-info-800);
+  --fr-info-solid-active: var(--fr-ramp-info-900);
   --fr-info-subtle: var(--fr-ramp-info-100);
   --fr-info-fg: var(--fr-ramp-info-800);
+  --fr-info-on-solid: oklch(1 0 0);
   --fr-info-line: var(--fr-ramp-info-300);
 
-  /* Badge fills: 700 keeps small white text at 4.5:1 (success and info solids, at 600, do not); warning stays light. */
+  /* Badge fills: 700 keeps small white text at 4.5:1; warning stays light. */
   --fr-accent-emphasis: var(--fr-ramp-accent-700);
   --fr-accent-on-emphasis: oklch(1 0 0);
   --fr-danger-emphasis: var(--fr-ramp-danger-700);

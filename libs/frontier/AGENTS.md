@@ -263,7 +263,7 @@ every declared token pair in it.
 
 `styles/contrast-pairs.ts` lists the foreground/background token pairs
 components use: `fg-*` and `*-fg` on surfaces and subtle fills,
-`accent-on-solid` on the accent and danger solids (fr-button),
+`<role>-on-solid` on each role's solid fills in every state (fr-button),
 `*-on-emphasis` on the badge fills, `line-focus` on surfaces.
 `bun run check:contrast` (in `lint:workspace`, so in CI) works out each pair
 from the CSS in every theme × mode, OKLCH clipped to sRGB as Chromium paints
