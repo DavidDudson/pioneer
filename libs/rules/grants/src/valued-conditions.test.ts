@@ -1,6 +1,8 @@
 import { describe, expect, test } from 'bun:test';
 
 import { ContentKind } from '@pioneer/rules/sdk';
+import { array, assert, constant, integer, oneof, property, shuffledSubarray } from 'fast-check';
+import type { Arbitrary } from 'fast-check';
 
 import type { GrantEntry, GrantRoot } from './grant-entry';
 import type { GrantedItem } from './grant-walk';
@@ -76,11 +78,46 @@ describe('a valued condition', () => {
   });
 
   test('granted by another entry sets no value, as grants carry none', () => {
-    const content = [condition('grabbed', [grantOf('off-guard')]), condition('off-guard')];
-    expect(conditionOptions(content, [afflicted('grabbed', 1)])).toEqual([
-      'self:condition:grabbed',
-      'self:condition:grabbed:1',
-      'self:condition:off-guard',
+    const content = [condition('dying', [grantOf('unconscious')]), condition('unconscious')];
+    expect(conditionOptions(content, [afflicted('dying', 2)])).toEqual([
+      'self:condition:dying',
+      'self:condition:dying:2',
+      'self:condition:unconscious',
     ]);
+  });
+});
+
+/** Highest value a drawn root takes; few values, so roots often share one. */
+const VALUE_MAX = 4;
+const ROOTS_MAX = 6;
+
+type Values = readonly (number | undefined)[];
+
+/** Each root's value (none for an unvalued one), and the same roots in another order. */
+const valuedRoots: Arbitrary<[Values, Values]> = array(
+  oneof(constant(undefined), integer({ min: 1, max: VALUE_MAX })),
+  { minLength: 1, maxLength: ROOTS_MAX },
+).chain((values) => shuffledSubarray(values, { minLength: values.length }).map((order) => [values, order]));
+
+/** _frightened_ once for each of `values`. */
+const rootsOf = (values: Values): GrantRoot[] => values.map((value) => afflicted('frightened', value));
+
+/** The options frightened sets from roots with `values`: its slug, and its highest value if any has one. */
+function expectedOf(values: Values): string[] {
+  const given = values.filter((value) => value !== undefined);
+  const valued = given.length === 0 ? [] : [`self:condition:frightened:${Math.max(...given)}`];
+  return ['self:condition:frightened', ...valued];
+}
+
+describe('valued condition properties', () => {
+  test('the condition sets its highest value alone, whatever order its roots come in', () => {
+    assert(
+      property(valuedRoots, ([values, order]) => {
+        expect(conditionOptions([frightened], rootsOf(values))).toEqual(expectedOf(values));
+        expect(resolve([frightened], rootsOf(order)).rollOptions).toEqual(
+          resolve([frightened], rootsOf(values)).rollOptions,
+        );
+      }),
+    );
   });
 });
