@@ -41,6 +41,8 @@
             [(level)]="grantLevel"
             [(facts)]="facts"
           />
+        } @else if (tool.kind === ToolKind.Filters) {
+          <pio-filters-fields [check]="tool.check" [(entries)]="text" [(query)]="filterQuery" />
         } @else {
           @if (schema() === RulesTool.ContentEntry) {
             <fr-field>

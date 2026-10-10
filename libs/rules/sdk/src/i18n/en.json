@@ -158,6 +158,24 @@
     },
     "consumable": {
       "ammunition": "Only ammunition is fired as a kind of ammunition; use the ammunition category."
+    },
+    "facet": {
+      "label": {
+        "level": "Level",
+        "rarity": "Rarity",
+        "traits": "Traits",
+        "book": "Book",
+        "pack": "Pack"
+      },
+      "rarity": {
+        "common": "Common",
+        "uncommon": "Uncommon",
+        "rare": "Rare",
+        "unique": "Unique"
+      },
+      "unknown": "Unknown",
+      "yes": "Yes",
+      "no": "No"
     }
   }
 }

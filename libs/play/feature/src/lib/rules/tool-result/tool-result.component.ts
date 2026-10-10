@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
+import { FiltersResult } from '../filters-result/filters-result.component';
 import { FormulaResult } from '../formula-result/formula-result.component';
 import { GrantsResult } from '../grants-result/grants-result.component';
 import { PredicateVerdictResult } from '../predicate-verdict-result/predicate-verdict-result.component';
@@ -12,7 +13,15 @@ import { StatisticsResult } from '../statistics-result/statistics-result.compone
 /** The result of whichever tool is chosen. */
 @Component({
   selector: 'pio-tool-result',
-  imports: [FormulaResult, GrantsResult, PredicateVerdictResult, RichTextResult, RulesResult, StatisticsResult],
+  imports: [
+    FiltersResult,
+    FormulaResult,
+    GrantsResult,
+    PredicateVerdictResult,
+    RichTextResult,
+    RulesResult,
+    StatisticsResult,
+  ],
   templateUrl: './tool-result.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

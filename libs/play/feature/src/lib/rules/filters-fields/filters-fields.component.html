@@ -1,0 +1,20 @@
+<fr-stack gap="md">
+  <fr-field>
+    <fr-label>{{ 'play.rules.filterQueryLabel' | transloco }}</fr-label>
+    <fr-text-input monospace [(value)]="query" />
+    <fr-field-hint>{{ 'play.rules.filterQueryHint' | transloco }}</fr-field-hint>
+  </fr-field>
+  <fr-field [invalid]="entriesProblem() !== undefined">
+    <fr-label>{{ 'play.rules.filterEntriesLabel' | transloco }}</fr-label>
+    <fr-text-area monospace [rows]="entryRows" [(value)]="entries" />
+    @if (entriesProblem(); as problem) {
+      <fr-field-error>{{
+        problem.status === CheckStatus.NotJson
+          ? ('play.rules.notJson' | transloco)
+          : ('play.rules.invalidSummary' | transloco: { count: problem.issues.length })
+      }}</fr-field-error>
+    } @else {
+      <fr-field-hint>{{ 'play.rules.filterEntriesHint' | transloco }}</fr-field-hint>
+    }
+  </fr-field>
+</fr-stack>

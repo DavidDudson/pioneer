@@ -347,7 +347,15 @@ Behaviour:
   search still goes to the server.
 - Within one facet values combine with OR, across facets with AND. Any value can be excluded ("not fire"). Every
   value shows how many entries it would leave.
-- The filter state lives in the URL, so a filtered list can be linked and survives a reload.
+- The filter state lives in the URL, so a filtered list can be linked and survives a reload. Each facet that
+  narrows the list is one param, `f.<facet id>`: values joined by commas with `!` marking an exclusion
+  (`f.traits=fire,!evil`), or a range as `min..max` with either end left out (`f.level=..5`). Params that don't
+  read are dropped, never an error, so an old link still opens.
+- An entry whose field is missing (no level) counts under **Unknown** rather than vanishing from every
+  selection. A `set` or `flag` facet can pick or exclude Unknown like any value; a `range` drops unknown entries
+  once a bound is set. A value's count is how many entries picking only that value would leave.
+- The engine (`libs/rules/sdk`: `facet.ts`, `facet-filter.ts`, `filter-query.ts`) is pure and runs on parsed
+  entries; the rules playground's "Content filters" tool exercises it.
 - **Available to you** is a preset made from the character: level at most the character's (or the slot's level
   for a feat slot), the class and ancestry traits the slot asks for, the traditions of the character's
   spellcasting entries, prerequisites not false, unique entries and the `artifact` trait hidden. Unknown

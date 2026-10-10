@@ -67,6 +67,43 @@ export {
   RaritySchema,
 } from './entry-fields';
 export { KIND_DATA, REGISTERED_KINDS, type RegisteredKind } from './kind-data';
+export {
+  COMMON_FACETS,
+  type FacetDefinition,
+  FacetId,
+  FacetLabel,
+  FacetMessage,
+  type FacetPath,
+  facetsFor,
+  FacetType,
+  FacetValue,
+  facetValues,
+  FLAG_LABELS,
+  FlagValue,
+  RangeBound,
+  UNKNOWN,
+} from './facet';
+export {
+  EntryCount,
+  type FacetCounts,
+  facetCounts,
+  type FacetSelection,
+  filterEntries,
+  type FilterState,
+  onlyValue,
+  type RangeSelection,
+  SelectionKind,
+  type ValueCount,
+  type ValuesSelection,
+} from './facet-filter';
+export {
+  FilterParam,
+  FilterParamText,
+  type FilterQuery,
+  filterFromQuery,
+  filterToQuery,
+  type QueryParams,
+} from './filter-query';
 export { type AncestryEntry, ContentRegistry, type CreatureEntry, type StatisticEntry } from './content-registry';
 export { StatisticData, StatisticDefinition, StatisticId, StatisticKind, StatisticKindSchema } from './statistic';
 export { CreatureData, CreatureDefinition, CreatureId } from './creature';
