@@ -1,6 +1,6 @@
 import { Pg } from '@pioneer/shared/kernel';
 import type { ValueOf } from '@pioneer/shared/kernel';
-import { z } from 'zod';
+import * as z from 'zod';
 
 /** The six attributes (Player Core remaster terminology). */
 export const Attribute = {

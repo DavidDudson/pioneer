@@ -35,7 +35,7 @@ import {
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 import { ApiError } from '@pioneer/shared/web';
-import type { z } from 'zod';
+import type * as z from 'zod';
 
 import { AncestryOptions } from '../../data/ancestry-options';
 import { CharacterStore } from '../../data/character-store';

@@ -1,5 +1,5 @@
 import { Uuid } from '@pioneer/shared/kernel';
-import { z } from 'zod';
+import * as z from 'zod';
 
 import { Slug } from './content-id';
 import { ContentText } from './content-text';

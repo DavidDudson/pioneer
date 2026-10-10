@@ -1,4 +1,4 @@
-import { z } from 'zod';
+import * as z from 'zod';
 
 /** Values substituted into an ICU message. */
 const MessageParamsSchema = z.record(z.string(), z.union([z.string(), z.number()]));

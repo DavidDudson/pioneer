@@ -1,5 +1,5 @@
 import { Pg, Uuid } from '@pioneer/shared/kernel';
-import { z } from 'zod';
+import * as z from 'zod';
 
 /** Branded so a character id can't be passed where another id is expected. */
 export const CharacterId = Uuid.brand<'CharacterId'>();

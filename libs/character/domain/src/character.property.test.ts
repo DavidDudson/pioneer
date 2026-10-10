@@ -4,7 +4,7 @@ import { installRulesFakes } from '@pioneer/rules/sdk/testing';
 import { fixedClock } from '@pioneer/shared/kernel';
 import { fakeSeeded } from '@pioneer/shared/kernel/testing';
 import { assert, nat, property } from 'fast-check';
-import { z } from 'zod';
+import * as z from 'zod';
 
 import { Character } from './character';
 import { CharacterPatchSchema } from './character-patch';

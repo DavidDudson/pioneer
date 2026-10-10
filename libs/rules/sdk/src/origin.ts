@@ -1,6 +1,6 @@
 import type { ValueOf } from '@pioneer/shared/kernel';
 import { InstantCodec, Pg, UserId, Uuid } from '@pioneer/shared/kernel';
-import { z } from 'zod';
+import * as z from 'zod';
 
 import { ContentId } from './content-id';
 import { SlotKey } from './selector';

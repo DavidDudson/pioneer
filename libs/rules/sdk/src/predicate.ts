@@ -1,5 +1,5 @@
 import { issueParams, message } from '@pioneer/shared/kernel';
-import { z } from 'zod';
+import * as z from 'zod';
 
 import { exceededBound, JsonSize } from './json-bounds';
 import type { JsonBounds } from './json-bounds';

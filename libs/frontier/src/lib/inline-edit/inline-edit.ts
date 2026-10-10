@@ -3,7 +3,7 @@ import type { Signal } from '@angular/core';
 import { issueMessage, message, Milliseconds } from '@pioneer/shared/kernel';
 import type { MessageDescriptor, ValueOf } from '@pioneer/shared/kernel';
 import { Debouncer } from '@tanstack/angular-pacer';
-import type { z } from 'zod';
+import type * as z from 'zod';
 
 export const InlineEditStatus = {
   /** No server value yet: render a skeleton. */

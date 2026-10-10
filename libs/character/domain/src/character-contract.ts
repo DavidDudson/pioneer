@@ -1,7 +1,7 @@
 import { AncestryId } from '@pioneer/rules/sdk';
 import { Endpoint, HttpMethod, listQuery, NoBody, NoParams, NoQuery } from '@pioneer/shared/kernel';
 import type { ValueOf } from '@pioneer/shared/kernel';
-import { z } from 'zod';
+import * as z from 'zod';
 
 import { Character } from './character';
 import { CharacterId, CharacterName } from './character-fields';

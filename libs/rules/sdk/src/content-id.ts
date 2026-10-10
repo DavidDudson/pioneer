@@ -1,5 +1,5 @@
 import { ContentNamespace, derivedId, Uuid } from '@pioneer/shared/kernel';
-import { z } from 'zod';
+import * as z from 'zod';
 
 /**
  * Kebab-case identifier: lowercase alphanumerics separated by single hyphens.

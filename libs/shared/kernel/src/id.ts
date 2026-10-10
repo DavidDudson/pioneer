@@ -1,5 +1,5 @@
 import { v5 as uuidV5 } from 'uuid';
-import { z } from 'zod';
+import * as z from 'zod';
 
 /**
  * Every id in Pioneer is a UUID: in the database, on the wire, in memory.

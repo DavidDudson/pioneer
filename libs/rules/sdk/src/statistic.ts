@@ -1,6 +1,6 @@
 import type { ValueOf } from '@pioneer/shared/kernel';
 import { Uuid } from '@pioneer/shared/kernel';
-import { z } from 'zod';
+import * as z from 'zod';
 
 import { AttributeSchema } from './attribute';
 import { Slug } from './content-id';

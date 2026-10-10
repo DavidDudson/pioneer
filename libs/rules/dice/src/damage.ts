@@ -9,7 +9,7 @@ import {
 import type { DamageAdjustment, DamageAdjustmentTarget } from '@pioneer/rules/sdk';
 import { message, MessageDescriptorSchema } from '@pioneer/shared/kernel';
 import type { MessageDescriptor, ValueOf } from '@pioneer/shared/kernel';
-import { z } from 'zod';
+import * as z from 'zod';
 
 import { DamageCategory } from './expression';
 import type { Term } from './expression';

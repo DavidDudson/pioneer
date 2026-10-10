@@ -1,7 +1,7 @@
 import { Dc, DegreeChange, DegreeChangeSchema, DegreeOfSuccess, DegreeOfSuccessSchema } from '@pioneer/rules/sdk';
 import { message, MessageDescriptorSchema } from '@pioneer/shared/kernel';
 import type { ValueOf } from '@pioneer/shared/kernel';
-import { z } from 'zod';
+import * as z from 'zod';
 
 import { Sign, TermKind } from './expression';
 import { DiceMessage } from './messages';

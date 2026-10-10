@@ -1,5 +1,5 @@
 import type { Logger } from 'drizzle-orm/logger';
-import { z } from 'zod';
+import * as z from 'zod';
 
 /** Plan node types that mean "no index served this". */
 const FORBIDDEN_NODES = new Set(['Seq Scan', 'Sort']);

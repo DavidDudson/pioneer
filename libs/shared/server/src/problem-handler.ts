@@ -9,7 +9,7 @@ import {
 } from '@pioneer/shared/kernel';
 import type { Problem } from '@pioneer/shared/kernel';
 import { Elysia } from 'elysia';
-import { z } from 'zod';
+import * as z from 'zod';
 
 /** RFC 9457 titles: fixed developer summaries per type. Users see `message`, formatted in their locale. */
 const TITLE: Readonly<Record<ProblemType, string>> = {

@@ -1,6 +1,6 @@
 import { message } from '@pioneer/shared/kernel';
 import type { ValueOf } from '@pioneer/shared/kernel';
-import { z } from 'zod';
+import * as z from 'zod';
 
 import { KeepMode, Sign } from './expression';
 import { DiceMessage } from './messages';

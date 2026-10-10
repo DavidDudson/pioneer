@@ -2,7 +2,7 @@ import { signal } from '@angular/core';
 import type { WritableSignal } from '@angular/core';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import type { Mock } from 'vitest';
-import { z } from 'zod';
+import * as z from 'zod';
 
 import { InlineEdit, InlineEditStatus, REVERT_WINDOW, SAVE_DEBOUNCE } from './inline-edit';
 

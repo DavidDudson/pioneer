@@ -1,4 +1,4 @@
-import { z } from 'zod';
+import * as z from 'zod';
 
 import { FieldIssueSchema, message, MessageDescriptorSchema, ProblemMessage } from './message';
 import type { FieldIssue, MessageDescriptor } from './message';

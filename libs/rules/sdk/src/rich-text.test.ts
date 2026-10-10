@@ -2,7 +2,7 @@ import { describe, expect, test } from 'bun:test';
 
 import { fieldIssues, message, ValidationMessage } from '@pioneer/shared/kernel';
 import type { FieldIssue } from '@pioneer/shared/kernel';
-import type { z } from 'zod';
+import type * as z from 'zod';
 
 import { contentId, PackId, Slug } from './content-id';
 import { DamageFormula } from './damage-formula';

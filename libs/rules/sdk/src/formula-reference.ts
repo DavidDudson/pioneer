@@ -1,6 +1,6 @@
 import { ReferencePath } from '@pioneer/rules/formula';
 import type { ValueOf } from '@pioneer/shared/kernel';
-import { z } from 'zod';
+import * as z from 'zod';
 
 import { AttributeSchema } from './attribute';
 import type { Attribute } from './attribute';

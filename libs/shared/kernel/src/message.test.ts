@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { z } from 'zod';
+import * as z from 'zod';
 
 import messages from './i18n/en.json';
 import { fieldIssues, issueMessage, issueParams, message, ProblemMessage, ValidationMessage } from './message';

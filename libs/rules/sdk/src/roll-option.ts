@@ -1,5 +1,5 @@
 import { issueParams, message } from '@pioneer/shared/kernel';
-import { z } from 'zod';
+import * as z from 'zod';
 
 import { RulesMessage } from './messages';
 

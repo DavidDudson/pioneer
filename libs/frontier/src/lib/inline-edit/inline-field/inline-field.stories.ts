@@ -2,7 +2,7 @@ import { moduleMetadata } from '@analogjs/storybook-angular';
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
 import { signal } from '@angular/core';
 import type { WritableSignal } from '@angular/core';
-import { z } from 'zod';
+import * as z from 'zod';
 
 import { NumberInput } from '../../controls/number-input/number-input.component';
 import { TextInput } from '../../controls/text-input/text-input.component';

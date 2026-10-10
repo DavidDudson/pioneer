@@ -1,5 +1,5 @@
 import { Endpoint, HttpMethod, NoBody, NoParams, NoQuery } from '@pioneer/shared/kernel';
-import { z } from 'zod';
+import * as z from 'zod';
 
 import { OAuthProviderSchema, SessionId } from './identity-fields';
 import type { OAuthProvider } from './identity-fields';

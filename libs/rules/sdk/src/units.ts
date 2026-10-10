@@ -1,5 +1,5 @@
 import { Pg } from '@pioneer/shared/kernel';
-import type { z } from 'zod';
+import type * as z from 'zod';
 
 /**
  * Game quantities, branded so a speed can't be added to a hit point total.

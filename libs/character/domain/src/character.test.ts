@@ -2,7 +2,7 @@ import { describe, expect, test } from 'bun:test';
 
 import { Attribute, Modifier, Proficiency } from '@pioneer/rules/sdk';
 import { fixedClock, FixtureNamespace, derivedId } from '@pioneer/shared/kernel';
-import { z } from 'zod';
+import * as z from 'zod';
 
 import { Character } from './character';
 import { CharacterId, CharacterName } from './character-fields';

@@ -1,6 +1,6 @@
 import type { ValueOf } from '@pioneer/shared/kernel';
 import { issueParams, message, Pg, UserId } from '@pioneer/shared/kernel';
-import { z } from 'zod';
+import * as z from 'zod';
 
 import { PackId, Slug } from './content-id';
 import { RulesMessage } from './messages';

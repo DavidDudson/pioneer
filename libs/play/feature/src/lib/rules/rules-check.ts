@@ -17,7 +17,7 @@ import {
 } from '@pioneer/rules/sdk';
 import { fieldIssues } from '@pioneer/shared/kernel';
 import type { FieldIssue, ValueOf } from '@pioneer/shared/kernel';
-import { z } from 'zod';
+import * as z from 'zod';
 
 import { EXAMPLE_GRANT_ENTRIES } from './grant-examples';
 import { pointAt } from './point-at';

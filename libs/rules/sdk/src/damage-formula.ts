@@ -1,5 +1,5 @@
 import { FormulaText } from '@pioneer/rules/formula';
-import { z } from 'zod';
+import * as z from 'zod';
 
 import { formulaIssues } from './formula-source';
 

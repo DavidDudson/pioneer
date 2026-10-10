@@ -1,4 +1,4 @@
-import { z } from 'zod';
+import * as z from 'zod';
 
 import { Pg } from './pg';
 import type { ValueOf } from './value-of';

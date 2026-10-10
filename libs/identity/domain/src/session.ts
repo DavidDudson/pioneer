@@ -1,5 +1,5 @@
 import { InstantCodec, Temporal } from '@pioneer/shared/kernel';
-import { z } from 'zod';
+import * as z from 'zod';
 
 import { SessionId } from './identity-fields';
 import type { UserId } from './identity-fields';
