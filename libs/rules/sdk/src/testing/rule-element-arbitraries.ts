@@ -176,7 +176,7 @@ const defenceTypes = (types: Arbitrary<string>): Arbitrary<string[]> =>
   array(types, { minLength: 1, maxLength: LIST_MAX });
 const defenceValue = oneof(integer({ min: 1, max: SMALLINT_MAX }), validFormulaText);
 const exceptions = { exceptions: array(slugText, { maxLength: LIST_MAX }) };
-const immunity = element('Immunity', { type: defenceTypes(slugText) }, exceptions);
+const immunity = element('Immunity', { type: defenceTypes(slugText) });
 const adjustmentTargets = defenceTypes(anyOf(DamageAdjustmentTarget));
 const weakness = element('Weakness', { type: adjustmentTargets, value: defenceValue }, exceptions);
 const resistance = element('Resistance', { type: adjustmentTargets, value: defenceValue }, exceptions);

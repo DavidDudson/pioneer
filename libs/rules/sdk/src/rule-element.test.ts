@@ -80,7 +80,7 @@ const examples: object[] = [
   },
   { key: 'MartialProficiency', slug: 'firearms', definition: ['item:group:firearm'], visible: false },
   { key: 'Immunity', type: ['fire', 'sleep'] },
-  { key: 'Immunity', type: ['critical-hits'], exceptions: ['vorpal'], predicate: ['self:effect:fortification'] },
+  { key: 'Immunity', type: ['critical-hits'], predicate: ['self:effect:fortification'] },
   { key: 'Weakness', type: ['fire', 'energy'], value: 5 },
   { key: 'Weakness', type: ['vitality'], value: 'floor(@item.level / 2) + 2' },
   { key: 'Resistance', type: ['physical'], value: 5, exceptions: ['adamantine'] },

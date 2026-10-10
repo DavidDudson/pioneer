@@ -1,12 +1,5 @@
-import {
-  CreatureDefinition,
-  DAMAGE_GROUP_TYPES,
-  DamageGroup,
-  DamageType,
-  DamageTypeSchema,
-  Immunity,
-} from '@pioneer/rules/sdk';
-import type { DamageAdjustment, DamageAdjustmentTarget } from '@pioneer/rules/sdk';
+import { DAMAGE_GROUP_TYPES, DamageGroup, DamageType, DamageTypeSchema, Immunity } from '@pioneer/rules/sdk';
+import type { DamageAdjustment, DamageAdjustmentTarget, DamageTarget } from '@pioneer/rules/sdk';
 import { message, MessageDescriptorSchema } from '@pioneer/shared/kernel';
 import type { MessageDescriptor, ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
@@ -17,12 +10,8 @@ import { DiceMessage } from './messages';
 import type { RollResult, TermResult } from './roll';
 import { DamageTotal, RollTotal } from './units';
 
-/** What a target ignores, takes extra from, and shrugs off: the IWR lines of its stat block. */
-export const DamageTarget = CreatureDefinition.pick({ immunities: true, weaknesses: true, resistances: true });
-export type DamageTarget = z.infer<typeof DamageTarget>;
-
-/** A target with no immunities, weaknesses or resistances. */
-export const NO_DEFENCES: DamageTarget = { immunities: [], weaknesses: [], resistances: [] };
+// The IWR shape lives in the SDK beside `CreatureDefinition`, so the engine can derive a character's without this lib.
+export { DamageTarget, NO_DEFENCES } from '@pioneer/rules/sdk';
 
 /**
  * One instance of damage: everything of one type (unset for untyped) from a roll, as dealt and as

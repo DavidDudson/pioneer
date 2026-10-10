@@ -14,12 +14,11 @@ export type DefenceValue = z.infer<typeof DefenceValue>;
 
 /**
  * Immunity to each of `type`: a damage type, condition or effect (`fire`, `paralyzed`, `critical-hits`). Foundry's
- * fields: `exceptions` names what it does not cover.
+ * `exceptions` is not read yet: a `DamageTarget`'s immunities have no room for them (rules-engine.md, "Defences").
  */
 export const ImmunityElement = z.strictObject({
   key: z.literal(RuleElementKey.Immunity),
   type: z.array(Immunity).min(1).max(TYPES_MAX).readonly(),
-  exceptions: DamageExceptions.optional(),
   ...ruleElementBase,
 });
 export type ImmunityElement = z.infer<typeof ImmunityElement>;

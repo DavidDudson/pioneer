@@ -13,9 +13,9 @@ export {
   SuppressionReason,
 } from './breakdown';
 export { deriveStatistics, type StatisticContent } from './derive-statistics';
+export { damageTargetOf } from './damage-target';
 export {
   type AdjustmentLine,
-  damageTargetOf,
   type Defences,
   type DefenceStatus,
   DefenceStatusKind,

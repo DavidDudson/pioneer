@@ -38,3 +38,10 @@ export const CreatureData = z.strictObject(
   CreatureDefinition.omit({ slug: true, name: true, level: true, traits: true }).shape,
 );
 export type CreatureData = z.infer<typeof CreatureData>;
+
+/** What a target ignores, takes extra from, and shrugs off: the IWR lines of its stat block, or a character's. */
+export const DamageTarget = CreatureDefinition.pick({ immunities: true, weaknesses: true, resistances: true });
+export type DamageTarget = z.infer<typeof DamageTarget>;
+
+/** A target with no immunities, weaknesses or resistances. */
+export const NO_DEFENCES: DamageTarget = { immunities: [], weaknesses: [], resistances: [] };

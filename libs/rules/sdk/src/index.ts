@@ -137,7 +137,7 @@ export {
 } from './content-registry';
 export { StatisticData, StatisticDefinition, StatisticId, StatisticKind, StatisticKindSchema } from './statistic';
 export { SOURCE_SLUG_MAX, StatisticPer } from './statistic';
-export { CreatureData, CreatureDefinition, CreatureId } from './creature';
+export { CreatureData, CreatureDefinition, CreatureId, DamageTarget, NO_DEFENCES } from './creature';
 export {
   AonSourceUrl,
   Book,

@@ -3,7 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import { RollOption } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
-import { array, assert, constantFrom, integer, property, record, shuffledSubarray } from 'fast-check';
+import { array, assert, constantFrom, integer, oneof, property, record, shuffledSubarray } from 'fast-check';
 import type { Arbitrary } from 'fast-check';
 
 import { DefenceStatusKind, deriveDefences } from './defences';
@@ -27,18 +27,21 @@ const facts = new PredicateFacts([RollOption.parse('self:effect:rage')], CORE_NA
 const HOLDS = ['self:effect:rage'];
 const FAILS = ['self:effect:fly'];
 const UNKNOWN = ['terrain:forest'];
+/** A value formula that fails (no statistic is readable), and one that comes to 0 or less at level 1. */
+const FAILING = '@stat.ac';
+const NOTHING = '@level - 5';
 
 interface DefenceSpec {
   readonly key: string;
   readonly type: string;
-  readonly value: number;
+  readonly value: number | string;
   readonly predicate: readonly string[] | undefined;
 }
 
 const defenceSpec: Arbitrary<DefenceSpec> = record({
   key: constantFrom('Weakness', 'Resistance'),
   type: constantFrom('fire', 'physical', 'all'),
-  value: integer({ min: 1, max: VALUE_MAX }),
+  value: oneof(integer({ min: 1, max: VALUE_MAX }), constantFrom(FAILING, NOTHING)),
   predicate: constantFrom(undefined, HOLDS, FAILS, UNKNOWN),
 });
 
@@ -55,20 +58,26 @@ function derive(rulesInPlay: readonly RuleInPlay[]): Defences {
 
 /** Checks one type's lines against the specs that gave them. */
 function checkType(lines: readonly AdjustmentLine[], specs: readonly DefenceSpec[]): void {
-  const unconditional = specs.filter(({ predicate }) => predicate === undefined || predicate === HOLDS);
+  const kept = specs.filter(({ predicate, value }) => predicate !== FAILS && value !== NOTHING);
+  const failing = kept.filter(({ value }) => value === FAILING);
+  const valued = kept.filter(({ value }) => typeof value === 'number');
+  const unconditional = valued.filter(({ predicate }) => predicate === undefined || predicate === HOLDS);
+  const values = unconditional.map(({ value }) => Number(value));
   const applied = lines.filter(({ status }) => status.kind === DefenceStatusKind.Applied);
   expect(applied).toHaveLength(Math.min(1, unconditional.length));
   const [winner] = applied;
   const highest: number | undefined = winner?.value;
-  expect(highest).toBe(unconditional.length === 0 ? undefined : Math.max(...unconditional.map(({ value }) => value)));
+  expect(highest).toBe(unconditional.length === 0 ? undefined : Math.max(...values));
   for (const line of lines.filter(({ status }) => status.kind === DefenceStatusKind.Superseded)) {
     const status: unknown = line.status;
     expect(status).toStrictEqual({ kind: DefenceStatusKind.Superseded, by: winner?.id });
     expect(line.value ?? 0).toBeLessThanOrEqual(highest ?? 0);
   }
   const conditional = lines.filter(({ status }) => status.kind === DefenceStatusKind.Conditional);
-  expect(conditional).toHaveLength(specs.filter(({ predicate }) => predicate === UNKNOWN).length);
-  expect(lines).toHaveLength(unconditional.length + conditional.length);
+  expect(conditional).toHaveLength(valued.filter(({ predicate }) => predicate === UNKNOWN).length);
+  const failed = lines.filter(({ status }) => status.kind === DefenceStatusKind.Failed);
+  expect(failed).toHaveLength(failing.length);
+  expect(lines).toHaveLength(valued.length + failing.length);
 }
 
 describe('deriveDefences (properties)', () => {

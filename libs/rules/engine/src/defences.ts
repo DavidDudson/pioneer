@@ -1,10 +1,8 @@
-import type { DamageTarget } from '@pioneer/rules/dice';
 import type { ResolveReference, TextPosition } from '@pioneer/rules/formula';
 import { summarisePredicate, Truth } from '@pioneer/rules/predicate';
 import type { PredicateSummary } from '@pioneer/rules/predicate';
 import { DamageAmount, RuleElementKey } from '@pioneer/rules/sdk';
 import type {
-  DamageAdjustment,
   DamageAdjustmentTarget,
   DamageException,
   Immunity,
@@ -56,6 +54,8 @@ export type DefenceStatus =
       readonly error: MessageDescriptor;
       /** Where in the failing formula; undefined when the value was out of range. */
       readonly position: TextPosition | undefined;
+      /** The predicate of a conditional defence, kept so the sheet still says when it would apply. */
+      readonly when: Predicate | undefined;
     };
 
 /** One immunity from an `Immunity` element: applied, or conditional on the situation. */
@@ -64,7 +64,6 @@ export interface ImmunityLine {
   readonly label: ModifierLabel;
   readonly origin: Origin;
   readonly type: Immunity;
-  readonly exceptions: readonly DamageException[];
   readonly status: DefenceStatus;
 }
 
@@ -93,7 +92,6 @@ export interface Defences {
 /** The most a weakness or resistance can be: `DamageAmount`'s bound. */
 const DEFENCE_MAX = DamageAmount.parse(32_767);
 const NONE: readonly DamageException[] = [];
-const NO_TOGGLES: ReadonlySet<RuleId> = new Set();
 
 /** How a predicate gates a defence: dropped when false, applied when true, conditional when unknown. */
 function gate(rule: RuleInPlay, context: RuleContext): DefenceStatus | undefined {
@@ -118,6 +116,12 @@ interface Valued {
   readonly status: DefenceStatus;
 }
 
+/** A failed line's status, keeping the predicate of a conditional one. */
+function failed(gated: DefenceStatus, error: MessageDescriptor, position: TextPosition | undefined): DefenceStatus {
+  const when = gated.kind === DefenceStatusKind.Conditional ? gated.when : undefined;
+  return { kind: DefenceStatusKind.Failed, error, position, when };
+}
+
 /** A value as a `DamageAmount`: nothing when 0 or less, failed past its bound. */
 function amountOf(value: RuleNumber, status: DefenceStatus): Valued | undefined {
   const rounded = whole(value);
@@ -129,7 +133,7 @@ function amountOf(value: RuleNumber, status: DefenceStatus): Valued | undefined 
     return { value: amount.data, status };
   }
   const error = message(EngineMessage.DefenceOutOfRange, { maximum: DEFENCE_MAX });
-  return { value: undefined, status: { kind: DefenceStatusKind.Failed, error, position: undefined } };
+  return { value: undefined, status: failed(status, error, undefined) };
 }
 
 function valued(
@@ -143,8 +147,7 @@ function valued(
   }
   const outcome = valueOf(element.value, context.resolve(rule.itemLevel));
   if (!outcome.ok) {
-    const { error, position } = outcome;
-    return { value: undefined, status: { kind: DefenceStatusKind.Failed, error, position } };
+    return { value: undefined, status: failed(status, outcome.error, outcome.position) };
   }
   return amountOf(outcome.value, status);
 }
@@ -180,18 +183,18 @@ function highestPerType(lines: readonly AdjustmentLine[]): readonly AdjustmentLi
   });
 }
 
-/** The lines one `Immunity` element gives: one per type it names. */
+/** The lines one `Immunity` element gives: one per type it names, a repeated type once. */
 function immunityLines(rule: RuleInPlay, element: ImmunityElement, context: RuleContext): readonly ImmunityLine[] {
   const status = gate(rule, context);
   if (status === undefined) {
     return [];
   }
-  const shared = { id: ruleIdOf(rule), label: labelOf(rule), origin: rule.origin };
-  const exceptions = element.exceptions ?? NONE;
-  return element.type.map((type) => ({ ...shared, type, exceptions, status }));
+  const id = ruleIdOf(rule);
+  const label = labelOf(rule);
+  return [...new Set(element.type)].map((type) => ({ id, label, origin: rule.origin, type, status }));
 }
 
-/** The lines one `Weakness` or `Resistance` element gives: one per type or group it names. */
+/** The lines one `Weakness` or `Resistance` element gives: one per type or group it names, a repeated one once. */
 function adjustmentLines(
   rule: RuleInPlay,
   element: WeaknessElement | ResistanceElement,
@@ -201,9 +204,19 @@ function adjustmentLines(
   if (result === undefined) {
     return [];
   }
-  const shared = { id: ruleIdOf(rule), label: labelOf(rule), origin: rule.origin };
+  const id = ruleIdOf(rule);
+  const label = labelOf(rule);
   const exceptions = element.exceptions ?? NONE;
-  return element.type.map((type) => ({ ...shared, type, value: result.value, exceptions, status: result.status }));
+  const { value, status } = result;
+  return [...new Set(element.type)].map((type) => ({
+    id,
+    label,
+    origin: rule.origin,
+    type,
+    value,
+    exceptions,
+    status,
+  }));
 }
 
 /** What defence formulas read: the character's inputs and the item's level, never other statistics. */
@@ -252,33 +265,5 @@ export function deriveDefences(
     immunities: inOrder(immunities),
     weaknesses: highestPerType(inOrder(weaknesses)),
     resistances: highestPerType(inOrder(resistances)),
-  };
-}
-
-/** Whether a line bears on damage now: applied, or conditional and toggled on. */
-function counts({ id, status }: ImmunityLine | AdjustmentLine, on: ReadonlySet<RuleId>): boolean {
-  return status.kind === DefenceStatusKind.Applied || (status.kind === DefenceStatusKind.Conditional && on.has(id));
-}
-
-function adjustments(lines: readonly AdjustmentLine[], on: ReadonlySet<RuleId>): readonly DamageAdjustment[] {
-  return lines.flatMap((line) => {
-    if (line.value === undefined || !counts(line, on)) {
-      return [];
-    }
-    const exceptions = line.exceptions.length === 0 ? {} : { exceptions: line.exceptions };
-    return [{ type: line.type, value: line.value, ...exceptions }];
-  });
-}
-
-/**
- * The defences as the damage pipeline takes them (`applyDamage` in `@pioneer/rules/dice`): the applied ones, with
- * the conditional ones whose rules are toggled `on`. Superseded lines are left out, since the pipeline picks the
- * highest weakness and resistance itself.
- */
-export function damageTargetOf(defences: Defences, on: ReadonlySet<RuleId> = NO_TOGGLES): DamageTarget {
-  return {
-    immunities: [...new Set(defences.immunities.filter((line) => counts(line, on)).map(({ type }) => type))],
-    weaknesses: adjustments(defences.weaknesses, on),
-    resistances: adjustments(defences.resistances, on),
   };
 }

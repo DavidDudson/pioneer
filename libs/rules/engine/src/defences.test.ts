@@ -3,12 +3,14 @@ import { describe, expect, test } from 'bun:test';
 import { applyDamage, DiceExpressionText, DieFace, parseDiceExpression, rollDice } from '@pioneer/rules/dice';
 import type { RollResult } from '@pioneer/rules/dice';
 import { scriptedRandom } from '@pioneer/rules/dice/testing';
+import { FormulaMessage } from '@pioneer/rules/formula';
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import { RollOption } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
 import { message } from '@pioneer/shared/kernel';
 
-import { damageTargetOf, DefenceStatusKind, deriveDefences } from './defences';
+import { damageTargetOf } from './damage-target';
+import { DefenceStatusKind, deriveDefences } from './defences';
 import type { AdjustmentLine, Defences } from './defences';
 import { EngineMessage } from './messages';
 import { ruleIdOf } from './rule-in-play';
@@ -67,13 +69,12 @@ function byId(left: LineSummary, right: LineSummary): number {
 }
 
 describe('deriveDefences', () => {
-  test('an Immunity gives one immunity per type, with its origin, label and exceptions', () => {
-    const rule = inPlay({ key: 'Immunity', type: ['sleep', 'fire'], exceptions: ['magical'] }, 'dragon-blood');
+  test('an Immunity gives one immunity per type, with its origin and label', () => {
+    const rule = inPlay({ key: 'Immunity', type: ['sleep', 'fire'] }, 'dragon-blood');
     const shared = {
       id: ruleIdOf(rule),
       label: { entry: rule.origin.entry },
       origin: rule.origin,
-      exceptions: ['magical'],
       status: { kind: DefenceStatusKind.Applied },
     };
     const { immunities }: { readonly immunities: unknown } = defences([rule]);
@@ -129,13 +130,36 @@ describe('deriveDefences', () => {
     expect(resistances[0]?.status).toHaveProperty('summary');
   });
 
-  test('a formula that cannot be evaluated fails the line, pointing into it', () => {
+  test('a formula that cannot be evaluated fails the line, pointing into it, and never counts', () => {
+    const failing = inPlay(resistance(['fire'], '2 + @stat.ac'), 'reads-ac');
+    const applied = inPlay(resistance(['fire'], 3), 'plain');
+    const { resistances } = defences([failing, applied]);
+    const failedLine: unknown = resistances.find(({ id }) => id === ruleIdOf(failing));
+    expect(failedLine).toMatchObject({
+      type: 'fire',
+      value: undefined,
+      status: {
+        kind: DefenceStatusKind.Failed,
+        error: { key: FormulaMessage.UnknownReference },
+        position: 5,
+        when: undefined,
+      },
+    });
+    const appliedLine = resistances.find(({ id }) => id === ruleIdOf(applied));
+    expect(appliedLine?.status).toStrictEqual({ kind: DefenceStatusKind.Applied });
+  });
+
+  test('a conditional defence whose formula fails keeps its predicate', () => {
     const { resistances }: { readonly resistances: unknown } = defences([
-      inPlay(resistance(['fire'], '2 + @stat.ac'), 'reads-ac'),
+      inPlay(resistance(['cold'], '@stat.ac', { predicate: IN_FOREST }), 'forest-ac'),
     ]);
-    expect(resistances).toMatchObject([
-      { type: 'fire', value: undefined, status: { kind: DefenceStatusKind.Failed, position: 5 } },
-    ]);
+    expect(resistances).toMatchObject([{ status: { kind: DefenceStatusKind.Failed, when: IN_FOREST } }]);
+  });
+
+  test('a type named twice in one element gives one line', () => {
+    const { weaknesses } = defences([inPlay(weakness(['fire', 'fire'], 5), 'twice')]);
+    const kinds: unknown = weaknesses.map(({ status }) => status.kind);
+    expect(kinds).toStrictEqual([DefenceStatusKind.Applied]);
   });
 
   test('a value of 0 or less comes to nothing', () => {
@@ -154,6 +178,7 @@ describe('deriveDefences', () => {
           kind: DefenceStatusKind.Failed,
           error: message(EngineMessage.DefenceOutOfRange, { maximum: DEFENCE_MAX }),
           position: undefined,
+          when: undefined,
         },
       },
     ]);
@@ -208,13 +233,20 @@ describe('damageTargetOf', () => {
     forestWeakness,
   ];
 
-  test('takes the applied defences, each immunity once, with exceptions where there are any', () => {
-    const target: unknown = damageTargetOf(defences(rules));
-    expect(target).toStrictEqual({
-      immunities: ['fear', 'fire'],
-      weaknesses: [],
-      resistances: [{ type: 'physical', value: 5, exceptions: ['adamantine'] }],
-    });
+  test('takes the applied and superseded defences, each immunity once, with exceptions where there are any', () => {
+    const target = damageTargetOf(defences(rules));
+    const immunities: unknown = target.immunities;
+    expect(immunities).toStrictEqual(['fear', 'fire']);
+    expect(target.weaknesses).toStrictEqual([]);
+    // The lower resistance stays: the pipeline falls back to it when damage has the higher one's exception.
+    const resistances: unknown = target.resistances;
+    expect(resistances).toHaveLength(2);
+    expect(resistances).toEqual(
+      expect.arrayContaining([
+        { type: 'physical', value: 5, exceptions: ['adamantine'] },
+        { type: 'physical', value: 3 },
+      ]),
+    );
   });
 
   test('adds the conditional defences whose rules are toggled on', () => {

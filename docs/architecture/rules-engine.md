@@ -569,11 +569,19 @@ list, as in Foundry, and each type or group it names becomes its own line. A val
 inputs and the level of the item the element is on, not other statistics, as a `Change`'s does, so defences never
 wait on the statistic graph. A value of 0 or less comes to nothing (`@item.level - 4` on a low-level item) and the
 line is left out; a formula that fails, or a value past `DamageAmount`'s bound, makes the line failed. Ties for the
-highest go to the lowest rule id, so the result never depends on the order of the rules. `damageTargetOf` turns
-the result into a `DamageTarget`, taking the conditional lines whose rule ids are toggled on.
+highest go to the lowest rule id, so the result never depends on the order of the rules. A failed line that was
+conditional keeps its predicate. `damageTargetOf` turns the result into a `DamageTarget` (in `rules/sdk`, beside
+`CreatureDefinition`), taking the applied and superseded lines and the conditional ones whose rule ids are toggled
+on. Superseded is for the sheet only: the pipeline still gets those lines, because it picks the highest per damage
+instance and must fall back to a lower one when the instance has the higher one's exception.
 
-Weaknesses and resistances to a material (`weakness 5 cold-iron`) are not damage types or groups, so the schema
-rejects them for now; they arrive with damage traits on `DamageInstance`.
+Not read yet, so the schemas reject them rather than apply a defence wrongly:
+
+- Weaknesses and resistances to a material (`weakness 5 cold-iron`), which are not damage types or groups; they
+  arrive with damage traits on `DamageInstance`.
+- `exceptions` on `Immunity`: `DamageTarget`'s immunities are bare slugs with no room for them.
+- Foundry's `mode` on `Immunity` (removing one), `doubleVs` on `Resistance`, and `override` on weaknesses and
+  resistances. The Epic 2.6 translator reports content that uses them as untranslated.
 
 ## Predicates and conditional modifiers
 
