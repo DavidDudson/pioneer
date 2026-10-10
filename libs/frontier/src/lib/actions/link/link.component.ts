@@ -1,20 +1,40 @@
 import { DOCUMENT, NgTemplateOutlet } from '@angular/common';
 import { booleanAttribute, ChangeDetectionStrategy, Component, computed, inject, input, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import type { ValueOf } from '@pioneer/shared/kernel';
 import { cva } from 'class-variance-authority';
 
 import { textVariants } from '../../text/text.variants';
 import type { TextVariant } from '../../text/text.variants';
 
-const linkVariants = cva(
-  'text-accent-fg underline underline-offset-link hover:decoration-accent-fg focus-visible:focus-ring',
-  {
-    variants: {
-      // The page being shown: the underline turns accent and thickens, so the cue is not colour alone.
-      current: { true: 'decoration-accent-fg decoration-link-current', false: 'decoration-line-strong' },
-    },
+export const LinkAppearance = {
+  /** A link in text or standing alone: accent text, always underlined. */
+  Inline: 'inline',
+  /** One tab of `fr-tabs`: a touch-sized label, underlined only when current. Features use `fr-tab`. */
+  Tab: 'tab',
+} as const;
+export type LinkAppearance = ValueOf<typeof LinkAppearance>;
+
+const linkVariants = cva('focus-visible:focus-ring', {
+  variants: {
+    appearance: {
+      inline: 'text-accent-fg underline underline-offset-link hover:decoration-accent-fg',
+      // Touch-sized; a tab's label never wraps, the tab row scrolls instead.
+      tab: 'inline-flex h-touch items-center whitespace-nowrap px-sm text-label font-medium underline-offset-link pointer-fine:h-control-sm',
+    } satisfies Record<LinkAppearance, string>,
+    // The page being shown: the underline turns accent and thickens, so the cue is not colour alone.
+    current: { true: 'decoration-accent-fg decoration-link-current', false: '' },
   },
-);
+  compoundVariants: [
+    { appearance: 'inline', current: false, class: 'decoration-line-strong' },
+    { appearance: 'tab', current: true, class: 'text-fg-default underline' },
+    {
+      appearance: 'tab',
+      current: false,
+      class: 'text-fg-muted hover:text-fg-default hover:underline hover:decoration-line-strong',
+    },
+  ],
+});
 
 /** Router commands, as `routerLink` takes them. */
 export type LinkTarget = string | readonly unknown[];
@@ -69,11 +89,13 @@ export class Link {
   public readonly ariaLabel = input<string | undefined>(undefined);
   /** Typography when the link stands alone; inside text it inherits. */
   public readonly variant = input<TextVariant | undefined>(undefined);
+  public readonly appearance = input<LinkAppearance>(LinkAppearance.Inline);
 
   private readonly document = inject(DOCUMENT);
 
+  readonly #current = signal(false);
   /** Whether `to` is the page being shown; routerLinkActive keeps it up to date. */
-  protected readonly current = signal(false);
+  public readonly current = this.#current.asReadonly();
   protected readonly activeOptions = computed(() => ({ exact: this.exact() }));
 
   protected readonly externalUrl = computed((): string | undefined => {
@@ -83,9 +105,13 @@ export class Link {
 
   protected readonly classes = computed(() => {
     const variant = this.variant();
-    const link = linkVariants({ current: this.current() });
+    const link = linkVariants({ appearance: this.appearance(), current: this.current() });
     return variant === undefined ? link : `${link} ${textVariants({ variant })}`;
   });
+
+  protected setCurrent(current: boolean): void {
+    this.#current.set(current);
+  }
 
   /** Focuses the `skipTo` element in place of following `#id`, which would load `/#id`. */
   protected skip(event: Event, id: string): void {
