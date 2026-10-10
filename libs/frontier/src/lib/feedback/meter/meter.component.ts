@@ -113,13 +113,20 @@ export class Meter {
     }),
   );
 
-  /** One entry per point when drawn as segments, whether it is filled; undefined when drawn as a bar. */
+  /** The value as the native meter takes it: clamped into min..max, so the number never disagrees with the bar. */
+  readonly #current = computed(() => Math.min(Math.max(this.value(), this.min()), this.max()));
+
+  /**
+   * One entry per point when drawn as segments, whether it is filled; undefined when drawn as a bar. Only whole
+   * counts segment: a fractional range or value can't be shown as whole blocks, so it draws a bar.
+   */
   protected readonly segments = computed(() => {
     const count = this.max() - this.min();
-    if (this.variant() !== MeterVariant.Segmented || count > MAX_SEGMENTS || count < 1) {
+    const filled = this.#current() - this.min();
+    const segmentable = Number.isInteger(count) && Number.isInteger(filled) && count >= 1 && count <= MAX_SEGMENTS;
+    if (this.variant() !== MeterVariant.Segmented || !segmentable) {
       return undefined;
     }
-    const filled = this.value() - this.min();
     return Array.from({ length: count }, (_unused, index) =>
       segmentVariants({ filled: index < filled, tone: this.tone() }),
     );
@@ -131,7 +138,7 @@ export class Meter {
 
   /** Formatted in the UI locale, for the visible number and the meter's value text. */
   protected readonly numbers = computed(() => ({
-    value: this.#format.number(this.value()),
+    value: this.#format.number(this.#current()),
     max: this.#format.number(this.max()),
   }));
 

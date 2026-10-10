@@ -121,4 +121,27 @@ describe(Meter, () => {
     expect(segments(host)).toHaveLength(0);
     expect(meter(host).classList.contains('sr-only')).toBe(false);
   });
+
+  it('clamps the shown number into the range, as the native meter does', async () => {
+    const over = await render({ value: 35, max: 30 });
+    expect(number(over)?.textContent.trim()).toBe('30/30');
+    expect(meter(over).getAttribute('aria-valuetext')).toBe('30 of 30');
+    const under = await render({ value: -4, max: 30 });
+    expect(number(under)?.textContent.trim()).toBe('0/30');
+  });
+
+  it('draws a bar when the range or value is fractional', async () => {
+    const fractionalValue = await render({
+      value: 1.5,
+      max: 4,
+      variant: MeterVariant.Segmented,
+    });
+    expect(segments(fractionalValue)).toHaveLength(0);
+    const fractionalRange = await render({
+      value: 1,
+      max: 3.5,
+      variant: MeterVariant.Segmented,
+    });
+    expect(segments(fractionalRange)).toHaveLength(0);
+  });
 });
