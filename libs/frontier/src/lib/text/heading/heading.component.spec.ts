@@ -1,7 +1,8 @@
 import { ApplicationRef, createComponent, EnvironmentInjector } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { describe, expect, it, onTestFinished } from 'vitest';
+import { beforeEach, describe, expect, it, onTestFinished } from 'vitest';
 
+import { provideFrontierI18nTesting } from '../../testing/provide-frontier-i18n-testing';
 import { Tone } from '../../tokens';
 import { TextVariant } from '../text.variants';
 import { Heading, HeadingLevel } from './heading.component';
@@ -29,6 +30,10 @@ async function render(inputs: Readonly<Record<string, unknown>>): Promise<HTMLEl
 }
 
 describe(Heading, () => {
+  beforeEach(() => {
+    TestBed.configureTestingModule({ providers: [...provideFrontierI18nTesting()] });
+  });
+
   it.each([
     [HeadingLevel.One, 'H1', 'text-title'],
     [HeadingLevel.Two, 'H2', 'text-heading'],
@@ -56,7 +61,13 @@ describe(Heading, () => {
   it('is marked busy only while its text is loading', async () => {
     const loaded = await render({ level: HeadingLevel.One });
     expect(loaded.hasAttribute('aria-busy')).toBe(false);
+    expect(loaded.querySelector('.sr-only')).toBeNull();
     const loading = await render({ level: HeadingLevel.One, busy: true });
     expect(loading.getAttribute('aria-busy')).toBe('true');
+  });
+
+  it('is named "Loading" while busy, so a heading holding only a skeleton is never empty', async () => {
+    const loading = await render({ level: HeadingLevel.One, busy: true });
+    expect(loading.querySelector('.sr-only')?.textContent).toBe('Loading');
   });
 });
