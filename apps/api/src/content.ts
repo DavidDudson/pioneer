@@ -1,8 +1,19 @@
 import { officialPacks } from '@pioneer/rules/catalog';
-import { seedContentPacks } from '@pioneer/rules/infrastructure';
+import {
+  ContentRepository,
+  contentRoutes,
+  seedContentPacks,
+  StoredContentBundles,
+} from '@pioneer/rules/infrastructure';
 import type { Clock } from '@pioneer/shared/kernel';
+import type { ContractRouter } from '@pioneer/shared/server';
 
 import type { Database } from './database';
+
+/** The content part of the composition root: the browser's bundles of the official packs, public (ADR-0007). */
+export function content(db: Database): ContractRouter['app'] {
+  return contentRoutes(new StoredContentBundles(new ContentRepository(db)));
+}
 
 /**
  * Upserts the official packs bundled into this build into the content tables, then logs one line per pack. Runs
