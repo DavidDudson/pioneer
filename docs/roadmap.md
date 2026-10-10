@@ -73,7 +73,8 @@ rule elements translated; public content browser live.
 - **Content localisation**: mechanics and per-locale text bundles, sharded descriptions loaded on demand,
   `content_entry_texts` with per-field `en` fallback, per-locale search.
 - **Content browser** (public, no account): search, filters (kind, level, traits, rarity, book), entry view with
-  rich text, live references and source line.
+  rich text, live references and source line. Global search: one keyboard-first box across every kind and every
+  enabled pack, with instant name matches from the cached bundles ahead of the server's full-text results.
 
 ## M3 Character builder and accounts
 
@@ -86,7 +87,8 @@ match their published level 1 statistics.
   schema versioning.
 - **Builder flow**: ancestry, heritage, background, class, boosts and flaws, skills, feat slots with prerequisite
   filtering, level-up and level-down, invalid-choice flags.
-- **Inventory**: add from content, wield, wear, invest, containers, Bulk, runes, coins, starting kits.
+- **Inventory**: add from content, wield, wear, invest, containers, Bulk, runes, coins, starting kits. Invested
+  items get their own panel: the count against the limit of 10 and what each investment turns on.
 - **Spellcasting build**: prepared, spontaneous and focus casters, repertoires, slots per level, signature spells.
 
 ## M4 Sheet and introspection
@@ -94,12 +96,21 @@ match their published level 1 statistics.
 Exit: every number on the sheet opens a breakdown that explains it; conditional adjustments are visible; feats
 can be filtered to what matters.
 
-- **Sheet layout**: text-only sheet sections built from frontier components; keyboard navigation.
+- **Sheet layout**: text-only sheet sections built from frontier components; keyboard navigation. A defences
+  panel lists immunities, weaknesses and resistances by damage type, spells out groups (physical, energy, all)
+  and marks conditional ones.
 - **Breakdown inspector**: applied, suppressed, conditional and overridden lines; origin chains; sources.
 - **Conditional adjustments**: shown beside each statistic and on skill and action rows.
 - **Feats and features view**: display categories, hide grant-only, fold granted items under their origin.
 - **Overrides and custom effects**: create, edit, remove; markers on overridden statistics.
 - **Strikes and spells**: attack and damage breakdowns, MAP, spell attack and DC, spell lists.
+- **Reference previews**: hovering or focusing a reference in rich text, or a row in a spell, feat or item list,
+  opens a popover of the entry. A condition reference carries its value, so "frightened 2" shows frightened and
+  what 2 does to this character.
+- **Level planner**: pick selections for future levels ahead of time; levelling up turns the planned slots on. A
+  planned selection that stops being valid is flagged at the level where it breaks.
+- **Sheet modes**: Encounter, Exploration, Downtime and Plan layouts of the same sheet. Actions filter by their
+  content `modes`; Plan is the level planner. The last mode is remembered per character.
 
 ## M5 Solo play
 
@@ -107,10 +118,21 @@ Exit: a full combat turn can be played from the sheet: choose actions, roll with
 gain and lose conditions, end the turn with correct bookkeeping.
 
 - **Dice library**: expressions, typed damage, fortune and misfortune, degree of success, critical hits, IWR.
-- **Roll experience**: roll from any statistic, action or inline text; conditional toggles; roll history.
-- **Play state**: HP, temporary HP, dying, wounded, doomed, hero points, focus points, slots, item uses, rest.
+- **Roll experience**: roll from any statistic, action or inline text; conditional toggles; roll history. Fortune
+  and misfortune show both d20s with the kept one marked, and cancelling is explained. The result is tinted by
+  degree of success; an adjusted degree shows base to final with its source.
+- **Play state**: HP, temporary HP, dying, wounded, doomed, hero points, focus points, slots, item uses. Rest,
+  daily preparations, Refocus and start of session are separate actions. Each is optional and previews what it
+  restores before it applies.
 - **Conditions and effects**: apply and remove, values, implied conditions, durations, end-of-turn bookkeeping.
-- **Action economy**: available actions in the engine; Now and All views; actions remaining and reaction tracker.
+- **Action economy**: available actions in the engine; Now and All views; actions remaining and reaction tracker;
+  action lists follow the sheet mode.
+- **Boons**: effects with a source and a lifetime (a duration, permanent, or a number of uses). A GM's boon is an
+  effect entry in the campaign's pack. Buffs from allies (Aid, Bless, a feat's +1) are applied by the receiving
+  player with the giver recorded as the source.
+- **Staves and charged items**: staff charges set at daily preparations, spontaneous casters spending a slot for
+  charges, charge cost per spell; wand once-per-day use and overcharge; item frequencies reset on the right
+  boundary.
 
 ## M6 Campaigns and Foundry sync
 
@@ -126,17 +148,21 @@ to group a party and link it to a Foundry world.
 - **Foundry sync**: a Foundry module that imports the campaign's characters as actors, re-syncs build changes,
   and syncs play state (HP, conditions, effects, resources) in a per-campaign mode: Foundry is the source of
   truth, Pioneer is the source of truth, or disconnected; party overview.
+- **Item transfer**: a player offers an item or coins to another character in the campaign; the recipient accepts
+  and it moves in one transaction, runes and custom names included.
 
 ## M7 Homebrew authoring
 
 Exit: a homebrew class with its feats is authored entirely in the app, enabled in a campaign and played.
 
-- **Pack management**: create, visibility, dependencies, enable per campaign or character.
+- **Pack management**: create, visibility, dependencies, enable per campaign or character. A pack enabled in a
+  campaign is visible to its members (browser, builder, global search) without being public, for every content
+  kind.
 - **Entry editor**: every content kind, rich text, sources with author attribution.
 - **Rule element editor**: form per element, predicate builder, formula editor, live preview against a character.
 - **Fork and supersede**: copy an official entry into a pack and house-rule it.
 - **Variant rules**: GM Core variants (Proficiency Without Level, Automatic Bonus Progression, Free Archetype, Dual
-  Class) as packs, toggled per campaign.
+  Class, Ancestry Paragon, Gradual Attribute Boosts) as packs, toggled per campaign.
 
 ## M8 Interop
 

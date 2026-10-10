@@ -23,6 +23,7 @@ interface CharacterDocument {
 
 interface Build {
   choices: Record<SlotKey, Selection>; // everything the player picked
+  boons: readonly ActiveEffect[]; // permanent boons; temporary ones live in play.effects
 }
 
 interface Inventory {
@@ -34,7 +35,7 @@ interface Inventory {
 interface PlayState {
   hp: { current: number; temp: number };
   conditions: readonly ActiveCondition[]; // content ref, value, duration, source event
-  effects: readonly ActiveEffect[]; // spell/feat effects, GM effects
+  effects: readonly ActiveEffect[]; // spell/feat effects, temporary boons: source, lifetime, uses left
   resources: Record<ResourceKey, number>; // focus points, hero points, spell slots used, item uses
   toggles: Record<RollOptionKey, boolean>; // RollOption toggles (e.g. rage, Double Slice second attack)
   wielding: WieldState; // which items are in which hands
@@ -54,6 +55,8 @@ feats you meet the prerequisites of"), and its current selection.
 The character stores `SlotKey → Selection` only. Consequences:
 
 - Levelling up opens slots; levelling down hides them but keeps the selection, so it comes back.
+- The level planner uses the same rule: selections above the current level are the plan, and levelling up turns
+  them on. A planned selection that stops being valid is flagged at its level, like any other invalid choice.
 - If content changes (errata, a homebrew edit) and a selection becomes invalid, the slot is flagged on the sheet
   with the reason. It is never deleted silently.
 - Retraining is changing a selection; the audit log keeps the history.
