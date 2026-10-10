@@ -26,7 +26,7 @@
     [routerLink]="to()"
     [routerLinkActiveOptions]="activeOptions()"
     [attr.aria-label]="ariaLabel()"
-    (isActiveChange)="current.set($event)"
+    (isActiveChange)="setCurrent($event)"
     ><ng-container [ngTemplateOutlet]="content"
   /></a>
 }
