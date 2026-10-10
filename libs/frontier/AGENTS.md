@@ -274,6 +274,33 @@ declared yet and do not reach 3:1. Tokens must be set in top-level
 `:root[data-…]` rules; the check refuses any other placement it cannot
 cascade.
 
+### Forced colours
+
+Under `forced-colors: active` (Windows High Contrast) the browser swaps
+every colour for the user's palette, except CSS system colours, and drops
+the theme. Anything shown only by a fill disappears: a borderless button's
+edge, a pressed or selected state, a meter's fill, a skeleton. Components
+restore it with `forced-colors:` variants:
+
+- Use only the `system-*` colours (`bg-system-highlight`,
+  `text-system-highlight-text`, `system-canvas`, `system-canvas-text`,
+  `system-gray-text`). `class-tokens` rejects a theme colour under
+  `forced-colors:` and a system colour anywhere else.
+- Pressed and highlighted states fill with Highlight / HighlightText. Every
+  button gets a border, as do base and sunken surfaces. A selected option is
+  underlined. A solid badge inverts to CanvasText on Canvas, and skeletons
+  are GrayText.
+- Spell out the hover and active pairs of a state
+  (`forced-colors:aria-pressed:hover:`): `aria-pressed:hover:` is more
+  specific than `forced-colors:aria-pressed:`, and the theme colour it sets
+  would be replaced with the user's background.
+
+The `Accessibility/Forced Colours` story turns forced colours on through
+CDP (`emulateForcedColors`, `testing/story-forced-colors.ts`) and checks
+each state against the system colour it should resolve to. In Chrome
+DevTools, Rendering → "Emulate CSS media feature forced-colors" shows any
+story the same way.
+
 ## Components
 
 | Area           | Components                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
@@ -335,7 +362,8 @@ flake update moves the driver.
   `userEvent` sends synthetic events, which never trigger native behaviour
   (Enter on a `<summary>`); press real keys with `pressKeys`
   (`testing/story-keyboard.ts`) and tag that story `!dev` so it runs only in
-  the runner (`fr-disclosure`'s Keyboard story).
+  the runner (`fr-disclosure`'s Keyboard story). `hover`
+  (`testing/story-pointer.ts`) moves the real mouse, for `:hover`.
 
 ## Specs
 
