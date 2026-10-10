@@ -255,15 +255,19 @@ every declared token pair in it.
 
 `styles/contrast-pairs.ts` lists the foreground/background token pairs
 components use: `fg-*` and `*-fg` on surfaces and subtle fills,
-`*-on-solid` / `*-on-emphasis` on their fills, `line-focus` on surfaces.
+`accent-on-solid` on the accent and danger solids (fr-button),
+`*-on-emphasis` on the badge fills, `line-focus` on surfaces.
 `bun run check:contrast` (in `lint:workspace`, so in CI) works out each pair
 from the CSS in every theme × mode, OKLCH clipped to sRGB as Chromium paints
 it, and fails below the minimum. The measure is the WCAG 2 ratio, the one
 axe applies: 4.5:1 for text, 3:1 for non-text such as the focus ring. APCA
 is not used while it is only a WCAG 3 draft. Retune a ramp step or surface
 and the check says which pairs moved; add a pair when a component puts a new
-foreground on a new background. It covers pairs axe can miss: outlines, and
-combinations no story renders.
+foreground on a new background. It covers pairs axe can miss: the focus
+ring, and combinations no story renders. Control borders (`line-*`) are not
+declared yet and do not reach 3:1. Tokens must be set in top-level
+`:root[data-…]` rules; the check refuses any other placement it cannot
+cascade.
 
 ## Components
 

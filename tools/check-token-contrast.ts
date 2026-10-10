@@ -9,21 +9,38 @@ import { parse } from 'postcss';
 
 import { ColorMode, Theme } from '../libs/frontier/src/lib/theme/theme.ts';
 import { CONTRAST_PAIRS } from '../libs/frontier/src/styles/contrast-pairs.ts';
-import { cascade, measurePairs, parseTokenRules } from './token-contrast.ts';
+import { cascade, parseTokenRules } from './token-cascade.ts';
+import { measurePairs } from './token-contrast.ts';
 
 const ENTRY = 'libs/frontier/src/styles/frontier.css';
-const RELATIVE_IMPORT = /^['"](?<target>\.{1,2}\/[^'"]+)['"]/u;
+const RELATIVE_IMPORT = /^['"](?<target>\.{1,2}\/[^'"]+)['"]$/u;
+/** Imports that hold no tokens. Any other import must be a plain relative path, so no stylesheet is missed. */
+const PACKAGE_IMPORT = /^['"]tailwindcss['"]/u;
 
 const entryCss = await Bun.file(ENTRY).text();
 const importPaths: string[] = [];
 parse(entryCss).walkAtRules('import', (rule) => {
-  const target = RELATIVE_IMPORT.exec(rule.params)?.groups?.['target'];
-  if (target !== undefined) {
-    importPaths.push(path.join(path.dirname(ENTRY), target));
+  if (PACKAGE_IMPORT.test(rule.params)) {
+    return;
   }
+  const target = RELATIVE_IMPORT.exec(rule.params.trim())?.groups?.['target'];
+  if (target === undefined) {
+    throw new Error(`${ENTRY}: @import ${rule.params} is not a relative '<path>.css' this check can follow`);
+  }
+  importPaths.push(path.join(path.dirname(ENTRY), target));
 });
 const stylesheets = await Promise.all(importPaths.map(async (file) => Bun.file(file).text()));
 const rules = parseTokenRules([...stylesheets, entryCss]);
+
+// The default theme is plain :root; every other theme without a rule of its own would pass as the default.
+const unstyled = Object.values(Theme).filter(
+  (theme) =>
+    theme !== Theme.Frontier &&
+    !rules.some(({ conditions }) => conditions.some(({ name, value }) => name === 'data-theme' && value === theme)),
+);
+if (unstyled.length > 0) {
+  throw new Error(`Themes with no [data-theme] rule in ${ENTRY}'s imports: ${unstyled.join(', ')}`);
+}
 
 const failures = Object.values(Theme).flatMap((theme) =>
   Object.values(ColorMode).flatMap((mode) =>

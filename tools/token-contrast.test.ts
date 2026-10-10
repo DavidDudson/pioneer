@@ -1,40 +1,46 @@
 import { describe, expect, test } from 'bun:test';
 
-import {
-  cascade,
-  contrastRatio,
-  evaluateArithmetic,
-  measurePairs,
-  oklchToLinearRgb,
-  parseTokenRules,
-  resolveToken,
-} from './token-contrast.ts';
+import { cascade, parseTokenRules, resolveToken } from './token-cascade.ts';
+import { contrastRatio, evaluateArithmetic, measurePairs, oklchToLinearRgb } from './token-contrast.ts';
 
 const WHITE = 'oklch(1 0 0)';
 const BLACK = 'oklch(0 0 0)';
 
 describe('parseTokenRules and cascade', () => {
   const rules = parseTokenRules([
-    `:root { --a: base; --b: base; --c: base; }
-     :root[data-mode='light'] { --a: light; }
-     @media (prefers-reduced-motion: reduce) { :root { --a: media; } }
-     .other { --a: other; }`,
-    `:root[data-theme="tavern"] { --b: tavern; }
-     :root[data-theme='tavern']:not([data-mode='light']) { --c: tavern-dark; }`,
+    `:root { --fr-a: base; --fr-b: base; --fr-c: base; }
+     :root[data-mode='light'] { --fr-a: light; }
+     @utility palette { --ts-chart-1: var(--fr-a); }
+     .other { --local: other; color: red; }`,
+    `:root[data-theme="tavern"] { --fr-b: tavern; }
+     :root[data-theme='tavern']:not([data-mode='light']) { --fr-c: tavern-dark; }`,
   ]);
 
-  test('keeps only top-level :root rules', () => {
+  test('reads :root rules and ignores custom properties that are not frontier tokens', () => {
     expect(rules).toHaveLength(4);
   });
 
   test('applies matching rules by specificity, then source order', () => {
     const tokens = cascade(rules, { 'data-theme': 'tavern', 'data-mode': 'dark' });
-    expect(Object.fromEntries(tokens)).toStrictEqual({ '--a': 'base', '--b': 'tavern', '--c': 'tavern-dark' });
+    expect(Object.fromEntries(tokens)).toStrictEqual({ '--fr-a': 'base', '--fr-b': 'tavern', '--fr-c': 'tavern-dark' });
   });
 
   test('a :not() condition stops matching when its attribute does', () => {
     const tokens = cascade(rules, { 'data-theme': 'tavern', 'data-mode': 'light' });
-    expect(Object.fromEntries(tokens)).toStrictEqual({ '--a': 'light', '--b': 'tavern', '--c': 'base' });
+    expect(Object.fromEntries(tokens)).toStrictEqual({ '--fr-a': 'light', '--fr-b': 'tavern', '--fr-c': 'base' });
+  });
+
+  test.each([
+    ["html[data-theme='t'] { --fr-a: 1; }"],
+    ["[data-theme='t'] { --fr-a: 1; }"],
+    [":root:is([data-theme='t']) { --fr-a: 1; }"],
+    [':root[data-theme] { --fr-a: 1; }'],
+    [":root [data-mode='light'] { --fr-a: 1; }"],
+    ["@layer tokens { :root[data-theme='t'] { --fr-a: 1; } }"],
+    ['@media (prefers-color-scheme: light) { :root { --fr-a: 1; } }'],
+    [":root { --fr-a: 1; &[data-mode='light'] { --fr-a: 2; } }"],
+  ])('rejects tokens it cannot place in the cascade: %s', (css) => {
+    expect(() => parseTokenRules([css])).toThrow('tokens may only be set in top-level');
   });
 
   test('a later, less specific rule does not beat an earlier, more specific one', () => {
@@ -50,6 +56,8 @@ describe('resolveToken', () => {
     ['--ramp', 'oklch(0.5 calc(var(--chroma) * 0.5) var(--hue))'],
     ['--fg', 'var(--ramp)'],
     ['--fallback', 'var(--missing, 0.3)'],
+    ['--unused-fallback', 'var(--hue, var(--missing))'],
+    ['--nested-fallback', 'var(--missing, calc(var(--chroma) * 2))'],
     ['--loop-a', 'var(--loop-b)'],
     ['--loop-b', 'var(--loop-a)'],
   ]);
@@ -60,6 +68,8 @@ describe('resolveToken', () => {
 
   test('uses a fallback only when the token is undefined', () => {
     expect(resolveToken(tokens, '--fallback')).toBe('0.3');
+    expect(resolveToken(tokens, '--unused-fallback')).toBe('70');
+    expect(resolveToken(tokens, '--nested-fallback')).toBe('calc(0.02 * 2)');
   });
 
   test('throws on an undefined token or a cycle', () => {
@@ -130,5 +140,19 @@ describe('measurePairs', () => {
       ['fg', 'bg', false],
       ['muted', 'bg', true],
     ]);
+  });
+});
+
+describe('a themed stylesheet end to end', () => {
+  const css = `:root { --fr-ink: oklch(0.2 0 0); --fr-paper: oklch(0.98 0 0); }
+    :root[data-theme='t'][data-mode='light'] { --fr-paper: oklch(0.5 0 0); }`;
+  const pairs = [{ foreground: ['ink'], background: ['paper'], minimum: 4.5 }];
+  const failing = (attributes: Record<string, string>): boolean[] =>
+    measurePairs(cascade(parseTokenRules([css]), attributes), pairs).map(({ ratio, minimum }) => ratio < minimum);
+
+  test('flags a pair only in the theme and mode whose override drops it below its minimum', () => {
+    expect(failing({ 'data-theme': 't', 'data-mode': 'light' })).toStrictEqual([true]);
+    expect(failing({ 'data-theme': 't', 'data-mode': 'dark' })).toStrictEqual([false]);
+    expect(failing({ 'data-theme': 'other', 'data-mode': 'light' })).toStrictEqual([false]);
   });
 });
