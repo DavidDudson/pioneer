@@ -8,7 +8,7 @@ import { GrantsMessage } from './messages';
 import { resolveGrants } from './resolve-grants';
 import type { GrantResolution } from './resolve-grants';
 import type { TestInputs } from './testing/builders';
-import { entry, grantOf, inputsOf, picked, picksOf, slotOf, toggleOf } from './testing/builders';
+import { afflicted, entry, grantOf, inputsOf, picked, picksOf, slotOf, toggleOf } from './testing/builders';
 
 function resolve(
   entries: readonly GrantEntry[],
@@ -82,6 +82,75 @@ describe('resolveGrants to a fixpoint', () => {
     const result = resolve(content, [picked('grabbed'), picked('sneak')]);
     expect(names(result)).toEqual(['grabbed', 'off-guard', 'sneak', 'sneak-attack']);
     expect(options(result)).toContain('self:condition:off-guard');
+  });
+
+  describe('a valued condition', () => {
+    const frightened = ofKind(entry('frightened'), ContentKind.Condition);
+    const valuedOptions = (result: GrantResolution): string[] =>
+      options(result).filter((option) => option.startsWith('self:condition:'));
+
+    test('sets its value beside its slug', () => {
+      expect(valuedOptions(resolve([frightened], [afflicted('frightened', 2)]))).toEqual([
+        'self:condition:frightened',
+        'self:condition:frightened:2',
+      ]);
+    });
+
+    test('without a value sets its slug alone', () => {
+      expect(valuedOptions(resolve([frightened], [afflicted('frightened')]))).toEqual(['self:condition:frightened']);
+    });
+
+    test('arriving twice keeps the highest value and reports the duplicate', () => {
+      for (const roots of [
+        [afflicted('frightened', 1), afflicted('frightened', 3)],
+        [afflicted('frightened', 3), afflicted('frightened', 1)],
+        [afflicted('frightened'), afflicted('frightened', 3)],
+      ]) {
+        const result = resolve([frightened], roots);
+        expect(valuedOptions(result)).toEqual(['self:condition:frightened', 'self:condition:frightened:3']);
+        expect(names(result)).toEqual(['frightened']);
+        expect(result.duplicates.map((item) => item.entry.name)).toEqual(['frightened']);
+      }
+    });
+
+    test('a comparison reads its value', () => {
+      const content = [
+        frightened,
+        entry('steady', [
+          grantWhen('shaken', [{ gte: ['self:condition:frightened', 2] }]),
+          grantWhen('composed', [{ lte: ['self:condition:frightened', 1] }]),
+        ]),
+        entry('shaken'),
+        entry('composed'),
+      ];
+      expect(namesOf(content, [picked('steady'), afflicted('frightened', 2)])).toEqual([
+        'frightened',
+        'steady',
+        'shaken',
+      ]);
+      expect(namesOf(content, [picked('steady'), afflicted('frightened', 1)])).toEqual([
+        'frightened',
+        'steady',
+        'composed',
+      ]);
+      expect(namesOf(content, [picked('steady'), afflicted('frightened', 1), afflicted('frightened', 2)])).toEqual([
+        'frightened',
+        'steady',
+        'shaken',
+      ]);
+    });
+
+    test('granted by another entry sets no value, as grants carry none', () => {
+      const content = [
+        ofKind(entry('grabbed', [grantOf('off-guard')]), ContentKind.Condition),
+        ofKind(entry('off-guard'), ContentKind.Condition),
+      ];
+      expect(valuedOptions(resolve(content, [afflicted('grabbed', 1)]))).toEqual([
+        'self:condition:grabbed',
+        'self:condition:grabbed:1',
+        'self:condition:off-guard',
+      ]);
+    });
   });
 
   test.each([
