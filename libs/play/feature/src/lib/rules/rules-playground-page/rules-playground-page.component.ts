@@ -39,6 +39,7 @@ import {
   ToolKind,
 } from '../rules-tool';
 import type { ReferenceEntries, ToolCheck } from '../rules-tool';
+import { STATISTIC_SOURCE_KEYS, statisticDefinitions, StatisticSource } from '../statistic-sources';
 import { TOOL_FIELDS } from '../tool-fields';
 import { ToolResult } from '../tool-result/tool-result.component';
 
@@ -99,6 +100,18 @@ export class RulesPlaygroundPage {
   /** The kind whose example the content entry mode last loaded. */
   protected readonly entryKind = signal<RegisteredKind>(ContentKind.Ancestry);
 
+  /** Where the statistics tool's definitions can come from. */
+  protected readonly statisticSources = computed((): readonly SelectOption<StatisticSource>[] => {
+    this.#messages();
+    return Object.values(StatisticSource).map((source) => ({
+      value: source,
+      label: this.#i18n.translate(STATISTIC_SOURCE_KEYS[source]),
+    }));
+  });
+
+  /** Where the statistics tool last loaded its definitions from. */
+  protected readonly statisticSource = signal<StatisticSource>(StatisticSource.Example);
+
   protected readonly schema = signal<RulesTool>(RulesTool.Predicate);
   protected readonly text = signal(rulesExample(RulesTool.Predicate));
   /** What has been typed for each formula reference; kept across edits so a value survives retyping. */
@@ -146,6 +159,22 @@ export class RulesPlaygroundPage {
     this.text.set(contentEntryExample(kind));
   }
 
+  /**
+   * Load the definitions of another source into the statistics tool. A pack loads lazily, so its definitions are
+   * dropped if the tool or the source changed meanwhile.
+   */
+  protected async chooseStatisticSource(source: StatisticSource | undefined): Promise<void> {
+    if (source === undefined || source === this.statisticSource()) {
+      return;
+    }
+    this.statisticSource.set(source);
+    const definitions = await statisticDefinitions(source);
+    const stillWanted = this.schema() === RulesTool.Statistics && this.statisticSource() === source;
+    if (stillWanted) {
+      this.text.set(definitions);
+    }
+  }
+
   /** A new schema starts from its example, so the page always shows something that passes. */
   protected choose(tool: RulesTool | undefined): void {
     if (tool === undefined || tool === this.schema()) {
@@ -154,6 +183,7 @@ export class RulesPlaygroundPage {
     this.schema.set(tool);
     this.text.set(rulesExample(tool));
     this.entryKind.set(ContentKind.Ancestry);
+    this.statisticSource.set(StatisticSource.Example);
     // The boxes go with the tool, and a box made again would show a stale number for an emptied entry.
     this.referenceEntries.set(new Map());
   }

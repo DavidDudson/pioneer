@@ -1,6 +1,6 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
-import { chooseSchema, openPlayground, pageText, present, secondTextArea, typeJson } from './playground-harness';
+import { chooseIn, chooseSchema, openPlayground, pageText, present, secondTextArea, typeJson } from './playground-harness';
 
 describe('RulesPlaygroundPage statistics', () => {
   it('derives statistics from definitions and inputs, term by term', async () => {
@@ -45,6 +45,21 @@ describe('RulesPlaygroundPage statistics', () => {
       'GM blessing',
     ];
     expect(expected.filter((shown) => !text.includes(shown))).toStrictEqual([]);
+  });
+
+  it('loads the statistics of the core rules pack in place of the example', async () => {
+    const harness = await openPlayground();
+    await chooseSchema(harness, 'Statistics');
+    await chooseIn(harness, 'Statistics from', 'Core rules pack');
+    await vi.waitFor(() => {
+      expect(pageText(harness)).toContain('save:reflex');
+    });
+    await harness.fixture.whenStable();
+
+    const text = pageText(harness);
+    const expected = ['save:will', 'perception', '+ @prof.save.will', '+ @attr.dex.capped'];
+    expect(expected.filter((shown) => !text.includes(shown))).toStrictEqual([]);
+    expect(text).not.toContain('spell-dc:arcane');
   });
 
   it('shows a statistic cycle with text from the engine bundle and a caret', async () => {
