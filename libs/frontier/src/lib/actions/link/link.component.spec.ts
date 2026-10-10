@@ -4,7 +4,7 @@ import { provideRouter, Router } from '@angular/router';
 import { describe, expect, it, onTestFinished } from 'vitest';
 
 import { TextVariant } from '../../text/text.variants';
-import { Link } from './link.component';
+import { Link, LinkAppearance } from './link.component';
 
 /** Renders `fr-link` with "Valeros" projected, with the app at `url`, and returns its host. */
 async function renderHost(inputs: Readonly<Record<string, unknown>>, url = '/'): Promise<HTMLElement> {
@@ -101,6 +101,30 @@ describe(Link, () => {
     expect([...anchor.classList]).toStrictEqual(
       expect.arrayContaining(['text-accent-fg', 'underline', 'focus-visible:focus-ring']),
     );
+  });
+
+  it('looks like an inline link by default', async () => {
+    const anchor = await render({ to: '/campaigns' }, '/characters');
+    expect([...anchor.classList]).toStrictEqual(expect.arrayContaining(['text-accent-fg', 'decoration-line-strong']));
+    expect([...anchor.classList]).not.toContain('h-touch');
+  });
+
+  it('draws a tab touch-sized and muted, without an underline, while another page is shown', async () => {
+    const anchor = await render({ to: '/campaigns', appearance: LinkAppearance.Tab }, '/characters');
+    expect([...anchor.classList]).toStrictEqual(
+      expect.arrayContaining(['h-touch', 'pointer-fine:h-control-sm', 'text-fg-muted', 'focus-visible:focus-ring']),
+    );
+    expect([...anchor.classList]).not.toContain('underline');
+    expect([...anchor.classList]).not.toContain('text-accent-fg');
+  });
+
+  it('underlines the tab of the page being shown in the accent', async () => {
+    const anchor = await render({ to: '/characters', appearance: LinkAppearance.Tab }, '/characters');
+    expect(anchor.getAttribute('aria-current')).toBe('page');
+    expect([...anchor.classList]).toStrictEqual(
+      expect.arrayContaining(['underline', 'decoration-accent-fg', 'decoration-link-current', 'text-fg-default']),
+    );
+    expect([...anchor.classList]).not.toContain('text-fg-muted');
   });
 
   it('inherits the typography of the text around it without a variant', async () => {

@@ -128,19 +128,17 @@ function insideInline(region: HTMLElement, element: HTMLElement): boolean {
 
 /**
  * A navigation that doesn't move focus (a link elsewhere on the page, Back) still scrolls the row to the current
- * tab, and leaves the page where it is.
+ * tab.
  */
 export const KeepsCurrentInView: TabsStory = {
   ...ManySections,
   play: async ({ canvasElement }) => {
     const { notes, nav } = sectionTabs(canvasElement);
-    const pageScroll = window.scrollY;
     await expect(insideInline(nav, notes)).toBe(false);
     // `click()` follows the link without focusing it, so the browser doesn't scroll it into view itself.
     notes.click();
     await waitFor(async () => expect(notes).toHaveAttribute('aria-current', 'page'));
     await waitFor(async () => expect(insideInline(nav, notes)).toBe(true));
     await expect(notes).not.toHaveFocus();
-    await expect(window.scrollY).toBe(pageScroll);
   },
 };

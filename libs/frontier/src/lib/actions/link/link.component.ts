@@ -89,6 +89,7 @@ export class Link {
   public readonly ariaLabel = input<string | undefined>(undefined);
   /** Typography when the link stands alone; inside text it inherits. */
   public readonly variant = input<TextVariant | undefined>(undefined);
+  /** `tab` is set by `fr-tab`; features use `fr-tabs` rather than a lone tab-styled link. */
   public readonly appearance = input<LinkAppearance>(LinkAppearance.Inline);
 
   private readonly document = inject(DOCUMENT);
