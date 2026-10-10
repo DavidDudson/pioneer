@@ -2,6 +2,7 @@
   "frontier": {
     "async": {
       "pending": "Working",
+      "loading": "Loading",
       "success": "Done",
       "loadFailed": "Could not load this. Try again later.",
       "actionFailed": "Something went wrong. Try again.",

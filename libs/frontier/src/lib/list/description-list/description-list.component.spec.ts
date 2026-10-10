@@ -9,19 +9,19 @@ import { DescriptionList } from './description-list.component';
 
 interface Rendered {
   readonly fixture: ComponentFixture<DescriptionList>;
-  readonly list: HTMLDListElement;
+  readonly list: HTMLElement;
 }
 
-/** Renders a list and puts one `fr-description-item` per term into its `<dl>`, each with a projected value. */
+/** Renders a list and puts one `fr-description-item` per term into its list element, each with a projected value. */
 async function render(inputs: Readonly<Record<string, unknown>>, terms: readonly string[]): Promise<Rendered> {
   const fixture = TestBed.createComponent(DescriptionList);
   for (const [name, value] of Object.entries(inputs)) {
     fixture.componentRef.setInput(name, value);
   }
   await fixture.whenStable();
-  const list = (fixture.nativeElement as HTMLElement).querySelector('dl');
+  const list = (fixture.nativeElement as HTMLElement).querySelector<HTMLElement>('[role="list"]');
   if (list === null) {
-    throw new Error('fr-description-list rendered no <dl>');
+    throw new Error('fr-description-list rendered no list');
   }
   const appRef = TestBed.inject(ApplicationRef);
   const elementInjector = Injector.create({
@@ -43,11 +43,11 @@ async function render(inputs: Readonly<Record<string, unknown>>, terms: readonly
   return { fixture, list };
 }
 
-/** The `<div>` grouping a row's `<dt>` and `<dd>`. */
-function row(list: HTMLDListElement): HTMLElement {
-  const group = list.querySelector('dt')?.parentElement;
+/** The grid row holding an item's term and definition. */
+function row(list: HTMLElement): HTMLElement {
+  const group = list.querySelector('[role="term"]')?.parentElement;
   if (group === null || group === undefined) {
-    throw new Error('fr-description-item rendered no <dt> group');
+    throw new Error('fr-description-item rendered no term row');
   }
   return group;
 }
@@ -68,35 +68,35 @@ async function gridClasses(inputs: Readonly<Record<string, unknown>>): Promise<s
 }
 
 describe(DescriptionList, () => {
-  it('renders a <dl> as a column with a token gap, inside a box the rows query', async () => {
+  it('renders a list as a column with a token gap, inside a box the rows query', async () => {
     const { fixture, list } = await render({}, []);
     expect(list.className).toContain('flex-col');
     expect(list.className).toContain('gap-xs');
     expect((fixture.nativeElement as HTMLElement).querySelector('fr-box')?.contains(list)).toBe(true);
   });
 
-  it('gives each item a <dt> term and a <dd> holding the projected value', async () => {
+  it('gives each item a term and a definition holding the projected value', async () => {
     const { list } = await render({}, ['Armor Class', 'Perception']);
-    expect([...list.querySelectorAll('dt')].map((term) => term.textContent.trim())).toStrictEqual([
+    expect([...list.querySelectorAll('[role="term"]')].map((term) => term.textContent.trim())).toStrictEqual([
       'Armor Class',
       'Perception',
     ]);
-    expect(list.querySelector('dd > span')?.textContent).toBe('Armor Class value');
+    expect(list.querySelector('[role="definition"] > span')?.textContent).toBe('Armor Class value');
   });
 
-  it('groups each pair in one <div>', async () => {
+  it('puts term and definition, in that order, in one grid row', async () => {
     const { list } = await render({}, ['Speed']);
     const group = row(list);
-    expect(group.tagName).toBe('DIV');
-    expect([...group.children].map((child) => child.tagName)).toStrictEqual(['DT', 'DD']);
+    expect([...group.children].map((child) => child.getAttribute('role'))).toStrictEqual(['term', 'definition']);
   });
 
-  it('has only boxless hosts between the group and the <dl>', async () => {
+  it('makes each item host a listitem directly in the list, with a boxless grid between it and the row', async () => {
     const { list } = await render({}, ['Speed']);
     const grid = row(list).parentElement;
     const item = grid?.parentElement;
     expect([grid?.tagName, item?.tagName]).toStrictEqual(['FR-GRID', 'FR-DESCRIPTION-ITEM']);
-    expect([grid?.className, item?.className]).toStrictEqual(['contents', 'contents']);
+    expect(grid?.className).toBe('contents');
+    expect(item?.getAttribute('role')).toBe('listitem');
     expect(item?.parentElement).toBe(list);
   });
 

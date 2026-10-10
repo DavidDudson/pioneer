@@ -1,8 +1,9 @@
 import { ApplicationRef, createComponent, EnvironmentInjector } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { describe, expect, it, onTestFinished } from 'vitest';
+import { beforeEach, describe, expect, it, onTestFinished } from 'vitest';
 
 import { projectBySelector } from '../../testing/project-by-selector';
+import { provideFrontierI18nTesting } from '../../testing/provide-frontier-i18n-testing';
 import { Page } from './page.component';
 
 interface Rendered {
@@ -42,6 +43,10 @@ async function render(inputs: Readonly<Record<string, unknown>>): Promise<Render
 }
 
 describe(Page, () => {
+  beforeEach(() => {
+    TestBed.configureTestingModule({ providers: [...provideFrontierI18nTesting()] });
+  });
+
   it('titles the page with its only h1, in the header', async () => {
     const { header, main } = await render({ title: 'Characters' });
     const headings = [...header.querySelectorAll('h1')];

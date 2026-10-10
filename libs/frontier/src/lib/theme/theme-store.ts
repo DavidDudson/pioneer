@@ -1,13 +1,6 @@
 import { DOCUMENT, effect, inject, Injectable, signal } from '@angular/core';
-import type { ValueOf } from '@pioneer/shared/kernel';
 
-/** Visual themes. Each has its own file in `styles/themes/` and supports both colour modes. */
-export const Theme = { Frontier: 'frontier', Tavern: 'tavern' } as const;
-export type Theme = ValueOf<typeof Theme>;
-
-/** Colour mode. Dark is the default; light is opt-in. */
-export const ColorMode = { Dark: 'dark', Light: 'light' } as const;
-export type ColorMode = ValueOf<typeof ColorMode>;
+import { ColorMode, Theme } from './theme';
 
 /** Storage keys. apps/web/src/index.html reads them before boot to avoid a flash of the default theme. */
 const THEME_KEY = 'fr-theme';

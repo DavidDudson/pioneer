@@ -44,7 +44,7 @@ describe('LegalPage', () => {
 
   it('credits every upstream ORC work as a list item, Monster Core included', async () => {
     const root = await renderLegalPage();
-    const credits = [...root.querySelectorAll('ul li')].map((item) => item.textContent.trim());
+    const credits = [...root.querySelectorAll('ul [role="listitem"]')].map((item) => item.textContent.trim());
     expect(credits).toHaveLength(ORC_ATTRIBUTION.flatMap((group) => group.works).length);
     expect(credits).toContain('Pathfinder NPC Core © 2025, Paizo Inc.');
     expect(credits.some((credit) => credit.startsWith('Pathfinder Monster Core © 2024, Paizo Inc.'))).toBe(true);

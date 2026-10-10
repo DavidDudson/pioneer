@@ -13,6 +13,17 @@
         "tsConfig": "libs/frontier/tsconfig.spec.json",
         "runner": "vitest"
       }
+    },
+    "test-storybook": {
+      "cache": true,
+      "parallelism": false,
+      "inputs": [
+        "default",
+        "^production",
+        { "env": "PLAYWRIGHT_BROWSERS_PATH" },
+        { "env": "PLAYWRIGHT_DRIVER_VERSION" }
+      ],
+      "command": "vitest run --config libs/frontier/.storybook/vitest.config.ts"
     }
   }
 }

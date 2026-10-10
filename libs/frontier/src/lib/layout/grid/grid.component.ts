@@ -23,7 +23,8 @@ export const GridQuery = {
   Self: 'self',
   /**
    * The nearest container around it (an `fr-box`). The host takes no box of its own, so the inner grid is the
-   * only element between the parent and the items: for rows inside semantic lists, such as a `<dl>`'s groups.
+   * only element between the parent and the items: for rows that follow an outer container's width, such as
+   * `fr-description-item`'s term and value.
    */
   Parent: 'parent',
 } as const;

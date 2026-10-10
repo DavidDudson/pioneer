@@ -67,6 +67,20 @@
             export TEST_DATABASE_URL="''${TEST_DATABASE_URL:-postgres://$USER@127.0.0.1:$PGPORT/pioneer_test}"
             # The origin browsers use in dev: the Angular server, which proxies /api. OAuth callbacks live under it.
             export PUBLIC_ORIGIN="''${PUBLIC_ORIGIN:-http://localhost:$WEB_PORT}"
+          ''
+          # Storybook's Vitest runner drives Chromium through Playwright. Nix's browsers instead of
+          # `playwright install`; the npm `playwright` version in package.json must match playwright-driver.
+          + pkgs.lib.optionalString pkgs.stdenv.hostPlatform.isLinux ''
+            export PLAYWRIGHT_BROWSERS_PATH="${
+              pkgs.playwright-driver.browsers.override {
+                withFirefox = false;
+                withWebkit = false;
+                withFfmpeg = false;
+              }
+            }"
+            export PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS=true
+            # libs/frontier/.storybook/vitest.config.ts fails fast when npm's playwright differs from this.
+            export PLAYWRIGHT_DRIVER_VERSION="${pkgs.playwright-driver.version}"
           '';
         };
       });

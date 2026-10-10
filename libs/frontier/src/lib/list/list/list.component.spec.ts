@@ -39,11 +39,12 @@ describe(List, () => {
 });
 
 describe(ListItem, () => {
-  it('renders an <li> inside a host that takes no box of its own', async () => {
+  it('is the list item itself, so the <ul> / <ol> holds only items and markers still show', async () => {
     const fixture = TestBed.createComponent(ListItem);
     await fixture.whenStable();
     const host = fixture.nativeElement as HTMLElement;
-    expect(host.className).toBe('contents');
-    expect(host.firstElementChild?.tagName).toBe('LI');
+    expect(host.getAttribute('role')).toBe('listitem');
+    expect(host.className).toBe('list-item');
+    expect(host.children).toHaveLength(0);
   });
 });

@@ -11,17 +11,17 @@ const termClasses = textVariants({ variant: 'label', tone: 'muted', class: 'brea
 const valueClasses = cva('min-w-none')();
 
 /**
- * One row of an `fr-description-list`: a `<dt>` for `term` and a `<dd>` for the projected value, which may be
- * anything (`fr-text`, `fr-inline-field`, `fr-disclosure`). The host takes no box and the row is an `fr-grid`
- * in parent mode, so the grid's `<div>` is the only element between the `<dl>` and the pair. Term and value
- * align on their first baseline.
+ * One row of an `fr-description-list`: the host is its `listitem`, holding a `term` and a `definition` (the
+ * projected value, which may be anything: `fr-text`, `fr-inline-field`, `fr-disclosure`). The row is an
+ * `fr-grid` in parent mode, so its columns follow the list's width. Term and value align on their first
+ * baseline.
  */
 @Component({
   selector: 'fr-description-item',
   imports: [Grid],
   templateUrl: './description-item.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { class: 'contents' },
+  host: { role: 'listitem', class: 'block' },
 })
 export class DescriptionItem {
   public readonly term = input.required<string>();

@@ -23,12 +23,13 @@ Read this before touching any UI.
   `fr-link`, `<label>` only in `fr-label`, `<form>` only in `fr-form` /
   `fr-async-form`, `<h1>`–`<h4>` only in `fr-heading`, `<p>`, `<pre>`,
   `<code>`, `<kbd>`, `<abbr>`, `<q>`, `<em>` and `<strong>` only in `fr-text`, `<blockquote>` only in
-  `fr-quote`, `<ul>` / `<ol>` only in `fr-list`, `<li>` only in
-  `fr-list-item`, `<dl>` only in `fr-description-list`, `<dt>` / `<dd>` only in
-  `fr-description-item`, table elements only in `fr-table`, `<svg>` only in `fr-icon`,
+  `fr-quote`, `<ul>` / `<ol>` only in `fr-list` (whose `fr-list-item` hosts are
+  the items, `role="listitem"`), table elements only in `fr-table`, `<svg>` only in `fr-icon`,
   `<textarea>` only in `fr-text-area`, `<details>` / `<summary>` only in
   `fr-disclosure`, `<hr>` only in `fr-divider`, `<img>` only in `fr-image`.
-  Elements with no owner yet
+  `<li>`, `<dl>`, `<dt>` and `<dd>` are banned: rendered inside a component
+  they leave its host between list and item (`fr-description-list` uses
+  list, term and definition roles instead). Elements with no owner yet
   (`cite`, `fieldset`, `progress`, …) fail lint:
   add a primitive first. `<select>` is banned for good (`fr-select` builds on
   `@angular/aria`), as is `<dialog>` (no modals). Only `div`, `span` and the landmark and sectioning
@@ -180,7 +181,8 @@ more room, never a separate design.
     own width. `minItem` is fluid at every width. `termFrom="sm|md|lg"` is
     the term/value layout: one column, then a fixed term column and a value
     column. `query="parent"` follows the nearest container around the grid
-    and gives the host no box, for rows inside semantic lists (`<dl>`).
+    and gives the host no box, for rows that follow an outer container's width
+    (`fr-description-item`'s term and value).
   - `fr-stack`: vertical by default; `horizontalFrom="sm|md|lg"` makes it a
     row once the stack itself is that wide.
   - An element can't query its own size, so grid, box and responsive stacks
@@ -214,8 +216,9 @@ more room, never a separate design.
    hand.
 2. **Semantic** (`semantic.css`): `--fr-surface-*`, `--fr-fg-*`,
    `--fr-line-*`, `--fr-accent-*`, status (`danger|success|warning|info`),
-   badge fills (`--fr-<role>-emphasis` / `-on-emphasis`: `*-solid` is too
-   light for small text in light mode),
+   badge fills (`--fr-<role>-emphasis` / `-on-emphasis` keep small text at
+   4.5:1 in every theme and mode; success and info `*-solid` do not in light
+   mode),
    spacing names (`3xs … 3xl`), named sizes (`--fr-size-touch`,
    `--fr-size-control-*`, …), motion, opacity, z-index, chart series.
    Colours reference ramp steps only, never a hue.
@@ -243,7 +246,8 @@ boot):
 
 Adding a theme: create `themes/<name>.css`, import it in `frontier.css`
 after `themes/frontier.css`, and add it to `Theme` in
-`lib/theme/theme-store.ts`. Check text contrast in both modes.
+`lib/theme/theme.ts`. Story tests then run axe, contrast included, on every
+story in the new theme in both modes.
 
 ## Components
 
@@ -282,6 +286,26 @@ the toolbar switches theme and colour mode.
   (`testing/story-actions.ts`), so pending states are visible.
 - Storybook's types bring in `@types/node`. Code that keeps a timer id as a
   `number` calls `window.setTimeout`, which stays the DOM overload.
+
+### Story tests
+
+`nx test-storybook frontier` (in `affected` and CI) runs every story as a
+test in headless Chromium through the Vitest addon, once per theme × colour
+mode (frontier/tavern × dark/light): its `play` function, then axe. Any axe
+violation fails, colour contrast included. On Linux the devshell provides
+Chromium from nixpkgs (macOS has no Nix browsers wired up yet). The
+`playwright` version in `package.json` must equal nixpkgs'
+`playwright-driver`; the run stops with a pin-this-version error when a
+flake update moves the driver.
+
+- Fix a violation rather than silence it. A known one waits on its fix by
+  turning that rule off in the story's `parameters.a11y.config.rules`, with a
+  comment linking the issue (see `fr-shell`).
+- Interaction tests are `play` functions using `storybook/test`. Storybook's
+  `userEvent` sends synthetic events, which never trigger native behaviour
+  (Enter on a `<summary>`); press real keys with `pressKeys`
+  (`testing/story-keyboard.ts`) and tag that story `!dev` so it runs only in
+  the runner (`fr-disclosure`'s Keyboard story).
 
 ## Specs
 

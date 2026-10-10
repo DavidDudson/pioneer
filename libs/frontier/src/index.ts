@@ -90,7 +90,8 @@ export { FontWeight, TextVariant } from './lib/text/text.variants';
 export { Text, TextElement } from './lib/text/text/text.component';
 
 // Theme
-export { ColorMode, Theme, ThemeStore } from './lib/theme/theme-store';
+export { ColorMode, Theme } from './lib/theme/theme';
+export { ThemeStore } from './lib/theme/theme-store';
 
 export { Container, Size, Space, Tone } from './lib/tokens';
 export { default as frontierMessages } from './i18n/en.json';

@@ -1,6 +1,8 @@
 import { argsToTemplate, moduleMetadata } from '@analogjs/storybook-angular';
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
+import { expect, fn, waitFor } from 'storybook/test';
 
+import { pressKeys } from '../../testing/story-keyboard';
 import { Text } from '../../text/text/text.component';
 import { Stack } from '../stack/stack.component';
 import { Disclosure, DisclosureVariant } from './disclosure.component';
@@ -77,4 +79,57 @@ export const List: DisclosureStory = {
       </fr-stack>
     `,
   }),
+};
+
+interface DisclosureParts {
+  readonly details: HTMLDetailsElement;
+  readonly summary: HTMLElement;
+}
+
+function disclosureParts(canvasElement: HTMLElement): DisclosureParts {
+  const details = canvasElement.querySelector('details');
+  const summary = details?.querySelector('summary');
+  if (details === null || summary === null || summary === undefined) {
+    throw new Error('fr-disclosure rendered no <details> / <summary>');
+  }
+  return { details, summary };
+}
+
+function chevron(summary: HTMLElement): string | undefined {
+  return summary.querySelector('svg')?.getAttribute('class') ?? undefined;
+}
+
+/** The Keyboard story's `openChange` spy. */
+const openChange = fn<(open: boolean) => void>();
+
+/** Presses `key` on the focused summary and expects the disclosure, `openChange` and the chevron to follow. */
+async function expectKeyToggles(key: string, open: boolean, { details, summary }: DisclosureParts): Promise<void> {
+  await pressKeys(key);
+  // The browser fires `toggle` as a task, and Angular renders the chevron on its next tick.
+  await waitFor(async () => {
+    await expect(openChange).toHaveBeenLastCalledWith(open);
+  });
+  await expect(details.open).toBe(open);
+  await waitFor(async () => {
+    await expect(chevron(summary)).toContain(open ? 'chevron-up' : 'chevron-down');
+  });
+}
+
+/**
+ * Keyboard: Tab reaches the summary, then Enter and Space each open and close it like a press, and `openChange` and the
+ * chevron follow. Runs only in `nx test-storybook frontier`.
+ */
+export const Keyboard: DisclosureStory = {
+  // Real key presses need the Vitest runner (testing/story-keyboard.ts), so this story is test-only.
+  tags: ['!dev'],
+  args: { openChange },
+  play: async ({ canvasElement, userEvent }) => {
+    const parts = disclosureParts(canvasElement);
+    await userEvent.tab();
+    await expect(parts.summary).toHaveFocus();
+    await expectKeyToggles('{Enter}', true, parts);
+    await expectKeyToggles('{Enter}', false, parts);
+    await expectKeyToggles(' ', true, parts);
+    await expectKeyToggles(' ', false, parts);
+  },
 };

@@ -30,9 +30,10 @@ const meta: Meta<TextStoryArgs> = {
     truncate: false,
     numeric: false,
   },
+  // Content is bound, not pasted into the template: braces in it (JSON) would read as Angular syntax.
   render: ({ content, ...args }) => ({
-    props: args,
-    template: `<fr-text ${argsToTemplate(args)}>${content}</fr-text>`,
+    props: { ...args, content },
+    template: `<fr-text ${argsToTemplate(args)}>{{ content }}</fr-text>`,
   }),
 };
 export default meta;

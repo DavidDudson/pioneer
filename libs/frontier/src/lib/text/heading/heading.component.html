@@ -1,4 +1,9 @@
-<ng-template #content><ng-content /></ng-template>
+<ng-template #content>
+  <ng-content />
+  @if (busy()) {
+    <span [class]="loadingClasses">{{ 'frontier.async.loading' | transloco }}</span>
+  }
+</ng-template>
 @switch (level()) {
   @case (1) {
     <h1 [class]="classes()" [attr.aria-busy]="busy() || null"><ng-container [ngTemplateOutlet]="content" /></h1>
