@@ -7,10 +7,11 @@ import { Container, gapVariants, Space } from '../../tokens';
 const listVariants = cva('flex flex-col', { variants: { gap: gapVariants } });
 
 /**
- * Labelled values (Armor Class 18, Perception +7) as a semantic `<dl>` of `fr-description-item`s. Each row stacks
- * its term above its value when narrow and puts them side by side, terms in one column, once the list is
- * `columnsFrom` wide. The `<dl>` sits in an `fr-box`, whose width the rows' `fr-grid`s query, so each `<dt>` /
- * `<dd>` pair is grouped by a single `<div>` as the content model allows.
+ * Labelled values (Armor Class 18, Perception +7) as a list of `fr-description-item`s, each a `term` and its
+ * `definition`. Each row stacks its term above its value when narrow and puts them side by side, terms in one
+ * column, once the list is `columnsFrom` wide. The list sits in an `fr-box`, whose width the rows' `fr-grid`s
+ * query. ARIA roles rather than `<dl>`: a `<dl>` may only hold `<dt>`, `<dd>` and `<div>`, never the items'
+ * hosts, and a list is announced with its length.
  *
  * ```html
  * <fr-description-list>

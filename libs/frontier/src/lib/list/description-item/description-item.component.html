@@ -1,4 +1,4 @@
 <fr-grid query="parent" gap="2xs" align="baseline" [termFrom]="list.columnsFrom()">
-  <dt [class]="termClasses">{{ term() }}</dt>
-  <dd [class]="valueClasses"><ng-content /></dd>
+  <div role="term" [class]="termClasses">{{ term() }}</div>
+  <div role="definition" [class]="valueClasses"><ng-content /></div>
 </fr-grid>

@@ -62,7 +62,6 @@ const RENDERED_ELEMENTS: ReadonlySet<string> = new Set([
   'h3',
   'h4',
   'hr',
-  'li',
   'ol',
   'p',
   'span',
@@ -184,7 +183,7 @@ describe(RichTextView, () => {
     const inner = { type: 'list', ordered: false, items: [[paragraph(text('Inner'))]] };
     const rendered = await render([{ type: 'list', ordered: true, items: [[paragraph(text('Outer')), inner]] }]);
 
-    expect(rendered.querySelector('ol li ul li')?.textContent.trim()).toBe('Inner');
+    expect(rendered.querySelector('ol [role="listitem"] ul [role="listitem"]')?.textContent.trim()).toBe('Inner');
   });
 
   it('renders a table with rich cells and a generic, hidden name when it has no caption', async () => {
