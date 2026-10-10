@@ -24,11 +24,14 @@ import {
   coreRules,
   fighter,
   noFacts,
+  PER_SOURCE_SELECTORS,
   RANK_BONUS,
   SELECTORS,
   SKILL_SELECTORS,
   SKILLS,
+  STRIKES,
   totals,
+  wizard,
 } from './testing/core-rules';
 
 /** How many times the level adds to the proficiency bonus: none when untrained. */
@@ -73,10 +76,10 @@ function bonusTo(target: string): RuleInPlay {
 }
 
 /** Which of `statistics` a +1 to `target` raises, sorted. */
-function reachedBy(target: string, content = core): readonly string[] {
-  const without = totals(deriveStatistics(content, fighter));
+function reachedBy(target: string, content = core, character = fighter): readonly string[] {
+  const without = totals(deriveStatistics(content, character));
   const facts = noFacts();
-  const withBonus = totals(deriveStatistics(content, fighter, { rules: [bonusTo(target)], facts }));
+  const withBonus = totals(deriveStatistics(content, character, { rules: [bonusTo(target)], facts }));
   return Object.keys(without)
     .filter((selector) => withBonus[selector] !== without[selector])
     .toSorted();
@@ -99,10 +102,11 @@ describe('core rules pack', () => {
   test('registers with no duplicate selectors', () => {
     const registry = new ContentRegistry();
     registry.register(coreRules);
-    for (const selector of SELECTORS) {
+    const selectors = [...SELECTORS, ...PER_SOURCE_SELECTORS];
+    for (const selector of selectors) {
       expect(registry.statisticsFor(Selector.parse(selector))).toHaveLength(1);
     }
-    expect(registry.statistics()).toHaveLength(SELECTORS.length);
+    expect(registry.statistics()).toHaveLength(selectors.length);
     const withoutLevel = contentId(coreRules.id, Slug.parse('proficiency-without-level'));
     expect(registry.variantRules().map(({ id }) => id)).toStrictEqual([VariantRuleId.parse(withoutLevel)]);
   });
@@ -123,9 +127,9 @@ describe('core rules pack', () => {
   });
 
   test('class DC reads the key attribute chosen for the class', () => {
-    const wizard = { ...fighter, class: { hitPoints: HitPoints.parse(6), keyAttribute: Attribute.Intelligence } };
+    const intelligent = { ...fighter, class: { hitPoints: HitPoints.parse(6), keyAttribute: Attribute.Intelligence } };
     // Intelligence 0 in place of Strength 4.
-    expect(totals(deriveStatistics(core, wizard))['class-dc']).toBe(15);
+    expect(totals(deriveStatistics(core, intelligent))['class-dc']).toBe(15);
   });
 
   test('without an ancestry or class, the statistics reading them fail at that reference', () => {
@@ -145,6 +149,33 @@ describe('core rules pack', () => {
     expect(totals(derived)['speed:land']).toBe(25);
   });
 
+  test('derives one Strike per weapon', () => {
+    // Longsword: Strength 4 plus expert 7 plus potency 1. Dagger: finesse, but Strength 4 beats Dexterity 2.
+    expect(totals(deriveStatistics(core, fighter))).toMatchObject({ 'strike:longsword': 12, 'strike:dagger': 11 });
+  });
+
+  test("an agile finesse dagger uses Dexterity once it's higher, and a dropped weapon's Strike goes", () => {
+    const nimble = StatisticInputsJson.parse({
+      level: 3,
+      attributes: { str: 1, dex: 4, con: 0, int: 0, wis: 0, cha: 0 },
+      ranks: { 'attack:simple': 'expert' },
+      weapons: [{ slug: 'dagger', category: 'simple', traits: ['agile', 'finesse'] }],
+    });
+    const derived = totals(deriveStatistics(core, nimble));
+    expect(derived['strike:dagger']).toBe(4 + 7);
+    expect(derived['strike:longsword']).toBeUndefined();
+  });
+
+  test("derives a spell attack and DC per entry, the DC from its own entry's attack", () => {
+    // Arcane: Intelligence 4 plus trained 5. Innate occult: Charisma 1 plus trained 5.
+    expect(totals(deriveStatistics(core, wizard))).toMatchObject({
+      'spell-attack:arcane': 9,
+      'spell-dc:arcane': 19,
+      'spell-attack:innate': 6,
+      'spell-dc:innate': 16,
+    });
+  });
+
   test('keys every skill to its Player Core attribute', () => {
     const derived = totals(deriveStatistics(core, fighter));
     const expected = Object.fromEntries(
@@ -159,7 +190,10 @@ describe('core rules pack', () => {
     expect(reachedBy('skill-check')).toStrictEqual(sorted(SKILL_SELECTORS));
     const notRolled = new Set(['ac', 'class-dc', 'hp:max', 'speed:land']);
     const checks = SELECTORS.filter((selector) => !notRolled.has(selector));
-    expect(reachedBy('check')).toStrictEqual(sorted(checks));
+    expect(reachedBy('check')).toStrictEqual(sorted([...checks, ...STRIKES]));
+    expect(reachedBy('attack-roll')).toStrictEqual(sorted(STRIKES));
+    expect(reachedBy('strike-attack-roll')).toStrictEqual(sorted(STRIKES));
+    expect(reachedBy('str-based')).toStrictEqual(sorted([...skillsKeyedTo(Attribute.Strength), ...STRIKES]));
     expect(reachedBy('hp')).toStrictEqual(['hp:max']);
     expect(reachedBy('speed')).toStrictEqual(['speed:land']);
     expect(reachedBy('all-speeds')).toStrictEqual(['speed:land']);
@@ -170,7 +204,17 @@ describe('core rules pack', () => {
       sorted(['save:will', 'perception', ...skillsKeyedTo(Attribute.Wisdom)]),
     );
     expect(reachedBy('int-based')).toStrictEqual(sorted(skillsKeyedTo(Attribute.Intelligence)));
-    expect(reachedBy('all')).toStrictEqual(sorted(SELECTORS));
+    expect(reachedBy('all')).toStrictEqual(sorted([...SELECTORS, ...STRIKES]));
+  });
+
+  test('spell domains route to the spell attack or the DC, and the attribute domain to both', () => {
+    const arcane = ['spell-attack:arcane', 'spell-dc:arcane'];
+    expect(reachedBy('spell-attack-roll', core, wizard)).toStrictEqual(['spell-attack:arcane', 'spell-attack:innate']);
+    expect(reachedBy('attack-roll', core, wizard)).toStrictEqual(['spell-attack:arcane', 'spell-attack:innate']);
+    expect(reachedBy('spell-dc', core, wizard)).toStrictEqual(['spell-dc:arcane', 'spell-dc:innate']);
+    expect(reachedBy('int-based', core, wizard)).toStrictEqual(
+      sorted([...arcane, ...skillsKeyedTo(Attribute.Intelligence)]),
+    );
   });
 
   test('a Lore from another pack derives beside the skills and takes skill bonuses', () => {

@@ -26,7 +26,10 @@ export const RANK_BONUS: Readonly<Record<Proficiency, number>> = {
   [Proficiency.Legendary]: 8,
 };
 
-/** A level 3 human fighter in a breastplate (Dexterity cap +1), Strength as the key attribute. */
+/**
+ * A level 3 human fighter in a breastplate (Dexterity cap +1), Strength as the key attribute, expert in simple and
+ * martial weapons, wielding a +1 longsword and a dagger.
+ */
 export const fighter: StatisticInputs = StatisticInputsJson.parse({
   level: 3,
   attributes: { str: 4, dex: 2, con: 2, int: 0, wis: 1, cha: -1 },
@@ -39,10 +42,29 @@ export const fighter: StatisticInputs = StatisticInputsJson.parse({
     'skill:athletics': 'trained',
     'skill:lore:farming': 'trained',
     'class-dc': 'trained',
+    'attack:simple': 'expert',
+    'attack:martial': 'expert',
   },
   dexterityCap: 1,
   ancestry: { hitPoints: 8, speed: 25 },
   class: { hitPoints: 10, keyAttribute: 'str' },
+  weapons: [
+    { slug: 'longsword', category: 'martial', traits: ['versatile-p'], potency: 1 },
+    { slug: 'dagger', category: 'simple', traits: ['agile', 'finesse', 'thrown-10', 'versatile-s'] },
+  ],
+});
+
+/** A level 3 elf wizard, trained in arcane spells, with an arcane prepared entry and an occult innate one. */
+export const wizard: StatisticInputs = StatisticInputsJson.parse({
+  level: 3,
+  attributes: { str: 0, dex: 2, con: 1, int: 4, wis: 1, cha: 1 },
+  ranks: { 'spellcasting:arcane': 'trained', 'spellcasting:occult': 'trained' },
+  ancestry: { hitPoints: 6, speed: 30 },
+  class: { hitPoints: 6, keyAttribute: 'int' },
+  spellcasting: [
+    { slug: 'arcane', tradition: 'arcane', attribute: 'int' },
+    { slug: 'innate', tradition: 'occult', attribute: 'cha' },
+  ],
 });
 
 const DEFENCES = ['ac', 'save:fortitude', 'save:reflex', 'save:will', 'perception'];
@@ -71,6 +93,10 @@ export const SKILL_SELECTORS = Object.keys(SKILLS).map((slug) => `skill:${slug}`
 /** The statistics whose base ends in a proficiency bonus, `@prof`. */
 export const PROFICIENCY_SELECTORS = [...DEFENCES, ...SKILL_SELECTORS, 'class-dc'];
 export const SELECTORS = [...PROFICIENCY_SELECTORS, 'hp:max', 'speed:land'];
+/** The statistics derived once per weapon or spellcasting entry, by family selector. */
+export const PER_SOURCE_SELECTORS = ['strike', 'spell-attack', 'spell-dc'];
+/** The fighter's Strikes. */
+export const STRIKES = ['strike:longsword', 'strike:dagger'];
 
 /** What a derivation reads from a registry holding `packs`, as an app would load them. */
 export function contentOf(...packs: readonly ContentPack[]): StatisticContent {
