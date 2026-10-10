@@ -507,7 +507,10 @@ slots in all, every one picked) over a thousand more feats.
 The base phase in `libs/rules/engine` (`StatisticBases`) is step 5. The inputs are the character's
 level, attribute modifiers, proficiency rank per selector (a selector left out is untrained), the armor's Dexterity
 cap, what the ancestry and class give, and the weapons and spellcasting entries statistics are derived per. Grant
-resolution (Epic 1.4) will produce them; until then they are supplied directly.
+resolution (Epic 1.4) will produce them; until then they are supplied directly. The catalog's golden Fighter
+(`libs/rules/catalog/src/testing/golden-fighter.ts`) supplies them for a level 1 human Fighter in scale mail with a
+steel shield, its gear as rule elements, and pins every core statistic's total and breakdown, with and without
+Proficiency Without Level.
 
 - Statistics derived per source are expanded into their instances first ("Statistics per source").
 - Edges come from `references(formula)`. `@prof.<selector>` and `@rank.<selector>` read that selector's rank, an
