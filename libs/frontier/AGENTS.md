@@ -283,6 +283,16 @@ the toolbar switches theme and colour mode.
 - Storybook's types bring in `@types/node`. Code that keeps a timer id as a
   `number` calls `window.setTimeout`, which stays the DOM overload.
 
+## Specs
+
+Every component also has a sibling spec (`<name>.component.spec.ts`):
+`bun run check:components` fails on a component missing its spec or story.
+A part only reachable through the component that assembles it
+(`fr-list-item`, the field parts) opts out in
+`tools/check-component-coverage.ts`, naming the spec or story that covers it.
+Specs that need content projected into `ng-template` slots render a host
+component from `src/lib/testing/` (`AsyncRegionHost`, `VirtualListHost`).
+
 ## Plain controls vs form fields
 
 Prefer inline editing; use a form only where values must go in together,
