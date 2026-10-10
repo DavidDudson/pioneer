@@ -15,6 +15,14 @@ const ENTRY_ROWS = 16;
 const ROOT_ROWS = 4;
 const PICK_ROWS = 3;
 const TOGGLE_ROWS = 2;
+
+/** What each line field says of lines that do not read; each message takes `count` and `lines`. */
+const LINE_ERRORS = {
+  roots: 'play.rules.badRoots',
+  picks: 'play.rules.badPicks',
+  toggles: 'play.rules.badToggles',
+  facts: 'play.rules.badFacts',
+} as const;
 const FACT_ROWS = 4;
 
 /** An open slot as the fields offer it: its slot as typed, what it asks, and its options. */
@@ -41,6 +49,7 @@ export class GrantsFields {
   protected readonly rootRows = ROOT_ROWS;
   protected readonly pickRows = PICK_ROWS;
   protected readonly toggleRows = TOGGLE_ROWS;
+  protected readonly lineErrors = LINE_ERRORS;
   protected readonly levelRange = { min: LEVEL_MIN, max: LEVEL_MAX };
   protected readonly factRows = FACT_ROWS;
   public readonly check = input.required<GrantsCheck>();

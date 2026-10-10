@@ -13,7 +13,7 @@
     }
   </fr-field>
   <pio-lines-field
-    errorKey="play.rules.badRoots"
+    [errorKey]="lineErrors.roots"
     [label]="'play.rules.grantRootsLabel' | transloco"
     [hint]="'play.rules.grantRootsHint' | transloco"
     [rows]="rootRows"
@@ -30,7 +30,7 @@
     }
   </fr-field>
   <pio-lines-field
-    errorKey="play.rules.badPicks"
+    [errorKey]="lineErrors.picks"
     [label]="'play.rules.grantPicksLabel' | transloco"
     [hint]="'play.rules.grantPicksHint' | transloco"
     [rows]="pickRows"
@@ -44,7 +44,7 @@
     </fr-field>
   }
   <pio-lines-field
-    errorKey="play.rules.badToggles"
+    [errorKey]="lineErrors.toggles"
     [label]="'play.rules.grantTogglesLabel' | transloco"
     [hint]="'play.rules.grantTogglesHint' | transloco"
     [rows]="toggleRows"
@@ -52,7 +52,7 @@
     [(value)]="toggles"
   />
   <pio-lines-field
-    errorKey="play.rules.badFacts"
+    [errorKey]="lineErrors.facts"
     [label]="'play.rules.factsLabel' | transloco"
     [hint]="'play.rules.grantFactsHint' | transloco"
     [rows]="factRows"
