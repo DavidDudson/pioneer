@@ -56,7 +56,7 @@ export {
   PredicateStatement,
 } from './predicate';
 export { RollOption } from './roll-option';
-export { Domain, Selector, SlotKey } from './selector';
+export { Domain, Selector, SlotKey, ToggleKey } from './selector';
 export { AonUrl, BookId, PageNumber, SourceKind, SourceRef, SourceTitle, WebUrl } from './source-ref';
 export { default as rulesMessages } from './i18n/en.json';
 export { ActorFormulaSource, type FormulaProblem, formulaProblems, FormulaSource } from './formula-source';

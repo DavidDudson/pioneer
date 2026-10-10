@@ -34,3 +34,7 @@ export type Domain = z.infer<typeof Domain>;
 /** A slot the builder fills with a choice (`class-feat:1`, `skill-increase:3`). */
 export const SlotKey = KeyPath.brand<'SlotKey'>();
 export type SlotKey = z.infer<typeof SlotKey>;
+
+/** A toggleable `RollOption` on the character: its entry and rule index, `<entry id>:<rule>`. */
+export const ToggleKey = KeyPath.brand<'ToggleKey'>();
+export type ToggleKey = z.infer<typeof ToggleKey>;
