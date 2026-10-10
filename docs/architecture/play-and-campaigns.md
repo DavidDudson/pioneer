@@ -163,14 +163,17 @@ campaign_links        id, campaign_id, token_hash (unique), created_at, last_use
   Foundry servers are often behind NAT, so the module always calls Pioneer, never the reverse. It sends the
   campaign's link token in a `Pioneer-Link-Token` header to CORS-enabled routes under `/api/foundry/v1`, and keeps
   the token in the GM's user setting, out of players' browsers.
-- **Change detection.** The active GM's client polls `GET /api/foundry/v1/campaign` every 10 seconds (the server
-  sets the interval) with `If-None-Match`. The `ETag` comes from the sync mode and each character's
-  `build_revision` and `play_revision`, so an unchanged party is a `304`.
-- **Build changes** reach Foundry when the module sees a new `build_revision`. The re-sync updates the items it
-  exported in place, matched by their `itemKey` flag, and leaves play-state fields and every other item alone.
-- **Play state** syncs per mode: in `foundry` mode the module sends a full snapshot on each actor change, ordered
-  by Foundry's modified time, and Pioneer stores it in the character's `document.play`; in `pioneer` mode the
-  module writes Pioneer's play state to the actor on a new `play_revision`. Conditions map by slug and effects by
+- **Change detection.** While a player is connected to the world, the active GM's client polls
+  `GET /api/foundry/v1/campaign` every 10 seconds (the server sets the interval) with `If-None-Match`. The `ETag`
+  comes from the sync mode, the export generation (exporter version and content release) and each character's
+  `version` and `play_revision`, so an unchanged party is a `304`.
+- **Build changes** reach Foundry when the module sees a new character `version` or export generation. The re-sync
+  updates the items it exported in place, matched by their `itemKey` flag, and leaves play-state fields and every
+  other item alone.
+- **Play state** lives in its own `character_play` record with its own `play_revision`, so build saves and
+  play-state writes never conflict. It syncs per mode: in `foundry` mode the module sends a full snapshot on each
+  actor change, ordered by a per-actor sequence; in `pioneer` mode the module writes Pioneer's play state to the
+  actor on entering the mode and on each new `play_revision`. Conditions map by slug and effects by
   compendium source; ones Pioneer does not know are kept as foreign entries and reported.
 - **Players and Foundry users.** The GM maps each character's player to a Foundry user in the module, which sets
   the actor's ownership. Pioneer never stores Foundry user ids.
