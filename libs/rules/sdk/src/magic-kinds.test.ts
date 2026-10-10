@@ -86,78 +86,75 @@ const shield = {
     time: { type: 'actions', cost: 'one' },
     duration: { type: 'until', until: 'next-turn-start' },
     damage: [],
-    heightening: {
-      type: 'fixed',
-      ranks: [{ rank: 3 }, { rank: 5 }, { rank: 7 }, { rank: 9 }],
-    },
   },
 };
 
-const consecrate = {
-  ...entry('consecrate', 'Consecrate'),
-  kind: 'ritual',
-  rarity: 'uncommon',
-  traits: ['consecration'],
+const command = {
+  ...entry('command', 'Command'),
+  kind: 'spell',
+  traits: ['auditory', 'concentrate', 'linguistic', 'manipulate', 'mental'],
+  data: {
+    rank: 1,
+    traditions: ['arcane', 'divine', 'occult'],
+    time: { type: 'actions', cost: 'two' },
+    range: { type: 'feet', feet: 30 },
+    targets: { any: [{ count: 1, of: 'creature' }] },
+    duration: { type: 'until', until: 'next-turn-end', of: 'target' },
+    defense: { save: { statistic: 'save:will', basic: false } },
+    damage: [],
+    heightening: { type: 'fixed', ranks: [{ rank: 5, targets: { any: [{ count: 10, of: 'creature' }] } }] },
+  },
+};
+
+const sureStrike = {
+  ...entry('sure-strike', 'Sure Strike'),
+  kind: 'spell',
+  traits: ['concentrate', 'fortune'],
+  data: {
+    rank: 1,
+    traditions: ['arcane', 'occult'],
+    time: { type: 'actions', cost: 'one' },
+    duration: { type: 'until', until: 'turn-end' },
+    damage: [],
+  },
+};
+
+const dispelMagic = {
+  ...entry('dispel-magic', 'Dispel Magic'),
+  kind: 'spell',
+  traits: ['concentrate', 'manipulate'],
   data: {
     rank: 2,
-    time: { type: 'time', count: 3, unit: 'day' },
-    cost: prose('rare incense and offerings worth a total value of 20 gp × the spell rank'),
-    range: { type: 'feet', feet: 40 },
-    area: { shape: 'burst', size: 40 },
-    duration: { type: 'time', count: 1, unit: 'year' },
-    primary: { skills: ['skill:religion'] },
-    secondary: { checks: [{ skills: ['skill:crafting'] }, { skills: ['skill:performance'] }], casters: 2 },
+    traditions: ['arcane', 'divine', 'occult', 'primal'],
+    time: { type: 'actions', cost: 'two' },
+    range: { type: 'feet', feet: 120 },
+    targets: {
+      any: [
+        { count: 1, of: 'spell-effect' },
+        { count: 1, of: 'item', qualifiers: ['unattended', 'magical'] },
+      ],
+    },
+    damage: [],
+    counteraction: true,
   },
 };
 
-const arcane = {
-  ...entry('arcane', 'Arcane'),
-  kind: 'spellcasting-tradition',
-  data: { skill: 'skill:arcana' },
-};
-
-const heroism = {
-  ...entry('spell-effect-heroism', 'Spell Effect: Heroism'),
-  kind: 'effect',
-  level: 3,
-  rules: [
-    {
-      key: 'FlatModifier',
-      selectors: ['attack-roll', 'saving-throw', 'skill-check', 'perception'],
-      type: 'status',
-      value: 'ternary(gte(@item.level, 9), 3, ternary(gte(@item.level, 6), 2, 1))',
-    },
-  ],
-  data: { category: 'spell', duration: { type: 'time', count: 10, unit: 'minute', expiry: 'turn-start' } },
-};
-
-describe('magic and effect kinds', () => {
+describe('spell kind', () => {
   test.each([
     ['a spell with damage heightened by interval', fireball],
     ['a spell cast with one to three actions at alternative targets', heal],
-    ['a cantrip with fixed heightening', shield],
-    ['a ritual', consecrate],
-    ['a spellcasting tradition', arcane],
-    ['an effect', heroism],
+    ['a cantrip lasting until the start of your next turn', shield],
+    ["a spell lasting until the end of the target's next turn, with fixed heightening", command],
+    ['a spell lasting until the end of your turn', sureStrike],
+    ['a counteracting spell targeting a spell effect or magic item', dispelMagic],
     [
-      'a sustained spell attack',
+      'a sustained spell against a passive defence',
       {
         ...fireball,
         data: {
           ...fireball.data,
-          defense: { against: 'ac' },
+          defense: { against: 'save:fortitude' },
           duration: { type: 'time', count: 1, unit: 'minute', sustained: true },
-        },
-      },
-    ],
-    [
-      'an effect with a counter',
-      {
-        ...heroism,
-        data: {
-          category: 'other',
-          duration: { type: 'encounter' },
-          badge: { type: 'counter', value: 1, min: 1, max: 3, labels: ['One', 'Two', 'Three'] },
         },
       },
     ],
@@ -185,6 +182,18 @@ describe('magic and effect kinds', () => {
 
     expect(found(empty)).toStrictEqual([`data.defense ${RulesMessage.SpellDefenseEmpty}`]);
     expect(found(notASave)).toStrictEqual([`data.defense.save.statistic ${RulesMessage.SaveSelector}`]);
+    expect(found({ ...fireball, data: { ...fireball.data, defense: { against: 'skill:arcana' } } })).toStrictEqual([
+      `data.defense.against ${RulesMessage.SpellAgainst}`,
+    ]);
+  });
+
+  test('only a turn-relative end has an owner', () => {
+    const preparations = {
+      ...command,
+      data: { ...command.data, duration: { type: 'until', until: 'daily-preparations', of: 'target' } },
+    };
+
+    expect(found(preparations)).toStrictEqual([`data.duration.of ${RulesMessage.SpellDurationOwner}`]);
   });
 
   test('damage parts have distinct keys, and heightening adds only to them', () => {
@@ -211,11 +220,23 @@ describe('magic and effect kinds', () => {
     ]);
   });
 
-  test('fixed heightening names each rank once, above the spell', () => {
+  test('fixed heightening names each rank once, above the spell, and changes something', () => {
+    const tenCreatures = { any: [{ count: 10, of: 'creature' }] };
     const invalid = {
-      ...shield,
-      data: { ...shield.data, heightening: { type: 'fixed', ranks: [{ rank: 1 }, { rank: 3 }, { rank: 3 }] } },
+      ...command,
+      data: {
+        ...command.data,
+        heightening: {
+          type: 'fixed',
+          ranks: [
+            { rank: 1, targets: tenCreatures },
+            { rank: 3, targets: tenCreatures },
+            { rank: 3, targets: tenCreatures },
+          ],
+        },
+      },
     };
+    const unchanged = { ...command, data: { ...command.data, heightening: { type: 'fixed', ranks: [{ rank: 5 }] } } };
 
     expect(issues(invalid)).toStrictEqual([
       {
@@ -224,6 +245,7 @@ describe('magic and effect kinds', () => {
       },
       { path: ['data', 'heightening', 'ranks', 2, 'rank'], message: message(RulesMessage.ListDuplicate, { value: 3 }) },
     ]);
+    expect(found(unchanged)).toStrictEqual([`data.heightening.ranks.0 ${RulesMessage.SpellHeightenEmpty}`]);
   });
 
   test("checks a spell's rank, traditions, range, area and targets", () => {
@@ -248,38 +270,9 @@ describe('magic and effect kinds', () => {
     ]);
   });
 
-  test('ritual checks and a tradition’s skill are skill selectors', () => {
-    const ritual = {
-      ...consecrate,
-      data: { ...consecrate.data, primary: { skills: ['skill:religion', 'religion'], proficiency: 'expert' } },
-    };
-
-    expect(found(ritual)).toStrictEqual([`data.primary.skills.1 ${RulesMessage.SkillSelector}`]);
-    expect(found({ ...arcane, data: { skill: 'perception' } })).toStrictEqual([
-      `data.skill ${RulesMessage.SkillSelector}`,
-    ]);
-  });
-
-  test('a counter badge starts between its bounds', () => {
-    const outside = {
-      ...heroism,
-      data: { ...heroism.data, badge: { type: 'counter', value: 4, min: 1, max: 3 } },
-    };
-
-    expect(found(outside)).toStrictEqual([`data.badge.value ${RulesMessage.EffectBadgeRange}`]);
-    const below = { ...heroism, data: { ...heroism.data, badge: { type: 'counter', value: 0, min: 1, max: 3 } } };
-    expect(found(below)).toStrictEqual([`data.badge.value ${RulesMessage.EffectBadgeRange}`]);
-  });
-
   test('rejects data fields a kind does not have', () => {
     expect(found({ ...fireball, data: { ...fireball.data, location: { heightenedLevel: 3 } } })).toStrictEqual([
       `data.location ${ValidationMessage.UnrecognizedKeys}`,
-    ]);
-    expect(found({ ...consecrate, data: { ...consecrate.data, traditions: [] } })).toStrictEqual([
-      `data.traditions ${ValidationMessage.UnrecognizedKeys}`,
-    ]);
-    expect(found({ ...heroism, data: { ...heroism.data, tokenIcon: { show: true } } })).toStrictEqual([
-      `data.tokenIcon ${ValidationMessage.UnrecognizedKeys}`,
     ]);
   });
 });

@@ -1,10 +1,9 @@
 import type { ValueOf } from '@pioneer/shared/kernel';
-import { issueParams, message } from '@pioneer/shared/kernel';
+import { issueParams, message, Pg } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
-import { Uses } from './action';
 import { RulesMessage } from './messages';
-import { ActionCost, ActionCostSchema, AreaShape, AreaShapeSchema, DurationCount, RichText } from './rich-text';
+import { ActionCost, ActionCostSchema, AreaShape, AreaShapeSchema, RichText } from './rich-text';
 import { SaveSelector, Selector } from './selector';
 import { SpellRank } from './spell-rank';
 import { Trait } from './trait';
@@ -25,7 +24,10 @@ export type SpellTimeUnit = ValueOf<typeof SpellTimeUnit>;
 const SpellTimeUnitSchema = z.enum(SpellTimeUnit);
 
 /** How long "3 days" is: a count of a unit. */
-const SpellTime = { count: DurationCount, unit: SpellTimeUnitSchema };
+/** How many of a unit a casting time or duration is. */
+const SpellTimeCount = Pg.smallint().positive().brand<'SpellTimeCount'>();
+
+const SpellTime = { count: SpellTimeCount, unit: SpellTimeUnitSchema };
 
 /** A casting time in action glyphs, or in time for longer castings and rituals. */
 export const CastTimeType = { Actions: 'actions', Time: 'time' } as const;
@@ -92,12 +94,28 @@ export const SpellArea = z
   });
 
 /** What a spell can target. "1 creature or object" is two targets, one of each. */
-export const TargetKind = { Creature: 'creature', Object: 'object', Ally: 'ally', Corpse: 'corpse' } as const;
+export const TargetKind = {
+  Creature: 'creature',
+  Object: 'object',
+  Ally: 'ally',
+  Corpse: 'corpse',
+  Weapon: 'weapon',
+  Item: 'item',
+  SpellEffect: 'spell-effect',
+} as const;
 export type TargetKind = ValueOf<typeof TargetKind>;
 
-/** Words that narrow a target: "1 willing creature", "1 living creature". */
-export const TargetQualifier = { Willing: 'willing', Living: 'living' } as const;
+/** Words that narrow a target: "1 willing creature", "1 unattended magic item". */
+export const TargetQualifier = {
+  Willing: 'willing',
+  Living: 'living',
+  Unattended: 'unattended',
+  Magical: 'magical',
+} as const;
 export type TargetQualifier = ValueOf<typeof TargetQualifier>;
+
+/** How many of a kind a spell targets. */
+const TargetCount = Pg.smallint().positive().brand<'TargetCount'>();
 
 const TARGET_QUALIFIERS = Object.keys(TargetQualifier).length;
 const TARGET_TRAITS_MAX = 4;
@@ -105,7 +123,7 @@ const TARGETS_MAX = 4;
 
 /** "1 creature", "up to 5 creatures", "1 willing living creature", "1 creature with the undead trait". */
 const SpellTarget = z.strictObject({
-  count: Uses,
+  count: TargetCount,
   /** Up to `count`, rather than exactly. */
   upTo: z.boolean().optional(),
   of: z.enum(TargetKind),
@@ -129,34 +147,60 @@ export const SpellDurationType = {
 } as const;
 export type SpellDurationType = ValueOf<typeof SpellDurationType>;
 
-/** The moment an `until` duration ends. */
+/** The moment an `until` duration ends: the end of this turn, the start or end of the next, or daily preparations. */
 export const SpellDurationEnd = {
+  TurnEnd: 'turn-end',
   NextTurnStart: 'next-turn-start',
   NextTurnEnd: 'next-turn-end',
   DailyPreparations: 'daily-preparations',
 } as const;
 export type SpellDurationEnd = ValueOf<typeof SpellDurationEnd>;
 
+/** Whose turn a turn-relative `until` counts: the caster's, or the target's ("the target's next turn"). */
+export const TurnOwner = { Caster: 'caster', Target: 'target' } as const;
+export type TurnOwner = ValueOf<typeof TurnOwner>;
+
+const UntilDuration = z
+  .strictObject({
+    type: z.literal(SpellDurationType.Until),
+    until: z.enum(SpellDurationEnd),
+    /** The caster's when absent. */
+    of: z.enum(TurnOwner).optional(),
+  })
+  .refine((duration) => duration.of === undefined || duration.until !== SpellDurationEnd.DailyPreparations, {
+    ...issueParams(message(RulesMessage.SpellDurationOwner)),
+    path: ['of'],
+  });
+
 /**
- * "1 minute", "sustained up to 1 minute" (`time` with `sustained`), "sustained" with no limit, "until the start of
- * your next turn", "unlimited". An instant spell has none.
+ * "1 minute", "sustained up to 1 minute" (`time` with `sustained`), "sustained" with no limit, "until the end of
+ * your turn", "until the end of the target's next turn", "unlimited". An instant spell has none.
  */
 export const SpellDuration = z.discriminatedUnion('type', [
   z.strictObject({ type: z.literal(SpellDurationType.Time), ...SpellTime, sustained: z.boolean().optional() }),
   z.strictObject({ type: z.literal(SpellDurationType.Sustained) }),
-  z.strictObject({ type: z.literal(SpellDurationType.Until), until: z.enum(SpellDurationEnd) }),
+  UntilDuration,
   z.strictObject({ type: z.literal(SpellDurationType.Unlimited) }),
 ]);
 
 /** The save a spell asks for ("basic Reflex"). */
 const SpellSave = z.strictObject({ statistic: SaveSelector, basic: z.boolean() });
 
+const ARMOR_CLASS = 'ac';
+const SAVE_PREFIX = 'save:';
+
+/** A passive defence: AC or a save's DC (Foundry pf2e's `ac` and `<save>-dc`). */
+const PassiveDefense = Selector.refine(
+  (selector) => selector === ARMOR_CLASS || selector.startsWith(SAVE_PREFIX),
+  issueParams(message(RulesMessage.SpellAgainst)),
+);
+
 /**
- * What a spell is resisted with: a `save`, the statistic whose DC its attack or check is `against` (`ac` for a spell
- * attack), or both, as Foundry pf2e stores them.
+ * What a spell is resisted with: a `save`, the passive defence it is `against`, or both, as Foundry pf2e stores
+ * them. A spell attack is marked by the `attack` trait, not here.
  */
 const SpellDefense = z
-  .strictObject({ save: SpellSave.optional(), against: Selector.optional() })
+  .strictObject({ save: SpellSave.optional(), against: PassiveDefense.optional() })
   .refine((defense) => defense.save !== undefined || defense.against !== undefined, {
     ...issueParams(message(RulesMessage.SpellDefenseEmpty)),
   });

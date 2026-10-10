@@ -141,7 +141,10 @@
       "castUpTo": "A range of actions runs from fewer to more, like one to three; a reaction or free action has none.",
       "defenseEmpty": "Give a save, the statistic the spell is against, or both; leave defense out when the spell has none.",
       "damageKey": "The spell has no damage part {key} to heighten.",
-      "heightenAbove": "A heightened entry is for a rank above the spell’s own, {rank}."
+      "heightenAbove": "A heightened entry is for a rank above the spell’s own, {rank}.",
+      "heightenEmpty": "A heightened entry changes at least one of damage, range, area, targets or duration; describe other changes in the text.",
+      "against": "A spell is against AC or a save’s DC, like ac or save:will.",
+      "durationOwner": "Only a turn has an owner; daily preparations are the caster’s."
     },
     "effect": {
       "badgeRange": "The counter starts between its minimum and maximum."

@@ -76,14 +76,18 @@ const IntervalHeightening = z.strictObject({
 });
 
 /** "Heightened (4th)": what the spell has instead at that rank and above. */
-const HeightenedRank = z.strictObject({
-  rank: SpellRank,
-  damage: SpellDamageParts.optional(),
-  range: SpellRange.optional(),
-  area: SpellArea.optional(),
-  targets: SpellTargets.optional(),
-  duration: SpellDuration.optional(),
-});
+const HeightenedRank = z
+  .strictObject({
+    rank: SpellRank,
+    damage: SpellDamageParts.optional(),
+    range: SpellRange.optional(),
+    area: SpellArea.optional(),
+    targets: SpellTargets.optional(),
+    duration: SpellDuration.optional(),
+  })
+  .refine(({ rank: _rank, ...changes }) => Object.values(changes).some((change) => change !== undefined), {
+    ...issueParams(message(RulesMessage.SpellHeightenEmpty)),
+  });
 
 const FixedHeightening = z.strictObject({
   type: z.literal(HeighteningType.Fixed),

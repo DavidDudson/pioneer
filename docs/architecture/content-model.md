@@ -123,8 +123,9 @@ Lists of attributes, slugs and ids name each item once.
 #### Magic and play data
 
 Foundry pf2e stores a spell's range, targets, casting time and duration as free text; Pioneer stores them as
-structures, and the importer reports a spell whose text doesn't map. Rule elements on a spell are rare: what it does
-beyond its damage is its description, and the effects it applies are `effect` entries.
+structures, and the importer reports a spell whose text doesn't map
+([ADR-0021](../adr/0021-structured-spell-casting-fields.md)). Rule elements on a spell are rare: what it does beyond
+its damage is its description, and the effects it applies are `effect` entries.
 
 | Kind                     | `data`                                                                                                      |
 | ------------------------ | ----------------------------------------------------------------------------------------------------------- |
@@ -137,17 +138,19 @@ beyond its damage is its description, and the effects it applies are `effect` en
   three actions", Heal), or `time` with a `count` of rounds to years ("3 days"). `range?` is feet, `touch`,
   `planetary` or `unlimited`. `area?` is a `shape` and `size`, with a `width` on a line. `targets?` lists the
   alternatives in `any` ("1 willing living creature or 1 undead"), each a `count` (`upTo` for "up to"), what it
-  is (`creature`, `object`, `ally`, `corpse`), `qualifiers` (`willing`, `living`) and `traits`; `includesYou` for
-  "you and up to 4 allies". `duration?` is a `time` (with `sustained` for "sustained up to 1 minute"),
-  `sustained`, `until` the next turn's start or end or the next daily preparations, or `unlimited`; an instant
-  spell has none. `defense?` is a `save` (a `save:` selector and `basic`), the statistic whose DC it is
-  `against` (`ac` for a spell attack), or both. `cost?` and `requirements?` are rich text.
+  is (`creature`, `object`, `ally`, `corpse`, `weapon`, `item`, `spell-effect`), `qualifiers` (`willing`,
+  `living`, `unattended`, `magical`) and `traits`; `includesYou` for "you and up to 4 allies". `duration?` is a
+  `time` (with `sustained` for "sustained up to 1 minute"), `sustained`, `until` the end of this turn, the start
+  or end of the next (the caster's, or the target's `of: target`) or the next daily preparations, or `unlimited`;
+  an instant spell has none. `defense?` is a `save` (a `save:` selector and `basic`), the passive defence it is
+  `against` (`ac` or a `save:` selector for that save's DC, Foundry's `passive`), or both; a spell attack is marked
+  by the `attack` trait, as in Foundry. `cost?` and `requirements?` are rich text.
 - **Spells.** Cantrips and focus spells are spells with the `cantrip` or `focus` trait, as in Foundry. `traditions`
   are `arcane`, `divine`, `occult`, `primal`. `damage` parts each have a `key` (Foundry's record key), a damage
   formula, a `damageType`, an optional `category` and `kinds` (`damage`, `healing` or both). `heightening` is an
   `interval` (every so many ranks, add a formula to named damage parts and feet to the area) or `fixed` (at each
-  listed rank above the spell's, replace damage, range, area, targets or duration). Foundry's overlays (Heal's
-  action variants) and spellcasting-entry `location` have no field yet.
+  listed rank above the spell's, replace at least one of damage, range, area, targets or duration). Foundry's
+  overlays (Heal's action variants) and spellcasting-entry `location` have no field yet.
 - **Rituals.** Foundry stores a ritual as a spell with ritual data. A check is one of its `skills` (`skill:`
   selectors), at a `proficiency` when it names one; each secondary check is its own.
 - **Effects.** `duration` is a `time` of rounds to days with an `expiry` (`turn-start`, `turn-end`,

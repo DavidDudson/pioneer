@@ -25,10 +25,11 @@ import {
   SpellTimeUnit,
   TargetKind,
   TargetQualifier,
+  TurnOwner,
 } from '../spell-casting';
 import { SPELL_RANK_MAX } from '../spell-rank';
 import { MagicTradition } from '../spellcasting-tradition';
-import { keyPathText, saveSelectorText, skillSelectorText } from './arbitraries';
+import { saveSelectorText, skillSelectorText } from './arbitraries';
 import { LIST_MAX, positive, slugText, smallint, withOptional } from './json-arbitraries';
 import { damageFormulaText, richTextJson } from './rich-text-arbitraries';
 
@@ -40,7 +41,10 @@ const AREA_SHAPES_BUT_LINE = Object.values(AreaShape).filter((shape) => shape !=
 const areaShapeButLine: Arbitrary<string> = constantFrom(...AREA_SHAPES_BUT_LINE);
 const targetKind: Arbitrary<string> = constantFrom(...Object.values(TargetKind));
 const targetQualifiers: Arbitrary<string[]> = shuffledSubarray(Object.values(TargetQualifier));
-const durationEnd: Arbitrary<string> = constantFrom(...Object.values(SpellDurationEnd));
+const TURN_ENDS = Object.values(SpellDurationEnd).filter((end) => end !== SpellDurationEnd.DailyPreparations);
+const turnEnd: Arbitrary<string> = constantFrom(...TURN_ENDS);
+const turnOwner: Arbitrary<string> = constantFrom(...Object.values(TurnOwner));
+const passiveDefense: Arbitrary<string> = oneof(constant('ac'), saveSelectorText);
 const damageType: Arbitrary<string> = constantFrom(...Object.values(DamageType));
 const damageCategory: Arbitrary<string> = constantFrom(...Object.values(DamageCategory));
 const damageKinds: Arbitrary<string[]> = shuffledSubarray(Object.values(DamageKind), { minLength: 1 });
@@ -84,19 +88,21 @@ const anyTarget: Arbitrary<object> = record({ any: array(target, { minLength: 1,
 const targets: Arbitrary<object> = withOptional(anyTarget, { includesYou: boolean() });
 
 const timedDuration: Arbitrary<object> = record({ type: constant(SpellDurationType.Time), ...spellTime });
+const untilTurn: Arbitrary<object> = record({ type: constant(SpellDurationType.Until), until: turnEnd });
 const duration: Arbitrary<object> = oneof(
   withOptional(timedDuration, { sustained: boolean() }),
   constant({ type: SpellDurationType.Sustained }),
-  record({ type: constant(SpellDurationType.Until), until: durationEnd }),
+  withOptional(untilTurn, { of: turnOwner }),
+  constant({ type: SpellDurationType.Until, until: SpellDurationEnd.DailyPreparations }),
   constant({ type: SpellDurationType.Unlimited }),
 );
 
 const save: Arbitrary<object> = record({ statistic: saveSelectorText, basic: boolean() });
-/** A save, a statistic it is against, or both. */
+/** A save, the passive defence it is against, or both. */
 const defense: Arbitrary<object> = oneof(
   record({ save }),
-  record({ against: keyPathText }),
-  record({ save, against: keyPathText }),
+  record({ against: passiveDefense }),
+  record({ save, against: passiveDefense }),
 );
 
 /** Casting fields at `rank`, with every optional one sometimes present. */
@@ -141,7 +147,8 @@ function intervalHeightening(keys: readonly string[]): Arbitrary<object> {
 }
 
 function heightenedRank(rank: number): Arbitrary<object> {
-  return withOptional(record({ rank: constant(rank) }), { damage: anyDamageParts, range, area, targets, duration });
+  // Each heightened rank changes something: its duration here, and any of the rest.
+  return withOptional(record({ rank: constant(rank), duration }), { damage: anyDamageParts, range, area, targets });
 }
 
 /** Fixed heightening at distinct ranks above `rank`, which must be below 10th. */
