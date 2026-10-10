@@ -26,6 +26,7 @@ Accepted. To change a decision, add a new ADR that supersedes the old one; do no
 | [0019](0019-rich-text-ast-rendered-in-rules-ui.md)    | Rich text is a document AST, rendered by `rules/ui`             |
 | [0020](0020-local-dev-sign-in.md)                     | Local dev sign-in, kept out of production builds                |
 | [0021](0021-structured-spell-casting-fields.md)       | Spell casting fields are structured, parsed from Foundry text   |
+| [0022](0022-foundry-module-and-sync-model.md)         | Foundry module: link tokens, polling and field ownership        |
 
 Template:
 
