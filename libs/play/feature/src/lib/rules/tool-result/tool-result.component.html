@@ -11,6 +11,8 @@
   <pio-filters-result [check]="tool.check" />
 } @else if (tool.kind === ToolKind.RichText) {
   <pio-rich-text-result [outcome]="tool.check" [preview]="tool.preview" />
+} @else if (tool.kind === ToolKind.ContentEntry) {
+  <pio-content-entry-result [outcome]="tool.check" [sources]="tool.sources" />
 } @else {
   <pio-rules-result [outcome]="tool.check" />
 }

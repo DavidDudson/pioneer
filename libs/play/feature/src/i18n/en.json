@@ -236,7 +236,8 @@
     "pinned": "Computed {computed}; {rule} pinned it to {total}.",
     "pinnedFlag": "Pinned",
     "manual": "Set by hand",
-    "previewHeading": "Preview"
+    "previewHeading": "Preview",
+    "sourceHeading": "Source"
   },
   "damageType": {
     "bludgeoning": "Bludgeoning",

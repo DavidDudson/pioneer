@@ -378,6 +378,16 @@
         "lightBarding": "Light barding",
         "heavyBarding": "Heavy barding"
       }
+    },
+    "sourceLine": {
+      "page": "p. {page}",
+      "aon": "AoN",
+      "aonLabel": "AoN: {book} page {page} on Archives of Nethys",
+      "aonLabelNoPage": "AoN: {book} on Archives of Nethys",
+      "unregisteredBook": "Unknown book “{book}”",
+      "byAuthor": "by {author}",
+      "separator": "; ",
+      "byUnknownAuthor": "by an unknown author"
     }
   }
 }

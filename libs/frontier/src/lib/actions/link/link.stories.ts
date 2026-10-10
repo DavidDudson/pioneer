@@ -35,6 +35,21 @@ export const External: LinkStory = {
   args: { label: 'Archives of Nethys', to: undefined, href: 'https://2e.aonprd.com' },
 };
 
+/** `external` is another site's URL from data; the aria label names it when the text is short. */
+export const ExternalFromData: LinkStory = {
+  args: {
+    label: 'AoN',
+    to: undefined,
+    external: 'https://2e.aonprd.com/Ancestries.aspx?ID=64',
+    ariaLabel: 'AoN: Player Core page 42 on Archives of Nethys',
+  },
+};
+
+/** An `external` URL that would not leave the app renders as plain text. */
+export const ExternalNotHttp: LinkStory = {
+  args: { label: 'Not a link', to: undefined, external: '/characters' },
+};
+
 export const Subheading: LinkStory = { args: { variant: TextVariant.Subheading } };
 
 export const InText: LinkStory = {

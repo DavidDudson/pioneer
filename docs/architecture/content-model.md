@@ -294,8 +294,20 @@ type SourceRef =
 ```
 
 Validation: every entry needs at least one source; a `book` source needs a `page`, an `aon` URL, or both. AoN URLs
-must be on `2e.aonprd.com` and point at an exact entry (`/Feats.aspx?ID=…`), not a search page. The content
-browser shows "Player Core p. 123 · AoN" on every entry.
+must be on `2e.aonprd.com` and point at an exact entry (`/Feats.aspx?ID=…`), not a search page.
+
+Every view of content shows its sources with `pio-source-line` (`libs/rules/ui`), one line per entry, sources
+joined in order:
+
+- **Book**: the registry title, the page formatted for the locale, and an "AoN" link to the entry, named
+  "AoN: Player Core page 123 on Archives of Nethys" for screen readers: "Player Core p. 123 · AoN". A book missing
+  from the registry shows its id, flagged.
+- **Web**: the title, or the URL's host without one, linked.
+- **Homebrew**: the pack's name, linked when the source has a URL, and "by" its author.
+
+It is presentational (ADR-0028): pack and author display names come in as inputs from the page that resolved them,
+and a missing one falls back to the pack id or an unknown author. The rules playground's "Content entry" mode shows
+it once an entry validates; the content browser (#24) picks it up.
 
 Checks that need the registry live in `libs/rules/catalog` (`sourceIssues`): a `book` source names a registered
 book, and a `homebrew` source's `pack` is the entry's own pack. Each failure is a message descriptor naming the

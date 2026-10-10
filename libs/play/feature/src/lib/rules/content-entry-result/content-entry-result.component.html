@@ -1,0 +1,7 @@
+<fr-stack gap="md">
+  @if (sources(); as sources) {
+    <fr-heading variant="label" [level]="3">{{ 'play.rules.sourceHeading' | transloco }}</fr-heading>
+    <fr-surface><pio-source-line [sources]="sources" /></fr-surface>
+  }
+  <pio-rules-result [outcome]="outcome()" />
+</fr-stack>

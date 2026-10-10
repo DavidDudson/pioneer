@@ -1,0 +1,21 @@
+<fr-text element="p" variant="caption" tone="muted">
+  @for (segment of segments(); track $index) {
+    @if (segment.kind === SegmentKind.Link) {
+      @let content = segment.content;
+      @let label = segment.label;
+      <fr-link
+        [external]="segment.url"
+        [ariaLabel]="
+          label === undefined
+            ? undefined
+            : (label.key | transloco: { book: (label.book.key | transloco: label.book.params), page: label.page })
+        "
+        >{{ content.kind === SegmentKind.Text ? content.text : (content.key | transloco: content.params) }}</fr-link
+      >
+    } @else if (segment.kind === SegmentKind.Text) {
+      <ng-container>{{ segment.text }}</ng-container>
+    } @else {
+      <ng-container>{{ segment.key | transloco: segment.params }}</ng-container>
+    }
+  }
+</fr-text>

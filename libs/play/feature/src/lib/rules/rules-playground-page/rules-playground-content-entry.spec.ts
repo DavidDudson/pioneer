@@ -92,6 +92,33 @@ describe('RulesPlaygroundPage content entry', () => {
     );
   });
 
+  it('shows a valid entry’s source line', async () => {
+    const harness = await openPlayground();
+    await chooseSchema(harness, 'Content entry');
+
+    expect(pageText(harness)).toContain('Player Core p. 1');
+  });
+
+  it('links a source’s AoN entry, named for the book and page', async () => {
+    const harness = await openPlayground();
+    await chooseSchema(harness, 'Content entry');
+    const aon = 'https://2e.aonprd.com/Ancestries.aspx?ID=64';
+    await typeJson(harness, json(harness).replace('"page": 1', `"page": 1, "aon": "${aon}"`));
+
+    const link = present(harness.routeNativeElement?.querySelector(`a[href="${aon}"]`));
+    expect(link.textContent).toBe('AoN');
+    expect(link.getAttribute('aria-label')).toBe('AoN: Player Core page 1 on Archives of Nethys');
+  });
+
+  it('shows no source line while a source is wrong', async () => {
+    const harness = await openPlayground();
+    await chooseSchema(harness, 'Content entry');
+    await typeJson(harness, json(harness).replace('"book": "player-core"', '"book": "core-rulebook"'));
+
+    expect(pageText(harness)).not.toContain('core-rulebook p. 1');
+    expect(pageText(harness)).not.toContain('Player Core p. 1');
+  });
+
   it('points at the envelope or data field that is wrong', async () => {
     const harness = await openPlayground();
     await chooseSchema(harness, 'Content entry');
