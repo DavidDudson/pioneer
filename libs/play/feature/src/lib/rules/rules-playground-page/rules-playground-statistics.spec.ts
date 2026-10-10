@@ -1,11 +1,11 @@
 import { describe, expect, it, vi } from 'vitest';
 
 import {
-  chooseIn,
   chooseSchema,
   openPlayground,
   pageText,
   present,
+  pressIn,
   secondTextArea,
   typeJson,
 } from './playground-harness';
@@ -58,7 +58,7 @@ describe('RulesPlaygroundPage statistics', () => {
   it('loads the statistics of the core rules pack in place of the example', async () => {
     const harness = await openPlayground();
     await chooseSchema(harness, 'Statistics');
-    await chooseIn(harness, 'Statistics from', 'Core rules pack');
+    await pressIn(harness, 'Statistics from', 'Core rules pack');
     await vi.waitFor(() => {
       expect(pageText(harness)).toContain('save:reflex');
     });

@@ -23,23 +23,23 @@
         } @else if (tool.kind === ToolKind.Verdict) {
           <pio-verdict-fields [check]="tool.check" [(predicate)]="text" [(facts)]="facts" />
         } @else if (tool.kind === ToolKind.Statistics) {
-          <fr-field>
-            <fr-label>{{ 'play.rules.statisticSourceLabel' | transloco }}</fr-label>
-            <fr-select
-              [options]="statisticSources()"
-              [value]="statisticSource()"
-              (valueChange)="chooseStatisticSource($event)"
-            />
-            <fr-field-hint>{{ 'play.rules.statisticSourceHint' | transloco }}</fr-field-hint>
-          </fr-field>
-          <pio-statistics-fields
-            [check]="tool.check"
-            [(definitions)]="text"
-            [(inputs)]="statisticInputs"
-            [(rules)]="statisticRules"
-            [(overrides)]="statisticOverrides"
-            [(facts)]="facts"
+          <pio-statistic-source-field
+            [value]="statisticSource()"
+            [failed]="statisticLoad() === SourceLoad.Failed"
+            (chosen)="chooseStatisticSource($event)"
           />
+          @if (statisticLoad() === SourceLoad.Loading) {
+            <fr-skeleton shape="block" width="full" />
+          } @else {
+            <pio-statistics-fields
+              [check]="tool.check"
+              [(definitions)]="text"
+              [(inputs)]="statisticInputs"
+              [(rules)]="statisticRules"
+              [(overrides)]="statisticOverrides"
+              [(facts)]="facts"
+            />
+          }
         } @else if (tool.kind === ToolKind.Grants) {
           <pio-grants-fields
             [check]="tool.check"

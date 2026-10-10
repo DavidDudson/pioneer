@@ -1,3 +1,4 @@
+import { InjectionToken } from '@angular/core';
 import { contentCatalog } from '@pioneer/rules/catalog';
 import { PackId } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
@@ -21,7 +22,7 @@ const SOURCE_PACKS: Readonly<Record<Exclude<StatisticSource, typeof StatisticSou
 };
 
 /** The definitions `source` gives, as the JSON the statistics tool reads. A pack is loaded on first use. */
-export async function statisticDefinitions(source: StatisticSource): Promise<string> {
+async function statisticDefinitions(source: StatisticSource): Promise<string> {
   if (source === StatisticSource.Example) {
     return rulesExample(RulesTool.Statistics);
   }
@@ -33,3 +34,12 @@ export async function statisticDefinitions(source: StatisticSource): Promise<str
   const pack = await loader.load();
   return JSON.stringify(pack.statistics, undefined, JSON_INDENT);
 }
+
+/** Loads a source's definitions as JSON. */
+export type LoadStatisticDefinitions = (source: StatisticSource) => Promise<string>;
+
+/** How the statistics tool loads a source's definitions: from the catalog. Specs provide a scripted loader. */
+export const STATISTIC_DEFINITIONS = new InjectionToken<LoadStatisticDefinitions>('STATISTIC_DEFINITIONS', {
+  providedIn: 'root',
+  factory: (): LoadStatisticDefinitions => statisticDefinitions,
+});

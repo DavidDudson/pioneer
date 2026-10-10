@@ -190,6 +190,7 @@
     "entryKindHint": "Picking another kind loads a valid entry of it. The kind field decides which schema checks data.",
     "statisticSourceLabel": "Statistics from",
     "statisticSourceHint": "Picking a source replaces the definitions with its statistics.",
+    "statisticSourceFailed": "The pack did not load. Pick it again to retry.",
     "statisticSource": {
       "example": "Example",
       "coreRules": "Core rules pack"
