@@ -356,6 +356,12 @@ Behaviour:
   once a bound is set. A value's count is how many entries picking only that value would leave.
 - The engine (`libs/rules/sdk`: `facet.ts`, `facet-filter.ts`, `filter-query.ts`) is pure and runs on parsed
   entries; the rules playground's "Content filters" tool exercises it.
+- A facet reads a field path or derives its values from the entry. Spell facets derive (`spell-facet-values.ts`):
+  range falls into bands (touch, up to 30, 60 and 120 feet, longer, planetary, unlimited, none); a variable
+  casting time gives every action count it spans; targets are single, multiple, allies and self (the caster);
+  defence is attack (the `attack` trait or against AC) or the save; duration is its largest unit, with a week or
+  more as long. Absence is a value (no range, no area, instant), not unknown. Entries of other kinds give a
+  kind's facets no value, so picking one keeps only that kind.
 - **Available to you** is a preset made from the character: level at most the character's (or the slot's level
   for a feat slot), the class and ancestry traits the slot asks for, the traditions of the character's
   spellcasting entries, prerequisites not false, unique entries and the `artifact` trait hidden. Unknown

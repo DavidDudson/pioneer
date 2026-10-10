@@ -74,15 +74,18 @@ export {
   FacetLabel,
   FacetMessage,
   type FacetPath,
-  facetsFor,
   FacetType,
   FacetValue,
   facetValues,
   FLAG_LABELS,
   FlagValue,
   RangeBound,
+  type FacetDerive,
   UNKNOWN,
 } from './facet';
+export { facetsFor } from './kind-facets';
+export { AreaValue, CastActions, DefenseValue, DurationValue, RangeBand, TargetValue } from './spell-facet-values';
+export { SPELL_FACETS, SpellFacetMessage } from './spell-facets';
 export {
   EntryCount,
   type FacetCounts,

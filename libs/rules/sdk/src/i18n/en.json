@@ -165,7 +165,76 @@
         "rarity": "Rarity",
         "traits": "Traits",
         "book": "Book",
-        "pack": "Pack"
+        "pack": "Pack",
+        "rank": "Rank",
+        "tradition": "Tradition",
+        "castActions": "Cast",
+        "range": "Range",
+        "area": "Area",
+        "targets": "Targets",
+        "defense": "Defense",
+        "duration": "Duration",
+        "sustained": "Sustained",
+        "damageType": "Damage type",
+        "heightens": "Heightens"
+      },
+      "tradition": {
+        "arcane": "Arcane",
+        "divine": "Divine",
+        "occult": "Occult",
+        "primal": "Primal"
+      },
+      "castActions": {
+        "one": "1 action",
+        "two": "2 actions",
+        "three": "3 actions",
+        "free": "Free action",
+        "reaction": "Reaction",
+        "time": "Minutes or longer"
+      },
+      "range": {
+        "touch": "Touch",
+        "upTo30": "Up to 30 feet",
+        "upTo60": "Up to 60 feet",
+        "upTo120": "Up to 120 feet",
+        "long": "Over 120 feet",
+        "planetary": "Planetary",
+        "unlimited": "Unlimited",
+        "none": "No range"
+      },
+      "area": {
+        "burst": "Burst",
+        "cone": "Cone",
+        "cube": "Cube",
+        "cylinder": "Cylinder",
+        "emanation": "Emanation",
+        "line": "Line",
+        "none": "No area"
+      },
+      "targets": {
+        "single": "Single target",
+        "multiple": "Several targets",
+        "allies": "Allies",
+        "self": "You",
+        "none": "No targets"
+      },
+      "defense": {
+        "attack": "Spell attack",
+        "fortitude": "Fortitude save",
+        "reflex": "Reflex save",
+        "will": "Will save",
+        "none": "No defense"
+      },
+      "duration": {
+        "instant": "Instant",
+        "round": "Rounds",
+        "minute": "Minutes",
+        "hour": "Hours",
+        "day": "Days",
+        "long": "A week or more",
+        "until": "Until a set moment",
+        "sustained": "Sustained",
+        "unlimited": "Unlimited"
       },
       "rarity": {
         "common": "Common",
