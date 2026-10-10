@@ -64,7 +64,7 @@ if (command === MIGRATE_COMMAND) {
     await runMigrations(db, env.MIGRATIONS_DIR);
     await seedOfficialContent(db, systemClock, log);
   }
-  const server = new Elysia().use(await createApp(db, env));
+  const server = new Elysia().use(createApp(db, env));
   if (env.WEB_DIST !== undefined) {
     server.use(spa(env.WEB_DIST));
   }

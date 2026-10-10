@@ -341,6 +341,10 @@ waits for Epic 2.4.
   failure leaves the pack as it was. `content_hash` is SHA-256 of the pack's canonical JSON and the seed format; a
   pack whose hash is already stored is skipped without writing. Content is seeded before a new image takes
   traffic, so a content shape the serving image cannot read ships in two deploys, reader first.
+- **The API reads content from these tables**, never from the JSON bundled into its image. `StoredContentSource`
+  (`libs/rules/infrastructure`) builds one `ContentRegistry` per process from the official packs' rows, checked
+  again as the files they hold and registered in slug order. Each use of content first reads the stored
+  `content_hash` values, so a re-seed rebuilds the registry on the next request without a restart.
 - **Homebrew packs** are created in the app and owned by a user. Visibility is private, campaign or public.
 - **Overriding official content** in homebrew is a new entry with `supersedes` pointing at the official one.
   The registry resolves supersession per character or campaign, so a GM can house-rule a feat without touching

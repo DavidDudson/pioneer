@@ -3,6 +3,7 @@
  * tests; never from production code (kept out of the main barrel).
  */
 export { ContentPackBuilder } from './content-pack-builder';
+export { fixedContent } from './fixed-content';
 export { installRulesFakes } from './fakes';
 export {
   actorFormulaText,
