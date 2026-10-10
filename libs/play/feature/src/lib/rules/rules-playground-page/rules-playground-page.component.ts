@@ -25,6 +25,7 @@ import {
   CONTENT_KIND_KEYS,
   contentEntryExample,
   EXAMPLE_FACTS,
+  EXAMPLE_FILTER_QUERY,
   EXAMPLE_GRANT_LEVEL,
   EXAMPLE_GRANT_PICKS,
   EXAMPLE_GRANT_ROOTS,
@@ -118,6 +119,8 @@ export class RulesPlaygroundPage {
   protected readonly grantToggles = signal(EXAMPLE_GRANT_TOGGLES);
   /** The grants tool's character level. Kept when switching tools. */
   protected readonly grantLevel = signal(EXAMPLE_GRANT_LEVEL);
+  /** The filters tool's query, as it would follow `?` in a URL. Kept when switching tools. */
+  protected readonly filterQuery = signal(EXAMPLE_FILTER_QUERY);
   /** The chosen tool's answer for the current text. */
   protected readonly result = computed((): ToolCheck =>
     checkTool(this.schema(), this.text(), {
@@ -130,6 +133,7 @@ export class RulesPlaygroundPage {
       grantPicks: this.grantPicks(),
       grantToggles: this.grantToggles(),
       grantLevel: this.grantLevel(),
+      filterQuery: this.filterQuery(),
     }),
   );
 

@@ -7,6 +7,8 @@
   <pio-statistics-result [check]="tool.check" />
 } @else if (tool.kind === ToolKind.Grants) {
   <pio-grants-result [check]="tool.check" />
+} @else if (tool.kind === ToolKind.Filters) {
+  <pio-filters-result [check]="tool.check" />
 } @else if (tool.kind === ToolKind.RichText) {
   <pio-rich-text-result [outcome]="tool.check" [preview]="tool.preview" />
 } @else {

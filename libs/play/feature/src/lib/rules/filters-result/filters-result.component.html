@@ -1,0 +1,42 @@
+@let result = check();
+@if (result.status === FiltersStatus.Valid) {
+  <fr-stack gap="lg">
+    <fr-stack gap="xs">
+      <fr-text element="p">{{
+        'play.rules.filterKept' | transloco: { kept: result.kept.length, total: result.total }
+      }}</fr-text>
+      @if (result.query === '') {
+        <fr-text element="p" tone="muted">{{ 'play.rules.filterNoQuery' | transloco }}</fr-text>
+      } @else {
+        <fr-text element="p" tone="muted">{{ 'play.rules.filterQuery' | transloco: { query: result.query } }}</fr-text>
+      }
+    </fr-stack>
+    @for (facet of facets(); track facet.id) {
+      <fr-stack gap="xs">
+        <fr-heading variant="subheading" [level]="3">{{ facet.label | transloco }}</fr-heading>
+        <fr-description-list>
+          @for (row of facet.values; track row.value) {
+            <fr-description-item [term]="row.key === undefined ? row.value : (row.key | transloco)">{{
+              'play.rules.filterCount' | transloco: { count: row.count }
+            }}</fr-description-item>
+          }
+        </fr-description-list>
+      </fr-stack>
+    }
+    <fr-stack gap="xs">
+      <fr-heading variant="subheading" [level]="3">{{ 'play.rules.filterKeptHeading' | transloco }}</fr-heading>
+      <fr-list gap="xs" markers>
+        @for (entry of result.kept; track $index) {
+          <fr-list-item>
+            <fr-text>{{
+              'play.rules.filterKeptEntry' | transloco: { name: entry.name, kind: (entry.kindKey | transloco) }
+            }}</fr-text>
+          </fr-list-item>
+        }
+      </fr-list>
+    </fr-stack>
+  </fr-stack>
+} @else {
+  <fr-heading variant="subheading" [level]="3">{{ 'play.rules.filterEntriesLabel' | transloco }}</fr-heading>
+  <pio-rules-result [outcome]="result.entries" />
+}
