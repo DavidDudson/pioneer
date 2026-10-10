@@ -68,7 +68,7 @@ export { PackEntry } from './pack-entry';
 export { ContentEntry } from './content-entry';
 export { BundleBody, BundleFile, BundleHash, bundlePath, ContentContract, ContentManifest } from './content-bundle';
 export { CanonicalJson, canonicalJson, contentBundles, contentPackFromBundles } from './content-bundle';
-export type { BundleHasher, BundlePath, ContentBundles, FetchedKind, KindBundles, PackBundles } from './content-bundle';
+export type { BundlePath, ContentBundles, FetchedKind, KindBundles, PackBundles } from './content-bundle';
 export {
   ContentEntryFile,
   ContentPackFile,

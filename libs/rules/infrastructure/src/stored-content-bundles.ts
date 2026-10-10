@@ -16,7 +16,7 @@ import { HashKeyedCache } from './hash-keyed-cache';
 const HASH_DIGITS = 16;
 
 /** How the server names bundles: SHA-256 of their canonical JSON, cut to `HASH_DIGITS`. */
-export function bundleHash(json: CanonicalJson): BundleHash {
+function bundleHash(json: CanonicalJson): BundleHash {
   return BundleHash.parse(new Bun.CryptoHasher('sha256').update(json).digest('hex').slice(0, HASH_DIGITS));
 }
 

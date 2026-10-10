@@ -82,6 +82,7 @@ libs/
     predicate/      three-valued (Kleene) predicate evaluation, roll option namespace lookup
     catalog/        pack loaders over content/packs: the registry's and the seed's source (exists)
     infrastructure/ content tables and the official pack seed (Drizzle; server only)
+    data-access/    browser content delivery: manifest, bundle cache in IndexedDB, per-kind registries (web only)
     ui/             Angular rendering of rules data: rich text, source line (frontier components only;
                     presentational, own Storybook, ADR-0028)
   content/          (TS packs retired; replaced by content/ JSON data, see content-model.md)
@@ -107,9 +108,10 @@ tools/
 ```
 
 Dependency rule: `rules/*` depends only on `shared/kernel` and other `rules/*` libraries: `rules/formula` on the kernel
-alone, `rules/sdk` on `rules/formula`, and `dice`, `predicate`, `engine`, `catalog` and `ui` on `rules/sdk`. `rules/ui`,
-the one web-only `rules` library, also uses frontier; `rules/infrastructure`, the one server-only one, also uses Drizzle
-and `shared/server` in its tests. Feature areas depend on `rules/*`, never the reverse.
+alone, `rules/sdk` on `rules/formula`, and `dice`, `predicate`, `engine`, `catalog` and `ui` on `rules/sdk`. `rules/ui`
+and `rules/data-access`, the web-only `rules` libraries, also use frontier and `shared/web` respectively;
+`rules/infrastructure`, the one server-only one, also uses Drizzle and `shared/server` in its tests.
+Feature areas depend on `rules/*`, never the reverse.
 Frontier never depends on `rules/*`. Components that render rules data are presentational (in `ui` libraries, data in
 through inputs, a story each) or containers (in `feature` libraries, which load data and pass it in), per ADR-0028.
 `apps/storybook` composes every library's Storybook into one.

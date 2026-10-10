@@ -48,6 +48,8 @@ const ancestry = entry('ancestry', 'lizardfolk', {
 const common = entry('language', 'common', {});
 const contents: PackContents = packContentsFromFiles(packFile, [[ancestry, common]]);
 const packs: readonly PackContentsLoader[] = [{ id: PACK, load: async (): Promise<PackContents> => contents }];
+const renamed: PackContents = packContentsFromFiles(packFile, [[ancestry, { ...common, name: 'Common (Taldane)' }]]);
+const reseeded: readonly PackContentsLoader[] = [{ id: PACK, load: async (): Promise<PackContents> => renamed }];
 
 interface Loaded {
   readonly loader: ContentLoader;
@@ -122,5 +124,31 @@ describe(ContentLoader, () => {
 
     expect(registry.packs[0]?.otherEntries.map((language) => language.slug)).toStrictEqual(['common']);
     expect(delivery.requests).toHaveLength(before);
+  });
+
+  it('a prefetch that fails is dropped, and the kind loads when needed', async () => {
+    const { loader, delivery, idle } = load();
+    await loader.registry([ContentKind.Ancestry]);
+    delivery.offline = true;
+
+    idle();
+    await expect.poll(() => kindsFetched(delivery.requests)).toStrictEqual(['ancestry', 'language']);
+    delivery.offline = false;
+    const registry = await loader.registry([ContentKind.Language]);
+
+    expect(registry.packs[0]?.otherEntries.map((language) => language.slug)).toStrictEqual(['common']);
+  });
+
+  it('reads the manifest again when a re-seed since it was read leaves a bundle gone', async () => {
+    const { loader, delivery } = load();
+    await loader.registry([ContentKind.Ancestry]);
+    delivery.reseed(reseeded);
+
+    const registry = await loader.registry([ContentKind.Language]);
+
+    expect(registry.packs[0]?.otherEntries.map((language) => String(language.name))).toStrictEqual([
+      'Common (Taldane)',
+    ]);
+    expect(delivery.requests.filter((request) => request === 'manifest')).toHaveLength(2);
   });
 });

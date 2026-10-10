@@ -41,6 +41,14 @@ export class ContentBundleCache {
     }
   }
 
+  /**
+   * Drops the session's manifest, so the next ask reads it again: for when a bundle it names is gone (a re-seed since
+   * it was read, or another tab evicted it).
+   */
+  public forgetManifest(): void {
+    this.#manifest = undefined;
+  }
+
   /** A bundle's body: from the store when kept, else fetched and kept. */
   public async bundle(pack: PackId, file: BundleFile): Promise<unknown> {
     const path = bundlePath(pack, file);

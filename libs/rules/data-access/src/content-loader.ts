@@ -36,8 +36,21 @@ export class ContentLoader {
   readonly #cache = inject(ContentBundleCache);
   readonly #whenIdle = inject(IDLE_SCHEDULER);
 
-  /** A registry of every official pack with the entries of `kinds`, then the likely next kinds prefetched when idle. */
+  /**
+   * A registry of every official pack with the entries of `kinds`, then the likely next kinds prefetched when idle.
+   * A load that fails reads the manifest again and tries once more: a re-seed since the session read it makes the
+   * bundles it names a 404.
+   */
   public async registry(kinds: readonly ContentKind[]): Promise<ContentRegistry> {
+    try {
+      return await this.#build(kinds);
+    } catch {
+      this.#cache.forgetManifest();
+      return this.#build(kinds);
+    }
+  }
+
+  async #build(kinds: readonly ContentKind[]): Promise<ContentRegistry> {
     const manifest = await this.#cache.manifest();
     const packs = await Promise.all(manifest.packs.map(async (pack) => this.#pack(pack, kinds)));
     const registry = new ContentRegistry();

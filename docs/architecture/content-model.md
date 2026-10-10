@@ -386,15 +386,16 @@ when idle. Content browser search is server-side through per-locale `tsvector` a
   canonical JSON, so equal content gives equal names, and a changed name changes only that kind's names bundle.
   `StoredContentBundles` (`libs/rules/infrastructure`) builds them once per set of stored `content_hash` values,
   as `StoredContentSource` does its registry.
-- **Served publicly** (ADR-0007): `GET /api/content/manifest` (`public, max-age=60`) lists each pack's bundle files
+- **Served publicly** (ADR-0007): `GET /api/content/manifest` (`public, max-age=10`) lists each pack's bundle files
   by kind, and `GET /api/content/bundles/<pack>/<file>` (`public, max-age=31536000, immutable`) serves one. A file
   no current manifest names is a 404, which the edge Worker does not cache.
 - **Kept in the browser.** `ContentBundleCache` (`libs/rules/data-access`) reads the manifest once a session,
   keeps every bundle in IndexedDB by path, and evicts the paths a new manifest no longer names. Offline, the last
   manifest read stands in, so every kind kept still loads. `ContentLoader` builds a `ContentRegistry` of every
   pack with only the kinds a page asks for, then prefetches the likely next kinds (ancestry, then heritage and
-  languages, and so on through building a character) when idle. Descriptions arrive with their own bundles in
-  Epic 2.4; until then an entry read from bundles has none.
+  languages, and so on through building a character) when idle. A bundle that fails to load (a re-seed since the
+  session read the manifest makes it a 404) sends the loader back for a new manifest, once. Descriptions arrive
+  with their own bundles in Epic 2.4; until then an entry read from bundles has none.
 
 ## Filters
 

@@ -17,6 +17,25 @@ async function settled<TResult>(request: IDBRequest<TResult>): Promise<TResult> 
   });
 }
 
+/**
+ * The database `request` opens. Blocked by an older version open in another tab, it fails rather than waits, so the
+ * cache fetches instead of hanging.
+ */
+async function opened(request: IDBOpenDBRequest): Promise<IDBDatabase> {
+  // oxlint-disable-next-line promise/avoid-new -- IndexedDB reports through events; this is where they become a promise
+  return new Promise((resolve, reject) => {
+    request.addEventListener('success', () => {
+      resolve(request.result);
+    });
+    request.addEventListener('error', () => {
+      reject(request.error ?? new Error('IndexedDB open failed'));
+    });
+    request.addEventListener('blocked', () => {
+      reject(new Error('IndexedDB open blocked by another tab'));
+    });
+  });
+}
+
 /** Resolves when `transaction` commits. */
 async function committed(transaction: IDBTransaction): Promise<void> {
   // oxlint-disable-next-line promise/avoid-new -- IndexedDB reports through events; this is where they become a promise
@@ -83,7 +102,13 @@ export class IndexedDbBundleStore implements BundleStore {
       request.result.createObjectStore(BUNDLES);
     });
     try {
-      return await settled(request);
+      const database = await opened(request);
+      // A newer version open in another tab waits on this connection: let it go, and open again on the next use.
+      database.addEventListener('versionchange', () => {
+        database.close();
+        this.#database = undefined;
+      });
+      return database;
     } catch (error) {
       // Opening again may work (another tab released a lock), so a failure is not kept.
       this.#database = undefined;

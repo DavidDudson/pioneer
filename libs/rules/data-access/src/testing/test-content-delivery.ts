@@ -48,11 +48,17 @@ export type DeliveryRequest = 'manifest' | `${PackId}/${BundleFile}`;
 export class TestContentDelivery implements ContentDelivery {
   public offline = false;
   public readonly requests: DeliveryRequest[] = [];
-  readonly #packs: readonly PackContentsLoader[];
+  #packs: readonly PackContentsLoader[];
   #bundles: Promise<ContentBundles> | undefined;
 
   public constructor(packs: readonly PackContentsLoader[]) {
     this.#packs = packs;
+  }
+
+  /** Serves `packs` from now on, as a deploy that re-seeds them does: bundles no longer current fail. */
+  public reseed(packs: readonly PackContentsLoader[]): void {
+    this.#packs = packs;
+    this.#bundles = undefined;
   }
 
   public readonly manifest = async (): Promise<ContentManifest> => {

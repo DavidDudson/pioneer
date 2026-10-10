@@ -3,8 +3,8 @@ import { ContractRouter } from '@pioneer/shared/server';
 
 import type { StoredContentBundles } from './stored-content-bundles';
 
-/** Long enough that a page's loads share one manifest, short enough that a re-seed reaches browsers within a minute. */
-export const MANIFEST_CACHE_CONTROL = 'public, max-age=60';
+/** Long enough that a burst of page loads shares one manifest, short enough that a re-seed reaches browsers in seconds. */
+export const MANIFEST_CACHE_CONTROL = 'public, max-age=10';
 /** A bundle's name changes with its contents, so a fetched bundle never needs asking for again. */
 export const BUNDLE_CACHE_CONTROL = 'public, max-age=31536000, immutable';
 

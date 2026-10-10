@@ -9,7 +9,7 @@ import { officialPacks } from '@pioneer/rules/catalog';
 import { MemoryBundleStore } from '@pioneer/rules/data-access';
 import { provideContentTesting, TestContentDelivery } from '@pioneer/rules/data-access/testing';
 import { contentId, PackId, Slug } from '@pioneer/rules/sdk';
-import { provideI18n } from '@pioneer/shared/web';
+import { IDLE_SCHEDULER, provideI18n } from '@pioneer/shared/web';
 import { describe, expect, it, vi } from 'vitest';
 
 import { characterRoutes } from '../../character.routes';
@@ -50,6 +50,9 @@ async function paste(harness: RouterTestingHarness, root: HTMLElement, text: str
   await harness.fixture.whenStable();
 }
 
+/** Idle work (prefetching likely next kinds) left out, so one visit's requests never land in the next's. */
+const noIdleWork: Provider = { provide: IDLE_SCHEDULER, useValue: (): void => undefined };
+
 describe('PathbuilderImportPage', () => {
   it('shows what it read from a pasted export', async () => {
     const { harness, root } = await openPage();
@@ -77,7 +80,7 @@ describe('PathbuilderImportPage', () => {
   it('matches against content kept from an earlier visit while offline', async () => {
     const store = new MemoryBundleStore();
     const delivery = new TestContentDelivery(officialPacks);
-    const online = await openPage(provideContentTesting(delivery, store));
+    const online = await openPage([...provideContentTesting(delivery, store), noIdleWork]);
     await paste(online.harness, online.root, JSON.stringify(mordredExport));
     await vi.waitFor(() => {
       online.harness.detectChanges();
@@ -87,7 +90,7 @@ describe('PathbuilderImportPage', () => {
     delivery.offline = true;
     const seen = delivery.requests.length;
 
-    const offline = await openPage(provideContentTesting(delivery, store));
+    const offline = await openPage([...provideContentTesting(delivery, store), noIdleWork]);
     await paste(offline.harness, offline.root, JSON.stringify(mordredExport));
 
     await vi.waitFor(() => {
