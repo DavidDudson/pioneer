@@ -335,8 +335,8 @@
       }
     },
     {
-      // Book data and generated token tables are numbers by nature.
-      "files": ["libs/content/**/*.ts", "libs/frontier/scripts/*.ts"],
+      // Book data, generated token tables and published colour-science constants are numbers by nature.
+      "files": ["libs/content/**/*.ts", "libs/frontier/scripts/*.ts", "tools/colour-space.ts"],
       "rules": { "pioneer/no-magic-numbers": "off" }
     },
     {

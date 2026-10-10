@@ -12,13 +12,14 @@
     "ci:build": "nx run-many -t typecheck build verify-styles verify-dev-free",
     "ci:test": "nx run-many -t test",
     "ci:storybook": "nx run frontier:test-storybook",
-    "lint:workspace": "hadolint Dockerfile && tofu fmt -check -recursive infra && knip --treat-config-hints-as-errors && bun run check:messages && bun run check:components && typos && rumdl check . && taplo check && taplo fmt --check && biome lint --error-on-warnings && oxlint tools && oxfmt --check .",
+    "lint:workspace": "hadolint Dockerfile && tofu fmt -check -recursive infra && knip --treat-config-hints-as-errors && bun run check:messages && bun run check:components && bun run check:contrast && typos && rumdl check . && taplo check && taplo fmt --check && biome lint --error-on-warnings && oxlint tools && oxfmt --check .",
     "format": "oxfmt .",
     "format:check": "oxfmt --check .",
     "affected": "nx affected -t lint lint-templates typecheck test test-storybook build verify-styles verify-dev-free",
     "test:tools": "bun test tools",
     "check:messages": "bun tools/check-message-keys.ts",
-    "check:components": "bun tools/check-component-coverage.ts"
+    "check:components": "bun tools/check-component-coverage.ts",
+    "check:contrast": "bun tools/check-token-contrast.ts"
   },
   "dependencies": {
     "@angular/aria": "22.2.0",
