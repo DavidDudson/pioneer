@@ -40,6 +40,7 @@ const SECOND_LEVEL = 2;
 const BRAVERY_LEVEL = 3;
 const FIRST_RANK = 1;
 const THIRD_RANK = 3;
+const FOURTH_RANK = 4;
 
 /** Any attribute: a free boost. */
 const FREE_BOOST = Object.values(Attribute);
@@ -61,6 +62,7 @@ export const farmhand = {
   rules: [
     { key: 'Proficiency', selector: 'skill:athletics', rank: 'trained' },
     { key: 'Proficiency', selector: 'skill:lore-farming', rank: 'trained' },
+    // Foundry preselects Athletics for Assurance's skill choice; GrantItem has no way to say so yet.
     { key: 'GrantItem', item: playerCoreId('assurance') },
   ],
   data: { boosts: [[Attribute.Constitution, Attribute.Wisdom], FREE_BOOST] },
@@ -84,6 +86,16 @@ export const fighter = {
     { key: 'Proficiency', selector: 'save:fortitude', rank: 'expert' },
     { key: 'Proficiency', selector: 'save:reflex', rank: 'expert' },
     { key: 'Proficiency', selector: 'save:will', rank: 'trained' },
+    { key: 'Proficiency', selector: 'attack:simple', rank: 'expert' },
+    { key: 'Proficiency', selector: 'attack:martial', rank: 'expert' },
+    { key: 'Proficiency', selector: 'attack:unarmed', rank: 'expert' },
+    { key: 'Proficiency', selector: 'attack:advanced', rank: 'trained' },
+    { key: 'Proficiency', selector: 'defense:unarmored', rank: 'trained' },
+    { key: 'Proficiency', selector: 'defense:light', rank: 'trained' },
+    { key: 'Proficiency', selector: 'defense:medium', rank: 'trained' },
+    { key: 'Proficiency', selector: 'defense:heavy', rank: 'trained' },
+    { key: 'Proficiency', selector: 'class-dc', rank: 'trained' },
+    // Acrobatics or Athletics is the player's pick, beside the three additional skills.
     { key: 'GrantItem', item: playerCoreId('reactive-strike') },
     fighterFeat(FIRST_LEVEL),
     fighterFeat(SECOND_LEVEL),
@@ -101,13 +113,9 @@ export const reactiveStrike = {
   kind: ContentKind.ClassFeature,
   level: FIRST_LEVEL,
   traits: ['fighter'],
-  rules: [],
-  data: {
-    action: {
-      cost: ActionCost.Reaction,
-      trigger: [paragraph('A creature within your reach uses a manipulate action or a move action.')],
-    },
-  },
+  // The feature is passive: it grants the Reactive Strike action, as Foundry pf2e does.
+  rules: [{ key: 'GrantItem', item: playerCoreId('reactive-strike-action') }],
+  data: {},
 };
 
 export const suddenCharge = {
@@ -132,15 +140,15 @@ export const pharasma = {
   rules: [],
   data: {
     category: DeityCategory.Deity,
-    sanctification: { modal: 'can', what: ['holy'] },
-    domains: { primary: ['death', 'fate', 'healing', 'knowledge'], alternate: ['soul', 'time'] },
+    domains: { primary: ['death', 'fate', 'healing', 'knowledge'], alternate: ['soul', 'time', 'vigil'] },
     font: [DivineFont.Heal],
     attributes: [Attribute.Constitution, Attribute.Wisdom],
     skills: ['skill:medicine'],
     weapons: ['dagger'],
     spells: [
-      { rank: FIRST_RANK, spell: playerCoreId('heal') },
+      { rank: FIRST_RANK, spell: playerCoreId('mindlink') },
       { rank: THIRD_RANK, spell: playerCoreId('ghostly-weapon') },
+      { rank: FOURTH_RANK, spell: playerCoreId('vision-of-death') },
     ],
   },
 };

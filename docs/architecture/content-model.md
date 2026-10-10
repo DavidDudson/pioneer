@@ -109,7 +109,9 @@ Lists of attributes, slugs and ids name each item once.
 - **Feats.** `category` is Foundry's: `ancestry`, `class`, `general`, `skill` or `bonus`; an archetype feat is a
   class feat with the `archetype` trait. `maxTakable` is a count or `unlimited` (Foundry's `null`), once when
   absent. `action` is an `action` kind's `data`, for a feat or class feature used as an action. The sheet placement
-  override is the envelope's `display`.
+  override is the envelope's `display`. Foundry's feature categories on the same item type go elsewhere:
+  `classfeature` is the `class-feature` kind, and `ancestryfeature`, `calling`, `curse`, `deityboon` and `pfsboon`
+  have no kind yet, so the importer reports them.
 - **Archetypes.** Foundry keeps them as journal pages; the importer builds the entry from the dedication feat.
 - **Deities.** `category` is `deity`, `pantheon`, `covenant` or `philosophy`. `sanctification` is `can` or `must`
   with `holy` and/or `unholy`. `domains` has `primary` and `alternate` domain slugs, `font` is `harm` and/or `heal`,

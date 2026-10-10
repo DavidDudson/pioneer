@@ -96,12 +96,8 @@ const reactiveStrike = {
   ...entry('reactive-strike', 'Reactive Strike'),
   kind: 'class-feature',
   level: 1,
-  data: {
-    action: {
-      cost: 'reaction',
-      trigger: prose('A creature within your reach uses a manipulate action or a move action.'),
-    },
-  },
+  rules: [{ key: 'GrantItem', item: idOf('reactive-strike-action') }],
+  data: {},
 };
 
 const suddenCharge = {
@@ -132,15 +128,15 @@ const pharasma = {
   kind: 'deity',
   data: {
     category: 'deity',
-    sanctification: { modal: 'can', what: ['holy'] },
-    domains: { primary: ['death', 'fate', 'healing', 'knowledge'], alternate: ['soul', 'time'] },
+    domains: { primary: ['death', 'fate', 'healing', 'knowledge'], alternate: ['soul', 'time', 'vigil'] },
     font: ['heal'],
     attributes: ['con', 'wis'],
     skills: ['skill:medicine'],
     weapons: ['dagger'],
     spells: [
-      { rank: 1, spell: idOf('heal') },
+      { rank: 1, spell: idOf('mindlink') },
       { rank: 3, spell: idOf('ghostly-weapon') },
+      { rank: 4, spell: idOf('vision-of-death') },
     ],
   },
 };
@@ -152,11 +148,15 @@ describe('build kinds', () => {
     ['a versatile heritage', changeling],
     ['a background', farmhand],
     ['a class with its progression in rules', fighter],
-    ['a class feature', reactiveStrike],
+    ['a class feature that grants an action', reactiveStrike],
     ['a feat used as an action', suddenCharge],
     ['a feat with prerequisites taken any number of times', additionalLore],
     ['a multiclass archetype', fighterArchetype],
     ['a deity', pharasma],
+    [
+      'a sanctified deity',
+      { ...pharasma, data: { ...pharasma.data, sanctification: { modal: 'can', what: ['holy', 'unholy'] } } },
+    ],
   ])('accepts %s', (_name, value) => {
     expect(issues(value)).toStrictEqual([]);
   });
@@ -214,7 +214,7 @@ describe('build kinds', () => {
     };
 
     expect(issues(twice)).toStrictEqual([
-      { path: ['data', 'spells', 2, 'rank'], message: message(RulesMessage.DeitySpellRank, { rank: 1 }) },
+      { path: ['data', 'spells', 3, 'rank'], message: message(RulesMessage.DeitySpellRank, { rank: 1 }) },
     ]);
   });
 

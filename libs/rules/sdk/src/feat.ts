@@ -40,7 +40,7 @@ export type FeatData = z.infer<typeof FeatData>;
  * in `rules`.
  */
 export const ClassFeatureData = z.strictObject({
-  /** How it is used when it is an action (a barbarian's Rage). */
+  /** How it is used when the feature is itself an action. Most grant an `action` entry instead (Reactive Strike). */
   action: ActionData.optional(),
 });
 export type ClassFeatureData = z.infer<typeof ClassFeatureData>;
