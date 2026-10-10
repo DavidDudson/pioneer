@@ -1,7 +1,8 @@
+import { ApplicationRef, createComponent, EnvironmentInjector } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, onTestFinished } from 'vitest';
 
-import { Stack } from './stack.component';
+import { Stack, StackAlign, StackJustify } from './stack.component';
 
 interface Rendered {
   readonly host: HTMLElement;
@@ -39,5 +40,61 @@ describe(Stack, () => {
     expect(host.className).toContain('@container');
     expect(flex.className).toContain('flex-col');
     expect(flex.className).toContain('@md:flex-row');
+  });
+
+  it('stretches its children from the start by default', async () => {
+    const { host, flex } = await render({});
+    expect([...flex.classList]).toStrictEqual(
+      expect.arrayContaining(['flex', 'flex-col', 'gap-md', 'items-stretch', 'justify-start']),
+    );
+    expect([...flex.classList]).not.toContain('flex-wrap');
+    expect([...host.classList]).not.toContain('flex-1');
+  });
+
+  it.each([
+    [StackAlign.Start, 'items-start'],
+    [StackAlign.Center, 'items-center'],
+    [StackAlign.End, 'items-end'],
+    [StackAlign.Baseline, 'items-baseline'],
+  ])('aligns %s children with %s', async (align, expected) => {
+    const { flex } = await render({ align });
+    expect([...flex.classList]).toContain(expected);
+    expect([...flex.classList]).not.toContain('items-stretch');
+  });
+
+  it.each([
+    [StackJustify.Center, 'justify-center'],
+    [StackJustify.End, 'justify-end'],
+    [StackJustify.Between, 'justify-between'],
+  ])('justifies %s with %s', async (justify, expected) => {
+    const { flex } = await render({ justify });
+    expect([...flex.classList]).toContain(expected);
+    expect([...flex.classList]).not.toContain('justify-start');
+  });
+
+  it('wraps onto new lines as a boolean attribute', async () => {
+    const { flex } = await render({ wrap: '' });
+    expect([...flex.classList]).toContain('flex-wrap');
+  });
+
+  it('takes the remaining space in a row as a boolean attribute', async () => {
+    const { host } = await render({ grow: '' });
+    expect([...host.classList]).toContain('flex-1');
+  });
+
+  it('projects its children into the inner flexbox', async () => {
+    const children = [document.createElement('span'), document.createElement('span')];
+    const stack = createComponent(Stack, {
+      environmentInjector: TestBed.inject(EnvironmentInjector),
+      projectableNodes: [children],
+    });
+    onTestFinished(() => {
+      stack.destroy();
+    });
+    const appRef = TestBed.inject(ApplicationRef);
+    appRef.attachView(stack.hostView);
+    await appRef.whenStable();
+    const flex = (stack.location.nativeElement as HTMLElement).firstElementChild;
+    expect(children.map((child) => child.parentElement)).toStrictEqual([flex, flex]);
   });
 });
