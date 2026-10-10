@@ -19,6 +19,8 @@ export const RulesMessage = {
   ActionReactionTrigger: 'rules.action.reactionTrigger',
   ConditionImpliesWithoutGrant: 'rules.condition.impliesWithoutGrant',
   TraitDuplicateKind: 'rules.trait.duplicateKind',
+  ListDuplicate: 'rules.list.duplicate',
+  DeitySpellRank: 'rules.deity.spellRank',
   RichTextTooDeep: 'rules.richText.tooDeep',
   RichTextTooLarge: 'rules.richText.tooLarge',
   RichTextBasicSave: 'rules.richText.basicSave',

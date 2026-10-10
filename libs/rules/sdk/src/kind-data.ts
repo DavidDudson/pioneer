@@ -1,9 +1,15 @@
 import { ActionData } from './action';
 import { AncestryData } from './ancestry';
+import { ArchetypeData } from './archetype';
+import { BackgroundData } from './background';
+import { ClassData } from './character-class';
 import { ConditionData } from './condition';
 import { ContentKind } from './content-kind';
 import { CreatureData } from './creature';
 import { DamageTypeData } from './damage';
+import { DeityData } from './deity';
+import { ClassFeatureData, FeatData } from './feat';
+import { HeritageData } from './heritage';
 import { LanguageData } from './language';
 import { SenseData } from './sense';
 import { StatisticData } from './statistic';
@@ -17,9 +23,16 @@ import { VariantRuleData } from './variant-rule';
 export const KIND_DATA = {
   [ContentKind.Action]: ActionData,
   [ContentKind.Ancestry]: AncestryData,
+  [ContentKind.Archetype]: ArchetypeData,
+  [ContentKind.Background]: BackgroundData,
+  [ContentKind.Class]: ClassData,
+  [ContentKind.ClassFeature]: ClassFeatureData,
   [ContentKind.Condition]: ConditionData,
   [ContentKind.Creature]: CreatureData,
   [ContentKind.DamageType]: DamageTypeData,
+  [ContentKind.Deity]: DeityData,
+  [ContentKind.Feat]: FeatData,
+  [ContentKind.Heritage]: HeritageData,
   [ContentKind.Language]: LanguageData,
   [ContentKind.Sense]: SenseData,
   [ContentKind.Statistic]: StatisticData,

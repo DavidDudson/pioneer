@@ -15,6 +15,8 @@ function issues(value: unknown): readonly FieldIssue[] {
 const PACK = 'player-core';
 const idOf = (slug: string): string => contentId(PackId.parse(PACK), Slug.parse(slug));
 const playerCorePage = { kind: 'book', book: 'player-core', page: 42 };
+/** A free boost: any of the six. */
+const ALL_ATTRIBUTES = ['str', 'dex', 'con', 'int', 'wis', 'cha'];
 const description = [{ type: 'paragraph', content: [{ type: 'text', text: 'Short and adaptable.' }] }];
 
 const human = {
@@ -28,7 +30,16 @@ const human = {
   sources: [playerCorePage],
   description,
   rules: [],
-  data: { hitPoints: 8, size: 'medium', speed: 25 },
+  data: {
+    hitPoints: 8,
+    size: 'medium',
+    speed: 25,
+    boosts: [ALL_ATTRIBUTES, ALL_ATTRIBUTES],
+    flaws: [],
+    languages: [idOf('common')],
+    additionalLanguages: { count: 1, options: [] },
+    reach: 5,
+  },
 };
 
 const giantRat = {
@@ -96,8 +107,8 @@ describe('ContentEntry', () => {
     expect(issues({ ...human, kind: 'spell' })).toStrictEqual([
       { path: ['kind'], message: message(RulesMessage.EntryUnknownKind, { kind: 'spell' }) },
     ]);
-    expect(issues({ ...human, kind: 'feat' })).toStrictEqual([
-      { path: ['kind'], message: message(RulesMessage.EntryUnknownKind, { kind: 'feat' }) },
+    expect(issues({ ...human, kind: 'effect' })).toStrictEqual([
+      { path: ['kind'], message: message(RulesMessage.EntryUnknownKind, { kind: 'effect' }) },
     ]);
   });
 

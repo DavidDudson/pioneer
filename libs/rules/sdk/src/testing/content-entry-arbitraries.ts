@@ -7,6 +7,7 @@ import {
   oneof,
   option,
   record,
+  shuffledSubarray,
   stringMatching,
   tuple,
   uniqueArray,
@@ -21,6 +22,8 @@ import { DisplayCategory, Rarity } from '../content-entry';
 import { contentId, PackId, Slug } from '../content-id';
 import { ContentKind } from '../content-kind';
 import { DamageType } from '../damage';
+import { DeityCategory, DivineFont, Sanctification, SanctificationModal, SPELL_RANK_MAX } from '../deity';
+import { FeatCategory, UNLIMITED } from '../feat';
 import type { RegisteredKind } from '../kind-data';
 import { ActionCost } from '../rich-text';
 import { SenseAcuity } from '../sense';
@@ -72,11 +75,51 @@ const displayCategory: Arbitrary<string> = constantFrom(...Object.values(Display
 const statisticKind: Arbitrary<string> = constantFrom(...Object.values(StatisticKind));
 const attribute: Arbitrary<string> = constantFrom(...Object.values(Attribute));
 
-const ancestryData: Arbitrary<object> = record({
-  hitPoints: smallint,
-  size,
-  speed: smallint,
+const attributes: Arbitrary<string[]> = shuffledSubarray(Object.values(Attribute));
+const boost: Arbitrary<string[]> = shuffledSubarray(Object.values(Attribute), { minLength: 1 });
+const contentIds: Arbitrary<string[]> = uniqueArray(uuid({ version: 4 }), { maxLength: LIST_MAX });
+
+const ancestryData: Arbitrary<object> = withOptional(
+  record({
+    hitPoints: smallint,
+    size,
+    speed: smallint,
+    boosts: array(boost, { maxLength: LIST_MAX }),
+    flaws: attributes,
+    languages: contentIds,
+    additionalLanguages: record({ count: smallint, options: contentIds }),
+    reach: smallint,
+  }),
+  { vision: uuid({ version: 4 }) },
+);
+
+const heritageData: Arbitrary<object> = withOptional(constant({}), { ancestry: uuid({ version: 4 }) });
+const backgroundData: Arbitrary<object> = record({ boosts: array(boost, { maxLength: 2 }) });
+const classData: Arbitrary<object> = record({ keyAttribute: boost, hitPoints: smallint, additionalSkills: smallint });
+const archetypeData: Arbitrary<object> = withOptional(record({ dedication: uuid({ version: 4 }) }), {
+  multiclass: uuid({ version: 4 }),
 });
+
+const slugs: Arbitrary<string[]> = uniqueArray(slugText, { maxLength: LIST_MAX });
+const deityData: Arbitrary<object> = withOptional(
+  record({
+    category: constantFrom(...Object.values(DeityCategory)),
+    domains: record({ primary: slugs, alternate: slugs }),
+    font: shuffledSubarray(Object.values(DivineFont)),
+    attributes,
+    skills: uniqueArray(keyPathText, { maxLength: LIST_MAX }),
+    weapons: slugs,
+    spells: shuffledSubarray(Array.from({ length: SPELL_RANK_MAX }, (_, index) => index + 1), {
+      maxLength: LIST_MAX,
+    }).chain((ranks) => tuple(...ranks.map((rank) => record({ rank: constant(rank), spell: uuid({ version: 4 }) })))),
+  }),
+  {
+    sanctification: record({
+      modal: constantFrom(...Object.values(SanctificationModal)),
+      what: shuffledSubarray(Object.values(Sanctification), { minLength: 1 }),
+    }),
+  },
+);
 
 const attributeModifier: Arbitrary<number> = integer({ min: ATTRIBUTE_MODIFIER_MIN, max: ATTRIBUTE_MODIFIER_MAX });
 const adjustments: Arbitrary<object[]> = array(record({ type: damageType, value: positive }), { maxLength: LIST_MAX });
@@ -132,6 +175,14 @@ const actionData: Arbitrary<object> = oneof(
   withOptional(constant({}), { cost: otherCost, trigger: richTextJson, ...actionUse }),
 );
 
+const featData: Arbitrary<object> = withOptional(record({ category: constantFrom(...Object.values(FeatCategory)) }), {
+  prerequisites: richTextJson,
+  onlyLevel1: boolean(),
+  maxTakable: oneof(positive, constant(UNLIMITED)),
+  action: actionData,
+});
+const classFeatureData: Arbitrary<object> = withOptional(constant({}), { action: actionData });
+
 const conditionRefs: Arbitrary<string[]> = uniqueArray(contentIdJson, { maxLength: LIST_MAX });
 const conditionData: Arbitrary<object> = withOptional(
   record({ valued: boolean(), overrides: conditionRefs, implies: conditionRefs }),
@@ -150,6 +201,9 @@ const emptyData: Arbitrary<object> = constant({});
 
 /** A level from any kind but creatures, and a creature's level. */
 const entryLevel: Arbitrary<number> = integer({ min: 0, max: CONTENT_LEVEL_MAX });
+/** Feats and class features: the character level they are gained at. */
+const CHARACTER_LEVEL_MAX = 20;
+const featLevel: Arbitrary<number> = integer({ min: 1, max: CHARACTER_LEVEL_MAX });
 const creatureLevel: Arbitrary<number> = integer({ min: LEVEL_MIN, max: LEVEL_MAX });
 
 /** Valid `data` for each registered kind, and its level when the kind always has one. */
@@ -158,9 +212,16 @@ const KIND_ARBITRARIES: Readonly<
 > = {
   [ContentKind.Action]: { data: actionData },
   [ContentKind.Ancestry]: { data: ancestryData },
+  [ContentKind.Archetype]: { data: archetypeData },
+  [ContentKind.Background]: { data: backgroundData },
+  [ContentKind.Class]: { data: classData },
+  [ContentKind.ClassFeature]: { data: classFeatureData, level: featLevel },
   [ContentKind.Condition]: { data: conditionData },
   [ContentKind.Creature]: { data: creatureData, level: creatureLevel },
   [ContentKind.DamageType]: { data: emptyData },
+  [ContentKind.Deity]: { data: deityData },
+  [ContentKind.Feat]: { data: featData, level: featLevel },
+  [ContentKind.Heritage]: { data: heritageData },
   [ContentKind.Language]: { data: emptyData },
   [ContentKind.Sense]: { data: senseData },
   [ContentKind.Statistic]: { data: statisticData },

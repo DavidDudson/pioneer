@@ -88,6 +88,32 @@ const Entry = z.discriminatedUnion('kind', [
   }),
   z.strictObject({
     ...address,
+    kind: z.literal(ContentKind.Archetype),
+    ...envelope,
+    data: KIND_DATA[ContentKind.Archetype],
+  }),
+  z.strictObject({
+    ...address,
+    kind: z.literal(ContentKind.Background),
+    ...envelope,
+    data: KIND_DATA[ContentKind.Background],
+  }),
+  z.strictObject({
+    ...address,
+    kind: z.literal(ContentKind.Class),
+    ...envelope,
+    data: KIND_DATA[ContentKind.Class],
+  }),
+  z.strictObject({
+    ...address,
+    kind: z.literal(ContentKind.ClassFeature),
+    ...envelope,
+    // A class feature always has a level: the one its class gains it at.
+    level: ContentLevel,
+    data: KIND_DATA[ContentKind.ClassFeature],
+  }),
+  z.strictObject({
+    ...address,
     kind: z.literal(ContentKind.Condition),
     ...envelope,
     data: KIND_DATA[ContentKind.Condition],
@@ -105,6 +131,26 @@ const Entry = z.discriminatedUnion('kind', [
     kind: z.literal(ContentKind.DamageType),
     ...envelope,
     data: KIND_DATA[ContentKind.DamageType],
+  }),
+  z.strictObject({
+    ...address,
+    kind: z.literal(ContentKind.Deity),
+    ...envelope,
+    data: KIND_DATA[ContentKind.Deity],
+  }),
+  z.strictObject({
+    ...address,
+    kind: z.literal(ContentKind.Feat),
+    ...envelope,
+    // A feat always has a level: the lowest a character can take it at.
+    level: ContentLevel,
+    data: KIND_DATA[ContentKind.Feat],
+  }),
+  z.strictObject({
+    ...address,
+    kind: z.literal(ContentKind.Heritage),
+    ...envelope,
+    data: KIND_DATA[ContentKind.Heritage],
   }),
   z.strictObject({
     ...address,
