@@ -1,6 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 
 import { StatisticDefinition, StatisticKind } from '@pioneer/rules/sdk';
+import { PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
 import { assert, constant, integer, oneof, property, shuffledSubarray, subarray, tuple } from 'fast-check';
 import type { Arbitrary } from 'fast-check';
 
@@ -100,7 +101,11 @@ describe('statistic graph (properties)', () => {
   test('results do not depend on the order the definitions are given in', () => {
     assert(
       property(reordered, ([definitions, shuffled]) => {
-        expect([...deriveStatistics(shuffled, inputs)]).toStrictEqual([...deriveStatistics(definitions, inputs)]);
+        expect([
+          ...deriveStatistics({ definitions: shuffled, proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS }, inputs),
+        ]).toStrictEqual([
+          ...deriveStatistics({ definitions, proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS }, inputs),
+        ]);
       }),
     );
   });
@@ -108,7 +113,9 @@ describe('statistic graph (properties)', () => {
   test('acyclic graphs never error, and the base terms add up to the total', () => {
     assert(
       property(acyclic, (definitions) => {
-        const results = [...deriveStatistics(definitions, inputs).values()];
+        const results = [
+          ...deriveStatistics({ definitions, proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS }, inputs).values(),
+        ];
         expect(results).toHaveLength(definitions.length);
         for (const result of results) {
           expect(result.ok).toBe(true);
@@ -123,7 +130,7 @@ describe('statistic graph (properties)', () => {
   test('every statistic on a generated cycle reports the cycle, naming each statistic on it', () => {
     assert(
       property(withCycle, ({ definitions, cycle }) => {
-        const results = deriveStatistics(definitions, inputs);
+        const results = deriveStatistics({ definitions, proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS }, inputs);
         for (const selector of cycle) {
           const result = [...results.values()].find((found) => found.selector === selector);
           expect(result?.ok).toBe(false);

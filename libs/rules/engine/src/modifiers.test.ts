@@ -4,6 +4,7 @@ import { FormulaMessage } from '@pioneer/rules/formula';
 import { PredicateFacts, SummaryKind } from '@pioneer/rules/predicate';
 import { RollOption, Selector } from '@pioneer/rules/sdk';
 import type { StatisticDefinition } from '@pioneer/rules/sdk';
+import { PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
 
 import { InactiveReason, LineStatusKind, SuppressionReason } from './breakdown';
 import type { BreakdownLine } from './breakdown';
@@ -33,9 +34,11 @@ function derived(
   known: PredicateFacts = facts(),
   definition: StatisticDefinition = ac,
 ): StatisticValue {
-  const result = deriveStatistics([definition], inputs, { rules, facts: known }).get(
-    Selector.parse(definition.selector),
-  );
+  const result = deriveStatistics(
+    { definitions: [definition], proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS },
+    inputs,
+    { rules, facts: known },
+  ).get(Selector.parse(definition.selector));
   if (result?.ok !== true) {
     throw new Error(`Expected ${definition.selector} to derive`);
   }
@@ -197,10 +200,14 @@ describe('@stat in modifier formulas', () => {
     const perception = statistic('perception', '@attr.wis + 2');
     const fromPerception = inPlay(flatModifier('untyped', '@stat.perception', ['ac']), 'reads-perception');
     const perceptionBonus = inPlay(flatModifier('untyped', 5, ['perception']), 'perception-bonus');
-    const results = deriveStatistics([ac, perception], inputs, {
-      rules: [fromPerception, perceptionBonus],
-      facts: facts(),
-    });
+    const results = deriveStatistics(
+      { definitions: [ac, perception], proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS },
+      inputs,
+      {
+        rules: [fromPerception, perceptionBonus],
+        facts: facts(),
+      },
+    );
     expect(results.get(Selector.parse('perception'))).toMatchObject({ baseValue: 3, total: 8 });
     expect(results.get(Selector.parse('ac'))).toMatchObject({ total: 19 });
   });

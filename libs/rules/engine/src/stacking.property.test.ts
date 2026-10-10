@@ -2,6 +2,7 @@ import { describe, expect, test } from 'bun:test';
 
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import { ModifierType, RollOption, Selector } from '@pioneer/rules/sdk';
+import { PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
 import { array, assert, constant, constantFrom, integer, property, record, shuffledSubarray, tuple } from 'fast-check';
 import type { Arbitrary } from 'fast-check';
 
@@ -61,9 +62,11 @@ function rules(specs: readonly ModifierSpec[]): RuleInPlay[] {
 }
 
 function derive(rulesInPlay: readonly RuleInPlay[]): StatisticValue {
-  const result: StatisticResult | undefined = deriveStatistics([ac], inputs, { rules: rulesInPlay, facts }).get(
-    Selector.parse('ac'),
-  );
+  const result: StatisticResult | undefined = deriveStatistics(
+    { definitions: [ac], proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS },
+    inputs,
+    { rules: rulesInPlay, facts },
+  ).get(Selector.parse('ac'));
   if (result?.ok !== true) {
     throw new Error('AC always derives');
   }

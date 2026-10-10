@@ -3,6 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import { FormulaMessage } from '@pioneer/rules/formula';
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import { RollOption, Selector } from '@pioneer/rules/sdk';
+import { PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
 
 import { OverridePhase, OverrideStatusKind } from './breakdown';
 import { deriveStatistics } from './derive-statistics';
@@ -25,7 +26,10 @@ const perception = statistic('perception', '@attr.wis + @stat.ac');
 
 function derivedAll(rules: readonly RuleInPlay[], ...options: readonly string[]): ReadonlyMap<Selector, unknown> {
   const facts = new PredicateFacts(options.map((option) => RollOption.parse(option)));
-  return deriveStatistics([ac, perception], inputs, { rules, facts });
+  return deriveStatistics({ definitions: [ac, perception], proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS }, inputs, {
+    rules,
+    facts,
+  });
 }
 
 function derived(rules: readonly RuleInPlay[], ...options: readonly string[]): StatisticValue {

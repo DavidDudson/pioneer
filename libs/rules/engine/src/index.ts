@@ -12,7 +12,8 @@ export {
   OverrideStatusKind,
   SuppressionReason,
 } from './breakdown';
-export { deriveStatistics } from './derive-statistics';
+export { deriveStatistics, type StatisticContent } from './derive-statistics';
+export { statisticContent, variantRulesInPlay } from './statistic-content';
 export { EngineMessage } from './messages';
 export { type ModifierInputs, RuleId, ruleIdOf, RuleInPlay } from './rule-in-play';
 export { type StatisticFailure, type StatisticResult, type StatisticValue } from './statistic-result';
