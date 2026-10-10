@@ -47,8 +47,8 @@ check:
 hooks:
     prek install
 
-# Drop and recreate the local dev database, then migrate (destroys local data)
+# Drop and recreate the local dev database, then migrate and seed the dev users (destroys local data)
 db-reset: db-up
     dropdb --if-exists pioneer
     createdb pioneer
-    bun apps/api/src/main.ts migrate
+    bun apps/api/src/main.dev.ts seed

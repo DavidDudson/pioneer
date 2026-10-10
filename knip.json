@@ -11,7 +11,9 @@
     "libs/frontier/scripts/*.ts",
     "tools/**/*.ts",
     "**/*.{test,spec}.ts",
-    "apps/web/src/styles.css"
+    "apps/web/src/styles.css",
+    "apps/web/src/app/environment.development.ts",
+    "apps/api/src/main.dev.ts"
   ],
   "project": ["apps/**/*.ts", "libs/**/*.ts", "tools/**/*.ts", "libs/frontier/src/styles/*.css", "apps/web/src/*.css"],
   "ignoreBinaries": ["typos", "rumdl", "taplo", "hadolint", "tofu"],

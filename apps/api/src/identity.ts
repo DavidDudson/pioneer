@@ -14,7 +14,7 @@ import {
   SessionAuthenticator,
   sessionSweep,
 } from '@pioneer/identity/infrastructure';
-import type { OAuthCredentials } from '@pioneer/identity/infrastructure';
+import type { CookiePolicy, OAuthCredentials } from '@pioneer/identity/infrastructure';
 import { Milliseconds } from '@pioneer/shared/kernel';
 import type { Clock } from '@pioneer/shared/kernel';
 import type { RequestAuthenticator } from '@pioneer/shared/server';
@@ -75,6 +75,10 @@ export interface Identity {
   readonly routes: Elysia;
   /** Who sent a request, for every other context's routes. */
   readonly authenticator: RequestAuthenticator;
+  /** Sign-in and sessions, for routes outside identity's own (the local dev sign-in). */
+  readonly service: IdentityService;
+  /** Cookie attributes every session cookie is set with. */
+  readonly policy: CookiePolicy;
 }
 
 /** Identity's part of the composition root: service, configured providers, routes and authenticator. */
@@ -83,13 +87,15 @@ export function identity(db: Database, env: Env, clock: Clock): Identity {
   const preferences = new PreferencesService(new DrizzlePreferencesRepository(db), clock);
   // Secure cookies unless the public origin is plain http (local development).
   const secure = env.PUBLIC_ORIGIN?.startsWith('https:') ?? true;
-  const policy = { secure };
+  const policy: CookiePolicy = { secure };
   const authenticator = new SessionAuthenticator(service, policy);
   return {
     routes: identityRoutes(service, providers(env), policy)
       .use(preferenceRoutes(preferences, authenticator))
       .use(sessionSweep(service, SESSION_SWEEP_INTERVAL)),
     authenticator,
+    service,
+    policy,
   };
 }
 
