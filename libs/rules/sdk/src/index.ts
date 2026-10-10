@@ -36,7 +36,15 @@ export { MagicTradition, SpellcastingTraditionData } from './spellcasting-tradit
 export { FeatCategory } from './feat';
 export { ConditionData, ConditionGroup } from './condition';
 export { ContentKind, ContentKindSchema } from './content-kind';
-export { ContentPack, type ContentPackLoader, ContentPackManifest, ContentPackSchema } from './content-pack';
+export {
+  ContentPack,
+  type ContentPackLoader,
+  ContentPackManifest,
+  ContentPackSchema,
+  PackAncestry,
+  PackCreature,
+  PackStatistic,
+} from './content-pack';
 export { contentId, ContentKey, contentKey, PackId, Slug } from './content-id';
 export { ContentText } from './content-text';
 export {

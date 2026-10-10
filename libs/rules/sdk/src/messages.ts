@@ -7,6 +7,8 @@ export const RulesMessage = {
   PredicateTooDeep: 'rules.predicate.tooDeep',
   BookLocation: 'rules.source.bookLocation',
   AonUrl: 'rules.source.aonUrl',
+  SourceUnknownBook: 'rules.source.unknownBook',
+  SourceHomebrewPack: 'rules.source.homebrewPack',
   BookUntitled: 'rules.book.untitled',
   BookAonSourceUrl: 'rules.book.aonSourceUrl',
   UnknownElement: 'rules.element.unknown',

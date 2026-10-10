@@ -2,9 +2,10 @@ import {
   Attribute,
   ContentLicense,
   ContentPack,
+  PackStatistic,
   RuleElementKey,
   SourceKind,
-  StatisticDefinition,
+  SourceRef,
   StatisticKind,
 } from '@pioneer/rules/sdk';
 
@@ -18,12 +19,47 @@ const ATTRIBUTE_DOMAIN: Readonly<Record<Attribute, string>> = {
   [Attribute.Charisma]: 'cha-based',
 };
 
+/** A Player Core page and its entry on Archives of Nethys (`Skills.aspx?ID=34`). */
+function playerCore(page: number, aonEntry: string): SourceRef {
+  return SourceRef.parse({
+    kind: SourceKind.Book,
+    book: 'player-core',
+    page,
+    aon: `https://2e.aonprd.com/${aonEntry}`,
+  });
+}
+
+/** AC, saving throws and Perception: one AoN rules entry each, all on Player Core p. 404. */
+const ARMOR_CLASS_SOURCE = playerCore(404, 'Rules.aspx?ID=2295');
+const SAVING_THROWS_SOURCE = playerCore(404, 'Rules.aspx?ID=2296');
+const PERCEPTION_SOURCE = playerCore(404, 'Rules.aspx?ID=2298');
+
+/** Each skill's Player Core page and AoN skill entry. */
+const SKILL_SOURCES: Readonly<Record<string, SourceRef>> = {
+  acrobatics: playerCore(233, 'Skills.aspx?ID=34'),
+  arcana: playerCore(234, 'Skills.aspx?ID=35'),
+  athletics: playerCore(234, 'Skills.aspx?ID=36'),
+  crafting: playerCore(236, 'Skills.aspx?ID=37'),
+  deception: playerCore(237, 'Skills.aspx?ID=38'),
+  diplomacy: playerCore(239, 'Skills.aspx?ID=39'),
+  intimidation: playerCore(240, 'Skills.aspx?ID=40'),
+  medicine: playerCore(241, 'Skills.aspx?ID=42'),
+  nature: playerCore(242, 'Skills.aspx?ID=43'),
+  occultism: playerCore(243, 'Skills.aspx?ID=44'),
+  performance: playerCore(243, 'Skills.aspx?ID=45'),
+  religion: playerCore(244, 'Skills.aspx?ID=46'),
+  society: playerCore(244, 'Skills.aspx?ID=47'),
+  stealth: playerCore(244, 'Skills.aspx?ID=48'),
+  survival: playerCore(246, 'Skills.aspx?ID=49'),
+  thievery: playerCore(246, 'Skills.aspx?ID=50'),
+};
+
 /**
  * A skill check: `skill:<slug>`, its key attribute plus its proficiency. Armor check penalties are rule elements on
- * armor, not part of the base.
+ * armor, not part of the base. Cited from `SKILL_SOURCES`.
  */
-function skill(slug: string, name: string, attribute: Attribute): StatisticDefinition {
-  return StatisticDefinition.parse({
+function skill(slug: string, name: string, attribute: Attribute): PackStatistic {
+  return PackStatistic.parse({
     slug,
     name,
     selector: `skill:${slug}`,
@@ -31,6 +67,7 @@ function skill(slug: string, name: string, attribute: Attribute): StatisticDefin
     base: `@attr.${attribute} + @prof.skill.${slug}`,
     kind: StatisticKind.Check,
     keyAttribute: attribute,
+    sources: [SKILL_SOURCES[slug]],
   });
 }
 
@@ -75,6 +112,7 @@ export const coreRules = ContentPack.define({
       base: '10 + @attr.dex.capped + @prof.ac',
       kind: StatisticKind.Dc,
       keyAttribute: Attribute.Dexterity,
+      sources: [ARMOR_CLASS_SOURCE],
     },
     {
       slug: 'fortitude',
@@ -84,6 +122,7 @@ export const coreRules = ContentPack.define({
       base: '@attr.con + @prof.save.fortitude',
       kind: StatisticKind.Check,
       keyAttribute: Attribute.Constitution,
+      sources: [SAVING_THROWS_SOURCE],
     },
     {
       slug: 'reflex',
@@ -93,6 +132,7 @@ export const coreRules = ContentPack.define({
       base: '@attr.dex + @prof.save.reflex',
       kind: StatisticKind.Check,
       keyAttribute: Attribute.Dexterity,
+      sources: [SAVING_THROWS_SOURCE],
     },
     {
       slug: 'will',
@@ -102,6 +142,7 @@ export const coreRules = ContentPack.define({
       base: '@attr.wis + @prof.save.will',
       kind: StatisticKind.Check,
       keyAttribute: Attribute.Wisdom,
+      sources: [SAVING_THROWS_SOURCE],
     },
     {
       slug: 'perception',
@@ -111,6 +152,7 @@ export const coreRules = ContentPack.define({
       base: '@attr.wis + @prof.perception',
       kind: StatisticKind.Check,
       keyAttribute: Attribute.Wisdom,
+      sources: [PERCEPTION_SOURCE],
     },
     skill('acrobatics', 'Acrobatics', Attribute.Dexterity),
     skill('arcana', 'Arcana', Attribute.Intelligence),

@@ -79,6 +79,19 @@ describe('RulesPlaygroundPage content entry', () => {
     expect(text).toContain('“hazard” is not a content kind Pioneer has a schema for yet.');
   });
 
+  it('says which source cites a book that is not registered', async () => {
+    const harness = await openPlayground();
+    await chooseSchema(harness, 'Content entry');
+    await typeJson(harness, json(harness).replace('"book": "player-core"', '"book": "core-rulebook"'));
+
+    const text = pageText(harness);
+    expect(text).toContain('1 problem');
+    expect(text).toContain('sources[0].book');
+    expect(text).toContain(
+      'player-core/human cites core-rulebook in sources[0], but core-rulebook is not in the book registry. Cite a registered book, or add core-rulebook to the registry.',
+    );
+  });
+
   it('points at the envelope or data field that is wrong', async () => {
     const harness = await openPlayground();
     await chooseSchema(harness, 'Content entry');

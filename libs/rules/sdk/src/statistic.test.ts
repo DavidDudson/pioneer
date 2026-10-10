@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { fieldIssues, message } from '@pioneer/shared/kernel';
+import { fieldIssues, message, ValidationMessage } from '@pioneer/shared/kernel';
 import type { FieldIssue } from '@pioneer/shared/kernel';
 import type * as z from 'zod';
 
@@ -68,14 +68,34 @@ describe('StatisticDefinition', () => {
 
 describe('statistics in a pack', () => {
   test('two statistics may not share a selector; the second is the problem', () => {
+    const sources = [{ kind: 'book', book: 'player-core', page: 404 }];
     const pack = {
       manifest: { id: 'test-pack', title: 'Test', publisher: 'Tests', license: 'homebrew' },
       ancestries: [],
       creatures: [],
-      statistics: [armorClass, { ...armorClass, slug: 'other-armor-class' }],
+      statistics: [
+        { ...armorClass, sources },
+        { ...armorClass, slug: 'other-armor-class', sources },
+      ],
     };
     expect(issuesFrom(ContentPackSchema, pack)).toStrictEqual([
       { path: ['statistics', 1, 'selector'], message: message(RulesMessage.DuplicateSelector, { selector: 'ac' }) },
+    ]);
+  });
+
+  test('every statistic in a pack cites at least one source', () => {
+    const pack = {
+      manifest: { id: 'test-pack', title: 'Test', publisher: 'Tests', license: 'homebrew' },
+      ancestries: [],
+      creatures: [],
+      statistics: [armorClass, { ...armorClass, slug: 'other-armor-class', selector: 'other-ac', sources: [] }],
+    };
+    expect(issuesFrom(ContentPackSchema, pack)).toStrictEqual([
+      { path: ['statistics', 0, 'sources'], message: message(ValidationMessage.InvalidType, { expected: 'array' }) },
+      {
+        path: ['statistics', 1, 'sources'],
+        message: message(ValidationMessage.TooSmall, { origin: 'array', minimum: 1 }),
+      },
     ]);
   });
 

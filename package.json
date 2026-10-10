@@ -19,7 +19,8 @@
     "test:tools": "bun test tools",
     "check:messages": "bun tools/check-message-keys.ts",
     "check:components": "bun tools/check-component-coverage.ts",
-    "check:contrast": "bun tools/check-token-contrast.ts"
+    "check:contrast": "bun tools/check-token-contrast.ts",
+    "content:coverage": "bun tools/content-coverage.ts"
   },
   "dependencies": {
     "@angular/aria": "22.2.0",

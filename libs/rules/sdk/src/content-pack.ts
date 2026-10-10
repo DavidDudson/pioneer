@@ -6,6 +6,7 @@ import { PackId } from './content-id';
 import type { Slug } from './content-id';
 import { ContentText } from './content-text';
 import { CreatureDefinition } from './creature';
+import { envelope } from './entry-envelope';
 import { ContentLicenseSchema } from './license';
 import { RulesMessage } from './messages';
 import { ProficiencyBonusTable } from './proficiency';
@@ -26,9 +27,24 @@ function uniqueSlugs(entries: readonly { readonly slug: Slug }[]): boolean {
   return new Set(entries.map((entry) => entry.slug)).size === entries.length;
 }
 
+/**
+ * Every pack entry cites its sources, as the `ContentEntry` envelope does (ADR-0005), so the catalog can check packs
+ * against the book registry before Epic 2.3 moves them onto the envelope.
+ */
+const sourced = { sources: envelope.sources };
+
+export const PackAncestry = AncestryDefinition.extend(sourced);
+export type PackAncestry = z.infer<typeof PackAncestry>;
+
+export const PackCreature = CreatureDefinition.extend(sourced);
+export type PackCreature = z.infer<typeof PackCreature>;
+
+export const PackStatistic = StatisticDefinition.extend(sourced);
+export type PackStatistic = z.infer<typeof PackStatistic>;
+
 /** A pack's statistics: modifiers and references find a statistic by selector, so each selector is used once. */
 const Statistics = z
-  .array(StatisticDefinition)
+  .array(PackStatistic)
   .readonly()
   .refine(uniqueSlugs, 'Duplicate statistic slug')
   .check((context) => {
@@ -44,8 +60,8 @@ const Statistics = z
 
 export const ContentPackSchema = z.object({
   manifest: ContentPackManifest,
-  ancestries: z.array(AncestryDefinition).readonly().refine(uniqueSlugs, 'Duplicate ancestry slug'),
-  creatures: z.array(CreatureDefinition).readonly().refine(uniqueSlugs, 'Duplicate creature slug'),
+  ancestries: z.array(PackAncestry).readonly().refine(uniqueSlugs, 'Duplicate ancestry slug'),
+  creatures: z.array(PackCreature).readonly().refine(uniqueSlugs, 'Duplicate creature slug'),
   /** Optional, so packs without statistics need not list them. */
   statistics: Statistics.default([]),
   /** How proficiency ranks become bonuses: the core rules pack defines it, and a pack registered later may restate it. */
@@ -64,9 +80,9 @@ export const ContentPackSchema = z.object({
  */
 export class ContentPack {
   public readonly manifest: ContentPackManifest;
-  public readonly ancestries: readonly AncestryDefinition[];
-  public readonly creatures: readonly CreatureDefinition[];
-  public readonly statistics: readonly StatisticDefinition[];
+  public readonly ancestries: readonly PackAncestry[];
+  public readonly creatures: readonly PackCreature[];
+  public readonly statistics: readonly PackStatistic[];
   public readonly proficiencyBonus: ProficiencyBonusTable | undefined;
   public readonly variantRules: readonly VariantRuleDefinition[];
 

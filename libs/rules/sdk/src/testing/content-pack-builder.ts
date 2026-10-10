@@ -5,12 +5,22 @@ import { ContentPack } from '../content-pack';
 import type { CreatureDefinition } from '../creature';
 import { ContentLicense } from '../license';
 import { Size } from '../size';
+import { SourceKind } from '../source-ref';
+import type { SourceRef } from '../source-ref';
 import type { StatisticDefinition } from '../statistic';
 import { StatisticKind } from '../statistic';
 
+/** Who wrote the test pack's homebrew; a fixed id so packs built twice are equal. */
+const TEST_AUTHOR = '00000000-0000-4000-8000-000000000001';
+
+/** A definition as tests give it: its sources are optional, defaulting to the pack's homebrew. */
+type Sourceable<Definition extends z.ZodType> = z.input<Definition> & {
+  readonly sources?: readonly z.input<typeof SourceRef>[];
+};
+
 /**
- * Test builder for content packs. Defaults to a valid, empty homebrew pack;
- * every `with*` returns the builder so tests state only what they care about:
+ * Test builder for content packs. Defaults to a valid, empty homebrew pack whose entries cite it as their homebrew
+ * source; every `with*` returns the builder so tests state only what they care about:
  *
  * ```ts
  * const pack = new ContentPackBuilder().withAncestry('human').build();
@@ -18,16 +28,16 @@ import { StatisticKind } from '../statistic';
  */
 export class ContentPackBuilder {
   #id = 'test-pack';
-  readonly #ancestries: z.input<typeof AncestryDefinition>[] = [];
-  readonly #creatures: z.input<typeof CreatureDefinition>[] = [];
-  readonly #statistics: z.input<typeof StatisticDefinition>[] = [];
+  readonly #ancestries: Sourceable<typeof AncestryDefinition>[] = [];
+  readonly #creatures: Sourceable<typeof CreatureDefinition>[] = [];
+  readonly #statistics: Sourceable<typeof StatisticDefinition>[] = [];
 
   public withId(id: string): this {
     this.#id = id;
     return this;
   }
 
-  public withAncestry(slug: string, overrides: Partial<z.input<typeof AncestryDefinition>> = {}): this {
+  public withAncestry(slug: string, overrides: Partial<Sourceable<typeof AncestryDefinition>> = {}): this {
     this.#ancestries.push({
       slug,
       name: slug.charAt(0).toUpperCase() + slug.slice(1),
@@ -40,13 +50,13 @@ export class ContentPackBuilder {
     return this;
   }
 
-  public withCreature(definition: z.input<typeof CreatureDefinition>): this {
+  public withCreature(definition: Sourceable<typeof CreatureDefinition>): this {
     this.#creatures.push(definition);
     return this;
   }
 
   /** A check whose selector is its slug, with a base formula of `0` unless overridden. */
-  public withStatistic(slug: string, overrides: Partial<z.input<typeof StatisticDefinition>> = {}): this {
+  public withStatistic(slug: string, overrides: Partial<Sourceable<typeof StatisticDefinition>> = {}): this {
     this.#statistics.push({
       slug,
       name: slug.charAt(0).toUpperCase() + slug.slice(1),
@@ -60,11 +70,12 @@ export class ContentPackBuilder {
   }
 
   public build(): ContentPack {
+    const sources = [{ kind: SourceKind.Homebrew, author: TEST_AUTHOR, pack: this.#id }];
     return ContentPack.define({
       manifest: { id: this.#id, title: 'Test pack', publisher: 'Pioneer tests', license: ContentLicense.Homebrew },
-      ancestries: this.#ancestries,
-      creatures: this.#creatures,
-      statistics: this.#statistics,
+      ancestries: this.#ancestries.map((ancestry) => ({ sources, ...ancestry })),
+      creatures: this.#creatures.map((creature) => ({ sources, ...creature })),
+      statistics: this.#statistics.map((statistic) => ({ sources, ...statistic })),
     });
   }
 }
