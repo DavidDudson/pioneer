@@ -49,11 +49,21 @@ sheet. Campaign play runs in Foundry VTT, which tracks turns itself (ADR-0018).
 
 ## Sheet modes
 
-The sheet has four layouts over the same character: **Encounter** (Now view, Strikes, defences, conditions),
-**Exploration** (exploration activities, Perception, social and Recall Knowledge skills, languages, lore),
-**Downtime** (downtime activities, crafting, earn income, retraining) and **Plan** (the level planner). Encounter,
-Exploration and Downtime filter actions by the content's `modes`, so no list is hand-maintained. The last mode is
-remembered per character, as a display preference (ADR-0013).
+The sheet is four tabs over the same character, with the header (name, level, HP, conditions, last roll) shared
+by all four:
+
+- **Plan**: who the character is mechanically. Build (ancestry, heritage, background, class), attributes, feats
+  grouped by display category, and the level planner: one row per level from 1 to 20, what each level opens, what
+  is picked or planned, and the archetype progress (see character-model.md, Archetype dedications).
+- **Encounter**: the Now view, Strikes, items usable with the actions left, spells, actions and skills, with
+  defences and conditions.
+- **Exploration**: who the character is at the table. Appearance, personality, deity edicts and anathema,
+  exploration activities, Perception, social and Recall Knowledge skills, languages and lore, inventory and notes.
+- **Downtime**: daily preparations, rituals, crafting, earn income, retraining and the shop.
+
+Encounter, Exploration and Downtime filter actions by the content's `modes`, so no list is hand-maintained. The
+last tab is remembered per character, as a display preference (ADR-0013). On a narrow screen the tabs stay one
+row and each tab's sections stack.
 
 ## Feat display
 

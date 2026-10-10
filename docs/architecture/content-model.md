@@ -113,7 +113,13 @@ Lists of attributes, slugs and ids name each item once.
   categories on the same item type go elsewhere:
   `classfeature` is the `class-feature` kind, and `ancestryfeature`, `calling`, `curse`, `deityboon` and `pfsboon`
   have no kind yet, so the importer reports them.
+- **Prerequisites.** `prerequisites` keeps Foundry's text and gains `prerequisitePredicate?`, which the importer
+  derives when it can parse the text ("trained in Medicine", "Champion Dedication", "Strength +2"). A feat with
+  no predicate is offered as unknown under three-valued predicates (ADR-0002): shown with its text, never
+  hidden, never treated as met. The importer's coverage report lists the unparsed prerequisites.
 - **Archetypes.** Foundry keeps them as journal pages; the importer builds the entry from the dedication feat.
+  `dedicationLock?` is how many other archetype feats a character needs before another dedication (2 when
+  absent; character-model.md, Archetype dedications).
 - **Deities.** `category` is `deity`, `pantheon`, `covenant` or `philosophy`. `sanctification` is `can` or `must`
   with `holy` and/or `unholy`. `domains` has `primary` and `alternate` domain slugs, `font` is `harm` and/or `heal`,
   `skills` are statistic selectors, `weapons` base weapon slugs until weapons are content, and `spells` one spell
@@ -259,6 +265,33 @@ split by kind and by purpose, cached in IndexedDB, and loaded lazily (spells onl
 
 Mechanics never depend on locale, so switching language downloads only text. Likely-next bundles are prefetched
 when idle. Content browser search is server-side through per-locale `tsvector` and trait/level indexes.
+
+## Filters
+
+The content browser, the builder's slot pickers, spell preparation and the shop share one filter system. Each
+kind declares its **facets** as data: a field path in the envelope or `data`, a type (`set`, `range` or `flag`)
+and a message key, so adding a facet is a definition, not a UI change.
+
+Facets beyond level, rarity, traits, book and pack:
+
+- **`spell`**: rank; tradition; cast actions; range band; area shape; target count and kind (single target,
+  allies, self); defence (attack, save and which); duration; sustained; damage type; heightens.
+- **`feat`**: category; action cost; archetype; skill; prerequisites met.
+- **Equipment**: item kind; price; bulk; usage (held, worn, etched, affixed); consumable; magical; weapon group and
+  damage type; armour category.
+- **`action`**: cost; mode; skill; trait.
+
+Behaviour:
+
+- Facets filter the cached mechanics bundles in the browser, so filtering is instant and works offline. Free-text
+  search still goes to the server.
+- Within one facet values combine with OR, across facets with AND. Any value can be excluded ("not fire"). Every
+  value shows how many entries it would leave.
+- The filter state lives in the URL, so a filtered list can be linked and survives a reload.
+- **Available to you** is a preset made from the character: level at most the character's (or the slot's level
+  for a feat slot), the class and ancestry traits the slot asks for, the traditions of the character's
+  spellcasting entries, prerequisites not false, unique entries and the `artifact` trait hidden. Unknown
+  prerequisites stay in the list with a marker. The preset is a starting point: every facet in it can be changed.
 
 ## Localisation
 

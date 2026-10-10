@@ -61,6 +61,32 @@ The character stores `SlotKey → Selection` only. Consequences:
   with the reason. It is never deleted silently.
 - Retraining is changing a selection; the audit log keeps the history.
 
+### Archetype dedications
+
+After a dedication feat, a character can't take another dedication until they have two other feats from that
+archetype (Player Core). The count is the `archetype` entry's `dedicationLock` (2 when absent), so a homebrew or
+variant archetype can change it. The engine adds this rule to every feat slot's offer: a dedication whose lock is
+unmet is offered as unavailable, with the reason and the archetype it waits on, never hidden.
+
+The engine also reports each archetype the character has: its feats taken, the feats still needed, and the
+earliest planned level at which another dedication becomes legal. The Plan tab shows this per archetype ("Medic:
+1 of 2 feats before your next dedication") and marks the level where the lock clears. A planned dedication above
+that level is valid; one below it is flagged at its level like any other invalid plan. Free Archetype adds slots
+but doesn't change the lock.
+
+## Shop
+
+Buying and gifts are inventory commands, so they work in every sync mode (inventory is build data):
+
+- **Buy**: adds the item and pays its `price` times the quantity from `coins`, making change across copper,
+  silver, gold and platinum. If the character can't afford it, the purchase is refused, never left in debt.
+- **Add without paying**: the same picker, no coins move. For loot, a GM's reward or starting gear. The audit log
+  records it as a gift, apart from a purchase.
+
+The picker is the item kinds' filters ([content-model.md](content-model.md#filters)) and opens on **Available to
+you**: item level at most the character's, unique items and `artifact` items hidden, uncommon and rare shown with
+their badge. One toggle shows everything. Settlement level and item availability are left to the GM.
+
 ## Persistence
 
 ```text

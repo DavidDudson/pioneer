@@ -86,10 +86,18 @@ match their published level 1 statistics.
 - **Character document**: migrate the current `characters` table to the document model, command endpoints,
   schema versioning.
 - **Builder flow**: ancestry, heritage, background, class, boosts and flaws, skills, feat slots with prerequisite
-  filtering, level-up and level-down, invalid-choice flags.
+  filtering, level-up and level-down, invalid-choice flags. Feat prerequisites parsed into predicates where the
+  text allows; the dedication lock (two other archetype feats before the next dedication) on every feat slot.
 - **Inventory**: add from content, wield, wear, invest, containers, Bulk, runes, coins, starting kits. Invested
   items get their own panel: the count against the limit of 10 and what each investment turns on.
 - **Spellcasting build**: prepared, spontaneous and focus casters, repertoires, slots per level, signature spells.
+- **Content filters**: facets per kind declared as data (spells by cast actions, range, area, single target,
+  defence, duration, damage type; feats by category, action cost, archetype; items by price, usage, bulk), counts
+  per value, exclusion, filter state in the URL. An **Available to you** preset from the character: level,
+  class and tradition, prerequisites not false, unique and artifact hidden. Shared by the content browser, the
+  builder's slot pickers, spell preparation and the shop.
+- **Shop**: buy an item at its price from the character's coins, with change made across denominations, or add it
+  without paying (loot, rewards, starting gear). The picker opens on Available to you.
 
 ## M4 Sheet and introspection
 
@@ -108,9 +116,12 @@ can be filtered to what matters.
   opens a popover of the entry. A condition reference carries its value, so "frightened 2" shows frightened and
   what 2 does to this character.
 - **Level planner**: pick selections for future levels ahead of time; levelling up turns the planned slots on. A
-  planned selection that stops being valid is flagged at the level where it breaks.
-- **Sheet modes**: Encounter, Exploration, Downtime and Plan layouts of the same sheet. Actions filter by their
-  content `modes`; Plan is the level planner. The last mode is remembered per character.
+  planned selection that stops being valid is flagged at the level where it breaks. Each archetype shows its
+  feats taken against the dedication lock and the level where the next dedication becomes legal.
+- **Sheet modes**: Plan, Encounter, Exploration and Downtime tabs over the same sheet, with a shared header. Plan
+  holds the build, attributes, feats and the level planner; Exploration holds roleplay (appearance, personality,
+  deity, languages, inventory, notes) beside exploration activities; Downtime holds the shop. Actions filter by
+  their content `modes`. The last tab is remembered per character.
 
 ## M5 Solo play
 
