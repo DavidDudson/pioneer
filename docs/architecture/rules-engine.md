@@ -534,6 +534,23 @@ modifiers never depend on other modifiers.
 Performance target: full derivation of a level 20 character in under 10 ms in the browser, so the builder can
 re-derive on every keystroke. Incremental recomputation is an optimisation for later, not a design constraint.
 
+### Defences
+
+Defences are synthetics (step 7). `Immunity`, `Weakness` and `Resistance` rule elements keep Foundry's fields:
+`type`, a formula `value` for weaknesses and resistances, `exceptions` (`resistance 5 physical except adamantine`)
+and `predicate`. The engine turns them into the character's immunities, weaknesses and resistances, each with its
+origin chain:
+
+- A predicate that is true applies the defence, false drops it, and unknown makes it **conditional**, as a
+  conditional modifier is ("Predicates and conditional modifiers").
+- Weaknesses and resistances do not stack. Per type or group, the highest unconditional value counts, and the
+  others are listed under it as superseded. A conditional one is kept beside it, since it may beat it when it
+  applies.
+- A target is one damage type or a group (`physical`, `energy`, `all`), and group membership is
+  `DAMAGE_GROUP_TYPES` in the SDK, never content.
+- The unconditional defences, with conditional ones whose toggles are on, form a `DamageTarget`, so the damage
+  pipeline in `libs/rules/dice` takes the character's defences as it takes any creature's.
+
 ## Predicates and conditional modifiers
 
 Predicates use Foundry's JSON shape so imported content needs no rewriting: an array means _all_, plus `or`, `and`,

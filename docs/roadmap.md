@@ -104,13 +104,14 @@ match their published level 1 statistics.
 Exit: every number on the sheet opens a breakdown that explains it; conditional adjustments are visible; feats
 can be filtered to what matters.
 
-- **Sheet layout**: text-only sheet sections built from frontier components; keyboard navigation. A defences
-  panel lists immunities, weaknesses and resistances by damage type, spells out groups (physical, energy, all)
-  and marks conditional ones.
+- **Sheet layout**: text-only sheet sections built from frontier components in a fixed order; keyboard navigation
+  through a section index and roving focus in grids. A defences panel lists immunities, weaknesses and resistances
+  by damage type, spells out groups (physical, energy, all), marks conditional ones and names each origin.
 - **Breakdown inspector**: applied, suppressed, conditional and overridden lines; origin chains; sources.
 - **Conditional adjustments**: shown beside each statistic and on skill and action rows.
 - **Feats and features view**: display categories, hide grant-only, fold granted items under their origin.
-- **Overrides and custom effects**: create, edit, remove; markers on overridden statistics.
+- **Overrides and custom effects**: create, edit, remove; markers on overridden statistics. Overrides (a modifier
+  or a set value, each with a required reason) are the only way to change a statistic; none is edited in place.
 - **Strikes and spells**: attack and damage breakdowns, MAP, spell attack and DC, spell lists.
 - **Reference previews**: hovering or focusing a reference in rich text, or a row in a spell, feat or item list,
   opens a popover of the entry. A condition reference carries its value, so "frightened 2" shows frightened and
