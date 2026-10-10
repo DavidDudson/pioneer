@@ -21,8 +21,10 @@ import {
   CheckStatus,
   checkTool,
   EXAMPLE_FACTS,
+  EXAMPLE_GRANT_LEVEL,
   EXAMPLE_GRANT_PICKS,
   EXAMPLE_GRANT_ROOTS,
+  EXAMPLE_GRANT_TOGGLES,
   EXAMPLE_OVERRIDES,
   EXAMPLE_RULE_ELEMENTS,
   EXAMPLE_STATISTIC_INPUTS,
@@ -98,6 +100,10 @@ export class RulesPlaygroundPage {
   protected readonly statisticOverrides = signal(EXAMPLE_OVERRIDES);
   /** The grants tool's picks, one `entry:rule = value` per line. Kept when switching tools. */
   protected readonly grantPicks = signal(EXAMPLE_GRANT_PICKS);
+  /** The grants tool's toggles, one `entry:rule = on`, `off` or a suboption per line. Kept when switching tools. */
+  protected readonly grantToggles = signal(EXAMPLE_GRANT_TOGGLES);
+  /** The grants tool's character level. Kept when switching tools. */
+  protected readonly grantLevel = signal(EXAMPLE_GRANT_LEVEL);
   /** The chosen tool's answer for the current text. */
   protected readonly result = computed((): ToolCheck =>
     checkTool(this.schema(), this.text(), {
@@ -108,6 +114,8 @@ export class RulesPlaygroundPage {
       grantRoots: this.grantRoots(),
       statisticOverrides: this.statisticOverrides(),
       grantPicks: this.grantPicks(),
+      grantToggles: this.grantToggles(),
+      grantLevel: this.grantLevel(),
     }),
   );
 

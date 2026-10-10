@@ -8,7 +8,6 @@ import type {
   GrantResolution,
   GrantRoot,
 } from '@pioneer/rules/grants';
-import { PredicateFacts } from '@pioneer/rules/predicate';
 import type { PredicateSummary } from '@pioneer/rules/predicate';
 import {
   contentId,
@@ -16,6 +15,7 @@ import {
   ContentKind,
   ContentKindSchema,
   ContentText,
+  Level,
   OriginHopKind,
   PackId,
   RollOption,
@@ -30,15 +30,20 @@ import type { MessageDescriptor, ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { choiceRow, choiceSlugsToIds, parsePicks } from './grant-choices';
-import type { ChoiceRow, SlugTable } from './grant-choices';
+import type { ChoiceRow, PicksParse, SlugTable } from './grant-choices';
+import { parseToggles, toggleRow } from './grant-toggles';
+import type { ToggleRow, TogglesParse } from './grant-toggles';
 import { parseFacts } from './predicate-verdict';
+import type { FactsParse } from './predicate-verdict';
 import { CheckStatus, readJson } from './rules-check';
-import type { JsonProblem } from './rules-check';
+import type { JsonProblem, JsonRead } from './rules-check';
 
 /** Entries typed into the playground live in a made-up pack, so a slug names one. */
 const PLAYGROUND_PACK = PackId.parse('playground');
 const PLAYGROUND_PAGE = SourceRef.parse({ kind: 'book', book: 'player-core', page: 1 });
 const LINE = /\r?\n/u;
+/** The level comes from its own field, so the grants tool leaves these out of the typed roll options. */
+const LEVEL_PREFIX = 'self:level:';
 
 const idOfSlug = (slug: Slug): ContentId => ContentId.parse(contentId(PLAYGROUND_PACK, slug));
 
@@ -84,15 +89,18 @@ interface GrantErrorRow {
 export const GrantsStatus = { Valid: CheckStatus.Valid, Problems: 'problems' } as const;
 export type GrantsStatus = ValueOf<typeof GrantsStatus>;
 
-/** The four texts the grants tool reads. */
+/** What the grants tool reads: four texts and the level. */
 export interface GrantsTexts {
   readonly entries: string;
   /** Root slugs, one per line. */
   readonly roots: string;
   /** Picks, one `entry:rule = value` per line. */
   readonly picks: string;
-  /** Roll options, one per line, shared with the verdict and statistics tools. */
+  /** Toggles, one `entry:rule = on`, `off` or a suboption per line. */
+  readonly toggles: string;
+  /** Roll options, one per line, shared with the verdict and statistics tools; `self:level:` lines are left out. */
   readonly facts: string;
+  readonly level: number;
 }
 
 export type GrantsCheck =
@@ -103,6 +111,8 @@ export type GrantsCheck =
       readonly conditional: readonly ConditionalRow[];
       readonly open: readonly ChoiceRow[];
       readonly answered: readonly ChoiceRow[];
+      readonly toggles: readonly ToggleRow[];
+      /** Every roll option the set derives, level included. */
       readonly rollOptions: readonly string[];
       readonly errors: readonly GrantErrorRow[];
     }
@@ -113,7 +123,10 @@ export type GrantsCheck =
       /** The 1-based root lines that are not slugs. */
       readonly rootLines: readonly number[];
       readonly pickLines: readonly number[];
+      readonly toggleLines: readonly number[];
       readonly factLines: readonly number[];
+      /** Whether the level is outside what a level can be. */
+      readonly badLevel: boolean;
     };
 
 interface RootsParse {
@@ -144,7 +157,7 @@ function slugTable(entries: readonly PlaygroundEntry[]): SlugTable {
 
 function entryOf({ slug, name, kind, rollOptions, rules }: PlaygroundEntry, table: SlugTable): GrantEntry {
   const converted = rules.map((rule) => choiceSlugsToIds(rule, table));
-  return { id: idOfSlug(slug), kind, name, rules: converted, sources: [PLAYGROUND_PAGE], rollOptions };
+  return { id: idOfSlug(slug), kind, slug, name, rules: converted, sources: [PLAYGROUND_PAGE], rollOptions };
 }
 
 function lookupOf(content: readonly GrantEntry[]): ContentLookup {
@@ -179,37 +192,70 @@ function rowsOf(resolution: GrantResolution, names: ReadonlyMap<ContentId, strin
     conditional: resolution.conditional.map((grant) => ({ ...row(grant), summary: grant.summary })),
     open: resolution.open.map(choice),
     answered: resolution.answered.map(choice),
+    toggles: resolution.toggles.map((toggle) => toggleRow(toggle, table)),
     rollOptions: resolution.rollOptions.map(String),
     errors: resolution.errors.map(({ error, hops }) => ({ error, via: viaOf(hops, names) })),
   };
 }
 
+/** The line texts and the level, each read; the level is undefined when it is not one. */
+interface ReadTexts {
+  readonly roots: RootsParse;
+  readonly picks: PicksParse;
+  readonly toggles: TogglesParse;
+  readonly facts: FactsParse;
+  readonly level: Level | undefined;
+}
+
+function readTexts(texts: GrantsTexts, table: SlugTable): ReadTexts {
+  const level = Level.safeParse(texts.level);
+  return {
+    roots: parseRoots(texts.roots),
+    picks: parsePicks(texts.picks, table),
+    toggles: parseToggles(texts.toggles, table),
+    facts: parseFacts(texts.facts),
+    level: level.success ? level.data : undefined,
+  };
+}
+
+/** Each text's problem, for texts some of which do not read. */
+function problemsOf(
+  entries: JsonRead<PlaygroundEntry[]>,
+  { roots, picks, toggles, facts, level }: ReadTexts,
+): GrantsCheck {
+  return {
+    status: GrantsStatus.Problems,
+    entries: entries.status === CheckStatus.Valid ? undefined : entries,
+    rootLines: roots.bad,
+    pickLines: picks.bad,
+    toggleLines: toggles.bad,
+    factLines: 'lines' in facts ? facts.lines : [],
+    badLevel: level === undefined,
+  };
+}
+
 /**
- * Read the entries as JSON, the roots, picks and roll options as lines, then resolve every grant from the roots
- * down. Never throws.
+ * Read the entries as JSON, the roots, picks, toggles and roll options as lines, then resolve every grant from the
+ * roots down at the level given, until the facts the set derives settle. Never throws.
  */
 export function checkGrants(texts: GrantsTexts): GrantsCheck {
   const entries = readJson(PlaygroundEntries, texts.entries);
   const table = slugTable(entries.status === CheckStatus.Valid ? entries.value : []);
-  const roots = parseRoots(texts.roots);
-  const picks = parsePicks(texts.picks, table);
-  const facts = parseFacts(texts.facts);
-  if (entries.status !== CheckStatus.Valid || roots.bad.length > 0 || picks.bad.length > 0 || 'lines' in facts) {
-    return {
-      status: GrantsStatus.Problems,
-      entries: entries.status === CheckStatus.Valid ? undefined : entries,
-      rootLines: roots.bad,
-      pickLines: picks.bad,
-      factLines: 'lines' in facts ? facts.lines : [],
-    };
+  const read = readTexts(texts, table);
+  const { roots, picks, toggles, facts, level } = read;
+  const badLines = [roots.bad, picks.bad, toggles.bad].some((bad) => bad.length > 0);
+  if (entries.status !== CheckStatus.Valid || level === undefined || 'lines' in facts || badLines) {
+    return problemsOf(entries, read);
   }
   const content = entries.value.map((entry) => entryOf(entry, table));
   const names = new Map(content.map((entry) => [entry.id, String(entry.name)]));
   const resolution = resolveGrants({
     roots: roots.roots,
     lookup: lookupOf(content),
-    facts: new PredicateFacts(facts.options),
+    level,
+    situation: facts.options.filter((option) => !option.startsWith(LEVEL_PREFIX)),
     picks: picks.picks,
+    toggles: toggles.toggles,
   });
   return rowsOf(resolution, names, table);
 }

@@ -1,7 +1,13 @@
 import { GrantsMessage } from '@pioneer/rules/grants';
 import { describe, expect, it } from 'vitest';
 
-import { EXAMPLE_GRANT_ENTRIES, EXAMPLE_GRANT_PICKS, EXAMPLE_GRANT_ROOTS } from './grant-examples';
+import {
+  EXAMPLE_GRANT_ENTRIES,
+  EXAMPLE_GRANT_LEVEL,
+  EXAMPLE_GRANT_PICKS,
+  EXAMPLE_GRANT_ROOTS,
+  EXAMPLE_GRANT_TOGGLES,
+} from './grant-examples';
 import { checkGrants, GrantsStatus } from './grants-check';
 import type { GrantsCheck, GrantsTexts } from './grants-check';
 import { EXAMPLE_FACTS } from './predicate-verdict';
@@ -13,15 +19,22 @@ function check(texts: Partial<GrantsTexts>): GrantsCheck {
     entries: EXAMPLE_GRANT_ENTRIES,
     roots: EXAMPLE_GRANT_ROOTS,
     picks: EXAMPLE_GRANT_PICKS,
+    toggles: EXAMPLE_GRANT_TOGGLES,
     facts: EXAMPLE_FACTS,
+    level: EXAMPLE_GRANT_LEVEL,
     ...texts,
   });
 }
 
-/** What the example's first open slot offers, as typed, given `facts`. */
-function offeredGiven(facts: string): string[] {
-  const result = check({ facts });
+/** What the example's first open slot offers, as typed, at `level`. */
+function offeredAt(level: number): string[] {
+  const result = check({ level });
   return result.status === GrantsStatus.Valid ? (result.open[0]?.options.map((option) => option.value) ?? []) : [];
+}
+
+/** The names on the character, for a check that resolves. */
+function itemNames(result: GrantsCheck): string[] {
+  return result.status === GrantsStatus.Valid ? result.items.map((item) => item.name) : [];
 }
 
 describe(checkGrants, () => {
@@ -40,14 +53,25 @@ describe(checkGrants, () => {
       conditional: [{ name: 'Climb in forest', via: ['Woodland Elf'] }],
       open: [{ slot: 'fighter:4', title: 'Fighter feat', pick: undefined }],
       answered: [{ slot: 'fighter:6', title: 'Weapon group', pick: 'sword' }],
-      rollOptions: ['weapon-group:sword'],
+      toggles: [{ slot: 'fighter:7', option: 'self:effect:raise-a-shield', on: true, suboption: undefined }],
+      rollOptions: [
+        'feature:bravery',
+        'feature:fighter',
+        'feature:reactive-strike',
+        'feature:shield-block',
+        'feature:shield-block-feature',
+        'feature:woodland-elf',
+        'self:effect:raise-a-shield',
+        'self:level:5',
+        'weapon-group:sword',
+      ],
       errors: [],
     });
   });
 
   it('offers the fighter feats the query matches up to the character level, sorted by name', () => {
-    expect(offeredGiven(EXAMPLE_FACTS)).toStrictEqual(['aggressive-block', 'double-slice', 'sudden-charge']);
-    expect(offeredGiven('self:level:1')).toStrictEqual(['double-slice', 'sudden-charge']);
+    expect(offeredAt(EXAMPLE_GRANT_LEVEL)).toStrictEqual(['aggressive-block', 'double-slice', 'sudden-charge']);
+    expect(offeredAt(1)).toStrictEqual(['double-slice', 'sudden-charge']);
   });
 
   it('opens a query that matches nothing with an empty offer, not an error', () => {
@@ -101,19 +125,54 @@ describe(checkGrants, () => {
     });
   });
 
-  it('points at each text that does not read: entries, roots, picks and roll options', () => {
+  it('points at each text that does not read: entries, roots, picks, toggles, roll options and the level', () => {
     const texts = {
       entries: '[',
       roots: 'fighter\nNot a slug',
       picks: 'fighter:4 = ok\nfighter = nope',
+      toggles: 'fighter:7 = on\nfighter:x = on',
       facts: 'self:level:5\n:bad',
+      level: 99,
     };
     expect(check(texts)).toMatchObject({
       status: GrantsStatus.Problems,
       entries: { status: CheckStatus.NotJson },
       rootLines: [2],
       pickLines: [2],
+      toggleLines: [2],
       factLines: [2],
+      badLevel: true,
+    });
+  });
+
+  it('brings class features in and out with the level, whatever self:level the roll options say', () => {
+    expect(itemNames(check({ level: 7 }))).toContain('Battlefield Surveyor');
+    expect(itemNames(check({ level: 2, facts: 'self:level:20' }))).not.toContain('Bravery');
+  });
+
+  it('turns a toggle off, or on with a suboption it offers', () => {
+    expect(check({ toggles: 'fighter:7 = off' })).toMatchObject({ toggles: [{ slot: 'fighter:7', on: false }] });
+    // The example's toggle has no suboptions, so a suboption only turns it on.
+    expect(check({ toggles: 'fighter:7 = tower' })).toMatchObject({
+      toggles: [{ slot: 'fighter:7', on: true, suboption: undefined }],
+    });
+  });
+
+  it('follows grants that read what other entries set', () => {
+    const entries = JSON.stringify([
+      { slug: 'fighter', name: 'Fighter', kind: 'class', rules: [{ key: 'GrantItem', item: 'bravery' }] },
+      { slug: 'bravery', name: 'Bravery', rules: [] },
+      {
+        slug: 'resolve',
+        name: 'Resolve',
+        rules: [{ key: 'GrantItem', item: 'steady', predicate: ['class:fighter', 'feature:bravery'] }],
+      },
+      { slug: 'steady', name: 'Steady', rules: [] },
+    ]);
+    expect(check({ entries, roots: 'fighter\nresolve', picks: '', toggles: '' })).toMatchObject({
+      status: GrantsStatus.Valid,
+      items: [{ name: 'Fighter' }, { name: 'Bravery' }, { name: 'Resolve' }, { name: 'Steady' }],
+      errors: [],
     });
   });
 });

@@ -17,7 +17,7 @@ const SURVEYOR_LEVEL = 7;
 
 /**
  * Entries the example starts with: a fighter whose features arrive by level, with a class feat to pick (rule 4, a query
- * over feats, granted by rule 5) and a weapon group to pick (rule 6, a roll option); a heritage with a grant that
+ * over feats, granted by rule 5), a weapon group to pick (rule 6, a roll option) and a shield to raise (rule 7, a toggle); a heritage with a grant that
  * depends on terrain; and Shield Block picked again as a general feat. The query offers the fighter feats of the
  * character's level or lower, so Brutal Finish (12th) and the rogue's Nimble Dodge are left out.
  */
@@ -45,6 +45,7 @@ export const EXAMPLE_GRANT_ENTRIES = JSON.stringify(
           rollOption: 'weapon-group',
           choices: [option('sword', 'Sword'), option('axe', 'Axe')],
         },
+        { key: 'RollOption', option: 'self:effect:raise-a-shield', toggleable: true },
       ],
     },
     { slug: 'shield-block-feature', name: 'Shield Block (fighter)', rules: [grantOf('shield-block')] },
@@ -73,3 +74,9 @@ export const EXAMPLE_GRANT_ROOTS = ['fighter', 'woodland-elf', 'shield-block'].j
 
 /** The example's picks: the weapon group is chosen, the class feat is left open. */
 export const EXAMPLE_GRANT_PICKS = 'fighter:6 = sword';
+
+/** The example character's level: Bravery (3rd) has arrived, Battlefield Surveyor (7th) has not. */
+export const EXAMPLE_GRANT_LEVEL = 5;
+
+/** The example's toggles: the shield is raised. */
+export const EXAMPLE_GRANT_TOGGLES = 'fighter:7 = on';
