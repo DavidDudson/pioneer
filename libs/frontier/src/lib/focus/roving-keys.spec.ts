@@ -131,6 +131,11 @@ describe(rovingTarget, () => {
       expect([press('Home', 4, ctrl), press('End', 4, ctrl)]).toStrictEqual([0, 6]);
     });
 
+    it('swaps Left and Right along a row in right-to-left', () => {
+      const rtl = { ...grid, rtl: true };
+      expect([press('ArrowLeft', 1, rtl), press('ArrowRight', 1, rtl)]).toStrictEqual([2, 0]);
+    });
+
     it('never wraps', () => {
       expect(press('ArrowRight', 2, { ...grid, wrap: true })).toBeUndefined();
     });
@@ -141,7 +146,12 @@ describe(rovingTarget, () => {
       tuple(array(boolean(), { minLength: count, maxLength: count }), integer({ min: 0, max: count - 1 })),
     );
     const keys = constantFrom('ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home', 'End');
-    const setups = record({ orientation: constantFrom(...Object.values(RovingOrientation)), wrap: boolean() });
+    const setups = record({
+      orientation: constantFrom(...Object.values(RovingOrientation)),
+      wrap: boolean(),
+      rtl: boolean(),
+      ctrl: boolean(),
+    });
 
     it('only ever lands on another enabled item', () => {
       assert(

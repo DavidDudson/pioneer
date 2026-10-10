@@ -1,21 +1,23 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 import { Button } from '../actions/button/button.component';
+import { TextInput } from '../controls/text-input/text-input.component';
 import { RovingFocusItem } from '../focus/roving-focus-item.directive';
 import { RovingFocus } from '../focus/roving-focus.directive';
 import { RovingOrientation } from '../focus/roving-keys';
 
-/** One button in a `RovingFocusHost`. */
+/** One item in a `RovingFocusHost`: a button, or a text field with `field`. */
 export interface RovingFocusHostItem {
   readonly label: string;
   readonly disabled?: boolean;
   readonly selected?: boolean;
+  readonly field?: boolean;
 }
 
-/** A `[frRovingFocus]` group of `fr-button`s, the way a frontier component composes it. */
+/** A `[frRovingFocus]` group of `fr-button`s (and optionally a text field), the way a frontier component composes it. */
 @Component({
   selector: 'fr-roving-focus-host',
-  imports: [Button, RovingFocus, RovingFocusItem],
+  imports: [Button, RovingFocus, RovingFocusItem, TextInput],
   templateUrl: './roving-focus-host.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

@@ -24,7 +24,7 @@ function render(
   fixture.componentRef.setInput('orientation', orientation);
   fixture.detectChanges();
   const host = fixture.nativeElement as HTMLElement;
-  const group = host.querySelector<HTMLElement>('[role="group"]');
+  const group = host.querySelector<HTMLElement>('[role="toolbar"]');
   if (group === null) {
     throw new Error('Roving focus host has no group');
   }
@@ -72,6 +72,31 @@ describe(RovingFocus, () => {
     rendered.fixture.componentRef.setInput('items', [{ label: 'A', disabled: true }, { label: 'B' }, { label: 'C' }]);
     rendered.fixture.detectChanges();
     expect(tabIndexes(rendered)).toStrictEqual(['-1', '0', '-1']);
+  });
+
+  it('gives the tab stop back to the selected item once focus leaves the group', () => {
+    const rendered = render([{ label: 'A' }, { label: 'B', selected: true }, { label: 'C' }]);
+    focus(rendered, 2);
+    rendered.buttons[2]?.blur();
+    rendered.fixture.detectChanges();
+    expect(tabIndexes(rendered)).toStrictEqual(['-1', '0', '-1']);
+  });
+
+  it('wraps when asked', () => {
+    const rendered = render(THREE);
+    rendered.fixture.componentRef.setInput('wrap', true);
+    rendered.fixture.detectChanges();
+    focus(rendered, 2);
+    expect(press(rendered, 'ArrowRight')).toBe(0);
+  });
+
+  it('leaves the arrow keys to a text field item', () => {
+    const rendered = render([{ label: 'A' }, { label: 'Name', field: true }, { label: 'C' }]);
+    const field = rendered.group.querySelector('input');
+    field?.focus();
+    const arrow = keydown('ArrowRight');
+    field?.dispatchEvent(arrow);
+    expect([document.activeElement === field, arrow.defaultPrevented]).toStrictEqual([true, false]);
   });
 
   it('moves focus with the arrow keys, Home and End', () => {

@@ -28,7 +28,7 @@ describe(Segmented, () => {
 
   it('labels the group', () => {
     const fixture = render(undefined);
-    const group = (fixture.nativeElement as HTMLElement).querySelector('[role="group"]');
+    const group = (fixture.nativeElement as HTMLElement).querySelector('[role="toolbar"]');
     expect(group?.getAttribute('aria-label')).toBe('Unit');
   });
 
@@ -74,7 +74,7 @@ describe(Segmented, () => {
     const fixture = render(undefined);
     fixture.componentRef.setInput('invalid', true);
     fixture.detectChanges();
-    const group = (fixture.nativeElement as HTMLElement).querySelector('[role="group"]');
+    const group = (fixture.nativeElement as HTMLElement).querySelector('[role="toolbar"]');
     expect(group?.getAttribute('aria-invalid')).toBe('true');
   });
 });

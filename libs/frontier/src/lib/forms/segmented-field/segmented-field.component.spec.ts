@@ -36,7 +36,7 @@ function buttons(fixture: ComponentFixture<SegmentedField<string>>): HTMLButtonE
 
 /** The text of whatever the group's `aria-describedby` points at. */
 function description(fixture: ComponentFixture<SegmentedField<string>>): string {
-  const ids = find(fixture, '[role="group"]').getAttribute('aria-describedby');
+  const ids = find(fixture, '[role="toolbar"]').getAttribute('aria-describedby');
   if (ids === null) {
     throw new Error('Expected aria-describedby');
   }
@@ -46,7 +46,7 @@ function description(fixture: ComponentFixture<SegmentedField<string>>): string 
 describe(SegmentedField, () => {
   it('names the button group with the label and describes it with the hint', () => {
     const fixture = render();
-    const group = find(fixture, '[role="group"]');
+    const group = find(fixture, '[role="toolbar"]');
     const label = find(fixture, 'label');
     expect(label.textContent.trim()).toBe('Distance unit');
     expect(group.getAttribute('aria-labelledby')).toBe(label.id);
@@ -68,10 +68,10 @@ describe(SegmentedField, () => {
 
   it('shows the validation error in place of the hint once touched, and marks the group invalid', () => {
     const fixture = render({ errors: [{ kind: 'required', message: 'Pick a unit.' }] });
-    expect(find(fixture, '[role="group"]').hasAttribute('aria-invalid')).toBe(false);
+    expect(find(fixture, '[role="toolbar"]').hasAttribute('aria-invalid')).toBe(false);
     fixture.componentRef.setInput('touched', true);
     fixture.detectChanges();
-    expect(find(fixture, '[role="group"]').getAttribute('aria-invalid')).toBe('true');
+    expect(find(fixture, '[role="toolbar"]').getAttribute('aria-invalid')).toBe('true');
     expect(description(fixture)).toBe('Pick a unit.');
   });
 

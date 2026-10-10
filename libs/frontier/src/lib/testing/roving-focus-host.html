@@ -1,7 +1,9 @@
-<div role="group" [frRovingFocus]="orientation()" [rovingWrap]="wrap()" [rovingColumns]="columns()">
-  @for (item of items(); track item.label) {
+<div role="toolbar" [frRovingFocus]="orientation()" [rovingWrap]="wrap()" [rovingColumns]="columns()">
+  @for (item of items(); track item.label) { @if (item.field) {
+  <fr-text-input frRovingFocusItem [ariaLabel]="item.label" />
+  } @else {
   <fr-button frRovingFocusItem [rovingSelected]="item.selected ?? false" [disabled]="item.disabled ?? false"
     >{{ item.label }}</fr-button
   >
-  }
+  } }
 </div>
