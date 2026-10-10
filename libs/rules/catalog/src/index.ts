@@ -1,6 +1,8 @@
 import { PackId } from '@pioneer/rules/sdk';
 import type { ContentPackLoader } from '@pioneer/rules/sdk';
 
+export { BookRegistry, bookRegistry } from './book-registry';
+
 /**
  * Every installable content pack, as lazy loaders. Packs are only fetched
  * (browser) or imported (server) when `ContentRegistry.load` is called, so a

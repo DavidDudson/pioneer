@@ -266,18 +266,21 @@ into this AST.
 
 ## Books and source references
 
-Sources are first-class. `content/books.json` is the registry:
+Sources are first-class. `libs/rules/catalog/src/books.json` is the registry, validated on load by `BookRegistry`
+(`Book` and `Books` schemas in `libs/rules/sdk`):
 
 ```ts
 interface Book {
   id: BookId; // 'player-core', 'gm-core', 'monster-core'
-  title: string; // 'Pathfinder Player Core'
-  publisher: string;
-  license: 'ORC' | 'Paizo-CUP' | 'OGL' | 'homebrew';
+  publisher: 'paizo';
+  license: 'ORC' | 'Paizo-CUP' | 'homebrew'; // ContentLicense, shared with pack manifests
   remaster: boolean;
   released?: PlainDate;
   aonSourceUrl?: Url; // the book's AoN Sources page
 }
+
+// Titles are not stored: BOOK_TITLES maps each BookId to a message key (ADR-0009), and the
+// registry rejects a book without one. Publishers and licences have label keys the same way.
 
 type SourceRef =
   | { kind: 'book'; book: BookId; page?: number; aon?: Url }

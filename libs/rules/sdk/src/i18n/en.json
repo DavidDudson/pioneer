@@ -13,6 +13,23 @@
       "bookLocation": "Give a page number, an Archives of Nethys link, or both.",
       "aonUrl": "Link to one entry on 2e.aonprd.com, like https://2e.aonprd.com/Feats.aspx?ID=1."
     },
+    "book": {
+      "untitled": "{book} has no title. Add its title key to BOOK_TITLES.",
+      "title": {
+        "playerCore": "Player Core",
+        "playerCore2": "Player Core 2",
+        "gmCore": "GM Core",
+        "monsterCore": "Monster Core"
+      },
+      "publisher": {
+        "paizo": "Paizo"
+      },
+      "license": {
+        "orc": "ORC License",
+        "paizoCup": "Paizo Community Use Policy",
+        "homebrew": "Homebrew"
+      }
+    },
     "element": {
       "unknown": "“{key}” is not a rule element Pioneer knows yet.",
       "suboptionsNeedToggle": "Only a toggle (toggleable: true) can offer suboptions.",

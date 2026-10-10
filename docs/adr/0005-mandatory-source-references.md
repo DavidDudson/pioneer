@@ -12,7 +12,7 @@ content is only trustworthy if the origin of each rule is visible.
 
 `sources` is required and non-empty on every content entry. A book source names a registered book and has a page,
 an exact `2e.aonprd.com` URL, or both. Web and homebrew sources are also allowed. Books are a registry
-(`content/books.json`) with licence and remaster flag.
+(`libs/rules/catalog/src/books.json`) with licence and remaster flag.
 
 ## Consequences
 
