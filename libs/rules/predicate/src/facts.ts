@@ -30,16 +30,40 @@ function indexValues(options: Iterable<string>): ReadonlyMap<string, readonly Op
   return values;
 }
 
+/** One namespace replaced: the facts underneath, and the options the namespace holds instead. */
+interface Layer {
+  readonly base: PredicateFacts;
+  /** The namespace and its separator, `item:`. */
+  readonly prefix: string;
+  /** Written without the namespace. */
+  readonly options: readonly string[];
+}
+
+/** The numbers after `rest:` among `options`, which are written without the namespace `rest` was taken off. */
+function layerValues(options: readonly string[], rest: string): OptionValue[] {
+  const values: OptionValue[] = [];
+  for (const option of options) {
+    const split = option.lastIndexOf(SEPARATOR);
+    const value = Number(option.slice(split + 1));
+    if (split === rest.length && option.startsWith(rest) && Number.isFinite(value)) {
+      values.push(OptionValue.parse(value));
+    }
+  }
+  return values;
+}
+
 /**
  * What a predicate is tested against: the roll options that are present, and which namespaces are known.
  * Built once per derivation and shared by every predicate, so numeric suffixes are indexed up front.
  */
 export class PredicateFacts {
-  #options: ReadonlySet<string>;
-  #values: ReadonlyMap<string, readonly OptionValue[]>;
+  readonly #options: ReadonlySet<string>;
+  readonly #values: ReadonlyMap<string, readonly OptionValue[]>;
   readonly #namespaces: NamespaceTable;
-  /** The facts these extend, set only by `with`. */
-  #base: PredicateFacts | undefined = undefined;
+  /** `isKnown` answers so far: one query asks the same of every candidate it tests. */
+  readonly #known = new Map<string, boolean>();
+  /** Set only by `withNamespace`, on the facts it returns. */
+  #layer: Layer | undefined = undefined;
 
   public constructor(options: Iterable<RollOption>, namespaces: NamespaceTable = DEFAULT_NAMESPACES) {
     this.#options = new Set<string>(options);
@@ -48,40 +72,49 @@ export class PredicateFacts {
   }
 
   /**
-   * These facts plus `options`, each read under `namespace` when given (`trait:fighter` under `item` is
-   * `item:trait:fighter`), with the same namespace table. The base is shared, not copied, so testing many candidates
-   * (each content entry a `ChoiceSet` query offers) against one character costs only their own options.
+   * These facts with `namespace` holding exactly `options`, written without it (`trait:fighter` under `item` is
+   * `item:trait:fighter`); whatever these facts had there is hidden. Nothing is copied, so testing many candidates
+   * (each content entry a `ChoiceSet` query offers) against one character costs only the candidates themselves.
    */
-  public with(options: Iterable<RollOption>, namespace?: RollOptionNamespace): PredicateFacts {
-    const extended = new PredicateFacts([], this.#namespaces);
-    const prefix = namespace === undefined ? '' : `${namespace}${SEPARATOR}`;
-    const prefixed = new Set<string>();
-    for (const option of options) {
-      prefixed.add(prefix + option);
-    }
-    extended.#options = prefixed;
-    extended.#values = indexValues(prefixed);
-    extended.#base = this;
-    return extended;
+  public withNamespace(namespace: RollOptionNamespace, options: readonly RollOption[]): PredicateFacts {
+    const layered = new PredicateFacts([], this.#namespaces);
+    layered.#layer = { base: this, prefix: `${namespace}${SEPARATOR}`, options };
+    return layered;
   }
 
   /** Whether `option` is present. Takes plain text because comparisons build options from their operands. */
   public has(option: string): boolean {
-    return this.#options.has(option) || this.#base?.has(option) === true;
+    const layer = this.#layer;
+    if (layer === undefined) {
+      return this.#options.has(option);
+    }
+    return option.startsWith(layer.prefix)
+      ? layer.options.includes(option.slice(layer.prefix.length))
+      : layer.base.has(option);
   }
 
   /** Every number written after `prefix:` in a present option: `[5]` for `self:level` given `self:level:5`. */
   public values(prefix: RollOption): readonly OptionValue[] {
-    const own = this.#values.get(prefix) ?? NO_VALUES;
-    const inherited = this.#base?.values(prefix) ?? NO_VALUES;
-    if (inherited.length === 0) {
-      return own;
+    const layer = this.#layer;
+    if (layer === undefined) {
+      return this.#values.get(prefix) ?? NO_VALUES;
     }
-    return own.length === 0 ? inherited : [...inherited, ...own];
+    return prefix.startsWith(layer.prefix)
+      ? layerValues(layer.options, prefix.slice(layer.prefix.length))
+      : layer.base.values(prefix);
   }
 
   /** Whether a missing `option` is false (known namespace) rather than unknown (situational). */
   public isKnown(option: RollOption): boolean {
-    return kindOf(option, this.#namespaces) === NamespaceKind.Known;
+    if (this.#layer !== undefined) {
+      return this.#layer.base.isKnown(option);
+    }
+    const cached = this.#known.get(option);
+    if (cached !== undefined) {
+      return cached;
+    }
+    const known = kindOf(option, this.#namespaces) === NamespaceKind.Known;
+    this.#known.set(option, known);
+    return known;
   }
 }

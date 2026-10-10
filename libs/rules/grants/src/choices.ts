@@ -124,7 +124,7 @@ function byLabel(left: OfferedOption, right: OfferedOption): number {
  */
 function queriedOptions({ kind, filter }: ChoiceQuery, { facts, lookup }: ChoiceContext): OfferedOption[] {
   const offered = lookup.ofKind(kind).flatMap((candidate): OfferedOption[] => {
-    const candidateFacts = facts.with(candidate.rollOptions, CANDIDATE_NAMESPACE);
+    const candidateFacts = facts.withNamespace(CANDIDATE_NAMESPACE, candidate.rollOptions);
     const truth = evaluatePredicate(filter, candidateFacts);
     if (truth === Truth.False) {
       return [];

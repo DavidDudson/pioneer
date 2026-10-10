@@ -78,6 +78,13 @@ describe('resolveGrants choice queries', () => {
     expect(offered(resolve(asksItem))).toEqual(['Sudden Charge']);
   });
 
+  test('ignores item: facts the character has, reading only the candidate options', () => {
+    const content = [fighter(['item:trait:fighter']), ...feats];
+    const result = resolve(content, { options: ['item:trait:fighter'] });
+    expect(offered(result)).not.toContain('Trick Attack');
+    expect(offered(result)).toContain('Sudden Charge');
+  });
+
   test('offers an entry whose filter is unknown with when it would hold, and one that holds without', () => {
     const result = resolve([fighter(['item:trait:fighter', 'terrain:forest']), SUDDEN_CHARGE]);
     const [option] = optionsOf(result);

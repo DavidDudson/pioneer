@@ -343,8 +343,8 @@ any kind of entry can grant any other.
   that is a plain option, not an entry, cannot be granted. Removing a pick drops everything granted through it.
 - A `ChoiceSet` whose `choices` is a query (`{ kind, filter }`) offers every entry of that kind whose filter is not
   false, as one slot like any other. The filter reads the character's facts, with the candidate's own roll options
-  under `item:` (`item:trait:fighter`, `item:level:1`, as Foundry writes them) so they never mix with the
-  character's `feat:` or `self:` facts. Unknown candidates are offered with their summary. Offers sort by name, then
+  under `item:` (`item:trait:fighter`, `item:level:1`, as Foundry writes them). They replace whatever the character
+  has under `item:`, and never mix with its `feat:` or `self:` facts. Unknown candidates are offered with their summary. Offers sort by name, then
   id, so a builder list is stable. A query that matches nothing is an open slot with an empty offer, not an error.
 
 ### Statistic graph
