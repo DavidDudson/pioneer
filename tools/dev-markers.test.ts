@@ -2,7 +2,7 @@ import { describe, expect, test } from 'bun:test';
 
 import { DEV_USERS, DevUser } from '@pioneer/identity/dev-users';
 
-import { DEV_MARKERS, DEV_SIGN_IN_SELECTOR, findMarkers } from './dev-markers.ts';
+import { DEV_MARKERS, DEV_MESSAGE_SCOPE, DEV_SIGN_IN_SELECTOR, findMarkers } from './dev-markers.ts';
 
 const encode = (text: string): Uint8Array => new TextEncoder().encode(text);
 
@@ -22,5 +22,12 @@ describe('findMarkers', () => {
       expect(DEV_MARKERS).toContain(displayName);
     }
     expect(DEV_MARKERS).toContain('/auth/dev/');
+  });
+});
+
+describe('DEV_MESSAGE_SCOPE', () => {
+  test('is the dev sign-in bundle’s namespace', async () => {
+    const bundle: unknown = await Bun.file('libs/identity/dev-sign-in/src/i18n/en.json').json();
+    expect(Object.keys(bundle as object)).toStrictEqual([DEV_MESSAGE_SCOPE]);
   });
 });

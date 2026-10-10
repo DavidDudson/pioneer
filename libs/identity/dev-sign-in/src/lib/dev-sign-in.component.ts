@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject, input } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { Button, Heading, Stack, Surface, Text } from '@pioneer/frontier';
+import { Button, Stack, Surface, Text } from '@pioneer/frontier';
 import { SessionStore } from '@pioneer/identity/data-access';
 import type { SignInExtra } from '@pioneer/identity/data-access';
 import { DEV_USERS, DevSignInPath } from '@pioneer/identity/dev-users';
@@ -13,7 +13,7 @@ import type { ReturnPath } from '@pioneer/identity/domain';
  */
 @Component({
   selector: 'pio-dev-sign-in',
-  imports: [Button, Heading, Stack, Surface, Text, TranslocoPipe],
+  imports: [Button, Stack, Surface, Text, TranslocoPipe],
   templateUrl: './dev-sign-in.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
