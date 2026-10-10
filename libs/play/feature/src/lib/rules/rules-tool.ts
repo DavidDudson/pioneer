@@ -1,4 +1,5 @@
-import { RichText } from '@pioneer/rules/sdk';
+import { bookRegistry, sourceIssues } from '@pioneer/rules/catalog';
+import { ContentEntry, RichText } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
 
 import { checkFilters } from './filters-check';
@@ -9,7 +10,7 @@ import { checkGrants } from './grants-check';
 import type { GrantsCheck } from './grants-check';
 import { checkVerdict } from './predicate-verdict';
 import type { VerdictCheck } from './predicate-verdict';
-import { CheckStatus, checkOutcome, checkRulesJson, readJson, RulesTool } from './rules-check';
+import { CheckStatus, checkOutcome, checkRulesJson, readJson, RulesSchema, RulesTool } from './rules-check';
 import type { CheckOutcome } from './rules-check';
 import { checkStatistics, StatisticsStatus } from './statistics-check';
 import type { StatisticProficiency, StatisticsCheck } from './statistics-check';
@@ -73,6 +74,27 @@ function checkRichText(text: string): ToolCheck {
   return { kind: ToolKind.RichText, check: checkOutcome(RichText, read), preview };
 }
 
+/** A content entry, then its sources against the book registry, so a wrong source shows on its own field. */
+function checkContentEntry(text: string): CheckOutcome {
+  const read = readJson(ContentEntry, text);
+  if (read.status !== CheckStatus.Valid) {
+    return read;
+  }
+  const issues = sourceIssues(read.value, bookRegistry);
+  return issues.length > 0 ? { status: CheckStatus.Invalid, issues } : checkOutcome(ContentEntry, read);
+}
+
+/** The schema tools: a plain schema check, or one with a preview (rich text) or registry checks (content entries). */
+function checkSchema(schema: RulesSchema, text: string): ToolCheck {
+  if (schema === RulesSchema.RichText) {
+    return checkRichText(text);
+  }
+  if (schema === RulesSchema.ContentEntry) {
+    return { kind: ToolKind.Schema, check: checkContentEntry(text) };
+  }
+  return { kind: ToolKind.Schema, check: checkRulesJson(schema, text) };
+}
+
 type CharacterTool = typeof RulesTool.Grants | typeof RulesTool.Statistics;
 
 /** The tools that work on a character: statistics and grants. */
@@ -118,8 +140,5 @@ export function checkTool(tool: RulesTool, text: string, inputs: ToolInputs): To
   if (tool === RulesTool.Filters) {
     return { kind: ToolKind.Filters, check: checkFilters(text, inputs.filterQuery) };
   }
-  if (tool === RulesTool.RichText) {
-    return checkRichText(text);
-  }
-  return { kind: ToolKind.Schema, check: checkRulesJson(tool, text) };
+  return checkSchema(tool, text);
 }

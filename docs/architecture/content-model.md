@@ -33,7 +33,8 @@ schema from a kind registry (`KIND_DATA`, `kind-data.ts`); a kind with no schema
 of the field schemas it checks that `id` is UUIDv5 of `<pack>/<slug>`, that there is at least one source, that
 traits are unique, and that `supersedes` never holds the entry's own id. The rules playground's "Content entry"
 mode loads an example per registered kind. Until Epic 2.3 replaces `libs/content/*`, packs keep their older shape
-and the registry wraps their definitions in `PackEntry`.
+and the registry wraps their definitions in `PackEntry`; each definition carries the envelope's `sources`, so packs
+are sourced and checked against the book registry like entries.
 
 ### Kinds
 
@@ -294,8 +295,16 @@ type SourceRef =
 
 Validation: every entry needs at least one source; a `book` source needs a `page`, an `aon` URL, or both. AoN URLs
 must be on `2e.aonprd.com` and point at an exact entry (`/Feats.aspx?ID=…`), not a search page. The content
-browser shows "Player Core p. 123 · AoN" on every entry. A coverage report lists entries missing a page so they can
-be filled in over time.
+browser shows "Player Core p. 123 · AoN" on every entry.
+
+Checks that need the registry live in `libs/rules/catalog` (`sourceIssues`): a `book` source names a registered
+book, and a `homebrew` source's `pack` is the entry's own pack. Each failure is a message descriptor naming the
+entry, the source's index and the book or pack, at `sources[i].book` or `sources[i].pack`. The catalog runs them on
+every pack it loads, so a wrongly sourced entry fails `bun run affected`; the rules playground's "Content entry" mode
+runs them after the schema.
+
+`bun run content:coverage` reports, per registered book, how many catalog entries cite it and which cite it by AoN
+link alone, still waiting for a page, so pages can be filled in over time. It reports and never fails.
 
 ## Packs and storage
 
