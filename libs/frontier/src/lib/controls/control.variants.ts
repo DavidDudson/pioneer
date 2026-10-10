@@ -44,3 +44,12 @@ export const adornmentVariants = cva(
     defaultVariants: { disabled: false },
   },
 );
+
+/**
+ * A listbox option's states under forced colours, where their tinted fills vanish. The highlighted option (the
+ * keyboard's) fills with Highlight, as native lists do; the selected one is underlined, so it stays marked when
+ * the highlight moves off it.
+ */
+export const forcedOptionClasses = cva(
+  'forced-colors:aria-selected:underline forced-colors:highlighted:bg-system-highlight forced-colors:highlighted:text-system-highlight-text',
+)();

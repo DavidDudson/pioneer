@@ -20,10 +20,11 @@ export const MAX_SEGMENTS = 10;
 
 /**
  * The native meter is the track; its fill is a pseudo-element (`meter-value:`). The track keeps its border in
- * every tone, so an empty meter still shows its extent.
+ * every tone, so an empty meter still shows its extent. Under forced colours the fill (and a filled segment) is
+ * Highlight in every tone: the user's palette has no status colours.
  */
 const barVariants = cva(
-  'block h-meter min-w-none flex-1 appearance-none border border-line-default bg-surface-sunken',
+  'block h-meter min-w-none flex-1 appearance-none border border-line-default bg-surface-sunken forced-colors:meter-value:bg-system-highlight',
   {
     variants: {
       tone: {
@@ -38,7 +39,10 @@ const barVariants = cva(
 
 const segmentVariants = cva('h-meter flex-1 border', {
   variants: {
-    filled: { true: '', false: 'border-line-default bg-surface-sunken' },
+    filled: {
+      true: 'forced-colors:border-system-highlight forced-colors:bg-system-highlight',
+      false: 'border-line-default bg-surface-sunken',
+    },
     tone: { accent: '', success: '', warning: '', danger: '' } satisfies Record<MeterTone, string>,
   },
   compoundVariants: [

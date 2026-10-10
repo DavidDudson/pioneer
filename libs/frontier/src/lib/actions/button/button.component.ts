@@ -21,12 +21,27 @@ export type ButtonVariant = ValueOf<typeof ButtonVariant>;
 export const ButtonType = { Button: 'button', Submit: 'submit' } as const;
 export type ButtonType = ValueOf<typeof ButtonType>;
 
-/** Touch first: every size is at least `h-touch` (44px) unless the pointer is fine. */
+/**
+ * Forced colours keep only system colours, so the accent fill of a pressed toggle or segment would vanish. Fill it
+ * with Highlight instead. The hover and active pairs are needed too: `aria-pressed:hover:` is more specific than
+ * `forced-colors:aria-pressed:`, and its theme colour would be replaced by the user's background.
+ */
+const forcedPressed = cva([
+  'forced-colors:aria-pressed:border-system-highlight forced-colors:aria-pressed:bg-system-highlight',
+  'forced-colors:aria-pressed:text-system-highlight-text forced-colors:aria-pressed:hover:bg-system-highlight',
+  'forced-colors:aria-pressed:hover:text-system-highlight-text forced-colors:aria-pressed:active:bg-system-highlight',
+])();
+
+/**
+ * Touch first: every size is at least `h-touch` (44px) unless the pointer is fine. Under forced colours every
+ * variant gets a border, since a fill no longer marks the button's edge.
+ */
 const buttonVariants = cva(
   [
     'inline-flex items-center gap-xs whitespace-nowrap',
     'transition-colors duration-fast ease-standard focus-visible:focus-ring',
     'disabled:cursor-not-allowed disabled:opacity-disabled aria-busy:cursor-progress',
+    'forced-colors:border',
   ],
   {
     variants: {
@@ -43,11 +58,13 @@ const buttonVariants = cva(
           'justify-center font-medium border border-line-default bg-surface-base text-fg-default hover:bg-surface-sunken',
           'aria-pressed:border-accent-solid aria-pressed:bg-accent-solid aria-pressed:text-accent-on-solid',
           'aria-pressed:hover:bg-accent-solid-hover aria-pressed:active:bg-accent-solid-active',
+          forcedPressed,
         ].join(' '),
         segment: [
           'w-full justify-center font-medium text-fg-muted hover:bg-surface-sunken hover:text-fg-default',
           'aria-pressed:bg-accent-solid aria-pressed:text-accent-on-solid aria-pressed:hover:bg-accent-solid-hover',
           'aria-pressed:hover:text-accent-on-solid',
+          forcedPressed,
         ].join(' '),
       } satisfies Record<ButtonVariant, string>,
       size: {

@@ -10,16 +10,19 @@ export type SurfaceVariant = ValueOf<typeof SurfaceVariant>;
 const surfaceVariants = cva('block', {
   variants: {
     variant: {
-      base: 'bg-surface-base',
+      base: 'bg-surface-base forced-colors:border',
       raised: 'bg-surface-raised border border-line-default',
-      sunken: 'bg-surface-sunken',
+      sunken: 'bg-surface-sunken forced-colors:border',
       outline: 'border border-line-default',
     } satisfies Record<SurfaceVariant, string>,
     padding: paddingVariants,
   },
 });
 
-/** A panel: background, border and padding from tokens. Sharp and flat: raised means a stronger border, not a shadow. */
+/**
+ * A panel: background, border and padding from tokens. Sharp and flat: raised means a stronger border, not a shadow.
+ * Base and sunken panels get a border under forced colours, where their fill no longer sets them apart.
+ */
 @Component({
   selector: 'fr-surface',
   templateUrl: './surface.component.html',

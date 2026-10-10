@@ -14,6 +14,9 @@
  *   logical ones (`ms-*`, `pe-*`, `start-*`, `border-s`, `text-end`) flip for
  *   right-to-left locales. Safe-area padding (`pl-safe-left`) stays physical,
  *   because a notch is on a physical edge;
+ * - system colours (`bg-system-highlight`) outside a `forced-colors:` variant, and
+ *   theme colours inside one: in forced-colours mode the browser replaces every
+ *   colour except a system colour, and outside it system colours ignore the theme;
  * plus the layout-variant rules in ./layout-variants.ts.
  *
  * Numbers that are counts, not sizes, are allowed (`grid-cols-3`, `flex-1`).
@@ -33,6 +36,10 @@ export const CLASS_TOKEN_MESSAGES = {
     '`{{variant}}` is a physical direction and will not flip for right-to-left locales. Use the logical utility (`ms`/`me`, `ps`/`pe`, `start`/`end`, `border-s`/`border-e`, `text-start`/`text-end`).',
   sharp:
     '`{{variant}}` rounds corners or casts a shadow. Frontier is sharp and flat: separate with borders and surface colours.',
+  systemColour:
+    '`{{variant}}` uses a system colour outside `forced-colors:`. System colours are for forced-colours mode only; use a theme colour token.',
+  forcedColour:
+    '`{{variant}}` sets a theme colour under `forced-colors:`, where the browser replaces it. Use a system colour (`bg-system-highlight`, …).',
 } as const;
 
 export interface ClassTokenProblem {
@@ -53,6 +60,26 @@ const PHYSICAL =
 /** Utilities whose number is a count or a flex factor, not a length. */
 const COUNTS =
   /^(?:grid-cols-\d+|grid-rows-\d+|col-span-\d+|row-span-\d+|line-clamp-\d+|order-\d+|flex-1|grow-0|shrink-0)$/u;
+
+/** A colour utility (`bg-`, `text-`, `border-s-`, …) naming a system colour token (`bg-system-highlight`). */
+const SYSTEM_COLOUR =
+  /^(?:bg|text|border(?:-[xytbse])?|divide|outline|decoration|placeholder|caret|accent|fill|stroke)-system-/u;
+/** A colour utility naming a theme colour token (`text-accent-fg`). */
+const THEME_COLOUR =
+  /^(?:bg|text|border(?:-[xytbse])?|divide|outline|decoration|placeholder|caret|accent|fill|stroke)-(?:surface|fg|line|accent|danger|success|warning|info)-/u;
+const FORCED_COLORS = 'forced-colors';
+
+/** System colours only under `forced-colors:`, and only system colours there. */
+function forcedColourProblem(variants: readonly string[], base: string, token: string): ClassTokenProblem | undefined {
+  const forced = variants.includes(FORCED_COLORS);
+  if (!forced && SYSTEM_COLOUR.test(base)) {
+    return { messageId: 'systemColour', variant: token };
+  }
+  if (forced && THEME_COLOUR.test(base)) {
+    return { messageId: 'forcedColour', variant: token };
+  }
+  return undefined;
+}
 
 /** Problems in the utility itself, without variants, `!` or a leading `-`. */
 function baseProblem(base: string, token: string): ClassTokenProblem | undefined {
@@ -75,11 +102,13 @@ function tokenProblem(token: string): ClassTokenProblem | undefined {
   if (ARBITRARY.test(token)) {
     return { messageId: 'arbitrary', variant: token };
   }
-  const utility = token.split(':').at(-1) ?? token;
+  const parts = token.split(':');
+  const utility = parts.at(-1) ?? token;
   if (utility.startsWith('!') || utility.endsWith('!')) {
     return { messageId: 'important', variant: token };
   }
-  return baseProblem(utility.replace(/^-/u, ''), token);
+  const base = utility.replace(/^-/u, '');
+  return baseProblem(base, token) ?? forcedColourProblem(parts.slice(0, -1), base, token);
 }
 
 /** The first token problem in a class string, if any. */
