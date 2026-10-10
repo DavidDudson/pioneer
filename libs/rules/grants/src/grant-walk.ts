@@ -7,7 +7,6 @@ import type {
   Origin,
   OriginHop,
   Predicate,
-  RollOption,
   RuleElement,
   RuleSlug,
 } from '@pioneer/rules/sdk';
@@ -45,11 +44,11 @@ export interface ConditionalGrant {
 }
 
 /**
- * Pipeline steps 1 and 2 (rules-engine.md): every entry in play with its origin, the grants skipped because the
+ * One walk of the grants against fixed facts: every entry in play with its origin, the grants skipped because the
  * entry was already there, the grants that depend on the situation, the choices made and still to make, and what
  * failed.
  */
-export interface GrantResolution {
+export interface GrantWalk {
   readonly items: readonly GrantedItem[];
   /** Grants of an entry already on the character, without `allowDuplicate`. */
   readonly duplicates: readonly GrantedItem[];
@@ -57,12 +56,11 @@ export interface GrantResolution {
   /** Choices the player has yet to make, or whose pick is not on offer. */
   readonly open: readonly ChoiceSlot[];
   readonly answered: readonly AnsweredSlot[];
-  /** Roll options the picks set through their `ChoiceSet`'s `rollOption`. */
-  readonly rollOptions: readonly RollOption[];
   readonly errors: readonly GrantError[];
 }
 
-export interface GrantInputs {
+/** What one walk reads: the roots, the content, the facts every predicate is tested against, and the picks. */
+export interface WalkInputs {
   readonly roots: readonly GrantRoot[];
   readonly lookup: ContentLookup;
   readonly facts: PredicateFacts;
@@ -112,7 +110,7 @@ function blockedAt(entry: GrantEntry, visit: Visit): MessageDescriptor | undefin
 }
 
 /** Walks grants depth first, in root order then rule order, recording what it finds. */
-class GrantWalk {
+class Walker {
   readonly #lookup: ContentLookup;
   readonly #facts: PredicateFacts;
   readonly #context: ChoiceContext;
@@ -124,23 +122,21 @@ class GrantWalk {
   readonly #conditional: ConditionalGrant[] = [];
   readonly #open: ChoiceSlot[] = [];
   readonly #answered: AnsweredSlot[] = [];
-  readonly #rollOptions: RollOption[] = [];
   readonly #errors: GrantError[] = [];
 
-  public constructor({ lookup, facts, picks }: GrantInputs) {
+  public constructor({ lookup, facts, picks }: WalkInputs) {
     this.#lookup = lookup;
     this.#facts = facts;
     this.#context = { facts, picks, lookup };
   }
 
-  public get resolution(): GrantResolution {
+  public get walk(): GrantWalk {
     return {
       items: this.#items,
       duplicates: this.#duplicates,
       conditional: this.#conditional,
       open: this.#open,
       answered: this.#answered,
-      rollOptions: this.#rollOptions,
       errors: this.#errors,
     };
   }
@@ -211,7 +207,6 @@ class GrantWalk {
     this.#chosen.add(at.entry.id);
     this.#open.push(...choices.open);
     this.#answered.push(...choices.answered);
-    this.#rollOptions.push(...choices.rollOptions);
     this.#errors.push(...choices.errors);
     return choices;
   }
@@ -262,11 +257,13 @@ class GrantWalk {
  * offered options answers it, and a `GrantItem { choice }` on the same entry grants the picked entry behind a
  * `choice` hop. A slot with no pick, or a pick no longer on offer, is open, and its grants wait. A `ChoiceSet` with a
  * query offers every entry of its kind whose filter is not false, reading the entry's own roll options under `item:`.
+ *
+ * One walk reads fixed facts; `resolveGrants` walks again as the facts the result sets change.
  */
-export function resolveGrants(inputs: GrantInputs): GrantResolution {
-  const walk = new GrantWalk(inputs);
+export function walkGrants(inputs: WalkInputs): GrantWalk {
+  const walker = new Walker(inputs);
   for (const root of inputs.roots.toSorted(byEntry)) {
-    walk.root(root);
+    walker.root(root);
   }
-  return walk.resolution;
+  return walker.walk;
 }

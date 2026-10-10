@@ -1,13 +1,12 @@
 import { describe, expect, test } from 'bun:test';
 
-import { PredicateFacts } from '@pioneer/rules/predicate';
 import { assert, integer, property, shuffledSubarray, subarray, tuple } from 'fast-check';
 import type { Arbitrary } from 'fast-check';
 
 import type { GrantEntry } from './grant-entry';
 import { resolveGrants } from './resolve-grants';
 import type { GrantResolution } from './resolve-grants';
-import { entry, grantOf, idOf, lookupOf, picked, picksOf } from './testing/builders';
+import { entry, grantOf, idOf, inputsOf, picked } from './testing/builders';
 
 const ENTRIES_MAX = 10;
 
@@ -36,12 +35,7 @@ const acyclic: Arbitrary<[GrantEntry[], number[]]> = integer({ min: 1, max: ENTR
 );
 
 function resolve(content: readonly GrantEntry[], roots: readonly number[]): GrantResolution {
-  return resolveGrants({
-    roots: roots.map((index) => picked(slugOf(index))),
-    lookup: lookupOf(content),
-    facts: new PredicateFacts([]),
-    picks: picksOf(),
-  });
+  return resolveGrants(inputsOf({ entries: content, roots: roots.map((index) => picked(slugOf(index))) }));
 }
 
 describe('resolveGrants properties', () => {

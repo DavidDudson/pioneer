@@ -5,18 +5,21 @@ import type {
   OriginHop,
   RollOption,
   RuleElement,
+  Slug,
   SourceRef,
 } from '@pioneer/rules/sdk';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 /**
- * What grant resolution reads of a content entry: its kind, name, rule elements, sources and own roll options. Any
- * kind of entry (class, feat, feature, action, condition) has these, so grants follow one shape until the per-kind
- * content schemas land (Epic 2.1).
+ * What grant resolution reads of a content entry: its kind, slug, name, rule elements, sources and own roll options.
+ * Any kind of entry (class, feat, feature, action, condition) has these, so grants follow one shape until the
+ * per-kind content schemas land (Epic 2.1).
  */
 export interface GrantEntry {
   readonly id: ContentId;
   readonly kind: ContentKind;
+  /** The slug within its pack, which the roll option its kind sets names it by: `feat:shield-block`. */
+  readonly slug: Slug;
   readonly name: ContentText;
   readonly rules: readonly RuleElement[];
   /** At least one, as every origin names its entry's sources. */

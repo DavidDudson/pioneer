@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { PredicateFacts, SummaryKind } from '@pioneer/rules/predicate';
+import { SummaryKind } from '@pioneer/rules/predicate';
 import { ContentKind, ContentText, OriginHop, RollOption } from '@pioneer/rules/sdk';
 import type { SlotKey } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
@@ -10,16 +10,16 @@ import type { GrantEntry } from './grant-entry';
 import { GrantsMessage } from './messages';
 import { resolveGrants } from './resolve-grants';
 import type { GrantResolution } from './resolve-grants';
-import { entry, feat, idOf, lookupOf, picked, picksOf, slotOf } from './testing/builders';
+import { entry, feat, idOf, inputsOf, picked, picksOf, slotOf } from './testing/builders';
 
 interface Situation {
   readonly picks?: readonly (readonly [SlotKey, string])[];
-  readonly options?: readonly string[];
+  readonly level?: number;
+  readonly situation?: readonly string[];
 }
 
-function resolve(content: readonly GrantEntry[], { picks = [], options = [] }: Situation = {}): GrantResolution {
-  const facts = new PredicateFacts(options.map((option) => RollOption.parse(option)));
-  return resolveGrants({ roots: [picked('fighter')], lookup: lookupOf(content), facts, picks: picksOf(picks) });
+function resolve(entries: readonly GrantEntry[], { picks = [], level, situation }: Situation = {}): GrantResolution {
+  return resolveGrants(inputsOf({ entries, roots: [picked('fighter')], level, situation, picks: picksOf(picks) }));
 }
 
 /** What the first open slot offers. */
@@ -51,7 +51,7 @@ const feats = [
 
 describe('resolveGrants choice queries', () => {
   test('offers each entry of the kind whose own options and the character facts satisfy the filter', () => {
-    const result = resolve([fighter(CLASS_FEAT), ...feats], { options: ['self:level:1'] });
+    const result = resolve([fighter(CLASS_FEAT), ...feats], { level: 1 });
     expect(result.errors).toEqual([]);
     expect(result.open.map((slot) => slot.key)).toEqual([CLASS_FEAT_SLOT]);
     expect(offered(result)).toEqual(['Double Slice', 'Sudden Charge']);
@@ -59,7 +59,7 @@ describe('resolveGrants choice queries', () => {
   });
 
   test('reads the character facts, so a higher level offers more', () => {
-    const result = resolve([fighter(CLASS_FEAT), ...feats], { options: ['self:level:2'] });
+    const result = resolve([fighter(CLASS_FEAT), ...feats], { level: 2 });
     expect(offered(result)).toEqual(['Aggressive Block', 'Double Slice', 'Sudden Charge']);
   });
 
@@ -73,14 +73,14 @@ describe('resolveGrants choice queries', () => {
   test('keeps an entry option apart from the character fact of the same name', () => {
     const content = [fighter(['feat:sudden-charge']), feat('sudden-charge', ['feat:sudden-charge'], 'Sudden Charge')];
     expect(offered(resolve(content))).toEqual([]);
-    expect(offered(resolve(content, { options: ['feat:sudden-charge'] }))).toEqual(['Sudden Charge']);
+    expect(offered(resolve(content, { situation: ['feat:sudden-charge'] }))).toEqual(['Sudden Charge']);
     const asksItem = [fighter(['item:feat:sudden-charge']), ...content.slice(1)];
     expect(offered(resolve(asksItem))).toEqual(['Sudden Charge']);
   });
 
   test('ignores item: facts the character has, reading only the candidate options', () => {
     const content = [fighter(['item:trait:fighter']), ...feats];
-    const result = resolve(content, { options: ['item:trait:fighter'] });
+    const result = resolve(content, { situation: ['item:trait:fighter'] });
     expect(offered(result)).not.toContain('Trick Attack');
     expect(offered(result)).toContain('Sudden Charge');
   });
@@ -114,18 +114,18 @@ describe('resolveGrants choice queries', () => {
 
   test('a pick among the matches answers the slot, grants the entry and sets its roll option', () => {
     const picks = [[CLASS_FEAT_SLOT, idOf('sudden-charge')]] as const;
-    const result = resolve([fighter(CLASS_FEAT), ...feats], { picks, options: ['self:level:1'] });
+    const result = resolve([fighter(CLASS_FEAT), ...feats], { picks, level: 1 });
     expect(result.errors).toEqual([]);
     expect(result.open).toEqual([]);
     expect(result.answered.map((slot) => slot.pick)).toEqual([idOf('sudden-charge')]);
     const granted = result.items.find((item) => item.entry.id === idOf('sudden-charge'));
     expect(granted?.origin.hops.at(-2)).toEqual(OriginHop.parse({ kind: 'choice', slot: CLASS_FEAT_SLOT }));
-    expect(result.rollOptions).toEqual([RollOption.parse(`class-feat:${idOf('sudden-charge')}`)]);
+    expect(result.rollOptions).toContain(RollOption.parse(`class-feat:${idOf('sudden-charge')}`));
   });
 
   test('a pick the filter rules out is an error and the slot opens again', () => {
     const picks = [[CLASS_FEAT_SLOT, idOf('trick-attack')]] as const;
-    const result = resolve([fighter(CLASS_FEAT), ...feats], { picks, options: ['self:level:1'] });
+    const result = resolve([fighter(CLASS_FEAT), ...feats], { picks, level: 1 });
     expect(result.errors.map((error) => error.error)).toEqual([
       message(GrantsMessage.PickNotOffered, { entry: ContentText.parse('fighter'), value: idOf('trick-attack') }),
     ]);

@@ -6,4 +6,6 @@ export const GrantsMessage = {
   PickNotOffered: 'grants.pickNotOffered',
   UnknownChoice: 'grants.unknownChoice',
   PickNotEntry: 'grants.pickNotEntry',
+  Oscillates: 'grants.oscillates',
+  TooManyRounds: 'grants.tooManyRounds',
 } as const;
