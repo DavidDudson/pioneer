@@ -30,7 +30,6 @@
       "unknownKind": "“{kind}” is not a content kind Pioneer has a schema for yet.",
       "idMismatch": "The id must be the one derived from {key}: {expected}.",
       "duplicateTrait": "The trait {trait} is listed more than once.",
-      "levelRequired": "A {kind} entry needs a level.",
       "supersedesSelf": "An entry cannot supersede itself."
     },
     "richText": {

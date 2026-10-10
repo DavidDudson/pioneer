@@ -15,7 +15,6 @@ export const RulesMessage = {
   EntryUnknownKind: 'rules.entry.unknownKind',
   EntryIdMismatch: 'rules.entry.idMismatch',
   EntryDuplicateTrait: 'rules.entry.duplicateTrait',
-  EntryLevelRequired: 'rules.entry.levelRequired',
   EntrySupersedesSelf: 'rules.entry.supersedesSelf',
   RichTextTooDeep: 'rules.richText.tooDeep',
   RichTextTooLarge: 'rules.richText.tooLarge',

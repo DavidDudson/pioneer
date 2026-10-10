@@ -27,7 +27,6 @@ export { Immunity, Trait } from './trait';
 export { PackEntry } from './pack-entry';
 export {
   ContentEntry,
-  type ContentEntryOf,
   DisplayCategory,
   DisplayCategorySchema,
   DisplayHints,

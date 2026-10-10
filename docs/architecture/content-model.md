@@ -15,7 +15,7 @@ interface ContentEntry<K extends ContentKind> {
   kind: K;
   slug: Slug; // permanent once published
   name: string;
-  level?: number; // -1 (the weakest creatures) to 30 (the highest items); required for creatures
+  level?: number; // 0 to 30; a creature always has one, from -1 to 25
   rarity: 'common' | 'uncommon' | 'rare' | 'unique';
   traits: readonly TraitSlug[];
   sources: readonly SourceRef[]; // at least one, see below

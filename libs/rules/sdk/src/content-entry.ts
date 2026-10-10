@@ -13,7 +13,7 @@ import { RuleElements } from './rule-element';
 import { AonUrl, SourceRef } from './source-ref';
 import { StatisticData } from './statistic';
 import { Trait } from './trait';
-import { ContentLevel } from './units';
+import { ContentLevel, Level } from './units';
 
 export const Rarity = { Common: 'common', Uncommon: 'uncommon', Rare: 'rare', Unique: 'unique' } as const;
 export type Rarity = ValueOf<typeof Rarity>;
@@ -65,9 +65,6 @@ export const REGISTERED_KINDS: readonly RegisteredKind[] = Object.values(Content
 
 const KNOWN_KINDS: ReadonlySet<unknown> = new Set(REGISTERED_KINDS);
 
-/** Kinds whose entries always have a level: a creature's level is part of its stat block. */
-const LEVELLED_KINDS: ReadonlySet<ContentKind> = new Set([ContentKind.Creature]);
-
 const TRAITS_MAX = 32;
 const SOURCES_MAX = 8;
 const SUPERSEDES_MAX = 8;
@@ -104,6 +101,8 @@ const Entry = z.discriminatedUnion('kind', [
     ...address,
     kind: z.literal(ContentKind.Creature),
     ...envelope,
+    // Creatures run -1 to 25 and always have a level: it is part of the stat block.
+    level: Level,
     data: KIND_DATA[ContentKind.Creature],
   }),
   z.strictObject({
@@ -114,9 +113,6 @@ const Entry = z.discriminatedUnion('kind', [
   }),
 ]);
 export type ContentEntry = z.output<typeof Entry>;
-
-/** The entry of one kind, with that kind's `data`. */
-export type ContentEntryOf<TKind extends RegisteredKind> = Extract<ContentEntry, { readonly kind: TKind }>;
 
 /** Names the `kind` when the value is an object whose `kind` is a string with no registered schema. */
 function unknownKindMessage(value: unknown): MessageDescriptor | undefined {
@@ -154,13 +150,6 @@ function checkTraits(context: EntryCheck): void {
   }
 }
 
-function checkLevel(context: EntryCheck): void {
-  const { kind, level } = context.value;
-  if (level === undefined && LEVELLED_KINDS.has(kind)) {
-    push(context, ['level'], message(RulesMessage.EntryLevelRequired, { kind }));
-  }
-}
-
 function checkSupersedes(context: EntryCheck): void {
   const { id, supersedes = [] } = context.value;
   for (const [index, superseded] of supersedes.entries()) {
@@ -193,7 +182,6 @@ export const ContentEntry: z.ZodType<ContentEntry> = z
     Entry.check((context) => {
       checkId(context);
       checkTraits(context);
-      checkLevel(context);
       checkSupersedes(context);
     }),
   );

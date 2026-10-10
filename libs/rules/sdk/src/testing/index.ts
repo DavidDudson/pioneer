@@ -18,4 +18,4 @@ export {
 } from './arbitraries';
 export { ruleElementJson } from './rule-element-arbitraries';
 export { richTextJson } from './rich-text-arbitraries';
-export { anyContentEntryJson, contentEntryJson, slugText } from './content-entry-arbitraries';
+export { contentEntryJson, slugText } from './content-entry-arbitraries';

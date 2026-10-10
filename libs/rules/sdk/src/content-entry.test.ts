@@ -40,7 +40,7 @@ const giantRat = {
   level: -1,
   rarity: 'common',
   traits: ['animal'],
-  sources: [{ kind: 'book', book: 'monster-core', page: 284 }],
+  sources: [{ kind: 'book', book: 'monster-core', page: 1 }],
   description,
   rules: [],
   externalIds: { foundry: 'Compendium.pf2e.pathfinder-monster-core.Actor.abc123' },
@@ -127,11 +127,21 @@ describe('ContentEntry', () => {
     ]);
   });
 
-  test('takes levels from -1 to 30', () => {
+  test('takes levels from 0 to 30', () => {
+    expect(issues({ ...human, level: 0 })).toStrictEqual([]);
     expect(issues({ ...human, level: 30 })).toStrictEqual([]);
-    expect(issues({ ...human, level: -1 })).toStrictEqual([]);
     expect(issues({ ...human, level: 31 }).map((issue) => issue.message.key)).toStrictEqual([ValidationMessage.TooBig]);
-    expect(issues({ ...human, level: -2 }).map((issue) => issue.message.key)).toStrictEqual([
+    expect(issues({ ...human, level: -1 }).map((issue) => issue.message.key)).toStrictEqual([
+      ValidationMessage.TooSmall,
+    ]);
+  });
+
+  test('takes creature levels from -1 to 25', () => {
+    expect(issues({ ...giantRat, level: 25 })).toStrictEqual([]);
+    expect(issues({ ...giantRat, level: 26 }).map((issue) => issue.message.key)).toStrictEqual([
+      ValidationMessage.TooBig,
+    ]);
+    expect(issues({ ...giantRat, level: -2 }).map((issue) => issue.message.key)).toStrictEqual([
       ValidationMessage.TooSmall,
     ]);
   });
@@ -140,7 +150,23 @@ describe('ContentEntry', () => {
     const { level: _level, ...unlevelled } = giantRat;
 
     expect(issues(unlevelled)).toStrictEqual([
-      { path: ['level'], message: message(RulesMessage.EntryLevelRequired, { kind: 'creature' }) },
+      { path: ['level'], message: message(ValidationMessage.InvalidType, { expected: 'number' }) },
+    ]);
+  });
+
+  test('checks external ids and display hints', () => {
+    const invalid = issues({
+      ...human,
+      externalIds: { aon: 'https://example.com/human', pf2etools: 'human' },
+      display: { category: 'hidden' },
+    });
+
+    const found = invalid.map((issue) => `${issue.path.join('.')} ${issue.message.key}`).toSorted();
+
+    expect(found).toStrictEqual([
+      `display.category ${ValidationMessage.InvalidValue}`,
+      `externalIds.aon ${RulesMessage.AonUrl}`,
+      `externalIds.pf2etools ${ValidationMessage.UnrecognizedKeys}`,
     ]);
   });
 

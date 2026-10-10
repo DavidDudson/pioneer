@@ -14,14 +14,14 @@ import {
 import type { Arbitrary } from 'fast-check';
 
 import { Attribute, ATTRIBUTE_MODIFIER_MAX, ATTRIBUTE_MODIFIER_MIN } from '../attribute';
-import { DisplayCategory, Rarity, REGISTERED_KINDS } from '../content-entry';
+import { DisplayCategory, Rarity } from '../content-entry';
 import type { RegisteredKind } from '../content-entry';
 import { contentId, PackId, Slug } from '../content-id';
 import { ContentKind } from '../content-kind';
 import { DamageType } from '../damage';
 import { Size } from '../size';
 import { StatisticKind } from '../statistic';
-import { CONTENT_LEVEL_MAX, LEVEL_MIN } from '../units';
+import { CONTENT_LEVEL_MAX, LEVEL_MAX, LEVEL_MIN } from '../units';
 import { actorFormulaText, keyPathText } from './arbitraries';
 import { richTextJson } from './rich-text-arbitraries';
 import { ruleElementJson } from './rule-element-arbitraries';
@@ -106,13 +106,17 @@ const statisticData: Arbitrary<object> = withOptional(
   { keyAttribute: attribute },
 );
 
-/** Valid `data` for each registered kind, and whether the kind needs a level. */
+/** A level from any kind but creatures, and a creature's level. */
+const entryLevel: Arbitrary<number> = integer({ min: 0, max: CONTENT_LEVEL_MAX });
+const creatureLevel: Arbitrary<number> = integer({ min: LEVEL_MIN, max: LEVEL_MAX });
+
+/** Valid `data` for each registered kind, and its level when the kind always has one. */
 const KIND_ARBITRARIES: Readonly<
-  Record<RegisteredKind, { readonly data: Arbitrary<object>; readonly levelled: boolean }>
+  Record<RegisteredKind, { readonly data: Arbitrary<object>; readonly level?: Arbitrary<number> }>
 > = {
-  [ContentKind.Ancestry]: { data: ancestryData, levelled: false },
-  [ContentKind.Creature]: { data: creatureData, levelled: true },
-  [ContentKind.Statistic]: { data: statisticData, levelled: false },
+  [ContentKind.Ancestry]: { data: ancestryData },
+  [ContentKind.Creature]: { data: creatureData, level: creatureLevel },
+  [ContentKind.Statistic]: { data: statisticData },
 };
 
 const bookPage: Arbitrary<object> = record({ kind: constant('book'), book: slugText, page: positive });
@@ -123,8 +127,6 @@ const source: Arbitrary<object> = oneof(
   bookAon,
   withOptional(webPage, { title: contentText }),
 );
-
-const level: Arbitrary<number> = integer({ min: LEVEL_MIN, max: CONTENT_LEVEL_MAX });
 
 /** The parts of an entry that are its identity: pack and slug, with the id derived from them. */
 interface EntryIdentity {
@@ -141,7 +143,7 @@ const identity: Arbitrary<EntryIdentity> = tuple(slugText, slugText).map(([pack,
 
 /** A valid content entry of `kind`, as plain JSON (unparsed), with every optional field sometimes present. */
 export function contentEntryJson(kind: RegisteredKind): Arbitrary<object> {
-  const { data, levelled } = KIND_ARBITRARIES[kind];
+  const { data, level } = KIND_ARBITRARIES[kind];
   const required = identity.chain(({ id, pack, slug }) =>
     record({
       id: constant(id),
@@ -155,18 +157,15 @@ export function contentEntryJson(kind: RegisteredKind): Arbitrary<object> {
       description: richTextJson,
       rules: array(ruleElementJson, { maxLength: LIST_MAX }),
       data,
-      ...(levelled ? { level } : {}),
+      ...(level === undefined ? {} : { level }),
     }),
   );
   const externalIds = withOptional(constant({}), { foundry: contentText, aon: aonUrl, pathbuilder: contentText });
   return withOptional(required, {
-    ...(levelled ? {} : { level }),
+    ...(level === undefined ? { level: entryLevel } : {}),
     display: record({ category: displayCategory }),
     externalIds,
     // A random UUID never equals a UUIDv5 id, so these never supersede the entry itself.
     supersedes: array(uuid({ version: 4 }), { maxLength: LIST_MAX }),
   });
 }
-
-/** A valid content entry of any registered kind. */
-export const anyContentEntryJson: Arbitrary<object> = oneof(...REGISTERED_KINDS.map((kind) => contentEntryJson(kind)));

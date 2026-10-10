@@ -1,11 +1,13 @@
 import { describe, expect, test } from 'bun:test';
 
+import { fieldIssues } from '@pioneer/shared/kernel';
 import { assert, property, tuple } from 'fast-check';
 import type { Arbitrary } from 'fast-check';
 import * as z from 'zod';
 
 import { ContentEntry, REGISTERED_KINDS } from './content-entry';
 import type { RegisteredKind } from './content-entry';
+import { RulesMessage } from './messages';
 import { contentEntryJson, slugText } from './testing';
 
 /** A valid entry of `kind` and a slug to rename it to. */
@@ -28,7 +30,10 @@ describe('content entries (properties)', () => {
       property(renames(kind), ([json, slug]) => {
         const original: unknown = Reflect.get(json, 'slug');
         const renamed = { ...json, slug: slug === original ? `${slug}-renamed` : slug };
-        expect(ContentEntry.safeParse(renamed).success).toBe(false);
+        const rejected = fieldIssues(ContentEntry.safeParse(renamed).error?.issues ?? []);
+        expect(rejected.map((issue) => [issue.path, issue.message.key])).toStrictEqual([
+          [['id'], RulesMessage.EntryIdMismatch],
+        ]);
       }),
     );
   });

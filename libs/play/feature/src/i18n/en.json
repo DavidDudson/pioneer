@@ -139,7 +139,7 @@
       "statistic": "Statistic"
     },
     "entryKindLabel": "Example",
-    "entryKindHint": "Loads a valid entry of that kind. The kind field decides which data schema checks data.",
+    "entryKindHint": "Picking another kind loads a valid entry of it. The kind field decides which schema checks data.",
     "invalidSummary": "{count, plural, one {# problem, listed under Result.} other {# problems, listed under Result.}}",
     "nothingToShow": "Nothing to check until the JSON parses.",
     "baseHeading": "Base {base}, from:",
