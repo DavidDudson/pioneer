@@ -56,3 +56,11 @@ export const DamageAdjustmentTargetSchema = z.enum(DamageAdjustmentTarget);
 /** A weakness or resistance to a damage type or group. */
 export const DamageAdjustment = z.object({ type: DamageAdjustmentTargetSchema, value: DamageAmount });
 export type DamageAdjustment = z.infer<typeof DamageAdjustment>;
+
+/**
+ * A damage type's `data` on the `ContentEntry` envelope: none yet. The engine's types are `DamageType`; an entry
+ * gives one its name, description and source. Which group a type is in stays with `DAMAGE_GROUP_TYPES`, as Foundry
+ * pf2e keeps it in code, so content can't disagree with the weaknesses and resistances that use it.
+ */
+export const DamageTypeData = z.strictObject({});
+export type DamageTypeData = z.infer<typeof DamageTypeData>;

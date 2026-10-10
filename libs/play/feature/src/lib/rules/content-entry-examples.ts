@@ -1,6 +1,8 @@
 import { Attribute, ContentKind, contentId, PackId, Slug, StatisticKind } from '@pioneer/rules/sdk';
 import type { RegisteredKind } from '@pioneer/rules/sdk';
 
+import { aid, darkvision, draconic, fire, freeArchetype, grabbed, manipulate } from './rules-core-examples';
+
 const PLAYER_CORE = PackId.parse('player-core');
 const MONSTER_CORE = PackId.parse('monster-core');
 
@@ -97,14 +99,28 @@ const armorClass = {
 
 /** A valid entry per registered kind, for the playground's content entry mode. */
 export const EXAMPLE_CONTENT_ENTRIES: Readonly<Record<RegisteredKind, unknown>> = {
+  [ContentKind.Action]: aid,
   [ContentKind.Ancestry]: human,
+  [ContentKind.Condition]: grabbed,
   [ContentKind.Creature]: giantRat,
+  [ContentKind.DamageType]: fire,
+  [ContentKind.Language]: draconic,
+  [ContentKind.Sense]: darkvision,
   [ContentKind.Statistic]: armorClass,
+  [ContentKind.Trait]: manipulate,
+  [ContentKind.VariantRule]: freeArchetype,
 };
 
 /** Message keys naming each registered kind, spelled out so the key check sees them. */
 export const CONTENT_KIND_KEYS: Readonly<Record<RegisteredKind, string>> = {
+  [ContentKind.Action]: 'play.rules.contentKind.action',
   [ContentKind.Ancestry]: 'play.rules.contentKind.ancestry',
+  [ContentKind.Condition]: 'play.rules.contentKind.condition',
   [ContentKind.Creature]: 'play.rules.contentKind.creature',
+  [ContentKind.DamageType]: 'play.rules.contentKind.damageType',
+  [ContentKind.Language]: 'play.rules.contentKind.language',
+  [ContentKind.Sense]: 'play.rules.contentKind.sense',
   [ContentKind.Statistic]: 'play.rules.contentKind.statistic',
+  [ContentKind.Trait]: 'play.rules.contentKind.trait',
+  [ContentKind.VariantRule]: 'play.rules.contentKind.variantRule',
 };

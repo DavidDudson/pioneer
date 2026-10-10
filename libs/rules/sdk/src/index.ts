@@ -1,3 +1,4 @@
+export { ActionCategory, ActionData, Frequency, FrequencyPeriod, Uses } from './action';
 export { AncestryData, AncestryDefinition, AncestryId } from './ancestry';
 export {
   ATTRIBUTE_MODIFIER_MAX,
@@ -8,6 +9,7 @@ export {
   AttributeModifiersWire,
   AttributeSchema,
 } from './attribute';
+export { ConditionData, ConditionGroup } from './condition';
 export { ContentKind, ContentKindSchema } from './content-kind';
 export { ContentPack, type ContentPackLoader, ContentPackManifest, ContentPackSchema } from './content-pack';
 export { contentId, ContentKey, contentKey, PackId, Slug } from './content-id';
@@ -20,10 +22,14 @@ export {
   DamageGroup,
   DamageGroupSchema,
   DamageType,
+  DamageTypeData,
   DamageTypeSchema,
 } from './damage';
 export { DegreeChange, DegreeChangeSchema, DegreeOfSuccess, DegreeOfSuccessSchema } from './degree-of-success';
-export { Immunity, Trait } from './trait';
+export { Immunity, Trait, TraitData } from './trait';
+export { LanguageData } from './language';
+export { SenseAcuity, SenseData } from './sense';
+export { VariantRuleData } from './variant-rule';
 export { PackEntry } from './pack-entry';
 export {
   ContentEntry,
@@ -32,12 +38,10 @@ export {
   DisplayHints,
   ExternalId,
   ExternalIds,
-  KIND_DATA,
-  REGISTERED_KINDS,
   Rarity,
   RaritySchema,
-  type RegisteredKind,
 } from './content-entry';
+export { KIND_DATA, REGISTERED_KINDS, type RegisteredKind } from './kind-data';
 export { type AncestryEntry, ContentRegistry, type CreatureEntry, type StatisticEntry } from './content-registry';
 export { StatisticData, StatisticDefinition, StatisticId, StatisticKind, StatisticKindSchema } from './statistic';
 export { CreatureData, CreatureDefinition, CreatureId } from './creature';

@@ -93,8 +93,14 @@ describe('resolveGrants to a fixpoint', () => {
     [ContentKind.Effect, ['self:effect:a']],
     [ContentKind.Feat, ['feat:a']],
     [ContentKind.Heritage, ['heritage:a']],
+    [ContentKind.Action, []],
     [ContentKind.Creature, []],
+    [ContentKind.DamageType, []],
+    [ContentKind.Language, []],
+    [ContentKind.Sense, []],
     [ContentKind.Statistic, []],
+    [ContentKind.Trait, []],
+    [ContentKind.VariantRule, []],
   ] as const)('an entry of kind %s sets %p', (kind, expected) => {
     const made = ofKind(entry('a'), kind);
     expect(optionsOf([made], [picked('a')])).toEqual([...expected, 'self:level:1']);

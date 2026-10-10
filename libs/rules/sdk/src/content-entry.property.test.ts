@@ -5,8 +5,9 @@ import { assert, property, tuple } from 'fast-check';
 import type { Arbitrary } from 'fast-check';
 import * as z from 'zod';
 
-import { ContentEntry, REGISTERED_KINDS } from './content-entry';
-import type { RegisteredKind } from './content-entry';
+import { ContentEntry } from './content-entry';
+import { REGISTERED_KINDS } from './kind-data';
+import type { RegisteredKind } from './kind-data';
 import { RulesMessage } from './messages';
 import { contentEntryJson, slugText } from './testing';
 

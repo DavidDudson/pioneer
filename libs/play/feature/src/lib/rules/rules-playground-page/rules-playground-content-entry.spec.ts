@@ -9,8 +9,15 @@ function json(harness: RouterTestingHarness): string {
 }
 
 const KIND_EXAMPLES = [
+  ['action', 'Action'],
+  ['condition', 'Condition'],
   ['creature', 'Creature'],
+  ['damage-type', 'Damage type'],
+  ['language', 'Language'],
+  ['sense', 'Sense'],
   ['statistic', 'Statistic'],
+  ['trait', 'Trait'],
+  ['variant-rule', 'Variant rule'],
 ] as const;
 
 describe('RulesPlaygroundPage content entry', () => {
@@ -29,6 +36,18 @@ describe('RulesPlaygroundPage content entry', () => {
 
     expect(json(harness)).toContain(`"kind": "${kind}"`);
     expect(pageText(harness)).toContain('Valid.');
+  });
+
+  it('says which implied condition has no grant', async () => {
+    const harness = await openPlayground();
+    await chooseSchema(harness, 'Content entry');
+    await chooseIn(harness, 'Example', 'Condition');
+    await typeJson(harness, json(harness).replace(/"rules": \[[^\]]*\]/u, '"rules": []'));
+
+    const text = pageText(harness);
+    expect(text).toContain('2 problems');
+    expect(text).toContain('data.implies[0]');
+    expect(text).toContain('Grant this condition with a GrantItem rule too');
   });
 
   it('names a kind with no schema', async () => {

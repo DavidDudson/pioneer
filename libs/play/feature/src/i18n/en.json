@@ -145,9 +145,16 @@
       "contentEntry": "Content entry"
     },
     "contentKind": {
+      "action": "Action",
       "ancestry": "Ancestry",
+      "condition": "Condition",
       "creature": "Creature",
-      "statistic": "Statistic"
+      "damageType": "Damage type",
+      "language": "Language",
+      "sense": "Sense",
+      "statistic": "Statistic",
+      "trait": "Trait",
+      "variantRule": "Variant rule"
     },
     "entryKindLabel": "Example",
     "entryKindHint": "Picking another kind loads a valid entry of it. The kind field decides which schema checks data.",

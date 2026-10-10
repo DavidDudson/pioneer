@@ -29,11 +29,11 @@ interface ContentEntry<K extends ContentKind> {
 ```
 
 `ContentEntry` in `libs/rules/sdk` (`content-entry.ts`) is this envelope as a zod schema. `kind` picks the `data`
-schema from a kind registry (`KIND_DATA`); a kind with no schema yet is an error naming it. On top of the field
-schemas it checks that `id` is UUIDv5 of `<pack>/<slug>`, that there is at least one source, that traits are unique,
-and that `supersedes` never holds the entry's own id. The rules playground's "Content entry" mode loads an example
-per registered kind. Until Epic 2.3 replaces `libs/content/*`, packs keep their older shape and the registry wraps
-their definitions in `PackEntry`.
+schema from a kind registry (`KIND_DATA`, `kind-data.ts`); a kind with no schema yet is an error naming it. On top
+of the field schemas it checks that `id` is UUIDv5 of `<pack>/<slug>`, that there is at least one source, that
+traits are unique, and that `supersedes` never holds the entry's own id. The rules playground's "Content entry"
+mode loads an example per registered kind. Until Epic 2.3 replaces `libs/content/*`, packs keep their older shape
+and the registry wraps their definitions in `PackEntry`.
 
 ### Kinds
 
@@ -52,6 +52,34 @@ nothing about level 1 to 20 is hard-coded.
 
 Statistics are content too: a `statistic` entry names a selector, its domains, an actor-only base formula, and
 whether it is a check or a DC (see [rules-engine.md](rules-engine.md#statistics-are-content)).
+
+#### Rules core data
+
+Each kind's `data` follows what Foundry pf2e stores for it, in Pioneer's words. What an entry does to statistics is
+in its `rules`, not repeated in `data`; a condition's `implies` is the one exception, below. Schemas live in
+`libs/rules/sdk`, registered in `kind-data.ts`.
+
+| Kind           | `data`                                                                                                  |
+| -------------- | ------------------------------------------------------------------------------------------------------- |
+| `condition`    | `valued`; `group?`, Foundry's sheet grouping, which says nothing about stacking; `overrides`; `implies` |
+| `action`       | `cost?`; `category?`; `requirements?` and `trigger?` as rich text; `frequency?`; `selfEffect?`          |
+| `damage-type`  | none yet; a type's group stays in `DAMAGE_GROUP_TYPES`, as Foundry keeps it in code                     |
+| `sense`        | `acuity?`, the acuity the sense always has; `unlimitedRange?` (darkvision)                              |
+| `trait`        | `appliesTo`: each kind that carries it once, from the Foundry trait list it sits in                     |
+| `language`     | none yet; rarity is the envelope's                                                                      |
+| `variant-rule` | none yet; what it changes is in `rules`, applied to every character in a campaign that enables it       |
+
+- `condition`: `valued` says whether it takes a value (Frightened 2) or not (Blinded). `group` is one of
+  `abilities`, `attitudes`, `death`, `detection`, `senses`. `overrides` lists the conditions it replaces
+  (Blinded overrides Dazzled), and is how conditions exclude each other. `overrides` and `implies` are `ContentId[]`.
+- `action`: `cost` is an `action-cost` glyph, absent for a passive ability. `frequency` is `max` uses `per` turn,
+  round, minute, ten minutes, hour, 24 hours, day, week, month or year. `selfEffect` is the effect it applies to
+  the user, by `ContentId`.
+
+Two checks span fields: a reaction needs a `trigger`, and every condition in `implies` needs a `GrantItem` of it in
+`rules` with no predicate. Foundry applies implied conditions (Grabbed's Off-Guard and Immobilized) with
+`GrantItem`, and so does the engine; `implies` is the list the sheet shows. The check runs one way: a condition may
+grant more than it lists.
 
 ### Rich text
 
