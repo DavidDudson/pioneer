@@ -13,6 +13,7 @@ import { pointAt } from './point-at';
 import { parseFacts } from './predicate-verdict';
 import { CheckStatus, readJson } from './rules-check';
 import type { JsonProblem, JsonRead } from './rules-check';
+import { ownedResults } from './statistic-owners';
 import type { VariantInPlay } from './statistic-sources';
 
 const JSON_INDENT = 2;
@@ -238,28 +239,6 @@ function readTexts(texts: StatisticsTexts, namespaces: NamespaceTable): TextsRea
   };
 }
 
-const INSTANCE_SEPARATOR = ':';
-
-/**
- * A definition's results: its own, or for one derived per source, each source's `<selector>:<slug>`, in the order
- * the engine gives them. A slug has no colon, so a deeper selector is not one of them, and a plain statistic's
- * selector (`strike:custom`) shows under its own definition only.
- */
-function resultsOf(
-  { selector, per }: StatisticDefinition,
-  results: ReadonlyMap<Selector, StatisticResult>,
-  plain: ReadonlySet<Selector>,
-): readonly StatisticResult[] {
-  if (per === undefined) {
-    const result = results.get(selector);
-    return result === undefined ? [] : [result];
-  }
-  const prefix = `${selector}${INSTANCE_SEPARATOR}`;
-  return [...results].flatMap(([key, result]) =>
-    key.startsWith(prefix) && !key.slice(prefix.length).includes(INSTANCE_SEPARATOR) && !plain.has(key) ? [result] : [],
-  );
-}
-
 /** How the statistics tool turns proficiency into bonuses: the pack's table, and the variant rule while it is on. */
 export interface StatisticProficiency {
   readonly table: ProficiencyBonusTable;
@@ -280,15 +259,11 @@ export function checkStatistics(
     return read.problems;
   }
   const names = ruleNames(read.rules);
-  const latest = new Map(read.definitions.map((definition) => [definition.selector, definition]));
   const rules = [...read.rules, ...(variant?.rules ?? [])];
   const content = { definitions: read.definitions, proficiencyBonus: table };
   const results = deriveStatistics(content, read.inputs, { rules, facts: read.facts });
-  // Rows follow the order the statistics were written in; a selector written twice shows once.
-  // A statistic derived per source shows each weapon's or entry's in turn.
-  const plain = new Set([...latest.values()].flatMap(({ selector, per }) => (per === undefined ? [selector] : [])));
-  const rows = [...latest.values()].flatMap((definition) =>
-    resultsOf(definition, results, plain).map((result) => rowOf(result, definition.base, { rules: names, variant })),
+  const rows = ownedResults(read.definitions, results).map(({ definition, result }) =>
+    rowOf(result, definition.base, { rules: names, variant }),
   );
   return { status: StatisticsStatus.Valid, rows };
 }

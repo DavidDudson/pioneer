@@ -3,6 +3,7 @@ import { CORE_NAMESPACES, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/s
 import { describe, expect, it } from 'vitest';
 
 import { checkStatistics, EXAMPLE_STATISTIC_INPUTS, StatisticsStatus } from './statistics-check';
+import type { StatisticsCheck } from './statistics-check';
 
 /** A statistic derived once per `per`, with no domains. */
 const perSource = (selector: string, per: string, base: string): object => ({
@@ -15,7 +16,29 @@ const perSource = (selector: string, per: string, base: string): object => ({
   per,
 });
 
+/** The statistics tool on `definitions`, the example inputs and no rule elements. */
+function check(definitions: readonly object[]): StatisticsCheck {
+  const texts = { inputs: EXAMPLE_STATISTIC_INPUTS, rules: '[]', overrides: '[]', facts: '' };
+  return checkStatistics(
+    { definitions: JSON.stringify(definitions), ...texts },
+    { table: PLAYER_CORE_PROFICIENCY_BONUS, variant: undefined },
+    CORE_NAMESPACES,
+  );
+}
+
 describe('checkStatistics per source', () => {
+  it('shows an instance a later family wins under the family, with its base, not under the earlier plain one', () => {
+    const plain = { ...perSource('strike:longsword', 'weapon', '@level'), slug: 'plain-strike', per: undefined };
+    const strike = perSource('strike', 'weapon', '@weapon.attr + @weapon.prof + @weapon.potency');
+    expect(check([plain, strike])).toMatchObject({
+      status: StatisticsStatus.Valid,
+      rows: [
+        { selector: 'strike:dagger' },
+        { selector: 'strike:longsword', total: 12, terms: [{ code: '@weapon.attr' }, {}, {}] },
+      ],
+    });
+  });
+
   it('shows a plain statistic that shares the family’s prefix once, under its own definition', () => {
     const custom = { ...perSource('strike:custom', 'weapon', '@level'), slug: 'custom-strike', per: undefined };
     const result = checkStatistics(
