@@ -3,6 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import { Attribute, Proficiency } from '@pioneer/rules/sdk';
 
 import briarRose from './fixtures/briar-rose.json';
+import mordredFixture from './fixtures/mordred.json';
 import { ImportKind } from './import-kind';
 import type { ImportKind as ImportKindType } from './import-kind';
 import { PathbuilderProblem, readPathbuilderExport } from './read-pathbuilder-export';
@@ -105,6 +106,43 @@ describe('readPathbuilderExport: golden fixture (Briar Rose)', () => {
   });
 });
 
+describe('readPathbuilderExport: golden fixture (Mordred)', () => {
+  const mordred = read(mordredFixture);
+
+  test('reads a human champion/oracle dual class at level 12', () => {
+    expect<object>(mordred.identity).toEqual({
+      ancestry: 'Human',
+      heritage: 'Changeling',
+      background: 'Cursed',
+      classes: ['Champion', 'Oracle'],
+    });
+    expect<number>(mordred.level).toBe(12);
+  });
+
+  test('rounds a partial boost down and reaches +6', () => {
+    expect<number>(mordred.attributes.get(Attribute.Strength)).toBe(4);
+    expect<number>(mordred.attributes.get(Attribute.Charisma)).toBe(6);
+  });
+
+  test('reads equipment stored in containers, weapons and the shield', () => {
+    const items = namesOf(mordred, ImportKind.Item);
+    expect(items).toContain('Ring of Discretion');
+    expect(items.filter((name) => name === 'Bastard Sword')).toHaveLength(2);
+    expect(items).toContain('Sturdy Shield (Minor)');
+    expect(items).toHaveLength(31 + 5 + 3);
+  });
+
+  test('keeps feats chosen through another feat (Natural Ambition, Ancestral Paragon)', () => {
+    const feats = namesOf(mordred, ImportKind.Feat);
+    expect(feats).toContain('Defensive Advance');
+    expect(feats).toContain('Natural Skill');
+    expect(feats).toHaveLength(36);
+  });
+
+  test('tolerates the shield bonus Pathbuilder writes as text', () => {
+    expect(mordred.reported.acTotal?.acTotal).toBe(34);
+  });
+});
 describe('readPathbuilderExport', () => {
   test('reads JSON text as well as a parsed object', () => {
     expect(read(JSON.stringify(minimal))).toEqual(read(minimal));

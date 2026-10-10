@@ -16,7 +16,7 @@ const SCORE_MAX = 25;
 /** Pathbuilder's proficiency numbers: 0 untrained, 2 trained, 4 expert, 6 master, 8 legendary. */
 const PROFICIENCY_MAX = 8;
 const SPELL_RANK_MAX = 10;
-const NAME_MAX = 200;
+const NAME_MAX = 500;
 const LIST_MAX = 500;
 
 const Name = z.string().max(NAME_MAX);

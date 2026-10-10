@@ -6,6 +6,7 @@ import { Uuid } from '@pioneer/shared/kernel';
 
 import { entryLookup, matchKey, registryLookup } from './content-lookup';
 import briarRose from './fixtures/briar-rose.json';
+import mordred from './fixtures/mordred.json';
 import { ImportKind, PathbuilderName } from './import-kind';
 import type { ImportedName } from './import-kind';
 import { buildImportReport, MatchStatus, unmatchedRows } from './import-report';
@@ -118,5 +119,25 @@ describe('buildImportReport: golden fixture against loaded packs', () => {
   test('a loaded ancestry matches', () => {
     const human = buildImportReport([imported(ImportKind.Ancestry, 'Human')], registryLookup(registry));
     expect(human.groups[0]?.rows[0]?.status).toBe(MatchStatus.Matched);
+  });
+});
+
+describe('buildImportReport: Mordred against loaded packs', () => {
+  const registry = new ContentRegistry();
+  registry.register(new ContentPackBuilder().withAncestry('human').build());
+  const read = readPathbuilderExport(mordred);
+  if (!read.ok) {
+    throw new Error('fixture must read');
+  }
+  const report = buildImportReport(read.value.names, registryLookup(registry));
+
+  test('Human matches a loaded ancestry', () => {
+    expect(report.groups[0]?.rows).toEqual([expect.objectContaining({ name: 'Human', status: MatchStatus.Matched })]);
+  });
+
+  const items = report.groups.find((group) => group.kind === ImportKind.Item)?.rows ?? [];
+
+  test('repeated names are counted, not listed twice', () => {
+    expect<number | undefined>(items.find((row) => row.name === 'Bastard Sword')?.occurrences).toBe(2);
   });
 });
