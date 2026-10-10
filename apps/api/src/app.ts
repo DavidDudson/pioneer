@@ -10,7 +10,10 @@ import type { Env } from './env';
 import { API_PREFIX, csrf, identity } from './identity';
 import type { Identity } from './identity';
 
-/** Extra routes mounted under the API prefix, behind the CSRF guard. The dev entrypoint adds its sign-in this way. */
+/**
+ * Extra routes mounted under the API prefix, after the CSRF guard (which only checks unsafe methods). The dev
+ * entrypoint adds its sign-in this way.
+ */
 export type AppExtension = (identity: Identity) => AnyElysia;
 
 /** Composition root: the only place adapters, services and routes meet. */

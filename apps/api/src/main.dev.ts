@@ -1,7 +1,7 @@
 /**
  * Local development entrypoint (`nx serve api`, `just dev`): the server from main.ts plus the dev users, seeded on
- * start, and their one-click sign-in. The production binary is built from main.ts, which never imports this file
- * or ./dev, so none of it ships; the `verify-dev-free` target checks the built output.
+ * start, and their one-click sign-in (ADR-0020). The production binary is built from main.ts, which never imports
+ * this file or ./dev, so none of it ships; the `verify-dev-free` target checks the built output.
  */
 import { systemClock } from '@pioneer/shared/kernel';
 import { Elysia } from 'elysia';
@@ -9,6 +9,7 @@ import { Elysia } from 'elysia';
 import { createApp } from './app';
 import { connect, runMigrations } from './database';
 import { devSignInRoutes } from './dev/dev-sign-in';
+import { assertLocalOrigin, DEV_HOSTNAME } from './dev/local-only';
 import { seedDevData } from './dev/seed';
 import { readEnv } from './env';
 
@@ -21,10 +22,7 @@ if (command !== undefined && command !== SEED_COMMAND) {
 }
 
 const env = readEnv();
-// Dev sign-in skips every provider; refuse anything that looks like a real deployment.
-if (env.PUBLIC_ORIGIN?.startsWith('https:') === true) {
-  throw new Error(`Refusing to start dev sign-in with an https PUBLIC_ORIGIN (${env.PUBLIC_ORIGIN})`);
-}
+assertLocalOrigin(env.PUBLIC_ORIGIN);
 
 const db = connect(env.DATABASE_URL);
 await runMigrations(db, env.MIGRATIONS_DIR);
@@ -34,6 +32,7 @@ if (command === SEED_COMMAND) {
   await db.$client.close();
   console.info('dev data seeded');
 } else {
-  new Elysia().use(await createApp(db, env, [devSignInRoutes])).listen(env.PORT);
-  console.info(`pioneer api (dev) listening on :${env.PORT}`);
+  // Loopback only: nothing else on the network can reach the dev sign-in.
+  new Elysia().use(await createApp(db, env, [devSignInRoutes])).listen({ port: env.PORT, hostname: DEV_HOSTNAME });
+  console.info(`pioneer api (dev) listening on ${DEV_HOSTNAME}:${env.PORT}`);
 }

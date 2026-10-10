@@ -15,9 +15,10 @@ function app(): AnyElysia {
   return new Elysia().use(problemHandler).use(devSignInRoutes({ service, policy: { secure: false } }));
 }
 
-async function signInAs(id: UserId, returnTo?: string): Promise<Response> {
-  const query = returnTo === undefined ? '' : `?${new URLSearchParams({ returnTo }).toString()}`;
-  return app().handle(new Request(`http://localhost${DevSignInPath.of(id)}${query}`));
+async function signInAs(id: UserId, returnTo = '/', fetchSite = 'same-origin'): Promise<Response> {
+  const query = new URLSearchParams({ returnTo }).toString();
+  const headers = { 'sec-fetch-site': fetchSite };
+  return app().handle(new Request(`http://localhost${DevSignInPath.of(id)}?${query}`, { headers }));
 }
 
 describe('dev sign-in', () => {
@@ -33,6 +34,12 @@ describe('dev sign-in', () => {
   test('never returns off-site', async () => {
     const response = await signInAs(DevUser.Gm.id, 'https://evil.example/');
     expect(response.headers.get('location')).toBe('/');
+  });
+
+  test('a navigation from another site is a 403 with no session (login CSRF)', async () => {
+    const response = await signInAs(DevUser.Gm.id, '/', 'cross-site');
+    expect(response.status).toBe(403);
+    expect(response.headers.getSetCookie()).toStrictEqual([]);
   });
 
   test('any other user is a 404 with no session', async () => {
