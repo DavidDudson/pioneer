@@ -13,7 +13,7 @@ import {
 } from 'fast-check';
 import type { Arbitrary } from 'fast-check';
 
-import { ActionCategory, FrequencyPeriod } from '../action';
+import { ActionCategory, FrequencyPeriod, UP_TO_MAX } from '../action';
 import { Attribute, ATTRIBUTE_MODIFIER_MAX, ATTRIBUTE_MODIFIER_MIN } from '../attribute';
 import { ConditionGroup } from '../condition';
 import { contentId, PackId, Slug } from '../content-id';
@@ -25,7 +25,7 @@ import { ActionCost } from '../rich-text';
 import { SenseAcuity } from '../sense';
 import { StatisticKind } from '../statistic';
 import { CONTENT_LEVEL_MAX, LEVEL_MAX, LEVEL_MIN } from '../units';
-import { actorFormulaText, keyPathText } from './arbitraries';
+import { actorFormulaText, keyPathText, skillSelectorText } from './arbitraries';
 import {
   ancestryData,
   archetypeData,
@@ -109,16 +109,28 @@ const reaction: Arbitrary<object> = withOptional(
 const otherCost: Arbitrary<string> = constantFrom(
   ...Object.values(ActionCost).filter((cost) => cost !== ActionCost.Reaction),
 );
+const COUNTED_COSTS = [ActionCost.One, ActionCost.Two, ActionCost.Three];
+/** A variable cost: a glyph that counts actions, running to more of them. */
+const variableCost: Arbitrary<object> = constantFrom(...COUNTED_COSTS).chain((cost) =>
+  record({
+    cost: constant(cost),
+    upTo: integer({ min: COUNTED_COSTS.indexOf(cost) + 2, max: UP_TO_MAX }),
+  }),
+);
+const skills: Arbitrary<string[]> = uniqueArray(skillSelectorText, { maxLength: LIST_MAX });
 /** A reaction always has a trigger; anything else may. */
 const actionData: Arbitrary<object> = oneof(
   reaction,
-  withOptional(constant({}), { cost: otherCost, trigger: richTextJson, ...actionUse }),
+  withOptional(constant({}), { cost: otherCost, trigger: richTextJson, skills, ...actionUse }),
+  withOptional(variableCost, { skills, ...actionUse }),
 );
 
 const featCategory: Arbitrary<string> = constantFrom(...Object.values(FeatCategory));
 const featData: Arbitrary<object> = withOptional(record({ category: featCategory }), {
   prerequisites: richTextJson,
   onlyLevel1: boolean(),
+  skills,
+  archetype: contentIdJson,
   maxTakable: oneof(positive, constant(UNLIMITED)),
   action: actionData,
 });

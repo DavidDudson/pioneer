@@ -115,7 +115,8 @@
       "itemLevel": "The level of the item the rule element is on."
     },
     "action": {
-      "reactionTrigger": "A reaction needs a trigger."
+      "reactionTrigger": "A reaction needs a trigger.",
+      "upTo": "A variable cost starts at one, two or three actions and runs to more, at most six."
     },
     "condition": {
       "impliesWithoutGrant": "Grant this condition with a GrantItem rule too; listing it in implies does not apply it."
@@ -176,7 +177,12 @@
         "duration": "Duration",
         "sustained": "Sustained",
         "damageType": "Damage type",
-        "heightens": "Heightens"
+        "heightens": "Heightens",
+        "actionCost": "Actions",
+        "featCategory": "Feat type",
+        "archetype": "Archetype",
+        "skill": "Skill",
+        "mode": "Mode"
       },
       "tradition": {
         "arcane": "Arcane",
@@ -244,7 +250,48 @@
       },
       "unknown": "Unknown",
       "yes": "Yes",
-      "no": "No"
+      "no": "No",
+      "actionCost": {
+        "one": "1 action",
+        "two": "2 actions",
+        "three": "3 actions",
+        "free": "Free action",
+        "reaction": "Reaction",
+        "variable": "Variable",
+        "passive": "Passive"
+      },
+      "featCategory": {
+        "ancestry": "Ancestry",
+        "class": "Class",
+        "general": "General",
+        "skill": "Skill",
+        "bonus": "Bonus"
+      },
+      "skill": {
+        "acrobatics": "Acrobatics",
+        "arcana": "Arcana",
+        "athletics": "Athletics",
+        "crafting": "Crafting",
+        "deception": "Deception",
+        "diplomacy": "Diplomacy",
+        "intimidation": "Intimidation",
+        "lore": "Lore",
+        "medicine": "Medicine",
+        "nature": "Nature",
+        "occultism": "Occultism",
+        "performance": "Performance",
+        "religion": "Religion",
+        "society": "Society",
+        "stealth": "Stealth",
+        "survival": "Survival",
+        "thievery": "Thievery",
+        "none": "No skill"
+      },
+      "mode": {
+        "encounter": "Encounter",
+        "exploration": "Exploration",
+        "downtime": "Downtime"
+      }
     }
   }
 }

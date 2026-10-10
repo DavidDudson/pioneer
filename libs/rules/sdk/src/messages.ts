@@ -19,6 +19,7 @@ export const RulesMessage = {
   EntryDuplicateTrait: 'rules.entry.duplicateTrait',
   EntrySupersedesSelf: 'rules.entry.supersedesSelf',
   ActionReactionTrigger: 'rules.action.reactionTrigger',
+  ActionUpTo: 'rules.action.upTo',
   ConditionImpliesWithoutGrant: 'rules.condition.impliesWithoutGrant',
   TraitDuplicateKind: 'rules.trait.duplicateKind',
   ListDuplicate: 'rules.list.duplicate',

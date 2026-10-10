@@ -78,6 +78,11 @@ export const FacetMessage = {
   No: FacetLabel.parse('rules.facet.no'),
 } as const;
 
+/** Labels for a closed set, from its values and the message key of each. */
+export function facetLabels(keys: Readonly<Record<string, string>>): ReadonlyMap<FacetValue, FacetLabel> {
+  return new Map(Object.entries(keys).map(([value, key]) => [FacetValue.parse(value), FacetLabel.parse(key)]));
+}
+
 const RARITY_LABELS: ReadonlyMap<FacetValue, FacetLabel> = new Map([
   [FacetValue.parse(Rarity.Common), FacetLabel.parse('rules.facet.rarity.common')],
   [FacetValue.parse(Rarity.Uncommon), FacetLabel.parse('rules.facet.rarity.uncommon')],

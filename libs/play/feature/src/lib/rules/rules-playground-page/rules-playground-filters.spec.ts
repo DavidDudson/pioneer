@@ -37,6 +37,28 @@ describe('RulesPlaygroundPage content filters', () => {
     expect(text).not.toContain('Longsword (Weapon)');
   });
 
+  it('filters feats and actions by their shared action cost', async () => {
+    const harness = await openPlayground();
+    await chooseSchema(harness, 'Content filters');
+    await typeInto(harness, queryInput(harness), 'f.action-cost=two,reaction');
+
+    const text = pageText(harness);
+    expect(text).toContain('Sudden Charge (Feat)');
+    expect(text).toContain('Aid (Action)');
+    expect(text).not.toContain('Fireball (Spell)');
+  });
+
+  it('labels feat and action facets', async () => {
+    const harness = await openPlayground();
+    await chooseSchema(harness, 'Content filters');
+    await typeInto(harness, queryInput(harness), '');
+
+    const text = pageText(harness);
+    expect(text).toContain('Feat type');
+    expect(text).toContain('Mode');
+    expect(text).toContain('Encounter');
+  });
+
   it('says when nothing narrows the list', async () => {
     const harness = await openPlayground();
     await chooseSchema(harness, 'Content filters');

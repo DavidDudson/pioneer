@@ -1,5 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
+import { FEAT_FACETS } from './action-facets';
 import { ContentEntry } from './content-entry';
 import { contentId, PackId, Slug } from './content-id';
 import { ContentKind } from './content-kind';
@@ -121,10 +122,11 @@ describe('facet values', () => {
 
   test('every kind has the common facets, then its own', () => {
     const common = COMMON_FACETS.map((each) => each.id);
-    expect(facetsFor([ContentKind.Feat]).map((each) => each.id)).toStrictEqual(common);
+    expect(facetsFor([ContentKind.Trait]).map((each) => each.id)).toStrictEqual(common);
     expect(facetsFor([ContentKind.Spell, ContentKind.Feat]).map((each) => each.id)).toStrictEqual([
       ...common,
       ...SPELL_FACETS.map((each) => each.id),
+      ...FEAT_FACETS.map((each) => each.id),
     ]);
   });
 });

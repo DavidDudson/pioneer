@@ -1,7 +1,8 @@
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
-import { ActionData, Uses } from './action';
+import { ActionData, Skills, Uses } from './action';
+import { ContentId } from './content-id';
 import { RichText } from './rich-text';
 
 /** Which slot a feat fills, as Foundry pf2e files it. An archetype feat is a class feat with the archetype trait. */
@@ -32,6 +33,10 @@ export const FeatData = z.strictObject({
   maxTakable: z.union([Uses, z.literal(UNLIMITED)]).optional(),
   /** How it is used when it is an action (Sudden Charge); absent for a passive feat. */
   action: ActionData.optional(),
+  /** The skills it is about (Assurance in Athletics). An action feat may name more on `action`. */
+  skills: Skills.optional(),
+  /** The `archetype` entry it belongs to, for a feat with the `archetype` trait (Fighter Dedication). */
+  archetype: ContentId.optional(),
 });
 export type FeatData = z.infer<typeof FeatData>;
 

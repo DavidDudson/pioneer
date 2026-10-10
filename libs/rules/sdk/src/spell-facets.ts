@@ -1,5 +1,5 @@
 import { ContentKind } from './content-kind';
-import { FacetId, FacetLabel, FacetType, FacetValue } from './facet';
+import { facetLabels, FacetId, FacetLabel, FacetType } from './facet';
 import type { FacetDefinition, FacetDerive } from './facet';
 import {
   AreaValue,
@@ -23,11 +23,6 @@ function ofSpells(read: (entry: SpellEntry) => readonly unknown[]): FacetDerive 
   return (entry): readonly unknown[] => (entry.kind === ContentKind.Spell ? read(entry) : []);
 }
 
-/** Labels for a closed set, from its values and the message key of each. */
-function labels(keys: Readonly<Record<string, string>>): ReadonlyMap<FacetValue, FacetLabel> {
-  return new Map(Object.entries(keys).map(([value, key]) => [FacetValue.parse(value), FacetLabel.parse(key)]));
-}
-
 export const SpellFacetMessage = {
   Rank: FacetLabel.parse('rules.facet.label.rank'),
   Tradition: FacetLabel.parse('rules.facet.label.tradition'),
@@ -42,14 +37,14 @@ export const SpellFacetMessage = {
   Heightens: FacetLabel.parse('rules.facet.label.heightens'),
 } as const;
 
-const TRADITION_LABELS = labels({
+const TRADITION_LABELS = facetLabels({
   [MagicTradition.Arcane]: 'rules.facet.tradition.arcane',
   [MagicTradition.Divine]: 'rules.facet.tradition.divine',
   [MagicTradition.Occult]: 'rules.facet.tradition.occult',
   [MagicTradition.Primal]: 'rules.facet.tradition.primal',
 });
 
-const CAST_ACTION_LABELS = labels({
+const CAST_ACTION_LABELS = facetLabels({
   [CastActions.One]: 'rules.facet.castActions.one',
   [CastActions.Two]: 'rules.facet.castActions.two',
   [CastActions.Three]: 'rules.facet.castActions.three',
@@ -58,7 +53,7 @@ const CAST_ACTION_LABELS = labels({
   [CastActions.Time]: 'rules.facet.castActions.time',
 });
 
-const RANGE_LABELS = labels({
+const RANGE_LABELS = facetLabels({
   [RangeBand.Touch]: 'rules.facet.range.touch',
   [RangeBand.UpTo30]: 'rules.facet.range.upTo30',
   [RangeBand.UpTo60]: 'rules.facet.range.upTo60',
@@ -69,7 +64,7 @@ const RANGE_LABELS = labels({
   [RangeBand.None]: 'rules.facet.range.none',
 });
 
-const AREA_LABELS = labels({
+const AREA_LABELS = facetLabels({
   [AreaValue.Burst]: 'rules.facet.area.burst',
   [AreaValue.Cone]: 'rules.facet.area.cone',
   [AreaValue.Cube]: 'rules.facet.area.cube',
@@ -79,7 +74,7 @@ const AREA_LABELS = labels({
   [AreaValue.None]: 'rules.facet.area.none',
 });
 
-const TARGET_LABELS = labels({
+const TARGET_LABELS = facetLabels({
   [TargetValue.Single]: 'rules.facet.targets.single',
   [TargetValue.Multiple]: 'rules.facet.targets.multiple',
   [TargetValue.Allies]: 'rules.facet.targets.allies',
@@ -87,7 +82,7 @@ const TARGET_LABELS = labels({
   [TargetValue.None]: 'rules.facet.targets.none',
 });
 
-const DEFENSE_LABELS = labels({
+const DEFENSE_LABELS = facetLabels({
   [DefenseValue.Attack]: 'rules.facet.defense.attack',
   [DefenseValue.Fortitude]: 'rules.facet.defense.fortitude',
   [DefenseValue.Reflex]: 'rules.facet.defense.reflex',
@@ -95,7 +90,7 @@ const DEFENSE_LABELS = labels({
   [DefenseValue.None]: 'rules.facet.defense.none',
 });
 
-const DURATION_LABELS = labels({
+const DURATION_LABELS = facetLabels({
   [DurationValue.Instant]: 'rules.facet.duration.instant',
   [DurationValue.Round]: 'rules.facet.duration.round',
   [DurationValue.Minute]: 'rules.facet.duration.minute',

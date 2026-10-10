@@ -59,21 +59,23 @@ Each kind's `data` follows what Foundry pf2e stores for it, in Pioneer's words. 
 in its `rules`, not repeated in `data`; a condition's `implies` is the one exception, below. Schemas live in
 `libs/rules/sdk`, registered in `kind-data.ts`.
 
-| Kind           | `data`                                                                                                  |
-| -------------- | ------------------------------------------------------------------------------------------------------- |
-| `condition`    | `valued`; `group?`, Foundry's sheet grouping, which says nothing about stacking; `overrides`; `implies` |
-| `action`       | `cost?`; `category?`; `requirements?` and `trigger?` as rich text; `frequency?`; `selfEffect?`          |
-| `damage-type`  | none yet; a type's group stays in `DAMAGE_GROUP_TYPES`, as Foundry keeps it in code                     |
-| `sense`        | `acuity?`, the acuity the sense always has; `unlimitedRange?` (darkvision)                              |
-| `trait`        | `appliesTo`: each kind that carries it once, from the Foundry trait list it sits in                     |
-| `language`     | none yet; rarity is the envelope's                                                                      |
-| `variant-rule` | none yet; what it changes is in `rules`, applied to every character in a campaign that enables it       |
+| Kind           | `data`                                                                                                             |
+| -------------- | ------------------------------------------------------------------------------------------------------------------ |
+| `condition`    | `valued`; `group?`, Foundry's sheet grouping, which says nothing about stacking; `overrides`; `implies`            |
+| `action`       | `cost?`; `upTo?`; `skills?`; `category?`; `requirements?` and `trigger?` as rich text; `frequency?`; `selfEffect?` |
+| `damage-type`  | none yet; a type's group stays in `DAMAGE_GROUP_TYPES`, as Foundry keeps it in code                                |
+| `sense`        | `acuity?`, the acuity the sense always has; `unlimitedRange?` (darkvision)                                         |
+| `trait`        | `appliesTo`: each kind that carries it once, from the Foundry trait list it sits in                                |
+| `language`     | none yet; rarity is the envelope's                                                                                 |
+| `variant-rule` | none yet; what it changes is in `rules`, applied to every character in a campaign that enables it                  |
 
 - `condition`: `valued` says whether it takes a value (Frightened 2) or not (Blinded). `group` is one of
   `abilities`, `attitudes`, `death`, `detection`, `senses`. `overrides` lists the conditions it replaces
   (Blinded overrides Dazzled), and is how conditions exclude each other. `overrides` and `implies` are `ContentId[]`.
-- `action`: `cost` is an `action-cost` glyph, absent for a passive ability. `frequency` is `max` uses `per` turn,
-  round, minute, ten minutes, hour, 24 hours, day, week, month or year. `selfEffect` is the effect it applies to
+- `action`: `cost` is an `action-cost` glyph, absent for a passive ability. `upTo` makes the cost variable, the user
+  picking how many: a count above a `one`, `two` or `three` cost, at most six, as an activity can span two turns.
+  `skills` are the skills it uses, by selector (`skill:athletics`). `frequency` is `max` uses `per` turn, round,
+  minute, ten minutes, hour, 24 hours, day, week, month or year. `selfEffect` is the effect it applies to
   the user, by `ContentId`.
 
 Two checks span fields: a reaction needs a `trigger`, and every condition in `implies` needs a `GrantItem` of it in
@@ -86,16 +88,16 @@ grant more than it lists.
 The same rule holds for build kinds: `data` is what Foundry pf2e stores, less what rule elements already express.
 Lists of attributes, slugs and ids name each item once.
 
-| Kind            | `data`                                                                                                      |
-| --------------- | ----------------------------------------------------------------------------------------------------------- |
-| `ancestry`      | `hitPoints`, `size`, `speed`, `reach`; `boosts`; `flaws`; `languages`; `additionalLanguages`; `vision?`     |
-| `heritage`      | `ancestry?`, absent for a versatile heritage                                                                |
-| `background`    | `boosts`; trained skills and lore are `Proficiency` elements, its skill feat a `GrantItem`                  |
-| `class`         | `keyAttribute`, the attributes it may be; `hitPoints` per level; `additionalSkills`; progression in `rules` |
-| `class-feature` | `action?`; always has a `level`                                                                             |
-| `feat`          | `category`; `prerequisites?` as rich text; `onlyLevel1?`; `maxTakable?`; `action?`; always has a `level`    |
-| `archetype`     | `dedication`; `multiclass?`, the class it is the multiclass archetype of                                    |
-| `deity`         | `category`; `sanctification?`; `domains`; `font`; `attributes`; `skills`; `weapons`; `spells`               |
+| Kind            | `data`                                                                                                                            |
+| --------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `ancestry`      | `hitPoints`, `size`, `speed`, `reach`; `boosts`; `flaws`; `languages`; `additionalLanguages`; `vision?`                           |
+| `heritage`      | `ancestry?`, absent for a versatile heritage                                                                                      |
+| `background`    | `boosts`; trained skills and lore are `Proficiency` elements, its skill feat a `GrantItem`                                        |
+| `class`         | `keyAttribute`, the attributes it may be; `hitPoints` per level; `additionalSkills`; progression in `rules`                       |
+| `class-feature` | `action?`; always has a `level`                                                                                                   |
+| `feat`          | `category`; `prerequisites?` as rich text; `onlyLevel1?`; `maxTakable?`; `action?`; `skills?`; `archetype?`; always has a `level` |
+| `archetype`     | `dedication`; `multiclass?`, the class it is the multiclass archetype of                                                          |
+| `deity`         | `category`; `sanctification?`; `domains`; `font`; `attributes`; `skills`; `weapons`; `spells`                                     |
 
 - **Boosts.** A boost is the attributes it may go to: one for a fixed boost, all six for a free one. An ancestry
   lists up to four, a background two (Farmhand: Constitution or Wisdom, then free). `flaws` are fixed attributes.
@@ -109,8 +111,9 @@ Lists of attributes, slugs and ids name each item once.
 - **Feats.** `category` is Foundry's: `ancestry`, `class`, `general`, `skill` or `bonus`; an archetype feat is a
   class feat with the `archetype` trait. `maxTakable` is a count or `unlimited` (Foundry's `null`), once when
   absent. A feat with `onlyLevel1` must be level 1. `action` is an `action` kind's `data`, for a feat or class
-  feature used as an action. The sheet placement override is the envelope's `display`. Foundry's feature
-  categories on the same item type go elsewhere:
+  feature used as an action. `skills` are the skills a feat is about (Assurance); `archetype` is the `archetype`
+  entry an archetype feat belongs to, by `ContentId`. The sheet placement override is the envelope's `display`.
+  Foundry's feature categories on the same item type go elsewhere:
   `classfeature` is the `class-feature` kind, and `ancestryfeature`, `calling`, `curse`, `deityboon` and `pfsboon`
   have no kind yet, so the importer reports them.
 - **Prerequisites.** `prerequisites` keeps Foundry's text and gains `prerequisitePredicate?`, which the importer
@@ -336,10 +339,10 @@ Facets beyond level, rarity, traits, book and pack:
 
 - **`spell`**: rank; tradition; cast actions; range band; area shape; target count and kind (single target,
   allies, self); defence (attack, save and which); duration; sustained; damage type; heightens.
-- **`feat`**: category; action cost; archetype; skill; prerequisites met.
+- **`feat`**: category; action cost; archetype; skill; prerequisites met (with the **Available to you** preset).
 - **Equipment**: item kind; price; bulk; usage (held, worn, etched, affixed); consumable; magical; weapon group and
   damage type; armour category.
-- **`action`**: cost; mode; skill; trait.
+- **`action`**: cost; mode; skill; trait (the common traits facet).
 
 Behaviour:
 
@@ -362,6 +365,12 @@ Behaviour:
   defence is attack (the `attack` trait or against AC) or the save; duration is its largest unit, with a week or
   more as long. Absence is a value (no range, no area, instant), not unknown. Entries of other kinds give a
   kind's facets no value, so picking one keeps only that kind.
+- Feats and actions share the action cost and skill facets, so a mixed list filters both alike. Action cost is a
+  glyph, `variable` (any `upTo`) or `passive` (no cost, or a feat without an `action`). Skill reads `skills` (a
+  feat's and its action's); every Lore is one `lore`. With none named, a skill feat or an entry with the `skill`
+  trait is unknown and any other is `none`. Archetype is the feat's `archetype`, unknown for an `archetype`-trait
+  feat without one; other feats give no value. Mode is `exploration` or `downtime` from those traits, else
+  `encounter` (`action-facet-values.ts`).
 - **Available to you** is a preset made from the character: level at most the character's (or the slot's level
   for a feat slot), the class and ancestry traits the slot asks for, the traditions of the character's
   spellcasting entries, prerequisites not false, unique entries and the `artifact` trait hidden. Unknown
