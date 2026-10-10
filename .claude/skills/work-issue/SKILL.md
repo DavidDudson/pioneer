@@ -45,6 +45,10 @@ domain/engine, contract, API, Angular feature, `en` message keys, tests), the AD
 anything ambiguous. If a requirement is genuinely ambiguous, ask the user before building; otherwise state the
 assumption in the plan and the PR.
 
+If the slice changes existing UI, take the **before** screenshots now, while the branch still matches main: the
+pages and stories it touches, with the dev sign-in bypass for pages behind auth (`create-pr` step 4). Keep them in
+the scratchpad for the PR.
+
 ## 4. Build the slice
 
 - One full-stack vertical slice, matching surrounding code: Nx layering, zod codecs at boundaries, frontier

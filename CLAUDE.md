@@ -26,12 +26,16 @@ Repo skills in `.claude/skills`:
 | `work-issue`         | Board issue to reviewed PR: pick, branch, build, review, PR, feedback loop        |
 | `stack`              | Epic to story sub-issues to stacked PRs (`gh stack`)                              |
 | `review`             | Pre-PR persona review against repo rules and ADRs, findings verified              |
-| `create-pr`          | Review, commit, push, open PR, request Copilot, wait for reviewers                |
+| `create-pr`          | Review, commit, push, before/after screenshots, open PR, request Copilot, wait    |
 | `resolve-coderabbit` | Verify and fix or decline CodeRabbit and Copilot threads, reply in each           |
 | `pickup`             | Continue an in-progress PR or ticket: rebase on main, conflicts, feedback, finish |
 
-Helpers: `.claude/scripts/pr-threads.sh` (unresolved review threads as JSON) and
-`.claude/scripts/wait-for-review.sh` (block until Copilot, CodeRabbit or CI finish; run in the background).
+Helpers: `.claude/scripts/pr-threads.sh` (unresolved review threads as JSON),
+`.claude/scripts/wait-for-review.sh` (block until Copilot, CodeRabbit or CI finish; run in the background) and
+`.claude/scripts/pr-screenshots.sh` (upload PR screenshots to the `pr-screenshots` branch, print Markdown links).
+
+PRs that change UI carry before/after screenshots. Pages behind auth: sign in locally through the dev bypass,
+`/api/auth/dev/<dev user id>?returnTo=<path>` (`create-pr` step 4).
 
 ## Code style
 
