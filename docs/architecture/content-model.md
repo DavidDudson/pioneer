@@ -124,7 +124,7 @@ Lists of attributes, slugs and ids name each item once.
 
 Foundry pf2e stores a spell's range, targets, casting time and duration as free text; Pioneer stores them as
 structures, and the importer reports a spell whose text doesn't map
-([ADR-0021](../adr/0021-structured-spell-casting-fields.md)). Rule elements on a spell are rare: what it does beyond
+([ADR-0022](../adr/0021-structured-spell-casting-fields.md)). Rule elements on a spell are rare: what it does beyond
 its damage is its description, and the effects it applies are `effect` entries.
 
 | Kind                     | `data`                                                                                                      |

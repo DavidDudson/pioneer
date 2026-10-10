@@ -148,7 +148,8 @@ campaign_members      id, campaign_id, user_id, role (gm | player), joined_at
 campaign_invites      id, campaign_id, token_hash (unique), created_by, created_at, expires_at, revoked_at
 campaign_characters   id, campaign_id, member_id, character_id (unique), attached_at
                       (a character is in one campaign at most and leaves with its member)
-campaign_links        id, campaign_id, token hash, last_used_at, revoked_at
+campaign_links        id, campaign_id, token_hash (unique), created_at, last_used_at, revoked_at
+                      (one live link per campaign; a new one revokes the last)
 ```
 
 - **Ownership of data.** Pioneer always owns the build (choices, inventory, spells). Play state (HP, temporary
@@ -156,14 +157,23 @@ campaign_links        id, campaign_id, token hash, last_used_at, revoked_at
   `foundry` (Foundry is the source of truth; Pioneer mirrors it read-only), `pioneer` (players manage it in
   Pioneer; the actor follows and Foundry edits are overwritten by the next push) or `disconnected` (the default;
   each side tracks its own).
-- **Foundry module.** A Pioneer module for Foundry, configured with the Pioneer URL and a per-campaign link token,
-  pulls the campaign's characters as pf2e actors (see [Foundry export](#foundry-export)) and flags each actor
-  with its character id and revision. Foundry servers are often behind NAT, so the module always calls Pioneer,
-  never the reverse.
-- **Build changes** reach Foundry when the module sees a new character revision; a re-sync replaces build items
-  and leaves play state to the sync mode.
-- **Play state** syncs per mode: in `foundry` mode the module posts actor changes to Pioneer, which stores them in
-  the character's `document.play`; in `pioneer` mode the module writes Pioneer's play state to the actor.
+- **Foundry module** ([ADR-0022](../adr/0022-foundry-module-and-sync-model.md)). A Pioneer module for Foundry,
+  installed from the manifest Pioneer serves at `/foundry/module.json`, pulls the campaign's characters as pf2e
+  actors (see [Foundry export](#foundry-export)) and flags each actor with its character id and revisions.
+  Foundry servers are often behind NAT, so the module always calls Pioneer, never the reverse. It sends the
+  campaign's link token in a `Pioneer-Link-Token` header to CORS-enabled routes under `/api/foundry/v1`, and keeps
+  the token in the GM's user setting, out of players' browsers.
+- **Change detection.** The active GM's client polls `GET /api/foundry/v1/campaign` every 10 seconds (the server
+  sets the interval) with `If-None-Match`. The `ETag` comes from the sync mode and each character's
+  `build_revision` and `play_revision`, so an unchanged party is a `304`.
+- **Build changes** reach Foundry when the module sees a new `build_revision`. The re-sync updates the items it
+  exported in place, matched by their `itemKey` flag, and leaves play-state fields and every other item alone.
+- **Play state** syncs per mode: in `foundry` mode the module sends a full snapshot on each actor change, ordered
+  by Foundry's modified time, and Pioneer stores it in the character's `document.play`; in `pioneer` mode the
+  module writes Pioneer's play state to the actor on a new `play_revision`. Conditions map by slug and effects by
+  compendium source; ones Pioneer does not know are kept as foreign entries and reported.
+- **Players and Foundry users.** The GM maps each character's player to a Foundry user in the module, which sets
+  the actor's ownership. Pioneer never stores Foundry user ids.
 - **Invites.** The GM makes invite links that work for 7 days unless revoked. The token (256 random bits) is
   shown once and only its SHA-256 is stored. A signed-in user who opens a working link joins as a player;
   opening it again as a member is harmless. An unknown token is a 404 and an expired or revoked one a 410, each
@@ -192,7 +202,6 @@ campaign_links        id, campaign_id, token hash, last_used_at, revoked_at
 - **Permissions.** Policies live in the campaign context's application layer, with the acting user from identity's
   `RequestAuthenticator` (ADR-0007), or the campaign from a link token for module routes. Owners edit builds;
   members see the party overview.
-- The module's distribution, change detection and condition mapping are settled by the spike #216.
 
 ## Accounts
 
