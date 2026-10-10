@@ -1,0 +1,9 @@
+<fr-field [invalid]="failed()">
+  <fr-label>{{ 'play.rules.statisticSourceLabel' | transloco }}</fr-label>
+  <fr-segmented [options]="sources()" [value]="value()" (valueChange)="choose($event)" />
+  @if (failed()) {
+    <fr-field-error>{{ 'play.rules.statisticSourceFailed' | transloco }}</fr-field-error>
+  } @else {
+    <fr-field-hint>{{ 'play.rules.statisticSourceHint' | transloco }}</fr-field-hint>
+  }
+</fr-field>

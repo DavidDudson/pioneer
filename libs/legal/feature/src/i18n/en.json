@@ -29,6 +29,11 @@
       "blog": "Paizo blog"
     }
   },
+  "books": {
+    "heading": "Books",
+    "intro": "Every rule Pioneer shows names the book it comes from. These are the books it cites.",
+    "detail": "{publisher} · {license}"
+  },
   "foundry": {
     "heading": "Foundry VTT pf2e system",
     "derived": "All official content in Pioneer is derived from the data in the Foundry VTT pf2e system, whose code is Apache-2.0. Pioneer imports only its remastered, ORC-licensed entries.",

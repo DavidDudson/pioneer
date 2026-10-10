@@ -41,6 +41,37 @@ A pack uses each selector once; a second statistic with the same selector is an 
 may share one, and `ContentRegistry#statisticsFor(selector)` returns them in registration order; which applies is
 the engine's choice.
 
+The core rules pack is hand-authored in `libs/content/core-rules` (pack id `core-rules`), since Foundry defines
+these statistics in code rather than as items. So far it holds:
+
+| Statistic  | Selector         | Kind    | Base                               | Domains                               |
+| ---------- | ---------------- | ------- | ---------------------------------- | ------------------------------------- |
+| AC         | `ac`             | `dc`    | `10 + @attr.dex.capped + @prof.ac` | `dex-based`                           |
+| Fortitude  | `save:fortitude` | `check` | `@attr.con + @prof.save.fortitude` | `check`, `saving-throw`, `con-based`  |
+| Reflex     | `save:reflex`    | `check` | `@attr.dex + @prof.save.reflex`    | `check`, `saving-throw`, `dex-based`  |
+| Will       | `save:will`      | `check` | `@attr.wis + @prof.save.will`      | `check`, `saving-throw`, `wis-based`  |
+| Perception | `perception`     | `check` | `@attr.wis + @prof.perception`     | `check`, `wis-based`                  |
+| Skills     | `skill:<slug>`   | `check` | `@attr.<key> + @prof.skill.<slug>` | `check`, `skill-check`, `<key>-based` |
+
+Domains use one vocabulary, following Foundry's names so imported selectors keep their meaning:
+
+- `all` reaches every statistic and is never listed.
+- `check`: every rolled statistic (`kind: check`).
+- `<attribute>-based` (`str-based` to `cha-based`): every statistic keyed to that attribute.
+- `saving-throw`: the three saves.
+- `skill-check`: the 16 skills and every Lore.
+- `lore`: every Lore.
+- Still to come with their statistics: `attack-roll` and `strike-attack-roll` (Strikes),
+  `spell-attack-roll` and `spell-dc` (spellcasting).
+
+The skills are Acrobatics through Thievery, each keyed to its Player Core attribute (Arcana to Intelligence, Athletics
+to Strength). Armor check penalties are not in the base: they are rule elements on armor.
+
+Lore is open-ended, so the core pack defines none. Whatever grants a Lore (a background, a feat) brings its own
+`statistic` entry with the selector `skill:lore:<topic>`, base `@attr.int + @prof.skill.lore.<topic>`, key
+attribute Intelligence and domains `check`, `skill-check`, `int-based` and `lore`. Two packs granting the same Lore
+share its selector, which `statisticsFor` already allows.
+
 Homebrew can add statistics (a "Sanity" check, a new skill, a new speed). Variant rules from GM Core are packs
 that change formulas or add slots: Proficiency Without Level overrides the proficiency formula, Automatic Bonus
 Progression adds potency modifiers and removes rune requirements, Free Archetype adds feat slots. If the engine can

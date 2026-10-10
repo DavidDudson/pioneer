@@ -1,5 +1,8 @@
 <fr-page [title]="'character.list.title' | transloco" [description]="'character.list.description' | transloco">
   <fr-stack gap="xl">
+    <fr-stack direction="horizontal" justify="end">
+      <fr-link [to]="['import', 'pathbuilder']">{{ 'character.list.import' | transloco }}</fr-link>
+    </fr-stack>
     <fr-surface>
       <fr-async-form [form]="form" [action]="create" [describeError]="describeCreateError">
         <fr-stack gap="md">

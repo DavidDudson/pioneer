@@ -1,4 +1,4 @@
-# 0024. Feats and actions store the skills, archetype and variable cost their facets read
+# 0025. Feats and actions store the skills, archetype and variable cost their facets read
 
 - Status: Proposed
 - Date: 2026-10-10

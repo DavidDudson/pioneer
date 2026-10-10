@@ -1,0 +1,34 @@
+[
+  {
+    "id": "player-core",
+    "publisher": "paizo",
+    "license": "ORC",
+    "remaster": true,
+    "released": "2023-11-15",
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=216"
+  },
+  {
+    "id": "gm-core",
+    "publisher": "paizo",
+    "license": "ORC",
+    "remaster": true,
+    "released": "2023-11-15",
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=218"
+  },
+  {
+    "id": "monster-core",
+    "publisher": "paizo",
+    "license": "ORC",
+    "remaster": true,
+    "released": "2024-03-27",
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=221"
+  },
+  {
+    "id": "player-core-2",
+    "publisher": "paizo",
+    "license": "ORC",
+    "remaster": true,
+    "released": "2024-08-01",
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=227"
+  }
+]

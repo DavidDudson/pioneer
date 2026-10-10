@@ -38,16 +38,8 @@ import { ApiError } from '@pioneer/shared/web';
 import type * as z from 'zod';
 
 import { AncestryOptions } from '../../data/ancestry-options';
+import { ATTRIBUTE_LABEL_KEYS } from '../../data/attribute-label-keys';
 import { CharacterStore } from '../../data/character-store';
-
-const ATTRIBUTE_LABEL_KEYS: Readonly<Record<Attribute, string>> = {
-  [Attribute.Strength]: 'character.attribute.str',
-  [Attribute.Dexterity]: 'character.attribute.dex',
-  [Attribute.Constitution]: 'character.attribute.con',
-  [Attribute.Intelligence]: 'character.attribute.int',
-  [Attribute.Wisdom]: 'character.attribute.wis',
-  [Attribute.Charisma]: 'character.attribute.cha',
-};
 
 /** How one sheet value maps to the aggregate and back. */
 interface FieldSpec<TValue> {

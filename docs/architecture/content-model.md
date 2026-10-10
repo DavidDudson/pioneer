@@ -269,18 +269,22 @@ into this AST.
 
 ## Books and source references
 
-Sources are first-class. `content/books.json` is the registry:
+Sources are first-class. `libs/rules/catalog/src/books.json` is the registry, validated on load by `BookRegistry`
+(`Book` and `Books` schemas in `libs/rules/sdk`):
 
 ```ts
 interface Book {
   id: BookId; // 'player-core', 'gm-core', 'monster-core'
-  title: string; // 'Pathfinder Player Core'
-  publisher: string;
-  license: 'ORC' | 'Paizo-CUP' | 'OGL' | 'homebrew';
+  publisher: 'paizo';
+  license: 'ORC' | 'Paizo-CUP' | 'homebrew'; // ContentLicense, shared with pack manifests
   remaster: boolean;
   released?: PlainDate;
   aonSourceUrl?: Url; // the book's AoN Sources page
 }
+
+// Titles are not stored: BOOK_TITLES maps each BookId to a message key, and the registry rejects a
+// book without one (ADR-0024). Published books only: homebrew cites a `homebrew` source, and OGL
+// joins ContentLicense when a legacy book is imported.
 
 type SourceRef =
   | { kind: 'book'; book: BookId; page?: number; aon?: Url }
@@ -296,7 +300,7 @@ be filled in over time.
 ## Packs and storage
 
 ```text
-content_books        id, title, publisher, license, remaster, ...
+content_books        id, publisher, license, remaster, ...  -- title is a message key (ADR-0024)
 content_packs        id, title, owner_id (null = official), visibility, license, version, content_hash
 content_entries      id, pack_id, kind, slug, name, level, rarity, traits text[], data jsonb,
                      search tsvector, updated_at
@@ -312,7 +316,8 @@ content_pack_deps    pack_id, depends_on            -- homebrew extending an off
 - **Enabled packs** are chosen per campaign (and per character outside campaigns). The registry is built from
   exactly those packs.
 
-The existing TS content libraries (`libs/content/player-core`, `libs/content/monster-core`) are retired. Thousands
+The existing TS content libraries (`libs/content/player-core`, `libs/content/monster-core`, and the hand-authored
+`libs/content/core-rules`, which is seeded instead) are retired. Thousands
 of entries as TypeScript would slow typechecking for no benefit, and homebrew cannot use that path.
 
 ### Delivery to the browser
@@ -370,7 +375,7 @@ Behaviour:
   feat's and its action's); every Lore is one `lore`. With none named, a skill feat or an entry with the `skill`
   trait is unknown and any other is `none`. Archetype is the feat's `archetype`, unknown for an `archetype`-trait
   feat without one; other feats give no value. Mode is `exploration` or `downtime` from those traits, else
-  `encounter` (`action-facet-values.ts`; [ADR-0024](../adr/0024-feat-and-action-facet-fields.md)).
+  `encounter` (`action-facet-values.ts`; [ADR-0025](../adr/0025-feat-and-action-facet-fields.md)).
 - **Available to you** is a preset made from the character: level at most the character's (or the slot's level
   for a feat slot), the class and ancestry traits the slot asks for, the traditions of the character's
   spellcasting entries, prerequisites not false, unique entries and the `artifact` trait hidden. Unknown
