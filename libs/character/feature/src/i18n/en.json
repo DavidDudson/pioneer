@@ -29,6 +29,10 @@
   "sheet": {
     "identityHeading": "Identity",
     "attributesHeading": "Attributes",
+    "defencesHeading": "Defences",
+    "defencesEmpty": "No defences yet",
+    "defencesEmptyHint": "Immunities, weaknesses and resistances will show here once Pioneer works them out from the build.",
+    "sections": "Sheet sections",
     "name": "Name",
     "ancestry": "Ancestry",
     "level": "Level",

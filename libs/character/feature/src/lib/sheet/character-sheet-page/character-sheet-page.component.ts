@@ -22,17 +22,21 @@ import {
 import type { Character, CharacterPatch } from '@pioneer/character/domain';
 import {
   DateDisplay,
+  EmptyState,
   Grid,
-  Heading,
   InlineEdit,
   InlineField,
+  Link,
   LocaleFormat,
   NumberInput,
   Page,
+  RovingFocus,
+  RovingFocusItem,
+  Section,
+  SectionIndex,
   Select,
   Skeleton,
   Stack,
-  Surface,
   Text,
   TextInput,
 } from '@pioneer/frontier';
@@ -52,6 +56,7 @@ import { AncestryOptions } from '../../data/ancestry-options';
 import { ATTRIBUTE_LABEL_KEYS } from '../../data/attribute-label-keys';
 import { CharacterStore } from '../../data/character-store';
 import { ImportResult } from '../../import/import-result/import-result.component';
+import { SHEET_SECTION_ORDER, SHEET_SECTIONS } from '../sheet-sections';
 
 /** How one sheet value maps to the aggregate and back. */
 interface FieldSpec<TValue> {
@@ -76,21 +81,29 @@ function describeSaveError(error: unknown): MessageDescriptor {
 /** PF2e modifiers always show their sign, `+0` included. */
 const SIGNED: Intl.NumberFormatOptions = { signDisplay: 'always' };
 
-/** Character sheet: every value is its own inline edit with its own state. */
+/**
+ * Character sheet: fixed sections in page order, each a region under its level 2 heading, reached from the section
+ * index. Every chosen value is its own inline edit with its own state; the attribute grid is one Tab stop, with
+ * arrow keys between its values.
+ */
 @Component({
   selector: 'pio-character-sheet-page',
   imports: [
     DateDisplay,
+    EmptyState,
     Grid,
-    Heading,
     ImportResult,
     InlineField,
+    Link,
     NumberInput,
     Page,
+    RovingFocus,
+    RovingFocusItem,
+    Section,
+    SectionIndex,
     Select,
     Skeleton,
     Stack,
-    Surface,
     Text,
     TextInput,
     TranslocoPipe,
@@ -112,6 +125,8 @@ export class CharacterSheetPage {
   protected readonly levelMax = CHARACTER_LEVEL_MAX;
   protected readonly modifierMin = ATTRIBUTE_MODIFIER_MIN;
   protected readonly modifierMax = ATTRIBUTE_MODIFIER_MAX;
+  protected readonly sections = SHEET_SECTIONS;
+  protected readonly sectionOrder = SHEET_SECTION_ORDER;
   protected readonly title = computed(() => this.character()?.name);
 
   protected readonly name = this.#field<string>({
