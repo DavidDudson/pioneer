@@ -12,10 +12,54 @@ concurrency:
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
+  # `bun run check` split by runtime so each job stays near 4 minutes. The ci:* scripts together cover check;
+  # a target added to check goes in one of them too. Storybook is the longest task, so it is sharded.
   check:
-    name: Check
+    name: Check (${{ matrix.name }})
     runs-on: ubuntu-24.04
-    timeout-minutes: 20
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { name: lint, script: ci:lint, args: '' }
+          - { name: typecheck and build, script: ci:build, args: '' }
+          - { name: storybook 1/4, script: ci:storybook, args: --shard=1/4 }
+          - { name: storybook 2/4, script: ci:storybook, args: --shard=2/4 }
+          - { name: storybook 3/4, script: ci:storybook, args: --shard=3/4 }
+          - { name: storybook 4/4, script: ci:storybook, args: --shard=4/4 }
+    defaults:
+      run:
+        # Same toolchain as local: every step runs inside the flake devshell.
+        shell: nix develop --command bash -euo pipefail {0}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: cachix/install-nix-action@13d8dd58da0234aa297dedd986986ccb8e7f3e24 # v31.11.1
+        with:
+          github_access_token: ${{ github.token }}
+      - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ~/.bun/install/cache
+          key: bun-${{ runner.os }}-${{ hashFiles('bun.lock') }}
+      - name: Install
+        run: bun install --frozen-lockfile
+      - name: Check
+        run: |
+          # ARGS is unquoted so an empty one adds no argument.
+          # shellcheck disable=SC2086
+          bun run "$SCRIPT" $ARGS
+        env:
+          SCRIPT: ${{ matrix.script }}
+          ARGS: ${{ matrix.args }}
+
+  test:
+    name: Check (test)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
     permissions:
       contents: read
     services:
@@ -53,8 +97,8 @@ jobs:
           key: bun-${{ runner.os }}-${{ hashFiles('bun.lock') }}
       - name: Install
         run: bun install --frozen-lockfile
-      - name: Check
-        run: bun run check
+      - name: Test
+        run: bun run ci:test
 
   workflows:
     name: Workflow lint

@@ -8,6 +8,10 @@
   "scripts": {
     "dev": "nx serve web --port=${WEB_PORT:-4200}",
     "check": "nx run-many -t lint lint-templates typecheck test test-storybook build verify-styles verify-dev-free && bun run lint:workspace && bun run test:tools",
+    "ci:lint": "nx run-many -t lint lint-templates && bun run lint:workspace && bun run test:tools",
+    "ci:build": "nx run-many -t typecheck build verify-styles verify-dev-free",
+    "ci:test": "nx run-many -t test",
+    "ci:storybook": "nx run frontier:test-storybook",
     "lint:workspace": "hadolint Dockerfile && tofu fmt -check -recursive infra && knip --treat-config-hints-as-errors && bun run check:messages && bun run check:components && typos && rumdl check . && taplo check && taplo fmt --check && biome lint --error-on-warnings && oxlint tools && oxfmt --check .",
     "format": "oxfmt .",
     "format:check": "oxfmt --check .",
