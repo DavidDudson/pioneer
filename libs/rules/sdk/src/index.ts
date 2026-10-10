@@ -67,6 +67,22 @@ export { VariantRuleData, VariantRuleDefinition, VariantRuleId } from './variant
 export { PackEntry } from './pack-entry';
 export { ContentEntry } from './content-entry';
 export {
+  BundleBody,
+  BundleFile,
+  BundleHash,
+  BundlePath,
+  bundlePath,
+  ContentContract,
+  ContentManifest,
+  contentBundles,
+  contentPackFromBundles,
+  KindBundles,
+  NamesBundle,
+  PackBundles,
+} from './content-bundle';
+export type { BundleHasher, ContentBundles, FetchedKind } from './content-bundle';
+export { CanonicalJson, canonicalJson } from './canonical-json';
+export {
   ContentEntryFile,
   ContentPackFile,
   contentPackFromContents,
