@@ -47,7 +47,7 @@ export class Heading {
   public readonly truncate = input(false, { transform: booleanAttribute });
   /**
    * The heading's id, so a section can be labelled by it and an `fr-link skipTo` can move focus to it. The heading
-   * then takes focus from script only (`tabindex="-1"`) and shows the focus ring when it has it.
+   * then takes focus from script only (`tabindex="-1"`) and shows `focus-ring` when it has it.
    */
   public readonly anchor = input<string | undefined>(undefined);
   /** Marks the heading busy while its text is a skeleton, and names it "Loading" so it is never empty. */
