@@ -1,11 +1,12 @@
 import { RollOptionNamespace } from '@pioneer/rules/predicate';
 import type { PredicateFacts } from '@pioneer/rules/predicate';
-import { ContentKind, RollOption, RuleElementKey } from '@pioneer/rules/sdk';
-import type { ContentId, Level } from '@pioneer/rules/sdk';
+import { ContentKind, RuleElementKey } from '@pioneer/rules/sdk';
+import type { ContentId, Level, RollOption } from '@pioneer/rules/sdk';
 
 import type { AnsweredSlot } from './choices';
 import type { GrantEntry } from './grant-entry';
 import type { GrantWalk } from './grant-walk';
+import { optionOf } from './option-of';
 import { byCodeUnit } from './order';
 import { entryOptions } from './toggles';
 import type { PlacedEntry, ToggleSlot, ToggleStates } from './toggles';
@@ -14,6 +15,9 @@ import type { PlacedEntry, ToggleSlot, ToggleStates } from './toggles';
  * Where each kind of entry says it is on the character, as Foundry pf2e writes it: `class:fighter`,
  * `feature:shield-block`, `self:condition:grabbed`. Creatures and statistics set nothing.
  */
+/** Where the level is written: `self:level:5`. */
+const LEVEL_PREFIX = 'self:level';
+
 const KIND_NAMESPACES: Readonly<Record<ContentKind, RollOptionNamespace | undefined>> = {
   [ContentKind.Ancestry]: RollOptionNamespace.parse('ancestry'),
   [ContentKind.Background]: RollOptionNamespace.parse('background'),
@@ -52,14 +56,15 @@ export interface FactSources {
 
 /** `self:level:<level>`. A negative level (a creature's) cannot be written as a roll option, so it sets none. */
 export function levelOptions(level: Level): RollOption[] {
-  const option = RollOption.safeParse(`self:level:${level}`);
-  return option.success ? [option.data] : [];
+  const option = optionOf(LEVEL_PREFIX, String(level));
+  return option === undefined ? [] : [option];
 }
 
 /** The option `entry`'s kind sets for it, `feat:<slug>`; none for a kind that sets none. */
 function kindOptions(entry: GrantEntry): RollOption[] {
   const namespace = KIND_NAMESPACES[entry.kind];
-  return namespace === undefined ? [] : [RollOption.parse(`${namespace}:${entry.slug}`)];
+  const option = namespace === undefined ? undefined : optionOf(namespace, entry.slug);
+  return option === undefined ? [] : [option];
 }
 
 /** The namespaces `entry`'s `ChoiceSet`s write their picks to. */

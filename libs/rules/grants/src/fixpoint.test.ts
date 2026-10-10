@@ -261,3 +261,26 @@ describe('roll options from the set', () => {
     expect(result.facts.isKnown(RollOption.parse('weapon-group:axe'))).toBe(true);
   });
 });
+
+describe('options too long to write', () => {
+  const LONG = 'a'.repeat(250);
+  const LONGER = 'a'.repeat(260);
+
+  test('a toggle whose suboption would outgrow a roll option sets only its option', () => {
+    const suboptions = [{ value: 'cold', label: 'Cold' }];
+    const option = `self:${LONG}`;
+    const content = [entry('aura', [rollOption(option, { toggleable: true, value: true, suboptions })])];
+    expect(optionsOf(content, [picked('aura')])).toEqual(['feature:aura', option, 'self:level:1']);
+  });
+
+  test('a pick whose rollOption would outgrow a roll option answers its slot without setting one', () => {
+    const content = [
+      entry('fighter', [
+        { key: 'ChoiceSet', flag: 'long', rollOption: 'long', choices: [{ value: LONGER, label: 'Long' }] },
+      ]),
+    ];
+    const result = resolve(content, [picked('fighter')], { picks: picksOf([[slotOf('fighter', 0), LONGER]]) });
+    expect(result.answered[0]?.option).toBeUndefined();
+    expect(options(result)).toEqual(['feature:fighter', 'self:level:1']);
+  });
+});

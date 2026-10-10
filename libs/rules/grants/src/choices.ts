@@ -1,8 +1,9 @@
 import { evaluatePredicate, RollOptionNamespace, summarisePredicate, Truth } from '@pioneer/rules/predicate';
 import type { PredicateFacts, PredicateSummary } from '@pioneer/rules/predicate';
-import { ContentId, OriginHopKind, RollOption, RuleElementKey, RuleIndex, SlotKey } from '@pioneer/rules/sdk';
+import { ContentId, OriginHopKind, RuleElementKey, RuleIndex, SlotKey } from '@pioneer/rules/sdk';
 import type {
   ChoiceOption,
+  RollOption,
   ChoiceQuery,
   ChoiceSetElement,
   ChoiceValue,
@@ -16,6 +17,7 @@ import { message } from '@pioneer/shared/kernel';
 
 import type { ContentLookup, GrantEntry, GrantError } from './grant-entry';
 import { GrantsMessage } from './messages';
+import { optionOf } from './option-of';
 import { byCodeUnit } from './order';
 
 /** An option the player may pick. `summary` says when it applies, for one whose predicate is unknown. */
@@ -179,7 +181,7 @@ class ChoiceReader {
     if (value === undefined) {
       this.#open.push(slot);
     } else if (slot.options.some((offered) => offered.value === value)) {
-      const option = element.rollOption === undefined ? undefined : RollOption.parse(`${element.rollOption}:${value}`);
+      const option = element.rollOption === undefined ? undefined : optionOf(element.rollOption, value);
       this.#answer({ ...slot, pick: value, option });
     } else {
       this.#refuse(slot, value);

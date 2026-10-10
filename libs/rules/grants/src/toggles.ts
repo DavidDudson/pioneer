@@ -1,9 +1,18 @@
 import { evaluatePredicate, Truth } from '@pioneer/rules/predicate';
 import type { PredicateFacts } from '@pioneer/rules/predicate';
-import { Domain, RollOption, RuleElementKey, RuleIndex, ToggleKey } from '@pioneer/rules/sdk';
-import type { ContentId, Origin, Predicate, RollOptionElement, RuleElement, Slug } from '@pioneer/rules/sdk';
+import { Domain, RuleElementKey, RuleIndex, ToggleKey } from '@pioneer/rules/sdk';
+import type {
+  ContentId,
+  Origin,
+  Predicate,
+  RollOption,
+  RollOptionElement,
+  RuleElement,
+  Slug,
+} from '@pioneer/rules/sdk';
 
 import type { GrantEntry } from './grant-entry';
+import { optionOf } from './option-of';
 
 /** How the player left a toggle: on or off, and the suboption picked, for one that has them. */
 export interface ToggleState {
@@ -97,8 +106,9 @@ class OptionReader {
       return;
     }
     this.#options.push(element.option);
-    if (suboption !== undefined) {
-      this.#options.push(RollOption.parse(`${element.option}:${suboption}`));
+    const withSuboption = suboption === undefined ? undefined : optionOf(element.option, suboption);
+    if (withSuboption !== undefined) {
+      this.#options.push(withSuboption);
     }
   }
 }

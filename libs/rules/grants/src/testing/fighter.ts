@@ -14,10 +14,7 @@ const LEVEL_MAX = 20;
 const GREATER_SPECIALIZATION_LEVEL = 15;
 
 /** Levels with a fighter feat slot: 1st and every even level. */
-const CLASS_FEAT_LEVELS: readonly number[] = [
-  1,
-  ...Array.from({ length: LEVEL_MAX / 2 }, (_v, at) => (at + 1) * 2),
-];
+const CLASS_FEAT_LEVELS: readonly number[] = [1, ...Array.from({ length: LEVEL_MAX / 2 }, (_v, at) => (at + 1) * 2)];
 
 /** The class features each level brings. */
 const FEATURES: Readonly<Record<string, readonly string[]>> = {

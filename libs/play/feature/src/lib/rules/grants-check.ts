@@ -8,6 +8,7 @@ import type {
   GrantResolution,
   GrantRoot,
 } from '@pioneer/rules/grants';
+import { DEFAULT_NAMESPACES, kindOf, NamespaceKind } from '@pioneer/rules/predicate';
 import type { PredicateSummary } from '@pioneer/rules/predicate';
 import {
   contentId,
@@ -42,8 +43,6 @@ import type { JsonProblem, JsonRead } from './rules-check';
 const PLAYGROUND_PACK = PackId.parse('playground');
 const PLAYGROUND_PAGE = SourceRef.parse({ kind: 'book', book: 'player-core', page: 1 });
 const LINE = /\r?\n/u;
-/** The level comes from its own field, so the grants tool leaves these out of the typed roll options. */
-const LEVEL_PREFIX = 'self:level:';
 
 const idOfSlug = (slug: Slug): ContentId => ContentId.parse(contentId(PLAYGROUND_PACK, slug));
 
@@ -98,7 +97,7 @@ export interface GrantsTexts {
   readonly picks: string;
   /** Toggles, one `entry:rule = on`, `off` or a suboption per line. */
   readonly toggles: string;
-  /** Roll options, one per line, shared with the verdict and statistics tools; `self:level:` lines are left out. */
+  /** Roll options, one per line, shared with the verdict and statistics tools; only situational ones are read. */
   readonly facts: string;
   readonly level: number;
 }
@@ -198,6 +197,12 @@ function rowsOf(resolution: GrantResolution, names: ReadonlyMap<ContentId, strin
   };
 }
 
+/**
+ * Whether a typed roll option is about the moment. The level field and the entries set the character's own facts
+ * (`self:level:5`, `feature:bravery`), so typing one in the shared box must not put it on the character.
+ */
+const isSituational = (option: RollOption): boolean => kindOf(option, DEFAULT_NAMESPACES) === NamespaceKind.Situational;
+
 /** The line texts and the level, each read; the level is undefined when it is not one. */
 interface ReadTexts {
   readonly roots: RootsParse;
@@ -253,7 +258,7 @@ export function checkGrants(texts: GrantsTexts): GrantsCheck {
     roots: roots.roots,
     lookup: lookupOf(content),
     level,
-    situation: facts.options.filter((option) => !option.startsWith(LEVEL_PREFIX)),
+    situation: facts.options.filter(isSituational),
     picks: picks.picks,
     toggles: toggles.toggles,
   });

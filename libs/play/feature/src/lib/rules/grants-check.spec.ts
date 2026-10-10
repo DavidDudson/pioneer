@@ -150,6 +150,19 @@ describe(checkGrants, () => {
     expect(itemNames(check({ level: 2, facts: 'self:level:20' }))).not.toContain('Bravery');
   });
 
+  it('reads only situational roll options, so a typed character fact grants nothing', () => {
+    const entries = JSON.stringify([
+      {
+        slug: 'fighter',
+        name: 'Fighter',
+        rules: [{ key: 'GrantItem', item: 'steady', predicate: ['feature:bravery'] }],
+      },
+      { slug: 'steady', name: 'Steady', rules: [] },
+    ]);
+    const typed = { entries, roots: 'fighter', picks: '', toggles: '', level: 2 };
+    expect(itemNames(check({ ...typed, facts: 'feature:bravery\nterrain:forest' }))).toStrictEqual(['Fighter']);
+  });
+
   it('turns a toggle off, or on with a suboption it offers', () => {
     expect(check({ toggles: 'fighter:7 = off' })).toMatchObject({ toggles: [{ slot: 'fighter:7', on: false }] });
     // The example's toggle has no suboptions, so a suboption only turns it on.
