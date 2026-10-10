@@ -380,14 +380,17 @@
       }
     },
     "sourceLine": {
-      "page": "p. {page}",
+      "bookPage": "{title} p. {page}",
+      "partSeparator": " · ",
       "aon": "AoN",
-      "aonLabel": "AoN: {book} page {page} on Archives of Nethys",
-      "aonLabelNoPage": "AoN: {book} on Archives of Nethys",
+      "aonLabel": "{aon}: {book} page {page} on Archives of Nethys",
+      "aonLabelNoPage": "{aon}: {book} on Archives of Nethys",
       "unregisteredBook": "Unknown book “{book}”",
-      "byAuthor": "by {author}",
-      "separator": "; ",
-      "byUnknownAuthor": "by an unknown author"
+      "homebrew": "{pack} by {author}",
+      "homebrewUnknownAuthor": "{pack} by an unknown author",
+      "byAuthor": " by {author}",
+      "byUnknownAuthor": " by an unknown author",
+      "separator": "; "
     }
   }
 }

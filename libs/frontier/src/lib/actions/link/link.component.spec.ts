@@ -49,14 +49,19 @@ describe(Link, () => {
     expect(anchor.getAttribute('rel')).toBe('noopener');
   });
 
-  it('links an external URL from data to the other site with rel="noopener"', async () => {
-    const anchor = await render({ external: 'https://2e.aonprd.com/Ancestries.aspx?ID=64' });
-    expect(anchor.getAttribute('href')).toBe('https://2e.aonprd.com/Ancestries.aspx?ID=64');
-    expect(anchor.getAttribute('rel')).toBe('noopener');
-  });
+  it.each(['https://angular.dev/guide', 'HTTP://example.com/x'])(
+    'links an external URL from data (%j) to the other site with rel="noopener"',
+    async (url) => {
+      const anchor = await render({ external: url });
+      expect(anchor.getAttribute('href')).toBe(url);
+      expect(anchor.getAttribute('rel')).toBe('noopener');
+    },
+  );
 
   it.each([
     '/characters',
+    'https:/characters',
+    'https:characters',
     // oxlint-disable-next-line no-script-url -- the input fr-link must refuse, never code that runs
     'javascript:alert(1)',
     'data:text/html,hi',
@@ -68,8 +73,8 @@ describe(Link, () => {
   });
 
   it('names the link with its aria label', async () => {
-    const anchor = await render({ external: 'https://2e.aonprd.com', ariaLabel: 'Valeros on Archives of Nethys' });
-    expect(anchor.getAttribute('aria-label')).toBe('Valeros on Archives of Nethys');
+    const anchor = await render({ external: 'https://angular.dev', ariaLabel: 'Valeros: Angular documentation' });
+    expect(anchor.getAttribute('aria-label')).toBe('Valeros: Angular documentation');
   });
 
   it('has no aria label unless given one', async () => {

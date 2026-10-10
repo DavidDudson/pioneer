@@ -12,6 +12,7 @@ import {
 } from '@pioneer/frontier';
 import { FacetMessage, FacetType, FLAG_LABELS, UNKNOWN } from '@pioneer/rules/sdk';
 import type { FacetCounts, FacetDefinition, FacetValue } from '@pioneer/rules/sdk';
+import { SourceLineView } from '@pioneer/rules/ui';
 
 import { FiltersStatus } from '../filters-check';
 import type { FiltersCheck } from '../filters-check';
@@ -66,7 +67,18 @@ function facetRow(format: LocaleFormat, { facet, values, unknown }: FacetCounts)
  */
 @Component({
   selector: 'pio-filters-result',
-  imports: [DescriptionItem, DescriptionList, Heading, List, ListItem, RulesResult, Stack, Text, TranslocoPipe],
+  imports: [
+    DescriptionItem,
+    DescriptionList,
+    Heading,
+    List,
+    ListItem,
+    RulesResult,
+    SourceLineView,
+    Stack,
+    Text,
+    TranslocoPipe,
+  ],
   templateUrl: './filters-result.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

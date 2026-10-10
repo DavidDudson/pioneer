@@ -115,8 +115,8 @@ describe('RulesPlaygroundPage content entry', () => {
     await chooseSchema(harness, 'Content entry');
     await typeJson(harness, json(harness).replace('"book": "player-core"', '"book": "core-rulebook"'));
 
-    expect(pageText(harness)).not.toContain('core-rulebook p. 1');
-    expect(pageText(harness)).not.toContain('Player Core p. 1');
+    expect(harness.routeNativeElement?.querySelector('pio-source-line')).toBeNull();
+    expect(pageText(harness)).not.toContain('Unknown book');
   });
 
   it('points at the envelope or data field that is wrong', async () => {

@@ -8,10 +8,21 @@
         [ariaLabel]="
           label === undefined
             ? undefined
-            : (label.key | transloco: { book: (label.book.key | transloco: label.book.params), page: label.page })
+            : (label.key
+              | transloco
+                : {
+                    aon: (Message.Aon | transloco),
+                    book: (label.book.key | transloco: label.book.params),
+                    page: label.page,
+                  })
         "
         >{{ content.kind === SegmentKind.Text ? content.text : (content.key | transloco: content.params) }}</fr-link
       >
+    } @else if (segment.kind === SegmentKind.BookPage) {
+      <ng-container>{{
+        Message.BookPage
+          | transloco: { title: (segment.title.key | transloco: segment.title.params), page: segment.page }
+      }}</ng-container>
     } @else if (segment.kind === SegmentKind.Text) {
       <ng-container>{{ segment.text }}</ng-container>
     } @else {

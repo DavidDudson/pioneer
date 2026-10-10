@@ -111,10 +111,11 @@ describe(SourceLineView, () => {
 
     it('links the pack name when the source has a URL', async () => {
       const url = 'https://example.com/lost-lands';
-      const { links } = await render([{ kind: 'homebrew', pack: PACK, author: AUTHOR, url }], {
+      const { line, links } = await render([{ kind: 'homebrew', pack: PACK, author: AUTHOR, url }], {
         packs: new Map([[PACK, 'The Lost Lands']]),
       });
 
+      expect(line.textContent).toBe('The Lost Lands by an unknown author');
       expect(links[0]?.textContent).toBe('The Lost Lands');
       expect(links[0]?.getAttribute('href')).toBe(url);
     });

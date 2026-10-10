@@ -306,8 +306,8 @@ joined in order:
 - **Homebrew**: the pack's name, linked when the source has a URL, and "by" its author.
 
 It is presentational (ADR-0028): pack and author display names come in as inputs from the page that resolved them,
-and a missing one falls back to the pack id or an unknown author. The rules playground's "Content entry" mode shows
-it once an entry validates; the content browser (#24) picks it up.
+and a missing one falls back to the pack id or an unknown author. The rules playground shows it on a valid
+"Content entry" and on each entry "Content filters" keeps; the content browser (#24) picks it up.
 
 Checks that need the registry live in `libs/rules/catalog` (`sourceIssues`): a `book` source names a registered
 book, and a `homebrew` source's `pack` is the entry's own pack. Each failure is a message descriptor naming the

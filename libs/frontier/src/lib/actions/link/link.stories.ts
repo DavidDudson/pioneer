@@ -38,10 +38,10 @@ export const External: LinkStory = {
 /** `external` is another site's URL from data; the aria label names it when the text is short. */
 export const ExternalFromData: LinkStory = {
   args: {
-    label: 'AoN',
+    label: 'Docs',
     to: undefined,
-    external: 'https://2e.aonprd.com/Ancestries.aspx?ID=64',
-    ariaLabel: 'AoN: Player Core page 42 on Archives of Nethys',
+    external: 'https://angular.dev',
+    ariaLabel: 'Docs: Angular documentation',
   },
 };
 

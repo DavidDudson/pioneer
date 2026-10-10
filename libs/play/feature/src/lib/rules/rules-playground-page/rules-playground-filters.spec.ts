@@ -19,6 +19,15 @@ describe('RulesPlaygroundPage content filters', () => {
     expect(text).not.toContain('Fireball (Spell)');
   });
 
+  it('shows each kept entry’s source line (ADR-0005)', async () => {
+    const harness = await openPlayground();
+    await chooseSchema(harness, 'Content filters');
+
+    const lines = present(harness.routeNativeElement).querySelectorAll('pio-source-line');
+    expect(lines).toHaveLength(11);
+    expect(lines[0]?.textContent).toMatch(/^Player Core p\. \d+$/u);
+  });
+
   it('labels facets and closed-set values', async () => {
     const harness = await openPlayground();
     await chooseSchema(harness, 'Content filters');

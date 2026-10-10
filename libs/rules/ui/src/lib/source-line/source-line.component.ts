@@ -7,15 +7,13 @@ import type { UserId, ValueOf } from '@pioneer/shared/kernel';
 
 import { SourceLineMessage } from './source-line-messages';
 
-/** Glyphs between a source's parts; letter-free, so they need no message key. */
-const PART_SEPARATOR = ' · ';
-const SPACE = ' ';
-
 const SegmentKind = {
-  /** Text shown as it is: a title, a host, a pack name, a glyph. */
+  /** Text shown as it is: a title, a host, a pack name. */
   Text: 'text',
   /** A message key and its params. */
   Message: 'message',
+  /** "Player Core p. 46": a message whose `title` param is the book's title, itself a message. */
+  BookPage: 'book-page',
   /** A link to another site. */
   Link: 'link',
 } as const;
@@ -32,6 +30,13 @@ interface MessageSegment {
   readonly params: Readonly<Record<string, string>>;
 }
 
+interface BookPageSegment {
+  readonly kind: typeof SegmentKind.BookPage;
+  readonly title: MessageSegment;
+  /** The page number, already formatted for the locale. */
+  readonly page: string;
+}
+
 /** A link's accessible name: a message whose `book` param is the book's title, itself a message. */
 interface LinkLabel {
   readonly key: string;
@@ -46,7 +51,7 @@ interface LinkSegment {
   readonly label: LinkLabel | undefined;
 }
 
-type Segment = TextSegment | MessageSegment | LinkSegment;
+type Segment = TextSegment | MessageSegment | BookPageSegment | LinkSegment;
 
 type BookSource = Extract<SourceRef, { readonly kind: typeof SourceKind.Book }>;
 type WebSource = Extract<SourceRef, { readonly kind: typeof SourceKind.Web }>;
@@ -75,13 +80,13 @@ function bookSegments(source: BookSource, page: string | undefined): readonly Se
   const titleKey = BOOK_TITLES.get(source.book);
   const title =
     titleKey === undefined ? message(SourceLineMessage.UnregisteredBook, { book: source.book }) : message(titleKey);
-  const segments: Segment[] = [title];
-  if (page !== undefined) {
-    segments.push(text(SPACE), message(SourceLineMessage.Page, { page }));
-  }
+  const segments: Segment[] = [page === undefined ? title : { kind: SegmentKind.BookPage, title, page }];
   if (source.aon !== undefined) {
     const key = page === undefined ? SourceLineMessage.AonLabelNoPage : SourceLineMessage.AonLabel;
-    segments.push(text(PART_SEPARATOR), link(source.aon, message(SourceLineMessage.Aon), { key, book: title, page }));
+    segments.push(
+      message(SourceLineMessage.PartSeparator),
+      link(source.aon, message(SourceLineMessage.Aon), { key, book: title, page }),
+    );
   }
   return segments;
 }
@@ -91,13 +96,22 @@ function webSegments(source: WebSource): readonly Segment[] {
   return [link(source.url, text(source.title ?? new URL(source.url).host))];
 }
 
-/** "The Lost Lands by Ezren": the pack's name (or id), linked when the source has a URL, and its author. */
+/**
+ * "The Lost Lands by Ezren": the pack's name (or id) and its author, as one phrase; with a URL, the pack name is a
+ * link and the author follows it.
+ */
 function homebrewSegments(source: HomebrewSource, names: HomebrewNames): readonly Segment[] {
-  const pack = text(names.packs.get(source.pack) ?? source.pack);
+  const pack = names.packs.get(source.pack) ?? source.pack;
   const author = names.authors.get(source.author);
+  if (source.url === undefined) {
+    return [
+      author === undefined
+        ? message(SourceLineMessage.HomebrewUnknownAuthor, { pack })
+        : message(SourceLineMessage.Homebrew, { pack, author }),
+    ];
+  }
   return [
-    source.url === undefined ? pack : link(source.url, pack),
-    text(SPACE),
+    link(source.url, text(pack)),
     author === undefined ? message(SourceLineMessage.ByUnknownAuthor) : message(SourceLineMessage.ByAuthor, { author }),
   ];
 }
@@ -127,6 +141,7 @@ export class SourceLineView {
 
   readonly #format = inject(LocaleFormat);
   protected readonly SegmentKind = SegmentKind;
+  protected readonly Message = SourceLineMessage;
 
   /** The line as flat segments, separators included, so the template adds no whitespace of its own. */
   protected readonly segments = computed((): readonly Segment[] => {
