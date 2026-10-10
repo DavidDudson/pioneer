@@ -62,7 +62,7 @@ describe('RulesPlaygroundPage grants', () => {
       '[{ "slug": "fighter", "name": "Fighter", "rules": [{ "key": "ChoiceSet", "flag": "feat", "choices": { "kind": "feat", "filter": ["item:trait:wizard"] } }] }]',
     );
 
-    expect(pageText(harness)).toContain('No content entry matches this choice yet.');
+    expect(pageText(harness)).toContain('Nothing can be picked for this choice yet.');
   });
 
   it('flags a root that is not a slug', async () => {

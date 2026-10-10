@@ -99,7 +99,7 @@
     "slot": "Slot {slot}",
     "option": "Option: {label} ({value})",
     "conditionalOption": "Option: {label} ({value}), when {summary}",
-    "noOptions": "No content entry matches this choice yet.",
+    "noOptions": "Nothing can be picked for this choice yet.",
     "picked": "Picked {pick}",
     "grantErrorsHeading": "Problems",
     "grantedThrough": "Granted through {path}",

@@ -23,8 +23,8 @@ interface OpenSlot {
 
 /**
  * The grants tool's inputs, each with its own problem: the entries as JSON, the roots, the picks and the roll
- * options. Each open slot with something to pick gets a select that writes its pick; one whose query matches nothing
- * says so in the result instead.
+ * options. Each open slot with something to pick gets a select that writes its pick; one with nothing on offer (a query
+ * that matches nothing, or listed options whose predicates are all false) says so in the result instead.
  */
 @Component({
   selector: 'pio-grants-fields',

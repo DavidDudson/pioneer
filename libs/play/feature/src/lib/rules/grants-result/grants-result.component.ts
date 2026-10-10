@@ -104,7 +104,7 @@ export class GrantsResult {
     return [this.#i18n.translate('play.rules.slot', { slot }), ...this.#via(via)];
   }
 
-  /** What a slot offers, or that nothing matches, for a query no entry satisfies. */
+  /** What a slot offers, or that nothing can be picked: a query no entry satisfies, or listed options none of which apply. */
   #options(options: readonly OptionRow[]): string[] {
     return options.length === 0
       ? [this.#i18n.translate('play.rules.noOptions')]
