@@ -32,16 +32,7 @@ export class ContentPackBuilder {
   readonly #ancestries: Sourceable<typeof AncestryDefinition>[] = [];
   readonly #creatures: Sourceable<typeof CreatureDefinition>[] = [];
   readonly #statistics: Sourceable<typeof StatisticDefinition>[] = [];
-||||||| parent of 2b5b59a (feat(rules): roll option namespaces as pack data, merged by registry)
-  readonly #ancestries: z.input<typeof AncestryDefinition>[] = [];
-  readonly #creatures: z.input<typeof CreatureDefinition>[] = [];
-  readonly #statistics: z.input<typeof StatisticDefinition>[] = [];
-=======
-  readonly #ancestries: z.input<typeof AncestryDefinition>[] = [];
-  readonly #creatures: z.input<typeof CreatureDefinition>[] = [];
-  readonly #statistics: z.input<typeof StatisticDefinition>[] = [];
   readonly #namespaces: Record<string, NamespaceKind> = {};
->>>>>>> 2b5b59a (feat(rules): roll option namespaces as pack data, merged by registry)
 
   public withId(id: string): this {
     this.#id = id;
@@ -89,7 +80,6 @@ export class ContentPackBuilder {
     const sources = [{ kind: SourceKind.Homebrew, author: TEST_AUTHOR, pack: this.#id }];
     return ContentPack.define({
       manifest: { id: this.#id, title: 'Test pack', publisher: 'Pioneer tests', license: ContentLicense.Homebrew },
-<<<<<<< HEAD
       ancestries: this.#ancestries.map((ancestry) => ({ sources, ...ancestry })),
       creatures: this.#creatures.map((creature) => ({ sources, ...creature })),
       statistics: this.#statistics.map((statistic) => ({ sources, ...statistic })),

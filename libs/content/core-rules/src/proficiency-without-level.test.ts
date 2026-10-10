@@ -2,7 +2,6 @@ import { describe, expect, test } from 'bun:test';
 
 import { BaseTermKind, deriveStatistics, StatisticInputsJson, variantRulesInPlay } from '@pioneer/rules/engine';
 import type { RuleInPlay, StatisticResult } from '@pioneer/rules/engine';
-import { PredicateFacts } from '@pioneer/rules/predicate';
 import {
   ContentId,
   contentId,
@@ -16,13 +15,23 @@ import {
 import type { Origin } from '@pioneer/rules/sdk';
 import { assert, property } from 'fast-check';
 
-import { AC_BASE, anyInputs, core, fighter, PROFICIENCY_SELECTORS, RANK_BONUS, SKILLS, totals } from './fixtures';
+import {
+  AC_BASE,
+  anyInputs,
+  core,
+  fighter,
+  noFacts,
+  PROFICIENCY_SELECTORS,
+  RANK_BONUS,
+  SKILLS,
+  totals,
+} from './fixtures';
 import { coreRules } from './index';
 
 /** GM Core's untrained modifier under Proficiency Without Level. */
 const UNTRAINED_WITHOUT_LEVEL = -2;
 
-const NO_FACTS = new PredicateFacts([]);
+const NO_FACTS = noFacts();
 
 /** The Proficiency Without Level variant rule in the core pack. */
 const PWL = VariantRuleId.parse(contentId(coreRules.id, Slug.parse('proficiency-without-level')));

@@ -1,5 +1,6 @@
 import { statisticContent, StatisticInputsJson } from '@pioneer/rules/engine';
 import type { StatisticContent, StatisticInputs, StatisticResult } from '@pioneer/rules/engine';
+import { PredicateFacts } from '@pioneer/rules/predicate';
 import { Attribute, ContentRegistry, Proficiency } from '@pioneer/rules/sdk';
 import type { ContentPack, Selector } from '@pioneer/rules/sdk';
 import { constantFrom, integer, record } from 'fast-check';
@@ -156,3 +157,10 @@ export const anyInputs: Arbitrary<GeneratedInputs> = record({
     classHp: character.classHp,
   }),
 );
+
+/** No roll options, read through the core rules pack's namespace table, as a derivation for a bare character would. */
+export function noFacts(): PredicateFacts {
+  const registry = new ContentRegistry();
+  registry.register(coreRules);
+  return new PredicateFacts([], registry.rollOptionNamespaces());
+}

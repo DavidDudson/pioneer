@@ -1,7 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
 import { deriveStatistics, RuleInPlay, StatisticInputsJson } from '@pioneer/rules/engine';
-import { PredicateFacts } from '@pioneer/rules/predicate';
 import {
   Attribute,
   ContentLicense,
@@ -23,6 +22,7 @@ import {
   contentOf,
   core,
   fighter,
+  noFacts,
   RANK_BONUS,
   SELECTORS,
   SKILL_SELECTORS,
@@ -75,7 +75,7 @@ function bonusTo(target: string): RuleInPlay {
 /** Which of `statistics` a +1 to `target` raises, sorted. */
 function reachedBy(target: string, content = core): readonly string[] {
   const without = totals(deriveStatistics(content, fighter));
-  const facts = new PredicateFacts([]);
+  const facts = noFacts();
   const withBonus = totals(deriveStatistics(content, fighter, { rules: [bonusTo(target)], facts }));
   return Object.keys(without)
     .filter((selector) => withBonus[selector] !== without[selector])
