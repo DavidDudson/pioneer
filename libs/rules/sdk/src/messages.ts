@@ -14,6 +14,8 @@ export const RulesMessage = {
   DuplicateSelector: 'rules.statistic.duplicateSelector',
   RichTextTooDeep: 'rules.richText.tooDeep',
   RichTextTooLarge: 'rules.richText.tooLarge',
+  RichTextBasicSave: 'rules.richText.basicSave',
+  RichTextWidthOnLine: 'rules.richText.widthOnLine',
   ReferenceLevel: 'rules.reference.level',
   ReferenceAttributeModifier: 'rules.reference.attributeModifier',
   ReferenceCappedDexterity: 'rules.reference.cappedDexterity',

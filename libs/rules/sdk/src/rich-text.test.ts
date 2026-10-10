@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { fieldIssues, message } from '@pioneer/shared/kernel';
+import { fieldIssues, message, ValidationMessage } from '@pioneer/shared/kernel';
 import type { FieldIssue } from '@pioneer/shared/kernel';
 import type { z } from 'zod';
 
@@ -38,7 +38,18 @@ describe('RichText', () => {
         content: [
           { type: 'action-cost', cost: 'two' },
           { type: 'text', text: ' A roaring blast of fire deals ', marks: ['strong'] },
-          { type: 'damage', formula: '6d6', damageType: 'fire' },
+          { type: 'damage', instances: [{ formula: '6d6', damageType: 'fire' }] },
+          { type: 'line-break' },
+          {
+            type: 'damage',
+            instances: [
+              { formula: '(@item.level)d6', damageType: 'fire' },
+              { formula: '1d6', damageType: 'fire', category: 'persistent' },
+            ],
+          },
+          { type: 'damage', instances: [{ formula: '2d8' }], healing: true },
+          { type: 'template', shape: 'line', size: 60, width: 10 },
+          { type: 'check', statistic: 'save:will', dc: { against: 'class-dc' } },
           { type: 'text', text: ' in a ' },
           { type: 'template', shape: 'burst', size: 20 },
           { type: 'text', text: ', ' },
@@ -68,12 +79,16 @@ describe('RichText', () => {
     expect(RichText.safeParse([]).success).toBe(true);
   });
 
-  test('rejects raw HTML as a node', () => {
-    expect(RichText.safeParse([{ type: 'html', html: '<script>alert(1)</script>' }]).success).toBe(false);
+  test('rejects raw HTML as a node, at its type', () => {
+    expect(issues(RichText, [{ type: 'html', html: '<script>alert(1)</script>' }])).toStrictEqual([
+      { path: [0, 'type'], message: message(ValidationMessage.InvalidValue) },
+    ]);
   });
 
   test('rejects an unknown inline node and an extra field', () => {
-    expect(RichText.safeParse([{ type: 'paragraph', content: [{ type: 'image', src: 'x' }] }]).success).toBe(false);
+    expect(issues(RichText, [{ type: 'paragraph', content: [{ type: 'image', src: 'x' }] }])).toStrictEqual([
+      { path: [0, 'content', 0, 'type'], message: message(ValidationMessage.InvalidValue) },
+    ]);
     expect(
       issues(RichText, [{ type: 'paragraph', content: [{ type: 'text', text: 'Hi', html: '<b>Hi</b>' }] }]),
     ).toHaveLength(1);
@@ -94,19 +109,29 @@ describe('RichText', () => {
     ]);
   });
 
-  test('rejects a document with too many nodes, with a localised message', () => {
-    const huge = Array.from({ length: RICH_TEXT_CONTAINERS_MAX }, () => paragraph('Again.'));
+  test('accepts a document at the size limit and rejects one node more, with a localised message', () => {
+    // The document array is one container and each paragraph three; rules (one each) make up the rest exactly.
+    const paragraphs = Math.floor((RICH_TEXT_CONTAINERS_MAX - 1) / 3);
+    const rules = RICH_TEXT_CONTAINERS_MAX - 1 - paragraphs * 3;
+    const atLimit = [
+      ...Array.from({ length: paragraphs }, () => paragraph('Again.')),
+      ...Array.from({ length: rules }, () => ({ type: 'rule' })),
+    ];
 
-    expect(issues(RichText, huge)).toStrictEqual([
+    expect(RichText.safeParse(atLimit).success).toBe(true);
+    expect(issues(RichText, [...atLimit, { type: 'rule' }])).toStrictEqual([
       { path: [], message: message(RulesMessage.RichTextTooLarge, { maximum: RICH_TEXT_CONTAINERS_MAX }) },
     ]);
   });
 });
 
 describe('DamageFormula', () => {
-  test.each(['2d6', '1d8 + @attr.str', '(1d6 + 2) * 2', '4', '@level'])('accepts %s', (value) => {
-    expect(DamageFormula.safeParse(value).success).toBe(true);
-  });
+  test.each(['2d6', '1d8 + @attr.str', '(1d6 + 2) * 2', '(@item.level)d6', '(floor(@level / 2))d4', '4', '@level'])(
+    'accepts %s',
+    (value) => {
+      expect(DamageFormula.safeParse(value).success).toBe(true);
+    },
+  );
 
   test('points at an unknown reference after dice at its own position', () => {
     const [issue] = issues(DamageFormula, '2d6 + @nope');
@@ -117,5 +142,25 @@ describe('DamageFormula', () => {
 
   test.each(['', '2d6 +', 'd6'])('rejects %p', (value) => {
     expect(DamageFormula.safeParse(value).success).toBe(false);
+  });
+});
+
+const inline = (node: unknown): unknown => [{ type: 'paragraph', content: [node] }];
+
+describe('RichText inline rules', () => {
+  test('only a saving throw can be basic', () => {
+    expect(issues(RichText, inline({ type: 'check', statistic: 'skill:athletics', basic: true }))).toStrictEqual([
+      { path: [0, 'content', 0, 'basic'], message: message(RulesMessage.RichTextBasicSave) },
+    ]);
+  });
+
+  test('only a line has a width', () => {
+    expect(issues(RichText, inline({ type: 'template', shape: 'burst', size: 20, width: 10 }))).toStrictEqual([
+      { path: [0, 'content', 0, 'width'], message: message(RulesMessage.RichTextWidthOnLine) },
+    ]);
+  });
+
+  test('damage needs at least one instance', () => {
+    expect(RichText.safeParse(inline({ type: 'damage', instances: [] })).success).toBe(false);
   });
 });

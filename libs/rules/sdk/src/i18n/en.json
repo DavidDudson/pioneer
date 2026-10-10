@@ -56,7 +56,9 @@
           "label": "Reaction",
           "glyph": "⤾"
         }
-      }
+      },
+      "basicSave": "Only saving throws (statistics starting save:) can be basic.",
+      "widthOnLine": "Only a line has a width; other areas have just a size."
     },
     "reference": {
       "level": "The character’s level.",

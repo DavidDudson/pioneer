@@ -17,4 +17,4 @@ export {
   validFormulaText,
 } from './arbitraries';
 export { ruleElementJson } from './rule-element-arbitraries';
-export { blockNodeJson, inlineNodeJson, richTextJson } from './rich-text-arbitraries';
+export { richTextJson } from './rich-text-arbitraries';

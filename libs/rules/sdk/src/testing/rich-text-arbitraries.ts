@@ -18,6 +18,7 @@ import {
   ActionCost,
   AreaShape,
   BlockKind,
+  DamageCategory,
   DurationUnit,
   InlineKind,
   RichTextHeadingLevel,
@@ -47,55 +48,92 @@ const text: Arbitrary<string> = oneof(
   constantFrom('<script>alert(1)</script>', '<b>bold</b>', '&amp;', '{{ danger }}'),
 );
 
-const label = string({ minLength: 1, maxLength: TEXT_LENGTH_MAX });
+/** Labels and captions are author text too, so they get markup as well. */
+const label = text;
+
+const diceCount: Arbitrary<string> = oneof(
+  integer({ min: 1, max: DICE_MAX }).map(String),
+  constantFrom('(@item.level)', '(floor(@level / 2))'),
+);
 
 const damageFormula: Arbitrary<string> = tuple(
-  integer({ min: 1, max: DICE_MAX }),
+  diceCount,
   integer({ min: DIE_SIZE_MIN, max: DIE_SIZE_MAX }),
   constantFrom('', ' + @attr.str', ' + @level'),
 ).map(([count, size, rest]) => `${count}d${size}${rest}`);
 
 const marks = constantFrom(...Object.values(TextMark));
 const damageTypes = constantFrom(...Object.values(DamageType));
+const damageCategories = constantFrom(...Object.values(DamageCategory));
 const areaShapes = constantFrom(...Object.values(AreaShape));
 const durationUnits = constantFrom(...Object.values(DurationUnit));
 const actionCosts = constantFrom(...Object.values(ActionCost));
 const headingLevels = constantFrom(...Object.values(RichTextHeadingLevel));
 const contentIds = uuid({ version: 5 });
 const checkOptions = array(rollOptionText, { maxLength: 2 });
+const checkDc = oneof(integer({ min: 0, max: DC_MAX }), record({ against: keyPathText }));
+const feet = integer({ min: 0, max: SIZE_MAX });
+
+const damageInstance = record(
+  { formula: damageFormula, damageType: damageTypes, category: damageCategories },
+  { requiredKeys: ['formula'] },
+);
+
+/** Any check but a basic one, which needs a save. */
+const plainCheck = record(
+  {
+    type: constant(InlineKind.Check),
+    statistic: keyPathText,
+    dc: checkDc,
+    basic: constant(false),
+    options: checkOptions,
+    label,
+  },
+  { requiredKeys: ['type', 'statistic'] },
+);
+
+const basicSave = record(
+  {
+    type: constant(InlineKind.Check),
+    statistic: keyPathText.map((name) => `save:${name}`),
+    dc: checkDc,
+    basic: constant(true),
+  },
+  { requiredKeys: ['type', 'statistic', 'basic'] },
+);
+
+const lineTemplate = record(
+  { type: constant(InlineKind.Template), shape: constant(AreaShape.Line), size: feet, width: feet },
+  { requiredKeys: ['type', 'shape', 'size'] },
+);
+
+const otherTemplate = record({
+  type: constant(InlineKind.Template),
+  shape: areaShapes.filter((shape) => shape !== AreaShape.Line),
+  size: feet,
+});
 
 /** Every inline node kind, as plain JSON (unparsed). */
-export const inlineNodeJson: Arbitrary<unknown> = oneof(
+const inlineNodeJson: Arbitrary<unknown> = oneof(
   record(
     { type: constant(InlineKind.Text), text, marks: array(marks, { maxLength: 2 }) },
     { requiredKeys: ['type', 'text'] },
   ),
+  record({ type: constant(InlineKind.LineBreak) }),
   record({ type: constant(InlineKind.Ref), id: contentIds, label }, { requiredKeys: ['type', 'id'] }),
-  record(
-    {
-      type: constant(InlineKind.Check),
-      statistic: keyPathText,
-      dc: integer({ min: 0, max: DC_MAX }),
-      basic: boolean(),
-      options: checkOptions,
-      label,
-    },
-    { requiredKeys: ['type', 'statistic'] },
-  ),
+  plainCheck,
+  basicSave,
   record(
     {
       type: constant(InlineKind.Damage),
-      formula: damageFormula,
-      damageType: damageTypes,
+      instances: array(damageInstance, { minLength: 1, maxLength: 2 }),
+      healing: boolean(),
       label,
     },
-    { requiredKeys: ['type', 'formula'] },
+    { requiredKeys: ['type', 'instances'] },
   ),
-  record({
-    type: constant(InlineKind.Template),
-    shape: areaShapes,
-    size: integer({ min: 0, max: SIZE_MAX }),
-  }),
+  lineTemplate,
+  otherTemplate,
   record({
     type: constant(InlineKind.Duration),
     count: integer({ min: 1, max: COUNT_MAX }),
@@ -108,7 +146,7 @@ const run = array(inlineNodeJson, { minLength: 1, maxLength: RUN_LENGTH_MAX });
 const cells = array(array(inlineNodeJson, { maxLength: 2 }), { minLength: 1, maxLength: CELLS_MAX });
 
 /** Every block node kind, lists nesting a few levels, as plain JSON (unparsed). */
-export const blockNodeJson: Arbitrary<unknown> = letrec<{ block: unknown }>((tie) => {
+const blockNodeJson: Arbitrary<unknown> = letrec<{ block: unknown }>((tie) => {
   const blocks = array(tie('block'), { minLength: 1, maxLength: BLOCKS_MAX });
   return {
     block: oneof(

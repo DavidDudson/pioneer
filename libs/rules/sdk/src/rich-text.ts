@@ -66,6 +66,7 @@ export type DurationCount = z.infer<typeof DurationCount>;
 /** Every kind of inline node. */
 export const InlineKind = {
   Text: 'text',
+  LineBreak: 'line-break',
   Ref: 'ref',
   Check: 'check',
   Damage: 'damage',
@@ -98,32 +99,77 @@ const TextNode = z.strictObject({
 });
 export type TextNode = z.infer<typeof TextNode>;
 
+/** A line break inside a run, where the division is content (a stat line, a table cell); paragraphs split blocks. */
+const LineBreakNode = z.strictObject({ type: z.literal(InlineKind.LineBreak) });
+export type LineBreakNode = z.infer<typeof LineBreakNode>;
+
 /** A live link to another entry ("Off-Guard", "Seek"); its name comes from the entry unless `label` is given. */
 const RefNode = z.strictObject({ type: z.literal(InlineKind.Ref), id: ContentId, label: InlineLabel.optional() });
 export type RefNode = z.infer<typeof RefNode>;
 
+/** The DC of a check: a number, or another statistic's DC (`against: class-dc`, "against your class DC"). */
+export const CheckDc = z.union([Dc, z.strictObject({ against: Selector })]);
+export type CheckDc = z.infer<typeof CheckDc>;
+
+/** Basic outcomes only exist for saving throws, whose selectors start `save:`. */
+const SAVE_PREFIX = 'save:';
+
 /** A check the text asks for ("DC 20 Athletics", "basic Reflex save"), rollable once dice arrive. */
-const CheckNode = z.strictObject({
-  type: z.literal(InlineKind.Check),
-  statistic: Selector,
-  dc: Dc.optional(),
-  basic: z.boolean().optional(),
-  options: z.array(RollOption).readonly().optional(),
-  label: InlineLabel.optional(),
-});
+const CheckNode = z
+  .strictObject({
+    type: z.literal(InlineKind.Check),
+    statistic: Selector,
+    dc: CheckDc.optional(),
+    basic: z.boolean().optional(),
+    options: z.array(RollOption).readonly().optional(),
+    label: InlineLabel.optional(),
+  })
+  .refine((check) => check.basic !== true || check.statistic.startsWith(SAVE_PREFIX), {
+    ...issueParams(message(RulesMessage.RichTextBasicSave)),
+    path: ['basic'],
+  });
 export type CheckNode = z.infer<typeof CheckNode>;
 
-/** Damage the text deals ("2d6 fire"), rollable once dice arrive. */
-const DamageNode = z.strictObject({
-  type: z.literal(InlineKind.Damage),
+/** Damage that lingers (persistent) or spatters adjacent creatures (splash). */
+export const DamageCategory = { Persistent: 'persistent', Splash: 'splash' } as const;
+export type DamageCategory = ValueOf<typeof DamageCategory>;
+export const DamageCategorySchema = z.enum(DamageCategory);
+
+/** One part of a damage roll: its dice and formula, type and category ("1d6 persistent fire"). */
+export const DamageInstance = z.strictObject({
   formula: DamageFormula,
   damageType: DamageTypeSchema.optional(),
+  category: DamageCategorySchema.optional(),
+});
+export type DamageInstance = z.infer<typeof DamageInstance>;
+
+/** Most parts one damage roll has (`2d6 fire plus 1d6 persistent fire`). */
+const DAMAGE_INSTANCES_MAX = 8;
+
+/**
+ * Damage the text deals ("2d6 fire plus 1d6 persistent fire"), or with `healing`, hit points it restores ("2d8
+ * healing"). Rollable once dice arrive.
+ */
+const DamageNode = z.strictObject({
+  type: z.literal(InlineKind.Damage),
+  instances: z.array(DamageInstance).min(1).max(DAMAGE_INSTANCES_MAX).readonly(),
+  healing: z.boolean().optional(),
   label: InlineLabel.optional(),
 });
 export type DamageNode = z.infer<typeof DamageNode>;
 
-/** An area ("20-foot burst"). */
-const TemplateNode = z.strictObject({ type: z.literal(InlineKind.Template), shape: AreaShapeSchema, size: Feet });
+/** An area ("20-foot burst"); a line wider than 5 feet also has a `width` ("60-foot line, 10 feet wide"). */
+const TemplateNode = z
+  .strictObject({
+    type: z.literal(InlineKind.Template),
+    shape: AreaShapeSchema,
+    size: Feet,
+    width: Feet.optional(),
+  })
+  .refine((template) => template.width === undefined || template.shape === AreaShape.Line, {
+    ...issueParams(message(RulesMessage.RichTextWidthOnLine)),
+    path: ['width'],
+  });
 export type TemplateNode = z.infer<typeof TemplateNode>;
 
 /** A span of time ("1 minute", "3 rounds"). */
@@ -138,10 +184,19 @@ export type DurationNode = z.infer<typeof DurationNode>;
 const ActionCostNode = z.strictObject({ type: z.literal(InlineKind.ActionCost), cost: ActionCostSchema });
 export type ActionCostNode = z.infer<typeof ActionCostNode>;
 
-export type InlineNode = TextNode | RefNode | CheckNode | DamageNode | TemplateNode | DurationNode | ActionCostNode;
+export type InlineNode =
+  | TextNode
+  | LineBreakNode
+  | RefNode
+  | CheckNode
+  | DamageNode
+  | TemplateNode
+  | DurationNode
+  | ActionCostNode;
 
 const Inline: z.ZodType<InlineNode> = z.discriminatedUnion('type', [
   TextNode,
+  LineBreakNode,
   RefNode,
   CheckNode,
   DamageNode,
