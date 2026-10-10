@@ -3,6 +3,7 @@ import { expect, test } from 'bun:test';
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import { RollOption } from '@pioneer/rules/sdk';
 
+import type { OfferedOption } from './choices';
 import type { GrantEntry } from './grant-entry';
 import { walkGrants } from './grant-walk';
 import type { WalkInputs } from './grant-walk';
@@ -50,6 +51,11 @@ function inputs(): WalkInputs {
   };
 }
 
+/** What the walk's open slot offers. */
+function offerOf(given: WalkInputs): readonly OfferedOption[] {
+  return walkGrants(given).open[0]?.options ?? [];
+}
+
 /**
  * The fastest of `times`, in milliseconds. Other work on the machine (CI runs projects in parallel) only ever adds
  * time, so the fastest run is the closest to what resolution itself costs.
@@ -58,19 +64,20 @@ function fastestOf(times: readonly number[]): number {
   return Math.min(...times);
 }
 
-// One walk: the query runs once per round, and the fixpoint bench times a whole character.
+// One walk and the offer a builder reads: offers are worked out only when read, so the fixpoint benches time
+// resolution and this one times the query.
 test(`a query over ${ENTRIES} entries resolves in under ${BUDGET_MS} ms`, () => {
   for (let run = 0; run < WARMUP_RUNS; run += 1) {
-    walkGrants(inputs());
+    offerOf(inputs());
   }
   // Fresh entries each run, as a caller building content per request has them; only resolution is timed.
   const times = Array.from({ length: TIMED_RUNS }, (): number => {
     const given = inputs();
     const start = performance.now();
-    walkGrants(given);
+    offerOf(given);
     return performance.now() - start;
   });
   const fastest = fastestOf(times);
-  expect(walkGrants(inputs()).open[0]?.options.length).toBeGreaterThan(0);
+  expect(offerOf(inputs()).length).toBeGreaterThan(0);
   expect(fastest).toBeLessThan(BUDGET_MS);
 });

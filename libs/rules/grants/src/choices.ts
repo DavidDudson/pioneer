@@ -27,7 +27,11 @@ export interface OfferedOption {
   readonly summary: PredicateSummary | undefined;
 }
 
-/** A `ChoiceSet` on the character: where it is, what it asks and what it offers. */
+/**
+ * A `ChoiceSet` on the character: where it is, what it asks and what it offers. `options` is worked out the first
+ * time it is read, against the facts of the round that found the slot: no round of resolution needs it, so a query
+ * over every entry of its kind runs only for a builder that shows it.
+ */
 export interface ChoiceSlot {
   readonly key: SlotKey;
   /** The name the pick is stored under, for `GrantItem { choice }` on the same entry. */
@@ -142,6 +146,73 @@ function offeredOptions({ choices }: ChoiceSetElement, context: ChoiceContext): 
   return Array.isArray(choices) ? listedOptions(choices, context.facts) : queriedOptions(choices, context);
 }
 
+/** Whether `value` is a listed option whose predicate is not false. */
+function isListed(choices: readonly ChoiceOption[], value: ChoiceValue, facts: PredicateFacts): boolean {
+  return choices.some(
+    (choice) =>
+      choice.value === value &&
+      (choice.predicate === undefined || evaluatePredicate(choice.predicate, facts) !== Truth.False),
+  );
+}
+
+/** Whether `value` is an entry of the query's kind whose filter is not false: the query tested on that one entry. */
+function isQueried({ kind, filter }: ChoiceQuery, value: ChoiceValue, { facts, lookup }: ChoiceContext): boolean {
+  const id = ContentId.safeParse(value);
+  const candidate = id.success ? lookup.entry(id.data) : undefined;
+  if (candidate?.kind !== kind) {
+    return false;
+  }
+  const candidateFacts = facts.withNamespace(CANDIDATE_NAMESPACE, candidate.rollOptions);
+  return evaluatePredicate(filter, candidateFacts) !== Truth.False;
+}
+
+/** Whether the slot offers `value`, without working out the rest of what it offers. */
+function isOffered({ choices }: ChoiceSetElement, value: ChoiceValue, context: ChoiceContext): boolean {
+  return Array.isArray(choices) ? isListed(choices, value, context.facts) : isQueried(choices, value, context);
+}
+
+/** A slot's offer, worked out the first time it is read and kept. */
+class Offer {
+  readonly #make: () => readonly OfferedOption[];
+  #options: readonly OfferedOption[] | undefined = undefined;
+
+  public constructor(make: () => readonly OfferedOption[]) {
+    this.#make = make;
+  }
+
+  public get options(): readonly OfferedOption[] {
+    this.#options ??= this.#make();
+    return this.#options;
+  }
+}
+
+/** What answering a slot adds to it. */
+type SlotAnswer = Omit<AnsweredSlot, keyof ChoiceSlot>;
+
+/** Where a slot is and what it asks: everything but its offer. */
+type SlotPlace = Omit<ChoiceSlot, 'options'>;
+
+/** `place` with its `options` read from `offer`, as a property like any other, so a slot copies and compares whole. */
+function slotOf(place: SlotPlace, offer: Offer): ChoiceSlot {
+  return {
+    ...place,
+    get options(): readonly OfferedOption[] {
+      return offer.options;
+    },
+  };
+}
+
+/** `slotOf`, answered with `pick`. */
+function answeredOf(place: SlotPlace, offer: Offer, answer: SlotAnswer): AnsweredSlot {
+  return {
+    ...place,
+    ...answer,
+    get options(): readonly OfferedOption[] {
+      return offer.options;
+    },
+  };
+}
+
 const choiceHop = (slot: SlotKey): OriginHop => ({ kind: OriginHopKind.Choice, slot });
 
 /** Collects one entry's slots, answered and open, as it reads them in rule order. */
@@ -176,15 +247,16 @@ class ChoiceReader {
     if (predicate !== undefined && evaluatePredicate(predicate, this.#context.facts) !== Truth.True) {
       return;
     }
-    const slot = this.#slot({ element, rule });
-    const value = this.#context.picks.get(slot.key);
+    const place = this.#place({ element, rule });
+    const offer = new Offer(() => offeredOptions(element, this.#context));
+    const value = this.#context.picks.get(place.key);
     if (value === undefined) {
-      this.#open.push(slot);
-    } else if (slot.options.some((offered) => offered.value === value)) {
+      this.#open.push(slotOf(place, offer));
+    } else if (isOffered(element, value, this.#context)) {
       const option = element.rollOption === undefined ? undefined : optionOf(element.rollOption, value);
-      this.#answer({ ...slot, pick: value, option });
+      this.#answer(answeredOf(place, offer, { pick: value, option }));
     } else {
-      this.#refuse(slot, value);
+      this.#refuse(slotOf(place, offer), value);
     }
   }
 
@@ -196,11 +268,10 @@ class ChoiceReader {
     this.#open.push(slot);
   }
 
-  #slot({ element, rule }: IndexedChoice): ChoiceSlot {
+  #place({ element, rule }: IndexedChoice): SlotPlace {
     const { entry, hops } = this.#at;
     const origin: Origin = { hops: [...hops], entry: entry.id, sources: [...entry.sources] };
-    const options = offeredOptions(element, this.#context);
-    return { key: slotKeyOf(entry.id, rule), flag: element.flag, origin, rule, prompt: element.prompt, options };
+    return { key: slotKeyOf(entry.id, rule), flag: element.flag, origin, rule, prompt: element.prompt };
   }
 
   #answer(slot: AnsweredSlot): void {
