@@ -54,6 +54,13 @@ export type ToolCheck =
   | { readonly kind: typeof ToolKind.Statistics; readonly check: StatisticsCheck }
   | { readonly kind: typeof ToolKind.Grants; readonly check: GrantsCheck };
 
+/** The rich text check, with the document to preview once it validates. */
+function checkRichText(text: string): ToolCheck {
+  const read = readJson(RichText, text);
+  const preview = read.status === CheckStatus.Valid ? read.value : undefined;
+  return { kind: ToolKind.RichText, check: checkRulesJson(RulesSchema.RichText, text), preview };
+}
+
 /** Run the chosen tool on the page's text and whichever extra inputs it reads. Never throws. */
 export function checkTool(tool: RulesTool, text: string, inputs: ToolInputs): ToolCheck {
   if (tool === RulesTool.Formula) {
@@ -81,9 +88,7 @@ export function checkTool(tool: RulesTool, text: string, inputs: ToolInputs): To
     };
   }
   if (tool === RulesTool.RichText) {
-    const read = readJson(RichText, text);
-    const preview = read.status === CheckStatus.Valid ? read.value : undefined;
-    return { kind: ToolKind.RichText, check: checkRulesJson(RulesSchema.RichText, text), preview };
+    return checkRichText(text);
   }
   return { kind: ToolKind.Schema, check: checkRulesJson(tool, text) };
 }
