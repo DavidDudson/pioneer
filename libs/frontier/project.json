@@ -16,7 +16,12 @@
     },
     "test-storybook": {
       "cache": true,
-      "inputs": ["default", "^production"],
+      "inputs": [
+        "default",
+        "^production",
+        { "env": "PLAYWRIGHT_BROWSERS_PATH" },
+        { "env": "PLAYWRIGHT_DRIVER_VERSION" }
+      ],
       "command": "vitest run --config libs/frontier/.storybook/vitest.config.ts"
     }
   }

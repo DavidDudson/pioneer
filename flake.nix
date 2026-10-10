@@ -79,6 +79,8 @@
               }
             }"
             export PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS=true
+            # libs/frontier/.storybook/vitest.config.ts fails fast when npm's playwright differs from this.
+            export PLAYWRIGHT_DRIVER_VERSION="${pkgs.playwright-driver.version}"
           '';
         };
       });

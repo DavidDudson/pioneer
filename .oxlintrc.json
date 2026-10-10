@@ -403,12 +403,14 @@
     {
       // Storybook config: main.ts runs on Node and both files need default exports; preview.ts
       // imports frontier's CSS for its side effect; `resolve` in main.ts is Vite config, not a router resolver.
+      // vitest.config.ts reads the devshell's PLAYWRIGHT_DRIVER_VERSION on Node, where Bun.env does not exist.
       "files": ["**/.storybook/*.ts"],
       "rules": {
         "import/no-default-export": "off",
         "import/no-nodejs-modules": "off",
         "import/no-unassigned-import": "off",
-        "pioneer/no-route-resolvers": "off"
+        "pioneer/no-route-resolvers": "off",
+        "node/no-process-env": "off"
       }
     },
     {

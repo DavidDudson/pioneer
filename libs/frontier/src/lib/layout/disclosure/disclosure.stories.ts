@@ -116,7 +116,7 @@ async function expectKeyToggles(key: string, open: boolean, { details, summary }
 }
 
 /**
- * Keyboard: Tab reaches the summary, then Enter and Space each toggle it like a press, and `openChange` and the
+ * Keyboard: Tab reaches the summary, then Enter and Space each open and close it like a press, and `openChange` and the
  * chevron follow. Runs only in `nx test-storybook frontier`.
  */
 export const Keyboard: DisclosureStory = {
@@ -128,6 +128,8 @@ export const Keyboard: DisclosureStory = {
     await userEvent.tab();
     await expect(parts.summary).toHaveFocus();
     await expectKeyToggles('{Enter}', true, parts);
+    await expectKeyToggles('{Enter}', false, parts);
+    await expectKeyToggles(' ', true, parts);
     await expectKeyToggles(' ', false, parts);
   },
 };
