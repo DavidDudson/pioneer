@@ -59,14 +59,17 @@ function instanceOf(
  * Every statistic to evaluate. A definition without `per` is one statistic. One derived per weapon or spellcasting
  * entry becomes one instance per weapon or entry the character has, `<selector>:<source slug>` (`strike:longsword`),
  * keyed to the source's attribute and in that attribute's `<attribute>-based` domain; with none, it has no
- * instances. A later definition of a selector replaces an earlier one before instances are made. An instance whose
- * selector would be too long to be one is left out.
+ * instances. A later definition of a selector replaces an earlier one before instances are made, and statistics come
+ * out in the order their definitions were last given, so where an instance and a plain statistic share a selector
+ * (`strike:longsword`), the one given later wins. Family selectors and source slugs are bounded so an instance's
+ * selector always is one; the check here only guards definitions built without their schema.
  */
 export function statisticInstances(
   definitions: readonly StatisticDefinition[],
   inputs: StatisticInputs,
 ): readonly StatisticInstance[] {
-  const latest = [...new Map(definitions.map((definition) => [definition.selector, definition])).values()];
+  const lastGiven = new Map(definitions.map(({ selector }, index) => [selector, index]));
+  const latest = definitions.filter(({ selector }, index) => lastGiven.get(selector) === index);
   const families = new Map<StatisticPer, ReadonlySet<Selector>>(
     Object.values(StatisticPer).map((per) => [
       per,

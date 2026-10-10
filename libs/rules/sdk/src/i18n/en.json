@@ -48,7 +48,8 @@
     },
     "statistic": {
       "duplicateSelector": "Another statistic in this pack already uses the selector {selector}.",
-      "perKeyAttribute": "A statistic derived per weapon or spellcasting entry takes its key attribute from each one, so it names none."
+      "perKeyAttribute": "A statistic derived per weapon or spellcasting entry takes its key attribute from each one, so it names none.",
+      "perSelectorLength": "A statistic derived per weapon or spellcasting entry may have a selector of at most {maximum} characters, leaving room for each one’s slug."
     },
     "proficiencyBonus": {
       "reference": "“{found}” at position {position} is not @level. A proficiency bonus formula reads only @level."

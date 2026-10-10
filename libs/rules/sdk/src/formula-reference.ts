@@ -9,9 +9,9 @@ import { RulesMessage } from './messages';
 import { Selector } from './selector';
 
 /*
- * The formula reference vocabulary (ADR-0016): every `@` path a stored formula may use, what it means, and the
- * Foundry spellings the importer translates to it. `docs/architecture/rules-engine.md` ("Formula references")
- * documents the same list.
+ * The formula reference vocabulary (ADR-0016): every `@` path a stored formula may use and what it means; the Foundry
+ * spellings the importer translates are in `foundry-reference.ts`. `docs/architecture/rules-engine.md` ("Formula
+ * references") documents the same list.
  */
 
 /**

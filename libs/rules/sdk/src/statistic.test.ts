@@ -108,6 +108,21 @@ describe('StatisticDefinition', () => {
     expect(issuesFrom(StatisticData, { ...data, base: '@weapon.prof' }).map((issue) => issue.path)).toStrictEqual([
       ['base'],
     ]);
+    const spellcasting = { ...data, per: StatisticPer.Spellcasting };
+    expect(issuesFrom(StatisticData, { ...spellcasting, base: '@weapon.prof' })).toStrictEqual([
+      { path: ['base'], message: message(RulesMessage.ReferenceNeedsWeapon, { found: '@weapon.prof', position: 1 }) },
+      { path: ['keyAttribute'], message: message(RulesMessage.StatisticPerKeyAttribute) },
+    ]);
+  });
+
+  test("a family's selector leaves room for each source's slug", () => {
+    const { keyAttribute: _keyAttribute, ...plain } = armorClass;
+    const family = { ...plain, base: '@weapon.prof', per: StatisticPer.Weapon };
+    expect(issues({ ...family, selector: 'a'.repeat(63) })).toStrictEqual([]);
+    expect(issues({ ...family, selector: 'a'.repeat(64) })).toStrictEqual([
+      { path: ['selector'], message: message(RulesMessage.StatisticPerSelectorLength, { maximum: 63 }) },
+    ]);
+    expect(issues({ ...plain, selector: 'a'.repeat(64) })).toStrictEqual([]);
   });
 
   test('rejects unknown keys and a malformed selector', () => {

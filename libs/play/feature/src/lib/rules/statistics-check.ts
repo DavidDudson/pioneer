@@ -242,11 +242,13 @@ const INSTANCE_SEPARATOR = ':';
 
 /**
  * A definition's results: its own, or for one derived per source, each source's `<selector>:<slug>`, in the order
- * the engine gives them. A slug has no colon, so a deeper selector is not one of them.
+ * the engine gives them. A slug has no colon, so a deeper selector is not one of them, and a plain statistic's
+ * selector (`strike:custom`) shows under its own definition only.
  */
 function resultsOf(
   { selector, per }: StatisticDefinition,
   results: ReadonlyMap<Selector, StatisticResult>,
+  plain: ReadonlySet<Selector>,
 ): readonly StatisticResult[] {
   if (per === undefined) {
     const result = results.get(selector);
@@ -254,7 +256,7 @@ function resultsOf(
   }
   const prefix = `${selector}${INSTANCE_SEPARATOR}`;
   return [...results].flatMap(([key, result]) =>
-    key.startsWith(prefix) && !key.slice(prefix.length).includes(INSTANCE_SEPARATOR) ? [result] : [],
+    key.startsWith(prefix) && !key.slice(prefix.length).includes(INSTANCE_SEPARATOR) && !plain.has(key) ? [result] : [],
   );
 }
 
@@ -284,8 +286,9 @@ export function checkStatistics(
   const results = deriveStatistics(content, read.inputs, { rules, facts: read.facts });
   // Rows follow the order the statistics were written in; a selector written twice shows once.
   // A statistic derived per source shows each weapon's or entry's in turn.
+  const plain = new Set([...latest.values()].flatMap(({ selector, per }) => (per === undefined ? [selector] : [])));
   const rows = [...latest.values()].flatMap((definition) =>
-    resultsOf(definition, results).map((result) => rowOf(result, definition.base, { rules: names, variant })),
+    resultsOf(definition, results, plain).map((result) => rowOf(result, definition.base, { rules: names, variant })),
   );
   return { status: StatisticsStatus.Valid, rows };
 }

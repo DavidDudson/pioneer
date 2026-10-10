@@ -2,6 +2,7 @@
 
 - Status: Proposed
 - Date: 2026-10-10
+- Amends: [0016](0016-formula-reference-vocabulary.md) (reference scopes, and what a statistic's base may read)
 
 ## Context
 
@@ -36,11 +37,14 @@ Option 3 for the definition, option 2 for the references.
 - `StatisticDefinition.per` is `weapon` or `spellcasting`. Its selector names the family (`strike`); each instance
   is `<selector>:<source slug>` (`strike:longsword`, `spell-dc:arcane`), so modifiers, set overrides and `@stat` find
   an instance as they find any statistic. Sources come from `StatisticInputs`: `weapons` (slug, category, traits,
-  range, potency) and `spellcasting` (slug, tradition, attribute), slugs unique within each list.
+  range, potency) and `spellcasting` (slug, tradition, attribute), slugs unique within each list. A family's
+  selector is at most 63 characters and a slug at most 64, so an instance's selector always fits the 128 a selector
+  allows. Where an instance and a plain statistic share a selector, the one given later wins.
 - Each instance takes its key attribute from its source and joins that attribute's `<attribute>-based` domain, since
   the family cannot list it: a finesse dagger is `dex-based` for a nimble character and `str-based` for a strong one.
   A family therefore names no `keyAttribute`; one that does is a validation issue.
-- The new references have scopes `weapon` and `spellcasting`. A statistic's base may read actor references and the
+- ADR-0016's scopes were actor and item, and a statistic's base read actor references only. This adds the scopes
+  `weapon` and `spellcasting`. A statistic's base may read actor references and the
   scope of its `per`; a rule element reads actor and item references only. `@weapon.attr` follows Player Core
   ("Attack Rolls"): Dexterity at range, the higher of Strength and Dexterity with finesse, else Strength.
   `@weapon.prof` and `@spellcasting.prof` read the bonus for `attack:<category>` and `spellcasting:<tradition>`.

@@ -16,6 +16,24 @@ const perSource = (selector: string, per: string, base: string): object => ({
 });
 
 describe('checkStatistics per source', () => {
+  it('shows a plain statistic that shares the family’s prefix once, under its own definition', () => {
+    const custom = { ...perSource('strike:custom', 'weapon', '@level'), slug: 'custom-strike', per: undefined };
+    const result = checkStatistics(
+      {
+        definitions: JSON.stringify([perSource('strike', 'weapon', '@weapon.attr'), custom]),
+        inputs: EXAMPLE_STATISTIC_INPUTS,
+        rules: '[]',
+        overrides: '[]',
+        facts: '',
+      },
+      { table: PLAYER_CORE_PROFICIENCY_BONUS, variant: undefined },
+    );
+    expect(result).toMatchObject({
+      status: StatisticsStatus.Valid,
+      rows: [{ selector: 'strike:dagger' }, { selector: 'strike:longsword' }, { selector: 'strike:custom', total: 3 }],
+    });
+  });
+
   it('shows each weapon’s and entry’s instance under its family, with a caret into the family’s base', () => {
     const result = checkStatistics(
       {

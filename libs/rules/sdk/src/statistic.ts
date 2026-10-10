@@ -30,7 +30,7 @@ export const StatisticKindSchema = z.enum(StatisticKind);
  */
 export const StatisticPer = { Weapon: 'weapon', Spellcasting: 'spellcasting' } as const;
 export type StatisticPer = ValueOf<typeof StatisticPer>;
-export const StatisticPerSchema = z.enum(StatisticPer);
+const StatisticPerSchema = z.enum(StatisticPer);
 
 /** The scopes a base formula may read: the character's, and the source's when it is derived per source. */
 const BASE_SCOPES: Readonly<Record<StatisticPer | 'character', ReadonlySet<ReferenceScope>>> = {
@@ -38,6 +38,13 @@ const BASE_SCOPES: Readonly<Record<StatisticPer | 'character', ReadonlySet<Refer
   [StatisticPer.Weapon]: new Set([ReferenceScope.Actor, ReferenceScope.Weapon]),
   [StatisticPer.Spellcasting]: new Set([ReferenceScope.Actor, ReferenceScope.Spellcasting]),
 };
+
+/**
+ * The longest a source slug may be, and so a family's selector: `<selector>:<slug>` must stay a selector, which
+ * holds at most 128 characters.
+ */
+export const SOURCE_SLUG_MAX = 64;
+const FAMILY_SELECTOR_MAX = 63;
 
 const statisticFields = {
   slug: Slug,
@@ -62,23 +69,29 @@ const statisticFields = {
 };
 
 interface Scoped {
+  readonly selector: Selector;
   readonly base: FormulaSource;
   readonly keyAttribute?: unknown;
   readonly per?: StatisticPer | undefined;
 }
 
 /**
- * A base formula reads a weapon or spellcasting entry only when the statistic is derived per that source, and a
- * statistic derived per source takes its key attribute from the source, so it names none.
+ * A base formula reads a weapon or spellcasting entry only when the statistic is derived per that source. A statistic
+ * derived per source takes its key attribute from the source, so it names none, and its selector leaves room for
+ * `:<slug>`.
  */
 function checkScopes(context: z.core.ParsePayload<Scoped>): void {
-  const { base, keyAttribute, per } = context.value;
+  const { selector, base, keyAttribute, per } = context.value;
   for (const { error } of scopeProblems(FormulaText.parse(base), BASE_SCOPES[per ?? 'character'])) {
     context.issues.push({ code: 'custom', input: base, path: ['base'], ...issueParams(error) });
   }
   if (per !== undefined && keyAttribute !== undefined) {
     const { params } = issueParams(message(RulesMessage.StatisticPerKeyAttribute));
     context.issues.push({ code: 'custom', input: keyAttribute, path: ['keyAttribute'], params });
+  }
+  if (per !== undefined && selector.length > FAMILY_SELECTOR_MAX) {
+    const { params } = issueParams(message(RulesMessage.StatisticPerSelectorLength, { maximum: FAMILY_SELECTOR_MAX }));
+    context.issues.push({ code: 'custom', input: selector, path: ['selector'], params });
   }
 }
 

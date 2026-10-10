@@ -47,20 +47,20 @@ the engine's choice.
 The core rules pack is hand-authored in `content/packs/core-rules` (pack id `core-rules`), since Foundry defines
 these statistics in code rather than as items. So far it holds:
 
-| Statistic    | Selector               | Kind    | Base                                              | Domains                                      |
-| ------------ | ---------------------- | ------- | ------------------------------------------------- | -------------------------------------------- |
-| AC           | `ac`                   | `dc`    | `10 + @attr.dex.capped + @prof.ac`                | `dex-based`                                  |
-| Fortitude    | `save:fortitude`       | `check` | `@attr.con + @prof.save.fortitude`                | `check`, `saving-throw`, `con-based`         |
-| Reflex       | `save:reflex`          | `check` | `@attr.dex + @prof.save.reflex`                   | `check`, `saving-throw`, `dex-based`         |
-| Will         | `save:will`            | `check` | `@attr.wis + @prof.save.will`                     | `check`, `saving-throw`, `wis-based`         |
-| Perception   | `perception`           | `check` | `@attr.wis + @prof.perception`                    | `check`, `wis-based`                         |
-| Skills       | `skill:<slug>`         | `check` | `@attr.<key> + @prof.skill.<slug>`                | `check`, `skill-check`, `<key>-based`        |
-| Hit Points   | `hp:max`               | `value` | `@ancestry.hp + (@class.hp + @attr.con) * @level` | `hp`                                         |
-| Speed        | `speed:land`           | `value` | `@ancestry.speed`                                 | `speed`, `all-speeds`, `land-speed`          |
-| Class DC     | `class-dc`             | `dc`    | `10 + @attr.key + @prof.class-dc`                 | `class`                                      |
-| Strike       | `strike:<weapon>`      | `check` | `@weapon.attr + @weapon.prof + @weapon.potency`   | `check`, `attack-roll`, `strike-attack-roll` |
-| Spell attack | `spell-attack:<entry>` | `check` | `@spellcasting.attr + @spellcasting.prof`         | `check`, `attack-roll`, `spell-attack-roll`  |
-| Spell DC     | `spell-dc:<entry>`     | `dc`    | `10 + @stat.spell-attack`                         | `spell-dc`                                   |
+| Statistic    | Selector               | Kind    | Base                                              | Domains                                                      |
+| ------------ | ---------------------- | ------- | ------------------------------------------------- | ------------------------------------------------------------ |
+| AC           | `ac`                   | `dc`    | `10 + @attr.dex.capped + @prof.ac`                | `dex-based`                                                  |
+| Fortitude    | `save:fortitude`       | `check` | `@attr.con + @prof.save.fortitude`                | `check`, `saving-throw`, `con-based`                         |
+| Reflex       | `save:reflex`          | `check` | `@attr.dex + @prof.save.reflex`                   | `check`, `saving-throw`, `dex-based`                         |
+| Will         | `save:will`            | `check` | `@attr.wis + @prof.save.will`                     | `check`, `saving-throw`, `wis-based`                         |
+| Perception   | `perception`           | `check` | `@attr.wis + @prof.perception`                    | `check`, `wis-based`                                         |
+| Skills       | `skill:<slug>`         | `check` | `@attr.<key> + @prof.skill.<slug>`                | `check`, `skill-check`, `<key>-based`                        |
+| Hit Points   | `hp:max`               | `value` | `@ancestry.hp + (@class.hp + @attr.con) * @level` | `hp`                                                         |
+| Speed        | `speed:land`           | `value` | `@ancestry.speed`                                 | `speed`, `all-speeds`, `land-speed`                          |
+| Class DC     | `class-dc`             | `dc`    | `10 + @attr.key + @prof.class-dc`                 | `class`                                                      |
+| Strike       | `strike:<weapon>`      | `check` | `@weapon.attr + @weapon.prof + @weapon.potency`   | `check`, `attack-roll`, `strike-attack-roll`, `<attr>-based` |
+| Spell attack | `spell-attack:<entry>` | `check` | `@spellcasting.attr + @spellcasting.prof`         | `check`, `attack-roll`, `spell-attack-roll`, `<attr>-based`  |
+| Spell DC     | `spell-dc:<entry>`     | `dc`    | `10 + @stat.spell-attack`                         | `spell-dc`, `<attr>-based`                                   |
 
 Domains use one vocabulary, following Foundry's names so imported selectors keep their meaning:
 
@@ -113,7 +113,10 @@ its statistics.
 - Inside an instance, `@stat.<family>` naming another family derived per the same kind of source reads that
   family's instance for the same source: the spell DC's `@stat.spell-attack` reads its own entry's spell attack
   base, so a bonus to spell attack rolls stays off the DC.
-- A later definition of a selector replaces an earlier one before instances are made.
+- A later definition of a selector replaces an earlier one before instances are made. Where an instance and a plain
+  statistic share a selector (`strike:longsword`), the one given later wins.
+- A family's selector is at most 63 characters and a source's slug at most 64, so every instance's selector is a
+  selector (128 at most). A longer one is a validation issue at the selector or the slug.
 
 Known limits: the weapon's item bonus is a base term, so it stacks with another item bonus to attack rolls where only
 the higher should apply; a thrown melee weapon gets its melee Strike only; the multiple attack penalty and Strike
@@ -403,7 +406,7 @@ flowchart TD
   D --> E[4. Base phase<br/>ranks, size, speeds, HP, Change ops by priority]
   E --> F[5. Statistic graph<br/>formulas in dependency order]
   F --> G[6. Modifier phase<br/>collect, predicate, stack]
-  G --> H[7. Synthetics<br/>Strikes, spellcasting, available actions, notes]
+  G --> H[7. Synthetics<br/>Strike damage, spell lists, available actions, notes]
   H --> I[DerivedSheet with breakdowns]
 ```
 
@@ -416,9 +419,10 @@ flowchart TD
 4. **Base phase.** `Change` operations in priority order (Foundry's ordering: add, multiply, upgrade, downgrade,
    override), proficiency rank upgrades (highest wins, all contributors listed).
 5. **Statistic graph.** Statistics form a DAG through their formulas (AC depends on Dexterity, which depends on
-   boosts). Evaluated in topological order, memoised, cycles reported with the offending formula.
+   boosts). Evaluated in topological order, memoised, cycles reported with the offending formula. Strike attack
+   rolls, spell attacks and spell DCs are statistics here, one per weapon or spellcasting entry.
 6. **Modifiers.** Collected per selector through domains, predicates evaluated, stacking applied.
-7. **Synthetics.** Strikes per wielded weapon, spellcasting entries, the available action list, roll notes.
+7. **Synthetics.** Strike damage and the multiple attack penalty, spell lists, the available action list, roll notes.
 
 ### Grant resolution
 
@@ -494,8 +498,9 @@ slots in all, every one picked) over a thousand more feats.
 ### Statistic graph
 
 The base phase in `libs/rules/engine` (`StatisticBases`) is step 5. The inputs are the character's
-level, attribute modifiers, proficiency rank per selector (a selector left out is untrained) and the armor's Dexterity
-cap; grant resolution (Epic 1.4) will produce them, and until then they are supplied directly.
+level, attribute modifiers, proficiency rank per selector (a selector left out is untrained), the armor's Dexterity
+cap, what the ancestry and class give, and the weapons and spellcasting entries statistics are derived per. Grant
+resolution (Epic 1.4) will produce them; until then they are supplied directly.
 
 - Statistics derived per source are expanded into their instances first ("Statistics per source").
 - Edges come from `references(formula)`. `@prof.<selector>` and `@rank.<selector>` read that selector's rank, an

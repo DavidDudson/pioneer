@@ -22,6 +22,7 @@ export const RulesMessage = {
   ReferenceNeedsSpellcasting: 'rules.formula.referenceNeedsSpellcasting',
   DuplicateSelector: 'rules.statistic.duplicateSelector',
   StatisticPerKeyAttribute: 'rules.statistic.perKeyAttribute',
+  StatisticPerSelectorLength: 'rules.statistic.perSelectorLength',
   ProficiencyBonusReference: 'rules.proficiencyBonus.reference',
   EntryUnknownKind: 'rules.entry.unknownKind',
   EntryIdMismatch: 'rules.entry.idMismatch',

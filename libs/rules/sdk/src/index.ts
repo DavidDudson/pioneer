@@ -132,13 +132,13 @@ export {
   type VariantRuleEntry,
 } from './content-registry';
 export {
+  SOURCE_SLUG_MAX,
   StatisticData,
   StatisticDefinition,
   StatisticId,
   StatisticKind,
   StatisticKindSchema,
   StatisticPer,
-  StatisticPerSchema,
 } from './statistic';
 export { CreatureData, CreatureDefinition, CreatureId } from './creature';
 export {

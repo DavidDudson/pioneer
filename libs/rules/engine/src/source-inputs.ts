@@ -8,12 +8,13 @@ import {
   RuneGrade,
   Selector,
   Slug,
+  SOURCE_SLUG_MAX,
   StatisticPer,
   Trait,
   WeaponCategory,
 } from '@pioneer/rules/sdk';
 import type { AttributeModifiers, MagicTradition, SourceReference } from '@pioneer/rules/sdk';
-import { message } from '@pioneer/shared/kernel';
+import { issueParams, message } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { EngineMessage } from './messages';
@@ -65,8 +66,14 @@ function uniqueSlugs<Source extends Sourced>(source: z.ZodType<Source>): z.ZodTy
     });
 }
 
+/** A source's slug, short enough that every family's `<selector>:<slug>` is a selector. */
+const SourceSlug = Slug.refine(
+  (slug) => slug.length <= SOURCE_SLUG_MAX,
+  issueParams(message(EngineMessage.SourceSlugLength, { maximum: SOURCE_SLUG_MAX })),
+);
+
 const WeaponInputsJson = z.strictObject({
-  slug: Slug,
+  slug: SourceSlug,
   category: z.enum(WeaponCategory),
   traits: z.array(Trait).readonly(),
   range: Feet.optional(),
@@ -74,7 +81,7 @@ const WeaponInputsJson = z.strictObject({
 });
 
 const SpellcastingInputsJson = z.strictObject({
-  slug: Slug,
+  slug: SourceSlug,
   tradition: MagicTraditionSchema,
   attribute: AttributeSchema,
 });
