@@ -35,7 +35,7 @@ describe(AsyncIndicator, () => {
     expect(host.children).toHaveLength(0);
   });
 
-  it('shows a spinner announced as working while pending', async () => {
+  it('shows a spinner in a status element named working while pending', async () => {
     const { host } = await render(AsyncStatus.Pending);
     const spinner = host.querySelector('fr-spinner');
     expect(spinner?.getAttribute('role')).toBe('status');
@@ -48,7 +48,7 @@ describe(AsyncIndicator, () => {
     expect(host.querySelector('fr-spinner')?.getAttribute('aria-label')).toBe('Saving');
   });
 
-  it('shows a tick and announces done on success, the label for screen readers only', async () => {
+  it('shows a tick in a status element on success, the label for screen readers only', async () => {
     const { host } = await render(AsyncStatus.Success);
     const status = announced(host);
     expect(status?.querySelector('fr-icon')).not.toBeNull();
@@ -58,7 +58,7 @@ describe(AsyncIndicator, () => {
     expect(host.querySelector('fr-spinner')).toBeNull();
   });
 
-  it('announces the success label, shown beside the tick with showLabel', async () => {
+  it('puts the success label in the status element, shown beside the tick with showLabel', async () => {
     const { host } = await render(AsyncStatus.Success, { successLabel: 'Saved', showLabel: true });
     const status = announced(host);
     expect(status?.textContent.trim()).toBe('Saved');

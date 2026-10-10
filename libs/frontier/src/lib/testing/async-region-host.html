@@ -1,9 +1,11 @@
 <fr-async-region [errorMessage]="errorMessage()">
   <ng-template frAsyncPending><fr-skeleton width="md" /></ng-template>
   <ng-template let-names [frAsyncData]="query()">
-    @for (name of names; track name) {
-    <fr-text>{{ name }}</fr-text>
-    }
+    <fr-stack>
+      @for (name of names; track name) {
+      <fr-text>{{ name }}</fr-text>
+      }
+    </fr-stack>
   </ng-template>
   @if (customError()) {
   <ng-template let-error frAsyncError>

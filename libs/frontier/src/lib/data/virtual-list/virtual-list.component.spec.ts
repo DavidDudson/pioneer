@@ -4,9 +4,9 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { VirtualListHost } from '../../testing/virtual-list-host';
 import { Space } from '../../tokens';
-import { VirtualList } from './virtual-list.component';
+import { VirtualEstimate, VirtualList } from './virtual-list.component';
 
-/** Every row measures this tall once rendered; the default estimate (`md`) guesses 96. */
+/** Every row measures this tall once rendered, unlike any estimate. */
 const ROW_PX = 100;
 const LONG_LIST = 1000;
 
@@ -59,6 +59,11 @@ function rowShowing(list: HTMLElement, item: string): HTMLElement | undefined {
 /** The height the list reserves for every row, rendered or not. */
 function totalHeight(list: HTMLElement): string | undefined {
   return list.querySelector<HTMLElement>(':scope > div')?.style.height;
+}
+
+/** The reserved height as a number of pixels. */
+function heightPx(list: HTMLElement): number {
+  return Number(/^(?<px>[\d.]+)px$/u.exec(totalHeight(list) ?? '')?.groups?.['px']);
 }
 
 /** Where a row sits in the list, from its transform. */
@@ -115,12 +120,18 @@ describe(VirtualList, () => {
     ]);
   });
 
-  it('reserves estimated space for rows it has not rendered', async () => {
-    const { list } = await render(creatures(LONG_LIST));
-    const measured = indices(list).length;
-    const estimated = LONG_LIST - measured;
-    const MD_ESTIMATE = 96;
-    expect(totalHeight(list)).toBe(`${measured * ROW_PX + estimated * MD_ESTIMATE}px`);
+  it.each([
+    [VirtualEstimate.Sm, 48],
+    [VirtualEstimate.Md, 96],
+    [VirtualEstimate.Lg, 160],
+  ])('reserves %s estimated space for rows it has not rendered', async (estimate, estimatePx) => {
+    const { list } = await render(creatures(LONG_LIST), { estimate });
+    // Rows measured on the first pass may have left the window since, so count them from the height.
+    // Every row is either measured (ROW_PX) or still estimated.
+    const measured = (heightPx(list) - LONG_LIST * estimatePx) / (ROW_PX - estimatePx);
+    expect(Number.isInteger(measured)).toBe(true);
+    expect(measured).toBeGreaterThanOrEqual(indices(list).length);
+    expect(measured).toBeLessThan(LONG_LIST / 10);
   });
 
   it('renders the rows that cover the screen as the page scrolls', async () => {

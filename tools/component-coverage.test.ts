@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { findCoverageGaps, specOf } from './component-coverage.ts';
+import { findCoverageGaps, specOf, storyOf } from './component-coverage.ts';
 
 const BUTTON = 'actions/button/button.component.ts';
 const ITEM = 'list/list-item/list-item.component.ts';
@@ -17,9 +17,15 @@ describe('specOf', () => {
   });
 });
 
+describe('storyOf', () => {
+  test('names the sibling story', () => {
+    expect(storyOf(BUTTON)).toBe('actions/button/button.stories.ts');
+  });
+});
+
 describe('findCoverageGaps', () => {
-  test('passes a component with a sibling spec and a story in its folder', () => {
-    const files = tree(BUTTON, specOf(BUTTON), 'actions/button/button.stories.ts');
+  test('passes a component with a sibling spec and story', () => {
+    const files = tree(BUTTON, specOf(BUTTON), storyOf(BUTTON));
     expect(findCoverageGaps(files, {})).toStrictEqual([]);
   });
 
@@ -27,8 +33,8 @@ describe('findCoverageGaps', () => {
     expect(findCoverageGaps(tree(BUTTON), {})).toStrictEqual([`no spec: ${BUTTON}`, `no story: ${BUTTON}`]);
   });
 
-  test('does not count a story from another folder', () => {
-    const files = tree(BUTTON, specOf(BUTTON), 'actions/link/link.stories.ts');
+  test("does not count another component's story, even in the same folder", () => {
+    const files = tree(BUTTON, specOf(BUTTON), 'actions/button/icon-button.stories.ts');
     expect(findCoverageGaps(files, {})).toStrictEqual([`no story: ${BUTTON}`]);
   });
 

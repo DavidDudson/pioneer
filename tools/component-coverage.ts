@@ -1,6 +1,6 @@
 /**
  * Pure helpers for the component coverage check: every frontier component has a sibling spec
- * (`<name>.component.spec.ts`) and a story in its folder (`*.stories.ts`), unless it is a part listed as
+ * (`<name>.component.spec.ts`) and a sibling story (`<name>.stories.ts`), unless it is a part listed as
  * covered by another component's spec or story.
  */
 
@@ -15,18 +15,18 @@ export interface Exemption {
 const COMPONENT = '.component.ts';
 const STORY = '.stories.ts';
 
-function directoryOf(path: string): string {
-  return path.slice(0, path.lastIndexOf('/') + 1);
-}
-
 /** The spec beside `component`: `a/b.component.ts` → `a/b.component.spec.ts`. */
 export function specOf(component: string): string {
   return `${component.slice(0, -COMPONENT.length)}.component.spec.ts`;
 }
 
+/** The story beside `component`: `a/b.component.ts` → `a/b.stories.ts`. */
+export function storyOf(component: string): string {
+  return `${component.slice(0, -COMPONENT.length)}${STORY}`;
+}
+
 function hasStory(files: ReadonlySet<string>, component: string): boolean {
-  const directory = directoryOf(component);
-  return [...files].some((file) => file.endsWith(STORY) && directoryOf(file) === directory);
+  return files.has(storyOf(component));
 }
 
 /** A spec or story: what every component has beside it. */

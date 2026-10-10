@@ -72,6 +72,7 @@ describe(AsyncRegion, () => {
     const { query, region, stable } = await render();
     query.succeed([]);
     await stable();
+    expect(region.querySelector('fr-stack')).not.toBeNull();
     expect(region.querySelector('fr-skeleton')).toBeNull();
     expect(message(region)).toBeNull();
   });

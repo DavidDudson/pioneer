@@ -1,6 +1,6 @@
 /**
- * Fails when a frontier component has no sibling spec (`<name>.component.spec.ts`) or no story in its folder
- * (`*.stories.ts`). A part whose behaviour only shows through the component that assembles it opts out below,
+ * Fails when a frontier component has no sibling spec (`<name>.component.spec.ts`) or story
+ * (`<name>.stories.ts`). A part whose behaviour only shows through the component that assembles it opts out below,
  * naming the spec or story that covers it; the check fails if that file goes missing or the part gains its own.
  */
 import { Glob } from 'bun';
@@ -15,6 +15,7 @@ const EXEMPTIONS: Readonly<Record<string, Exemption>> = {
   'controls/combobox/combobox-status.component.ts': {
     reason: "The combobox's loading and no-matches states.",
     spec: 'controls/combobox/combobox.component.spec.ts',
+    story: 'controls/combobox/combobox.stories.ts',
   },
   'data/table/header-cell/header-cell.component.ts': {
     reason: 'Only renders inside a table header.',
@@ -49,10 +50,12 @@ const EXEMPTIONS: Readonly<Record<string, Exemption>> = {
   'text/text/phrase.component.ts': {
     reason: 'Internal to fr-text, reached through its element input.',
     spec: 'text/text/text.component.spec.ts',
+    story: 'text/text/text.stories.ts',
   },
   'text/text/stress.component.ts': {
     reason: 'Internal to fr-text, reached through its element input.',
     spec: 'text/text/text.component.spec.ts',
+    story: 'text/text/text.stories.ts',
   },
 };
 
