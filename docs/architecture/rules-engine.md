@@ -512,8 +512,9 @@ evaluatePredicate(predicate, facts); // 'true' | 'false' | 'unknown'
 tracePredicate(predicate, facts); // the same, with every nested statement's verdict, for explaining
 ```
 
-The namespace is a roll option's first word. `DEFAULT_NAMESPACES` was checked against the roll options in Foundry's
-feats, class and ancestry features, conditions, effects and equipment:
+The namespace is a roll option's first word. The table is content: the core rules pack lists it under
+`rollOptionNamespaces` (`libs/content/core-rules`), checked against the roll options in Foundry's feats, class and
+ancestry features, conditions, effects and equipment:
 
 | Kind        | Namespaces                                                                                                                                                                                                                               |
 | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -524,7 +525,14 @@ The longest listed namespace an option starts with decides, so `self:participant
 while `self:effect:rage` is known. `item` and `parent` are known because the engine always evaluates them against a
 specific item. A namespace missing from the table is situational, so a gap shows up as a conditional line instead of
 hiding a modifier. The namespaces a `ChoiceSet` writes its pick to (`kinetic-gate:air`) are the character's own
-facts: grant resolution adds them as known with `withKnown`. The core rules pack will own the table (Epic 1.6).
+facts: grant resolution adds them as known with `withKnown`.
+
+Any pack may add namespaces (a homebrew `sanity`), and `ContentRegistry.rollOptionNamespaces()` merges every
+registered pack's into the table `PredicateFacts` reads, so a new namespace needs no code change. Two packs may list
+the same namespace with the same kind; a pack that gives one the other kind is rejected when it registers, with the
+issue at that entry. `rules/predicate` keeps only the table type and the lookup (`kindOf`, `withKnown`).
+Tests below the content packs use a copy, `CORE_NAMESPACES` in `@pioneer/rules/sdk/testing`, which the core
+rules pack's tests check against the pack.
 
 Statements follow Foundry's `Predicate.test`, lifted to three values:
 
