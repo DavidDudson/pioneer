@@ -10,7 +10,7 @@ import type { WeaponInputs } from './source-inputs';
 /** The core rules pack's Strike family: a weapon's potency reaches its instance, `strike:<slug>`. */
 const STRIKE = 'strike';
 
-/** Lets an `AdjustModifier` find a potency line: Automatic Bonus Progression replaces it through this slug. */
+/** Lets an `AdjustModifier` find a potency line, for anything that changes a rune's bonus. */
 const WEAPON_POTENCY = RuleSlug.parse('weapon-potency');
 
 /** The potency line of one weapon: its potency rune, or a bomb's own item bonus. */

@@ -115,14 +115,25 @@ describe('weapon potency', () => {
     });
   });
 
-  test('an AdjustModifier finds the line by its slug, as Automatic Bonus Progression replaces it', () => {
-    const progression = inPlay(
+  test('an AdjustModifier finds the line by its slug', () => {
+    const upgrade = inPlay(
       { key: 'AdjustModifier', selectors: ['strike-attack-roll'], slug: 'weapon-potency', mode: 'upgrade', value: 2 },
-      'automatic-bonus-progression',
+      'upgrade',
     );
-    const result = strike(LONGSWORD, [progression]);
+    const result = strike(LONGSWORD, [upgrade]);
     expect(result).toMatchObject({ ok: true, total: BASE + 2 });
-    expect(lineWithId(result, POTENCY_ID)).toMatchObject({ value: 2, adjustedBy: [ruleIdOf(progression)] });
+    expect(lineWithId(result, POTENCY_ID)).toMatchObject({ value: 2, adjustedBy: [ruleIdOf(upgrade)] });
+  });
+
+  test('a potency-typed bonus, as Automatic Bonus Progression adds, needs no line and stacks apart from item', () => {
+    const { potency: _potency, ...runeless } = LONGSWORD;
+    const rules = [
+      inPlay(flatModifier('potency', 1, ['strike-attack-roll']), 'attack-potency'),
+      inPlay(flatModifier('item', 2, ['strike-attack-roll']), 'mutagen'),
+    ];
+    const result = strike(runeless, rules);
+    expect(result).toMatchObject({ ok: true, total: BASE + 1 + 2 });
+    expect(lineWithId(result, POTENCY_ID)).toBeUndefined();
   });
 
   test('a weapon without an origin is an issue at its origin', () => {

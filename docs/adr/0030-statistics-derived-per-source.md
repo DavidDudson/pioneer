@@ -66,7 +66,14 @@ Option 3 for the definition, option 2 for the references.
   weapon's origin, so it competes with other item bonuses to attack rolls (a mutagen's) and only the highest applies.
   Every weapon input therefore carries its `origin`; grant resolution and inventory supply it. `@weapon.potency` was
   removed (#338) rather than kept for homebrew: a base reading it beside the synthetic line would count the bonus
-  twice, and under Automatic Bonus Progression the rune's grade is not the bonus. Automatic Bonus Progression
-  replaces the line through an `AdjustModifier` on that slug, not a formula change.
+  twice. Automatic Bonus Progression (GM Core) removes potency runes and grants a separate `potency`-typed
+  bonus to attack rolls with every weapon and unarmed attack, so its variant pack adds a `FlatModifier` of that type
+  and weapons carry no `potency`: no formula change, and the `item` line is never reused for it. The slug lets an
+  `AdjustModifier` find the line for anything that changes a rune's bonus. The line targets `strike:<slug>`, so the
+  engine depends on the core rules pack's Strike family keeping the selector `strike`: a pack that renames or
+  replaces that family gets no potency line. A field on `per: weapon` definitions naming which family takes the
+  weapon's item bonus would keep that selector data; it waits until a second attack family needs it. The
+  line's label names the weapon by its slug until inventory supplies weapons' content entries; naming it after the
+  weapon is #378.
 - One Strike per weapon: a thrown melee weapon's thrown Strike, the multiple attack penalty and damage are out of
   scope here.

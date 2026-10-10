@@ -7,6 +7,7 @@ import {
   present,
   pressIn,
   secondTextArea,
+  textAreas,
   typeJson,
 } from './playground-harness';
 
@@ -119,5 +120,25 @@ describe('RulesPlaygroundPage statistics', () => {
 
     expect(pageText(harness)).toContain('Character inputs');
     expect(inputs.getAttribute('aria-invalid')).toBe('true');
+  });
+
+  it('names a weapon’s potency line where it beats a lower item bonus', async () => {
+    const harness = await openPlayground();
+    await chooseSchema(harness, 'Statistics');
+    await pressIn(harness, 'Statistics from', 'Core rules pack');
+    await vi.waitFor(() => {
+      expect(pageText(harness)).toContain('strike:longsword');
+    });
+
+    const areas = textAreas(harness);
+    const inputs = present(areas.find((area) => area.value.includes('"weapons"')));
+    inputs.value = inputs.value.replace('"potency": 1', '"potency": 2');
+    inputs.dispatchEvent(new Event('input'));
+    const rules = present(areas.find((area) => area.value.includes('Breastplate')));
+    rules.value = '[{ "key": "FlatModifier", "selectors": ["strike:longsword"], "type": "item", "value": 1 }]';
+    rules.dispatchEvent(new Event('input'));
+    await harness.fixture.whenStable();
+
+    expect(pageText(harness)).toContain('Item bonus of longsword beats or removes it.');
   });
 });

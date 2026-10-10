@@ -112,8 +112,10 @@ its statistics.
 - A weapon's potency (its potency rune, or a bomb's own item bonus) is not a base term. The engine adds it to the
   weapon's `strike:<slug>` as a synthetic `item` modifier with the slug `weapon-potency`, labelled by a message and
   with the weapon's origin, so it stacks with other item bonuses to attack rolls (a mutagen's): only the highest
-  applies, and the breakdown shows the potency line suppressed when another wins. Automatic Bonus Progression
-  replaces it with an `AdjustModifier` on that slug rather than a formula change.
+  applies, and the breakdown shows the potency line suppressed when another wins. Automatic Bonus
+  Progression (GM Core) needs no formula change either: it removes potency runes, so weapons carry no `potency` and
+  get no line, and its variant pack adds its own `potency`-typed `FlatModifier` to attack rolls. The slug lets an
+  `AdjustModifier` find the line for anything that changes a rune's bonus.
 - Inside an instance, `@stat.<family>` naming another family derived per the same kind of source reads that
   family's instance for the same source: the spell DC's `@stat.spell-attack` reads its own entry's spell attack
   base, so a bonus to spell attack rolls stays off the DC.
@@ -282,9 +284,12 @@ stories.
 
 ```ts
 interface Modifier {
-  id: RuleId; // `<entry>#<rule>`: the rule element that made it, stable across derivations
+  // `<entry>#<rule>`: the rule element that made it, stable across derivations; `weapon:<slug>#weapon-potency` for
+  // the line the engine adds for a weapon's potency
+  id: RuleId;
   slug: RuleSlug | undefined; // lets an AdjustModifier find it
-  label: { text: ContentText } | { entry: ContentId }; // the element's display.label, else its entry's name
+  // display.label, else its entry's name; a message for a line the engine adds itself
+  label: { text: ContentText } | { entry: ContentId } | { message: MessageDescriptor };
   type: 'untyped' | 'status' | 'circumstance' | 'item' | 'proficiency' | 'attribute' | 'potency';
   targets: readonly ModifierTarget[]; // selectors or domains
   predicate: Predicate | undefined;
