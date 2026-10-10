@@ -29,11 +29,11 @@ interface ContentEntry<K extends ContentKind> {
 ```
 
 `ContentEntry` in `libs/rules/sdk` (`content-entry.ts`) is this envelope as a zod schema. `kind` picks the `data`
-schema from a kind registry (`KIND_DATA`); a kind with no schema yet is an error naming it. On top of the field
-schemas it checks that `id` is UUIDv5 of `<pack>/<slug>`, that there is at least one source, that traits are unique,
-and that `supersedes` never holds the entry's own id. The rules playground's "Content entry" mode loads an example
-per registered kind. Until Epic 2.3 replaces `libs/content/*`, packs keep their older shape and the registry wraps
-their definitions in `PackEntry`.
+schema from a kind registry (`KIND_DATA`, `kind-data.ts`); a kind with no schema yet is an error naming it. On top
+of the field schemas it checks that `id` is UUIDv5 of `<pack>/<slug>`, that there is at least one source, that
+traits are unique, and that `supersedes` never holds the entry's own id. The rules playground's "Content entry"
+mode loads an example per registered kind. Until Epic 2.3 replaces `libs/content/*`, packs keep their older shape
+and the registry wraps their definitions in `PackEntry`.
 
 ### Kinds
 
@@ -52,6 +52,25 @@ nothing about level 1 to 20 is hard-coded.
 
 Statistics are content too: a `statistic` entry names a selector, its domains, an actor-only base formula, and
 whether it is a check or a DC (see [rules-engine.md](rules-engine.md#statistics-are-content)).
+
+#### Rules core data
+
+Each kind's `data` follows what Foundry pf2e stores for it, in Pioneer's words. What an entry does to statistics is
+in its `rules`, never repeated in `data`. Schemas live in `libs/rules/sdk`, registered in `kind-data.ts`.
+
+| Kind           | `data`                                                                                                                                                                                                                                                  |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `condition`    | `valued` (Frightened 2 or just Blinded); `group?` (`abilities`, `attitudes`, `death`, `detection`, `senses`); `overrides` and `implies`, both `ContentId[]`                                                                                             |
+| `action`       | `cost?` (an `action-cost` glyph; absent for passive); `category?`; `requirements?` and `trigger?` as rich text; `frequency?` (`max` uses `per` turn, round, minute, ten minutes, hour, 24 hours, day, week, month or year); `selfEffect?` (`ContentId`) |
+| `damage-type`  | `group?`: `physical` or `energy`; mental, poison and spirit have none                                                                                                                                                                                   |
+| `sense`        | `acuity?`, the acuity the sense always has; `unlimitedRange?` (darkvision)                                                                                                                                                                              |
+| `trait`        | `appliesTo`: the kinds that carry it, from the Foundry trait list it sits in                                                                                                                                                                            |
+| `language`     | none yet; rarity is the envelope's                                                                                                                                                                                                                      |
+| `variant-rule` | none yet; what it changes is in `rules`, applied to every character in a campaign that enables it                                                                                                                                                       |
+
+Two checks span fields: a reaction needs a `trigger`, and every condition in `implies` needs a `GrantItem` of it in
+`rules`. Foundry applies implied conditions (Grabbed's Off-Guard and Immobilized) with `GrantItem`, and so does the
+engine; `implies` is the list the sheet shows, kept in step with the grants.
 
 ### Rich text
 

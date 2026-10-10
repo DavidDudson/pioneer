@@ -60,7 +60,7 @@ export type DamageAdjustment = z.infer<typeof DamageAdjustment>;
 /** The group a damage type belongs to; mental, poison and spirit belong to none. */
 export const DamageTypeGroup = { Physical: DamageGroup.Physical, Energy: DamageGroup.Energy } as const;
 export type DamageTypeGroup = ValueOf<typeof DamageTypeGroup>;
-export const DamageTypeGroupSchema = z.enum(DamageTypeGroup);
+const DamageTypeGroupSchema = z.enum(DamageTypeGroup);
 
 /**
  * A damage type's `data` on the `ContentEntry` envelope. The engine's types are `DamageType`; an entry gives one a

@@ -15,7 +15,7 @@ export const ConditionGroup = {
   Senses: 'senses',
 } as const;
 export type ConditionGroup = ValueOf<typeof ConditionGroup>;
-export const ConditionGroupSchema = z.enum(ConditionGroup);
+const ConditionGroupSchema = z.enum(ConditionGroup);
 
 const CONDITION_REFS_MAX = 8;
 

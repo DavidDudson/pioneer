@@ -4,7 +4,7 @@ import * as z from 'zod';
 /** How exactly a sense locates what it detects. */
 export const SenseAcuity = { Precise: 'precise', Imprecise: 'imprecise', Vague: 'vague' } as const;
 export type SenseAcuity = ValueOf<typeof SenseAcuity>;
-export const SenseAcuitySchema = z.enum(SenseAcuity);
+const SenseAcuitySchema = z.enum(SenseAcuity);
 
 /**
  * A sense's `data` on the `ContentEntry` envelope. A creature lists its own acuity and range for most senses

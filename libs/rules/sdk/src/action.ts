@@ -14,7 +14,7 @@ export const ActionCategory = {
   Familiar: 'familiar',
 } as const;
 export type ActionCategory = ValueOf<typeof ActionCategory>;
-export const ActionCategorySchema = z.enum(ActionCategory);
+const ActionCategorySchema = z.enum(ActionCategory);
 
 /**
  * The span a frequency's uses refresh over, Foundry pf2e's set in words: `twenty-four-hours` is "once every 24
@@ -33,7 +33,7 @@ export const FrequencyPeriod = {
   Year: 'year',
 } as const;
 export type FrequencyPeriod = ValueOf<typeof FrequencyPeriod>;
-export const FrequencyPeriodSchema = z.enum(FrequencyPeriod);
+const FrequencyPeriodSchema = z.enum(FrequencyPeriod);
 
 /** How many times something can be used per period. */
 export const Uses = Pg.smallint().positive().brand<'Uses'>();
