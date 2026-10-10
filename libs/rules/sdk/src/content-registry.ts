@@ -197,3 +197,11 @@ export class ContentRegistry {
     return new Map([...this.#namespaces].map(([namespace, { kind }]) => [namespace, kind]));
   }
 }
+
+/**
+ * Where a server use case gets its content: a registry over the packs as they are when asked, so content seeded after
+ * the process started is served without a restart. Ask once per use case and keep the answer for its duration.
+ */
+export interface ContentSource {
+  readonly registry: () => Promise<ContentRegistry>;
+}

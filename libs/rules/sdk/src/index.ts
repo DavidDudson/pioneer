@@ -127,6 +127,7 @@ export {
 export {
   type AncestryEntry,
   ContentRegistry,
+  type ContentSource,
   type CreatureEntry,
   type StatisticEntry,
   type VariantRuleEntry,

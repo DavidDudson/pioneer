@@ -39,6 +39,6 @@ if (command === SEED_COMMAND) {
   console.info('dev data seeded');
 } else {
   // Loopback only: nothing else on the network can reach the dev sign-in.
-  new Elysia().use(await createApp(db, env, [devSignInRoutes])).listen({ port: env.PORT, hostname: DEV_HOSTNAME });
+  new Elysia().use(createApp(db, env, [devSignInRoutes])).listen({ port: env.PORT, hostname: DEV_HOSTNAME });
   console.info(`pioneer api (dev) listening on ${DEV_HOSTNAME}:${env.PORT}`);
 }

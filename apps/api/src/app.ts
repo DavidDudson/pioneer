@@ -17,10 +17,10 @@ import type { Identity } from './identity';
 export type AppExtension = (identity: Identity) => AnyElysia;
 
 /** Composition root: the only place adapters, services and routes meet. */
-export async function createApp(db: Database, env: Env, extensions: readonly AppExtension[] = []): Promise<AnyElysia> {
+export function createApp(db: Database, env: Env, extensions: readonly AppExtension[] = []): AnyElysia {
   const clock = systemClock;
   const identityParts = identity(db, env, clock);
-  const characterRoutes = await characters(db, clock, identityParts.authenticator);
+  const characterRoutes = characters(db, clock, identityParts.authenticator);
 
   let app: AnyElysia = new Elysia({ prefix: API_PREFIX })
     .use(problemHandler)

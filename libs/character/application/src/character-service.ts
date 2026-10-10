@@ -15,7 +15,7 @@ import {
 } from '@pioneer/interop/pathbuilder';
 import type { PathbuilderImportResponse, PathbuilderReadFailure } from '@pioneer/interop/pathbuilder';
 import { AncestryId } from '@pioneer/rules/sdk';
-import type { ContentRegistry } from '@pioneer/rules/sdk';
+import type { ContentSource } from '@pioneer/rules/sdk';
 import { fieldIssues, message, newId, NotFoundError, ValidationError } from '@pioneer/shared/kernel';
 import type { Clock, FieldIssue, UserId } from '@pioneer/shared/kernel';
 
@@ -38,10 +38,10 @@ function readIssues({ problem, issues }: PathbuilderReadFailure): FieldIssue[] {
  */
 export class CharacterService {
   readonly #repository: CharacterRepository;
-  readonly #content: ContentRegistry;
+  readonly #content: ContentSource;
   readonly #clock: Clock;
 
-  public constructor(repository: CharacterRepository, content: ContentRegistry, clock: Clock) {
+  public constructor(repository: CharacterRepository, content: ContentSource, clock: Clock) {
     this.#repository = repository;
     this.#content = content;
     this.#clock = clock;
@@ -63,7 +63,7 @@ export class CharacterService {
 
   /** A new character, owned by the actor. */
   public async create(actor: UserId, input: CreateCharacterBody): Promise<Character> {
-    this.#assertAncestryExists(input.ancestry);
+    await this.#assertAncestryExists(input.ancestry);
     const id = CharacterId.parse(newId());
     const character = Character.create({
       id,
@@ -86,7 +86,8 @@ export class CharacterService {
       throw new ValidationError(readIssues(read));
     }
     const { value } = read;
-    const lookup = registryLookup(this.#content);
+    const content = await this.#content.registry();
+    const lookup = registryLookup(content);
     const match = lookup.resolve(ImportKind.Ancestry, value.identity.ancestry);
     if (match === undefined) {
       throw new ValidationError([
@@ -117,7 +118,7 @@ export class CharacterService {
   ): Promise<Character> {
     const current = await this.get(actor, id);
     if (patch.field === CharacterPatchField.Ancestry) {
-      this.#assertAncestryExists(patch.value);
+      await this.#assertAncestryExists(patch.value);
     }
     return this.#repository.update(current.apply(patch, this.#clock.now()), expectedVersion, {
       actor,
@@ -125,8 +126,9 @@ export class CharacterService {
     });
   }
 
-  #assertAncestryExists(ref: AncestryId): void {
-    if (this.#content.ancestry(ref) === undefined) {
+  async #assertAncestryExists(ref: AncestryId): Promise<void> {
+    const content = await this.#content.registry();
+    if (content.ancestry(ref) === undefined) {
       throw new ValidationError([
         { path: ['ancestry'], message: message('character.validation.unknownAncestry', { ancestry: ref }) },
       ]);

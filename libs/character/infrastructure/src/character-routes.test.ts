@@ -3,8 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import { CharacterService, InMemoryCharacterRepository } from '@pioneer/character/application';
 import { humanAncestryId } from '@pioneer/character/domain/testing';
 import { briarRoseExport, mordredExport } from '@pioneer/interop/pathbuilder/testing';
-import { ContentRegistry } from '@pioneer/rules/sdk';
-import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
+import { ContentPackBuilder, fixedContent } from '@pioneer/rules/sdk/testing';
 import { fixedClock, newId, UserId } from '@pioneer/shared/kernel';
 import type { Problem } from '@pioneer/shared/kernel';
 import { problemHandler } from '@pioneer/shared/server';
@@ -18,8 +17,7 @@ const amiri = UserId.parse(newId());
 const ezren = UserId.parse(newId());
 
 function app(): AnyElysia {
-  const content = new ContentRegistry();
-  content.register(new ContentPackBuilder().withId('player-core').withAncestry('human').build());
+  const content = fixedContent(new ContentPackBuilder().withId('player-core').withAncestry('human').build());
   const service = new CharacterService(new InMemoryCharacterRepository(), content, fixedClock('2026-10-07T10:00:00Z'));
   return new Elysia().use(problemHandler).use(characterRoutes(service, new FakeAuthenticator()));
 }
