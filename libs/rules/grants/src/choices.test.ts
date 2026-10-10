@@ -153,13 +153,16 @@ describe('resolveGrants choices', () => {
     expect(result.errors.map((failure) => failure.error)).toEqual([
       message(GrantsMessage.PickNotEntry, { flag: 'terrain', value: 'forest' }),
     ]);
-    expect(result.errors[0]?.hops.at(-1)).toEqual(chosen(slotOf('ranger', 0)));
+    expect(result.errors[0]?.hops.slice(-2)).toEqual([chosen(slotOf('ranger', 0)), granted('ranger', 1)]);
   });
 
   test('reports a GrantItem whose choice no ChoiceSet on the entry names', () => {
     const result = resolve([entry('rogue', [grantChoice('racket')])], [picked('rogue', 'class')]);
     expect(result.errors).toEqual([
-      { error: message(GrantsMessage.UnknownChoice, { entry: 'rogue', flag: 'racket' }), hops: [chosen('class')] },
+      {
+        error: message(GrantsMessage.UnknownChoice, { entry: 'rogue', flag: 'racket' }),
+        hops: [chosen('class'), granted('rogue', 0)],
+      },
     ]);
   });
 
@@ -192,6 +195,17 @@ describe('resolveGrants choices', () => {
     const result = resolve(content, [picked('fighter')], { options: ['self:level:1'] });
     expect(result.open).toEqual([]);
     expect(result.errors).toEqual([]);
+  });
+
+  test('reports the slots of an entry granted again with allowDuplicate once, sharing its pick', () => {
+    const content = [
+      entry('fighter', [grantOf('rogue'), { ...grantOf('rogue'), allowDuplicate: true }]),
+      ...rogueContent,
+    ];
+    const result = resolve(content, [picked('fighter')], { picks: [[RACKET, idOf('ruffian')]] });
+    expect(result.answered.map((slot) => slot.key)).toEqual([RACKET]);
+    expect(names(result.items)).toEqual(['fighter', 'rogue', 'ruffian', 'rogue']);
+    expect(names(result.duplicates)).toEqual(['ruffian']);
   });
 
   test('leaves a ChoiceSet over a content query for query resolution', () => {

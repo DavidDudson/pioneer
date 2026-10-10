@@ -76,6 +76,12 @@ function isGrant(element: RuleElement): element is GrantItemElement {
   return element.key === RuleElementKey.GrantItem;
 }
 
+/** A `GrantItem` and the hop it adds to what it grants. */
+interface GrantAt {
+  readonly element: GrantItemElement;
+  readonly hop: OriginHop;
+}
+
 /** How an entry is reached: the hops to it, the entries above it, and what the granting element asked for. */
 interface Visit {
   readonly hops: readonly OriginHop[];
@@ -118,6 +124,8 @@ class GrantWalk {
   readonly #facts: PredicateFacts;
   readonly #context: ChoiceContext;
   readonly #present = new Set<ContentId>();
+  /** Entries whose slots are recorded. */
+  readonly #chosen = new Set<ContentId>();
   readonly #items: GrantedItem[] = [];
   readonly #duplicates: GrantedItem[] = [];
   readonly #conditional: ConditionalGrant[] = [];
@@ -188,9 +196,9 @@ class GrantWalk {
     const choices = this.#choose(at);
     const chain = [...visit.chain, entry];
     for (const [index, element] of entry.rules.entries()) {
-      const target = isGrant(element) ? this.#target(at, element, choices) : undefined;
+      const hop: OriginHop = { kind: OriginHopKind.Grant, by: entry.id, rule: RuleIndex.parse(index) };
+      const target = isGrant(element) ? this.#target(at, { element, hop }, choices) : undefined;
       if (isGrant(element) && target !== undefined) {
-        const hop: OriginHop = { kind: OriginHopKind.Grant, by: entry.id, rule: RuleIndex.parse(index) };
         const hops = [...visit.hops, ...target.hops, hop];
         const allowDuplicate = element.allowDuplicate === true;
         this.#grant(element, target.id, { hops, chain, flag: element.flag, allowDuplicate });
@@ -198,8 +206,16 @@ class GrantWalk {
     }
   }
 
+  /**
+   * Reads the entry's choices, and records its slots the first time the entry is followed. A copy granted again
+   * with `allowDuplicate` shares its slots (and so its picks), so they are not reported twice.
+   */
   #choose(at: EntryAt): EntryChoices {
     const choices = readChoices(at, this.#context);
+    if (this.#chosen.has(at.entry.id)) {
+      return choices;
+    }
+    this.#chosen.add(at.entry.id);
     this.#open.push(...choices.open);
     this.#answered.push(...choices.answered);
     this.#rollOptions.push(...choices.rollOptions);
@@ -207,15 +223,18 @@ class GrantWalk {
     return choices;
   }
 
-  /** What `element` grants; undefined while its pick is still to make, or after recording why it cannot grant. */
-  #target(at: EntryAt, element: GrantItemElement, choices: EntryChoices): GrantTarget | undefined {
+  /**
+   * What `element` grants; undefined while its pick is still to make, or after recording why it cannot grant, at
+   * the element's own grant hop.
+   */
+  #target(at: EntryAt, { element, hop }: GrantAt, choices: EntryChoices): GrantTarget | undefined {
     const { item } = element;
     if (typeof item === 'string') {
       return { id: item, hops: [] };
     }
     const target = choiceTarget(at, item.choice, choices);
     if (target !== undefined && 'error' in target) {
-      this.#errors.push(target);
+      this.#errors.push({ error: target.error, hops: [...target.hops, hop] });
       return undefined;
     }
     return target;
