@@ -6,7 +6,7 @@ import type * as z from 'zod';
 
 import { ContentPackSchema } from './content-pack';
 import { RulesMessage } from './messages';
-import { StatisticDefinition, StatisticKind } from './statistic';
+import { StatisticData, StatisticDefinition, StatisticKind, StatisticPer } from './statistic';
 import { ContentPackBuilder } from './testing';
 
 const armorClass = {
@@ -57,6 +57,56 @@ describe('StatisticDefinition', () => {
         path: ['base'],
         message: message(RulesMessage.ReferenceOutOfScope, { found: '@item.system.level.value', position: 1 }),
       },
+    ]);
+  });
+
+  test('a weapon or spellcasting reference needs a statistic derived per that source', () => {
+    expect(issues({ ...armorClass, base: '@weapon.attr + @spellcasting.prof' })).toStrictEqual([
+      { path: ['base'], message: message(RulesMessage.ReferenceNeedsWeapon, { found: '@weapon.attr', position: 1 }) },
+      {
+        path: ['base'],
+        message: message(RulesMessage.ReferenceNeedsSpellcasting, { found: '@spellcasting.prof', position: 16 }),
+      },
+    ]);
+  });
+
+  test('a statistic derived per weapon reads the weapon and the character, and names no key attribute', () => {
+    const { keyAttribute: _keyAttribute, ...strike } = {
+      ...armorClass,
+      selector: 'strike',
+      base: '@weapon.attr + @weapon.prof + @weapon.potency + @level * 0',
+      kind: StatisticKind.Check,
+      per: StatisticPer.Weapon,
+    };
+    expect(issues(strike)).toStrictEqual([]);
+    expect(issues({ ...strike, base: '@spellcasting.attr' })).toStrictEqual([
+      {
+        path: ['base'],
+        message: message(RulesMessage.ReferenceNeedsSpellcasting, { found: '@spellcasting.attr', position: 1 }),
+      },
+    ]);
+    expect(issues({ ...strike, keyAttribute: 'str' })).toStrictEqual([
+      { path: ['keyAttribute'], message: message(RulesMessage.StatisticPerKeyAttribute) },
+    ]);
+  });
+
+  test('a statistic derived per spellcasting entry may read the entry, and @item stays out of scope', () => {
+    const { keyAttribute: _keyAttribute, ...spellAttack } = {
+      ...armorClass,
+      selector: 'spell-attack',
+      base: '@spellcasting.attr + @spellcasting.prof',
+      per: StatisticPer.Spellcasting,
+    };
+    expect(issues(spellAttack)).toStrictEqual([]);
+    expect(issues({ ...spellAttack, base: '@item.level' })).toStrictEqual([
+      { path: ['base'], message: message(RulesMessage.ReferenceOutOfScope, { found: '@item.level', position: 1 }) },
+    ]);
+  });
+
+  test('statistic data checks scopes the same way', () => {
+    const { slug: _slug, name: _name, ...data } = armorClass;
+    expect(issuesFrom(StatisticData, { ...data, base: '@weapon.prof' }).map((issue) => issue.path)).toStrictEqual([
+      ['base'],
     ]);
   });
 

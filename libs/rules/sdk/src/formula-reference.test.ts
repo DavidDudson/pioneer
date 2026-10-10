@@ -2,13 +2,8 @@ import { describe, expect, test } from 'bun:test';
 
 import { ReferencePath } from '@pioneer/rules/formula';
 
-import {
-  FOUNDRY_REFERENCES,
-  fromFoundryPath,
-  knownReference,
-  REFERENCE_CATALOGUE,
-  ReferenceKind,
-} from './formula-reference';
+import { knownReference, REFERENCE_CATALOGUE, ReferenceKind } from './formula-reference';
+import { FOUNDRY_REFERENCES, fromFoundryPath } from './foundry-reference';
 
 const known = (path: string): unknown => knownReference(ReferencePath.parse(path));
 const translated = (path: string): string | undefined => fromFoundryPath(ReferencePath.parse(path));
@@ -29,6 +24,12 @@ describe('formula reference vocabulary', () => {
     ['rank.attack.martial', { kind: ReferenceKind.ProficiencyRank, selector: 'attack:martial' }],
     ['stat.spell-attack.arcane', { kind: ReferenceKind.Statistic, selector: 'spell-attack:arcane' }],
     ['item.level', { kind: ReferenceKind.ItemLevel }],
+    ['weapon.attr', { kind: ReferenceKind.WeaponAttributeModifier }],
+    ['weapon.prof', { kind: ReferenceKind.WeaponProficiencyBonus }],
+    ['weapon.potency', { kind: ReferenceKind.WeaponPotency }],
+    ['spellcasting.attr', { kind: ReferenceKind.SpellcastingAttributeModifier }],
+    ['spellcasting.prof', { kind: ReferenceKind.SpellcastingProficiencyBonus }],
+    ['rank.spellcasting.arcane', { kind: ReferenceKind.ProficiencyRank, selector: 'spellcasting:arcane' }],
   ])('@%s is known', (path, reference) => {
     expect(known(path)).toStrictEqual(reference);
   });
@@ -52,6 +53,9 @@ describe('formula reference vocabulary', () => {
     'rank.save_fortitude',
     'stat',
     'item.badge.value',
+    'weapon',
+    'weapon.prof.martial',
+    'spellcasting.tradition',
   ])('@%s is unknown', (path) => {
     expect(known(path)).toBeUndefined();
   });
@@ -61,6 +65,19 @@ describe('formula reference vocabulary', () => {
       .filter(([, definition]) => definition.scope === 'item')
       .map(([kind]) => kind);
     expect(itemScoped).toStrictEqual([ReferenceKind.ItemLevel]);
+  });
+
+  test.each([
+    [
+      'weapon',
+      [ReferenceKind.WeaponAttributeModifier, ReferenceKind.WeaponProficiencyBonus, ReferenceKind.WeaponPotency],
+    ],
+    ['spellcasting', [ReferenceKind.SpellcastingAttributeModifier, ReferenceKind.SpellcastingProficiencyBonus]],
+  ])('only the %s references read a %s', (scope, kinds) => {
+    const scoped = Object.entries(REFERENCE_CATALOGUE)
+      .filter(([, definition]) => definition.scope === scope)
+      .map(([kind]) => kind);
+    expect(scoped).toStrictEqual(kinds);
   });
 });
 
@@ -76,6 +93,7 @@ describe('Foundry reference translation', () => {
     ['actor.perception.rank', 'rank.perception'],
     ['actor.system.proficiencies.attacks.martial.rank', 'rank.attack.martial'],
     ['actor.system.proficiencies.defenses.heavy.rank', 'rank.defense.heavy'],
+    ['actor.system.proficiencies.traditions.divine.rank', 'rank.spellcasting.divine'],
     ['actor.system.attributes.ancestryhp', 'ancestry.hp'],
     ['actor.ancestry.system.hp', 'ancestry.hp'],
     ['actor.ancestry.system.speed', 'ancestry.speed'],
@@ -100,7 +118,8 @@ describe('Foundry reference translation', () => {
         .replace('<attribute>', 'wis')
         .replace('<skill>', 'stealth')
         .replace('<save>', 'will')
-        .replace('<category>', 'simple'),
+        .replace('<category>', 'simple')
+        .replace('<tradition>', 'occult'),
     );
     expect(paths.filter((path) => translated(path) === undefined)).toStrictEqual([]);
   });

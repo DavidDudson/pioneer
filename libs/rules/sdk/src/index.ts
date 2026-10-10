@@ -131,7 +131,15 @@ export {
   type StatisticEntry,
   type VariantRuleEntry,
 } from './content-registry';
-export { StatisticData, StatisticDefinition, StatisticId, StatisticKind, StatisticKindSchema } from './statistic';
+export {
+  StatisticData,
+  StatisticDefinition,
+  StatisticId,
+  StatisticKind,
+  StatisticKindSchema,
+  StatisticPer,
+  StatisticPerSchema,
+} from './statistic';
 export { CreatureData, CreatureDefinition, CreatureId } from './creature';
 export {
   AonSourceUrl,
@@ -188,12 +196,21 @@ export { NamespaceKind, NamespaceKindSchema, RollOptionNamespace, RollOptionName
 export { Domain, Selector, SlotKey, ToggleKey } from './selector';
 export { AonUrl, BookId, PageNumber, SourceKind, SourceRef, SourceTitle, WebUrl } from './source-ref';
 export { default as rulesMessages } from './i18n/en.json';
-export { ActorFormulaSource, type FormulaProblem, formulaProblems, FormulaSource } from './formula-source';
+export {
+  ActorFormulaSource,
+  type FormulaProblem,
+  formulaProblems,
+  FormulaSource,
+  scopeProblems,
+  StatisticFormulaSource,
+} from './formula-source';
 export {
   FOUNDRY_REFERENCES,
   type FoundryReference,
   FoundryReferencePattern,
   fromFoundryPath,
+} from './foundry-reference';
+export {
   type KnownReference,
   knownReference,
   REFERENCE_CATALOGUE,
