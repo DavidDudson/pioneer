@@ -54,7 +54,10 @@ function slotRules([trait, level]: readonly [string, number]): readonly object[]
 }
 
 /** An ancestry holding the ancestry, general and skill feat slots, so the character has about 30. */
-const ancestry: GrantEntry = entry('human', SLOTS.flatMap((slot) => slotRules(slot)));
+const ancestry: GrantEntry = entry(
+  'human',
+  SLOTS.flatMap((slot) => slotRules(slot)),
+);
 
 /** A filler feat for each ancestry slot: the one with its trait at its level. */
 const ANCESTRY_PICKS: readonly (readonly [SlotKey, string])[] = SLOTS.map(([trait, level], at) => {

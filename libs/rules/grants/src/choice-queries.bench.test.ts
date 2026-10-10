@@ -3,10 +3,10 @@ import { expect, test } from 'bun:test';
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import { RollOption } from '@pioneer/rules/sdk';
 
-import type { OfferedOption } from './choices';
 import type { GrantEntry } from './grant-entry';
 import { walkGrants } from './grant-walk';
 import type { WalkInputs } from './grant-walk';
+import type { OfferedOption } from './offers';
 import { entry, feat, lookupOf, picked, picksOf } from './testing/builders';
 
 const ENTRIES = 1000;
@@ -64,8 +64,10 @@ function fastestOf(times: readonly number[]): number {
   return Math.min(...times);
 }
 
-// One walk and the offer a builder reads: offers are worked out only when read, so the fixpoint benches time
-// resolution and this one times the query.
+/*
+ * One walk and the offer a builder reads: offers are worked out only when read, so the fixpoint benches time
+ * resolution and this one times the query.
+ */
 test(`a query over ${ENTRIES} entries resolves in under ${BUDGET_MS} ms`, () => {
   for (let run = 0; run < WARMUP_RUNS; run += 1) {
     offerOf(inputs());

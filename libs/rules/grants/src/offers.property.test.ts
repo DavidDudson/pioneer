@@ -3,7 +3,19 @@ import { describe, expect, test } from 'bun:test';
 import { evaluatePredicate, RollOptionNamespace, Truth } from '@pioneer/rules/predicate';
 import type { PredicateFacts } from '@pioneer/rules/predicate';
 import { Predicate } from '@pioneer/rules/sdk';
-import { array, assert, constantFrom, integer, oneof, option, pre, property, record, subarray, tuple } from 'fast-check';
+import {
+  array,
+  assert,
+  constantFrom,
+  integer,
+  oneof,
+  option,
+  pre,
+  property,
+  record,
+  subarray,
+  tuple,
+} from 'fast-check';
 import type { Arbitrary } from 'fast-check';
 
 import type { ChoiceSlot } from './choices';
@@ -25,7 +37,7 @@ const LEVELS = [1, 3] as const;
 const LISTED = ['a', 'b', 'c'] as const;
 /** A slug that is no content id. */
 const NOT_AN_ID = 'not-an-id';
-const UNSETTLED: readonly string[] = [GrantsMessage.Oscillates, GrantsMessage.TooManyRounds];
+const UNSETTLED: ReadonlySet<string> = new Set([GrantsMessage.Oscillates, GrantsMessage.TooManyRounds]);
 const CANDIDATE_NAMESPACE = RollOptionNamespace.parse('item');
 
 /** A statement on the character: its level, a feat it may have picked, or the situation. */
@@ -40,9 +52,9 @@ const characterStatement: Arbitrary<unknown> = constantFrom<unknown>(
 const filterStatement: Arbitrary<unknown> = oneof(
   characterStatement,
   constantFrom<unknown>(
-  ...TRAITS.map((trait) => `item:trait:${trait}`),
-  { not: 'item:trait:general' },
-  { lte: ['item:level', 'self:level'] },
+    ...TRAITS.map((trait) => `item:trait:${trait}`),
+    { not: 'item:trait:general' },
+    { lte: ['item:level', 'self:level'] },
   ),
 );
 
@@ -62,17 +74,20 @@ interface Outcome {
   readonly facts: PredicateFacts;
 }
 
-/** Resolves `asker` with `pick` for its only slot; skips a run that never settles, whose facts are a compromise. */
-function outcomeOf(asker: GrantEntry, content: readonly GrantEntry[], level: number, pick: string): Outcome {
-  const result: GrantResolution = resolveGrants(
-    inputsOf({
-      entries: [asker, ...content],
-      roots: [picked('asker')],
-      level,
-      picks: picksOf([[slotOf('asker', 0), pick]]),
-    }),
-  );
-  pre(!result.errors.some(({ error }) => UNSETTLED.includes(error.key)));
+/** One run: the asking entry, the other content, the level and the pick for the asker's only slot. */
+interface Run {
+  readonly asker: GrantEntry;
+  readonly content: readonly GrantEntry[];
+  readonly level: number;
+  readonly pick: string;
+}
+
+/** Resolves `run`; skips one that never settles, whose facts are a compromise. */
+function outcomeOf({ asker, content, level, pick }: Run): Outcome {
+  const picks = picksOf([[slotOf('asker', 0), pick]]);
+  const given = inputsOf({ entries: [asker, ...content], roots: [picked('asker')], level, picks });
+  const result: GrantResolution = resolveGrants(given);
+  pre(!result.errors.some(({ error }) => UNSETTLED.has(error.key)));
   const [answered] = result.answered;
   return { slot: answered ?? result.open[0], answered: answered !== undefined, facts: result.facts };
 }
@@ -97,7 +112,7 @@ describe('offer properties', () => {
         // A feat, the asker itself (not a feat), an id nothing has, or text that is no id.
         const values = [...content.map((each) => each.id), idOf('asker'), idOf('missing')];
         const pick = at === null ? NOT_AN_ID : (values[at % values.length] ?? NOT_AN_ID);
-        const { slot, answered, facts } = outcomeOf(asker, content, level, pick);
+        const { slot, answered, facts } = outcomeOf({ asker, content, level, pick });
         const offered = content
           .filter((each) => notFalse(filter, facts.withNamespace(CANDIDATE_NAMESPACE, each.rollOptions)))
           .map((each) => String(each.id));
@@ -123,7 +138,7 @@ describe('offer properties', () => {
             : { value, label: value, predicate: [predicate] };
         });
         const asker = entry('asker', [{ key: 'ChoiceSet', flag: 'pick', choices }]);
-        const { slot, answered, facts } = outcomeOf(asker, content, level, pick);
+        const { slot, answered, facts } = outcomeOf({ asker, content, level, pick });
         const offered = choices
           .filter((choice) => !('predicate' in choice) || notFalse(choice.predicate, facts))
           .map((choice) => choice.value);
