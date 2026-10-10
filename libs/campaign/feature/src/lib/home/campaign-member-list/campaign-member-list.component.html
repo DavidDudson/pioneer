@@ -3,36 +3,79 @@
     <fr-heading variant="subheading" [level]="2">{{ 'campaign.roster.heading' | transloco }}</fr-heading>
     <fr-async-region [errorMessage]="'campaign.roster.loadError' | transloco">
       <ng-template frAsyncPending>
-        <fr-stack gap="sm">
-          @for (placeholder of placeholders; track placeholder) {
-            <fr-stack direction="horizontal" gap="sm" align="center">
-              <fr-skeleton shape="square" width="xs" />
-              <fr-stack gap="3xs" grow>
-                <fr-skeleton width="sm" />
-                <fr-skeleton width="md" />
+        <fr-stack gap="md">
+          <fr-stack gap="sm">
+            @for (placeholder of placeholders; track placeholder) {
+              <fr-stack direction="horizontal" gap="sm" align="center">
+                <fr-skeleton shape="square" width="xs" />
+                <fr-stack gap="3xs" grow>
+                  <fr-skeleton width="sm" />
+                  <fr-skeleton width="md" />
+                </fr-stack>
+                <fr-skeleton width="xs" />
               </fr-stack>
-              <fr-skeleton width="xs" />
-            </fr-stack>
-          }
+            }
+          </fr-stack>
+          <fr-skeleton width="md" />
         </fr-stack>
       </ng-template>
       <ng-template let-roster [frAsyncData]="store.roster">
-        <fr-list gap="sm">
-          @for (member of roster.members; track member.id) {
-            <fr-list-item>
-              <fr-stack direction="horizontal" gap="sm" align="center">
-                <fr-avatar size="sm" decorative [name]="member.displayName" />
-                <fr-stack gap="3xs" grow>
-                  <fr-text weight="medium">{{ member.displayName }}</fr-text>
-                  <fr-text variant="caption" tone="subtle"
-                    >{{ 'campaign.roster.joined' | transloco }} <fr-date [value]="member.joinedAt"
-                  /></fr-text>
+        <fr-stack gap="md">
+          <fr-list gap="sm">
+            @for (member of roster.members; track member.id) {
+              <fr-list-item>
+                <fr-stack direction="horizontal" gap="sm" align="center" wrap>
+                  <fr-avatar size="sm" decorative [name]="member.displayName" />
+                  <fr-stack gap="3xs" grow>
+                    <fr-text weight="medium">{{ member.displayName }}</fr-text>
+                    <fr-text variant="caption" tone="subtle"
+                      >{{ 'campaign.roster.joined' | transloco }} <fr-date [value]="member.joinedAt"
+                    /></fr-text>
+                  </fr-stack>
+                  <fr-badge>{{ roleLabel[member.role] | transloco }}</fr-badge>
+                  @if (roster.viewerRole === role.Gm && member.role === role.Player) {
+                    <fr-stack direction="horizontal" gap="xs" align="start" wrap>
+                      @if (removed().has(member.id)) {
+                        <fr-badge>{{ 'campaign.members.removed' | transloco }}</fr-badge>
+                      } @else {
+                        <fr-async-button
+                          size="sm"
+                          [action]="actionsFor(member).transfer"
+                          [describeError]="describeTransferError"
+                          [confirmLabel]="'campaign.members.transferConfirm' | transloco: { name: member.displayName }"
+                          [pendingLabel]="'campaign.members.transferring' | transloco"
+                          [successLabel]="'campaign.members.transferred' | transloco"
+                          >{{ 'campaign.members.transfer' | transloco }}</fr-async-button
+                        >
+                      }
+                      <fr-async-button
+                        size="sm"
+                        [action]="actionsFor(member).remove"
+                        [describeError]="describeRemoveError"
+                        [confirmLabel]="'campaign.members.removeConfirm' | transloco: { name: member.displayName }"
+                        [pendingLabel]="'campaign.members.removing' | transloco"
+                        [successLabel]="'campaign.members.removed' | transloco"
+                        >{{ 'campaign.members.remove' | transloco }}</fr-async-button
+                      >
+                    </fr-stack>
+                  }
                 </fr-stack>
-                <fr-badge>{{ roleLabel[member.role] | transloco }}</fr-badge>
-              </fr-stack>
-            </fr-list-item>
+              </fr-list-item>
+            }
+          </fr-list>
+          @if (roster.viewerRole === role.Player) {
+            <fr-async-button
+              [action]="leave"
+              [describeError]="describeLeaveError"
+              [confirmLabel]="'campaign.members.leaveConfirm' | transloco"
+              [pendingLabel]="'campaign.members.leaving' | transloco"
+              [successLabel]="'campaign.members.left' | transloco"
+              >{{ 'campaign.members.leave' | transloco }}</fr-async-button
+            >
+          } @else {
+            <fr-text variant="caption" tone="muted">{{ 'campaign.members.gmHint' | transloco }}</fr-text>
           }
-        </fr-list>
+        </fr-stack>
       </ng-template>
     </fr-async-region>
   </fr-stack>

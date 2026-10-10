@@ -7,3 +7,4 @@ export { InMemoryCampaignRepository } from './in-memory-campaign-repository';
 export { InMemoryMemberDirectory } from './in-memory-member-directory';
 export { InviteMessage } from './invite-message';
 export { MemberDirectory } from './member-directory';
+export { MemberMessage } from './member-message';

@@ -116,6 +116,49 @@ export class Campaign {
     return new Campaign({ ...this.toProps(), version: nextVersion(this.version), members: [...this.members, player] });
   }
 
+  /** The membership with this id, or `undefined` when there is none. */
+  public memberById(id: CampaignMemberId): CampaignMember | undefined {
+    return this.members.find((member) => member.id === id);
+  }
+
+  /**
+   * This campaign without the player `memberId`, one version on; unchanged when no one has that id.
+   * The GM can't be removed: they hand the role over first.
+   */
+  public withoutMember(memberId: CampaignMemberId): Campaign {
+    const member = this.memberById(memberId);
+    if (member === undefined) {
+      return this;
+    }
+    if (member.role === CampaignRole.Gm) {
+      throw new Error(`Campaign ${this.id} can't lose its GM`);
+    }
+    return new Campaign({
+      ...this.toProps(),
+      version: nextVersion(this.version),
+      members: this.members.filter((candidate) => candidate.id !== memberId),
+    });
+  }
+
+  /**
+   * This campaign run by the member `memberId`, one version on; the GM before them stays on as a
+   * player. Unchanged when they are already the GM.
+   */
+  public withGm(memberId: CampaignMemberId): Campaign {
+    const member = this.memberById(memberId);
+    if (member === undefined) {
+      throw new Error(`Campaign ${this.id} has no member ${memberId}`);
+    }
+    if (member.role === CampaignRole.Gm) {
+      return this;
+    }
+    const members = this.members.map((candidate): CampaignMember => ({
+      ...candidate,
+      role: candidate.id === memberId ? CampaignRole.Gm : CampaignRole.Player,
+    }));
+    return new Campaign({ ...this.toProps(), version: nextVersion(this.version), gmId: member.userId, members });
+  }
+
   private toProps(): CampaignProps {
     return {
       id: this.id,

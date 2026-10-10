@@ -59,5 +59,25 @@
     "unknownInvite": "This invite link is not valid. Ask your GM for a new one.",
     "expiredInvite": "This invite link has expired. Ask your GM for a new one.",
     "revokedInvite": "This invite link was revoked. Ask your GM for a new one."
+  },
+  "members": {
+    "remove": "Remove",
+    "removing": "Removing",
+    "removed": "Removed",
+    "removeFailed": "Could not remove them. Try again.",
+    "removeConfirm": "Remove {name}? Press again",
+    "transfer": "Make GM",
+    "transferring": "Handing over",
+    "transferred": "Handed over",
+    "transferFailed": "Could not hand the GM role over. Try again.",
+    "transferConfirm": "Make {name} the GM? Press again",
+    "leave": "Leave campaign",
+    "leaving": "Leaving",
+    "left": "Left",
+    "leaveFailed": "Could not leave the campaign. Try again.",
+    "leaveConfirm": "Leave for good? Press again",
+    "gmCannotLeave": "Hand the GM role to another member before you leave.",
+    "gmNotRemovable": "The GM cannot be removed. Hand the role to another member first.",
+    "gmHint": "Removing a player also revokes your open invite links, so an old link cannot bring them back. Only the new GM can hand the GM role back. To leave, first make another member the GM."
   }
 }

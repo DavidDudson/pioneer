@@ -132,6 +132,14 @@ campaign_links        id, campaign_id, token hash, last_used_at, revoked_at
   fragment, so the token stays out of request logs. The join page moves it to session storage and out of the
   address bar before calling the API, so a signed-out visitor goes to sign in with a return path that holds no
   token and joins when they come back.
+- **Members.** The GM removes players and hands the GM role to another member, staying on as a player; a player
+  leaves. The GM can't be removed or leave until they hand the role over, so a campaign always has one. A removed
+  member's next request for the campaign is a 404, and removing them revokes the campaign's open invites first, so
+  an old link can't bring them back (a join holds its invite's lock, so none slips in between). Concurrent changes
+  to one campaign's members run one at a time: each writes only if the campaign is still at the version the
+  request read, and is a 409 otherwise. Requests name members by id, so a stale page removing someone already
+  gone is no change and handing the role to them is a 404. Each button asks first with a second press (frontier
+  rule 4).
 - **Permissions.** Policies live in the campaign context's application layer, with the acting user from identity's
   `RequestAuthenticator` (ADR-0007), or the campaign from a link token for module routes. Owners edit builds;
   members see the party overview.

@@ -22,8 +22,12 @@ const ezren = UserId.parse(newId());
 function app(): AnyElysia {
   const clock = fixedClock('2026-10-10T10:00:00Z');
   const campaigns = new InMemoryCampaignRepository();
-  const service = new CampaignService(campaigns, new InMemoryMemberDirectory(), clock);
-  const invites = new CampaignInviteService(campaigns, new InMemoryCampaignInviteRepository(), clock);
+  const inviteRepository = new InMemoryCampaignInviteRepository();
+  const service = new CampaignService(
+    { campaigns, invites: inviteRepository, directory: new InMemoryMemberDirectory() },
+    clock,
+  );
+  const invites = new CampaignInviteService(campaigns, inviteRepository, clock);
   return new Elysia().use(problemHandler).use(campaignRoutes(service, invites, new FakeAuthenticator()));
 }
 
@@ -104,6 +108,9 @@ describe('campaign routes without a signed-in user', () => {
     ['get', request('GET', `/campaigns/${id}`, { as: anonymous })],
     ['create', request('POST', '/campaigns', { as: anonymous, body: { name: 'Kingmaker' } })],
     ['roster', request('GET', `/campaigns/${id}/members`, { as: anonymous })],
+    ['remove member', request('DELETE', `/campaigns/${id}/members/${newId()}`, { as: anonymous })],
+    ['transfer GM', request('POST', `/campaigns/${id}/gm`, { as: anonymous, body: { memberId: newId() } })],
+    ['leave', request('POST', `/campaigns/${id}/leave`, { as: anonymous })],
     ['invites', request('GET', `/campaigns/${id}/invites`, { as: anonymous })],
     ['create invite', request('POST', `/campaigns/${id}/invites`, { as: anonymous })],
     ['revoke invite', request('DELETE', `/campaigns/${id}/invites/${newId()}`, { as: anonymous })],

@@ -18,4 +18,7 @@ export abstract class CampaignInviteRepository {
 
   /** Store the invite's revocation; nothing else about an invite changes. */
   public abstract revoke(invite: CampaignInvite): Promise<CampaignInvite>;
+
+  /** Revokes every invite of the campaign that still works at `now`, so none of its links let anyone in. */
+  public abstract revokeOpen(campaignId: CampaignId, now: Temporal.Instant): Promise<void>;
 }

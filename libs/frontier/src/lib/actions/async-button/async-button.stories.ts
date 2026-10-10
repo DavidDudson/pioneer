@@ -59,3 +59,13 @@ export const Fails: AsyncButtonStory = {
 };
 
 export const Disabled: AsyncButtonStory = { args: { disabled: true } };
+
+/** Asks first: the first press arms it, a second press runs it, and leaving it stands it down. */
+export const AsksFirst: AsyncButtonStory = {
+  args: {
+    label: 'Remove',
+    confirmLabel: 'Remove Ezren? Press again',
+    pendingLabel: 'Removing',
+    successLabel: 'Removed',
+  },
+};

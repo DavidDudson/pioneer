@@ -127,7 +127,8 @@ Pioneer never interrupts the user. Lint enforces each rule
    reversible instead: inline edit's Revert, an undo next to what changed, a
    restorable archive in place of a delete. Ask only before an action that is
    both destructive and irreversible (deleting a character for good), and then
-   inline: a second press on the same button, never a modal.
+   inline: a second press on the same button, never a modal. `fr-async-button`'s
+   `confirmLabel` does this.
 
 ## Data entry
 

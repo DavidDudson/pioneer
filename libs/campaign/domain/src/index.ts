@@ -1,5 +1,11 @@
 export { Campaign, type CampaignMember, CampaignMemberWire, CampaignWire } from './campaign';
-export { CampaignContract, CreateCampaignBody, IssuedInvite, JoinCampaignBody } from './campaign-contract';
+export {
+  CampaignContract,
+  CreateCampaignBody,
+  IssuedInvite,
+  JoinCampaignBody,
+  TransferGmBody,
+} from './campaign-contract';
 export {
   CAMPAIGN_NAME_MAX_LENGTH,
   CampaignId,

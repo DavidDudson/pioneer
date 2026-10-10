@@ -1,8 +1,9 @@
 import { afterAll, beforeAll, describe, expect, test } from 'bun:test';
 
 import { CampaignRole } from '@pioneer/campaign/domain';
+import type { Campaign, CampaignMember } from '@pioneer/campaign/domain';
 import { CampaignBuilder, fixtureGmId } from '@pioneer/campaign/domain/testing';
-import { fixedClock, newId, UserId } from '@pioneer/shared/kernel';
+import { fixedClock, newId, UserId, VersionConflictError } from '@pioneer/shared/kernel';
 import { rejection } from '@pioneer/shared/kernel/testing';
 import { createTestDatabase, QueryRecorder, testDatabaseUrl, unindexedQueries } from '@pioneer/shared/server/testing';
 import type { TestDatabase } from '@pioneer/shared/server/testing';
@@ -23,6 +24,14 @@ async function insertUser(database: TestDatabase, id: UserId): Promise<void> {
   await database.db.execute(
     sql`insert into users (id, display_name, email_verified, created_at, updated_at) values (${id}, 'Member', false, ${now}, ${now})`,
   );
+}
+
+function memberOf(campaign: Campaign, userId: UserId): CampaignMember {
+  const member = campaign.members.find((candidate) => candidate.userId === userId);
+  if (member === undefined) {
+    throw new Error(`No member ${userId}`);
+  }
+  return member;
 }
 
 describe.skipIf(adminUrl === undefined)('DrizzleCampaignRepository (postgres)', () => {
@@ -121,7 +130,44 @@ describe.skipIf(adminUrl === undefined)('DrizzleCampaignRepository (postgres)', 
     expect(await repository.findById(theirs.id)).toBeUndefined();
   });
 
+  test('updateMembers removes a player and bumps the version', async () => {
+    const party = await repository.insert(
+      new CampaignBuilder().named('Rusthenge').withPlayer(ezren).withPlayer(seelah).build(),
+    );
+    const removed = party.withoutMember(memberOf(party, ezren).id);
+    expect(await repository.updateMembers(removed, party.version)).toStrictEqual(removed);
+    expect(await repository.findById(party.id)).toStrictEqual(removed);
+    expect(await repository.listForMember(ezren)).not.toContainEqual(expect.objectContaining({ id: party.id }));
+  });
+
+  test('updateMembers hands the GM role over within the one-GM index', async () => {
+    const party = await repository.insert(new CampaignBuilder().named('Prey for Death').withPlayer(ezren).build());
+    const handed = party.withGm(memberOf(party, ezren).id);
+    expect(await repository.updateMembers(handed, party.version)).toStrictEqual(handed);
+    const found = await repository.findById(party.id);
+    expect(found?.gmId).toBe(ezren);
+    expect(found?.roleOf(fixtureGmId)).toBe(CampaignRole.Player);
+  });
+
+  test('updateMembers from a stale version is a conflict and changes nothing', async () => {
+    const party = await repository.insert(
+      new CampaignBuilder().named('Night of the Gray Death').withPlayer(ezren).withPlayer(seelah).build(),
+    );
+    await repository.updateMembers(party.withoutMember(memberOf(party, seelah).id), party.version);
+    const stale = party.withGm(memberOf(party, ezren).id);
+    expect(await rejection(repository.updateMembers(stale, party.version))).toBeInstanceOf(VersionConflictError);
+    const found = await repository.findById(party.id);
+    expect(found?.gmId).toBe(fixtureGmId);
+    expect(found?.roleOf(ezren)).toBe(CampaignRole.Player);
+  });
+
   test('every query the repository issued is served by an index', async () => {
+    const party = await repository.insert(
+      new CampaignBuilder().named('Fists of the Ruby Phoenix').withPlayer(ezren).build(),
+    );
+    const handed = party.withGm(memberOf(party, ezren).id);
+    await repository.updateMembers(handed, party.version);
+    await repository.updateMembers(handed.withoutMember(memberOf(party, fixtureGmId).id), handed.version);
     await repository.listForMember(fixtureGmId);
     await repository.findById(new CampaignBuilder().named('Abomination Vaults').build().id);
     expect(await unindexedQueries(database.db, recorder)).toStrictEqual([]);

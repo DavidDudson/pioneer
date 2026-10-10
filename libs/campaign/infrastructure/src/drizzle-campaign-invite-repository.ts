@@ -101,4 +101,13 @@ export class DrizzleCampaignInviteRepository extends CampaignInviteRepository {
     }
     return current;
   }
+
+  public override async revokeOpen(campaignId: CampaignId, now: Temporal.Instant): Promise<void> {
+    const open = and(
+      eq(campaignInvites.campaignId, campaignId),
+      isNull(campaignInvites.revokedAt),
+      gt(campaignInvites.expiresAt, now.toString()),
+    );
+    await this.#db.update(campaignInvites).set({ revokedAt: now.toString() }).where(open);
+  }
 }

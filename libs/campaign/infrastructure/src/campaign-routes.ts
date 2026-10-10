@@ -18,6 +18,16 @@ export function campaignRoutes(
     .handleSignedIn(CampaignContract.get, auth, async ({ actor, params }) => service.get(actor, params.id))
     .handleSignedIn(CampaignContract.create, auth, async ({ actor, body }) => service.create(actor, body))
     .handleSignedIn(CampaignContract.roster, auth, async ({ actor, params }) => service.roster(actor, params.id))
+    .handleSignedIn(CampaignContract.removeMember, auth, async ({ actor, params }) =>
+      service.removeMember(actor, params.id, params.memberId),
+    )
+    .handleSignedIn(CampaignContract.transferGm, auth, async ({ actor, params, body }) =>
+      service.transferGm(actor, params.id, body),
+    )
+    .handleSignedIn(CampaignContract.leave, auth, async ({ actor, params }) => {
+      await service.leave(actor, params.id);
+      return {};
+    })
     .handleSignedIn(CampaignContract.invites, auth, async ({ actor, params }) => [
       ...(await invites.list(actor, params.id)),
     ])
