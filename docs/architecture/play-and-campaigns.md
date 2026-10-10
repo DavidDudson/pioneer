@@ -182,10 +182,11 @@ Each resource names the boundary it resets on (`round`, `turn`, `rest`, `day`, `
 
 ### Staves and charged items
 
-A staff is a spell source with its own list and a charge cost per spell. Daily preparations set its charges to the
-holder's highest spell rank; a prepared caster can expend a slot to add charges, and a spontaneous caster can pay part
-of a cast with a slot. A wand has one cast per day and an overcharge with its flat check and broken state. Charges and
-uses are play state resources.
+A staff is a spell source with its own list and a charge cost per spell. A held staff's spells appear in the spell
+list in their own section, titled with the staff and showing its charges left, beside the spellcasting entries; each
+spell shows its charge cost. Daily preparations set its charges to the holder's highest spell rank; a prepared caster
+can expend a slot to add charges, and a spontaneous caster can pay part of a cast with a slot. A wand has one cast
+per day and an overcharge with its flat check and broken state. Charges and uses are play state resources.
 
 ## Dice
 
