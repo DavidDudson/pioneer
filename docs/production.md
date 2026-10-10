@@ -119,7 +119,8 @@ migrated, so the first apply has three steps.
    tofu apply -var-file=production.tfvars -target=aws_ecr_repository.api -target=neon_project.pioneer
    ```
 
-2. **Image and migrations.** Copy the arm64 image into ECR and migrate Neon with the same image:
+2. **Image and migrations.** Copy the arm64 image into ECR, then migrate Neon and seed its content with the same
+   image:
 
    ```sh
    tag=sha-0000000                             # the image_tag above
@@ -129,6 +130,8 @@ migrated, so the first apply has three steps.
      "docker://ghcr.io/daviddudson/pioneer:$tag" "docker://$repo:$tag"
    docker run --rm -e DATABASE_URL="$(tofu output -raw database_url)" \
      "ghcr.io/daviddudson/pioneer:$tag" migrate
+   docker run --rm -e DATABASE_URL="$(tofu output -raw database_url)" \
+     "ghcr.io/daviddudson/pioneer:$tag" content-seed
    ```
 
 3. **Everything else.** The function, Function URL, IAM, Worker and domain:
@@ -167,7 +170,8 @@ One deploy runs at a time; a newer merge replaces a deploy still waiting, since 
 
 1. copies the arm64 image from GHCR to ECR, unless the tag is there already;
 2. migrates Neon with that image (`pioneer-api migrate`), reading `DATABASE_URL` from the function. This happens
-   before the new code takes traffic, so migrations must be safe while the previous image is still serving;
+   before the new code takes traffic, so migrations must be safe while the previous image is still serving. It
+   then seeds the image's official content packs (`pioneer-api content-seed`); packs whose hash is stored are skipped;
 3. points `pioneer-api` at the image and waits for the update to finish;
 4. checks `https://<domain>/api/health` through the Worker: 30 tries 2 seconds apart, each timing out after 10
    seconds. A failure fails the job.
@@ -193,7 +197,7 @@ ECR keeps the last five images; an older tag is copied from GHCR again. **Migrat
 rollback runs the earlier image's migrate, which finds nothing to apply, and leaves the schema at the newer version.
 The earlier code must therefore work with the newer schema: write migrations expand-then-contract (add columns and
 tables first; drop or rename only once no deployed image reads the old shape). A migration that breaks that cannot
-be rolled back by image; fix forward instead.
+be rolled back by image; fix forward instead. The rollback's content seed writes the earlier image's packs back.
 
 ## Day two
 

@@ -1,7 +1,7 @@
 import { statisticContent, StatisticInputsJson } from '@pioneer/rules/engine';
 import type { StatisticContent, StatisticInputs, StatisticResult } from '@pioneer/rules/engine';
 import { PredicateFacts } from '@pioneer/rules/predicate';
-import { Attribute, ContentRegistry, Proficiency } from '@pioneer/rules/sdk';
+import { Attribute, ContentRegistry, contentPackFromContents, Proficiency } from '@pioneer/rules/sdk';
 import type { ContentPack, Selector } from '@pioneer/rules/sdk';
 import { constantFrom, integer, record } from 'fast-check';
 import type { Arbitrary } from 'fast-check';
@@ -9,7 +9,7 @@ import type { Arbitrary } from 'fast-check';
 import { coreRulesPack } from '../json-packs';
 
 /** The core rules pack as the catalog loads it from `content/packs/core-rules`. */
-export const coreRules: ContentPack = await coreRulesPack();
+export const coreRules: ContentPack = contentPackFromContents(await coreRulesPack());
 
 /* Fixtures shared by the core rules pack's tests. */
 

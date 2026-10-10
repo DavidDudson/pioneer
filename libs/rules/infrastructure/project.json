@@ -1,0 +1,7 @@
+{
+  "name": "rules-infrastructure",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/rules/infrastructure/src",
+  "tags": ["scope:rules", "type:infrastructure", "platform:server"]
+}

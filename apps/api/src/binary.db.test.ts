@@ -20,6 +20,8 @@ const CONCURRENT_MIGRATIONS = 3;
 /** Seconds the first migration sleeps in the concurrency test. */
 const MIGRATION_DELAY = 2;
 const LISTENING = /listening on :(?<port>\d+)/u;
+/** The official packs, as `content-seed` stores them. */
+const OFFICIAL_PACKS = ['core-rules', 'monster-core', 'player-core'];
 
 const JournalEntry = z.object({ tag: z.string() });
 const Journal = z.object({ entries: z.array(JournalEntry) });
@@ -27,6 +29,7 @@ const CountRow = z.object({ count: z.coerce.number() });
 const CountRows = z.array(CountRow);
 const ExistsRow = z.object({ exists: z.boolean() });
 const ExistsRows = z.array(ExistsRow);
+const SlugRows = z.array(z.object({ slug: z.string() }));
 const Health = z.object({ status: z.literal('ok') });
 type Health = z.infer<typeof Health>;
 
@@ -57,6 +60,14 @@ async function appliedMigrations(databaseUrl: string): Promise<number> {
   const rows = hasTable ? CountRows.parse(await db`select count(*) as count from drizzle.__drizzle_migrations`) : [];
   await db.close();
   return rows[0]?.count ?? 0;
+}
+
+/** The slugs of the content packs seeded so far, in order. */
+async function seededPacks(databaseUrl: string): Promise<readonly string[]> {
+  const db = new Bun.SQL(databaseUrl);
+  const rows = SlugRows.parse(await db`select slug from content_packs order by slug`);
+  await db.close();
+  return rows.map(({ slug }) => slug);
 }
 
 describe.skipIf(adminUrl === undefined)('compiled api binary (postgres)', () => {
@@ -170,6 +181,7 @@ describe.skipIf(adminUrl === undefined)('compiled api binary (postgres)', () => 
       const env = await environment(databaseUrl, {});
       expect(await serveHealth(env)).toStrictEqual({ status: 'ok' });
       expect(await appliedMigrations(databaseUrl)).toBe(migrationCount);
+      expect(await seededPacks(databaseUrl)).toStrictEqual(OFFICIAL_PACKS);
     },
     RUN_TIMEOUT,
   );
@@ -189,6 +201,23 @@ describe.skipIf(adminUrl === undefined)('compiled api binary (postgres)', () => 
         output: 'migrations applied\n',
       });
       expect(await appliedMigrations(databaseUrl)).toBe(migrationCount);
+    },
+    RUN_TIMEOUT,
+  );
+
+  test(
+    '`content-seed` seeds the packs compiled into the binary, and a second run writes nothing',
+    async () => {
+      const databaseUrl = await emptyDatabase();
+      const env = await environment(databaseUrl, {});
+      const migrated = await run(['migrate'], env);
+      expect(migrated.code).toBe(0);
+      const first = await run(['content-seed'], env);
+      expect(first.code).toBe(0);
+      expect(first.output).toContain('content pack player-core: seeded (version 1, 0 removed)');
+      expect(await seededPacks(databaseUrl)).toStrictEqual(OFFICIAL_PACKS);
+      const second = await run(['content-seed'], env);
+      expect(second.output).toContain('content pack player-core: unchanged (version 1, 0 removed)');
     },
     RUN_TIMEOUT,
   );

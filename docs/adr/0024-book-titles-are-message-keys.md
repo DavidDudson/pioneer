@@ -31,6 +31,7 @@ through a `homebrew` source (ADR-0005), so homebrew authoring never needs a regi
   The Legal page, source lines and facet labels don't wait for a content text bundle.
 - Adding a book is a reviewed code change: one `books.json` row, one `BOOK_TITLES` entry and one `en` key. Books are
   few and change only when a book is imported, so this is the same PR as the import.
-- Epic 2.3 (#18) seeds `content_books` from the registry without a title column; the title stays a key.
+- Epic 2.3 (#18) has no `content_books` table: content rows cite books by id, and the registry stays the only list
+  of books (#324).
 - If books ever have to be added as data (for example third-party publishers through the app), this is superseded
   by moving titles into content text.

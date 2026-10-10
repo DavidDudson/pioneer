@@ -38,3 +38,15 @@ export function contentKey(packId: PackId, slug: Slug): ContentKey {
 export function contentId(packId: PackId, slug: Slug): Uuid {
   return derivedId(ContentNamespace, contentKey(packId, slug));
 }
+
+/** The stored id of a content pack, whatever its owner. */
+export const ContentPackId = Uuid.brand<'ContentPackId'>();
+export type ContentPackId = z.infer<typeof ContentPackId>;
+
+/**
+ * The stored id of a pack: UUIDv5 of its `PackId`, as `contentId` is of an entry's key. A key always holds a `/` and
+ * a pack id never does, so a pack's id never equals an entry's.
+ */
+export function contentPackId(packId: PackId): ContentPackId {
+  return ContentPackId.parse(derivedId(ContentNamespace, packId));
+}

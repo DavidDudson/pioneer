@@ -321,15 +321,25 @@ link alone, still waiting for a page, so pages can be filled in over time. It re
 ## Packs and storage
 
 ```text
-content_books        id, publisher, license, remaster, ...  -- title is a message key (ADR-0024)
-content_packs        id, title, owner_id (null = official), visibility, license, version, content_hash
+content_packs        id, slug, title, publisher, owner_id (null = official), visibility, license, version,
+                     content_hash, data jsonb, updated_at
 content_entries      id, pack_id, kind, slug, name, level, rarity, traits text[], data jsonb,
                      search tsvector, updated_at
-content_pack_deps    pack_id, depends_on            -- homebrew extending an official pack
+content_pack_deps    id, pack_id, depends_on        -- homebrew extending an official pack
 ```
 
+There is no `content_books` table: the book registry is code, and a book's title is a message key (ADR-0024).
+A pack's `id` is UUIDv5 of its slug (`contentPackId`), as an entry's is of `<pack>/<slug>`. Each `data` column holds
+the whole `pack.json` or `ContentEntry`, so a row reads back as the file it came from; the other columns copy the
+fields the content browser filters on (GIN index on `traits`, btree on `level` and `(pack_id, kind)`). `search`
+waits for Epic 2.4.
+
 - **Official packs** are produced by the importer into `content/packs/<pack>/<kind>.json`, reviewed as normal PRs
-  (diffable), and upserted on deploy by id. Errata is a re-import and a diff.
+  (diffable), and upserted on deploy by id. Errata is a re-import and a diff. `pioneer-api content-seed`
+  (`bun run content:seed` from a checkout) runs after `migrate` in a deploy, and before serving when
+  `MIGRATE_ON_START` is set. Each pack is one transaction: the pack row and its entries are upserted, entries no
+  longer in the pack are deleted, and a failure leaves the pack as it was. `content_hash` is SHA-256 of the pack's
+  canonical JSON; a pack whose hash is already stored is skipped without writing.
 - **Homebrew packs** are created in the app and owned by a user. Visibility is private, campaign or public.
 - **Overriding official content** in homebrew is a new entry with `supersedes` pointing at the official one.
   The registry resolves supersession per character or campaign, so a GM can house-rule a feat without touching

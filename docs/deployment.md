@@ -72,8 +72,8 @@ docker build -t pioneer .
 docker run -p 8080:3000 -e DATABASE_URL=postgres://... --env-file .env pioneer
 ```
 
-With more than one instance, set `MIGRATE_ON_START=false` on the servers and run the migrations once per deploy
-with `docker run ... pioneer migrate` (see the ADR).
+With more than one instance, set `MIGRATE_ON_START=false` on the servers and run the migrations, then the content
+seed, once per deploy with `docker run ... pioneer migrate` and `docker run ... pioneer content-seed` (see the ADR).
 
 ## Production
 

@@ -44,8 +44,9 @@ export {
   PackAncestry,
   PackCreature,
   PackStatistic,
+  PackVisibility,
 } from './content-pack';
-export { contentId, ContentKey, contentKey, PackId, Slug } from './content-id';
+export { contentId, ContentKey, contentKey, ContentPackId, contentPackId, PackId, Slug } from './content-id';
 export { ContentText } from './content-text';
 export {
   DAMAGE_GROUP_TYPES,
@@ -65,7 +66,14 @@ export { SenseAcuity, SenseData } from './sense';
 export { VariantRuleData, VariantRuleDefinition, VariantRuleId } from './variant-rule';
 export { PackEntry } from './pack-entry';
 export { ContentEntry } from './content-entry';
-export { ContentEntryFile, ContentPackFile, contentPackFromFiles } from './content-pack-file';
+export {
+  ContentEntryFile,
+  ContentPackFile,
+  contentPackFromContents,
+  contentPackFromFiles,
+  packContentsFromFiles,
+} from './content-pack-file';
+export type { PackContents, PackContentsLoader } from './content-pack-file';
 export {
   DisplayCategory,
   DisplayCategorySchema,

@@ -1,4 +1,5 @@
 import { issueParams, message } from '@pioneer/shared/kernel';
+import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { AncestryDefinition } from './ancestry';
@@ -24,6 +25,15 @@ export const ContentPackManifest = z.object({
   license: ContentLicenseSchema,
 });
 export type ContentPackManifest = z.infer<typeof ContentPackManifest>;
+
+/** Who can enable a pack: official packs are public; a homebrew pack starts private to its owner. */
+export const PackVisibility = {
+  Private: 'private',
+  /** Members of the campaigns the pack is enabled in. */
+  Campaign: 'campaign',
+  Public: 'public',
+} as const;
+export type PackVisibility = ValueOf<typeof PackVisibility>;
 
 function uniqueSlugs(entries: readonly { readonly slug: Slug }[]): boolean {
   return new Set(entries.map((entry) => entry.slug)).size === entries.length;

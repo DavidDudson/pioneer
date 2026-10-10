@@ -1,6 +1,8 @@
+import { systemClock } from '@pioneer/shared/kernel';
 import { Elysia } from 'elysia';
 
 import { createApp } from './app';
+import { seedOfficialContent } from './content';
 import { connect, runMigrations } from './database';
 import { readEnv, readHealthEnv, readMigrateEnv } from './env';
 import { API_PREFIX } from './identity';
@@ -8,10 +10,16 @@ import { spa } from './spa';
 
 /** `pioneer-api migrate` applies migrations and exits; no argument serves. */
 const MIGRATE_COMMAND = 'migrate';
+/** `pioneer-api content-seed` upserts the official content packs and exits; a deploy runs it after `migrate`. */
+const CONTENT_SEED_COMMAND = 'content-seed';
 /** `pioneer-api health` exits 0 when the server on PORT answers its health check: the container HEALTHCHECK. */
 const HEALTH_COMMAND = 'health';
-const COMMANDS: readonly string[] = [MIGRATE_COMMAND, HEALTH_COMMAND];
+const COMMANDS: readonly string[] = [MIGRATE_COMMAND, CONTENT_SEED_COMMAND, HEALTH_COMMAND];
 const HEALTH_TIMEOUT = 5000;
+
+function log(line: string): void {
+  console.info(line);
+}
 
 const command = Bun.argv.at(2);
 if (command !== undefined && !COMMANDS.includes(command)) {
@@ -27,6 +35,14 @@ if (command === MIGRATE_COMMAND) {
     await db.$client.close();
   }
   console.info('migrations applied');
+} else if (command === CONTENT_SEED_COMMAND) {
+  const env = readMigrateEnv();
+  const db = connect(env.DATABASE_URL);
+  try {
+    await seedOfficialContent(db, systemClock, log);
+  } finally {
+    await db.$client.close();
+  }
 } else if (command === HEALTH_COMMAND) {
   const env = readHealthEnv();
   const status = await fetch(`http://127.0.0.1:${env.PORT}${API_PREFIX}/health`, {
@@ -42,6 +58,7 @@ if (command === MIGRATE_COMMAND) {
   const db = connect(env.DATABASE_URL);
   if (env.MIGRATE_ON_START) {
     await runMigrations(db, env.MIGRATIONS_DIR);
+    await seedOfficialContent(db, systemClock, log);
   }
   const server = new Elysia().use(await createApp(db, env));
   if (env.WEB_DIST !== undefined) {

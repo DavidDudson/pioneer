@@ -130,6 +130,7 @@ describe('deploy', () => {
       'skopeo login --username',
       'skopeo copy --override-os',
       'docker run --rm',
+      'docker run --rm',
       'aws lambda update-function-code',
       'aws lambda wait',
     ]);
@@ -141,15 +142,20 @@ describe('deploy', () => {
     expect(update?.command).toContain(`--image-uri ${REPOSITORY}:sha-1a2b3c4`);
   });
 
-  test('migrates with the new image before the function changes', async () => {
+  test('migrates, then seeds content, with the new image before the function changes', async () => {
     const { deps, calls } = fake();
     await deploy('sha-1a2b3c4', deps, FAST);
 
     const names = commandNames(calls);
-    expect(names.indexOf('docker run --rm')).toBeLessThan(names.indexOf('aws lambda update-function-code'));
-    const migrate = calls.find(({ command }) => command.startsWith('docker run'));
-    expect(migrate?.command).toBe(`docker run --rm --env DATABASE_URL ${GHCR_IMAGE}:sha-1a2b3c4 migrate`);
-    expect(migrate?.options?.env).toStrictEqual({ DATABASE_URL });
+    expect(names.lastIndexOf('docker run --rm')).toBeLessThan(names.indexOf('aws lambda update-function-code'));
+    const runs = calls.filter(({ command }) => command.startsWith('docker run'));
+    expect(runs.map(({ command }) => command)).toStrictEqual([
+      `docker run --rm --env DATABASE_URL ${GHCR_IMAGE}:sha-1a2b3c4 migrate`,
+      `docker run --rm --env DATABASE_URL ${GHCR_IMAGE}:sha-1a2b3c4 content-seed`,
+    ]);
+    for (const run of runs) {
+      expect(run.options?.env).toStrictEqual({ DATABASE_URL });
+    }
   });
 
   test('keeps secrets off command lines and masks them', async () => {

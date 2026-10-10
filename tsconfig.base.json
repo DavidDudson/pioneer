@@ -50,6 +50,7 @@
       "@pioneer/rules/grants": ["./libs/rules/grants/src/index.ts"],
       "@pioneer/rules/grants/testing": ["./libs/rules/grants/src/testing/index.ts"],
       "@pioneer/rules/catalog": ["./libs/rules/catalog/src/index.ts"],
+      "@pioneer/rules/infrastructure": ["./libs/rules/infrastructure/src/index.ts"],
       "@pioneer/content/packs/*": ["./content/packs/*"],
       "@pioneer/rules/ui": ["./libs/rules/ui/src/index.ts"],
       "@pioneer/identity/domain": ["./libs/identity/domain/src/index.ts"],
