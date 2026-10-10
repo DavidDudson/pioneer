@@ -78,7 +78,8 @@ export type PathbuilderImportResponse = z.output<typeof PathbuilderImportRespons
 
 /**
  * Create a character from a Pathbuilder export. The body is the export itself; the server reads it again and never
- * trusts a client's preview. Lives here, not in `CharacterContract`, because this lib already depends on the
+ * trusts a client's preview. The body is `z.unknown()` on purpose: the service is the trust boundary, so a bad export
+ * comes back as its own problem rather than a generic schema 422. Lives here, not in `CharacterContract`, because this lib already depends on the
  * character domain.
  */
 export const PathbuilderImportContract = {

@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input, output } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import {
   Badge,
@@ -14,6 +15,7 @@ import {
 } from '@pioneer/frontier';
 import type { BadgeTone } from '@pioneer/frontier';
 import type { CharacterImportReport, ImportKind } from '@pioneer/interop/pathbuilder';
+import { filter, merge } from 'rxjs';
 
 import { KIND_KEYS, STATUS_KEYS, STATUS_TONES, UNCARRIED_KEYS } from '../import-labels';
 
@@ -45,11 +47,16 @@ export class ImportResult {
 
   readonly #format = inject(LocaleFormat);
   readonly #i18n = inject(TranslocoService);
+  readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
+  /** Ticks when the locale changes or a message scope finishes loading. */
+  readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
 
   /** The fields the character couldn't hold, as a list in the viewer's locale; empty when there are none. */
-  protected readonly notCarried = computed((): string =>
-    this.#format.list(this.report().notCarried.map((field) => this.#i18n.translate(UNCARRIED_KEYS[field]))),
-  );
+  protected readonly notCarried = computed((): string => {
+    // Re-run when messages change, not only when the report does.
+    this.#messages();
+    return this.#format.list(this.report().notCarried.map((field) => this.#i18n.translate(UNCARRIED_KEYS[field])));
+  });
 
   protected readonly groups = computed((): readonly GroupView[] =>
     this.report().unmatched.map((group) => ({
