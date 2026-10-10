@@ -72,7 +72,7 @@ export class RovingFocus {
     if (active !== undefined && enabled.includes(active)) {
       return active;
     }
-    return enabled.find((item) => item.rovingSelected()) ?? enabled[0];
+    return enabled.find((item) => item.selected()) ?? enabled[0];
   });
 
   public constructor() {
