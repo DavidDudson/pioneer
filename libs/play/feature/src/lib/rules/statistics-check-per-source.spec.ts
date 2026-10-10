@@ -1,5 +1,5 @@
 import { EngineMessage } from '@pioneer/rules/engine';
-import { PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
+import { CORE_NAMESPACES, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
 import { describe, expect, it } from 'vitest';
 
 import { checkStatistics, EXAMPLE_STATISTIC_INPUTS, StatisticsStatus } from './statistics-check';
@@ -27,6 +27,7 @@ describe('checkStatistics per source', () => {
         facts: '',
       },
       { table: PLAYER_CORE_PROFICIENCY_BONUS, variant: undefined },
+      CORE_NAMESPACES,
     );
     expect(result).toMatchObject({
       status: StatisticsStatus.Valid,
@@ -47,6 +48,7 @@ describe('checkStatistics per source', () => {
         facts: '',
       },
       { table: PLAYER_CORE_PROFICIENCY_BONUS, variant: undefined },
+      CORE_NAMESPACES,
     );
     expect(result).toMatchObject({
       status: StatisticsStatus.Valid,

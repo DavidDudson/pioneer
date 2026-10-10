@@ -196,14 +196,7 @@ export { NamespaceKind, NamespaceKindSchema, RollOptionNamespace, RollOptionName
 export { Domain, Selector, SlotKey, ToggleKey } from './selector';
 export { AonUrl, BookId, PageNumber, SourceKind, SourceRef, SourceTitle, WebUrl } from './source-ref';
 export { default as rulesMessages } from './i18n/en.json';
-export {
-  ActorFormulaSource,
-  type FormulaProblem,
-  formulaProblems,
-  FormulaSource,
-  scopeProblems,
-  StatisticFormulaSource,
-} from './formula-source';
+export { ActorFormulaSource, type FormulaProblem, formulaProblems, FormulaSource } from './formula-source';
 export {
   FOUNDRY_REFERENCES,
   type FoundryReference,

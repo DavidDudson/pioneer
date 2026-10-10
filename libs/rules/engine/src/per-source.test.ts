@@ -2,7 +2,7 @@ import { describe, expect, test } from 'bun:test';
 
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import { Selector, StatisticDefinition, StatisticKind } from '@pioneer/rules/sdk';
-import { PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
+import { CORE_NAMESPACES, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
 import { fieldIssues, message } from '@pioneer/shared/kernel';
 import type { FieldIssue } from '@pioneer/shared/kernel';
 
@@ -63,7 +63,7 @@ function derive(
 ): ReadonlyMap<Selector, StatisticResult> {
   return deriveStatistics({ definitions, proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS }, inputs, {
     rules,
-    facts: new PredicateFacts([]),
+    facts: new PredicateFacts([], CORE_NAMESPACES),
   });
 }
 
