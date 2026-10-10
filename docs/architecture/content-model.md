@@ -15,18 +15,25 @@ interface ContentEntry<K extends ContentKind> {
   kind: K;
   slug: Slug; // permanent once published
   name: string;
-  level?: number;
+  level?: number; // -1 (the weakest creatures) to 30 (the highest items); required for creatures
   rarity: 'common' | 'uncommon' | 'rare' | 'unique';
   traits: readonly TraitSlug[];
   sources: readonly SourceRef[]; // at least one, see below
   description: RichText; // ORC rules text for official content, author text for homebrew
   rules: readonly RuleElement[];
   display?: DisplayHints; // e.g. feat display category override, see play-and-campaigns.md
-  externalIds?: { foundry?: string; aon?: string; pathbuilder?: string };
+  externalIds?: { foundry?: string; aon?: AonUrl; pathbuilder?: string };
   supersedes?: readonly ContentId[]; // remaster entry replacing a legacy one
   data: KindData[K];
 }
 ```
+
+`ContentEntry` in `libs/rules/sdk` (`content-entry.ts`) is this envelope as a zod schema. `kind` picks the `data`
+schema from a kind registry (`KIND_DATA`); a kind with no schema yet is an error naming it. On top of the field
+schemas it checks that `id` is UUIDv5 of `<pack>/<slug>`, that there is at least one source, that traits are unique,
+and that `supersedes` never holds the entry's own id. The rules playground's "Content entry" mode loads an example
+per registered kind. Until Epic 2.3 replaces `libs/content/*`, packs keep their older shape and the registry wraps
+their definitions in `PackEntry`.
 
 ### Kinds
 

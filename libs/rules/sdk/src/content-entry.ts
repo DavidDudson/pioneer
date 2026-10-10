@@ -72,10 +72,11 @@ const TRAITS_MAX = 32;
 const SOURCES_MAX = 8;
 const SUPERSEDES_MAX = 8;
 
-/** The fields every entry has, whatever its kind (content-model.md, "Content entry"). */
+/** Where an entry lives; `kind` follows, then the rest of the envelope (content-model.md, "Content entry"). */
+const address = { id: ContentId, pack: PackId };
+
+/** The fields every entry has after its kind, whatever the kind. */
 const envelope = {
-  id: ContentId,
-  pack: PackId,
   slug: Slug,
   name: ContentText,
   level: ContentLevel.optional(),
@@ -93,9 +94,24 @@ const envelope = {
 
 /** One arm per registered kind, `data` checked by that kind's schema. */
 const Entry = z.discriminatedUnion('kind', [
-  z.strictObject({ ...envelope, kind: z.literal(ContentKind.Ancestry), data: KIND_DATA[ContentKind.Ancestry] }),
-  z.strictObject({ ...envelope, kind: z.literal(ContentKind.Creature), data: KIND_DATA[ContentKind.Creature] }),
-  z.strictObject({ ...envelope, kind: z.literal(ContentKind.Statistic), data: KIND_DATA[ContentKind.Statistic] }),
+  z.strictObject({
+    ...address,
+    kind: z.literal(ContentKind.Ancestry),
+    ...envelope,
+    data: KIND_DATA[ContentKind.Ancestry],
+  }),
+  z.strictObject({
+    ...address,
+    kind: z.literal(ContentKind.Creature),
+    ...envelope,
+    data: KIND_DATA[ContentKind.Creature],
+  }),
+  z.strictObject({
+    ...address,
+    kind: z.literal(ContentKind.Statistic),
+    ...envelope,
+    data: KIND_DATA[ContentKind.Statistic],
+  }),
 ]);
 export type ContentEntry = z.output<typeof Entry>;
 

@@ -15,11 +15,15 @@ import {
   TextInput,
 } from '@pioneer/frontier';
 import type { SelectOption } from '@pioneer/frontier';
+import { ContentKind, REGISTERED_KINDS } from '@pioneer/rules/sdk';
+import type { RegisteredKind } from '@pioneer/rules/sdk';
 import { filter, merge } from 'rxjs';
 
 import {
   CheckStatus,
   checkTool,
+  CONTENT_KIND_KEYS,
+  contentEntryExample,
   EXAMPLE_FACTS,
   EXAMPLE_GRANT_PICKS,
   EXAMPLE_GRANT_ROOTS,
@@ -68,6 +72,7 @@ const JSON_ROWS = 12;
 export class RulesPlaygroundPage {
   protected readonly CheckStatus = CheckStatus;
   protected readonly ToolKind = ToolKind;
+  protected readonly RulesTool = RulesTool;
   protected readonly rows = JSON_ROWS;
 
   readonly #i18n = inject(TranslocoService);
@@ -81,6 +86,15 @@ export class RulesPlaygroundPage {
       label: this.#i18n.translate(RULES_TOOL_KEYS[tool]),
     }));
   });
+
+  /** Example entries for the content entry mode, one per kind with a schema. */
+  protected readonly entryKinds = computed((): readonly SelectOption<RegisteredKind>[] => {
+    this.#messages();
+    return REGISTERED_KINDS.map((kind) => ({ value: kind, label: this.#i18n.translate(CONTENT_KIND_KEYS[kind]) }));
+  });
+
+  /** The kind whose example the content entry mode last loaded. */
+  protected readonly entryKind = signal<RegisteredKind>(ContentKind.Ancestry);
 
   protected readonly schema = signal<RulesTool>(RulesTool.Predicate);
   protected readonly text = signal(rulesExample(RulesTool.Predicate));
@@ -111,6 +125,15 @@ export class RulesPlaygroundPage {
     }),
   );
 
+  /** Load the example entry of another kind into the content entry mode. */
+  protected chooseEntryKind(kind: RegisteredKind | undefined): void {
+    if (kind === undefined || kind === this.entryKind()) {
+      return;
+    }
+    this.entryKind.set(kind);
+    this.text.set(contentEntryExample(kind));
+  }
+
   /** A new schema starts from its example, so the page always shows something that passes. */
   protected choose(tool: RulesTool | undefined): void {
     if (tool === undefined || tool === this.schema()) {
@@ -118,6 +141,7 @@ export class RulesPlaygroundPage {
     }
     this.schema.set(tool);
     this.text.set(rulesExample(tool));
+    this.entryKind.set(ContentKind.Ancestry);
     // The boxes go with the tool, and a box made again would show a stale number for an emptied entry.
     this.referenceEntries.set(new Map());
   }
