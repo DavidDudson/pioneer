@@ -1,5 +1,7 @@
 <div
-  role="group"
+  role="toolbar"
+  frRovingFocus="horizontal"
+  rovingWrap
   [class]="trackClasses()"
   [attr.id]="id() ?? null"
   [attr.aria-label]="ariaLabel() ?? null"
@@ -9,6 +11,8 @@
 >
   @for (option of options(); track option.value) {
     <fr-button
+      frRovingFocusItem
+      [rovingSelected]="option.value === value()"
       [variant]="variant"
       [disabled]="disabled()"
       [toggled]="option.value === value()"
