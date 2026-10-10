@@ -35,6 +35,8 @@ import { richTextJson } from './rich-text-arbitraries';
 import { ruleElementJson } from './rule-element-arbitraries';
 
 const LIST_MAX = 3;
+/** The most boosts the ancestry schema allows. */
+const ANCESTRY_BOOSTS_MAX = 4;
 const SMALLINT_MAX = 32_767;
 const SLUG_WORDS_MAX = 3;
 const AON_ID_MAX = 99_999;
@@ -85,7 +87,7 @@ const ancestryData: Arbitrary<object> = withOptional(
     hitPoints: smallint,
     size,
     speed: smallint,
-    boosts: array(boost, { maxLength: LIST_MAX }),
+    boosts: array(boost, { maxLength: ANCESTRY_BOOSTS_MAX }),
     flaws: attributes,
     languages: contentIds,
     additionalLanguages: record({ count: smallint, options: contentIds }),
@@ -108,7 +110,7 @@ const selectors: Arbitrary<string[]> = uniqueArray(keyPathText, { maxLength: LIS
 const SPELL_RANKS = Array.from({ length: SPELL_RANK_MAX }, (_unused, index) => index + 1);
 const deitySpell = (rank: number): Arbitrary<object> => record({ rank: constant(rank), spell: contentIdJson });
 /** Spells at distinct ranks. */
-const deitySpells: Arbitrary<object[]> = shuffledSubarray(SPELL_RANKS, { maxLength: LIST_MAX }).chain((ranks) =>
+const deitySpells: Arbitrary<object[]> = shuffledSubarray(SPELL_RANKS, { maxLength: SPELL_RANK_MAX }).chain((ranks) =>
   tuple(...ranks.map((rank) => deitySpell(rank))),
 );
 const sanctificationModal: Arbitrary<string> = constantFrom(...Object.values(SanctificationModal));
@@ -205,9 +207,6 @@ const emptyData: Arbitrary<object> = constant({});
 
 /** A level from any kind but creatures, and a creature's level. */
 const entryLevel: Arbitrary<number> = integer({ min: 0, max: CONTENT_LEVEL_MAX });
-/** Feats and class features: the character level they are gained at. */
-const CHARACTER_LEVEL_MAX = 20;
-const featLevel: Arbitrary<number> = integer({ min: 1, max: CHARACTER_LEVEL_MAX });
 const creatureLevel: Arbitrary<number> = integer({ min: LEVEL_MIN, max: LEVEL_MAX });
 
 /** Valid `data` for each registered kind, and its level when the kind always has one. */
@@ -219,12 +218,12 @@ const KIND_ARBITRARIES: Readonly<
   [ContentKind.Archetype]: { data: archetypeData },
   [ContentKind.Background]: { data: backgroundData },
   [ContentKind.Class]: { data: classData },
-  [ContentKind.ClassFeature]: { data: classFeatureData, level: featLevel },
+  [ContentKind.ClassFeature]: { data: classFeatureData, level: entryLevel },
   [ContentKind.Condition]: { data: conditionData },
   [ContentKind.Creature]: { data: creatureData, level: creatureLevel },
   [ContentKind.DamageType]: { data: emptyData },
   [ContentKind.Deity]: { data: deityData },
-  [ContentKind.Feat]: { data: featData, level: featLevel },
+  [ContentKind.Feat]: { data: featData, level: entryLevel },
   [ContentKind.Heritage]: { data: heritageData },
   [ContentKind.Language]: { data: emptyData },
   [ContentKind.Sense]: { data: senseData },

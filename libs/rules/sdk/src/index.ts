@@ -1,35 +1,16 @@
 export { ActionCategory, ActionData, Frequency, FrequencyPeriod, Uses } from './action';
-export { AdditionalLanguages, AncestryData, AncestryDefinition, AncestryId, LanguageCount } from './ancestry';
-export { ArchetypeData } from './archetype';
+export { AncestryData, AncestryDefinition, AncestryId } from './ancestry';
 export {
   ATTRIBUTE_MODIFIER_MAX,
   ATTRIBUTE_MODIFIER_MIN,
   Attribute,
-  AttributeBoost,
   AttributeModifier,
   AttributeModifiers,
   AttributeModifiersWire,
-  Attributes,
   AttributeSchema,
 } from './attribute';
-export { BackgroundData } from './background';
-export { ClassData, SkillCount } from './character-class';
-export {
-  BaseWeapon,
-  DeityCategory,
-  DeityData,
-  DeityDomain,
-  DeityDomains,
-  DeitySanctification,
-  DeitySpell,
-  DivineFont,
-  Sanctification,
-  SanctificationModal,
-  SPELL_RANK_MAX,
-  SpellRank,
-} from './deity';
-export { ClassFeatureData, FeatCategory, FeatData, UNLIMITED } from './feat';
-export { HeritageData } from './heritage';
+export { DeityCategory, DivineFont } from './deity';
+export { FeatCategory } from './feat';
 export { ConditionData, ConditionGroup } from './condition';
 export { ContentKind, ContentKindSchema } from './content-kind';
 export { ContentPack, type ContentPackLoader, ContentPackManifest, ContentPackSchema } from './content-pack';

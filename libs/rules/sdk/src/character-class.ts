@@ -5,8 +5,7 @@ import { AttributeBoost } from './attribute';
 import { HitPoints } from './units';
 
 /** How many skills a class trains beyond its fixed ones; the Intelligence modifier adds to it. */
-export const SkillCount = Pg.smallint().nonnegative().brand<'SkillCount'>();
-export type SkillCount = z.infer<typeof SkillCount>;
+const SkillCount = Pg.smallint().nonnegative().brand<'SkillCount'>();
 
 /**
  * A class's `data` on the `ContentEntry` envelope. Its progression is in `rules`, keyed by level with predicates

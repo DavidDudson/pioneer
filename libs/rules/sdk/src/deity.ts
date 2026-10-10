@@ -30,17 +30,15 @@ export const DivineFont = { Harm: 'harm', Heal: 'heal' } as const;
 export type DivineFont = ValueOf<typeof DivineFont>;
 
 /** A cleric domain (`fire`, `healing`). Foundry pf2e keeps the set in config, so it is a brand. */
-export const DeityDomain = Slug.brand<'DeityDomain'>();
-export type DeityDomain = z.infer<typeof DeityDomain>;
+const DeityDomain = Slug.brand<'DeityDomain'>();
 
 /** A base weapon (`longsword`), for favoured weapons until weapons are content (#232). */
-export const BaseWeapon = Slug.brand<'BaseWeapon'>();
-export type BaseWeapon = z.infer<typeof BaseWeapon>;
+const BaseWeapon = Slug.brand<'BaseWeapon'>();
 
 /** A spell's rank, 1 to 10. */
 export const SPELL_RANK_MAX = 10;
-export const SpellRank = Pg.smallint().min(1).max(SPELL_RANK_MAX).brand<'SpellRank'>();
-export type SpellRank = z.infer<typeof SpellRank>;
+const SpellRank = Pg.smallint().min(1).max(SPELL_RANK_MAX).brand<'SpellRank'>();
+type SpellRank = z.infer<typeof SpellRank>;
 
 const SANCTIFICATIONS = Object.keys(Sanctification).length;
 const FONTS = Object.keys(DivineFont).length;
@@ -49,21 +47,18 @@ const SKILLS_MAX = 4;
 const WEAPONS_MAX = 8;
 
 /** "Can be holy or unholy", "must be holy". */
-export const DeitySanctification = z.strictObject({
+const DeitySanctification = z.strictObject({
   modal: z.enum(SanctificationModal),
   what: z.array(z.enum(Sanctification)).min(1).max(SANCTIFICATIONS).readonly().check(uniqueItems),
 });
-export type DeitySanctification = z.infer<typeof DeitySanctification>;
 
-export const DeityDomains = z.strictObject({
+const DeityDomains = z.strictObject({
   primary: z.array(DeityDomain).max(DOMAINS_MAX).readonly().check(uniqueItems),
   alternate: z.array(DeityDomain).max(DOMAINS_MAX).readonly().check(uniqueItems),
 });
-export type DeityDomains = z.infer<typeof DeityDomains>;
 
 /** A spell the deity grants its clerics at a rank. */
-export const DeitySpell = z.strictObject({ rank: SpellRank, spell: ContentId });
-export type DeitySpell = z.infer<typeof DeitySpell>;
+const DeitySpell = z.strictObject({ rank: SpellRank, spell: ContentId });
 
 /** A deity's spells, at most one per rank (Foundry pf2e keys them by rank). */
 const DeitySpells = z

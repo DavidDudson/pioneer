@@ -25,19 +25,17 @@ export const AncestryDefinition = z.object({
 export type AncestryDefinition = z.infer<typeof AncestryDefinition>;
 
 /** How many languages a character picks beyond those granted; the Intelligence modifier adds to it. */
-export const LanguageCount = Pg.smallint().nonnegative().brand<'LanguageCount'>();
-export type LanguageCount = z.infer<typeof LanguageCount>;
+const LanguageCount = Pg.smallint().nonnegative().brand<'LanguageCount'>();
 
 const BOOSTS_MAX = 4;
 const LANGUAGES_MAX = 64;
 
 /** The languages an ancestry offers on top of those it grants (Foundry pf2e's `additionalLanguages`). */
-export const AdditionalLanguages = z.strictObject({
+const AdditionalLanguages = z.strictObject({
   count: LanguageCount,
   /** `language` entries to pick from. */
   options: z.array(ContentId).max(LANGUAGES_MAX).readonly().check(uniqueItems),
 });
-export type AdditionalLanguages = z.infer<typeof AdditionalLanguages>;
 
 /**
  * An ancestry's `data` on the `ContentEntry` envelope: the definition less what the envelope carries, and the rest
