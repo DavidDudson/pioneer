@@ -11,7 +11,7 @@ import { Stack } from '../../layout/stack/stack.component';
 import { pressKeys } from '../../testing/story-keyboard';
 import { Text } from '../../text/text/text.component';
 import { Button } from '../button/button.component';
-import { Link } from '../link/link.component';
+import { SectionLink } from '../section-link/section-link.component';
 import { SectionIndex } from './section-index.component';
 
 type SectionIndexStory = StoryObj<SectionIndex>;
@@ -39,7 +39,9 @@ const meta: Meta<SectionIndex> = {
   title: 'Actions/Section Index',
   component: SectionIndex,
   decorators: [
-    moduleMetadata({ imports: [Button, EmptyState, Grid, Link, RovingFocus, RovingFocusItem, Section, Stack, Text] }),
+    moduleMetadata({
+      imports: [Button, EmptyState, Grid, RovingFocus, RovingFocusItem, Section, SectionLink, Stack, Text],
+    }),
   ],
   parameters: { layout: 'padded' },
   args: { label: 'Sheet sections' },
@@ -48,7 +50,7 @@ const meta: Meta<SectionIndex> = {
     template: `<fr-stack gap="lg">
       <fr-section-index [label]="label">
         @for (section of sections; track section.anchor) {
-          <fr-link [skipTo]="section.anchor">{{ section.label }}</fr-link>
+          <fr-section-link [anchor]="section.anchor">{{ section.label }}</fr-section-link>
         }
       </fr-section-index>
       <fr-section anchor="story-identity" heading="Identity">

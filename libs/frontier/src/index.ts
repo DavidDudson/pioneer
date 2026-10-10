@@ -3,6 +3,7 @@ export { AsyncButton } from './lib/actions/async-button/async-button.component';
 export { Button, ButtonType, ButtonVariant } from './lib/actions/button/button.component';
 export { Link, type LinkTarget } from './lib/actions/link/link.component';
 export { SectionIndex } from './lib/actions/section-index/section-index.component';
+export { SectionLink } from './lib/actions/section-link/section-link.component';
 export { Tab } from './lib/actions/tab/tab.component';
 export { Tabs } from './lib/actions/tabs/tabs.component';
 

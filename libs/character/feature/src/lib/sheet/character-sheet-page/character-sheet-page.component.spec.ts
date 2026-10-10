@@ -124,10 +124,26 @@ describe('CharacterSheetPage', () => {
     expect(document.activeElement).toBe(buttons[1]);
   });
 
-  it('labels the attribute grid and keeps the chosen values, not derived ones, editable', async () => {
+  it('names the attribute grid after its section', async () => {
     const { root } = await openSheet();
     expect(root.querySelector('[role="toolbar"]')?.getAttribute('aria-label')).toBe('Attributes');
-    const editable = [...root.querySelectorAll('fr-inline-field')].length;
-    expect(editable).toBe(9);
+  });
+
+  it('edits only the chosen inputs inline: name, ancestry, level and attribute modifiers', async () => {
+    const { root } = await openSheet();
+    const labels = [...root.querySelectorAll('fr-inline-field')].map((field) =>
+      present(field.querySelector('fr-text')).textContent.trim(),
+    );
+    expect(labels).toStrictEqual([
+      'Name',
+      'Ancestry',
+      'Level',
+      'Strength',
+      'Dexterity',
+      'Constitution',
+      'Intelligence',
+      'Wisdom',
+      'Charisma',
+    ]);
   });
 });

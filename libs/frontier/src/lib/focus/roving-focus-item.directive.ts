@@ -3,10 +3,8 @@ import type { Signal } from '@angular/core';
 
 import { Button } from '../actions/button/button.component';
 
-/** Elements that take focus without a `tabindex`. */
-const NATIVELY_FOCUSABLE = 'a[href], button, input, select, textarea';
-/** Those, or anything with a `tabindex`; an item focuses the first of these it holds. */
-const FOCUSABLE = `${NATIVELY_FOCUSABLE}, [tabindex]`;
+/** Elements that take focus without a `tabindex`, or already have one; an item focuses the first of these it holds. */
+const FOCUSABLE = 'a[href], button, input, select, textarea, [tabindex]';
 
 const NOT_SELECTED = signal(false).asReadonly();
 
@@ -42,15 +40,19 @@ export class RovingFocusItem {
     this.#hostSelected.set(source);
   }
 
-  /**
-   * The element that takes focus: the host itself when it is natively focusable, else the first focusable element it
-   * renders, else the host. A host with only a `tabindex` comes after what it renders: the group may have written that
-   * tabindex while the host held nothing focusable (a skeleton), and the control rendered since must win.
-   */
+  /** The element that takes focus: the first focusable one it holds, else the host. */
   public target(): HTMLElement {
-    if (this.#host.matches(NATIVELY_FOCUSABLE)) {
+    return this.focusable() ?? this.#host;
+  }
+
+  /**
+   * The element that can take focus now: the host when it is focusable itself, else the first focusable element it
+   * renders. `undefined` while it holds none, such as a skeleton standing in for a control that is still loading.
+   */
+  public focusable(): HTMLElement | undefined {
+    if (this.#host.matches(FOCUSABLE)) {
       return this.#host;
     }
-    return this.#host.querySelector<HTMLElement>(FOCUSABLE) ?? this.#host;
+    return this.#host.querySelector<HTMLElement>(FOCUSABLE) ?? undefined;
   }
 }

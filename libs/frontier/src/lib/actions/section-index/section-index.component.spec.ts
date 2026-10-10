@@ -61,6 +61,12 @@ describe(SectionIndex, () => {
     ]);
   });
 
+  it('makes every link touch-sized, since each stands alone', async () => {
+    const host = await render(SECTIONS);
+    const touch = [...host.querySelectorAll('a')].map((link) => link.classList.contains('h-touch'));
+    expect(touch).toStrictEqual([true, true, true]);
+  });
+
   it('moves focus to the section heading without navigating', async () => {
     const host = await render(SECTIONS);
     const heading = target('sheet-attributes');

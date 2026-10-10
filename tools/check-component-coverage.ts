@@ -12,6 +12,11 @@ const ROOT = 'libs/frontier/src/lib';
 
 /** Parts covered by the component that assembles them. Paths are relative to `ROOT`. */
 const EXEMPTIONS: Readonly<Record<string, Exemption>> = {
+  'actions/section-link/section-link.component.ts': {
+    reason: 'One link of fr-section-index; only meaningful inside it.',
+    spec: 'actions/section-index/section-index.component.spec.ts',
+    story: 'actions/section-index/section-index.stories.ts',
+  },
   'actions/tab/tab.component.ts': {
     reason: 'One tab of fr-tabs; its roving focus only works inside them.',
     spec: 'actions/tabs/tabs.component.spec.ts',

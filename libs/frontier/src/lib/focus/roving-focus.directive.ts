@@ -88,20 +88,31 @@ export class RovingFocus {
         const stop = this.#tabStop();
         const written = new Map<RovingFocusItem, HTMLElement>();
         for (const item of this.items()) {
-          const target = item.target();
-          const previous = this.#written.get(item);
-          if (previous !== undefined && previous !== target) {
-            previous.removeAttribute('tabindex');
+          const target = this.#writeTabIndex(item, item === stop);
+          if (target !== undefined) {
+            written.set(item, target);
           }
-          const tabIndex = item === stop ? TAB_STOP : SKIPPED;
-          if (target.getAttribute('tabindex') !== tabIndex) {
-            target.setAttribute('tabindex', tabIndex);
-          }
-          written.set(item, target);
         }
         this.#written = written;
       },
     });
+  }
+
+  /**
+   * Gives `item`'s focusable element its tabindex and takes it off the element it replaced. An item with nothing to
+   * focus yet (a skeleton) gets none, so a placeholder is never a Tab stop. Returns the element written to.
+   */
+  #writeTabIndex(item: RovingFocusItem, isStop: boolean): HTMLElement | undefined {
+    const target = item.focusable();
+    const previous = this.#written.get(item);
+    if (previous !== undefined && previous !== target) {
+      previous.removeAttribute('tabindex');
+    }
+    const tabIndex = isStop ? TAB_STOP : SKIPPED;
+    if (target !== undefined && target.getAttribute('tabindex') !== tabIndex) {
+      target.setAttribute('tabindex', tabIndex);
+    }
+    return target;
   }
 
   protected focusin(event: FocusEvent): void {

@@ -89,13 +89,13 @@ describe(RovingFocus, () => {
     expect(tabIndexes(rendered)).toStrictEqual(['-1', '0', '-1']);
   });
 
-  it('follows an item whose focusable element is swapped without a signal change', () => {
+  it('skips an item with nothing to focus, then follows the control rendered in its place', () => {
     const rendered = render(THREE);
     const [, button] = rendered.buttons;
     const item = button?.parentElement;
     button?.remove();
     rerender(rendered);
-    expect(item?.getAttribute('tabindex')).toBe('-1');
+    expect(item?.hasAttribute('tabindex')).toBe(false);
 
     const replacement = document.createElement('button');
     item?.append(replacement);
