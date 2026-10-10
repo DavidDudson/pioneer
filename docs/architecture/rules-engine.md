@@ -534,6 +534,13 @@ modifiers never depend on other modifiers.
 Performance target: full derivation of a level 20 character in under 10 ms in the browser, so the builder can
 re-derive on every keystroke. Incremental recomputation is an optimisation for later, not a design constraint.
 
+`libs/rules/catalog/src/full-derivation.bench.test.ts` holds the whole budget. It resolves a level 20 Fighter's
+grants to a fixpoint, then derives every core statistic with the grants' facts. The load has four Strikes, armor and
+shield, item bonuses that stack by type, a suppressed status bonus, a conditional line and an inactive one. A second
+case adds Proficiency Without Level and a homebrew pack that restates Perception. Grant resolution keeps its own
+3 ms budget (`libs/rules/grants`); statistics get the rest. Measured locally: about 0.3 ms for grants and 0.8 ms for
+statistics.
+
 ### Defences
 
 Defences are synthetics (step 7). `Immunity`, `Weakness` and `Resistance` rule elements keep Foundry's fields:

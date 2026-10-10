@@ -15,7 +15,7 @@ import {
   SCALE_MAIL_CHECK_PENALTY,
   SCALE_MAIL_SPEED_PENALTY,
   STEEL_SHIELD_AC,
-} from './testing/level-1-fighter';
+} from './testing/fighter';
 
 /**
  * A statistic as a player checks it against the book: each base term as `<sign> <formula> = <value>`, marked when a
