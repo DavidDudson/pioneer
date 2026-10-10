@@ -370,7 +370,7 @@
     },
     {
       // Build tooling runs on Node/Bun and needs fs/path; config files need default exports.
-      "files": ["tools/**/*.ts", "**/drizzle.config.ts"],
+      "files": ["tools/**/*.ts", "**/drizzle.config.ts", "eslint.config.ts"],
       "rules": {
         "import/no-nodejs-modules": "off",
         "node/no-sync": "off",
