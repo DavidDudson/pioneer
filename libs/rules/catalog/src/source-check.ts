@@ -34,7 +34,7 @@ export function sourceIssues(entry: SourcedEntry, registry: BookRegistry): reado
 
 /** Every entry in `pack`, as the source checks read it. */
 export function packEntries(pack: ContentPack): readonly SourcedEntry[] {
-  return [...pack.ancestries, ...pack.creatures, ...pack.statistics].map(({ slug, sources }) => ({
+  return [...pack.ancestries, ...pack.creatures, ...pack.statistics, ...pack.variantRules].map(({ slug, sources }) => ({
     pack: pack.id,
     slug,
     sources,

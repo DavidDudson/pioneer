@@ -1,7 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { PackId, RulesMessage, Slug, SourceKind, SourceRef } from '@pioneer/rules/sdk';
-import type { ContentPack } from '@pioneer/rules/sdk';
+import { ContentLicense, ContentPack, PackId, RulesMessage, Slug, SourceKind, SourceRef } from '@pioneer/rules/sdk';
 import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
 import { message } from '@pioneer/shared/kernel';
 import type { FieldIssue } from '@pioneer/shared/kernel';
@@ -90,5 +89,15 @@ describe('source checks', () => {
       .withStatistic('luck')
       .build();
     expect(rejected(pack)).toStrictEqual(['homebrew/lizardfolk', 'homebrew/sanity']);
+  });
+
+  test('checks variant rules too', () => {
+    const pack = ContentPack.define({
+      manifest: { id: 'homebrew', title: 'Homebrew', publisher: 'Tests', license: ContentLicense.Homebrew },
+      ancestries: [],
+      creatures: [],
+      variantRules: [{ slug: 'gritty', name: 'Gritty', sources: [book('core-rulebook')], rules: [] }],
+    });
+    expect(rejected(pack)).toStrictEqual(['homebrew/gritty']);
   });
 });
