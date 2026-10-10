@@ -68,3 +68,13 @@ export function wielded<Weapon extends { readonly slug: string }>(weapon: Weapon
     },
   };
 }
+
+/** A `Resistance` as JSON: `value` against `type`. `fields` adds the rest (`exceptions`, `predicate`). */
+export function resistance(type: string, value: number | string, fields: object = {}): object {
+  return { key: 'Resistance', type, value, ...fields };
+}
+
+/** A `Weakness` as JSON: `value` to `type`. `fields` adds the rest (`exceptions`, `predicate`). */
+export function weakness(type: string, value: number | string, fields: object = {}): object {
+  return { key: 'Weakness', type, value, ...fields };
+}

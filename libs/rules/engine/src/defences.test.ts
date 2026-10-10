@@ -3,7 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import { DamageTarget } from '@pioneer/rules/dice';
 import { FormulaMessage } from '@pioneer/rules/formula';
 import { PredicateFacts, SummaryKind } from '@pioneer/rules/predicate';
-import { RollOption } from '@pioneer/rules/sdk';
+import { DamageAmount, RollOption } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
 import { message } from '@pioneer/shared/kernel';
 
@@ -13,7 +13,7 @@ import { EngineMessage } from './messages';
 import { ruleIdOf } from './rule-in-play';
 import type { RuleInPlay } from './rule-in-play';
 import { StatisticInputsJson } from './statistic-inputs';
-import { inPlay } from './testing';
+import { inPlay, resistance, weakness } from './testing';
 
 const content = { definitions: [], proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS };
 
@@ -34,14 +34,6 @@ function derived(rules: readonly RuleInPlay[], known: PredicateFacts = facts()):
   return deriveDefences(content, inputs, { rules, facts: known });
 }
 
-function resistance(type: string, value: number | string, fields: object = {}): object {
-  return { key: 'Resistance', type, value, ...fields };
-}
-
-function weakness(type: string, value: number | string, fields: object = {}): object {
-  return { key: 'Weakness', type, value, ...fields };
-}
-
 function summary(line: AdjustmentLine | undefined): unknown {
   return line === undefined ? undefined : { type: line.type, value: line.value, status: line.status.kind };
 }
@@ -50,10 +42,6 @@ function summary(line: AdjustmentLine | undefined): unknown {
 const FIRE_SHIELD = ['self:effect:fire-shield'];
 /** A situation the sheet cannot know. */
 const IN_FOREST = ['terrain:forest'];
-
-function statusOf(lines: readonly AdjustmentLine[], rule: RuleInPlay): unknown {
-  return lines.find(({ id }) => id === ruleIdOf(rule))?.status;
-}
 
 describe('deriveDefences', () => {
   test('no rules, no defences', () => {
@@ -125,7 +113,7 @@ describe('deriveDefences', () => {
     test('a predicate the sheet cannot know makes it conditional, worded, and keeps it out of the target', () => {
       const { resistances, target } = derived([forest]);
       expect(resistances[0]?.status).toMatchObject({ kind: DefenceStatusKind.Conditional, when: IN_FOREST });
-      expect(resistances[0]?.status).toHaveProperty('summary');
+      expect(resistances[0]?.status).toMatchObject({ summary: { kind: SummaryKind.Phrase } });
       expect(target.resistances).toStrictEqual([]);
     });
 
@@ -154,6 +142,11 @@ describe('deriveDefences', () => {
   });
 
   describe('values', () => {
+    test('a fractional value rounds down', () => {
+      const [line] = derived([inPlay(resistance('fire', '@level / 2'), 'a')]).resistances;
+      expect(line?.value).toBe(DamageAmount.parse(2));
+    });
+
     test('a value that rounds below 1 does nothing, so the line is dropped', () => {
       const rule = inPlay(resistance('fire', 'floor(@level / 10)'), 'a');
       expect(derived([rule]).resistances).toStrictEqual([]);
@@ -161,8 +154,13 @@ describe('deriveDefences', () => {
 
     test('a formula that fails makes the line failed, pointing into the formula', () => {
       const [line] = derived([inPlay(resistance('fire', '@stat.nothing'), 'a')]).resistances;
+      const status: unknown = line?.status;
       expect(line?.value).toBeUndefined();
-      expect(line?.status.kind).toBe(DefenceStatusKind.Failed);
+      expect(status).toStrictEqual({
+        kind: DefenceStatusKind.Failed,
+        error: message(FormulaMessage.UnknownReference, { found: '@stat.nothing', position: 1 }),
+        position: 1,
+      });
     });
 
     test('a value past the largest damage amount fails as out of range', () => {
@@ -183,70 +181,6 @@ describe('deriveDefences', () => {
     });
   });
 
-  describe('stacking', () => {
-    test('of resistances to one type, the highest counts and supersedes the rest', () => {
-      const low = inPlay(resistance('fire', 5), 'a');
-      const high = inPlay(resistance('fire', 10), 'b');
-      const { resistances, target } = derived([low, high]);
-      expect([low, high].map((rule) => statusOf(resistances, rule))).toStrictEqual([
-        { kind: DefenceStatusKind.Superseded, by: ruleIdOf(high) },
-        { kind: DefenceStatusKind.Applied },
-      ]);
-      const targeted: unknown = target.resistances;
-      expect(targeted).toStrictEqual([{ type: 'fire', value: 10 }]);
-    });
-
-    test('on a tie, the lowest id counts', () => {
-      const { weaknesses } = derived([inPlay(weakness('cold', 5), 'b'), inPlay(weakness('cold', 5), 'a')]);
-      const [first, second] = weaknesses;
-      expect(first?.status).toStrictEqual({ kind: DefenceStatusKind.Applied });
-      const superseded: unknown = second?.status;
-      expect(superseded).toStrictEqual({ kind: DefenceStatusKind.Superseded, by: first?.id });
-    });
-
-    test('a group and a type in it are kept apart; the dice pipeline picks per instance', () => {
-      const rules = [inPlay(resistance('physical', 5), 'a'), inPlay(resistance('slashing', 3), 'b')];
-      const targeted: unknown = derived(rules).target.resistances;
-      expect(targeted).toStrictEqual([
-        { type: 'physical', value: 5 },
-        { type: 'slashing', value: 3 },
-      ]);
-    });
-
-    test('different exceptions are kept apart, since a hit may get past one and not the other', () => {
-      const high = inPlay(resistance('physical', 10, { exceptions: ['adamantine'] }), 'a');
-      const plain = inPlay(resistance('physical', 5), 'b');
-      const low = inPlay(resistance('physical', 3, { exceptions: ['adamantine'] }), 'c');
-      const { resistances } = derived([high, plain, low]);
-      expect([high, plain, low].map((rule) => statusOf(resistances, rule))).toStrictEqual([
-        { kind: DefenceStatusKind.Applied },
-        { kind: DefenceStatusKind.Applied },
-        { kind: DefenceStatusKind.Superseded, by: ruleIdOf(high) },
-      ]);
-    });
-
-    test('a conditional one stays beside the applied one, even when higher', () => {
-      const plain = inPlay(resistance('cold', 5), 'a');
-      const situational = inPlay(resistance('cold', 10, { predicate: IN_FOREST }), 'b');
-      const { resistances, target } = derived([plain, situational]);
-      expect([plain, situational].map((rule) => statusOf(resistances, rule))).toMatchObject([
-        { kind: DefenceStatusKind.Applied },
-        { kind: DefenceStatusKind.Conditional },
-      ]);
-      const targeted: unknown = target.resistances;
-      expect(targeted).toStrictEqual([{ type: 'cold', value: 5 }]);
-    });
-
-    test('weaknesses and resistances never compete with each other', () => {
-      const rules = [inPlay(weakness('fire', 5), 'a'), inPlay(resistance('fire', 10), 'b')];
-      const { target } = derived(rules);
-      expect(target).toMatchObject({
-        weaknesses: [{ type: 'fire', value: 5 }],
-        resistances: [{ type: 'fire', value: 10 }],
-      });
-    });
-  });
-
   test('exceptions travel to the target, so the dice pipeline takes it unchanged', () => {
     const rules = [
       inPlay({ key: 'Immunity', type: 'bleed' }, 'a'),
@@ -260,6 +194,15 @@ describe('deriveDefences', () => {
       weaknesses: [{ type: 'fire', value: 5 }],
       resistances: [{ type: 'physical', value: 5, exceptions: ['cold-iron', 'magical'] }],
     });
+  });
+
+  test('an immunity keeps its exceptions on the sheet, but the target holds only its type', () => {
+    const rule = inPlay({ key: 'Immunity', type: 'fire', exceptions: ['magical'] }, 'a');
+    const { immunities, target } = derived([rule]);
+    const exceptions: unknown = immunities[0]?.exceptions;
+    const targeted: unknown = target.immunities;
+    expect(exceptions).toStrictEqual(['magical']);
+    expect(targeted).toStrictEqual(['fire']);
   });
 
   test('other rule elements are ignored', () => {

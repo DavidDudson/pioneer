@@ -553,10 +553,13 @@ into the character's immunities, weaknesses and resistances, each line with its 
 - A value is evaluated as a modifier's is (inputs, `@prof`, statistics' bases, `@item.level`) and rounded down.
   Below 1 the defence does nothing and is dropped (`floor(@level / 2)` at level 1). A formula that fails, or a
   value past the largest `DamageAmount`, makes the line **failed** with the error, never an exception.
-- Weaknesses and resistances do not stack. Lines compete when they share a type or group and the same exceptions:
-  of the unconditional ones, the highest counts (the lowest rule id on a tie) and the others are **superseded** by
-  it. Lines with different exceptions do not compete, since a hit may get past one and not the other. A
-  conditional one is kept beside the winner, since it may beat it when it applies.
+- Weaknesses and resistances do not stack. One line **covers** another of the same type or group when its
+  exceptions are a subset of the other's, so it meets every hit the other meets (`resistance 10 physical` covers
+  `resistance 5 physical except adamantine`). An unconditional line is **superseded** by the best unconditional
+  line that covers it and is at least as high: higher value first, then fewer exceptions, then the lowest rule id.
+  No hit would ever use a superseded line. Lines whose exceptions each hold one the other lacks both apply, since a
+  hit may get past one and not the other. A conditional one is kept beside them, since it may beat them when it
+  applies.
 - A target is one damage type or a group (`physical`, `energy`, `all`), and group membership is
   `DAMAGE_GROUP_TYPES` in the SDK, never content. A group and a type in it never compete; the dice pipeline picks
   the highest per damage instance.
@@ -564,11 +567,15 @@ into the character's immunities, weaknesses and resistances, each line with its 
   result's `target`, a `DamageTarget`, so the damage pipeline in `libs/rules/dice` takes the character's defences
   as it takes any creature's. An immunity from two sources appears there once.
 - Exceptions travel with the defence: `DamageAdjustment` has an optional `exceptions` list from the closed
-  `DamageException` set (precious materials such as adamantine or cold iron, and `magical`), which grows as content
-  needs more. The engine never filters on them, since it does not know the damage; `libs/rules/dice` will check
-  them per instance when it picks the highest weakness or resistance, and skip one whose exception the instance
-  has. `DamageInstance` carries no traits yet, so until Strike damage records them (Epic 4.6) an exception is shown
-  on the sheet but never matches, and the defence applies in full.
+  `DamageException` set (damage types, as in a ghost's `resistance 5 all except force, spirit, vitality`; precious
+  materials such as adamantine or cold iron; `magical` and `ghost-touch`), which grows as content needs more. The
+  engine never filters on them, since it does not know the damage; `libs/rules/dice` will check them per instance
+  when it picks the highest weakness or resistance, and skip one whose exception the instance has. `DamageInstance`
+  carries no traits yet, so until Strike damage records them (Epic 4.6) an exception is shown on the sheet but
+  never matches, and the defence applies in full.
+- An immunity's exceptions are shown on the sheet only. A creature's `immunities` are bare slugs, so the target
+  holds just the type and the dice pipeline applies the immunity in full; carrying them needs a `DamageTarget`
+  change when damage instances gain traits.
 
 ## Predicates and conditional modifiers
 

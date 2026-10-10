@@ -2,4 +2,4 @@
  * Test-only builders. Import from `@pioneer/rules/engine/testing` in tests; never from production code (kept out
  * of the main barrel).
  */
-export { change, flatModifier, inPlay, statistic, wielded } from './builders';
+export { change, flatModifier, inPlay, resistance, statistic, weakness, wielded } from './builders';

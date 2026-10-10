@@ -180,29 +180,35 @@ function sortedById<TLine extends DefenceSource>(lines: readonly TLine[]): reado
   return lines.toSorted((left, right) => Number(left.id > right.id) - Number(left.id < right.id));
 }
 
-/** Whether two lines compete: the same type or group and the same exceptions, since exceptions differ per hit. */
-function competes(left: AdjustmentLine, right: AdjustmentLine): boolean {
-  return (
-    left.type === right.type &&
-    left.exceptions.length === right.exceptions.length &&
-    left.exceptions.every((exception) => right.exceptions.includes(exception))
-  );
+/**
+ * Whether `wider` applies to every hit `line` applies to: the same type or group, and no exception `line` lacks. A
+ * line with more exceptions covers fewer hits, so `resistance 10 physical` covers `resistance 5 physical except
+ * adamantine`; lines with exceptions the other lacks each cover a hit the other does not.
+ */
+function covers(wider: AdjustmentLine, line: AdjustmentLine): boolean {
+  return line.type === wider.type && wider.exceptions.every((exception) => line.exceptions.includes(exception));
 }
 
-/** Whether `line` counts over `best`: a higher value, or the same value and a lower id. */
-function beats(line: AdjustmentLine, best: AdjustmentLine): boolean {
-  const [value, bestValue] = [line.value ?? 0, best.value ?? 0];
-  return value > bestValue || (value === bestValue && line.id < best.id);
+/** Whether `line` counts over `other`: a higher value, then fewer exceptions (it covers more), then a lower id. */
+function outranks(line: AdjustmentLine, other: AdjustmentLine): boolean {
+  const [value, otherValue] = [line.value ?? 0, other.value ?? 0];
+  if (value !== otherValue) {
+    return value > otherValue;
+  }
+  if (line.exceptions.length !== other.exceptions.length) {
+    return line.exceptions.length < other.exceptions.length;
+  }
+  return line.id < other.id;
 }
 
-/** An applied line, superseded when a higher applied one competes with it (on a tie, the lowest id counts). */
+/** An applied line, superseded by the best applied line that covers it and outranks it, if there is one. */
 function supersede(line: AdjustmentLine, applied: readonly AdjustmentLine[]): AdjustmentLine {
   if (line.status.kind !== DefenceStatusKind.Applied) {
     return line;
   }
   let winner = line;
   for (const other of applied) {
-    if (competes(other, line) && beats(other, winner)) {
+    if (covers(other, line) && outranks(other, winner)) {
       winner = other;
     }
   }
@@ -210,9 +216,9 @@ function supersede(line: AdjustmentLine, applied: readonly AdjustmentLine[]): Ad
 }
 
 /**
- * Weaknesses and resistances do not stack: of the applied lines that compete, the highest counts and the others are
- * superseded by it. Conditional and failed lines stay as they are, since a conditional one may beat it when it
- * applies.
+ * Weaknesses and resistances do not stack: an applied line is superseded by the best applied line that covers every
+ * hit it does and is at least as high, so no hit would ever use it. Conditional and failed lines stay as they are,
+ * since a conditional one may beat it when it applies.
  */
 function stacked(lines: readonly AdjustmentLine[]): readonly AdjustmentLine[] {
   const sorted = sortedById(lines);
@@ -269,7 +275,7 @@ function adjustmentLines(
  * play (rules-engine.md, "Defences"), each list in id order. A predicate that holds applies the defence, a false one
  * drops it, and one that depends on the situation makes it conditional. Values are formulas read as modifier values
  * are (the inputs, `@prof`, statistics' bases, `@item.level`); one that fails makes its line failed. Weaknesses and
- * resistances to the same type or group with the same exceptions do not stack (`stacked`). Exceptions are carried,
+ * resistances do not stack (`stacked`). Exceptions are carried,
  * never applied: the dice pipeline checks them per damage instance. Never throws, and the result does not depend on
  * the order of the rules.
  */

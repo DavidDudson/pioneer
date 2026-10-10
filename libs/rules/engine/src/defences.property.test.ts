@@ -69,17 +69,14 @@ function derived(rules: readonly RuleInPlay[]): Defences {
   return deriveDefences(content, inputs, { rules, facts: NO_FACTS });
 }
 
-function sameKey(left: AdjustmentLine, right: AdjustmentLine): boolean {
-  return left.type === right.type && left.exceptions.toSorted().join(' ') === right.exceptions.toSorted().join(' ');
+/** Whether `wider` meets every hit `line` meets: the same type, and its exceptions a subset of `line`'s. */
+function coversHits(wider: AdjustmentLine, line: AdjustmentLine): boolean {
+  const exceptions = new Set(line.exceptions);
+  return wider.type === line.type && wider.exceptions.every((exception) => exceptions.has(exception));
 }
 
-/** Every unconditional line competing with `line`, `line` included. */
-function competitors(lines: readonly AdjustmentLine[], line: AdjustmentLine): readonly AdjustmentLine[] {
-  return lines.filter(
-    (other) =>
-      sameKey(other, line) &&
-      (other.status.kind === DefenceStatusKind.Applied || other.status.kind === DefenceStatusKind.Superseded),
-  );
+function isApplied(line: AdjustmentLine): boolean {
+  return line.status.kind === DefenceStatusKind.Applied;
 }
 
 function appliedCount(lines: readonly AdjustmentLine[]): number {
@@ -87,22 +84,41 @@ function appliedCount(lines: readonly AdjustmentLine[]): number {
 }
 
 describe('deriveDefences (properties)', () => {
-  test('per type or group and exceptions, only the highest unconditional value applies', () => {
+  test('no applied line is covered by a higher applied one, and each superseded one names an applied cover', () => {
     assert(
       property(array(defence, { maxLength: RULES_MAX }), (defences) => {
         const result = derived(rulesOf(defences));
         for (const lines of [result.weaknesses, result.resistances]) {
+          const applied = lines.filter((line) => isApplied(line));
+          for (const line of applied) {
+            const higher = applied.filter(
+              (other) => other.id !== line.id && coversHits(other, line) && (other.value ?? 0) > (line.value ?? 0),
+            );
+            expect(higher).toHaveLength(0);
+          }
           for (const line of lines) {
-            const group = competitors(lines, line);
-            const applied = group.filter(({ status }) => status.kind === DefenceStatusKind.Applied);
-            const highest = Math.max(...group.map(({ value }) => value ?? 0));
-            if (group.length > 0) {
-              expect(applied).toHaveLength(1);
-              expect(applied[0]?.value ?? 0).toBe(highest);
-            }
-            if (line.status.kind === DefenceStatusKind.Superseded) {
-              expect(line.status.by === applied[0]?.id).toBe(true);
-            }
+            const by = line.status.kind === DefenceStatusKind.Superseded ? line.status.by : undefined;
+            const cover = applied.find(({ id }) => id === by);
+            expect(by === undefined || (cover !== undefined && coversHits(cover, line))).toBe(true);
+            expect(by === undefined || (cover?.value ?? 0) >= (line.value ?? 0)).toBe(true);
+          }
+        }
+      }),
+    );
+  });
+
+  test('of lines with the same type and exceptions, exactly one unconditional line applies, the highest', () => {
+    assert(
+      property(array(defence, { maxLength: RULES_MAX }), (defences) => {
+        const result = derived(rulesOf(defences));
+        for (const lines of [result.weaknesses, result.resistances]) {
+          const unconditional = lines.filter(({ status }) => status.kind !== DefenceStatusKind.Conditional);
+          for (const line of unconditional) {
+            const same = unconditional.filter((other) => coversHits(other, line) && coversHits(line, other));
+            const applied = same.filter((other) => isApplied(other));
+            const highest = Math.max(...same.map(({ value }) => value ?? 0));
+            expect(applied.length <= 1).toBe(true);
+            expect(applied.every(({ value }) => (value ?? 0) === highest)).toBe(true);
           }
         }
       }),

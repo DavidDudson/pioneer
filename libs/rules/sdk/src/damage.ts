@@ -55,16 +55,19 @@ export type DamageAdjustmentTarget = ValueOf<typeof DamageAdjustmentTarget>;
 export const DamageAdjustmentTargetSchema = z.enum(DamageAdjustmentTarget);
 
 /**
- * What lets a damage instance get past a weakness, resistance or immunity: a precious material it is made of, or the
- * `magical` trait (`resistance 5 physical except adamantine`). Foundry pf2e keeps the list in code; this one grows
- * as content needs more.
+ * What lets a damage instance get past a weakness, resistance or immunity: its damage type (a ghost's `resistance 5
+ * all except force, spirit, vitality`), a precious material it is made of, or a trait or rune (`magical`,
+ * `ghost-touch`), as Foundry pf2e's exceptions take them. Foundry keeps the list in code; this one grows as content
+ * needs more.
  */
 export const DamageException = {
+  ...DamageType,
   Adamantine: 'adamantine',
   ColdIron: 'cold-iron',
   Silver: 'silver',
   Orichalcum: 'orichalcum',
   Magical: 'magical',
+  GhostTouch: 'ghost-touch',
 } as const;
 export type DamageException = ValueOf<typeof DamageException>;
 export const DamageExceptionSchema = z.enum(DamageException);
