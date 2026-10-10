@@ -1,0 +1,6 @@
+<fr-virtual-list [gap]="gap()" [estimate]="estimate()" [itemKey]="itemKey()">
+  <ng-template let-item let-index="index" [frVirtualItem]="items()">
+    <fr-text>{{ item }}</fr-text>
+    <fr-text>{{ index }}</fr-text>
+  </ng-template>
+</fr-virtual-list>
