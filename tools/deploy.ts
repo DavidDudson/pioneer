@@ -52,7 +52,10 @@ export interface HealthPolicy {
   readonly intervalMs: number;
 }
 
-/** A cold start (Lambda pulls the image, Neon wakes) takes a few seconds; a minute is plenty. */
+/**
+ * A cold start (Lambda pulls the image, Neon wakes) takes a few seconds. About a minute while requests fail fast;
+ * requests that hang until their timeout stretch it to several minutes.
+ */
 export const DEFAULT_HEALTH: HealthPolicy = { attempts: 30, intervalMs: 2000 };
 
 export interface DeployResult {
@@ -154,7 +157,7 @@ async function healthProblem(deps: DeployDeps, url: string): Promise<string | un
       deps.log(`${url}: ${body}`);
       return undefined;
     }
-    return `HTTP ${status}`;
+    return status === HTTP_OK ? `HTTP ${status} without "ok" in the body` : `HTTP ${status}`;
   } catch (error) {
     return error instanceof Error ? error.message : String(error);
   }

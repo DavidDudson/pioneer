@@ -72,6 +72,11 @@ Notes behind the table:
   few minutes, well inside Lambda's 15-minute timeout, and clients resume from their last sequence. The short cap
   bounds what a stream costs after its client has gone. The transport is Server-Sent Events ([ADR-0017](0017-live-sync-over-server-sent-events.md)).
 - **Migrations run as a deploy step**, not on start (`MIGRATE_ON_START=false`, [ADR-0011](0011-api-binary-and-migrations.md)).
+- **GitHub Actions deploys every merge to `main`** (#114). Jobs in the repository's `production` environment, which
+  allows `main` only, assume an IAM role over OIDC, so no AWS keys live in GitHub. The runner copies the image to
+  ECR, migrates Neon with it, then points the function at it and checks `/api/health`; rolling back redeploys an
+  earlier `sha-` tag. The role can read the function's environment, which it needs for `DATABASE_URL` anyway; a
+  separate copy of the secret in GitHub or SSM was the alternative, at the cost of a second place to rotate it.
 - **Backups are ours**: a nightly compressed `pg_dump` to Cloudflare R2 with a restore drill (#115), since Neon
   Free keeps only 6 hours of history. Keeping 7 daily and 4 weekly dumps of a database capped at 1 GB stays well
   inside R2's free 10 GB-month of storage, and R2 does not charge for egress, so restores are free too.

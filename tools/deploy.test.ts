@@ -27,12 +27,19 @@ interface FakeSetup {
   readonly health?: readonly (HttpResponse | Error)[];
   /** Command prefixes that exit non-zero. */
   readonly failing?: readonly string[];
+  /** What the function's environment holds; both variables by default. */
+  readonly settings?: Readonly<Record<string, string>>;
 }
 
 const ok = (stdout = ''): CommandResult => ({ code: 0, stdout: `${stdout}\n`, stderr: '' });
 const healthy: HttpResponse = { status: 200, body: '{"status":"ok"}' };
 
-function fake({ inEcr = [], health = [healthy], failing = [] }: FakeSetup = {}): Fake {
+function fake({
+  inEcr = [],
+  health = [healthy],
+  failing = [],
+  settings = { databaseUrl: DATABASE_URL, origin: ORIGIN },
+}: FakeSetup = {}): Fake {
   const calls: Call[] = [];
   const masked: string[] = [];
   const sleeps: number[] = [];
@@ -49,7 +56,7 @@ function fake({ inEcr = [], health = [healthy], failing = [] }: FakeSetup = {}):
       return ok(`${REPOSITORY}:sha-0000000`);
     }
     if (command.startsWith('aws lambda get-function-configuration')) {
-      return ok(JSON.stringify({ databaseUrl: DATABASE_URL, origin: ORIGIN }));
+      return ok(JSON.stringify(settings));
     }
     if (command.startsWith('aws ecr describe-images')) {
       const present = inEcr.some((tag) => command.endsWith(`imageTag=${tag}`));
@@ -178,9 +185,28 @@ describe('deploy', () => {
   });
 
   test('fails when health never answers ok', async () => {
-    const { deps } = fake({ health: [{ status: 503, body: 'Service Unavailable' }] });
+    const { deps, sleeps } = fake({ health: [{ status: 503, body: 'Service Unavailable' }] });
     const message = await failureOf(deploy('sha-1a2b3c4', deps, FAST));
     expect(message).toStartWith(`${ORIGIN}/api/health not healthy after 3 attempts: HTTP 503`);
+    expect(sleeps).toStrictEqual([1, 1]);
+  });
+
+  test('fails when a 200 is not the health route, such as the web app’s index.html', async () => {
+    const { deps } = fake({ health: [{ status: 200, body: '<!doctype html>' }] });
+    const message = await failureOf(deploy('sha-1a2b3c4', deps, FAST));
+    expect(message).toEndWith(': HTTP 200 without "ok" in the body');
+  });
+
+  test('stops before ECR, migrating or the function when the function lacks its settings', async () => {
+    const { deps, calls, masked } = fake({ settings: {} });
+    const message = await failureOf(deploy('sha-1a2b3c4', deps, FAST));
+    expect(message).toStartWith('pioneer-api has no DATABASE_URL or PUBLIC_ORIGIN');
+    expect(commandNames(calls)).toStrictEqual([
+      'aws ecr describe-repositories',
+      'aws lambda get-function',
+      'aws lambda get-function-configuration',
+    ]);
+    expect(masked).toStrictEqual([]);
   });
 
   test('stops before touching the function when migrating fails', async () => {

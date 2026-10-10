@@ -24,8 +24,9 @@ resource "aws_iam_role" "deploy" {
   })
 }
 
-# What tools/deploy.ts does: push the image to ECR, read the function's settings, point it at the image. Reading the
-# function returns its environment, so this role can see DATABASE_URL; the deploy needs it to migrate anyway.
+# What tools/deploy.ts does: push the image to ECR, read the function's settings, point it at the image. Reading or
+# updating the function returns its whole environment, OAuth secrets included, so this role can read them all; the
+# deploy uses DATABASE_URL to migrate and PUBLIC_ORIGIN to check health.
 resource "aws_iam_role_policy" "deploy" {
   name = "deploy"
   role = aws_iam_role.deploy.id
