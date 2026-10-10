@@ -139,8 +139,9 @@
   --fr-surface-skeleton: var(--fr-ramp-neutral-200);
 
   --fr-fg-default: var(--fr-ramp-neutral-900);
-  --fr-fg-muted: var(--fr-ramp-neutral-700);
-  --fr-fg-subtle: var(--fr-ramp-neutral-600);
+  /* Muted 800, subtle 700: subtle at 600 drops under 4.5:1 on tavern's parchment and on sunken surfaces. */
+  --fr-fg-muted: var(--fr-ramp-neutral-800);
+  --fr-fg-subtle: var(--fr-ramp-neutral-700);
   --fr-fg-disabled: var(--fr-ramp-neutral-400);
   --fr-fg-inverse: var(--fr-ramp-neutral-50);
 
@@ -149,16 +150,17 @@
   --fr-line-strong: var(--fr-ramp-neutral-500);
   --fr-line-focus: var(--fr-ramp-accent-500);
 
-  --fr-accent-solid: var(--fr-ramp-accent-600);
-  --fr-accent-solid-hover: var(--fr-ramp-accent-700);
-  --fr-accent-solid-active: var(--fr-ramp-accent-800);
+  /* 700, not 600: white text on 600 is about 4.2:1. */
+  --fr-accent-solid: var(--fr-ramp-accent-700);
+  --fr-accent-solid-hover: var(--fr-ramp-accent-800);
+  --fr-accent-solid-active: var(--fr-ramp-accent-900);
   --fr-accent-subtle: var(--fr-ramp-accent-100);
   --fr-accent-fg: var(--fr-ramp-accent-700);
   --fr-accent-on-solid: oklch(1 0 0);
   --fr-accent-line: var(--fr-ramp-accent-300);
 
-  --fr-danger-solid: var(--fr-ramp-danger-600);
-  --fr-danger-solid-hover: var(--fr-ramp-danger-700);
+  --fr-danger-solid: var(--fr-ramp-danger-700);
+  --fr-danger-solid-hover: var(--fr-ramp-danger-800);
   --fr-danger-subtle: var(--fr-ramp-danger-100);
   --fr-danger-fg: var(--fr-ramp-danger-700);
   --fr-danger-line: var(--fr-ramp-danger-300);
@@ -175,7 +177,7 @@
   --fr-info-fg: var(--fr-ramp-info-700);
   --fr-info-line: var(--fr-ramp-info-300);
 
-  /* The *-solid steps (600) are under 4.5:1 for small text, so badges fill one step darker; warning stays light. */
+  /* Badge fills: 700 keeps small white text at 4.5:1 (success and info solids, at 600, do not); warning stays light. */
   --fr-accent-emphasis: var(--fr-ramp-accent-700);
   --fr-accent-on-emphasis: oklch(1 0 0);
   --fr-danger-emphasis: var(--fr-ramp-danger-700);
