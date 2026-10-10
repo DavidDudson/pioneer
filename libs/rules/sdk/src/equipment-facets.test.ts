@@ -208,7 +208,7 @@ describe('equipment facet values', () => {
   });
 
   test('a weapon that deals no damage gives no damage type but its persistent one', () => {
-    const glue = { dice: 0, damageType: 'bludgeoning' };
+    const glue = { dice: 0, die: 'd6', damageType: 'bludgeoning' };
     const glueBomb = item({ kind: 'weapon', slug: 'glue-bomb', data: { ...longsword.data, damage: glue } });
     const sticky = { ...glue, persistent: { formula: '1', damageType: 'acid' } };
     const stickyBomb = item({ kind: 'weapon', slug: 'sticky-bomb', data: { ...longsword.data, damage: sticky } });

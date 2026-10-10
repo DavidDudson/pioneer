@@ -111,8 +111,8 @@ export const DAMAGE_TYPE_FACET: FacetDefinition = {
   derive: (entry): readonly unknown[] => {
     if (entry.kind === ContentKind.Weapon) {
       const { damage } = entry.data;
-      // A weapon with no dice and no die deals no damage (a glue bomb): its type is a placeholder.
-      const deals = damage.dice > 0 || damage.die !== undefined;
+      // `dice` counts dice, or flat damage with no `die`; at 0 the weapon deals none (a glue bomb).
+      const deals = damage.dice > 0;
       return [deals ? damage.damageType : undefined, damage.persistent?.damageType].filter(
         (type) => type !== undefined,
       );
