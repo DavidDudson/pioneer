@@ -169,7 +169,8 @@ its damage is its description, and the effects it applies are `effect` entries.
 
 Every item kind but `kit` always has a `level`, 0 to 30, and has the physical fields beside those listed. Foundry
 pf2e's `ammo` items are consumables with the `ammunition` category, and its `backpack` items are equipment with a
-`container`. Whether an item is equipped, invested or identified is play state, not content.
+`container` ([ADR-0023](../adr/0023-equipment-kinds-diverge-from-foundry-items.md)). Whether an item is equipped,
+invested or identified is play state, not content.
 
 | Kind         | `data`                                                                                    |
 | ------------ | ----------------------------------------------------------------------------------------- |

@@ -2,7 +2,7 @@ import { array, constant, constantFrom, integer, oneof, record, subarray, tuple,
 import type { Arbitrary } from 'fast-check';
 
 import { ArmorGroup, ArmorItemCategory } from '../armor';
-import { Attribute } from '../attribute';
+import { Attribute, ATTRIBUTE_MODIFIER_MAX, ATTRIBUTE_MODIFIER_MIN } from '../attribute';
 import { ConsumableCategory } from '../consumable';
 import { ContentKind } from '../content-kind';
 import { TreasureCategory } from '../equipment';
@@ -111,7 +111,7 @@ const armorData: Arbitrary<object> = physical(
     dexCap: smallint,
     checkPenalty: positive,
     speedPenalty: smallint,
-    strength: integer({ min: 0, max: RUNE_GRADE_MAX }),
+    strength: integer({ min: ATTRIBUTE_MODIFIER_MIN, max: ATTRIBUTE_MODIFIER_MAX }),
     runes: runesWith('resilient'),
   },
 );
@@ -199,7 +199,7 @@ export const EQUIPMENT_KIND_ARBITRARIES = {
   [ContentKind.Armor]: { data: armorData, level: itemLevel },
   [ContentKind.Consumable]: { data: consumableData, level: itemLevel },
   [ContentKind.Equipment]: { data: equipmentData, level: itemLevel },
-  [ContentKind.Kit]: { data: kitData },
+  [ContentKind.Kit]: { data: kitData, levelless: true },
   [ContentKind.Rune]: { data: runeData, level: itemLevel },
   [ContentKind.Shield]: { data: shieldData, level: itemLevel },
   [ContentKind.Treasure]: { data: treasureData, level: itemLevel },

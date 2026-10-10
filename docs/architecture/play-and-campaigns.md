@@ -167,7 +167,7 @@ campaign_links        id, campaign_id, token_hash (unique), created_at, last_use
   `foundry` (Foundry is the source of truth; Pioneer mirrors it read-only), `pioneer` (players manage it in
   Pioneer; the actor follows and Foundry edits are overwritten by the next push) or `disconnected` (the default;
   each side tracks its own).
-- **Foundry module** ([ADR-0022](../adr/0022-foundry-module-and-sync-model.md)). A Pioneer module for Foundry,
+- **Foundry module** ([ADR-0023](../adr/0022-foundry-module-and-sync-model.md)). A Pioneer module for Foundry,
   installed from the manifest Pioneer serves at `/foundry/module.json`, pulls the campaign's characters as pf2e
   actors (see [Foundry export](#foundry-export)) and flags each actor with its character id and revisions.
   Foundry servers are often behind NAT, so the module always calls Pioneer, never the reverse. It sends the

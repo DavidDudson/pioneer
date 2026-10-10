@@ -21,8 +21,9 @@ import { VariantRuleData } from './variant-rule';
 
 /**
  * The `data` schema for each kind that has one. A kind joins here with its schema module and an arm of `Entry`
- * (`content-entry.ts`); the rest of `ContentKind` is rejected until it does. The magic kinds come in from
- * `magic-kind-data.ts`, the equipment kinds from `equipment-kind-data.ts`.
+ * (`content-entry.ts`, or `equipment-entries.ts` for the equipment kinds); the rest of `ContentKind` is rejected
+ * until it does. The magic kinds come in from `magic-kind-data.ts`, the equipment kinds from
+ * `equipment-kind-data.ts`.
  */
 export const KIND_DATA = {
   [ContentKind.Action]: ActionData,

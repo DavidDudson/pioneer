@@ -49,7 +49,7 @@ const ArmorRunes = z
 
 /**
  * Armour's `data` on the `ContentEntry` envelope. Penalties are their size: a check penalty of 1 is -1, a speed
- * penalty of 5 is -5 feet, as Foundry pf2e stores them negated.
+ * penalty of 5 is -5 feet, where Foundry pf2e stores them negative.
  */
 export const ArmorData = z.strictObject({
   ...physicalFields,

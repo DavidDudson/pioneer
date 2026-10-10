@@ -144,10 +144,14 @@ const emptyData: Arbitrary<object> = constant({});
 const entryLevel: Arbitrary<number> = integer({ min: 0, max: CONTENT_LEVEL_MAX });
 const creatureLevel: Arbitrary<number> = integer({ min: LEVEL_MIN, max: LEVEL_MAX });
 
-/** Valid `data` for each registered kind, and its level when the kind always has one. */
-const KIND_ARBITRARIES: Readonly<
-  Record<RegisteredKind, { readonly data: Arbitrary<object>; readonly level?: Arbitrary<number> }>
-> = {
+/** Valid `data` for each registered kind, its level when the kind always has one, and whether it never has one. */
+interface KindArbitrary {
+  readonly data: Arbitrary<object>;
+  readonly level?: Arbitrary<number>;
+  readonly levelless?: boolean;
+}
+
+const KIND_ARBITRARIES: Readonly<Record<RegisteredKind, KindArbitrary>> = {
   [ContentKind.Action]: { data: actionData },
   [ContentKind.Ancestry]: { data: ancestryData },
   [ContentKind.Archetype]: { data: archetypeData },
@@ -208,7 +212,7 @@ interface DataAndRules {
 
 /** A valid content entry of `kind`, as plain JSON (unparsed), with every optional field sometimes present. */
 export function contentEntryJson(kind: RegisteredKind): Arbitrary<object> {
-  const { data, level } = KIND_ARBITRARIES[kind];
+  const { data, level, levelless = false } = KIND_ARBITRARIES[kind];
   const dataAndRules: Arbitrary<DataAndRules> = tuple(data, array(ruleElementJson, { maxLength: LIST_MAX })).map(
     ([picked, rules]) => ({ data: picked, rules: [...rules, ...impliedGrants(picked)] }),
   );
@@ -230,7 +234,7 @@ export function contentEntryJson(kind: RegisteredKind): Arbitrary<object> {
   );
   const externalIds = withOptional(constant({}), { foundry: contentText, aon: aonUrl, pathbuilder: contentText });
   return withOptional(required, {
-    ...(level === undefined ? { level: entryLevel } : {}),
+    ...(level === undefined && !levelless ? { level: entryLevel } : {}),
     display: record({ category: displayCategory }),
     externalIds,
     // A random UUID never equals a UUIDv5 id, so these never supersede the entry itself.

@@ -212,7 +212,7 @@ describe('kit kind', () => {
     expect(issues(adventurersPack)).toStrictEqual([]);
   });
 
-  test('a kit holds something, in a positive quantity, and has no Bulk', () => {
+  test('a kit holds something, in a positive quantity, and has no level or Bulk', () => {
     const empty = { ...adventurersPack, data: { items: [] } };
     const weighed = { ...adventurersPack, data: { ...adventurersPack.data, bulk: 1 } };
     const none = { ...adventurersPack, data: { items: [contained('rope', 0)] } };
@@ -220,5 +220,6 @@ describe('kit kind', () => {
     expect(found(empty)).toStrictEqual([`data.items ${ValidationMessage.TooSmall}`]);
     expect(found(weighed)).toStrictEqual([`data.bulk ${ValidationMessage.UnrecognizedKeys}`]);
     expect(found(none)).toStrictEqual([`data.items.0.quantity ${ValidationMessage.TooSmall}`]);
+    expect(found({ ...adventurersPack, level: 1 })).toStrictEqual([`level ${ValidationMessage.UnrecognizedKeys}`]);
   });
 });

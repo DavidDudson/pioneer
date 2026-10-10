@@ -143,7 +143,14 @@ const sturdyShield = {
   ...item('sturdy-shield-minor', 'Sturdy Shield (Minor)', 4),
   kind: 'shield',
   traits: ['magical'],
-  data: { price: { coins: { gp: 100 } }, bulk: 1, baseItem: 'steel-shield', acBonus: 2, hardness: 8, hitPoints: 64 },
+  data: {
+    price: { coins: { gp: 100 } },
+    bulk: 1,
+    baseItem: 'steel-shield',
+    acBonus: 2,
+    hardness: 8,
+    hitPoints: 64,
+  },
 };
 
 describe('weapon, armor and shield kinds', () => {
@@ -155,6 +162,10 @@ describe('weapon, armor and shield kinds', () => {
     ['heavy armour with penalties and a Strength threshold', fullPlate],
     ['light armour', leatherArmor],
     ['a specific magic shield', sturdyShield],
+    [
+      'a shield with a reinforcing rune',
+      { ...sturdyShield, data: { ...sturdyShield.data, runes: { reinforcing: 1 } } },
+    ],
   ])('accepts %s', (_name, value) => {
     expect(issues(value)).toStrictEqual([]);
   });
@@ -220,6 +231,12 @@ describe('weapon, armor and shield kinds', () => {
       `data.damage.persistent.formula ${RulesMessage.UnknownReference}`,
       `data.itemBonus ${ValidationMessage.TooBig}`,
       `data.usage.to ${ValidationMessage.UnrecognizedKeys}`,
+    ]);
+  });
+
+  test("a specific shield's reinforcing rune goes to grade 6", () => {
+    expect(found({ ...sturdyShield, data: { ...sturdyShield.data, runes: { reinforcing: 7 } } })).toStrictEqual([
+      `data.runes.reinforcing ${ValidationMessage.TooBig}`,
     ]);
   });
 

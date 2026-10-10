@@ -5,8 +5,11 @@ import { address, envelope } from './entry-envelope';
 import { KIND_DATA } from './kind-data';
 import { ContentLevel } from './units';
 
-/** An item always has a level, 0 to 30, as in Foundry pf2e; a kit has none. */
+/** An item always has a level, 0 to 30, as in Foundry pf2e. */
 const item = { ...envelope, level: ContentLevel };
+
+/** A kit has no level of its own. */
+const { level: _level, ...kit } = envelope;
 
 /** The `Entry` arms (`content-entry.ts`) of the equipment kinds. */
 export const EQUIPMENT_ENTRIES = [
@@ -23,7 +26,7 @@ export const EQUIPMENT_ENTRIES = [
     ...item,
     data: KIND_DATA[ContentKind.Equipment],
   }),
-  z.strictObject({ ...address, kind: z.literal(ContentKind.Kit), ...envelope, data: KIND_DATA[ContentKind.Kit] }),
+  z.strictObject({ ...address, kind: z.literal(ContentKind.Kit), ...kit, data: KIND_DATA[ContentKind.Kit] }),
   z.strictObject({ ...address, kind: z.literal(ContentKind.Rune), ...item, data: KIND_DATA[ContentKind.Rune] }),
   z.strictObject({ ...address, kind: z.literal(ContentKind.Shield), ...item, data: KIND_DATA[ContentKind.Shield] }),
   z.strictObject({

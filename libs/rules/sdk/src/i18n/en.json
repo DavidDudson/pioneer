@@ -154,7 +154,7 @@
     },
     "rune": {
       "propertySlots": "{potency, plural, =0 {Without a potency rune, an item holds no property runes.} one {A +1 potency rune holds 1 property rune.} other {A +# potency rune holds # property runes.}}",
-      "etchedOnto": "A {rune} rune isn’t etched onto {item}.",
+      "etchedOnto": "A {rune} rune isn’t etched onto {item, select, weapon {a weapon} armor {armor} shield {a shield} other {{item}}}.",
       "grade": "A {rune} rune goes up to grade {max}; only reinforcing runes go higher."
     },
     "consumable": {
