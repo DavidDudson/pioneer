@@ -1,4 +1,5 @@
 import { ACTION_FACETS, FEAT_FACETS } from './action-facets';
+import { EQUIPMENT_FACETS } from './equipment-facets';
 import { COMMON_FACETS } from './facet';
 import type { FacetDefinition, FacetId } from './facet';
 import type { RegisteredKind } from './kind-data';
@@ -10,8 +11,16 @@ import { SPELL_FACETS } from './spell-facets';
  */
 const KIND_FACETS: Readonly<Partial<Record<RegisteredKind, readonly FacetDefinition[]>>> = {
   action: ACTION_FACETS,
+  armor: EQUIPMENT_FACETS,
+  consumable: EQUIPMENT_FACETS,
+  equipment: EQUIPMENT_FACETS,
   feat: FEAT_FACETS,
+  kit: EQUIPMENT_FACETS,
+  rune: EQUIPMENT_FACETS,
+  shield: EQUIPMENT_FACETS,
   spell: SPELL_FACETS,
+  treasure: EQUIPMENT_FACETS,
+  weapon: EQUIPMENT_FACETS,
 };
 
 /** The facets for a list holding `kinds`: the common ones, then each kind's own, each facet once. */

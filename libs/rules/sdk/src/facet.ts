@@ -3,6 +3,7 @@ import * as z from 'zod';
 
 import type { ContentEntry } from './content-entry';
 import { Slug } from './content-id';
+import type { ContentKind } from './content-kind';
 import { Rarity } from './entry-fields';
 
 /**
@@ -35,6 +36,10 @@ export type FacetValue = z.infer<typeof FacetValue>;
 export const RangeBound = z.int().brand<'RangeBound'>();
 export type RangeBound = z.infer<typeof RangeBound>;
 
+/** A range facet's values per unit shown: bulk counts tenths, so its scale is 10 and a value of 10 is 1 Bulk. */
+export const RangeScale = z.int().positive().brand<'RangeScale'>();
+export type RangeScale = z.infer<typeof RangeScale>;
+
 export const FlagValue = { Yes: 'yes', No: 'no' } as const;
 export type FlagValue = ValueOf<typeof FlagValue>;
 
@@ -56,6 +61,13 @@ interface FacetBase {
   readonly type: FacetType;
   readonly label: FacetLabel;
   readonly values?: ReadonlyMap<FacetValue, FacetLabel>;
+  /**
+   * The kinds a facet reads when it reads only some of the kinds it is listed for (weapon group among the
+   * equipment kinds), so a UI can hide it unless the list holds one of them. Absent, it reads them all.
+   */
+  readonly appliesTo?: readonly ContentKind[];
+  /** How many of a range facet's values make one of the unit it is shown in; absent is 1. */
+  readonly scale?: RangeScale;
 }
 
 /**
