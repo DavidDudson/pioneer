@@ -48,35 +48,39 @@ whether it is a check or a DC (see [rules-engine.md](rules-engine.md#statistics-
 
 ### Rich text
 
-Descriptions are stored as a small, safe document AST, not HTML: `RichText` in `libs/rules/sdk` (`rich-text.ts`).
-A document is an array of blocks:
+Descriptions are stored as a small, safe document AST, not HTML: `RichText` in `libs/rules/sdk` (`rich-text.ts`),
+see [ADR-0019](../adr/0019-rich-text-ast-rendered-in-rules-ui.md). A document is an array of blocks:
 
 | Block       | Fields                                                                       |
 | ----------- | ---------------------------------------------------------------------------- |
 | `paragraph` | `content`: inline nodes                                                      |
-| `heading`   | `level` 1 to 3, below the entry's own title; `content`                       |
+| `heading`   | `level` 1 to 3, below the heading the text sits under; `content`             |
 | `list`      | `ordered`; `items`, each a run of blocks, so items hold paragraphs and lists |
 | `table`     | `caption?`, `header?` (one row of cells), `rows`; a cell is inline nodes     |
 | `rule`      | a thematic break, as before a spell's heightened entries                     |
 
 Inline nodes carry semantics so text stays live:
 
-- `text`: a run of text, with `marks` `emphasis` and `strong`. Always text: `<b>` in it is four characters.
+- `text`: a run of text, with `marks` `emphasis` and `strong`. Always text, never markup.
+- `line-break`: a break inside a run, where the division is content (a stat line, a table cell).
 - `ref`: a link to another content entry by `ContentId` ("[Off-Guard]", "[Seek]"), with an optional `label`; the
   name comes from the entry otherwise.
-- `check`: a `statistic` selector, optional `dc`, `basic` and roll `options` ("DC 20 Athletics"), rollable later.
-- `damage`: a `formula` of dice and a formula (`2d6`, `1d8 + @attr.str`) and an optional `damageType` ("2d6
-  fire"), rollable later. The non-dice part is checked against the formula reference vocabulary.
-- `template`: an area `shape` and `size` in feet ("20-foot burst").
+- `check`: a `statistic` selector, an optional `dc` (a number, or `{ against: <selector> }` for another
+  statistic's DC such as a class DC), `basic` (saves only) and roll `options` ("DC 20 Athletics", "basic Reflex
+  save").
+- `damage`: `instances`, each a `formula` of dice and a formula (`2d6`, `1d8 + @attr.str`, `(@item.level)d6`) with an
+  optional `damageType` and `persistent` or `splash` `category`; `healing` when it restores hit points ("2d6 fire
+  and 1d6 persistent fire", "2d8 healing"). Everything but the dice is checked against the formula vocabulary.
+- `template`: an area `shape` and `size` in feet, and a `width` for lines ("60-foot line, 10 feet wide").
 - `duration`: a `count` of rounds, minutes, hours or days.
-- `action-cost`: an action glyph (`one`, `two`, `three`, `free`, `reaction`), spelled out for screen readers.
+- `action-cost`: an action glyph (`one`, `two`, `three`, `free`, `reaction`), read out as its name.
 
-There is no line break node: the importer splits `<br>` into paragraphs. A document may nest at most 24 levels of
-JSON and hold at most 5000 arrays and objects; anything bigger is rejected before the schema walks it.
+Checks and damage become rollable with the dice work. A document may nest at most 24 levels of JSON and hold at most
+5000 arrays and objects; anything bigger is rejected before the schema walks it.
 
 `libs/rules/ui` renders it: `pio-rich-text` builds every node from frontier components and never sets HTML. Pages
-give it links and names for references and statistics with `provideRichTextLinks`; without them a reference shows
-its label and links nowhere. The rules playground's "Rich text" mode validates a document and previews it.
+give it names and links for references and statistics with `provideRichTextLinks`, and the outline level of its
+headings with `headingLevel`. The rules playground's "Rich text" mode validates a document and previews it.
 
 The importer converts Foundry's HTML and enrichers (`@UUID[...]`, `@Check[...]`, `@Damage[...]`, `@Template[...]`)
 into this AST.

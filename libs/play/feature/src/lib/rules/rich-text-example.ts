@@ -16,7 +16,7 @@ export const EXAMPLE_RICH_TEXT = [
       { type: 'text', text: ' A burst of flame fills a ' },
       { type: 'template', shape: 'burst', size: EXAMPLE_BURST },
       { type: 'text', text: ', dealing ' },
-      { type: 'damage', formula: '6d6', damageType: 'fire' },
+      { type: 'damage', instances: [{ formula: '6d6', damageType: 'fire' }] },
       { type: 'text', text: ' with a ' },
       { type: 'check', statistic: 'save:reflex', dc: EXAMPLE_DC, basic: true },
       { type: 'text', text: '.' },
@@ -46,6 +46,6 @@ export const EXAMPLE_RICH_TEXT = [
   {
     type: 'table',
     header: [[{ type: 'text', text: 'Rank' }], [{ type: 'text', text: 'Damage' }]],
-    rows: [[[{ type: 'text', text: '4th' }], [{ type: 'damage', formula: '8d6', damageType: 'fire' }]]],
+    rows: [[[{ type: 'text', text: '4th' }], [{ type: 'damage', instances: [{ formula: '8d6', damageType: 'fire' }] }]]],
   },
 ];

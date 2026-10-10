@@ -1,12 +1,16 @@
 @let leaf = block();
 @switch (leaf.type) {
   @case ('table') {
-    <pio-rich-table [table]="leaf" />
+    @defer {
+      <pio-rich-table [table]="leaf" />
+    } @placeholder {
+      <fr-skeleton shape="block" />
+    }
   }
   @case ('rule') {
     <fr-divider />
   }
   @default {
-    <pio-rich-prose [block]="leaf" />
+    <pio-rich-prose [block]="leaf" [headingLevel]="headingLevel()" />
   }
 }

@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
-import { List, ListItem, Stack } from '@pioneer/frontier';
+import { HeadingLevel, List, ListItem, Stack } from '@pioneer/frontier';
 import type { RichText } from '@pioneer/rules/sdk';
 
 import { RichBlock } from './rich-block/rich-block.component';
@@ -21,4 +21,6 @@ import { RichBlock } from './rich-block/rich-block.component';
 })
 export class RichTextView {
   public readonly text = input.required<RichText>();
+  /** The outline level of the text's level-1 headings: one below the heading the text sits under. */
+  public readonly headingLevel = input<HeadingLevel>(HeadingLevel.Two);
 }

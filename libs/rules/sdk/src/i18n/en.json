@@ -29,10 +29,6 @@
     "richText": {
       "tooDeep": "Rich text can nest at most {maximum} levels deep.",
       "tooLarge": "Rich text can hold at most {maximum} nodes, lists and rows together.",
-      "check": "{hasDc, select, yes {DC {dc} } other {}}{basic, select, yes {basic } other {}}{statistic}",
-      "damage": "{formula}{damageType, select, bludgeoning { bludgeoning} piercing { piercing} slashing { slashing} acid { acid} cold { cold} electricity { electricity} fire { fire} sonic { sonic} vitality { vitality} void { void} force { force} spirit { spirit} mental { mental} poison { poison} bleed { bleed} precision { precision} other {}}",
-      "template": "{size}-foot {shape, select, burst {burst} cone {cone} cube {cube} cylinder {cylinder} emanation {emanation} line {line} other {area}}",
-      "duration": "{count, plural, one {# {unit, select, round {round} minute {minute} hour {hour} other {day}}} other {# {unit, select, round {rounds} minute {minutes} hour {hours} other {days}}}}",
       "unnamedEntry": "linked entry",
       "table": "Table",
       "actionCost": {
@@ -58,7 +54,50 @@
         }
       },
       "basicSave": "Only saving throws (statistics starting save:) can be basic.",
-      "widthOnLine": "Only a line has a width; other areas have just a size."
+      "widthOnLine": "Only a line has a width; other areas have just a size.",
+      "check": "{hasDc, select, yes {DC {dc} } other {}}{basic, select, yes {basic } other {}}{statistic}{save, select, yes { save} other {}}{against, select, yes { against {againstName}} other {}}",
+      "damage": "{formula}{hasCategory, select, yes { {category}} other {}}{hasType, select, yes { {damageType}} other {}}",
+      "healing": "{amount} healing",
+      "template": "{distance} {shape}{wide, select, yes {, {width} wide} other {}}",
+      "unnamedCheck": "check",
+      "unnamedSave": "saving throw",
+      "unnamedDc": "the listed DC",
+      "damageType": {
+        "bludgeoning": "bludgeoning",
+        "piercing": "piercing",
+        "slashing": "slashing",
+        "acid": "acid",
+        "cold": "cold",
+        "electricity": "electricity",
+        "fire": "fire",
+        "sonic": "sonic",
+        "vitality": "vitality",
+        "void": "void",
+        "force": "force",
+        "spirit": "spirit",
+        "mental": "mental",
+        "poison": "poison",
+        "bleed": "bleed",
+        "precision": "precision"
+      },
+      "damageCategory": {
+        "persistent": "persistent",
+        "splash": "splash"
+      },
+      "areaShape": {
+        "burst": "burst",
+        "cone": "cone",
+        "cube": "cube",
+        "cylinder": "cylinder",
+        "emanation": "emanation",
+        "line": "line"
+      },
+      "duration": {
+        "round": "{count, plural, one {# round} other {# rounds}}",
+        "minute": "{count, plural, one {# minute} other {# minutes}}",
+        "hour": "{count, plural, one {# hour} other {# hours}}",
+        "day": "{count, plural, one {# day} other {# days}}"
+      }
     },
     "reference": {
       "level": "The character’s level.",

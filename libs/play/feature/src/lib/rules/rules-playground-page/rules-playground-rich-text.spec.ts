@@ -8,10 +8,10 @@ describe('RulesPlaygroundPage rich text', () => {
     await chooseSchema(harness, 'Rich text');
     const text = pageText(harness);
 
-    const expected = ['Valid.', 'Preview', '20-foot burst', '6d6 fire', 'DC 18 basic save:reflex', '1 round'];
+    const expected = ['Valid.', 'Preview', '20 ft burst', '6d6 fire', 'DC 18 basic saving throw', '1 round'];
 
     expect(expected.filter((phrase) => !text.includes(phrase))).toStrictEqual([]);
-    expect(harness.routeNativeElement?.querySelector('abbr')?.getAttribute('title')).toBe('Two actions');
+    expect(harness.routeNativeElement?.querySelector('.sr-only')?.textContent).toContain('Two actions');
   });
 
   it('drops the preview and lists the problems when the text does not validate', async () => {

@@ -1,0 +1,6 @@
+@let mark = node();
+@if (mark.type === 'action-cost') {
+  <fr-glyph [label]="actionCosts[mark.cost].label | transloco">{{ actionCosts[mark.cost].glyph | transloco }}</fr-glyph>
+} @else {
+  <fr-line-break />
+}

@@ -3,11 +3,11 @@
     @if (block.type === 'list') {
       <fr-list markers [ordered]="block.ordered">
         @for (item of block.items; track $index) {
-          <fr-list-item><pio-rich-text [text]="item" /></fr-list-item>
+          <fr-list-item><pio-rich-text [text]="item" [headingLevel]="headingLevel()" /></fr-list-item>
         }
       </fr-list>
     } @else {
-      <pio-rich-block [block]="block" />
+      <pio-rich-block [block]="block" [headingLevel]="headingLevel()" />
     }
   }
 </fr-stack>

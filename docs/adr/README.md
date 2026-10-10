@@ -23,6 +23,7 @@ Accepted. To change a decision, add a new ADR that supersedes the old one; do no
 | [0016](0016-formula-reference-vocabulary.md)          | Formula references use Pioneer's paths, translated from Foundry |
 | [0017](0017-live-sync-over-server-sent-events.md)     | Live sync over Server-Sent Events, fanned out per stream        |
 | [0018](0018-foundry-is-the-live-play-surface.md)      | Foundry is the live play surface; Pioneer syncs to it           |
+| [0019](0019-rich-text-ast-rendered-in-rules-ui.md)    | Rich text is a document AST, rendered by `rules/ui`             |
 
 Template:
 
