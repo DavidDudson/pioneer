@@ -37,6 +37,18 @@ async function render(inputs: Readonly<Record<string, unknown>>, url?: string): 
   return anchor;
 }
 
+/** A `tabindex="-1"` region with id "results", in the document until the test ends. */
+function region(): HTMLElement {
+  const target = document.createElement('section');
+  target.id = 'results';
+  target.tabIndex = -1;
+  document.body.append(target);
+  onTestFinished(() => {
+    target.remove();
+  });
+  return target;
+}
+
 describe(Link, () => {
   it('navigates in the app through the router', async () => {
     const anchor = await render({ to: ['/characters', 'valeros'] });
@@ -146,5 +158,32 @@ describe(Link, () => {
     await TestBed.inject(ApplicationRef).whenStable();
     expect(anchor.hasAttribute('aria-current')).toBe(false);
     expect([...anchor.classList]).not.toContain('decoration-link-current');
+  });
+
+  describe('skipTo', () => {
+    it('points at the element on this page and is never current', async () => {
+      const anchor = await render({ skipTo: 'results' }, '/characters');
+      expect(anchor.getAttribute('href')).toBe('#results');
+      expect(anchor.hasAttribute('aria-current')).toBe(false);
+      expect(anchor.hasAttribute('rel')).toBe(false);
+    });
+
+    it('moves focus to the element without navigating', async () => {
+      const target = region();
+      const anchor = await render({ skipTo: 'results' }, '/characters');
+      const click = new MouseEvent('click', { bubbles: true, cancelable: true });
+      anchor.dispatchEvent(click);
+      expect(click.defaultPrevented).toBe(true);
+      expect(document.activeElement).toBe(target);
+      expect(TestBed.inject(Router).url).toBe('/characters');
+    });
+
+    it('stays put when no element has the id', async () => {
+      const anchor = await render({ skipTo: 'missing' }, '/characters');
+      const click = new MouseEvent('click', { bubbles: true, cancelable: true });
+      anchor.dispatchEvent(click);
+      expect(click.defaultPrevented).toBe(true);
+      expect(TestBed.inject(Router).url).toBe('/characters');
+    });
   });
 });
