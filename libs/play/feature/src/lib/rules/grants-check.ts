@@ -1,5 +1,12 @@
 import { resolveGrants } from '@pioneer/rules/grants';
-import type { ConditionalGrant, GrantEntry, GrantedItem, GrantResolution, GrantRoot } from '@pioneer/rules/grants';
+import type {
+  ChoiceSlot,
+  ConditionalGrant,
+  GrantEntry,
+  GrantedItem,
+  GrantResolution,
+  GrantRoot,
+} from '@pioneer/rules/grants';
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import type { PredicateSummary } from '@pioneer/rules/predicate';
 import {
@@ -18,6 +25,8 @@ import type { OriginHop } from '@pioneer/rules/sdk';
 import type { MessageDescriptor, ValueOf } from '@pioneer/shared/kernel';
 import { z } from 'zod';
 
+import { choiceRow, choiceSlugsToIds, parsePicks } from './grant-choices';
+import type { ChoiceRow, SlugTable } from './grant-choices';
 import { parseFacts } from './predicate-verdict';
 import { CheckStatus, readJson } from './rules-check';
 import type { JsonProblem } from './rules-check';
@@ -54,7 +63,7 @@ interface GrantRow {
   readonly via: readonly string[];
 }
 
-export interface ConditionalRow extends GrantRow {
+interface ConditionalRow extends GrantRow {
   readonly summary: PredicateSummary;
 }
 
@@ -66,11 +75,13 @@ interface GrantErrorRow {
 export const GrantsStatus = { Valid: CheckStatus.Valid, Problems: 'problems' } as const;
 export type GrantsStatus = ValueOf<typeof GrantsStatus>;
 
-/** The three texts the grants tool reads. */
+/** The four texts the grants tool reads. */
 export interface GrantsTexts {
   readonly entries: string;
   /** Root slugs, one per line. */
   readonly roots: string;
+  /** Picks, one `entry:rule = value` per line. */
+  readonly picks: string;
   /** Roll options, one per line, shared with the verdict and statistics tools. */
   readonly facts: string;
 }
@@ -81,6 +92,9 @@ export type GrantsCheck =
       readonly items: readonly GrantRow[];
       readonly duplicates: readonly GrantRow[];
       readonly conditional: readonly ConditionalRow[];
+      readonly open: readonly ChoiceRow[];
+      readonly answered: readonly ChoiceRow[];
+      readonly rollOptions: readonly string[];
       readonly errors: readonly GrantErrorRow[];
     }
   /** Some text does not read; each problem is undefined or empty when its text is fine. */
@@ -89,6 +103,7 @@ export type GrantsCheck =
       readonly entries: JsonProblem | undefined;
       /** The 1-based root lines that are not slugs. */
       readonly rootLines: readonly number[];
+      readonly pickLines: readonly number[];
       readonly factLines: readonly number[];
     };
 
@@ -111,8 +126,16 @@ function parseRoots(text: string): RootsParse {
   return { roots, bad };
 }
 
-function entryOf({ slug, name, rules }: PlaygroundEntry): GrantEntry {
-  return { id: idOfSlug(slug), name, rules, sources: [PLAYGROUND_PAGE] };
+/** The slugs of `entries`, each standing for its id. */
+function slugTable(entries: readonly PlaygroundEntry[]): SlugTable {
+  const slugs = new Map(entries.map((entry) => [idOfSlug(entry.slug), entry.slug]));
+  const known = new Set(slugs.values());
+  return { idOf: idOfSlug, slugOf: (id) => slugs.get(id), has: (slug) => known.has(slug) };
+}
+
+function entryOf({ slug, name, rules }: PlaygroundEntry, table: SlugTable): GrantEntry {
+  const converted = rules.map((rule) => choiceSlugsToIds(rule, table));
+  return { id: idOfSlug(slug), name, rules: converted, sources: [PLAYGROUND_PAGE] };
 }
 
 /** Names the granting entries along `hops`, falling back to the id for one that is missing. */
@@ -120,43 +143,56 @@ function viaOf(hops: readonly OriginHop[], names: ReadonlyMap<ContentId, string>
   return hops.flatMap((hop) => (hop.kind === OriginHopKind.Grant ? [names.get(hop.by) ?? hop.by] : []));
 }
 
-function rowsOf(resolution: GrantResolution, names: ReadonlyMap<ContentId, string>): GrantsCheck {
+function rowsOf(resolution: GrantResolution, names: ReadonlyMap<ContentId, string>, table: SlugTable): GrantsCheck {
   const row = ({ entry, origin }: GrantedItem | ConditionalGrant): GrantRow => ({
     name: entry.name,
     via: viaOf(origin.hops, names),
   });
+  const choice = (slot: ChoiceSlot): ChoiceRow =>
+    choiceRow(slot, {
+      entryName: names.get(slot.origin.entry) ?? slot.origin.entry,
+      via: viaOf(slot.origin.hops, names),
+      table,
+    });
   return {
     status: GrantsStatus.Valid,
     items: resolution.items.map(row),
     duplicates: resolution.duplicates.map(row),
     conditional: resolution.conditional.map((grant) => ({ ...row(grant), summary: grant.summary })),
+    open: resolution.open.map(choice),
+    answered: resolution.answered.map(choice),
+    rollOptions: resolution.rollOptions.map(String),
     errors: resolution.errors.map(({ error, hops }) => ({ error, via: viaOf(hops, names) })),
   };
 }
 
 /**
- * Read the entries as JSON, the roots and roll options as lines, then resolve every grant from the roots down.
- * Never throws.
+ * Read the entries as JSON, the roots, picks and roll options as lines, then resolve every grant from the roots
+ * down. Never throws.
  */
 export function checkGrants(texts: GrantsTexts): GrantsCheck {
   const entries = readJson(PlaygroundEntries, texts.entries);
+  const table = slugTable(entries.status === CheckStatus.Valid ? entries.value : []);
   const roots = parseRoots(texts.roots);
+  const picks = parsePicks(texts.picks, table);
   const facts = parseFacts(texts.facts);
-  if (entries.status !== CheckStatus.Valid || roots.bad.length > 0 || 'lines' in facts) {
+  if (entries.status !== CheckStatus.Valid || roots.bad.length > 0 || picks.bad.length > 0 || 'lines' in facts) {
     return {
       status: GrantsStatus.Problems,
       entries: entries.status === CheckStatus.Valid ? undefined : entries,
       rootLines: roots.bad,
+      pickLines: picks.bad,
       factLines: 'lines' in facts ? facts.lines : [],
     };
   }
-  const content = entries.value.map((entry) => entryOf(entry));
+  const content = entries.value.map((entry) => entryOf(entry, table));
   const byId = new Map(content.map((entry) => [entry.id, entry]));
   const names = new Map(content.map((entry) => [entry.id, String(entry.name)]));
   const resolution = resolveGrants({
     roots: roots.roots,
     lookup: (id) => byId.get(id),
     facts: new PredicateFacts(facts.options),
+    picks: picks.picks,
   });
-  return rowsOf(resolution, names);
+  return rowsOf(resolution, names, table);
 }

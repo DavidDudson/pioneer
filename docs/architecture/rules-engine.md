@@ -333,6 +333,13 @@ Steps 1 and 2 live in `libs/rules/grants` (`resolveGrants`), beside the engine r
   other grants still resolve.
 - A grant's predicate is evaluated like a modifier's. True follows the grant, false drops it, and unknown reports it
   as a **conditional grant** with its predicate summary: not on the character, and not followed further.
+- An inline `ChoiceSet` whose predicate is true is a **slot**, keyed `<entry id>:<rule index>`. The entry is on the
+  character once, so the key is stable however it got there, and picks (slot key to value) survive re-resolution.
+  Options whose predicate is false are left out; unknown ones are offered with their summary.
+- A pick among the offered options answers the slot, and its `rollOption` sets `<rollOption>:<pick>`. A
+  `GrantItem { choice: <flag> }` on the same entry grants the picked entry behind a `choice` hop, then a `grant` hop.
+  With no pick the slot is **open** and the grant waits; a pick not on offer is an error and the slot reopens. A pick
+  that is a plain option, not an entry, cannot be granted. Removing a pick drops everything granted through it.
 
 ### Statistic graph
 

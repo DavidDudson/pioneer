@@ -1,4 +1,4 @@
-export type { AnsweredSlot, ChoicePicks, ChoiceSlot, OfferedOption } from './choices';
+export { type AnsweredSlot, type ChoicePicks, type ChoiceSlot, type OfferedOption, slotKeyOf } from './choices';
 export type { ContentLookup, GrantEntry, GrantError, GrantRoot } from './grant-entry';
 export { GrantsMessage } from './messages';
 export {

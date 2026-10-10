@@ -5,11 +5,13 @@ import {
   ContentText,
   PackId,
   RuleElement,
+  RuleIndex,
   SlotKey,
   Slug,
   SourceRef,
 } from '@pioneer/rules/sdk';
 
+import { slotKeyOf } from '../choices';
 import type { ChoicePicks } from '../choices';
 import type { ContentLookup, GrantEntry, GrantRoot } from '../grant-entry';
 
@@ -54,5 +56,5 @@ export function picksOf(pairs: readonly (readonly [SlotKey, string])[] = []): Ch
 
 /** The slot of rule `rule` on the test pack's entry `slug`. */
 export function slotOf(slug: string, rule: number): SlotKey {
-  return SlotKey.parse(`${idOf(slug)}:${rule}`);
+  return slotKeyOf(idOf(slug), RuleIndex.parse(rule));
 }

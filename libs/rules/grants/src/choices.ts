@@ -97,7 +97,7 @@ function isInlineChoiceSet(element: RuleElement): element is InlineChoiceSet {
  * The slot of rule `rule` on entry `entry`. The entry is on the character once (a duplicate is skipped), so the
  * pair names one slot, and stays the same however the entry got there.
  */
-function slotKeyOf(entry: ContentId, rule: RuleIndex): SlotKey {
+export function slotKeyOf(entry: ContentId, rule: RuleIndex): SlotKey {
   return SlotKey.parse(`${entry}:${rule}`);
 }
 

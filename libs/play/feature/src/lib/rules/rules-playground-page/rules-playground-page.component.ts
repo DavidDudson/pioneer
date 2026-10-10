@@ -21,6 +21,7 @@ import {
   CheckStatus,
   checkTool,
   EXAMPLE_FACTS,
+  EXAMPLE_GRANT_PICKS,
   EXAMPLE_GRANT_ROOTS,
   EXAMPLE_OVERRIDES,
   EXAMPLE_RULE_ELEMENTS,
@@ -41,7 +42,7 @@ const JSON_ROWS = 12;
  * tool parses formula text instead, points at the first mistake, and evaluates it with reference values; the verdict tool evaluates a predicate
  * against roll options and shows which statements hold; the statistics tool derives each statistic's breakdown from
  * definitions, the character's inputs, rule elements and roll options; the grants tool resolves grants from root
- * entries down, each with the chain that put it on the character.
+ * entries down through the picks, each with the chain that put it on the character, and lists the choices to make.
  */
 @Component({
   selector: 'pio-rules-playground-page',
@@ -95,6 +96,8 @@ export class RulesPlaygroundPage {
   protected readonly grantRoots = signal(EXAMPLE_GRANT_ROOTS);
   /** Rule elements set by hand for the statistics tool, as a JSON array. Kept when switching tools. */
   protected readonly statisticOverrides = signal(EXAMPLE_OVERRIDES);
+  /** The grants tool's picks, one `entry:rule = value` per line. Kept when switching tools. */
+  protected readonly grantPicks = signal(EXAMPLE_GRANT_PICKS);
   /** The chosen tool's answer for the current text. */
   protected readonly result = computed((): ToolCheck =>
     checkTool(this.schema(), this.text(), {
@@ -104,6 +107,7 @@ export class RulesPlaygroundPage {
       statisticRules: this.statisticRules(),
       grantRoots: this.grantRoots(),
       statisticOverrides: this.statisticOverrides(),
+      grantPicks: this.grantPicks(),
     }),
   );
 

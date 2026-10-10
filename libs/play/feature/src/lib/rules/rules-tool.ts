@@ -22,14 +22,14 @@ export const ToolKind = {
 export type ToolKind = ValueOf<typeof ToolKind>;
 
 export type { ReferenceEntries } from './formula-check';
-export { EXAMPLE_GRANT_ROOTS } from './grant-examples';
+export { EXAMPLE_GRANT_PICKS, EXAMPLE_GRANT_ROOTS } from './grant-examples';
 export { EXAMPLE_FACTS } from './predicate-verdict';
 export { EXAMPLE_OVERRIDES, EXAMPLE_RULE_ELEMENTS, EXAMPLE_STATISTIC_INPUTS } from './statistics-check';
 export { CheckStatus, RULES_TOOL_KEYS, rulesExample, RulesTool } from './rules-check';
 
 /**
  * What the tools read besides the main text: roll options for the verdict, reference values for formulas, the
- * character's inputs and rule elements for statistics, and the root entries for grants; statistics and grants read
+ * character's inputs and rule elements for statistics, and the root entries and picks for grants; statistics and grants read
  * the roll options too.
  */
 export interface ToolInputs {
@@ -39,6 +39,7 @@ export interface ToolInputs {
   readonly statisticRules: string;
   readonly grantRoots: string;
   readonly statisticOverrides: string;
+  readonly grantPicks: string;
 }
 
 export type ToolCheck =
@@ -71,7 +72,7 @@ export function checkTool(tool: RulesTool, text: string, inputs: ToolInputs): To
   if (tool === RulesTool.Grants) {
     return {
       kind: ToolKind.Grants,
-      check: checkGrants({ entries: text, roots: inputs.grantRoots, facts: inputs.facts }),
+      check: checkGrants({ entries: text, roots: inputs.grantRoots, picks: inputs.grantPicks, facts: inputs.facts }),
     };
   }
   return { kind: ToolKind.Schema, check: checkRulesJson(tool, text) };

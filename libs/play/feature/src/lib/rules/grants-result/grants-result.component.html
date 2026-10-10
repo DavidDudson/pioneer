@@ -8,6 +8,9 @@
     <pio-grant-list [rows]="rows.items">{{ 'play.rules.grantedHeading' | transloco }}</pio-grant-list>
     <pio-grant-list [rows]="rows.duplicates">{{ 'play.rules.duplicatesHeading' | transloco }}</pio-grant-list>
     <pio-grant-list [rows]="rows.conditional">{{ 'play.rules.conditionalHeading' | transloco }}</pio-grant-list>
+    <pio-grant-list [rows]="rows.open">{{ 'play.rules.openSlotsHeading' | transloco }}</pio-grant-list>
+    <pio-grant-list [rows]="rows.answered">{{ 'play.rules.answeredSlotsHeading' | transloco }}</pio-grant-list>
+    <pio-grant-list [rows]="rows.rollOptions">{{ 'play.rules.pickOptionsHeading' | transloco }}</pio-grant-list>
     <pio-grant-list [rows]="rows.errors">{{ 'play.rules.grantErrorsHeading' | transloco }}</pio-grant-list>
   </fr-stack>
 } @else {
