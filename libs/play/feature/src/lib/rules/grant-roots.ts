@@ -6,6 +6,8 @@ import type { SlugTable } from './grant-choices';
 
 const LINE = /\r?\n/u;
 const WORDS = /\s+/u;
+/** A value is written in digits alone, so `1e1` or `0x2` is not read as a number. */
+const DIGITS = /^\d+$/u;
 /** A root line holds a slug, then a value for a valued condition: `frightened 2`. */
 const WORDS_MAX = 2;
 
@@ -26,8 +28,8 @@ function conditionRoot(entry: ContentId, value: string | undefined): GrantRoot |
   if (value === undefined) {
     return { entry, hop: { kind: OriginHopKind.Condition, condition: entry } };
   }
-  const parsed = ConditionValue.safeParse(Number(value));
-  return parsed.success
+  const parsed = DIGITS.test(value) ? ConditionValue.safeParse(Number(value)) : undefined;
+  return parsed?.success === true
     ? { entry, hop: { kind: OriginHopKind.Condition, condition: entry, value: parsed.data } }
     : undefined;
 }

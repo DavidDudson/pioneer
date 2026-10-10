@@ -170,9 +170,16 @@ describe(checkGrants, () => {
       'Frightened',
       'Steady',
     ]);
-    expect(check({ entries, roots: 'steady 2\nfrightened 0\nfrightened two', picks: '', toggles: '' })).toMatchObject({
+    expect(
+      check({
+        entries,
+        roots: 'steady 2\nfrightened 0\nfrightened two\nfrightened 1e1\nfrightened 2 3',
+        picks: '',
+        toggles: '',
+      }),
+    ).toMatchObject({
       status: GrantsStatus.Problems,
-      rootLines: [1, 2, 3],
+      rootLines: [1, 2, 3, 4, 5],
     });
   });
 

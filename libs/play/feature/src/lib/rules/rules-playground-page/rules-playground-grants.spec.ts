@@ -114,7 +114,7 @@ describe('RulesPlaygroundPage grants', () => {
     roots.dispatchEvent(new Event('input'));
     await harness.fixture.whenStable();
 
-    expect(pageText(harness)).toContain('Line 1 is not a slug, or gives a value to something that is not a condition.');
+    expect(pageText(harness)).toContain('Line 1 is not a slug, or a condition’s slug and a whole number from 1.');
     expect(roots.getAttribute('aria-invalid')).toBe('true');
   });
 });
