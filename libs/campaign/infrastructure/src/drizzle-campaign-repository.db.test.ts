@@ -49,7 +49,7 @@ describe.skipIf(adminUrl === undefined)('DrizzleCampaignRepository (postgres)', 
     expect(await repository.findById(vaults.id)).toStrictEqual(vaults);
   });
 
-  test('a member’s list holds only their campaigns, in the order they joined', async () => {
+  test('a memberâs list holds only their campaigns, in the order they joined', async () => {
     const later = at.add({ hours: 1 });
     const kingmaker = new CampaignBuilder().named('Kingmaker').ranBy(seelah).createdAt(later).build();
     const alkenstar = new CampaignBuilder().named('Outlaws of Alkenstar').ranBy(seelah).withPlayer(ezren).build();
@@ -105,12 +105,20 @@ describe.skipIf(adminUrl === undefined)('DrizzleCampaignRepository (postgres)', 
   test('deleting a user removes their memberships', async () => {
     const gone = UserId.parse(newId());
     await insertUser(database, gone);
-    const party = new CampaignBuilder().named('Sky King’s Tomb').withPlayer(gone).build();
+    const party = new CampaignBuilder().named('Sky Kingâs Tomb').withPlayer(gone).build();
     await repository.insert(party);
     await database.db.execute(sql`delete from users where id = ${gone}`);
     const found = await repository.findById(party.id);
     expect(found?.roleOf(gone)).toBeUndefined();
     expect(found?.roleOf(fixtureGmId)).toBe(CampaignRole.Gm);
+  });
+
+  test('deleting a GM’s user deletes the campaigns they run', async () => {
+    const goneGm = UserId.parse(newId());
+    await insertUser(database, goneGm);
+    const theirs = await repository.insert(new CampaignBuilder().named('Blood Lords').ranBy(goneGm).build());
+    await database.db.execute(sql`delete from users where id = ${goneGm}`);
+    expect(await repository.findById(theirs.id)).toBeUndefined();
   });
 
   test('every query the repository issued is served by an index', async () => {

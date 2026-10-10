@@ -16,6 +16,7 @@
     "empty": "No campaigns yet. Create one to start a party."
   },
   "home": {
+    "title": "Campaign",
     "loadError": "Could not load this campaign.",
     "detailsHeading": "Campaign",
     "started": "Started",

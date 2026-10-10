@@ -1,7 +1,19 @@
-<fr-page [title]="title()">
+<fr-page [title]="title() ?? (store.selected.isError() ? ('campaign.home.title' | transloco) : undefined)">
   <fr-async-region [errorMessage]="'campaign.home.loadError' | transloco">
     <ng-template frAsyncPending>
-      <fr-surface><fr-skeleton width="lg" /></fr-surface>
+      <fr-surface>
+        <fr-stack gap="md">
+          <fr-heading variant="subheading" [level]="2">{{ 'campaign.home.detailsHeading' | transloco }}</fr-heading>
+          <fr-description-list>
+            <fr-description-item [term]="'campaign.home.started' | transloco"
+              ><fr-skeleton width="sm"
+            /></fr-description-item>
+            <fr-description-item [term]="'campaign.home.members' | transloco"
+              ><fr-skeleton width="sm"
+            /></fr-description-item>
+          </fr-description-list>
+        </fr-stack>
+      </fr-surface>
     </ng-template>
     <ng-template let-campaign [frAsyncData]="store.selected">
       <fr-surface>

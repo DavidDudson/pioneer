@@ -161,7 +161,23 @@
           "notNull": true
         }
       },
-      "indexes": {},
+      "indexes": {
+        "campaigns_gm_id_idx": {
+          "name": "campaigns_gm_id_idx",
+          "columns": [
+            {
+              "expression": "gm_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
       "foreignKeys": {},
       "compositePrimaryKeys": {},
       "uniqueConstraints": {},

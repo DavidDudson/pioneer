@@ -71,6 +71,9 @@ describe('CampaignHomePage', () => {
 
     await vi.waitFor(() => {
       expect(present(harness.routeNativeElement).textContent).toContain('Could not load this campaign.');
+      // The heading settles on a generic title rather than loading forever.
+      expect(present(present(harness.routeNativeElement).querySelector('h1')).textContent).toContain('Campaign');
+      expect(present(harness.routeNativeElement).querySelector(`h1[aria-busy="true"]`)).toBeNull();
     });
   });
 });

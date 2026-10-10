@@ -33,7 +33,7 @@ describe('CampaignService', () => {
     service = new CampaignService(new InMemoryCampaignRepository(), fixedClock('2026-10-10T10:00:00Z'));
   });
 
-  test('create makes the actor the GM and its only member', async () => {
+  test('create assigns a UUIDv4 id and makes the actor the GM and its only member', async () => {
     const created = await service.create(amiri, { name: vaults });
     expect(created.id[14]).toBe('4');
     expect(created.gmId).toBe(amiri);
@@ -51,13 +51,14 @@ describe('CampaignService', () => {
 
 describe('CampaignService membership', () => {
   test('list holds only the actor’s campaigns, oldest first', async () => {
-    const clock = ticking('2026-10-10T10:00:00Z', '2026-10-10T11:00:00Z', '2026-10-10T12:00:00Z');
+    // Created newest first, so the order comes from the join times, not insertion.
+    const clock = ticking('2026-10-10T12:00:00Z', '2026-10-10T11:00:00Z', '2026-10-10T10:00:00Z');
     const service = new CampaignService(new InMemoryCampaignRepository(), clock);
     await service.create(amiri, { name: vaults });
     await service.create(ezren, { name: CampaignName.parse('Kingmaker') });
     await service.create(amiri, { name: CampaignName.parse('Outlaws of Alkenstar') });
     const listed = await service.list(amiri);
-    expect(listed.map((campaign) => campaign.name)).toStrictEqual([vaults, CampaignName.parse('Outlaws of Alkenstar')]);
+    expect(listed.map((campaign) => campaign.name)).toStrictEqual([CampaignName.parse('Outlaws of Alkenstar'), vaults]);
   });
 
   test('a campaign the actor is not in reads as not found', async () => {

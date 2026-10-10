@@ -21,6 +21,7 @@ ALTER TABLE "campaign_members" ADD CONSTRAINT "campaign_members_campaign_id_camp
 CREATE UNIQUE INDEX "campaign_members_campaign_user_idx" ON "campaign_members" USING btree ("campaign_id","user_id");--> statement-breakpoint
 CREATE UNIQUE INDEX "campaign_members_one_gm_idx" ON "campaign_members" USING btree ("campaign_id") WHERE "campaign_members"."role" = 'gm';--> statement-breakpoint
 CREATE INDEX "campaign_members_user_joined_at_campaign_idx" ON "campaign_members" USING btree ("user_id","joined_at","campaign_id");--> statement-breakpoint
+CREATE INDEX "campaigns_gm_id_idx" ON "campaigns" USING btree ("gm_id");--> statement-breakpoint
 ALTER TABLE "campaigns" ADD CONSTRAINT "campaigns_gm_id_users_id_fk" FOREIGN KEY ("gm_id") REFERENCES "public"."users"("id") ON DELETE cascade ON UPDATE no action;--> statement-breakpoint
 ALTER TABLE "campaign_members" ADD CONSTRAINT "campaign_members_user_id_users_id_fk" FOREIGN KEY ("user_id") REFERENCES "public"."users"("id") ON DELETE cascade ON UPDATE no action;--> statement-breakpoint
 SELECT audit.enable('campaigns');--> statement-breakpoint
