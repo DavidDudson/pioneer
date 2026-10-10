@@ -45,10 +45,10 @@ async function render(): Promise<Rendered> {
   const shell = component.location.nativeElement as HTMLElement;
   const header = shell.querySelector<HTMLElement>(':scope > header');
   const nav = shell.querySelector<HTMLElement>(':scope > header nav');
-  const content = shell.querySelector<HTMLElement>(':scope > div');
+  const content = shell.querySelector<HTMLElement>(':scope > main');
   const footer = shell.querySelector<HTMLElement>(':scope > footer');
   if (header === null || nav === null || content === null || footer === null) {
-    throw new Error('fr-shell rendered no header, nav, content or footer');
+    throw new Error('fr-shell rendered no header, nav, main or footer');
   }
   return { shell, header, nav, content, footer };
 }
@@ -83,12 +83,41 @@ describe(Shell, () => {
     expect(nav.querySelector('button')).toBeNull();
   });
 
-  it('projects routed content between the header and the footer', async () => {
+  it('projects routed content into main, between the header and the footer', async () => {
     const { content, header, footer } = await render();
     expect(content.textContent.trim()).toBe('Routed page');
     expect(content.previousElementSibling).toBe(header);
     expect(content.nextElementSibling).toBe(footer);
     expect([...content.classList]).toContain('flex-1');
+  });
+
+  it('makes main the only main landmark, focusable as a skip target but not by Tab', async () => {
+    const { shell, content } = await render();
+    expect(shell.querySelectorAll('main')).toHaveLength(1);
+    expect(content.id).not.toBe('');
+    expect(content.getAttribute('tabindex')).toBe('-1');
+  });
+
+  it('starts with a skip link to main, visually hidden until it has focus', async () => {
+    const { shell, header, content } = await render();
+    const first = shell.querySelector('a, button, input, select, textarea, [tabindex]:not([tabindex="-1"])');
+    expect(first?.textContent.trim()).toBe('Skip to content');
+    expect(first?.getAttribute('href')).toBe(`#${content.id}`);
+    expect(header.querySelector(':scope > span a')).toBe(first);
+    const wrapper = header.querySelector(':scope > span');
+    expect(wrapper?.className).toMatch(/(?:^| )sr-only(?: |$)/u);
+    expect(wrapper?.className).toMatch(/(?:^| )focus-within:not-sr-only(?: |$)/u);
+  });
+
+  it('moves focus to main when the skip link is followed', async () => {
+    const { shell, content } = await render();
+    document.body.append(shell);
+    onTestFinished(() => {
+      shell.remove();
+    });
+    const skipLink = shell.querySelector('a');
+    skipLink?.click();
+    expect(document.activeElement).toBe(content);
   });
 
   it('projects frShellFooter into the footer, padded for the home indicator', async () => {

@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { cva } from 'class-variance-authority';
 
+import { Link } from '../../actions/link/link.component';
 import { Text } from '../../text/text/text.component';
 import { Box } from '../box/box.component';
 import { Stack } from '../stack/stack.component';
@@ -10,15 +11,20 @@ const shellClasses = cva('flex min-h-dvh flex-col bg-surface-canvas pl-safe-left
 const headerClasses = cva('sticky top-none z-sticky border-b border-line-subtle bg-surface-base pt-safe-top')();
 const footerClasses = cva('border-t border-line-subtle bg-surface-base pb-safe-bottom')();
 
+/** The id of the shell's `<main>`, which its skip link moves focus to. There is one shell per page. */
+const MAIN_ID = 'fr-main';
+
 /**
  * App chrome: top bar with brand, nav slot and actions slot (`frShellActions`,
- * e.g. appearance controls), routed content below.
+ * e.g. appearance controls), routed content below in the page's only `<main>`.
+ * A skip link, hidden until focused, is the first thing Tab reaches and moves
+ * focus past the header to `<main>`.
  * Pads for notches and home indicators (needs `viewport-fit=cover`).
  * Built only from layout primitives; it has no responsive CSS of its own.
  */
 @Component({
   selector: 'fr-shell',
-  imports: [Box, Stack, Text, TranslocoPipe],
+  imports: [Box, Link, Stack, Text, TranslocoPipe],
   templateUrl: './shell.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { '[class]': 'hostClasses' },
@@ -27,10 +33,15 @@ export class Shell {
   public readonly brand = input.required<string>();
 
   protected readonly hostClasses = shellClasses;
+  protected readonly mainId = MAIN_ID;
   protected readonly headerClasses = headerClasses;
+  protected readonly skipLinkClasses = cva(
+    'sr-only focus-within:not-sr-only focus-within:block focus-within:px-md focus-within:py-sm',
+  )();
   protected readonly brandClasses = cva('shrink-0')();
   protected readonly navClasses = cva('min-w-none overflow-x-auto')();
   protected readonly actionsClasses = cva('ms-auto shrink-0')();
-  protected readonly contentClasses = cva('flex-1')();
+  // Focused only by the skip link, as the starting point for the next Tab: the page itself draws no outline.
+  protected readonly contentClasses = cva('flex-1 focus:outline-hidden')();
   protected readonly footerClasses = footerClasses;
 }

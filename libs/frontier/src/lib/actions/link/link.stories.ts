@@ -1,7 +1,9 @@
 import { argsToTemplate, moduleMetadata } from '@analogjs/storybook-angular';
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
+import { expect, within } from 'storybook/test';
 
 import { Stack } from '../../layout/stack/stack.component';
+import { Surface } from '../../layout/surface/surface.component';
 import { TextVariant } from '../../text/text.variants';
 import { Text } from '../../text/text/text.component';
 import { Link } from './link.component';
@@ -15,7 +17,7 @@ type LinkStory = StoryObj<LinkStoryArgs>;
 const meta: Meta<LinkStoryArgs> = {
   title: 'Actions/Link',
   component: Link,
-  decorators: [moduleMetadata({ imports: [Stack, Text] })],
+  decorators: [moduleMetadata({ imports: [Stack, Surface, Text] })],
   argTypes: {
     to: { control: 'text' },
     exact: { control: 'boolean' },
@@ -64,6 +66,21 @@ export const CurrentPage: LinkStory = {
       <fr-link to="/campaigns">Campaigns</fr-link>
     </fr-stack>`,
   }),
+};
+
+/** `skipTo` moves focus to an element on the page, here a `tabindex="-1"` surface, without navigating. */
+export const SkipTo: LinkStory = {
+  render: () => ({
+    template: `<fr-stack gap="md">
+      <fr-link skipTo="results">Skip to results</fr-link>
+      <fr-surface id="results" tabindex="-1"><fr-text element="p">Results</fr-text></fr-surface>
+    </fr-stack>`,
+  }),
+  play: async ({ canvasElement, userEvent }) => {
+    const canvas = within(canvasElement);
+    await userEvent.click(canvas.getByRole('link', { name: 'Skip to results' }));
+    await expect(canvas.getByText('Results').closest('fr-surface')).toHaveFocus();
+  },
 };
 
 export const Subheading: LinkStory = { args: { variant: TextVariant.Subheading } };

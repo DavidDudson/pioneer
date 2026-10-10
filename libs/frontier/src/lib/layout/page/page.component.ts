@@ -10,6 +10,7 @@ import { Stack } from '../stack/stack.component';
  * A routed page: title, optional description, actions slot, content.
  * Put actions in `<fr-stack frPageActions>` (or any element with the attribute).
  * The page renders at once; regions load their own data behind skeletons.
+ * It sits in `fr-shell`'s `<main>`, so it renders no landmark of its own.
  * Built only from layout primitives; it has no responsive CSS of its own.
  */
 @Component({
