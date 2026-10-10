@@ -77,7 +77,8 @@ const attribute: Arbitrary<string> = constantFrom(...Object.values(Attribute));
 
 const attributes: Arbitrary<string[]> = shuffledSubarray(Object.values(Attribute));
 const boost: Arbitrary<string[]> = shuffledSubarray(Object.values(Attribute), { minLength: 1 });
-const contentIds: Arbitrary<string[]> = uniqueArray(uuid({ version: 4 }), { maxLength: LIST_MAX });
+const contentIdJson: Arbitrary<string> = uuid({ version: 4 });
+const contentIds: Arbitrary<string[]> = uniqueArray(contentIdJson, { maxLength: LIST_MAX });
 
 const ancestryData: Arbitrary<object> = withOptional(
   record({
@@ -90,35 +91,37 @@ const ancestryData: Arbitrary<object> = withOptional(
     additionalLanguages: record({ count: smallint, options: contentIds }),
     reach: smallint,
   }),
-  { vision: uuid({ version: 4 }) },
+  { vision: contentIdJson },
 );
 
-const heritageData: Arbitrary<object> = withOptional(constant({}), { ancestry: uuid({ version: 4 }) });
+const heritageData: Arbitrary<object> = withOptional(constant({}), { ancestry: contentIdJson });
 const backgroundData: Arbitrary<object> = record({ boosts: array(boost, { maxLength: 2 }) });
 const classData: Arbitrary<object> = record({ keyAttribute: boost, hitPoints: smallint, additionalSkills: smallint });
-const archetypeData: Arbitrary<object> = withOptional(record({ dedication: uuid({ version: 4 }) }), {
-  multiclass: uuid({ version: 4 }),
-});
+const archetypeData: Arbitrary<object> = withOptional(record({ dedication: contentIdJson }), { multiclass: contentIdJson });
 
 const slugs: Arbitrary<string[]> = uniqueArray(slugText, { maxLength: LIST_MAX });
+const deityCategory: Arbitrary<string> = constantFrom(...Object.values(DeityCategory));
+const fonts: Arbitrary<string[]> = shuffledSubarray(Object.values(DivineFont));
+const selectors: Arbitrary<string[]> = uniqueArray(keyPathText, { maxLength: LIST_MAX });
+const SPELL_RANKS = Array.from({ length: SPELL_RANK_MAX }, (_unused, index) => index + 1);
+const deitySpell = (rank: number): Arbitrary<object> => record({ rank: constant(rank), spell: contentIdJson });
+/** Spells at distinct ranks. */
+const deitySpells: Arbitrary<object[]> = shuffledSubarray(SPELL_RANKS, { maxLength: LIST_MAX }).chain((ranks) =>
+  tuple(...ranks.map((rank) => deitySpell(rank))),
+);
+const sanctificationModal: Arbitrary<string> = constantFrom(...Object.values(SanctificationModal));
+const sanctified: Arbitrary<string[]> = shuffledSubarray(Object.values(Sanctification), { minLength: 1 });
 const deityData: Arbitrary<object> = withOptional(
   record({
-    category: constantFrom(...Object.values(DeityCategory)),
+    category: deityCategory,
     domains: record({ primary: slugs, alternate: slugs }),
-    font: shuffledSubarray(Object.values(DivineFont)),
+    font: fonts,
     attributes,
-    skills: uniqueArray(keyPathText, { maxLength: LIST_MAX }),
+    skills: selectors,
     weapons: slugs,
-    spells: shuffledSubarray(Array.from({ length: SPELL_RANK_MAX }, (_, index) => index + 1), {
-      maxLength: LIST_MAX,
-    }).chain((ranks) => tuple(...ranks.map((rank) => record({ rank: constant(rank), spell: uuid({ version: 4 }) })))),
+    spells: deitySpells,
   }),
-  {
-    sanctification: record({
-      modal: constantFrom(...Object.values(SanctificationModal)),
-      what: shuffledSubarray(Object.values(Sanctification), { minLength: 1 }),
-    }),
-  },
+  { sanctification: record({ modal: sanctificationModal, what: sanctified }) },
 );
 
 const attributeModifier: Arbitrary<number> = integer({ min: ATTRIBUTE_MODIFIER_MIN, max: ATTRIBUTE_MODIFIER_MAX });
@@ -154,7 +157,6 @@ const statisticData: Arbitrary<object> = withOptional(
   { keyAttribute: attribute },
 );
 
-const contentIdJson: Arbitrary<string> = uuid({ version: 4 });
 
 const actionUse = {
   category: constantFrom(...Object.values(ActionCategory)),
@@ -175,7 +177,8 @@ const actionData: Arbitrary<object> = oneof(
   withOptional(constant({}), { cost: otherCost, trigger: richTextJson, ...actionUse }),
 );
 
-const featData: Arbitrary<object> = withOptional(record({ category: constantFrom(...Object.values(FeatCategory)) }), {
+const featCategory: Arbitrary<string> = constantFrom(...Object.values(FeatCategory));
+const featData: Arbitrary<object> = withOptional(record({ category: featCategory }), {
   prerequisites: richTextJson,
   onlyLevel1: boolean(),
   maxTakable: oneof(positive, constant(UNLIMITED)),

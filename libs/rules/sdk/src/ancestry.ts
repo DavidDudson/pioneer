@@ -6,7 +6,7 @@ import { ContentId, Slug } from './content-id';
 import { ContentText } from './content-text';
 import { SizeSchema } from './size';
 import { Trait } from './trait';
-import { uniqueList } from './unique-list';
+import { uniqueItems } from './unique-items';
 import { Feet, HitPoints } from './units';
 
 /** Id of an ancestry content entry (UUIDv5 of `<pack>/<slug>`). */
@@ -35,7 +35,7 @@ const LANGUAGES_MAX = 64;
 export const AdditionalLanguages = z.strictObject({
   count: LanguageCount,
   /** `language` entries to pick from. */
-  options: uniqueList(ContentId, { max: LANGUAGES_MAX }),
+  options: z.array(ContentId).max(LANGUAGES_MAX).readonly().check(uniqueItems),
 });
 export type AdditionalLanguages = z.infer<typeof AdditionalLanguages>;
 
@@ -49,7 +49,7 @@ export const AncestryData = z.strictObject({
   boosts: z.array(AttributeBoost).max(BOOSTS_MAX).readonly(),
   flaws: Attributes,
   /** `language` entries every member speaks. */
-  languages: uniqueList(ContentId, { max: LANGUAGES_MAX }),
+  languages: z.array(ContentId).max(LANGUAGES_MAX).readonly().check(uniqueItems),
   additionalLanguages: AdditionalLanguages,
   /** The `sense` entry for its vision (darkvision, low-light vision); absent for ordinary vision. */
   vision: ContentId.optional(),

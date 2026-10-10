@@ -6,7 +6,7 @@ import { Attributes } from './attribute';
 import { ContentId, Slug } from './content-id';
 import { RulesMessage } from './messages';
 import { Selector } from './selector';
-import { uniqueList } from './unique-list';
+import { uniqueItems } from './unique-items';
 
 /** What a deity entry is, as Foundry pf2e sorts them. */
 export const DeityCategory = {
@@ -51,13 +51,13 @@ const WEAPONS_MAX = 8;
 /** "Can be holy or unholy", "must be holy". */
 export const DeitySanctification = z.strictObject({
   modal: z.enum(SanctificationModal),
-  what: uniqueList(z.enum(Sanctification), { min: 1, max: SANCTIFICATIONS }),
+  what: z.array(z.enum(Sanctification)).min(1).max(SANCTIFICATIONS).readonly().check(uniqueItems),
 });
 export type DeitySanctification = z.infer<typeof DeitySanctification>;
 
 export const DeityDomains = z.strictObject({
-  primary: uniqueList(DeityDomain, { max: DOMAINS_MAX }),
-  alternate: uniqueList(DeityDomain, { max: DOMAINS_MAX }),
+  primary: z.array(DeityDomain).max(DOMAINS_MAX).readonly().check(uniqueItems),
+  alternate: z.array(DeityDomain).max(DOMAINS_MAX).readonly().check(uniqueItems),
 });
 export type DeityDomains = z.infer<typeof DeityDomains>;
 
@@ -93,13 +93,13 @@ export const DeityData = z.strictObject({
   category: DeityCategorySchema,
   sanctification: DeitySanctification.optional(),
   domains: DeityDomains,
-  font: uniqueList(z.enum(DivineFont), { max: FONTS }),
+  font: z.array(z.enum(DivineFont)).max(FONTS).readonly().check(uniqueItems),
   /** Its divine attributes. */
   attributes: Attributes,
   /** Its divine skills, by statistic selector (`skill:athletics`). */
-  skills: uniqueList(Selector, { max: SKILLS_MAX }),
+  skills: z.array(Selector).max(SKILLS_MAX).readonly().check(uniqueItems),
   /** Its favoured weapons. */
-  weapons: uniqueList(BaseWeapon, { max: WEAPONS_MAX }),
+  weapons: z.array(BaseWeapon).max(WEAPONS_MAX).readonly().check(uniqueItems),
   spells: DeitySpells,
 });
 export type DeityData = z.infer<typeof DeityData>;
