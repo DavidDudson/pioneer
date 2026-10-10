@@ -43,7 +43,7 @@ const EXTERNAL_URL = /^https?:\/\//iu;
  * <fr-link to="/" exact>{{ 'shell.brand' | transloco }}</fr-link>
  * <fr-link href="https://paizo.com">paizo.com</fr-link>
  * <fr-link skipTo="results">{{ 'search.skipToResults' | transloco }}</fr-link>
- * <fr-link [external]="url"[ariaLabel]="'docs.linkLabel' | transloco">{{ 'docs.link' | transloco }}</fr-link>
+ * <fr-link [external]="url" [ariaLabel]="'docs.linkLabel' | transloco">{{ 'docs.link' | transloco }}</fr-link>
  * ```
  */
 @Component({

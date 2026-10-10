@@ -34,7 +34,9 @@ const meta: Meta<Shell> = {
           <fr-icon [icon]="moon" />
         </fr-button>
         <fr-page title="Characters">
-          <fr-surface><fr-text element="p">Routed content renders here.</fr-text></fr-surface>
+          <fr-surface>
+            <fr-text element="p">Routed content renders here, like <fr-link to="/characters/valeros">Valeros</fr-link>.</fr-text>
+          </fr-surface>
         </fr-page>
         <fr-text frShellFooter variant="caption" tone="subtle">Pathfinder 2e character manager</fr-text>
       </fr-shell>
@@ -45,6 +47,12 @@ export default meta;
 
 export const Default: ShellStory = {};
 
+/** Whether the span around the skip link fits its text: `sr-only` clips it to 1px (plus any padding) while hidden. */
+function fitsText(skipLink: HTMLElement): boolean {
+  const box = skipLink.closest('span')?.getBoundingClientRect().width ?? 0;
+  return box >= skipLink.getBoundingClientRect().width;
+}
+
 /**
  * Keyboard: the first Tab shows the skip link, and Enter on it moves focus to `<main>`, so the next Tab lands in the
  * page instead of the header nav. Runs only in `nx test-storybook frontier`.
@@ -52,13 +60,17 @@ export const Default: ShellStory = {};
 export const SkipLink: ShellStory = {
   // Real key presses need the Vitest runner (testing/story-keyboard.ts), so this story is test-only.
   tags: ['!dev'],
-  play: async ({ canvasElement, userEvent }) => {
-    const skipLink = within(canvasElement).getByRole('link', { name: 'Skip to content' });
-    const main = within(canvasElement).getByRole('main');
-    await userEvent.tab();
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const skipLink = canvas.getByRole('link', { name: 'Skip to content' });
+    const main = canvas.getByRole('main');
+    await expect(fitsText(skipLink)).toBe(false);
+    await pressKeys('{Tab}');
     await expect(skipLink).toHaveFocus();
-    await expect(skipLink).toBeVisible();
+    await expect(fitsText(skipLink)).toBe(true);
     await pressKeys('{Enter}');
     await expect(main).toHaveFocus();
+    await pressKeys('{Tab}');
+    await expect(canvas.getByRole('link', { name: 'Valeros' })).toHaveFocus();
   },
 };

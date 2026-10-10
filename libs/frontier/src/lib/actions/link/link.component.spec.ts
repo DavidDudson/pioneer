@@ -37,10 +37,10 @@ async function render(inputs: Readonly<Record<string, unknown>>, url?: string): 
   return anchor;
 }
 
-/** A `tabindex="-1"` region with id "results", in the document until the test ends. */
-function region(): HTMLElement {
+/** A `tabindex="-1"` region with id `id`, in the document until the test ends. */
+function region(id: string): HTMLElement {
   const target = document.createElement('section');
-  target.id = 'results';
+  target.id = id;
   target.tabIndex = -1;
   document.body.append(target);
   onTestFinished(() => {
@@ -169,13 +169,20 @@ describe(Link, () => {
     });
 
     it('moves focus to the element without navigating', async () => {
-      const target = region();
+      const target = region('results');
       const anchor = await render({ skipTo: 'results' }, '/characters');
       const click = new MouseEvent('click', { bubbles: true, cancelable: true });
       anchor.dispatchEvent(click);
       expect(click.defaultPrevented).toBe(true);
       expect(document.activeElement).toBe(target);
       expect(TestBed.inject(Router).url).toBe('/characters');
+    });
+
+    it('finds an id that is not a valid CSS identifier', async () => {
+      const target = region('1:results');
+      const anchor = await render({ skipTo: '1:results' });
+      anchor.click();
+      expect(document.activeElement).toBe(target);
     });
 
     it('stays put when no element has the id', async () => {
