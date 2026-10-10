@@ -28,7 +28,7 @@ describe(ThemeStore, () => {
   it('applies and remembers a change', () => {
     const store = create();
     store.theme.set(Theme.Tavern);
-    store.toggleMode();
+    store.mode.set(ColorMode.Light);
     TestBed.tick();
     expect(document.documentElement.dataset['theme']).toBe('tavern');
     expect(document.documentElement.dataset['mode']).toBe('light');

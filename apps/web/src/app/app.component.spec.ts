@@ -4,9 +4,10 @@ import { ApplicationRef } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import type { ComponentFixture } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
+import { ColorMode, Theme, ThemeStore } from '@pioneer/frontier';
 import { provideI18n } from '@pioneer/shared/web';
 import { provideTanStackQuery, QueryClient } from '@tanstack/angular-query-experimental';
-import { describe, expect, it, vi } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 
 import { App } from './app.component';
 import { appMessages } from './messages';
@@ -43,6 +44,10 @@ function buttonLabels(element: HTMLElement): string[] {
 }
 
 describe(App, () => {
+  afterEach(() => {
+    localStorage.clear();
+  });
+
   it('renders the shell with the Community Use notice', async () => {
     const fixture = await renderShell();
     const element = fixture.nativeElement as HTMLElement;
@@ -55,6 +60,33 @@ describe(App, () => {
     const element = fixture.nativeElement as HTMLElement;
     const legal = element.querySelector('footer a[href="/legal"]');
     expect(legal?.textContent.trim()).toBe('Legal');
+  });
+
+  it('picks the theme from a segmented control', async () => {
+    const fixture = await renderShell();
+    const element = fixture.nativeElement as HTMLElement;
+    const options = [...element.querySelectorAll<HTMLButtonElement>('fr-segmented [aria-label="Theme"] button')];
+    expect(options.map((option) => option.textContent.trim())).toStrictEqual(['Frontier', 'Tavern']);
+    expect(options.map((option) => option.getAttribute('aria-pressed'))).toStrictEqual(['true', 'false']);
+
+    options[1]?.click();
+    await fixture.whenStable();
+    expect(TestBed.inject(ThemeStore).theme()).toBe(Theme.Tavern);
+    expect(options[1]?.getAttribute('aria-pressed')).toBe('true');
+  });
+
+  it('switches dark mode with a toggle whose label stays the same', async () => {
+    const fixture = await renderShell();
+    const element = fixture.nativeElement as HTMLElement;
+    const toggle = element.querySelector<HTMLButtonElement>('fr-toggle-button button');
+    expect(toggle?.textContent.trim()).toBe('Dark mode');
+    expect(toggle?.getAttribute('aria-pressed')).toBe('true');
+
+    toggle?.click();
+    await fixture.whenStable();
+    expect(TestBed.inject(ThemeStore).mode()).toBe(ColorMode.Light);
+    expect(toggle?.getAttribute('aria-pressed')).toBe('false');
+    expect(toggle?.textContent.trim()).toBe('Dark mode');
   });
 
   it('offers sign-in, and no settings, when signed out', async () => {

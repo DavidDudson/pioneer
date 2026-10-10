@@ -6,15 +6,15 @@
     <fr-link to="/play/rules">{{ 'shell.nav.rules' | transloco }}</fr-link>
   </fr-stack>
   <fr-stack frShellActions direction="horizontal" gap="xs" align="center">
-    <fr-select
+    <fr-segmented
       [ariaLabel]="'shell.appearance.theme' | transloco"
       [options]="themes()"
       [value]="appearance.theme()"
       (valueChange)="chooseTheme($event)"
     />
-    <fr-button variant="ghost" size="sm" (pressed)="appearance.toggleMode()">{{
-      modeToggleKey() | transloco
-    }}</fr-button>
+    <fr-toggle-button size="sm" [value]="darkMode()" (valueChange)="chooseDarkMode($event)">{{
+      'shell.appearance.darkMode' | transloco
+    }}</fr-toggle-button>
     <pio-account-menu />
   </fr-stack>
   <router-outlet />
