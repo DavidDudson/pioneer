@@ -24,6 +24,9 @@ const statistic = (selector: string, base: string): object => ({
 
 const definitions = (...statistics: readonly object[]): string => JSON.stringify(statistics);
 
+/** The core rules pack's Hit Points formula. */
+const HP_FORMULA = '@ancestry.hp + (@class.hp + @attr.con) * @level';
+
 /** Player Core's proficiency bonuses, no variant. */
 const STANDARD: StatisticProficiency = { table: PLAYER_CORE_PROFICIENCY_BONUS, variant: undefined };
 
@@ -156,6 +159,65 @@ describe(checkStatistics, () => {
     });
     // Trained at level 3 without the variant: 2 + 3.
     expect(check({ definitions: ac })).toMatchObject({ rows: [{ total: 15, terms: [{}, { variant: undefined }] }] });
+  });
+
+  it('derives Hit Points, Speed and class DC from the ancestry and class, term by term', () => {
+    const character = definitions(
+      statistic('hp:max', HP_FORMULA),
+      statistic('speed:land', '@ancestry.speed'),
+      statistic('class-dc', '10 + @attr.key + @prof.class-dc'),
+    );
+    expect(check({ definitions: character })).toMatchObject({
+      status: StatisticsStatus.Valid,
+      rows: [
+        {
+          selector: 'hp:max',
+          total: 44,
+          terms: [
+            { code: '@ancestry.hp', value: 8 },
+            { code: '+ (@class.hp + @attr.con) * @level', value: 36 },
+          ],
+        },
+        {
+          selector: 'speed:land',
+          total: 25,
+          terms: [{ code: '@ancestry.speed', value: 25 }],
+        },
+        {
+          selector: 'class-dc',
+          total: 19,
+          terms: [{ code: '10' }, { code: '+ @attr.key', value: 4 }, { value: 5 }],
+        },
+      ],
+    });
+  });
+
+  it('points at the reference to an ancestry or class not chosen yet', () => {
+    const character = definitions(
+      statistic('hp:max', HP_FORMULA),
+      statistic('class-dc', '10 + @attr.key + @prof.class-dc'),
+    );
+    const inputs = JSON.stringify({
+      level: 3,
+      attributes: { str: 4, dex: 2, con: 2, int: 1, wis: 1, cha: 0 },
+      ranks: {},
+    });
+    expect(check({ definitions: character, inputs })).toMatchObject({
+      rows: [
+        {
+          ok: false,
+          selector: 'hp:max',
+          error: { key: EngineMessage.NoAncestry },
+          pointer: `${HP_FORMULA}\n^`,
+        },
+        {
+          ok: false,
+          selector: 'class-dc',
+          error: { key: EngineMessage.NoClass },
+          pointer: '10 + @attr.key + @prof.class-dc\n     ^',
+        },
+      ],
+    });
   });
 
   it('points at the reference that closes a cycle', () => {

@@ -8,6 +8,7 @@ import {
   ContentPack,
   contentId,
   ContentRegistry,
+  HitPoints,
   Proficiency,
   Selector,
   Slug,
@@ -81,6 +82,11 @@ function reachedBy(target: string, content = core): readonly string[] {
     .toSorted();
 }
 
+/** A statistic's failure with its message key, pointing at `position` in its base. */
+function failure(key: string, position: number): object {
+  return { ok: false, error: { key }, position };
+}
+
 function sorted(selectors: readonly string[]): readonly string[] {
   return selectors.toSorted();
 }
@@ -111,6 +117,26 @@ describe('core rules pack', () => {
     });
   });
 
+  test('derives Hit Points, Speed and class DC from the ancestry and class', () => {
+    // Human 8 plus (fighter 10 plus Constitution 2) times level 3; trained class DC 10 plus Strength 4 plus 5.
+    expect(totals(deriveStatistics(core, fighter))).toMatchObject({ 'hp:max': 44, 'speed:land': 25, 'class-dc': 19 });
+  });
+
+  test('class DC reads the key attribute chosen for the class', () => {
+    const wizard = { ...fighter, class: { hitPoints: HitPoints.parse(6), keyAttribute: Attribute.Intelligence } };
+    // Intelligence 0 in place of Strength 4.
+    expect(totals(deriveStatistics(core, wizard))['class-dc']).toBe(15);
+  });
+
+  test('without an ancestry or class, the statistics reading them fail at that reference', () => {
+    const { ancestry: _ancestry, class: _class, ...unchosen } = fighter;
+    const derived = deriveStatistics(core, unchosen);
+    expect(derived.get(Selector.parse('hp:max'))).toMatchObject(failure('engine.statistic.noAncestry', 1));
+    expect(derived.get(Selector.parse('speed:land'))).toMatchObject(failure('engine.statistic.noAncestry', 1));
+    expect(derived.get(Selector.parse('class-dc'))).toMatchObject(failure('engine.statistic.noClass', 6));
+    expect(totals(derived)).toMatchObject({ ac: 16, perception: 8 });
+  });
+
   test('keys every skill to its Player Core attribute', () => {
     const derived = totals(deriveStatistics(core, fighter));
     const expected = Object.fromEntries(
@@ -123,7 +149,13 @@ describe('core rules pack', () => {
   test('domains route modifiers to the right statistics', () => {
     expect(reachedBy('saving-throw')).toStrictEqual(sorted(['save:fortitude', 'save:reflex', 'save:will']));
     expect(reachedBy('skill-check')).toStrictEqual(sorted(SKILL_SELECTORS));
-    expect(reachedBy('check')).toStrictEqual(sorted(SELECTORS.filter((selector) => selector !== 'ac')));
+    const notRolled = new Set(['ac', 'class-dc', 'hp:max', 'speed:land']);
+    const checks = SELECTORS.filter((selector) => !notRolled.has(selector));
+    expect(reachedBy('check')).toStrictEqual(sorted(checks));
+    expect(reachedBy('hp')).toStrictEqual(['hp:max']);
+    expect(reachedBy('speed')).toStrictEqual(['speed:land']);
+    expect(reachedBy('all-speeds')).toStrictEqual(['speed:land']);
+    expect(reachedBy('class')).toStrictEqual(['class-dc']);
     expect(reachedBy('dex-based')).toStrictEqual(sorted(['ac', 'save:reflex', ...skillsKeyedTo(Attribute.Dexterity)]));
     expect(reachedBy('wis-based')).toStrictEqual(
       sorted(['save:will', 'perception', ...skillsKeyedTo(Attribute.Wisdom)]),
@@ -140,14 +172,15 @@ describe('core rules pack', () => {
     expect(reachedBy('lore', statistics)).toStrictEqual(sorted(['skill:lore:farming']));
   });
 
-  test('every statistic derives for any attributes and ranks; AC and the skills follow their formulas', () => {
+  test('every statistic derives for any inputs; AC, Hit Points and the skills follow their formulas', () => {
     assert(
-      property(anyInputs, ({ json, ac, dex, cap, level, skill }) => {
+      property(anyInputs, ({ json, ac, dex, cap, level, skill, con, ancestryHp, classHp }) => {
         const inputs = StatisticInputsJson.parse(json);
         const derived = totals(deriveStatistics(core, inputs));
         expect(Object.values(derived).every((total) => total !== undefined)).toBe(true);
         const prof = (rank: Proficiency): number => RANK_BONUS[rank] + LEVEL_TIMES[rank] * level;
         expect(derived['ac']).toBe(AC_BASE + Math.min(dex, cap) + prof(ac));
+        expect(derived['hp:max']).toBe(ancestryHp + (classHp + con) * level);
         for (const [slug, key] of Object.entries(SKILLS)) {
           expect(derived[`skill:${slug}`]).toBe(inputs.attributes.get(key) + prof(skill));
         }

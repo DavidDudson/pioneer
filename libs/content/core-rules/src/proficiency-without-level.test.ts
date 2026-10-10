@@ -16,7 +16,7 @@ import {
 import type { Origin } from '@pioneer/rules/sdk';
 import { assert, property } from 'fast-check';
 
-import { AC_BASE, anyInputs, core, fighter, RANK_BONUS, SELECTORS, SKILLS, totals } from './fixtures';
+import { AC_BASE, anyInputs, core, fighter, PROFICIENCY_SELECTORS, RANK_BONUS, SKILLS, totals } from './fixtures';
 import { coreRules } from './index';
 
 /** GM Core's untrained modifier under Proficiency Without Level. */
@@ -68,13 +68,13 @@ describe('Proficiency Without Level', () => {
     const standard = totals(deriveStatistics(core, fighter));
     const variant = deriveStatistics(core, fighter, { rules: withoutLevel(), facts: NO_FACTS });
     const shifted = totals(variant);
-    expect(SELECTORS.map((selector) => difference(shifted[selector], standard[selector]))).toStrictEqual(
-      SELECTORS.map((selector) => expectedShift(selector)),
+    expect(PROFICIENCY_SELECTORS.map((selector) => difference(shifted[selector], standard[selector]))).toStrictEqual(
+      PROFICIENCY_SELECTORS.map((selector) => expectedShift(selector)),
     );
     const variantHop = { kind: OriginHopKind.Variant, rule: ContentId.parse(PWL) };
-    const origins = SELECTORS.map((selector) => termOrigins(variant, selector));
+    const origins = PROFICIENCY_SELECTORS.map((selector) => termOrigins(variant, selector));
     // The last term is @prof; the attribute (and AC's 10) carry no origin.
-    expect(origins.map((terms) => terms.at(-1)?.hops)).toStrictEqual(SELECTORS.map(() => [variantHop]));
+    expect(origins.map((terms) => terms.at(-1)?.hops)).toStrictEqual(PROFICIENCY_SELECTORS.map(() => [variantHop]));
     expect(origins.flatMap((terms) => terms.slice(0, -1)).every((origin) => origin === undefined)).toBe(true);
   });
 

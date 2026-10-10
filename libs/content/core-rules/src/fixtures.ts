@@ -22,7 +22,7 @@ export const RANK_BONUS: Readonly<Record<Proficiency, number>> = {
   [Proficiency.Legendary]: 8,
 };
 
-/** A level 3 fighter in a breastplate (Dexterity cap +1). */
+/** A level 3 human fighter in a breastplate (Dexterity cap +1), Strength as the key attribute. */
 export const fighter: StatisticInputs = StatisticInputsJson.parse({
   level: 3,
   attributes: { str: 4, dex: 2, con: 2, int: 0, wis: 1, cha: -1 },
@@ -34,8 +34,11 @@ export const fighter: StatisticInputs = StatisticInputsJson.parse({
     perception: 'expert',
     'skill:athletics': 'trained',
     'skill:lore:farming': 'trained',
+    'class-dc': 'trained',
   },
   dexterityCap: 1,
+  ancestry: { hitPoints: 8, speed: 25 },
+  class: { hitPoints: 10, keyAttribute: 'str' },
 });
 
 const DEFENCES = ['ac', 'save:fortitude', 'save:reflex', 'save:will', 'perception'];
@@ -61,7 +64,9 @@ export const SKILLS: Readonly<Record<string, Attribute>> = {
 };
 
 export const SKILL_SELECTORS = Object.keys(SKILLS).map((slug) => `skill:${slug}`);
-export const SELECTORS = [...DEFENCES, ...SKILL_SELECTORS];
+/** The statistics whose base ends in a proficiency bonus, `@prof`. */
+export const PROFICIENCY_SELECTORS = [...DEFENCES, ...SKILL_SELECTORS, 'class-dc'];
+export const SELECTORS = [...PROFICIENCY_SELECTORS, 'hp:max', 'speed:land'];
 
 /** What a derivation reads from a registry holding `packs`, as an app would load them. */
 export function contentOf(...packs: readonly ContentPack[]): StatisticContent {
@@ -84,6 +89,11 @@ export function totals(results: ReadonlyMap<Selector, StatisticResult>): Record<
 
 const proficiency: Arbitrary<Proficiency> = constantFrom(...Object.values(Proficiency));
 const attribute: Arbitrary<number> = integer({ min: ATTRIBUTE_MIN, max: ATTRIBUTE_MAX });
+/** Player Core ancestries give 6 to 12 Hit Points and a 20 to 30 foot Speed; classes give 6 to 12 Hit Points. */
+const ancestryHitPoints: Arbitrary<number> = constantFrom(6, 8, 10, 12);
+const ancestrySpeed: Arbitrary<number> = constantFrom(20, 25, 30);
+const classHitPoints: Arbitrary<number> = constantFrom(6, 8, 10, 12);
+const keyAttribute: Arbitrary<Attribute> = constantFrom(...Object.values(Attribute));
 
 /** Generated inputs as JSON, with the values AC reads kept beside them. */
 interface GeneratedInputs {
@@ -94,9 +104,12 @@ interface GeneratedInputs {
   readonly level: number;
   /** The rank given to every skill. */
   readonly skill: Proficiency;
+  readonly con: number;
+  readonly ancestryHp: number;
+  readonly classHp: number;
 }
 
-/** Inputs with every attribute, every core rank and the Dexterity cap generated. */
+/** Inputs with every attribute, every core rank, the Dexterity cap, and an ancestry and class generated. */
 export const anyInputs: Arbitrary<GeneratedInputs> = record({
   level: integer({ min: 1, max: LEVEL_MAX }),
   str: attribute,
@@ -112,23 +125,34 @@ export const anyInputs: Arbitrary<GeneratedInputs> = record({
   will: proficiency,
   perception: proficiency,
   skill: proficiency,
-}).map(({ level, str, dex, con, int, wis, cha, cap, ac, fortitude, reflex, will, perception, skill }) => ({
-  json: {
-    level,
-    attributes: { str, dex, con, int, wis, cha },
-    ranks: {
-      ac,
-      'save:fortitude': fortitude,
-      'save:reflex': reflex,
-      'save:will': will,
-      perception,
-      ...Object.fromEntries(SKILL_SELECTORS.map((selector) => [selector, skill])),
+  ancestryHp: ancestryHitPoints,
+  speed: ancestrySpeed,
+  classHp: classHitPoints,
+  key: keyAttribute,
+}).map(
+  ({ level, str, dex, con, int, wis, cha, cap, ac, fortitude, reflex, will, perception, skill, ...character }) => ({
+    json: {
+      level,
+      attributes: { str, dex, con, int, wis, cha },
+      ranks: {
+        ac,
+        'save:fortitude': fortitude,
+        'save:reflex': reflex,
+        'save:will': will,
+        perception,
+        ...Object.fromEntries(SKILL_SELECTORS.map((selector) => [selector, skill])),
+      },
+      dexterityCap: cap,
+      ancestry: { hitPoints: character.ancestryHp, speed: character.speed },
+      class: { hitPoints: character.classHp, keyAttribute: character.key },
     },
-    dexterityCap: cap,
-  },
-  ac,
-  dex,
-  cap,
-  level,
-  skill,
-}));
+    ac,
+    dex,
+    cap,
+    level,
+    skill,
+    con,
+    ancestryHp: character.ancestryHp,
+    classHp: character.classHp,
+  }),
+);
