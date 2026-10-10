@@ -88,7 +88,7 @@ describe('RulesPlaygroundPage content entry', () => {
     expect(text).toContain('1 problem');
     expect(text).toContain('sources[0].book');
     expect(text).toContain(
-      'player-core/human cites core-rulebook in sources[0], but core-rulebook is not in the book registry.',
+      'player-core/human cites core-rulebook in sources[0], but core-rulebook is not in the book registry. Cite a registered book, or add core-rulebook to the registry.',
     );
   });
 

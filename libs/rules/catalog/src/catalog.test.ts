@@ -11,8 +11,10 @@ import {
   Selector,
   Slug,
 } from '@pioneer/rules/sdk';
+import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
 
-import { contentCatalog } from './index';
+import { checkedLoader, contentCatalog } from './index';
+import { SourceCheckError } from './source-check';
 
 const coreRules = PackId.parse('core-rules');
 const playerCore = PackId.parse('player-core');
@@ -31,5 +33,18 @@ describe('content catalog', () => {
     expect(zombie?.definition.level).toBe(Level.parse(-1));
     const [armorClass] = registry.statisticsFor(Selector.parse('ac'));
     expect(armorClass?.pack.id).toBe(coreRules);
+  });
+
+  test('a pack that cites an unregistered book fails to load', async () => {
+    const pack = new ContentPackBuilder()
+      .withId('homebrew')
+      .withAncestry('lizardfolk', { sources: [{ kind: 'book', book: 'core-rulebook', page: 1 }] })
+      .build();
+    const loader = checkedLoader('homebrew', async () => pack);
+    const failure: unknown = await new ContentRegistry().load(loader).then(
+      () => undefined,
+      (error: unknown) => error,
+    );
+    expect(failure).toBeInstanceOf(SourceCheckError);
   });
 });

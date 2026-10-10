@@ -12,9 +12,16 @@ function formatBook({ book, cited, missingPage }: BookCoverage): string {
 }
 
 const registry = new ContentRegistry();
-const packs = await Promise.all(contentCatalog.map(async (loader) => registry.load(loader)));
+// A pack the source checks reject is named and left out, so the report still runs.
+const loads = await Promise.allSettled(contentCatalog.map(async (loader) => registry.load(loader)));
+const packs = loads.flatMap((load) => (load.status === 'fulfilled' ? [load.value] : []));
 const coverage = sourceCoverage(
   packs.flatMap((pack) => packEntries(pack)),
   bookRegistry,
 );
 console.log(coverage.map((book) => formatBook(book)).join('\n'));
+for (const load of loads) {
+  if (load.status === 'rejected') {
+    console.log(`Not covered: ${String(load.reason)}`);
+  }
+}

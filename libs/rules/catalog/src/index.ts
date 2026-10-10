@@ -11,7 +11,7 @@ export { sourceCoverage } from './source-coverage';
 export type { BookCoverage } from './source-coverage';
 
 /** A loader whose pack must also pass the registry source checks, so a wrongly sourced entry fails to load. */
-function checked(id: string, load: () => Promise<ContentPack>): ContentPackLoader {
+export function checkedLoader(id: string, load: () => Promise<ContentPack>): ContentPackLoader {
   return {
     id: PackId.parse(id),
     load: async () => {
@@ -28,15 +28,15 @@ function checked(id: string, load: () => Promise<ContentPack>): ContentPackLoade
  * to reference `@pioneer/content/*`, and only through dynamic `import()`.
  */
 export const contentCatalog: readonly ContentPackLoader[] = [
-  checked('core-rules', async () => {
+  checkedLoader('core-rules', async () => {
     const { coreRules } = await import('@pioneer/content/core-rules');
     return coreRules;
   }),
-  checked('player-core', async () => {
+  checkedLoader('player-core', async () => {
     const { playerCore } = await import('@pioneer/content/player-core');
     return playerCore;
   }),
-  checked('monster-core', async () => {
+  checkedLoader('monster-core', async () => {
     const { monsterCore } = await import('@pioneer/content/monster-core');
     return monsterCore;
   }),

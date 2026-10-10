@@ -12,7 +12,7 @@
     "source": {
       "bookLocation": "Give a page number, an Archives of Nethys link, or both.",
       "aonUrl": "Link to one entry on 2e.aonprd.com, like https://2e.aonprd.com/Feats.aspx?ID=1.",
-      "unknownBook": "{entry} cites {book} in sources[{index}], but {book} is not in the book registry.",
+      "unknownBook": "{entry} cites {book} in sources[{index}], but {book} is not in the book registry. Cite a registered book, or add {book} to the registry.",
       "homebrewPack": "{entry} is in pack {pack}, but sources[{index}] is homebrew from pack {sourcePack}. A homebrew source names the entry’s own pack."
     },
     "book": {

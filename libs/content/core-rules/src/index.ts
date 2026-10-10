@@ -34,12 +34,31 @@ const ARMOR_CLASS_SOURCE = playerCore(404, 'Rules.aspx?ID=2295');
 const SAVING_THROWS_SOURCE = playerCore(404, 'Rules.aspx?ID=2296');
 const PERCEPTION_SOURCE = playerCore(404, 'Rules.aspx?ID=2298');
 
+/** Each skill's Player Core page and AoN skill entry. */
+const SKILL_SOURCES: Readonly<Record<string, SourceRef>> = {
+  acrobatics: playerCore(233, 'Skills.aspx?ID=34'),
+  arcana: playerCore(234, 'Skills.aspx?ID=35'),
+  athletics: playerCore(234, 'Skills.aspx?ID=36'),
+  crafting: playerCore(236, 'Skills.aspx?ID=37'),
+  deception: playerCore(237, 'Skills.aspx?ID=38'),
+  diplomacy: playerCore(239, 'Skills.aspx?ID=39'),
+  intimidation: playerCore(240, 'Skills.aspx?ID=40'),
+  medicine: playerCore(241, 'Skills.aspx?ID=42'),
+  nature: playerCore(242, 'Skills.aspx?ID=43'),
+  occultism: playerCore(243, 'Skills.aspx?ID=44'),
+  performance: playerCore(243, 'Skills.aspx?ID=45'),
+  religion: playerCore(244, 'Skills.aspx?ID=46'),
+  society: playerCore(244, 'Skills.aspx?ID=47'),
+  stealth: playerCore(244, 'Skills.aspx?ID=48'),
+  survival: playerCore(246, 'Skills.aspx?ID=49'),
+  thievery: playerCore(246, 'Skills.aspx?ID=50'),
+};
+
 /**
  * A skill check: `skill:<slug>`, its key attribute plus its proficiency. Armor check penalties are rule elements on
- * armor, not part of the base. Its slug is its name in lowercase.
+ * armor, not part of the base. Cited from `SKILL_SOURCES`.
  */
-function skill(name: string, attribute: Attribute, source: SourceRef): PackStatistic {
-  const slug = name.toLowerCase();
+function skill(slug: string, name: string, attribute: Attribute): PackStatistic {
   return PackStatistic.parse({
     slug,
     name,
@@ -48,7 +67,7 @@ function skill(name: string, attribute: Attribute, source: SourceRef): PackStati
     base: `@attr.${attribute} + @prof.skill.${slug}`,
     kind: StatisticKind.Check,
     keyAttribute: attribute,
-    sources: [source],
+    sources: [SKILL_SOURCES[slug]],
   });
 }
 
@@ -135,21 +154,21 @@ export const coreRules = ContentPack.define({
       keyAttribute: Attribute.Wisdom,
       sources: [PERCEPTION_SOURCE],
     },
-    skill('Acrobatics', Attribute.Dexterity, playerCore(233, 'Skills.aspx?ID=34')),
-    skill('Arcana', Attribute.Intelligence, playerCore(234, 'Skills.aspx?ID=35')),
-    skill('Athletics', Attribute.Strength, playerCore(234, 'Skills.aspx?ID=36')),
-    skill('Crafting', Attribute.Intelligence, playerCore(236, 'Skills.aspx?ID=37')),
-    skill('Deception', Attribute.Charisma, playerCore(237, 'Skills.aspx?ID=38')),
-    skill('Diplomacy', Attribute.Charisma, playerCore(239, 'Skills.aspx?ID=39')),
-    skill('Intimidation', Attribute.Charisma, playerCore(240, 'Skills.aspx?ID=40')),
-    skill('Medicine', Attribute.Wisdom, playerCore(241, 'Skills.aspx?ID=42')),
-    skill('Nature', Attribute.Wisdom, playerCore(242, 'Skills.aspx?ID=43')),
-    skill('Occultism', Attribute.Intelligence, playerCore(243, 'Skills.aspx?ID=44')),
-    skill('Performance', Attribute.Charisma, playerCore(243, 'Skills.aspx?ID=45')),
-    skill('Religion', Attribute.Wisdom, playerCore(244, 'Skills.aspx?ID=46')),
-    skill('Society', Attribute.Intelligence, playerCore(244, 'Skills.aspx?ID=47')),
-    skill('Stealth', Attribute.Dexterity, playerCore(244, 'Skills.aspx?ID=48')),
-    skill('Survival', Attribute.Wisdom, playerCore(246, 'Skills.aspx?ID=49')),
-    skill('Thievery', Attribute.Dexterity, playerCore(246, 'Skills.aspx?ID=50')),
+    skill('acrobatics', 'Acrobatics', Attribute.Dexterity),
+    skill('arcana', 'Arcana', Attribute.Intelligence),
+    skill('athletics', 'Athletics', Attribute.Strength),
+    skill('crafting', 'Crafting', Attribute.Intelligence),
+    skill('deception', 'Deception', Attribute.Charisma),
+    skill('diplomacy', 'Diplomacy', Attribute.Charisma),
+    skill('intimidation', 'Intimidation', Attribute.Charisma),
+    skill('medicine', 'Medicine', Attribute.Wisdom),
+    skill('nature', 'Nature', Attribute.Wisdom),
+    skill('occultism', 'Occultism', Attribute.Intelligence),
+    skill('performance', 'Performance', Attribute.Charisma),
+    skill('religion', 'Religion', Attribute.Wisdom),
+    skill('society', 'Society', Attribute.Intelligence),
+    skill('stealth', 'Stealth', Attribute.Dexterity),
+    skill('survival', 'Survival', Attribute.Wisdom),
+    skill('thievery', 'Thievery', Attribute.Dexterity),
   ],
 });
