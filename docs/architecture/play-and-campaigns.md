@@ -163,9 +163,10 @@ campaign_links        id, campaign_id, token_hash (unique), created_at, last_use
   Foundry servers are often behind NAT, so the module always calls Pioneer, never the reverse. It sends the
   campaign's link token in a `Pioneer-Link-Token` header to CORS-enabled routes under `/api/foundry/v1`, and keeps
   the token in the GM's user setting, out of players' browsers.
-- **Change detection.** While a player is connected to the world, the active GM's client polls
-  `GET /api/foundry/v1/campaign` every 10 seconds (the server sets the interval) with `If-None-Match`. The `ETag`
-  comes from the sync mode, the export generation (exporter version and content release) and each character's
+- **Change detection.** While a player is connected to the world, the client of the GM who holds the token polls
+  `GET /api/foundry/v1/campaign` every 10 seconds (the server sets the interval) with `If-None-Match`. With only
+  the GM connected it polls once when the world loads and when the GM presses "Sync now", and otherwise not at
+  all. The `ETag` comes from the sync mode, the export generation (exporter version and content release) and each character's
   `version` and `play_revision`, so an unchanged party is a `304`.
 - **Build changes** reach Foundry when the module sees a new character `version` or export generation. The re-sync
   updates the items it exported in place, matched by their `itemKey` flag, and leaves play-state fields and every

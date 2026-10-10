@@ -84,7 +84,9 @@ are rarer still.
 - **One live link per campaign.** Creating a link revokes the previous one in the same transaction, so rotation is
   "create a new one". The GM can also revoke without replacing. **Handing the GM role over revokes the link**: the
   old GM has seen the token and has it in their Foundry settings, so the new GM creates a fresh one. Deleting the
-  campaign deletes it.
+  campaign deletes it. A partial unique index on `campaign_links (campaign_id) where revoked_at is null` holds the
+  invariant, and creation locks the campaign row first, so two concurrent creations run one after the other instead
+  of one failing on the index.
 - **The GM can see it is in use.** The campaign home shows the live link's creation time and last use.
   `last_used_at` is written at most once an hour, so polling writes nothing. Play-state writes made through the link
   are audited with the link's id as the actor, so writes after a suspected leak can be found.
@@ -94,12 +96,15 @@ are rarer still.
   and play state; it writes play state. Module routes accept nothing else, and other routes ignore the header. It
   is checked against the database on every request (an index on the hash), so a revocation takes effect on the
   next poll.
-- **CORS on module routes only**: `Access-Control-Allow-Origin: *`, the module's request headers allowed,
-  `Access-Control-Expose-Headers: ETag, Pioneer-Poll-After`, `Access-Control-Max-Age: 7200` (Chromium's cap, so a
-  poll is not preceded by a preflight each time), and no credentials. The token is the only credential and the
-  module sends requests with `credentials: 'omit'`, so no session cookie reaches these routes and the CSRF guard has
-  nothing to check. An origin allowlist would add nothing (the token already proves who is calling) and would break
-  every self-hosted world.
+- **CORS on module routes only, with no credentials.** Every response carries `Access-Control-Allow-Origin: *` and
+  `Access-Control-Expose-Headers: ETag, Pioneer-Poll-After`. The token is the only credential and the module sends
+  requests with `credentials: 'omit'`, so no session cookie reaches these routes and the CSRF guard has nothing to
+  check. An origin allowlist would add nothing (the token already proves who is calling) and would break every
+  self-hosted world.
+- **Preflights are answered before link authentication**, since an `OPTIONS` request carries no token; the answer
+  reveals nothing about any campaign. It sends `Access-Control-Allow-Methods: GET, PUT`,
+  `Access-Control-Max-Age: 7200` (Chromium's cap, so a poll is not preceded by a preflight each time) and
+  `Access-Control-Allow-Headers` listing exactly `Content-Type`, `If-None-Match`, `Pioneer-Link-Token` and `Pioneer-Module-Version`.
 - **The token is stored in the GM's user-scope setting, never a world setting**, since world settings reach every
   player's browser and the token can write play state for the whole party. #217 confirms that Foundry withholds a
   user-scope setting from other users; if it does not, the token goes in client scope (one browser) instead.
@@ -110,8 +115,11 @@ are rarer still.
 
 ### Change detection
 
-- **The module polls.** Only the active GM's client (`game.users.activeGM`) polls, so a full table costs the same as
-  the GM alone. Players' clients make no calls to Pioneer.
+- **The module polls from one client: the GM who holds the token.** Pasting the token records that user's id in a
+  world setting (`linkHolder`, an id, not the token), and only that user's client polls, so a full table costs the
+  same as the GM alone. `game.users.activeGM` is not used, since with two GMs it can pick one without the token.
+  While the holder is offline nothing syncs; another GM takes over by pasting the token (or a new one), which moves
+  `linkHolder`. Players' clients make no calls to Pioneer.
 - **It polls only while someone plays**: while at least one player (a non-GM user) is connected to the world. With
   only the GM there it polls once when the world loads and when the GM presses "Sync now", then stops until a
   player connects. A Foundry tab left open between sessions lets Neon sleep.
@@ -163,8 +171,11 @@ are rarer still.
     Pioneer's play state to the actor and reconciles its condition and effect items to Pioneer's set, removing ones
     Pioneer does not have. Foundry edits stand until that next write. It never posts.
   - `disconnected`: neither direction.
-- **The sequence watermark resets** when the campaign enters `foundry` mode and when the link is created or revoked,
-  so a new world or a leaked token's inflated sequence cannot lock out real snapshots.
+- **The sequence watermark is scoped to the actor.** Each snapshot names the Foundry actor's id, and
+  `character_play` keeps it beside the watermark; a snapshot from a different actor (a re-import, a fresh actor
+  after a re-attach, another world) starts a new watermark. It also resets when the campaign enters `foundry` mode,
+  when the character is attached, and when the link is created or revoked, so a leaked token's inflated sequence
+  cannot lock out real snapshots.
 - **The module's own writes are marked** with `{ pioneer: true }` in the update options, and its hooks skip them, so
   a re-sync never echoes back as a play-state post.
 
