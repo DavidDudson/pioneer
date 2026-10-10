@@ -399,9 +399,10 @@ The Structure, Numbers and Proficiency groups are in the SDK. `Proficiency` rais
 selector, weapon and armour categories included (`attack:martial`), standing in for Foundry's rank
 `ActiveEffectLike` upgrades. `ProficiencyBonus` is Pioneer's own: it replaces the proficiency bonus table,
 as a variant rule does (ADR-0026). `MartialProficiency` keeps Foundry's schema and defaults: a new proficiency for the
-weapons or armour a predicate defines, whose rank can follow a category's (`sameAs`) up to `maxRank`. The Checks,
-Strikes, Defences, Creature and Actions groups land with their Epic 2.6 translator stories, so each schema arrives
-with the Foundry content that exercises it.
+weapons or armour a predicate defines, whose rank can follow a category's (`sameAs`) up to `maxRank`. From the
+Defences group, `Immunity`, `Weakness` and `Resistance` are in the SDK too (see "Defences" below). The Checks,
+Strikes, Creature and Actions groups, and the rest of Defences, land with their Epic 2.6 translator stories, so each
+schema arrives with the Foundry content that exercises it.
 
 ## Derivation pipeline
 
@@ -562,6 +563,17 @@ origin chain:
   the damage; `libs/rules/dice` checks them per instance when it picks the highest weakness or resistance, and
   skips one whose exception the instance has. `DamageInstance` carries no traits yet, so until Strike damage
   records them (Epic 4.6) an exception is shown on the sheet but never matches, and the defence applies in full.
+
+`deriveDefences` in `libs/rules/engine` does this, beside `deriveStatistics` and over the same inputs; `type` is a
+list, as in Foundry, and each type or group it names becomes its own line. A value formula reads the character's
+inputs and the level of the item the element is on, not other statistics, as a `Change`'s does, so defences never
+wait on the statistic graph. A value of 0 or less comes to nothing (`@item.level - 4` on a low-level item) and the
+line is left out; a formula that fails, or a value past `DamageAmount`'s bound, makes the line failed. Ties for the
+highest go to the lowest rule id, so the result never depends on the order of the rules. `damageTargetOf` turns
+the result into a `DamageTarget`, taking the conditional lines whose rule ids are toggled on.
+
+Weaknesses and resistances to a material (`weakness 5 cold-iron`) are not damage types or groups, so the schema
+rejects them for now; they arrive with damage traits on `DamageInstance`.
 
 ## Predicates and conditional modifiers
 
