@@ -1,0 +1,5 @@
+<fr-tabs [label]="label()">
+  @for (tab of tabs(); track tab.to) {
+  <fr-tab [to]="tab.to" [exact]="tab.exact ?? false">{{ tab.label }}</fr-tab>
+  }
+</fr-tabs>
