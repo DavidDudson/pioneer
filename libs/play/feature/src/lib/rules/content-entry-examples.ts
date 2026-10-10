@@ -10,6 +10,7 @@ import {
   skilledHuman,
   suddenCharge,
 } from './build-examples';
+import { arcane, consecrate, fireball, heroism } from './magic-examples';
 import { aid, darkvision, draconic, fire, freeArchetype, grabbed, manipulate } from './rules-core-examples';
 
 const PLAYER_CORE = PackId.parse('player-core');
@@ -128,10 +129,14 @@ export const EXAMPLE_CONTENT_ENTRIES: Readonly<Record<RegisteredKind, unknown>> 
   [ContentKind.Creature]: giantRat,
   [ContentKind.DamageType]: fire,
   [ContentKind.Deity]: pharasma,
+  [ContentKind.Effect]: heroism,
   [ContentKind.Feat]: suddenCharge,
   [ContentKind.Heritage]: skilledHuman,
   [ContentKind.Language]: draconic,
+  [ContentKind.Ritual]: consecrate,
   [ContentKind.Sense]: darkvision,
+  [ContentKind.Spell]: fireball,
+  [ContentKind.SpellcastingTradition]: arcane,
   [ContentKind.Statistic]: armorClass,
   [ContentKind.Trait]: manipulate,
   [ContentKind.VariantRule]: freeArchetype,
@@ -149,10 +154,14 @@ export const CONTENT_KIND_KEYS: Readonly<Record<RegisteredKind, string>> = {
   [ContentKind.Creature]: 'play.rules.contentKind.creature',
   [ContentKind.DamageType]: 'play.rules.contentKind.damageType',
   [ContentKind.Deity]: 'play.rules.contentKind.deity',
+  [ContentKind.Effect]: 'play.rules.contentKind.effect',
   [ContentKind.Feat]: 'play.rules.contentKind.feat',
   [ContentKind.Heritage]: 'play.rules.contentKind.heritage',
   [ContentKind.Language]: 'play.rules.contentKind.language',
+  [ContentKind.Ritual]: 'play.rules.contentKind.ritual',
   [ContentKind.Sense]: 'play.rules.contentKind.sense',
+  [ContentKind.Spell]: 'play.rules.contentKind.spell',
+  [ContentKind.SpellcastingTradition]: 'play.rules.contentKind.spellcastingTradition',
   [ContentKind.Statistic]: 'play.rules.contentKind.statistic',
   [ContentKind.Trait]: 'play.rules.contentKind.trait',
   [ContentKind.VariantRule]: 'play.rules.contentKind.variantRule',
