@@ -78,9 +78,12 @@ describe.skipIf(adminUrl === undefined)('StoredContentSource (postgres)', () => 
   });
 
   afterAll(async () => {
-    const problems = await unindexedQueries(database.db, recorder);
-    expect(problems).toStrictEqual([]);
-    await database.drop();
+    try {
+      const problems = await unindexedQueries(database.db, recorder);
+      expect(problems).toStrictEqual([]);
+    } finally {
+      await database.drop();
+    }
   });
 
   async function seed(contents: PackContents): Promise<void> {
