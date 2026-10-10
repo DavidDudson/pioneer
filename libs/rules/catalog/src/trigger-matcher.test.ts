@@ -1,13 +1,22 @@
 import { describe, expect, test } from 'bun:test';
 
-import { ContentEntry, contentId, ContentKey, ContentText, PackId, RichText, Slug, TriggerEvent } from '@pioneer/rules/sdk';
-import type { ContentId } from '@pioneer/rules/sdk';
+import {
+  ContentEntry,
+  ContentId,
+  contentId,
+  ContentKey,
+  ContentText,
+  PackId,
+  RichText,
+  Slug,
+  TriggerEvent,
+} from '@pioneer/rules/sdk';
 
 import { matchTrigger, triggerMatches } from './trigger-matcher';
 import type { RefNames } from './trigger-matcher';
 
 const PACK = 'player-core';
-const idOf = (slug: string): ContentId => contentId(PackId.parse(PACK), Slug.parse(slug));
+const idOf = (slug: string): ContentId => ContentId.parse(contentId(PackId.parse(PACK), Slug.parse(slug)));
 const STRIKE = idOf('strike');
 const NAMES: RefNames = new Map([[STRIKE, ContentText.parse('Strike')]]);
 
@@ -15,6 +24,11 @@ const text = (words: string): object => ({ type: 'text', text: words });
 const paragraph = (...content: readonly object[]): object => ({ type: 'paragraph', content });
 const trigger = (...blocks: readonly object[]): RichText => RichText.parse(blocks);
 const prose = (words: string): RichText => trigger(paragraph(text(words)));
+const ref = (id: ContentId, label?: string): object => ({ type: 'ref', id, ...(label === undefined ? {} : { label }) });
+
+const OTHER = idOf('other');
+const TWO_PARAGRAPHS = trigger(paragraph(text('Your turn begins.')), paragraph(text('Your turn ends.')));
+const WITH_GLYPH = trigger(paragraph(text('You cast a spell '), { type: 'action-cost', cost: 'one' }));
 
 const event = (value: object): TriggerEvent => TriggerEvent.parse(value);
 
@@ -41,20 +55,22 @@ describe('trigger matcher', () => {
   });
 
   test('reads a link by its label, or by the name of the entry it links to', () => {
-    const linked = trigger(paragraph(text('You '), { type: 'ref', id: STRIKE }, text('.')));
-    const labelled = trigger(paragraph(text('You make a '), { type: 'ref', id: idOf('other'), label: 'Strike' }));
+    const linked = trigger(paragraph(text('You '), ref(STRIKE), text('.')));
+    const labelled = trigger(paragraph(text('You make a '), ref(OTHER, 'Strike')));
+    const unnamed = trigger(paragraph(text('You '), ref(OTHER)));
+    const strike = event({ event: 'strike' });
 
-    expect(matchTrigger(linked, NAMES)).toStrictEqual(event({ event: 'strike' }));
-    expect(matchTrigger(labelled, NAMES)).toStrictEqual(event({ event: 'strike' }));
-    expect(matchTrigger(trigger(paragraph(text('You '), { type: 'ref', id: idOf('other') })), NAMES)).toBeUndefined();
+    expect(matchTrigger(linked, NAMES)).toStrictEqual(strike);
+    expect(matchTrigger(labelled, NAMES)).toStrictEqual(strike);
+    expect(matchTrigger(unnamed, NAMES)).toBeUndefined();
   });
 
   test.each([
     ['a condition the event cannot carry', prose('You Strike a creature that is off-guard.')],
     ['another creature’s action', prose('A creature within your reach uses a move action.')],
     ['an unknown wording', prose('constructor')],
-    ['more than one paragraph', trigger(paragraph(text('Your turn begins.')), paragraph(text('Your turn ends.')))],
-    ['a node richer than words', trigger(paragraph(text('You cast a spell '), { type: 'action-cost', cost: 'one' }))],
+    ['more than one paragraph', TWO_PARAGRAPHS],
+    ['a node richer than words', WITH_GLYPH],
   ])('leaves %s unmatched', (_name, words) => {
     expect(matchTrigger(words, NAMES)).toBeUndefined();
   });
@@ -78,7 +94,11 @@ function entry(slug: string, kind: string, data: object): ContentEntry {
   });
 }
 
-const triggered = (words: string, extra: object = {}): object => ({ cost: 'reaction', trigger: prose(words), ...extra });
+const triggered = (words: string, extra: object = {}): object => ({
+  cost: 'reaction',
+  trigger: prose(words),
+  ...extra,
+});
 
 describe('trigger matches', () => {
   test('reads actions and the actions feats and class features are', () => {

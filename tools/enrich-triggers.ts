@@ -1,45 +1,50 @@
+import path from 'node:path';
+
+import { triggerMatches } from '@pioneer/rules/catalog';
+import { ContentEntryFile } from '@pioneer/rules/sdk';
+import type { ContentId, ContentText } from '@pioneer/rules/sdk';
 /**
  * Sets `triggerEvent` on every action in `content/packs` whose trigger wording the matcher knows and that has none yet
  * (ADR-0031: the committed packs are the source, so the pass edits them). Review the diff; what it leaves is listed by
  * `bun run content:coverage` and set by hand.
  */
 import { Glob } from 'bun';
-import { join } from 'node:path';
-
-import { triggerMatches } from '@pioneer/rules/catalog';
-import { ContentEntryFile } from '@pioneer/rules/sdk';
-import type { ContentEntry, ContentId, ContentText } from '@pioneer/rules/sdk';
+import * as z from 'zod';
 
 import { enrichTriggerFile } from './trigger-enrichment.ts';
 
-const PACKS = join(import.meta.dir, '..', 'content', 'packs');
+const ROOT = path.join(import.meta.dir, '..');
+const PACKS = path.join(ROOT, 'content', 'packs');
 const JSON_INDENT = 2;
+const JsonArray = z.array(z.unknown()).readonly();
 
 interface EntryFile {
   readonly path: string;
   readonly json: readonly unknown[];
 }
 
+async function readEntryFile(file: string): Promise<EntryFile> {
+  const json: unknown = await Bun.file(file).json();
+  return { path: file, json: JsonArray.parse(json) };
+}
+
 const paths = await Array.fromAsync(new Glob('*/*.json').scan({ cwd: PACKS, absolute: true }));
-const files: EntryFile[] = await Promise.all(
-  paths
-    .filter((path) => !path.endsWith('/pack.json'))
-    .map(async (path): Promise<EntryFile> => ({ path, json: await Bun.file(path).json() })),
+const files = await Promise.all(
+  paths.filter((file) => path.basename(file) !== 'pack.json').map(async (file) => readEntryFile(file)),
 );
-const entries: ContentEntry[] = files.flatMap(({ json }) => ContentEntryFile.parse(json));
+const entries = files.flatMap(({ json }) => ContentEntryFile.parse(json));
 const names = new Map<ContentId, ContentText>(entries.map((entry) => [entry.id, entry.name]));
 const matches = new Map(triggerMatches(entries, names).map((match) => [match.entry, match.triggerEvent]));
 
-const written: string[] = [];
-for (const { path, json } of files) {
-  const enriched = enrichTriggerFile(json, matches);
-  if (enriched !== undefined) {
-    await Bun.write(path, `${JSON.stringify(enriched, undefined, JSON_INDENT)}\n`);
-    written.push(path);
-  }
-}
-if (written.length > 0) {
-  const format = Bun.spawn(['node_modules/.bin/oxfmt', ...written], { cwd: join(import.meta.dir, '..') });
+const enriched = files.flatMap(({ path: file, json }) => {
+  const changed = enrichTriggerFile(json, matches);
+  return changed === undefined ? [] : [{ path: file, json: changed }];
+});
+await Promise.all(
+  enriched.map(async ({ path: file, json }) => Bun.write(file, `${JSON.stringify(json, undefined, JSON_INDENT)}\n`)),
+);
+if (enriched.length > 0) {
+  const format = Bun.spawn(['node_modules/.bin/oxfmt', ...enriched.map((file) => file.path)], { cwd: ROOT });
   await format.exited;
 }
-console.log(`${matches.size} trigger events set in ${written.length} files`);
+console.log(`${matches.size} trigger events set in ${enriched.length} files`);

@@ -22,8 +22,10 @@ import {
 } from 'fast-check';
 import type { Arbitrary } from 'fast-check';
 
+import { TriggerEventType } from '../action';
 import { Attribute } from '../attribute';
 import { knownReference } from '../formula-reference';
+import { withOptional } from './json-arbitraries';
 
 /** One lowercase alphanumeric word. */
 const word: Arbitrary<string> = stringMatching(/^[a-z\d]{1,6}$/u);
@@ -136,3 +138,19 @@ export const validFormulaText: Arbitrary<string> = formulaTextOver(knownReferenc
 
 /** Formula text that parses and reads only the character's values, so a statistic's base formula accepts it. */
 export const actorFormulaText: Arbitrary<string> = formulaTextOver(actorReferencePath);
+
+const triggerEventType: Arbitrary<string> = constantFrom(...Object.values(TriggerEventType));
+const triggerEvent: Arbitrary<object> = withOptional(record({ event: triggerEventType }), { predicate: predicateJson });
+
+/** An action's or effect's trigger fields: none, or an event with `autoApply: false` maybe beside it. */
+const triggerFields: Arbitrary<object> = oneof(
+  constant({}),
+  withOptional(record({ triggerEvent }), { autoApply: constant(false) }),
+);
+
+/** `data` with trigger fields merged in. */
+export function withTrigger(data: Arbitrary<object>): Arbitrary<object> {
+  return tuple(data, triggerFields).map(([fields, trigger]): object =>
+    Object.fromEntries([...Object.entries(fields), ...Object.entries(trigger)]),
+  );
+}

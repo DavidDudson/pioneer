@@ -27,7 +27,10 @@ const KNOWN_TRIGGERS: ReadonlyMap<string, TriggerEvent> = new Map<string, Trigge
   ['at the end of your turn', { event: TriggerEventType.TurnEnd }],
   ['the end of your turn', { event: TriggerEventType.TurnEnd }],
   ['you cast a spell', { event: TriggerEventType.CastSpell }],
-  ['you cast a focus spell', TriggerEvent.parse({ event: TriggerEventType.CastSpell, predicate: ['item:trait:focus'] })],
+  [
+    'you cast a focus spell',
+    TriggerEvent.parse({ event: TriggerEventType.CastSpell, predicate: ['item:trait:focus'] }),
+  ],
   ['you cast a cantrip', TriggerEvent.parse({ event: TriggerEventType.CastSpell, predicate: ['item:trait:cantrip'] })],
   ['you strike', { event: TriggerEventType.Strike }],
   ['you make a strike', { event: TriggerEventType.Strike }],
@@ -58,12 +61,7 @@ function triggerWords(trigger: RichText, names: RefNames): string | undefined {
 
 /** Lowercase, single spaces, straight apostrophes, no closing full stop. */
 function normalise(words: string): string {
-  return words
-    .replaceAll('’', "'")
-    .replaceAll(/\s+/gu, ' ')
-    .trim()
-    .replace(/\.$/u, '')
-    .toLowerCase();
+  return words.replaceAll('’', "'").replaceAll(/\s+/gu, ' ').trim().replace(/\.$/u, '').toLowerCase();
 }
 
 /**

@@ -511,8 +511,8 @@ flowchart LR
   provenance for the Legal page and NOTICE.md. The backlog in the same file holds only selected entries' items, with
   art references stripped, and is never seeded, served or bundled.
 - **Coverage report.** Per kind, over the committed packs and their backlog: entries, entries with nothing left in
-  the backlog, entries with page numbers, entries with AoN URLs, and actions with a `trigger` but no `triggerEvent`. CI reports it on PRs touching `content/` and never
-  fails on it. Milestone exit criteria are written against these numbers.
+  the backlog, entries with page numbers, entries with AoN URLs, and actions with a `trigger` but no `triggerEvent`.
+  CI reports it on PRs touching `content/` and never fails on it. Milestone exit criteria are written against these numbers.
 - **Ids.** Our ids stay UUIDv5 of `<pack>/<slug>`. The Foundry compendium UUID goes in `externalIds.foundry`,
   which is what makes Foundry export possible.
 - **Source enrichment.** Foundry has the book title but no page numbers or AoN links. They are added to the

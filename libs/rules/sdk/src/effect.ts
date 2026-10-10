@@ -2,11 +2,11 @@ import type { ValueOf } from '@pioneer/shared/kernel';
 import { issueParams, message, Pg } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
+import { AUTO_APPLY_NEEDS_EVENT, triggerFields } from './action';
 import { ContentText } from './content-text';
 import { DamageFormula } from './damage-formula';
 import { RulesMessage } from './messages';
 import { DurationCount, DurationUnitSchema } from './rich-text';
-import { AUTO_APPLY_NEEDS_EVENT, triggerFields } from './trigger-event';
 
 /** What an effect comes from, as Foundry pf2e splits its effect packs; `other` is a GM's effect. */
 export const EffectCategory = { Spell: 'spell', Feat: 'feat', Equipment: 'equipment', Other: 'other' } as const;

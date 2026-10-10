@@ -25,7 +25,7 @@ import { ActionCost } from '../rich-text';
 import { SenseAcuity } from '../sense';
 import { StatisticKind } from '../statistic';
 import { CONTENT_LEVEL_MAX, LEVEL_MAX, LEVEL_MIN } from '../units';
-import { actorFormulaText, keyPathText, skillSelectorText } from './arbitraries';
+import { actorFormulaText, keyPathText, skillSelectorText, withTrigger } from './arbitraries';
 import {
   ancestryData,
   archetypeData,
@@ -49,7 +49,6 @@ import {
 import { effectData, ritualData, spellcastingTraditionData, spellData } from './magic-kind-arbitraries';
 import { richTextJson } from './rich-text-arbitraries';
 import { ruleElementJson } from './rule-element-arbitraries';
-import { withTrigger } from './trigger-arbitraries';
 
 const AON_ID_MAX = 99_999;
 
@@ -120,13 +119,12 @@ const variableCost: Arbitrary<object> = constantFrom(...COUNTED_COSTS).chain((co
 );
 const skills: Arbitrary<string[]> = uniqueArray(skillSelectorText, { maxLength: LIST_MAX });
 /** A reaction always has a trigger; anything else may. */
-const actionData: Arbitrary<object> = withTrigger(
-  oneof(
-    reaction,
-    withOptional(constant({}), { cost: otherCost, trigger: richTextJson, skills, ...actionUse }),
-    withOptional(variableCost, { skills, ...actionUse }),
-  ),
+const untriggeredAction: Arbitrary<object> = oneof(
+  reaction,
+  withOptional(constant({}), { cost: otherCost, trigger: richTextJson, skills, ...actionUse }),
+  withOptional(variableCost, { skills, ...actionUse }),
 );
+const actionData: Arbitrary<object> = withTrigger(untriggeredAction);
 
 const featCategory: Arbitrary<string> = constantFrom(...Object.values(FeatCategory));
 const featData: Arbitrary<object> = withOptional(record({ category: featCategory }), {

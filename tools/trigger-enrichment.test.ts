@@ -51,7 +51,10 @@ describe('trigger enrichment', () => {
   });
 
   test('leaves unmatched and corrected entries as they were', () => {
-    const corrected = entry('corrected', 'action', { ...free('Your turn begins.'), triggerEvent: { event: 'turn-end' } });
+    const corrected = entry('corrected', 'action', {
+      ...free('Your turn begins.'),
+      triggerEvent: { event: 'turn-end' },
+    });
     const unmatched = entry('unmatched', 'action', free('An ally is about to use an action.'));
     const steady = entry('steady', 'action', free('Your turn begins.'));
 

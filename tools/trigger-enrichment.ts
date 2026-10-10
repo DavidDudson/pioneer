@@ -26,15 +26,13 @@ export function enrichTriggerFile(
   matches: ReadonlyMap<ContentKey, TriggerEvent>,
 ): readonly unknown[] | undefined {
   const entries = ContentEntryFile.parse(file);
-  let changed = false;
   const enriched = file.map((json, index) => {
     const entry = entries[index];
     const triggerEvent = entry === undefined ? undefined : matches.get(contentKey(entry.pack, entry.slug));
-    if (entry === undefined || triggerEvent === undefined) {
-      return json;
-    }
-    changed = true;
-    return z.encode(ContentEntry, withEvent(entry, triggerEvent));
+    return entry === undefined || triggerEvent === undefined
+      ? json
+      : z.encode(ContentEntry, withEvent(entry, triggerEvent));
   });
+  const changed = enriched.some((json, index) => json !== file[index]);
   return changed ? enriched : undefined;
 }

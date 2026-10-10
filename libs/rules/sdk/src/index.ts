@@ -1,4 +1,4 @@
-export { ActionCategory, ActionData, Frequency, FrequencyPeriod, Uses } from './action';
+export { ActionCategory, ActionData, Frequency, FrequencyPeriod, TriggerEvent, TriggerEventType, Uses } from './action';
 export { AncestryData, AncestryDefinition, AncestryId } from './ancestry';
 export {
   ATTRIBUTE_MODIFIER_MAX,
@@ -11,7 +11,6 @@ export {
 } from './attribute';
 export { DeityCategory, DivineFont } from './deity';
 export { EffectCategory, EffectData } from './effect';
-export { TriggerEvent, TriggerEventType } from './trigger-event';
 export { RitualData } from './ritual';
 export { ArmorData, ArmorGroup, ArmorItemCategory, ShieldData } from './armor';
 export { ConsumableCategory, ConsumableData } from './consumable';
