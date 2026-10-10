@@ -1,0 +1,32 @@
+[
+  {
+    "id": "058de5b7-3536-5cbd-aadc-901767d4e75c",
+    "pack": "core-rules",
+    "kind": "variant-rule",
+    "slug": "proficiency-without-level",
+    "name": "Proficiency Without Level",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core",
+        "page": 85
+      }
+    ],
+    "description": [],
+    "rules": [
+      {
+        "key": "ProficiencyBonus",
+        "table": {
+          "untrained": "-2",
+          "trained": "2",
+          "expert": "4",
+          "master": "6",
+          "legendary": "8"
+        }
+      }
+    ],
+    "data": {}
+  }
+]

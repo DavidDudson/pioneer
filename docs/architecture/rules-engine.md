@@ -42,7 +42,7 @@ A pack uses each selector once; a second statistic with the same selector is an 
 may share one, and `ContentRegistry#statisticsFor(selector)` returns them in registration order; which applies is
 the engine's choice.
 
-The core rules pack is hand-authored in `libs/content/core-rules` (pack id `core-rules`), since Foundry defines
+The core rules pack is hand-authored in `content/packs/core-rules` (pack id `core-rules`), since Foundry defines
 these statistics in code rather than as items. So far it holds:
 
 | Statistic  | Selector         | Kind    | Base                                              | Domains                               |
@@ -513,8 +513,8 @@ tracePredicate(predicate, facts); // the same, with every nested statement's ver
 ```
 
 The namespace is a roll option's first word. The table is content: the core rules pack lists it under
-`rollOptionNamespaces` (`libs/content/core-rules`), checked against the roll options in Foundry's feats, class and
-ancestry features, conditions, effects and equipment:
+`rollOptionNamespaces` (`content/packs/core-rules/pack.json`), checked against the roll options in Foundry's feats,
+class and ancestry features, conditions, effects and equipment:
 
 | Kind        | Namespaces                                                                                                                                                                                                                               |
 | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

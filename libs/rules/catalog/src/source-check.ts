@@ -34,11 +34,13 @@ export function sourceIssues(entry: SourcedEntry, registry: BookRegistry): reado
 
 /** Every entry in `pack`, as the source checks read it. */
 export function packEntries(pack: ContentPack): readonly SourcedEntry[] {
-  return [...pack.ancestries, ...pack.creatures, ...pack.statistics, ...pack.variantRules].map(({ slug, sources }) => ({
-    pack: pack.id,
-    slug,
-    sources,
-  }));
+  return [...pack.ancestries, ...pack.creatures, ...pack.statistics, ...pack.variantRules, ...pack.otherEntries].map(
+    ({ slug, sources }) => ({
+      pack: pack.id,
+      slug,
+      sources,
+    }),
+  );
 }
 
 /** An entry whose sources the registry rejects. */

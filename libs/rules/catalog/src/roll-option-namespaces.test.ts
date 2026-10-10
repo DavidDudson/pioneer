@@ -4,7 +4,7 @@ import { evaluatePredicate, PredicateFacts, Truth } from '@pioneer/rules/predica
 import { ContentLicense, ContentPack, ContentRegistry, NamespaceKind, Predicate } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
 
-import { coreRules } from './index';
+import { coreRules } from './testing/core-rules';
 
 /** A homebrew pack that adds a `sanity` namespace and nothing else. */
 function sanityPack(kind: NamespaceKind): ContentPack {

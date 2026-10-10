@@ -1,6 +1,16 @@
 import { describe, expect, test } from 'bun:test';
 
-import { ContentLicense, ContentPack, PackId, RulesMessage, Slug, SourceKind, SourceRef } from '@pioneer/rules/sdk';
+import {
+  ContentLicense,
+  ContentPack,
+  contentId,
+  contentPackFromFiles,
+  PackId,
+  RulesMessage,
+  Slug,
+  SourceKind,
+  SourceRef,
+} from '@pioneer/rules/sdk';
 import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
 import { message } from '@pioneer/shared/kernel';
 import type { FieldIssue } from '@pioneer/shared/kernel';
@@ -99,5 +109,29 @@ describe('source checks', () => {
       variantRules: [{ slug: 'gritty', name: 'Gritty', sources: [book('core-rulebook')], rules: [] }],
     });
     expect(rejected(pack)).toStrictEqual(['homebrew/gritty']);
+  });
+
+  test('checks entries of kinds the registry does not hold yet', () => {
+    const pack = contentPackFromFiles(
+      { id: 'homebrew', title: 'Homebrew', publisher: 'Tests', license: ContentLicense.Homebrew },
+      [
+        [
+          {
+            id: contentId(PackId.parse('homebrew'), Slug.parse('lizard')),
+            pack: 'homebrew',
+            kind: 'language',
+            slug: 'lizard',
+            name: 'Lizard',
+            rarity: 'common',
+            traits: [],
+            sources: [book('core-rulebook')],
+            description: [],
+            rules: [],
+            data: {},
+          },
+        ],
+      ],
+    );
+    expect(rejected(pack)).toStrictEqual(['homebrew/lizard']);
   });
 });

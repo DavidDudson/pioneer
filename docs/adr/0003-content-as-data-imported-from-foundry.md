@@ -1,6 +1,6 @@
 # 0003. Content as data in Postgres, imported from Foundry pf2e
 
-- Status: Proposed
+- Status: Accepted
 - Date: 2026-10-08
 
 ## Context

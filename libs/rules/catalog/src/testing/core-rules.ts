@@ -6,7 +6,10 @@ import type { ContentPack, Selector } from '@pioneer/rules/sdk';
 import { constantFrom, integer, record } from 'fast-check';
 import type { Arbitrary } from 'fast-check';
 
-import { coreRules } from './index';
+import { coreRulesPack } from '../json-packs';
+
+/** The core rules pack as the catalog loads it from `content/packs/core-rules`. */
+export const coreRules: ContentPack = await coreRulesPack();
 
 /* Fixtures shared by the core rules pack's tests. */
 
@@ -90,10 +93,13 @@ export function totals(results: ReadonlyMap<Selector, StatisticResult>): Record<
 
 const proficiency: Arbitrary<Proficiency> = constantFrom(...Object.values(Proficiency));
 const attribute: Arbitrary<number> = integer({ min: ATTRIBUTE_MIN, max: ATTRIBUTE_MAX });
-/** Player Core ancestries give 6 to 12 Hit Points and a 20 to 30 foot Speed; classes give 6 to 12 Hit Points. */
-const ancestryHitPoints: Arbitrary<number> = constantFrom(6, 8, 10, 12);
-const ancestrySpeed: Arbitrary<number> = constantFrom(20, 25, 30);
-const classHitPoints: Arbitrary<number> = constantFrom(6, 8, 10, 12);
+/** Player Core ancestries and classes give 6 to 12 Hit Points; ancestries give a 20 to 30 foot Speed. */
+const HIT_POINTS_MIN = 6;
+const HIT_POINTS_MAX = 12;
+const SPEED_MIN = 20;
+const SPEED_MAX = 30;
+const hitPoints: Arbitrary<number> = integer({ min: HIT_POINTS_MIN, max: HIT_POINTS_MAX });
+const ancestrySpeed: Arbitrary<number> = integer({ min: SPEED_MIN, max: SPEED_MAX });
 const keyAttribute: Arbitrary<Attribute> = constantFrom(...Object.values(Attribute));
 
 /** Generated inputs as JSON, with the values AC reads kept beside them. */
@@ -126,9 +132,9 @@ export const anyInputs: Arbitrary<GeneratedInputs> = record({
   will: proficiency,
   perception: proficiency,
   skill: proficiency,
-  ancestryHp: ancestryHitPoints,
+  ancestryHp: hitPoints,
   speed: ancestrySpeed,
-  classHp: classHitPoints,
+  classHp: hitPoints,
   key: keyAttribute,
 }).map(
   ({ level, str, dex, con, int, wis, cha, cap, ac, fortitude, reflex, will, perception, skill, ...character }) => ({

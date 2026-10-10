@@ -32,9 +32,9 @@ interface ContentEntry<K extends ContentKind> {
 schema from a kind registry (`KIND_DATA`, `kind-data.ts`); a kind with no schema yet is an error naming it. On top
 of the field schemas it checks that `id` is UUIDv5 of `<pack>/<slug>`, that there is at least one source, that
 traits are unique, and that `supersedes` never holds the entry's own id. The rules playground's "Content entry"
-mode loads an example per registered kind. Until Epic 2.3 replaces `libs/content/*`, packs keep their older shape
-and the registry wraps their definitions in `PackEntry`; each definition carries the envelope's `sources`, so packs
-are sourced and checked against the book registry like entries.
+mode loads an example per registered kind. Packs are stored as entries (see "Packs and storage"); until the
+registry serves entries directly, `contentPackFromFiles` (`content-pack-file.ts`) turns them into the definitions it
+holds today and wraps each in `PackEntry`.
 
 ### Kinds
 
@@ -325,9 +325,19 @@ content_pack_deps    pack_id, depends_on            -- homebrew extending an off
 - **Enabled packs** are chosen per campaign (and per character outside campaigns). The registry is built from
   exactly those packs.
 
-The existing TS content libraries (`libs/content/player-core`, `libs/content/monster-core`, and the hand-authored
-`libs/content/core-rules`, which is seeded instead) are retired. Thousands
-of entries as TypeScript would slow typechecking for no benefit, and homebrew cannot use that path.
+Official content is JSON, not TypeScript: thousands of entries as TypeScript would slow typechecking for no benefit,
+and homebrew cannot use that path. A pack directory holds:
+
+- `pack.json`: the manifest (`id`, `title`, `publisher`, `license`) and pack-wide data no entry holds. The core
+  rules pack keeps its proficiency bonus table (ADR-0026) and roll option namespace table here.
+- `<kind>.json`: an array of `ContentEntry` envelopes of that kind, in a stable order.
+
+The hand-authored packs (`core-rules`, and the `player-core` and `monster-core` entries transcribed before the
+importer exists) live there too. `libs/rules/catalog` loads them lazily and checks every entry against its schema
+and the book registry, so a malformed or wrongly sourced entry fails `bun run affected`. Ids are stored on
+characters, so changing an entry's slug is a data migration; a catalog test pins every id that exists. The id
+ignores the kind, so a slug is unique across every kind in its pack: rules core kinds (languages, senses) live in
+`core-rules`, where they cannot collide with an ancestry such as `goblin`.
 
 ### Delivery to the browser
 

@@ -1,0 +1,282 @@
+[
+  {
+    "id": "9ef5b9f3-c3b1-57aa-a847-25f68ca30427",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "common",
+    "name": "Common",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 89,
+        "aon": "https://2e.aonprd.com/Languages.aspx?ID=155"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "1367029e-6456-5a80-9772-2846e6747883",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "draconic",
+    "name": "Draconic",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 89,
+        "aon": "https://2e.aonprd.com/Languages.aspx?ID=156"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "a54fbd03-5614-5607-87f9-e5a40846321f",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "dwarven",
+    "name": "Dwarven",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 89,
+        "aon": "https://2e.aonprd.com/Languages.aspx?ID=157"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "02d4ab36-444f-57c6-aea7-6f2ff6a09b22",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "elven",
+    "name": "Elven",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 89,
+        "aon": "https://2e.aonprd.com/Languages.aspx?ID=158"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "c2275701-b366-57f6-a6d8-b24f143ef9aa",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "fey",
+    "name": "Fey",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 89,
+        "aon": "https://2e.aonprd.com/Languages.aspx?ID=119"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "c5896f47-3872-5363-b5f9-01d6e6fe2568",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "gnomish",
+    "name": "Gnomish",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 89,
+        "aon": "https://2e.aonprd.com/Languages.aspx?ID=159"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "c3522b95-89e6-575b-8591-02cbf7cbd645",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "goblin",
+    "name": "Goblin",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 89,
+        "aon": "https://2e.aonprd.com/Languages.aspx?ID=160"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "2a3cd6da-1de8-57fd-9550-5f3e7a7998d6",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "halfling",
+    "name": "Halfling",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 89,
+        "aon": "https://2e.aonprd.com/Languages.aspx?ID=161"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "0e759640-34b7-5999-91b4-d7c86a0e3875",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "jotun",
+    "name": "Jotun",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 89,
+        "aon": "https://2e.aonprd.com/Languages.aspx?ID=162"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "9390a12d-a784-57d7-8af0-58fed47caf4a",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "orcish",
+    "name": "Orcish",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 89,
+        "aon": "https://2e.aonprd.com/Languages.aspx?ID=163"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "21afbe07-694e-5bd6-89ac-9b92206f50f5",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "sakvroth",
+    "name": "Sakvroth",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 89,
+        "aon": "https://2e.aonprd.com/Languages.aspx?ID=118"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "39cf7542-e68c-5298-8ab1-5c4b9f4efe43",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "empyrean",
+    "name": "Empyrean",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 89,
+        "aon": "https://2e.aonprd.com/Languages.aspx?ID=115"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "2f1eaa2b-d2ed-5095-9136-d10fb7ba7ccd",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "kholo",
+    "name": "Kholo",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 89,
+        "aon": "https://2e.aonprd.com/Languages.aspx?ID=122"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "d11e6f74-1846-5d0f-a28c-b67e7fe850a3",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "petran",
+    "name": "Petran",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 89,
+        "aon": "https://2e.aonprd.com/Languages.aspx?ID=109"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  }
+]

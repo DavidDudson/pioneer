@@ -1,0 +1,320 @@
+[
+  {
+    "id": "87d49891-adee-522e-b478-93e77308482b",
+    "pack": "player-core",
+    "kind": "ancestry",
+    "slug": "dwarf",
+    "name": "Dwarf",
+    "rarity": "common",
+    "traits": ["dwarf", "humanoid"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 42,
+        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=59"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "hitPoints": 10,
+      "size": "medium",
+      "speed": 20,
+      "boosts": [["con"], ["wis"], ["str", "dex", "con", "int", "wis", "cha"]],
+      "flaws": ["cha"],
+      "languages": ["9ef5b9f3-c3b1-57aa-a847-25f68ca30427", "a54fbd03-5614-5607-87f9-e5a40846321f"],
+      "additionalLanguages": {
+        "count": 0,
+        "options": [
+          "c5896f47-3872-5363-b5f9-01d6e6fe2568",
+          "c3522b95-89e6-575b-8591-02cbf7cbd645",
+          "0e759640-34b7-5999-91b4-d7c86a0e3875",
+          "9390a12d-a784-57d7-8af0-58fed47caf4a",
+          "d11e6f74-1846-5d0f-a28c-b67e7fe850a3",
+          "21afbe07-694e-5bd6-89ac-9b92206f50f5"
+        ]
+      },
+      "vision": "8e335e9a-e966-529a-8b5d-5be7dba6a61d",
+      "reach": 5
+    }
+  },
+  {
+    "id": "d10d29db-62ec-5b40-984e-cd3bfce29991",
+    "pack": "player-core",
+    "kind": "ancestry",
+    "slug": "elf",
+    "name": "Elf",
+    "rarity": "common",
+    "traits": ["elf", "humanoid"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 46,
+        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=60"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "hitPoints": 6,
+      "size": "medium",
+      "speed": 30,
+      "boosts": [["dex"], ["int"], ["str", "dex", "con", "int", "wis", "cha"]],
+      "flaws": ["con"],
+      "languages": ["9ef5b9f3-c3b1-57aa-a847-25f68ca30427", "02d4ab36-444f-57c6-aea7-6f2ff6a09b22"],
+      "additionalLanguages": {
+        "count": 0,
+        "options": [
+          "1367029e-6456-5a80-9772-2846e6747883",
+          "39cf7542-e68c-5298-8ab1-5c4b9f4efe43",
+          "c2275701-b366-57f6-a6d8-b24f143ef9aa",
+          "c5896f47-3872-5363-b5f9-01d6e6fe2568",
+          "c3522b95-89e6-575b-8591-02cbf7cbd645",
+          "2f1eaa2b-d2ed-5095-9136-d10fb7ba7ccd",
+          "9390a12d-a784-57d7-8af0-58fed47caf4a"
+        ]
+      },
+      "vision": "d177c026-2e38-5147-b32d-66104c47e988",
+      "reach": 5
+    }
+  },
+  {
+    "id": "baa51e19-9701-53d3-9589-acaa8e3744a2",
+    "pack": "player-core",
+    "kind": "ancestry",
+    "slug": "gnome",
+    "name": "Gnome",
+    "rarity": "common",
+    "traits": ["gnome", "humanoid"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 50,
+        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=61"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "hitPoints": 8,
+      "size": "small",
+      "speed": 25,
+      "boosts": [["con"], ["cha"], ["str", "dex", "con", "int", "wis", "cha"]],
+      "flaws": ["str"],
+      "languages": [
+        "9ef5b9f3-c3b1-57aa-a847-25f68ca30427",
+        "c2275701-b366-57f6-a6d8-b24f143ef9aa",
+        "c5896f47-3872-5363-b5f9-01d6e6fe2568"
+      ],
+      "additionalLanguages": {
+        "count": 0,
+        "options": [
+          "1367029e-6456-5a80-9772-2846e6747883",
+          "a54fbd03-5614-5607-87f9-e5a40846321f",
+          "02d4ab36-444f-57c6-aea7-6f2ff6a09b22",
+          "c3522b95-89e6-575b-8591-02cbf7cbd645",
+          "0e759640-34b7-5999-91b4-d7c86a0e3875",
+          "9390a12d-a784-57d7-8af0-58fed47caf4a"
+        ]
+      },
+      "vision": "d177c026-2e38-5147-b32d-66104c47e988",
+      "reach": 5
+    }
+  },
+  {
+    "id": "19b27be4-62c2-5050-9ccd-2b960ba3194b",
+    "pack": "player-core",
+    "kind": "ancestry",
+    "slug": "goblin",
+    "name": "Goblin",
+    "rarity": "common",
+    "traits": ["goblin", "humanoid"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 54,
+        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=62"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "hitPoints": 6,
+      "size": "small",
+      "speed": 25,
+      "boosts": [["dex"], ["cha"], ["str", "dex", "con", "int", "wis", "cha"]],
+      "flaws": ["wis"],
+      "languages": ["9ef5b9f3-c3b1-57aa-a847-25f68ca30427", "c3522b95-89e6-575b-8591-02cbf7cbd645"],
+      "additionalLanguages": {
+        "count": 0,
+        "options": [
+          "1367029e-6456-5a80-9772-2846e6747883",
+          "a54fbd03-5614-5607-87f9-e5a40846321f",
+          "c5896f47-3872-5363-b5f9-01d6e6fe2568",
+          "2a3cd6da-1de8-57fd-9550-5f3e7a7998d6",
+          "2f1eaa2b-d2ed-5095-9136-d10fb7ba7ccd",
+          "9390a12d-a784-57d7-8af0-58fed47caf4a"
+        ]
+      },
+      "vision": "8e335e9a-e966-529a-8b5d-5be7dba6a61d",
+      "reach": 5
+    }
+  },
+  {
+    "id": "da9f0ffe-16b0-5f1b-8f2f-4f0f253c057d",
+    "pack": "player-core",
+    "kind": "ancestry",
+    "slug": "halfling",
+    "name": "Halfling",
+    "rarity": "common",
+    "traits": ["halfling", "humanoid"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 58,
+        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=63"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "hitPoints": 6,
+      "size": "small",
+      "speed": 25,
+      "boosts": [["dex"], ["wis"], ["str", "dex", "con", "int", "wis", "cha"]],
+      "flaws": ["str"],
+      "languages": ["9ef5b9f3-c3b1-57aa-a847-25f68ca30427", "2a3cd6da-1de8-57fd-9550-5f3e7a7998d6"],
+      "additionalLanguages": {
+        "count": 0,
+        "options": [
+          "a54fbd03-5614-5607-87f9-e5a40846321f",
+          "02d4ab36-444f-57c6-aea7-6f2ff6a09b22",
+          "c5896f47-3872-5363-b5f9-01d6e6fe2568",
+          "c3522b95-89e6-575b-8591-02cbf7cbd645"
+        ]
+      },
+      "reach": 5
+    }
+  },
+  {
+    "id": "f10cdb85-0c8e-5795-9741-a0f4790f2bf3",
+    "pack": "player-core",
+    "kind": "ancestry",
+    "slug": "human",
+    "name": "Human",
+    "rarity": "common",
+    "traits": ["human", "humanoid"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 62,
+        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=64"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "hitPoints": 8,
+      "size": "medium",
+      "speed": 25,
+      "boosts": [
+        ["str", "dex", "con", "int", "wis", "cha"],
+        ["str", "dex", "con", "int", "wis", "cha"]
+      ],
+      "flaws": [],
+      "languages": ["9ef5b9f3-c3b1-57aa-a847-25f68ca30427"],
+      "additionalLanguages": {
+        "count": 1,
+        "options": []
+      },
+      "reach": 5
+    }
+  },
+  {
+    "id": "24425fee-2efe-50a0-83a9-011cf28c3d24",
+    "pack": "player-core",
+    "kind": "ancestry",
+    "slug": "leshy",
+    "name": "Leshy",
+    "rarity": "common",
+    "traits": ["leshy", "plant"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 66,
+        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=65"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "hitPoints": 8,
+      "size": "small",
+      "speed": 25,
+      "boosts": [["con"], ["wis"], ["str", "dex", "con", "int", "wis", "cha"]],
+      "flaws": ["int"],
+      "languages": ["9ef5b9f3-c3b1-57aa-a847-25f68ca30427", "c2275701-b366-57f6-a6d8-b24f143ef9aa"],
+      "additionalLanguages": {
+        "count": 0,
+        "options": [
+          "1367029e-6456-5a80-9772-2846e6747883",
+          "02d4ab36-444f-57c6-aea7-6f2ff6a09b22",
+          "c5896f47-3872-5363-b5f9-01d6e6fe2568",
+          "c3522b95-89e6-575b-8591-02cbf7cbd645",
+          "2a3cd6da-1de8-57fd-9550-5f3e7a7998d6",
+          "21afbe07-694e-5bd6-89ac-9b92206f50f5"
+        ]
+      },
+      "vision": "d177c026-2e38-5147-b32d-66104c47e988",
+      "reach": 5
+    }
+  },
+  {
+    "id": "169f1809-dcaf-5293-b603-f7a12cdc6084",
+    "pack": "player-core",
+    "kind": "ancestry",
+    "slug": "orc",
+    "name": "Orc",
+    "rarity": "common",
+    "traits": ["orc", "humanoid"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 70,
+        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=66"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "hitPoints": 10,
+      "size": "medium",
+      "speed": 25,
+      "boosts": [
+        ["str", "dex", "con", "int", "wis", "cha"],
+        ["str", "dex", "con", "int", "wis", "cha"]
+      ],
+      "flaws": [],
+      "languages": ["9ef5b9f3-c3b1-57aa-a847-25f68ca30427", "9390a12d-a784-57d7-8af0-58fed47caf4a"],
+      "additionalLanguages": {
+        "count": 0,
+        "options": [
+          "c3522b95-89e6-575b-8591-02cbf7cbd645",
+          "0e759640-34b7-5999-91b4-d7c86a0e3875",
+          "d11e6f74-1846-5d0f-a28c-b67e7fe850a3",
+          "21afbe07-694e-5bd6-89ac-9b92206f50f5"
+        ]
+      },
+      "vision": "8e335e9a-e966-529a-8b5d-5be7dba6a61d",
+      "reach": 5
+    }
+  }
+]
