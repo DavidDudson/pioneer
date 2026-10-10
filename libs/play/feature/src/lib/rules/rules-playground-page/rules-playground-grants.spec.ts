@@ -91,6 +91,20 @@ describe('RulesPlaygroundPage grants', () => {
     expect(pageText(harness)).toContain('Nothing can be picked for this choice yet.');
   });
 
+  it('sets the value a condition root takes as a roll option', async () => {
+    const harness = await openPlayground();
+    await chooseSchema(harness, 'Grants');
+    await typeJson(harness, '[{ "slug": "frightened", "name": "Frightened", "kind": "condition", "rules": [] }]');
+
+    const roots = secondTextArea(harness);
+    roots.value = 'frightened 2';
+    roots.dispatchEvent(new Event('input'));
+    await harness.fixture.whenStable();
+
+    expect(pageText(harness)).toContain('self:condition:frightened:2');
+    expect(roots.getAttribute('aria-invalid')).not.toBe('true');
+  });
+
   it('flags a root that is not a slug', async () => {
     const harness = await openPlayground();
     await chooseSchema(harness, 'Grants');
@@ -100,7 +114,7 @@ describe('RulesPlaygroundPage grants', () => {
     roots.dispatchEvent(new Event('input'));
     await harness.fixture.whenStable();
 
-    expect(pageText(harness)).toContain('Line 1 is not a slug.');
+    expect(pageText(harness)).toContain('Line 1 is not a slug, or gives a value to something that is not a condition.');
     expect(roots.getAttribute('aria-invalid')).toBe('true');
   });
 });

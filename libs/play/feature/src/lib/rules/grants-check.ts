@@ -6,7 +6,6 @@ import type {
   GrantEntry,
   GrantedItem,
   GrantResolution,
-  GrantRoot,
 } from '@pioneer/rules/grants';
 import { DEFAULT_NAMESPACES, kindOf, NamespaceKind } from '@pioneer/rules/predicate';
 import type { PredicateSummary } from '@pioneer/rules/predicate';
@@ -22,7 +21,6 @@ import {
   RollOption,
   RuleElement,
   RuleElementKey,
-  SlotKey,
   Slug,
   SourceRef,
 } from '@pioneer/rules/sdk';
@@ -32,6 +30,8 @@ import * as z from 'zod';
 
 import { choiceRow, choiceSlugsToIds, parsePicks } from './grant-choices';
 import type { ChoiceRow, PicksParse, SlugTable } from './grant-choices';
+import { parseRoots } from './grant-roots';
+import type { EntrySlugs, RootsParse } from './grant-roots';
 import { parseToggles, toggleRow } from './grant-toggles';
 import type { ToggleRow, TogglesParse } from './grant-toggles';
 import { parseFacts } from './predicate-verdict';
@@ -42,7 +42,6 @@ import type { JsonProblem, JsonRead } from './rules-check';
 /** Entries typed into the playground live in a made-up pack, so a slug names one. */
 const PLAYGROUND_PACK = PackId.parse('playground');
 const PLAYGROUND_PAGE = SourceRef.parse({ kind: 'book', book: 'player-core', page: 1 });
-const LINE = /\r?\n/u;
 
 const idOfSlug = (slug: Slug): ContentId => ContentId.parse(contentId(PLAYGROUND_PACK, slug));
 
@@ -91,7 +90,7 @@ export type GrantsStatus = ValueOf<typeof GrantsStatus>;
 /** What the grants tool reads: four texts and the level. */
 export interface GrantsTexts {
   readonly entries: string;
-  /** Root slugs, one per line. */
+  /** Root slugs, one per line, a condition's with its value if it has one: `frightened 2`. */
   readonly roots: string;
   /** Picks, one `entry:rule = value` per line. */
   readonly picks: string;
@@ -119,7 +118,7 @@ export type GrantsCheck =
   | {
       readonly status: typeof GrantsStatus.Problems;
       readonly entries: JsonProblem | undefined;
-      /** The 1-based root lines that are not slugs. */
+      /** The 1-based root lines that are not slugs, or give a value to anything but a condition. */
       readonly rootLines: readonly number[];
       readonly pickLines: readonly number[];
       readonly toggleLines: readonly number[];
@@ -127,25 +126,6 @@ export type GrantsCheck =
       /** Whether the level is outside what a level can be. */
       readonly badLevel: boolean;
     };
-
-interface RootsParse {
-  readonly roots: readonly GrantRoot[];
-  readonly bad: readonly number[];
-}
-
-/** Each filled line as a root the player picked, its slot named after its slug. */
-function parseRoots(text: string): RootsParse {
-  const lines = text.split(LINE).map((line, index) => ({ text: line.trim(), number: index + 1 }));
-  const filled = lines.filter((line) => line.text !== '');
-  const bad = filled.filter((line) => !Slug.safeParse(line.text).success).map((line) => line.number);
-  const roots = filled.flatMap((line): GrantRoot[] => {
-    const slug = Slug.safeParse(line.text);
-    return slug.success
-      ? [{ entry: idOfSlug(slug.data), hop: { kind: OriginHopKind.Choice, slot: SlotKey.parse(slug.data) } }]
-      : [];
-  });
-  return { roots, bad };
-}
 
 /** The slugs of `entries`, each standing for its id. */
 function slugTable(entries: readonly PlaygroundEntry[]): SlugTable {
@@ -212,12 +192,18 @@ interface ReadTexts {
   readonly level: Level | undefined;
 }
 
-function readTexts(texts: GrantsTexts, table: SlugTable): ReadTexts {
+/** The slugs of `entries`, and which of them are conditions. */
+function entrySlugs(entries: readonly PlaygroundEntry[]): EntrySlugs {
+  const conditions = entries.filter((entry) => entry.kind === ContentKind.Condition).map((entry) => entry.slug);
+  return { table: slugTable(entries), conditions: new Set(conditions) };
+}
+
+function readTexts(texts: GrantsTexts, slugs: EntrySlugs): ReadTexts {
   const level = Level.safeParse(texts.level);
   return {
-    roots: parseRoots(texts.roots),
-    picks: parsePicks(texts.picks, table),
-    toggles: parseToggles(texts.toggles, table),
+    roots: parseRoots(texts.roots, slugs),
+    picks: parsePicks(texts.picks, slugs.table),
+    toggles: parseToggles(texts.toggles, slugs.table),
     facts: parseFacts(texts.facts),
     level: level.success ? level.data : undefined,
   };
@@ -245,14 +231,14 @@ function problemsOf(
  */
 export function checkGrants(texts: GrantsTexts): GrantsCheck {
   const entries = readJson(PlaygroundEntries, texts.entries);
-  const table = slugTable(entries.status === CheckStatus.Valid ? entries.value : []);
-  const read = readTexts(texts, table);
+  const slugs = entrySlugs(entries.status === CheckStatus.Valid ? entries.value : []);
+  const read = readTexts(texts, slugs);
   const { roots, picks, toggles, facts, level } = read;
   const badLines = [roots.bad, picks.bad, toggles.bad].some((bad) => bad.length > 0);
   if (entries.status !== CheckStatus.Valid || level === undefined || 'lines' in facts || badLines) {
     return problemsOf(entries, read);
   }
-  const content = entries.value.map((entry) => entryOf(entry, table));
+  const content = entries.value.map((entry) => entryOf(entry, slugs.table));
   const names = new Map(content.map((entry) => [entry.id, String(entry.name)]));
   const resolution = resolveGrants({
     roots: roots.roots,
@@ -262,5 +248,5 @@ export function checkGrants(texts: GrantsTexts): GrantsCheck {
     picks: picks.picks,
     toggles: toggles.toggles,
   });
-  return rowsOf(resolution, names, table);
+  return rowsOf(resolution, names, slugs.table);
 }
