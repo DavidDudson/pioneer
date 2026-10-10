@@ -5,7 +5,7 @@ import type { BaseTerm, BreakdownLine, ModifierLabel, OverrideLine, StatisticRes
 import { OriginHopKind, Proficiency } from '@pioneer/rules/sdk';
 import type { Origin, OriginHop, Selector } from '@pioneer/rules/sdk';
 
-import { AC_BASE, core, PWL, withoutLevel } from './testing/core-rules';
+import { AC_BASE, core, noFacts, PWL, withoutLevel } from './testing/core-rules';
 import {
   level1Fighter,
   level1FighterFacts,
@@ -220,5 +220,21 @@ describe('Level 1 Fighter (golden)', () => {
   test('Proficiency Without Level moves only the proficiency terms, and names the variant on each', () => {
     const rules = [...level1FighterRules, ...withoutLevel()];
     expect(checked(deriveStatistics(core, level1Fighter, { rules, facts }))).toStrictEqual(golden(WITHOUT_LEVEL));
+  });
+
+  test("without scale mail's Strength met, its check and Speed penalties apply", () => {
+    const unmet = checked(deriveStatistics(core, level1Fighter, { rules: level1FighterRules, facts: noFacts() }));
+    const checkPenalty = [`item ${SCALE_MAIL_CHECK_PENALTY} applied (scale-mail)`];
+    // Each total is the sheet's less 2; land Speed is 25 less 5.
+    expect(unmet['skill:acrobatics']).toMatchObject({ lines: checkPenalty, total: 2 });
+    expect(unmet['skill:athletics']).toMatchObject({ lines: checkPenalty, total: 5 });
+    expect(unmet['skill:stealth']).toMatchObject({ lines: checkPenalty, total: -1 });
+    expect(unmet['skill:thievery']).toMatchObject({ lines: checkPenalty, total: -1 });
+    expect(unmet['speed:land']).toMatchObject({
+      lines: [`item ${SCALE_MAIL_SPEED_PENALTY} applied (scale-mail)`],
+      total: 20,
+    });
+    // Skills keyed to other attributes take no check penalty.
+    expect(unmet['skill:medicine']).toStrictEqual(derived['skill:medicine']);
   });
 });
