@@ -47,6 +47,14 @@ UI behaviour:
 Turn tracking (actions spent, reaction used, start/end of turn effects such as frightened decreasing) is local to the
 sheet. Campaign play runs in Foundry VTT, which tracks turns itself (ADR-0018).
 
+## Sheet modes
+
+The sheet has four layouts over the same character: **Encounter** (Now view, Strikes, defences, conditions),
+**Exploration** (exploration activities, Perception, social and Recall Knowledge skills, languages, lore),
+**Downtime** (downtime activities, crafting, earn income, retraining) and **Plan** (the level planner). Encounter,
+Exploration and Downtime filter actions by the content's `modes`, so no list is hand-maintained. The last mode is
+remembered per character, as a display preference (ADR-0013).
+
 ## Feat display
 
 Many feats exist only to grant something else (a class feature that grants an action, a dedication that grants a
@@ -73,6 +81,37 @@ Demoralize by Goblin Warrior, round 3").
 
 End-of-turn bookkeeping (frightened decreasing, persistent damage flat checks, effect expiry) is a pure function
 over play state and the turn event, so it can run in the browser and on the server identically.
+
+### Boons
+
+A boon is an effect with a source and a lifetime: a duration, permanent, or a number of uses that counts down as
+the player spends them. A GM's boon (a god's blessing, a one-off favour) is an `effect` entry in the campaign's pack
+(M7), which the player applies to their character. Buffs from allies (Aid, Bless, a feat that grants +1 to a roll)
+are applied the same way by the player receiving them, with the giver recorded as the source; nothing writes to
+another player's sheet (ADR-0018). Permanent boons are part of the build (`build.boons`), so Pioneer keeps them in
+every sync mode; temporary ones are play state.
+
+### Rest and daily preparations
+
+Tables don't always get both, so they are separate actions, each optional and each previewing its changes before it
+applies:
+
+| Action             | Restores                                                                                          |
+| ------------------ | ------------------------------------------------------------------------------------------------- |
+| Rest               | HP (Constitution modifier, at least 1, times level); removes fatigued; drained and doomed down 1  |
+| Daily preparations | spell slots, prepared spells, focus points, staff charges, investment, per-day item and feat uses |
+| Refocus            | one focus point                                                                                   |
+| Start of session   | hero points to 1                                                                                  |
+
+Each resource names the boundary it resets on (`round`, `turn`, `rest`, `day`, `session`), taken from the content's
+`frequency`, so new resources join the right action without code.
+
+### Staves and charged items
+
+A staff is a spell source with its own list and a charge cost per spell. Daily preparations set its charges to the
+holder's highest spell rank; a prepared caster can expend a slot to add charges, and a spontaneous caster can pay part
+of a cast with a slot. A wand has one cast per day and an overcharge with its flat check and broken state. Charges and
+uses are play state resources.
 
 ## Dice
 
@@ -146,6 +185,10 @@ campaign_links        id, campaign_id, token hash, last_used_at, revoked_at
   its owner's membership, so removing or leaving takes their characters out, and the attach checks the
   membership under a key share lock so a removal that commits first stops it. Character names and levels come
   from the character context through the `CharacterDirectory` port, adapted in the API's composition root.
+- **Item transfer.** A member offers an item (with its runes, custom name and contents) or coins from one of their
+  campaign characters to another; the recipient's owner accepts or declines, and the giver can withdraw until then.
+  Accepting moves it in one transaction that checks both characters' versions, so neither side re-adds it by hand.
+  Inventory is build data, so transfers work in every sync mode.
 - **Permissions.** Policies live in the campaign context's application layer, with the acting user from identity's
   `RequestAuthenticator` (ADR-0007), or the campaign from a link token for module routes. Owners edit builds;
   members see the party overview.
