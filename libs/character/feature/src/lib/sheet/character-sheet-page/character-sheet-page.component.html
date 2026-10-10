@@ -1,9 +1,9 @@
 <fr-page [title]="title()">
   <fr-stack gap="lg">
     @if (store.importReport(); as report) {
-      <pio-import-result [report]="report" (dismissed)="store.dismissImportReport()" />
+      <pio-import-result [report]="report" (dismissed)="dismissImportReport()" />
     }
-    <fr-surface>
+    <fr-surface #identity>
       <fr-stack gap="md">
         <fr-heading variant="subheading" [level]="2">{{ 'character.sheet.identityHeading' | transloco }}</fr-heading>
         <fr-grid [columns]="3">

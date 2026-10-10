@@ -129,6 +129,10 @@ describe('PathbuilderImportPage create', () => {
     button(sheet, 'Dismiss').click();
     harness.detectChanges();
     expect(sheet.textContent).not.toContain('Imported from Pathbuilder');
+    // The focused Dismiss button is gone; focus lands on the first identity field, not the page body.
+    await vi.waitFor(() => {
+      expect(document.activeElement?.closest('fr-inline-field')).not.toBeNull();
+    });
   });
 
   it('shows the server’s reason when the ancestry is not loaded', async () => {
