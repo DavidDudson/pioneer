@@ -149,8 +149,8 @@ gain and lose conditions, end the turn with correct bookkeeping.
 - **Boons**: effects with a source and a lifetime (a duration, permanent, or a number of uses). A GM's boon is an
   effect entry in the campaign's pack. Buffs from allies (Aid, Bless, a feat's +1) are applied by the receiving
   player with the giver recorded as the source.
-- **Staves and charged items**: staff charges set at daily preparations, spontaneous casters spending a slot for
-  charges, charge cost per spell; wand once-per-day use and overcharge; item frequencies reset on the right
+- **Staves and charged items**: a held staff's spells in their own spell list section, titled with the staff; staff
+  charges set at daily preparations, spontaneous casters spending a slot for charges, charge cost per spell; wand once-per-day use and overcharge; item frequencies reset on the right
   boundary.
 
 ## M6 Campaigns and Foundry sync
