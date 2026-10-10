@@ -1,4 +1,5 @@
-import { EngineMessage, LineStatusKind } from '@pioneer/rules/engine';
+import { EngineMessage, LineStatusKind, RuleInPlay } from '@pioneer/rules/engine';
+import { PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
 import { describe, expect, it } from 'vitest';
 
 import { EXAMPLE_FACTS } from './predicate-verdict';
@@ -10,7 +11,7 @@ import {
   EXAMPLE_STATISTIC_INPUTS,
   StatisticsStatus,
 } from './statistics-check';
-import type { StatisticsCheck, StatisticsTexts } from './statistics-check';
+import type { StatisticProficiency, StatisticsCheck, StatisticsTexts } from './statistics-check';
 
 const statistic = (selector: string, base: string): object => ({
   slug: selector.replaceAll(':', '-'),
@@ -23,27 +24,51 @@ const statistic = (selector: string, base: string): object => ({
 
 const definitions = (...statistics: readonly object[]): string => JSON.stringify(statistics);
 
+/** Player Core's proficiency bonuses, no variant. */
+const STANDARD: StatisticProficiency = { table: PLAYER_CORE_PROFICIENCY_BONUS, variant: undefined };
+
+/** A variant that makes every proficiency bonus 10, as a pack would put it in play. */
+const FLAT_TEN: StatisticProficiency = {
+  table: PLAYER_CORE_PROFICIENCY_BONUS,
+  variant: {
+    name: 'Flat Ten',
+    rules: [
+      RuleInPlay.parse({
+        element: {
+          key: 'ProficiencyBonus',
+          table: { untrained: '10', trained: '10', expert: '10', master: '10', legendary: '10' },
+        },
+        origin: {
+          hops: [{ kind: 'variant', rule: '00000000-0000-4000-8000-000000000002' }],
+          entry: '00000000-0000-4000-8000-000000000002',
+          sources: [{ kind: 'book', book: 'gm-core', page: 85 }],
+        },
+        rule: 0,
+      }),
+    ],
+  },
+};
+
 /** The statistics tool with the example inputs and no rule elements unless given. */
-function check(texts: Partial<StatisticsTexts>): StatisticsCheck {
-  return checkStatistics({
-    definitions: '[]',
-    inputs: EXAMPLE_STATISTIC_INPUTS,
-    rules: '[]',
-    overrides: '[]',
-    facts: '',
-    ...texts,
-  });
+function check(texts: Partial<StatisticsTexts>, proficiency = STANDARD): StatisticsCheck {
+  return checkStatistics(
+    { definitions: '[]', inputs: EXAMPLE_STATISTIC_INPUTS, rules: '[]', overrides: '[]', facts: '', ...texts },
+    proficiency,
+  );
 }
 
 describe(checkStatistics, () => {
   it('opens on examples that all derive, in the order written', () => {
-    const result = checkStatistics({
-      definitions: rulesExample(RulesTool.Statistics),
-      inputs: EXAMPLE_STATISTIC_INPUTS,
-      rules: EXAMPLE_RULE_ELEMENTS,
-      overrides: EXAMPLE_OVERRIDES,
-      facts: EXAMPLE_FACTS,
-    });
+    const result = checkStatistics(
+      {
+        definitions: rulesExample(RulesTool.Statistics),
+        inputs: EXAMPLE_STATISTIC_INPUTS,
+        rules: EXAMPLE_RULE_ELEMENTS,
+        overrides: EXAMPLE_OVERRIDES,
+        facts: EXAMPLE_FACTS,
+      },
+      STANDARD,
+    );
     expect(result).toMatchObject({
       status: StatisticsStatus.Valid,
       rows: [
@@ -102,16 +127,35 @@ describe(checkStatistics, () => {
           total: 2,
           pinnedBy: undefined,
           terms: [
-            { code: '@level / 2', value: 1 },
-            { code: '- 1', value: -1 },
-            { code: '+ @level / 2', value: 1 },
-            { code: undefined, value: 1 },
+            { code: '@level / 2', value: 1, variant: undefined },
+            { code: '- 1', value: -1, variant: undefined },
+            { code: '+ @level / 2', value: 1, variant: undefined },
+            { code: undefined, value: 1, variant: undefined },
           ],
           lines: [],
           overrides: [],
         },
       ],
     });
+  });
+
+  it('names the variant rule on a term reading @prof while it is on', () => {
+    const ac = definitions(statistic('ac', '10 + @prof.ac'));
+    expect(check({ definitions: ac }, FLAT_TEN)).toMatchObject({
+      status: StatisticsStatus.Valid,
+      rows: [
+        {
+          ok: true,
+          total: 20,
+          terms: [
+            { code: '10', value: 10, variant: undefined },
+            { code: '+ @prof.ac', value: 10, variant: 'Flat Ten' },
+          ],
+        },
+      ],
+    });
+    // Trained at level 3 without the variant: 2 + 3.
+    expect(check({ definitions: ac })).toMatchObject({ rows: [{ total: 15, terms: [{}, { variant: undefined }] }] });
   });
 
   it('points at the reference that closes a cycle', () => {

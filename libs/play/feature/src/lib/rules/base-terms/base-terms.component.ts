@@ -8,6 +8,8 @@ import type { TermLine } from '../statistics-check';
 interface ShownTerm {
   readonly code: string | undefined;
   readonly value: string;
+  /** The variant rule that set the term's proficiency bonus, if one did. */
+  readonly variant: string | undefined;
 }
 
 /** A statistic's base, term by term: each term as written with what it gives, and any rounding. */
@@ -23,6 +25,10 @@ export class BaseTerms {
 
   protected readonly shown = computed((): readonly ShownTerm[] => {
     this.#format.locale();
-    return this.terms().map((term): ShownTerm => ({ code: term.code, value: this.#format.number(term.value) }));
+    return this.terms().map((term): ShownTerm => ({
+      code: term.code,
+      value: this.#format.number(term.value),
+      variant: term.variant,
+    }));
   });
 }

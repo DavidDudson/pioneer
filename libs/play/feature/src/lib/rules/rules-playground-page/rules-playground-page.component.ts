@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, resource, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import {
@@ -41,7 +41,9 @@ import {
   ToolKind,
 } from '../rules-tool';
 import type { ReferenceEntries, ToolCheck } from '../rules-tool';
-import { STATISTIC_DEFINITIONS, StatisticSource } from '../statistic-sources';
+import { PROFICIENCY_RULES, STATISTIC_DEFINITIONS, StatisticSource } from '../statistic-sources';
+import type { ProficiencyRules } from '../statistic-sources';
+import type { StatisticProficiency } from '../statistics-check';
 import { TOOL_FIELDS } from '../tool-fields';
 import { ToolResult } from '../tool-result/tool-result.component';
 
@@ -89,6 +91,7 @@ export class RulesPlaygroundPage {
 
   readonly #i18n = inject(TranslocoService);
   readonly #loadDefinitions = inject(STATISTIC_DEFINITIONS);
+  readonly #loadProficiency = inject(PROFICIENCY_RULES);
   readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
   /** Ticks when the locale changes or a message scope (`play`) finishes loading. */
   readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
@@ -140,6 +143,21 @@ export class RulesPlaygroundPage {
   protected readonly grantLevel = signal(EXAMPLE_GRANT_LEVEL);
   /** The filters tool's query, as it would follow `?` in a URL. Kept when switching tools. */
   protected readonly filterQuery = signal(EXAMPLE_FILTER_QUERY);
+  /** The core rules pack's proficiency rules, loaded once for the statistics tool. */
+  protected readonly proficiencyRules = resource({
+    loader: async (): Promise<ProficiencyRules> => this.#loadProficiency(),
+  });
+  /** The proficiency rules did not load, so the statistics tool cannot derive. */
+  protected readonly proficiencyFailed = computed((): boolean => this.proficiencyRules.error() !== undefined);
+  /** Whether the statistics tool derives with Proficiency Without Level. Kept when switching tools. */
+  protected readonly withoutLevel = signal(false);
+  /** The proficiency rules in force: the pack's table, and the variant while it is on; undefined until loaded. */
+  protected readonly proficiency = computed((): StatisticProficiency | undefined => {
+    const rules = this.proficiencyRules.hasValue() ? this.proficiencyRules.value() : undefined;
+    return rules === undefined
+      ? undefined
+      : { table: rules.table, variant: this.withoutLevel() ? rules.withoutLevel : undefined };
+  });
   /** The chosen tool's answer for the current text. */
   protected readonly result = computed((): ToolCheck =>
     checkTool(this.schema(), this.text(), {
@@ -153,6 +171,7 @@ export class RulesPlaygroundPage {
       grantToggles: this.grantToggles(),
       grantLevel: this.grantLevel(),
       filterQuery: this.filterQuery(),
+      proficiency: this.proficiency(),
     }),
   );
 

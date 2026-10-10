@@ -78,6 +78,7 @@
     "statisticTotal": "Total {total}",
     "statisticFailed": "Error",
     "termValue": "gives {value}",
+    "termVariant": "set by the variant rule {name}",
     "rounding": "Rounding",
     "noStatistics": "The array has no statistics.",
     "grantEntriesLabel": "Content entries",
@@ -191,6 +192,9 @@
     "statisticSourceLabel": "Statistics from",
     "statisticSourceHint": "Picking a source replaces the definitions with its statistics.",
     "statisticSourceFailed": "The pack did not load. Pick it again to retry.",
+    "withoutLevel": "Proficiency Without Level",
+    "withoutLevelHint": "The GM Core variant rule from the core rules pack: proficiency bonuses leave out level, and untrained is -2.",
+    "proficiencyFailed": "The core rules pack did not load, so statistics cannot derive. Reload the page to retry.",
     "statisticSource": {
       "example": "Example",
       "coreRules": "Core rules pack"

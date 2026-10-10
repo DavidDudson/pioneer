@@ -11,8 +11,8 @@ import { checkVerdict } from './predicate-verdict';
 import type { VerdictCheck } from './predicate-verdict';
 import { CheckStatus, checkOutcome, checkRulesJson, readJson, RulesTool } from './rules-check';
 import type { CheckOutcome } from './rules-check';
-import { checkStatistics } from './statistics-check';
-import type { StatisticsCheck } from './statistics-check';
+import { checkStatistics, StatisticsStatus } from './statistics-check';
+import type { StatisticProficiency, StatisticsCheck } from './statistics-check';
 
 /**
  * What kind of answer a tool gives: a schema check, a schema check with a rich text preview, a parsed formula, a
@@ -53,6 +53,8 @@ export interface ToolInputs {
   readonly grantToggles: string;
   readonly grantLevel: number;
   readonly filterQuery: string;
+  /** How the statistics tool turns proficiency into bonuses; undefined until the core rules pack loads. */
+  readonly proficiency: StatisticProficiency | undefined;
 }
 
 export type ToolCheck =
@@ -76,16 +78,18 @@ type CharacterTool = typeof RulesTool.Grants | typeof RulesTool.Statistics;
 /** The tools that work on a character: statistics and grants. */
 function checkCharacter(tool: CharacterTool, text: string, inputs: ToolInputs): ToolCheck {
   if (tool === RulesTool.Statistics) {
-    return {
-      kind: ToolKind.Statistics,
-      check: checkStatistics({
-        definitions: text,
-        inputs: inputs.statisticInputs,
-        rules: inputs.statisticRules,
-        overrides: inputs.statisticOverrides,
-        facts: inputs.facts,
-      }),
+    const { proficiency } = inputs;
+    if (proficiency === undefined) {
+      return { kind: ToolKind.Statistics, check: { status: StatisticsStatus.Pending } };
+    }
+    const texts = {
+      definitions: text,
+      inputs: inputs.statisticInputs,
+      rules: inputs.statisticRules,
+      overrides: inputs.statisticOverrides,
+      facts: inputs.facts,
     };
+    return { kind: ToolKind.Statistics, check: checkStatistics(texts, proficiency) };
   }
   return {
     kind: ToolKind.Grants,

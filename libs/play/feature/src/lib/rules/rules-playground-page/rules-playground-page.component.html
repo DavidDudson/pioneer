@@ -33,11 +33,13 @@
           } @else {
             <pio-statistics-fields
               [check]="tool.check"
+              [proficiencyFailed]="proficiencyFailed()"
               [(definitions)]="text"
               [(inputs)]="statisticInputs"
               [(rules)]="statisticRules"
               [(overrides)]="statisticOverrides"
               [(facts)]="facts"
+              [(withoutLevel)]="withoutLevel"
             />
           }
         } @else if (tool.kind === ToolKind.Grants) {
