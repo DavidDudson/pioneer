@@ -1,6 +1,6 @@
 import { StatisticInputsJson } from '@pioneer/rules/engine';
 import type { RuleInPlay, StatisticInputs } from '@pioneer/rules/engine';
-import { flatModifier, inPlay } from '@pioneer/rules/engine/testing';
+import { flatModifier, inPlay, wielded } from '@pioneer/rules/engine/testing';
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import { ContentRegistry, RollOption } from '@pioneer/rules/sdk';
 
@@ -40,8 +40,8 @@ export const level1Fighter: StatisticInputs = StatisticInputsJson.parse({
   ancestry: { hitPoints: 8, speed: 25 },
   class: { hitPoints: 10, keyAttribute: 'str' },
   weapons: [
-    { slug: 'longsword', category: 'martial', traits: ['versatile-p'] },
-    { slug: 'javelin', category: 'simple', traits: ['thrown'], range: 30 },
+    wielded({ slug: 'longsword', category: 'martial', traits: ['versatile-p'] }),
+    wielded({ slug: 'javelin', category: 'simple', traits: ['thrown'], range: 30 }),
   ],
 });
 

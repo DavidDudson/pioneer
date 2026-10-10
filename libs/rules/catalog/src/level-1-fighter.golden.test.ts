@@ -50,8 +50,12 @@ function termText(line: BaseTerm): string {
   return `${line.sign} ${line.formula} = ${line.value}${originText(line.origin)}`;
 }
 
+/** An entry's label as the item's slug; the rule's own text; or an engine label's message key. */
 function labelText(label: ModifierLabel): string {
-  return 'entry' in label ? (itemNames.get(String(label.entry)) ?? String(label.entry)) : String(label.text);
+  if ('entry' in label) {
+    return itemNames.get(String(label.entry)) ?? String(label.entry);
+  }
+  return 'text' in label ? String(label.text) : label.message.key;
 }
 
 function lineText({ modifier, value, status }: BreakdownLine): string {
@@ -133,7 +137,6 @@ function golden({ bonus, mark }: ProficiencyTable): Record<string, Checked> {
   const skill = (slug: string, key: AttributeSlug, rank: Proficiency): Checked =>
     statistic([attribute(key), prof(`@prof.skill.${slug}`, rank)], key === 'str' || key === 'dex' ? checkPenalty : []);
   const ten = term('10', AC_BASE);
-  const potency = term('@weapon.potency', 0);
   const { Untrained, Trained, Expert } = Proficiency;
   return {
     // Dexterity +1 is under scale mail's +2 cap. Scale mail's bonus applies; the shield is not raised.
@@ -152,8 +155,8 @@ function golden({ bonus, mark }: ProficiencyTable): Record<string, Checked> {
     'speed:land': statistic([term('@ancestry.speed', 25)], [`item ${SCALE_MAIL_SPEED_PENALTY} inactive (scale-mail)`]),
     'class-dc': statistic([ten, attribute('str', '@attr.key'), prof('@prof.class-dc', Trained)]),
     // Melee with Strength; the javelin has a range increment, so it attacks with Dexterity.
-    'strike:longsword': statistic([attribute('str', '@weapon.attr'), prof('@weapon.prof', Expert), potency]),
-    'strike:javelin': statistic([attribute('dex', '@weapon.attr'), prof('@weapon.prof', Expert), potency]),
+    'strike:longsword': statistic([attribute('str', '@weapon.attr'), prof('@weapon.prof', Expert)]),
+    'strike:javelin': statistic([attribute('dex', '@weapon.attr'), prof('@weapon.prof', Expert)]),
     'skill:acrobatics': skill('acrobatics', 'dex', Trained),
     'skill:arcana': skill('arcana', 'int', Untrained),
     'skill:athletics': skill('athletics', 'str', Trained),
