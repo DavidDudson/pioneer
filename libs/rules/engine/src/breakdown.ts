@@ -1,12 +1,14 @@
 import type { FormulaValue, TextPosition } from '@pioneer/rules/formula';
 import type { PredicateSummary } from '@pioneer/rules/predicate';
 import type {
+  ChangeMode,
   ContentId,
   ContentText,
   ModifierTarget,
   ModifierType,
   Origin,
   Predicate,
+  RuleNumber,
   RuleSlug,
 } from '@pioneer/rules/sdk';
 import type { MessageDescriptor, ValueOf } from '@pioneer/shared/kernel';
@@ -71,4 +73,48 @@ export interface BreakdownLine {
   /** The `AdjustModifier`s that changed the value, in the order they ran. */
   readonly adjustedBy: readonly RuleId[];
   readonly status: LineStatus;
+}
+
+/** When an override line acts: on the base before modifiers (`Change`), or on the total (a set override). */
+export const OverridePhase = { Base: 'base', Total: 'total' } as const;
+export type OverridePhase = ValueOf<typeof OverridePhase>;
+
+export const OverrideStatusKind = {
+  Applied: 'applied',
+  Replaced: 'replaced',
+  Conditional: 'conditional',
+  Inactive: 'inactive',
+  Failed: 'failed',
+} as const;
+export type OverrideStatusKind = ValueOf<typeof OverrideStatusKind>;
+
+export type OverrideStatus =
+  | { readonly kind: typeof OverrideStatusKind.Applied }
+  /** A set override that a later one replaced. */
+  | { readonly kind: typeof OverrideStatusKind.Replaced; readonly by: RuleId }
+  | { readonly kind: typeof OverrideStatusKind.Conditional; readonly summary: PredicateSummary | undefined }
+  | { readonly kind: typeof OverrideStatusKind.Inactive; readonly reason: InactiveReason }
+  | {
+      readonly kind: typeof OverrideStatusKind.Failed;
+      readonly error: MessageDescriptor;
+      /** Where in the failing formula; undefined when the change took the value out of range. */
+      readonly position: TextPosition | undefined;
+    };
+
+/**
+ * A `Change` on a statistic, or a set override pinning its total: what it did, the value it replaced and the value
+ * it left. `origin` says who or what did it; a set override's has an `override` hop naming the user.
+ */
+export interface OverrideLine {
+  readonly id: RuleId;
+  readonly label: ModifierLabel;
+  readonly origin: Origin;
+  readonly phase: OverridePhase;
+  readonly mode: ChangeMode;
+  /** The change's own value; undefined when it failed. */
+  readonly value: RuleNumber | undefined;
+  /** The value before this line, and after it; the same when it did not apply. */
+  readonly replaced: FormulaValue;
+  readonly result: FormulaValue;
+  readonly status: OverrideStatus;
 }

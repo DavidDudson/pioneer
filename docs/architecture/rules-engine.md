@@ -209,13 +209,30 @@ interface BreakdownLine {
 interface StatisticValue {
   selector: Selector;
   base: BaseTerm[]; // each formula term
-  baseValue: FormulaValue;
+  formulaValue: FormulaValue; // what the terms add up to
+  baseValue: FormulaValue; // after the base phase's Changes; what modifiers add to and @stat reads
   lines: BreakdownLine[];
-  total: FormulaValue; // baseValue plus the applied lines
+  computed: FormulaValue; // baseValue plus the applied lines
+  total: FormulaValue; // computed, or the value a set override pinned it to
+  overrides: OverrideLine[]; // Changes in the order they ran, then set overrides
+  pinnedBy: RuleId | undefined; // the set override that pinned the total
+}
+
+interface OverrideLine {
+  id: RuleId;
+  label: ModifierLabel;
+  origin: Origin; // who or what did it; a set override's has an override hop
+  phase: 'base' | 'total';
+  mode: 'add' | 'multiply' | 'upgrade' | 'downgrade' | 'override';
+  value: RuleNumber | undefined;
+  replaced: FormulaValue; // the value before this line
+  result: FormulaValue; // the value after it
+  status: applied | { replaced; by } | conditional | inactive | failed;
 }
 ```
 
-`deriveStatistics(definitions, inputs, { rules, facts })` runs the base phase (below), then for each statistic:
+`deriveStatistics(definitions, inputs, { rules, facts })` runs the base phase (below, with its `Change`s), then for
+each statistic:
 
 1. **Collect.** A `FlatModifier` in play becomes a modifier. It reaches a statistic when one of its targets is the
    statistic's selector, one of its `domains`, or `all`.
@@ -232,9 +249,10 @@ interface StatisticValue {
 5. **Stack.** Among applied, typed lines, each type's highest bonus and lowest penalty apply and the rest are
    suppressed by the winner. A tie goes to the smaller id, so the result does not depend on the order of the rules.
 
-The total is the base plus the applied lines. Property tests check order independence, that the total is the base
-plus the applied lines, that untyped modifiers always sum, and that adding a typed bonus no higher than one already
-applied never raises the total.
+The computed total is the base plus the applied lines; a set override may then pin it ("Overrides"). Property
+tests check order independence, that the computed total is the base plus the applied lines, that untyped modifiers
+always sum, that adding a typed bonus no higher than one already applied never raises the total, and that a set
+override always wins while the computed value is still reported.
 
 That is the AC stack the sheet shows: base 10, Dexterity capped by the armour, proficiency from the class, the
 armour's item bonus, a shield raised (conditional), _frightened 1_ (status penalty, applied, from the condition,
@@ -458,9 +476,19 @@ and "where did this action come from?" are the same query.
 Overrides are rule elements with an `override` origin hop, injected from the character document. They never
 replace derived data in storage. Two modes:
 
-- **Adjust:** an extra modifier ("GM blessing, +1 status to AC"). Goes through normal stacking.
-- **Set:** pin a statistic to a value. The breakdown shows the computed value, the pinned value, who pinned it and
-  why. Set overrides are visually flagged everywhere the statistic appears.
+- **Adjust:** an extra modifier ("GM blessing, +1 status to AC"), a `FlatModifier` with an override origin. Goes
+  through normal stacking.
+- **Set:** pin a statistic to a value, a `Change` with mode `override` and an override origin. It acts on the total
+  after modifiers, not the base, so other statistics' `@stat` references still read the computed base. Of several,
+  the last by priority and then id wins; the others are listed as replaced by it. The breakdown keeps the computed
+  value (`computed`), the pinned value (`total`), and `pinnedBy`, whose origin says who pinned it, when and why. Set
+  overrides are visually flagged everywhere the statistic appears.
+
+Every other `Change` runs in the base phase, on the value the base formula gives, in Foundry's mode order (add,
+multiply, upgrade, downgrade, override), then priority, then id. Each is an `OverrideLine` with the value it
+replaced; a change whose predicate does not hold or depends on the situation, or whose formula fails, leaves the
+value as it was. A change's formula reads the inputs and the level of the item it is on, not `@stat`, so changes
+add no edges to the statistic graph.
 
 Custom effects (ad hoc homebrew attached to one character) are the same thing with more than one rule element.
 

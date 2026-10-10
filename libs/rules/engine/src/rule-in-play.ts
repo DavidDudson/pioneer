@@ -1,3 +1,4 @@
+import { PredicateFacts } from '@pioneer/rules/predicate';
 import { Level, Origin, RuleElement, RuleIndex } from '@pioneer/rules/sdk';
 import { z } from 'zod';
 
@@ -21,3 +22,11 @@ export type RuleId = z.infer<typeof RuleId>;
 export function ruleIdOf({ origin, rule }: RuleInPlay): RuleId {
   return RuleId.parse(`${origin.entry}#${rule}`);
 }
+
+/** The rule elements in play and the roll options their predicates are tested against. */
+export interface ModifierInputs {
+  readonly rules: readonly RuleInPlay[];
+  readonly facts: PredicateFacts;
+}
+
+export const NO_MODIFIERS: ModifierInputs = { rules: [], facts: new PredicateFacts([]) };

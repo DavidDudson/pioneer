@@ -132,8 +132,10 @@
       "conditional": "Conditional",
       "inactive": "Inactive",
       "failed": "Error",
-      "suppressedBy": "Rule element {rule} beats or removes it.",
-      "predicateFails": "Its predicate does not hold."
+      "suppressedBy": "{rule} beats or removes it.",
+      "predicateFails": "Its predicate does not hold.",
+      "replaced": "Replaced",
+      "replacedBy": "{rule} replaced it."
     },
     "modifierType": {
       "untyped": "untyped",
@@ -143,7 +145,15 @@
       "proficiency": "proficiency",
       "attribute": "attribute",
       "potency": "potency"
-    }
+    },
+    "overridesLabel": "Overrides",
+    "overridesHint": "Rule elements set by hand, numbered from 1. A FlatModifier is an adjust override and stacks as usual; a Change with mode override is a set override and pins the total.",
+    "overrideNumber": "Override {number}",
+    "overridesHeading": "Changes and overrides:",
+    "overrideEffect": "{mode, select, add {add} multiply {multiply} upgrade {at least} downgrade {at most} other {set}}: {replaced} to {result}",
+    "pinned": "Computed {computed}; {rule} pinned it to {total}.",
+    "pinnedFlag": "Pinned",
+    "manual": "Set by hand"
   },
   "damageType": {
     "bludgeoning": "Bludgeoning",

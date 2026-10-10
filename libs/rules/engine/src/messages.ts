@@ -5,4 +5,5 @@ export const EngineMessage = {
   FailedDependency: 'engine.statistic.failedDependency',
   TotalOutOfRange: 'engine.statistic.outOfRange',
   AdjustmentOutOfRange: 'engine.modifier.outOfRange',
+  ChangeOutOfRange: 'engine.change.outOfRange',
 } as const;

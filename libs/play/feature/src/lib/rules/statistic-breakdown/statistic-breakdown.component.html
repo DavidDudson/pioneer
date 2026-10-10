@@ -1,0 +1,23 @@
+@let derived = row();
+@let numbers = shown();
+<fr-stack gap="xs">
+  @if (numbers.pinnedBy; as pin) {
+    <fr-text element="p">{{
+      'play.rules.pinned'
+        | transloco
+          : { computed: numbers.computed, total: numbers.total, rule: (pin.key | transloco: { number: pin.number }) }
+    }}</fr-text>
+  }
+  <fr-text variant="caption" tone="muted">{{
+    'play.rules.baseHeading' | transloco: { base: numbers.baseValue }
+  }}</fr-text>
+  <pio-base-terms [terms]="derived.terms" />
+  @if (derived.lines.length > 0) {
+    <fr-text variant="caption" tone="muted">{{ 'play.rules.linesHeading' | transloco }}</fr-text>
+    <pio-breakdown-list [lines]="derived.lines" />
+  }
+  @if (derived.overrides.length > 0) {
+    <fr-text variant="caption" tone="muted">{{ 'play.rules.overridesHeading' | transloco }}</fr-text>
+    <pio-override-list [overrides]="derived.overrides" />
+  }
+</fr-stack>

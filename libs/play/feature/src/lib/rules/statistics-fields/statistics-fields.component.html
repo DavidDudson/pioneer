@@ -1,43 +1,33 @@
+@let shown = problems();
 <fr-stack gap="md">
-  <fr-field [invalid]="definitionsProblem() !== undefined">
-    <fr-label>{{ 'play.rules.statisticsLabel' | transloco }}</fr-label>
-    <fr-text-area monospace [rows]="definitionRows" [(value)]="definitions" />
-    @if (definitionsProblem(); as problem) {
-      <fr-field-error>{{
-        problem.status === CheckStatus.NotJson
-          ? ('play.rules.notJson' | transloco)
-          : ('play.rules.invalidSummary' | transloco: { count: problem.issues.length })
-      }}</fr-field-error>
-    } @else {
-      <fr-field-hint>{{ 'play.rules.statisticsHint' | transloco }}</fr-field-hint>
-    }
-  </fr-field>
-  <fr-field [invalid]="inputsProblem() !== undefined">
-    <fr-label>{{ 'play.rules.inputsLabel' | transloco }}</fr-label>
-    <fr-text-area monospace [rows]="inputRows" [(value)]="inputs" />
-    @if (inputsProblem(); as problem) {
-      <fr-field-error>{{
-        problem.status === CheckStatus.NotJson
-          ? ('play.rules.notJson' | transloco)
-          : ('play.rules.invalidSummary' | transloco: { count: problem.issues.length })
-      }}</fr-field-error>
-    } @else {
-      <fr-field-hint>{{ 'play.rules.inputsHint' | transloco }}</fr-field-hint>
-    }
-  </fr-field>
-  <fr-field [invalid]="rulesProblem() !== undefined">
-    <fr-label>{{ 'play.rules.ruleElementsLabel' | transloco }}</fr-label>
-    <fr-text-area monospace [rows]="definitionRows" [(value)]="rules" />
-    @if (rulesProblem(); as problem) {
-      <fr-field-error>{{
-        problem.status === CheckStatus.NotJson
-          ? ('play.rules.notJson' | transloco)
-          : ('play.rules.invalidSummary' | transloco: { count: problem.issues.length })
-      }}</fr-field-error>
-    } @else {
-      <fr-field-hint>{{ 'play.rules.ruleElementsHint' | transloco }}</fr-field-hint>
-    }
-  </fr-field>
+  <pio-json-field
+    [label]="'play.rules.statisticsLabel' | transloco"
+    [hint]="'play.rules.statisticsHint' | transloco"
+    [problem]="shown.definitions"
+    [rows]="definitionRows"
+    [(value)]="definitions"
+  />
+  <pio-json-field
+    [label]="'play.rules.inputsLabel' | transloco"
+    [hint]="'play.rules.inputsHint' | transloco"
+    [problem]="shown.inputs"
+    [rows]="inputRows"
+    [(value)]="inputs"
+  />
+  <pio-json-field
+    [label]="'play.rules.ruleElementsLabel' | transloco"
+    [hint]="'play.rules.ruleElementsHint' | transloco"
+    [problem]="shown.rules"
+    [rows]="definitionRows"
+    [(value)]="rules"
+  />
+  <pio-json-field
+    [label]="'play.rules.overridesLabel' | transloco"
+    [hint]="'play.rules.overridesHint' | transloco"
+    [problem]="shown.overrides"
+    [rows]="inputRows"
+    [(value)]="overrides"
+  />
   <fr-field [invalid]="badLines().length > 0">
     <fr-label>{{ 'play.rules.factsLabel' | transloco }}</fr-label>
     <fr-text-area monospace [rows]="factRows" [(value)]="facts" />

@@ -1,0 +1,12 @@
+@let shown = problem();
+<fr-field [invalid]="shown !== undefined">
+  <fr-label>{{ label() }}</fr-label>
+  <fr-text-area monospace [rows]="rows()" [(value)]="value" />
+  @if (shown === undefined) {
+    <fr-field-hint>{{ hint() }}</fr-field-hint>
+  } @else if (shown.status === CheckStatus.NotJson) {
+    <fr-field-error>{{ 'play.rules.notJson' | transloco }}</fr-field-error>
+  } @else {
+    <fr-field-error>{{ 'play.rules.invalidSummary' | transloco: { count: shown.issues.length } }}</fr-field-error>
+  }
+</fr-field>

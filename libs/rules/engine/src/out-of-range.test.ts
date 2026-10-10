@@ -3,12 +3,12 @@ import { describe, expect, test } from 'bun:test';
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import { Selector } from '@pioneer/rules/sdk';
 
-import { LineStatusKind } from './breakdown';
+import { LineStatusKind, OverrideStatusKind } from './breakdown';
 import { deriveStatistics } from './derive-statistics';
 import { EngineMessage } from './messages';
 import type { RuleInPlay } from './rule-in-play';
-import type { StatisticResult } from './statistic-bases';
 import { StatisticInputsJson } from './statistic-inputs';
+import type { StatisticResult } from './statistic-result';
 import { flatModifier, inPlay, statistic } from './testing';
 
 const inputs = StatisticInputsJson.parse({
@@ -54,5 +54,26 @@ describe('out of range', () => {
       inPlay(flatModifier('untyped', NEARLY_UNSAFE, ['ac']), 'huge-b'),
     ];
     expect(derive(rules)).toMatchObject({ ok: false, error: { key: EngineMessage.TotalOutOfRange }, position: 1 });
+  });
+});
+
+describe('out of range changes', () => {
+  test('a Change that takes the base out of range fails its line and leaves the base, never throws', () => {
+    const huge = inPlay({ key: 'Change', selector: 'ac', mode: 'multiply', value: 1e300 }, 'huge');
+    expect(derive([huge])).toMatchObject({
+      ok: true,
+      baseValue: 10,
+      overrides: [
+        {
+          replaced: 10,
+          result: 10,
+          status: {
+            kind: OverrideStatusKind.Failed,
+            error: { key: EngineMessage.ChangeOutOfRange },
+            position: undefined,
+          },
+        },
+      ],
+    });
   });
 });

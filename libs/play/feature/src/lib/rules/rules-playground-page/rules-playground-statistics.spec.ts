@@ -31,6 +31,22 @@ describe('RulesPlaygroundPage statistics', () => {
     expect(expected.filter((shown) => !text.includes(shown))).toStrictEqual([]);
   });
 
+  it('flags a statistic a set override pinned, with the computed value and who set it', async () => {
+    const harness = await openPlayground();
+    await chooseSchema(harness, 'Statistics');
+
+    const text = pageText(harness);
+    const expected = [
+      'Pinned',
+      'Computed 15; Override 2 pinned it to 18.',
+      'Set by hand',
+      'Set by the GM',
+      'set: 15 to 18',
+      'GM blessing',
+    ];
+    expect(expected.filter((shown) => !text.includes(shown))).toStrictEqual([]);
+  });
+
   it('shows a statistic cycle with text from the engine bundle and a caret', async () => {
     const harness = await openPlayground();
     await chooseSchema(harness, 'Statistics');

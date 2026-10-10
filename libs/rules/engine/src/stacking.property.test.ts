@@ -8,8 +8,8 @@ import type { Arbitrary } from 'fast-check';
 import { LineStatusKind } from './breakdown';
 import { deriveStatistics } from './derive-statistics';
 import type { RuleInPlay } from './rule-in-play';
-import type { StatisticResult, StatisticValue } from './statistic-bases';
 import { StatisticInputsJson } from './statistic-inputs';
+import type { StatisticResult, StatisticValue } from './statistic-result';
 import { flatModifier, inPlay, statistic } from './testing';
 
 const VALUE_MAX = 5;
