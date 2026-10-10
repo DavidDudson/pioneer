@@ -57,4 +57,4 @@ relax a rule without a reason recorded beside it. Rules that trip agents most:
 ## Checks
 
 `just db-up` for Postgres, then `bun run affected` and `bun run lint:workspace` before every PR; CI runs
-`bun run check`.
+`bun run check` split across parallel jobs (the `ci:*` scripts); a new `check` target goes in one of them too.
