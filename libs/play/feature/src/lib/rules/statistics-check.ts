@@ -13,22 +13,36 @@ import { pointAt } from './point-at';
 import { parseFacts } from './predicate-verdict';
 import { CheckStatus, readJson } from './rules-check';
 import type { JsonProblem, JsonRead } from './rules-check';
+import { ownedResults } from './statistic-owners';
 import type { VariantInPlay } from './statistic-sources';
 
 const JSON_INDENT = 2;
 
 /**
  * Inputs the example starts with: a level 3 human fighter in a breastplate, trained in arcane spells, with what the
- * ancestry and class give, so the core rules pack's Hit Points, Speed and class DC derive too.
+ * ancestry and class give, a +1 longsword and a dagger, and an arcane spellcasting entry, so the core rules pack's Hit
+ * Points, Speed, class DC, Strikes, spell attack and spell DC derive too.
  */
 export const EXAMPLE_STATISTIC_INPUTS = JSON.stringify(
   {
     level: 3,
     attributes: { str: 4, dex: 2, con: 2, int: 1, wis: 1, cha: 0 },
-    ranks: { ac: 'trained', 'save:fortitude': 'expert', 'spell-attack:arcane': 'trained', 'class-dc': 'trained' },
+    ranks: {
+      ac: 'trained',
+      'save:fortitude': 'expert',
+      'spellcasting:arcane': 'trained',
+      'class-dc': 'trained',
+      'attack:simple': 'expert',
+      'attack:martial': 'expert',
+    },
     dexterityCap: 1,
     ancestry: { hitPoints: 8, speed: 25 },
     class: { hitPoints: 10, keyAttribute: 'str' },
+    weapons: [
+      { slug: 'longsword', category: 'martial', traits: ['versatile-p'], potency: 1 },
+      { slug: 'dagger', category: 'simple', traits: ['agile', 'finesse', 'thrown-10', 'versatile-s'] },
+    ],
+    spellcasting: [{ slug: 'arcane', tradition: 'arcane', attribute: 'int' }],
   },
   undefined,
   JSON_INDENT,
@@ -245,14 +259,11 @@ export function checkStatistics(
     return read.problems;
   }
   const names = ruleNames(read.rules);
-  const bases = new Map(read.definitions.map((definition) => [definition.selector, definition.base]));
   const rules = [...read.rules, ...(variant?.rules ?? [])];
   const content = { definitions: read.definitions, proficiencyBonus: table };
   const results = deriveStatistics(content, read.inputs, { rules, facts: read.facts });
-  // Rows follow the order the statistics were written in; a selector written twice shows once.
-  const rows = [...bases].flatMap(([selector, base]) => {
-    const result = results.get(selector);
-    return result === undefined ? [] : [rowOf(result, base, { rules: names, variant })];
-  });
+  const rows = ownedResults(read.definitions, results).map(({ definition, result }) =>
+    rowOf(result, definition.base, { rules: names, variant }),
+  );
   return { status: StatisticsStatus.Valid, rows };
 }

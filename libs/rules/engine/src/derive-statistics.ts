@@ -41,7 +41,7 @@ export function deriveStatistics(
   const context = {
     facts,
     resolve: (itemLevel: Level | undefined): ResolveReference =>
-      resolverFor(values, (selector) => bases.baseValue(selector), itemLevel),
+      resolverFor(values, (selector) => bases.baseValue(selector), { itemLevel }),
   };
   return new Map(
     bases.bases.map(({ definition, result }) => {

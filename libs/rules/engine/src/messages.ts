@@ -5,6 +5,8 @@ export const EngineMessage = {
   FailedDependency: 'engine.statistic.failedDependency',
   NoAncestry: 'engine.statistic.noAncestry',
   NoClass: 'engine.statistic.noClass',
+  DuplicateSource: 'engine.statistic.duplicateSource',
+  SourceSlugLength: 'engine.statistic.sourceSlugLength',
   TotalOutOfRange: 'engine.statistic.outOfRange',
   AdjustmentOutOfRange: 'engine.modifier.outOfRange',
   ChangeOutOfRange: 'engine.change.outOfRange',

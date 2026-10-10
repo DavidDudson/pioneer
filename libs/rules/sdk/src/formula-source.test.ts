@@ -4,14 +4,17 @@ import { FormulaMessage, FormulaText } from '@pioneer/rules/formula';
 import { message } from '@pioneer/shared/kernel';
 
 import { ReferenceScope } from './formula-reference';
-import { formulaProblems, FormulaSource } from './formula-source';
+import { formulaProblems, FormulaSource, scopeProblems } from './formula-source';
 import { RulesMessage } from './messages';
 
 const ANY_SCOPE = new Set(Object.values(ReferenceScope));
 const ACTOR_ONLY = new Set([ReferenceScope.Actor]);
+const RULE_ELEMENT = new Set([ReferenceScope.Actor, ReferenceScope.Item]);
 
 const problems = (text: string, scopes = ANY_SCOPE): readonly unknown[] =>
   formulaProblems(FormulaText.parse(text), scopes).map((problem) => problem.error);
+const scoped = (text: string): readonly unknown[] =>
+  scopeProblems(FormulaText.parse(text), ACTOR_ONLY).map((problem) => problem.error);
 
 describe('formula problems', () => {
   test.each(['@level', '10 + @attr.dex.capped + @prof.ac', 'max(1, floor(@item.level / 2))', '3'])(
@@ -53,6 +56,21 @@ describe('formula problems', () => {
     expect(problems('@level + @item.level', ACTOR_ONLY)).toStrictEqual([
       message(RulesMessage.ReferenceOutOfScope, { found: '@item.level', position: 10 }),
     ]);
+  });
+
+  test('a rule element formula may not read a weapon or a spellcasting entry', () => {
+    expect(problems('@weapon.attr + @spellcasting.prof', RULE_ELEMENT)).toStrictEqual([
+      message(RulesMessage.ReferenceNeedsWeapon, { found: '@weapon.attr', position: 1 }),
+      message(RulesMessage.ReferenceNeedsSpellcasting, { found: '@spellcasting.prof', position: 16 }),
+    ]);
+    expect(FormulaSource.safeParse('@weapon.attr').success).toBe(false);
+  });
+
+  test('scope problems list only known references out of scope', () => {
+    expect(scoped('@unknown + @weapon.prof + @level')).toStrictEqual([
+      message(RulesMessage.ReferenceNeedsWeapon, { found: '@weapon.prof', position: 12 }),
+    ]);
+    expect(scoped('1 +')).toStrictEqual([]);
   });
 
   test('FormulaSource reports each problem as its own issue', () => {

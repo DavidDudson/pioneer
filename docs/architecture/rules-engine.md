@@ -34,9 +34,11 @@ Perception, the skills, class DC, spell attack and DC, Strikes, speeds, HP and s
 
 - its `selector` and `domains`,
 - its `base` formula, written in a small safe expression language (`10 + @attr.dex.capped + @prof.ac`) and
-  limited to actor references (`ActorFormulaSource`), since a statistic has no item,
+  limited to actor references (`StatisticFormulaSource`), since a statistic has no item, plus the weapon's or
+  spellcasting entry's when it is derived per source,
 - its `kind`: `check` (rolled), `dc` (static) or `value` (neither, such as Hit Points or a Speed), and its
-  `keyAttribute` when it has one.
+  `keyAttribute` when it has one,
+- its `per`, when it is derived once per weapon or spellcasting entry rather than once ("Statistics per source").
 
 A pack uses each selector once; a second statistic with the same selector is an issue at its `selector`. Two packs
 may share one, and `ContentRegistry#statisticsFor(selector)` returns them in registration order; which applies is
@@ -45,17 +47,20 @@ the engine's choice.
 The core rules pack is hand-authored in `content/packs/core-rules` (pack id `core-rules`), since Foundry defines
 these statistics in code rather than as items. So far it holds:
 
-| Statistic  | Selector         | Kind    | Base                                              | Domains                               |
-| ---------- | ---------------- | ------- | ------------------------------------------------- | ------------------------------------- |
-| AC         | `ac`             | `dc`    | `10 + @attr.dex.capped + @prof.ac`                | `dex-based`                           |
-| Fortitude  | `save:fortitude` | `check` | `@attr.con + @prof.save.fortitude`                | `check`, `saving-throw`, `con-based`  |
-| Reflex     | `save:reflex`    | `check` | `@attr.dex + @prof.save.reflex`                   | `check`, `saving-throw`, `dex-based`  |
-| Will       | `save:will`      | `check` | `@attr.wis + @prof.save.will`                     | `check`, `saving-throw`, `wis-based`  |
-| Perception | `perception`     | `check` | `@attr.wis + @prof.perception`                    | `check`, `wis-based`                  |
-| Skills     | `skill:<slug>`   | `check` | `@attr.<key> + @prof.skill.<slug>`                | `check`, `skill-check`, `<key>-based` |
-| Hit Points | `hp:max`         | `value` | `@ancestry.hp + (@class.hp + @attr.con) * @level` | `hp`                                  |
-| Speed      | `speed:land`     | `value` | `@ancestry.speed`                                 | `speed`, `all-speeds`, `land-speed`   |
-| Class DC   | `class-dc`       | `dc`    | `10 + @attr.key + @prof.class-dc`                 | `class`                               |
+| Statistic    | Selector               | Kind    | Base                                              | Domains                                                      |
+| ------------ | ---------------------- | ------- | ------------------------------------------------- | ------------------------------------------------------------ |
+| AC           | `ac`                   | `dc`    | `10 + @attr.dex.capped + @prof.ac`                | `dex-based`                                                  |
+| Fortitude    | `save:fortitude`       | `check` | `@attr.con + @prof.save.fortitude`                | `check`, `saving-throw`, `con-based`                         |
+| Reflex       | `save:reflex`          | `check` | `@attr.dex + @prof.save.reflex`                   | `check`, `saving-throw`, `dex-based`                         |
+| Will         | `save:will`            | `check` | `@attr.wis + @prof.save.will`                     | `check`, `saving-throw`, `wis-based`                         |
+| Perception   | `perception`           | `check` | `@attr.wis + @prof.perception`                    | `check`, `wis-based`                                         |
+| Skills       | `skill:<slug>`         | `check` | `@attr.<key> + @prof.skill.<slug>`                | `check`, `skill-check`, `<key>-based`                        |
+| Hit Points   | `hp:max`               | `value` | `@ancestry.hp + (@class.hp + @attr.con) * @level` | `hp`                                                         |
+| Speed        | `speed:land`           | `value` | `@ancestry.speed`                                 | `speed`, `all-speeds`, `land-speed`                          |
+| Class DC     | `class-dc`             | `dc`    | `10 + @attr.key + @prof.class-dc`                 | `class`                                                      |
+| Strike       | `strike:<weapon>`      | `check` | `@weapon.attr + @weapon.prof + @weapon.potency`   | `check`, `attack-roll`, `strike-attack-roll`, `<attr>-based` |
+| Spell attack | `spell-attack:<entry>` | `check` | `@spellcasting.attr + @spellcasting.prof`         | `check`, `attack-roll`, `spell-attack-roll`, `<attr>-based`  |
+| Spell DC     | `spell-dc:<entry>`     | `dc`    | `10 + @stat.spell-attack`                         | `spell-dc`, `<attr>-based`                                   |
 
 Domains use one vocabulary, following Foundry's names so imported selectors keep their meaning:
 
@@ -68,8 +73,9 @@ Domains use one vocabulary, following Foundry's names so imported selectors keep
 - `hp`: maximum Hit Points.
 - `speed` and `all-speeds`: every Speed. `<type>-speed` (`land-speed`): one movement type, as in Foundry.
 - `class`: the class DC, which has no `<attribute>-based` domain, since its key attribute is the character's choice.
-- Still to come with their statistics: `attack-roll` and `strike-attack-roll` (Strikes),
-  `spell-attack-roll` and `spell-dc` (spellcasting).
+- `attack-roll`: every attack roll, Strikes and spell attacks. `strike-attack-roll`: every Strike.
+  `spell-attack-roll`: every spell attack. `spell-dc`: every spell DC.
+- A statistic derived per source is also in the `<attribute>-based` domain of the attribute its source keys it to.
 
 The skills are Acrobatics through Thievery, each keyed to its Player Core attribute (Arcana to Intelligence, Athletics
 to Strength). Armor check penalties are not in the base: they are rule elements on armor.
@@ -88,6 +94,33 @@ chosen, a statistic whose base reads one fails at the first such reference (`eng
 the reference the evaluator reached, so one in a `ternary` branch not taken never fails. A rule element value that
 reads them before they are chosen gets the formula language's general "has no value" error. Hit Points use
 the character's level as written, so level 0 play (GM Core) needs its own formula.
+
+### Statistics per source
+
+A statistic with `per: weapon` or `per: spellcasting` is derived once for each weapon or spellcasting entry the
+character has (ADR-0030). `StatisticInputs` carries them: `weapons` (slug, category, traits, range, potency) and
+`spellcasting` (slug, tradition, attribute), slugs unique within each list. The definition's selector names the
+family; each instance is `<selector>:<slug>` (`strike:longsword`, `spell-dc:arcane`), so modifiers, overrides and
+`@stat` reach it as any statistic. With no weapons or entries a family has no instances, and removing one removes
+its statistics.
+
+- An instance takes its key attribute from its source and joins that attribute's `<attribute>-based` domain. A
+  family names no `keyAttribute`.
+- The base may read the source: `@weapon.attr` (Dexterity for a ranged weapon, the higher of Strength and Dexterity
+  for a finesse one, else Strength, as Player Core's "Attack Rolls" has it), `@weapon.prof` (the bonus for
+  `attack:<category>`), `@weapon.potency` (its potency rune, or a bomb's item bonus), `@spellcasting.attr` and
+  `@spellcasting.prof` (the bonus for `spellcasting:<tradition>`).
+- Inside an instance, `@stat.<family>` naming another family derived per the same kind of source reads that
+  family's instance for the same source: the spell DC's `@stat.spell-attack` reads its own entry's spell attack
+  base, so a bonus to spell attack rolls stays off the DC.
+- A later definition of a selector replaces an earlier one before instances are made. Where an instance and a plain
+  statistic share a selector (`strike:longsword`), the one given later wins.
+- A family's selector is at most 63 characters and a source's slug at most 64, so every instance's selector is a
+  selector (128 at most). A longer one is a validation issue at the selector or the slug.
+
+Known limits: the weapon's item bonus is a base term, so it stacks with another item bonus to attack rolls where only
+the higher should apply; a thrown melee weapon gets its melee Strike only; the multiple attack penalty and Strike
+damage come later.
 
 Lore is open-ended, so the core pack defines none. Whatever grants a Lore (a background, a feat) brings its own
 `statistic` entry with the selector `skill:lore:<topic>`, base `@attr.int + @prof.skill.lore.<topic>`, key
@@ -183,24 +216,31 @@ is one Foundry's JavaScript met too.
 Statistic base formulas and rule element values share one vocabulary of references (ADR-0016), catalogued in
 `libs/rules/sdk` (`formula-reference.ts`). Stored formulas use these paths only:
 
-| Reference           | Scope | Value                                                                                    |
-| ------------------- | ----- | ---------------------------------------------------------------------------------------- |
-| `@level`            | actor | The character's level                                                                    |
-| `@attr.<attribute>` | actor | The attribute modifier, `@attr.str` to `@attr.cha`                                       |
-| `@attr.dex.capped`  | actor | The Dexterity modifier after the armor's Dexterity cap (`DexterityCap`)                  |
-| `@attr.key`         | actor | The modifier of the key attribute chosen for the character's class                       |
-| `@ancestry.hp`      | actor | The Hit Points the character's ancestry gives                                            |
-| `@ancestry.speed`   | actor | The land Speed the character's ancestry gives                                            |
-| `@class.hp`         | actor | The Hit Points the character's class gives each level, before Constitution               |
-| `@prof.<selector>`  | actor | The proficiency bonus for a statistic: its rank's formula in the proficiency bonus table |
-| `@rank.<selector>`  | actor | The proficiency rank for a statistic, 0 (untrained) to 4 (legendary)                     |
-| `@stat.<selector>`  | actor | Another statistic's base, before its modifiers, such as the spell attack in a spell DC   |
-| `@item.level`       | item  | The level of the item the rule element is on                                             |
+| Reference            | Scope        | Value                                                                                       |
+| -------------------- | ------------ | ------------------------------------------------------------------------------------------- |
+| `@level`             | actor        | The character's level                                                                       |
+| `@attr.<attribute>`  | actor        | The attribute modifier, `@attr.str` to `@attr.cha`                                          |
+| `@attr.dex.capped`   | actor        | The Dexterity modifier after the armor's Dexterity cap (`DexterityCap`)                     |
+| `@attr.key`          | actor        | The modifier of the key attribute chosen for the character's class                          |
+| `@ancestry.hp`       | actor        | The Hit Points the character's ancestry gives                                               |
+| `@ancestry.speed`    | actor        | The land Speed the character's ancestry gives                                               |
+| `@class.hp`          | actor        | The Hit Points the character's class gives each level, before Constitution                  |
+| `@prof.<selector>`   | actor        | The proficiency bonus for a statistic: its rank's formula in the proficiency bonus table    |
+| `@rank.<selector>`   | actor        | The proficiency rank for a statistic, 0 (untrained) to 4 (legendary)                        |
+| `@stat.<selector>`   | actor        | Another statistic's base, before its modifiers, such as the spell attack in a spell DC      |
+| `@item.level`        | item         | The level of the item the rule element is on                                                |
+| `@weapon.attr`       | weapon       | The modifier the weapon attacks with: Strength, Dexterity at range, the higher with finesse |
+| `@weapon.prof`       | weapon       | The proficiency bonus for the weapon's category, `attack:<category>`                        |
+| `@weapon.potency`    | weapon       | The weapon's item bonus to attack rolls: its potency rune, or a bomb's own bonus            |
+| `@spellcasting.attr` | spellcasting | The modifier for the spellcasting entry's attribute                                         |
+| `@spellcasting.prof` | spellcasting | The proficiency bonus for the entry's tradition, `spellcasting:<tradition>`                 |
 
 - A selector's colons are written as dots, since references have none: `@prof.save.fortitude` is the bonus for
   `save:fortitude`, `@rank.attack.martial` the rank for `attack:martial`.
 - Scope says whose value a reference reads. A rule element may sit on any content entry, so its formulas may use
-  both scopes. Statistic base formulas have no item, so they may only use actor references (`ActorFormulaSource`).
+  actor and item references. Statistic base formulas have no item, so they may use actor references, plus weapon or
+  spellcasting references when the statistic is derived per that source (`StatisticDefinition` checks the scope
+  against `per`).
 - `FormulaSource` checks a formula when content is validated: it must parse, and every reference must be in the
   catalogue and in scope. A `<selector>` is checked for shape only. Each problem is a field issue at the
   formula's JSON path. Its descriptor includes `position`, the 1-based position in the formula. A Foundry spelling
@@ -214,19 +254,20 @@ Statistic base formulas and rule element values share one vocabulary of referenc
 The catalogue also holds the Foundry spellings the importer translates (`FOUNDRY_REFERENCES`, with
 `fromFoundryPath`). Placeholders carry across by name:
 
-| Foundry                                                                       | Pioneer                    |
-| ----------------------------------------------------------------------------- | -------------------------- |
-| `@actor.level`, `@actor.system.details.level.value`                           | `@level`                   |
-| `@actor.abilities.<attribute>.mod`, `@actor.system.abilities.<attribute>.mod` | `@attr.<attribute>`        |
-| `@actor.system.attributes.ancestryhp`, `@actor.ancestry.system.hp`            | `@ancestry.hp`             |
-| `@actor.ancestry.system.speed`                                                | `@ancestry.speed`          |
-| `@actor.system.attributes.classhp`, `@actor.class.system.hp`                  | `@class.hp`                |
-| `@actor.skills.<skill>.rank`, `@actor.system.skills.<skill>.rank`             | `@rank.skill.<skill>`      |
-| `@actor.saves.<save>.rank`, `@actor.system.saves.<save>.rank`                 | `@rank.save.<save>`        |
-| `@actor.perception.rank`, `@actor.system.perception.rank`                     | `@rank.perception`         |
-| `@actor.system.proficiencies.attacks.<category>.rank`                         | `@rank.attack.<category>`  |
-| `@actor.system.proficiencies.defenses.<category>.rank`                        | `@rank.defense.<category>` |
-| `@item.level`, `@item.system.level.value`                                     | `@item.level`              |
+| Foundry                                                                       | Pioneer                          |
+| ----------------------------------------------------------------------------- | -------------------------------- |
+| `@actor.level`, `@actor.system.details.level.value`                           | `@level`                         |
+| `@actor.abilities.<attribute>.mod`, `@actor.system.abilities.<attribute>.mod` | `@attr.<attribute>`              |
+| `@actor.system.attributes.ancestryhp`, `@actor.ancestry.system.hp`            | `@ancestry.hp`                   |
+| `@actor.ancestry.system.speed`                                                | `@ancestry.speed`                |
+| `@actor.system.attributes.classhp`, `@actor.class.system.hp`                  | `@class.hp`                      |
+| `@actor.skills.<skill>.rank`, `@actor.system.skills.<skill>.rank`             | `@rank.skill.<skill>`            |
+| `@actor.saves.<save>.rank`, `@actor.system.saves.<save>.rank`                 | `@rank.save.<save>`              |
+| `@actor.perception.rank`, `@actor.system.perception.rank`                     | `@rank.perception`               |
+| `@actor.system.proficiencies.attacks.<category>.rank`                         | `@rank.attack.<category>`        |
+| `@actor.system.proficiencies.defenses.<category>.rank`                        | `@rank.defense.<category>`       |
+| `@actor.system.proficiencies.traditions.<tradition>.rank`                     | `@rank.spellcasting.<tradition>` |
+| `@item.level`, `@item.system.level.value`                                     | `@item.level`                    |
 
 The importer reports any other Foundry path as untranslatable. The exporter writes the first spelling listed. Paths
 join the catalogue when the engine can supply their values. Formulas inside Foundry's bracketed values and
@@ -365,7 +406,7 @@ flowchart TD
   D --> E[4. Base phase<br/>ranks, size, speeds, HP, Change ops by priority]
   E --> F[5. Statistic graph<br/>formulas in dependency order]
   F --> G[6. Modifier phase<br/>collect, predicate, stack]
-  G --> H[7. Synthetics<br/>Strikes, spellcasting, available actions, notes]
+  G --> H[7. Synthetics<br/>Strike damage, spell lists, available actions, notes]
   H --> I[DerivedSheet with breakdowns]
 ```
 
@@ -378,9 +419,10 @@ flowchart TD
 4. **Base phase.** `Change` operations in priority order (Foundry's ordering: add, multiply, upgrade, downgrade,
    override), proficiency rank upgrades (highest wins, all contributors listed).
 5. **Statistic graph.** Statistics form a DAG through their formulas (AC depends on Dexterity, which depends on
-   boosts). Evaluated in topological order, memoised, cycles reported with the offending formula.
+   boosts). Evaluated in topological order, memoised, cycles reported with the offending formula. Strike attack
+   rolls, spell attacks and spell DCs are statistics here, one per weapon or spellcasting entry.
 6. **Modifiers.** Collected per selector through domains, predicates evaluated, stacking applied.
-7. **Synthetics.** Strikes per wielded weapon, spellcasting entries, the available action list, roll notes.
+7. **Synthetics.** Strike damage and the multiple attack penalty, spell lists, the available action list, roll notes.
 
 ### Grant resolution
 
@@ -456,9 +498,11 @@ slots in all, every one picked) over a thousand more feats.
 ### Statistic graph
 
 The base phase in `libs/rules/engine` (`StatisticBases`) is step 5. The inputs are the character's
-level, attribute modifiers, proficiency rank per selector (a selector left out is untrained) and the armor's Dexterity
-cap; grant resolution (Epic 1.4) will produce them, and until then they are supplied directly.
+level, attribute modifiers, proficiency rank per selector (a selector left out is untrained), the armor's Dexterity
+cap, what the ancestry and class give, and the weapons and spellcasting entries statistics are derived per. Grant
+resolution (Epic 1.4) will produce them; until then they are supplied directly.
 
+- Statistics derived per source are expanded into their instances first ("Statistics per source").
 - Edges come from `references(formula)`. `@prof.<selector>` and `@rank.<selector>` read that selector's rank, an
   input, so they add no edge between statistics. `@stat.<selector>` reads another statistic's base and is the
   edge.

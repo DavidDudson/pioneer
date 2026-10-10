@@ -6,6 +6,8 @@
       "failedDependency": "“{found}” at position {position} reads {selector}, which has an error of its own.",
       "noAncestry": "“{found}” at position {position} reads the character’s ancestry, but none is chosen yet.",
       "noClass": "“{found}” at position {position} reads the character’s class, but none is chosen yet.",
+      "duplicateSource": "Another weapon or spellcasting entry already uses the slug {slug}. Each names its own statistics, so slugs must differ.",
+      "sourceSlugLength": "A weapon’s or spellcasting entry’s slug may be at most {maximum} characters.",
       "outOfRange": "The total is out of range. Values must stay between −{maximum} and {maximum}."
     },
     "modifier": {

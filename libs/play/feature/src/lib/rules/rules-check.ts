@@ -161,7 +161,7 @@ const EXAMPLE_STATISTICS = [
     name: 'Arcane spell attack modifier',
     selector: 'spell-attack:arcane',
     domains: ['spell-attack-roll'],
-    base: '@attr.int + @prof.spell-attack.arcane',
+    base: '@attr.int + @prof.spellcasting.arcane',
     kind: StatisticKind.Check,
     keyAttribute: Attribute.Intelligence,
   },

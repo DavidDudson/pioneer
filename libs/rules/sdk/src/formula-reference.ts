@@ -4,17 +4,21 @@ import * as z from 'zod';
 
 import { AttributeSchema } from './attribute';
 import type { Attribute } from './attribute';
+import type { FoundryReferencePattern } from './foundry-reference';
 import { RulesMessage } from './messages';
 import { Selector } from './selector';
 
 /*
- * The formula reference vocabulary (ADR-0016): every `@` path a stored formula may use, what it means, and the
- * Foundry spellings the importer translates to it. `docs/architecture/rules-engine.md` ("Formula references")
- * documents the same list.
+ * The formula reference vocabulary (ADR-0016): every `@` path a stored formula may use and what it means; the Foundry
+ * spellings the importer translates are in `foundry-reference.ts`. `docs/architecture/rules-engine.md` ("Formula
+ * references") documents the same list.
  */
 
-/** Whose value a reference reads: the character's, or the item the rule element sits on. */
-export const ReferenceScope = { Actor: 'actor', Item: 'item' } as const;
+/**
+ * Whose value a reference reads: the character's, the item the rule element sits on, or the weapon or spellcasting
+ * entry a statistic derived per source is derived for.
+ */
+export const ReferenceScope = { Actor: 'actor', Item: 'item', Weapon: 'weapon', Spellcasting: 'spellcasting' } as const;
 export type ReferenceScope = ValueOf<typeof ReferenceScope>;
 
 export const ReferenceKind = {
@@ -29,6 +33,11 @@ export const ReferenceKind = {
   ProficiencyRank: 'proficiency-rank',
   Statistic: 'statistic',
   ItemLevel: 'item-level',
+  WeaponAttributeModifier: 'weapon-attribute-modifier',
+  WeaponProficiencyBonus: 'weapon-proficiency-bonus',
+  WeaponPotency: 'weapon-potency',
+  SpellcastingAttributeModifier: 'spellcasting-attribute-modifier',
+  SpellcastingProficiencyBonus: 'spellcasting-proficiency-bonus',
 } as const;
 export type ReferenceKind = ValueOf<typeof ReferenceKind>;
 
@@ -44,7 +53,29 @@ export type KnownReference =
   | { readonly kind: typeof ReferenceKind.ProficiencyBonus; readonly selector: Selector }
   | { readonly kind: typeof ReferenceKind.ProficiencyRank; readonly selector: Selector }
   | { readonly kind: typeof ReferenceKind.Statistic; readonly selector: Selector }
-  | { readonly kind: typeof ReferenceKind.ItemLevel };
+  | { readonly kind: typeof ReferenceKind.ItemLevel }
+  | SourceReference;
+
+/** The kinds that read a weapon or a spellcasting entry: only a statistic derived per that source has one. */
+const SOURCE_KINDS = [
+  ReferenceKind.WeaponAttributeModifier,
+  ReferenceKind.WeaponProficiencyBonus,
+  ReferenceKind.WeaponPotency,
+  ReferenceKind.SpellcastingAttributeModifier,
+  ReferenceKind.SpellcastingProficiencyBonus,
+] as const;
+type SourceReferenceKind = (typeof SOURCE_KINDS)[number];
+
+/** A reference to the weapon or spellcasting entry a statistic derived per source is derived for. */
+export interface SourceReference {
+  readonly kind: SourceReferenceKind;
+}
+
+const SOURCE_KIND_SET: ReadonlySet<ReferenceKind> = new Set(SOURCE_KINDS);
+
+export function isSourceReference(known: KnownReference): known is SourceReference {
+  return SOURCE_KIND_SET.has(known.kind);
+}
 
 /**
  * A path as the catalogue writes it, without its `@`: dotted segments, placeholders in angle brackets
@@ -55,10 +86,6 @@ export type KnownReference =
 export const ReferencePattern = z.string().brand<'ReferencePattern'>();
 export type ReferencePattern = z.infer<typeof ReferencePattern>;
 
-/** A Foundry pf2e reference path in the same notation (`actor.abilities.<attribute>.mod`). */
-export const FoundryReferencePattern = z.string().brand<'FoundryReferencePattern'>();
-export type FoundryReferencePattern = z.infer<typeof FoundryReferencePattern>;
-
 /** The message key that describes a reference's value. */
 type ReferenceMeaning = ValueOf<typeof RulesMessage>;
 
@@ -68,103 +95,54 @@ export interface ReferenceDefinition {
   readonly meaning: ReferenceMeaning;
 }
 
-/** Every reference a stored formula may use, by kind. */
-export const REFERENCE_CATALOGUE: Readonly<Record<ReferenceKind, ReferenceDefinition>> = {
-  [ReferenceKind.Level]: {
-    pattern: ReferencePattern.parse('level'),
-    scope: ReferenceScope.Actor,
-    meaning: RulesMessage.ReferenceLevel,
-  },
-  [ReferenceKind.AttributeModifier]: {
-    pattern: ReferencePattern.parse('attr.<attribute>'),
-    scope: ReferenceScope.Actor,
-    meaning: RulesMessage.ReferenceAttributeModifier,
-  },
-  [ReferenceKind.CappedDexterity]: {
-    pattern: ReferencePattern.parse('attr.dex.capped'),
-    scope: ReferenceScope.Actor,
-    meaning: RulesMessage.ReferenceCappedDexterity,
-  },
-  [ReferenceKind.KeyAttributeModifier]: {
-    pattern: ReferencePattern.parse('attr.key'),
-    scope: ReferenceScope.Actor,
-    meaning: RulesMessage.ReferenceKeyAttributeModifier,
-  },
-  [ReferenceKind.AncestryHitPoints]: {
-    pattern: ReferencePattern.parse('ancestry.hp'),
-    scope: ReferenceScope.Actor,
-    meaning: RulesMessage.ReferenceAncestryHitPoints,
-  },
-  [ReferenceKind.AncestrySpeed]: {
-    pattern: ReferencePattern.parse('ancestry.speed'),
-    scope: ReferenceScope.Actor,
-    meaning: RulesMessage.ReferenceAncestrySpeed,
-  },
-  [ReferenceKind.ClassHitPoints]: {
-    pattern: ReferencePattern.parse('class.hp'),
-    scope: ReferenceScope.Actor,
-    meaning: RulesMessage.ReferenceClassHitPoints,
-  },
-  [ReferenceKind.ProficiencyBonus]: {
-    pattern: ReferencePattern.parse('prof.<selector>'),
-    scope: ReferenceScope.Actor,
-    meaning: RulesMessage.ReferenceProficiencyBonus,
-  },
-  [ReferenceKind.ProficiencyRank]: {
-    pattern: ReferencePattern.parse('rank.<selector>'),
-    scope: ReferenceScope.Actor,
-    meaning: RulesMessage.ReferenceProficiencyRank,
-  },
-  [ReferenceKind.Statistic]: {
-    pattern: ReferencePattern.parse('stat.<selector>'),
-    scope: ReferenceScope.Actor,
-    meaning: RulesMessage.ReferenceStatistic,
-  },
-  [ReferenceKind.ItemLevel]: {
-    pattern: ReferencePattern.parse('item.level'),
-    scope: ReferenceScope.Item,
-    meaning: RulesMessage.ReferenceItemLevel,
-  },
-};
-
-/** One Foundry spelling and the Pioneer path it translates to; placeholders carry across by name. */
-export interface FoundryReference {
-  readonly foundry: FoundryReferencePattern;
-  readonly pioneer: ReferencePattern;
+function reference(
+  pattern: z.input<typeof ReferencePattern>,
+  scope: ReferenceScope,
+  meaning: ReferenceMeaning,
+): ReferenceDefinition {
+  return { pattern: ReferencePattern.parse(pattern), scope, meaning };
 }
 
-/** Foundry spelling, then Pioneer path. */
-const FOUNDRY_SPELLINGS = [
-  ['actor.level', 'level'],
-  ['actor.system.details.level.value', 'level'],
-  ['actor.abilities.<attribute>.mod', 'attr.<attribute>'],
-  ['actor.system.abilities.<attribute>.mod', 'attr.<attribute>'],
-  ['actor.system.attributes.ancestryhp', 'ancestry.hp'],
-  ['actor.ancestry.system.hp', 'ancestry.hp'],
-  ['actor.ancestry.system.speed', 'ancestry.speed'],
-  ['actor.system.attributes.classhp', 'class.hp'],
-  ['actor.class.system.hp', 'class.hp'],
-  ['actor.skills.<skill>.rank', 'rank.skill.<skill>'],
-  ['actor.system.skills.<skill>.rank', 'rank.skill.<skill>'],
-  ['actor.saves.<save>.rank', 'rank.save.<save>'],
-  ['actor.system.saves.<save>.rank', 'rank.save.<save>'],
-  ['actor.perception.rank', 'rank.perception'],
-  ['actor.system.perception.rank', 'rank.perception'],
-  ['actor.system.proficiencies.attacks.<category>.rank', 'rank.attack.<category>'],
-  ['actor.system.proficiencies.defenses.<category>.rank', 'rank.defense.<category>'],
-  ['item.level', 'item.level'],
-  ['item.system.level.value', 'item.level'],
-] as const;
+const ACTOR = ReferenceScope.Actor;
+const ITEM = ReferenceScope.Item;
+const WEAPON = ReferenceScope.Weapon;
+const SPELLCASTING = ReferenceScope.Spellcasting;
 
-/**
- * The Foundry paths the importer translates (ADR-0016). Foundry spells most values two ways, through the actor's
- * getters and through its `system` data; the exporter writes the first spelling listed for a path. Any other
- * Foundry path is reported as untranslatable.
- */
-export const FOUNDRY_REFERENCES: readonly FoundryReference[] = FOUNDRY_SPELLINGS.map(([foundry, pioneer]) => ({
-  foundry: FoundryReferencePattern.parse(foundry),
-  pioneer: ReferencePattern.parse(pioneer),
-}));
+/** Every reference a stored formula may use, by kind. */
+export const REFERENCE_CATALOGUE: Readonly<Record<ReferenceKind, ReferenceDefinition>> = {
+  [ReferenceKind.Level]: reference('level', ACTOR, RulesMessage.ReferenceLevel),
+  [ReferenceKind.AttributeModifier]: reference('attr.<attribute>', ACTOR, RulesMessage.ReferenceAttributeModifier),
+  [ReferenceKind.CappedDexterity]: reference('attr.dex.capped', ACTOR, RulesMessage.ReferenceCappedDexterity),
+  [ReferenceKind.KeyAttributeModifier]: reference('attr.key', ACTOR, RulesMessage.ReferenceKeyAttributeModifier),
+  [ReferenceKind.AncestryHitPoints]: reference('ancestry.hp', ACTOR, RulesMessage.ReferenceAncestryHitPoints),
+  [ReferenceKind.AncestrySpeed]: reference('ancestry.speed', ACTOR, RulesMessage.ReferenceAncestrySpeed),
+  [ReferenceKind.ClassHitPoints]: reference('class.hp', ACTOR, RulesMessage.ReferenceClassHitPoints),
+  [ReferenceKind.ProficiencyBonus]: reference('prof.<selector>', ACTOR, RulesMessage.ReferenceProficiencyBonus),
+  [ReferenceKind.ProficiencyRank]: reference('rank.<selector>', ACTOR, RulesMessage.ReferenceProficiencyRank),
+  [ReferenceKind.Statistic]: reference('stat.<selector>', ACTOR, RulesMessage.ReferenceStatistic),
+  [ReferenceKind.ItemLevel]: reference('item.level', ITEM, RulesMessage.ReferenceItemLevel),
+  [ReferenceKind.WeaponAttributeModifier]: reference(
+    'weapon.attr',
+    WEAPON,
+    RulesMessage.ReferenceWeaponAttributeModifier,
+  ),
+  [ReferenceKind.WeaponProficiencyBonus]: reference(
+    'weapon.prof',
+    WEAPON,
+    RulesMessage.ReferenceWeaponProficiencyBonus,
+  ),
+  [ReferenceKind.WeaponPotency]: reference('weapon.potency', WEAPON, RulesMessage.ReferenceWeaponPotency),
+  [ReferenceKind.SpellcastingAttributeModifier]: reference(
+    'spellcasting.attr',
+    SPELLCASTING,
+    RulesMessage.ReferenceSpellcastingAttributeModifier,
+  ),
+  [ReferenceKind.SpellcastingProficiencyBonus]: reference(
+    'spellcasting.prof',
+    SPELLCASTING,
+    RulesMessage.ReferenceSpellcastingProficiencyBonus,
+  ),
+};
 
 /** One dotted segment of a path or pattern: `attr`, `dex`, `<attribute>`. */
 const PathSegment = z.string().brand<'PathSegment'>();
@@ -201,7 +179,7 @@ function fits(wanted: PathSegment, taken: PathSegment | undefined, captures: Map
 }
 
 /** The placeholders' values when `path` fits `pattern`, or undefined. `<selector>` comes last and takes one or more. */
-function match(pattern: ReferencePattern | FoundryReferencePattern, path: ReferencePath): Captures | undefined {
+export function match(pattern: ReferencePattern | FoundryReferencePattern, path: ReferencePath): Captures | undefined {
   const wanted = segments(pattern);
   const given = segments(path);
   const restAt = wanted.indexOf(REST);
@@ -237,7 +215,12 @@ function referenceOf(kind: ReferenceKind, captures: Captures): KnownReference | 
     case ReferenceKind.AncestryHitPoints:
     case ReferenceKind.AncestrySpeed:
     case ReferenceKind.ClassHitPoints:
-    case ReferenceKind.ItemLevel: {
+    case ReferenceKind.ItemLevel:
+    case ReferenceKind.WeaponAttributeModifier:
+    case ReferenceKind.WeaponProficiencyBonus:
+    case ReferenceKind.WeaponPotency:
+    case ReferenceKind.SpellcastingAttributeModifier:
+    case ReferenceKind.SpellcastingProficiencyBonus: {
       return { kind };
     }
     case ReferenceKind.AttributeModifier: {
@@ -270,24 +253,9 @@ export function knownReference(path: ReferencePath): KnownReference | undefined 
 }
 
 /** The pattern with each placeholder replaced by what it took. */
-function fill(pattern: ReferencePattern, captures: Captures): ReferencePath {
+export function fill(pattern: ReferencePattern, captures: Captures): ReferencePath {
   const filled = segments(pattern).flatMap((segment) =>
     isPlaceholder(segment) ? captured(captures, segment) : segment,
   );
   return ReferencePath.parse(filled.join(SEPARATOR));
-}
-
-/**
- * The Pioneer path a Foundry reference path translates to, or undefined when the table has no translation that
- * lands on a known reference. The importer's translation, and the hint when Foundry's spelling is written by hand.
- */
-export function fromFoundryPath(path: ReferencePath): ReferencePath | undefined {
-  for (const { foundry, pioneer } of FOUNDRY_REFERENCES) {
-    const captures = match(foundry, path);
-    const translated = captures === undefined ? undefined : fill(pioneer, captures);
-    if (translated !== undefined && knownReference(translated) !== undefined) {
-      return translated;
-    }
-  }
-  return undefined;
 }

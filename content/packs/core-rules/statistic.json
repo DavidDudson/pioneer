@@ -205,6 +205,84 @@
     }
   },
   {
+    "id": "b981f8a1-3605-5285-8573-f47a122704b4",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "strike",
+    "name": "Strike",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 402,
+        "aon": "https://2e.aonprd.com/Rules.aspx?ID=2288"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "strike",
+      "domains": ["check", "attack-roll", "strike-attack-roll"],
+      "base": "@weapon.attr + @weapon.prof + @weapon.potency",
+      "kind": "check",
+      "per": "weapon"
+    }
+  },
+  {
+    "id": "a3d39a0f-7e18-5330-bbe1-170364f24585",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "spell-attack",
+    "name": "Spell Attack Modifier",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 403,
+        "aon": "https://2e.aonprd.com/Rules.aspx?ID=2292"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "spell-attack",
+      "domains": ["check", "attack-roll", "spell-attack-roll"],
+      "base": "@spellcasting.attr + @spellcasting.prof",
+      "kind": "check",
+      "per": "spellcasting"
+    }
+  },
+  {
+    "id": "5d41a98c-a7d4-535d-8525-30ef5f1bb4bb",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "spell-dc",
+    "name": "Spell DC",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 403,
+        "aon": "https://2e.aonprd.com/Rules.aspx?ID=2293"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "spell-dc",
+      "domains": ["spell-dc"],
+      "base": "10 + @stat.spell-attack",
+      "kind": "dc",
+      "per": "spellcasting"
+    }
+  },
+  {
     "id": "5f93daa2-5dc6-5af6-b86e-b291be01f876",
     "pack": "core-rules",
     "kind": "statistic",

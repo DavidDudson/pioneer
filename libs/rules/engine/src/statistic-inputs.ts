@@ -7,6 +7,7 @@ import {
   AttributeSchema,
   Feet,
   HitPoints,
+  isSourceReference,
   knownReference,
   Level,
   Proficiency,
@@ -14,11 +15,13 @@ import {
   ReferenceKind,
   Selector,
 } from '@pioneer/rules/sdk';
-import type { KnownReference } from '@pioneer/rules/sdk';
+import type { KnownReference, SourceReference } from '@pioneer/rules/sdk';
 import * as z from 'zod';
 
 import { EngineMessage } from './messages';
 import type { ProficiencyBonuses } from './proficiency-bonuses';
+import { sourceValue, SpellcastingJson, WeaponsJson } from './source-inputs';
+import type { SourceInputs, SpellcastingInputs, WeaponInputs } from './source-inputs';
 
 /** What the character's ancestry gives its statistics: `@ancestry.hp` and `@ancestry.speed`. */
 interface AncestryInputs {
@@ -50,6 +53,10 @@ export interface StatisticInputs {
   readonly ancestry?: AncestryInputs;
   /** Absent until a class is chosen; a formula reading it then fails at that reference. */
   readonly class?: ClassInputs;
+  /** The equipped weapons: a statistic derived per weapon (a Strike) is derived for each. None when absent. */
+  readonly weapons?: readonly WeaponInputs[];
+  /** The spellcasting entries: a statistic derived per entry (a spell attack, a spell DC) is derived for each. */
+  readonly spellcasting?: readonly SpellcastingInputs[];
 }
 
 const AncestryInputsJson = z.strictObject({ hitPoints: HitPoints, speed: Feet });
@@ -64,14 +71,20 @@ export const StatisticInputsJson = z
     dexterityCap: AttributeModifier.optional(),
     ancestry: AncestryInputsJson.optional(),
     class: ClassInputsJson.optional(),
+    weapons: WeaponsJson.optional(),
+    spellcasting: SpellcastingJson.optional(),
   })
-  .transform(({ ranks, dexterityCap, ancestry, class: characterClass, ...rest }): StatisticInputs => ({
-    ...rest,
-    ranks: new Map(Object.entries(ranks).map(([selector, rank]) => [Selector.parse(selector), rank])),
-    ...(dexterityCap === undefined ? {} : { dexterityCap }),
-    ...(ancestry === undefined ? {} : { ancestry }),
-    ...(characterClass === undefined ? {} : { class: characterClass }),
-  }));
+  .transform(
+    ({ ranks, dexterityCap, ancestry, class: characterClass, weapons, spellcasting, ...rest }): StatisticInputs => ({
+      ...rest,
+      ranks: new Map(Object.entries(ranks).map(([selector, rank]) => [Selector.parse(selector), rank])),
+      ...(dexterityCap === undefined ? {} : { dexterityCap }),
+      ...(ancestry === undefined ? {} : { ancestry }),
+      ...(characterClass === undefined ? {} : { class: characterClass }),
+      ...(weapons === undefined ? {} : { weapons }),
+      ...(spellcasting === undefined ? {} : { spellcasting }),
+    }),
+  );
 
 /** The order of ranks, so `@rank.<selector>` reads 0 for untrained to 4 for legendary. */
 const RANK_ORDER: readonly Proficiency[] = Object.values(Proficiency);
@@ -88,7 +101,7 @@ function cappedDexterity(inputs: StatisticInputs): FormulaValue {
 
 /** The value an input reference reads; undefined for statistic and item references, which inputs do not hold. */
 function inputValue(
-  reference: KnownReference,
+  reference: Exclude<KnownReference, SourceReference>,
   inputs: StatisticInputs,
   { bonuses }: ProficiencyBonuses,
 ): FormulaValue | undefined {
@@ -137,6 +150,9 @@ export type MissingInput = typeof EngineMessage.NoAncestry | typeof EngineMessag
 
 /** What `reference` reads that the character has not chosen yet, or undefined when its value is there. */
 export function missingInput(reference: KnownReference, inputs: StatisticInputs): MissingInput | undefined {
+  if (isSourceReference(reference)) {
+    return undefined;
+  }
   switch (reference.kind) {
     case ReferenceKind.AncestryHitPoints:
     case ReferenceKind.AncestrySpeed: {
@@ -170,16 +186,27 @@ export interface CharacterValues {
   readonly proficiency: ProficiencyBonuses;
 }
 
+/** What a formula is evaluated for besides the character: the item a rule element is on, or a statistic's source. */
+export interface ResolverScope {
+  readonly itemLevel?: Level | undefined;
+  readonly source?: SourceInputs | undefined;
+}
+
 /**
  * Resolves a formula's references from the inputs, `@prof.<selector>` from the proficiency bonuses in force,
- * `@stat.<selector>` from `statistics`, and `@item.level` from `itemLevel`: the level of the item a rule element is
- * on, which a statistic's base formula never has.
+ * `@stat.<selector>` from `statistics`, `@item.level` from `itemLevel` (the level of the item a rule element is on,
+ * which a statistic's base formula never has), and `@weapon` and `@spellcasting` references from `source`, the
+ * weapon or entry a statistic derived per source is derived for.
  */
 export function resolverFor(
   { inputs, proficiency }: CharacterValues,
   statistics: StatisticValues,
-  itemLevel?: Level,
+  { itemLevel, source }: ResolverScope = {},
 ): ResolveReference {
+  const reading = {
+    attributes: inputs.attributes,
+    bonus: (selector: Selector): FormulaValue | undefined => proficiency.bonuses.get(rankOf(inputs, selector)),
+  };
   return (path) => {
     const reference = knownReference(path);
     if (reference === undefined) {
@@ -191,6 +218,8 @@ export function resolverFor(
     if (reference.kind === ReferenceKind.ItemLevel) {
       return itemLevel === undefined ? undefined : FormulaValue.parse(itemLevel);
     }
-    return inputValue(reference, inputs, proficiency);
+    return isSourceReference(reference)
+      ? sourceValue(reference, source, reading)
+      : inputValue(reference, inputs, proficiency);
   };
 }

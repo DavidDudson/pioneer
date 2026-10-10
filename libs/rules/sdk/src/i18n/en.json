@@ -42,10 +42,14 @@
     "formula": {
       "unknownReference": "“{found}” at position {position} is not a reference Pioneer knows. References look like @level, @attr.str or @prof.skill.athletics.",
       "foundryReference": "“{found}” at position {position} is Foundry’s spelling. Write {suggestion} instead.",
-      "referenceOutOfScope": "“{found}” at position {position} reads an item’s value, which this formula has no item for."
+      "referenceOutOfScope": "“{found}” at position {position} reads an item’s value, which this formula has no item for.",
+      "referenceNeedsWeapon": "“{found}” at position {position} reads a weapon’s value. Only a statistic derived per weapon has one.",
+      "referenceNeedsSpellcasting": "“{found}” at position {position} reads a spellcasting entry’s value. Only a statistic derived per spellcasting entry has one."
     },
     "statistic": {
-      "duplicateSelector": "Another statistic in this pack already uses the selector {selector}."
+      "duplicateSelector": "Another statistic in this pack already uses the selector {selector}.",
+      "perKeyAttribute": "A statistic derived per weapon or spellcasting entry takes its key attribute from each one, so it names none.",
+      "perSelectorLength": "A statistic derived per weapon or spellcasting entry may have a selector of at most {maximum} characters, leaving room for each one’s slug."
     },
     "proficiencyBonus": {
       "reference": "“{found}” at position {position} is not @level. A proficiency bonus formula reads only @level."
@@ -140,7 +144,12 @@
       "proficiencyBonus": "The proficiency bonus for that statistic: the rank bonus plus level, or 0 when untrained.",
       "proficiencyRank": "The proficiency rank for that statistic, from 0 (untrained) to 4 (legendary).",
       "statistic": "The base of that statistic, before its modifiers, such as the spell attack modifier in a spell DC.",
-      "itemLevel": "The level of the item the rule element is on."
+      "itemLevel": "The level of the item the rule element is on.",
+      "weaponAttributeModifier": "The modifier the weapon attacks with: Strength, Dexterity for a ranged weapon, or the higher of the two for a finesse weapon.",
+      "weaponProficiencyBonus": "The proficiency bonus for the weapon’s category: simple, martial, advanced or unarmed.",
+      "weaponPotency": "The weapon’s item bonus to attack rolls: its potency rune, or the bonus it has without runes, such as a bomb’s.",
+      "spellcastingAttributeModifier": "The modifier for the spellcasting entry’s attribute.",
+      "spellcastingProficiencyBonus": "The proficiency bonus for the spellcasting entry’s tradition."
     },
     "action": {
       "reactionTrigger": "A reaction needs a trigger.",

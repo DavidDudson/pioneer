@@ -74,7 +74,7 @@
     "statisticsLabel": "Statistic definitions",
     "statisticsHint": "A JSON array of statistic definitions. A statistic reads another one’s base with @stat, like @stat.spell-attack.arcane.",
     "inputsLabel": "Character inputs",
-    "inputsHint": "Level, the six attribute modifiers, a proficiency rank per selector (a selector left out is untrained) and an optional Dexterity cap.",
+    "inputsHint": "Level, the six attribute modifiers, a proficiency rank per selector (a selector left out is untrained), an optional Dexterity cap, what the ancestry and class give, and the weapons and spellcasting entries a Strike or spell statistic is derived for.",
     "statisticTotal": "Total {total}",
     "statisticFailed": "Error",
     "termValue": "gives {value}",
