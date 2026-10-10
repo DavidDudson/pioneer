@@ -1,4 +1,4 @@
-import { evaluatePredicate, summarisePredicate, Truth } from '@pioneer/rules/predicate';
+import { evaluatePredicate, RollOptionNamespace, summarisePredicate, Truth } from '@pioneer/rules/predicate';
 import type { PredicateFacts, PredicateSummary } from '@pioneer/rules/predicate';
 import { ContentId, OriginHopKind, RollOption, RuleElementKey, RuleIndex, SlotKey } from '@pioneer/rules/sdk';
 import type {
@@ -111,20 +111,7 @@ function listedOptions(choices: readonly ChoiceOption[], facts: PredicateFacts):
 }
 
 /** Where a query reads a candidate entry's own roll options, apart from the character's: `item:trait:fighter`. */
-const CANDIDATE_NAMESPACE = 'item';
-
-/** Each entry's options under `item:`, built once per entry: a query reads every entry of its kind each resolution. */
-const candidateOptionsCache = new WeakMap<GrantEntry, readonly RollOption[]>();
-
-function candidateOptions(candidate: GrantEntry): readonly RollOption[] {
-  const cached = candidateOptionsCache.get(candidate);
-  if (cached !== undefined) {
-    return cached;
-  }
-  const options = candidate.rollOptions.map((option) => RollOption.parse(`${CANDIDATE_NAMESPACE}:${option}`));
-  candidateOptionsCache.set(candidate, options);
-  return options;
-}
+const CANDIDATE_NAMESPACE = RollOptionNamespace.parse('item');
 
 /** By name, then id, so the list a builder shows keeps its order. */
 function byLabel(left: OfferedOption, right: OfferedOption): number {
@@ -137,7 +124,7 @@ function byLabel(left: OfferedOption, right: OfferedOption): number {
  */
 function queriedOptions({ kind, filter }: ChoiceQuery, { facts, lookup }: ChoiceContext): OfferedOption[] {
   const offered = lookup.ofKind(kind).flatMap((candidate): OfferedOption[] => {
-    const candidateFacts = facts.with(candidateOptions(candidate));
+    const candidateFacts = facts.with(candidate.rollOptions, CANDIDATE_NAMESPACE);
     const truth = evaluatePredicate(filter, candidateFacts);
     if (truth === Truth.False) {
       return [];

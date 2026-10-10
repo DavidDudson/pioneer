@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 
 import { PredicateFacts, SummaryKind } from '@pioneer/rules/predicate';
-import { ContentText, OriginHop, RollOption } from '@pioneer/rules/sdk';
+import { ContentKind, ContentText, OriginHop, RollOption } from '@pioneer/rules/sdk';
 import type { SlotKey } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
 
@@ -63,15 +63,19 @@ describe('resolveGrants choice queries', () => {
     expect(offered(result)).toEqual(['Aggressive Block', 'Double Slice', 'Sudden Charge']);
   });
 
-  test('offers only entries of the query kind', () => {
-    const content = [fighter(['item:trait:fighter']), ...feats, entry('bravery')];
-    expect(offered(resolve(content))).not.toContain('bravery');
+  test('offers only entries of the query kind, even one whose options match', () => {
+    const feature = { ...feat('bravery', ['trait:fighter'], 'Bravery'), kind: ContentKind.ClassFeature };
+    const offeredNames = offered(resolve([fighter(['item:trait:fighter']), ...feats, feature]));
+    expect(offeredNames).not.toContain('Bravery');
+    expect(offeredNames).toContain('Sudden Charge');
   });
 
   test('keeps an entry option apart from the character fact of the same name', () => {
-    const content = [fighter(['feat:sudden-charge']), ...feats];
+    const content = [fighter(['feat:sudden-charge']), feat('sudden-charge', ['feat:sudden-charge'], 'Sudden Charge')];
     expect(offered(resolve(content))).toEqual([]);
-    expect(offered(resolve(content, { options: ['feat:sudden-charge'] }))).toHaveLength(feats.length);
+    expect(offered(resolve(content, { options: ['feat:sudden-charge'] }))).toEqual(['Sudden Charge']);
+    const asksItem = [fighter(['item:feat:sudden-charge']), ...content.slice(1)];
+    expect(offered(resolve(asksItem))).toEqual(['Sudden Charge']);
   });
 
   test('offers an entry whose filter is unknown with when it would hold, and one that holds without', () => {

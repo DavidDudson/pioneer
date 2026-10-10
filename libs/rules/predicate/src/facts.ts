@@ -2,7 +2,7 @@ import type { RollOption } from '@pioneer/rules/sdk';
 import * as z from 'zod';
 
 import { DEFAULT_NAMESPACES, kindOf, NamespaceKind } from './namespaces';
-import type { NamespaceTable } from './namespaces';
+import type { NamespaceTable, RollOptionNamespace } from './namespaces';
 
 /** The number at the end of a roll option, `5` in `self:level:5`, as Foundry reads it with `Number`. */
 export const OptionValue = z.number().brand<'OptionValue'>();
@@ -35,8 +35,8 @@ function indexValues(options: Iterable<string>): ReadonlyMap<string, readonly Op
  * Built once per derivation and shared by every predicate, so numeric suffixes are indexed up front.
  */
 export class PredicateFacts {
-  readonly #options: ReadonlySet<string>;
-  readonly #values: ReadonlyMap<string, readonly OptionValue[]>;
+  #options: ReadonlySet<string>;
+  #values: ReadonlyMap<string, readonly OptionValue[]>;
   readonly #namespaces: NamespaceTable;
   /** The facts these extend, set only by `with`. */
   #base: PredicateFacts | undefined = undefined;
@@ -48,11 +48,19 @@ export class PredicateFacts {
   }
 
   /**
-   * These facts plus `options`, under the same namespaces. The base is shared, not copied, so testing many
-   * candidates (each content entry a `ChoiceSet` query offers) against one character costs only their own options.
+   * These facts plus `options`, each read under `namespace` when given (`trait:fighter` under `item` is
+   * `item:trait:fighter`), with the same namespace table. The base is shared, not copied, so testing many candidates
+   * (each content entry a `ChoiceSet` query offers) against one character costs only their own options.
    */
-  public with(options: Iterable<RollOption>): PredicateFacts {
-    const extended = new PredicateFacts(options, this.#namespaces);
+  public with(options: Iterable<RollOption>, namespace?: RollOptionNamespace): PredicateFacts {
+    const extended = new PredicateFacts([], this.#namespaces);
+    const prefix = namespace === undefined ? '' : `${namespace}${SEPARATOR}`;
+    const prefixed = new Set<string>();
+    for (const option of options) {
+      prefixed.add(prefix + option);
+    }
+    extended.#options = prefixed;
+    extended.#values = indexValues(prefixed);
     extended.#base = this;
     return extended;
   }

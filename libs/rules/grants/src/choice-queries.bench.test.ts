@@ -57,16 +57,17 @@ function medianOf(times: readonly number[]): number {
 }
 
 test(`a query over ${ENTRIES} entries resolves in under ${BUDGET_MS} ms`, () => {
-  const given = inputs();
   for (let run = 0; run < WARMUP_RUNS; run += 1) {
-    resolveGrants(given);
+    resolveGrants(inputs());
   }
+  // Fresh entries each run, as a caller building content per request has them; only resolution is timed.
   const times = Array.from({ length: TIMED_RUNS }, (): number => {
+    const given = inputs();
     const start = performance.now();
     resolveGrants(given);
     return performance.now() - start;
   });
   const median = medianOf(times);
-  expect(resolveGrants(given).open[0]?.options.length).toBeGreaterThan(0);
+  expect(resolveGrants(inputs()).open[0]?.options.length).toBeGreaterThan(0);
   expect(median).toBeLessThan(BUDGET_MS);
 });
