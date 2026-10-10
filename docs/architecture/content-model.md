@@ -335,11 +335,12 @@ fields the content browser filters on (GIN index on `traits`, btree on `level` a
 waits for Epic 2.4.
 
 - **Official packs** are produced by the importer into `content/packs/<pack>/<kind>.json`, reviewed as normal PRs
-  (diffable), and upserted on deploy by id. Errata is a re-import and a diff. `pioneer-api content-seed`
-  (`bun run content:seed` from a checkout) runs after `migrate` in a deploy, and before serving when
-  `MIGRATE_ON_START` is set. Each pack is one transaction: the pack row and its entries are upserted, entries no
-  longer in the pack are deleted, and a failure leaves the pack as it was. `content_hash` is SHA-256 of the pack's
-  canonical JSON; a pack whose hash is already stored is skipped without writing.
+  (diffable), and upserted on deploy by id. Errata is a re-import and a diff. `pioneer-api migrate` seeds them
+  after applying migrations; `pioneer-api content-seed` (`bun run content:seed`) seeds alone (ADR-0029). Each pack
+  is one transaction: the pack row and its entries are upserted, entries no longer in the pack are deleted, and a
+  failure leaves the pack as it was. `content_hash` is SHA-256 of the pack's canonical JSON and the seed format; a
+  pack whose hash is already stored is skipped without writing. Content is seeded before a new image takes
+  traffic, so a content shape the serving image cannot read ships in two deploys, reader first.
 - **Homebrew packs** are created in the app and owned by a user. Visibility is private, campaign or public.
 - **Overriding official content** in homebrew is a new entry with `supersedes` pointing at the official one.
   The registry resolves supersession per character or campaign, so a GM can house-rule a feat without touching

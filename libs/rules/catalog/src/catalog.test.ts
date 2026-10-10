@@ -8,10 +8,10 @@ import {
   HitPoints,
   Level,
   PackId,
+  packContentsFromFiles,
   Selector,
   Slug,
 } from '@pioneer/rules/sdk';
-import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
 
 import { checkedLoader, contentCatalog } from './index';
 import { SourceCheckError } from './source-check';
@@ -36,12 +36,24 @@ describe('content catalog', () => {
   });
 
   test('a pack that cites an unregistered book fails to load', async () => {
-    const pack = new ContentPackBuilder()
-      .withId('homebrew')
-      .withAncestry('lizardfolk', { sources: [{ kind: 'book', book: 'core-rulebook', page: 1 }] })
-      .build();
-    const loader = checkedLoader('homebrew', async () => pack);
-    const failure: unknown = await new ContentRegistry().load(loader).then(
+    const homebrew = PackId.parse('homebrew');
+    const slug = Slug.parse('iruxi');
+    const language = {
+      id: contentId(homebrew, slug),
+      pack: homebrew,
+      kind: 'language',
+      slug,
+      name: 'Iruxi',
+      rarity: 'common',
+      traits: [],
+      sources: [{ kind: 'book', book: 'core-rulebook', page: 1 }],
+      description: [],
+      rules: [],
+      data: {},
+    };
+    const packFile = { id: homebrew, title: 'Homebrew', publisher: 'Someone', license: 'homebrew' };
+    const loader = checkedLoader('homebrew', async () => packContentsFromFiles(packFile, [[language]]));
+    const failure: unknown = await loader.load().then(
       () => undefined,
       (error: unknown) => error,
     );

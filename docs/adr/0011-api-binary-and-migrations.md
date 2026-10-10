@@ -32,8 +32,7 @@ The alternatives considered:
   naming the variable when the folder has no journal.
 - **One binary, two commands.** `pioneer-api` serves; `pioneer-api migrate` applies migrations and exits. The
   migrate command validates only `DATABASE_URL` and `MIGRATIONS_DIR`, so a migrate job needs no OAuth or web
-  settings. (Later: `pioneer-api content-seed` upserts the official content packs compiled into the binary, with the
-  same settings, and `MIGRATE_ON_START` seeds them after migrating; see content-model.md.)
+  settings.
 - **Migrate on start by default, under a lock.** `MIGRATE_ON_START` (default true) migrates before serving.
   Migrations always run while holding a Postgres session advisory lock on one reserved connection, so instances
   that start together run them one at a time, and the later ones find nothing pending. With more than one instance,

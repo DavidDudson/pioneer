@@ -10,7 +10,7 @@ import {
   Slug,
 } from '@pioneer/rules/sdk';
 import type { PackContents, PackContentsLoader } from '@pioneer/rules/sdk';
-import { fixedClock, FIRST_VERSION, nextVersion } from '@pioneer/shared/kernel';
+import { fixedClock, FIRST_VERSION, newId, nextVersion } from '@pioneer/shared/kernel';
 import type { Clock } from '@pioneer/shared/kernel';
 import { auditLog } from '@pioneer/shared/server';
 import { createTestDatabase, QueryRecorder, testDatabaseUrl, unindexedQueries } from '@pioneer/shared/server/testing';
@@ -30,6 +30,9 @@ const firstSeed = fixedClock('2026-10-10T10:00:00Z');
 const laterSeed = fixedClock('2026-10-11T10:00:00Z');
 /** The audit command a seed stamps. */
 const SEED_COMMAND = 'content-seed';
+/** More entries than one insert batch holds (1000), so the seed writes several. */
+const LARGE_PACK = 2500;
+const KEPT = 1200;
 const WRITE = /^\s*(?:insert|update|delete)\b/iu;
 
 interface Language {
@@ -63,12 +66,16 @@ function languagePack(pack: string, languages: readonly Language[]): PackContent
   return packContentsFromFiles(packFile, [languages.map((language) => languageEntry(pack, language))]);
 }
 
-/** The database error behind a failed seed: Drizzle wraps it, naming the query. */
+function messageOf(error: Error): string {
+  return error.cause instanceof Error ? error.cause.message : error.message;
+}
+
+/** Why a seed failed: the database error Drizzle wraps (naming the query), or the seed's own. */
 async function causeOf(promise: Promise<unknown>): Promise<string> {
   try {
     await promise;
   } catch (error) {
-    return error instanceof Error ? String(error.cause) : String(error);
+    return error instanceof Error ? messageOf(error) : String(error);
   }
   throw new Error('expected a failure');
 }
@@ -207,6 +214,53 @@ describe.skipIf(adminUrl === undefined)('seedContentPacks (postgres)', () => {
     expect(row).toMatchObject({ version: FIRST_VERSION, contentHash: contentHash(original) });
     const rows = await storedEntries(original);
     expect(rows.map(({ name }) => name)).toStrictEqual(original.entries.map(({ name }) => name));
+  });
+
+  test('a pack that fails to load stops the seed before any pack is written', async () => {
+    const fine = languagePack('loaded-first', [COMMON]);
+    const broken: PackContentsLoader = {
+      id: PackId.parse('broken'),
+      load: async () => {
+        throw new Error('unregistered book');
+      },
+    };
+
+    const failure = seedContentPacks(database.db, [loader(fine), broken], firstSeed);
+
+    expect(failure).rejects.toThrow('unregistered book');
+    await failure.catch(() => undefined);
+    const row = await storedPack(fine);
+    expect(row).toBeUndefined();
+  });
+
+  test('a pack larger than one insert batch is seeded, then trimmed, in full', async () => {
+    const many = Array.from({ length: LARGE_PACK }, (_unused, index) => ({ slug: `tongue-${index}`, name: 'Tongue' }));
+    await seed(languagePack('large', many));
+    const trimmed = languagePack('large', many.slice(0, KEPT));
+
+    const [result] = await seedContentPacks(database.db, [loader(trimmed)], laterSeed);
+
+    expect(result?.removed).toBe(LARGE_PACK - KEPT);
+    const rows = await storedEntries(trimmed);
+    expect(rows).toHaveLength(KEPT);
+  });
+
+  test('an official pack never replaces a homebrew pack with the same id', async () => {
+    const owner = newId();
+    const now = firstSeed.now().toString();
+    const pack = languagePack('claimed', [COMMON]);
+    await database.db.execute(
+      sql`insert into users (id, display_name, email_verified, created_at, updated_at) values (${owner}, 'Ezren', false, ${now}, ${now})`,
+    );
+    await database.db.execute(
+      sql`insert into content_packs (id, slug, title, publisher, owner_id, visibility, license, version, content_hash, data, updated_at) values (${contentPackId(pack.file.id)}, ${pack.file.id}, 'Mine', 'Ezren', ${owner}, 'private', 'homebrew', 1, 'mine', '{}'::jsonb, ${now})`,
+    );
+
+    const failure = await causeOf(seed(pack));
+
+    expect(failure).toContain('is a homebrew pack');
+    const row = await storedPack(pack);
+    expect(row).toMatchObject({ title: 'Mine', ownerId: owner, contentHash: 'mine' });
   });
 
   test('a seed names itself on the audit rows it writes', async () => {

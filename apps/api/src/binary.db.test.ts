@@ -20,7 +20,7 @@ const CONCURRENT_MIGRATIONS = 3;
 /** Seconds the first migration sleeps in the concurrency test. */
 const MIGRATION_DELAY = 2;
 const LISTENING = /listening on :(?<port>\d+)/u;
-/** The official packs, as `content-seed` stores them. */
+/** The official packs, as the content seed stores them. */
 const OFFICIAL_PACKS = ['core-rules', 'monster-core', 'player-core'];
 
 const JournalEntry = z.object({ tag: z.string() });
@@ -196,23 +196,22 @@ describe.skipIf(adminUrl === undefined)('compiled api binary (postgres)', () => 
       expect(await serveHealth(env)).toStrictEqual({ status: 'ok' });
       expect(await appliedMigrations(databaseUrl)).toBe(0);
       // A provider id without its secret stops the server, never a migrate job.
-      expect(await run(['migrate'], { ...env, GITHUB_CLIENT_ID: 'id' })).toStrictEqual({
-        code: 0,
-        output: 'migrations applied\n',
-      });
+      const migrated = await run(['migrate'], { ...env, GITHUB_CLIENT_ID: 'id' });
+      expect(migrated.code).toBe(0);
+      expect(migrated.output).toStartWith('migrations applied\n');
       expect(await appliedMigrations(databaseUrl)).toBe(migrationCount);
+      // The deploy runs only `migrate`, so it seeds content too.
+      expect(await seededPacks(databaseUrl)).toStrictEqual(OFFICIAL_PACKS);
     },
     RUN_TIMEOUT,
   );
 
   test(
-    '`content-seed` seeds the packs compiled into the binary, and a second run writes nothing',
+    '`migrate` seeds the packs compiled into the binary, and `content-seed` then writes nothing',
     async () => {
       const databaseUrl = await emptyDatabase();
       const env = await environment(databaseUrl, {});
-      const migrated = await run(['migrate'], env);
-      expect(migrated.code).toBe(0);
-      const first = await run(['content-seed'], env);
+      const first = await run(['migrate'], env);
       expect(first.code).toBe(0);
       expect(first.output).toContain('content pack player-core: seeded (version 1, 0 removed)');
       expect(await seededPacks(databaseUrl)).toStrictEqual(OFFICIAL_PACKS);

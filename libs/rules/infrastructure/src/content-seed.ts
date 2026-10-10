@@ -2,7 +2,7 @@ import { contentPackId, PackVisibility } from '@pioneer/rules/sdk';
 import type { ContentEntry, ContentLevel, Level, PackContents, PackContentsLoader, PackId } from '@pioneer/rules/sdk';
 import { FIRST_VERSION, nextVersion } from '@pioneer/shared/kernel';
 import type { Clock, ValueOf, Version } from '@pioneer/shared/kernel';
-import { and, eq, notInArray, sql } from 'drizzle-orm';
+import { and, eq, isNull, sql } from 'drizzle-orm';
 import type { BunSQLDatabase, BunSQLQueryResultHKT } from 'drizzle-orm/bun-sql';
 import type { PgDatabase } from 'drizzle-orm/pg-core';
 
@@ -92,10 +92,15 @@ async function upsertPack(write: PackWrite, stored: StoredPack | undefined): Pro
     data: file,
     updatedAt: write.at,
   };
-  await write.tx
+  // Only an official row (no owner) is ever updated, so an official pack never lands on a homebrew one.
+  const written = await write.tx
     .insert(contentPacks)
     .values({ id: contentPackId(file.id), slug: file.id, visibility: PackVisibility.Public, ...pack })
-    .onConflictDoUpdate({ target: contentPacks.id, set: pack });
+    .onConflictDoUpdate({ target: contentPacks.id, set: pack, setWhere: isNull(contentPacks.ownerId) })
+    .returning({ id: contentPacks.id });
+  if (written.length === 0) {
+    throw new Error(`Pack "${file.id}" is a homebrew pack; an official pack cannot replace it`);
+  }
   return version;
 }
 
@@ -124,10 +129,11 @@ async function upsertEntries(write: PackWrite): Promise<void> {
 
 /** Deletes the pack's rows for entries no longer in it; returns how many. */
 async function removeStale(write: PackWrite): Promise<number> {
-  const kept = write.contents.entries.map((entry) => entry.id);
+  // One array literal, so one parameter however many entries the pack has; ids are UUIDs, which need no quoting.
+  const kept = `{${write.contents.entries.map((entry) => entry.id).join(',')}}`;
   const stale = and(
     eq(contentEntries.packId, contentPackId(write.contents.file.id)),
-    notInArray(contentEntries.id, kept),
+    sql`${contentEntries.id} <> all(${kept}::uuid[])`,
   );
   const removed = await write.tx.delete(contentEntries).where(stale).returning({ id: contentEntries.id });
   return removed.length;

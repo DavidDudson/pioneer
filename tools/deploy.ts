@@ -1,9 +1,8 @@
 /**
- * One production deploy (docs/production.md): copy a published `sha-` image from GHCR to ECR, migrate Neon with it and
- * seed its content packs, point the Lambda function at it, then check `/api/health` through the public origin. A
- * rollback is the same deploy with an earlier tag: its image is usually still in ECR, and its migrations are all
- * applied already, so migrating is a no-op (migrations are forward-only; the earlier code must cope with the newer
- * schema). Its content seed writes the earlier packs back.
+ * One production deploy (docs/production.md): copy a published `sha-` image from GHCR to ECR, migrate Neon with it,
+ * point the Lambda function at it, then check `/api/health` through the public origin. A rollback is the same
+ * deploy with an earlier tag: its image is usually still in ECR, and its migrations are all applied already, so
+ * migrating is a no-op (migrations are forward-only; the earlier code must cope with the newer schema).
  */
 
 export const GHCR_IMAGE = 'ghcr.io/daviddudson/pioneer';
@@ -182,17 +181,12 @@ async function waitForHealth(deps: DeployDeps, { url, policy }: HealthCheck, att
   await waitForHealth(deps, { url, policy }, attempt + 1);
 }
 
-/**
- * Before the new code takes traffic, so migrations must be safe while the previous image still serves. Then the
- * image's official content packs are seeded, so the new code finds the content it was built with.
- */
+/** Before the new code takes traffic, so migrations must be safe while the previous image still serves. */
 async function migrate(deps: DeployDeps, tag: string, databaseUrl: string): Promise<void> {
-  const image = `${GHCR_IMAGE}:${tag}`;
-  const options = { env: { DATABASE_URL: databaseUrl } };
-  deps.log(`Migrating with ${image}`);
-  await check(deps, ['docker', 'run', '--rm', '--env', 'DATABASE_URL', image, 'migrate'], options);
-  deps.log(`Seeding content with ${image}`);
-  await check(deps, ['docker', 'run', '--rm', '--env', 'DATABASE_URL', image, 'content-seed'], options);
+  deps.log(`Migrating with ${GHCR_IMAGE}:${tag}`);
+  await check(deps, ['docker', 'run', '--rm', '--env', 'DATABASE_URL', `${GHCR_IMAGE}:${tag}`, 'migrate'], {
+    env: { DATABASE_URL: databaseUrl },
+  });
 }
 
 async function pointFunctionAt(deps: DeployDeps, image: string): Promise<void> {
