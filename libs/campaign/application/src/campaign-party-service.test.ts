@@ -72,7 +72,7 @@ describe('CampaignPartyService', () => {
       .name(seelah, 'Seelah')
       .name(stranger, 'Lem’s player');
     service = new CampaignPartyService(
-      { campaigns, party: new InMemoryCampaignPartyRepository(), characters, directory },
+      { campaigns, party: new InMemoryCampaignPartyRepository(campaigns), characters, directory },
       ticking('2026-10-10T10:00:00Z'),
     );
     vaults = await campaigns.insert(new CampaignBuilder().ranBy(amiri).withPlayer(ezren).withPlayer(seelah).build());
@@ -178,5 +178,8 @@ describe('CampaignPartyService', () => {
 
     const party = await service.party(amiri, vaults.id);
     expect(names(party)).toStrictEqual(['Kyra']);
+    // Free again, so they can bring it into another of their campaigns.
+    const elsewhere = await service.attach(ezren, kingmaker.id, { characterId: valeros });
+    expect(names(elsewhere)).toStrictEqual(['Valeros']);
   });
 });

@@ -32,7 +32,7 @@ function app(): AnyElysia {
   const partyService = new CampaignPartyService(
     {
       campaigns,
-      party: new InMemoryCampaignPartyRepository(),
+      party: new InMemoryCampaignPartyRepository(campaigns),
       characters: new InMemoryCharacterDirectory(),
       directory,
     },

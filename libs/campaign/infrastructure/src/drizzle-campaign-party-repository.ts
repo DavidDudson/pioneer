@@ -59,21 +59,26 @@ export class DrizzleCampaignPartyRepository extends CampaignPartyRepository {
         return undefined;
       }
       // Two attaches racing: the second waits on the unique index, then finds the first's row below.
-      await tx
-        .insert(campaignCharacters)
-        .values({
-          id: character.id,
-          campaignId,
-          memberId: character.memberId,
-          characterId: character.characterId,
-          attachedAt: character.attachedAt.toString(),
-        })
-        .onConflictDoNothing({ target: campaignCharacters.characterId });
-      const [placed] = await tx
-        .select({ campaignId: campaignCharacters.campaignId })
-        .from(campaignCharacters)
-        .where(eq(campaignCharacters.characterId, character.characterId));
-      return placed?.campaignId;
+      const place = async (): Promise<CampaignId | undefined> => {
+        await tx
+          .insert(campaignCharacters)
+          .values({
+            id: character.id,
+            campaignId,
+            memberId: character.memberId,
+            characterId: character.characterId,
+            attachedAt: character.attachedAt.toString(),
+          })
+          .onConflictDoNothing({ target: campaignCharacters.characterId });
+        const [placed] = await tx
+          .select({ campaignId: campaignCharacters.campaignId })
+          .from(campaignCharacters)
+          .where(eq(campaignCharacters.characterId, character.characterId));
+        return placed?.campaignId;
+      };
+      // A blocking row gone by the select (detached or cascaded meanwhile) freed the character: try once more.
+      const placed = await place();
+      return placed ?? place();
     });
   }
 

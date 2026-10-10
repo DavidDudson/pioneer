@@ -40,7 +40,7 @@ function app(): AnyElysia {
   const service = new CampaignService({ campaigns, invites: inviteRepository, directory }, clock);
   const invites = new CampaignInviteService(campaigns, inviteRepository, clock);
   const party = new CampaignPartyService(
-    { campaigns, party: new InMemoryCampaignPartyRepository(), characters, directory },
+    { campaigns, party: new InMemoryCampaignPartyRepository(campaigns), characters, directory },
     clock,
   );
   return new Elysia()

@@ -34,7 +34,7 @@ function app(clock: Clock = new ManualClock('2026-10-10T10:00:00Z')): AnyElysia 
   const partyService = new CampaignPartyService(
     {
       campaigns,
-      party: new InMemoryCampaignPartyRepository(),
+      party: new InMemoryCampaignPartyRepository(campaigns),
       characters: new InMemoryCharacterDirectory(),
       directory,
     },
