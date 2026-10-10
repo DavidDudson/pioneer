@@ -21,12 +21,15 @@
   --fr-font-display: Luminari, 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
 }
 
-/* Parchment by day. The ramp-derived surfaces are too pale and grey for paper. */
+/*
+ * Parchment by day. The ramp-derived surfaces are too pale and grey for paper. Sunken stays at 0.915 or
+ * lighter so subtle and status text keep 4.5:1 on it (bun run check:contrast).
+ */
 :root[data-theme='tavern'][data-mode='light'] {
   --fr-surface-canvas: oklch(0.93 0.035 80);
   --fr-surface-base: oklch(0.965 0.025 85);
   --fr-surface-raised: oklch(0.965 0.025 85);
-  --fr-surface-sunken: oklch(0.9 0.035 78);
+  --fr-surface-sunken: oklch(0.915 0.035 78);
   --fr-surface-overlay: oklch(0.975 0.02 85);
   --fr-surface-skeleton: oklch(0.88 0.04 78);
 }
