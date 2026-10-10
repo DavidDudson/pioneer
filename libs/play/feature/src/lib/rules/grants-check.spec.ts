@@ -1,4 +1,5 @@
 import { GrantsMessage } from '@pioneer/rules/grants';
+import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
 import { describe, expect, it } from 'vitest';
 
 import {
@@ -15,15 +16,18 @@ import { CheckStatus } from './rules-check';
 
 /** The grants tool with the example texts unless given. */
 function check(texts: Partial<GrantsTexts>): GrantsCheck {
-  return checkGrants({
-    entries: EXAMPLE_GRANT_ENTRIES,
-    roots: EXAMPLE_GRANT_ROOTS,
-    picks: EXAMPLE_GRANT_PICKS,
-    toggles: EXAMPLE_GRANT_TOGGLES,
-    facts: EXAMPLE_FACTS,
-    level: EXAMPLE_GRANT_LEVEL,
-    ...texts,
-  });
+  return checkGrants(
+    {
+      entries: EXAMPLE_GRANT_ENTRIES,
+      roots: EXAMPLE_GRANT_ROOTS,
+      picks: EXAMPLE_GRANT_PICKS,
+      toggles: EXAMPLE_GRANT_TOGGLES,
+      facts: EXAMPLE_FACTS,
+      level: EXAMPLE_GRANT_LEVEL,
+      ...texts,
+    },
+    CORE_NAMESPACES,
+  );
 }
 
 /** What the example's first open slot offers, as typed, at `level`. */

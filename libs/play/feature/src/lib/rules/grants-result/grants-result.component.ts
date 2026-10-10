@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import { EmptyState, Heading, LocaleFormat, Stack } from '@pioneer/frontier';
+import { EmptyState, Heading, LocaleFormat, Skeleton, Stack } from '@pioneer/frontier';
 import { formatSummary } from '@pioneer/rules/predicate';
 import type { PredicateSummary } from '@pioneer/rules/predicate';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
@@ -48,7 +48,7 @@ const NO_ROWS: ShownGrants = {
  */
 @Component({
   selector: 'pio-grants-result',
-  imports: [EmptyState, GrantList, Heading, RulesResult, Stack, TranslocoPipe],
+  imports: [EmptyState, GrantList, Heading, RulesResult, Skeleton, Stack, TranslocoPipe],
   templateUrl: './grants-result.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

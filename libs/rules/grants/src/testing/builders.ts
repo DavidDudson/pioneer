@@ -15,6 +15,7 @@ import {
   SourceRef,
 } from '@pioneer/rules/sdk';
 import type { ToggleKey } from '@pioneer/rules/sdk';
+import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
 
 import { slotKeyOf } from '../choices';
 import type { ChoicePicks } from '../choices';
@@ -103,7 +104,7 @@ export interface TestInputs {
   readonly toggles?: ToggleStates | undefined;
 }
 
-/** Grant inputs for test content: a 1st-level character with no picks or toggles unless given. */
+/** Grant inputs for test content: a 1st-level character with no picks or toggles unless given, under the core namespaces. */
 export function inputsOf({ entries, roots, level = 1, situation = [], picks, toggles }: TestInputs): GrantInputs {
   return {
     roots,
@@ -112,6 +113,7 @@ export function inputsOf({ entries, roots, level = 1, situation = [], picks, tog
     situation: situation.map((option) => RollOption.parse(option)),
     picks: picks ?? picksOf(),
     toggles: toggles ?? new Map(),
+    namespaces: CORE_NAMESPACES,
   };
 }
 

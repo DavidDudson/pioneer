@@ -1,14 +1,14 @@
 import type { RouterTestingHarness } from '@angular/router/testing';
 import { describe, expect, it, vi } from 'vitest';
 
-import { PROFICIENCY_RULES } from '../statistic-sources';
-import type { LoadProficiencyRules } from '../statistic-sources';
+import { CORE_RULES } from '../statistic-sources';
+import type { LoadCoreRules } from '../statistic-sources';
 import { chooseSchema, openPlayground, pageText, present } from './playground-harness';
 
 const WITHOUT_LEVEL = 'Proficiency Without Level';
 
 /** A load of the core rules pack that fails, as a lost chunk would. */
-const failing: LoadProficiencyRules = async () => {
+const failing: LoadCoreRules = async () => {
   throw new Error('chunk failed to load');
 };
 
@@ -46,7 +46,7 @@ describe('RulesPlaygroundPage Proficiency Without Level', () => {
   });
 
   it('says so and keeps the variant off when the core rules pack fails to load', async () => {
-    const harness = await openPlayground([{ provide: PROFICIENCY_RULES, useValue: failing }]);
+    const harness = await openPlayground([{ provide: CORE_RULES, useValue: failing }]);
     await chooseSchema(harness, 'Statistics');
     await vi.waitFor(() => {
       expect(pageText(harness)).toContain('The core rules pack did not load');

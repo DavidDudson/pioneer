@@ -1,6 +1,7 @@
 import { BaseTermKind, deriveStatistics, StatisticInputsJson, TermSign } from '@pioneer/rules/engine';
 import type { BaseTerm, RuleId, RuleInPlay, StatisticInputs, StatisticResult } from '@pioneer/rules/engine';
 import { PredicateFacts } from '@pioneer/rules/predicate';
+import type { NamespaceTable } from '@pioneer/rules/predicate';
 import { RuleElement, StatisticDefinition } from '@pioneer/rules/sdk';
 import type { ProficiencyBonusTable, Selector } from '@pioneer/rules/sdk';
 import type { MessageDescriptor, ValueOf } from '@pioneer/shared/kernel';
@@ -127,7 +128,7 @@ export interface StatisticsTexts {
 }
 
 export type StatisticsCheck =
-  /** The proficiency rules have not loaded yet, so nothing derives. */
+  /** The core rules have not loaded yet, so nothing derives. */
   | { readonly status: typeof StatisticsStatus.Pending }
   | { readonly status: typeof StatisticsStatus.Valid; readonly rows: readonly StatisticRow[] }
   /** Some text does not read; each problem is undefined when its text is fine. */
@@ -190,7 +191,7 @@ type TextsRead =
     }
   | { readonly ok: false; readonly problems: Extract<StatisticsCheck, { status: typeof StatisticsStatus.Problems }> };
 
-function readTexts(texts: StatisticsTexts): TextsRead {
+function readTexts(texts: StatisticsTexts, namespaces: NamespaceTable): TextsRead {
   const definitions = readJson(Definitions, texts.definitions);
   const inputs = readJson(StatisticInputsJson, texts.inputs);
   const elements = readJson(RuleElementList, texts.rules);
@@ -208,7 +209,7 @@ function readTexts(texts: StatisticsTexts): TextsRead {
       definitions: definitions.value,
       inputs: inputs.value,
       rules: [...rulesInPlay(elements.value, RuleSource.Rule), ...rulesInPlay(overrides.value, RuleSource.Override)],
-      facts: new PredicateFacts(facts.options),
+      facts: new PredicateFacts(facts.options, namespaces),
     };
   }
   return {
@@ -232,10 +233,14 @@ export interface StatisticProficiency {
 
 /**
  * Read the definitions, the character's inputs, the rule elements and the overrides as JSON and the roll options
- * as lines, then derive every statistic's breakdown with `proficiency`. Never throws.
+ * as lines read with `namespaces`, then derive every statistic's breakdown with `proficiency`. Never throws.
  */
-export function checkStatistics(texts: StatisticsTexts, { table, variant }: StatisticProficiency): StatisticsCheck {
-  const read = readTexts(texts);
+export function checkStatistics(
+  texts: StatisticsTexts,
+  { table, variant }: StatisticProficiency,
+  namespaces: NamespaceTable,
+): StatisticsCheck {
+  const read = readTexts(texts, namespaces);
   if (!read.ok) {
     return read.problems;
   }

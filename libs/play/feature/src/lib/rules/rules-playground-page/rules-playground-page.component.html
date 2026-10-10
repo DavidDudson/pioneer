@@ -21,7 +21,12 @@
           </fr-field>
           <pio-formula-references [check]="formulaResult" [(entries)]="referenceEntries" />
         } @else if (tool.kind === ToolKind.Verdict) {
-          <pio-verdict-fields [check]="tool.check" [(predicate)]="text" [(facts)]="facts" />
+          <pio-verdict-fields
+            [check]="tool.check"
+            [coreRulesFailed]="coreRulesFailed()"
+            [(predicate)]="text"
+            [(facts)]="facts"
+          />
         } @else if (tool.kind === ToolKind.Statistics) {
           <pio-statistic-source-field
             [value]="statisticSource()"
@@ -33,7 +38,7 @@
           } @else {
             <pio-statistics-fields
               [check]="tool.check"
-              [proficiencyFailed]="proficiencyFailed()"
+              [proficiencyFailed]="coreRulesFailed()"
               [(definitions)]="text"
               [(inputs)]="statisticInputs"
               [(rules)]="statisticRules"
@@ -45,6 +50,7 @@
         } @else if (tool.kind === ToolKind.Grants) {
           <pio-grants-fields
             [check]="tool.check"
+            [coreRulesFailed]="coreRulesFailed()"
             [(entries)]="text"
             [(roots)]="grantRoots"
             [(picks)]="grantPicks"

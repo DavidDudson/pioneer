@@ -195,6 +195,7 @@
     "withoutLevel": "Proficiency Without Level",
     "withoutLevelHint": "The GM Core variant rule from the core rules pack: proficiency bonuses leave out level, and untrained is -2.",
     "proficiencyFailed": "The core rules pack did not load, so statistics cannot derive. Reload the page to retry.",
+    "coreRulesFailed": "The core rules pack did not load, so roll options cannot be read. Reload the page to retry.",
     "statisticSource": {
       "example": "Example",
       "coreRules": "Core rules pack"

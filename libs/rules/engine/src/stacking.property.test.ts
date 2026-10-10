@@ -2,7 +2,7 @@ import { describe, expect, test } from 'bun:test';
 
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import { ModifierType, RollOption, Selector } from '@pioneer/rules/sdk';
-import { PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
+import { CORE_NAMESPACES, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
 import { array, assert, constant, constantFrom, integer, property, record, shuffledSubarray, tuple } from 'fast-check';
 import type { Arbitrary } from 'fast-check';
 
@@ -22,7 +22,7 @@ const inputs = StatisticInputsJson.parse({
   ranks: {},
 });
 const ac = statistic('ac', '10', ['dex-based']);
-const facts = new PredicateFacts([RollOption.parse('self:effect:raise-a-shield')]);
+const facts = new PredicateFacts([RollOption.parse('self:effect:raise-a-shield')], CORE_NAMESPACES);
 
 /** Types that stack by type, and predicates that hold, fail or depend on the situation. */
 const TYPED = Object.values(ModifierType).filter((type) => type !== ModifierType.Untyped);

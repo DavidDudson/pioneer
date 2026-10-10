@@ -4,6 +4,7 @@ export const RulesMessage = {
   SkillSelector: 'rules.selector.skill',
   SaveSelector: 'rules.selector.save',
   RollOptionFormat: 'rules.rollOption.format',
+  NamespaceConflict: 'rules.rollOption.namespaceConflict',
   PredicateTooDeep: 'rules.predicate.tooDeep',
   BookLocation: 'rules.source.bookLocation',
   AonUrl: 'rules.source.aonUrl',

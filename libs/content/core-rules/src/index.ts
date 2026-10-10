@@ -2,6 +2,7 @@ import {
   Attribute,
   ContentLicense,
   ContentPack,
+  NamespaceKind,
   PackStatistic,
   RuleElementKey,
   SourceKind,
@@ -78,7 +79,7 @@ function skill(slug: string, name: string, attribute: Attribute): PackStatistic 
  * The core rules (Player Core, 2023 remaster): the statistics every character has, hand-authored rather than
  * imported, since Foundry hard-codes them. Mechanics are ORC-licensed; see NOTICE.md. Domains follow the
  * vocabulary in rules-engine.md ("Statistics are content"); `all` reaches every statistic without being listed. The proficiency bonus table is
- * here too, so a variant rule can replace it (ADR-0026).
+ * here too, so a variant rule can replace it (ADR-0026), and so is the roll option namespace table.
  */
 export const coreRules = ContentPack.define({
   manifest: { id: 'core-rules', title: 'Core Rules', publisher: 'Paizo Inc.', license: ContentLicense.Orc },
@@ -91,6 +92,49 @@ export const coreRules = ContentPack.define({
     expert: '4 + @level',
     master: '6 + @level',
     legendary: '8 + @level',
+  },
+  /*
+   * How a missing roll option reads, checked against the roll options Foundry pf2e's feats, class and ancestry
+   * features, conditions, effects and equipment use. Known namespaces describe the character, so the sheet knows
+   * them; situational ones describe a roll, its target or the scene. Situational is also the fallback, so a namespace
+   * missing from here shows as a conditional line instead of hiding a modifier.
+   *
+   * `item` and `parent` are known because the engine always evaluates them for a specific item (the Strike's weapon,
+   * the granting feature). Inside `self`, the action being used, flanking and initiative in the current encounter are
+   * situational. Namespaces a `ChoiceSet` writes (`kinetic-gate`, `werecreature`) are made known per character.
+   */
+  rollOptionNamespaces: {
+    self: NamespaceKind.Known,
+    'self:action': NamespaceKind.Situational,
+    'self:flanking': NamespaceKind.Situational,
+    'self:participant': NamespaceKind.Situational,
+    item: NamespaceKind.Known,
+    parent: NamespaceKind.Known,
+    class: NamespaceKind.Known,
+    feat: NamespaceKind.Known,
+    feature: NamespaceKind.Known,
+    ancestry: NamespaceKind.Known,
+    heritage: NamespaceKind.Known,
+    background: NamespaceKind.Known,
+    deity: NamespaceKind.Known,
+    armor: NamespaceKind.Known,
+    skill: NamespaceKind.Known,
+    defense: NamespaceKind.Known,
+    action: NamespaceKind.Situational,
+    attack: NamespaceKind.Situational,
+    bonus: NamespaceKind.Situational,
+    check: NamespaceKind.Situational,
+    damage: NamespaceKind.Situational,
+    encounter: NamespaceKind.Situational,
+    inflicts: NamespaceKind.Situational,
+    lighting: NamespaceKind.Situational,
+    origin: NamespaceKind.Situational,
+    penalty: NamespaceKind.Situational,
+    proficiency: NamespaceKind.Situational,
+    situation: NamespaceKind.Situational,
+    spellcasting: NamespaceKind.Situational,
+    target: NamespaceKind.Situational,
+    terrain: NamespaceKind.Situational,
   },
   variantRules: [
     {

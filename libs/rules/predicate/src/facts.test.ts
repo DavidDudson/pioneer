@@ -1,10 +1,10 @@
 import { describe, expect, test } from 'bun:test';
 
-import { Predicate, RollOption } from '@pioneer/rules/sdk';
+import { Predicate, RollOption, RollOptionNamespace } from '@pioneer/rules/sdk';
+import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
 
 import { evaluatePredicate } from './evaluate';
 import { PredicateFacts } from './facts';
-import { RollOptionNamespace } from './namespaces';
 import { Truth } from './truth';
 
 const options = (...given: readonly string[]): RollOption[] => given.map((option) => RollOption.parse(option));
@@ -14,7 +14,10 @@ const ITEM = RollOptionNamespace.parse('item');
 const byNumber = (left: number, right: number): number => left - right;
 
 describe('PredicateFacts.withNamespace', () => {
-  const character = new PredicateFacts(options('self:level:3', 'class:fighter', 'item:trait:rogue', 'item:level:9'));
+  const character = new PredicateFacts(
+    options('self:level:3', 'class:fighter', 'item:trait:rogue', 'item:level:9'),
+    CORE_NAMESPACES,
+  );
 
   test('reads the options under the namespace beside the base facts', () => {
     const candidate = character.withNamespace(ITEM, options('trait:fighter', 'level:1'));

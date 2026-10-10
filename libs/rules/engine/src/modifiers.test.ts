@@ -4,7 +4,7 @@ import { FormulaMessage } from '@pioneer/rules/formula';
 import { PredicateFacts, SummaryKind } from '@pioneer/rules/predicate';
 import { RollOption, Selector } from '@pioneer/rules/sdk';
 import type { StatisticDefinition } from '@pioneer/rules/sdk';
-import { PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
+import { CORE_NAMESPACES, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
 
 import { InactiveReason, LineStatusKind, SuppressionReason } from './breakdown';
 import type { BreakdownLine } from './breakdown';
@@ -26,7 +26,10 @@ const inputs = StatisticInputsJson.parse({
 const ac = statistic('ac', '10 + @attr.dex.capped + @prof.ac', ['dex-based']);
 
 function facts(...options: readonly string[]): PredicateFacts {
-  return new PredicateFacts(options.map((option) => RollOption.parse(option)));
+  return new PredicateFacts(
+    options.map((option) => RollOption.parse(option)),
+    CORE_NAMESPACES,
+  );
 }
 
 function derived(

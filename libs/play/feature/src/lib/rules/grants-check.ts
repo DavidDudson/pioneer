@@ -7,8 +7,8 @@ import type {
   GrantedItem,
   GrantResolution,
 } from '@pioneer/rules/grants';
-import { DEFAULT_NAMESPACES, kindOf, NamespaceKind } from '@pioneer/rules/predicate';
-import type { PredicateSummary } from '@pioneer/rules/predicate';
+import { kindOf } from '@pioneer/rules/predicate';
+import type { NamespaceTable, PredicateSummary } from '@pioneer/rules/predicate';
 import {
   contentId,
   ContentId,
@@ -16,6 +16,7 @@ import {
   ContentKindSchema,
   ContentText,
   Level,
+  NamespaceKind,
   OriginHopKind,
   PackId,
   RollOption,
@@ -84,7 +85,7 @@ interface GrantErrorRow {
   readonly via: readonly string[];
 }
 
-export const GrantsStatus = { Valid: CheckStatus.Valid, Problems: 'problems' } as const;
+export const GrantsStatus = { Valid: CheckStatus.Valid, Problems: 'problems', Pending: 'pending' } as const;
 export type GrantsStatus = ValueOf<typeof GrantsStatus>;
 
 /** What the grants tool reads: four texts and the level. */
@@ -102,6 +103,8 @@ export interface GrantsTexts {
 }
 
 export type GrantsCheck =
+  /** The core rules pack's roll option namespaces have not loaded yet, so nothing resolves. */
+  | { readonly status: typeof GrantsStatus.Pending }
   | {
       readonly status: typeof GrantsStatus.Valid;
       readonly items: readonly GrantRow[];
@@ -181,7 +184,9 @@ function rowsOf(resolution: GrantResolution, names: ReadonlyMap<ContentId, strin
  * Whether a typed roll option is about the moment. The level field and the entries set the character's own facts
  * (`self:level:5`, `feature:bravery`), so typing one in the shared box must not put it on the character.
  */
-const isSituational = (option: RollOption): boolean => kindOf(option, DEFAULT_NAMESPACES) === NamespaceKind.Situational;
+function isSituational(option: RollOption, namespaces: NamespaceTable): boolean {
+  return kindOf(option, namespaces) === NamespaceKind.Situational;
+}
 
 /** The line texts and the level, each read; the level is undefined when it is not one. */
 interface ReadTexts {
@@ -227,9 +232,10 @@ function problemsOf(
 
 /**
  * Read the entries as JSON, the roots, picks, toggles and roll options as lines, then resolve every grant from the
- * roots down at the level given, until the facts the set derives settle. Never throws.
+ * roots down at the level given, until the facts the set derives settle, reading roll options with `namespaces`. Never
+ * throws.
  */
-export function checkGrants(texts: GrantsTexts): GrantsCheck {
+export function checkGrants(texts: GrantsTexts, namespaces: NamespaceTable): GrantsCheck {
   const entries = readJson(PlaygroundEntries, texts.entries);
   const slugs = entrySlugs(entries.status === CheckStatus.Valid ? entries.value : []);
   const read = readTexts(texts, slugs);
@@ -244,9 +250,10 @@ export function checkGrants(texts: GrantsTexts): GrantsCheck {
     roots: roots.roots,
     lookup: lookupOf(content),
     level,
-    situation: facts.options.filter(isSituational),
+    situation: facts.options.filter((option) => isSituational(option, namespaces)),
     picks: picks.picks,
     toggles: toggles.toggles,
+    namespaces,
   });
   return rowsOf(resolution, names, slugs.table);
 }

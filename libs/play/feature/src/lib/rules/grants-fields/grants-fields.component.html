@@ -57,6 +57,7 @@
     [hint]="'play.rules.grantFactsHint' | transloco"
     [rows]="factRows"
     [bad]="badFacts()"
+    [failure]="coreRulesFailed() ? ('play.rules.coreRulesFailed' | transloco) : undefined"
     [(value)]="facts"
   />
 </fr-stack>

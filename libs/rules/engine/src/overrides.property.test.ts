@@ -2,7 +2,7 @@ import { describe, expect, test } from 'bun:test';
 
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import { ModifierType, Selector } from '@pioneer/rules/sdk';
-import { PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
+import { CORE_NAMESPACES, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
 import { array, assert, constantFrom, integer, property, record, tuple } from 'fast-check';
 
 import { LineStatusKind } from './breakdown';
@@ -24,7 +24,7 @@ const inputs = StatisticInputsJson.parse({
   ranks: {},
 });
 const ac = statistic('ac', '10');
-const facts = new PredicateFacts([]);
+const facts = new PredicateFacts([], CORE_NAMESPACES);
 const TYPES = Object.values(ModifierType).filter((type) => type !== ModifierType.Attribute);
 
 const modifiers = array(record({ type: constantFrom(...TYPES), value: integer({ min: -VALUE_MAX, max: VALUE_MAX }) }), {

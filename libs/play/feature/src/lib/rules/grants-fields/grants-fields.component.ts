@@ -59,6 +59,8 @@ export class GrantsFields {
   public readonly toggles = model.required<string>();
   public readonly level = model.required<number>();
   public readonly facts = model.required<string>();
+  /** The core rules pack did not load, so the roll options cannot be read. */
+  public readonly coreRulesFailed = input(false);
 
   protected readonly entriesProblem = computed((): JsonProblem | undefined => {
     const result = this.check();

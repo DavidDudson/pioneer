@@ -2,6 +2,7 @@ import { expect, test } from 'bun:test';
 
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import { RollOption } from '@pioneer/rules/sdk';
+import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
 
 import type { GrantEntry } from './grant-entry';
 import { walkGrants } from './grant-walk';
@@ -46,7 +47,10 @@ function inputs(): WalkInputs {
   return {
     roots: [picked('fighter')],
     lookup: lookupOf([fighter, ...feats()]),
-    facts: new PredicateFacts(options.map((option) => RollOption.parse(option))),
+    facts: new PredicateFacts(
+      options.map((option) => RollOption.parse(option)),
+      CORE_NAMESPACES,
+    ),
     picks: picksOf(),
   };
 }

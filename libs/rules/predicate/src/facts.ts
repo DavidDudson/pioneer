@@ -1,8 +1,9 @@
-import type { RollOption } from '@pioneer/rules/sdk';
+import { NamespaceKind } from '@pioneer/rules/sdk';
+import type { RollOption, RollOptionNamespace } from '@pioneer/rules/sdk';
 import * as z from 'zod';
 
-import { DEFAULT_NAMESPACES, kindOf, NamespaceKind } from './namespaces';
-import type { NamespaceTable, RollOptionNamespace } from './namespaces';
+import { kindOf } from './namespaces';
+import type { NamespaceTable } from './namespaces';
 
 /** The number at the end of a roll option, `5` in `self:level:5`, as Foundry reads it with `Number`. */
 export const OptionValue = z.number().brand<'OptionValue'>();
@@ -65,7 +66,7 @@ export class PredicateFacts {
   /** Set only by `withNamespace`, on the facts it returns. */
   #layer: Layer | undefined = undefined;
 
-  public constructor(options: Iterable<RollOption>, namespaces: NamespaceTable = DEFAULT_NAMESPACES) {
+  public constructor(options: Iterable<RollOption>, namespaces: NamespaceTable) {
     this.#options = new Set<string>(options);
     this.#values = indexValues(this.#options);
     this.#namespaces = namespaces;

@@ -4,7 +4,8 @@
       "format": "Use lowercase words joined by hyphens and colons, like save:fortitude or skill-check."
     },
     "rollOption": {
-      "format": "Use a namespace and a name joined by colons, like self:condition:frightened."
+      "format": "Use a namespace and a name joined by colons, like self:condition:frightened.",
+      "namespaceConflict": "The pack {pack} already makes {namespace} {kind, select, known {known: a missing option is false} other {situational: a missing option is unknown}}. Give it the same kind, or use another namespace."
     },
     "predicate": {
       "tooDeep": "Predicates can nest at most {maximum} levels deep."

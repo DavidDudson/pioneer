@@ -10,6 +10,7 @@ import { envelope } from './entry-envelope';
 import { ContentLicenseSchema } from './license';
 import { RulesMessage } from './messages';
 import { ProficiencyBonusTable } from './proficiency';
+import { RollOptionNamespaces } from './roll-option-namespace';
 import type { Selector } from './selector';
 import { StatisticDefinition } from './statistic';
 import { VariantRuleDefinition } from './variant-rule';
@@ -71,6 +72,8 @@ export const ContentPackSchema = z.object({
     .readonly()
     .refine(uniqueSlugs, 'Duplicate variant rule slug')
     .default([]),
+  /** How each roll option namespace reads when missing: the core rules pack lists Foundry's, and any pack may add more. */
+  rollOptionNamespaces: RollOptionNamespaces.default({}),
 });
 
 /**
@@ -85,6 +88,7 @@ export class ContentPack {
   public readonly statistics: readonly PackStatistic[];
   public readonly proficiencyBonus: ProficiencyBonusTable | undefined;
   public readonly variantRules: readonly VariantRuleDefinition[];
+  public readonly rollOptionNamespaces: RollOptionNamespaces;
 
   private constructor(data: z.output<typeof ContentPackSchema>) {
     this.manifest = data.manifest;
@@ -93,6 +97,7 @@ export class ContentPack {
     this.statistics = data.statistics;
     this.proficiencyBonus = data.proficiencyBonus;
     this.variantRules = data.variantRules;
+    this.rollOptionNamespaces = data.rollOptionNamespaces;
   }
 
   public static define(data: z.input<typeof ContentPackSchema>): ContentPack {

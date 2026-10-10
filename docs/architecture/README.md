@@ -79,7 +79,7 @@ libs/
     engine/         derivation pipeline, statistics, breakdowns, action availability (exists, grows)
     dice/           dice expressions, RNG port, degree of success, damage application
     formula/        formula language: parser to a positioned tree, printer, references, evaluator (kernel only)
-    predicate/      three-valued (Kleene) predicate evaluation, roll option namespace table
+    predicate/      three-valued (Kleene) predicate evaluation, roll option namespace lookup
     catalog/        pack loaders (exists; switches from TS imports to API/DB loading)
     ui/             Angular rendering of rules data: rich text (frontier components only)
   content/          (TS packs retired; replaced by content/ JSON data, see content-model.md)

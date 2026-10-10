@@ -22,6 +22,8 @@ export class VerdictFields {
   public readonly check = input.required<VerdictCheck>();
   public readonly predicate = model.required<string>();
   public readonly facts = model.required<string>();
+  /** The core rules pack did not load, so the roll options cannot be read. */
+  public readonly coreRulesFailed = input(false);
 
   readonly #format = inject(LocaleFormat);
   /** The roll option lines that are not roll options, as a list in the UI locale ("2, 4 and 7"). */

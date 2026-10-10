@@ -4,6 +4,7 @@ import type { AncestryDefinition } from '../ancestry';
 import { ContentPack } from '../content-pack';
 import type { CreatureDefinition } from '../creature';
 import { ContentLicense } from '../license';
+import type { NamespaceKind } from '../roll-option-namespace';
 import { Size } from '../size';
 import { SourceKind } from '../source-ref';
 import type { SourceRef } from '../source-ref';
@@ -31,6 +32,7 @@ export class ContentPackBuilder {
   readonly #ancestries: Sourceable<typeof AncestryDefinition>[] = [];
   readonly #creatures: Sourceable<typeof CreatureDefinition>[] = [];
   readonly #statistics: Sourceable<typeof StatisticDefinition>[] = [];
+  readonly #namespaces: Record<string, NamespaceKind> = {};
 
   public withId(id: string): this {
     this.#id = id;
@@ -69,6 +71,11 @@ export class ContentPackBuilder {
     return this;
   }
 
+  public withNamespace(namespace: string, kind: NamespaceKind): this {
+    this.#namespaces[namespace] = kind;
+    return this;
+  }
+
   public build(): ContentPack {
     const sources = [{ kind: SourceKind.Homebrew, author: TEST_AUTHOR, pack: this.#id }];
     return ContentPack.define({
@@ -76,6 +83,7 @@ export class ContentPackBuilder {
       ancestries: this.#ancestries.map((ancestry) => ({ sources, ...ancestry })),
       creatures: this.#creatures.map((creature) => ({ sources, ...creature })),
       statistics: this.#statistics.map((statistic) => ({ sources, ...statistic })),
+      rollOptionNamespaces: this.#namespaces,
     });
   }
 }

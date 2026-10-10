@@ -1,5 +1,5 @@
 import { EngineMessage, LineStatusKind, RuleInPlay } from '@pioneer/rules/engine';
-import { PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
+import { CORE_NAMESPACES, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
 import { describe, expect, it } from 'vitest';
 
 import { EXAMPLE_FACTS } from './predicate-verdict';
@@ -57,6 +57,7 @@ function check(texts: Partial<StatisticsTexts>, proficiency = STANDARD): Statist
   return checkStatistics(
     { definitions: '[]', inputs: EXAMPLE_STATISTIC_INPUTS, rules: '[]', overrides: '[]', facts: '', ...texts },
     proficiency,
+    CORE_NAMESPACES,
   );
 }
 
@@ -71,6 +72,7 @@ describe(checkStatistics, () => {
         facts: EXAMPLE_FACTS,
       },
       STANDARD,
+      CORE_NAMESPACES,
     );
     expect(result).toMatchObject({
       status: StatisticsStatus.Valid,

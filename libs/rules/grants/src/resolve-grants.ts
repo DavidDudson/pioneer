@@ -1,4 +1,4 @@
-import { DEFAULT_NAMESPACES, PredicateFacts, withKnown } from '@pioneer/rules/predicate';
+import { PredicateFacts, withKnown } from '@pioneer/rules/predicate';
 import type { NamespaceTable } from '@pioneer/rules/predicate';
 import { OriginHopKind } from '@pioneer/rules/sdk';
 import type { ContentId, ContentText, Level, OriginHop, RollOption } from '@pioneer/rules/sdk';
@@ -26,8 +26,8 @@ export interface GrantInputs {
   readonly situation: readonly RollOption[];
   readonly picks: ChoicePicks;
   readonly toggles: ToggleStates;
-  /** Which namespaces are known; the default table unless a pack extends it. */
-  readonly namespaces?: NamespaceTable;
+  /** Which namespaces are known: the registry's merged table (`ContentRegistry.rollOptionNamespaces`). */
+  readonly namespaces: NamespaceTable;
 }
 
 /**
@@ -134,11 +134,9 @@ function involvedNames(
 /** Resolves rounds of grants until the facts they derive stop changing. */
 class Fixpoint {
   readonly #inputs: GrantInputs;
-  readonly #namespaces: NamespaceTable;
 
   public constructor(inputs: GrantInputs) {
     this.#inputs = inputs;
-    this.#namespaces = inputs.namespaces ?? DEFAULT_NAMESPACES;
   }
 
   public resolve(): GrantResolution {
@@ -175,7 +173,7 @@ class Fixpoint {
   }
 
   #factsOf({ options, known }: FactState): PredicateFacts {
-    return new PredicateFacts([...options, ...this.#inputs.situation], withKnown(this.#namespaces, known));
+    return new PredicateFacts([...options, ...this.#inputs.situation], withKnown(this.#inputs.namespaces, known));
   }
 
   /**
