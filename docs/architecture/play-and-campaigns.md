@@ -68,6 +68,24 @@ and the turn's spend log are play state.
   condition rolls its damage, applied through IWR, then its DC 15 flat check (lower with assisted recovery) to end
   it. Then frightened decreases and effects ending at the end of the turn expire.
 
+#### Durations, sustaining and dismissing
+
+- **Countdown**: Start turn counts down every active effect with a `time` duration by one round (a minute is 10
+  rounds) and removes those that reach 0 with a `turn-start` expiry; End turn removes those with a `turn-end`
+  expiry. An effect from another creature counts down on this character's Start turn, since the sheet does not
+  know the other creature's turns; its remaining rounds can be edited.
+- **Sustain**: casting a sustained spell adds it to the active list, lasting until the end of the next turn. During
+  a turn each sustained spell offers Sustain (1 action, spent like any other); sustaining extends it to the end of
+  the following turn, up to its maximum (10 minutes unless the spell says otherwise). End turn lists the sustained
+  spells not sustained this turn and ends them on confirm, so none lapses unnoticed.
+- **Dismiss**: any active spell or effect can be dismissed from the list at any time, which removes it and its
+  effects. A spell that needs the Dismiss action spends 1 action when dismissed during the turn; elsewhere removal
+  is free.
+
+The **active list** shows every active spell and effect: name, source (cast by this character, applied by an ally,
+a GM's boon), remaining duration or "sustained", and its Sustain and Dismiss buttons. It sits on the Encounter tab
+beside the turn bar, and the shared header shows a count that opens it.
+
 The Encounter tab carries the turn bar: phase, action pips (spent, left, quickened-only), reaction pip, Start turn
 and End turn buttons, and the spend log with undo. Outside a turn the Encounter tab still lists actions, unfiltered
 by cost.

@@ -141,7 +141,8 @@ gain and lose conditions, end the turn with correct bookkeeping.
   action lists follow the sheet mode.
 - **Turn cycle**: Start turn refills actions (quickened, slowed, stunned applied) and the reaction; Strikes, spells
   and actions spend the economy, with undo; lists filter to what fits the actions left; End turn runs bookkeeping
-  and leaves reactions only. The Encounter tab carries the turn bar.
+  and leaves reactions only. Effect durations count down each turn; sustained spells offer Sustain and end if not
+  sustained; an active list shows every spell and effect, each dismissable. The Encounter tab carries the turn bar.
 - **Triggered abilities**: trigger enrichment gives actions and effects structured trigger events, since Foundry's
   triggers are text only; free, purely beneficial triggers (temporary HP from casting a focus spell) auto-apply,
   everything else prompts. Builds on the turn cycle.
