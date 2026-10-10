@@ -118,7 +118,10 @@
       "reactionTrigger": "A reaction needs a trigger."
     },
     "condition": {
-      "impliesWithoutGrant": "Add a GrantItem rule for each implied condition; it is what applies it."
+      "impliesWithoutGrant": "Grant this condition with a GrantItem rule too; listing it in implies does not apply it."
+    },
+    "trait": {
+      "duplicateKind": "The kind {kind} is listed more than once."
     }
   }
 }

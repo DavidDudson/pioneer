@@ -184,13 +184,18 @@ function checkSupersedes(context: EntryCheck): void {
   }
 }
 
-/** Every condition a condition implies is applied by a `GrantItem` of it in `rules`. */
+/** Every condition a condition implies is applied by an unconditional `GrantItem` of it in `rules`. */
 function checkImplies(context: EntryCheck): void {
   const entry = context.value;
   if (entry.kind !== ContentKind.Condition) {
     return;
   }
-  const granted = new Set(entry.rules.flatMap((rule) => (rule.key === RuleElementKey.GrantItem ? [rule.item] : [])));
+  // A grant behind a predicate applies only sometimes, so it doesn't make a condition always implied.
+  const granted = new Set(
+    entry.rules.flatMap((rule) =>
+      rule.key === RuleElementKey.GrantItem && rule.predicate === undefined ? [rule.item] : [],
+    ),
+  );
   for (const [index, implied] of entry.data.implies.entries()) {
     if (!granted.has(implied)) {
       push(context, ['data', 'implies', index], message(RulesMessage.ConditionImpliesWithoutGrant));
@@ -201,8 +206,7 @@ function checkImplies(context: EntryCheck): void {
 /**
  * One content entry of any kind (content-model.md): the shared envelope, with `data` checked by the schema for its
  * `kind`. A kind with no schema yet is an error naming it. The id must be UUIDv5 of `<pack>/<slug>`, traits are
- * unique, an entry never supersedes itself, and a condition grants
- * every condition it implies.
+ * unique, an entry never supersedes itself, and a condition grants every condition it implies.
  */
 export const ContentEntry: z.ZodType<ContentEntry> = z
   .unknown()

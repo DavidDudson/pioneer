@@ -47,7 +47,7 @@ describe('RulesPlaygroundPage content entry', () => {
     const text = pageText(harness);
     expect(text).toContain('2 problems');
     expect(text).toContain('data.implies[0]');
-    expect(text).toContain('Add a GrantItem rule for each implied condition');
+    expect(text).toContain('Grant this condition with a GrantItem rule too');
   });
 
   it('names a kind with no schema', async () => {

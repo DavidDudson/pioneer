@@ -20,7 +20,7 @@ import { ConditionGroup } from '../condition';
 import { DisplayCategory, Rarity } from '../content-entry';
 import { contentId, PackId, Slug } from '../content-id';
 import { ContentKind } from '../content-kind';
-import { DamageType, DamageTypeGroup } from '../damage';
+import { DamageType } from '../damage';
 import type { RegisteredKind } from '../kind-data';
 import { ActionCost } from '../rich-text';
 import { SenseAcuity } from '../sense';
@@ -138,10 +138,6 @@ const conditionData: Arbitrary<object> = withOptional(
   { group: constantFrom(...Object.values(ConditionGroup)) },
 );
 
-const damageTypeData: Arbitrary<object> = withOptional(constant({}), {
-  group: constantFrom(...Object.values(DamageTypeGroup)),
-});
-
 const senseData: Arbitrary<object> = withOptional(constant({}), {
   acuity: constantFrom(...Object.values(SenseAcuity)),
   unlimitedRange: boolean(),
@@ -164,7 +160,7 @@ const KIND_ARBITRARIES: Readonly<
   [ContentKind.Ancestry]: { data: ancestryData },
   [ContentKind.Condition]: { data: conditionData },
   [ContentKind.Creature]: { data: creatureData, level: creatureLevel },
-  [ContentKind.DamageType]: { data: damageTypeData },
+  [ContentKind.DamageType]: { data: emptyData },
   [ContentKind.Language]: { data: emptyData },
   [ContentKind.Sense]: { data: senseData },
   [ContentKind.Statistic]: { data: statisticData },

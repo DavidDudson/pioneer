@@ -23,7 +23,6 @@ export {
   DamageGroupSchema,
   DamageType,
   DamageTypeData,
-  DamageTypeGroup,
   DamageTypeSchema,
 } from './damage';
 export { DegreeChange, DegreeChangeSchema, DegreeOfSuccess, DegreeOfSuccessSchema } from './degree-of-success';

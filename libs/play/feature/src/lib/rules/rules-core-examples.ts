@@ -1,4 +1,4 @@
-import { ActionCategory, ContentKind, contentId, DamageTypeGroup, PackId, SenseAcuity, Slug } from '@pioneer/rules/sdk';
+import { ContentKind, contentId, PackId, SenseAcuity, Slug } from '@pioneer/rules/sdk';
 
 const PLAYER_CORE = PackId.parse('player-core');
 const GM_CORE = PackId.parse('gm-core');
@@ -44,11 +44,9 @@ export const grabbed = {
 export const aid = {
   ...playerCore('aid', 'Aid', 'You try to help your ally with a task.'),
   kind: ContentKind.Action,
-  traits: ['general'],
   rules: [],
   data: {
     cost: 'reaction',
-    category: ActionCategory.Interaction,
     requirements: [paragraph('The ally is willing to accept your aid, and you have prepared to help.')],
     trigger: [paragraph('An ally is about to use an action that requires a skill check or attack roll.')],
   },
@@ -59,7 +57,7 @@ export const fire = {
   kind: ContentKind.DamageType,
   traits: ['energy'],
   rules: [],
-  data: { group: DamageTypeGroup.Energy },
+  data: {},
 };
 
 export const darkvision = {

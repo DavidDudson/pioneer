@@ -66,10 +66,8 @@ const blinded = {
 const aidAction = {
   ...entry('aid', 'Aid'),
   kind: 'action',
-  traits: [],
   data: {
     cost: 'reaction',
-    category: 'interaction',
     requirements: prose('The ally is willing to accept your aid, and you have prepared to help.'),
     trigger: prose('An ally is about to use an action that requires a skill check or attack roll.'),
   },
@@ -81,8 +79,7 @@ const raiseAShield = {
   data: { cost: 'one', category: 'defensive', selfEffect: idOf('effect-raise-a-shield') },
 };
 
-const fire = { ...entry('fire', 'Fire'), kind: 'damage-type', data: { group: 'energy' } };
-const mental = { ...entry('mental', 'Mental'), kind: 'damage-type', data: {} };
+const fire = { ...entry('fire', 'Fire'), kind: 'damage-type', data: {} };
 const darkvision = {
   ...entry('darkvision', 'Darkvision'),
   kind: 'sense',
@@ -103,8 +100,7 @@ describe('rules core kinds', () => {
     ['a grouped condition that overrides another', blinded],
     ['a reaction', aidAction],
     ['an action with a self effect', raiseAShield],
-    ['a damage type in a group', fire],
-    ['a damage type in no group', mental],
+    ['a damage type', fire],
     ['a sense', darkvision],
     ['a language', draconic],
     ['a variant rule', freeArchetype],
@@ -127,6 +123,24 @@ describe('rules core kinds', () => {
     expect(found(fromChoice)).toStrictEqual([
       `data.implies.0 ${RulesMessage.ConditionImpliesWithoutGrant}`,
       `data.implies.1 ${RulesMessage.ConditionImpliesWithoutGrant}`,
+    ]);
+  });
+
+  test('a grant behind a predicate does not apply an implied condition', () => {
+    const [offGuardGrant, immobilizedGrant] = grabbed.rules;
+    const sometimes = {
+      ...grabbed,
+      rules: [{ ...offGuardGrant, predicate: ['self:action:grapple'] }, immobilizedGrant],
+    };
+
+    expect(issues(sometimes)).toStrictEqual([
+      { path: ['data', 'implies', 0], message: message(RulesMessage.ConditionImpliesWithoutGrant) },
+    ]);
+  });
+
+  test('a trait lists each kind once', () => {
+    expect(issues({ ...manipulate, data: { appliesTo: ['action', 'feat', 'action'] } })).toStrictEqual([
+      { path: ['data', 'appliesTo', 2], message: message(RulesMessage.TraitDuplicateKind, { kind: 'action' }) },
     ]);
   });
 
@@ -153,14 +167,13 @@ describe('rules core kinds', () => {
     ]);
   });
 
-  test('checks condition, sense, damage type and trait fields', () => {
+  test('checks condition, sense and trait fields', () => {
     expect(found({ ...blinded, data: { ...blinded.data, group: 'mood' } })).toStrictEqual([
       `data.group ${ValidationMessage.InvalidValue}`,
     ]);
     expect(found({ ...darkvision, data: { acuity: 'keen' } })).toStrictEqual([
       `data.acuity ${ValidationMessage.InvalidValue}`,
     ]);
-    expect(found({ ...fire, data: { group: 'all' } })).toStrictEqual([`data.group ${ValidationMessage.InvalidValue}`]);
     expect(found({ ...manipulate, data: { appliesTo: ['spellbook'] } })).toStrictEqual([
       `data.appliesTo.0 ${ValidationMessage.InvalidValue}`,
     ]);
@@ -175,6 +188,9 @@ describe('rules core kinds', () => {
   test('rejects data fields a kind does not have', () => {
     expect(found({ ...draconic, data: { speakers: 'dragons' } })).toStrictEqual([
       `data.speakers ${ValidationMessage.UnrecognizedKeys}`,
+    ]);
+    expect(found({ ...fire, data: { group: 'energy' } })).toStrictEqual([
+      `data.group ${ValidationMessage.UnrecognizedKeys}`,
     ]);
     expect(found({ ...freeArchetype, data: { enabled: true } })).toStrictEqual([
       `data.enabled ${ValidationMessage.UnrecognizedKeys}`,

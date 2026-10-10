@@ -4,8 +4,8 @@ import * as z from 'zod';
 import { ContentId } from './content-id';
 
 /**
- * Conditions that exclude each other within a set, as Foundry pf2e groups them: a creature has one attitude,
- * one detection state, one of the death conditions' track.
+ * How Foundry pf2e groups conditions on the sheet. A group says nothing about stacking: Dying, Wounded and Doomed
+ * share `death` and apply together. Conditions that replace each other say so in `overrides`.
  */
 export const ConditionGroup = {
   Abilities: 'abilities',
