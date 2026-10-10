@@ -26,10 +26,12 @@ export const CampaignWire = z
     createdAt: InstantCodec,
   })
   .refine(
-    // Exactly one GM member, and it is `gmId`: otherwise the GM would be refused their own campaign.
+    // Each user once, and exactly one GM member who is `gmId` (as the database enforces): otherwise
+    // `roleOf` could refuse the GM their own campaign.
     ({ gmId, members }) => {
       const gms = members.filter((member) => member.role === CampaignRole.Gm);
-      return gms.length === 1 && gms[0]?.userId === gmId;
+      const unique = new Set(members.map((member) => member.userId)).size === members.length;
+      return unique && gms.length === 1 && gms[0]?.userId === gmId;
     },
     { path: ['members'] },
   );

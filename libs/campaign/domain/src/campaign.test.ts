@@ -51,6 +51,13 @@ describe('Campaign', () => {
     );
   });
 
+  test('wire data lists each user once, so the GM can never read as a player', () => {
+    const wire = Campaign.codec.encode(new CampaignBuilder().withPlayer(ezren).build());
+    const [gm, player] = wire.members;
+    const gmAsPlayerFirst = { ...player, userId: wire.gmId };
+    expect(Campaign.codec.safeParse({ ...wire, members: [gmAsPlayerFirst, gm] }).success).toBe(false);
+  });
+
   test('a blank or overlong name is rejected', () => {
     expect(CampaignName.safeParse('   ').success).toBe(false);
     expect(CampaignName.safeParse('x'.repeat(81)).success).toBe(false);
