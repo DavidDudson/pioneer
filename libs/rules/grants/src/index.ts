@@ -3,7 +3,7 @@ export type { OfferedOption } from './offers';
 export type { ContentLookup, GrantEntry, GrantError, GrantRoot } from './grant-entry';
 export type { ConditionalGrant, GrantedItem } from './grant-walk';
 export { GrantsMessage } from './messages';
-export { registryLookup } from './registry-lookup';
+export { grantLookup } from './grant-lookup';
 export { type GrantInputs, type GrantResolution, resolveGrants } from './resolve-grants';
 export type { RootSlot, RootSlotDefinition } from './root-slots';
 export { type ToggleSlot, type ToggleState, type ToggleStates, toggleKeyOf } from './toggles';

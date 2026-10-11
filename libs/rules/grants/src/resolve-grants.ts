@@ -44,7 +44,7 @@ export interface GrantResolution {
   /** Grants of an entry already on the character, without `allowDuplicate`. */
   readonly duplicates: readonly GrantedItem[];
   readonly conditional: readonly ConditionalGrant[];
-  /** Choices the player has yet to make, or whose pick is not on offer. */
+  /** `ChoiceSet` slots the player has yet to answer, or whose pick is not on offer. An open root slot is in `rootSlots`, with no `pick`. */
   readonly open: readonly ChoiceSlot[];
   readonly answered: readonly AnsweredSlot[];
   /** Each root slot, open or answered, with what it offers. */

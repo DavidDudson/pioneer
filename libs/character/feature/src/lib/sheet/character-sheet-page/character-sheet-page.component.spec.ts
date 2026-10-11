@@ -14,6 +14,8 @@ import { provideServerStateTesting } from '../../testing/provide-server-state-te
 
 const id = CharacterId.parse('0d9f7c1e-3b7a-4c55-9d1f-2a8f2b9c6e10');
 
+const HUMAN = contentId(PackId.parse('player-core'), Slug.parse('human'));
+
 const MERISIEL = {
   id,
   version: 1,
@@ -63,6 +65,28 @@ async function openSheet(): Promise<OpenSheet> {
     expect(root.textContent).toContain('Merisiel');
   });
   return { harness, root };
+}
+
+/** Opens the ancestry field and picks the option whose label starts with `name`; returns the field. */
+async function pickAncestry(root: HTMLElement, name: string): Promise<HTMLElement> {
+  const field = present(
+    [...root.querySelectorAll<HTMLElement>('fr-inline-field')].find(
+      (each) => each.querySelector('fr-text')?.textContent.trim() === 'Ancestry',
+    ),
+  );
+  present(field.querySelector<HTMLElement>('button')).click();
+  await TestBed.inject(ApplicationRef).whenStable();
+  present(field.querySelector<HTMLElement>('[frInlineEditor] button')).click();
+  await TestBed.inject(ApplicationRef).whenStable();
+  const option = await vi.waitFor(() =>
+    present(
+      [...document.querySelectorAll<HTMLElement>('[role="option"]')].find((each) =>
+        each.textContent.trim().startsWith(name),
+      ),
+    ),
+  );
+  option.click();
+  return field;
 }
 
 function keydown(key: string): KeyboardEvent {
@@ -155,27 +179,43 @@ describe('CharacterSheetPage', () => {
 
   it('saves an ancestry edit as a pick in the ancestry slot', async () => {
     const { root } = await openSheet();
-    const http = TestBed.inject(HttpTestingController);
-    const field = present(
-      [...root.querySelectorAll<HTMLElement>('fr-inline-field')].find(
-        (each) => each.querySelector('fr-text')?.textContent.trim() === 'Ancestry',
-      ),
-    );
-    present(field.querySelector<HTMLElement>('button')).click();
-    await TestBed.inject(ApplicationRef).whenStable();
-    present(field.querySelector<HTMLElement>('[frInlineEditor] button')).click();
-    await TestBed.inject(ApplicationRef).whenStable();
+    const field = await pickAncestry(root, 'Human');
 
-    const other = await vi.waitFor(() =>
-      present(document.querySelector<HTMLElement>('[role="option"]:not([aria-selected="true"])')),
+    const request = await vi.waitFor(() =>
+      TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: `/api/characters/${id}` }),
     );
-    other.click();
+    expect(request.request.body).toStrictEqual({
+      expectedVersion: 1,
+      patch: { field: 'selectSlot', slot: 'ancestry', selection: HUMAN },
+    });
+    request.flush({ ...MERISIEL, version: 2, build: { choices: { ancestry: HUMAN } } });
+    await vi.waitFor(async () => {
+      await TestBed.inject(ApplicationRef).whenStable();
+      expect(field.textContent).toContain('Human');
+    });
+  });
 
-    const request = await vi.waitFor(() => http.expectOne({ method: 'PATCH', url: `/api/characters/${id}` }));
-    const { patch } = request.request.body as { patch: { field: string; slot: string; selection: string } };
-    expect(patch.field).toBe('selectSlot');
-    expect(patch.slot).toBe('ancestry');
-    expect(patch.selection).not.toBe(MERISIEL.build.choices.ancestry);
+  it('shows a refused ancestry pick in the field, with the server’s reason', async () => {
+    const { root } = await openSheet();
+    const field = await pickAncestry(root, 'Human');
+
+    const request = await vi.waitFor(() =>
+      TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: `/api/characters/${id}` }),
+    );
+    request.flush(
+      {
+        type: 'validation',
+        title: 'Validation failed',
+        status: 422,
+        message: { key: 'problem.validation' },
+        issues: [{ path: ['patch', 'selection'], message: { key: 'character.validation.selectionNotOffered' } }],
+      },
+      { status: 422, statusText: 'Unprocessable Content' },
+    );
+    await vi.waitFor(async () => {
+      await TestBed.inject(ApplicationRef).whenStable();
+      expect(field.textContent).toContain('That option is not available for this choice at any level.');
+    });
   });
 
   it('shows the defences the engine derives, each list empty until rule elements are in play', async () => {

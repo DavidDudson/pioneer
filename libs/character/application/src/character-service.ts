@@ -4,8 +4,9 @@ import {
   CharacterId,
   CharacterPatchField,
   PATCH_COMMANDS,
+  slotRefusal,
 } from '@pioneer/character/domain';
-import type { CharacterListQuery, CreateCharacterBody, PatchCharacterBody } from '@pioneer/character/domain';
+import type { CharacterListQuery, CreateCharacterBody, PatchCharacterBody, SlotPick } from '@pioneer/character/domain';
 import {
   characterImportReport,
   ImportKind,
@@ -14,6 +15,7 @@ import {
   registryLookup,
 } from '@pioneer/interop/pathbuilder';
 import type { PathbuilderImportResponse, PathbuilderReadFailure } from '@pioneer/interop/pathbuilder';
+import { grantLookup } from '@pioneer/rules/grants';
 import { AncestryId } from '@pioneer/rules/sdk';
 import type { ContentSource } from '@pioneer/rules/sdk';
 import { fieldIssues, message, newId, NotFoundError, ValidationError } from '@pioneer/shared/kernel';
@@ -21,8 +23,6 @@ import type { Clock, FieldIssue, UserId } from '@pioneer/shared/kernel';
 
 import { mayAccessCharacter } from './character-policy';
 import type { CharacterRepository } from './character-repository';
-import { slotRefusal } from './slot-offer';
-import type { SlotPick } from './slot-offer';
 
 const PROBLEM_MESSAGES = {
   [PathbuilderProblem.Malformed]: 'character.import.problem.malformed',
@@ -134,9 +134,10 @@ export class CharacterService {
    */
   async #assertSlotOffers(character: Character, pick: SlotPick): Promise<void> {
     const content = await this.#content.registry();
-    const refusal = slotRefusal(character.document, content, pick);
+    const slotContent = { lookup: grantLookup(content), namespaces: content.rollOptionNamespaces() };
+    const refusal = slotRefusal(character.document, slotContent, pick);
     if (refusal !== undefined) {
-      throw new ValidationError([{ path: ['patch', 'selection'], message: refusal }]);
+      throw new ValidationError([{ path: ['patch', refusal.field], message: refusal.message }]);
     }
   }
 

@@ -48,10 +48,7 @@ describe('CharacterService selectSlot', () => {
     expect((error as ValidationError).issues).toStrictEqual([
       {
         path: ['patch', 'selection'],
-        message: {
-          key: 'character.validation.selectionNotOffered',
-          params: { slot: ANCESTRY_SLOT, selection: unknown },
-        },
+        message: { key: 'character.validation.selectionNotOffered' },
       },
     ]);
     const unchanged = await service.get(amiri, created.id);
@@ -64,8 +61,8 @@ describe('CharacterService selectSlot', () => {
     const error = await rejection(service.patch(amiri, created.id, edit));
     expect((error as ValidationError).issues).toStrictEqual([
       {
-        path: ['patch', 'selection'],
-        message: { key: 'character.validation.slotNotOpen', params: { slot: featSlot } },
+        path: ['patch', 'slot'],
+        message: { key: 'character.validation.slotNotOpen' },
       },
     ]);
   });

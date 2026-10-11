@@ -24,7 +24,7 @@ function ancestryEntry(pack: ContentPack, ancestry: PackAncestry): GrantEntry | 
  * The registry's content as grants read it. Only ancestries for now: the other kinds join as the registry holds
  * them. Built once per registry; lookups are by id and by kind.
  */
-export function registryLookup(registry: ContentRegistry): ContentLookup {
+export function grantLookup(registry: ContentRegistry): ContentLookup {
   const entries = registry.packs.flatMap((pack) => pack.ancestries.flatMap((each) => ancestryEntry(pack, each) ?? []));
   const byId = new Map(entries.map((entry) => [entry.id, entry]));
   const byKind = Map.groupBy(entries, (entry) => entry.kind);
