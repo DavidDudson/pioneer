@@ -1,0 +1,11 @@
+@let breakdown = shown();
+<fr-stack gap="xs">
+  <fr-text variant="caption" tone="muted">{{ breakdown.base }}</fr-text>
+  <pio-base-terms [terms]="breakdown.terms" />
+  <fr-text variant="caption" tone="muted">{{ Message.Modifiers | transloco }}</fr-text>
+  @if (breakdown.lines.length === 0) {
+    <fr-text tone="muted">{{ Message.NoModifiers | transloco }}</fr-text>
+  } @else {
+    <pio-breakdown-lines [lines]="breakdown.lines" />
+  }
+</fr-stack>

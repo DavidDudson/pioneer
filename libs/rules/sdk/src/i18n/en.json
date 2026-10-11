@@ -428,6 +428,38 @@
       "failedConditional": "{error} It applies only in some situations.",
       "supersededBy": "{name} counts instead.",
       "from": "From {name}."
+    },
+    "breakdown": {
+      "base": "Base {value}",
+      "termValue": "gives {value}",
+      "rounding": "Rounding",
+      "termVariant": "Set by {name}.",
+      "modifiers": "Modifiers",
+      "noModifiers": "No modifiers.",
+      "lineValue": "{hasValue, select, yes {{value} } other {}}{type}",
+      "modifierType": {
+        "untyped": "untyped",
+        "status": "status",
+        "circumstance": "circumstance",
+        "item": "item",
+        "proficiency": "proficiency",
+        "attribute": "attribute",
+        "potency": "potency"
+      },
+      "status": {
+        "suppressed": "Suppressed",
+        "conditional": "Conditional",
+        "inactive": "Inactive",
+        "failed": "Failed"
+      },
+      "suppressedBy": "{name} counts instead.",
+      "removedBy": "{name} removes it.",
+      "appliesWhen": "Applies when {summary}.",
+      "inactive": "Does not apply: its condition does not hold."
+    },
+    "statistics": {
+      "none": "No statistics.",
+      "failed": "Failed"
     }
   }
 }
