@@ -16,6 +16,8 @@ const condition = (slug: string, rules: readonly object[] = []): GrantEntry => (
 });
 
 const frightened = condition('frightened');
+/** A condition that carries a value, so a grant of it gives one. */
+const clumsy: GrantEntry = { ...condition('clumsy'), valued: true };
 
 /** A grant of `slug` while `predicate` holds. */
 const grantWhen = (slug: string, predicate: unknown): object => ({ ...grantOf(slug), predicate });
@@ -93,13 +95,50 @@ describe('a valued condition', () => {
     ]);
   });
 
-  test('granted by another entry sets no value, as grants carry none', () => {
-    const content = [condition('dying', [grantOf('unconscious')]), condition('unconscious')];
-    expect(conditionOptions(content, [afflicted('dying', 2)])).toEqual([
-      'self:condition:dying',
-      'self:condition:dying:2',
-      'self:condition:unconscious',
+  test('granted by another entry without a value arrives at 1', () => {
+    const content = [condition('encumbered', [grantOf('clumsy')]), clumsy];
+    expect(conditionOptions(content, [afflicted('encumbered')])).toEqual([
+      'self:condition:clumsy',
+      'self:condition:clumsy:1',
+      'self:condition:encumbered',
     ]);
+  });
+
+  test('granted with a value arrives at that value', () => {
+    const content = [condition('curse', [{ ...grantOf('clumsy'), value: 3 }]), clumsy];
+    expect(conditionOptions(content, [afflicted('curse')])).toEqual([
+      'self:condition:clumsy',
+      'self:condition:clumsy:3',
+      'self:condition:curse',
+    ]);
+  });
+
+  test('granted several times keeps the highest value, a root value among them', () => {
+    const content = [
+      condition('curse', [{ ...grantOf('clumsy'), value: 2 }]),
+      condition('encumbered', [grantOf('clumsy')]),
+      clumsy,
+    ];
+    const roots = [afflicted('encumbered'), afflicted('curse')];
+    expect(conditionOptions(content, roots)).toContain('self:condition:clumsy:2');
+    expect(conditionOptions(content, [...roots, afflicted('clumsy', 4)])).toContain('self:condition:clumsy:4');
+    expect(conditionOptions(content, roots).filter((option) => option.startsWith('self:condition:clumsy:'))).toEqual([
+      'self:condition:clumsy:2',
+    ]);
+  });
+
+  test('granted when it carries no value sets its slug alone, whatever the grant says', () => {
+    const content = [condition('grabbed', [{ ...grantOf('off-guard'), value: 2 }]), condition('off-guard')];
+    expect(conditionOptions(content, [afflicted('grabbed')])).toEqual([
+      'self:condition:grabbed',
+      'self:condition:off-guard',
+    ]);
+  });
+
+  test('a grant of an entry that is no condition gives it no value', () => {
+    const content = [condition('curse', [{ ...grantOf('weakness'), value: 2 }]), { ...entry('weakness'), valued: true }];
+    const [weakness] = resolve(content, [afflicted('curse')]).items.filter((item) => item.entry.slug === 'weakness');
+    expect(weakness?.value).toBeUndefined();
   });
 });
 

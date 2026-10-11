@@ -41,6 +41,12 @@ export interface MagicItemFields {
   readonly rules?: readonly object[];
 }
 
+/** What a test condition has beyond its rule elements. */
+export interface ConditionFields {
+  /** Whether it carries a value (Clumsy 1). */
+  readonly valued?: boolean;
+}
+
 /** What a test class has beyond its key attribute. */
 interface ClassFields {
   readonly hitPoints?: number;
@@ -172,12 +178,15 @@ export class ContentPackBuilder {
     return this;
   }
 
-  /** A condition with no value, slugged `condition:<name>`, and `rules` as JSON: what it does to statistics. */
-  public withCondition(name: string, rules: readonly object[] = []): this {
+  /**
+   * A condition slugged `condition:<name>`, with `rules` as JSON: what it does to statistics. It carries no value
+   * unless `valued` (Clumsy 1).
+   */
+  public withCondition(name: string, rules: readonly object[] = [], { valued = false }: ConditionFields = {}): this {
     this.#entries.push({
       kind: ContentKind.Condition,
       name,
-      data: { valued: false, overrides: [], implies: [] },
+      data: { valued, overrides: [], implies: [] },
       rules,
     });
     return this;

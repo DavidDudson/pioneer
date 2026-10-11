@@ -5,6 +5,7 @@ import { ContentId, Slug } from './content-id';
 import { ContentKindSchema } from './content-kind';
 import { ContentText } from './content-text';
 import { RulesMessage } from './messages';
+import { ConditionValue } from './origin';
 import { Predicate } from './predicate';
 import { RollOption } from './roll-option';
 import { RuleElementKey, ruleElementBase, RuleSlug } from './rule-element-base';
@@ -26,6 +27,11 @@ export const GrantItemElement = z.strictObject({
   flag: RuleSlug.optional(),
   /** Grant it even when the character already has it. */
   allowDuplicate: z.boolean().optional(),
+  /**
+   * The value a valued condition arrives with (Clumsy 1), Foundry's `badge-value` alteration. Without one a valued
+   * condition arrives at 1, Foundry's default; a grant of anything else ignores it.
+   */
+  value: ConditionValue.optional(),
   ...ruleElementBase,
 });
 export type GrantItemElement = z.infer<typeof GrantItemElement>;

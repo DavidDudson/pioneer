@@ -108,4 +108,15 @@ describe('grantLookup', () => {
       ['cloistered-cleric', ['tag:cleric-doctrine']],
     ]);
   });
+
+  test('finds conditions, roots while they last, each saying whether it carries a value', () => {
+    const builder = new ContentPackBuilder().withCondition('encumbered').withCondition('clumsy', [], { valued: true });
+    const registry = new ContentRegistry();
+    registry.register(builder.build());
+    const conditions = grantLookup(registry).ofKind(ContentKind.Condition);
+    expect(conditions.map((entry) => [String(entry.slug), entry.valued])).toEqual([
+      ['encumbered', false],
+      ['clumsy', true],
+    ]);
+  });
 });

@@ -37,6 +37,11 @@ export interface GrantEntry {
    * belongs to none, such as a versatile heritage, which any ancestry can take.
    */
   readonly belongsTo?: ContentId;
+  /**
+   * Whether a condition carries a value (_frightened 2_), as its data says; absent for any other kind. A grant of a
+   * valued condition gives it the grant's value, else 1.
+   */
+  readonly valued?: boolean;
 }
 
 /** The installed content grant resolution reads. */

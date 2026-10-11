@@ -1,6 +1,6 @@
 import { evaluatePredicate, summarisePredicate, Truth } from '@pioneer/rules/predicate';
 import type { PredicateFacts, PredicateSummary } from '@pioneer/rules/predicate';
-import { OriginHopKind, RuleElementKey, RuleIndex } from '@pioneer/rules/sdk';
+import { ConditionValue, ContentKind, OriginHopKind, RuleElementKey, RuleIndex } from '@pioneer/rules/sdk';
 import type {
   ContentId,
   GrantItemElement,
@@ -33,6 +33,11 @@ export interface GrantedItem {
   readonly origin: Origin;
   /** The name the granting element gave it, for later elements to refer to. */
   readonly flag: RuleSlug | undefined;
+  /**
+   * The value a valued condition arrived with: its condition hop's as a root (_frightened 2_), its grant's or 1 when
+   * granted. None for an entry that is no valued condition, or a root put on without one.
+   */
+  readonly value: ConditionValue | undefined;
 }
 
 /** A grant whose predicate is unknown on the static sheet: not on the character, and shown with when it would be. */
@@ -87,6 +92,26 @@ interface Visit {
   readonly chain: readonly GrantEntry[];
   readonly flag: RuleSlug | undefined;
   readonly allowDuplicate: boolean;
+  /** The value the granting element gives a valued condition, if it gives one. */
+  readonly value: ConditionValue | undefined;
+}
+
+/** A valued condition's value when it is not given one: Foundry's badge default. */
+const DEFAULT_VALUE = ConditionValue.parse(1);
+
+/**
+ * The value `entry` arrives with by `visit`: a root's condition hop gives its own, and a grant of a valued condition
+ * gives the grant's, else 1. Anything else arrives with none.
+ */
+function arrivalValue(entry: GrantEntry, { hops, value }: Visit): ConditionValue | undefined {
+  const hop = hops.at(-1);
+  if (entry.kind !== ContentKind.Condition) {
+    return undefined;
+  }
+  if (hop?.kind === OriginHopKind.Condition) {
+    return hop.condition === entry.id ? hop.value : undefined;
+  }
+  return hop?.kind === OriginHopKind.Grant && entry.valued === true ? (value ?? DEFAULT_VALUE) : undefined;
 }
 
 function originOf(entry: GrantEntry, hops: readonly OriginHop[]): Origin {
@@ -142,7 +167,7 @@ class Walker {
   }
 
   public root({ entry, hop }: GrantRoot): void {
-    this.#visit(entry, { hops: [hop], chain: [], flag: undefined, allowDuplicate: false });
+    this.#visit(entry, { hops: [hop], chain: [], flag: undefined, allowDuplicate: false, value: undefined });
   }
 
   #find(id: ContentId, hops: readonly OriginHop[]): GrantEntry | undefined {
@@ -169,7 +194,12 @@ class Walker {
     if (entry === undefined) {
       return;
     }
-    const item: GrantedItem = { entry, origin: originOf(entry, visit.hops), flag: visit.flag };
+    const item: GrantedItem = {
+      entry,
+      origin: originOf(entry, visit.hops),
+      flag: visit.flag,
+      value: arrivalValue(entry, visit),
+    };
     if (this.#present.has(id) && !visit.allowDuplicate) {
       this.#duplicates.push(item);
       return;
@@ -190,7 +220,7 @@ class Walker {
       if (isGrant(element) && target !== undefined) {
         const hops = [...visit.hops, ...target.hops, hop];
         const allowDuplicate = element.allowDuplicate === true;
-        this.#grant(element, target.id, { hops, chain, flag: element.flag, allowDuplicate });
+        this.#grant(element, target.id, { hops, chain, flag: element.flag, allowDuplicate, value: element.value });
       }
     }
   }
