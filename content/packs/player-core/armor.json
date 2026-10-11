@@ -105,7 +105,8 @@
       "dexCap": 5,
       "runes": {
         "potency": 1,
-        "property": []
+        "property": [],
+        "resilient": 1
       }
     }
   },
@@ -215,7 +216,8 @@
       "dexCap": 5,
       "runes": {
         "potency": 1,
-        "property": []
+        "property": [],
+        "resilient": 1
       }
     }
   },
@@ -325,7 +327,8 @@
       "dexCap": 5,
       "runes": {
         "potency": 1,
-        "property": []
+        "property": [],
+        "resilient": 1
       }
     }
   },

@@ -25,16 +25,6 @@
             "marks": ["emphasis"]
           }
         ]
-      },
-      {
-        "type": "paragraph",
-        "content": [
-          {
-            "type": "text",
-            "text": "Dwarf",
-            "marks": ["emphasis"]
-          }
-        ]
       }
     ],
     "rules": [
@@ -227,16 +217,6 @@
           {
             "type": "text",
             "text": "As an ancient people, elves have seen great change and have the perspective that can come only from watching the arc of history. After leaving the world in ancient times, they returned to a changed land, and they still struggle to reclaim their ancestral homes, most notably from terrible demons that have invaded parts of their lands. To some, the elves are objects of awe—graceful and beautiful, with immense talent and knowledge. Among themselves, however, the elves place far more importance on personal freedom than on living up to these ideals.",
-            "marks": ["emphasis"]
-          }
-        ]
-      },
-      {
-        "type": "paragraph",
-        "content": [
-          {
-            "type": "text",
-            "text": "Elf",
             "marks": ["emphasis"]
           }
         ]
@@ -433,16 +413,6 @@
           {
             "type": "text",
             "text": "Long ago, early gnome ancestors emigrated from the First World, realm of the fey. While it's unclear why the first gnomes wandered to Golarion, this lineage manifests in modern gnomes as bizarre reasoning, eccentricity, obsessive tendencies, and what some see as naivete. These qualities are further reflected in their physical characteristics, such as spindly limbs, brightly colored hair, and childlike and extremely expressive facial features that further reflect their otherworldly origins.",
-            "marks": ["emphasis"]
-          }
-        ]
-      },
-      {
-        "type": "paragraph",
-        "content": [
-          {
-            "type": "text",
-            "text": "Gnome",
             "marks": ["emphasis"]
           }
         ]
@@ -645,16 +615,6 @@
             "marks": ["emphasis"]
           }
         ]
-      },
-      {
-        "type": "paragraph",
-        "content": [
-          {
-            "type": "text",
-            "text": "Goblin",
-            "marks": ["emphasis"]
-          }
-        ]
       }
     ],
     "rules": [
@@ -850,16 +810,6 @@
             "marks": ["emphasis"]
           }
         ]
-      },
-      {
-        "type": "paragraph",
-        "content": [
-          {
-            "type": "text",
-            "text": "Halfling",
-            "marks": ["emphasis"]
-          }
-        ]
       }
     ],
     "rules": [
@@ -1052,16 +1002,6 @@
             "marks": ["emphasis"]
           }
         ]
-      },
-      {
-        "type": "paragraph",
-        "content": [
-          {
-            "type": "text",
-            "text": "Human",
-            "marks": ["emphasis"]
-          }
-        ]
       }
     ],
     "rules": [
@@ -1249,16 +1189,6 @@
           {
             "type": "text",
             "text": "Guardians and emissaries of the environment, leshies are immortal spirits of nature temporarily granted a physical form.",
-            "marks": ["emphasis"]
-          }
-        ]
-      },
-      {
-        "type": "paragraph",
-        "content": [
-          {
-            "type": "text",
-            "text": "Leshy",
             "marks": ["emphasis"]
           }
         ]
@@ -1454,16 +1384,6 @@
           {
             "type": "text",
             "text": "Orcs are forged in the fires of violence and conflict, often from the moment they are born. As they live lives that are frequently cut brutally short, orcs revel in testing their strength against worthy foes, whether by challenging a higher-ranking member of their community for dominance or raiding a neighboring settlement. Many orcs seek glory as soon as they can walk and carry a blade or club, taming wild beasts or hunting deadly monsters.",
-            "marks": ["emphasis"]
-          }
-        ]
-      },
-      {
-        "type": "paragraph",
-        "content": [
-          {
-            "type": "text",
-            "text": "Orc",
             "marks": ["emphasis"]
           }
         ]

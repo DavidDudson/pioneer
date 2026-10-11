@@ -23,16 +23,6 @@
             "marks": ["emphasis"]
           }
         ]
-      },
-      {
-        "type": "paragraph",
-        "content": [
-          {
-            "type": "text",
-            "text": "Bard",
-            "marks": ["emphasis"]
-          }
-        ]
       }
     ],
     "rules": [
@@ -996,16 +986,6 @@
             "marks": ["emphasis"]
           }
         ]
-      },
-      {
-        "type": "paragraph",
-        "content": [
-          {
-            "type": "text",
-            "text": "Cleric",
-            "marks": ["emphasis"]
-          }
-        ]
       }
     ],
     "rules": [
@@ -1929,15 +1909,6 @@
             "type": "text",
             "text": "The power of nature is impossible to resist. It can bring ruin to the stoutest fortress in minutes, reducing even the mightiest works to rubble, burning them to ash, burying them beneath an avalanche of snow, or drowning them beneath the waves. It can provide endless bounty and breathtaking splendor to those who respect it—and an agonizing death to those who take it too lightly. You are one of those who hear nature's call. You stand in awe of the majesty of its power and give yourself over to its service.",
             "marks": ["emphasis"]
-          }
-        ]
-      },
-      {
-        "type": "paragraph",
-        "content": [
-          {
-            "type": "text",
-            "text": "Druid"
           }
         ]
       }
@@ -2876,16 +2847,6 @@
           {
             "type": "text",
             "text": "Fighting for honor, greed, loyalty, or simply the thrill of battle, you are an undisputed master of weaponry and combat techniques. You combine your actions through clever combinations of opening moves, finishing strikes, and counterattacks whenever your foes are unwise enough to drop their guard. Whether you are a knight, mercenary, sharpshooter, or blade master, you have honed your martial skills into an art form and perform devastating critical attacks on your enemies.",
-            "marks": ["emphasis"]
-          }
-        ]
-      },
-      {
-        "type": "paragraph",
-        "content": [
-          {
-            "type": "text",
-            "text": "Fighter",
             "marks": ["emphasis"]
           }
         ]
@@ -3874,16 +3835,6 @@
           {
             "type": "text",
             "text": "Some rangers believe civilization wears down the soul, but still needs to be protected from wild creatures. Others say nature needs to be protected from the greedy, who wish to tame its beauty and plunder its treasures. You could champion either goal, or both. You might be a scout, tracker, or hunter of fugitives or beasts, haunting the edge of civilization or exploring the wilds. You know how to live off the land and are skilled at spotting and taking down both opportune prey and hated enemies.",
-            "marks": ["emphasis"]
-          }
-        ]
-      },
-      {
-        "type": "paragraph",
-        "content": [
-          {
-            "type": "text",
-            "text": "Ranger",
             "marks": ["emphasis"]
           }
         ]
@@ -4904,16 +4855,6 @@
           {
             "type": "text",
             "text": "You are skilled and opportunistic. Using your sharp wits and quick reactions, you take advantage of your opponents' missteps and strike where it hurts most. You play a dangerous game, seeking thrills and testing your skills, and likely don't care much for any laws that happen to get in your way. While the path of every rogue is unique and riddled with danger, the one thing you all share in common is the breadth and depth of your skills.",
-            "marks": ["emphasis"]
-          }
-        ]
-      },
-      {
-        "type": "paragraph",
-        "content": [
-          {
-            "type": "text",
-            "text": "Rogue",
             "marks": ["emphasis"]
           }
         ]
@@ -6226,16 +6167,6 @@
             "marks": ["emphasis"]
           }
         ]
-      },
-      {
-        "type": "paragraph",
-        "content": [
-          {
-            "type": "text",
-            "text": "Witch",
-            "marks": ["emphasis"]
-          }
-        ]
       }
     ],
     "rules": [
@@ -7149,16 +7080,6 @@
           {
             "type": "text",
             "text": "You are an eternal student of the secrets of the universe, using your mastery of magic to cast powerful spells. You treat magic like a science, cross-referencing the latest texts on practical spellcraft with ancient tomes to discover and understand arcane magic. Yet magical theory is vast, and there's no way you can study it all. Most wizards learn through formal schooling, with their curriculum informing a specific rubric, although particularly driven researchers sometimes piece together their own theories.",
-            "marks": ["emphasis"]
-          }
-        ]
-      },
-      {
-        "type": "paragraph",
-        "content": [
-          {
-            "type": "text",
-            "text": "Wizard",
             "marks": ["emphasis"]
           }
         ]
