@@ -28,7 +28,17 @@ export {
   UsageHands,
   UsageType,
 } from './physical-item';
-export { FundamentalRune, ReinforcingGrade, RuneData, RunedItem, RuneGrade, RuneType } from './rune';
+export {
+  EtchingRestriction,
+  FUNDAMENTAL_RUNE_ITEMS,
+  FundamentalRune,
+  PropertyRunes,
+  ReinforcingGrade,
+  RuneData,
+  RunedItem,
+  RuneGrade,
+  RuneType,
+} from './rune';
 export { AmmunitionType, BaseWeapon, DieSize, WeaponData, WeaponGroup } from './weapon';
 export { HeighteningType, SpellData } from './spell';
 export { CastTimeType, SpellDurationEnd, SpellDurationType, SpellRangeType, SpellTimeUnit } from './spell-casting';

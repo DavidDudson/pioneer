@@ -39,6 +39,8 @@ export interface MagicItemFields {
   readonly data: object;
   readonly traits?: readonly string[];
   readonly rules?: readonly object[];
+  /** Its item level, 0 when left out. */
+  readonly level?: number;
 }
 
 /** What a test condition has beyond its rule elements. */
@@ -173,8 +175,12 @@ export class ContentPackBuilder {
   }
 
   /** An item like `withItem` with traits and rule elements: a cloak that is `invested` and adds to Perception. */
-  public withMagicItem(kind: ContentKind, name: string, { data, traits = [], rules = [] }: MagicItemFields): this {
-    this.#entries.push({ kind, name, data, level: 0, traits, rules });
+  public withMagicItem(
+    kind: ContentKind,
+    name: string,
+    { data, traits = [], rules = [], level = 0 }: MagicItemFields,
+  ): this {
+    this.#entries.push({ kind, name, data, level, traits, rules });
     return this;
   }
 

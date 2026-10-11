@@ -35,6 +35,8 @@ export interface WeaponInputs {
    * its Strike as an `item` modifier, so it competes with other item bonuses (`weaponPotencies`).
    */
   readonly potency?: RuneGrade | undefined;
+  /** Its striking rune's grade: the damage dice it adds, which its Strike's damage reads (#481). */
+  readonly striking?: RuneGrade | undefined;
   /** Why the character has it: its entry and how it got there (an inventory hop). Its potency line's origin. */
   readonly origin: Origin;
 }
@@ -85,6 +87,7 @@ const WeaponInputsJson = z.strictObject({
   traits: z.array(Trait).readonly(),
   range: Feet.optional(),
   potency: RuneGrade.optional(),
+  striking: RuneGrade.optional(),
   origin: Origin,
 });
 

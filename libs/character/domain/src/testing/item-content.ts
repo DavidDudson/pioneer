@@ -13,6 +13,8 @@ import type { MagicItemFields } from '@pioneer/rules/sdk/testing';
 
 import { itemContent } from '../inventory-content';
 import type { ItemContent } from '../inventory-content';
+import { runeContent } from '../item-runes';
+import type { RuneContent } from '../item-runes';
 
 const ITEM_PACK = 'item-fixtures';
 
@@ -28,6 +30,44 @@ const BACKPACK_CAPACITY = 4;
 const BACKPACK_IGNORED = 2;
 const ARROWS_PER_BULK = 10;
 const BAG_OF_HOLDING_CAPACITY = 25;
+
+/** The property runes `ITEM_FIXTURES` holds, by name. */
+export const RuneFixture = {
+  /** A weapon rune that gives +1 status to Perception, so a test sees its rules work. */
+  Flaming: 'flaming',
+  Frost: 'frost',
+  Shock: 'shock',
+  /** A weapon rune for melee weapons only. */
+  Keen: 'keen',
+  /** An armour rune that gives +1 status to Will. */
+  Shadow: 'shadow',
+} as const;
+export type RuneFixture = (typeof RuneFixture)[keyof typeof RuneFixture];
+
+const PERCEPTION_PLUS_ONE = { key: 'FlatModifier', selectors: ['perception'], type: 'status', value: 1 };
+
+const RUNES: Readonly<Record<RuneFixture, MagicItemFields>> = {
+  [RuneFixture.Flaming]: {
+    data: { bulk: 'negligible', type: 'property', etchedOnto: { item: 'weapon' } },
+    rules: [PERCEPTION_PLUS_ONE],
+  },
+  [RuneFixture.Frost]: { data: { bulk: 'negligible', type: 'property', etchedOnto: { item: 'weapon' } } },
+  [RuneFixture.Shock]: { data: { bulk: 'negligible', type: 'property', etchedOnto: { item: 'weapon' } } },
+  [RuneFixture.Keen]: {
+    data: { bulk: 'negligible', type: 'property', etchedOnto: { item: 'weapon', restriction: 'melee' } },
+  },
+  [RuneFixture.Shadow]: {
+    data: { bulk: 'negligible', type: 'property', etchedOnto: { item: 'armor' } },
+    rules: [{ key: 'FlatModifier', selectors: ['will'], type: 'status', value: 1 }],
+  },
+};
+
+/** The id of the fixture rune `name`. */
+export function runeFixtureId(name: RuneFixture): ContentId {
+  return ContentId.parse(contentId(PackId.parse(ITEM_PACK), EntrySlug.parse(`rune:${name}`)));
+}
+
+const FLAME_TONGUE_LEVEL = 8;
 
 /** The items `ITEM_FIXTURES` holds, by name. */
 export const ItemFixture = {
@@ -52,6 +92,10 @@ export const ItemFixture = {
   Anvil: 'anvil',
   /** A weapon whose name is exactly as long as a source slug may be, 64 characters. */
   LongSword: 'sword-of-the-very-long-name-that-just-fits-in-a-source-slug-ok64',
+  /** A ranged weapon, which a melee-only rune doesn't go on. */
+  Shortbow: 'shortbow',
+  /** A specific magic weapon at level 8: +1 striking, with the flaming rune printed on it. */
+  FlameTongue: 'flame-tongue',
 } as const;
 export type ItemFixture = (typeof ItemFixture)[keyof typeof ItemFixture];
 
@@ -134,6 +178,30 @@ const ITEMS: Readonly<Record<ItemFixture, ItemFixtureFields>> = {
       usage: { type: 'held', hands: 'one' },
     },
   },
+  [ItemFixture.Shortbow]: {
+    kind: ContentKind.Weapon,
+    data: {
+      bulk: 1,
+      category: 'martial',
+      group: 'bow',
+      damage: { dice: 1, die: 'd6', damageType: 'piercing' },
+      range: 60,
+      usage: { type: 'held', hands: 'one-plus' },
+    },
+  },
+  [ItemFixture.FlameTongue]: {
+    kind: ContentKind.Weapon,
+    level: FLAME_TONGUE_LEVEL,
+    data: {
+      bulk: 1,
+      category: 'martial',
+      group: 'sword',
+      damage: { dice: 1, die: 'd8', damageType: 'slashing' },
+      usage: { type: 'held', hands: 'one' },
+      runes: { potency: 1, striking: 1, property: [runeFixtureId(RuneFixture.Flaming)] },
+    },
+    traits: ['magical'],
+  },
   [ItemFixture.RuneArmor]: {
     kind: ContentKind.Armor,
     data: { bulk: 1, category: 'light', group: 'leather', acBonus: 2, dexCap: 3 },
@@ -142,11 +210,17 @@ const ITEMS: Readonly<Record<ItemFixture, ItemFixtureFields>> = {
   },
 };
 
-/** A pack of one item of every carried kind, a backpack among them to stow things in, and the encumbered condition. */
+/**
+ * A pack of one item of every carried kind, a backpack among them to stow things in, property runes to etch onto them,
+ * and the encumbered condition.
+ */
 function itemPack(): ContentPack {
   const builder = new ContentPackBuilder().withId(ITEM_PACK);
   for (const [name, fields] of Object.entries(ITEMS)) {
     builder.withMagicItem(fields.kind, name, fields);
+  }
+  for (const [name, fields] of Object.entries(RUNES)) {
+    builder.withMagicItem(ContentKind.Rune, name, fields);
   }
   builder.withCondition(
     CLUMSY,
@@ -187,6 +261,11 @@ export function itemFixtureRegistry(): ContentRegistry {
 /** `ITEM_FIXTURES` as the inventory reads it. */
 export function itemFixtureContent(): ItemContent {
   return itemContent(itemFixtureRegistry());
+}
+
+/** The runes in `ITEM_FIXTURES`, as rune edits read them. */
+export function runeFixtureContent(): RuneContent {
+  return runeContent(itemFixtureRegistry());
 }
 
 /** `ITEM_FIXTURES` as content files, for the browser's content bundles in tests. */

@@ -16,6 +16,9 @@ export {
   itemFixtureContent,
   itemFixtureId,
   itemFixtureRegistry,
+  RuneFixture,
+  runeFixtureContent,
+  runeFixtureId,
 } from './item-content';
 export {
   PLAYER_CORE_CLASS_PACK,
@@ -25,4 +28,5 @@ export {
   playerCoreClassId,
   playerCoreId,
 } from './player-core-classes';
+export { Armoury, armoury, fundamental, fundamentalRef, lineOf, propertyRune } from './rune-armoury';
 export { NO_SKILLS, type SkillFixture, skillFixtureId, skillFixtures } from './skill-fixtures';

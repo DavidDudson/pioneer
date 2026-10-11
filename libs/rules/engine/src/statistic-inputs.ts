@@ -15,6 +15,7 @@ import {
   Proficiency,
   ProficiencySchema,
   ReferenceKind,
+  RuneGrade,
   Selector,
 } from '@pioneer/rules/sdk';
 import type { KnownReference, SourceReference } from '@pioneer/rules/sdk';
@@ -68,7 +69,7 @@ export interface StatisticInputs {
 
 const AncestryInputsJson = z.strictObject({ hitPoints: HitPoints, speed: Feet });
 const ClassInputsJson = z.strictObject({ hitPoints: HitPoints, keyAttribute: AttributeSchema });
-const ArmorInputsJson = z.strictObject({ bonus: Modifier, origin: Origin });
+const ArmorInputsJson = z.strictObject({ bonus: Modifier, resilient: RuneGrade.optional(), origin: Origin });
 
 /** The inputs as JSON, with ranks as an object keyed by selector, decoded into `StatisticInputs`. */
 export const StatisticInputsJson = z

@@ -141,6 +141,31 @@ export {
 } from './item-carry';
 export { type ActiveItem, activeItems, type EquippedInputs, equippedInputs, equippedRules } from './equipped';
 export {
+  hasRunes,
+  isSpecific,
+  itemRunes,
+  printedRunes,
+  PropertyRuneCount,
+  propertyRoom,
+  type RunedContent,
+  type RuneContent,
+  runeContent,
+  type RuneEntry,
+  runedItemOf,
+  workingPropertyRunes,
+} from './item-runes';
+export { eraseRune, etchRune, RuneAction, type RuneEdit, type RuneTransfer, transferRune } from './rune-edits';
+export { runeRefusal } from './rune-refusal';
+export {
+  type ItemRunes,
+  ItemRunesSchema,
+  NO_RUNES,
+  type RuneEtching,
+  RuneEtchingSchema,
+  type RuneRef,
+  RuneRefSchema,
+} from './rune-etching';
+export {
   BulkLimit,
   carriedBulk,
   coinBulk,

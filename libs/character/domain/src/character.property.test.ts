@@ -47,6 +47,21 @@ function itemAt(items: readonly InventoryItem[], index: number): InventoryItemId
   return items.length === 0 ? undefined : items[index % items.length]?.id;
 }
 
+/** A rune edit aimed at item `id`, a transfer onto `to`; as it was without them. */
+function aimedRune(
+  patch: Extract<CharacterPatch, { readonly rune: unknown }>,
+  id: InventoryItemId | undefined,
+  to: InventoryItemId | undefined,
+): CharacterPatch {
+  if (id === undefined) {
+    return patch;
+  }
+  if (patch.field !== CharacterPatchField.TransferRune) {
+    return { ...patch, id };
+  }
+  return to === undefined ? patch : { ...patch, id, to };
+}
+
 /**
  * `patch` aimed at the character's own items, so every inventory command is exercised rather than refused for naming
  * an item the character hasn't: the item it changes is the one at `index`, the container the one at `target` or none.
@@ -68,6 +83,11 @@ function aimed(patch: CharacterPatch, items: readonly InventoryItem[], { index, 
     case CharacterPatchField.CarryItem:
     case CharacterPatchField.InvestItem: {
       return id === undefined ? patch : { ...patch, id };
+    }
+    case CharacterPatchField.EtchRune:
+    case CharacterPatchField.EraseRune:
+    case CharacterPatchField.TransferRune: {
+      return aimedRune(patch, id, container);
     }
     case CharacterPatchField.Name:
     case CharacterPatchField.Level:

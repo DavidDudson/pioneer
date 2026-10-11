@@ -23,6 +23,7 @@ import {
   setItemQuantity,
 } from './inventory';
 import type { Inventory, InventoryEdit, InventoryItemId } from './inventory';
+import { eraseRune, etchRune, transferRune } from './rune-edits';
 
 /**
  * JSON shape of a character on the wire: its document at the current schema version, plus the row's version and
@@ -46,6 +47,43 @@ interface CharacterProps {
 function ancestryOf(document: CharacterDocument): AncestryId | undefined {
   const picked = AncestryId.safeParse(document.build.choices[ANCESTRY_SLOT]);
   return picked.success ? picked.data : undefined;
+}
+
+/** The edits that change how an item is equipped: how it is carried, whether it is invested, and its runes. */
+type EquipmentPatch = Extract<
+  CharacterPatch,
+  {
+    readonly field:
+      | typeof CharacterPatchField.CarryItem
+      | typeof CharacterPatchField.InvestItem
+      | typeof CharacterPatchField.EtchRune
+      | typeof CharacterPatchField.EraseRune
+      | typeof CharacterPatchField.TransferRune;
+  }
+>;
+
+/** `inventory` with an equipment edit made. */
+function equipmentChange(inventory: Inventory, patch: EquipmentPatch): Inventory {
+  switch (patch.field) {
+    case CharacterPatchField.CarryItem: {
+      return carryItem(inventory, patch.id, patch.carry);
+    }
+    case CharacterPatchField.InvestItem: {
+      return investItem(inventory, patch.id, patch.invested);
+    }
+    case CharacterPatchField.EtchRune: {
+      return etchRune(inventory, patch.id, patch.rune);
+    }
+    case CharacterPatchField.EraseRune: {
+      return eraseRune(inventory, patch.id, patch.rune);
+    }
+    case CharacterPatchField.TransferRune: {
+      return transferRune(inventory, { from: patch.id, to: patch.to, rune: patch.rune });
+    }
+    default: {
+      return patch satisfies never;
+    }
+  }
 }
 
 /**
@@ -160,11 +198,12 @@ export class Character {
       case CharacterPatchField.SetCoins: {
         return this.#stockChanges(patch, newItemId);
       }
-      case CharacterPatchField.CarryItem: {
-        return this.#stock(patch, (inventory) => carryItem(inventory, patch.id, patch.carry));
-      }
-      case CharacterPatchField.InvestItem: {
-        return this.#stock(patch, (inventory) => investItem(inventory, patch.id, patch.invested));
+      case CharacterPatchField.CarryItem:
+      case CharacterPatchField.InvestItem:
+      case CharacterPatchField.EtchRune:
+      case CharacterPatchField.EraseRune:
+      case CharacterPatchField.TransferRune: {
+        return this.#stock(patch, (inventory) => equipmentChange(inventory, patch));
       }
       default: {
         const unreachable: never = patch;
