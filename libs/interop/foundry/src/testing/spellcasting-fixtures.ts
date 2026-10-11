@@ -13,13 +13,14 @@ interface Fixture {
   readonly traits: readonly string[];
 }
 
-function classFeature({ id, name, level, traits }: Fixture): DocumentFixture {
+function classFeature({ id, name, level, traits }: Fixture, rules: readonly object[] = []): DocumentFixture {
   return {
     id,
     name,
     type: 'feat',
     pack: CLASS_FEATURES,
     system: {
+      rules,
       category: 'classfeature',
       actionType: { value: 'passive' },
       actions: { value: FOUNDRY_NULL },
@@ -89,12 +90,26 @@ export const FIGHTER_FEATURE = classFeature({
   level: 1,
   traits: ['fighter'],
 });
-export const DIVINE_FONT = classFeature({
-  id: 'sPeLlCaStInG0009',
-  name: 'Divine Font',
-  level: 1,
-  traits: ['cleric'],
-});
+/** Its font `ChoiceSet`, as pf2e-8.6.0 has it: each font offered while the deity's font is it. */
+export const FOUNDRY_FONT_CHOICE = {
+  key: 'ChoiceSet',
+  flag: 'divineFont',
+  prompt: 'PF2E.SpecificRule.Cleric.DivineFont.Prompt',
+  rollOption: 'divine-font',
+  choices: [
+    {
+      img: 'icons/magic/life/cross-worn-green.webp',
+      label: 'PF2E.SpecificRule.Cleric.DivineFont.Healing',
+      predicate: ['deity:primary:font:heal'],
+      value: 'heal',
+    },
+    { label: 'PF2E.SpecificRule.Cleric.DivineFont.Harmful', predicate: ['deity:primary:font:harm'], value: 'harm' },
+  ],
+};
+
+export const DIVINE_FONT = classFeature({ id: 'sPeLlCaStInG0009', name: 'Divine Font', level: 1, traits: ['cleric'] }, [
+  FOUNDRY_FONT_CHOICE,
+]);
 export const SCHOOL_OF_BATTLE_MAGIC = classFeature({
   id: 'sPeLlCaStInG0010',
   name: 'School of Battle Magic',
