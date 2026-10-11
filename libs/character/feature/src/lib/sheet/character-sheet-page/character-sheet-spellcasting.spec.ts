@@ -5,7 +5,7 @@ import { beforeAll, describe, expect, it, onTestFinished, vi } from 'vitest';
 
 import { LISTBOX_PX, OPTION_PX, settle } from '../../testing/inventory-sheet-testing';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
-import { id, MERISIEL, openSheet, present } from '../../testing/sheet-page-harness';
+import { id, MERISIEL, openSheet, patchedOf, present } from '../../testing/sheet-page-harness';
 import { cutTo } from '../../testing/test-packs';
 import { SPELL_CONTENT_KINDS } from '../sheet-prepared-spells';
 
@@ -197,5 +197,9 @@ describe('CharacterSheetPage spellcasting', () => {
       TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: `/api/characters/${id}` }),
     );
     expect(request.request.body).toMatchObject({ patch: { field: 'revokeSpellAccess', spell: DETECT_SCRYING } });
+    request.flush(patchedOf({ ...as('wizard'), version: 2 }, []));
+    await vi.waitFor(() => {
+      expect(document.activeElement).toBe(section(root).querySelector('pio-spell-access input[role="combobox"]'));
+    });
   });
 });
