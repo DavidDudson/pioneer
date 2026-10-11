@@ -9,15 +9,21 @@ import {
   CoinsSchema,
   CURRENT_SCHEMA_VERSION,
   ItemQuantity,
+  ItemRunesSchema,
 } from '@pioneer/character/domain';
 import type { Character, InventoryItem } from '@pioneer/character/domain';
 import {
   fixtureOwnerId,
+  fundamental,
   humanAncestryId,
   ITEM_FIXTURES,
   ItemFixture,
   itemFixtureId,
+  propertyRune,
+  RuneFixture,
+  runeFixtureId,
 } from '@pioneer/character/domain/testing';
+import { FundamentalRune } from '@pioneer/rules/sdk';
 import { ContentPackBuilder, fixedContent } from '@pioneer/rules/sdk/testing';
 import { FIRST_VERSION, fixedClock } from '@pioneer/shared/kernel';
 import { auditLog } from '@pioneer/shared/server';
@@ -136,5 +142,30 @@ describe.skipIf(adminUrl === undefined)('inventory edits (postgres)', () => {
 
     const stored = await service.get(fixtureOwnerId, created.id);
     expect(stored.document.inventory.items).toStrictEqual([{ ...cloak, carry: worn, invested: true }]);
+  });
+
+  test('stores the runes etched onto an item, read back as written', async () => {
+    const created = await service.create(fixtureOwnerId, {
+      name: CharacterName.parse('Valeros'),
+      ancestry: humanAncestryId,
+    });
+    const { character: added } = await service.patch(fixtureOwnerId, created.id, {
+      expectedVersion: FIRST_VERSION,
+      patch: { field: CharacterPatchField.AddItem, item: itemFixtureId(ItemFixture.Longsword), quantity: one },
+    });
+    const sword = onlyItem(added);
+    const { character: potent } = await service.patch(fixtureOwnerId, created.id, {
+      expectedVersion: added.version,
+      patch: { field: CharacterPatchField.EtchRune, id: sword.id, rune: fundamental(FundamentalRune.Potency, 1) },
+    });
+    await service.patch(fixtureOwnerId, created.id, {
+      expectedVersion: potent.version,
+      patch: { field: CharacterPatchField.EtchRune, id: sword.id, rune: propertyRune(RuneFixture.Flaming) },
+    });
+
+    const stored = await service.get(fixtureOwnerId, created.id);
+    expect(onlyItem(stored).runes).toStrictEqual(
+      ItemRunesSchema.parse({ potency: 1, property: [runeFixtureId(RuneFixture.Flaming)] }),
+    );
   });
 });
