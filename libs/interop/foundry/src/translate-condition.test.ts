@@ -79,3 +79,50 @@ describe('translateRules: GrantItem', () => {
     expect(entryOf(translation, 'grabbed')?.kindData?.data).toMatchObject({ implies: [idOf('condition:immobilized')] });
   });
 });
+
+describe('translateRules: GrantItem delete actions', () => {
+  const UNCONSCIOUS = condition('fBnFDH2MTzgFijKf', 'Unconscious', {
+    rules: [
+      {
+        key: 'GrantItem',
+        onDeleteActions: { grantee: 'restrict' },
+        uuid: 'Compendium.pf2e.conditionitems.Item.Blinded',
+      },
+      {
+        key: 'GrantItem',
+        onDeleteActions: { grantee: 'restrict', granter: 'detach' },
+        uuid: 'Compendium.pf2e.conditionitems.Item.Prone',
+      },
+    ],
+  });
+  const DYING = condition('yZRUzMqrMmfLu0V1', 'Dying', {
+    value: { isValued: true, value: 1 },
+    rules: [
+      {
+        key: 'GrantItem',
+        onDeleteActions: { grantee: 'restrict' },
+        uuid: 'Compendium.pf2e.conditionitems.Item.Unconscious',
+      },
+    ],
+  });
+  const BLINDED_PLAIN = condition('XgEqL1kFApUbl5Z2', 'Blinded');
+
+  test('a grant that goes with its granter and cannot be removed alone is derived, so it is implied', () => {
+    const translation = translate([DYING, UNCONSCIOUS, BLINDED_PLAIN, PRONE]);
+
+    expect(dataOf([DYING, UNCONSCIOUS, BLINDED_PLAIN, PRONE], 'dying')).toMatchObject({
+      implies: [idOf('condition:unconscious')],
+    });
+    expect(entryOf(translation, 'unconscious')?.kindData?.data).toMatchObject({
+      implies: [idOf('condition:blinded')],
+    });
+  });
+
+  test('a grant whose grantee stays when its granter goes (Prone after Unconscious) is kept for the backlog', () => {
+    const translation = translate([UNCONSCIOUS, BLINDED_PLAIN, PRONE]);
+
+    expect(translation.envelopes.untranslatedRules.map(({ entry, key }) => [entry, key])).toEqual([
+      [idOf('condition:unconscious'), 'GrantItem'],
+    ]);
+  });
+});

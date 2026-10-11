@@ -25,6 +25,7 @@ export type ConfigModules = Readonly<Record<ConfigModule, unknown>>;
 export const TraitList = {
   Action: 'actionTraits',
   Armor: 'armorTraits',
+  Class: 'classTraits',
   Consumable: 'consumableTraits',
   Creature: 'creatureTraits',
   Effect: 'effectTraits',
@@ -38,16 +39,18 @@ export type TraitList = ValueOf<typeof TraitList>;
 
 /**
  * The Pioneer kinds whose entries carry the traits of each list, after the Foundry item types that validate against
- * it (`validTraits`): ancestries and heritages take creature traits, conditions effect traits, rituals spell traits.
+ * it (`validTraits`): ancestries and heritages take creature traits, conditions effect traits, rituals spell traits, kits class traits.
+ * Treasure validates against none.
  * A trait's `appliesTo` is the union over the lists it sits in.
  */
 export const TRAIT_LIST_KINDS: Readonly<Record<TraitList, readonly ContentKind[]>> = {
   [TraitList.Action]: [ContentKind.Action],
   [TraitList.Armor]: [ContentKind.Armor],
+  [TraitList.Class]: [ContentKind.Kit],
   [TraitList.Consumable]: [ContentKind.Consumable],
   [TraitList.Creature]: [ContentKind.Ancestry, ContentKind.Heritage, ContentKind.Creature],
   [TraitList.Effect]: [ContentKind.Effect, ContentKind.Condition],
-  [TraitList.Equipment]: [ContentKind.Equipment, ContentKind.Treasure],
+  [TraitList.Equipment]: [ContentKind.Equipment],
   [TraitList.Feat]: [ContentKind.Feat, ContentKind.ClassFeature],
   [TraitList.Shield]: [ContentKind.Shield],
   [TraitList.Spell]: [ContentKind.Spell, ContentKind.Ritual],
@@ -78,6 +81,7 @@ const KeySet = z.set(Key).max(VOCABULARY_MAX);
 const TraitsModule = z.looseObject({
   [TraitList.Action]: LabelTable,
   [TraitList.Armor]: LabelTable,
+  [TraitList.Class]: LabelTable,
   [TraitList.Consumable]: LabelTable,
   [TraitList.Creature]: LabelTable,
   [TraitList.Effect]: LabelTable,

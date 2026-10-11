@@ -60,6 +60,7 @@ export const config: FoundryConfig = foundryConfig({
   traits: {
     actionTraits: { manipulate: LABELS.manipulate, move: LABELS.move, fire: LABELS.fire },
     armorTraits: {},
+    classTraits: {},
     consumableTraits: { fire: LABELS.fire },
     creatureTraits: { dwarf: LABELS.dwarf, humanoid: LABELS.humanoid },
     effectTraits: {},

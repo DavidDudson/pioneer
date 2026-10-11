@@ -546,8 +546,9 @@ flowchart LR
   nothing selected, and data the kind's schema rejects are reported against the entry, never guessed.
 - **References.** Foundry links an item by compendium UUID ending in its id or its name
   (`Compendium.pf2e.conditionitems.Item.Off-Guard`), and a condition names what it overrides by slug. Both resolve
-  to the selected documents' ids. A `GrantItem`'s `uuid` becomes its `item`, and Foundry's `inMemoryOnly` is dropped,
-  since a grant is always derived; one that resolves to nothing stays untranslated.
+  to the selected documents' ids. A `GrantItem`'s `uuid` becomes its `item`. Foundry's `inMemoryOnly`, and delete
+  actions that say the grant goes with its granter (`cascade`, `restrict`), are dropped, since a grant is always
+  derived; one that resolves to nothing, or whose grantee outlives its granter (`detach`), stays untranslated.
 - **Vocabulary.** Traits, languages, senses and damage types are not pack documents: Foundry defines them in config
   modules (`src/scripts/config/traits.ts`, `src/module/actor/creature/values.ts`, `src/module/system/damage/values.ts`),
   which build their tables with spreads and remeda. The CLI runs them with Bun from the verified archive, standing in

@@ -1,5 +1,6 @@
 import { RuleElement, RuleElementKey } from '@pioneer/rules/sdk';
 import type { ContentId } from '@pioneer/rules/sdk';
+import * as z from 'zod';
 
 import { NO_REFERENCES, resolveUuid } from './entry-references';
 import type { EntryReferences } from './entry-references';
@@ -34,19 +35,30 @@ function withPioneerFormula(raw: unknown): unknown {
   return { ...raw, value: fromFoundryFormula(raw.value) };
 }
 
-const GRANT_FIELDS_REPLACED: ReadonlySet<string> = new Set(['uuid', 'inMemoryOnly']);
+const GRANT_FIELDS_REPLACED: ReadonlySet<string> = new Set(['uuid', 'inMemoryOnly', 'onDeleteActions']);
+
+/**
+ * Foundry's delete actions a derived grant already has: the grant goes with its granter (`cascade`, the default for an
+ * item that is not physical) and cannot be removed alone (`restrict`). Any other (`detach`: the grantee stays when
+ * its granter goes, as Prone after Unconscious) has no Pioneer meaning, so the element is kept for the backlog.
+ */
+const DERIVED_DELETE_ACTIONS = z
+  .strictObject({ granter: z.literal('cascade').optional(), grantee: z.literal('restrict').optional() })
+  .optional();
 
 /**
  * A `GrantItem` naming its item by compendium UUID, granting the entry that UUID resolves to instead. Foundry's
  * `inMemoryOnly` (granted without being saved to the actor, as conditions grant theirs) has no Pioneer meaning: a
- * grant is always derived. An unresolved UUID is left as it is, so the element fails and is kept for the backlog.
+ * grant is always derived. An unresolved UUID, or delete actions a derived grant lacks, leave it as it is, so the
+ * element fails and is kept for the backlog.
  */
 function withGrantedId(raw: unknown, references: EntryReferences): unknown {
   if (keyOf(raw) !== RuleElementKey.GrantItem || typeof raw !== 'object' || raw === null || !('uuid' in raw)) {
     return raw;
   }
+  const deletes = 'onDeleteActions' in raw ? raw.onDeleteActions : undefined;
   const item = typeof raw.uuid === 'string' ? resolveUuid(references, raw.uuid) : undefined;
-  if (item === undefined) {
+  if (item === undefined || !DERIVED_DELETE_ACTIONS.safeParse(deletes).success) {
     return raw;
   }
   const rest = Object.entries(raw).filter(([field]) => !GRANT_FIELDS_REPLACED.has(field));
