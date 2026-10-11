@@ -48,8 +48,9 @@ turns them into the definitions it holds today and wraps each in `PackEntry`.
 | Bestiary   | `creature`, `hazard` (later milestone)                                                          |
 
 Class progression (features by level, feat slots, skill increases, boosts) is data on the `class` entry, expressed
-as `GrantItem` and slot-granting rule elements keyed by level, and its skill increase levels. The builder's choice
-slots fall out of the engine; nothing about level 1 to 20 is hard-coded.
+as `GrantItem` and slot-granting rule elements keyed by level, and its skill increase levels. The builder's feat and
+subclass slots fall out of the engine; its boost and skill slots are the character domain's, with Player Core's default
+increase schedule and rank caps by level in code ([ADR-0038](../adr/0038-skill-slots-come-from-class-data.md)).
 
 Statistics are content too: a `statistic` entry names a selector, its domains, an actor-only base formula, and
 whether it is a check or a DC (see [rules-engine.md](rules-engine.md#statistics-are-content)).
@@ -121,7 +122,7 @@ Lists of attributes, slugs and ids name each item once.
   subclass (a doctrine, muse, order or school) is a class feature's `ChoiceSet` querying class features by tag
   (`["item:tag:cleric-doctrine"]`), with the `GrantItem` of its pick; a class feature's `tags` are its roll options
   `tag:<tag>`, and the class's `subclass` names the tag its subclass options carry, since a class may have more than
-  one such query (a wizard's arcane school and thesis) ([ADR-0037](../adr/0036-class-names-its-subclass-by-tag.md)).
+  one such query (a wizard's arcane school and thesis) ([ADR-0038](../adr/0036-class-names-its-subclass-by-tag.md)).
 - **Feats.** `category` is Foundry's: `ancestry`, `class`, `general`, `skill` or `bonus`; an archetype feat is a
   class feat with the `archetype` trait. `maxTakable` is a count or `unlimited` (Foundry's `null`), once when
   absent. A feat with `onlyLevel1` must be level 1. `action` is an `action` kind's `data`, for a feat or class
@@ -582,9 +583,9 @@ flowchart LR
     Foundry gives none) a `ChoiceSet` flagged `<class|general|skill>-feat-<level>` querying feats with the class's
     trait, `general` or `skill` up to the character's level, with the `GrantItem` of its pick. Later ranks come
     from the class features that raise them, as in Foundry. Ancestry feat slots are the ancestry's, so a class
-    whose `ancestryFeatLevels` depart from Player Core's is reported. Skill increases have no rule element yet and
-    are reported on every class; attribute boosts are the character's own slots. `spellcasting` is reported, as its
-    rank is per tradition (`spellcasting:<tradition>`), which a class feature names. `attacks.other` (a named
+    whose `ancestryFeatLevels` depart from Player Core's is reported. A class's `skillIncreaseLevels` is kept as data
+    (Player Core's when Foundry gives none); attribute boosts are the character's own slots. `spellcasting` is
+    reported, as its rank is per tradition (`spellcasting:<tradition>`), which a class feature names. `attacks.other` (a named
     weapon group) is reported. Player Core's classes name their `subclass` tag, which Foundry marks nowhere.
   - A feat's `category`, `prerequisites` as one paragraph of their text, `onlyLevel1`, `maxTakable` (Foundry's
     explicit `null` is `unlimited`, absent once), and `action` when it is used as one, read as an `action` item is
