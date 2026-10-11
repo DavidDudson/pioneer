@@ -1,4 +1,4 @@
-import { characterGrants, characterSpellcasting } from '@pioneer/character/domain';
+import { characterGrants, characterSpellcasting, equippedRules, itemContent } from '@pioneer/character/domain';
 import type { Character } from '@pioneer/character/domain';
 import { deriveStatistics, statisticContent } from '@pioneer/rules/engine';
 import type { StatisticResult } from '@pioneer/rules/engine';
@@ -14,7 +14,8 @@ const FAMILIES: readonly Selector[] = ['spell-attack', 'spell-dc'].map((family) 
 
 /**
  * A character's spellcasting entries, each with its spell attack and spell DC from the engine, named by the family that
- * applies (the last pack's definition), and the name of the entry that gave it. A family no registered pack defines is
+ * applies (the last pack's definition), and the name of the entry that gave it. The rule elements of the items it wears,
+ * holds or has invested are in play, as for the sheet's other statistics. A family no registered pack defines is
  * left out; without a proficiency bonus table nothing can be derived, so there are no entries to show either.
  */
 export function sheetSpellcasting(registry: ContentRegistry, character: Character): readonly SpellcastingEntryLine[] {
@@ -25,7 +26,13 @@ export function sheetSpellcasting(registry: ContentRegistry, character: Characte
   const slots = sheetSlotContent(registry);
   const entries = characterSpellcasting(characterGrants(character.document, slots));
   const results: ReadonlyMap<Selector, StatisticResult> =
-    entries.length === 0 ? new Map() : deriveStatistics(content, statisticInputsOf(registry, character));
+    entries.length === 0
+      ? new Map()
+      : deriveStatistics(
+          content,
+          statisticInputsOf(registry, character),
+          equippedRules(character.document, itemContent(registry), slots),
+        );
   return entries.map(({ slug, tradition, preparation, origin }) => ({
     key: slug,
     tradition,

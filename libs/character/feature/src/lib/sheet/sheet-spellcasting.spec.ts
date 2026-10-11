@@ -1,4 +1,16 @@
-import { characterGrants, classContent, slotContent, subclassSlot } from '@pioneer/character/domain';
+import {
+  addItem,
+  Character,
+  carryItem,
+  CarryState,
+  characterGrants,
+  classContent,
+  EMPTY_INVENTORY,
+  InventoryItemId,
+  ItemQuantity,
+  slotContent,
+  subclassSlot,
+} from '@pioneer/character/domain';
 import {
   CharacterBuilder,
   playerCoreClasses,
@@ -6,8 +18,9 @@ import {
   playerCoreId,
 } from '@pioneer/character/domain/testing';
 import { officialPacks } from '@pioneer/rules/catalog';
-import { ContentKind, contentPackFromContents, ContentRegistry } from '@pioneer/rules/sdk';
+import { ContentId, ContentKind, contentPackFromContents, ContentRegistry } from '@pioneer/rules/sdk';
 import type { PackContents } from '@pioneer/rules/sdk';
+import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
 import type { SpellcastingEntryLine } from '@pioneer/rules/ui';
 import { beforeAll, describe, expect, it } from 'vitest';
 
@@ -65,6 +78,35 @@ describe(sheetSpellcasting, () => {
 
     // Wisdom +1, expert at 7th: 4 + 7.
     expect(shown(lines)).toStrictEqual([['Cleric Spellcasting', 'Spell Attack Modifier 12', 'Spell DC 22']]);
+  });
+
+  it('adds a worn item’s bonus to spell attack rolls to the attack, never to the DC built on it', () => {
+    const items = new ContentPackBuilder().withId('homebrew').withMagicItem(ContentKind.Equipment, 'circlet', {
+      data: { bulk: 'light', usage: { type: 'worn', slot: 'headwear' } },
+      rules: [{ key: 'FlatModifier', selectors: ['spell-attack-roll'], type: 'item', value: 1 }],
+    });
+    const registry = registryOf(coreRules);
+    registry.register(items.build());
+    const circlet = InventoryItemId.parse('55555555-5555-4555-8555-555555555555');
+    const item = {
+      id: circlet,
+      item: ContentId.parse(items.idOf(ContentKind.Equipment, 'circlet')),
+      quantity: ItemQuantity.parse(1),
+    };
+    const inventory = carryItem(addItem(EMPTY_INVENTORY, { ...item, container: undefined }), circlet, {
+      state: CarryState.Worn,
+    });
+    const built = cloisteredCleric(registry, 1).build();
+    const wearing = new Character({
+      document: { ...built.document, inventory },
+      version: built.version,
+      createdAt: built.createdAt,
+      updatedAt: built.updatedAt,
+    });
+
+    expect(shown(sheetSpellcasting(registry, wearing))).toStrictEqual([
+      ['Cleric Spellcasting', 'Spell Attack Modifier 5', 'Spell DC 14'],
+    ]);
   });
 
   it('leaves out a family no registered pack defines', () => {
