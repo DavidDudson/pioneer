@@ -29,11 +29,11 @@ describe('translateKindData: spellcasting entries', () => {
 
     expect(rulesIn(wizard, 'wizard-spellcasting')).toEqual([
       { key: Entry, slug: 'wizard', tradition: 'arcane', attribute: 'int', preparation: 'prepared' },
-      { key: Proficiency, selector: 'spellcasting:arcane', rank: 'expert', predicate: ['feature:expert-spellcaster'] },
-      { key: Proficiency, selector: 'spellcasting:arcane', rank: 'master', predicate: ['feature:master-spellcaster'] },
+      { key: Proficiency, selector: 'spellcasting', rank: 'expert', predicate: ['feature:expert-spellcaster'] },
+      { key: Proficiency, selector: 'spellcasting', rank: 'master', predicate: ['feature:master-spellcaster'] },
       {
         key: Proficiency,
-        selector: 'spellcasting:arcane',
+        selector: 'spellcasting',
         rank: 'legendary',
         predicate: ['feature:legendary-spellcaster'],
       },
@@ -53,19 +53,19 @@ describe('translateKindData: spellcasting entries', () => {
     expect(raises).toEqual([
       {
         key: Proficiency,
-        selector: 'spellcasting:divine',
+        selector: 'spellcasting',
         rank: 'expert',
         predicate: [{ or: [from('cloistered-cleric', 7), from('warpriest', 11)] }],
       },
       {
         key: Proficiency,
-        selector: 'spellcasting:divine',
+        selector: 'spellcasting',
         rank: 'master',
         predicate: [{ or: [from('cloistered-cleric', 15), from('warpriest', 19)] }],
       },
       {
         key: Proficiency,
-        selector: 'spellcasting:divine',
+        selector: 'spellcasting',
         rank: 'legendary',
         predicate: [from('cloistered-cleric', 19)],
       },
@@ -91,7 +91,7 @@ describe('translateKindData: spellcasting entries', () => {
       { key: Entry, slug: 'wizard', tradition: 'arcane', attribute: 'int', preparation: 'prepared' },
     ]);
     expect(rulesIn(multiclass, 'expert-wizard-spellcasting')).toEqual([
-      { key: Proficiency, selector: 'spellcasting:arcane', rank: 'expert' },
+      { key: Proficiency, selector: 'spellcasting', rank: 'expert' },
     ]);
   });
 

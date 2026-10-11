@@ -61,6 +61,11 @@
       },
       {
         "key": "Proficiency",
+        "selector": "spellcasting",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
         "selector": "class-dc",
         "rank": "trained"
       },
@@ -1091,19 +1096,19 @@
       },
       {
         "key": "Proficiency",
-        "selector": "spellcasting:occult",
+        "selector": "spellcasting",
         "rank": "expert",
         "predicate": ["feature:expert-spellcaster"]
       },
       {
         "key": "Proficiency",
-        "selector": "spellcasting:occult",
+        "selector": "spellcasting",
         "rank": "master",
         "predicate": ["feature:master-spellcaster"]
       },
       {
         "key": "Proficiency",
-        "selector": "spellcasting:occult",
+        "selector": "spellcasting",
         "rank": "legendary",
         "predicate": ["feature:legendary-spellcaster"]
       }
@@ -1163,6 +1168,11 @@
       {
         "key": "Proficiency",
         "selector": "defense:unarmored",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting",
         "rank": "trained"
       },
       {
@@ -2007,7 +2017,7 @@
       },
       {
         "key": "Proficiency",
-        "selector": "spellcasting:divine",
+        "selector": "spellcasting",
         "rank": "expert",
         "predicate": [
           {
@@ -2034,7 +2044,7 @@
       },
       {
         "key": "Proficiency",
-        "selector": "spellcasting:divine",
+        "selector": "spellcasting",
         "rank": "master",
         "predicate": [
           {
@@ -2061,7 +2071,7 @@
       },
       {
         "key": "Proficiency",
-        "selector": "spellcasting:divine",
+        "selector": "spellcasting",
         "rank": "legendary",
         "predicate": [
           {
@@ -2275,6 +2285,11 @@
       {
         "key": "Proficiency",
         "selector": "defense:medium",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting",
         "rank": "trained"
       },
       {
@@ -3150,19 +3165,19 @@
       },
       {
         "key": "Proficiency",
-        "selector": "spellcasting:primal",
+        "selector": "spellcasting",
         "rank": "expert",
         "predicate": ["feature:expert-spellcaster"]
       },
       {
         "key": "Proficiency",
-        "selector": "spellcasting:primal",
+        "selector": "spellcasting",
         "rank": "master",
         "predicate": ["feature:master-spellcaster"]
       },
       {
         "key": "Proficiency",
-        "selector": "spellcasting:primal",
+        "selector": "spellcasting",
         "rank": "legendary",
         "predicate": ["feature:legendary-spellcaster"]
       }
@@ -6673,6 +6688,11 @@
       },
       {
         "key": "Proficiency",
+        "selector": "spellcasting",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
         "selector": "class-dc",
         "rank": "trained"
       },
@@ -7616,19 +7636,19 @@
       },
       {
         "key": "Proficiency",
-        "selector": "spellcasting:primal",
+        "selector": "spellcasting",
         "rank": "expert",
         "predicate": ["feature:expert-spellcaster"]
       },
       {
         "key": "Proficiency",
-        "selector": "spellcasting:primal",
+        "selector": "spellcasting",
         "rank": "master",
         "predicate": ["feature:master-spellcaster"]
       },
       {
         "key": "Proficiency",
-        "selector": "spellcasting:primal",
+        "selector": "spellcasting",
         "rank": "legendary",
         "predicate": ["feature:legendary-spellcaster"]
       }
@@ -7667,19 +7687,19 @@
       },
       {
         "key": "Proficiency",
-        "selector": "spellcasting:arcane",
+        "selector": "spellcasting",
         "rank": "expert",
         "predicate": ["feature:expert-spellcaster"]
       },
       {
         "key": "Proficiency",
-        "selector": "spellcasting:arcane",
+        "selector": "spellcasting",
         "rank": "master",
         "predicate": ["feature:master-spellcaster"]
       },
       {
         "key": "Proficiency",
-        "selector": "spellcasting:arcane",
+        "selector": "spellcasting",
         "rank": "legendary",
         "predicate": ["feature:legendary-spellcaster"]
       }
@@ -7718,19 +7738,19 @@
       },
       {
         "key": "Proficiency",
-        "selector": "spellcasting:occult",
+        "selector": "spellcasting",
         "rank": "expert",
         "predicate": ["feature:expert-spellcaster"]
       },
       {
         "key": "Proficiency",
-        "selector": "spellcasting:occult",
+        "selector": "spellcasting",
         "rank": "master",
         "predicate": ["feature:master-spellcaster"]
       },
       {
         "key": "Proficiency",
-        "selector": "spellcasting:occult",
+        "selector": "spellcasting",
         "rank": "legendary",
         "predicate": ["feature:legendary-spellcaster"]
       }
@@ -7769,19 +7789,19 @@
       },
       {
         "key": "Proficiency",
-        "selector": "spellcasting:occult",
+        "selector": "spellcasting",
         "rank": "expert",
         "predicate": ["feature:expert-spellcaster"]
       },
       {
         "key": "Proficiency",
-        "selector": "spellcasting:occult",
+        "selector": "spellcasting",
         "rank": "master",
         "predicate": ["feature:master-spellcaster"]
       },
       {
         "key": "Proficiency",
-        "selector": "spellcasting:occult",
+        "selector": "spellcasting",
         "rank": "legendary",
         "predicate": ["feature:legendary-spellcaster"]
       }
@@ -7820,19 +7840,19 @@
       },
       {
         "key": "Proficiency",
-        "selector": "spellcasting:divine",
+        "selector": "spellcasting",
         "rank": "expert",
         "predicate": ["feature:expert-spellcaster"]
       },
       {
         "key": "Proficiency",
-        "selector": "spellcasting:divine",
+        "selector": "spellcasting",
         "rank": "master",
         "predicate": ["feature:master-spellcaster"]
       },
       {
         "key": "Proficiency",
-        "selector": "spellcasting:divine",
+        "selector": "spellcasting",
         "rank": "legendary",
         "predicate": ["feature:legendary-spellcaster"]
       }
@@ -7871,19 +7891,19 @@
       },
       {
         "key": "Proficiency",
-        "selector": "spellcasting:occult",
+        "selector": "spellcasting",
         "rank": "expert",
         "predicate": ["feature:expert-spellcaster"]
       },
       {
         "key": "Proficiency",
-        "selector": "spellcasting:occult",
+        "selector": "spellcasting",
         "rank": "master",
         "predicate": ["feature:master-spellcaster"]
       },
       {
         "key": "Proficiency",
-        "selector": "spellcasting:occult",
+        "selector": "spellcasting",
         "rank": "legendary",
         "predicate": ["feature:legendary-spellcaster"]
       }
@@ -7922,19 +7942,19 @@
       },
       {
         "key": "Proficiency",
-        "selector": "spellcasting:primal",
+        "selector": "spellcasting",
         "rank": "expert",
         "predicate": ["feature:expert-spellcaster"]
       },
       {
         "key": "Proficiency",
-        "selector": "spellcasting:primal",
+        "selector": "spellcasting",
         "rank": "master",
         "predicate": ["feature:master-spellcaster"]
       },
       {
         "key": "Proficiency",
-        "selector": "spellcasting:primal",
+        "selector": "spellcasting",
         "rank": "legendary",
         "predicate": ["feature:legendary-spellcaster"]
       }
@@ -7996,6 +8016,11 @@
       {
         "key": "Proficiency",
         "selector": "defense:unarmored",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting",
         "rank": "trained"
       },
       {
@@ -8840,19 +8865,19 @@
       },
       {
         "key": "Proficiency",
-        "selector": "spellcasting:arcane",
+        "selector": "spellcasting",
         "rank": "expert",
         "predicate": ["feature:expert-spellcaster"]
       },
       {
         "key": "Proficiency",
-        "selector": "spellcasting:arcane",
+        "selector": "spellcasting",
         "rank": "master",
         "predicate": ["feature:master-spellcaster"]
       },
       {
         "key": "Proficiency",
-        "selector": "spellcasting:arcane",
+        "selector": "spellcasting",
         "rank": "legendary",
         "predicate": ["feature:legendary-spellcaster"]
       }

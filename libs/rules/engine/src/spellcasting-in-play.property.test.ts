@@ -6,7 +6,7 @@ import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
 import { array, assert, boolean, constantFrom, property, record } from 'fast-check';
 import type { Arbitrary } from 'fast-check';
 
-import { ranksInPlay, spellcastingSelector } from './ranks-in-play';
+import { ranksInPlay, SPELLCASTING } from './ranks-in-play';
 import type { RuleInPlay } from './rule-in-play';
 import { spellcastingInPlay } from './spellcasting-in-play';
 import { inPlay } from './testing';
@@ -19,7 +19,7 @@ const ELEMENTS_MAX = 12;
 const AT_FIFTH = [{ gte: ['self:level', 5] }];
 const facts = new PredicateFacts([RollOption.parse('self:level:1')], CORE_NAMESPACES);
 
-/** A `SpellcastingEntry`, or a `Proficiency` raise of a tradition's rank. */
+/** A `SpellcastingEntry`, or a `Proficiency` raise of the spellcasting rank. */
 interface Placed {
   readonly entry: boolean;
   readonly slug: (typeof SLUGS)[number];
@@ -42,7 +42,7 @@ function rulesOf(elements: readonly Placed[]): RuleInPlay[] {
     const predicate = gated ? { predicate: AT_FIFTH } : {};
     const element = entry
       ? { key: 'SpellcastingEntry', slug, tradition, attribute: 'int', preparation: 'prepared', ...predicate }
-      : { key: 'Proficiency', selector: `spellcasting:${tradition}`, rank, ...predicate };
+      : { key: 'Proficiency', selector: 'spellcasting', rank, ...predicate };
     return inPlay(element, 'feature', { rule });
   });
 }
@@ -64,16 +64,14 @@ describe('spellcastingInPlay (properties)', () => {
     );
   });
 
-  test('each tradition with an entry in play is at least trained, and raised to the highest raise that holds', () => {
+  test('an entry in play trains spellcasting, whatever its tradition, and the highest raise that holds wins', () => {
     assert(
       property(array(placed, { maxLength: ELEMENTS_MAX }), (elements) => {
-        const ranks = ranksInPlay({ rules: rulesOf(elements), facts });
-        for (const tradition of TRADITIONS) {
-          const live = elements.filter((each) => each.tradition === tradition && !each.gated);
-          const reached = live.map(({ entry, rank }) => RANKS.indexOf(entry ? 'trained' : rank));
-          const expected = reached.length === 0 ? undefined : RANKS[Math.max(...reached)];
-          expect(ranks.get(spellcastingSelector(tradition))).toBe(expected);
-        }
+        const live = elements.filter(({ gated }) => !gated);
+        const reached = live.map(({ entry, rank }) => RANKS.indexOf(entry ? 'trained' : rank));
+        const expected = reached.length === 0 ? undefined : RANKS[Math.max(...reached)];
+
+        expect(ranksInPlay({ rules: rulesOf(elements), facts }).get(SPELLCASTING)).toBe(expected);
       }),
     );
   });

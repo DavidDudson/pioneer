@@ -26,7 +26,7 @@ const EntrySourceSlug = RuleSlug.refine(
 /**
  * Gives the character a spellcasting entry: a tradition, the attribute its spell attack and DC read, and how its
  * spells are prepared. Each entry in play has its own `spell-attack:<slug>` and `spell-dc:<slug>`, and makes the
- * character trained in `spellcasting:<tradition>`; a `Proficiency` element raises that rank further. Two in play with
+ * character trained in `spellcasting`, the one rank every entry reads; a `Proficiency` element raises it further. Two in play with
  * one slug are one entry. A Pioneer element with no Foundry counterpart: Foundry's spellcasting entries are items the
  * player adds by hand (ADR-0037).
  */

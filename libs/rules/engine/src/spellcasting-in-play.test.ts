@@ -68,6 +68,6 @@ describe('spellcastingInPlay', () => {
   });
 
   test('other rule elements give none', () => {
-    expect(entriesOf([[{ key: 'Proficiency', selector: 'spellcasting:arcane', rank: 'expert' }, 'feat']])).toEqual([]);
+    expect(entriesOf([[{ key: 'Proficiency', selector: 'spellcasting', rank: 'expert' }, 'feat']])).toEqual([]);
   });
 });

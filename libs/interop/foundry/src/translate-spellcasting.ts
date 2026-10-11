@@ -17,13 +17,20 @@ interface EntryFields {
   readonly preparation: string;
 }
 
+const RANK_SELECTOR = 'spellcasting';
+
 function entry(fields: EntryFields): object {
   return { key: RuleElementKey.SpellcastingEntry, ...fields };
 }
 
-function raise(tradition: string, rank: string, predicate?: readonly unknown[]): object {
-  const selector = `spellcasting:${tradition}`;
-  return { key: RuleElementKey.Proficiency, selector, rank, ...(predicate === undefined ? {} : { predicate }) };
+/** Raises the character's one spellcasting rank, which every entry's spell attack and DC read. */
+function raise(rank: string, predicate?: readonly unknown[]): object {
+  return {
+    key: RuleElementKey.Proficiency,
+    selector: RANK_SELECTOR,
+    rank,
+    ...(predicate === undefined ? {} : { predicate }),
+  };
 }
 
 /**
@@ -33,9 +40,9 @@ function raise(tradition: string, rank: string, predicate?: readonly unknown[]):
 function classEntry(fields: EntryFields): readonly object[] {
   return [
     entry(fields),
-    raise(fields.tradition, 'expert', ['feature:expert-spellcaster']),
-    raise(fields.tradition, 'master', ['feature:master-spellcaster']),
-    raise(fields.tradition, 'legendary', ['feature:legendary-spellcaster']),
+    raise('expert', ['feature:expert-spellcaster']),
+    raise('master', ['feature:master-spellcaster']),
+    raise('legendary', ['feature:legendary-spellcaster']),
   ];
 }
 
@@ -65,9 +72,9 @@ const NINETEENTH = 19;
  */
 const CLERIC: readonly object[] = [
   entry({ slug: 'cleric', tradition: DIVINE, attribute: 'wis', preparation: 'prepared' }),
-  raise(DIVINE, 'expert', [{ or: [doctrineFrom(CLOISTERED, SEVENTH), doctrineFrom(WARPRIEST, ELEVENTH)] }]),
-  raise(DIVINE, 'master', [{ or: [doctrineFrom(CLOISTERED, FIFTEENTH), doctrineFrom(WARPRIEST, NINETEENTH)] }]),
-  raise(DIVINE, 'legendary', [doctrineFrom(CLOISTERED, NINETEENTH)]),
+  raise('expert', [{ or: [doctrineFrom(CLOISTERED, SEVENTH), doctrineFrom(WARPRIEST, ELEVENTH)] }]),
+  raise('master', [{ or: [doctrineFrom(CLOISTERED, FIFTEENTH), doctrineFrom(WARPRIEST, NINETEENTH)] }]),
+  raise('legendary', [doctrineFrom(CLOISTERED, NINETEENTH)]),
 ];
 
 /** The rule elements each entry gains, by its entry slug. */
@@ -98,20 +105,20 @@ const SPELLCASTING: ReadonlyMap<string, readonly object[]> = new Map([
     'feat:bard-dedication',
     [entry({ slug: 'bard', tradition: 'occult', attribute: 'cha', preparation: 'spontaneous' })],
   ],
-  ['feat:expert-bard-spellcasting', [raise('occult', 'expert')]],
-  ['feat:master-bard-spellcasting', [raise('occult', 'master')]],
+  ['feat:expert-bard-spellcasting', [raise('expert')]],
+  ['feat:master-bard-spellcasting', [raise('master')]],
   ['feat:cleric-dedication', [entry({ slug: 'cleric', tradition: DIVINE, attribute: 'wis', preparation: 'prepared' })]],
-  ['feat:expert-cleric-spellcasting', [raise(DIVINE, 'expert')]],
-  ['feat:master-cleric-spellcasting', [raise(DIVINE, 'master')]],
+  ['feat:expert-cleric-spellcasting', [raise('expert')]],
+  ['feat:master-cleric-spellcasting', [raise('master')]],
   ['feat:druid-dedication', [entry({ slug: 'druid', tradition: 'primal', attribute: 'wis', preparation: 'prepared' })]],
-  ['feat:expert-druid-spellcasting', [raise('primal', 'expert')]],
-  ['feat:master-druid-spellcasting', [raise('primal', 'master')]],
+  ['feat:expert-druid-spellcasting', [raise('expert')]],
+  ['feat:master-druid-spellcasting', [raise('master')]],
   [
     'feat:wizard-dedication',
     [entry({ slug: 'wizard', tradition: 'arcane', attribute: 'int', preparation: 'prepared' })],
   ],
-  ['feat:expert-wizard-spellcasting', [raise('arcane', 'expert')]],
-  ['feat:master-wizard-spellcasting', [raise('arcane', 'master')]],
+  ['feat:expert-wizard-spellcasting', [raise('expert')]],
+  ['feat:master-wizard-spellcasting', [raise('master')]],
 ]);
 
 /**

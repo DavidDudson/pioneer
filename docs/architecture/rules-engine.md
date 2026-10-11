@@ -109,7 +109,8 @@ The entries are the `SpellcastingEntry` elements in play (`spellcastingInPlay`),
   family names no `keyAttribute`.
 - The base may read the source: `@weapon.attr` (Dexterity for a ranged weapon, the higher of Strength and Dexterity
   for a finesse one, else Strength, as Player Core's "Attack Rolls" has it), `@weapon.prof` (the bonus for
-  `attack:<category>`), `@spellcasting.attr` and `@spellcasting.prof` (the bonus for `spellcasting:<tradition>`).
+  `attack:<category>`), `@spellcasting.attr` and `@spellcasting.prof` (the bonus for `spellcasting`, the character's
+  one spellcasting rank, whatever the entry's tradition; ADR-0037).
 - A weapon's potency (its potency rune, or a bomb's own item bonus) is not a base term. The engine adds it to the
   weapon's `strike:<slug>` as a synthetic `item` modifier with the slug `weapon-potency`, labelled by a message and
   with the weapon's origin, so it stacks with other item bonuses to attack rolls (a mutagen's): only the highest
@@ -244,7 +245,7 @@ Statistic base formulas and rule element values share one vocabulary of referenc
 | `@weapon.attr`       | weapon       | The modifier the weapon attacks with: Strength, Dexterity at range, the higher with finesse |
 | `@weapon.prof`       | weapon       | The proficiency bonus for the weapon's category, `attack:<category>`                        |
 | `@spellcasting.attr` | spellcasting | The modifier for the spellcasting entry's attribute                                         |
-| `@spellcasting.prof` | spellcasting | The proficiency bonus for the entry's tradition, `spellcasting:<tradition>`                 |
+| `@spellcasting.prof` | spellcasting | The proficiency bonus for spellcasting, `spellcasting`, one rank for every entry            |
 
 - A selector's colons are written as dots, since references have none: `@prof.save.fortitude` is the bonus for
   `save:fortitude`, `@rank.attack.martial` the rank for `attack:martial`.
@@ -265,20 +266,20 @@ Statistic base formulas and rule element values share one vocabulary of referenc
 The catalogue also holds the Foundry spellings the importer translates (`FOUNDRY_REFERENCES`, with
 `fromFoundryPath`). Placeholders carry across by name:
 
-| Foundry                                                                       | Pioneer                          |
-| ----------------------------------------------------------------------------- | -------------------------------- |
-| `@actor.level`, `@actor.system.details.level.value`                           | `@level`                         |
-| `@actor.abilities.<attribute>.mod`, `@actor.system.abilities.<attribute>.mod` | `@attr.<attribute>`              |
-| `@actor.system.attributes.ancestryhp`, `@actor.ancestry.system.hp`            | `@ancestry.hp`                   |
-| `@actor.ancestry.system.speed`                                                | `@ancestry.speed`                |
-| `@actor.system.attributes.classhp`, `@actor.class.system.hp`                  | `@class.hp`                      |
-| `@actor.skills.<skill>.rank`, `@actor.system.skills.<skill>.rank`             | `@rank.skill.<skill>`            |
-| `@actor.saves.<save>.rank`, `@actor.system.saves.<save>.rank`                 | `@rank.save.<save>`              |
-| `@actor.perception.rank`, `@actor.system.perception.rank`                     | `@rank.perception`               |
-| `@actor.system.proficiencies.attacks.<category>.rank`                         | `@rank.attack.<category>`        |
-| `@actor.system.proficiencies.defenses.<category>.rank`                        | `@rank.defense.<category>`       |
-| `@actor.system.proficiencies.traditions.<tradition>.rank`                     | `@rank.spellcasting.<tradition>` |
-| `@item.level`, `@item.system.level.value`                                     | `@item.level`                    |
+| Foundry                                                                       | Pioneer                    |
+| ----------------------------------------------------------------------------- | -------------------------- |
+| `@actor.level`, `@actor.system.details.level.value`                           | `@level`                   |
+| `@actor.abilities.<attribute>.mod`, `@actor.system.abilities.<attribute>.mod` | `@attr.<attribute>`        |
+| `@actor.system.attributes.ancestryhp`, `@actor.ancestry.system.hp`            | `@ancestry.hp`             |
+| `@actor.ancestry.system.speed`                                                | `@ancestry.speed`          |
+| `@actor.system.attributes.classhp`, `@actor.class.system.hp`                  | `@class.hp`                |
+| `@actor.skills.<skill>.rank`, `@actor.system.skills.<skill>.rank`             | `@rank.skill.<skill>`      |
+| `@actor.saves.<save>.rank`, `@actor.system.saves.<save>.rank`                 | `@rank.save.<save>`        |
+| `@actor.perception.rank`, `@actor.system.perception.rank`                     | `@rank.perception`         |
+| `@actor.system.proficiencies.attacks.<category>.rank`                         | `@rank.attack.<category>`  |
+| `@actor.system.proficiencies.defenses.<category>.rank`                        | `@rank.defense.<category>` |
+| `@actor.system.proficiencies.spellcasting.rank`                               | `@rank.spellcasting`       |
+| `@item.level`, `@item.system.level.value`                                     | `@item.level`              |
 
 The importer reports any other Foundry path as untranslatable. The exporter writes the first spelling listed. Paths
 join the catalogue when the engine can supply their values. Formulas inside Foundry's bracketed values and
@@ -419,8 +420,8 @@ schema arrives with the Foundry content that exercises it.
 `SpellcastingEntry` is Pioneer's own too ([ADR-0037](../adr/0037-spellcasting-entries-are-rule-elements.md)): Foundry
 has no element for an entry, which its player adds by hand. While its predicate holds it gives the character an entry
 (`slug`, `tradition`, `attribute`, and `preparation`: prepared, spontaneous or innate), and makes them trained in
-`spellcasting:<tradition>`; a `Proficiency` raises that rank further. Two in play with one slug are one entry, the
-first in play.
+`spellcasting`, the one rank every entry reads; a `Proficiency` raises it further. Two in play with one slug are one
+entry, the first in play.
 
 ## Derivation pipeline
 
@@ -533,7 +534,7 @@ The base phase in `libs/rules/engine` (`StatisticBases`) is step 5. The inputs a
 level, attribute modifiers, proficiency rank per selector (a selector left out is untrained), the armor's Dexterity
 cap, what the ancestry and class give, and the weapons and spellcasting entries statistics are derived per. The ranks
 come from the effective set: `ranksInPlay` reads the `Proficiency` elements in play whose predicate holds, and each
-`SpellcastingEntry` as trained in its tradition, and keeps the highest raise per selector, so a class's starting rank
+`SpellcastingEntry` as trained in `spellcasting`, and keeps the highest raise per selector, so a class's starting rank
 and a feature's later raise compete. The spellcasting entries come from it too (`spellcastingInPlay`). It keeps only
 the rank for now; the contributors step 4 lists join when a breakdown shows where a rank came from. The other inputs
 are supplied directly until their epics produce them.

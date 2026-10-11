@@ -37,9 +37,11 @@ function entriesOf(builder: CharacterBuilder): string[] {
   );
 }
 
-function rankOf(builder: CharacterBuilder, tradition: string): string | undefined {
-  const ranks = characterRanks(characterGrants(builder.build().document, content));
-  return ranks.get(Selector.parse(`spellcasting:${tradition}`));
+const SPELLCASTING = Selector.parse('spellcasting');
+
+/** The character's one spellcasting rank, which every entry reads. */
+function rankOf(builder: CharacterBuilder): string | undefined {
+  return characterRanks(characterGrants(builder.build().document, content)).get(SPELLCASTING);
 }
 
 const CASTERS: Readonly<Record<PlayerCoreClass, readonly string[]>> = {
@@ -59,11 +61,16 @@ describe('spellcasting entries of Player Core classes', () => {
     expect(entriesOf(caster(name))).toEqual([...CASTERS[name]]);
   });
 
+  test('a caster class is trained in spellcasting from 1st level, a witch before picking a patron too', () => {
+    expect(rankOf(caster('witch'))).toBe('trained');
+    expect(rankOf(caster('wizard'))).toBe('trained');
+  });
+
   test("a witch's entry comes with its patron, in the patron's tradition", () => {
     const [key, resentment] = subclassPick('witch', 'the-resentment');
 
     expect(entriesOf(caster('witch').picking(key, resentment))).toEqual(['witch occult int prepared']);
-    expect(rankOf(caster('witch').picking(key, resentment), 'occult')).toBe('trained');
+    expect(rankOf(caster('witch').picking(key, resentment))).toBe('trained');
   });
 });
 
@@ -74,8 +81,8 @@ describe('spellcasting rank', () => {
     [7, 'expert'],
     [15, 'master'],
     [19, 'legendary'],
-  ])('a wizard at level %d is %s in arcane spellcasting', (level, rank) => {
-    expect(rankOf(caster('wizard', level), 'arcane')).toBe(rank);
+  ])('a wizard at level %d is %s in spellcasting', (level, rank) => {
+    expect(rankOf(caster('wizard', level))).toBe(rank);
   });
 
   test.each([
@@ -86,17 +93,17 @@ describe('spellcasting rank', () => {
     ['warpriest', 7, 'trained'],
     ['warpriest', 11, 'expert'],
     ['warpriest', 19, 'master'],
-  ])('a %s at level %d is %s in divine spellcasting', (doctrine, level, rank) => {
+  ])('a %s at level %d is %s in spellcasting', (doctrine, level, rank) => {
     const [key, pick] = subclassPick('cleric', doctrine);
 
-    expect(rankOf(caster('cleric', level).picking(key, pick), 'divine')).toBe(rank);
+    expect(rankOf(caster('cleric', level).picking(key, pick))).toBe(rank);
   });
 
   test('a cleric with no doctrine yet stays trained', () => {
-    expect(rankOf(caster('cleric', 19), 'divine')).toBe('trained');
+    expect(rankOf(caster('cleric', 19))).toBe('trained');
   });
 
   test('a class with no entry has no spellcasting rank', () => {
-    expect(rankOf(caster('fighter', 19), 'arcane')).toBeUndefined();
+    expect(rankOf(caster('fighter', 19))).toBeUndefined();
   });
 });

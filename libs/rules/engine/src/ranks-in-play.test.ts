@@ -49,7 +49,7 @@ describe('ranksInPlay', () => {
     expect(ranksOf([{ key: 'FlatModifier', type: 'item', value: 1, selectors: ['ac'] }])).toEqual({});
   });
 
-  test('a spellcasting entry makes the character trained in its tradition, and a raise lifts it further', () => {
+  test('a spellcasting entry makes the character trained in spellcasting, and a raise lifts it further', () => {
     const entry = {
       key: 'SpellcastingEntry',
       slug: 'cleric',
@@ -58,8 +58,8 @@ describe('ranksInPlay', () => {
       preparation: 'prepared',
     };
 
-    expect(ranksOf([entry])).toEqual({ 'spellcasting:divine': 'trained' });
-    expect(ranksOf([proficiency('spellcasting:divine', 'expert'), entry])).toEqual({ 'spellcasting:divine': 'expert' });
+    expect(ranksOf([entry])).toEqual({ spellcasting: 'trained' });
+    expect(ranksOf([proficiency('spellcasting', 'expert'), entry])).toEqual({ spellcasting: 'expert' });
   });
 
   test('a spellcasting entry whose predicate fails trains nothing', () => {

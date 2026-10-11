@@ -228,11 +228,11 @@ describe('translateKindData: classes', () => {
     });
   });
 
-  test('a spellcasting rank is reported, as its tradition comes from a feature, not the class', () => {
+  test('a caster class starts trained in spellcasting, one rank for every entry', () => {
     const caster = translate([{ ...FIGHTER, system: { ...FIGHTER.system, spellcasting: 1 } }]);
 
-    expect(ranksIn(caster, 'fighter').map(([selector]) => selector)).not.toContain('spell-attack');
-    expect(gapsOf(caster)).toContainEqual({ reason: KindDataGapReason.UnmappedField, field: 'spellcasting', raw: 1 });
+    expect(ranksIn(caster, 'fighter')).toContainEqual(['spellcasting', 'trained']);
+    expect(gapsOf(caster).map(({ field }) => field)).not.toContain('spellcasting');
   });
 
   test('a granted item whose level Foundry writes as text still grants from that level', () => {

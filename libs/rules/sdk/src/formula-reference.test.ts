@@ -89,7 +89,7 @@ describe('Foundry reference translation', () => {
     ['actor.perception.rank', 'rank.perception'],
     ['actor.system.proficiencies.attacks.martial.rank', 'rank.attack.martial'],
     ['actor.system.proficiencies.defenses.heavy.rank', 'rank.defense.heavy'],
-    ['actor.system.proficiencies.traditions.divine.rank', 'rank.spellcasting.divine'],
+    ['actor.system.proficiencies.spellcasting.rank', 'rank.spellcasting'],
     ['actor.system.attributes.ancestryhp', 'ancestry.hp'],
     ['actor.ancestry.system.hp', 'ancestry.hp'],
     ['actor.ancestry.system.speed', 'ancestry.speed'],

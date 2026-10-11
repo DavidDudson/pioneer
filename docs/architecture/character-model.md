@@ -117,12 +117,15 @@ later raise. Armor Class takes the unarmored defence rank until armour is worn.
 A caster's spellcasting entries come from the effective set too (`characterSpellcasting`,
 [ADR-0037](../adr/0037-spellcasting-entries-are-rule-elements.md)): each `SpellcastingEntry` element in play is one
 entry, from a class's spellcasting feature, a witch's patron (which names the tradition) or a multiclass dedication.
-Nothing about them is stored, so changing class or patron changes them. Each entry makes the character trained in its
-tradition, and the engine derives its spell attack and spell DC. The sheet's Spellcasting section, between Choices and
-Class features, lists each entry's tradition, how it casts (prepared, spontaneous or innate) and where it came from,
-"from Wizard Spellcasting", with its spell attack and DC, each expanding to its breakdown. A wizard's, bard's, druid's
-or witch's rank rises with the Expert, Master and Legendary Spellcaster features at 7th, 15th and 19th level; a
-cleric's with its doctrine, a cloistered cleric's at 7th, 15th and 19th and a warpriest's at 11th and 19th.
+Nothing about them is stored, so changing class or patron changes them. A character has one spellcasting rank,
+`spellcasting`, which every entry reads whatever its tradition: a caster class starts trained, and so does anyone
+with an entry. The engine derives each entry's spell attack and spell DC from it and the entry's attribute. The
+sheet's Spellcasting section, between Choices and Class features, lists each entry's tradition, how it casts (prepared,
+spontaneous or innate) and where it came from, "from Wizard Spellcasting", with its spell attack and DC, each
+expanding to its breakdown. The rank rises for a wizard, bard, druid or witch with the Expert, Master and Legendary
+Spellcaster features at 7th, 15th and 19th level; for a cleric with its doctrine, a cloistered cleric's at 7th, 15th
+and 19th and a warpriest's at 11th and 19th; for a multiclass caster with the archetype's Expert and Master
+Spellcasting feats, unless the class already raised it.
 
 Each slot's status is worked out on every read, never stored (`characterSlots`,
 [ADR-0035](../adr/0035-character-reads-carry-slot-status.md)). `GET` and `PATCH /characters/:id` answer with the

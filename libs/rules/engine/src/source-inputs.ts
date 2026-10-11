@@ -19,7 +19,7 @@ import { issueParams, message } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { EngineMessage } from './messages';
-import { spellcastingSelector } from './ranks-in-play';
+import { SPELLCASTING } from './ranks-in-play';
 
 /** An equipped weapon, as a Strike reads it. */
 export interface WeaponInputs {
@@ -141,7 +141,7 @@ function entryValue(
   if (kind === ReferenceKind.SpellcastingAttributeModifier) {
     return FormulaValue.parse(attributes.get(entry.attribute));
   }
-  return kind === ReferenceKind.SpellcastingProficiencyBonus ? bonus(spellcastingSelector(entry.tradition)) : undefined;
+  return kind === ReferenceKind.SpellcastingProficiencyBonus ? bonus(SPELLCASTING) : undefined;
 }
 
 /**

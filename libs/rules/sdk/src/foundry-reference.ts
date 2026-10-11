@@ -37,7 +37,7 @@ const FOUNDRY_SPELLINGS = [
   ['actor.system.perception.rank', 'rank.perception'],
   ['actor.system.proficiencies.attacks.<category>.rank', 'rank.attack.<category>'],
   ['actor.system.proficiencies.defenses.<category>.rank', 'rank.defense.<category>'],
-  ['actor.system.proficiencies.traditions.<tradition>.rank', 'rank.spellcasting.<tradition>'],
+  ['actor.system.proficiencies.spellcasting.rank', 'rank.spellcasting'],
   ['item.level', 'item.level'],
   ['item.system.level.value', 'item.level'],
 ] as const;
