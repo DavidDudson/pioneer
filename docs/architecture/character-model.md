@@ -87,9 +87,9 @@ The character stores `SlotKey → Selection` only. Consequences:
 
 The player picks with `selectSlot { slot, selection }` and empties a slot with `clearSlot { slot }`, each a PATCH
 audited by name. `selectSlot` resolves the character's grants over its other picks at every level from 20 down,
-with `ancestry`, `heritage`, `background` and `class` as root slots (`CHARACTER_ROOT_SLOTS`), and refuses with a
-reason when the slot is open at no level up to 20 (`character.validation.slotNotOpen`) or offers the selection at none
-(`character.validation.selectionNotOffered`). Only a new selection is checked: one already stored stays, however
+with `ancestry`, `heritage`, `background`, `class` and `deity` as root slots (`CHARACTER_ROOT_SLOTS`), and refuses
+with a reason when the slot is open at no level up to 20 (`character.validation.slotNotOpen`) or offers the selection
+at none (`character.validation.selectionNotOffered`). Only a new selection is checked: one already stored stays, however
 the level or content changes.
 
 The heritage slot is `within` the ancestry slot: it offers the heritages whose `ancestry` is the picked one, and the
@@ -102,6 +102,15 @@ and reads invalid, like any other pick.
 
 The sheet's Build section summarises the character: class, subclass, ancestry, heritage, background, deity, key
 attribute and size, each empty part saying what to pick, with Edit build taking focus to the pickers.
+
+The deity slot is optional ([ADR-0046](../adr/0046-deity-is-an-optional-root-slot.md)): any character may pick a
+deity, and an empty slot is listed under Choices only while something needs it, a cleric's Deity feature. A deity sets
+what its follower's features read: `deity:primary:font:heal`, `deity:primary:sanctification:can:holy`,
+`deity:primary:favored-weapon:scimitar`. So a cleric's Divine Font offers the fonts its deity has, and its
+sanctification choice holy or unholy as the deity allows, or none unless the deity requires one; neither offers a
+font or a sanctification before a deity is picked. The sheet's Deity section, after Build, picks the deity by name and
+shows the one the server read (`CharacterSheet.deity`): its divine font, sanctification, domains and alternate
+domains, favoured weapons, divine attributes and skills, then its description, which holds its edicts and anathema.
 
 The class slot's pick grants its class features by level and opens the slots its features ask for. The subclass slot
 is the `ChoiceSet` among them that queries class features tagged with the class's `subclass` (a cleric's doctrine, a

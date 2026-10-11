@@ -150,10 +150,13 @@ Lists of attributes, slugs and ids name each item once.
   `dedicationLock?` is how many other archetype feats a character needs before another dedication (2 when
   absent; character-model.md, Archetype dedications).
 - **Deities.** `category` is `deity`, `pantheon`, `covenant` or `philosophy`. `sanctification` is `can` or `must`
-  with `holy` and/or `unholy`. `domains` has `primary` and `alternate` domain slugs, `font` is `harm` and/or `heal`,
-  `skills` are statistic selectors, `weapons` base weapon slugs (a weapon's `baseItem`), and `spells` one spell
-  per rank from 1 to 10. A philosophy has no font, domains or spells, and divine skills must be `skill:` selectors.
-  A deity on a character sets `deity:primary:<slug>`, as Foundry does.
+  with `holy` and/or `unholy`. `domains` has `primary` and `alternate` domains, each one of Foundry's config keys
+  (`DeityDomain`, apocryphal variants included; the import files Disorientation under `delirium`, Nothingness under
+  `void` and Dragon under `wyrmkin`, as Foundry keys them). `font` is `harm` and/or `heal`, `skills` are statistic
+  selectors, `weapons` base weapon slugs (a weapon's `baseItem`), and `spells` one spell per rank from 1 to 10. A
+  philosophy has no font, domains or spells, and divine skills must be `skill:` selectors. A deity on a character
+  sets `deity:primary:<slug>`, and under `deity:primary` its sanctification, favoured weapons and fonts, as Foundry
+  does (ADR-0046).
 
 #### Magic and play data
 
