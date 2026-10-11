@@ -98,6 +98,7 @@ export {
   CharacterDocumentSchema,
   CorruptCharacterDocumentError,
   decodeCharacterDocument,
+  SPELL_ACCESS_MAX,
 } from './character-document';
 export {
   CharacterSchemaVersion,

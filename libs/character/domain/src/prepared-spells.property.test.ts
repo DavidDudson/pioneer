@@ -21,7 +21,7 @@ registry.register(playerCoreClasses());
 registry.register(spellFixtures());
 const content = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 
-const UNCOMMON: readonly SpellFixture[] = ['veil-of-privacy', 'wish'];
+const UNCOMMON: readonly SpellFixture[] = ['veil-of-privacy', 'wish', 'ring-of-truth'];
 
 const caster = {
   name: constantFrom(...PLAYER_CORE_CLASSES),

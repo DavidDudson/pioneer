@@ -14,7 +14,7 @@ const Empty = z.strictObject({});
 const None = z.tuple([]);
 
 /** The most uncommon and rare spells a build lists access to. */
-const SPELL_ACCESS_MAX = 500;
+export const SPELL_ACCESS_MAX = 500;
 
 /**
  * Everything the player picked. Selections are kept for slots the character doesn't have (character-model.md).

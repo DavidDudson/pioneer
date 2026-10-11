@@ -258,11 +258,15 @@ export class Character {
     return { document: { ...this.document, inventory: change(this.document.inventory) } };
   }
 
-  /** The build's spell access with `patch.spell` added, once, or taken out; a pick of a spell taken out stays (#478). */
+  /** The build's spell access with `patch.spell` added at the end unless listed, or taken out; a pick of a spell taken out stays (#478). */
   #accessChanges(patch: SpellAccessPatch): Partial<CharacterProps> {
     const { build } = this.document;
-    const others = build.spellAccess.filter((spell) => spell !== patch.spell);
-    const spellAccess = patch.field === CharacterPatchField.GrantSpellAccess ? [...others, patch.spell] : others;
+    const listed = build.spellAccess.includes(patch.spell);
+    const granted = listed ? build.spellAccess : [...build.spellAccess, patch.spell];
+    const spellAccess =
+      patch.field === CharacterPatchField.GrantSpellAccess
+        ? granted
+        : build.spellAccess.filter((spell) => spell !== patch.spell);
     return { document: { ...this.document, build: { ...build, spellAccess } } };
   }
 

@@ -1,6 +1,12 @@
 import { beforeEach, describe, expect, test } from 'bun:test';
 
-import { CharacterCommand, CharacterName, CharacterPatchField } from '@pioneer/character/domain';
+import {
+  Character,
+  CharacterCommand,
+  CharacterName,
+  CharacterPatchField,
+  SPELL_ACCESS_MAX,
+} from '@pioneer/character/domain';
 import type { CharacterPatch, PatchCharacterBody } from '@pioneer/character/domain';
 import { humanAncestryId, spellFixtureId, spellFixtures } from '@pioneer/character/domain/testing';
 import { ContentId } from '@pioneer/rules/sdk';
@@ -46,6 +52,54 @@ describe('CharacterService spell access', () => {
       CharacterCommand.GrantSpellAccess,
       CharacterCommand.GrantSpellAccess,
       CharacterCommand.RevokeSpellAccess,
+    ]);
+  });
+
+  test('re-granting a listed spell keeps the order', async () => {
+    const created = await service.create(amiri, { name: kyra, ancestry: humanAncestryId });
+    const [veil, wish] = [spellFixtureId('veil-of-privacy'), spellFixtureId('wish')];
+    let version = FIRST_VERSION;
+    for (const spell of [veil, wish, veil]) {
+      // Each edit reads the version the one before saved, so they run in turn.
+      // oxlint-disable-next-line eslint/no-await-in-loop
+      const { character } = await service.patch(
+        amiri,
+        created.id,
+        at(version, { field: CharacterPatchField.GrantSpellAccess, spell }),
+      );
+      ({ version } = character);
+    }
+    const saved = await service.get(amiri, created.id);
+    expect(saved.document.build.spellAccess).toStrictEqual([veil, wish]);
+  });
+
+  test('refuses access past the most a build lists, naming the maximum', async () => {
+    const created = await service.create(amiri, { name: kyra, ancestry: humanAncestryId });
+    const full = Array.from({ length: SPELL_ACCESS_MAX }, () => ContentId.parse(newId()));
+    const stored = created.apply(
+      { field: CharacterPatchField.GrantSpellAccess, spell: spellFixtureId('wish') },
+      clock.now(),
+    );
+    const listed = new Character({
+      document: { ...stored.document, build: { ...stored.document.build, spellAccess: full } },
+      version: stored.version,
+      createdAt: stored.createdAt,
+      updatedAt: stored.updatedAt,
+    });
+    const saved = await repository.update(listed, FIRST_VERSION, {
+      actor: amiri,
+      command: CharacterCommand.GrantSpellAccess,
+    });
+    const edit = at(saved.version, {
+      field: CharacterPatchField.GrantSpellAccess,
+      spell: spellFixtureId('veil-of-privacy'),
+    });
+    const error = await rejection(service.patch(amiri, created.id, edit));
+    expect((error as ValidationError).issues).toStrictEqual([
+      {
+        path: ['patch', 'spell'],
+        message: { key: 'character.validation.spellAccessFull', params: { maximum: SPELL_ACCESS_MAX } },
+      },
     ]);
   });
 

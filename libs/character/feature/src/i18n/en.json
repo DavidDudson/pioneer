@@ -173,7 +173,8 @@
     "languageKnown": "The character already knows that language. Choose another.",
     "spellNoAccess": "That spell is uncommon or rare, and this character has no access to it yet. Add it to their spell access first.",
     "unknownSpell": "That spell is not available to prepare. Choose another.",
-    "spellAccessCommon": "That spell is common, so every caster of its tradition has access to it already."
+    "spellAccessCommon": "That spell is common, so every caster of its tradition has access to it already.",
+    "spellAccessFull": "This character has access to {maximum} uncommon, rare and unique spells already, the most a build lists. Remove one first."
   },
   "import": {
     "title": "Import from Pathbuilder",

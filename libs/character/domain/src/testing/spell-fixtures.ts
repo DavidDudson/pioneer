@@ -18,6 +18,7 @@ export type SpellFixture =
   | 'fireball'
   | 'veil-of-privacy'
   | 'wish'
+  | 'ring-of-truth'
   | 'force-bolt';
 
 /** The id of a spell in `spellFixtures`. */
@@ -28,7 +29,7 @@ export function spellFixtureId(name: SpellFixture): ContentId {
 /**
  * A pack of spells covering what a prepared slot reads: cantrips (Detect Magic, Shield), common spells of 1st and 3rd
  * rank of one or two traditions (Force Barrage, Heal, Fireball), an uncommon 3rd-rank spell (Veil of Privacy), a
- * rare 10th-rank one (Wish) and a focus spell (Force Bolt), which never goes in a slot.
+ * rare 10th-rank one (Wish), a unique 1st-rank one (Ring of Truth, standing in for any unique spell) and a focus spell (Force Bolt), which never goes in a slot.
  */
 export function spellFixtures(): ContentPack {
   const all = ['arcane', 'divine', 'occult', 'primal'];
@@ -41,6 +42,7 @@ export function spellFixtures(): ContentPack {
     .withSpell('fireball', { rank: 3, traditions: ['arcane', 'primal'] })
     .withSpell('veil-of-privacy', { rank: 3, traditions: ['arcane', 'occult'], rarity: 'uncommon' })
     .withSpell('wish', { rank: 10, traditions: ['arcane'], rarity: 'rare' })
+    .withSpell('ring-of-truth', { rank: 1, traditions: ['arcane'], rarity: 'unique' })
     .withSpell('force-bolt', { rank: 1, traditions: ['arcane'], traits: ['focus'], rarity: 'uncommon' })
     .build();
 }

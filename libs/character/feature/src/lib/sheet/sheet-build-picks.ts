@@ -74,7 +74,7 @@ export interface BuildPicks extends EngineReads {
   readonly keyAttributeOptions: Signal<readonly SelectOption<string>[]>;
   /** One edit per key attribute slot; undefined while there is none. */
   readonly keyAttributeField: Signal<InlineEdit<string | undefined> | undefined>;
-  /** AC, the saves and Perception from the character's registry; undefined while the character or the content loads. */
+  /** Immunities, weaknesses and resistances from the engine; undefined while the character or the content loads. */
   readonly defences: Signal<Defences | undefined>;
   /** The attribute modifiers and the boosts still to pick; undefined while the character or the content loads. */
   readonly attributes: Signal<SheetAttributes | undefined>;

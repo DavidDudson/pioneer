@@ -23,6 +23,7 @@ interface CharacterDocument {
 
 interface Build {
   choices: Record<SlotKey, Selection>; // everything the player picked
+  spellAccess: readonly ContentId[]; // uncommon, rare and unique spells it may prepare (ADR-0044)
   boons: readonly ActiveEffect[]; // permanent boons; temporary ones live in play.effects
 }
 
@@ -137,7 +138,7 @@ A prepared entry's cantrips and own slots are choice slots, `prepared:<entry>:<c
 ([ADR-0044](../adr/0044-prepared-spells-are-choice-slots.md)). They open at the character's level only: a pick kept for
 a slot it no longer has reads hidden. A slot offers its entry's tradition's spells that fit it, cantrips in a cantrip
 slot (cast at half the level, rounded up) and any other spell in a slot of its rank or higher, never a focus spell.
-Common spells are always offered; uncommon and rare ones once `build.spellAccess` lists them, changed with
+Common spells are always offered; uncommon, rare and unique ones once `build.spellAccess` lists them, changed with
 `grantSpellAccess` and `revokeSpellAccess`. A pick whose access is taken away reads invalid with its reason
 (`rules.choices.invalid.spellNoAccess`). The sheet lists each prepared entry's slots rank by rank under its
 Spellcasting entry, a picker each, then the spells the build has access to, with Remove and a picker to add one of

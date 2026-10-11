@@ -187,14 +187,15 @@ describe('characterSlots with prepared slots', () => {
 });
 
 describe('spellAccessProblem', () => {
-  test('takes an uncommon or rare spell that goes in a slot', () => {
-    expect(spellAccessProblem(content.spells, spellFixtureId('veil-of-privacy'))).toBeUndefined();
-    expect(spellAccessProblem(content.spells, spellFixtureId('wish'))).toBeUndefined();
+  test('takes an uncommon, rare or unique spell that goes in a slot', () => {
+    expect(spellAccessProblem(content.spells, [], spellFixtureId('veil-of-privacy'))).toBeUndefined();
+    expect(spellAccessProblem(content.spells, [], spellFixtureId('wish'))).toBeUndefined();
+    expect(spellAccessProblem(content.spells, [], spellFixtureId('ring-of-truth'))).toBeUndefined();
   });
 
   test('refuses a common spell, a focus spell and an unknown id', () => {
-    expect(spellAccessProblem(content.spells, spellFixtureId('fireball'))).toBe(SpellAccessProblem.Common);
-    expect(spellAccessProblem(content.spells, spellFixtureId('force-bolt'))).toBe(SpellAccessProblem.UnknownSpell);
-    expect(spellAccessProblem(content.spells, playerCoreClassId('wizard'))).toBe(SpellAccessProblem.UnknownSpell);
+    expect(spellAccessProblem(content.spells, [], spellFixtureId('fireball'))).toBe(SpellAccessProblem.Common);
+    expect(spellAccessProblem(content.spells, [], spellFixtureId('force-bolt'))).toBe(SpellAccessProblem.UnknownSpell);
+    expect(spellAccessProblem(content.spells, [], playerCoreClassId('wizard'))).toBe(SpellAccessProblem.UnknownSpell);
   });
 });

@@ -10,6 +10,7 @@ import {
   PATCH_COMMANDS,
   slotContent,
   slotRefusal,
+  SPELL_ACCESS_MAX,
   SpellAccessProblem,
   spellAccessProblem,
   spellContent,
@@ -40,6 +41,7 @@ import { importedCharacter, matchedAncestry, readExport } from './pathbuilder-im
 const SPELL_ACCESS_REFUSALS: Readonly<Record<SpellAccessProblem, string>> = {
   [SpellAccessProblem.UnknownSpell]: 'character.validation.unknownSpell',
   [SpellAccessProblem.Common]: 'character.validation.spellAccessCommon',
+  [SpellAccessProblem.Full]: 'character.validation.spellAccessFull',
 };
 
 /** A character as an edit saved it, and the picks the edit cleared (`unfitPicks`). */
@@ -174,17 +176,21 @@ export class CharacterService {
       await this.#assertSlotOffers(current, patch);
     }
     if (patch.field === CharacterPatchField.GrantSpellAccess) {
-      await this.#assertSpellNeedsAccess(patch.spell);
+      await this.#assertSpellNeedsAccess(current, patch.spell);
     }
     await assertInventoryAllows(current, patch, this.#content);
   }
 
-  /** Refuses access to a spell no loaded pack has for a slot (a focus spell among them), or to a common one. */
-  async #assertSpellNeedsAccess(spell: ContentId): Promise<void> {
+  /** Refuses access to a spell no loaded pack has for a slot (a focus spell among them), a common one, or past the most. */
+  async #assertSpellNeedsAccess(character: Character, spell: ContentId): Promise<void> {
     const content = await this.#content.registry();
-    const problem = spellAccessProblem(spellContent(content), spell);
+    const problem = spellAccessProblem(spellContent(content), character.document.build.spellAccess, spell);
     if (problem !== undefined) {
-      throw new ValidationError([{ path: ['patch', 'spell'], message: message(SPELL_ACCESS_REFUSALS[problem]) }]);
+      const refusal =
+        problem === SpellAccessProblem.Full
+          ? message(SPELL_ACCESS_REFUSALS[problem], { maximum: SPELL_ACCESS_MAX })
+          : message(SPELL_ACCESS_REFUSALS[problem]);
+      throw new ValidationError([{ path: ['patch', 'spell'], message: refusal }]);
     }
   }
 

@@ -26,9 +26,9 @@ export interface SpellContent {
   readonly spell: (pick: ChoiceValue) => SpellOption | undefined;
 }
 
-/** Whether a spell of `rarity` needs access before it is prepared: uncommon and rare do, common never, unique always. */
+/** Whether a spell of `rarity` needs access before it is prepared: every rarity but common does. */
 export function needsAccess(rarity: Rarity): boolean {
-  return rarity === Rarity.Uncommon || rarity === Rarity.Rare;
+  return rarity !== Rarity.Common;
 }
 
 /** Every spell of the registry's packs that goes in a slot, by name; a later pack's entry with the same id wins. */
