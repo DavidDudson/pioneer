@@ -10,3 +10,19 @@ export {
   CharacterName,
 } from './character-fields';
 export { type CharacterPatch, CharacterPatchField, CharacterPatchSchema, PatchCharacterBody } from './character-patch';
+export {
+  type Build,
+  BuildSchema,
+  type CharacterDocument,
+  CharacterDocumentSchema,
+  CorruptCharacterDocumentError,
+  decodeCharacterDocument,
+} from './character-document';
+export {
+  CharacterSchemaVersion,
+  CURRENT_SCHEMA_VERSION,
+  StoredCharacterDocument,
+  UnsupportedSchemaVersionError,
+  upgradeDocument,
+  type UpgradeStep,
+} from './character-document-upgrades';
