@@ -5,13 +5,17 @@ extend-exclude = [
   "apps/api/migrations/meta/**",
   "libs/frontier/src/styles/primitives.color.css",
   "libs/legal/feature/src/lib/legal-page/orc-attribution.ts",
+  # The import backlog: Foundry's raw JSON, kept as Foundry wrote it (ADR-0031).
+  "content/import/*.json",
 ]
+
+[default]
+# Foundry document ids are random 16-character strings inside compendium UUIDs.
+extend-ignore-re = ["Compendium\\.pf2e\\.[a-z0-9-]+\\.Item\\.[A-Za-z0-9]{16}"]
 
 [default.extend-words]
 # Pathfinder terms and deliberate spellings.
 leshy = "leshy"
 sherif = "sherif"
-
-[default]
-# Foundry document ids are random 16-character strings inside compendium UUIDs.
-extend-ignore-re = ["Compendium\\.pf2e\\.[a-z0-9-]+\\.Item\\.[A-Za-z0-9]{16}"]
+# Slugs drop apostrophes: `feat:youre-next` is You're Next.
+youre = "youre"

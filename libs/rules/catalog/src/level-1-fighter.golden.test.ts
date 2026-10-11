@@ -5,7 +5,7 @@ import type { BaseTerm, BreakdownLine, ModifierLabel, OverrideLine, StatisticRes
 import { OriginHopKind, Proficiency } from '@pioneer/rules/sdk';
 import type { Origin, OriginHop, Selector } from '@pioneer/rules/sdk';
 
-import { AC_BASE, core, noFacts, PWL, withoutLevel } from './testing/core-rules';
+import { AC_BASE, core, LORE_SELECTORS, noFacts, PWL, withoutLevel } from './testing/core-rules';
 import {
   level1Fighter,
   level1FighterFacts,
@@ -173,6 +173,13 @@ function golden({ bonus, mark }: ProficiencyTable): Record<string, Checked> {
     'skill:stealth': skill('stealth', 'dex', Untrained),
     'skill:survival': skill('survival', 'wis', Trained),
     'skill:thievery': skill('thievery', 'dex', Untrained),
+    // The Lores Player Core's backgrounds train, untrained: `skill:lore:warfare` reads `@prof.skill.lore.warfare`.
+    ...Object.fromEntries(
+      LORE_SELECTORS.map((selector) => [
+        selector,
+        skill(selector.replace('skill:', '').replaceAll(':', '.'), 'int', Untrained),
+      ]),
+    ),
   };
 }
 
@@ -217,6 +224,7 @@ describe('Level 1 Fighter (golden)', () => {
       'skill:stealth': 1,
       'skill:survival': 4,
       'skill:thievery': 1,
+      ...Object.fromEntries(LORE_SELECTORS.map((selector) => [selector, 0])),
     });
   });
 

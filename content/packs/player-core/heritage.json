@@ -1,0 +1,2003 @@
+[
+  {
+    "id": "7b64d7e8-47d4-59fe-86f9-a8bea0fe05ed",
+    "pack": "player-core",
+    "kind": "heritage",
+    "slug": "heritage:aiuvarin",
+    "name": "Aiuvarin",
+    "rarity": "common",
+    "traits": ["aiuvarin"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have elves, or possibly other aiuvarins, in your family tree. You have pointed ears and other telltale signs of elf heritage. You gain the elf trait, the aiuvarin trait, and low-light vision. In addition, when you gain an ancestry feat, you can choose from aiuvarin and elf feats in addition to those from your ancestry."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.N36ZR4lh9eCazDaN"
+    },
+    "data": {}
+  },
+  {
+    "id": "7baaccd7-3d01-59d1-9b12-9e74a186a352",
+    "pack": "player-core",
+    "kind": "heritage",
+    "slug": "heritage:ancient-blooded-dwarf",
+    "name": "Ancient-Blooded Dwarf",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Dwarven heroes of old could shrug off their enemies' magic, and some of that resistance manifests in you. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "8c77dc7d-6c5c-53d6-bf4f-54064c438fb2"
+          },
+          {
+            "type": "text",
+            "text": " reaction."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "8c77dc7d-6c5c-53d6-bf4f-54064c438fb2"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.yL6944LrPo2HNdEJ"
+    },
+    "data": {
+      "ancestry": "e6d808d9-95b9-5477-8322-791194226314"
+    }
+  },
+  {
+    "id": "fea91f4d-b62d-5170-bb55-3c6beebcb3a1",
+    "pack": "player-core",
+    "kind": "heritage",
+    "slug": "heritage:ancient-elf",
+    "name": "Ancient Elf",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In your long life, you've dabbled in many paths and many styles. A typical ancient elf is at least 100 years old, though you might be younger at the GM's discretion. Choose a class other than your own. You gain the multiclass dedication feat for that class, even though you don't meet its level prerequisite. You must still meet its other prerequisites to gain the feat."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.Nd9hdX8rdYyRozw8"
+    },
+    "data": {
+      "ancestry": "85929532-15d1-52c2-8500-d3b27f174266"
+    }
+  },
+  {
+    "id": "1d9973b0-c423-56ff-9bb6-742bd9ba45c6",
+    "pack": "player-core",
+    "kind": "heritage",
+    "slug": "heritage:arctic-elf",
+    "name": "Arctic Elf",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You dwell deep in the frozen north and have gained incredible resilience against cold environments, granting you cold resistance equal to half your level (minimum 1). You treat environmental cold effects as if they were one step less extreme (incredible cold becomes extreme, extreme cold becomes severe, and so on)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.1dYDucCIaZpCJqBc"
+    },
+    "data": {
+      "ancestry": "85929532-15d1-52c2-8500-d3b27f174266"
+    }
+  },
+  {
+    "id": "cb409566-a69c-5eeb-8c38-caac52187663",
+    "pack": "player-core",
+    "kind": "heritage",
+    "slug": "heritage:badlands-orc",
+    "name": "Badlands Orc",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You come from sun-scorched badlands, where long legs and an ability to withstand the elements helped you thrive. You can "
+          },
+          {
+            "type": "ref",
+            "id": "80d65abb-eee5-5673-a8ed-871abd9c89f2"
+          },
+          {
+            "type": "text",
+            "text": " twice as long while exploring before you have to stop, and you treat environmental heat effects as if they were one step less extreme (incredible heat becomes extreme, extreme heat becomes severe, and so on)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.8Gsa8KFsHizEwSHU"
+    },
+    "data": {
+      "ancestry": "27e47483-e581-53af-992f-7b19ac052ab4"
+    }
+  },
+  {
+    "id": "a26f7041-5731-5da2-896e-2ead8df07144",
+    "pack": "player-core",
+    "kind": "heritage",
+    "slug": "heritage:battle-ready-orc",
+    "name": "Battle-Ready Orc",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You descend from a line of terrifying battlefield commanders. You become trained in Intimidation, and you gain the "
+          },
+          {
+            "type": "ref",
+            "id": "83871ce2-c4f9-5a77-af0a-7d7f0708b5f0"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "83871ce2-c4f9-5a77-af0a-7d7f0708b5f0"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.nXQxlmjH24Eb8h2Q"
+    },
+    "data": {
+      "ancestry": "27e47483-e581-53af-992f-7b19ac052ab4"
+    }
+  },
+  {
+    "id": "c176f10e-a704-556e-8d35-ca6f4e80b160",
+    "pack": "player-core",
+    "kind": "heritage",
+    "slug": "heritage:cactus-leshy",
+    "name": "Cactus Leshy",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Spines cover your body. You gain a spine unarmed attack that deals 1d6 piercing damage. Your spines are in the brawling group and have the finesse and unarmed traits."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.2cii5ZkBsJ4DYdd2"
+    },
+    "data": {
+      "ancestry": "54baa0f3-c686-58a5-91b3-4ccfa6b8d011"
+    }
+  },
+  {
+    "id": "0fd1de42-1c44-5981-b155-d77c58529f6a",
+    "pack": "player-core",
+    "kind": "heritage",
+    "slug": "heritage:cavern-elf",
+    "name": "Cavern Elf",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You were born or spent many years in underground tunnels or caverns where light is scarce. You gain darkvision."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.NfIAGatB1KIzt8G7"
+    },
+    "data": {
+      "ancestry": "85929532-15d1-52c2-8500-d3b27f174266"
+    }
+  },
+  {
+    "id": "9236088b-da5c-50af-b41f-0f5e5c8cd1f7",
+    "pack": "player-core",
+    "kind": "heritage",
+    "slug": "heritage:chameleon-gnome",
+    "name": "Chameleon Gnome",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The color of your hair and skin is mutable, possibly due to latent magic from First World influences or lingering illusion effects. You can slowly change the vibrancy and the exact color, and the coloration can be different across your body, allowing you to create patterns or other colorful designs. It takes a single action for minor localized shifts and up to an hour for dramatic shifts throughout your body. While you're asleep, the colors shift on their own in tune with your dreams, giving you an unusual coloration each morning. When you're in an area where your coloration is roughly similar to the environment (for instance, forest green in a forest), you can use the single action to make minor localized shifts designed to help you blend into your surroundings. This grants you a +2 circumstance bonus to Stealth checks until your surroundings shift in coloration or pattern."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.XeXWsvcWU3Zaj5WC"
+    },
+    "data": {
+      "ancestry": "be1b027a-40cb-5267-ac66-7cdc1c0d7813"
+    }
+  },
+  {
+    "id": "16a5ae26-d869-5a4c-abec-d7752cc4c96c",
+    "pack": "player-core",
+    "kind": "heritage",
+    "slug": "heritage:changeling",
+    "name": "Changeling",
+    "rarity": "uncommon",
+    "traits": ["changeling"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your mother was a hag. Your eyes' heterochromia is the most obvious signifier of this parentage, but you likely also have a slighter build, paler skin, and darker hair than most members of your other parent's ancestry. You gain the changeling trait. You also gain low-light vision, or you gain darkvision if your ancestry already has low-light vision. You can select from changeling feats and feats from your other parent's ancestry whenever you gain an ancestry feat."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.EKY9v7SF1hVsUdbH"
+    },
+    "data": {}
+  },
+  {
+    "id": "6eeafd0e-ab5e-5593-9d3a-8769490c252c",
+    "pack": "player-core",
+    "kind": "heritage",
+    "slug": "heritage:charhide-goblin",
+    "name": "Charhide Goblin",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your ancestors have always had a connection to fire and a thicker skin, which allows you to resist burning. You gain fire resistance equal to half your level (minimum 1). You can also recover from being on fire more easily. Your flat check to remove persistent fire damage is DC 10 instead of DC 15, which is reduced to "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 5
+          },
+          {
+            "type": "text",
+            "text": " if another creature uses a particularly appropriate action to help."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.32oX6hHUY6K8N70Q"
+    },
+    "data": {
+      "ancestry": "054f4768-e40c-50b9-bf71-cebc5bd9064e"
+    }
+  },
+  {
+    "id": "ecca29f2-ad57-5e5c-af89-a495542d9499",
+    "pack": "player-core",
+    "kind": "heritage",
+    "slug": "heritage:death-warden-dwarf",
+    "name": "Death Warden Dwarf",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your ancestors were tomb guardians, and their power to ward off death passed on to you. If you roll a success on a saving throw against an effect that has the void trait or was created by an undead creature, you get a critical success instead."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.VTtXwBxrfRUXSL38"
+    },
+    "data": {
+      "ancestry": "e6d808d9-95b9-5477-8322-791194226314"
+    }
+  },
+  {
+    "id": "43006633-63e4-5da8-9681-14cfac442c63",
+    "pack": "player-core",
+    "kind": "heritage",
+    "slug": "heritage:deep-orc",
+    "name": "Deep Orc",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your calloused hands and red eyes speak to a life spent in the deep darkness of mountain caverns, where you learned to battle on rocky cliffs and survive with minimal resources. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "57542da4-3edc-5464-9143-2236defe9f0e"
+          },
+          {
+            "type": "text",
+            "text": " skill feat for underground terrain and the "
+          },
+          {
+            "type": "ref",
+            "id": "8d47d4b9-3de6-5aca-9993-35356f13d1f6"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "8d47d4b9-3de6-5aca-9993-35356f13d1f6"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.wn4EbYk1QN3tyFhh"
+    },
+    "data": {
+      "ancestry": "27e47483-e581-53af-992f-7b19ac052ab4"
+    }
+  },
+  {
+    "id": "70ae0b4e-a475-551d-ad77-356dc9e5fdf4",
+    "pack": "player-core",
+    "kind": "heritage",
+    "slug": "heritage:dromaar",
+    "name": "Dromaar",
+    "rarity": "common",
+    "traits": ["dromaar"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Orcish strength emboldens your bloodline. You have a green tinge to your skin and other indicators of orc heritage. You gain the orc trait, the dromaar trait, and low-light vision. When you gain an ancestry feat, you can choose from dromaar and orc feats in addition to those from your ancestry."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.tLd8Qg82AwEbbmgX"
+    },
+    "data": {}
+  },
+  {
+    "id": "1e08dd67-c759-5f1b-8e81-36a05d20a469",
+    "pack": "player-core",
+    "kind": "heritage",
+    "slug": "heritage:fey-touched-gnome",
+    "name": "Fey-Touched Gnome",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The blood of the fey flows through your veins, saturating you with their magic and making you truly one of them. You gain the fey trait, in addition to the gnome and humanoid traits. Choose one cantrip from the primal spell list. You can cast this spell as a primal innate spell at will. A cantrip is heightened to a spell rank equal to half your level rounded up. You can change this cantrip to a different one from the same list once per day by meditating to realign yourself with the First World; this is a 10-minute activity that has the concentrate trait."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.D3hTAqgwSank8OyO"
+    },
+    "data": {
+      "ancestry": "be1b027a-40cb-5267-ac66-7cdc1c0d7813"
+    }
+  },
+  {
+    "id": "2c261e45-a158-5bcb-ab97-cfbd6e56f2b4",
+    "pack": "player-core",
+    "kind": "heritage",
+    "slug": "heritage:forge-dwarf",
+    "name": "Forge Dwarf",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have a remarkable adaptation to hot environments. This grants you fire resistance equal to half your level (minimum 1), and you treat environmental heat effects as if they were one step less extreme (incredible heat becomes extreme, extreme heat becomes severe, and so on)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.5CqsBKCZuGON53Hk"
+    },
+    "data": {
+      "ancestry": "e6d808d9-95b9-5477-8322-791194226314"
+    }
+  },
+  {
+    "id": "13c9a0eb-47a7-5aab-8a88-4e6e59ad1cb1",
+    "pack": "player-core",
+    "kind": "heritage",
+    "slug": "heritage:fruit-leshy",
+    "name": "Fruit Leshy",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your body continually produces small fruits imbued with primal magic. At dawn each day, a new fruit ripens. You or an ally can remove this fruit as an Interact action. If a living creature that can derive sustenance from fruit consumes it as an Interact action within the next hour, they regain "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(ceil(@level/2))d8",
+                "damageType": "vitality"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " Hit Points, plus an additional 1d8 Hit Points for every 2 of your levels beyond 1st. This effect has the healing and vitality traits."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.L6zfGzLMDLHbZ7VV"
+    },
+    "data": {
+      "ancestry": "54baa0f3-c686-58a5-91b3-4ccfa6b8d011"
+    }
+  },
+  {
+    "id": "1edc6f46-8937-5ab6-84ea-d83b7953b83e",
+    "pack": "player-core",
+    "kind": "heritage",
+    "slug": "heritage:fungus-leshy",
+    "name": "Fungus Leshy",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your body was made from fungi that grows in the shade of caves and trees, and you are at home in dark caverns and warrens. You gain darkvision. You lose the plant trait and gain the fungus trait."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.87h0jepQuzIbN7jN"
+    },
+    "data": {
+      "ancestry": "54baa0f3-c686-58a5-91b3-4ccfa6b8d011"
+    }
+  },
+  {
+    "id": "ed4ee22d-a497-552c-a607-c39816c7e4dd",
+    "pack": "player-core",
+    "kind": "heritage",
+    "slug": "heritage:gourd-leshy",
+    "name": "Gourd Leshy",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have a large gourd for a skull, and since you don't have a physical brain, you can use the space inside your head. You can store a collection of up to 1 Bulk of objects within your head. The DC of checks to "
+          },
+          {
+            "type": "ref",
+            "id": "4722e9b3-995d-5553-8034-087950993837"
+          },
+          {
+            "type": "text",
+            "text": " objects from inside your head increases by 4. Additionally, if you store only one object within your head, you can draw it effortlessly into your hand as part of another action to use the object. Drawing the item grants this other action the manipulate trait."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.wNnsjird4OQe0s6p"
+    },
+    "data": {
+      "ancestry": "54baa0f3-c686-58a5-91b3-4ccfa6b8d011"
+    }
+  },
+  {
+    "id": "724035b0-4fef-53de-84a8-b2f6551a6f0d",
+    "pack": "player-core",
+    "kind": "heritage",
+    "slug": "heritage:grave-orc",
+    "name": "Grave Orc",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You were exposed to powerful necromantic energies that should have killed you—but you survived. Your skin is cold, clammy, and gray. You gain resistance to void damage equal to half your level (minimum 1). You also gain a +1 circumstance bonus to saving throws against effects with the death or void trait."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.VvEAFoxuddYNBmNc"
+    },
+    "data": {
+      "ancestry": "27e47483-e581-53af-992f-7b19ac052ab4"
+    }
+  },
+  {
+    "id": "73da9d96-0f0e-53dc-9716-75692eb24485",
+    "pack": "player-core",
+    "kind": "heritage",
+    "slug": "heritage:gutsy-halfling",
+    "name": "Gutsy Halfling",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your family line is known for keeping a level head and staving off fear when the chips were down. When you roll a success on a saving throw against an emotion effect, you get a critical success instead."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.Eq42wZ5OTweJLnLU"
+    },
+    "data": {
+      "ancestry": "abf704ef-d31d-527c-b030-3bd58a49b0bd"
+    }
+  },
+  {
+    "id": "881fb601-559b-542a-b2b6-8364cd4782e3",
+    "pack": "player-core",
+    "kind": "heritage",
+    "slug": "heritage:hillock-halfling",
+    "name": "Hillock Halfling",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Accustomed to a calm life in the hills, your people find rest and relaxation especially replenishing, particularly when indulging in creature comforts. When you regain Hit Points overnight, add your level to the Hit Points regained. When anyone uses the Medicine skill to "
+          },
+          {
+            "type": "ref",
+            "id": "18c1b923-595b-5203-a0be-010205e51c44",
+            "label": "Treat your Wounds"
+          },
+          {
+            "type": "text",
+            "text": ", you can eat a snack to add your level to the Hit Points you regain from their treatment."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.Mj7uHxxVkRUlOFwJ"
+    },
+    "data": {
+      "ancestry": "abf704ef-d31d-527c-b030-3bd58a49b0bd"
+    }
+  },
+  {
+    "id": "5181e313-252b-5be4-8923-70b5a859ab00",
+    "pack": "player-core",
+    "kind": "heritage",
+    "slug": "heritage:hold-scarred-orc",
+    "name": "Hold-Scarred Orc",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are part of an orc community that participates in ritual scarification or tattooing. The marks on your skin show your exceptional hardiness and vitality. You gain 12 Hit Points from your ancestry instead of 10. You also gain the "
+          },
+          {
+            "type": "ref",
+            "id": "730b86b0-c740-5759-ba8b-82ae1fede883"
+          },
+          {
+            "type": "text",
+            "text": " feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "730b86b0-c740-5759-ba8b-82ae1fede883"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.MTTU2t7x6TjvUDnE"
+    },
+    "data": {
+      "ancestry": "27e47483-e581-53af-992f-7b19ac052ab4"
+    }
+  },
+  {
+    "id": "6de0c630-5bb1-56e0-adcc-4e6e938d16a9",
+    "pack": "player-core",
+    "kind": "heritage",
+    "slug": "heritage:irongut-goblin",
+    "name": "Irongut Goblin",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can subsist on food that most folks would consider spoiled. You can keep yourself fed with poor meals in a settlement as long as garbage is readily available, without using the "
+          },
+          {
+            "type": "ref",
+            "id": "897dec4f-1321-59a1-bb19-085290e409f0"
+          },
+          {
+            "type": "text",
+            "text": " downtime activity. You can eat and drink things when you are "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 circumstance bonus to saving throws against afflictions, against gaining the sickened condition, and to remove the sickened condition. When you roll a success on a Fortitude save affected by this bonus, you get a critical success instead. All these benefits apply only when the affliction or condition resulted from something you ingested."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.gyoN45SVfRZwHMkk"
+    },
+    "data": {
+      "ancestry": "054f4768-e40c-50b9-bf71-cebc5bd9064e"
+    }
+  },
+  {
+    "id": "cc165a91-eb7a-56f7-a9ed-f98bafe0ad97",
+    "pack": "player-core",
+    "kind": "heritage",
+    "slug": "heritage:jinxed-halfling",
+    "name": "Jinxed Halfling",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You were born with a strange blessing: bereft of the typical halfling luck, you can instead manipulate the fortunes of others. You can never take the "
+          },
+          {
+            "type": "ref",
+            "id": "df61a4b0-d706-5981-977b-68e4471ae112"
+          },
+          {
+            "type": "text",
+            "text": " feat, and you gain the "
+          },
+          {
+            "type": "ref",
+            "id": "949d397a-3563-5d15-af97-9df7ca388162"
+          },
+          {
+            "type": "text",
+            "text": " action."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "949d397a-3563-5d15-af97-9df7ca388162"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.G9Gwfi8ZIva52uGp"
+    },
+    "data": {
+      "ancestry": "abf704ef-d31d-527c-b030-3bd58a49b0bd"
+    }
+  },
+  {
+    "id": "5680674a-9055-5ac7-84e6-712d475d438f",
+    "pack": "player-core",
+    "kind": "heritage",
+    "slug": "heritage:leaf-leshy",
+    "name": "Leaf Leshy",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your body is made mostly from natural foliage, and like a leaf tumbling from a tree, you land from falls with particular grace. You take no damage from falling, regardless of the distance you fall."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.dQqurQys37aJYb26"
+    },
+    "data": {
+      "ancestry": "54baa0f3-c686-58a5-91b3-4ccfa6b8d011"
+    }
+  },
+  {
+    "id": "5112c7f8-8cfb-56b2-81d5-cf65d817f2b7",
+    "pack": "player-core",
+    "kind": "heritage",
+    "slug": "heritage:lotus-leshy",
+    "name": "Lotus Leshy",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You effortlessly float on the surface of water. You can walk on the surface of still water and other non-damaging liquids, moving at half your normal Speed. You can also attempt to "
+          },
+          {
+            "type": "ref",
+            "id": "6fb6b45a-8b16-55e4-ba53-e23a62359b56"
+          },
+          {
+            "type": "text",
+            "text": " to move across the surface of flowing water, using the DC of a Swim check to move through the water. When you do this, you can't move faster than half your Speed, and if you fail or critically fail, you fall into the water rather than the normal effects."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.ievKYUc53q0mroGp"
+    },
+    "data": {
+      "ancestry": "54baa0f3-c686-58a5-91b3-4ccfa6b8d011"
+    }
+  },
+  {
+    "id": "2948706d-43e2-5acc-9c43-2f4bd01887da",
+    "pack": "player-core",
+    "kind": "heritage",
+    "slug": "heritage:nephilim",
+    "name": "Nephilim",
+    "rarity": "uncommon",
+    "traits": ["nephilim"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your nature is influenced by celestials, fiends, or monitors. This manifests as a combination of features that belie your heritage, such as golden eyes, a halo, horns, or a tail. You gain the nephilim trait, in addition to the traits from your ancestry. You gain low-light vision, or you gain darkvision if your ancestry already has low-light vision. You can choose from nephilim feats and feats from your ancestry whenever you gain an ancestry feat."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.1oLMOmLpurfWTTff"
+    },
+    "data": {}
+  },
+  {
+    "id": "548544df-ecc7-595d-a351-f88c6612b45c",
+    "pack": "player-core",
+    "kind": "heritage",
+    "slug": "heritage:nomadic-halfling",
+    "name": "Nomadic Halfling",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your ancestors have traveled from place to place for generations, never content to settle down. You gain two additional languages of your choice, chosen from among the common and uncommon languages available to you, and every time you take the "
+          },
+          {
+            "type": "ref",
+            "id": "2cf519d9-3331-5d83-80da-9041ede7e26f"
+          },
+          {
+            "type": "text",
+            "text": " feat, you gain another new language."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.idGDjqi1q3Ft8bAZ"
+    },
+    "data": {
+      "ancestry": "abf704ef-d31d-527c-b030-3bd58a49b0bd"
+    }
+  },
+  {
+    "id": "e6eb3dc2-a03d-596c-b9e6-4680793f3cdd",
+    "pack": "player-core",
+    "kind": "heritage",
+    "slug": "heritage:rainfall-orc",
+    "name": "Rainfall Orc",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You were born in a rain forest with only tangles of trees providing protection from torrential rainstorms and flash floods. You've learned to move adeptly through jungle terrain and resist the various ailments common in humid environs. You gain a +2 circumstance bonus to Athletics checks to "
+          },
+          {
+            "type": "ref",
+            "id": "d26ec2df-83bd-5f2f-988e-e922681de6ba"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "890ca16b-87be-53af-b93c-ffddb037a2f8"
+          },
+          {
+            "type": "text",
+            "text": " and a +1 circumstance bonus to saving throws against diseases."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.dwKCwwtWetvPmJks"
+    },
+    "data": {
+      "ancestry": "27e47483-e581-53af-992f-7b19ac052ab4"
+    }
+  },
+  {
+    "id": "6c1c0c3f-d79c-515a-b7b8-b03209cea816",
+    "pack": "player-core",
+    "kind": "heritage",
+    "slug": "heritage:razortooth-goblin",
+    "name": "Razortooth Goblin",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your family's teeth are formidable weapons. You gain a jaws unarmed attack that deals 1d6 piercing damage. Your jaws are in the brawling group and have the finesse and unarmed traits."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.a6F2WjYU8D0suT8T"
+    },
+    "data": {
+      "ancestry": "054f4768-e40c-50b9-bf71-cebc5bd9064e"
+    }
+  },
+  {
+    "id": "2868c5cc-d85c-5da5-b15d-982ce709ed4e",
+    "pack": "player-core",
+    "kind": "heritage",
+    "slug": "heritage:rock-dwarf",
+    "name": "Rock Dwarf",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your ancestors lived and worked among the ancient stones of the mountains or the depths of the earth. This makes you solid as a rock when you plant your feet. You gain a +2 circumstance bonus to your Fortitude or Reflex DC against attempts to "
+          },
+          {
+            "type": "ref",
+            "id": "2f5bb1a4-2a45-5c29-ad6a-7feba044cfaa"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "082b982f-3ed4-5d9c-9722-9ab10198523a"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "6257c7f0-f483-53d3-a791-d73a616cbce4"
+          },
+          {
+            "type": "text",
+            "text": " you. This bonus also applies to saving throws against spells or effects that attempt to force you to move or knock you "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In addition, if any effect would force you to move 10 feet or more, you are moved only half the distance."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.VSyOvtgJ1ZNpIVgC"
+    },
+    "data": {
+      "ancestry": "e6d808d9-95b9-5477-8322-791194226314"
+    }
+  },
+  {
+    "id": "7d5119ca-169c-54c1-9927-af4e2e6e3163",
+    "pack": "player-core",
+    "kind": "heritage",
+    "slug": "heritage:root-leshy",
+    "name": "Root Leshy",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your body is made from hardy roots that attach you firmly to the ground. You gain 10 Hit Points from your ancestry instead of 8. You can go without sunlight for 2 weeks before you begin to starve. You gain a +2 circumstance bonus to your Fortitude or Reflex DC against attempts to "
+          },
+          {
+            "type": "ref",
+            "id": "2f5bb1a4-2a45-5c29-ad6a-7feba044cfaa"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "082b982f-3ed4-5d9c-9722-9ab10198523a"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "6257c7f0-f483-53d3-a791-d73a616cbce4"
+          },
+          {
+            "type": "text",
+            "text": " you. This bonus also applies to saving throws against spells or effects that attempt to move you or knock you "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.CZx9HMmoOwcpkLY8"
+    },
+    "data": {
+      "ancestry": "54baa0f3-c686-58a5-91b3-4ccfa6b8d011"
+    }
+  },
+  {
+    "id": "afa62bcb-528e-5d89-b63a-79a5edc792f3",
+    "pack": "player-core",
+    "kind": "heritage",
+    "slug": "heritage:seaweed-leshy",
+    "name": "Seaweed Leshy",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your body is made from woven seaweed, and you're just as comfortable underwater as on land. You gain a swim Speed of 20 feet, and you can always breathe underwater. However, your land Speed is reduced by 5 feet (to 20 feet for most seaweed leshies)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.hTl3uc6y1kTuo9ac"
+    },
+    "data": {
+      "ancestry": "54baa0f3-c686-58a5-91b3-4ccfa6b8d011"
+    }
+  },
+  {
+    "id": "5f4a6615-91fc-5fd3-a1e8-7a89f6ed9c19",
+    "pack": "player-core",
+    "kind": "heritage",
+    "slug": "heritage:seer-elf",
+    "name": "Seer Elf",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have an inborn ability to detect and understand magical phenomena. You can cast the "
+          },
+          {
+            "type": "ref",
+            "id": "c91ac947-a9ec-5f07-b5f9-a054617eb571"
+          },
+          {
+            "type": "text",
+            "text": " cantrip as an arcane innate spell at will. A cantrip is heightened to a spell rank equal to half your level rounded up."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In addition, you gain a +1 circumstance bonus to checks to "
+          },
+          {
+            "type": "ref",
+            "id": "f7dde84e-f48a-5bd2-8a3b-54c8757a4e87"
+          },
+          {
+            "type": "text",
+            "text": " and to "
+          },
+          {
+            "type": "ref",
+            "id": "c0dfa393-d8fb-5aca-9e4e-71cedf7ff14b"
+          },
+          {
+            "type": "text",
+            "text": " of a magical nature. These skill actions typically use the Arcana, Nature, Occultism, or Religion skill."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.jEtVesbqYcWGbBYk"
+    },
+    "data": {
+      "ancestry": "85929532-15d1-52c2-8500-d3b27f174266"
+    }
+  },
+  {
+    "id": "b2b9fff7-2121-58a7-b6a7-3489b0b94728",
+    "pack": "player-core",
+    "kind": "heritage",
+    "slug": "heritage:sensate-gnome",
+    "name": "Sensate Gnome",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You see all colors as brighter, hear all sounds as richer, and especially smell all scents with incredible detail. You gain a special sense: imprecise scent with a range of 30 feet. This means you can use your sense of smell to determine the exact location of a creature. The GM will usually double the range if you're downwind from the creature or halve the range if you're upwind."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In addition, you gain a +2 circumstance bonus to Perception checks whenever you're trying to locate an undetected creature that is within the range of your scent."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.tXC5Gwn9D5x0ouJh"
+    },
+    "data": {
+      "ancestry": "be1b027a-40cb-5267-ac66-7cdc1c0d7813"
+    }
+  },
+  {
+    "id": "840ca828-1e1b-5258-9e63-8a9c1ffd28ad",
+    "pack": "player-core",
+    "kind": "heritage",
+    "slug": "heritage:skilled-human",
+    "name": "Skilled Human",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your ingenuity allows you to train in a wide variety of skills. You become trained in one skill of your choice. At 5th level, you become an expert in the chosen skill."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.zVf0Hlp5xG0Q7kmc"
+    },
+    "data": {
+      "ancestry": "58312ecf-5705-5e7d-b695-248d34618288"
+    }
+  },
+  {
+    "id": "00e9b646-0531-5130-b12d-c7bfde424c07",
+    "pack": "player-core",
+    "kind": "heritage",
+    "slug": "heritage:snow-goblin",
+    "name": "Snow Goblin",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are acclimated to living in frigid lands and have skin ranging from sky blue to navy in color, as well as blue fur. You gain cold resistance equal to half your level (minimum 1). You treat environmental cold effects as if they were one step less extreme (incredible cold becomes extreme, extreme cold becomes severe, and so on)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.gQyPU441J3rGt8mD"
+    },
+    "data": {
+      "ancestry": "054f4768-e40c-50b9-bf71-cebc5bd9064e"
+    }
+  },
+  {
+    "id": "df0891a5-c28b-5b94-b2af-3b04b319c7a5",
+    "pack": "player-core",
+    "kind": "heritage",
+    "slug": "heritage:strong-blooded-dwarf",
+    "name": "Strong-Blooded Dwarf",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your blood runs hearty and strong, and you can shake off toxins. You gain poison resistance equal to half your level (minimum 1), and each of your successful saving throws against a poison affliction reduces its stage by 2, or by 1 for a virulent poison. Each critical success against an ongoing poison reduces its stage by 3, or by 2 for a virulent poison."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.UV2sABrTC5teOXTE"
+    },
+    "data": {
+      "ancestry": "e6d808d9-95b9-5477-8322-791194226314"
+    }
+  },
+  {
+    "id": "c6ee44b4-e28e-5eed-887d-4ce46291efb2",
+    "pack": "player-core",
+    "kind": "heritage",
+    "slug": "heritage:twilight-halfling",
+    "name": "Twilight Halfling",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your ancestors performed many secret acts under the concealing cover of dusk, whether for good or ill, and over time they developed the ability to see in twilight beyond even the usual keen sight of halflings. You gain low-light vision."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.cCy8vsZENlwiAyZ6"
+    },
+    "data": {
+      "ancestry": "abf704ef-d31d-527c-b030-3bd58a49b0bd"
+    }
+  },
+  {
+    "id": "67dbeee8-509a-5076-be56-cabf42fdb9d0",
+    "pack": "player-core",
+    "kind": "heritage",
+    "slug": "heritage:umbral-gnome",
+    "name": "Umbral Gnome",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whether from a connection to dark or shadowy fey, from the underground gnomes known as drathnelar, or from another source, you can see in complete darkness. You gain darkvision."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.d0bNxgGqvaCkFlhN"
+    },
+    "data": {
+      "ancestry": "be1b027a-40cb-5267-ac66-7cdc1c0d7813"
+    }
+  },
+  {
+    "id": "b18f0b34-d4b6-5acc-b968-b45694f9954a",
+    "pack": "player-core",
+    "kind": "heritage",
+    "slug": "heritage:unbreakable-goblin",
+    "name": "Unbreakable Goblin",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're able to bounce back from injuries easily due to an exceptionally thick skull, cartilaginous bones, or some other mixed blessing. You gain 10 Hit Points from your ancestry instead of 6. When you fall, reduce the falling damage you take as though you had fallen half the distance."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.ULj56ZoW7dWdnBvu"
+    },
+    "data": {
+      "ancestry": "054f4768-e40c-50b9-bf71-cebc5bd9064e"
+    }
+  },
+  {
+    "id": "70bcc818-e617-5d3d-ab0d-fec44708728f",
+    "pack": "player-core",
+    "kind": "heritage",
+    "slug": "heritage:versatile-human",
+    "name": "Versatile Human",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Humanity's versatility and ambition have fueled its ascendance to be the most common ancestry in most nations throughout the world. Select a general feat of your choice for which you meet the prerequisites (as with your ancestry feat, you can select this general feat at any point during character creation)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.hFBwsVcSnNCJoimo"
+    },
+    "data": {
+      "ancestry": "58312ecf-5705-5e7d-b695-248d34618288"
+    }
+  },
+  {
+    "id": "aab42f63-8e59-5df3-bb9e-4f6a66a0255b",
+    "pack": "player-core",
+    "kind": "heritage",
+    "slug": "heritage:vine-leshy",
+    "name": "Vine Leshy",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your prehensile vines grant you unmatched skill at climbing. You do not need to have any hands free to "
+          },
+          {
+            "type": "ref",
+            "id": "d26ec2df-83bd-5f2f-988e-e922681de6ba"
+          },
+          {
+            "type": "text",
+            "text": ". Additionally, if you roll a success on an Athletics check to Climb, you get a critical success instead."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.evXJISqyhl3fHE9u"
+    },
+    "data": {
+      "ancestry": "54baa0f3-c686-58a5-91b3-4ccfa6b8d011"
+    }
+  },
+  {
+    "id": "d939bd3a-57a0-506b-9b09-18b01c450123",
+    "pack": "player-core",
+    "kind": "heritage",
+    "slug": "heritage:wellspring-gnome",
+    "name": "Wellspring Gnome",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Some other source of magic has a greater hold on you than the primal magic of your fey lineage does. This connection might come from an occult plane or an ancient occult song; a deity, celestial, or fiend; magical effluent left behind by a mage war; or ancient rune magic."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose arcane, divine, or occult. You gain one cantrip from that magical tradition's spell list. You can cast this spell as an innate spell at will, as a spell of your chosen tradition. A cantrip is heightened to a spell rank equal to half your level rounded up. Whenever you gain a primal innate spell from a gnome ancestry feat, change its tradition from primal to your chosen tradition."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.etkuQkjkNLPLnjkA"
+    },
+    "data": {
+      "ancestry": "be1b027a-40cb-5267-ac66-7cdc1c0d7813"
+    }
+  },
+  {
+    "id": "478fb4e8-f695-5004-9f0a-94bfeeef4f9e",
+    "pack": "player-core",
+    "kind": "heritage",
+    "slug": "heritage:whisper-elf",
+    "name": "Whisper Elf",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your ears are finely tuned, able to detect even the slightest whispers of sound. You gain a +2 circumstance bonus when using the "
+          },
+          {
+            "type": "ref",
+            "id": "d45207be-e539-50ce-9463-f4edc3671076"
+          },
+          {
+            "type": "text",
+            "text": " action to find "
+          },
+          {
+            "type": "ref",
+            "id": "d851e3ca-be0d-55a7-a4d1-d7ed8b7ecafa"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "61f1fec4-1bb4-585d-9c12-6059d15dd74b"
+          },
+          {
+            "type": "text",
+            "text": " creatures within 30 feet of you. When you target an opponent that is "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": " from you or hidden from you, reduce the DC of the flat check to 3 for a concealed target or 9 for a hidden one. This benefit doesn't apply if you can't hear or if the creature is incapable of making sound (for example, if it's affected by a "
+          },
+          {
+            "type": "ref",
+            "id": "306213b0-9e11-55d8-b630-8786ea86a27d"
+          },
+          {
+            "type": "text",
+            "text": " spell)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.1wVDYY9Wue0G5R9Q"
+    },
+    "data": {
+      "ancestry": "85929532-15d1-52c2-8500-d3b27f174266"
+    }
+  },
+  {
+    "id": "15d31f8c-118e-5007-b15b-0acb6bd84c0e",
+    "pack": "player-core",
+    "kind": "heritage",
+    "slug": "heritage:wildwood-halfling",
+    "name": "Wildwood Halfling",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You hail from deep within a jungle or forest, and you've learned how to use your small size to wriggle through undergrowth and other obstacles. You ignore any difficult terrain caused by plants and fungi, such as bushes, vines, and undergrowth."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.xtRIYizCjLg9qe1Z"
+    },
+    "data": {
+      "ancestry": "abf704ef-d31d-527c-b030-3bd58a49b0bd"
+    }
+  },
+  {
+    "id": "1b1da848-461d-5b82-98a8-6fa13665d47b",
+    "pack": "player-core",
+    "kind": "heritage",
+    "slug": "heritage:winter-orc",
+    "name": "Winter Orc",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your ancestors survived in cold climates. You become trained in Survival, and you treat environmental cold effects as if they were one step less extreme (incredible cold becomes extreme, extreme cold becomes severe, and so on)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.pZ1u2ScWrBXSaAqQ"
+    },
+    "data": {
+      "ancestry": "27e47483-e581-53af-992f-7b19ac052ab4"
+    }
+  },
+  {
+    "id": "10f38b9f-f985-5fb2-a55b-8a90d13ff37f",
+    "pack": "player-core",
+    "kind": "heritage",
+    "slug": "heritage:woodland-elf",
+    "name": "Woodland Elf",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're adapted to life in the forest, the deep jungle, or a similar environment, and you know how to climb trees and use foliage to your advantage. When "
+          },
+          {
+            "type": "ref",
+            "id": "d26ec2df-83bd-5f2f-988e-e922681de6ba",
+            "label": "Climbing"
+          },
+          {
+            "type": "text",
+            "text": " trees, vines, and other foliage, you move at half your Speed on a success and at full Speed on a critical success (and you move at full Speed on a success if you have "
+          },
+          {
+            "type": "ref",
+            "id": "a1f321de-e696-5d28-ad54-980c6372750b"
+          },
+          {
+            "type": "text",
+            "text": "). This doesn't affect you if you're using a climb Speed."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can always use the "
+          },
+          {
+            "type": "ref",
+            "id": "ef51d835-6ab6-513d-b582-80753efde13b"
+          },
+          {
+            "type": "text",
+            "text": " action when you are within forest terrain to gain cover, even if you're not next to an obstacle you can Take Cover behind."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.nW1gi13E62Feto2w"
+    },
+    "data": {
+      "ancestry": "85929532-15d1-52c2-8500-d3b27f174266"
+    }
+  }
+]

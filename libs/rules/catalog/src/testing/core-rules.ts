@@ -7,6 +7,7 @@ import {
   contentId,
   contentPackFromContents,
   ContentRegistry,
+  Domain,
   EntrySlug,
   Proficiency,
   VariantRuleId,
@@ -49,7 +50,7 @@ export const fighter: StatisticInputs = StatisticInputsJson.parse({
     'save:will': 'trained',
     perception: 'expert',
     'skill:athletics': 'trained',
-    'skill:lore:farming': 'trained',
+    'skill:lore:pathfinder-society': 'trained',
     'class-dc': 'trained',
     'attack:simple': 'expert',
     'attack:martial': 'expert',
@@ -99,6 +100,10 @@ export const SKILLS: Readonly<Record<string, Attribute>> = {
 };
 
 export const SKILL_SELECTORS = Object.keys(SKILLS).map((slug) => `skill:${slug}`);
+/** The Lores Player Core's backgrounds train, which its import adds to the core rules pack (rules-engine.md). */
+export const LORE_SELECTORS: readonly string[] = coreRules.statistics
+  .flatMap(({ selector, domains }) => (domains.includes(Domain.parse('lore')) ? [String(selector)] : []))
+  .toSorted();
 /** The statistics whose base ends in a proficiency bonus, `@prof`. */
 export const PROFICIENCY_SELECTORS = [...DEFENCES, ...SKILL_SELECTORS, 'class-dc'];
 export const SELECTORS = [...PROFICIENCY_SELECTORS, 'hp:max', 'speed:land'];

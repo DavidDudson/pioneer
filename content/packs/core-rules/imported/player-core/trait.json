@@ -1,0 +1,4076 @@
+[
+  {
+    "id": "03bb05d7-417a-57cb-8f5d-3026a47dfdbb",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:acid",
+    "name": "Acid",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "armor",
+        "class-feature",
+        "condition",
+        "consumable",
+        "creature",
+        "effect",
+        "equipment",
+        "feat",
+        "heritage",
+        "ritual",
+        "shield",
+        "spell",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "a4b26bfd-0236-5f30-b9d8-c16231739f2c",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:agile",
+    "name": "Agile",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "weapon"]
+    }
+  },
+  {
+    "id": "dceb86f5-1380-5513-99ec-55c8752b945e",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:air",
+    "name": "Air",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "armor",
+        "class-feature",
+        "condition",
+        "consumable",
+        "creature",
+        "effect",
+        "equipment",
+        "feat",
+        "heritage",
+        "ritual",
+        "shield",
+        "spell",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "c3906983-7c62-5b93-be4a-d4fdca94e50b",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:aiuvarin",
+    "name": "Aiuvarin",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "ancestry", "class-feature", "creature", "equipment", "feat", "heritage", "weapon"]
+    }
+  },
+  {
+    "id": "6133b48b-ab27-500d-8008-e5155d16ff65",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:alchemist",
+    "name": "Alchemist",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
+    }
+  },
+  {
+    "id": "9e0ecd2b-53f8-5943-a416-a9651e728174",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:animist",
+    "name": "Animist",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
+    }
+  },
+  {
+    "id": "e40e2ae2-8c8b-5e23-9d52-a01fe7dbd5e0",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:arcane",
+    "name": "Arcane",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "armor",
+        "class-feature",
+        "condition",
+        "consumable",
+        "creature",
+        "effect",
+        "equipment",
+        "feat",
+        "heritage",
+        "ritual",
+        "shield",
+        "spell",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "592edd60-b163-5c9a-8f5e-62349c1bad44",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:archetype",
+    "name": "Archetype",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "class-feature", "feat"]
+    }
+  },
+  {
+    "id": "b4b22f99-19a8-5548-8a26-088a50c0656e",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:ardande",
+    "name": "Ardande",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "ancestry", "class-feature", "creature", "equipment", "feat", "heritage", "weapon"]
+    }
+  },
+  {
+    "id": "ad616af4-30c2-5d5d-8942-ce5e4741367a",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:attached-to-shield",
+    "name": "Attached to Shield",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["weapon"]
+    }
+  },
+  {
+    "id": "dfa53de7-45b0-52aa-b85e-0c9bf7cd24e6",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:attack",
+    "name": "Attack",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "class-feature", "consumable", "feat", "ritual", "spell"]
+    }
+  },
+  {
+    "id": "2ba38c6e-2216-5e7b-a3a9-f26808787a65",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:auditory",
+    "name": "Auditory",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "armor",
+        "class-feature",
+        "condition",
+        "consumable",
+        "effect",
+        "equipment",
+        "feat",
+        "ritual",
+        "spell",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "9f522d2d-edfa-5ed0-b2b0-330658f7927f",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:aura",
+    "name": "Aura",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "armor",
+        "class-feature",
+        "condition",
+        "consumable",
+        "effect",
+        "equipment",
+        "feat",
+        "ritual",
+        "shield",
+        "spell"
+      ]
+    }
+  },
+  {
+    "id": "c6f84b7d-1dd0-50c0-a6b7-488877e71ca6",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:backstabber",
+    "name": "Backstabber",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["weapon"]
+    }
+  },
+  {
+    "id": "747895f4-e3b9-5564-a1ed-0e545e9bd696",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:backswing",
+    "name": "Backswing",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "weapon"]
+    }
+  },
+  {
+    "id": "5551ca58-758a-5a87-96b5-6523d005e396",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:barbarian",
+    "name": "Barbarian",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
+    }
+  },
+  {
+    "id": "479f930d-2d43-5f95-b2c6-c76df39b627d",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:bard",
+    "name": "Bard",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
+    }
+  },
+  {
+    "id": "49cc6fd8-7a91-5827-ab38-3295fc5dc965",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:barding",
+    "name": "Barding",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["armor", "equipment"]
+    }
+  },
+  {
+    "id": "05cc037b-49e6-5112-bf84-25e3310a2495",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:bulwark",
+    "name": "Bulwark",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["armor"]
+    }
+  },
+  {
+    "id": "70b92423-1c38-564f-98f0-d8c2ebdb3e2e",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:cantrip",
+    "name": "Cantrip",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "class-feature", "consumable", "feat", "ritual", "spell"]
+    }
+  },
+  {
+    "id": "246f1f55-31ff-5a71-b148-45c365aac1e0",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:champion",
+    "name": "Champion",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
+    }
+  },
+  {
+    "id": "f4623e9b-5749-51a2-b948-722ffe1d7d1d",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:changeling",
+    "name": "Changeling",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "ancestry", "class-feature", "creature", "equipment", "feat", "heritage", "weapon"]
+    }
+  },
+  {
+    "id": "f58d4428-176d-5eaa-bd34-a33c2d383427",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:cleric",
+    "name": "Cleric",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
+    }
+  },
+  {
+    "id": "ad937d1d-0e68-5152-b25d-d6d77b860f68",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:cold",
+    "name": "Cold",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "armor",
+        "class-feature",
+        "condition",
+        "consumable",
+        "creature",
+        "effect",
+        "equipment",
+        "feat",
+        "heritage",
+        "ritual",
+        "shield",
+        "spell",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "cf374199-f11d-5f21-b3ea-1f96beaec1e5",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:comfort",
+    "name": "Comfort",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["armor"]
+    }
+  },
+  {
+    "id": "05efbcf6-d195-56ec-9ed9-735808ad352a",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:commander",
+    "name": "Commander",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
+    }
+  },
+  {
+    "id": "a6469a98-cb0e-51a6-9ba0-e8c49fc5249a",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:companion",
+    "name": "Companion",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["armor", "equipment"]
+    }
+  },
+  {
+    "id": "a8ba1f7d-64db-5506-bba1-136b189a8d0f",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:composition",
+    "name": "Composition",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "class-feature", "consumable", "feat", "ritual", "spell"]
+    }
+  },
+  {
+    "id": "99191359-9c16-5439-a93f-8608fa3e7f2a",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:concealable",
+    "name": "Concealable",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["weapon"]
+    }
+  },
+  {
+    "id": "c68787fe-f87f-5af7-a1c6-c72dbb0273e2",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:concentrate",
+    "name": "Concentrate",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "class-feature", "consumable", "feat", "ritual", "spell"]
+    }
+  },
+  {
+    "id": "f3aff6c4-8b9f-5d37-8d9c-6f2fed5dd0e0",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:consecration",
+    "name": "Consecration",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "class-feature",
+        "condition",
+        "consumable",
+        "effect",
+        "equipment",
+        "feat",
+        "ritual",
+        "spell"
+      ]
+    }
+  },
+  {
+    "id": "8dba87b8-d021-564e-b025-0e8c26ef4766",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:consumable",
+    "name": "Consumable",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "consumable", "weapon"]
+    }
+  },
+  {
+    "id": "26d52a0e-e4e1-5294-a03b-5b0374e6e99c",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:curse",
+    "name": "Curse",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "class-feature", "condition", "consumable", "effect", "feat", "ritual", "spell"]
+    }
+  },
+  {
+    "id": "4bed5d11-17e1-561f-923d-f64e7e61f7ee",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:darkness",
+    "name": "Darkness",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "class-feature",
+        "condition",
+        "consumable",
+        "effect",
+        "equipment",
+        "feat",
+        "ritual",
+        "spell"
+      ]
+    }
+  },
+  {
+    "id": "d733d68c-aa6b-5294-b8fc-9a1aec1cd0aa",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:deadly-d10",
+    "name": "Deadly d10",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["weapon"]
+    }
+  },
+  {
+    "id": "19ec250d-aaa1-531d-be27-e043e826fd08",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:deadly-d6",
+    "name": "Deadly d6",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["weapon"]
+    }
+  },
+  {
+    "id": "d6f284a5-8b92-5a4d-a652-c93721be5000",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:deadly-d8",
+    "name": "Deadly d8",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["weapon"]
+    }
+  },
+  {
+    "id": "86cdf5eb-1738-5320-a5a3-0964be865b9b",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:death",
+    "name": "Death",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "class-feature",
+        "condition",
+        "consumable",
+        "effect",
+        "equipment",
+        "feat",
+        "ritual",
+        "spell",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "84cafa8b-80cb-5693-9a65-d351e07a7828",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:dedication",
+    "name": "Dedication",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "class-feature", "feat"]
+    }
+  },
+  {
+    "id": "51929746-3fe0-5867-a1c8-2a7aa3d76cf1",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:detection",
+    "name": "Detection",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "class-feature",
+        "condition",
+        "consumable",
+        "effect",
+        "equipment",
+        "feat",
+        "ritual",
+        "spell"
+      ]
+    }
+  },
+  {
+    "id": "ffea5057-52ac-51fb-91b3-b283d501b68f",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:disarm",
+    "name": "Disarm",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["weapon"]
+    }
+  },
+  {
+    "id": "73170790-a182-5f35-a5d5-69dfc39baf70",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:disease",
+    "name": "Disease",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "class-feature", "condition", "consumable", "effect", "feat", "ritual", "spell", "weapon"]
+    }
+  },
+  {
+    "id": "20f926fe-3696-5299-bed8-2e60edd29e1b",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:divine",
+    "name": "Divine",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "armor",
+        "class-feature",
+        "condition",
+        "consumable",
+        "creature",
+        "effect",
+        "equipment",
+        "feat",
+        "heritage",
+        "ritual",
+        "shield",
+        "spell",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "22d8b101-ff72-533a-b61b-1d748381eda9",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:downtime",
+    "name": "Downtime",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "class-feature", "condition", "effect", "feat"]
+    }
+  },
+  {
+    "id": "b38d70f7-c1d2-5143-aa9f-43918479585c",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:dromaar",
+    "name": "Dromaar",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "ancestry", "class-feature", "creature", "equipment", "feat", "heritage", "weapon"]
+    }
+  },
+  {
+    "id": "36f23021-0312-5c68-81ea-811a1a295f57",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:druid",
+    "name": "Druid",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
+    }
+  },
+  {
+    "id": "59034ba2-33d7-52eb-bf91-ac11fca3583a",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:dwarf",
+    "name": "Dwarf",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "ancestry", "class-feature", "creature", "equipment", "feat", "heritage", "weapon"]
+    }
+  },
+  {
+    "id": "8f310ef2-bb03-5995-9ca9-746220718869",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:earth",
+    "name": "Earth",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "armor",
+        "class-feature",
+        "condition",
+        "consumable",
+        "creature",
+        "effect",
+        "equipment",
+        "feat",
+        "heritage",
+        "ritual",
+        "shield",
+        "spell",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "d9aaea12-ec94-50d4-ac7f-7557d4484fc3",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:electricity",
+    "name": "Electricity",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "armor",
+        "class-feature",
+        "condition",
+        "consumable",
+        "creature",
+        "effect",
+        "equipment",
+        "feat",
+        "heritage",
+        "ritual",
+        "shield",
+        "spell",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "3c70d61e-277c-5b23-bde2-195a6fa39cf7",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:elf",
+    "name": "Elf",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "ancestry", "class-feature", "creature", "equipment", "feat", "heritage", "weapon"]
+    }
+  },
+  {
+    "id": "9f61a4f6-a7a8-55af-a304-8b06630cacf9",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:emotion",
+    "name": "Emotion",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "class-feature",
+        "condition",
+        "consumable",
+        "effect",
+        "equipment",
+        "feat",
+        "ritual",
+        "spell",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "08712238-d1a8-5e3a-826d-473145cf423d",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:exemplar",
+    "name": "Exemplar",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
+    }
+  },
+  {
+    "id": "30fc1272-58d9-5e3c-adff-1e19f97108b7",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:exploration",
+    "name": "Exploration",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "class-feature", "consumable", "feat", "ritual", "spell"]
+    }
+  },
+  {
+    "id": "d14d8b1e-86cf-5a64-a5a5-f1e94d14b93e",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:extradimensional",
+    "name": "Extradimensional",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "armor",
+        "class-feature",
+        "condition",
+        "consumable",
+        "effect",
+        "equipment",
+        "feat",
+        "ritual",
+        "shield",
+        "spell",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "cfa1c737-c2c5-51ae-89ab-f37cb7b96f6d",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:fatal-d10",
+    "name": "Fatal d10",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["weapon"]
+    }
+  },
+  {
+    "id": "8c0f7355-ce13-583a-8908-cf253a65ffb2",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:fatal-d12",
+    "name": "Fatal d12",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["weapon"]
+    }
+  },
+  {
+    "id": "82dd1216-66b4-5b42-ac51-5a110d0d6601",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:fatal-d8",
+    "name": "Fatal d8",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["weapon"]
+    }
+  },
+  {
+    "id": "fbd10f7f-d125-53ca-8a9a-d705963e31ef",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:fear",
+    "name": "Fear",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "class-feature",
+        "condition",
+        "consumable",
+        "effect",
+        "equipment",
+        "feat",
+        "ritual",
+        "spell",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "55dc119e-e6fb-57c6-89a9-565f381ece32",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:fighter",
+    "name": "Fighter",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
+    }
+  },
+  {
+    "id": "b08537a9-d85a-54e8-a138-3c4fe297a71d",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:finesse",
+    "name": "Finesse",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["weapon"]
+    }
+  },
+  {
+    "id": "7e8f0429-857b-5a03-b1d1-c70a8907b3eb",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:fire",
+    "name": "Fire",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "armor",
+        "class-feature",
+        "condition",
+        "consumable",
+        "creature",
+        "effect",
+        "equipment",
+        "feat",
+        "heritage",
+        "ritual",
+        "shield",
+        "spell",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "298a342f-4b58-535a-a98e-3a4259727a02",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:flexible",
+    "name": "Flexible",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["armor"]
+    }
+  },
+  {
+    "id": "9abdd3eb-6d83-5525-8794-81d9ec5a6020",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:flourish",
+    "name": "Flourish",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "class-feature", "feat"]
+    }
+  },
+  {
+    "id": "51100b69-0890-5eaf-926e-66302b9166c7",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:focus",
+    "name": "Focus",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "class-feature", "consumable", "feat", "ritual", "spell"]
+    }
+  },
+  {
+    "id": "58503bd5-7025-5e91-9c59-3acaff209996",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:force",
+    "name": "Force",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "armor",
+        "class-feature",
+        "condition",
+        "consumable",
+        "creature",
+        "effect",
+        "equipment",
+        "feat",
+        "heritage",
+        "ritual",
+        "shield",
+        "spell",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "f09fa2ac-e125-5da7-88c4-40e19556b05f",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:forceful",
+    "name": "Forceful",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "weapon"]
+    }
+  },
+  {
+    "id": "6e60c76d-e48e-56d0-a21a-2b0142300695",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:fortune",
+    "name": "Fortune",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "class-feature",
+        "condition",
+        "consumable",
+        "effect",
+        "equipment",
+        "feat",
+        "ritual",
+        "spell",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "8877382a-8b20-5898-bb16-b8172db97c4c",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:free-hand",
+    "name": "Free-Hand",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["weapon"]
+    }
+  },
+  {
+    "id": "8c434d24-48bb-5309-b2a8-bf1fa8ae500e",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:general",
+    "name": "General",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "class-feature", "feat"]
+    }
+  },
+  {
+    "id": "2d67d558-3ffd-5ad3-8097-341ea7d05a52",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:ghoran",
+    "name": "Ghoran",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "ancestry", "class-feature", "creature", "equipment", "feat", "heritage", "weapon"]
+    }
+  },
+  {
+    "id": "e129313a-b37a-5b4f-bf7b-b29d132623a0",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:gnome",
+    "name": "Gnome",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "ancestry", "class-feature", "creature", "equipment", "feat", "heritage", "weapon"]
+    }
+  },
+  {
+    "id": "3b99a2c1-bd98-59f1-afa2-4c23848d2839",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:goblin",
+    "name": "Goblin",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "ancestry", "class-feature", "creature", "equipment", "feat", "heritage", "weapon"]
+    }
+  },
+  {
+    "id": "6e16d9c5-a610-5619-9264-10e1ea6d1873",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:grapple",
+    "name": "Grapple",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["weapon"]
+    }
+  },
+  {
+    "id": "830b827c-42c1-5360-9baf-c4ef5e8d049b",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:guardian",
+    "name": "Guardian",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
+    }
+  },
+  {
+    "id": "31004276-6054-59a8-8c88-ecddaa4cb603",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:gunslinger",
+    "name": "Gunslinger",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
+    }
+  },
+  {
+    "id": "84c3fd05-0f96-53a3-9c39-0007734b2df7",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:halfling",
+    "name": "Halfling",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "ancestry", "class-feature", "creature", "equipment", "feat", "heritage", "weapon"]
+    }
+  },
+  {
+    "id": "b9a55813-c6f8-5474-8598-395968e00671",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:healing",
+    "name": "Healing",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "armor",
+        "class-feature",
+        "condition",
+        "consumable",
+        "effect",
+        "equipment",
+        "feat",
+        "ritual",
+        "spell",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "27d071da-1040-5bc8-a2e9-c069db733096",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:hex",
+    "name": "Hex",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "class-feature", "condition", "consumable", "effect", "feat", "ritual", "spell"]
+    }
+  },
+  {
+    "id": "764774ab-14ce-5855-8422-b3496bd73d3e",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:holy",
+    "name": "Holy",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "armor",
+        "class-feature",
+        "condition",
+        "consumable",
+        "creature",
+        "effect",
+        "equipment",
+        "feat",
+        "heritage",
+        "ritual",
+        "shield",
+        "spell",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "b2cb6715-f5ee-561a-94a9-e1110c4347e5",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:human",
+    "name": "Human",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "ancestry", "class-feature", "creature", "equipment", "feat", "heritage", "weapon"]
+    }
+  },
+  {
+    "id": "2fcf3773-6977-502f-abde-6fa89fd46bf1",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:humanoid",
+    "name": "Humanoid",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["ancestry", "creature", "heritage"]
+    }
+  },
+  {
+    "id": "44743406-c69f-50cc-aa61-a9363c1511d9",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:illusion",
+    "name": "Illusion",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "armor",
+        "class-feature",
+        "condition",
+        "consumable",
+        "creature",
+        "effect",
+        "equipment",
+        "feat",
+        "heritage",
+        "ritual",
+        "spell",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "22d9c70c-a298-5839-8938-db2a90d210da",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:incapacitation",
+    "name": "Incapacitation",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "class-feature",
+        "condition",
+        "consumable",
+        "effect",
+        "equipment",
+        "feat",
+        "ritual",
+        "spell"
+      ]
+    }
+  },
+  {
+    "id": "b0bad8c8-13e2-57d0-9507-f683ba2d8177",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:inventor",
+    "name": "Inventor",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
+    }
+  },
+  {
+    "id": "a807bf63-1950-5c24-b812-ca3958c9a186",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:invested",
+    "name": "Invested",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["armor", "equipment", "shield", "weapon"]
+    }
+  },
+  {
+    "id": "2c9a7e61-ca3e-5af8-9b14-660d3322ad4b",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:investigator",
+    "name": "Investigator",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
+    }
+  },
+  {
+    "id": "1b67a647-22b7-55ad-9502-db46ce79a4f1",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:jousting-d6",
+    "name": "Jousting d6",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["weapon"]
+    }
+  },
+  {
+    "id": "d3d8c168-e7e7-53a9-b4c5-02e7e8f49993",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:kineticist",
+    "name": "Kineticist",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
+    }
+  },
+  {
+    "id": "824ef7c3-bb72-5aae-81ec-c830e609d08b",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:leshy",
+    "name": "Leshy",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "ancestry", "class-feature", "creature", "equipment", "feat", "heritage", "weapon"]
+    }
+  },
+  {
+    "id": "88e40483-b47d-538b-97c4-b9445fcb3579",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:light",
+    "name": "Light",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "armor",
+        "class-feature",
+        "condition",
+        "consumable",
+        "creature",
+        "effect",
+        "equipment",
+        "feat",
+        "heritage",
+        "ritual",
+        "shield",
+        "spell",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "ee91922a-b1f9-54b5-aead-8ff4886b28fb",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:lineage",
+    "name": "Lineage",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "class-feature", "feat"]
+    }
+  },
+  {
+    "id": "d65df846-4812-5616-87b6-618ee8aa5ada",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:linguistic",
+    "name": "Linguistic",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "class-feature", "condition", "consumable", "effect", "feat", "ritual", "spell"]
+    }
+  },
+  {
+    "id": "e5ad9e05-30c4-5c74-ad98-9c14ba747dbd",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:magical",
+    "name": "Magical",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "armor",
+        "class-feature",
+        "condition",
+        "consumable",
+        "effect",
+        "equipment",
+        "feat",
+        "ritual",
+        "shield",
+        "spell",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "c461fe99-a5ee-5ee5-ae91-05287db8ac87",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:magus",
+    "name": "Magus",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
+    }
+  },
+  {
+    "id": "b707a247-1f21-52f2-8cc0-ae4e3a749e93",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:manipulate",
+    "name": "Manipulate",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "class-feature", "consumable", "feat", "ritual", "spell"]
+    }
+  },
+  {
+    "id": "05be234d-4798-54ee-bc0d-4fb57aae8da2",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:mental",
+    "name": "Mental",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "armor",
+        "class-feature",
+        "condition",
+        "consumable",
+        "creature",
+        "effect",
+        "equipment",
+        "feat",
+        "heritage",
+        "ritual",
+        "shield",
+        "spell",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "8ecd7fbf-08a8-5ca5-a3f8-07fe7e926e11",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:metal",
+    "name": "Metal",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "armor",
+        "class-feature",
+        "condition",
+        "consumable",
+        "creature",
+        "effect",
+        "equipment",
+        "feat",
+        "heritage",
+        "ritual",
+        "shield",
+        "spell",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "d740fff7-f188-5add-9d52-a0c93966fe32",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:misfortune",
+    "name": "Misfortune",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "class-feature",
+        "condition",
+        "consumable",
+        "effect",
+        "equipment",
+        "feat",
+        "ritual",
+        "spell"
+      ]
+    }
+  },
+  {
+    "id": "bbd25139-3a53-5b76-a9e8-322df773e2c2",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:monk",
+    "name": "Monk",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "class-feature", "consumable", "feat", "kit", "ritual", "spell", "weapon"]
+    }
+  },
+  {
+    "id": "eb5758ab-36ae-5b49-897a-55511d6980aa",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:morph",
+    "name": "Morph",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "class-feature",
+        "condition",
+        "consumable",
+        "effect",
+        "equipment",
+        "feat",
+        "ritual",
+        "spell"
+      ]
+    }
+  },
+  {
+    "id": "2a069acb-0791-5905-b179-8fdc90ee9fbf",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:move",
+    "name": "Move",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "class-feature", "condition", "consumable", "effect", "feat", "ritual", "spell"]
+    }
+  },
+  {
+    "id": "f60821e9-1429-57a4-be35-38cf14e72a74",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:multiclass",
+    "name": "Multiclass",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "class-feature", "feat"]
+    }
+  },
+  {
+    "id": "83d8837b-ef28-5c7e-8721-bbaeb0f65f6c",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:naari",
+    "name": "Naari",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "ancestry", "class-feature", "creature", "equipment", "feat", "heritage", "weapon"]
+    }
+  },
+  {
+    "id": "632f345b-46a3-54ed-9e1c-3a64d15929fc",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:necromancer",
+    "name": "Necromancer",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
+    }
+  },
+  {
+    "id": "eeec0414-2e51-56d8-ad50-ace7b889a83a",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:nephilim",
+    "name": "Nephilim",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "ancestry", "class-feature", "creature", "equipment", "feat", "heritage", "weapon"]
+    }
+  },
+  {
+    "id": "4a0554d8-f18d-5017-850a-8274c0a51082",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:noisy",
+    "name": "Noisy",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["armor"]
+    }
+  },
+  {
+    "id": "df185987-2ea9-5947-aa9d-3cc64a6de059",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:nonlethal",
+    "name": "Nonlethal",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "armor",
+        "class-feature",
+        "condition",
+        "consumable",
+        "effect",
+        "equipment",
+        "feat",
+        "ritual",
+        "shield",
+        "spell",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "e0a579f6-72b3-5629-9e84-8140bc67d4b2",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:occult",
+    "name": "Occult",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "armor",
+        "class-feature",
+        "condition",
+        "consumable",
+        "creature",
+        "effect",
+        "equipment",
+        "feat",
+        "heritage",
+        "ritual",
+        "shield",
+        "spell",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "c949b53f-7cf1-5f83-8108-25fd999d5107",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:olfactory",
+    "name": "Olfactory",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "class-feature", "condition", "consumable", "effect", "feat", "ritual", "spell", "weapon"]
+    }
+  },
+  {
+    "id": "eb52f3fb-6fba-5ed6-89d8-38d1fa60fb19",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:oracle",
+    "name": "Oracle",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
+    }
+  },
+  {
+    "id": "1453ac4f-0964-5c69-b349-075cc37a784f",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:orc",
+    "name": "Orc",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "ancestry", "class-feature", "creature", "equipment", "feat", "heritage", "weapon"]
+    }
+  },
+  {
+    "id": "84c615d9-62ab-583a-ac1e-4f0ae591ed73",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:oread",
+    "name": "Oread",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "ancestry", "class-feature", "creature", "equipment", "feat", "heritage", "weapon"]
+    }
+  },
+  {
+    "id": "871cbb87-9750-5243-93c7-19578ca459a7",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:parry",
+    "name": "Parry",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["weapon"]
+    }
+  },
+  {
+    "id": "ba8b1449-2ba6-5345-bd46-b88c331928f9",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:plant",
+    "name": "Plant",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "armor",
+        "class-feature",
+        "condition",
+        "consumable",
+        "creature",
+        "effect",
+        "equipment",
+        "feat",
+        "heritage",
+        "ritual",
+        "shield",
+        "spell",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "62e0b3e6-409f-5de4-8fa0-5bf5b9c5a57b",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:poison",
+    "name": "Poison",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "class-feature",
+        "condition",
+        "consumable",
+        "creature",
+        "effect",
+        "equipment",
+        "feat",
+        "heritage",
+        "ritual",
+        "spell",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "1be27f76-2b1b-5236-8372-3fc0f10ee8f9",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:polymorph",
+    "name": "Polymorph",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "class-feature",
+        "condition",
+        "consumable",
+        "effect",
+        "equipment",
+        "feat",
+        "ritual",
+        "spell"
+      ]
+    }
+  },
+  {
+    "id": "4923e6d1-8fd2-5465-a616-5a4378442501",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:possession",
+    "name": "Possession",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "class-feature", "condition", "consumable", "effect", "feat", "ritual", "spell"]
+    }
+  },
+  {
+    "id": "be53cda5-3cda-5973-8b80-017fa48b843a",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:prediction",
+    "name": "Prediction",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "class-feature",
+        "condition",
+        "consumable",
+        "effect",
+        "equipment",
+        "feat",
+        "ritual",
+        "spell"
+      ]
+    }
+  },
+  {
+    "id": "50cde316-19f9-557a-880a-7ce52e45952c",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:press",
+    "name": "Press",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "class-feature", "feat"]
+    }
+  },
+  {
+    "id": "9defb573-1c80-57cc-92e4-3f8d8ec97d1d",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:primal",
+    "name": "Primal",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "armor",
+        "class-feature",
+        "condition",
+        "consumable",
+        "creature",
+        "effect",
+        "equipment",
+        "feat",
+        "heritage",
+        "ritual",
+        "shield",
+        "spell",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "a0f12183-d2ec-590f-9689-f6427daf64ef",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:propulsive",
+    "name": "Propulsive",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "weapon"]
+    }
+  },
+  {
+    "id": "d02f8619-b318-5873-8b87-a75ccf16d00b",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:psychic",
+    "name": "Psychic",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
+    }
+  },
+  {
+    "id": "eb6d2aca-d919-50a6-99fd-e4ed992218da",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:ranged-trip",
+    "name": "Ranged Trip",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["weapon"]
+    }
+  },
+  {
+    "id": "c6cb4112-4c93-5068-ba62-36702be47bb6",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:ranger",
+    "name": "Ranger",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
+    }
+  },
+  {
+    "id": "a59aa091-b69a-56af-89ff-d3883b08f289",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:reach",
+    "name": "Reach",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "weapon"]
+    }
+  },
+  {
+    "id": "dab58624-f0ec-5b32-8832-181380f7e19b",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:revelation",
+    "name": "Revelation",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "class-feature", "consumable", "equipment", "feat", "ritual", "spell"]
+    }
+  },
+  {
+    "id": "3e015ee3-2528-5a41-a1d3-3fd5f50eebb5",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:rogue",
+    "name": "Rogue",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
+    }
+  },
+  {
+    "id": "912c980d-240a-592c-933d-a81953756ac5",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:runesmith",
+    "name": "Runesmith",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
+    }
+  },
+  {
+    "id": "f13ed3a7-d55c-5417-95ea-a2e617ea4d20",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:sanctified",
+    "name": "Sanctified",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "class-feature", "consumable", "feat", "ritual", "spell"]
+    }
+  },
+  {
+    "id": "46d49c07-1ff0-5921-9d22-eeec29b19f99",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:scrying",
+    "name": "Scrying",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "class-feature",
+        "condition",
+        "consumable",
+        "effect",
+        "equipment",
+        "feat",
+        "ritual",
+        "spell",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "3a83b3ca-2957-5dc3-85d7-c7da1ede6e8e",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:secret",
+    "name": "Secret",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "class-feature", "consumable", "feat", "ritual", "spell"]
+    }
+  },
+  {
+    "id": "248f424f-8284-5779-a6a4-32bc4c9b9fab",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:shadow",
+    "name": "Shadow",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "class-feature",
+        "condition",
+        "consumable",
+        "creature",
+        "effect",
+        "equipment",
+        "feat",
+        "heritage",
+        "ritual",
+        "spell",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "ea185e41-d1cc-5446-9fb3-8724b4bd969c",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:shove",
+    "name": "Shove",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["weapon"]
+    }
+  },
+  {
+    "id": "77b89276-d69a-5ba2-88a9-ce8133f357fa",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:skill",
+    "name": "Skill",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "class-feature", "feat"]
+    }
+  },
+  {
+    "id": "df8616e4-0b02-5854-9a30-c00e5943b242",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:sleep",
+    "name": "Sleep",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "class-feature",
+        "condition",
+        "consumable",
+        "effect",
+        "equipment",
+        "feat",
+        "ritual",
+        "spell"
+      ]
+    }
+  },
+  {
+    "id": "4cd5c6ea-a9ff-52af-9182-a477ca0f4986",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:sonic",
+    "name": "Sonic",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "armor",
+        "class-feature",
+        "condition",
+        "consumable",
+        "creature",
+        "effect",
+        "equipment",
+        "feat",
+        "heritage",
+        "ritual",
+        "shield",
+        "spell",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "0532604d-460b-5dd2-8ebc-b90916ae0082",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:sorcerer",
+    "name": "Sorcerer",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
+    }
+  },
+  {
+    "id": "21f1706c-a15b-5fd2-8f52-7791db339f7c",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:spellshape",
+    "name": "Spellshape",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "class-feature", "condition", "consumable", "effect", "feat", "ritual", "spell"]
+    }
+  },
+  {
+    "id": "fff3544b-0583-52a6-9126-43834e6e9dcc",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:spirit",
+    "name": "Spirit",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "armor",
+        "class-feature",
+        "condition",
+        "consumable",
+        "creature",
+        "effect",
+        "equipment",
+        "feat",
+        "heritage",
+        "ritual",
+        "shield",
+        "spell",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "5c73db82-3135-5f36-9747-0836bf7001dd",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:stance",
+    "name": "Stance",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "class-feature", "condition", "consumable", "effect", "feat", "ritual", "spell"]
+    }
+  },
+  {
+    "id": "df2bfce0-c041-5d53-929d-33833557247a",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:subtle",
+    "name": "Subtle",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "class-feature", "consumable", "feat", "ritual", "spell"]
+    }
+  },
+  {
+    "id": "1e9759f2-ec3b-5252-9166-8b2e4aee5a74",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:suli",
+    "name": "Suli",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "ancestry", "class-feature", "creature", "equipment", "feat", "heritage", "weapon"]
+    }
+  },
+  {
+    "id": "324a7214-b182-54ea-8a4e-549d0a7955b6",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:summon",
+    "name": "Summon",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "class-feature", "condition", "consumable", "effect", "feat", "ritual", "spell"]
+    }
+  },
+  {
+    "id": "3396c6de-d694-572b-aabe-775a437121d8",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:summoner",
+    "name": "Summoner",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
+    }
+  },
+  {
+    "id": "dfd8fc27-e5cb-5b08-b753-e5a5ce5fa832",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:swashbuckler",
+    "name": "Swashbuckler",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
+    }
+  },
+  {
+    "id": "7ce537db-4640-56f9-9ca4-a069f25d7aff",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:sweep",
+    "name": "Sweep",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "weapon"]
+    }
+  },
+  {
+    "id": "94ab5b79-a35a-5f46-974b-3bb4b1d7d7b5",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:sylph",
+    "name": "Sylph",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "ancestry", "class-feature", "creature", "equipment", "feat", "heritage", "weapon"]
+    }
+  },
+  {
+    "id": "895e9e0f-b21c-5df3-81d3-5a617e4102a3",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:talos",
+    "name": "Talos",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "ancestry", "class-feature", "creature", "equipment", "feat", "heritage", "weapon"]
+    }
+  },
+  {
+    "id": "a36d3865-f6be-5cd4-8bf3-3248f2054206",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:teleportation",
+    "name": "Teleportation",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "class-feature",
+        "condition",
+        "consumable",
+        "effect",
+        "equipment",
+        "feat",
+        "ritual",
+        "spell",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "42a18fa4-a733-5a9c-a644-e98136a14e0b",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:thaumaturge",
+    "name": "Thaumaturge",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
+    }
+  },
+  {
+    "id": "b44c26cb-c4d7-500d-a227-ee4ea376c0b1",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:thrown",
+    "name": "Thrown",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "weapon"]
+    }
+  },
+  {
+    "id": "d520cd4b-cb67-5218-aaa0-26662a90603c",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:thrown-10",
+    "name": "Thrown 10 ft.",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["weapon"]
+    }
+  },
+  {
+    "id": "9eb4940c-4863-54f4-b7c6-cef515104e8f",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:thrown-20",
+    "name": "Thrown 20 ft.",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["weapon"]
+    }
+  },
+  {
+    "id": "a5cd1c21-78de-5e1f-8dfb-aa75532a1d10",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:trip",
+    "name": "Trip",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["weapon"]
+    }
+  },
+  {
+    "id": "1444ea7f-60de-5da5-b53d-849f831f2a74",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:twin",
+    "name": "Twin",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["weapon"]
+    }
+  },
+  {
+    "id": "1b99d1f4-050e-5a0d-bc48-01c486631d09",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:two-hand-d10",
+    "name": "Two-Hand d10",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["weapon"]
+    }
+  },
+  {
+    "id": "b98ae04b-637a-50bf-b660-beca4f25fa17",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:two-hand-d12",
+    "name": "Two-Hand d12",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["weapon"]
+    }
+  },
+  {
+    "id": "579eb4c6-ea6b-5956-9fd1-fc6f0b44d604",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:two-hand-d8",
+    "name": "Two-Hand d8",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["weapon"]
+    }
+  },
+  {
+    "id": "e6132185-bfd4-519d-90bb-cea0235ab70d",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:undine",
+    "name": "Undine",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "ancestry", "class-feature", "creature", "equipment", "feat", "heritage", "weapon"]
+    }
+  },
+  {
+    "id": "9a88e15e-b8c3-55db-8a98-97c3bb7c0bbd",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:unholy",
+    "name": "Unholy",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "armor",
+        "class-feature",
+        "condition",
+        "consumable",
+        "creature",
+        "effect",
+        "equipment",
+        "feat",
+        "heritage",
+        "ritual",
+        "shield",
+        "spell",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "5691a16a-d78b-576b-9f7b-6fe1375ce709",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:versatile-b",
+    "name": "Versatile B",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["weapon"]
+    }
+  },
+  {
+    "id": "523511a6-7ac7-5283-8ef8-7f248b1b75b4",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:versatile-p",
+    "name": "Versatile P",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["weapon"]
+    }
+  },
+  {
+    "id": "7a266fdb-2cb6-5910-9b8d-c1d716ab53c2",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:versatile-s",
+    "name": "Versatile S",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["weapon"]
+    }
+  },
+  {
+    "id": "a9166aef-99cb-5e64-99aa-8575e5f29f84",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:visual",
+    "name": "Visual",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "armor",
+        "class-feature",
+        "condition",
+        "consumable",
+        "effect",
+        "equipment",
+        "feat",
+        "ritual",
+        "spell",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "2ad4e6ba-f1af-5b35-bc90-01602580b683",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:vitality",
+    "name": "Vitality",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "armor",
+        "class-feature",
+        "condition",
+        "consumable",
+        "creature",
+        "effect",
+        "equipment",
+        "feat",
+        "heritage",
+        "ritual",
+        "shield",
+        "spell",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "ba8fd24c-1bf0-572e-9b13-2be042c841c6",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:void",
+    "name": "Void",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "armor",
+        "class-feature",
+        "condition",
+        "consumable",
+        "creature",
+        "effect",
+        "equipment",
+        "feat",
+        "heritage",
+        "ritual",
+        "shield",
+        "spell",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "02079da4-0706-536c-bcb8-6d597fa64432",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:volley-30",
+    "name": "Volley 30 ft.",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "weapon"]
+    }
+  },
+  {
+    "id": "eb5f3472-6430-56eb-b05c-649d453f3f0c",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:water",
+    "name": "Water",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "armor",
+        "class-feature",
+        "condition",
+        "consumable",
+        "creature",
+        "effect",
+        "equipment",
+        "feat",
+        "heritage",
+        "ritual",
+        "shield",
+        "spell",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "dc84bdd8-324e-5a29-85b2-69fe7e831f86",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:witch",
+    "name": "Witch",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
+    }
+  },
+  {
+    "id": "6181f397-30b2-5020-a0fa-dddcadfa64ae",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:wizard",
+    "name": "Wizard",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
+    }
+  },
+  {
+    "id": "9c61584b-a910-5774-9d28-5572585ee5b2",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:wood",
+    "name": "Wood",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "armor",
+        "class-feature",
+        "condition",
+        "consumable",
+        "creature",
+        "effect",
+        "equipment",
+        "feat",
+        "heritage",
+        "ritual",
+        "shield",
+        "spell",
+        "weapon"
+      ]
+    }
+  }
+]

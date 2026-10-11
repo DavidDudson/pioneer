@@ -1,0 +1,118 @@
+[
+  {
+    "id": "dcc259e0-6067-5c06-87f7-e21937f70801",
+    "pack": "core-rules",
+    "kind": "sense",
+    "slug": "sense:echolocation",
+    "name": "Echolocation",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "acuity": "precise"
+    }
+  },
+  {
+    "id": "d9c41f9d-318a-5062-b129-db87b8f08f5e",
+    "pack": "core-rules",
+    "kind": "sense",
+    "slug": "sense:greater-darkvision",
+    "name": "Greater Darkvision",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "acuity": "precise",
+      "unlimitedRange": true
+    }
+  },
+  {
+    "id": "279973df-e7b9-5fa1-9bb6-1cfdc54b82b6",
+    "pack": "core-rules",
+    "kind": "sense",
+    "slug": "sense:scent",
+    "name": "Scent",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "1853ffc0-c400-5107-bcde-24728797d4e1",
+    "pack": "core-rules",
+    "kind": "sense",
+    "slug": "sense:see-invisibility",
+    "name": "See the Unseen",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "acuity": "precise",
+      "unlimitedRange": true
+    }
+  },
+  {
+    "id": "367b9fa7-8944-5208-9949-9457984b7c59",
+    "pack": "core-rules",
+    "kind": "sense",
+    "slug": "sense:tremorsense",
+    "name": "Tremorsense",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "178d6a64-6bb6-5607-bfaf-4d39f0df5857",
+    "pack": "core-rules",
+    "kind": "sense",
+    "slug": "sense:wavesense",
+    "name": "Wavesense",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  }
+]

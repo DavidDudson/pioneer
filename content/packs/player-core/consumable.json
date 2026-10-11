@@ -1,0 +1,354 @@
+[
+  {
+    "id": "a281f8a7-40ba-5555-9267-ec1d8b012961",
+    "pack": "player-core",
+    "kind": "consumable",
+    "slug": "consumable:arrows",
+    "name": "Arrows",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["consumable"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These projectiles are the ammunition for bows. The shaft of an arrow is made of wood. It is stabilized in flight by fletching at one end and bears a metal head on the other."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.w2ENw2VMPcsbif8g"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 1
+        },
+        "per": 10
+      },
+      "bulk": "light",
+      "bulkPer": 10,
+      "category": "ammunition",
+      "ammunition": ["arrows"]
+    }
+  },
+  {
+    "id": "82d6a1e5-1beb-5043-bb17-4fca11429a35",
+    "pack": "player-core",
+    "kind": "consumable",
+    "slug": "consumable:blowgun-darts",
+    "name": "Blowgun Darts",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["consumable"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These thin, light darts are typically made of hardwood and stabilized with fletching of down or fur. They are often hollow so they can be used to deliver poison."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.sqhr1crb184s3Vnd"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "cp": 5
+        },
+        "per": 10
+      },
+      "bulk": "negligible",
+      "category": "ammunition",
+      "ammunition": ["blowgun-darts"]
+    }
+  },
+  {
+    "id": "f7fb0c74-e723-5bf1-8d3b-028a036544d2",
+    "pack": "player-core",
+    "kind": "consumable",
+    "slug": "consumable:bolts",
+    "name": "Bolts",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["consumable"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Shorter than traditional arrows but similar in construction, bolts are the ammunition used by crossbows."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.AITVZmakiu3RgfKo"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 1
+        },
+        "per": 10
+      },
+      "bulk": "light",
+      "bulkPer": 10,
+      "category": "ammunition",
+      "ammunition": ["bolts"]
+    }
+  },
+  {
+    "id": "12382d73-2899-55f9-b8a1-e7a68dde0d21",
+    "pack": "player-core",
+    "kind": "consumable",
+    "slug": "consumable:candle",
+    "name": "Candle",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A lit candle sheds dim light in a 10‐foot radius for 8 hours."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Ti4gWILk69LPxKuU"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "cp": 1
+        },
+        "per": 10
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "8956f8fe-63fb-5211-92bd-31cd5d460115",
+    "pack": "player-core",
+    "kind": "consumable",
+    "slug": "consumable:chalk",
+    "name": "Chalk",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.xShIDyydOMkGvGNb"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "cp": 1
+        },
+        "per": 10
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "75fd2e83-ab82-5620-bf00-c3530e4b6613",
+    "pack": "player-core",
+    "kind": "consumable",
+    "slug": "consumable:oil-1-pint",
+    "name": "Oil (1 pint)",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can use oil to fuel lanterns, but you can also set a pint of oil aflame and throw it. You must first spend an Interact action preparing the oil, then throw it with another action as a ranged attack. If you hit, it splatters on the creature or in a single 5-foot square you target. You must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 10
+          },
+          {
+            "type": "text",
+            "text": " for the oil to ignite successfully when it hits. If the oil ignites, the target takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Du05UxCyCM0ZWH8z"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "cp": 1
+        }
+      },
+      "bulk": "negligible",
+      "category": "oil",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "21c8c797-ee6f-5887-b1ba-511761dfd6c5",
+    "pack": "player-core",
+    "kind": "consumable",
+    "slug": "consumable:rations",
+    "name": "Rations",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.L9ZV076913otGtiB"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 4
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "uses": 7,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "237dd13d-ddd4-59ea-8bbe-10492f6c5d0e",
+    "pack": "player-core",
+    "kind": "consumable",
+    "slug": "consumable:sling-bullets",
+    "name": "Sling Bullets",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["consumable"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These are small metal balls, typically either iron or lead, designed to be used as ammunition in slings."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.MKSeXwUm56c15MZa"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "cp": 1
+        },
+        "per": 10
+      },
+      "bulk": "light",
+      "bulkPer": 10,
+      "category": "ammunition",
+      "ammunition": ["sling-bullets"]
+    }
+  }
+]

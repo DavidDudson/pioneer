@@ -1,0 +1,530 @@
+[
+  {
+    "id": "a77da867-8acd-5cce-8754-5f5dca1a5460",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:academia-lore",
+    "name": "Academia Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:academia",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.academia",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "78a1b03d-0ac3-5339-b1c2-1c641f6da29d",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:alcohol-lore",
+    "name": "Alcohol Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:alcohol",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.alcohol",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "075adb97-df9e-5d69-b91e-0191d68680fc",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:art-lore",
+    "name": "Art Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:art",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.art",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "92c6405e-4801-531b-b432-4a0eaae0d201",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:circus-lore",
+    "name": "Circus Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:circus",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.circus",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "9c5b5bec-5efd-5923-840f-aa32abfc1d34",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:cooking-lore",
+    "name": "Cooking Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:cooking",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.cooking",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "15cd8d82-5cee-5e36-bb38-5eebe03014ee",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:engineering-lore",
+    "name": "Engineering Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:engineering",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.engineering",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "a421f774-584c-5378-bca0-3aceba97e953",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:farming-lore",
+    "name": "Farming Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:farming",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.farming",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "7b1eab67-5d53-5258-bb03-a57772e8c4aa",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:fortune-telling-lore",
+    "name": "Fortune-Telling Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:fortune-telling",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.fortune-telling",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "f0464838-b0bd-53b2-8fbe-496ccd7f9ffc",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:games-lore",
+    "name": "Games Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:games",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.games",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "c66c0e27-3f2d-5663-9f91-7bee64149d1d",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:gladatorial-lore",
+    "name": "Gladatorial Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:gladatorial",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.gladatorial",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "a8fc15e8-2684-5f67-bbe2-75e912f4edd2",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:guild-lore",
+    "name": "Guild Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:guild",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.guild",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "a284b679-6e9f-52f8-b02c-2e953da8ef0d",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:herbalism-lore",
+    "name": "Herbalism Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:herbalism",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.herbalism",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "e760f60f-958c-54f6-9186-213440d49cf3",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:labor-lore",
+    "name": "Labor Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:labor",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.labor",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "ebee049a-6dfa-54c3-ba9b-1a31c14091c4",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:legal-lore",
+    "name": "Legal Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:legal",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.legal",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "39c24e3c-eedb-55aa-a2f2-931499c9de60",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:mercantile-lore",
+    "name": "Mercantile Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:mercantile",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.mercantile",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "1fe5c866-3210-50dc-8ef2-e0bb8449e23d",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:mining-lore",
+    "name": "Mining Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:mining",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.mining",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "8e4cb554-0da6-5431-97f7-3586947885fd",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:sailing-lore",
+    "name": "Sailing Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:sailing",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.sailing",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "a935f2b3-deff-52c0-bd57-0e0b779b2d2d",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:scribing-lore",
+    "name": "Scribing Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:scribing",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.scribing",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "2be2fcf4-95a1-5232-a9e4-9726dbd02b93",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:tanning-lore",
+    "name": "Tanning Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:tanning",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.tanning",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "4c5b63e9-a98c-5851-b02d-3b542baa63ba",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:theater-lore",
+    "name": "Theater Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:theater",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.theater",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "a1384c90-c16c-5ef6-bb72-ad4be0c4c308",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:underworld-lore",
+    "name": "Underworld Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:underworld",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.underworld",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "5c71ea6d-84dc-5652-b6f9-153df2d30252",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:warfare-lore",
+    "name": "Warfare Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:warfare",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.warfare",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  }
+]

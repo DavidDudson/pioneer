@@ -1,0 +1,5007 @@
+[
+  {
+    "id": "fa92e346-b37f-572c-91da-473ca4ecb2a1",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:alchemists-lab",
+    "name": "Alchemist's Lab",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You need an alchemist's lab to Craft alchemical items during downtime."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.k6xZkDUpF7E1Totd"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5
+        }
+      },
+      "bulk": 6,
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "a4b0c4c6-ea50-5b87-be2d-18191ba43e83",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:alchemists-lab-expanded",
+    "name": "Alchemist's Lab (Expanded)",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You need an alchemist's lab to Craft alchemical items during downtime."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An expanded alchemist's lab gives a +1 item bonus to Crafting checks to create alchemical items."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.uhka9LHEP3wDKytG"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 55
+        }
+      },
+      "bulk": 6,
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "fa6fa403-567c-5444-b0a7-92dc8bbedbd2",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:alchemists-toolkit",
+    "name": "Alchemist's Toolkit",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This mobile collection of vials and chemicals can be used for simple alchemical tasks. If you wear your alchemist's toolkit, you can draw and replace it as part of the action that uses it."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.4ftXXUCBHcf4b0MH"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "dd32bffd-7ea1-5412-8638-1505789dd97d",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:artisans-toolkit",
+    "name": "Artisan's Toolkit",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You need these tools to create items from raw materials with the Craft skill. Different sets are needed for different work, as determined by the GM; for example, a blacksmith's toolkit differs from a woodworker's toolkit. If you wear your artisan's toolkit, you can draw and replace it as part of the action that uses it."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.y34yjumCFakrbtdw"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": 2,
+      "usage": {
+        "type": "other"
+      }
+    }
+  },
+  {
+    "id": "6e3f8ed1-ab28-5ce8-8241-de1b678a01ee",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:artisans-toolkit-sterling",
+    "name": "Artisan's Toolkit (Sterling)",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You need these tools to create items from raw materials with the Craft skill. Sterling artisan's tools give you a +1 item bonus to the check."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Different sets are needed for different work, as determined by the GM; for example, a blacksmith's toolkit differs from a woodworker's toolkit. If you wear your artisan's toolkit, you can draw and replace it as part of the action that uses it."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.0QgniSjpzksm5riV"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 50
+        }
+      },
+      "bulk": 2,
+      "usage": {
+        "type": "other"
+      }
+    }
+  },
+  {
+    "id": "91a9a00e-54db-58e8-9a07-a1747cdb8d59",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:backpack",
+    "name": "Backpack",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A backpack holds up to 4 Bulk of items and the first 2 Bulk of these items don't count against your Bulk limits. If you're carrying or stowing the pack rather than wearing it on your back, its Bulk is light instead of negligible"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.3lgwjrFEsQVKzhh7"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 1
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn",
+        "slot": "backpack"
+      },
+      "container": {
+        "capacity": 4,
+        "ignored": 2,
+        "heldBulk": "light"
+      }
+    }
+  },
+  {
+    "id": "e1a54fa0-bf61-5edd-9341-41303ae8f310",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:basic-crafters-book",
+    "name": "Basic Crafter's Book",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This book contains the formulas for Crafting the 0-level common items in Chapter 6 of the Pathfinder Player Core."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.w4Hd6nunVVqw3GWj"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 1
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "42be926a-8d9e-553a-82df-a49b07eebf27",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:bedroll",
+    "name": "Bedroll",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A rolled up bed."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.fagzYdmfYyMQ6J77"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "cp": 2
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "other"
+      }
+    }
+  },
+  {
+    "id": "653560c3-d545-51c2-8198-c3c2c1a5fdc7",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:brass-ear",
+    "name": "Brass Ear",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A brass ear is a short, flared tube with one end narrow enough to comfortably fit against the ear canal. When using a brass ear to listen through a door, window, thin wall, or similar barrier, if the barrier would normally increase the DC of your Perception check to hear sounds on the other side, the DC increases by only half as much as normal. It's not suitable for improving your hearing in general, a role better served by a hearing aid."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.M91ye9B7IdxDIDsS"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "474c405c-c7e4-5468-9a5d-db9761113555",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:caltrops",
+    "name": "Caltrops",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These four-pronged metal spikes can damage a creature's feet. You can scatter caltrops in an empty square adjacent to you with an Interact action. The first creature that moves into that square must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:acrobatics",
+            "dc": 14
+          },
+          {
+            "type": "text",
+            "text": " check or take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d4",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and 1 persistent bleed damage. A creature taking persistent bleed damage from caltrops takes a –5-foot penalty to its Speed. Spending an Interact action to pluck the caltrops free reduces the DC to stop the bleeding. Once a creature takes damage from caltrops, enough are ruined that other creatures moving into the square are safe. Deployed caltrops can be salvaged and reused if no creatures took damage from them. Otherwise, enough are ruined that they can't be salvaged."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "03a8c423-6f8a-5349-9cd1-2be222ae1185"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.7fSnvJ2xoSfa6JXD"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 3
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "f3a73185-c74e-5f0b-a70e-caae5fe7751f",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:cane",
+    "name": "Cane",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A cane is a straight cane with a curved handle, shaped like the tip of a hook. Its simple design helps with balance and only slightly assists with taking weight off the affected opposite leg. The cane is typically 2 to 3 feet long but can be lengthened or shortened as needed."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.3ZHl40YXlI47uIrT"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 5
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "727dd2c5-964f-5108-b6ad-f4c7de7b01ac",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:chain-10-feet",
+    "name": "Chain (10 feet)",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "10 feet of chain."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.V78itAtTHI4ugy0P"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "b4fc01f3-071f-5e4a-b289-f332be5cd91a",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:chair-storage",
+    "name": "Chair Storage",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Chair storage can be purchased and applied to any wheelchair. This reduces the amount of Bulk the items weigh when stored within the chair, much like a backpack. The first 2 Bulk of items stowed in your chair don't count against your Bulk limit. If you use both chair storage and a backpack at the same time, only 2 Bulk total isn't counted against your limit, much like if you used multiple backpacks or similar items at the same time."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.HgS4FYX0itxQvwub"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "e396993a-04eb-561b-bd0c-5191e3760ab8",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:chest",
+    "name": "Chest",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A wooden chest can hold up to 8 Bulk of items."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.OdVDPN9vIpu3Zud3"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 6
+        }
+      },
+      "bulk": 2,
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "container": {
+        "capacity": 8
+      }
+    }
+  },
+  {
+    "id": "3d910627-8c4a-5620-a27d-ffe11f96ac64",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:climbing-kit",
+    "name": "Climbing Kit",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This satchel includes 50 feet of rope, pulleys, a dozen pitons, a hammer, a grappling hook, and one set of crampons. Climbing kits allow you to attach yourself to the wall you're Climbing, moving half as quickly as usual (minimum 5 feet) but letting you attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 5
+          },
+          {
+            "type": "text",
+            "text": " whenever you critically fail to prevent a fall. A single kit has only enough materials for one climber; each climber needs their own kit. If you wear your climbing kit, you can access it as part of a Climb action."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.9UJbMaglf35GVzaZ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 5
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "dbe29030-9ec6-52f1-813e-0d8ccd491a67",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:climbing-kit-extreme",
+    "name": "Climbing Kit (Extreme)",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This satchel includes 50 feet of rope, pulleys, a dozen pitons, a hammer, a grappling hook, and one set of crampons. Climbing kits allow you to attach yourself to the wall you're Climbing, moving half as quickly as usual (minimum 5 feet) but letting you attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 5
+          },
+          {
+            "type": "text",
+            "text": " whenever you critically fail to prevent a fall."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 item bonus to Athletics checks to Climb while using an extreme climbing kit. A single kit has only enough materials for one climber; each climber needs their own kit. If you wear your climbing kit, you can access it as part of a Climb action."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.TWv2EeDJaCjtmGUN"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 40
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "b8dc23fa-5383-52f0-bb4b-1b31f5d3d88c",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:clothing-cold-weather",
+    "name": "Clothing (Cold-Weather)",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.SLQgdLk5K9JV4ACF"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 4
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "509dfdcb-a8db-54b9-b5c9-91f375289a70",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:clothing-fine",
+    "name": "Clothing (Fine)",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Fine clothing, suitable for a noble or royal, is made with expensive fabrics, precious metals, and intricate patterns."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.jJZbdMHMdh8UL2j8"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "5a9e1664-e269-5d65-ae4e-8278ed73c0e6",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:clothing-high-fashion-fine",
+    "name": "Clothing (High-Fashion Fine)",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Fine clothing, suitable for a noble or royal, is made with expensive fabrics, precious metals, and intricate patterns. You gain a +1 item bonus to checks to Make an Impression on nobility or other upper-class folk while wearing high-fashion fine clothing."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.rXZxM7SbqEnvXyal"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 55
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "ed3e5b85-bc9d-5e19-9468-09ce07ab06d6",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:clothing-ordinary",
+    "name": "Clothing (Ordinary)",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Ordinary clothing is functional with basic tailoring, such as peasant garb, monk's robes, or work clothes."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ilbLQNy6TbBPW7sQ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 1
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "c63f3e74-a4e7-5b4c-9952-bbfe1f2ca689",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:compass",
+    "name": "Compass",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A compass helps you "
+          },
+          {
+            "type": "ref",
+            "id": "d0498569-a787-5708-8a5f-39c521dd3df4"
+          },
+          {
+            "type": "text",
+            "text": " or navigate, provided you're in a location with uniform magnetic fields. Without a compass, you take a -2 item penalty to these checks (similar to using a shoddy item)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.wob6DB1FFdWs0mbp"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "c1944c09-610f-5d24-ba28-6bcdaa766cf2",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:compass-lensatic",
+    "name": "Compass (Lensatic)",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A compass helps you "
+          },
+          {
+            "type": "ref",
+            "id": "d0498569-a787-5708-8a5f-39c521dd3df4"
+          },
+          {
+            "type": "text",
+            "text": " or navigate, provided you're in a location with uniform magnetic fields. Without a compass, you take a -2 item penalty to these checks (similar to using a shoddy item)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A lensatic compass gives you a +1 item bonus to these checks."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.xVhd8NF9KQ6VWfMu"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 20
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "2722b1fa-0fa2-57ec-a481-c2cb54928b31",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:concealed-sheath",
+    "name": "Concealed Sheath",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This leather sheath is large enough to hold an item of up to light Bulk and is typically used for daggers, wands, thieves' tools, and similar objects."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can affix it to the inside of a boot, under a bracer or sleeve, or in other inconspicuous locations to gain a +1 item bonus to Stealth checks and DCs to hide or conceal the item within."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.laU7xnX42wXch2Dv"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 25
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "d1af2c54-d6b3-5e1a-a388-5198dd86d9d5",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:cookware",
+    "name": "Cookware",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Yf7maiRDmmHAyF82"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1
+        }
+      },
+      "bulk": 2,
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "6b190ade-4587-5bee-9d6f-9a5dc3e83a3e",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:corrective-lenses",
+    "name": "Corrective Lenses",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A set of corrective lenses might take the form of eyeglasses or specialized goggles worn over the eyes. You can don or remove your corrective lenses as an Interact action."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.QFzn6s5w9tzhcoM6"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 5
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "794ed76d-b39f-5342-a6a5-24c32791c6f0",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:crowbar",
+    "name": "Crowbar",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When Forcing Open an object that doesn't have an easy grip, a crowbar makes it easier to gain the necessary leverage. Without a crowbar, prying something open takes a -2 item penalty to the Athletics check to Force Open."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.44F1mfJei4GY8f2X"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 5
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "50eaa57d-4c34-5f2d-ac85-fa4818990541",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:crowbar-levered",
+    "name": "Crowbar (Levered)",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When Forcing Open an object that doesn't have an easy grip, a crowbar makes it easier to gain the necessary leverage. Without a crowbar, prying something open takes a -2 item penalty to the Athletics check to Force Open."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A levered crowbar grants you a +1 item bonus to Athletics checks to Force Open anything that can be pried open."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.4kz3vhkKPUuXBpxk"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 20
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "f560145d-fe97-5024-a391-d0edb96a7669",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:crutch",
+    "name": "Crutch",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Crutches come as singles or as a pair depending on how much support you need while walking. A crutch fits under your armpit, and you use your hand and the swing of your arm to move with them."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.h4fhKJmmx232FGd2"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 5
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "7fab6320-c362-57b1-88b7-7b3df7458a82",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:detectives-kit",
+    "name": "Detective's Kit",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This leather satchel contains empty vials, a pair of tweezers, a supply of small linen cloths, a set of brass calipers and a knotted string for measuring distances, several pieces of chalk, a pen, and a blank notebook for keeping notes. Every component of a detective's kit is of exceeding quality, and thus a detective's kit adds a +1 item bonus to checks to investigate a crime scene, a clue, or similar details. Like other tool kits, a detective's kit uses one hand if wearing the kit and two hands otherwise."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ItLZL9Bd6xwgfeB8"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 25
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "60245d6a-d7d0-5730-a2bb-7575d230e105",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:disguise-kit",
+    "name": "Disguise Kit",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This small wooden box contains cosmetics, false facial hair, spirit gum, and a few simple wigs. You usually need a disguise kit to set up a disguise in order to Impersonate someone using the Deception skill. If you've crafted a large number of disguises, you can replenish your cosmetics supply with replacement cosmetics suitable for the type of your disguise kit. You can draw and replace a worn disguise kit as part of the action that uses it."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Jvp0x2Sc82WVpExT"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "fd432544-13f6-5c94-ac2c-3baec3744aa7",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:disguise-kit-elite",
+    "name": "Disguise Kit (Elite)",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This small wooden box contains cosmetics, false facial hair, spirit gum, and a few simple wigs. You usually need a disguise kit to set up a disguise in order to Impersonate someone using the Deception skill. An elite disguise kit adds a +1 item bonus to relevant checks. If you've crafted a large number of disguises, you can replenish your cosmetics supply with replacement cosmetics suitable for the type of your disguise kit. You can draw and replace a worn disguise kit as part of the action that uses it."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.YhkomhtKBK3i9C7Q"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 40
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "f8753203-72f9-5858-9b61-40bda524bf98",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:disguise-kit-elite-cosmetics",
+    "name": "Disguise Kit (Elite Cosmetics)",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This small wooden box contains cosmetics, false facial hair, spirit gum, and a few simple wigs. You usually need a disguise kit to set up a disguise in order to Impersonate someone using the Deception skill. An elite disguise kit adds a +1 item bonus to relevant checks. If you've crafted a large number of disguises, you can replenish your cosmetics supply with replacement cosmetics suitable for the type of your disguise kit."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.IRqbsE8MgGLTfHLz"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 5
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "7b15a03f-ec6f-5c85-b0ad-4923a292ed91",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:disguise-kit-replacement-cosmetics",
+    "name": "Disguise Kit (Replacement Cosmetics)",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This small wooden box contains cosmetics, false facial hair, spirit gum, and a few simple wigs. You usually need a disguise kit to set up a disguise in order to Impersonate someone using the Deception skill. If you've crafted a large number of disguises, you can replenish your cosmetics supply with replacement cosmetics suitable for the type of your disguise kit."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.FWMGkUotwUJuht7i"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 1
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "other"
+      }
+    }
+  },
+  {
+    "id": "3143b873-6ff9-5a96-a0bc-e441c297df14",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:dueling-cape",
+    "name": "Dueling Cape",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can pull a dueling cape you're wearing from your shoulder and wrap it around your arm with an Interact action. While wielding the dueling cape this way, the cape uses that arm and hand, and you can't hold anything else in that hand."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While you do so, you can spend an action to hold it in a protective position, giving you a +1 circumstance bonus to AC and to Deception checks to "
+          },
+          {
+            "type": "ref",
+            "id": "8b950c56-7b5d-5063-9439-adb52a323cd9"
+          },
+          {
+            "type": "text",
+            "text": " until the start of your next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect: Dueling Cape"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.DA3HgyEBGEbtRNOo"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 5
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "worn",
+        "slot": "cloak"
+      }
+    }
+  },
+  {
+    "id": "bfd0b812-4c7f-57f7-9b9c-79aa2b5e4082",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:fishing-tackle",
+    "name": "Fishing Tackle",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This kit include a collapsible fishing pole, fishhooks, line, lures, and a fishing net."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.3tOyV4VZEZhwnAMO"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 8
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "31859905-2f73-542f-99b4-01c4e4fae96f",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:fishing-tackle-professional",
+    "name": "Fishing Tackle (Professional)",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This kit include a collapsible fishing pole, fishhooks, line, lures, and a fishing net. Professional fishing tackle grants a +1 item bonus to checks to fish."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ksorBjuXO0Bvdmhl"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 20
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "995ccdb3-a3e9-599a-82e8-511a55d03847",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:flint-and-steel",
+    "name": "Flint and Steel",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Flint and steel are useful in creating a fire if you have the time to catch a spark, though using them is typically too time-consuming to be practical during an encounter. Even in ideal conditions, using flint and steel to light a flame requires using at least 3 actions, and often significantly longer."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.UlIxxLm71UdRgCFE"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "cp": 5
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "08a9699f-907a-5703-9b93-50f54043a095",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:formula-book-blank",
+    "name": "Formula Book (Blank)",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A formula book holds the formulas necessary to make items other than the common equipment from Pathfinder Player Core; characters of the alchemist class typically get one for free. Each formula book can hold the formulas for up to 100 different items. Formulas can also appear on parchment sheets, tablets, and almost any other medium; there's no need for you to copy them into a specific book as long as you can keep them on hand to reference them."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.qCEOZ6109Yo34tRx"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "d5382ea0-89b6-523b-a0e1-44a3afa9d63f",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:grappling-hook",
+    "name": "Grappling Hook",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can throw a grappling hook with a rope tied to it to make a climb easier. To anchor a grappling hook, make a ranged attack roll using your simple weapon proficiency against a DC depending on the target, typically at least DC 20. This attack has the secret trait. On a success, your hook has a firm hold, but on a critical failure, the hook seems like it will hold but actually falls when you're partway up"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.6DCy7tEF1cxaIJMy"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 1
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "25db75c9-6799-5c95-b2f3-6b41b59ff524",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:hammer",
+    "name": "Hammer",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ML0GR2cIEdMn2hoD"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 1
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "050458fd-ce2e-53a2-ac9d-e9a790d70513",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:healers-toolkit",
+    "name": "Healer's Toolkit",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This kit of bandages, herbs, and suturing tools is necessary for Medicine checks to "
+          },
+          {
+            "type": "ref",
+            "id": "e03baa02-2fea-552f-9996-c41bfa074713"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "07fc0cb2-53f2-5552-82e6-5e43003875eb"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "1a89ca53-58a9-5dc9-913e-3dfa46e5e1b0"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "18c1b923-595b-5203-a0be-010205e51c44"
+          },
+          {
+            "type": "text",
+            "text": ". If you wear your healer's toolkit, you can draw and replace its tools as part of the action that uses them."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.s1vB3HdXjMigYAnY"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "other"
+      }
+    }
+  },
+  {
+    "id": "d30d19d9-5c5d-5423-ae63-f0a1f1ad8e39",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:healers-toolkit-expanded",
+    "name": "Healer's Toolkit (Expanded)",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This kit of bandages, herbs, and suturing tools is necessary for Medicine checks to "
+          },
+          {
+            "type": "ref",
+            "id": "e03baa02-2fea-552f-9996-c41bfa074713"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "07fc0cb2-53f2-5552-82e6-5e43003875eb"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "1a89ca53-58a9-5dc9-913e-3dfa46e5e1b0"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "18c1b923-595b-5203-a0be-010205e51c44"
+          },
+          {
+            "type": "text",
+            "text": ". Expanded healer's toolkits provide a +1 item bonus to such checks. If you wear your healer's toolkit, you can draw and replace its tools as part of the action that uses them."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.SGkOHFyBbzWdBk8D"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 50
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "other"
+      }
+    }
+  },
+  {
+    "id": "200db759-9ed0-528d-ad3c-29e2ad4c5eb2",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:hearing-aid",
+    "name": "Hearing Aid",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A hearing aid is worn in the ear and is made from carved wood, shaped metal, or even small clockwork pieces. The shape of the device aids those that are hard of hearing, and you can wear one or two depending on your hearing loss. You can attach or remove your hearing aids as an Interact action."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.GVdbmKFLi5PlMr5R"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 5
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "71ee78d4-6bbd-5ceb-858e-62f238a7d071",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:hourglass",
+    "name": "Hourglass",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.WAsQ6WuMYUB77Uh0"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "d333c741-0bb7-5b3a-80da-a28481b22b58",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:ladder-10-foot",
+    "name": "Ladder (10-foot)",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.5j5KyZsGOfbrJNUZ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "cp": 3
+        }
+      },
+      "bulk": 3,
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "f8b272f2-8768-5711-9a9f-424b8fd292ab",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:lantern-bulls-eye",
+    "name": "Lantern (Bull's Eye)",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A lantern sheds bright light and requires 1 pint of oil to function for 6 hours. A bull's-eye lantern emits its light in a 60-foot cone (and dim light in the next 60 feet)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.QrNvP9SgnK9DrerA"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "eb0a5d4b-c2ad-51f7-817b-467de00e0c35",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:lantern-hooded",
+    "name": "Lantern (Hooded)",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A lantern sheds bright light and requires 1 pint of oil to function for 6 hours. A hooded lantern sheds light in a 30-foot radius (and dim light in the next 30 feet) and is equipped with shutters, which you can close to block the light. Closing or opening the shutters takes an Interact action."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.dIRZ0LL7G31fJNYz"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 7
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "b9b5613f-34f2-5e99-9ba1-001bf91b8605",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:lock-average",
+    "name": "Lock (Average)",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Picking an average lock requires four successful "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:thievery",
+            "dc": 25
+          },
+          {
+            "type": "text",
+            "text": " checks."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.q2TYVAMaK6UfenbV"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 15
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "a17520d7-5ace-5751-8b29-3f99e8d93e0d",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:lock-good",
+    "name": "Lock (Good)",
+    "level": 9,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Picking a good lock requires five successful "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:thievery",
+            "dc": 30
+          },
+          {
+            "type": "text",
+            "text": " checks."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.byKAxLyN7AXySmw7"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 200
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "ad4ba3c7-6847-5406-b254-9ac5043de26a",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:lock-poor",
+    "name": "Lock (Poor)",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Picking a poor lock requires two successful "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:thievery",
+            "dc": 15
+          },
+          {
+            "type": "text",
+            "text": " checks."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.PBlxTrEyr3qXFBqq"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 2
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "9b6a8835-65f7-51df-a05b-22c74d97d8a3",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:lock-simple",
+    "name": "Lock (Simple)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Picking a simple lock requires three successful "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:thievery",
+            "dc": 20
+          },
+          {
+            "type": "text",
+            "text": " checks."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.JZXCTwoIWoGKjMX6"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "bc6fd9d6-ea7d-509c-b167-499d2f500890",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:lock-superior",
+    "name": "Lock (Superior)",
+    "level": 17,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Picking a superior lock requires six successful "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:thievery",
+            "dc": 40
+          },
+          {
+            "type": "text",
+            "text": " checks."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.8xWA0demi2yQsl3C"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4500
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "53ef6917-65f7-5269-ab3e-80a8c3bd7119",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:magical-hearing-aid",
+    "name": "Magical Hearing Aid",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These curved hearing aids hook over the top and sit behind your ear, with a receiver that fits into the ear opening. The external part of the device detects sound waves and, using magic, transfers them down the receiver and into your ear. You can wear one or two depending on your hearing loss, and you can turn your hearing aids on or off using an Interact action."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ba7Yba3Qexj4DpnD"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "5c27a256-4a77-5f19-9329-193281a6086d",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:magnifying-glass",
+    "name": "Magnifying Glass",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This quality handheld lens gives you a +1 item bonus to Perception checks to notice minute details of documents, fabric, and the like."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.5GbC7RTgyAeaOcAI"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 40
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "b937cd13-b787-5e21-b0d2-990106de9f0f",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:manacles-average",
+    "name": "Manacles (Average)",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can manacle someone who is willing or otherwise at your mercy as an exploration activity taking 10-30 seconds depending on the creature's size and how many manacles you apply. A two-legged creature with its legs bound takes a –15-foot circumstance penalty to its Speeds, and a two-handed creature with its wrists bound has to succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 5
+          },
+          {
+            "type": "text",
+            "text": " any time it uses a manipulate action or else that action fails. This DC may be higher depending on how tightly the manacles constrain the hands. A creature bound to a stationary object is immobilized. For creatures with more or fewer limbs, the GM determines what effect manacles have, if any. Freeing a creature from average manacles requires four successful "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:thievery",
+            "dc": 27
+          },
+          {
+            "type": "text",
+            "text": " checks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "2b97c325-92f5-5653-b7d0-e8d2c7acfb77"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.lWeADBqMFwFlVIuV"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 20
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "daaf0cb9-bd46-5f89-8518-b0018cda237b",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:manacles-good",
+    "name": "Manacles (Good)",
+    "level": 9,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can manacle someone who is willing or otherwise at your mercy as an exploration activity taking 10-30 seconds depending on the creature's size and how many manacles you apply. A two-legged creature with its legs bound takes a –15-foot circumstance penalty to its Speeds, and a two-handed creature with its wrists bound has to succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 5
+          },
+          {
+            "type": "text",
+            "text": " any time it uses a manipulate action or else that action fails. This DC may be higher depending on how tightly the manacles constrain the hands. A creature bound to a stationary object is immobilized. For creatures with more or fewer limbs, the GM determines what effect manacles have, if any. Freeing a creature from good manacles requires five successful "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:thievery",
+            "dc": 32
+          },
+          {
+            "type": "text",
+            "text": " checks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "2b97c325-92f5-5653-b7d0-e8d2c7acfb77"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.5g0rE5yMsTH3E2LJ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 250
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "d49425d8-76a6-5265-85f5-da1de5abc44c",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:manacles-poor",
+    "name": "Manacles (Poor)",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can manacle someone who is willing or otherwise at your mercy as an exploration activity taking 10-30 seconds depending on the creature's size and how many manacles you apply. A two-legged creature with its legs bound takes a –15-foot circumstance penalty to its Speeds, and a two-handed creature with its wrists bound has to succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 5
+          },
+          {
+            "type": "text",
+            "text": " any time it uses a manipulate action or else that action fails. This DC may be higher depending on how tightly the manacles constrain the hands. A creature bound to a stationary object is immobilized. For creatures with more or fewer limbs, the GM determines what effect manacles have, if any. Freeing a creature from poor manacles requires two successful "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:thievery",
+            "dc": 17
+          },
+          {
+            "type": "text",
+            "text": " checks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "2b97c325-92f5-5653-b7d0-e8d2c7acfb77"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ZPY2dOaMYciIJv1Q"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 3
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "14a1fc48-8fa5-5e32-bb75-dcd431bf2bfa",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:manacles-simple",
+    "name": "Manacles (Simple)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can manacle someone who is willing or otherwise at your mercy as an exploration activity taking 10-30 seconds depending on the creature's size and how many manacles you apply. A two-legged creature with its legs bound takes a –15-foot circumstance penalty to its Speeds, and a two-handed creature with its wrists bound has to succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 5
+          },
+          {
+            "type": "text",
+            "text": " any time it uses a manipulate action or else that action fails. This DC may be higher depending on how tightly the manacles constrain the hands. A creature bound to a stationary object is immobilized. For creatures with more or fewer limbs, the GM determines what effect manacles have, if any. Freeing a creature from simple manacles requires three successful "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:thievery",
+            "dc": 22
+          },
+          {
+            "type": "text",
+            "text": " checks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "2b97c325-92f5-5653-b7d0-e8d2c7acfb77"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ckGYDocGEaelHfXF"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "1318828b-090f-5471-af56-ff69c93b47be",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:manacles-superior",
+    "name": "Manacles (Superior)",
+    "level": 17,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can manacle someone who is willing or otherwise at your mercy as an exploration activity taking 10-30 seconds depending on the creature's size and how many manacles you apply. A two-legged creature with its legs bound takes a –15-foot circumstance penalty to its Speeds, and a two-handed creature with its wrists bound has to succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 5
+          },
+          {
+            "type": "text",
+            "text": " any time it uses a manipulate action or else that action fails. This DC may be higher depending on how tightly the manacles constrain the hands. A creature bound to a stationary object is immobilized. For creatures with more or fewer limbs, the GM determines what effect manacles have, if any. Freeing a creature from superior manacles requires six successful "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:thievery",
+            "dc": 42
+          },
+          {
+            "type": "text",
+            "text": " checks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "2b97c325-92f5-5653-b7d0-e8d2c7acfb77"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.5zkoqnp6X5yPCXVy"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5000
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "107ef05c-4dcb-5668-8509-7aea4ff4eea9",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:merchants-scale",
+    "name": "Merchant's Scale",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.o0ccn5HQAudGgNdU"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 2
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "30585aa4-515c-547d-ab9f-1fcca896cf6a",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:mirror",
+    "name": "Mirror",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.6cyw0yK91cNsbvSK"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "de0af711-2861-5bf2-bc5b-eff49852e5eb",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:mug",
+    "name": "Mug",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.wRSS5vP8ltrThsoC"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "cp": 1
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "d85a6121-e5e5-5c4f-bd8f-ca72e86a6de2",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:musical-instrument-handheld",
+    "name": "Musical Instrument (Handheld)",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Handheld instruments include bagpipes, a small set of chimes, small drums, fiddles and viols, flutes and recorders, small harps, lutes, trumpets, and similarly sized instruments. The GM might rule that an especially large handheld instrument (like a tuba) has greater Bulk. Heavy instruments such as large drums, a full set of chimes, and keyboard instruments are less portable and generally need to be stationary while played."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.MPv5Yx4w7scZGj2Y"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 8
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "3082636f-61b0-5bd6-aeed-c67662287f09",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:musical-instrument-heavy",
+    "name": "Musical Instrument (Heavy)",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Handheld instruments include bagpipes, a small set of chimes, small drums, fiddles and viols, flutes and recorders, small harps, lutes, trumpets, and similarly sized instruments. The GM might rule that an especially large handheld instrument (like a tuba) has greater Bulk. Heavy instruments such as large drums, a full set of chimes, and keyboard instruments are less portable and generally need to be stationary while played."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.csfJtggwGCF28U2j"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2
+        }
+      },
+      "bulk": 16,
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "ee98705f-83bb-59d8-b94e-e8eb5aedfb5c",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:musical-instrument-virtuoso-handheld",
+    "name": "Musical Instrument (Virtuoso handheld)",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Handheld instruments include bagpipes, a small set of chimes, small drums, fiddles and viols, flutes and recorders, small harps, lutes, trumpets, and similarly sized instruments. The GM might rule that an especially large handheld instrument (like a tuba) has greater Bulk. Heavy instruments such as large drums, a full set of chimes, and keyboard instruments are less portable and generally need to be stationary while played."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A virtuoso instrument is more finely made and gives a +1 item bonus to Performance checks using that instrument."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.3ld14dsn2RLu9owg"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 50
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "a9043438-2bcd-5e66-92ed-3ad313c5a9f5",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:musical-instrument-virtuoso-heavy",
+    "name": "Musical Instrument (Virtuoso heavy)",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Handheld instruments include bagpipes, a small set of chimes, small drums, fiddles and viols, flutes and recorders, small harps, lutes, trumpets, and similarly sized instruments. The GM might rule that an especially large handheld instrument (like a tuba) has greater Bulk. Heavy instruments such as large drums, a full set of chimes, and keyboard instruments are less portable and generally need to be stationary while played."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A virtuoso instrument is more finely made and gives a +1 item bonus to Performance checks using that instrument."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.yw1kPxsdCoDUzOaE"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 100
+        }
+      },
+      "bulk": 16,
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "2d4a4325-6430-5fbf-912b-2c3866cc8e1f",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:net",
+    "name": "Net",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can use a net either on its own or attached to a rope. When attached to a rope, you can use the net to "
+          },
+          {
+            "type": "ref",
+            "id": "380d34f1-f6f6-5820-b9dd-c01ee4e19fd5"
+          },
+          {
+            "type": "text",
+            "text": " a Medium or smaller creature up to 10 feet away (instead of only adjacent creatures). You can continue to Grapple to keep your hold on the target so long as the target remains within 10 feet and you continue to hold the net. The grabbed creature gains a +2 circumstance bonus to Escape unless you are adjacent to them, and it can attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:athletics",
+            "dc": 16
+          },
+          {
+            "type": "text",
+            "text": " check to Force Open the net entirely. Once the target is no longer grabbed, the net is unwieldy until refolded with an Interact action with the concentrate trait that requires two hands; if used without being refolded, Grapple checks made with the net take a -2 penalty."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When the net is unattached, you can attempt a ranged attack roll using your simple weapon proficiency against a Medium or smaller creature within 20 feet. On a hit, the target is off-guard and takes a -10- foot circumstance penalty to its Speeds until it Escapes, and on a critical hit, it's also immobilized until it Escapes. The Escape DC is 16 ("
+          },
+          {
+            "type": "ref",
+            "id": "2ae74030-e87a-55ee-955c-fb9870392d44"
+          },
+          {
+            "type": "text",
+            "text": "). A creature adjacent to the target can Interact to remove the net."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.T8EopYZLT137CsdW"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "14d0028d-3693-5799-9f5f-c5b1a3fd4ec4",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:parrying-scabbard",
+    "name": "Parrying Scabbard",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can draw this reinforced sheath during the same Interact action you use to draw the weapon it holds, wielding the weapon in one hand and the scabbard in your other. A parrying scabbard can be used for your defense much like a weapon with the parry trait: you can spend an action to position it defensively, gaining a +1 circumstance bonus to AC until the start of your next turn. Parrying scabbards are available for any sword that can be wielded in one hand."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "ede09330-b1cc-5c75-8888-6a3773f7248f"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.o29fgVteF3yj8NKn"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 5
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "abafb9a2-d9d6-5aaf-9676-b947e4522dda",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:periscope",
+    "name": "Periscope",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This is a 2-foot-long tube with two angled mirrors, one at each end. When the mirrors are aligned correctly, you can look around obstacles while remaining behind cover. This doesn't provide a sufficient line of effect to target creatures around corners."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ZZnh7BkwApPyNyqc"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 25
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "85cccd80-daf8-56ca-99d6-21e004989edf",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:piton",
+    "name": "Piton",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These small spikes can be used as anchors to make climbing easier. To affix a piton, you must hold it in one hand and use a hammer to drive it in with your other hand. You can attach a rope to the hammered piton so that you don't fall all the way to the ground on a critical failure while Climbing."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.oX39xqMLVB8kNrY0"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "cp": 1
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "7017674d-a471-5a5f-9e84-2244dbc27df9",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:primal-symbol",
+    "name": "Primal Symbol",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Primal spellcasters, especially druids, often wear adornments of natural materials to symbolize their connection to nature, such as rings of woven plants, tokens made from animal parts, or other symbols related to a druidic order or nature philosophy."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.QbOlqr4lSkeOEfty"
+    },
+    "data": {
+      "bulk": "negligible",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "6c1a6066-a4c3-572c-a418-39e2949360a2",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:prosthesis",
+    "name": "Prosthesis",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A prosthesis replaces a missing or damaged body part. Typical prostheses include artificial feet, eyes, hands, and limbs, though a basic prosthesis can be designed as a replacement for any body part. Advancements in the prosthetic field mean that even the most basic of prostheses can provide the full range of functionality for a missing body part."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A prosthesis has a number of belts or cuffs that keep it attached to your body. You can attach or remove a prosthesis as an Interact action."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.VBaxMSVNY2n6kLzT"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 5
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "302b6a19-e6e6-59d8-b4e4-c7945bf1d327",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:religious-symbol-silver",
+    "name": "Religious Symbol (Silver)",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This piece of wood or silver is emblazoned with an image representing a deity. Some divine spellcasters, such as clerics, can use a religious symbol of their deity to use certain abilities and cast some spells. A religious symbol can be worn on the body on a chain or pin, or can be held."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.upzjwQ96cZG0Xlmx"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "other"
+      }
+    }
+  },
+  {
+    "id": "84374307-532b-540a-bb3c-106f356bba16",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:religious-symbol-wooden",
+    "name": "Religious Symbol (Wooden)",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This piece of wood or silver is emblazoned with an image representing a deity. Some divine spellcasters, such as clerics, can use a religious symbol of their deity to use certain abilities and cast some spells. A religious symbol can be worn on the body on a chain or pin, or can be held."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.plplsXJsqrdqNQVI"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 1
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "other"
+      }
+    }
+  },
+  {
+    "id": "5907d521-0c8e-5b20-b136-4e048d3321cc",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:religious-text",
+    "name": "Religious Text",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This manuscript contains scripture of a particular religion. Some divine spellcasters, such as clerics, can use a religious text to use certain abilities. A religious text must be held in one hand to use it."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.z1okOYtNVnpBNj9F"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "9eafb125-de05-59df-ad19-4b30c8ec6a82",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:repair-toolkit",
+    "name": "Repair Toolkit",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A repair kit allows you to perform simple repairs while traveling. It contains a portable anvil, tongs, woodworking tools, a whetstone, and oils for conditioning leather and wood. You can use a repair kit to Repair items using the Crafting skill. You can draw and replace a worn repair toolkit as part of the action that uses it."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.vLGDUFrg4yGzpTQX"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "7db31516-bb8c-5b9f-a929-fb9a09be0cb3",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:repair-toolkit-superb",
+    "name": "Repair Toolkit (Superb)",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A repair kit allows you to perform simple repairs while traveling. It contains a portable anvil, tongs, woodworking tools, a whetstone, and oils for conditioning leather and wood. You can use a repair kit to Repair items using the Crafting skill. A superb repair kit gives you a +1 item bonus to the check. You can draw and replace a worn repair toolkit as part of the action that uses it."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.aDsdYMPpVc8hOnM5"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 25
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "d1bf4239-d05d-502b-9229-ecf03e296c9c",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:rope",
+    "name": "Rope",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "50 feet of rope."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.fyYnQf1NAx9fWFaS"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 5
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "2ab37823-ce43-5128-a933-b42d13f65bec",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:sack",
+    "name": "Sack",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A sack can hold up to 8 Bulk worth of items. A sack containing 2 Bulk or less can be worn on the body, usually tucked into a belt. You can carry a sack with one hand, but must use two hands to transfer items in and out."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.DujblC14ytJEZMaz"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "cp": 1
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "container": {
+        "capacity": 8
+      }
+    }
+  },
+  {
+    "id": "838061c2-f66b-503c-8d8c-8e3c1838efbb",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:saddlebags",
+    "name": "Saddlebags",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Saddlebags come in a pair. Each can hold up to 3 Bulk of items, and the first 1 Bulk of items in each doesn't count against your mount's Bulk limit. The Bulk value given is for saddlebags worn by a mount. If you are carrying or stowing saddlebags, they count as 1 Bulk instead of light Bulk."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.mBziC8v2eOtTs0f5"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 2
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "worn"
+      },
+      "container": {
+        "capacity": 6,
+        "ignored": 2,
+        "heldBulk": 1
+      }
+    }
+  },
+  {
+    "id": "5fe5135c-1f72-518f-a33e-824a30baeee7",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:scholarly-journal",
+    "name": "Scholarly Journal",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Scholarly journals are uncommon. Each scholarly journal is a folio on a very specific topic, such as vampires or the history of a single town or neighborhood of a city. If you spend 1 minute referencing an academic journal before attempting a skill check to Recall Knowledge about the subject, you gain a +1 item bonus to the check. A compendium of journals costs five times as much as a single journal and requires both hands to use; each compendium contains several journals and grants its bonus on a broader topic, such as all undead or a whole city. The GM determines what scholarly journals are available in any location."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.hywANJCzT7hMgWna"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 6
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "0dbb6da6-83b1-5376-bd7e-691b2bc38380",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:scholarly-journal-compendium",
+    "name": "Scholarly Journal Compendium",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Scholarly journals are uncommon. Each scholarly journal is a folio on a very specific topic, such as vampires or the history of a single town or neighborhood of a city. If you spend 1 minute referencing an academic journal before attempting a skill check to Recall Knowledge about the subject, you gain a +1 item bonus to the check. A compendium of journals costs five times as much as a single journal and requires both hands to use; each compendium contains several journals and grants its bonus on a broader topic, such as all undead or a whole city. The GM determines what scholarly journals are available in any location."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.5rkGXSbaqBbY4MiR"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 30
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "22cc778c-8371-5f24-b409-88bf605e1cea",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:signal-whistle",
+    "name": "Signal Whistle",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When sounded, a signal whistle can be heard clearly up to half a mile away across open terrain."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.USHK6XQRwmq17xKh"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "cp": 8
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "410a99df-053f-58a5-87b8-638e24bc535f",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:soap",
+    "name": "Soap",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Bar of soap."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.81aHsD27HFGnq1Nt"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "cp": 2
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "abeb67e9-b4f4-565c-8d12-fda2702b01b9",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:spellbook-blank",
+    "name": "Spellbook (Blank)",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A spellbook holds the written knowledge necessary to learn and prepare various spells, a necessity for wizards (who typically get one for free) and a useful luxury for other spellcasters looking to learn additional spells. Each spellbook can hold up to 100 spells. The Price listed is for a blank spellbook."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.FOWF5f0tCaApv9RE"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "8acd8952-180e-50a6-9f6b-fdcb9a0229df",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:spyglass",
+    "name": "Spyglass",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A typical spyglass lets you see eight times farther than normal."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.UtRH6jt3iNFCgLLG"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 20
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "d44e6b12-c5fe-56e2-a884-c448f93dfb42",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:spyglass-fine",
+    "name": "Spyglass (Fine)",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A typical spyglass lets you see eight times farther than normal. A fine spyglass adds a +1 item bonus to Perception checks to notice details at a distance."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.rV7MTDCseZmEZKDw"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 80
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "94b6f3c8-4418-55f0-abd1-1ab48a9c606e",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:survey-map",
+    "name": "Survey Map",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Maps are uncommon. Most maps you can find are simple and functional. A survey map details a single location in excellent detail. One of these maps gives you a +1 item bonus to Survival checks and any skill checks to Recall Knowledge, provided the checks are related to the location detailed on the map. The GM determines what maps are available in any location."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.UhcRWtnjU2WLSClx"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "65519e5f-c729-5492-860e-d7425f8a45bb",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:survey-map-atlas",
+    "name": "Survey Map (Atlas)",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Maps are uncommon. Most maps you can find are simple and functional. A survey map details a single location in excellent detail."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "One of these maps gives you a +1 item bonus to Survival checks and any skill checks to Recall Knowledge, provided the checks are related to the location detailed on the map."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Maps sometimes come in atlases, containing a number of maps of the same quality, often on similar topics. An atlas costs five times as much as a single map and requires both hands to use."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The GM determines what maps are available in any location."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.1M4SSDuTv2SwBltC"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 50
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "8480d9b1-de95-5527-8b82-57e4ef796a57",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:tack",
+    "name": "Tack",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Tack includes all the gear required to outfit a riding animal, including a saddle, bit and bridle, and stirrups if necessary. Especially large or oddly shaped animals might require specialty saddles. These can be more expensive or hard to find, as determined by the GM. The Bulk value given is for tack worn by a creature. If carried, the Bulk increases to 2."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Bu2xT8NfB6xaeTJa"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": 2,
+      "usage": {
+        "type": "other"
+      }
+    }
+  },
+  {
+    "id": "986477e4-9ff7-59ca-bd16-6d22c9720ce7",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:ten-foot-pole",
+    "name": "Ten-Foot Pole",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When wielding this long pole, you can use Seek to search a square up to 10 feet away. The pole is not sturdy enough to use as a weapon."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ccsgob2TZ7WqTrp7"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "cp": 1
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "88ae9c79-3374-5b32-8f96-f87c06bbe9e2",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:tent-four-person",
+    "name": "Tent (Four-Person)",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.JlClrm1WfJ45oWcS"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "c456ad51-e328-558b-b94b-f46d71a3f216",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:tent-pavilion",
+    "name": "Tent (Pavilion)",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.xyzmQa3nhU8HxfUL"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 40
+        }
+      },
+      "bulk": 12,
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "6a085679-555e-5565-9b22-8e45319dfec6",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:tent-pup",
+    "name": "Tent (Pup)",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Wc9og4mTKZDH3xmz"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 8
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "297ef808-c89f-52c9-be6e-f1b1fb2cef8d",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:thieves-toolkit",
+    "name": "Thieves' Toolkit",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You need a thieves' toolkit to "
+          },
+          {
+            "type": "ref",
+            "id": "b5e569b6-685e-5957-96ef-b148bd98fab6",
+            "label": "Pick Locks"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "b2ba8e49-aecf-574a-882d-bef04a43b74f",
+            "label": "Disable Devices"
+          },
+          {
+            "type": "text",
+            "text": " (of some types) using the Thievery skill."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If your thieves' toolkit is broken, you can repair it by replacing the lock picks with "
+          },
+          {
+            "type": "ref",
+            "id": "d1f3e0d7-30c7-55eb-ba8b-1a7985d32504",
+            "label": "Replacement Picks"
+          },
+          {
+            "type": "text",
+            "text": " appropriate to your toolkit; this doesn't require using the Repair action. If you wear your thieves' toolkit, you can draw and replace it as part of the action that uses it."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.zvLyCVD8g2PdHJAc"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "other"
+      }
+    }
+  },
+  {
+    "id": "2218f491-6df9-5519-a759-0cf0a9923c6a",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:thieves-toolkit-infiltrator",
+    "name": "Thieves' Toolkit (Infiltrator)",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You need a thieves' toolkit to "
+          },
+          {
+            "type": "ref",
+            "id": "b5e569b6-685e-5957-96ef-b148bd98fab6",
+            "label": "Pick Locks"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "b2ba8e49-aecf-574a-882d-bef04a43b74f",
+            "label": "Disable Devices"
+          },
+          {
+            "type": "text",
+            "text": " (of some types) using the Thievery skill. An infiltrator thieves' toolkit add a +1 item bonus to checks to Pick Locks and Disable Devices."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If your thieves' toolkit is broken, you can repair it by replacing the lock picks with "
+          },
+          {
+            "type": "ref",
+            "id": "dab070ef-153a-5876-842d-4bd74e322be7",
+            "label": "Replacement Picks"
+          },
+          {
+            "type": "text",
+            "text": " appropriate to your tools; this doesn't require using the Repair action. If you wear your thieves' toolkit, you can draw and replace it as part of the action that uses it."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.6nrCxNQFycUVFOV2"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 50
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "other"
+      }
+    }
+  },
+  {
+    "id": "dab070ef-153a-5876-842d-4bd74e322be7",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:thieves-toolkit-infiltrator-picks",
+    "name": "Thieves' Toolkit (Infiltrator Picks)",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These are replacement picks for "
+          },
+          {
+            "type": "ref",
+            "id": "2218f491-6df9-5519-a759-0cf0a9923c6a"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.BznmPaRjI4Orb0IH"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "other"
+      }
+    }
+  },
+  {
+    "id": "d1f3e0d7-30c7-55eb-ba8b-1a7985d32504",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:thieves-toolkit-replacement-picks",
+    "name": "Thieves' Toolkit (Replacement Picks)",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These are replacement picks for a "
+          },
+          {
+            "type": "ref",
+            "id": "297ef808-c89f-52c9-be6e-f1b1fb2cef8d"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Sw7MBLASN3xK4Y44"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 3
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "other"
+      }
+    }
+  },
+  {
+    "id": "db850b87-6473-5e28-a576-de48351a8180",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:tool-long",
+    "name": "Tool (Long)",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This entry is a catchall for basic hand tools that don't have a specific adventuring purpose. A hoe, shovel, or sledgehammer is a long tool, and a hand drill, ice hook, or trowel is a short tool. A tool can usually be used as an improvised weapon, dealing 1d6 damage. The GM determines the damage type that's appropriate or adjusts the damage if needed."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.wrpI5z7iWB8XvflQ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "935dc0f0-93ac-53a7-9136-124c5b556b77",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:tool-short",
+    "name": "Tool (Short)",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This entry is a catchall for basic hand tools that don't have a specific adventuring purpose. A hoe, shovel, or sledgehammer is a long tool, and a hand drill, ice hook, or trowel is a short tool. A tool can usually be used as an improvised weapon, dealing 1d4 damage. The GM determines the damage type that's appropriate or adjusts the damage if needed."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Zr4PwTEuBLE30kkn"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 4
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "other"
+      }
+    }
+  },
+  {
+    "id": "e58cead6-6304-5f35-8f34-cfa035d6fd1f",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:torch",
+    "name": "Torch",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A torch sheds bright light in a 20-foot radius (and dim light to the next 20 feet) for 1 hour. It can be used as an improvised weapon that deals 1d4 bludgeoning damage plus 1 fire damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.8Jdw4yAzWYylGePS"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "cp": 1
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "b6b932e2-44b8-5812-a5e5-61b46397d40b",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:travelers-chair",
+    "name": "Traveler's Chair",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A traveler's chair is tailored for frequent adventures and travels. The design is sleek and fashionable to provide excellent comfort and support. A traveler's chair has small mechanisms, either made from interlocking wood pieces, clockwork, or other devices, that allow the chair to traverse up or down stairs without any additional difficulty (moving up stairs is still difficult terrain, just like for other characters), and move through other common adventuring terrain without any additional difficulty, such as ladders and uneven ground."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.JFd6QBDtSNC43dy0"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5
+        }
+      },
+      "bulk": 3,
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "b7b946f1-2028-57ec-acd6-d8aec5c85efd",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:waterskin",
+    "name": "Waterskin",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When it's full, a waterskin contains roughly 1 day's worth of water for a Small or Medium creature."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.VnPh324pKwd2ZB66"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "cp": 5
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "939990e0-98d4-5ea9-a2da-c734ce933608",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:wheelchair",
+    "name": "Wheelchair",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A common wheelchair is ideal for everyday use but isn't designed for strenuous activity. These wheelchairs are most common among nonadventurers. Wheelchairs come in a variety of sizes to suit every person regardless of height or body type."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.RYi2tVST7PVN56mU"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 5
+        }
+      },
+      "bulk": 2,
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "721f4682-27a4-540e-9870-b0accd2371dd",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:writing-set",
+    "name": "Writing Set",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Using a writing set, you can draft correspondence and scribe scrolls. A set includes stationery, including a variety of paper and parchment, as well as ink, a quill or inkpen, sealing wax, and a simple seal. If you've written a large amount, you can refill your kit with extra ink and paper."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.QJb8S927Yj81EgHH"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "a59bc75c-e805-5b31-b2b8-a648b5fe7efc",
+    "pack": "player-core",
+    "kind": "equipment",
+    "slug": "equipment:writing-set-extra-ink-and-paper",
+    "name": "Writing Set (Extra Ink and Paper)",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Extra ink and paper to refill your writing set."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.3yLu12TCwN8utY0u"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 1
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "other"
+      }
+    }
+  }
+]

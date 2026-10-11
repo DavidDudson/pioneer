@@ -24,6 +24,7 @@ import {
   core,
   coreRules,
   fighter,
+  LORE_SELECTORS,
   noFacts,
   PER_SOURCE_SELECTORS,
   RANK_BONUS,
@@ -45,17 +46,17 @@ const LEVEL_TIMES: Readonly<Record<Proficiency, number>> = {
 };
 
 /** The Lore pattern: a pack that grants a Lore brings its own statistic (rules-engine.md). */
-const farmingLore = ContentPack.define({
+const societyLore = ContentPack.define({
   manifest: { id: 'lore-test', title: 'Lore test', publisher: 'Pioneer', license: ContentLicense.Homebrew },
   ancestries: [],
   creatures: [],
   statistics: [
     {
-      slug: 'statistic:farming-lore',
-      name: 'Farming Lore',
-      selector: 'skill:lore:farming',
+      slug: 'statistic:pathfinder-society-lore',
+      name: 'Pathfinder Society Lore',
+      selector: 'skill:lore:pathfinder-society',
       domains: ['check', 'skill-check', 'int-based', 'lore'],
-      base: '@attr.int + @prof.skill.lore.farming',
+      base: '@attr.int + @prof.skill.lore.pathfinder-society',
       kind: StatisticKind.Check,
       keyAttribute: Attribute.Intelligence,
       sources: [{ kind: 'book', book: 'player-core', page: 240, aon: 'https://2e.aonprd.com/Skills.aspx?ID=41' }],
@@ -103,7 +104,7 @@ describe('core rules pack', () => {
   test('registers with no duplicate selectors', () => {
     const registry = new ContentRegistry();
     registry.register(coreRules);
-    const selectors = [...SELECTORS, ...PER_SOURCE_SELECTORS];
+    const selectors = [...SELECTORS, ...LORE_SELECTORS, ...PER_SOURCE_SELECTORS];
     for (const selector of selectors) {
       expect(registry.statisticsFor(Selector.parse(selector))).toHaveLength(1);
     }
@@ -188,10 +189,10 @@ describe('core rules pack', () => {
 
   test('domains route modifiers to the right statistics', () => {
     expect(reachedBy('saving-throw')).toStrictEqual(sorted(['save:fortitude', 'save:reflex', 'save:will']));
-    expect(reachedBy('skill-check')).toStrictEqual(sorted(SKILL_SELECTORS));
+    expect(reachedBy('skill-check')).toStrictEqual(sorted([...SKILL_SELECTORS, ...LORE_SELECTORS]));
     const notRolled = new Set(['ac', 'class-dc', 'hp:max', 'speed:land']);
     const checks = SELECTORS.filter((selector) => !notRolled.has(selector));
-    expect(reachedBy('check')).toStrictEqual(sorted([...checks, ...STRIKES]));
+    expect(reachedBy('check')).toStrictEqual(sorted([...checks, ...LORE_SELECTORS, ...STRIKES]));
     expect(reachedBy('attack-roll')).toStrictEqual(sorted(STRIKES));
     expect(reachedBy('strike-attack-roll')).toStrictEqual(sorted(STRIKES));
     expect(reachedBy('str-based')).toStrictEqual(sorted([...skillsKeyedTo(Attribute.Strength), ...STRIKES]));
@@ -204,8 +205,8 @@ describe('core rules pack', () => {
     expect(reachedBy('wis-based')).toStrictEqual(
       sorted(['save:will', 'perception', ...skillsKeyedTo(Attribute.Wisdom)]),
     );
-    expect(reachedBy('int-based')).toStrictEqual(sorted(skillsKeyedTo(Attribute.Intelligence)));
-    expect(reachedBy('all')).toStrictEqual(sorted([...SELECTORS, ...STRIKES]));
+    expect(reachedBy('int-based')).toStrictEqual(sorted([...skillsKeyedTo(Attribute.Intelligence), ...LORE_SELECTORS]));
+    expect(reachedBy('all')).toStrictEqual(sorted([...SELECTORS, ...LORE_SELECTORS, ...STRIKES]));
   });
 
   test('spell domains route to the spell attack or the DC, and the attribute domain to both', () => {
@@ -214,16 +215,18 @@ describe('core rules pack', () => {
     expect(reachedBy('attack-roll', core, wizard)).toStrictEqual(['spell-attack:arcane', 'spell-attack:innate']);
     expect(reachedBy('spell-dc', core, wizard)).toStrictEqual(['spell-dc:arcane', 'spell-dc:innate']);
     expect(reachedBy('int-based', core, wizard)).toStrictEqual(
-      sorted([...arcane, ...skillsKeyedTo(Attribute.Intelligence)]),
+      sorted([...arcane, ...skillsKeyedTo(Attribute.Intelligence), ...LORE_SELECTORS]),
     );
   });
 
   test('a Lore from another pack derives beside the skills and takes skill bonuses', () => {
-    const statistics = contentOf(coreRules, farmingLore);
+    const statistics = contentOf(coreRules, societyLore);
     // Trained at level 3 with Intelligence 0.
-    expect(totals(deriveStatistics(statistics, fighter))['skill:lore:farming']).toBe(5);
-    expect(reachedBy('skill-check', statistics)).toStrictEqual(sorted([...SKILL_SELECTORS, 'skill:lore:farming']));
-    expect(reachedBy('lore', statistics)).toStrictEqual(sorted(['skill:lore:farming']));
+    expect(totals(deriveStatistics(statistics, fighter))['skill:lore:pathfinder-society']).toBe(5);
+    expect(reachedBy('skill-check', statistics)).toStrictEqual(
+      sorted([...SKILL_SELECTORS, ...LORE_SELECTORS, 'skill:lore:pathfinder-society']),
+    );
+    expect(reachedBy('lore', statistics)).toStrictEqual(sorted([...LORE_SELECTORS, 'skill:lore:pathfinder-society']));
   });
 
   test('every statistic derives for any inputs; AC, Hit Points and the skills follow their formulas', () => {

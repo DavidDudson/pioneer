@@ -1,0 +1,126 @@
+[
+  {
+    "id": "04e7d605-fbca-54de-9ba2-2b2c0847d2b3",
+    "pack": "player-core",
+    "kind": "treasure",
+    "slug": "treasure:copper-pieces",
+    "name": "Copper Pieces",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.lzJ8AVhRcbFul5fh"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "cp": 1
+        }
+      },
+      "bulk": 1,
+      "bulkPer": 1000,
+      "category": "coin"
+    }
+  },
+  {
+    "id": "30345638-c747-53a7-9b4a-bc88b277a06a",
+    "pack": "player-core",
+    "kind": "treasure",
+    "slug": "treasure:gold-pieces",
+    "name": "Gold Pieces",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.B6B7tBWJSqOBz5zz"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1
+        }
+      },
+      "bulk": 1,
+      "bulkPer": 1000,
+      "category": "coin"
+    }
+  },
+  {
+    "id": "8fe22c53-d2b4-5946-bdde-c128363bdb0a",
+    "pack": "player-core",
+    "kind": "treasure",
+    "slug": "treasure:platinum-pieces",
+    "name": "Platinum Pieces",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.JuNPeK5Qm1w6wpb4"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "pp": 1
+        }
+      },
+      "bulk": 1,
+      "bulkPer": 1000,
+      "category": "coin"
+    }
+  },
+  {
+    "id": "a7e3171d-a2c8-5abb-a9a4-969975635811",
+    "pack": "player-core",
+    "kind": "treasure",
+    "slug": "treasure:silver-pieces",
+    "name": "Silver Pieces",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.5Ew82vBF9YfaiY9f"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 1
+        }
+      },
+      "bulk": 1,
+      "bulkPer": 1000,
+      "category": "coin"
+    }
+  }
+]

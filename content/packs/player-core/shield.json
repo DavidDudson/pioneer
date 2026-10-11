@@ -1,0 +1,480 @@
+[
+  {
+    "id": "679c7aef-b6e4-5d35-b78b-e4b59a64cdbb",
+    "pack": "player-core",
+    "kind": "shield",
+    "slug": "shield:buckler",
+    "name": "Buckler",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This very small shield is a favorite of duelists and quick, lightly armored warriors. It's typically made of steel and strapped to your forearm. You can "
+          },
+          {
+            "type": "ref",
+            "id": "5c3e30ec-2520-5b84-b2bf-c03dd6b8d65a"
+          },
+          {
+            "type": "text",
+            "text": " with your buckler as long as you have that hand free or are holding a light object that's not a weapon in that hand."
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "Hardness"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "HP"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "BT"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "3"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "6"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3"
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.1k3AsSW7lpU0kEpY"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1
+        }
+      },
+      "bulk": "light",
+      "hardness": 3,
+      "hitPoints": 6,
+      "baseItem": "buckler",
+      "acBonus": 1
+    }
+  },
+  {
+    "id": "114573ba-2b67-56e5-965e-bd7939cc1a4a",
+    "pack": "player-core",
+    "kind": "shield",
+    "slug": "shield:spined-shield",
+    "name": "Spined Shield",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Five jagged spines project from the surface of this steel shield (Hardness 6, HP 24, BT 12). The spines are +1 striking shield spikes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you use the Shield Block reaction with this shield, the spines take the damage before the shield itself does. When the shield would take damage (after applying Hardness), one spine snaps off per 6 damage, reducing the damage by 6. The shield takes any remaining damage. When there are no spines left, the shield takes damage as normal."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When all the spines are gone, you lose the ability to attack with them until the spines regenerate the next day."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "15f505fd-53f6-5c80-aab9-4e18fb3197d8"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You shoot one of the shield's spines at a target. A fired spine uses the spikes' statistics, but it is a martial ranged weapon with a range increment of 120 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.WDh4fb9N86mNLfDV"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 360
+        }
+      },
+      "bulk": 1,
+      "hardness": 6,
+      "hitPoints": 24,
+      "baseItem": "steel-shield",
+      "acBonus": 2
+    }
+  },
+  {
+    "id": "9c6b3db9-466d-5f41-94de-a389dd76350f",
+    "pack": "player-core",
+    "kind": "shield",
+    "slug": "shield:steel-shield",
+    "name": "Steel Shield",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Like wooden shields, steel shields come in a variety of shapes and sizes. Though more expensive than wooden shields, they are much more durable."
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "Hardness"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "HP"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "BT"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "5"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "20"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "10"
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Yr9yCuJiAlFh3QEB"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2
+        }
+      },
+      "bulk": 1,
+      "hardness": 5,
+      "hitPoints": 20,
+      "baseItem": "steel-shield",
+      "acBonus": 2
+    }
+  },
+  {
+    "id": "0fe1e74b-ba8a-55a2-a5e3-db9330ac45b9",
+    "pack": "player-core",
+    "kind": "shield",
+    "slug": "shield:tower-shield",
+    "name": "Tower Shield",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These massive shields can be used to provide cover to nearly the entire body. Due to their size, they are typically made of wood reinforced with metal. AC increases to +4 if you are using the "
+          },
+          {
+            "type": "ref",
+            "id": "ef51d835-6ab6-513d-b582-80753efde13b"
+          },
+          {
+            "type": "text",
+            "text": " action."
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "Hardness"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "HP"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "BT"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "5"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "20"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "10"
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ltundBNFAnP7bgPr"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": 4,
+      "hardness": 5,
+      "hitPoints": 20,
+      "baseItem": "tower-shield",
+      "acBonus": 2,
+      "speedPenalty": 5
+    }
+  },
+  {
+    "id": "907186ca-80cf-5c5e-96c6-e2ded2388851",
+    "pack": "player-core",
+    "kind": "shield",
+    "slug": "shield:wooden-shield",
+    "name": "Wooden Shield",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Though they come in a variety of shapes and sizes, the protection offered by wooden shields comes from the stoutness of their materials. While wooden shields are less expensive than steel shields, they break more easily."
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "Hardness"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "HP"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "BT"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "3"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "12"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "6"
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ezVp13Uw8cWW08Da"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1
+        }
+      },
+      "bulk": 1,
+      "hardness": 3,
+      "hitPoints": 12,
+      "baseItem": "wooden-shield",
+      "acBonus": 2
+    }
+  }
+]
