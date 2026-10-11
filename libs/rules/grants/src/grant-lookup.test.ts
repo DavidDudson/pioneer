@@ -55,6 +55,35 @@ describe('grantLookup', () => {
     expect(lookup.ofKind(ContentKind.Class).map((entry) => String(entry.slug))).toEqual(['fighter']);
   });
 
+  test("finds deities, with what each says of its follower as Foundry's deity sets it", () => {
+    const registry = new ContentRegistry();
+    registry.register(
+      new ContentPackBuilder()
+        .withDeity('sarenrae', {
+          sanctification: { modal: 'can', what: ['holy'] },
+          font: ['heal'],
+          weapons: ['scimitar'],
+        })
+        .withDeity('irori', { font: ['heal'], weapons: ['fist'] })
+        .build(),
+    );
+    const [sarenrae, irori] = grantLookup(registry).ofKind(ContentKind.Deity);
+    expect(sarenrae?.characterOptions?.map(String)).toEqual([
+      'deity:primary:sanctification:can:holy',
+      'deity:primary:favored-weapon:scimitar',
+      'deity:primary:font:heal',
+    ]);
+    expect(irori?.characterOptions?.map(String)).toEqual([
+      'deity:primary:sanctification:none',
+      'deity:primary:favored-weapon:fist',
+      'deity:primary:font:heal',
+    ]);
+  });
+
+  test('says nothing of the character beyond its kind for any other kind', () => {
+    expect(grantLookup(registryOf('human')).ofKind(ContentKind.Ancestry)[0]?.characterOptions).toBeUndefined();
+  });
+
   test('finds carried items with their rule elements and trait options, which are roots while worn or held', () => {
     const registry = new ContentRegistry();
     const perception = { key: 'FlatModifier', selectors: ['perception'], type: 'item', value: 1 };

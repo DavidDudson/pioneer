@@ -144,7 +144,7 @@ class FactCollector {
     }
     this.#seen.add(entry.id);
     const set = entryOptions(item, this.#sources.facts, this.#sources.toggles);
-    for (const option of [...kindOptions(entry), ...set.options]) {
+    for (const option of [...kindOptions(entry), ...(entry.characterOptions ?? []), ...set.options]) {
       tally(this.#setBy, option, entry.id);
     }
     this.#toggles.push(...set.toggles);

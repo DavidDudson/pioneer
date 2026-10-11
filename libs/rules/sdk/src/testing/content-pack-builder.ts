@@ -34,7 +34,18 @@ interface EnvelopeFields {
   readonly traits?: readonly string[];
   /** Common when absent. */
   readonly rarity?: string;
+  /** Rich text as JSON; none when absent. */
+  readonly description?: readonly object[];
 }
+
+/** A deity's `data` as tests give it: any field left out is empty, and the category is `deity`. */
+export type DeityFields = Partial<
+  Record<'domains' | 'font' | 'attributes' | 'skills' | 'weapons' | 'spells', unknown>
+> & {
+  readonly category?: string;
+  readonly sanctification?: object;
+  readonly description?: readonly object[];
+};
 
 /** An item's kind `data`, with the traits (`invested`) and rule elements as JSON a magic item has. */
 export interface MagicItemFields {
@@ -165,6 +176,22 @@ export class ContentPackBuilder {
     return this;
   }
 
+  /** A deity, empty but for `fields`: no domains, font, skills, weapons or spells unless given. */
+  public withDeity(name: string, { description, ...fields }: DeityFields = {}): this {
+    const data = {
+      category: 'deity',
+      domains: { primary: [], alternate: [] },
+      font: [],
+      attributes: [],
+      skills: [],
+      weapons: [],
+      spells: [],
+      ...fields,
+    };
+    this.#entries.push({ kind: ContentKind.Deity, name, data, ...(description === undefined ? {} : { description }) });
+    return this;
+  }
+
   /** The id this pack gives its entry of `kind` named `name`, as `GrantItem` and heritages name it. */
   public idOf(kind: ContentKind, name: string): string {
     return contentId(PackId.parse(this.#id), EntrySlug.parse(`${kind}:${name}`));
@@ -255,20 +282,22 @@ export class ContentPackBuilder {
       creatures: this.#creatures.map((creature) => ({ sources, ...creature })),
       statistics: this.#statistics.map((statistic) => ({ sources, ...statistic })),
       rollOptionNamespaces: this.#namespaces,
-      otherEntries: this.#entries.map(({ kind, name, data, rules = [], level, traits = [], rarity = 'common' }) => ({
-        id: this.idOf(kind, name),
-        pack: this.#id,
-        kind,
-        slug: `${kind}:${name}`,
-        name: name.charAt(0).toUpperCase() + name.slice(1),
-        rarity,
-        traits,
-        sources,
-        description: [],
-        rules,
-        data,
-        ...(level === undefined ? {} : { level }),
-      })),
+      otherEntries: this.#entries.map(
+        ({ kind, name, data, rules = [], level, traits = [], rarity = 'common', description = [] }) => ({
+          id: this.idOf(kind, name),
+          pack: this.#id,
+          kind,
+          slug: `${kind}:${name}`,
+          name: name.charAt(0).toUpperCase() + name.slice(1),
+          rarity,
+          traits,
+          sources,
+          description,
+          rules,
+          data,
+          ...(level === undefined ? {} : { level }),
+        }),
+      ),
     });
   }
 }

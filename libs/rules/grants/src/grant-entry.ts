@@ -42,6 +42,12 @@ export interface GrantEntry {
    * valued condition gives it the grant's value, else 1.
    */
   readonly valued?: boolean;
+  /**
+   * What the entry says of the character it is on, beyond the option its kind sets, as Foundry pf2e sets them from a
+   * deity's data: `deity:primary:font:heal`, `deity:primary:sanctification:can:holy`,
+   * `deity:primary:favored-weapon:dagger`. Absent for any other kind.
+   */
+  readonly characterOptions?: readonly RollOption[];
 }
 
 /** The installed content grant resolution reads. */
