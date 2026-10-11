@@ -1,7 +1,7 @@
-import { LineStatusKind, OverrideStatusKind, ruleIdOf } from '@pioneer/rules/engine';
-import type { BreakdownLine, OverrideLine, RuleId, RuleInPlay } from '@pioneer/rules/engine';
+import { OverrideStatusKind, ruleIdOf } from '@pioneer/rules/engine';
+import type { ModifierLabel, OverrideLine, RuleId, RuleInPlay } from '@pioneer/rules/engine';
 import type { PredicateSummary } from '@pioneer/rules/predicate';
-import { contentId, ModifierType, Origin, OriginHopKind, PackId, RuleIndex, Slug } from '@pioneer/rules/sdk';
+import { contentId, Origin, OriginHopKind, PackId, RuleIndex, Slug } from '@pioneer/rules/sdk';
 import type { ChangeMode, RuleElement } from '@pioneer/rules/sdk';
 import type { MessageDescriptor, ValueOf } from '@pioneer/shared/kernel';
 
@@ -14,9 +14,6 @@ export interface RuleName {
   readonly source: RuleSource;
   readonly number: number;
 }
-
-/** How a breakdown line is named: a typed rule element, or a line the engine adds itself (a weapon's potency). */
-export type LineName = RuleName | { readonly message: MessageDescriptor };
 
 const PLAYGROUND = PackId.parse('playground');
 const SOURCES = [{ kind: 'book', book: 'player-core', page: 1 }];
@@ -59,107 +56,14 @@ export function ruleNames(rules: readonly RuleInPlay[]): ReadonlyMap<RuleId, Rul
 
 const UNKNOWN_RULE: RuleName = { source: RuleSource.Rule, number: 0 };
 
-/** The rule elements' names, and each line the engine labels itself named by its message. */
-export function lineNames(
-  lines: readonly BreakdownLine[],
-  rules: ReadonlyMap<RuleId, RuleName>,
-): ReadonlyMap<RuleId, LineName> {
-  const named = new Map<RuleId, LineName>(rules);
-  for (const { modifier } of lines) {
-    if ('message' in modifier.label) {
-      named.set(modifier.id, { message: modifier.label.message });
-    }
-  }
-  return named;
-}
-
 /** Message keys naming a rule element by its box, spelled out so the key check sees them. */
 export const RULE_NAME_KEYS: Readonly<Record<RuleSource, string>> = {
   [RuleSource.Rule]: 'play.rules.ruleNumber',
   [RuleSource.Override]: 'play.rules.overrideNumber',
 };
 
-/** How a line stands, with rule elements named by box and number. */
-export type LineState =
-  | { readonly kind: typeof LineStatusKind.Applied }
-  | { readonly kind: typeof LineStatusKind.Suppressed; readonly by: LineName }
-  | { readonly kind: typeof LineStatusKind.Conditional; readonly summary: PredicateSummary | undefined }
-  | { readonly kind: typeof LineStatusKind.Inactive }
-  | { readonly kind: typeof LineStatusKind.Failed; readonly error: MessageDescriptor };
-
-/** One breakdown line as the playground shows it. */
-export interface LineRow {
-  readonly name: LineName;
-  /** Its `display.label`, if it has one. */
-  readonly label: string | undefined;
-  readonly type: ModifierType;
-  readonly value: number | undefined;
-  readonly state: LineState;
-}
-
-/** Message keys for each line state, spelled out so the key check sees them. */
-export const LINE_STATE_KEYS: Readonly<Record<LineStatusKind, string>> = {
-  [LineStatusKind.Applied]: 'play.rules.line.applied',
-  [LineStatusKind.Suppressed]: 'play.rules.line.suppressed',
-  [LineStatusKind.Conditional]: 'play.rules.line.conditional',
-  [LineStatusKind.Inactive]: 'play.rules.line.inactive',
-  [LineStatusKind.Failed]: 'play.rules.line.failed',
-};
-
-export const LINE_STATE_TONES = {
-  [LineStatusKind.Applied]: 'success',
-  [LineStatusKind.Suppressed]: 'neutral',
-  [LineStatusKind.Conditional]: 'warning',
-  [LineStatusKind.Inactive]: 'neutral',
-  [LineStatusKind.Failed]: 'danger',
-} as const satisfies Readonly<Record<LineStatusKind, string>>;
-
-/** Message keys for modifier types. */
-export const MODIFIER_TYPE_KEYS: Readonly<Record<ModifierType, string>> = {
-  [ModifierType.Untyped]: 'play.rules.modifierType.untyped',
-  [ModifierType.Status]: 'play.rules.modifierType.status',
-  [ModifierType.Circumstance]: 'play.rules.modifierType.circumstance',
-  [ModifierType.Item]: 'play.rules.modifierType.item',
-  [ModifierType.Proficiency]: 'play.rules.modifierType.proficiency',
-  [ModifierType.Attribute]: 'play.rules.modifierType.attribute',
-  [ModifierType.Potency]: 'play.rules.modifierType.potency',
-};
-
-function stateOf(line: BreakdownLine, names: ReadonlyMap<RuleId, LineName>): LineState {
-  const { status } = line;
-  switch (status.kind) {
-    case LineStatusKind.Suppressed: {
-      return { kind: status.kind, by: names.get(status.by) ?? UNKNOWN_RULE };
-    }
-    case LineStatusKind.Conditional: {
-      return { kind: status.kind, summary: status.summary };
-    }
-    case LineStatusKind.Failed: {
-      return { kind: status.kind, error: status.error };
-    }
-    case LineStatusKind.Applied:
-    case LineStatusKind.Inactive: {
-      return { kind: status.kind };
-    }
-    default: {
-      return status satisfies never;
-    }
-  }
-}
-
-function labelText(label: BreakdownLine['modifier']['label']): string | undefined {
+function labelText(label: ModifierLabel): string | undefined {
   return 'text' in label ? label.text : undefined;
-}
-
-export function lineRow(line: BreakdownLine, names: ReadonlyMap<RuleId, LineName>): LineRow {
-  const { modifier, value } = line;
-  return {
-    name: names.get(modifier.id) ?? UNKNOWN_RULE,
-    label: labelText(modifier.label),
-    type: modifier.type,
-    value,
-    state: stateOf(line, names),
-  };
 }
 
 /** How an override line stands, with rule elements named by box and number. */

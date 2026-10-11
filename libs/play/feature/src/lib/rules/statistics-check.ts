@@ -1,14 +1,15 @@
-import { BaseTermKind, deriveStatistics, StatisticInputsJson, TermSign } from '@pioneer/rules/engine';
-import type { BaseTerm, RuleId, RuleInPlay, StatisticInputs, StatisticResult } from '@pioneer/rules/engine';
+import { deriveStatistics, StatisticInputsJson } from '@pioneer/rules/engine';
+import type { RuleId, RuleInPlay, StatisticInputs, StatisticResult, StatisticValue } from '@pioneer/rules/engine';
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import type { NamespaceTable } from '@pioneer/rules/predicate';
 import { RuleElement, StatisticDefinition } from '@pioneer/rules/sdk';
-import type { ProficiencyBonusTable, Selector } from '@pioneer/rules/sdk';
+import type { ContentId, ProficiencyBonusTable, Selector } from '@pioneer/rules/sdk';
+import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor, ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
-import { lineNames, lineRow, overrideRow, ruleNames, RuleSource, rulesInPlay, weaponOrigin } from './breakdown-lines';
-import type { LineRow, OverrideRow, RuleName } from './breakdown-lines';
+import { overrideRow, RULE_NAME_KEYS, ruleNames, RuleSource, rulesInPlay, weaponOrigin } from './breakdown-lines';
+import type { OverrideRow, RuleName } from './breakdown-lines';
 import { pointAt } from './point-at';
 import { parseFacts } from './predicate-verdict';
 import { CheckStatus, readJson } from './rules-check';
@@ -107,15 +108,6 @@ export const EXAMPLE_OVERRIDES = JSON.stringify(
   JSON_INDENT,
 );
 
-/** One line of a base as the playground shows it: the term with its sign, or rounding; and what it adds. */
-export interface TermLine {
-  /** The term as written with its sign (`+ @prof.ac`), the first without a plus; undefined for rounding. */
-  readonly code: string | undefined;
-  readonly value: number;
-  /** The variant rule that set how proficiency becomes a bonus, on a term reading `@prof` while it is on. */
-  readonly variant: string | undefined;
-}
-
 /** A statistic that derived. */
 export type DerivedRow = Extract<StatisticRow, { readonly ok: true }>;
 
@@ -127,14 +119,17 @@ export type StatisticRow =
   | {
       readonly ok: true;
       readonly selector: Selector;
-      readonly baseValue: number;
+      /** The engine's breakdown, which the shared inspector shows. */
+      readonly statistic: StatisticValue;
       readonly computed: number;
       readonly total: number;
       /** The set override that pinned the total, if one did. */
       readonly pinnedBy: RuleName | undefined;
-      readonly terms: readonly TermLine[];
-      readonly lines: readonly LineRow[];
       readonly overrides: readonly OverrideRow[];
+      /** Each typed rule element's name by box and number, for lines with no label of their own. */
+      readonly ruleNames: ReadonlyMap<RuleId, MessageDescriptor>;
+      /** The variant rule in play by name, for a term whose proficiency bonus it sets. */
+      readonly entryNames: ReadonlyMap<ContentId, string>;
     }
   | { readonly ok: false; readonly selector: Selector; readonly error: MessageDescriptor; readonly pointer: string };
 
@@ -167,39 +162,35 @@ export type StatisticsCheck =
       readonly factLines: readonly number[];
     };
 
-function termLine(term: BaseTerm, index: number, variant: VariantInPlay | undefined): TermLine {
-  if (term.kind === BaseTermKind.Rounding) {
-    return { code: undefined, value: term.value, variant: undefined };
-  }
-  const leading = index === 0 && term.sign === TermSign.Plus;
+/** How a row names things: rule elements by box and number, as names and as messages, and the variant rule's name. */
+interface RowNames {
+  readonly rules: ReadonlyMap<RuleId, RuleName>;
+  readonly messages: ReadonlyMap<RuleId, MessageDescriptor>;
+  readonly entries: ReadonlyMap<ContentId, string>;
+}
+
+function rowNames(rules: ReadonlyMap<RuleId, RuleName>, variant: VariantInPlay | undefined): RowNames {
   return {
-    code: leading ? term.formula : `${term.sign} ${term.formula}`,
-    value: term.value,
-    variant: term.origin === undefined ? undefined : variant?.name,
+    rules,
+    messages: new Map([...rules].map(([id, { source, number }]) => [id, message(RULE_NAME_KEYS[source], { number })])),
+    entries: new Map((variant?.rules ?? []).map(({ origin }) => [origin.entry, variant?.name ?? origin.entry])),
   };
 }
 
-/** How a row names things: rule elements by box and number, and the variant rule in play, if any. */
-interface RowNames {
-  readonly rules: ReadonlyMap<RuleId, RuleName>;
-  readonly variant: VariantInPlay | undefined;
-}
-
-function rowOf(result: StatisticResult, base: string, { rules: names, variant }: RowNames): StatisticRow {
+function rowOf(result: StatisticResult, base: string, names: RowNames): StatisticRow {
   if (!result.ok) {
     return { ok: false, selector: result.selector, error: result.error, pointer: pointAt(base, result.position) };
   }
-  const named = lineNames(result.lines, names);
   return {
     ok: true,
     selector: result.selector,
-    baseValue: result.baseValue,
+    statistic: result,
     computed: result.computed,
     total: result.total,
-    pinnedBy: result.pinnedBy === undefined ? undefined : names.get(result.pinnedBy),
-    terms: result.base.map((term, index) => termLine(term, index, variant)),
-    lines: result.lines.map((line) => lineRow(line, named)),
-    overrides: result.overrides.map((line) => overrideRow(line, names)),
+    pinnedBy: result.pinnedBy === undefined ? undefined : names.rules.get(result.pinnedBy),
+    overrides: result.overrides.map((line) => overrideRow(line, names.rules)),
+    ruleNames: names.messages,
+    entryNames: names.entries,
   };
 }
 
@@ -271,12 +262,12 @@ export function checkStatistics(
   if (!read.ok) {
     return read.problems;
   }
-  const names = ruleNames(read.rules);
+  const names = rowNames(ruleNames(read.rules), variant);
   const rules = [...read.rules, ...(variant?.rules ?? [])];
   const content = { definitions: read.definitions, proficiencyBonus: table };
   const results = deriveStatistics(content, read.inputs, { rules, facts: read.facts });
   const rows = ownedResults(read.definitions, results).map(({ definition, result }) =>
-    rowOf(result, definition.base, { rules: names, variant }),
+    rowOf(result, definition.base, names),
   );
   return { status: StatisticsStatus.Valid, rows };
 }
