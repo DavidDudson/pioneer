@@ -71,9 +71,9 @@ answers 500, never a 422 that blames the request.
 ### Choice slots
 
 The engine produces the list of open slots from content: `ancestry`, `heritage`, `background`, `class`,
-`boost:1:ancestry:0`, `feat:class:2`, `skill-increase:3`, `choice:<entry>:<flag>` for a `ChoiceSet` on any
-granted item. Each slot has its origin, its allowed options (a predicate over content, e.g. "level ≤ 2 fighter
-feats you meet the prerequisites of"), and its current selection.
+`boost:1:ancestry:0`, `flaw:1:ancestry:0` (a voluntary flaw, optional), `feat:class:2`, `skill-increase:3`,
+`choice:<entry>:<flag>` for a `ChoiceSet` on any granted item. Each slot has its origin, its allowed options (a
+predicate over content, e.g. "level ≤ 2 fighter feats you meet the prerequisites of"), and its current selection.
 
 The character stores `SlotKey → Selection` only. Consequences:
 

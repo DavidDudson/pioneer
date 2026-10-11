@@ -142,10 +142,11 @@ export function placeFlaws(
 ): BoostChoices {
   const slots = flawSlots(document, content);
   const voluntary = [...new Set(flaws)].filter((attribute) => slots[0]?.options.includes(attribute) === true);
+  // One slot per attribute the ancestry leaves, so every voluntary flaw has one.
   return Object.fromEntries(
-    voluntary.flatMap((attribute, index) => {
-      const key = slots[index]?.key;
-      return key === undefined ? [] : [[key, ChoiceValue.parse(attribute)]];
+    slots.flatMap((slot, index) => {
+      const attribute = voluntary[index];
+      return attribute === undefined ? [] : [[slot.key, ChoiceValue.parse(attribute)]];
     }),
   );
 }

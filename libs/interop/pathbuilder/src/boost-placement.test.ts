@@ -130,9 +130,10 @@ describe('placeFlaws', () => {
     });
   });
 
-  test('places nothing when the export has no flaws beyond the ancestry’s', () => {
+  test('places nothing when the export has no flaws beyond the ancestry’s, or the ancestry isn’t loaded', () => {
     expect(placeFlaws(dwarf(1), BOOST_FIXTURES, [CHA])).toStrictEqual({});
     expect(placeFlaws(dwarf(1), BOOST_FIXTURES, [])).toStrictEqual({});
+    expect(placeFlaws(new CharacterBuilder().build().document, BOOST_FIXTURES, [INT])).toStrictEqual({});
   });
 
   test('the placed flaws lower their attributes', () => {

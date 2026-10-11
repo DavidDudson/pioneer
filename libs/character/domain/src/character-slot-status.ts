@@ -235,9 +235,9 @@ function hiddenPicks(context: SlotContext, listed: readonly CharacterSlot[]): Ch
 /**
  * Every slot the character has, with its status (#419): its own slots, then its boosts by level and the voluntary
  * flaws it took (#550), then the `ChoiceSet` slots its entries grant, then picks kept for slots it no longer has. A
- * slot on the character at its level reads as open, filled or invalid there; one that opens only above it reads at the lowest level it opens, as planned, or
- * invalid at that level. A stored pick for a slot found at neither is hidden. Nothing is dropped: every stored pick is
- * in the list.
+ * slot on the character at its level reads as open, filled or invalid there; one that opens only above it reads at
+ * the lowest level it opens, as planned, or invalid at that level. A stored pick for a slot found at neither is
+ * hidden. Nothing is dropped: every stored pick is in the list.
  */
 export function characterSlots(document: CharacterDocument, content: SlotContent): readonly CharacterSlot[] {
   const picks = new Map(Object.entries(document.build.choices).map(([key, value]) => [SlotKey.parse(key), value]));

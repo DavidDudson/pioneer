@@ -123,7 +123,7 @@ function flawSlotIn(document: CharacterDocument, boosts: BoostContent, slot: Slo
   return flaw === undefined ? undefined : { slots, flaw };
 }
 
-/** Why `selection` can't go in the flaw slot: the ancestry mustn't flaw it already, nor another voluntary flaw lower it. */
+/** Why `selection` can't go in the flaw slot: neither the ancestry nor another voluntary flaw may lower it already. */
 function flawRefusal({ slots, flaw }: FlawSlotIn, selection: ChoiceValue): SlotRefusal | undefined {
   if (!flaw.options.some((attribute) => attribute === selection)) {
     return NOT_OFFERED;

@@ -45,8 +45,9 @@ export const SlotSubject = z.discriminatedUnion('kind', [
 export type SlotSubject = z.output<typeof SlotSubject>;
 
 /**
- * One slot as the sheet shows it. `selectionName` names an entry or listed option picked; an attribute boost's or flaw's
- * pick is its attribute. `level` is where a planned slot opens, or where a planned pick that stopped being valid is flagged.
+ * One slot as the sheet shows it. `selectionName` names an entry or listed option picked; an attribute boost's or
+ * flaw's pick is its attribute. `level` is where a planned slot opens, or where a planned pick that stopped being valid
+ * is flagged.
  */
 export const CharacterSlot = z.discriminatedUnion('status', [
   z.strictObject({ status: z.literal(SlotStatus.Open), key: SlotKey, subject: SlotSubject }),
