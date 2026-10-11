@@ -3,20 +3,14 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoService } from '@jsverse/transloco';
 import { LocaleFormat, Skeleton, Stack } from '@pioneer/frontier';
 import { DefenceStatusKind } from '@pioneer/rules/engine';
-import type {
-  AdjustmentLine,
-  Defences,
-  DefenceStatus,
-  ImmunityLine,
-  ModifierLabel,
-  RuleId,
-} from '@pioneer/rules/engine';
+import type { AdjustmentLine, Defences, DefenceStatus, ImmunityLine, RuleId } from '@pioneer/rules/engine';
 import { formatSummary } from '@pioneer/rules/predicate';
 import { DAMAGE_GROUP_TYPES, DamageGroup, DamageGroupSchema, DamageTypeSchema } from '@pioneer/rules/sdk';
 import type { ContentId, DamageAdjustmentTarget, DamageException, Immunity } from '@pioneer/rules/sdk';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 import { filter, merge } from 'rxjs';
 
+import { labelName, summaryFormat } from '../breakdown/line-words';
 import { NO_ORIGIN_NAMES } from '../origin-chain/origin-names';
 import type { OriginNames } from '../origin-chain/origin-names';
 import { DAMAGE_TYPE_MESSAGES } from '../rich-text/rich-text-messages';
@@ -175,10 +169,7 @@ export class DefencesView {
         if (status.summary === undefined) {
           return undefined;
         }
-        const summary = formatSummary(status.summary, {
-          message: (descriptor) => this.#translate(descriptor),
-          list: (items, style): string => this.#format.list(items, style),
-        });
+        const summary = formatSummary(status.summary, summaryFormat(this.#i18n, this.#format));
         return this.#i18n.translate(DefencesMessage.AppliesWhen, { summary });
       }
       case DefenceStatusKind.Superseded: {
@@ -197,17 +188,7 @@ export class DefencesView {
   /** The line a rule id names, by its label; the id itself if no line in the list has it. */
   #ruleName(id: RuleId, { lines, names }: ListContext): string {
     const line = lines.find((candidate) => candidate.id === id);
-    return line === undefined ? id : this.#labelName(line.label, names);
-  }
-
-  #labelName(label: ModifierLabel, names: DefenceNames): string {
-    if ('text' in label) {
-      return label.text;
-    }
-    if ('entry' in label) {
-      return names.entries.get(label.entry) ?? label.entry;
-    }
-    return this.#translate(label.message);
+    return line === undefined ? id : labelName(line.label, names.entries, (descriptor) => this.#translate(descriptor));
   }
 
   #translate(descriptor: MessageDescriptor): string {

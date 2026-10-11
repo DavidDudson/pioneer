@@ -480,7 +480,8 @@
       "none": "No statistics.",
       "failed": "Failed",
       "pinned": "Pinned",
-      "computed": "computed {computed}"
+      "computed": "computed {computed}",
+      "conditional": "{value} {hasSummary, select, yes {when {summary}} other {in some situations}} ({name})"
     },
     "attributes": {
       "str": "Strength",

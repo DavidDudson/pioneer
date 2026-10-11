@@ -46,6 +46,7 @@ const SHIELD = ContentId.parse(contentId(PLAYER_CORE, EntrySlug.parse('shield:st
 const FRIGHTENED = ContentId.parse(contentId(PLAYER_CORE, EntrySlug.parse('condition:frightened')));
 export const GOLEM_FORM = ContentId.parse(contentId(PLAYER_CORE, EntrySlug.parse('spell:golem-form')));
 export const MAGE_ARMOR = ContentId.parse(contentId(PLAYER_CORE, EntrySlug.parse('spell:mage-armor')));
+const TERRAIN_STALKER = ContentId.parse(contentId(PLAYER_CORE, EntrySlug.parse('feat:terrain-stalker')));
 export const WITHOUT_LEVEL = ContentId.parse(
   contentId(CORE_RULES, EntrySlug.parse('variant-rule:proficiency-without-level')),
 );
@@ -58,6 +59,7 @@ export const ENTRY_NAMES: ReadonlyMap<ContentId, string> = new Map([
   [GOLEM_FORM, 'Golem Form'],
   [MAGE_ARMOR, 'Mage Armor'],
   [WITHOUT_LEVEL, 'Proficiency Without Level'],
+  [TERRAIN_STALKER, 'Terrain Stalker'],
 ]);
 
 export function origin(entry: ContentId): Origin {
@@ -233,4 +235,36 @@ export const FIGHTER_STATISTICS: readonly NamedStatistic[] = [
   { name: 'Armor Class', kind: StatisticKind.Dc, result: FIGHTER_AC },
   { name: 'Fortitude', kind: StatisticKind.Check, result: FIGHTER_FORTITUDE },
   { name: 'Will', kind: StatisticKind.Check, result: FIGHTER_WILL },
+];
+
+const DEX_STEALTH = 4;
+const STEALTH_PROFICIENCY = 5;
+const TERRAIN_STALKER_BONUS = 1;
+const UNSEEN_BONUS = 2;
+
+/** Conditional, with no words for when: the predicate has nothing the summary vocabulary covers. */
+const SOME_SITUATIONS: LineStatus = {
+  kind: LineStatusKind.Conditional,
+  when: Predicate.parse(['origin:unseen']),
+  summary: undefined,
+};
+
+/** A rogue's Stealth: one line conditional on darkness, worded, and one conditional with no words for when. */
+const ROGUE_STEALTH: StatisticValue = statistic('skill:stealth', {
+  base: [term('@attr.dex', DEX_STEALTH), term('@prof.skill.stealth', STEALTH_PROFICIENCY)],
+  lines: [
+    line(TERRAIN_STALKER, { type: ModifierType.Circumstance, value: TERRAIN_STALKER_BONUS, status: IN_DARKNESS }),
+    line(TERRAIN_STALKER, {
+      type: ModifierType.Status,
+      value: UNSEEN_BONUS,
+      status: SOME_SITUATIONS,
+      label: { text: ContentText.parse('Unseen') },
+    }),
+  ],
+});
+
+/** The fighter's statistics, then a skill with conditional lines. */
+export const CONDITIONAL_STATISTICS: readonly NamedStatistic[] = [
+  ...FIGHTER_STATISTICS,
+  { name: 'Stealth', kind: StatisticKind.Check, result: ROGUE_STEALTH },
 ];

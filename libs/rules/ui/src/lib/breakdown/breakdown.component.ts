@@ -25,6 +25,7 @@ import type { OriginNames } from '../origin-chain/origin-names';
 import { BaseTerms } from './base-terms/base-terms.component';
 import { BreakdownLines } from './breakdown-lines/breakdown-lines.component';
 import { BreakdownMessage, LINE_STATUS_ORDER, MODIFIER_TYPE_MESSAGES } from './breakdown-messages';
+import { labelName, summaryFormat } from './line-words';
 import { numberStyle, SIGNED } from './number-style';
 import { OverrideLines } from './override-lines/override-lines.component';
 import type { ShownBreakdown, ShownLine, ShownOverride, ShownTerm } from './shown-breakdown';
@@ -229,12 +230,8 @@ export class BreakdownView {
     if (summary === undefined) {
       return undefined;
     }
-    const text = formatSummary(summary, {
-      message: (descriptor) => this.#translate(descriptor),
-      list: (items, style): string => this.#format.list(items, style),
-    });
     return this.#i18n.translate(BreakdownMessage.AppliesWhen, {
-      summary: text,
+      summary: formatSummary(summary, summaryFormat(this.#i18n, this.#format)),
     });
   }
 
@@ -256,7 +253,7 @@ export class BreakdownView {
     if (named !== undefined) {
       return this.#translate(named);
     }
-    return 'entry' in label ? this.#entryName(label.entry) : this.#translate(label.message);
+    return labelName(label, this.entryNames(), (descriptor) => this.#translate(descriptor));
   }
 
   #entryName(entry: ContentId): string {

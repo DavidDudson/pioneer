@@ -7,9 +7,13 @@
         <fr-list-item>
           @if (row.ok) {
             <fr-disclosure>
-              <fr-text frDisclosureSummary
-                >{{ row.name }} <pio-statistic-total [total]="row.total" [computed]="row.computed"
-              /></fr-text>
+              <pio-statistic-summary
+                frDisclosureSummary
+                [name]="row.name"
+                [total]="row.total"
+                [computed]="row.computed"
+                [conditions]="row.conditions"
+              />
               <pio-breakdown
                 [statistic]="row.statistic"
                 [kind]="row.kind"

@@ -3,7 +3,7 @@ import type { ComponentFixture } from '@angular/core/testing';
 import { StatisticKind } from '@pioneer/rules/sdk';
 import { describe, expect, it } from 'vitest';
 
-import { CYCLE, ENTRY_NAMES, FIGHTER_STATISTICS } from '../testing/breakdown-fixtures';
+import { CONDITIONAL_STATISTICS, CYCLE, ENTRY_NAMES, FIGHTER_STATISTICS } from '../testing/breakdown-fixtures';
 import { PINNED_STATISTICS, PINNED_WILL } from '../testing/override-fixtures';
 import { provideRulesUiI18nTesting } from '../testing/provide-rich-text-testing';
 import type { NamedStatistic } from './statistics.component';
@@ -41,15 +41,24 @@ function partsOf(element: Element): string {
     .join(' | ');
 }
 
-/** Each row as read: a disclosure's summary, which names what it opens, or a failure's parts. */
+/** The statistics' rows, without the breakdowns' own list items. */
+function itemsOf(host: HTMLElement): Element[] {
+  return [...host.querySelectorAll('[role="listitem"]')].filter((item) => item.closest('pio-breakdown') === null);
+}
+
+/** Each row as read: a disclosure summary's name and total, or a failure's parts. */
 function rows(host: HTMLElement): string[] {
-  const items = [...host.querySelectorAll('[role="listitem"]')].filter(
-    (item) => item.closest('pio-breakdown') === null,
-  );
-  return items.map((item) => {
+  return itemsOf(host).map((item) => {
     const summary = item.querySelector('summary');
-    return summary === null ? partsOf(item) : textOf(summary);
+    return summary === null ? partsOf(item) : textOf(present(summary.querySelector('fr-text')));
   });
+}
+
+/** Each row's conditional lines, as summarised under its name and total. */
+function conditions(host: HTMLElement): string[][] {
+  return itemsOf(host).map((item) =>
+    [...item.querySelectorAll('summary fr-text[variant="caption"]')].map((part) => textOf(part)),
+  );
 }
 
 describe(StatisticsView, () => {
@@ -69,6 +78,22 @@ describe(StatisticsView, () => {
     const host = hostOf(await render([{ name: 'Will', kind: StatisticKind.Check, result: PINNED_WILL }]));
 
     expect(rows(host)).toStrictEqual(['Will +9 Pinned computed +6']);
+  });
+
+  it('summarises a conditional line under its total, with when it holds and where it comes from', async () => {
+    const host = hostOf(await render(CONDITIONAL_STATISTICS));
+
+    expect(rows(host).at(-1)).toBe('Stealth +9');
+    expect(conditions(host).at(-1)).toStrictEqual([
+      '+1 circumstance when you are in darkness (Terrain Stalker)',
+      '+2 status in some situations (Unseen)',
+    ]);
+  });
+
+  it('leaves lines that apply, lose, are inactive or failed out of the summary', async () => {
+    const host = hostOf(await render(FIGHTER_STATISTICS));
+
+    expect(conditions(host)).toStrictEqual([['+2 circumstance when your shield is raised (Steel Shield)'], [], []]);
   });
 
   it('names the set override that pinned a total in its breakdown', async () => {
