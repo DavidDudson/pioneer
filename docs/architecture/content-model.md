@@ -115,7 +115,11 @@ Lists of attributes, slugs and ids name each item once.
 - **Class progression.** Perception, save, attack, defence, skill and class DC ranks are `Proficiency` elements,
   later ranks behind a level predicate (`{ "gte": ["self:level", 7] }`). Each class feature is a `GrantItem`, and
   each feat slot a `ChoiceSet` querying feats (`["item:trait:fighter", { "lte": ["item:level", "self:level"] }]`)
-  behind the level it opens at. Foundry's `classFeatLevels` and the other level lists have no field here.
+  behind the level it opens at. Foundry's `classFeatLevels` and the other level lists have no field here. The
+  subclass (a doctrine, muse, order or school) is a class feature's `ChoiceSet` querying class features by tag
+  (`["item:tag:cleric-doctrine"]`), with the `GrantItem` of its pick; a class feature's `tags` are its roll options
+  `tag:<tag>`, and the class's `subclass` names the tag its subclass options carry, since a class may have more than
+  one such query (a wizard's arcane school and thesis).
 - **Feats.** `category` is Foundry's: `ancestry`, `class`, `general`, `skill` or `bonus`; an archetype feat is a
   class feat with the `archetype` trait. `maxTakable` is a count or `unlimited` (Foundry's `null`), once when
   absent. A feat with `onlyLevel1` must be level 1. `action` is an `action` kind's `data`, for a feat or class
@@ -579,11 +583,13 @@ flowchart LR
     whose `ancestryFeatLevels` depart from Player Core's is reported. Skill increases have no rule element yet and
     are reported on every class; attribute boosts are the character's own slots. `spellcasting` is reported, as its
     rank is per tradition (`spellcasting:<tradition>`), which a class feature names. `attacks.other` (a named
-    weapon group) is reported.
+    weapon group) is reported. Player Core's classes name their `subclass` tag, which Foundry marks nowhere.
   - A feat's `category`, `prerequisites` as one paragraph of their text, `onlyLevel1`, `maxTakable` (Foundry's
     explicit `null` is `unlimited`, absent once), and `action` when it is used as one, read as an `action` item is
     with `actionCategory` as its category; action data its schema rejects (a reaction whose trigger has links) is
-    reported and left off, the feat kept. A class feature has only `action`. Feature categories with no kind
+    reported and left off, the feat kept. A class feature has `action` and its `otherTags` as `tags`; a subclass
+    `ChoiceSet` (a filter of `item:tag:` terms alone, with a `GrantItem` of `{item|flags.system.rulesSelections.<flag>}`)
+    becomes a class-feature query and a grant of its pick, its camel-case flag a slug, its lang-key prompt left off. Feature categories with no kind
     (`ancestryfeature`, `calling`, and the rest) are reported and have no data; `subfeatures` are reported.
   - A deity's singular fields (`attribute`, `skill`) map to `attributes` and `skills:` selectors, and its spells,
     keyed by rank, to one `spell` entry each.
