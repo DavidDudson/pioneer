@@ -42,4 +42,9 @@ for (const load of loads) {
 
 const contents = await Promise.allSettled(officialPacks.map(async (loader) => loader.load()));
 const entries = contents.flatMap((load) => (load.status === 'fulfilled' ? load.value.entries : []));
+for (const load of contents) {
+  if (load.status === 'rejected') {
+    console.log(`Triggers not covered: ${String(load.reason)}`);
+  }
+}
 console.log(formatTriggers(triggerCoverage(entries)));

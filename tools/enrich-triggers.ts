@@ -45,6 +45,9 @@ await Promise.all(
 );
 if (enriched.length > 0) {
   const format = Bun.spawn(['node_modules/.bin/oxfmt', ...enriched.map((file) => file.path)], { cwd: ROOT });
-  await format.exited;
+  const formatted = await format.exited;
+  if (formatted !== 0) {
+    throw new Error(`oxfmt exited with ${formatted}`);
+  }
 }
 console.log(`${matches.size} trigger events set in ${enriched.length} files`);
