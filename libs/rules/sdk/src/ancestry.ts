@@ -13,7 +13,9 @@ import { Feet, HitPoints } from './units';
 export const AncestryId = Uuid.brand<'AncestryId'>();
 export type AncestryId = z.infer<typeof AncestryId>;
 
-/** Schema every pack's ancestry entries must satisfy. */
+const BOOSTS_MAX = 4;
+
+/** Schema every pack's ancestry entries must satisfy. Its boosts and flaws start the character's attribute modifiers. */
 export const AncestryDefinition = z.object({
   slug: EntrySlug,
   name: ContentText,
@@ -21,13 +23,14 @@ export const AncestryDefinition = z.object({
   size: SizeSchema,
   speed: Feet,
   traits: z.array(Trait).readonly(),
+  boosts: z.array(AttributeBoost).max(BOOSTS_MAX).readonly(),
+  flaws: Attributes,
 });
 export type AncestryDefinition = z.infer<typeof AncestryDefinition>;
 
 /** How many languages a character picks beyond those granted; the Intelligence modifier adds to it. */
 const LanguageCount = Pg.smallint().nonnegative().brand<'LanguageCount'>();
 
-const BOOSTS_MAX = 4;
 const LANGUAGES_MAX = 64;
 
 /** The languages an ancestry offers on top of those it grants (Foundry pf2e's `additionalLanguages`). */
@@ -44,8 +47,6 @@ const AdditionalLanguages = z.strictObject({
  */
 export const AncestryData = z.strictObject({
   ...AncestryDefinition.omit({ slug: true, name: true, traits: true }).shape,
-  boosts: z.array(AttributeBoost).max(BOOSTS_MAX).readonly(),
-  flaws: Attributes,
   /** `language` entries every member speaks. */
   languages: z.array(ContentId).max(LANGUAGES_MAX).readonly().check(uniqueItems),
   additionalLanguages: AdditionalLanguages,

@@ -1,7 +1,14 @@
 import { contentId, ContentId, ContentKind, RollOption, slugName } from '@pioneer/rules/sdk';
-import type { ContentPack, ContentRegistry, PackAncestry } from '@pioneer/rules/sdk';
+import type { ContentEntry, ContentPack, ContentRegistry, PackAncestry, Trait } from '@pioneer/rules/sdk';
 
 import type { ContentLookup, GrantEntry } from './grant-entry';
+
+/** The kinds a character picks in a root slot that the registry keeps as envelope entries (`otherEntries`). */
+const ENVELOPE_ROOT_KINDS: ReadonlySet<ContentKind> = new Set([ContentKind.Background, ContentKind.Class]);
+
+function traitOptions(traits: readonly Trait[]): RollOption[] {
+  return traits.map((trait) => RollOption.parse(`trait:${trait}`));
+}
 
 /** An ancestry as grants read it. Its definition has no rule elements until packs move onto the envelope (Epic 2.3). */
 function ancestryEntry(pack: ContentPack, ancestry: PackAncestry): GrantEntry | undefined {
@@ -16,16 +23,40 @@ function ancestryEntry(pack: ContentPack, ancestry: PackAncestry): GrantEntry | 
     name: ancestry.name,
     rules: [],
     sources: [source, ...sources],
-    rollOptions: ancestry.traits.map((trait) => RollOption.parse(`trait:${trait}`)),
+    rollOptions: traitOptions(ancestry.traits),
   };
 }
 
+/** A background or class, read from its envelope with its rule elements. */
+function envelopeEntry(entry: ContentEntry): GrantEntry | undefined {
+  const [source, ...sources] = entry.sources;
+  if (source === undefined || !ENVELOPE_ROOT_KINDS.has(entry.kind)) {
+    return undefined;
+  }
+  return {
+    id: entry.id,
+    kind: entry.kind,
+    slug: slugName(entry.slug),
+    name: entry.name,
+    rules: entry.rules,
+    sources: [source, ...sources],
+    rollOptions: traitOptions(entry.traits),
+  };
+}
+
+function packEntries(pack: ContentPack): GrantEntry[] {
+  return [
+    ...pack.ancestries.flatMap((each) => ancestryEntry(pack, each) ?? []),
+    ...pack.otherEntries.flatMap((each) => envelopeEntry(each) ?? []),
+  ];
+}
+
 /**
- * The registry's content as grants read it. Only ancestries for now: the other kinds join as the registry holds
- * them. Built once per registry; lookups are by id and by kind.
+ * The registry's content as grants read it: ancestries, backgrounds and classes, the kinds a character picks in its
+ * root slots. Other kinds join as the registry holds them. Built once per registry; lookups are by id and by kind.
  */
 export function grantLookup(registry: ContentRegistry): ContentLookup {
-  const entries = registry.packs.flatMap((pack) => pack.ancestries.flatMap((each) => ancestryEntry(pack, each) ?? []));
+  const entries = registry.packs.flatMap((pack) => packEntries(pack));
   const byId = new Map(entries.map((entry) => [entry.id, entry]));
   const byKind = Map.groupBy(entries, (entry) => entry.kind);
   return {

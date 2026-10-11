@@ -1,6 +1,8 @@
 import type * as z from 'zod';
 
 import type { AncestryDefinition } from '../ancestry';
+import { contentId, EntrySlug, PackId } from '../content-id';
+import { ContentKind } from '../content-kind';
 import { ContentPack } from '../content-pack';
 import type { CreatureDefinition } from '../creature';
 import { ContentLicense } from '../license';
@@ -19,6 +21,13 @@ type Sourceable<Definition extends z.ZodType> = z.input<Definition> & {
   readonly sources?: readonly z.input<typeof SourceRef>[];
 };
 
+/** An envelope entry as tests give it, before the pack names its id and sources. */
+interface EnvelopeFields {
+  readonly kind: ContentKind;
+  readonly name: string;
+  readonly data: object;
+}
+
 /**
  * Test builder for content packs. Defaults to a valid, empty homebrew pack whose entries cite it as their homebrew
  * source; every `with*` returns the builder so tests state only what they care about:
@@ -33,6 +42,7 @@ export class ContentPackBuilder {
   readonly #creatures: Sourceable<typeof CreatureDefinition>[] = [];
   readonly #statistics: Sourceable<typeof StatisticDefinition>[] = [];
   readonly #namespaces: Record<string, NamespaceKind> = {};
+  readonly #entries: EnvelopeFields[] = [];
 
   public withId(id: string): this {
     this.#id = id;
@@ -47,6 +57,8 @@ export class ContentPackBuilder {
       size: Size.Medium,
       speed: 25,
       traits: ['humanoid'],
+      boosts: [],
+      flaws: [],
       ...overrides,
     });
     return this;
@@ -71,6 +83,18 @@ export class ContentPackBuilder {
     return this;
   }
 
+  /** A background with these boosts, each the attributes it may go to (`[['str', 'dex'], [...all six]]`). */
+  public withBackground(name: string, boosts: readonly (readonly string[])[]): this {
+    this.#entries.push({ kind: ContentKind.Background, name, data: { boosts } });
+    return this;
+  }
+
+  /** A class whose key attribute may be any of `keyAttribute`. */
+  public withClass(name: string, keyAttribute: readonly string[]): this {
+    this.#entries.push({ kind: ContentKind.Class, name, data: { keyAttribute, hitPoints: 10, additionalSkills: 3 } });
+    return this;
+  }
+
   public withNamespace(namespace: string, kind: NamespaceKind): this {
     this.#namespaces[namespace] = kind;
     return this;
@@ -84,6 +108,19 @@ export class ContentPackBuilder {
       creatures: this.#creatures.map((creature) => ({ sources, ...creature })),
       statistics: this.#statistics.map((statistic) => ({ sources, ...statistic })),
       rollOptionNamespaces: this.#namespaces,
+      otherEntries: this.#entries.map(({ kind, name, data }) => ({
+        id: contentId(PackId.parse(this.#id), EntrySlug.parse(`${kind}:${name}`)),
+        pack: this.#id,
+        kind,
+        slug: `${kind}:${name}`,
+        name: name.charAt(0).toUpperCase() + name.slice(1),
+        rarity: 'common',
+        traits: [],
+        sources,
+        description: [],
+        rules: [],
+        data,
+      })),
     });
   }
 }
