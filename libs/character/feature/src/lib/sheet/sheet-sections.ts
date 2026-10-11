@@ -15,6 +15,7 @@ export const SHEET_SECTIONS = {
   defences: { anchor: 'sheet-defences', headingKey: 'character.sheet.defencesHeading' },
   statistics: { anchor: 'sheet-statistics', headingKey: 'character.sheet.statisticsHeading' },
   choices: { anchor: 'sheet-choices', headingKey: 'character.sheet.choicesHeading' },
+  features: { anchor: 'sheet-features', headingKey: 'character.sheet.featuresHeading' },
   inventory: { anchor: 'sheet-inventory', headingKey: 'character.sheet.inventory.heading' },
 } as const satisfies Readonly<Record<string, SheetSection>>;
 

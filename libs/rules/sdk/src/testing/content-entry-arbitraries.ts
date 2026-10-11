@@ -135,7 +135,10 @@ const featData: Arbitrary<object> = withOptional(record({ category: featCategory
   maxTakable: oneof(positive, constant(UNLIMITED)),
   action: actionData,
 });
-const classFeatureData: Arbitrary<object> = withOptional(constant({}), { action: actionData });
+const classFeatureData: Arbitrary<object> = withOptional(constant({}), {
+  action: actionData,
+  tags: uniqueArray(slugText, { minLength: 1, maxLength: LIST_MAX }),
+});
 
 const conditionRefs: Arbitrary<string[]> = uniqueArray(contentIdJson, { maxLength: LIST_MAX });
 const conditionData: Arbitrary<object> = withOptional(

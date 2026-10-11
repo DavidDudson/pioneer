@@ -10,7 +10,6 @@ import {
   input,
   viewChild,
 } from '@angular/core';
-import type { Signal } from '@angular/core';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import {
   ANCESTRY_SLOT,
@@ -21,9 +20,9 @@ import {
   CHARACTER_LEVEL_MAX,
   CHARACTER_LEVEL_MIN,
   CharacterPatchField,
+  CLASS_SLOT,
   HERITAGE_SLOT,
 } from '@pioneer/character/domain';
-import type { InlineEdit, SelectOption } from '@pioneer/frontier';
 import {
   AsyncData,
   AsyncPending,
@@ -47,8 +46,15 @@ import {
   TextInput,
 } from '@pioneer/frontier';
 import { AncestryId, ChoiceValue } from '@pioneer/rules/sdk';
-import type { ContentId, SlotKey } from '@pioneer/rules/sdk';
-import { AttributesView, BuildSummaryView, ChoicesView, DefencesView, StatisticsView } from '@pioneer/rules/ui';
+import type { ContentId } from '@pioneer/rules/sdk';
+import {
+  AttributesView,
+  BuildSummaryView,
+  ChoicesView,
+  ClassFeaturesView,
+  DefencesView,
+  StatisticsView,
+} from '@pioneer/rules/ui';
 
 import { AncestryOptions } from '../../data/ancestry-options';
 import { CharacterStore } from '../../data/character-store';
@@ -56,8 +62,8 @@ import { CHARACTER_CONTENT_KINDS, injectContentRegistry } from '../../data/conte
 import { ImportResult } from '../../import/import-result/import-result.component';
 import { InventorySection } from '../inventory/inventory-section/inventory-section.component';
 import { sheetAttributes } from '../sheet-attributes';
-import { NOT_CHOSEN, RootPick, sheetBuildSummary, sheetRootOptions } from '../sheet-build';
-import { sheetChoices } from '../sheet-choices';
+import { sheetBuildPicks } from '../sheet-build-picks';
+import { SheetClassFields } from '../sheet-class-fields/sheet-class-fields.component';
 import { sheetDefences } from '../sheet-defences';
 import { sheetEntryNames } from '../sheet-entry-names';
 import { sheetField } from '../sheet-field';
@@ -85,6 +91,7 @@ function focusField(field: ElementRef<HTMLElement>): void {
     BuildSummaryView,
     Button,
     ChoicesView,
+    ClassFeaturesView,
     DateDisplay,
     DefencesView,
     Grid,
@@ -99,6 +106,7 @@ function focusField(field: ElementRef<HTMLElement>): void {
     SectionIndex,
     SectionLink,
     Select,
+    SheetClassFields,
     Skeleton,
     Stack,
     StatisticsView,
@@ -148,11 +156,6 @@ export class CharacterSheetPage {
     const character = this.character();
     return registry === undefined || character === undefined ? undefined : sheetStatistics(registry, character);
   });
-  /** Every choice with its status, as the server read the slots; undefined while the character loads. */
-  protected readonly choices = computed(() => {
-    const slots = this.store.slots();
-    return slots === undefined ? undefined : sheetChoices(slots);
-  });
   /** Names for the entries the defences and statistics lines come from. */
   protected readonly entryNames = computed((): ReadonlyMap<ContentId, string> => {
     const registry = this.registry.data();
@@ -172,24 +175,26 @@ export class CharacterSheetPage {
     save: async (value) => this.store.selectSlot(ANCESTRY_SLOT, ChoiceValue.parse(AncestryId.parse(value))),
     format: (value) => this.ancestries.name(value),
   });
-  protected readonly heritageOptions = computed(() => this.#rootOptions(HERITAGE_SLOT));
-  protected readonly heritage = this.#rootField(HERITAGE_SLOT, this.heritageOptions);
-  protected readonly backgroundOptions = computed(() => this.#rootOptions(BACKGROUND_SLOT));
-  protected readonly background = this.#rootField(BACKGROUND_SLOT, this.backgroundOptions);
+  /** The root slot, subclass and key attribute pickers, the build summary and the class features. */
+  protected readonly picks = sheetBuildPicks({
+    registry: this.registry.data,
+    character: this.character,
+    slots: this.store.slots,
+    select: async (slot, selection) => this.store.selectSlot(slot, selection),
+    clear: async (slot) => this.store.clearSlot(slot),
+    translate: (key) => this.#i18n.translate(key),
+  });
+  protected readonly heritageOptions = this.picks.rootOptions(HERITAGE_SLOT);
+  protected readonly heritage = this.picks.rootField(HERITAGE_SLOT, this.heritageOptions);
+  protected readonly backgroundOptions = this.picks.rootOptions(BACKGROUND_SLOT);
+  protected readonly background = this.picks.rootField(BACKGROUND_SLOT, this.backgroundOptions);
+  protected readonly classOptions = this.picks.rootOptions(CLASS_SLOT);
+  protected readonly characterClass = this.picks.rootField(CLASS_SLOT, this.classOptions);
   protected readonly level = sheetField<number>(this.character, {
     read: (character) => character.level,
     empty: CHARACTER_LEVEL_MIN,
     schema: CharacterLevel,
     save: async (value) => this.store.patch({ field: CharacterPatchField.Level, value: CharacterLevel.parse(value) }),
-  });
-  /** What the character is, part by part; undefined while it or the content loads. */
-  protected readonly buildLines = computed(() => {
-    const registry = this.registry.data();
-    const character = this.character();
-    const slots = this.store.slots();
-    return registry === undefined || character === undefined || slots === undefined
-      ? undefined
-      : sheetBuildSummary(registry, character, slots);
   });
   /** The heritage the last edit cleared, by name, until dismissed. */
   protected readonly cleared = computed(() =>
@@ -230,38 +235,5 @@ export class CharacterSheetPage {
       },
       { injector: this.#injector },
     );
-  }
-
-  /** The picker options of one of the character's own slots; none while it or the content loads. */
-  #rootOptions(slot: SlotKey): readonly SelectOption<string>[] {
-    const registry = this.registry.data();
-    const character = this.character();
-    return registry === undefined || character === undefined ? [] : sheetRootOptions(registry, character, slot);
-  }
-
-  /** The name the server read for the pick stored in `slot`, shown when its slot no longer offers it. */
-  #storedName(slot: SlotKey): string | undefined {
-    const read = this.store.slots()?.find((each) => each.key === slot);
-    return read !== undefined && 'selectionName' in read ? read.selectionName : undefined;
-  }
-
-  /**
-   * One of the character's own slots as an inline pick, named by its options. An empty one reads as `NOT_CHOSEN`,
-   * never undefined, which the edit takes for still loading.
-   */
-  #rootField(slot: SlotKey, options: Signal<readonly SelectOption<string>[]>): InlineEdit<string | undefined> {
-    return sheetField<string | undefined>(this.character, {
-      read: (character) => character.document.build.choices[slot] ?? NOT_CHOSEN,
-      empty: NOT_CHOSEN,
-      schema: RootPick,
-      save: async (value) =>
-        value === undefined || value === NOT_CHOSEN
-          ? this.store.clearSlot(slot)
-          : this.store.selectSlot(slot, ChoiceValue.parse(value)),
-      format: (value) =>
-        value === undefined || value === NOT_CHOSEN
-          ? this.#i18n.translate('character.sheet.notChosen')
-          : (options().find((option) => option.value === value)?.label ?? this.#storedName(slot) ?? value),
-    });
   }
 }

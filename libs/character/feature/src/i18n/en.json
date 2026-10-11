@@ -44,6 +44,10 @@
     "buildHeading": "Build",
     "heritage": "Heritage",
     "background": "Background",
+    "class": "Class",
+    "subclass": "Subclass",
+    "keyAttribute": "Key attribute",
+    "featuresHeading": "Class features",
     "cleared": {
       "heading": "Cleared by your last change",
       "heritage": "{name} doesn’t belong to the new ancestry, so your heritage was cleared. Pick another.",

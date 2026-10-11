@@ -30,7 +30,7 @@ interface AncestryInputs {
 }
 
 /** What the character's class gives its statistics: `@class.hp`, and the key attribute `@attr.key` reads. */
-interface ClassInputs {
+export interface ClassInputs {
   /** Hit Points each level, before Constitution. */
   readonly hitPoints: HitPoints;
   /** The key attribute chosen for the class, from the ones it allows. */

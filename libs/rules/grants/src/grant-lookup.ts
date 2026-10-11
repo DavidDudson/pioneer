@@ -5,11 +5,12 @@ import type { ContentLookup, GrantEntry } from './grant-entry';
 
 /**
  * The kinds grants read from the registry's envelope entries (`otherEntries`): those a character picks in a root slot,
- * and feats, which a background or class grants by `GrantItem`.
+ * the class features a class grants by level, and feats, which a background or class grants by `GrantItem`.
  */
 const ENVELOPE_KINDS: ReadonlySet<ContentKind> = new Set([
   ContentKind.Background,
   ContentKind.Class,
+  ContentKind.ClassFeature,
   ContentKind.Feat,
   ContentKind.Heritage,
 ]);
@@ -22,6 +23,12 @@ function belongsTo(entry: ContentEntry): Pick<GrantEntry, 'belongsTo'> {
 
 function traitOptions(traits: readonly Trait[]): RollOption[] {
   return traits.map((trait) => RollOption.parse(`trait:${trait}`));
+}
+
+/** A class feature's tags, `tag:cleric-doctrine`, which a subclass's `ChoiceSet` filters on; none for another kind. */
+function tagOptions(entry: ContentEntry): RollOption[] {
+  const tags = entry.kind === ContentKind.ClassFeature ? (entry.data.tags ?? []) : [];
+  return tags.map((tag) => RollOption.parse(`tag:${tag}`));
 }
 
 /** An ancestry as grants read it. Its definition has no rule elements until packs move onto the envelope (Epic 2.3). */
@@ -41,7 +48,7 @@ function ancestryEntry(pack: ContentPack, ancestry: PackAncestry): GrantEntry | 
   };
 }
 
-/** A background, class, feat or heritage, read from its envelope with its rule elements. */
+/** A background, class, class feature, feat or heritage, read from its envelope with its rule elements. */
 function envelopeEntry(entry: ContentEntry): GrantEntry | undefined {
   const [source, ...sources] = entry.sources;
   if (source === undefined || !ENVELOPE_KINDS.has(entry.kind)) {
@@ -54,7 +61,7 @@ function envelopeEntry(entry: ContentEntry): GrantEntry | undefined {
     name: entry.name,
     rules: entry.rules,
     sources: [source, ...sources],
-    rollOptions: traitOptions(entry.traits),
+    rollOptions: [...traitOptions(entry.traits), ...tagOptions(entry)],
     ...belongsTo(entry),
   };
 }
@@ -68,7 +75,7 @@ function packEntries(pack: ContentPack): GrantEntry[] {
 
 /**
  * The registry's content as grants read it: ancestries, heritages, backgrounds and classes, the kinds a character
- * picks in its root slots, and the feats they grant. Other kinds join as the registry holds them. Built once per registry; lookups are by id and by kind.
+ * picks in its root slots, and the class features and feats they grant. Other kinds join as the registry holds them. Built once per registry; lookups are by id and by kind.
  */
 export function grantLookup(registry: ContentRegistry): ContentLookup {
   const entries = registry.packs.flatMap((pack) => packEntries(pack));

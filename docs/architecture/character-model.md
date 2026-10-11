@@ -102,6 +102,19 @@ and reads invalid, like any other pick.
 The sheet's Build section summarises the character: class, subclass, ancestry, heritage, background, deity, key
 attribute and size, each empty part saying what to pick, with Edit build taking focus to the pickers.
 
+The class slot's pick grants its class features by level and opens the slots its features ask for. The subclass slot
+is the `ChoiceSet` among them that queries class features tagged with the class's `subclass` (a cleric's doctrine, a
+wizard's arcane school); a class without one (fighter) has none. The key attribute is the class's boost slot
+(`boost:1:class:0`), there only when the class allows more than one. Identity picks the class, then the subclass and
+key attribute when the class asks for them. The Class features section lists each feature the class grants at the
+character's level with where it came from, "from Cleric, level 1", the level being that of the class's grant (a
+subclass feature reads the level of the feature that offered it). Changing the class keeps every pick that depended on
+the old one: the subclass and a key attribute it no longer offers read hidden, and come back with the class.
+
+The engine reads the class's Hit Points and key attribute, and the ranks the effective set's `Proficiency` elements
+raise (`ranksInPlay`, the highest raise winning): the class's starting ranks, a background's skills, a feature's
+later raise. Armor Class takes the unarmored defence rank until armour is worn.
+
 Each slot's status is worked out on every read, never stored (`characterSlots`,
 [ADR-0035](../adr/0035-character-reads-carry-slot-status.md)). `GET` and `PATCH /characters/:id` answer with the
 character and its slots:

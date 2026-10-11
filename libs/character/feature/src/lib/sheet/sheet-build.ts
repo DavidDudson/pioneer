@@ -4,18 +4,22 @@ import {
   boostContent,
   boostSets,
   BoostSource,
+  characterGrants,
   CLASS_SLOT,
+  classContent,
+  classFeatures,
   HERITAGE_SLOT,
   rootSlotOptions,
   slotContent,
   SlotStatus,
+  subclassSlot,
 } from '@pioneer/character/domain';
 import type { Character, CharacterSlot } from '@pioneer/character/domain';
 import type { SelectOption } from '@pioneer/frontier';
 import { ChoiceValue } from '@pioneer/rules/sdk';
 import type { Attribute, ContentRegistry, SlotKey } from '@pioneer/rules/sdk';
 import { BuildPart } from '@pioneer/rules/ui';
-import type { BuildLine, BuildValue } from '@pioneer/rules/ui';
+import type { BuildLine, BuildValue, ClassFeatureLine } from '@pioneer/rules/ui';
 import * as z from 'zod';
 
 /** An empty pick in one of the character's own slots, as the select's placeholder reads it. */
@@ -45,18 +49,19 @@ function size(registry: ContentRegistry, character: Character): BuildValue | und
 }
 
 /**
- * What the character is, for the build summary (#462): its class, ancestry, heritage and background by the names the
- * server read for their slots, its key attribute and its ancestry's size. Subclass and deity have no slot yet (#463,
- * #469), so they say what to pick.
+ * What the character is, for the build summary: its class, subclass, ancestry, heritage and background by the names the
+ * server read for their slots, its key attribute and its ancestry's size. Deity has no slot yet (#469), so it says what
+ * to pick.
  */
 export function sheetBuildSummary(
   registry: ContentRegistry,
   character: Character,
   slots: readonly CharacterSlot[],
 ): readonly BuildLine[] {
+  const subclass = sheetSubclass(registry, character);
   return [
     { part: BuildPart.Class, value: picked(slots, CLASS_SLOT) },
-    { part: BuildPart.Subclass, value: undefined },
+    { part: BuildPart.Subclass, value: subclass === undefined ? undefined : picked(slots, subclass.key) },
     { part: BuildPart.Ancestry, value: picked(slots, ANCESTRY_SLOT) },
     { part: BuildPart.Heritage, value: picked(slots, HERITAGE_SLOT) },
     { part: BuildPart.Background, value: picked(slots, BACKGROUND_SLOT) },
@@ -77,4 +82,43 @@ export function sheetRootOptions(
 ): readonly SelectOption<string>[] {
   const options = rootSlotOptions(character.document, slotContent(registry), slot);
   return options.map((option) => ({ value: option.value, label: option.label }));
+}
+
+/** The class's subclass slot (a doctrine, muse, order or school) and what it offers, by name. */
+export interface SheetSubclass {
+  readonly key: SlotKey;
+  readonly options: readonly SelectOption<string>[];
+}
+
+/** The subclass slot of the character's class; undefined before a class is picked, or for a class without one. */
+export function sheetSubclass(registry: ContentRegistry, character: Character): SheetSubclass | undefined {
+  const content = slotContent(registry);
+  const slot = subclassSlot(characterGrants(character.document, content), content.lookup, classContent(registry));
+  return slot === undefined
+    ? undefined
+    : { key: slot.key, options: slot.options.map((option) => ({ value: option.value, label: option.label })) };
+}
+
+/** The class's key attribute slot and the attributes it allows; undefined when the class allows only one. */
+export interface SheetKeyAttribute {
+  readonly key: SlotKey;
+  readonly options: readonly Attribute[];
+}
+
+/** The class's key attribute slot; undefined when the class allows only one attribute. */
+export function sheetKeyAttribute(registry: ContentRegistry, character: Character): SheetKeyAttribute | undefined {
+  const set = boostSets(character.document, boostContent(registry)).find((each) => each.source === BoostSource.Class);
+  const slot = set?.slots[0];
+  return slot === undefined ? undefined : { key: slot.key, options: slot.options };
+}
+
+/** The class features the character has at its level, with the class and level each came from. */
+export function sheetClassFeatures(registry: ContentRegistry, character: Character): readonly ClassFeatureLine[] {
+  const content = slotContent(registry);
+  return classFeatures(characterGrants(character.document, content), content.lookup).map((feature) => ({
+    key: feature.id,
+    name: feature.name,
+    className: feature.className,
+    level: feature.level,
+  }));
 }

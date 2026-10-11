@@ -2,6 +2,7 @@ import { Pg } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { AttributeBoost } from './attribute';
+import { Slug } from './content-id';
 import { HitPoints } from './units';
 
 /** How many skills a class trains beyond its fixed ones; the Intelligence modifier adds to it. */
@@ -19,5 +20,10 @@ export const ClassData = z.strictObject({
   hitPoints: HitPoints,
   /** Skills trained by the player's choice, beyond the fixed ones in `rules`. */
   additionalSkills: SkillCount,
+  /**
+   * The tag its subclass options carry (`cleric-doctrine`, `wizard-arcane-school`): the `ChoiceSet` among its class
+   * features that queries that tag is its subclass (doctrine, school, order). Absent for a class without one (fighter).
+   */
+  subclass: Slug.optional(),
 });
 export type ClassData = z.infer<typeof ClassData>;

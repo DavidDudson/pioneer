@@ -1,0 +1,26 @@
+@if (lines(); as features) {
+  @if (features.length === 0) {
+    <fr-empty-state [title]="Message.None | transloco" />
+  } @else {
+    <fr-list gap="xs">
+      @for (feature of features; track feature.key) {
+        <fr-list-item>
+          <fr-stack gap="none">
+            <fr-text>{{ feature.name }}</fr-text>
+            <fr-text variant="caption" tone="subtle">{{
+              Message.Origin | transloco: { className: feature.className, level: feature.level }
+            }}</fr-text>
+          </fr-stack>
+        </fr-list-item>
+      }
+    </fr-list>
+  }
+} @else {
+  <fr-list gap="xs">
+    @for (row of loadingRows; track row) {
+      <fr-list-item>
+        <fr-stack gap="none"><fr-skeleton width="md" /><fr-skeleton width="sm" /></fr-stack>
+      </fr-list-item>
+    }
+  </fr-list>
+}

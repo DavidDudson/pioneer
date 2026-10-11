@@ -1,4 +1,5 @@
 export { AttributesView, type OpenBoostLine } from './lib/attributes/attributes.component';
+export { ATTRIBUTE_MESSAGES } from './lib/attributes/attributes-messages';
 export { BreakdownView } from './lib/breakdown/breakdown.component';
 export { numberStyle } from './lib/breakdown/number-style';
 export { OriginChainView } from './lib/origin-chain/origin-chain.component';
@@ -12,6 +13,8 @@ export { type ChoiceLine, type ChoiceSelection, ChoiceState } from './lib/choice
 export { ChoicesView } from './lib/choices/choices.component';
 export { type BuildLine, BuildPart, type BuildValue } from './lib/build-summary/build-line';
 export { BuildSummaryView } from './lib/build-summary/build-summary.component';
+export { type ClassFeatureLine } from './lib/class-features/class-feature-line';
+export { ClassFeaturesView } from './lib/class-features/class-features.component';
 export { type InventoryGroup, type InventoryLine, InventoryPlacement } from './lib/inventory/inventory-line';
 export { InventoryView } from './lib/inventory/inventory.component';
 export { type InventoryLineContext } from './lib/inventory/inventory-row/inventory-row.component';

@@ -14,6 +14,16 @@ export {
 } from './attribute-boosts';
 export { ANCESTRY_SLOT, BACKGROUND_SLOT, CHARACTER_ROOT_SLOTS, CLASS_SLOT, HERITAGE_SLOT } from './character-slots';
 export { ClearedPick, unfitPicks } from './dependent-picks';
+export {
+  characterGrants,
+  characterRanks,
+  type ClassContent,
+  classContent,
+  type ClassFeature,
+  classFeatures,
+  classInputs,
+  subclassSlot,
+} from './class-build';
 export { CharacterSlot, SlotInvalidMessage, SlotStatus, SlotSubject, SlotSubjectKind } from './character-slot';
 export { characterSlots } from './character-slot-status';
 export {
