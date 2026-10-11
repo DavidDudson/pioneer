@@ -4,12 +4,11 @@ import { TranslocoService } from '@jsverse/transloco';
 import { LocaleFormat } from '@pioneer/frontier';
 import type { SelectOption } from '@pioneer/frontier';
 import { ContentLoader } from '@pioneer/rules/data-access';
-import { ContentKind } from '@pioneer/rules/sdk';
 import type { AncestryId } from '@pioneer/rules/sdk';
 import { injectQuery } from '@tanstack/angular-query-experimental';
 import { filter, merge } from 'rxjs';
 
-import { contentRegistryQuery } from './content-registry-query';
+import { CHARACTER_CONTENT_KINDS, contentRegistryQuery } from './content-registry-query';
 
 /** Ancestry choices from every official pack, loaded on first use and kept for the session. */
 @Injectable({ providedIn: 'root' })
@@ -20,7 +19,7 @@ export class AncestryOptions {
   /** Ticks when the locale changes or a message scope (e.g. `character`) finishes loading. */
   readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
   readonly #content = inject(ContentLoader);
-  readonly #registry = injectQuery(() => contentRegistryQuery(this.#content, [ContentKind.Ancestry]));
+  readonly #registry = injectQuery(() => contentRegistryQuery(this.#content, CHARACTER_CONTENT_KINDS));
 
   public readonly options = computed<readonly SelectOption<AncestryId>[]>(() => {
     // Re-run when messages change, not only when packs load.

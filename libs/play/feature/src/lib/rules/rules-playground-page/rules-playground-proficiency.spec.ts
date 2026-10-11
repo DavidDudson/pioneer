@@ -41,7 +41,7 @@ describe('RulesPlaygroundPage Proficiency Without Level', () => {
 
     const text = pageText(harness);
     expect(text).toContain('Base 13');
-    expect(text).toContain(`set by the variant rule ${WITHOUT_LEVEL}`);
+    expect(text).toContain(`Set by ${WITHOUT_LEVEL}.`);
     expect(toggle(harness).getAttribute('aria-pressed')).toBe('true');
   });
 

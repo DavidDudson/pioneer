@@ -1,0 +1,34 @@
+@if (shown(); as statistics) {
+  @if (statistics.length === 0) {
+    <fr-empty-state [title]="Message.None | transloco" />
+  } @else {
+    <fr-list gap="3xs">
+      @for (row of statistics; track row.key) {
+        <fr-list-item>
+          @if (row.ok) {
+            <fr-disclosure>
+              <fr-text frDisclosureSummary
+                >{{ row.name }} <fr-text numeric>{{ row.total }}</fr-text></fr-text
+              >
+              <pio-breakdown [statistic]="row.statistic" [entryNames]="entryNames()" />
+            </fr-disclosure>
+          } @else {
+            <fr-stack gap="3xs">
+              <fr-stack direction="horizontal" gap="xs" align="center" wrap>
+                <fr-text>{{ row.name }}</fr-text>
+                <fr-badge tone="danger">{{ Message.Failed | transloco }}</fr-badge>
+              </fr-stack>
+              <fr-text variant="caption" tone="muted">{{ row.error }}</fr-text>
+            </fr-stack>
+          }
+        </fr-list-item>
+      }
+    </fr-list>
+  }
+} @else {
+  <fr-list gap="3xs">
+    @for (row of loadingRows; track row) {
+      <fr-list-item><fr-skeleton width="md" /></fr-list-item>
+    }
+  </fr-list>
+}

@@ -25,13 +25,13 @@ import {
 } from '@pioneer/interop/pathbuilder';
 import type { ImportReport, PathbuilderImport, PathbuilderReadResult } from '@pioneer/interop/pathbuilder';
 import { ContentLoader } from '@pioneer/rules/data-access';
-import { Attribute, ContentKind } from '@pioneer/rules/sdk';
+import { Attribute } from '@pioneer/rules/sdk';
 import { ApiError } from '@pioneer/shared/web';
 import { injectQuery } from '@tanstack/angular-query-experimental';
 
 import { ATTRIBUTE_LABEL_KEYS } from '../../data/attribute-label-keys';
 import { CharacterStore } from '../../data/character-store';
-import { contentRegistryQuery } from '../../data/content-registry-query';
+import { CHARACTER_CONTENT_KINDS, contentRegistryQuery } from '../../data/content-registry-query';
 import { ImportReportGroup } from '../import-report-group/import-report-group.component';
 
 interface ImportModel {
@@ -86,7 +86,7 @@ export class PathbuilderImportPage {
   readonly #format = inject(LocaleFormat);
   readonly #content = inject(ContentLoader);
   /** Pathbuilder names are matched against ancestries today; more kinds join as the report learns them. */
-  readonly #registry = injectQuery(() => contentRegistryQuery(this.#content, [ContentKind.Ancestry]));
+  readonly #registry = injectQuery(() => contentRegistryQuery(this.#content, CHARACTER_CONTENT_KINDS));
   readonly #store = inject(CharacterStore);
   readonly #router = inject(Router);
   readonly #route = inject(ActivatedRoute);

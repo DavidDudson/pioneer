@@ -31,11 +31,11 @@ describe('RulesPlaygroundPage statistics', () => {
     const expected = [
       'Total 19',
       'Breastplate',
-      'item +4',
-      'Rule element 1 beats or removes it.',
-      'It holds when you are in forest.',
-      'Its predicate does not hold.',
-      'status -1',
+      '+4 item',
+      'Breastplate counts instead.',
+      'Applies when you are in forest.',
+      'Does not apply: its condition does not hold.',
+      '-1 status',
     ];
     expect(expected.filter((shown) => !text.includes(shown))).toStrictEqual([]);
   });
@@ -139,6 +139,6 @@ describe('RulesPlaygroundPage statistics', () => {
     rules.dispatchEvent(new Event('input'));
     await harness.fixture.whenStable();
 
-    expect(pageText(harness)).toContain('Item bonus of longsword beats or removes it.');
+    expect(pageText(harness)).toContain('Item bonus of longsword counts instead.');
   });
 });

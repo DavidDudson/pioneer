@@ -1,5 +1,7 @@
 import { EngineMessage, LineStatusKind, RuleInPlay } from '@pioneer/rules/engine';
+import { ContentId, contentId, PackId, Slug } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
+import { message } from '@pioneer/shared/kernel';
 import { describe, expect, it } from 'vitest';
 
 import { EXAMPLE_FACTS } from './predicate-verdict';
@@ -29,6 +31,13 @@ const HP_FORMULA = '@ancestry.hp + (@class.hp + @attr.con) * @level';
 
 /** Player Core's proficiency bonuses, no variant. */
 const STANDARD: StatisticProficiency = { table: PLAYER_CORE_PROFICIENCY_BONUS, variant: undefined };
+
+const FLAT_TEN_ENTRY = ContentId.parse('00000000-0000-4000-8000-000000000002');
+
+/** The made-up entry the playground puts a box's typed rule elements on. */
+function playgroundEntry(box: string): ContentId {
+  return ContentId.parse(contentId(PackId.parse('playground'), Slug.parse(box)));
+}
 
 /** A variant that makes every proficiency bonus 10, as a pack would put it in play. */
 const FLAT_TEN: StatisticProficiency = {
@@ -80,37 +89,28 @@ describe(checkStatistics, () => {
         {
           ok: true,
           selector: 'ac',
-          baseValue: 16,
           total: 19,
-          lines: [
-            {
-              name: { source: 'rule', number: 1 },
-              label: 'Breastplate',
-              type: 'item',
-              value: 4,
-              state: { kind: LineStatusKind.Applied },
-            },
-            {
-              name: { source: 'rule', number: 2 },
-              label: 'Mage Armor',
-              state: { kind: LineStatusKind.Suppressed, by: { source: 'rule', number: 1 } },
-            },
-            { name: { source: 'rule', number: 3 }, label: 'Raise a Shield', state: { kind: LineStatusKind.Inactive } },
-            { name: { source: 'rule', number: 4 }, label: 'Undergrowth', state: { kind: LineStatusKind.Conditional } },
-            {
-              name: { source: 'rule', number: 5 },
-              label: 'Frightened 1',
-              value: -1,
-              state: { kind: LineStatusKind.Applied },
-            },
-          ],
+          statistic: {
+            baseValue: 16,
+            lines: [
+              {
+                modifier: { label: { text: 'Breastplate' }, type: 'item' },
+                value: 4,
+                status: { kind: LineStatusKind.Applied },
+              },
+              { modifier: { label: { text: 'Mage Armor' } }, status: { kind: LineStatusKind.Suppressed } },
+              { modifier: { label: { text: 'Raise a Shield' } }, status: { kind: LineStatusKind.Inactive } },
+              { modifier: { label: { text: 'Undergrowth' } }, status: { kind: LineStatusKind.Conditional } },
+              { modifier: { label: { text: 'Frightened 1' } }, value: -1, status: { kind: LineStatusKind.Applied } },
+            ],
+          },
         },
         { ok: true, selector: 'save:fortitude', total: 9 },
-        { ok: true, selector: 'spell-attack:arcane', baseValue: 6, total: 5 },
+        { ok: true, selector: 'spell-attack:arcane', statistic: { baseValue: 6 }, total: 5 },
         {
           ok: true,
           selector: 'spell-dc:arcane',
-          baseValue: 16,
+          statistic: { baseValue: 16 },
           computed: 15,
           total: 18,
           pinnedBy: { source: 'override', number: 2 },
@@ -119,32 +119,7 @@ describe(checkStatistics, () => {
     });
   });
 
-  it('writes each term with its sign, the first without a plus, and rounding without code', () => {
-    const odd = definitions(statistic('odd', '@level / 2 - 1 + @level / 2'));
-    expect(check({ definitions: odd })).toStrictEqual({
-      status: StatisticsStatus.Valid,
-      rows: [
-        {
-          ok: true,
-          selector: 'odd',
-          baseValue: 2,
-          computed: 2,
-          total: 2,
-          pinnedBy: undefined,
-          terms: [
-            { code: '@level / 2', value: 1, variant: undefined },
-            { code: '- 1', value: -1, variant: undefined },
-            { code: '+ @level / 2', value: 1, variant: undefined },
-            { code: undefined, value: 1, variant: undefined },
-          ],
-          lines: [],
-          overrides: [],
-        },
-      ],
-    });
-  });
-
-  it('names the variant rule on a term reading @prof while it is on', () => {
+  it('names the variant rule that sets a term reading @prof while it is on', () => {
     const ac = definitions(statistic('ac', '10 + @prof.ac'));
     expect(check({ definitions: ac }, FLAT_TEN)).toMatchObject({
       status: StatisticsStatus.Valid,
@@ -152,15 +127,15 @@ describe(checkStatistics, () => {
         {
           ok: true,
           total: 20,
-          terms: [
-            { code: '10', value: 10, variant: undefined },
-            { code: '+ @prof.ac', value: 10, variant: 'Flat Ten' },
-          ],
+          statistic: { base: [{ origin: undefined }, { origin: { entry: FLAT_TEN_ENTRY } }] },
+          entryNames: new Map([[FLAT_TEN_ENTRY, 'Flat Ten']]),
         },
       ],
     });
     // Trained at level 3 without the variant: 2 + 3.
-    expect(check({ definitions: ac })).toMatchObject({ rows: [{ total: 15, terms: [{}, { variant: undefined }] }] });
+    expect(check({ definitions: ac })).toMatchObject({
+      rows: [{ total: 15, statistic: { base: [{}, { origin: undefined }] }, entryNames: new Map() }],
+    });
   });
 
   it('derives Hit Points, Speed and class DC from the ancestry and class, term by term', () => {
@@ -175,20 +150,22 @@ describe(checkStatistics, () => {
         {
           selector: 'hp:max',
           total: 44,
-          terms: [
-            { code: '@ancestry.hp', value: 8 },
-            { code: '+ (@class.hp + @attr.con) * @level', value: 36 },
-          ],
+          statistic: {
+            base: [
+              { formula: '@ancestry.hp', value: 8 },
+              { formula: '(@class.hp + @attr.con) * @level', value: 36 },
+            ],
+          },
         },
         {
           selector: 'speed:land',
           total: 25,
-          terms: [{ code: '@ancestry.speed', value: 25 }],
+          statistic: { base: [{ formula: '@ancestry.speed', value: 25 }] },
         },
         {
           selector: 'class-dc',
           total: 19,
-          terms: [{ code: '10' }, { code: '+ @attr.key', value: 4 }, { value: 5 }],
+          statistic: { base: [{ formula: '10' }, { formula: '@attr.key', value: 4 }, { value: 5 }] },
         },
       ],
     });
@@ -259,20 +236,19 @@ describe(checkStatistics, () => {
     });
   });
 
-  it('names a failed line’s error and numbers rules without a label', () => {
+  it('keeps a failed line, and names each rule element by its box and number', () => {
     const rules = JSON.stringify([{ key: 'FlatModifier', selectors: ['ac'], type: 'untyped', value: '1 / 0' }]);
+    const overrides = JSON.stringify([{ key: 'FlatModifier', selectors: ['ac'], type: 'status', value: 1 }]);
     const plain = definitions(statistic('ac', '10'));
-    expect(check({ definitions: plain, rules })).toMatchObject({
+    const result = check({ definitions: plain, rules, overrides });
+    expect(result).toMatchObject({
       rows: [
         {
-          lines: [
-            {
-              name: { source: 'rule', number: 1 },
-              label: undefined,
-              value: undefined,
-              state: { kind: LineStatusKind.Failed },
-            },
-          ],
+          statistic: { lines: [{ value: 1 }, { value: undefined, status: { kind: LineStatusKind.Failed } }] },
+          ruleNames: new Map([
+            [`${playgroundEntry('rule-elements')}#0`, message('play.rules.ruleNumber', { number: 1 })],
+            [`${playgroundEntry('overrides')}#0`, message('play.rules.overrideNumber', { number: 1 })],
+          ]),
         },
       ],
     });

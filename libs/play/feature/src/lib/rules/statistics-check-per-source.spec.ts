@@ -1,4 +1,5 @@
 import { EngineMessage } from '@pioneer/rules/engine';
+import { contentId, PackId, Slug } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
 import { describe, expect, it } from 'vitest';
 
@@ -34,7 +35,7 @@ describe('checkStatistics per source', () => {
       status: StatisticsStatus.Valid,
       rows: [
         { selector: 'strike:dagger' },
-        { selector: 'strike:longsword', total: 12, terms: [{ code: '@weapon.attr' }, {}] },
+        { selector: 'strike:longsword', total: 12, statistic: { base: [{ formula: '@weapon.attr' }, {}] } },
       ],
     });
   });
@@ -80,7 +81,7 @@ describe('checkStatistics per source', () => {
           ok: true,
           selector: 'strike:dagger',
           total: 11,
-          terms: [{ code: '@weapon.attr' }, { code: '+ @weapon.prof' }],
+          statistic: { base: [{ formula: '@weapon.attr' }, { formula: '@weapon.prof', sign: '+' }] },
         },
         { ok: true, selector: 'strike:longsword', total: 12 },
         {
@@ -94,7 +95,10 @@ describe('checkStatistics per source', () => {
   });
 });
 
-const POTENCY_NAME = { message: { key: EngineMessage.WeaponPotency, params: { weapon: 'longsword' } } };
+const POTENCY_LABEL = { message: { key: EngineMessage.WeaponPotency, params: { weapon: 'longsword' } } };
+const POTENCY_ID = 'weapon:longsword#weapon-potency';
+/** The made-up entry the playground puts typed rule elements on. */
+const RULES_ENTRY = contentId(PackId.parse('playground'), Slug.parse('rule-elements'));
 
 /** The example inputs with the longsword's potency set to `grade`. */
 function withPotency(grade: number): string {
@@ -126,27 +130,33 @@ describe('checkStatistics weapon potency', () => {
   it('shows the potency as an item line named by its message', () => {
     expect(longsword([])).toMatchObject({
       total: 12,
-      lines: [{ name: POTENCY_NAME, type: 'item', value: 1, state: { kind: 'applied' } }],
+      statistic: {
+        lines: [{ modifier: { label: POTENCY_LABEL, type: 'item' }, value: 1, status: { kind: 'applied' } }],
+      },
     });
   });
 
   it('names the potency line as what suppresses a lower item bonus', () => {
     expect(longsword([itemBonus(1)], withPotency(2))).toMatchObject({
       total: 13,
-      lines: [
-        { name: { source: 'rule', number: 1 }, state: { kind: 'suppressed', by: POTENCY_NAME } },
-        { name: POTENCY_NAME, state: { kind: 'applied' } },
-      ],
+      statistic: {
+        lines: [
+          { modifier: { label: { entry: RULES_ENTRY } }, status: { kind: 'suppressed', by: POTENCY_ID } },
+          { modifier: { id: POTENCY_ID, label: POTENCY_LABEL }, status: { kind: 'applied' } },
+        ],
+      },
     });
   });
 
   it('suppresses the potency line under a higher item bonus', () => {
     expect(longsword([itemBonus(2)])).toMatchObject({
       total: 13,
-      lines: [
-        { state: { kind: 'applied' } },
-        { name: POTENCY_NAME, state: { kind: 'suppressed', by: { source: 'rule', number: 1 } } },
-      ],
+      statistic: {
+        lines: [
+          { status: { kind: 'applied' } },
+          { modifier: { label: POTENCY_LABEL }, status: { kind: 'suppressed', by: `${RULES_ENTRY}#0` } },
+        ],
+      },
     });
   });
 });

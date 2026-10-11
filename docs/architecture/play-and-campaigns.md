@@ -119,7 +119,7 @@ overridable in content with `autoApply: false`.
 
 The sheet is text: values are words and numbers in frontier components, and no icon or colour carries meaning on
 its own. Sections come in one fixed order, and each sheet mode shows its sections in that order: identity (name,
-ancestry, level), attributes, defences, then the sections later epics fill (statistics, skills, Strikes, spells,
+ancestry, level), attributes, defences, statistics, then the sections later epics fill (skills, Strikes, spells,
 actions, feats and features, inventory, notes).
 
 - **No statistic is edited in place.** Inputs the user chooses (name, ancestry, level, notes) are inline fields;
@@ -138,9 +138,11 @@ actions, feats and features, inventory, notes).
   section's heading. Sections are `fr-section`s and the index is `fr-section-index`; the order lives in one const in
   the sheet feature (`SHEET_SECTIONS`), which later epics extend. A section whose content has not landed yet still
   takes its place in the order, holding an empty state.
-- In a grid of like values (attributes, skills, saves), arrow keys move between cells with roving focus, so Tab
-  crosses the grid in one stop. Enter opens a cell's inline editor and Escape cancels it, as elsewhere. The grid is
-  a `toolbar` named by its section, since its cells are buttons and inline editors rather than grid cells.
+- In a grid of like values whose cells are edited in place (attributes), arrow keys move between cells with roving
+  focus, so Tab crosses the grid in one stop. Enter opens a cell's inline editor and Escape cancels it, as elsewhere.
+  The grid is a `toolbar` named by its section, since its cells are buttons and inline editors rather than grid
+  cells. Read-only values that expand to a breakdown (statistics, saves, skills) are a list of disclosures instead,
+  one Tab stop each: a toolbar would put each expanded breakdown between its cells.
 - A feature container derives a section's data; a presentational component renders it from plain inputs
   (ADR-0028). Sections that render rules data, such as defences, live in `libs/rules/ui` with their stories.
 
@@ -161,6 +163,26 @@ The defences panel lists the character's immunities, weaknesses and resistances 
 The panel is `pio-defences` in `libs/rules/ui`, fed the engine's `Defences` and the display names of the entries,
 immunities and exceptions it names. The sheet derives them with `deriveDefences` over the content registry; until
 the builder puts the character's rule elements in play, every list is empty.
+
+### Statistics and breakdowns
+
+The statistics section lists Armor Class, the three saves and Perception, each by the name its content definition
+gives it, with its total: a check signed (+7), a DC or value plain (18). Each is an `fr-disclosure` whose summary
+reads as both ("Armor Class 18"), so the trigger names what it opens, and which expands in place to the breakdown;
+every number explains itself without a modal:
+
+- The base: its value, then each term of the base formula as written with what it gives (`+ @prof.ac` gives 5), and
+  the variant rule that sets a term's proficiency bonus when one does.
+- The modifier lines, applied first, then conditional, suppressed, inactive and failed. Each reads as its name and
+  signed, typed value ("Breastplate +4 item"); one that does not simply apply carries a status badge and says why in
+  text: the line that counts instead or removed it, when it would apply, that its condition does not hold, or the
+  error.
+- A line is named by its `display.label`, else its entry's name, else the engine's message (a weapon's potency).
+
+The list is `pio-statistics` and the breakdown `pio-breakdown`, both in `libs/rules/ui` and fed the engine's
+`StatisticResult`s; the rules playground shows its statistics with the same `pio-breakdown`. The sheet derives them
+with `deriveStatistics` over the content registry. Until the builder puts the character's rule elements in play and
+sets ranks, each statistic is its base with every rank untrained.
 
 ## Sheet modes
 

@@ -78,6 +78,13 @@
       </fr-async-region>
     </fr-section>
 
+    <fr-section [anchor]="sections.statistics.anchor" [heading]="sections.statistics.headingKey | transloco">
+      <fr-async-region>
+        <ng-template frAsyncPending><pio-statistics [statistics]="undefined" /></ng-template>
+        <ng-template [frAsyncData]="registry"><pio-statistics [statistics]="statistics()" /></ng-template>
+      </fr-async-region>
+    </fr-section>
+
     @if (character(); as character) {
       <fr-text element="p" variant="caption" tone="subtle">
         {{ 'character.sheet.created' | transloco }}
