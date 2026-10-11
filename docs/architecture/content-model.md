@@ -104,7 +104,7 @@ Lists of attributes, slugs and ids name each item once.
 | `heritage`         | `ancestry?`, absent for a versatile heritage                                                                                        |
 | `background`       | `boosts`; trained skills and lore are `Proficiency` elements, its skill feat a `GrantItem`                                          |
 | `class`            | `keyAttribute`, the attributes it may be; `hitPoints` per level; `additionalSkills`; `skillIncreaseLevels?`; progression in `rules` |
-| `class-feature`    | `action?`; always has a `level`                                                                                                     |
+| `class-feature`    | `action?`; `tags?`; `keyAttributeOptions?`; always has a `level`                                                                    |
 | `feat`             | `category`; `prerequisites?` as rich text; `onlyLevel1?`; `maxTakable?`; `action?`; `skills?`; `archetype?`; always has a `level`   |
 | `archetype`        | `dedication`; `multiclass?`, the class it is the multiclass archetype of                                                            |
 | `deity`            | `category`; `sanctification?`; `domains`; `font`; `attributes`; `skills`; `weapons`; `spells`                                       |
@@ -120,6 +120,9 @@ Lists of attributes, slugs and ids name each item once.
   features are, rather than a feat category: an ancestry feat slot queries feats by the ancestry's trait, which its
   features carry too, so as feats they would be offered there. An ancestry or heritage grants each by `GrantItem` in
   its `rules`, and its roll option is `feature:<slug>`, as in Foundry.
+- **Key attribute options.** A class feature's `keyAttributeOptions` widen its class's `keyAttribute` while the
+  character has it at 1st level: a rogue keys off Dexterity, or Strength once Ruffian is its racket (Mastermind
+  Intelligence, Scoundrel Charisma). A key attribute picked that the class no longer offers is kept, invalid.
 - **Class progression.** Perception, save, attack, defence, skill and class DC ranks are `Proficiency` elements,
   later ranks behind a level predicate (`{ "gte": ["self:level", 7] }`). Each class feature is a `GrantItem`, and
   each feat slot a `ChoiceSet` querying feats (`["item:trait:fighter", { "lte": ["item:level", "self:level"] }]`)
@@ -597,7 +600,8 @@ flowchart LR
   - A feat's `category`, `prerequisites` as one paragraph of their text, `onlyLevel1`, `maxTakable` (Foundry's
     explicit `null` is `unlimited`, absent once), and `action` when it is used as one, read as an `action` item is
     with `actionCategory` as its category; action data its schema rejects (a reaction whose trigger has links) is
-    reported and left off, the feat kept. A class feature has `action` and its `otherTags` as `tags`; a subclass
+    reported and left off, the feat kept. A class feature has `action`, its `otherTags` as `tags` and its
+    `subfeatures.keyOptions` as `keyAttributeOptions`; a subclass
     `ChoiceSet` (a filter of `item:tag:` terms alone, with a `GrantItem` of `{item|flags.system.rulesSelections.<flag>}`)
     becomes a class-feature query and a grant of its pick, its camel-case flag a slug.
     An ancestry feature (`ancestryfeature`) has `action`, as a class feature does; feature categories with no kind
@@ -605,8 +609,8 @@ flowchart LR
     `subfeatures.senses` become `Sense` elements, as a `Sense` rule does (below), and its
     `subfeatures.languages` a `Language` element, as does an `ActiveEffectLike` adding a whole number to
     `system.build.languages.max` (one adding a formula stays in the backlog), with no `access`, so common until set by
-    hand; its other `subfeatures` (proficiencies, key attribute options) are reported by name
-    (`subfeatures.proficiencies`).
+    hand; its other `subfeatures` (proficiencies, and key attribute options on any but a class feature) are
+    reported by name (`subfeatures.proficiencies`).
   - Player Core's casters get their spellcasting entries and rank raises by entry slug, since Foundry records neither
     ([ADR-0040](../adr/0040-spellcasting-entries-are-rule-elements.md)): a `SpellcastingEntry` on the bard, cleric,
     druid and wizard spellcasting features, each witch patron (in its tradition) and the bard, cleric, druid and
