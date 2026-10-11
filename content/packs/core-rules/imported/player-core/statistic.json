@@ -216,11 +216,11 @@
     }
   },
   {
-    "id": "c66c0e27-3f2d-5663-9f91-7bee64149d1d",
+    "id": "5b13aeee-4ea4-52d2-82f8-69bb7bc7b3a2",
     "pack": "core-rules",
     "kind": "statistic",
-    "slug": "statistic:gladatorial-lore",
-    "name": "Gladatorial Lore",
+    "slug": "statistic:gladiatorial-lore",
+    "name": "Gladiatorial Lore",
     "rarity": "common",
     "traits": [],
     "sources": [
@@ -232,9 +232,9 @@
     "description": [],
     "rules": [],
     "data": {
-      "selector": "skill:lore:gladatorial",
+      "selector": "skill:lore:gladiatorial",
       "domains": ["check", "skill-check", "int-based", "lore"],
-      "base": "@attr.int + @prof.skill.lore.gladatorial",
+      "base": "@attr.int + @prof.skill.lore.gladiatorial",
       "kind": "check",
       "keyAttribute": "int"
     }

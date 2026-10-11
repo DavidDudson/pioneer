@@ -1952,7 +1952,7 @@
       },
       {
         "key": "Proficiency",
-        "selector": "skill:lore:gladatorial",
+        "selector": "skill:lore:gladiatorial",
         "rank": "trained"
       },
       {
