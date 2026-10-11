@@ -9,13 +9,13 @@ import type { PredicateSummary } from '@pioneer/rules/predicate';
 import type { ContentId, Selector, StatisticKind } from '@pioneer/rules/sdk';
 import { filter, merge } from 'rxjs';
 
-import { BreakdownMessage, MODIFIER_TYPE_MESSAGES } from '../breakdown/breakdown-messages';
 import { BreakdownView } from '../breakdown/breakdown.component';
-import { labelName, summaryFormat } from '../breakdown/line-words';
-import { numberStyle, SIGNED } from '../breakdown/number-style';
+import { labelName, lineValue, summaryFormat } from '../breakdown/line-words';
+import { numberStyle } from '../breakdown/number-style';
 import { NO_ORIGIN_NAMES } from '../origin-chain/origin-names';
 import type { OriginNames } from '../origin-chain/origin-names';
-import { StatisticSummary } from './statistic-summary/statistic-summary.component';
+import { StatisticConditions } from './statistic-conditions/statistic-conditions.component';
+import { StatisticTotal } from './statistic-total/statistic-total.component';
 import { StatisticsMessage } from './statistics-messages';
 
 /** A statistic to list: its display name, what kind it is, and what the engine derived for it. */
@@ -76,7 +76,8 @@ const LOADING_ROWS = 5;
     ListItem,
     Skeleton,
     Stack,
-    StatisticSummary,
+    StatisticConditions,
+    StatisticTotal,
     Text,
     TranslocoPipe,
   ],
@@ -129,18 +130,11 @@ export class StatisticsView {
 
   /** "+2 circumstance when your shield is raised (Steel Shield)"; "in some situations" when nothing words when. */
   #condition({ line, summary }: ConditionalLine): string {
-    const { modifier, value } = line;
-    const type: string = this.#i18n.translate(MODIFIER_TYPE_MESSAGES[modifier.type]);
-    const amount: string = this.#i18n.translate(BreakdownMessage.LineValue, {
-      hasValue: value === undefined ? 'no' : 'yes',
-      value: value === undefined ? '' : this.#format.number(value, SIGNED),
-      type,
-    });
     return this.#i18n.translate(StatisticsMessage.Conditional, {
-      value: amount,
+      value: lineValue(line, this.#i18n, this.#format),
       hasSummary: summary === undefined ? 'no' : 'yes',
       summary: summary === undefined ? '' : formatSummary(summary, summaryFormat(this.#i18n, this.#format)),
-      name: labelName(modifier.label, this.entryNames(), (descriptor) =>
+      name: labelName(line.modifier.label, this.entryNames(), (descriptor) =>
         this.#i18n.translate(descriptor.key, descriptor.params),
       ),
     });

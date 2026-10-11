@@ -3,7 +3,13 @@ import type { ComponentFixture } from '@angular/core/testing';
 import { StatisticKind } from '@pioneer/rules/sdk';
 import { describe, expect, it } from 'vitest';
 
-import { CONDITIONAL_STATISTICS, CYCLE, ENTRY_NAMES, FIGHTER_STATISTICS } from '../testing/breakdown-fixtures';
+import {
+  CONDITIONAL_STATISTICS,
+  CYCLE,
+  ENTRY_NAMES,
+  FIGHTER_STATISTICS,
+  GLOOM_WALKER,
+} from '../testing/breakdown-fixtures';
 import { PINNED_STATISTICS, PINNED_WILL } from '../testing/override-fixtures';
 import { provideRulesUiI18nTesting } from '../testing/provide-rich-text-testing';
 import type { NamedStatistic } from './statistics.component';
@@ -46,18 +52,18 @@ function itemsOf(host: HTMLElement): Element[] {
   return [...host.querySelectorAll('[role="listitem"]')].filter((item) => item.closest('pio-breakdown') === null);
 }
 
-/** Each row as read: a disclosure summary's name and total, or a failure's parts. */
+/** Each row as read: a disclosure's summary, which names what it opens, or a failure's parts. */
 function rows(host: HTMLElement): string[] {
   return itemsOf(host).map((item) => {
     const summary = item.querySelector('summary');
-    return summary === null ? partsOf(item) : textOf(present(summary.querySelector('fr-text')));
+    return summary === null ? partsOf(item) : textOf(summary);
   });
 }
 
-/** Each row's conditional lines, as summarised under its name and total. */
+/** Each row's conditional lines, as summarised under its disclosure. */
 function conditions(host: HTMLElement): string[][] {
   return itemsOf(host).map((item) =>
-    [...item.querySelectorAll('summary fr-text[variant="caption"]')].map((part) => textOf(part)),
+    [...item.querySelectorAll('pio-statistic-conditions fr-text')].map((part) => textOf(part)),
   );
 }
 
@@ -85,7 +91,7 @@ describe(StatisticsView, () => {
 
     expect(rows(host).at(-1)).toBe('Stealth +9');
     expect(conditions(host).at(-1)).toStrictEqual([
-      '+1 circumstance when you are in darkness (Terrain Stalker)',
+      '+1 circumstance when you are in darkness (Gloom Walker)',
       '+2 status in some situations (Unseen)',
     ]);
   });
@@ -94,6 +100,20 @@ describe(StatisticsView, () => {
     const host = hostOf(await render(FIGHTER_STATISTICS));
 
     expect(conditions(host)).toStrictEqual([['+2 circumstance when your shield is raised (Steel Shield)'], [], []]);
+  });
+
+  it('keeps conditional lines out of the summary, so the toggle is named by statistic and total alone', async () => {
+    const host = hostOf(await render(CONDITIONAL_STATISTICS));
+
+    expect(rows(host)).toStrictEqual(['Armor Class 20', 'Fortitude +10', 'Will +6', 'Stealth +9']);
+  });
+
+  it('names a conditional line by its entry id when the entry has no display name', async () => {
+    const fixture = await render(CONDITIONAL_STATISTICS);
+    fixture.componentRef.setInput('entryNames', new Map());
+    await fixture.whenStable();
+
+    expect(conditions(hostOf(fixture)).at(-1)?.[0]).toBe(`+1 circumstance when you are in darkness (${GLOOM_WALKER})`);
   });
 
   it('names the set override that pinned a total in its breakdown', async () => {

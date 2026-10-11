@@ -62,7 +62,7 @@ export const Conditional: StatisticsStory = {
   args: { statistics: CONDITIONAL_STATISTICS },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    await expect(canvas.getByText('+1 circumstance when you are in darkness (Terrain Stalker)')).toBeVisible();
+    await expect(canvas.getByText('+1 circumstance when you are in darkness (Gloom Walker)')).toBeVisible();
     await expect(canvas.getByText('+2 status in some situations (Unseen)')).toBeVisible();
   },
 };

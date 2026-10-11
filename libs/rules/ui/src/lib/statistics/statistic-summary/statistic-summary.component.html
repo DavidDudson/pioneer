@@ -1,6 +1,0 @@
-<fr-stack gap="3xs">
-  <fr-text>{{ name() }} <pio-statistic-total [total]="total()" [computed]="computed()" /></fr-text>
-  @for (condition of conditions(); track $index) {
-    <fr-text variant="caption" tone="muted">{{ condition }}</fr-text>
-  }
-</fr-stack>

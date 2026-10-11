@@ -24,9 +24,9 @@ import { NO_ORIGIN_NAMES } from '../origin-chain/origin-names';
 import type { OriginNames } from '../origin-chain/origin-names';
 import { BaseTerms } from './base-terms/base-terms.component';
 import { BreakdownLines } from './breakdown-lines/breakdown-lines.component';
-import { BreakdownMessage, LINE_STATUS_ORDER, MODIFIER_TYPE_MESSAGES } from './breakdown-messages';
-import { labelName, summaryFormat } from './line-words';
-import { numberStyle, SIGNED } from './number-style';
+import { BreakdownMessage, LINE_STATUS_ORDER } from './breakdown-messages';
+import { labelName, lineValue, summaryFormat } from './line-words';
+import { numberStyle } from './number-style';
 import { OverrideLines } from './override-lines/override-lines.component';
 import type { ShownBreakdown, ShownLine, ShownOverride, ShownTerm } from './shown-breakdown';
 
@@ -136,15 +136,11 @@ export class BreakdownView {
   }
 
   #line(line: BreakdownLine, rules: readonly Labelled[]): ShownLine {
-    const { modifier, value, status } = line;
+    const { modifier, status } = line;
     const shown = {
       name: this.#name(modifier),
       origin: modifier.origin,
-      value: this.#i18n.translate(BreakdownMessage.LineValue, {
-        hasValue: value === undefined ? 'no' : 'yes',
-        value: value === undefined ? '' : this.#format.number(value, SIGNED),
-        type: this.#translate({ key: MODIFIER_TYPE_MESSAGES[modifier.type] }),
-      }),
+      value: lineValue(line, this.#i18n, this.#format),
     };
     if (status.kind === LineStatusKind.Applied) {
       return { ...shown, status: undefined, detail: undefined };
