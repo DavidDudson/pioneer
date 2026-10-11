@@ -190,6 +190,12 @@ describe('build kinds', () => {
     ]);
   });
 
+  test('a class names each skill increase level once', () => {
+    const twice = { ...fighter, data: { ...fighter.data, skillIncreaseLevels: [3, 5, 5] } };
+
+    expect(found(twice)).toStrictEqual([`data.skillIncreaseLevels.2 ${RulesMessage.ListDuplicate}`]);
+  });
+
   test('feats and class features always have a level', () => {
     const { level: _featLevel, ...unlevelledFeat } = suddenCharge;
     const { level: _featureLevel, ...unlevelledFeature } = reactiveStrike;

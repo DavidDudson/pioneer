@@ -3,6 +3,7 @@ import * as z from 'zod';
 
 import { AttributeBoost } from './attribute';
 import { Slug } from './content-id';
+import { uniqueItems } from './unique-items';
 import { HitPoints } from './units';
 
 /** How many skills a class trains beyond its fixed ones; the Intelligence modifier adds to it. */
@@ -32,7 +33,7 @@ export const ClassData = z.strictObject({
    * The levels it gains a skill increase at (Foundry pf2e's `skillIncreaseLevels`), a rogue every level from 2nd.
    * Absent, Player Core's: 3rd and every second level after.
    */
-  skillIncreaseLevels: z.array(ClassLevel).max(CLASS_LEVEL_MAX).readonly().optional(),
+  skillIncreaseLevels: z.array(ClassLevel).max(CLASS_LEVEL_MAX).readonly().check(uniqueItems).optional(),
   /**
    * The tag its subclass options carry (`cleric-doctrine`, `wizard-arcane-school`): the `ChoiceSet` among its class
    * features that queries that tag is its subclass (doctrine, school, order). Absent for a class without one (fighter).

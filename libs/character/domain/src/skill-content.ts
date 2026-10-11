@@ -1,5 +1,5 @@
 import { ContentId, ContentKind, Level } from '@pioneer/rules/sdk';
-import type { ContentRegistry, ContentText, Selector, SkillCount, StatisticId } from '@pioneer/rules/sdk';
+import type { ChoiceValue, ContentRegistry, ContentText, Selector, SkillCount, StatisticId } from '@pioneer/rules/sdk';
 
 import { CHARACTER_LEVEL_MAX } from './character-fields';
 
@@ -16,9 +16,14 @@ interface ClassSkills {
   readonly increaseLevels: readonly Level[];
 }
 
-/** What skill slots are read from: every skill and Lore statistic loaded, and each class's skills, by id. */
+/**
+ * What skill slots are read from: every skill and Lore the engine derives, the skill a picked id names, and each
+ * class's skills, by id.
+ */
 export interface SkillContent {
   readonly skills: readonly SkillOption[];
+  /** The skill a pick names: any pack's statistic for its selector, so a pick of one a later pack restates counts. */
+  readonly skill: (pick: ChoiceValue) => SkillOption | undefined;
   readonly classSkills: (id: ContentId) => ClassSkills | undefined;
 }
 
@@ -34,7 +39,7 @@ const PLAYER_CORE_INCREASES: readonly Level[] = Array.from(
 
 /** A statistic as skill slots read it: its id, name and selector. */
 interface StatisticFields {
-  readonly id: ContentId | StatisticId;
+  readonly id: StatisticId;
   readonly name: ContentText;
   readonly selector: Selector;
 }
@@ -45,20 +50,19 @@ function skillOf({ id, name, selector }: StatisticFields): SkillOption | undefin
 }
 
 /**
- * The skills and Lores of the registry's statistics, and of its packs' statistic entries (an imported Lore), one per
- * selector, the last registered, as the engine chooses; by name.
+ * Every skill and Lore among the registry's statistics, the ones the engine derives, by statistic id: each the last
+ * registered for its selector, as the engine chooses.
  */
-function skillsOf(registry: ContentRegistry): readonly SkillOption[] {
-  const entries = registry.packs.flatMap((pack) => pack.otherEntries);
-  const statistics: StatisticFields[] = [
-    ...registry.statistics().map(({ id, definition: { name, selector } }) => ({ id, name, selector })),
-    ...entries.flatMap((entry) =>
-      entry.kind === ContentKind.Statistic ? [{ id: entry.id, name: entry.name, selector: entry.data.selector }] : [],
-    ),
-  ];
-  const skills = statistics.flatMap((each) => skillOf(each) ?? []);
+function skillsById(registry: ContentRegistry): ReadonlyMap<ContentId, SkillOption> {
+  const fields = registry.statistics().map(({ id, definition: { name, selector } }) => ({ id, name, selector }));
+  const skills = fields.flatMap((each) => skillOf(each) ?? []);
   const bySelector = new Map(skills.map((skill) => [skill.selector, skill]));
-  return [...bySelector.values()].toSorted((left, right) => left.name.localeCompare(right.name));
+  return new Map(
+    skills.flatMap((skill) => {
+      const current = bySelector.get(skill.selector);
+      return current === undefined ? [] : [[skill.id, current] as const];
+    }),
+  );
 }
 
 /** Each class's skills, by id; Player Core's increases for a class that names none. */
@@ -80,5 +84,14 @@ function classSkillsOf(registry: ContentRegistry): ReadonlyMap<ContentId, ClassS
 /** The registry's skills and Lores, and its classes' skills. */
 export function skillContent(registry: ContentRegistry): SkillContent {
   const classes = classSkillsOf(registry);
-  return { skills: skillsOf(registry), classSkills: (id: ContentId): ClassSkills | undefined => classes.get(id) };
+  const byId = skillsById(registry);
+  const skills = [...new Set(byId.values())].toSorted((left, right) => left.name.localeCompare(right.name));
+  return {
+    skills,
+    skill: (pick: ChoiceValue): SkillOption | undefined => {
+      const id = ContentId.safeParse(pick);
+      return id.success ? byId.get(id.data) : undefined;
+    },
+    classSkills: (id: ContentId): ClassSkills | undefined => classes.get(id),
+  };
 }

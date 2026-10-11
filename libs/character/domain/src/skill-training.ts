@@ -4,10 +4,10 @@ import { Attribute, ContentId, Level, Proficiency, RuleElementKey, SkillCount, S
 import type { AttributeModifier, ChoiceValue, Selector } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
 
-import { attributeModifiers } from './attribute-boosts';
+import { attributeModifiers, boostSets } from './attribute-boosts';
 import type { BoostContent } from './attribute-boosts';
 import type { CharacterDocument } from './character-document';
-import { CHARACTER_LEVEL_MAX, CHARACTER_LEVEL_MIN } from './character-fields';
+import { CHARACTER_LEVEL_MIN } from './character-fields';
 import { CLASS_SLOT } from './character-slots';
 import { SKILL_PREFIX } from './skill-content';
 import type { SkillContent, SkillOption } from './skill-content';
@@ -133,8 +133,9 @@ function intelligenceAt(document: CharacterDocument, boosts: BoostContent, level
 function intelligenceTrainings(document: CharacterDocument, boosts: BoostContent): SkillSlotPlace[] {
   let highest = intelligenceAt(document, boosts, FIRST_LEVEL);
   const places: SkillSlotPlace[] = [];
-  for (let at = CHARACTER_LEVEL_MIN + 1; at <= CHARACTER_LEVEL_MAX; at += 1) {
-    const level = Level.parse(at);
+  // Intelligence changes only where boosts are given, so it is read at those levels alone.
+  const levels = new Set(boostSets(document, boosts).map((set) => set.level));
+  for (const level of [...levels].filter((each) => each > FIRST_LEVEL)) {
     const intelligence = intelligenceAt(document, boosts, level);
     if (intelligence > highest) {
       places.push(...trainingSlots(level, SkillCount.parse(intelligence - highest)));
@@ -203,8 +204,8 @@ export function skillSlots(document: CharacterDocument, reads: SkillReads): read
     const rankOf = (selector: Selector): Proficiency | undefined => higher(ranks.get(selector), picked.get(selector));
     const options = reads.skills.skills.filter((skill) => rankFor(kind, level, rankOf(skill.selector)) !== undefined);
     const stored = document.build.choices[key];
-    const named = reads.skills.skills.find((skill) => skill.id === stored);
-    const pick = options.find((skill) => skill.id === stored);
+    const named = stored === undefined ? undefined : reads.skills.skill(stored);
+    const pick = options.find((skill) => skill.id === named?.id);
     const rank = pick === undefined ? undefined : rankFor(kind, level, rankOf(pick.selector));
     if (pick !== undefined && rank !== undefined) {
       picked.set(pick.selector, rank);

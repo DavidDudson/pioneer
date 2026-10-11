@@ -86,10 +86,24 @@ function picksOf(document: CharacterDocument): ReadonlyMap<SlotKey, ChoiceValue>
   return new Map(Object.entries(document.build.choices).map(([key, value]) => [SlotKey.parse(key), value]));
 }
 
-/** What skill slots read: the skills and boosts content, and the character's grants at each level, each resolved once. */
+/** Grants already resolved, by content, document and level: documents and content are never changed in place. */
+const RESOLVED = new WeakMap<SlotContent, WeakMap<CharacterDocument, Map<Level, GrantResolution>>>();
+
+function resolvedFor(document: CharacterDocument, content: SlotContent): Map<Level, GrantResolution> {
+  const byDocument = RESOLVED.get(content) ?? new WeakMap<CharacterDocument, Map<Level, GrantResolution>>();
+  RESOLVED.set(content, byDocument);
+  const resolved = byDocument.get(document) ?? new Map<Level, GrantResolution>();
+  byDocument.set(document, resolved);
+  return resolved;
+}
+
+/**
+ * What skill slots read: the skills and boosts content, and the character's grants at each level, each resolved once
+ * for the same content and document, however many reads ask.
+ */
 export function skillReads(document: CharacterDocument, content: SlotContent): SkillReads {
   const context: SlotContext = { ...content, picks: picksOf(document) };
-  const resolved = new Map<Level, GrantResolution>();
+  const resolved = resolvedFor(document, content);
   const grantsAt: GrantsAt = (level) => {
     const resolution = resolved.get(level) ?? resolveSlotsAt(level, context);
     resolved.set(level, resolution);
@@ -172,10 +186,11 @@ const SKILL_REFUSALS: Readonly<Record<SkillSlotKind, SlotRefusal>> = {
  * Lore not trained yet, a skill increase one it may raise a rank at its level.
  */
 function skillRefusal(slot: SkillSlot, skills: SkillContent, selection: ChoiceValue): SlotRefusal | undefined {
-  if (slot.options.some((skill) => skill.id === selection)) {
-    return undefined;
+  const named = skills.skill(selection);
+  if (named === undefined) {
+    return NOT_OFFERED;
   }
-  return skills.skills.some((skill) => skill.id === selection) ? SKILL_REFUSALS[slot.kind] : NOT_OFFERED;
+  return slot.options.some((skill) => skill.id === named.id) ? undefined : SKILL_REFUSALS[slot.kind];
 }
 
 /** The skill slot `slot`, read with its own pick left out, if it is one the character has at some level. */

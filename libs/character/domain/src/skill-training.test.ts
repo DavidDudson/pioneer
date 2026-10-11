@@ -197,3 +197,24 @@ describe('skill increase slots', () => {
     expect(rankOf(cleric, 'skill:religion')).toBe('expert');
   });
 });
+
+describe('skills a later pack restates', () => {
+  test("a pick of the first pack's statistic still counts once a later pack restates its selector", () => {
+    const restated = new ContentRegistry();
+    restated.register(playerCoreClasses());
+    restated.register(skillFixtures());
+    restated.register(
+      new ContentPackBuilder()
+        .withId('homebrew-athletics')
+        .withStatistic('athletics', { selector: 'skill:athletics', domains: ['skill-check'] })
+        .build(),
+    );
+    const restatedContent = { ...slotContent(restated), namespaces: CORE_NAMESPACES };
+    const { document } = as('fighter').picking('skill-training:1:0', skill('athletics')).build();
+
+    expect(buildRanks(document, restatedContent).get(Selector.parse('skill:athletics'))).toBe('trained');
+    expect(characterSlots(document, restatedContent).find((slot) => slot.key === 'skill-training:1:0')).toMatchObject({
+      status: SlotStatus.Filled,
+    });
+  });
+});

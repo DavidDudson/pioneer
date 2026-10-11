@@ -1,4 +1,4 @@
-import { skillReads, SkillSlotKind, skillSlots, slotContent } from '@pioneer/character/domain';
+import { skillReads, SkillSlotKind, skillSlots } from '@pioneer/character/domain';
 import type { Character, SkillSlot } from '@pioneer/character/domain';
 import type { SelectOption } from '@pioneer/frontier';
 import { deriveStatistics, statisticContent } from '@pioneer/rules/engine';
@@ -8,6 +8,7 @@ import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 import { statisticInputsOf } from './sheet-inputs';
+import { sheetSlotContent } from './sheet-slot-content';
 
 /** What each skill slot is called, by whether it trains a skill or raises one. */
 export const SKILL_SLOT_LABEL_KEYS: Readonly<Record<SkillSlotKind, string>> = {
@@ -61,7 +62,7 @@ function skillSlotLabel(slot: SkillSlot, slots: readonly SkillSlot[]): MessageDe
  * it offers after the grants and the slots before it. Slots above its level are the plan, picked in the planner.
  */
 export function sheetSkillSlots(registry: ContentRegistry, character: Character): readonly SheetSkillSlot[] {
-  const content = slotContent(registry);
+  const content = sheetSlotContent(registry);
   const slots = skillSlots(character.document, skillReads(character.document, content));
   return slots
     .filter((slot) => slot.level <= character.level)

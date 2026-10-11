@@ -5,7 +5,7 @@ import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
 import type { SkillContent } from '../skill-content';
 
 /** No skills and no classes: skill slots never open. For tests about other slots. */
-export const NO_SKILLS: SkillContent = { skills: [], classSkills: () => undefined };
+export const NO_SKILLS: SkillContent = { skills: [], skill: () => undefined, classSkills: () => undefined };
 
 const SKILL_PACK = 'skill-fixtures';
 
