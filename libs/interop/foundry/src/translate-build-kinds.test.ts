@@ -166,11 +166,12 @@ describe('translateKindData: backgrounds', () => {
 });
 
 describe('translateKindData: classes', () => {
-  test('a class keeps key attribute, hit points and extra skills', () => {
+  test('a class keeps key attribute, hit points, extra skills and skill increase levels', () => {
     expect(dataIn(translation, 'fighter')).toEqual({
       keyAttribute: ['dex', 'str'],
       hitPoints: 10,
       additionalSkills: 3,
+      skillIncreaseLevels: [3, 5, 7, 9, 11, 13, 15, 17, 19],
     });
   });
 
@@ -246,7 +247,7 @@ describe('translateKindData: classes', () => {
     expect(gapKeys(texty)).not.toContain('invalid-data ');
   });
 
-  test("ancestry feat levels off Player Core's schedule, skill increases and a named weapon group are reported", () => {
+  test("ancestry feat levels off Player Core's schedule and a named weapon group are reported", () => {
     const odd = translate([
       {
         ...FIGHTER,
@@ -259,7 +260,16 @@ describe('translateKindData: classes', () => {
     ]);
 
     expect(gapKeys(odd)).toContain('unmapped-value ancestryFeatLevels');
-    expect(gapKeys(odd)).toContain('unmapped-field skillIncreaseLevels');
     expect(gapKeys(odd)).toContain('unmapped-field attacks.other');
+  });
+
+  test("a class off Player Core's skill increase schedule keeps its own levels", () => {
+    const everyLevel = Array.from({ length: 19 }, (_unused, index) => index + 2);
+    const rogueLike = translate([
+      { ...FIGHTER, system: { ...FIGHTER.system, skillIncreaseLevels: { value: everyLevel } } },
+    ]);
+
+    expect(dataIn(rogueLike, 'fighter')).toMatchObject({ skillIncreaseLevels: everyLevel });
+    expect(gapKeys(rogueLike)).not.toContain('unmapped-field skillIncreaseLevels');
   });
 });

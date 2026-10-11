@@ -70,7 +70,7 @@ answers 500, never a 422 that blames the request.
 ### Choice slots
 
 The engine produces the list of open slots from content: `ancestry`, `heritage`, `background`, `class`,
-`boost:1:ancestry:0`, `flaw:1:ancestry:0` (a voluntary flaw, optional), `feat:class:2`, `skill-increase:3`,
+`boost:1:ancestry:0`, `flaw:1:ancestry:0` (a voluntary flaw, optional), `feat:class:2`, `skill-training:1:0`, `skill-increase:3`,
 `choice:<entry>:<flag>` for a `ChoiceSet` on any granted item. Each slot has its origin, its allowed options (a
 predicate over content, e.g. "level ≤ 2 fighter feats you meet the prerequisites of"), and its current selection.
 
@@ -158,6 +158,32 @@ by one, as an ancestry flaw does. Each lowers a different attribute, so `selectS
 so an empty flaw slot is never open: `characterSlots` lists only the flaws taken (subject `flaw`), filled or invalid,
 and the sheet's Choices section shows them as "Voluntary flaw". They bring no extra boost; the variant that trades two
 flaws for a free boost belongs with the variant rules ([#51](https://github.com/DavidDudson/pioneer/issues/51)).
+
+### Skills
+
+Skill ranks are never stored either: the class's and background's `Proficiency` elements raise theirs, and the
+player's picks raise the rest ([#464](https://github.com/DavidDudson/pioneer/issues/464)). A pick is a skill's or a
+Lore's `statistic` entry (selector `skill:athletics`, `skill:lore:scribing`), so a Lore is a named entry like any
+skill. Once a class is picked:
+
+- **Trained skills** (`skill-training:<level>:<n>`): at 1st level, the class's `additionalSkills` plus the
+  Intelligence modifier, and one more for each skill the grants train twice (a cleric with the Acolyte background is
+  trained in Religion once and picks another skill instead, as Player Core says). Each boost that raises Intelligence
+  past what it was adds one at its level. A slot offers the skills not trained yet, by the grants at its level or an
+  earlier slot; `selectSlot` refuses one already trained (`character.validation.skillTrained`).
+- **Skill increases** (`skill-increase:<level>`): at the class's `skillIncreaseLevels` (Player Core's 3rd and every
+  second level after; a rogue's every level from 2nd). Each raises one skill a rank, untrained to trained included:
+  expert at any level, master from 7th, legendary from 15th. `selectSlot` refuses a raise past that
+  (`character.validation.skillRankCapped`).
+
+The slots are read in order, by level and trained skills first, each over the grants at its level and the picks before
+it. A pick its slot no longer offers (the class now trains that skill, an earlier slot took it) reads invalid and counts
+for nothing; a pick past the slots the character has (Intelligence lowered) reads hidden. Slots above the character's
+level are the plan, and their ranks wait for the level. `buildRanks` gives the engine the higher of the granted and
+picked rank for each skill.
+
+The sheet's Skills section lists every skill and Lore with its total, and a picker for each trained skill and skill
+increase up to the character's level.
 
 ### Archetype dedications
 

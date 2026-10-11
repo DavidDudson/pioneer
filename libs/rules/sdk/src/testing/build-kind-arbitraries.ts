@@ -1,4 +1,14 @@
-import { array, constant, constantFrom, oneof, record, shuffledSubarray, tuple, uniqueArray } from 'fast-check';
+import {
+  array,
+  constant,
+  constantFrom,
+  integer,
+  oneof,
+  record,
+  shuffledSubarray,
+  tuple,
+  uniqueArray,
+} from 'fast-check';
 import type { Arbitrary } from 'fast-check';
 
 import { Attribute } from '../attribute';
@@ -9,6 +19,8 @@ import { contentIdJson, LIST_MAX, size, slugText, smallint, withOptional } from 
 
 /** The most boosts the ancestry schema allows. */
 const ANCESTRY_BOOSTS_MAX = 4;
+/** A class's progression runs from 1st to 20th level. */
+const CLASS_LEVEL_MAX = 20;
 
 const attributes: Arbitrary<string[]> = shuffledSubarray(Object.values(Attribute));
 const boost: Arbitrary<string[]> = shuffledSubarray(Object.values(Attribute), { minLength: 1 });
@@ -32,7 +44,10 @@ export const heritageData: Arbitrary<object> = withOptional(constant({}), { ance
 export const backgroundData: Arbitrary<object> = record({ boosts: array(boost, { maxLength: 2 }) });
 export const classData: Arbitrary<object> = withOptional(
   record({ keyAttribute: boost, hitPoints: smallint, additionalSkills: smallint }),
-  { subclass: slugText },
+  {
+    skillIncreaseLevels: uniqueArray(integer({ min: 1, max: CLASS_LEVEL_MAX }), { maxLength: CLASS_LEVEL_MAX }),
+    subclass: slugText,
+  },
 );
 export const archetypeData: Arbitrary<object> = withOptional(record({ dedication: contentIdJson }), {
   multiclass: contentIdJson,

@@ -71,7 +71,7 @@ import { sheetEntryNames } from '../sheet-entry-names';
 import { carriesEquipment, EQUIPMENT_CONTENT_KINDS, sheetInvestments } from '../sheet-equipment';
 import { sheetField } from '../sheet-field';
 import { SHEET_SECTION_ORDER, SHEET_SECTIONS } from '../sheet-sections';
-import { sheetStatistics } from '../sheet-statistics';
+import { SheetSkillFields } from '../sheet-skill-fields/sheet-skill-fields.component';
 
 /** Focuses an inline field by its read view's button, which scrolls it into view. */
 function focusField(field: ElementRef<HTMLElement>): void {
@@ -82,7 +82,8 @@ function focusField(field: ElementRef<HTMLElement>): void {
  * Character sheet: fixed sections in page order, each a region under its level 2 heading, reached from the section
  * index. Every chosen value is its own inline edit with its own state. Attribute modifiers are worked out from the
  * boost picks, so they are read-only, with the boosts still to place listed beneath them. Choices lists every slot
- * with its status, flagging a planned or invalid pick where it would otherwise vanish.
+ * with its status, flagging a planned or invalid pick where it would otherwise vanish. Skills lists every skill and Lore
+ * with its total, and a picker for each trained skill and skill increase up to the character's level.
  */
 @Component({
   selector: 'pio-character-sheet-page',
@@ -110,6 +111,7 @@ function focusField(field: ElementRef<HTMLElement>): void {
     SectionLink,
     Select,
     SheetClassFields,
+    SheetSkillFields,
     Skeleton,
     Stack,
     StatisticsView,
@@ -169,16 +171,11 @@ export class CharacterSheetPage {
   readonly #engineRegistry = computed((): ContentRegistry | undefined =>
     carriesEquipment(this.character()) ? this.equipment.data() : this.registry.data(),
   );
-  protected readonly statistics = computed(() => {
-    const registry = this.#engineRegistry();
-    const character = this.character();
-    return registry === undefined || character === undefined ? undefined : sheetStatistics(registry, character);
-  });
   /** The invested items and what each turns on, from the statistics; undefined while they load. */
   protected readonly investments = computed((): readonly Investment[] | undefined => {
     const registry = this.#engineRegistry();
     const character = this.character();
-    const statistics = this.statistics();
+    const statistics = this.picks.statistics();
     return registry === undefined || character === undefined || statistics === undefined
       ? undefined
       : sheetInvestments(character, itemContent(registry), statistics);
@@ -205,6 +202,7 @@ export class CharacterSheetPage {
   /** The root slot, subclass and key attribute pickers, the build summary and the class features. */
   protected readonly picks = sheetBuildPicks({
     registry: this.registry.data,
+    engineRegistry: this.#engineRegistry,
     character: this.character,
     slots: this.store.slots,
     select: async (slot, selection) => this.store.selectSlot(slot, selection),

@@ -1,11 +1,12 @@
-import { computed, signal } from '@angular/core';
+import { computed, signal, untracked } from '@angular/core';
 import type { Signal } from '@angular/core';
 import type { Character, CharacterSlot } from '@pioneer/character/domain';
 import type { InlineEdit, SelectOption } from '@pioneer/frontier';
 import { ChoiceValue } from '@pioneer/rules/sdk';
 import type { ContentRegistry, SlotKey } from '@pioneer/rules/sdk';
 import { ATTRIBUTE_MESSAGES } from '@pioneer/rules/ui';
-import type { BuildLine, ChoiceLine, ClassFeatureLine } from '@pioneer/rules/ui';
+import type { BuildLine, ChoiceLine, ClassFeatureLine, NamedStatistic } from '@pioneer/rules/ui';
+import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 import {
   NOT_CHOSEN,
@@ -19,10 +20,14 @@ import {
 import type { SheetKeyAttribute, SheetSubclass } from './sheet-build';
 import { sheetChoices } from './sheet-choices';
 import { sheetField } from './sheet-field';
+import { sheetSkills, sheetSkillSlots } from './sheet-skills';
+import { sheetStatistics } from './sheet-statistics';
 
 /** What the build picks read and write through. */
 export interface BuildPickSources {
   readonly registry: Signal<ContentRegistry | undefined>;
+  /** The registry the engine derives from: with the item kinds once the character carries equipment. */
+  readonly engineRegistry: Signal<ContentRegistry | undefined>;
   readonly character: Signal<Character | undefined>;
   /** The slots as the server read them. */
   readonly slots: Signal<readonly CharacterSlot[] | undefined>;
@@ -60,6 +65,20 @@ export interface BuildPicks {
   readonly buildLines: Signal<readonly BuildLine[] | undefined>;
   /** Every choice with its status, as the server read the slots; undefined while the character loads. */
   readonly choices: Signal<readonly ChoiceLine[] | undefined>;
+  /** AC, the saves and Perception from the engine; undefined while the character or the content loads. */
+  readonly statistics: Signal<readonly NamedStatistic[] | undefined>;
+  /** Every skill and Lore with what the engine derives for it; undefined while the character or the content loads. */
+  readonly skills: Signal<readonly NamedStatistic[] | undefined>;
+  /** One pick per trained skill and skill increase up to the character's level, in the order they are read. */
+  readonly skillFields: Signal<readonly SkillField[]>;
+}
+
+/** A trained skill or skill increase slot as an inline pick, with its label and the skills it offers. */
+export interface SkillField {
+  readonly key: SlotKey;
+  readonly label: MessageDescriptor;
+  readonly options: Signal<readonly SelectOption<string>[]>;
+  readonly field: InlineEdit<string | undefined>;
 }
 
 /** `read` over the loaded registry and character; undefined while either loads. */
@@ -179,5 +198,31 @@ export function sheetBuildPicks(sources: BuildPickSources): BuildPicks {
       const slots = sources.slots();
       return slots === undefined ? undefined : sheetChoices(slots);
     }),
+    statistics: loaded({ ...sources, registry: sources.engineRegistry }, sheetStatistics),
+    skills: loaded({ ...sources, registry: sources.engineRegistry }, sheetSkills),
+    skillFields: skillFieldsOf(sources),
   };
+}
+
+function sameKeys(left: readonly SlotKey[], right: readonly SlotKey[]): boolean {
+  return left.length === right.length && left.every((key, index) => key === right[index]);
+}
+
+/**
+ * One inline pick per skill slot up to the character's level, made anew only when the slots change (a class change, an
+ * Intelligence boost, a level up), so an edit in progress keeps its session while the character changes around it.
+ */
+function skillFieldsOf(sources: BuildPickSources): Signal<readonly SkillField[]> {
+  const slots = loaded(sources, sheetSkillSlots);
+  const keys = computed(() => (slots() ?? []).map((slot) => slot.key), { equal: sameKeys });
+  return computed(() =>
+    keys().flatMap((key): SkillField[] => {
+      const label = untracked(() => slots()?.find((slot) => slot.key === key)?.label);
+      if (label === undefined) {
+        return [];
+      }
+      const options = computed(() => slots()?.find((slot) => slot.key === key)?.options ?? []);
+      return [{ key, label, options, field: slotField(sources, signal(key), options) }];
+    }),
+  );
 }

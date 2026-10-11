@@ -10,7 +10,8 @@ import type { CharacterDocument } from './character-document';
 import { CHARACTER_LEVEL_MAX } from './character-fields';
 import { SlotInvalidMessage, SlotStatus, SlotSubjectKind } from './character-slot';
 import type { CharacterSlot, SlotSubject } from './character-slot';
-import { resolveSlotsAt } from './slot-offer';
+import { SkillPickProblem, skillSlots } from './skill-training';
+import { resolveSlotsAt, skillReads } from './slot-offer';
 import type { SlotContent, SlotContext } from './slot-offer';
 
 /** How a slot reads at one level: the pick it holds, and the level it is planned at (undefined at the character's). */
@@ -178,6 +179,34 @@ function flawStatuses(
   });
 }
 
+/** The reason a skill pick that names a loaded skill counts for nothing. */
+const SKILL_PROBLEMS: Readonly<Record<SkillPickProblem, string>> = {
+  [SkillPickProblem.Trained]: SlotInvalidMessage.SkillTrained,
+  [SkillPickProblem.Capped]: SlotInvalidMessage.SkillRankCapped,
+};
+
+/**
+ * Each skill slot up to 20th level, read in order (#464): a pick is invalid when it trains a skill already trained, or
+ * raises one past the rank its level allows; one naming no loaded skill reads as any other pick does.
+ */
+function skillStatuses(document: CharacterDocument, content: SlotContent): CharacterSlot[] {
+  const level = Level.parse(document.level);
+  return skillSlots(document, skillReads(document, content)).map((slot) => {
+    const read: SlotRead = {
+      key: slot.key,
+      subject: { kind: SlotSubjectKind.Skill, source: slot.kind, level: slot.level },
+      stored: slot.stored,
+      planned: slot.level > level ? slot.level : undefined,
+    };
+    if (slot.stored === undefined || slot.pick !== undefined) {
+      return validSlot(read, slot.pick?.name);
+    }
+    const reason =
+      slot.problem === undefined ? invalidReason(slot.stored, content.lookup) : message(SKILL_PROBLEMS[slot.problem]);
+    return invalidSlot(read, slot.stored, reason);
+  });
+}
+
 /** The character's level and every level above it, lowest first. */
 function levelsUpFrom(level: Level): Level[] {
   return Array.from({ length: CHARACTER_LEVEL_MAX - level + 1 }, (_unused, index) => Level.parse(level + index));
@@ -234,16 +263,17 @@ function hiddenPicks(context: SlotContext, listed: readonly CharacterSlot[]): Ch
 
 /**
  * Every slot the character has, with its status (#419): its own slots, then its boosts by level and the voluntary
- * flaws it took (#550), then the `ChoiceSet` slots its entries grant, then picks kept for slots it no longer has. A
- * slot on the character at its level reads as open, filled or invalid there; one that opens only above it reads at
- * the lowest level it opens, as planned, or invalid at that level. A stored pick for a slot found at neither is
- * hidden. Nothing is dropped: every stored pick is in the list.
+ * flaws it took (#550), then its trained skills and skill increases (#464), then the `ChoiceSet` slots its entries
+ * grant, then picks kept for slots it no longer has. A slot on the character at its level reads as open, filled or
+ * invalid there; one that opens only above it reads at the lowest level it opens, as planned, or invalid at that
+ * level. A stored pick for a slot found at neither is hidden. Nothing is dropped: every stored pick is in the list.
  */
 export function characterSlots(document: CharacterDocument, content: SlotContent): readonly CharacterSlot[] {
   const picks = new Map(Object.entries(document.build.choices).map(([key, value]) => [SlotKey.parse(key), value]));
   const context: SlotContext = { ...content, picks };
   const { roots, choices } = grantStatuses(Level.parse(document.level), context);
   const boosts = boostStatuses(document, content, picks);
-  const listed = [...roots, ...boosts, ...flawStatuses(document, content, picks), ...choices];
+  const flaws = flawStatuses(document, content, picks);
+  const listed = [...roots, ...boosts, ...flaws, ...skillStatuses(document, content), ...choices];
   return [...listed, ...hiddenPicks(context, listed)];
 }

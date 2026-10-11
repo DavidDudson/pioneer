@@ -2,10 +2,18 @@ import { describe, expect, test } from 'bun:test';
 
 import { CharacterService, InMemoryCharacterRepository } from '@pioneer/character/application';
 import { PatchedCharacterSheet } from '@pioneer/character/domain';
-import { humanAncestryId, playerCoreClasses, playerCoreClassId, playerCoreId } from '@pioneer/character/domain/testing';
+import {
+  humanAncestryId,
+  playerCoreClasses,
+  playerCoreClassId,
+  playerCoreId,
+  skillFixtureId,
+  skillFixtures,
+} from '@pioneer/character/domain/testing';
 import { ContentKind, NamespaceKind, SlotKey } from '@pioneer/rules/sdk';
 import { ContentPackBuilder, fixedContent } from '@pioneer/rules/sdk/testing';
 import { fixedClock, newId, UserId } from '@pioneer/shared/kernel';
+import type { Problem } from '@pioneer/shared/kernel';
 import { problemHandler } from '@pioneer/shared/server';
 import { actingAs, FakeAuthenticator } from '@pioneer/shared/server/testing';
 import { Elysia } from 'elysia';
@@ -73,5 +81,39 @@ describe('character routes: the class', () => {
     expect(asWizard.cleared).toEqual([]);
     expect(String(asWizard.character.document.build.choices[doctrine])).toBe(cloistered);
     expect(asWizard.slots.find((slot) => slot.key === doctrine)).toMatchObject({ status: 'hidden' });
+  });
+});
+
+describe('character routes: skills', () => {
+  test("a class's trained skill slots take a skill once; one already trained is refused", async () => {
+    const namespaces = new ContentPackBuilder().withId('core-rules').withNamespace('item', NamespaceKind.Known).build();
+    const content = fixedContent(namespaces, playerCoreClasses(), skillFixtures());
+    const service = new CharacterService(
+      new InMemoryCharacterRepository(),
+      content,
+      fixedClock('2026-10-11T10:00:00Z'),
+    );
+    const api = new Elysia().use(problemHandler).use(characterRoutes(service, new FakeAuthenticator()));
+    const { id } = await created(api);
+    const select = (version: number, slot: string, selection: string): Request =>
+      request('PATCH', `/characters/${id}`, {
+        expectedVersion: version,
+        patch: { field: 'selectSlot', slot, selection },
+      });
+    await api.handle(select(1, 'class', playerCoreClassId('fighter')));
+
+    const trained = await api.handle(select(2, 'skill-training:1:0', skillFixtureId('athletics')));
+    const sheet = PatchedCharacterSheet.parse(await trained.json());
+    expect(sheet.slots.find((slot) => slot.key === 'skill-training:1:0')).toMatchObject({
+      status: 'filled',
+      subject: { kind: 'skill', source: 'training', level: 1 },
+      selectionName: 'Athletics',
+    });
+
+    const again = await api.handle(select(3, 'skill-training:1:1', skillFixtureId('athletics')));
+    expect(again.status).toBe(422);
+    expect(((await again.json()) as Problem).issues).toStrictEqual([
+      { path: ['patch', 'selection'], message: { key: 'character.validation.skillTrained' } },
+    ]);
   });
 });

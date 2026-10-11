@@ -17,6 +17,7 @@ export {
 export { ANCESTRY_SLOT, BACKGROUND_SLOT, CHARACTER_ROOT_SLOTS, CLASS_SLOT, HERITAGE_SLOT } from './character-slots';
 export { ClearedPick, unfitPicks } from './dependent-picks';
 export {
+  buildRanks,
   characterGrants,
   characterRanks,
   type ClassContent,
@@ -28,6 +29,8 @@ export {
 } from './class-build';
 export { CharacterSlot, SlotInvalidMessage, SlotStatus, SlotSubject, SlotSubjectKind } from './character-slot';
 export { characterSlots } from './character-slot-status';
+export { type SkillContent, skillContent, type SkillOption } from './skill-content';
+export { type SkillSlot, SkillSlotKind, skillSlots } from './skill-training';
 export {
   type SlotContent,
   slotContent,
@@ -36,6 +39,7 @@ export {
   SlotRefusalField,
   slotRefusal,
   rootSlotOptions,
+  skillReads,
 } from './slot-offer';
 export {
   CharacterContract,

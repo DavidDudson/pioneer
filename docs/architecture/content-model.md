@@ -48,8 +48,9 @@ turns them into the definitions it holds today and wraps each in `PackEntry`.
 | Bestiary   | `creature`, `hazard` (later milestone)                                                          |
 
 Class progression (features by level, feat slots, skill increases, boosts) is data on the `class` entry, expressed
-as `GrantItem` and slot-granting rule elements keyed by level. The builder's choice slots fall out of the engine;
-nothing about level 1 to 20 is hard-coded.
+as `GrantItem` and slot-granting rule elements keyed by level, and its skill increase levels. The builder's feat and
+subclass slots fall out of the engine; its boost and skill slots are the character domain's, with Player Core's default
+increase schedule and rank caps by level in code ([ADR-0038](../adr/0038-skill-slots-come-from-class-data.md)).
 
 Statistics are content too: a `statistic` entry names a selector, its domains, an actor-only base formula, and
 whether it is a check or a DC (see [rules-engine.md](rules-engine.md#statistics-are-content)).
@@ -96,16 +97,16 @@ grant more than it lists.
 The same rule holds for build kinds: `data` is what Foundry pf2e stores, less what rule elements already express.
 Lists of attributes, slugs and ids name each item once.
 
-| Kind            | `data`                                                                                                                            |
-| --------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| `ancestry`      | `hitPoints`, `size`, `speed`, `reach`; `boosts`; `flaws`; `languages`; `additionalLanguages`; `vision?`                           |
-| `heritage`      | `ancestry?`, absent for a versatile heritage                                                                                      |
-| `background`    | `boosts`; trained skills and lore are `Proficiency` elements, its skill feat a `GrantItem`                                        |
-| `class`         | `keyAttribute`, the attributes it may be; `hitPoints` per level; `additionalSkills`; progression in `rules`                       |
-| `class-feature` | `action?`; always has a `level`                                                                                                   |
-| `feat`          | `category`; `prerequisites?` as rich text; `onlyLevel1?`; `maxTakable?`; `action?`; `skills?`; `archetype?`; always has a `level` |
-| `archetype`     | `dedication`; `multiclass?`, the class it is the multiclass archetype of                                                          |
-| `deity`         | `category`; `sanctification?`; `domains`; `font`; `attributes`; `skills`; `weapons`; `spells`                                     |
+| Kind            | `data`                                                                                                                              |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `ancestry`      | `hitPoints`, `size`, `speed`, `reach`; `boosts`; `flaws`; `languages`; `additionalLanguages`; `vision?`                             |
+| `heritage`      | `ancestry?`, absent for a versatile heritage                                                                                        |
+| `background`    | `boosts`; trained skills and lore are `Proficiency` elements, its skill feat a `GrantItem`                                          |
+| `class`         | `keyAttribute`, the attributes it may be; `hitPoints` per level; `additionalSkills`; `skillIncreaseLevels?`; progression in `rules` |
+| `class-feature` | `action?`; always has a `level`                                                                                                     |
+| `feat`          | `category`; `prerequisites?` as rich text; `onlyLevel1?`; `maxTakable?`; `action?`; `skills?`; `archetype?`; always has a `level`   |
+| `archetype`     | `dedication`; `multiclass?`, the class it is the multiclass archetype of                                                            |
+| `deity`         | `category`; `sanctification?`; `domains`; `font`; `attributes`; `skills`; `weapons`; `spells`                                       |
 
 - **Boosts.** A boost is the attributes it may go to: one for a fixed boost, all six for a free one. An ancestry
   lists up to four, a background two (Farmhand: Constitution or Wisdom, then free). `flaws` are fixed attributes.
@@ -115,11 +116,13 @@ Lists of attributes, slugs and ids name each item once.
 - **Class progression.** Perception, save, attack, defence, skill and class DC ranks are `Proficiency` elements,
   later ranks behind a level predicate (`{ "gte": ["self:level", 7] }`). Each class feature is a `GrantItem`, and
   each feat slot a `ChoiceSet` querying feats (`["item:trait:fighter", { "lte": ["item:level", "self:level"] }]`)
-  behind the level it opens at. Foundry's `classFeatLevels` and the other level lists have no field here. The
+  behind the level it opens at. Foundry's `classFeatLevels` and the other feat level lists have no field here; its
+  `skillIncreaseLevels` is the one kept (Player Core's 3rd and every second level when absent; a rogue's every level
+  from 2nd), as the builder opens skill increase slots itself (character-model.md, "Skills"). The
   subclass (a doctrine, muse, order or school) is a class feature's `ChoiceSet` querying class features by tag
   (`["item:tag:cleric-doctrine"]`), with the `GrantItem` of its pick; a class feature's `tags` are its roll options
   `tag:<tag>`, and the class's `subclass` names the tag its subclass options carry, since a class may have more than
-  one such query (a wizard's arcane school and thesis) ([ADR-0037](../adr/0036-class-names-its-subclass-by-tag.md)).
+  one such query (a wizard's arcane school and thesis) ([ADR-0036](../adr/0036-class-names-its-subclass-by-tag.md)).
 - **Feats.** `category` is Foundry's: `ancestry`, `class`, `general`, `skill` or `bonus`; an archetype feat is a
   class feat with the `archetype` trait. `maxTakable` is a count or `unlimited` (Foundry's `null`), once when
   absent. A feat with `onlyLevel1` must be level 1. `action` is an `action` kind's `data`, for a feat or class
@@ -580,10 +583,11 @@ flowchart LR
     Foundry gives none) a `ChoiceSet` flagged `<class|general|skill>-feat-<level>` querying feats with the class's
     trait, `general` or `skill` up to the character's level, with the `GrantItem` of its pick. Later ranks come
     from the class features that raise them, as in Foundry. Ancestry feat slots are the ancestry's, so a class
-    whose `ancestryFeatLevels` depart from Player Core's is reported. Skill increases have no rule element yet and
-    are reported on every class; attribute boosts are the character's own slots. `spellcasting` is reported, as its
-    rank is per tradition (`spellcasting:<tradition>`), which a class feature names. `attacks.other` (a named
-    weapon group) is reported. Player Core's classes name their `subclass` tag, which Foundry marks nowhere.
+    whose `ancestryFeatLevels` depart from Player Core's is reported. A class's `skillIncreaseLevels` is kept as data
+    (Player Core's when Foundry gives none); attribute boosts are the character's own slots. `spellcasting` is
+    reported, as its rank is per tradition (`spellcasting:<tradition>`), which a class feature names.
+    `attacks.other` (a named weapon group) is reported. Player Core's classes name their `subclass` tag, which
+    Foundry marks nowhere.
   - A feat's `category`, `prerequisites` as one paragraph of their text, `onlyLevel1`, `maxTakable` (Foundry's
     explicit `null` is `unlimited`, absent once), and `action` when it is used as one, read as an `action` item is
     with `actionCategory` as its category; action data its schema rejects (a reaction whose trigger has links) is

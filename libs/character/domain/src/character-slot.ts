@@ -4,6 +4,7 @@ import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { BoostSource } from './attribute-boosts';
+import { SkillSlotKind } from './skill-training';
 
 /**
  * Where a slot stands for the character at its level (character-model.md, "Choice slots"). Worked out on every read
@@ -23,8 +24,17 @@ export const SlotStatus = {
 } as const;
 export type SlotStatus = ValueOf<typeof SlotStatus>;
 
-/** What kind of slot it is: one the character has itself, an attribute boost or flaw, or a `ChoiceSet` on an entry. */
-export const SlotSubjectKind = { Root: 'root', Boost: 'boost', Flaw: 'flaw', Choice: 'choice' } as const;
+/**
+ * What kind of slot it is: one the character has itself, an attribute boost or flaw, a trained skill or skill increase,
+ * or a `ChoiceSet` on an entry.
+ */
+export const SlotSubjectKind = {
+  Root: 'root',
+  Boost: 'boost',
+  Flaw: 'flaw',
+  Skill: 'skill',
+  Choice: 'choice',
+} as const;
 export type SlotSubjectKind = ValueOf<typeof SlotSubjectKind>;
 
 /** What a slot is for, so the sheet can name it. */
@@ -34,6 +44,8 @@ export const SlotSubject = z.discriminatedUnion('kind', [
   z.strictObject({ kind: z.literal(SlotSubjectKind.Boost), source: z.enum(BoostSource), level: Level }),
   /** A voluntary ancestry flaw: its key numbers it. */
   z.strictObject({ kind: z.literal(SlotSubjectKind.Flaw) }),
+  /** A trained skill or a skill increase, at the level it comes at. */
+  z.strictObject({ kind: z.literal(SlotSubjectKind.Skill), source: z.enum(SkillSlotKind), level: Level }),
   /** A `ChoiceSet` on `entry`, asking `prompt`. */
   z.strictObject({
     kind: z.literal(SlotSubjectKind.Choice),
@@ -89,4 +101,6 @@ export const SlotInvalidMessage = {
   ContentNotLoaded: 'rules.choices.invalid.contentNotLoaded',
   BoostTaken: 'rules.choices.invalid.boostTaken',
   FlawTaken: 'rules.choices.invalid.flawTaken',
+  SkillTrained: 'rules.choices.invalid.skillTrained',
+  SkillRankCapped: 'rules.choices.invalid.skillRankCapped',
 } as const;
