@@ -145,6 +145,25 @@ describe(BreakdownView, () => {
     expect(lines).toStrictEqual(['Breastplate | +2 item | Conditional']);
   });
 
+  it('shows two copies of one item as two lines, the lower one suppressed by the other', async () => {
+    const winner = line(BREASTPLATE, { type: ModifierType.Item, value: 4 });
+    const copy = line(BREASTPLATE, {
+      type: ModifierType.Item,
+      value: 4,
+      status: {
+        kind: LineStatusKind.Suppressed,
+        by: RuleId.parse(`${BREASTPLATE}#0`),
+        reason: SuppressionReason.Stacking,
+      },
+    });
+    const { lines } = await render(statistic('ac', { base: [term('10', 10)], lines: [copy, winner] }));
+
+    expect(lines).toStrictEqual([
+      'Breastplate | +4 item',
+      'Breastplate | +4 item | Suppressed | Breastplate counts instead.',
+    ]);
+  });
+
   describe('names', () => {
     const labelled = line(BREASTPLATE, {
       type: ModifierType.Item,

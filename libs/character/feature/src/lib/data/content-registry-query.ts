@@ -1,5 +1,12 @@
 import type { ContentLoader } from '@pioneer/rules/data-access';
-import type { ContentKind, ContentRegistry } from '@pioneer/rules/sdk';
+import { ContentKind } from '@pioneer/rules/sdk';
+import type { ContentRegistry } from '@pioneer/rules/sdk';
+
+/**
+ * The kinds every character page's registry holds: ancestries for the options and the engine, statistics for the
+ * sheet. One list, so the pages share one query and the registry loads once a session.
+ */
+export const CHARACTER_CONTENT_KINDS: readonly ContentKind[] = [ContentKind.Ancestry, ContentKind.Statistic];
 
 /** TanStack query options for a registry of every official pack's entries of some kinds, loaded once a session. */
 export interface ContentRegistryQuery {

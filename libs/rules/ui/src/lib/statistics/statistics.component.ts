@@ -1,17 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import {
-  Badge,
-  DescriptionItem,
-  DescriptionList,
-  Disclosure,
-  EmptyState,
-  LocaleFormat,
-  Skeleton,
-  Stack,
-  Text,
-} from '@pioneer/frontier';
+import { Badge, Disclosure, EmptyState, List, ListItem, LocaleFormat, Skeleton, Stack, Text } from '@pioneer/frontier';
 import type { StatisticResult, StatisticValue } from '@pioneer/rules/engine';
 import { StatisticKind } from '@pioneer/rules/sdk';
 import type { ContentId, Selector } from '@pioneer/rules/sdk';
@@ -45,7 +35,7 @@ const CHECK: Intl.NumberFormatOptions = { signDisplay: 'always' };
 const LOADING_ROWS = 5;
 
 /**
- * A list of statistics (play-and-campaigns.md, "Sheet layout"): each one's name and total, a check signed (+5) and
+ * A list of statistics (play-and-campaigns.md, "Statistics and breakdowns"): each one's name and total, a check signed (+5) and
  * a DC or value plain (18), and the total expands in place to its breakdown. A statistic the engine could not
  * derive is marked failed in text, with why.
  *
@@ -58,18 +48,7 @@ const LOADING_ROWS = 5;
  */
 @Component({
   selector: 'pio-statistics',
-  imports: [
-    Badge,
-    BreakdownView,
-    DescriptionItem,
-    DescriptionList,
-    Disclosure,
-    EmptyState,
-    Skeleton,
-    Stack,
-    Text,
-    TranslocoPipe,
-  ],
+  imports: [Badge, BreakdownView, Disclosure, EmptyState, List, ListItem, Skeleton, Stack, Text, TranslocoPipe],
   templateUrl: './statistics.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

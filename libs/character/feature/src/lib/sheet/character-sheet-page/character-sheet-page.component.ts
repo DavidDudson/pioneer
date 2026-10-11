@@ -49,7 +49,6 @@ import {
   AncestryId,
   Attribute,
   AttributeModifier,
-  ContentKind,
 } from '@pioneer/rules/sdk';
 import { DefencesView, StatisticsView } from '@pioneer/rules/ui';
 import { message } from '@pioneer/shared/kernel';
@@ -61,7 +60,7 @@ import type * as z from 'zod';
 import { AncestryOptions } from '../../data/ancestry-options';
 import { ATTRIBUTE_LABEL_KEYS } from '../../data/attribute-label-keys';
 import { CharacterStore } from '../../data/character-store';
-import { contentRegistryQuery } from '../../data/content-registry-query';
+import { CHARACTER_CONTENT_KINDS, contentRegistryQuery } from '../../data/content-registry-query';
 import { ImportResult } from '../../import/import-result/import-result.component';
 import { sheetDefences } from '../sheet-defences';
 import { SHEET_SECTION_ORDER, SHEET_SECTIONS } from '../sheet-sections';
@@ -142,13 +141,8 @@ export class CharacterSheetPage {
   protected readonly sections = SHEET_SECTIONS;
   protected readonly sectionOrder = SHEET_SECTION_ORDER;
   protected readonly title = computed(() => this.character()?.name);
-  /**
-   * The registry the engine reads: ancestries and statistics. The loader keeps each kind's bundles, so the ancestry
-   * options' registry fetches nothing twice.
-   */
-  protected readonly registry = injectQuery(() =>
-    contentRegistryQuery(this.#content, [ContentKind.Ancestry, ContentKind.Statistic]),
-  );
+  /** The registry the engine reads, shared with the ancestry options, so it loads once. */
+  protected readonly registry = injectQuery(() => contentRegistryQuery(this.#content, CHARACTER_CONTENT_KINDS));
   protected readonly defences = computed(() => {
     const registry = this.registry.data();
     const character = this.character();

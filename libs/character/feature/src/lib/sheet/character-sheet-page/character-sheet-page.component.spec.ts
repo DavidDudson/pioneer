@@ -177,16 +177,10 @@ describe('CharacterSheetPage', () => {
 
     await vi.waitFor(() => {
       expect(
-        [...statistics.querySelectorAll('fr-description-item')].map((item) =>
-          [item.querySelector('[role="term"]'), item.querySelector('summary')].map((part) => part?.textContent.trim()),
+        [...statistics.querySelectorAll('summary')].map((summary) =>
+          summary.textContent.replaceAll(/\s+/gu, ' ').trim(),
         ),
-      ).toStrictEqual([
-        ['Armor Class', '14'],
-        ['Fortitude', '+1'],
-        ['Reflex', '+4'],
-        ['Will', '+0'],
-        ['Perception', '+0'],
-      ]);
+      ).toStrictEqual(['Armor Class 14', 'Fortitude +1', 'Reflex +4', 'Will +0', 'Perception +0']);
     });
     const ac = present(statistics.querySelector('pio-breakdown'));
     expect(ac.textContent).toContain('Base 14');

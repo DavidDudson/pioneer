@@ -138,9 +138,11 @@ actions, feats and features, inventory, notes).
   section's heading. Sections are `fr-section`s and the index is `fr-section-index`; the order lives in one const in
   the sheet feature (`SHEET_SECTIONS`), which later epics extend. A section whose content has not landed yet still
   takes its place in the order, holding an empty state.
-- In a grid of like values (attributes, skills, saves), arrow keys move between cells with roving focus, so Tab
-  crosses the grid in one stop. Enter opens a cell's inline editor and Escape cancels it, as elsewhere. The grid is
-  a `toolbar` named by its section, since its cells are buttons and inline editors rather than grid cells.
+- In a grid of like values whose cells are edited in place (attributes), arrow keys move between cells with roving
+  focus, so Tab crosses the grid in one stop. Enter opens a cell's inline editor and Escape cancels it, as elsewhere.
+  The grid is a `toolbar` named by its section, since its cells are buttons and inline editors rather than grid
+  cells. Read-only values that expand to a breakdown (statistics, saves, skills) are a list of disclosures instead,
+  one Tab stop each: a toolbar would put each expanded breakdown between its cells.
 - A feature container derives a section's data; a presentational component renders it from plain inputs
   (ADR-0028). Sections that render rules data, such as defences, live in `libs/rules/ui` with their stories.
 
@@ -165,8 +167,9 @@ the builder puts the character's rule elements in play, every list is empty.
 ### Statistics and breakdowns
 
 The statistics section lists Armor Class, the three saves and Perception, each by the name its content definition
-gives it, with its total: a check signed (+7), a DC or value plain (18). Each total is an `fr-disclosure` that expands
-in place to its breakdown, so every number explains itself without a modal:
+gives it, with its total: a check signed (+7), a DC or value plain (18). Each is an `fr-disclosure` whose summary
+reads as both ("Armor Class 18"), so the trigger names what it opens, and which expands in place to the breakdown;
+every number explains itself without a modal:
 
 - The base: its value, then each term of the base formula as written with what it gives (`+ @prof.ac` gives 5), and
   the variant rule that sets a term's proficiency bonus when one does.
