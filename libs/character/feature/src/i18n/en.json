@@ -136,7 +136,7 @@
     "result": {
       "heading": "Imported from Pathbuilder",
       "dismiss": "Dismiss",
-      "carried": "Pioneer kept the name, level and ancestry, the background and class when they matched, and the attribute boosts.",
+      "carried": "Pioneer kept the name, level and ancestry, the heritage, background and class when they matched, and the attribute boosts.",
       "boostsMatch": "Every attribute modifier matches Pathbuilder's.",
       "differencesSummary": "{count, plural, one {# attribute differs} other {# attributes differ}} from Pathbuilder",
       "difference": "Pathbuilder {imported}, Pioneer {derived}",
