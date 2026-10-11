@@ -58,21 +58,9 @@ describe('CharacterSheetPage class', () => {
   it('offers the class’s subclass beneath it, and no key attribute when the class allows one', async () => {
     const { root } = await openSheet(cleric(), { slots: [CLERIC_SLOT] });
 
-    // The first sheet to open loads Player Core's whole import.
-    await vi.waitFor(
-      () => {
-        expect(labels(root)).toStrictEqual([
-          'Name',
-          'Ancestry',
-          'Heritage',
-          'Background',
-          'Level',
-          'Class',
-          'Subclass',
-        ]);
-      },
-      { timeout: 5000 },
-    );
+    await vi.waitFor(() => {
+      expect(labels(root)).toStrictEqual(['Name', 'Ancestry', 'Heritage', 'Background', 'Level', 'Class', 'Subclass']);
+    });
     expect(fieldNamed(root, 'Class').textContent).toContain('Cleric');
   });
 

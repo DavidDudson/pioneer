@@ -17,14 +17,22 @@ export type { TriggerCoverage } from './trigger-coverage';
 export { entryAction, matchTrigger, triggerMatches } from './trigger-matcher';
 export type { RefNames, TriggerMatch } from './trigger-matcher';
 
-/** A loader whose pack must also pass the registry source checks, so a wrongly sourced entry fails to load. */
+/**
+ * A loader whose pack must also pass the registry source checks, so a wrongly sourced entry fails to load. The pack
+ * files never change while the process runs, so it reads and checks them once: Player Core alone takes seconds.
+ */
 export function checkedLoader(id: string, load: () => Promise<PackContents>): PackContentsLoader {
+  let checked: Promise<PackContents> | undefined = undefined;
+  const loadChecked = async (): Promise<PackContents> => {
+    const contents = await load();
+    checkPackSources(contentPackFromContents(contents), bookRegistry);
+    return contents;
+  };
   return {
     id: PackId.parse(id),
     load: async () => {
-      const contents = await load();
-      checkPackSources(contentPackFromContents(contents), bookRegistry);
-      return contents;
+      checked ??= loadChecked();
+      return checked;
     },
   };
 }

@@ -2,7 +2,7 @@ import { provideHttpClient } from '@angular/common/http';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import type { EnvironmentProviders, Provider } from '@angular/core';
 import { officialPacks } from '@pioneer/rules/catalog';
-import { provideContentTesting, TestContentDelivery } from '@pioneer/rules/data-access/testing';
+import { prebuildContentTesting, provideContentTesting, TestContentDelivery } from '@pioneer/rules/data-access/testing';
 import type { PackContentsLoader } from '@pioneer/rules/sdk';
 import { provideTanStackQuery, QueryClient } from '@tanstack/angular-query-experimental';
 
@@ -20,4 +20,12 @@ export function provideServerStateTesting(
     provideTanStackQuery(new QueryClient({ defaultOptions: { queries: { retry: false } } })),
     ...provideContentTesting(new TestContentDelivery([...base, ...extraPacks])),
   ];
+}
+
+/** Builds what `provideServerStateTesting(extraPacks, base)` serves, before a page opens and its test starts waiting. */
+export async function prebuildServerStateTesting(
+  extraPacks: readonly PackContentsLoader[] = [],
+  base: readonly PackContentsLoader[] = officialPacks,
+): Promise<void> {
+  await prebuildContentTesting([...base, ...extraPacks]);
 }

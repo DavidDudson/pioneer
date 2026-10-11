@@ -12,7 +12,7 @@ import { provideI18n } from '@pioneer/shared/web';
 import { expect, onTestFinished, vi } from 'vitest';
 
 import { characterRoutes } from '../character.routes';
-import { provideServerStateTesting } from './provide-server-state-testing';
+import { prebuildServerStateTesting, provideServerStateTesting } from './provide-server-state-testing';
 
 export const id = CharacterId.parse('0d9f7c1e-3b7a-4c55-9d1f-2a8f2b9c6e10');
 const BACKPACK = '11111111-1111-4111-8111-111111111111';
@@ -56,6 +56,7 @@ export async function settle(): Promise<void> {
 
 /** Opens Valeros's sheet with the item fixtures loaded and waits for the inventory to list his items. */
 export async function openInventory(): Promise<HTMLElement> {
+  await prebuildServerStateTesting([ITEM_FIXTURE_FILES]);
   TestBed.configureTestingModule({
     providers: [
       provideRouter([{ path: 'characters', children: characterRoutes }], withComponentInputBinding()),

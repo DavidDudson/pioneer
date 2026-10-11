@@ -69,14 +69,10 @@ describe('PathbuilderImportPage', () => {
 
     await paste(harness, root, JSON.stringify(briarRoseExport));
 
-    // Matching loads every kind of the official packs, Player Core's whole import among them.
-    await vi.waitFor(
-      () => {
-        harness.detectChanges();
-        expect(root.textContent).toContain('names match content you have loaded');
-      },
-      { timeout: 5000 },
-    );
+    await vi.waitFor(() => {
+      harness.detectChanges();
+      expect(root.textContent).toContain('names match content you have loaded');
+    });
     expect(root.textContent).toContain('Ancestry · 0 of 1 matched');
     expect(root.textContent).toContain('Feats · 0 of 32 matched');
   });
