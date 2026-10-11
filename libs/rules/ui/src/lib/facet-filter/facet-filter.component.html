@@ -1,0 +1,38 @@
+<fr-stack gap="2xs">
+  @for (row of rows(); track row.facet.id) {
+    @let facetLabel = row.facet.label | transloco;
+    <fr-disclosure>
+      <fr-text frDisclosureSummary>{{
+        summaryKey(row) | transloco: { facet: facetLabel, count: pickedCount(row) }
+      }}</fr-text>
+      @if (row.kind === Kind.Chips) {
+        <fr-filter-chips
+          [ariaLabel]="facetLabel"
+          [options]="options(row)"
+          [value]="row.selected"
+          (valueChange)="pick(row.facet, $event)"
+        />
+      } @else {
+        <fr-stack gap="xs">
+          <fr-grid [columns]="2">
+            <fr-optional-number-input
+              [ariaLabel]="Message.Min | transloco: { facet: facetLabel }"
+              [placeholder]="Message.Any | transloco"
+              [value]="row.min"
+              (valueChange)="bound(row.facet, Side.Min, $event)"
+            />
+            <fr-optional-number-input
+              [ariaLabel]="Message.Max | transloco: { facet: facetLabel }"
+              [placeholder]="Message.Any | transloco"
+              [value]="row.max"
+              (valueChange)="bound(row.facet, Side.Max, $event)"
+            />
+          </fr-grid>
+          <fr-text element="p" variant="caption" tone="muted">{{
+            Message.Span | transloco: { lowest: number(row.lowest), highest: number(row.highest) }
+          }}</fr-text>
+        </fr-stack>
+      }
+    </fr-disclosure>
+  }
+</fr-stack>

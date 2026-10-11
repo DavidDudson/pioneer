@@ -623,6 +623,16 @@
         "spontaneous": "Spontaneous",
         "innate": "Innate"
       }
+    },
+    "facetFilter": {
+      "chip": "{value} ({count})",
+      "summary": "{facet}",
+      "summaryPicked": "{facet}: {count} picked",
+      "summaryBounded": "{facet}: limited",
+      "min": "Lowest {facet}",
+      "max": "Highest {facet}",
+      "any": "Any",
+      "span": "{lowest} to {highest} in this list"
     }
   }
 }

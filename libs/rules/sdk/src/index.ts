@@ -102,6 +102,7 @@ export { KIND_DATA, REGISTERED_KINDS, type RegisteredKind } from './kind-data';
 export { SkillCount } from './character-class';
 export {
   COMMON_FACETS,
+  CommonFacet,
   type FacetDefinition,
   FacetId,
   FacetLabel,
