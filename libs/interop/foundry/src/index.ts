@@ -91,3 +91,14 @@ export { type KindDataGap, KindDataGapReason } from './kind-data-gaps';
 export { type ImportContext, type ImportedEntry, type ImportTranslation, translateImport } from './translate-import';
 export { importVocabulary, type Vocabulary, type VocabularyEntry, type VocabularyGap } from './vocabulary';
 export { type VocabularyContext, VocabularyGapReason } from './vocabulary-items';
+export {
+  BacklogGap,
+  BacklogGapType,
+  type BacklogEntryItem,
+  BacklogItem,
+  BacklogItemType,
+  LeftOutReason,
+  stripArt,
+} from './import-backlog';
+export { type PackFile, packFiles, packOutput, type PackOutput, type PackOutputContext } from './pack-output';
+export { referencedIds } from './pack-references';
