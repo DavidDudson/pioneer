@@ -1,11 +1,11 @@
-import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import type { Signal } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { INVENTORY_KINDS, itemContent } from '@pioneer/character/domain';
+import { INVENTORY_KINDS, INVESTED_MAX, itemContent } from '@pioneer/character/domain';
 import type { ItemContent } from '@pioneer/character/domain';
 import { AsyncData, AsyncPending, AsyncRegion, Divider, Heading, Stack } from '@pioneer/frontier';
-import { InventoryView } from '@pioneer/rules/ui';
-import type { InventoryGroup } from '@pioneer/rules/ui';
+import { InventoryView, InvestmentsView } from '@pioneer/rules/ui';
+import type { InventoryGroup, Investment } from '@pioneer/rules/ui';
 
 import { CharacterStore } from '../../../data/character-store';
 import { injectContentRegistry } from '../../../data/content-registry-query';
@@ -15,8 +15,8 @@ import { ItemEdits } from '../item-edits/item-edits.component';
 import { sheetInventory } from '../sheet-inventory';
 
 /**
- * The sheet's inventory: items grouped worn, held and stowed with each item's edits beside it, the coins, and a form
- * to add an item. The item kinds load here, apart from the sheet's registry, so a sheet that never scrolls this far
+ * The sheet's inventory: items grouped worn, held, stowed and dropped with each item's edits beside it, a form to
+ * add an item, the investments against their limit with what each turns on, and the coins. The item kinds load here, apart from the sheet's registry, so a sheet that never scrolls this far
  * never fetches them.
  */
 @Component({
@@ -30,6 +30,7 @@ import { sheetInventory } from '../sheet-inventory';
     Divider,
     Heading,
     InventoryView,
+    InvestmentsView,
     ItemEdits,
     Stack,
     TranslocoPipe,
@@ -38,7 +39,11 @@ import { sheetInventory } from '../sheet-inventory';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InventorySection {
+  /** The invested items and what each turns on, worked out with the sheet's statistics; undefined while they load. */
+  public readonly investments = input<readonly Investment[] | undefined>();
+
   readonly #store = inject(CharacterStore);
+  protected readonly investedMax = INVESTED_MAX;
 
   protected readonly items = injectContentRegistry(INVENTORY_KINDS);
   protected readonly content: Signal<ItemContent | undefined> = computed(() => {

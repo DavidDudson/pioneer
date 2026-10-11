@@ -131,7 +131,7 @@
     </fr-section>
 
     <fr-section [anchor]="sections.inventory.anchor" [heading]="sections.inventory.headingKey | transloco">
-      <pio-inventory-section />
+      <pio-inventory-section [investments]="investments()" />
     </fr-section>
 
     @if (character(); as character) {

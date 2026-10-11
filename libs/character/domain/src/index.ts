@@ -112,6 +112,7 @@ export {
   type InventoryKind,
   isContainer,
   isInvestable,
+  isWearable,
   type ItemContent,
   itemContent,
   type ItemEdit,

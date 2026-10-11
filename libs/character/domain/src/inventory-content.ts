@@ -57,7 +57,7 @@ export interface ItemEdit {
 const INVESTED = Trait.parse('invested');
 
 /** Whether `entry` is worn as it is used: armour, or an item whose usage is worn. */
-function isWearable(entry: ItemEntry): boolean {
+export function isWearable(entry: ItemEntry): boolean {
   return entry.kind === ContentKind.Armor || usageOf(entry)?.type === UsageType.Worn;
 }
 

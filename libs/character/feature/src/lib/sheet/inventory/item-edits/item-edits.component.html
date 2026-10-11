@@ -33,6 +33,28 @@
         (cancelled)="place.cancel()"
       />
     </fr-inline-field>
+    <fr-inline-field [label]="'character.sheet.inventory.carryOf' | transloco: { name: name() }" [edit]="carry">
+      <fr-select
+        frInlineEditor
+        [ariaLabel]="'character.sheet.inventory.carryOf' | transloco: { name: name() }"
+        [options]="carries()"
+        [value]="carry.draft()"
+        (valueChange)="carry.change($event)"
+        (committed)="carry.flushSoon()"
+        (cancelled)="carry.cancel()"
+      />
+    </fr-inline-field>
+    @if (investable()) {
+      <fr-inline-field [label]="'character.sheet.inventory.investOf' | transloco: { name: name() }" [edit]="invest">
+        <fr-toggle-button
+          frInlineEditor
+          [value]="invest.draft()"
+          (valueChange)="invest.change($event)"
+          (committed)="invest.flushSoon()"
+          >{{ 'character.sheet.inventory.invest' | transloco }}</fr-toggle-button
+        >
+      </fr-inline-field>
+    }
   </fr-grid>
   <fr-stack direction="horizontal" justify="end">
     <fr-async-button
