@@ -1,4 +1,14 @@
-import { array, constant, constantFrom, integer, oneof, record, shuffledSubarray, tuple, uniqueArray } from 'fast-check';
+import {
+  array,
+  constant,
+  constantFrom,
+  integer,
+  oneof,
+  record,
+  shuffledSubarray,
+  tuple,
+  uniqueArray,
+} from 'fast-check';
 import type { Arbitrary } from 'fast-check';
 
 import { Attribute } from '../attribute';

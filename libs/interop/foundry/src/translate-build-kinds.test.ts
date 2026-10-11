@@ -265,7 +265,9 @@ describe('translateKindData: classes', () => {
 
   test("a class off Player Core's skill increase schedule keeps its own levels", () => {
     const everyLevel = Array.from({ length: 19 }, (_unused, index) => index + 2);
-    const rogueLike = translate([{ ...FIGHTER, system: { ...FIGHTER.system, skillIncreaseLevels: { value: everyLevel } } }]);
+    const rogueLike = translate([
+      { ...FIGHTER, system: { ...FIGHTER.system, skillIncreaseLevels: { value: everyLevel } } },
+    ]);
 
     expect(dataIn(rogueLike, 'fighter')).toMatchObject({ skillIncreaseLevels: everyLevel });
     expect(gapKeys(rogueLike)).not.toContain('unmapped-field skillIncreaseLevels');
