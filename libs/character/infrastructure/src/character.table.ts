@@ -1,5 +1,11 @@
-import type { CharacterId, CharacterLevel, CharacterName } from '@pioneer/character/domain';
-import type { AncestryId, AttributeModifiersWire } from '@pioneer/rules/sdk';
+import type {
+  CharacterId,
+  CharacterLevel,
+  CharacterName,
+  CharacterSchemaVersion,
+  StoredCharacterDocument,
+} from '@pioneer/character/domain';
+import type { AttributeModifiersWire } from '@pioneer/rules/sdk';
 import type { UserId, Version } from '@pioneer/shared/kernel';
 import { index, integer, jsonb, pgTable, smallint, text, timestamp, uuid } from 'drizzle-orm/pg-core';
 
@@ -7,6 +13,10 @@ import { index, integer, jsonb, pgTable, smallint, text, timestamp, uuid } from 
  * Drizzle schema for the character aggregate. Migrations live in
  * apps/api/migrations. Every sort or filter a repository issues must be served
  * by an index here; the query-plan guard in the repository tests enforces it.
+ *
+ * A character is stored as its `CharacterDocument`. `name`, `level` and `owner_id` are copies of the document's,
+ * kept in step by the repository in the same write, so lists sort and filter on columns; nothing queries into
+ * `document`.
  */
 export const characters = pgTable(
   'characters',
@@ -18,10 +28,13 @@ export const characters = pgTable(
     // Identity's tables are outside this context's module boundary.
     ownerId: uuid().$type<UserId>().notNull(),
     name: text().$type<CharacterName>().notNull(),
-    // Content id (UUIDv5 of `<pack>/<slug>`); every id column is a uuid.
-    ancestry: uuid().$type<AncestryId>().notNull(),
     level: smallint().$type<CharacterLevel>().notNull(),
+    // Derived modifiers, kept until #418 works them out from boost picks and drops the column.
     attributes: jsonb().$type<AttributeModifiersWire>().notNull(),
+    // The document's own `schemaVersion`, as a column so old rows can be counted without reading documents.
+    schemaVersion: smallint().$type<CharacterSchemaVersion>().notNull(),
+    // Decoded with `decodeCharacterDocument`, which upgrades an older version; saves write the current one.
+    document: jsonb().$type<StoredCharacterDocument>().notNull(),
     // Strings, not Date: Date is banned; rows are converted to Temporal.Instant.
     createdAt: timestamp({ withTimezone: true, mode: 'string' }).notNull(),
     updatedAt: timestamp({ withTimezone: true, mode: 'string' }).notNull(),

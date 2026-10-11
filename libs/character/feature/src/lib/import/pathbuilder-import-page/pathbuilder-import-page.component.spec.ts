@@ -134,7 +134,7 @@ describe('PathbuilderImportPage create', () => {
         version: 1,
         ownerId: '8f6d2c1a-0b3e-4f5a-9c7d-1e2f3a4b5c6d',
         name: 'Mordred (Dual Class)',
-        ancestry: human,
+        build: { choices: { ancestry: human } },
         level: 12,
         attributes: { str: 4, dex: 0, con: 2, int: 1, wis: 3, cha: 6 },
         createdAt: '2026-10-07T10:00:00.000Z',

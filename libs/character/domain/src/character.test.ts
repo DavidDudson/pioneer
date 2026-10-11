@@ -1,14 +1,16 @@
 import { describe, expect, test } from 'bun:test';
 
+import { AncestryId, Attribute, ChoiceValue, contentId, PackId, Slug, SlotKey } from '@pioneer/rules/sdk';
 import { fixedClock, FixtureNamespace, derivedId } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { Character } from './character';
 import { CharacterId, CharacterName } from './character-fields';
 import { CharacterPatchField, CharacterPatchSchema } from './character-patch';
-import { CharacterBuilder } from './testing';
+import { CharacterBuilder, humanAncestryId } from './testing';
 
 const later = fixedClock('2026-10-07T10:00:00Z').now();
+const featSlot = SlotKey.parse('feat:class:2');
 
 describe('Character', () => {
   test('builder ids are UUIDv5 of the name, so fixtures are stable', () => {
@@ -32,6 +34,47 @@ describe('Character', () => {
     expect(renamed.name).toBe(CharacterName.parse('Seelah'));
     expect(renamed.updatedAt.equals(later)).toBe(true);
     expect(original.name).toBe(CharacterName.parse('Valeros'));
+  });
+
+  test('stores its ancestry as the ancestry slot’s selection, and nothing derived', () => {
+    const valeros = new CharacterBuilder().withAttribute(Attribute.Strength, 4).build();
+    expect(Object.entries(valeros.document.build.choices)).toStrictEqual([
+      ['ancestry', ChoiceValue.parse(humanAncestryId)],
+    ]);
+    expect(valeros.document).not.toHaveProperty('attributes');
+    expect(valeros.ancestry).toBe(humanAncestryId);
+  });
+
+  test('an ancestry edit replaces the slot’s selection and keeps every other pick', () => {
+    const planned = ChoiceValue.parse('sudden-charge');
+    const original = new CharacterBuilder().build();
+    const withPlan = new Character({
+      document: {
+        ...original.document,
+        build: { ...original.document.build, choices: { ...original.document.build.choices, [featSlot]: planned } },
+      },
+      version: original.version,
+      attributes: original.attributes,
+      createdAt: original.createdAt,
+      updatedAt: original.updatedAt,
+    });
+    const elf = AncestryId.parse(contentId(PackId.parse('player-core'), Slug.parse('elf')));
+    const changed = withPlan.apply({ field: CharacterPatchField.Ancestry, value: elf }, later);
+    expect(changed.ancestry).toBe(elf);
+    expect(changed.document.build.choices[featSlot]).toBe(planned);
+    expect(z.encode(Character.codec, changed).build?.choices).toStrictEqual({ ancestry: elf, [featSlot]: planned });
+  });
+
+  test('an empty ancestry slot reads as no ancestry', () => {
+    const original = new CharacterBuilder().build();
+    const unpicked = new Character({
+      document: { ...original.document, build: { choices: {}, boons: [] } },
+      version: original.version,
+      attributes: original.attributes,
+      createdAt: original.createdAt,
+      updatedAt: original.updatedAt,
+    });
+    expect(unpicked.ancestry).toBeUndefined();
   });
 
   test('rejects out-of-range level', () => {

@@ -33,7 +33,7 @@ async function insertCharacter(database: TestDatabase, ownerId: UserId): Promise
   const id = CharacterId.parse(newId());
   const now = at.toString();
   await database.db.execute(
-    sql`insert into characters (id, version, owner_id, name, ancestry, level, attributes, created_at, updated_at) values (${id}, 1, ${ownerId}, 'Valeros', ${newId()}, 1, '{}'::jsonb, ${now}, ${now})`,
+    sql`insert into characters (id, version, owner_id, name, level, attributes, schema_version, document, created_at, updated_at) values (${id}, 1, ${ownerId}, 'Valeros', 1, '{}'::jsonb, 1, ${JSON.stringify({ schemaVersion: 1, id, ownerId, name: 'Valeros', level: 1 })}::jsonb, ${now}, ${now})`,
   );
   return id;
 }

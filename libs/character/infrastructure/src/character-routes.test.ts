@@ -1,6 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 
 import { CharacterService, InMemoryCharacterRepository } from '@pioneer/character/application';
+import { Character } from '@pioneer/character/domain';
 import { humanAncestryId } from '@pioneer/character/domain/testing';
 import { briarRoseExport, mordredExport } from '@pioneer/interop/pathbuilder/testing';
 import { ContentPackBuilder, fixedContent } from '@pioneer/rules/sdk/testing';
@@ -162,7 +163,7 @@ describe('Pathbuilder import route', () => {
     expect(report.notCarried).toContain('lore');
 
     const got = await api.handle(request('GET', `/characters/${character.id}`));
-    expect(((await got.json()) as { ancestry: string }).ancestry).toBe(humanAncestryId);
+    expect(Character.codec.parse(await got.json()).ancestry).toBe(humanAncestryId);
   });
 
   test('an ancestry that is not loaded is a 422 naming it, and nothing is created', async () => {

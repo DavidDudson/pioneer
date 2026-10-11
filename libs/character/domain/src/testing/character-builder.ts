@@ -1,12 +1,32 @@
 import { AncestryId, AttributeModifier, AttributeModifiers, contentId, PackId, Slug } from '@pioneer/rules/sdk';
 import type { Attribute } from '@pioneer/rules/sdk';
 import { installRulesFakes } from '@pioneer/rules/sdk/testing';
-import { derivedId, FIRST_VERSION, FixtureNamespace, fixedClock, UserId, Version } from '@pioneer/shared/kernel';
+import {
+  derivedId,
+  FIRST_VERSION,
+  FixtureNamespace,
+  fixedClock,
+  InstantCodec,
+  UserId,
+  Version,
+} from '@pioneer/shared/kernel';
 import type { Temporal } from '@pioneer/shared/kernel';
 import { fakeSeeded } from '@pioneer/shared/kernel/testing';
+import * as z from 'zod';
 
 import { Character } from '../character';
 import { CharacterId, CharacterLevel, CharacterName } from '../character-fields';
+
+/** The fields `CharacterBuilder.random` fakes. */
+const RandomFields = z.object({
+  name: CharacterName,
+  ancestry: AncestryId,
+  level: CharacterLevel,
+  version: Version,
+  ownerId: UserId,
+  attributes: AttributeModifiers.codec,
+  createdAt: InstantCodec,
+});
 
 /** `player-core/human`, the default ancestry for fixtures. */
 export const humanAncestryId: AncestryId = AncestryId.parse(
@@ -37,7 +57,7 @@ export class CharacterBuilder {
   /** Every field from a seeded fake (zod-schema-faker); same seed, same character. */
   public static random(seedValue: number): CharacterBuilder {
     installRulesFakes();
-    const fake = fakeSeeded(Character.codec, seedValue);
+    const fake = fakeSeeded(RandomFields, seedValue);
     const builder = new CharacterBuilder()
       .named(fake.name)
       .withAncestry(fake.ancestry)
@@ -85,16 +105,14 @@ export class CharacterBuilder {
   }
 
   public build(): Character {
-    return new Character({
+    return Character.create({
       id: CharacterId.parse(derivedId(FixtureNamespace, `character:${this.#name}`)),
-      version: this.#version,
       ownerId: this.#ownerId,
       name: this.#name,
       ancestry: this.#ancestry,
       level: this.#level,
       attributes: this.#attributes,
-      createdAt: this.#at,
-      updatedAt: this.#at,
-    });
+      now: this.#at,
+    }).withVersion(this.#version);
   }
 }
