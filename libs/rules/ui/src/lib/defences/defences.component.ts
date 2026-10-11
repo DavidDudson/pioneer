@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import { Badge, Heading, List, ListItem, LocaleFormat, Stack, Text } from '@pioneer/frontier';
+import { TranslocoService } from '@jsverse/transloco';
+import { LocaleFormat, Skeleton, Stack } from '@pioneer/frontier';
 import { DefenceStatusKind } from '@pioneer/rules/engine';
 import type {
   AdjustmentLine,
@@ -18,32 +18,9 @@ import type { MessageDescriptor } from '@pioneer/shared/kernel';
 import { filter, merge } from 'rxjs';
 
 import { DAMAGE_TYPE_MESSAGES } from '../rich-text/rich-text-messages';
-import {
-  DAMAGE_GROUP_MESSAGES,
-  DEFENCE_STATUS_MESSAGES,
-  DEFENCE_STATUS_TONES,
-  DefencesMessage,
-} from './defences-messages';
-import type { MarkedStatus } from './defences-messages';
-
-/** How a line stands, when it does not simply apply, and what explains it, then where it comes from. */
-interface Standing {
-  readonly status: MarkedStatus | undefined;
-  readonly details: readonly string[];
-}
-
-/** A defence as shown: what it is, and how it stands. */
-interface ShownDefence extends Standing {
-  readonly key: string;
-  readonly text: string;
-}
-
-/** One of the three lists under its heading, or the line saying it is empty. */
-interface ShownList {
-  readonly heading: string;
-  readonly empty: string;
-  readonly defences: readonly ShownDefence[];
-}
+import { DefenceList } from './defence-list/defence-list.component';
+import { DAMAGE_GROUP_MESSAGES, DefencesMessage } from './defences-messages';
+import type { ShownDefence, ShownList, Standing } from './shown-defences';
 
 /** Display names the caller resolved for the entries and slugs the lines name. */
 interface DefenceNames {
@@ -58,6 +35,8 @@ interface ListContext {
   readonly names: DefenceNames;
 }
 
+const LOADING_LISTS = ['immunities', 'weaknesses', 'resistances'] as const;
+
 /**
  * A character's immunities, weaknesses and resistances (play-and-campaigns.md, "Defences panel"), each list under
  * its own heading and an empty list saying so. An entry reads as its value and target, then any exceptions
@@ -65,8 +44,8 @@ interface ListContext {
  * with the types it covers. A line that does not simply apply is marked in text, conditional with when it holds,
  * superseded with what counts instead, or failed with why, and every line names where it comes from.
  *
- * Read-only and presentational (ADR-0028): the caller passes the engine's `Defences` and the display names of
- * the entries, immunities and exceptions it names. A missing name shows its id.
+ * Read-only and presentational (ADR-0028): the caller passes the engine's `Defences`, or undefined while they load,
+ * and the display names of the entries, immunities and exceptions it names. A missing name shows its id.
  *
  * ```html
  * <pio-defences [defences]="defences()" [entryNames]="names()" />
@@ -74,12 +53,13 @@ interface ListContext {
  */
 @Component({
   selector: 'pio-defences',
-  imports: [Badge, Heading, List, ListItem, Stack, Text, TranslocoPipe],
+  imports: [DefenceList, Skeleton, Stack],
   templateUrl: './defences.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DefencesView {
-  public readonly defences = input.required<Defences>();
+  /** Undefined while loading: the panel then shows skeletons shaped like its three lists. */
+  public readonly defences = input.required<Defences | undefined>();
   /** Display names of the entries the lines come from. */
   public readonly entryNames = input<ReadonlyMap<ContentId, string>>(new Map());
   /** Display names of immunities that are not damage types (`sleep`, `critical-hits`). */
@@ -87,9 +67,8 @@ export class DefencesView {
   /** Display names of the damage traits weaknesses and resistances make exceptions for (`adamantine`). */
   public readonly exceptionNames = input<ReadonlyMap<DamageException, string>>(new Map());
 
-  protected readonly STATUS_MESSAGES = DEFENCE_STATUS_MESSAGES;
-  protected readonly STATUS_TONES = DEFENCE_STATUS_TONES;
-  protected readonly Superseded = DefenceStatusKind.Superseded;
+  /** One loading placeholder per list. */
+  protected readonly loadingLists = LOADING_LISTS;
 
   readonly #i18n = inject(TranslocoService);
   readonly #format = inject(LocaleFormat);
@@ -97,10 +76,14 @@ export class DefencesView {
   readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
   readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
 
-  protected readonly lists = computed((): readonly ShownList[] => {
+  protected readonly lists = computed((): readonly ShownList[] | undefined => {
     this.#messages();
     this.#format.locale();
-    const { immunities, weaknesses, resistances } = this.defences();
+    const defences = this.defences();
+    if (defences === undefined) {
+      return undefined;
+    }
+    const { immunities, weaknesses, resistances } = defences;
     const names: DefenceNames = {
       entries: this.entryNames(),
       immunities: this.immunityNames(),
@@ -201,7 +184,8 @@ export class DefencesView {
         return this.#i18n.translate(DefencesMessage.SupersededBy, { name: this.#ruleName(status.by, context) });
       }
       case DefenceStatusKind.Failed: {
-        return this.#translate(status.error);
+        const error = this.#translate(status.error);
+        return status.when === undefined ? error : this.#i18n.translate(DefencesMessage.FailedConditional, { error });
       }
       default: {
         return status satisfies never;

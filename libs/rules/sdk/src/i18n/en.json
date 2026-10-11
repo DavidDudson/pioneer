@@ -425,6 +425,7 @@
         "failed": "Failed"
       },
       "appliesWhen": "Applies when {summary}.",
+      "failedConditional": "{error} It applies only in some situations.",
       "supersededBy": "{name} counts instead.",
       "from": "From {name}."
     }

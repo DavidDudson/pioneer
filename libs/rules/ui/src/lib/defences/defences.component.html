@@ -1,28 +1,14 @@
 <fr-stack gap="md">
-  @for (list of lists(); track list.heading) {
-    <fr-stack gap="xs">
-      <fr-heading [level]="3">{{ list.heading }}</fr-heading>
-      @if (list.defences.length === 0) {
-        <fr-text element="p" tone="muted">{{ list.empty }}</fr-text>
-      } @else {
-        <fr-list gap="xs">
-          @for (defence of list.defences; track defence.key) {
-            <fr-list-item>
-              <fr-stack gap="3xs">
-                <fr-stack direction="horizontal" gap="xs" align="center" wrap>
-                  <fr-text [tone]="defence.status === Superseded ? 'muted' : 'default'">{{ defence.text }}</fr-text>
-                  @if (defence.status; as status) {
-                    <fr-badge [tone]="STATUS_TONES[status]">{{ STATUS_MESSAGES[status] | transloco }}</fr-badge>
-                  }
-                </fr-stack>
-                @for (detail of defence.details; track $index) {
-                  <fr-text variant="caption" tone="muted">{{ detail }}</fr-text>
-                }
-              </fr-stack>
-            </fr-list-item>
-          }
-        </fr-list>
-      }
-    </fr-stack>
+  @if (lists(); as lists) {
+    @for (list of lists; track list.heading) {
+      <pio-defence-list [list]="list" />
+    }
+  } @else {
+    @for (list of loadingLists; track list) {
+      <fr-stack gap="xs">
+        <fr-skeleton width="sm" />
+        <fr-skeleton width="lg" />
+      </fr-stack>
+    }
   }
 </fr-stack>

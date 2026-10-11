@@ -152,7 +152,9 @@ describe('CharacterSheetPage', () => {
     const defences = present([...root.querySelectorAll('section')].at(-1));
 
     await vi.waitFor(() => {
-      expect([...defences.querySelectorAll('h3, p')].map((element) => element.textContent.trim())).toStrictEqual([
+      expect(
+        [...defences.querySelectorAll('h3, fr-empty-state')].map((element) => element.textContent.trim()),
+      ).toStrictEqual([
         'Immunities',
         'No immunities.',
         'Weaknesses',

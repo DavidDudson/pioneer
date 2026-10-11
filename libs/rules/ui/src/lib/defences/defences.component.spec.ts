@@ -1,5 +1,7 @@
 import { TestBed } from '@angular/core/testing';
+import { DefenceStatusKind } from '@pioneer/rules/engine';
 import type { Defences } from '@pioneer/rules/engine';
+import { Predicate } from '@pioneer/rules/sdk';
 import type { ContentId, DamageException, Immunity } from '@pioneer/rules/sdk';
 import { describe, expect, it } from 'vitest';
 
@@ -75,7 +77,7 @@ async function render(defences: Defences, names: Names = NAMED): Promise<Rendere
   const lists = [...host.querySelectorAll('h3')].map((heading): ReadList => {
     const list = heading.closest('fr-stack');
     const items = [...(list?.querySelectorAll('[role="listitem"]') ?? [])].map((item) => partsOf(item));
-    const empty = list?.querySelector('p');
+    const empty = list?.querySelector('fr-empty-state');
     return {
       heading: textOf(heading),
       items,
@@ -98,6 +100,17 @@ describe(DefencesView, () => {
       { heading: 'Weaknesses', items: [], empty: 'No weaknesses.' },
       { heading: 'Resistances', items: [], empty: 'No resistances.' },
     ]);
+  });
+
+  it('shows a skeleton shaped like each list while loading', async () => {
+    TestBed.configureTestingModule({ providers: [provideRulesUiI18nTesting()] });
+    const fixture = TestBed.createComponent(DefencesView);
+    fixture.componentRef.setInput('defences', undefined);
+    await fixture.whenStable();
+    const host = fixture.nativeElement as HTMLElement;
+
+    expect(host.querySelectorAll('h3')).toHaveLength(0);
+    expect(host.querySelectorAll('fr-skeleton')).toHaveLength(6);
   });
 
   describe('immunities', () => {
@@ -192,6 +205,20 @@ describe(DefencesView, () => {
       ]);
     });
 
+    it('marks a conditional defence without a summary by its badge alone', async () => {
+      const unsummarised = {
+        kind: DefenceStatusKind.Conditional,
+        when: Predicate.parse(['self:effect:rage']),
+        summary: undefined,
+      };
+      const { resistances } = await render({
+        ...NO_DEFENCES,
+        resistances: [adjustment(RAGE, 'fire', { value: 5, status: unsummarised })],
+      });
+
+      expect(resistances.items).toStrictEqual(['Resistance 5 fire | Conditional | From Rage.']);
+    });
+
     it('marks a conditional immunity too', async () => {
       const { immunities } = await render({ ...NO_DEFENCES, immunities: [immunity(RAGE, 'mental', WHILE_RAGING)] });
 
@@ -216,6 +243,18 @@ describe(DefencesView, () => {
 
       expect(weaknesses.items).toStrictEqual([
         'Weakness cold | Failed | A weakness or resistance may be at most 32767. | From Golem Form.',
+      ]);
+    });
+
+    it('keeps saying a failed defence was conditional', async () => {
+      const failedWhileRaging = { ...OUT_OF_RANGE, when: Predicate.parse(['self:effect:rage']) };
+      const { weaknesses } = await render({
+        ...NO_DEFENCES,
+        weaknesses: [adjustment(GOLEM_FORM, 'cold', { status: failedWhileRaging })],
+      });
+
+      expect(weaknesses.items).toStrictEqual([
+        'Weakness cold | Failed | A weakness or resistance may be at most 32767. It applies only in some situations. | From Golem Form.',
       ]);
     });
 

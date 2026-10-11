@@ -73,14 +73,8 @@
 
     <fr-section [anchor]="sections.defences.anchor" [heading]="sections.defences.headingKey | transloco">
       <fr-async-region>
-        <ng-template frAsyncPending><fr-skeleton width="lg" /></ng-template>
-        <ng-template [frAsyncData]="registry">
-          @if (defences(); as defences) {
-            <pio-defences [defences]="defences" />
-          } @else {
-            <fr-skeleton width="lg" />
-          }
-        </ng-template>
+        <ng-template frAsyncPending><pio-defences [defences]="undefined" /></ng-template>
+        <ng-template [frAsyncData]="registry"><pio-defences [defences]="defences()" /></ng-template>
       </fr-async-region>
     </fr-section>
 

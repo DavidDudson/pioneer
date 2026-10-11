@@ -17,6 +17,8 @@ export const DefencesMessage = {
   /** "physical (bleed, bludgeoning, piercing, slashing)": a group and the types it covers. */
   GroupTypes: 'rules.defences.groupTypes',
   AppliesWhen: 'rules.defences.appliesWhen',
+  /** A failed line that was conditional: the error, then that it applies only in some situations. */
+  FailedConditional: 'rules.defences.failedConditional',
   SupersededBy: 'rules.defences.supersededBy',
   From: 'rules.defences.from',
 } as const;

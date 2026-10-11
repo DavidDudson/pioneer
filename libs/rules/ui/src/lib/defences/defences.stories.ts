@@ -27,6 +27,11 @@ const meta: Meta<DefencesView> = {
 };
 export default meta;
 
+/** While the engine's inputs load: skeletons shaped like the three lists. */
+export const Loading: DefencesStory = {
+  args: { defences: undefined },
+};
+
 /** Most characters: three empty lists, each saying so. */
 export const Empty: DefencesStory = {
   args: { defences: NO_DEFENCES },
