@@ -2194,7 +2194,43 @@
         "page": 1
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "sanctification",
+        "choices": [
+          {
+            "value": "holy",
+            "label": "Holy",
+            "predicate": [
+              {
+                "or": ["deity:primary:sanctification:can:holy", "deity:primary:sanctification:must:holy"]
+              }
+            ]
+          },
+          {
+            "value": "unholy",
+            "label": "Unholy",
+            "predicate": [
+              {
+                "or": ["deity:primary:sanctification:can:unholy", "deity:primary:sanctification:must:unholy"]
+              }
+            ]
+          },
+          {
+            "value": "none",
+            "label": "None",
+            "predicate": [
+              {
+                "nor": ["deity:primary:sanctification:must:holy", "deity:primary:sanctification:must:unholy"]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select a sanctification.",
+        "rollOption": "sanctification"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.DutW12WMFPHBoLTH"
     },
@@ -2646,11 +2682,13 @@
         "choices": [
           {
             "value": "heal",
-            "label": "Healing"
+            "label": "Healing",
+            "predicate": ["deity:primary:font:heal"]
           },
           {
             "value": "harm",
-            "label": "Harmful"
+            "label": "Harmful",
+            "predicate": ["deity:primary:font:harm"]
           }
         ],
         "prompt": "Select a Divine Font.",
