@@ -14,6 +14,8 @@ import { describe, expect, it } from 'vitest';
 
 import type { BundleStore } from './bundle-store';
 import { ContentLoader } from './content-loader';
+import { CONTENT_PACK_CACHE } from './content-pack-cache';
+import type { ContentPackCache } from './content-pack-cache';
 import { MemoryBundleStore } from './memory-bundle-store';
 import { provideContentTesting, TestContentDelivery } from './testing';
 
@@ -61,12 +63,14 @@ interface Loaded {
   readonly idle: () => void;
 }
 
-function load(store: BundleStore = new MemoryBundleStore()): Loaded {
+/** A loader over `store`, building into `packCache`: a fresh one unless a test shares it, so each test parses anew. */
+function load(store: BundleStore = new MemoryBundleStore(), packCache: ContentPackCache = new Map()): Loaded {
   const delivery = new TestContentDelivery(packs);
   const waiting: (() => void)[] = [];
   TestBed.configureTestingModule({
     providers: [
       ...provideContentTesting(delivery, store),
+      { provide: CONTENT_PACK_CACHE, useValue: packCache },
       {
         provide: IDLE_SCHEDULER,
         useValue: (task: () => void): void => {
@@ -168,5 +172,21 @@ describe(ContentLoader, () => {
     const registry = await loader.registry([ContentKind.Ancestry]);
 
     expect(registry.ancestries()).toHaveLength(1);
+  });
+
+  it('reuses a pack built from the same bundles, still reading them, in a later page', async () => {
+    const store = new MemoryBundleStore();
+    const packCache: ContentPackCache = new Map();
+    const first = await load(store, packCache).loader.registry([ContentKind.Ancestry]);
+    TestBed.resetTestingModule();
+    const { loader, delivery } = load(store, packCache);
+
+    const second = await loader.registry([ContentKind.Ancestry]);
+
+    expect(second.packs[0]).toBe(first.packs[0]);
+    expect(delivery.requests).toStrictEqual(['manifest']);
+    // Other kinds are other bundles: a pack of its own.
+    await loader.registry([ContentKind.Ancestry, ContentKind.Language]);
+    expect(packCache.size).toBe(2);
   });
 });

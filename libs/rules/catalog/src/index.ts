@@ -1,5 +1,5 @@
 import { contentPackFromContents, PackId } from '@pioneer/rules/sdk';
-import type { ContentPackLoader, PackContents, PackContentsLoader } from '@pioneer/rules/sdk';
+import type { ContentPack, ContentPackLoader, PackContents, PackContentsLoader } from '@pioneer/rules/sdk';
 
 import { bookRegistry } from './book-registry';
 import { coreRulesPack, monsterCorePack, playerCorePack } from './json-packs';
@@ -47,14 +47,21 @@ export const officialPacks: readonly PackContentsLoader[] = [
   checkedLoader('monster-core', monsterCorePack),
 ];
 
+/** `load`'s pack as a `ContentPack`, built once: a pack's definitions never change while the process runs. */
+function packLoader({ id, load }: PackContentsLoader): ContentPackLoader {
+  let pack: Promise<ContentPack> | undefined = undefined;
+  const build = async (): Promise<ContentPack> => contentPackFromContents(await load());
+  return {
+    id,
+    load: async () => {
+      pack ??= build();
+      return pack;
+    },
+  };
+}
+
 /**
  * Every installable content pack, as lazy loaders over the official packs' JSON. Packs are only fetched (browser) or
  * read (server) when `ContentRegistry.load` is called.
  */
-export const contentCatalog: readonly ContentPackLoader[] = officialPacks.map(({ id, load }): ContentPackLoader => ({
-  id,
-  load: async () => {
-    const contents = await load();
-    return contentPackFromContents(contents);
-  },
-}));
+export const contentCatalog: readonly ContentPackLoader[] = officialPacks.map((loader) => packLoader(loader));
