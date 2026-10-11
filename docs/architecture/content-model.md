@@ -503,6 +503,14 @@ flowchart LR
   links, and fields with no place in a schema go to the pack's backlog, `content/import/<pack>.json`, with the
   entry and Foundry's raw JSON; the entry is imported without them. The backlog is committed with the pack and is
   the work list for engine and translator stories.
+- **Descriptions.** Foundry's HTML becomes rich text (`htmlToRichText`): paragraphs, headings (`h4` and deeper
+  clamped to level 3), lists, tables (a `thead` row, or a first row of only `th`, is the header), rules, line
+  breaks, and `strong`/`b` and `em`/`i` marks. Whitespace collapses as a browser would. Any other element
+  (`span`, `section`) and every attribute is reported by name, and its text kept without the markup; content a
+  table has no place for follows the table. `script`, `style` and similar are reported and dropped with their
+  content. A description too big or deep for `RichText`'s bounds is flattened to plain paragraphs and reported. The
+  parser is htmlparser2, not jsdom, so `libs/interop/foundry` stays `platform:any`. Enrichers and action glyph spans
+  stay text until the enricher translator.
 - **Later translators.** A translator that lands after its pack is imported is applied to the backlog: a command,
   built by Epic 2.6 (#21), translates the items it now covers into the committed entries and removes them from the
   backlog, keeping hand edits.

@@ -17,14 +17,15 @@ import { entrySlugs } from './entry-slugs';
 import type { FoundryDocument } from './foundry-document';
 import type { FoundryPack } from './foundry-release';
 import { asciiSlug } from './foundry-slug';
+import { htmlToRichText } from './html-rich-text';
 import type { SelectedEntry } from './select-entries';
 import { translateRules } from './translate-rules';
 import type { UntranslatedRule } from './translate-rules';
 
 /**
  * The entry envelope of each selected Foundry document (content-model.md, "Foundry import"): address, names,
- * traits, sources and rule elements. `description` stays empty until the rich text stories, and kind `data` is the
- * kind stories' (Epic 2.5). What cannot be translated is reported beside the envelopes, never dropped silently.
+ * traits, sources, description and rule elements; kind `data` is the kind stories' (Epic 2.5). What cannot be
+ * translated is reported beside the envelopes, never dropped silently.
  */
 
 /** The Pioneer pack the entries go into, and the traits Pioneer knows (its `trait` entries). */
@@ -98,10 +99,17 @@ export interface EnvelopeFailure {
   readonly detail: string;
 }
 
+/** Description markup `htmlToRichText` does not map (`span`, `table[class]`): its text is kept, the markup is not. */
+export interface UnknownMarkup {
+  readonly entry: ContentId;
+  readonly markup: string;
+}
+
 export interface EnvelopeTranslation {
   readonly entries: readonly TranslatedEntry[];
   readonly untranslatedRules: readonly UntranslatedRule[];
   readonly unknownTraits: readonly UnknownTrait[];
+  readonly unknownMarkup: readonly UnknownMarkup[];
   readonly failures: readonly EnvelopeFailure[];
 }
 
@@ -109,6 +117,7 @@ interface Translated {
   readonly envelope: ImportedEnvelope;
   readonly untranslatedRules: readonly UntranslatedRule[];
   readonly unknownTraits: readonly UnknownTrait[];
+  readonly unknownMarkup: readonly UnknownMarkup[];
 }
 
 interface Failed {
@@ -116,7 +125,6 @@ interface Failed {
   readonly detail: string;
 }
 
-const NO_DESCRIPTION: RichText = [];
 const DEFAULT_RARITY: Rarity = Rarity.Common;
 
 /** `Compendium.pf2e.<pack>.Item.<id>`, the UUID Foundry links a compendium item by. */
@@ -224,6 +232,7 @@ function translate({ source, slug }: Slugged, context: EnvelopeContext): Transla
   const id = ContentId.parse(contentId(context.pack, fields.slug));
   const traits = translateTraits(id, system.traits?.value ?? [], context.traits);
   const rules = translateRules(id, system.rules);
+  const description = htmlToRichText(system.description?.value ?? '');
   return {
     envelope: {
       id,
@@ -231,12 +240,13 @@ function translate({ source, slug }: Slugged, context: EnvelopeContext): Transla
       ...fields,
       traits: traits.traits,
       sources: [{ kind: SourceKind.Book, book }],
-      description: NO_DESCRIPTION,
+      description: description.richText,
       rules: rules.rules,
       externalIds: { foundry: compendiumUuid(foundryPack, documentId) },
     },
     untranslatedRules: rules.untranslated,
     unknownTraits: traits.unknown,
+    unknownMarkup: description.unknownMarkup.map((markup) => ({ entry: id, markup })),
   };
 }
 
@@ -276,6 +286,7 @@ export function translateEnvelopes(selected: readonly SelectedEntry[], context: 
     entries: done.map(({ source, envelope }) => ({ source, envelope })),
     untranslatedRules: done.flatMap(({ untranslatedRules }) => untranslatedRules),
     unknownTraits: done.flatMap(({ unknownTraits }) => unknownTraits),
+    unknownMarkup: done.flatMap(({ unknownMarkup }) => unknownMarkup),
     failures: outcomes.filter((each) => failed(each)),
   };
 }

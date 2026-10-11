@@ -46,6 +46,8 @@ export {
   type TranslatedEntry,
   type UnlocatedBookSource,
   translateEnvelopes,
+  type UnknownMarkup,
   type UnknownTrait,
 } from './translate-envelope';
+export { htmlToRichText, OVERSIZED_MARKUP, type RichTextTranslation } from './html-rich-text';
 export { type RuleTranslation, translateRules, type UntranslatedRule } from './translate-rules';
