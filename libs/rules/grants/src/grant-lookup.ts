@@ -30,6 +30,11 @@ function belongsTo(entry: ContentEntry): Pick<GrantEntry, 'belongsTo'> {
   return ancestry === undefined ? {} : { belongsTo: ancestry };
 }
 
+/** Whether a condition carries a value; nothing for any other kind. */
+function valued(entry: ContentEntry): Pick<GrantEntry, 'valued'> {
+  return entry.kind === ContentKind.Condition ? { valued: entry.data.valued } : {};
+}
+
 function traitOptions(traits: readonly Trait[]): RollOption[] {
   return traits.map((trait) => RollOption.parse(`trait:${trait}`));
 }
@@ -72,6 +77,7 @@ function envelopeEntry(entry: ContentEntry): GrantEntry | undefined {
     sources: [source, ...sources],
     rollOptions: [...traitOptions(entry.traits), ...tagOptions(entry)],
     ...belongsTo(entry),
+    ...valued(entry),
   };
 }
 

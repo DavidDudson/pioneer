@@ -31,16 +31,24 @@ export function statistic(selector: string, base: string, domains: readonly stri
   });
 }
 
-/** Where a rule element sits in its entry, the level of the item it is on, and whether a user put it there. */
+/**
+ * Where a rule element sits in its entry, the level of the item it is on, the value of the condition it is on, and
+ * whether a user put it there.
+ */
 interface Placement {
   readonly rule?: number;
   readonly itemLevel?: number;
+  readonly conditionValue?: number;
   /** An override: its origin gets an `override` hop. */
   readonly override?: boolean;
 }
 
 /** A rule element on the test pack's entry named `entry`; ids are opaque to the engine, so every one is an effect. */
-export function inPlay(element: unknown, entry: string, { rule = 0, itemLevel, override }: Placement = {}): RuleInPlay {
+export function inPlay(
+  element: unknown,
+  entry: string,
+  { rule = 0, itemLevel, conditionValue, override }: Placement = {},
+): RuleInPlay {
   const slug = entrySlug(ContentKind.Effect, Slug.parse(entry));
   return RuleInPlay.parse({
     element,
@@ -51,6 +59,7 @@ export function inPlay(element: unknown, entry: string, { rule = 0, itemLevel, o
     },
     rule,
     itemLevel,
+    conditionValue,
   });
 }
 

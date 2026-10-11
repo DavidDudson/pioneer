@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { AttributeModifier, ItemState, OriginHopKind, Slug } from '@pioneer/rules/sdk';
+import { AttributeModifier, ConditionValue, ItemState, OriginHopKind, Slug } from '@pioneer/rules/sdk';
 import { installRulesFakes } from '@pioneer/rules/sdk/testing';
 
 import type { CharacterDocument } from './character-document';
@@ -13,6 +13,7 @@ import { slotContent } from './slot-offer';
 import type { SlotContent } from './slot-offer';
 import {
   CharacterBuilder,
+  clumsyFixtureId,
   encumberedFixtureId,
   ItemFixture,
   itemFixtureContent,
@@ -150,17 +151,34 @@ describe('equippedRules', () => {
 
   test('carrying more than 5 Bulk at Strength +0 puts the encumbered condition in play, over the maximum too', () => {
     const condition = encumberedFixtureId();
+    const clumsy = clumsyFixtureId();
+    const root = { kind: OriginHopKind.Condition, condition };
 
     expect(equippedRules(anvils(2), content, slots).rules).toStrictEqual([]);
-    expect(equippedRules(anvils(3), content, slots).rules).toMatchObject([
+    const encumbered = equippedRules(anvils(3), content, slots).rules;
+    expect(encumbered).toMatchObject([
       {
-        element: { key: 'FlatModifier', selectors: ['ac'], type: 'status', value: -1 },
-        origin: { hops: [{ kind: OriginHopKind.Condition, condition }], entry: condition },
+        element: { key: 'FlatModifier', selectors: ['all-speeds'], value: -10 },
+        origin: { hops: [root], entry: condition },
+      },
+      { element: { key: 'GrantItem', item: clumsy }, origin: { hops: [root], entry: condition } },
+      {
+        element: { key: 'FlatModifier', selectors: ['dex-based'], value: '-@item.value' },
+        origin: { hops: [root, { kind: OriginHopKind.Grant, by: condition, rule: 1 }], entry: clumsy },
+        conditionValue: 1,
       },
     ]);
+    // Encumbered itself carries no value; the Clumsy it grants arrives at 1.
+    expect(encumbered.map(({ conditionValue }) => conditionValue)).toStrictEqual([
+      undefined,
+      undefined,
+      ConditionValue.parse(1),
+    ]);
     // 12 Bulk is over the maximum of 10, and still encumbered.
-    expect(equippedRules(anvils(6), content, slots).rules).toMatchObject([
-      { origin: { hops: [{ kind: OriginHopKind.Condition, condition }], entry: condition } },
+    expect(equippedRules(anvils(6), content, slots).rules.map(({ origin }) => origin.entry)).toStrictEqual([
+      condition,
+      condition,
+      clumsy,
     ]);
   });
 

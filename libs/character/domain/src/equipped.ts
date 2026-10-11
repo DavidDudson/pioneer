@@ -185,9 +185,9 @@ export function equippedRules(document: CharacterDocument, content: ItemContent,
   });
   const rules = resolution.items
     .filter(({ origin }) => fromInventory(origin))
-    .flatMap(({ entry, origin }) =>
+    .flatMap(({ entry, origin, value }) =>
       entry.rules.map((element, rule) =>
-        RuleInPlay.parse({ element, origin, rule, itemLevel: itemLevelOf(content, entry.id) }),
+        RuleInPlay.parse({ element, origin, rule, itemLevel: itemLevelOf(content, entry.id), conditionValue: value }),
       ),
     );
   return { rules, facts: resolution.facts };

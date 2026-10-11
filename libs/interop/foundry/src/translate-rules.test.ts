@@ -1,5 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 
+import { ConditionValue } from '@pioneer/rules/sdk';
+
 import { idOf, translate } from './testing/import-fixtures';
 import type { DocumentFixture } from './testing/import-fixtures';
 import { condition, dataOf } from './testing/kind-fixtures';
@@ -63,5 +65,36 @@ describe('translateRules: GrantItem delete actions', () => {
 
     expect(translate([feat, LONGSWORD]).envelopes.untranslatedRules.map(({ key }) => key)).toEqual(['GrantItem']);
     expect(translate([cascading, LONGSWORD]).envelopes.untranslatedRules).toEqual([]);
+  });
+});
+
+describe('translateRules: GrantItem badge value', () => {
+  const grant = { key: 'GrantItem', uuid: 'Compendium.pf2e.conditionitems.Item.Blinded' };
+  const altering = (alterations: readonly object[]): DocumentFixture =>
+    condition('gRaNtEr000000000', 'Granter', { rules: [{ ...grant, alterations }] });
+
+  test("an override of the badge value is the grant's value", () => {
+    const fixtures = [altering([{ mode: 'override', property: 'badge-value', value: 3 }]), BLINDED];
+
+    expect(translate(fixtures).entries[0]?.envelope.rules).toEqual([
+      { key: 'GrantItem', item: idOf('condition:blinded'), value: ConditionValue.parse(3) },
+    ]);
+  });
+
+  test.each([
+    ['a value read from a pick', [{ mode: 'override', property: 'badge-value', value: '{item|flags.x}' }]],
+    ['a value of 0', [{ mode: 'override', property: 'badge-value', value: 0 }]],
+    ['another property', [{ mode: 'override', property: 'description', value: 'x' }]],
+    [
+      'a second alteration',
+      [
+        { mode: 'override', property: 'badge-value', value: 2 },
+        { mode: 'override', property: 'description', value: 'x' },
+      ],
+    ],
+  ])('%s is kept for the backlog', (_case, alterations) => {
+    const translation = translate([altering(alterations), BLINDED]);
+
+    expect(translation.envelopes.untranslatedRules.map(({ key }) => key)).toEqual(['GrantItem']);
   });
 });

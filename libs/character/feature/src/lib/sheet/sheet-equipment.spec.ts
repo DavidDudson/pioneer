@@ -12,7 +12,13 @@ import {
   ItemQuantity,
 } from '@pioneer/character/domain';
 import type { Carry, Inventory } from '@pioneer/character/domain';
-import { CharacterBuilder, ITEM_FIXTURE_FILES, ItemFixture, itemFixtureId } from '@pioneer/character/domain/testing';
+import {
+  CharacterBuilder,
+  clumsyFixtureId,
+  ITEM_FIXTURE_FILES,
+  ItemFixture,
+  itemFixtureId,
+} from '@pioneer/character/domain/testing';
 import { ContentLoader } from '@pioneer/rules/data-access';
 import { LineStatusKind } from '@pioneer/rules/engine';
 import type { StatisticValue } from '@pioneer/rules/engine';
@@ -123,6 +129,24 @@ describe(sheetStatistics, () => {
     const encumbered = valueOf(sheetStatistics(registry, anvils(3)), 'Armor Class');
     expect(encumbered.total).toBe(unburdened - 1);
     expect(encumbered.lines.map(({ modifier }) => modifier.origin.hops[0]?.kind)).toContain(OriginHopKind.Condition);
+  });
+
+  it.each(['Armor Class', 'Reflex'])(
+    "gives %s, a Dexterity-based statistic, Clumsy 1's −1 through the clumsy encumbered grants",
+    async (name) => {
+      const registry = await equipmentRegistry();
+      const unburdened = valueOf(sheetStatistics(registry, anvils(2)), name);
+      const encumbered = valueOf(sheetStatistics(registry, anvils(3)), name);
+      expect(encumbered.total).toBe(unburdened.total - 1);
+      expect(encumbered.lines.map(({ modifier }) => modifier.origin.entry)).toStrictEqual([clumsyFixtureId()]);
+    },
+  );
+
+  it('leaves Fortitude, which is not Dexterity-based, as it is while encumbered', async () => {
+    const registry = await equipmentRegistry();
+    const unburdened = valueOf(sheetStatistics(registry, anvils(2)), 'Fortitude');
+    const encumbered = valueOf(sheetStatistics(registry, anvils(3)), 'Fortitude');
+    expect(encumbered.total).toBe(unburdened.total);
   });
 });
 

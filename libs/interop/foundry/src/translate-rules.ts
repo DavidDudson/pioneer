@@ -95,6 +95,30 @@ function withGrantedId(raw: unknown, references: EntryReferences): unknown {
   return { ...Object.fromEntries(rest), item };
 }
 
+/**
+ * Foundry's alteration of a granted condition's value, `{ mode: override, property: badge-value, value: 2 }`, alone
+ * on its grant. A value read from a pick or the item (`{item|...}`, `@item...`) is a string, which this does not take.
+ */
+const FoundryBadgeValue = z.tuple([
+  z.strictObject({ mode: z.literal('override'), property: z.literal('badge-value'), value: z.number() }),
+]);
+
+/**
+ * A `GrantItem` whose only alteration sets the granted condition's value, as the grant's `value`. Any other
+ * alterations leave it as it is, so the element fails and is kept for the backlog.
+ */
+function withGrantValue(raw: unknown): unknown {
+  if (keyOf(raw) !== RuleElementKey.GrantItem || typeof raw !== 'object' || raw === null || !('alterations' in raw)) {
+    return raw;
+  }
+  const alterations = FoundryBadgeValue.safeParse(raw.alterations);
+  if (!alterations.success) {
+    return raw;
+  }
+  const { alterations: _replaced, ...rest } = raw;
+  return { ...rest, value: alterations.data[0].value };
+}
+
 /** A field or array item left out because its lang key did not resolve. */
 const OMITTED = Symbol('omitted');
 
@@ -218,7 +242,8 @@ export function translateRules(entry: ContentId, raws: readonly unknown[], conte
   const references = context.references ?? NO_REFERENCES;
   const shapedRaws = raws.map((raw) => {
     const text = withDisplayLabel(localized(raw, context, unresolved));
-    return withTagQuery(withGrantedId(withPioneerFormula(text), references));
+    const granted = withGrantedId(withPioneerFormula(text), references);
+    return withTagQuery(withGrantValue(granted));
   });
   const declared = new Set(
     shapedRaws.flatMap((shaped) => {

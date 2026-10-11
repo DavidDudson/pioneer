@@ -4,7 +4,7 @@ import { message } from '@pioneer/shared/kernel';
 
 import { EngineMessage } from './messages';
 import type { ModifierSource } from './modifier';
-import { RuleId } from './rule-in-play';
+import { NO_ITEM, RuleId } from './rule-in-play';
 import type { WeaponInputs } from './source-inputs';
 
 /** The core rules pack's Strike family: a weapon's potency reaches its instance, `strike:<slug>`. */
@@ -26,7 +26,7 @@ function potencyLine(weapon: WeaponInputs, potency: RuneGrade): ModifierSource {
       origin: weapon.origin,
     },
     value: ModifierAmount.parse(potency),
-    itemLevel: undefined,
+    item: NO_ITEM,
     summary: undefined,
   };
 }

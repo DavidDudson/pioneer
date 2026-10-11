@@ -24,6 +24,7 @@ describe('formula reference vocabulary', () => {
     ['rank.attack.martial', { kind: ReferenceKind.ProficiencyRank, selector: 'attack:martial' }],
     ['stat.spell-attack.arcane', { kind: ReferenceKind.Statistic, selector: 'spell-attack:arcane' }],
     ['item.level', { kind: ReferenceKind.ItemLevel }],
+    ['item.value', { kind: ReferenceKind.ItemValue }],
     ['weapon.attr', { kind: ReferenceKind.WeaponAttributeModifier }],
     ['weapon.prof', { kind: ReferenceKind.WeaponProficiencyBonus }],
     ['spellcasting.attr', { kind: ReferenceKind.SpellcastingAttributeModifier }],
@@ -52,6 +53,7 @@ describe('formula reference vocabulary', () => {
     'rank.save_fortitude',
     'stat',
     'item.badge.value',
+    'item.value.value',
     'weapon',
     'weapon.prof.martial',
     'spellcasting.tradition',
@@ -59,11 +61,11 @@ describe('formula reference vocabulary', () => {
     expect(known(path)).toBeUndefined();
   });
 
-  test('only item.level reads the item', () => {
+  test('only item.level and item.value read the item', () => {
     const itemScoped = Object.entries(REFERENCE_CATALOGUE)
       .filter(([, definition]) => definition.scope === 'item')
       .map(([kind]) => kind);
-    expect(itemScoped).toStrictEqual([ReferenceKind.ItemLevel]);
+    expect(itemScoped).toStrictEqual([ReferenceKind.ItemLevel, ReferenceKind.ItemValue]);
   });
 
   test.each([
@@ -97,11 +99,13 @@ describe('Foundry reference translation', () => {
     ['actor.class.system.hp', 'class.hp'],
     ['item.level', 'item.level'],
     ['item.system.level.value', 'item.level'],
+    ['item.badge.value', 'item.value'],
+    ['item.system.value.value', 'item.value'],
   ])('@%s becomes @%s', (foundry, pioneer) => {
     expect(translated(foundry)).toBe(pioneer);
   });
 
-  test.each(['actor.abilities.luck.mod', 'actor.skills.Athletics.rank', 'item.badge.value', 'level', 'actor.hp'])(
+  test.each(['actor.abilities.luck.mod', 'actor.skills.Athletics.rank', 'item.badge.max', 'level', 'actor.hp'])(
     '@%s has no translation',
     (foundry) => {
       expect(translated(foundry)).toBeUndefined();

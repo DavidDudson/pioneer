@@ -2,6 +2,7 @@ import { evaluatePredicate, summarisePredicate, Truth } from '@pioneer/rules/pre
 import type { PredicateFacts, PredicateSummary } from '@pioneer/rules/predicate';
 import { OriginHopKind, RuleElementKey, RuleIndex } from '@pioneer/rules/sdk';
 import type {
+  ConditionValue,
   ContentId,
   GrantItemElement,
   Origin,
@@ -13,6 +14,7 @@ import type {
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
+import { arrivalValue } from './arrival-value';
 import { choiceTarget, readChoices } from './choices';
 import type {
   AnsweredSlot,
@@ -33,6 +35,11 @@ export interface GrantedItem {
   readonly origin: Origin;
   /** The name the granting element gave it, for later elements to refer to. */
   readonly flag: RuleSlug | undefined;
+  /**
+   * The highest value a valued condition arrived with: its condition hop's as a root (_frightened 2_), its grant's or 1
+   * when granted. None for an entry that is no valued condition, or a root put on without one.
+   */
+  readonly value: ConditionValue | undefined;
 }
 
 /** A grant whose predicate is unknown on the static sheet: not on the character, and shown with when it would be. */
@@ -87,6 +94,8 @@ interface Visit {
   readonly chain: readonly GrantEntry[];
   readonly flag: RuleSlug | undefined;
   readonly allowDuplicate: boolean;
+  /** The value the granting element gives a valued condition, if it gives one. */
+  readonly value: ConditionValue | undefined;
 }
 
 function originOf(entry: GrantEntry, hops: readonly OriginHop[]): Origin {
@@ -114,7 +123,8 @@ class Walker {
   readonly #lookup: ContentLookup;
   readonly #facts: PredicateFacts;
   readonly #context: ChoiceContext;
-  readonly #present = new Set<ContentId>();
+  /** Where each entry on the character sits in `#items`. */
+  readonly #present = new Map<ContentId, number>();
   /** Entries whose slots are recorded. */
   readonly #chosen = new Set<ContentId>();
   readonly #items: GrantedItem[] = [];
@@ -142,7 +152,7 @@ class Walker {
   }
 
   public root({ entry, hop }: GrantRoot): void {
-    this.#visit(entry, { hops: [hop], chain: [], flag: undefined, allowDuplicate: false });
+    this.#visit(entry, { hops: [hop], chain: [], flag: undefined, allowDuplicate: false, value: undefined });
   }
 
   #find(id: ContentId, hops: readonly OriginHop[]): GrantEntry | undefined {
@@ -169,14 +179,32 @@ class Walker {
     if (entry === undefined) {
       return;
     }
-    const item: GrantedItem = { entry, origin: originOf(entry, visit.hops), flag: visit.flag };
-    if (this.#present.has(id) && !visit.allowDuplicate) {
+    const item: GrantedItem = {
+      entry,
+      origin: originOf(entry, visit.hops),
+      flag: visit.flag,
+      value: arrivalValue(entry, visit.hops, visit.value),
+    };
+    const at = this.#present.get(id);
+    if (at !== undefined && !visit.allowDuplicate) {
       this.#duplicates.push(item);
+      this.#raise(at, item.value);
       return;
     }
-    this.#present.add(id);
+    this.#present.set(id, this.#items.length);
     this.#items.push(item);
     this.#follow(entry, visit);
+  }
+
+  /**
+   * Raises the value of the entry at `at` to `value` when a later arrival brings a higher one, so the entry on the
+   * character holds its highest value, as its facts do.
+   */
+  #raise(at: number, value: ConditionValue | undefined): void {
+    const present = this.#items[at];
+    if (present !== undefined && value !== undefined && (present.value === undefined || value > present.value)) {
+      this.#items[at] = { ...present, value };
+    }
   }
 
   /** Records `entry`'s choices, then follows each `GrantItem` on it, in rule order. */
@@ -190,7 +218,7 @@ class Walker {
       if (isGrant(element) && target !== undefined) {
         const hops = [...visit.hops, ...target.hops, hop];
         const allowDuplicate = element.allowDuplicate === true;
-        this.#grant(element, target.id, { hops, chain, flag: element.flag, allowDuplicate });
+        this.#grant(element, target.id, { hops, chain, flag: element.flag, allowDuplicate, value: element.value });
       }
     }
   }

@@ -1,5 +1,5 @@
 import type { ResolveReference } from '@pioneer/rules/formula';
-import type { Level, ProficiencyBonusTable, Selector, StatisticDefinition } from '@pioneer/rules/sdk';
+import type { ProficiencyBonusTable, Selector, StatisticDefinition } from '@pioneer/rules/sdk';
 
 import { armorBonus } from './armor-bonus';
 import { changeRules } from './change';
@@ -7,7 +7,7 @@ import { collectLines } from './collect';
 import { modifierRules } from './modifier';
 import { proficiencyBonuses } from './proficiency-bonuses';
 import { NO_MODIFIERS } from './rule-in-play';
-import type { ModifierInputs } from './rule-in-play';
+import type { ItemScope, ModifierInputs } from './rule-in-play';
 import { StatisticBases } from './statistic-bases';
 import { resolverFor } from './statistic-inputs';
 import type { StatisticInputs } from './statistic-inputs';
@@ -46,8 +46,8 @@ export function deriveStatistics(
   const modifiers = { ...fromRules, modifiers: [...fromRules.modifiers, ...synthetic] };
   const context = {
     facts,
-    resolve: (itemLevel: Level | undefined): ResolveReference =>
-      resolverFor(values, (selector) => bases.baseValue(selector), { itemLevel }),
+    resolve: (item: ItemScope): ResolveReference =>
+      resolverFor(values, (selector) => bases.baseValue(selector), { item }),
   };
   return new Map(
     bases.bases.map(({ definition, result }) => {

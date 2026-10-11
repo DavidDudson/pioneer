@@ -58,7 +58,7 @@ export class StatisticBases {
     this.#changes = changes;
     this.#context = {
       facts,
-      resolve: (itemLevel): ResolveReference => resolverFor(values, (): undefined => undefined, { itemLevel }),
+      resolve: (item): ResolveReference => resolverFor(values, (): undefined => undefined, { item }),
     };
     for (const component of new Components(this.#graph).inOrder) {
       this.#evaluateComponent(component);

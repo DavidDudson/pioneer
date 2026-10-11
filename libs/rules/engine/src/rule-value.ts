@@ -3,14 +3,15 @@ import type { ResolveReference, TextPosition } from '@pioneer/rules/formula';
 import { evaluatePredicate, Truth } from '@pioneer/rules/predicate';
 import type { PredicateFacts } from '@pioneer/rules/predicate';
 import { AdjustMode, RuleNumber } from '@pioneer/rules/sdk';
-import type { ChangeMode, DefenceValue, Level, ModifierValue, Predicate, RuleValue } from '@pioneer/rules/sdk';
+import type { ChangeMode, DefenceValue, ModifierValue, Predicate, RuleValue } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 import type { EngineMessage } from './messages';
+import type { ItemScope } from './rule-in-play';
 
-/** Resolves a rule element's formula references, given the level of the item it is on. */
-type ResolveFor = (itemLevel: Level | undefined) => ResolveReference;
+/** Resolves a rule element's formula references, given the item it is on. */
+type ResolveFor = (item: ItemScope) => ResolveReference;
 
 /** What rule elements need besides themselves: the facts predicates read and the formula references' values. */
 export interface RuleContext {

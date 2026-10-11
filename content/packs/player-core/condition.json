@@ -112,7 +112,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["dex-based"],
+        "type": "status",
+        "slug": "clumsy",
+        "value": "-@item.value"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.conditionitems.Item.i3OJZU2nk64Df3xm"
     },
@@ -596,6 +604,13 @@
       {
         "key": "GrantItem",
         "item": "69f88e3c-d871-5fb9-82c6-120348a7c0e8"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["all-speeds"],
+        "type": "untyped",
+        "slug": "encumbered",
+        "value": -10
       }
     ],
     "externalIds": {

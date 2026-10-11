@@ -7,7 +7,6 @@ import type {
   DamageException,
   Immunity,
   ImmunityElement,
-  Level,
   Origin,
   Predicate,
   ProficiencyBonusTable,
@@ -23,8 +22,8 @@ import type { StatisticContent } from './derive-statistics';
 import { EngineMessage } from './messages';
 import { labelOf } from './modifier';
 import { proficiencyBonuses } from './proficiency-bonuses';
-import { NO_MODIFIERS, ruleIdOf } from './rule-in-play';
-import type { ModifierInputs, RuleId, RuleInPlay } from './rule-in-play';
+import { itemScopeOf, NO_MODIFIERS, ruleIdOf } from './rule-in-play';
+import type { ItemScope, ModifierInputs, RuleId, RuleInPlay } from './rule-in-play';
 import { truthOf, valueOf, whole } from './rule-value';
 import type { RuleContext } from './rule-value';
 import { resolverFor } from './statistic-inputs';
@@ -145,7 +144,7 @@ function valued(
   if (status === undefined) {
     return undefined;
   }
-  const outcome = valueOf(element.value, context.resolve(rule.itemLevel));
+  const outcome = valueOf(element.value, context.resolve(itemScopeOf(rule)));
   if (!outcome.ok) {
     return { value: undefined, status: failed(status, outcome.error, outcome.position) };
   }
@@ -229,8 +228,7 @@ function defenceContext(
   const values = { inputs, proficiency: proficiencyBonuses(proficiencyBonus, { rules, facts, level: inputs.level }) };
   return {
     facts,
-    resolve: (itemLevel: Level | undefined): ResolveReference =>
-      resolverFor(values, (): undefined => undefined, { itemLevel }),
+    resolve: (item: ItemScope): ResolveReference => resolverFor(values, (): undefined => undefined, { item }),
   };
 }
 

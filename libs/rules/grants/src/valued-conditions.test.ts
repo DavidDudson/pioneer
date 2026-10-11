@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 
 import { ConditionValue, contentId, ContentId, ContentKind, entrySlug, PackId } from '@pioneer/rules/sdk';
-import { array, assert, constant, integer, oneof, property, shuffledSubarray } from 'fast-check';
+import { array, assert, boolean, constant, integer, oneof, property, record, shuffledSubarray } from 'fast-check';
 import type { Arbitrary } from 'fast-check';
 
 import type { GrantEntry, GrantRoot } from './grant-entry';
@@ -16,6 +16,8 @@ const condition = (slug: string, rules: readonly object[] = []): GrantEntry => (
 });
 
 const frightened = condition('frightened');
+/** A condition that carries a value, so a grant of it gives one. */
+const clumsy: GrantEntry = { ...condition('clumsy'), valued: true };
 
 /** A grant of `slug` while `predicate` holds. */
 const grantWhen = (slug: string, predicate: unknown): object => ({ ...grantOf(slug), predicate });
@@ -93,13 +95,66 @@ describe('a valued condition', () => {
     ]);
   });
 
-  test('granted by another entry sets no value, as grants carry none', () => {
-    const content = [condition('dying', [grantOf('unconscious')]), condition('unconscious')];
-    expect(conditionOptions(content, [afflicted('dying', 2)])).toEqual([
-      'self:condition:dying',
-      'self:condition:dying:2',
-      'self:condition:unconscious',
+  test('granted by another entry without a value arrives at 1', () => {
+    const content = [condition('encumbered', [grantOf('clumsy')]), clumsy];
+    expect(conditionOptions(content, [afflicted('encumbered')])).toEqual([
+      'self:condition:clumsy',
+      'self:condition:clumsy:1',
+      'self:condition:encumbered',
     ]);
+  });
+
+  test('granted with a value arrives at that value', () => {
+    const content = [condition('curse', [{ ...grantOf('clumsy'), value: 3 }]), clumsy];
+    expect(conditionOptions(content, [afflicted('curse')])).toEqual([
+      'self:condition:clumsy',
+      'self:condition:clumsy:3',
+      'self:condition:curse',
+    ]);
+  });
+
+  test('granted several times keeps the highest value, a root value among them', () => {
+    const content = [
+      condition('curse', [{ ...grantOf('clumsy'), value: 2 }]),
+      condition('encumbered', [grantOf('clumsy')]),
+      clumsy,
+    ];
+    const roots = [afflicted('encumbered'), afflicted('curse')];
+    expect(conditionOptions(content, roots)).toContain('self:condition:clumsy:2');
+    expect(conditionOptions(content, [...roots, afflicted('clumsy', 4)])).toContain('self:condition:clumsy:4');
+    expect(conditionOptions(content, roots).filter((option) => option.startsWith('self:condition:clumsy:'))).toEqual([
+      'self:condition:clumsy:2',
+    ]);
+  });
+
+  test('on the character holds the highest value it arrived with, whichever arrived first', () => {
+    const content = [
+      condition('curse', [{ ...grantOf('clumsy'), value: 3 }]),
+      condition('encumbered', [grantOf('clumsy')]),
+      clumsy,
+    ];
+    const valueOf = (roots: readonly GrantRoot[]): number | undefined =>
+      resolve(content, roots).items.find((item) => item.entry.slug === 'clumsy')?.value;
+    expect(valueOf([afflicted('encumbered'), afflicted('curse')])).toBe(3);
+    expect(valueOf([afflicted('encumbered'), afflicted('clumsy', 2)])).toBe(2);
+    expect(valueOf([afflicted('clumsy', 4), afflicted('curse')])).toBe(4);
+  });
+
+  test('granted when it carries no value sets its slug alone, whatever the grant says', () => {
+    const content = [condition('grabbed', [{ ...grantOf('off-guard'), value: 2 }]), condition('off-guard')];
+    expect(conditionOptions(content, [afflicted('grabbed')])).toEqual([
+      'self:condition:grabbed',
+      'self:condition:off-guard',
+    ]);
+  });
+
+  test('a grant of an entry that is no condition gives it no value', () => {
+    const content = [
+      condition('curse', [{ ...grantOf('weakness'), value: 2 }]),
+      { ...entry('weakness'), valued: true },
+    ];
+    const weakness = resolve(content, [afflicted('curse')]).items.find((item) => item.entry.slug === 'weakness');
+    expect(weakness?.value).toBeUndefined();
   });
 });
 
@@ -114,6 +169,71 @@ const valuedRoots: Arbitrary<[Values, Values]> = array(
   oneof(constant(undefined), integer({ min: 1, max: VALUE_MAX })),
   { minLength: 1, maxLength: ROOTS_MAX },
 ).chain((values) => shuffledSubarray(values, { minLength: values.length }).map((order) => [values, order]));
+
+/** One arrival of clumsy: put on as a root, or granted by a condition of its own; with a value or without. */
+interface Arrival {
+  readonly granted: boolean;
+  readonly value: number | undefined;
+}
+
+const drawnValue: Arbitrary<number | undefined> = oneof(constant(undefined), integer({ min: 1, max: VALUE_MAX }));
+const arrivals: Arbitrary<Arrival[]> = array(record({ granted: boolean(), value: drawnValue }), {
+  minLength: 1,
+  maxLength: ROOTS_MAX,
+});
+
+/** The condition that grants clumsy for each granted arrival, `granter-<index>`. */
+function grantersOf(drawn: readonly Arrival[]): GrantEntry[] {
+  return drawn.flatMap(({ granted, value }, index) =>
+    granted ? [condition(`granter-${index}`, [{ ...grantOf('clumsy'), value }])] : [],
+  );
+}
+
+/** A root for each arrival: its granter, or clumsy put on with its value. */
+function arrivalRoots(drawn: readonly Arrival[]): GrantRoot[] {
+  return drawn.map(({ granted, value }, index) =>
+    granted ? afflicted(`granter-${index}`) : afflicted('clumsy', value),
+  );
+}
+
+/** The value each arrival brings: a grant's, else 1; a root's own, if it has one. */
+function broughtBy({ granted, value }: Arrival): number[] {
+  if (granted) {
+    return [value ?? 1];
+  }
+  return value === undefined ? [] : [value];
+}
+
+/** What clumsy holds once `drawn` arrive: its highest value, and the options it sets. */
+interface ClumsyState {
+  readonly value: ConditionValue | undefined;
+  readonly options: readonly string[];
+}
+
+function expectedClumsy(drawn: readonly Arrival[]): ClumsyState {
+  const given = drawn.flatMap((arrival) => broughtBy(arrival));
+  if (given.length === 0) {
+    return { value: undefined, options: ['self:condition:clumsy'] };
+  }
+  const highest = Math.max(...given);
+  return {
+    value: ConditionValue.parse(highest),
+    options: ['self:condition:clumsy', `self:condition:clumsy:${highest}`],
+  };
+}
+
+/** What clumsy holds once `drawn` resolve. */
+function resolvedClumsy(drawn: readonly Arrival[]): ClumsyState {
+  const result = resolve([clumsy, ...grantersOf(drawn)], arrivalRoots(drawn));
+  return clumsyOf(result);
+}
+
+function clumsyOf(result: GrantResolution): ClumsyState {
+  return {
+    value: result.items.find((item) => item.entry.slug === 'clumsy')?.value,
+    options: conditionsOf(result).filter((option) => option.startsWith('self:condition:clumsy')),
+  };
+}
 
 /** _frightened_ once for each of `values`. */
 const rootsOf = (values: Values): GrantRoot[] => values.map((value) => afflicted('frightened', value));
@@ -133,6 +253,14 @@ describe('valued condition properties', () => {
         expect(resolve([frightened], rootsOf(order)).rollOptions).toEqual(
           resolve([frightened], rootsOf(values)).rollOptions,
         );
+      }),
+    );
+  });
+
+  test('a valued condition granted and put on holds its highest arrival, a grant without a value at 1', () => {
+    assert(
+      property(arrivals, (drawn) => {
+        expect(resolvedClumsy(drawn)).toEqual(expectedClumsy(drawn));
       }),
     );
   });

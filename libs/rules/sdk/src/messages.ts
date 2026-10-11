@@ -65,6 +65,7 @@ export const RulesMessage = {
   ReferenceProficiencyRank: 'rules.reference.proficiencyRank',
   ReferenceStatistic: 'rules.reference.statistic',
   ReferenceItemLevel: 'rules.reference.itemLevel',
+  ReferenceItemValue: 'rules.reference.itemValue',
   ReferenceWeaponAttributeModifier: 'rules.reference.weaponAttributeModifier',
   ReferenceWeaponProficiencyBonus: 'rules.reference.weaponProficiencyBonus',
   ReferenceSpellcastingAttributeModifier: 'rules.reference.spellcastingAttributeModifier',

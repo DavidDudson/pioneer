@@ -129,6 +129,17 @@ describe('modifiers', () => {
     expect(value).toMatchObject({ total: 18 });
   });
 
+  test("a condition's modifier reads its value; without one the line fails rather than guessing", () => {
+    const clumsy = inPlay(flatModifier('status', '-@item.value', ['ac']), 'clumsy', { conditionValue: 2 });
+    const unvalued = inPlay(flatModifier('status', '-@item.value', ['ac']), 'unvalued');
+    const value = derived([clumsy, unvalued]);
+    expect(lineOf(value, clumsy)).toMatchObject({ value: -2, status: { kind: LineStatusKind.Applied } });
+    expect(lineOf(value, unvalued)).toMatchObject({
+      value: undefined,
+      status: { kind: LineStatusKind.Failed, error: { key: FormulaMessage.UnknownReference } },
+    });
+  });
+
   test('typed penalties: the worst applies; a bonus and a penalty of one type both apply', () => {
     const minusOne = inPlay(flatModifier('status', -1, ['ac']), 'minus-one');
     const minusTwo = inPlay(flatModifier('status', -2, ['ac']), 'minus-two');
