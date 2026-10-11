@@ -24,6 +24,7 @@ const LEVEL_PREFIX = 'self:level';
 const KIND_NAMESPACES: Readonly<Record<ContentKind, RollOptionNamespace | undefined>> = {
   [ContentKind.Action]: undefined,
   [ContentKind.Ancestry]: RollOptionNamespace.parse('ancestry'),
+  [ContentKind.AncestryFeature]: RollOptionNamespace.parse('feature'),
   [ContentKind.Archetype]: undefined,
   [ContentKind.Armor]: undefined,
   [ContentKind.Background]: RollOptionNamespace.parse('background'),

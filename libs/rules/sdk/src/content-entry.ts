@@ -32,6 +32,12 @@ const Entry = z.discriminatedUnion('kind', [
   }),
   z.strictObject({
     ...address,
+    kind: z.literal(ContentKind.AncestryFeature),
+    ...envelope,
+    data: KIND_DATA[ContentKind.AncestryFeature],
+  }),
+  z.strictObject({
+    ...address,
     kind: z.literal(ContentKind.Archetype),
     ...envelope,
     data: KIND_DATA[ContentKind.Archetype],

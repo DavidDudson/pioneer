@@ -5,6 +5,7 @@ import {
   farmhand,
   fighter,
   fighterArchetype,
+  keenEyes,
   pharasma,
   reactiveStrike,
   skilledHuman,
@@ -131,6 +132,7 @@ const armorClass = {
 export const EXAMPLE_CONTENT_ENTRIES: Readonly<Record<RegisteredKind, unknown>> = {
   [ContentKind.Action]: aid,
   [ContentKind.Ancestry]: human,
+  [ContentKind.AncestryFeature]: keenEyes,
   [ContentKind.Archetype]: fighterArchetype,
   [ContentKind.Armor]: leatherArmor,
   [ContentKind.Background]: farmhand,
@@ -164,6 +166,7 @@ export const EXAMPLE_CONTENT_ENTRIES: Readonly<Record<RegisteredKind, unknown>> 
 export const CONTENT_KIND_KEYS: Readonly<Record<RegisteredKind, string>> = {
   [ContentKind.Action]: 'play.rules.contentKind.action',
   [ContentKind.Ancestry]: 'play.rules.contentKind.ancestry',
+  [ContentKind.AncestryFeature]: 'play.rules.contentKind.ancestryFeature',
   [ContentKind.Archetype]: 'play.rules.contentKind.archetype',
   [ContentKind.Armor]: 'play.rules.contentKind.armor',
   [ContentKind.Background]: 'play.rules.contentKind.background',

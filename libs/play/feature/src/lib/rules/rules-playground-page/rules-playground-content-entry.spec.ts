@@ -10,6 +10,7 @@ function json(harness: RouterTestingHarness): string {
 
 const KIND_EXAMPLES = [
   ['action', 'Action'],
+  ['ancestry-feature', 'Ancestry feature'],
   ['archetype', 'Archetype'],
   ['armor', 'Armor'],
   ['background', 'Background'],

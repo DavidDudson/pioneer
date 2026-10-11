@@ -10,7 +10,7 @@ import { DamageTypeData } from './damage';
 import { DeityData } from './deity';
 import { EffectData } from './effect';
 import { EQUIPMENT_KIND_DATA } from './equipment-kind-data';
-import { ClassFeatureData, FeatData } from './feat';
+import { AncestryFeatureData, ClassFeatureData, FeatData } from './feat';
 import { HeritageData } from './heritage';
 import { LanguageData } from './language';
 import { MAGIC_KIND_DATA } from './magic-kind-data';
@@ -28,6 +28,7 @@ import { VariantRuleData } from './variant-rule';
 export const KIND_DATA = {
   [ContentKind.Action]: ActionData,
   [ContentKind.Ancestry]: AncestryData,
+  [ContentKind.AncestryFeature]: AncestryFeatureData,
   [ContentKind.Archetype]: ArchetypeData,
   [ContentKind.Background]: BackgroundData,
   [ContentKind.Class]: ClassData,

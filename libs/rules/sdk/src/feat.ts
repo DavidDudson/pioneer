@@ -57,3 +57,14 @@ export const ClassFeatureData = z.strictObject({
   tags: z.array(Slug).min(1).max(TAGS_MAX).readonly().check(uniqueItems).optional(),
 });
 export type ClassFeatureData = z.infer<typeof ClassFeatureData>;
+
+/**
+ * An ancestry feature's `data` on the `ContentEntry` envelope (Keen Eyes, Plant Nourishment). The ancestry or heritage
+ * that grants it is the entry holding its `GrantItem`; it is never picked, so no feat slot offers it. What it does is
+ * in `rules`.
+ */
+export const AncestryFeatureData = z.strictObject({
+  /** How it is used when the feature is itself an action. */
+  action: ActionData.optional(),
+});
+export type AncestryFeatureData = z.infer<typeof AncestryFeatureData>;
