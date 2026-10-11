@@ -1,4 +1,3 @@
-import { Coin } from '@pioneer/rules/sdk';
 import type { ContentId } from '@pioneer/rules/sdk';
 import * as z from 'zod';
 
@@ -6,6 +5,7 @@ import { resolveUuid } from './entry-references';
 import { ENVELOPE_FIELDS, KindDataGapReason, report } from './kind-data-gaps';
 import type { KindInput } from './kind-data-gaps';
 import { boundedRecord, systemOf } from './kind-fields';
+import { priceOf } from './physical-fields';
 
 /**
  * A kit's `data` from Foundry's `kit` item: its items by content id, with what a container holds, and its price.
@@ -31,8 +31,6 @@ const FoundryKitSystem = z.looseObject({
   price: z.looseObject({ value: FoundryCoins }).optional(),
 });
 
-const COINS: readonly Coin[] = [Coin.Platinum, Coin.Gold, Coin.Silver, Coin.Copper];
-
 interface KitItem {
   readonly item: ContentId;
   readonly quantity: number;
@@ -57,12 +55,6 @@ function contentsOf(items: Readonly<Record<string, FoundryInnerItem>>, input: Ki
   return contents.length === 0 ? {} : { contents };
 }
 
-/** Foundry's coins with the unpaid ones left out; no price when all are zero. */
-function priceOf(coins: Readonly<Record<string, number>> | undefined): object {
-  const paid = COINS.filter((coin) => (coins?.[coin] ?? 0) > 0).map((coin) => [coin, coins?.[coin]] as const);
-  return paid.length === 0 ? {} : { price: { coins: Object.fromEntries(paid) } };
-}
-
 /** The kit's data, unparsed; undefined when its `system` is not shaped as a kit's. */
 export function kitData(input: KindInput): object | undefined {
   const system = systemOf(FoundryKitSystem, input);
@@ -74,5 +66,5 @@ export function kitData(input: KindInput): object | undefined {
     const [item] = itemOf(outer, 'items', input);
     return item === undefined ? [] : [{ ...item, ...contents }];
   });
-  return { ...priceOf(system.price?.value), items };
+  return { ...priceOf(system.price), items };
 }

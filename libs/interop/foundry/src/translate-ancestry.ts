@@ -1,5 +1,5 @@
-import { ContentKind, Size, slugName } from '@pioneer/rules/sdk';
-import type { ContentId } from '@pioneer/rules/sdk';
+import { ContentKind, slugName } from '@pioneer/rules/sdk';
+import type { ContentId, Size } from '@pioneer/rules/sdk';
 import * as z from 'zod';
 
 import { resolveSlug, resolveUuid } from './entry-references';
@@ -9,6 +9,7 @@ import {
   attributeSlots,
   featSlots,
   FoundryAttributeSlots,
+  FOUNDRY_SIZES,
   FoundryGrantedItems,
   grantItems,
   systemOf,
@@ -40,16 +41,6 @@ export const HERITAGE_FIELDS: ReadonlySet<string> = new Set([...ENVELOPE_FIELDS,
 const FIELD_MAX = 64;
 const NAME_MAX = 500;
 const LANGUAGES_MAX = 64;
-
-/** Foundry's sizes, by its abbreviation. */
-const FOUNDRY_SIZES: ReadonlyMap<string, Size> = new Map([
-  ['tiny', Size.Tiny],
-  ['sm', Size.Small],
-  ['med', Size.Medium],
-  ['lg', Size.Large],
-  ['huge', Size.Huge],
-  ['grg', Size.Gargantuan],
-]);
 
 /** Foundry's vision for ordinary sight: no `sense` entry. */
 const NORMAL_VISION = 'normal';

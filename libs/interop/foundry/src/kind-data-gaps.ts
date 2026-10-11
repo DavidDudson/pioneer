@@ -88,11 +88,7 @@ function isSet(value: unknown): boolean {
 }
 
 /** Reports each set `system` field outside `handled`. */
-export function reportUnmapped(
-  system: Readonly<Record<string, unknown>>,
-  handled: ReadonlySet<string>,
-  log: GapLog,
-): void {
+function reportUnmapped(system: Readonly<Record<string, unknown>>, handled: ReadonlySet<string>, log: GapLog): void {
   for (const [field, value] of Object.entries(system)) {
     if (!handled.has(field) && isSet(value)) {
       report(log, { reason: KindDataGapReason.UnmappedField, field, raw: value });
@@ -116,4 +112,22 @@ export function addRule({ rules, log }: KindInput, field: string, raw: object): 
 /** The path of the first issue a schema raised, dotted. */
 export function issuePath(error: z.ZodError): string {
   return error.issues[0]?.path.join('.') ?? '';
+}
+
+/** How one kind's data is built: the schema it must meet, the `system` fields it reads, and the builder. */
+export interface KindBuilder<Data> {
+  readonly schema: z.ZodType<Data>;
+  readonly fields: ReadonlySet<string>;
+  readonly build: (input: KindInput) => object | undefined;
+}
+
+/** The data `build` makes, parsed against `schema`; reported and undefined when the schema rejects it. */
+export function parsedWith<Data>({ schema, fields, build }: KindBuilder<Data>, input: KindInput): Data | undefined {
+  reportUnmapped(input.document.system, fields, input.log);
+  const data = build(input);
+  const parsed = data === undefined ? undefined : schema.safeParse(data);
+  if (parsed?.success === false) {
+    report(input.log, { reason: KindDataGapReason.InvalidData, field: issuePath(parsed.error), raw: data });
+  }
+  return parsed?.success === true ? parsed.data : undefined;
 }
