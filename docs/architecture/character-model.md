@@ -55,12 +55,17 @@ epics that own them ([#28](https://github.com/DavidDudson/pioneer/issues/28),
 
 Every stored document carries `schemaVersion`. `decodeCharacterDocument` upgrades an older document to the current
 version before validating it, and refuses one newer than the code (`UnsupportedSchemaVersionError`, as after a
-rollback) rather than read it as the current shape and drop fields on the next save.
+rollback) rather than read it as the current shape and drop fields on the next save. A stored document that is
+invalid at its own version throws `CorruptCharacterDocumentError`: the fault is the server's data, so the API
+answers 500, never a 422 that blames the request.
 
-- **Adding a field with a default** needs no new version: an older document decodes with the default.
-- **Any other change** (rename, move, split, a new required field with no sensible default) adds one pure step to
-  `UPGRADES` in `character-document-upgrades.ts`. Step _n_ turns version _n_ + 1 into _n_ + 2; the current version
-  is one past the last step, so the two can't drift. Add a test that decodes a document of the old shape.
+- **Every change to the shape adds a version**, a new defaulted field included, so older code always refuses a
+  newer document by its version rather than failing on a field it doesn't know. The change adds one pure step to
+  `UPGRADES` in `character-document-upgrades.ts`; a step for a defaulted field returns the document as it is. Step
+  _n_ turns version _n_ + 1 into _n_ + 2; the current version is one past the last step, so the two can't drift.
+- **Every past version keeps a stored example** in `PAST_DOCUMENTS` (`libs/character/domain/src/testing`), in the
+  shape it was written. A test checks that one exists for each past version and that each decodes to the current
+  version, so a step can't land without one.
 - A step never derives values: when a stored shape changes, it moves the player's inputs, it doesn't compute.
 
 ### Choice slots

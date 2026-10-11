@@ -6,8 +6,8 @@ import { CURRENT_SCHEMA_VERSION, StoredCharacterDocument, upgradeDocument } from
 import { CharacterId, CharacterLevel, CharacterName } from './character-fields';
 
 /**
- * Nothing yet. Inventory (#28), play state (#38), boons and conditions (#39) and overrides (#34) widen these with
- * defaulted fields, so a document written before them still decodes without an upgrade step.
+ * Nothing yet. Inventory (#28), play state (#38), boons and conditions (#39) and overrides (#34) widen these, each
+ * with a new schema version.
  */
 const Empty = z.strictObject({});
 const None = z.tuple([]);
@@ -40,9 +40,30 @@ export const CharacterDocumentSchema = z.strictObject({
 export type CharacterDocument = z.infer<typeof CharacterDocumentSchema>;
 
 /**
- * Reads a stored document of any known schema version, upgrading it to the current one first. Throws a `ZodError`
- * when it isn't a valid document, `UnsupportedSchemaVersionError` when it is newer than this code.
+ * A stored document that isn't a valid one of any known version. The fault is the server's data, not the request,
+ * so it is a plain `Error` (a logged 500), never a `ZodError` (a 422 that would list the document's paths).
+ */
+export class CorruptCharacterDocumentError extends Error {
+  public override readonly name = 'CorruptCharacterDocumentError';
+
+  public constructor(cause: z.ZodError) {
+    super(`Stored character document is invalid: ${z.prettifyError(cause)}`, { cause });
+  }
+}
+
+/**
+ * Reads a stored document of any known schema version, upgrading it to the current one first. Throws
+ * `CorruptCharacterDocumentError` when it isn't a valid document, `UnsupportedSchemaVersionError` when it is newer
+ * than this code.
  */
 export function decodeCharacterDocument(stored: unknown): CharacterDocument {
-  return CharacterDocumentSchema.parse(upgradeDocument(StoredCharacterDocument.parse(stored)));
+  const versioned = StoredCharacterDocument.safeParse(stored);
+  if (!versioned.success) {
+    throw new CorruptCharacterDocumentError(versioned.error);
+  }
+  const document = CharacterDocumentSchema.safeParse(upgradeDocument(versioned.data));
+  if (!document.success) {
+    throw new CorruptCharacterDocumentError(document.error);
+  }
+  return document.data;
 }

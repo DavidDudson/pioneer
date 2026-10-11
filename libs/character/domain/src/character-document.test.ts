@@ -1,12 +1,15 @@
 import { describe, expect, test } from 'bun:test';
 
 import { ChoiceValue, SlotKey } from '@pioneer/rules/sdk';
-import { ZodError } from 'zod';
 
-import { decodeCharacterDocument } from './character-document';
-import { CURRENT_SCHEMA_VERSION, UnsupportedSchemaVersionError } from './character-document-upgrades';
+import { CorruptCharacterDocumentError, decodeCharacterDocument } from './character-document';
+import {
+  CharacterSchemaVersion,
+  CURRENT_SCHEMA_VERSION,
+  UnsupportedSchemaVersionError,
+} from './character-document-upgrades';
 import { CharacterLevel } from './character-fields';
-import { fixtureOwnerId, humanAncestryId } from './testing';
+import { fixtureOwnerId, humanAncestryId, PAST_DOCUMENTS } from './testing';
 
 const minimal = {
   schemaVersion: CURRENT_SCHEMA_VERSION,
@@ -43,17 +46,31 @@ describe('decodeCharacterDocument', () => {
   });
 
   test('refuses derived values: only inputs are stored', () => {
-    expect(() => decodeCharacterDocument({ ...minimal, attributes: { str: 4 } })).toThrow(ZodError);
-    expect(() => decodeCharacterDocument({ ...minimal, build: { choices: {}, acTotal: 18 } })).toThrow(ZodError);
+    expect(() => decodeCharacterDocument({ ...minimal, attributes: { str: 4 } })).toThrow(
+      CorruptCharacterDocumentError,
+    );
+    expect(() => decodeCharacterDocument({ ...minimal, build: { choices: {}, acTotal: 18 } })).toThrow(
+      CorruptCharacterDocumentError,
+    );
   });
 
-  test('refuses a document with no schema version', () => {
-    const { schemaVersion: _omitted, ...unversioned } = minimal;
-    expect(() => decodeCharacterDocument(unversioned)).toThrow(ZodError);
+  test.each([undefined, 0, -1, 1.5, '1'])('refuses schema version %p as corrupt', (schemaVersion) => {
+    expect(() => decodeCharacterDocument({ ...minimal, schemaVersion })).toThrow(CorruptCharacterDocumentError);
   });
 
   test('refuses a document newer than this code', () => {
     const newer = { ...minimal, schemaVersion: CURRENT_SCHEMA_VERSION + 1 };
     expect(() => decodeCharacterDocument(newer)).toThrow(UnsupportedSchemaVersionError);
+  });
+
+  test('has a stored document of every past schema version', () => {
+    const past = Array.from({ length: CURRENT_SCHEMA_VERSION - 1 }, (_unused, index) =>
+      CharacterSchemaVersion.parse(index + 1),
+    );
+    expect([...PAST_DOCUMENTS.keys()].toSorted((left, right) => left - right)).toStrictEqual(past);
+  });
+
+  test.each([...PAST_DOCUMENTS])('decodes a version %p document at the current version', (_version, stored) => {
+    expect(decodeCharacterDocument(stored).schemaVersion).toBe(CURRENT_SCHEMA_VERSION);
   });
 });

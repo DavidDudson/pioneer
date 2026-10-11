@@ -14,8 +14,8 @@ export type UpgradeStep = (document: StoredCharacterDocument) => StoredCharacter
 
 /**
  * Every upgrade step, oldest first: `UPGRADES[0]` turns version 1 into 2, `UPGRADES[n]` turns n + 1 into n + 2.
- * Adding a step is how the schema changes shape (character-model.md, "Schema versions"). Adding a field with a
- * default needs no step: an older document decodes with the default.
+ * Every change to the schema's shape adds a step, a new defaulted field included (its step returns the document
+ * as it is), so code older than a document always refuses it by version (character-model.md, "Schema versions").
  */
 const UPGRADES: readonly UpgradeStep[] = [];
 

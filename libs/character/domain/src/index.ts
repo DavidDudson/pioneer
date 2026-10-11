@@ -15,6 +15,7 @@ export {
   BuildSchema,
   type CharacterDocument,
   CharacterDocumentSchema,
+  CorruptCharacterDocumentError,
   decodeCharacterDocument,
 } from './character-document';
 export {
