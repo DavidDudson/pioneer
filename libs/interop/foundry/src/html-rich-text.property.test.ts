@@ -62,10 +62,15 @@ const run = array(inline(0), { maxLength: CHILDREN_MAX });
 function table(): Arbitrary<Html> {
   const cell = tuple(constantFrom('td', 'th'), run).map(([tag, each]) => wrapped(tag, each));
   const row = array(cell, { maxLength: CHILDREN_MAX }).map((cells) => wrapped('tr', cells));
-  const group = tuple(constantFrom('thead', 'tbody'), array(row, { maxLength: CHILDREN_MAX })).map(([tag, rows]) =>
-    wrapped(tag, rows),
+  const group = tuple(constantFrom('thead', 'tbody', 'tfoot'), array(row, { maxLength: CHILDREN_MAX })).map(
+    ([tag, rows]) => wrapped(tag, rows),
   );
-  return array(oneof(row, group), { maxLength: CHILDREN_MAX }).map((parts) => wrapped('table', parts));
+  const caption = array(
+    run.map((each) => wrapped('caption', each)),
+    { maxLength: 1 },
+  );
+  const parts = array(oneof(row, group), { maxLength: CHILDREN_MAX });
+  return tuple(caption, parts).map(([captions, each]) => wrapped('table', [...captions, ...each]));
 }
 
 function lists(items: Arbitrary<Html[]>): Arbitrary<Html> {

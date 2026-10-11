@@ -88,15 +88,25 @@ function withoutEdgeBreaks(run: Run): Run {
   return first === -1 ? [] : run.slice(first, last + 1);
 }
 
-/** Text cut into chunks no longer than a `RichTextString`, never inside a character. */
+/** A grapheme too long for one text node (a letter under thousands of combining marks), as code points. */
+const CODE_POINTS = /./gsu;
+
+/** The units text may be cut between: graphemes, and the code points of any grapheme longer than a chunk. */
+function units(text: string): string[] {
+  return [...GRAPHEMES.segment(text)].flatMap(({ segment }) =>
+    segment.length > TEXT_MAX ? (segment.match(CODE_POINTS) ?? []) : [segment],
+  );
+}
+
+/** Text cut into chunks no longer than a `RichTextString`, between graphemes where it can be. */
 function chunks(text: string): string[] {
-  const out = [''];
-  for (const { segment } of GRAPHEMES.segment(text)) {
-    const last = out.at(-1) ?? '';
-    if (last.length + segment.length > TEXT_MAX) {
-      out.push(segment);
+  const out: string[] = [];
+  for (const unit of units(text)) {
+    const last = out.at(-1);
+    if (last === undefined || last.length + unit.length > TEXT_MAX) {
+      out.push(unit);
     } else {
-      out[out.length - 1] = `${last}${segment}`;
+      out[out.length - 1] = `${last}${unit}`;
     }
   }
   return out;

@@ -12,6 +12,13 @@ function text(value: string, marks?: readonly string[]): object {
   return marks === undefined ? { type: 'text', text: value } : { type: 'text', text: value, marks };
 }
 
+/** The text of every text node, in order. */
+function textsOf(richText: RichText): string[] {
+  return richText.flatMap((block) =>
+    block.type === 'paragraph' ? block.content.flatMap((node) => (node.type === 'text' ? [node.text] : [])) : [],
+  );
+}
+
 function paragraph(...content: object[]): object {
   return { type: 'paragraph', content };
 }
@@ -109,6 +116,24 @@ describe('htmlToRichText: tables', () => {
     ]);
   });
 
+  test('tfoot rows follow the body', () => {
+    expect(
+      richTextOf('<table><tfoot><tr><td>Total</td></tr></tfoot><tbody><tr><td>1</td></tr></tbody></table>'),
+    ).toEqual([{ type: 'table', rows: [[[text('Total')]], [[text('1')]]] }]);
+  });
+
+  test('several captions are one label, and a caption too long for a label is a paragraph before the table', () => {
+    const long = 'c'.repeat(250);
+
+    expect(richTextOf('<table><caption>A</caption><caption>B</caption><tr><td>1</td></tr></table>')).toEqual([
+      { type: 'table', caption: 'A B', rows: [[[text('1')]]] },
+    ]);
+    expect(richTextOf(`<table><caption>${long}</caption><tr><td>1</td></tr></table>`)).toEqual([
+      paragraph(text(long)),
+      { type: 'table', rows: [[[text('1')]]] },
+    ]);
+  });
+
   test('a table with no rows is dropped', () => {
     expect(richTextOf('<table></table>')).toEqual([]);
   });
@@ -161,6 +186,29 @@ describe('htmlToRichText: whitespace', () => {
     expect(richTextOf('<p></p>\n<p> &nbsp; </p>\n<p>Kept</p>\n')).toEqual([paragraph(text('Kept'))]);
   });
 
+  test('a list item or cell out of place is a block of its own', () => {
+    expect(richTextOf('<li>one</li><li>two</li><td>three</td>')).toEqual([
+      paragraph(text('one')),
+      paragraph(text('two')),
+      paragraph(text('three')),
+    ]);
+  });
+
+  test('long text splits between characters, never inside a surrogate pair', () => {
+    const start = 'a'.repeat(3999);
+    const html = `<p>${start}\u{1F600}b</p>`;
+
+    expect(richTextOf(html)).toEqual([paragraph(text(start), text('\u{1F600}b'))]);
+  });
+
+  test('a single character longer than a text node is split by code point', () => {
+    const combined = `a${'\u0301'.repeat(4100)}`;
+    const texts = textsOf(htmlToRichText(`<p>${combined}</p>`).richText);
+
+    expect(texts.join('')).toBe(combined);
+    expect(texts.every((each) => each.length <= 4000)).toBe(true);
+  });
+
   test('text longer than a rich text string is split', () => {
     const long = 'a'.repeat(4500);
     const first = text('a'.repeat(4000));
@@ -191,12 +239,44 @@ describe('htmlToRichText: unknown markup', () => {
     expect(htmlToRichText(html).unknownMarkup).toEqual(['table[class]', 'tr[style]', 'td[rowspan]', 'p[title]']);
   });
 
-  test('a description past the rich text bounds is dropped and reported', () => {
-    const nested = `${'<ul><li>'.repeat(12)}deep${'</li></ul>'.repeat(12)}`;
+  test('a description past the rich text bounds is flattened to paragraphs and reported', () => {
+    const nested = `<p>Top</p>${'<ul><li>'.repeat(12)}deep${'</li></ul>'.repeat(12)}`;
     const { richText, unknownMarkup } = htmlToRichText(nested);
+    const flat: unknown = richText;
 
-    expect(richText).toEqual([]);
+    expect(flat).toEqual([paragraph(text('Top')), paragraph(text('deep'))]);
     expect(unknownMarkup).toEqual([OVERSIZED_MARKUP]);
+  });
+
+  test('markup nested past the depth limit keeps its text flat, without exhausting the stack', () => {
+    const deep = `<p>${'<b>'.repeat(20_000)}x</p>`;
+    const { richText, unknownMarkup } = htmlToRichText(deep);
+
+    expect(RichText.safeParse(richText).success).toBe(true);
+    expect(JSON.stringify(richText)).toContain('"x"');
+    expect(unknownMarkup).toEqual([OVERSIZED_MARKUP]);
+  });
+
+  test('script, style and the like are reported and dropped with their content', () => {
+    const { richText, unknownMarkup } = htmlToRichText('<p>Kept<style>.x{}</style><script>run()</script></p>');
+    const kept: unknown = richText;
+
+    expect(kept).toEqual([paragraph(text('Kept'))]);
+    expect(unknownMarkup).toEqual(['style', 'script']);
+  });
+
+  test('content a table has no place for is reported and follows it as blocks', () => {
+    const html = '<table><colgroup><col span="2"></colgroup><tr><td>1</td>stray</tr>loose<div>d</div></table>';
+    const { richText, unknownMarkup } = htmlToRichText(html);
+    const converted: unknown = richText;
+
+    expect(converted).toEqual([
+      { type: 'table', rows: [[[text('1')]]] },
+      paragraph(text('loose')),
+      paragraph(text('d')),
+      paragraph(text('stray')),
+    ]);
+    expect(unknownMarkup).toEqual(['colgroup', 'col[span]', 'col', 'div']);
   });
 
   test('an empty description is empty rich text', () => {

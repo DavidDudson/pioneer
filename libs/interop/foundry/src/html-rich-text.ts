@@ -44,15 +44,25 @@ const MARKS: ReadonlyMap<string, TextMark> = new Map([
 
 const MARK_ORDER: readonly TextMark[] = Object.values(TextMark);
 
-/** Parts of a list or table, read where they belong; met anywhere else, their content is kept in place. */
+/** Parts of a list or table, read where they belong; met anywhere else, each is a block. */
 const STRUCTURE: ReadonlySet<string> = new Set(['li', 'thead', 'tbody', 'tfoot', 'tr', 'th', 'td', 'caption']);
 const LIST_ITEM = 'li';
 const ORDERED_LIST = 'ol';
 const LINE_BREAK = 'br';
 
-/** The marks around the current node, and the markup reported so far. */
+/**
+ * How deep the converter follows nested elements. Rich text nests far less (`RICH_TEXT_DEPTH_MAX`); past this, the
+ * rest of the text is kept flat and `OVERSIZED_MARKUP` reported, so deep markup cannot exhaust the stack.
+ */
+const ELEMENT_DEPTH_MAX = 64;
+
+/** Elements whose content is not text a reader sees: reported, and dropped with everything in them. */
+const DROPPED: ReadonlySet<string> = new Set(['script', 'style', 'template', 'noscript', 'iframe', 'object', 'svg']);
+
+/** The marks around the current node, how deep it is, and the markup reported so far. */
 interface Context {
   readonly marks: Marks;
+  readonly depth: number;
   readonly unknown: Set<string>;
 }
 
@@ -67,7 +77,27 @@ function withMark(context: Context, mark: TextMark | undefined): Context {
     return context;
   }
   const marks = MARK_ORDER.filter((each) => each === mark || context.marks.includes(each));
-  return { marks, unknown: context.unknown };
+  return { ...context, marks };
+}
+
+function deeper(context: Context): Context {
+  return { ...context, depth: context.depth + 1 };
+}
+
+/** The text under an element, walked without recursion; dropped elements add nothing. */
+function flatText(root: Element): string {
+  const parts: string[] = [];
+  const stack: ChildNode[] = [root];
+  let node = stack.pop();
+  while (node !== undefined) {
+    if (isText(node)) {
+      parts.push(node.data);
+    } else if (isTag(node) && !DROPPED.has(node.name)) {
+      stack.push(...node.children.toReversed());
+    }
+    node = stack.pop();
+  }
+  return parts.join('');
 }
 
 /** Closes the open run as a paragraph, unless it holds only whitespace. */
@@ -102,6 +132,7 @@ function inlineOf(nodes: readonly ChildNode[], context: Context): InlineContent 
 function tableContext(context: Context): TableContext {
   return {
     inline: (nodes: readonly ChildNode[]): InlineContent => inlineOf(nodes, context),
+    blocks: (nodes: readonly ChildNode[]): BlockNode[] => blocksOf(nodes, context),
     report: (element: Element): void => {
       reportAttributes(element, context);
     },
@@ -130,11 +161,17 @@ function headingOf(element: Element, level: RichTextHeadingLevel, context: Conte
   return content.length === 0 ? [] : [{ type: BlockKind.Heading, level, content }];
 }
 
-/** The blocks of a block element, or `undefined` when the element is not one. */
+/**
+ * The blocks of a block element, or `undefined` when the element is not one. A list item or table part out of place
+ * is a block of its own, so its words don't run into the next one's.
+ */
 function blockElement(element: Element, context: Context): BlockNode[] | undefined {
   const level = HEADING_LEVELS.get(element.name);
   if (level !== undefined) {
     return headingOf(element, level, context);
+  }
+  if (STRUCTURE.has(element.name)) {
+    return blocksOf(element.children, context);
   }
   switch (element.name) {
     case 'p': {
@@ -163,7 +200,7 @@ function visitInline(element: Element, sink: Sink, context: Context): void {
     return;
   }
   const mark = MARKS.get(element.name);
-  if (mark === undefined && !STRUCTURE.has(element.name)) {
+  if (mark === undefined) {
     context.unknown.add(element.name);
   }
   const inner = withMark(context, mark);
@@ -172,33 +209,63 @@ function visitInline(element: Element, sink: Sink, context: Context): void {
   }
 }
 
-function visit(node: ChildNode, sink: Sink, context: Context): void {
-  if (isText(node)) {
-    sink.run.push({ type: InlineKind.Text, text: node.data, marks: context.marks });
+/** Whether the element is left out of the walk: dropped with its content, or kept as flat text past the depth limit. */
+function skipped(element: Element, sink: Sink, context: Context): boolean {
+  if (DROPPED.has(element.name)) {
+    context.unknown.add(element.name);
+    return true;
+  }
+  if (context.depth < ELEMENT_DEPTH_MAX) {
+    return false;
+  }
+  context.unknown.add(OVERSIZED_MARKUP);
+  sink.run.push({ type: InlineKind.Text, text: flatText(element), marks: context.marks });
+  return true;
+}
+
+function visitElement(element: Element, sink: Sink, context: Context): void {
+  reportAttributes(element, context);
+  if (skipped(element, sink, context)) {
     return;
   }
-  if (!isTag(node)) {
-    return;
-  }
-  reportAttributes(node, context);
-  const blocks = blockElement(node, context);
+  const blocks = blockElement(element, deeper(context));
   if (blocks === undefined) {
-    visitInline(node, sink, context);
+    visitInline(element, sink, deeper(context));
     return;
   }
   flush(sink);
   sink.blocks.push(...blocks);
 }
 
+function visit(node: ChildNode, sink: Sink, context: Context): void {
+  if (isText(node)) {
+    sink.run.push({ type: InlineKind.Text, text: node.data, marks: context.marks });
+  } else if (isTag(node)) {
+    visitElement(node, sink, context);
+  }
+}
+
+/** Each top-level block as a plain paragraph, its parts on separate lines: what is left when the structure is too big. */
+function flattened(blocks: readonly BlockNode[]): BlockNode[] {
+  return blocks
+    .map((block) => normalised(runOfBlock(block)))
+    .filter((content) => content.length > 0)
+    .map((content) => ({ type: BlockKind.Paragraph, content }));
+}
+
 /**
  * A Foundry description as rich text, with the markup it could not map. The result always parses as `RichText`:
- * a description past its size or nesting bounds is left empty and reported as `OVERSIZED_MARKUP`.
+ * a description past its size or nesting bounds is flattened to paragraphs, or left empty if that is still too big,
+ * and reported as `OVERSIZED_MARKUP`.
  */
 export function htmlToRichText(html: string): RichTextTranslation {
   const unknown = new Set<string>();
-  const richText = RichText.safeParse(blocksOf(parseDocument(html).children, { marks: [], unknown }));
-  if (!richText.success) {
-    unknown.add(OVERSIZED_MARKUP);
+  const blocks = blocksOf(parseDocument(html).children, { marks: [], depth: 0, unknown });
+  const richText = RichText.safeParse(blocks);
+  if (richText.success) {
+    return { richText: richText.data, unknownMarkup: [...unknown] };
   }
-  return { richText: richText.success ? richText.data : [], unknownMarkup: [...unknown] };
+  unknown.add(OVERSIZED_MARKUP);
+  const flat = RichText.safeParse(flattened(blocks));
+  return { richText: flat.success ? flat.data : [], unknownMarkup: [...unknown] };
 }

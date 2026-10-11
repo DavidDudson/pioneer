@@ -24,7 +24,8 @@ import type { UntranslatedRule } from './translate-rules';
 
 /**
  * The entry envelope of each selected Foundry document (content-model.md, "Foundry import"): address, names,
- * traits, sources, description and rule elements; kind `data` is the kind stories' (Epic 2.5). What cannot be translated is reported beside the envelopes, never dropped silently.
+ * traits, sources, description and rule elements; kind `data` is the kind stories' (Epic 2.5). What cannot be
+ * translated is reported beside the envelopes, never dropped silently.
  */
 
 /** The Pioneer pack the entries go into, and the traits Pioneer knows (its `trait` entries). */
