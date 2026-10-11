@@ -142,7 +142,7 @@
       <fr-async-region>
         <ng-template frAsyncPending><pio-spellcasting [entries]="undefined" /></ng-template>
         <ng-template [frAsyncData]="registry"
-          ><pio-spellcasting [entries]="spellcasting()" [entryNames]="entryNames()"
+          ><pio-spellcasting [entries]="picks.spellcasting()" [entryNames]="entryNames()"
         /></ng-template>
       </fr-async-region>
     </fr-section>

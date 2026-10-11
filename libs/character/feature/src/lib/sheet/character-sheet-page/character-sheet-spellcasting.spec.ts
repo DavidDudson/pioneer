@@ -1,7 +1,7 @@
 import { playerCoreClassId } from '@pioneer/character/domain/testing';
-import { describe, expect, it, vi } from 'vitest';
+import { beforeAll, describe, expect, it, vi } from 'vitest';
 
-import { PACKS_WITH_CLASSES } from '../../testing/provide-server-state-testing';
+import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { MERISIEL, openSheet, present } from '../../testing/sheet-page-harness';
 
 /** Merisiel as a class, with `choices` picked besides. */
@@ -29,8 +29,13 @@ function section(root: HTMLElement): HTMLElement {
 }
 
 describe('CharacterSheetPage spellcasting', () => {
+  // Loads and bundles the packs once, outside every test's timeout.
+  beforeAll(async () => {
+    await prebuildServerStateTesting();
+  }, PREBUILD_TIMEOUT);
+
   it('lists the class’s entry with its tradition, where it came from, and its spell attack and DC', async () => {
-    const { root } = await openSheet(as('wizard'), { packs: PACKS_WITH_CLASSES });
+    const { root } = await openSheet(as('wizard'));
 
     await vi.waitFor(() => {
       expect(headings(root)).toStrictEqual(['Arcane', 'Prepared', 'from Wizard Spellcasting']);
@@ -41,7 +46,7 @@ describe('CharacterSheetPage spellcasting', () => {
   });
 
   it('says a class that casts no spells has none', async () => {
-    const { root } = await openSheet(as('fighter'), { packs: PACKS_WITH_CLASSES });
+    const { root } = await openSheet(as('fighter'));
 
     await vi.waitFor(() => {
       expect(textOf(section(root))).toContain('No spellcasting.');
