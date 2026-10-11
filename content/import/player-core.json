@@ -5863,22 +5863,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "class-feature:wildsong",
-      "foundry": "Compendium.pf2e.classfeatures.Item.RiAGlnnp4S21BAG3",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.languages",
-          "raw": {
-            "granted": ["wildsong"]
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "class-feature:will-of-the-pupil",
       "foundry": "Compendium.pf2e.classfeatures.Item.FuVO8ksHI1B5ozVI",
       "gaps": [
@@ -23909,15 +23893,6 @@
             "path": "system.skills.society.rank",
             "value": 1
           }
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.languages",
-          "raw": {
-            "granted": ["empyrean"],
-            "slots": 0
-          }
         }
       ]
     },
@@ -27440,14 +27415,6 @@
           "raw": {
             "key": "GrantItem",
             "uuid": "{item|flags.system.rulesSelections.druidicOrder}"
-          }
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.languages",
-          "raw": {
-            "granted": ["wildsong"]
           }
         },
         {
@@ -31954,16 +31921,6 @@
           "key": "ActiveEffectLike",
           "raw": {
             "key": "ActiveEffectLike",
-            "mode": "add",
-            "path": "system.build.languages.max",
-            "value": "ternary(eq(@actor.system.skills.society.rank, 4), 2, ternary(eq(@actor.system.skills.society.rank, 3), 1, 0))"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
             "mode": "override",
             "path": "flags.system.multilingualTaken",
             "priority": 19,
@@ -31978,15 +31935,6 @@
             "mode": "add",
             "path": "flags.system.multilingualTaken",
             "value": 1
-          }
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.languages",
-          "raw": {
-            "granted": [],
-            "slots": 2
           }
         }
       ]
@@ -38501,16 +38449,6 @@
       "slug": "heritage:nomadic-halfling",
       "foundry": "Compendium.pf2e.heritages.Item.idGDjqi1q3Ft8bAZ",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "add",
-            "path": "system.build.languages.max",
-            "value": 2
-          }
-        },
         {
           "type": "rule",
           "key": "ActiveEffectLike",

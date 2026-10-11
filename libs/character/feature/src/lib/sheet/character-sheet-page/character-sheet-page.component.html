@@ -108,7 +108,7 @@
       <fr-async-region>
         <ng-template frAsyncPending><pio-defences [defences]="undefined" /></ng-template>
         <ng-template [frAsyncData]="registry"
-          ><pio-defences [defences]="defences()" [entryNames]="entryNames()"
+          ><pio-defences [defences]="picks.defences()" [entryNames]="entryNames()"
         /></ng-template>
       </fr-async-region>
     </fr-section>
@@ -132,6 +132,10 @@
         </fr-async-region>
         <pio-sheet-skill-fields [fields]="picks.skillFields()" />
       </fr-stack>
+    </fr-section>
+
+    <fr-section [anchor]="sections.languages.anchor" [heading]="sections.languages.headingKey | transloco">
+      <pio-sheet-languages-section />
     </fr-section>
 
     <fr-section [anchor]="sections.choices.anchor" [heading]="sections.choices.headingKey | transloco">

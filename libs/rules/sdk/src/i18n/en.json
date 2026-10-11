@@ -37,7 +37,8 @@
       "unknown": "“{key}” is not a rule element Pioneer knows yet.",
       "suboptionsNeedToggle": "Only a toggle (toggleable: true) can offer suboptions.",
       "adjustModeOrSuppress": "Give a mode and a value, or suppress: true, but not both.",
-      "spellcastingSlugLength": "A spellcasting entry’s slug may be at most {maximum} characters."
+      "spellcastingSlugLength": "A spellcasting entry’s slug may be at most {maximum} characters.",
+      "languageGrantOrSlots": "Grant at least one language, or give slots to pick them in, or both."
     },
     "formula": {
       "unknownReference": "“{found}” at position {position} is not a reference Pioneer knows. References look like @level, @attr.str or @prof.skill.athletics.",
@@ -504,6 +505,15 @@
       "none": "No class features yet.",
       "origin": "from {className}, level {level}"
     },
+    "languages": {
+      "none": "No languages yet. Pick an ancestry first.",
+      "from": "from {source}",
+      "picked": "Picked",
+      "add": "Add language",
+      "addLabel": "Language to add",
+      "remove": "Remove {language}",
+      "open": "{count, plural, one {# language left to add} other {# languages left to add}}"
+    },
     "choices": {
       "none": "No choices yet.",
       "state": {
@@ -525,7 +535,9 @@
         "flaw": "Voluntary flaw",
         "skillTraining": "Level {level} trained skill",
         "skillIncrease": "Level {level} skill increase",
-        "skillTrainingNumbered": "Level {level} trained skill {number}"
+        "skillTrainingNumbered": "Level {level} trained skill {number}",
+        "language": "Level {level} language",
+        "languageFrom": "Language from {entry}"
       },
       "invalid": {
         "notOffered": "This choice no longer offers that option, so it counts for nothing. Choose another.",
@@ -533,7 +545,8 @@
         "boostTaken": "A boost given with this one already raises that attribute, so it counts for nothing. Choose another.",
         "flawTaken": "Another voluntary flaw already lowers that attribute, so this one counts for nothing. Choose another.",
         "skillTrained": "The character is already trained in that skill, so this counts for nothing. Choose another.",
-        "skillRankCapped": "This increase would raise that skill past the rank its level allows, so it counts for nothing. Choose another."
+        "skillRankCapped": "This increase would raise that skill past the rank its level allows, so it counts for nothing. Choose another.",
+        "languageKnown": "The character already knows that language, so this counts for nothing. Choose another."
       }
     },
     "build": {

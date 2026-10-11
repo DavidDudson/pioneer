@@ -168,7 +168,9 @@ describe('PathbuilderImportPage create', () => {
     );
     // The sheet reads the new character's slots from the server.
     await vi.waitFor(() => {
-      http.expectOne({ method: 'GET', url: `/api/characters/${id}` }).flush({ character, slots: [] });
+      http
+        .expectOne({ method: 'GET', url: `/api/characters/${id}` })
+        .flush({ character, slots: [], languages: { known: [], open: 0 } });
     });
     const sheet = present(harness.routeNativeElement);
     await vi.waitFor(() => {

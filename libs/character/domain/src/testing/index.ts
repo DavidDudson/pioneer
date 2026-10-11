@@ -30,3 +30,13 @@ export {
 } from './player-core-classes';
 export { Armoury, armoury, fundamental, fundamentalRef, lineOf, propertyRune } from './rune-armoury';
 export { NO_SKILLS, type SkillFixture, skillFixtureId, skillFixtures } from './skill-fixtures';
+export {
+  type LanguageBackground,
+  type LanguageFixture,
+  languageBackgroundId,
+  languageDwarfId,
+  NO_LANGUAGES,
+  languageFixtureId,
+  languageFixtures,
+  languageOrcId,
+} from './language-fixtures';

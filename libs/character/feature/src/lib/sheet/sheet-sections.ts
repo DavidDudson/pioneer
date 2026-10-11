@@ -15,6 +15,7 @@ export const SHEET_SECTIONS = {
   defences: { anchor: 'sheet-defences', headingKey: 'character.sheet.defencesHeading' },
   statistics: { anchor: 'sheet-statistics', headingKey: 'character.sheet.statisticsHeading' },
   skills: { anchor: 'sheet-skills', headingKey: 'character.sheet.skillsHeading' },
+  languages: { anchor: 'sheet-languages', headingKey: 'character.sheet.languagesHeading' },
   choices: { anchor: 'sheet-choices', headingKey: 'character.sheet.choicesHeading' },
   spellcasting: { anchor: 'sheet-spellcasting', headingKey: 'character.sheet.spellcastingHeading' },
   features: { anchor: 'sheet-features', headingKey: 'character.sheet.featuresHeading' },

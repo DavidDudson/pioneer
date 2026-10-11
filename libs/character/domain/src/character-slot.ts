@@ -33,6 +33,7 @@ export const SlotSubjectKind = {
   Boost: 'boost',
   Flaw: 'flaw',
   Skill: 'skill',
+  Language: 'language',
   Choice: 'choice',
 } as const;
 export type SlotSubjectKind = ValueOf<typeof SlotSubjectKind>;
@@ -46,6 +47,13 @@ export const SlotSubject = z.discriminatedUnion('kind', [
   z.strictObject({ kind: z.literal(SlotSubjectKind.Flaw) }),
   /** A trained skill or a skill increase, at the level it comes at. */
   z.strictObject({ kind: z.literal(SlotSubjectKind.Skill), source: z.enum(SkillSlotKind), level: Level }),
+  /** A language slot, at the level it comes at; `entry` is the feature whose `Language` element opened it. */
+  z.strictObject({
+    kind: z.literal(SlotSubjectKind.Language),
+    level: Level,
+    entry: ContentId.optional(),
+    entryName: ContentText.optional(),
+  }),
   /** A `ChoiceSet` on `entry`, asking `prompt`. */
   z.strictObject({
     kind: z.literal(SlotSubjectKind.Choice),
@@ -103,4 +111,5 @@ export const SlotInvalidMessage = {
   FlawTaken: 'rules.choices.invalid.flawTaken',
   SkillTrained: 'rules.choices.invalid.skillTrained',
   SkillRankCapped: 'rules.choices.invalid.skillRankCapped',
+  LanguageKnown: 'rules.choices.invalid.languageKnown',
 } as const;

@@ -112,6 +112,7 @@
       }
     },
     "skillsHeading": "Skills",
+    "languagesHeading": "Languages",
     "downtimeHeading": "Downtime",
     "shop": {
       "heading": "Shop",
@@ -155,7 +156,8 @@
     "runeNotEtched": "That rune isn't etched onto this item.",
     "transferSameItem": "Choose another item to move the rune onto.",
     "skillTrained": "The character is already trained in that skill. Choose another.",
-    "skillRankCapped": "That skill can't go up a rank with this increase at its level. Choose another."
+    "skillRankCapped": "That skill can't go up a rank with this increase at its level. Choose another.",
+    "languageKnown": "The character already knows that language. Choose another."
   },
   "import": {
     "title": "Import from Pathbuilder",

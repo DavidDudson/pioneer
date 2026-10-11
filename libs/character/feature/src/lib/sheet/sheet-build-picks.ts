@@ -2,6 +2,7 @@ import { computed, signal, untracked } from '@angular/core';
 import type { Signal } from '@angular/core';
 import type { Character, CharacterSlot } from '@pioneer/character/domain';
 import type { InlineEdit, SelectOption } from '@pioneer/frontier';
+import type { Defences } from '@pioneer/rules/engine';
 import { ChoiceValue } from '@pioneer/rules/sdk';
 import type { ContentRegistry, SlotKey } from '@pioneer/rules/sdk';
 import { ATTRIBUTE_MESSAGES } from '@pioneer/rules/ui';
@@ -19,6 +20,7 @@ import {
 } from './sheet-build';
 import type { SheetKeyAttribute, SheetSubclass } from './sheet-build';
 import { sheetChoices } from './sheet-choices';
+import { sheetDefences } from './sheet-defences';
 import { sheetField } from './sheet-field';
 import { sheetSkills, sheetSkillSlots } from './sheet-skills';
 import { sheetSpellcasting } from './sheet-spellcasting';
@@ -76,6 +78,8 @@ export interface BuildPicks extends EngineReads {
   readonly buildLines: Signal<readonly BuildLine[] | undefined>;
   /** Every choice with its status, as the server read the slots; undefined while the character loads. */
   readonly choices: Signal<readonly ChoiceLine[] | undefined>;
+  /** Immunities, weaknesses and resistances from the engine; undefined while the character or the content loads. */
+  readonly defences: Signal<Defences | undefined>;
   /** One pick per trained skill and skill increase up to the character's level, in the order they are read. */
   readonly skillFields: Signal<readonly SkillField[]>;
 }
@@ -168,6 +172,15 @@ function engineReads(sources: BuildPickSources): EngineReads {
   };
 }
 
+/** The picker options of one of the character's own slots; none while it or the content loads. */
+function rootOptionsOf(sources: BuildPickSources, slot: SlotKey): Signal<readonly SelectOption<string>[]> {
+  return computed(() => {
+    const registry = sources.registry();
+    const character = sources.character();
+    return registry === undefined || character === undefined ? [] : sheetRootOptions(registry, character, slot);
+  });
+}
+
 /** The sheet's build pickers over `sources`, each reading the registry, the character and its slots as they load. */
 export function sheetBuildPicks(sources: BuildPickSources): BuildPicks {
   const subclass = loaded(sources, sheetSubclass);
@@ -180,12 +193,7 @@ export function sheetBuildPicks(sources: BuildPickSources): BuildPicks {
     })),
   );
   return {
-    rootOptions: (slot) =>
-      computed(() => {
-        const registry = sources.registry();
-        const character = sources.character();
-        return registry === undefined || character === undefined ? [] : sheetRootOptions(registry, character, slot);
-      }),
+    rootOptions: (slot) => rootOptionsOf(sources, slot),
     rootField: (slot, options) => slotField(sources, signal(slot), options),
     subclass,
     subclassOptions,
@@ -214,6 +222,7 @@ export function sheetBuildPicks(sources: BuildPickSources): BuildPicks {
       const slots = sources.slots();
       return slots === undefined ? undefined : sheetChoices(slots);
     }),
+    defences: loaded(sources, sheetDefences),
     ...engineReads(sources),
     skillFields: skillFieldsOf(sources),
   };

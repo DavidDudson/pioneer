@@ -72,7 +72,9 @@ async function openSheet(url: string): Promise<HTMLElement> {
     host.remove();
   });
   await vi.waitFor(() => {
-    TestBed.inject(HttpTestingController).expectOne(`/api/characters/${id}`).flush({ character: VALEROS, slots: [] });
+    TestBed.inject(HttpTestingController)
+      .expectOne(`/api/characters/${id}`)
+      .flush({ character: VALEROS, slots: [], languages: { known: [], open: 0 } });
   });
   return present(harness.routeNativeElement);
 }

@@ -5,6 +5,7 @@ import * as z from 'zod';
 
 import { Character } from './character';
 import { CharacterId, CharacterName } from './character-fields';
+import { CharacterLanguages } from './character-languages';
 import { PatchCharacterBody } from './character-patch';
 import { CharacterSlot } from './character-slot';
 import { ClearedPick } from './dependent-picks';
@@ -22,11 +23,15 @@ export const CreateCharacterBody = z.object({ name: CharacterName, ancestry: Anc
 export type CreateCharacterBody = z.infer<typeof CreateCharacterBody>;
 
 /**
- * One character as its sheet reads it: the character, and every slot it has with its status (#419). The statuses are
- * worked out from the picks and the server's content on each read, never stored, so the character's wire stays inputs
+ * One character as its sheet reads it: the character, every slot it has with its status (#419), and its languages
+ * (#470). The statuses and languages are worked out from the picks and the server's content on each read, never stored, so the character's wire stays inputs
  * only.
  */
-export const CharacterSheet = z.object({ character: Character.codec, slots: z.array(CharacterSlot).readonly() });
+export const CharacterSheet = z.object({
+  character: Character.codec,
+  slots: z.array(CharacterSlot).readonly(),
+  languages: CharacterLanguages,
+});
 export type CharacterSheet = z.output<typeof CharacterSheet>;
 
 /**

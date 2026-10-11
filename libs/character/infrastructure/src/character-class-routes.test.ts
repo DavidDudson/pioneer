@@ -4,6 +4,9 @@ import { CharacterService, InMemoryCharacterRepository } from '@pioneer/characte
 import { PatchedCharacterSheet } from '@pioneer/character/domain';
 import {
   humanAncestryId,
+  languageDwarfId,
+  languageFixtureId,
+  languageFixtures,
   playerCoreClasses,
   playerCoreClassId,
   playerCoreId,
@@ -115,5 +118,37 @@ describe('character routes: skills', () => {
     expect(((await again.json()) as Problem).issues).toStrictEqual([
       { path: ['patch', 'selection'], message: { key: 'character.validation.skillTrained' } },
     ]);
+  });
+});
+
+describe('character routes: languages', () => {
+  test("the ancestry's language slot takes a language once; one already known is refused", async () => {
+    const service = new CharacterService(
+      new InMemoryCharacterRepository(),
+      fixedContent(languageFixtures()),
+      fixedClock('2026-10-11T10:00:00Z'),
+    );
+    const api = new Elysia().use(problemHandler).use(characterRoutes(service, new FakeAuthenticator()));
+    const response = await api.handle(request('POST', '/characters', { name: 'Harsk', ancestry: languageDwarfId }));
+    const { id } = (await response.json()) as Created;
+    const select = (version: number, slot: string, selection: string): Request =>
+      request('PATCH', `/characters/${id}`, {
+        expectedVersion: version,
+        patch: { field: 'selectSlot', slot, selection },
+      });
+
+    const known = await api.handle(select(1, 'language:1:0', languageFixtureId('dwarven')));
+    expect(known.status).toBe(422);
+    expect(((await known.json()) as Problem).issues).toStrictEqual([
+      { path: ['patch', 'selection'], message: { key: 'character.validation.languageKnown' } },
+    ]);
+
+    const picked = await api.handle(select(1, 'language:1:0', languageFixtureId('goblin')));
+    const sheet = PatchedCharacterSheet.parse(await picked.json());
+    expect(sheet.slots.find((slot) => slot.key === 'language:1:0')).toMatchObject({
+      status: 'filled',
+      subject: { kind: 'language', level: 1 },
+      selectionName: 'Goblin',
+    });
   });
 });

@@ -62,7 +62,7 @@ describe('Shop', () => {
       expectedVersion: 3,
       patch: { field: 'giftItem', item: itemFixtureId(ItemFixture.Diamond), quantity: 1 },
     });
-    request.flush({ character: { ...VALEROS, version: 4 }, slots: [], cleared: [] });
+    request.flush({ character: { ...VALEROS, version: 4 }, slots: [], cleared: [], languages: { known: [], open: 0 } });
     await vi.waitFor(async () => {
       await settle();
       expect(present(shop.querySelector('pio-shop-gift')).textContent).toContain('Added');

@@ -67,10 +67,10 @@ import { InventorySection } from '../inventory/inventory-section/inventory-secti
 import { sheetAttributes } from '../sheet-attributes';
 import { sheetBuildPicks } from '../sheet-build-picks';
 import { SheetClassFields } from '../sheet-class-fields/sheet-class-fields.component';
-import { sheetDefences } from '../sheet-defences';
 import { sheetEntryNames } from '../sheet-entry-names';
 import { carriesAnything, EQUIPMENT_CONTENT_KINDS, sheetInvestments } from '../sheet-equipment';
 import { sheetField } from '../sheet-field';
+import { SheetLanguagesSection } from '../sheet-languages-section/sheet-languages-section.component';
 import { SHEET_SECTION_ORDER, SHEET_SECTIONS } from '../sheet-sections';
 import { SheetSkillFields } from '../sheet-skill-fields/sheet-skill-fields.component';
 // oxlint-disable-next-line import/max-dependencies -- one container per sheet section until mode tabs split the page (#495)
@@ -86,7 +86,8 @@ function focusField(field: ElementRef<HTMLElement>): void {
  * index. Every chosen value is its own inline edit with its own state. Attribute modifiers are worked out from the
  * boost picks, so they are read-only, with the boosts still to place listed beneath them. Choices lists every slot
  * with its status, flagging a planned or invalid pick where it would otherwise vanish. Skills lists every skill and Lore
- * with its total, and a picker for each trained skill and skill increase up to the character's level.
+ * with its total, and a picker for each trained skill and skill increase up to the character's level. Languages lists
+ * those the character knows, with Add language while it has any left to add.
  */
 @Component({
   selector: 'pio-character-sheet-page',
@@ -115,6 +116,7 @@ function focusField(field: ElementRef<HTMLElement>): void {
     SectionLink,
     Select,
     SheetClassFields,
+    SheetLanguagesSection,
     SheetSkillFields,
     Skeleton,
     Stack,
@@ -155,11 +157,6 @@ export class CharacterSheetPage {
     const registry = this.registry.data();
     const character = this.character();
     return registry === undefined || character === undefined ? undefined : sheetAttributes(registry, character);
-  });
-  protected readonly defences = computed(() => {
-    const registry = this.registry.data();
-    const character = this.character();
-    return registry === undefined || character === undefined ? undefined : sheetDefences(registry, character);
   });
   /**
    * The registry with the item and condition kinds too, so the character's equipment and Bulk reach the engine. It

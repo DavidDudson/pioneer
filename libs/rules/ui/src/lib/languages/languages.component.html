@@ -1,0 +1,37 @@
+@if (rows(); as languages) {
+  @if (languages.length === 0) {
+    <fr-empty-state [title]="Message.None | transloco" />
+  } @else {
+    <fr-list gap="xs">
+      @for (language of languages; track language.key) {
+        <fr-list-item>
+          <fr-stack direction="horizontal" justify="between" align="center" gap="sm">
+            <fr-stack gap="none">
+              <fr-text>{{ language.name }}</fr-text>
+              <fr-text variant="caption" tone="subtle">{{
+                language.caption.key | transloco: language.caption.params
+              }}</fr-text>
+            </fr-stack>
+            @if (language.remove; as remove) {
+              <fr-async-button
+                variant="ghost"
+                iconOnly
+                [ariaLabel]="Message.Remove | transloco: { language: language.name }"
+                [action]="remove"
+                ><fr-icon [icon]="RemoveIcon"
+              /></fr-async-button>
+            }
+          </fr-stack>
+        </fr-list-item>
+      }
+    </fr-list>
+  }
+} @else {
+  <fr-list gap="xs">
+    @for (row of loadingRows; track row) {
+      <fr-list-item>
+        <fr-stack gap="none"><fr-skeleton width="md" /><fr-skeleton width="sm" /></fr-stack>
+      </fr-list-item>
+    }
+  </fr-list>
+}

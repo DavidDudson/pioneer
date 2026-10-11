@@ -62,7 +62,7 @@ async function etchedAs(section: HTMLElement, character: object): Promise<void> 
   await settle();
   await pick(potency, 'fr-select button', '+1');
   const etched = await patchSent();
-  etched.flush({ character, slots: [], cleared: [] });
+  etched.flush({ character, slots: [], cleared: [], languages: { known: [], open: 0 } });
 }
 
 describe('InventorySection runes', () => {

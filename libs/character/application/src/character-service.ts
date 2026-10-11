@@ -4,6 +4,7 @@ import {
   CharacterCommand,
   CharacterId,
   CharacterPatchField,
+  characterLanguages,
   characterSlots,
   InventoryItemId,
   PATCH_COMMANDS,
@@ -68,12 +69,17 @@ export class CharacterService {
   }
 
   /**
-   * `character` with every slot it has and the slot's status, read over the loaded content (#419). Worked out on each
+   * `character` with every slot it has and the slot's status (#419), and its languages (#470), read over the loaded content. Worked out on each
    * read, never stored. The caller has already applied the access policy (`get`, `patch`).
    */
   public async sheet(character: Character): Promise<CharacterSheet> {
     const content = await this.#content.registry();
-    return { character, slots: characterSlots(character.document, slotContent(content)) };
+    const slots = slotContent(content);
+    return {
+      character,
+      slots: characterSlots(character.document, slots),
+      languages: characterLanguages(character.document, slots),
+    };
   }
 
   /** A new character, owned by the actor. */

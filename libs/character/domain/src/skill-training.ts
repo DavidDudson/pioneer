@@ -89,7 +89,7 @@ function skillRaises({ items, facts }: GrantResolution): SkillRaise[] {
 }
 
 /** The skill ranks the effective set raises: the highest raise of each skill. */
-function grantedSkillRanks(resolution: GrantResolution): ReadonlyMap<Selector, Proficiency> {
+export function grantedSkillRanks(resolution: GrantResolution): ReadonlyMap<Selector, Proficiency> {
   const ranks = new Map<Selector, Proficiency>();
   for (const { selector, rank } of skillRaises(resolution)) {
     ranks.set(selector, higher(ranks.get(selector), rank) ?? rank);
@@ -125,24 +125,33 @@ function trainingSlots(level: Level, count: SkillCount): SkillSlotPlace[] {
   }));
 }
 
-function intelligenceAt(document: CharacterDocument, boosts: BoostContent, level: Level): AttributeModifier {
+export function intelligenceAt(document: CharacterDocument, boosts: BoostContent, level: Level): AttributeModifier {
   return attributeModifiers({ ...document, level }, boosts).get(Attribute.Intelligence);
 }
 
-/** The trained skills a boost raising Intelligence past what it was adds after 1st level, one per point. */
-function intelligenceTrainings(document: CharacterDocument, boosts: BoostContent): SkillSlotPlace[] {
+/** A boost raising Intelligence past what it was after 1st level: where, and by how many points. */
+export interface IntelligenceRaise {
+  readonly level: Level;
+  readonly points: SkillCount;
+}
+
+/**
+ * Each boost after 1st level that raises Intelligence past the highest it was, which adds a trained skill and a language
+ * per point (Player Core).
+ */
+export function intelligenceRaises(document: CharacterDocument, boosts: BoostContent): readonly IntelligenceRaise[] {
   let highest = intelligenceAt(document, boosts, FIRST_LEVEL);
-  const places: SkillSlotPlace[] = [];
+  const raises: IntelligenceRaise[] = [];
   // Intelligence changes only where boosts are given, so it is read at those levels alone.
   const levels = new Set(boostSets(document, boosts).map((set) => set.level));
   for (const level of [...levels].filter((each) => each > FIRST_LEVEL)) {
     const intelligence = intelligenceAt(document, boosts, level);
     if (intelligence > highest) {
-      places.push(...trainingSlots(level, SkillCount.parse(intelligence - highest)));
+      raises.push({ level, points: SkillCount.parse(intelligence - highest) });
       highest = intelligence;
     }
   }
-  return places;
+  return raises;
 }
 
 /**
@@ -166,7 +175,7 @@ function skillSlotPlaces(document: CharacterDocument, { skills, boosts, grantsAt
   }));
   const trainings = [
     ...trainingSlots(FIRST_LEVEL, SkillCount.parse(Math.max(first, 0))),
-    ...intelligenceTrainings(document, boosts),
+    ...intelligenceRaises(document, boosts).flatMap(({ level, points }) => trainingSlots(level, points)),
   ];
   return [...trainings, ...increases].toSorted((left, right) => left.level - right.level);
 }
@@ -216,18 +225,23 @@ export function skillSlots(document: CharacterDocument, reads: SkillReads): read
   });
 }
 
+/** The skill ranks `slots`' picks reach at `level`: each trained skill and skill increase up to it, in order. */
+export function slotSkillRanks(slots: readonly SkillSlot[], level: Level): ReadonlyMap<Selector, Proficiency> {
+  const ranks = new Map<Selector, Proficiency>();
+  for (const slot of slots) {
+    if (slot.level <= level && slot.pick !== undefined && slot.rank !== undefined) {
+      ranks.set(slot.pick.selector, slot.rank);
+    }
+  }
+  return ranks;
+}
+
 /**
  * The skill ranks the character's picks reach at its level: each trained skill and skill increase up to it, in order.
  * The plan above its level doesn't count yet.
  */
 export function pickedSkillRanks(document: CharacterDocument, reads: SkillReads): ReadonlyMap<Selector, Proficiency> {
-  const ranks = new Map<Selector, Proficiency>();
-  for (const slot of skillSlots(document, reads)) {
-    if (slot.level <= document.level && slot.pick !== undefined && slot.rank !== undefined) {
-      ranks.set(slot.pick.selector, slot.rank);
-    }
-  }
-  return ranks;
+  return slotSkillRanks(skillSlots(document, reads), Level.parse(document.level));
 }
 
 /** `ranks` with the skill ranks the picks reach, the higher of the two for each skill. */

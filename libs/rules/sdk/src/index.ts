@@ -1,5 +1,5 @@
 export { ActionCategory, ActionData, Frequency, FrequencyPeriod, TriggerEvent, TriggerEventType, Uses } from './action';
-export { AncestryData, AncestryDefinition, AncestryId } from './ancestry';
+export { AncestryData, AncestryDefinition, AncestryId, LanguageList } from './ancestry';
 export {
   ATTRIBUTE_MODIFIER_MAX,
   ATTRIBUTE_MODIFIER_MIN,
@@ -266,6 +266,7 @@ export {
 } from './rule-element-item-alteration';
 export { DefenceValue, ImmunityElement, ResistanceElement, WeaknessElement } from './rule-element-defences';
 export { SenseElement } from './rule-element-sense';
+export { LanguageAccess, LanguageCount, LanguageElement } from './rule-element-language';
 export {
   SLOT_COUNT_MAX,
   SlotCount,
