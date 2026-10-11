@@ -65,12 +65,12 @@ const PHYSICAL_KINDS: ReadonlySet<ContentKind> = new Set([
 ]);
 
 /** Whether a grant of `item` with Foundry's `onDeleteActions` goes with its granter and only with it. */
-function isDerivedGrant(deletes: unknown, item: ContentId, references: EntryReferences): boolean {
+function isDerivedGrant(deletes: unknown, item: ContentId | undefined, references: EntryReferences): boolean {
   const actions = FoundryDeleteActions.safeParse(deletes);
   if (!actions.success) {
     return false;
   }
-  const kind = references.kinds.get(item);
+  const kind = item === undefined ? undefined : references.kinds.get(item);
   const physical = kind !== undefined && PHYSICAL_KINDS.has(kind);
   const granter = actions.data?.granter ?? (physical ? 'detach' : 'cascade');
   return granter === 'cascade' && actions.data?.grantee !== 'cascade';
@@ -149,6 +149,64 @@ export interface RuleContext {
   readonly values: LangValues;
 }
 
+/** A Foundry camel-case flag as a Pioneer slug: `druidicOrder` to `druidic-order`. */
+function kebab(flag: string): string {
+  return flag.replaceAll(/(?<lower>[a-z0-9])(?<upper>[A-Z])/gu, '$<lower>-$<upper>').toLowerCase();
+}
+
+/** A subclass's `ChoiceSet`: Foundry queries class features by tag alone (`item:tag:cleric-doctrine`). */
+const FoundryTagChoices = z.strictObject({
+  filter: z.array(z.string().regex(/^item:tag:[a-z0-9-]+$/u)).min(1),
+});
+
+/** A Foundry lang key (`PF2E.SpecificRule.Cleric.Doctrine.Prompt`), which names a prompt rather than giving it. */
+const LANG_KEY = 'PF2E.';
+
+/** The fields a subclass query replaces (`flag`, `choices`) or drops (`adjustName`). */
+const TAG_QUERY_FIELDS_REPLACED: ReadonlySet<string> = new Set(['adjustName', 'choices', 'flag']);
+
+/**
+ * A subclass's `ChoiceSet` (a doctrine, muse, order, school), which Foundry writes as a filter on class-feature tags
+ * with no item type, as a query of class features. Its camel-case flag becomes a slug, a prompt that is a lang key is
+ * left off (the slot is named by its feature), and `adjustName` (renaming the feature after the pick) is dropped as a
+ * display concern. Any other `ChoiceSet` is left as it is.
+ */
+function withTagQuery(raw: unknown): unknown {
+  if (keyOf(raw) !== RuleElementKey.ChoiceSet || typeof raw !== 'object' || raw === null || !('choices' in raw)) {
+    return raw;
+  }
+  const choices = FoundryTagChoices.safeParse(raw.choices);
+  if (!choices.success) {
+    return raw;
+  }
+  const prompt = 'prompt' in raw ? raw.prompt : undefined;
+  const dropped = typeof prompt === 'string' && prompt.startsWith(LANG_KEY) ? 'prompt' : undefined;
+  const kept = Object.entries(raw).filter(([field]) => !TAG_QUERY_FIELDS_REPLACED.has(field) && field !== dropped);
+  const flag = 'flag' in raw && typeof raw.flag === 'string' ? { flag: kebab(raw.flag) } : {};
+  const query = { kind: ContentKind.ClassFeature, filter: choices.data.filter };
+  return { ...Object.fromEntries(kept), ...flag, choices: query };
+}
+
+/** Foundry's grant of a `ChoiceSet`'s pick on the same item: `{item|flags.system.rulesSelections.doctrine}`. */
+const SELECTION_UUID = /^\{item\|flags\.system\.rulesSelections\.(?<flag>[A-Za-z0-9]+)\}$/u;
+
+/**
+ * A `GrantItem` of a `ChoiceSet`'s pick, as Foundry names it by the pick's flag, granting `{ choice }` under the flag
+ * `withTagQuery` gives it. Delete actions are read as for a granted id; a pick is no physical item.
+ */
+function withChoiceGrant(raw: unknown, references: EntryReferences): unknown {
+  if (keyOf(raw) !== RuleElementKey.GrantItem || typeof raw !== 'object' || raw === null || !('uuid' in raw)) {
+    return raw;
+  }
+  const flag = typeof raw.uuid === 'string' ? SELECTION_UUID.exec(raw.uuid)?.groups?.['flag'] : undefined;
+  const deletes = 'onDeleteActions' in raw ? raw.onDeleteActions : undefined;
+  if (flag === undefined || !isDerivedGrant(deletes, undefined, references)) {
+    return raw;
+  }
+  const rest = Object.entries(raw).filter(([field]) => !GRANT_FIELDS_REPLACED.has(field));
+  return { ...Object.fromEntries(rest), item: { choice: kebab(flag) } };
+}
+
 export interface RuleTranslation {
   readonly rules: readonly RuleElement[];
   readonly untranslated: readonly UntranslatedRule[];
@@ -163,7 +221,9 @@ export function translateRules(entry: ContentId, raws: readonly unknown[], conte
   const references = context.references ?? NO_REFERENCES;
   for (const raw of raws) {
     const text = withDisplayLabel(localized(raw, context, unresolved));
-    const element = RuleElement.safeParse(withGrantedId(withPioneerFormula(text), references));
+    const granted = withGrantedId(withPioneerFormula(text), references);
+    const shaped = withChoiceGrant(withTagQuery(granted), references);
+    const element = RuleElement.safeParse(shaped);
     if (element.success) {
       rules.push(element.data);
     } else {

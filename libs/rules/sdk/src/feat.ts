@@ -2,7 +2,7 @@ import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { ActionData, Skills, Uses } from './action';
-import { ContentId } from './content-id';
+import { ContentId, Slug } from './content-id';
 import { RichText } from './rich-text';
 
 /** Which slot a feat fills, as Foundry pf2e files it. An archetype feat is a class feat with the archetype trait. */
@@ -15,6 +15,8 @@ export const FeatCategory = {
 } as const;
 export type FeatCategory = ValueOf<typeof FeatCategory>;
 const FeatCategorySchema = z.enum(FeatCategory);
+
+const TAGS_MAX = 16;
 
 /** `maxTakable` for a feat a character can take any number of times (Foundry pf2e stores `null`). */
 export const UNLIMITED = 'unlimited';
@@ -47,5 +49,10 @@ export type FeatData = z.infer<typeof FeatData>;
 export const ClassFeatureData = z.strictObject({
   /** How it is used when the feature is itself an action. Most grant an `action` entry instead (Reactive Strike). */
   action: ActionData.optional(),
+  /**
+   * The groups it belongs to beyond its traits (Foundry's `otherTags`): `cleric-doctrine` on each doctrine. Each is the
+   * roll option `tag:<tag>`, which a subclass's `ChoiceSet` filters on (`item:tag:cleric-doctrine`).
+   */
+  tags: z.array(Slug).min(1).max(TAGS_MAX).optional(),
 });
 export type ClassFeatureData = z.infer<typeof ClassFeatureData>;

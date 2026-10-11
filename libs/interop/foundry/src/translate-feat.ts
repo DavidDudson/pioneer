@@ -1,4 +1,13 @@
-import { ActionData, BlockKind, FeatCategory, InlineKind, RichTextString, Trait, UNLIMITED } from '@pioneer/rules/sdk';
+import {
+  ActionData,
+  BlockKind,
+  FeatCategory,
+  InlineKind,
+  RichTextString,
+  Slug,
+  Trait,
+  UNLIMITED,
+} from '@pioneer/rules/sdk';
 import type { ContentId, RichText } from '@pioneer/rules/sdk';
 import * as z from 'zod';
 
@@ -25,10 +34,13 @@ export const FEAT_FIELDS: ReadonlySet<string> = new Set([
 const FIELD_MAX = 64;
 const NAME_MAX = 1000;
 const PREREQUISITES_MAX = 16;
+const TAGS_MAX = 16;
 
 const FeatCategorySchema = z.enum(FeatCategory);
 
 const FoundryPrerequisite = z.looseObject({ value: z.string().max(NAME_MAX) });
+
+const FoundryTags = z.array(z.string().max(FIELD_MAX)).max(TAGS_MAX);
 
 const FoundryFeatSystem = z.looseObject({
   category: z.string().max(FIELD_MAX).nullish(),
@@ -36,8 +48,21 @@ const FoundryFeatSystem = z.looseObject({
   prerequisites: z.looseObject({ value: z.array(FoundryPrerequisite).max(PREREQUISITES_MAX) }).optional(),
   onlyLevel1: z.boolean().optional(),
   maxTakable: z.number().int().positive().nullish(),
+  traits: z.looseObject({ otherTags: FoundryTags.optional() }).optional(),
 });
 type FoundryFeatSystem = z.infer<typeof FoundryFeatSystem>;
+
+/** A class feature's `otherTags` as tags (`cleric-doctrine`); a tag that is no slug is reported and left off. */
+function tagsOf(system: FoundryFeatSystem, { log }: KindInput): object {
+  const tags = (system.traits?.otherTags ?? []).flatMap((tag): Slug[] => {
+    const slug = Slug.safeParse(tag);
+    if (!slug.success) {
+      report(log, { reason: KindDataGapReason.UnmappedValue, field: 'traits.otherTags', raw: tag });
+    }
+    return slug.success ? [slug.data] : [];
+  });
+  return tags.length === 0 ? {} : { tags };
+}
 
 /** A passive feat with nothing an action carries: no `action` data. */
 function isEmpty(data: object): boolean {
@@ -131,8 +156,8 @@ export function featData(input: KindInput): object | undefined {
   };
 }
 
-/** The class feature's data, unparsed: its `action` data when it is itself an action. */
+/** The class feature's data, unparsed: its `action` data when it is itself an action, and its tags. */
 export function classFeatureData(input: KindInput): object | undefined {
   const system = systemOf(FoundryFeatSystem, input);
-  return system === undefined ? undefined : actionOf(system, input);
+  return system === undefined ? undefined : { ...actionOf(system, input), ...tagsOf(system, input) };
 }

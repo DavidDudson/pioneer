@@ -10,6 +10,8 @@ import {
   ARCHETYPES_JOURNAL,
   BUILD,
   CLAN_DAGGER,
+  CLOISTERED_CLERIC,
+  DOCTRINE,
   DWARF,
   FIGHTER,
 } from './testing/build-fixtures';
@@ -261,5 +263,32 @@ describe('translateKindData: classes', () => {
     expect(gapKeys(odd)).toContain('unmapped-value ancestryFeatLevels');
     expect(gapKeys(odd)).toContain('unmapped-field skillIncreaseLevels');
     expect(gapKeys(odd)).toContain('unmapped-field attacks.other');
+  });
+});
+
+describe('translateRules: subclass choices', () => {
+  const subclass = translate([DOCTRINE, CLOISTERED_CLERIC]);
+
+  test("a subclass's ChoiceSet queries class features by tag and grants the pick, its lang-key prompt left off", () => {
+    expect(subclass.envelopes.untranslatedRules).toEqual([]);
+    expect(rulesIn(subclass, 'doctrine')).toEqual([
+      {
+        key: RuleElementKey.ChoiceSet,
+        flag: 'cleric-doctrine',
+        choices: { kind: ContentKind.ClassFeature, filter: ['item:tag:cleric-doctrine'] },
+      },
+      { key: RuleElementKey.GrantItem, item: { choice: 'cleric-doctrine' } },
+    ]);
+  });
+
+  test("a class feature keeps Foundry's other tags, which the subclass query reads", () => {
+    expect(dataIn(subclass, 'cloistered-cleric')).toEqual({ tags: ['cleric-doctrine'] });
+  });
+
+  test('a ChoiceSet filtering on anything but tags is left as Foundry wrote it', () => {
+    const rules = [{ key: 'ChoiceSet', flag: 'weapon', choices: { filter: ['item:trait:fighter'] } }];
+    const other = translate([{ ...DOCTRINE, system: { ...DOCTRINE.system, rules } }]);
+
+    expect(other.envelopes.untranslatedRules.map(({ key }) => key)).toEqual(['ChoiceSet']);
   });
 });

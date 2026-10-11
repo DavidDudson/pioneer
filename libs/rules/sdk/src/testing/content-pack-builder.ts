@@ -32,6 +32,18 @@ interface EnvelopeFields {
   readonly level?: number;
 }
 
+/** What a test class has beyond its key attribute. */
+interface ClassFields {
+  readonly hitPoints?: number;
+  readonly rules?: readonly object[];
+}
+
+/** What a test class feature has. */
+interface ClassFeatureFields {
+  readonly tags?: readonly string[];
+  readonly rules?: readonly object[];
+}
+
 /**
  * Test builder for content packs. Defaults to a valid, empty homebrew pack whose entries cite it as their homebrew
  * source; every `with*` returns the builder so tests state only what they care about:
@@ -114,9 +126,28 @@ export class ContentPackBuilder {
     return contentId(PackId.parse(this.#id), EntrySlug.parse(`${kind}:${name}`));
   }
 
-  /** A class whose key attribute may be any of `keyAttribute`. */
-  public withClass(name: string, keyAttribute: readonly string[]): this {
-    this.#entries.push({ kind: ContentKind.Class, name, data: { keyAttribute, hitPoints: 10, additionalSkills: 3 } });
+  /**
+   * A class whose key attribute may be any of `keyAttribute`, with 10 Hit Points unless given, and `rules` as JSON (its
+   * starting ranks and the class features it grants by level).
+   */
+  public withClass(
+    name: string,
+    keyAttribute: readonly string[],
+    { hitPoints = 10, rules = [] }: ClassFields = {},
+  ): this {
+    this.#entries.push({
+      kind: ContentKind.Class,
+      name,
+      data: { keyAttribute, hitPoints, additionalSkills: 3 },
+      rules,
+    });
+    return this;
+  }
+
+  /** A 1st-level class feature with `tags` (a subclass's `cleric-doctrine`) and `rules` as JSON. */
+  public withClassFeature(name: string, { tags, rules = [] }: ClassFeatureFields = {}): this {
+    const data = tags === undefined ? {} : { tags };
+    this.#entries.push({ kind: ContentKind.ClassFeature, name, data, rules, level: 1 });
     return this;
   }
 

@@ -69,4 +69,17 @@ describe('grantLookup', () => {
         .map((entry) => String(entry.slug)),
     ).toEqual(['assurance']);
   });
+
+  test('finds class features, which a class grants, each tag a roll option a subclass query reads', () => {
+    const builder = new ContentPackBuilder()
+      .withClassFeature('doctrine')
+      .withClassFeature('cloistered-cleric', { tags: ['cleric-doctrine'] });
+    const registry = new ContentRegistry();
+    registry.register(builder.build());
+    const features = grantLookup(registry).ofKind(ContentKind.ClassFeature);
+    expect(features.map((entry) => [String(entry.slug), entry.rollOptions.map(String)])).toEqual([
+      ['doctrine', []],
+      ['cloistered-cleric', ['tag:cleric-doctrine']],
+    ]);
+  });
 });
