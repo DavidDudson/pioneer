@@ -139,3 +139,15 @@ export {
   STOWED,
 } from './item-carry';
 export { type ActiveItem, activeItems, type EquippedInputs, equippedInputs, equippedRules } from './equipped';
+export {
+  BulkLimit,
+  carriedBulk,
+  coinBulk,
+  Encumbrance,
+  type InventoryBulk,
+  inventoryBulk,
+  LightBulk,
+  lightBulk,
+  WholeBulk,
+  wholeBulk,
+} from './bulk';

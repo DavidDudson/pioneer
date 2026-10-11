@@ -19,6 +19,8 @@ const ITEM_PACK = 'item-fixtures';
 /** Player Core numbers (Foundry pf2e) for the items the inventory tests carry. */
 const BACKPACK_CAPACITY = 4;
 const BACKPACK_IGNORED = 2;
+const ARROWS_PER_BULK = 10;
+const BAG_OF_HOLDING_CAPACITY = 25;
 
 /** The items `ITEM_FIXTURES` holds, by name. */
 export const ItemFixture = {
@@ -35,6 +37,12 @@ export const ItemFixture = {
   Cloak: 'cloak',
   /** Specific magic armour with the invested trait: its bonus to AC needs no investing, its rules do. */
   RuneArmor: 'rune-armor',
+  /** Ammunition, light per 10. */
+  Arrows: 'arrows',
+  /** An extradimensional container that ignores all it holds up to its capacity. */
+  BagOfHolding: 'bag-of-holding',
+  /** Two Bulk of gear with no usage, to load a character up. */
+  Anvil: 'anvil',
   /** A weapon whose name is exactly as long as a source slug may be, 64 characters. */
   LongSword: 'sword-of-the-very-long-name-that-just-fits-in-a-source-slug-ok64',
 } as const;
@@ -55,6 +63,20 @@ const ITEMS: Readonly<Record<ItemFixture, ItemFixtureFields>> = {
     },
   },
   [ItemFixture.Rope]: { kind: ContentKind.Equipment, data: { bulk: 'light' } },
+  [ItemFixture.Arrows]: {
+    kind: ContentKind.Consumable,
+    data: { bulk: 'light', bulkPer: ARROWS_PER_BULK, category: 'ammunition' },
+  },
+  [ItemFixture.BagOfHolding]: {
+    kind: ContentKind.Equipment,
+    data: {
+      bulk: 1,
+      usage: { type: 'held', hands: 'one' },
+      container: { capacity: BAG_OF_HOLDING_CAPACITY, ignored: BAG_OF_HOLDING_CAPACITY },
+    },
+    traits: ['extradimensional', 'magical'],
+  },
+  [ItemFixture.Anvil]: { kind: ContentKind.Equipment, data: { bulk: 2 } },
   [ItemFixture.Longsword]: {
     kind: ContentKind.Weapon,
     data: {

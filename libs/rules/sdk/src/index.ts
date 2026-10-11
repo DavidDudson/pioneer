@@ -14,7 +14,7 @@ export { EffectBadgeType, EffectCategory, EffectData, EffectDurationType } from 
 export { RitualData } from './ritual';
 export { ArmorData, ArmorGroup, ArmorItemCategory, ShieldData } from './armor';
 export { ConsumableCategory, ConsumableData } from './consumable';
-export { EquipmentData, KitData, TreasureCategory, TreasureData } from './equipment';
+export { EquipmentData, type ItemContainer, KitData, TreasureCategory, TreasureData } from './equipment';
 export {
   Bulk,
   BulkCount,

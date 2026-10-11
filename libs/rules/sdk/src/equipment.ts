@@ -6,15 +6,16 @@ import { ContentId } from './content-id';
 import { Bulk, BulkCount, ItemCount, physicalFields, Price, Usage } from './physical-item';
 
 /**
- * What a container holds, with no limit when `capacity` is absent; how much of it doesn't count when worn ("the first
- * 2 Bulk", a backpack); and its own Bulk when held or stowed, when that differs from its `bulk` worn (a backpack is
- * negligible worn and light carried).
+ * What a container holds, with no limit when `capacity` is absent; how much of it doesn't count, however the
+ * container is carried ("the first 2 Bulk", a backpack); and its own Bulk when held or stowed, when that differs from
+ * its `bulk` worn (a backpack is negligible worn and light carried).
  */
 const Container = z.strictObject({
   capacity: BulkCount.optional(),
   ignored: BulkCount.optional(),
   heldBulk: Bulk.optional(),
 });
+export type ItemContainer = z.infer<typeof Container>;
 
 /**
  * Equipment's `data` on the `ContentEntry` envelope: adventuring gear, worn and held items, and containers, which
