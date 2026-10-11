@@ -28,9 +28,10 @@ Alternatives:
   character's level and a spell the slot doesn't offer.
 - A cantrip is cast at half the character's level, rounded up; a spell in a higher slot is cast at the slot's rank.
   Focus spells never go in a slot.
-- The build lists the uncommon, rare and unique spells the character has access to, `build.spellAccess` (schema version 4),
-  changed with `grantSpellAccess` and `revokeSpellAccess`. Common spells and spells no slot takes are refused. A pick
-  whose access is taken away stays, invalid with its own reason, until access comes back or the pick changes.
+- The build lists the uncommon, rare and unique spells the character has access to, `build.spellAccess` (schema
+  version 4), changed with `grantSpellAccess` and `revokeSpellAccess`. Common spells and spells no slot takes are
+  refused, as is a grant past the most a build lists. A pick whose access is taken away stays, invalid with its own
+  reason, until access comes back or the pick changes.
 - Pools (a divine font, a curriculum) keep showing counts only; preparing into them is #581. Changing preparations
   during daily preparations is #580.
 
