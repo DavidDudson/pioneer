@@ -266,7 +266,9 @@ describe.skipIf(adminUrl === undefined)('0012_character_document backfill (postg
   test('stored modifiers stay out of the document', async () => {
     const found = await new DrizzleCharacterRepository(database.db).findById(ezren.id);
     expect(found?.modifier(Attribute.Intelligence)).toBe(AttributeModifier.parse(4));
-    const rows = await database.db.execute(sql`select document from characters where id = ${ezren.id}`);
-    expect(rows[0]).not.toHaveProperty('document.attributes');
+    const rows = await database.db.execute(
+      sql`select document ? 'attributes' as present, document->'build'->'choices' as choices from characters where id = ${ezren.id}`,
+    );
+    expect(rows[0]).toStrictEqual({ present: false, choices: { ancestry: humanAncestryId } });
   });
 });
