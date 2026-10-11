@@ -45,6 +45,7 @@ Accepted. To change a decision, add a new ADR that supersedes the old one; do no
 | [0038](0038-skill-slots-come-from-class-data.md)              | Skill slots come from class data, opened by the character domain                  |
 | [0039](0039-derived-conditions-are-grant-roots.md)            | Conditions the character's inputs bring are grant roots, not play state           |
 | [0040](0040-spellcasting-entries-are-rule-elements.md)        | Spellcasting entries are rule elements                                            |
+| [0041](0041-spell-slots-are-rule-elements.md)                 | Spell slots are rule elements                                                     |
 
 Template:
 
