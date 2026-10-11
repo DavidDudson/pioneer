@@ -36,7 +36,8 @@
     "element": {
       "unknown": "“{key}” is not a rule element Pioneer knows yet.",
       "suboptionsNeedToggle": "Only a toggle (toggleable: true) can offer suboptions.",
-      "adjustModeOrSuppress": "Give a mode and a value, or suppress: true, but not both."
+      "adjustModeOrSuppress": "Give a mode and a value, or suppress: true, but not both.",
+      "spellcastingSlugLength": "A spellcasting entry’s slug may be at most {maximum} characters."
     },
     "formula": {
       "unknownReference": "“{found}” at position {position} is not a reference Pioneer knows. References look like @level, @attr.str or @prof.skill.athletics.",

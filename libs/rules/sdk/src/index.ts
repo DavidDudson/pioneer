@@ -253,6 +253,7 @@ export {
   TraitAlterationMode,
 } from './rule-element-item-alteration';
 export { DefenceValue, ImmunityElement, ResistanceElement, WeaknessElement } from './rule-element-defences';
+export { SpellcastingEntryElement, SpellPreparation, SpellPreparationSchema } from './rule-element-spellcasting';
 export {
   ArmorCategory,
   MartialCategory,

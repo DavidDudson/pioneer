@@ -14,6 +14,7 @@ export const RulesMessage = {
   UnknownElement: 'rules.element.unknown',
   SuboptionsNeedToggle: 'rules.element.suboptionsNeedToggle',
   AdjustModeOrSuppress: 'rules.element.adjustModeOrSuppress',
+  SpellcastingSlugLength: 'rules.element.spellcastingSlugLength',
   UnknownReference: 'rules.formula.unknownReference',
   FoundryReference: 'rules.formula.foundryReference',
   ReferenceOutOfScope: 'rules.formula.referenceOutOfScope',

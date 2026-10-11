@@ -22,6 +22,8 @@ import { Proficiency } from '../proficiency';
 import { NumericAlterationMode, NumericItemProperty, TraitAlterationMode } from '../rule-element-item-alteration';
 import { AdjustMode, ChangeMode } from '../rule-element-numbers';
 import { ArmorCategory, MartialKind, WeaponCategory } from '../rule-element-proficiency';
+import { SpellPreparation } from '../rule-element-spellcasting';
+import { MagicTradition } from '../spellcasting-tradition';
 import { keyPathText, predicateJson, rollOptionText, validFormulaText } from './arbitraries';
 
 const LIST_MAX = 3;
@@ -181,6 +183,13 @@ const adjustmentTargets = defenceTypes(anyOf(DamageAdjustmentTarget));
 const weakness = element('Weakness', { type: adjustmentTargets, value: defenceValue }, exceptions);
 const resistance = element('Resistance', { type: adjustmentTargets, value: defenceValue }, exceptions);
 
+const spellcastingEntry = element('SpellcastingEntry', {
+  slug: slugText,
+  tradition: anyOf(MagicTradition),
+  attribute: anyOf(Attribute),
+  preparation: anyOf(SpellPreparation),
+});
+
 /**
  * Valid rule elements of every `key` the SDK knows, as plain JSON (unparsed). Use with
  * `RuleElement.parse` to get the typed value.
@@ -206,4 +215,5 @@ export const ruleElementJson: Arbitrary<object> = oneof(
   immunity,
   weakness,
   resistance,
+  spellcastingEntry,
 );
