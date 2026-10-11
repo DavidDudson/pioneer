@@ -61,7 +61,9 @@ down, fix it there, and restack (below), rather than patching it in a higher lay
 
 ## 3. Submit
 
-Each layer passes the `review` skill before it is submitted.
+Each layer passes the `review` skill before it is submitted. A layer that changes UI gets before/after
+screenshots in its PR body (`create-pr` step 4): before is the layer below, not main, so take it before building
+the layer, or run the worktree recipe on the branch below. Upload with the layer's branch as the key.
 
 **Open each PR with its final title before `gh stack submit`.** CI's PR-title check (`committed` in `ci.yml`)
 runs only on `opened`, `synchronize` and `reopened`, not `edited`. `gh stack submit --auto` opens PRs with

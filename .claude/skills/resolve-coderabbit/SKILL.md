@@ -55,6 +55,8 @@ a strong, cited reason.
 - Rerun the mechanical checks for touched projects: `bun run affected` and `bun run lint:workspace` (`just db-up`
   first if db tests are affected).
 - Push. Note each commit's short SHA for the replies.
+- If a fix changes what a user sees, retake the affected after screenshots and update the PR body (`create-pr`
+  step 4).
 
 ## 4. Reply in every thread
 
