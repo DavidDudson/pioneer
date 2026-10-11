@@ -15,7 +15,9 @@
             }}</fr-button>
           </fr-stack>
           @for (pick of cleared(); track pick.key) {
-            <fr-text>{{ 'character.sheet.cleared.heritage' | transloco: { name: pick.name } }}</fr-text>
+            <fr-message tone="warning">{{
+              'character.sheet.cleared.heritage' | transloco: { name: pick.name }
+            }}</fr-message>
           }
         </fr-stack>
       </fr-surface>

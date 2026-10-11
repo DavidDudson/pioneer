@@ -80,6 +80,7 @@ describe('CharacterSheetPage build', () => {
         'Whisper Elf doesn’t belong to the new ancestry, so your heritage was cleared. Pick another.',
       );
     });
+    expect(root.querySelector('fr-surface [role="alert"]')?.textContent).toContain('Whisper Elf');
 
     const dismiss = present(
       [...root.querySelectorAll<HTMLElement>('fr-surface button')].find(
