@@ -176,8 +176,8 @@ filter on indexed columns. `schema_version` mirrors the document's `schemaVersio
 `decodeCharacterDocument`, upgrading an older one; the next save writes it back at the current version, so old rows
 are upgraded as they are touched, never by a bulk rewrite. The ancestry, background and class are their root slots'
 selections. Characters stored before boost slots (migration 0014) lost their stored modifiers, which are derived and
-can't be turned back into boosts: their boost slots start empty. Imports don't carry boosts yet; once
-[#420](https://github.com/DavidDudson/pioneer/issues/420) lands, a Pathbuilder re-import fills them.
+can't be turned back into boosts: their boost slots start empty; a Pathbuilder re-import fills them
+([#420](https://github.com/DavidDudson/pioneer/issues/420)).
 
 The document is one aggregate, validated by zod and versioned with the existing `expectedVersion` PATCH pattern.
 Edits stay field-level commands (`selectSlot`, `addItem`, `setHp`, `addCondition`), so the API stays small and each
@@ -222,9 +222,16 @@ characters; the player sees them.
   [#52](https://github.com/DavidDudson/pioneer/issues/52); `libs/interop/pathbuilder` holds a real export
   (`fixtures/briar-rose.json`) as the reference sheet. Creating a character posts the raw export to
   `POST /characters/import/pathbuilder`, which reads it again rather than trusting the preview, refuses an ancestry
-  that matches no loaded content, and inserts name, ancestry and level in one write audited as `importPathbuilder`.
-  Its import report (unmatched names by kind, and the filled fields the character can't hold yet, boosts among them
-  until #420) is returned, not stored: the sheet shows it until dismissed or reloaded.
+  that matches no loaded content, and inserts one write audited as `importPathbuilder`: name, level, ancestry, the
+  background and first class when they match loaded content, and every boost in its slot
+  ([#420](https://github.com/DavidDudson/pioneer/issues/420)). Each set Pathbuilder recorded (`ancestryBoosts` and
+  `ancestryFree` together, `backgroundBoosts`, `classBoosts`, `mapLevelledBoosts`) goes to the set of the same source
+  and level; gradual boosts join the next free set (2nd to 5th go to 5th, and so on). No modifier is stored:
+  Pathbuilder's scores are only a check. The import report (unmatched names by kind, the filled fields the character
+  can't hold yet, the boosts no slot took, and each attribute whose derived modifier differs from Pathbuilder's) is
+  returned, not stored: the sheet shows it until dismissed or reloaded. A dual class
+  ([#549](https://github.com/DavidDudson/pioneer/issues/549)) and voluntary flaws
+  ([#550](https://github.com/DavidDudson/pioneer/issues/550)) aren't carried yet.
 - **Pioneer JSON:** the `CharacterDocument` plus the ids and versions of packs used. Homebrew entries referenced by
   the character are embedded so the file is portable.
 - **Foundry export:** see [play-and-campaigns.md](play-and-campaigns.md#foundry-export).
