@@ -79,8 +79,15 @@ export {
   packContentsFromFiles,
 } from './content-pack-file';
 export type { PackContents, PackContentsLoader } from './content-pack-file';
-export { DisplayCategory, DisplayCategorySchema, DisplayHints, ExternalId, ExternalIds } from './entry-fields';
-export { Rarity, RaritySchema } from './entry-fields';
+export {
+  DisplayCategory,
+  DisplayCategorySchema,
+  DisplayHints,
+  ExternalId,
+  ExternalIds,
+  Rarity,
+  RaritySchema,
+} from './entry-fields';
 export { KIND_DATA, REGISTERED_KINDS, type RegisteredKind } from './kind-data';
 export {
   COMMON_FACETS,
