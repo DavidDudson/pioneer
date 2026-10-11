@@ -16,8 +16,7 @@ export interface BookCoverage {
 /** Whether `entry` cites `book` with no page. */
 function lacksPage(entry: SourcedEntry, book: BookId): boolean {
   return entry.sources.some(
-    (source) =>
-      source.kind === SourceKind.Book && source.book === book && source.page === undefined,
+    (source) => source.kind === SourceKind.Book && source.book === book && source.page === undefined,
   );
 }
 
