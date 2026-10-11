@@ -10,3 +10,5 @@ export { SourceLineView } from './lib/source-line/source-line.component';
 export { type NamedStatistic, StatisticsView } from './lib/statistics/statistics.component';
 export { type ChoiceLine, type ChoiceSelection, ChoiceState } from './lib/choices/choice-line';
 export { ChoicesView } from './lib/choices/choices.component';
+export { type BuildLine, BuildPart, type BuildValue } from './lib/build-summary/build-line';
+export { BuildSummaryView } from './lib/build-summary/build-summary.component';
