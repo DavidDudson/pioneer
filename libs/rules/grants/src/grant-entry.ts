@@ -32,6 +32,11 @@ export interface GrantEntry {
    * under. Its kind's schema derives them once it lands.
    */
   readonly rollOptions: readonly RollOption[];
+  /**
+   * The entry it belongs to, which a root slot `within` another reads: a heritage's ancestry. Absent for an entry that
+   * belongs to none, such as a versatile heritage, which any ancestry can take.
+   */
+  readonly belongsTo?: ContentId;
 }
 
 /** The installed content grant resolution reads. */

@@ -26,6 +26,10 @@ interface EnvelopeFields {
   readonly kind: ContentKind;
   readonly name: string;
   readonly data: object;
+  /** Rule elements as JSON; none when absent. */
+  readonly rules?: readonly object[];
+  /** The entry's level, for the kinds that have one (feats). */
+  readonly level?: number;
 }
 
 /**
@@ -83,10 +87,31 @@ export class ContentPackBuilder {
     return this;
   }
 
-  /** A background with these boosts, each the attributes it may go to (`[['str', 'dex'], [...all six]]`). */
-  public withBackground(name: string, boosts: readonly (readonly string[])[]): this {
-    this.#entries.push({ kind: ContentKind.Background, name, data: { boosts } });
+  /**
+   * A background with these boosts, each the attributes it may go to (`[['str', 'dex'], [...all six]]`), and `rules` as
+   * JSON (its trained skills and skill feat).
+   */
+  public withBackground(name: string, boosts: readonly (readonly string[])[], rules: readonly object[] = []): this {
+    this.#entries.push({ kind: ContentKind.Background, name, data: { boosts }, rules });
     return this;
+  }
+
+  /** A heritage of this pack's ancestry `ancestry`, or a versatile one without it. */
+  public withHeritage(name: string, ancestry?: string): this {
+    const data = ancestry === undefined ? {} : { ancestry: this.idOf(ContentKind.Ancestry, ancestry) };
+    this.#entries.push({ kind: ContentKind.Heritage, name, data });
+    return this;
+  }
+
+  /** A skill feat. */
+  public withFeat(name: string): this {
+    this.#entries.push({ kind: ContentKind.Feat, name, data: { category: 'skill' }, level: 1 });
+    return this;
+  }
+
+  /** The id this pack gives its entry of `kind` named `name`, as `GrantItem` and heritages name it. */
+  public idOf(kind: ContentKind, name: string): string {
+    return contentId(PackId.parse(this.#id), EntrySlug.parse(`${kind}:${name}`));
   }
 
   /** A class whose key attribute may be any of `keyAttribute`. */
@@ -108,8 +133,8 @@ export class ContentPackBuilder {
       creatures: this.#creatures.map((creature) => ({ sources, ...creature })),
       statistics: this.#statistics.map((statistic) => ({ sources, ...statistic })),
       rollOptionNamespaces: this.#namespaces,
-      otherEntries: this.#entries.map(({ kind, name, data }) => ({
-        id: contentId(PackId.parse(this.#id), EntrySlug.parse(`${kind}:${name}`)),
+      otherEntries: this.#entries.map(({ kind, name, data, rules = [], level }) => ({
+        id: this.idOf(kind, name),
         pack: this.#id,
         kind,
         slug: `${kind}:${name}`,
@@ -118,8 +143,9 @@ export class ContentPackBuilder {
         traits: [],
         sources,
         description: [],
-        rules: [],
+        rules,
         data,
+        ...(level === undefined ? {} : { level }),
       })),
     });
   }

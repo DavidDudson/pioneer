@@ -7,12 +7,16 @@ import {
   PATCH_COMMANDS,
   slotContent,
   slotRefusal,
+  unfitPicks,
 } from '@pioneer/character/domain';
 import type {
   CharacterListQuery,
+  CharacterPatch,
   CharacterSheet,
+  ClearedPick,
   CreateCharacterBody,
   PatchCharacterBody,
+  PatchedCharacterSheet,
   SlotPick,
 } from '@pioneer/character/domain';
 import {
@@ -35,6 +39,12 @@ const PROBLEM_MESSAGES = {
   [PathbuilderProblem.Malformed]: 'character.import.problem.malformed',
   [PathbuilderProblem.ExportFailed]: 'character.import.problem.exportFailed',
 } as const satisfies Record<PathbuilderProblem, string>;
+
+/** A character as an edit saved it, and the picks the edit cleared (`unfitPicks`). */
+export interface PatchedCharacter {
+  readonly character: Character;
+  readonly cleared: readonly ClearedPick[];
+}
 
 /** The problem first, as the issue the UI shows, then the schema issues that explain it. */
 function readIssues({ problem, issues }: PathbuilderReadFailure): FieldIssue[] {
@@ -127,20 +137,46 @@ export class CharacterService {
     return { character: saved, report: characterImportReport(value, lookup) };
   }
 
-  /** One edit to one of the actor's characters, if it is still at `expectedVersion`. */
+  /** `patched` as its sheet, with the picks its edit cleared. */
+  public async patchedSheet({ character, cleared }: PatchedCharacter): Promise<PatchedCharacterSheet> {
+    return { ...(await this.sheet(character)), cleared };
+  }
+
+  /**
+   * One edit to one of the actor's characters, if it is still at `expectedVersion`. A slot pick that leaves a pick in a
+   * slot within it unoffered (a heritage of the old ancestry) clears that pick in the same write, and reports it.
+   */
   public async patch(
     actor: UserId,
     id: CharacterId,
     { expectedVersion, patch }: PatchCharacterBody,
-  ): Promise<Character> {
+  ): Promise<PatchedCharacter> {
     const current = await this.get(actor, id);
     if (patch.field === CharacterPatchField.SelectSlot) {
       await this.#assertSlotOffers(current, patch);
     }
-    return this.#repository.update(current.apply(patch, this.#clock.now()), expectedVersion, {
+    const now = this.#clock.now();
+    const edited = current.apply(patch, now);
+    const cleared = await this.#unfitPicks(current, edited, patch);
+    const next = cleared.reduce(
+      (character, pick) => character.apply({ field: CharacterPatchField.ClearSlot, slot: pick.key }, now),
+      edited,
+    );
+    const character = await this.#repository.update(next, expectedVersion, {
       actor,
       command: PATCH_COMMANDS[patch.field],
     });
+    return { character, cleared };
+  }
+
+  /** The picks a slot edit left in slots within the edited one that no longer offer them; none for any other edit. */
+  async #unfitPicks(before: Character, after: Character, patch: CharacterPatch): Promise<readonly ClearedPick[]> {
+    const isSlotEdit = patch.field === CharacterPatchField.SelectSlot || patch.field === CharacterPatchField.ClearSlot;
+    if (!isSlotEdit) {
+      return [];
+    }
+    const content = await this.#content.registry();
+    return unfitPicks(before.document, after.document, slotContent(content));
   }
 
   /**

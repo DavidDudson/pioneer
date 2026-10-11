@@ -6,7 +6,7 @@ import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
 
 import { CharacterSlot, SlotStatus } from './character-slot';
 import { characterSlots } from './character-slot-status';
-import { ANCESTRY_SLOT, BACKGROUND_SLOT, CLASS_SLOT } from './character-slots';
+import { ANCESTRY_SLOT, BACKGROUND_SLOT, CLASS_SLOT, HERITAGE_SLOT } from './character-slots';
 import type { SlotContent } from './slot-offer';
 import { BOOST_FIXTURES, boostFixtureId, CharacterBuilder } from './testing';
 
@@ -65,7 +65,7 @@ function slot(builder: CharacterBuilder, key: string): CharacterSlot | undefined
 
 describe('characterSlots', () => {
   test('lists the character’s own slots first, a picked one filled with its entry’s name', () => {
-    const [ancestry, background, characterClass] = slotsOf(anElf());
+    const [ancestry, heritage, background, characterClass] = slotsOf(anElf());
     expect(ancestry).toStrictEqual(
       CharacterSlot.parse({
         status: SlotStatus.Filled,
@@ -75,6 +75,7 @@ describe('characterSlots', () => {
         selectionName: 'Elf',
       }),
     );
+    expect(heritage).toMatchObject({ status: SlotStatus.Open, key: HERITAGE_SLOT });
     expect(background).toMatchObject({ status: SlotStatus.Open, key: BACKGROUND_SLOT });
     expect(characterClass).toMatchObject({ status: SlotStatus.Open, key: CLASS_SLOT });
   });

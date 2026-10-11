@@ -20,6 +20,6 @@ export function characterRoutes(service: CharacterService, auth: RequestAuthenti
       service.importPathbuilder(actor, body),
     )
     .handleSignedIn(CharacterContract.patch, auth, async ({ actor, params, body }) =>
-      service.sheet(await service.patch(actor, params.id, body)),
+      service.patchedSheet(await service.patch(actor, params.id, body)),
     ).app;
 }

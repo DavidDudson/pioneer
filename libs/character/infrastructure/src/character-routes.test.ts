@@ -1,11 +1,12 @@
 import { describe, expect, test } from 'bun:test';
 
 import { CharacterService, InMemoryCharacterRepository } from '@pioneer/character/application';
-import { CharacterSheet } from '@pioneer/character/domain';
+import { CharacterSheet, PatchedCharacterSheet } from '@pioneer/character/domain';
 import { humanAncestryId } from '@pioneer/character/domain/testing';
 import { briarRoseExport, mordredExport } from '@pioneer/interop/pathbuilder/testing';
+import { ChoiceValue, ContentKind } from '@pioneer/rules/sdk';
 import { ContentPackBuilder, fixedContent } from '@pioneer/rules/sdk/testing';
-import { fixedClock, newId, UserId } from '@pioneer/shared/kernel';
+import { fixedClock, newId, UserId, Version } from '@pioneer/shared/kernel';
 import type { Problem } from '@pioneer/shared/kernel';
 import { problemHandler } from '@pioneer/shared/server';
 import { actingAs, FakeAuthenticator } from '@pioneer/shared/server/testing';
@@ -80,12 +81,44 @@ describe('character routes', () => {
     expect(got.status).toBe(200);
     const { character, slots } = CharacterSheet.parse(await got.json());
     const name: string = character.name;
-    const read: string[][] = slots.slice(0, 3).map(({ key, status }) => [key, status]);
+    const read: string[][] = slots.slice(0, 4).map(({ key, status }) => [key, status]);
     expect(name).toBe('Kyra');
     expect(read).toStrictEqual([
       ['ancestry', 'filled'],
+      ['heritage', 'open'],
       ['background', 'open'],
       ['class', 'open'],
+    ]);
+  });
+
+  test('picking another ancestry clears a heritage of the old one, in the same write, and reports it', async () => {
+    const pack = new ContentPackBuilder()
+      .withId('player-core')
+      .withAncestry('human')
+      .withAncestry('elf')
+      .withHeritage('skilled-human', 'human');
+    const content = fixedContent(pack.build());
+    const service = new CharacterService(new InMemoryCharacterRepository(), content, fixedClock('2026-10-07T10:00:00Z'));
+    const api = new Elysia().use(problemHandler).use(characterRoutes(service, new FakeAuthenticator()));
+    const { id } = await create(api, amiri, 'Kyra');
+    const select = (version: number, slot: string, selection: string): Request =>
+      request('PATCH', `/characters/${id}`, {
+        body: { expectedVersion: version, patch: { field: 'selectSlot', slot, selection } },
+      });
+    const skilledHuman = pack.idOf(ContentKind.Heritage, 'skilled-human');
+
+    const withHeritage = PatchedCharacterSheet.parse(await (await api.handle(select(1, 'heritage', skilledHuman))).json());
+    expect(withHeritage.cleared).toEqual([]);
+    expect(withHeritage.slots[1]).toMatchObject({ key: 'heritage', status: 'filled', selectionName: 'Skilled-human' });
+
+    const asElf = await api.handle(select(2, 'ancestry', pack.idOf(ContentKind.Ancestry, 'elf')));
+    expect(asElf.status).toBe(200);
+    const { character, slots, cleared } = PatchedCharacterSheet.parse(await asElf.json());
+    expect(character.version).toBe(Version.parse(3));
+    expect(character.document.build.choices['heritage']).toBeUndefined();
+    expect(slots[1]).toMatchObject({ key: 'heritage', status: 'open' });
+    expect(cleared).toStrictEqual([
+      { key: 'heritage', selection: ChoiceValue.parse(skilledHuman), selectionName: 'Skilled-human' },
     ]);
   });
 

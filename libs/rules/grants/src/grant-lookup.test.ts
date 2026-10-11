@@ -45,4 +45,21 @@ describe('grantLookup', () => {
     expect(lookup.ofKind(ContentKind.Background).map((entry) => String(entry.slug))).toEqual(['farmhand']);
     expect(lookup.ofKind(ContentKind.Class).map((entry) => String(entry.slug))).toEqual(['fighter']);
   });
+
+  test('finds heritages, each belonging to its ancestry, a versatile one to none', () => {
+    const builder = new ContentPackBuilder().withAncestry('dwarf').withHeritage('rock', 'dwarf').withHeritage('changeling');
+    const registry = new ContentRegistry();
+    registry.register(builder.build());
+    const heritages = grantLookup(registry).ofKind(ContentKind.Heritage);
+    expect(heritages.map((entry) => [String(entry.slug), entry.belongsTo])).toEqual([
+      ['rock', builder.idOf(ContentKind.Ancestry, 'dwarf')],
+      ['changeling', undefined],
+    ]);
+  });
+
+  test('finds feats, which a background grants', () => {
+    const registry = new ContentRegistry();
+    registry.register(new ContentPackBuilder().withFeat('assurance').build());
+    expect(grantLookup(registry).ofKind(ContentKind.Feat).map((entry) => String(entry.slug))).toEqual(['assurance']);
+  });
 });

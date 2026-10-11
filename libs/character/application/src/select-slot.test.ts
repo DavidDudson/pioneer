@@ -35,7 +35,7 @@ describe('CharacterService selectSlot', () => {
   test('selectSlot picks an option the slot offers', async () => {
     const created = await service.create(amiri, { name: kyra, ancestry: humanAncestryId });
     const edit = firstVersion({ field: CharacterPatchField.SelectSlot, slot: ANCESTRY_SLOT, selection: elf });
-    const patched = await service.patch(amiri, created.id, edit);
+    const { character: patched } = await service.patch(amiri, created.id, edit);
     expect(patched.ancestry).toBe(AncestryId.parse(elf));
   });
 
@@ -77,7 +77,7 @@ describe('CharacterService selectSlot', () => {
       command: CharacterCommand.SelectSlot,
     });
     const edit = { field: CharacterPatchField.SelectSlot, slot: ANCESTRY_SLOT, selection: elf } as const;
-    const patched = await service.patch(amiri, created.id, { expectedVersion: stored.version, patch: edit });
+    const { character: patched } = await service.patch(amiri, created.id, { expectedVersion: stored.version, patch: edit });
     expect(patched.document.build.choices[featSlot]).toBe(planned);
   });
 });
@@ -97,13 +97,13 @@ describe('CharacterService selectSlot on boost slots', () => {
   test('a boost pick is the only way to change a modifier: it lands in the slot, and its class slot opens with the class', async () => {
     const created = await service.create(amiri, { name: kyra, ancestry: humanAncestryId });
     const fighter = ChoiceValue.parse(contentId(PackId.parse('player-core'), EntrySlug.parse('class:fighter')));
-    const withClass = await service.patch(
+    const { character: withClass } = await service.patch(
       amiri,
       created.id,
       firstVersion({ field: CharacterPatchField.SelectSlot, slot: SlotKey.parse('class'), selection: fighter }),
     );
     const keyAttribute = SlotKey.parse('boost:1:class:0');
-    const patched = await service.patch(amiri, created.id, {
+    const { character: patched } = await service.patch(amiri, created.id, {
       expectedVersion: withClass.version,
       patch: { field: CharacterPatchField.SelectSlot, slot: keyAttribute, selection: ChoiceValue.parse('dex') },
     });
