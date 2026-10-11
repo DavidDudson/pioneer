@@ -7,6 +7,7 @@ import {
   characterGrants,
   CLASS_SLOT,
   classContent,
+  DEITY_SLOT,
   classFeatures,
   HERITAGE_SLOT,
   rootSlotOptions,
@@ -50,8 +51,7 @@ function size(registry: ContentRegistry, character: Character): BuildValue | und
 
 /**
  * What the character is, for the build summary: its class, subclass, ancestry, heritage and background by the names the
- * server read for their slots, its key attribute and its ancestry's size. Deity has no slot yet (#469), so it says what
- * to pick.
+ * server read for their slots, its deity likewise, its key attribute and its ancestry's size.
  */
 export function sheetBuildSummary(
   registry: ContentRegistry,
@@ -65,7 +65,7 @@ export function sheetBuildSummary(
     { part: BuildPart.Ancestry, value: picked(slots, ANCESTRY_SLOT) },
     { part: BuildPart.Heritage, value: picked(slots, HERITAGE_SLOT) },
     { part: BuildPart.Background, value: picked(slots, BACKGROUND_SLOT) },
-    { part: BuildPart.Deity, value: undefined },
+    { part: BuildPart.Deity, value: picked(slots, DEITY_SLOT) },
     { part: BuildPart.KeyAttribute, value: keyAttribute(registry, character) },
     { part: BuildPart.Size, value: size(registry, character) },
   ];

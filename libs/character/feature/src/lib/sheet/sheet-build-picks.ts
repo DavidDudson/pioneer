@@ -4,7 +4,7 @@ import type { Character, CharacterSlot } from '@pioneer/character/domain';
 import type { InlineEdit, SelectOption } from '@pioneer/frontier';
 import type { Defences } from '@pioneer/rules/engine';
 import { ChoiceValue } from '@pioneer/rules/sdk';
-import type { ContentRegistry, SlotKey } from '@pioneer/rules/sdk';
+import type { ContentId, ContentRegistry, SlotKey } from '@pioneer/rules/sdk';
 import { ATTRIBUTE_MESSAGES } from '@pioneer/rules/ui';
 import type { BuildLine, ChoiceLine, ClassFeatureLine, NamedStatistic, SpellcastingEntryLine } from '@pioneer/rules/ui';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
@@ -23,6 +23,7 @@ import {
 import type { SheetKeyAttribute, SheetSubclass } from './sheet-build';
 import { sheetChoices } from './sheet-choices';
 import { sheetDefences } from './sheet-defences';
+import { sheetEntryNames } from './sheet-entry-names';
 import { sheetField } from './sheet-field';
 import { sheetSkills, sheetSkillSlots } from './sheet-skills';
 import { sheetSpellcasting } from './sheet-spellcasting';
@@ -54,6 +55,8 @@ interface EngineReads {
   readonly skills: Signal<readonly NamedStatistic[] | undefined>;
   /** Each spellcasting entry with its spell attack and DC; undefined while the character or the content loads. */
   readonly spellcasting: Signal<readonly SpellcastingEntryLine[] | undefined>;
+  /** Names for the entries the defences, statistics and spellcasting lines come from; none while the content loads. */
+  readonly entryNames: Signal<ReadonlyMap<ContentId, string>>;
 }
 
 export interface BuildPicks extends EngineReads {
@@ -173,6 +176,10 @@ function engineReads(sources: BuildPickSources): EngineReads {
     statistics: loaded(engine, sheetStatistics),
     skills: loaded(engine, sheetSkills),
     spellcasting: loaded(engine, sheetSpellcasting),
+    entryNames: computed(() => {
+      const registry = sources.engineRegistry() ?? sources.registry();
+      return registry === undefined ? new Map<ContentId, string>() : sheetEntryNames(registry);
+    }),
   };
 }
 
