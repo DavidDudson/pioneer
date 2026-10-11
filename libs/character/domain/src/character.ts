@@ -10,8 +10,10 @@ import { CURRENT_SCHEMA_VERSION } from './character-document-upgrades';
 import { CHARACTER_LEVEL_MIN, CharacterLevel } from './character-fields';
 import type { CharacterId, CharacterName } from './character-fields';
 import { CharacterPatchField } from './character-patch';
-import type { CharacterPatch } from './character-patch';
+import type { CharacterPatch, InventoryPatch } from './character-patch';
 import { ANCESTRY_SLOT } from './character-slots';
+import { addItem, inventoryRefusal, moveItem, removeItem, renameItem, setItemQuantity } from './inventory';
+import type { Inventory, InventoryEdit, InventoryItemId } from './inventory';
 
 /**
  * JSON shape of a character on the wire: its document at the current schema version, plus the row's version and
@@ -113,12 +115,21 @@ export class Character {
     });
   }
 
-  /** Apply one edit. Version bump is the repository's job. */
-  public apply(patch: CharacterPatch, now: Temporal.Instant): Character {
-    return new Character({ ...this.toProps(), ...this.#changes(patch), updatedAt: now });
+  /**
+   * Apply one edit. Version bump is the repository's job. An added item takes `newItemId`, which the caller gives,
+   * as it gives `now`. An edit that leaves the document invalid (an inventory edit `inventoryRefusal` refuses, an add
+   * with no id) is a caller's bug and throws before anything is stored; the service checks edits first.
+   */
+  public apply(patch: CharacterPatch, now: Temporal.Instant, newItemId?: InventoryItemId): Character {
+    const { document } = { ...this.toProps(), ...this.#changes(patch, newItemId) };
+    const checked = CharacterDocumentSchema.safeParse(document);
+    if (!checked.success) {
+      throw new TypeError(`Edit ${patch.field} leaves the document invalid: ${z.prettifyError(checked.error)}`);
+    }
+    return new Character({ ...this.toProps(), document, updatedAt: now });
   }
 
-  #changes(patch: CharacterPatch): Partial<CharacterProps> {
+  #changes(patch: CharacterPatch, newItemId: InventoryItemId | undefined): Partial<CharacterProps> {
     switch (patch.field) {
       case CharacterPatchField.Name: {
         return { document: { ...this.document, name: patch.value } };
@@ -132,11 +143,61 @@ export class Character {
       case CharacterPatchField.ClearSlot: {
         return { document: this.#clear(patch.slot) };
       }
+      case CharacterPatchField.AddItem:
+      case CharacterPatchField.RemoveItem:
+      case CharacterPatchField.SetItemQuantity:
+      case CharacterPatchField.MoveItem:
+      case CharacterPatchField.RenameItem:
+      case CharacterPatchField.SetCoins: {
+        return this.#stockChanges(patch, newItemId);
+      }
       default: {
         const unreachable: never = patch;
         throw new TypeError(`Unhandled character patch: ${JSON.stringify(unreachable)}`);
       }
     }
+  }
+
+  /** The inventory edits, each checked by `#stock`. */
+  #stockChanges(patch: InventoryPatch, newItemId: InventoryItemId | undefined): Partial<CharacterProps> {
+    switch (patch.field) {
+      case CharacterPatchField.AddItem: {
+        if (newItemId === undefined) {
+          throw new TypeError('An added item needs the id its caller gives it');
+        }
+        return this.#stock(patch, (inventory) =>
+          addItem(inventory, { id: newItemId, item: patch.item, quantity: patch.quantity, container: patch.container }),
+        );
+      }
+      case CharacterPatchField.RemoveItem: {
+        return this.#stock(patch, (inventory) => removeItem(inventory, patch.id));
+      }
+      case CharacterPatchField.SetItemQuantity: {
+        return this.#stock(patch, (inventory) => setItemQuantity(inventory, patch.id, patch.quantity));
+      }
+      case CharacterPatchField.MoveItem: {
+        return this.#stock(patch, (inventory) => moveItem(inventory, patch.id, patch.container));
+      }
+      case CharacterPatchField.RenameItem: {
+        return this.#stock(patch, (inventory) => renameItem(inventory, patch.id, patch.name));
+      }
+      case CharacterPatchField.SetCoins: {
+        return { document: { ...this.document, inventory: { ...this.document.inventory, coins: patch.coins } } };
+      }
+      default: {
+        const unreachable: never = patch;
+        throw new TypeError(`Unhandled character patch: ${JSON.stringify(unreachable)}`);
+      }
+    }
+  }
+
+  /** The document with its inventory changed by `change`, once the inventory allows `edit`. */
+  #stock(edit: InventoryEdit, change: (inventory: Inventory) => Inventory): Partial<CharacterProps> {
+    const refusal = inventoryRefusal(this.document.inventory, edit);
+    if (refusal !== undefined) {
+      throw new TypeError(`Refused inventory edit: ${refusal.message.key}`);
+    }
+    return { document: { ...this.document, inventory: change(this.document.inventory) } };
   }
 
   #choose(slot: SlotKey, value: ChoiceValue): CharacterDocument {

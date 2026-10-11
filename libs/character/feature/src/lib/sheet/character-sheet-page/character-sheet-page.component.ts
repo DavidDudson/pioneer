@@ -56,6 +56,7 @@ import { AncestryOptions } from '../../data/ancestry-options';
 import { CharacterStore } from '../../data/character-store';
 import { CHARACTER_CONTENT_KINDS, contentRegistryQuery } from '../../data/content-registry-query';
 import { ImportResult } from '../../import/import-result/import-result.component';
+import { InventorySection } from '../inventory/inventory-section/inventory-section.component';
 import { sheetAttributes } from '../sheet-attributes';
 import { NOT_CHOSEN, RootPick, sheetBuildSummary, sheetRootOptions } from '../sheet-build';
 import { sheetChoices } from '../sheet-choices';
@@ -93,6 +94,7 @@ function focusField(field: ElementRef<HTMLElement>): void {
     ImportResult,
     Message,
     InlineField,
+    InventorySection,
     NumberInput,
     Page,
     Section,

@@ -17,7 +17,10 @@ export type UpgradeStep = (document: StoredCharacterDocument) => StoredCharacter
  * Every change to the schema's shape adds a step, a new defaulted field included (its step returns the document
  * as it is), so code older than a document always refuses it by version (character-model.md, "Schema versions").
  */
-const UPGRADES: readonly UpgradeStep[] = [];
+const UPGRADES: readonly UpgradeStep[] = [
+  /** 1 → 2: inventory items and coins (#471). A version 1 inventory is empty, which reads as no items and no coins. */
+  (document) => document,
+];
 
 /** The version a chain of steps upgrades to: one past the last step. */
 export function currentVersion(upgrades: readonly UpgradeStep[]): CharacterSchemaVersion {

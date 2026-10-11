@@ -8,6 +8,11 @@ import {
   CharacterPatchField,
   characterSlots,
   CLASS_SLOT,
+  InventoryItemId,
+  inventoryRefusal,
+  inventoryTarget,
+  itemContent,
+  itemRefusal,
   PATCH_COMMANDS,
   slotContent,
   slotRefusal,
@@ -20,6 +25,7 @@ import type {
   CharacterSheet,
   ClearedPick,
   CreateCharacterBody,
+  InventoryRefusal,
   PatchCharacterBody,
   PatchedCharacterSheet,
   SlotPick,
@@ -44,7 +50,14 @@ import type {
 } from '@pioneer/interop/pathbuilder';
 import { AncestryId, ChoiceValue } from '@pioneer/rules/sdk';
 import type { ContentSource, SlotKey } from '@pioneer/rules/sdk';
-import { fieldIssues, message, newId, NotFoundError, ValidationError } from '@pioneer/shared/kernel';
+import {
+  fieldIssues,
+  message,
+  newId,
+  NotFoundError,
+  ValidationError,
+  VersionConflictError,
+} from '@pioneer/shared/kernel';
 import type { Clock, FieldIssue, UserId } from '@pioneer/shared/kernel';
 
 import { mayAccessCharacter } from './character-policy';
@@ -96,6 +109,13 @@ function importedCharacter(
   const roots = rootChoices(value, lookup);
   const placement = placeBoosts(create(roots).document, boosts, value.boosts);
   return { character: create({ ...roots, ...placement.choices }), unplaced: placement.unplaced };
+}
+
+/** Throws a refused inventory edit as a 422 on the patch field it blames. */
+function refuse(refusal: InventoryRefusal | undefined): void {
+  if (refusal !== undefined) {
+    throw new ValidationError([{ path: ['patch', refusal.field], message: refusal.message }]);
+  }
 }
 
 /** The problem first, as the issue the UI shows, then the schema issues that explain it. */
@@ -218,11 +238,16 @@ export class CharacterService {
     { expectedVersion, patch }: PatchCharacterBody,
   ): Promise<PatchedCharacter> {
     const current = await this.get(actor, id);
+    // A stale edit is a conflict before it is anything else: refusals read the latest version, which the client hasn't seen.
+    if (current.version !== expectedVersion) {
+      throw new VersionConflictError('Character', id);
+    }
     if (patch.field === CharacterPatchField.SelectSlot) {
       await this.#assertSlotOffers(current, patch);
     }
+    await this.#assertInventoryAllows(current, patch);
     const now = this.#clock.now();
-    const edited = current.apply(patch, now);
+    const edited = current.apply(patch, now, InventoryItemId.parse(newId()));
     const cleared = await this.#unfitPicks(current, edited, patch);
     let next = edited;
     for (const pick of cleared) {
@@ -243,6 +268,24 @@ export class CharacterService {
     }
     const content = await this.#content.registry();
     return unfitPicks(before.document, after.document, slotContent(content));
+  }
+
+  /**
+   * Refuses an edit to an item the character hasn't, a move that would put a container inside itself, content no
+   * loaded pack has as an item, and stowing in an item that holds nothing. Other edits pass untouched.
+   */
+  async #assertInventoryAllows(character: Character, patch: CharacterPatch): Promise<void> {
+    const target = inventoryTarget(patch);
+    if (target === undefined) {
+      return;
+    }
+    const { inventory } = character.document;
+    refuse(inventoryRefusal(inventory, target));
+    if (target.item === undefined && target.container === undefined) {
+      return;
+    }
+    const registry = await this.#content.registry();
+    refuse(itemRefusal(itemContent(registry), inventory, target));
   }
 
   /**

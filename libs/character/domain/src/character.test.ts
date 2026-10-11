@@ -8,7 +8,8 @@ import { Character } from './character';
 import { CharacterId, CharacterLevel, CharacterName } from './character-fields';
 import { CharacterPatchField, CharacterPatchSchema } from './character-patch';
 import { ANCESTRY_SLOT } from './character-slots';
-import { CharacterBuilder, humanAncestryId } from './testing';
+import { CoinsSchema, InventoryItemId, ItemQuantity } from './inventory';
+import { CharacterBuilder, humanAncestryId, ItemFixture, itemFixtureId } from './testing';
 
 const later = fixedClock('2026-10-07T10:00:00Z').now();
 const featSlot = SlotKey.parse('feat:class:2');
@@ -105,5 +106,51 @@ describe('Character', () => {
 
   test('rejects out-of-range level', () => {
     expect(CharacterPatchSchema.safeParse({ field: CharacterPatchField.Level, value: 21 }).success).toBe(false);
+  });
+});
+
+describe('Character inventory edits', () => {
+  const backpackId = InventoryItemId.parse('11111111-1111-4111-8111-111111111111');
+  const ropeId = InventoryItemId.parse('33333333-3333-4333-8333-333333333333');
+  const one = ItemQuantity.parse(1);
+
+  function withBackpack(): Character {
+    const added = { field: CharacterPatchField.AddItem, item: itemFixtureId(ItemFixture.Backpack), quantity: one };
+    return new CharacterBuilder().build().apply(added, later, backpackId);
+  }
+
+  test('adds an item with the id it is given', () => {
+    expect(withBackpack().document.inventory.items).toStrictEqual([
+      { id: backpackId, item: itemFixtureId(ItemFixture.Backpack), quantity: one },
+    ]);
+  });
+
+  test('stows a new item in a container, then takes it out', () => {
+    const rope = itemFixtureId(ItemFixture.Rope);
+    const stowed = withBackpack().apply(
+      { field: CharacterPatchField.AddItem, item: rope, quantity: one, container: backpackId },
+      later,
+      ropeId,
+    );
+    expect(stowed.document.inventory.items[1]?.container).toBe(backpackId);
+    const loose = stowed.apply({ field: CharacterPatchField.MoveItem, id: ropeId }, later);
+    expect(loose.document.inventory.items[1]).not.toHaveProperty('container');
+  });
+
+  test('sets coins and keeps the items', () => {
+    const coins = CoinsSchema.parse({ gp: 15, sp: 3 });
+    const paid = withBackpack().apply({ field: CharacterPatchField.SetCoins, coins }, later);
+    expect(paid.document.inventory).toStrictEqual({ items: withBackpack().document.inventory.items, coins });
+  });
+
+  test('throws on an added item with no id: the caller mints it, as it gives the time', () => {
+    const added = { field: CharacterPatchField.AddItem, item: itemFixtureId(ItemFixture.Rope), quantity: one };
+    expect(() => new CharacterBuilder().build().apply(added, later)).toThrow('needs the id');
+  });
+
+  test('throws on an edit to an item it has not, which the service refuses first', () => {
+    expect(() => withBackpack().apply({ field: CharacterPatchField.RemoveItem, id: ropeId }, later)).toThrow(
+      'character.validation.itemNotFound',
+    );
   });
 });

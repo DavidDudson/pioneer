@@ -9,6 +9,7 @@ import {
   UnsupportedSchemaVersionError,
 } from './character-document-upgrades';
 import { CharacterLevel } from './character-fields';
+import { EMPTY_INVENTORY } from './inventory';
 import { fixtureOwnerId, humanAncestryId, PAST_DOCUMENTS } from './testing';
 
 const minimal = {
@@ -24,7 +25,7 @@ describe('decodeCharacterDocument', () => {
     const document = decodeCharacterDocument(minimal);
     expect(document.packs).toStrictEqual([]);
     expect(document.build).toStrictEqual({ choices: {}, boons: [] });
-    expect(document.inventory).toStrictEqual({});
+    expect(document.inventory).toStrictEqual(EMPTY_INVENTORY);
     expect(document.play).toStrictEqual({});
     expect(document.overrides).toStrictEqual([]);
     expect(document.notes).toStrictEqual([]);

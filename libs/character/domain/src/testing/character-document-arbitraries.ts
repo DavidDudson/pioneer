@@ -6,6 +6,7 @@ import type { Arbitrary } from 'fast-check';
 import { CURRENT_SCHEMA_VERSION } from '../character-document-upgrades';
 import { CharacterId, CharacterLevel, CharacterName } from '../character-fields';
 import { fixtureOwnerId } from './character-builder';
+import { inventoryJson } from './inventory-arbitraries';
 
 const LIST_MAX = 4;
 const CHOICES_MAX = 12;
@@ -18,8 +19,9 @@ export const characterDocumentJson: Arbitrary<unknown> = record({
   seed: nat(),
   packs: array(slugText, { maxLength: LIST_MAX }),
   choices: dictionary(keyPathText, selectionJson, { maxKeys: CHOICES_MAX }),
+  inventory: inventoryJson,
   notes: richTextJson,
-}).map(({ seed, packs, choices, notes }) => ({
+}).map(({ seed, packs, choices, inventory, notes }) => ({
   schemaVersion: CURRENT_SCHEMA_VERSION,
   id: fakeSeeded(CharacterId, seed),
   ownerId: fixtureOwnerId,
@@ -27,7 +29,7 @@ export const characterDocumentJson: Arbitrary<unknown> = record({
   level: fakeSeeded(CharacterLevel, seed),
   packs,
   build: { choices, boons: [] },
-  inventory: {},
+  inventory,
   play: {},
   overrides: [],
   notes,

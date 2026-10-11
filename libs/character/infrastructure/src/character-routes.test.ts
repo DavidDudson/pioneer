@@ -6,7 +6,7 @@ import { humanAncestryId } from '@pioneer/character/domain/testing';
 import { briarRoseExport, mordredExport } from '@pioneer/interop/pathbuilder/testing';
 import { ContentKind } from '@pioneer/rules/sdk';
 import { ContentPackBuilder, fixedContent } from '@pioneer/rules/sdk/testing';
-import { fixedClock, newId, UserId, Version } from '@pioneer/shared/kernel';
+import { FIRST_VERSION, fixedClock, newId, UserId, Version } from '@pioneer/shared/kernel';
 import type { Problem } from '@pioneer/shared/kernel';
 import { problemHandler } from '@pioneer/shared/server';
 import { actingAs, FakeAuthenticator } from '@pioneer/shared/server/testing';
@@ -136,6 +136,19 @@ describe('character routes', () => {
       path: ['name'],
       message: { key: 'validation.tooSmall', params: { origin: 'string', minimum: 1 } },
     });
+  });
+
+  test('an item no loaded pack has is a 422 on the patch item, and the character is unchanged', async () => {
+    const api = app();
+    const { id } = await create(api, amiri, 'Kyra');
+    const body = { expectedVersion: 1, patch: { field: 'addItem', item: newId(), quantity: 1 } };
+    const response = await api.handle(request('PATCH', `/characters/${id}`, { body }));
+    expect(response.status).toBe(422);
+    expect(((await response.json()) as Problem).issues).toStrictEqual([
+      { path: ['patch', 'item'], message: { key: 'character.validation.unknownItem' } },
+    ]);
+    const got = await api.handle(request('GET', `/characters/${id}`));
+    expect(CharacterSheet.parse(await got.json()).character.version).toBe(FIRST_VERSION);
   });
 });
 

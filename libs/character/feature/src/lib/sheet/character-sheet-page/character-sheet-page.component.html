@@ -123,6 +123,10 @@
       <pio-choices [lines]="choices()" />
     </fr-section>
 
+    <fr-section [anchor]="sections.inventory.anchor" [heading]="sections.inventory.headingKey | transloco">
+      <pio-inventory-section />
+    </fr-section>
+
     @if (character(); as character) {
       <fr-text element="p" variant="caption" tone="subtle">
         {{ 'character.sheet.created' | transloco }}

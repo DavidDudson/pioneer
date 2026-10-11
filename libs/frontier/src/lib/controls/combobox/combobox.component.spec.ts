@@ -83,6 +83,16 @@ describe(Combobox, () => {
     expect(rendered.commits()).toBe(1);
   });
 
+  it('clears its text when a form resets the value to the empty string', async () => {
+    const rendered = render();
+    await press(rendered, 'ArrowDown');
+    optionElements(rendered)[2]?.click();
+    await settle(rendered);
+    rendered.fixture.componentRef.setInput('value', '');
+    await settle(rendered);
+    expect(rendered.input.value).toBe('');
+  });
+
   it('shows the picked option as selected when the list opens again', async () => {
     const rendered = render(FEATS, 'sudden-charge');
     await press(rendered, 'ArrowDown');
