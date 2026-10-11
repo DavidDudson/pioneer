@@ -16,6 +16,8 @@ export const CharacterCommand = {
   SetItemQuantity: 'setItemQuantity',
   MoveItem: 'moveItem',
   RenameItem: 'renameItem',
+  CarryItem: 'carryItem',
+  InvestItem: 'investItem',
   SetCoins: 'setCoins',
 } as const;
 export type CharacterCommand = ValueOf<typeof CharacterCommand>;
@@ -31,5 +33,7 @@ export const PATCH_COMMANDS = {
   [CharacterPatchField.SetItemQuantity]: CharacterCommand.SetItemQuantity,
   [CharacterPatchField.MoveItem]: CharacterCommand.MoveItem,
   [CharacterPatchField.RenameItem]: CharacterCommand.RenameItem,
+  [CharacterPatchField.CarryItem]: CharacterCommand.CarryItem,
+  [CharacterPatchField.InvestItem]: CharacterCommand.InvestItem,
   [CharacterPatchField.SetCoins]: CharacterCommand.SetCoins,
 } as const satisfies Record<CharacterPatchField, CharacterCommand>;

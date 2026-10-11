@@ -11,12 +11,15 @@ export const InventoryMessage = {
   BulkCount: 'rules.inventory.bulkCount',
   ContentName: 'rules.inventory.contentName',
   UnknownItem: 'rules.inventory.unknownItem',
+  Hands: 'rules.inventory.hands',
+  Invested: 'rules.inventory.invested',
 } as const;
 
 export const PLACEMENT_MESSAGES: Readonly<Record<InventoryPlacement, string>> = {
   worn: 'rules.inventory.placement.worn',
   held: 'rules.inventory.placement.held',
   stowed: 'rules.inventory.placement.stowed',
+  dropped: 'rules.inventory.placement.dropped',
 };
 
 /** How Bulk below 1 is written: "L" and "—", as the rules print them. */

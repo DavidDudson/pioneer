@@ -116,7 +116,7 @@
     <fr-section [anchor]="sections.statistics.anchor" [heading]="sections.statistics.headingKey | transloco">
       <fr-async-region>
         <ng-template frAsyncPending><pio-statistics [statistics]="undefined" /></ng-template>
-        <ng-template [frAsyncData]="registry"
+        <ng-template [frAsyncData]="engineQuery()"
           ><pio-statistics [statistics]="statistics()" [entryNames]="entryNames()"
         /></ng-template>
       </fr-async-region>
@@ -131,7 +131,7 @@
     </fr-section>
 
     <fr-section [anchor]="sections.inventory.anchor" [heading]="sections.inventory.headingKey | transloco">
-      <pio-inventory-section />
+      <pio-inventory-section [investments]="investments()" [engine]="engineQuery()" />
     </fr-section>
 
     @if (character(); as character) {

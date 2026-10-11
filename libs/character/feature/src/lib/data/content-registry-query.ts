@@ -38,8 +38,14 @@ export function contentRegistryQuery(loader: ContentLoader, kinds: readonly Cont
   };
 }
 
-/** The registry of `kinds` as a query, in an injection context: the loader and the query in one call. */
-export function injectContentRegistry(kinds: readonly ContentKind[]): CreateQueryResult<ContentRegistry> {
+/**
+ * The registry of `kinds` as a query, in an injection context: the loader and the query in one call. It loads only
+ * while `enabled` says so, read reactively: the sheet loads the item kinds once a character has equipment.
+ */
+export function injectContentRegistry(
+  kinds: readonly ContentKind[],
+  enabled: () => boolean = (): boolean => true,
+): CreateQueryResult<ContentRegistry> {
   const loader = inject(ContentLoader);
-  return injectQuery(() => contentRegistryQuery(loader, kinds));
+  return injectQuery(() => ({ ...contentRegistryQuery(loader, kinds), enabled: enabled() }));
 }

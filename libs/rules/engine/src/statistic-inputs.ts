@@ -10,6 +10,8 @@ import {
   isSourceReference,
   knownReference,
   Level,
+  Modifier,
+  Origin,
   Proficiency,
   ProficiencySchema,
   ReferenceKind,
@@ -18,6 +20,7 @@ import {
 import type { KnownReference, SourceReference } from '@pioneer/rules/sdk';
 import * as z from 'zod';
 
+import type { ArmorInputs } from './armor-bonus';
 import { EngineMessage } from './messages';
 import type { ProficiencyBonuses } from './proficiency-bonuses';
 import { sourceValue, SpellcastingJson, WeaponsJson } from './source-inputs';
@@ -53,6 +56,8 @@ export interface StatisticInputs {
   readonly ancestry?: AncestryInputs;
   /** Absent until a class is chosen; a formula reading it then fails at that reference. */
   readonly class?: ClassInputs;
+  /** Worn armour, whose bonus reaches AC as an `item` line (`armorBonus`). None when absent. */
+  readonly armor?: ArmorInputs;
   /** The equipped weapons: a statistic derived per weapon (a Strike) is derived for each. None when absent. */
   readonly weapons?: readonly WeaponInputs[];
   /** The spellcasting entries: a statistic derived per entry (a spell attack, a spell DC) is derived for each. */
@@ -61,6 +66,7 @@ export interface StatisticInputs {
 
 const AncestryInputsJson = z.strictObject({ hitPoints: HitPoints, speed: Feet });
 const ClassInputsJson = z.strictObject({ hitPoints: HitPoints, keyAttribute: AttributeSchema });
+const ArmorInputsJson = z.strictObject({ bonus: Modifier, origin: Origin });
 
 /** The inputs as JSON, with ranks as an object keyed by selector, decoded into `StatisticInputs`. */
 export const StatisticInputsJson = z
@@ -71,12 +77,23 @@ export const StatisticInputsJson = z
     dexterityCap: AttributeModifier.optional(),
     ancestry: AncestryInputsJson.optional(),
     class: ClassInputsJson.optional(),
+    armor: ArmorInputsJson.optional(),
     weapons: WeaponsJson.optional(),
     spellcasting: SpellcastingJson.optional(),
   })
   .transform(
-    ({ ranks, dexterityCap, ancestry, class: characterClass, weapons, spellcasting, ...rest }): StatisticInputs => ({
+    ({
+      ranks,
+      dexterityCap,
+      ancestry,
+      class: characterClass,
+      armor,
+      weapons,
+      spellcasting,
+      ...rest
+    }): StatisticInputs => ({
       ...rest,
+      ...(armor === undefined ? {} : { armor }),
       ranks: new Map(Object.entries(ranks).map(([selector, rank]) => [Selector.parse(selector), rank])),
       ...(dexterityCap === undefined ? {} : { dexterityCap }),
       ...(ancestry === undefined ? {} : { ancestry }),

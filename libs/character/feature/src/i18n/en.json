@@ -63,7 +63,20 @@
       "placeOf": "Where {name} is",
       "namePlaceholder": "The item's own name",
       "place": "Where",
-      "loose": "Carried loose",
+      "loose": "Not in a container",
+      "carryOf": "How {name} is carried",
+      "carry": {
+        "worn": "Worn",
+        "oneHand": "Held in one hand",
+        "twoHands": "Held in two hands",
+        "stowed": "Stowed",
+        "dropped": "Dropped"
+      },
+      "investOf": "Whether {name} is invested",
+      "invest": "Invested",
+      "invested": "Invested",
+      "notInvested": "Not invested",
+      "investmentsHeading": "Investments",
       "remove": "Remove {name}",
       "removeConfirm": "Remove {name}? Press again",
       "removing": "Removing…",
@@ -95,7 +108,14 @@
     "containerInsideItself": "A container can't go inside itself or inside something it holds. Choose another place.",
     "unknownItem": "That item is not available. Choose another.",
     "notAContainer": "That item can't hold other items. Choose a container.",
-    "inventoryFull": "This character carries {maximum} items already, the most an inventory holds. Remove one first."
+    "inventoryFull": "This character carries {maximum} items already, the most an inventory holds. Remove one first.",
+    "handsFull": "Hands are full: this character holds things in {maximum} hands already. Stow or drop something first.",
+    "investmentFull": "This character has {maximum} items invested already, the most anyone can. Take one off first.",
+    "notWearable": "That item isn't worn. Hold it, stow it or drop it instead.",
+    "armorWorn": "This character already wears armor. Take it off first.",
+    "needsTwoHands": "That item takes two hands to hold.",
+    "notInvestable": "That item doesn't have the invested trait, so it can't be invested.",
+    "investNotWorn": "An item is invested while it is worn or held as it is used. Put it on first."
   },
   "import": {
     "title": "Import from Pathbuilder",

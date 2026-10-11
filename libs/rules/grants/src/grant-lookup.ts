@@ -5,14 +5,21 @@ import type { ContentLookup, GrantEntry } from './grant-entry';
 
 /**
  * The kinds grants read from the registry's envelope entries (`otherEntries`): those a character picks in a root slot,
- * the class features a class grants by level, and feats, which a background or class grants by `GrantItem`.
+ * the class features a class grants by level, feats, which a background or class grants by `GrantItem`, and the
+ * items a character carries, which are roots while they are worn, held or invested.
  */
 const ENVELOPE_KINDS: ReadonlySet<ContentKind> = new Set([
+  ContentKind.Armor,
   ContentKind.Background,
   ContentKind.Class,
   ContentKind.ClassFeature,
+  ContentKind.Consumable,
+  ContentKind.Equipment,
   ContentKind.Feat,
   ContentKind.Heritage,
+  ContentKind.Shield,
+  ContentKind.Treasure,
+  ContentKind.Weapon,
 ]);
 
 /** What `entry` belongs to: a heritage's ancestry; nothing for a versatile heritage or any other kind. */
@@ -75,7 +82,8 @@ function packEntries(pack: ContentPack): GrantEntry[] {
 
 /**
  * The registry's content as grants read it: ancestries, heritages, backgrounds and classes, the kinds a character
- * picks in its root slots, and the class features and feats they grant. Other kinds join as the registry holds them. Built once per registry; lookups are by id and by kind.
+ * picks in its root slots, the class features and feats they grant, and carried items. Other kinds join as the
+ * registry holds them. Built once per registry; lookups are by id and by kind.
  */
 export function grantLookup(registry: ContentRegistry): ContentLookup {
   const entries = registry.packs.flatMap((pack) => packEntries(pack));

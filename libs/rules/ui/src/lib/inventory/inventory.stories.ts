@@ -22,7 +22,7 @@ export const Empty: InventoryStory = {
   args: { groups: [] },
 };
 
-/** Worn, held and stowed, a container holding a container, a renamed item and one whose content is gone. */
+/** Worn, held, stowed and dropped, a container holding a container, a renamed item, an invested one and one whose content is gone. */
 export const Fighter: InventoryStory = {
   args: { groups: FIGHTER_INVENTORY },
   play: async ({ canvasElement }) => {

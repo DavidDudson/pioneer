@@ -9,5 +9,9 @@ export function sheetEntryNames(registry: ContentRegistry): ReadonlyMap<ContentI
     ...registry.statistics(),
     ...registry.variantRules(),
   ];
-  return new Map(entries.map((entry) => [ContentId.parse(entry.id), entry.definition.name]));
+  const named = new Map(entries.map((entry) => [ContentId.parse(entry.id), entry.definition.name]));
+  for (const entry of registry.packs.flatMap((pack) => pack.otherEntries)) {
+    named.set(entry.id, entry.name);
+  }
+  return named;
 }

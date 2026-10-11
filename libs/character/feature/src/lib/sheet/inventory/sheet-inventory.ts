@@ -1,4 +1,4 @@
-import { isContainer, ItemPlacement, itemPlacement } from '@pioneer/character/domain';
+import { CarryState, isContainer } from '@pioneer/character/domain';
 import type { Inventory, InventoryItem, InventoryItemId, ItemContent } from '@pioneer/character/domain';
 import type { SelectOption } from '@pioneer/frontier';
 import type { ContentId } from '@pioneer/rules/sdk';
@@ -6,12 +6,13 @@ import { InventoryPlacement } from '@pioneer/rules/ui';
 import type { InventoryGroup, InventoryLine } from '@pioneer/rules/ui';
 
 /** The groups in sheet order. */
-const PLACEMENTS: readonly ItemPlacement[] = [ItemPlacement.Worn, ItemPlacement.Held, ItemPlacement.Stowed];
+const STATES: readonly CarryState[] = [CarryState.Worn, CarryState.Held, CarryState.Stowed, CarryState.Dropped];
 
-const GROUP_OF: Readonly<Record<ItemPlacement, InventoryPlacement>> = {
-  [ItemPlacement.Worn]: InventoryPlacement.Worn,
-  [ItemPlacement.Held]: InventoryPlacement.Held,
-  [ItemPlacement.Stowed]: InventoryPlacement.Stowed,
+const GROUP_OF: Readonly<Record<CarryState, InventoryPlacement>> = {
+  [CarryState.Worn]: InventoryPlacement.Worn,
+  [CarryState.Held]: InventoryPlacement.Held,
+  [CarryState.Stowed]: InventoryPlacement.Stowed,
+  [CarryState.Dropped]: InventoryPlacement.Dropped,
 };
 
 /** What each container holds, by the container's id. */
@@ -26,8 +27,8 @@ function contentsByContainer(items: readonly InventoryItem[]): ReadonlyMap<Inven
 }
 
 /**
- * The inventory as the sheet lists it: loose items grouped worn, held and stowed (from their content's usage until
- * #472), each container with what it holds beneath it. Empty groups are left out.
+ * The inventory as the sheet lists it: loose items grouped worn, held, stowed and dropped as they are carried, each
+ * container with what it holds beneath it. Empty groups are left out.
  */
 export function sheetInventory(inventory: Inventory, content: ItemContent): readonly InventoryGroup[] {
   const contents = contentsByContainer(inventory.items);
@@ -40,15 +41,15 @@ export function sheetInventory(inventory: Inventory, content: ItemContent): read
       quantity: item.quantity,
       bulk: entry?.data.bulk,
       bulkPer: entry?.data.bulkPer,
+      hands: item.carry.state === CarryState.Held ? item.carry.hands : undefined,
+      invested: item.invested === true,
       contents: (contents.get(item.id) ?? []).map((inside) => lineOf(inside)),
     };
   };
   const loose = inventory.items.filter((each) => each.container === undefined);
-  return PLACEMENTS.map((placement) => ({
-    placement: GROUP_OF[placement],
-    lines: loose
-      .filter((each) => itemPlacement(content.get(each.item), false) === placement)
-      .map((each) => lineOf(each)),
+  return STATES.map((state) => ({
+    placement: GROUP_OF[state],
+    lines: loose.filter((each) => each.carry.state === state).map((each) => lineOf(each)),
   })).filter((group) => group.lines.length > 0);
 }
 

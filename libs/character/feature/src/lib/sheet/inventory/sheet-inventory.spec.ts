@@ -1,4 +1,14 @@
-import { addItem, EMPTY_INVENTORY, InventoryItemId, InventoryItemName, ItemQuantity } from '@pioneer/character/domain';
+import {
+  addItem,
+  carryItem,
+  CarryState,
+  EMPTY_INVENTORY,
+  InventoryItemId,
+  InventoryItemName,
+  investItem,
+  ItemQuantity,
+  ONE_HAND,
+} from '@pioneer/character/domain';
 import type { Inventory } from '@pioneer/character/domain';
 import { ItemFixture, itemFixtureContent, itemFixtureId } from '@pioneer/character/domain/testing';
 import { describe, expect, it } from 'vitest';
@@ -32,13 +42,21 @@ function stock(lines: readonly [InventoryItemId, ItemFixture, InventoryItemId | 
 }
 
 /** A worn backpack holding a second backpack (the pouch) holding a rope, a sword in hand and a loose diamond. */
-const PACKED = stock([
-  [diamond, ItemFixture.Diamond, undefined],
-  [backpack, ItemFixture.Backpack, undefined],
-  [pouch, ItemFixture.Backpack, backpack],
-  [rope, ItemFixture.Rope, pouch],
-  [sword, ItemFixture.Longsword, undefined],
-]);
+const PACKED = carryItem(
+  carryItem(
+    stock([
+      [diamond, ItemFixture.Diamond, undefined],
+      [backpack, ItemFixture.Backpack, undefined],
+      [pouch, ItemFixture.Backpack, backpack],
+      [rope, ItemFixture.Rope, pouch],
+      [sword, ItemFixture.Longsword, undefined],
+    ]),
+    backpack,
+    { state: CarryState.Worn },
+  ),
+  sword,
+  { state: CarryState.Held, hands: ONE_HAND },
+);
 
 describe(sheetInventory, () => {
   it('groups loose items worn, held then stowed, leaving out empty groups', () => {
@@ -49,6 +67,14 @@ describe(sheetInventory, () => {
       ['stowed', [diamond]],
     ]);
     expect(sheetInventory(EMPTY_INVENTORY, content)).toStrictEqual([]);
+  });
+
+  it('groups a dropped item last, and notes the hands a held one takes and an investment', () => {
+    const dropped = investItem(carryItem(PACKED, diamond, { state: CarryState.Dropped }), backpack, true);
+    const groups = sheetInventory(dropped, content);
+    expect(groups.map(({ placement }) => placement)).toStrictEqual(['worn', 'held', 'dropped']);
+    expect(groups[1]?.lines[0]).toMatchObject({ id: sword, hands: 1, invested: false });
+    expect(groups[0]?.lines[0]).toMatchObject({ id: backpack, hands: undefined, invested: true });
   });
 
   it('puts what a container holds beneath it, however deep', () => {
@@ -82,7 +108,11 @@ describe(containerOptions, () => {
 
 describe(itemOptions, () => {
   it('matches names containing the query, ignoring case, by name', () => {
-    expect(itemOptions(content, 'ARM', compare).map((option) => option.label)).toStrictEqual(['Leather-armor']);
+    expect(itemOptions(content, 'ARM', compare).map((option) => option.label)).toStrictEqual([
+      'Hide-armor',
+      'Leather-armor',
+      'Rune-armor',
+    ]);
     expect(itemOptions(content, 'ro', compare).map((option) => option.label)).toStrictEqual(['Rope']);
   });
 });

@@ -5,6 +5,8 @@ import {
   characterRanks,
   classContent,
   classInputs,
+  equippedInputs,
+  itemContent,
   slotContent,
 } from '@pioneer/character/domain';
 import type { Character } from '@pioneer/character/domain';
@@ -29,7 +31,8 @@ function classInputsOf(registry: ContentRegistry, character: Character): Pick<St
 
 /**
  * What the engine reads of a character so far: level, the modifiers its boosts give, the ranks its class, background
- * and features raise, and what its ancestry and class give.
+ * and features raise, what its ancestry and class give, and its worn armour and held weapons when the registry holds
+ * the item kinds.
  */
 export function statisticInputsOf(registry: ContentRegistry, character: Character): StatisticInputs {
   return {
@@ -38,5 +41,6 @@ export function statisticInputsOf(registry: ContentRegistry, character: Characte
     ranks: characterRanks(characterGrants(character.document, slotContent(registry))),
     ...ancestryInputs(registry, character),
     ...classInputsOf(registry, character),
+    ...equippedInputs(character.document.inventory, itemContent(registry)),
   };
 }

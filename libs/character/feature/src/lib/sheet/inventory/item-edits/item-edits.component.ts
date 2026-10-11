@@ -1,31 +1,59 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import type { Signal } from '@angular/core';
-import { TranslocoPipe } from '@jsverse/transloco';
-import { CharacterPatchField, InventoryItemId, InventoryItemName, ItemQuantity } from '@pioneer/character/domain';
-import type { Character, InventoryItem, ItemContent } from '@pioneer/character/domain';
-import { AsyncButton, Grid, InlineField, LocaleFormat, NumberInput, Select, Stack, TextInput } from '@pioneer/frontier';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
+import {
+  CharacterPatchField,
+  InventoryItemId,
+  InventoryItemName,
+  isInvestable,
+  ItemQuantity,
+  STOWED,
+} from '@pioneer/character/domain';
+import type { Character, InventoryItem, ItemContent, ItemEntry } from '@pioneer/character/domain';
+import {
+  AsyncButton,
+  Grid,
+  InlineField,
+  LocaleFormat,
+  NumberInput,
+  Select,
+  Stack,
+  TextInput,
+  ToggleButton,
+} from '@pioneer/frontier';
+import { filter, merge } from 'rxjs';
 import * as z from 'zod';
 
 import { CharacterStore } from '../../../data/character-store';
 import { sheetField } from '../../sheet-field';
+import { CarryChoice, carryOf, choiceOf, injectCarryOptions } from '../carry-options';
 import { injectPlaceOptions } from '../place-options';
 import { LOOSE } from '../sheet-inventory';
 
 /** A name the player gives, or none to go back to the content's. */
 const NameDraft = z.union([InventoryItemName, z.literal('')]);
 const PlaceDraft = z.union([InventoryItemId, z.literal(LOOSE)]);
+const CarryDraft = z.enum(CarryChoice);
+const InvestedDraft = z.boolean();
 
 const NO_QUANTITY = 1;
 
+/** The invest field's read view, invested or not. */
+interface InvestLabels {
+  readonly on: string;
+  readonly off: string;
+}
+
 /**
- * One item's edits beside it on the sheet: how many, the player's name for it, the container it is in, each its own
- * inline edit, and Remove. Every label names the item, so each row's controls read apart. Removing acts on the first
+ * One item's edits beside it on the sheet: how many, the player's name for it, the container it is in, how it is
+ * carried and, for an item with the invested trait, whether it is invested, each its own inline edit, and Remove. Every label names the item, so each row's controls read apart. Removing acts on the first
  * press when adding the item again would put it back; it asks for a second press only when the item has the player's
  * name or holds something, which adding it again can't restore (interaction rule 4).
  */
 @Component({
   selector: 'pio-item-edits',
-  imports: [AsyncButton, Grid, InlineField, NumberInput, Select, Stack, TextInput, TranslocoPipe],
+  imports: [AsyncButton, Grid, InlineField, NumberInput, Select, Stack, TextInput, ToggleButton, TranslocoPipe],
   templateUrl: './item-edits.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -39,6 +67,17 @@ export class ItemEdits {
 
   readonly #store = inject(CharacterStore);
   readonly #format = inject(LocaleFormat);
+  readonly #i18n = inject(TranslocoService);
+  readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
+  readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
+  /** "Invested" and "Not invested", re-read when the language changes or the messages load. */
+  readonly #investLabels = computed((): InvestLabels => {
+    this.#messages();
+    return {
+      on: this.#i18n.translate('character.sheet.inventory.invested'),
+      off: this.#i18n.translate('character.sheet.inventory.notInvested'),
+    };
+  });
   readonly #item: Signal<InventoryItem | undefined> = computed(() =>
     this.#store.selected()?.document.inventory.items.find((each) => each.id === this.id()),
   );
@@ -47,7 +86,15 @@ export class ItemEdits {
     this.#item() === undefined ? undefined : this.#store.selected(),
   );
 
+  readonly #entry: Signal<ItemEntry | undefined> = computed(() => {
+    const item = this.#item();
+    return item === undefined ? undefined : this.content().get(item.item);
+  });
+
   protected readonly places = injectPlaceOptions(this.content, this.id);
+  protected readonly carries = injectCarryOptions(this.#entry);
+  /** Whether the item has the invested trait, so investing it is offered. */
+  protected readonly investable = computed(() => isInvestable(this.#entry()));
   /** Whether removing loses what adding again can't restore: the player's name, or where its contents were. */
   protected readonly lossy = computed((): boolean => {
     const item = this.#item();
@@ -93,6 +140,27 @@ export class ItemEdits {
       });
     },
     format: (value) => this.places().find((option) => option.value === value)?.label ?? '',
+  });
+
+  protected readonly carry = sheetField<string | undefined>(this.#holder, {
+    read: () => choiceOf(this.#item()?.carry ?? STOWED),
+    empty: CarryChoice.Stowed,
+    schema: CarryDraft,
+    save: async (value) =>
+      this.#store.patch({
+        field: CharacterPatchField.CarryItem,
+        id: this.id(),
+        carry: carryOf(CarryDraft.parse(value)),
+      }),
+    format: (value) => this.carries().find((option) => option.value === value)?.label ?? '',
+  });
+  protected readonly invest = sheetField<boolean>(this.#holder, {
+    read: () => this.#item()?.invested === true,
+    empty: false,
+    schema: InvestedDraft,
+    save: async (value) =>
+      this.#store.patch({ field: CharacterPatchField.InvestItem, id: this.id(), invested: InvestedDraft.parse(value) }),
+    format: (value) => this.#investLabels()[value ? 'on' : 'off'],
   });
 
   protected readonly remove = async (): Promise<void> => {

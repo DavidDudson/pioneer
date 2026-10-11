@@ -1,3 +1,4 @@
+import { equippedRules, itemContent, slotContent } from '@pioneer/character/domain';
 import type { Character } from '@pioneer/character/domain';
 import { deriveStatistics, statisticContent } from '@pioneer/rules/engine';
 import { Selector } from '@pioneer/rules/sdk';
@@ -13,8 +14,9 @@ const SHEET_STATISTICS: readonly Selector[] = ['ac', 'save:fortitude', 'save:ref
 
 /**
  * A character's AC, saves and Perception from the engine, each named by the statistic that applies: the last pack's
- * definition of its selector, as the engine chooses. No rule elements are in play until the builder (Epic 3.3) puts
- * the character's ancestry, class, feats and items there, and every rank is untrained, so each is its base for now.
+ * definition of its selector, as the engine chooses. The rule elements of the items the character wears, holds or has
+ * invested are in play when the registry holds the item kinds; those of its ancestry, class and feats arrive with the
+ * builder (Epic 3.3), and every rank is untrained.
  * A statistic no registered pack defines is left out; without a proficiency bonus table nothing can be derived.
  */
 export function sheetStatistics(registry: ContentRegistry, character: Character): readonly NamedStatistic[] {
@@ -22,7 +24,8 @@ export function sheetStatistics(registry: ContentRegistry, character: Character)
   if (content === undefined) {
     return [];
   }
-  const results = deriveStatistics(content, statisticInputsOf(registry, character));
+  const rules = equippedRules(character.document, itemContent(registry), slotContent(registry));
+  const results = deriveStatistics(content, statisticInputsOf(registry, character), rules);
   return SHEET_STATISTICS.flatMap((selector): NamedStatistic[] => {
     const result = results.get(selector);
     const entry = registry.statisticsFor(selector).at(-1);

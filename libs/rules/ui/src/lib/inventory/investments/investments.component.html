@@ -1,0 +1,32 @@
+<fr-stack gap="sm">
+  @if (shown(); as shown) {
+    <fr-meter [label]="Message.Meter | transloco" [value]="shown.length" [max]="maximum()" />
+    <fr-text variant="caption" tone="subtle">{{ count() }}</fr-text>
+    @if (shown.length === 0) {
+      <fr-empty-state [title]="Message.None | transloco" />
+    } @else {
+      <fr-list gap="sm">
+        @for (investment of shown; track investment.id) {
+          <fr-list-item>
+            <fr-stack gap="3xs">
+              <fr-text weight="medium">{{ investment.name }}</fr-text>
+              <fr-list gap="3xs">
+                @for (effect of investment.effects; track $index) {
+                  <fr-list-item
+                    ><fr-text variant="caption">{{ effect }}</fr-text></fr-list-item
+                  >
+                }
+              </fr-list>
+            </fr-stack>
+          </fr-list-item>
+        }
+      </fr-list>
+    }
+  } @else {
+    <fr-list gap="xs">
+      @for (row of loadingRows; track row) {
+        <fr-list-item><fr-skeleton width="md" /></fr-list-item>
+      }
+    </fr-list>
+  }
+</fr-stack>

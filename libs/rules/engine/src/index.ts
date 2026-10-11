@@ -1,3 +1,4 @@
+export { type ArmorInputs } from './armor-bonus';
 export { type BaseTerm, BaseTermKind, TermSign } from './base-term';
 export {
   type BreakdownLine,
@@ -28,4 +29,5 @@ export { type ModifierInputs, RuleId, ruleIdOf, RuleInPlay } from './rule-in-pla
 export { ranksInPlay } from './ranks-in-play';
 export { type StatisticFailure, type StatisticResult, type StatisticValue } from './statistic-result';
 export { type ClassInputs, type StatisticInputs, StatisticInputsJson } from './statistic-inputs';
+export { type WeaponInputs } from './source-inputs';
 export { default as engineMessages } from './i18n/en.json';

@@ -41,6 +41,7 @@ Accepted. To change a decision, add a new ADR that supersedes the old one; do no
 | [0034](0034-entry-slugs-name-their-kind.md)                   | Entry slugs name their kind (`ancestry:dwarf`)                                    |
 | [0035](0035-character-reads-carry-slot-status.md)             | A character read carries its slots' statuses, worked out by the server            |
 | [0036](0036-class-names-its-subclass-by-tag.md)               | A class names its subclass by the tag its options carry                           |
+| [0037](0037-item-carry-stored-on-inventory-items.md)          | How an item is carried is stored on the inventory item                            |
 
 Template:
 

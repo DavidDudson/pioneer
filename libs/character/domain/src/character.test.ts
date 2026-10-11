@@ -9,6 +9,7 @@ import { CharacterId, CharacterLevel, CharacterName } from './character-fields';
 import { CharacterPatchField, CharacterPatchSchema } from './character-patch';
 import { ANCESTRY_SLOT } from './character-slots';
 import { CoinsSchema, InventoryItemId, ItemQuantity } from './inventory';
+import { STOWED } from './item-carry';
 import { CharacterBuilder, humanAncestryId, ItemFixture, itemFixtureId } from './testing';
 
 const later = fixedClock('2026-10-07T10:00:00Z').now();
@@ -121,7 +122,7 @@ describe('Character inventory edits', () => {
 
   test('adds an item with the id it is given', () => {
     expect(withBackpack().document.inventory.items).toStrictEqual([
-      { id: backpackId, item: itemFixtureId(ItemFixture.Backpack), quantity: one },
+      { id: backpackId, item: itemFixtureId(ItemFixture.Backpack), quantity: one, carry: STOWED },
     ]);
   });
 

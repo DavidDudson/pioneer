@@ -1,6 +1,15 @@
 import { describe, expect, test } from 'bun:test';
 
-import { contentId, ContentId, ContentKind, ContentRegistry, EntrySlug, PackId, RollOption } from '@pioneer/rules/sdk';
+import {
+  contentId,
+  ContentId,
+  ContentKind,
+  ContentRegistry,
+  EntrySlug,
+  PackId,
+  RollOption,
+  RuleElement,
+} from '@pioneer/rules/sdk';
 import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
 
 import { grantLookup } from './grant-lookup';
@@ -44,6 +53,23 @@ describe('grantLookup', () => {
     const lookup = grantLookup(registry);
     expect(lookup.ofKind(ContentKind.Background).map((entry) => String(entry.slug))).toEqual(['farmhand']);
     expect(lookup.ofKind(ContentKind.Class).map((entry) => String(entry.slug))).toEqual(['fighter']);
+  });
+
+  test('finds carried items with their rule elements and trait options, which are roots while worn or held', () => {
+    const registry = new ContentRegistry();
+    const perception = { key: 'FlatModifier', selectors: ['perception'], type: 'item', value: 1 };
+    registry.register(
+      new ContentPackBuilder()
+        .withMagicItem(ContentKind.Equipment, 'cloak', {
+          data: { bulk: 'light', usage: { type: 'worn', slot: 'cloak' } },
+          traits: ['invested'],
+          rules: [perception],
+        })
+        .build(),
+    );
+    const [cloak] = grantLookup(registry).ofKind(ContentKind.Equipment);
+    expect(cloak?.rules).toEqual([RuleElement.parse(perception)]);
+    expect(cloak?.rollOptions).toEqual([RollOption.parse('trait:invested')]);
   });
 
   test('finds heritages, each belonging to its ancestry, a versatile one to none', () => {

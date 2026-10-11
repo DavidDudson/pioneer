@@ -2,6 +2,7 @@ import { afterAll, beforeAll, describe, expect, test } from 'bun:test';
 
 import { CharacterService } from '@pioneer/character/application';
 import {
+  CarryState,
   CharacterCommand,
   CharacterName,
   CharacterPatchField,
@@ -9,6 +10,7 @@ import {
   CURRENT_SCHEMA_VERSION,
   ItemQuantity,
 } from '@pioneer/character/domain';
+import type { Character, InventoryItem } from '@pioneer/character/domain';
 import {
   fixtureOwnerId,
   humanAncestryId,
@@ -30,6 +32,15 @@ import { DrizzleCharacterRepository } from './drizzle-character-repository';
 const adminUrl = testDatabaseUrl();
 const clock = fixedClock('2026-10-07T10:00:00Z');
 const one = ItemQuantity.parse(1);
+
+/** The one item `character` carries. */
+function onlyItem(character: Character): InventoryItem {
+  const [item, ...rest] = character.document.inventory.items;
+  if (item === undefined || rest.length > 0) {
+    throw new Error('Expected one item');
+  }
+  return item;
+}
 
 describe.skipIf(adminUrl === undefined)('inventory edits (postgres)', () => {
   let database: TestDatabase;
@@ -101,5 +112,29 @@ describe.skipIf(adminUrl === undefined)('inventory edits (postgres)', () => {
       CharacterCommand.AddItem,
       CharacterCommand.SetCoins,
     ]);
+  });
+
+  test('stores how items are carried and what is invested, read back as written', async () => {
+    const created = await service.create(fixtureOwnerId, {
+      name: CharacterName.parse('Seelah'),
+      ancestry: humanAncestryId,
+    });
+    const { character: added } = await service.patch(fixtureOwnerId, created.id, {
+      expectedVersion: FIRST_VERSION,
+      patch: { field: CharacterPatchField.AddItem, item: itemFixtureId(ItemFixture.Cloak), quantity: one },
+    });
+    const cloak = onlyItem(added);
+    const worn = { state: CarryState.Worn } as const;
+    const { character: wearing } = await service.patch(fixtureOwnerId, created.id, {
+      expectedVersion: added.version,
+      patch: { field: CharacterPatchField.CarryItem, id: cloak.id, carry: worn },
+    });
+    await service.patch(fixtureOwnerId, created.id, {
+      expectedVersion: wearing.version,
+      patch: { field: CharacterPatchField.InvestItem, id: cloak.id, invested: true },
+    });
+
+    const stored = await service.get(fixtureOwnerId, created.id);
+    expect(stored.document.inventory.items).toStrictEqual([{ ...cloak, carry: worn, invested: true }]);
   });
 });

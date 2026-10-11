@@ -22,6 +22,7 @@ import {
   CharacterPatchField,
   CLASS_SLOT,
   HERITAGE_SLOT,
+  itemContent,
 } from '@pioneer/character/domain';
 import {
   AsyncData,
@@ -46,7 +47,7 @@ import {
   TextInput,
 } from '@pioneer/frontier';
 import { AncestryId, ChoiceValue } from '@pioneer/rules/sdk';
-import type { ContentId } from '@pioneer/rules/sdk';
+import type { ContentId, ContentRegistry } from '@pioneer/rules/sdk';
 import {
   AttributesView,
   BuildSummaryView,
@@ -55,6 +56,7 @@ import {
   DefencesView,
   StatisticsView,
 } from '@pioneer/rules/ui';
+import type { Investment } from '@pioneer/rules/ui';
 
 import { AncestryOptions } from '../../data/ancestry-options';
 import { CharacterStore } from '../../data/character-store';
@@ -66,6 +68,7 @@ import { sheetBuildPicks } from '../sheet-build-picks';
 import { SheetClassFields } from '../sheet-class-fields/sheet-class-fields.component';
 import { sheetDefences } from '../sheet-defences';
 import { sheetEntryNames } from '../sheet-entry-names';
+import { carriesEquipment, EQUIPMENT_CONTENT_KINDS, sheetInvestments } from '../sheet-equipment';
 import { sheetField } from '../sheet-field';
 import { SHEET_SECTION_ORDER, SHEET_SECTIONS } from '../sheet-sections';
 import { sheetStatistics } from '../sheet-statistics';
@@ -151,14 +154,38 @@ export class CharacterSheetPage {
     const character = this.character();
     return registry === undefined || character === undefined ? undefined : sheetDefences(registry, character);
   });
+  /**
+   * The registry with the item kinds too, so the character's equipment reaches the engine. It loads only once the
+   * character wears, holds or invests something, so a sheet with no equipment never fetches the item kinds for it.
+   */
+  protected readonly equipment = injectContentRegistry(EQUIPMENT_CONTENT_KINDS, () =>
+    carriesEquipment(this.character()),
+  );
+  /** The query the engine's registry comes from, so the regions that wait on it show its pending and failed states. */
+  protected readonly engineQuery = computed(() =>
+    carriesEquipment(this.character()) ? this.equipment : this.registry,
+  );
+  /** The registry the engine reads: with the item kinds once the character has equipment, undefined while they load. */
+  readonly #engineRegistry = computed((): ContentRegistry | undefined =>
+    carriesEquipment(this.character()) ? this.equipment.data() : this.registry.data(),
+  );
   protected readonly statistics = computed(() => {
-    const registry = this.registry.data();
+    const registry = this.#engineRegistry();
     const character = this.character();
     return registry === undefined || character === undefined ? undefined : sheetStatistics(registry, character);
   });
+  /** The invested items and what each turns on, from the statistics; undefined while they load. */
+  protected readonly investments = computed((): readonly Investment[] | undefined => {
+    const registry = this.#engineRegistry();
+    const character = this.character();
+    const statistics = this.statistics();
+    return registry === undefined || character === undefined || statistics === undefined
+      ? undefined
+      : sheetInvestments(character, itemContent(registry), statistics);
+  });
   /** Names for the entries the defences and statistics lines come from. */
   protected readonly entryNames = computed((): ReadonlyMap<ContentId, string> => {
-    const registry = this.registry.data();
+    const registry = this.#engineRegistry() ?? this.registry.data();
     return registry === undefined ? new Map() : sheetEntryNames(registry);
   });
 

@@ -116,6 +116,10 @@ its statistics.
   Progression (GM Core) needs no formula change either: it removes potency runes, so weapons carry no `potency` and
   get no line, and its variant pack adds its own `potency`-typed `FlatModifier` to attack rolls. The slug lets an
   `AdjustModifier` find the line for anything that changes a rune's bonus.
+- Worn armour's bonus (its own and its potency rune's) is not a base term either. The engine adds it to `ac` as a
+  synthetic `item` modifier with the slug `armor-bonus`, named by the armour and with its origin (an `inventory`
+  hop), so it stacks with other item bonuses to AC (bracers of armour): only the highest applies. Armour with no
+  bonus adds no line. The armour's Dexterity cap is the `dexterityCap` input `@attr.dex.capped` reads.
 - Inside an instance, `@stat.<family>` naming another family derived per the same kind of source reads that
   family's instance for the same source: the spell DC's `@stat.spell-attack` reads its own entry's spell attack
   base, so a bonus to spell attack rolls stays off the DC.
@@ -286,7 +290,7 @@ join the catalogue when the engine can supply their values. Formulas inside Foun
 ```ts
 interface Modifier {
   // `<entry>#<rule>`: the rule element that made it, stable across derivations; `weapon:<slug>#weapon-potency` for
-  // the line the engine adds for a weapon's potency
+  // the line the engine adds for a weapon's potency, `<armour entry>#armor-bonus` for worn armour's bonus
   id: RuleId;
   slug: RuleSlug | undefined; // lets an AdjustModifier find it
   // display.label, else its entry's name; a message for a line the engine adds itself
