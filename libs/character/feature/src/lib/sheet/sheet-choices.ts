@@ -24,6 +24,7 @@ const ROOT_LABEL_KEYS: ReadonlyMap<ContentKind, string> = new Map([
   [ContentKind.Heritage, 'rules.choices.slot.heritage'],
   [ContentKind.Background, 'rules.choices.slot.background'],
   [ContentKind.Class, 'rules.choices.slot.class'],
+  [ContentKind.Deity, 'rules.choices.slot.deity'],
 ]);
 
 const UNKNOWN_LABEL = 'rules.choices.slot.unknown';

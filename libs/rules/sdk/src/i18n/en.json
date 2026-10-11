@@ -245,6 +245,29 @@
         "wood": "Wood",
         "wyrmkin": "Dragon",
         "zeal": "Zeal"
+      },
+      "none": "No deity",
+      "nothing": "None",
+      "term": {
+        "font": "Divine font",
+        "sanctification": "Sanctification",
+        "domains": "Domains",
+        "alternateDomains": "Alternate domains",
+        "favoredWeapons": "Favored weapon",
+        "attributes": "Divine attribute",
+        "skills": "Divine skill"
+      },
+      "sanctification": {
+        "canHoly": "Can be holy",
+        "canUnholy": "Can be unholy",
+        "canEither": "Can be holy or unholy",
+        "mustHoly": "Must be holy",
+        "mustUnholy": "Must be unholy",
+        "none": "None"
+      },
+      "font": {
+        "heal": "Heal",
+        "harm": "Harm"
       }
     },
     "feat": {
@@ -605,6 +628,7 @@
         "ancestry": "Ancestry",
         "background": "Background",
         "class": "Class",
+        "deity": "Deity",
         "choice": "{entry}: {prompt}",
         "choiceOf": "{entry} choice",
         "unknown": "A choice the character no longer has",

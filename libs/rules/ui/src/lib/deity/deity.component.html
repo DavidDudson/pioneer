@@ -1,0 +1,24 @@
+@let shown = deity();
+@if (loading()) {
+  <fr-stack gap="sm"><fr-skeleton width="md" /><fr-skeleton width="lg" /></fr-stack>
+} @else if (shown === undefined) {
+  <fr-empty-state [title]="Message.None | transloco" />
+} @else {
+  <fr-stack gap="md">
+    <fr-text variant="subheading">{{ shown.name }}</fr-text>
+    <fr-description-list>
+      @for (term of terms(); track term.term) {
+        <fr-description-item [term]="term.term | transloco">
+          <fr-stack direction="horizontal" gap="sm" wrap>
+            @for (value of term.values; track $index) {
+              <fr-text>{{ value.name ?? (value.key ?? '' | transloco) }}</fr-text>
+            } @empty {
+              <fr-text tone="subtle">{{ Message.Nothing | transloco }}</fr-text>
+            }
+          </fr-stack>
+        </fr-description-item>
+      }
+    </fr-description-list>
+    <pio-rich-text [text]="shown.description" [headingLevel]="HeadingLevel.Three" />
+  </fr-stack>
+}
