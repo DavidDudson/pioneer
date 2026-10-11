@@ -589,7 +589,7 @@ flowchart LR
     with `actionCategory` as its category; action data its schema rejects (a reaction whose trigger has links) is
     reported and left off, the feat kept. A class feature has `action` and its `otherTags` as `tags`; a subclass
     `ChoiceSet` (a filter of `item:tag:` terms alone, with a `GrantItem` of `{item|flags.system.rulesSelections.<flag>}`)
-    becomes a class-feature query and a grant of its pick, its camel-case flag a slug, its lang-key prompt left off.
+    becomes a class-feature query and a grant of its pick, its camel-case flag a slug.
     Feature categories with no kind (`ancestryfeature`, `calling`, and the rest) are reported and have no data;
     `subfeatures` are reported.
   - A deity's singular fields (`attribute`, `skill`) map to `attributes` and `skills:` selectors, and its spells,

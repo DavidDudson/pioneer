@@ -21,12 +21,13 @@ describe('translateKindData: a class names its subclass', () => {
 describe('translateRules: subclass choices', () => {
   const subclass = translate([DOCTRINE, CLOISTERED_CLERIC]);
 
-  test("a subclass's ChoiceSet queries class features by tag and grants the pick, its lang-key prompt left off", () => {
+  test("a subclass's ChoiceSet queries class features by tag and grants the pick, its prompt in English", () => {
     expect(subclass.envelopes.untranslatedRules).toEqual([]);
     expect(rulesIn(subclass, 'doctrine')).toEqual([
       {
         key: RuleElementKey.ChoiceSet,
         flag: 'cleric-doctrine',
+        prompt: 'Select a doctrine.',
         choices: { kind: ContentKind.ClassFeature, filter: ['item:tag:cleric-doctrine'] },
       },
       { key: RuleElementKey.GrantItem, item: { choice: 'cleric-doctrine' } },

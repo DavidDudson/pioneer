@@ -921,7 +921,8 @@
         "choices": {
           "kind": "class-feature",
           "filter": ["item:tag:bard-muse"]
-        }
+        },
+        "prompt": "Select a muse."
       },
       {
         "key": "GrantItem",
@@ -1971,7 +1972,8 @@
         "choices": {
           "kind": "class-feature",
           "filter": ["item:tag:cleric-doctrine"]
-        }
+        },
+        "prompt": "Select a doctrine."
       },
       {
         "key": "GrantItem",
@@ -3008,7 +3010,8 @@
         "choices": {
           "kind": "class-feature",
           "filter": ["item:tag:druid-order"]
-        }
+        },
+        "prompt": "Select a druidic order."
       },
       {
         "key": "GrantItem",
@@ -4974,7 +4977,8 @@
         "choices": {
           "kind": "class-feature",
           "filter": ["item:tag:ranger-hunters-edge"]
-        }
+        },
+        "prompt": "Select a hunter's edge."
       },
       {
         "key": "GrantItem",
@@ -6265,7 +6269,8 @@
         "choices": {
           "kind": "class-feature",
           "filter": ["item:tag:rogue-racket"]
-        }
+        },
+        "prompt": "Select a racket."
       },
       {
         "key": "GrantItem",
@@ -7352,7 +7357,8 @@
         "choices": {
           "kind": "class-feature",
           "filter": ["item:tag:witch-patron"]
-        }
+        },
+        "prompt": "Select a patron."
       },
       {
         "key": "GrantItem",
@@ -8427,7 +8433,8 @@
         "choices": {
           "kind": "class-feature",
           "filter": ["item:tag:wizard-arcane-school"]
-        }
+        },
+        "prompt": "Select an arcane school."
       },
       {
         "key": "GrantItem",
@@ -8663,7 +8670,8 @@
         "choices": {
           "kind": "class-feature",
           "filter": ["item:tag:wizard-arcane-thesis"]
-        }
+        },
+        "prompt": "Select an arcane thesis."
       },
       {
         "key": "GrantItem",

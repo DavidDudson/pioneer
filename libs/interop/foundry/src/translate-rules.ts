@@ -159,17 +159,13 @@ const FoundryTagChoices = z.strictObject({
   filter: z.array(z.string().regex(/^item:tag:[a-z0-9-]+$/u)).min(1),
 });
 
-/** A Foundry lang key (`PF2E.SpecificRule.Cleric.Doctrine.Prompt`), which names a prompt rather than giving it. */
-const LANG_KEY = 'PF2E.';
-
 /** The fields a subclass query replaces (`flag`, `choices`) or drops (`adjustName`). */
 const TAG_QUERY_FIELDS_REPLACED: ReadonlySet<string> = new Set(['adjustName', 'choices', 'flag']);
 
 /**
  * A subclass's `ChoiceSet` (a doctrine, muse, order, school), which Foundry writes as a filter on class-feature tags
- * with no item type, as a query of class features. Its camel-case flag becomes a slug, a prompt that is a lang key is
- * left off (the slot is named by its feature), and `adjustName` (renaming the feature after the pick) is dropped as a
- * display concern. Any other `ChoiceSet` is left as it is.
+ * with no item type, as a query of class features. Its camel-case flag becomes a slug, and `adjustName` (renaming the
+ * feature after the pick) is dropped as a display concern. Any other `ChoiceSet` is left as it is.
  */
 function withTagQuery(raw: unknown): unknown {
   if (keyOf(raw) !== RuleElementKey.ChoiceSet || typeof raw !== 'object' || raw === null || !('choices' in raw)) {
@@ -179,9 +175,7 @@ function withTagQuery(raw: unknown): unknown {
   if (!choices.success) {
     return raw;
   }
-  const prompt = 'prompt' in raw ? raw.prompt : undefined;
-  const dropped = typeof prompt === 'string' && prompt.startsWith(LANG_KEY) ? 'prompt' : undefined;
-  const kept = Object.entries(raw).filter(([field]) => !TAG_QUERY_FIELDS_REPLACED.has(field) && field !== dropped);
+  const kept = Object.entries(raw).filter(([field]) => !TAG_QUERY_FIELDS_REPLACED.has(field));
   const flag = 'flag' in raw && typeof raw.flag === 'string' ? { flag: kebab(raw.flag) } : {};
   const query = { kind: ContentKind.ClassFeature, filter: choices.data.filter };
   return { ...Object.fromEntries(kept), ...flag, choices: query };
