@@ -624,11 +624,15 @@ A `Sense` element names a `sense` entry of the `core-rules` vocabulary (darkvisi
 Foundry's optional `acuity` and `range` in feet. `sensesInPlay` in `libs/rules/engine` collects the character's senses
 from the ancestry's `vision` (precise, unlimited) and the `Sense` elements whose predicate holds; one that depends on
 the situation gives none on the sheet. As in Foundry, a sense with no acuity is precise and one with no range is
-unlimited. Two grants of one sense merge, each field on its own: the better acuity (precise, then imprecise, then
-vague) and the longer range, where a range-less grant is the longest. Each sense keeps the origin of every grant, and
-the result is in order of sense id. A sense whose definition fixes its acuity or range (`SenseData`: darkvision is
-precise and unlimited) keeps its own; the importer leaves those fields off, as Foundry ignores them. Foundry's `force`
-(a sense replacing a better one) is not read, so the importer keeps such elements in the backlog.
+unlimited. Of the grants of one sense, one that another grant beats on acuity or range, without being worse on the
+other, is dropped; grants that read alike are one sense with every origin. Where one grant is best on both, it alone
+remains. Where neither beats the other (imprecise scent 30 feet, vague scent with no range), both remain, as the rules
+read: imprecise within 30 feet, vague beyond. Foundry instead keeps whichever grant is better on either, which can
+lose the better acuity. The result is in order of sense id, then the more acute and the farther first.
+
+The engine reads an element's acuity and range as written. A sense whose definition fixes them (`SenseData`:
+darkvision is precise and unlimited) should not give them; the importer leaves them off, as Foundry ignores them.
+Foundry's `force` (a sense replacing a better one) is not read, so the importer keeps such elements in the backlog.
 
 ## Predicates and conditional modifiers
 

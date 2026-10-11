@@ -8,8 +8,9 @@ import { Feet } from './units';
 /**
  * Gives the character a sense: a `sense` entry of the `core-rules` vocabulary (darkvision, scent, tremorsense), with
  * Foundry's `acuity` and `range`. Without an acuity the sense is precise, and without a range it reaches as far as the
- * character can perceive, as in Foundry; a sense whose definition fixes either (`SenseData`) keeps its own. Where two
- * grant one sense, the better acuity and the longer range win (rules-engine.md, "Senses").
+ * character can perceive, as in Foundry. Both are read as written: leave them off a sense whose definition fixes them
+ * (`SenseData`), as the importer does. Of several grants of one sense, one another beats on acuity or range is dropped
+ * (rules-engine.md, "Senses").
  */
 export const SenseElement = z.strictObject({
   key: z.literal(RuleElementKey.Sense),

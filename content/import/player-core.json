@@ -1309,12 +1309,10 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "will": {
-                "rank": 3
-              }
+            "will": {
+              "rank": 3
             }
           }
         }
@@ -1500,21 +1498,19 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "heavy": {
-                "rank": 2
-              },
-              "light": {
-                "rank": 2
-              },
-              "medium": {
-                "rank": 2
-              },
-              "unarmored": {
-                "rank": 2
-              }
+            "heavy": {
+              "rank": 2
+            },
+            "light": {
+              "rank": 2
+            },
+            "medium": {
+              "rank": 2
+            },
+            "unarmored": {
+              "rank": 2
             }
           }
         }
@@ -1552,18 +1548,16 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "martial": {
-                "rank": 2
-              },
-              "simple": {
-                "rank": 2
-              },
-              "unarmed": {
-                "rank": 2
-              }
+            "martial": {
+              "rank": 2
+            },
+            "simple": {
+              "rank": 2
+            },
+            "unarmed": {
+              "rank": 2
             }
           }
         }
@@ -1589,12 +1583,10 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "fortitude": {
-                "rank": 3
-              }
+            "fortitude": {
+              "rank": 3
             }
           }
         }
@@ -1620,12 +1612,10 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "perception": {
-                "rank": 3
-              }
+            "perception": {
+              "rank": 3
             }
           }
         }
@@ -1652,12 +1642,10 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "will": {
-                "rank": 2
-              }
+            "will": {
+              "rank": 2
             }
           }
         }
@@ -1961,12 +1949,10 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "unarmored": {
-                "rank": 2
-              }
+            "unarmored": {
+              "rank": 2
             }
           }
         }
@@ -2126,12 +2112,10 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "unarmored": {
-                "rank": 2
-              }
+            "unarmored": {
+              "rank": 2
             }
           }
         }
@@ -2498,15 +2482,13 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "simple": {
-                "rank": 2
-              },
-              "unarmed": {
-                "rank": 2
-              }
+            "simple": {
+              "rank": 2
+            },
+            "unarmed": {
+              "rank": 2
             }
           }
         }
@@ -2544,12 +2526,10 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "reflex": {
-                "rank": 3
-              }
+            "reflex": {
+              "rank": 3
             }
           }
         }
@@ -2619,12 +2599,10 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "spellcasting": {
-                "rank": 2
-              }
+            "spellcasting": {
+              "rank": 2
             }
           }
         },
@@ -2728,12 +2706,10 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "spellcasting": {
-                "rank": 3
-              }
+            "spellcasting": {
+              "rank": 3
             }
           }
         }
@@ -2759,12 +2735,10 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "fortitude": {
-                "rank": 3
-              }
+            "fortitude": {
+              "rank": 3
             }
           }
         }
@@ -2779,13 +2753,11 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "fighter": {
-                "attribute": null,
-                "rank": 2
-              }
+            "fighter": {
+              "attribute": null,
+              "rank": 2
             }
           }
         }
@@ -2886,12 +2858,10 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "spellcasting": {
-                "rank": 4
-              }
+            "spellcasting": {
+              "rank": 4
             }
           }
         }
@@ -2916,12 +2886,10 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "spellcasting": {
-                "rank": 3
-              }
+            "spellcasting": {
+              "rank": 3
             }
           }
         }
@@ -2984,18 +2952,16 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "fortitude": {
-                "rank": 2
-              },
-              "light": {
-                "rank": 1
-              },
-              "medium": {
-                "rank": 1
-              }
+            "fortitude": {
+              "rank": 2
+            },
+            "light": {
+              "rank": 1
+            },
+            "medium": {
+              "rank": 1
             }
           }
         }
@@ -3136,12 +3102,10 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "fortitude": {
-                "rank": 2
-              }
+            "fortitude": {
+              "rank": 2
             }
           }
         },
@@ -3195,15 +3159,13 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "simple": {
-                "rank": 2
-              },
-              "unarmed": {
-                "rank": 2
-              }
+            "simple": {
+              "rank": 2
+            },
+            "unarmed": {
+              "rank": 2
             }
           }
         }
@@ -3218,12 +3180,10 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "spellcasting": {
-                "rank": 2
-              }
+            "spellcasting": {
+              "rank": 2
             }
           }
         }
@@ -3261,12 +3221,10 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "reflex": {
-                "rank": 4
-              }
+            "reflex": {
+              "rank": 4
             }
           }
         }
@@ -3304,12 +3262,10 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "will": {
-                "rank": 4
-              }
+            "will": {
+              "rank": 4
             }
           }
         }
@@ -3347,12 +3303,10 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "reflex": {
-                "rank": 4
-              }
+            "reflex": {
+              "rank": 4
             }
           }
         }
@@ -3509,12 +3463,10 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "spellcasting": {
-                "rank": 4
-              }
+            "spellcasting": {
+              "rank": 4
             }
           }
         },
@@ -3534,15 +3486,13 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "light": {
-                "rank": 2
-              },
-              "unarmored": {
-                "rank": 2
-              }
+            "light": {
+              "rank": 2
+            },
+            "unarmored": {
+              "rank": 2
             }
           }
         }
@@ -3557,15 +3507,13 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "light": {
-                "rank": 3
-              },
-              "unarmored": {
-                "rank": 3
-              }
+            "light": {
+              "rank": 3
+            },
+            "unarmored": {
+              "rank": 3
             }
           }
         }
@@ -3606,12 +3554,10 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "fortitude": {
-                "rank": 2
-              }
+            "fortitude": {
+              "rank": 2
             }
           }
         },
@@ -3631,18 +3577,16 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "martial": {
-                "rank": 3
-              },
-              "simple": {
-                "rank": 3
-              },
-              "unarmed": {
-                "rank": 3
-              }
+            "martial": {
+              "rank": 3
+            },
+            "simple": {
+              "rank": 3
+            },
+            "unarmed": {
+              "rank": 3
             }
           }
         }
@@ -3683,12 +3627,10 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "spellcasting": {
-                "rank": 3
-              }
+            "spellcasting": {
+              "rank": 3
             }
           }
         },
@@ -3708,13 +3650,11 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "rogue": {
-                "attribute": null,
-                "rank": 3
-              }
+            "rogue": {
+              "attribute": null,
+              "rank": 3
             }
           }
         }
@@ -3729,18 +3669,16 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "martial": {
-                "rank": 3
-              },
-              "simple": {
-                "rank": 3
-              },
-              "unarmed": {
-                "rank": 3
-              }
+            "martial": {
+              "rank": 3
+            },
+            "simple": {
+              "rank": 3
+            },
+            "unarmed": {
+              "rank": 3
             }
           }
         }
@@ -3766,13 +3704,11 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "ranger": {
-                "attribute": null,
-                "rank": 3
-              }
+            "ranger": {
+              "attribute": null,
+              "rank": 3
             }
           }
         }
@@ -4012,10 +3948,8 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
-          "raw": {
-            "keyOptions": ["int"]
-          }
+          "field": "subfeatures.keyOptions",
+          "raw": ["int"]
         }
       ]
     },
@@ -4058,18 +3992,16 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "light": {
-                "rank": 2
-              },
-              "medium": {
-                "rank": 2
-              },
-              "unarmored": {
-                "rank": 2
-              }
+            "light": {
+              "rank": 2
+            },
+            "medium": {
+              "rank": 2
+            },
+            "unarmored": {
+              "rank": 2
             }
           }
         }
@@ -4084,18 +4016,16 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "light": {
-                "rank": 3
-              },
-              "medium": {
-                "rank": 3
-              },
-              "unarmored": {
-                "rank": 3
-              }
+            "light": {
+              "rank": 3
+            },
+            "medium": {
+              "rank": 3
+            },
+            "unarmored": {
+              "rank": 3
             }
           }
         }
@@ -4144,12 +4074,10 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "reflex": {
-                "rank": 3
-              }
+            "reflex": {
+              "rank": 3
             }
           }
         }
@@ -4271,12 +4199,10 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "perception": {
-                "rank": 4
-              }
+            "perception": {
+              "rank": 4
             }
           }
         }
@@ -4317,12 +4243,10 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "perception": {
-                "rank": 3
-              }
+            "perception": {
+              "rank": 3
             }
           }
         },
@@ -4353,12 +4277,10 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "will": {
-                "rank": 3
-              }
+            "will": {
+              "rank": 3
             }
           }
         }
@@ -4495,12 +4417,10 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "will": {
-                "rank": 3
-              }
+            "will": {
+              "rank": 3
             }
           }
         }
@@ -4530,13 +4450,11 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "ranger": {
-                "attribute": null,
-                "rank": 2
-              }
+            "ranger": {
+              "attribute": null,
+              "rank": 2
             }
           }
         }
@@ -4564,18 +4482,16 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "martial": {
-                "rank": 2
-              },
-              "simple": {
-                "rank": 2
-              },
-              "unarmed": {
-                "rank": 2
-              }
+            "martial": {
+              "rank": 2
+            },
+            "simple": {
+              "rank": 2
+            },
+            "unarmed": {
+              "rank": 2
             }
           }
         }
@@ -4601,12 +4517,10 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "will": {
-                "rank": 3
-              }
+            "will": {
+              "rank": 3
             }
           }
         }
@@ -4621,13 +4535,11 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "rogue": {
-                "attribute": null,
-                "rank": 2
-              }
+            "rogue": {
+              "attribute": null,
+              "rank": 2
             }
           }
         }
@@ -4653,12 +4565,10 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "fortitude": {
-                "rank": 2
-              }
+            "fortitude": {
+              "rank": 2
             }
           }
         }
@@ -4766,13 +4676,16 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.keyOptions",
+          "raw": ["str"]
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "keyOptions": ["str"],
-            "proficiencies": {
-              "medium": {
-                "rank": 1
-              }
+            "medium": {
+              "rank": 1
             }
           }
         }
@@ -4860,10 +4773,8 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
-          "raw": {
-            "keyOptions": ["cha"]
-          }
+          "field": "subfeatures.keyOptions",
+          "raw": ["cha"]
         }
       ]
     },
@@ -4892,12 +4803,10 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "fortitude": {
-                "rank": 2
-              }
+            "fortitude": {
+              "rank": 2
             }
           }
         }
@@ -4912,12 +4821,10 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "martial": {
-                "rank": 1
-              }
+            "martial": {
+              "rank": 1
             }
           }
         }
@@ -4932,18 +4839,16 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "light": {
-                "rank": 3
-              },
-              "medium": {
-                "rank": 3
-              },
-              "unarmored": {
-                "rank": 3
-              }
+            "light": {
+              "rank": 3
+            },
+            "medium": {
+              "rank": 3
+            },
+            "unarmored": {
+              "rank": 3
             }
           }
         }
@@ -5305,12 +5210,10 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "reflex": {
-                "rank": 3
-              }
+            "reflex": {
+              "rank": 3
             }
           }
         }
@@ -5462,12 +5365,10 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "spellcasting": {
-                "rank": 2
-              }
+            "spellcasting": {
+              "rank": 2
             }
           }
         }
@@ -5500,18 +5401,16 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "martial": {
-                "rank": 2
-              },
-              "simple": {
-                "rank": 2
-              },
-              "unarmed": {
-                "rank": 2
-              }
+            "martial": {
+              "rank": 2
+            },
+            "simple": {
+              "rank": 2
+            },
+            "unarmed": {
+              "rank": 2
             }
           }
         }
@@ -5570,25 +5469,23 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "advanced": {
-                "rank": 3
-              },
-              "fighter": {
-                "attribute": null,
-                "rank": 3
-              },
-              "martial": {
-                "rank": 4
-              },
-              "simple": {
-                "rank": 4
-              },
-              "unarmed": {
-                "rank": 4
-              }
+            "advanced": {
+              "rank": 3
+            },
+            "fighter": {
+              "attribute": null,
+              "rank": 3
+            },
+            "martial": {
+              "rank": 4
+            },
+            "simple": {
+              "rank": 4
+            },
+            "unarmed": {
+              "rank": 4
             }
           }
         }
@@ -5648,12 +5545,10 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "fortitude": {
-                "rank": 3
-              }
+            "fortitude": {
+              "rank": 3
             }
           }
         }
@@ -5759,15 +5654,13 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "simple": {
-                "rank": 2
-              },
-              "unarmed": {
-                "rank": 2
-              }
+            "simple": {
+              "rank": 2
+            },
+            "unarmed": {
+              "rank": 2
             }
           }
         },
@@ -5824,21 +5717,19 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "advanced": {
-                "rank": 2
-              },
-              "martial": {
-                "rank": 3
-              },
-              "simple": {
-                "rank": 3
-              },
-              "unarmed": {
-                "rank": 3
-              }
+            "advanced": {
+              "rank": 2
+            },
+            "martial": {
+              "rank": 3
+            },
+            "simple": {
+              "rank": 3
+            },
+            "unarmed": {
+              "rank": 3
             }
           }
         },
@@ -5876,18 +5767,16 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "martial": {
-                "rank": 2
-              },
-              "simple": {
-                "rank": 2
-              },
-              "unarmed": {
-                "rank": 2
-              }
+            "martial": {
+              "rank": 2
+            },
+            "simple": {
+              "rank": 2
+            },
+            "unarmed": {
+              "rank": 2
             }
           }
         }
@@ -5913,12 +5802,10 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "will": {
-                "rank": 3
-              }
+            "will": {
+              "rank": 3
             }
           }
         }
@@ -5982,11 +5869,9 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.languages",
           "raw": {
-            "languages": {
-              "granted": ["wildsong"]
-            }
+            "granted": ["wildsong"]
           }
         }
       ]
@@ -6011,12 +5896,10 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "will": {
-                "rank": 3
-              }
+            "will": {
+              "rank": 3
             }
           }
         }
@@ -6101,12 +5984,10 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "unarmed": {
-                "rank": 2
-              }
+            "unarmed": {
+              "rank": 2
             }
           }
         }
@@ -24032,12 +23913,10 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.languages",
           "raw": {
-            "languages": {
-              "granted": ["empyrean"],
-              "slots": 0
-            }
+            "granted": ["empyrean"],
+            "slots": 0
           }
         }
       ]
@@ -24395,12 +24274,10 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "spellcasting": {
-                "rank": 1
-              }
+            "spellcasting": {
+              "rank": 1
             }
           }
         },
@@ -26179,12 +26056,10 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "spellcasting": {
-                "rank": 1
-              }
+            "spellcasting": {
+              "rank": 1
             }
           }
         },
@@ -27014,18 +26889,16 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "advanced": {
-                "rank": 1
-              },
-              "martial": {
-                "rank": 2
-              },
-              "simple": {
-                "rank": 2
-              }
+            "advanced": {
+              "rank": 1
+            },
+            "martial": {
+              "rank": 2
+            },
+            "simple": {
+              "rank": 2
             }
           }
         }
@@ -27263,6 +27136,60 @@
           }
         }
       ]
+    },
+    {
+      "type": "entry",
+      "pack": "player-core",
+      "slug": "feat:divine-weapon",
+      "foundry": "Compendium.pf2e.feats-srd.Item.Trj5azJlaOk5jgBi",
+      "leftOut": {
+        "reason": "unresolved-reference",
+        "detail": "player-core/effect:effect-divine-weapon"
+      },
+      "gaps": [],
+      "document": {
+        "_id": "Trj5azJlaOk5jgBi",
+        "name": "Divine Weapon",
+        "type": "feat",
+        "system": {
+          "publication": {
+            "title": "Pathfinder Player Core",
+            "license": "ORC",
+            "remaster": true
+          },
+          "level": {
+            "value": 6
+          },
+          "traits": {
+            "value": ["cleric"],
+            "rarity": "common"
+          },
+          "description": {
+            "value": "<p><strong>Frequency</strong> once per turn</p>\n<p><strong>Trigger</strong> You finish Casting a Spell using one of your divine spell slots on your turn.</p>\n<hr />\n<p>You siphon residual spell energy into a weapon you're wielding. Until the end of your turn, the weapon deals an additional 1d4 spirit damage. If you are holy or unholy, Strikes with the weapon also gain that trait, and the additional damage increases to 2d4 against creatures of the opposing trait.</p>"
+          },
+          "rules": [],
+          "actionType": {
+            "value": "free"
+          },
+          "actions": {
+            "value": null
+          },
+          "category": "class",
+          "frequency": {
+            "max": 1,
+            "per": "turn",
+            "value": 1
+          },
+          "prerequisites": {
+            "value": []
+          },
+          "selfEffect": {
+            "name": "Effect: Divine Weapon",
+            "uuid": "Compendium.pf2e.feat-effects.Item.Effect: Divine Weapon"
+          }
+        },
+        "folder": "7lOz2qjHsSKpU7HO"
+      }
     },
     {
       "type": "entry",
@@ -27518,15 +27445,18 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.languages",
           "raw": {
-            "languages": {
-              "granted": ["wildsong"]
-            },
-            "proficiencies": {
-              "spellcasting": {
-                "rank": 1
-              }
+            "granted": ["wildsong"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "subfeatures.proficiencies",
+          "raw": {
+            "spellcasting": {
+              "rank": 1
             }
           }
         },
@@ -28221,12 +28151,10 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "reflex": {
-                "rank": 3
-              }
+            "reflex": {
+              "rank": 3
             }
           }
         }
@@ -28278,12 +28206,10 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "spellcasting": {
-                "rank": 2
-              }
+            "spellcasting": {
+              "rank": 2
             }
           }
         },
@@ -28302,12 +28228,10 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "spellcasting": {
-                "rank": 2
-              }
+            "spellcasting": {
+              "rank": 2
             }
           }
         },
@@ -28326,12 +28250,10 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "spellcasting": {
-                "rank": 2
-              }
+            "spellcasting": {
+              "rank": 2
             }
           }
         },
@@ -28385,12 +28307,10 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "spellcasting": {
-                "rank": 2
-              }
+            "spellcasting": {
+              "rank": 2
             }
           }
         },
@@ -28415,12 +28335,10 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "spellcasting": {
-                "rank": 2
-              }
+            "spellcasting": {
+              "rank": 2
             }
           }
         },
@@ -28958,16 +28876,14 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "fighter": {
-                "attribute": null,
-                "rank": 1
-              },
-              "martial": {
-                "rank": 1
-              }
+            "fighter": {
+              "attribute": null,
+              "rank": 1
+            },
+            "martial": {
+              "rank": 1
             }
           }
         },
@@ -31589,12 +31505,10 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "spellcasting": {
-                "rank": 3
-              }
+            "spellcasting": {
+              "rank": 3
             }
           }
         },
@@ -31613,12 +31527,10 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "spellcasting": {
-                "rank": 3
-              }
+            "spellcasting": {
+              "rank": 3
             }
           }
         },
@@ -31637,12 +31549,10 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "spellcasting": {
-                "rank": 3
-              }
+            "spellcasting": {
+              "rank": 3
             }
           }
         },
@@ -31699,12 +31609,10 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "perception": {
-                "rank": 3
-              }
+            "perception": {
+              "rank": 3
             }
           }
         }
@@ -31719,12 +31627,10 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "spellcasting": {
-                "rank": 3
-              }
+            "spellcasting": {
+              "rank": 3
             }
           }
         },
@@ -31749,12 +31655,10 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "spellcasting": {
-                "rank": 3
-              }
+            "spellcasting": {
+              "rank": 3
             }
           }
         },
@@ -32079,12 +31983,10 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.languages",
           "raw": {
-            "languages": {
-              "granted": [],
-              "slots": 2
-            }
+            "granted": [],
+            "slots": 2
           }
         }
       ]
@@ -33580,13 +33482,11 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "ranger": {
-                "attribute": null,
-                "rank": 1
-              }
+            "ranger": {
+              "attribute": null,
+              "rank": 1
             }
           }
         },
@@ -34130,16 +34030,14 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "light": {
-                "rank": 1
-              },
-              "rogue": {
-                "attribute": "dex",
-                "rank": 1
-              }
+            "light": {
+              "rank": 1
+            },
+            "rogue": {
+              "attribute": "dex",
+              "rank": 1
             }
           }
         },
@@ -37598,12 +37496,10 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "martial": {
-                "rank": 1
-              }
+            "martial": {
+              "rank": 1
             }
           }
         }
@@ -37778,12 +37674,10 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "spellcasting": {
-                "rank": 1
-              }
+            "spellcasting": {
+              "rank": 1
             }
           }
         },
@@ -37969,12 +37863,10 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures",
+          "field": "subfeatures.proficiencies",
           "raw": {
-            "proficiencies": {
-              "spellcasting": {
-                "rank": 1
-              }
+            "spellcasting": {
+              "rank": 1
             }
           }
         },
@@ -38189,6 +38081,23 @@
             "selector": "stealth",
             "type": "circumstance",
             "value": 2
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "player-core",
+      "slug": "heritage:changeling",
+      "foundry": "Compendium.pf2e.heritages.Item.EKY9v7SF1hVsUdbH",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Sense",
+          "raw": {
+            "key": "Sense",
+            "predicate": ["self:low-light-vision:from-ancestry"],
+            "selector": "darkvision"
           }
         }
       ]
@@ -38565,6 +38474,23 @@
                 "text": "PF2E.SpecificRule.Conditions.Sickened.AllowEatOrDrink"
               }
             ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "player-core",
+      "slug": "heritage:nephilim",
+      "foundry": "Compendium.pf2e.heritages.Item.1oLMOmLpurfWTTff",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Sense",
+          "raw": {
+            "key": "Sense",
+            "predicate": ["self:low-light-vision:from-ancestry"],
+            "selector": "darkvision"
           }
         }
       ]

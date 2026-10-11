@@ -247,7 +247,7 @@ export function translateRules(entry: ContentId, raws: readonly unknown[], conte
   const shapedRaws = raws.map((raw) => {
     const text = withDisplayLabel(localized(raw, context, unresolved));
     const granted = withGrantedId(withPioneerFormula(text), references);
-    return withSense(withTagQuery(withGrantValue(granted)), references, context.senses);
+    return withSense(withTagQuery(withGrantValue(granted)), { references, senses: context.senses });
   });
   const declared = new Set(
     shapedRaws.flatMap((shaped) => {

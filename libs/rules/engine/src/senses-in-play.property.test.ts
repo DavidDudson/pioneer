@@ -51,24 +51,46 @@ function rulesOf(elements: readonly Placed[]): RuleInPlay[] {
   });
 }
 
+/** A grant as the engine reads it: Foundry's defaults applied, and no range as unlimited. */
+interface Reading {
+  readonly sense: ContentId;
+  readonly acuity: number;
+  readonly reach: number;
+}
+
+function readingOf({ sense, acuity, range }: Placed): Reading {
+  return { sense, acuity: ACUITIES.indexOf(acuity ?? 'precise'), reach: range ?? Number.POSITIVE_INFINITY };
+}
+
+function beats(left: Reading, right: Reading): boolean {
+  const covers = left.acuity >= right.acuity && left.reach >= right.reach;
+  return covers && (left.acuity > right.acuity || left.reach > right.reach);
+}
+
+/** Each sense as `id acuity reach`, one line per distinct reading. */
+function linesOf(readings: readonly Reading[]): string[] {
+  return [...new Set(readings.map(({ sense, acuity, reach }) => `${sense} ${acuity} ${reach}`))].toSorted();
+}
+
+function sensesOf(elements: readonly Placed[]): string[] {
+  const senses = sensesInPlay({ rules: rulesOf(elements), facts });
+  return linesOf(
+    senses.map(({ sense, acuity, range }) => ({
+      sense,
+      acuity: ACUITIES.indexOf(acuity),
+      reach: range ?? Number.POSITIVE_INFINITY,
+    })),
+  );
+}
+
 describe('sensesInPlay (properties)', () => {
-  test('one sense per id an ungated element names, with the best acuity and the longest range of its grants', () => {
+  test('the senses are the readings of ungated grants that no other grant of their sense beats', () => {
     assert(
       property(array(placed, { maxLength: ELEMENTS_MAX }), (elements) => {
-        const live = elements.filter(({ gated }) => !gated);
-        const expected = [...new Set(live.map(({ sense }) => sense))].toSorted().map((id) => {
-          const grants = live.filter(({ sense }) => sense === id);
-          const acuity = ACUITIES[Math.max(...grants.map(({ acuity: each }) => ACUITIES.indexOf(each ?? 'precise')))];
-          const unlimited = grants.some(({ range }) => range === null);
-          const range = unlimited ? undefined : Math.max(...grants.map(({ range: each }) => each ?? 0));
-          return { sense: id, acuity, range, origins: grants.length };
-        });
+        const live = elements.filter(({ gated }) => !gated).map((each) => readingOf(each));
+        const kept = live.filter((each) => !live.some((other) => other.sense === each.sense && beats(other, each)));
 
-        const senses = sensesInPlay({ rules: rulesOf(elements), facts });
-
-        expect(
-          senses.map(({ sense, acuity, range, origins }) => ({ sense, acuity, range, origins: origins.length })),
-        ).toEqual(expected);
+        expect(sensesOf(elements)).toEqual(linesOf(kept));
       }),
     );
   });
@@ -76,10 +98,9 @@ describe('sensesInPlay (properties)', () => {
   test('the order of the elements never changes the senses', () => {
     assert(
       property(array(placed, { maxLength: ELEMENTS_MAX }), (elements) => {
-        const strip = (rules: RuleInPlay[]): object[] =>
-          sensesInPlay({ rules, facts }).map(({ sense, acuity, range }) => ({ sense, acuity, range }));
+        const reversed = elements.toReversed();
 
-        expect(strip(rulesOf(elements.toReversed()))).toEqual(strip(rulesOf(elements)));
+        expect(sensesOf(reversed)).toEqual(sensesOf(elements));
       }),
     );
   });

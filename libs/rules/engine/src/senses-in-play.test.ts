@@ -17,63 +17,76 @@ const sense = (id: ContentId, extra: object = {}): object => ({ key: 'Sense', se
 /** Each sense as `[id, acuity, range]`, with `unlimited` for no range. */
 type Row = readonly [ContentId, string, number | 'unlimited'];
 
-function rowsOf(senses: readonly SenseInPlay[]): Row[] {
-  return senses.map(({ sense: id, acuity, range }): Row => [id, acuity, range ?? 'unlimited']);
+interface Situation {
+  readonly options?: readonly string[];
+  readonly vision?: AncestryVision;
 }
 
 function sensesOf(
   placed: readonly (readonly [object, string])[],
-  { options = [], vision }: { options?: readonly string[]; vision?: AncestryVision } = {},
-): readonly SenseInPlay[] {
+  { options = [], vision }: Situation = {},
+): SenseInPlay[] {
   const rules = placed.map(([element, on], rule) => inPlay(element, on, { rule }));
   const facts = new PredicateFacts(
     options.map((option) => RollOption.parse(option)),
     CORE_NAMESPACES,
   );
-  return sensesInPlay({ rules, facts }, vision);
+  return [...sensesInPlay({ rules, facts }, vision)];
+}
+
+function rowsOf(placed: readonly (readonly [object, string])[], situation: Situation = {}): Row[] {
+  const senses = sensesOf(placed, situation);
+  return senses.map(({ sense: id, acuity, range }): Row => [id, acuity, range ?? 'unlimited']);
 }
 
 describe('sensesInPlay', () => {
   test('a Sense element gives its sense with its acuity and range, and its origin', () => {
-    const senses = sensesOf([[sense(SCENT, { acuity: 'imprecise', range: 30 }), 'sensate-gnome']]);
+    const placed = [[sense(SCENT, { acuity: 'imprecise', range: 30 }), 'sensate-gnome']] as const;
+    const { origin } = inPlay(sense(SCENT), 'sensate-gnome');
 
-    expect(rowsOf(senses)).toEqual([[SCENT, 'imprecise', 30]]);
-    expect(senses[0]?.origins).toEqual([inPlay(sense(SCENT), 'sensate-gnome').origin]);
+    expect(rowsOf(placed)).toEqual([[SCENT, 'imprecise', 30]]);
+    expect(sensesOf(placed)[0]?.origins).toEqual([origin]);
   });
 
   test('without an acuity a sense is precise, and without a range unlimited', () => {
-    expect(rowsOf(sensesOf([[sense(DARKVISION), 'cavern-elf']]))).toEqual([[DARKVISION, 'precise', 'unlimited']]);
+    const rows = rowsOf([[sense(DARKVISION), 'cavern-elf']]);
+
+    expect(rows).toEqual([[DARKVISION, 'precise', 'unlimited']]);
   });
 
-  test("the ancestry's vision is precise and unlimited, and merges with a Sense of the same sense", () => {
+  test("the ancestry's vision is precise and unlimited, and is one sense with a Sense that reads alike", () => {
     const vision = { sense: DARKVISION, origin: inPlay(sense(DARKVISION), 'dwarf').origin };
     const senses = sensesOf([[sense(DARKVISION), 'darkvision']], { vision });
+    const darkvision = inPlay(sense(DARKVISION), 'darkvision').origin;
 
-    expect(rowsOf(senses)).toEqual([[DARKVISION, 'precise', 'unlimited']]);
-    expect(senses[0]?.origins).toEqual([vision.origin, inPlay(sense(DARKVISION), 'darkvision').origin]);
+    expect(senses.map(({ acuity, range }) => [acuity, range])).toEqual([['precise', undefined]]);
+    expect(senses[0]?.origins).toEqual([vision.origin, darkvision]);
   });
 
-  test('two grants of one sense keep the better acuity and the longer range, each on its own', () => {
-    const senses = sensesOf([
-      [sense(TREMORSENSE, { acuity: 'vague', range: 60 }), 'echoes-in-stone'],
-      [sense(TREMORSENSE, { acuity: 'imprecise', range: 20 }), 'familiar-of-keen-senses'],
+  test('a grant another beats on acuity or range, and matches on the other, is dropped', () => {
+    const rows = rowsOf([
+      [sense(TREMORSENSE, { acuity: 'imprecise', range: 20 }), 'echoes-in-stone'],
+      [sense(TREMORSENSE, { acuity: 'imprecise', range: 60 }), 'familiar-of-keen-senses'],
+      [sense(TREMORSENSE, { acuity: 'vague', range: 60 }), 'shifting-form'],
     ]);
 
-    expect(rowsOf(senses)).toEqual([[TREMORSENSE, 'imprecise', 60]]);
-    expect(senses[0]?.origins).toHaveLength(2);
+    expect(rows).toEqual([[TREMORSENSE, 'imprecise', 60]]);
   });
 
-  test('a grant with no range makes the sense unlimited', () => {
-    const senses = sensesOf([
-      [sense(SCENT, { acuity: 'imprecise', range: 30 }), 'sensate-gnome'],
+  test('grants neither beats both remain, the more acute first', () => {
+    const rows = rowsOf([
       [sense(SCENT, { acuity: 'vague' }), 'shifting-form'],
+      [sense(SCENT, { acuity: 'imprecise', range: 30 }), 'sensate-gnome'],
     ]);
 
-    expect(rowsOf(senses)).toEqual([[SCENT, 'imprecise', 'unlimited']]);
+    expect(rows).toEqual([
+      [SCENT, 'imprecise', 30],
+      [SCENT, 'vague', 'unlimited'],
+    ]);
   });
 
   test('a Sense whose predicate fails or depends on the situation gives none', () => {
-    const senses = sensesOf(
+    const rows = rowsOf(
       [
         [sense(SCENT, { predicate: ['familiar-of-keen-senses:scent'] }), 'familiar-of-keen-senses'],
         [sense(DARKVISION, { predicate: ['terrain:underground'] }), 'shifting-form'],
@@ -82,7 +95,7 @@ describe('sensesInPlay', () => {
       { options: ['familiar-of-keen-senses:tremorsense'] },
     );
 
-    expect(rowsOf(senses)).toEqual([[TREMORSENSE, 'precise', 'unlimited']]);
+    expect(rows).toEqual([[TREMORSENSE, 'precise', 'unlimited']]);
   });
 
   test('senses come in order of id, and other rule elements give none', () => {

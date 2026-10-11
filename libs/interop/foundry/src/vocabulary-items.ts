@@ -77,9 +77,8 @@ const LanguageFields = z.looseObject({
 const VisionField = z.looseObject({ vision: z.string().max(VALUE_MAX).optional() });
 const SenseRule = z.looseObject({ key: z.literal(SENSE_RULE), selector: z.string().max(VALUE_MAX) });
 /** A feat's `subfeatures.senses`, keyed by sense slug. */
-const SubfeatureSenses = z.looseObject({
-  subfeatures: z.looseObject({ senses: z.record(z.string().max(VALUE_MAX), z.unknown()) }),
-});
+const SensesBySlug = z.record(z.string().max(VALUE_MAX), z.unknown());
+const SubfeatureSenses = z.looseObject({ subfeatures: z.looseObject({ senses: SensesBySlug }) });
 
 const DAMAGE_TYPES: ReadonlySet<string> = new Set(Object.values(DamageType));
 

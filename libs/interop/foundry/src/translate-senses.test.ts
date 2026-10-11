@@ -10,6 +10,7 @@ import { FOUNDRY_NULL, gapsOf } from './testing/kind-fixtures';
 
 const { Sense } = RuleElementKey;
 const DARKVISION = coreRulesId('sense:darkvision');
+const SCENT = coreRulesId('sense:scent');
 
 /** A Player Core heritage with `rules`, shaped as `pf2e-8.6.0` has it. */
 function heritage(rules: readonly object[]): DocumentFixture {
@@ -21,14 +22,14 @@ function heritage(rules: readonly object[]): DocumentFixture {
   };
 }
 
-/** A passive general feat with `subfeatures`. */
-function feat(subfeatures: object): DocumentFixture {
+/** A passive feat of `category` with `subfeatures`. */
+function feat(subfeatures: object, category = 'general'): DocumentFixture {
   return {
     id: 'sEnSeFeAt0000000',
     name: 'Keen Feat',
     type: 'feat',
     system: {
-      category: 'general',
+      category,
       actionType: { value: 'passive' },
       actions: { value: FOUNDRY_NULL },
       level: { value: 1 },
@@ -38,23 +39,32 @@ function feat(subfeatures: object): DocumentFixture {
   };
 }
 
+function heritageRules(rules: readonly object[]): unknown[] {
+  const translation = translate([heritage(rules)]);
+  return rulesIn(translation, 'cavern-elf');
+}
+
 describe('translateRules: Sense', () => {
-  test('a Sense names its sense entry, with its acuity, range and predicate', () => {
+  test('a Sense names its sense entry, keeping its acuity, range and base fields', () => {
     const rule = {
       key: 'Sense',
       selector: 'scent',
       acuity: 'imprecise',
       range: 30,
       predicate: ['shifting-form:scent'],
+      priority: 10,
+      label: 'Keen nose',
     };
 
-    expect(rulesIn(translate([heritage([rule])]), 'cavern-elf')).toEqual([
+    expect(heritageRules([rule])).toEqual([
       {
         key: Sense,
-        sense: coreRulesId('sense:scent'),
+        sense: SCENT,
         acuity: 'imprecise',
         range: 30,
         predicate: ['shifting-form:scent'],
+        priority: 10,
+        display: { label: 'Keen nose' },
       },
     ]);
   });
@@ -62,7 +72,7 @@ describe('translateRules: Sense', () => {
   test('a sense that fixes its acuity and has no limit drops what Foundry ignores', () => {
     const rule = { key: 'Sense', selector: 'darkvision', acuity: 'imprecise', range: 30, force: false };
 
-    expect(rulesIn(translate([heritage([rule])]), 'cavern-elf')).toEqual([{ key: Sense, sense: DARKVISION }]);
+    expect(heritageRules([rule])).toEqual([{ key: Sense, sense: DARKVISION }]);
   });
 
   test.each([
@@ -77,36 +87,47 @@ describe('translateRules: Sense', () => {
 });
 
 describe('translateKindData: subfeature senses', () => {
-  test("a feat's subfeature senses are Sense elements, and its other subfeatures are reported", () => {
-    const translation = translate([
-      feat({ senses: { darkvision: { acuity: 'imprecise', range: 30 } }, proficiencies: { perception: { rank: 2 } } }),
-    ]);
+  test.each([
+    ['a feat', 'general'],
+    ['a class feature', 'classfeature'],
+  ])("%s's subfeature senses are Sense elements, and its other subfeatures are reported by name", (_case, category) => {
+    const proficiencies = { perception: { rank: 2 } };
+    const subfeatures = { senses: { darkvision: { acuity: 'imprecise', range: 30 } }, proficiencies };
+    const translation = translate([feat(subfeatures, category)]);
 
     expect(rulesIn(translation, 'keen-feat')).toEqual([{ key: Sense, sense: DARKVISION }]);
     expect(gapsOf(translation)).toEqual([
-      { reason: KindDataGapReason.UnmappedField, field: 'subfeatures.proficiencies', raw: { perception: { rank: 2 } } },
+      { reason: KindDataGapReason.UnmappedField, field: 'subfeatures.proficiencies', raw: proficiencies },
     ]);
   });
 
   test('a subfeature sense with acuity and range keeps them, and adds its sense to the vocabulary', () => {
     const translation = translate([feat({ senses: { scent: { acuity: 'imprecise', range: 60 } } })]);
+    const vocabulary = translation.vocabulary.map(({ envelope }) => String(envelope.slug));
 
-    expect(rulesIn(translation, 'keen-feat')).toEqual([
-      { key: Sense, sense: coreRulesId('sense:scent'), acuity: 'imprecise', range: 60 },
-    ]);
-    expect(translation.vocabulary.map(({ envelope }) => String(envelope.slug))).toContain('sense:scent');
+    expect(rulesIn(translation, 'keen-feat')).toEqual([{ key: Sense, sense: SCENT, acuity: 'imprecise', range: 60 }]);
+    expect(vocabulary).toContain('sense:scent');
   });
 
   test('a subfeature sense outside the vocabulary is reported', () => {
-    const translation = translate([feat({ senses: { spiritsense: { acuity: 'imprecise', range: 60 } } })]);
+    const fields = { acuity: 'imprecise', range: 60 };
+    const translation = translate([feat({ senses: { spiritsense: fields } })]);
 
     expect(rulesIn(translation, 'keen-feat')).toEqual([]);
     expect(gapsOf(translation)).toEqual([
-      {
-        reason: KindDataGapReason.UnresolvedReference,
-        field: 'subfeatures.senses.spiritsense',
-        raw: { acuity: 'imprecise', range: 60 },
-      },
+      { reason: KindDataGapReason.UnresolvedReference, field: 'subfeatures.senses.spiritsense', raw: fields },
     ]);
+  });
+
+  test.each([
+    ['senses that are no record', ['darkvision'], 'subfeatures.senses'],
+    ['a sense that is no object', { scent: 'imprecise' }, 'subfeatures.senses'],
+    ['a range of 0', { scent: { range: 0 } }, 'subfeatures.senses.scent'],
+  ])('%s is reported as invalid, and adds no element', (_case, senses, field) => {
+    const translation = translate([feat({ senses })]);
+    const gaps = gapsOf(translation).map((gap) => [gap.reason, gap.field]);
+
+    expect(rulesIn(translation, 'keen-feat')).toEqual([]);
+    expect(gaps).toEqual([[KindDataGapReason.InvalidData, field]]);
   });
 });

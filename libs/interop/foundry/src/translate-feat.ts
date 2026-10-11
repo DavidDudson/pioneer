@@ -68,20 +68,25 @@ const FoundrySubfeatureSenses = z.record(
  * The senses a feat's `subfeatures` give, as `Sense` elements; a sense outside the vocabulary is reported. Its other
  * subfeatures (proficiencies, key attribute options, languages) are reported until stories read them.
  */
-function subfeatureRules(system: FoundryFeatSystem, input: KindInput): void {
-  const { senses, ...rest } = system.subfeatures ?? {};
-  for (const [field, value] of Object.entries(rest)) {
+/** Reports each set subfeature but `senses`, by its own name. */
+function reportOtherSubfeatures(others: object, { log }: KindInput): void {
+  for (const [field, value] of Object.entries(others)) {
     if (isSet(value)) {
-      report(input.log, { reason: KindDataGapReason.UnmappedField, field: `subfeatures.${field}`, raw: value });
+      report(log, { reason: KindDataGapReason.UnmappedField, field: `subfeatures.${field}`, raw: value });
     }
   }
+}
+
+function subfeatureRules(system: FoundryFeatSystem, input: KindInput): void {
+  const { senses, ...others } = system.subfeatures ?? {};
+  reportOtherSubfeatures(others, input);
   const parsed = FoundrySubfeatureSenses.safeParse(senses ?? {});
   if (!parsed.success || Object.keys(parsed.data).length > SENSES_MAX) {
     report(input.log, { reason: KindDataGapReason.InvalidData, field: 'subfeatures.senses', raw: senses });
     return;
   }
   for (const [slug, fields] of Object.entries(parsed.data)) {
-    const element = senseElement(slug, fields, input.references, input.senses);
+    const element = senseElement(slug, fields, input);
     if (element === undefined) {
       report(input.log, {
         reason: KindDataGapReason.UnresolvedReference,
