@@ -25,6 +25,7 @@ export {
 export { statisticContent, variantRulesInPlay } from './statistic-content';
 export { EngineMessage } from './messages';
 export { type ModifierInputs, RuleId, ruleIdOf, RuleInPlay } from './rule-in-play';
+export { ranksInPlay } from './ranks-in-play';
 export { type StatisticFailure, type StatisticResult, type StatisticValue } from './statistic-result';
-export { type StatisticInputs, StatisticInputsJson } from './statistic-inputs';
+export { type ClassInputs, type StatisticInputs, StatisticInputsJson } from './statistic-inputs';
 export { default as engineMessages } from './i18n/en.json';
