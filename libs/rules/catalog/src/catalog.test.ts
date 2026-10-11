@@ -27,7 +27,12 @@ describe('content catalog', () => {
   test('every pack loads and validates', async () => {
     const registry = new ContentRegistry();
     await Promise.all(contentCatalog.map(async (loader) => registry.load(loader)));
-    expect(registry.packs.map((pack) => pack.id).toSorted()).toStrictEqual([coreRules, divineMysteries, monsterCore, playerCore]);
+    expect(registry.packs.map((pack) => pack.id).toSorted()).toStrictEqual([
+      coreRules,
+      divineMysteries,
+      monsterCore,
+      playerCore,
+    ]);
     const human = registry.ancestry(humanId);
     expect(human?.definition.hitPoints).toBe(HitPoints.parse(8));
     const zombie = registry.creature(zombieId);
