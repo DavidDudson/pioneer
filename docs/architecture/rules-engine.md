@@ -121,7 +121,10 @@ The entries are the `SpellcastingEntry` elements in play (`spellcastingInPlay`),
 - Worn armour's bonus (its own and its potency rune's) is not a base term either. The engine adds it to `ac` as a
   synthetic `item` modifier with the slug `armor-bonus`, named by the armour and with its origin (an `inventory`
   hop), so it stacks with other item bonuses to AC (bracers of armour): only the highest applies. Armour with no
-  bonus adds no line. The armour's Dexterity cap is the `dexterityCap` input `@attr.dex.capped` reads.
+  bonus adds no line. The armour's Dexterity cap is the `dexterityCap` input `@attr.dex.capped` reads. Its
+  resilient rune's grade is a second synthetic `item` modifier, slug `resilient`, on the `saving-throw` domain, so
+  every save gets it and it stacks the same way. The character domain passes potency and resilient only while the
+  armour is invested.
 - Inside an instance, `@stat.<family>` naming another family derived per the same kind of source reads that
   family's instance for the same source: the spell DC's `@stat.spell-attack` reads its own entry's spell attack
   base, so a bonus to spell attack rolls stays off the DC.

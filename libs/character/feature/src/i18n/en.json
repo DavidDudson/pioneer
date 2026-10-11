@@ -139,7 +139,7 @@
     "needsTwoHands": "That item takes two hands to hold.",
     "notInvestable": "That item doesn't have the invested trait, so it can't be invested.",
     "investNotWorn": "An item is invested while it is worn or held as it is used. Put it on first.",
-    "notRunable": "Runes go on weapons, armor and shields only.",
+    "takesNoRunes": "Runes go on weapons, armor and shields only.",
     "runeNotForItem": "That rune doesn't go on this item.",
     "runeNotHigher": "This item comes with that rune at grade {grade}. Etch a higher grade.",
     "unknownRune": "No loaded pack has that property rune.",

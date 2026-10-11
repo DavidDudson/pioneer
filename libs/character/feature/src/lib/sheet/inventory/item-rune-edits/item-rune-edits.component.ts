@@ -117,7 +117,7 @@ export class ItemRuneEdits {
   });
 
   /** Whether the item takes runes at all: a weapon, armour or a shield. */
-  protected readonly runable = computed(() => runedItemOf(this.#entry()) !== undefined);
+  protected readonly takesRunes = computed(() => runedItemOf(this.#entry()) !== undefined);
 
   readonly #grades: Readonly<Record<FundamentalRune, InlineEdit<string | undefined>>> = {
     [FundamentalRune.Potency]: this.#gradeField(FundamentalRune.Potency),

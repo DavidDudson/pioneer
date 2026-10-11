@@ -86,7 +86,7 @@ describe('runeRefusal: etching', () => {
   test('refuses any rune on an item that is not a weapon, armour or shield', () => {
     expect(refusal(armoury(), etch(Armoury.Rope, POTENCY_1))).toStrictEqual({
       field: InventoryRefusalField.Rune,
-      message: { key: 'character.validation.notRunable' },
+      message: { key: 'character.validation.takesNoRunes' },
     });
   });
 

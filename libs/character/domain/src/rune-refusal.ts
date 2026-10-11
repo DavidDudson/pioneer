@@ -107,7 +107,7 @@ function propertyRefusal(runes: RuneContent, line: RunedLine, id: ContentId): In
 /** Refuses etching onto anything but a weapon, armour or a shield, and the fundamental and property refusals. */
 function etchRefusal(runes: RuneContent, line: RunedLine, rune: RuneEtching): InventoryRefusal | undefined {
   if (line.runed === undefined) {
-    return runeRefused(message('character.validation.notRunable'));
+    return runeRefused(message('character.validation.takesNoRunes'));
   }
   return rune.type === RuneType.Fundamental ? fundamentalRefusal(line, rune) : propertyRefusal(runes, line, rune.rune);
 }

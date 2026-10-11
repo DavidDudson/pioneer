@@ -46,6 +46,7 @@ Accepted. To change a decision, add a new ADR that supersedes the old one; do no
 | [0039](0039-derived-conditions-are-grant-roots.md)            | Conditions the character's inputs bring are grant roots, not play state           |
 | [0040](0040-spellcasting-entries-are-rule-elements.md)        | Spellcasting entries are rule elements                                            |
 | [0041](0041-spell-slots-are-rule-elements.md)                 | Spell slots are rule elements                                                     |
+| [0042](0042-etched-runes-stored-over-content.md)              | Etched runes are stored on the inventory item, over the content's                 |
 
 Template:
 
