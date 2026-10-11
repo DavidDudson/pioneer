@@ -9,7 +9,7 @@ import { PACKS_WITH_CLASSES } from '../../testing/provide-server-state-testing';
 import { id, MERISIEL, openSheet, present } from '../../testing/sheet-page-harness';
 
 const ATHLETICS = contentId(PackId.parse('core-rules'), EntrySlug.parse('statistic:athletics'));
-const TRAINING = 'Level 1 trained skill';
+const TRAINING = ['Level 1 trained skill 1', 'Level 1 trained skill 2', 'Level 1 trained skill 3'];
 
 /** Merisiel as a fighter, with `choices` picked besides. */
 function fighter(choices: Readonly<Record<string, string>> = {}): object {
@@ -40,7 +40,7 @@ describe('CharacterSheetPage skills', () => {
     const { root } = await openSheet(fighter(), { packs: PACKS_WITH_CLASSES });
 
     await vi.waitFor(() => {
-      expect(pickerLabels(root)).toStrictEqual([TRAINING, TRAINING, TRAINING]);
+      expect(pickerLabels(root)).toStrictEqual(TRAINING);
     });
   });
 
@@ -108,7 +108,7 @@ describe('CharacterSheetPage skills', () => {
     const choices = present(root.querySelector('section[aria-labelledby="sheet-choices"]'));
 
     await vi.waitFor(() => {
-      expect(choices.textContent).toContain(TRAINING);
+      expect(choices.textContent).toContain('Level 1 trained skill');
     });
     expect(choices.textContent).toContain('Athletics');
   });

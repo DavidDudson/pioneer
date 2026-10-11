@@ -1,5 +1,5 @@
 import { skillReads, SkillSlotKind, skillSlots, slotContent } from '@pioneer/character/domain';
-import type { Character } from '@pioneer/character/domain';
+import type { Character, SkillSlot } from '@pioneer/character/domain';
 import type { SelectOption } from '@pioneer/frontier';
 import { deriveStatistics, statisticContent } from '@pioneer/rules/engine';
 import type { ContentRegistry, SlotKey } from '@pioneer/rules/sdk';
@@ -44,6 +44,19 @@ export interface SheetSkillSlot {
 }
 
 /**
+ * A skill slot's label: "Level 3 skill increase", "Level 1 trained skill", numbered when its level has several trained
+ * skills ("Level 1 trained skill 2"), so each picker has a name of its own.
+ */
+function skillSlotLabel(slot: SkillSlot, slots: readonly SkillSlot[]): MessageDescriptor {
+  const level = { level: slot.level };
+  const alike = slots.filter((each) => each.kind === slot.kind && each.level === slot.level);
+  if (slot.kind === SkillSlotKind.Increase || alike.length === 1) {
+    return message(SKILL_SLOT_LABEL_KEYS[slot.kind], level);
+  }
+  return message('rules.choices.slot.skillTrainingNumbered', { ...level, number: alike.indexOf(slot) + 1 });
+}
+
+/**
  * The trained skill and skill increase slots up to the character's level, in the order they are read, each with what
  * it offers after the grants and the slots before it. Slots above its level are the plan, picked in the planner.
  */
@@ -54,7 +67,7 @@ export function sheetSkillSlots(registry: ContentRegistry, character: Character)
     .filter((slot) => slot.level <= character.level)
     .map((slot) => ({
       key: slot.key,
-      label: message(SKILL_SLOT_LABEL_KEYS[slot.kind], { level: slot.level }),
+      label: skillSlotLabel(slot, slots),
       options: slot.options.map((skill) => ({ value: skill.id, label: skill.name })),
     }));
 }

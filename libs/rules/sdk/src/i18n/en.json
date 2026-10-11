@@ -522,7 +522,8 @@
         "heritage": "Heritage",
         "flaw": "Voluntary flaw",
         "skillTraining": "Level {level} trained skill",
-        "skillIncrease": "Level {level} skill increase"
+        "skillIncrease": "Level {level} skill increase",
+        "skillTrainingNumbered": "Level {level} trained skill {number}"
       },
       "invalid": {
         "notOffered": "This choice no longer offers that option, so it counts for nothing. Choose another.",
