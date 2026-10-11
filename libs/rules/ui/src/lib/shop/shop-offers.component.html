@@ -1,0 +1,47 @@
+@if (offers(); as offers) {
+  @if (offers.length === 0) {
+    <fr-empty-state
+      [icon]="emptyIcon"
+      [title]="Message.NoneTitle | transloco"
+      [description]="Message.NoneDescription | transloco"
+    />
+  } @else {
+    <fr-stack gap="sm">
+      <fr-list gap="xs">
+        @for (row of rows(); track row.offer.id) {
+          <fr-list-item>
+            <fr-stack direction="horizontal" justify="between" align="center" gap="sm">
+              <fr-stack gap="3xs">
+                <fr-stack direction="horizontal" align="center" gap="xs" wrap>
+                  <fr-text>{{ row.offer.name }}</fr-text>
+                  @if (row.badge; as badge) {
+                    <fr-badge [tone]="badge.tone">{{ badge.key | transloco }}</fr-badge>
+                  }
+                </fr-stack>
+                <fr-text variant="caption" tone="muted">{{ row.line }}</fr-text>
+              </fr-stack>
+              <fr-toggle-button
+                size="sm"
+                [ariaLabel]="Message.PickNamed | transloco: { name: row.offer.name }"
+                [value]="picked() === row.offer.id"
+                (valueChange)="pick(row.offer.id, $event)"
+                >{{ Message.Pick | transloco }}</fr-toggle-button
+              >
+            </fr-stack>
+          </fr-list-item>
+        }
+      </fr-list>
+      @if (hidden() > 0) {
+        <fr-text element="p" variant="caption" tone="muted">{{
+          Message.More | transloco: { shown: number(rows().length), total: number(offers.length) }
+        }}</fr-text>
+      }
+    </fr-stack>
+  }
+} @else {
+  <fr-list gap="xs">
+    @for (row of loadingRows; track row) {
+      <fr-list-item><fr-skeleton width="md" /></fr-list-item>
+    }
+  </fr-list>
+}
