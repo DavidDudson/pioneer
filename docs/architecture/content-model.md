@@ -565,15 +565,15 @@ flowchart LR
     `@Localize` is inlined before this pass (Labels, above). Parameters that only change how Foundry shows a roll
     (`showDC`, `name`, `immutable`, `targetOwner`, `shortLabel`) are ignored.
 - **Kind data.** Every Foundry type is filed under a kind (`FOUNDRY_TYPE_KINDS`), a feat of category `classfeature`
-  under `class-feature`, one of category `ancestryfeature` under `ancestry-feature`, a spell with `ritual` data
-  under `ritual` and equipment with an `etched-onto-…` usage under `rune` (`documentKind`); kind data is built for
-  the kinds with a translator (`TRANSLATORS`): the rules core kinds `action` and `condition`, and the build, magic,
-  effect and equipment kinds below. An action's cost comes from `actionType` and `actions`, its frequency period from Foundry's words or ISO 8601
-  durations (`PT1H` is `hour`), and its `trigger` and `requirements` from the description's labelled paragraphs when
-  they are plain words. A condition's `implies` is its unpredicated `GrantItem`s of conditions, so it lists exactly
-  what its rules grant; its duration, active and removable flags are instance state and Foundry's back links are
-  derived, so neither is carried. A set `system` field with no place in the schema, a value with no mapping, usage
-  text with links or enrichers, a reference to nothing selected, and data the kind's schema rejects are reported
+  under `class-feature`, one of category `ancestryfeature` under `ancestry-feature`, a spell with `ritual` data under
+  `ritual` and equipment with an `etched-onto-…` usage under `rune` (`documentKind`); kind data is built for the kinds
+  with a translator (`TRANSLATORS`): the rules core kinds `action` and `condition`, and the build, magic, effect and
+  equipment kinds below. An action's cost comes from `actionType` and `actions`, its frequency period from Foundry's
+  words or ISO 8601 durations (`PT1H` is `hour`), and its `trigger` and `requirements` from the description's labelled
+  paragraphs when they are plain words. A condition's `implies` is its unpredicated `GrantItem`s of conditions, so it
+  lists exactly what its rules grant; its duration, active and removable flags are instance state and Foundry's back
+  links are derived, so neither is carried. A set `system` field with no place in the schema, a value with no mapping,
+  usage text with links or enrichers, a reference to nothing selected, and data the kind's schema rejects are reported
   against the entry, never guessed.
 - **Build kind data.** Fields Foundry and Pioneer spell alike carry over and the schema checks them; the rest map:
   - An ancestry's sizes (`med` is `medium`), boosts and flaws (Foundry's numbered slots, in order), and its
