@@ -8,7 +8,7 @@ its idea of a compact, choice-oriented build and drop the computed half.
 
 ```ts
 interface CharacterDocument {
-  schemaVersion: number;
+  schemaVersion: CharacterSchemaVersion; // see "Schema versions"
   id: CharacterId;
   ownerId: UserId;
   name: string;
@@ -44,6 +44,24 @@ interface PlayState {
   doomed: number;
 }
 ```
+
+The schema is `CharacterDocumentSchema` in `libs/character/domain`. It is strict: a field it doesn't name, such as a
+stored total, is rejected. `inventory`, `play`, `boons` and `overrides` start empty and gain their fields with the
+epics that own them ([#28](https://github.com/DavidDudson/pioneer/issues/28),
+[#38](https://github.com/DavidDudson/pioneer/issues/38), [#39](https://github.com/DavidDudson/pioneer/issues/39),
+[#34](https://github.com/DavidDudson/pioneer/issues/34)). A selection is a `ChoiceValue`: a content id or a slug.
+
+### Schema versions
+
+Every stored document carries `schemaVersion`. `decodeCharacterDocument` upgrades an older document to the current
+version before validating it, and refuses one newer than the code (`UnsupportedSchemaVersionError`, as after a
+rollback) rather than read it as the current shape and drop fields on the next save.
+
+- **Adding a field with a default** needs no new version: an older document decodes with the default.
+- **Any other change** (rename, move, split, a new required field with no sensible default) adds one pure step to
+  `UPGRADES` in `character-document-upgrades.ts`. Step _n_ turns version _n_ + 1 into _n_ + 2; the current version
+  is one past the last step, so the two can't drift. Add a test that decodes a document of the old shape.
+- A step never derives values: when a stored shape changes, it moves the player's inputs, it doesn't compute.
 
 ### Choice slots
 

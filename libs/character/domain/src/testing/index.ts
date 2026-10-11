@@ -3,3 +3,4 @@
  * in tests; never from production code.
  */
 export { CharacterBuilder, fixtureOwnerId, humanAncestryId } from './character-builder';
+export { characterDocumentJson } from './character-document-arbitraries';
