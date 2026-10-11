@@ -112,11 +112,15 @@ interface StatisticOptions {
 }
 
 /**
- * A statistic whose base and total add up from its terms and applied lines; an applied set override pins the
- * total to the value it left.
+ * A statistic whose base is what its terms add up to, or what its last applied `Change` left; its computed total is
+ * that base plus its applied lines, and an applied set override pins the total to the value it left.
  */
 export function statistic(selector: string, { base, lines = [], overrides = [] }: StatisticOptions): StatisticValue {
-  const baseValue = base.reduce((sum, { value }) => sum + value, 0);
+  const formulaValue = base.reduce((sum, { value }) => sum + value, 0);
+  const changed = overrides.findLast(
+    ({ phase, status }) => phase === OverridePhase.Base && status.kind === OverrideStatusKind.Applied,
+  );
+  const baseValue = changed?.result ?? formulaValue;
   const applied = lines.filter(({ status }) => status.kind === LineStatusKind.Applied);
   const computed = applied.reduce((sum, { value }) => sum + (value ?? 0), baseValue);
   const pin = overrides.findLast(
@@ -126,7 +130,7 @@ export function statistic(selector: string, { base, lines = [], overrides = [] }
     ok: true,
     selector: Selector.parse(selector),
     base,
-    formulaValue: FormulaValue.parse(baseValue),
+    formulaValue: FormulaValue.parse(formulaValue),
     baseValue: FormulaValue.parse(baseValue),
     lines,
     computed: FormulaValue.parse(computed),

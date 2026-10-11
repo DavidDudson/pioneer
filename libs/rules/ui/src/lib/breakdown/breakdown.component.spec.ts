@@ -1,17 +1,8 @@
 import { TestBed } from '@angular/core/testing';
-import {
-  BaseTermKind,
-  InactiveReason,
-  LineStatusKind,
-  OverridePhase,
-  OverrideStatusKind,
-  RuleId,
-  SuppressionReason,
-  TermSign,
-} from '@pioneer/rules/engine';
+import { BaseTermKind, LineStatusKind, RuleId, SuppressionReason, TermSign } from '@pioneer/rules/engine';
 import type { StatisticValue } from '@pioneer/rules/engine';
 import { FormulaValue } from '@pioneer/rules/formula';
-import { ChangeMode, ContentText, ModifierType, OriginHopKind, Predicate } from '@pioneer/rules/sdk';
+import { ContentText, ModifierType, OriginHopKind, Predicate } from '@pioneer/rules/sdk';
 import type { ContentId } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
@@ -24,15 +15,13 @@ import {
   FIGHTER_WILL,
   GOLEM_FORM,
   IN_DARKNESS,
-  IN_DARKNESS_SUMMARY,
   line,
   MAGE_ARMOR,
   statistic,
   term,
-  UNKNOWN_LEVEL,
   WITHOUT_LEVEL,
 } from '../testing/breakdown-fixtures';
-import { override, PINNED_AC } from '../testing/override-fixtures';
+import { OVERRIDE_STATUSES, PINNED_AC } from '../testing/override-fixtures';
 import { provideRulesUiI18nTesting } from '../testing/provide-rich-text-testing';
 import { BreakdownView } from './breakdown.component';
 
@@ -206,34 +195,10 @@ describe(BreakdownView, () => {
     expect(overrides).toStrictEqual([]);
   });
 
-  it('words each mode, and explains a conditional or failed override', async () => {
-    const phase = OverridePhase.Base;
-    const lines = [
-      override(BREASTPLATE, {
-        phase,
-        mode: ChangeMode.Add,
-        value: 2,
-        replaced: 10,
-        status: { kind: OverrideStatusKind.Conditional, summary: IN_DARKNESS_SUMMARY },
-      }),
-      override(GOLEM_FORM, {
-        phase,
-        mode: ChangeMode.Multiply,
-        replaced: 10,
-        status: { kind: OverrideStatusKind.Failed, error: UNKNOWN_LEVEL, position: undefined },
-      }),
-      override(MAGE_ARMOR, { phase, mode: ChangeMode.Downgrade, value: 8, replaced: 10, result: 8 }),
-      override(MAGE_ARMOR, {
-        phase,
-        mode: ChangeMode.Add,
-        value: 1,
-        replaced: 8,
-        status: { kind: OverrideStatusKind.Inactive, reason: InactiveReason.Predicate },
-        rule: 1,
-      }),
-    ];
-    const { overrides } = await render(statistic('ac', { base: [term('10', 10)], overrides: lines }));
+  it('words each mode, explains a conditional or failed override, and bases on what an applied Change left', async () => {
+    const { captions, overrides } = await render(OVERRIDE_STATUSES);
 
+    expect(captions).toContain('Base 8');
     expect(overrides).toStrictEqual([
       'Breastplate | add 10 → 10 | Conditional | Applies when you are in darkness.',
       'Golem Form | multiply 10 → 10 | Failed | “@item.level” at position 1 has no value.',
