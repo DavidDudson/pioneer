@@ -21,7 +21,7 @@ function entry(fields: EntryFields): object {
   return { key: RuleElementKey.SpellcastingEntry, ...fields };
 }
 
-function raise(tradition: string, rank: string, predicate?: readonly string[]): object {
+function raise(tradition: string, rank: string, predicate?: readonly unknown[]): object {
   const selector = `spellcasting:${tradition}`;
   return { key: RuleElementKey.Proficiency, selector, rank, ...(predicate === undefined ? {} : { predicate }) };
 }
@@ -46,6 +46,30 @@ function patron(tradition: string): readonly object[] {
 
 const DIVINE = 'divine';
 
+/** Holds for a cleric of `doctrine` from `level` on. */
+function doctrineFrom(doctrine: string, level: number): object {
+  return { and: [`feature:${doctrine}`, { gte: ['self:level', level] }] };
+}
+
+const CLOISTERED = 'cloistered-cleric';
+const WARPRIEST = 'warpriest';
+const SEVENTH = 7;
+const ELEVENTH = 11;
+const FIFTEENTH = 15;
+const NINETEENTH = 19;
+
+/**
+ * A cleric's entry, raised with its doctrine: a cloistered cleric's at 7th, 15th and 19th level, a warpriest's at 11th
+ * and 19th. The doctrine's Third to Final Doctrine features say so, but nothing grants them: Foundry's generic doctrine
+ * features grant them by a lookup the importer does not translate, so the raises read the doctrine and the level.
+ */
+const CLERIC: readonly object[] = [
+  entry({ slug: 'cleric', tradition: DIVINE, attribute: 'wis', preparation: 'prepared' }),
+  raise(DIVINE, 'expert', [{ or: [doctrineFrom(CLOISTERED, SEVENTH), doctrineFrom(WARPRIEST, ELEVENTH)] }]),
+  raise(DIVINE, 'master', [{ or: [doctrineFrom(CLOISTERED, FIFTEENTH), doctrineFrom(WARPRIEST, NINETEENTH)] }]),
+  raise(DIVINE, 'legendary', [doctrineFrom(CLOISTERED, NINETEENTH)]),
+];
+
 /** The rule elements each entry gains, by its entry slug. */
 const SPELLCASTING: ReadonlyMap<string, readonly object[]> = new Map([
   [
@@ -60,16 +84,7 @@ const SPELLCASTING: ReadonlyMap<string, readonly object[]> = new Map([
     'class-feature:wizard-spellcasting',
     classEntry({ slug: 'wizard', tradition: 'arcane', attribute: 'int', preparation: 'prepared' }),
   ],
-  // A cleric's rank rises with its doctrine: a cloistered cleric's at 7th, 15th and 19th, a warpriest's at 11th and 19th.
-  [
-    'class-feature:cleric-spellcasting',
-    [entry({ slug: 'cleric', tradition: DIVINE, attribute: 'wis', preparation: 'prepared' })],
-  ],
-  ['class-feature:third-doctrine-cloistered-cleric', [raise(DIVINE, 'expert')]],
-  ['class-feature:fifth-doctrine-cloistered-cleric', [raise(DIVINE, 'master')]],
-  ['class-feature:final-doctrine-cloistered-cleric', [raise(DIVINE, 'legendary')]],
-  ['class-feature:fourth-doctrine-warpriest', [raise(DIVINE, 'expert')]],
-  ['class-feature:final-doctrine-warpriest', [raise(DIVINE, 'master')]],
+  ['class-feature:cleric-spellcasting', CLERIC],
   // Witch Spellcasting names no tradition: the patron the witch picks does.
   ['class-feature:faiths-flamekeeper', patron(DIVINE)],
   ['class-feature:silence-in-snow', patron('primal')],

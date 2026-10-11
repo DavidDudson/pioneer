@@ -59,12 +59,6 @@ export const CLERIC_SPELLCASTING = classFeature({
   level: 1,
   traits: ['cleric'],
 });
-export const THIRD_DOCTRINE = classFeature({
-  id: 'sPeLlCaStInG0003',
-  name: 'Third Doctrine (Cloistered Cleric)',
-  level: 7,
-  traits: ['cleric'],
-});
 export const THE_RESENTMENT = classFeature({
   id: 'sPeLlCaStInG0004',
   name: 'The Resentment',

@@ -11,13 +11,17 @@ import {
   EXPERT_WIZARD_SPELLCASTING,
   FIGHTER_FEATURE,
   THE_RESENTMENT,
-  THIRD_DOCTRINE,
   WITCH_DEDICATION,
   WIZARD_DEDICATION,
   WIZARD_SPELLCASTING,
 } from './testing/spellcasting-fixtures';
 
 const { SpellcastingEntry: Entry, Proficiency } = RuleElementKey;
+
+/** Holds for a cleric of `doctrine` from `level` on. */
+function from(doctrine: string, level: number): object {
+  return { and: [`feature:${doctrine}`, { gte: ['self:level', level] }] };
+}
 
 describe('translateKindData: spellcasting entries', () => {
   test("a caster's spellcasting feature gives its entry, raised by the Spellcaster features", () => {
@@ -36,14 +40,35 @@ describe('translateKindData: spellcasting entries', () => {
     ]);
   });
 
-  test("a cleric's entry rises with the doctrine features, which carry the raises", () => {
-    const cleric = translate([CLERIC_SPELLCASTING, THIRD_DOCTRINE]);
+  test("a cleric's entry rises with its doctrine and level", () => {
+    const [cleric, ...raises] = rulesIn(translate([CLERIC_SPELLCASTING]), 'cleric-spellcasting');
 
-    expect(rulesIn(cleric, 'cleric-spellcasting')).toEqual([
-      { key: Entry, slug: 'cleric', tradition: 'divine', attribute: 'wis', preparation: 'prepared' },
-    ]);
-    expect(rulesIn(cleric, 'third-doctrine-cloistered-cleric')).toEqual([
-      { key: Proficiency, selector: 'spellcasting:divine', rank: 'expert' },
+    expect(cleric).toEqual({
+      key: Entry,
+      slug: 'cleric',
+      tradition: 'divine',
+      attribute: 'wis',
+      preparation: 'prepared',
+    });
+    expect(raises).toEqual([
+      {
+        key: Proficiency,
+        selector: 'spellcasting:divine',
+        rank: 'expert',
+        predicate: [{ or: [from('cloistered-cleric', 7), from('warpriest', 11)] }],
+      },
+      {
+        key: Proficiency,
+        selector: 'spellcasting:divine',
+        rank: 'master',
+        predicate: [{ or: [from('cloistered-cleric', 15), from('warpriest', 19)] }],
+      },
+      {
+        key: Proficiency,
+        selector: 'spellcasting:divine',
+        rank: 'legendary',
+        predicate: [from('cloistered-cleric', 19)],
+      },
     ]);
   });
 
