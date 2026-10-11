@@ -4,9 +4,10 @@ import * as z from 'zod';
 import { CONFIG_MODULES } from './foundry-config';
 import { FoundryDocument } from './foundry-document';
 import { FoundryJournal } from './foundry-journal';
+import { mergeLang } from './foundry-lang';
 
 /**
- * A foundryvtt/pf2e source archive, read: the documents of its item packs, its journals, and its English lang table. The CLI
+ * A foundryvtt/pf2e source archive, read: the documents of its item packs, its journals, and its English lang tables. The CLI
  * extracts the files matching `RELEASE_FILES` and passes their text in; this module never touches the archive. The
  * config modules among them are the CLI's to load (`foundry-config.ts`).
  */
@@ -14,13 +15,16 @@ import { FoundryJournal } from './foundry-journal';
 /** Archive members the importer reads, below the archive's top-level directory. */
 export const RELEASE_FILES: readonly string[] = [
   '*/system.pf2e.json',
-  '*/static/lang/en.json',
+  '*/static/lang/*.json',
   '*/packs/pf2e/**/*.json',
   ...Object.values(CONFIG_MODULES).map((module) => `*/${module}`),
 ];
 
 const MANIFEST = 'system.pf2e.json';
-const LANG = 'static/lang/en.json';
+/** Where the manifest's language paths (`lang/en.json`) live in the source tree. */
+const LANG_ROOT = 'static/';
+const ENGLISH = 'en';
+const LANGUAGES_MAX = 50;
 const PACK_SOURCES = 'packs/pf2e/';
 /** Foundry's folder tree for a pack, not a document. */
 const FOLDERS = '_folders.json';
@@ -33,10 +37,22 @@ const ManifestPack = z.looseObject({
   type: z.string().max(NAME_MAX),
 });
 
-/** The pack list of `system.pf2e.json`. A pack's `name` is its compendium name; its `path` ends in its source directory. */
-const Manifest = z.looseObject({ packs: z.array(ManifestPack).max(PACKS_MAX) });
+const ManifestLanguage = z.looseObject({
+  lang: z.string().max(NAME_MAX),
+  path: z.string().min(1).max(NAME_MAX),
+});
 
-/** Foundry's `static/lang/en.json`: nested label tables, read by the i18n label story. */
+/**
+ * The pack and language lists of `system.pf2e.json`. A pack's `name` is its compendium name; its `path` ends in its
+ * source directory. A language lists each lang file Foundry merges, in order.
+ */
+const Manifest = z.looseObject({
+  packs: z.array(ManifestPack).max(PACKS_MAX),
+  languages: z.array(ManifestLanguage).max(LANGUAGES_MAX),
+});
+type Manifest = z.infer<typeof Manifest>;
+
+/** A Foundry lang table: nested label tables, keyed by the parts of a lang key (`PF2E.TraitFire`). */
 export const FoundryLang = z.record(z.string(), z.unknown());
 export type FoundryLang = z.infer<typeof FoundryLang>;
 
@@ -114,8 +130,7 @@ const PackType = { Item: 'Item', Journal: 'JournalEntry' } as const;
 type PackType = ValueOf<typeof PackType>;
 
 /** Packs of `type` by source directory. */
-function packsOf(files: ReadonlyMap<string, string>, type: PackType): ReadonlyMap<string, FoundryPack> {
-  const manifest = Manifest.parse(JSON.parse(required(files, MANIFEST)));
+function packsOf(manifest: Manifest, type: PackType): ReadonlyMap<string, FoundryPack> {
   return new Map(
     manifest.packs
       .filter((pack) => pack.type === type)
@@ -133,14 +148,24 @@ function packOf(packs: ReadonlyMap<string, FoundryPack>, path: string): FoundryP
   return packs.get(path.slice(PACK_SOURCES.length).split('/')[0] ?? '');
 }
 
+/** Foundry's English lang tables, merged in the manifest's order. */
+function englishLang(files: ReadonlyMap<string, string>, manifest: Manifest): FoundryLang {
+  return mergeLang(
+    manifest.languages
+      .filter(({ lang }) => lang === ENGLISH)
+      .map(({ path }) => FoundryLang.parse(JSON.parse(required(files, `${LANG_ROOT}${path}`)))),
+  );
+}
+
 /**
  * Reads the item packs, journals and lang table out of an archive's files, keyed by their archive path (top-level
  * directory included). Packs of other document types (actors, macros, tables) are not read.
  */
 export function readFoundryRelease(archiveFiles: ReadonlyMap<string, string>): FoundryRelease {
   const files = new Map([...archiveFiles].map(([path, text]) => [withoutRoot(path), text]));
-  const items = packsOf(files, PackType.Item);
-  const journals = packsOf(files, PackType.Journal);
+  const manifest = Manifest.parse(JSON.parse(required(files, MANIFEST)));
+  const items = packsOf(manifest, PackType.Item);
+  const journals = packsOf(manifest, PackType.Journal);
   const reads = [...files]
     .toSorted(([left], [right]) => left.localeCompare(right))
     .flatMap(([path, text]): (PackDocument | JournalDocument | UnreadableDocument)[] => {
@@ -155,6 +180,6 @@ export function readFoundryRelease(archiveFiles: ReadonlyMap<string, string>): F
     documents: reads.filter((read) => 'document' in read),
     journals: reads.filter((read) => 'journal' in read),
     unreadable: reads.filter((read) => 'error' in read),
-    lang: FoundryLang.parse(JSON.parse(required(files, LANG))),
+    lang: englishLang(files, manifest),
   };
 }

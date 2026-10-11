@@ -1,8 +1,10 @@
 import type { ContentId, RichText } from '@pioneer/rules/sdk';
 
+import { expandLocalize } from './foundry-lang';
+import type { UnresolvedText } from './foundry-lang';
 import { foundryLinks } from './foundry-links';
 import type { LinkedEntry } from './foundry-links';
-import type { PackDocument } from './foundry-release';
+import type { FoundryLang, PackDocument } from './foundry-release';
 import { htmlToRichText } from './html-rich-text';
 
 /**
@@ -29,18 +31,24 @@ export interface EntryDescriptions {
   readonly descriptions: ReadonlyMap<ContentId, RichText>;
   readonly unknownMarkup: readonly UnknownMarkup[];
   readonly untranslatedEnrichers: readonly UntranslatedEnricher[];
+  /** `@Localize` keys with no English text. */
+  readonly unresolvedText: readonly UnresolvedText[];
 }
 
-/** Each entry's description as rich text, with links resolved against the entries and the release's `documents`. */
+/**
+ * Each entry's description as rich text, with `@Localize` inlined from `lang` and links resolved against the
+ * entries and the release's `documents`.
+ */
 export function describeEntries(
   entries: readonly LinkedEntry[],
   documents: readonly PackDocument[],
+  lang: FoundryLang,
 ): EntryDescriptions {
   const links = foundryLinks(documents, entries);
-  const described = entries.map(({ source, id }) => ({
-    id,
-    translation: htmlToRichText(source.document.system.description?.value ?? '', links),
-  }));
+  const described = entries.map(({ source: { document }, id }) => {
+    const html = expandLocalize(document.system.description?.value ?? '', lang, { item: document.name });
+    return { id, translation: htmlToRichText(html.text, links), unresolved: html.unresolved };
+  });
   return {
     descriptions: new Map(described.map(({ id, translation }) => [id, translation.richText])),
     unknownMarkup: described.flatMap(({ id, translation }) =>
@@ -49,5 +57,6 @@ export function describeEntries(
     untranslatedEnrichers: described.flatMap(({ id, translation }) =>
       translation.untranslatedEnrichers.map((enricher) => ({ entry: id, enricher })),
     ),
+    unresolvedText: described.flatMap(({ id, unresolved }) => unresolved.map((each) => ({ entry: id, ...each }))),
   };
 }

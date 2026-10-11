@@ -76,6 +76,8 @@ export interface TranslationReport {
   readonly unknownMarkup: readonly KeyCount[];
   /** By entries that use it. */
   readonly untranslatedEnrichers: readonly KeyCount[];
+  /** By reason and key (`missing-key PF2E.SpecificRule.Prompt.Skill`). */
+  readonly unresolvedText: readonly KeyCount[];
 }
 
 function keyCounts(keys: readonly string[]): readonly KeyCount[] {
@@ -91,6 +93,7 @@ export function translationReport({
   unknownTraits,
   unknownMarkup,
   untranslatedEnrichers,
+  unresolvedText,
 }: EnvelopeTranslation): TranslationReport {
   return {
     entries: entries.length,
@@ -99,6 +102,7 @@ export function translationReport({
     unknownTraits: keyCounts(unknownTraits.map(({ trait }) => trait)),
     unknownMarkup: keyCounts(unknownMarkup.map(({ markup }) => markup)),
     untranslatedEnrichers: keyCounts(untranslatedEnrichers.map(({ enricher }) => enricher)),
+    unresolvedText: keyCounts(unresolvedText.map(({ reason, key }) => `${reason} ${key}`)),
   };
 }
 

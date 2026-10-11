@@ -57,7 +57,19 @@ export {
 export { type UnknownMarkup, type UntranslatedEnricher } from './describe-entries';
 export { type FoundryLinks } from './enricher-context';
 export { htmlToRichText, OVERSIZED_MARKUP, type RichTextTranslation } from './html-rich-text';
-export { type RuleTranslation, translateRules, type UntranslatedRule } from './translate-rules';
+export { type RuleContext, type RuleTranslation, translateRules, type UntranslatedRule } from './translate-rules';
+export {
+  expandLocalize,
+  type ExpandedText,
+  isLangKey,
+  type LangValues,
+  localize,
+  type Localized,
+  mergeLang,
+  type UnresolvedKey,
+  type UnresolvedText,
+  UnresolvedTextReason,
+} from './foundry-lang';
 export {
   bactrian,
   CONFIG_MODULES,

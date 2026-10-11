@@ -60,6 +60,7 @@ describe('describeEntries', () => {
     const { descriptions, untranslatedEnrichers } = describeEntries(
       [howl, condition],
       [primalHowl, frightened, howlEffect],
+      {},
     );
 
     const description: unknown = descriptions.get(howl.id);
@@ -132,7 +133,7 @@ describe('describeEntries', () => {
     });
     const entry = linked(linking, FoundryItemType.Action);
 
-    const description: unknown = describeEntries([entry, condition], []).descriptions.get(entry.id);
+    const description: unknown = describeEntries([entry, condition], [], {}).descriptions.get(entry.id);
 
     expect(description).toEqual([{ type: 'paragraph', content: [{ type: 'text', text: 'Fear' }] }]);
   });

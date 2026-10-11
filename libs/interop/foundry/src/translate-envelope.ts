@@ -18,8 +18,9 @@ import type { UnknownMarkup, UntranslatedEnricher } from './describe-entries';
 import type { EntryReferences } from './entry-references';
 import { entrySlugOf } from './entry-slugs';
 import type { FoundryDocument } from './foundry-document';
+import type { UnresolvedText } from './foundry-lang';
 import { itemUuid } from './foundry-links';
-import type { FoundryPack, PackDocument } from './foundry-release';
+import type { FoundryLang, FoundryPack, PackDocument } from './foundry-release';
 import type { ImportedEnvelope } from './imported-envelope';
 import type { SelectedEntry } from './select-entries';
 import { translateRules } from './translate-rules';
@@ -33,12 +34,13 @@ import type { UntranslatedRule } from './translate-rules';
  */
 
 /**
- * The Pioneer pack the entries go into, the traits Pioneer knows (its `trait` entries), and how references to other
- * documents resolve.
+ * The Pioneer pack the entries go into, the traits Pioneer knows (its `trait` entries), Foundry's English lang
+ * table, and how references to other documents resolve.
  */
 export interface EnvelopeContext {
   readonly pack: PackId;
   readonly traits: ReadonlySet<Trait>;
+  readonly lang: FoundryLang;
   /** The release's item documents, naming link targets outside the import; without them such links read as labels. */
   readonly documents?: readonly PackDocument[];
   readonly references?: EntryReferences;
@@ -84,6 +86,8 @@ export interface EnvelopeTranslation {
   readonly unknownTraits: readonly UnknownTrait[];
   readonly unknownMarkup: readonly UnknownMarkup[];
   readonly untranslatedEnrichers: readonly UntranslatedEnricher[];
+  /** Lang keys in rule elements and descriptions with no English text, left out of the text. */
+  readonly unresolvedText: readonly UnresolvedText[];
   readonly failures: readonly EnvelopeFailure[];
 }
 
@@ -94,6 +98,7 @@ interface Translated {
   readonly envelope: Draft;
   readonly untranslatedRules: readonly UntranslatedRule[];
   readonly unknownTraits: readonly UnknownTrait[];
+  readonly unresolvedText: readonly UnresolvedText[];
 }
 
 interface Failed {
@@ -207,7 +212,12 @@ function translate({ source, slug }: Slugged, context: EnvelopeContext): Transla
   const { _id: documentId, system } = document;
   const id = ContentId.parse(contentId(context.pack, fields.slug));
   const traits = translateTraits(id, system.traits?.value ?? [], context.traits);
-  const rules = translateRules(id, system.rules, context.references);
+  const { references, lang } = context;
+  const rules = translateRules(id, system.rules, {
+    lang,
+    values: { item: document.name },
+    ...(references === undefined ? {} : { references }),
+  });
   return {
     envelope: {
       id,
@@ -220,6 +230,7 @@ function translate({ source, slug }: Slugged, context: EnvelopeContext): Transla
     },
     untranslatedRules: rules.untranslated,
     unknownTraits: traits.unknown,
+    unresolvedText: rules.unresolvedText,
   };
 }
 
@@ -252,9 +263,10 @@ export function translateEnvelopes(selected: readonly SelectedEntry[], context: 
   const taken = new Set<EntrySlug>();
   const outcomes = selected.map((source) => outcome({ source, slug: entrySlugOf(source) }, context, taken));
   const done = outcomes.filter((each): each is Done => !failed(each));
-  const { descriptions, unknownMarkup, untranslatedEnrichers } = describeEntries(
+  const { descriptions, unknownMarkup, untranslatedEnrichers, unresolvedText } = describeEntries(
     done.map(({ source, envelope }) => ({ source, id: envelope.id })),
     context.documents ?? [],
+    context.lang,
   );
   return {
     entries: done.map(({ source, envelope }) => ({
@@ -265,6 +277,7 @@ export function translateEnvelopes(selected: readonly SelectedEntry[], context: 
     unknownTraits: done.flatMap(({ unknownTraits }) => unknownTraits),
     unknownMarkup,
     untranslatedEnrichers,
+    unresolvedText: [...done.flatMap((each) => each.unresolvedText), ...unresolvedText],
     failures: outcomes.filter((each) => failed(each)),
   };
 }
