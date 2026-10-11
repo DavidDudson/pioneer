@@ -3,6 +3,7 @@ import type { BookId } from '@pioneer/rules/sdk';
 import type { FoundryItemType } from './foundry-document';
 import type { Selection, SkipReason } from './select-entries';
 import { SkipReason as Reason } from './select-entries';
+import type { EnvelopeTranslation } from './translate-envelope';
 
 /** What an import would bring in, by Foundry type and book, and what it would leave out, by reason. */
 
@@ -55,4 +56,38 @@ export function dryRunReport({ selected, skipped }: Selection): DryRunReport {
         left.detail.localeCompare(right.detail),
     );
   return { imported, skipped: skips };
+}
+
+export interface KeyCount {
+  /** A failure reason, rule element key or trait. */
+  readonly key: string;
+  readonly count: number;
+}
+
+/** What translating the selected entries' envelopes left over, each list most frequent first. */
+export interface TranslationReport {
+  readonly entries: number;
+  readonly failures: readonly KeyCount[];
+  readonly untranslatedRules: readonly KeyCount[];
+  readonly unknownTraits: readonly KeyCount[];
+}
+
+function keyCounts(keys: readonly string[]): readonly KeyCount[] {
+  return [...tally(keys, (key) => key).values()]
+    .map(([key, count]) => ({ key, count }))
+    .toSorted((left, right) => right.count - left.count || left.key.localeCompare(right.key));
+}
+
+export function translationReport({
+  entries,
+  failures,
+  untranslatedRules,
+  unknownTraits,
+}: EnvelopeTranslation): TranslationReport {
+  return {
+    entries: entries.length,
+    failures: keyCounts(failures.map(({ reason }) => reason)),
+    untranslatedRules: keyCounts(untranslatedRules.map(({ key }) => key)),
+    unknownTraits: keyCounts(unknownTraits.map(({ trait }) => trait)),
+  };
 }

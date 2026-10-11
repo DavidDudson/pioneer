@@ -493,7 +493,8 @@ flowchart LR
 - **One-off.** The importer writes a pack that does not exist yet, or replaces one as a whole before its import
   PR merges. It never merges into a pack that has been edited by hand, and no CI job re-runs it.
 - **Selection.** Only `publication.remaster === true`, ORC-licensed entries from the target books. Legacy content
-  is out of scope; `supersedes` links are recorded where Foundry marks replacements. Target books are a CLI
+  is out of scope. Foundry updated remastered entries in place and marks no replacements (none at `pf2e-8.6.0`), so
+  imported entries carry no `supersedes`; it stays for homebrew overrides and enrichment. Target books are a CLI
   argument; Foundry's publication title maps to a registered book in `libs/interop/foundry`. Only item packs are
   read, and only item types with a Pioneer kind (`campaignFeature`, for one, has none).
   `just content-import --pack player-core --book player-core --dry-run` prints what would be imported by Foundry
@@ -514,7 +515,13 @@ flowchart LR
   the backlog, entries with page numbers, entries with AoN URLs, and actions with a `trigger` but no `triggerEvent`.
   CI reports it on PRs touching `content/` and never fails on it. Milestone exit criteria are written against these numbers.
 - **Ids.** Our ids stay UUIDv5 of `<pack>/<slug>`. The Foundry compendium UUID goes in `externalIds.foundry`,
-  which is what makes Foundry export possible.
+  which is what makes Foundry export possible. The slug is Foundry's (`system.slug`, else its slugified name) with
+  diacritics folded (`deja-vu`), since Pioneer slugs are ASCII. Foundry slugs are unique per compendium, not per
+  book, so documents of different types can share one (the Fly spell and action): the type first in the
+  importer's precedence (actions, conditions, feats, spells, then the rest) keeps the slug and each other gets its
+  Foundry type as a suffix (`fly-spell`). Two documents of one type with one slug are reported, not guessed.
+- **Sources.** Each envelope cites its target book with no page or AoN link (`UnlocatedBookSource`), which
+  `SourceRef` does not accept yet (ADR-0005); pack output (#400) decides how that is resolved.
 - **Source enrichment.** Foundry has the book title but no page numbers or AoN links. They are added to the
   committed packs after the import, from a matcher over AoN's listing data and by hand. The method of obtaining
   AoN data must respect their terms; this is an open question tracked in the roadmap. Until resolved, entries ship

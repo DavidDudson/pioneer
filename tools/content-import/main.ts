@@ -1,8 +1,9 @@
 /**
  * One-off Foundry import (ADR-0031, content-model.md "Foundry import"): `just content-import --pack <pack>
  * --book <book>... --dry-run`. Downloads the pack's pinned foundryvtt/pf2e release into a gitignored cache, checks
- * its SHA-256, reads the item packs and reports what the import would select. Only `--dry-run` exists so far; the
- * translation and pack output land in later stories of Epic 2.5.
+ * its SHA-256, reads the item packs, selects entries and translates their envelopes, and reports what the import
+ * would bring in and what it could not translate. Only `--dry-run` exists so far; kind data, rich text and pack
+ * output land in later stories of Epic 2.5.
  */
 import { mkdir, rename } from 'node:fs/promises';
 import path from 'node:path';
@@ -18,14 +19,26 @@ import {
   selectEntries,
   sha256,
   SkipReason,
+  translateEnvelopes,
+  translationReport,
 } from '@pioneer/interop/foundry';
-import type { DryRunReport, FoundryReleaseTag, ImportPin, Selection, Sha256 } from '@pioneer/interop/foundry';
-import { bookRegistry } from '@pioneer/rules/catalog';
-import { BookId, PackId } from '@pioneer/rules/sdk';
+import type {
+  DryRunReport,
+  EnvelopeTranslation,
+  FoundryReleaseTag,
+  ImportPin,
+  KeyCount,
+  Selection,
+  Sha256,
+} from '@pioneer/interop/foundry';
+import { bookRegistry, officialPacks } from '@pioneer/rules/catalog';
+import { BookId, ContentKind, PackId, Trait } from '@pioneer/rules/sdk';
 
 const ROOT = path.resolve(import.meta.dir, '../..');
 const CACHE = path.join(ROOT, '.data/foundry');
 const UNREADABLE_SHOWN = 20;
+const FAILURES_SHOWN = 20;
+const KEYS_SHOWN = 15;
 const FOUNDRY_TITLED: ReadonlySet<BookId> = new Set(FOUNDRY_BOOK_TITLES.values());
 
 interface Options {
@@ -122,6 +135,38 @@ function formatReport({ imported, skipped }: DryRunReport, { skipped: entries }:
   ].join('\n');
 }
 
+function sumOf(counts: readonly KeyCount[]): number {
+  return counts.reduce((sum, { count }) => sum + count, 0);
+}
+
+function formatCounts(counts: readonly KeyCount[]): string[] {
+  const shown = counts.slice(0, KEYS_SHOWN).map(({ key, count }) => `  ${key === '' ? '-' : key}  ${count}`);
+  const rest = counts.length - shown.length;
+  return rest > 0 ? [...shown, `  … ${rest} more`] : shown;
+}
+
+function formatTranslation(translation: EnvelopeTranslation): string {
+  const { entries, failures, untranslatedRules, unknownTraits } = translationReport(translation);
+  return [
+    `Translated ${entries} envelopes; ${sumOf(failures)} failed:`,
+    ...formatCounts(failures),
+    ...translation.failures
+      .slice(0, FAILURES_SHOWN)
+      .map(({ path: file, reason, detail }) => `  ${reason} ${file}: ${detail}`),
+    `Untranslated rule elements ${sumOf(untranslatedRules)}, by key:`,
+    ...formatCounts(untranslatedRules),
+    `Traits outside Pioneer's vocabulary ${unknownTraits.length} (${sumOf(unknownTraits)} uses):`,
+    ...formatCounts(unknownTraits),
+  ].join('\n');
+}
+
+/** Pioneer's trait vocabulary: the slugs of the `trait` entries in the official packs. */
+async function knownTraits(): Promise<ReadonlySet<Trait>> {
+  const packs = await Promise.all(officialPacks.map(async ({ load }) => load()));
+  const traitEntries = packs.flatMap(({ entries }) => entries.filter(({ kind }) => kind === ContentKind.Trait));
+  return new Set(traitEntries.map(({ slug }) => Trait.parse(slug)));
+}
+
 const { pack, books, dryRun } = options();
 if (!dryRun) {
   throw new Error('Only --dry-run is implemented so far (Epic 2.5 builds the rest)');
@@ -131,3 +176,5 @@ const release = readFoundryRelease(await archiveFiles(await archive(pin)));
 const selection = selectEntries(release, books);
 console.log(`${pack} at ${pin.tag}, books ${[...books].join(', ')}`);
 console.log(formatReport(dryRunReport(selection), selection));
+const traits = await knownTraits();
+console.log(formatTranslation(translateEnvelopes(selection.selected, { pack, traits })));
