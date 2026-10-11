@@ -17,6 +17,7 @@ export {
   unmatchedRows,
 } from './import-report';
 export { PathbuilderBuild, PathbuilderExport } from './pathbuilder-export';
+export type { ImportedBoosts } from './read-boosts';
 export {
   type ImportedLore,
   type PathbuilderIdentity,
@@ -38,3 +39,11 @@ export {
   UnmatchedName,
   UnmatchedReason,
 } from './character-import';
+export {
+  type BoostChoices,
+  type BoostPlacement,
+  ModifierDifference,
+  modifierDifferences,
+  placeBoosts,
+  UnplacedBoost,
+} from './boost-placement';

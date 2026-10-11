@@ -1,15 +1,20 @@
 import {
+  attributeModifiers,
+  BACKGROUND_SLOT,
+  boostContent,
   Character,
   CharacterCommand,
   CharacterId,
   CharacterPatchField,
   characterSlots,
+  CLASS_SLOT,
   PATCH_COMMANDS,
   slotContent,
   slotRefusal,
   unfitPicks,
 } from '@pioneer/character/domain';
 import type {
+  BoostContent,
   CharacterListQuery,
   CharacterPatch,
   CharacterSheet,
@@ -22,13 +27,23 @@ import type {
 import {
   characterImportReport,
   ImportKind,
+  modifierDifferences,
   PathbuilderProblem,
+  placeBoosts,
   readPathbuilderExport,
   registryLookup,
 } from '@pioneer/interop/pathbuilder';
-import type { PathbuilderImportResponse, PathbuilderReadFailure } from '@pioneer/interop/pathbuilder';
-import { AncestryId } from '@pioneer/rules/sdk';
-import type { ContentSource } from '@pioneer/rules/sdk';
+import type {
+  BoostChoices,
+  ContentLookup,
+  PathbuilderImport,
+  PathbuilderImportResponse,
+  PathbuilderName,
+  PathbuilderReadFailure,
+  UnplacedBoost,
+} from '@pioneer/interop/pathbuilder';
+import { AncestryId, ChoiceValue } from '@pioneer/rules/sdk';
+import type { ContentSource, SlotKey } from '@pioneer/rules/sdk';
 import { fieldIssues, message, newId, NotFoundError, ValidationError } from '@pioneer/shared/kernel';
 import type { Clock, FieldIssue, UserId } from '@pioneer/shared/kernel';
 
@@ -46,9 +61,69 @@ export interface PatchedCharacter {
   readonly cleared: readonly ClearedPick[];
 }
 
+/** The background and first class an export names, in their slots, when each matches loaded content. */
+function rootChoices(value: PathbuilderImport, lookup: ContentLookup): BoostChoices {
+  const picks: [SlotKey, ImportKind, PathbuilderName | undefined][] = [
+    [BACKGROUND_SLOT, ImportKind.Background, value.identity.background],
+    [CLASS_SLOT, ImportKind.Class, value.identity.classes[0]],
+  ];
+  return Object.fromEntries(
+    picks.flatMap(([slot, kind, name]) => {
+      const match = name === undefined ? undefined : lookup.resolve(kind, name);
+      return match === undefined ? [] : [[slot, ChoiceValue.parse(match.id)]];
+    }),
+  );
+}
+
+/** A character an export makes, and the export's boosts no slot took. */
+interface ImportedCharacter {
+  readonly character: Character;
+  readonly unplaced: readonly UnplacedBoost[];
+}
+
+/** What an import is matched against: content by name, and the boosts each entry gives. */
+interface ImportContent {
+  readonly lookup: ContentLookup;
+  readonly boosts: BoostContent;
+}
+
+/** The character `create` makes from an export: its background and class picked, then each boost in the slots they open. */
+function importedCharacter(
+  value: PathbuilderImport,
+  { lookup, boosts }: ImportContent,
+  create: (choices: BoostChoices) => Character,
+): ImportedCharacter {
+  const roots = rootChoices(value, lookup);
+  const placement = placeBoosts(create(roots).document, boosts, value.boosts);
+  return { character: create({ ...roots, ...placement.choices }), unplaced: placement.unplaced };
+}
+
 /** The problem first, as the issue the UI shows, then the schema issues that explain it. */
 function readIssues({ problem, issues }: PathbuilderReadFailure): FieldIssue[] {
   return [{ path: [], message: message(PROBLEM_MESSAGES[problem]) }, ...fieldIssues(issues)];
+}
+
+/** The export read again on the server; refused when it can't be read. */
+function readExport(raw: unknown): PathbuilderImport {
+  const read = readPathbuilderExport(raw);
+  if (!read.ok) {
+    throw new ValidationError(readIssues(read));
+  }
+  return read.value;
+}
+
+/** The loaded ancestry the export names; refused by name when there is none. */
+function matchedAncestry(value: PathbuilderImport, lookup: ContentLookup): AncestryId {
+  const match = lookup.resolve(ImportKind.Ancestry, value.identity.ancestry);
+  if (match === undefined) {
+    throw new ValidationError([
+      {
+        path: ['build', 'ancestry'],
+        message: message('character.validation.unmatchedAncestry', { ancestry: value.identity.ancestry }),
+      },
+    ]);
+  }
+  return AncestryId.parse(match.id);
 }
 
 /**
@@ -104,37 +179,28 @@ export class CharacterService {
   }
 
   /**
-   * A new character from a Pathbuilder export: name, ancestry and level, written in one insert. Its boosts wait for
-   * the slots to be filled (#420). The export is read again here, never taken from the client's preview. Refused, with nothing saved,
-   * when it can't be read or its ancestry isn't loaded.
+   * A new character from a Pathbuilder export, written in one insert: name, level, ancestry, the background and class
+   * when loaded, and each boost in its slot (#420). No modifier is stored; the report lists any the boosts don't
+   * reproduce. The export is read again here, never taken from the client's preview. Refused, with nothing saved, when
+   * it can't be read or its ancestry isn't loaded.
    */
   public async importPathbuilder(actor: UserId, raw: unknown): Promise<PathbuilderImportResponse> {
-    const read = readPathbuilderExport(raw);
-    if (!read.ok) {
-      throw new ValidationError(readIssues(read));
-    }
-    const { value } = read;
+    const value = readExport(raw);
     const content = await this.#content.registry();
     const lookup = registryLookup(content);
-    const match = lookup.resolve(ImportKind.Ancestry, value.identity.ancestry);
-    if (match === undefined) {
-      throw new ValidationError([
-        {
-          path: ['build', 'ancestry'],
-          message: message('character.validation.unmatchedAncestry', { ancestry: value.identity.ancestry }),
-        },
-      ]);
-    }
-    const character = Character.create({
-      id: CharacterId.parse(newId()),
-      ownerId: actor,
-      name: value.name,
-      ancestry: AncestryId.parse(match.id),
-      level: value.level,
-      now: this.#clock.now(),
-    });
+    const ancestry = matchedAncestry(value, lookup);
+    const id = CharacterId.parse(newId());
+    const now = this.#clock.now();
+    const create = (choices: BoostChoices): Character =>
+      Character.create({ id, ownerId: actor, name: value.name, ancestry, level: value.level, choices, now });
+    const boosts = boostContent(content);
+    const { character, unplaced } = importedCharacter(value, { lookup, boosts }, create);
     const saved = await this.#repository.insert(character, { actor, command: CharacterCommand.ImportPathbuilder });
-    return { character: saved, report: characterImportReport(value, lookup) };
+    const report = characterImportReport(value, lookup, {
+      unplacedBoosts: unplaced,
+      modifierDifferences: modifierDifferences(value.attributes, attributeModifiers(character.document, boosts)),
+    });
+    return { character: saved, report };
   }
 
   /** `patched` as its sheet, with the picks its edit cleared. */

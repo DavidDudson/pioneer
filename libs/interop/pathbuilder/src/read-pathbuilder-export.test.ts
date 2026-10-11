@@ -1,5 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
+import { BoostSource } from '@pioneer/character/domain';
 import { Attribute, Proficiency } from '@pioneer/rules/sdk';
 
 import briarRose from './fixtures/briar-rose.json';
@@ -142,6 +143,20 @@ describe('readPathbuilderExport: golden fixture (Mordred)', () => {
   test('tolerates the shield bonus Pathbuilder writes as text', () => {
     expect(mordred.reported.acTotal?.acTotal).toBe(34);
   });
+
+  test('reads boosts by set: ancestry free boosts with the ancestry, gradual boosts folded into the next free set', () => {
+    expect<readonly (readonly unknown[])[]>(
+      mordred.boosts.map(({ source, level, attributes }) => [source, level, attributes]),
+    ).toStrictEqual([
+      [BoostSource.Ancestry, 1, [Attribute.Strength, Attribute.Charisma]],
+      [BoostSource.Background, 1, [Attribute.Charisma, Attribute.Strength]],
+      [BoostSource.Class, 1, [Attribute.Strength, Attribute.Charisma]],
+      [BoostSource.Free, 1, [Attribute.Strength, Attribute.Charisma, Attribute.Constitution, Attribute.Wisdom]],
+      [BoostSource.Free, 5, [Attribute.Wisdom, Attribute.Charisma, Attribute.Charisma, Attribute.Intelligence]],
+      [BoostSource.Free, 10, [Attribute.Constitution, Attribute.Wisdom, Attribute.Charisma, Attribute.Strength]],
+      [BoostSource.Free, 15, [Attribute.Charisma]],
+    ]);
+  });
 });
 describe('readPathbuilderExport', () => {
   test('reads JSON text as well as a parsed object', () => {
@@ -150,6 +165,7 @@ describe('readPathbuilderExport', () => {
 
   test('defaults what an older export leaves out', () => {
     const value = read(minimal);
+    expect(value.boosts).toEqual([]);
     expect<readonly string[]>(value.identity.classes).toEqual(['Fighter']);
     expect(value.lores).toEqual([]);
     expect(namesOf(value, ImportKind.Spell)).toEqual([]);
