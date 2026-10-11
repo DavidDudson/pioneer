@@ -119,7 +119,7 @@
       "addFailed": "The item could not be added. Try again."
     },
     "skillsHeading": "Skills",
-    "languagesHeading": "Languages"
+    "languagesHeading": "Languages",
     "prepared": {
       "heading": "Prepared spells: {tradition}",
       "cantrips": "Cantrips, cast at {rank, selectordinal, one {#st} two {#nd} few {#rd} other {#th}} rank",

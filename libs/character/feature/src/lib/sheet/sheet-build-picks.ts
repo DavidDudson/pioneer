@@ -9,6 +9,8 @@ import { ATTRIBUTE_MESSAGES } from '@pioneer/rules/ui';
 import type { BuildLine, ChoiceLine, ClassFeatureLine, NamedStatistic, SpellcastingEntryLine } from '@pioneer/rules/ui';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
+import { sheetAttributes } from './sheet-attributes';
+import type { SheetAttributes } from './sheet-attributes';
 import {
   NOT_CHOSEN,
   RootPick,
@@ -74,14 +76,14 @@ export interface BuildPicks extends EngineReads {
   readonly keyAttributeField: Signal<InlineEdit<string | undefined> | undefined>;
   /** AC, the saves and Perception from the character's registry; undefined while the character or the content loads. */
   readonly defences: Signal<Defences | undefined>;
+  /** The attribute modifiers and the boosts still to pick; undefined while the character or the content loads. */
+  readonly attributes: Signal<SheetAttributes | undefined>;
   /** Undefined while the character or the content loads. */
   readonly features: Signal<readonly ClassFeatureLine[] | undefined>;
   /** What the character is, part by part; undefined while it, its slots or the content load. */
   readonly buildLines: Signal<readonly BuildLine[] | undefined>;
   /** Every choice with its status, as the server read the slots; undefined while the character loads. */
   readonly choices: Signal<readonly ChoiceLine[] | undefined>;
-  /** Immunities, weaknesses and resistances from the engine; undefined while the character or the content loads. */
-  readonly defences: Signal<Defences | undefined>;
   /** One pick per trained skill and skill increase up to the character's level, in the order they are read. */
   readonly skillFields: Signal<readonly SkillField[]>;
 }
@@ -212,6 +214,7 @@ export function sheetBuildPicks(sources: BuildPickSources): BuildPicks {
       keyAttributeOptions,
     ),
     defences: loaded(sources, sheetDefences),
+    attributes: loaded(sources, sheetAttributes),
     features: loaded(sources, sheetClassFeatures),
     buildLines: computed(() => {
       const registry = sources.registry();
@@ -225,7 +228,6 @@ export function sheetBuildPicks(sources: BuildPickSources): BuildPicks {
       const slots = sources.slots();
       return slots === undefined ? undefined : sheetChoices(slots);
     }),
-    defences: loaded(sources, sheetDefences),
     ...engineReads(sources),
     skillFields: skillFieldsOf(sources),
   };

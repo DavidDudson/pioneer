@@ -64,7 +64,6 @@ import { CharacterStore } from '../../data/character-store';
 import { CHARACTER_CONTENT_KINDS, injectContentRegistry } from '../../data/content-registry-query';
 import { ImportResult } from '../../import/import-result/import-result.component';
 import { InventorySection } from '../inventory/inventory-section/inventory-section.component';
-import { sheetAttributes } from '../sheet-attributes';
 import { sheetBuildPicks } from '../sheet-build-picks';
 import { SheetClassFields } from '../sheet-class-fields/sheet-class-fields.component';
 import { sheetEntryNames } from '../sheet-entry-names';
@@ -152,11 +151,6 @@ export class CharacterSheetPage {
   protected readonly title = computed(() => this.character()?.name);
   /** The registry the engine reads, shared with the ancestry options, so it loads once. */
   protected readonly registry = injectContentRegistry(CHARACTER_CONTENT_KINDS);
-  protected readonly attributeView = computed(() => {
-    const registry = this.registry.data();
-    const character = this.character();
-    return registry === undefined || character === undefined ? undefined : sheetAttributes(registry, character);
-  });
   /**
    * The registry with the item and condition kinds too, so the character's equipment and Bulk reach the engine. It
    * loads only once the character carries something, so a sheet with nothing carried never fetches them for it.

@@ -23,10 +23,10 @@ import { SkillSlotKind, skillSlots } from './skill-training';
 import type { GrantsAt, SkillReads, SkillSlot } from './skill-training';
 import { boostRefusal, boostSlotIn, flawRefusal, flawSlotIn, NOT_OFFERED, SlotRefusalField } from './slot-refusals';
 import type { SlotRefusal } from './slot-refusals';
-
-export { SlotRefusalField, type SlotRefusal } from './slot-refusals';
 import { spellContent } from './spell-content';
 import type { SpellContent } from './spell-content';
+
+export { SlotRefusalField, type SlotRefusal } from './slot-refusals';
 
 /** A selection for a slot, as `selectSlot` asks for it. */
 export interface SlotPick {
@@ -240,6 +240,23 @@ function grantRefusal(
 }
 
 /**
+ * Why `selection` can't go in a slot its key names the kind of: a prepared slot, a language slot, else a root or
+ * `ChoiceSet` slot.
+ */
+function keyedRefusal(document: CharacterDocument, content: SlotContent, pick: SlotPick): SlotRefusal | undefined {
+  if (isPreparedKey(pick.slot)) {
+    const refusal = preparedRefusal(document, preparedReads(document, content), pick);
+    return refusal === undefined ? undefined : PREPARED_REFUSALS[refusal];
+  }
+  const language = pick.slot.startsWith(LANGUAGE_SLOT_PREFIX)
+    ? languageSlotIn(document, content, pick.slot)
+    : undefined;
+  return language === undefined
+    ? grantRefusal(document, content, pick)
+    : languageRefusal(language, content, pick.selection);
+}
+
+/**
  * Why `selection` can't go in `slot`, or undefined when it can. A boost slot takes an attribute its boost allows and
  * no other boost of its set raises; a voluntary flaw slot, one neither its ancestry nor another flaw lowers; a skill
  * slot, a skill or Lore it may train or raise; a language slot, a language not known yet that it offers; a prepared
@@ -250,10 +267,6 @@ export function slotRefusal(
   content: SlotContent,
   pick: SlotPick,
 ): SlotRefusal | undefined {
-  if (isPreparedKey(pick.slot)) {
-    const refusal = preparedRefusal(document, preparedReads(document, content), pick);
-    return refusal === undefined ? undefined : PREPARED_REFUSALS[refusal];
-  }
   const boost = boostSlotIn(document, content.boosts, pick.slot);
   if (boost !== undefined) {
     return boostRefusal(boost, pick.selection);
@@ -266,12 +279,7 @@ export function slotRefusal(
   if (skill !== undefined) {
     return skillRefusal(skill, content.skills, pick.selection);
   }
-  const language = pick.slot.startsWith(LANGUAGE_SLOT_PREFIX)
-    ? languageSlotIn(document, content, pick.slot)
-    : undefined;
-  return language === undefined
-    ? grantRefusal(document, content, pick)
-    : languageRefusal(language, content, pick.selection);
+  return keyedRefusal(document, content, pick);
 }
 
 /**
