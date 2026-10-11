@@ -1,3 +1,5 @@
+import type { Origin } from '@pioneer/rules/sdk';
+
 import type { MarkedLineStatus, MarkedOverrideStatus } from './breakdown-messages';
 
 /** A base term as shown: as written with its sign, or rounding, what it gives, and the variant setting it. */
@@ -19,6 +21,8 @@ export interface ShownLine {
   readonly value: string;
   readonly status: MarkedLineStatus | undefined;
   readonly detail: string | undefined;
+  /** Where the line comes from, which the line shows as its origin chain and sources. */
+  readonly origin: Origin;
 }
 
 /**
@@ -31,6 +35,7 @@ export interface ShownOverride {
   readonly byHand: boolean;
   readonly status: MarkedOverrideStatus | undefined;
   readonly detail: string | undefined;
+  readonly origin: Origin;
 }
 
 /**

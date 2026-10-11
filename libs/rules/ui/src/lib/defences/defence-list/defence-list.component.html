@@ -13,9 +13,10 @@
                 <fr-badge [tone]="STATUS_TONES[status]">{{ STATUS_MESSAGES[status] | transloco }}</fr-badge>
               }
             </fr-stack>
-            @for (detail of defence.details; track $index) {
+            @if (defence.detail; as detail) {
               <fr-text variant="caption" tone="muted">{{ detail }}</fr-text>
             }
+            <pio-origin-chain [origin]="defence.origin" [entryNames]="entryNames()" [names]="names()" />
           </fr-stack>
         </fr-list-item>
       }

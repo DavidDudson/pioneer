@@ -37,6 +37,8 @@ interface Rendered {
   readonly terms: readonly string[];
   readonly lines: readonly string[];
   readonly overrides: readonly string[];
+  /** Each line's origin chain as a sentence, modifiers then overrides. */
+  readonly chains: readonly string[];
 }
 
 function textOf(element: Element): string {
@@ -46,7 +48,7 @@ function textOf(element: Element): string {
 /** An item's texts and badges in order, so the parts stay apart. */
 function partsOf(item: Element): string {
   return [...item.querySelectorAll('fr-text, fr-badge')]
-    .filter((part) => part.querySelector('fr-text, fr-badge') === null)
+    .filter((part) => part.querySelector('fr-text, fr-badge') === null && part.closest('pio-origin-chain') === null)
     .map((part) => textOf(part))
     .join(' | ');
 }
@@ -74,6 +76,9 @@ async function render(
     terms: items('pio-base-terms'),
     lines: items('pio-breakdown-lines'),
     overrides: items('pio-override-lines'),
+    chains: [...host.querySelectorAll('pio-origin-chain')].map((chain) =>
+      textOf(chain.querySelector('fr-text') ?? chain),
+    ),
   };
 }
 
@@ -204,6 +209,21 @@ describe(BreakdownView, () => {
       'Changes and overrides',
     ]);
     expect(overrides).toStrictEqual(['Set by the GM | override +6 → +9 | Set by hand']);
+  });
+
+  it('shows where each modifier and override line comes from', async () => {
+    const { chains } = await render(PINNED_AC);
+
+    expect(chains).toStrictEqual([
+      'Breastplate',
+      'Steel Shield',
+      'Mage Armor',
+      'Frightened',
+      'Golem Form',
+      'Golem Form',
+      expect.stringMatching(/^set by a user .+ → /u),
+      expect.stringMatching(/^set by a user .+ → /u),
+    ]);
   });
 
   it('marks nothing pinned and has no overrides caption when there are none', async () => {

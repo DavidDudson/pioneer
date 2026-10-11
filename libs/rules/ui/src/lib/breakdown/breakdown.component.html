@@ -9,7 +9,7 @@
   @if (breakdown.lines.length === 0) {
     <fr-text tone="muted">{{ Message.NoModifiers | transloco }}</fr-text>
   } @else {
-    <pio-breakdown-lines [lines]="breakdown.lines" />
+    <pio-breakdown-lines [lines]="breakdown.lines" [entryNames]="entryNames()" [names]="originNames()" />
   }
-  <pio-override-lines [lines]="breakdown.overrides" />
+  <pio-override-lines [lines]="breakdown.overrides" [entryNames]="entryNames()" [names]="originNames()" />
 </fr-stack>

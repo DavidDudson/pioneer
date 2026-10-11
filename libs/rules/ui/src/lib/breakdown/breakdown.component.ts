@@ -20,6 +20,8 @@ import type { ContentId, StatisticKind } from '@pioneer/rules/sdk';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 import { filter, merge } from 'rxjs';
 
+import { NO_ORIGIN_NAMES } from '../origin-chain/origin-names';
+import type { OriginNames } from '../origin-chain/origin-names';
 import { BaseTerms } from './base-terms/base-terms.component';
 import { BreakdownLines } from './breakdown-lines/breakdown-lines.component';
 import { BreakdownMessage, LINE_STATUS_ORDER, MODIFIER_TYPE_MESSAGES } from './breakdown-messages';
@@ -75,6 +77,8 @@ export class BreakdownView {
   public readonly entryNames = input<ReadonlyMap<ContentId, string>>(new Map());
   /** Names for rules that have no label of their own, before their entry's name (the playground's "Rule element 2"). */
   public readonly ruleNames = input<ReadonlyMap<RuleId, MessageDescriptor>>(new Map());
+  /** Names for what the lines' origin chains refer to beyond entries: users, slots, items, events and packs. */
+  public readonly originNames = input<OriginNames>(NO_ORIGIN_NAMES);
 
   protected readonly Message = BreakdownMessage;
 
@@ -134,6 +138,7 @@ export class BreakdownView {
     const { modifier, value, status } = line;
     const shown = {
       name: this.#name(modifier),
+      origin: modifier.origin,
       value: this.#i18n.translate(BreakdownMessage.LineValue, {
         hasValue: value === undefined ? 'no' : 'yes',
         value: value === undefined ? '' : this.#format.number(value, SIGNED),
@@ -177,6 +182,7 @@ export class BreakdownView {
     const { status } = line;
     const shown = {
       name: this.#name(line),
+      origin: line.origin,
       effect: this.#i18n.translate(BreakdownMessage.OverrideEffect, {
         mode: line.mode,
         replaced: this.#format.number(line.replaced, style),

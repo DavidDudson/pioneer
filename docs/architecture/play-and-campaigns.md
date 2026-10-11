@@ -156,8 +156,7 @@ The defences panel lists the character's immunities, weaknesses and resistances 
 - A group is spelled out with the types it covers, from `DAMAGE_GROUP_TYPES`; `all` reads as "all damage".
 - A conditional entry is marked in text, not only by style, and shows the condition it depends on: "Resistance 5
   fire, conditional: while raging".
-- Each entry names its origin ("from Fire Resistance Ring"), so the panel explains itself before the breakdown
-  inspector lands.
+- Each entry shows its origin chain and sources (`pio-origin-chain`, below), so the panel explains itself.
 - A superseded entry says which one counts instead, and a failed one says why, with no value.
 
 The panel is `pio-defences` in `libs/rules/ui`, fed the engine's `Defences` and the display names of the entries,
@@ -182,6 +181,13 @@ every number explains itself without a modal:
   ("override 18 → 20"), a "Set by hand" badge when a user set it, and, when it did not simply apply, a status
   badge and why: the override that replaced it, when it would apply, that its condition does not hold, or the error.
 - A line is named by its `display.label`, else its entry's name, else the engine's message (a weapon's potency).
+- Every modifier and override line shows where it comes from: its origin chain as one sentence, outermost hop first
+  and ending at the entry holding the rule element ("chosen for Class → granted by Fighter → Shield Block"), then
+  that entry's sources through `pio-source-line`. Each hop is in words: `chosen for {slot}`, `granted by {entry}`,
+  `{item}, worn`, `{condition} {value}, applied by {event}`, `{effect}`, `set by {user} {time ago}, “{note}”`, or
+  the variant rule's name. Containers pass the names they can resolve (`OriginNames`: users, slots, items, events,
+  packs); a missing one falls back to the slot key, "an item", "a user" or the entry id, and an unknown event is
+  left out.
 
 A total a set override pinned is flagged in text wherever it appears, and the computed value stays in view beside
 it: the summary reads "Armor Class 22 Pinned computed 20", and the breakdown opens with the override that pinned it

@@ -22,6 +22,7 @@
             @if (line.detail; as detail) {
               <fr-text variant="caption" tone="muted">{{ detail }}</fr-text>
             }
+            <pio-origin-chain [origin]="line.origin" [entryNames]="entryNames()" [names]="names()" />
           </fr-stack>
         </fr-list-item>
       }

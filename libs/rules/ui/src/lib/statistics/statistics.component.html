@@ -10,7 +10,12 @@
               <fr-text frDisclosureSummary
                 >{{ row.name }} <pio-statistic-total [total]="row.total" [computed]="row.computed"
               /></fr-text>
-              <pio-breakdown [statistic]="row.statistic" [kind]="row.kind" [entryNames]="entryNames()" />
+              <pio-breakdown
+                [statistic]="row.statistic"
+                [kind]="row.kind"
+                [entryNames]="entryNames()"
+                [originNames]="originNames()"
+              />
             </fr-disclosure>
           } @else {
             <fr-stack gap="3xs">

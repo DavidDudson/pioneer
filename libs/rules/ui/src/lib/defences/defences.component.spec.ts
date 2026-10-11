@@ -43,6 +43,8 @@ interface Rendered {
   readonly immunities: ReadList;
   readonly weaknesses: ReadList;
   readonly resistances: ReadList;
+  /** Each line's origin chain as a sentence, without its sources, in document order. */
+  readonly origins: readonly string[];
 }
 
 const NAMED: Names = { entries: ENTRY_NAMES };
@@ -54,7 +56,7 @@ function textOf(element: Element): string {
 /** An item's texts and badges in order, so the parts stay apart. */
 function partsOf(item: Element): string {
   return [...item.querySelectorAll('fr-text, fr-badge')]
-    .filter((part) => part.querySelector('fr-text, fr-badge') === null)
+    .filter((part) => part.querySelector('fr-text, fr-badge') === null && part.closest('pio-origin-chain') === null)
     .map((part) => textOf(part))
     .join(' | ');
 }
@@ -88,7 +90,10 @@ async function render(defences: Defences, names: Names = NAMED): Promise<Rendere
   if (immunities === undefined || weaknesses === undefined || resistances === undefined) {
     throw new Error('pio-defences rendered fewer than three lists');
   }
-  return { lists, immunities, weaknesses, resistances };
+  const origins = [...host.querySelectorAll('pio-origin-chain')].map((chain) =>
+    textOf(chain.querySelector('fr-text') ?? chain),
+  );
+  return { lists, immunities, weaknesses, resistances, origins };
 }
 
 describe(DefencesView, () => {
@@ -115,9 +120,10 @@ describe(DefencesView, () => {
 
   describe('immunities', () => {
     it('names a damage type and where the immunity comes from', async () => {
-      const { immunities } = await render({ ...NO_DEFENCES, immunities: [immunity(GOLEM_FORM, 'fire')] });
+      const { immunities, origins } = await render({ ...NO_DEFENCES, immunities: [immunity(GOLEM_FORM, 'fire')] });
 
-      expect(immunities.items).toStrictEqual(['Immunity fire | From Golem Form.']);
+      expect(immunities.items).toStrictEqual(['Immunity fire']);
+      expect(origins).toStrictEqual(['Golem Form']);
       expect(immunities.empty).toBeUndefined();
     });
 
@@ -128,11 +134,11 @@ describe(DefencesView, () => {
         entries: ENTRY_NAMES,
         immunities: new Map([[SLEEP, 'sleep effects']]),
       });
-      expect(named.items).toStrictEqual(['Immunity sleep effects | From Golem Form.']);
+      expect(named.items).toStrictEqual(['Immunity sleep effects']);
 
       TestBed.resetTestingModule();
       const { immunities: unnamed } = await render(defences);
-      expect(unnamed.items).toStrictEqual(['Immunity sleep | From Golem Form.']);
+      expect(unnamed.items).toStrictEqual(['Immunity sleep']);
     });
   });
 
@@ -143,7 +149,7 @@ describe(DefencesView, () => {
         weaknesses: [adjustment(GOLEM_FORM, 'cold', { value: 5 })],
       });
 
-      expect(weaknesses.items).toStrictEqual(['Weakness 5 cold | From Golem Form.']);
+      expect(weaknesses.items).toStrictEqual(['Weakness 5 cold']);
     });
 
     it('formats the value for the locale', async () => {
@@ -152,7 +158,7 @@ describe(DefencesView, () => {
         weaknesses: [adjustment(GOLEM_FORM, 'cold', { value: 1500 })],
       });
 
-      expect(weaknesses.items).toStrictEqual(['Weakness 1,500 cold | From Golem Form.']);
+      expect(weaknesses.items).toStrictEqual(['Weakness 1,500 cold']);
     });
   });
 
@@ -164,15 +170,15 @@ describe(DefencesView, () => {
       });
 
       expect(resistances.items).toStrictEqual([
-        'Resistance 3 physical (bleed, bludgeoning, piercing, slashing) | From Rage.',
-        'Resistance 5 energy (acid, cold, electricity, fire, force, sonic, vitality, void) | From Fire Resistance Ring.',
+        'Resistance 3 physical (bleed, bludgeoning, piercing, slashing)',
+        'Resistance 5 energy (acid, cold, electricity, fire, force, sonic, vitality, void)',
       ]);
     });
 
     it('reads the all group as all damage', async () => {
       const { resistances } = await render({ ...NO_DEFENCES, resistances: [adjustment(RAGE, 'all', { value: 2 })] });
 
-      expect(resistances.items).toStrictEqual(['Resistance 2 all damage | From Rage.']);
+      expect(resistances.items).toStrictEqual(['Resistance 2 all damage']);
     });
 
     it('lists exceptions after the target, by the names the caller passes, else their slugs', async () => {
@@ -184,7 +190,7 @@ describe(DefencesView, () => {
       );
 
       expect(resistances.items).toStrictEqual([
-        'Resistance 3 physical (bleed, bludgeoning, piercing, slashing), except Adamantine or cold-iron | From Rage.',
+        'Resistance 3 physical (bleed, bludgeoning, piercing, slashing), except Adamantine or cold-iron',
       ]);
     });
   });
@@ -200,8 +206,8 @@ describe(DefencesView, () => {
       });
 
       expect(resistances.items).toStrictEqual([
-        'Resistance 5 fire | Conditional | Applies when you are raging. | From Rage.',
-        'Resistance 2 cold | Conditional | Applies when you are in darkness. | From Dwarf.',
+        'Resistance 5 fire | Conditional | Applies when you are raging.',
+        'Resistance 2 cold | Conditional | Applies when you are in darkness.',
       ]);
     });
 
@@ -216,23 +222,19 @@ describe(DefencesView, () => {
         resistances: [adjustment(RAGE, 'fire', { value: 5, status: unsummarised })],
       });
 
-      expect(resistances.items).toStrictEqual(['Resistance 5 fire | Conditional | From Rage.']);
+      expect(resistances.items).toStrictEqual(['Resistance 5 fire | Conditional']);
     });
 
     it('marks a conditional immunity too', async () => {
       const { immunities } = await render({ ...NO_DEFENCES, immunities: [immunity(RAGE, 'mental', WHILE_RAGING)] });
 
-      expect(immunities.items).toStrictEqual([
-        'Immunity mental | Conditional | Applies when you are raging. | From Rage.',
-      ]);
+      expect(immunities.items).toStrictEqual(['Immunity mental | Conditional | Applies when you are raging.']);
     });
 
     it('marks a superseded defence with what counts instead', async () => {
       const { resistances } = await render(BARBARIAN_DEFENCES);
 
-      expect(resistances.items[1]).toBe(
-        'Resistance 5 fire | Superseded | Fire Resistance Ring counts instead. | From Dwarf.',
-      );
+      expect(resistances.items[1]).toBe('Resistance 5 fire | Superseded | Fire Resistance Ring counts instead.');
     });
 
     it('marks a failed defence with why, and no value', async () => {
@@ -242,7 +244,7 @@ describe(DefencesView, () => {
       });
 
       expect(weaknesses.items).toStrictEqual([
-        'Weakness cold | Failed | A weakness or resistance may be at most 32767. | From Golem Form.',
+        'Weakness cold | Failed | A weakness or resistance may be at most 32767.',
       ]);
     });
 
@@ -254,7 +256,7 @@ describe(DefencesView, () => {
       });
 
       expect(weaknesses.items).toStrictEqual([
-        'Weakness cold | Failed | A weakness or resistance may be at most 32767. It applies only in some situations. | From Golem Form.',
+        'Weakness cold | Failed | A weakness or resistance may be at most 32767. It applies only in some situations.',
       ]);
     });
 
@@ -262,19 +264,16 @@ describe(DefencesView, () => {
       const ring = adjustment(FIRE_RING, 'fire', { value: 10 });
       const { resistances } = await render({ ...NO_DEFENCES, resistances: [ring, ring] });
 
-      expect(resistances.items).toStrictEqual([
-        'Resistance 10 fire | From Fire Resistance Ring.',
-        'Resistance 10 fire | From Fire Resistance Ring.',
-      ]);
+      expect(resistances.items).toStrictEqual(['Resistance 10 fire', 'Resistance 10 fire']);
     });
 
     it('names an origin without a display name by its entry id', async () => {
-      const { weaknesses } = await render(
+      const { origins } = await render(
         { ...NO_DEFENCES, weaknesses: [adjustment(GOLEM_FORM, 'cold', { value: 5 })] },
         { entries: new Map() },
       );
 
-      expect(weaknesses.items).toStrictEqual([`Weakness 5 cold | From ${GOLEM_FORM}.`]);
+      expect(origins).toStrictEqual([GOLEM_FORM]);
     });
   });
 });

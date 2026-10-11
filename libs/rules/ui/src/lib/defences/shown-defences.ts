@@ -1,9 +1,13 @@
+import type { Origin } from '@pioneer/rules/sdk';
+
 import type { MarkedStatus } from './defences-messages';
 
 /** How a line stands, when it does not simply apply, and what explains it, then where it comes from. */
 export interface Standing {
   readonly status: MarkedStatus | undefined;
-  readonly details: readonly string[];
+  readonly detail: string | undefined;
+  /** Shown as the line's origin chain and sources. */
+  readonly origin: Origin;
 }
 
 /**

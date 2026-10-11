@@ -8,6 +8,8 @@ import { filter, merge } from 'rxjs';
 
 import { BreakdownView } from '../breakdown/breakdown.component';
 import { numberStyle } from '../breakdown/number-style';
+import { NO_ORIGIN_NAMES } from '../origin-chain/origin-names';
+import type { OriginNames } from '../origin-chain/origin-names';
 import { StatisticTotal } from './statistic-total/statistic-total.component';
 import { StatisticsMessage } from './statistics-messages';
 
@@ -71,6 +73,8 @@ export class StatisticsView {
   public readonly statistics = input.required<readonly NamedStatistic[] | undefined>();
   /** Display names of the entries the breakdown lines come from. */
   public readonly entryNames = input<ReadonlyMap<ContentId, string>>(new Map());
+  /** Names for what the breakdown lines' origin chains refer to beyond entries. */
+  public readonly originNames = input<OriginNames>(NO_ORIGIN_NAMES);
 
   protected readonly Message = StatisticsMessage;
   protected readonly loadingRows = [...Array.from({ length: LOADING_ROWS }).keys()];

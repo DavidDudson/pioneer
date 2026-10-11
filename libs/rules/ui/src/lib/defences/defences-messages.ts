@@ -20,7 +20,6 @@ export const DefencesMessage = {
   /** A failed line that was conditional: the error, then that it applies only in some situations. */
   FailedConditional: 'rules.defences.failedConditional',
   SupersededBy: 'rules.defences.supersededBy',
-  From: 'rules.defences.from',
 } as const;
 
 export const DAMAGE_GROUP_MESSAGES: Readonly<Record<DamageGroup, string>> = {
