@@ -3,12 +3,16 @@ import { beforeEach, describe, expect, test } from 'bun:test';
 import {
   CharacterCommand,
   CharacterName,
+  CarryState,
   CharacterPatchField,
   CoinsSchema,
+  HANDS_MAX,
   INVENTORY_ITEMS_MAX,
   InventoryItemId,
   InventoryItemName,
   ItemQuantity,
+  ONE_HAND,
+  STOWED,
 } from '@pioneer/character/domain';
 import type { Character, CharacterPatch } from '@pioneer/character/domain';
 import { humanAncestryId, ITEM_FIXTURES, ItemFixture, itemFixtureId } from '@pioneer/character/domain/testing';
@@ -82,6 +86,7 @@ describe('CharacterService inventory edits', () => {
           item: itemFixtureId(ItemFixture.Rope),
           quantity: ItemQuantity.parse(2),
           name: InventoryItemName.parse('Climbing rope'),
+          carry: STOWED,
         },
       ],
       coins: CoinsSchema.parse({ gp: 15 }),
@@ -123,6 +128,75 @@ describe('CharacterService inventory edits', () => {
     const missing = InventoryItemId.parse(newId());
     expect(await refusal({ field: CharacterPatchField.RemoveItem, id: missing })).toStrictEqual([
       { path: ['patch', 'id'], message: { key: 'character.validation.itemNotFound' } },
+    ]);
+  });
+
+  test('wears, holds and invests items, each audited by name', async () => {
+    const armor = await add(ItemFixture.LeatherArmor);
+    const sword = await add(ItemFixture.Greatsword);
+    const cloak = await add(ItemFixture.Cloak);
+    await edit({ field: CharacterPatchField.CarryItem, id: armor, carry: { state: CarryState.Worn } });
+    await edit({
+      field: CharacterPatchField.CarryItem,
+      id: sword,
+      carry: { state: CarryState.Held, hands: HANDS_MAX },
+    });
+    await edit({ field: CharacterPatchField.CarryItem, id: cloak, carry: { state: CarryState.Worn } });
+    await edit({ field: CharacterPatchField.InvestItem, id: cloak, invested: true });
+
+    expect(character.document.inventory.items.map(({ carry, invested }) => ({ carry, invested }))).toStrictEqual([
+      { carry: { state: CarryState.Worn }, invested: undefined },
+      { carry: { state: CarryState.Held, hands: HANDS_MAX }, invested: undefined },
+      { carry: { state: CarryState.Worn }, invested: true },
+    ]);
+    expect(repository.audits.map(({ command }) => command).slice(-4)).toStrictEqual([
+      CharacterCommand.CarryItem,
+      CharacterCommand.CarryItem,
+      CharacterCommand.CarryItem,
+      CharacterCommand.InvestItem,
+    ]);
+  });
+
+  test('refuses holding more than two hands hold', async () => {
+    const sword = await add(ItemFixture.Greatsword);
+    const rope = await add(ItemFixture.Rope);
+    await edit({
+      field: CharacterPatchField.CarryItem,
+      id: sword,
+      carry: { state: CarryState.Held, hands: HANDS_MAX },
+    });
+    expect(
+      await refusal({
+        field: CharacterPatchField.CarryItem,
+        id: rope,
+        carry: { state: CarryState.Held, hands: ONE_HAND },
+      }),
+    ).toStrictEqual([
+      {
+        path: ['patch', 'carry'],
+        message: { key: 'character.validation.handsFull', params: { maximum: HANDS_MAX } },
+      },
+    ]);
+  });
+
+  test('refuses what content says can not be carried so', async () => {
+    const sword = await add(ItemFixture.Greatsword);
+    expect(
+      await refusal({ field: CharacterPatchField.CarryItem, id: sword, carry: { state: CarryState.Worn } }),
+    ).toStrictEqual([{ path: ['patch', 'carry'], message: { key: 'character.validation.notWearable' } }]);
+    expect(
+      await refusal({
+        field: CharacterPatchField.CarryItem,
+        id: sword,
+        carry: { state: CarryState.Held, hands: ONE_HAND },
+      }),
+    ).toStrictEqual([{ path: ['patch', 'carry'], message: { key: 'character.validation.needsTwoHands' } }]);
+  });
+
+  test('refuses investing an item without the invested trait', async () => {
+    const rope = await add(ItemFixture.Rope);
+    expect(await refusal({ field: CharacterPatchField.InvestItem, id: rope, invested: true })).toStrictEqual([
+      { path: ['patch', 'invested'], message: { key: 'character.validation.notInvestable' } },
     ]);
   });
 

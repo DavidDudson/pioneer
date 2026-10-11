@@ -150,6 +150,17 @@ describe('character routes', () => {
     const got = await api.handle(request('GET', `/characters/${id}`));
     expect(CharacterSheet.parse(await got.json()).character.version).toBe(FIRST_VERSION);
   });
+
+  test('an item held in three hands is a 422 on its carry', async () => {
+    const api = app();
+    const { id } = await create(api, amiri, 'Kyra');
+    const carry = { state: 'held', hands: 3 };
+    const body = { expectedVersion: 1, patch: { field: 'carryItem', id: newId(), carry } };
+    const response = await api.handle(request('PATCH', `/characters/${id}`, { body }));
+    expect(response.status).toBe(422);
+    const { issues } = (await response.json()) as Problem;
+    expect(issues?.map(({ path }) => path)).toContainEqual(['patch', 'carry', 'hands']);
+  });
 });
 
 describe('character routes without a signed-in user', () => {
