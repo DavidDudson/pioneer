@@ -6,7 +6,12 @@ import { config, lang } from './testing/import-fixtures';
 describe('foundryConfig', () => {
   test('reads each trait list, slug to label key', () => {
     expect(config.traitLists.get(TraitList.Action)?.get('manipulate')).toBe('PF2E.TraitManipulate');
-    expect([...(config.traitLists.get(TraitList.Creature)?.keys() ?? [])]).toEqual(['dwarf', 'humanoid']);
+    expect(config.traitLists.get(TraitList.Creature)).toEqual(
+      new Map([
+        ['dwarf', 'PF2E.TraitDwarf'],
+        ['humanoid', 'PF2E.TraitHumanoid'],
+      ]),
+    );
   });
 
   test('languages carry their rarity, with common outside the rarity table', () => {

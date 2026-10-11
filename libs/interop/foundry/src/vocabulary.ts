@@ -74,11 +74,41 @@ function collect({ kind, uses, itemOf }: Uses, known: readonly KnownEntry[]): Co
   return { items, gaps };
 }
 
-/** The slug an item gets: its own, or with its kind as a suffix when an entry of the pack already has it. */
-function freeSlug(slug: string, kind: ContentKind, taken: Set<string>): string {
-  const free = taken.has(slug) ? `${slug}-${kind}` : slug;
-  taken.add(free);
-  return free;
+/** An item and the slug it gets in the vocabulary pack. */
+interface Slugged {
+  readonly item: Item;
+  readonly slug: string;
+}
+
+interface Claimed {
+  readonly slugged: readonly Slugged[];
+  readonly gaps: readonly VocabularyGap[];
+}
+
+function slugTaken({ kind, slug }: Item): VocabularyGap {
+  return { kind, slug, reason: VocabularyGapReason.SlugTaken, detail: slug };
+}
+
+/**
+ * Each item's slug, claimed in `taken`: its own, or for a kind other than trait, with its kind as a suffix when an
+ * entry of the pack already has it. A trait is named by its slug, so a taken one is a gap, as is a suffixed slug
+ * that is taken too.
+ */
+function claim(items: readonly Item[], taken: Set<string>): Claimed {
+  const slugged: Slugged[] = [];
+  const gaps: VocabularyGap[] = [];
+  for (const item of items) {
+    const own = taken.has(item.slug) ? undefined : item.slug;
+    const suffixed = item.kind === ContentKind.Trait ? undefined : `${item.slug}-${item.kind}`;
+    const slug = own ?? (suffixed !== undefined && !taken.has(suffixed) ? suffixed : undefined);
+    if (slug === undefined) {
+      gaps.push(slugTaken(item));
+    } else {
+      taken.add(slug);
+      slugged.push({ item, slug });
+    }
+  }
+  return { slugged, gaps };
 }
 
 function entryOf(item: Item, slugText: string, { pack, lang }: VocabularyContext): VocabularyEntry | VocabularyGap {
@@ -106,24 +136,12 @@ function entryOf(item: Item, slugText: string, { pack, lang }: VocabularyContext
   return { envelope, kindData };
 }
 
-function entries(items: readonly Item[], slugOf: (item: Item) => string, context: VocabularyContext): Vocabulary {
-  const built = items.map((item) => entryOf(item, slugOf(item), context));
+function entries(slugged: readonly Slugged[], context: VocabularyContext): Vocabulary {
+  const built = slugged.map(({ item, slug }) => entryOf(item, slug, context));
   return {
     entries: built.filter((each): each is VocabularyEntry => 'envelope' in each),
     gaps: built.filter((each): each is VocabularyGap => 'reason' in each),
   };
-}
-
-/** Trait items whose slug is free, claiming it; a trait is named by its slug, so a taken one is a gap. */
-function claimTraits(items: readonly Item[], taken: Set<string>): Collected {
-  const free = items.filter(({ slug }) => !taken.has(slug));
-  for (const { slug } of free) {
-    taken.add(slug);
-  }
-  const gaps = items
-    .filter((item) => !free.includes(item))
-    .map(({ kind, slug }) => ({ kind, slug, reason: VocabularyGapReason.SlugTaken, detail: slug }));
-  return { items: free, gaps };
 }
 
 function otherUses(selected: readonly SelectedEntry[], { config, books }: VocabularyContext): Uses[] {
@@ -150,17 +168,15 @@ function otherUses(selected: readonly SelectedEntry[], { config, books }: Vocabu
 /**
  * The trait, language, sense and damage type entries the selected documents use, in the vocabulary pack. Traits
  * claim their slugs first, since entries name traits by slug; a language, sense or damage type whose slug the pack
- * already has gets its kind as a suffix (`fire-damage-type`).
+ * already has gets its kind as a suffix (`fire-damage-type`). What another official pack already has, an earlier
+ * run's vocabulary included, is left to that entry.
  */
 export function importVocabulary(selected: readonly SelectedEntry[], context: VocabularyContext): Vocabulary {
   const { pack, known } = context;
   const taken = new Set(known.filter((entry) => entry.pack === pack).map(({ slug }) => slug));
-  const traits = claimTraits(traitItems(selected, context), taken);
   const others = otherUses(selected, context).map((uses) => collect(uses, known));
-  const built = entries(
-    [...traits.items, ...others.flatMap(({ items }) => items)],
-    ({ slug, kind }) => (kind === ContentKind.Trait ? slug : freeSlug(slug, kind, taken)),
-    context,
-  );
-  return { entries: built.entries, gaps: [...traits.gaps, ...others.flatMap(({ gaps }) => gaps), ...built.gaps] };
+  // Traits first: their slugs are what entries name them by.
+  const claimed = claim([...traitItems(selected, context), ...others.flatMap(({ items }) => items)], taken);
+  const built = entries(claimed.slugged, context);
+  return { entries: built.entries, gaps: [...claimed.gaps, ...others.flatMap(({ gaps }) => gaps), ...built.gaps] };
 }

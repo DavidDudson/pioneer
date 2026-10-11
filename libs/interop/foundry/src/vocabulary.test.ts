@@ -3,51 +3,16 @@ import { describe, expect, test } from 'bun:test';
 import { ContentEntry, ContentKind, KIND_DATA, Rarity, SourceKind } from '@pioneer/rules/sdk';
 
 import { coreRules, coreRulesEntry, coreRulesId, known, playerCore, translate } from './testing/import-fixtures';
-import type { DocumentFixture } from './testing/import-fixtures';
-import type { ImportTranslation } from './translate-import';
-import type { VocabularyEntry } from './vocabulary';
+import { DWARF, KEEN_NOSE, plain, slugsOf, vocabularyOf } from './testing/vocabulary-fixtures';
 import { VocabularyGapReason } from './vocabulary-items';
-
-const DWARF: DocumentFixture = {
-  id: 'BYj5ZvlXZdpaEgA6',
-  name: 'Dwarf',
-  type: 'ancestry',
-  system: {
-    traits: { value: ['dwarf', 'humanoid'], rarity: 'common' },
-    languages: { custom: '', value: ['common', 'dwarven'] },
-    additionalLanguages: { count: 0, custom: '', value: ['petran', 'aklo', 'wildsong', 'gibberish'] },
-    vision: 'darkvision',
-  },
-};
-
-const KEEN_NOSE: DocumentFixture = {
-  id: 'kEEnN0se00000000',
-  name: 'Keen Nose',
-  type: 'feat',
-  system: {
-    traits: { value: ['dwarf', 'manipulate', 'homebrewed'] },
-    rules: [
-      { key: 'Sense', selector: 'scent', acuity: 'imprecise', range: 30 },
-      { key: 'Sense', selector: 'smell-o-vision' },
-    ],
-  },
-};
-
-function vocabularyOf(translation: ImportTranslation, kind: ContentKind): readonly VocabularyEntry[] {
-  return translation.vocabulary.filter(({ kindData }) => kindData.kind === kind);
-}
-
-function slugsOf(translation: ImportTranslation, kind: ContentKind): readonly string[] {
-  return vocabularyOf(translation, kind).map(({ envelope }) => envelope.slug);
-}
 
 describe('importVocabulary: traits', () => {
   test('imports each trait the documents use, in core-rules, named from the lang table', () => {
-    const [manipulate] = vocabularyOf(translate([KEEN_NOSE]), ContentKind.Trait).filter(
+    const manipulate = vocabularyOf(translate([KEEN_NOSE]), ContentKind.Trait).find(
       ({ envelope }) => envelope.slug === 'manipulate',
     );
 
-    expect(manipulate?.envelope).toEqual({
+    expect(plain(manipulate?.envelope)).toEqual({
       id: coreRulesId('manipulate'),
       pack: coreRules,
       slug: 'manipulate',
@@ -62,7 +27,7 @@ describe('importVocabulary: traits', () => {
 
   test('appliesTo is every kind whose Foundry trait list holds it, in ContentKind order', () => {
     const traits = vocabularyOf(translate([DWARF, KEEN_NOSE]), ContentKind.Trait);
-    const appliesTo = new Map(traits.map(({ envelope, kindData }) => [envelope.slug, kindData.data]));
+    const appliesTo = new Map<string, unknown>(traits.map(({ envelope, kindData }) => [envelope.slug, kindData.data]));
 
     expect(appliesTo.get('dwarf')).toEqual({
       appliesTo: [
@@ -113,7 +78,7 @@ describe('importVocabulary: traits', () => {
   test("trait entries never take a document's slug: the Dwarf ancestry keeps `dwarf`", () => {
     const translation = translate([DWARF]);
 
-    expect(translation.entries.map(({ envelope }) => envelope.slug)).toEqual(['dwarf']);
+    expect(plain(translation.entries.map(({ envelope }) => envelope.slug))).toEqual(['dwarf']);
     expect(slugsOf(translation, ContentKind.Trait)).toContain('dwarf');
   });
 
@@ -134,7 +99,7 @@ describe('importVocabulary: languages', () => {
   test("imports an ancestry's languages that core-rules lacks, with Foundry's rarity", () => {
     const languages = vocabularyOf(translate([DWARF]), ContentKind.Language);
 
-    expect(languages.map(({ envelope }) => [envelope.slug, envelope.rarity])).toEqual([
+    expect(plain(languages.map(({ envelope }) => [envelope.slug, envelope.rarity]))).toEqual([
       ['petran', Rarity.Uncommon],
       ['aklo', Rarity.Rare],
     ]);
@@ -162,7 +127,7 @@ describe('importVocabulary: senses', () => {
   test("imports senses from ancestry vision and Sense rule elements, skipping core-rules' darkvision", () => {
     const senses = vocabularyOf(translate([DWARF, KEEN_NOSE]), ContentKind.Sense);
 
-    expect(senses.map(({ envelope, kindData }) => [envelope.slug, kindData.data])).toEqual([['scent', {}]]);
+    expect(plain(senses.map(({ envelope, kindData }) => [envelope.slug, kindData.data]))).toEqual([['scent', {}]]);
   });
 
   test('a sense with a fixed acuity and unlimited range carries both', () => {
@@ -185,7 +150,7 @@ describe('importVocabulary: damage types', () => {
   test("imports Foundry's damage types that are Pioneer's, cited to the first target book", () => {
     const damageTypes = vocabularyOf(translate([]), ContentKind.DamageType);
 
-    expect(damageTypes.map(({ envelope }) => [envelope.slug, envelope.name, envelope.sources])).toEqual([
+    expect(plain(damageTypes.map(({ envelope }) => [envelope.slug, envelope.name, envelope.sources]))).toEqual([
       ['bludgeoning', 'Bludgeoning', [{ kind: SourceKind.Book, book: playerCore }]],
       ['fire', 'Fire', [{ kind: SourceKind.Book, book: playerCore }]],
     ]);

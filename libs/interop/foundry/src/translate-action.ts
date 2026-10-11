@@ -1,5 +1,4 @@
 import {
-  ACTION_COUNT,
   ActionCategory,
   ActionCost,
   BlockKind,
@@ -37,12 +36,15 @@ const FIXED_COSTS: ReadonlyMap<string, ActionCost | undefined> = new Map([
   [FoundryActionType.Passive, undefined],
 ]);
 
-const COSTS_BY_COUNT: ReadonlyMap<number, ActionCost> = new Map(
-  Object.values(ActionCost).flatMap((cost) => {
-    const count = ACTION_COUNT[cost];
-    return count === undefined ? [] : [[count, cost] as const];
-  }),
-);
+const ONE = 1;
+const TWO = 2;
+const THREE = 3;
+
+const COSTS_BY_COUNT: ReadonlyMap<number, ActionCost> = new Map([
+  [ONE, ActionCost.One],
+  [TWO, ActionCost.Two],
+  [THREE, ActionCost.Three],
+]);
 
 /** Foundry's frequency periods: words, or ISO 8601 durations. */
 const FOUNDRY_FREQUENCY_PERIODS: ReadonlyMap<string, FrequencyPeriod> = new Map([
@@ -86,19 +88,29 @@ function mapped<Value>(log: GapLog, { value, field, raw }: Mapping<Value>): Valu
   return value;
 }
 
-/** The glyph an action costs; a passive ability costs none. */
-function actionCost({ actionType, actions }: FoundryActionSystem, log: GapLog): ActionCost | undefined {
+/** What an action costs: a glyph, or none for a passive ability. */
+interface Costed {
+  readonly cost?: ActionCost;
+}
+
+/**
+ * The glyph an action costs, or undefined when Foundry's type or count has no mapping. Without a cost the action would
+ * read as passive, so an unmapped one leaves the entry without data rather than guessing.
+ */
+function actionCost({ actionType, actions }: FoundryActionSystem, log: GapLog): Costed | undefined {
   const type = actionType.value;
   if (FIXED_COSTS.has(type)) {
-    return FIXED_COSTS.get(type);
+    const fixed = FIXED_COSTS.get(type);
+    return fixed === undefined ? {} : { cost: fixed };
   }
   if (type !== FoundryActionType.Action) {
     report(log, { reason: KindDataGapReason.UnmappedValue, field: 'actionType.value', raw: type });
     return undefined;
   }
   const count = actions?.value;
-  const cost = typeof count === 'number' ? COSTS_BY_COUNT.get(count) : undefined;
-  return mapped(log, { value: cost, field: 'actions.value', raw: count });
+  const counted = typeof count === 'number' ? COSTS_BY_COUNT.get(count) : undefined;
+  const cost = mapped(log, { value: counted, field: 'actions.value', raw: count });
+  return cost === undefined ? undefined : { cost };
 }
 
 const ActionCategorySchema = z.enum(ActionCategory);
@@ -166,23 +178,28 @@ function usageOf(field: UsageField, { description }: FoundryActionSystem, log: G
   return [{ type: BlockKind.Paragraph, content: [{ type: InlineKind.Text, text: words.data }] }];
 }
 
-/** The action's data, unparsed; undefined when its `system` is not shaped as an action's. */
+/** Every field but the cost, the ones that are set. */
+function usage(fields: FoundryActionSystem, references: EntryReferences, log: GapLog): object {
+  const set = {
+    category: categoryOf(fields, log),
+    requirements: usageOf('requirements', fields, log),
+    trigger: usageOf('trigger', fields, log),
+    frequency: frequencyOf(fields, log),
+    selfEffect: selfEffectOf(fields, references, log),
+  };
+  return Object.fromEntries(Object.entries(set).filter(([, value]) => value !== undefined));
+}
+
+/**
+ * The action's data, unparsed; undefined when its `system` is not shaped as an action's or its cost cannot be
+ * mapped.
+ */
 export function actionData({ document, references, log }: KindInput): object | undefined {
   const system = FoundryActionSystem.safeParse(document.system);
   if (!system.success) {
     report(log, { reason: KindDataGapReason.InvalidData, field: '', raw: z.prettifyError(system.error) });
     return undefined;
   }
-  const fields = system.data;
-  const cost = actionCost(fields, log);
-  const category = categoryOf(fields, log);
-  const requirements = usageOf('requirements', fields, log);
-  const trigger = usageOf('trigger', fields, log);
-  const frequency = frequencyOf(fields, log);
-  const selfEffect = selfEffectOf(fields, references, log);
-  return Object.fromEntries(
-    Object.entries({ cost, category, requirements, trigger, frequency, selfEffect }).filter(
-      ([, value]) => value !== undefined,
-    ),
-  );
+  const costed = actionCost(system.data, log);
+  return costed && { ...costed, ...usage(system.data, references, log) };
 }

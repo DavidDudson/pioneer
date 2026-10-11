@@ -560,7 +560,7 @@ flowchart LR
   traits by slug; a language, sense or damage type whose slug is taken gets its kind as a suffix
   (`fire-damage-type`), and a trait whose slug is taken is reported. Secret languages (Wildsong) have no Pioneer
   rarity and `untyped` damage no `DamageType`; both are reported. Pack output (#400) writes the new entries beside,
-  never into, the hand-authored `core-rules` files.
+  never into, the hand-authored `core-rules` files ([ADR-0032](../adr/0032-foundry-vocabularies-imported-into-core-rules.md)).
 - **Later translators.** A translator that lands after its pack is imported is applied to the backlog: a command,
   built by Epic 2.6 (#21), translates the items it now covers into the committed entries and removes them from the
   backlog, keeping hand edits.

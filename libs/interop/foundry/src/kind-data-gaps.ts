@@ -15,7 +15,7 @@ export const KindDataGapReason = {
   UnmappedValue: 'unmapped-value',
   /** Text with markup or enrichers, left for the rich text stories. */
   NeedsRichText: 'needs-rich-text',
-  /** A UUID or slug naming nothing in the import or the other official packs. */
+  /** A UUID or slug naming none of the selected documents (references to other packs do not resolve yet). */
   UnresolvedReference: 'unresolved-reference',
   /** The data as translated fails the kind's schema; the entry has no data. */
   InvalidData: 'invalid-data',

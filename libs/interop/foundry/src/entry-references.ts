@@ -73,7 +73,8 @@ function kindOf({ entry, id }: Addressed): [ContentId, ContentKind][] {
 
 /**
  * The index for one import: each selected document under its compendium UUIDs and Foundry slug, given the slug it
- * was assigned (`entrySlugs`), and the kind of each known entry, so a grant of one is known for what it is. A document whose slug is not a Pioneer slug
+ * was assigned (`entrySlugs`), and the kind of each known entry. Only documents resolve by UUID or slug; a reference to another pack's entry does
+ * not resolve yet. A document whose slug is not a Pioneer slug
  * has no id and is left out; translation reports it.
  */
 export function entryReferences(
