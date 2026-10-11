@@ -175,7 +175,7 @@ every number explains itself without a modal:
 - The modifier lines, applied first, then conditional, suppressed, inactive and failed. Each reads as its name and
   signed, typed value ("Breastplate +4 item"); one that does not simply apply carries a status badge and says why in
   text: the line that counts instead or removed it, when it would apply (and, for a conditional line an applied one
-  already beats, which: "Applies when you Climb, but Steady Grip already gives as much."), that its condition does
+  already beats, which: "Applies when you Climb, but Steady Grip already counts for as much."), that its condition does
   not hold, or the error.
 - The `Change`s and set overrides, after the modifiers and in the order they ran: base-phase `Change`s, then set
   overrides. Each reads as its name and what it did, its mode with the value it replaced and the value it left

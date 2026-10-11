@@ -177,7 +177,7 @@ export class BreakdownView {
     }
   }
 
-  /** "Applies when you Climb, but Steady Grip already gives as much.": a conditional line an applied one already beats. */
+  /** "Applies when you Climb, but Steady Grip already counts for as much.": a conditional line an applied one already beats. */
   #beaten(summary: PredicateSummary | undefined, name: string): string {
     return this.#i18n.translate(BreakdownMessage.ConditionalBeatenBy, {
       hasSummary: summary === undefined ? 'no' : 'yes',

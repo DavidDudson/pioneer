@@ -3,7 +3,18 @@ import { describe, expect, test } from 'bun:test';
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import { ModifierType, RollOption, Selector } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
-import { array, assert, constant, constantFrom, integer, property, record, shuffledSubarray, tuple } from 'fast-check';
+import {
+  array,
+  assert,
+  boolean,
+  constant,
+  constantFrom,
+  integer,
+  property,
+  record,
+  shuffledSubarray,
+  tuple,
+} from 'fast-check';
 import type { Arbitrary } from 'fast-check';
 
 import { LineStatusKind } from './breakdown';
@@ -17,6 +28,7 @@ import { flatModifier, inPlay, statistic } from './testing';
 
 const VALUE_MAX = 5;
 const MODIFIERS_MAX = 10;
+const ADJUSTMENTS_MAX = 3;
 
 const inputs = StatisticInputsJson.parse({
   level: 1,
@@ -29,12 +41,15 @@ const facts = new PredicateFacts([RollOption.parse('self:effect:raise-a-shield')
 /** Types that stack by type, and predicates that hold, fail or depend on the situation. */
 const TYPED = Object.values(ModifierType).filter((type) => type !== ModifierType.Untyped);
 const PREDICATES = [undefined, ['self:effect:raise-a-shield'], ['self:effect:rage'], ['terrain:forest']];
+/** The slug some modifiers carry, so adjustments can find them. */
+const SLUG = 'cover';
 
 interface ModifierSpec {
   readonly type: string;
   readonly value: number;
   readonly target: string;
   readonly predicate: readonly string[] | undefined;
+  readonly slug: string | undefined;
 }
 
 const typedOrNot = constantFrom(...TYPED, ModifierType.Untyped);
@@ -45,13 +60,15 @@ function modifierSpec(types: Arbitrary<string>): Arbitrary<ModifierSpec> {
     value: integer({ min: -VALUE_MAX, max: VALUE_MAX }),
     target: constantFrom('ac', 'dex-based', 'all'),
     predicate: constantFrom(...PREDICATES),
+    slug: constantFrom(undefined, SLUG),
   });
 }
 
 /** The fields beside type, value and target: the predicate if any, and the attribute an attribute modifier names. */
-function extraFields({ type, predicate }: ModifierSpec): Record<string, unknown> {
+function extraFields({ type, predicate, slug }: ModifierSpec): Record<string, unknown> {
   return {
     ...(predicate === undefined ? {} : { predicate }),
+    ...(slug === undefined ? {} : { slug }),
     ...(type === ModifierType.Attribute ? { attribute: 'dex' } : {}),
   };
 }
@@ -60,6 +77,39 @@ function extraFields({ type, predicate }: ModifierSpec): Record<string, unknown>
 function rules(specs: readonly ModifierSpec[]): RuleInPlay[] {
   return specs.map((spec, index) =>
     inPlay({ ...flatModifier(spec.type, spec.value, [spec.target]), ...extraFields(spec) }, `modifier-${index}`),
+  );
+}
+
+/** An `AdjustModifier` on AC: for the slugged modifiers or every one, holding always or only in a forest. */
+interface AdjustmentSpec {
+  readonly slug: string | undefined;
+  readonly suppress: boolean;
+  readonly value: number;
+  readonly predicate: readonly string[] | undefined;
+}
+
+const adjustmentSpecs = array(
+  record({
+    slug: constantFrom(undefined, SLUG),
+    suppress: boolean(),
+    value: integer({ min: -VALUE_MAX, max: VALUE_MAX }),
+    predicate: constantFrom(undefined, ['terrain:forest']),
+  }),
+  { maxLength: ADJUSTMENTS_MAX },
+);
+
+function adjustments(specs: readonly AdjustmentSpec[]): RuleInPlay[] {
+  return specs.map(({ slug, suppress, value, predicate }, index) =>
+    inPlay(
+      {
+        key: 'AdjustModifier',
+        selectors: ['ac'],
+        ...(slug === undefined ? {} : { slug }),
+        ...(suppress ? { suppress } : { mode: 'add', value }),
+        ...(predicate === undefined ? {} : { predicate }),
+      },
+      `adjustment-${index}`,
+    ),
   );
 }
 
@@ -80,6 +130,19 @@ function derive(rulesInPlay: readonly RuleInPlay[]): StatisticValue {
 }
 
 const specs = array(modifierSpec(typedOrNot), { maxLength: MODIFIERS_MAX });
+
+/** An applied typed line on AC and a conditional one of its type and sign no larger, which it beats. */
+const beatenPair: Arbitrary<ModifierSpec[]> = tuple(
+  constantFrom(...TYPED),
+  integer({ min: 1, max: VALUE_MAX }),
+  constantFrom(1, -1),
+  constantFrom(undefined, SLUG),
+).chain(([type, larger, sign, slug]) =>
+  integer({ min: 1, max: larger }).map((smaller) => [
+    { type, value: sign * larger, target: 'ac', predicate: undefined, slug },
+    { type, value: sign * smaller, target: 'ac', predicate: ['terrain:forest'], slug: undefined },
+  ]),
+);
 
 /** The line that beats a conditional line; undefined for any other line, or one nothing beats. */
 function beatenByOf({ status }: BreakdownLine): RuleId | undefined {
@@ -164,14 +227,14 @@ describe('stacking (properties)', () => {
     );
   });
 
-  test('applying a beaten conditional line never changes the total', () => {
+  test('applying a beaten conditional line never changes the total, whatever adjustments wait on the situation', () => {
     const situation = new PredicateFacts(
       [RollOption.parse('self:effect:raise-a-shield'), RollOption.parse('terrain:forest')],
       CORE_NAMESPACES,
     );
     assert(
-      property(specs, (given) => {
-        const rulesInPlay = rules(given);
+      property(tuple(specs, beatenPair, adjustmentSpecs), ([given, pair, adjusting]) => {
+        const rulesInPlay = [...rules([...given, ...pair]), ...adjustments(adjusting)];
         const beaten = new Set(
           derive(rulesInPlay)
             .lines.filter((line) => beatenByOf(line) !== undefined)
@@ -191,7 +254,7 @@ describe('stacking (properties)', () => {
     assert(
       property(withLower, ([given, type, value]) => {
         const before = derive(rules(given)).total;
-        const added = [...given, { type, value, target: 'ac', predicate: undefined }];
+        const added = [...given, { type, value, target: 'ac', predicate: undefined, slug: undefined }];
         expect(derive(rules(added)).total).toBeLessThanOrEqual(before);
       }),
     );

@@ -302,7 +302,8 @@ PF2e stacking: within each typed category only the highest bonus and the lowest 
 and penalties all apply; attribute and proficiency are single values set by the base formula. The engine applies
 this and keeps the losers. Only applied lines compete, but a typed conditional line is checked against them: when
 the applied winner of its type and direction is at least as large, it could never change the total, and `beatenBy`
-names that winner. Untyped conditional lines are never beaten.
+names that winner. Untyped conditional lines are never beaten, and neither is a line when an adjustment waiting on
+the situation could change it or its winner (one naming either's slug, or no slug).
 
 ```ts
 interface BreakdownLine {
@@ -364,11 +365,12 @@ each statistic:
    unknown is conditional, with a `PredicateSummary` (or the element's `display.summary`).
 5. **Stack.** Among applied, typed lines, each type's highest bonus and lowest penalty apply and the rest are
    suppressed by the winner. A tie goes to the smaller id, so the result does not depend on the order of the rules.
-
-The computed total is the base plus the applied lines; a set override may then pin it ("Overrides"). Property
-tests check order independence, that the computed total is the base plus the applied lines, that untyped modifiers
-always sum, that adding a typed bonus no higher than one already applied never raises the total, and that a set
-override always wins while the computed value is still reported.
+   A typed conditional line no larger than its type and direction's winner stays conditional with `beatenBy` naming
+   the winner, ties included, unless a situational adjustment could change either.
+   The computed total is the base plus the applied lines; a set override may then pin it ("Overrides"). Property
+   tests check order independence, that the computed total is the base plus the applied lines, that untyped modifiers
+   always sum, that adding a typed bonus no higher than one already applied never raises the total, and that a set
+   override always wins while the computed value is still reported.
 
 That is the AC stack the sheet shows: base 10, Dexterity capped by the armour, proficiency from the class, the
 armour's item bonus, a shield's bonus (inactive until a Raise a Shield effect is on the character), _frightened 1_
@@ -606,7 +608,8 @@ sheet, where the situation is unknown, so predicates use **three-valued (Kleene)
   _situational_: absent means **unknown**, not false.
 - `and`, `or` and `not` follow Kleene logic, so `["action:seek", "terrain:forest"]` is unknown on the sheet.
 - A modifier whose predicate is **true** applies, **false** is inactive, **unknown** becomes a **conditional
-  line**. The UI renders it as "+1 circumstance to Seek when in forest (Favored Terrain)" next to the statistic.
+  line**. The UI renders it as "+1 circumstance to Seek when in forest (Favored Terrain)" next to the statistic,
+  unless an applied line of its type and direction already beats it (`beatenBy`); then only the breakdown lists it.
 - At roll time the roll dialog lists the conditional lines for that statistic as toggles, pre-filled from the
   known situation (in an encounter, using Stealth for initiative). Choosing them supplies facts, re-evaluates, and
   the roll records which were used.
@@ -742,7 +745,8 @@ Custom effects (ad hoc homebrew attached to one character) are the same thing wi
 ## Testing strategy
 
 - Property tests: stacking invariants (order independence, adding a lower typed bonus never raises the total,
-  untyped always sums), Kleene laws for predicates, formula evaluator against a reference.
+  untyped always sums, a beaten conditional line never changes the total once its situation holds, untyped
+  conditional lines are never beaten), Kleene laws for predicates, formula evaluator against a reference.
 - Golden tests: Paizo pregens (Foundry's `paizo-pregens` and `iconics` packs) derived and compared against
   their published statistics.
 - Each rule element type has fixture tests with hand-written content in `libs/rules/engine/testing`.

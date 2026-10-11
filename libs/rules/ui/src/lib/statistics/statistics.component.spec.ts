@@ -113,7 +113,7 @@ describe(StatisticsView, () => {
     await fixture.whenStable();
 
     const breakdown = present(athletics.querySelector('pio-breakdown'));
-    expect(textOf(breakdown)).toContain('Applies when you Climb, but Steady Grip already gives as much.');
+    expect(textOf(breakdown)).toContain('Applies when you Climb, but Steady Grip already counts for as much.');
   });
 
   it('keeps conditional lines out of the summary, so the toggle is named by statistic and total alone', async () => {

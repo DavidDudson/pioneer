@@ -456,7 +456,7 @@
       "suppressedBy": "{name} counts instead.",
       "removedBy": "{name} removes it.",
       "appliesWhen": "Applies when {summary}.",
-      "conditionalBeatenBy": "{hasSummary, select, yes {Applies when {summary}, but {name} already gives as much.} other {{name} already gives as much.}}",
+      "conditionalBeatenBy": "{hasSummary, select, yes {Applies when {summary}, but {name} already counts for as much.} other {{name} already counts for as much.}}",
       "inactive": "Does not apply: its condition does not hold.",
       "pinned": "{name} pins it to {total}; computed {computed}.",
       "overrides": "Changes and overrides",

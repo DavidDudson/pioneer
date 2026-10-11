@@ -5,6 +5,7 @@ import * as z from 'zod';
 
 import { LineStatusKind, SuppressionReason } from './breakdown';
 import type { BreakdownLine } from './breakdown';
+import type { Adjustment } from './modifier';
 
 /** Bonuses and penalties of one type stack apart: the best bonus and the worst penalty each apply. */
 const Direction = { Bonus: 'bonus', Penalty: 'penalty' } as const;
@@ -66,11 +67,21 @@ function suppressed(line: BreakdownLine, best: ReadonlyMap<StackKey, Competing>)
       };
 }
 
+/** Whether an adjustment that waits on the situation could change the line: it names its slug, or names none. */
+function unsettled(line: BreakdownLine, pending: readonly Adjustment[]): boolean {
+  return pending.some(({ slug }) => slug === undefined || slug === line.modifier.slug);
+}
+
 /**
  * A conditional line, beaten by the applied winner of its type and direction when that is at least as large: even
- * when its situation holds, it would not change the total. A tie is beaten too, whatever the ids.
+ * when its situation holds, it would not change the total. A tie is beaten too, whatever the ids. Neither may be one
+ * a pending adjustment could change, since in that situation it might lower the winner or raise the line.
  */
-function outmatched(line: BreakdownLine, best: ReadonlyMap<StackKey, Competing>): BreakdownLine {
+function outmatched(
+  line: BreakdownLine,
+  best: ReadonlyMap<StackKey, Competing>,
+  pending: readonly Adjustment[],
+): BreakdownLine {
   const { status } = line;
   const candidate = typed(line);
   const winner = candidate === undefined ? undefined : best.get(candidate.key);
@@ -78,7 +89,9 @@ function outmatched(line: BreakdownLine, best: ReadonlyMap<StackKey, Competing>)
     status.kind !== LineStatusKind.Conditional ||
     candidate === undefined ||
     winner === undefined ||
-    Math.abs(winner.value) < Math.abs(candidate.value)
+    Math.abs(winner.value) < Math.abs(candidate.value) ||
+    unsettled(line, pending) ||
+    unsettled(winner.line, pending)
   ) {
     return line;
   }
@@ -90,11 +103,12 @@ function outmatched(line: BreakdownLine, best: ReadonlyMap<StackKey, Competing>)
  * penalty apply, and untyped ones all apply. Losers stay in the breakdown, suppressed by the line that beat them.
  * Equal values tie-break on the modifier id, so the result does not depend on the order of the lines. Only applied
  * lines take part; a conditional line no better than the applied winner of its type and direction is marked beaten
- * by it, and the others pass through.
+ * by it, unless one of the `pending` adjustments (those waiting on the situation) could change either, and the
+ * others pass through.
  */
-export function stack(lines: readonly BreakdownLine[]): BreakdownLine[] {
+export function stack(lines: readonly BreakdownLine[], pending: readonly Adjustment[]): BreakdownLine[] {
   const best = winners(lines);
   return lines.map((line) =>
-    line.status.kind === LineStatusKind.Conditional ? outmatched(line, best) : suppressed(line, best),
+    line.status.kind === LineStatusKind.Conditional ? outmatched(line, best, pending) : suppressed(line, best),
   );
 }

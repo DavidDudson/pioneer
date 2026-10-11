@@ -168,8 +168,8 @@ describe(BreakdownView, () => {
     const { lines } = await render(statistic('ac', { base: [term('10', 10)], lines: [worded, unworded, winner] }));
 
     expect(lines.slice(1)).toStrictEqual([
-      'Mage Armor | +1 item | Conditional | Applies when you are in darkness, but Breastplate already gives as much.',
-      'Golem Form | +2 item | Conditional | Breastplate already gives as much.',
+      'Mage Armor | +1 item | Conditional | Applies when you are in darkness, but Breastplate already counts for as much.',
+      'Golem Form | +2 item | Conditional | Breastplate already counts for as much.',
     ]);
   });
 

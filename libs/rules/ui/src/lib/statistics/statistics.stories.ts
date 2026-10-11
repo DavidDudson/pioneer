@@ -79,6 +79,6 @@ export const Beaten: StatisticsStory = {
     await expect(canvas.getByText('+2 circumstance when you Climb (Sure Footing)')).toBeVisible();
     await expect(canvas.queryByText('+1 circumstance when you Climb (Climbing Hooks)')).toBeNull();
     await userEvent.click(canvas.getByText('+10'));
-    await expect(canvas.getByText('Applies when you Climb, but Steady Grip already gives as much.')).toBeVisible();
+    await expect(canvas.getByText('Applies when you Climb, but Steady Grip already counts for as much.')).toBeVisible();
   },
 };

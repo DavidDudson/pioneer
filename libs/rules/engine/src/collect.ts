@@ -118,7 +118,8 @@ function holds(predicate: Predicate | undefined, facts: PredicateFacts): boolean
  * Every modifier that reaches the statistic through its selector, its domains or `all`, as breakdown lines in id
  * order. Adjustments that reach it and hold run in priority order, then id order. Each line is then gated by its
  * predicate (Kleene: true applies, false is inactive, unknown is conditional), and the applied ones are stacked
- * and decide which conditional ones could never count.
+ * and decide which conditional ones could never count. Adjustments that depend on the situation do not run, but
+ * keep the lines they could change from being marked beaten.
  * A formula that fails to evaluate makes its line failed, never an exception.
  */
 export function collectLines(
@@ -126,11 +127,13 @@ export function collectLines(
   rules: ModifierRules,
   context: RuleContext,
 ): readonly BreakdownLine[] {
-  const adjustments = rules.adjustments
-    .filter((adjustment) => reaches(adjustment.targets, definition) && holds(adjustment.predicate, context.facts))
+  const reaching = rules.adjustments.filter((adjustment) => reaches(adjustment.targets, definition));
+  const adjustments = reaching
+    .filter((adjustment) => holds(adjustment.predicate, context.facts))
     .toSorted(
       (left, right) => left.priority - right.priority || Number(left.id > right.id) - Number(left.id < right.id),
     );
+  const pending = reaching.filter((adjustment) => truthOf(adjustment.predicate, context.facts) === Truth.Unknown);
   const collection = new Collection(context, adjustments);
   const lines = rules.modifiers
     .filter(({ modifier }) => reaches(modifier.targets, definition))
@@ -138,5 +141,5 @@ export function collectLines(
       (left, right) => Number(left.modifier.id > right.modifier.id) - Number(left.modifier.id < right.modifier.id),
     )
     .map((source) => collection.line(source));
-  return stack(lines);
+  return stack(lines, pending);
 }

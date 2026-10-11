@@ -189,6 +189,18 @@ describe('conditional lines against applied ones', () => {
     });
   });
 
+  test('a line an adjustment waiting on the situation could change is not beaten, nor is its rival', () => {
+    const cover = inPlay({ ...flatModifier('circumstance', 2, ['ac']), slug: 'cover' }, 'cover');
+    const smaller = forestOnly('circumstance', 1, 'smaller');
+    const removesCover = adjust({ suppress: true, predicate: ['terrain:forest'] }, 'removes-cover');
+    const raisesAny = adjust({ slug: undefined, mode: 'add', value: 2, predicate: ['terrain:forest'] }, 'raises-any');
+    const removesOther = adjust({ slug: 'other', suppress: true, predicate: ['terrain:forest'] }, 'removes-other');
+    const beatenBy = (rules: readonly RuleInPlay[]): unknown => lineOf(derived(rules), smaller)?.status;
+    expect(beatenBy([cover, smaller, removesCover])).toMatchObject({ beatenBy: undefined });
+    expect(beatenBy([cover, smaller, raisesAny])).toMatchObject({ beatenBy: undefined });
+    expect(beatenBy([cover, smaller, removesOther])).toMatchObject({ beatenBy: ruleIdOf(cover) });
+  });
+
   test('only applied lines beat: a suppressed, conditional or inactive one does not', () => {
     const lower = inPlay(flatModifier('circumstance', 1, ['ac']), 'lower');
     const larger = forestOnly('circumstance', 3, 'larger');
