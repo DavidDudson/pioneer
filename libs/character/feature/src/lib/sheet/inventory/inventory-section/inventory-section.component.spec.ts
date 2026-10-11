@@ -39,6 +39,15 @@ describe('InventorySection', () => {
     expect(field(section, 'Silver (sp)').textContent).toContain('0');
   });
 
+  it('meters the Bulk carried against the limits Strength sets, the rope in the backpack ignored', async () => {
+    const section = await openInventory();
+    const bulk = present(section.querySelector('pio-bulk'));
+    await vi.waitFor(() => {
+      expect(bulk.textContent).toContain('Carrying 1 Bulk and 1 light item');
+    });
+    expect(bulk.textContent).toContain('Encumbered over 5 Bulk; can carry no more than 10 Bulk.');
+  });
+
   it('removes a plain item on the first press', async () => {
     const section = await openInventory();
     button(row(section, 'Longsword'), 'Remove Longsword').click();

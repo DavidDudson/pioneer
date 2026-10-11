@@ -231,13 +231,24 @@ version 3, #472). `inventory.coins` holds platinum, gold, silver and copper, eac
   trait, also needs it invested (`activeState`). Each item whose magic works is a grant root with an `inventory`
   hop whose state is `worn`, `held` or `invested`, so its rule elements, and those of what it grants, are in play
   with that origin (`equippedRules`). Worn armour adds its bonus, with its potency rune's, to AC as an `item` line
-  named by the armour and sets the Dexterity cap; each held weapon is a Strike input (`equippedInputs`). Armour
-  penalties and Strikes on the sheet are [#473](https://github.com/DavidDudson/pioneer/issues/473) and
-  [#482](https://github.com/DavidDudson/pioneer/issues/482).
+  named by the armour and sets the Dexterity cap; each held weapon is a Strike input (`equippedInputs`). Strikes on
+  the sheet are [#482](https://github.com/DavidDudson/pioneer/issues/482); armour's check and Speed penalties wait for
+  skills and Speed on the sheet.
 - **Grouping.** The sheet lists loose items worn, held, stowed and dropped as they are carried, and each container's
   contents beneath it. The investments panel counts invested items against the limit and lists the breakdown lines
-  each adds to the sheet's statistics. Bulk totals and encumbrance are
-  [#473](https://github.com/DavidDudson/pioneer/issues/473).
+  each adds to the sheet's statistics. A Bulk meter shows the Bulk carried against the limits in words.
+- **Bulk.** Worked out on every read, never stored, in tenths ([ADR-0027](../adr/0027-equipment-facet-units.md)): an
+  item's `bulk` times its quantity, or for `bulkPer` items only whole batches, with lines of the same content added
+  up first (5 arrows and 5 more are light, 9 are nothing). A container adds what it holds less the Bulk it ignores
+  (`ignored`, a backpack's first 2) however it is carried, unless it holds more than its `capacity`; its own Bulk is its
+  `heldBulk` when it isn't worn. Coins weigh 1 Bulk a thousand, of every kind together. Dropped items, and what they
+  hold, weigh nothing, and so does an item no loaded pack has. The limits drop the fraction: a character carrying
+  more than 5 plus its Strength modifier is encumbered, and more than 10 plus it is over its maximum
+  (`inventoryBulk`). Over the maximum is shown, never refused, since a drop in Strength or a Foundry sync can put a
+  character there. While encumbered, the packs' `condition:encumbered` is a grant root with a `condition` hop, never stored
+  ([ADR-0039](../adr/0039-derived-conditions-are-grant-roots.md)), so its rule elements reach the statistics beside
+  the active items' (`equippedRules`); with no such entry loaded, the
+  meter still says encumbered.
 
 ## Shop
 

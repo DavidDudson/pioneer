@@ -10,6 +10,7 @@ export { BOOST_FIXTURES, boostFixtureId } from './boost-content';
 export {
   ITEM_FIXTURE_FILES,
   ITEM_FIXTURES,
+  encumberedFixtureId,
   ItemFixture,
   itemFixtureContent,
   itemFixtureId,

@@ -5,7 +5,6 @@ import { playerCoreClassId } from '@pioneer/character/domain/testing';
 import { contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import { describe, expect, it, vi } from 'vitest';
 
-import { PACKS_WITH_CLASSES } from '../../testing/provide-server-state-testing';
 import { id, MERISIEL, openSheet, present } from '../../testing/sheet-page-harness';
 
 const ATHLETICS = contentId(PackId.parse('core-rules'), EntrySlug.parse('statistic:athletics'));
@@ -37,7 +36,7 @@ function skillRow(root: HTMLElement, name: string): string | undefined {
 
 describe('CharacterSheetPage skills', () => {
   it('asks a fighter for its three trained skills, one picker each', async () => {
-    const { root } = await openSheet(fighter(), { packs: PACKS_WITH_CLASSES });
+    const { root } = await openSheet(fighter());
 
     await vi.waitFor(() => {
       expect(pickerLabels(root)).toStrictEqual(TRAINING);
@@ -45,7 +44,7 @@ describe('CharacterSheetPage skills', () => {
   });
 
   it('has no skill pickers before a class is picked', async () => {
-    const { root } = await openSheet(MERISIEL, { packs: PACKS_WITH_CLASSES });
+    const { root } = await openSheet(MERISIEL);
 
     await vi.waitFor(() => {
       expect(skillRow(root, 'Athletics')).toBeDefined();
@@ -54,7 +53,7 @@ describe('CharacterSheetPage skills', () => {
   });
 
   it('picks a trained skill in its slot', async () => {
-    const { root } = await openSheet(fighter(), { packs: PACKS_WITH_CLASSES });
+    const { root } = await openSheet(fighter());
     const field = await vi.waitFor(() => present(skillsSection(root).querySelector<HTMLElement>('fr-inline-field')));
 
     present(field.querySelector<HTMLElement>('button')).click();
@@ -79,7 +78,7 @@ describe('CharacterSheetPage skills', () => {
   });
 
   it('totals an untrained skill from its attribute alone', async () => {
-    const { root } = await openSheet(fighter(), { packs: PACKS_WITH_CLASSES });
+    const { root } = await openSheet(fighter());
 
     await vi.waitFor(() => {
       expect(skillRow(root, 'Athletics')).toContain('+1');
@@ -87,7 +86,7 @@ describe('CharacterSheetPage skills', () => {
   });
 
   it('raises a picked skill to trained in its total', async () => {
-    const trained = await openSheet(fighter({ 'skill-training:1:0': ATHLETICS }), { packs: PACKS_WITH_CLASSES });
+    const trained = await openSheet(fighter({ 'skill-training:1:0': ATHLETICS }));
     await vi.waitFor(() => {
       expect(skillRow(trained.root, 'Athletics')).toContain('+4');
     });
@@ -103,7 +102,6 @@ describe('CharacterSheetPage skills', () => {
     };
     const { root } = await openSheet(fighter({ 'skill-training:1:0': ATHLETICS }), {
       slots: [slot],
-      packs: PACKS_WITH_CLASSES,
     });
     const choices = present(root.querySelector('section[aria-labelledby="sheet-choices"]'));
 

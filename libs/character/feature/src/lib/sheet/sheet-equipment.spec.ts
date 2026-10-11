@@ -4,6 +4,7 @@ import {
   Character,
   carryItem,
   CarryState,
+  CoinsSchema,
   EMPTY_INVENTORY,
   InventoryItemId,
   investItem,
@@ -15,6 +16,7 @@ import { CharacterBuilder, ITEM_FIXTURE_FILES, ItemFixture, itemFixtureId } from
 import { ContentLoader } from '@pioneer/rules/data-access';
 import { LineStatusKind } from '@pioneer/rules/engine';
 import type { StatisticValue } from '@pioneer/rules/engine';
+import { OriginHopKind } from '@pioneer/rules/sdk';
 import type { ContentRegistry } from '@pioneer/rules/sdk';
 import type { NamedStatistic } from '@pioneer/rules/ui';
 import { beforeAll, describe, expect, it } from 'vitest';
@@ -24,7 +26,7 @@ import {
   prebuildServerStateTesting,
   provideServerStateTesting,
 } from '../testing/provide-server-state-testing';
-import { carriesEquipment, EQUIPMENT_CONTENT_KINDS, sheetInvestments } from './sheet-equipment';
+import { carriesAnything, EQUIPMENT_CONTENT_KINDS, sheetInvestments } from './sheet-equipment';
 import { sheetStatistics } from './sheet-statistics';
 
 const one = ItemQuantity.parse(1);
@@ -50,6 +52,19 @@ function carrying(inventory: Inventory): Character {
   });
 }
 
+/** A character with `gold` gold pieces and nothing else. */
+function withGold(gold: number): Character {
+  return carrying({ ...EMPTY_INVENTORY, coins: CoinsSchema.parse({ gp: gold }) });
+}
+
+/** A character carrying `count` anvils, 2 Bulk each. */
+function anvils(count: number): Character {
+  const item = itemFixtureId(ItemFixture.Anvil);
+  return carrying(
+    addItem(EMPTY_INVENTORY, { id: ARMOR, item, quantity: ItemQuantity.parse(count), container: undefined }),
+  );
+}
+
 async function equipmentRegistry(): Promise<ContentRegistry> {
   TestBed.configureTestingModule({ providers: provideServerStateTesting([ITEM_FIXTURE_FILES]) });
   return TestBed.inject(ContentLoader).registry(EQUIPMENT_CONTENT_KINDS);
@@ -69,25 +84,24 @@ function changed(character: Character, change: (inventory: Inventory) => Invento
   return carrying(change(character.document.inventory));
 }
 
-describe(carriesEquipment, () => {
+describe(carriesAnything, () => {
   // Loads and bundles the packs once, outside every test's timeout.
   beforeAll(async () => {
     await prebuildServerStateTesting([ITEM_FIXTURE_FILES]);
   }, PREBUILD_TIMEOUT);
 
-  it('is true once anything is worn, held or invested', () => {
-    const armored = carrying(wearing([ARMOR, ItemFixture.LeatherArmor]));
-    expect(carriesEquipment(armored)).toBe(true);
-    const stowed = addItem(EMPTY_INVENTORY, {
+  it('is true once anything is carried, or coins enough to weigh 1 Bulk', () => {
+    const rope = addItem(EMPTY_INVENTORY, {
       id: ARMOR,
       item: itemFixtureId(ItemFixture.Rope),
       quantity: one,
       container: undefined,
     });
-    expect(carriesEquipment(carrying(stowed))).toBe(false);
-    const invested = investItem(stowed, ARMOR, true);
-    expect(carriesEquipment(carrying(invested))).toBe(true);
-    expect(carriesEquipment(undefined)).toBe(false);
+    expect(carriesAnything(carrying(rope))).toBe(true);
+    expect(carriesAnything(carrying(EMPTY_INVENTORY))).toBe(false);
+    expect(carriesAnything(withGold(999))).toBe(false);
+    expect(carriesAnything(withGold(1000))).toBe(true);
+    expect(carriesAnything(undefined)).toBe(false);
   });
 });
 
@@ -101,6 +115,14 @@ describe(sheetStatistics, () => {
     expect(valueOf(statistics, 'Armor Class').total - valueOf(unarmoured, 'Armor Class').total).toBe(1);
     const { lines } = valueOf(statistics, 'Perception');
     expect(lines.map(({ value, status }) => [value, status.kind])).toStrictEqual([[1, LineStatusKind.Applied]]);
+  });
+
+  it('applies the encumbered condition while the character carries more than 5 plus its Strength in Bulk', async () => {
+    const registry = await equipmentRegistry();
+    const unburdened = valueOf(sheetStatistics(registry, anvils(2)), 'Armor Class').total;
+    const encumbered = valueOf(sheetStatistics(registry, anvils(3)), 'Armor Class');
+    expect(encumbered.total).toBe(unburdened - 1);
+    expect(encumbered.lines.map(({ modifier }) => modifier.origin.hops[0]?.kind)).toContain(OriginHopKind.Condition);
   });
 });
 

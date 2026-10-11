@@ -68,7 +68,7 @@ import { sheetBuildPicks } from '../sheet-build-picks';
 import { SheetClassFields } from '../sheet-class-fields/sheet-class-fields.component';
 import { sheetDefences } from '../sheet-defences';
 import { sheetEntryNames } from '../sheet-entry-names';
-import { carriesEquipment, EQUIPMENT_CONTENT_KINDS, sheetInvestments } from '../sheet-equipment';
+import { carriesAnything, EQUIPMENT_CONTENT_KINDS, sheetInvestments } from '../sheet-equipment';
 import { sheetField } from '../sheet-field';
 import { SHEET_SECTION_ORDER, SHEET_SECTIONS } from '../sheet-sections';
 import { SheetSkillFields } from '../sheet-skill-fields/sheet-skill-fields.component';
@@ -157,19 +157,17 @@ export class CharacterSheetPage {
     return registry === undefined || character === undefined ? undefined : sheetDefences(registry, character);
   });
   /**
-   * The registry with the item kinds too, so the character's equipment reaches the engine. It loads only once the
-   * character wears, holds or invests something, so a sheet with no equipment never fetches the item kinds for it.
+   * The registry with the item and condition kinds too, so the character's equipment and Bulk reach the engine. It
+   * loads only once the character carries something, so a sheet with nothing carried never fetches them for it.
    */
   protected readonly equipment = injectContentRegistry(EQUIPMENT_CONTENT_KINDS, () =>
-    carriesEquipment(this.character()),
+    carriesAnything(this.character()),
   );
   /** The query the engine's registry comes from, so the regions that wait on it show its pending and failed states. */
-  protected readonly engineQuery = computed(() =>
-    carriesEquipment(this.character()) ? this.equipment : this.registry,
-  );
-  /** The registry the engine reads: with the item kinds once the character has equipment, undefined while they load. */
+  protected readonly engineQuery = computed(() => (carriesAnything(this.character()) ? this.equipment : this.registry));
+  /** The registry the engine reads: with the item kinds once anything is carried, undefined while they load. */
   readonly #engineRegistry = computed((): ContentRegistry | undefined =>
-    carriesEquipment(this.character()) ? this.equipment.data() : this.registry.data(),
+    carriesAnything(this.character()) ? this.equipment.data() : this.registry.data(),
   );
   /** The invested items and what each turns on, from the statistics; undefined while they load. */
   protected readonly investments = computed((): readonly Investment[] | undefined => {

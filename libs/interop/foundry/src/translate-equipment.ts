@@ -48,8 +48,8 @@ export function equipmentData(input: KindInput): object | undefined {
 }
 
 /**
- * What a container holds, how much of it is ignored worn, and its Bulk held or stowed when that differs from worn. A
- * capacity of 0 would read as no limit, so it is reported and the container left out.
+ * What a container holds, how much of it is ignored however it is carried, and its Bulk held or stowed when that
+ * differs from worn. A capacity of 0 would read as no limit, so it is reported and the container left out.
  */
 function containerOf(bulk: FoundryBulk | null | undefined, log: GapLog): object | undefined {
   const capacity = bulk?.capacity ?? 0;
