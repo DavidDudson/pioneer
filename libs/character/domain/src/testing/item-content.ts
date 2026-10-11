@@ -109,11 +109,16 @@ export function itemFixtureId(name: ItemFixture): ContentId {
   return ContentId.parse(contentId(PackId.parse(ITEM_PACK), EntrySlug.parse(`${ITEMS[name].kind}:${name}`)));
 }
 
-/** `ITEM_FIXTURES` as the inventory reads it. */
-export function itemFixtureContent(): ItemContent {
+/** A registry holding `ITEM_FIXTURES`. */
+export function itemFixtureRegistry(): ContentRegistry {
   const registry = new ContentRegistry();
   registry.register(ITEM_FIXTURES);
-  return itemContent(registry);
+  return registry;
+}
+
+/** `ITEM_FIXTURES` as the inventory reads it. */
+export function itemFixtureContent(): ItemContent {
+  return itemContent(itemFixtureRegistry());
 }
 
 /** `ITEM_FIXTURES` as content files, for the browser's content bundles in tests. */
