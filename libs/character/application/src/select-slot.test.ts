@@ -96,7 +96,7 @@ describe('CharacterService selectSlot on boost slots', () => {
 
   test('a boost pick is the only way to change a modifier: it lands in the slot, and its class slot opens with the class', async () => {
     const created = await service.create(amiri, { name: kyra, ancestry: humanAncestryId });
-    const fighter = ChoiceValue.parse(contentId(PackId.parse('player-core'), Slug.parse('fighter')));
+    const fighter = ChoiceValue.parse(contentId(PackId.parse('player-core'), EntrySlug.parse('class:fighter')));
     const withClass = await service.patch(
       amiri,
       created.id,

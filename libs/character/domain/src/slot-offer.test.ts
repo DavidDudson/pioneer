@@ -89,7 +89,7 @@ describe('slotRefusal', () => {
 
 describe('slotRefusal on a boost slot', () => {
   const dwarf = new CharacterBuilder()
-    .withAncestry(AncestryId.parse(boostFixtureId('dwarf')))
+    .withAncestry(AncestryId.parse(boostFixtureId('ancestry:dwarf')))
     .picking('boost:1:free:0', 'str')
     .build().document;
 

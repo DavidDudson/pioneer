@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { AncestryId, Attribute, ContentId, contentId, ContentRegistry, PackId, Slug } from '@pioneer/rules/sdk';
+import { AncestryId, Attribute, ContentId, contentId, ContentRegistry, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
 
 import { attributeModifiers, boostContent, boostSlots, BoostSource } from './attribute-boosts';
@@ -15,10 +15,10 @@ const ZERO: Modifiers = { str: 0, dex: 0, con: 0, int: 0, wis: 0, cha: 0 };
 /** A dwarf farmhand fighter at `level`, with `picks` on top. */
 function dwarfFighter(level: number, picks: Readonly<Record<string, string>> = {}): CharacterDocument {
   const builder = new CharacterBuilder()
-    .withAncestry(AncestryId.parse(boostFixtureId('dwarf')))
+    .withAncestry(AncestryId.parse(boostFixtureId('ancestry:dwarf')))
     .atLevel(level)
-    .picking(BACKGROUND_SLOT, boostFixtureId('farmhand'))
-    .picking(CLASS_SLOT, boostFixtureId('fighter'));
+    .picking(BACKGROUND_SLOT, boostFixtureId('background:farmhand'))
+    .picking(CLASS_SLOT, boostFixtureId('class:fighter'));
   for (const [slot, selection] of Object.entries(picks)) {
     builder.picking(slot, selection);
   }
@@ -35,7 +35,7 @@ function modifiers(document: CharacterDocument): Modifiers {
 
 /** The id of `<slug>` in the test pack `ContentPackBuilder` builds. */
 function testPackId(slug: string): ContentId {
-  return ContentId.parse(contentId(PackId.parse('test-pack'), Slug.parse(slug)));
+  return ContentId.parse(contentId(PackId.parse('test-pack'), EntrySlug.parse(slug)));
 }
 
 const FREE_AT = (level: number): string[] => [0, 1, 2, 3].map((index) => `boost:${level}:free:${index}`);
@@ -56,7 +56,9 @@ describe('boostSlots', () => {
   });
 
   test('has only the free boosts until ancestry, background and class are picked', () => {
-    const unpicked = new CharacterBuilder().withAncestry(AncestryId.parse(boostFixtureId('elf'))).build().document;
+    const unpicked = new CharacterBuilder()
+      .withAncestry(AncestryId.parse(boostFixtureId('ancestry:elf')))
+      .build().document;
     expect(boostSlots(unpicked, BOOST_FIXTURES).every((slot) => slot.source === BoostSource.Free)).toBe(true);
   });
 
@@ -68,7 +70,7 @@ describe('boostSlots', () => {
       Attribute.Intelligence,
       Attribute.Charisma,
     ]);
-    const wizard = new CharacterBuilder().picking(CLASS_SLOT, boostFixtureId('wizard')).build().document;
+    const wizard = new CharacterBuilder().picking(CLASS_SLOT, boostFixtureId('class:wizard')).build().document;
     expect(boostSlots(wizard, BOOST_FIXTURES).some((slot) => slot.source === BoostSource.Class)).toBe(false);
   });
 
@@ -142,12 +144,12 @@ describe('boostContent', () => {
         .build(),
     );
     const content = boostContent(registry);
-    expect(content.ancestry(testPackId('dwarf'))).toStrictEqual({
+    expect(content.ancestry(testPackId('ancestry:dwarf'))).toStrictEqual({
       boosts: [['con'], ['wis']],
       flaws: ['cha'],
     });
-    expect(content.background(testPackId('farmhand'))).toStrictEqual([['con', 'wis']]);
-    expect(content.keyAttribute(testPackId('fighter'))).toStrictEqual(['str', 'dex']);
-    expect(content.background(testPackId('fighter'))).toBeUndefined();
+    expect(content.background(testPackId('background:farmhand'))).toStrictEqual([['con', 'wis']]);
+    expect(content.keyAttribute(testPackId('class:fighter'))).toStrictEqual(['str', 'dex']);
+    expect(content.background(testPackId('class:fighter'))).toBeUndefined();
   });
 });

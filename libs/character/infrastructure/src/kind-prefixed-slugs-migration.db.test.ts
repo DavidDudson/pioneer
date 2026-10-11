@@ -41,7 +41,7 @@ describe.skipIf(adminUrl === undefined)('0013_kind_prefixed_slugs (postgres)', (
       build: { choices: { ancestry: OLD_HUMAN_ID } },
     };
     await database.db.execute(
-      sql`insert into characters (id, version, owner_id, name, level, attributes, schema_version, document, created_at, updated_at) values (${merisiel.id}, 1, ${fixtureOwnerId}, 'Merisiel', 3, ${JSON.stringify(merisiel.attributes.toWire())}::jsonb, 1, ${JSON.stringify(document)}::jsonb, ${at}, ${at})`,
+      sql`insert into characters (id, version, owner_id, name, level, attributes, schema_version, document, created_at, updated_at) values (${merisiel.id}, 1, ${fixtureOwnerId}, 'Merisiel', 3, '{"str":0,"dex":0,"con":0,"int":0,"wis":0,"cha":0}'::jsonb, 1, ${JSON.stringify(document)}::jsonb, ${at}, ${at})`,
     );
     await database.migrateRest();
   });

@@ -12,8 +12,8 @@ import { ANCESTRY_SLOT, BACKGROUND_SLOT, CLASS_SLOT } from './character-slots';
 import { BOOST_FIXTURES, boostFixtureId, CharacterBuilder } from './testing';
 
 const ATTRIBUTES = Object.values(Attribute);
-const ancestries = constantFrom('dwarf', 'human');
-const classes = constantFrom('fighter', 'wizard');
+const ancestries = constantFrom('ancestry:dwarf', 'ancestry:human');
+const classes = constantFrom('class:fighter', 'class:wizard');
 const levels = integer({ min: 1, max: 20 });
 /** One pick per possible slot: the boost slots never number more than 4 at 1st level per source, 4 free per level. */
 const SLOTS_MAX = 40;
@@ -34,7 +34,7 @@ function characterOf({ ancestry, characterClass, level, chosen }: Generated): Ch
   const base = new CharacterBuilder()
     .withAncestry(AncestryId.parse(boostFixtureId(ancestry)))
     .atLevel(level)
-    .picking(BACKGROUND_SLOT, boostFixtureId('farmhand'))
+    .picking(BACKGROUND_SLOT, boostFixtureId('background:farmhand'))
     .picking(CLASS_SLOT, boostFixtureId(characterClass));
   for (const [index, slot] of boostSlots(base.build().document, BOOST_FIXTURES).entries()) {
     const pick = chosen[index];

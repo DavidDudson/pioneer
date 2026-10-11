@@ -147,7 +147,7 @@ characters        id, owner_id, name, level, version, schema_version, document j
 filter on indexed columns. `schema_version` mirrors the document's `schemaVersion`. A read decodes the document with
 `decodeCharacterDocument`, upgrading an older one; the next save writes it back at the current version, so old rows
 are upgraded as they are touched, never by a bulk rewrite. The ancestry, background and class are their root slots'
-selections. Characters stored before boost slots (migration 0013) lost their stored modifiers, which are derived and
+selections. Characters stored before boost slots (migration 0014) lost their stored modifiers, which are derived and
 can't be turned back into boosts: their boost slots start empty, and a Pathbuilder re-import fills them
 ([#420](https://github.com/DavidDudson/pioneer/issues/420)).
 

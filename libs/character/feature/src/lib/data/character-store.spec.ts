@@ -24,7 +24,10 @@ function wire(version: number, level: number): WireCharacter & Record<string, un
     ownerId: '8f6d2c1a-0b3e-4f5a-9c7d-1e2f3a4b5c6d',
     name: 'Merisiel',
     build: {
-      choices: { ancestry: contentId(PackId.parse('player-core'), EntrySlug.parse('ancestry:elf')), 'boost:1:free:0': 'dex' },
+      choices: {
+        ancestry: contentId(PackId.parse('player-core'), EntrySlug.parse('ancestry:elf')),
+        'boost:1:free:0': 'dex',
+      },
     },
     level,
     createdAt: '2026-10-07T10:00:00.000Z',
