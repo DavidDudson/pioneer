@@ -117,6 +117,7 @@ export {
   type FacetDerive,
   UNKNOWN,
 } from './facet';
+export { availableItems } from './available-items';
 export { facetsFor } from './kind-facets';
 export { AreaValue, CastActions, DefenseValue, DurationValue, RangeBand, TargetValue } from './spell-facet-values';
 export { SPELL_FACETS, SpellFacetMessage } from './spell-facets';

@@ -19,6 +19,8 @@ export const SHEET_SECTIONS = {
   spellcasting: { anchor: 'sheet-spellcasting', headingKey: 'character.sheet.spellcastingHeading' },
   features: { anchor: 'sheet-features', headingKey: 'character.sheet.featuresHeading' },
   inventory: { anchor: 'sheet-inventory', headingKey: 'character.sheet.inventory.heading' },
+  /** The shop, and later crafting and income; the Downtime tab adopts it when sheet modes land (#517). */
+  downtime: { anchor: 'sheet-downtime', headingKey: 'character.sheet.downtimeHeading' },
 } as const satisfies Readonly<Record<string, SheetSection>>;
 
 /** The sections in page order, for the section index. */

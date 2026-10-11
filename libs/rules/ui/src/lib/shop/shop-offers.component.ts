@@ -49,9 +49,9 @@ export class ShopOffersView {
 
   readonly #i18n = inject(TranslocoService);
   readonly #format = inject(LocaleFormat);
-  readonly #messages = toSignal(
-    merge(this.#i18n.langChanges$, this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'))),
-  );
+  readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
+  /** Re-read when the messages load or the language changes, so a row is never a raw key. */
+  readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
 
   protected readonly Message = ShopMessage;
   protected readonly emptyIcon = LucidePackageSearch;
@@ -59,14 +59,17 @@ export class ShopOffersView {
 
   protected readonly rows: Signal<readonly OfferRow[]> = computed(() => {
     this.#messages();
-    return (this.offers() ?? []).slice(0, SHOWN_MAX).map((offer) => ({
-      offer,
-      badge: RARITY_BADGES[offer.rarity],
-      line: this.#i18n.translate(ShopMessage.Line, {
-        level: this.#format.number(offer.level),
-        price: this.#priceText(offer),
-      }),
-    }));
+    return (this.offers() ?? []).slice(0, SHOWN_MAX).map((offer) => {
+      const price = this.#priceText(offer);
+      return {
+        offer,
+        badge: RARITY_BADGES[offer.rarity],
+        line:
+          offer.level === undefined
+            ? this.#i18n.translate<string>(ShopMessage.LineNoLevel, { price })
+            : this.#i18n.translate<string>(ShopMessage.Line, { level: this.#format.number(offer.level), price }),
+      };
+    });
   });
 
   protected readonly hidden = computed(() => (this.offers()?.length ?? 0) - this.rows().length);
@@ -81,13 +84,15 @@ export class ShopOffersView {
 
   #priceText({ price }: ShopOffer): string {
     if (price === undefined) {
-      return this.#i18n.translate(ShopMessage.NoPrice);
+      return this.#i18n.translate<string>(ShopMessage.NoPrice);
     }
     const coins = priceCoins(price)
-      .map(({ coin, count }) => this.#i18n.translate(ShopMessage.Coin, { coin, count: this.#format.number(count) }))
+      .map(({ coin, count }) =>
+        this.#i18n.translate<string>(ShopMessage.Coin, { coin, count: this.#format.number(count) }),
+      )
       .join(' ');
     return price.per === undefined
       ? coins
-      : this.#i18n.translate(ShopMessage.PricePer, { price: coins, per: this.#format.number(price.per) });
+      : this.#i18n.translate<string>(ShopMessage.PricePer, { price: coins, per: this.#format.number(price.per) });
   }
 }

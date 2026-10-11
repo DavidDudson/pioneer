@@ -16,13 +16,13 @@ function bulkFacet(): FacetDefinition {
 
 describe(withBound, () => {
   it('stores a bound in the facet’s unit: bulk counts tenths', () => {
-    const state = withBound(new Map(), bulkFacet(), RangeSide.Max, 1);
+    const state = withBound(new Map(), bulkFacet(), { side: RangeSide.Max, shown: 1 });
     expect(state.get(BULK_ID)).toStrictEqual({ kind: SelectionKind.Range, min: undefined, max: RangeBound.parse(10) });
   });
 
   it('drops the facet from the state once both bounds are open', () => {
-    const bounded = withBound(new Map(), bulkFacet(), RangeSide.Min, 1);
-    expect(withBound(bounded, bulkFacet(), RangeSide.Min, undefined).has(BULK_ID)).toBe(false);
+    const bounded = withBound(new Map(), bulkFacet(), { side: RangeSide.Min, shown: 1 });
+    expect(withBound(bounded, bulkFacet(), { side: RangeSide.Min, shown: undefined }).has(BULK_ID)).toBe(false);
   });
 });
 

@@ -1,35 +1,62 @@
-import { ContentId, ContentText, ItemCount, Level, Price, Rarity } from '@pioneer/rules/sdk';
+import { ContentId, ContentLevel, ContentText, ItemCount, Price, Rarity } from '@pioneer/rules/sdk';
 
 import type { ShopOffer } from '../shop/shop-offer';
 
-const ids = [
-  '7b0c3a52-3f43-4f0e-9a3c-1f1b8f0c0001',
-  '7b0c3a52-3f43-4f0e-9a3c-1f1b8f0c0002',
-  '7b0c3a52-3f43-4f0e-9a3c-1f1b8f0c0003',
-  '7b0c3a52-3f43-4f0e-9a3c-1f1b8f0c0004',
-] as const;
-
-function offer(index: number, name: string, level: number, rarity: Rarity, price: object | undefined): ShopOffer {
-  return {
-    id: ContentId.parse(ids[index]),
-    name: ContentText.parse(name),
-    level: Level.parse(level),
-    rarity,
-    price: price === undefined ? undefined : Price.parse(price),
-  };
+interface OfferFields {
+  readonly id: string;
+  readonly name: string;
+  readonly level: ContentLevel;
+  readonly rarity: Rarity;
+  readonly price: Price | undefined;
 }
 
-export const LONGSWORD = offer(0, 'Longsword', 0, Rarity.Common, { coins: { gp: 1 } });
-export const ARROWS = offer(1, 'Arrows', 0, Rarity.Common, { coins: { sp: 1 }, per: ItemCount.parse(10) });
-export const STAFF_OF_FIRE = offer(2, 'Staff of Fire', 3, Rarity.Uncommon, { coins: { gp: 60, sp: 5 } });
-export const LUCKY_STONE = offer(3, 'Lucky Stone', 1, Rarity.Rare, undefined);
+function offer({ id, name, level, rarity, price }: OfferFields): ShopOffer {
+  return { id: ContentId.parse(id), name: ContentText.parse(name), level, rarity, price };
+}
+
+const LEVEL_0 = ContentLevel.parse(0);
+const LEVEL_1 = ContentLevel.parse(1);
+const LEVEL_3 = ContentLevel.parse(3);
+const ARROWS_PER_PRICE = ItemCount.parse(10);
+
+export const LONGSWORD = offer({
+  id: '7b0c3a52-3f43-4f0e-9a3c-1f1b8f0c0001',
+  name: 'Longsword',
+  level: LEVEL_0,
+  rarity: Rarity.Common,
+  price: Price.parse({ coins: { gp: 1 } }),
+});
+export const ARROWS = offer({
+  id: '7b0c3a52-3f43-4f0e-9a3c-1f1b8f0c0002',
+  name: 'Arrows',
+  level: LEVEL_0,
+  rarity: Rarity.Common,
+  price: Price.parse({ coins: { sp: 1 }, per: ARROWS_PER_PRICE }),
+});
+export const STAFF_OF_FIRE = offer({
+  id: '7b0c3a52-3f43-4f0e-9a3c-1f1b8f0c0003',
+  name: 'Staff of Fire',
+  level: LEVEL_3,
+  rarity: Rarity.Uncommon,
+  price: Price.parse({ coins: { gp: 60, sp: 5 } }),
+});
+export const LUCKY_STONE = offer({
+  id: '7b0c3a52-3f43-4f0e-9a3c-1f1b8f0c0004',
+  name: 'Lucky Stone',
+  level: LEVEL_1,
+  rarity: Rarity.Rare,
+  price: undefined,
+});
 
 /** A few offers: a common item, one sold in a batch, an uncommon one with a two-coin price and a rare one with none. */
 export const SHOP_OFFERS: readonly ShopOffer[] = [LONGSWORD, ARROWS, STAFF_OF_FIRE, LUCKY_STONE];
 
 /** More offers than the list shows at once. */
-export const MANY_OFFERS: readonly ShopOffer[] = Array.from({ length: 60 }, (_, index) => ({
+const MANY = 60;
+const ID_DIGITS = 12;
+
+export const MANY_OFFERS: readonly ShopOffer[] = Array.from({ length: MANY }, (_unused, index) => ({
   ...LONGSWORD,
-  id: ContentId.parse(`7b0c3a52-3f43-4f0e-9a3c-${String(index).padStart(12, '0')}`),
+  id: ContentId.parse(`7b0c3a52-3f43-4f0e-9a3c-${String(index).padStart(ID_DIGITS, '0')}`),
   name: ContentText.parse(`Longsword ${index + 1}`),
 }));

@@ -23,7 +23,7 @@ import {
 import { FundamentalRune } from '@pioneer/rules/sdk';
 import { describe, expect, it } from 'vitest';
 
-import { containerOptions, itemOptions, sheetInventory } from './sheet-inventory';
+import { containerOptions, sheetInventory } from './sheet-inventory';
 
 const content = itemFixtureContent();
 const runed = { items: content, runes: runeFixtureContent() };
@@ -33,8 +33,6 @@ const pouch = InventoryItemId.parse('22222222-2222-4222-8222-222222222222');
 const rope = InventoryItemId.parse('33333333-3333-4333-8333-333333333333');
 const sword = InventoryItemId.parse('44444444-4444-4444-8444-444444444444');
 const diamond = InventoryItemId.parse('55555555-5555-4555-8555-555555555555');
-
-const compare = (left: string, right: string): number => left.localeCompare(right);
 
 function present<TValue>(value: TValue | undefined): TValue {
   if (value === undefined) {
@@ -134,16 +132,5 @@ describe(containerOptions, () => {
   it('never offers a container a place inside itself or what it holds', () => {
     expect(containerOptions(PACKED, content, backpack)).toStrictEqual([]);
     expect(containerOptions(PACKED, content, rope).map((option) => option.value)).toStrictEqual([backpack, pouch]);
-  });
-});
-
-describe(itemOptions, () => {
-  it('matches names containing the query, ignoring case, by name', () => {
-    expect(itemOptions(content, 'ARM', compare).map((option) => option.label)).toStrictEqual([
-      'Hide-armor',
-      'Leather-armor',
-      'Rune-armor',
-    ]);
-    expect(itemOptions(content, 'ro', compare).map((option) => option.label)).toStrictEqual(['Arrows', 'Rope']);
   });
 });

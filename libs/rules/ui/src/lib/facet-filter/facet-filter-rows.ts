@@ -134,16 +134,17 @@ export function withValues(state: FilterState, facet: FacetDefinition, include: 
   );
 }
 
+/** One bound of a range as a box sets it: which side, and its value in the unit it is shown in, or none. */
+export interface BoundEdit {
+  readonly side: RangeSide;
+  readonly shown: number | undefined;
+}
+
 /**
- * `state` with one bound of `facet` set to `shown`, in the unit it is shown in, or opened when `shown` is undefined.
- * A range with neither bound keeps everything, so it leaves the state.
+ * `state` with one bound of `facet` set, or opened when the box is empty. A range with neither bound keeps
+ * everything, so it leaves the state.
  */
-export function withBound(
-  state: FilterState,
-  facet: FacetDefinition,
-  side: RangeSide,
-  shown: number | undefined,
-): FilterState {
+export function withBound(state: FilterState, facet: FacetDefinition, { side, shown }: BoundEdit): FilterState {
   const current = state.get(facet.id);
   const range = current?.kind === SelectionKind.Range ? current : undefined;
   const bound = shown === undefined ? undefined : RangeBound.parse(Math.round(shown * (facet.scale ?? 1)));

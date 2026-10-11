@@ -1,12 +1,13 @@
 import { BadgeTone } from '@pioneer/frontier';
 import { Coin, Rarity } from '@pioneer/rules/sdk';
-import type { ContentId, ContentText, Level, Price } from '@pioneer/rules/sdk';
+import type { ContentId, ContentLevel, ContentText, Price } from '@pioneer/rules/sdk';
 
 /** An item the shop offers: what the list shows of it. */
 export interface ShopOffer {
   readonly id: ContentId;
   readonly name: ContentText;
-  readonly level: Level;
+  /** Undefined for an item content gives no level. */
+  readonly level: ContentLevel | undefined;
   readonly rarity: Rarity;
   /** Undefined for an item with no price ("—"). */
   readonly price: Price | undefined;
@@ -18,6 +19,7 @@ export const ShopMessage = {
   PricePer: 'rules.shop.pricePer',
   NoPrice: 'rules.shop.noPrice',
   Line: 'rules.shop.line',
+  LineNoLevel: 'rules.shop.lineNoLevel',
   Pick: 'rules.shop.pick',
   PickNamed: 'rules.shop.pickNamed',
   More: 'rules.shop.more',

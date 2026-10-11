@@ -109,16 +109,21 @@
         "gp": "Gold (gp)",
         "sp": "Silver (sp)",
         "cp": "Copper (cp)"
-      },
-      "addHeading": "Add an item",
-      "item": "Item",
-      "itemPlaceholder": "Search items by name",
-      "add": "Add",
-      "adding": "Adding…",
-      "added": "Added",
-      "addFailed": "The item could not be added. Try again."
+      }
     },
-    "skillsHeading": "Skills"
+    "skillsHeading": "Skills",
+    "downtimeHeading": "Downtime",
+    "shop": {
+      "heading": "Shop",
+      "loadError": "The shop could not be loaded. Try again.",
+      "search": "Search items by name",
+      "everything": "Show everything",
+      "available": "Available to you: level {level} or lower, no unique items or artifacts.",
+      "gift": "Add without paying",
+      "gifting": "Adding…",
+      "gifted": "Added",
+      "giftFailed": "The item could not be added. Try again."
+    }
   },
   "validation": {
     "unknownAncestry": "That ancestry is not available. Choose another.",

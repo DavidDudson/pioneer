@@ -9,7 +9,16 @@ import { filter, merge } from 'rxjs';
 
 import { FacetFilterMessage } from './facet-filter-messages';
 import { FacetRowKind, facetRows, RangeSide, withBound, withValues } from './facet-filter-rows';
-import type { ChipsRow, FacetRow } from './facet-filter-rows';
+import type { ChipsRow, ChipValue, FacetRow } from './facet-filter-rows';
+
+/** "Rarity", "Rarity: 2 picked" or "Level: limited". */
+function summaryKeyOf(row: FacetRow): string {
+  if (row.kind === FacetRowKind.Chips) {
+    return row.selected.size === 0 ? FacetFilterMessage.Summary : FacetFilterMessage.SummaryPicked;
+  }
+  const open = row.min === undefined && row.max === undefined;
+  return open ? FacetFilterMessage.Summary : FacetFilterMessage.SummaryBounded;
+}
 
 /**
  * Filters for a list of content, built from its facets (content-model.md, "Filters"): each facet is a row that
@@ -30,13 +39,14 @@ export class FacetFilterView {
 
   readonly #i18n = inject(TranslocoService);
   readonly #format = inject(LocaleFormat);
-  readonly #messages = toSignal(
-    merge(this.#i18n.langChanges$, this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'))),
-  );
+  readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
+  /** Re-read when the messages load or the language changes, so a chip is never a raw key. */
+  readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
 
   protected readonly Kind = FacetRowKind;
   protected readonly Side = RangeSide;
   protected readonly Message = FacetFilterMessage;
+  protected readonly summaryKey = summaryKeyOf;
 
   protected readonly rows: Signal<readonly FacetRow[]> = computed(() => facetRows(this.counts(), this.state()));
 
@@ -44,28 +54,8 @@ export class FacetFilterView {
   protected readonly chipOptions: Signal<ReadonlyMap<FacetId, readonly SelectOption<FacetValue>[]>> = computed(() => {
     this.#messages();
     const chips = this.rows().filter((row): row is ChipsRow => row.kind === FacetRowKind.Chips);
-    return new Map(
-      chips.map((row) => [
-        row.facet.id,
-        row.values.map(({ value, key, shown, count }) => ({
-          value,
-          label: this.#i18n.translate(FacetFilterMessage.Chip, {
-            value: key === undefined ? shown : this.#i18n.translate(key),
-            count: this.#format.number(count),
-          }),
-        })),
-      ]),
-    );
+    return new Map(chips.map((row) => [row.facet.id, row.values.map((chip) => this.#chipOption(chip))]));
   });
-
-  /** "Rarity", "Rarity: 2 picked" or "Level: limited". */
-  protected summaryKey(row: FacetRow): string {
-    if (row.kind === FacetRowKind.Chips) {
-      return row.selected.size === 0 ? FacetFilterMessage.Summary : FacetFilterMessage.SummaryPicked;
-    }
-    const open = row.min === undefined && row.max === undefined;
-    return open ? FacetFilterMessage.Summary : FacetFilterMessage.SummaryBounded;
-  }
 
   protected pickedCount(row: FacetRow): string {
     return this.#format.number(row.kind === FacetRowKind.Chips ? row.selected.size : 0);
@@ -83,7 +73,16 @@ export class FacetFilterView {
     this.state.set(withValues(this.state(), facet, values));
   }
 
-  protected bound(facet: FacetDefinition, side: RangeSide, value: number | undefined): void {
-    this.state.set(withBound(this.state(), facet, side, value));
+  protected bound(facet: FacetDefinition, side: RangeSide, shown: number | undefined): void {
+    this.state.set(withBound(this.state(), facet, { side, shown }));
+  }
+
+  #chipOption({ value, key, shown, count }: ChipValue): SelectOption<FacetValue> {
+    const name = key === undefined ? shown : this.#i18n.translate<string>(key);
+    const label = this.#i18n.translate<string>(FacetFilterMessage.Chip, {
+      value: name,
+      count: this.#format.number(count),
+    });
+    return { value, label };
   }
 }

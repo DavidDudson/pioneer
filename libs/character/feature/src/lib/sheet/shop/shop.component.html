@@ -1,0 +1,34 @@
+<fr-stack gap="md">
+  <fr-heading variant="subheading" [level]="3">{{ 'character.sheet.shop.heading' | transloco }}</fr-heading>
+  <fr-async-region [errorMessage]="'character.sheet.shop.loadError' | transloco">
+    <ng-template frAsyncPending><pio-shop-offers [offers]="undefined" /></ng-template>
+    <ng-template [frAsyncData]="items">
+      @if (content(); as content) {
+        <fr-stack gap="md">
+          <fr-search-input
+            [ariaLabel]="'character.sheet.shop.search' | transloco"
+            [placeholder]="'character.sheet.shop.search' | transloco"
+            (searched)="search($event)"
+          />
+          <fr-stack gap="xs">
+            <fr-stack direction="horizontal">
+              <fr-toggle-button [(value)]="everything">{{
+                'character.sheet.shop.everything' | transloco
+              }}</fr-toggle-button>
+            </fr-stack>
+            @if (!everything() && level() !== undefined) {
+              <fr-text element="p" variant="caption" tone="muted">{{
+                'character.sheet.shop.available' | transloco: { level: level() }
+              }}</fr-text>
+            }
+          </fr-stack>
+          <pio-facet-filter [counts]="list().counts" [state]="state()" (stateChange)="filter($event)" />
+          <pio-shop-offers [offers]="list().offers" [(picked)]="picked" />
+          @if (pickedItem(); as item) {
+            <pio-shop-gift [content]="content" [item]="item" (gifted)="cleared()" />
+          }
+        </fr-stack>
+      }
+    </ng-template>
+  </fr-async-region>
+</fr-stack>
