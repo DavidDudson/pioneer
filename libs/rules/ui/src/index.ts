@@ -15,6 +15,8 @@ export { type BuildLine, BuildPart, type BuildValue } from './lib/build-summary/
 export { BuildSummaryView } from './lib/build-summary/build-summary.component';
 export { type ClassFeatureLine } from './lib/class-features/class-feature-line';
 export { ClassFeaturesView } from './lib/class-features/class-features.component';
+export { type SpellcastingEntryLine } from './lib/spellcasting/spellcasting-entry-line';
+export { SpellcastingView } from './lib/spellcasting/spellcasting.component';
 export { type InventoryGroup, type InventoryLine, InventoryPlacement } from './lib/inventory/inventory-line';
 export { InventoryView } from './lib/inventory/inventory.component';
 export { type Investment, type InvestmentEffect } from './lib/inventory/investments/investment';

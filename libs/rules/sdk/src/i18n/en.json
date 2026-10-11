@@ -602,6 +602,15 @@
         "encumbered": "Encumbered",
         "overMaximum": "Over the maximum"
       }
+    },
+    "spellcasting": {
+      "none": "No spellcasting.",
+      "origin": "from {source}",
+      "preparation": {
+        "prepared": "Prepared",
+        "spontaneous": "Spontaneous",
+        "innate": "Innate"
+      }
     }
   }
 }

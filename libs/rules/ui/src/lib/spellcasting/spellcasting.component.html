@@ -1,0 +1,32 @@
+@if (entries(); as lines) {
+  @if (lines.length === 0) {
+    <fr-empty-state [title]="Message.None | transloco" />
+  } @else {
+    <fr-list gap="sm">
+      @for (entry of lines; track entry.key) {
+        <fr-list-item>
+          <fr-stack gap="2xs">
+            <fr-stack gap="none">
+              <fr-stack direction="horizontal" gap="xs" align="center" wrap>
+                <fr-text weight="semibold">{{ traditions[entry.tradition] | transloco }}</fr-text>
+                <fr-badge>{{ preparations[entry.preparation] | transloco }}</fr-badge>
+              </fr-stack>
+              <fr-text variant="caption" tone="subtle">{{
+                Message.Origin | transloco: { source: entry.source }
+              }}</fr-text>
+            </fr-stack>
+            <pio-statistics [statistics]="entry.statistics" [entryNames]="entryNames()" [originNames]="originNames()" />
+          </fr-stack>
+        </fr-list-item>
+      }
+    </fr-list>
+  }
+} @else {
+  <fr-list gap="sm">
+    @for (row of loadingRows; track row) {
+      <fr-list-item>
+        <fr-stack gap="2xs"><fr-skeleton width="sm" /><fr-skeleton width="md" /><fr-skeleton width="md" /></fr-stack>
+      </fr-list-item>
+    }
+  </fr-list>
+}
