@@ -216,7 +216,7 @@ version 3, #472). `inventory.coins` holds platinum, gold, silver and copper, eac
 - **Removing a container** moves what it held out to where the container was, so nothing inside is lost.
 - **Carrying.** `carry` is `worn`, `held` with `hands` (1 or 2), `stowed` (the default, and a new item's) or
   `dropped`. It lives on the item, as Foundry pf2e's `system.equipped` does, but stays a play-state field whose
-  owner depends on the sync mode ([ADR-0038](../adr/0037-item-carry-stored-on-inventory-items.md)).
+  owner depends on the sync mode ([ADR-0037](../adr/0037-item-carry-stored-on-inventory-items.md)).
   `carryItem { id, carry }` sets it: worn, held or dropped, an item comes out of its container; `moveItem` into a
   container stows it, and an item inside a container is always stowed. Removing a dropped
   container leaves what it held on the ground. The document holds no more than two hands' worth, and the server
