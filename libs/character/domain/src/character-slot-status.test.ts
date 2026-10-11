@@ -216,7 +216,7 @@ describe('characterSlots for voluntary flaws', () => {
     );
     expect(flaws[1]).toMatchObject({ status: SlotStatus.Invalid, reason: { key: 'rules.choices.invalid.notOffered' } });
     expect(flaws[2]).toMatchObject({ status: SlotStatus.Invalid, reason: { key: 'rules.choices.invalid.flawTaken' } });
-    const keys = slotsOf(builder).map((each) => each.key);
+    const keys: string[] = slotsOf(builder).map((each) => each.key);
     expect(keys.indexOf('flaw:1:ancestry:0')).toBeGreaterThan(keys.indexOf('boost:20:free:3'));
   });
 });

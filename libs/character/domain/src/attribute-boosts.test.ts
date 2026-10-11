@@ -157,7 +157,9 @@ describe('boostContent', () => {
 describe('flawSlots', () => {
   test('gives a voluntary flaw slot per attribute the ancestry doesn’t flaw already, each offering those', () => {
     const slots = flawSlots(dwarfFighter(1), BOOST_FIXTURES);
-    expect(slots.map((slot) => String(slot.key))).toStrictEqual([0, 1, 2, 3, 4].map((n) => `flaw:1:ancestry:${n}`));
+    expect(slots.map((slot) => String(slot.key))).toStrictEqual(
+      [0, 1, 2, 3, 4].map((index) => `flaw:1:ancestry:${index}`),
+    );
     expect(slots[0]?.options).not.toContain(Attribute.Charisma);
     const human = new CharacterBuilder()
       .withAncestry(AncestryId.parse(boostFixtureId('ancestry:human')))

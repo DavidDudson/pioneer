@@ -133,24 +133,15 @@ function flawRefusal({ slots, flaw }: FlawSlotIn, selection: ChoiceValue): SlotR
 }
 
 /**
- * Why `selection` can't go in `slot`, or undefined when it can. A boost slot takes an attribute its boost allows and
- * no other boost of its set raises; a voluntary flaw slot, one its ancestry and no other flaw lowers. Any other slot must be open at some level up to 20, and offer `selection` there.
- * The slot's own pick is left out, so it is checked as if empty; the other picks stay, so a slot an earlier pick
- * opened is found.
+ * Why `selection` can't go in `slot`, a root or `ChoiceSet` slot: it must be open at some level up to 20, and offer
+ * `selection` there. The slot's own pick is left out, so it is checked as if empty; the other picks stay, so a slot an
+ * earlier pick opened is found.
  */
-export function slotRefusal(
+function grantRefusal(
   document: CharacterDocument,
   content: SlotContent,
   { slot, selection }: SlotPick,
 ): SlotRefusal | undefined {
-  const boost = boostSlotIn(document, content.boosts, slot);
-  if (boost !== undefined) {
-    return boostRefusal(boost, selection);
-  }
-  const flaw = flawSlotIn(document, content.boosts, slot);
-  if (flaw !== undefined) {
-    return flawRefusal(flaw, selection);
-  }
   const others = Object.entries(document.build.choices).filter(([key]) => key !== slot);
   const context: SlotContext = {
     ...content,
@@ -165,6 +156,24 @@ export function slotRefusal(
     open ||= options !== undefined;
   }
   return open ? NOT_OFFERED : { field: SlotRefusalField.Slot, message: message('character.validation.slotNotOpen') };
+}
+
+/**
+ * Why `selection` can't go in `slot`, or undefined when it can. A boost slot takes an attribute its boost allows and
+ * no other boost of its set raises; a voluntary flaw slot, one neither its ancestry nor another flaw lowers. Any other
+ * slot must offer `selection` at some level up to 20.
+ */
+export function slotRefusal(
+  document: CharacterDocument,
+  content: SlotContent,
+  pick: SlotPick,
+): SlotRefusal | undefined {
+  const boost = boostSlotIn(document, content.boosts, pick.slot);
+  if (boost !== undefined) {
+    return boostRefusal(boost, pick.selection);
+  }
+  const flaw = flawSlotIn(document, content.boosts, pick.slot);
+  return flaw === undefined ? grantRefusal(document, content, pick) : flawRefusal(flaw, pick.selection);
 }
 
 /**

@@ -138,7 +138,7 @@ describe('placeFlaws', () => {
   test('the placed flaws lower their attributes', () => {
     const document = dwarf(1);
     const choices = placeFlaws(document, BOOST_FIXTURES, [CHA, DEX]);
-    const flawed = { ...document, build: { choices: { ...document.build.choices, ...choices } } };
+    const flawed = { ...document, build: { ...document.build, choices: { ...document.build.choices, ...choices } } };
     expect<number>(attributeModifiers(flawed, BOOST_FIXTURES).get(DEX)).toBe(-1);
   });
 });

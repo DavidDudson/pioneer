@@ -92,7 +92,7 @@ export function importedCharacter(
   const roots = rootChoices(value, content.lookup);
   const heritage = heritageChoice(value, content, create(roots).document);
   const picked = { ...roots, ...heritage.choices };
-  const document = create(picked).document;
+  const { document } = create(picked);
   const placement = placeBoosts(document, content.slots.boosts, value.boosts);
   const flaws = placeFlaws(document, content.slots.boosts, value.flaws);
   return {

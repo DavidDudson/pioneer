@@ -46,7 +46,7 @@ function characterOf({ ancestry, characterClass, level, chosen, flaws }: Generat
     .atLevel(level)
     .picking(BACKGROUND_SLOT, boostFixtureId('background:farmhand'))
     .picking(CLASS_SLOT, boostFixtureId(characterClass));
-  const document = base.build().document;
+  const { document } = base.build();
   const slots = [
     ...boostSlots(document, BOOST_FIXTURES).map((slot, index) => [slot.key, chosen[index]] as const),
     ...flawSlots(document, BOOST_FIXTURES).map((slot, index) => [slot.key, flaws[index]] as const),
