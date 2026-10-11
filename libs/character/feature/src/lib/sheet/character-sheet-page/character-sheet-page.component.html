@@ -3,68 +3,80 @@
     @if (store.importReport(); as report) {
       <pio-import-result [report]="report" (dismissed)="dismissImportReport()" />
     }
-    <fr-surface #identity>
-      <fr-stack gap="md">
-        <fr-heading variant="subheading" [level]="2">{{ 'character.sheet.identityHeading' | transloco }}</fr-heading>
-        <fr-grid [columns]="3">
-          <fr-inline-field [label]="'character.sheet.name' | transloco" [edit]="name">
-            <fr-text-input
-              frInlineEditor
-              [ariaLabel]="'character.sheet.name' | transloco"
-              [value]="name.draft()"
-              (valueChange)="name.change($event)"
-              (committed)="name.flushSoon()"
-              (cancelled)="name.cancel()"
-            />
-          </fr-inline-field>
-          <fr-inline-field [label]="'character.sheet.ancestry' | transloco" [edit]="ancestry">
-            <fr-select
-              frInlineEditor
-              [ariaLabel]="'character.sheet.ancestry' | transloco"
-              [options]="ancestries.options()"
-              [value]="ancestry.draft()"
-              (valueChange)="ancestry.change($event)"
-              (committed)="ancestry.flushSoon()"
-              (cancelled)="ancestry.cancel()"
-            />
-          </fr-inline-field>
-          <fr-inline-field [label]="'character.sheet.level' | transloco" [edit]="level">
+    <fr-section-index [label]="'character.sheet.sections' | transloco">
+      @for (section of sectionOrder; track section.anchor) {
+        <fr-section-link [anchor]="section.anchor">{{ section.headingKey | transloco }}</fr-section-link>
+      }
+    </fr-section-index>
+
+    <fr-section #identity [anchor]="sections.identity.anchor" [heading]="sections.identity.headingKey | transloco">
+      <fr-grid [columns]="3">
+        <fr-inline-field [label]="'character.sheet.name' | transloco" [edit]="name">
+          <fr-text-input
+            frInlineEditor
+            [ariaLabel]="'character.sheet.name' | transloco"
+            [value]="name.draft()"
+            (valueChange)="name.change($event)"
+            (committed)="name.flushSoon()"
+            (cancelled)="name.cancel()"
+          />
+        </fr-inline-field>
+        <fr-inline-field [label]="'character.sheet.ancestry' | transloco" [edit]="ancestry">
+          <fr-select
+            frInlineEditor
+            [ariaLabel]="'character.sheet.ancestry' | transloco"
+            [options]="ancestries.options()"
+            [value]="ancestry.draft()"
+            (valueChange)="ancestry.change($event)"
+            (committed)="ancestry.flushSoon()"
+            (cancelled)="ancestry.cancel()"
+          />
+        </fr-inline-field>
+        <fr-inline-field [label]="'character.sheet.level' | transloco" [edit]="level">
+          <fr-number-input
+            frInlineEditor
+            [ariaLabel]="'character.sheet.level' | transloco"
+            [min]="levelMin"
+            [max]="levelMax"
+            [value]="level.draft()"
+            (valueChange)="level.change($event)"
+            (committed)="level.flushSoon()"
+            (cancelled)="level.cancel()"
+          />
+        </fr-inline-field>
+      </fr-grid>
+    </fr-section>
+
+    <fr-section [anchor]="sections.attributes.anchor" [heading]="sections.attributes.headingKey | transloco">
+      <fr-grid
+        role="toolbar"
+        frRovingFocus="grid"
+        [attr.aria-label]="sections.attributes.headingKey | transloco"
+        [columns]="6"
+      >
+        @for (item of attributes; track item.attribute) {
+          <fr-inline-field frRovingFocusItem [label]="item.labelKey | transloco" [edit]="item.edit">
             <fr-number-input
               frInlineEditor
-              [ariaLabel]="'character.sheet.level' | transloco"
-              [min]="levelMin"
-              [max]="levelMax"
-              [value]="level.draft()"
-              (valueChange)="level.change($event)"
-              (committed)="level.flushSoon()"
-              (cancelled)="level.cancel()"
+              [ariaLabel]="item.labelKey | transloco"
+              [min]="modifierMin"
+              [max]="modifierMax"
+              [value]="item.edit.draft()"
+              (valueChange)="item.edit.change($event)"
+              (committed)="item.edit.flushSoon()"
+              (cancelled)="item.edit.cancel()"
             />
           </fr-inline-field>
-        </fr-grid>
-      </fr-stack>
-    </fr-surface>
+        }
+      </fr-grid>
+    </fr-section>
 
-    <fr-surface>
-      <fr-stack gap="md">
-        <fr-heading variant="subheading" [level]="2">{{ 'character.sheet.attributesHeading' | transloco }}</fr-heading>
-        <fr-grid [columns]="6">
-          @for (item of attributes; track item.attribute) {
-            <fr-inline-field [label]="item.labelKey | transloco" [edit]="item.edit">
-              <fr-number-input
-                frInlineEditor
-                [ariaLabel]="item.labelKey | transloco"
-                [min]="modifierMin"
-                [max]="modifierMax"
-                [value]="item.edit.draft()"
-                (valueChange)="item.edit.change($event)"
-                (committed)="item.edit.flushSoon()"
-                (cancelled)="item.edit.cancel()"
-              />
-            </fr-inline-field>
-          }
-        </fr-grid>
-      </fr-stack>
-    </fr-surface>
+    <fr-section [anchor]="sections.defences.anchor" [heading]="sections.defences.headingKey | transloco">
+      <fr-empty-state
+        [title]="'character.sheet.defencesEmpty' | transloco"
+        [description]="'character.sheet.defencesEmptyHint' | transloco"
+      />
+    </fr-section>
 
     @if (character(); as character) {
       <fr-text element="p" variant="caption" tone="subtle">

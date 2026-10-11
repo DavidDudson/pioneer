@@ -2,6 +2,8 @@
 export { AsyncButton } from './lib/actions/async-button/async-button.component';
 export { Button, ButtonType, ButtonVariant } from './lib/actions/button/button.component';
 export { Link, type LinkTarget } from './lib/actions/link/link.component';
+export { SectionIndex } from './lib/actions/section-index/section-index.component';
+export { SectionLink } from './lib/actions/section-link/section-link.component';
 export { Tab } from './lib/actions/tab/tab.component';
 export { Tabs } from './lib/actions/tabs/tabs.component';
 
@@ -77,6 +79,7 @@ export { Disclosure, DisclosureVariant } from './lib/layout/disclosure/disclosur
 export { Divider, DividerOrientation, DividerTone } from './lib/layout/divider/divider.component';
 export { Grid, GridAlign, GridColumns, GridMinItem, GridQuery } from './lib/layout/grid/grid.component';
 export { Page } from './lib/layout/page/page.component';
+export { Section } from './lib/layout/section/section.component';
 export { Shell } from './lib/layout/shell/shell.component';
 export { Stack, StackAlign, StackDirection, StackJustify } from './lib/layout/stack/stack.component';
 export { Surface, SurfaceVariant } from './lib/layout/surface/surface.component';

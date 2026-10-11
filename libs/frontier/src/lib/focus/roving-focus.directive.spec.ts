@@ -1,3 +1,4 @@
+import { ApplicationRef } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import type { ComponentFixture } from '@angular/core/testing';
 import { describe, expect, it } from 'vitest';
@@ -46,6 +47,12 @@ function press(rendered: Rendered, key: string, modifiers: KeyboardEventInit = {
   return rendered.buttons.indexOf(document.activeElement as HTMLButtonElement);
 }
 
+/** Runs change detection through the application, as the app does, so render hooks run too. */
+function rerender(rendered: Rendered): void {
+  rendered.fixture.componentRef.changeDetectorRef.markForCheck();
+  TestBed.inject(ApplicationRef).tick();
+}
+
 function focus(rendered: Rendered, index: number): void {
   rendered.buttons[index]?.focus();
   rendered.fixture.detectChanges();
@@ -80,6 +87,20 @@ describe(RovingFocus, () => {
     rendered.buttons[2]?.blur();
     rendered.fixture.detectChanges();
     expect(tabIndexes(rendered)).toStrictEqual(['-1', '0', '-1']);
+  });
+
+  it('skips an item with nothing to focus, then follows the control rendered in its place', () => {
+    const rendered = render(THREE);
+    const [, button] = rendered.buttons;
+    const item = button?.parentElement;
+    button?.remove();
+    rerender(rendered);
+    expect(item?.hasAttribute('tabindex')).toBe(false);
+
+    const replacement = document.createElement('button');
+    item?.append(replacement);
+    rerender(rendered);
+    expect([item?.hasAttribute('tabindex'), replacement.getAttribute('tabindex')]).toStrictEqual([false, '-1']);
   });
 
   it('wraps when asked', () => {

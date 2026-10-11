@@ -66,6 +66,14 @@ describe(Heading, () => {
     expect(loading.getAttribute('aria-busy')).toBe('true');
   });
 
+  it('takes an anchor id that a skip link can focus, and none otherwise', async () => {
+    const plain = await render({ level: HeadingLevel.Two });
+    const anchored = await render({ level: HeadingLevel.Two, anchor: 'identity' });
+    expect([plain.id, plain.hasAttribute('tabindex')]).toStrictEqual(['', false]);
+    expect([anchored.id, anchored.getAttribute('tabindex')]).toStrictEqual(['identity', '-1']);
+    expect([...anchored.classList]).toContain('focus-visible:focus-ring');
+  });
+
   it('is named "Loading" while busy, so a heading holding only a skeleton is never empty', async () => {
     const loading = await render({ level: HeadingLevel.One, busy: true });
     expect(loading.querySelector('.sr-only')?.textContent).toBe('Loading');

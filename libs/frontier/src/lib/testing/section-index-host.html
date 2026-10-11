@@ -1,0 +1,5 @@
+<fr-section-index [label]="label()">
+  @for (section of sections(); track section.anchor) {
+  <fr-section-link [anchor]="section.anchor">{{ section.label }}</fr-section-link>
+  }
+</fr-section-index>

@@ -40,11 +40,19 @@ export class RovingFocusItem {
     this.#hostSelected.set(source);
   }
 
-  /** The element that takes focus: the host itself, or the first focusable element it renders. */
+  /** The element that takes focus: the first focusable one it holds, else the host. */
   public target(): HTMLElement {
+    return this.focusable() ?? this.#host;
+  }
+
+  /**
+   * The element that can take focus now: the host when it is focusable itself, else the first focusable element it
+   * renders. `undefined` while it holds none, such as a skeleton standing in for a control that is still loading.
+   */
+  public focusable(): HTMLElement | undefined {
     if (this.#host.matches(FOCUSABLE)) {
       return this.#host;
     }
-    return this.#host.querySelector<HTMLElement>(FOCUSABLE) ?? this.#host;
+    return this.#host.querySelector<HTMLElement>(FOCUSABLE) ?? undefined;
   }
 }

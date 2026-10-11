@@ -12,6 +12,8 @@ export const LinkAppearance = {
   Inline: 'inline',
   /** One tab of `fr-tabs`: a touch-sized label, underlined only when current. Features use `fr-tab`. */
   Tab: 'tab',
+  /** One link of `fr-section-index`: inline-link look at touch height. Features use `fr-section-link`. */
+  Index: 'index',
 } as const;
 export type LinkAppearance = ValueOf<typeof LinkAppearance>;
 
@@ -21,6 +23,9 @@ const linkVariants = cva('focus-visible:focus-ring', {
       inline: 'text-accent-fg underline underline-offset-link hover:decoration-accent-fg',
       // Touch-sized; a tab's label never wraps, the tab row scrolls instead.
       tab: 'inline-flex h-touch items-center whitespace-nowrap px-sm text-label font-medium underline-offset-link pointer-fine:h-control-sm',
+      // Touch-sized like a tab, but reads as a link: the index wraps instead of scrolling.
+      index:
+        'inline-flex h-touch items-center text-accent-fg underline decoration-line-strong underline-offset-link hover:decoration-accent-fg pointer-fine:h-control-sm',
     } satisfies Record<LinkAppearance, string>,
     // The page being shown: the underline turns accent and thickens, so the cue is not colour alone.
     current: { true: 'decoration-accent-fg decoration-link-current', false: '' },
