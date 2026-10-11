@@ -96,7 +96,8 @@ export class Combobox<TValue extends string> extends Control {
   protected readonly text = linkedSignal<Picked<TValue>, string>({
     source: this.#shown,
     computation: (picked, previous) => {
-      if (picked.value === undefined) {
+      // Signal forms hold "nothing picked" as '', so a form reset to '' clears the text as undefined does.
+      if (picked.value === undefined || picked.value === '') {
         return '';
       }
       if (previous !== undefined && untracked(this.expanded)) {

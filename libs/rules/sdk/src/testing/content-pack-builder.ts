@@ -120,6 +120,12 @@ export class ContentPackBuilder {
     return this;
   }
 
+  /** An item of an equipment kind, slugged `<kind>:<name>`, with its kind's `data` (`{ bulk: 1, usage: ... }`). */
+  public withItem(kind: ContentKind, name: string, data: object): this {
+    this.#entries.push({ kind, name, data, level: 0 });
+    return this;
+  }
+
   public withNamespace(namespace: string, kind: NamespaceKind): this {
     this.#namespaces[namespace] = kind;
     return this;

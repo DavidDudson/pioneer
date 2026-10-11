@@ -1,0 +1,24 @@
+<fr-stack gap="lg">
+  <fr-async-region [errorMessage]="'character.sheet.inventory.loadError' | transloco">
+    <ng-template frAsyncPending><pio-inventory [groups]="undefined" /></ng-template>
+    <ng-template [frAsyncData]="items">
+      @if (content(); as content) {
+        <fr-stack gap="lg">
+          <pio-inventory [groups]="groups()" [actions]="itemEdits" />
+          <ng-template #itemEdits let-line
+            ><pio-item-edits
+              [id]="line.id"
+              [name]="line.name ?? ('rules.inventory.unknownItem' | transloco)"
+              [content]="content"
+          /></ng-template>
+          <fr-divider />
+          <pio-add-item [content]="content" />
+        </fr-stack>
+      }
+    </ng-template>
+  </fr-async-region>
+  <fr-stack gap="sm">
+    <fr-heading variant="subheading" [level]="3">{{ 'character.sheet.inventory.coinsHeading' | transloco }}</fr-heading>
+    <pio-coins-edit />
+  </fr-stack>
+</fr-stack>

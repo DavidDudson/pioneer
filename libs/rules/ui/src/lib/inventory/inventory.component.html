@@ -1,0 +1,24 @@
+@if (groups(); as groups) {
+  @if (groups.length === 0) {
+    <fr-empty-state [title]="Message.None | transloco" />
+  } @else {
+    <fr-stack gap="md">
+      @for (group of groups; track group.placement) {
+        <fr-stack gap="xs">
+          <fr-heading [level]="3">{{ placements[group.placement] | transloco }}</fr-heading>
+          <fr-list gap="sm">
+            @for (line of group.lines; track line.id) {
+              <fr-list-item><pio-inventory-row [line]="line" [actions]="actions()" /></fr-list-item>
+            }
+          </fr-list>
+        </fr-stack>
+      }
+    </fr-stack>
+  }
+} @else {
+  <fr-list gap="xs">
+    @for (row of loadingRows; track row) {
+      <fr-list-item><fr-skeleton width="md" /></fr-list-item>
+    }
+  </fr-list>
+}

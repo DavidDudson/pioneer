@@ -4,9 +4,10 @@ import * as z from 'zod';
 
 import { CURRENT_SCHEMA_VERSION, StoredCharacterDocument, upgradeDocument } from './character-document-upgrades';
 import { CharacterId, CharacterLevel, CharacterName } from './character-fields';
+import { EMPTY_INVENTORY, InventorySchema } from './inventory';
 
 /**
- * Nothing yet. Inventory (#28), play state (#38), boons and conditions (#39) and overrides (#34) widen these, each
+ * Nothing yet. Play state (#38), boons and conditions (#39) and overrides (#34) widen these, each
  * with a new schema version.
  */
 const Empty = z.strictObject({});
@@ -32,7 +33,7 @@ export const CharacterDocumentSchema = z.strictObject({
   /** Content the character draws on; campaign packs take precedence. */
   packs: z.array(PackId).readonly().default([]),
   build: BuildSchema.default({ choices: {}, boons: [] }),
-  inventory: Empty.default({}),
+  inventory: InventorySchema.default(EMPTY_INVENTORY),
   play: Empty.default({}),
   overrides: None.default([]),
   notes: RichText.default([]),

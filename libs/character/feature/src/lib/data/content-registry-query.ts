@@ -1,6 +1,9 @@
-import type { ContentLoader } from '@pioneer/rules/data-access';
+import { inject } from '@angular/core';
+import { ContentLoader } from '@pioneer/rules/data-access';
 import { ContentKind } from '@pioneer/rules/sdk';
 import type { ContentRegistry } from '@pioneer/rules/sdk';
+import { injectQuery } from '@tanstack/angular-query-experimental';
+import type { CreateQueryResult } from '@tanstack/angular-query-experimental';
 
 /**
  * The kinds every character page's registry holds: ancestries, heritages and backgrounds for the options and the
@@ -32,4 +35,10 @@ export function contentRegistryQuery(loader: ContentLoader, kinds: readonly Cont
     queryFn: async (): Promise<ContentRegistry> => loader.registry(kinds),
     staleTime: Number.POSITIVE_INFINITY,
   };
+}
+
+/** The registry of `kinds` as a query, in an injection context: the loader and the query in one call. */
+export function injectContentRegistry(kinds: readonly ContentKind[]): CreateQueryResult<ContentRegistry> {
+  const loader = inject(ContentLoader);
+  return injectQuery(() => contentRegistryQuery(loader, kinds));
 }

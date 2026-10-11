@@ -46,9 +46,9 @@ interface PlayState {
 ```
 
 The schema is `CharacterDocumentSchema` in `libs/character/domain`. It is strict: a field it doesn't name, such as a
-stored total, is rejected. `inventory`, `play`, `boons` and `overrides` start empty and gain their fields with the
-epics that own them ([#28](https://github.com/DavidDudson/pioneer/issues/28),
-[#38](https://github.com/DavidDudson/pioneer/issues/38), [#39](https://github.com/DavidDudson/pioneer/issues/39),
+stored total, is rejected. `inventory` holds items and coins ([Inventory](#inventory)). `play`, `boons` and
+`overrides` start empty and gain their fields with the epics that own them
+([#38](https://github.com/DavidDudson/pioneer/issues/38), [#39](https://github.com/DavidDudson/pioneer/issues/39),
 [#34](https://github.com/DavidDudson/pioneer/issues/34)). A selection is a `ChoiceValue`: a content id or a slug.
 
 ### Schema versions
@@ -150,6 +150,28 @@ earliest planned level at which another dedication becomes legal. The Plan tab s
 1 of 2 feats before your next dedication") and marks the level where the lock clears. A planned dedication above
 that level is valid; one below it is flagged at its level like any other invalid plan. Free Archetype adds slots
 but doesn't change the lock.
+
+## Inventory
+
+`inventory.items` lists what the character carries (schema version 2, #471). Each item is an `InventoryItemId`, the
+content it is (`ContentId` of an armour, consumable, equipment, shield, treasure or weapon entry), a quantity, the
+item it is stowed in, if any, and the player's name for it, if any. `inventory.coins` holds platinum, gold, silver
+and copper, each 0 or more.
+
+- **Containers.** An item can go in another item whose content is equipment with a `container` (a backpack), and
+  containers nest. The document refuses an item in one it hasn't and containers that hold each other.
+- **Commands.** `addItem { item, quantity, container? }` (the server gives the item its id), `removeItem { id }`,
+  `setItemQuantity`, `moveItem { id, container? }` (no container takes it out), `renameItem { id, name? }` (no name
+  goes back to the content's) and `setCoins { coins }`. Each is a PATCH audited by name. The server refuses an item
+  the character hasn't (`character.validation.itemNotFound`), a container that isn't there
+  (`containerNotFound`), one inside itself or something it holds (`containerInsideItself`), content no loaded pack
+  has as an item (`unknownItem`) and stowing in an item that holds nothing (`notAContainer`).
+- **Removing a container** moves what it held out to where the container was, so nothing inside is lost.
+- **Grouping.** The sheet lists loose items worn, held or stowed and each container's contents beneath it. Until
+  wield, wear and invest arrive ([#472](https://github.com/DavidDudson/pioneer/issues/472)), where an item sits comes
+  from its content: armour is worn, a shield held, otherwise its `usage` (worn or held), and everything else is
+  stowed. Anything inside a container is stowed. Bulk totals and encumbrance are
+  [#473](https://github.com/DavidDudson/pioneer/issues/473).
 
 ## Shop
 

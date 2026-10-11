@@ -1,0 +1,47 @@
+<fr-stack gap="xs">
+  <fr-grid [columns]="3">
+    <fr-inline-field [label]="'character.sheet.inventory.quantityOf' | transloco: { name: name() }" [edit]="quantity">
+      <fr-number-input
+        frInlineEditor
+        [ariaLabel]="'character.sheet.inventory.quantityOf' | transloco: { name: name() }"
+        [min]="1"
+        [value]="quantity.draft()"
+        (valueChange)="quantity.change($event)"
+        (committed)="quantity.flushSoon()"
+        (cancelled)="quantity.cancel()"
+      />
+    </fr-inline-field>
+    <fr-inline-field [label]="'character.sheet.inventory.nameOf' | transloco: { name: name() }" [edit]="rename">
+      <fr-text-input
+        frInlineEditor
+        [ariaLabel]="'character.sheet.inventory.nameOf' | transloco: { name: name() }"
+        [placeholder]="'character.sheet.inventory.namePlaceholder' | transloco"
+        [value]="rename.draft()"
+        (valueChange)="rename.change($event)"
+        (committed)="rename.flushSoon()"
+        (cancelled)="rename.cancel()"
+      />
+    </fr-inline-field>
+    <fr-inline-field [label]="'character.sheet.inventory.placeOf' | transloco: { name: name() }" [edit]="place">
+      <fr-select
+        frInlineEditor
+        [ariaLabel]="'character.sheet.inventory.placeOf' | transloco: { name: name() }"
+        [options]="places()"
+        [value]="place.draft()"
+        (valueChange)="place.change($event)"
+        (committed)="place.flushSoon()"
+        (cancelled)="place.cancel()"
+      />
+    </fr-inline-field>
+  </fr-grid>
+  <fr-stack direction="horizontal" justify="end">
+    <fr-async-button
+      size="sm"
+      [action]="remove"
+      [confirmLabel]="lossy() ? ('character.sheet.inventory.removeConfirm' | transloco: { name: name() }) : undefined"
+      [pendingLabel]="'character.sheet.inventory.removing' | transloco"
+    >
+      {{ 'character.sheet.inventory.remove' | transloco: { name: name() } }}
+    </fr-async-button>
+  </fr-stack>
+</fr-stack>

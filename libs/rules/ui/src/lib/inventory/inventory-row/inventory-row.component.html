@@ -1,0 +1,24 @@
+<fr-stack gap="xs">
+  <fr-stack direction="horizontal" gap="xs" align="center" wrap>
+    <fr-text weight="medium" [tone]="shown().nameTone">{{ shown().name ?? (Message.UnknownItem | transloco) }}</fr-text>
+    @if (line().contentName; as contentName) {
+      <fr-text tone="subtle">{{ Message.ContentName | transloco: { name: contentName } }}</fr-text>
+    }
+    <fr-text>{{ Message.Quantity | transloco: { quantity: shown().quantity } }}</fr-text>
+    @if (shown().bulk; as bulk) {
+      <fr-text variant="caption" tone="subtle">{{
+        bulk.key | transloco: { bulk: bulk.value.key | transloco: bulk.value.params, count: bulk.per }
+      }}</fr-text>
+    }
+  </fr-stack>
+  @if (actions(); as template) {
+    <ng-container [ngTemplateOutlet]="template" [ngTemplateOutletContext]="{ $implicit: line() }" />
+  }
+  @if (line().contents.length > 0) {
+    <fr-list gap="xs" markers>
+      @for (inside of line().contents; track inside.id) {
+        <fr-list-item><pio-inventory-row [line]="inside" [actions]="actions()" /></fr-list-item>
+      }
+    </fr-list>
+  }
+</fr-stack>

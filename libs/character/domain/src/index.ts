@@ -41,7 +41,15 @@ export {
   CharacterLevel,
   CharacterName,
 } from './character-fields';
-export { type CharacterPatch, CharacterPatchField, CharacterPatchSchema, PatchCharacterBody } from './character-patch';
+export {
+  type CharacterPatch,
+  CharacterPatchField,
+  CharacterPatchSchema,
+  type InventoryPatch,
+  type InventoryTarget,
+  inventoryTarget,
+  PatchCharacterBody,
+} from './character-patch';
 export {
   type Build,
   BuildSchema,
@@ -58,3 +66,40 @@ export {
   upgradeDocument,
   type UpgradeStep,
 } from './character-document-upgrades';
+export {
+  addItem,
+  CoinAmount,
+  type Coins,
+  CoinsSchema,
+  EMPTY_INVENTORY,
+  INVENTORY_ITEM_NAME_MAX_LENGTH,
+  INVENTORY_ITEMS_MAX,
+  type Inventory,
+  type InventoryEdit,
+  type InventoryItem,
+  InventoryItemId,
+  InventoryItemName,
+  InventoryItemSchema,
+  type InventoryRefusal,
+  InventoryRefusalField,
+  inventoryRefusal,
+  InventorySchema,
+  ItemQuantity,
+  moveItem,
+  type NewItem,
+  removeItem,
+  renameItem,
+  setItemQuantity,
+} from './inventory';
+export {
+  INVENTORY_KINDS,
+  type InventoryKind,
+  isContainer,
+  type ItemContent,
+  itemContent,
+  type ItemEdit,
+  type ItemEntry,
+  ItemPlacement,
+  itemPlacement,
+  itemRefusal,
+} from './inventory-content';

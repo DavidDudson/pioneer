@@ -1,0 +1,15 @@
+<fr-grid [columns]="4">
+  @for (field of fields; track field.coin) {
+    <fr-inline-field [label]="field.label | transloco" [edit]="field.edit">
+      <fr-number-input
+        frInlineEditor
+        [ariaLabel]="field.label | transloco"
+        [min]="0"
+        [value]="field.edit.draft()"
+        (valueChange)="field.edit.change($event)"
+        (committed)="field.edit.flushSoon()"
+        (cancelled)="field.edit.cancel()"
+      />
+    </fr-inline-field>
+  }
+</fr-grid>

@@ -554,6 +554,22 @@
         "huge": "Huge",
         "gargantuan": "Gargantuan"
       }
+    },
+    "inventory": {
+      "none": "Nothing carried yet.",
+      "placement": {
+        "worn": "Worn",
+        "held": "Held",
+        "stowed": "Stowed"
+      },
+      "quantity": "× {quantity}",
+      "bulk": "Bulk {bulk}",
+      "bulkPer": "Bulk {bulk} per {count}",
+      "bulkCount": "{count}",
+      "bulkLight": "L",
+      "bulkNegligible": "—",
+      "contentName": "({name})",
+      "unknownItem": "An item no loaded content has"
     }
   }
 }

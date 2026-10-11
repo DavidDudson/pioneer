@@ -46,16 +46,15 @@ import {
   Text,
   TextInput,
 } from '@pioneer/frontier';
-import { ContentLoader } from '@pioneer/rules/data-access';
 import { AncestryId, ChoiceValue } from '@pioneer/rules/sdk';
 import type { ContentId, SlotKey } from '@pioneer/rules/sdk';
 import { AttributesView, BuildSummaryView, ChoicesView, DefencesView, StatisticsView } from '@pioneer/rules/ui';
-import { injectQuery } from '@tanstack/angular-query-experimental';
 
 import { AncestryOptions } from '../../data/ancestry-options';
 import { CharacterStore } from '../../data/character-store';
-import { CHARACTER_CONTENT_KINDS, contentRegistryQuery } from '../../data/content-registry-query';
+import { CHARACTER_CONTENT_KINDS, injectContentRegistry } from '../../data/content-registry-query';
 import { ImportResult } from '../../import/import-result/import-result.component';
+import { InventorySection } from '../inventory/inventory-section/inventory-section.component';
 import { sheetAttributes } from '../sheet-attributes';
 import { NOT_CHOSEN, RootPick, sheetBuildSummary, sheetRootOptions } from '../sheet-build';
 import { sheetChoices } from '../sheet-choices';
@@ -93,6 +92,7 @@ function focusField(field: ElementRef<HTMLElement>): void {
     ImportResult,
     Message,
     InlineField,
+    InventorySection,
     NumberInput,
     Page,
     Section,
@@ -115,7 +115,6 @@ export class CharacterSheetPage {
   public readonly id = input.required({ transform: (id: string): CharacterId => CharacterId.parse(id) });
 
   readonly #injector = inject(Injector);
-  readonly #content = inject(ContentLoader);
   readonly #i18n = inject(TranslocoService);
   private readonly identity = viewChild.required<string, ElementRef<HTMLElement>>('identity', { read: ElementRef });
   private readonly ancestryField = viewChild.required<string, ElementRef<HTMLElement>>('ancestryField', {
@@ -133,7 +132,7 @@ export class CharacterSheetPage {
   protected readonly sectionOrder = SHEET_SECTION_ORDER;
   protected readonly title = computed(() => this.character()?.name);
   /** The registry the engine reads, shared with the ancestry options, so it loads once. */
-  protected readonly registry = injectQuery(() => contentRegistryQuery(this.#content, CHARACTER_CONTENT_KINDS));
+  protected readonly registry = injectContentRegistry(CHARACTER_CONTENT_KINDS);
   protected readonly attributeView = computed(() => {
     const registry = this.registry.data();
     const character = this.character();
