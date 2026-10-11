@@ -44,6 +44,7 @@ export const RulesMessage = {
   SpellAgainst: 'rules.spell.against',
   SpellDurationOwner: 'rules.spell.durationOwner',
   EffectBadgeRange: 'rules.effect.badgeRange',
+  TriggerAutoApplyWithoutEvent: 'rules.trigger.autoApplyWithoutEvent',
   ItemPriceEmpty: 'rules.item.priceEmpty',
   RuneEtchedOnto: 'rules.rune.etchedOnto',
   RuneGrade: 'rules.rune.grade',

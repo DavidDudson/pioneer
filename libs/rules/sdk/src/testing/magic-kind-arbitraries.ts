@@ -28,7 +28,7 @@ import {
 } from '../spell-casting';
 import { SPELL_RANK_MAX } from '../spell-rank';
 import { MagicTradition } from '../spellcasting-tradition';
-import { saveSelectorText, skillSelectorText } from './arbitraries';
+import { saveSelectorText, skillSelectorText, withTrigger } from './arbitraries';
 import { damageType, LIST_MAX, positive, slugText, smallint, withOptional } from './json-arbitraries';
 import { damageFormulaText, richTextJson } from './rich-text-arbitraries';
 
@@ -229,7 +229,10 @@ const effectDuration: Arbitrary<object> = oneof(
   constant({ type: EffectDurationType.Unlimited }),
 );
 
-export const effectData: Arbitrary<object> = withOptional(
+const untriggeredEffect: Arbitrary<object> = withOptional(
   record({ category: effectCategory, duration: effectDuration }),
-  { badge: oneof(counterBadge, formulaBadge) },
+  {
+    badge: oneof(counterBadge, formulaBadge),
+  },
 );
+export const effectData: Arbitrary<object> = withTrigger(untriggeredEffect);

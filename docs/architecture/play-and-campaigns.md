@@ -16,6 +16,8 @@ interface ActionData {
   modes: readonly ('encounter' | 'exploration' | 'downtime')[];
   requirements?: Predicate; // e.g. wielding a shield, not prone
   trigger?: RichText; // reactions and free actions
+  triggerEvent?: { event: TriggerEventType; predicate?: Predicate }; // what the engine matches
+  autoApply?: false; // always prompt
   frequency?: Frequency; // once per round, once per day, ...
   minimumProficiency?: { selector: Selector; rank: Proficiency }; // trained-only skill actions
   roll?: { statistic: Selector; against?: DcRef }; // Demoralize: Intimidation vs Will DC
@@ -95,10 +97,11 @@ by cost.
 
 An ability that fires on an event ("after you cast a focus spell", "when you Strike", "at the start of your turn")
 needs a structured trigger, since `trigger` is rich text. Actions and effects gain an optional `triggerEvent`
-(`turn-start`, `turn-end`, `cast-spell` with a predicate such as `trait:focus`, `strike`, `damage-taken`, ...) that
-the engine matches against turn events; the rich text stays as the displayed wording. Foundry has no such field, so
-a matcher over the trigger text fills it, during a pack's import or as a pass over the committed packs (ADR-0031),
-and corrections are edits to the packs; entries without a `triggerEvent` show in the coverage report. An ability
+(`initiative`, `turn-start`, `turn-end`, `cast-spell` with a predicate such as `item:trait:focus`, `strike`,
+`damage-taken`) that the engine matches against turn events; the rich text stays as the displayed wording
+(content-model.md, "Trigger events"). Foundry has no such field, so a matcher over the trigger text fills it with
+`bun run content:triggers`, a pass over the committed packs (ADR-0031), and corrections are edits to the packs;
+actions with a trigger but no `triggerEvent` show in the coverage report. An ability
 without a `triggerEvent` is never prompted or applied; it stays in the action lists for the player to use by hand.
 
 When an event fires, the matching abilities are collected:

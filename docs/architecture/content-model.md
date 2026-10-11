@@ -60,15 +60,15 @@ Each kind's `data` follows what Foundry pf2e stores for it, in Pioneer's words. 
 in its `rules`, not repeated in `data`; a condition's `implies` is the one exception, below. Schemas live in
 `libs/rules/sdk`, registered in `kind-data.ts`.
 
-| Kind           | `data`                                                                                                             |
-| -------------- | ------------------------------------------------------------------------------------------------------------------ |
-| `condition`    | `valued`; `group?`, Foundry's sheet grouping, which says nothing about stacking; `overrides`; `implies`            |
-| `action`       | `cost?`; `upTo?`; `skills?`; `category?`; `requirements?` and `trigger?` as rich text; `frequency?`; `selfEffect?` |
-| `damage-type`  | none yet; a type's group stays in `DAMAGE_GROUP_TYPES`, as Foundry keeps it in code                                |
-| `sense`        | `acuity?`, the acuity the sense always has; `unlimitedRange?` (darkvision)                                         |
-| `trait`        | `appliesTo`: each kind that carries it once, from the Foundry trait list it sits in                                |
-| `language`     | none yet; rarity is the envelope's                                                                                 |
-| `variant-rule` | none yet; what it changes is in `rules`, applied to every character in a campaign that enables it                  |
+| Kind           | `data`                                                                                                                                            |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `condition`    | `valued`; `group?`, Foundry's sheet grouping, which says nothing about stacking; `overrides`; `implies`                                           |
+| `action`       | `cost?`; `upTo?`; `skills?`; `category?`; `requirements?` and `trigger?` as rich text; `triggerEvent?`; `autoApply?`; `frequency?`; `selfEffect?` |
+| `damage-type`  | none yet; a type's group stays in `DAMAGE_GROUP_TYPES`, as Foundry keeps it in code                                                               |
+| `sense`        | `acuity?`, the acuity the sense always has; `unlimitedRange?` (darkvision)                                                                        |
+| `trait`        | `appliesTo`: each kind that carries it once, from the Foundry trait list it sits in                                                               |
+| `language`     | none yet; rarity is the envelope's                                                                                                                |
+| `variant-rule` | none yet; what it changes is in `rules`, applied to every character in a campaign that enables it                                                 |
 
 - `condition`: `valued` says whether it takes a value (Frightened 2) or not (Blinded). `group` is one of
   `abilities`, `attitudes`, `death`, `detection`, `senses`. `overrides` lists the conditions it replaces
@@ -77,7 +77,14 @@ in its `rules`, not repeated in `data`; a condition's `implies` is the one excep
   picking how many: a count above a `one`, `two` or `three` cost, at most six, as an activity can span two turns.
   `skills` are the skills it uses, by selector (`skill:athletics`). `frequency` is `max` uses `per` turn, round,
   minute, ten minutes, hour, 24 hours, day, week, month or year. `selfEffect` is the effect it applies to
-  the user, by `ContentId`.
+  the user, by `ContentId`. `triggerEvent` and `autoApply` are below.
+- **Trigger events.** An action or effect that fires on an event has a `triggerEvent`: an `event` (`initiative`,
+  `turn-start`, `turn-end`, `cast-spell`, `strike`, `damage-taken`), each from the point of view of the character it
+  belongs to, and an optional `predicate` over the event's roll options. The spell cast or the weapon used is the
+  event's `item`, as in Foundry, so "you cast a focus spell" is `cast-spell` with `item:trait:focus`. The rich text
+  `trigger` stays the wording shown. `autoApply: false` makes a free, beneficial ability prompt rather than apply at
+  once, and needs a `triggerEvent` (play-and-campaigns.md, "Triggered abilities"). A feat or class feature that is an
+  action carries both on its `action`.
 
 Two checks span fields: a reaction needs a `trigger`, and every condition in `implies` needs a `GrantItem` of it in
 `rules` with no predicate. Foundry applies implied conditions (Grabbed's Off-Guard and Immobilized) with
@@ -137,12 +144,12 @@ structures, and the importer reports a spell whose text doesn't map
 ([ADR-0021](../adr/0021-structured-spell-casting-fields.md)). Rule elements on a spell are rare: what it does beyond
 its damage is its description, and the effects it applies are `effect` entries.
 
-| Kind                     | `data`                                                                                                      |
-| ------------------------ | ----------------------------------------------------------------------------------------------------------- |
-| `spell`                  | casting fields; `traditions`; `damage`; `heightening?`; `counteraction?`                                    |
-| `ritual`                 | casting fields; `primary` check; `secondary` checks and `casters`                                           |
-| `spellcasting-tradition` | `skill`, the skill that recalls and identifies its magic (`skill:arcana`)                                   |
-| `effect`                 | `category`, `spell`, `feat`, `equipment` or `other` (a GM's); `duration`; `badge?`; level is the envelope's |
+| Kind                     | `data`                                                                                                                                                         |
+| ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `spell`                  | casting fields; `traditions`; `damage`; `heightening?`; `counteraction?`                                                                                       |
+| `ritual`                 | casting fields; `primary` check; `secondary` checks and `casters`                                                                                              |
+| `spellcasting-tradition` | `skill`, the skill that recalls and identifies its magic (`skill:arcana`)                                                                                      |
+| `effect`                 | `category`, `spell`, `feat`, `equipment` or `other` (a GM's); `duration`; `badge?`; `triggerEvent?` and `autoApply?`, as on an action; level is the envelope's |
 
 - **Casting fields.** `rank` 1 to 10. `time` is `actions` with a glyph `cost`, and `upTo` for a range ("one to
   three actions", Heal), or `time` with a `count` of rounds to years ("3 days"). `range?` is feet, `touch`,
@@ -504,14 +511,20 @@ flowchart LR
   provenance for the Legal page and NOTICE.md. The backlog in the same file holds only selected entries' items, with
   art references stripped, and is never seeded, served or bundled.
 - **Coverage report.** Per kind, over the committed packs and their backlog: entries, entries with nothing left in
-  the backlog, entries with page numbers, entries with AoN URLs. CI reports it on PRs touching `content/` and never
-  fails on it. Milestone exit criteria are written against these numbers.
+  the backlog, entries with page numbers, entries with AoN URLs, and actions with a `trigger` but no `triggerEvent`.
+  CI reports it on PRs touching `content/` and never fails on it. Milestone exit criteria are written against these numbers.
 - **Ids.** Our ids stay UUIDv5 of `<pack>/<slug>`. The Foundry compendium UUID goes in `externalIds.foundry`,
   which is what makes Foundry export possible.
 - **Source enrichment.** Foundry has the book title but no page numbers or AoN links. They are added to the
   committed packs after the import, from a matcher over AoN's listing data and by hand. The method of obtaining
   AoN data must respect their terms; this is an open question tracked in the roadmap. Until resolved, entries ship
   with the book reference and whatever page or URL is known, and the coverage report shows the gap.
+- **Trigger enrichment.** Foundry's triggers are text only. `bun run content:triggers` sets `triggerEvent` on every
+  action, feat action and class feature action in the committed packs whose whole trigger matches a known wording
+  ("Your turn begins.", "You cast a focus spell.") and that has none yet, so a hand correction is never
+  overwritten. An action with `requirements` is skipped, since the engine can't read them; its event and a predicate
+  for them are set by hand. A trigger with any other wording, or anything richer than words and links, is left for a
+  hand edit and listed by the coverage report.
 
 ## Licensing
 
