@@ -17,6 +17,7 @@ import type { BadgeTone } from '@pioneer/frontier';
 import type { CharacterImportReport, ImportKind } from '@pioneer/interop/pathbuilder';
 import { filter, merge } from 'rxjs';
 
+import { ImportBoostReport } from '../import-boost-report/import-boost-report.component';
 import { KIND_KEYS, STATUS_KEYS, STATUS_TONES, UNCARRIED_KEYS } from '../import-labels';
 
 /** One name that was not carried over, as the list shows it. */
@@ -37,7 +38,7 @@ interface GroupView {
 /** What a Pathbuilder import left behind, shown on the new character until the viewer dismisses it. */
 @Component({
   selector: 'pio-import-result',
-  imports: [Badge, Button, Disclosure, Heading, List, ListItem, Stack, Surface, Text, TranslocoPipe],
+  imports: [Badge, Button, Disclosure, Heading, ImportBoostReport, List, ListItem, Stack, Surface, Text, TranslocoPipe],
   templateUrl: './import-result.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

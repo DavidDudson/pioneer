@@ -16,6 +16,8 @@ import { describe, expect, it, vi } from 'vitest';
 import en from '../../../i18n/en.json';
 import { ImportResult } from './import-result.component';
 
+const EMPTY: CharacterImportReport = { unmatched: [], notCarried: [], unplacedBoosts: [], modifierDifferences: [] };
+
 async function render(report: CharacterImportReport): Promise<ComponentFixture<ImportResult>> {
   TestBed.configureTestingModule({ providers: [provideI18n({ en: async () => frontierMessages })] });
   TestBed.inject(TranslocoService).setTranslation({ character: en }, 'en', { merge: true });
@@ -45,6 +47,8 @@ describe(ImportResult, () => {
         },
       ],
       notCarried: [UncarriedField.Feat, UncarriedField.Lore],
+      unplacedBoosts: [],
+      modifierDifferences: [],
     });
 
     expect(text(fixture)).toContain("weren't kept: Feats and Lores");
@@ -55,14 +59,15 @@ describe(ImportResult, () => {
   });
 
   it('says everything matched and leaves out the not-kept line when nothing was left behind', async () => {
-    const fixture = await render({ unmatched: [], notCarried: [] });
+    const fixture = await render(EMPTY);
 
     expect(text(fixture)).toContain('Every name matched content you have loaded.');
     expect(text(fixture)).not.toContain("weren't kept");
+    expect(text(fixture)).toContain("Every attribute modifier matches Pathbuilder's.");
   });
 
   it('emits dismissed when Dismiss is pressed', async () => {
-    const fixture = await render({ unmatched: [], notCarried: [] });
+    const fixture = await render(EMPTY);
     const dismissed = vi.fn<() => void>();
     fixture.componentInstance.dismissed.subscribe(() => {
       dismissed();
