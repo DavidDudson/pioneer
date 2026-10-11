@@ -5,6 +5,10 @@ import type { MagicTradition as Tradition, SpellPreparation as Preparation } fro
 export const SpellcastingMessage = {
   None: 'rules.spellcasting.none',
   Origin: 'rules.spellcasting.origin',
+  Slots: 'rules.spellcasting.slots',
+  PoolSlots: 'rules.spellcasting.poolSlots',
+  Cantrips: 'rules.spellcasting.cantrips',
+  Rank: 'rules.spellcasting.rank',
 } as const;
 
 /** Each tradition's name. */

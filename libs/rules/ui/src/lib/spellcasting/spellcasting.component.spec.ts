@@ -3,7 +3,7 @@ import type { ComponentFixture } from '@angular/core/testing';
 import { describe, expect, it } from 'vitest';
 
 import { provideRulesUiI18nTesting } from '../testing/provide-rich-text-testing';
-import { MULTICLASS_SPELLCASTING, WIZARD_SPELLCASTING } from '../testing/spellcasting-fixtures';
+import { CLERIC_SPELLCASTING, MULTICLASS_SPELLCASTING, WIZARD_SPELLCASTING } from '../testing/spellcasting-fixtures';
 import type { SpellcastingEntryLine } from './spellcasting-entry-line';
 import { SpellcastingView } from './spellcasting.component';
 
@@ -21,17 +21,38 @@ function textOf(element: Element): string {
   return element.textContent.replaceAll(/\s+/gu, ' ').trim();
 }
 
+/** The entries' own list items, leaving out those of their statistics and slot lists. */
+function entryItems(host: HTMLElement): Element[] {
+  return [...host.querySelectorAll('fr-list-item')].filter(
+    (item) => item.closest('pio-statistics') === null && item.closest('fr-description-list') === null,
+  );
+}
+
 function hostOf(fixture: ComponentFixture<SpellcastingView>): HTMLElement {
   return fixture.nativeElement as HTMLElement;
 }
 
-/** Each entry's heading texts: tradition, preparation, then where it came from, leaving its statistics out. */
+/** Each entry's heading texts: tradition, preparation, then where it came from, leaving its statistics and slots out. */
 function headings(host: HTMLElement): string[][] {
-  const entries = [...host.querySelectorAll('fr-list-item')].filter((item) => item.closest('pio-statistics') === null);
-  return entries.map((item) =>
-    [...item.querySelectorAll('fr-heading, fr-text, fr-badge')]
-      .filter((part) => part.closest('pio-statistics') === null)
-      .map((part) => textOf(part)),
+  return entryItems(host).map((item) =>
+    [...(item.querySelector(':scope fr-stack fr-stack')?.querySelectorAll('fr-heading, fr-text, fr-badge') ?? [])].map(
+      (part) => textOf(part),
+    ),
+  );
+}
+
+/** A slot list's title, then each row as its term and count. */
+function slotList(list: Element): string[] {
+  const rows = [...list.querySelectorAll('fr-description-item')].map((row) =>
+    [...row.querySelectorAll('[role=term], [role=definition]')].map((part) => textOf(part)).join(' '),
+  );
+  return [textOf(present(list.previousElementSibling)), ...rows];
+}
+
+/** Each entry's slot lists. */
+function slotLists(host: HTMLElement): string[][][] {
+  return entryItems(host).map((item) =>
+    [...item.querySelectorAll('fr-description-list')].map((list) => slotList(list)),
   );
 }
 
@@ -75,6 +96,29 @@ describe(SpellcastingView, () => {
 
     const breakdown = present(dc.querySelector('pio-breakdown'));
     expect(textOf(breakdown)).toContain('@stat.spell-attack');
+  });
+
+  it('lists each entry’s cantrips and slots per rank, then each pool of slots kept apart', async () => {
+    const host = hostOf(await render(CLERIC_SPELLCASTING));
+
+    expect(slotLists(host)).toStrictEqual([
+      [
+        ['Spell slots', 'Cantrips 5', '1st rank 3', '2nd rank 3', '3rd rank 3', '4th rank 2'],
+        ['Divine Font slots', '4th rank 5'],
+      ],
+    ]);
+  });
+
+  it('lists a dedication’s cantrips alone, and a pool by what gave it', async () => {
+    const host = hostOf(await render(MULTICLASS_SPELLCASTING));
+
+    expect(slotLists(host)).toStrictEqual([
+      [['Spell slots', 'Cantrips 2']],
+      [
+        ['Spell slots', 'Cantrips 5', '1st rank 2'],
+        ['School of Battle Magic slots', 'Cantrips 1', '1st rank 1'],
+      ],
+    ]);
   });
 
   it('says there is none for a character who casts no spells', async () => {

@@ -16,6 +16,10 @@
               }}</fr-text>
             </fr-stack>
             <pio-statistics [statistics]="entry.statistics" [entryNames]="entryNames()" [originNames]="originNames()" />
+            <pio-spell-slots [title]="Message.Slots | transloco" [slots]="entry.slots" />
+            @for (pool of entry.pools; track pool.key) {
+              <pio-spell-slots [title]="Message.PoolSlots | transloco: { source: pool.source }" [slots]="pool.slots" />
+            }
           </fr-stack>
         </fr-list-item>
       }
