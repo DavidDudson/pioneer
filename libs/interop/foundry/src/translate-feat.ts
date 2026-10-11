@@ -61,7 +61,7 @@ function tagsOf(system: FoundryFeatSystem, { log }: KindInput): object {
     }
     return slug.success ? [slug.data] : [];
   });
-  return tags.length === 0 ? {} : { tags };
+  return tags.length === 0 ? {} : { tags: [...new Set(tags)] };
 }
 
 /** A passive feat with nothing an action carries: no `action` data. */

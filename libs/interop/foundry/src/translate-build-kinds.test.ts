@@ -174,13 +174,6 @@ describe('translateKindData: classes', () => {
     });
   });
 
-  test('a Player Core class names its subclass by the tag its options carry; a fighter has none', () => {
-    const cleric = translate([{ ...FIGHTER, name: 'Cleric' }]);
-
-    expect(dataIn(cleric, 'cleric')).toMatchObject({ subclass: 'cleric-doctrine' });
-    expect(dataIn(translation, 'fighter')).not.toHaveProperty('subclass');
-  });
-
   test("a class's starting ranks are Proficiency elements, class DC trained, untrained left out", () => {
     expect(ranksIn(translation, 'fighter')).toEqual([
       ['perception', 'expert'],

@@ -19,11 +19,9 @@ export {
   characterRanks,
   type ClassContent,
   classContent,
-  type ClassFacts,
   type ClassFeature,
   classFeatures,
   classInputs,
-  grantedRules,
   subclassSlot,
 } from './class-build';
 export { CharacterSlot, SlotInvalidMessage, SlotStatus, SlotSubject, SlotSubjectKind } from './character-slot';

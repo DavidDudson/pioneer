@@ -39,6 +39,20 @@ function fieldNamed(root: HTMLElement, label: string): HTMLElement {
   );
 }
 
+/** Opens `field` and picks the option labelled `name`. */
+async function pickIn(field: HTMLElement, name: string): Promise<void> {
+  present(field.querySelector<HTMLElement>('button')).click();
+  await TestBed.inject(ApplicationRef).whenStable();
+  present(field.querySelector<HTMLElement>('[frInlineEditor] button')).click();
+  await TestBed.inject(ApplicationRef).whenStable();
+  const option = await vi.waitFor(() =>
+    present(
+      [...document.querySelectorAll<HTMLElement>('[role="option"]')].find((each) => each.textContent.trim() === name),
+    ),
+  );
+  option.click();
+}
+
 describe('CharacterSheetPage class', () => {
   it('offers the class’s subclass beneath it, and no key attribute when the class allows one', async () => {
     const { root } = await openSheet(cleric(), { slots: [CLERIC_SLOT], packs: PACKS_WITH_CLASSES });
@@ -97,24 +111,28 @@ describe('CharacterSheetPage class', () => {
     const { root } = await openSheet(cleric(), { packs: PACKS_WITH_CLASSES });
     const field = await vi.waitFor(() => fieldNamed(root, 'Subclass'));
 
-    present(field.querySelector<HTMLElement>('button')).click();
-    await TestBed.inject(ApplicationRef).whenStable();
-    present(field.querySelector<HTMLElement>('[frInlineEditor] button')).click();
-    await TestBed.inject(ApplicationRef).whenStable();
-    const option = await vi.waitFor(() =>
-      present(
-        [...document.querySelectorAll<HTMLElement>('[role="option"]')].find(
-          (each) => each.textContent.trim() === 'Warpriest',
-        ),
-      ),
-    );
-    option.click();
+    await pickIn(field, 'Warpriest');
 
     const request = await vi.waitFor(() =>
       TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: `/api/characters/${id}` }),
     );
     expect(request.request.body).toMatchObject({
       patch: { field: 'selectSlot', slot: DOCTRINE, selection: WARPRIEST },
+    });
+  });
+
+  it('picks a fighter’s key attribute in its class boost slot, from the attributes it allows', async () => {
+    const fighter = { ...MERISIEL, build: { choices: { class: playerCoreClassId('fighter') } } };
+    const { root } = await openSheet(fighter, { packs: PACKS_WITH_CLASSES });
+    const field = await vi.waitFor(() => fieldNamed(root, 'Key attribute'));
+
+    await pickIn(field, 'Dexterity');
+
+    const request = await vi.waitFor(() =>
+      TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: `/api/characters/${id}` }),
+    );
+    expect(request.request.body).toMatchObject({
+      patch: { field: 'selectSlot', slot: 'boost:1:class:0', selection: 'dex' },
     });
   });
 });

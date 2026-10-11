@@ -3185,14 +3185,7 @@
         "page": 1
       }
     ],
-    "rules": [
-      {
-        "key": "GrantItem",
-        "item": {
-          "choice": "feat"
-        }
-      }
-    ],
+    "rules": [],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.d5BFFHXFJYKs5LXr"
     },
@@ -8465,14 +8458,7 @@
         "page": 1
       }
     ],
-    "rules": [
-      {
-        "key": "GrantItem",
-        "item": {
-          "choice": "feat"
-        }
-      }
-    ],
+    "rules": [],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.xYYhJtGhFSWNifcO"
     },
@@ -8808,14 +8794,7 @@
         "page": 1
       }
     ],
-    "rules": [
-      {
-        "key": "GrantItem",
-        "item": {
-          "choice": "feat"
-        }
-      }
-    ],
+    "rules": [],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.89zWKD2CN7nRu2xp"
     },

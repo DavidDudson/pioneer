@@ -18,7 +18,9 @@
 } @else {
   <fr-list gap="xs">
     @for (row of loadingRows; track row) {
-      <fr-list-item><fr-skeleton width="md" /></fr-list-item>
+      <fr-list-item>
+        <fr-stack gap="none"><fr-skeleton width="md" /><fr-skeleton width="sm" /></fr-stack>
+      </fr-list-item>
     }
   </fr-list>
 }

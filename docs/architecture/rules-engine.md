@@ -521,8 +521,9 @@ The base phase in `libs/rules/engine` (`StatisticBases`) is step 5. The inputs a
 level, attribute modifiers, proficiency rank per selector (a selector left out is untrained), the armor's Dexterity
 cap, what the ancestry and class give, and the weapons and spellcasting entries statistics are derived per. The ranks
 come from the effective set: `ranksInPlay` reads the `Proficiency` elements in play whose predicate holds and keeps the
-highest raise per selector, so a class's starting rank and a feature's later raise compete. The other inputs are
-supplied directly until their epics produce them.
+highest raise per selector, so a class's starting rank and a feature's later raise compete. It keeps only the rank for
+now; the contributors step 4 lists join when a breakdown shows where a rank came from. The other inputs are supplied
+directly until their epics produce them.
 
 - Statistics derived per source are expanded into their instances first ("Statistics per source").
 - Edges come from `references(formula)`. `@prof.<selector>` and `@rank.<selector>` read that selector's rank, an

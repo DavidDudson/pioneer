@@ -16,11 +16,11 @@ describe('CharacterSheetPage', () => {
     expect(regions).toStrictEqual([
       ['Identity', true],
       ['Build', true],
-      ['Class features', true],
       ['Attributes', true],
       ['Defences', true],
       ['Statistics', true],
       ['Choices', true],
+      ['Class features', true],
       ['Inventory', true],
     ]);
   });
@@ -32,15 +32,15 @@ describe('CharacterSheetPage', () => {
     expect(links.map((link) => link.textContent.trim())).toStrictEqual([
       'Identity',
       'Build',
-      'Class features',
       'Attributes',
       'Defences',
       'Statistics',
       'Choices',
+      'Class features',
       'Inventory',
     ]);
 
-    links[3]?.click();
+    links[2]?.click();
 
     expect(document.activeElement?.textContent.trim()).toBe('Attributes');
     expect(document.activeElement?.tagName).toBe('H2');

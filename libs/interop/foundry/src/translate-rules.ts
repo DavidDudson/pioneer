@@ -192,19 +192,22 @@ const SELECTION_UUID = /^\{item\|flags\.system\.rulesSelections\.(?<flag>[A-Za-z
 
 /**
  * A `GrantItem` of a `ChoiceSet`'s pick, as Foundry names it by the pick's flag, granting `{ choice }` under the flag
- * `withTagQuery` gives it. Delete actions are read as for a granted id; a pick is no physical item.
+ * `withTagQuery` gives it, when a `ChoiceSet` of the entry that translated declares that flag; without one the grant
+ * would read a pick nothing asks for, so it is left for the backlog with its `ChoiceSet`. Delete actions are read as for
+ * a granted id; a pick is no physical item.
  */
-function withChoiceGrant(raw: unknown, references: EntryReferences): unknown {
+function withChoiceGrant(raw: unknown, references: EntryReferences, declared: ReadonlySet<string>): unknown {
   if (keyOf(raw) !== RuleElementKey.GrantItem || typeof raw !== 'object' || raw === null || !('uuid' in raw)) {
     return raw;
   }
   const flag = typeof raw.uuid === 'string' ? SELECTION_UUID.exec(raw.uuid)?.groups?.['flag'] : undefined;
   const deletes = 'onDeleteActions' in raw ? raw.onDeleteActions : undefined;
-  if (flag === undefined || !isDerivedGrant(deletes, undefined, references)) {
+  const choice = flag === undefined ? undefined : kebab(flag);
+  if (choice === undefined || !declared.has(choice) || !isDerivedGrant(deletes, undefined, references)) {
     return raw;
   }
   const rest = Object.entries(raw).filter(([field]) => !GRANT_FIELDS_REPLACED.has(field));
-  return { ...Object.fromEntries(rest), item: { choice: kebab(flag) } };
+  return { ...Object.fromEntries(rest), item: { choice } };
 }
 
 export interface RuleTranslation {
@@ -219,11 +222,18 @@ export function translateRules(entry: ContentId, raws: readonly unknown[], conte
   const untranslated: UntranslatedRule[] = [];
   const unresolved: UnresolvedKey[] = [];
   const references = context.references ?? NO_REFERENCES;
-  for (const raw of raws) {
+  const shapedRaws = raws.map((raw) => {
     const text = withDisplayLabel(localized(raw, context, unresolved));
-    const granted = withGrantedId(withPioneerFormula(text), references);
-    const shaped = withChoiceGrant(withTagQuery(granted), references);
-    const element = RuleElement.safeParse(shaped);
+    return withTagQuery(withGrantedId(withPioneerFormula(text), references));
+  });
+  const declared = new Set(
+    shapedRaws.flatMap((shaped) => {
+      const element = RuleElement.safeParse(shaped);
+      return element.success && element.data.key === RuleElementKey.ChoiceSet ? [String(element.data.flag)] : [];
+    }),
+  );
+  for (const [index, raw] of raws.entries()) {
+    const element = RuleElement.safeParse(withChoiceGrant(shapedRaws[index], references, declared));
     if (element.success) {
       rules.push(element.data);
     } else {

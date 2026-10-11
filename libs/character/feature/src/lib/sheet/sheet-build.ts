@@ -105,6 +105,7 @@ export interface SheetKeyAttribute {
   readonly options: readonly Attribute[];
 }
 
+/** The class's key attribute slot; undefined when the class allows only one attribute. */
 export function sheetKeyAttribute(registry: ContentRegistry, character: Character): SheetKeyAttribute | undefined {
   const set = boostSets(character.document, boostContent(registry)).find((each) => each.source === BoostSource.Class);
   const slot = set?.slots[0];

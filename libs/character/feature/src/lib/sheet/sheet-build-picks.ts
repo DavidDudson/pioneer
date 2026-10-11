@@ -46,11 +46,14 @@ export interface BuildPicks {
   ) => InlineEdit<string | undefined>;
   /** Undefined before a class is picked, or for a class without a subclass (fighter). */
   readonly subclass: Signal<SheetSubclass | undefined>;
-  readonly subclassField: InlineEdit<string | undefined>;
+  readonly subclassOptions: Signal<readonly SelectOption<string>[]>;
+  /** One edit per subclass slot, so a class change starts a new edit session; undefined while there is none. */
+  readonly subclassField: Signal<InlineEdit<string | undefined> | undefined>;
   /** Undefined when the class allows a single key attribute. */
   readonly keyAttribute: Signal<SheetKeyAttribute | undefined>;
   readonly keyAttributeOptions: Signal<readonly SelectOption<string>[]>;
-  readonly keyAttributeField: InlineEdit<string | undefined>;
+  /** One edit per key attribute slot; undefined while there is none. */
+  readonly keyAttributeField: Signal<InlineEdit<string | undefined> | undefined>;
   /** Undefined while the character or the content loads. */
   readonly features: Signal<readonly ClassFeatureLine[] | undefined>;
   /** What the character is, part by part; undefined while it, its slots or the content load. */
@@ -114,8 +117,26 @@ function slotField(
   });
 }
 
+/**
+ * An inline pick for whichever slot `slot` names, made anew when the key changes: an edit session (and its Revert)
+ * belongs to one slot, so a class change never saves a doctrine into a school. `slot` reads only the key, so the edit
+ * stays the same while the character changes around it.
+ */
+function fieldPerSlot(
+  sources: BuildPickSources,
+  slot: Signal<SlotKey | undefined>,
+  options: Signal<readonly SelectOption<string>[]>,
+): Signal<InlineEdit<string | undefined> | undefined> {
+  return computed(() => {
+    const key = slot();
+    return key === undefined ? undefined : slotField(sources, signal(key), options);
+  });
+}
+
+/** The sheet's build pickers over `sources`, each reading the registry, the character and its slots as they load. */
 export function sheetBuildPicks(sources: BuildPickSources): BuildPicks {
   const subclass = loaded(sources, sheetSubclass);
+  const subclassOptions = computed(() => subclass()?.options ?? []);
   const keyAttribute = loaded(sources, sheetKeyAttribute);
   const keyAttributeOptions = computed((): readonly SelectOption<string>[] =>
     (keyAttribute()?.options ?? []).map((attribute) => ({
@@ -132,14 +153,15 @@ export function sheetBuildPicks(sources: BuildPickSources): BuildPicks {
       }),
     rootField: (slot, options) => slotField(sources, signal(slot), options),
     subclass,
-    subclassField: slotField(
+    subclassOptions,
+    subclassField: fieldPerSlot(
       sources,
       computed(() => subclass()?.key),
-      computed(() => subclass()?.options ?? []),
+      subclassOptions,
     ),
     keyAttribute,
     keyAttributeOptions,
-    keyAttributeField: slotField(
+    keyAttributeField: fieldPerSlot(
       sources,
       computed(() => keyAttribute()?.key),
       keyAttributeOptions,

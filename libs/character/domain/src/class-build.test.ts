@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 
-import { ContentKind, ContentRegistry, Selector, SlotKey } from '@pioneer/rules/sdk';
-import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
+import { AncestryId, ContentKind, ContentRegistry, Selector, SlotKey } from '@pioneer/rules/sdk';
+import { ContentPackBuilder, CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
 
 import { SlotStatus } from './character-slot';
 import { characterSlots } from './character-slot-status';
@@ -146,12 +146,12 @@ describe('Player Core classes at 1st level', () => {
     );
   });
 
-  test('every class resolves without errors, but the druid, whose Voice of Nature choice is untranslated', () => {
+  test('every class resolves without errors', () => {
     const failing = PLAYER_CORE_CLASSES.filter((name) => {
       const { document } = level1(name).build();
       return characterGrants(document, content).errors.length > 0;
     });
-    expect(failing).toEqual(['druid']);
+    expect(failing).toEqual([]);
   });
 });
 
@@ -184,5 +184,45 @@ describe('the subclass', () => {
     expect(exCleric.build.choices[doctrineKey]).toBe(cloistered);
     expect(statusOf(exFighter, keyAttribute)).toBe(SlotStatus.Hidden);
     expect(String(exFighter.build.choices[keyAttribute])).toBe('dex');
+  });
+});
+
+describe('class features by level', () => {
+  const pack = new ContentPackBuilder()
+    .withId('homebrew')
+    .withAncestry('human')
+    .withClassFeature('bravery')
+    .withClassFeature('armor-training');
+  pack.withClass('guardian', ['str'], {
+    hitPoints: 12,
+    rules: [
+      {
+        key: 'GrantItem',
+        item: pack.idOf(ContentKind.ClassFeature, 'bravery'),
+        predicate: [{ gte: ['self:level', 3] }],
+      },
+      { key: 'GrantItem', item: pack.idOf(ContentKind.ClassFeature, 'armor-training') },
+    ],
+  });
+  const homebrew = new ContentRegistry();
+  homebrew.register(pack.build());
+  const homebrewContent = { ...slotContent(homebrew), namespaces: CORE_NAMESPACES };
+
+  function featuresAt(level: number): string[] {
+    const { document } = new CharacterBuilder()
+      .withAncestry(AncestryId.parse(pack.idOf(ContentKind.Ancestry, 'human')))
+      .picking('class', pack.idOf(ContentKind.Class, 'guardian'))
+      .atLevel(level)
+      .build();
+    const features = classFeatures(characterGrants(document, homebrewContent), homebrewContent.lookup);
+    return features.map((feature) => `${feature.name} (${feature.className} ${feature.level})`);
+  }
+
+  test('each arrives at the level its grant opens at, listed in level then name order', () => {
+    expect(featuresAt(3)).toEqual(['Armor-training (Guardian 1)', 'Bravery (Guardian 3)']);
+  });
+
+  test('a feature above the character’s level is not on it yet', () => {
+    expect(featuresAt(2)).toEqual(['Armor-training (Guardian 1)']);
   });
 });

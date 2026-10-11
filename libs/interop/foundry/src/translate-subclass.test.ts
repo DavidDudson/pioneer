@@ -2,9 +2,11 @@ import { describe, expect, test } from 'bun:test';
 
 import { ContentKind, RuleElementKey } from '@pioneer/rules/sdk';
 
+import { KindDataGapReason } from './kind-data-gaps';
 import { FIGHTER } from './testing/build-fixtures';
 import { dataIn, rulesIn } from './testing/build-helpers';
 import { translate } from './testing/import-fixtures';
+import { gapsOf } from './testing/kind-fixtures';
 import { CLOISTERED_CLERIC, DOCTRINE } from './testing/subclass-fixtures';
 
 describe('translateKindData: a class names its subclass', () => {
@@ -40,5 +42,37 @@ describe('translateRules: subclass choices', () => {
     const other = translate([{ ...DOCTRINE, system: { ...DOCTRINE.system, rules } }]);
 
     expect(other.envelopes.untranslatedRules.map(({ key }) => key)).toEqual(['ChoiceSet']);
+  });
+
+  test('a grant of a pick whose ChoiceSet did not translate is left with it, never granting an unasked choice', () => {
+    const choiceSet = { key: 'ChoiceSet', flag: 'clericDoctrine', choices: { filter: ['item:trait:cleric'] } };
+    const grant = { key: 'GrantItem', uuid: '{item|flags.system.rulesSelections.clericDoctrine}' };
+    const orphan = translate([{ ...DOCTRINE, system: { ...DOCTRINE.system, rules: [choiceSet, grant] } }]);
+
+    expect(orphan.envelopes.untranslatedRules.map(({ key }) => key)).toEqual(['ChoiceSet', 'GrantItem']);
+  });
+
+  test('a grant of the pick whose granter does not cascade is kept for the backlog', () => {
+    const [choiceSet] = DOCTRINE.system?.rules ?? [];
+    const grant = {
+      key: 'GrantItem',
+      uuid: '{item|flags.system.rulesSelections.clericDoctrine}',
+      onDeleteActions: { grantee: 'cascade' },
+    };
+    const detached = translate([{ ...DOCTRINE, system: { ...DOCTRINE.system, rules: [choiceSet, grant] } }]);
+
+    expect(detached.envelopes.untranslatedRules.map(({ key }) => key)).toEqual(['GrantItem']);
+  });
+
+  test('a tag that is no slug is reported and left off; a repeated tag is kept once', () => {
+    const traits = { otherTags: ['cleric-doctrine', 'Not A Slug', 'cleric-doctrine'], rarity: 'common', value: [] };
+    const odd = translate([{ ...CLOISTERED_CLERIC, system: { ...CLOISTERED_CLERIC.system, traits } }]);
+
+    expect(dataIn(odd, 'cloistered-cleric')).toEqual({ tags: ['cleric-doctrine'] });
+    expect(gapsOf(odd)).toContainEqual({
+      reason: KindDataGapReason.UnmappedValue,
+      field: 'traits.otherTags',
+      raw: 'Not A Slug',
+    });
   });
 });
