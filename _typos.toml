@@ -14,4 +14,4 @@ sherif = "sherif"
 
 [default]
 # Foundry document ids are random 16-character strings inside compendium UUIDs.
-extend-ignore-re = ["Compendium\\.pf2e\\.[A-Za-z0-9._-]+"]
+extend-ignore-re = ["Compendium\\.pf2e\\.[a-z0-9-]+\\.Item\\.[A-Za-z0-9]{16}"]
