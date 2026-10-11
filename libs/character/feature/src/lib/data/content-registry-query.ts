@@ -7,11 +7,12 @@ import type { CreateQueryResult } from '@tanstack/angular-query-experimental';
 
 /**
  * The kinds every character page's registry holds: ancestries, heritages and backgrounds for the options and the
- * engine, backgrounds and classes for their boosts, classes and class features for the builder, statistics for the sheet. One list, so the pages share one query
- * and the registry loads once a session.
+ * engine, the ancestry features they grant, backgrounds and classes for their boosts, classes and class features for
+ * the builder, statistics for the sheet. One list, so the pages share one query and the registry loads once a session.
  */
 export const CHARACTER_CONTENT_KINDS: readonly ContentKind[] = [
   ContentKind.Ancestry,
+  ContentKind.AncestryFeature,
   ContentKind.Heritage,
   ContentKind.Background,
   ContentKind.Class,

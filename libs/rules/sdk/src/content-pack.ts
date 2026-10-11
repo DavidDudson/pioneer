@@ -45,7 +45,11 @@ function uniqueSlugs(entries: readonly { readonly slug: EntrySlug }[]): boolean 
  */
 const sourced = { sources: envelope.sources };
 
-export const PackAncestry = AncestryDefinition.extend(sourced);
+/**
+ * An ancestry with its rule elements: the features it grants (Keen Eyes) and its ancestry feat slots. Absent for a pack
+ * written before the envelope, which grants nothing.
+ */
+export const PackAncestry = AncestryDefinition.extend({ ...sourced, rules: envelope.rules.optional() });
 export type PackAncestry = z.infer<typeof PackAncestry>;
 
 export const PackCreature = CreatureDefinition.extend(sourced);

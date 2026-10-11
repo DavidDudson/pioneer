@@ -10,6 +10,7 @@ import type { ContentLookup, GrantEntry } from './grant-entry';
  * last (encumbered, while a character carries too much), and the property runes etched onto those items.
  */
 const ENVELOPE_KINDS: ReadonlySet<ContentKind> = new Set([
+  ContentKind.AncestryFeature,
   ContentKind.Armor,
   ContentKind.Background,
   ContentKind.Class,
@@ -46,7 +47,7 @@ function tagOptions(entry: ContentEntry): RollOption[] {
   return tags.map((tag) => RollOption.parse(`tag:${tag}`));
 }
 
-/** An ancestry as grants read it. Its definition has no rule elements until packs move onto the envelope (Epic 2.3). */
+/** An ancestry as grants read it, with its rule elements: the ancestry features and feat slots it grants. */
 function ancestryEntry(pack: ContentPack, ancestry: PackAncestry): GrantEntry | undefined {
   const [source, ...sources] = ancestry.sources;
   if (source === undefined) {
@@ -57,7 +58,7 @@ function ancestryEntry(pack: ContentPack, ancestry: PackAncestry): GrantEntry | 
     kind: ContentKind.Ancestry,
     slug: slugName(ancestry.slug),
     name: ancestry.name,
-    rules: [],
+    rules: ancestry.rules ?? [],
     sources: [source, ...sources],
     rollOptions: traitOptions(ancestry.traits),
   };

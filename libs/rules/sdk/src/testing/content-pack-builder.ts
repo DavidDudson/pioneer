@@ -65,6 +65,9 @@ interface ClassFields {
   readonly rules?: readonly object[];
 }
 
+/** A test ancestry: its definition, with `rules` as JSON (the ancestry features it grants). */
+type AncestryFields = Sourceable<typeof AncestryDefinition> & { readonly rules?: readonly object[] };
+
 /** What a test class feature has. */
 interface ClassFeatureFields {
   readonly tags?: readonly string[];
@@ -81,7 +84,7 @@ interface ClassFeatureFields {
  */
 export class ContentPackBuilder {
   #id = 'test-pack';
-  readonly #ancestries: Sourceable<typeof AncestryDefinition>[] = [];
+  readonly #ancestries: AncestryFields[] = [];
   readonly #creatures: Sourceable<typeof CreatureDefinition>[] = [];
   readonly #statistics: Sourceable<typeof StatisticDefinition>[] = [];
   readonly #namespaces: Record<string, NamespaceKind> = {};
@@ -92,7 +95,7 @@ export class ContentPackBuilder {
     return this;
   }
 
-  public withAncestry(name: string, overrides: Partial<Sourceable<typeof AncestryDefinition>> = {}): this {
+  public withAncestry(name: string, overrides: Partial<AncestryFields> = {}): this {
     this.#ancestries.push({
       slug: `ancestry:${name}`,
       name: name.charAt(0).toUpperCase() + name.slice(1),
@@ -135,10 +138,16 @@ export class ContentPackBuilder {
     return this;
   }
 
-  /** A heritage of this pack's ancestry `ancestry`, or a versatile one without it. */
-  public withHeritage(name: string, ancestry?: string): this {
+  /** A heritage of this pack's ancestry `ancestry`, or a versatile one without it, with `rules` as JSON. */
+  public withHeritage(name: string, ancestry?: string, rules: readonly object[] = []): this {
     const data = ancestry === undefined ? {} : { ancestry: this.idOf(ContentKind.Ancestry, ancestry) };
-    this.#entries.push({ kind: ContentKind.Heritage, name, data });
+    this.#entries.push({ kind: ContentKind.Heritage, name, data, rules });
+    return this;
+  }
+
+  /** An ancestry feature (Keen Eyes) with `rules` as JSON, which an ancestry or heritage grants. */
+  public withAncestryFeature(name: string, rules: readonly object[] = []): this {
+    this.#entries.push({ kind: ContentKind.AncestryFeature, name, data: {}, rules });
     return this;
   }
 

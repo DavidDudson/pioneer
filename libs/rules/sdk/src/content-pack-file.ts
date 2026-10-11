@@ -35,7 +35,7 @@ interface PackDefinitions {
 function addDefinition(definitions: PackDefinitions, entry: ContentEntry): void {
   const { slug, name, sources } = entry;
   if (entry.kind === ContentKind.Ancestry) {
-    definitions.ancestries.push({ slug, name, sources, traits: entry.traits, ...entry.data });
+    definitions.ancestries.push({ slug, name, sources, traits: entry.traits, rules: entry.rules, ...entry.data });
   } else if (entry.kind === ContentKind.Creature) {
     definitions.creatures.push({ slug, name, sources, traits: entry.traits, level: entry.level, ...entry.data });
   } else if (entry.kind === ContentKind.Statistic) {
