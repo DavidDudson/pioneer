@@ -15,6 +15,7 @@ import {
   ContentKind,
   ContentKindSchema,
   ContentText,
+  entrySlug,
   Level,
   NamespaceKind,
   OriginHopKind,
@@ -40,11 +41,16 @@ import type { FactsParse } from './predicate-verdict';
 import { CheckStatus, readJson } from './rules-check';
 import type { JsonProblem, JsonRead } from './rules-check';
 
-/** Entries typed into the playground live in a made-up pack, so a slug names one. */
+/**
+ * Entries typed into the playground live in a made-up pack, named by their slug's name alone (`bravery`): the picks
+ * syntax (`fighter:0=bravery`) reads a colon, and names are unique across kinds there.
+ */
 const PLAYGROUND_PACK = PackId.parse('playground');
 const PLAYGROUND_PAGE = SourceRef.parse({ kind: 'book', book: 'player-core', page: 1 });
 
-const idOfSlug = (slug: Slug): ContentId => ContentId.parse(contentId(PLAYGROUND_PACK, slug));
+/** Ids are opaque to grants, so a playground entry's is filed under one kind whatever its own. */
+const idOfSlug = (slug: Slug): ContentId =>
+  ContentId.parse(contentId(PLAYGROUND_PACK, entrySlug(ContentKind.ClassFeature, slug)));
 
 /** A `GrantItem` may name its entry by slug in the playground; stored content always uses the id. */
 function slugGrantToId(value: unknown): unknown {

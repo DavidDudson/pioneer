@@ -1,4 +1,4 @@
-import { BookId, ContentId, contentId, ContentKind, PackId, Slug } from '@pioneer/rules/sdk';
+import { BookId, ContentId, contentId, ContentKind, EntrySlug, entrySlug, PackId, Slug } from '@pioneer/rules/sdk';
 
 import type { KnownEntry } from '../entry-references';
 import { foundryConfig } from '../foundry-config';
@@ -98,9 +98,9 @@ export const lang: FoundryLang = {
   },
 };
 
-/** A hand-authored `core-rules` entry. */
-export function coreRulesEntry(kind: ContentKind, slug: string): KnownEntry {
-  const parsed = Slug.parse(slug);
+/** A hand-authored `core-rules` entry of `kind` named `name`. */
+export function coreRulesEntry(kind: ContentKind, name: string): KnownEntry {
+  const parsed = entrySlug(kind, Slug.parse(name));
   return { id: ContentId.parse(contentId(coreRules, parsed)), pack: coreRules, kind, slug: parsed };
 }
 
@@ -123,12 +123,12 @@ export function translate(
   );
 }
 
-/** The id of the player-core entry with a slug. */
+/** The id of the player-core entry with a slug (`condition:grabbed`). */
 export function idOf(slug: string): ContentId {
-  return ContentId.parse(contentId(pack, Slug.parse(slug)));
+  return ContentId.parse(contentId(pack, EntrySlug.parse(slug)));
 }
 
-/** The id of the core-rules entry with a slug. */
+/** The id of the core-rules entry with a slug (`trait:manipulate`). */
 export function coreRulesId(slug: string): ContentId {
-  return ContentId.parse(contentId(coreRules, Slug.parse(slug)));
+  return ContentId.parse(contentId(coreRules, EntrySlug.parse(slug)));
 }

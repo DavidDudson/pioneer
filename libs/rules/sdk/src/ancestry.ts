@@ -2,7 +2,7 @@ import { Pg, Uuid } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { AttributeBoost, Attributes } from './attribute';
-import { ContentId, Slug } from './content-id';
+import { ContentId, EntrySlug } from './content-id';
 import { ContentText } from './content-text';
 import { SizeSchema } from './size';
 import { Trait } from './trait';
@@ -15,7 +15,7 @@ export type AncestryId = z.infer<typeof AncestryId>;
 
 /** Schema every pack's ancestry entries must satisfy. */
 export const AncestryDefinition = z.object({
-  slug: Slug,
+  slug: EntrySlug,
   name: ContentText,
   hitPoints: HitPoints,
   size: SizeSchema,

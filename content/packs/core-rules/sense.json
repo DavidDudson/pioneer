@@ -1,9 +1,9 @@
 [
   {
-    "id": "8e335e9a-e966-529a-8b5d-5be7dba6a61d",
+    "id": "67979b6a-4b24-5be5-b7ea-94783c497bcb",
     "pack": "core-rules",
     "kind": "sense",
-    "slug": "darkvision",
+    "slug": "sense:darkvision",
     "name": "Darkvision",
     "rarity": "common",
     "traits": [],
@@ -23,10 +23,10 @@
     }
   },
   {
-    "id": "d177c026-2e38-5147-b32d-66104c47e988",
+    "id": "16b42c38-9373-58ec-a7ac-2221bb17a71c",
     "pack": "core-rules",
     "kind": "sense",
-    "slug": "low-light-vision",
+    "slug": "sense:low-light-vision",
     "name": "Low-Light Vision",
     "rarity": "common",
     "traits": [],

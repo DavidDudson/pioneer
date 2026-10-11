@@ -3,25 +3,25 @@ import type { AdjustmentLine, Defences, DefenceStatus, ImmunityLine } from '@pio
 import { Negated, PredicateMessage, SummaryKind } from '@pioneer/rules/predicate';
 import {
   ContentId,
-  ContentText,
   contentId,
+  ContentText,
   DamageAmount,
   DamageException,
+  EntrySlug,
   Immunity,
   Origin,
   PackId,
   Predicate,
-  Slug,
 } from '@pioneer/rules/sdk';
 import type { DamageAdjustmentTarget } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
 
 const PLAYER_CORE = PackId.parse('player-core');
 
-export const FIRE_RING = ContentId.parse(contentId(PLAYER_CORE, Slug.parse('fire-resistance-ring')));
-export const RAGE = ContentId.parse(contentId(PLAYER_CORE, Slug.parse('rage')));
-export const DWARF = ContentId.parse(contentId(PLAYER_CORE, Slug.parse('dwarf')));
-export const GOLEM_FORM = ContentId.parse(contentId(PLAYER_CORE, Slug.parse('golem-form')));
+export const FIRE_RING = ContentId.parse(contentId(PLAYER_CORE, EntrySlug.parse('equipment:fire-resistance-ring')));
+export const RAGE = ContentId.parse(contentId(PLAYER_CORE, EntrySlug.parse('action:rage')));
+export const DWARF = ContentId.parse(contentId(PLAYER_CORE, EntrySlug.parse('ancestry:dwarf')));
+export const GOLEM_FORM = ContentId.parse(contentId(PLAYER_CORE, EntrySlug.parse('spell:golem-form')));
 export const ADAMANTINE = DamageException.parse('adamantine');
 export const SLEEP = Immunity.parse('sleep');
 

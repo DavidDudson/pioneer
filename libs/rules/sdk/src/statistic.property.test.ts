@@ -15,7 +15,7 @@ const SHORT_FORMULA_MAX = 400;
 
 const statisticJson: Arbitrary<z.input<typeof StatisticDefinition>> = record(
   {
-    slug: constantFrom('armor-class', 'perception', 'sanity'),
+    slug: constantFrom('statistic:armor-class', 'statistic:perception', 'statistic:sanity'),
     name: constantFrom('Armor Class', 'Perception', 'Sanity'),
     selector: keyPathText,
     domains: keyPathText.map((domain) => [domain]),

@@ -1,6 +1,6 @@
 import { DeferBlockState, TestBed } from '@angular/core/testing';
 import { HeadingLevel } from '@pioneer/frontier';
-import { ContentText, contentId, PackId, RichText, Slug } from '@pioneer/rules/sdk';
+import { contentId, ContentText, EntrySlug, PackId, RichText } from '@pioneer/rules/sdk';
 import type { ContentId } from '@pioneer/rules/sdk';
 import { richTextJson } from '@pioneer/rules/sdk/testing';
 import { asyncProperty, assert } from 'fast-check';
@@ -12,8 +12,8 @@ import type { RichTextLinks } from './rich-text-links';
 import { RichTextView } from './rich-text.component';
 
 const PLAYER_CORE = PackId.parse('player-core');
-const OFF_GUARD = contentId(PLAYER_CORE, Slug.parse('off-guard'));
-const SEEK = contentId(PLAYER_CORE, Slug.parse('seek'));
+const OFF_GUARD = contentId(PLAYER_CORE, EntrySlug.parse('condition:off-guard'));
+const SEEK = contentId(PLAYER_CORE, EntrySlug.parse('action:seek'));
 
 const STATISTIC_NAMES: ReadonlyMap<string, ContentText> = new Map([
   ['skill:athletics', ContentText.parse('Athletics')],

@@ -1,11 +1,11 @@
-import { contentId, ContentId, PackId, Slug } from '@pioneer/rules/sdk';
+import { contentId, ContentId, ContentKind, entrySlug, PackId, Slug } from '@pioneer/rules/sdk';
 import { describe, expect, it } from 'vitest';
 
 import { parsePicks, withPick } from './grant-choices';
 import type { SlugTable } from './grant-choices';
 
 const PACK = PackId.parse('playground');
-const idOf = (slug: Slug): ContentId => ContentId.parse(contentId(PACK, slug));
+const idOf = (slug: Slug): ContentId => ContentId.parse(contentId(PACK, entrySlug(ContentKind.ClassFeature, slug)));
 
 /** A table that knows only `fighter` and `sudden-charge`. */
 const table: SlugTable = {

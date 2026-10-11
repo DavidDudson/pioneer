@@ -1,7 +1,8 @@
-import { ContentId, contentId, ContentKind, Slug } from '@pioneer/rules/sdk';
-import type { PackId } from '@pioneer/rules/sdk';
+import { ContentId, contentId, EntrySlug } from '@pioneer/rules/sdk';
+import type { ContentKind, PackId } from '@pioneer/rules/sdk';
 
-import { FoundryItemType } from './foundry-document';
+import { FOUNDRY_TYPE_KINDS } from './entry-slugs';
+import type { FoundryItemType } from './foundry-document';
 import { asciiSlug } from './foundry-slug';
 import type { SelectedEntry } from './select-entries';
 
@@ -12,18 +13,12 @@ import type { SelectedEntry } from './select-entries';
  * knows the kind of every entry of the other official packs and the vocabulary.
  */
 
-/** The Pioneer kind of each Foundry type whose kind data the import builds so far. */
-export const FOUNDRY_KINDS: Readonly<Partial<Record<FoundryItemType, ContentKind>>> = {
-  [FoundryItemType.Action]: ContentKind.Action,
-  [FoundryItemType.Condition]: ContentKind.Condition,
-};
-
 /** An entry of another official pack, or a vocabulary entry: what a reference may land on besides the documents. */
 export interface KnownEntry {
   readonly id: ContentId;
   readonly pack: PackId;
   readonly kind: ContentKind;
-  readonly slug: Slug;
+  readonly slug: EntrySlug;
 }
 
 export interface EntryReferences {
@@ -52,7 +47,7 @@ interface Addressed {
 
 function addressed(pack: PackId, slugs: ReadonlyMap<SelectedEntry, string>): Addressed[] {
   return [...slugs].flatMap(([entry, text]) => {
-    const slug = Slug.safeParse(text);
+    const slug = EntrySlug.safeParse(text);
     return slug.success ? [{ entry, id: ContentId.parse(contentId(pack, slug.data)) }] : [];
   });
 }
@@ -66,9 +61,8 @@ function uuidsOf({ entry, id }: Addressed): [string, ContentId][] {
   ];
 }
 
-function kindOf({ entry, id }: Addressed): [ContentId, ContentKind][] {
-  const kind = FOUNDRY_KINDS[entry.type];
-  return kind === undefined ? [] : [[id, kind]];
+function kindOf({ entry, id }: Addressed): [ContentId, ContentKind] {
+  return [id, FOUNDRY_TYPE_KINDS[entry.type]];
 }
 
 /**
@@ -86,7 +80,7 @@ export function entryReferences(
   return {
     byUuid: new Map(documents.flatMap((each) => uuidsOf(each))),
     byFoundrySlug: new Map(documents.map(({ entry, id }) => [typedKey(entry.type, asciiSlug(entry.document)), id])),
-    kinds: new Map([...documents.flatMap((each) => kindOf(each)), ...known.map(({ id, kind }) => [id, kind] as const)]),
+    kinds: new Map([...documents.map((each) => kindOf(each)), ...known.map(({ id, kind }) => [id, kind] as const)]),
   };
 }
 

@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { ContentEntry, ContentKind, KIND_DATA, Rarity, SourceKind } from '@pioneer/rules/sdk';
+import { ContentEntry, ContentKind, KIND_DATA, Rarity, slugName, SourceKind } from '@pioneer/rules/sdk';
 
 import { coreRules, coreRulesEntry, coreRulesId, known, playerCore, translate } from './testing/import-fixtures';
 import { DWARF, KEEN_NOSE, plain, slugsOf, vocabularyOf } from './testing/vocabulary-fixtures';
@@ -9,13 +9,13 @@ import { VocabularyGapReason } from './vocabulary-items';
 describe('importVocabulary: traits', () => {
   test('imports each trait the documents use, in core-rules, named from the lang table', () => {
     const manipulate = vocabularyOf(translate([KEEN_NOSE]), ContentKind.Trait).find(
-      ({ envelope }) => envelope.slug === 'manipulate',
+      ({ envelope }) => envelope.slug === 'trait:manipulate',
     );
 
     expect(plain(manipulate?.envelope)).toEqual({
-      id: coreRulesId('manipulate'),
+      id: coreRulesId('trait:manipulate'),
       pack: coreRules,
-      slug: 'manipulate',
+      slug: 'trait:manipulate',
       name: 'Manipulate',
       rarity: Rarity.Common,
       traits: [],
@@ -27,7 +27,9 @@ describe('importVocabulary: traits', () => {
 
   test('appliesTo is every kind whose Foundry trait list holds it, in ContentKind order', () => {
     const traits = vocabularyOf(translate([DWARF, KEEN_NOSE]), ContentKind.Trait);
-    const appliesTo = new Map<string, unknown>(traits.map(({ envelope, kindData }) => [envelope.slug, kindData.data]));
+    const appliesTo = new Map<string, unknown>(
+      traits.map(({ envelope, kindData }) => [slugName(envelope.slug), kindData.data]),
+    );
 
     expect(appliesTo.get('dwarf')).toEqual({
       appliesTo: [
@@ -63,23 +65,19 @@ describe('importVocabulary: traits', () => {
     expect(translation.envelopes.unknownTraits.map(({ trait }) => trait)).toEqual(['homebrewed']);
   });
 
-  test('a trait whose slug a core-rules entry of another kind has is reported, since a trait cannot be suffixed', () => {
+  test('a core-rules entry of another kind with the same name does not stop the trait: slugs name their kind', () => {
     const translation = translate([KEEN_NOSE], { known: [...known, coreRulesEntry(ContentKind.Statistic, 'dwarf')] });
 
-    expect(slugsOf(translation, ContentKind.Trait)).toEqual(['manipulate']);
-    expect(translation.vocabularyGaps).toContainEqual({
-      kind: ContentKind.Trait,
-      slug: 'dwarf',
-      reason: VocabularyGapReason.SlugTaken,
-      detail: 'dwarf',
-    });
+    expect(slugsOf(translation, ContentKind.Trait)).toEqual(['dwarf', 'manipulate']);
+    expect(translation.vocabularyGaps.map(({ kind }) => kind)).not.toContain(ContentKind.Trait);
   });
 
-  test("trait entries never take a document's slug: the Dwarf ancestry keeps `dwarf`", () => {
+  test('the dwarf trait and the Dwarf ancestry are two slugs', () => {
     const translation = translate([DWARF]);
+    const traitSlugs = vocabularyOf(translation, ContentKind.Trait).map(({ envelope }) => envelope.slug);
 
-    expect(plain(translation.entries.map(({ envelope }) => envelope.slug))).toEqual(['dwarf']);
-    expect(slugsOf(translation, ContentKind.Trait)).toContain('dwarf');
+    expect(plain(translation.entries.map(({ envelope }) => envelope.slug))).toEqual(['ancestry:dwarf']);
+    expect(plain(traitSlugs)).toContain('trait:dwarf');
   });
 
   test('a label missing from the lang table is reported', () => {
@@ -100,8 +98,8 @@ describe('importVocabulary: languages', () => {
     const languages = vocabularyOf(translate([DWARF]), ContentKind.Language);
 
     expect(plain(languages.map(({ envelope }) => [envelope.slug, envelope.rarity]))).toEqual([
-      ['petran', Rarity.Uncommon],
-      ['aklo', Rarity.Rare],
+      ['language:petran', Rarity.Uncommon],
+      ['language:aklo', Rarity.Rare],
     ]);
   });
 
@@ -127,7 +125,9 @@ describe('importVocabulary: senses', () => {
   test("imports senses from ancestry vision and Sense rule elements, skipping core-rules' darkvision", () => {
     const senses = vocabularyOf(translate([DWARF, KEEN_NOSE]), ContentKind.Sense);
 
-    expect(plain(senses.map(({ envelope, kindData }) => [envelope.slug, kindData.data]))).toEqual([['scent', {}]]);
+    expect(plain(senses.map(({ envelope, kindData }) => [envelope.slug, kindData.data]))).toEqual([
+      ['sense:scent', {}],
+    ]);
   });
 
   test('a sense with a fixed acuity and unlimited range carries both', () => {
@@ -151,18 +151,18 @@ describe('importVocabulary: damage types', () => {
     const damageTypes = vocabularyOf(translate([]), ContentKind.DamageType);
 
     expect(plain(damageTypes.map(({ envelope }) => [envelope.slug, envelope.name, envelope.sources]))).toEqual([
-      ['bludgeoning', 'Bludgeoning', [{ kind: SourceKind.Book, book: playerCore }]],
-      ['fire', 'Fire', [{ kind: SourceKind.Book, book: playerCore }]],
+      ['damage-type:bludgeoning', 'Bludgeoning', [{ kind: SourceKind.Book, book: playerCore }]],
+      ['damage-type:fire', 'Fire', [{ kind: SourceKind.Book, book: playerCore }]],
     ]);
   });
 
-  test('a damage type whose slug a trait has takes its kind as a suffix', () => {
+  test('the fire damage type and the fire trait are two slugs', () => {
     const damageTypes = slugsOf(
       translate([{ id: 'fIrEbOlT00000000', name: 'Fireball', type: 'spell', system: { traits: { value: ['fire'] } } }]),
       ContentKind.DamageType,
     );
 
-    expect(damageTypes).toEqual(['bludgeoning', 'fire-damage-type']);
+    expect(damageTypes).toEqual(['bludgeoning', 'fire']);
   });
 
   test('untyped damage has no Pioneer damage type and is reported', () => {

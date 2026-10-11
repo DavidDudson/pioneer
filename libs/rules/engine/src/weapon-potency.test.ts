@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 
 import { PredicateFacts } from '@pioneer/rules/predicate';
-import { contentId, PackId, Selector, Slug, StatisticDefinition, StatisticKind } from '@pioneer/rules/sdk';
+import { contentId, EntrySlug, PackId, Selector, StatisticDefinition, StatisticKind } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
 import { message } from '@pioneer/shared/kernel';
 
@@ -16,7 +16,7 @@ import type { StatisticResult } from './statistic-result';
 import { flatModifier, inPlay, wielded } from './testing';
 
 const STRIKE = StatisticDefinition.parse({
-  slug: 'strike',
+  slug: 'statistic:strike',
   name: 'strike',
   selector: 'strike',
   domains: ['check', 'attack-roll', 'strike-attack-roll'],
@@ -71,7 +71,7 @@ describe('weapon potency', () => {
         predicate: undefined,
         origin: {
           hops: [],
-          entry: contentId(PackId.parse('engine-test'), Slug.parse('longsword')),
+          entry: contentId(PackId.parse('engine-test'), EntrySlug.parse('weapon:longsword')),
           sources: [{ kind: 'book', book: 'player-core', page: 1 }],
         },
       },

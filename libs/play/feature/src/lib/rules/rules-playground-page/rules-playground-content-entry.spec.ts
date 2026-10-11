@@ -88,7 +88,7 @@ describe('RulesPlaygroundPage content entry', () => {
     expect(text).toContain('1 problem');
     expect(text).toContain('sources[0].book');
     expect(text).toContain(
-      'player-core/human cites core-rulebook in sources[0], but core-rulebook is not in the book registry. Cite a registered book, or add core-rulebook to the registry.',
+      'player-core/ancestry:human cites core-rulebook in sources[0], but core-rulebook is not in the book registry. Cite a registered book, or add core-rulebook to the registry.',
     );
   });
 
@@ -124,12 +124,12 @@ describe('RulesPlaygroundPage content entry', () => {
     await chooseSchema(harness, 'Content entry');
     await typeJson(
       harness,
-      json(harness).replace('"slug": "human"', '"slug": "elf"').replace('"speed": 25', '"speed": -5'),
+      json(harness).replace('"slug": "ancestry:human"', '"slug": "ancestry:elf"').replace('"speed": 25', '"speed": -5'),
     );
 
     const text = pageText(harness);
     expect(text).toContain('2 problems');
     expect(text).toContain('data.speed');
-    expect(text).toContain('The id must be the one derived from player-core/elf');
+    expect(text).toContain('The id must be the one derived from player-core/ancestry:elf');
   });
 });

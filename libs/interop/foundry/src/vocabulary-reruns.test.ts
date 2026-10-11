@@ -3,7 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import { ContentKind, Rarity } from '@pioneer/rules/sdk';
 
 import { TRAIT_LIST_KINDS, TraitList } from './foundry-config';
-import { config, coreRulesEntry, known, translate } from './testing/import-fixtures';
+import { config, known, translate } from './testing/import-fixtures';
 import type { DocumentFixture } from './testing/import-fixtures';
 import { DWARF, KEEN_NOSE, MOVER, plain, vocabularyOf } from './testing/vocabulary-fixtures';
 import { VocabularyGapReason } from './vocabulary-items';
@@ -15,7 +15,7 @@ function listsHolding(list: TraitList): ReadonlyMap<TraitList, ReadonlyMap<strin
 }
 
 describe('importVocabulary: re-runs and edge cases', () => {
-  test("a re-run with an earlier run's vocabulary in core-rules imports nothing twice, suffixed slugs included", () => {
+  test("a re-run with an earlier run's vocabulary in core-rules imports nothing twice", () => {
     const fireball: DocumentFixture = {
       id: 'fIrEbOlT00000000',
       name: 'Fireball',
@@ -31,32 +31,15 @@ describe('importVocabulary: re-runs and edge cases', () => {
     }));
     const again = translate([DWARF, KEEN_NOSE, fireball], { known: [...known, ...earlier] });
 
-    expect(plain(earlier.map(({ slug }) => slug))).toContain('fire-damage-type');
+    expect(plain(earlier.map(({ slug }) => slug))).toEqual(expect.arrayContaining(['trait:fire', 'damage-type:fire']));
     expect(again.vocabulary).toEqual([]);
-  });
-
-  test('a suffixed slug that is taken too is reported, not given a duplicate id', () => {
-    const translation = translate([], {
-      known: [
-        ...known,
-        coreRulesEntry(ContentKind.Trait, 'fire'),
-        coreRulesEntry(ContentKind.Statistic, 'fire-damage-type'),
-      ],
-    });
-
-    expect(translation.vocabularyGaps).toContainEqual({
-      kind: ContentKind.DamageType,
-      slug: 'fire',
-      reason: VocabularyGapReason.SlugTaken,
-      detail: 'fire',
-    });
   });
 
   test('a common language is common', () => {
     const languages = vocabularyOf(translate([DWARF], { known: [] }), ContentKind.Language);
 
     expect(plain(languages.map(({ envelope }) => [envelope.slug, envelope.rarity]))).toContainEqual([
-      'dwarven',
+      'language:dwarven',
       Rarity.Common,
     ]);
   });

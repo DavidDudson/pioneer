@@ -2,7 +2,7 @@ import { Uuid } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { AttributeModifiersWire } from './attribute';
-import { Slug } from './content-id';
+import { EntrySlug } from './content-id';
 import { ContentText } from './content-text';
 import { DamageAdjustment } from './damage';
 import { SizeSchema } from './size';
@@ -15,7 +15,7 @@ export type CreatureId = z.infer<typeof CreatureId>;
 
 /** Schema every pack's creature (stat block) entries must satisfy. */
 export const CreatureDefinition = z.object({
-  slug: Slug,
+  slug: EntrySlug,
   name: ContentText,
   /** -1 is valid for the weakest creatures. */
   level: Level,

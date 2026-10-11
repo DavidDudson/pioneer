@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 import {
   AncestryId,
-  ContentKind,
   contentId,
+  ContentKind,
   ContentText,
-  PackId,
+  EntrySlug,
   packContentsFromFiles,
-  Slug,
+  PackId,
 } from '@pioneer/rules/sdk';
 import type { PackContents, PackContentsLoader } from '@pioneer/rules/sdk';
 import { IDLE_SCHEDULER } from '@pioneer/shared/web';
@@ -19,15 +19,16 @@ import { provideContentTesting, TestContentDelivery } from './testing';
 
 const PACK = PackId.parse('homebrew');
 const packFile = { id: PACK, title: 'Homebrew', publisher: 'Someone', license: 'homebrew' };
-const idOf = (slug: string): string => contentId(PACK, Slug.parse(slug));
+const idOf = (slug: string): string => contentId(PACK, EntrySlug.parse(slug));
 
-function entry(kind: string, slug: string, data: object): object {
+function entry(kind: string, name: string, data: object): object {
+  const slug = `${kind}:${name}`;
   return {
     id: idOf(slug),
     pack: PACK,
     kind,
     slug,
-    name: `${slug} name`,
+    name: `${name} name`,
     rarity: 'common',
     traits: [],
     sources: [{ kind: 'book', book: 'player-core', page: 1 }],
@@ -43,7 +44,7 @@ const ancestry = entry('ancestry', 'lizardfolk', {
   speed: 25,
   boosts: [['str'], ['wis']],
   flaws: ['int'],
-  languages: [idOf('common')],
+  languages: [idOf('language:common')],
   additionalLanguages: { count: 0, options: [] },
   reach: 5,
 });
@@ -93,7 +94,7 @@ describe(ContentLoader, () => {
 
     const registry = await loader.registry([ContentKind.Ancestry]);
 
-    const lizardfolk = registry.ancestry(AncestryId.parse(idOf('lizardfolk')));
+    const lizardfolk = registry.ancestry(AncestryId.parse(idOf('ancestry:lizardfolk')));
     expect(lizardfolk?.definition.name).toBe(ContentText.parse('lizardfolk name'));
     expect(lizardfolk?.pack.manifest.title).toBe(ContentText.parse('Homebrew'));
   });
@@ -124,7 +125,7 @@ describe(ContentLoader, () => {
 
     const registry = await loader.registry([ContentKind.Language]);
 
-    expect(registry.packs[0]?.otherEntries.map((language) => language.slug)).toStrictEqual(['common']);
+    expect(registry.packs[0]?.otherEntries.map((language) => language.slug)).toStrictEqual(['language:common']);
     expect(delivery.requests).toHaveLength(before);
   });
 
@@ -138,7 +139,7 @@ describe(ContentLoader, () => {
     delivery.offline = false;
     const registry = await loader.registry([ContentKind.Language]);
 
-    expect(registry.packs[0]?.otherEntries.map((language) => language.slug)).toStrictEqual(['common']);
+    expect(registry.packs[0]?.otherEntries.map((language) => language.slug)).toStrictEqual(['language:common']);
   });
 
   it('reads the manifest again when a re-seed since it was read leaves a bundle gone', async () => {

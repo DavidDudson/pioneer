@@ -4,7 +4,7 @@ import { fieldIssues, message, ValidationMessage } from '@pioneer/shared/kernel'
 import type { FieldIssue } from '@pioneer/shared/kernel';
 
 import { ContentEntry } from './content-entry';
-import { contentId, PackId, Slug } from './content-id';
+import { contentId, EntrySlug, PackId } from './content-id';
 import { RulesMessage } from './messages';
 
 function issues(value: unknown): readonly FieldIssue[] {
@@ -20,7 +20,7 @@ function found(value: unknown): readonly string[] {
 }
 
 const PACK = 'player-core';
-const idOf = (slug: string): string => contentId(PackId.parse(PACK), Slug.parse(slug));
+const idOf = (slug: string): string => contentId(PackId.parse(PACK), EntrySlug.parse(slug));
 const prose = (text: string): unknown[] => [{ type: 'paragraph', content: [{ type: 'text', text }] }];
 
 /** The envelope of a Player Core entry, without its kind and data. */
@@ -41,7 +41,7 @@ function entry(slug: string, name: string): object {
 /* Foundry pf2e's Player Core entries, in Pioneer's words. */
 
 const fireball = {
-  ...entry('fireball', 'Fireball'),
+  ...entry('spell:fireball', 'Fireball'),
   kind: 'spell',
   traits: ['concentrate', 'fire', 'manipulate'],
   data: {
@@ -57,7 +57,7 @@ const fireball = {
 };
 
 const heal = {
-  ...entry('heal', 'Heal'),
+  ...entry('spell:heal', 'Heal'),
   kind: 'spell',
   traits: ['healing', 'manipulate', 'vitality'],
   data: {
@@ -77,7 +77,7 @@ const heal = {
 };
 
 const shield = {
-  ...entry('shield', 'Shield'),
+  ...entry('spell:shield', 'Shield'),
   kind: 'spell',
   traits: ['cantrip', 'concentrate', 'force'],
   data: {
@@ -90,7 +90,7 @@ const shield = {
 };
 
 const command = {
-  ...entry('command', 'Command'),
+  ...entry('spell:command', 'Command'),
   kind: 'spell',
   traits: ['auditory', 'concentrate', 'linguistic', 'manipulate', 'mental'],
   data: {
@@ -107,7 +107,7 @@ const command = {
 };
 
 const sureStrike = {
-  ...entry('sure-strike', 'Sure Strike'),
+  ...entry('spell:sure-strike', 'Sure Strike'),
   kind: 'spell',
   traits: ['concentrate', 'fortune'],
   data: {
@@ -120,7 +120,7 @@ const sureStrike = {
 };
 
 const dispelMagic = {
-  ...entry('dispel-magic', 'Dispel Magic'),
+  ...entry('spell:dispel-magic', 'Dispel Magic'),
   kind: 'spell',
   traits: ['concentrate', 'manipulate'],
   data: {

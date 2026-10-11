@@ -1,9 +1,9 @@
 [
   {
-    "id": "87d49891-adee-522e-b478-93e77308482b",
+    "id": "e6d808d9-95b9-5477-8322-791194226314",
     "pack": "player-core",
     "kind": "ancestry",
-    "slug": "dwarf",
+    "slug": "ancestry:dwarf",
     "name": "Dwarf",
     "rarity": "common",
     "traits": ["dwarf", "humanoid"],
@@ -23,27 +23,27 @@
       "speed": 20,
       "boosts": [["con"], ["wis"], ["str", "dex", "con", "int", "wis", "cha"]],
       "flaws": ["cha"],
-      "languages": ["9ef5b9f3-c3b1-57aa-a847-25f68ca30427", "a54fbd03-5614-5607-87f9-e5a40846321f"],
+      "languages": ["444a2133-3e11-55b6-b57a-1f11ebe8e12b", "c49a86a0-8e49-56c1-86f9-eaa50a3297e3"],
       "additionalLanguages": {
         "count": 0,
         "options": [
-          "c5896f47-3872-5363-b5f9-01d6e6fe2568",
-          "c3522b95-89e6-575b-8591-02cbf7cbd645",
-          "0e759640-34b7-5999-91b4-d7c86a0e3875",
-          "9390a12d-a784-57d7-8af0-58fed47caf4a",
-          "d11e6f74-1846-5d0f-a28c-b67e7fe850a3",
-          "21afbe07-694e-5bd6-89ac-9b92206f50f5"
+          "d2200e11-b3e5-5878-be67-4f4492c1f76d",
+          "cc56a173-7e20-50ca-b027-1a5aca98fe4b",
+          "315eced7-9fa5-595b-bdab-002877559cff",
+          "4d4fb5fa-160d-553f-b657-24105dc56050",
+          "ff9d8655-df77-52bc-852f-ee4669509e08",
+          "da0478dc-3e4f-5abb-9b5f-79be74bf143e"
         ]
       },
-      "vision": "8e335e9a-e966-529a-8b5d-5be7dba6a61d",
+      "vision": "67979b6a-4b24-5be5-b7ea-94783c497bcb",
       "reach": 5
     }
   },
   {
-    "id": "d10d29db-62ec-5b40-984e-cd3bfce29991",
+    "id": "85929532-15d1-52c2-8500-d3b27f174266",
     "pack": "player-core",
     "kind": "ancestry",
-    "slug": "elf",
+    "slug": "ancestry:elf",
     "name": "Elf",
     "rarity": "common",
     "traits": ["elf", "humanoid"],
@@ -63,28 +63,28 @@
       "speed": 30,
       "boosts": [["dex"], ["int"], ["str", "dex", "con", "int", "wis", "cha"]],
       "flaws": ["con"],
-      "languages": ["9ef5b9f3-c3b1-57aa-a847-25f68ca30427", "02d4ab36-444f-57c6-aea7-6f2ff6a09b22"],
+      "languages": ["444a2133-3e11-55b6-b57a-1f11ebe8e12b", "3128d8af-f464-563e-ac8d-ac86a7e9408b"],
       "additionalLanguages": {
         "count": 0,
         "options": [
-          "1367029e-6456-5a80-9772-2846e6747883",
-          "39cf7542-e68c-5298-8ab1-5c4b9f4efe43",
-          "c2275701-b366-57f6-a6d8-b24f143ef9aa",
-          "c5896f47-3872-5363-b5f9-01d6e6fe2568",
-          "c3522b95-89e6-575b-8591-02cbf7cbd645",
-          "2f1eaa2b-d2ed-5095-9136-d10fb7ba7ccd",
-          "9390a12d-a784-57d7-8af0-58fed47caf4a"
+          "17635451-e596-5045-8af5-47f581cd1a40",
+          "c60a69f8-1fae-5452-9c94-4cf2bd4662b1",
+          "30b3a33b-b3f0-5ba1-9e46-aed5301bb2ce",
+          "d2200e11-b3e5-5878-be67-4f4492c1f76d",
+          "cc56a173-7e20-50ca-b027-1a5aca98fe4b",
+          "1fb509e8-a33a-5a44-85ab-733764797c61",
+          "4d4fb5fa-160d-553f-b657-24105dc56050"
         ]
       },
-      "vision": "d177c026-2e38-5147-b32d-66104c47e988",
+      "vision": "16b42c38-9373-58ec-a7ac-2221bb17a71c",
       "reach": 5
     }
   },
   {
-    "id": "baa51e19-9701-53d3-9589-acaa8e3744a2",
+    "id": "be1b027a-40cb-5267-ac66-7cdc1c0d7813",
     "pack": "player-core",
     "kind": "ancestry",
-    "slug": "gnome",
+    "slug": "ancestry:gnome",
     "name": "Gnome",
     "rarity": "common",
     "traits": ["gnome", "humanoid"],
@@ -105,30 +105,30 @@
       "boosts": [["con"], ["cha"], ["str", "dex", "con", "int", "wis", "cha"]],
       "flaws": ["str"],
       "languages": [
-        "9ef5b9f3-c3b1-57aa-a847-25f68ca30427",
-        "c2275701-b366-57f6-a6d8-b24f143ef9aa",
-        "c5896f47-3872-5363-b5f9-01d6e6fe2568"
+        "444a2133-3e11-55b6-b57a-1f11ebe8e12b",
+        "30b3a33b-b3f0-5ba1-9e46-aed5301bb2ce",
+        "d2200e11-b3e5-5878-be67-4f4492c1f76d"
       ],
       "additionalLanguages": {
         "count": 0,
         "options": [
-          "1367029e-6456-5a80-9772-2846e6747883",
-          "a54fbd03-5614-5607-87f9-e5a40846321f",
-          "02d4ab36-444f-57c6-aea7-6f2ff6a09b22",
-          "c3522b95-89e6-575b-8591-02cbf7cbd645",
-          "0e759640-34b7-5999-91b4-d7c86a0e3875",
-          "9390a12d-a784-57d7-8af0-58fed47caf4a"
+          "17635451-e596-5045-8af5-47f581cd1a40",
+          "c49a86a0-8e49-56c1-86f9-eaa50a3297e3",
+          "3128d8af-f464-563e-ac8d-ac86a7e9408b",
+          "cc56a173-7e20-50ca-b027-1a5aca98fe4b",
+          "315eced7-9fa5-595b-bdab-002877559cff",
+          "4d4fb5fa-160d-553f-b657-24105dc56050"
         ]
       },
-      "vision": "d177c026-2e38-5147-b32d-66104c47e988",
+      "vision": "16b42c38-9373-58ec-a7ac-2221bb17a71c",
       "reach": 5
     }
   },
   {
-    "id": "19b27be4-62c2-5050-9ccd-2b960ba3194b",
+    "id": "054f4768-e40c-50b9-bf71-cebc5bd9064e",
     "pack": "player-core",
     "kind": "ancestry",
-    "slug": "goblin",
+    "slug": "ancestry:goblin",
     "name": "Goblin",
     "rarity": "common",
     "traits": ["goblin", "humanoid"],
@@ -148,27 +148,27 @@
       "speed": 25,
       "boosts": [["dex"], ["cha"], ["str", "dex", "con", "int", "wis", "cha"]],
       "flaws": ["wis"],
-      "languages": ["9ef5b9f3-c3b1-57aa-a847-25f68ca30427", "c3522b95-89e6-575b-8591-02cbf7cbd645"],
+      "languages": ["444a2133-3e11-55b6-b57a-1f11ebe8e12b", "cc56a173-7e20-50ca-b027-1a5aca98fe4b"],
       "additionalLanguages": {
         "count": 0,
         "options": [
-          "1367029e-6456-5a80-9772-2846e6747883",
-          "a54fbd03-5614-5607-87f9-e5a40846321f",
-          "c5896f47-3872-5363-b5f9-01d6e6fe2568",
-          "2a3cd6da-1de8-57fd-9550-5f3e7a7998d6",
-          "2f1eaa2b-d2ed-5095-9136-d10fb7ba7ccd",
-          "9390a12d-a784-57d7-8af0-58fed47caf4a"
+          "17635451-e596-5045-8af5-47f581cd1a40",
+          "c49a86a0-8e49-56c1-86f9-eaa50a3297e3",
+          "d2200e11-b3e5-5878-be67-4f4492c1f76d",
+          "6901cc04-49bb-5344-bcaa-a4a99712d566",
+          "1fb509e8-a33a-5a44-85ab-733764797c61",
+          "4d4fb5fa-160d-553f-b657-24105dc56050"
         ]
       },
-      "vision": "8e335e9a-e966-529a-8b5d-5be7dba6a61d",
+      "vision": "67979b6a-4b24-5be5-b7ea-94783c497bcb",
       "reach": 5
     }
   },
   {
-    "id": "da9f0ffe-16b0-5f1b-8f2f-4f0f253c057d",
+    "id": "abf704ef-d31d-527c-b030-3bd58a49b0bd",
     "pack": "player-core",
     "kind": "ancestry",
-    "slug": "halfling",
+    "slug": "ancestry:halfling",
     "name": "Halfling",
     "rarity": "common",
     "traits": ["halfling", "humanoid"],
@@ -188,24 +188,24 @@
       "speed": 25,
       "boosts": [["dex"], ["wis"], ["str", "dex", "con", "int", "wis", "cha"]],
       "flaws": ["str"],
-      "languages": ["9ef5b9f3-c3b1-57aa-a847-25f68ca30427", "2a3cd6da-1de8-57fd-9550-5f3e7a7998d6"],
+      "languages": ["444a2133-3e11-55b6-b57a-1f11ebe8e12b", "6901cc04-49bb-5344-bcaa-a4a99712d566"],
       "additionalLanguages": {
         "count": 0,
         "options": [
-          "a54fbd03-5614-5607-87f9-e5a40846321f",
-          "02d4ab36-444f-57c6-aea7-6f2ff6a09b22",
-          "c5896f47-3872-5363-b5f9-01d6e6fe2568",
-          "c3522b95-89e6-575b-8591-02cbf7cbd645"
+          "c49a86a0-8e49-56c1-86f9-eaa50a3297e3",
+          "3128d8af-f464-563e-ac8d-ac86a7e9408b",
+          "d2200e11-b3e5-5878-be67-4f4492c1f76d",
+          "cc56a173-7e20-50ca-b027-1a5aca98fe4b"
         ]
       },
       "reach": 5
     }
   },
   {
-    "id": "f10cdb85-0c8e-5795-9741-a0f4790f2bf3",
+    "id": "58312ecf-5705-5e7d-b695-248d34618288",
     "pack": "player-core",
     "kind": "ancestry",
-    "slug": "human",
+    "slug": "ancestry:human",
     "name": "Human",
     "rarity": "common",
     "traits": ["human", "humanoid"],
@@ -228,7 +228,7 @@
         ["str", "dex", "con", "int", "wis", "cha"]
       ],
       "flaws": [],
-      "languages": ["9ef5b9f3-c3b1-57aa-a847-25f68ca30427"],
+      "languages": ["444a2133-3e11-55b6-b57a-1f11ebe8e12b"],
       "additionalLanguages": {
         "count": 1,
         "options": []
@@ -237,10 +237,10 @@
     }
   },
   {
-    "id": "24425fee-2efe-50a0-83a9-011cf28c3d24",
+    "id": "54baa0f3-c686-58a5-91b3-4ccfa6b8d011",
     "pack": "player-core",
     "kind": "ancestry",
-    "slug": "leshy",
+    "slug": "ancestry:leshy",
     "name": "Leshy",
     "rarity": "common",
     "traits": ["leshy", "plant"],
@@ -260,27 +260,27 @@
       "speed": 25,
       "boosts": [["con"], ["wis"], ["str", "dex", "con", "int", "wis", "cha"]],
       "flaws": ["int"],
-      "languages": ["9ef5b9f3-c3b1-57aa-a847-25f68ca30427", "c2275701-b366-57f6-a6d8-b24f143ef9aa"],
+      "languages": ["444a2133-3e11-55b6-b57a-1f11ebe8e12b", "30b3a33b-b3f0-5ba1-9e46-aed5301bb2ce"],
       "additionalLanguages": {
         "count": 0,
         "options": [
-          "1367029e-6456-5a80-9772-2846e6747883",
-          "02d4ab36-444f-57c6-aea7-6f2ff6a09b22",
-          "c5896f47-3872-5363-b5f9-01d6e6fe2568",
-          "c3522b95-89e6-575b-8591-02cbf7cbd645",
-          "2a3cd6da-1de8-57fd-9550-5f3e7a7998d6",
-          "21afbe07-694e-5bd6-89ac-9b92206f50f5"
+          "17635451-e596-5045-8af5-47f581cd1a40",
+          "3128d8af-f464-563e-ac8d-ac86a7e9408b",
+          "d2200e11-b3e5-5878-be67-4f4492c1f76d",
+          "cc56a173-7e20-50ca-b027-1a5aca98fe4b",
+          "6901cc04-49bb-5344-bcaa-a4a99712d566",
+          "da0478dc-3e4f-5abb-9b5f-79be74bf143e"
         ]
       },
-      "vision": "d177c026-2e38-5147-b32d-66104c47e988",
+      "vision": "16b42c38-9373-58ec-a7ac-2221bb17a71c",
       "reach": 5
     }
   },
   {
-    "id": "169f1809-dcaf-5293-b603-f7a12cdc6084",
+    "id": "27e47483-e581-53af-992f-7b19ac052ab4",
     "pack": "player-core",
     "kind": "ancestry",
-    "slug": "orc",
+    "slug": "ancestry:orc",
     "name": "Orc",
     "rarity": "common",
     "traits": ["orc", "humanoid"],
@@ -303,17 +303,17 @@
         ["str", "dex", "con", "int", "wis", "cha"]
       ],
       "flaws": [],
-      "languages": ["9ef5b9f3-c3b1-57aa-a847-25f68ca30427", "9390a12d-a784-57d7-8af0-58fed47caf4a"],
+      "languages": ["444a2133-3e11-55b6-b57a-1f11ebe8e12b", "4d4fb5fa-160d-553f-b657-24105dc56050"],
       "additionalLanguages": {
         "count": 0,
         "options": [
-          "c3522b95-89e6-575b-8591-02cbf7cbd645",
-          "0e759640-34b7-5999-91b4-d7c86a0e3875",
-          "d11e6f74-1846-5d0f-a28c-b67e7fe850a3",
-          "21afbe07-694e-5bd6-89ac-9b92206f50f5"
+          "cc56a173-7e20-50ca-b027-1a5aca98fe4b",
+          "315eced7-9fa5-595b-bdab-002877559cff",
+          "ff9d8655-df77-52bc-852f-ee4669509e08",
+          "da0478dc-3e4f-5abb-9b5f-79be74bf143e"
         ]
       },
-      "vision": "8e335e9a-e966-529a-8b5d-5be7dba6a61d",
+      "vision": "67979b6a-4b24-5be5-b7ea-94783c497bcb",
       "reach": 5
     }
   }

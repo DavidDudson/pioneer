@@ -5,6 +5,7 @@ import {
   ContentId,
   ContentKind,
   ContentText,
+  entrySlug,
   Level,
   PackId,
   RollOption,
@@ -28,9 +29,10 @@ import type { ToggleStates } from '../toggles';
 const TEST_PACK = PackId.parse('grants-test');
 const TEST_PAGE = SourceRef.parse({ kind: 'book', book: 'player-core', page: 1 });
 
-/** The id of the test pack's entry `slug`. */
+/** The id of the test pack's entry named `slug`; ids are opaque to grants, so every one is filed as a class feature. */
 export function idOf(slug: string): ContentId {
-  return ContentId.parse(contentId(TEST_PACK, Slug.parse(slug)));
+  const filed = entrySlug(ContentKind.ClassFeature, Slug.parse(slug));
+  return ContentId.parse(contentId(TEST_PACK, filed));
 }
 
 /** A `GrantItem` of the test pack's entry `slug`, as JSON. Spread it to add fields. */

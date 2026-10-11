@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 
 import { ContentEntry } from './content-entry';
-import { contentId, PackId, Slug } from './content-id';
+import { contentId, EntrySlug, PackId } from './content-id';
 import { facetValues } from './facet';
 import { SPELL_FACETS } from './spell-facets';
 
@@ -11,10 +11,10 @@ const prose = [{ type: 'paragraph', content: [{ type: 'text', text: 'A spell.' }
 /** A Player Core spell with `data` merged over a two-action, arcane, rank 1 cantrip-free base. */
 function spell(slug: string, data: object, traits: readonly string[] = []): ContentEntry {
   return ContentEntry.parse({
-    id: contentId(PackId.parse(PACK), Slug.parse(slug)),
+    id: contentId(PackId.parse(PACK), EntrySlug.parse(`spell:${slug}`)),
     pack: PACK,
     kind: 'spell',
-    slug,
+    slug: `spell:${slug}`,
     name: slug,
     rarity: 'common',
     traits,
@@ -139,6 +139,8 @@ describe('spell facets', () => {
     const trait = ContentEntry.parse({
       ...structuredClone(fireball),
       kind: 'trait',
+      slug: 'trait:fireball',
+      id: contentId(PackId.parse(PACK), EntrySlug.parse('trait:fireball')),
       data: { appliesTo: [] },
     });
     expect(Object.values(valuesOf(trait)).flat()).toStrictEqual([]);

@@ -1,4 +1,4 @@
-import { SourceKind } from '@pioneer/rules/sdk';
+import { slugName, SourceKind } from '@pioneer/rules/sdk';
 
 import type { GapFields } from '../kind-data-gaps';
 import type { ImportedEntry, ImportTranslation } from '../translate-import';
@@ -87,7 +87,7 @@ export function gapsOf({ kindDataGaps }: ImportTranslation): GapFields[] {
 }
 
 export function entryOf(translation: ImportTranslation, slug: string): ImportedEntry | undefined {
-  return translation.entries.find(({ envelope }) => envelope.slug === slug);
+  return translation.entries.find(({ envelope }) => slugName(envelope.slug) === slug);
 }
 
 export function dataOf(documents: readonly DocumentFixture[], slug: string): unknown {

@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { BookId, ContentId, contentId, PackId, Slug } from '@pioneer/rules/sdk';
+import { BookId, ContentId, contentId, ContentKind, entrySlug, PackId, Slug } from '@pioneer/rules/sdk';
 import { slugText } from '@pioneer/rules/sdk/testing';
 import { assert, integer, property, record, string } from 'fast-check';
 
@@ -46,7 +46,8 @@ describe('translateEnvelopes ids', () => {
     assert(
       property(cases, (each) => {
         const pack = PackId.parse(each.pack);
-        const expected = ContentId.parse(contentId(pack, Slug.parse(each.slug)));
+        const slug = entrySlug(ContentKind.Feat, Slug.parse(each.slug));
+        const expected = ContentId.parse(contentId(pack, slug));
         const { entries } = translateEnvelopes([selected(each)], { pack, traits: new Set() });
 
         expect(entries[0]?.envelope.id).toBe(expected);

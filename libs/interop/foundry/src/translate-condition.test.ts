@@ -45,7 +45,7 @@ describe('translateKindData: condition values', () => {
   });
 
   test('overrides resolve condition slugs to ids, or are reported', () => {
-    expect(dataOf([BLINDED, DAZZLED], 'blinded')).toMatchObject({ overrides: [idOf('dazzled')] });
+    expect(dataOf([BLINDED, DAZZLED], 'blinded')).toMatchObject({ overrides: [idOf('condition:dazzled')] });
     expect(gapsOf(translate([BLINDED]))).toContainEqual({
       reason: KindDataGapReason.UnresolvedReference,
       field: 'overrides',
@@ -57,7 +57,9 @@ describe('translateKindData: condition values', () => {
     const translation = translate([GRABBED, OFF_GUARD, IMMOBILIZED, PRONE]);
     const entry = entryOf(translation, 'grabbed');
 
-    expect(entry?.kindData?.data).toMatchObject({ implies: [idOf('off-guard'), idOf('immobilized')] });
+    expect(entry?.kindData?.data).toMatchObject({
+      implies: [idOf('condition:off-guard'), idOf('condition:immobilized')],
+    });
     expect(entry?.envelope.rules.filter(({ key }) => key === RuleElementKey.GrantItem)).toHaveLength(3);
   });
 
@@ -71,7 +73,9 @@ describe('translateRules: GrantItem', () => {
     const translation = translate([GRABBED, IMMOBILIZED, PRONE]);
     const raw = { inMemoryOnly: true, key: 'GrantItem', uuid: 'Compendium.pf2e.conditionitems.Item.Off-Guard' };
 
-    expect(translation.envelopes.untranslatedRules).toEqual([{ entry: idOf('grabbed'), key: 'GrantItem', raw }]);
-    expect(entryOf(translation, 'grabbed')?.kindData?.data).toMatchObject({ implies: [idOf('immobilized')] });
+    expect(translation.envelopes.untranslatedRules).toEqual([
+      { entry: idOf('condition:grabbed'), key: 'GrantItem', raw },
+    ]);
+    expect(entryOf(translation, 'grabbed')?.kindData?.data).toMatchObject({ implies: [idOf('condition:immobilized')] });
   });
 });

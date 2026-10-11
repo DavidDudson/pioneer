@@ -22,7 +22,7 @@ const houseRules = ContentPack.define({
   creatures: [],
   statistics: [
     {
-      slug: 'keen-perception',
+      slug: 'statistic:keen-perception',
       name: 'Keen Perception',
       selector: 'perception',
       domains: ['check', 'wis-based'],

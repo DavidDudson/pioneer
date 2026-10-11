@@ -8,7 +8,7 @@ import { briarRoseExport, mordredExport } from '@pioneer/interop/pathbuilder/tes
 import { officialPacks } from '@pioneer/rules/catalog';
 import { MemoryBundleStore } from '@pioneer/rules/data-access';
 import { provideContentTesting, TestContentDelivery } from '@pioneer/rules/data-access/testing';
-import { contentId, PackId, Slug } from '@pioneer/rules/sdk';
+import { contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import { IDLE_SCHEDULER, provideI18n } from '@pioneer/shared/web';
 import { describe, expect, it, vi } from 'vitest';
 
@@ -112,7 +112,7 @@ describe('PathbuilderImportPage', () => {
 });
 
 const id = '0d9f7c1e-3b7a-4c55-9d1f-2a8f2b9c6e10';
-const human = contentId(PackId.parse('player-core'), Slug.parse('human'));
+const human = contentId(PackId.parse('player-core'), EntrySlug.parse('ancestry:human'));
 
 function button(root: HTMLElement, label: string): HTMLButtonElement {
   return present([...root.querySelectorAll('button')].find((element) => element.textContent.includes(label)));

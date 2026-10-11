@@ -8,7 +8,7 @@ import type { StatisticsCheck } from './statistics-check';
 
 /** A statistic derived once per `per`, with no domains. */
 const perSource = (selector: string, per: string, base: string): object => ({
-  slug: selector,
+  slug: `statistic:${selector.replaceAll(':', '-')}`,
   name: selector,
   selector,
   domains: [],
@@ -29,7 +29,11 @@ function check(definitions: readonly object[]): StatisticsCheck {
 
 describe('checkStatistics per source', () => {
   it('shows an instance a later family wins under the family, with its base, not under the earlier plain one', () => {
-    const plain = { ...perSource('strike:longsword', 'weapon', '@level'), slug: 'plain-strike', per: undefined };
+    const plain = {
+      ...perSource('strike:longsword', 'weapon', '@level'),
+      slug: 'statistic:plain-strike',
+      per: undefined,
+    };
     const strike = perSource('strike', 'weapon', '@weapon.attr + @weapon.prof');
     expect(check([plain, strike])).toMatchObject({
       status: StatisticsStatus.Valid,
@@ -41,7 +45,11 @@ describe('checkStatistics per source', () => {
   });
 
   it('shows a plain statistic that shares the family’s prefix once, under its own definition', () => {
-    const custom = { ...perSource('strike:custom', 'weapon', '@level'), slug: 'custom-strike', per: undefined };
+    const custom = {
+      ...perSource('strike:custom', 'weapon', '@level'),
+      slug: 'statistic:custom-strike',
+      per: undefined,
+    };
     const result = checkStatistics(
       {
         definitions: JSON.stringify([perSource('strike', 'weapon', '@weapon.attr'), custom]),

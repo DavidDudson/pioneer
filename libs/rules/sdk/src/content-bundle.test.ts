@@ -2,12 +2,12 @@ import { describe, expect, test } from 'bun:test';
 
 import { BundleHash, bundlePath, contentBundles, contentPackFromBundles } from './content-bundle';
 import type { BundleBody, CanonicalJson, BundleFile, ContentBundles, KindBundles, PackBundles } from './content-bundle';
-import { contentId, PackId, Slug } from './content-id';
+import { contentId, EntrySlug, PackId } from './content-id';
 import type { ContentPack } from './content-pack';
 import { contentPackFromFiles, packContentsFromFiles } from './content-pack-file';
 
 const PACK = PackId.parse('homebrew');
-const idOf = (slug: string): string => contentId(PACK, Slug.parse(slug));
+const idOf = (slug: string): string => contentId(PACK, EntrySlug.parse(slug));
 const packFile = { id: PACK, title: 'Homebrew', publisher: 'Someone', license: 'homebrew' };
 
 /** A hasher that names a bundle by its length, so tests can predict file names. */
@@ -15,12 +15,14 @@ function lengthHash(json: CanonicalJson): BundleHash {
   return BundleHash.parse(json.length.toString(16).padStart(16, '0'));
 }
 
+/** A language entry; `slug` is its name, or a whole slug for a fixture that changes the kind. */
 function language(slug: string, name: string): object {
+  const full = slug.includes(':') ? slug : `language:${slug}`;
   return {
-    id: idOf(slug),
+    id: idOf(full),
     pack: PACK,
     kind: 'language',
-    slug,
+    slug: full,
     name,
     rarity: 'common',
     traits: [],
@@ -32,7 +34,7 @@ function language(slug: string, name: string): object {
 }
 
 const ancestry = {
-  ...language('lizardfolk', 'Lizardfolk'),
+  ...language('ancestry:lizardfolk', 'Lizardfolk'),
   kind: 'ancestry',
   traits: ['humanoid', 'lizardfolk'],
   data: {
@@ -41,7 +43,7 @@ const ancestry = {
     speed: 25,
     boosts: [['str'], ['wis']],
     flaws: ['int'],
-    languages: [idOf('common')],
+    languages: [idOf('language:common')],
     additionalLanguages: { count: 0, options: [] },
     reach: 5,
   },
@@ -110,7 +112,7 @@ describe('contentBundles', () => {
   test('mechanics leave out names and descriptions, sorted by id', () => {
     const built = bundles();
     const mechanics = bodyOf(built, kindOf(built, 'language').mechanics);
-    const sortedIds = [idOf('common'), idOf('draconic')].toSorted();
+    const sortedIds = [idOf('language:common'), idOf('language:draconic')].toSorted();
     expect(mechanics).toMatchObject(sortedIds.map((id) => ({ id, kind: 'language' })));
     expect(JSON.stringify(mechanics)).not.toContain('Common');
     expect(JSON.stringify(mechanics)).not.toContain('description');
@@ -119,7 +121,10 @@ describe('contentBundles', () => {
   test('names map each id to its name', () => {
     const built = bundles();
     const names = bodyOf(built, kindOf(built, 'language').names);
-    expect(names).toStrictEqual({ [idOf('common')]: { name: 'Common' }, [idOf('draconic')]: { name: 'Draconic' } });
+    expect(names).toStrictEqual({
+      [idOf('language:common')]: { name: 'Common' },
+      [idOf('language:draconic')]: { name: 'Draconic' },
+    });
   });
 
   test('a reordered file gives the same bundles', () => {
@@ -157,7 +162,7 @@ describe('contentPackFromBundles', () => {
     const { mechanics } = kindOf(built, 'language');
     const unnamed = [{ mechanics: bodyOf(built, mechanics), names: {} }];
     expect(() => contentPackFromBundles(bodyOf(built, file), unnamed)).toThrow(
-      `No name for content entry ${idOf('common')}`,
+      `No name for content entry ${idOf('language:common')}`,
     );
   });
 });

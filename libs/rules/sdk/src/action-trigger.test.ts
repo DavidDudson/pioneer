@@ -4,7 +4,7 @@ import { fieldIssues, message, ValidationMessage } from '@pioneer/shared/kernel'
 import type { FieldIssue } from '@pioneer/shared/kernel';
 
 import { ContentEntry } from './content-entry';
-import { contentId, PackId, Slug } from './content-id';
+import { contentId, EntrySlug, PackId } from './content-id';
 import { RulesMessage } from './messages';
 
 function issues(value: unknown): readonly FieldIssue[] {
@@ -20,7 +20,7 @@ function found(value: unknown): readonly string[] {
 }
 
 const PACK = 'player-core';
-const idOf = (slug: string): string => contentId(PackId.parse(PACK), Slug.parse(slug));
+const idOf = (slug: string): string => contentId(PackId.parse(PACK), EntrySlug.parse(slug));
 const prose = (text: string): unknown[] => [{ type: 'paragraph', content: [{ type: 'text', text }] }];
 
 function entry(slug: string, name: string): object {
@@ -42,7 +42,7 @@ const afterFocusSpell = { event: 'cast-spell', predicate: ['item:trait:focus'] }
 /** A free action that fires after a focus spell, with `data` merged over its own. */
 function action(data: object = {}): object {
   return {
-    ...entry('focused-step', 'Focused Step'),
+    ...entry('action:focused-step', 'Focused Step'),
     kind: 'action',
     data: { cost: 'free', trigger: prose('You cast a focus spell.'), triggerEvent: afterFocusSpell, ...data },
   };
@@ -51,7 +51,7 @@ function action(data: object = {}): object {
 /** An effect that fires at the start of the bearer's turn, with `data` merged over its own. */
 function effect(data: object = {}): object {
   return {
-    ...entry('effect-renewal', 'Effect: Renewal'),
+    ...entry('effect:effect-renewal', 'Effect: Renewal'),
     kind: 'effect',
     data: { category: 'spell', duration: { type: 'encounter' }, triggerEvent: { event: 'turn-start' }, ...data },
   };

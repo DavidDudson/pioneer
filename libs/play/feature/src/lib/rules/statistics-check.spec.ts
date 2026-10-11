@@ -16,7 +16,7 @@ import {
 import type { StatisticProficiency, StatisticsCheck, StatisticsTexts } from './statistics-check';
 
 const statistic = (selector: string, base: string): object => ({
-  slug: selector.replaceAll(':', '-'),
+  slug: `statistic:${selector.replaceAll(':', '-')}`,
   name: selector,
   selector,
   domains: [],

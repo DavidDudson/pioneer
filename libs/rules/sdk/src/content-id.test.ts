@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { contentId, ContentPackId, contentPackId, PackId, Slug } from './content-id';
+import { contentId, ContentPackId, contentPackId, EntrySlug, PackId } from './content-id';
 
 describe('contentPackId', () => {
   test('is stable: stored rows depend on it', () => {
@@ -12,6 +12,6 @@ describe('contentPackId', () => {
 
   test('never equals the id of an entry in the pack', () => {
     const pack = PackId.parse('core-rules');
-    expect(contentPackId(pack)).not.toBe(contentId(pack, Slug.parse('core-rules')));
+    expect(contentPackId(pack)).not.toBe(contentId(pack, EntrySlug.parse('trait:core-rules')));
   });
 });

@@ -1,4 +1,4 @@
-import { ContentKind, Trait } from '@pioneer/rules/sdk';
+import { ContentKind, slugName, Trait } from '@pioneer/rules/sdk';
 import type { BookId, PackId } from '@pioneer/rules/sdk';
 
 import { entryReferences } from './entry-references';
@@ -59,7 +59,9 @@ export function translateImport(selected: readonly SelectedEntry[], context: Imp
   const all = [...known, ...vocabulary.entries.map((entry) => knownOf(entry))];
   const slugs = entrySlugs(selected);
   const references = entryReferences(pack, slugs, all);
-  const traits = new Set(all.filter(({ kind }) => kind === ContentKind.Trait).map(({ slug }) => Trait.parse(slug)));
+  const traits = new Set(
+    all.filter(({ kind }) => kind === ContentKind.Trait).map(({ slug }) => Trait.parse(slugName(slug))),
+  );
   const envelopes = translateEnvelopes(selected, { pack, traits, references });
   const translated = envelopes.entries.map(({ source, envelope }) => ({
     source,

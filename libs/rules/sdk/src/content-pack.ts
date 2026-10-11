@@ -5,7 +5,7 @@ import * as z from 'zod';
 import { AncestryDefinition } from './ancestry';
 import { ContentEntry } from './content-entry';
 import { PackId } from './content-id';
-import type { Slug } from './content-id';
+import type { EntrySlug } from './content-id';
 import { ContentText } from './content-text';
 import { CreatureDefinition } from './creature';
 import { envelope } from './entry-envelope';
@@ -35,7 +35,7 @@ export const PackVisibility = {
 } as const;
 export type PackVisibility = ValueOf<typeof PackVisibility>;
 
-function uniqueSlugs(entries: readonly { readonly slug: Slug }[]): boolean {
+function uniqueSlugs(entries: readonly { readonly slug: EntrySlug }[]): boolean {
   return new Set(entries.map((entry) => entry.slug)).size === entries.length;
 }
 

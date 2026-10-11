@@ -1,69 +1,47 @@
+import { ContentKind } from '@pioneer/rules/sdk';
+
 import { FoundryItemType } from './foundry-document';
 import { asciiSlug } from './foundry-slug';
 import type { SelectedEntry } from './select-entries';
 
 /**
- * Pioneer slugs for selected documents. Foundry slugs are unique per compendium, but an entry id is UUIDv5 of
- * `<pack>/<slug>` whatever the kind, so a spell and an action that share a name (Fly) would share an id. Within such
- * a group the document of the type earliest in `TYPE_PRECEDENCE` keeps the slug, and each other one gets its Foundry
- * type as a suffix (`fly-spell`). Archive path breaks ties, so the result does not depend on read order.
+ * Pioneer slugs for selected documents: the kind, then Foundry's slug (`spell:fly`, `action:fly`). Every kind names
+ * its entries the same way, so documents of different types never share a slug; two of one kind and name still do,
+ * and translation reports the later one.
  */
 
 /**
- * Which type keeps a shared slug: the rules vocabulary first (actions are what other entries name), then character
- * options, then the magic and items they grant.
+ * The kind each Foundry item type's entries are filed under. The kind stories refine some by category (a feat that
+ * is a class feature, a spell that is a ritual); until then this is the kind their slug names.
  */
-const TYPE_PRECEDENCE: readonly FoundryItemType[] = [
-  FoundryItemType.Action,
-  FoundryItemType.Condition,
-  FoundryItemType.Feat,
-  FoundryItemType.Spell,
-  FoundryItemType.Ancestry,
-  FoundryItemType.Heritage,
-  FoundryItemType.Background,
-  FoundryItemType.Class,
-  FoundryItemType.Deity,
-  FoundryItemType.Effect,
-  FoundryItemType.Weapon,
-  FoundryItemType.Armor,
-  FoundryItemType.Shield,
-  FoundryItemType.Equipment,
-  FoundryItemType.Consumable,
-  FoundryItemType.Ammo,
-  FoundryItemType.Backpack,
-  FoundryItemType.Treasure,
-  FoundryItemType.Kit,
-];
+export const FOUNDRY_TYPE_KINDS: Readonly<Record<FoundryItemType, ContentKind>> = {
+  [FoundryItemType.Action]: ContentKind.Action,
+  [FoundryItemType.Ammo]: ContentKind.Consumable,
+  [FoundryItemType.Ancestry]: ContentKind.Ancestry,
+  [FoundryItemType.Armor]: ContentKind.Armor,
+  [FoundryItemType.Backpack]: ContentKind.Equipment,
+  [FoundryItemType.Background]: ContentKind.Background,
+  [FoundryItemType.Class]: ContentKind.Class,
+  [FoundryItemType.Condition]: ContentKind.Condition,
+  [FoundryItemType.Consumable]: ContentKind.Consumable,
+  [FoundryItemType.Deity]: ContentKind.Deity,
+  [FoundryItemType.Effect]: ContentKind.Effect,
+  [FoundryItemType.Equipment]: ContentKind.Equipment,
+  [FoundryItemType.Feat]: ContentKind.Feat,
+  [FoundryItemType.Heritage]: ContentKind.Heritage,
+  [FoundryItemType.Kit]: ContentKind.Kit,
+  [FoundryItemType.Shield]: ContentKind.Shield,
+  [FoundryItemType.Spell]: ContentKind.Spell,
+  [FoundryItemType.Treasure]: ContentKind.Treasure,
+  [FoundryItemType.Weapon]: ContentKind.Weapon,
+};
 
-function byPrecedence(left: SelectedEntry, right: SelectedEntry): number {
-  return (
-    TYPE_PRECEDENCE.indexOf(left.type) - TYPE_PRECEDENCE.indexOf(right.type) || left.path.localeCompare(right.path)
-  );
+/** A selected document's slug text; translation checks it is an entry slug. */
+export function entrySlugOf({ type, document }: SelectedEntry): string {
+  return `${FOUNDRY_TYPE_KINDS[type]}:${asciiSlug(document)}`;
 }
 
-function groupBySlug(selected: readonly SelectedEntry[]): ReadonlyMap<string, readonly SelectedEntry[]> {
-  const groups = new Map<string, SelectedEntry[]>();
-  for (const entry of selected) {
-    const slug = asciiSlug(entry.document);
-    groups.set(slug, [...(groups.get(slug) ?? []), entry]);
-  }
-  return groups;
-}
-
-/**
- * Each selected document's slug, suffixed where documents of other types share it. Two documents of one type with
- * one slug still collide; translation reports the later one.
- */
+/** The slug text of each selected document. */
 export function entrySlugs(selected: readonly SelectedEntry[]): ReadonlyMap<SelectedEntry, string> {
-  const slugs = new Map<SelectedEntry, string>();
-  for (const [slug, group] of groupBySlug(selected)) {
-    const [first, ...rest] = group.toSorted(byPrecedence);
-    for (const entry of rest) {
-      slugs.set(entry, entry.type === first?.type ? slug : `${slug}-${entry.type}`);
-    }
-    if (first !== undefined) {
-      slugs.set(first, slug);
-    }
-  }
-  return slugs;
+  return new Map(selected.map((entry) => [entry, entrySlugOf(entry)]));
 }

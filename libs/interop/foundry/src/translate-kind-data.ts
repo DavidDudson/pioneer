@@ -1,7 +1,6 @@
 import { ActionData, ConditionData, ContentKind } from '@pioneer/rules/sdk';
 import type { DamageTypeData, LanguageData, SenseData, TraitData } from '@pioneer/rules/sdk';
 
-import { FOUNDRY_KINDS } from './entry-references';
 import type { EntryReferences } from './entry-references';
 import { FoundryItemType } from './foundry-document';
 import { issuePath, KindDataGapReason, report, reportUnmapped } from './kind-data-gaps';
@@ -57,7 +56,7 @@ const TRANSLATORS: Readonly<Partial<Record<FoundryItemType, (input: KindInput) =
 };
 
 /**
- * The kind data of a translated document, when its Foundry type has a kind the import builds (`FOUNDRY_KINDS`), with
+ * The kind data of a translated document, when its Foundry type has a translator (`TRANSLATORS`), with
  * what it could not carry over. Other types get none yet; their kind stories add them.
  */
 export function translateKindData(
@@ -65,7 +64,7 @@ export function translateKindData(
   envelope: ImportedEnvelope,
   references: EntryReferences,
 ): KindDataTranslation {
-  const translator = FOUNDRY_KINDS[type] === undefined ? undefined : TRANSLATORS[type];
+  const translator = TRANSLATORS[type];
   if (translator === undefined) {
     return { gaps: [] };
   }

@@ -1,5 +1,5 @@
 import { contentKey, RulesMessage, SourceKind } from '@pioneer/rules/sdk';
-import type { ContentKey, ContentPack, PackId, Slug, SourceRef } from '@pioneer/rules/sdk';
+import type { ContentKey, ContentPack, EntrySlug, PackId, SourceRef } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
 import type { FieldIssue } from '@pioneer/shared/kernel';
 
@@ -8,7 +8,7 @@ import type { BookRegistry } from './book-registry';
 /** What the source checks read from an entry: where it lives and what it cites. */
 export interface SourcedEntry {
   readonly pack: PackId;
-  readonly slug: Slug;
+  readonly slug: EntrySlug;
   readonly sources: readonly SourceRef[];
 }
 

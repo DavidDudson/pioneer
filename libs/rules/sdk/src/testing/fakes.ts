@@ -1,7 +1,8 @@
 import { faker } from '@faker-js/faker';
 import { registerFake } from '@pioneer/shared/kernel/testing';
 
-import { Slug } from '../content-id';
+import { EntrySlug, Slug } from '../content-id';
+import { ContentKind } from '../content-kind';
 import { SlotKey } from '../selector';
 
 const SLUG_WORDS = 2;
@@ -26,4 +27,5 @@ function slugWords(): string {
 export function installRulesFakes(): void {
   registerFake(Slug, slugWords);
   registerFake(SlotKey, () => `${slugWords()}:${faker.number.int(SLOT_NUMBER)}`);
+  registerFake(EntrySlug, () => `${faker.helpers.arrayElement(Object.values(ContentKind))}:${slugWords()}`);
 }

@@ -1,6 +1,6 @@
-import { contentId, PackId, Slug } from '@pioneer/rules/sdk';
+import { contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 
-const OFF_GUARD = contentId(PackId.parse('player-core'), Slug.parse('off-guard'));
+const OFF_GUARD = contentId(PackId.parse('player-core'), EntrySlug.parse('condition:off-guard'));
 
 /** Feet across the example's burst. */
 const EXAMPLE_BURST = 20;

@@ -2,7 +2,7 @@ import type { MessageDescriptor } from '@pioneer/shared/kernel';
 import { issueParams, message } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
-import { contentId } from './content-id';
+import { contentId, entrySlug, slugKind, slugName } from './content-id';
 import { ContentKind } from './content-kind';
 import { address, envelope } from './entry-envelope';
 import { EQUIPMENT_ENTRIES } from './equipment-entries';
@@ -171,6 +171,15 @@ function push(context: EntryCheck, path: readonly PropertyKey[], descriptor: Mes
   context.issues.push({ code: 'custom', input: context.value, path: [...path], ...issueParams(descriptor) });
 }
 
+/** An entry slug names its kind first, and it must be the entry's kind. */
+function checkSlugKind(context: EntryCheck): void {
+  const { kind, slug } = context.value;
+  if (slugKind(slug) !== kind) {
+    const expected = entrySlug(kind, slugName(slug));
+    push(context, ['slug'], message(RulesMessage.EntrySlugKindMismatch, { expected }));
+  }
+}
+
 /** The id is derived from pack and slug, so an entry can't claim another entry's id. */
 function checkId(context: EntryCheck): void {
   const { id, pack, slug } = context.value;
@@ -248,6 +257,7 @@ export const ContentEntry: z.ZodType<ContentEntry> = z
   .pipe(
     Entry.check((context) => {
       checkId(context);
+      checkSlugKind(context);
       checkTraits(context);
       checkSupersedes(context);
       checkImplies(context);

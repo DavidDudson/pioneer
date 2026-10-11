@@ -1,9 +1,9 @@
 [
   {
-    "id": "058de5b7-3536-5cbd-aadc-901767d4e75c",
+    "id": "a8e09e01-8dbe-5055-920b-453ebd93493d",
     "pack": "core-rules",
     "kind": "variant-rule",
-    "slug": "proficiency-without-level",
+    "slug": "variant-rule:proficiency-without-level",
     "name": "Proficiency Without Level",
     "rarity": "common",
     "traits": [],

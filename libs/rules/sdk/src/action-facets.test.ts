@@ -2,7 +2,7 @@ import { describe, expect, test } from 'bun:test';
 
 import { ACTION_FACETS, FEAT_FACETS } from './action-facets';
 import { ContentEntry } from './content-entry';
-import { contentId, PackId, Slug } from './content-id';
+import { contentId, EntrySlug, PackId, slugName } from './content-id';
 import { COMMON_FACETS, facetValues, UNKNOWN } from './facet';
 import type { FacetDefinition } from './facet';
 import { filterEntries } from './facet-filter';
@@ -11,7 +11,7 @@ import { facetsFor } from './kind-facets';
 
 const PACK = 'player-core';
 const prose = [{ type: 'paragraph', content: [{ type: 'text', text: 'An entry.' }] }];
-const idOf = (slug: string): string => contentId(PackId.parse(PACK), Slug.parse(slug));
+const idOf = (slug: string): string => contentId(PackId.parse(PACK), EntrySlug.parse(slug));
 
 interface EntryFields {
   readonly kind: string;
@@ -22,9 +22,14 @@ interface EntryFields {
 }
 
 /** A Player Core entry. */
+/** `<kind>:<name>`, whether the fixture gave the name or the whole slug. */
+function slugOf({ kind, slug }: EntryFields): string {
+  return slug.includes(':') ? slug : `${kind}:${slug}`;
+}
+
 function entry({ traits = [], ...fields }: EntryFields): ContentEntry {
   return ContentEntry.parse({
-    id: idOf(fields.slug),
+    id: idOf(slugOf(fields)),
     pack: PACK,
     name: fields.slug,
     rarity: 'common',
@@ -33,6 +38,7 @@ function entry({ traits = [], ...fields }: EntryFields): ContentEntry {
     description: prose,
     rules: [],
     ...fields,
+    slug: slugOf(fields),
   });
 }
 
@@ -48,7 +54,7 @@ function valuesOf(facets: readonly FacetDefinition[], subject: ContentEntry): Re
 
 const feats = (subject: ContentEntry): Record<string, readonly string[]> => valuesOf(FEAT_FACETS, subject);
 const actions = (subject: ContentEntry): Record<string, readonly string[]> => valuesOf(ACTION_FACETS, subject);
-const slugs = (entries: readonly ContentEntry[]): readonly string[] => entries.map((each) => each.slug);
+const slugs = (entries: readonly ContentEntry[]): readonly string[] => entries.map((each) => slugName(each.slug));
 
 const suddenCharge = feat('sudden-charge', { category: 'class', action: { cost: 'two' } }, ['fighter', 'flourish']);
 const assurance = feat('assurance', { category: 'skill', skills: ['skill:athletics'] }, ['general', 'skill']);
@@ -59,11 +65,11 @@ const battleMedicine = feat(
   { category: 'skill', action: { cost: 'one', skills: ['skill:medicine'] } },
   ['general', 'healing', 'manipulate', 'skill'],
 );
-const fighterDedication = feat('fighter-dedication', { category: 'class', archetype: idOf('fighter-archetype') }, [
-  'archetype',
-  'dedication',
-  'multiclass',
-]);
+const fighterDedication = feat(
+  'fighter-dedication',
+  { category: 'class', archetype: idOf('archetype:fighter-archetype') },
+  ['archetype', 'dedication', 'multiclass'],
+);
 const unplacedArchetypeFeat = feat('basic-maneuver', { category: 'class' }, ['archetype']);
 /** Skills on the feat and on its action, overlapping. */
 const shieldPush = feat(
@@ -84,7 +90,7 @@ const earnIncome = action('earn-income', { skills: ['skill:crafting', 'skill:lor
 const treatDisease = action('treat-disease', {}, ['downtime', 'manipulate', 'skill']);
 const fireball = entry({
   kind: 'spell',
-  slug: 'fireball',
+  slug: 'spell:fireball',
   data: { rank: 3, traditions: ['arcane'], time: { type: 'actions', cost: 'two' }, damage: [] },
 });
 
@@ -116,7 +122,7 @@ describe('feat facets', () => {
   });
 
   test('archetype: the one named, unknown for an archetype feat naming none', () => {
-    expect(feats(fighterDedication)['archetype']).toStrictEqual([idOf('fighter-archetype')]);
+    expect(feats(fighterDedication)['archetype']).toStrictEqual([idOf('archetype:fighter-archetype')]);
     expect(feats(unplacedArchetypeFeat)['archetype']).toStrictEqual([UNKNOWN]);
   });
 });

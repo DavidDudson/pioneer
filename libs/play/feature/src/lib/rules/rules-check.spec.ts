@@ -80,7 +80,7 @@ describe('checkRulesJson for rule elements', () => {
 
   it('points into a statistic base formula that reads an item', () => {
     const json =
-      '{ "slug": "sanity", "name": "Sanity", "selector": "sanity", "domains": [], "kind": "check", "base": "@item.level" }';
+      '{ "slug": "statistic:sanity", "name": "Sanity", "selector": "sanity", "domains": [], "kind": "check", "base": "@item.level" }';
     expect(checkRulesJson(RulesSchema.Statistic, json)).toStrictEqual({
       status: CheckStatus.Invalid,
       issues: [

@@ -4,7 +4,7 @@ import { fieldIssues, ValidationMessage } from '@pioneer/shared/kernel';
 import type { FieldIssue } from '@pioneer/shared/kernel';
 
 import { ContentEntry } from './content-entry';
-import { contentId, PackId, Slug } from './content-id';
+import { contentId, EntrySlug, PackId } from './content-id';
 import { RulesMessage } from './messages';
 
 function issues(value: unknown): readonly FieldIssue[] {
@@ -20,7 +20,7 @@ function found(value: unknown): readonly string[] {
 }
 
 const PACK = 'player-core';
-const idOf = (slug: string): string => contentId(PackId.parse(PACK), Slug.parse(slug));
+const idOf = (slug: string): string => contentId(PackId.parse(PACK), EntrySlug.parse(slug));
 const prose = (text: string): unknown[] => [{ type: 'paragraph', content: [{ type: 'text', text }] }];
 
 /** The envelope of a Player Core entry, without its kind and data. */
@@ -41,7 +41,7 @@ function entry(slug: string, name: string): object {
 /* Foundry pf2e's Player Core entries, in Pioneer's words. */
 
 const consecrate = {
-  ...entry('consecrate', 'Consecrate'),
+  ...entry('ritual:consecrate', 'Consecrate'),
   kind: 'ritual',
   rarity: 'uncommon',
   traits: ['consecration'],
@@ -58,13 +58,13 @@ const consecrate = {
 };
 
 const arcane = {
-  ...entry('arcane', 'Arcane'),
+  ...entry('spellcasting-tradition:arcane', 'Arcane'),
   kind: 'spellcasting-tradition',
   data: { skill: 'skill:arcana' },
 };
 
 const heroism = {
-  ...entry('spell-effect-heroism', 'Spell Effect: Heroism'),
+  ...entry('effect:spell-effect-heroism', 'Spell Effect: Heroism'),
   kind: 'effect',
   level: 3,
   rules: [

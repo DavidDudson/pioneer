@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 
 import { triggerMatches } from '@pioneer/rules/catalog';
-import { ContentEntryFile, contentId, PackId, Slug } from '@pioneer/rules/sdk';
+import { ContentEntryFile, contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 
 import { enrichTriggerFile } from './trigger-enrichment.ts';
 
@@ -11,7 +11,7 @@ const prose = (words: string): unknown[] => [{ type: 'paragraph', content: [{ ty
 /** A Player Core entry's JSON, as a pack file holds it. */
 function entry(slug: string, kind: string, data: object): object {
   return {
-    id: contentId(PackId.parse(PACK), Slug.parse(slug)),
+    id: contentId(PackId.parse(PACK), EntrySlug.parse(slug)),
     pack: PACK,
     slug,
     kind,

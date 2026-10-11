@@ -2,9 +2,10 @@ import { TextPosition } from '@pioneer/rules/formula';
 import {
   Attribute,
   ContentEntry,
-  ContentKind,
   contentId,
+  ContentKind,
   Domain,
+  EntrySlug,
   Origin,
   PackId,
   Predicate,
@@ -12,7 +13,6 @@ import {
   RollOption,
   RuleElement,
   Selector,
-  Slug,
   SourceRef,
   StatisticDefinition,
   StatisticKind,
@@ -94,7 +94,7 @@ export const RULES_TOOL_KEYS: Readonly<Record<RulesTool, string>> = {
 };
 
 const PLAYER_CORE = PackId.parse('player-core');
-const playerCoreId = (slug: string): string => contentId(PLAYER_CORE, Slug.parse(slug));
+const playerCoreId = (slug: string): string => contentId(PLAYER_CORE, EntrySlug.parse(slug));
 const playerCorePage = { kind: 'book', book: 'player-core', page: 1 };
 const JSON_INDENT = 2;
 /** The level the example predicate tests for. */
@@ -119,9 +119,9 @@ const EXAMPLE_VALUES: Readonly<Record<RulesSchema, unknown>> = {
   [RulesSchema.Origin]: {
     hops: [
       { kind: 'choice', slot: 'class' },
-      { kind: 'grant', by: playerCoreId('fighter'), rule: 0 },
+      { kind: 'grant', by: playerCoreId('class:fighter'), rule: 0 },
     ],
-    entry: playerCoreId('shield-block'),
+    entry: playerCoreId('feat:shield-block'),
     sources: [playerCorePage],
   },
   [RulesSchema.RuleElement]: {
@@ -132,7 +132,7 @@ const EXAMPLE_VALUES: Readonly<Record<RulesSchema, unknown>> = {
     predicate: ['self:effect:raise-a-shield'],
   },
   [RulesSchema.Statistic]: {
-    slug: 'armor-class',
+    slug: 'statistic:armor-class',
     name: 'Armor Class',
     selector: 'ac',
     domains: ['dex-based'],
@@ -148,7 +148,7 @@ const EXAMPLE_VALUES: Readonly<Record<RulesSchema, unknown>> = {
 const EXAMPLE_STATISTICS = [
   EXAMPLE_VALUES[RulesSchema.Statistic],
   {
-    slug: 'fortitude',
+    slug: 'statistic:fortitude',
     name: 'Fortitude',
     selector: 'save:fortitude',
     domains: ['saving-throw', 'con-based'],
@@ -157,7 +157,7 @@ const EXAMPLE_STATISTICS = [
     keyAttribute: Attribute.Constitution,
   },
   {
-    slug: 'arcane-spell-attack',
+    slug: 'statistic:arcane-spell-attack',
     name: 'Arcane spell attack modifier',
     selector: 'spell-attack:arcane',
     domains: ['spell-attack-roll'],
@@ -166,7 +166,7 @@ const EXAMPLE_STATISTICS = [
     keyAttribute: Attribute.Intelligence,
   },
   {
-    slug: 'arcane-spell-dc',
+    slug: 'statistic:arcane-spell-dc',
     name: 'Arcane spell DC',
     selector: 'spell-dc:arcane',
     domains: ['spell-dc'],

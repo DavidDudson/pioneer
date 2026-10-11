@@ -1,6 +1,6 @@
 import * as z from 'zod';
 
-import { ContentId, PackId, Slug } from './content-id';
+import { ContentId, EntrySlug, PackId } from './content-id';
 import { ContentText } from './content-text';
 import { DisplayHints, ExternalIds, RaritySchema } from './entry-fields';
 import { RichText } from './rich-text';
@@ -18,7 +18,7 @@ export const address = { id: ContentId, pack: PackId };
 
 /** The fields every entry has after its kind, whatever the kind. */
 export const envelope = {
-  slug: Slug,
+  slug: EntrySlug,
   name: ContentText,
   level: ContentLevel.optional(),
   rarity: RaritySchema,

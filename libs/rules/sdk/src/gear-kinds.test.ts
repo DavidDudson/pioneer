@@ -4,7 +4,7 @@ import { fieldIssues, ValidationMessage } from '@pioneer/shared/kernel';
 import type { FieldIssue } from '@pioneer/shared/kernel';
 
 import { ContentEntry } from './content-entry';
-import { contentId, PackId, Slug } from './content-id';
+import { contentId, EntrySlug, PackId } from './content-id';
 import { RulesMessage } from './messages';
 
 function issues(value: unknown): readonly FieldIssue[] {
@@ -20,7 +20,7 @@ function found(value: unknown): readonly string[] {
 }
 
 const PACK = 'player-core';
-const idOf = (slug: string): string => contentId(PackId.parse(PACK), Slug.parse(slug));
+const idOf = (slug: string): string => contentId(PackId.parse(PACK), EntrySlug.parse(slug));
 const prose = (text: string): unknown[] => [{ type: 'paragraph', content: [{ type: 'text', text }] }];
 
 /** The envelope of a Player Core entry, without its kind and data. */
@@ -41,7 +41,7 @@ function entry(slug: string, name: string): object {
 /* Foundry pf2e's Player Core and GM Core items, in Pioneer's words. */
 
 const backpack = {
-  ...entry('backpack', 'Backpack'),
+  ...entry('equipment:backpack', 'Backpack'),
   kind: 'equipment',
   level: 0,
   data: {
@@ -53,14 +53,14 @@ const backpack = {
 };
 
 const rope = {
-  ...entry('rope', 'Rope'),
+  ...entry('equipment:rope', 'Rope'),
   kind: 'equipment',
   level: 0,
   data: { price: { coins: { sp: 5 } }, bulk: 'light', usage: { type: 'held', hands: 'two' } },
 };
 
 const healingPotion = {
-  ...entry('healing-potion-minor', 'Healing Potion (Minor)'),
+  ...entry('consumable:healing-potion-minor', 'Healing Potion (Minor)'),
   kind: 'consumable',
   level: 1,
   traits: ['consumable', 'healing', 'magical', 'potion', 'vitality'],
@@ -74,7 +74,7 @@ const healingPotion = {
 };
 
 const arrows = {
-  ...entry('arrows', 'Arrows'),
+  ...entry('consumable:arrows', 'Arrows'),
   kind: 'consumable',
   level: 0,
   traits: ['consumable'],
@@ -89,7 +89,7 @@ const arrows = {
 
 /** GM Core's 2nd-rank arboreal wand holds Heal, heightened to 2nd rank. */
 const arborealWand = {
-  ...entry('arboreal-wand-rank-2', 'Arboreal Wand (2nd Rank)'),
+  ...entry('consumable:arboreal-wand-rank-2', 'Arboreal Wand (2nd Rank)'),
   kind: 'consumable',
   level: 9,
   traits: ['healing', 'magical', 'vitality', 'wand'],
@@ -98,29 +98,29 @@ const arborealWand = {
     bulk: 'light',
     category: 'wand',
     kept: true,
-    spell: { spell: idOf('heal'), rank: 2 },
+    spell: { spell: idOf('spell:heal'), rank: 2 },
     usage: { type: 'held', hands: 'one' },
   },
 };
 
 const goldPieces = {
-  ...entry('gold-pieces', 'Gold Pieces'),
+  ...entry('treasure:gold-pieces', 'Gold Pieces'),
   kind: 'treasure',
   level: 0,
   data: { price: { coins: { gp: 1 } }, bulk: 1, bulkPer: 1000, category: 'coin' },
 };
 
 const diamond = {
-  ...entry('diamond-small', 'Diamond (Small)'),
+  ...entry('treasure:diamond-small', 'Diamond (Small)'),
   kind: 'treasure',
   level: 0,
   data: { price: { coins: { gp: 100 } }, bulk: 'negligible', category: 'gem' },
 };
 
-const contained = (slug: string, quantity: number): object => ({ item: idOf(slug), quantity });
+const contained = (name: string, quantity: number): object => ({ item: idOf(`equipment:${name}`), quantity });
 
 const adventurersPack = {
-  ...entry('adventurers-pack', 'Adventurer’s Pack'),
+  ...entry('kit:adventurers-pack', 'Adventurer’s Pack'),
   kind: 'kit',
   data: {
     price: { coins: { sp: 15 } },
@@ -198,7 +198,7 @@ describe('equipment, consumable and treasure kinds', () => {
       data: {
         ...arborealWand.data,
         damage: { formula: '1d8', damageType: 'vitality', kind: 'harm' },
-        spell: { spell: idOf('heal'), rank: 11 },
+        spell: { spell: idOf('spell:heal'), rank: 11 },
       },
     };
 

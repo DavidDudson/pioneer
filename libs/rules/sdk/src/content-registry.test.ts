@@ -3,7 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import { rejection } from '@pioneer/shared/kernel/testing';
 
 import { AncestryId } from './ancestry';
-import { contentId, ContentKey, PackId, Slug } from './content-id';
+import { contentId, ContentKey, EntrySlug, PackId } from './content-id';
 import type { ContentPack } from './content-pack';
 import { ContentRegistry } from './content-registry';
 import { ContentText } from './content-text';
@@ -19,10 +19,10 @@ describe('ContentRegistry', () => {
   test('indexes entries by their derived UUID', async () => {
     const registry = new ContentRegistry();
     await registry.load(loader);
-    const id = AncestryId.parse(contentId(testPack, Slug.parse('tester')));
+    const id = AncestryId.parse(contentId(testPack, EntrySlug.parse('ancestry:tester')));
     const entry = registry.ancestry(id);
     expect(entry?.definition.name).toBe(ContentText.parse('Tester'));
-    expect(entry?.key).toBe(ContentKey.parse('test-pack/tester'));
+    expect(entry?.key).toBe(ContentKey.parse('test-pack/ancestry:tester'));
   });
 
   test('load is idempotent, register is not', async () => {
@@ -45,7 +45,7 @@ describe('ContentRegistry', () => {
     const registry = new ContentRegistry();
     registry.register(new ContentPackBuilder().withStatistic('sanity').build());
     registry.register(new ContentPackBuilder().withId('homebrew').withStatistic('sanity', { base: '10' }).build());
-    const id = StatisticId.parse(contentId(testPack, Slug.parse('sanity')));
+    const id = StatisticId.parse(contentId(testPack, EntrySlug.parse('statistic:sanity')));
     expect(registry.statistic(id)?.definition.selector).toBe(Selector.parse('sanity'));
     expect(registry.statistics()).toHaveLength(2);
     expect(registry.statisticsFor(Selector.parse('sanity')).map((entry) => entry.pack.id)).toStrictEqual([

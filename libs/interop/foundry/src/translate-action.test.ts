@@ -143,7 +143,7 @@ describe('translateKindData: action values', () => {
   });
 
   test('selfEffect resolves to the effect entry by compendium UUID, or is reported', () => {
-    const effect = idOf('effect-raise-a-shield');
+    const effect = idOf('effect:effect-raise-a-shield');
 
     expect(dataOf([RAISE_A_SHIELD, SHIELD_RAISED], 'raise-a-shield')).toMatchObject({ selfEffect: effect });
     expect(gapsOf(translate([RAISE_A_SHIELD]))).toContainEqual({
@@ -159,7 +159,7 @@ describe('translateKindData: action values', () => {
     ]);
 
     expect(translation.kindDataGaps).toEqual([
-      { entry: idOf('test-action'), reason: KindDataGapReason.UnmappedField, field: 'deathNote', raw: true },
+      { entry: idOf('action:test-action'), reason: KindDataGapReason.UnmappedField, field: 'deathNote', raw: true },
     ]);
   });
 });

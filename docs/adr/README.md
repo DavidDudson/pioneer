@@ -38,6 +38,7 @@ Accepted. To change a decision, add a new ADR that supersedes the old one; do no
 | [0031](0031-official-packs-imported-once-from-foundry.md)  | Official packs are imported once from Foundry, then owned in the repo             |
 | [0032](0032-root-slots-in-grants-engine.md)                | A character's own slots are root slots in the grants engine                       |
 | [0032](0032-foundry-vocabularies-imported-into-core-rules.md) | Foundry vocabularies are imported into core-rules                                 |
+| [0033](0033-entry-slugs-name-their-kind.md)                   | Entry slugs name their kind (`ancestry:dwarf`)                                    |
 
 Template:
 

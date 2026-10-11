@@ -5,10 +5,10 @@ import { PredicateFacts } from '@pioneer/rules/predicate';
 import {
   Attribute,
   contentId,
-  ContentRegistry,
   contentPackFromContents,
+  ContentRegistry,
+  EntrySlug,
   Proficiency,
-  Slug,
   VariantRuleId,
 } from '@pioneer/rules/sdk';
 import type { ContentPack, Selector } from '@pioneer/rules/sdk';
@@ -207,7 +207,9 @@ export function noFacts(): PredicateFacts {
 }
 
 /** The Proficiency Without Level variant rule in the core pack. */
-export const PWL = VariantRuleId.parse(contentId(coreRules.id, Slug.parse('proficiency-without-level')));
+export const PWL = VariantRuleId.parse(
+  contentId(coreRules.id, EntrySlug.parse('variant-rule:proficiency-without-level')),
+);
 
 /** The rule elements of Proficiency Without Level, in play as an enabled variant. */
 export function withoutLevel(): readonly RuleInPlay[] {

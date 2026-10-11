@@ -1,4 +1,4 @@
-import { Attribute, ContentKind, contentId, PackId, Slug, StatisticKind } from '@pioneer/rules/sdk';
+import { Attribute, contentId, ContentKind, EntrySlug, PackId, StatisticKind } from '@pioneer/rules/sdk';
 import type { RegisteredKind } from '@pioneer/rules/sdk';
 
 import {
@@ -52,10 +52,10 @@ const RAT_CHARISMA = -3;
 const paragraph = (text: string): unknown => ({ type: 'paragraph', content: [{ type: 'text', text }] });
 
 const human = {
-  id: contentId(PLAYER_CORE, Slug.parse('human')),
+  id: contentId(PLAYER_CORE, EntrySlug.parse('ancestry:human')),
   pack: PLAYER_CORE,
   kind: ContentKind.Ancestry,
-  slug: 'human',
+  slug: 'ancestry:human',
   name: 'Human',
   rarity: 'common',
   traits: ['human', 'humanoid'],
@@ -68,17 +68,17 @@ const human = {
     speed: HUMAN_SPEED,
     boosts: [Object.values(Attribute), Object.values(Attribute)],
     flaws: [],
-    languages: [contentId(PLAYER_CORE, Slug.parse('common'))],
+    languages: [contentId(PLAYER_CORE, EntrySlug.parse('language:common'))],
     additionalLanguages: { count: 1, options: [] },
     reach: HUMAN_REACH,
   },
 };
 
 const giantRat = {
-  id: contentId(MONSTER_CORE, Slug.parse('giant-rat')),
+  id: contentId(MONSTER_CORE, EntrySlug.parse('creature:giant-rat')),
   pack: MONSTER_CORE,
   kind: ContentKind.Creature,
-  slug: 'giant-rat',
+  slug: 'creature:giant-rat',
   name: 'Giant Rat',
   level: RAT_LEVEL,
   rarity: 'common',
@@ -108,10 +108,10 @@ const giantRat = {
 };
 
 const armorClass = {
-  id: contentId(PLAYER_CORE, Slug.parse('armor-class')),
+  id: contentId(PLAYER_CORE, EntrySlug.parse('statistic:armor-class')),
   pack: PLAYER_CORE,
   kind: ContentKind.Statistic,
-  slug: 'armor-class',
+  slug: 'statistic:armor-class',
   name: 'Armor Class',
   rarity: 'common',
   traits: [],

@@ -7,10 +7,10 @@
 ## Context
 
 Traits, languages, senses and damage types are not pack documents in Foundry pf2e: they are tables in its config
-modules, with no publication. Entry ids are UUIDv5 of `<pack>/<slug>` across kinds, and a trait entry's slug is the
-trait, so in the target pack the `dwarf` trait clashes with the Dwarf ancestry, `fighter` with the class, `grapple`
-with the action. Alternatives: suffix the documents (`dwarf-ancestry`), which breaks carrying over hand-authored
-slugs (#401); suffix the traits, which breaks "a trait entry's slug is the trait".
+modules, with no publication, and serve every book: the same traits, languages and senses recur across Player Core,
+GM Core and Monster Core. `core-rules` already holds the hand-authored rules core entries (statistics, languages,
+senses, variant rules). Alternative: import them into each target pack, which repeats them per book and, before
+[ADR-0033](0033-entry-slugs-name-their-kind.md), clashed with that pack's entries (the `dwarf` trait and ancestry).
 
 ## Decision
 
@@ -18,9 +18,9 @@ slugs (#401); suffix the traits, which breaks "a trait entry's slug is the trait
   import adds to: append only, in files of their own, never into or over a hand-authored file.
 - Only what the selected documents use is imported. Damage types are the exception: Pioneer's `DamageType` is a
   closed set, so every Foundry damage type in it is imported, cited to the first target book.
-- A slug `core-rules` already has for the kind, as is or with the kind suffix an earlier run gave it, is left to that
-  entry, so a re-run or a later book's import never duplicates one. Traits claim slugs first; other kinds take their
-  kind as a suffix on a clash; a slug still taken is reported.
+- An entry `core-rules` already has of the kind and name is left to that entry, so a re-run or a later book's import
+  never duplicates one. Slugs name their kind (`trait:goblin`, `language:goblin`), so kinds never clash
+  (ADR-0033).
 - Each added entry's provenance is the importing pack's pin; its gaps go in the importing pack's backlog.
 - The CLI runs Foundry's config modules with Bun from the checksum-verified archive, standing in for remeda and
   `SYSTEM_ID`, rather than parsing TypeScript.

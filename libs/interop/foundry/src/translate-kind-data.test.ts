@@ -36,7 +36,9 @@ describe('translateKindData: one fixture per kind, translated and parsed', () =>
     expect(entry?.kindData?.kind).toBe(ContentKind.Condition);
     expect(KIND_DATA[ContentKind.Condition].safeParse(entry?.kindData?.data).success).toBe(true);
     expect(ContentEntry.safeParse(contentEntry(entry)).error).toBeUndefined();
-    expect(entry?.kindData?.data).toMatchObject({ implies: [idOf('off-guard'), idOf('immobilized')] });
+    expect(entry?.kindData?.data).toMatchObject({
+      implies: [idOf('condition:off-guard'), idOf('condition:immobilized')],
+    });
     expect(translation.kindDataGaps).toEqual([]);
   });
 

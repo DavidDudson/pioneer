@@ -1,4 +1,4 @@
-import { ContentKind, DamageType, Rarity } from '@pioneer/rules/sdk';
+import { ContentKind, DamageType, Rarity, slugName } from '@pioneer/rules/sdk';
 import type { BookId, PackId } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
@@ -33,8 +33,6 @@ export const VocabularyGapReason = {
   UnmappedValue: 'unmapped-value',
   /** Not a Pioneer slug or entry name. */
   Invalid: 'invalid',
-  /** A trait whose slug an entry of another kind in the pack already has; a trait cannot take a suffix. */
-  SlugTaken: 'slug-taken',
 } as const;
 export type VocabularyGapReason = ValueOf<typeof VocabularyGapReason>;
 
@@ -91,17 +89,9 @@ export function firstUses(
   return uses;
 }
 
-/**
- * The Foundry slugs another official pack already has an entry of a kind for: its slug, or its slug less the kind
- * suffix an earlier import gave it (`fire-damage-type` is `fire`), so a re-run never imports one twice.
- */
+/** The names another official pack already has an entry of `kind` for, so a re-run never imports one twice. */
 export function knownSlugs(known: readonly KnownEntry[], kind: ContentKind): ReadonlySet<string> {
-  const suffix = `-${kind}`;
-  return new Set(
-    known
-      .filter((entry) => entry.kind === kind)
-      .flatMap(({ slug }) => (slug.endsWith(suffix) ? [slug, slug.slice(0, -suffix.length)] : [slug])),
-  );
+  return new Set(known.filter((entry) => entry.kind === kind).map(({ slug }) => slugName(slug)));
 }
 
 export function traitItems(selected: readonly SelectedEntry[], { config, known }: VocabularyContext): Item[] {

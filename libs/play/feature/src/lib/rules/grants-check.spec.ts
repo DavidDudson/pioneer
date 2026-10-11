@@ -46,14 +46,14 @@ describe(checkGrants, () => {
     expect(check({})).toMatchObject({
       status: GrantsStatus.Valid,
       items: [
+        { name: 'Woodland Elf', via: [] },
+        { name: 'Shield Block', via: [] },
         { name: 'Fighter', via: [] },
         { name: 'Shield Block (fighter)', via: ['Fighter'] },
-        { name: 'Shield Block', via: ['Fighter', 'Shield Block (fighter)'] },
         { name: 'Reactive Strike', via: ['Fighter'] },
         { name: 'Bravery', via: ['Fighter'] },
-        { name: 'Woodland Elf', via: [] },
       ],
-      duplicates: [{ name: 'Shield Block', via: [] }],
+      duplicates: [{ name: 'Shield Block', via: ['Fighter', 'Shield Block (fighter)'] }],
       conditional: [{ name: 'Climb in forest', via: ['Woodland Elf'] }],
       open: [{ slot: 'fighter:4', title: 'Fighter feat', pick: undefined }],
       answered: [{ slot: 'fighter:6', title: 'Weapon group', pick: 'sword' }],
@@ -109,13 +109,13 @@ describe(checkGrants, () => {
       open: [{ slot: 'fighter:6' }],
       answered: [{ slot: 'fighter:4', pick: 'double-slice' }],
       items: [
+        { name: 'Woodland Elf' },
+        { name: 'Shield Block' },
         { name: 'Fighter' },
         { name: 'Shield Block (fighter)' },
-        { name: 'Shield Block' },
         { name: 'Reactive Strike' },
         { name: 'Bravery' },
         { name: 'Double Slice', via: ['Fighter'] },
-        { name: 'Woodland Elf' },
       ],
       errors: [],
     });
@@ -160,7 +160,7 @@ describe(checkGrants, () => {
       { slug: 'shaken', name: 'Shaken', rules: [] },
     ]);
     const valued = check({ entries, roots: 'steady\nfrightened 2', picks: '', toggles: '' });
-    expect(itemNames(valued)).toStrictEqual(['Frightened', 'Steady', 'Shaken']);
+    expect(itemNames(valued)).toStrictEqual(['Steady', 'Shaken', 'Frightened']);
     expect(valued).toMatchObject({
       rollOptions: [
         'feature:shaken',
@@ -171,8 +171,8 @@ describe(checkGrants, () => {
       ],
     });
     expect(itemNames(check({ entries, roots: 'steady\nfrightened', picks: '', toggles: '' }))).toStrictEqual([
-      'Frightened',
       'Steady',
+      'Frightened',
     ]);
     expect(
       check({
@@ -226,7 +226,7 @@ describe(checkGrants, () => {
     ]);
     expect(check({ entries, roots: 'fighter\nresolve', picks: '', toggles: '' })).toMatchObject({
       status: GrantsStatus.Valid,
-      items: [{ name: 'Fighter' }, { name: 'Bravery' }, { name: 'Resolve' }, { name: 'Steady' }],
+      items: [{ name: 'Resolve' }, { name: 'Steady' }, { name: 'Fighter' }, { name: 'Bravery' }],
       errors: [],
     });
   });

@@ -1,3 +1,4 @@
+import { slugName } from '@pioneer/rules/sdk';
 import type { ContentKind } from '@pioneer/rules/sdk';
 
 import type { ImportTranslation } from '../translate-import';
@@ -48,5 +49,5 @@ export function plain(value: unknown): unknown {
 }
 
 export function slugsOf(translation: ImportTranslation, kind: ContentKind): readonly string[] {
-  return vocabularyOf(translation, kind).map(({ envelope }) => envelope.slug);
+  return vocabularyOf(translation, kind).map(({ envelope }) => slugName(envelope.slug));
 }
