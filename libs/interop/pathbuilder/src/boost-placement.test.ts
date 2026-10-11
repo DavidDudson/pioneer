@@ -98,6 +98,7 @@ describe('placeBoosts', () => {
         [STR, CON],
       ],
       keyAttribute: () => undefined,
+      keyAttributeOptions: () => [],
     };
     const { choices, unplaced } = placeBoosts(dwarf(1), narrow, [boosts(BoostSource.Background, 1, [CON, WIS])]);
     expect<Readonly<Record<string, string>>>(choices).toStrictEqual({

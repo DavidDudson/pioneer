@@ -72,6 +72,8 @@ type AncestryFields = Sourceable<typeof AncestryDefinition> & { readonly rules?:
 interface ClassFeatureFields {
   readonly tags?: readonly string[];
   readonly rules?: readonly object[];
+  /** Attributes it adds to its class's key attribute options (a rogue's racket). */
+  readonly keyAttributeOptions?: readonly string[];
 }
 
 /**
@@ -187,8 +189,11 @@ export class ContentPackBuilder {
   }
 
   /** A 1st-level class feature with `tags` (a subclass's `cleric-doctrine`) and `rules` as JSON. */
-  public withClassFeature(name: string, { tags, rules = [] }: ClassFeatureFields = {}): this {
-    const data = tags === undefined ? {} : { tags };
+  public withClassFeature(name: string, { tags, rules = [], keyAttributeOptions }: ClassFeatureFields = {}): this {
+    const data = {
+      ...(tags === undefined ? {} : { tags }),
+      ...(keyAttributeOptions === undefined ? {} : { keyAttributeOptions }),
+    };
     this.#entries.push({ kind: ContentKind.ClassFeature, name, data, rules, level: 1 });
     return this;
   }
