@@ -48,27 +48,12 @@
     </fr-section>
 
     <fr-section [anchor]="sections.attributes.anchor" [heading]="sections.attributes.headingKey | transloco">
-      <fr-grid
-        role="toolbar"
-        frRovingFocus="grid"
-        [attr.aria-label]="sections.attributes.headingKey | transloco"
-        [columns]="6"
-      >
-        @for (item of attributes; track item.attribute) {
-          <fr-inline-field frRovingFocusItem [label]="item.labelKey | transloco" [edit]="item.edit">
-            <fr-number-input
-              frInlineEditor
-              [ariaLabel]="item.labelKey | transloco"
-              [min]="modifierMin"
-              [max]="modifierMax"
-              [value]="item.edit.draft()"
-              (valueChange)="item.edit.change($event)"
-              (committed)="item.edit.flushSoon()"
-              (cancelled)="item.edit.cancel()"
-            />
-          </fr-inline-field>
-        }
-      </fr-grid>
+      <fr-async-region>
+        <ng-template frAsyncPending><pio-attributes [modifiers]="undefined" /></ng-template>
+        <ng-template [frAsyncData]="registry">
+          <pio-attributes [modifiers]="attributeView()?.modifiers" [open]="attributeView()?.open ?? []" />
+        </ng-template>
+      </fr-async-region>
     </fr-section>
 
     <fr-section [anchor]="sections.defences.anchor" [heading]="sections.defences.headingKey | transloco">

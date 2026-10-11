@@ -57,7 +57,6 @@ describe('CharacterListPage', () => {
       name: 'Merisiel',
       build: { choices: { ancestry: elf } },
       level: 1,
-      attributes: { str: 0, dex: 0, con: 0, int: 0, wis: 0, cha: 0 },
       createdAt: '2026-10-07T10:00:00.000Z',
       updatedAt: '2026-10-07T10:00:00.000Z',
     });

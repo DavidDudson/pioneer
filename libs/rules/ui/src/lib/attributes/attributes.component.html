@@ -1,0 +1,25 @@
+<fr-stack gap="md">
+  @if (shown(); as modifiers) {
+    <fr-description-list>
+      @for (item of modifiers; track item.attribute) {
+        <fr-description-item [term]="item.labelKey | transloco">
+          <fr-text numeric>{{ item.modifier }}</fr-text>
+        </fr-description-item>
+      }
+    </fr-description-list>
+  } @else {
+    <fr-skeleton width="lg" />
+  }
+  @if (open().length > 0) {
+    <fr-stack gap="xs">
+      <fr-text tone="muted">{{ Message.OpenBoosts | transloco }}</fr-text>
+      <fr-list>
+        @for (line of open(); track line.key) {
+          <fr-list-item>
+            <fr-text>{{ line.label.key | transloco: line.label.params }}</fr-text>
+          </fr-list-item>
+        }
+      </fr-list>
+    </fr-stack>
+  }
+</fr-stack>

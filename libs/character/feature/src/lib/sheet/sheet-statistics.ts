@@ -22,7 +22,7 @@ export function sheetStatistics(registry: ContentRegistry, character: Character)
   if (content === undefined) {
     return [];
   }
-  const results = deriveStatistics(content, statisticInputsOf(character));
+  const results = deriveStatistics(content, statisticInputsOf(registry, character));
   return SHEET_STATISTICS.flatMap((selector): NamedStatistic[] => {
     const result = results.get(selector);
     const entry = registry.statisticsFor(selector).at(-1);
