@@ -1,18 +1,19 @@
 import { provideHttpClient } from '@angular/common/http';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import type { EnvironmentProviders, Provider } from '@angular/core';
-import { officialPacks } from '@pioneer/rules/catalog';
 import { prebuildContentTesting, provideContentTesting, TestContentDelivery } from '@pioneer/rules/data-access/testing';
 import type { PackContentsLoader } from '@pioneer/rules/sdk';
 import { provideTanStackQuery, QueryClient } from '@tanstack/angular-query-experimental';
 
+import { TEST_PACKS } from './test-packs';
+
 /**
  * HTTP backed by `HttpTestingController`, a fresh TanStack Query cache that never retries, and the official packs'
- * content bundles served from memory (`base`, the official packs unless given), with `extraPacks` beside them.
+ * content bundles served from memory (`base`, `TEST_PACKS` unless given), with `extraPacks` beside them.
  */
 export function provideServerStateTesting(
   extraPacks: readonly PackContentsLoader[] = [],
-  base: readonly PackContentsLoader[] = officialPacks,
+  base: readonly PackContentsLoader[] = TEST_PACKS,
 ): (Provider | EnvironmentProviders)[] {
   return [
     provideHttpClient(),
@@ -25,7 +26,7 @@ export function provideServerStateTesting(
 /** Builds what `provideServerStateTesting(extraPacks, base)` serves, before a page opens and its test starts waiting. */
 export async function prebuildServerStateTesting(
   extraPacks: readonly PackContentsLoader[] = [],
-  base: readonly PackContentsLoader[] = officialPacks,
+  base: readonly PackContentsLoader[] = TEST_PACKS,
 ): Promise<void> {
   await prebuildContentTesting([...base, ...extraPacks]);
 }
