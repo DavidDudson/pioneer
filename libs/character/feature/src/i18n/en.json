@@ -120,6 +120,24 @@
     },
     "skillsHeading": "Skills",
     "languagesHeading": "Languages"
+    "prepared": {
+      "heading": "Prepared spells: {tradition}",
+      "cantrips": "Cantrips, cast at {rank, selectordinal, one {#st} two {#nd} few {#rd} other {#th}} rank",
+      "cantripSlot": "Cantrip {number}",
+      "rankSlot": "{rank, selectordinal, one {#st} two {#nd} few {#rd} other {#th}} rank slot {number}",
+      "placeholder": "Search spells by name"
+    },
+    "spellAccess": {
+      "heading": "Uncommon and rare spells",
+      "none": "No access to uncommon or rare spells yet.",
+      "spell": "Spell",
+      "add": "Add access",
+      "adding": "Adding…",
+      "added": "Added",
+      "addFailed": "Access to the spell could not be added. Try again.",
+      "remove": "Remove {name}",
+      "removing": "Removing…"
+    }
   },
   "validation": {
     "unknownAncestry": "That ancestry is not available. Choose another.",

@@ -72,6 +72,8 @@ export interface BuildPicks extends EngineReads {
   readonly keyAttributeOptions: Signal<readonly SelectOption<string>[]>;
   /** One edit per key attribute slot; undefined while there is none. */
   readonly keyAttributeField: Signal<InlineEdit<string | undefined> | undefined>;
+  /** AC, the saves and Perception from the character's registry; undefined while the character or the content loads. */
+  readonly defences: Signal<Defences | undefined>;
   /** Undefined while the character or the content loads. */
   readonly features: Signal<readonly ClassFeatureLine[] | undefined>;
   /** What the character is, part by part; undefined while it, its slots or the content load. */
@@ -209,6 +211,7 @@ export function sheetBuildPicks(sources: BuildPickSources): BuildPicks {
       computed(() => keyAttribute()?.key),
       keyAttributeOptions,
     ),
+    defences: loaded(sources, sheetDefences),
     features: loaded(sources, sheetClassFeatures),
     buildLines: computed(() => {
       const registry = sources.registry();

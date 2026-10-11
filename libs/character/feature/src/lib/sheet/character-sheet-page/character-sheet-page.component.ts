@@ -73,6 +73,7 @@ import { sheetField } from '../sheet-field';
 import { SheetLanguagesSection } from '../sheet-languages-section/sheet-languages-section.component';
 import { SHEET_SECTION_ORDER, SHEET_SECTIONS } from '../sheet-sections';
 import { SheetSkillFields } from '../sheet-skill-fields/sheet-skill-fields.component';
+import { SheetSpells } from '../sheet-spells/sheet-spells.component';
 
 /** Focuses an inline field by its read view's button, which scrolls it into view. */
 function focusField(field: ElementRef<HTMLElement>): void {
@@ -115,6 +116,7 @@ function focusField(field: ElementRef<HTMLElement>): void {
     SheetClassFields,
     SheetLanguagesSection,
     SheetSkillFields,
+    SheetSpells,
     Skeleton,
     Stack,
     SpellcastingView,

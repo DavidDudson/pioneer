@@ -1,0 +1,13 @@
+@if (casts()) {
+  <fr-async-region>
+    <ng-template frAsyncPending><fr-skeleton width="md" /></ng-template>
+    <ng-template [frAsyncData]="spells">
+      <fr-stack gap="md">
+        <pio-sheet-prepared-spells [entries]="prepared()" />
+        @if (access(); as spellAccess) {
+          <pio-spell-access [access]="spellAccess" />
+        }
+      </fr-stack>
+    </ng-template>
+  </fr-async-region>
+}

@@ -20,6 +20,7 @@ export { SpellcastingView } from './lib/spellcasting/spellcasting.component';
 export { type LanguageLine } from './lib/languages/language-line';
 export { LanguagesView, type RemoveLanguage } from './lib/languages/languages.component';
 export { type AddLanguage, LanguageAdd } from './lib/languages/language-add.component';
+export { TRADITION_MESSAGES } from './lib/spellcasting/spellcasting-messages';
 export { type InventoryGroup, type InventoryLine, InventoryPlacement } from './lib/inventory/inventory-line';
 export { InventoryView } from './lib/inventory/inventory.component';
 export { type Investment, type InvestmentEffect } from './lib/inventory/investments/investment';

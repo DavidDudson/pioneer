@@ -1,0 +1,41 @@
+<fr-stack gap="sm">
+  <fr-heading variant="subheading" [level]="3">{{ 'character.sheet.spellAccess.heading' | transloco }}</fr-heading>
+  @if (access().granted.length === 0) {
+    <fr-empty-state [title]="'character.sheet.spellAccess.none' | transloco" />
+  } @else {
+    <fr-list gap="xs">
+      @for (line of access().granted; track line.spell) {
+        <fr-list-item>
+          <fr-stack direction="horizontal" gap="sm" align="center" justify="between">
+            <fr-text>{{ line.name }}</fr-text>
+            <fr-async-button
+              size="sm"
+              [action]="revoke(line.spell)"
+              [pendingLabel]="'character.sheet.spellAccess.removing' | transloco"
+            >
+              {{ 'character.sheet.spellAccess.remove' | transloco: { name: line.name } }}
+            </fr-async-button>
+          </fr-stack>
+        </fr-list-item>
+      }
+    </fr-list>
+  }
+  <fr-async-form [form]="form" [action]="grant" [describeError]="describeError">
+    <fr-stack direction="horizontal" gap="sm" align="end">
+      <fr-combobox-field
+        [label]="'character.sheet.spellAccess.spell' | transloco"
+        [placeholder]="'character.sheet.prepared.placeholder' | transloco"
+        [options]="spells()"
+        [formField]="form.spell"
+        (searched)="search($event)"
+      />
+      <fr-async-button
+        type="submit"
+        [pendingLabel]="'character.sheet.spellAccess.adding' | transloco"
+        [successLabel]="'character.sheet.spellAccess.added' | transloco"
+      >
+        {{ 'character.sheet.spellAccess.add' | transloco }}
+      </fr-async-button>
+    </fr-stack>
+  </fr-async-form>
+</fr-stack>
