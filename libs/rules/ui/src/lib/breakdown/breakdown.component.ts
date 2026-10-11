@@ -16,18 +16,16 @@ import type {
 import { formatSummary } from '@pioneer/rules/predicate';
 import type { PredicateSummary } from '@pioneer/rules/predicate';
 import { OriginHopKind } from '@pioneer/rules/sdk';
-import type { ContentId } from '@pioneer/rules/sdk';
+import type { ContentId, StatisticKind } from '@pioneer/rules/sdk';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 import { filter, merge } from 'rxjs';
 
 import { BaseTerms } from './base-terms/base-terms.component';
 import { BreakdownLines } from './breakdown-lines/breakdown-lines.component';
 import { BreakdownMessage, LINE_STATUS_ORDER, MODIFIER_TYPE_MESSAGES } from './breakdown-messages';
+import { numberStyle, SIGNED } from './number-style';
 import { OverrideLines } from './override-lines/override-lines.component';
 import type { ShownBreakdown, ShownLine, ShownOverride, ShownTerm } from './shown-breakdown';
-
-/** PF2e modifiers always show their sign, `+0` included. */
-const SIGNED: Intl.NumberFormatOptions = { signDisplay: 'always' };
 
 /** A line and where it was in the engine's list, so lines of one status keep the engine's order. */
 interface Placed {
@@ -60,7 +58,7 @@ function rank(status: LineStatus): number {
  * the id.
  *
  * ```html
- * <pio-breakdown [statistic]="ac" [entryNames]="names()" />
+ * <pio-breakdown [statistic]="ac" kind="dc" [entryNames]="names()" />
  * ```
  */
 @Component({
@@ -71,6 +69,8 @@ function rank(status: LineStatus): number {
 })
 export class BreakdownView {
   public readonly statistic = input.required<StatisticValue>();
+  /** What the statistic is: a check's base, totals and override values carry a sign, a DC's or value's do not. */
+  public readonly kind = input.required<StatisticKind>();
   /** Display names of the entries the lines come from, and of the variant rules that set a term. */
   public readonly entryNames = input<ReadonlyMap<ContentId, string>>(new Map());
   /** Names for rules that have no label of their own, before their entry's name (the playground's "Rule element 2"). */
@@ -88,43 +88,37 @@ export class BreakdownView {
     this.#messages();
     this.#format.locale();
     const statistic = this.statistic();
+    const style = numberStyle(this.kind());
     const rules: readonly Labelled[] = [
       ...statistic.lines.map(({ modifier }): Labelled => modifier),
       ...statistic.overrides,
     ];
-    const placed = statistic.lines.map((line, index): Placed => ({
-      line,
-      index,
-    }));
+    const placed = statistic.lines.map((line, index): Placed => ({ line, index }));
     const ordered = placed.toSorted(
       (left, right) => rank(left.line.status) - rank(right.line.status) || left.index - right.index,
     );
     return {
-      pinned: this.#pinned(statistic, rules),
-      base: this.#i18n.translate(BreakdownMessage.Base, {
-        value: this.#format.number(statistic.baseValue),
-      }),
+      pinned: this.#pinned(statistic, rules, style),
+      base: this.#i18n.translate(BreakdownMessage.Base, { value: this.#format.number(statistic.baseValue, style) }),
       terms: statistic.base.map((term, index) => this.#term(term, index)),
       lines: ordered.map(({ line }) => this.#line(line, rules)),
-      overrides: statistic.overrides.map((line) => this.#override(line, rules)),
+      overrides: statistic.overrides.map((line) => this.#override(line, rules, style)),
     };
   });
 
-  #pinned(statistic: StatisticValue, rules: readonly Labelled[]): string | undefined {
+  #pinned(statistic: StatisticValue, rules: readonly Labelled[], style: Intl.NumberFormatOptions): string | undefined {
     if (statistic.pinnedBy === undefined) {
       return undefined;
     }
     return this.#i18n.translate(BreakdownMessage.Pinned, {
       name: this.#ruleName(statistic.pinnedBy, rules),
-      total: this.#format.number(statistic.total),
-      computed: this.#format.number(statistic.computed),
+      total: this.#format.number(statistic.total, style),
+      computed: this.#format.number(statistic.computed, style),
     });
   }
 
   #term(term: BaseTerm, index: number): ShownTerm {
-    const value = this.#i18n.translate(BreakdownMessage.TermValue, {
-      value: this.#format.number(term.value),
-    });
+    const value = this.#i18n.translate(BreakdownMessage.TermValue, { value: this.#format.number(term.value) });
     if (term.kind === BaseTermKind.Rounding) {
       return { code: undefined, value, variant: undefined };
     }
@@ -132,14 +126,8 @@ export class BreakdownView {
     const variant =
       term.origin === undefined
         ? undefined
-        : this.#i18n.translate(BreakdownMessage.TermVariant, {
-            name: this.#entryName(term.origin.entry),
-          });
-    return {
-      code: leading ? term.formula : `${term.sign} ${term.formula}`,
-      value,
-      variant,
-    };
+        : this.#i18n.translate(BreakdownMessage.TermVariant, { name: this.#entryName(term.origin.entry) });
+    return { code: leading ? term.formula : `${term.sign} ${term.formula}`, value, variant };
   }
 
   #line(line: BreakdownLine, rules: readonly Labelled[]): ShownLine {
@@ -155,11 +143,7 @@ export class BreakdownView {
     if (status.kind === LineStatusKind.Applied) {
       return { ...shown, status: undefined, detail: undefined };
     }
-    return {
-      ...shown,
-      status: status.kind,
-      detail: this.#detail(status, rules),
-    };
+    return { ...shown, status: status.kind, detail: this.#detail(status, rules) };
   }
 
   #detail(
@@ -189,14 +173,14 @@ export class BreakdownView {
     }
   }
 
-  #override(line: OverrideLine, rules: readonly Labelled[]): ShownOverride {
+  #override(line: OverrideLine, rules: readonly Labelled[], style: Intl.NumberFormatOptions): ShownOverride {
     const { status } = line;
     const shown = {
       name: this.#name(line),
       effect: this.#i18n.translate(BreakdownMessage.OverrideEffect, {
         mode: line.mode,
-        replaced: this.#format.number(line.replaced),
-        result: this.#format.number(line.result),
+        replaced: this.#format.number(line.replaced, style),
+        result: this.#format.number(line.result, style),
       }),
       byHand: line.origin.hops.some(({ kind }) => kind === OriginHopKind.Override),
     };

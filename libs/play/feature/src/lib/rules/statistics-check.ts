@@ -3,7 +3,7 @@ import type { RuleId, RuleInPlay, StatisticInputs, StatisticResult, StatisticVal
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import type { NamespaceTable } from '@pioneer/rules/predicate';
 import { RuleElement, StatisticDefinition } from '@pioneer/rules/sdk';
-import type { ContentId, ProficiencyBonusTable, Selector } from '@pioneer/rules/sdk';
+import type { ContentId, ProficiencyBonusTable, Selector, StatisticKind } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor, ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
@@ -120,6 +120,8 @@ export type StatisticRow =
       readonly statistic: StatisticValue;
       /** The total the row's header shows: the computed one, or the value a set override pinned it to. */
       readonly total: number;
+      /** What the statistic is, so a check's numbers carry a sign. */
+      readonly kind: StatisticKind;
       /** Each typed rule element's name by box and number, for lines with no label of their own. */
       readonly ruleNames: ReadonlyMap<RuleId, MessageDescriptor>;
       /** The variant rule in play by name, for a term whose proficiency bonus it sets. */
@@ -169,7 +171,7 @@ function rowNames(rules: ReadonlyMap<RuleId, RuleName>, variant: VariantInPlay |
   };
 }
 
-function rowOf(result: StatisticResult, base: string, names: RowNames): StatisticRow {
+function rowOf(result: StatisticResult, { base, kind }: StatisticDefinition, names: RowNames): StatisticRow {
   if (!result.ok) {
     return { ok: false, selector: result.selector, error: result.error, pointer: pointAt(base, result.position) };
   }
@@ -178,6 +180,7 @@ function rowOf(result: StatisticResult, base: string, names: RowNames): Statisti
     selector: result.selector,
     statistic: result,
     total: result.total,
+    kind,
     ruleNames: names.messages,
     entryNames: names.entries,
   };
@@ -256,7 +259,7 @@ export function checkStatistics(
   const content = { definitions: read.definitions, proficiencyBonus: table };
   const results = deriveStatistics(content, read.inputs, { rules, facts: read.facts });
   const rows = ownedResults(read.definitions, results).map(({ definition, result }) =>
-    rowOf(result, definition.base, names),
+    rowOf(result, definition, names),
   );
   return { status: StatisticsStatus.Valid, rows };
 }

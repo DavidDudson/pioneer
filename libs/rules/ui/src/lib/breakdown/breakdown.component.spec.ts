@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { BaseTermKind, LineStatusKind, RuleId, SuppressionReason, TermSign } from '@pioneer/rules/engine';
 import type { StatisticValue } from '@pioneer/rules/engine';
 import { FormulaValue } from '@pioneer/rules/formula';
-import { ContentText, ModifierType, OriginHopKind, Predicate } from '@pioneer/rules/sdk';
+import { ContentText, ModifierType, OriginHopKind, Predicate, StatisticKind } from '@pioneer/rules/sdk';
 import type { ContentId } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
@@ -21,11 +21,12 @@ import {
   term,
   WITHOUT_LEVEL,
 } from '../testing/breakdown-fixtures';
-import { OVERRIDE_STATUSES, PINNED_AC } from '../testing/override-fixtures';
+import { OVERRIDE_STATUSES, PINNED_AC, PINNED_WILL } from '../testing/override-fixtures';
 import { provideRulesUiI18nTesting } from '../testing/provide-rich-text-testing';
 import { BreakdownView } from './breakdown.component';
 
 interface Inputs {
+  readonly kind?: StatisticKind;
   readonly entryNames?: ReadonlyMap<ContentId, string>;
   readonly ruleNames?: ReadonlyMap<RuleId, MessageDescriptor>;
 }
@@ -50,10 +51,14 @@ function partsOf(item: Element): string {
     .join(' | ');
 }
 
-async function render(value: StatisticValue, { entryNames = ENTRY_NAMES, ruleNames }: Inputs = {}): Promise<Rendered> {
+async function render(
+  value: StatisticValue,
+  { kind = StatisticKind.Dc, entryNames = ENTRY_NAMES, ruleNames }: Inputs = {},
+): Promise<Rendered> {
   TestBed.configureTestingModule({ providers: [provideRulesUiI18nTesting()] });
   const fixture = TestBed.createComponent(BreakdownView);
   fixture.componentRef.setInput('statistic', value);
+  fixture.componentRef.setInput('kind', kind);
   fixture.componentRef.setInput('entryNames', entryNames);
   if (ruleNames !== undefined) {
     fixture.componentRef.setInput('ruleNames', ruleNames);
@@ -186,6 +191,19 @@ describe(BreakdownView, () => {
       'Earlier ruling | override 20 → 20 | Set by hand | Replaced | Set by the GM replaces it.',
       'Set by the GM | override 20 → 22 | Set by hand',
     ]);
+  });
+
+  it('signs a check’s base, pinned total, computed value and override values', async () => {
+    const { captions, overrides } = await render(PINNED_WILL, { kind: StatisticKind.Check });
+
+    expect(captions).toStrictEqual([
+      'Set by the GM pins it to +9; computed +6.',
+      'Base +6',
+      'Modifiers',
+      'No modifiers.',
+      'Changes and overrides',
+    ]);
+    expect(overrides).toStrictEqual(['Set by the GM | override +6 → +9 | Set by hand']);
   });
 
   it('marks nothing pinned and has no overrides caption when there are none', async () => {
