@@ -1438,58 +1438,8 @@
       "foundry": "Compendium.pf2e.classfeatures.Item.7nbKDBGvwSx9T27G",
       "gaps": [
         {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": {
-              "filter": ["item:tag:wizard-arcane-school"]
-            },
-            "flag": "arcaneSchool",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Wizard.ArcaneSchool.Prompt"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "key": "GrantItem",
-            "uuid": "{item|flags.system.rulesSelections.arcaneSchool}"
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[journals]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "class-feature:arcane-thesis",
-      "foundry": "Compendium.pf2e.classfeatures.Item.M89l9FOnjHe63wD7",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": {
-              "filter": ["item:tag:wizard-arcane-thesis"]
-            },
-            "flag": "arcaneThesis",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Wizard.ArcaneThesis.Prompt"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "key": "GrantItem",
-            "uuid": "{item|flags.system.rulesSelections.arcaneThesis}"
-          }
         }
       ]
     },
@@ -2272,35 +2222,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "class-feature:doctrine",
-      "foundry": "Compendium.pf2e.classfeatures.Item.tyrBwBTzo5t9Zho7",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": {
-              "filter": ["item:tag:cleric-doctrine"]
-            },
-            "flag": "doctrine",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Cleric.Doctrine.Prompt"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "key": "GrantItem",
-            "uuid": "{item|flags.system.rulesSelections.doctrine}"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "class-feature:double-debilitation",
       "foundry": "Compendium.pf2e.classfeatures.Item.W1FkMHYVDg3yTU5r",
       "gaps": [
@@ -2649,27 +2570,6 @@
       "slug": "class-feature:druidic-order",
       "foundry": "Compendium.pf2e.classfeatures.Item.8STJEFVJISujgpMR",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": {
-              "filter": ["item:tag:druid-order"]
-            },
-            "flag": "druidicOrder",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Druid.DruidicOrder.Prompt"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "key": "GrantItem",
-            "uuid": "{item|flags.system.rulesSelections.druidicOrder}"
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[classfeatures]"
@@ -3551,35 +3451,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "class-feature:hunters-edge",
-      "foundry": "Compendium.pf2e.classfeatures.Item.mzkkj9LEWjJPBhaq",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": {
-              "filter": ["item:tag:ranger-hunters-edge"]
-            },
-            "flag": "huntersEdge",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Ranger.HuntersEdge.Prompt"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "key": "GrantItem",
-            "uuid": "{item|flags.system.rulesSelections.huntersEdge}"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "class-feature:improved-familiar-attunement",
       "foundry": "Compendium.pf2e.classfeatures.Item.SNZ46g3u7U6x0XJj",
       "gaps": [
@@ -4289,27 +4160,6 @@
       "foundry": "Compendium.pf2e.classfeatures.Item.AIOBWGOS4nkfH3kW",
       "gaps": [
         {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": {
-              "filter": ["item:tag:bard-muse"]
-            },
-            "flag": "muse",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Bard.Muse.Prompt"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "key": "GrantItem",
-            "uuid": "{item|flags.system.rulesSelections.muse}"
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[classfeatures]"
         }
@@ -4460,35 +4310,6 @@
                 "text": "@UUID[Compendium.pf2e.feat-effects.Item.Effect: Share Hunter's Edge (Outwit, Masterful)]"
               }
             ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "class-feature:patron",
-      "foundry": "Compendium.pf2e.classfeatures.Item.KPtF29AaeX2sJW0K",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": {
-              "filter": ["item:tag:witch-patron"]
-            },
-            "flag": "patron",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Witch.Patron.Prompt"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "key": "GrantItem",
-            "uuid": "{item|flags.system.rulesSelections.patron}"
           }
         }
       ]
@@ -4901,27 +4722,6 @@
       "slug": "class-feature:rogues-racket",
       "foundry": "Compendium.pf2e.classfeatures.Item.uGuCGQvUmioFV2Bd",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": {
-              "filter": ["item:tag:rogue-racket"]
-            },
-            "flag": "roguesRacket",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Rogue.Racket.Prompt"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "key": "GrantItem",
-            "uuid": "{item|flags.system.rulesSelections.roguesRacket}"
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[classfeatures]"
@@ -32520,18 +32320,6 @@
       "slug": "feat:multifarious-muse",
       "foundry": "Compendium.pf2e.feats-srd.Item.a898miJnjgD93ZsX",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": {
-              "filter": ["item:tag:bard-muse"]
-            },
-            "flag": "muse",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Bard.Muse.Prompt"
-          }
-        },
         {
           "type": "rule",
           "key": "ChoiceSet",

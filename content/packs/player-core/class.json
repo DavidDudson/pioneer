@@ -968,7 +968,8 @@
     "data": {
       "keyAttribute": ["cha"],
       "hitPoints": 8,
-      "additionalSkills": 4
+      "additionalSkills": 4,
+      "subclass": "bard-muse"
     }
   },
   {
@@ -1902,7 +1903,8 @@
     "data": {
       "keyAttribute": ["wis"],
       "hitPoints": 8,
-      "additionalSkills": 2
+      "additionalSkills": 2,
+      "subclass": "cleric-doctrine"
     }
   },
   {
@@ -2849,7 +2851,8 @@
     "data": {
       "keyAttribute": ["wis"],
       "hitPoints": 8,
-      "additionalSkills": 2
+      "additionalSkills": 2,
+      "subclass": "druid-order"
     }
   },
   {
@@ -4876,7 +4879,8 @@
     "data": {
       "keyAttribute": ["dex", "str"],
       "hitPoints": 10,
-      "additionalSkills": 4
+      "additionalSkills": 4,
+      "subclass": "ranger-hunters-edge"
     }
   },
   {
@@ -6194,7 +6198,8 @@
     "data": {
       "keyAttribute": ["dex"],
       "hitPoints": 8,
-      "additionalSkills": 7
+      "additionalSkills": 7,
+      "subclass": "rogue-racket"
     }
   },
   {
@@ -7119,7 +7124,8 @@
     "data": {
       "keyAttribute": ["int"],
       "hitPoints": 6,
-      "additionalSkills": 3
+      "additionalSkills": 3,
+      "subclass": "witch-patron"
     }
   },
   {
@@ -8049,7 +8055,8 @@
     "data": {
       "keyAttribute": ["int"],
       "hitPoints": 6,
-      "additionalSkills": 2
+      "additionalSkills": 2,
+      "subclass": "wizard-arcane-school"
     }
   }
 ]

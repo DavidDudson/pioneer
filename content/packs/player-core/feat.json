@@ -29208,7 +29208,17 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "muse",
+        "choices": {
+          "kind": "class-feature",
+          "filter": ["item:tag:bard-muse"]
+        },
+        "prompt": "Select a muse."
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.a898miJnjgD93ZsX"
     },

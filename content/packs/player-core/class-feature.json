@@ -256,7 +256,9 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.POBvoXifa9HaejAg"
     },
-    "data": {}
+    "data": {
+      "tags": ["druid-order"]
+    }
   },
   {
     "id": "e5de37fb-a732-58cd-b232-d824f3ce66c4",
@@ -338,7 +340,23 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "arcane-school",
+        "choices": {
+          "kind": "class-feature",
+          "filter": ["item:tag:wizard-arcane-school"]
+        },
+        "prompt": "Select an arcane school."
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "arcane-school"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.7nbKDBGvwSx9T27G"
     },
@@ -420,7 +438,23 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "arcane-thesis",
+        "choices": {
+          "kind": "class-feature",
+          "filter": ["item:tag:wizard-arcane-thesis"]
+        },
+        "prompt": "Select an arcane thesis."
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "arcane-thesis"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.M89l9FOnjHe63wD7"
     },
@@ -959,7 +993,9 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.ZZzLMOUAtBVgV1DF"
     },
-    "data": {}
+    "data": {
+      "tags": ["cleric-doctrine"]
+    }
   },
   {
     "id": "2147ff62-9fe9-594a-a705-60a810ab44dd",
@@ -1507,7 +1543,23 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "doctrine",
+        "choices": {
+          "kind": "class-feature",
+          "filter": ["item:tag:cleric-doctrine"]
+        },
+        "prompt": "Select a doctrine."
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "doctrine"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.tyrBwBTzo5t9Zho7"
     },
@@ -1847,7 +1899,23 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "druidic-order",
+        "choices": {
+          "kind": "class-feature",
+          "filter": ["item:tag:druid-order"]
+        },
+        "prompt": "Select a druidic order."
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "druidic-order"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.8STJEFVJISujgpMR"
     },
@@ -1924,7 +1992,9 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.4ripp6EfdVpS0d60"
     },
-    "data": {}
+    "data": {
+      "tags": ["bard-muse"]
+    }
   },
   {
     "id": "e166d462-46c1-51a9-853c-cb9c55a5eec9",
@@ -1997,7 +2067,9 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.89zWKD2CN7nRu2xp"
     },
-    "data": {}
+    "data": {
+      "tags": ["wizard-arcane-thesis"]
+    }
   },
   {
     "id": "b3c71b46-0e68-5539-9c94-c8999085be0e",
@@ -2264,7 +2336,9 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.mFqMSQoNl0NMDklv"
     },
-    "data": {}
+    "data": {
+      "tags": ["witch-patron"]
+    }
   },
   {
     "id": "f736f9e6-d87b-51c6-9c7e-5137e0289370",
@@ -2863,7 +2937,9 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.6v4Rj7wWfOH1882r"
     },
-    "data": {}
+    "data": {
+      "tags": ["ranger-hunters-edge"]
+    }
   },
   {
     "id": "875c9b6a-da45-59ba-9597-ebcf35248d91",
@@ -3425,7 +3501,23 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "hunters-edge",
+        "choices": {
+          "kind": "class-feature",
+          "filter": ["item:tag:ranger-hunters-edge"]
+        },
+        "prompt": "Select a hunter's edge."
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "hunters-edge"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.mzkkj9LEWjJPBhaq"
     },
@@ -3491,7 +3583,9 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.SNZ46g3u7U6x0XJj"
     },
-    "data": {}
+    "data": {
+      "tags": ["wizard-arcane-thesis"]
+    }
   },
   {
     "id": "66e5f7d1-b952-5108-9c91-ef28aa94e75f",
@@ -3629,7 +3723,9 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.u4nlOzPj2WHkIj9l"
     },
-    "data": {}
+    "data": {
+      "tags": ["druid-order"]
+    }
   },
   {
     "id": "ea5a7667-1fe7-50f8-ac3b-1076e77434cb",
@@ -3812,7 +3908,9 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.wRHeY7tCN6HFFF3a"
     },
-    "data": {}
+    "data": {
+      "tags": ["witch-lesson"]
+    }
   },
   {
     "id": "a3c53954-d8ed-5285-82bf-9697951622f0",
@@ -3860,7 +3958,9 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.evKUM58ymuuypRn9"
     },
-    "data": {}
+    "data": {
+      "tags": ["witch-lesson"]
+    }
   },
   {
     "id": "9fc07872-55c9-51a7-982e-8657b396760e",
@@ -3932,7 +4032,9 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.FuOHRoEU8nHOXZnk"
     },
-    "data": {}
+    "data": {
+      "tags": ["witch-lesson"]
+    }
   },
   {
     "id": "b0d97b2c-813a-5929-8691-f60c05293f23",
@@ -3980,7 +4082,9 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.HbREpzudMXPscgCj"
     },
-    "data": {}
+    "data": {
+      "tags": ["witch-lesson"]
+    }
   },
   {
     "id": "e4ca89b1-701d-5414-8af5-de11f9339968",
@@ -4028,7 +4132,9 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.XBgBh3xZhgGQP7lF"
     },
-    "data": {}
+    "data": {
+      "tags": ["witch-lesson"]
+    }
   },
   {
     "id": "74053123-47b2-5c23-9d12-3d9acd6e936a",
@@ -4076,7 +4182,9 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.KHKe3PmctOFUeh85"
     },
-    "data": {}
+    "data": {
+      "tags": ["witch-lesson"]
+    }
   },
   {
     "id": "5ccb9e80-3ebd-5594-88ff-b5ab95558ac1",
@@ -4124,7 +4232,9 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.7Y2XDqr4gRisjiAG"
     },
-    "data": {}
+    "data": {
+      "tags": ["witch-lesson"]
+    }
   },
   {
     "id": "e4584da9-356f-5943-8a12-1d2f886fe3df",
@@ -4172,7 +4282,9 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.YSxymsAe2Dvq47f2"
     },
-    "data": {}
+    "data": {
+      "tags": ["witch-lesson"]
+    }
   },
   {
     "id": "9f65e294-ad76-5513-86d9-eb9d2af1a33e",
@@ -4220,7 +4332,9 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.rECRfbkVwHuG06vO"
     },
-    "data": {}
+    "data": {
+      "tags": ["witch-lesson"]
+    }
   },
   {
     "id": "04897a3d-05bd-5bba-8d91-361e5d4aee0e",
@@ -4268,7 +4382,9 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.DtmKrCvsmutVLAhH"
     },
-    "data": {}
+    "data": {
+      "tags": ["witch-lesson"]
+    }
   },
   {
     "id": "2ae6e607-5b49-5a8d-aaeb-88ddfcf18a4e",
@@ -4414,7 +4530,9 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.YMBsi4bndRAk5CX4"
     },
-    "data": {}
+    "data": {
+      "tags": ["bard-muse"]
+    }
   },
   {
     "id": "ce0ada84-5c7f-5af6-8652-e6251550d114",
@@ -5080,7 +5198,9 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.RyOkmu0W9svavuAB"
     },
-    "data": {}
+    "data": {
+      "tags": ["rogue-racket"]
+    }
   },
   {
     "id": "75ad50e6-33e7-5e7f-a46b-6fbeddffe3e0",
@@ -5314,7 +5434,23 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "muse",
+        "choices": {
+          "kind": "class-feature",
+          "filter": ["item:tag:bard-muse"]
+        },
+        "prompt": "Select a muse."
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "muse"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.AIOBWGOS4nkfH3kW"
     },
@@ -5422,7 +5558,9 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.NBHyoTrI8q62uDsU"
     },
-    "data": {}
+    "data": {
+      "tags": ["ranger-hunters-edge"]
+    }
   },
   {
     "id": "cbd5c3e1-bd59-5b0a-b402-172f13c93daf",
@@ -5468,7 +5606,23 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "patron",
+        "choices": {
+          "kind": "class-feature",
+          "filter": ["item:tag:witch-patron"]
+        },
+        "prompt": "Select a patron."
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "patron"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.KPtF29AaeX2sJW0K"
     },
@@ -5865,7 +6019,9 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.y0jGimYdMGDJWrEq"
     },
-    "data": {}
+    "data": {
+      "tags": ["bard-muse"]
+    }
   },
   {
     "id": "75e93530-e438-58ad-8b34-f00c640dd7f1",
@@ -5897,7 +6053,9 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.u6cBjqz2fiRBadBt"
     },
-    "data": {}
+    "data": {
+      "tags": ["ranger-hunters-edge"]
+    }
   },
   {
     "id": "18de1671-63ee-5fea-ad90-8b87c675256b",
@@ -6247,7 +6405,23 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "rogues-racket",
+        "choices": {
+          "kind": "class-feature",
+          "filter": ["item:tag:rogue-racket"]
+        },
+        "prompt": "Select a racket."
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "rogues-racket"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.uGuCGQvUmioFV2Bd"
     },
@@ -6309,7 +6483,9 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.3KPZ7svIO6kmmEKH"
     },
-    "data": {}
+    "data": {
+      "tags": ["rogue-racket"]
+    }
   },
   {
     "id": "223b0a7c-e517-51ba-bbe2-05683720bd8f",
@@ -6671,7 +6847,9 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.wObrT6PytPdS5aUi"
     },
-    "data": {}
+    "data": {
+      "tags": ["wizard-arcane-school"]
+    }
   },
   {
     "id": "cf527c20-a4c9-5301-96f8-fa4da6be9af7",
@@ -7025,7 +7203,9 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.E4GZDMn4DYk6qSEV"
     },
-    "data": {}
+    "data": {
+      "tags": ["wizard-arcane-school"]
+    }
   },
   {
     "id": "aade3f78-fdaa-5fda-8d70-7e68808eeb26",
@@ -7379,7 +7559,9 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.YZ2XPmx1WHyWtM0g"
     },
-    "data": {}
+    "data": {
+      "tags": ["wizard-arcane-school"]
+    }
   },
   {
     "id": "0686d17c-ffce-537e-902d-00b6689ece56",
@@ -7733,7 +7915,9 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.L5FiuXsfW6Sa31gO"
     },
-    "data": {}
+    "data": {
+      "tags": ["wizard-arcane-school"]
+    }
   },
   {
     "id": "89ae9d66-fdaf-5cf7-bb96-a1a1c5ae465b",
@@ -8087,7 +8271,9 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.ZBFICTkzUjE4BDGJ"
     },
-    "data": {}
+    "data": {
+      "tags": ["wizard-arcane-school"]
+    }
   },
   {
     "id": "f95433c0-e47d-5e29-b442-8db3b5698ec9",
@@ -8441,7 +8627,9 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.ZpFCZnVzIfZLfNii"
     },
-    "data": {}
+    "data": {
+      "tags": ["wizard-arcane-school"]
+    }
   },
   {
     "id": "fd4df4d3-c1db-54eb-bbd0-dc5b6d825c92",
@@ -8530,7 +8718,9 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.xYYhJtGhFSWNifcO"
     },
-    "data": {}
+    "data": {
+      "tags": ["wizard-arcane-school", "wizard-elemental-school"]
+    }
   },
   {
     "id": "a950bd56-1e8d-5acb-a208-9607f49d2549",
@@ -8596,7 +8786,9 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.ZvfxtUMtfIOLYHyg"
     },
-    "data": {}
+    "data": {
+      "tags": ["rogue-racket"]
+    }
   },
   {
     "id": "1980cc53-636b-56cf-9eba-313985e3441d",
@@ -8944,7 +9136,9 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.9c57R18pfgfqlBCD"
     },
-    "data": {}
+    "data": {
+      "tags": ["witch-elementalist-patron", "witch-patron"]
+    }
   },
   {
     "id": "4002ee58-c0ce-505b-a450-26505397453f",
@@ -9034,7 +9228,9 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.OAcxS625AXSGrQIC"
     },
-    "data": {}
+    "data": {
+      "tags": ["wizard-arcane-thesis"]
+    }
   },
   {
     "id": "313f4f5c-9e6d-59c3-b2e9-90343f12b70e",
@@ -9365,7 +9561,9 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.QzWXMCSGNfvvpYgF"
     },
-    "data": {}
+    "data": {
+      "tags": ["wizard-arcane-thesis"]
+    }
   },
   {
     "id": "a937bad1-098c-582b-9a51-3759902190c9",
@@ -9469,7 +9667,9 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.ghIsqhEsJTvjJiNl"
     },
-    "data": {}
+    "data": {
+      "tags": ["witch-patron"]
+    }
   },
   {
     "id": "dc9a0be0-c22e-5672-9381-1e2e41f5028e",
@@ -9528,7 +9728,9 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.Klb35AwlkNrq1gpB"
     },
-    "data": {}
+    "data": {
+      "tags": ["wizard-arcane-thesis"]
+    }
   },
   {
     "id": "42c3c213-0c20-55c8-b8b4-b3aff9a1d987",
@@ -9657,7 +9859,9 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.r2ZPRAw9c3VGZi8A"
     },
-    "data": {}
+    "data": {
+      "tags": ["witch-patron"]
+    }
   },
   {
     "id": "aab3afac-b9a3-539c-a0f9-bfd9b355e046",
@@ -9764,7 +9968,9 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.acqqlYmti8D9QJi0"
     },
-    "data": {}
+    "data": {
+      "tags": ["druid-order"]
+    }
   },
   {
     "id": "177544ce-c872-5471-bee4-c1564e363926",
@@ -9980,7 +10186,9 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.FdLx4VODZEYLGOK9"
     },
-    "data": {}
+    "data": {
+      "tags": ["witch-elementalist-patron", "witch-patron"]
+    }
   },
   {
     "id": "0af1a598-30ce-59e6-962d-36641b8841b1",
@@ -10084,7 +10292,9 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.9OwWgOP8ZWxTAqbg"
     },
-    "data": {}
+    "data": {
+      "tags": ["witch-patron"]
+    }
   },
   {
     "id": "649887dc-5ea3-585c-9ffd-3a80f48988db",
@@ -10134,7 +10344,9 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.wAh2riuFRzz0edPl"
     },
-    "data": {}
+    "data": {
+      "tags": ["rogue-racket"]
+    }
   },
   {
     "id": "8a4a866d-1164-5d69-bccf-79fd9e91e71d",
@@ -10438,7 +10650,9 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.v0EjtiwdeMj8ykI0"
     },
-    "data": {}
+    "data": {
+      "tags": ["druid-order"]
+    }
   },
   {
     "id": "e0d0098d-0a9d-5583-93b3-f740356cabc2",
@@ -10740,7 +10954,9 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.0Aocw3igLwna9cjp"
     },
-    "data": {}
+    "data": {
+      "tags": ["cleric-doctrine"]
+    }
   },
   {
     "id": "7dc11676-92d8-5da0-b036-a9ae71d1ba83",
@@ -10822,7 +11038,9 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.N03BtRvjX9TeHRa4"
     },
-    "data": {}
+    "data": {
+      "tags": ["bard-muse"]
+    }
   },
   {
     "id": "31364a26-b9ea-582e-8fc2-2f1f47fb1ab4",
@@ -11213,7 +11431,9 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.e0VhUyjz1clW3sC4"
     },
-    "data": {}
+    "data": {
+      "tags": ["witch-elementalist-patron", "witch-patron"]
+    }
   },
   {
     "id": "10855253-1636-5cd0-af92-0271c017bdcd",
