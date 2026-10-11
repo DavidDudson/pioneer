@@ -10,6 +10,7 @@ import { CHARACTER_LEVEL_MAX } from './character-fields';
 import { SlotInvalidMessage, SlotStatus, SlotSubjectKind } from './character-slot';
 import type { CharacterSlot, SlotSubject } from './character-slot';
 import { languageStatuses } from './language-slot-status';
+import { preparedStatuses } from './prepared-slot-status';
 import { SkillPickProblem, skillSlots } from './skill-training';
 import { resolveSlotsAt, skillReads } from './slot-offer';
 import type { SlotContent, SlotContext } from './slot-offer';
@@ -206,24 +207,26 @@ function entryName(value: ChoiceValue, lookup: ContentLookup): ContentText | und
   return id.success ? lookup.entry(id.data)?.name : undefined;
 }
 
-function hiddenSlot(key: SlotKey, selection: ChoiceValue, lookup: ContentLookup): CharacterSlot {
-  return { status: SlotStatus.Hidden, key, selection, ...named(entryName(selection, lookup)) };
+function hiddenSlot(key: SlotKey, selection: ChoiceValue, context: SlotContext): CharacterSlot {
+  const name = entryName(selection, context.lookup) ?? context.spells.spell(selection)?.name;
+  return { status: SlotStatus.Hidden, key, selection, ...named(name) };
 }
 
-/** The picks kept for no slot in `listed`, an entry picked named. */
+/** The picks kept for no slot in `listed`, an entry or spell picked named. */
 function hiddenPicks(context: SlotContext, listed: readonly CharacterSlot[]): CharacterSlot[] {
   const keys = new Set(listed.map((slot) => slot.key));
   return [...context.picks]
     .filter(([key]) => !keys.has(key))
-    .map(([key, selection]) => hiddenSlot(key, selection, context.lookup));
+    .map(([key, selection]) => hiddenSlot(key, selection, context));
 }
 
 /**
  * Every slot the character has, with its status (#419): its own slots, then its boosts by level and the voluntary
- * flaws it took (#550), then its trained skills and skill increases (#464), then its language slots (#470), then the `ChoiceSet` slots its entries
- * grant, then picks kept for slots it no longer has. A slot on the character at its level reads as open, filled or
- * invalid there; one that opens only above it reads at the lowest level it opens, as planned, or invalid at that
- * level. A stored pick for a slot found at neither is hidden. Nothing is dropped: every stored pick is in the list.
+ * flaws it took (#550), then its trained skills and skill increases (#464), then its language slots (#470), then the
+ * `ChoiceSet` slots its entries grant, then the prepared spell slots at its level (#478), then picks kept for slots it
+ * no longer has. A slot on the character at its level reads as open, filled or invalid there; one that opens only
+ * above it reads at the lowest level it opens, as planned, or invalid at that level. A stored pick for a slot found at
+ * neither is hidden. Nothing is dropped: every stored pick is in the list.
  */
 export function characterSlots(document: CharacterDocument, content: SlotContent): readonly CharacterSlot[] {
   const picks = new Map(Object.entries(document.build.choices).map(([key, value]) => [SlotKey.parse(key), value]));
@@ -232,6 +235,15 @@ export function characterSlots(document: CharacterDocument, content: SlotContent
   const boosts = boostStatuses(document, content, picks);
   const flaws = flawStatuses(document, content, picks);
   const skills = skillStatuses(document, content);
-  const listed = [...roots, ...boosts, ...flaws, ...skills, ...languageStatuses(document, content), ...choices];
+  const languages = languageStatuses(document, content);
+  const listed = [
+    ...roots,
+    ...boosts,
+    ...flaws,
+    ...skills,
+    ...languages,
+    ...choices,
+    ...preparedStatuses(document, content),
+  ];
   return [...listed, ...hiddenPicks(context, listed)];
 }

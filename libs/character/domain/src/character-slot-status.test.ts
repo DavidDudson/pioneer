@@ -8,7 +8,7 @@ import { CharacterSlot, SlotStatus } from './character-slot';
 import { characterSlots } from './character-slot-status';
 import { ANCESTRY_SLOT, BACKGROUND_SLOT, CLASS_SLOT, HERITAGE_SLOT } from './character-slots';
 import type { SlotContent } from './slot-offer';
-import { BOOST_FIXTURES, NO_LANGUAGES, NO_SKILLS, boostFixtureId, CharacterBuilder } from './testing';
+import { BOOST_FIXTURES, NO_LANGUAGES, NO_SKILLS, NO_SPELLS, boostFixtureId, CharacterBuilder } from './testing';
 
 const LOW_LEVEL = [{ lte: ['self:level', 5] }];
 const FROM_FIFTH = [{ gte: ['self:level', 5] }];
@@ -48,6 +48,7 @@ const content: SlotContent = {
   boosts: BOOST_FIXTURES,
   skills: NO_SKILLS,
   languages: NO_LANGUAGES,
+  spells: NO_SPELLS,
 };
 const earlySlot = slotOf('elf', 0);
 const skillSlot = slotOf('elf', 1);

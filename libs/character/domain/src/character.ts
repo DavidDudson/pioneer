@@ -10,7 +10,7 @@ import { CURRENT_SCHEMA_VERSION } from './character-document-upgrades';
 import { CHARACTER_LEVEL_MIN, CharacterLevel } from './character-fields';
 import type { CharacterId, CharacterName } from './character-fields';
 import { CharacterPatchField } from './character-patch';
-import type { CharacterPatch, InventoryPatch } from './character-patch';
+import type { CharacterPatch, InventoryPatch, SpellAccessPatch } from './character-patch';
 import { ANCESTRY_SLOT } from './character-slots';
 import {
   addItem,
@@ -205,6 +205,10 @@ export class Character {
       case CharacterPatchField.TransferRune: {
         return this.#stock(patch, (inventory) => equipmentChange(inventory, patch));
       }
+      case CharacterPatchField.GrantSpellAccess:
+      case CharacterPatchField.RevokeSpellAccess: {
+        return this.#accessChanges(patch);
+      }
       default: {
         const unreachable: never = patch;
         throw new TypeError(`Unhandled character patch: ${JSON.stringify(unreachable)}`);
@@ -252,6 +256,14 @@ export class Character {
       throw new TypeError(`Refused inventory edit: ${refusal.message.key}`);
     }
     return { document: { ...this.document, inventory: change(this.document.inventory) } };
+  }
+
+  /** The build's spell access with `patch.spell` added, once, or taken out; a pick of a spell taken out stays (#478). */
+  #accessChanges(patch: SpellAccessPatch): Partial<CharacterProps> {
+    const { build } = this.document;
+    const others = build.spellAccess.filter((spell) => spell !== patch.spell);
+    const spellAccess = patch.field === CharacterPatchField.GrantSpellAccess ? [...others, patch.spell] : others;
+    return { document: { ...this.document, build: { ...build, spellAccess } } };
   }
 
   #choose(slot: SlotKey, value: ChoiceValue): CharacterDocument {

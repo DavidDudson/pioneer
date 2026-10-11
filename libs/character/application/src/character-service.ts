@@ -10,6 +10,9 @@ import {
   PATCH_COMMANDS,
   slotContent,
   slotRefusal,
+  SpellAccessProblem,
+  spellAccessProblem,
+  spellContent,
   unfitPicks,
 } from '@pioneer/character/domain';
 import type {
@@ -24,7 +27,7 @@ import type {
 } from '@pioneer/character/domain';
 import { characterImportReport, modifierDifferences, registryLookup } from '@pioneer/interop/pathbuilder';
 import type { BoostChoices, PathbuilderImportResponse } from '@pioneer/interop/pathbuilder';
-import type { AncestryId, ContentSource } from '@pioneer/rules/sdk';
+import type { AncestryId, ContentId, ContentSource } from '@pioneer/rules/sdk';
 import { message, newId, NotFoundError, ValidationError, VersionConflictError } from '@pioneer/shared/kernel';
 import type { Clock, UserId, Version } from '@pioneer/shared/kernel';
 
@@ -32,6 +35,12 @@ import { mayAccessCharacter } from './character-policy';
 import type { CharacterRepository } from './character-repository';
 import { assertInventoryAllows } from './inventory-guard';
 import { importedCharacter, matchedAncestry, readExport } from './pathbuilder-import';
+
+/** Why access to a spell is refused, by the problem. */
+const SPELL_ACCESS_REFUSALS: Readonly<Record<SpellAccessProblem, string>> = {
+  [SpellAccessProblem.UnknownSpell]: 'character.validation.unknownSpell',
+  [SpellAccessProblem.Common]: 'character.validation.spellAccessCommon',
+};
 
 /** A character as an edit saved it, and the picks the edit cleared (`unfitPicks`). */
 export interface PatchedCharacter {
@@ -164,7 +173,19 @@ export class CharacterService {
     if (patch.field === CharacterPatchField.SelectSlot) {
       await this.#assertSlotOffers(current, patch);
     }
+    if (patch.field === CharacterPatchField.GrantSpellAccess) {
+      await this.#assertSpellNeedsAccess(patch.spell);
+    }
     await assertInventoryAllows(current, patch, this.#content);
+  }
+
+  /** Refuses access to a spell no loaded pack has for a slot (a focus spell among them), or to a common one. */
+  async #assertSpellNeedsAccess(spell: ContentId): Promise<void> {
+    const content = await this.#content.registry();
+    const problem = spellAccessProblem(spellContent(content), spell);
+    if (problem !== undefined) {
+      throw new ValidationError([{ path: ['patch', 'spell'], message: message(SPELL_ACCESS_REFUSALS[problem]) }]);
+    }
   }
 
   /** The picks a slot edit left in slots within the edited one that no longer offer them; none for any other edit. */

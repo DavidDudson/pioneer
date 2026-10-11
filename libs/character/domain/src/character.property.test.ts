@@ -93,7 +93,9 @@ function aimed(patch: CharacterPatch, items: readonly InventoryItem[], { index, 
     case CharacterPatchField.Level:
     case CharacterPatchField.SelectSlot:
     case CharacterPatchField.ClearSlot:
-    case CharacterPatchField.SetCoins: {
+    case CharacterPatchField.SetCoins:
+    case CharacterPatchField.GrantSpellAccess:
+    case CharacterPatchField.RevokeSpellAccess: {
       return patch;
     }
     default: {

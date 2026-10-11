@@ -182,7 +182,7 @@ describe.skipIf(adminUrl === undefined)('DrizzleCharacterRepository (postgres)',
       sql`update characters set document = ${JSON.stringify(sparse)}::jsonb where id = ${lini.id}`,
     );
     const loaded = await stored(lini.id);
-    expect(loaded.document.build).toStrictEqual({ choices: {}, boons: [] });
+    expect(loaded.document.build).toStrictEqual({ choices: {}, spellAccess: [], boons: [] });
     await repository.update(
       loaded.apply({ field: CharacterPatchField.Level, value: CharacterLevel.parse(2) }, later),
       FIRST_VERSION,

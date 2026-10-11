@@ -28,6 +28,17 @@ export {
   subclassSlot,
 } from './class-build';
 export { characterSpellcasting } from './spellcasting-build';
+export {
+  cantripRank,
+  isPreparedKey,
+  type PreparedRank,
+  type PreparedSlot,
+  PreparedPickProblem,
+  preparedSlots,
+  SpellAccessProblem,
+  spellAccessProblem,
+} from './prepared-spells';
+export { needsAccess, type SpellContent, spellContent, type SpellOption } from './spell-content';
 export { CharacterSlot, SlotInvalidMessage, SlotStatus, SlotSubject, SlotSubjectKind } from './character-slot';
 export { characterSlots } from './character-slot-status';
 export { CharacterLanguages, characterLanguages, SheetLanguage } from './character-languages';
@@ -52,6 +63,7 @@ export {
   slotRefusal,
   rootSlotOptions,
   languageReads,
+  preparedReads,
   skillReads,
 } from './slot-offer';
 export {

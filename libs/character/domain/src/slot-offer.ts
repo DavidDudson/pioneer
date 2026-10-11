@@ -15,6 +15,8 @@ import type { LanguageContent } from './language-content';
 import type { LanguageReads } from './language-levels';
 import { LanguagePickProblem, languageSlots, problemOf } from './languages';
 import type { LanguageSlot } from './languages';
+import { isPreparedKey, PreparedRefusal, preparedRefusal } from './prepared-spells';
+import type { PreparedReads } from './prepared-spells';
 import { skillContent } from './skill-content';
 import type { SkillContent } from './skill-content';
 import { SkillSlotKind, skillSlots } from './skill-training';
@@ -23,6 +25,8 @@ import { boostRefusal, boostSlotIn, flawRefusal, flawSlotIn, NOT_OFFERED, SlotRe
 import type { SlotRefusal } from './slot-refusals';
 
 export { SlotRefusalField, type SlotRefusal } from './slot-refusals';
+import { spellContent } from './spell-content';
+import type { SpellContent } from './spell-content';
 
 /** A selection for a slot, as `selectSlot` asks for it. */
 export interface SlotPick {
@@ -32,7 +36,8 @@ export interface SlotPick {
 
 /**
  * The content a slot's offer is read from: entries by id and kind, how roll option namespaces read, and the boosts
- * of each ancestry, background and class, the skills and Lores a skill slot offers, and the languages.
+ * of each ancestry, background and class, the skills and Lores a skill slot offers, the languages, and the spells a
+ * prepared slot offers.
  */
 export interface SlotContent {
   readonly lookup: ContentLookup;
@@ -40,6 +45,7 @@ export interface SlotContent {
   readonly boosts: BoostContent;
   readonly skills: SkillContent;
   readonly languages: LanguageContent;
+  readonly spells: SpellContent;
 }
 
 /** The slot content a registry gives. */
@@ -50,6 +56,7 @@ export function slotContent(registry: ContentRegistry): SlotContent {
     boosts: boostContent(registry),
     skills: skillContent(registry),
     languages: languageContent(registry),
+    spells: spellContent(registry),
   };
 }
 
@@ -187,6 +194,24 @@ function languageSlotIn(document: CharacterDocument, content: SlotContent, slot:
   const without: CharacterDocument = { ...document, build: { ...document.build, choices } };
   return languageSlots(without, languageReads(without, content)).find((each) => each.key === slot);
 }
+/** What prepared slots read: the spells, and the character's grants at its level over every pick it holds. */
+export function preparedReads(document: CharacterDocument, content: SlotContent): PreparedReads {
+  const level = Level.parse(document.level);
+  const resolved = resolvedFor(document, content);
+  const resolution = resolved.get(level) ?? resolveSlotsAt(level, { ...content, picks: picksOf(document) });
+  resolved.set(level, resolution);
+  return { spells: content.spells, resolution };
+}
+
+/** The refusal for each reason a prepared slot refuses a spell. */
+const PREPARED_REFUSALS: Readonly<Record<PreparedRefusal, SlotRefusal>> = {
+  [PreparedRefusal.NotOpen]: { field: SlotRefusalField.Slot, message: message('character.validation.slotNotOpen') },
+  [PreparedRefusal.NotOffered]: NOT_OFFERED,
+  [PreparedRefusal.NoAccess]: {
+    field: SlotRefusalField.Selection,
+    message: message('character.validation.spellNoAccess'),
+  },
+};
 
 /**
  * Why `selection` can't go in `slot`, a root or `ChoiceSet` slot: it must be open at some level up to 20, and offer
@@ -217,13 +242,18 @@ function grantRefusal(
 /**
  * Why `selection` can't go in `slot`, or undefined when it can. A boost slot takes an attribute its boost allows and
  * no other boost of its set raises; a voluntary flaw slot, one neither its ancestry nor another flaw lowers; a skill
- * slot, a skill or Lore it may train or raise; a language slot, a language not known yet that it offers. Any other slot must offer `selection` at some level up to 20.
+ * slot, a skill or Lore it may train or raise; a language slot, a language not known yet that it offers; a prepared
+ * slot, a spell it offers at the character's level. Any other slot must offer `selection` at some level up to 20.
  */
 export function slotRefusal(
   document: CharacterDocument,
   content: SlotContent,
   pick: SlotPick,
 ): SlotRefusal | undefined {
+  if (isPreparedKey(pick.slot)) {
+    const refusal = preparedRefusal(document, preparedReads(document, content), pick);
+    return refusal === undefined ? undefined : PREPARED_REFUSALS[refusal];
+  }
   const boost = boostSlotIn(document, content.boosts, pick.slot);
   if (boost !== undefined) {
     return boostRefusal(boost, pick.selection);

@@ -1,5 +1,5 @@
 import { ranksInPlay } from '@pioneer/rules/engine';
-import type { ClassInputs, RuleInPlay } from '@pioneer/rules/engine';
+import type { ClassInputs } from '@pioneer/rules/engine';
 import type { ChoiceSlot, ContentLookup, GrantedItem, GrantResolution } from '@pioneer/rules/grants';
 import {
   ContentKind,
@@ -7,7 +7,6 @@ import {
   Level,
   OriginHopKind,
   RuleElementKey,
-  RuleIndex,
   Selector,
   SlotKey,
 } from '@pioneer/rules/sdk';
@@ -19,12 +18,14 @@ import type {
   Proficiency,
   Predicate,
   RuleElement,
+  RuleIndex,
   Slug,
 } from '@pioneer/rules/sdk';
 
 import { boostSets, BoostSource } from './attribute-boosts';
 import type { CharacterDocument } from './character-document';
 import { CLASS_SLOT } from './character-slots';
+import { grantedRules } from './granted-rules';
 import { pickedSkillRanks, withSkillPicks } from './skill-training';
 import { resolveSlotsAt, skillReads } from './slot-offer';
 import type { SlotContent } from './slot-offer';
@@ -63,13 +64,6 @@ export function classContent(registry: ContentRegistry): ClassContent {
 export function characterGrants(document: CharacterDocument, content: SlotContent): GrantResolution {
   const picks = new Map(Object.entries(document.build.choices).map(([key, value]) => [SlotKey.parse(key), value]));
   return resolveSlotsAt(Level.parse(document.level), { ...content, picks });
-}
-
-/** Each rule element of each entry in the effective set, with the entry's origin and its place in the entry's rules. */
-export function grantedRules(resolution: GrantResolution): readonly RuleInPlay[] {
-  return resolution.items.flatMap(({ entry, origin }) =>
-    entry.rules.map((element, rule) => ({ element, origin, rule: RuleIndex.parse(rule) })),
-  );
 }
 
 const AC = Selector.parse('ac');
