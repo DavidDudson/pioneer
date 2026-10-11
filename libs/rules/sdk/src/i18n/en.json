@@ -450,16 +450,24 @@
         "suppressed": "Suppressed",
         "conditional": "Conditional",
         "inactive": "Inactive",
-        "failed": "Failed"
+        "failed": "Failed",
+        "replaced": "Replaced"
       },
       "suppressedBy": "{name} counts instead.",
       "removedBy": "{name} removes it.",
       "appliesWhen": "Applies when {summary}.",
-      "inactive": "Does not apply: its condition does not hold."
+      "inactive": "Does not apply: its condition does not hold.",
+      "pinned": "{name} pins it to {total}; computed {computed}.",
+      "overrides": "Changes and overrides",
+      "overrideEffect": "{mode, select, add {add} multiply {multiply} upgrade {upgrade} downgrade {downgrade} other {override}} {replaced} → {result}",
+      "replacedBy": "{name} replaces it.",
+      "setByHand": "Set by hand"
     },
     "statistics": {
       "none": "No statistics.",
-      "failed": "Failed"
+      "failed": "Failed",
+      "pinned": "Pinned",
+      "computed": "computed {computed}"
     }
   }
 }

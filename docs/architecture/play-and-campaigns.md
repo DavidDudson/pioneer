@@ -177,7 +177,15 @@ every number explains itself without a modal:
   signed, typed value ("Breastplate +4 item"); one that does not simply apply carries a status badge and says why in
   text: the line that counts instead or removed it, when it would apply, that its condition does not hold, or the
   error.
+- The `Change`s and set overrides, after the modifiers and in the order they ran: base-phase `Change`s, then set
+  overrides. Each reads as its name and what it did, its mode with the value it replaced and the value it left
+  ("override 18 → 20"), a "Set by hand" badge when a user set it, and, when it did not simply apply, a status
+  badge and why: the override that replaced it, when it would apply, that its condition does not hold, or the error.
 - A line is named by its `display.label`, else its entry's name, else the engine's message (a weapon's potency).
+
+A total a set override pinned is flagged in text wherever it appears, and the computed value stays in view beside
+it: the summary reads "Armor Class 22 Pinned computed 20", and the breakdown opens with the override that pinned it
+("Set by the GM pins it to 22; computed 20.").
 
 The list is `pio-statistics` and the breakdown `pio-breakdown`, both in `libs/rules/ui` and fed the engine's
 `StatisticResult`s; the rules playground shows its statistics with the same `pio-breakdown`. The sheet derives them

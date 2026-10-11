@@ -110,10 +110,8 @@ describe(checkStatistics, () => {
         {
           ok: true,
           selector: 'spell-dc:arcane',
-          statistic: { baseValue: 16 },
-          computed: 15,
           total: 18,
-          pinnedBy: { source: 'override', number: 2 },
+          statistic: { baseValue: 16, computed: 15, total: 18, pinnedBy: `${playgroundEntry('overrides')}#1` },
         },
       ],
     });

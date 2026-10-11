@@ -1,0 +1,30 @@
+@if (lines().length > 0) {
+  <fr-stack gap="xs">
+    <fr-text variant="caption" tone="muted">{{ Overrides | transloco }}</fr-text>
+    <fr-list gap="xs">
+      @for (line of lines(); track $index) {
+        <fr-list-item>
+          <fr-stack gap="3xs">
+            <fr-stack direction="horizontal" gap="xs" align="center" wrap>
+              <fr-text [tone]="line.status !== undefined && MUTED.has(line.status) ? 'muted' : 'default'">{{
+                line.name
+              }}</fr-text>
+              <fr-text [tone]="line.status !== undefined && MUTED.has(line.status) ? 'muted' : 'default'">{{
+                line.effect
+              }}</fr-text>
+              @if (line.byHand) {
+                <fr-badge tone="info">{{ SetByHand | transloco }}</fr-badge>
+              }
+              @if (line.status; as status) {
+                <fr-badge [tone]="STATUS_TONES[status]">{{ STATUS_MESSAGES[status] | transloco }}</fr-badge>
+              }
+            </fr-stack>
+            @if (line.detail; as detail) {
+              <fr-text variant="caption" tone="muted">{{ detail }}</fr-text>
+            }
+          </fr-stack>
+        </fr-list-item>
+      }
+    </fr-list>
+  </fr-stack>
+}

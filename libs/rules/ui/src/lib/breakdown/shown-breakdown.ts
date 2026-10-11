@@ -1,4 +1,4 @@
-import type { MarkedLineStatus } from './breakdown-messages';
+import type { MarkedLineStatus, MarkedOverrideStatus } from './breakdown-messages';
 
 /** A base term as shown: as written with its sign, or rounding, what it gives, and the variant setting it. */
 export interface ShownTerm {
@@ -21,9 +21,27 @@ export interface ShownLine {
   readonly detail: string | undefined;
 }
 
-/** A statistic's breakdown, worded: its base and the terms that give it, then its modifier lines. */
+/**
+ * A `Change` or set override as shown: its name, what it did ("override 18 → 20"), whether a user set it by hand,
+ * and, when it does not simply apply, its status and what explains it.
+ */
+export interface ShownOverride {
+  readonly name: string;
+  readonly effect: string;
+  readonly byHand: boolean;
+  readonly status: MarkedOverrideStatus | undefined;
+  readonly detail: string | undefined;
+}
+
+/**
+ * A statistic's breakdown, worded: the set override that pinned its total, if one did, its base and the terms that
+ * give it, its modifier lines, then its `Change`s and set overrides in the order they ran.
+ */
 export interface ShownBreakdown {
+  /** "Set by the GM pins it to 20; computed 18."; undefined when no set override pinned the total. */
+  readonly pinned: string | undefined;
   readonly base: string;
   readonly terms: readonly ShownTerm[];
   readonly lines: readonly ShownLine[];
+  readonly overrides: readonly ShownOverride[];
 }

@@ -202,23 +202,10 @@
     "ruleElementsLabel": "Rule elements",
     "ruleElementsHint": "A JSON array of rule elements, numbered from 1 in the order written. FlatModifier adds a bonus or penalty; AdjustModifier changes or suppresses one by its slug.",
     "ruleNumber": "Rule element {number}",
-    "line": {
-      "applied": "Applied",
-      "conditional": "Conditional",
-      "inactive": "Inactive",
-      "failed": "Error",
-      "predicateFails": "Its predicate does not hold.",
-      "replaced": "Replaced",
-      "replacedBy": "{rule} replaced it."
-    },
     "overridesLabel": "Overrides",
     "overridesHint": "Rule elements set by hand, numbered from 1. A FlatModifier is an adjust override and stacks as usual; a Change with mode override is a set override and pins the total.",
     "overrideNumber": "Override {number}",
-    "overridesHeading": "Changes and overrides:",
-    "overrideEffect": "{mode, select, add {add} multiply {multiply} upgrade {at least} downgrade {at most} other {set}}: {replaced} to {result}",
-    "pinned": "Computed {computed}; {rule} pinned it to {total}.",
     "pinnedFlag": "Pinned",
-    "manual": "Set by hand",
     "previewHeading": "Preview",
     "sourceHeading": "Source"
   },

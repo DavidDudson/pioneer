@@ -3,6 +3,7 @@ import { StatisticKind } from '@pioneer/rules/sdk';
 import { expect, within } from 'storybook/test';
 
 import { CYCLE, ENTRY_NAMES, FIGHTER_STATISTICS } from '../testing/breakdown-fixtures';
+import { PINNED_STATISTICS } from '../testing/override-fixtures';
 import { StatisticsView } from './statistics.component';
 
 type StatisticsStory = StoryObj<StatisticsView>;
@@ -36,6 +37,16 @@ export const Expanded: StatisticsStory = {
     const canvas = within(canvasElement);
     await userEvent.click(canvas.getByText('20'));
     await expect(canvas.getByText('Breastplate counts instead.')).toBeVisible();
+  },
+};
+
+/** Armor Class pinned by a GM's set override: marked in its summary, with the computed value beside it. */
+export const Pinned: StatisticsStory = {
+  args: { statistics: PINNED_STATISTICS },
+  play: async ({ canvasElement, userEvent }) => {
+    const canvas = within(canvasElement);
+    await userEvent.click(canvas.getByText('22'));
+    await expect(canvas.getByText('Set by the GM pins it to 22; computed 20.')).toBeVisible();
   },
 };
 
