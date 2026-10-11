@@ -7,6 +7,8 @@ import { checkPackSources } from './source-check';
 
 export { BookRegistry, bookRegistry } from './book-registry';
 export { checkPackSources, packEntries, SourceCheckError, sourceIssues } from './source-check';
+export { FOUNDRY_IMPORTS, foundryReleaseUrl } from './foundry-imports';
+export type { FoundryImport } from './foundry-imports';
 export type { MissourcedEntry, SourcedEntry } from './source-check';
 export { sourceCoverage } from './source-coverage';
 export type { BookCoverage } from './source-coverage';

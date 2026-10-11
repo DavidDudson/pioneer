@@ -65,6 +65,19 @@
       <fr-stack gap="md">
         <fr-heading variant="subheading" [level]="2">{{ 'legal.foundry.heading' | transloco }}</fr-heading>
         <fr-text element="p">{{ 'legal.foundry.derived' | transloco }}</fr-text>
+        <fr-text element="p">{{ 'legal.foundry.edited' | transloco }}</fr-text>
+        <fr-list>
+          @for (imported of imports; track imported.pack) {
+            <fr-list-item>
+              <fr-stack gap="xs">
+                <fr-text>{{ imported.titleKey | transloco }}</fr-text>
+                <fr-link [external]="imported.url">{{
+                  'legal.foundry.release' | transloco: { release: imported.release }
+                }}</fr-link>
+              </fr-stack>
+            </fr-list-item>
+          }
+        </fr-list>
         <fr-text element="p">{{ 'legal.foundry.affiliation' | transloco }}</fr-text>
         <fr-link href="https://github.com/foundryvtt/pf2e">{{ 'legal.foundry.repositoryLink' | transloco }}</fr-link>
       </fr-stack>

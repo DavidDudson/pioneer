@@ -372,11 +372,11 @@ and homebrew cannot use that path. A pack directory holds:
   rules pack keeps its proficiency bonus table (ADR-0026) and roll option namespace table here.
 - `<kind>.json`: an array of `ContentEntry` envelopes of that kind, in a stable order.
 
-The hand-authored packs (`core-rules`, and the `player-core` and `monster-core` entries transcribed before the
-importer exists) live there too. `libs/rules/catalog` loads them lazily and checks every entry against its schema
-and the book registry, so a malformed or wrongly sourced entry fails `bun run affected`. Ids are stored on
-characters, so changing an entry's slug, its kind included, is a data migration; a catalog test pins every id that
-exists. The slug names its kind (ADR-0034), so only two entries of one kind and name in a pack collide.
+The hand-authored packs (`core-rules`, and the `monster-core` entries transcribed before the importer exists) live
+there too, beside `player-core`, the Foundry import. `libs/rules/catalog` loads them lazily and checks every entry
+against its schema and the book registry, so a malformed or wrongly sourced entry fails `bun run affected`. Ids are
+stored on characters, so changing an entry's slug, its kind included, is a data migration; a catalog test pins every
+id that exists. The slug names its kind (ADR-0034), so only two entries of one kind and name in a pack collide.
 
 ### Delivery to the browser
 
@@ -715,7 +715,9 @@ flowchart LR
   (`feat:deja-vu`), since Pioneer slugs are ASCII ([ADR-0034](../adr/0034-entry-slugs-name-their-kind.md)). The Fly
   spell and action are `spell:fly` and `action:fly`. Two documents of one kind and name are reported, not guessed.
 - **Sources.** Each envelope cites its target book with no page or AoN link, which `SourceRef` accepts
-  (ADR-0005, amended): enrichment adds them, and the coverage report counts entries without them.
+  (ADR-0005, amended): enrichment adds them, and the coverage report counts entries without them. When the import
+  replaces a pack, each imported book source keeps the page and AoN link the replaced entry with the same pack and
+  slug cited for that book (`carrySources`), so the hand-authored entries' sources survive their replacement.
 - **Source enrichment.** Foundry has the book title but no page numbers or AoN links. They are added to the
   committed packs after the import, from a matcher over AoN's listing data and by hand. The method of obtaining
   AoN data must respect their terms; this is an open question tracked in the roadmap. Until resolved, entries ship

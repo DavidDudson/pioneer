@@ -64,13 +64,14 @@ describe('LegalPage', () => {
     expect(credits.some((credit) => credit.startsWith('Pathfinder Monster Core © 2024, Paizo Inc.'))).toBe(true);
   });
 
-  it('links the Community Use Policy, Paizo, the ORC License and the Foundry pf2e repository', async () => {
+  it("links the Community Use Policy, Paizo, the ORC License, each pack's Foundry release and the repository", async () => {
     const root = await renderLegalPage();
     const links = [...root.querySelectorAll('a')].map((link) => link.getAttribute('href'));
     expect(links).toStrictEqual([
       'https://paizo.com/licenses/communityuse',
       'https://paizo.com',
       'https://paizo.com/orclicense',
+      'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
       'https://github.com/foundryvtt/pf2e',
     ]);
   });
@@ -87,5 +88,13 @@ describe('LegalPage', () => {
     for (const book of books) {
       expect(book.textContent).toContain('Paizo · ORC License');
     }
+  });
+
+  it('names the Foundry release each official pack was imported from, and that it has been edited since', async () => {
+    const root = await renderLegalPage();
+    const foundry = section(root, 'Foundry VTT pf2e system');
+    const packs = [...foundry.querySelectorAll('[role="listitem"]')].map((item) => item.textContent.trim());
+    expect(packs).toStrictEqual([expect.stringMatching(/^Player Core\s*Foundry release pf2e-8\.6\.0$/u)]);
+    expect(foundry.textContent).toContain('then corrected and enriched by Pioneer contributors');
   });
 });
