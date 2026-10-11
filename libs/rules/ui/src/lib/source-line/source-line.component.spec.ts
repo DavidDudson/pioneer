@@ -67,6 +67,13 @@ describe(SourceLineView, () => {
       expect(links[0]?.getAttribute('aria-label')).toBe('AoN: Monster Core on Archives of Nethys');
     });
 
+    it('shows a book cited alone, as an imported entry is before enrichment, by its title', async () => {
+      const { line, links } = await render([{ kind: 'book', book: 'player-core' }]);
+
+      expect(line.textContent).toBe('Player Core');
+      expect(links).toHaveLength(0);
+    });
+
     it('formats the page number for the locale', async () => {
       const { line } = await render([{ kind: 'book', book: 'player-core', page: 1234 }]);
 

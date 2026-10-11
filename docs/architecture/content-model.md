@@ -301,8 +301,9 @@ type SourceRef =
   | { kind: 'homebrew'; author: UserId; pack: PackId; url?: Url };
 ```
 
-Validation: every entry needs at least one source; a `book` source needs a `page`, an `aon` URL, or both. AoN URLs
-must be on `2e.aonprd.com` and point at an exact entry (`/Feats.aspx?ID=…`), not a search page.
+Validation: every entry needs at least one source. A `book` source may cite the book alone until its page and AoN
+entry are known, as imported entries do before enrichment; the coverage report counts what is missing. AoN URLs must
+be on `2e.aonprd.com` and point at an exact entry (`/Feats.aspx?ID=…`), not a search page.
 
 Every view of content shows its sources with `pio-source-line` (`libs/rules/ui`), one line per entry, sources
 joined in order:
@@ -499,7 +500,8 @@ flowchart LR
   journals are read, and only item types with a Pioneer kind (`campaignFeature`, for one, has none); journals only
   for the archetypes Foundry keeps as pages.
   `just content-import --pack player-core --book player-core --dry-run` prints what would be imported by Foundry
-  type and book, and what is skipped and why.
+  type and book, what is skipped and why, what did not translate, what pack output leaves out, and the coverage
+  table; without `--dry-run` it also writes the pack (Pack output, below).
 - **Translation.** One translator per Foundry rule element key. Untranslatable elements, unresolved labels and
   links, and fields with no place in a schema go to the pack's backlog, `content/import/<pack>.json`, with the
   entry and Foundry's raw JSON; the entry is imported without them. The backlog is committed with the pack and is
@@ -669,7 +671,8 @@ flowchart LR
   languages (Wildsong) have no Pioneer rarity and `untyped` damage no `DamageType`; both are reported. Each Lore a
   background trains or a ritual checks, which Foundry keeps nowhere, gets its `statistic` entry the same way
   (`statistic:scribing-lore`, named as the first document naming it does; rules-engine.md, "Statistics are
-  content"). Pack output (#400) writes the new entries beside, never into, the hand-authored `core-rules` files ([ADR-0033](../adr/0033-foundry-vocabularies-imported-into-core-rules.md)).
+  content"). Pack output writes the new entries to `core-rules/imported/<pack>/<kind>.json`, beside, never into,
+  the hand-authored `core-rules` files ([ADR-0033](../adr/0033-foundry-vocabularies-imported-into-core-rules.md)).
 - **Later translators.** A translator that lands after its pack is imported is applied to the backlog: a command,
   built by Epic 2.6 (#21), translates the items it now covers into the committed entries and removes them from the
   backlog, keeping hand edits.
@@ -678,16 +681,34 @@ flowchart LR
   `.data/foundry/` (gitignored), reuses it on later runs, and stops on a checksum mismatch. The pin is the pack's
   provenance for the Legal page and NOTICE.md. The backlog in the same file holds only selected entries' items, with
   art references stripped, and is never seeded, served or bundled.
-- **Coverage report.** Per kind, over the committed packs and their backlog: entries, entries with nothing left in
-  the backlog, entries with page numbers, entries with AoN URLs, and actions with a `trigger` but no `triggerEvent`.
-  CI reports it on PRs touching `content/` and never fails on it. Milestone exit criteria are written against these numbers.
+- **Pack output.** Every translated entry, vocabulary and archetypes included, is parsed as a `ContentEntry`, and
+  every id it holds must land on an entry in the output or in another official pack (`packOutput`). An entry with no
+  kind data, or that the schema rejects, is left out. Leaving one out can strand others, so references are checked
+  until none fails, and what references a left-out entry degrades as any link outside the import does: a rule
+  element is dropped (a `GrantItem` of nothing stays untranslated), a `Ref` in rich text becomes its label, else the
+  target's name, as text, and any other reference (a field of `data`) leaves the entry out too. Entries are written
+  sorted by kind then slug, one `<kind>.json` per kind, with a `ContentEntry`'s key order, and formatted with
+  oxfmt, so a re-run is a clean diff; the target pack's entry files are replaced whole, its `pack.json` kept. The
+  catalog imports pack files statically (`json-packs.ts`), so the CLI names the files to register there and a test
+  fails while any committed pack file is not.
+- **Backlog.** `content/import/<pack>.json`'s `backlog` (`BacklogItem`), sorted by entry: per entry, its gaps (an
+  untranslated rule element with Foundry's JSON, an unmapped field or value, an unresolved lang key, an enricher or
+  markup kept as text, an unknown trait, a rule element dropped or a link unlinked for a left-out entry), and for a
+  left-out entry why and Foundry's whole document; then documents that yield no entry, and vocabulary that does not
+  translate. Art (`img`, `texture` and image paths) is stripped throughout.
+- **Coverage report.** Per kind, over the committed packs and their backlog (`importCoverage`): entries, entries with
+  every rule element translated (none untranslated or dropped), entries with nothing left in the backlog, entries
+  with a page number, entries with an AoN link, and entries left out; then page coverage per book and actions with a
+  `trigger` but no `triggerEvent`. The importer prints the same table over its output. `bun run content:coverage`
+  prints it, and CI runs it on PRs touching `content/` as the job summary and an artefact, never failing on it.
+  Milestone exit criteria are written against these numbers ("fully translated" is nothing left in the backlog).
 - **Ids.** Our ids stay UUIDv5 of `<pack>/<slug>`. The Foundry compendium UUID goes in `externalIds.foundry`,
   which is what makes Foundry export possible. The slug is the kind its Foundry type is filed under
   (`FOUNDRY_TYPE_KINDS`), then Foundry's slug (`system.slug`, else its slugified name) with diacritics folded
   (`feat:deja-vu`), since Pioneer slugs are ASCII ([ADR-0034](../adr/0034-entry-slugs-name-their-kind.md)). The Fly
   spell and action are `spell:fly` and `action:fly`. Two documents of one kind and name are reported, not guessed.
-- **Sources.** Each envelope cites its target book with no page or AoN link (`UnlocatedBookSource`), which
-  `SourceRef` does not accept yet (ADR-0005); pack output (#400) decides how that is resolved.
+- **Sources.** Each envelope cites its target book with no page or AoN link, which `SourceRef` accepts
+  (ADR-0005, amended): enrichment adds them, and the coverage report counts entries without them.
 - **Source enrichment.** Foundry has the book title but no page numbers or AoN links. They are added to the
   committed packs after the import, from a matcher over AoN's listing data and by hand. The method of obtaining
   AoN data must respect their terms; this is an open question tracked in the roadmap. Until resolved, entries ship
