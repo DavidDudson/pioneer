@@ -49,7 +49,7 @@ export interface BoostSlot {
   readonly source: BoostSource;
   /** What the boost allows, less what the fixed boosts of its set already raise. */
   readonly options: readonly Attribute[];
-  /** Undefined while the slot is empty, or holds something that isn't an attribute. */
+  /** Undefined while the slot is empty, or holds something it doesn't offer. */
   readonly pick: Attribute | undefined;
 }
 
@@ -105,9 +105,13 @@ function pickedId(document: CharacterDocument, slot: SlotKey): ContentId | undef
   return picked.success ? picked.data : undefined;
 }
 
-function attributeOf(value: ChoiceValue | undefined): Attribute | undefined {
+/**
+ * The attribute `value` names, if the slot offers it. A pick no longer on offer (left from another ancestry, or
+ * after an errata) counts for nothing.
+ */
+function offeredPick(value: ChoiceValue | undefined, options: readonly Attribute[]): Attribute | undefined {
   const parsed = AttributeSchema.safeParse(value);
-  return parsed.success ? parsed.data : undefined;
+  return parsed.success && options.includes(parsed.data) ? parsed.data : undefined;
 }
 
 /** Boosts given together: at what level, from where, and what each may raise. */
@@ -129,7 +133,7 @@ function boostSet(document: CharacterDocument, { level, source, boosts }: BoostO
     }
     const key = SlotKey.parse(`boost:${level}:${source}:${index}`);
     const options = boost.filter((attribute) => !fixed.includes(attribute));
-    return [{ key, level, source, options, pick: attributeOf(document.build.choices[key]) }];
+    return [{ key, level, source, options, pick: offeredPick(document.build.choices[key], options) }];
   });
   return { level, source, fixed, slots };
 }

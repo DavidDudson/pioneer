@@ -72,11 +72,17 @@ describe('boostSlots', () => {
     expect(boostSlots(wizard, BOOST_FIXTURES).some((slot) => slot.source === BoostSource.Class)).toBe(false);
   });
 
-  test('reads what each slot holds, and nothing from a pick that is no attribute', () => {
-    const picked = dwarfFighter(1, { 'boost:1:class:0': 'str', 'boost:1:free:0': 'forest' });
+  test('reads what each slot holds, and nothing from a pick it doesn’t offer', () => {
+    const picked = dwarfFighter(1, {
+      'boost:1:class:0': 'str',
+      'boost:1:free:0': 'forest',
+      'boost:1:ancestry:2': 'con',
+    });
     const byKey = new Map(boostSlots(picked, BOOST_FIXTURES).map((slot) => [String(slot.key), slot.pick]));
     expect(byKey.get('boost:1:class:0')).toBe(Attribute.Strength);
     expect(byKey.get('boost:1:free:0')).toBeUndefined();
+    expect(byKey.get('boost:1:ancestry:2')).toBeUndefined();
+    expect(modifiers(picked).con).toBe(1);
   });
 });
 

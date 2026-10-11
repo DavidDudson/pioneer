@@ -107,7 +107,8 @@ no slot and nothing stored. A slot offers what its boost allows less what its se
 of one set go to different attributes, so `selectSlot` refuses an attribute another boost of the set already raises
 (`character.validation.boostTaken`). Each attribute starts at +0; a boost raises it by one, or, at +4 or more, is
 partial, and the second partial boost raises it by one (Player Core). Boosts above the character's level are the
-plan and don't count yet. `setAttribute` is gone: a boost pick is the only way to change a modifier.
+plan and don't count yet, and a stored pick its slot no longer offers (left from another ancestry, or after an errata)
+counts for nothing until it is changed. `setAttribute` is gone: a boost pick is the only way to change a modifier.
 
 ### Archetype dedications
 
