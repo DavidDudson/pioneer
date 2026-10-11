@@ -57,10 +57,11 @@ describe('CharacterSheetPage', () => {
       'Background Not chosen',
       'Ancestry boost Constitution Needs a new choice This choice no longer offers that option, so it counts for nothing. Choose another.',
       'Level 5 boost Strength Planned for level 5',
+      'Voluntary flaw Intelligence Chosen',
     ]);
   });
 
-  it('shows the modifiers the boost picks give: the elf’s fixed boosts and flaw, then each pick', async () => {
+  it('shows the modifiers the picks give: the elf’s fixed boosts and flaw, each boost, then the voluntary flaw', async () => {
     const { root } = await openSheet();
     const attributes = present(root.querySelector('section[aria-labelledby="sheet-attributes"]'));
 
@@ -74,7 +75,7 @@ describe('CharacterSheetPage', () => {
         ['Strength', '+0'],
         ['Dexterity', '+2'],
         ['Constitution', '+1'],
-        ['Intelligence', '+1'],
+        ['Intelligence', '+0'],
         ['Wisdom', '+1'],
         ['Charisma', '+0'],
       ]);

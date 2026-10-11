@@ -1,6 +1,12 @@
 import { BACKGROUND_SLOT, CLASS_SLOT, HERITAGE_SLOT, rootSlotOptions } from '@pioneer/character/domain';
 import type { Character, CharacterDocument, SlotContent } from '@pioneer/character/domain';
-import { ImportKind, PathbuilderProblem, placeBoosts, readPathbuilderExport } from '@pioneer/interop/pathbuilder';
+import {
+  ImportKind,
+  PathbuilderProblem,
+  placeBoosts,
+  placeFlaws,
+  readPathbuilderExport,
+} from '@pioneer/interop/pathbuilder';
 import type {
   BoostChoices,
   ContentLookup,
@@ -76,7 +82,7 @@ export interface ImportedCharacter {
 
 /**
  * The character `create` makes from an export: its background and class picked, then the heritage its ancestry
- * offers, then each boost in the slots they open.
+ * offers, then each boost in the slots they open, and the voluntary flaws (#550).
  */
 export function importedCharacter(
   value: PathbuilderImport,
@@ -86,9 +92,11 @@ export function importedCharacter(
   const roots = rootChoices(value, content.lookup);
   const heritage = heritageChoice(value, content, create(roots).document);
   const picked = { ...roots, ...heritage.choices };
-  const placement = placeBoosts(create(picked).document, content.slots.boosts, value.boosts);
+  const document = create(picked).document;
+  const placement = placeBoosts(document, content.slots.boosts, value.boosts);
+  const flaws = placeFlaws(document, content.slots.boosts, value.flaws);
   return {
-    character: create({ ...picked, ...placement.choices }),
+    character: create({ ...picked, ...placement.choices, ...flaws }),
     unplaced: placement.unplaced,
     notOffered: heritage.notOffered,
   };

@@ -166,10 +166,25 @@ describe('readPathbuilderExport', () => {
   test('defaults what an older export leaves out', () => {
     const value = read(minimal);
     expect(value.boosts).toEqual([]);
+    expect(value.flaws).toEqual([]);
     expect<readonly string[]>(value.identity.classes).toEqual(['Fighter']);
     expect(value.lores).toEqual([]);
     expect(namesOf(value, ImportKind.Spell)).toEqual([]);
     expect(value.reported.proficiencies).toEqual({});
+  });
+
+  test('reads the ancestry flaws as attributes, in export order, leaving out names it doesn’t know', () => {
+    const breakdown = {
+      ancestryFree: [],
+      ancestryBoosts: [],
+      ancestryFlaws: ['Int', 'Luck', 'Cha'],
+      backgroundBoosts: [],
+      classBoosts: [],
+      mapLevelledBoosts: {},
+    };
+    const abilities = { ...minimal.build.abilities, breakdown };
+    const value = read({ ...minimal, build: { ...minimal.build, abilities } });
+    expect(value.flaws).toStrictEqual([Attribute.Intelligence, Attribute.Charisma]);
   });
 
   test('tolerates fields it does not know', () => {

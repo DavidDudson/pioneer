@@ -1,4 +1,4 @@
-import { boostSets, BoostSource } from '@pioneer/character/domain';
+import { boostSets, BoostSource, flawSlots } from '@pioneer/character/domain';
 import type { BoostContent, BoostSlot, CharacterDocument } from '@pioneer/character/domain';
 import { Attribute, AttributeModifier, AttributeSchema, ChoiceValue, Level } from '@pioneer/rules/sdk';
 import type { AttributeModifiers, SlotKey } from '@pioneer/rules/sdk';
@@ -129,6 +129,25 @@ export function placeBoosts(
     return leftOver(attributes, [...(set?.fixed ?? []), ...placed]).map((attribute) => ({ source, level, attribute }));
   });
   return { choices, unplaced };
+}
+
+/**
+ * Pathbuilder's voluntary flaws in `document`'s flaw slots (#550): each attribute its ancestry doesn't flaw already,
+ * once, in export order. The ancestry's own flaws come from its content, so they take no slot.
+ */
+export function placeFlaws(
+  document: CharacterDocument,
+  content: BoostContent,
+  flaws: readonly Attribute[],
+): BoostChoices {
+  const slots = flawSlots(document, content);
+  const voluntary = [...new Set(flaws)].filter((attribute) => slots[0]?.options.includes(attribute) === true);
+  return Object.fromEntries(
+    voluntary.flatMap((attribute, index) => {
+      const key = slots[index]?.key;
+      return key === undefined ? [] : [[key, ChoiceValue.parse(attribute)]];
+    }),
+  );
 }
 
 /** Each attribute, in order, whose derived modifier isn't the one Pathbuilder computed. */

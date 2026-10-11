@@ -92,10 +92,10 @@ export class CharacterService {
 
   /**
    * A new character from a Pathbuilder export, written in one insert: name, level, ancestry, the background and class
-   * when loaded, the heritage when its ancestry offers it (#555), and each boost in its slot (#420). No modifier is
-   * stored; the report lists any the boosts don't reproduce, and a loaded heritage left out as not offered. The export
-   * is read again here, never taken from the client's preview. Refused, with nothing saved, when it can't be read or
-   * its ancestry isn't loaded.
+   * when loaded, the heritage when its ancestry offers it (#555), each boost in its slot (#420) and the voluntary flaws
+   * (#550). No modifier is stored; the report lists any the picks don't reproduce, and a loaded heritage left out as
+   * not offered. The export is read again here, never taken from the client's preview. Refused, with nothing saved,
+   * when it can't be read or its ancestry isn't loaded.
    */
   public async importPathbuilder(actor: UserId, raw: unknown): Promise<PathbuilderImportResponse> {
     const value = readExport(raw);

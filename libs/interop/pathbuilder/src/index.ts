@@ -45,5 +45,6 @@ export {
   ModifierDifference,
   modifierDifferences,
   placeBoosts,
+  placeFlaws,
   UnplacedBoost,
 } from './boost-placement';
