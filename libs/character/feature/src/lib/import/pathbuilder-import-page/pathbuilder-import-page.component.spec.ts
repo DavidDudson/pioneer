@@ -128,17 +128,18 @@ describe('PathbuilderImportPage create', () => {
     await harness.fixture.whenStable();
     const request = http.expectOne({ method: 'POST', url: '/api/characters/import/pathbuilder' });
     expect(request.request.body).toStrictEqual(mordredExport);
+    const character = {
+      id,
+      version: 1,
+      ownerId: '8f6d2c1a-0b3e-4f5a-9c7d-1e2f3a4b5c6d',
+      name: 'Mordred (Dual Class)',
+      build: { choices: { ancestry: human } },
+      level: 12,
+      createdAt: '2026-10-07T10:00:00.000Z',
+      updatedAt: '2026-10-07T10:00:00.000Z',
+    };
     request.flush({
-      character: {
-        id,
-        version: 1,
-        ownerId: '8f6d2c1a-0b3e-4f5a-9c7d-1e2f3a4b5c6d',
-        name: 'Mordred (Dual Class)',
-        build: { choices: { ancestry: human } },
-        level: 12,
-        createdAt: '2026-10-07T10:00:00.000Z',
-        updatedAt: '2026-10-07T10:00:00.000Z',
-      },
+      character,
       report: {
         unmatched: [{ kind: 'heritage', names: [{ name: 'Changeling', occurrences: 1, reason: 'kind-not-loaded' }] }],
         notCarried: ['heritage', 'lore'],
@@ -149,10 +150,15 @@ describe('PathbuilderImportPage create', () => {
     await vi.waitFor(() => {
       expect(router.url).toBe(`/characters/${id}`);
     });
+    // The sheet reads the new character's slots from the server.
+    await vi.waitFor(() => {
+      http.expectOne({ method: 'GET', url: `/api/characters/${id}` }).flush({ character, slots: [] });
+    });
     const sheet = present(harness.routeNativeElement);
     await vi.waitFor(() => {
       harness.detectChanges();
       expect(sheet.textContent).toContain('Imported from Pathbuilder');
+      expect(sheet.querySelector('fr-inline-field button')).not.toBeNull();
     });
     expect(sheet.textContent).toContain('Heritage and Lores');
     expect(sheet.textContent).toContain('Heritage · 1 not carried over');

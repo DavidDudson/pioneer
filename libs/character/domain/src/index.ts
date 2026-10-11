@@ -13,6 +13,8 @@ export {
   BoostSource,
 } from './attribute-boosts';
 export { ANCESTRY_SLOT, BACKGROUND_SLOT, CHARACTER_ROOT_SLOTS, CLASS_SLOT } from './character-slots';
+export { CharacterSlot, SlotInvalidMessage, SlotStatus, SlotSubject, SlotSubjectKind } from './character-slot';
+export { characterSlots } from './character-slot-status';
 export {
   type SlotContent,
   slotContent,
@@ -21,7 +23,13 @@ export {
   SlotRefusalField,
   slotRefusal,
 } from './slot-offer';
-export { CharacterContract, CharacterListQuery, CharacterSort, CreateCharacterBody } from './character-contract';
+export {
+  CharacterContract,
+  CharacterListQuery,
+  CharacterSheet,
+  CharacterSort,
+  CreateCharacterBody,
+} from './character-contract';
 export {
   CHARACTER_LEVEL_MAX,
   CHARACTER_LEVEL_MIN,

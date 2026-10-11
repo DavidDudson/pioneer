@@ -6,6 +6,7 @@ import * as z from 'zod';
 import { Character } from './character';
 import { CharacterId, CharacterName } from './character-fields';
 import { PatchCharacterBody } from './character-patch';
+import { CharacterSlot } from './character-slot';
 
 const ById = z.object({ id: CharacterId });
 
@@ -18,6 +19,14 @@ export type CharacterListQuery = z.output<typeof CharacterListQuery>;
 
 export const CreateCharacterBody = z.object({ name: CharacterName, ancestry: AncestryId });
 export type CreateCharacterBody = z.infer<typeof CreateCharacterBody>;
+
+/**
+ * One character as its sheet reads it: the character, and every slot it has with its status (#419). The statuses are
+ * worked out from the picks and the server's content on each read, never stored, so the character's wire stays inputs
+ * only.
+ */
+export const CharacterSheet = z.object({ character: Character.codec, slots: z.array(CharacterSlot).readonly() });
+export type CharacterSheet = z.output<typeof CharacterSheet>;
 
 /** The character HTTP API, shared by `character-infrastructure` and `character-feature`. */
 export const CharacterContract = {
@@ -35,7 +44,7 @@ export const CharacterContract = {
     params: ById,
     query: NoQuery,
     body: NoBody,
-    response: Character.codec,
+    response: CharacterSheet,
   }),
   create: new Endpoint({
     method: HttpMethod.Post,
@@ -51,6 +60,6 @@ export const CharacterContract = {
     params: ById,
     query: NoQuery,
     body: PatchCharacterBody,
-    response: Character.codec,
+    response: CharacterSheet,
   }),
 } as const;

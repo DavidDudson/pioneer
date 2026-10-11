@@ -8,3 +8,5 @@ export { RichTextView } from './lib/rich-text/rich-text.component';
 export { provideRichTextLinks, RICH_TEXT_LINKS, type RichTextLinks } from './lib/rich-text/rich-text-links';
 export { SourceLineView } from './lib/source-line/source-line.component';
 export { type NamedStatistic, StatisticsView } from './lib/statistics/statistics.component';
+export { type ChoiceLine, type ChoiceSelection, ChoiceState } from './lib/choices/choice-line';
+export { ChoicesView } from './lib/choices/choices.component';

@@ -119,8 +119,8 @@ overridable in content with `autoApply: false`.
 
 The sheet is text: values are words and numbers in frontier components, and no icon or colour carries meaning on
 its own. Sections come in one fixed order, and each sheet mode shows its sections in that order: identity (name,
-ancestry, level), attributes, defences, statistics, then the sections later epics fill (skills, Strikes, spells,
-actions, feats and features, inventory, notes).
+ancestry, level), attributes, defences, statistics, choices (every slot and its status), then the sections later
+epics fill (skills, Strikes, spells, actions, feats and features, inventory, notes).
 
 - **No statistic is edited in place.** Inputs the user chooses (name, ancestry, level, notes) are inline fields;
   anything the engine derives (AC, saves, Perception, HP, speed, skills, Strikes, defences) is read-only text. A

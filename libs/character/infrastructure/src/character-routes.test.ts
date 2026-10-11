@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 
 import { CharacterService, InMemoryCharacterRepository } from '@pioneer/character/application';
-import { Character } from '@pioneer/character/domain';
+import { CharacterSheet } from '@pioneer/character/domain';
 import { humanAncestryId } from '@pioneer/character/domain/testing';
 import { briarRoseExport, mordredExport } from '@pioneer/interop/pathbuilder/testing';
 import { ContentPackBuilder, fixedContent } from '@pioneer/rules/sdk/testing';
@@ -64,12 +64,29 @@ describe('character routes', () => {
 
     const patch = { expectedVersion: 1, patch: { field: 'level', value: 5 } };
     const patched = await api.handle(request('PATCH', `/characters/${character.id}`, { body: patch }));
-    expect(((await patched.json()) as { level: number }).level).toBe(5);
+    const level: number = CharacterSheet.parse(await patched.json()).character.level;
+    expect(level).toBe(5);
 
     const stale = await api.handle(request('PATCH', `/characters/${character.id}`, { body: patch }));
     expect(stale.status).toBe(409);
     expect(stale.headers.get('content-type')).toContain('application/problem+json');
     expect(((await stale.json()) as Problem).message).toStrictEqual({ key: 'problem.versionConflict' });
+  });
+
+  test('a read comes back as the sheet: the character and its slots, each with its status', async () => {
+    const api = app();
+    const { id } = await create(api, amiri, 'Kyra');
+    const got = await api.handle(request('GET', `/characters/${id}`));
+    expect(got.status).toBe(200);
+    const { character, slots } = CharacterSheet.parse(await got.json());
+    const name: string = character.name;
+    const read: string[][] = slots.slice(0, 3).map(({ key, status }) => [key, status]);
+    expect(name).toBe('Kyra');
+    expect(read).toStrictEqual([
+      ['ancestry', 'filled'],
+      ['background', 'open'],
+      ['class', 'open'],
+    ]);
   });
 
   test('invalid body is 422', async () => {
@@ -163,7 +180,7 @@ describe('Pathbuilder import route', () => {
     expect(report.notCarried).toContain('lore');
 
     const got = await api.handle(request('GET', `/characters/${character.id}`));
-    expect(Character.codec.parse(await got.json()).ancestry).toBe(humanAncestryId);
+    expect(CharacterSheet.parse(await got.json()).character.ancestry).toBe(humanAncestryId);
   });
 
   test('an ancestry that is not loaded is a 422 naming it, and nothing is created', async () => {

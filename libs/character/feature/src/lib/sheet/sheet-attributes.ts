@@ -10,7 +10,8 @@ export interface SheetAttributes {
   readonly open: readonly OpenBoostLine[];
 }
 
-const BOOST_LABEL_KEYS: Readonly<Record<BoostSource, string>> = {
+/** What each boost slot is called, by where its boost comes from. */
+export const BOOST_LABEL_KEYS: Readonly<Record<BoostSource, string>> = {
   [BoostSource.Ancestry]: 'rules.attributes.boost.ancestry',
   [BoostSource.Background]: 'rules.attributes.boost.background',
   [BoostSource.Class]: 'rules.attributes.boost.class',

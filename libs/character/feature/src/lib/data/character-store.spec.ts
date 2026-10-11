@@ -35,6 +35,18 @@ function wire(version: number, level: number): WireCharacter & Record<string, un
   };
 }
 
+/** The sheet the server sends: the character, and a filled ancestry slot. */
+function sheet(version: number, level: number): Record<string, unknown> {
+  const character = wire(version, level);
+  const {
+    choices: { ancestry },
+  } = character['build'] as { choices: { ancestry: string } };
+  return {
+    character,
+    slots: [{ status: 'filled', key: 'ancestry', subject: { kind: 'root', content: 'ancestry' }, selection: ancestry }],
+  };
+}
+
 async function settle(): Promise<void> {
   await TestBed.inject(ApplicationRef).whenStable();
 }
@@ -46,7 +58,7 @@ describe(CharacterStore, () => {
   async function loadSelected(): Promise<void> {
     store.select(id);
     TestBed.tick();
-    http.expectOne(`/api/characters/${id}`).flush(wire(1, 1));
+    http.expectOne(`/api/characters/${id}`).flush(sheet(1, 1));
     await settle();
   }
 
@@ -66,12 +78,17 @@ describe(CharacterStore, () => {
     expect(store.selected()?.document.build.choices[SlotKey.parse('boost:1:free:0')]).toBe('dex');
   });
 
+  it('keeps the slots the server read with the character', async () => {
+    await loadSelected();
+    expect(store.slots()?.map(({ key, status }) => [key, status])).toStrictEqual([['ancestry', 'filled']]);
+  });
+
   it('patch sends the expected version and adopts the server result', async () => {
     await loadSelected();
     const pending = store.patch({ field: CharacterPatchField.Level, value: CharacterLevel.parse(2) });
     const request = http.expectOne({ method: 'PATCH', url: `/api/characters/${id}` });
     expect(request.request.body).toStrictEqual({ expectedVersion: 1, patch: { field: 'level', value: 2 } });
-    request.flush(wire(2, 2));
+    request.flush(sheet(2, 2));
     await pending;
     expect(store.selected()?.version).toBe(2);
   });
@@ -85,13 +102,13 @@ describe(CharacterStore, () => {
       expectedVersion: 1,
       patch: { field: 'selectSlot', slot: 'ancestry', selection: human },
     });
-    select.flush(wire(2, 1));
+    select.flush(sheet(2, 1));
     await selecting;
 
     const clearing = store.clearSlot(ANCESTRY_SLOT);
     const clear = http.expectOne({ method: 'PATCH', url: `/api/characters/${id}` });
     expect(clear.request.body).toStrictEqual({ expectedVersion: 2, patch: { field: 'clearSlot', slot: 'ancestry' } });
-    clear.flush(wire(3, 1));
+    clear.flush(sheet(3, 1));
     await clearing;
     expect(store.selected()?.version).toBe(3);
   });
@@ -104,7 +121,7 @@ describe(CharacterStore, () => {
       .flush({ type: 'version-conflict', title: 'Changed', status: 409 }, { status: 409, statusText: 'Conflict' });
     // The conflict refetches the character before the save reports it, so the field can show theirs.
     await vi.waitFor(() => {
-      http.expectOne({ method: 'GET', url: `/api/characters/${id}` }).flush(wire(3, 5));
+      http.expectOne({ method: 'GET', url: `/api/characters/${id}` }).flush(sheet(3, 5));
     });
     await expect(pending).rejects.toSatisfy((error: unknown) => ApiError.isConflict(error));
     expect(store.selected()?.version).toBe(3);

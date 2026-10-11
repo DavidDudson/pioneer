@@ -74,6 +74,10 @@
       </fr-async-region>
     </fr-section>
 
+    <fr-section [anchor]="sections.choices.anchor" [heading]="sections.choices.headingKey | transloco">
+      <pio-choices [lines]="choices()" />
+    </fr-section>
+
     @if (character(); as character) {
       <fr-text element="p" variant="caption" tone="subtle">
         {{ 'character.sheet.created' | transloco }}

@@ -39,6 +39,7 @@ Accepted. To change a decision, add a new ADR that supersedes the old one; do no
 | [0032](0032-root-slots-in-grants-engine.md)                   | A character's own slots are root slots in the grants engine                       |
 | [0033](0033-foundry-vocabularies-imported-into-core-rules.md) | Foundry vocabularies are imported into core-rules                                 |
 | [0034](0034-entry-slugs-name-their-kind.md)                   | Entry slugs name their kind (`ancestry:dwarf`)                                    |
+| [0035](0035-character-reads-carry-slot-status.md)             | A character read carries its slots' statuses, worked out by the server            |
 
 Template:
 

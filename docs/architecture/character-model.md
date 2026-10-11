@@ -77,7 +77,7 @@ feats you meet the prerequisites of"), and its current selection.
 
 The character stores `SlotKey → Selection` only. Consequences:
 
-- Levelling up opens slots; levelling down hides them but keeps the selection, so it comes back.
+- Levelling up opens slots; levelling down returns them to the plan but keeps the selection, so it comes back.
 - The level planner uses the same rule: selections above the current level are the plan, and levelling up turns
   them on. A planned selection that stops being valid is flagged at its level, like any other invalid choice.
 - If content changes (errata, a homebrew edit) and a selection becomes invalid, the slot is flagged on the sheet
@@ -90,6 +90,23 @@ with `ancestry`, `background` and `class` as root slots (`CHARACTER_ROOT_SLOTS`)
 slot is open at no level up to 20 (`character.validation.slotNotOpen`) or offers the selection at none
 (`character.validation.selectionNotOffered`). Only a new selection is checked: one already stored stays, however
 the level or content changes.
+
+Each slot's status is worked out on every read, never stored (`characterSlots`,
+[ADR-0035](../adr/0035-character-reads-carry-slot-status.md)). `GET` and `PATCH /characters/:id` answer with the
+character and its slots:
+
+- **open**: on the character at its level, nothing picked.
+- **filled**: on the character, with a pick it offers.
+- **planned**: opens only above the character's level, read at the lowest level it opens; its pick, if any, is the
+  plan.
+- **invalid**, with a reason: a pick the slot doesn't offer (errata, a homebrew edit, a lost prerequisite, another
+  boost of its set raising the attribute first) or content no loaded pack has. A planned pick that stops being valid
+  is invalid at its level.
+- **hidden**: a pick kept for a slot the character has neither at its level nor above. Every stored pick is in the
+  list, so nothing is dropped silently.
+
+The sheet's Choices section lists them, but the empty planned slots, with a badge per status and the reason under an
+invalid one.
 
 ### Attribute boosts
 
