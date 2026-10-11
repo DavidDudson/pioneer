@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { AttributeModifier, ItemState, OriginHopKind, Slug } from '@pioneer/rules/sdk';
+import { AttributeModifier, ConditionValue, ItemState, OriginHopKind, Slug } from '@pioneer/rules/sdk';
 import { installRulesFakes } from '@pioneer/rules/sdk/testing';
 
 import type { CharacterDocument } from './character-document';
@@ -169,7 +169,11 @@ describe('equippedRules', () => {
       },
     ]);
     // Encumbered itself carries no value; the Clumsy it grants arrives at 1.
-    expect(encumbered.map(({ conditionValue }) => conditionValue)).toStrictEqual([undefined, undefined, 1]);
+    expect(encumbered.map(({ conditionValue }) => conditionValue)).toStrictEqual([
+      undefined,
+      undefined,
+      ConditionValue.parse(1),
+    ]);
     // 12 Bulk is over the maximum of 10, and still encumbered.
     expect(equippedRules(anvils(6), content, slots).rules.map(({ origin }) => origin.entry)).toStrictEqual([
       condition,

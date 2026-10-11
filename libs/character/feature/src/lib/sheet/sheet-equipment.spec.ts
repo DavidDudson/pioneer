@@ -131,18 +131,22 @@ describe(sheetStatistics, () => {
     expect(encumbered.lines.map(({ modifier }) => modifier.origin.hops[0]?.kind)).toContain(OriginHopKind.Condition);
   });
 
-  it("gives Clumsy 1's −1 to the Dexterity-based statistics through the clumsy encumbered grants", async () => {
+  it.each(['Armor Class', 'Reflex'])(
+    "gives %s, a Dexterity-based statistic, Clumsy 1's −1 through the clumsy encumbered grants",
+    async (name) => {
+      const registry = await equipmentRegistry();
+      const unburdened = valueOf(sheetStatistics(registry, anvils(2)), name);
+      const encumbered = valueOf(sheetStatistics(registry, anvils(3)), name);
+      expect(encumbered.total).toBe(unburdened.total - 1);
+      expect(encumbered.lines.map(({ modifier }) => modifier.origin.entry)).toStrictEqual([clumsyFixtureId()]);
+    },
+  );
+
+  it('leaves Fortitude, which is not Dexterity-based, as it is while encumbered', async () => {
     const registry = await equipmentRegistry();
-    const unburdened = sheetStatistics(registry, anvils(2));
-    const encumbered = sheetStatistics(registry, anvils(3));
-    for (const name of ['Armor Class', 'Reflex']) {
-      expect(valueOf(encumbered, name).total, name).toBe(valueOf(unburdened, name).total - 1);
-      expect(
-        valueOf(encumbered, name).lines.map(({ modifier }) => modifier.origin.entry),
-        name,
-      ).toStrictEqual([clumsyFixtureId()]);
-    }
-    expect(valueOf(encumbered, 'Fortitude').total).toBe(valueOf(unburdened, 'Fortitude').total);
+    const unburdened = valueOf(sheetStatistics(registry, anvils(2)), 'Fortitude');
+    const encumbered = valueOf(sheetStatistics(registry, anvils(3)), 'Fortitude');
+    expect(encumbered.total).toBe(unburdened.total);
   });
 });
 

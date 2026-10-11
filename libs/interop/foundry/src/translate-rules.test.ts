@@ -1,5 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 
+import { ConditionValue } from '@pioneer/rules/sdk';
+
 import { idOf, translate } from './testing/import-fixtures';
 import type { DocumentFixture } from './testing/import-fixtures';
 import { condition, dataOf } from './testing/kind-fixtures';
@@ -75,7 +77,7 @@ describe('translateRules: GrantItem badge value', () => {
     const fixtures = [altering([{ mode: 'override', property: 'badge-value', value: 3 }]), BLINDED];
 
     expect(translate(fixtures).entries[0]?.envelope.rules).toEqual([
-      { key: 'GrantItem', item: idOf('condition:blinded'), value: 3 },
+      { key: 'GrantItem', item: idOf('condition:blinded'), value: ConditionValue.parse(3) },
     ]);
   });
 

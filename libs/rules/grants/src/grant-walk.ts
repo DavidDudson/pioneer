@@ -1,7 +1,8 @@
 import { evaluatePredicate, summarisePredicate, Truth } from '@pioneer/rules/predicate';
 import type { PredicateFacts, PredicateSummary } from '@pioneer/rules/predicate';
-import { ConditionValue, ContentKind, OriginHopKind, RuleElementKey, RuleIndex } from '@pioneer/rules/sdk';
+import { OriginHopKind, RuleElementKey, RuleIndex } from '@pioneer/rules/sdk';
 import type {
+  ConditionValue,
   ContentId,
   GrantItemElement,
   Origin,
@@ -13,6 +14,7 @@ import type {
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
+import { arrivalValue } from './arrival-value';
 import { choiceTarget, readChoices } from './choices';
 import type {
   AnsweredSlot,
@@ -94,24 +96,6 @@ interface Visit {
   readonly allowDuplicate: boolean;
   /** The value the granting element gives a valued condition, if it gives one. */
   readonly value: ConditionValue | undefined;
-}
-
-/** A valued condition's value when it is not given one: Foundry's badge default. */
-const DEFAULT_VALUE = ConditionValue.parse(1);
-
-/**
- * The value `entry` arrives with by `visit`: a root's condition hop gives its own, and a grant of a valued condition
- * gives the grant's, else 1. Anything else arrives with none.
- */
-function arrivalValue(entry: GrantEntry, { hops, value }: Visit): ConditionValue | undefined {
-  const hop = hops.at(-1);
-  if (entry.kind !== ContentKind.Condition) {
-    return undefined;
-  }
-  if (hop?.kind === OriginHopKind.Condition) {
-    return hop.condition === entry.id ? hop.value : undefined;
-  }
-  return hop?.kind === OriginHopKind.Grant && entry.valued === true ? (value ?? DEFAULT_VALUE) : undefined;
 }
 
 function originOf(entry: GrantEntry, hops: readonly OriginHop[]): Origin {
@@ -199,7 +183,7 @@ class Walker {
       entry,
       origin: originOf(entry, visit.hops),
       flag: visit.flag,
-      value: arrivalValue(entry, visit),
+      value: arrivalValue(entry, visit.hops, visit.value),
     };
     const at = this.#present.get(id);
     if (at !== undefined && !visit.allowDuplicate) {

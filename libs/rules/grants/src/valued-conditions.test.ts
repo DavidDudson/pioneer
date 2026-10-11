@@ -153,7 +153,7 @@ describe('a valued condition', () => {
       condition('curse', [{ ...grantOf('weakness'), value: 2 }]),
       { ...entry('weakness'), valued: true },
     ];
-    const [weakness] = resolve(content, [afflicted('curse')]).items.filter((item) => item.entry.slug === 'weakness');
+    const weakness = resolve(content, [afflicted('curse')]).items.find((item) => item.entry.slug === 'weakness');
     expect(weakness?.value).toBeUndefined();
   });
 });
@@ -176,10 +176,64 @@ interface Arrival {
   readonly value: number | undefined;
 }
 
-const arrivals: Arbitrary<Arrival[]> = array(
-  record({ granted: boolean(), value: oneof(constant(undefined), integer({ min: 1, max: VALUE_MAX })) }),
-  { minLength: 1, maxLength: ROOTS_MAX },
-);
+const drawnValue: Arbitrary<number | undefined> = oneof(constant(undefined), integer({ min: 1, max: VALUE_MAX }));
+const arrivals: Arbitrary<Arrival[]> = array(record({ granted: boolean(), value: drawnValue }), {
+  minLength: 1,
+  maxLength: ROOTS_MAX,
+});
+
+/** The condition that grants clumsy for each granted arrival, `granter-<index>`. */
+function grantersOf(drawn: readonly Arrival[]): GrantEntry[] {
+  return drawn.flatMap(({ granted, value }, index) =>
+    granted ? [condition(`granter-${index}`, [{ ...grantOf('clumsy'), value }])] : [],
+  );
+}
+
+/** A root for each arrival: its granter, or clumsy put on with its value. */
+function arrivalRoots(drawn: readonly Arrival[]): GrantRoot[] {
+  return drawn.map(({ granted, value }, index) =>
+    granted ? afflicted(`granter-${index}`) : afflicted('clumsy', value),
+  );
+}
+
+/** The value each arrival brings: a grant's, else 1; a root's own, if it has one. */
+function broughtBy({ granted, value }: Arrival): number[] {
+  if (granted) {
+    return [value ?? 1];
+  }
+  return value === undefined ? [] : [value];
+}
+
+/** What clumsy holds once `drawn` arrive: its highest value, and the options it sets. */
+interface ClumsyState {
+  readonly value: ConditionValue | undefined;
+  readonly options: readonly string[];
+}
+
+function expectedClumsy(drawn: readonly Arrival[]): ClumsyState {
+  const given = drawn.flatMap((arrival) => broughtBy(arrival));
+  if (given.length === 0) {
+    return { value: undefined, options: ['self:condition:clumsy'] };
+  }
+  const highest = Math.max(...given);
+  return {
+    value: ConditionValue.parse(highest),
+    options: ['self:condition:clumsy', `self:condition:clumsy:${highest}`],
+  };
+}
+
+/** What clumsy holds once `drawn` resolve. */
+function resolvedClumsy(drawn: readonly Arrival[]): ClumsyState {
+  const result = resolve([clumsy, ...grantersOf(drawn)], arrivalRoots(drawn));
+  return clumsyOf(result);
+}
+
+function clumsyOf(result: GrantResolution): ClumsyState {
+  return {
+    value: result.items.find((item) => item.entry.slug === 'clumsy')?.value,
+    options: conditionsOf(result).filter((option) => option.startsWith('self:condition:clumsy')),
+  };
+}
 
 /** _frightened_ once for each of `values`. */
 const rootsOf = (values: Values): GrantRoot[] => values.map((value) => afflicted('frightened', value));
@@ -206,24 +260,7 @@ describe('valued condition properties', () => {
   test('a valued condition granted and put on holds its highest arrival, a grant without a value at 1', () => {
     assert(
       property(arrivals, (drawn) => {
-        const granters = drawn.flatMap((arrival, index) =>
-          arrival.granted ? [condition(`granter-${index}`, [{ ...grantOf('clumsy'), value: arrival.value }])] : [],
-        );
-        const roots = drawn.map((arrival, index) =>
-          arrival.granted ? afflicted(`granter-${index}`) : afflicted('clumsy', arrival.value),
-        );
-        const given = drawn.flatMap(({ granted, value }) =>
-          granted ? [value ?? 1] : value === undefined ? [] : [value],
-        );
-        const highest = given.length === 0 ? undefined : Math.max(...given);
-        const result = resolve([clumsy, ...granters], roots);
-        expect(result.items.find((item) => item.entry.slug === 'clumsy')?.value).toBe(
-          highest === undefined ? undefined : ConditionValue.parse(highest),
-        );
-        expect(conditionsOf(result).filter((option) => option.startsWith('self:condition:clumsy'))).toEqual([
-          'self:condition:clumsy',
-          ...(highest === undefined ? [] : [`self:condition:clumsy:${highest}`]),
-        ]);
+        expect(resolvedClumsy(drawn)).toEqual(expectedClumsy(drawn));
       }),
     );
   });
