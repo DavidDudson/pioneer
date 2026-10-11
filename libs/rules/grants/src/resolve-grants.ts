@@ -13,6 +13,8 @@ import { walkGrants } from './grant-walk';
 import type { ConditionalGrant, GrantedItem } from './grant-walk';
 import { GrantsMessage } from './messages';
 import { byCodeUnit } from './order';
+import { readRootSlots } from './root-slots';
+import type { RootSlot, RootSlotDefinition } from './root-slots';
 import { RoundLog } from './round-log';
 import type { Round } from './round-log';
 import type { ToggleSlot, ToggleStates } from './toggles';
@@ -25,6 +27,8 @@ export interface GrantInputs {
   /** What the caller knows of the moment (`terrain:forest`), on top of what the character's entries set. */
   readonly situation: readonly RollOption[];
   readonly picks: ChoicePicks;
+  /** The slots the character has itself (its ancestry); their picks are roots too. */
+  readonly rootSlots: readonly RootSlotDefinition[];
   readonly toggles: ToggleStates;
   /** Which namespaces are known: the registry's merged table (`ContentRegistry.rollOptionNamespaces`). */
   readonly namespaces: NamespaceTable;
@@ -43,6 +47,8 @@ export interface GrantResolution {
   /** Choices the player has yet to make, or whose pick is not on offer. */
   readonly open: readonly ChoiceSlot[];
   readonly answered: readonly AnsweredSlot[];
+  /** Each root slot, open or answered, with what it offers. */
+  readonly rootSlots: readonly RootSlot[];
   readonly toggles: readonly ToggleSlot[];
   /**
    * What the set says of the character, sorted: its level, the option each entry's kind sets (`feat:shield-block`),
@@ -53,6 +59,9 @@ export interface GrantResolution {
   readonly facts: PredicateFacts;
   readonly errors: readonly GrantError[];
 }
+
+/** A resolution before its root slots are added: what the rounds of walking produce. */
+type Walked = Omit<GrantResolution, 'rootSlots'>;
 
 /**
  * Most walks before giving up. Each round of a set that only grows adds an entry or an option, and real content
@@ -86,12 +95,12 @@ function settersOutside(derived: CharacterFacts, kept: ReadonlySet<RollOption>):
 }
 
 /** A round whose set derives the facts it read: the resolution. */
-function settled({ walk, facts, derived }: Round): GrantResolution {
+function settled({ walk, facts, derived }: Round): Walked {
   return { ...walk, toggles: derived.toggles, rollOptions: derived.options, facts };
 }
 
 /** What `round` has that comes from entries in `core` alone. */
-type Kept = Omit<GrantResolution, 'rollOptions' | 'facts'>;
+type Kept = Omit<Walked, 'rollOptions' | 'facts'>;
 
 /** The parts of `round` every entry behind which is in `core`. */
 function keptOf({ walk, derived }: Round, core: ReadonlySet<ContentId>): Kept {
@@ -139,12 +148,12 @@ class Fixpoint {
     this.#inputs = inputs;
   }
 
-  public resolve(): GrantResolution {
+  public resolve(): Walked {
     return this.#settle({ options: levelOptions(this.#inputs.level), known: [] }, new RoundLog());
   }
 
   /** Walks against `state`; done once the set derives `state` again, else walks against what it derives. */
-  #settle(state: FactState, log: RoundLog): GrantResolution {
+  #settle(state: FactState, log: RoundLog): Walked {
     const fingerprint = fingerprintOf(state);
     const round = this.#round(state);
     log.add(fingerprint, round);
@@ -180,7 +189,7 @@ class Fixpoint {
    * Rounds that never settle: only what every one of them agrees on stays, taken from `last`. The entries that come
    * and go, or that set options that come and go, are named in an error.
    */
-  #unsettled(last: Round, rounds: readonly Round[], error: UnsettledError): GrantResolution {
+  #unsettled(last: Round, rounds: readonly Round[], error: UnsettledError): Walked {
     const core = new Set(common(rounds.map(({ walk }) => walk.items.map((item) => item.entry.id))));
     const options = common(rounds.map(({ derived }) => derived.options));
     const known = common(rounds.map(({ derived }) => derived.known));
@@ -202,9 +211,14 @@ class Fixpoint {
  * round's set derived (`characterFacts`), and derives them again; once they stop changing, the set is settled. Facts
  * are rebuilt from scratch each round, so an entry whose predicate stops holding drops out with what it set.
  *
+ * Root slots are read first (`readRootSlots`): each answered one adds its pick as a root. Their offer reads no facts,
+ * so they are the same every round.
+ *
  * Rounds that return to facts seen before never settle: a grant negated by what it grants. Only the entries every
  * such round has stay, and an error names the rest. Rounds are bounded, so resolution always ends.
  */
 export function resolveGrants(inputs: GrantInputs): GrantResolution {
-  return new Fixpoint(inputs).resolve();
+  const root = readRootSlots(inputs.rootSlots, inputs.picks, inputs.lookup);
+  const walked = new Fixpoint({ ...inputs, roots: [...inputs.roots, ...root.roots] }).resolve();
+  return { ...walked, rootSlots: root.slots, errors: [...root.errors, ...walked.errors] };
 }

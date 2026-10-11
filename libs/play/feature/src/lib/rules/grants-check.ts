@@ -253,6 +253,7 @@ export function checkGrants(texts: GrantsTexts, namespaces: NamespaceTable): Gra
     situation: facts.options.filter((option) => isSituational(option, namespaces)),
     picks: picks.picks,
     toggles: toggles.toggles,
+    rootSlots: [],
     namespaces,
   });
   return rowsOf(resolution, names, slugs.table);

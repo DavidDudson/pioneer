@@ -4,6 +4,7 @@ export const GrantsMessage = {
   Cycle: 'grants.cycle',
   TooDeep: 'grants.tooDeep',
   PickNotOffered: 'grants.pickNotOffered',
+  RootPickNotOffered: 'grants.rootPickNotOffered',
   UnknownChoice: 'grants.unknownChoice',
   PickNotEntry: 'grants.pickNotEntry',
   Oscillates: 'grants.oscillates',
