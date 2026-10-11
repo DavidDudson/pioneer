@@ -87,8 +87,8 @@ export interface OpenSheet {
   readonly root: HTMLElement;
 }
 
-/** Opens Merisiel's sheet in the document, so focus can move, and waits until she has loaded. */
-export async function openSheet(): Promise<OpenSheet> {
+/** Opens Merisiel's sheet (or `character`'s) in the document, so focus can move, and waits until it has loaded. */
+export async function openSheet(character: object = MERISIEL): Promise<OpenSheet> {
   TestBed.configureTestingModule({
     providers: [
       provideRouter([{ path: 'characters', children: characterRoutes }], withComponentInputBinding()),
@@ -106,7 +106,7 @@ export async function openSheet(): Promise<OpenSheet> {
     host.remove();
   });
   await vi.waitFor(() => {
-    TestBed.inject(HttpTestingController).expectOne(`/api/characters/${id}`).flush(sheetOf(MERISIEL));
+    TestBed.inject(HttpTestingController).expectOne(`/api/characters/${id}`).flush(sheetOf(character));
   });
   const root = present(harness.routeNativeElement);
   await vi.waitFor(async () => {

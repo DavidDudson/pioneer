@@ -44,6 +44,19 @@ describe('CharacterSheetPage build', () => {
     expect(identity.querySelectorAll('fr-message')).toHaveLength(0);
   });
 
+  it('shows a stored heritage its slot no longer offers by its value, not as not chosen', async () => {
+    const unloaded = '0b7c4f5e-8d1a-5c2b-9e3f-4a6b7c8d9e0f';
+    const { root } = await openSheet({
+      ...MERISIEL,
+      build: { choices: { ...MERISIEL.build.choices, heritage: unloaded } },
+    });
+    const identity = present(root.querySelector('section[aria-labelledby="sheet-identity"]'));
+
+    await vi.waitFor(() => {
+      expect(identity.textContent).toContain(unloaded);
+    });
+  });
+
   it('Edit build moves focus to the ancestry picker', async () => {
     const { root } = await openSheet();
     const build = present(root.querySelector('section[aria-labelledby="sheet-build"]'));

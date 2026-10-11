@@ -238,6 +238,12 @@ export class CharacterSheetPage {
     return registry === undefined || character === undefined ? [] : sheetRootOptions(registry, character, slot);
   }
 
+  /** The name the server read for the pick stored in `slot`, shown when its slot no longer offers it. */
+  #storedName(slot: SlotKey): string | undefined {
+    const read = this.store.slots()?.find((each) => each.key === slot);
+    return read !== undefined && 'selectionName' in read ? read.selectionName : undefined;
+  }
+
   /**
    * One of the character's own slots as an inline pick, named by its options. An empty one reads as `NOT_CHOSEN`,
    * never undefined, which the edit takes for still loading.
@@ -252,7 +258,9 @@ export class CharacterSheetPage {
           ? this.store.clearSlot(slot)
           : this.store.selectSlot(slot, ChoiceValue.parse(value)),
       format: (value) =>
-        options().find((option) => option.value === value)?.label ?? this.#i18n.translate('character.sheet.notChosen'),
+        value === undefined || value === NOT_CHOSEN
+          ? this.#i18n.translate('character.sheet.notChosen')
+          : (options().find((option) => option.value === value)?.label ?? this.#storedName(slot) ?? value),
     });
   }
 }
