@@ -15,10 +15,11 @@ argument-hint: '[issue-number] [--draft]'
   A PR closes stories, not epics: if the issue is an epic, close the story instead and mention the epic.
 
 **Part of a stack?** If `gh stack view --json` shows the branch belongs to a stack (an epic's stories), do not
-use `gh stack submit` to open PRs. Review and take screenshots (step 4) as below, then follow the `stack` skill's submit step: open each
-layer's PR with `gh pr create --base <layer below> --title "<conventional title>"` and the step 5 body
-**before** `gh stack submit --auto`, which only links them. Its auto-generated titles fail CI's PR-title check,
-and that check does not re-run when a title is edited. Then use steps 6 and 7 here to request Copilot and wait.
+use `gh stack submit` to open PRs. Review and take screenshots (step 4) as below, then follow the `stack` skill's
+submit step: open each layer's PR with `gh pr create --base <layer below> --title "<conventional title>"` and
+the step 5 body **before** `gh stack submit --auto`, which only links them. Its auto-generated titles fail CI's
+PR-title check, and that check does not re-run when a title is edited. Then use steps 6 and 7 here to request
+Copilot and wait.
 
 ## 2. Review before anything leaves the machine
 
@@ -60,10 +61,10 @@ place. Name files `<screen>-before.png` / `<screen>-after.png` in the scratchpad
 - **Pages** in the running app: `just dev` in the background (Postgres, API on `$API_PORT`, web on `$WEB_PORT`;
   ports are offset per ws workspace). `just db-reset` reseeds if the data is wrong; it wipes local data, so ask
   first.
-- **Components** in Storybook, for `ui` and frontier components with a story (ADR-0028): `bunx nx storybook
-  frontier` (port 6007) or `bunx nx storybook rules-ui` (6008); `apps/storybook` (6006) composes both. Pass
-  `--port <n>` if another workspace already holds the port. Find story ids at `/index.json`, then screenshot the
-  bare story: `http://localhost:<port>/iframe.html?id=<story-id>&viewMode=story`. Prefer Storybook for a
+- **Components** in Storybook, for `ui` and frontier components with a story (ADR-0028):
+  `bunx nx storybook frontier` (port 6007) or `bunx nx storybook rules-ui` (6008); `apps/storybook` (6006) composes
+  both. Pass `--port <n>` if another workspace already holds the port. Find story ids at `/index.json`, then
+  screenshot the bare story: `http://localhost:<port>/iframe.html?id=<story-id>&viewMode=story`. Prefer Storybook for a
   component change; add a page shot when the change shows up in a page too.
 
 ### Signing in: the dev bypass
@@ -72,7 +73,7 @@ Pages behind auth need no OAuth. The dev API entrypoint (`apps/api/src/main.dev.
 production binary) mounts `GET /api/auth/dev/:userId`, which starts a session for a seeded dev user and redirects
 to `returnTo`. One navigation signs in and lands on the page:
 
-```
+```text
 http://localhost:$WEB_PORT/api/auth/dev/00000000-0000-4000-8000-00000000de01?returnTo=/characters
 ```
 
@@ -91,7 +92,7 @@ Any of these works; use whichever is connected:
   `computer` with `action: screenshot` and `save_to_disk: true`; the result gives the saved path. Keep the window
   size the same for before and after (`resize_window`).
 - **Playwright CLI**, no browser session needed: `bunx playwright screenshot --viewport-size=1280,800
-  [--full-page] "<url>" <file>.png`. It follows the dev sign-in redirect, so the sign-in URL works as is.
+[--full-page] "<url>" <file>.png`. It follows the dev sign-in redirect, so the sign-in URL works as is.
 
 Look at every image before uploading it: right screen, no error overlay, no spinner, no stray dev data.
 
