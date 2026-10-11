@@ -2761,7 +2761,12 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.familiar-abilities.Item.0Xrkk46IM43iI1Fv"
     },
@@ -5176,7 +5181,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "dcc259e0-6067-5c06-87f7-e21937f70801",
+        "range": 20
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.familiar-abilities.Item.jfCmKk6pXcINVROk"
     },
@@ -11552,7 +11563,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "279973df-e7b9-5fa1-9bb6-1cfdc54b82b6",
+        "acuity": "imprecise",
+        "range": 30
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.familiar-abilities.Item.FlRUb8U13Crj3NaA"
     },

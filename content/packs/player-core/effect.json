@@ -1488,7 +1488,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "367b9fa7-8944-5208-9949-9457984b7c59",
+        "acuity": "imprecise",
+        "range": 20
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.XIYWFGHBlcc79YI5"
     },
@@ -1949,7 +1956,29 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "279973df-e7b9-5fa1-9bb6-1cfdc54b82b6",
+        "acuity": "imprecise",
+        "range": 60,
+        "predicate": ["familiar-of-keen-senses:scent"]
+      },
+      {
+        "key": "Sense",
+        "sense": "367b9fa7-8944-5208-9949-9457984b7c59",
+        "acuity": "imprecise",
+        "range": 60,
+        "predicate": ["familiar-of-keen-senses:tremorsense"]
+      },
+      {
+        "key": "Sense",
+        "sense": "178d6a64-6bb6-5607-bfaf-4d39f0df5857",
+        "acuity": "imprecise",
+        "range": 60,
+        "predicate": ["familiar-of-keen-senses:wavesense"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.4wJM0OA9y2gsBAh7"
     },
@@ -5594,7 +5623,18 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "16b42c38-9373-58ec-a7ac-2221bb17a71c",
+        "predicate": ["animal-feature:cat-eyes"]
+      },
+      {
+        "key": "Sense",
+        "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb",
+        "predicate": ["animal-feature:owl-eyes"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.Dcva6SCHr9vWE7nJ"
     },
@@ -8932,7 +8972,12 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "d9c41f9d-318a-5062-b129-db87b8f08f5e"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.znWiM5RYLvf8STmR"
     },
@@ -12695,6 +12740,16 @@
         "key": "GrantItem",
         "item": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
         "predicate": ["humanoid-form:large"]
+      },
+      {
+        "key": "Sense",
+        "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb",
+        "predicate": ["vision-type:darkvision"]
+      },
+      {
+        "key": "Sense",
+        "sense": "16b42c38-9373-58ec-a7ac-2221bb17a71c",
+        "predicate": ["vision-type:low-light-vision"]
       }
     ],
     "externalIds": {
@@ -16462,7 +16517,12 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "1853ffc0-c400-5107-bcde-24728797d4e1"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.T5bk6UH7yuYog1Fp"
     },
@@ -16639,7 +16699,20 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb",
+        "predicate": ["shifting-form:darkvision"]
+      },
+      {
+        "key": "Sense",
+        "sense": "279973df-e7b9-5fa1-9bb6-1cfdc54b82b6",
+        "acuity": "imprecise",
+        "range": 60,
+        "predicate": ["shifting-form:scent"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.iN6shVYuzvQ4A95i"
     },

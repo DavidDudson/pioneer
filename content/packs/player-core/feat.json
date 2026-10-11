@@ -10812,7 +10812,12 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "d9c41f9d-318a-5062-b129-db87b8f08f5e"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.G1BPXzTzrUE4IndV"
     },
@@ -42844,7 +42849,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "12f27f53-38a4-5437-979d-048af3cd2dfb",
+        "acuity": "imprecise",
+        "range": 60
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.DYc108IqRBP9N9W6"
     },
