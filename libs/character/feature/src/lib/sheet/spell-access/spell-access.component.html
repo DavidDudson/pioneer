@@ -2,7 +2,7 @@
   <fr-heading variant="subheading" [level]="3">{{ 'character.sheet.spellAccess.heading' | transloco }}</fr-heading>
   <pio-spell-access-list [lines]="access()?.granted" [remove]="revoke" />
   <fr-async-form [form]="form" [action]="grant" [describeError]="describeError">
-    <fr-stack direction="horizontal" gap="sm" align="end">
+    <fr-stack gap="sm">
       <fr-combobox-field
         [label]="'character.sheet.spellAccess.spell' | transloco"
         [placeholder]="'character.sheet.prepared.placeholder' | transloco"
@@ -10,13 +10,15 @@
         [formField]="form.spell"
         (searched)="search($event)"
       />
-      <fr-async-button
-        type="submit"
-        [pendingLabel]="'character.sheet.spellAccess.adding' | transloco"
-        [successLabel]="'character.sheet.spellAccess.added' | transloco"
-      >
-        {{ 'character.sheet.spellAccess.add' | transloco }}
-      </fr-async-button>
+      <fr-stack direction="horizontal" justify="end">
+        <fr-async-button
+          type="submit"
+          [pendingLabel]="'character.sheet.spellAccess.adding' | transloco"
+          [successLabel]="'character.sheet.spellAccess.added' | transloco"
+        >
+          {{ 'character.sheet.spellAccess.add' | transloco }}
+        </fr-async-button>
+      </fr-stack>
     </fr-stack>
   </fr-async-form>
 </fr-stack>
