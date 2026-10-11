@@ -77,7 +77,10 @@ describe('CharacterService selectSlot', () => {
       command: CharacterCommand.SelectSlot,
     });
     const edit = { field: CharacterPatchField.SelectSlot, slot: ANCESTRY_SLOT, selection: elf } as const;
-    const { character: patched } = await service.patch(amiri, created.id, { expectedVersion: stored.version, patch: edit });
+    const { character: patched } = await service.patch(amiri, created.id, {
+      expectedVersion: stored.version,
+      patch: edit,
+    });
     expect(patched.document.build.choices[featSlot]).toBe(planned);
   });
 });

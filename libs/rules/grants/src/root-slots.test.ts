@@ -57,61 +57,67 @@ describe('root slots', () => {
     ]);
   });
 
-  describe('a slot within another', () => {
-    const HERITAGE = SlotKey.parse('heritage');
-    const NESTED: readonly RootSlotDefinition[] = [...ROOT_SLOTS, { key: HERITAGE, kind: ContentKind.Heritage, within: ANCESTRY }];
-
-    function heritage(slug: string, ancestrySlug?: string): GrantEntry {
-      const base = { ...entry(slug), kind: ContentKind.Heritage, name: ContentText.parse(slug) };
-      return ancestrySlug === undefined ? base : { ...base, belongsTo: idOf(ancestrySlug) };
-    }
-
-    const HERITAGES = [heritage('whisper-elf', 'elf'), heritage('skilled-human', 'human'), heritage('changeling')];
-
-    function nested(picks: readonly (readonly [SlotKey, string])[]): GrantResolution {
-      return resolveGrants(
-        inputsOf({ entries: [...CONTENT, ...HERITAGES], roots: [], picks: picksOf(picks), rootSlots: NESTED }),
-      );
-    }
-
-    function offered(result: GrantResolution): string[] {
-      return result.rootSlots[1]?.options.map((option) => String(option.label)) ?? [];
-    }
-
-    test("offers the heritages of the picked ancestry and the versatile ones", () => {
-      expect(offered(nested([[ANCESTRY, idOf('elf')]]))).toEqual(['changeling', 'whisper-elf']);
-    });
-
-    test('offers only the versatile ones while the ancestry is open', () => {
-      expect(offered(nested([]))).toEqual(['changeling']);
-    });
-
-    test("a heritage of another ancestry is an error, and the slot is open", () => {
-      const result = nested([
-        [ANCESTRY, idOf('human')],
-        [HERITAGE, idOf('whisper-elf')],
-      ]);
-      expect(result.rootSlots[1]?.pick).toBeUndefined();
-      expect(result.items.map((item) => String(item.entry.name))).toEqual(['Human']);
-      expect(result.errors.map((error) => error.hops)).toEqual([[OriginHop.parse({ kind: 'choice', slot: HERITAGE })]]);
-    });
-
-    test('a heritage of the ancestry, or a versatile one, answers it', () => {
-      for (const pick of ['whisper-elf', 'changeling']) {
-        const result = nested([
-          [ANCESTRY, idOf('elf')],
-          [HERITAGE, idOf(pick)],
-        ]);
-        expect(result.rootSlots[1]?.pick).toBe(idOf(pick));
-        expect(result.errors).toEqual([]);
-      }
-    });
-  });
-
   test('without root slots, a pick under a root key grants nothing', () => {
     const picks = picksOf([[ANCESTRY, idOf('elf')]]);
     const result = resolveGrants(inputsOf({ entries: CONTENT, roots: [], picks }));
     expect(result.rootSlots).toEqual([]);
     expect(result.items).toEqual([]);
   });
+});
+
+const HERITAGE = SlotKey.parse('heritage');
+const NESTED: readonly RootSlotDefinition[] = [
+  ...ROOT_SLOTS,
+  { key: HERITAGE, kind: ContentKind.Heritage, within: ANCESTRY },
+];
+
+/** A heritage of the test pack, of the ancestry `ancestrySlug`, or versatile without one. */
+function heritage(slug: string, ancestrySlug?: string): GrantEntry {
+  const base = { ...entry(slug), kind: ContentKind.Heritage, name: ContentText.parse(slug) };
+  return ancestrySlug === undefined ? base : { ...base, belongsTo: idOf(ancestrySlug) };
+}
+
+const HERITAGES = [heritage('whisper-elf', 'elf'), heritage('skilled-human', 'human'), heritage('changeling')];
+
+function nested(picks: readonly (readonly [SlotKey, string])[]): GrantResolution {
+  const entries = [...CONTENT, ...HERITAGES];
+  return resolveGrants(inputsOf({ entries, roots: [], picks: picksOf(picks), rootSlots: NESTED }));
+}
+
+function heritagesOffered(result: GrantResolution): string[] {
+  const options = result.rootSlots[1]?.options ?? [];
+  return options.map((option) => String(option.label));
+}
+
+describe('a root slot within another', () => {
+  test('offers the heritages of the picked ancestry and the versatile ones', () => {
+    const asElf = nested([[ANCESTRY, idOf('elf')]]);
+    expect(heritagesOffered(asElf)).toEqual(['changeling', 'whisper-elf']);
+  });
+
+  test('offers only the versatile ones while the ancestry is open', () => {
+    expect(heritagesOffered(nested([]))).toEqual(['changeling']);
+  });
+
+  test('a heritage of another ancestry is an error, and the slot is open', () => {
+    const result = nested([
+      [ANCESTRY, idOf('human')],
+      [HERITAGE, idOf('whisper-elf')],
+    ]);
+    expect(result.rootSlots[1]?.pick).toBeUndefined();
+    expect(result.items.map((item) => String(item.entry.name))).toEqual(['Human']);
+    expect(result.errors.map((error) => error.hops)).toEqual([[OriginHop.parse({ kind: 'choice', slot: HERITAGE })]]);
+  });
+
+  test.each(['whisper-elf', 'changeling'])(
+    'a heritage of the ancestry, or a versatile one (%s), answers it',
+    (pick) => {
+      const result = nested([
+        [ANCESTRY, idOf('elf')],
+        [HERITAGE, idOf(pick)],
+      ]);
+      expect(result.rootSlots[1]?.pick).toBe(idOf(pick));
+      expect(result.errors).toEqual([]);
+    },
+  );
 });

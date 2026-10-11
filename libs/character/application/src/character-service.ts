@@ -158,10 +158,10 @@ export class CharacterService {
     const now = this.#clock.now();
     const edited = current.apply(patch, now);
     const cleared = await this.#unfitPicks(current, edited, patch);
-    const next = cleared.reduce(
-      (character, pick) => character.apply({ field: CharacterPatchField.ClearSlot, slot: pick.key }, now),
-      edited,
-    );
+    let next = edited;
+    for (const pick of cleared) {
+      next = next.apply({ field: CharacterPatchField.ClearSlot, slot: pick.key }, now);
+    }
     const character = await this.#repository.update(next, expectedVersion, {
       actor,
       command: PATCH_COMMANDS[patch.field],

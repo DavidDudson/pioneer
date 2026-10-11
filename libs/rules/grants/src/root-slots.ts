@@ -80,6 +80,40 @@ function pickOf(value: ChoiceValue, scope: SlotScope): ContentId | undefined {
   return entry !== undefined && offers(scope, entry) ? entry.id : undefined;
 }
 
+/** The scope `definition` offers in, given the picks of the slots read before it. */
+function scopeOf(
+  { kind, within }: RootSlotDefinition,
+  lookup: ContentLookup,
+  answered: ReadonlyMap<SlotKey, ContentId>,
+): SlotScope {
+  return {
+    kind,
+    lookup,
+    nested: within !== undefined,
+    parent: within === undefined ? undefined : answered.get(within),
+  };
+}
+
+/** One root slot read: the slot, the root its pick adds, and the error a pick it doesn't offer is. */
+interface SlotRead {
+  readonly slot: RootSlot;
+  readonly root: GrantRoot | undefined;
+  readonly error: GrantError | undefined;
+}
+
+function readSlot(definition: RootSlotDefinition, value: ChoiceValue | undefined, scope: SlotScope): SlotRead {
+  const pick = value === undefined ? undefined : pickOf(value, scope);
+  const hop: OriginHop = { kind: OriginHopKind.Choice, slot: definition.key };
+  const unoffered = pick === undefined && value !== undefined;
+  return {
+    slot: slotOf(definition, scope, pick),
+    root: pick === undefined ? undefined : { entry: pick, hop },
+    error: unoffered
+      ? { error: message(GrantsMessage.RootPickNotOffered, { value, kind: definition.kind }), hops: [hop] }
+      : undefined,
+  };
+}
+
 /**
  * Reads each root slot against the picks, in order. A pick the slot offers (an entry of its kind that, for a slot
  * `within` another, fits that slot's pick) answers it and adds that entry as a root, behind a `choice` hop. With no
@@ -91,28 +125,18 @@ export function readRootSlots(
   picks: ChoicePicks,
   lookup: ContentLookup,
 ): RootSlotsRead {
-  const slots: RootSlot[] = [];
-  const roots: GrantRoot[] = [];
-  const errors: GrantError[] = [];
   const answered = new Map<SlotKey, ContentId>();
+  const reads: SlotRead[] = [];
   for (const definition of definitions) {
-    const { key, kind, within } = definition;
-    const scope: SlotScope = {
-      kind,
-      lookup,
-      nested: within !== undefined,
-      parent: within === undefined ? undefined : answered.get(within),
-    };
-    const value = picks.get(key);
-    const pick = value === undefined ? undefined : pickOf(value, scope);
-    slots.push(slotOf(definition, scope, pick));
-    const hop: OriginHop = { kind: OriginHopKind.Choice, slot: key };
-    if (pick !== undefined) {
-      answered.set(key, pick);
-      roots.push({ entry: pick, hop });
-    } else if (value !== undefined) {
-      errors.push({ error: message(GrantsMessage.RootPickNotOffered, { value, kind }), hops: [hop] });
+    const read = readSlot(definition, picks.get(definition.key), scopeOf(definition, lookup, answered));
+    if (read.root !== undefined) {
+      answered.set(definition.key, read.root.entry);
     }
+    reads.push(read);
   }
-  return { slots, roots, errors };
+  return {
+    slots: reads.map((read) => read.slot),
+    roots: reads.flatMap((read) => read.root ?? []),
+    errors: reads.flatMap((read) => read.error ?? []),
+  };
 }

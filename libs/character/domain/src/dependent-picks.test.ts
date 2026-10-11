@@ -1,13 +1,13 @@
 import { describe, expect, test } from 'bun:test';
 
-import { entry, idOf, lookupOf } from '@pioneer/rules/grants/testing';
 import type { GrantEntry } from '@pioneer/rules/grants';
-import { AncestryId, ChoiceValue, ContentKind, ContentText } from '@pioneer/rules/sdk';
+import { entry, idOf, lookupOf } from '@pioneer/rules/grants/testing';
+import { AncestryId, ContentKind, ContentText } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
 
 import type { CharacterDocument } from './character-document';
-import { HERITAGE_SLOT } from './character-slots';
-import { unfitPicks } from './dependent-picks';
+import { ANCESTRY_SLOT, HERITAGE_SLOT } from './character-slots';
+import { ClearedPick, unfitPicks } from './dependent-picks';
 import type { SlotContent } from './slot-offer';
 import { BOOST_FIXTURES, CharacterBuilder } from './testing';
 
@@ -26,20 +26,20 @@ const content: SlotContent = {
   boosts: BOOST_FIXTURES,
 };
 
-function document(ancestry: string | undefined, heritage: string): CharacterDocument {
-  const builder = new CharacterBuilder().picking(HERITAGE_SLOT, idOf(heritage));
-  return (ancestry === undefined ? builder : builder.withAncestry(AncestryId.parse(idOf(ancestry)))).build().document;
+function document(ancestry: string, heritage: string): CharacterDocument {
+  const builder = new CharacterBuilder().withAncestry(AncestryId.parse(idOf(ancestry)));
+  return builder.picking(HERITAGE_SLOT, idOf(heritage)).build().document;
 }
 
 function withoutAncestry(before: CharacterDocument): CharacterDocument {
-  const { ancestry: _ancestry, ...choices } = before.build.choices;
+  const choices = Object.fromEntries(Object.entries(before.build.choices).filter(([key]) => key !== ANCESTRY_SLOT));
   return { ...before, build: { ...before.build, choices } };
 }
 
 describe('unfitPicks', () => {
   test('a heritage of the old ancestry is cleared when the new one does not offer it, named', () => {
     expect(unfitPicks(document('elf', 'whisper-elf'), document('human', 'whisper-elf'), content)).toStrictEqual([
-      { key: HERITAGE_SLOT, selection: ChoiceValue.parse(idOf('whisper-elf')), selectionName: 'Whisper Elf' },
+      ClearedPick.parse({ key: HERITAGE_SLOT, selection: idOf('whisper-elf'), selectionName: 'Whisper Elf' }),
     ]);
   });
 

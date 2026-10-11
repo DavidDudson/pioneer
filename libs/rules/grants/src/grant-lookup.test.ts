@@ -47,7 +47,10 @@ describe('grantLookup', () => {
   });
 
   test('finds heritages, each belonging to its ancestry, a versatile one to none', () => {
-    const builder = new ContentPackBuilder().withAncestry('dwarf').withHeritage('rock', 'dwarf').withHeritage('changeling');
+    const builder = new ContentPackBuilder()
+      .withAncestry('dwarf')
+      .withHeritage('rock', 'dwarf')
+      .withHeritage('changeling');
     const registry = new ContentRegistry();
     registry.register(builder.build());
     const heritages = grantLookup(registry).ofKind(ContentKind.Heritage);
@@ -60,6 +63,10 @@ describe('grantLookup', () => {
   test('finds feats, which a background grants', () => {
     const registry = new ContentRegistry();
     registry.register(new ContentPackBuilder().withFeat('assurance').build());
-    expect(grantLookup(registry).ofKind(ContentKind.Feat).map((entry) => String(entry.slug))).toEqual(['assurance']);
+    expect(
+      grantLookup(registry)
+        .ofKind(ContentKind.Feat)
+        .map((entry) => String(entry.slug)),
+    ).toEqual(['assurance']);
   });
 });

@@ -15,10 +15,7 @@ export const BuildPart = {
 export type BuildPart = ValueOf<typeof BuildPart>;
 
 /** A part's value: content by its name, an attribute, or a size. */
-export type BuildValue =
-  | { readonly name: string }
-  | { readonly attribute: Attribute }
-  | { readonly size: Size };
+export type BuildValue = { readonly name: string } | { readonly attribute: Attribute } | { readonly size: Size };
 
 /** One part of the build as the summary shows it; an undefined value says what to pick. */
 export interface BuildLine {

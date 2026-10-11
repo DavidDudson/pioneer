@@ -3,6 +3,23 @@
     @if (store.importReport(); as report) {
       <pio-import-result [report]="report" (dismissed)="dismissImportReport()" />
     }
+    @if (cleared().length > 0) {
+      <fr-surface>
+        <fr-stack gap="sm">
+          <fr-stack direction="horizontal" justify="between" align="center" gap="sm">
+            <fr-heading variant="subheading" [level]="2">{{
+              'character.sheet.cleared.heading' | transloco
+            }}</fr-heading>
+            <fr-button variant="ghost" (pressed)="dismissCleared()">{{
+              'character.sheet.cleared.dismiss' | transloco
+            }}</fr-button>
+          </fr-stack>
+          @for (pick of cleared(); track pick.key) {
+            <fr-text>{{ 'character.sheet.cleared.heritage' | transloco: { name: pick.name } }}</fr-text>
+          }
+        </fr-stack>
+      </fr-surface>
+    }
     <fr-section-index [label]="'character.sheet.sections' | transloco">
       @for (section of sectionOrder; track section.anchor) {
         <fr-section-link [anchor]="section.anchor">{{ section.headingKey | transloco }}</fr-section-link>
@@ -21,7 +38,7 @@
             (cancelled)="name.cancel()"
           />
         </fr-inline-field>
-        <fr-inline-field [label]="'character.sheet.ancestry' | transloco" [edit]="ancestry">
+        <fr-inline-field #ancestryField [label]="'character.sheet.ancestry' | transloco" [edit]="ancestry">
           <fr-select
             frInlineEditor
             [ariaLabel]="'character.sheet.ancestry' | transloco"
@@ -30,6 +47,28 @@
             (valueChange)="ancestry.change($event)"
             (committed)="ancestry.flushSoon()"
             (cancelled)="ancestry.cancel()"
+          />
+        </fr-inline-field>
+        <fr-inline-field #heritageField [label]="'character.sheet.heritage' | transloco" [edit]="heritage">
+          <fr-select
+            frInlineEditor
+            [ariaLabel]="'character.sheet.heritage' | transloco"
+            [options]="heritageOptions()"
+            [value]="heritage.draft()"
+            (valueChange)="heritage.change($event)"
+            (committed)="heritage.flushSoon()"
+            (cancelled)="heritage.cancel()"
+          />
+        </fr-inline-field>
+        <fr-inline-field [label]="'character.sheet.background' | transloco" [edit]="background">
+          <fr-select
+            frInlineEditor
+            [ariaLabel]="'character.sheet.background' | transloco"
+            [options]="backgroundOptions()"
+            [value]="background.draft()"
+            (valueChange)="background.change($event)"
+            (committed)="background.flushSoon()"
+            (cancelled)="background.cancel()"
           />
         </fr-inline-field>
         <fr-inline-field [label]="'character.sheet.level' | transloco" [edit]="level">
@@ -45,6 +84,10 @@
           />
         </fr-inline-field>
       </fr-grid>
+    </fr-section>
+
+    <fr-section [anchor]="sections.build.anchor" [heading]="sections.build.headingKey | transloco">
+      <pio-build-summary [lines]="buildLines()" (edit)="editBuild()" />
     </fr-section>
 
     <fr-section [anchor]="sections.attributes.anchor" [heading]="sections.attributes.headingKey | transloco">

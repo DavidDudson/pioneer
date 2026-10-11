@@ -24,7 +24,8 @@ function parts(host: HTMLElement): string[][] {
 
 describe(BuildSummaryView, () => {
   it('names each part, with an attribute and a size by their names', async () => {
-    const host = (await render(FIGHTER_BUILD)).nativeElement as HTMLElement;
+    const fixture = await render(FIGHTER_BUILD);
+    const host = fixture.nativeElement as HTMLElement;
     expect(parts(host)).toStrictEqual([
       ['Class', 'Fighter'],
       ['Subclass', 'Shield Fighter'],
@@ -38,7 +39,8 @@ describe(BuildSummaryView, () => {
   });
 
   it('says what to pick in each empty part', async () => {
-    const host = (await render(DWARF_BUILD)).nativeElement as HTMLElement;
+    const fixture = await render(DWARF_BUILD);
+    const host = fixture.nativeElement as HTMLElement;
     expect(parts(host).map(([, value]) => value)).toStrictEqual([
       'Pick a class',
       'Pick a subclass',
@@ -62,7 +64,8 @@ describe(BuildSummaryView, () => {
   });
 
   it('shows a placeholder per part while loading', async () => {
-    const host = (await render(undefined)).nativeElement as HTMLElement;
-    expect(host.querySelectorAll('fr-skeleton').length).toBe(FIGHTER_BUILD.length);
+    const fixture = await render(undefined);
+    const host = fixture.nativeElement as HTMLElement;
+    expect(host.querySelectorAll('fr-skeleton')).toHaveLength(FIGHTER_BUILD.length);
   });
 });

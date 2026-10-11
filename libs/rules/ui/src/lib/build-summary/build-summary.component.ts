@@ -35,7 +35,13 @@ function shown({ part, value }: BuildLine): ShownPart {
   if (value === undefined) {
     return { part, labelKey, name: undefined, valueKey: BUILD_EMPTY_MESSAGES[part], tone: Tone.Muted };
   }
-  return { part, labelKey, name: 'name' in value ? value.name : undefined, valueKey: valueKey(value), tone: Tone.Default };
+  return {
+    part,
+    labelKey,
+    name: 'name' in value ? value.name : undefined,
+    valueKey: valueKey(value),
+    tone: Tone.Default,
+  };
 }
 
 /**

@@ -1,10 +1,10 @@
 import { describe, expect, test } from 'bun:test';
 
 import { CharacterService, InMemoryCharacterRepository } from '@pioneer/character/application';
-import { CharacterSheet, PatchedCharacterSheet } from '@pioneer/character/domain';
+import { CharacterSheet, ClearedPick, PatchedCharacterSheet } from '@pioneer/character/domain';
 import { humanAncestryId } from '@pioneer/character/domain/testing';
 import { briarRoseExport, mordredExport } from '@pioneer/interop/pathbuilder/testing';
-import { ChoiceValue, ContentKind } from '@pioneer/rules/sdk';
+import { ContentKind } from '@pioneer/rules/sdk';
 import { ContentPackBuilder, fixedContent } from '@pioneer/rules/sdk/testing';
 import { fixedClock, newId, UserId, Version } from '@pioneer/shared/kernel';
 import type { Problem } from '@pioneer/shared/kernel';
@@ -98,7 +98,11 @@ describe('character routes', () => {
       .withAncestry('elf')
       .withHeritage('skilled-human', 'human');
     const content = fixedContent(pack.build());
-    const service = new CharacterService(new InMemoryCharacterRepository(), content, fixedClock('2026-10-07T10:00:00Z'));
+    const service = new CharacterService(
+      new InMemoryCharacterRepository(),
+      content,
+      fixedClock('2026-10-07T10:00:00Z'),
+    );
     const api = new Elysia().use(problemHandler).use(characterRoutes(service, new FakeAuthenticator()));
     const { id } = await create(api, amiri, 'Kyra');
     const select = (version: number, slot: string, selection: string): Request =>
@@ -107,7 +111,8 @@ describe('character routes', () => {
       });
     const skilledHuman = pack.idOf(ContentKind.Heritage, 'skilled-human');
 
-    const withHeritage = PatchedCharacterSheet.parse(await (await api.handle(select(1, 'heritage', skilledHuman))).json());
+    const heritagePicked = await api.handle(select(1, 'heritage', skilledHuman));
+    const withHeritage = PatchedCharacterSheet.parse(await heritagePicked.json());
     expect(withHeritage.cleared).toEqual([]);
     expect(withHeritage.slots[1]).toMatchObject({ key: 'heritage', status: 'filled', selectionName: 'Skilled-human' });
 
@@ -115,10 +120,10 @@ describe('character routes', () => {
     expect(asElf.status).toBe(200);
     const { character, slots, cleared } = PatchedCharacterSheet.parse(await asElf.json());
     expect(character.version).toBe(Version.parse(3));
-    expect(character.document.build.choices['heritage']).toBeUndefined();
+    expect(Object.keys(character.document.build.choices)).not.toContain('heritage');
     expect(slots[1]).toMatchObject({ key: 'heritage', status: 'open' });
     expect(cleared).toStrictEqual([
-      { key: 'heritage', selection: ChoiceValue.parse(skilledHuman), selectionName: 'Skilled-human' },
+      ClearedPick.parse({ key: 'heritage', selection: skilledHuman, selectionName: 'Skilled-human' }),
     ]);
   });
 

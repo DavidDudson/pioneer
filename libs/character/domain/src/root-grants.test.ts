@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { ContentKind, ContentRegistry, Level, RuleElementKey, SlotKey } from '@pioneer/rules/sdk';
+import { ChoiceValue, ContentKind, ContentRegistry, Level, RuleElementKey, SlotKey } from '@pioneer/rules/sdk';
 import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
 
 import { ANCESTRY_SLOT, BACKGROUND_SLOT, HERITAGE_SLOT } from './character-slots';
@@ -32,21 +32,21 @@ describe('the character’s own slots', () => {
     ]);
     const resolution = resolveSlotsAt(Level.parse(1), {
       ...slotContent(registry),
-      picks: new Map([...picks].map(([key, value]) => [SlotKey.parse(key), value])),
+      picks: new Map([...picks].map(([key, value]) => [SlotKey.parse(key), ChoiceValue.parse(value)])),
     });
     expect(resolution.errors).toEqual([]);
-    const granted = resolution.items.map((item) => [item.entry.kind, String(item.entry.name)]);
-    expect(granted.toSorted()).toEqual([
-      [ContentKind.Ancestry, 'Human'],
-      [ContentKind.Background, 'Farmhand'],
-      [ContentKind.Feat, 'Assurance'],
-      [ContentKind.Heritage, 'Skilled-human'],
+    const granted = resolution.items.map((item) => `${item.entry.kind}: ${item.entry.name}`);
+    expect(granted.toSorted((left, right) => left.localeCompare(right))).toEqual([
+      'ancestry: Human',
+      'background: Farmhand',
+      'feat: Assurance',
+      'heritage: Skilled-human',
     ]);
     const farmhand = resolution.items.find((item) => item.entry.kind === ContentKind.Background);
-    const trained = farmhand?.entry.rules.filter((rule) => rule.key === RuleElementKey.Proficiency);
-    expect(trained?.map((rule) => ('selector' in rule ? rule.selector : undefined))).toEqual([
-      'skill:athletics',
-      'skill:lore:farming',
+    expect(farmhand?.entry.rules).toMatchObject([
+      { key: RuleElementKey.Proficiency, selector: 'skill:athletics', rank: 'trained' },
+      { key: RuleElementKey.Proficiency, selector: 'skill:lore:farming', rank: 'trained' },
+      { key: RuleElementKey.GrantItem },
     ]);
   });
 });

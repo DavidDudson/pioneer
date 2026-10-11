@@ -23,6 +23,7 @@ export {
   type SlotRefusal,
   SlotRefusalField,
   slotRefusal,
+  rootSlotOptions,
 } from './slot-offer';
 export {
   CharacterContract,
