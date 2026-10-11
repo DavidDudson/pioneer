@@ -53,7 +53,11 @@ describe('translateRules: subclass choices', () => {
   });
 
   test('a grant of the pick whose granter does not cascade is kept for the backlog', () => {
-    const [choiceSet] = DOCTRINE.system?.rules ?? [];
+    const choiceSet = {
+      key: 'ChoiceSet',
+      flag: 'clericDoctrine',
+      choices: { filter: ['item:tag:cleric-doctrine'] },
+    };
     const grant = {
       key: 'GrantItem',
       uuid: '{item|flags.system.rulesSelections.clericDoctrine}',

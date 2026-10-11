@@ -48,7 +48,7 @@ function highest(raises: readonly Raise[]): Record<string, string> {
       best.set(selector, Math.max(best.get(selector) ?? -1, RANKS.indexOf(rank)));
     }
   }
-  return Object.fromEntries([...best].map(([selector, at]) => [selector, RANKS[at]]));
+  return Object.fromEntries([...best].map(([selector, at]) => [selector, String(RANKS[at])]));
 }
 
 describe('ranksInPlay (properties)', () => {
