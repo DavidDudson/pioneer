@@ -78,7 +78,7 @@ export const Failed: DefencesStory = {
   },
 };
 
-/** Without display names, origins show their entry ids and slugs show as they are. */
+/** Without display names, origins read "an entry" and slugs show as they are. */
 export const WithoutNames: DefencesStory = {
   args: { defences: BARBARIAN_DEFENCES, entryNames: new Map() },
 };

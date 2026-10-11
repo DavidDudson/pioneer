@@ -1,7 +1,7 @@
 <fr-stack gap="md">
   @if (lists(); as lists) {
     @for (list of lists; track list.heading) {
-      <pio-defence-list [list]="list" />
+      <pio-defence-list [list]="list" [entryNames]="entryNames()" [names]="originNames()" />
     }
   } @else {
     @for (list of loadingLists; track list) {

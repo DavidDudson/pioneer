@@ -427,8 +427,7 @@
       },
       "appliesWhen": "Applies when {summary}.",
       "failedConditional": "{error} It applies only in some situations.",
-      "supersededBy": "{name} counts instead.",
-      "from": "From {name}."
+      "supersededBy": "{name} counts instead."
     },
     "breakdown": {
       "base": "Base {value}",
@@ -463,6 +462,19 @@
       "overrideEffect": "{mode, select, add {add} multiply {multiply} upgrade {upgrade} downgrade {downgrade} other {override}} {replaced} → {result}",
       "replacedBy": "{name} replaces it.",
       "setByHand": "Set by hand"
+    },
+    "originChain": {
+      "then": " → ",
+      "choice": "chosen for {slot}",
+      "grant": "granted by {name}",
+      "inventory": "{item}, {state, select, worn {worn} held {held} other {invested}}",
+      "condition": "{name}{hasValue, select, yes { {value}} other {}}",
+      "appliedBy": "{hop}, applied by {event}",
+      "setBy": "set by {user} ",
+      "note": ", “{note}”",
+      "unknownUser": "a user",
+      "unknownItem": "an item",
+      "unknownEntry": "an entry"
     },
     "statistics": {
       "none": "No statistics.",

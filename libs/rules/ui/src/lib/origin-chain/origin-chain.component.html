@@ -1,0 +1,12 @@
+<fr-stack gap="3xs">
+  <fr-text element="p" variant="caption" tone="muted">
+    @for (segment of segments(); track $index) {
+      @if (segment.kind === SegmentKind.Date) {
+        <fr-date format="relative" [value]="segment.at" />
+      } @else {
+        <ng-container>{{ segment.text }}</ng-container>
+      }
+    }
+  </fr-text>
+  <pio-source-line [sources]="origin().sources" [authorNames]="authors()" [packNames]="packs()" />
+</fr-stack>

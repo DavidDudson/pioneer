@@ -17,6 +17,8 @@ import type { ContentId, DamageAdjustmentTarget, DamageException, Immunity } fro
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 import { filter, merge } from 'rxjs';
 
+import { NO_ORIGIN_NAMES } from '../origin-chain/origin-names';
+import type { OriginNames } from '../origin-chain/origin-names';
 import { DAMAGE_TYPE_MESSAGES } from '../rich-text/rich-text-messages';
 import { DefenceList } from './defence-list/defence-list.component';
 import { DAMAGE_GROUP_MESSAGES, DefencesMessage } from './defences-messages';
@@ -42,10 +44,11 @@ const LOADING_LISTS = ['immunities', 'weaknesses', 'resistances'] as const;
  * its own heading and an empty list saying so. An entry reads as its value and target, then any exceptions
  * ("Resistance 5 physical (bleed, bludgeoning, piercing, slashing), except adamantine"); a group is spelled out
  * with the types it covers. A line that does not simply apply is marked in text, conditional with when it holds,
- * superseded with what counts instead, or failed with why, and every line names where it comes from.
+ * superseded with what counts instead, or failed with why, and every line shows its origin chain and sources.
  *
  * Read-only and presentational (ADR-0028): the caller passes the engine's `Defences`, or undefined while they load,
- * and the display names of the entries, immunities and exceptions it names. A missing name shows its id.
+ * and the display names of the entries, immunities and exceptions it names. A missing name shows its id, except in
+ * an origin chain, where a missing entry reads "an entry".
  *
  * ```html
  * <pio-defences [defences]="defences()" [entryNames]="names()" />
@@ -66,6 +69,8 @@ export class DefencesView {
   public readonly immunityNames = input<ReadonlyMap<Immunity, string>>(new Map());
   /** Display names of the damage traits weaknesses and resistances make exceptions for (`adamantine`). */
   public readonly exceptionNames = input<ReadonlyMap<DamageException, string>>(new Map());
+  /** Names for what the lines' origin chains refer to beyond entries: users, slots, items, events and packs. */
+  public readonly originNames = input<OriginNames>(NO_ORIGIN_NAMES);
 
   /** One loading placeholder per list. */
   protected readonly loadingLists = LOADING_LISTS;
@@ -154,13 +159,11 @@ export class DefencesView {
 
   /** How a line stands and what explains it, then where it comes from. */
   #standing(line: ImmunityLine | AdjustmentLine, context: ListContext): Standing {
-    const from = this.#i18n.translate(DefencesMessage.From, { name: this.#labelName(line.label, context.names) });
-    const { status } = line;
+    const { status, origin } = line;
     if (status.kind === DefenceStatusKind.Applied) {
-      return { status: undefined, details: [from] };
+      return { status: undefined, detail: undefined, origin };
     }
-    const detail = this.#detail(status, context);
-    return { status: status.kind, details: detail === undefined ? [from] : [detail, from] };
+    return { status: status.kind, detail: this.#detail(status, context), origin };
   }
 
   #detail(
