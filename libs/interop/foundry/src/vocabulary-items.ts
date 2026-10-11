@@ -76,6 +76,10 @@ const LanguageFields = z.looseObject({
 });
 const VisionField = z.looseObject({ vision: z.string().max(VALUE_MAX).optional() });
 const SenseRule = z.looseObject({ key: z.literal(SENSE_RULE), selector: z.string().max(VALUE_MAX) });
+/** A feat's `subfeatures.senses`, keyed by sense slug. */
+const SubfeatureSenses = z.looseObject({
+  subfeatures: z.looseObject({ senses: z.record(z.string().max(VALUE_MAX), z.unknown()) }),
+});
 
 const DAMAGE_TYPES: ReadonlySet<string> = new Set(Object.values(DamageType));
 
@@ -148,7 +152,9 @@ export function sensesOf({ type, document }: SelectedEntry): readonly string[] {
     const sense = SenseRule.safeParse(rule);
     return sense.success ? [sense.data.selector] : [];
   });
-  return [...fromVision, ...fromRules];
+  const subfeatures = SubfeatureSenses.safeParse(document.system);
+  const fromSubfeatures = subfeatures.success ? Object.keys(subfeatures.data.subfeatures.senses) : [];
+  return [...fromVision, ...fromRules, ...fromSubfeatures];
 }
 
 export function languageItem(slug: string, book: BookId, config: FoundryConfig): Item | Gap {

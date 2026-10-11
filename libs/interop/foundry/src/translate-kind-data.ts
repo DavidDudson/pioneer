@@ -37,6 +37,7 @@ import { EFFECT_FIELDS, effectData } from './translate-effect';
 import { classFeatureData, FEAT_FIELDS, featData } from './translate-feat';
 import { KIT_FIELDS, kitData } from './translate-kit';
 import { RITUAL_FIELDS, ritualData, SPELL_FIELDS, spellData } from './translate-spell';
+import type { FoundrySenses } from './translate-senses';
 
 /**
  * Kind `data` for the kinds the packs hold, from their Foundry `system` fields (content-model.md, "Rules core data",
@@ -153,6 +154,8 @@ const TRANSLATORS: Readonly<Partial<Record<ContentKind, KindTranslator>>> = {
 export interface KindDataContext {
   readonly references: EntryReferences;
   readonly archetypes: ReadonlyMap<ContentId, readonly ArchetypeLink[]>;
+  /** What each Foundry sense fixes, for the `Sense` elements a feat's `subfeatures` add. */
+  readonly senses?: FoundrySenses;
 }
 
 /**
@@ -162,7 +165,7 @@ export interface KindDataContext {
 export function translateKindData(
   entry: SelectedEntry,
   envelope: ImportedEnvelope,
-  { references, archetypes }: KindDataContext,
+  { references, archetypes, senses }: KindDataContext,
 ): KindDataTranslation {
   const translator = TRANSLATORS[documentKind(entry)];
   if (translator === undefined) {
@@ -171,6 +174,7 @@ export function translateKindData(
   const log: GapLog = { entry: envelope.id, gaps: [] };
   const rules: RuleElement[] = [];
   const { document, pack } = entry;
-  const kindData = translator({ document, pack, envelope, references, log, rules, archetypes });
+  const input = { document, pack, envelope, references, log, rules, archetypes };
+  const kindData = translator(senses === undefined ? input : { ...input, senses });
   return { ...(kindData === undefined ? {} : { kindData }), rules, gaps: log.gaps };
 }

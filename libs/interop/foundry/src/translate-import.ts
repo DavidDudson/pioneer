@@ -78,6 +78,7 @@ export function translateImport(selected: readonly SelectedEntry[], context: Imp
     traits,
     lang,
     references,
+    senses: context.config.senses,
     ...(documents === undefined ? {} : { documents }),
   });
   const archetypes = importArchetypes(context.journals ?? [], {
@@ -93,6 +94,7 @@ export function translateImport(selected: readonly SelectedEntry[], context: Imp
     const { rules, ...rest } = translateKindData(source, envelope, {
       references,
       archetypes: archetypes.byFeat,
+      senses: context.config.senses,
     });
     return { source, envelope: { ...envelope, rules: [...envelope.rules, ...rules] }, ...rest };
   });

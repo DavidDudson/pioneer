@@ -8,6 +8,8 @@ import { fromFoundryFormula } from './foundry-formula';
 import { isLangKey, isUnresolved, localize } from './foundry-lang';
 import type { LangValues, UnresolvedKey, UnresolvedText } from './foundry-lang';
 import type { FoundryLang } from './foundry-release';
+import { withSense } from './translate-senses';
+import type { FoundrySenses } from './translate-senses';
 
 /**
  * An entry's Foundry rule elements, each run through `RuleElement`. One that fails is kept aside with its raw JSON
@@ -171,6 +173,8 @@ export interface RuleContext {
   readonly references?: EntryReferences;
   readonly lang: FoundryLang;
   readonly values: LangValues;
+  /** What each Foundry sense fixes, for its `Sense` elements; without it they keep the acuity and range they give. */
+  readonly senses?: FoundrySenses;
 }
 
 /** A Foundry camel-case flag as a Pioneer slug: `druidicOrder` to `druidic-order`. */
@@ -243,7 +247,7 @@ export function translateRules(entry: ContentId, raws: readonly unknown[], conte
   const shapedRaws = raws.map((raw) => {
     const text = withDisplayLabel(localized(raw, context, unresolved));
     const granted = withGrantedId(withPioneerFormula(text), references);
-    return withTagQuery(withGrantValue(granted));
+    return withSense(withTagQuery(withGrantValue(granted)), references, context.senses);
   });
   const declared = new Set(
     shapedRaws.flatMap((shaped) => {
