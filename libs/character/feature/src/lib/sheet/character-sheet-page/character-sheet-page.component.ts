@@ -71,6 +71,7 @@ import { sheetEntryNames } from '../sheet-entry-names';
 import { carriesEquipment, EQUIPMENT_CONTENT_KINDS, sheetInvestments } from '../sheet-equipment';
 import { sheetField } from '../sheet-field';
 import { SHEET_SECTION_ORDER, SHEET_SECTIONS } from '../sheet-sections';
+import { SheetSkillFields } from '../sheet-skill-fields/sheet-skill-fields.component';
 import { sheetStatistics } from '../sheet-statistics';
 
 /** Focuses an inline field by its read view's button, which scrolls it into view. */
@@ -82,7 +83,8 @@ function focusField(field: ElementRef<HTMLElement>): void {
  * Character sheet: fixed sections in page order, each a region under its level 2 heading, reached from the section
  * index. Every chosen value is its own inline edit with its own state. Attribute modifiers are worked out from the
  * boost picks, so they are read-only, with the boosts still to place listed beneath them. Choices lists every slot
- * with its status, flagging a planned or invalid pick where it would otherwise vanish.
+ * with its status, flagging a planned or invalid pick where it would otherwise vanish. Skills lists every skill and Lore
+ * with its total, and a picker for each trained skill and skill increase up to the character's level.
  */
 @Component({
   selector: 'pio-character-sheet-page',
@@ -110,6 +112,7 @@ function focusField(field: ElementRef<HTMLElement>): void {
     SectionLink,
     Select,
     SheetClassFields,
+    SheetSkillFields,
     Skeleton,
     Stack,
     StatisticsView,

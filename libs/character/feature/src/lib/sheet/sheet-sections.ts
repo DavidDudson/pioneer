@@ -6,7 +6,7 @@ export interface SheetSection {
 
 /**
  * The sheet's sections in their fixed order (play-and-campaigns.md, Sheet layout). Later epics append theirs here:
- * skills, Strikes, spells, actions, feats and features, inventory, notes.
+ * Strikes, spells, actions, feats and features, inventory, notes.
  */
 export const SHEET_SECTIONS = {
   identity: { anchor: 'sheet-identity', headingKey: 'character.sheet.identityHeading' },
@@ -14,6 +14,7 @@ export const SHEET_SECTIONS = {
   attributes: { anchor: 'sheet-attributes', headingKey: 'character.sheet.attributesHeading' },
   defences: { anchor: 'sheet-defences', headingKey: 'character.sheet.defencesHeading' },
   statistics: { anchor: 'sheet-statistics', headingKey: 'character.sheet.statisticsHeading' },
+  skills: { anchor: 'sheet-skills', headingKey: 'character.sheet.skillsHeading' },
   choices: { anchor: 'sheet-choices', headingKey: 'character.sheet.choicesHeading' },
   features: { anchor: 'sheet-features', headingKey: 'character.sheet.featuresHeading' },
   inventory: { anchor: 'sheet-inventory', headingKey: 'character.sheet.inventory.heading' },

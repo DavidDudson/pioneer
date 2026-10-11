@@ -8,6 +8,7 @@ import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 import { BOOST_LABEL_KEYS } from './sheet-attributes';
+import { SKILL_SLOT_LABEL_KEYS } from './sheet-skills';
 
 const STATES: Readonly<Record<SlotStatus, ChoiceState>> = {
   [SlotStatus.Open]: ChoiceState.Open,
@@ -31,7 +32,7 @@ const UNKNOWN_LABEL = 'rules.choices.slot.unknown';
 /** Slots whose pick is an attribute. */
 const ATTRIBUTE_SUBJECTS: ReadonlySet<SlotSubjectKind> = new Set([SlotSubjectKind.Boost, SlotSubjectKind.Flaw]);
 
-/** "Ancestry", "Level 5 boost", "Voluntary flaw", "Elf: Skill" ("Elf choice" without a prompt). */
+/** "Ancestry", "Level 5 boost", "Voluntary flaw", "Level 3 skill increase", "Elf: Skill" ("Elf choice" without a prompt). */
 function labelOf(subject: SlotSubject | undefined): MessageDescriptor {
   switch (subject?.kind) {
     case SlotSubjectKind.Root: {
@@ -42,6 +43,9 @@ function labelOf(subject: SlotSubject | undefined): MessageDescriptor {
     }
     case SlotSubjectKind.Flaw: {
       return message(FLAW_LABEL);
+    }
+    case SlotSubjectKind.Skill: {
+      return message(SKILL_SLOT_LABEL_KEYS[subject.source], { level: subject.level });
     }
     case SlotSubjectKind.Choice: {
       if (subject.entryName === undefined) {

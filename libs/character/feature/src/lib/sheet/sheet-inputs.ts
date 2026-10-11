@@ -1,8 +1,7 @@
 import {
   attributeModifiers,
   boostContent,
-  characterGrants,
-  characterRanks,
+  buildRanks,
   classContent,
   classInputs,
   equippedInputs,
@@ -30,15 +29,15 @@ function classInputsOf(registry: ContentRegistry, character: Character): Pick<St
 }
 
 /**
- * What the engine reads of a character so far: level, the modifiers its boosts give, the ranks its class, background
- * and features raise, what its ancestry and class give, and its worn armour and held weapons when the registry holds
- * the item kinds.
+ * What the engine reads of a character so far: level, the modifiers its boosts give, the ranks its class, background,
+ * features and skill picks raise, what its ancestry and class give, and its worn armour and held weapons when the
+ * registry holds the item kinds.
  */
 export function statisticInputsOf(registry: ContentRegistry, character: Character): StatisticInputs {
   return {
     level: character.level,
     attributes: attributeModifiers(character.document, boostContent(registry)),
-    ranks: characterRanks(characterGrants(character.document, slotContent(registry))),
+    ranks: buildRanks(character.document, slotContent(registry)),
     ...ancestryInputs(registry, character),
     ...classInputsOf(registry, character),
     ...equippedInputs(character.document.inventory, itemContent(registry)),
