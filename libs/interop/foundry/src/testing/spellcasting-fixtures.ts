@@ -91,7 +91,7 @@ export const FIGHTER_FEATURE = classFeature({
   traits: ['fighter'],
 });
 /** Its font `ChoiceSet`, as pf2e-8.6.0 has it: each font offered while the deity's font is it. */
-export const FOUNDRY_FONT_CHOICE = {
+const FOUNDRY_FONT_CHOICE = {
   key: 'ChoiceSet',
   flag: 'divineFont',
   prompt: 'PF2E.SpecificRule.Cleric.DivineFont.Prompt',
