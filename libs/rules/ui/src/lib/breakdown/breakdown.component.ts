@@ -161,7 +161,9 @@ export class BreakdownView {
         });
       }
       case LineStatusKind.Conditional: {
-        return this.#appliesWhen(status.summary);
+        return status.beatenBy === undefined
+          ? this.#appliesWhen(status.summary)
+          : this.#beaten(status.summary, this.#ruleName(status.beatenBy, rules));
       }
       case LineStatusKind.Inactive: {
         return this.#i18n.translate(BreakdownMessage.Inactive);
@@ -173,6 +175,15 @@ export class BreakdownView {
         return status satisfies never;
       }
     }
+  }
+
+  /** "Applies when you Climb, but Steady Grip already counts for as much.": a conditional line an applied one already beats. */
+  #beaten(summary: PredicateSummary | undefined, name: string): string {
+    return this.#i18n.translate(BreakdownMessage.ConditionalBeatenBy, {
+      hasSummary: summary === undefined ? 'no' : 'yes',
+      summary: summary === undefined ? '' : formatSummary(summary, summaryFormat(this.#i18n, this.#format)),
+      name,
+    });
   }
 
   #override(line: OverrideLine, rules: readonly Labelled[], style: Intl.NumberFormatOptions): ShownOverride {

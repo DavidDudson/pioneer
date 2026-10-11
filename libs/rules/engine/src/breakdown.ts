@@ -56,11 +56,15 @@ export type InactiveReason = ValueOf<typeof InactiveReason>;
 export type LineStatus =
   | { readonly kind: typeof LineStatusKind.Applied }
   | { readonly kind: typeof LineStatusKind.Suppressed; readonly by: RuleId; readonly reason: SuppressionReason }
-  /** The predicate depends on facts the sheet does not know; `summary` words when it would hold. */
+  /**
+   * The predicate depends on facts the sheet does not know; `summary` words when it would hold. `beatenBy` names an
+   * applied line of the same type and direction at least as large, so this one could never change the total.
+   */
   | {
       readonly kind: typeof LineStatusKind.Conditional;
       readonly when: Predicate;
       readonly summary: PredicateSummary | undefined;
+      readonly beatenBy: RuleId | undefined;
     }
   | { readonly kind: typeof LineStatusKind.Inactive; readonly reason: InactiveReason }
   /** The value's formula, or an adjustment's, failed to evaluate; the error points into that formula. */
