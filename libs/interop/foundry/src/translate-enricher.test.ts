@@ -245,6 +245,13 @@ describe('inline rolls', () => {
     expect(run).toEqual([words('1d4 rounds'), words(' '), words('+13'), words(' '), words('1d4')]);
     expect(reported).toEqual([]);
   });
+
+  test('a roll reading the actor or item is reported, whatever its label', () => {
+    const { run, reported } = enriched('[[/r 1d20+@actor.level]] [[/r 1+@actor.abilities.str.mod]]{feet}');
+
+    expect(run).toEqual([words('1d20+@actor.level'), words(' '), words('feet')]);
+    expect(reported).toEqual(['[[/r]][formula]', '[[/r]][formula]']);
+  });
 });
 
 describe('other enrichers', () => {

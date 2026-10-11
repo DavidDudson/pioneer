@@ -49,7 +49,6 @@ export {
   type UnknownTrait,
 } from './translate-envelope';
 export { type UnknownMarkup, type UntranslatedEnricher } from './describe-entries';
-export { type FoundryLinks, NO_LINKS } from './enricher-context';
-export { foundryLinks, type LinkedEntry } from './foundry-links';
+export { type FoundryLinks } from './enricher-context';
 export { htmlToRichText, OVERSIZED_MARKUP, type RichTextTranslation } from './html-rich-text';
 export { type RuleTranslation, translateRules, type UntranslatedRule } from './translate-rules';

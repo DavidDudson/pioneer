@@ -30,6 +30,7 @@ const ACT = 'act';
 /** `formula # flavour`: Foundry's roll flavour follows a `#`. */
 const FLAVOUR = '#';
 const DAMAGE_FLAVOUR = '[';
+const REFERENCE = '@';
 
 /** A roll's flavour that names a duration (`#rounds`), by its words singular and plural. */
 const DURATION_UNITS: ReadonlyMap<string, DurationUnit> = new Map([
@@ -97,7 +98,14 @@ function rollRun(args: string, label: string | undefined, context: EnricherConte
     return damageRun(formula, label, context);
   }
   const duration = durationOf(formula, flavour);
-  return duration === undefined ? textRun(label ?? formula, context) : [duration];
+  if (duration !== undefined) {
+    return [duration];
+  }
+  // A formula reading the actor or item varies by character; as text it would be Foundry syntax or a stale label.
+  if (formula.includes(REFERENCE)) {
+    context.report('[[/r]][formula]');
+  }
+  return textRun(label ?? formula, context);
 }
 
 function namedRun({ name, params, label }: NamedEnricher, context: EnricherContext): RunNode[] {

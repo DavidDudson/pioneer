@@ -6,6 +6,7 @@ import { describeEntries } from './describe-entries';
 import { FoundryDocument, FoundryItemType } from './foundry-document';
 import type { LinkedEntry } from './foundry-links';
 import type { FoundryPack, PackDocument } from './foundry-release';
+import { asciiSlug } from './foundry-slug';
 
 const pack = PackId.parse('player-core');
 const playerCore = BookId.parse('player-core');
@@ -31,7 +32,7 @@ function documentOf(foundryPack: FoundryPack, documentId: string, document: obje
 }
 
 function linked(document: PackDocument, type: FoundryItemType): LinkedEntry {
-  const slug = Slug.parse(document.document.name.toLowerCase().replace(' ', '-'));
+  const slug = Slug.parse(asciiSlug(document.document));
   return { source: { ...document, type, book: playerCore }, id: ContentId.parse(contentId(pack, slug)) };
 }
 
