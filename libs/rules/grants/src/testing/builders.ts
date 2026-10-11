@@ -21,6 +21,7 @@ import { slotKeyOf } from '../choices';
 import type { ChoicePicks } from '../choices';
 import type { ContentLookup, GrantEntry, GrantRoot } from '../grant-entry';
 import type { GrantInputs } from '../resolve-grants';
+import type { RootSlotDefinition } from '../root-slots';
 import { toggleKeyOf } from '../toggles';
 import type { ToggleStates } from '../toggles';
 
@@ -102,10 +103,20 @@ export interface TestInputs {
   readonly situation?: readonly string[] | undefined;
   readonly picks?: ChoicePicks | undefined;
   readonly toggles?: ToggleStates | undefined;
+  /** None unless given. */
+  readonly rootSlots?: readonly RootSlotDefinition[] | undefined;
 }
 
 /** Grant inputs for test content: a 1st-level character with no picks or toggles unless given, under the core namespaces. */
-export function inputsOf({ entries, roots, level = 1, situation = [], picks, toggles }: TestInputs): GrantInputs {
+export function inputsOf({
+  entries,
+  roots,
+  level = 1,
+  situation = [],
+  picks,
+  toggles,
+  rootSlots = [],
+}: TestInputs): GrantInputs {
   return {
     roots,
     lookup: lookupOf(entries),
@@ -113,6 +124,7 @@ export function inputsOf({ entries, roots, level = 1, situation = [], picks, tog
     situation: situation.map((option) => RollOption.parse(option)),
     picks: picks ?? picksOf(),
     toggles: toggles ?? new Map(),
+    rootSlots,
     namespaces: CORE_NAMESPACES,
   };
 }

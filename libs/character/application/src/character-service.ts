@@ -4,8 +4,9 @@ import {
   CharacterId,
   CharacterPatchField,
   PATCH_COMMANDS,
+  slotRefusal,
 } from '@pioneer/character/domain';
-import type { CharacterListQuery, CreateCharacterBody, PatchCharacterBody } from '@pioneer/character/domain';
+import type { CharacterListQuery, CreateCharacterBody, PatchCharacterBody, SlotPick } from '@pioneer/character/domain';
 import {
   characterImportReport,
   ImportKind,
@@ -14,6 +15,7 @@ import {
   registryLookup,
 } from '@pioneer/interop/pathbuilder';
 import type { PathbuilderImportResponse, PathbuilderReadFailure } from '@pioneer/interop/pathbuilder';
+import { grantLookup } from '@pioneer/rules/grants';
 import { AncestryId } from '@pioneer/rules/sdk';
 import type { ContentSource } from '@pioneer/rules/sdk';
 import { fieldIssues, message, newId, NotFoundError, ValidationError } from '@pioneer/shared/kernel';
@@ -110,20 +112,33 @@ export class CharacterService {
     return { character: saved, report: characterImportReport(value, lookup) };
   }
 
-  /** One field-level edit to one of the actor's characters, if it is still at `expectedVersion`. */
+  /** One edit to one of the actor's characters, if it is still at `expectedVersion`. */
   public async patch(
     actor: UserId,
     id: CharacterId,
     { expectedVersion, patch }: PatchCharacterBody,
   ): Promise<Character> {
     const current = await this.get(actor, id);
-    if (patch.field === CharacterPatchField.Ancestry) {
-      await this.#assertAncestryExists(patch.value);
+    if (patch.field === CharacterPatchField.SelectSlot) {
+      await this.#assertSlotOffers(current, patch);
     }
     return this.#repository.update(current.apply(patch, this.#clock.now()), expectedVersion, {
       actor,
       command: PATCH_COMMANDS[patch.field],
     });
+  }
+
+  /**
+   * Refuses a selection the slot doesn't offer at any level up to 20, or for a slot the character never has. A
+   * selection already stored is never checked again here: one a lower level hides, or content later invalidates, stays.
+   */
+  async #assertSlotOffers(character: Character, pick: SlotPick): Promise<void> {
+    const content = await this.#content.registry();
+    const slotContent = { lookup: grantLookup(content), namespaces: content.rollOptionNamespaces() };
+    const refusal = slotRefusal(character.document, slotContent, pick);
+    if (refusal !== undefined) {
+      throw new ValidationError([{ path: ['patch', refusal.field], message: refusal.message }]);
+    }
   }
 
   async #assertAncestryExists(ref: AncestryId): Promise<void> {

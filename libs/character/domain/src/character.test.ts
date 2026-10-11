@@ -5,8 +5,9 @@ import { fixedClock, FixtureNamespace, derivedId } from '@pioneer/shared/kernel'
 import * as z from 'zod';
 
 import { Character } from './character';
-import { CharacterId, CharacterName } from './character-fields';
+import { CharacterId, CharacterLevel, CharacterName } from './character-fields';
 import { CharacterPatchField, CharacterPatchSchema } from './character-patch';
+import { ANCESTRY_SLOT } from './character-slots';
 import { CharacterBuilder, humanAncestryId } from './testing';
 
 const later = fixedClock('2026-10-07T10:00:00Z').now();
@@ -45,7 +46,7 @@ describe('Character', () => {
     expect(valeros.ancestry).toBe(humanAncestryId);
   });
 
-  test('an ancestry edit replaces the slot’s selection and keeps every other pick', () => {
+  test('selecting a slot replaces its selection and keeps every other pick', () => {
     const planned = ChoiceValue.parse('sudden-charge');
     const original = new CharacterBuilder().build();
     const withPlan = new Character({
@@ -59,10 +60,36 @@ describe('Character', () => {
       updatedAt: original.updatedAt,
     });
     const elf = AncestryId.parse(contentId(PackId.parse('player-core'), Slug.parse('elf')));
-    const changed = withPlan.apply({ field: CharacterPatchField.Ancestry, value: elf }, later);
+    const changed = withPlan.apply(
+      { field: CharacterPatchField.SelectSlot, slot: ANCESTRY_SLOT, selection: ChoiceValue.parse(elf) },
+      later,
+    );
     expect(changed.ancestry).toBe(elf);
     expect(changed.document.build.choices[featSlot]).toBe(planned);
     expect(z.encode(Character.codec, changed).build?.choices).toStrictEqual({ ancestry: elf, [featSlot]: planned });
+  });
+
+  test('clearing a slot drops its selection and keeps every other pick, hidden ones included', () => {
+    const planned = ChoiceValue.parse('sudden-charge');
+    const original = new CharacterBuilder().build();
+    const selected = original.apply(
+      { field: CharacterPatchField.SelectSlot, slot: featSlot, selection: planned },
+      later,
+    );
+    const cleared = selected.apply({ field: CharacterPatchField.ClearSlot, slot: ANCESTRY_SLOT }, later);
+    expect(cleared.ancestry).toBeUndefined();
+    expect(cleared.document.build.choices).toStrictEqual({ [featSlot]: planned });
+  });
+
+  test('levelling down keeps a selection for a slot only a higher level has', () => {
+    const planned = ChoiceValue.parse('sudden-charge');
+    const original = new CharacterBuilder().build();
+    const selected = original.apply(
+      { field: CharacterPatchField.SelectSlot, slot: featSlot, selection: planned },
+      later,
+    );
+    const levelled = selected.apply({ field: CharacterPatchField.Level, value: CharacterLevel.parse(1) }, later);
+    expect(levelled.document.build.choices[featSlot]).toBe(planned);
   });
 
   test('an empty ancestry slot reads as no ancestry', () => {

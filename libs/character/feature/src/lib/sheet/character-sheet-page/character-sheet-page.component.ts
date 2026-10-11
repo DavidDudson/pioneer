@@ -12,6 +12,7 @@ import {
 } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 import {
+  ANCESTRY_SLOT,
   CharacterId,
   CharacterLevel,
   CharacterName,
@@ -19,7 +20,7 @@ import {
   CHARACTER_LEVEL_MIN,
   CharacterPatchField,
 } from '@pioneer/character/domain';
-import type { Character, CharacterPatch } from '@pioneer/character/domain';
+import type { Character } from '@pioneer/character/domain';
 import {
   AsyncData,
   AsyncPending,
@@ -49,6 +50,7 @@ import {
   AncestryId,
   Attribute,
   AttributeModifier,
+  ChoiceValue,
 } from '@pioneer/rules/sdk';
 import { DefencesView, StatisticsView } from '@pioneer/rules/ui';
 import { message } from '@pioneer/shared/kernel';
@@ -73,7 +75,8 @@ interface FieldSpec<TValue> {
   readonly empty: TValue;
   /** Shared domain schema, so client validation matches the server. */
   readonly schema: z.ZodType;
-  readonly toPatch: (value: TValue) => CharacterPatch;
+  /** Sends the edit: a patch, or a slot pick. */
+  readonly save: (value: TValue) => Promise<void>;
   readonly format?: (value: TValue) => string;
 }
 
@@ -158,20 +161,20 @@ export class CharacterSheetPage {
     read: (character) => character.name,
     empty: '',
     schema: CharacterName,
-    toPatch: (value) => ({ field: CharacterPatchField.Name, value: CharacterName.parse(value) }),
+    save: async (value) => this.store.patch({ field: CharacterPatchField.Name, value: CharacterName.parse(value) }),
   });
   protected readonly ancestry = this.#field<AncestryId | undefined>({
     read: (character) => character.ancestry,
     empty: undefined,
     schema: AncestryId,
-    toPatch: (value) => ({ field: CharacterPatchField.Ancestry, value: AncestryId.parse(value) }),
+    save: async (value) => this.store.selectSlot(ANCESTRY_SLOT, ChoiceValue.parse(AncestryId.parse(value))),
     format: (value) => this.ancestries.name(value),
   });
   protected readonly level = this.#field<number>({
     read: (character) => character.level,
     empty: CHARACTER_LEVEL_MIN,
     schema: CharacterLevel,
-    toPatch: (value) => ({ field: CharacterPatchField.Level, value: CharacterLevel.parse(value) }),
+    save: async (value) => this.store.patch({ field: CharacterPatchField.Level, value: CharacterLevel.parse(value) }),
   });
   protected readonly attributes = Object.values(Attribute).map((attribute) => ({
     attribute,
@@ -180,7 +183,8 @@ export class CharacterSheetPage {
       read: (character) => character.modifier(attribute),
       empty: 0,
       schema: AttributeModifier,
-      toPatch: (value) => ({ field: CharacterPatchField.Attribute, attribute, value: AttributeModifier.parse(value) }),
+      save: async (value) =>
+        this.store.patch({ field: CharacterPatchField.Attribute, attribute, value: AttributeModifier.parse(value) }),
       format: (value) => this.#format.number(value, SIGNED),
     }),
   }));
@@ -205,7 +209,7 @@ export class CharacterSheetPage {
     );
   }
 
-  #field<TValue>({ read, empty, schema, toPatch, format }: FieldSpec<TValue>): InlineEdit<TValue> {
+  #field<TValue>({ read, empty, schema, save, format }: FieldSpec<TValue>): InlineEdit<TValue> {
     return new InlineEdit<TValue>({
       source: computed(() => {
         const character = this.character();
@@ -213,7 +217,7 @@ export class CharacterSheetPage {
       }),
       empty,
       schema,
-      save: async (value) => this.store.patch(toPatch(value)),
+      save,
       isConflict: (error) => ApiError.isConflict(error),
       describeError: describeSaveError,
       ...(format === undefined ? {} : { format }),
