@@ -21,10 +21,25 @@ const AGAINST = 'against';
 const DEFENSE = 'defense';
 const BASIC = 'basic';
 const OPTIONS = 'options';
+const ADJUSTMENT = 'adjustment';
+const ROLLER_ROLE = 'rollerRole';
+/** Foundry's default roller: the target rolls a save, the origin anything else. */
+const TARGET = 'target';
+const SAVE_PREFIX = 'save:';
 
 /** Parameters that only change how Foundry shows or rolls the check, not what it is. */
-const PRESENTATION = ['showDC', 'rollerRole', 'name', 'immutable', 'targetOwner'];
-const HANDLED: ReadonlySet<string> = new Set([TYPE, DC, AGAINST, DEFENSE, BASIC, OPTIONS, ...PRESENTATION]);
+const PRESENTATION = ['showDC', 'name', 'immutable', 'targetOwner'];
+const HANDLED: ReadonlySet<string> = new Set([
+  TYPE,
+  DC,
+  AGAINST,
+  DEFENSE,
+  BASIC,
+  OPTIONS,
+  ADJUSTMENT,
+  ROLLER_ROLE,
+  ...PRESENTATION,
+]);
 
 const SAVES: ReadonlySet<string> = new Set(['fortitude', 'reflex', 'will']);
 const SKILLS: ReadonlySet<string> = new Set([
@@ -92,6 +107,7 @@ const FLAT = 'flat';
 const PERCEPTION = 'perception';
 const LORE = /^(?<topic>.+)-lore$/u;
 const DC_VALUE = /^\d+$/u;
+const INTEGER = /^-?\d+$/u;
 const LIST_SEPARATOR = ',';
 
 /** A Foundry statistic slug as a Pioneer check selector, or undefined when there is none. */
@@ -120,23 +136,45 @@ function againstSelector(against: string): Selector | undefined {
   return slug === FLAT ? undefined : statisticSelector(slug);
 }
 
-function dcOf(params: ReadonlyMap<string, string>, context: EnricherContext): CheckDc | undefined {
-  const value = params.get(DC);
-  const against = params.get(AGAINST) ?? params.get(DEFENSE);
-  if (value !== undefined && DC_VALUE.test(value)) {
-    return Dc.safeParse(Number(value)).data;
-  }
-  if (value !== undefined) {
-    context.report(`${ENRICHER}[${DC}]`);
-  }
-  if (against === undefined) {
+/** A whole-number DC with Foundry's `adjustment` added, as Foundry shows and rolls it. */
+function fixedDc(value: string, params: ReadonlyMap<string, string>, context: EnricherContext): Dc | undefined {
+  const adjustment = params.get(ADJUSTMENT) ?? '0';
+  if (!DC_VALUE.test(value) || !INTEGER.test(adjustment)) {
+    context.report(`${ENRICHER}[${DC_VALUE.test(value) ? ADJUSTMENT : DC}]`);
     return undefined;
   }
+  return Dc.safeParse(Number(value) + Number(adjustment)).data;
+}
+
+/**
+ * The DC `against:` names, when it is the reader's own: Foundry's DC belongs to whoever does not roll, and a
+ * `CheckDc` is "against your X DC", so it only fits a check the target rolls (a save, by default). A check the
+ * reader rolls against a target's DC is reported and keeps no DC.
+ */
+function againstDc(against: string, { params, statistic }: CheckInput, context: EnricherContext): CheckDc | undefined {
+  const roller = params.get(ROLLER_ROLE) ?? (statistic.startsWith(SAVE_PREFIX) ? TARGET : '');
   const selector = againstSelector(against);
   if (selector === undefined) {
     context.report(`${ENRICHER}[${AGAINST}:${against}]`);
+  } else if (roller !== TARGET) {
+    context.report(`${ENRICHER}[${AGAINST}]`);
   }
-  return selector === undefined ? undefined : { against: selector };
+  return selector === undefined || roller !== TARGET ? undefined : { against: selector };
+}
+
+/** A check's parameters and the selector its statistic became. */
+interface CheckInput {
+  readonly params: ReadonlyMap<string, string>;
+  readonly statistic: Selector;
+}
+
+function dcOf(input: CheckInput, context: EnricherContext): CheckDc | undefined {
+  const value = input.params.get(DC);
+  const against = input.params.get(AGAINST) ?? input.params.get(DEFENSE);
+  if (value !== undefined) {
+    return fixedDc(value, input.params, context);
+  }
+  return against === undefined ? undefined : againstDc(against, input, context);
 }
 
 /** Foundry's extra roll options; Pioneer's need a namespace (`area-effect` has none), so those are reported. */
@@ -178,7 +216,7 @@ export function checkRun(params: string, label: string | undefined, context: Enr
     return textRun(fallbackText(type, label), context);
   }
   reportParams(parsed, { enricher: ENRICHER, handled: HANDLED }, context);
-  const dc = dcOf(parsed, context);
+  const dc = dcOf({ params: parsed, statistic }, context);
   const options = optionsOf(parsed, context);
   const checkLabel = inlineLabel(label, `${ENRICHER}[label]`, context);
   const node: CheckNode = {

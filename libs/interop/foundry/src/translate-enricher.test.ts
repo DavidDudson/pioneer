@@ -121,7 +121,7 @@ describe('@Check', () => {
   test('against names the statistic whose DC it is', () => {
     const checks = runOf(
       '@Check[will|against:class-spell]@Check[fortitude|against:class]@Check[reflex|against:exemplar]' +
-        '@Check[will|against:spell]@Check[athletics|defense:fortitude]@Check[type:will|against:perception]',
+        '@Check[will|against:spell]@Check[athletics|defense:fortitude|rollerRole:target]@Check[type:will|against:perception]',
     );
 
     expect(checks).toEqual([
@@ -131,6 +131,27 @@ describe('@Check', () => {
       { type: 'check', statistic: 'save:will', dc: { against: 'spell-dc' } },
       { type: 'check', statistic: 'skill:athletics', dc: { against: 'save:fortitude' } },
       { type: 'check', statistic: 'save:will', dc: { against: 'perception' } },
+    ]);
+  });
+
+  test("a check the reader rolls against a target's DC keeps no DC, reported", () => {
+    const { run, reported } = enriched(
+      '@Check[athletics|defense:fortitude] @Check[will|against:class|rollerRole:origin]',
+    );
+
+    expect(run).toEqual([
+      { type: 'check', statistic: 'skill:athletics' },
+      words(' '),
+      { type: 'check', statistic: 'save:will' },
+    ]);
+    expect(reported).toEqual(['@Check[against]', '@Check[against]']);
+  });
+
+  test('an adjustment is added to a fixed DC', () => {
+    expect(runOf('@Check[athletics|dc:20|adjustment:2] @Check[flat|dc:11|adjustment:-1]')).toEqual([
+      { type: 'check', statistic: 'skill:athletics', dc: 22 },
+      words(' '),
+      { type: 'check', statistic: 'flat', dc: 10 },
     ]);
   });
 
@@ -145,12 +166,15 @@ describe('@Check', () => {
 
   test('reports what has no place in a Check, and drops it', () => {
     const { run, reported } = enriched(
-      '@Check[athletics|basic|dc:@self.level|traits:fear|options:area-effect|adjustment:2|against:occult]',
+      '@Check[athletics|basic|dc:@self.level|traits:fear|options:area-effect] @Check[will|against:occult]',
     );
 
-    expect(run).toEqual([{ type: 'check', statistic: 'skill:athletics' }]);
+    expect(run).toEqual([
+      { type: 'check', statistic: 'skill:athletics' },
+      words(' '),
+      { type: 'check', statistic: 'save:will' },
+    ]);
     expect(reported.toSorted()).toEqual([
-      '@Check[adjustment]',
       '@Check[against:occult]',
       '@Check[basic]',
       '@Check[dc]',
@@ -197,6 +221,13 @@ describe('@Damage', () => {
 
     expect(run).toEqual([words('1d4 + dice'), words(' '), words('1d6[@item.system.damage.damageType]')]);
     expect(reported).toEqual(['@Damage[formula]', '@Damage[type:@item.system.damage.damageType]']);
+  });
+
+  test("a splash marker on part of a formula is not read as the whole instance's category", () => {
+    const { run, reported } = enriched('@Damage[(2d6+(1[splash]))[fire]]{2d6 fire and 1 splash}');
+
+    expect(run).toEqual([words('2d6 fire and 1 splash')]);
+    expect(reported).toEqual(['@Damage[formula]']);
   });
 
   test('healing mixed with damage stays text; options are reported', () => {

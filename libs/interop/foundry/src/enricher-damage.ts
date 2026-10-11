@@ -32,8 +32,9 @@ const CLOSE: ReadonlySet<string> = new Set([')', ']']);
 const INSTANCE_SEPARATOR = ',';
 const FLAVOUR_SEPARATOR = ',';
 /** `[splash]` inside a formula, as Foundry marks a splash term (`(1[splash])[fire]`). */
-const INNER_SPLASH = /\[splash\]/gu;
-const HAS_INNER_SPLASH = /\[splash\]/u;
+const SPLASH_MARKER = '[splash]';
+/** A splash marker that flavours the whole formula: `(1[splash])`, the only form Foundry's remaster text uses. */
+const WHOLE_SPLASH = /^[^[\]]*\[splash\]$/u;
 const INNER_FLAVOUR = /\[[^\]]*\]/u;
 const REFERENCE = /@(?<path>[A-Za-z][\w.]*)/gu;
 const DAMAGE_INSTANCES_MAX = 8;
@@ -104,10 +105,19 @@ function unwrapped(body: string): string {
   return trailingOpen(body, ['(', ')']) === 0 ? body.slice(1, -1).trim() : body;
 }
 
-/** The formula with each Foundry reference in Pioneer's spelling, or undefined when one has no translation. */
+/** Whether a `[splash]` marker flavours the whole formula; one on part of it (`2d6+(1[splash])`) does not. */
+function isWholeSplash(body: string): boolean {
+  return WHOLE_SPLASH.test(unwrapped(body));
+}
+
+/**
+ * The formula with each Foundry reference in Pioneer's spelling, or undefined when one has no translation or a
+ * flavour is left inside it.
+ */
 function pioneerFormula(body: string): string | undefined {
   const untranslated: string[] = [];
-  const text = unwrapped(body.replaceAll(INNER_SPLASH, '')).replaceAll(REFERENCE, (whole, path: string) => {
+  const bare = isWholeSplash(body) ? unwrapped(body).slice(0, -SPLASH_MARKER.length) : body;
+  const text = unwrapped(bare).replaceAll(REFERENCE, (whole, path: string) => {
     const reference = ReferencePath.safeParse(path);
     const translated = reference.success ? fromFoundryPath(reference.data) : undefined;
     if (translated === undefined) {
@@ -158,7 +168,7 @@ function instanceOf(text: string, context: EnricherContext): Instance | undefine
   if (flavour === undefined) {
     return undefined;
   }
-  const category = HAS_INNER_SPLASH.test(body) ? DamageCategory.Splash : flavour.category;
+  const category = isWholeSplash(body) ? DamageCategory.Splash : flavour.category;
   const instance = DamageInstance.safeParse({
     formula: pioneerFormula(body),
     ...(flavour.damageType === undefined ? {} : { damageType: flavour.damageType }),

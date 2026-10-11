@@ -95,10 +95,12 @@ function captionOf(table: Element, context: TableContext): Caption {
     .map((node) => (node.type === InlineKind.Text ? node.text : ' '))
     .join('')
     .trim();
-  if (text === '') {
+  if (text === '' && content.length === 0) {
     return { content };
   }
-  return text.length <= LABEL_MAX
+  // A label is plain text: a caption with a link, check or glyph keeps them as a paragraph instead.
+  const isPlain = content.every((node) => node.type === InlineKind.Text || node.type === InlineKind.LineBreak);
+  return isPlain && text.length <= LABEL_MAX
     ? { content, label: InlineLabel.parse(text) }
     : { content, paragraph: { type: BlockKind.Paragraph, content } };
 }

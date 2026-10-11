@@ -24,7 +24,8 @@ const PRIMAL_HOWL =
   'fail become @UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 1}, and creatures that critically ' +
   'fail become @UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 2}.</p>\n<p>It gains the ' +
   '@UUID[Compendium.pf2e.actionspf2e.Item.Primal Howl] advanced maneuver, and the ' +
-  '@UUID[Compendium.pf2e.feat-effects.Item.howlEffect000001] <span class="action-glyph">A</span>.</p>';
+  '@UUID[Compendium.pf2e.feat-effects.Item.howlEffect000001] <span class="action-glyph">A</span>.</p>' +
+  '<p>[[/act primal-howl]] [[/act grapple]] @UUID[Compendium.pf2e.conditionitems.Item.TBSHQspnbcqxsmjL]</p>';
 
 function documentOf(foundryPack: FoundryPack, documentId: string, document: object): PackDocument {
   const parsed = FoundryDocument.parse({ _id: documentId, system: { publication: remaster }, ...document });
@@ -51,7 +52,7 @@ const howlEffect = documentOf(effects, 'howlEffect000001', {
 });
 
 describe('describeEntries', () => {
-  test('a description with mixed enrichers rounds to the expected nodes, links resolved by name', () => {
+  test('a description with mixed enrichers rounds to the expected nodes, links resolved by id, name and action slug', () => {
     const howl = linked(primalHowl, FoundryItemType.Action);
     const condition = linked(frightened, FoundryItemType.Condition);
 
@@ -101,11 +102,20 @@ describe('describeEntries', () => {
           { type: 'text', text: '.' },
         ],
       },
+      {
+        type: 'paragraph',
+        content: [
+          { type: 'ref', id: howl.id },
+          { type: 'text', text: ' grapple ' },
+          { type: 'ref', id: condition.id },
+        ],
+      },
     ]);
     expect(untranslatedEnrichers.map(({ enricher }) => enricher)).toEqual([
       '@Damage[options]',
       '@Check[options]',
       '@UUID[feat-effects]',
+      '[[/act]]',
     ]);
   });
 
