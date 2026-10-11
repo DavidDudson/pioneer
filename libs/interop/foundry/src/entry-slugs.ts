@@ -61,7 +61,8 @@ function isEtched(usage: unknown): boolean {
  */
 export function documentKind({ type, document }: SelectedEntry): ContentKind {
   const { category, ritual, usage } = document.system;
-  const feature = typeof category === 'string' && Object.hasOwn(FEATURE_KINDS, category) ? FEATURE_KINDS[category] : undefined;
+  const feature =
+    typeof category === 'string' && Object.hasOwn(FEATURE_KINDS, category) ? FEATURE_KINDS[category] : undefined;
   if (type === FoundryItemType.Feat && feature !== undefined) {
     return feature;
   }
