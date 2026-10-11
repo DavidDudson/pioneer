@@ -146,7 +146,8 @@ function formatCounts(counts: readonly KeyCount[]): string[] {
 }
 
 function formatTranslation(translation: EnvelopeTranslation): string {
-  const { entries, failures, untranslatedRules, unknownTraits, unknownMarkup } = translationReport(translation);
+  const { entries, failures, untranslatedRules, unknownTraits, unknownMarkup, untranslatedEnrichers } =
+    translationReport(translation);
   return [
     `Translated ${entries} envelopes; ${sumOf(failures)} failed:`,
     ...formatCounts(failures),
@@ -159,6 +160,8 @@ function formatTranslation(translation: EnvelopeTranslation): string {
     ...formatCounts(unknownTraits),
     'Description markup kept as text only, by entries using it:',
     ...formatCounts(unknownMarkup),
+    'Description enrichers kept as text or dropped, by entries using them:',
+    ...formatCounts(untranslatedEnrichers),
   ].join('\n');
 }
 
@@ -179,4 +182,4 @@ const selection = selectEntries(release, books);
 console.log(`${pack} at ${pin.tag}, books ${[...books].join(', ')}`);
 console.log(formatReport(dryRunReport(selection), selection));
 const traits = await knownTraits();
-console.log(formatTranslation(translateEnvelopes(selection.selected, { pack, traits })));
+console.log(formatTranslation(translateEnvelopes(selection.selected, { pack, traits, documents: release.documents })));

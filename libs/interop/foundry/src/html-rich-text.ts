@@ -4,22 +4,28 @@ import { isTag, isText } from 'domhandler';
 import type { ChildNode, Element } from 'domhandler';
 import { parseDocument } from 'htmlparser2';
 
+import { actionGlyph } from './action-glyph';
+import { NO_LINKS } from './enricher-context';
+import type { FoundryLinks } from './enricher-context';
 import { tableOf } from './html-table';
 import type { TableContext } from './html-table';
 import { joined, normalised, runOfBlock } from './rich-text-run';
 import type { Marks, RunNode } from './rich-text-run';
+import { enrichedRun } from './translate-enricher';
 
 /**
  * Foundry's HTML descriptions as Pioneer rich text (content-model.md, "Foundry import"). The converter knows the
  * block, list, table and mark elements Foundry writes; any other element, and every attribute, is reported by name,
- * and the text inside it is kept. Enrichers (`@UUID[...]`, `@Check[...]`) and action glyph spans stay text for the
- * enricher story (#399).
+ * and the text inside it is kept. Enrichers (`@UUID[...]`, `@Check[...]`) become inline nodes (`enrichedRun`) and
+ * action glyph spans `ActionCost` nodes.
  */
 
 export interface RichTextTranslation {
   readonly richText: RichText;
   /** Markup the converter does not map, once each: an element (`span`) or an attribute (`table[class]`). */
   readonly unknownMarkup: readonly string[];
+  /** Enrichers, or parts of them, that stay text or are dropped, once each (`@UUID[spell-effects]`, `@Check[traits]`). */
+  readonly untranslatedEnrichers: readonly string[];
 }
 
 /** Reported when the text would break `RichText`'s size or nesting bounds; the description is then left empty. */
@@ -59,11 +65,13 @@ const ELEMENT_DEPTH_MAX = 64;
 /** Elements whose content is not text a reader sees: reported, and dropped with everything in them. */
 const DROPPED: ReadonlySet<string> = new Set(['script', 'style', 'template', 'noscript', 'iframe', 'object', 'svg']);
 
-/** The marks around the current node, how deep it is, and the markup reported so far. */
+/** The marks around the current node, how deep it is, the markup and enrichers reported so far, and link targets. */
 interface Context {
   readonly marks: Marks;
   readonly depth: number;
   readonly unknown: Set<string>;
+  readonly enrichers: Set<string>;
+  readonly links: FoundryLinks;
 }
 
 /** Blocks finished so far and the inline run still open. */
@@ -223,7 +231,19 @@ function skipped(element: Element, sink: Sink, context: Context): boolean {
   return true;
 }
 
+/** Whether the element is an action glyph span, added to the run as its cost. */
+function visitedGlyph(element: Element, sink: Sink): boolean {
+  const cost = actionGlyph(element);
+  if (cost !== undefined) {
+    sink.run.push({ type: InlineKind.ActionCost, cost });
+  }
+  return cost !== undefined;
+}
+
 function visitElement(element: Element, sink: Sink, context: Context): void {
+  if (visitedGlyph(element, sink)) {
+    return;
+  }
   reportAttributes(element, context);
   if (skipped(element, sink, context)) {
     return;
@@ -239,7 +259,10 @@ function visitElement(element: Element, sink: Sink, context: Context): void {
 
 function visit(node: ChildNode, sink: Sink, context: Context): void {
   if (isText(node)) {
-    sink.run.push({ type: InlineKind.Text, text: node.data, marks: context.marks });
+    const report = (problem: string): void => {
+      context.enrichers.add(problem);
+    };
+    sink.run.push(...enrichedRun(node.data, { links: context.links, marks: context.marks, report }));
   } else if (isTag(node)) {
     visitElement(node, sink, context);
   }
@@ -254,18 +277,20 @@ function flattened(blocks: readonly BlockNode[]): BlockNode[] {
 }
 
 /**
- * A Foundry description as rich text, with the markup it could not map. The result always parses as `RichText`:
- * a description past its size or nesting bounds is flattened to paragraphs, or left empty if that is still too big,
- * and reported as `OVERSIZED_MARKUP`.
+ * A Foundry description as rich text, with the markup and enrichers it could not map. Links resolve against
+ * `links`; without them every link stays text. The result always parses as `RichText`: a description past its size
+ * or nesting bounds is flattened to paragraphs, or left empty if that is still too big, and reported as
+ * `OVERSIZED_MARKUP`.
  */
-export function htmlToRichText(html: string): RichTextTranslation {
-  const unknown = new Set<string>();
-  const blocks = blocksOf(parseDocument(html).children, { marks: [], depth: 0, unknown });
+export function htmlToRichText(html: string, links: FoundryLinks = NO_LINKS): RichTextTranslation {
+  const context: Context = { marks: [], depth: 0, unknown: new Set(), enrichers: new Set(), links };
+  const blocks = blocksOf(parseDocument(html).children, context);
   const richText = RichText.safeParse(blocks);
+  const reported = { untranslatedEnrichers: [...context.enrichers] };
   if (richText.success) {
-    return { richText: richText.data, unknownMarkup: [...unknown] };
+    return { richText: richText.data, unknownMarkup: [...context.unknown], ...reported };
   }
-  unknown.add(OVERSIZED_MARKUP);
+  context.unknown.add(OVERSIZED_MARKUP);
   const flat = RichText.safeParse(flattened(blocks));
-  return { richText: flat.success ? flat.data : [], unknownMarkup: [...unknown] };
+  return { richText: flat.success ? flat.data : [], unknownMarkup: [...context.unknown], ...reported };
 }

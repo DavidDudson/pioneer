@@ -13,11 +13,13 @@ import {
 import type { BookId, PackId, RichText, RuleElement } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
 
+import { describeEntries } from './describe-entries';
+import type { UnknownMarkup, UntranslatedEnricher } from './describe-entries';
 import { entrySlugs } from './entry-slugs';
 import type { FoundryDocument } from './foundry-document';
-import type { FoundryPack } from './foundry-release';
+import { itemUuid } from './foundry-links';
+import type { FoundryPack, PackDocument } from './foundry-release';
 import { asciiSlug } from './foundry-slug';
-import { htmlToRichText } from './html-rich-text';
 import type { SelectedEntry } from './select-entries';
 import { translateRules } from './translate-rules';
 import type { UntranslatedRule } from './translate-rules';
@@ -25,13 +27,16 @@ import type { UntranslatedRule } from './translate-rules';
 /**
  * The entry envelope of each selected Foundry document (content-model.md, "Foundry import"): address, names,
  * traits, sources, description and rule elements; kind `data` is the kind stories' (Epic 2.5). What cannot be
- * translated is reported beside the envelopes, never dropped silently.
+ * translated is reported beside the envelopes, never dropped silently. Descriptions are a second pass: their links
+ * resolve once every selected document has an id.
  */
 
 /** The Pioneer pack the entries go into, and the traits Pioneer knows (its `trait` entries). */
 export interface EnvelopeContext {
   readonly pack: PackId;
   readonly traits: ReadonlySet<Trait>;
+  /** The release's item documents, naming link targets outside the import; without them such links read as labels. */
+  readonly documents?: readonly PackDocument[];
 }
 
 export interface FoundryExternalIds {
@@ -99,25 +104,22 @@ export interface EnvelopeFailure {
   readonly detail: string;
 }
 
-/** Description markup `htmlToRichText` does not map (`span`, `table[class]`): its text is kept, the markup is not. */
-export interface UnknownMarkup {
-  readonly entry: ContentId;
-  readonly markup: string;
-}
-
 export interface EnvelopeTranslation {
   readonly entries: readonly TranslatedEntry[];
   readonly untranslatedRules: readonly UntranslatedRule[];
   readonly unknownTraits: readonly UnknownTrait[];
   readonly unknownMarkup: readonly UnknownMarkup[];
+  readonly untranslatedEnrichers: readonly UntranslatedEnricher[];
   readonly failures: readonly EnvelopeFailure[];
 }
 
+/** An envelope before its description, which waits for every entry's id. */
+type Draft = Omit<ImportedEnvelope, 'description'>;
+
 interface Translated {
-  readonly envelope: ImportedEnvelope;
+  readonly envelope: Draft;
   readonly untranslatedRules: readonly UntranslatedRule[];
   readonly unknownTraits: readonly UnknownTrait[];
-  readonly unknownMarkup: readonly UnknownMarkup[];
 }
 
 interface Failed {
@@ -129,7 +131,7 @@ const DEFAULT_RARITY: Rarity = Rarity.Common;
 
 /** `Compendium.pf2e.<pack>.Item.<id>`, the UUID Foundry links a compendium item by. */
 export function compendiumUuid(pack: FoundryPack, documentId: string): ExternalId {
-  return ExternalId.parse(`Compendium.pf2e.${pack.name}.Item.${documentId}`);
+  return ExternalId.parse(itemUuid(pack, documentId));
 }
 
 interface TraitTranslation {
@@ -232,7 +234,6 @@ function translate({ source, slug }: Slugged, context: EnvelopeContext): Transla
   const id = ContentId.parse(contentId(context.pack, fields.slug));
   const traits = translateTraits(id, system.traits?.value ?? [], context.traits);
   const rules = translateRules(id, system.rules);
-  const description = htmlToRichText(system.description?.value ?? '');
   return {
     envelope: {
       id,
@@ -240,13 +241,11 @@ function translate({ source, slug }: Slugged, context: EnvelopeContext): Transla
       ...fields,
       traits: traits.traits,
       sources: [{ kind: SourceKind.Book, book }],
-      description: description.richText,
       rules: rules.rules,
       externalIds: { foundry: compendiumUuid(foundryPack, documentId) },
     },
     untranslatedRules: rules.untranslated,
     unknownTraits: traits.unknown,
-    unknownMarkup: description.unknownMarkup.map((markup) => ({ entry: id, markup })),
   };
 }
 
@@ -282,11 +281,19 @@ export function translateEnvelopes(selected: readonly SelectedEntry[], context: 
     outcome({ source, slug: slugs.get(source) ?? asciiSlug(source.document) }, context, taken),
   );
   const done = outcomes.filter((each): each is Done => !failed(each));
+  const { descriptions, unknownMarkup, untranslatedEnrichers } = describeEntries(
+    done.map(({ source, envelope }) => ({ source, id: envelope.id })),
+    context.documents ?? [],
+  );
   return {
-    entries: done.map(({ source, envelope }) => ({ source, envelope })),
+    entries: done.map(({ source, envelope }) => ({
+      source,
+      envelope: { ...envelope, description: descriptions.get(envelope.id) ?? [] },
+    })),
     untranslatedRules: done.flatMap(({ untranslatedRules }) => untranslatedRules),
     unknownTraits: done.flatMap(({ unknownTraits }) => unknownTraits),
-    unknownMarkup: done.flatMap(({ unknownMarkup }) => unknownMarkup),
+    unknownMarkup,
+    untranslatedEnrichers,
     failures: outcomes.filter((each) => failed(each)),
   };
 }

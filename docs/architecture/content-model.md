@@ -509,8 +509,28 @@ flowchart LR
   (`span`, `section`) and every attribute is reported by name, and its text kept without the markup; content a
   table has no place for follows the table. `script`, `style` and similar are reported and dropped with their
   content. A description too big or deep for `RichText`'s bounds is flattened to plain paragraphs and reported. The
-  parser is htmlparser2, not jsdom, so `libs/interop/foundry` stays `platform:any`. Enrichers and action glyph spans
-  stay text until the enricher translator.
+  parser is htmlparser2, not jsdom, so `libs/interop/foundry` stays `platform:any`. Action glyph spans
+  (`<span class="action-glyph">2</span>`) become `ActionCost` nodes.
+- **Enrichers.** Foundry's inline enrichers in description text become inline nodes, in a second pass once every
+  selected document has its entry id, so links between entries resolve in either order:
+  - `@UUID[Compendium.pf2e.<pack>.Item.<id or name>]{label}` and the action macro `[[/act <slug>]]` are a `Ref` to
+    the imported entry, with the label unless it only repeats the target's name. A target outside the import is its
+    label, else Foundry's name for it, as text.
+  - `@Check` is a `Check`. Statistics become selectors: saves `save:<save>`, skills `skill:<skill>`, Lores
+    `skill:lore-<topic>`, `perception`, and `flat` for a flat check. `against:` (or `defense:`) names a DC: `class`
+    and each class slug `class-dc`, `spell` `spell-dc`, `class-spell` `class-or-spell-dc` (Foundry's higher of the
+    two), otherwise the statistic's selector. A whole-number `dc`, `basic` on a save, namespaced `options` and the
+    label carry over.
+  - `@Damage` and typed inline rolls (`[[/r 2d6[fire]]]`) are `Damage`: one instance per comma-separated part, its
+    `[type,category]` flavour read into a damage type, `persistent` or `splash` (also an inner `[splash]`), with
+    `healing` and `untyped` understood. Formula references translate through `fromFoundryPath`.
+  - `@Template` is a `Template`; Foundry's label is dropped, since the node renders the area in the reader's units.
+  - An inline roll of a whole number of rounds, minutes, hours or days is a `Duration`. Any other roll reads as its
+    label, else its formula, since rich text has no roll node.
+  - What has no place in a node (`traits`, unnamespaced `options`, an untranslatable reference or damage type, a
+    shape Pioneer lacks, `@Embed`, `@Localize`) is reported by enricher and parameter (`@Check[traits]`,
+    `@UUID[spell-effects]`). The enricher keeps its label as text, or is dropped when it has none. Parameters that
+    only change how Foundry shows a roll (`showDC`, `name`, `rollerRole`, `immutable`) are ignored.
 - **Later translators.** A translator that lands after its pack is imported is applied to the backlog: a command,
   built by Epic 2.6 (#21), translates the items it now covers into the committed entries and removes them from the
   backlog, keeping hand edits.

@@ -59,7 +59,7 @@ export function dryRunReport({ selected, skipped }: Selection): DryRunReport {
 }
 
 export interface KeyCount {
-  /** A failure reason, rule element key, trait or description markup. */
+  /** A failure reason, rule element key, trait, description markup or enricher. */
   readonly key: string;
   readonly count: number;
 }
@@ -72,6 +72,8 @@ export interface TranslationReport {
   readonly unknownTraits: readonly KeyCount[];
   /** By entries that use it. */
   readonly unknownMarkup: readonly KeyCount[];
+  /** By entries that use it. */
+  readonly untranslatedEnrichers: readonly KeyCount[];
 }
 
 function keyCounts(keys: readonly string[]): readonly KeyCount[] {
@@ -86,6 +88,7 @@ export function translationReport({
   untranslatedRules,
   unknownTraits,
   unknownMarkup,
+  untranslatedEnrichers,
 }: EnvelopeTranslation): TranslationReport {
   return {
     entries: entries.length,
@@ -93,5 +96,6 @@ export function translationReport({
     untranslatedRules: keyCounts(untranslatedRules.map(({ key }) => key)),
     unknownTraits: keyCounts(unknownTraits.map(({ trait }) => trait)),
     unknownMarkup: keyCounts(unknownMarkup.map(({ markup }) => markup)),
+    untranslatedEnrichers: keyCounts(untranslatedEnrichers.map(({ enricher }) => enricher)),
   };
 }

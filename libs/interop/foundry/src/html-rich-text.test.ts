@@ -160,10 +160,25 @@ describe('htmlToRichText: inline', () => {
     expect(richTextOf('<p>Fish &amp; chips&nbsp;&lt;3 &#8212;</p>')).toEqual([paragraph(text('Fish & chips <3 —'))]);
   });
 
-  test('enrichers stay text for the enricher story', () => {
-    expect(richTextOf('<p>@UUID[Compendium.pf2e.conditionitems.Item.Off-Guard]</p>')).toEqual([
-      paragraph(text('@UUID[Compendium.pf2e.conditionitems.Item.Off-Guard]')),
+  test('action glyph spans are action costs, unreported; a glyph showing anything else stays text', () => {
+    const html = '<p>Stride <span class="action-glyph">2</span> or <span class="action-glyph">1 – 3</span></p>';
+    const { unknownMarkup } = htmlToRichText(html);
+
+    expect(richTextOf(html)).toEqual([
+      paragraph(text('Stride '), { type: 'action-cost', cost: 'two' }, text(' or 1 – 3')),
     ]);
+    expect(unknownMarkup).toEqual(['span[class]', 'span']);
+  });
+
+  test('enrichers become inline nodes, with what does not translate reported', () => {
+    const html =
+      '<p><em>@Check[reflex|basic]</em> or see @UUID[Compendium.pf2e.journals.JournalEntry.x]{the rules}</p>';
+    const { untranslatedEnrichers } = htmlToRichText(html);
+
+    expect(richTextOf(html)).toEqual([
+      paragraph({ type: 'check', statistic: 'save:reflex', basic: true }, text(' or see the rules')),
+    ]);
+    expect(untranslatedEnrichers).toEqual(['@UUID[journals]']);
   });
 });
 
