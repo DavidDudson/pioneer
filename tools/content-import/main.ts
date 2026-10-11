@@ -2,7 +2,7 @@
  * One-off Foundry import (ADR-0031, content-model.md "Foundry import"): `just content-import --pack <pack>
  * --book <book>... --dry-run`. Downloads the pack's pinned foundryvtt/pf2e release into a gitignored cache, checks
  * its SHA-256, reads the item packs, selects entries and translates their envelopes, and reports what the import
- * would bring in and what it could not translate. Only `--dry-run` exists so far; kind data, rich text and pack
+ * would bring in and what it could not translate. Only `--dry-run` exists so far; kind data, enrichers and pack
  * output land in later stories of Epic 2.5.
  */
 import { mkdir, rename } from 'node:fs/promises';
@@ -146,7 +146,7 @@ function formatCounts(counts: readonly KeyCount[]): string[] {
 }
 
 function formatTranslation(translation: EnvelopeTranslation): string {
-  const { entries, failures, untranslatedRules, unknownTraits } = translationReport(translation);
+  const { entries, failures, untranslatedRules, unknownTraits, unknownMarkup } = translationReport(translation);
   return [
     `Translated ${entries} envelopes; ${sumOf(failures)} failed:`,
     ...formatCounts(failures),
@@ -157,6 +157,8 @@ function formatTranslation(translation: EnvelopeTranslation): string {
     ...formatCounts(untranslatedRules),
     `Traits outside Pioneer's vocabulary ${unknownTraits.length} (${sumOf(unknownTraits)} uses):`,
     ...formatCounts(unknownTraits),
+    'Description markup kept as text only, by entries using it:',
+    ...formatCounts(unknownMarkup),
   ].join('\n');
 }
 

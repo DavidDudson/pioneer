@@ -14,6 +14,8 @@ const TYPE_MAX = 64;
 const TITLE_MAX = 500;
 const TRAITS_MAX = 100;
 const RULES_MAX = 500;
+/** Ten times the longest description at `pf2e-8.6.0` (about 9,500 characters). */
+const DESCRIPTION_MAX = 100_000;
 
 /** Foundry's `system.publication`: which book an entry comes from, its licence, and whether it is remaster. */
 export const FoundryPublication = z.looseObject({
@@ -36,6 +38,9 @@ const FoundryLevel = z.looseObject({ value: z.number() });
 
 const FoundryRules = z.array(z.unknown()).max(RULES_MAX);
 
+/** Foundry's `system.description`: HTML with enrichers, converted by `htmlToRichText`. */
+const FoundryDescription = z.looseObject({ value: z.string().max(DESCRIPTION_MAX).default('') });
+
 export const FoundryDocument = z.looseObject({
   _id: z.string().min(1).max(ID_MAX),
   name: z.string().max(NAME_MAX),
@@ -46,6 +51,7 @@ export const FoundryDocument = z.looseObject({
     slug: z.string().max(NAME_MAX).nullish(),
     level: FoundryLevel.optional(),
     traits: FoundryTraits.optional(),
+    description: FoundryDescription.optional(),
     /** Raw rule elements, each checked against Pioneer's `RuleElement` when the entry is translated. */
     rules: FoundryRules.default([]),
   }),

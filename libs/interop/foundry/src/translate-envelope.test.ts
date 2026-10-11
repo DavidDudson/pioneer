@@ -185,11 +185,42 @@ describe('translateEnvelopes: sources and placeholders', () => {
     expect(envelopeOf({})?.sources).toEqual([{ kind: 'book', book: playerCore }]);
   });
 
-  test('description is empty and there is no supersedes', () => {
-    const envelope = envelopeOf({});
+  test('there is no supersedes', () => {
+    expect(envelopeOf({})).not.toHaveProperty('supersedes');
+  });
+});
 
-    expect(envelope?.description).toEqual([]);
-    expect(envelope).not.toHaveProperty('supersedes');
+describe('translateEnvelopes: description', () => {
+  test('is the HTML description as rich text', () => {
+    const envelope = envelopeOf({ description: { value: '<p>You gain <strong>3</strong> Hit Points.</p>' } });
+
+    const description: unknown = envelope?.description;
+
+    expect(description).toEqual([
+      {
+        type: 'paragraph',
+        content: [
+          { type: 'text', text: 'You gain ' },
+          { type: 'text', text: '3', marks: ['strong'] },
+          { type: 'text', text: ' Hit Points.' },
+        ],
+      },
+    ]);
+  });
+
+  test('is empty when the document has none', () => {
+    expect(envelopeOf({})?.description).toEqual([]);
+  });
+
+  test('reports markup it keeps only the text of, against the entry', () => {
+    const { unknownMarkup } = translateOne({
+      description: { value: '<p>Stride <span class="action-glyph">1</span></p>' },
+    });
+
+    expect(unknownMarkup).toEqual([
+      { entry: toughnessId, markup: 'span[class]' },
+      { entry: toughnessId, markup: 'span' },
+    ]);
   });
 });
 
@@ -223,12 +254,16 @@ describe('translateEnvelopes: rule elements', () => {
 });
 
 describe('translationReport', () => {
-  test('counts envelopes, failures, rule element keys and traits, most frequent first', () => {
+  test('counts envelopes, failures, rule element keys, traits and markup, most frequent first', () => {
     const foundryShaped = { key: 'FlatModifier', selector: 'hp', value: 1 };
     const translation = translateEnvelopes(
       [
         selected({ traits: { value: ['fortune', 'mental'] }, rules: [foundryShaped, { key: 'Note' }] }, 'One', 'a'),
-        selected({ traits: { value: ['fortune'] }, rules: [foundryShaped] }, 'Two', 'b'),
+        selected(
+          { traits: { value: ['fortune'] }, rules: [foundryShaped], description: { value: '<div>Hi</div>' } },
+          'Two',
+          'b',
+        ),
         selected({}, 'Two', 'c'),
       ],
       context,
@@ -245,6 +280,7 @@ describe('translationReport', () => {
         { key: 'fortune', count: 2 },
         { key: 'mental', count: 1 },
       ],
+      unknownMarkup: [{ key: 'div', count: 1 }],
     });
   });
 });
