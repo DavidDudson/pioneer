@@ -34,7 +34,7 @@ type ShownStatistic =
       readonly total: string;
       /** "computed 18" when a set override pinned the total; undefined otherwise. */
       readonly computed: string | undefined;
-      /** "+2 circumstance when your shield is raised (Steel Shield)": each line that applies only in some situations. */
+      /** "+2 circumstance when your shield is raised (Steel Shield)": each line that applies only in some situations and could change the total. */
       readonly conditions: readonly string[];
       readonly kind: StatisticKind;
       readonly statistic: StatisticValue;
@@ -55,7 +55,8 @@ const LOADING_ROWS = 5;
  * a DC or value plain (18), and the total expands in place to its breakdown. Under the total, each modifier that
  * applies only in some situations reads as its value, type, when it holds and where it comes from ("+2 circumstance
  * when your shield is raised (Steel Shield)"), in the engine's order (rules-engine.md, "Predicates and conditional
- * modifiers"). A statistic the engine could not derive is marked failed in text, with why. A total a set override
+ * modifiers"); one an applied line of its type already beats is left out, since it could never change the total, and
+ * the breakdown says what beats it. A statistic the engine could not derive is marked failed in text, with why. A total a set override
  * pinned is marked pinned in text, with the computed value beside it.
  *
  * Read-only and presentational (ADR-0028): the caller passes the statistics in display order with their names, or
@@ -121,7 +122,9 @@ export class StatisticsView {
           : this.#i18n.translate(StatisticsMessage.Computed, { computed: this.#format.number(result.computed, style) });
       const conditions = result.lines
         .flatMap((line): ConditionalLine[] =>
-          line.status.kind === LineStatusKind.Conditional ? [{ line, summary: line.status.summary }] : [],
+          line.status.kind === LineStatusKind.Conditional && line.status.beatenBy === undefined
+            ? [{ line, summary: line.status.summary }]
+            : [],
         )
         .map((conditional) => this.#condition(conditional));
       return { ok: true, key: result.selector, name, total, computed: unpinned, conditions, kind, statistic: result };

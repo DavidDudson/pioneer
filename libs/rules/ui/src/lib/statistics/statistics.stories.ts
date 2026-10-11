@@ -3,6 +3,7 @@ import { StatisticKind } from '@pioneer/rules/sdk';
 import { expect, within } from 'storybook/test';
 
 import { CONDITIONAL_STATISTICS, CYCLE, ENTRY_NAMES, FIGHTER_STATISTICS } from '../testing/breakdown-fixtures';
+import { BEATEN_STATISTICS } from '../testing/conditional-fixtures';
 import { PINNED_STATISTICS } from '../testing/override-fixtures';
 import { StatisticsView } from './statistics.component';
 
@@ -64,5 +65,20 @@ export const Conditional: StatisticsStory = {
     const canvas = within(canvasElement);
     await expect(canvas.getByText('+1 circumstance when you are in darkness (Gloom Walker)')).toBeVisible();
     await expect(canvas.getByText('+2 status in some situations (Unseen)')).toBeVisible();
+  },
+};
+
+/**
+ * Athletics with an applied +1 circumstance: a conditional +1 circumstance could never beat it, so only the
+ * conditional +2 is summarised; the breakdown names what beats the other.
+ */
+export const Beaten: StatisticsStory = {
+  args: { statistics: BEATEN_STATISTICS },
+  play: async ({ canvasElement, userEvent }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByText('+2 circumstance when you Climb (Sure Footing)')).toBeVisible();
+    await expect(canvas.queryByText('+1 circumstance when you Climb (Climbing Hooks)')).toBeNull();
+    await userEvent.click(canvas.getByText('+10'));
+    await expect(canvas.getByText('Applies when you Climb, but Steady Grip already gives as much.')).toBeVisible();
   },
 };

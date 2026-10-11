@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { BaseTermKind, LineStatusKind, RuleId, SuppressionReason, TermSign } from '@pioneer/rules/engine';
 import type { StatisticValue } from '@pioneer/rules/engine';
 import { FormulaValue } from '@pioneer/rules/formula';
-import { ContentText, ModifierType, OriginHopKind, Predicate, StatisticKind } from '@pioneer/rules/sdk';
+import { ContentText, ModifierType, OriginHopKind, StatisticKind } from '@pioneer/rules/sdk';
 import type { ContentId } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
@@ -15,12 +15,14 @@ import {
   FIGHTER_WILL,
   GOLEM_FORM,
   IN_DARKNESS,
+  IN_DARKNESS_SUMMARY,
   line,
   MAGE_ARMOR,
   statistic,
   term,
   WITHOUT_LEVEL,
 } from '../testing/breakdown-fixtures';
+import { climbing } from '../testing/conditional-fixtures';
 import { OVERRIDE_STATUSES, PINNED_AC, PINNED_WILL } from '../testing/override-fixtures';
 import { provideRulesUiI18nTesting } from '../testing/provide-rich-text-testing';
 import { BreakdownView } from './breakdown.component';
@@ -151,11 +153,24 @@ describe(BreakdownView, () => {
     const unsummarised = line(BREASTPLATE, {
       type: ModifierType.Item,
       value: 2,
-      status: { kind: LineStatusKind.Conditional, when: Predicate.parse(['lighting:darkness']), summary: undefined },
+      status: climbing(undefined, undefined),
     });
     const { lines } = await render(statistic('ac', { base: [term('10', 10)], lines: [unsummarised] }));
 
     expect(lines).toStrictEqual(['Breastplate | +2 item | Conditional']);
+  });
+
+  it('names the applied line that beats a conditional one, with or without when it holds', async () => {
+    const winner = line(BREASTPLATE, { type: ModifierType.Item, value: 4 });
+    const by = winner.modifier.id;
+    const worded = line(MAGE_ARMOR, { type: ModifierType.Item, value: 1, status: climbing(IN_DARKNESS_SUMMARY, by) });
+    const unworded = line(GOLEM_FORM, { type: ModifierType.Item, value: 2, status: climbing(undefined, by) });
+    const { lines } = await render(statistic('ac', { base: [term('10', 10)], lines: [worded, unworded, winner] }));
+
+    expect(lines.slice(1)).toStrictEqual([
+      'Mage Armor | +1 item | Conditional | Applies when you are in darkness, but Breastplate already gives as much.',
+      'Golem Form | +2 item | Conditional | Breastplate already gives as much.',
+    ]);
   });
 
   it('shows two copies of one item as two lines, the lower one suppressed by the other', async () => {

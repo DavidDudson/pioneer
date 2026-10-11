@@ -174,8 +174,9 @@ every number explains itself without a modal:
   the variant rule that sets a term's proficiency bonus when one does.
 - The modifier lines, applied first, then conditional, suppressed, inactive and failed. Each reads as its name and
   signed, typed value ("Breastplate +4 item"); one that does not simply apply carries a status badge and says why in
-  text: the line that counts instead or removed it, when it would apply, that its condition does not hold, or the
-  error.
+  text: the line that counts instead or removed it, when it would apply (and, for a conditional line an applied one
+  already beats, which: "Applies when you Climb, but Steady Grip already gives as much."), that its condition does
+  not hold, or the error.
 - The `Change`s and set overrides, after the modifiers and in the order they ran: base-phase `Change`s, then set
   overrides. Each reads as its name and what it did, its mode with the value it replaced and the value it left
   ("override 18 → 20"), a "Set by hand" badge when a user set it, and, when it did not simply apply, a status
@@ -196,9 +197,10 @@ it: the summary reads "Armor Class 22 Pinned computed 20", and the breakdown ope
 Under each disclosure, outside its summary so the trigger stays named by the statistic and total alone, every modifier
 line the engine marks conditional reads as its signed, typed value, when it holds and its name, in the engine's
 order: "+2 circumstance when your shield is raised (Steel Shield)", or "in some situations" when the predicate
-summary has no words for it (rules-engine.md, "Predicates and conditional modifiers"). The breakdown still lists them
-in full. Conditional `Change`s and set overrides appear only in the breakdown. `pio-statistics` does this for any
-statistic it is given, so a skills list gets it too.
+summary has no words for it (rules-engine.md, "Predicates and conditional modifiers"). A conditional line an applied
+one of its type and direction already beats is left out, since it could never change the total. The breakdown still
+lists them all in full. Conditional `Change`s and set overrides appear only in the breakdown. `pio-statistics` does
+this for any statistic it is given, so a skills list gets it too.
 
 The breakdown is given the statistic's kind, so it formats its numbers as the summary does: a check's base, pinned
 and computed totals and override values carry a sign ("Base +6", "override +6 → +9"); a DC's or value's do not.

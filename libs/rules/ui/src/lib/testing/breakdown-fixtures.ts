@@ -48,6 +48,10 @@ export const GOLEM_FORM = ContentId.parse(contentId(PLAYER_CORE, EntrySlug.parse
 export const MAGE_ARMOR = ContentId.parse(contentId(PLAYER_CORE, EntrySlug.parse('spell:mage-armor')));
 /** A made-up feat, so the fixture claims nothing about a real one's rules. */
 export const GLOOM_WALKER = ContentId.parse(contentId(PLAYER_CORE, EntrySlug.parse('feat:gloom-walker')));
+/** Made up, like Gloom Walker. */
+export const STEADY_GRIP = ContentId.parse(contentId(PLAYER_CORE, EntrySlug.parse('feat:steady-grip')));
+export const SURE_FOOTING = ContentId.parse(contentId(PLAYER_CORE, EntrySlug.parse('feat:sure-footing')));
+export const CLIMBING_HOOKS = ContentId.parse(contentId(PLAYER_CORE, EntrySlug.parse('equipment:climbing-hooks')));
 export const WITHOUT_LEVEL = ContentId.parse(
   contentId(CORE_RULES, EntrySlug.parse('variant-rule:proficiency-without-level')),
 );
@@ -61,6 +65,9 @@ export const ENTRY_NAMES: ReadonlyMap<ContentId, string> = new Map([
   [MAGE_ARMOR, 'Mage Armor'],
   [WITHOUT_LEVEL, 'Proficiency Without Level'],
   [GLOOM_WALKER, 'Gloom Walker'],
+  [STEADY_GRIP, 'Steady Grip'],
+  [SURE_FOOTING, 'Sure Footing'],
+  [CLIMBING_HOOKS, 'Climbing Hooks'],
 ]);
 
 export function origin(entry: ContentId): Origin {
@@ -150,6 +157,7 @@ const WHILE_RAISED: LineStatus = {
   kind: LineStatusKind.Conditional,
   when: Predicate.parse(['self:effect:raise-a-shield']),
   summary: { kind: SummaryKind.Authored, text: ContentText.parse('your shield is raised') },
+  beatenBy: undefined,
 };
 
 /** A generated phrase: "you are in darkness". */
@@ -163,6 +171,7 @@ export const IN_DARKNESS: LineStatus = {
   kind: LineStatusKind.Conditional,
   when: Predicate.parse(['lighting:darkness']),
   summary: IN_DARKNESS_SUMMARY,
+  beatenBy: undefined,
 };
 
 /** A formula that reads `@item.level` where it has no value. */
@@ -248,6 +257,7 @@ const SOME_SITUATIONS: LineStatus = {
   kind: LineStatusKind.Conditional,
   when: Predicate.parse(['origin:unseen']),
   summary: undefined,
+  beatenBy: undefined,
 };
 
 /** A rogue's Stealth: one line conditional on darkness, worded, and one conditional with no words for when. */

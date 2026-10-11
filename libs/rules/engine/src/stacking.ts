@@ -14,20 +14,24 @@ type Direction = ValueOf<typeof Direction>;
 const StackKey = z.string().brand<'StackKey'>();
 type StackKey = z.infer<typeof StackKey>;
 
-/** An applied, typed line with its value: one that competes within its type and direction. */
+/** A typed line with its value: one that competes within its type and direction. */
 interface Competing {
   readonly line: BreakdownLine;
   readonly value: FormulaValue;
   readonly key: StackKey;
 }
 
-function competing(line: BreakdownLine): Competing | undefined {
-  const { value, status, modifier } = line;
-  if (status.kind !== LineStatusKind.Applied || value === undefined || modifier.type === ModifierType.Untyped) {
+function typed(line: BreakdownLine): Competing | undefined {
+  const { value, modifier } = line;
+  if (value === undefined || modifier.type === ModifierType.Untyped) {
     return undefined;
   }
   const direction = value < 0 ? Direction.Penalty : Direction.Bonus;
   return { line, value, key: StackKey.parse(`${modifier.type}:${direction}`) };
+}
+
+function competing(line: BreakdownLine): Competing | undefined {
+  return line.status.kind === LineStatusKind.Applied ? typed(line) : undefined;
 }
 
 /** Whether `challenger` beats `holder`: a bigger bonus or a bigger penalty, then the smaller id, so ties settle. */
@@ -50,22 +54,47 @@ function winners(lines: readonly BreakdownLine[]): ReadonlyMap<StackKey, Competi
   return best;
 }
 
+/** An applied line that lost to the winner of its type and direction, suppressed by it. */
+function suppressed(line: BreakdownLine, best: ReadonlyMap<StackKey, Competing>): BreakdownLine {
+  const competitor = competing(line);
+  const winner = competitor === undefined ? undefined : best.get(competitor.key);
+  return winner === undefined || winner.line === line
+    ? line
+    : {
+        ...line,
+        status: { kind: LineStatusKind.Suppressed, by: winner.line.modifier.id, reason: SuppressionReason.Stacking },
+      };
+}
+
+/**
+ * A conditional line, beaten by the applied winner of its type and direction when that is at least as large: even
+ * when its situation holds, it would not change the total. A tie is beaten too, whatever the ids.
+ */
+function outmatched(line: BreakdownLine, best: ReadonlyMap<StackKey, Competing>): BreakdownLine {
+  const { status } = line;
+  const candidate = typed(line);
+  const winner = candidate === undefined ? undefined : best.get(candidate.key);
+  if (
+    status.kind !== LineStatusKind.Conditional ||
+    candidate === undefined ||
+    winner === undefined ||
+    Math.abs(winner.value) < Math.abs(candidate.value)
+  ) {
+    return line;
+  }
+  return { ...line, status: { ...status, beatenBy: winner.line.modifier.id } };
+}
+
 /**
  * PF2e stacking (Player Core, "Bonuses and Penalties"): within each type only the highest bonus and the lowest
  * penalty apply, and untyped ones all apply. Losers stay in the breakdown, suppressed by the line that beat them.
  * Equal values tie-break on the modifier id, so the result does not depend on the order of the lines. Only applied
- * lines take part; the others pass through.
+ * lines take part; a conditional line no better than the applied winner of its type and direction is marked beaten
+ * by it, and the others pass through.
  */
 export function stack(lines: readonly BreakdownLine[]): BreakdownLine[] {
   const best = winners(lines);
-  return lines.map((line) => {
-    const competitor = competing(line);
-    const winner = competitor === undefined ? undefined : best.get(competitor.key);
-    return winner === undefined || winner.line === line
-      ? line
-      : {
-          ...line,
-          status: { kind: LineStatusKind.Suppressed, by: winner.line.modifier.id, reason: SuppressionReason.Stacking },
-        };
-  });
+  return lines.map((line) =>
+    line.status.kind === LineStatusKind.Conditional ? outmatched(line, best) : suppressed(line, best),
+  );
 }

@@ -7,8 +7,10 @@ import { array, assert, constant, constantFrom, integer, property, record, shuff
 import type { Arbitrary } from 'fast-check';
 
 import { LineStatusKind } from './breakdown';
+import type { BreakdownLine } from './breakdown';
 import { deriveStatistics } from './derive-statistics';
-import type { RuleInPlay } from './rule-in-play';
+import { ruleIdOf } from './rule-in-play';
+import type { RuleId, RuleInPlay } from './rule-in-play';
 import { StatisticInputsJson } from './statistic-inputs';
 import type { StatisticResult, StatisticValue } from './statistic-result';
 import { flatModifier, inPlay, statistic } from './testing';
@@ -61,11 +63,11 @@ function rules(specs: readonly ModifierSpec[]): RuleInPlay[] {
   );
 }
 
-function derive(rulesInPlay: readonly RuleInPlay[]): StatisticValue {
+function deriveIn(rulesInPlay: readonly RuleInPlay[], known: PredicateFacts): StatisticValue {
   const result: StatisticResult | undefined = deriveStatistics(
     { definitions: [ac], proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS },
     inputs,
-    { rules: rulesInPlay, facts },
+    { rules: rulesInPlay, facts: known },
   ).get(Selector.parse('ac'));
   if (result?.ok !== true) {
     throw new Error('AC always derives');
@@ -73,7 +75,28 @@ function derive(rulesInPlay: readonly RuleInPlay[]): StatisticValue {
   return result;
 }
 
+function derive(rulesInPlay: readonly RuleInPlay[]): StatisticValue {
+  return deriveIn(rulesInPlay, facts);
+}
+
 const specs = array(modifierSpec(typedOrNot), { maxLength: MODIFIERS_MAX });
+
+/** The line that beats a conditional line; undefined for any other line, or one nothing beats. */
+function beatenByOf({ status }: BreakdownLine): RuleId | undefined {
+  return status.kind === LineStatusKind.Conditional ? status.beatenBy : undefined;
+}
+
+/** The applied lines of the line's type and direction that are at least as large as it. */
+function rivalsOf(line: BreakdownLine, lines: readonly BreakdownLine[]): BreakdownLine[] {
+  const value = line.value ?? 0;
+  return lines.filter(
+    (rival) =>
+      rival.status.kind === LineStatusKind.Applied &&
+      rival.modifier.type === line.modifier.type &&
+      (rival.value ?? 0) < 0 === value < 0 &&
+      Math.abs(rival.value ?? 0) >= Math.abs(value),
+  );
+}
 
 describe('stacking (properties)', () => {
   test('the breakdown does not depend on the order of the rules', () => {
@@ -110,6 +133,52 @@ describe('stacking (properties)', () => {
       property(untyped, (given) => {
         const sum = given.reduce((total, { value }) => total + value, 0);
         expect(derive(rules(given))).toMatchObject({ total: 10 + sum });
+      }),
+    );
+  });
+
+  test('a typed conditional line is beaten exactly when an applied line of its type and direction is as large', () => {
+    assert(
+      property(specs, (given) => {
+        const { lines } = derive(rules(given));
+        const typedConditional = lines.filter(
+          ({ status, modifier }) =>
+            status.kind === LineStatusKind.Conditional && modifier.type !== ModifierType.Untyped,
+        );
+        for (const line of typedConditional) {
+          const rivals = rivalsOf(line, lines);
+          const beatenBy = beatenByOf(line);
+          expect(beatenBy === undefined).toBe(rivals.length === 0);
+          expect(beatenBy === undefined || rivals.some(({ modifier }) => modifier.id === beatenBy)).toBe(true);
+        }
+      }),
+    );
+  });
+
+  test('an untyped conditional line is never beaten', () => {
+    assert(
+      property(specs, (given) => {
+        const untyped = derive(rules(given)).lines.filter(({ modifier }) => modifier.type === ModifierType.Untyped);
+        expect(untyped.every((line) => beatenByOf(line) === undefined)).toBe(true);
+      }),
+    );
+  });
+
+  test('applying a beaten conditional line never changes the total', () => {
+    const situation = new PredicateFacts(
+      [RollOption.parse('self:effect:raise-a-shield'), RollOption.parse('terrain:forest')],
+      CORE_NAMESPACES,
+    );
+    assert(
+      property(specs, (given) => {
+        const rulesInPlay = rules(given);
+        const beaten = new Set(
+          derive(rulesInPlay)
+            .lines.filter((line) => beatenByOf(line) !== undefined)
+            .map(({ modifier }) => modifier.id),
+        );
+        const withoutBeaten = rulesInPlay.filter((rule) => !beaten.has(ruleIdOf(rule)));
+        expect(deriveIn(rulesInPlay, situation).total).toBe(deriveIn(withoutBeaten, situation).total);
       }),
     );
   });

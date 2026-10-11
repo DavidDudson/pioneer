@@ -10,6 +10,7 @@ import {
   FIGHTER_STATISTICS,
   GLOOM_WALKER,
 } from '../testing/breakdown-fixtures';
+import { BEATEN_STATISTICS } from '../testing/conditional-fixtures';
 import { PINNED_STATISTICS, PINNED_WILL } from '../testing/override-fixtures';
 import { provideRulesUiI18nTesting } from '../testing/provide-rich-text-testing';
 import type { NamedStatistic } from './statistics.component';
@@ -100,6 +101,19 @@ describe(StatisticsView, () => {
     const host = hostOf(await render(FIGHTER_STATISTICS));
 
     expect(conditions(host)).toStrictEqual([['+2 circumstance when your shield is raised (Steel Shield)'], [], []]);
+  });
+
+  it('leaves out a conditional line an applied one of its type already beats, and says why in the breakdown', async () => {
+    const fixture = await render(BEATEN_STATISTICS);
+    const athletics = present(hostOf(fixture).querySelector('details'));
+
+    expect(conditions(hostOf(fixture))).toStrictEqual([['+2 circumstance when you Climb (Sure Footing)']]);
+
+    present(athletics.querySelector('summary')).click();
+    await fixture.whenStable();
+
+    const breakdown = present(athletics.querySelector('pio-breakdown'));
+    expect(textOf(breakdown)).toContain('Applies when you Climb, but Steady Grip already gives as much.');
   });
 
   it('keeps conditional lines out of the summary, so the toggle is named by statistic and total alone', async () => {

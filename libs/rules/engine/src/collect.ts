@@ -104,6 +104,7 @@ class Collection {
       kind: LineStatusKind.Conditional,
       when: predicate,
       summary: summarisePredicate(predicate, this.#context.facts, summary),
+      beatenBy: undefined,
     };
   }
 }
@@ -116,7 +117,8 @@ function holds(predicate: Predicate | undefined, facts: PredicateFacts): boolean
 /**
  * Every modifier that reaches the statistic through its selector, its domains or `all`, as breakdown lines in id
  * order. Adjustments that reach it and hold run in priority order, then id order. Each line is then gated by its
- * predicate (Kleene: true applies, false is inactive, unknown is conditional) and the applied ones are stacked.
+ * predicate (Kleene: true applies, false is inactive, unknown is conditional), and the applied ones are stacked
+ * and decide which conditional ones could never count.
  * A formula that fails to evaluate makes its line failed, never an exception.
  */
 export function collectLines(

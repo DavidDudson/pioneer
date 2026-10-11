@@ -19,6 +19,8 @@ export const BreakdownMessage = {
   /** A line an `AdjustModifier` removed. */
   RemovedBy: 'rules.breakdown.removedBy',
   AppliesWhen: 'rules.breakdown.appliesWhen',
+  /** A conditional line that could never count: an applied one of its type is at least as large. */
+  ConditionalBeatenBy: 'rules.breakdown.conditionalBeatenBy',
   Inactive: 'rules.breakdown.inactive',
   /** "Set by the GM pins it to 20; computed 18.": the set override that pinned the total, and what it hides. */
   Pinned: 'rules.breakdown.pinned',

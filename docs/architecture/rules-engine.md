@@ -300,7 +300,9 @@ interface Modifier {
 
 PF2e stacking: within each typed category only the highest bonus and the lowest penalty apply; untyped bonuses
 and penalties all apply; attribute and proficiency are single values set by the base formula. The engine applies
-this and keeps the losers:
+this and keeps the losers. Only applied lines compete, but a typed conditional line is checked against them: when
+the applied winner of its type and direction is at least as large, it could never change the total, and `beatenBy`
+names that winner. Untyped conditional lines are never beaten.
 
 ```ts
 interface BreakdownLine {
@@ -314,6 +316,7 @@ interface BreakdownLine {
         kind: 'conditional';
         when: Predicate;
         summary: PredicateSummary | undefined;
+        beatenBy: RuleId | undefined; // an applied line of its type and direction at least as large
       } // depends on unknown situation
     | { kind: 'inactive'; reason: 'predicate' } // predicate known false
     | { kind: 'failed'; error: MessageDescriptor; position: TextPosition }; // a formula failed to evaluate

@@ -148,6 +148,62 @@ describe('modifiers', () => {
   });
 });
 
+/** A modifier on AC that holds only in a forest, so it is conditional on the sheet. */
+function forestOnly(type: string, value: number, entry: string): RuleInPlay {
+  return inPlay({ ...flatModifier(type, value, ['ac']), predicate: ['terrain:forest'] }, entry);
+}
+
+describe('conditional lines against applied ones', () => {
+  const raised = inPlay(flatModifier('circumstance', 2, ['ac']), 'raised');
+
+  test('one no larger than the applied line of its type and direction is beaten by it', () => {
+    const smaller = forestOnly('circumstance', 1, 'smaller');
+    const equal = forestOnly('circumstance', 2, 'equal');
+    const value = derived([raised, smaller, equal]);
+    expect(lineOf(value, smaller)?.status).toMatchObject({
+      kind: LineStatusKind.Conditional,
+      beatenBy: ruleIdOf(raised),
+    });
+    expect(lineOf(value, equal)?.status).toMatchObject({
+      kind: LineStatusKind.Conditional,
+      beatenBy: ruleIdOf(raised),
+    });
+  });
+
+  test('one larger, of another type or direction, or untyped, is not beaten', () => {
+    const larger = forestOnly('circumstance', 3, 'larger');
+    const status = forestOnly('status', 1, 'status');
+    const penalty = forestOnly('circumstance', -1, 'penalty');
+    const untyped = forestOnly('untyped', 1, 'untyped');
+    const value = derived([raised, larger, status, penalty, untyped]);
+    for (const rule of [larger, status, penalty, untyped]) {
+      expect(lineOf(value, rule)?.status).toMatchObject({ kind: LineStatusKind.Conditional, beatenBy: undefined });
+    }
+  });
+
+  test('a conditional penalty no worse than an applied one of its type is beaten by it', () => {
+    const frightened = inPlay(flatModifier('status', -2, ['ac']), 'frightened');
+    const milder = forestOnly('status', -1, 'milder');
+    expect(lineOf(derived([frightened, milder]), milder)?.status).toMatchObject({
+      beatenBy: ruleIdOf(frightened),
+    });
+  });
+
+  test('only applied lines beat: a suppressed, conditional or inactive one does not', () => {
+    const lower = inPlay(flatModifier('circumstance', 1, ['ac']), 'lower');
+    const larger = forestOnly('circumstance', 3, 'larger');
+    const inactive = inPlay(
+      { ...flatModifier('circumstance', 3, ['ac']), predicate: ['self:effect:rage'] },
+      'inactive',
+    );
+    const between = forestOnly('circumstance', 2, 'between');
+    expect(lineOf(derived([lower, raised, larger, inactive, between]), between)?.status).toMatchObject({
+      beatenBy: ruleIdOf(raised),
+    });
+    expect(lineOf(derived([larger, inactive, between]), between)?.status).toMatchObject({ beatenBy: undefined });
+  });
+});
+
 describe('AdjustModifier', () => {
   const sneaky = inPlay({ ...flatModifier('circumstance', 3, ['ac']), slug: 'cover' }, 'cover');
   const other = inPlay(flatModifier('untyped', 1, ['ac']), 'other');
