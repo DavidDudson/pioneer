@@ -40,7 +40,13 @@ function feat(subfeatures: object): DocumentFixture {
 
 describe('translateRules: Sense', () => {
   test('a Sense names its sense entry, with its acuity, range and predicate', () => {
-    const rule = { key: 'Sense', selector: 'scent', acuity: 'imprecise', range: 30, predicate: ['shifting-form:scent'] };
+    const rule = {
+      key: 'Sense',
+      selector: 'scent',
+      acuity: 'imprecise',
+      range: 30,
+      predicate: ['shifting-form:scent'],
+    };
 
     expect(rulesIn(translate([heritage([rule])]), 'cavern-elf')).toEqual([
       {

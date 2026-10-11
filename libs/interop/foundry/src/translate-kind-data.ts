@@ -36,8 +36,8 @@ import { DEITY_FIELDS, deityData } from './translate-deity';
 import { EFFECT_FIELDS, effectData } from './translate-effect';
 import { classFeatureData, FEAT_FIELDS, featData } from './translate-feat';
 import { KIT_FIELDS, kitData } from './translate-kit';
-import { RITUAL_FIELDS, ritualData, SPELL_FIELDS, spellData } from './translate-spell';
 import type { FoundrySenses } from './translate-senses';
+import { RITUAL_FIELDS, ritualData, SPELL_FIELDS, spellData } from './translate-spell';
 
 /**
  * Kind `data` for the kinds the packs hold, from their Foundry `system` fields (content-model.md, "Rules core data",

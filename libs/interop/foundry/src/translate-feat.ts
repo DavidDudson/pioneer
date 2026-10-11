@@ -83,7 +83,11 @@ function subfeatureRules(system: FoundryFeatSystem, input: KindInput): void {
   for (const [slug, fields] of Object.entries(parsed.data)) {
     const element = senseElement(slug, fields, input.references, input.senses);
     if (element === undefined) {
-      report(input.log, { reason: KindDataGapReason.UnresolvedReference, field: `subfeatures.senses.${slug}`, raw: fields });
+      report(input.log, {
+        reason: KindDataGapReason.UnresolvedReference,
+        field: `subfeatures.senses.${slug}`,
+        raw: fields,
+      });
     } else {
       addRule(input, `subfeatures.senses.${slug}`, element);
     }
