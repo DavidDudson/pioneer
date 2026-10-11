@@ -1,9 +1,10 @@
 /**
  * One-off Foundry import (ADR-0031, content-model.md "Foundry import"): `just content-import --pack <pack>
- * --book <book>... --dry-run`. Downloads the pack's pinned foundryvtt/pf2e release into a gitignored cache, checks
- * its SHA-256, reads the item packs, journals and config vocabularies, selects entries, translates their envelopes and the
- * kind data built so far, and reports what the import would bring in and what it could not translate. Only
- * `--dry-run` exists so far; the other kinds, enrichers and pack output land in later stories of Epic 2.5.
+ * --book <book>... [--dry-run]`. Downloads the pack's pinned foundryvtt/pf2e release into a gitignored cache, checks
+ * its SHA-256, reads the item packs, journals and config vocabularies, selects entries, translates them, validates
+ * the result (`packOutput`), and reports what the import brings in, what it could not translate and its coverage.
+ * Without `--dry-run` it then writes the pack, the vocabulary it adds to `core-rules` and the backlog
+ * (`write-output.ts`), and names the files to register in the catalog.
  */
 import { mkdir, rename } from 'node:fs/promises';
 import path from 'node:path';
@@ -11,10 +12,13 @@ import { parseArgs } from 'node:util';
 
 import {
   archiveUrl,
+  BacklogItemType,
   FOUNDRY_BOOK_TITLES,
   dryRunReport,
   ImportFile,
+  importCoverage,
   kindDataReport,
+  packOutput,
   readFoundryRelease,
   RELEASE_FILES,
   selectEntries,
@@ -24,6 +28,7 @@ import {
   translationReport,
 } from '@pioneer/interop/foundry';
 import type {
+  BacklogItem,
   DryRunReport,
   EnvelopeTranslation,
   FoundryReleaseTag,
@@ -38,7 +43,10 @@ import type {
 import { bookRegistry, officialPacks } from '@pioneer/rules/catalog';
 import { BookId, PackId } from '@pioneer/rules/sdk';
 
+import { formatCoverage } from './coverage-table.ts';
 import { loadFoundryConfig } from './foundry-config-loader';
+import type { PackTargets } from './pack-writes.ts';
+import { previousImport, registrationReport, writeOutput } from './write-output.ts';
 
 const ROOT = path.resolve(import.meta.dir, '../..');
 const CACHE = path.join(ROOT, '.data/foundry');
@@ -175,13 +183,31 @@ function formatTranslation(translation: EnvelopeTranslation): string {
   ].join('\n');
 }
 
-/** The entries of the official packs other than the one being imported, which the import replaces. */
-async function knownEntries(target: PackId): Promise<readonly KnownEntry[]> {
-  const others = officialPacks.filter(({ id }) => id !== target);
+/**
+ * The entries of the official packs other than the one being imported, which the import replaces, less what its
+ * earlier runs added to the vocabulary pack, which it replaces too.
+ */
+async function knownEntries(targets: PackTargets): Promise<readonly KnownEntry[]> {
+  const others = officialPacks.filter(({ id }) => id !== targets.pack);
   const packs = await Promise.all(others.map(async ({ load }) => load()));
+  const replaced = await previousImport(targets);
   return packs.flatMap(({ entries }) =>
-    entries.map(({ id, pack: entryPack, kind, slug }) => ({ id, pack: entryPack, kind, slug })),
+    entries.flatMap(({ id, pack: entryPack, kind, slug }) =>
+      replaced.has(id) ? [] : [{ id, pack: entryPack, kind, slug }],
+    ),
   );
+}
+
+function formatLeftOut(backlog: readonly BacklogItem[]): string {
+  const leftOut = backlog.flatMap((item) =>
+    item.type === BacklogItemType.Entry && item.leftOut !== undefined
+      ? [{ key: `${item.leftOut.reason} ${item.pack}/${item.slug}`, detail: item.leftOut.detail }]
+      : [],
+  );
+  return [
+    `Left out of the pack ${leftOut.length}:`,
+    ...leftOut.map(({ key, detail }) => `  ${key}${detail === '' ? '' : `: ${detail}`}`),
+  ].join('\n');
 }
 
 function formatKinds(counts: readonly KindCount[]): string[] {
@@ -191,7 +217,7 @@ function formatKinds(counts: readonly KindCount[]): string[] {
 function formatKindData(translation: ImportTranslation): string {
   const { kindData, vocabulary, kindDataGaps, vocabularyGaps } = kindDataReport(translation);
   return [
-    `Kind data built ${sumOf(kindData)}:`,
+    `Kind data built ${kindData.reduce((sum, { count }) => sum + count, 0)}:`,
     ...formatKinds(kindData),
     `Kind data gaps ${sumOf(kindDataGaps)}, by reason and field:`,
     ...formatCounts(kindDataGaps),
@@ -203,9 +229,7 @@ function formatKindData(translation: ImportTranslation): string {
 }
 
 const { pack, books, dryRun } = options();
-if (!dryRun) {
-  throw new Error('Only --dry-run is implemented so far (Epic 2.5 builds the rest)');
-}
+const targets: PackTargets = { pack, vocabularyPack: VOCABULARY_PACK };
 const pin = await readPin(pack);
 const files = await archiveFiles(await archive(pin));
 const release = readFoundryRelease(files);
@@ -213,7 +237,7 @@ const config = await loadFoundryConfig(files, path.join(CACHE, pin.tag));
 const selection = selectEntries(release, books);
 console.log(`${pack} at ${pin.tag}, books ${[...books].join(', ')}`);
 console.log(formatReport(dryRunReport(selection), selection));
-const known = await knownEntries(pack);
+const known = await knownEntries(targets);
 const translation = translateImport(selection.selected, {
   pack,
   vocabularyPack: VOCABULARY_PACK,
@@ -226,3 +250,12 @@ const translation = translateImport(selection.selected, {
 });
 console.log(formatTranslation(translation.envelopes));
 console.log(formatKindData(translation));
+const output = packOutput(translation, { known });
+console.log(formatLeftOut(output.backlog));
+console.log(formatCoverage(importCoverage(output.entries, output.backlog)));
+if (!dryRun) {
+  const written = await writeOutput(output, targets, pin);
+  console.log([`Wrote ${written.length} files:`, ...written.map((file) => `  ${file}`)].join('\n'));
+  const registration = await registrationReport();
+  console.log(registration === '' ? 'The catalog imports every pack file.' : registration);
+}

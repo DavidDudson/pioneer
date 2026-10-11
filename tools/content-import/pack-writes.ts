@@ -68,7 +68,7 @@ export function unregistered(catalog: string, files: readonly string[]): readonl
 export function missing(catalog: string, files: readonly string[]): readonly string[] {
   const present = new Set(files.map((file) => specifier(file)));
   const imported = [...catalog.matchAll(/'(?<specifier>@pioneer\/content\/packs\/[^']+\.json)'/gu)].map(
-    ({ groups }) => groups?.specifier ?? '',
+    ({ groups }) => groups?.['specifier'] ?? '',
   );
   return imported.filter((each) => !present.has(each));
 }
