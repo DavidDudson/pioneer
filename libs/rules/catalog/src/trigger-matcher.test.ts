@@ -36,18 +36,25 @@ describe('trigger matcher', () => {
   test.each([
     ['You roll initiative.', { event: 'initiative' }],
     ['Your turn begins.', { event: 'turn-start' }],
+    ['You begin your turn.', { event: 'turn-start' }],
     ['At the start of your turn', { event: 'turn-start' }],
+    ['The start of your turn.', { event: 'turn-start' }],
     ['Your turn ends.', { event: 'turn-end' }],
+    ['You end your turn.', { event: 'turn-end' }],
+    ['At the end of your turn.', { event: 'turn-end' }],
+    ['The end of your turn.', { event: 'turn-end' }],
     ['You cast a spell.', { event: 'cast-spell' }],
     ['You cast a focus spell.', { event: 'cast-spell', predicate: ['item:trait:focus'] }],
     ['You cast a cantrip.', { event: 'cast-spell', predicate: ['item:trait:cantrip'] }],
+    ['You Strike.', { event: 'strike' }],
     ['You make a Strike.', { event: 'strike' }],
+    ['You attempt a Strike.', { event: 'strike' }],
     ['You take damage.', { event: 'damage-taken' }],
   ])('reads "%s"', (words, expected) => {
     expect(matchTrigger(prose(words), NAMES)).toStrictEqual(event(expected));
   });
 
-  test('ignores case, spacing, curly apostrophes and the full stop', () => {
+  test('ignores case, spacing and the full stop', () => {
     expect(matchTrigger(prose('  you  CAST a\nfocus spell '), NAMES)).toStrictEqual(
       event({ event: 'cast-spell', predicate: ['item:trait:focus'] }),
     );
@@ -118,12 +125,13 @@ describe('trigger matches', () => {
     ]);
   });
 
-  test('keeps an event already set, and skips what has no trigger or no match', () => {
+  test('keeps an event already set, and skips requirements and what has no trigger or no match', () => {
     const entries = [
       entry('corrected', 'action', triggered('Your turn begins.', { triggerEvent: { event: 'turn-end' } })),
       entry('untriggered', 'action', { cost: 'one' }),
       entry('unmatched', 'action', triggered('An ally is about to use an action.')),
       entry('passive', 'feat', { category: 'general' }),
+      entry('shielded', 'action', triggered('Your turn begins.', { requirements: prose('Your shield is raised.') })),
     ];
 
     expect(triggerMatches(entries, NAMES)).toStrictEqual([]);

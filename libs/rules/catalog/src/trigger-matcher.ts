@@ -59,7 +59,7 @@ function triggerWords(trigger: RichText, names: RefNames): string | undefined {
   return words.every((word) => word !== undefined) ? words.join('') : undefined;
 }
 
-/** Lowercase, single spaces, straight apostrophes, no closing full stop. */
+/** Lowercase, single spaces, no closing full stop. */
 function normalise(words: string): string {
   return words.replaceAll('’', "'").replaceAll(/\s+/gu, ' ').trim().replace(/\.$/u, '').toLowerCase();
 }
@@ -92,12 +92,13 @@ export interface TriggerMatch {
 
 /**
  * For each entry whose action has a trigger but no event, the event its wording names. An entry that already has an
- * event keeps it, so a hand correction is never overwritten.
+ * event keeps it, so a hand correction is never overwritten. An action with requirements is skipped: the engine can't
+ * read them, so its event needs a predicate set by hand, or it would fire when they aren't met.
  */
 export function triggerMatches(entries: readonly ContentEntry[], names: RefNames): readonly TriggerMatch[] {
   return entries.flatMap((entry) => {
     const action = entryAction(entry);
-    if (action?.trigger === undefined || action.triggerEvent !== undefined) {
+    if (action?.trigger === undefined || action.triggerEvent !== undefined || action.requirements !== undefined) {
       return [];
     }
     const triggerEvent = matchTrigger(action.trigger, names);

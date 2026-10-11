@@ -522,7 +522,8 @@ flowchart LR
 - **Trigger enrichment.** Foundry's triggers are text only. `bun run content:triggers` sets `triggerEvent` on every
   action, feat action and class feature action in the committed packs whose whole trigger matches a known wording
   ("Your turn begins.", "You cast a focus spell.") and that has none yet, so a hand correction is never
-  overwritten. A trigger with any other wording, or anything richer than words and links, is left for a hand edit
+  overwritten. An action with `requirements` is skipped, since the engine can't read them; its event and a predicate
+  for them are set by hand. A trigger with any other wording, or anything richer than words and links, is left for a hand edit
   and listed by the coverage report.
 
 ## Licensing

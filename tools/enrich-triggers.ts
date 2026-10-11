@@ -1,13 +1,13 @@
-import path from 'node:path';
-
-import { triggerMatches } from '@pioneer/rules/catalog';
-import { ContentEntryFile } from '@pioneer/rules/sdk';
-import type { ContentId, ContentText } from '@pioneer/rules/sdk';
 /**
  * Sets `triggerEvent` on every action in `content/packs` whose trigger wording the matcher knows and that has none yet
  * (ADR-0031: the committed packs are the source, so the pass edits them). Review the diff; what it leaves is listed by
  * `bun run content:coverage` and set by hand.
  */
+import path from 'node:path';
+
+import { triggerMatches } from '@pioneer/rules/catalog';
+import { ContentEntryFile } from '@pioneer/rules/sdk';
+import type { ContentId, ContentText } from '@pioneer/rules/sdk';
 import { Glob } from 'bun';
 import * as z from 'zod';
 
