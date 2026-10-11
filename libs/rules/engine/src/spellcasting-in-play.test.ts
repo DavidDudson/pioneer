@@ -17,6 +17,26 @@ const entry = (slug: string, tradition: string, extra: object = {}): object => (
   ...extra,
 });
 
+const HEAL = '8c3e6b1e-2a54-5f43-9b49-5ce7c7a2b2a1';
+const HARM = '5d7c2a91-0e4b-5f36-b8a2-1c9e4d7f0a63';
+const FIREBALL = '2f6a1d0c-7b3e-5c94-8e21-4a9d6f0b3c7e';
+
+interface PoolSpellsFields {
+  readonly entry: string;
+  readonly pool: string;
+  readonly spells: readonly string[];
+}
+
+const poolSpells = (fields: PoolSpellsFields, extra: object = {}): object => ({
+  key: 'PoolSpells',
+  ...fields,
+  ...extra,
+});
+
+/** A divine font's spell, while the font picked is `option`. */
+const fontSpell = (spell: string, option: string): object =>
+  poolSpells({ entry: 'cleric', pool: 'divine-font', spells: [spell] }, { predicate: [option] });
+
 function entriesOf(
   placed: readonly (readonly [object, string])[],
   options: readonly string[] = [],
@@ -196,5 +216,37 @@ describe('spellcastingInPlay slots', () => {
     const [wizard] = entriesOf([[entry('wizard', 'arcane'), 'wizard-spellcasting'], ...many]);
 
     expect<object | undefined>(wizard?.slots).toEqual({ ranks: [{ rank: 1, count: SLOT_COUNT_MAX }] });
+  });
+
+  test('a pool takes the spells of every pool spells element in play for it, each once', () => {
+    const curriculum = (spells: readonly string[]): object =>
+      poolSpells({ entry: 'wizard', pool: 'curriculum', spells });
+    const [wizard] = entriesOf([
+      [entry('wizard', 'arcane'), 'wizard-spellcasting'],
+      [slots('wizard', [1, 1], { pool: 'curriculum' }), 'school-of-battle-magic'],
+      [curriculum([HEAL, FIREBALL]), 'school-of-battle-magic'],
+      [curriculum([FIREBALL, HARM]), 'homebrew-feat'],
+      [poolSpells({ entry: 'wizard', pool: 'bonded', spells: [HARM] }), 'bonded-item'],
+      [poolSpells({ entry: 'cleric', pool: 'curriculum', spells: [HARM] }), 'cleric-feat'],
+    ]);
+
+    expect(wizard?.pools.map(({ pool, spells }): object => ({ pool, spells }))).toEqual([
+      { pool: 'curriculum', spells: [HEAL, FIREBALL, HARM] },
+    ]);
+  });
+
+  test('a pool takes only the spells whose element holds, and none without one', () => {
+    const placed: (readonly [object, string])[] = [
+      [entry('cleric', 'divine'), 'cleric-spellcasting'],
+      [slots('cleric', [1, 2]), 'cleric-spellcasting'],
+      [slots('cleric', ['highest', 4], { pool: 'divine-font' }), 'divine-font'],
+      [fontSpell(HEAL, 'divine-font:heal'), 'divine-font'],
+      [fontSpell(HARM, 'divine-font:harm'), 'divine-font'],
+    ];
+    const spellsOf = (options: readonly string[]): readonly string[] | undefined =>
+      entriesOf(placed, options)[0]?.pools[0]?.spells;
+
+    expect(spellsOf(['divine-font:harm'])).toEqual([HARM]);
+    expect(spellsOf([])).toEqual([]);
   });
 });

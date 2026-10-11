@@ -3,11 +3,13 @@ import { issueParams, message, Pg } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { AttributeSchema } from './attribute';
+import { ContentId } from './content-id';
 import { RulesMessage } from './messages';
 import { RuleElementKey, ruleElementBase, RuleSlug } from './rule-element-base';
 import { SpellRank } from './spell-rank';
 import { MagicTraditionSchema } from './spellcasting-tradition';
 import { SOURCE_SLUG_MAX } from './statistic';
+import { uniqueItems } from './unique-items';
 
 /** How an entry's spells are cast: prepared each day, from a repertoire, or innate. */
 export const SpellPreparation = {
@@ -72,3 +74,21 @@ export const SpellSlotsElement = z.strictObject({
   ...ruleElementBase,
 });
 export type SpellSlotsElement = z.infer<typeof SpellSlotsElement>;
+
+/** The most spells a `PoolSpells` element names: a school's curriculum lists about twenty. */
+const POOL_SPELLS_MAX = 64;
+
+/**
+ * The spells a `pool` of an entry's slots takes (ADR-0045): a divine font's heal or harm, a school's curriculum. A pool
+ * slot takes any of them that fits it, a cantrip in a cantrip slot and any other spell in a slot of its rank or higher,
+ * heightened; tradition and rarity aside, since the feature names them. Those of every element in play for a pool add
+ * up; a pool with none takes nothing. A Pioneer element with no Foundry counterpart, like `SpellSlots`.
+ */
+export const PoolSpellsElement = z.strictObject({
+  key: z.literal(RuleElementKey.PoolSpells),
+  entry: EntrySourceSlug,
+  pool: RuleSlug,
+  spells: z.array(ContentId).min(1).max(POOL_SPELLS_MAX).readonly().check(uniqueItems),
+  ...ruleElementBase,
+});
+export type PoolSpellsElement = z.infer<typeof PoolSpellsElement>;

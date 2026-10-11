@@ -269,6 +269,7 @@ export { DefenceValue, ImmunityElement, ResistanceElement, WeaknessElement } fro
 export { SenseElement } from './rule-element-sense';
 export { LanguageAccess, LanguageCount, LanguageElement } from './rule-element-language';
 export {
+  PoolSpellsElement,
   SLOT_COUNT_MAX,
   SlotCount,
   SlotRank,

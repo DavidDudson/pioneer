@@ -210,6 +210,12 @@ const spellSlots = element(
   { pool: slugText },
 );
 
+const poolSpells = element('PoolSpells', {
+  entry: slugText,
+  pool: slugText,
+  spells: uniqueArray(uuid(), { minLength: 1, maxLength: LIST_MAX }),
+});
+
 const languageAccess = constantFrom('common', 'uncommon', 'rare');
 const grantedLanguages = uniqueArray(uuid(), { minLength: 1, maxLength: LIST_MAX });
 const languageSlots = integer({ min: 1, max: LIST_MAX });
@@ -246,5 +252,6 @@ export const ruleElementJson: Arbitrary<object> = oneof(
   spellcastingEntry,
   sense,
   spellSlots,
+  poolSpells,
   language,
 );
