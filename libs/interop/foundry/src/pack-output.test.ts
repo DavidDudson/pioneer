@@ -134,7 +134,12 @@ describe('packOutput: references to an entry left out', () => {
   const { entries, backlog } = packOutput(translation, context);
   const granter = entries.find(({ slug }) => slug === 'feat:granter');
 
-  test('a rule element is dropped and reported; the entry stays', () => {
+  test('a rule element is dropped and reported; the entry stays, its keys in order', () => {
+    const untouched = packOutput(translate([GRANTED, GRANTER]), context).entries.find(
+      ({ slug }) => slug === 'feat:granter',
+    );
+
+    expect(Object.keys({ ...granter })).toEqual(Object.keys({ ...untouched }));
     expect(granter?.rules.some(({ key }) => key === RuleElementKey.GrantItem)).toBe(false);
     const references = gapsOf(backlog, 'feat:granter').filter(({ type }) => type === BacklogGapType.Reference);
 
