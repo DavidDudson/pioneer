@@ -149,9 +149,13 @@ describe('PathbuilderImportPage create', () => {
     });
 
     const router = TestBed.inject(Router);
-    await vi.waitFor(() => {
-      expect(router.url).toBe(`/characters/${id}`);
-    });
+    // The sheet route loads lazily, with the engine behind it, which takes longer than a second on a slow runner.
+    await vi.waitFor(
+      () => {
+        expect(router.url).toBe(`/characters/${id}`);
+      },
+      { timeout: 3000 },
+    );
     // The sheet reads the new character's slots from the server.
     await vi.waitFor(() => {
       http.expectOne({ method: 'GET', url: `/api/characters/${id}` }).flush({ character, slots: [] });

@@ -35,6 +35,8 @@ export const ItemFixture = {
   Cloak: 'cloak',
   /** Specific magic armour with the invested trait: its bonus to AC needs no investing, its rules do. */
   RuneArmor: 'rune-armor',
+  /** A weapon whose name is exactly as long as a source slug may be, 64 characters. */
+  LongSword: 'sword-of-the-very-long-name-that-just-fits-in-a-source-slug-ok64',
 } as const;
 export type ItemFixture = (typeof ItemFixture)[keyof typeof ItemFixture];
 
@@ -92,6 +94,16 @@ const ITEMS: Readonly<Record<ItemFixture, ItemFixtureFields>> = {
     data: { bulk: 'light', usage: { type: 'worn', slot: 'cloak' } },
     traits: ['invested', 'magical'],
     rules: [{ key: 'FlatModifier', selectors: ['perception'], type: 'item', value: 1 }],
+  },
+  [ItemFixture.LongSword]: {
+    kind: ContentKind.Weapon,
+    data: {
+      bulk: 1,
+      category: 'martial',
+      group: 'sword',
+      damage: { dice: 1, die: 'd8', damageType: 'slashing' },
+      usage: { type: 'held', hands: 'one' },
+    },
   },
   [ItemFixture.RuneArmor]: {
     kind: ContentKind.Armor,

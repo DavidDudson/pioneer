@@ -56,6 +56,17 @@ describe('equippedInputs', () => {
     });
   });
 
+  test('a weapon whose name just fits a source slug keeps it whole; a second of it is cut short to tell apart', () => {
+    const inputs = equippedInputs(
+      carrying([ItemFixture.LongSword, ONE_HANDED], [ItemFixture.LongSword, ONE_HANDED]),
+      content,
+    );
+    const [first, second] = inputs.weapons.map(({ slug }) => slug);
+    expect(first).toBe(Slug.parse(ItemFixture.LongSword));
+    // Cut to leave room for a count, less the hyphen the cut ends on; free as it is, it needs no count.
+    expect(second).toBe(Slug.parse(ItemFixture.LongSword.slice(0, 59)));
+  });
+
   test('each held weapon is a Strike, the same weapon twice told apart', () => {
     const inputs = equippedInputs(
       carrying([ItemFixture.Longsword, ONE_HANDED], [ItemFixture.Longsword, ONE_HANDED]),
