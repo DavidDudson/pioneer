@@ -1,0 +1,131 @@
+[
+  {
+    "id": "fe788f76-f8db-5863-9455-45aea77a5cd9",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:apex",
+    "name": "Apex",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["armor", "equipment", "shield", "weapon"]
+    }
+  },
+  {
+    "id": "e947b745-a347-5c90-b210-d7d9dc46ceb9",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:class",
+    "name": "Class",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "class-feature", "feat"]
+    }
+  },
+  {
+    "id": "e0c7491d-7531-534c-bbd2-d9d388fcb352",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:fungus",
+    "name": "Fungus",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "class-feature",
+        "condition",
+        "consumable",
+        "creature",
+        "effect",
+        "feat",
+        "heritage",
+        "ritual",
+        "spell",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "e9fbb582-0290-546b-a6fd-17d45a8b5a30",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:mythic",
+    "name": "Mythic",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "armor",
+        "class-feature",
+        "condition",
+        "consumable",
+        "creature",
+        "effect",
+        "equipment",
+        "feat",
+        "heritage",
+        "ritual",
+        "shield",
+        "spell",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "7161d4fb-96e2-5842-bd61-5574ab319dff",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:oath",
+    "name": "Oath",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "class-feature", "feat"]
+    }
+  }
+]

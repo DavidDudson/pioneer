@@ -1,0 +1,3060 @@
+[
+  {
+    "id": "49be3704-378c-5044-a767-6d6d0a06eced",
+    "pack": "divine-mysteries",
+    "kind": "effect",
+    "slug": "effect:effect-call-upon-razmirs-benevolence",
+    "name": "Effect: Call Upon Razmir's Benevolence",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "86a5abb0-03ff-5694-a6c6-dcfccb62724a"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a number of temporary Hit Points equal to twice the origin's level."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.iOBkeWz0gTzplbXJ"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 24,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "129b46b6-7a1e-5ab5-a7a6-dc34edcdcb5f",
+    "pack": "divine-mysteries",
+    "kind": "effect",
+    "slug": "effect:effect-consult-the-spirits",
+    "name": "Effect: Consult the Spirits",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "cf1e4aa2-a16f-55ba-b139-fc2b64de614b",
+            "label": "Consult the Spirits"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus with a chosen skill."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "08a74b86-56a5-585d-b549-35894d502db7",
+        "predicate": ["feat:emboldened-with-glorious-purpose"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.sEv8H8PrMd0C3wJ7"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "day",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "0c8eb3c8-750d-5a46-ac23-b2ad4cb7d362",
+    "pack": "divine-mysteries",
+    "kind": "effect",
+    "slug": "effect:effect-curse-of-inevitable-rot",
+    "name": "Effect: Curse of Inevitable Rot",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "9dc864e7-6f49-56d7-862d-b36de6f50cc8"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a status penalty when attempting to Treat Disease, Poison, or Wounds on the target."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.8YjmPizeglw83W9E"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "10b191fe-09ef-51bb-9b68-55dbfb918ada",
+    "pack": "divine-mysteries",
+    "kind": "effect",
+    "slug": "effect:effect-declare-anathema",
+    "name": "Effect: Declare Anathema",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "3c866b3b-a25f-55cc-b8f1-92801f27eb8e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain weakness 10 to spirit damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.gyfPLgqeIgW7fYD0"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "08a74b86-56a5-585d-b549-35894d502db7",
+    "pack": "divine-mysteries",
+    "kind": "effect",
+    "slug": "effect:effect-emboldened-with-glorious-purpose",
+    "name": "Effect: Emboldened with Glorious Purpose",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "e4237f86-488d-5628-8a67-b0f1ddc96f70"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to Will saving throws. This bonus increases to +2 against emotion and fear effects."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.ZNpDvK1r9B8d7aZp"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "day",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "963ae779-6771-5e53-a0a5-668aa2ee79ca",
+    "pack": "divine-mysteries",
+    "kind": "effect",
+    "slug": "effect:effect-empowered-onslaught",
+    "name": "Effect: Empowered Onslaught",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "2047646d-102f-5aea-b61f-09b1c5b3628a"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The chosen battle aura's status bonus or penalty increases by 1, to a maximum of 4."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.ik5QuOpF0IO275Nm"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      },
+      "badge": {
+        "type": "counter",
+        "value": 1,
+        "max": 3
+      }
+    }
+  },
+  {
+    "id": "c5967b66-33ae-58ce-aeb3-30c0b51f9697",
+    "pack": "divine-mysteries",
+    "kind": "effect",
+    "slug": "effect:effect-enforce-oath",
+    "name": "Effect: Enforce Oath",
+    "level": 6,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "d06cbfc2-b27f-5a52-92d8-16e994de601a"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to AC and saves against attacks and effects by the chosen creature. You also gain a +1 status bonus to attack rolls against the chosen creature."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You also take a –1 status penalty to AC, attack rolls, and saves against all other creatures until you stop Enforcing your Oath."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustModifier",
+        "selectors": ["ac", "saving-throw"],
+        "slug": "enforce-oath-defense",
+        "mode": "upgrade",
+        "value": 1,
+        "predicate": ["origin:mark:enforce-oath"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.LF8xzzFsFJKxejqv"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "31fb8a06-97ec-5a96-90a3-5b2947025fc2",
+    "pack": "divine-mysteries",
+    "kind": "effect",
+    "slug": "effect:effect-enter-spirit-trance",
+    "name": "Effect: Enter Spirit Trance",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "81aa3ccc-cd6e-5c91-b959-fe848a771f99"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain temporary Hit Points equal to your level plus your Constitution modifier, a +1 status bonus to Fortitude and Will saving throws, and your melee Strikes deal 1 additional spirit damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.2O1MmFvLdGZodvVc"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "b7338779-82c3-5a07-9d2b-8f772ae0644d",
+    "pack": "divine-mysteries",
+    "kind": "effect",
+    "slug": "effect:effect-familiar-of-bolstering-aid",
+    "name": "Effect: Familiar of Bolstering Aid",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "387e7521-ea40-5da9-ad0f-f923181a1e07"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 status bonus to the next non-attack skill check you attempt."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.IgLMAwovQ9roTsRN"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "31370cd2-47c6-55ca-9cd7-1ef17dcd65fc",
+    "pack": "divine-mysteries",
+    "kind": "effect",
+    "slug": "effect:effect-guiding-words",
+    "name": "Effect: Guiding Words",
+    "level": 18,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "c5c3233b-463e-538d-b76c-9ecf5a7c9d14"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Roll twice and use the better result on your first attack roll."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.9hIzh4UvjSTyYBby"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "3ce06446-7756-5190-a930-c500a3719588",
+    "pack": "divine-mysteries",
+    "kind": "effect",
+    "slug": "effect:effect-harbingers-armament",
+    "name": "Effect: Harbinger's Armament",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "0679a8af-b465-541e-a84b-fa276314f249"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Select one weapon or "
+          },
+          {
+            "type": "text",
+            "text": "handwraps of mighty blows",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". It gains the effect of one property rune. Choose either "
+          },
+          {
+            "type": "text",
+            "text": "fearsome,",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "ghost touch",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "text",
+            "text": "returning",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "text",
+            "text": "shifting",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "text",
+            "text": "vitalizing",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you have "
+          },
+          {
+            "type": "ref",
+            "id": "38e5246f-e796-5b44-bb31-6b30c926c193"
+          },
+          {
+            "type": "text",
+            "text": ", add "
+          },
+          {
+            "type": "text",
+            "text": "brilliant",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "text",
+            "text": "corrosive",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "text",
+            "text": "flaming",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "text",
+            "text": "frost",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "text",
+            "text": "holy",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "text",
+            "text": "shock",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "text",
+            "text": "thundering",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "text",
+            "text": "unholy",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "rune",
+        "choices": [
+          {
+            "value": "brilliant",
+            "label": "Brilliant",
+            "predicate": ["feat:greater-armament"]
+          },
+          {
+            "value": "corrosive",
+            "label": "Corrosive",
+            "predicate": ["feat:greater-armament"]
+          },
+          {
+            "value": "fearsome",
+            "label": "Fearsome"
+          },
+          {
+            "value": "flaming",
+            "label": "Flaming",
+            "predicate": ["feat:greater-armament"]
+          },
+          {
+            "value": "frost",
+            "label": "Frost",
+            "predicate": ["feat:greater-armament"]
+          },
+          {
+            "value": "ghost-touch",
+            "label": "Ghost Touch"
+          },
+          {
+            "value": "holy",
+            "label": "Holy",
+            "predicate": ["feat:greater-armament"]
+          },
+          {
+            "value": "returning",
+            "label": "Returning"
+          },
+          {
+            "value": "shifting",
+            "label": "Shifting"
+          },
+          {
+            "value": "shock",
+            "label": "Shock",
+            "predicate": ["feat:greater-armament"]
+          },
+          {
+            "value": "thundering",
+            "label": "Thundering",
+            "predicate": ["feat:greater-armament"]
+          },
+          {
+            "value": "unholy",
+            "label": "Unholy",
+            "predicate": ["feat:greater-armament"]
+          },
+          {
+            "value": "disrupting",
+            "label": "Vitalizing"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.WqjTa5mnBnBFRxqu"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "day",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "df4077a2-0612-5a1c-95dd-d1ee3fbb2218",
+    "pack": "divine-mysteries",
+    "kind": "effect",
+    "slug": "effect:effect-healing-sanctuary",
+    "name": "Effect: Healing Sanctuary",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "376a1dd3-8566-5e27-bc74-078740b0c34a"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain 10 temporary Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.QKpx9S3JeIMeqFnw"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "e9897344-4a55-5b5c-becd-2bd4063ef742",
+    "pack": "divine-mysteries",
+    "kind": "effect",
+    "slug": "effect:effect-heralds-weapon",
+    "name": "Effect: Herald's Weapon",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "71fd9b9d-7909-5a49-a955-fba3a4c841cf"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your chosen weapon or unarmed attack deals spirit damage instead of its regular damage, it gains the sanctified trait, and deals an additional 2d4 spirit damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.qcmJGJEKHhqOhQh4"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "f40ef1c0-c020-5a69-bda7-6d5729d8b28e",
+    "pack": "divine-mysteries",
+    "kind": "effect",
+    "slug": "effect:effect-invoke-defense",
+    "name": "Effect: Invoke Defense",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "e05d01b2-238a-55f9-b777-7f5672f4e326"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose bludgeoning, piercing, or slashing. You gain resistance equal to half your level to that damage type."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "resistance",
+        "choices": [
+          {
+            "value": "bludgeoning",
+            "label": "Bludgeoning"
+          },
+          {
+            "value": "piercing",
+            "label": "Piercing"
+          },
+          {
+            "value": "slashing",
+            "label": "Slashing"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.32QaXCRgU5l5lMIa"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "409b984a-47b5-51d7-ad85-4ab15c9ee1f5",
+    "pack": "divine-mysteries",
+    "kind": "effect",
+    "slug": "effect:effect-invoke-movement",
+    "name": "Effect: Invoke Movement",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "9e2d09b2-eee4-51c1-8365-97fa6c61faa0"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a burrow, climb, fly or swim speed equal to your Speed (or half your Speed if you selected burrow)."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "speed",
+        "choices": [
+          {
+            "value": "burrow",
+            "label": "Burrow"
+          },
+          {
+            "value": "climb",
+            "label": "Climb"
+          },
+          {
+            "value": "fly",
+            "label": "Fly"
+          },
+          {
+            "value": "swim",
+            "label": "Swim"
+          }
+        ],
+        "prompt": "Select a movement type.",
+        "rollOption": "invoke-movement"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.iN7j0d5LE7OwZlAo"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "b1d5874e-9ec8-5d8b-b3dc-2a1eefd7fc8a",
+    "pack": "divine-mysteries",
+    "kind": "effect",
+    "slug": "effect:effect-invoke-offense",
+    "name": "Effect: Invoke Offense",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "b32ea050-a5be-5d42-9e88-1a0f8db11a8e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain an unarmed attack that deals 1d8 spirit damage for the duration of your spirit trance.This unarmed attack is in the brawling weapon group and has the agile, finesse, and magical traits."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At 5th level, this unarmed attack gains the benefits of a striking rune. At 12th level, this unarmed attack gains the benefits of a greater striking rune. At 20th level, this unarmed attack gains the benefits of a major striking rune."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.0h6dhuMU0fOr1OS5"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "4a70a189-3434-5884-8af2-0fba10952e66",
+    "pack": "divine-mysteries",
+    "kind": "effect",
+    "slug": "effect:effect-marked-for-rebuke",
+    "name": "Effect: Marked for Rebuke",
+    "level": 18,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "c371271a-22a6-53ab-810b-ed0b49992407"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain weakness 10 to all damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.mNc42XjBVlxcr9k8"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "64c30f99-401d-5724-b3de-4893069e9a11",
+    "pack": "divine-mysteries",
+    "kind": "effect",
+    "slug": "effect:effect-oath-of-the-defender",
+    "name": "Effect: Oath of the Defender",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "3a5ba6f2-d449-5d3c-917e-6930f4445651"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance to damage dealt by creatures with the chosen trait."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.nBQZdTtwNLJ70J6C"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "8b50b414-fca1-59c0-b4b3-2dccbcdbe7d9",
+    "pack": "divine-mysteries",
+    "kind": "effect",
+    "slug": "effect:effect-one-with-the-spirits",
+    "name": "Effect: One with the Spirits",
+    "level": 16,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "ab3777b0-6fbd-5367-b4eb-fcffd2385b8e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain fast healing 5 and you become concealed. Your Strikes gain the benefits of a "
+          },
+          {
+            "type": "text",
+            "text": "ghost touch",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " property rune. Whenever you deal damage with a Strike, you can choose to have that Strike deal spirit damage, rather than its usual damage type."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "f410da96-b56a-5c7c-857b-7096defec0a1"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.WUvjLX4ieyISdNbr"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "1dad6a12-77fa-50a0-9ada-f2eeab26b068",
+    "pack": "divine-mysteries",
+    "kind": "effect",
+    "slug": "effect:effect-pale-horse",
+    "name": "Effect: Pale Horse",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "cc2c1dca-9340-56e8-9c43-16ff676aad21"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance 10 to fire, poison, or void damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "resistance",
+        "choices": [
+          {
+            "value": "fire",
+            "label": "Fire"
+          },
+          {
+            "value": "poison",
+            "label": "Poison"
+          },
+          {
+            "value": "void",
+            "label": "Void"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.21P9Xc6DslCjfq0Y"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "8609e362-b9f5-5fb6-bd1f-a483b38536d4",
+    "pack": "divine-mysteries",
+    "kind": "effect",
+    "slug": "effect:effect-shield-the-faithful",
+    "name": "Effect: Shield the Faithful",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "e4d35743-698e-54d0-98b1-5470719822a9"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 item bonus to AC and resistance to spirit damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.JMkGtyRU4bTSL2sB"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "0d1d0581-08a7-59c6-8709-a1eb4ed20766",
+    "pack": "divine-mysteries",
+    "kind": "effect",
+    "slug": "effect:spell-effect-adapt-self",
+    "name": "Spell Effect: Adapt Self",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "6d63d647-5ed8-53d9-aab0-e788acd39700"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain one of the following options:"
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A Swim Speed equal to half your Speed."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Darkvision"
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb",
+        "predicate": ["adapt-self:darkvision"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.kTFIq6FOziSP2D3e"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "38e9579b-607d-59cb-8c7d-c1103ab1bbcb",
+    "pack": "divine-mysteries",
+    "kind": "effect",
+    "slug": "effect:spell-effect-adaptive-ablation",
+    "name": "Spell Effect: Adaptive Ablation",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "eed08fc7-a963-54c4-af3b-6775aa381a8c"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance the triggering energy type; you gain this resistance after you take the triggering damage, so it applies only to future damage you take during the duration."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.6GAztnHuQSwAp1k1"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "434a5d75-7de1-549a-a932-52868a9c1244",
+    "pack": "divine-mysteries",
+    "kind": "effect",
+    "slug": "effect:spell-effect-anticipate-peril",
+    "name": "Spell Effect: Anticipate Peril",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "558fee2f-c337-5e8b-80c0-644cc8557521"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a status bonus to your next initiative roll."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.4ag0OHKfjROmR4Pm"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "53921b4d-7aa6-5b8f-b1b3-00f084973b07",
+    "pack": "divine-mysteries",
+    "kind": "effect",
+    "slug": "effect:spell-effect-ash-form",
+    "name": "Spell Effect: Ash Form",
+    "level": 6,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "49a86606-b67b-5d69-91e2-5eadc485cfdd"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain fast healing 3, resistance to piercing and slashing damage, and immunity to bleed, falling damage, and precision damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["piercing", "slashing"],
+        "value": "ternary(gte(@item.level, 9), 15, 10)"
+      },
+      {
+        "key": "Immunity",
+        "type": ["bleed", "precision"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.zPPZz6lcp87ALUde"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "ef0b7069-aa54-5e2a-9c30-beeadcd9d6ff",
+    "pack": "divine-mysteries",
+    "kind": "effect",
+    "slug": "effect:spell-effect-benediction",
+    "name": "Spell Effect: Benediction",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "9b65fa23-c28b-566c-8c3f-b586b9100979"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You and your allies gain a +1 status bonus to AC while within the emanation. Once per round on subsequent turns, you can Sustain the spell to increase the emanation's radius by 10 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.GogALNdgQ7Fn5oMG"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      },
+      "badge": {
+        "type": "counter",
+        "value": 1,
+        "labels": ["15 ft.", "25 ft.", "35 ft.", "45 ft.", "55 ft.", "65 ft.", "75 ft.", "85 ft.", "95 ft.", "105 ft."],
+        "loop": false
+      }
+    }
+  },
+  {
+    "id": "d1b90d2c-f030-5f08-ae6a-eb7d8eabc7c5",
+    "pack": "divine-mysteries",
+    "kind": "effect",
+    "slug": "effect:spell-effect-charged-javelin",
+    "name": "Spell Effect: Charged Javelin",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "fa94ca47-17fe-547e-aa5d-c1aad7adc33d"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Others gain a +1 status bonus to attack rolls with metal weapons or electricity effects against you, and you take a -1 status penalty to saves against electricity effects."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.QrigfqVwBCGPylth"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "f2567e07-2ed6-5587-931f-aac2c8bbb4c6",
+    "pack": "divine-mysteries",
+    "kind": "effect",
+    "slug": "effect:spell-effect-charged-javelin-attacker",
+    "name": "Spell Effect: Charged Javelin (Attacker)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "fa94ca47-17fe-547e-aa5d-c1aad7adc33d"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to attack rolls with metal weapons or electricity effects against the origin."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.aNomC4orI44YGBGU"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "ea3de4d3-e7e6-51f1-ae08-29e278e7f540",
+    "pack": "divine-mysteries",
+    "kind": "effect",
+    "slug": "effect:spell-effect-cloak-of-light",
+    "name": "Spell Effect: Cloak of Light",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "c159a135-ae15-515d-9ac2-8bc01c3440e7"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You glow with bright light in a 30-foot radius and dim light to the next 30 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.eRRiss7y7TsneiEu"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start",
+        "sustained": true
+      }
+    }
+  },
+  {
+    "id": "ffdd956c-7853-5029-9d48-ea159f74ba5a",
+    "pack": "divine-mysteries",
+    "kind": "effect",
+    "slug": "effect:spell-effect-draconic-barrage",
+    "name": "Spell Effect: Draconic Barrage",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "b45266c6-2c1d-5c71-81b7-ca193b2079b8"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your Strikes with weapons or unarmed attacks deal additional damage of the chosen type."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.iXQCXCMiiJ8WV6K7"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start",
+        "sustained": true
+      }
+    }
+  },
+  {
+    "id": "b9a42f2c-38d1-5238-b89d-e9b3765e0437",
+    "pack": "divine-mysteries",
+    "kind": "effect",
+    "slug": "effect:spell-effect-dutiful-challenge",
+    "name": "Spell Effect: Dutiful Challenge",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "acf591a7-ea87-5a47-8f6e-4ba38adfd3f1"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a -1 status penalty to attack rolls, damage rolls, and skill checks against creatures other than the marked creature."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.UH2sT6eW5e31Xytd"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "8d127578-76a6-56c9-979c-53e6299a9165",
+    "pack": "divine-mysteries",
+    "kind": "effect",
+    "slug": "effect:spell-effect-endure",
+    "name": "Spell Effect: Endure",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "116b853e-5340-5bb3-9e60-b3195e7bcd58"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain temporary Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.AAypmg9Jz6Ysf02a"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "240bfe18-7e25-5b8b-aaa2-cf2c8b9eff1e",
+    "pack": "divine-mysteries",
+    "kind": "effect",
+    "slug": "effect:spell-effect-entreat-spirit",
+    "name": "Spell Effect: Entreat Spirit",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "1aada801-0414-5347-8bf2-fea7717aa760"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a status bonus to an Intelligence-, Wisdom-, or Charisma-based skill, and to saving throws against curse, death, emotion, and fear effects."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "skill",
+        "choices": [
+          {
+            "value": "arcana",
+            "label": "Arcana"
+          },
+          {
+            "value": "crafting",
+            "label": "Crafting"
+          },
+          {
+            "value": "deception",
+            "label": "Deception"
+          },
+          {
+            "value": "diplomacy",
+            "label": "Diplomacy"
+          },
+          {
+            "value": "intimidation",
+            "label": "Intimidation"
+          },
+          {
+            "value": "lore-skill-check",
+            "label": "Lore"
+          },
+          {
+            "value": "medicine",
+            "label": "Medicine"
+          },
+          {
+            "value": "nature",
+            "label": "Nature"
+          },
+          {
+            "value": "occultism",
+            "label": "Occultism"
+          },
+          {
+            "value": "performance",
+            "label": "Performance"
+          },
+          {
+            "value": "religion",
+            "label": "Religion"
+          },
+          {
+            "value": "society",
+            "label": "Society"
+          },
+          {
+            "value": "survival",
+            "label": "Survival"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.Fms3IfhXqHiKAxlC"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "64f0e051-60dd-5c2e-8e9b-c2c9a16e868f",
+    "pack": "divine-mysteries",
+    "kind": "effect",
+    "slug": "effect:spell-effect-font-of-serenity",
+    "name": "Spell Effect: Font of Serenity",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "bdc6139a-06d5-5850-a9fb-7f3fa7923d35"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a status bonus to saving throws against emotion effects."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.Bc2Bwuan3716eAyY"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "7ebdc957-acb8-5147-bbca-ddf589f2a844",
+    "pack": "divine-mysteries",
+    "kind": "effect",
+    "slug": "effect:spell-effect-guided-introspection",
+    "name": "Spell Effect: Guided Introspection",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "28ac3db5-5dd9-5790-b9c3-b3b930b33bd0"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a status bonus to saving throws against emotion and fear."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.Me470HI6inX3Bovh"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "56d00dd9-7d27-5680-9811-dc8877fd2139",
+    "pack": "divine-mysteries",
+    "kind": "effect",
+    "slug": "effect:spell-effect-incendiary-ashes-failure",
+    "name": "Spell Effect: Incendiary Ashes (Failure)",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "d7d712c6-240c-5452-9452-7e38c2d24be4"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have weakness to fire."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.TrmNSuv6zWEiceqn"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "f07150aa-aa8a-51e8-894f-864d007c1e58",
+    "pack": "divine-mysteries",
+    "kind": "effect",
+    "slug": "effect:spell-effect-incendiary-ashes-success",
+    "name": "Spell Effect: Incendiary Ashes (Success)",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "d7d712c6-240c-5452-9452-7e38c2d24be4"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have weakness to fire."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.4dnt1P2SfcePzkrF"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "0d6cede6-d848-5a01-89f6-4a825961c35a",
+    "pack": "divine-mysteries",
+    "kind": "effect",
+    "slug": "effect:spell-effect-lift-natures-caul-bonus",
+    "name": "Spell Effect: Lift Nature's Caul (Bonus)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "abcfad42-b125-53dc-8199-dea867d5d5d0"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to Will saving throws and attack rolls."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.ihv1azg80N3kj7Vo"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "b1499f9a-3ccf-5556-bea8-d8e910256829",
+    "pack": "divine-mysteries",
+    "kind": "effect",
+    "slug": "effect:spell-effect-malediction",
+    "name": "Spell Effect: Malediction",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "71e730ef-f978-5eb4-85c5-dde04c877d0e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a -1 status penalty to AC."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.1jX8W0eyMPJ0MFKY"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "d1145749-b850-58b0-8198-279dd5915fc1",
+    "pack": "divine-mysteries",
+    "kind": "effect",
+    "slug": "effect:spell-effect-object-memory-weapon",
+    "name": "Spell Effect: Object Memory (Weapon)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "da1e6e56-3356-50a2-ab13-d2c73f1a7302"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your proficiency rank with a chosen weapon temporarily increases to trained (if it is not already higher)."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (6th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your proficiency rank increases to expert instead of trained."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.uDOxq24S7IT2EcXv"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "c4d541d6-75c3-57eb-942b-240eec1ab693",
+    "pack": "divine-mysteries",
+    "kind": "effect",
+    "slug": "effect:spell-effect-pact-broker",
+    "name": "Spell Effect: Pact Broker",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "fb7ca4ab-0f10-53be-8aab-12ff3d5b0bdc"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a penalty to attack and damage rolls against the origin and their allies."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.vFZ7hG2j2DIQGkXg"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "1376b30b-a00c-5b9f-acfa-9cf1b9c3b916",
+    "pack": "divine-mysteries",
+    "kind": "effect",
+    "slug": "effect:spell-effect-penumbral-disguise",
+    "name": "Spell Effect: Penumbral Disguise",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "ecead881-571b-5a1e-936b-0d9247b954f2"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a status bonus to Stealth checks to Hide while in dim light or darkness."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.mAofA4oy3cRdT71K"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "c8073561-363f-5e24-a367-b8259bc073ef",
+    "pack": "divine-mysteries",
+    "kind": "effect",
+    "slug": "effect:spell-effect-repel-metal",
+    "name": "Spell Effect: Repel Metal",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "0960f923-2af4-56b3-ba99-4e5cdd31455e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 circumstance bonus to AC against the triggering attack."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.vhFnQBvguBXo6vxx"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "28de7846-cf3b-5894-9e16-a1c18abe4ff6",
+    "pack": "divine-mysteries",
+    "kind": "effect",
+    "slug": "effect:spell-effect-roar-of-the-dragon",
+    "name": "Spell Effect: Roar of the Dragon",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "31fde142-7eab-5bdf-b194-f117e2a65994"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 circumstance bonus to Diplomacy checks for 10 minutes against dragons that were in the area at the time of casting."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.0s6YaL3IjqECmjab"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "2b6d3b95-9c35-5b20-b02a-46d8464f5621",
+    "pack": "divine-mysteries",
+    "kind": "effect",
+    "slug": "effect:spell-effect-serrate",
+    "name": "Spell Effect: Serrate",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "b9dc1b38-528a-5ae3-9a28-f6ef406f89ed"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Strikes with the target weapon deal additional slashing damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.CDNKDV3UsAp95D1m"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "95b9c5cb-9fda-5c9a-8e66-80ab7097be3c",
+    "pack": "divine-mysteries",
+    "kind": "effect",
+    "slug": "effect:spell-effect-share-vision",
+    "name": "Spell Effect: Share Vision",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "a3471153-95c6-5f66-b31d-d3cec00bcc5e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 status bonus to Perception checks."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.eQzFYXLYPrGc9EBI"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "6acec7f7-e787-513e-a8d5-51446dca9a32",
+    "pack": "divine-mysteries",
+    "kind": "effect",
+    "slug": "effect:spell-effect-swear-oath",
+    "name": "Spell Effect: Swear Oath",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "3bd195eb-c9b3-52c1-95f6-b2d620267ad2"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to the readied attack roll or skill check."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.GcEFca6I8f5Y06z7"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "ed839327-4888-5545-af22-411f5fecb151",
+    "pack": "divine-mysteries",
+    "kind": "effect",
+    "slug": "effect:spell-effect-trade-death-for-life",
+    "name": "Spell Effect: Trade Death for Life",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "68a6db73-d656-5528-8a8e-93a52eee5d23"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain fast healing equal to the rank of the spell."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.oNAqqcxPjzPCJJmW"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start",
+        "sustained": true
+      }
+    }
+  },
+  {
+    "id": "e7220608-fb77-5a0c-b3be-b545e86916ff",
+    "pack": "divine-mysteries",
+    "kind": "effect",
+    "slug": "effect:stance-divine-presence",
+    "name": "Stance: Divine Presence",
+    "level": 18,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "39aa9693-091d-52c9-abdf-7ba8c9408ab2"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have a 5-foot emanation that has the aura trait. You can Sustain the emanation to increase its radius by 5 feet, up to a maximum of 15 feet."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An enemy that ends its turn completely within the emanation is Off-Guard to your Strikes."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.rOKA405aECklgq42"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      },
+      "badge": {
+        "type": "counter",
+        "value": 1,
+        "labels": ["5 ft.", "10 ft.", "15 ft."],
+        "loop": false
+      }
+    }
+  }
+]

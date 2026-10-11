@@ -1,7 +1,7 @@
 import { ContentId, contentId, EntrySlug } from '@pioneer/rules/sdk';
 import type { ContentKind, PackId } from '@pioneer/rules/sdk';
 
-import { documentKind } from './entry-slugs';
+import { documentKind, entrySlugOf } from './entry-slugs';
 import type { FoundryItemType } from './foundry-document';
 import { asciiSlug } from './foundry-slug';
 import type { SelectedEntry } from './select-entries';
@@ -72,19 +72,34 @@ function kindOf({ entry, id }: Addressed): [ContentId, ContentKind] {
 }
 
 /**
+ * The documents of other registered books (`others`) whose entry slug a known entry has, under that entry's id: a
+ * Divine Mysteries deity's Player Core spells.
+ */
+function knownDocuments(others: readonly SelectedEntry[], known: readonly KnownEntry[]): Addressed[] {
+  const byKnownSlug = new Map(known.map(({ slug, id }) => [String(slug), id] as const));
+  return others.flatMap((entry) => {
+    const slug = EntrySlug.safeParse(entrySlugOf(entry));
+    const id = slug.success ? byKnownSlug.get(slug.data) : undefined;
+    return slug.success && id !== undefined ? [{ entry, slug: slug.data, id }] : [];
+  });
+}
+
+/**
  * The index for one import: each selected document under its compendium UUIDs and Foundry slug, given the slug it
- * was assigned (`entrySlugs`), and the kind of each known entry. Only documents resolve by UUID or slug; a reference to another pack's entry does
- * not resolve yet. A document whose slug is not a Pioneer slug
- * has no id and is left out; translation reports it.
+ * was assigned (`entrySlugs`), and the kind of each known entry. A document of another registered book (`others`)
+ * resolves by UUID to the known entry with its entry slug, as the import of its book gave it; one of the import wins
+ * a UUID both name. A document whose slug is not a Pioneer slug has no id and is left out; translation reports it.
  */
 export function entryReferences(
   pack: PackId,
   slugs: ReadonlyMap<SelectedEntry, string>,
   known: readonly KnownEntry[],
+  others: readonly SelectedEntry[] = [],
 ): EntryReferences {
   const documents = addressed(pack, slugs);
+  const elsewhere = knownDocuments(others, known);
   return {
-    byUuid: new Map(documents.flatMap((each) => uuidsOf(each))),
+    byUuid: new Map([...elsewhere, ...documents].flatMap((each) => uuidsOf(each))),
     byFoundrySlug: new Map(documents.map(({ entry, id }) => [typedKey(entry.type, asciiSlug(entry.document)), id])),
     kinds: new Map([...documents.map((each) => kindOf(each)), ...known.map(({ id, kind }) => [id, kind] as const)]),
     bySlug: new Map([

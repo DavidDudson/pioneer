@@ -1,0 +1,6978 @@
+[
+  {
+    "id": "0a09082c-cfbd-5600-b44a-8baccd4ea1ba",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:advanced-domain-spirit",
+    "name": "Advanced Domain Spirit",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your connection with your domain spirit has deepened. You gain the advanced domain spell from the domain granted by your domain spirit."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.053lglnu0gsC6S2N"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Domain Spirit"
+            }
+          ]
+        }
+      ],
+      "archetype": "a551e35f-bca4-5ba6-a479-bdd1e0b56aaf"
+    }
+  },
+  {
+    "id": "17887ffa-6960-5c35-8806-4c2d94246de4",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:aura-enhancement",
+    "name": "Aura Enhancement",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've enhanced your training with your battle magic, allowing you access to a more potent divine font. Add "
+          },
+          {
+            "type": "ref",
+            "id": "9b65fa23-c28b-566c-8c3f-b586b9100979"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "71e730ef-f978-5eb4-85c5-dde04c877d0e"
+          },
+          {
+            "type": "text",
+            "text": " to the spells you can prepare with your additional slots from your divine font. These spells are also battle auras."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.o1Bj8xvco9MtBVkl"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Battle Harbinger Dedication"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "732a9ffd-713e-56f4-9bb3-fcd2e144972c",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:aura-expertise",
+    "name": "Aura Expertise",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your turn begins."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've become so accustomed to maintaining your battle auras that it's become second nature to you. You immediately gain the effects of the Sustain action for one of your battle auras."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.SCplu0Ewfkf0W3xZ"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Battle Harbinger Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "free",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Your turn begins."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "9b42132b-dfbe-5e50-87b0-0e42d68984c6",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:basic-rivethun-spellcasting",
+    "name": "Basic Rivethun Spellcasting",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain the Basic Spellcasting Benefits. Each time you gain a spell slot of a new rank from the Rivethun involutionist archetype, add a common divine spell of the appropriate rank, another appropriate divine spell you learned or discovered, or any other divine spell to which you have access, to your repertoire."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.vqSLlUdEvkAPJIQM"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Rivethun Involutionist Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "7f98003d-0b5e-513a-9cda-42f8cff955e8"
+    }
+  },
+  {
+    "id": "bdacee24-4321-5d51-abe4-aba27a68215a",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:battle-harbinger-dedication",
+    "name": "Battle Harbinger Dedication",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["archetype", "class", "dedication"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have trained extensively in combat, battlefield tactics, and stamina, focusing on being an exceptional warrior for your faith in exchange for less time studying the traditional spells and scriptures. You become trained in your choice of Athletics or Acrobatics, if you are already trained in both skills, you instead become trained in another skill of your choice. You gain the Toughness general feat. If you already have this feat, you gain another general feat of your choice."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Battle Harbinger (Class Archetype)"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "d21fd9b4-22f0-5dd9-980e-fd02482e0bcf"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.K7YK5ESDoreohCe8"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "battle creed"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "3a794615-ae99-5b00-bebc-3fc7fdf5be70",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:celestial-form",
+    "name": "Celestial Form",
+    "level": 18,
+    "rarity": "common",
+    "traits": ["champion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take on a celestial countenance, gaining the features of a type of celestial who serves your deity; for example, as an angel, you gain a halo and feathery wings. You gain a fly Speed equal to your Speed. You gain darkvision if you don't already have it, and you gain the celestial trait and the trait appropriate to the type of servitor you've become (archon, angel, or azata, for example)."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.yTqKHRz2Jv8KiXve"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "holy"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "d30fbce9-e211-52ad-9c37-3ea690dcaf31",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:challenge-insight",
+    "name": "Challenge Insight",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["archetype", "auditory"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature you can see Casts a Spell that is from the divine or occult tradition."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The triggering caster must be able to hear and understand you."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your deep grasp of the mystical lets you know exactly what to say to make others doubt how well they understand the source of their own power."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Attempt a counteract check against the triggering spell. Your counteract rank is half your level rounded up. You use your Occultism modifier as your counteract modifier if the triggering spell is from the occult tradition, or your Religion modifier if the triggering spell is from the divine tradition."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you successfully counteract the spell, the caster becomes Stupefied 1 until the end of their next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.bvyCaOChX3lwKUn8"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Palatine Detective Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "reaction",
+        "requirements": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The triggering caster must be able to hear and understand you."
+              }
+            ]
+          }
+        ],
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "A creature you can see Casts a Spell that is from the divine or occult tradition."
+              }
+            ]
+          }
+        ],
+        "frequency": {
+          "max": 1,
+          "per": "day"
+        }
+      }
+    }
+  },
+  {
+    "id": "ca1a92fd-402e-5935-82d9-b69b3a10687d",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:chastise",
+    "name": "Chastise",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["archetype", "concentrate", "sanctified"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "With but a mere word from your deity, you exploit a foe's fear to see their inner being brought low. You chastise the spirit of a foe within 30 feet that has the frightened condition. The target must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": {
+              "against": "class-or-spell-dc"
+            }
+          },
+          {
+            "type": "text",
+            "text": " saving throw against the higher of your class DC or spell DC. The target is then temporarily immune for 1 hour."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2",
+                "damageType": "spirit",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage. The first time the creature fails their flat check to recover from this, the persistent spirit damage doubles."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4",
+                "damageType": "spirit",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage. The first time the creature fails their flat check to recover from this, the persistent spirit damage doubles."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6",
+                "damageType": "spirit",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage. The first time the creature fails their flat check to recover from this, the persistent spirit damage doubles."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.m8g005RYjH7BAoyT"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Fear of God"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "two"
+      },
+      "archetype": "9d647c89-0686-5a25-921c-87078b3bc13a"
+    }
+  },
+  {
+    "id": "cf1e4aa2-a16f-55ba-b139-fc2b64de614b",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:consult-the-spirits-rivethun-emissary",
+    "name": "Consult the Spirits (Rivethun Emissary)",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["archetype", "exploration"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You spend 1 hour communing with powerful spirits of the world to gain insight, information, or advice. Select advice or answers."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you selected advice, choose a particular goal or activity you plan to engage in today, or an event you might expect to happen today. The spirits share with you a cryptic clue or piece of advice that could help with the chosen event, often in the form of a rhyme or omen."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you selected answers, ask two clear and concise questions. The spirits answer your questions. If the question is easy for the spirits to answer accurately, they answer clearly. Otherwise, they answer cryptically, often in the form of a rhyme or omen."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Regardless of your choice, the spirits additionally bless you, granting you a +1 status bonus with a skill that the spirits believe will be of use to you today. The GM selects this skill on behalf of the spirits. This bonus lasts until the end of the day."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "129b46b6-7a1e-5ab5-a7a6-dc34edcdcb5f"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.8cy4XIaSoL3UtpFq"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Rivethun Emissary Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "frequency": {
+          "max": 1,
+          "per": "day"
+        }
+      },
+      "archetype": "a551e35f-bca4-5ba6-a479-bdd1e0b56aaf"
+    }
+  },
+  {
+    "id": "afe84b24-4ac5-5c06-a542-6e9985ea1323",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:creed-magic",
+    "name": "Creed Magic",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've expanded your divine capabilities, granting you magic that better supports your combat focus. You gain two special 2nd-rank creed spell slots, which can be used to prepare Resist Energy, See the Unseen, Sure Strike, and Water Breathing as divine spells. At 10th level, the extra slots increase to 3rd rank and you add Haste and Heroism to the spells you can prepare in your creed spell slots. At 14th level, the extra slots increase to 4th rank and you add Fly and Unfettered Movement."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.hqasqwjrTzOFkDY3"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Battle Harbinger Dedication"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "bf981db0-f5b7-558c-adba-bdd1cebfad35",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:cursebreaker",
+    "name": "Cursebreaker",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["archetype", "concentrate", "healing", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Using various implements and esoteric methods, you can attempt to remove a curse from an unfortunate victim. It takes 10 minutes to perform these rites on a willing creature, who must remain within your reach the entire time."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Attempt to counteract one curse afflicting the creature; your counteract rank is half your level rounded up, and you use either your "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:occultism"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:religion"
+          },
+          {
+            "type": "text",
+            "text": " modifier as your counteract modifier. If the afflicted creature or the individual who placed the curse on the afflicted creature is the target of your active investigation through Pursue a Lead, you gain a +1 circumstance bonus to this counteract check."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If the curse comes from a cursed item or other external source, a success indicates that the target creature can rid itself of the cursed item, but it doesn't remove the curse from the item."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.f1gxSpqjYryc1yc4"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Palatine Detective Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "frequency": {
+          "max": 1,
+          "per": "day"
+        }
+      }
+    }
+  },
+  {
+    "id": "3c866b3b-a25f-55cc-b8f1-92801f27eb8e",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:declare-anathema",
+    "name": "Declare Anathema",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["archetype", "curse", "divine"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You declare a creature you are aware of within 30 feet anathema, causing their friends and strangers to shy away from them. Attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:religion"
+          },
+          {
+            "type": "text",
+            "text": " check against the target's Will DC."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Any creature that attempts to target the anathema creature with a beneficial effect must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 5
+          },
+          {
+            "type": "text",
+            "text": " or the action is disrupted. This curse remains until removed by Cleanse Affliction or a similar effect, or an atone ritual. In addition, the creature gains weakness 10 to spirit damage for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "10b191fe-09ef-51bb-9b68-55dbfb918ada"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As critical success, but the curse lasts for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As critical success, but the curse lasts for 1 round and the target doesn't gain weakness to spirit damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.7P5aKtFoPVJJPPEV"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Mortal Herald Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "two",
+        "frequency": {
+          "max": 1,
+          "per": "ten-minutes"
+        }
+      },
+      "archetype": "9d647c89-0686-5a25-921c-87078b3bc13a"
+    }
+  },
+  {
+    "id": "6c45c722-3ab6-5d85-a0db-ced96ff53dcc",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:defy-sorrow",
+    "name": "Defy Sorrow",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're dealt mental damage or spirit damage or you fail or critically fail a saving throw against a mental effect."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You draw on this spiritual pain to push your body to greater heights. You gain the Quickened condition until the end of your next turn. You can use the extra action only to Step or Stride."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.L9i3zTvw9htpyK6r"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Rivethun Invoker Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You're dealt mental damage or spirit damage or you fail or critically fail a saving throw against a mental effect."
+              }
+            ]
+          }
+        ]
+      },
+      "archetype": "81e1aa36-c4c5-5897-af13-6d4cf9faa6a1"
+    }
+  },
+  {
+    "id": "fbd5572b-5d74-55e8-ab30-a04d2316ffd2",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:deific-font",
+    "name": "Deific Font",
+    "level": 18,
+    "rarity": "common",
+    "traits": ["archetype", "divine"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your life force can fuel the stuff of miracles. You become Drained 1 or increase the value of your drained condition by 1 if you already have the drained condition. Before the end of your next turn, if you Cast a Spell of 4th rank or lower, you don't expend the spell's slot when you cast it, or if you cast a focus spell, it does not cost a Focus Point. The spell loses whatever tradition trait it would normally have and gains the divine trait."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.CjafX7d1XktxeyTa"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Mortal Herald Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "frequency": {
+          "max": 1,
+          "per": "hour"
+        }
+      },
+      "archetype": "9d647c89-0686-5a25-921c-87078b3bc13a"
+    }
+  },
+  {
+    "id": "06757ea4-75b7-5758-b810-97b799b487f6",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:dive-of-the-divine",
+    "name": "Dive of the Divine",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["archetype", "divine", "sanctified"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are at least 20 feet above the ground."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You dive from the sky, bringing down the might of the divine with you. You Fly straight down, landing safely in the nearest unoccupied space directly below you. When you land, all creatures in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": " take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(ternary(gte(@level,20),10,8))d10",
+                "damageType": "spirit"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": {
+              "against": "class-or-spell-dc"
+            },
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save against the higher of your class DC or spell DC). On a failure, the target is pushed 5 feet (or 10 feet on a critical failure)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At 20th level, the spirit damage increases to 10d10."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.Y5fO1ooNuCFPCB0s"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Mortal Herald Dedication; fly Speed of at least 20 feet"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "two",
+        "requirements": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are at least 20 feet above the ground."
+              }
+            ]
+          }
+        ]
+      },
+      "archetype": "9d647c89-0686-5a25-921c-87078b3bc13a"
+    }
+  },
+  {
+    "id": "39aa9693-091d-52c9-abdf-7ba8c9408ab2",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:divine-presence",
+    "name": "Divine Presence",
+    "level": 18,
+    "rarity": "common",
+    "traits": ["archetype", "concentrate", "divine", "stance"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your spirit becomes one with your deity, granting you the bearing of a god. As long as you are in this stance, you have a 5-foot emanation that has the aura trait. Whenever you take an action, you can take it from your space or any space within the emanation as if it were the space you occupy. An enemy that ends its turn completely within the emanation is Off-Guard to your Strikes. You can Sustain the emanation to increase its radius by 5 feet, up to a maximum of 15 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.2uYigDgvlfCZVg9e"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Mortal Herald Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "selfEffect": "e7220608-fb77-5a0c-b3be-b545e86916ff"
+      },
+      "archetype": "9d647c89-0686-5a25-921c-87078b3bc13a"
+    }
+  },
+  {
+    "id": "754a0181-1b7b-569f-8ad5-f5b845089c69",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:domain-embodiment",
+    "name": "Domain Embodiment",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your deity contains multitudes, and you can express any aspect of them you desire. During your daily preparations, you can gain two initial or advanced domain spells from any of your deity's domains or alternate domains. You can cast these as innate spells until your next daily preparations."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Domain spells are a type of focus spell. Casting any of your focus spells costs you 1 Focus Point. The maximum number of Focus Points in your pool is equal to the number of focus spells you know or 3, whichever is lower. You refill your focus pool during your daily preparations, and you can regain 1 Focus Point by spending 10 minutes using the Refocus activity to pray to your deity or do service toward their causes. Your domain spells are divine spells. If you were not already, you become trained in spell attacks and spell DCs. Your spellcasting attribute for domain spells is Wisdom."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.MLWizLC44RZ3bYAN"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Mortal Herald Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "9d647c89-0686-5a25-921c-87078b3bc13a"
+    }
+  },
+  {
+    "id": "7ab6f5fd-c0e5-599a-b40f-40990c1e0376",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:domain-spirit",
+    "name": "Domain Spirit",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["archetype", "concentrate", "exploration"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You forge an intense spiritual bond of mutual trust and appreciation with a single spirit that you have already bonded with using Bond with Spirit. Forming this bond takes 24 hours of communion, during which time you must remain within 30 feet of the creature or within that terrain. If the creature is intelligent, this also requires that creature's consent, and that intelligent creature can choose to sever this bond with you at any time as a free action, which has the concentrate trait. This spirit is your domain spirit. The bond between you and your domain spirit is not weakened by time or distance, but you can only maintain one such bond at a time, regardless of how many bonded spirits you can maintain."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Select one domain related to your domain spirit. You always have the option to select the healing or soul domain. If your spirit is a creature, select your domain from the following: ambition, confidence, family, might, protection, or trickery. If your spirit is a terrain, select your domain from the following: air, cities, darkness, earth, nature, travel, water, or wood. If your spirit has a trait that shares a name with a domain, you can add that domain to your list of available options. Your GM can choose to add domains to your list of available options, to represent your domain spirit's unique interests. The domain you select from among your available options must have a clear connection to your domain spirit. For example, if you bond with a fire elemental, you add the fire domain to the list of options available to you, but if you bond with a deserted tropical island, you can't select the cities domain, even though it's among the options usually available to terrain spirits. Your GM is the final arbiter of which domains you can select from. You gain the initial domain spell for that domain. This domain spell is a Rivethun focus spell."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can choose to bond with a new domain spirit, ending your bond with your current domain spirit and bonding with a different one, to change your selected domain. This process takes 24 hours and follows all the same requirements for forming a bond with your initial domain spirit. During this time of communion, you do not have access to your domain spells granted by your domain spirit. When this bond is formed with your new domain spirit, select one domain related to your new spirit, following the above rules for selecting a domain."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.DjRkD92AyHNMHOK8"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Rivethun Emissary Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "a551e35f-bca4-5ba6-a479-bdd1e0b56aaf"
+    }
+  },
+  {
+    "id": "34ad010e-53be-5d86-953b-7d972836f893",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:ease-the-burden",
+    "name": "Ease the Burden",
+    "level": 20,
+    "rarity": "common",
+    "traits": ["archetype", "healing"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You wash away a creature's pain with a touch. An adjacent creature regains "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "100"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " Hit Points and reduces their Drained, Clumsy, Enfeebled, Frightened, and Stupefied conditions by 1 (to a minimum of 0)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.bDVx7hVyxjwRAxxG"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Mortal Herald Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "two",
+        "frequency": {
+          "max": 1,
+          "per": "hour"
+        }
+      },
+      "archetype": "9d647c89-0686-5a25-921c-87078b3bc13a"
+    }
+  },
+  {
+    "id": "e4237f86-488d-5628-8a67-b0f1ddc96f70",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:emboldened-with-glorious-purpose",
+    "name": "Emboldened with Glorious Purpose",
+    "level": 18,
+    "rarity": "common",
+    "traits": ["archetype", "fortune", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Communing with powerful spirits of the world and other powers far greater than yourself fills your heart with purpose and inspires you to strive for greater accomplishments. Whenever you "
+          },
+          {
+            "type": "ref",
+            "id": "cf1e4aa2-a16f-55ba-b139-fc2b64de614b",
+            "label": "Consult the Spirits"
+          },
+          {
+            "type": "text",
+            "text": ", you gain a +1 status bonus to Will saving throws until the next time you make your daily preparations. This bonus increases to +2 against emotion and fear effects."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In addition, until the next time you make your daily preparations, you can do each of the following once."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Roll a Will save twice and use the better result."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Roll an attack roll twice and use the better result."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Roll a skill check twice and use the better result; this skill check must be made with the skill that the spirits blessed during Consult the Spirits."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.uYhaIKxlvGj4YNCc"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Consults the Spirits"
+            }
+          ]
+        }
+      ],
+      "archetype": "a551e35f-bca4-5ba6-a479-bdd1e0b56aaf"
+    }
+  },
+  {
+    "id": "9586fe47-d316-5f1a-bd7e-b15a3e79f4a4",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:emissary-familiar",
+    "name": "Emissary Familiar",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You forge a mystical bond with a spirit or create a spirit from a fragment of your own soul. You gain a familiar. If you already have a familiar, you gain the Enhanced Familiar feat."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your familiar gains two additional familiar abilities each day, one of which must be used to select "
+          },
+          {
+            "type": "ref",
+            "id": "56fe35cb-0530-523f-a9e0-fefa6dcb72c0"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "f71d7de3-e812-5b9b-a5b8-873248b692de",
+        "predicate": ["self:has-familiar"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "6bcc37b0-6da4-5c79-90d8-ab7d17f63b9d",
+        "predicate": [
+          {
+            "not": "self:has-familiar"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.GIMHF8VV1KKjuQRE"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Rivethun Emissary Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "a551e35f-bca4-5ba6-a479-bdd1e0b56aaf"
+    }
+  },
+  {
+    "id": "2047646d-102f-5aea-b61f-09b1c5b3628a",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:empowered-onslaught",
+    "name": "Empowered Onslaught",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per round"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You critically hit and Sustain a battle aura."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When your body and mind are perfectly in sync and pushed to the limit, it can produce even greater results. You channel your combat focus into the power of your battle auras. Choose one active battle aura you have; that battle aura's status bonus or penalty increases by 1, to a maximum of 4. This value remains for the rest of the aura's duration."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "963ae779-6771-5e53-a0a5-668aa2ee79ca"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.4evo0jTAKBhowyDG"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Tandem Onslaught"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You critically hit and Sustain a battle aura."
+              }
+            ]
+          }
+        ],
+        "frequency": {
+          "max": 1,
+          "per": "round"
+        }
+      }
+    }
+  },
+  {
+    "id": "d06cbfc2-b27f-5a52-92d8-16e994de601a",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:enforce-oath",
+    "name": "Enforce Oath",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["champion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can see a creature you've sworn an oath against."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You call on your oath to embolden you in combat. Select one creature you can see that you've sworn an oath against (per the terms of your oath feat). You gain a +1 status bonus to AC and saves against attacks and effects by the chosen creature. You also gain a +1 status bonus to attack rolls against the chosen creature. However, your dedication draws your focus away from all other enemies. You take a –1 status penalty to AC, attack rolls, and saves against all other creatures until you stop Enforcing your Oath."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Enforce Oath lasts indefinitely, but it ends if the enemy is reduced to 0 Hit Points, the enemy offers a legitimate surrender to you or your allies, you fall Unconscious, or the enemy goes unnoticed by you for more than 1 minute. You can also Dismiss the effect as a free action."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.g0C3tqGjgShoDyif"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "any feat with the oath trait"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "requirements": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You can see a creature you've sworn an oath against."
+              }
+            ]
+          }
+        ],
+        "frequency": {
+          "max": 1,
+          "per": "hour"
+        },
+        "selfEffect": "c5967b66-33ae-58ce-aeb3-30c0b51f9697"
+      }
+    }
+  },
+  {
+    "id": "8a62515c-73ad-5808-a2e3-015537e92132",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:enter-divine-realm",
+    "name": "Enter Divine Realm",
+    "level": 20,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are granted access to your deity's realm and can travel there quickly. You can cast Interplanar Teleport once per day as an innate divine spell with a casting time of only 1 minute. You act as the planar key for the destination, and you can only travel to your deity's realm. You and the other targets of the spell always appear in the center of your deity's realm, and you (but not necessarily your allies) are immune to all the realm's harmful conditions (such as toxic air or extreme temperatures) while there. You can return to your previous location by spending 1 minute picturing your destination; you can bring up to 8 willing creatures back with you in this way, and they need not be the same targets of the previous casting of interplanar teleport."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.4KxG9QC6jPn2CJeZ"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Mortal Herald Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "9d647c89-0686-5a25-921c-87078b3bc13a"
+    }
+  },
+  {
+    "id": "abb18d3b-854b-5826-9a0c-7bb02a6aa8cf",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:esoteric-spellcasting",
+    "name": "Esoteric Spellcasting",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your study of a variety of esoteric texts and supernatural matters has broadened your mind and improved your spellcasting. Choose a 1st-rank occult or divine spell. You can cast this spell once per day as an innate spell. At 6th level, you gain a 2nd-rank spell of the same tradition you chose, and at 8th level, you gain a 3rd-rank spell, also of that tradition."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can take this feat a second time, choosing spells from the other available tradition."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.YtfmSKoUFjnqEH0T"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Palatine Detective Dedication"
+            }
+          ]
+        }
+      ],
+      "maxTakable": 2
+    }
+  },
+  {
+    "id": "2513de7b-663c-5515-b470-20db61040567",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:exalted-greatness",
+    "name": "Exalted Greatness",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["champion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You improve your exalted reaction with the benefit listed for your cause."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Desecration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " While you have the benefit, you also gain a +2 status bonus to saving throws against effects created by enemies in your champion's aura."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Grandeur",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Any "
+          },
+          {
+            "type": "text",
+            "text": "revealing light",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " created by your Flash of Grandeur lasts for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Iniquity",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The damage dealt to enemies other than the triggering creatures increases by an amount equal to the damage dice of Destructive Vengeance (apply this after you halve the damage)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Justice",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The penalty is –2 instead of –5."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Liberation",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You and all affected allies can attempt to break free, not just the triggering ally."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Obedience",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The damage dealt to creatures other than the triggering creature who refuse to drop Prone increases to half the damage the triggering creature would take (roll the damage only once for all affected creatures)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Redemption",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The resistance isn't reduced."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.sJtsgS6lUBgvN02R"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "exalted reaction"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "889451e8-1b51-5cd1-b801-8e6964b20b86",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:exigent-aura",
+    "name": "Exigent Aura",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The power of your deity and your own convictions leave an impression on creatures even when they normally would be unable to comprehend your words or the feelings spurred on by your god. Your battle auras can affect mindless creatures, though they gain a +4 circumstance bonus on saving throws to resist the battle aura's effects."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.6aNBNGFDSWoaQALf"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Battle Harbinger Dedication"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "dc13bbe5-80c7-5970-b752-380d5e44544c",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:expanded-domain-initiate",
+    "name": "Expanded Domain Initiate",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["cleric"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have long venerated one of your deity's lesser-known aspects. Select one domain from your deity's alternate domains. You gain access to that domain and an initial domain spell for that domain."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.vQ4DNfpktmaqdgdM"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Domain Initiate"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "3b0c66f5-e078-5bb4-804a-8f52825aa0c0",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:expert-rivethun-spellcasting",
+    "name": "Expert Rivethun Spellcasting",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain the Expert Spellcasting Benefits."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.Px476getOIltCeg7"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Basic Rivethun Spellcasting; master in Religion"
+            }
+          ]
+        }
+      ],
+      "archetype": "7f98003d-0b5e-513a-9cda-42f8cff955e8"
+    }
+  },
+  {
+    "id": "1b4959c4-591b-5acf-ac04-5e37948dd239",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:eyes-of-god",
+    "name": "Eyes of God",
+    "level": 18,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can see things as they truly are. You are constantly under the effect of 8th-rank See the Unseen and Truesight spells. Additionally, you gain a +4 status bonus to your Sense Motive checks and to your Perception DC against Lies."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.EfIh3sGokwzAwYpQ"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Mortal Herald Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "9d647c89-0686-5a25-921c-87078b3bc13a"
+    }
+  },
+  {
+    "id": "07cddf67-4273-5237-b296-ff4efaecd399",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:fear-of-god",
+    "name": "Fear of God",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["archetype", "divine", "skill"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You successfully Demoralize an enemy."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You embed a divine fear into the triggering foe that lasts for 10 minutes. During that time, you ignore that creature's temporary immunity to your Demoralize attempts and whenever you successfully Demoralize the triggering enemy, you can instead increase their existing frightened condition by 1 (or 2 on a critical success) to a maximum of Frightened 4."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.9OVRsU45zCOvRQ9q"
+    },
+    "data": {
+      "category": "skill",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Mortal Herald Dedication; expert in Intimidation"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "free",
+        "frequency": {
+          "max": 1,
+          "per": "ten-minutes"
+        }
+      },
+      "archetype": "9d647c89-0686-5a25-921c-87078b3bc13a"
+    }
+  },
+  {
+    "id": "7b7ee5b0-5f4a-5001-9b0a-492be1f63835",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:fiendish-form",
+    "name": "Fiendish Form",
+    "level": 18,
+    "rarity": "uncommon",
+    "traits": ["champion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your features reshape into those of a type of fiend who serves your deity; for example, as a demon you might have putrid scales, twisted horns, and red eyes. You gain a fly Speed equal to your Speed. You gain darkvision if you don't already have it, and you gain the fiend trait and the trait appropriate to the type of servitor you've become (such as daemon, demon, or devil)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.CYSH4aFmzH9PM3sm"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "unholy"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "ac46ceb4-86dd-5f11-8b13-f1b12ff01018",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:flash-of-omnipotence",
+    "name": "Flash of Omnipotence",
+    "level": 20,
+    "rarity": "common",
+    "traits": ["archetype", "divine", "mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your turn begins."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "For but a moment you hold the power of a god. You spend a Mythic Point. Until the end of your turn, any damage you deal ignores all the target's resistance and immunities or triggers the target's highest weakness if they have no resistance or immunities."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.v6d1N3yygUccisQL"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Mortal Herald Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "free",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Your turn begins."
+              }
+            ]
+          }
+        ]
+      },
+      "archetype": "9d647c89-0686-5a25-921c-87078b3bc13a"
+    }
+  },
+  {
+    "id": "70bffc0a-7c3c-5905-83e5-ce1b37a1031f",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:flash-of-omnipresence",
+    "name": "Flash of Omnipresence",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["archetype", "mythic", "teleportation"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Empowered with divine energy, you can be at an ally's side in the blink of an eye. You teleport to an empty space adjacent to an ally within 100 feet. If you spend a Mythic Point as part of this action, you can teleport to anywhere within a mile, and when you arrive, any enemies adjacent to you must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": {
+              "against": "class-or-spell-dc"
+            }
+          },
+          {
+            "type": "text",
+            "text": " saving throw against your class DC or spell DC or be Stunned 1."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.N9kJPSRz1Ax9eFdD"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Mortal Herald Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "frequency": {
+          "max": 1,
+          "per": "hour"
+        }
+      },
+      "archetype": "9d647c89-0686-5a25-921c-87078b3bc13a"
+    }
+  },
+  {
+    "id": "e2319ec8-4ccf-5557-b76d-025e6ef40f1e",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:flash-of-omniscience",
+    "name": "Flash of Omniscience",
+    "level": 18,
+    "rarity": "common",
+    "traits": ["archetype", "divine", "mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You turn begins."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You briefly see the world as your deity does, recognizing the truth of those around you for a moment. You spend a Mythic Point to immediately learn the resistances, weaknesses, and immunities, including the amounts of the resistances and weaknesses and any unusual weaknesses or vulnerabilities of a single creature you can see."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.VnpI3sPgwLlcCJy3"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Mortal Herald Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "free",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You turn begins."
+              }
+            ]
+          }
+        ]
+      },
+      "archetype": "9d647c89-0686-5a25-921c-87078b3bc13a"
+    }
+  },
+  {
+    "id": "ddb392b0-00a9-5ffc-b14a-5779b6d14ea0",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:following-smite",
+    "name": "Following Smite",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["archetype", "divine", "sanctified"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your last action was a Strike made with a weapon or unarmed attack empowered by "
+          },
+          {
+            "type": "ref",
+            "id": "71fd9b9d-7909-5a49-a955-fba3a4c841cf"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You call upon your deity's power and channel it through your weapon. The creature you hit in your previous action must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": {
+              "against": "class-or-spell-dc"
+            }
+          },
+          {
+            "type": "text",
+            "text": " saving throw against the higher of your class DC or your spell DC."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "floor(@level/2)",
+                "damageType": "spirit"
+              }
+            ],
+            "label": "spirit damage equal to half your level"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "@level",
+                "damageType": "spirit"
+              }
+            ],
+            "label": "spirit damage equal to your level"
+          },
+          {
+            "type": "text",
+            "text": " and is knocked Prone."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2*@level",
+                "damageType": "spirit"
+              }
+            ],
+            "label": "spirit damage equal to twice your level"
+          },
+          {
+            "type": "text",
+            "text": ", is knocked prone, and becomes Clumsy 1 until the beginning of your next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.uyZ3gY7gtKCLiywR"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Herald's Weapon"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one"
+      },
+      "archetype": "9d647c89-0686-5a25-921c-87078b3bc13a"
+    }
+  },
+  {
+    "id": "a5a0d8b6-6b6b-5339-a0dd-706e63352741",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:free-from-bonds",
+    "name": "Free from Bonds",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As a mortal herald, you cannot easily be captured, nor can your allies. If you are Grabbed or Restrained when you use "
+          },
+          {
+            "type": "ref",
+            "id": "70bffc0a-7c3c-5905-83e5-ce1b37a1031f"
+          },
+          {
+            "type": "text",
+            "text": ", the creature or effect that is imparting that condition on you takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "@level",
+                "damageType": "spirit"
+              }
+            ],
+            "label": "spirit damage"
+          },
+          {
+            "type": "text",
+            "text": " equal to your level."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you teleport adjacent to a grabbed or restrained ally using Flash of Omnipresence, attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:religion"
+          },
+          {
+            "type": "text",
+            "text": " check against the hard DC for the level of the creature or effect that is imparting that condition. on a success, your ally no longer has that condition."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.YIzADuxb5AV1kUvK"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Flash of Omnipresence"
+            }
+          ]
+        }
+      ],
+      "archetype": "9d647c89-0686-5a25-921c-87078b3bc13a"
+    }
+  },
+  {
+    "id": "1c78d088-a6ad-5d2d-9997-f4babdbe9a11",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:glory-on-high",
+    "name": "Glory on High",
+    "level": 18,
+    "rarity": "common",
+    "traits": ["archetype", "mental", "visual"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take to the skies to unveil the full magnificence of your deity's power. Fly straight upward up to your fly Speed and Interact to draw a weapon or to gesture with your hand or a worn holy symbol. Each enemy within a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 60
+          },
+          {
+            "type": "text",
+            "text": " must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": {
+              "against": "class-or-spell-dc"
+            }
+          },
+          {
+            "type": "text",
+            "text": " save against the higher of your class DC or spell DC. Regardless of the result, the target becomes immune to Glory on High for 1 hour."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is Dazzled for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is Blinded for 1 round, dazzled for 1 minute, and takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "10d6",
+                "damageType": "mental"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is blinded for 1 minute, dazzled for 1 hour, and takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "20d6",
+                "damageType": "mental"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.mgbCNt7MgEVbMlJ7"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Mortal Herald Dedication; fly Speed of at least 20 feet"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "two"
+      },
+      "archetype": "9d647c89-0686-5a25-921c-87078b3bc13a"
+    }
+  },
+  {
+    "id": "38e5246f-e796-5b44-bb31-6b30c926c193",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:greater-armament",
+    "name": "Greater Armament",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your weapons have greater power available to them. Add Brilliant, Corrosive, Flaming, Frost, Holy, Shock, Thundering, and Unholy to the list of property runes you can add to your weapon during your daily preparations."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.Z91dIlVcJXoicbHj"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Harbinger's Armament"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "0c4cb929-5120-5e84-9873-1f19e8a63177",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:greater-esoteric-spellcasting",
+    "name": "Greater Esoteric Spellcasting",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your understanding of magic has evolved, and so has your spellcasting. You become an expert in the spell attack modifier and spell DC statistics. Also, choose a tradition from which you can cast innate spells due to the Esoteric Spellcasting feat. You also gain a 4th-rank spell of that tradition as an innate spell you can cast once a day. At 12th level, you gain a 5th-rank spell, and at 14th level, you gain a 6th-rank spell, both of the same tradition."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can take this feat a second time, choosing a different eligible tradition."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.cIClNoUqtX2SGWfz"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Esoteric Spellcasting"
+            }
+          ]
+        }
+      ],
+      "maxTakable": 2
+    }
+  },
+  {
+    "id": "c5c3233b-463e-538d-b76c-9ecf5a7c9d14",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:guiding-words",
+    "name": "Guiding Words",
+    "level": 18,
+    "rarity": "common",
+    "traits": ["archetype", "auditory", "concentrate", "divine", "fortune", "linguistic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your words speak divine truth, guiding blades and arrows to their mark. Choose an ally within 30 feet and attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:diplomacy"
+          },
+          {
+            "type": "text",
+            "text": " check. The DC is equal to the hard difficulty DC of the level of your ally. On a success, the first time the targeted ally makes an attack roll before the end of their next turn, they roll the attack twice and use the better result."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "31370cd2-47c6-55ca-9cd7-1ef17dcd65fc"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Regardless of the result, the target becomes immune to Guiding Words for 10 minutes."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.LmsjuqB3rrZTqqa6"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Mortal Herald Dedication; master in Diplomacy"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "frequency": {
+          "max": 1,
+          "per": "ten-minutes"
+        }
+      },
+      "archetype": "9d647c89-0686-5a25-921c-87078b3bc13a"
+    }
+  },
+  {
+    "id": "0679a8af-b465-541e-a84b-fa276314f249",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:harbingers-armament",
+    "name": "Harbinger's Armament",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your deity grants you extra power that you have learned to channel into your weapons. Select one weapon or handwraps of mighty blows when you make your daily preparations. While in your hands it gains the effect of one property rune. Choose either Fearsome, Ghost Touch, Returning, Shifting, or Vitalizing."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This rune does not count toward your maximum rune count, and this choice lasts 24 hours or until you make your next daily preparations, whichever comes first."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "3ce06446-7756-5190-a930-c500a3719588"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.KuLH3nG3chToIffB"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Battle Harbinger Dedication"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "5a1c9bf4-43d0-5b3d-8024-1f20433cda61",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:harbingers-protection",
+    "name": "Harbinger's Protection",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You often work on missions alone, making sure to cover up your weaknesses more effectively than other members of your faith. You are trained in heavy armor. When you gain expert or greater proficiency in any type of armor, you also gain that proficiency in heavy armor."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.vIoZmlIzO7gkKEWY"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Battle Harbinger Dedication"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "376a1dd3-8566-5e27-bc74-078740b0c34a",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:healing-sanctuary",
+    "name": "Healing Sanctuary",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["archetype", "divine"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you call upon your deity's power, you also radiate a sense of safety that fortifies your allies. An ally who begins their turn in your Shield the Faithful aura gains 10 temporary Hit Points that last for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "df4077a2-0612-5a1c-95dd-d1ee3fbb2218"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.cD5EsurWVYekIXkz"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Shield the Faithful"
+            }
+          ]
+        }
+      ],
+      "archetype": "9d647c89-0686-5a25-921c-87078b3bc13a"
+    }
+  },
+  {
+    "id": "d5de305c-c510-5e9c-98d0-872ffa8eb435",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:heraldic-proclamation",
+    "name": "Heraldic Proclamation",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["archetype", "divine", "healing", "sanctified", "spellshape", "spirit", "vitality"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You proclaim your spell with the might of your god behind you. If the next action you use is to Cast a non-cantrip Spell, then all allies within 30 feet gain Hit Points equal to double the rank of the spell, and all enemies within 30 feet take spirit damage equal to double the rank of the spell (basic Will save against your spell DC)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.5uzu5u5UFSfRRBSs"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Mortal Herald Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "frequency": {
+          "max": 1,
+          "per": "day"
+        }
+      },
+      "archetype": "9d647c89-0686-5a25-921c-87078b3bc13a"
+    }
+  },
+  {
+    "id": "2506425d-7155-5aa5-8828-a330534af4a7",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:heralds-strike",
+    "name": "Herald's Strike",
+    "level": 20,
+    "rarity": "common",
+    "traits": ["archetype", "sanctified", "spirit"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The power of your blows can send your victim hurling through your deity's realm for a fragment of a second. You activate Herald's Weapon, ignoring the frequency, and make a Strike with your transformed weapon or unarmed attack against a creature. If you hit and deal damage, the target must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": {
+              "against": "class-or-spell-dc"
+            }
+          },
+          {
+            "type": "text",
+            "text": " save against the higher of your class DC or spell DC. If your Strike was a critical hit, the creature uses the outcome for one degree of success worse than the result of their saving throw. Regardless of the result, the target becomes immune to Herald's Strike for 10 minutes."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d10",
+                "damageType": "spirit"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and becomes Dazzled for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d10",
+                "damageType": "spirit"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and becomes dazzled for 1 round and Drained 1."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "12d10",
+                "damageType": "spirit"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and becomes Blinded for 1 round and Drained 2."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.P07YFQCp3hT3OgJE"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Herald's Weapon"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "two"
+      },
+      "archetype": "9d647c89-0686-5a25-921c-87078b3bc13a"
+    }
+  },
+  {
+    "id": "71fd9b9d-7909-5a49-a955-fba3a4c841cf",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:heralds-weapon",
+    "name": "Herald's Weapon",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["archetype", "divine"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your weapon becomes a wrathful instrument of your deity's power. Choose a weapon you are currently wielding or an unarmed attack, which is wreathed in pure spiritual energy for 1 minute. For the duration, the chosen weapon and unarmed attack deals spirit damage instead of its regular damage. In addition, the chosen weapon or unarmed attack gains the sanctified trait and deals an additional 2d4 spirit damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.5ELeiNtEDgXfBcwt"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Mortal Herald Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "frequency": {
+          "max": 1,
+          "per": "hour"
+        },
+        "selfEffect": "e9897344-4a55-5b5c-becd-2bd4063ef742"
+      },
+      "archetype": "9d647c89-0686-5a25-921c-87078b3bc13a"
+    }
+  },
+  {
+    "id": "8ba9dc57-b244-511e-931a-8384e610aade",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:invisible-hand",
+    "name": "Invisible Hand",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["archetype", "mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sometimes your deity requires you to act in the shadows, accomplishing things without drawing attention to yourself—or them."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Once per day, when you roll Stealth for initiative at the start of a combat, you can choose to be Invisible for 1 minute. If you spend a Mythic Point while beginning the Avoid Notice exploration activity, you are invisible for as long as you continue to Avoid Notice."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.BxMMITENS6tncpCk"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Mortal Herald Dedication; master in Stealth"
+            }
+          ]
+        }
+      ],
+      "archetype": "9d647c89-0686-5a25-921c-87078b3bc13a"
+    }
+  },
+  {
+    "id": "e05d01b2-238a-55f9-b777-7f5672f4e326",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:invoke-defense",
+    "name": "Invoke Defense",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["archetype", "morph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're under the effects of "
+          },
+          {
+            "type": "ref",
+            "id": "81aa3ccc-cd6e-5c91-b959-fe848a771f99"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You manifest a defensive quality of spirits all around, such as the thick hide of an animal spirit or the sturdy bark of a nature spirit. Choose bludgeoning, piercing, or slashing. You gain resistance equal to half your level to that damage type for the duration of your spirit trance."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you use Invoke Defense again, you can choose a different type of damage, but you lose the previous resistance."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.iBdvNOWazhiXeUUa"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Rivethun Invoker Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "selfEffect": "f40ef1c0-c020-5a69-bda7-6d5729d8b28e"
+      },
+      "archetype": "81e1aa36-c4c5-5897-af13-6d4cf9faa6a1"
+    }
+  },
+  {
+    "id": "9e2d09b2-eee4-51c1-8365-97fa6c61faa0",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:invoke-movement",
+    "name": "Invoke Movement",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["archetype", "morph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're under the effects of Enter Spirit Trance."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You manifest a form of locomotion of the spirits all around, such as the wings of an animal spirit or the watery flow of a nature spirit. Choose a movement type: burrow, climb, fly, or swim. You gain a Speed in the chosen movement type equal to your base Speed (or half your Speed if you selected burrow) for the duration of your spirit trance. If you use Invoke Movement again, you can choose a different movement type, but you lose the previous form of movement."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.7ZYw4SiBLBbbICNs"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Rivethun Invoker Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "requirements": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You're under the effects of Enter Spirit Trance."
+              }
+            ]
+          }
+        ],
+        "selfEffect": "409b984a-47b5-51d7-ad85-4ab15c9ee1f5"
+      },
+      "archetype": "81e1aa36-c4c5-5897-af13-6d4cf9faa6a1"
+    }
+  },
+  {
+    "id": "b32ea050-a5be-5d42-9e88-1a0f8db11a8e",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:invoke-offense",
+    "name": "Invoke Offense",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype", "morph", "spirit"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're under the effects of "
+          },
+          {
+            "type": "ref",
+            "id": "81aa3ccc-cd6e-5c91-b959-fe848a771f99"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You manifest a physical attack of the spirits all around you, such as the claw of an animal spirit or the whipping vine of a nature spirit. You gain an unarmed attack that deals 1d8 spirit damage for the duration of your spirit trance. This unarmed attack is in the brawling weapon group and has the agile, finesse, and magical traits."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At 5th level, this unarmed attack gains the benefits of a striking rune. At 12th level, this unarmed attack gains the benefits of a greater striking rune. At 20th level, this unarmed attack gains the benefits of a major striking rune."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.EEtezGRTZSHayQDR"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Rivethun Invoker Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "selfEffect": "b1d5874e-9ec8-5d8b-b3dc-2a1eefd7fc8a"
+      },
+      "archetype": "81e1aa36-c4c5-5897-af13-6d4cf9faa6a1"
+    }
+  },
+  {
+    "id": "ca18cee3-722f-5208-84f0-2c0ef6139b41",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:kaleidoscopic-entreaty",
+    "name": "Kaleidoscopic Entreaty",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["archetype", "concentrate", "spellshape", "visual"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If your next action is to cast "
+          },
+          {
+            "type": "ref",
+            "id": "1aada801-0414-5347-8bf2-fea7717aa760"
+          },
+          {
+            "type": "text",
+            "text": ", you can cause that spirit to unleash a brilliant display of color, light, and sound in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": " centered on you. Each creature in the area must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": {
+              "against": "class-or-spell-dc"
+            }
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC or spell DC with the following results."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is Dazzled for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is dazzled for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is Blinded for 1 round and dazzled for 1 minute."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.3zcjIjJ7ujldN3zr"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Rivethun Emissary Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one"
+      },
+      "archetype": "a551e35f-bca4-5ba6-a479-bdd1e0b56aaf"
+    }
+  },
+  {
+    "id": "1f36dcda-b80a-50b1-87af-e3dc21797a6a",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:leverage-anguish",
+    "name": "Leverage Anguish",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["archetype", "healing"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail or critically fail a saving throw against a curse, death, emotion, or fear effect."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You leverage your emotional turmoil to mend your physical form. You regain "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(2*(max(1,(@rank.skill.athletics - 1))))d8"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " Hit Points. If you're a master in Athletics, you regain 4d8 Hit Points instead. If you're legendary in Athletics, you regain 6d8 Hit Points instead."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.7OXTqBA6QgCatNwZ"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Rivethun Invoker Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You fail or critically fail a saving throw against a curse, death, emotion, or fear effect."
+              }
+            ]
+          }
+        ],
+        "frequency": {
+          "max": 1,
+          "per": "day"
+        }
+      },
+      "archetype": "81e1aa36-c4c5-5897-af13-6d4cf9faa6a1"
+    }
+  },
+  {
+    "id": "4dc074b0-0344-58ff-9866-5cff591cdab7",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:live-the-creed",
+    "name": "Live the Creed",
+    "level": 20,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've become an unparalleled figure among your faith, able to align your divine abilities with unparalleled swiftness. You cast a battle aura using one of your divine font slots."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.fUvV0zsNf1Rj0eox"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Battle Harbinger Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "frequency": {
+          "max": 1,
+          "per": "ten-minutes"
+        }
+      }
+    }
+  },
+  {
+    "id": "109471c1-a838-5678-8a36-01491ef516e6",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:living-god",
+    "name": "Living God",
+    "level": 20,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have reached heights of power equaling Razmir himself. You can Craft your "
+          },
+          {
+            "type": "ref",
+            "id": "86a5abb0-03ff-5694-a6c6-dcfccb62724a"
+          },
+          {
+            "type": "text",
+            "text": " out of porcelain laced with precious metals, or upgrade your existing mask to a porcelain one in the same time it takes to Craft one made of iron. A "
+          },
+          {
+            "type": "ref",
+            "id": "96691e25-dfb4-572a-8ab9-13ebc4379d09",
+            "label": "Porcelain Razmiri Mask"
+          },
+          {
+            "type": "text",
+            "text": " grants a +4 item bonus to Deception checks to Lie or Feint, is an 18th-level item, and is an apex item that increases your Charisma modifier by 1 or increases it to +4, whichever would give you a higher value. It also gives you the following activation in addition to those granted by the standard, silver, and gold masks."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Power of the Living God",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate, occult)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You demand power from the world, using your mask as a locus to force reality to bend to your will. You cast Manifestation as a 10th-rank occult spell, but no matter what spell you emulate with it, that spell has the incapacitation trait."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.1eXHDDOLZATKpWjL"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Razmiran Priest Dedication; legendary in Crafting"
+            }
+          ]
+        }
+      ],
+      "archetype": "a758c821-86b4-5ed7-8d75-0b9b9e2e1007"
+    }
+  },
+  {
+    "id": "42890714-1a8b-5c60-8e66-0f8796676458",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:manifold-conduit",
+    "name": "Manifold Conduit",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can manifest multiple spirits at once in a cyclone around you. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "54e0d847-17a2-565c-b5b2-a364cc4b2753"
+          },
+          {
+            "type": "text",
+            "text": " focus spell."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.2e2Rv6SN3D2nX5M2"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Rivethun Emissary Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one"
+      },
+      "archetype": "a551e35f-bca4-5ba6-a479-bdd1e0b56aaf"
+    }
+  },
+  {
+    "id": "c371271a-22a6-53ab-810b-ed0b49992407",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:marked-for-rebuke",
+    "name": "Marked for Rebuke",
+    "level": 18,
+    "rarity": "common",
+    "traits": ["archetype", "spellshape"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You declare that an enemy is fit for further punishment in the sight of your deity. If the next action you perform is to Cast a Spell that deals damage, one creature of your choice that takes damage from the spell is marked for rebuke until the end of your next turn. A creature marked this way gains weakness 10 to all damage and becomes immune to Marked for Rebuke for 24 hours."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.k8c0E7YyeIQJjRzB"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Mortal Herald Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one"
+      },
+      "archetype": "9d647c89-0686-5a25-921c-87078b3bc13a"
+    }
+  },
+  {
+    "id": "5b735958-be50-5114-8d7e-2b3de4df5ed3",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:mask-of-the-12th-step",
+    "name": "Mask of the 12th Step",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have reached the 12th Step and been instructed in greater secrets of Razmir's doctrine. You can Craft your "
+          },
+          {
+            "type": "ref",
+            "id": "86a5abb0-03ff-5694-a6c6-dcfccb62724a"
+          },
+          {
+            "type": "text",
+            "text": " out of silver or upgrade your existing mask to a silver one in the same time it takes to Craft one made of iron. A "
+          },
+          {
+            "type": "ref",
+            "id": "3b98bd65-e034-52e5-b253-e2d5ffcfc0cc",
+            "label": "Silver Razmiri Mask"
+          },
+          {
+            "type": "text",
+            "text": " grants a +2 item bonus to Deception checks to Lie or Feint, is a 10th-level item, and gains the following activation in addition to that possessed by the standard mask."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Call Upon Razmir's Mercy",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate, occult)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " three times per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Exhorting Razmir to purge impurities from your target, you lay hands on a creature within reach and cast Cleanse Affliction as an occult spell with a spell rank equal to half your level. Unlike a normal "
+          },
+          {
+            "type": "text",
+            "text": "cleanse affliction",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " spell, this doesn't reduce the stage of the affliction; instead, if the counteract check is successful, the affliction's stage is temporarily reduced by 1 and its effects are suppressed for 24 hours, after which the affliction resumes in full force. If the target would have been required to attempt additional saves against the affliction during the 24 hours it was suppressed, they must attempt all of those saving throws as soon as the 24-hour duration ends. This could mean that the target saves successfully and it is as if the affliction were truly healed, or it could mean that the affliction returns and advances multiple stages all at once."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.ADoFKzCh5z4dXg3f"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Razmiran Priest Dedication; expert in Crafting"
+            }
+          ]
+        }
+      ],
+      "archetype": "a758c821-86b4-5ed7-8d75-0b9b9e2e1007"
+    }
+  },
+  {
+    "id": "96e1b341-1d1a-5caa-84c4-4ed0bb7e516e",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:mask-of-the-15th-step",
+    "name": "Mask of the 15th Step",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have ascended to the 15th Step and stand among the greatest of Razmir's priests. You can Craft your "
+          },
+          {
+            "type": "text",
+            "text": "Razmiri mask",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " out of gold or upgrade your existing mask to a gold one in the same time it takes to Craft one made of iron. A gold "
+          },
+          {
+            "type": "text",
+            "text": "Razmiri mask",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " grants a +3 item bonus to Deception checks to Lie or Feint, is a 14th-level item, and gains the following activation in addition to those possessed by the standard and silver masks."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Call Upon Razmir's Wrath",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate, occult)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cry out to Razmir to reveal his fiery wrath, as he did upon the unbelievers at Melcat. You cast Sunburst as an 8th-rank occult spell, but for undead targets the spell has the incapacitation trait."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.JIjoGVnieAhE3a5f"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Razmiran Priest Dedication; master in Crafting"
+            }
+          ]
+        }
+      ],
+      "archetype": "a758c821-86b4-5ed7-8d75-0b9b9e2e1007"
+    }
+  },
+  {
+    "id": "5be6c508-2a79-5a65-b990-99e2bce473a2",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:master-rivethun-spellcasting",
+    "name": "Master Rivethun Spellcasting",
+    "level": 18,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain the Master Spellcasting Benefits."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.WqAgDITfHmh1uGSm"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Expert Rivethun Spellcasting; legendary in Religion"
+            }
+          ]
+        }
+      ],
+      "archetype": "7f98003d-0b5e-513a-9cda-42f8cff955e8"
+    }
+  },
+  {
+    "id": "90fe2b5a-3a34-5546-97c7-22ee6566905a",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:moment-of-apotheosis",
+    "name": "Moment of Apotheosis",
+    "level": 20,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "For a small moment, you can assume the form of your god. You can cast Avatar once per day as an innate divine spell."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.Ju03TtaUBaaJ0Yq7"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Mortal Herald Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "9d647c89-0686-5a25-921c-87078b3bc13a"
+    }
+  },
+  {
+    "id": "35a2fc8f-527a-565c-b88c-2cb3c0467255",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:mortal-ascension",
+    "name": "Mortal Ascension",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your power uplifts you, breaking the bonds between you and the ground. You gain a fly Speed equal to your Speed."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.fZFdoqeSQGBPDgai"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Mortal Herald Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "9d647c89-0686-5a25-921c-87078b3bc13a"
+    }
+  },
+  {
+    "id": "d98d1515-2dff-5f31-852d-c4791406a496",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:mortal-herald-dedication",
+    "name": "Mortal Herald Dedication",
+    "level": 12,
+    "rarity": "rare",
+    "traits": ["archetype", "dedication"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You become a mortal herald of your deity, gaining power in return for your service. Others intuitively sense your connection with your deity, which subtly influences the way they act around you. You become bound by your deity's anathema. Depending on your deity, their sanctification can make you holy or unholy. This gives you the holy or unholy trait, which commits you to one side of a struggle over the souls of the planes and can be referenced in other abilities. If you \"can be\" holy or unholy according to your deity, you make that choice, and if you \"must be\" holy or unholy you gain the trait automatically. If you gain the opposing trait in some way, you lose the previous trait until you complete an Atone ritual."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In addition, once per day, you can cast Heal as a 6th-rank innate divine spell. You can only target yourself with the spell, but you gain the benefits of the 2-action version when you spend 1 action to cast it. In addition, if you would be reduced to 0 Hit Points but not immediately killed, you can cast the spell as a free action before you become Unconscious. This spell is automatically heightened to a rank equal to half your level."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " If you have void healing, you instead cast Harm."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Mortal Herald"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.XmvIQ4iJ2euOgLYb"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "worshipper of a specific deity; master in Religion or your deity's divine skill"
+            }
+          ]
+        }
+      ],
+      "archetype": "9d647c89-0686-5a25-921c-87078b3bc13a"
+    }
+  },
+  {
+    "id": "22e817da-a87e-50fb-a588-00d1a8a8b05b",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:oath-of-the-avenger",
+    "name": "Oath of the Avenger",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["champion", "oath"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've sworn an oath to punish wicked acts you witness. You gain the edict \"hunt down those who have harmed innocents or committed heinous atrocities.\" When you see a creature harm an ally, an innocent, or a noncombatant, you can invoke your oath against that creature. Like speaking, this doesn't require an action. Most champions choose to invoke these oaths out loud if they're able. The invocation lasts indefinitely, though you can choose to end if you are satisfied that the target has reformed, atoned, or been forgiven."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can use Lay on Hands to damage a creature you have invoked your oath against as if it were undead; in this case, "
+          },
+          {
+            "type": "text",
+            "text": "lay on hands",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " deals spirit damage instead of vitality damage, gains the spirit trait, and loses the vitality trait. This doesn't prevent you from healing such a creature with "
+          },
+          {
+            "type": "text",
+            "text": "lay on hands",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " if you so choose."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.483yvMrNZFV3fiSo"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "lay on hands"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "3a5ba6f2-d449-5d3c-917e-6930f4445651",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:oath-of-the-defender",
+    "name": "Oath of the Defender",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["champion", "oath"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "During your daily preparations, you can swear an oath to defend against a certain kind of enemy during your deeds that day. Choose aberrations, celestials, dragons, fiends, or undead. You can't choose celestials if you're holy, nor can you choose fiends if you're unholy. You gain an edict to defend against creatures of that kind."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Allies in your champion's aura, not including you, get resistance 2 to damage dealt by creatures with the chosen trait. If such a creature deals more than one damage type at once, apply this resistance only to the highest amount of damage. The resistance increases to 3 at 7th level, 4 at 12th level, and 5 at 17th level. If a creature with the chosen trait triggers your champion's reaction and your champion's reaction grants resistance against the triggering damage, the resistance increases by 5."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.imBsp1Tg7KMut4Lf"
+    },
+    "data": {
+      "category": "class"
+    }
+  },
+  {
+    "id": "0c88f61d-f491-5255-adc8-2cd5f09ccfec",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:oath-of-the-slayer",
+    "name": "Oath of the Slayer",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["champion", "oath"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "During your daily preparations, you can swear an oath to defeat, topple, or destroy a certain kind of enemy during your deeds that day. Choose aberrations, celestials, dragons, fiends, or undead. You can't choose celestials if you're holy, nor can you choose fiends if you're unholy. You gain an edict to banish or slay creatures of that kind."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your Strikes and devotion spells that deal damage do an additional 1 spirit damage against a creature with the chosen trait. This damage increases to 2 at 7th level and 3 at 14th level. If a creature with the chosen trait triggers your champion's reaction, this additional damage doubles until the end of your next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.vUBMjoOiZiMzdc18"
+    },
+    "data": {
+      "category": "class"
+    }
+  },
+  {
+    "id": "ab3777b0-6fbd-5367-b4eb-fcffd2385b8e",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:one-with-the-spirits",
+    "name": "One with the Spirits",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're under the effects of Enter Spirit Trance."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The spirits you've invoked throughout your life have left behind echoes and spiritual fragments, which you can manifest across your own flesh, temporarily transforming you into something more akin to spirit than mortal. For 1 minute, you gain fast healing 5 and you become Concealed. You can't use this concealment to Hide. Your Strikes gain the benefits of a Ghost Touch property rune. Whenever you deal damage with a Strike, you can choose to have that Strike deal spirit damage, rather than its usual damage type."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you would be knocked Unconscious or your Dying value would increase while One with the Spirits is active, the spirits revive you at the beginning of your next turn, restoring you to 30 Hit Points. One with the Spirits then immediately ends."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.OxdlGZ1rndxalf6X"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Rivethun Invoker Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "requirements": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You're under the effects of Enter Spirit Trance."
+              }
+            ]
+          }
+        ],
+        "frequency": {
+          "max": 1,
+          "per": "hour"
+        },
+        "selfEffect": "8b50b414-fca1-59c0-b4b3-2dccbcdbe7d9"
+      },
+      "archetype": "81e1aa36-c4c5-5897-af13-6d4cf9faa6a1"
+    }
+  },
+  {
+    "id": "7854e35c-a048-5647-8bb6-62832b48fa2b",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:open-the-blazing-eye",
+    "name": "Open the Blazing Eye",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Thanks to your diligence in the study of divine and occult mysteries, you can focus to temporarily attain a perception beyond the ordinary. A lightless flame appears in the center of your forehead. For 1 minute, you gain the benefits of a See the Unseen spell."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In addition, when you attempt a Strike during this time against a creature about which you could Recall Knowledge using Occultism or Religion, the attack ignores circumstance penalties to the attack roll and any flat check required due to the target being Concealed or Hidden."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.lFc7HTNUCUemzSiV"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Palatine Detective Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "two",
+        "frequency": {
+          "max": 1,
+          "per": "day"
+        }
+      }
+    }
+  },
+  {
+    "id": "67a9fb63-d2e4-5e9d-91b3-f5817723117b",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:palatine-detective-dedication",
+    "name": "Palatine Detective Dedication",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["archetype", "class", "dedication"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have delved into the study of the occult and divine, becoming exceptionally skilled at identifying when such forces are at work. Using this esoteric knowledge and your own ingenuity, you have crafted a small charm that soothes your mind and protects you against harm. This charm usually takes the form of a silver chain, a golden scarab, or a withered hand. While you wear this charm, you gain a +1 status bonus to saving throws against mental effects. In addition, you gain the "
+          },
+          {
+            "type": "ref",
+            "id": "a9275e60-d942-5185-b81e-392ed43d8aaa"
+          },
+          {
+            "type": "text",
+            "text": " reaction."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Palatine Detective"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "a9275e60-d942-5185-b81e-392ed43d8aaa"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.LlTIbv1py77nACkI"
+    },
+    "data": {
+      "category": "class"
+    }
+  },
+  {
+    "id": "83da8fe8-1bd2-54e3-8955-d1fc44325682",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:palatine-enchantment",
+    "name": "Palatine Enchantment",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have found yourself facing supernatural beings often and have learned how to combat them. Whenever you Devise a Stratagem against a creature about which you could Recall Knowledge using Occultism or Religion, you can make the subsequent Strike against that creature as if the weapon has either a Ghost Touch or Vitalizing property rune."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.UVgRZf3zHV8aXa5L"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Palatine Detective Dedication"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "5a31bb37-17a0-5f42-b15e-b883263eab18",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:palatine-strike",
+    "name": "Palatine Strike",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your strikes are particularly deadly against supernatural creatures. Whenever you deal precision damage with Strategic Strike to a creature about which you have successfully used Occultism or Religion to Recall Knowledge, you deal an additional 2d6 precision damage with your strategic strike."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.OfKfYPrlxo8jdqmp"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Palatine Detective Dedication"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "cc2c1dca-9340-56e8-9c43-16ff676aad21",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:pale-horse",
+    "name": "Pale Horse",
+    "level": 12,
+    "rarity": "uncommon",
+    "traits": ["champion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your mount becomes a grotesque creature of foreboding when you ride it. Its appearance transforms as flames erupt from its skin, a whorl of void energy surrounds it, or poison leaks from its flesh. When you Mount your faithful steed, you can choose fire, poison, or void. As long as you ride it, your steed gains resistance 10 to the chosen damage type, and any creature that touches your steed takes 1d6 damage of the chosen type; this includes hitting the steed with an unarmed attack or with a melee weapon Strike while adjacent to the steed. This damage increases to 2d6 at 16th level and 3d6 at 20th level."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "1dad6a12-77fa-50a0-9ada-f2eeab26b068"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.qPlv8HwtoO2fAjkj"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Faithful Steed; unholy"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "bd682c73-d97d-5b7c-a644-393241959058",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:perfect-truths",
+    "name": "Perfect Truths",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your knowledge of Razmir's faith and doctrines has grown. You excel in debating priests of rival faiths, wielding truths as subtly and deftly as any charlatan might wield a lie. When you use Deception to Lie, you can carefully structure your deceits so that each individual statement you make is the truth, from a certain perspective."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As long as you are wearing your "
+          },
+          {
+            "type": "ref",
+            "id": "86a5abb0-03ff-5694-a6c6-dcfccb62724a"
+          },
+          {
+            "type": "text",
+            "text": ", you don't take a penalty to Deception checks while subject to the Ring of Truth spell or similar effects. Whenever you are subject to "
+          },
+          {
+            "type": "text",
+            "text": "ring of truth",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " or a similar effect, you can attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:deception"
+          },
+          {
+            "type": "text",
+            "text": " check when you first begin speaking to counteract the spell's effects, with a counteract rank equal to half your level (rounded up); succeeding at this check doesn't end the spell or effect, but it does cause it to indicate that you are speaking the truth, even when you are actually lying, as you weave a web of words so delicate that even you can't be certain where the truth ends and deception begins."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.8oyO7lQ1KvNMEYSR"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Razmiran Priest Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "a758c821-86b4-5ed7-8d75-0b9b9e2e1007"
+    }
+  },
+  {
+    "id": "71385765-b3a5-50a3-b273-a9e4dd55889b",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:razmiran-priest-dedication",
+    "name": "Razmiran Priest Dedication",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["archetype", "dedication"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have earned entry to the priesthood of Razmir, either at the Exalted Lodge or another temple where Razmir's holy masks are forged. You gain a "
+          },
+          {
+            "type": "ref",
+            "id": "86a5abb0-03ff-5694-a6c6-dcfccb62724a"
+          },
+          {
+            "type": "text",
+            "text": " and can Craft a replacement in 4 hours if yours is ever damaged or lost. There is no value in selling your "
+          },
+          {
+            "type": "text",
+            "text": "Razmiri mask",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", and only you gain its benefits. The abilities of your "
+          },
+          {
+            "type": "text",
+            "text": "Razmiri mask",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " use the higher of your class DC or spell DC."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can take the Cleric Dedication feat without needing to meet its prerequisites and before you take two other feats from the Razmiran priest archetype, but you must choose Razmir as your deity. All spells granted by the cleric archetype when gained in this way are occult spells instead of divine spells, and cleric feats that normally have the divine trait instead have the occult trait. Your key spellcasting attribute for these spells is Charisma, rather than Wisdom."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Razmiran Priest"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.uyWVFB0mHDhajYeT"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "trained in Crafting; trained in Deception"
+            }
+          ]
+        }
+      ],
+      "archetype": "a758c821-86b4-5ed7-8d75-0b9b9e2e1007"
+    }
+  },
+  {
+    "id": "4c9f3204-867e-5078-a7d3-0b0c5a80f89d",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:retributive-focus",
+    "name": "Retributive Focus",
+    "level": 18,
+    "rarity": "common",
+    "traits": ["champion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your focus pool is currently empty."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your enemy's offenses fuel your righteous power. When an enemy triggers your champion's reaction, you regain 1 Focus Point."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.lT6yLoMfalzxGL8y"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Desperate Prayer"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "free",
+        "requirements": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Your focus pool is currently empty."
+              }
+            ]
+          }
+        ],
+        "frequency": {
+          "max": 1,
+          "per": "day"
+        }
+      }
+    }
+  },
+  {
+    "id": "b9ac6aba-a1fd-500f-b324-b07fc60974f0",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:rivethun-adept",
+    "name": "Rivethun Adept",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your ability to wield spirit magic has increased. You can cast Speak with Stones and Spiritual Guardian as a 5th-rank divine innate spells. You can cast each of these spells once per day. If you're legendary in Religion, "
+          },
+          {
+            "type": "text",
+            "text": "spiritual guardian",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is heightened to 7th rank."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.PVx3D9ndoytRAPca"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Rivethun Practitioner"
+            }
+          ]
+        }
+      ],
+      "archetype": "a551e35f-bca4-5ba6-a479-bdd1e0b56aaf"
+    }
+  },
+  {
+    "id": "99f63fe4-9d57-5d49-81a0-95212a923445",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:rivethun-devotion",
+    "name": "Rivethun Devotion",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Through study, dedication, and introspection, you've learned to wield magic that affects the spirit. You gain See the Unseen and Spirit Link as 2nd-rank divine innate spells. You can cast each of these spells once per day. If you're a master in Religion, "
+          },
+          {
+            "type": "text",
+            "text": "spirit link",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is heightened to 3rd rank. If you're legendary in Religion, "
+          },
+          {
+            "type": "text",
+            "text": "spirit link",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is heightened to 4th rank."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.ESSdufyTeO6h4H5W"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Rivethun Emissary Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "a551e35f-bca4-5ba6-a479-bdd1e0b56aaf"
+    }
+  },
+  {
+    "id": "6e56e493-4b78-528d-b4c3-f7515a594a00",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:rivethun-emissary-dedication",
+    "name": "Rivethun Emissary Dedication",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["archetype", "dedication"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Access",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Followers of Rivethun have access to this feat."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're a practicing Rivethun emissary, skilled at interacting and bonding with the spirits of living creatures. You become an expert in Diplomacy and Religion. You also gain the "
+          },
+          {
+            "type": "ref",
+            "id": "4c1f86a4-0134-5967-a821-59a69f46e3de"
+          },
+          {
+            "type": "text",
+            "text": " activity and the "
+          },
+          {
+            "type": "ref",
+            "id": "1aada801-0414-5347-8bf2-fea7717aa760"
+          },
+          {
+            "type": "text",
+            "text": " focus spell. If you don't already have one, you gain a focus pool, which you can regain using the Refocus activity to nurture your personal well of spiritual power. Your Rivethun focus spells are divine spells; when you gain this feat, you become trained in the spell attack modifier and spell DC statistics. Your key spellcasting attribute for Rivethun focus spells is Wisdom."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Rivethun Emissary"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "4c1f86a4-0134-5967-a821-59a69f46e3de"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.H8w717IWBRyg8ugO"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "trained in Diplomacy and Religion"
+            }
+          ]
+        }
+      ],
+      "archetype": "a551e35f-bca4-5ba6-a479-bdd1e0b56aaf"
+    }
+  },
+  {
+    "id": "8d7fed26-0d6e-5fa3-98db-5749270b67ba",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:rivethun-invoker-dedication",
+    "name": "Rivethun Invoker Dedication",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["archetype", "dedication"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Access",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Followers of Rivethun have access to this feat."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're a practicing Rivethun invoker, able to enter a trance that connects you physically and mentally to surrounding spirits. You become an expert in Athletics and Religion. You also gain the Diehard general feat and the "
+          },
+          {
+            "type": "ref",
+            "id": "81aa3ccc-cd6e-5c91-b959-fe848a771f99"
+          },
+          {
+            "type": "text",
+            "text": " ability."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Rivethun Invoker"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "81aa3ccc-cd6e-5c91-b959-fe848a771f99"
+      },
+      {
+        "key": "GrantItem",
+        "item": "730b86b0-c740-5759-ba8b-82ae1fede883"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.U3W2T3kOWPdMt3Rv"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "trained in Athletics and Religion"
+            }
+          ]
+        }
+      ],
+      "archetype": "81e1aa36-c4c5-5897-af13-6d4cf9faa6a1"
+    }
+  },
+  {
+    "id": "8dbe0612-eee7-529f-b4cd-0488d1b697ec",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:rivethun-involutionist-dedication",
+    "name": "Rivethun Involutionist Dedication",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["archetype", "dedication"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Access",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Followers of Rivethun have access to this feat."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're a practicing Rivethun involutionist, with a deep well of inner power. You become an expert in Nature and Religion. You cast spells and gain the Cast a Spell activity. You gain a spell repertoire with two common cantrips from the divine spell list or any other divine cantrips you've learned or discovered. You're trained in the spell attack modifier and spell DC statistics. Your key spellcasting attribute for Rivethun involutionist archetype spells is Wisdom."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Rivethun Involutionist"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.uiX2xS6vTBRBjxdA"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "trained in Nature and Religion"
+            }
+          ]
+        }
+      ],
+      "archetype": "7f98003d-0b5e-513a-9cda-42f8cff955e8"
+    }
+  },
+  {
+    "id": "caa7ef00-d199-5e9c-acc3-aefca9aaa275",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:sense-holiness",
+    "name": "Sense Holiness",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["champion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The presence of goodness sickens you with its saccharine self-righteousness. You can sense the presence of creatures with the holy trait within 120 feet. This functions as a vague sense, similar to humans' sense of smell. A holy creature using a disguise or otherwise trying to hide its presence attempts a "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:deception",
+            "dc": {
+              "against": "perception"
+            }
+          },
+          {
+            "type": "text",
+            "text": " check against your Perception DC to hide its sanctification from you. If the creature succeeds at its Deception check, it is then temporarily immune to your Sense Holiness for 1 day."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.UfgocXl8mpbgyotE"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "unholy"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "d6b3a388-a6f3-5855-9b3e-9455158d0a71",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:sense-unholiness",
+    "name": "Sense Unholiness",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["champion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You sense the truly wicked as a queasy or foreboding feeling. You can sense the presence of creatures with the unholy trait within 120 feet. This functions as a vague sense, similar to humans' sense of smell. An unholy creature using a disguise or otherwise trying to hide its presence attempts a "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:deception",
+            "dc": {
+              "against": "perception"
+            }
+          },
+          {
+            "type": "text",
+            "text": " check against your Perception DC to hide its sanctification from you. If the creature succeeds at its Deception check, it is then temporarily immune to your Sense Unholiness for 1 day."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.s0xOawuTRJ5A3cpL"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "holy"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "e4d35743-698e-54d0-98b1-5470719822a9",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:shield-the-faithful",
+    "name": "Shield the Faithful",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["archetype", "aura", "divine", "sanctified"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You and those closest to you are protected by your deity's power. For 1 minute, you and all allies within 10 feet of you gain a +1 item bonus to AC and resistance 10 to spirit damage. In addition, when a creature adjacent to you hits you with a melee attack, or when a creature touches you or hits you with an unarmed attack, that creature takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "ternary(gte(@level,20),10,5)",
+                "damageType": "spirit"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At 20th level, the spirit resistance increases to 15 and the spirit damage increases to 10."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.VYwWqm5LZOU7irhY"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Mortal Herald Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "frequency": {
+          "max": 1,
+          "per": "hour"
+        },
+        "selfEffect": "8609e362-b9f5-5fb6-bd1f-a483b38536d4"
+      },
+      "archetype": "9d647c89-0686-5a25-921c-87078b3bc13a"
+    }
+  },
+  {
+    "id": "64429a8c-3cde-5980-b3ce-3a473315fcbe",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:spark-of-immortality",
+    "name": "Spark of Immortality",
+    "level": 20,
+    "rarity": "common",
+    "traits": ["archetype", "mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have become a divine entity, no longer entirely mortal. You no longer age, and you die only when you reach dying 5 (dying 6 if you have Diehard). Upon your death, your body and soul are transported to bask in the presence of your deity. Your god can decide to rebuild your mortal form and return you to the point of your death or some other safe location, or allow you to rest as an honored guest in their realm until you are needed once more. Typically, your god restores you if whatever quest you're undertaking, such as defeating a malevolent tyrant or returning a stolen artifact, remains incomplete."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.R4GhrpXtcRIo6Cxx"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Mortal Herald Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "9d647c89-0686-5a25-921c-87078b3bc13a"
+    }
+  },
+  {
+    "id": "82a54598-da68-56d9-9d96-bb50c4438cda",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:specialized-spirit-companion",
+    "name": "Specialized Spirit Companion",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your animal companion gains a unique specialization, spirit-blessed. Thanks to the blessing bestowed upon it by the spirits of this world. If your animal companion already has the spirit-blessed specialization, it gains one additional specialization of your choice."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Spirit-blessed:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your companion is capable of harming wayward spirits, ghosts, and other incorporeal creatures as easy as if they were made of flesh and bone. Your companion's Strikes all gain the effects of the ghost touch property rune."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can select this feat up to three times. Each time, add a different specialization to your companion. It's first specialization must be spirit-blessed."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.lffwKBOaUgWUC9KJ"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Spirit Companion; Incredible Companion"
+            }
+          ]
+        }
+      ],
+      "maxTakable": 3,
+      "archetype": "7f98003d-0b5e-513a-9cda-42f8cff955e8"
+    }
+  },
+  {
+    "id": "8915e1ab-ac6c-5e78-8116-17af7c71119f",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:spirit-companion",
+    "name": "Spirit Companion",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain the service of a young animal companion, which has been blessed by the spirits of this world. If you already have an animal companion, your current animal companion becomes blessed by the spirits instead. This animal companion follows all the usual rules for animal companions. You can Sustain to activate your companion's latent blessing, as long as your animal companion is within 60 feet of you. When you activate this blessing, all damage dealt by your animal companion's Strikes deal spirit damage, rather than the usual damage those Strikes would deal. This blessing remains active until the beginning of your next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.RJjQ3Jh5ErQgOfGJ"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Rivethun Involutionist Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "7f98003d-0b5e-513a-9cda-42f8cff955e8"
+    }
+  },
+  {
+    "id": "0306da6d-38d1-599e-8f72-58c4fce96e3e",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:splinter-faith",
+    "name": "Splinter Faith",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["champion", "cleric"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your faith in your deity is represented in an extremely unusual way that some might call heretical. When you select this feat, you should detail the fundamental tenets of your splinter faith, though it shouldn't affect the deity's edicts or anathema. Choose four domains. These domains must be chosen from among your deity's domains, your deity's alternate domains, and up to one domain that isn't on either list and isn't anathematic to your deity. Any domain spell you cast from a domain that isn't on either of your deity's lists is always heightened to 1 rank lower than usual for a focus spell. For the purpose of abilities that depend on your deity's domains, the four domains you chose are your deity's domains, and any of your deity's domains you didn't choose are now among your deity's alternate domains."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Unless you take this feat at 1st level, changing the way you relate to your deity requires retraining, as described in the Changing Faith section below. If you take this feat and previously benefited from any effect that requires a domain your splinter faith doesn't include, such as a domain spell from Domain Initiate, you lose that effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At the GM's discretion, you can take this feat with other classes or archetypes that gain access to domains through a deity."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.dGFQvkDRmyvvf4IQ"
+    },
+    "data": {
+      "category": "class"
+    }
+  },
+  {
+    "id": "3b47ed0f-e95c-5149-a470-dccc994d252d",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:stand-for-the-fallen",
+    "name": "Stand for the Fallen",
+    "level": 18,
+    "rarity": "common",
+    "traits": ["archetype", "concentrate", "divine"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An ally takes damage that would bring them to 0 Hit Points"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You protect your allies at the cost of your own blood, but your deity shields you from the worst of the harm. Stride twice to be adjacent to the triggering ally. You can Burrow, Climb, Fly, or Swim instead of Striding if you have the corresponding movement type. You then take the damage that would have brought your ally to 0 Hit Points, though you gain resistance to all damage against that damage equal to your level."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.qTxgIym89ehgW684"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Mortal Herald Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "An ally takes damage that would bring them to 0 Hit Points"
+              }
+            ]
+          }
+        ]
+      },
+      "archetype": "9d647c89-0686-5a25-921c-87078b3bc13a"
+    }
+  },
+  {
+    "id": "6e44125f-ba76-538e-9854-efe1c11144cc",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:tandem-auras",
+    "name": "Tandem Auras",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've learned how to maintain multiple auras at once, reinforcing them simultaneously. When you Sustain a battle aura, you can also Sustain a different battle aura you have active."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.PMFmVchpuOyqiWPp"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Battle Harbinger Dedication"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "bd113eb2-fe0f-52cc-8825-c7476e89e46f",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:tandem-onslaught",
+    "name": "Tandem Onslaught",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have trained your body and mind to work in tandem, and you can combine your combat and spellcasting prowess to better support yourself in battle. The first time each round that you successfully hit and deal damage to an enemy creature with a Strike using a weapon or unarmed attack, you can automatically Sustain a single battle aura that you currently have active, applying any additional effects that come with Sustaining the spell."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.zz7hFuycrynz3tgG"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Battle Harbinger Dedication"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "7ac4387c-f73f-5850-be9e-cbccec0b6763",
+    "pack": "divine-mysteries",
+    "kind": "feat",
+    "slug": "feat:text-decoder",
+    "name": "Text Decoder",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype", "skill"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Thanks to your constant involvement with cryptic texts, you have attained an almost-supernatural ability to decipher complex codes and understand ancient writings. You can always use Occultism or Religion when you Decipher Writing, no matter the subject matter. In addition, you can ignore language constraints when Deciphering Writing, and when you critically fail to Decipher Writing, you get a failure instead."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.CR23F2O59fc70RXM"
+    },
+    "data": {
+      "category": "skill",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Palatine Detective Dedication"
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

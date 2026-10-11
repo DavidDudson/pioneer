@@ -378,7 +378,7 @@ and homebrew cannot use that path. A pack directory holds:
 - `<kind>.json`: an array of `ContentEntry` envelopes of that kind, in a stable order.
 
 The hand-authored packs (`core-rules`, and the `monster-core` entries transcribed before the importer exists) live
-there too, beside `player-core`, the Foundry import. `libs/rules/catalog` loads them lazily and checks every entry
+there too, beside the Foundry imports `player-core` and `divine-mysteries`. `libs/rules/catalog` loads them lazily and checks every entry
 against its schema and the book registry, so a malformed or wrongly sourced entry fails `bun run affected`. Ids are
 stored on characters, so changing an entry's slug, its kind included, is a data migration; a catalog test pins every
 id that exists. The slug names its kind (ADR-0034), so only two entries of one kind and name in a pack collide.
@@ -515,6 +515,10 @@ flowchart LR
   links, and fields with no place in a schema go to the pack's backlog, `content/import/<pack>.json`, with the
   entry and Foundry's raw JSON; the entry is imported without them. The backlog is committed with the pack and is
   the work list for engine and translator stories.
+- **References across packs.** A compendium UUID naming a document of another registered book resolves to the
+  entry an earlier import made of it, the official pack entry with the same entry slug: a Divine Mysteries deity's
+  Player Core spells. The document must be one selection keeps for that book. A reference to a book not imported
+  yet (Player Core 2, Impossible Magic) goes to the backlog as an unresolved reference.
 - **Labels.** Foundry writes much of its text as lang keys (`PF2E.SpecificRule.Prompt.Skill`). They resolve against
   Foundry's English lang tables, every `en` file `system.pf2e.json` lists (`en.json`, `action-en.json`,
   `re-en.json`, `kingmaker-en.json`), merged in that order as Foundry loads them, a later string winning and dotted

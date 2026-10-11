@@ -15,6 +15,7 @@ export interface FoundryImport {
 
 export const FOUNDRY_IMPORTS: readonly FoundryImport[] = [
   { pack: PackId.parse('player-core'), book: BookId.parse('player-core'), release: 'pf2e-8.6.0' },
+  { pack: PackId.parse('divine-mysteries'), book: BookId.parse('divine-mysteries'), release: 'pf2e-8.6.0' },
 ];
 
 /** The release's page on GitHub. */

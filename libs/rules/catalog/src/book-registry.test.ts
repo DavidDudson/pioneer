@@ -36,7 +36,7 @@ function registryIssues(input: unknown): readonly FieldIssue[] {
 describe('book registry', () => {
   test('books.json validates and has the remaster core books', () => {
     expect(bookRegistry.books.map((book) => book.id).toSorted()).toStrictEqual(
-      ['gm-core', 'monster-core', 'player-core', 'player-core-2'].map((id) => BookId.parse(id)),
+      ['divine-mysteries', 'gm-core', 'monster-core', 'player-core', 'player-core-2'].map((id) => BookId.parse(id)),
     );
   });
 

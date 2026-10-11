@@ -14,6 +14,9 @@ export const FOUNDRY_BOOK_TITLES: ReadonlyMap<string, BookId> = new Map([
   ['Pathfinder Player Core 2', BookId.parse('player-core-2')],
   ['Pathfinder GM Core', BookId.parse('gm-core')],
   ['Pathfinder Monster Core', BookId.parse('monster-core')],
+  ['Pathfinder Lost Omens Divine Mysteries', BookId.parse('divine-mysteries')],
+  // The book's free online supplement, filed under the book.
+  ['Pathfinder Lost Omens Divine Mysteries Web Supplement', BookId.parse('divine-mysteries')],
 ]);
 
 /** Why a document in an item pack is not imported, in the order selection checks. */
@@ -102,4 +105,17 @@ export function selectEntries(release: FoundryRelease, targets: ReadonlySet<Book
     }
   }
   return { selected, skipped };
+}
+
+const REGISTERED_BOOKS: ReadonlySet<BookId> = new Set(FOUNDRY_BOOK_TITLES.values());
+
+/**
+ * The documents selection keeps for any registered book: those another import of the same release brought in, or
+ * will. References to them resolve to the entries of the packs already imported.
+ */
+export function registeredEntries(documents: readonly PackDocument[]): SelectedEntry[] {
+  return documents.flatMap((entry) => {
+    const selection = select(entry, REGISTERED_BOOKS);
+    return 'reason' in selection ? [] : [selection];
+  });
 }

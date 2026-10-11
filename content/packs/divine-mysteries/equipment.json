@@ -1,0 +1,805 @@
+[
+  {
+    "id": "86a5abb0-03ff-5694-a6c6-dcfccb62724a",
+    "pack": "divine-mysteries",
+    "kind": "equipment",
+    "slug": "equipment:razmiri-mask",
+    "name": "Razmiri Mask",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This mask is made of iron, though more potent versions crafted by powerful Razmiran priests can be made of silver, gold, or even porcelain. The wearer of this mask gains a +1 item bonus to Deception checks to Lie or Feint."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Call Upon Razmir's Benevolence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate, occult)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per minute"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You bend \"divine\" power to your will using the techniques taught you by the Razmiri priesthood. You grant a single target you touch a number of temporary Hit Points equal to twice your level that last for 24 hours. If the target was Unconscious, it regains consciousness and doesn't lose consciousness again due to Hit Point loss as long as it has temporary Hit Points from this effect remaining."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "49be3704-378c-5044-a767-6d6d0a06eced"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.UaOrOGrjcXgSeBvr"
+    },
+    "data": {
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn",
+        "slot": "mask"
+      }
+    }
+  },
+  {
+    "id": "097534b7-98d9-5643-85c5-bb3775e69419",
+    "pack": "divine-mysteries",
+    "kind": "equipment",
+    "slug": "equipment:razmiri-mask-gold",
+    "name": "Razmiri Mask (Gold)",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A gold Razmiri mask grants a +3 item bonus to Deception checks to Lie or Feint."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Call Upon Razmir's Benevolence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate, occult)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per minute"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You bend \"divine\" power to your will using the techniques taught you by the Razmiri priesthood. You grant a single target you touch a number of temporary Hit Points equal to twice your level that last for 24 hours. If the target was Unconscious, it regains consciousness and doesn't lose consciousness again due to Hit Point loss as long as it has temporary Hit Points from this effect remaining."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "49be3704-378c-5044-a767-6d6d0a06eced"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Call Upon Razmir's Mercy",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate, occult)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " three times per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Exhorting Razmir to purge impurities from your target, you lay hands on a creature within reach and cast Cleanse Affliction as an occult spell with a spell rank equal to half your level. Unlike a normal "
+          },
+          {
+            "type": "text",
+            "text": "cleanse affliction",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " spell, this doesn't reduce the stage of the affliction; instead, if the counteract check is successful, the affliction's stage is temporarily reduced by 1 and its effects are suppressed for 24 hours, after which the affliction resumes in full force."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If the target would have been required to attempt additional saves against the affliction during the 24 hours it was suppressed, they must attempt all of those saving throws as soon as the 24-hour duration ends. This could mean that the target saves successfully and it is as if the affliction were truly healed, or it could mean that the affliction returns and advances multiple stages all at once."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Call Upon Razmir's Wrath",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate, occult)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cry out to Razmir to reveal his fiery wrath, as he did upon the unbelievers at Melcat. You cast Sunburst as an 8th-rank occult spell, but for undead targets the spell has the incapacitation trait."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.HHxX5hA2RK7yI483"
+    },
+    "data": {
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn",
+        "slot": "mask"
+      }
+    }
+  },
+  {
+    "id": "96691e25-dfb4-572a-8ab9-13ebc4379d09",
+    "pack": "divine-mysteries",
+    "kind": "equipment",
+    "slug": "equipment:razmiri-mask-porcelain",
+    "name": "Razmiri Mask (Porcelain)",
+    "level": 18,
+    "rarity": "common",
+    "traits": ["apex", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A porcelain Razmiri mask grants a +4 item bonus to Deception checks to Lie or Feint. When you invest the mask, you either increase your Charisma modifier by 1 or increase it to +4, whichever would give you a higher value."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Call Upon Razmir's Benevolence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate, occult)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per minute"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You bend \"divine\" power to your will using the techniques taught you by the Razmiri priesthood. You grant a single target you touch a number of temporary Hit Points equal to twice your level that last for 24 hours. If the target was Unconscious, it regains consciousness and doesn't lose consciousness again due to Hit Point loss as long as it has temporary Hit Points from this effect remaining."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "49be3704-378c-5044-a767-6d6d0a06eced"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Call Upon Razmir's Mercy",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate, occult)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " three times per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Exhorting Razmir to purge impurities from your target, you lay hands on a creature within reach and cast Cleanse Affliction as an occult spell with a spell rank equal to half your level. Unlike a normal "
+          },
+          {
+            "type": "text",
+            "text": "cleanse affliction",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " spell, this doesn't reduce the stage of the affliction; instead, if the counteract check is successful, the affliction's stage is temporarily reduced by 1 and its effects are suppressed for 24 hours, after which the affliction resumes in full force."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If the target would have been required to attempt additional saves against the affliction during the 24 hours it was suppressed, they must attempt all of those saving throws as soon as the 24-hour duration ends. This could mean that the target saves successfully and it is as if the affliction were truly healed, or it could mean that the affliction returns and advances multiple stages all at once."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Call Upon Razmir's Wrath",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate, occult)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cry out to Razmir to reveal his fiery wrath, as he did upon the unbelievers at Melcat. You cast Sunburst as an 8th-rank occult spell, but for undead targets the spell has the incapacitation trait."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Power of the Living God",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate, occult)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You demand power from the world, using your mask as a locus to force reality to bend to your will. You cast Manifestation as a 10th-rank occult spell, but no matter what spell you emulate with it, that spell has the incapacitation trait."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Im9gFhIGtTxRJkS2"
+    },
+    "data": {
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn",
+        "slot": "mask"
+      },
+      "apex": "cha"
+    }
+  },
+  {
+    "id": "3b98bd65-e034-52e5-b253-e2d5ffcfc0cc",
+    "pack": "divine-mysteries",
+    "kind": "equipment",
+    "slug": "equipment:razmiri-mask-silver",
+    "name": "Razmiri Mask (Silver)",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A silver Razmiri mask grants a +2 item bonus to Deception checks to Lie or Feint."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Call Upon Razmir's Benevolence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate, occult)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per minute"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You bend \"divine\" power to your will using the techniques taught you by the Razmiri priesthood. You grant a single target you touch a number of temporary Hit Points equal to twice your level that last for 24 hours. If the target was Unconscious, it regains consciousness and doesn't lose consciousness again due to Hit Point loss as long as it has temporary Hit Points from this effect remaining."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "49be3704-378c-5044-a767-6d6d0a06eced"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Call Upon Razmir's Mercy",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate, occult)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " three times per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Exhorting Razmir to purge impurities from your target, you lay hands on a creature within reach and cast Cleanse Affliction as an occult spell with a spell rank equal to half your level. Unlike a normal "
+          },
+          {
+            "type": "text",
+            "text": "cleanse affliction",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " spell, this doesn't reduce the stage of the affliction; instead, if the counteract check is successful, the affliction's stage is temporarily reduced by 1 and its effects are suppressed for 24 hours, after which the affliction resumes in full force."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If the target would have been required to attempt additional saves against the affliction during the 24 hours it was suppressed, they must attempt all of those saving throws as soon as the 24-hour duration ends. This could mean that the target saves successfully and it is as if the affliction were truly healed, or it could mean that the affliction returns and advances multiple stages all at once."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.eAEZWwzLf6Qr1l0Q"
+    },
+    "data": {
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn",
+        "slot": "mask"
+      }
+    }
+  }
+]

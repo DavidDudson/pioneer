@@ -1,0 +1,3069 @@
+[
+  {
+    "id": "4ca95b7f-c860-5364-8f7c-5cb334f3a731",
+    "pack": "divine-mysteries",
+    "kind": "class-feature",
+    "slug": "class-feature:ashes",
+    "name": "Ashes",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["oracle"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You see all things in the world as fleeting and temporary, waiting to be purified into their base essence: the ash left behind after a burning fire. While you understand fire as a necessary part of this process, you see it mostly as a tool to achieve final purity, not the true goal. You have much in common with oracles with the flames mystery, but you may consider them to be shortsighted, or at best, simply lacking in understanding of the truths that their burning fires impart."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You might see ash as the only true representation of the impermanent nature of life and its pointless existence. Alternatively, you may see the benefit ash can have on soils and farmlands as part of a larger cycle of death and rebirth. Perhaps you see the phoenix, with its life cycle of being reduced to ash and reborn, as a sacred creature that has achieved a higher state of being and is worthy of imitation, or perhaps you see it as a tragic creature that can never reach the goal of perfection. If you follow a deity, you might follow gods of fire like Sarenrae, those who burn impurities to ash such as Brigh or Torag, or those who strive to burn all things to ash, such as the archdevil Moloch or the demon lord Flauros."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted Spells",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "cantrip:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Ignition"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "1st:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Breathe Fire"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "2nd:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Mist (takes the form of ash)"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "6th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Disintegrate"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Revelation Spells",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "initial:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "428d9b9f-b8b3-5505-abd3-94da9f0940d0"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "advanced:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "d7d712c6-240c-5452-9452-7e38c2d24be4"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "greater:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "49a86606-b67b-5d69-91e2-5eadc485cfdd"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Related Domains",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " destruction, dust, fire, nothingness"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Mystery Skill",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Occultism"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Oracle Feat",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Whispers of Weakness"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "ea64f9a0-8988-521b-8e7d-c0b1d987e2bc"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "ea64f9a0-8988-521b-8e7d-c0b1d987e2bc"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.g3HTg0z3doXZZzAV"
+    },
+    "data": {
+      "tags": ["oracle-mystery"]
+    }
+  },
+  {
+    "id": "e5a37c0e-9b55-5bdf-bb4d-6ad1a7d80584",
+    "pack": "divine-mysteries",
+    "kind": "class-feature",
+    "slug": "class-feature:battle-creed",
+    "name": "Battle Creed",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["cleric"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've undergone a special training to focus your body toward combat. While you still adhere to the teachings of your faith, you also know that you serve as an instrument of your church. More so than any warpriest, the physical rigors that come with battle are key to your training. You've dedicated yourself to the battle creed, a specific approach that puts combat prowess first, even at the expense of a cleric's typical spellcasting and restorative abilities. Defeating one's enemies is more important than healing an ally in the heat of battle; the time for healing comes after. As you abide by the battle creed, your physical and martial capabilities grow stronger. You must select "
+          },
+          {
+            "type": "ref",
+            "id": "bdacee24-4321-5d51-abe4-aba27a68215a"
+          },
+          {
+            "type": "text",
+            "text": " as your 2nd- level class feat."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Prerequisites:",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "You must be a cleric."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "You don't gain the Resolute Faith class feature."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "You don't gain the Miraculous Spell class feature."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Spellcasting Adjustment",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ": Your spellcasting capabilities are more restricted. At 1st level, you can prepare one 1st-rank spell and five cantrips. As you increase in level, your number of spell slots and the highest rank of spells you can cast from spell slots increases, shown in Battle Harbinger Spells per Day. Because of your focus on your physical training at the expense of magical aptitude, you have no more than two spell slots of your highest rank and, if you can cast 2nd-rank spells or higher, two spell slots of 1 rank lower than your highest spell rank. For anything that requires the ability to cast spells of a certain rank that's lower than the highest slots you have, you still qualify even if you no longer have spell slots at those ranks."
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "Your Level"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "Cantrips"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "1st"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "2nd"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "3rd"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "4th"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "5th"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "6th"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "7th"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "8th"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "9th"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "1"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "3"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "4"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "5"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "6"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "7"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "8"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "9"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "10"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "11"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "12"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "13"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "14"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "15"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "16"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "17"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "18"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "19"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "20"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ]
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Divine Font Adjustment:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Instead of preparing Heal or Harm spells with your divine font, you instead gain the battle font, which allows you to prepare battle aura spells. You gain 4 additional spell slots each day at your highest rank of cleric spell slots. You can prepare only Bane or Bless in these slots. Any feats and effects that refer to a battle aura refers to these spells, regardless of whether they were cast with your standard spell slots or your divine font spell slots. At 5th level, the number of additional slots increases to 5, and at 15th level, the total number of additional slots increases to 6. Your battle auras use your class DC instead of your spell DC."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Doctrine Adjustment:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Instead of choosing a doctrine, you follow the battle creed. At 1st level, you gain the benefits of the initial creed. You gain additional benefits from your creed at the listed levels."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "28370746-ad31-5d05-ab17-4ffa5f2f1b0b"
+          },
+          {
+            "type": "text",
+            "text": " (1st): You're trained in light and medium armor, and you have expert proficiency in Fortitude saves. You're trained in martial weapons. If your deity's favored weapon is a simple weapon or an unarmed attack, you gain the Deadly Simplicity cleric feat. At 13th level when you gain the Divine Defense class feature, you also gain expert proficiency in light and medium armor."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "0648a7f5-b55f-5746-aaf9-2bd35ddeb847"
+          },
+          {
+            "type": "text",
+            "text": " (5th): You gain expert proficiency with your deity's favored weapon, martial weapons, simple weapons, and unarmed attacks. When you critically succeed at an attack roll using your deity's favored weapon, you apply the weapon's critical specialization effect. Your proficiency rank for your class DC increases to expert."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "105a5f56-4c0f-56ee-9f22-b0a5761c97ab"
+          },
+          {
+            "type": "text",
+            "text": " (9th): You gain Reactive Strike as a cleric feat."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "0f3de710-40f9-5678-9ebb-38d2d053986d"
+          },
+          {
+            "type": "text",
+            "text": " (11th): Your proficiency ranks for the spell attack modifier and spell DC statistics increase to expert."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "b8b088f4-5281-598b-9b34-6386d48158cb"
+          },
+          {
+            "type": "text",
+            "text": " (13th): You gain master proficiency with your deity's favored weapon. Your proficiency rank for Fortitude saves increases to master. When you roll a success on a Fortitude save, you get a critical success instead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "c13e0a32-fa40-59c2-93f6-b76392643e6c"
+          },
+          {
+            "type": "text",
+            "text": " (15th): Your proficiency rank for your class DC increases to master. Your proficiency rank for Will saves increases to master."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "22fe14b3-4ff7-5c13-8a1b-28ecd465b76e"
+          },
+          {
+            "type": "text",
+            "text": " (19th): Your proficiency ranks for light and medium armor, as well as for unarmed defense, increase to master. Your proficiency rank for your class DC increases to legendary."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.49CkgA3kj7Im6gZ5"
+    },
+    "data": {
+      "tags": ["class-archetype", "cleric-doctrine"]
+    }
+  },
+  {
+    "id": "20ed65be-85e3-5c26-b5d3-354e068a0aae",
+    "pack": "divine-mysteries",
+    "kind": "class-feature",
+    "slug": "class-feature:blight",
+    "name": "Blight",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["oracle"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A spring bud will wither, a mighty oak will crash to the forest floor, and a callow youth will grow into maturity, then decline into old age. You know none of these things are cause for alarm or sadness. Decay is an essential part of nature's cycle, as the old pass away to make room for, or to nourish, the new. After all, the flower must fall for the seed to grow, and the toppled tree not only makes room for new saplings to flourish, but also forms a home for many types of flora, fauna, and fungi. Disease, poison, and rot—these are all tools to dispose of creatures that have come to the end of their usefulness that rest in your hands. You might wield them to bring an end to lingering suffering or to spread contagion over once-thriving lands. Well-meaning doctors, persistent healers, or zealous adventurers may try to stand in your way, but blight will spread in the end."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you follow a deity, you might work toward the sinister ends of Rider of Disease Apollyon, the demon lord Cyth-V'sug, or the parasitic Ghlaunder. You might find allies among followers of Groetus or the cults of the Outer Gods. If you see your calling as part of the cycle of existence, you might venerate monitor demigods such as Mother Vulture or commune with nature."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted Spells",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "cantrip:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Caustic Blast"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "1st:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Noxious Vapors"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "2nd:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Fungal Infestation"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "5th:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Toxic Cloud"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Revelation Spells",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "initial:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "99057127-5a97-5737-b587-815ff2f0e783"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "advanced:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "text",
+                  "text": "Purging Toxins"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "greater:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "6d07d574-b664-5070-ae72-ca81b622a9eb"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Related Domains",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " death, decay, disorientation, plague"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Mystery Skill",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Nature"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Oracle Feat",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Whispers of Weakness"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "9dc864e7-6f49-56d7-862d-b36de6f50cc8"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "9dc864e7-6f49-56d7-862d-b36de6f50cc8"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.1PHDn7WJFtR3NgTr"
+    },
+    "data": {
+      "tags": ["oracle-mystery"]
+    }
+  },
+  {
+    "id": "5a217a62-f999-589c-9785-a9de8f524491",
+    "pack": "divine-mysteries",
+    "kind": "class-feature",
+    "slug": "class-feature:choir-politic",
+    "name": "Choir Politic",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["witch"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When your patron speaks, it is a chorus of voices sounding as one. They first appeared to you in the faces of your neighbors in the middle of a town festival or council meeting, when the success of an endeavor hinged on everyone working together. With the strength of your patron behind you, you then rallied the community together for a common goal. Your patron might be a single entity gathering a coterie of subjects together for an unknown cause or a like-minded covenant of deities and spirits. Whatever the case, your patron—and by extension, you—understands that mortals are stronger together."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Spell List",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " divine"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Patron Skill",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Society"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Lesson of Community Knowledge",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your patron taught you the importance of pooling information to help a group with a common cause. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "a3471153-95c6-5f66-b31d-d3cec00bcc5e"
+          },
+          {
+            "type": "text",
+            "text": " hex cantrip and your familiar learns "
+          },
+          {
+            "type": "ref",
+            "id": "b629c2bc-449a-5a58-aa95-992e36fc8aa9"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Familiar of Bolstering Aid",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your familiar knows all manner of tricks that can help! When you Cast or Sustain a hex, and your familiar is adjacent to an ally, that ally gains a +2 status bonus to the next non-attack skill check that ally attempts before the start of your next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.v2JQB6j3VIKWqPpQ"
+    },
+    "data": {
+      "tags": ["witch-patron"]
+    }
+  },
+  {
+    "id": "ea64f9a0-8988-521b-8e7d-c0b1d987e2bc",
+    "pack": "divine-mysteries",
+    "kind": "class-feature",
+    "slug": "class-feature:curse-of-creeping-ashes",
+    "name": "Curse of Creeping Ashes",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["curse", "divine", "fire", "oracle"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your body is slowly being consumed by the fires of your internal power, purifying you with each passing day. You are occasionally wracked with dry, wheezing coughs, and wherever you go you leave behind a fine trace of ash that falls from your body."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Cursebound 1",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain weakness 2 to fire damage. Any immunity or resistance you have to fire is suppressed."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Cursebound 2",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Swirling ash imposes a -2 circumstance penalty to ranged attack rolls you make."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Cursebound 3",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your weakness to fire damage is equal to 5 + your level."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Cursebound 4",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take a –10-foot status penalty to all your Speeds as your limbs begin to crumble like ash."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.2VclK5CWR1Vz1vqL"
+    },
+    "data": {}
+  },
+  {
+    "id": "9dc864e7-6f49-56d7-862d-b36de6f50cc8",
+    "pack": "divine-mysteries",
+    "kind": "class-feature",
+    "slug": "class-feature:curse-of-inevitable-rot",
+    "name": "Curse of Inevitable Rot",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["curse", "divine", "oracle", "poison"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your magic is a constant reminder that all creatures will eventually submit to the ravages of time and the environment. You are suffused with an aura of decay. Leaves wilt and insects fall out of the sky as you pass, silverware tarnishes in your hands, and the dregs of wine turn to vinegar in your goblet."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Cursebound 1",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain weakness 2 to acid and poison damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Cursebound 2",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take a –1 status penalty to saving throws against diseases and poisons. In addition, anyone attempting to Treat your Disease, Poison, or Wounds takes a –1 status penalty to the associated skill check."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Cursebound 3",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your weakness to acid and poison damage increases to twice your level."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Cursebound 4",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your status penalty to saving throws against diseases and poisons and the status penalty for anyone attempting to Treat your Disease, Poison, or Wounds increases to –2."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.5QVUaQGT1FSkFOYP"
+    },
+    "data": {}
+  },
+  {
+    "id": "22fe14b3-4ff7-5c13-8a1b-28ecd465b76e",
+    "pack": "divine-mysteries",
+    "kind": "class-feature",
+    "slug": "class-feature:final-creed",
+    "name": "Final Creed",
+    "level": 19,
+    "rarity": "common",
+    "traits": ["cleric"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your proficiency ranks for light and medium armor, as well as for unarmed defense, increase to master. Your proficiency rank for your class DC increases to legendary."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.11Prk28b1Ux9eBLR"
+    },
+    "data": {}
+  },
+  {
+    "id": "0f3de710-40f9-5678-9ebb-38d2d053986d",
+    "pack": "divine-mysteries",
+    "kind": "class-feature",
+    "slug": "class-feature:greater-creed",
+    "name": "Greater Creed",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["cleric"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your proficiency ranks for the spell attack modifier and spell DC statistics increase to expert."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.eEh5QHawYBmbRjow"
+    },
+    "data": {}
+  },
+  {
+    "id": "28370746-ad31-5d05-ab17-4ffa5f2f1b0b",
+    "pack": "divine-mysteries",
+    "kind": "class-feature",
+    "slug": "class-feature:initial-creed",
+    "name": "Initial Creed",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["cleric"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in light and medium armor, and you have expert proficiency in Fortitude saves. You're trained in martial weapons. If your deity's favored weapon is a simple weapon or an unarmed attack, you gain the Deadly Simplicity cleric feat. At 13th level when you gain the Divine Defense class feature, you also gain expert proficiency in light and medium armor."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.BoZ3nSssFYcwuLIT"
+    },
+    "data": {}
+  },
+  {
+    "id": "0648a7f5-b55f-5746-aaf9-2bd35ddeb847",
+    "pack": "divine-mysteries",
+    "kind": "class-feature",
+    "slug": "class-feature:lesser-creed",
+    "name": "Lesser Creed",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["cleric"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain expert proficiency with your deity's favored weapon, martial weapons, simple weapons, and unarmed attacks. When you critically succeed at an attack roll using your deity's favored weapon, you apply the weapon's critical specialization effect. Your proficiency rank for your class DC increases to expert."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.rzuZSgunJCQqdOxv"
+    },
+    "data": {}
+  },
+  {
+    "id": "b8b088f4-5281-598b-9b34-6386d48158cb",
+    "pack": "divine-mysteries",
+    "kind": "class-feature",
+    "slug": "class-feature:major-creed",
+    "name": "Major Creed",
+    "level": 13,
+    "rarity": "common",
+    "traits": ["cleric"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain master proficiency with your deity's favored weapon. Your proficiency rank for Fortitude saves increases to master. When you roll a success on a Fortitude save, you get a critical success instead."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.kpdb5TJ0F5uCTX0F"
+    },
+    "data": {}
+  },
+  {
+    "id": "105a5f56-4c0f-56ee-9f22-b0a5761c97ab",
+    "pack": "divine-mysteries",
+    "kind": "class-feature",
+    "slug": "class-feature:moderate-creed",
+    "name": "Moderate Creed",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["cleric"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain Reactive Strike as a cleric feat."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.cs9SDe93GHTHlzTz"
+    },
+    "data": {}
+  },
+  {
+    "id": "53e3efa6-9480-582d-a660-7ae4ff147b90",
+    "pack": "divine-mysteries",
+    "kind": "class-feature",
+    "slug": "class-feature:mosquito-witch",
+    "name": "Mosquito Witch",
+    "level": 1,
+    "rarity": "rare",
+    "traits": ["witch"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your patron is a mysterious being known as the Mosquito Witch. You do not know why you were chosen, and in many cases, you wish that you hadn't been. She may have made herself known to you through terrifying prophetic visions and nightmares, or you might have instead received her patronage in the form of swarming insects, their buzzing opening your ears to magic and their bites filling your body with power. Frightening events plague your wake: strange accidents, dead animals, and glowing red eyes in the darkness. Whether or not you're aware of the Mosquito Witch's influence, you have an affinity with insects, and typically draw their attention wherever you go."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Spell List",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " primal"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Patron Skill",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Nature"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Lesson of the Unbridled Hive",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The Mosquito Witch grants you control over insects. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "6e33b68d-f7a7-59ad-ae05-5c00e13737f2"
+          },
+          {
+            "type": "text",
+            "text": " hex cantrip and your familiar learns Pest Form."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Familiar of Swarm's Heart",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your familiar is surrounded by a cloud of harmless insects. When you Cast or Sustain a hex, the insects swarm to protect you and your allies. Until the start of your next turn, your familiar grants Concealment to you or any ally while sharing the same space."
+          },
+          {
+            "type": "text",
+            "text": ".",
+            "marks": ["emphasis"]
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.zy0toWeGIeQstbT4"
+    },
+    "data": {
+      "tags": ["witch-elementalist-patron", "witch-patron"]
+    }
+  },
+  {
+    "id": "608c36ec-547f-5df9-b963-5354caede550",
+    "pack": "divine-mysteries",
+    "kind": "class-feature",
+    "slug": "class-feature:palatine-detective",
+    "name": "Palatine Detective",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["investigator"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whether at the invitation of a senior member of the Esoteric Order of the Palatine Eye, after going through a rigorous sorting process, or by a twist of fate, you recently underwent a secret ritual involving "
+          },
+          {
+            "type": "text",
+            "text": "The Lost Gospels of Tabris",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " that granted you a greater understanding of both the divine and the occult. Not even you are certain of the origin or purpose of the forces that have granted you these abilities, but you know the key to answering that question and expanding your power lies hidden behind the cryptic words of the many ancient texts still waiting to be discovered and examined. If you choose this class archetype, you must select Palatine Detective Dedication as your 2nd-level class feat."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Prerequisites:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You must be an investigator. You are affiliated with the Esoteric Order of the Palatine Eye."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Palatine Detective Adjustments:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Instead of choosing a methodology from others available to the investigator class, you have the esoterica methodology (see below)."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Esoterica Methodology"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You become trained in Occultism or Religion, and you gain the Quick Identification skill feat. In addition, choose one common cantrip from the divine spell list and one common cantrip from the occult spell list. You can cast those spells as innate spells at will. You become trained in the spell attack modifier and spell DCs statistics. Intelligence is your spellcasting attribute."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "8f60468d-7f71-56d5-8296-a9b16622e2e3"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.ppGGpc3Iv2NpAhys"
+    },
+    "data": {
+      "tags": ["class-archetype", "investigator-methodology"]
+    }
+  },
+  {
+    "id": "dd6e45fe-c2c2-5bcb-9c43-9c47c43e5166",
+    "pack": "divine-mysteries",
+    "kind": "class-feature",
+    "slug": "class-feature:paradox-of-opposites",
+    "name": "Paradox of Opposites",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["witch"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Life and death, good and evil, light and shadow, vitality and void energy—these diametrically opposed concepts exist everywhere, and your patron walks the line between them. You first encountered your patron in a place or situation of such duality, such as witnessing a baby being born in a cemetery or feeling the natural light of a sunbeam in an otherwise dark cavern. There is power to be derived from the interplay between seemingly antithetical ideas and striking a balance between the two. Your patron could be a monitor demigod interested in cultivating a cosmic balance or an entity that plays fast and loose with morality. They are the difference between the two sides of the same coin while also being the entirety of the coin."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Spell List",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " divine"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Patron Skill",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Religion"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Lesson of the Twilit Soul",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " For your patron, life and death and sleeping and waking have the same meaning. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "68a6db73-d656-5528-8a8e-93a52eee5d23"
+          },
+          {
+            "type": "text",
+            "text": " hex cantrip and your familiar learns Sleep."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Familiar of Paired Perplexity",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your familiar has twice as many of a small feature than a normal creature would have, such a second tail or an extra pair of whiskers. When you Cast or Sustain a hex, your familiar seems to double and be in two places at once. One creature you choose within 20 feet of it is Stupefied 1 until the start of your next turn; this is a visual effect."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.RdOzBNPKLTMUWrJs"
+    },
+    "data": {
+      "tags": ["witch-patron"]
+    }
+  },
+  {
+    "id": "110d57d7-acab-5305-839e-40ac2a87b542",
+    "pack": "divine-mysteries",
+    "kind": "class-feature",
+    "slug": "class-feature:the-unseen-broker",
+    "name": "The Unseen Broker",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["witch"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whether in a dream, answering a feeling in your heart, or enacting a mysterious ritual, you have agreed to act as a mediator between your patron and the rest of the world. Of course, you understand the power of deals and receive further knowledge in exchange for your service. Your patron might be a god, an enigmatic figure like a planar being, or even an alien entity. Regardless of their origin, it is clear that through the bargains you make with others, you advance your patron's agenda."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Spell List",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " occult"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Patron Skill",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Occultism"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Lesson of the Bound Words",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your patron teaches you about bargains and how they can hold power over others. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "fb7ca4ab-0f10-53be-8aab-12ff3d5b0bdc"
+          },
+          {
+            "type": "text",
+            "text": " hex cantrip and your familiar learns Command."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Familiar of Enticing Negotiation",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your familiar constantly whispers distracting offers of power, wealth, and other temptations to your enemies, even if your familiar normally doesn't have the means of speaking. When you Cast or Sustain a hex and your familiar is within 10 feet of an enemy, the enemy becomes Off-Guard until the start of your next turn. Your familiar can only distract a single enemy per round in this way."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.ydI39ViUy22nBRn6"
+    },
+    "data": {
+      "tags": ["witch-patron"]
+    }
+  },
+  {
+    "id": "c13e0a32-fa40-59c2-93f6-b76392643e6c",
+    "pack": "divine-mysteries",
+    "kind": "class-feature",
+    "slug": "class-feature:true-creed",
+    "name": "True Creed",
+    "level": 15,
+    "rarity": "common",
+    "traits": ["cleric"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your proficiency rank for your class DC increases to master. Your proficiency rank for Will saves increases to master."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.QsnIuPG2O8VzRW4d"
+    },
+    "data": {}
+  }
+]
