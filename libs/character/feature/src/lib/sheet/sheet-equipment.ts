@@ -6,12 +6,13 @@ import type { Investment, InvestmentEffect, NamedStatistic } from '@pioneer/rule
 import { CHARACTER_CONTENT_KINDS } from '../data/content-registry-query';
 
 /**
- * The registry kinds the sheet's engine reads once the character carries anything: its own, the item kinds, and
- * conditions for the encumbered condition its Bulk can bring.
+ * The registry kinds the sheet's engine reads once the character carries anything: its own, the item kinds, the runes
+ * etched onto them, and conditions for the encumbered condition its Bulk can bring.
  */
 export const EQUIPMENT_CONTENT_KINDS: readonly ContentKind[] = [
   ...CHARACTER_CONTENT_KINDS,
   ...INVENTORY_KINDS,
+  ContentKind.Rune,
   ContentKind.Condition,
 ];
 

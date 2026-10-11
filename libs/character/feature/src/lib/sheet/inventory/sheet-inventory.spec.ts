@@ -3,6 +3,7 @@ import {
   carryItem,
   CarryState,
   EMPTY_INVENTORY,
+  etchRune,
   InventoryItemId,
   InventoryItemName,
   investItem,
@@ -10,12 +11,22 @@ import {
   ONE_HAND,
 } from '@pioneer/character/domain';
 import type { Inventory } from '@pioneer/character/domain';
-import { ItemFixture, itemFixtureContent, itemFixtureId } from '@pioneer/character/domain/testing';
+import {
+  fundamental,
+  ItemFixture,
+  itemFixtureContent,
+  itemFixtureId,
+  propertyRune,
+  RuneFixture,
+  runeFixtureContent,
+} from '@pioneer/character/domain/testing';
+import { FundamentalRune } from '@pioneer/rules/sdk';
 import { describe, expect, it } from 'vitest';
 
 import { containerOptions, itemOptions, sheetInventory } from './sheet-inventory';
 
 const content = itemFixtureContent();
+const runed = { items: content, runes: runeFixtureContent() };
 const one = ItemQuantity.parse(1);
 const backpack = InventoryItemId.parse('11111111-1111-4111-8111-111111111111');
 const pouch = InventoryItemId.parse('22222222-2222-4222-8222-222222222222');
@@ -60,25 +71,25 @@ const PACKED = carryItem(
 
 describe(sheetInventory, () => {
   it('groups loose items worn, held then stowed, leaving out empty groups', () => {
-    const groups = sheetInventory(PACKED, content);
+    const groups = sheetInventory(PACKED, runed);
     expect(groups.map(({ placement, lines }) => [placement, lines.map((line) => line.id)])).toStrictEqual([
       ['worn', [backpack]],
       ['held', [sword]],
       ['stowed', [diamond]],
     ]);
-    expect(sheetInventory(EMPTY_INVENTORY, content)).toStrictEqual([]);
+    expect(sheetInventory(EMPTY_INVENTORY, runed)).toStrictEqual([]);
   });
 
   it('groups a dropped item last, and notes the hands a held one takes and an investment', () => {
     const dropped = investItem(carryItem(PACKED, diamond, { state: CarryState.Dropped }), backpack, true);
-    const groups = sheetInventory(dropped, content);
+    const groups = sheetInventory(dropped, runed);
     expect(groups.map(({ placement }) => placement)).toStrictEqual(['worn', 'held', 'dropped']);
     expect(groups[1]?.lines[0]).toMatchObject({ id: sword, hands: 1, invested: false });
     expect(groups[0]?.lines[0]).toMatchObject({ id: backpack, hands: undefined, invested: true });
   });
 
   it('puts what a container holds beneath it, however deep', () => {
-    const worn = present(sheetInventory(PACKED, content)[0]);
+    const worn = present(sheetInventory(PACKED, runed)[0]);
     const pack = present(worn.lines[0]);
     expect(pack.contents.map((line) => line.id)).toStrictEqual([pouch]);
     expect(present(pack.contents[0]).contents.map((line) => [line.id, line.name, line.bulk])).toStrictEqual([
@@ -90,8 +101,28 @@ describe(sheetInventory, () => {
     const named = stock([[sword, ItemFixture.Longsword, undefined]]);
     const [item] = named.items;
     const renamed = { ...named, items: [{ ...present(item), name: InventoryItemName.parse('Oathkeeper') }] };
-    const [held] = sheetInventory(renamed, content);
+    const [held] = sheetInventory(renamed, runed);
     expect(present(held).lines[0]).toMatchObject({ name: 'Oathkeeper', contentName: 'Longsword' });
+  });
+
+  it('gives the runes an item name reads, by grade and by name', () => {
+    let etched = stock([[sword, ItemFixture.Longsword, undefined]]);
+    etched = etchRune(etched, sword, fundamental(FundamentalRune.Potency, 1));
+    etched = etchRune(etched, sword, fundamental(FundamentalRune.Striking, 2));
+    etched = etchRune(etched, sword, propertyRune(RuneFixture.Flaming));
+    const [held] = sheetInventory(etched, runed);
+    expect(present(held).lines[0]?.runes).toStrictEqual({
+      potency: 1,
+      fundamental: [{ rune: FundamentalRune.Striking, grade: 2 }],
+      property: ['Flaming'],
+    });
+  });
+
+  it('gives no runes for an item without any, or a specific item, whose name has them', () => {
+    const plain = stock([[sword, ItemFixture.Longsword, undefined]]);
+    expect(present(sheetInventory(plain, runed)[0]).lines[0]?.runes).toBeUndefined();
+    const tongue = stock([[sword, ItemFixture.FlameTongue, undefined]]);
+    expect(present(sheetInventory(tongue, runed)[0]).lines[0]?.runes).toBeUndefined();
   });
 });
 

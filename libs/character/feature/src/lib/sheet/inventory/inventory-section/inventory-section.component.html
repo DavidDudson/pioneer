@@ -5,12 +5,22 @@
       @if (content(); as content) {
         <fr-stack gap="lg">
           <pio-inventory [groups]="groups()" [actions]="itemEdits" />
-          <ng-template #itemEdits let-line
-            ><pio-item-edits
-              [id]="line.id"
-              [name]="line.name ?? ('rules.inventory.unknownItem' | transloco)"
-              [content]="content"
-          /></ng-template>
+          <ng-template #itemEdits let-line>
+            <fr-stack gap="xs">
+              <pio-item-edits
+                [id]="line.id"
+                [name]="names().get(line.id) ?? ('rules.inventory.unknownItem' | transloco)"
+                [content]="content"
+              />
+              @if (runed(); as runed) {
+                <pio-item-rune-edits
+                  [id]="line.id"
+                  [name]="names().get(line.id) ?? ('rules.inventory.unknownItem' | transloco)"
+                  [content]="runed"
+                />
+              }
+            </fr-stack>
+          </ng-template>
           <fr-divider />
           <pio-add-item [content]="content" />
         </fr-stack>

@@ -1,14 +1,8 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import type { Signal } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import {
-  attributeModifiers,
-  boostContent,
-  INVENTORY_KINDS,
-  INVESTED_MAX,
-  itemContent,
-} from '@pioneer/character/domain';
-import type { ItemContent } from '@pioneer/character/domain';
+import { attributeModifiers, boostContent, INVESTED_MAX, itemContent, runeContent } from '@pioneer/character/domain';
+import type { ItemContent, RunedContent } from '@pioneer/character/domain';
 import { AsyncData, AsyncPending, AsyncRegion, Divider, Heading, Stack } from '@pioneer/frontier';
 import type { AsyncQuery } from '@pioneer/frontier';
 import { Attribute } from '@pioneer/rules/sdk';
@@ -21,11 +15,13 @@ import { CHARACTER_CONTENT_KINDS, injectContentRegistry } from '../../../data/co
 import { AddItem } from '../add-item/add-item.component';
 import { CoinsEdit } from '../coins-edit/coins-edit.component';
 import { ItemEdits } from '../item-edits/item-edits.component';
+import { injectItemNames } from '../item-names';
+import { ItemRuneEdits } from '../item-rune-edits/item-rune-edits.component';
 import { sheetBulk } from '../sheet-bulk';
-import { sheetInventory } from '../sheet-inventory';
+import { INVENTORY_CONTENT_KINDS, sheetInventory } from '../sheet-inventory';
 
 /**
- * The sheet's inventory: items grouped worn, held, stowed and dropped with each item's edits beside it, a form to
+ * The sheet's inventory: items grouped worn, held, stowed and dropped with each item's edits and runes beside it, a form to
  * add an item, the Bulk carried against the limits Strength sets, the investments against their limit with what each
  * turns on, and the coins. The item kinds for the list, its edits and the Bulk load here, with the character's own kinds
  * for the Strength the Bulk limits read (the sheet page's query, so they load once); the sheet page loads the item
@@ -45,6 +41,7 @@ import { sheetInventory } from '../sheet-inventory';
     InventoryView,
     InvestmentsView,
     ItemEdits,
+    ItemRuneEdits,
     Stack,
     TranslocoPipe,
   ],
@@ -60,7 +57,7 @@ export class InventorySection {
   readonly #store = inject(CharacterStore);
   protected readonly investedMax = INVESTED_MAX;
 
-  protected readonly items = injectContentRegistry(INVENTORY_KINDS);
+  protected readonly items = injectContentRegistry(INVENTORY_CONTENT_KINDS);
   /** The character's own kinds, for the Strength the Bulk limits read; the Bulk region follows this query. */
   protected readonly attributes = injectContentRegistry(CHARACTER_CONTENT_KINDS);
   readonly #strength = computed((): AttributeModifier | undefined => {
@@ -74,6 +71,12 @@ export class InventorySection {
     const registry = this.items.data();
     return registry === undefined ? undefined : itemContent(registry);
   });
+  /** The items, and the runes to etch onto them. */
+  protected readonly runed: Signal<RunedContent | undefined> = computed(() => {
+    const registry = this.items.data();
+    const items = this.content();
+    return registry === undefined || items === undefined ? undefined : { items, runes: runeContent(registry) };
+  });
   protected readonly bulk: Signal<CarriedBulk | undefined> = computed(() => {
     const content = this.content();
     const character = this.#store.selected();
@@ -82,11 +85,13 @@ export class InventorySection {
       ? undefined
       : sheetBulk(character.document.inventory, content, strength);
   });
+  /** Each item by the name its row shows, so every control's label names it. */
+  protected readonly names = injectItemNames(this.runed);
   protected readonly groups: Signal<readonly InventoryGroup[] | undefined> = computed(() => {
-    const content = this.content();
+    const runed = this.runed();
     const character = this.#store.selected();
-    return content === undefined || character === undefined
+    return runed === undefined || character === undefined
       ? undefined
-      : sheetInventory(character.document.inventory, content);
+      : sheetInventory(character.document.inventory, runed);
   });
 }

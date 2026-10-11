@@ -7,6 +7,7 @@ import { InventoryRefusalField } from './inventory';
 import type { Inventory, InventoryItem, InventoryItemId, InventoryRefusal } from './inventory';
 import { CarryState, HANDS_MAX, ONE_HAND } from './item-carry';
 import type { Carry, Hands } from './item-carry';
+import { hasRunes, itemRunes } from './item-runes';
 
 /** The kinds a character carries. Kits expand into these (#475); runes are etched onto them (#474). */
 export const INVENTORY_KINDS = [
@@ -65,9 +66,15 @@ export function isWearable(entry: ItemEntry): boolean {
   return entry.kind === ContentKind.Armor || (usage !== undefined && usage.type !== UsageType.Held);
 }
 
-/** Whether `entry` has the invested trait, and so works only while invested. */
-export function isInvestable(entry: ItemEntry | undefined): boolean {
-  return entry?.traits.includes(INVESTED) === true;
+/**
+ * Whether an item works only while invested: its content has the invested trait, or it is armour with runes etched
+ * onto it or printed on it, which the remaster says must be invested for its runes to work.
+ */
+export function isInvestable(item: InventoryItem | undefined, entry: ItemEntry | undefined): boolean {
+  if (entry?.traits.includes(INVESTED) === true) {
+    return true;
+  }
+  return entry?.kind === ContentKind.Armor && item !== undefined && hasRunes(itemRunes(item, entry));
 }
 
 /** The usage an item's content gives it: armour and shields have none, as Foundry pf2e. */
@@ -159,7 +166,7 @@ function carryRefusal(
 function investRefusal(content: ItemContent, inventory: Inventory, id: InventoryItemId): InventoryRefusal | undefined {
   const item = inventory.items.find((each) => each.id === id);
   const entry = item === undefined ? undefined : content.get(item.item);
-  if (!isInvestable(entry)) {
+  if (!isInvestable(item, entry)) {
     return { field: InventoryRefusalField.Invested, message: message('character.validation.notInvestable') };
   }
   if (item === undefined || equippedState(item, entry) === undefined) {
@@ -227,7 +234,7 @@ export function equippedState(item: InventoryItem, entry: ItemEntry | undefined)
  */
 export function activeState(item: InventoryItem, entry: ItemEntry | undefined): ItemState | undefined {
   const equipped = equippedState(item, entry);
-  if (equipped === undefined || !isInvestable(entry)) {
+  if (equipped === undefined || !isInvestable(item, entry)) {
     return equipped;
   }
   return item.invested === true ? ItemState.Invested : undefined;

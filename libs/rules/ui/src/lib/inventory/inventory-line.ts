@@ -1,6 +1,8 @@
 import type { Bulk } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
 
+import type { LineRunes } from './rune-name';
+
 /** Where an item is on the character, as the inventory groups it (character-model.md, "Inventory"). */
 export const InventoryPlacement = { Worn: 'worn', Held: 'held', Stowed: 'stowed', Dropped: 'dropped' } as const;
 export type InventoryPlacement = ValueOf<typeof InventoryPlacement>;
@@ -21,6 +23,11 @@ export interface InventoryLine {
   /** The hands a held item is held in; undefined for one that isn't held. */
   readonly hands: number | undefined;
   readonly invested: boolean;
+  /**
+   * The runes its name reads ("+1 Striking Flaming"); undefined for an item with none, or a specific item, whose
+   * name has them.
+   */
+  readonly runes: LineRunes | undefined;
   /** What it holds, when it is a container: listed beneath it. */
   readonly contents: readonly InventoryLine[];
 }

@@ -5,6 +5,7 @@ import * as z from 'zod';
 
 import { CarrySchema, CarryState, HANDS_MAX, handsInUse, INVESTED_MAX, investedCount, STOWED } from './item-carry';
 import type { Carry } from './item-carry';
+import { ItemRunesSchema } from './rune-etching';
 
 /** One line of a character's inventory. Branded so it can't be passed where a content id is expected. */
 export const InventoryItemId = Uuid.brand<'InventoryItemId'>();
@@ -42,8 +43,8 @@ export type Coins = z.infer<typeof CoinsSchema>;
 
 /**
  * An item the character has: the content it is, how many, the item it is stowed in (none when carried loose), the
- * player's name for it, how it is carried, and whether it is invested. An invested item stays invested while it is
- * off, but only works while it is worn or held as it is used (`activeState`).
+ * player's name for it, how it is carried, whether it is invested, and the runes etched onto it. An invested item
+ * stays invested while it is off, but only works while it is worn or held as it is used (`activeState`).
  */
 export const InventoryItemSchema = z.strictObject({
   id: InventoryItemId,
@@ -53,6 +54,7 @@ export const InventoryItemSchema = z.strictObject({
   name: InventoryItemName.optional(),
   carry: CarrySchema.default(STOWED),
   invested: z.literal(true).optional(),
+  runes: ItemRunesSchema.optional(),
 });
 export type InventoryItem = z.infer<typeof InventoryItemSchema>;
 
@@ -106,7 +108,7 @@ const Items = z
     }
   });
 
-/** What the character carries: items and coins. Bulk and runes are worked out or added by #473 and #474. */
+/** What the character carries: items and coins. Bulk is worked out on every read (`inventoryBulk`). */
 export const InventorySchema = z.strictObject({
   items: Items.default([]),
   coins: CoinsSchema.default(CoinsSchema.parse({})),
@@ -210,6 +212,8 @@ export interface InventoryEdit {
   readonly container?: InventoryItemId | undefined;
   readonly carry?: Carry | undefined;
   readonly invested?: boolean | undefined;
+  /** The item a transferred rune moves onto. */
+  readonly to?: InventoryItemId | undefined;
 }
 
 /** The part of an inventory edit a refusal blames. */
@@ -219,6 +223,8 @@ export const InventoryRefusalField = {
   Container: 'container',
   Carry: 'carry',
   Invested: 'invested',
+  Rune: 'rune',
+  To: 'to',
 } as const;
 export type InventoryRefusalField = ValueOf<typeof InventoryRefusalField>;
 
@@ -229,7 +235,7 @@ export interface InventoryRefusal {
 }
 
 /**
- * Refuses an item added to a full inventory, an edit to an item the inventory hasn't, holding more than two hands
+ * Refuses an item added to a full inventory, an edit to an item the inventory hasn't (or a rune moved onto one), holding more than two hands
  * hold, investing past the limit, a move into an item the inventory hasn't, and a move of an item into itself or into
  * something it holds. Which items can hold others, be worn or be invested is content's to say (`itemRefusal`).
  */
@@ -244,6 +250,9 @@ export function inventoryRefusal(inventory: Inventory, edit: InventoryEdit): Inv
   const items = byId(inventory.items);
   if (id !== undefined && !items.has(id)) {
     return { field: InventoryRefusalField.Id, message: message('character.validation.itemNotFound') };
+  }
+  if (edit.to !== undefined && !items.has(edit.to)) {
+    return { field: InventoryRefusalField.To, message: message('character.validation.itemNotFound') };
   }
   return limitRefusal(inventory, edit) ?? containerRefusal(items, edit);
 }

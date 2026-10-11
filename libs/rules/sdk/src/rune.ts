@@ -43,13 +43,14 @@ export const RunedItem = { Weapon: 'weapon', Armor: 'armor', Shield: 'shield' } 
 export type RunedItem = ValueOf<typeof RunedItem>;
 
 /** What narrows the items a rune goes on (`melee`, `metal`, `clan-dagger`), from Foundry pf2e's usage. */
-const EtchingRestriction = Slug.brand<'EtchingRestriction'>();
+export const EtchingRestriction = Slug.brand<'EtchingRestriction'>();
+export type EtchingRestriction = z.infer<typeof EtchingRestriction>;
 
 /** "Etched onto a melee weapon": the item, and what narrows it. */
 const EtchedOnto = z.strictObject({ item: z.enum(RunedItem), restriction: EtchingRestriction.optional() });
 
 /** The items each fundamental rune goes on: weapon and armour potency are separate runes. */
-const FUNDAMENTAL_ITEMS: Readonly<Record<FundamentalRune, readonly RunedItem[]>> = {
+export const FUNDAMENTAL_RUNE_ITEMS: Readonly<Record<FundamentalRune, readonly RunedItem[]>> = {
   [FundamentalRune.Potency]: [RunedItem.Weapon, RunedItem.Armor],
   [FundamentalRune.Striking]: [RunedItem.Weapon],
   [FundamentalRune.Resilient]: [RunedItem.Armor],
@@ -70,7 +71,7 @@ const FundamentalRuneData = z
   })
   .check((context) => {
     const { rune, grade, etchedOnto } = context.value;
-    if (!FUNDAMENTAL_ITEMS[rune].includes(etchedOnto.item)) {
+    if (!FUNDAMENTAL_RUNE_ITEMS[rune].includes(etchedOnto.item)) {
       context.issues.push({
         code: 'custom',
         input: context.value,

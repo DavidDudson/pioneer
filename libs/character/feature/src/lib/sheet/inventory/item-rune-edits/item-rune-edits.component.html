@@ -1,0 +1,53 @@
+@if (takesRunes()) {
+  <fr-stack gap="xs">
+    <fr-text variant="caption" tone="subtle">{{
+      'character.sheet.runes.heading' | transloco: { name: name() }
+    }}</fr-text>
+    <fr-grid [columns]="3">
+      @for (row of gradeRows(); track row.rune) {
+        <fr-inline-field [label]="row.label" [edit]="row.edit">
+          <fr-select
+            frInlineEditor
+            [ariaLabel]="row.label"
+            [options]="row.options"
+            [value]="row.edit.draft()"
+            (valueChange)="row.edit.change($event)"
+            (committed)="row.edit.flushSoon()"
+            (cancelled)="row.edit.cancel()"
+          />
+        </fr-inline-field>
+      }
+    </fr-grid>
+    @for (property of properties(); track property.name) {
+      <fr-stack direction="horizontal" gap="sm" align="center" wrap>
+        <fr-text>{{ property.name }}</fr-text>
+        <fr-async-button
+          size="sm"
+          [action]="erase(property.rune)"
+          [pendingLabel]="'character.sheet.runes.erasing' | transloco"
+          [describeError]="describeError"
+        >
+          {{ 'character.sheet.runes.erase' | transloco: { rune: property.name, name: name() } }}
+        </fr-async-button>
+      </fr-stack>
+    }
+    @if (needsPotency()) {
+      <fr-text variant="caption" tone="subtle">{{ 'character.sheet.runes.needsPotency' | transloco }}</fr-text>
+    }
+    @if (propertyChoices().length > 0) {
+      <fr-async-form [form]="form" [action]="add" [describeError]="describeError">
+        <fr-stack direction="horizontal" gap="sm" align="end" wrap>
+          <fr-select-field
+            [label]="'character.sheet.runes.propertyOf' | transloco: { name: name() }"
+            [options]="propertyChoices()"
+            [formField]="form.rune"
+          />
+          <fr-async-button type="submit" size="sm" [pendingLabel]="'character.sheet.runes.etching' | transloco">
+            {{ 'character.sheet.runes.etch' | transloco: { name: name() } }}
+          </fr-async-button>
+        </fr-stack>
+      </fr-async-form>
+    }
+    <pio-rune-move [id]="id()" [name]="name()" [content]="content()" />
+  </fr-stack>
+}

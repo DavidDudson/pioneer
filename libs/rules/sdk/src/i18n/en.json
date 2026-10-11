@@ -584,7 +584,14 @@
       "contentName": "({name})",
       "unknownItem": "An item no loaded content has",
       "hands": "{count, plural, one {in # hand} other {in # hands}}",
-      "invested": "Invested"
+      "invested": "Invested",
+      "runedName": "{runes} {name}"
+    },
+    "runes": {
+      "potency": "+{grade}",
+      "striking": "{grade, plural, =1 {Striking} =2 {Greater Striking} =3 {Major Striking} other {Mythic Striking}}",
+      "resilient": "{grade, plural, =1 {Resilient} =2 {Greater Resilient} =3 {Major Resilient} other {Mythic Resilient}}",
+      "reinforcing": "{grade, plural, =1 {Minor Reinforcing} =2 {Lesser Reinforcing} =3 {Moderate Reinforcing} =4 {Greater Reinforcing} =5 {Major Reinforcing} other {Supreme Reinforcing}}"
     },
     "investments": {
       "meter": "Invested items",

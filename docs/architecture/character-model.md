@@ -28,7 +28,7 @@ interface Build {
 
 interface Inventory {
   items: readonly InventoryItem[]; // content ref, quantity, container, custom name, carry
-  // (worn, held in 1 or 2 hands, stowed, dropped), invested; runes etched, per-item overrides to come
+  // (worn, held in 1 or 2 hands, stowed, dropped), invested, runes etched; per-item overrides to come
   coins: Coins;
 }
 
@@ -240,18 +240,29 @@ version 3, #472). `inventory.coins` holds platinum, gold, silver and copper, eac
   container leaves what it held on the ground. The document holds no more than two hands' worth, and the server
   refuses holding past that (`handsFull`), wearing what isn't armour or worn (`notWearable`), a second suit of armour
   (`armorWorn`) and a two-handed item in one hand (`needsTwoHands`).
-- **Investing.** `investItem { id, invested }` invests an item with the `invested` trait (`notInvestable` otherwise)
-  while it is worn or held as it is used (`investNotWorn`), at most 10 (`investmentFull`). An invested item taken off
-  stays invested and counts against the limit, but does nothing until it is worn or held again.
+- **Investing.** `investItem { id, invested }` invests an item with the `invested` trait, or armour with runes
+  (`notInvestable` otherwise), while it is worn or held as it is used (`investNotWorn`), at most 10
+  (`investmentFull`). An invested item taken off stays invested and counts against the limit, but does nothing until
+  it is worn or held again.
 - **In play.** An item works on the character while it is carried as it is used: armour worn, a shield or weapon
   held (a two-handed one in both hands), anything on the body (worn, tattooed, implanted, affixed) worn, and an item
   with no usage either way (`equippedState`). Its physical benefits need only that. Its magic, with the `invested`
   trait, also needs it invested (`activeState`). Each item whose magic works is a grant root with an `inventory`
   hop whose state is `worn`, `held` or `invested`, so its rule elements, and those of what it grants, are in play
-  with that origin (`equippedRules`). Worn armour adds its bonus, with its potency rune's, to AC as an `item` line
-  named by the armour and sets the Dexterity cap; each held weapon is a Strike input (`equippedInputs`). Strikes on
-  the sheet are [#482](https://github.com/DavidDudson/pioneer/issues/482); armour's check and Speed penalties wait for
-  skills and Speed on the sheet.
+  with that origin (`equippedRules`). Worn armour adds its bonus to AC as an `item` line named by the armour and sets
+  the Dexterity cap; while it is invested, its potency rune adds to that line and its resilient rune adds an `item`
+  line to every save. Each held weapon is a Strike input with its potency and striking grades (`equippedInputs`).
+  Strikes on the sheet are [#482](https://github.com/DavidDudson/pioneer/issues/482); armour's check and Speed
+  penalties wait for skills and Speed on the sheet.
+- **Runes.** An item's `runes` are those etched onto it, over those its content comes with
+  ([ADR-0042](../adr/0042-etched-runes-stored-over-content.md)). `etchRune { id, rune }` etches a fundamental rune at
+  a grade (potency and striking on a weapon, potency and resilient on armour, reinforcing on a shield; 1 to 4, 6 for
+  reinforcing) or a property rune for that kind of item, at most one per grade of potency (`propertyRunesFull`).
+  `eraseRune { id, rune }` erases an etched rune, and `transferRune { id, to, rune }` moves one onto another item it
+  goes on that hasn't that fundamental rune. A specific item's fundamental runes only go higher (`runeNotHigher`), and
+  its property runes can't be etched, erased or moved (`specificRunes`). Property runes past the potency grade stay
+  etched and do nothing; those that work are grant roots with their host's inventory hop. The sheet names an item with
+  its runes, as the rules write them ("+1 Greater Striking Flaming Longsword"); a specific item keeps its own name.
 - **Grouping.** The sheet lists loose items worn, held, stowed and dropped as they are carried, and each container's
   contents beneath it. The investments panel counts invested items against the limit and lists the breakdown lines
   each adds to the sheet's statistics. A Bulk meter shows the Bulk carried against the limits in words.

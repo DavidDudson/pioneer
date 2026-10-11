@@ -1,7 +1,7 @@
 import { RuleInPlay } from '@pioneer/rules/engine';
 import type { ArmorInputs, ModifierInputs, WeaponInputs } from '@pioneer/rules/engine';
 import { resolveGrants } from '@pioneer/rules/grants';
-import type { ContentLookup, GrantRoot } from '@pioneer/rules/grants';
+import type { ContentLookup, GrantEntry, GrantRoot } from '@pioneer/rules/grants';
 import {
   Attribute,
   AttributeModifier,
@@ -25,6 +25,8 @@ import { CHARACTER_ROOT_SLOTS } from './character-slots';
 import type { Inventory, InventoryItem } from './inventory';
 import { activeState, equippedState } from './inventory-content';
 import type { ItemContent, ItemEntry } from './inventory-content';
+import { itemRunes, workingPropertyRunes } from './item-runes';
+import { NO_RUNES } from './rune-etching';
 import type { SlotContent } from './slot-offer';
 
 /** An item that works on the character: its inventory line, its content and how it works (its origin hop's state). */
@@ -69,12 +71,22 @@ export interface EquippedInputs {
 
 const NO_POTENCY = 0;
 
+/**
+ * The worn armour's bonus to AC and Dexterity cap, and while its runes work (it is invested, `activeState`) its
+ * potency rune's bonus to AC and resilient rune's to saves.
+ */
 function armorInputs(active: ActiveItem | undefined): Pick<EquippedInputs, 'armor' | 'dexterityCap'> {
   if (active?.entry.kind !== ContentKind.Armor) {
     return {};
   }
-  const { acBonus, dexCap, runes } = active.entry.data;
-  const armor = { bonus: Modifier.parse(acBonus + (runes?.potency ?? NO_POTENCY)), origin: originOf(active) };
+  const { item, entry } = active;
+  const { acBonus, dexCap } = entry.data;
+  const runes = activeState(item, entry) === undefined ? NO_RUNES : itemRunes(item, entry);
+  const armor = {
+    bonus: Modifier.parse(acBonus + (runes.potency ?? NO_POTENCY)),
+    resilient: runes.resilient,
+    origin: originOf(active),
+  };
   return dexCap === undefined ? { armor } : { armor, dexterityCap: AttributeModifier.parse(dexCap) };
 }
 
@@ -97,7 +109,10 @@ function uniqueSlug(name: Slug, taken: ReadonlySet<Slug>): Slug {
   return slug;
 }
 
-/** Each held weapon as its Strike reads it; its potency is its rune's, or a bomb's own item bonus. */
+/**
+ * Each held weapon as its Strike reads it: its potency is its rune's, or a bomb's own item bonus, and its striking
+ * rune adds damage dice.
+ */
 function weaponInputs(active: readonly ActiveItem[]): readonly WeaponInputs[] {
   const taken = new Set<Slug>();
   return active.flatMap((each): WeaponInputs[] => {
@@ -107,7 +122,8 @@ function weaponInputs(active: readonly ActiveItem[]): readonly WeaponInputs[] {
     }
     const slug = uniqueSlug(slugName(entry.slug), taken);
     taken.add(slug);
-    const potency = entry.data.runes?.potency ?? entry.data.itemBonus;
+    const runes = itemRunes(each.item, entry);
+    const potency = runes.potency ?? entry.data.itemBonus;
     return [
       {
         slug,
@@ -115,6 +131,7 @@ function weaponInputs(active: readonly ActiveItem[]): readonly WeaponInputs[] {
         traits: entry.traits,
         range: entry.data.range,
         potency: potency === undefined ? undefined : RuneGrade.parse(potency),
+        striking: runes.striking,
         origin: originOf(each),
       },
     ];
@@ -161,7 +178,8 @@ function fromInventory(origin: Origin): boolean {
 }
 
 /**
- * The rule elements of the character's active items, of the encumbered condition while it carries too much
+ * The rule elements of the character's active items and the property runes working on them (`workingPropertyRunes`),
+ * of the encumbered condition while it carries too much
  * (`encumberedRoots`), and of what they grant, each with an origin that starts at its inventory or condition hop, and
  * the facts their predicates are read against. Grants are resolved with the character's picks, so an item's
  * predicate sees its ancestry and class. Rule elements of the build itself arrive with the builder (Epic 3.3).
@@ -170,7 +188,10 @@ export function equippedRules(document: CharacterDocument, content: ItemContent,
   const { lookup, namespaces } = slots;
   const active = activeItems(document.inventory, content);
   const roots: GrantRoot[] = [
-    ...active.map((each) => ({ entry: each.entry.id, hop: inventoryHop(each) })),
+    ...active.flatMap((each) => {
+      const hop = inventoryHop(each);
+      return [each.entry.id, ...workingPropertyRunes(each.item, each.entry)].map((entry) => ({ entry, hop }));
+    }),
     ...encumberedRoots(document, content, slots),
   ];
   const resolution = resolveGrants({
@@ -187,13 +208,32 @@ export function equippedRules(document: CharacterDocument, content: ItemContent,
     .filter(({ origin }) => fromInventory(origin))
     .flatMap(({ entry, origin, value }) =>
       entry.rules.map((element, rule) =>
-        RuleInPlay.parse({ element, origin, rule, itemLevel: itemLevelOf(content, entry.id), conditionValue: value }),
+        RuleInPlay.parse({
+          element,
+          origin,
+          rule,
+          itemLevel: itemLevelOf(content, document.inventory, { entry, origin }),
+          conditionValue: value,
+        }),
       ),
     );
   return { rules, facts: resolution.facts };
 }
 
-function itemLevelOf(content: ItemContent, id: ContentId): Level | undefined {
+/** An entry grants put in play, and why. */
+interface Resolved {
+  readonly entry: GrantEntry;
+  readonly origin: Origin;
+}
+
+/**
+ * The level `@item.level` reads in an entry's rule elements: the item's own, or for a property rune the level of the
+ * item it is etched onto, as Foundry pf2e keeps a rune's rules on that item.
+ */
+function itemLevelOf(content: ItemContent, inventory: Inventory, { entry, origin }: Resolved): Level | undefined {
+  const [hop] = origin.hops;
+  const host = hop?.kind === OriginHopKind.Inventory ? inventory.items.find((each) => each.id === hop.item) : undefined;
+  const id = entry.kind === ContentKind.Rune && host !== undefined ? host.item : entry.id;
   const level = content.get(id)?.level;
   return level === undefined ? undefined : Level.parse(level);
 }

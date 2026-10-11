@@ -86,3 +86,51 @@ describe('armour bonus', () => {
     });
   });
 });
+
+const FORTITUDE = StatisticDefinition.parse({
+  slug: 'statistic:fortitude',
+  name: 'fortitude',
+  selector: 'save:fortitude',
+  domains: ['check', 'saving-throw', 'con-based'],
+  base: '@attr.con + @prof.save.fortitude',
+  kind: StatisticKind.Check,
+});
+
+/** A level 1 character with Constitution 2 wearing armour with a resilient rune of `resilient`. */
+function fortitude(resilient: number | undefined, rules: readonly RuleInPlay[] = []): StatisticResult | undefined {
+  const inputs = StatisticInputsJson.parse({
+    level: 1,
+    attributes: { str: 0, dex: 0, con: 2, int: 0, wis: 0, cha: 0 },
+    ranks: {},
+    armor: { bonus: 1, origin: ORIGIN, ...(resilient === undefined ? {} : { resilient }) },
+  });
+  const content = { definitions: [FORTITUDE], proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS };
+  return deriveStatistics(content, inputs, { rules, facts: new PredicateFacts([], CORE_NAMESPACES) }).get(
+    Selector.parse('save:fortitude'),
+  );
+}
+
+function resilientLine(result: StatisticResult | undefined): BreakdownLine | undefined {
+  return result?.ok === true ? result.lines.find(({ modifier }) => modifier.slug === 'resilient') : undefined;
+}
+
+describe('resilient rune', () => {
+  test('reaches every save as an item line named by the armour', () => {
+    const result = fortitude(2);
+    expect(result).toMatchObject({ ok: true, baseValue: 2, total: 2 + 2 });
+    expect(resilientLine(result)).toMatchObject({
+      modifier: { label: { entry: LEATHER }, type: 'item', targets: ['saving-throw'], origin: ORIGIN },
+      value: 2,
+      status: { kind: LineStatusKind.Applied },
+    });
+  });
+
+  test('no resilient rune adds no line to saves', () => {
+    expect(fortitude(undefined)).toMatchObject({ ok: true, total: 2, lines: [] });
+  });
+
+  test('stacks as an item bonus: a higher item bonus to the save suppresses it', () => {
+    const cloak = inPlay(flatModifier('item', 3, ['save:fortitude']), 'cloak');
+    expect(fortitude(1, [cloak])).toMatchObject({ ok: true, total: 2 + 3 });
+  });
+});

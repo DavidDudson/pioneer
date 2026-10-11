@@ -9,6 +9,7 @@ import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 import type { InventoryLine } from '../inventory-line';
 import { BULK_WEIGHT_MESSAGES, InventoryMessage } from '../inventory-messages';
+import { injectRunedName } from '../rune-name';
 
 /** What the caller shows beside each line: the line's edits. */
 export interface InventoryLineContext {
@@ -26,6 +27,8 @@ interface ShownBulk {
 interface ShownLine {
   readonly name: string | undefined;
   readonly nameTone: Tone;
+  /** The content's name beside a name the player gave, with its runes. */
+  readonly contentName: string | undefined;
   readonly quantity: string;
   readonly bulk: ShownBulk | undefined;
   /** How it is carried, when that says more than its group: the hands it is held in, and whether it is invested. */
@@ -33,7 +36,7 @@ interface ShownLine {
 }
 
 /**
- * One item: its name (and the content's, when the player renamed it), how many, the hands it is held in, whether it
+ * One item: its name with its runes (and the content's, when the player renamed it), how many, the hands it is held in, whether it
  * is invested, its Bulk, then whatever the caller puts beside it, and what it holds beneath it.
  */
 @Component({
@@ -48,12 +51,15 @@ export class InventoryRow {
   public readonly actions = input<TemplateRef<InventoryLineContext> | undefined>(undefined);
 
   readonly #format = inject(LocaleFormat);
+  readonly #runedName = injectRunedName();
   protected readonly Message = InventoryMessage;
   protected readonly shown = computed((): ShownLine => {
-    const { name, quantity, bulk, bulkPer, hands, invested } = this.line();
+    const { name, contentName, runes, quantity, bulk, bulkPer, hands, invested } = this.line();
+    const named = this.#runedName();
     return {
-      name,
+      name: name === undefined || contentName !== undefined ? name : named(name, runes),
       nameTone: name === undefined ? Tone.Subtle : Tone.Default,
+      contentName: contentName === undefined ? undefined : named(contentName, runes),
       quantity: this.#format.number(quantity),
       bulk: bulk === undefined ? undefined : this.#bulk(bulk, bulkPer),
       notes: [

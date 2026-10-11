@@ -1,7 +1,7 @@
 <fr-stack gap="xs">
   <fr-stack direction="horizontal" gap="xs" align="center" wrap>
     <fr-text weight="medium" [tone]="shown().nameTone">{{ shown().name ?? (Message.UnknownItem | transloco) }}</fr-text>
-    @if (line().contentName; as contentName) {
+    @if (shown().contentName; as contentName) {
       <fr-text tone="subtle">{{ Message.ContentName | transloco: { name: contentName } }}</fr-text>
     }
     <fr-text>{{ Message.Quantity | transloco: { quantity: shown().quantity } }}</fr-text>

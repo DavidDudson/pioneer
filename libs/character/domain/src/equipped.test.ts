@@ -1,6 +1,15 @@
 import { describe, expect, test } from 'bun:test';
 
-import { AttributeModifier, ConditionValue, ItemState, OriginHopKind, Slug } from '@pioneer/rules/sdk';
+import {
+  AttributeModifier,
+  ConditionValue,
+  FundamentalRune,
+  ItemState,
+  Level,
+  OriginHopKind,
+  RuneType,
+  Slug,
+} from '@pioneer/rules/sdk';
 import { installRulesFakes } from '@pioneer/rules/sdk/testing';
 
 import type { CharacterDocument } from './character-document';
@@ -9,16 +18,21 @@ import { addItem, carryItem, EMPTY_INVENTORY, investItem, InventoryItemId, ItemQ
 import type { Inventory } from './inventory';
 import { CarryState, Hands, ONE_HAND } from './item-carry';
 import type { Carry } from './item-carry';
+import { eraseRune, etchRune } from './rune-edits';
+import type { RuneEtching } from './rune-etching';
 import { slotContent } from './slot-offer';
 import type { SlotContent } from './slot-offer';
 import {
   CharacterBuilder,
   clumsyFixtureId,
   encumberedFixtureId,
+  fundamental,
   ItemFixture,
   itemFixtureContent,
   itemFixtureId,
   itemFixtureRegistry,
+  RuneFixture,
+  runeFixtureId,
 } from './testing';
 
 installRulesFakes();
@@ -187,5 +201,88 @@ describe('equippedRules', () => {
     const withoutConditions: SlotContent = { ...slots, lookup: { ...slots.lookup, ofKind: () => [] } };
 
     expect(equippedRules(heavy, content, withoutConditions).rules).toStrictEqual([]);
+  });
+});
+
+function etched(inventory: Inventory, ...etchings: readonly RuneEtching[]): Inventory {
+  let stock = inventory;
+  for (const etching of etchings) {
+    stock = etchRune(stock, idAt(0), etching);
+  }
+  return stock;
+}
+
+describe('equipped runes', () => {
+  const slots = slotContent(itemFixtureRegistry());
+
+  const flaming: RuneEtching = { type: RuneType.Property, rune: runeFixtureId(RuneFixture.Flaming) };
+
+  test("a held weapon's Strike reads its etched potency and striking runes", () => {
+    const sword = etched(
+      carrying([ItemFixture.Longsword, ONE_HANDED]),
+      fundamental(FundamentalRune.Potency, 2),
+      fundamental(FundamentalRune.Striking, 1),
+    );
+    expect(equippedInputs(sword, content).weapons[0]).toMatchObject({ potency: 2, striking: 1 });
+  });
+
+  test("a specific weapon's Strike reads the runes printed on it", () => {
+    const tongue = carrying([ItemFixture.FlameTongue, ONE_HANDED]);
+    expect(equippedInputs(tongue, content).weapons[0]).toMatchObject({ potency: 1, striking: 1 });
+  });
+
+  test("worn armour's runes work only while it is invested: potency to AC, resilient to saves", () => {
+    const armor = etched(
+      carrying([ItemFixture.LeatherArmor, WORN]),
+      fundamental(FundamentalRune.Potency, 1),
+      fundamental(FundamentalRune.Resilient, 2),
+    );
+    expect(equippedInputs(armor, content).armor).toMatchObject({ bonus: 1, resilient: undefined });
+    const invested = investItem(armor, idAt(0), true);
+    expect(equippedInputs(invested, content).armor).toMatchObject({ bonus: 2, resilient: 2 });
+  });
+
+  test("a held weapon's working property runes put their rules in play, at the weapon's level", () => {
+    const sword = etched(
+      carrying([ItemFixture.Longsword, ONE_HANDED]),
+      fundamental(FundamentalRune.Potency, 1),
+      flaming,
+    );
+    const { rules } = equippedRules(withInventory(sword), content, slots);
+    expect(rules).toHaveLength(1);
+    expect(rules[0]).toMatchObject({
+      element: { key: 'FlatModifier', selectors: ['perception'] },
+      origin: {
+        hops: [{ kind: OriginHopKind.Inventory, item: idAt(0), state: ItemState.Held }],
+        entry: runeFixtureId(RuneFixture.Flaming),
+      },
+    });
+    const tongue = carrying([ItemFixture.FlameTongue, ONE_HANDED]);
+    expect(equippedRules(withInventory(tongue), content, slots).rules[0]?.itemLevel).toBe(Level.parse(8));
+  });
+
+  test('a property rune past the potency grade, or on a stowed weapon, puts nothing in play', () => {
+    const dormant = eraseRune(
+      etched(carrying([ItemFixture.Longsword, ONE_HANDED]), fundamental(FundamentalRune.Potency, 1), flaming),
+      idAt(0),
+      { type: RuneType.Fundamental, rune: FundamentalRune.Potency },
+    );
+    expect(equippedRules(withInventory(dormant), content, slots).rules).toStrictEqual([]);
+    const stowed = etched(
+      carrying([ItemFixture.Longsword, { state: CarryState.Stowed }]),
+      fundamental(FundamentalRune.Potency, 1),
+      flaming,
+    );
+    expect(equippedRules(withInventory(stowed), content, slots).rules).toStrictEqual([]);
+  });
+
+  test("armour's property runes work only while it is invested", () => {
+    const shadow: RuneEtching = { type: RuneType.Property, rune: runeFixtureId(RuneFixture.Shadow) };
+    const armor = etched(carrying([ItemFixture.LeatherArmor, WORN]), fundamental(FundamentalRune.Potency, 1), shadow);
+    expect(equippedRules(withInventory(armor), content, slots).rules).toStrictEqual([]);
+    const invested = withInventory(investItem(armor, idAt(0), true));
+    expect(equippedRules(invested, content, slots).rules.map(({ origin }) => origin.entry)).toStrictEqual([
+      runeFixtureId(RuneFixture.Shadow),
+    ]);
   });
 });
