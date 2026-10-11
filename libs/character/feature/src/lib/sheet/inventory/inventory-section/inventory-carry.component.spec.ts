@@ -61,9 +61,13 @@ describe('InventorySection carrying and investing', () => {
   it('counts the investments against the limit', async () => {
     const section = await openInventory();
     const panel = present(section.querySelector('pio-investments'));
-    await vi.waitFor(async () => {
-      await settle();
-      expect(panel.textContent).toContain('1 of 10 invested');
-    });
+    // The panel waits on the derived statistics, which read the core rules and Player Core's import.
+    await vi.waitFor(
+      async () => {
+        await settle();
+        expect(panel.textContent).toContain('1 of 10 invested');
+      },
+      { timeout: 3000 },
+    );
   });
 });
