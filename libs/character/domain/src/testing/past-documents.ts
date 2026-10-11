@@ -15,10 +15,34 @@ const VERSION_1 = {
   notes: [],
 };
 
+/** Version 2, before items were worn, held or invested (#472): an item had no `carry` or `invested`. */
+const VERSION_2 = {
+  ...VERSION_1,
+  schemaVersion: 2,
+  inventory: {
+    items: [
+      {
+        id: '5f0e8a43-2d71-4c3e-9b6a-0d3c1e7f2a10',
+        item: '3c9a6b1e-7d24-5f80-8e1b-4a2c6d9f0b37',
+        quantity: 1,
+      },
+      {
+        id: '8b1d4c62-9e05-4a7f-b3c8-1f6e2a0d5c94',
+        item: '6e2f8d3a-1b47-5c90-9a6e-7d3b0c4f1e28',
+        quantity: 50,
+        container: '5f0e8a43-2d71-4c3e-9b6a-0d3c1e7f2a10',
+        name: 'Fletched by Kyra',
+      },
+    ],
+    coins: { pp: 0, gp: 15, sp: 3, cp: 0 },
+  },
+};
+
 /**
  * One stored document of every past schema version, in the shape that version wrote. A new upgrade step adds the
  * shape it upgrades from; `character-document.test.ts` fails until it does.
  */
 export const PAST_DOCUMENTS: ReadonlyMap<CharacterSchemaVersion, unknown> = new Map([
   [CharacterSchemaVersion.parse(1), VERSION_1],
+  [CharacterSchemaVersion.parse(2), VERSION_2],
 ]);

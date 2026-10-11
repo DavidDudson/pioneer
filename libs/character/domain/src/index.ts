@@ -80,6 +80,7 @@ export {
 } from './character-document-upgrades';
 export {
   addItem,
+  carryItem,
   CoinAmount,
   type Coins,
   CoinsSchema,
@@ -96,6 +97,7 @@ export {
   InventoryRefusalField,
   inventoryRefusal,
   InventorySchema,
+  investItem,
   ItemQuantity,
   moveItem,
   type NewItem,
@@ -104,14 +106,29 @@ export {
   setItemQuantity,
 } from './inventory';
 export {
+  activeState,
+  handsNeeded,
   INVENTORY_KINDS,
   type InventoryKind,
   isContainer,
+  isInvestable,
   type ItemContent,
   itemContent,
   type ItemEdit,
   type ItemEntry,
-  ItemPlacement,
-  itemPlacement,
   itemRefusal,
 } from './inventory-content';
+export {
+  type Carried,
+  type Carry,
+  CarrySchema,
+  CarryState,
+  Hands,
+  HANDS_MAX,
+  handsInUse,
+  InvestedCount,
+  INVESTED_MAX,
+  investedCount,
+  ONE_HAND,
+  STOWED,
+} from './item-carry';

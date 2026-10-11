@@ -20,6 +20,8 @@ export type UpgradeStep = (document: StoredCharacterDocument) => StoredCharacter
 const UPGRADES: readonly UpgradeStep[] = [
   /** 1 → 2: inventory items and coins (#471). A version 1 inventory is empty, which reads as no items and no coins. */
   (document) => document,
+  /** 2 → 3: how each item is carried and whether it is invested (#472). A version 2 item reads as stowed, not invested. */
+  (document) => document,
 ];
 
 /** The version a chain of steps upgrades to: one past the last step. */

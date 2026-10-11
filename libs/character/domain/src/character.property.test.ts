@@ -7,7 +7,7 @@ import { assert, nat, option, pre, property, record, uuid } from 'fast-check';
 import * as z from 'zod';
 
 import { Character } from './character';
-import { CharacterPatchField, CharacterPatchSchema } from './character-patch';
+import { CharacterPatchField, CharacterPatchSchema, inventoryTarget } from './character-patch';
 import type { CharacterPatch } from './character-patch';
 import { InventoryItemId, inventoryRefusal } from './inventory';
 import type { InventoryEdit, InventoryItem } from './inventory';
@@ -64,7 +64,9 @@ function aimed(patch: CharacterPatch, items: readonly InventoryItem[], { index, 
     }
     case CharacterPatchField.RemoveItem:
     case CharacterPatchField.SetItemQuantity:
-    case CharacterPatchField.RenameItem: {
+    case CharacterPatchField.RenameItem:
+    case CharacterPatchField.CarryItem:
+    case CharacterPatchField.InvestItem: {
       return id === undefined ? patch : { ...patch, id };
     }
     case CharacterPatchField.Name:
@@ -83,10 +85,7 @@ function aimed(patch: CharacterPatch, items: readonly InventoryItem[], { index, 
 
 /** What an inventory edit touches, as `inventoryRefusal` reads it. */
 function touched(patch: CharacterPatch): InventoryEdit {
-  return {
-    ...('id' in patch ? { id: patch.id } : {}),
-    ...('container' in patch && patch.container !== undefined ? { container: patch.container } : {}),
-  };
+  return inventoryTarget(patch) ?? {};
 }
 
 describe('Character (properties)', () => {

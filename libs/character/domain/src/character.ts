@@ -12,7 +12,16 @@ import type { CharacterId, CharacterName } from './character-fields';
 import { CharacterPatchField } from './character-patch';
 import type { CharacterPatch, InventoryPatch } from './character-patch';
 import { ANCESTRY_SLOT } from './character-slots';
-import { addItem, inventoryRefusal, moveItem, removeItem, renameItem, setItemQuantity } from './inventory';
+import {
+  addItem,
+  carryItem,
+  inventoryRefusal,
+  investItem,
+  moveItem,
+  removeItem,
+  renameItem,
+  setItemQuantity,
+} from './inventory';
 import type { Inventory, InventoryEdit, InventoryItemId } from './inventory';
 
 /**
@@ -150,6 +159,12 @@ export class Character {
       case CharacterPatchField.RenameItem:
       case CharacterPatchField.SetCoins: {
         return this.#stockChanges(patch, newItemId);
+      }
+      case CharacterPatchField.CarryItem: {
+        return this.#stock(patch, (inventory) => carryItem(inventory, patch.id, patch.carry));
+      }
+      case CharacterPatchField.InvestItem: {
+        return this.#stock(patch, (inventory) => investItem(inventory, patch.id, patch.invested));
       }
       default: {
         const unreachable: never = patch;

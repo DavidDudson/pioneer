@@ -30,6 +30,15 @@ interface EnvelopeFields {
   readonly rules?: readonly object[];
   /** The entry's level, for the kinds that have one (feats). */
   readonly level?: number;
+  /** Its traits; none when absent. */
+  readonly traits?: readonly string[];
+}
+
+/** An item's kind `data`, with the traits (`invested`) and rule elements as JSON a magic item has. */
+export interface MagicItemFields {
+  readonly data: object;
+  readonly traits?: readonly string[];
+  readonly rules?: readonly object[];
 }
 
 /** What a test class has beyond its key attribute. */
@@ -157,6 +166,12 @@ export class ContentPackBuilder {
     return this;
   }
 
+  /** An item like `withItem` with traits and rule elements: a cloak that is `invested` and adds to Perception. */
+  public withMagicItem(kind: ContentKind, name: string, { data, traits = [], rules = [] }: MagicItemFields): this {
+    this.#entries.push({ kind, name, data, level: 0, traits, rules });
+    return this;
+  }
+
   public withNamespace(namespace: string, kind: NamespaceKind): this {
     this.#namespaces[namespace] = kind;
     return this;
@@ -170,14 +185,14 @@ export class ContentPackBuilder {
       creatures: this.#creatures.map((creature) => ({ sources, ...creature })),
       statistics: this.#statistics.map((statistic) => ({ sources, ...statistic })),
       rollOptionNamespaces: this.#namespaces,
-      otherEntries: this.#entries.map(({ kind, name, data, rules = [], level }) => ({
+      otherEntries: this.#entries.map(({ kind, name, data, rules = [], level, traits = [] }) => ({
         id: this.idOf(kind, name),
         pack: this.#id,
         kind,
         slug: `${kind}:${name}`,
         name: name.charAt(0).toUpperCase() + name.slice(1),
         rarity: 'common',
-        traits: [],
+        traits,
         sources,
         description: [],
         rules,
