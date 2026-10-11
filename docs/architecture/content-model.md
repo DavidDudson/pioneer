@@ -122,7 +122,7 @@ Lists of attributes, slugs and ids name each item once.
   subclass (a doctrine, muse, order or school) is a class feature's `ChoiceSet` querying class features by tag
   (`["item:tag:cleric-doctrine"]`), with the `GrantItem` of its pick; a class feature's `tags` are its roll options
   `tag:<tag>`, and the class's `subclass` names the tag its subclass options carry, since a class may have more than
-  one such query (a wizard's arcane school and thesis) ([ADR-0038](../adr/0036-class-names-its-subclass-by-tag.md)).
+  one such query (a wizard's arcane school and thesis) ([ADR-0036](../adr/0036-class-names-its-subclass-by-tag.md)).
 - **Feats.** `category` is Foundry's: `ancestry`, `class`, `general`, `skill` or `bonus`; an archetype feat is a
   class feat with the `archetype` trait. `maxTakable` is a count or `unlimited` (Foundry's `null`), once when
   absent. A feat with `onlyLevel1` must be level 1. `action` is an `action` kind's `data`, for a feat or class
