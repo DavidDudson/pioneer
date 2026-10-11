@@ -74,7 +74,9 @@ export async function openInventory(): Promise<HTMLElement> {
     host.remove();
   });
   await vi.waitFor(() => {
-    TestBed.inject(HttpTestingController).expectOne(`/api/characters/${id}`).flush({ character: VALEROS, slots: [] });
+    TestBed.inject(HttpTestingController)
+      .expectOne(`/api/characters/${id}`)
+      .flush({ character: VALEROS, slots: [], languages: { known: [], open: 0 } });
   });
   const section = present(present(harness.routeNativeElement).querySelector<HTMLElement>('pio-inventory-section'));
   await vi.waitFor(async () => {

@@ -48,6 +48,7 @@ function sheet(version: number, level: number): Record<string, unknown> {
   return {
     character,
     slots: [{ status: 'filled', key: 'ancestry', subject: { kind: 'root', content: 'ancestry' }, selection: ancestry }],
+    languages: { known: [], open: 0 },
   };
 }
 

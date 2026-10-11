@@ -51,6 +51,9 @@ export class AsyncButton {
   public readonly size = input<Size>(Size.Md);
   public readonly type = input<ButtonType>(ButtonType.Button);
   public readonly disabled = input(false, { transform: booleanAttribute });
+  /** A square button holding only an icon; give it an `ariaLabel`. */
+  public readonly iconOnly = input(false, { transform: booleanAttribute });
+  public readonly ariaLabel = input<string | undefined>(undefined);
   public readonly pendingLabel = input<string | undefined>(undefined);
   public readonly successLabel = input<string | undefined>(undefined);
   /** Ask before acting: the label shown after the first press, which a second press confirms. */

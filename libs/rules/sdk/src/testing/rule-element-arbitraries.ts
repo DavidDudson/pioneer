@@ -10,6 +10,7 @@ import {
   record,
   stringMatching,
   tuple,
+  uniqueArray,
   uuid,
 } from 'fast-check';
 import type { Arbitrary } from 'fast-check';
@@ -209,6 +210,14 @@ const spellSlots = element(
   { pool: slugText },
 );
 
+const languageAccess = constantFrom('common', 'uncommon', 'rare');
+const grantedLanguages = uniqueArray(uuid(), { minLength: 1, maxLength: LIST_MAX });
+const languageSlots = integer({ min: 1, max: LIST_MAX });
+const language = oneof(
+  element('Language', { grant: grantedLanguages }, { slots: languageSlots, access: languageAccess }),
+  element('Language', { slots: languageSlots }, { grant: grantedLanguages, access: languageAccess }),
+);
+
 /**
  * Valid rule elements of every `key` the SDK knows, as plain JSON (unparsed). Use with
  * `RuleElement.parse` to get the typed value.
@@ -237,4 +246,5 @@ export const ruleElementJson: Arbitrary<object> = oneof(
   spellcastingEntry,
   sense,
   spellSlots,
+  language,
 );

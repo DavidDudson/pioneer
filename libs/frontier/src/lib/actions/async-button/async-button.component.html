@@ -4,6 +4,8 @@
     [size]="size()"
     [type]="type()"
     [disabled]="disabled()"
+    [iconOnly]="iconOnly()"
+    [ariaLabel]="ariaLabel()"
     [busy]="state().isPending()"
     [describedBy]="state().isError() ? errorId : undefined"
     (pressed)="press()"

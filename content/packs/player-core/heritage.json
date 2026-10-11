@@ -1140,7 +1140,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Language",
+        "slots": 2,
+        "access": "uncommon"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.heritages.Item.idGDjqi1q3Ft8bAZ"
     },

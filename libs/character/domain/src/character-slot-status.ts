@@ -2,7 +2,6 @@ import type { AnsweredSlot, ChoiceSlot, ContentLookup, GrantResolution, RootSlot
 import { ContentId, Level, SlotKey } from '@pioneer/rules/sdk';
 import type { ChoiceValue, ContentText } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
-import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 import { boostSets, flawSlots } from './attribute-boosts';
 import type { BoostSet, BoostSlot } from './attribute-boosts';
@@ -10,54 +9,12 @@ import type { CharacterDocument } from './character-document';
 import { CHARACTER_LEVEL_MAX } from './character-fields';
 import { SlotInvalidMessage, SlotStatus, SlotSubjectKind } from './character-slot';
 import type { CharacterSlot, SlotSubject } from './character-slot';
+import { languageStatuses } from './language-slot-status';
 import { SkillPickProblem, skillSlots } from './skill-training';
 import { resolveSlotsAt, skillReads } from './slot-offer';
 import type { SlotContent, SlotContext } from './slot-offer';
-
-/** How a slot reads at one level: the pick it holds, and the level it is planned at (undefined at the character's). */
-interface SlotRead {
-  readonly key: SlotKey;
-  readonly subject: SlotSubject;
-  readonly stored: ChoiceValue | undefined;
-  readonly planned: Level | undefined;
-}
-
-/** A selection's name, if it has one: none when undefined (`exactOptionalPropertyTypes`). */
-interface Named {
-  readonly selectionName?: ContentText;
-}
-
-function named(selectionName: ContentText | undefined): Named {
-  return selectionName === undefined ? {} : { selectionName };
-}
-
-/** A slot whose pick, if any, it offers: open or filled at the character's level, else planned. */
-function validSlot({ key, subject, stored, planned }: SlotRead, selectionName: ContentText | undefined): CharacterSlot {
-  if (planned !== undefined) {
-    const selection = stored === undefined ? {} : { selection: stored };
-    return { status: SlotStatus.Planned, key, subject, level: planned, ...selection, ...named(selectionName) };
-  }
-  if (stored === undefined) {
-    return { status: SlotStatus.Open, key, subject };
-  }
-  return { status: SlotStatus.Filled, key, subject, selection: stored, ...named(selectionName) };
-}
-
-function invalidSlot(
-  { key, subject, planned }: SlotRead,
-  selection: ChoiceValue,
-  reason: MessageDescriptor,
-): CharacterSlot {
-  const level = planned === undefined ? {} : { level: planned };
-  return { status: SlotStatus.Invalid, key, subject, selection, reason, ...level };
-}
-
-/** An entry id whose content isn't loaded; anything else the slot doesn't offer. */
-function invalidReason(value: ChoiceValue, lookup: ContentLookup): MessageDescriptor {
-  const id = ContentId.safeParse(value);
-  const unloaded = id.success && lookup.entry(id.data) === undefined;
-  return message(unloaded ? SlotInvalidMessage.ContentNotLoaded : SlotInvalidMessage.NotOffered);
-}
+import { invalidReason, invalidSlot, named, validSlot } from './slot-read';
+import type { SlotRead } from './slot-read';
 
 /** A boost slot: invalid when its pick isn't on offer, or another boost of its set took the attribute first. */
 function boostStatus(set: BoostSet, slot: BoostSlot, read: SlotRead): CharacterSlot {
@@ -263,7 +220,7 @@ function hiddenPicks(context: SlotContext, listed: readonly CharacterSlot[]): Ch
 
 /**
  * Every slot the character has, with its status (#419): its own slots, then its boosts by level and the voluntary
- * flaws it took (#550), then its trained skills and skill increases (#464), then the `ChoiceSet` slots its entries
+ * flaws it took (#550), then its trained skills and skill increases (#464), then its language slots (#470), then the `ChoiceSet` slots its entries
  * grant, then picks kept for slots it no longer has. A slot on the character at its level reads as open, filled or
  * invalid there; one that opens only above it reads at the lowest level it opens, as planned, or invalid at that
  * level. A stored pick for a slot found at neither is hidden. Nothing is dropped: every stored pick is in the list.
@@ -274,6 +231,7 @@ export function characterSlots(document: CharacterDocument, content: SlotContent
   const { roots, choices } = grantStatuses(Level.parse(document.level), context);
   const boosts = boostStatuses(document, content, picks);
   const flaws = flawStatuses(document, content, picks);
-  const listed = [...roots, ...boosts, ...flaws, ...skillStatuses(document, content), ...choices];
+  const skills = skillStatuses(document, content);
+  const listed = [...roots, ...boosts, ...flaws, ...skills, ...languageStatuses(document, content), ...choices];
   return [...listed, ...hiddenPicks(context, listed)];
 }

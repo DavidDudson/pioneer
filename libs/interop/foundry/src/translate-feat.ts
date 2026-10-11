@@ -16,6 +16,7 @@ import type { KindInput } from './kind-data-gaps';
 import { setFields, systemOf } from './kind-fields';
 import { ACTION_FIELDS, actionData } from './translate-action';
 import type { ArchetypeLink } from './translate-archetype';
+import { languageRules } from './translate-languages';
 import { senseElement } from './translate-senses';
 import { spellcastingRules } from './translate-spellcasting';
 
@@ -65,10 +66,11 @@ const FoundrySubfeatureSenses = z.record(
 );
 
 /**
- * The senses a feat's `subfeatures` give, as `Sense` elements; a sense outside the vocabulary is reported. Its other
- * subfeatures (proficiencies, key attribute options, languages) are reported until stories read them.
+ * The senses a feat's `subfeatures` give, as `Sense` elements, and its languages as a `Language` element; a sense outside
+ * the vocabulary is reported. Its other subfeatures (proficiencies, key attribute options) are reported until stories
+ * read them.
  */
-/** Reports each set subfeature but `senses`, by its own name. */
+/** Reports each set subfeature but `senses` and `languages`, by its own name. */
 function reportOtherSubfeatures(others: object, { log }: KindInput): void {
   for (const [field, value] of Object.entries(others)) {
     if (isSet(value)) {
@@ -78,8 +80,9 @@ function reportOtherSubfeatures(others: object, { log }: KindInput): void {
 }
 
 function subfeatureRules(system: FoundryFeatSystem, input: KindInput): void {
-  const { senses, ...others } = system.subfeatures ?? {};
+  const { senses, languages, ...others } = system.subfeatures ?? {};
   reportOtherSubfeatures(others, input);
+  languageRules(languages, input);
   const parsed = FoundrySubfeatureSenses.safeParse(senses ?? {});
   if (!parsed.success || Object.keys(parsed.data).length > SENSES_MAX) {
     report(input.log, { reason: KindDataGapReason.InvalidData, field: 'subfeatures.senses', raw: senses });

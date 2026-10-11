@@ -1,0 +1,22 @@
+@if (open() > 0) {
+  <fr-stack gap="xs">
+    <fr-text variant="caption" tone="subtle">{{ Message.Open | transloco: { count: open() } }}</fr-text>
+    @if (adding()) {
+      <fr-select
+        [ariaLabel]="Message.AddLabel | transloco"
+        [options]="options()"
+        [disabled]="saving.isPending()"
+        (valueChange)="pick($event)"
+        (cancelled)="cancel()"
+      />
+      <fr-async-indicator [status]="saving.status()" />
+      @if (saving.errorMessage(); as error) {
+        <fr-message>{{ error }}</fr-message>
+      }
+    } @else {
+      <fr-stack direction="horizontal">
+        <fr-button (pressed)="start()">{{ Message.Add | transloco }}</fr-button>
+      </fr-stack>
+    }
+  </fr-stack>
+}

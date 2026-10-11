@@ -1941,6 +1941,10 @@
       {
         "key": "GrantItem",
         "item": "2cf519d9-3331-5d83-80da-9041ede7e26f"
+      },
+      {
+        "key": "Language",
+        "grant": ["c60a69f8-1fae-5452-9c94-4cf2bd4662b1"]
       }
     ],
     "externalIds": {
@@ -29720,7 +29724,33 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Language",
+        "slots": 2,
+        "access": "uncommon"
+      },
+      {
+        "key": "Language",
+        "slots": 1,
+        "access": "uncommon",
+        "predicate": [
+          {
+            "gte": ["skill:society:rank", 3]
+          }
+        ]
+      },
+      {
+        "key": "Language",
+        "slots": 1,
+        "access": "uncommon",
+        "predicate": [
+          {
+            "gte": ["skill:society:rank", 4]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.P9HCz0uR6xPHuw72"
     },
