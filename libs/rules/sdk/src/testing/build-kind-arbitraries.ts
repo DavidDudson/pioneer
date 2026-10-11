@@ -30,11 +30,10 @@ export const ancestryData: Arbitrary<object> = withOptional(
 
 export const heritageData: Arbitrary<object> = withOptional(constant({}), { ancestry: contentIdJson });
 export const backgroundData: Arbitrary<object> = record({ boosts: array(boost, { maxLength: 2 }) });
-export const classData: Arbitrary<object> = record({
-  keyAttribute: boost,
-  hitPoints: smallint,
-  additionalSkills: smallint,
-});
+export const classData: Arbitrary<object> = withOptional(
+  record({ keyAttribute: boost, hitPoints: smallint, additionalSkills: smallint }),
+  { subclass: slugText },
+);
 export const archetypeData: Arbitrary<object> = withOptional(record({ dedication: contentIdJson }), {
   multiclass: contentIdJson,
 });

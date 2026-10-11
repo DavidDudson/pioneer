@@ -104,6 +104,21 @@ export const CLASS_FIELDS: ReadonlySet<string> = new Set([
   ...SHARED_SLOTS,
 ]);
 
+/**
+ * The tag each Player Core class's subclass options carry, which its subclass `ChoiceSet` filters on. Foundry marks no
+ * choice as the subclass, and a wizard has two tag queries (arcane school and thesis), so it is named here; a later
+ * book's classes are added with its import, or by hand in the pack (ADR-0031).
+ */
+const SUBCLASS_TAGS: ReadonlyMap<string, string> = new Map([
+  ['bard', 'bard-muse'],
+  ['cleric', 'cleric-doctrine'],
+  ['druid', 'druid-order'],
+  ['ranger', 'ranger-hunters-edge'],
+  ['rogue', 'rogue-racket'],
+  ['witch', 'witch-patron'],
+  ['wizard', 'wizard-arcane-school'],
+]);
+
 /** Every class is trained in its class DC at 1st level; Foundry sets it for the actor rather than the class. */
 const CLASS_DC = 'class-dc';
 
@@ -172,7 +187,13 @@ export function classData(input: KindInput): object | undefined {
   grantItems(system.items, 'items', input);
   slots(system, input);
   const [keyAttribute = []] = attributeSlots({ '0': system.keyAbility }, 'keyAbility', input.log);
-  return { keyAttribute, hitPoints: system.hp, additionalSkills: system.trainedSkills.additional };
+  const subclass = SUBCLASS_TAGS.get(slugName(input.envelope.slug));
+  return {
+    keyAttribute,
+    hitPoints: system.hp,
+    additionalSkills: system.trainedSkills.additional,
+    ...(subclass === undefined ? {} : { subclass }),
+  };
 }
 
 /** The class, general and skill feat slots, at Foundry's levels (Player Core's when Foundry gives none). */
