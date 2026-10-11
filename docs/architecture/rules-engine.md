@@ -103,6 +103,7 @@ and `spellcasting` (slug, tradition, attribute), slugs unique within each list. 
 family; each instance is `<selector>:<slug>` (`strike:longsword`, `spell-dc:arcane`), so modifiers, overrides and
 `@stat` reach it as any statistic. With no weapons or entries a family has no instances, and removing one removes
 its statistics.
+The entries are the `SpellcastingEntry` elements in play (`spellcastingInPlay`), one per slug, in slug order.
 
 - An instance takes its key attribute from its source and joins that attribute's `<attribute>-based` domain. A
   family names no `keyAttribute`.
@@ -395,6 +396,7 @@ because that is the dataset we import and the system we export to (see
 | Structure   | `GrantItem`, `ChoiceSet`, `RollOption` (incl. toggles), `ItemAlteration`                                                          |
 | Numbers     | `FlatModifier`, `AdjustModifier`, `Change` (add, upgrade, downgrade, override, multiply), `DexterityCap`, `MultipleAttackPenalty` |
 | Proficiency | `Proficiency` (raise a rank), `MartialProficiency`, `ProficiencyBonus` (replace the bonus table)                                  |
+| Magic       | `SpellcastingEntry` (a spellcasting entry: tradition, attribute, preparation)                                                     |
 | Checks      | `RollTwice`, `SubstituteRoll`, `AdjustDegreeOfSuccess`, `RollNote`                                                                |
 | Strikes     | `Strike`, `AdjustStrike`, `DamageDice`, `DamageAlteration`, `CriticalSpecialization`                                              |
 | Defences    | `Immunity`, `Weakness`, `Resistance`, `TempHitPoints`, `FastHealing`                                                              |
@@ -413,6 +415,12 @@ weapons or armour a predicate defines, whose rank can follow a category's (`same
 Defences group, `Immunity`, `Weakness` and `Resistance` are in the SDK too (see "Defences" below). The Checks,
 Strikes, Creature and Actions groups, and the rest of Defences, land with their Epic 2.6 translator stories, so each
 schema arrives with the Foundry content that exercises it.
+
+`SpellcastingEntry` is Pioneer's own too ([ADR-0037](../adr/0037-spellcasting-entries-are-rule-elements.md)): Foundry
+has no element for an entry, which its player adds by hand. While its predicate holds it gives the character an entry
+(`slug`, `tradition`, `attribute`, and `preparation`: prepared, spontaneous or innate), and makes them trained in
+`spellcasting:<tradition>`; a `Proficiency` raises that rank further. Two in play with one slug are one entry, the
+first in play.
 
 ## Derivation pipeline
 
@@ -524,10 +532,11 @@ slots in all, every one picked) over a thousand more feats.
 The base phase in `libs/rules/engine` (`StatisticBases`) is step 5. The inputs are the character's
 level, attribute modifiers, proficiency rank per selector (a selector left out is untrained), the armor's Dexterity
 cap, what the ancestry and class give, and the weapons and spellcasting entries statistics are derived per. The ranks
-come from the effective set: `ranksInPlay` reads the `Proficiency` elements in play whose predicate holds and keeps the
-highest raise per selector, so a class's starting rank and a feature's later raise compete. It keeps only the rank for
-now; the contributors step 4 lists join when a breakdown shows where a rank came from. The other inputs are supplied
-directly until their epics produce them.
+come from the effective set: `ranksInPlay` reads the `Proficiency` elements in play whose predicate holds, and each
+`SpellcastingEntry` as trained in its tradition, and keeps the highest raise per selector, so a class's starting rank
+and a feature's later raise compete. The spellcasting entries come from it too (`spellcastingInPlay`). It keeps only
+the rank for now; the contributors step 4 lists join when a breakdown shows where a rank came from. The other inputs
+are supplied directly until their epics produce them.
 
 - Statistics derived per source are expanded into their instances first ("Statistics per source").
 - Edges come from `references(formula)`. `@prof.<selector>` and `@rank.<selector>` read that selector's rank, an

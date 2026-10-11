@@ -114,6 +114,16 @@ The engine reads the class's Hit Points and key attribute, and the ranks the eff
 raise (`ranksInPlay`, the highest raise winning): the class's starting ranks, a background's skills, a feature's
 later raise. Armor Class takes the unarmored defence rank until armour is worn.
 
+A caster's spellcasting entries come from the effective set too (`characterSpellcasting`,
+[ADR-0037](../adr/0037-spellcasting-entries-are-rule-elements.md)): each `SpellcastingEntry` element in play is one
+entry, from a class's spellcasting feature, a witch's patron (which names the tradition) or a multiclass dedication.
+Nothing about them is stored, so changing class or patron changes them. Each entry makes the character trained in its
+tradition, and the engine derives its spell attack and spell DC. The sheet's Spellcasting section, between Choices and
+Class features, lists each entry's tradition, how it casts (prepared, spontaneous or innate) and where it came from,
+"from Wizard Spellcasting", with its spell attack and DC, each expanding to its breakdown. A wizard's, bard's, druid's
+or witch's rank rises with the Expert, Master and Legendary Spellcaster features at 7th, 15th and 19th level; a
+cleric's with its doctrine, a cloistered cleric's at 7th, 15th and 19th and a warpriest's at 11th and 19th.
+
 Each slot's status is worked out on every read, never stored (`characterSlots`,
 [ADR-0035](../adr/0035-character-reads-carry-slot-status.md)). `GET` and `PATCH /characters/:id` answer with the
 character and its slots:
