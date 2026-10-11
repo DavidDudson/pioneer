@@ -2,9 +2,10 @@ import { contentKey, SourceKind } from '@pioneer/rules/sdk';
 import type { BookId, ContentEntry, SourceRef } from '@pioneer/rules/sdk';
 
 /**
- * Page numbers and AoN links the replaced pack already had (#401): an imported entry cites its book alone, so each
- * of its book sources takes the page and AoN link of the same book's source on the committed entry with the same
- * pack and slug. What the imported source already has is kept; everything else about the entry is the import's.
+ * Page numbers and AoN links the replaced pack already had (content-model.md, "Foundry import"): an imported entry
+ * cites its book alone, so each of its book sources takes the page and AoN link of the same book's source on the
+ * committed entry with the same pack and slug. What the imported source already has is kept; everything else about
+ * the entry is the import's.
  */
 
 type BookSource = Extract<SourceRef, { readonly kind: typeof SourceKind.Book }>;

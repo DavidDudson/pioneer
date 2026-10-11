@@ -100,9 +100,10 @@ export const SKILLS: Readonly<Record<string, Attribute>> = {
 };
 
 export const SKILL_SELECTORS = Object.keys(SKILLS).map((slug) => `skill:${slug}`);
+const LORE = Domain.parse('lore');
 /** The Lores Player Core's backgrounds train, which its import adds to the core rules pack (rules-engine.md). */
 export const LORE_SELECTORS: readonly string[] = coreRules.statistics
-  .flatMap(({ selector, domains }) => (domains.includes(Domain.parse('lore')) ? [String(selector)] : []))
+  .flatMap(({ selector, domains }) => (domains.includes(LORE) ? [String(selector)] : []))
   .toSorted();
 /** The statistics whose base ends in a proficiency bonus, `@prof`. */
 export const PROFICIENCY_SELECTORS = [...DEFENCES, ...SKILL_SELECTORS, 'class-dc'];
