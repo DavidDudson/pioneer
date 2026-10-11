@@ -814,6 +814,10 @@
     ],
     "rules": [
       {
+        "key": "GrantItem",
+        "item": "db4b07da-dded-5264-b468-ad3c684dba6d"
+      },
+      {
         "key": "ChoiceSet",
         "flag": "ancestry-feat-1",
         "choices": {
@@ -1195,6 +1199,10 @@
       }
     ],
     "rules": [
+      {
+        "key": "GrantItem",
+        "item": "b3e4df23-ef73-5717-b2fd-01c4764f4a75"
+      },
       {
         "key": "ChoiceSet",
         "flag": "ancestry-feat-1",

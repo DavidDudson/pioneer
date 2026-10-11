@@ -515,7 +515,7 @@ Grant and choice predicates read facts the set itself provides, so resolution ru
 grants as above against the facts of the round before, then derives the facts again from the set it reached:
 
 - the level, as `self:level:<level>` (an input; a negative level sets none);
-- each entry's kind option, as Foundry writes it: `class:fighter`, `feature:<slug>` for a class feature,
+- each entry's kind option, as Foundry writes it: `class:fighter`, `feature:<slug>` for a class or ancestry feature,
   `feat:<slug>`, `ancestry:`, `heritage:`, `background:`, `self:condition:<slug>`, `self:effect:<slug>`. Creatures
   and statistics set none;
 - a valued condition's value, as `self:condition:<slug>:<value>` beside `self:condition:<slug>` (_frightened 2_ sets

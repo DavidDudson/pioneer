@@ -1,0 +1,167 @@
+[
+  {
+    "id": "6cc861f1-c935-572e-b52c-4e7957a2e0e1",
+    "pack": "player-core",
+    "kind": "ancestry-feature",
+    "slug": "ancestry-feature:greater-darkvision",
+    "name": "Greater Darkvision",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can see in darkness and dim light just as well as you can see in bright light, though your vision in darkness is in black and white. Some forms of magical darkness, such as a 4th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "d7720a54-bc70-5d59-bdb1-d50d8eb0dac9"
+          },
+          {
+            "type": "text",
+            "text": " spell, block normal darkvision. You, however, can see through even these forms of magical darkness."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "d9c41f9d-318a-5062-b129-db87b8f08f5e"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestryfeatures.Item.vPhPgzpRjYDMT9Kq"
+    },
+    "data": {}
+  },
+  {
+    "id": "db4b07da-dded-5264-b468-ad3c684dba6d",
+    "pack": "player-core",
+    "kind": "ancestry-feature",
+    "slug": "ancestry-feature:keen-eyes",
+    "name": "Keen Eyes",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["halfling"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eyes are sharp, allowing you to make out small details about "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": " or even "
+          },
+          {
+            "type": "ref",
+            "id": "53cf375b-c3fa-5d92-afde-135a3c001674"
+          },
+          {
+            "type": "text",
+            "text": " creatures that others might miss. You gain a +2 circumstance bonus when using the "
+          },
+          {
+            "type": "ref",
+            "id": "d45207be-e539-50ce-9463-f4edc3671076"
+          },
+          {
+            "type": "text",
+            "text": " action to find "
+          },
+          {
+            "type": "ref",
+            "id": "d851e3ca-be0d-55a7-a4d1-d7ed8b7ecafa"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "61f1fec4-1bb4-585d-9c12-6059d15dd74b"
+          },
+          {
+            "type": "text",
+            "text": " creatures within 30 feet of you. When you target an opponent that is concealed from you or hidden from you, reduce the DC of the flat check to 3 for a concealed target or 9 for a hidden one."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": [
+          "action:seek",
+          {
+            "lte": ["target:distance", 30]
+          },
+          {
+            "or": ["target:condition:hidden", "target:condition:undetected"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestryfeatures.Item.y1EmCv2cEb5hXBwx"
+    },
+    "data": {}
+  },
+  {
+    "id": "b3e4df23-ef73-5717-b2fd-01c4764f4a75",
+    "pack": "player-core",
+    "kind": "ancestry-feature",
+    "slug": "ancestry-feature:plant-nourishment",
+    "name": "Plant Nourishment",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["leshy"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain nourishment in the same way that the plants or fungi that match your body type normally do, through some combination of photosynthesis, absorbing minerals with your roots, or scavenging decaying matter. You typically do not need to pay for food. If you normally rely on photosynthesis and go without sunlight for 1 week, you begin to starve. You can derive nourishment from specially formulated bottles of sunlight instead of natural sunlight, but these bottles cost 10 times as much as standard rations (or 40 sp)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestryfeatures.Item.Sm3tKetM6kddTio3"
+    },
+    "data": {}
+  }
+]
