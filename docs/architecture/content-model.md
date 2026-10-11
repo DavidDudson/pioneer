@@ -626,7 +626,10 @@ flowchart LR
     ([ADR-0041](../adr/0041-spell-slots-are-rule-elements.md)): `SpellSlots` elements for Player Core's shared
     spells-per-day table on each caster's spellcasting feature, Divine Font's pool, the curriculum pool of every
     school but Unified Magical Theory, the dedications' cantrips and the archetypes' Basic, Expert and Master
-    Spellcasting slots.
+    Spellcasting slots. What the pools take is `PoolSpells`
+    ([ADR-0045](../adr/0045-pool-spells-are-rule-elements.md)): heal or harm by the font Divine Font's `ChoiceSet`
+    picks (translated with both fonts offered, since the deity predicates would hide them), and each school's
+    curriculum by slug.
   - A deity's singular fields (`attribute`, `skill`) map to `attributes` and `skills:` selectors, and its spells,
     keyed by rank, to one `spell` entry each.
   - A kit's items by UUID with their quantities, a container's one level deep (deeper is reported), and its price
