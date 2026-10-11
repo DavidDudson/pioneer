@@ -12,9 +12,17 @@ import {
 } from '@pioneer/character/domain';
 import type { Character, CharacterSlot } from '@pioneer/character/domain';
 import type { SelectOption } from '@pioneer/frontier';
+import { ChoiceValue } from '@pioneer/rules/sdk';
 import type { Attribute, ContentRegistry, SlotKey } from '@pioneer/rules/sdk';
 import { BuildPart } from '@pioneer/rules/ui';
 import type { BuildLine, BuildValue } from '@pioneer/rules/ui';
+import * as z from 'zod';
+
+/** An empty pick in one of the character's own slots, as the select's placeholder reads it. */
+export const NOT_CHOSEN = '';
+
+/** A pick in one of the character's own slots, or none. */
+export const RootPick = z.union([ChoiceValue, z.literal(NOT_CHOSEN)]);
 
 /** The name of the entry picked in `slot`, when the slot holds one it offers. */
 function picked(slots: readonly CharacterSlot[], slot: SlotKey): BuildValue | undefined {

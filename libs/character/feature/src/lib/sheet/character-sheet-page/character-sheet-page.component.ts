@@ -56,16 +56,13 @@ import { CharacterStore } from '../../data/character-store';
 import { CHARACTER_CONTENT_KINDS, contentRegistryQuery } from '../../data/content-registry-query';
 import { ImportResult } from '../../import/import-result/import-result.component';
 import { sheetAttributes } from '../sheet-attributes';
-import { sheetBuildSummary, sheetRootOptions } from '../sheet-build';
+import { NOT_CHOSEN, RootPick, sheetBuildSummary, sheetRootOptions } from '../sheet-build';
 import { sheetChoices } from '../sheet-choices';
 import { sheetDefences } from '../sheet-defences';
 import { sheetEntryNames } from '../sheet-entry-names';
 import { sheetField } from '../sheet-field';
 import { SHEET_SECTION_ORDER, SHEET_SECTIONS } from '../sheet-sections';
 import { sheetStatistics } from '../sheet-statistics';
-
-/** An empty pick in one of the character's own slots, as the select's placeholder reads it. */
-const NOT_CHOSEN = '';
 
 /** Focuses an inline field by its read view's button, which scrolls it into view. */
 function focusField(field: ElementRef<HTMLElement>): void {
@@ -249,8 +246,11 @@ export class CharacterSheetPage {
     return sheetField<string | undefined>(this.character, {
       read: (character) => character.document.build.choices[slot] ?? NOT_CHOSEN,
       empty: NOT_CHOSEN,
-      schema: ChoiceValue,
-      save: async (value) => this.store.selectSlot(slot, ChoiceValue.parse(value)),
+      schema: RootPick,
+      save: async (value) =>
+        value === undefined || value === NOT_CHOSEN
+          ? this.store.clearSlot(slot)
+          : this.store.selectSlot(slot, ChoiceValue.parse(value)),
       format: (value) =>
         options().find((option) => option.value === value)?.label ?? this.#i18n.translate('character.sheet.notChosen'),
     });

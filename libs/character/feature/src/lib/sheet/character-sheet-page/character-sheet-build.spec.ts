@@ -34,6 +34,16 @@ describe('CharacterSheetPage build', () => {
     });
   });
 
+  it('shows an empty heritage and background as not chosen, with no error', async () => {
+    const { root } = await openSheet();
+    const identity = present(root.querySelector('section[aria-labelledby="sheet-identity"]'));
+
+    await vi.waitFor(() => {
+      expect(identity.textContent).toContain('Not chosen');
+    });
+    expect(identity.querySelectorAll('fr-message')).toHaveLength(0);
+  });
+
   it('Edit build moves focus to the ancestry picker', async () => {
     const { root } = await openSheet();
     const build = present(root.querySelector('section[aria-labelledby="sheet-build"]'));
