@@ -44,10 +44,10 @@ describe('SourceRef', () => {
     expect(parsed).toStrictEqual(source);
   });
 
-  test('a book source needs a page or an AoN link', () => {
-    expect(issues(SourceRef, { kind: SourceKind.Book, book: 'player-core' })).toStrictEqual([
-      { path: [], message: message(RulesMessage.BookLocation) },
-    ]);
+  test('a book source may cite the book alone until its page and AoN link are known', () => {
+    const source = { kind: SourceKind.Book, book: 'player-core' };
+    const parsed: unknown = SourceRef.parse(source);
+    expect(parsed).toStrictEqual(source);
   });
 
   test.each([

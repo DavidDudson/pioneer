@@ -1,5 +1,4 @@
 import type {
-  BookId,
   ContentId,
   ContentLevel,
   ContentText,
@@ -9,7 +8,7 @@ import type {
   Rarity,
   RichText,
   RuleElement,
-  SourceKind,
+  SourceRef,
   Trait,
 } from '@pioneer/rules/sdk';
 
@@ -20,17 +19,8 @@ export interface FoundryExternalIds {
 }
 
 /**
- * A book source as the import knows it: the book, with no page or AoN link. `SourceRef` requires one of the two
- * (ADR-0005), so this is its own type until enrichment (#22) adds them; how pack output treats it is #400's call.
- */
-export interface UnlocatedBookSource {
-  readonly kind: typeof SourceKind.Book;
-  readonly book: BookId;
-}
-
-/**
  * The envelope fields of `ContentEntry`, as the import fills them. Not parsed against `ContentEntry` here: kind
- * `data` is beside it, and its source is an `UnlocatedBookSource`.
+ * `data` is beside it until pack output (`packOutput`) joins and validates them.
  */
 export interface EnvelopeFields {
   readonly id: ContentId;
@@ -40,7 +30,7 @@ export interface EnvelopeFields {
   readonly level?: ContentLevel;
   readonly rarity: Rarity;
   readonly traits: readonly Trait[];
-  readonly sources: readonly UnlocatedBookSource[];
+  readonly sources: readonly SourceRef[];
   readonly description: RichText;
   readonly rules: readonly RuleElement[];
 }

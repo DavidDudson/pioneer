@@ -6,7 +6,6 @@ export const RulesMessage = {
   RollOptionFormat: 'rules.rollOption.format',
   NamespaceConflict: 'rules.rollOption.namespaceConflict',
   PredicateTooDeep: 'rules.predicate.tooDeep',
-  BookLocation: 'rules.source.bookLocation',
   AonUrl: 'rules.source.aonUrl',
   SourceUnknownBook: 'rules.source.unknownBook',
   SourceHomebrewPack: 'rules.source.homebrewPack',

@@ -17,11 +17,11 @@ function entry(slug: string, ...sources: readonly Record<string, unknown>[]): So
 }
 
 describe('source coverage', () => {
-  test('lists, per registered book, the entries cited by AoN link alone', () => {
+  test('lists, per registered book, the entries cited without a page', () => {
     const entries = [
       entry('toughness', { kind: SourceKind.Book, book: 'player-core', aon: AON }),
       entry('assurance', { kind: SourceKind.Book, book: 'player-core', page: 1 }),
-      entry('fleet', { kind: SourceKind.Book, book: 'player-core', aon: AON }),
+      entry('fleet', { kind: SourceKind.Book, book: 'player-core' }),
       entry('blast', { kind: SourceKind.Book, book: 'gm-core', page: 2, aon: AON }),
     ];
     const coverage = sourceCoverage(entries, bookRegistry);

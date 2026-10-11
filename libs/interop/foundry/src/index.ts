@@ -48,12 +48,7 @@ export {
   translateEnvelopes,
   type UnknownTrait,
 } from './translate-envelope';
-export {
-  type EnvelopeFields,
-  type FoundryExternalIds,
-  type ImportedEnvelope,
-  type UnlocatedBookSource,
-} from './imported-envelope';
+export { type EnvelopeFields, type FoundryExternalIds, type ImportedEnvelope } from './imported-envelope';
 export { type UnknownMarkup, type UntranslatedEnricher } from './describe-entries';
 export { type FoundryLinks } from './enricher-context';
 export { htmlToRichText, OVERSIZED_MARKUP, type RichTextTranslation } from './html-rich-text';

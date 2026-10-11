@@ -42,17 +42,16 @@ export const SourceKind = {
 } as const;
 export type SourceKind = ValueOf<typeof SourceKind>;
 
-const BookSource = z
-  .strictObject({
-    kind: z.literal(SourceKind.Book),
-    book: BookId,
-    page: PageNumber.optional(),
-    aon: AonUrl.optional(),
-  })
-  .refine(
-    (source) => source.page !== undefined || source.aon !== undefined,
-    issueParams(message(RulesMessage.BookLocation)),
-  );
+/**
+ * A book, with its page and AoN entry once known. Imported entries cite the book alone until enrichment adds them
+ * (content-model.md, "Source enrichment"); the coverage report counts what is missing.
+ */
+const BookSource = z.strictObject({
+  kind: z.literal(SourceKind.Book),
+  book: BookId,
+  page: PageNumber.optional(),
+  aon: AonUrl.optional(),
+});
 
 const WebSource = z.strictObject({
   kind: z.literal(SourceKind.Web),
@@ -68,7 +67,7 @@ const HomebrewSource = z.strictObject({
 });
 
 /**
- * Where a piece of content comes from (ADR-0005): a book page and/or its AoN entry, a web page,
+ * Where a piece of content comes from (ADR-0005): a book, with its page and AoN entry when known, a web page,
  * or a homebrew pack and its author.
  */
 export const SourceRef = z.discriminatedUnion('kind', [BookSource, WebSource, HomebrewSource]);

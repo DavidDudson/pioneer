@@ -132,8 +132,8 @@ describe('ContentEntry', () => {
   });
 
   test('checks each source as a SourceRef', () => {
-    expect(issues({ ...human, sources: [{ kind: 'book', book: 'player-core' }] })).toStrictEqual([
-      { path: ['sources', 0], message: message(RulesMessage.BookLocation) },
+    expect(issues({ ...human, sources: [{ kind: 'book', book: 'Player Core' }] })).toStrictEqual([
+      { path: ['sources', 0, 'book'], message: message(ValidationMessage.InvalidFormat, { format: 'regex' }) },
     ]);
   });
 
