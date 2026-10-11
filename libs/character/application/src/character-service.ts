@@ -9,10 +9,6 @@ import {
   characterSlots,
   CLASS_SLOT,
   InventoryItemId,
-  inventoryRefusal,
-  inventoryTarget,
-  itemContent,
-  itemRefusal,
   PATCH_COMMANDS,
   slotContent,
   slotRefusal,
@@ -25,7 +21,6 @@ import type {
   CharacterSheet,
   ClearedPick,
   CreateCharacterBody,
-  InventoryRefusal,
   PatchCharacterBody,
   PatchedCharacterSheet,
   SlotPick,
@@ -62,6 +57,7 @@ import type { Clock, FieldIssue, UserId, Version } from '@pioneer/shared/kernel'
 
 import { mayAccessCharacter } from './character-policy';
 import type { CharacterRepository } from './character-repository';
+import { assertInventoryAllows } from './inventory-guard';
 
 const PROBLEM_MESSAGES = {
   [PathbuilderProblem.Malformed]: 'character.import.problem.malformed',
@@ -109,13 +105,6 @@ function importedCharacter(
   const roots = rootChoices(value, lookup);
   const placement = placeBoosts(create(roots).document, boosts, value.boosts);
   return { character: create({ ...roots, ...placement.choices }), unplaced: placement.unplaced };
-}
-
-/** Throws a refused inventory edit as a 422 on the patch field it blames. */
-function refuse(refusal: InventoryRefusal | undefined): void {
-  if (refusal !== undefined) {
-    throw new ValidationError([{ path: ['patch', refusal.field], message: refusal.message }]);
-  }
 }
 
 /** The problem first, as the issue the UI shows, then the schema issues that explain it. */
@@ -264,7 +253,7 @@ export class CharacterService {
     if (patch.field === CharacterPatchField.SelectSlot) {
       await this.#assertSlotOffers(current, patch);
     }
-    await this.#assertInventoryAllows(current, patch);
+    await assertInventoryAllows(current, patch, this.#content);
   }
 
   /** The picks a slot edit left in slots within the edited one that no longer offer them; none for any other edit. */
@@ -275,24 +264,6 @@ export class CharacterService {
     }
     const content = await this.#content.registry();
     return unfitPicks(before.document, after.document, slotContent(content));
-  }
-
-  /**
-   * Refuses an edit to an item the character hasn't, a move that would put a container inside itself, content no
-   * loaded pack has as an item, and stowing in an item that holds nothing. Other edits pass untouched.
-   */
-  async #assertInventoryAllows(character: Character, patch: CharacterPatch): Promise<void> {
-    const target = inventoryTarget(patch);
-    if (target === undefined) {
-      return;
-    }
-    const { inventory } = character.document;
-    refuse(inventoryRefusal(inventory, target));
-    if (target.item === undefined && target.container === undefined) {
-      return;
-    }
-    const registry = await this.#content.registry();
-    refuse(itemRefusal(itemContent(registry), inventory, target));
   }
 
   /**
