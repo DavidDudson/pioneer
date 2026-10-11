@@ -23,6 +23,13 @@ function checkPlaywrightDriver(): void {
 }
 
 /**
+ * A story test's time limit. Vitest's 15 s default is enough for any story alone (the longest, forced colours, takes
+ * under a second), but `nx affected` runs every library's four theme projects at once, and on a loaded machine the
+ * forced colours story's screenshot then waits past it for the meter to settle. A slow story is not a failure.
+ */
+const STORY_TIMEOUT_MS = 60_000;
+
+/**
  * Every story in the Storybook at `configDir` as a test in headless Chromium: its `play` function, then axe
  * (`a11y.test: 'error'` in the shared preview). One project per theme × colour mode, since contrast and focus
  * rings differ in each; `vitest.setup.ts` beside the config reads the pair through `inject`. Projects are named
@@ -37,6 +44,7 @@ export function storybookThemeProjects(configDir: string): TestProjectInlineConf
         name: `storybook:${theme}-${mode}`,
         provide: { theme, mode },
         setupFiles: [path.join(configDir, 'vitest.setup.ts')],
+        testTimeout: STORY_TIMEOUT_MS,
         browser: {
           enabled: true,
           headless: true,
