@@ -36,6 +36,7 @@ describe('importVocabulary: traits', () => {
     expect(appliesTo.get('dwarf')).toEqual({
       appliesTo: [
         ContentKind.Ancestry,
+        ContentKind.AncestryFeature,
         ContentKind.ClassFeature,
         ContentKind.Creature,
         ContentKind.Feat,
@@ -45,6 +46,7 @@ describe('importVocabulary: traits', () => {
     expect(appliesTo.get('manipulate')).toEqual({
       appliesTo: [
         ContentKind.Action,
+        ContentKind.AncestryFeature,
         ContentKind.ClassFeature,
         ContentKind.Feat,
         ContentKind.Ritual,

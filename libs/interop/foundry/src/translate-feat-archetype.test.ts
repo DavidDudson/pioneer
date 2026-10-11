@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { ContentKind } from '@pioneer/rules/sdk';
+import { ContentKind, RuleElementKey } from '@pioneer/rules/sdk';
 
 import type { FoundryJournalPage } from './foundry-journal';
 import type { JournalDocument } from './foundry-release';
@@ -17,9 +17,9 @@ import {
   ROPE,
   SUDDEN_CHARGE,
 } from './testing/build-fixtures';
-import { dataIn, gapKeys, kindDataOf, slugIn } from './testing/build-helpers';
-import { idOf, translate } from './testing/import-fixtures';
-import { gapsOf } from './testing/kind-fixtures';
+import { dataIn, gapKeys, kindDataOf, rulesIn, slugIn } from './testing/build-helpers';
+import { coreRulesId, idOf, translate } from './testing/import-fixtures';
+import { FOUNDRY_NULL, gapsOf } from './testing/kind-fixtures';
 
 const translation = translate(BUILD, { journals: [ARCHETYPES_JOURNAL] });
 
@@ -38,7 +38,7 @@ function archetypeSlugs({ archetypes }: typeof translation): string[] {
   return archetypes.map(({ envelope }) => String(envelope.slug));
 }
 
-describe('translateKindData: feats and class features', () => {
+describe('translateKindData: feats, class features and ancestry features', () => {
   test('a feat of category classfeature is the class-feature kind, its action its data', () => {
     expect(slugIn(translation, 'reactive-strike')).toBe('class-feature:reactive-strike');
     expect(kindDataOf(translation, 'reactive-strike')).toEqual({
@@ -70,16 +70,51 @@ describe('translateKindData: feats and class features', () => {
     expect(dataIn(once, 'sudden-charge')).not.toHaveProperty('maxTakable');
   });
 
-  test('a feature category with no kind is reported and the entry has no data', () => {
+  test('a feat of category ancestryfeature is the ancestry-feature kind, with its rules', () => {
     const feature = translate([
-      { id: 'clanDagger000001', name: 'Clan Dagger', type: 'feat', system: { category: 'ancestryfeature' } },
+      {
+        id: 'keenNose00000001',
+        name: 'Keen Nose',
+        type: 'feat',
+        system: {
+          category: 'ancestryfeature',
+          actionType: { value: 'passive' },
+          actions: { value: FOUNDRY_NULL },
+          traits: { rarity: 'common', value: [] },
+          rules: [{ key: 'Sense', selector: 'scent', acuity: 'imprecise', range: 30 }],
+        },
+      },
     ]);
 
-    expect(kindDataOf(feature, 'clan-dagger')).toBeUndefined();
+    expect(slugIn(feature, 'keen-nose')).toBe('ancestry-feature:keen-nose');
+    expect(kindDataOf(feature, 'keen-nose')).toEqual({ kind: ContentKind.AncestryFeature, data: {} });
+    expect(rulesIn(feature, 'keen-nose')).toEqual([
+      { key: RuleElementKey.Sense, sense: coreRulesId('sense:scent'), acuity: 'imprecise', range: 30 },
+    ]);
+    expect(gapsOf(feature)).toEqual([]);
+  });
+
+  test('an ancestry feature used as an action carries its action', () => {
+    const feature = translate([
+      { ...SUDDEN_CHARGE, system: { ...SUDDEN_CHARGE.system, category: 'ancestryfeature' } },
+    ]);
+
+    expect(kindDataOf(feature, 'sudden-charge')).toEqual({
+      kind: ContentKind.AncestryFeature,
+      data: { action: { cost: 'two' } },
+    });
+  });
+
+  test('a feature category with no kind is reported and the entry has no data', () => {
+    const feature = translate([
+      { id: 'calling000000001', name: 'Calling', type: 'feat', system: { category: 'calling' } },
+    ]);
+
+    expect(kindDataOf(feature, 'calling')).toBeUndefined();
     expect(gapsOf(feature)).toContainEqual({
       reason: KindDataGapReason.UnmappedValue,
       field: 'category',
-      raw: 'ancestryfeature',
+      raw: 'calling',
     });
   });
 

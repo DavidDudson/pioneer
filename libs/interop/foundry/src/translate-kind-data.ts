@@ -34,7 +34,7 @@ import { CLASS_FIELDS, classData } from './translate-class';
 import { CONDITION_FIELDS, conditionData } from './translate-condition';
 import { DEITY_FIELDS, deityData } from './translate-deity';
 import { EFFECT_FIELDS, effectData } from './translate-effect';
-import { classFeatureData, FEAT_FIELDS, featData } from './translate-feat';
+import { ancestryFeatureData, classFeatureData, FEAT_FIELDS, featData } from './translate-feat';
 import { KIT_FIELDS, kitData } from './translate-kit';
 import type { FoundrySenses } from './translate-senses';
 import { RITUAL_FIELDS, ritualData, SPELL_FIELDS, spellData } from './translate-spell';
@@ -53,6 +53,7 @@ type DataOf<Kind extends keyof typeof KIND_DATA> = z.infer<(typeof KIND_DATA)[Ki
 export type ImportedKindData =
   | { readonly kind: typeof ContentKind.Action; readonly data: ActionData }
   | { readonly kind: typeof ContentKind.Ancestry; readonly data: DataOf<typeof ContentKind.Ancestry> }
+  | { readonly kind: typeof ContentKind.AncestryFeature; readonly data: DataOf<typeof ContentKind.AncestryFeature> }
   | { readonly kind: typeof ContentKind.Archetype; readonly data: DataOf<typeof ContentKind.Archetype> }
   | { readonly kind: typeof ContentKind.Background; readonly data: DataOf<typeof ContentKind.Background> }
   | { readonly kind: typeof ContentKind.Class; readonly data: DataOf<typeof ContentKind.Class> }
@@ -94,6 +95,13 @@ const TRANSLATORS: Readonly<Partial<Record<ContentKind, KindTranslator>>> = {
       input,
     );
     return data && { kind: ContentKind.Ancestry, data };
+  },
+  [ContentKind.AncestryFeature]: (input) => {
+    const data = parsedWith(
+      { schema: KIND_DATA[ContentKind.AncestryFeature], fields: FEAT_FIELDS, build: ancestryFeatureData },
+      input,
+    );
+    return data && { kind: ContentKind.AncestryFeature, data };
   },
   [ContentKind.Background]: (input) => {
     const data = parsedWith(

@@ -63,7 +63,7 @@ describe('translateKindData: ancestries and heritages', () => {
   test("an ancestry's features become GrantItem elements; unresolved ones are reported", () => {
     expect(rulesIn(translate([DWARF, CLAN_DAGGER]), 'dwarf')[0]).toEqual({
       key: RuleElementKey.GrantItem,
-      item: idOf('feat:clan-dagger'),
+      item: idOf('ancestry-feature:clan-dagger'),
     });
     expect(gapsOf(translation)).toContainEqual({
       reason: KindDataGapReason.UnresolvedReference,

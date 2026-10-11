@@ -36,8 +36,11 @@ export const FOUNDRY_TYPE_KINDS: Readonly<Record<FoundryItemType, ContentKind>> 
   [FoundryItemType.Weapon]: ContentKind.Weapon,
 };
 
-/** Foundry's feat `category` for a class feature, which is its own kind. */
-const CLASS_FEATURE_CATEGORY = 'classfeature';
+/** Foundry's feat `category` for each feature that is its own kind. */
+const FEATURE_KINDS: Readonly<Record<string, ContentKind>> = {
+  ancestryfeature: ContentKind.AncestryFeature,
+  classfeature: ContentKind.ClassFeature,
+};
 
 /** Foundry's usage prefix for a rune, which it stores as equipment (ADR-0023). */
 export const ETCHED_ONTO = 'etched-onto-';
@@ -52,13 +55,15 @@ function isEtched(usage: unknown): boolean {
 }
 
 /**
- * The kind a selected document's entry is: its type's, `class-feature` for a feat Foundry files as one, `ritual`
- * for a spell with ritual data, as Foundry stores rituals, or `rune` for equipment with an `etched-onto-…` usage.
+ * The kind a selected document's entry is: its type's, `class-feature` or `ancestry-feature` for a feat Foundry
+ * files as one, `ritual` for a spell with ritual data, as Foundry stores rituals, or `rune` for equipment with an
+ * `etched-onto-…` usage.
  */
 export function documentKind({ type, document }: SelectedEntry): ContentKind {
   const { category, ritual, usage } = document.system;
-  if (type === FoundryItemType.Feat && category === CLASS_FEATURE_CATEGORY) {
-    return ContentKind.ClassFeature;
+  const feature = typeof category === 'string' && Object.hasOwn(FEATURE_KINDS, category) ? FEATURE_KINDS[category] : undefined;
+  if (type === FoundryItemType.Feat && feature !== undefined) {
+    return feature;
   }
   if (type === FoundryItemType.Spell && ritual !== undefined && ritual !== null) {
     return ContentKind.Ritual;
