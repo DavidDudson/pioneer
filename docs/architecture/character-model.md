@@ -27,8 +27,8 @@ interface Build {
 }
 
 interface Inventory {
-  items: readonly InventoryItem[]; // content ref, quantity, container, worn/held/invested,
-  // runes etched, custom name, per-item overrides
+  items: readonly InventoryItem[]; // content ref, quantity, container, custom name, carry
+  // (worn, held in 1 or 2 hands, stowed, dropped), invested; runes etched, per-item overrides to come
   coins: Coins;
 }
 
@@ -38,7 +38,6 @@ interface PlayState {
   effects: readonly ActiveEffect[]; // spell/feat effects, temporary boons: source, lifetime, uses left
   resources: Record<ResourceKey, number>; // focus points, hero points, spell slots used, item uses
   toggles: Record<RollOptionKey, boolean>; // RollOption toggles (e.g. rage, Double Slice second attack)
-  wielding: WieldState; // which items are in which hands
   dying: number;
   wounded: number;
   doomed: number;
@@ -177,8 +176,8 @@ but doesn't change the lock.
 
 `inventory.items` lists what the character carries (schema version 2, #471). Each item is an `InventoryItemId`, the
 content it is (`ContentId` of an armour, consumable, equipment, shield, treasure or weapon entry), a quantity, the
-item it is stowed in, if any, and the player's name for it, if any. `inventory.coins` holds platinum, gold, silver
-and copper, each 0 or more.
+item it is stowed in, if any, the player's name for it, if any, how it is carried and whether it is invested (schema
+version 3, #472). `inventory.coins` holds platinum, gold, silver and copper, each 0 or more.
 
 - **Containers.** An item can go in another item whose content is equipment with a `container` (a backpack), and
   containers nest. The document refuses an item in one it hasn't and containers that hold each other.
@@ -189,10 +188,27 @@ and copper, each 0 or more.
   (`containerNotFound`), one inside itself or something it holds (`containerInsideItself`), content no loaded pack
   has as an item (`unknownItem`) and stowing in an item that holds nothing (`notAContainer`).
 - **Removing a container** moves what it held out to where the container was, so nothing inside is lost.
-- **Grouping.** The sheet lists loose items worn, held or stowed and each container's contents beneath it. Until
-  wield, wear and invest arrive ([#472](https://github.com/DavidDudson/pioneer/issues/472)), where an item sits comes
-  from its content: armour is worn, a shield held, otherwise its `usage` (worn or held), and everything else is
-  stowed. Anything inside a container is stowed. Bulk totals and encumbrance are
+- **Carrying.** `carry` is `worn`, `held` with `hands` (1 or 2), `stowed` (the default, and a new item's) or
+  `dropped`. It is build data, not play state, so it works in every sync mode and maps to Foundry pf2e's
+  `system.equipped`. `carryItem { id, carry }` sets it: worn, held or dropped, an item comes out of its container;
+  `moveItem` into a container stows it, and an item inside a container is always stowed. Removing a dropped
+  container leaves what it held on the ground. The document holds no more than two hands' worth, and the server
+  refuses holding past that (`handsFull`), wearing what isn't armour or worn (`notWearable`), a second suit of armour
+  (`armorWorn`) and a two-handed item in one hand (`needsTwoHands`).
+- **Investing.** `investItem { id, invested }` invests an item with the `invested` trait (`notInvestable` otherwise),
+  at most 10 (`investmentFull`). An invested item taken off stays invested and counts against the limit, but does
+  nothing until it is worn or held again.
+- **In play.** An item works on the character while it is carried as it is used: armour worn, a shield or weapon
+  held (a two-handed one in both hands), otherwise as its `usage` says, and, with the `invested` trait, only while
+  invested (`activeState`). Each working item is a grant root with an `inventory` hop whose state is `worn`,
+  `held` or `invested`, so its rule elements, and those of what it grants, are in play with that origin
+  (`equippedRules`). Worn armour adds its bonus, with its potency rune's, to AC as an `item` line named by the
+  armour and sets the Dexterity cap; each held weapon is a Strike input (`equippedInputs`). Armour penalties and
+  Strikes on the sheet are [#473](https://github.com/DavidDudson/pioneer/issues/473) and
+  [#482](https://github.com/DavidDudson/pioneer/issues/482).
+- **Grouping.** The sheet lists loose items worn, held, stowed and dropped as they are carried, and each container's
+  contents beneath it. The investments panel counts invested items against the limit and lists the breakdown lines
+  each adds to the sheet's statistics. Bulk totals and encumbrance are
   [#473](https://github.com/DavidDudson/pioneer/issues/473).
 
 ## Shop
