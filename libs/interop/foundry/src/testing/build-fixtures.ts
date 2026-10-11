@@ -30,7 +30,7 @@ export const DWARF: DocumentFixture = {
 };
 
 export const CLAN_DAGGER: DocumentFixture = {
-  id: 'cLaNdAgGeR000001',
+  id: 'clanDagger000001',
   name: 'Clan Dagger',
   type: 'feat',
   pack: ANCESTRY_FEATURES,

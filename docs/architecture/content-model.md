@@ -518,7 +518,7 @@ flowchart LR
     the imported entry, with the label unless it only repeats the target's name. A target outside the import is its
     label, else Foundry's name for it, as text.
   - `@Check` is a `Check`. Statistics become selectors: saves `save:<save>`, skills `skill:<skill>`, Lores
-    `skill:lore-<topic>`, `perception`, and `flat` for a flat check. `against:` (or `defense:`) names a DC: `class`
+    `skill:lore:<topic>`, `perception`, and `flat` for a flat check. `against:` (or `defense:`) names a DC: `class`
     and each class slug `class-dc`, `spell` `spell-dc`, `class-spell` `class-or-spell-dc` (Foundry's higher of the
     two), `ac` and `armor` `ac`, otherwise the statistic's selector. That DC belongs to whoever does not roll
     (`rollerRole`, by default the target for a save and the origin otherwise), and a `Check`'s DC is the reader's
@@ -539,13 +539,14 @@ flowchart LR
     `immutable`, `targetOwner`, `shortLabel`) are ignored.
 - **Kind data.** Every Foundry type is filed under a kind (`FOUNDRY_TYPE_KINDS`), a feat of category `classfeature`
   under `class-feature` (`documentKind`); kind data is built for the kinds with a translator (`TRANSLATORS`): the
-  rules core kinds `action` and `condition`, and the build kinds below. The other kinds' stories add theirs. An action's cost
-  comes from `actionType` and `actions`, its frequency period from Foundry's words or ISO 8601 durations (`PT1H` is
-  `hour`), and its `trigger` and `requirements` from the description's labelled paragraphs when they are plain words. A
-  condition's `implies` is its unpredicated `GrantItem`s of conditions, so it lists exactly what its rules grant; its
-  duration, active and removable flags are instance state and Foundry's back links are derived, so neither is carried. A
-  set `system` field with no place in the schema, a value with no mapping, usage text with links or enrichers, a
-  reference to nothing selected, and data the kind's schema rejects are reported against the entry, never guessed.
+  rules core kinds `action` and `condition`, and the build kinds below. The other kinds' stories add theirs. An
+  action's cost comes from `actionType` and `actions`, its frequency period from Foundry's words or ISO 8601
+  durations (`PT1H` is `hour`), and its `trigger` and `requirements` from the description's labelled paragraphs when
+  they are plain words. A condition's `implies` is its unpredicated `GrantItem`s of conditions, so it lists exactly
+  what its rules grant; its duration, active and removable flags are instance state and Foundry's back links are
+  derived, so neither is carried. A set `system` field with no place in the schema, a value with no mapping, usage
+  text with links or enrichers, a reference to nothing selected, and data the kind's schema rejects are reported
+  against the entry, never guessed.
 - **Build kind data.** Fields Foundry and Pioneer spell alike carry over and the schema checks them; the rest map:
   - An ancestry's sizes (`med` is `medium`), boosts and flaws (Foundry's numbered slots, in order), and its
     languages and vision as `language` and `sense` entries by slug (`normal` vision is none). Its `items` (ancestry
@@ -553,7 +554,7 @@ flowchart LR
     on Player Core's schedule. `hands` is reported unless it is two. A heritage's ancestry resolves by UUID among
     the selected documents, else by slug among the other packs'; a versatile heritage has none.
   - A background's boosts; its `trainedSkills` become `Proficiency` elements (`Scribing Lore` is
-    `skill:lore-scribing`) and its `items` (the skill feat) `GrantItem`s.
+    `skill:lore:scribing`, its statistic a vocabulary entry) and its `items` (the skill feat) `GrantItem`s.
   - A class's `keyAbility`, `hp` and `trainedSkills.additional`, and its progression as rule elements: a
     `Proficiency` per starting rank above untrained (perception, saves, attack and defence categories, skills, and
     `class-dc` trained, which Foundry gives every class), a `GrantItem` per class feature from its level, and feat
@@ -596,7 +597,9 @@ flowchart LR
   types, the first target book). Vocabulary entries go into `core-rules`, beside the hand-authored rules core entries,
   slugged by kind like every entry (`trait:goblin`, `language:goblin`). One another official pack already has of the
   kind and name (the hand-authored languages and senses, or an earlier run's) is left to that entry. Secret
-  languages (Wildsong) have no Pioneer rarity and `untyped` damage no `DamageType`; both are reported. Pack output
+  languages (Wildsong) have no Pioneer rarity and `untyped` damage no `DamageType`; both are reported. Each Lore a
+  background trains, which Foundry keeps nowhere, gets its `statistic` entry the same way (`statistic:scribing-lore`,
+  named as the background names it; rules-engine.md, "Statistics are content"). Pack output
   (#400) writes the new entries beside, never into, the hand-authored `core-rules` files ([ADR-0033](../adr/0033-foundry-vocabularies-imported-into-core-rules.md)).
 - **Later translators.** A translator that lands after its pack is imported is applied to the backlog: a command,
   built by Epic 2.6 (#21), translates the items it now covers into the committed entries and removes them from the

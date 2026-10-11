@@ -155,7 +155,7 @@ describe('translateKindData: backgrounds', () => {
     expect(dataIn(translation, 'acolyte')).toEqual({ boosts: [['int', 'wis'], ALL] });
     expect(rulesIn(translation, 'acolyte')).toEqual([
       { key: RuleElementKey.Proficiency, selector: 'skill:religion', rank: 'trained' },
-      { key: RuleElementKey.Proficiency, selector: 'skill:lore-scribing', rank: 'trained' },
+      { key: RuleElementKey.Proficiency, selector: 'skill:lore:scribing', rank: 'trained' },
       { key: RuleElementKey.GrantItem, item: idOf('feat:student-of-the-canon') },
     ]);
   });

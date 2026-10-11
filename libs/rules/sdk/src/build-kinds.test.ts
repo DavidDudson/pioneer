@@ -69,7 +69,7 @@ const farmhand = {
   kind: 'background',
   rules: [
     { key: 'Proficiency', selector: 'skill:athletics', rank: 'trained' },
-    { key: 'Proficiency', selector: 'skill:lore-farming', rank: 'trained' },
+    { key: 'Proficiency', selector: 'skill:lore:farming', rank: 'trained' },
     { key: 'GrantItem', item: idOf('feat:assurance') },
   ],
   data: { boosts: [['con', 'wis'], FREE] },
@@ -260,7 +260,7 @@ describe('build kinds', () => {
   });
 
   test('divine skills are skill selectors', () => {
-    expect(found({ ...pharasma, data: { ...pharasma.data, skills: ['skill:lore-boneyard', 'ac'] } })).toStrictEqual([
+    expect(found({ ...pharasma, data: { ...pharasma.data, skills: ['skill:lore:boneyard', 'ac'] } })).toStrictEqual([
       `data.skills.1 ${RulesMessage.SkillSelector}`,
     ]);
   });

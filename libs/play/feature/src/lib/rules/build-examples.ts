@@ -65,7 +65,7 @@ export const farmhand = {
   kind: ContentKind.Background,
   rules: [
     { key: 'Proficiency', selector: 'skill:athletics', rank: 'trained' },
-    { key: 'Proficiency', selector: 'skill:lore-farming', rank: 'trained' },
+    { key: 'Proficiency', selector: 'skill:lore:farming', rank: 'trained' },
     // Foundry preselects Athletics for Assurance's skill choice; GrantItem has no way to say so yet.
     { key: 'GrantItem', item: playerCoreId('feat:assurance') },
   ],

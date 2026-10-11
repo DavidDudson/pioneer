@@ -1,7 +1,7 @@
 import { Proficiency, RuleElementKey } from '@pioneer/rules/sdk';
 import * as z from 'zod';
 
-import { slugify } from './foundry-slug';
+import { loreTopic } from './foundry-lore';
 import { addRule, ENVELOPE_FIELDS } from './kind-data-gaps';
 import type { KindInput } from './kind-data-gaps';
 import { attributeSlots, FoundryAttributeSlots, FoundryGrantedItems, grantItems, systemOf } from './kind-fields';
@@ -30,15 +30,9 @@ const FoundryBackgroundSystem = z.looseObject({
   items: FoundryGrantedItems.default({}),
 });
 
-/** A Lore's name less the word Lore, which its selector already says: `Scribing Lore` to `skill:lore-scribing`. */
-const LORE_SUFFIX = /\s+lore$/iu;
-
 /** The selector of each skill and Lore, in Foundry's order. */
 function skillSelectors({ value, lore }: FoundryTrainedSkills): string[] {
-  return [
-    ...value.map((skill) => `skill:${skill}`),
-    ...lore.map((name) => `skill:lore-${slugify(name.replace(LORE_SUFFIX, ''))}`),
-  ];
+  return [...value.map((skill) => `skill:${skill}`), ...lore.map((name) => `skill:lore:${loreTopic(name)}`)];
 }
 
 /** A `Proficiency` element raising each skill and Lore to trained. */

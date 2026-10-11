@@ -4,13 +4,14 @@ import type { CheckDc, CheckNode } from '@pioneer/rules/sdk';
 import { inlineLabel, reportParams, textRun } from './enricher-context';
 import type { EnricherContext } from './enricher-context';
 import { enricherParams } from './foundry-enricher';
+import { loreSelector, loreSlugTopic } from './foundry-lore';
 import { slugify } from './foundry-slug';
 import type { RunNode } from './rich-text-run';
 
 /**
  * `@Check[type|dc:N|against:x|basic|options:a,b]{label}` as a `Check` node. Foundry's statistic slugs become
  * Pioneer selectors (`reflex` to `save:reflex`, `athletics` to `skill:athletics`, `warfare-lore` to
- * `skill:lore-warfare`); a flat check is selector `flat`. A check whose statistic has no selector keeps its label
+ * `skill:lore:warfare`); a flat check is selector `flat`. A check whose statistic has no selector keeps its label
  * as text.
  */
 
@@ -105,7 +106,6 @@ const DC_SELECTORS: ReadonlyMap<string, string> = new Map([
 
 const FLAT = 'flat';
 const PERCEPTION = 'perception';
-const LORE = /^(?<topic>.+)-lore$/u;
 const DC_VALUE = /^\d+$/u;
 const INTEGER = /^-?\d+$/u;
 const LIST_SEPARATOR = ',';
@@ -113,7 +113,7 @@ const LIST_SEPARATOR = ',';
 /** A Foundry statistic slug as a Pioneer check selector, or undefined when there is none. */
 function statisticSelector(type: string): Selector | undefined {
   const slug = slugify(type);
-  const lore = LORE.exec(slug)?.groups?.['topic'];
+  const lore = loreSlugTopic(slug);
   if (SAVES.has(slug)) {
     return Selector.parse(`save:${slug}`);
   }
@@ -121,7 +121,7 @@ function statisticSelector(type: string): Selector | undefined {
     return Selector.parse(`skill:${slug}`);
   }
   if (lore !== undefined) {
-    return Selector.safeParse(`skill:lore-${lore}`).data;
+    return loreSelector(lore);
   }
   return slug === PERCEPTION || slug === FLAT ? Selector.parse(slug) : undefined;
 }

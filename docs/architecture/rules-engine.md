@@ -130,7 +130,9 @@ later.
 Lore is open-ended, so the core pack defines none. Whatever grants a Lore (a background, a feat) brings its own
 `statistic` entry with the selector `skill:lore:<topic>`, base `@attr.int + @prof.skill.lore.<topic>`, key
 attribute Intelligence and domains `check`, `skill-check`, `int-based` and `lore`. Two packs granting the same Lore
-share its selector, which `statisticsFor` already allows.
+share its selector, which `statisticsFor` already allows. The Foundry importer adds a background's Lore statistics
+to `core-rules` as vocabulary (content-model.md, "Foundry import"). A selector's words are joined by `:`; `-` only
+joins the words of one name (`skill:lore:pathfinder-society`).
 
 Homebrew can add statistics (a "Sanity" check, a new skill, a new speed). Variant rules from GM Core are packs
 that change formulas or add slots: Proficiency Without Level overrides the proficiency formula, Automatic Bonus

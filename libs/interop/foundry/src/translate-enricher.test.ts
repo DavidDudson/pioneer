@@ -110,7 +110,7 @@ describe('@Check', () => {
       words(' '),
       { type: 'check', statistic: 'skill:athletics', dc: 20 },
       words(' '),
-      { type: 'check', statistic: 'skill:lore-warfare' },
+      { type: 'check', statistic: 'skill:lore:warfare' },
       words(' '),
       { type: 'check', statistic: 'perception' },
       words(' '),

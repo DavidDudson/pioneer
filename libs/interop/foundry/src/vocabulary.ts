@@ -12,6 +12,9 @@ import {
   knownSlugs,
   languageItem,
   languagesOf,
+  loreItem,
+  loreNames,
+  loresOf,
   senseItem,
   sensesOf,
   traitItems,
@@ -21,7 +24,8 @@ import type { Gap, Item, VocabularyContext } from './vocabulary-items';
 
 /**
  * Entries for the vocabularies Foundry keeps in config rather than packs: traits, languages, senses and damage types
- * (content-model.md, "Foundry import"). Only what the selected documents use is imported, cited to the book of the
+ * (content-model.md, "Foundry import"), and the statistic of each Lore a background trains, which Foundry keeps
+ * nowhere. Only what the selected documents use is imported, cited to the book of the
  * first document that uses it; a slug another official pack already has (a hand-authored `core-rules` language) is
  * left to that entry. Damage types are all imported, as Pioneer's `DamageType` set, cited to the first target book.
  */
@@ -75,10 +79,11 @@ function collect({ kind, uses, itemOf }: Uses, known: readonly KnownEntry[]): Co
 }
 
 function entryOf(item: Item, { pack, lang }: VocabularyContext): VocabularyEntry | VocabularyGap {
-  const { kind, slug: foundrySlug, labelKey, rarity, book, kindData } = item;
-  const label = langLabel(lang, labelKey);
+  const { kind, slug: foundrySlug, label: itemLabel, rarity, book, kindData } = item;
+  const label = 'text' in itemLabel ? itemLabel.text : langLabel(lang, itemLabel.key);
   if (label === undefined) {
-    return { kind, slug: foundrySlug, reason: VocabularyGapReason.MissingLabel, detail: labelKey };
+    const detail = 'key' in itemLabel ? itemLabel.key : itemLabel.text;
+    return { kind, slug: foundrySlug, reason: VocabularyGapReason.MissingLabel, detail };
   }
   const slugText = `${kind}:${foundrySlug}`;
   const slug = EntrySlug.safeParse(slugText);
@@ -110,6 +115,7 @@ function entries(items: readonly Item[], context: VocabularyContext): Vocabulary
 
 function otherUses(selected: readonly SelectedEntry[], { config, books }: VocabularyContext): Uses[] {
   const [firstBook] = books;
+  const lores = loreNames(selected);
   return [
     {
       kind: ContentKind.Language,
@@ -122,6 +128,11 @@ function otherUses(selected: readonly SelectedEntry[], { config, books }: Vocabu
       itemOf: (slug: string, book: BookId): Item | Gap => senseItem(slug, book, config),
     },
     {
+      kind: ContentKind.Statistic,
+      uses: firstUses(selected, (entry) => loresOf(entry).map(({ slug }) => slug)),
+      itemOf: (slug: string, book: BookId): Item | Gap => loreItem(slug, lores, book),
+    },
+    {
       kind: ContentKind.DamageType,
       uses: new Map(firstBook === undefined ? [] : config.damageTypes.map((slug) => [slug, firstBook])),
       itemOf: damageTypeItem,
@@ -130,8 +141,8 @@ function otherUses(selected: readonly SelectedEntry[], { config, books }: Vocabu
 }
 
 /**
- * The trait, language, sense and damage type entries the selected documents use, in the vocabulary pack, each slug
- * its kind and Foundry's slug (`trait:goblin`, `language:goblin`). What another official pack already has, an
+ * The trait, language, sense, Lore statistic and damage type entries the selected documents use, in the vocabulary
+ * pack, each slug its kind and Foundry's slug (`trait:goblin`, `language:goblin`, `statistic:scribing-lore`). What another official pack already has, an
  * earlier run's vocabulary included, is left to that entry.
  */
 export function importVocabulary(selected: readonly SelectedEntry[], context: VocabularyContext): Vocabulary {

@@ -1,5 +1,13 @@
 import { ActionData, ConditionData, ContentKind, KIND_DATA } from '@pioneer/rules/sdk';
-import type { ContentId, DamageTypeData, LanguageData, RuleElement, SenseData, TraitData } from '@pioneer/rules/sdk';
+import type {
+  ContentId,
+  DamageTypeData,
+  LanguageData,
+  RuleElement,
+  SenseData,
+  StatisticData,
+  TraitData,
+} from '@pioneer/rules/sdk';
 import type * as z from 'zod';
 
 import type { EntryReferences } from './entry-references';
@@ -44,6 +52,7 @@ export type ImportedKindData =
   | { readonly kind: typeof ContentKind.Kit; readonly data: DataOf<typeof ContentKind.Kit> }
   | { readonly kind: typeof ContentKind.Language; readonly data: LanguageData }
   | { readonly kind: typeof ContentKind.Sense; readonly data: SenseData }
+  | { readonly kind: typeof ContentKind.Statistic; readonly data: StatisticData }
   | { readonly kind: typeof ContentKind.Trait; readonly data: TraitData };
 
 export interface KindDataTranslation {

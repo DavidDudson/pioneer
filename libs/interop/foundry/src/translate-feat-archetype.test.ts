@@ -72,7 +72,7 @@ describe('translateKindData: feats and class features', () => {
 
   test('a feature category with no kind is reported and the entry has no data', () => {
     const feature = translate([
-      { id: 'cLaNdAgGeR000001', name: 'Clan Dagger', type: 'feat', system: { category: 'ancestryfeature' } },
+      { id: 'clanDagger000001', name: 'Clan Dagger', type: 'feat', system: { category: 'ancestryfeature' } },
     ]);
 
     expect(kindDataOf(feature, 'clan-dagger')).toBeUndefined();

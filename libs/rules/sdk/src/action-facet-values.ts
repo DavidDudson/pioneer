@@ -43,7 +43,7 @@ export const SkillValue = {
 export type SkillValue = ValueOf<typeof SkillValue>;
 
 const SKILL_PREFIX = 'skill:';
-const LORE_PREFIX = 'skill:lore-';
+const LORE_PREFIX = 'skill:lore:';
 const SKILL_TRAIT = Trait.parse('skill');
 const EXPLORATION = Trait.parse('exploration');
 const DOWNTIME = Trait.parse('downtime');

@@ -86,7 +86,7 @@ const climb = action('climb', { cost: 'one', skills: ['skill:athletics'] }, ['mo
 const aid = action('aid', { cost: 'reaction', trigger: prose });
 const elementalBlast = action('elemental-blast', { cost: 'one', upTo: 2 }, ['attack', 'impulse']);
 const avoidNotice = action('avoid-notice', {}, ['exploration']);
-const earnIncome = action('earn-income', { skills: ['skill:crafting', 'skill:lore-sailing'] }, ['downtime', 'skill']);
+const earnIncome = action('earn-income', { skills: ['skill:crafting', 'skill:lore:sailing'] }, ['downtime', 'skill']);
 const treatDisease = action('treat-disease', {}, ['downtime', 'manipulate', 'skill']);
 const fireball = entry({
   kind: 'spell',

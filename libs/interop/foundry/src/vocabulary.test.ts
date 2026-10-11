@@ -2,6 +2,7 @@ import { describe, expect, test } from 'bun:test';
 
 import { ContentEntry, ContentKind, KIND_DATA, Rarity, slugName, SourceKind } from '@pioneer/rules/sdk';
 
+import { ACOLYTE } from './testing/build-fixtures';
 import { coreRules, coreRulesEntry, coreRulesId, known, playerCore, translate } from './testing/import-fixtures';
 import { DWARF, KEEN_NOSE, plain, slugsOf, vocabularyOf } from './testing/vocabulary-fixtures';
 import type { VocabularyEntry } from './vocabulary';
@@ -178,24 +179,52 @@ describe('importVocabulary: damage types', () => {
   });
 });
 
-describe('importVocabulary: entries parse', () => {
-  test.each([ContentKind.Trait, ContentKind.Language, ContentKind.Sense, ContentKind.DamageType])(
-    'each %s entry parses against its kind schema and as a ContentEntry',
-    (kind) => {
-      const entries = vocabularyOf(translate([DWARF, KEEN_NOSE], { known: [] }), kind);
+describe('importVocabulary: Lore statistics', () => {
+  test("a background's Lore is a statistic in core-rules, keyed by topic and named as Foundry names it", () => {
+    const [scribing] = vocabularyOf(translate([ACOLYTE]), ContentKind.Statistic);
 
-      expect(entries.length).toBeGreaterThan(0);
-      for (const { envelope, kindData } of entries) {
-        expect(KIND_DATA[kind].safeParse(kindData.data).success).toBe(true);
-        expect(
-          ContentEntry.safeParse({
-            ...envelope,
-            kind,
-            data: kindData.data,
-            sources: [{ kind: SourceKind.Book, book: playerCore, page: 1 }],
-          }).error,
-        ).toBeUndefined();
-      }
-    },
-  );
+    expect(plain(scribing?.envelope.slug)).toBe('statistic:scribing-lore');
+    expect(plain(scribing?.envelope.name)).toBe('Scribing Lore');
+    expect(plain(scribing?.envelope.pack)).toBe(coreRules);
+    expect(plain(scribing?.kindData.data)).toEqual({
+      selector: 'skill:lore:scribing',
+      domains: ['check', 'skill-check', 'int-based', 'lore'],
+      base: '@attr.int + @prof.skill.lore.scribing',
+      kind: 'check',
+      keyAttribute: 'int',
+    });
+  });
+
+  test('a Lore another pack already has is left to that entry', () => {
+    const translation = translate([ACOLYTE], {
+      known: [...known, coreRulesEntry(ContentKind.Statistic, 'scribing-lore')],
+    });
+
+    expect(slugsOf(translation, ContentKind.Statistic)).toEqual([]);
+  });
+});
+
+describe('importVocabulary: entries parse', () => {
+  test.each([
+    ContentKind.Trait,
+    ContentKind.Language,
+    ContentKind.Sense,
+    ContentKind.Statistic,
+    ContentKind.DamageType,
+  ])('each %s entry parses against its kind schema and as a ContentEntry', (kind) => {
+    const entries = vocabularyOf(translate([DWARF, KEEN_NOSE, ACOLYTE], { known: [] }), kind);
+
+    expect(entries.length).toBeGreaterThan(0);
+    for (const { envelope, kindData } of entries) {
+      expect(KIND_DATA[kind].safeParse(kindData.data).success).toBe(true);
+      expect(
+        ContentEntry.safeParse({
+          ...envelope,
+          kind,
+          data: kindData.data,
+          sources: [{ kind: SourceKind.Book, book: playerCore, page: 1 }],
+        }).error,
+      ).toBeUndefined();
+    }
+  });
 });
