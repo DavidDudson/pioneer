@@ -1,3 +1,4 @@
+import { ContentKind } from '@pioneer/rules/sdk';
 import type { ContentRegistry, ContentText, ExternalId } from '@pioneer/rules/sdk';
 import type { Uuid } from '@pioneer/shared/kernel';
 
@@ -72,12 +73,28 @@ export function entryLookup(entries: Partial<Record<ImportKind, readonly LookupE
   };
 }
 
+/** The packs' envelope entries of `kind`, as lookup entries. */
+function envelopeEntries(registry: ContentRegistry, kind: ContentKind): LookupEntry[] {
+  return registry.packs.flatMap((pack) =>
+    pack.otherEntries.flatMap((entry): LookupEntry[] => {
+      if (entry.kind !== kind) {
+        return [];
+      }
+      const pathbuilder = entry.externalIds?.pathbuilder;
+      const match: ContentMatch = { id: entry.id, name: entry.name };
+      return [pathbuilder === undefined ? match : { ...match, externalIds: { pathbuilder } }];
+    }),
+  );
+}
+
 /**
- * A lookup over the packs in a `ContentRegistry`. The registry indexes ancestries only until content storage
- * (Epic 2.3) moves packs onto the `ContentEntry` envelope; every other kind reports as not loaded.
+ * A lookup over the packs in a `ContentRegistry`: ancestries, and the backgrounds and classes the packs hold as
+ * envelope entries. Every other kind reports as not loaded until content storage (Epic 2.3) indexes it.
  */
 export function registryLookup(registry: ContentRegistry): ContentLookup {
   return entryLookup({
     [ImportKind.Ancestry]: registry.ancestries().map((entry) => ({ id: entry.id, name: entry.definition.name })),
+    [ImportKind.Background]: envelopeEntries(registry, ContentKind.Background),
+    [ImportKind.Class]: envelopeEntries(registry, ContentKind.Class),
   });
 }

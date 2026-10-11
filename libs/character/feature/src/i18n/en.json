@@ -91,8 +91,7 @@
       "ritual": "Rituals",
       "item": "Items",
       "language": "Languages",
-      "lore": "Lores",
-      "boosts": "Attribute boosts"
+      "lore": "Lores"
     },
     "status": {
       "matched": "Matched",
@@ -102,7 +101,11 @@
     "result": {
       "heading": "Imported from Pathbuilder",
       "dismiss": "Dismiss",
-      "carried": "Pioneer kept the name, ancestry and level.",
+      "carried": "Pioneer kept the name, level and ancestry, the background and class when they matched, and the attribute boosts.",
+      "boostsMatch": "Every attribute modifier matches Pathbuilder's.",
+      "differencesSummary": "{count, plural, one {# attribute differs} other {# attributes differ}} from Pathbuilder",
+      "difference": "Pathbuilder {imported}, Pioneer {derived}",
+      "unplacedSummary": "{count, plural, one {# boost} other {# boosts}} found no slot",
       "notCarried": "Characters can't hold these yet, so they weren't kept: {fields}.",
       "groupSummary": "{kind} · {count, number} not carried over",
       "allMatched": "Every name matched content you have loaded."

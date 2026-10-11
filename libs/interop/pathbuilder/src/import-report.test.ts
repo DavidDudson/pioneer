@@ -106,8 +106,9 @@ describe('buildImportReport: golden fixture against loaded packs', () => {
     });
   });
 
-  test('every other kind is not loaded yet', () => {
-    const others = report.groups.filter((group) => group.kind !== ImportKind.Ancestry);
+  test('backgrounds and classes are looked up; every other kind is not loaded yet', () => {
+    const indexed = new Set<ImportKind>([ImportKind.Ancestry, ImportKind.Background, ImportKind.Class]);
+    const others = report.groups.filter((group) => !indexed.has(group.kind));
     expect(others.flatMap((group) => group.rows).every((row) => row.status === MatchStatus.KindNotLoaded)).toBe(true);
   });
 
@@ -119,6 +120,19 @@ describe('buildImportReport: golden fixture against loaded packs', () => {
   test('a loaded ancestry matches', () => {
     const human = buildImportReport([imported(ImportKind.Ancestry, 'Human')], registryLookup(registry));
     expect(human.groups[0]?.rows[0]?.status).toBe(MatchStatus.Matched);
+  });
+
+  test('a background or class the packs hold as an entry matches', () => {
+    const packs = new ContentRegistry();
+    packs.register(new ContentPackBuilder().withBackground('dendrologist', []).withClass('animist', ['wis']).build());
+    const matched = buildImportReport(
+      [imported(ImportKind.Background, 'Dendrologist'), imported(ImportKind.Class, 'Animist')],
+      registryLookup(packs),
+    );
+    expect(matched.groups.flatMap((group) => group.rows.map((row) => row.status))).toStrictEqual([
+      MatchStatus.Matched,
+      MatchStatus.Matched,
+    ]);
   });
 });
 

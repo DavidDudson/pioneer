@@ -143,6 +143,8 @@ describe('PathbuilderImportPage create', () => {
       report: {
         unmatched: [{ kind: 'heritage', names: [{ name: 'Changeling', occurrences: 1, reason: 'kind-not-loaded' }] }],
         notCarried: ['heritage', 'lore'],
+        unplacedBoosts: [],
+        modifierDifferences: [],
       },
     });
 

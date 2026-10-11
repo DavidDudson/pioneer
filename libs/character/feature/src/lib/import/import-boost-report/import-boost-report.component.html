@@ -1,0 +1,40 @@
+<fr-stack gap="md">
+  @if (modifiersMatch()) {
+    <fr-text>{{ 'character.import.result.boostsMatch' | transloco }}</fr-text>
+  } @else {
+    <fr-disclosure>
+      <fr-text frDisclosureSummary>{{
+        'character.import.result.differencesSummary' | transloco: { count: differences().length }
+      }}</fr-text>
+      <fr-list>
+        @for (row of differences(); track row.labelKey) {
+          <fr-list-item>
+            <fr-stack direction="horizontal" justify="between" align="center" gap="sm">
+              <fr-text>{{ row.labelKey | transloco }}</fr-text>
+              <fr-text numeric>{{
+                'character.import.result.difference' | transloco: { imported: row.imported, derived: row.derived }
+              }}</fr-text>
+            </fr-stack>
+          </fr-list-item>
+        }
+      </fr-list>
+    </fr-disclosure>
+  }
+  @if (anyUnplaced()) {
+    <fr-disclosure>
+      <fr-text frDisclosureSummary>{{
+        'character.import.result.unplacedSummary' | transloco: { count: unplaced().length }
+      }}</fr-text>
+      <fr-list>
+        @for (row of unplaced(); track $index) {
+          <fr-list-item>
+            <fr-stack direction="horizontal" justify="between" align="center" gap="sm">
+              <fr-text>{{ row.boostKey | transloco: { level: row.level } }}</fr-text>
+              <fr-text>{{ row.attributeKey | transloco }}</fr-text>
+            </fr-stack>
+          </fr-list-item>
+        }
+      </fr-list>
+    </fr-disclosure>
+  }
+</fr-stack>

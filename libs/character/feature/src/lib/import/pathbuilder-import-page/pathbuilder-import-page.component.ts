@@ -32,6 +32,7 @@ import { injectQuery } from '@tanstack/angular-query-experimental';
 import { ATTRIBUTE_LABEL_KEYS } from '../../data/attribute-label-keys';
 import { CharacterStore } from '../../data/character-store';
 import { CHARACTER_CONTENT_KINDS, contentRegistryQuery } from '../../data/content-registry-query';
+import { SIGNED } from '../import-labels';
 import { ImportReportGroup } from '../import-report-group/import-report-group.component';
 
 interface ImportModel {
@@ -54,8 +55,6 @@ interface ReportSummary {
   readonly matched: number;
   readonly total: number;
 }
-
-const SIGNED: Intl.NumberFormatOptions = { signDisplay: 'exceptZero' };
 
 /**
  * Paste a Pathbuilder 2e export and see what Pioneer reads from it and which names match loaded content (#306).

@@ -7,6 +7,8 @@ import type * as z from 'zod';
 import { ImportKind, PathbuilderName } from './import-kind';
 import type { ImportedName } from './import-kind';
 import { PathbuilderBuild, PathbuilderExport } from './pathbuilder-export';
+import { readBoosts } from './read-boosts';
+import type { ImportedBoosts } from './read-boosts';
 
 /** Why an export could not be read. The UI maps each to a message key. */
 export const PathbuilderProblem = {
@@ -31,7 +33,6 @@ export interface PathbuilderIdentity {
   /** Class first, then the dual class when the build has one. */
   readonly classes: readonly PathbuilderName[];
 }
-
 /**
  * Values Pathbuilder computed. Kept apart and never imported (ADR-0004): the discrepancy report (#312) compares
  * them with the engine's.
@@ -42,7 +43,9 @@ export type PathbuilderReported = Pick<PathbuilderBuild, 'acTotal' | 'attributes
 export interface PathbuilderImport {
   readonly name: CharacterName;
   readonly level: CharacterLevel;
+  /** Pathbuilder's modifiers, from its scores: compared with what the boosts give, never stored (ADR-0004). */
   readonly attributes: AttributeModifiers;
+  readonly boosts: readonly ImportedBoosts[];
   readonly identity: PathbuilderIdentity;
   /** Every reference to a content entry, in export order, repeats kept. */
   readonly names: readonly ImportedName[];
@@ -185,6 +188,7 @@ function toImport(build: PathbuilderBuild): PathbuilderReadResult {
     name: name.data,
     level: CharacterLevel.parse(build.level),
     attributes: attributeModifiers(build),
+    boosts: readBoosts(build),
     identity: identity(build, ancestry),
     names: contentNames(build),
     lores: lores(build),

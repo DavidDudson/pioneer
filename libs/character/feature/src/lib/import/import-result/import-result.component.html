@@ -7,6 +7,10 @@
       }}</fr-button>
     </fr-stack>
     <fr-text tone="muted">{{ 'character.import.result.carried' | transloco }}</fr-text>
+    <pio-import-boost-report
+      [modifierDifferences]="report().modifierDifferences"
+      [unplacedBoosts]="report().unplacedBoosts"
+    />
     @if (notCarried() !== '') {
       <fr-text>{{ 'character.import.result.notCarried' | transloco: { fields: notCarried() } }}</fr-text>
     }

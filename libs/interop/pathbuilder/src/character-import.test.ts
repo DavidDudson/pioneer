@@ -4,13 +4,14 @@ import { ContentText } from '@pioneer/rules/sdk';
 import { Uuid } from '@pioneer/shared/kernel';
 
 import { characterImportReport, UncarriedField, UnmatchedReason } from './character-import';
-import type { CharacterImportReport } from './character-import';
+import type { BoostOutcome, CharacterImportReport } from './character-import';
 import { entryLookup } from './content-lookup';
 import briarRose from './fixtures/briar-rose.json';
 import { ImportKind } from './import-kind';
 import { readPathbuilderExport } from './read-pathbuilder-export';
 import type { PathbuilderImport } from './read-pathbuilder-export';
 
+const NO_BOOST_OUTCOME: BoostOutcome = { unplacedBoosts: [], modifierDifferences: [] };
 const golomaId = Uuid.parse('6f1f7a52-6a43-4d1e-8f6e-6d1cbb1e7a11');
 
 function briar(): PathbuilderImport {
@@ -31,7 +32,7 @@ describe('characterImportReport', () => {
     [ImportKind.Ancestry]: [{ id: golomaId, name: ContentText.parse('Goloma') }],
     [ImportKind.Feat]: [],
   });
-  const report = characterImportReport(value, lookup);
+  const report = characterImportReport(value, lookup, NO_BOOST_OUTCOME);
 
   test('leaves matched names out and keeps kind order', () => {
     const kinds = report.unmatched.map((group) => group.kind);
@@ -51,6 +52,8 @@ describe('characterImportReport', () => {
   });
 
   test('lists lores only when the export has some', () => {
-    expect(characterImportReport({ ...value, lores: [] }, lookup).notCarried).not.toContain(UncarriedField.Lore);
+    expect(characterImportReport({ ...value, lores: [] }, lookup, NO_BOOST_OUTCOME).notCarried).not.toContain(
+      UncarriedField.Lore,
+    );
   });
 });

@@ -19,8 +19,6 @@ export const KIND_KEYS: Readonly<Record<ImportKind, string>> = {
 /** Label key per field the character can't hold yet: the kinds' labels, plus lores. */
 export const UNCARRIED_KEYS: Readonly<Record<UncarriedField, string>> = {
   [UncarriedField.Heritage]: KIND_KEYS[ImportKind.Heritage],
-  [UncarriedField.Background]: KIND_KEYS[ImportKind.Background],
-  [UncarriedField.Class]: KIND_KEYS[ImportKind.Class],
   [UncarriedField.Deity]: KIND_KEYS[ImportKind.Deity],
   [UncarriedField.Feat]: KIND_KEYS[ImportKind.Feat],
   [UncarriedField.ClassFeature]: KIND_KEYS[ImportKind.ClassFeature],
@@ -29,7 +27,6 @@ export const UNCARRIED_KEYS: Readonly<Record<UncarriedField, string>> = {
   [UncarriedField.Item]: KIND_KEYS[ImportKind.Item],
   [UncarriedField.Language]: KIND_KEYS[ImportKind.Language],
   [UncarriedField.Lore]: 'character.import.kind.lore',
-  [UncarriedField.Boosts]: 'character.import.kind.boosts',
 };
 
 export const STATUS_KEYS: Readonly<Record<MatchStatus, string>> = {
@@ -43,3 +40,6 @@ export const STATUS_TONES: Readonly<Record<MatchStatus, BadgeTone>> = {
   [MatchStatus.Unmatched]: BadgeTone.Warning,
   [MatchStatus.KindNotLoaded]: BadgeTone.Neutral,
 };
+
+/** Attribute modifiers as the import shows them: +2, -1, 0. */
+export const SIGNED: Intl.NumberFormatOptions = { signDisplay: 'exceptZero' };

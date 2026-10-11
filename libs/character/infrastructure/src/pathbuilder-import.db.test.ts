@@ -3,7 +3,8 @@ import { afterAll, beforeAll, describe, expect, test } from 'bun:test';
 import { CharacterService } from '@pioneer/character/application';
 import { CharacterCommand } from '@pioneer/character/domain';
 import { fixtureOwnerId } from '@pioneer/character/domain/testing';
-import { briarRoseExport, mordredExport } from '@pioneer/interop/pathbuilder/testing';
+import { briarRoseExport } from '@pioneer/interop/pathbuilder/testing';
+import { Attribute } from '@pioneer/rules/sdk';
 import { ContentPackBuilder, fixedContent } from '@pioneer/rules/sdk/testing';
 import { fixedClock } from '@pioneer/shared/kernel';
 import { rejection } from '@pioneer/shared/kernel/testing';
@@ -21,6 +22,7 @@ const clock = fixedClock('2026-10-07T10:00:00Z');
 describe.skipIf(adminUrl === undefined)('Pathbuilder import (postgres)', () => {
   let database: TestDatabase;
   let service: CharacterService;
+  let briarService: CharacterService;
 
   beforeAll(async () => {
     database = await createTestDatabase(adminUrl ?? '');
@@ -30,21 +32,35 @@ describe.skipIf(adminUrl === undefined)('Pathbuilder import (postgres)', () => {
     );
     const content = fixedContent(new ContentPackBuilder().withId('player-core').withAncestry('human').build());
     service = new CharacterService(new DrizzleCharacterRepository(database.db), content, clock);
+    const all = Object.values(Attribute);
+    const briarContent = fixedContent(
+      new ContentPackBuilder()
+        .withId('howl-of-the-wild')
+        .withAncestry('goloma', { boosts: [all] })
+        .withBackground('dendrologist', [['con', 'wis'], all])
+        .withClass('animist', ['wis'])
+        .build(),
+    );
+    briarService = new CharacterService(new DrizzleCharacterRepository(database.db), briarContent, clock);
   });
 
   afterAll(async () => {
     await database.drop();
   });
 
-  test('create and level land in one write, logged as importPathbuilder, with no boost placed', async () => {
-    const { character } = await service.importPathbuilder(fixtureOwnerId, mordredExport);
+  test('create, level and every slot land in one write, logged as importPathbuilder', async () => {
+    const { character } = await briarService.importPathbuilder(fixtureOwnerId, briarRoseExport);
     const entries = await database.db.select().from(auditLog).where(eq(auditLog.rowId, character.id));
     expect(entries.map((entry) => [entry.action, entry.rowVersion, entry.actorId, entry.command])).toStrictEqual([
       ['insert', 1, fixtureOwnerId, CharacterCommand.ImportPathbuilder],
     ]);
-    expect(entries[0]?.after).toMatchObject({ name: 'Mordred (Dual Class)', level: 12 });
-    const stored = await service.get(fixtureOwnerId, character.id);
-    expect(Object.keys(stored.document.build.choices)).toStrictEqual(['ancestry']);
+    expect(entries[0]?.after).toMatchObject({ name: 'Briar Rose', level: 11 });
+    const stored = await briarService.get(fixtureOwnerId, character.id);
+    expect(stored.document.build.choices).toStrictEqual(character.document.build.choices);
+    expect<Readonly<Record<string, string>>>(stored.document.build.choices).toMatchObject({
+      'boost:1:background:0': 'wis',
+      'boost:10:free:3': 'dex',
+    });
   });
 
   test('a refused import writes nothing', async () => {

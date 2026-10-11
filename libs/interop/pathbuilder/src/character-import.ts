@@ -3,6 +3,7 @@ import { Endpoint, HttpMethod, NoParams, NoQuery } from '@pioneer/shared/kernel'
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
+import { ModifierDifference, UnplacedBoost } from './boost-placement';
 import type { ContentLookup } from './content-lookup';
 import { ImportKind, ImportKindSchema, PathbuilderName } from './import-kind';
 import { buildImportReport, MatchStatus, Occurrences } from './import-report';
@@ -16,13 +17,11 @@ export const UnmatchedReason = {
 export type UnmatchedReason = ValueOf<typeof UnmatchedReason>;
 
 /**
- * Parts of an export the character model can't hold yet: every import kind but the ancestry, plus lores and boosts. They
- * light up as the builder stories (#308-#311) give the character somewhere to keep them.
+ * Parts of an export the character model can't hold yet: every import kind but the ancestry, background and class, plus
+ * lores. They light up as the builder stories (#308-#311) give the character somewhere to keep them.
  */
 export const UncarriedField = {
   Heritage: ImportKind.Heritage,
-  Background: ImportKind.Background,
-  Class: ImportKind.Class,
   Deity: ImportKind.Deity,
   Feat: ImportKind.Feat,
   ClassFeature: ImportKind.ClassFeature,
@@ -31,8 +30,6 @@ export const UncarriedField = {
   Item: ImportKind.Item,
   Language: ImportKind.Language,
   Lore: 'lore',
-  /** Which attribute each boost went to: the export has them, and the boost slots take them in #420. */
-  Boosts: 'boosts',
 } as const;
 export type UncarriedField = ValueOf<typeof UncarriedField>;
 
@@ -46,10 +43,15 @@ export type UnmatchedName = z.infer<typeof UnmatchedName>;
 export const UnmatchedGroup = z.object({ kind: ImportKindSchema, names: z.array(UnmatchedName).readonly() });
 export type UnmatchedGroup = z.infer<typeof UnmatchedGroup>;
 
-/** What an import left behind: names that matched no content, by kind, and the fields it had nowhere to put. */
+/**
+ * What an import left behind: names that matched no content, by kind, the fields it had nowhere to put, the boosts no
+ * slot took, and the attributes whose modifier from the placed boosts isn't Pathbuilder's.
+ */
 export const CharacterImportReport = z.object({
   unmatched: z.array(UnmatchedGroup).readonly(),
   notCarried: z.array(z.enum(UncarriedField)).readonly(),
+  unplacedBoosts: z.array(UnplacedBoost).readonly(),
+  modifierDifferences: z.array(ModifierDifference).readonly(),
 });
 export type CharacterImportReport = z.infer<typeof CharacterImportReport>;
 
@@ -63,19 +65,26 @@ function unmatchedGroups(value: PathbuilderImport, lookup: ContentLookup): Unmat
 }
 
 function notCarried(value: PathbuilderImport): UncarriedField[] {
-  const present = new Set<ImportKind | UncarriedField>([
-    ...value.names.map((name) => name.kind),
-    UncarriedField.Boosts,
-  ]);
+  const present = new Set<ImportKind | UncarriedField>(value.names.map((name) => name.kind));
   if (value.lores.length > 0) {
     present.add(UncarriedField.Lore);
   }
   return Object.values(UncarriedField).filter((field) => present.has(field));
 }
 
+/** How the export's boosts landed: those no slot took, and where the derived modifiers part from Pathbuilder's. */
+export interface BoostOutcome {
+  readonly unplacedBoosts: readonly UnplacedBoost[];
+  readonly modifierDifferences: readonly ModifierDifference[];
+}
+
 /** The report shown on a character created from `value`. */
-export function characterImportReport(value: PathbuilderImport, lookup: ContentLookup): CharacterImportReport {
-  return { unmatched: unmatchedGroups(value, lookup), notCarried: notCarried(value) };
+export function characterImportReport(
+  value: PathbuilderImport,
+  lookup: ContentLookup,
+  boosts: BoostOutcome,
+): CharacterImportReport {
+  return { unmatched: unmatchedGroups(value, lookup), notCarried: notCarried(value), ...boosts };
 }
 
 export const PathbuilderImportResponse = z.object({ character: Character.codec, report: CharacterImportReport });
