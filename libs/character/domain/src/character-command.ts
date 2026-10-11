@@ -22,6 +22,8 @@ export const CharacterCommand = {
   EraseRune: 'eraseRune',
   TransferRune: 'transferRune',
   SetCoins: 'setCoins',
+  GrantSpellAccess: 'grantSpellAccess',
+  RevokeSpellAccess: 'revokeSpellAccess',
 } as const;
 export type CharacterCommand = ValueOf<typeof CharacterCommand>;
 
@@ -42,4 +44,6 @@ export const PATCH_COMMANDS = {
   [CharacterPatchField.EraseRune]: CharacterCommand.EraseRune,
   [CharacterPatchField.TransferRune]: CharacterCommand.TransferRune,
   [CharacterPatchField.SetCoins]: CharacterCommand.SetCoins,
+  [CharacterPatchField.GrantSpellAccess]: CharacterCommand.GrantSpellAccess,
+  [CharacterPatchField.RevokeSpellAccess]: CharacterCommand.RevokeSpellAccess,
 } as const satisfies Record<CharacterPatchField, CharacterCommand>;

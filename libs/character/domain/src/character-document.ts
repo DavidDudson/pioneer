@@ -1,4 +1,4 @@
-import { ChoiceValue, PackId, RichText, SlotKey } from '@pioneer/rules/sdk';
+import { ChoiceValue, ContentId, PackId, RichText, SlotKey, uniqueItems } from '@pioneer/rules/sdk';
 import { UserId } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
@@ -13,9 +13,16 @@ import { EMPTY_INVENTORY, InventorySchema } from './inventory';
 const Empty = z.strictObject({});
 const None = z.tuple([]);
 
-/** Everything the player picked. Selections are kept for slots the character doesn't have (character-model.md). */
+/** The most uncommon and rare spells a build lists access to. */
+export const SPELL_ACCESS_MAX = 500;
+
+/**
+ * Everything the player picked. Selections are kept for slots the character doesn't have (character-model.md).
+ * `spellAccess` lists the uncommon and rare spells the character may prepare, each once (#478).
+ */
 export const BuildSchema = z.strictObject({
   choices: z.record(SlotKey, ChoiceValue).default({}),
+  spellAccess: z.array(ContentId).max(SPELL_ACCESS_MAX).readonly().check(uniqueItems).default([]),
   boons: None.default([]),
 });
 export type Build = z.infer<typeof BuildSchema>;
@@ -32,7 +39,7 @@ export const CharacterDocumentSchema = z.strictObject({
   level: CharacterLevel,
   /** Content the character draws on; campaign packs take precedence. */
   packs: z.array(PackId).readonly().default([]),
-  build: BuildSchema.default({ choices: {}, boons: [] }),
+  build: BuildSchema.default({ choices: {}, spellAccess: [], boons: [] }),
   inventory: InventorySchema.default(EMPTY_INVENTORY),
   play: Empty.default({}),
   overrides: None.default([]),

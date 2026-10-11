@@ -40,3 +40,4 @@ export {
   languageFixtures,
   languageOrcId,
 } from './language-fixtures';
+export { NO_SPELLS, type SpellFixture, spellFixtureId, spellFixtures } from './spell-fixtures';

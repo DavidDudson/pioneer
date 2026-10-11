@@ -26,8 +26,12 @@ const ROOT_LABEL_KEYS: ReadonlyMap<ContentKind, string> = new Map([
   [ContentKind.Class, 'rules.choices.slot.class'],
 ]);
 
-const FLAW_LABEL = 'rules.choices.slot.flaw';
 const UNKNOWN_LABEL = 'rules.choices.slot.unknown';
+/** Slots whose label names only their kind: a voluntary flaw, a prepared spell slot. */
+const FIXED_LABEL_KEYS = {
+  [SlotSubjectKind.Flaw]: 'rules.choices.slot.flaw',
+  [SlotSubjectKind.Spell]: 'rules.choices.slot.preparedSpell',
+} as const;
 
 /** Slots whose pick is an attribute. */
 const ATTRIBUTE_SUBJECTS: ReadonlySet<SlotSubjectKind> = new Set([SlotSubjectKind.Boost, SlotSubjectKind.Flaw]);
@@ -41,9 +45,6 @@ function labelOf(subject: SlotSubject | undefined): MessageDescriptor {
     case SlotSubjectKind.Boost: {
       return message(BOOST_LABEL_KEYS[subject.source], { level: subject.level });
     }
-    case SlotSubjectKind.Flaw: {
-      return message(FLAW_LABEL);
-    }
     case SlotSubjectKind.Skill: {
       return message(SKILL_SLOT_LABEL_KEYS[subject.source], { level: subject.level });
     }
@@ -51,6 +52,10 @@ function labelOf(subject: SlotSubject | undefined): MessageDescriptor {
       return subject.entryName === undefined
         ? message('rules.choices.slot.language', { level: subject.level })
         : message('rules.choices.slot.languageFrom', { entry: subject.entryName });
+    }
+    case SlotSubjectKind.Flaw:
+    case SlotSubjectKind.Spell: {
+      return message(FIXED_LABEL_KEYS[subject.kind]);
     }
     case SlotSubjectKind.Choice: {
       if (subject.entryName === undefined) {
@@ -96,14 +101,21 @@ function lineOf(slot: CharacterSlot): ChoiceLine {
   };
 }
 
-/** A planned slot with nothing picked is the plan's empty space, not a choice to flag. */
+/**
+ * A planned slot with nothing picked is the plan's empty space, not a choice to flag. A prepared spell slot shows under
+ * its entry in the Spellcasting section instead (#478).
+ */
 function isShown(slot: CharacterSlot): boolean {
+  if ('subject' in slot && slot.subject.kind === SlotSubjectKind.Spell) {
+    return false;
+  }
   return slot.status !== SlotStatus.Planned || slot.selection !== undefined;
 }
 
 /**
  * The sheet's choices: every slot the server read, in its order, but the empty ones above the character's level. A
- * planned pick and an invalid one stay, with the level and reason (#419).
+ * planned pick and an invalid one stay, with the level and reason (#419); prepared spell slots are left to the
+ * Spellcasting section.
  */
 export function sheetChoices(slots: readonly CharacterSlot[]): readonly ChoiceLine[] {
   return slots.filter((slot) => isShown(slot)).map((slot) => lineOf(slot));

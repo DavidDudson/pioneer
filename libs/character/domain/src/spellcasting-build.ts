@@ -2,7 +2,7 @@ import { spellcastingInPlay } from '@pioneer/rules/engine';
 import type { SpellcastingInPlay } from '@pioneer/rules/engine';
 import type { GrantResolution } from '@pioneer/rules/grants';
 
-import { grantedRules } from './class-build';
+import { grantedRules } from './granted-rules';
 
 /**
  * The character's spellcasting entries: one per slug among the `SpellcastingEntry` elements its effective set holds

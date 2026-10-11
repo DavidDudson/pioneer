@@ -1,4 +1,14 @@
-import { ChoiceValue, ContentId, ContentKindSchema, ContentText, Level, SlotKey } from '@pioneer/rules/sdk';
+import {
+  ChoiceValue,
+  ContentId,
+  ContentKindSchema,
+  ContentText,
+  Level,
+  SlotKey,
+  SlotRank,
+  Slug,
+  SpellRank,
+} from '@pioneer/rules/sdk';
 import { MessageDescriptorSchema } from '@pioneer/shared/kernel';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
@@ -26,7 +36,7 @@ export type SlotStatus = ValueOf<typeof SlotStatus>;
 
 /**
  * What kind of slot it is: one the character has itself, an attribute boost or flaw, a trained skill or skill increase,
- * or a `ChoiceSet` on an entry.
+ * a `ChoiceSet` on an entry, or a prepared spell slot.
  */
 export const SlotSubjectKind = {
   Root: 'root',
@@ -35,8 +45,12 @@ export const SlotSubjectKind = {
   Skill: 'skill',
   Language: 'language',
   Choice: 'choice',
+  Spell: 'spell',
 } as const;
 export type SlotSubjectKind = ValueOf<typeof SlotSubjectKind>;
+
+/** A prepared slot's rank: cantrips, or 1 to 10. */
+const PreparedRankSchema = z.union([z.literal(SlotRank.Cantrip), SpellRank]);
 
 /** What a slot is for, so the sheet can name it. */
 export const SlotSubject = z.discriminatedUnion('kind', [
@@ -60,6 +74,12 @@ export const SlotSubject = z.discriminatedUnion('kind', [
     entry: ContentId,
     entryName: ContentText.optional(),
     prompt: ContentText.optional(),
+  }),
+  /** A prepared slot of `rank` on the spellcasting entry `entry`: cantrips, or 1 to 10 (#478). */
+  z.strictObject({
+    kind: z.literal(SlotSubjectKind.Spell),
+    entry: Slug,
+    rank: PreparedRankSchema,
   }),
 ]);
 export type SlotSubject = z.output<typeof SlotSubject>;
@@ -112,4 +132,6 @@ export const SlotInvalidMessage = {
   SkillTrained: 'rules.choices.invalid.skillTrained',
   SkillRankCapped: 'rules.choices.invalid.skillRankCapped',
   LanguageKnown: 'rules.choices.invalid.languageKnown',
+  SpellNoAccess: 'rules.choices.invalid.spellNoAccess',
+  SpellUnfit: 'rules.choices.invalid.spellUnfit',
 } as const;

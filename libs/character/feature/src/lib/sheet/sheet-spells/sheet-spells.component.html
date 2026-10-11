@@ -1,0 +1,25 @@
+@if (casts()) {
+  <fr-async-region>
+    <ng-template frAsyncPending>
+      <fr-stack gap="md">
+        <fr-stack gap="sm">
+          <fr-skeleton width="md" />
+          <fr-grid [columns]="3">
+            @for (slot of loadingSlots; track slot) {
+              <fr-stack gap="3xs"><fr-skeleton width="sm" /><fr-skeleton width="md" /></fr-stack>
+            }
+          </fr-grid>
+        </fr-stack>
+        <pio-spell-access-list [lines]="undefined" />
+      </fr-stack>
+    </ng-template>
+    <ng-template [frAsyncData]="spells">
+      <fr-stack gap="md">
+        <pio-sheet-prepared-spells [entries]="prepared()" />
+        @if (access(); as spellAccess) {
+          <pio-spell-access [access]="spellAccess" />
+        }
+      </fr-stack>
+    </ng-template>
+  </fr-async-region>
+}

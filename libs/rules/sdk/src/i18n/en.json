@@ -537,7 +537,8 @@
         "skillIncrease": "Level {level} skill increase",
         "skillTrainingNumbered": "Level {level} trained skill {number}",
         "language": "Level {level} language",
-        "languageFrom": "Language from {entry}"
+        "languageFrom": "Language from {entry}",
+        "preparedSpell": "Prepared spell"
       },
       "invalid": {
         "notOffered": "This choice no longer offers that option, so it counts for nothing. Choose another.",
@@ -546,7 +547,9 @@
         "flawTaken": "Another voluntary flaw already lowers that attribute, so this one counts for nothing. Choose another.",
         "skillTrained": "The character is already trained in that skill, so this counts for nothing. Choose another.",
         "skillRankCapped": "This increase would raise that skill past the rank its level allows, so it counts for nothing. Choose another.",
-        "languageKnown": "The character already knows that language, so this counts for nothing. Choose another."
+        "languageKnown": "The character already knows that language, so this counts for nothing. Choose another.",
+        "spellNoAccess": "This spell is uncommon or rare, and the character no longer has access to it, so it counts for nothing. Add it back or choose another.",
+        "spellUnfit": "This slot no longer takes that spell (another tradition, or too high a rank), so it counts for nothing. Choose another."
       }
     },
     "build": {
@@ -636,6 +639,11 @@
         "spontaneous": "Spontaneous",
         "innate": "Innate"
       }
+    },
+    "spellAccess": {
+      "none": "No access to uncommon, rare or unique spells yet.",
+      "remove": "Remove {name}",
+      "unknownSpell": "Unknown spell"
     }
   }
 }

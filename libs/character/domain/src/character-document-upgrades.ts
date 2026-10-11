@@ -22,6 +22,8 @@ const UPGRADES: readonly UpgradeStep[] = [
   (document) => document,
   /** 2 → 3: how each item is carried and whether it is invested (#472). A version 2 item reads as stowed, not invested. */
   (document) => document,
+  /** 3 → 4: the uncommon and rare spells a build has access to (#478). A version 3 build has access to none. */
+  (document) => document,
 ];
 
 /** The version a chain of steps upgrades to: one past the last step. */

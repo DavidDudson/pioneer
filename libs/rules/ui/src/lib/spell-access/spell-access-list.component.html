@@ -1,0 +1,28 @@
+@if (rows(); as spells) {
+  @if (spells.length === 0) {
+    <fr-empty-state [title]="Message.None | transloco" />
+  } @else {
+    <fr-list gap="xs">
+      @for (spell of spells; track spell.spell) {
+        <fr-list-item>
+          <fr-stack direction="horizontal" justify="between" align="center" gap="sm">
+            <fr-text>{{ spell.name }}</fr-text>
+            <fr-async-button
+              variant="ghost"
+              iconOnly
+              [ariaLabel]="Message.Remove | transloco: { name: spell.name }"
+              [action]="spell.remove"
+              ><fr-icon [icon]="RemoveIcon"
+            /></fr-async-button>
+          </fr-stack>
+        </fr-list-item>
+      }
+    </fr-list>
+  }
+} @else {
+  <fr-list gap="xs">
+    @for (row of loadingRows; track row) {
+      <fr-list-item><fr-skeleton width="md" /></fr-list-item>
+    }
+  </fr-list>
+}
