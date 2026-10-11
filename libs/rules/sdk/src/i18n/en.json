@@ -607,6 +607,10 @@
     "spellcasting": {
       "none": "No spellcasting.",
       "origin": "from {source}",
+      "slots": "Spell slots",
+      "poolSlots": "{source} slots",
+      "cantrips": "Cantrips",
+      "rank": "{rank, selectordinal, one {#st} two {#nd} few {#rd} other {#th}} rank",
       "preparation": {
         "prepared": "Prepared",
         "spontaneous": "Spontaneous",

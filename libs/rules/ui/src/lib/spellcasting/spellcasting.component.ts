@@ -6,6 +6,7 @@ import type { ContentId } from '@pioneer/rules/sdk';
 import { NO_ORIGIN_NAMES } from '../origin-chain/origin-names';
 import type { OriginNames } from '../origin-chain/origin-names';
 import { StatisticsView } from '../statistics/statistics.component';
+import { SpellSlotsView } from './spell-slots/spell-slots.component';
 import type { SpellcastingEntryLine } from './spellcasting-entry-line';
 import { PREPARATION_MESSAGES, SpellcastingMessage, TRADITION_MESSAGES } from './spellcasting-messages';
 
@@ -14,7 +15,8 @@ const LOADING_ROWS = 2;
 /**
  * A character's spellcasting entries (ADR-0040): each one's tradition, how it casts (prepared, spontaneous or innate)
  * and where it came from ("from Wizard Spellcasting"), with its spell attack and spell DC, each expanding in place to
- * its breakdown as any statistic does.
+ * its breakdown as any statistic does, then its cantrips and spell slots per rank and any pools of slots kept apart
+ * (ADR-0041): a divine font, a curriculum.
  *
  * Read-only and presentational (ADR-0028): the caller works out the lines from the character's entries and the
  * engine's statistics, or passes undefined while they load, and the display names of the entries breakdown lines come
@@ -26,7 +28,19 @@ const LOADING_ROWS = 2;
  */
 @Component({
   selector: 'pio-spellcasting',
-  imports: [Badge, EmptyState, Heading, List, ListItem, Skeleton, Stack, StatisticsView, Text, TranslocoPipe],
+  imports: [
+    Badge,
+    EmptyState,
+    Heading,
+    List,
+    ListItem,
+    Skeleton,
+    SpellSlotsView,
+    Stack,
+    StatisticsView,
+    Text,
+    TranslocoPipe,
+  ],
   templateUrl: './spellcasting.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

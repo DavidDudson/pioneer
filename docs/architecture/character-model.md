@@ -127,6 +127,11 @@ Spellcaster features at 7th, 15th and 19th level; for a cleric with its doctrine
 and 19th and a warpriest's at 11th and 19th; for a multiclass caster with the archetype's Expert and Master
 Spellcasting feats, unless the class already raised it.
 
+Each entry has its cantrips and spell slots per rank at the character's level from the `SpellSlots` elements in play
+([ADR-0041](../adr/0041-spell-slots-are-rule-elements.md)): the class's table on its spellcasting feature, a multiclass
+dedication's two cantrips and the archetype's spellcasting feats' slots. Pools kept apart, a cleric's divine font
+and a wizard's curriculum, are listed under the entry by what gave them ("Divine Font slots").
+
 Each slot's status is worked out on every read, never stored (`characterSlots`,
 [ADR-0035](../adr/0035-character-reads-carry-slot-status.md)). `GET` and `PATCH /characters/:id` answer with the
 character and its slots:

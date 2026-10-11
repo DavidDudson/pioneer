@@ -401,7 +401,7 @@ because that is the dataset we import and the system we export to (see
 | Structure   | `GrantItem`, `ChoiceSet`, `RollOption` (incl. toggles), `ItemAlteration`                                                          |
 | Numbers     | `FlatModifier`, `AdjustModifier`, `Change` (add, upgrade, downgrade, override, multiply), `DexterityCap`, `MultipleAttackPenalty` |
 | Proficiency | `Proficiency` (raise a rank), `MartialProficiency`, `ProficiencyBonus` (replace the bonus table)                                  |
-| Magic       | `SpellcastingEntry` (a spellcasting entry: tradition, attribute, preparation)                                                     |
+| Magic       | `SpellcastingEntry` (a spellcasting entry: tradition, attribute, preparation), `SpellSlots` (slots or cantrips for an entry)      |
 | Checks      | `RollTwice`, `SubstituteRoll`, `AdjustDegreeOfSuccess`, `RollNote`                                                                |
 | Strikes     | `Strike`, `AdjustStrike`, `DamageDice`, `DamageAlteration`, `CriticalSpecialization`                                              |
 | Defences    | `Immunity`, `Weakness`, `Resistance`, `TempHitPoints`, `FastHealing`                                                              |
@@ -427,6 +427,12 @@ has no element for an entry, which its player adds by hand. While its predicate 
 (`slug`, `tradition`, `attribute`, and `preparation`: prepared, spontaneous or innate), and makes them trained in
 `spellcasting`, the one rank every entry reads; a `Proficiency` raises it further. Two in play with one slug are one
 entry, the first in play.
+
+`SpellSlots` is Pioneer's own as well ([ADR-0041](../adr/0041-spell-slots-are-rule-elements.md)): it adds `value`
+slots of a `rank`, cantrips, or slots at the entry's `highest` rank below 10th to the entry named `entry`, either to its
+own slots or to a `pool` kept apart (a divine font, a curriculum). Counts add up per entry, pool and rank, so a class's
+table is a few elements gated by level; one for an entry not in play adds nothing. `spellcastingInPlay` gives each
+entry its slots and pools.
 
 ## Derivation pipeline
 

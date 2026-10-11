@@ -1,0 +1,17 @@
+@if (!empty()) {
+  <fr-stack gap="2xs">
+    <fr-heading [level]="4">{{ title() }}</fr-heading>
+    <fr-description-list>
+      @if (slots().cantrips; as cantrips) {
+        <fr-description-item [term]="Message.Cantrips | transloco">
+          <fr-text numeric>{{ cantrips }}</fr-text>
+        </fr-description-item>
+      }
+      @for (rank of slots().ranks; track rank.rank) {
+        <fr-description-item [term]="Message.Rank | transloco: { rank: rank.rank }">
+          <fr-text numeric>{{ rank.count }}</fr-text>
+        </fr-description-item>
+      }
+    </fr-description-list>
+  </fr-stack>
+}

@@ -89,3 +89,39 @@ export const FIGHTER_FEATURE = classFeature({
   level: 1,
   traits: ['fighter'],
 });
+export const DIVINE_FONT = classFeature({
+  id: 'sPeLlCaStInG0009',
+  name: 'Divine Font',
+  level: 1,
+  traits: ['cleric'],
+});
+export const SCHOOL_OF_BATTLE_MAGIC = classFeature({
+  id: 'sPeLlCaStInG0010',
+  name: 'School of Battle Magic',
+  level: 1,
+  traits: ['wizard'],
+});
+export const SCHOOL_OF_UNIFIED_MAGICAL_THEORY = classFeature({
+  id: 'sPeLlCaStInG0011',
+  name: 'School of Unified Magical Theory',
+  level: 1,
+  traits: ['wizard'],
+});
+export const BASIC_WIZARD_SPELLCASTING = archetypeFeat({
+  id: 'sPeLlCaStInG0012',
+  name: 'Basic Wizard Spellcasting',
+  level: 4,
+  traits: [],
+});
+export const MASTER_WIZARD_SPELLCASTING = archetypeFeat({
+  id: 'sPeLlCaStInG0013',
+  name: 'Master Wizard Spellcasting',
+  level: 18,
+  traits: [],
+});
+export const WITCH_SPELLCASTING = classFeature({
+  id: 'sPeLlCaStInG0014',
+  name: 'Witch Spellcasting',
+  level: 1,
+  traits: ['witch'],
+});

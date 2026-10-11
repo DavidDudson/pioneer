@@ -2,6 +2,7 @@ import { RuleElementKey } from '@pioneer/rules/sdk';
 
 import { addRule, KindDataGapReason, report } from './kind-data-gaps';
 import type { KindInput } from './kind-data-gaps';
+import { SPELL_SLOTS } from './translate-spell-slots';
 
 /**
  * The spellcasting entries and spellcasting rank raises of Player Core's class features and feats. Foundry has no rule
@@ -133,10 +134,10 @@ const UNKNOWN_TRADITION: ReadonlySet<string> = new Set([
 
 const FIELD = 'spellcasting';
 
-/** Adds the spellcasting entry and rank raises the entry gains, if any, to its rules. */
+/** Adds the spellcasting entry, rank raises and spell slots the entry gains, if any, to its rules. */
 export function spellcastingRules(input: KindInput): void {
   const { slug } = input.envelope;
-  for (const element of SPELLCASTING.get(slug) ?? []) {
+  for (const element of [...(SPELLCASTING.get(slug) ?? []), ...(SPELL_SLOTS.get(slug) ?? [])]) {
     addRule(input, FIELD, element);
   }
   if (UNKNOWN_TRADITION.has(slug)) {

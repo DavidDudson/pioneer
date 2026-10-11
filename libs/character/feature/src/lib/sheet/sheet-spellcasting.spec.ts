@@ -109,6 +109,24 @@ describe(sheetSpellcasting, () => {
     ]);
   });
 
+  it('gives a 7th-level cleric its slots up to 4th rank and a divine font named by its feature', () => {
+    const registry = registryOf(coreRules);
+    const [cleric] = sheetSpellcasting(registry, cloisteredCleric(registry, 7).build());
+
+    expect(cleric?.slots).toStrictEqual({
+      cantrips: 5,
+      ranks: [
+        { rank: 1, count: 3 },
+        { rank: 2, count: 3 },
+        { rank: 3, count: 3 },
+        { rank: 4, count: 2 },
+      ],
+    });
+    expect(cleric?.pools.map(({ key, source, slots }) => [key, source, slots.ranks])).toStrictEqual([
+      ['divine-font', 'Divine Font', [{ rank: 4, count: 5 }]],
+    ]);
+  });
+
   it('leaves out a family no registered pack defines', () => {
     const entries = coreRules.entries.filter((entry) => entry.slug !== 'statistic:spell-dc');
     const registry = registryOf({ ...coreRules, entries });

@@ -11,7 +11,11 @@ extend-exclude = [
 
 [default]
 # Foundry document ids are random 16-character strings inside compendium UUIDs.
-extend-ignore-re = ["Compendium\\.pf2e\\.[a-z0-9-]+\\.Item\\.[A-Za-z0-9]{16}"]
+extend-ignore-re = [
+  "Compendium\\.pf2e\\.[a-z0-9-]+\\.Item\\.[A-Za-z0-9]{16}",
+  # ICU ordinal suffixes in messages: `{rank, selectordinal, one {#st} two {#nd} ...}`.
+  "\\{#(st|nd|rd|th)\\}",
+]
 
 [default.extend-words]
 # Pathfinder terms and deliberate spellings.

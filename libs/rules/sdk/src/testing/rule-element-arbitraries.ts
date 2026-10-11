@@ -22,8 +22,9 @@ import { Proficiency } from '../proficiency';
 import { NumericAlterationMode, NumericItemProperty, TraitAlterationMode } from '../rule-element-item-alteration';
 import { AdjustMode, ChangeMode } from '../rule-element-numbers';
 import { ArmorCategory, MartialKind, WeaponCategory } from '../rule-element-proficiency';
-import { SpellPreparation } from '../rule-element-spellcasting';
+import { SlotRank, SpellPreparation } from '../rule-element-spellcasting';
 import { SenseAcuity } from '../sense';
+import { SPELL_RANK_MAX } from '../spell-rank';
 import { MagicTradition } from '../spellcasting-tradition';
 import { keyPathText, predicateJson, rollOptionText, validFormulaText } from './arbitraries';
 
@@ -197,6 +198,17 @@ const sense = element(
   { acuity: anyOf(SenseAcuity), range: integer({ min: 1, max: SMALLINT_MAX }) },
 );
 
+const SLOTS_MAX = 9;
+const spellSlots = element(
+  'SpellSlots',
+  {
+    entry: slugText,
+    rank: oneof(anyOf(SlotRank), integer({ min: 1, max: SPELL_RANK_MAX })),
+    value: integer({ min: 1, max: SLOTS_MAX }),
+  },
+  { pool: slugText },
+);
+
 /**
  * Valid rule elements of every `key` the SDK knows, as plain JSON (unparsed). Use with
  * `RuleElement.parse` to get the typed value.
@@ -224,4 +236,5 @@ export const ruleElementJson: Arbitrary<object> = oneof(
   resistance,
   spellcastingEntry,
   sense,
+  spellSlots,
 );

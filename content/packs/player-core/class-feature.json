@@ -657,6 +657,216 @@
         "selector": "spellcasting",
         "rank": "legendary",
         "predicate": ["feature:legendary-spellcaster"]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "bard",
+        "rank": "cantrip",
+        "value": 5
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "bard",
+        "rank": 1,
+        "value": 2
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "bard",
+        "rank": 1,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 2]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "bard",
+        "rank": 2,
+        "value": 2,
+        "predicate": [
+          {
+            "gte": ["self:level", 3]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "bard",
+        "rank": 2,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 4]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "bard",
+        "rank": 3,
+        "value": 2,
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "bard",
+        "rank": 3,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 6]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "bard",
+        "rank": 4,
+        "value": 2,
+        "predicate": [
+          {
+            "gte": ["self:level", 7]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "bard",
+        "rank": 4,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 8]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "bard",
+        "rank": 5,
+        "value": 2,
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "bard",
+        "rank": 5,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 10]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "bard",
+        "rank": 6,
+        "value": 2,
+        "predicate": [
+          {
+            "gte": ["self:level", 11]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "bard",
+        "rank": 6,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 12]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "bard",
+        "rank": 7,
+        "value": 2,
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "bard",
+        "rank": 7,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 14]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "bard",
+        "rank": 8,
+        "value": 2,
+        "predicate": [
+          {
+            "gte": ["self:level", 15]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "bard",
+        "rank": 8,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 16]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "bard",
+        "rank": 9,
+        "value": 2,
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "bard",
+        "rank": 9,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 18]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "bard",
+        "rank": 10,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 19]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -965,6 +1175,216 @@
                 "gte": ["self:level", 19]
               }
             ]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "cleric",
+        "rank": "cantrip",
+        "value": 5
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "cleric",
+        "rank": 1,
+        "value": 2
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "cleric",
+        "rank": 1,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 2]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "cleric",
+        "rank": 2,
+        "value": 2,
+        "predicate": [
+          {
+            "gte": ["self:level", 3]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "cleric",
+        "rank": 2,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 4]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "cleric",
+        "rank": 3,
+        "value": 2,
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "cleric",
+        "rank": 3,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 6]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "cleric",
+        "rank": 4,
+        "value": 2,
+        "predicate": [
+          {
+            "gte": ["self:level", 7]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "cleric",
+        "rank": 4,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 8]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "cleric",
+        "rank": 5,
+        "value": 2,
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "cleric",
+        "rank": 5,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 10]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "cleric",
+        "rank": 6,
+        "value": 2,
+        "predicate": [
+          {
+            "gte": ["self:level", 11]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "cleric",
+        "rank": 6,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 12]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "cleric",
+        "rank": 7,
+        "value": 2,
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "cleric",
+        "rank": 7,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 14]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "cleric",
+        "rank": 8,
+        "value": 2,
+        "predicate": [
+          {
+            "gte": ["self:level", 15]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "cleric",
+        "rank": 8,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 16]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "cleric",
+        "rank": 9,
+        "value": 2,
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "cleric",
+        "rank": 9,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 18]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "cleric",
+        "rank": 10,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 19]
           }
         ]
       }
@@ -1586,7 +2006,39 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "SpellSlots",
+        "entry": "cleric",
+        "rank": "highest",
+        "value": 4,
+        "pool": "divine-font"
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "cleric",
+        "rank": "highest",
+        "value": 1,
+        "pool": "divine-font",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "cleric",
+        "rank": "highest",
+        "value": 1,
+        "pool": "divine-font",
+        "predicate": [
+          {
+            "gte": ["self:level", 15]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.gblTFUOgolqFS9v4"
     },
@@ -1823,6 +2275,216 @@
         "selector": "spellcasting",
         "rank": "legendary",
         "predicate": ["feature:legendary-spellcaster"]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "druid",
+        "rank": "cantrip",
+        "value": 5
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "druid",
+        "rank": 1,
+        "value": 2
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "druid",
+        "rank": 1,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 2]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "druid",
+        "rank": 2,
+        "value": 2,
+        "predicate": [
+          {
+            "gte": ["self:level", 3]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "druid",
+        "rank": 2,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 4]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "druid",
+        "rank": 3,
+        "value": 2,
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "druid",
+        "rank": 3,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 6]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "druid",
+        "rank": 4,
+        "value": 2,
+        "predicate": [
+          {
+            "gte": ["self:level", 7]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "druid",
+        "rank": 4,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 8]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "druid",
+        "rank": 5,
+        "value": 2,
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "druid",
+        "rank": 5,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 10]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "druid",
+        "rank": 6,
+        "value": 2,
+        "predicate": [
+          {
+            "gte": ["self:level", 11]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "druid",
+        "rank": 6,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 12]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "druid",
+        "rank": 7,
+        "value": 2,
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "druid",
+        "rank": 7,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 14]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "druid",
+        "rank": 8,
+        "value": 2,
+        "predicate": [
+          {
+            "gte": ["self:level", 15]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "druid",
+        "rank": 8,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 16]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "druid",
+        "rank": 9,
+        "value": 2,
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "druid",
+        "rank": 9,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 18]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "druid",
+        "rank": 10,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 19]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -6998,7 +7660,118 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": "cantrip",
+        "value": 1,
+        "pool": "curriculum"
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 1,
+        "value": 1,
+        "pool": "curriculum"
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 2,
+        "value": 1,
+        "pool": "curriculum",
+        "predicate": [
+          {
+            "gte": ["self:level", 3]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 3,
+        "value": 1,
+        "pool": "curriculum",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 4,
+        "value": 1,
+        "pool": "curriculum",
+        "predicate": [
+          {
+            "gte": ["self:level", 7]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 5,
+        "value": 1,
+        "pool": "curriculum",
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 6,
+        "value": 1,
+        "pool": "curriculum",
+        "predicate": [
+          {
+            "gte": ["self:level", 11]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 7,
+        "value": 1,
+        "pool": "curriculum",
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 8,
+        "value": 1,
+        "pool": "curriculum",
+        "predicate": [
+          {
+            "gte": ["self:level", 15]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 9,
+        "value": 1,
+        "pool": "curriculum",
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.wObrT6PytPdS5aUi"
     },
@@ -7354,7 +8127,118 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": "cantrip",
+        "value": 1,
+        "pool": "curriculum"
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 1,
+        "value": 1,
+        "pool": "curriculum"
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 2,
+        "value": 1,
+        "pool": "curriculum",
+        "predicate": [
+          {
+            "gte": ["self:level", 3]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 3,
+        "value": 1,
+        "pool": "curriculum",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 4,
+        "value": 1,
+        "pool": "curriculum",
+        "predicate": [
+          {
+            "gte": ["self:level", 7]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 5,
+        "value": 1,
+        "pool": "curriculum",
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 6,
+        "value": 1,
+        "pool": "curriculum",
+        "predicate": [
+          {
+            "gte": ["self:level", 11]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 7,
+        "value": 1,
+        "pool": "curriculum",
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 8,
+        "value": 1,
+        "pool": "curriculum",
+        "predicate": [
+          {
+            "gte": ["self:level", 15]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 9,
+        "value": 1,
+        "pool": "curriculum",
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.E4GZDMn4DYk6qSEV"
     },
@@ -7710,7 +8594,118 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": "cantrip",
+        "value": 1,
+        "pool": "curriculum"
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 1,
+        "value": 1,
+        "pool": "curriculum"
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 2,
+        "value": 1,
+        "pool": "curriculum",
+        "predicate": [
+          {
+            "gte": ["self:level", 3]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 3,
+        "value": 1,
+        "pool": "curriculum",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 4,
+        "value": 1,
+        "pool": "curriculum",
+        "predicate": [
+          {
+            "gte": ["self:level", 7]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 5,
+        "value": 1,
+        "pool": "curriculum",
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 6,
+        "value": 1,
+        "pool": "curriculum",
+        "predicate": [
+          {
+            "gte": ["self:level", 11]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 7,
+        "value": 1,
+        "pool": "curriculum",
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 8,
+        "value": 1,
+        "pool": "curriculum",
+        "predicate": [
+          {
+            "gte": ["self:level", 15]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 9,
+        "value": 1,
+        "pool": "curriculum",
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.YZ2XPmx1WHyWtM0g"
     },
@@ -8066,7 +9061,118 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": "cantrip",
+        "value": 1,
+        "pool": "curriculum"
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 1,
+        "value": 1,
+        "pool": "curriculum"
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 2,
+        "value": 1,
+        "pool": "curriculum",
+        "predicate": [
+          {
+            "gte": ["self:level", 3]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 3,
+        "value": 1,
+        "pool": "curriculum",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 4,
+        "value": 1,
+        "pool": "curriculum",
+        "predicate": [
+          {
+            "gte": ["self:level", 7]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 5,
+        "value": 1,
+        "pool": "curriculum",
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 6,
+        "value": 1,
+        "pool": "curriculum",
+        "predicate": [
+          {
+            "gte": ["self:level", 11]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 7,
+        "value": 1,
+        "pool": "curriculum",
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 8,
+        "value": 1,
+        "pool": "curriculum",
+        "predicate": [
+          {
+            "gte": ["self:level", 15]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 9,
+        "value": 1,
+        "pool": "curriculum",
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.L5FiuXsfW6Sa31gO"
     },
@@ -8422,7 +9528,118 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": "cantrip",
+        "value": 1,
+        "pool": "curriculum"
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 1,
+        "value": 1,
+        "pool": "curriculum"
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 2,
+        "value": 1,
+        "pool": "curriculum",
+        "predicate": [
+          {
+            "gte": ["self:level", 3]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 3,
+        "value": 1,
+        "pool": "curriculum",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 4,
+        "value": 1,
+        "pool": "curriculum",
+        "predicate": [
+          {
+            "gte": ["self:level", 7]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 5,
+        "value": 1,
+        "pool": "curriculum",
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 6,
+        "value": 1,
+        "pool": "curriculum",
+        "predicate": [
+          {
+            "gte": ["self:level", 11]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 7,
+        "value": 1,
+        "pool": "curriculum",
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 8,
+        "value": 1,
+        "pool": "curriculum",
+        "predicate": [
+          {
+            "gte": ["self:level", 15]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 9,
+        "value": 1,
+        "pool": "curriculum",
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.ZBFICTkzUjE4BDGJ"
     },
@@ -8778,7 +9995,118 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": "cantrip",
+        "value": 1,
+        "pool": "curriculum"
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 1,
+        "value": 1,
+        "pool": "curriculum"
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 2,
+        "value": 1,
+        "pool": "curriculum",
+        "predicate": [
+          {
+            "gte": ["self:level", 3]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 3,
+        "value": 1,
+        "pool": "curriculum",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 4,
+        "value": 1,
+        "pool": "curriculum",
+        "predicate": [
+          {
+            "gte": ["self:level", 7]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 5,
+        "value": 1,
+        "pool": "curriculum",
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 6,
+        "value": 1,
+        "pool": "curriculum",
+        "predicate": [
+          {
+            "gte": ["self:level", 11]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 7,
+        "value": 1,
+        "pool": "curriculum",
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 8,
+        "value": 1,
+        "pool": "curriculum",
+        "predicate": [
+          {
+            "gte": ["self:level", 15]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 9,
+        "value": 1,
+        "pool": "curriculum",
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.ZpFCZnVzIfZLfNii"
     },
@@ -12488,7 +13816,218 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "SpellSlots",
+        "entry": "witch",
+        "rank": "cantrip",
+        "value": 5
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "witch",
+        "rank": 1,
+        "value": 2
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "witch",
+        "rank": 1,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 2]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "witch",
+        "rank": 2,
+        "value": 2,
+        "predicate": [
+          {
+            "gte": ["self:level", 3]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "witch",
+        "rank": 2,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 4]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "witch",
+        "rank": 3,
+        "value": 2,
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "witch",
+        "rank": 3,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 6]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "witch",
+        "rank": 4,
+        "value": 2,
+        "predicate": [
+          {
+            "gte": ["self:level", 7]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "witch",
+        "rank": 4,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 8]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "witch",
+        "rank": 5,
+        "value": 2,
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "witch",
+        "rank": 5,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 10]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "witch",
+        "rank": 6,
+        "value": 2,
+        "predicate": [
+          {
+            "gte": ["self:level", 11]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "witch",
+        "rank": 6,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 12]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "witch",
+        "rank": 7,
+        "value": 2,
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "witch",
+        "rank": 7,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 14]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "witch",
+        "rank": 8,
+        "value": 2,
+        "predicate": [
+          {
+            "gte": ["self:level", 15]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "witch",
+        "rank": 8,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 16]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "witch",
+        "rank": 9,
+        "value": 2,
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "witch",
+        "rank": 9,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 18]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "witch",
+        "rank": 10,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 19]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.zT6QiTMxxj8JYoN9"
     },
@@ -12669,6 +14208,216 @@
         "selector": "spellcasting",
         "rank": "legendary",
         "predicate": ["feature:legendary-spellcaster"]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": "cantrip",
+        "value": 5
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 1,
+        "value": 2
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 1,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 2]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 2,
+        "value": 2,
+        "predicate": [
+          {
+            "gte": ["self:level", 3]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 2,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 4]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 3,
+        "value": 2,
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 3,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 6]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 4,
+        "value": 2,
+        "predicate": [
+          {
+            "gte": ["self:level", 7]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 4,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 8]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 5,
+        "value": 2,
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 5,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 10]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 6,
+        "value": 2,
+        "predicate": [
+          {
+            "gte": ["self:level", 11]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 6,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 12]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 7,
+        "value": 2,
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 7,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 14]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 8,
+        "value": 2,
+        "predicate": [
+          {
+            "gte": ["self:level", 15]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 8,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 16]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 9,
+        "value": 2,
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 9,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 18]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 10,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 19]
+          }
+        ]
       }
     ],
     "externalIds": {

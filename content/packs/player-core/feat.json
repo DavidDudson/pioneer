@@ -3304,6 +3304,12 @@
         "tradition": "occult",
         "attribute": "cha",
         "preparation": "spontaneous"
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "bard",
+        "rank": "cantrip",
+        "value": 2
       }
     ],
     "externalIds": {
@@ -3609,7 +3615,41 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "SpellSlots",
+        "entry": "bard",
+        "rank": 1,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 4]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "bard",
+        "rank": 2,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 6]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "bard",
+        "rank": 3,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 8]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.NSyzjkDdQU2A75mX"
     },
@@ -3655,7 +3695,41 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "SpellSlots",
+        "entry": "cleric",
+        "rank": 1,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 4]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "cleric",
+        "rank": 2,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 6]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "cleric",
+        "rank": 3,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 8]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.gc24C5CyWgqn1Lbl"
     },
@@ -3747,7 +3821,41 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "SpellSlots",
+        "entry": "druid",
+        "rank": 1,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 4]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "druid",
+        "rank": 2,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 6]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "druid",
+        "rank": 3,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 8]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.PNG7e39mEhq1MorG"
     },
@@ -4149,7 +4257,41 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 1,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 4]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 2,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 6]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 3,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 8]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.SHUfHzElHZPXJFiP"
     },
@@ -7535,6 +7677,12 @@
         "tradition": "divine",
         "attribute": "wis",
         "preparation": "prepared"
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "cleric",
+        "rank": "cantrip",
+        "value": 2
       }
     ],
     "externalIds": {
@@ -13229,6 +13377,12 @@
         "tradition": "primal",
         "attribute": "wis",
         "preparation": "prepared"
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "druid",
+        "rank": "cantrip",
+        "value": 2
       }
     ],
     "externalIds": {
@@ -16149,6 +16303,39 @@
         "key": "Proficiency",
         "selector": "spellcasting",
         "rank": "expert"
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "bard",
+        "rank": 4,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 12]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "bard",
+        "rank": 5,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 14]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "bard",
+        "rank": 6,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 16]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -16201,6 +16388,39 @@
         "key": "Proficiency",
         "selector": "spellcasting",
         "rank": "expert"
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "cleric",
+        "rank": 4,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 12]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "cleric",
+        "rank": 5,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 14]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "cleric",
+        "rank": 6,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 16]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -16253,6 +16473,39 @@
         "key": "Proficiency",
         "selector": "spellcasting",
         "rank": "expert"
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "druid",
+        "rank": 4,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 12]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "druid",
+        "rank": 5,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 14]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "druid",
+        "rank": 6,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 16]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -16413,6 +16666,39 @@
         "key": "Proficiency",
         "selector": "spellcasting",
         "rank": "expert"
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 4,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 12]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 5,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 14]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 6,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 16]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -27644,6 +27930,28 @@
         "key": "Proficiency",
         "selector": "spellcasting",
         "rank": "master"
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "bard",
+        "rank": 7,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 18]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "bard",
+        "rank": 8,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 20]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -27696,6 +28004,28 @@
         "key": "Proficiency",
         "selector": "spellcasting",
         "rank": "master"
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "cleric",
+        "rank": 7,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 18]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "cleric",
+        "rank": 8,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 20]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -27748,6 +28078,28 @@
         "key": "Proficiency",
         "selector": "spellcasting",
         "rank": "master"
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "druid",
+        "rank": 7,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 18]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "druid",
+        "rank": 8,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 20]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -28046,6 +28398,28 @@
         "key": "Proficiency",
         "selector": "spellcasting",
         "rank": "master"
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 7,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 18]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": 8,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 20]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -52208,6 +52582,12 @@
         "tradition": "arcane",
         "attribute": "int",
         "preparation": "prepared"
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "wizard",
+        "rank": "cantrip",
+        "value": 2
       }
     ],
     "externalIds": {

@@ -110,6 +110,9 @@ const examples: object[] = [
     range: 30,
     predicate: ['familiar-of-keen-senses:scent'],
   },
+  { key: 'SpellSlots', entry: 'wizard', rank: 'cantrip', value: 5 },
+  { key: 'SpellSlots', entry: 'wizard', rank: 3, value: 2, predicate: [{ gte: ['self:level', 5] }] },
+  { key: 'SpellSlots', entry: 'cleric', rank: 'highest', value: 4, pool: 'divine-font' },
 ];
 
 describe('RuleElement', () => {
@@ -275,5 +278,19 @@ describe('RuleElement', () => {
     expect(issues({ ...sense, sense: 'scent' })).toMatchObject([{ path: ['sense'] }]);
     expect(issues({ ...sense, acuity: 'keen' })).toMatchObject([{ path: ['acuity'] }]);
     expect(issues({ ...sense, range: 0 })).toMatchObject([{ path: ['range'] }]);
+  });
+
+  test('spell slots name a rank from 1 to 10, cantrips or the highest', () => {
+    const slots = { key: 'SpellSlots', entry: 'wizard', value: 1 };
+    expect(issues({ ...slots, rank: 10 })).toStrictEqual([]);
+    expect(issues({ ...slots, rank: 11 })).toMatchObject([{ path: ['rank'] }]);
+    expect(issues({ ...slots, rank: 0 })).toMatchObject([{ path: ['rank'] }]);
+    expect(issues({ ...slots, rank: 'lowest' })).toMatchObject([{ path: ['rank'] }]);
+  });
+
+  test('spell slots add at least one', () => {
+    const slots = { key: 'SpellSlots', entry: 'wizard', rank: 1 };
+    expect(issues({ ...slots, value: 0 })).toMatchObject([{ path: ['value'] }]);
+    expect(issues({ ...slots, value: 1.5 })).toMatchObject([{ path: ['value'] }]);
   });
 });
