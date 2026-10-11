@@ -41,6 +41,10 @@ export const CharacterPatchField = {
   /** An etched rune moved from one item onto another. */
   TransferRune: 'transferRune',
   SetCoins: 'setCoins',
+  /** An uncommon or rare spell the character may prepare from now on. */
+  GrantSpellAccess: 'grantSpellAccess',
+  /** A spell the character no longer has access to; picks of it stay, invalid. */
+  RevokeSpellAccess: 'revokeSpellAccess',
 } as const;
 export type CharacterPatchField = ValueOf<typeof CharacterPatchField>;
 
@@ -78,6 +82,8 @@ export const CharacterPatchSchema = z.discriminatedUnion('field', [
     rune: RuneRefSchema,
   }),
   z.object({ field: z.literal(CharacterPatchField.SetCoins), coins: CoinsSchema }),
+  z.object({ field: z.literal(CharacterPatchField.GrantSpellAccess), spell: ContentId }),
+  z.object({ field: z.literal(CharacterPatchField.RevokeSpellAccess), spell: ContentId }),
 ]);
 export type CharacterPatch = z.infer<typeof CharacterPatchSchema>;
 
@@ -87,6 +93,12 @@ export const PatchCharacterBody = z.object({
   patch: CharacterPatchSchema,
 });
 export type PatchCharacterBody = z.infer<typeof PatchCharacterBody>;
+
+/** The edits that grant or revoke access to a spell. */
+export type SpellAccessPatch = Extract<
+  CharacterPatch,
+  { readonly field: typeof CharacterPatchField.GrantSpellAccess | typeof CharacterPatchField.RevokeSpellAccess }
+>;
 
 /** The edits that change what the inventory holds, apart from how items are carried. */
 export type InventoryPatch = Exclude<
@@ -101,7 +113,9 @@ export type InventoryPatch = Exclude<
       | typeof CharacterPatchField.InvestItem
       | typeof CharacterPatchField.EtchRune
       | typeof CharacterPatchField.EraseRune
-      | typeof CharacterPatchField.TransferRune;
+      | typeof CharacterPatchField.TransferRune
+      | typeof CharacterPatchField.GrantSpellAccess
+      | typeof CharacterPatchField.RevokeSpellAccess;
   }
 >;
 
@@ -180,7 +194,9 @@ export function inventoryTarget(patch: CharacterPatch): InventoryTarget | undefi
     case CharacterPatchField.Name:
     case CharacterPatchField.Level:
     case CharacterPatchField.SelectSlot:
-    case CharacterPatchField.ClearSlot: {
+    case CharacterPatchField.ClearSlot:
+    case CharacterPatchField.GrantSpellAccess:
+    case CharacterPatchField.RevokeSpellAccess: {
       return undefined;
     }
     default: {

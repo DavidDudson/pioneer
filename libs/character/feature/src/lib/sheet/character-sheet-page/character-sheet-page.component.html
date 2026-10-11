@@ -99,7 +99,7 @@
       <fr-async-region>
         <ng-template frAsyncPending><pio-attributes [modifiers]="undefined" /></ng-template>
         <ng-template [frAsyncData]="registry">
-          <pio-attributes [modifiers]="attributeView()?.modifiers" [open]="attributeView()?.open ?? []" />
+          <pio-attributes [modifiers]="picks.attributes()?.modifiers" [open]="picks.attributes()?.open ?? []" />
         </ng-template>
       </fr-async-region>
     </fr-section>
@@ -149,6 +149,7 @@
           ><pio-spellcasting [entries]="picks.spellcasting()" [entryNames]="entryNames()"
         /></ng-template>
       </fr-async-region>
+      <pio-sheet-spells [casts]="(picks.spellcasting()?.length ?? 0) > 0" />
     </fr-section>
 
     <fr-section [anchor]="sections.features.anchor" [heading]="sections.features.headingKey | transloco">

@@ -124,6 +124,21 @@
       "gifting": "Adding…",
       "gifted": "Added",
       "giftFailed": "The item could not be added. Try again."
+    },
+    "prepared": {
+      "heading": "Prepared spells: {tradition}",
+      "cantrips": "Cantrips, cast at {rank, selectordinal, one {#st} two {#nd} few {#rd} other {#th}} rank",
+      "cantripSlot": "Cantrip {number}",
+      "rankSlot": "{rank, selectordinal, one {#st} two {#nd} few {#rd} other {#th}} rank slot {number}",
+      "placeholder": "Search spells by name",
+      "unknownSpell": "Unknown spell"
+    },
+    "spellAccess": {
+      "heading": "Uncommon, rare and unique spells",
+      "spell": "Spell",
+      "add": "Add access",
+      "adding": "Adding…",
+      "added": "Added"
     }
   },
   "validation": {
@@ -157,7 +172,11 @@
     "transferSameItem": "Choose another item to move the rune onto.",
     "skillTrained": "The character is already trained in that skill. Choose another.",
     "skillRankCapped": "That skill can't go up a rank with this increase at its level. Choose another.",
-    "languageKnown": "The character already knows that language. Choose another."
+    "languageKnown": "The character already knows that language. Choose another.",
+    "spellNoAccess": "That spell is uncommon or rare, and this character has no access to it yet. Add it to their spell access first.",
+    "unknownSpell": "That spell is not available to prepare. Choose another.",
+    "spellAccessCommon": "That spell is common, so every caster of its tradition has access to it already.",
+    "spellAccessFull": "This character has access to {maximum} uncommon, rare and unique spells already, the most a build lists. Remove one first."
   },
   "import": {
     "title": "Import from Pathbuilder",

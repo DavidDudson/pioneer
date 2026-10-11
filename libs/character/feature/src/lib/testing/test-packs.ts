@@ -3,15 +3,12 @@ import type { ContentKind, PackContents, PackContentsLoader } from '@pioneer/rul
 
 import { CHARACTER_CONTENT_KINDS } from '../data/content-registry-query';
 
-/** Player Core's kinds the character pages read in specs; items come from the item fixtures instead. */
-const KEPT: ReadonlySet<ContentKind> = new Set(CHARACTER_CONTENT_KINDS);
-
-/** `pack` with only `KEPT` kinds, read once like the pack it cuts down. */
-function cutDown(pack: PackContentsLoader): PackContentsLoader {
+/** `pack` with only the `kept` kinds, read once like the pack it cuts down. */
+function cutDown(pack: PackContentsLoader, kept: ReadonlySet<ContentKind>): PackContentsLoader {
   let contents: Promise<PackContents> | undefined = undefined;
   const cut = async (): Promise<PackContents> => {
     const full = await pack.load();
-    return { ...full, entries: full.entries.filter(({ kind }) => KEPT.has(kind)) };
+    return { ...full, entries: full.entries.filter(({ kind }) => kept.has(kind)) };
   };
   return {
     id: pack.id,
@@ -28,6 +25,10 @@ function cutDown(pack: PackContentsLoader): PackContentsLoader {
  * from the committed pack at load, so it never drifts from it. A spec that needs all of Player Core (matching an
  * export's names) passes `officialPacks` instead.
  */
-export const TEST_PACKS: readonly PackContentsLoader[] = officialPacks.map((pack) =>
-  pack.id === 'player-core' ? cutDown(pack) : pack,
-);
+export const TEST_PACKS: readonly PackContentsLoader[] = cutTo(CHARACTER_CONTENT_KINDS);
+
+/** The official packs with Player Core cut down to `kinds`: the character kinds and the spells, for the spell pickers. */
+export function cutTo(kinds: readonly ContentKind[]): readonly PackContentsLoader[] {
+  const kept = new Set(kinds);
+  return officialPacks.map((pack) => (pack.id === 'player-core' ? cutDown(pack, kept) : pack));
+}

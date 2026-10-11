@@ -1,0 +1,34 @@
+@for (entry of entries(); track entry.key) {
+  <fr-stack gap="sm">
+    <fr-heading variant="subheading" [level]="3">{{
+      'character.sheet.prepared.heading' | transloco: { tradition: (traditions[entry.tradition] | transloco) }
+    }}</fr-heading>
+    @for (rank of entry.ranks; track rank.key) {
+      <fr-stack gap="2xs">
+        <fr-heading [level]="4">{{ rank.heading().key | transloco: rank.heading().params }}</fr-heading>
+        <fr-grid [columns]="3">
+          @for (slot of rank.fields; track slot.key) {
+            @let reason = slot.reason();
+            <fr-inline-field
+              [label]="slot.label.key | transloco: slot.label.params"
+              [edit]="slot.field"
+              [notice]="reason === undefined ? undefined : (reason.key | transloco: reason.params)"
+            >
+              <fr-combobox
+                frInlineEditor
+                [ariaLabel]="slot.label.key | transloco: slot.label.params"
+                [placeholder]="'character.sheet.prepared.placeholder' | transloco"
+                [options]="slot.matches()"
+                [value]="slot.field.draft()"
+                (valueChange)="slot.field.change($event)"
+                (searched)="slot.search($event)"
+                (committed)="slot.field.flushSoon()"
+                (cancelled)="slot.field.cancel()"
+              />
+            </fr-inline-field>
+          }
+        </fr-grid>
+      </fr-stack>
+    }
+  </fr-stack>
+}

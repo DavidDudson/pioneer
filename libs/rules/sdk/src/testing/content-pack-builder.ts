@@ -51,6 +51,14 @@ export interface ConditionFields {
   readonly valued?: boolean;
 }
 
+/** What a test spell has: its rank and traditions, and its traits (`cantrip`, `focus`) and rarity. */
+interface SpellFields {
+  readonly rank: number;
+  readonly traditions: readonly string[];
+  readonly traits?: readonly string[];
+  readonly rarity?: string;
+}
+
 /** What a test class has beyond its key attribute. */
 interface ClassFields {
   readonly hitPoints?: number;
@@ -202,6 +210,20 @@ export class ContentPackBuilder {
       name,
       data: { valued, overrides: [], implies: [] },
       rules,
+    });
+    return this;
+  }
+
+  /** A spell slugged `spell:<name>`, cast with two actions, its level its rank. */
+  public withSpell(name: string, { rank, traditions, traits = [], rarity }: SpellFields): this {
+    const data = { rank, traditions, time: { type: 'actions', cost: 'two' }, damage: [] };
+    this.#entries.push({
+      kind: ContentKind.Spell,
+      name,
+      data,
+      level: rank,
+      traits,
+      ...(rarity === undefined ? {} : { rarity }),
     });
     return this;
   }

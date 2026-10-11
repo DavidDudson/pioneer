@@ -38,6 +38,20 @@ const VERSION_2 = {
   },
 };
 
+/** Version 3, before a build listed spell access (#478): `build` had no `spellAccess`. */
+const VERSION_3 = {
+  ...VERSION_2,
+  schemaVersion: 3,
+  inventory: {
+    ...VERSION_2.inventory,
+    items: VERSION_2.inventory.items.map((item, index) =>
+      index === 0
+        ? { ...item, carry: { state: 'held', hands: 1 }, invested: true }
+        : { ...item, carry: { state: 'stowed' } },
+    ),
+  },
+};
+
 /**
  * One stored document of every past schema version, in the shape that version wrote. A new upgrade step adds the
  * shape it upgrades from; `character-document.test.ts` fails until it does.
@@ -45,4 +59,5 @@ const VERSION_2 = {
 export const PAST_DOCUMENTS: ReadonlyMap<CharacterSchemaVersion, unknown> = new Map([
   [CharacterSchemaVersion.parse(1), VERSION_1],
   [CharacterSchemaVersion.parse(2), VERSION_2],
+  [CharacterSchemaVersion.parse(VERSION_3.schemaVersion), VERSION_3],
 ]);

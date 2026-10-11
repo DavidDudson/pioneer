@@ -62,11 +62,39 @@ function aimedRune(
   return to === undefined ? patch : { ...patch, id, to };
 }
 
+/** The edits that name no item: they go as they are. */
+type UnaimedField =
+  | typeof CharacterPatchField.Name
+  | typeof CharacterPatchField.Level
+  | typeof CharacterPatchField.SelectSlot
+  | typeof CharacterPatchField.ClearSlot
+  | typeof CharacterPatchField.SetCoins
+  | typeof CharacterPatchField.GrantSpellAccess
+  | typeof CharacterPatchField.RevokeSpellAccess;
+type ItemPatch = Exclude<CharacterPatch, { readonly field: UnaimedField }>;
+
+const UNAIMED: ReadonlySet<CharacterPatchField> = new Set<UnaimedField>([
+  CharacterPatchField.Name,
+  CharacterPatchField.Level,
+  CharacterPatchField.SelectSlot,
+  CharacterPatchField.ClearSlot,
+  CharacterPatchField.SetCoins,
+  CharacterPatchField.GrantSpellAccess,
+  CharacterPatchField.RevokeSpellAccess,
+]);
+
+function isItemPatch(patch: CharacterPatch): patch is ItemPatch {
+  return !UNAIMED.has(patch.field);
+}
+
 /**
  * `patch` aimed at the character's own items, so every inventory command is exercised rather than refused for naming
  * an item the character hasn't: the item it changes is the one at `index`, the container the one at `target` or none.
  */
 function aimed(patch: CharacterPatch, items: readonly InventoryItem[], { index, target }: Aim): CharacterPatch {
+  if (!isItemPatch(patch)) {
+    return patch;
+  }
   const id = itemAt(items, index);
   const container = target === undefined ? undefined : itemAt(items, target);
   const stowed = container === undefined ? {} : { container };
@@ -89,16 +117,9 @@ function aimed(patch: CharacterPatch, items: readonly InventoryItem[], { index, 
     case CharacterPatchField.TransferRune: {
       return aimedRune(patch, id, container);
     }
-    case CharacterPatchField.Name:
-    case CharacterPatchField.Level:
-    case CharacterPatchField.SelectSlot:
-    case CharacterPatchField.ClearSlot:
-    case CharacterPatchField.SetCoins: {
-      return patch;
-    }
     default: {
       const unreachable: never = patch;
-      throw new TypeError(`Unhandled character patch: ${JSON.stringify(unreachable)}`);
+      throw new TypeError(`Unhandled item patch: ${JSON.stringify(unreachable)}`);
     }
   }
 }
