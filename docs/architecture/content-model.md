@@ -675,6 +675,9 @@ flowchart LR
   `onDeleteActions` are dropped when the grant goes with its granter (`granter: cascade`, Foundry's default for an item
   that is not physical), since a grant is always derived. One that resolves to nothing, whose grantee outlives its
   granter (`detach`, the default for a physical item), or whose grantee takes its granter with it, stays untranslated.
+  A grant whose only alteration overrides the granted condition's value with a number
+  (`{ mode: override, property: badge-value, value: 2 }`) gets that number as its `value`; any other alteration, or a
+  value read from a pick or the item, leaves it untranslated.
 - **Vocabulary.** Traits, languages, senses and damage types are not pack documents: Foundry defines them in config
   modules (`src/scripts/config/traits.ts`, `src/module/actor/creature/values.ts`, `src/module/system/damage/values.ts`),
   which build their tables with spreads and remeda. The CLI runs them with Bun from the verified archive, standing in

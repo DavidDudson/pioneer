@@ -215,9 +215,9 @@ export interface ResolverScope {
 
 /**
  * Resolves a formula's references from the inputs, `@prof.<selector>` from the proficiency bonuses in force,
- * `@stat.<selector>` from `statistics`, `@item.level` and `@item.value` from `item` (the level of the item a rule element
- * is on and the value of the condition it is on, which a statistic's base formula never has), and `@weapon` and `@spellcasting` references from `source`, the
- * weapon or entry a statistic derived per source is derived for.
+ * `@stat.<selector>` from `statistics`, `@item.level` and `@item.value` from `item` (the level of the item a rule
+ * element is on and the value of the condition it is on, which a statistic's base formula never has), and `@weapon`
+ * and `@spellcasting` references from `source`, the weapon or entry a statistic derived per source is derived for.
  */
 export function resolverFor(
   { inputs, proficiency }: CharacterValues,

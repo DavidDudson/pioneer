@@ -34,8 +34,8 @@ export interface GrantedItem {
   /** The name the granting element gave it, for later elements to refer to. */
   readonly flag: RuleSlug | undefined;
   /**
-   * The value a valued condition arrived with: its condition hop's as a root (_frightened 2_), its grant's or 1 when
-   * granted. None for an entry that is no valued condition, or a root put on without one.
+   * The highest value a valued condition arrived with: its condition hop's as a root (_frightened 2_), its grant's or 1
+   * when granted. None for an entry that is no valued condition, or a root put on without one.
    */
   readonly value: ConditionValue | undefined;
 }
@@ -139,7 +139,8 @@ class Walker {
   readonly #lookup: ContentLookup;
   readonly #facts: PredicateFacts;
   readonly #context: ChoiceContext;
-  readonly #present = new Set<ContentId>();
+  /** Where each entry on the character sits in `#items`. */
+  readonly #present = new Map<ContentId, number>();
   /** Entries whose slots are recorded. */
   readonly #chosen = new Set<ContentId>();
   readonly #items: GrantedItem[] = [];
@@ -200,13 +201,26 @@ class Walker {
       flag: visit.flag,
       value: arrivalValue(entry, visit),
     };
-    if (this.#present.has(id) && !visit.allowDuplicate) {
+    const at = this.#present.get(id);
+    if (at !== undefined && !visit.allowDuplicate) {
       this.#duplicates.push(item);
+      this.#raise(at, item.value);
       return;
     }
-    this.#present.add(id);
+    this.#present.set(id, this.#items.length);
     this.#items.push(item);
     this.#follow(entry, visit);
+  }
+
+  /**
+   * Raises the value of the entry at `at` to `value` when a later arrival brings a higher one, so the entry on the
+   * character holds its highest value, as its facts do.
+   */
+  #raise(at: number, value: ConditionValue | undefined): void {
+    const present = this.#items[at];
+    if (present !== undefined && value !== undefined && (present.value === undefined || value > present.value)) {
+      this.#items[at] = { ...present, value };
+    }
   }
 
   /** Records `entry`'s choices, then follows each `GrantItem` on it, in rule order. */
