@@ -520,13 +520,17 @@
         "choiceOf": "{entry} choice",
         "unknown": "A choice the character no longer has",
         "heritage": "Heritage",
-        "flaw": "Voluntary flaw"
+        "flaw": "Voluntary flaw",
+        "skillTraining": "Level {level} trained skill",
+        "skillIncrease": "Level {level} skill increase"
       },
       "invalid": {
         "notOffered": "This choice no longer offers that option, so it counts for nothing. Choose another.",
         "contentNotLoaded": "The content picked here is not loaded, so it counts for nothing.",
         "boostTaken": "A boost given with this one already raises that attribute, so it counts for nothing. Choose another.",
-        "flawTaken": "Another voluntary flaw already lowers that attribute, so this one counts for nothing. Choose another."
+        "flawTaken": "Another voluntary flaw already lowers that attribute, so this one counts for nothing. Choose another.",
+        "skillTrained": "The character is already trained in that skill, so this counts for nothing. Choose another.",
+        "skillRankCapped": "This increase would raise that skill past the rank its level allows, so it counts for nothing. Choose another."
       }
     },
     "build": {
