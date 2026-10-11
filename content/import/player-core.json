@@ -2108,36 +2108,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "class-feature:divine-font",
-      "foundry": "Compendium.pf2e.classfeatures.Item.gblTFUOgolqFS9v4",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.SpecificRule.Cleric.DivineFont.Healing",
-                "predicate": ["deity:primary:font:heal"],
-                "value": "heal"
-              },
-              {
-                "label": "PF2E.SpecificRule.Cleric.DivineFont.Harmful",
-                "predicate": ["deity:primary:font:harm"],
-                "value": "harm"
-              }
-            ],
-            "flag": "divineFont",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Cleric.DivineFont.Prompt",
-            "rollOption": "divine-font"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "class-feature:double-debilitation",
       "foundry": "Compendium.pf2e.classfeatures.Item.W1FkMHYVDg3yTU5r",
       "gaps": [
