@@ -130,7 +130,8 @@
     "status": {
       "matched": "Matched",
       "unmatched": "Not found",
-      "kindNotLoaded": "Not loaded yet"
+      "kindNotLoaded": "Not loaded yet",
+      "notOffered": "Not offered"
     },
     "result": {
       "heading": "Imported from Pathbuilder",

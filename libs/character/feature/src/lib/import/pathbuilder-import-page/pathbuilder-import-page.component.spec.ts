@@ -141,8 +141,8 @@ describe('PathbuilderImportPage create', () => {
     request.flush({
       character,
       report: {
-        unmatched: [{ kind: 'heritage', names: [{ name: 'Changeling', occurrences: 1, reason: 'kind-not-loaded' }] }],
-        notCarried: ['heritage', 'lore'],
+        unmatched: [{ kind: 'heritage', names: [{ name: 'Changeling', occurrences: 1, reason: 'not-offered' }] }],
+        notCarried: ['feat', 'lore'],
         unplacedBoosts: [],
         modifierDifferences: [],
       },
@@ -162,7 +162,7 @@ describe('PathbuilderImportPage create', () => {
       expect(sheet.textContent).toContain('Imported from Pathbuilder');
       expect(sheet.querySelector('fr-inline-field button')).not.toBeNull();
     });
-    expect(sheet.textContent).toContain('Heritage and Lores');
+    expect(sheet.textContent).toContain('Feats and Lores');
     expect(sheet.textContent).toContain('Heritage · 1 not carried over');
     expect(sheet.textContent).toContain('Changeling');
 

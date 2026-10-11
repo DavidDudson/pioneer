@@ -6,22 +6,25 @@ import * as z from 'zod';
 import { ModifierDifference, UnplacedBoost } from './boost-placement';
 import type { ContentLookup } from './content-lookup';
 import { ImportKind, ImportKindSchema, PathbuilderName } from './import-kind';
+import type { ImportedName } from './import-kind';
 import { buildImportReport, MatchStatus, Occurrences } from './import-report';
+import type { ReportRow } from './import-report';
 import type { PathbuilderImport } from './read-pathbuilder-export';
 
 /** Why a name was not carried over. */
 export const UnmatchedReason = {
   Unmatched: MatchStatus.Unmatched,
   KindNotLoaded: MatchStatus.KindNotLoaded,
+  /** The name matched content, but its slot doesn't offer it: a heritage of another ancestry. */
+  NotOffered: 'not-offered',
 } as const;
 export type UnmatchedReason = ValueOf<typeof UnmatchedReason>;
 
 /**
- * Parts of an export the character model can't hold yet: every import kind but the ancestry, background and class, plus
- * lores. They light up as the builder stories (#308-#311) give the character somewhere to keep them.
+ * Parts of an export the character model can't hold yet: every import kind but the ancestry, heritage, background and
+ * class, plus lores. They light up as the builder stories (#308-#311) give the character somewhere to keep them.
  */
 export const UncarriedField = {
-  Heritage: ImportKind.Heritage,
   Deity: ImportKind.Deity,
   Feat: ImportKind.Feat,
   ClassFeature: ImportKind.ClassFeature,
@@ -44,8 +47,8 @@ export const UnmatchedGroup = z.object({ kind: ImportKindSchema, names: z.array(
 export type UnmatchedGroup = z.infer<typeof UnmatchedGroup>;
 
 /**
- * What an import left behind: names that matched no content, by kind, the fields it had nowhere to put, the boosts no
- * slot took, and the attributes whose modifier from the placed boosts isn't Pathbuilder's.
+ * What an import left behind: names that matched no content or none their slot offers, by kind, the fields it had
+ * nowhere to put, the boosts no slot took, and the attributes whose modifier from the placed boosts isn't Pathbuilder's.
  */
 export const CharacterImportReport = z.object({
   unmatched: z.array(UnmatchedGroup).readonly(),
@@ -55,11 +58,25 @@ export const CharacterImportReport = z.object({
 });
 export type CharacterImportReport = z.infer<typeof CharacterImportReport>;
 
-function unmatchedGroups(value: PathbuilderImport, lookup: ContentLookup): UnmatchedGroup[] {
+/** Why `row` was not carried over, or undefined when it was: matched, and not among the names its slot refused. */
+function unmatchedReason(row: ReportRow, notOffered: readonly ImportedName[]): UnmatchedReason | undefined {
+  if (row.status !== MatchStatus.Matched) {
+    return row.status;
+  }
+  const refused = notOffered.some((name) => name.kind === row.kind && name.name === row.name);
+  return refused ? UnmatchedReason.NotOffered : undefined;
+}
+
+function unmatchedGroups(
+  value: PathbuilderImport,
+  lookup: ContentLookup,
+  notOffered: readonly ImportedName[],
+): UnmatchedGroup[] {
   return buildImportReport(value.names, lookup).groups.flatMap((group): UnmatchedGroup[] => {
-    const names = group.rows.flatMap((row): UnmatchedName[] =>
-      row.status === MatchStatus.Matched ? [] : [{ name: row.name, occurrences: row.occurrences, reason: row.status }],
-    );
+    const names = group.rows.flatMap((row): UnmatchedName[] => {
+      const reason = unmatchedReason(row, notOffered);
+      return reason === undefined ? [] : [{ name: row.name, occurrences: row.occurrences, reason }];
+    });
     return names.length === 0 ? [] : [{ kind: group.kind, names }];
   });
 }
@@ -72,8 +89,12 @@ function notCarried(value: PathbuilderImport): UncarriedField[] {
   return Object.values(UncarriedField).filter((field) => present.has(field));
 }
 
-/** How the export's boosts landed: those no slot took, and where the derived modifiers part from Pathbuilder's. */
-export interface BoostOutcome {
+/**
+ * What the import did with the export: the matched names their slot refused (a heritage of another ancestry), the
+ * boosts no slot took, and where the derived modifiers part from Pathbuilder's.
+ */
+export interface ImportOutcome {
+  readonly notOffered: readonly ImportedName[];
   readonly unplacedBoosts: readonly UnplacedBoost[];
   readonly modifierDifferences: readonly ModifierDifference[];
 }
@@ -82,9 +103,9 @@ export interface BoostOutcome {
 export function characterImportReport(
   value: PathbuilderImport,
   lookup: ContentLookup,
-  boosts: BoostOutcome,
+  { notOffered, ...boosts }: ImportOutcome,
 ): CharacterImportReport {
-  return { unmatched: unmatchedGroups(value, lookup), notCarried: notCarried(value), ...boosts };
+  return { unmatched: unmatchedGroups(value, lookup, notOffered), notCarried: notCarried(value), ...boosts };
 }
 
 export const PathbuilderImportResponse = z.object({ character: Character.codec, report: CharacterImportReport });

@@ -58,6 +58,28 @@ describe(ImportResult, () => {
     expect(text(fixture)).toContain('Not found');
   });
 
+  it('says a heritage was not offered when it belongs to another ancestry', async () => {
+    const fixture = await render({
+      ...EMPTY,
+      unmatched: [
+        {
+          kind: ImportKind.Heritage,
+          names: [
+            {
+              name: PathbuilderName.parse('Changeling'),
+              occurrences: Occurrences.parse(1),
+              reason: UnmatchedReason.NotOffered,
+            },
+          ],
+        },
+      ],
+    });
+
+    expect(text(fixture)).toContain('Heritage · 1 not carried over');
+    expect(text(fixture)).toContain('Changeling');
+    expect(text(fixture)).toContain('Not offered');
+  });
+
   it('says everything matched and leaves out the not-kept line when nothing was left behind', async () => {
     const fixture = await render(EMPTY);
 

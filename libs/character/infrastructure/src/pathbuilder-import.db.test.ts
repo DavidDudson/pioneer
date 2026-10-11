@@ -1,10 +1,10 @@
 import { afterAll, beforeAll, describe, expect, test } from 'bun:test';
 
 import { CharacterService } from '@pioneer/character/application';
-import { CharacterCommand } from '@pioneer/character/domain';
+import { CharacterCommand, HERITAGE_SLOT } from '@pioneer/character/domain';
 import { fixtureOwnerId } from '@pioneer/character/domain/testing';
 import { briarRoseExport } from '@pioneer/interop/pathbuilder/testing';
-import { Attribute } from '@pioneer/rules/sdk';
+import { Attribute, ContentKind } from '@pioneer/rules/sdk';
 import { ContentPackBuilder, fixedContent } from '@pioneer/rules/sdk/testing';
 import { fixedClock } from '@pioneer/shared/kernel';
 import { rejection } from '@pioneer/shared/kernel/testing';
@@ -18,6 +18,14 @@ import { DrizzleCharacterRepository } from './drizzle-character-repository';
 /** A Pathbuilder import against a throwaway Postgres database; skipped when TEST_DATABASE_URL is unset. */
 const adminUrl = testDatabaseUrl();
 const clock = fixedClock('2026-10-07T10:00:00Z');
+const all = Object.values(Attribute);
+/** Briar Rose's content: ancestry, heritage, background and class. */
+const briarPack = new ContentPackBuilder()
+  .withId('howl-of-the-wild')
+  .withAncestry('goloma', { boosts: [all] })
+  .withHeritage('vigilant-goloma', 'goloma')
+  .withBackground('dendrologist', [['con', 'wis'], all])
+  .withClass('animist', ['wis']);
 
 describe.skipIf(adminUrl === undefined)('Pathbuilder import (postgres)', () => {
   let database: TestDatabase;
@@ -32,15 +40,7 @@ describe.skipIf(adminUrl === undefined)('Pathbuilder import (postgres)', () => {
     );
     const content = fixedContent(new ContentPackBuilder().withId('player-core').withAncestry('human').build());
     service = new CharacterService(new DrizzleCharacterRepository(database.db), content, clock);
-    const all = Object.values(Attribute);
-    const briarContent = fixedContent(
-      new ContentPackBuilder()
-        .withId('howl-of-the-wild')
-        .withAncestry('goloma', { boosts: [all] })
-        .withBackground('dendrologist', [['con', 'wis'], all])
-        .withClass('animist', ['wis'])
-        .build(),
-    );
+    const briarContent = fixedContent(briarPack.build());
     briarService = new CharacterService(new DrizzleCharacterRepository(database.db), briarContent, clock);
   });
 
@@ -48,7 +48,7 @@ describe.skipIf(adminUrl === undefined)('Pathbuilder import (postgres)', () => {
     await database.drop();
   });
 
-  test('create, level and every slot land in one write, logged as importPathbuilder', async () => {
+  test('create, level, heritage and every slot land in one write, logged as importPathbuilder', async () => {
     const { character } = await briarService.importPathbuilder(fixtureOwnerId, briarRoseExport);
     const entries = await database.db.select().from(auditLog).where(eq(auditLog.rowId, character.id));
     expect(entries.map((entry) => [entry.action, entry.rowVersion, entry.actorId, entry.command])).toStrictEqual([
@@ -58,6 +58,7 @@ describe.skipIf(adminUrl === undefined)('Pathbuilder import (postgres)', () => {
     const stored = await briarService.get(fixtureOwnerId, character.id);
     expect(stored.document.build.choices).toStrictEqual(character.document.build.choices);
     expect<Readonly<Record<string, string>>>(stored.document.build.choices).toMatchObject({
+      [HERITAGE_SLOT]: briarPack.idOf(ContentKind.Heritage, 'vigilant-goloma'),
       'boost:1:background:0': 'wis',
       'boost:10:free:3': 'dex',
     });

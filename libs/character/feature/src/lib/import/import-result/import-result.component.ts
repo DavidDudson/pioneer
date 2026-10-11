@@ -18,7 +18,7 @@ import type { CharacterImportReport, ImportKind } from '@pioneer/interop/pathbui
 import { filter, merge } from 'rxjs';
 
 import { ImportBoostReport } from '../import-boost-report/import-boost-report.component';
-import { KIND_KEYS, STATUS_KEYS, STATUS_TONES, UNCARRIED_KEYS } from '../import-labels';
+import { KIND_KEYS, REASON_KEYS, REASON_TONES, UNCARRIED_KEYS } from '../import-labels';
 
 /** One name that was not carried over, as the list shows it. */
 interface NameView {
@@ -67,8 +67,8 @@ export class ImportResult {
         name: name.name,
         occurrences: name.occurrences,
         repeated: name.occurrences > 1,
-        reasonKey: STATUS_KEYS[name.reason],
-        tone: STATUS_TONES[name.reason],
+        reasonKey: REASON_KEYS[name.reason],
+        tone: REASON_TONES[name.reason],
       })),
     })),
   );

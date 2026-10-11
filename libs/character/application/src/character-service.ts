@@ -1,13 +1,10 @@
 import {
   attributeModifiers,
-  BACKGROUND_SLOT,
-  boostContent,
   Character,
   CharacterCommand,
   CharacterId,
   CharacterPatchField,
   characterSlots,
-  CLASS_SLOT,
   InventoryItemId,
   PATCH_COMMANDS,
   slotContent,
@@ -15,7 +12,6 @@ import {
   unfitPicks,
 } from '@pioneer/character/domain';
 import type {
-  BoostContent,
   CharacterListQuery,
   CharacterPatch,
   CharacterSheet,
@@ -25,114 +21,21 @@ import type {
   PatchedCharacterSheet,
   SlotPick,
 } from '@pioneer/character/domain';
-import {
-  characterImportReport,
-  ImportKind,
-  modifierDifferences,
-  PathbuilderProblem,
-  placeBoosts,
-  readPathbuilderExport,
-  registryLookup,
-} from '@pioneer/interop/pathbuilder';
-import type {
-  BoostChoices,
-  ContentLookup,
-  PathbuilderImport,
-  PathbuilderImportResponse,
-  PathbuilderName,
-  PathbuilderReadFailure,
-  UnplacedBoost,
-} from '@pioneer/interop/pathbuilder';
-import { AncestryId, ChoiceValue } from '@pioneer/rules/sdk';
-import type { ContentSource, SlotKey } from '@pioneer/rules/sdk';
-import {
-  fieldIssues,
-  message,
-  newId,
-  NotFoundError,
-  ValidationError,
-  VersionConflictError,
-} from '@pioneer/shared/kernel';
-import type { Clock, FieldIssue, UserId, Version } from '@pioneer/shared/kernel';
+import { characterImportReport, modifierDifferences, registryLookup } from '@pioneer/interop/pathbuilder';
+import type { BoostChoices, PathbuilderImportResponse } from '@pioneer/interop/pathbuilder';
+import type { AncestryId, ContentSource } from '@pioneer/rules/sdk';
+import { message, newId, NotFoundError, ValidationError, VersionConflictError } from '@pioneer/shared/kernel';
+import type { Clock, UserId, Version } from '@pioneer/shared/kernel';
 
 import { mayAccessCharacter } from './character-policy';
 import type { CharacterRepository } from './character-repository';
 import { assertInventoryAllows } from './inventory-guard';
-
-const PROBLEM_MESSAGES = {
-  [PathbuilderProblem.Malformed]: 'character.import.problem.malformed',
-  [PathbuilderProblem.ExportFailed]: 'character.import.problem.exportFailed',
-} as const satisfies Record<PathbuilderProblem, string>;
+import { importedCharacter, matchedAncestry, readExport } from './pathbuilder-import';
 
 /** A character as an edit saved it, and the picks the edit cleared (`unfitPicks`). */
 export interface PatchedCharacter {
   readonly character: Character;
   readonly cleared: readonly ClearedPick[];
-}
-
-/** The background and first class an export names, in their slots, when each matches loaded content. */
-function rootChoices(value: PathbuilderImport, lookup: ContentLookup): BoostChoices {
-  const picks: [SlotKey, ImportKind, PathbuilderName | undefined][] = [
-    [BACKGROUND_SLOT, ImportKind.Background, value.identity.background],
-    [CLASS_SLOT, ImportKind.Class, value.identity.classes[0]],
-  ];
-  return Object.fromEntries(
-    picks.flatMap(([slot, kind, name]) => {
-      const match = name === undefined ? undefined : lookup.resolve(kind, name);
-      return match === undefined ? [] : [[slot, ChoiceValue.parse(match.id)]];
-    }),
-  );
-}
-
-/** A character an export makes, and the export's boosts no slot took. */
-interface ImportedCharacter {
-  readonly character: Character;
-  readonly unplaced: readonly UnplacedBoost[];
-}
-
-/** What an import is matched against: content by name, and the boosts each entry gives. */
-interface ImportContent {
-  readonly lookup: ContentLookup;
-  readonly boosts: BoostContent;
-}
-
-/** The character `create` makes from an export: its background and class picked, then each boost in the slots they open. */
-function importedCharacter(
-  value: PathbuilderImport,
-  { lookup, boosts }: ImportContent,
-  create: (choices: BoostChoices) => Character,
-): ImportedCharacter {
-  const roots = rootChoices(value, lookup);
-  const placement = placeBoosts(create(roots).document, boosts, value.boosts);
-  return { character: create({ ...roots, ...placement.choices }), unplaced: placement.unplaced };
-}
-
-/** The problem first, as the issue the UI shows, then the schema issues that explain it. */
-function readIssues({ problem, issues }: PathbuilderReadFailure): FieldIssue[] {
-  return [{ path: [], message: message(PROBLEM_MESSAGES[problem]) }, ...fieldIssues(issues)];
-}
-
-/** The export read again on the server; refused when it can't be read. */
-function readExport(raw: unknown): PathbuilderImport {
-  const read = readPathbuilderExport(raw);
-  if (!read.ok) {
-    throw new ValidationError(readIssues(read));
-  }
-  return read.value;
-}
-
-/** The loaded ancestry the export names; refused by name when there is none. */
-function matchedAncestry(value: PathbuilderImport, lookup: ContentLookup): AncestryId {
-  const match = lookup.resolve(ImportKind.Ancestry, value.identity.ancestry);
-  if (match === undefined) {
-    throw new ValidationError([
-      {
-        path: ['build', 'ancestry'],
-        message: message('character.validation.unmatchedAncestry', { ancestry: value.identity.ancestry }),
-      },
-    ]);
-  }
-  return AncestryId.parse(match.id);
 }
 
 /**
@@ -189,9 +92,10 @@ export class CharacterService {
 
   /**
    * A new character from a Pathbuilder export, written in one insert: name, level, ancestry, the background and class
-   * when loaded, and each boost in its slot (#420). No modifier is stored; the report lists any the boosts don't
-   * reproduce. The export is read again here, never taken from the client's preview. Refused, with nothing saved, when
-   * it can't be read or its ancestry isn't loaded.
+   * when loaded, the heritage when its ancestry offers it (#555), and each boost in its slot (#420). No modifier is
+   * stored; the report lists any the boosts don't reproduce, and a loaded heritage left out as not offered. The export
+   * is read again here, never taken from the client's preview. Refused, with nothing saved, when it can't be read or
+   * its ancestry isn't loaded.
    */
   public async importPathbuilder(actor: UserId, raw: unknown): Promise<PathbuilderImportResponse> {
     const value = readExport(raw);
@@ -202,12 +106,13 @@ export class CharacterService {
     const now = this.#clock.now();
     const create = (choices: BoostChoices): Character =>
       Character.create({ id, ownerId: actor, name: value.name, ancestry, level: value.level, choices, now });
-    const boosts = boostContent(content);
-    const { character, unplaced } = importedCharacter(value, { lookup, boosts }, create);
+    const slots = slotContent(content);
+    const { character, unplaced, notOffered } = importedCharacter(value, { lookup, slots }, create);
     const saved = await this.#repository.insert(character, { actor, command: CharacterCommand.ImportPathbuilder });
     const report = characterImportReport(value, lookup, {
+      notOffered,
       unplacedBoosts: unplaced,
-      modifierDifferences: modifierDifferences(value.attributes, attributeModifiers(character.document, boosts)),
+      modifierDifferences: modifierDifferences(value.attributes, attributeModifiers(character.document, slots.boosts)),
     });
     return { character: saved, report };
   }
