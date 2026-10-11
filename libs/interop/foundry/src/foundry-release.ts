@@ -1,14 +1,21 @@
 import * as z from 'zod';
 
+import { CONFIG_MODULES } from './foundry-config';
 import { FoundryDocument } from './foundry-document';
 
 /**
  * A foundryvtt/pf2e source archive, read: the documents of its item packs and its English lang table. The CLI
- * extracts the files matching `RELEASE_FILES` and passes their text in; this module never touches the archive.
+ * extracts the files matching `RELEASE_FILES` and passes their text in; this module never touches the archive. The
+ * config modules among them are the CLI's to load (`foundry-config.ts`).
  */
 
 /** Archive members the importer reads, below the archive's top-level directory. */
-export const RELEASE_FILES = ['*/system.pf2e.json', '*/static/lang/en.json', '*/packs/pf2e/**/*.json'] as const;
+export const RELEASE_FILES: readonly string[] = [
+  '*/system.pf2e.json',
+  '*/static/lang/en.json',
+  '*/packs/pf2e/**/*.json',
+  ...Object.values(CONFIG_MODULES).map((module) => `*/${module}`),
+];
 
 const MANIFEST = 'system.pf2e.json';
 const LANG = 'static/lang/en.json';

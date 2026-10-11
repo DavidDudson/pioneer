@@ -1,9 +1,9 @@
 /**
  * One-off Foundry import (ADR-0031, content-model.md "Foundry import"): `just content-import --pack <pack>
  * --book <book>... --dry-run`. Downloads the pack's pinned foundryvtt/pf2e release into a gitignored cache, checks
- * its SHA-256, reads the item packs, selects entries and translates their envelopes, and reports what the import
- * would bring in and what it could not translate. Only `--dry-run` exists so far; kind data, enrichers and pack
- * output land in later stories of Epic 2.5.
+ * its SHA-256, reads the item packs and config vocabularies, selects entries, translates their envelopes and the
+ * kind data built so far, and reports what the import would bring in and what it could not translate. Only
+ * `--dry-run` exists so far; the other kinds, enrichers and pack output land in later stories of Epic 2.5.
  */
 import { mkdir, rename } from 'node:fs/promises';
 import path from 'node:path';
@@ -14,12 +14,13 @@ import {
   FOUNDRY_BOOK_TITLES,
   dryRunReport,
   ImportFile,
+  kindDataReport,
   readFoundryRelease,
   RELEASE_FILES,
   selectEntries,
   sha256,
   SkipReason,
-  translateEnvelopes,
+  translateImport,
   translationReport,
 } from '@pioneer/interop/foundry';
 import type {
@@ -27,18 +28,25 @@ import type {
   EnvelopeTranslation,
   FoundryReleaseTag,
   ImportPin,
+  ImportTranslation,
   KeyCount,
+  KindCount,
+  KnownEntry,
   Selection,
   Sha256,
 } from '@pioneer/interop/foundry';
 import { bookRegistry, officialPacks } from '@pioneer/rules/catalog';
-import { BookId, ContentKind, PackId, Trait } from '@pioneer/rules/sdk';
+import { BookId, PackId } from '@pioneer/rules/sdk';
+
+import { loadFoundryConfig } from './foundry-config-loader';
 
 const ROOT = path.resolve(import.meta.dir, '../..');
 const CACHE = path.join(ROOT, '.data/foundry');
 const UNREADABLE_SHOWN = 20;
 const FAILURES_SHOWN = 20;
 const KEYS_SHOWN = 15;
+/** Where vocabulary entries (traits, senses, damage types) go, beside the hand-authored rules core entries. */
+const VOCABULARY_PACK = PackId.parse('core-rules');
 const FOUNDRY_TITLED: ReadonlySet<BookId> = new Set(FOUNDRY_BOOK_TITLES.values());
 
 interface Options {
@@ -165,11 +173,31 @@ function formatTranslation(translation: EnvelopeTranslation): string {
   ].join('\n');
 }
 
-/** Pioneer's trait vocabulary: the slugs of the `trait` entries in the official packs. */
-async function knownTraits(): Promise<ReadonlySet<Trait>> {
-  const packs = await Promise.all(officialPacks.map(async ({ load }) => load()));
-  const traitEntries = packs.flatMap(({ entries }) => entries.filter(({ kind }) => kind === ContentKind.Trait));
-  return new Set(traitEntries.map(({ slug }) => Trait.parse(slug)));
+/** The entries of the official packs other than the one being imported, which the import replaces. */
+async function knownEntries(target: PackId): Promise<readonly KnownEntry[]> {
+  const others = officialPacks.filter(({ id }) => id !== target);
+  const packs = await Promise.all(others.map(async ({ load }) => load()));
+  return packs.flatMap(({ entries }) =>
+    entries.map(({ id, pack: entryPack, kind, slug }) => ({ id, pack: entryPack, kind, slug })),
+  );
+}
+
+function formatKinds(counts: readonly KindCount[]): string[] {
+  return counts.map(({ kind, count }) => `  ${kind}  ${count}`);
+}
+
+function formatKindData(translation: ImportTranslation): string {
+  const { kindData, vocabulary, kindDataGaps, vocabularyGaps } = kindDataReport(translation);
+  return [
+    `Kind data built ${sumOf(kindData)}:`,
+    ...formatKinds(kindData),
+    `Kind data gaps ${sumOf(kindDataGaps)}, by reason and field:`,
+    ...formatCounts(kindDataGaps),
+    `Vocabulary entries ${vocabulary.reduce((sum, { count }) => sum + count, 0)}:`,
+    ...formatKinds(vocabulary),
+    `Vocabulary gaps ${sumOf(vocabularyGaps)}, by kind and reason:`,
+    ...formatCounts(vocabularyGaps),
+  ].join('\n');
 }
 
 const { pack, books, dryRun } = options();
@@ -177,9 +205,20 @@ if (!dryRun) {
   throw new Error('Only --dry-run is implemented so far (Epic 2.5 builds the rest)');
 }
 const pin = await readPin(pack);
-const release = readFoundryRelease(await archiveFiles(await archive(pin)));
+const files = await archiveFiles(await archive(pin));
+const release = readFoundryRelease(files);
+const config = await loadFoundryConfig(files, path.join(CACHE, pin.tag));
 const selection = selectEntries(release, books);
 console.log(`${pack} at ${pin.tag}, books ${[...books].join(', ')}`);
 console.log(formatReport(dryRunReport(selection), selection));
-const traits = await knownTraits();
-console.log(formatTranslation(translateEnvelopes(selection.selected, { pack, traits, documents: release.documents })));
+const known = await knownEntries(pack);
+const translation = translateImport(selection.selected, {
+  pack,
+  vocabularyPack: VOCABULARY_PACK,
+  books: [...books],
+  config,
+  lang: release.lang,
+  known,
+});
+console.log(formatTranslation(translation.envelopes));
+console.log(formatKindData(translation));

@@ -1,4 +1,13 @@
-export { ActionCategory, ActionData, Frequency, FrequencyPeriod, TriggerEvent, TriggerEventType, Uses } from './action';
+export {
+  ACTION_COUNT,
+  ActionCategory,
+  ActionData,
+  Frequency,
+  FrequencyPeriod,
+  TriggerEvent,
+  TriggerEventType,
+  Uses,
+} from './action';
 export { AncestryData, AncestryDefinition, AncestryId } from './ancestry';
 export {
   ATTRIBUTE_MODIFIER_MAX,

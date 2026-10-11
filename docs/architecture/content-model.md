@@ -536,6 +536,31 @@ flowchart LR
     show: the target's name, the statistic's words, the area (`10-foot square`) or the formula. Only `@Embed` and
     `@Localize` without a label are dropped. Parameters that only change how Foundry shows a roll (`showDC`, `name`,
     `immutable`, `targetOwner`, `shortLabel`) are ignored.
+- **Kind data.** Each Foundry type with a translator maps to one kind (`FOUNDRY_KINDS`): so far `action` and
+  `condition`; the other kinds' stories add theirs. An action's cost comes from `actionType` and `actions`, its
+  frequency period from Foundry's words or ISO 8601 durations (`PT1H` is `hour`), and its `trigger` and
+  `requirements` from the description's labelled paragraphs when they are plain words. A condition's `implies` is its
+  unpredicated `GrantItem`s of conditions, so it lists exactly what its rules grant; its duration, active and
+  removable flags are instance state and Foundry's back links are derived, so neither is carried. A set `system`
+  field with no place in the schema, a value with no mapping, usage text with links or enrichers, a reference to
+  nothing selected, and data the kind's schema rejects are reported against the entry, never guessed.
+- **References.** Foundry links an item by compendium UUID ending in its id or its name
+  (`Compendium.pf2e.conditionitems.Item.Off-Guard`), and a condition names what it overrides by slug. Both resolve
+  to the selected documents' ids. A `GrantItem`'s `uuid` becomes its `item`, and Foundry's `inMemoryOnly` is dropped,
+  since a grant is always derived; one that resolves to nothing stays untranslated.
+- **Vocabulary.** Traits, languages, senses and damage types are not pack documents: Foundry defines them in config
+  modules (`src/scripts/config/traits.ts`, `src/module/actor/creature/values.ts`, `src/module/system/damage/values.ts`),
+  which build their tables with spreads and remeda. The CLI runs them with Bun from the verified archive, standing in
+  for remeda and Foundry's build-time `SYSTEM_ID`. Only what the selected documents use is imported: their traits,
+  ancestry languages, ancestry and heritage vision and `Sense` elements, and every Foundry damage type that is a
+  Pioneer `DamageType`. Names come from `lang/en.json`; each cites the book of the first document using it (damage
+  types, the first target book). Vocabulary entries go into `core-rules`, not the target pack: ids are per pack, and
+  in Player Core the `dwarf` trait would clash with the Dwarf ancestry. A slug another official pack already has
+  (the hand-authored languages and senses) is left to that entry. Traits claim their slugs first, as entries name
+  traits by slug; a language, sense or damage type whose slug is taken gets its kind as a suffix
+  (`fire-damage-type`), and a trait whose slug is taken is reported. Secret languages (Wildsong) have no Pioneer
+  rarity and `untyped` damage no `DamageType`; both are reported. Pack output (#400) writes the new entries beside,
+  never into, the hand-authored `core-rules` files.
 - **Later translators.** A translator that lands after its pack is imported is applied to the backlog: a command,
   built by Epic 2.6 (#21), translates the items it now covers into the committed entries and removes them from the
   backlog, keeping hand edits.

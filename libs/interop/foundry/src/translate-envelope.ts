@@ -15,6 +15,7 @@ import type { ValueOf } from '@pioneer/shared/kernel';
 
 import { describeEntries } from './describe-entries';
 import type { UnknownMarkup, UntranslatedEnricher } from './describe-entries';
+import type { EntryReferences } from './entry-references';
 import { entrySlugs } from './entry-slugs';
 import type { FoundryDocument } from './foundry-document';
 import { itemUuid } from './foundry-links';
@@ -31,12 +32,16 @@ import type { UntranslatedRule } from './translate-rules';
  * resolve once every selected document has an id.
  */
 
-/** The Pioneer pack the entries go into, and the traits Pioneer knows (its `trait` entries). */
+/**
+ * The Pioneer pack the entries go into, the traits Pioneer knows (its `trait` entries), and how references to other
+ * documents resolve.
+ */
 export interface EnvelopeContext {
   readonly pack: PackId;
   readonly traits: ReadonlySet<Trait>;
   /** The release's item documents, naming link targets outside the import; without them such links read as labels. */
   readonly documents?: readonly PackDocument[];
+  readonly references?: EntryReferences;
 }
 
 export interface FoundryExternalIds {
@@ -54,9 +59,9 @@ export interface UnlocatedBookSource {
 
 /**
  * The envelope fields of `ContentEntry`, as the import fills them. Not parsed against `ContentEntry` here: kind
- * `data` is missing, and its source is an `UnlocatedBookSource`.
+ * `data` is beside it, and its source is an `UnlocatedBookSource`.
  */
-export interface ImportedEnvelope {
+export interface EnvelopeFields {
   readonly id: ContentId;
   readonly pack: PackId;
   readonly slug: Slug;
@@ -67,6 +72,10 @@ export interface ImportedEnvelope {
   readonly sources: readonly UnlocatedBookSource[];
   readonly description: RichText;
   readonly rules: readonly RuleElement[];
+}
+
+/** The envelope of an entry translated from a Foundry document, which carries its compendium UUID. */
+export interface ImportedEnvelope extends EnvelopeFields {
   readonly externalIds: FoundryExternalIds;
 }
 
@@ -233,7 +242,7 @@ function translate({ source, slug }: Slugged, context: EnvelopeContext): Transla
   const { _id: documentId, system } = document;
   const id = ContentId.parse(contentId(context.pack, fields.slug));
   const traits = translateTraits(id, system.traits?.value ?? [], context.traits);
-  const rules = translateRules(id, system.rules);
+  const rules = translateRules(id, system.rules, context.references);
   return {
     envelope: {
       id,

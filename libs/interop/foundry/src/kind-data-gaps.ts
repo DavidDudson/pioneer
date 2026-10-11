@@ -1,0 +1,95 @@
+import type { ContentId } from '@pioneer/rules/sdk';
+import type { ValueOf } from '@pioneer/shared/kernel';
+import type * as z from 'zod';
+
+import type { EntryReferences } from './entry-references';
+import type { FoundryDocument } from './foundry-document';
+import type { ImportedEnvelope } from './translate-envelope';
+
+/** What a kind translator could not carry over from a document, reported against its entry. */
+
+export const KindDataGapReason = {
+  /** A `system` field the kind's schema has no place for. */
+  UnmappedField: 'unmapped-field',
+  /** A value the importer has no mapping for (an action type, a frequency period). */
+  UnmappedValue: 'unmapped-value',
+  /** Text with markup or enrichers, left for the rich text stories. */
+  NeedsRichText: 'needs-rich-text',
+  /** A UUID or slug naming nothing in the import or the other official packs. */
+  UnresolvedReference: 'unresolved-reference',
+  /** The data as translated fails the kind's schema; the entry has no data. */
+  InvalidData: 'invalid-data',
+} as const;
+export type KindDataGapReason = ValueOf<typeof KindDataGapReason>;
+
+export interface GapFields {
+  readonly reason: KindDataGapReason;
+  /** The `system` field, dotted (`frequency.per`), or the data field the schema rejected. */
+  readonly field: string;
+  readonly raw: unknown;
+}
+
+export interface KindDataGap extends GapFields {
+  readonly entry: ContentId;
+}
+
+/** One entry's gaps, collected while its data is built. */
+export interface GapLog {
+  readonly entry: ContentId;
+  readonly gaps: KindDataGap[];
+}
+
+/** What a kind translator reads: the document, its envelope as translated, the import's references, and the log. */
+export interface KindInput {
+  readonly document: FoundryDocument;
+  readonly envelope: ImportedEnvelope;
+  readonly references: EntryReferences;
+  readonly log: GapLog;
+}
+
+export function report(log: GapLog, gap: GapFields): void {
+  log.gaps.push({ entry: log.entry, ...gap });
+}
+
+/**
+ * `system` fields every kind reads elsewhere: the envelope's, Foundry's migration stamp, and the description, which
+ * the rich text stories translate.
+ */
+export const ENVELOPE_FIELDS: readonly string[] = [
+  'description',
+  'publication',
+  'rules',
+  'slug',
+  'traits',
+  'level',
+  '_migration',
+];
+
+/** A value Foundry leaves at its default says nothing, so only set fields are reported as unmapped. */
+function isSet(value: unknown): boolean {
+  if (Array.isArray(value)) {
+    return value.length > 0;
+  }
+  if (typeof value === 'object' && value !== null) {
+    return Object.values(value).some((each) => isSet(each));
+  }
+  return value !== null && value !== undefined && value !== false && value !== '';
+}
+
+/** Reports each set `system` field outside `handled`. */
+export function reportUnmapped(
+  system: Readonly<Record<string, unknown>>,
+  handled: ReadonlySet<string>,
+  log: GapLog,
+): void {
+  for (const [field, value] of Object.entries(system)) {
+    if (!handled.has(field) && isSet(value)) {
+      report(log, { reason: KindDataGapReason.UnmappedField, field, raw: value });
+    }
+  }
+}
+
+/** The path of the first issue a schema raised, dotted. */
+export function issuePath(error: z.ZodError): string {
+  return error.issues[0]?.path.join('.') ?? '';
+}
