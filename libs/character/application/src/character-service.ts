@@ -21,6 +21,8 @@ import type { Clock, FieldIssue, UserId } from '@pioneer/shared/kernel';
 
 import { mayAccessCharacter } from './character-policy';
 import type { CharacterRepository } from './character-repository';
+import { slotRefusal } from './slot-offer';
+import type { SlotPick } from './slot-offer';
 
 const PROBLEM_MESSAGES = {
   [PathbuilderProblem.Malformed]: 'character.import.problem.malformed',
@@ -110,20 +112,32 @@ export class CharacterService {
     return { character: saved, report: characterImportReport(value, lookup) };
   }
 
-  /** One field-level edit to one of the actor's characters, if it is still at `expectedVersion`. */
+  /** One edit to one of the actor's characters, if it is still at `expectedVersion`. */
   public async patch(
     actor: UserId,
     id: CharacterId,
     { expectedVersion, patch }: PatchCharacterBody,
   ): Promise<Character> {
     const current = await this.get(actor, id);
-    if (patch.field === CharacterPatchField.Ancestry) {
-      await this.#assertAncestryExists(patch.value);
+    if (patch.field === CharacterPatchField.SelectSlot) {
+      await this.#assertSlotOffers(current, patch);
     }
     return this.#repository.update(current.apply(patch, this.#clock.now()), expectedVersion, {
       actor,
       command: PATCH_COMMANDS[patch.field],
     });
+  }
+
+  /**
+   * Refuses a selection the slot doesn't offer at any level up to 20, or for a slot the character never has. A
+   * selection already stored is never checked again here: one a lower level hides, or content later invalidates, stays.
+   */
+  async #assertSlotOffers(character: Character, pick: SlotPick): Promise<void> {
+    const content = await this.#content.registry();
+    const refusal = slotRefusal(character.document, content, pick);
+    if (refusal !== undefined) {
+      throw new ValidationError([{ path: ['patch', 'selection'], message: refusal }]);
+    }
   }
 
   async #assertAncestryExists(ref: AncestryId): Promise<void> {

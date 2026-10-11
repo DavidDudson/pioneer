@@ -1,28 +1,31 @@
-import { AncestryId, AttributeModifier, AttributeSchema } from '@pioneer/rules/sdk';
+import { AttributeModifier, AttributeSchema, ChoiceValue, SlotKey } from '@pioneer/rules/sdk';
 import { Version } from '@pioneer/shared/kernel';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { CharacterLevel, CharacterName } from './character-fields';
 
-/** Every field the sheet can edit inline. One PATCH per field edit. */
+/** Every edit the sheet makes: a field, or a choice slot. One PATCH per edit. */
 export const CharacterPatchField = {
   Name: 'name',
-  Ancestry: 'ancestry',
   Level: 'level',
   Attribute: 'attribute',
+  /** Pick an option in any slot the engine offers. */
+  SelectSlot: 'selectSlot',
+  ClearSlot: 'clearSlot',
 } as const;
 export type CharacterPatchField = ValueOf<typeof CharacterPatchField>;
 
 export const CharacterPatchSchema = z.discriminatedUnion('field', [
   z.object({ field: z.literal(CharacterPatchField.Name), value: CharacterName }),
-  z.object({ field: z.literal(CharacterPatchField.Ancestry), value: AncestryId }),
   z.object({ field: z.literal(CharacterPatchField.Level), value: CharacterLevel }),
   z.object({
     field: z.literal(CharacterPatchField.Attribute),
     attribute: AttributeSchema,
     value: AttributeModifier,
   }),
+  z.object({ field: z.literal(CharacterPatchField.SelectSlot), slot: SlotKey, selection: ChoiceValue }),
+  z.object({ field: z.literal(CharacterPatchField.ClearSlot), slot: SlotKey }),
 ]);
 export type CharacterPatch = z.infer<typeof CharacterPatchSchema>;
 

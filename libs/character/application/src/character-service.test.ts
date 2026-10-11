@@ -1,6 +1,7 @@
 import { beforeEach, describe, expect, test } from 'bun:test';
 
 import {
+  ANCESTRY_SLOT,
   CharacterCommand,
   CharacterId,
   CharacterLevel,
@@ -18,7 +19,7 @@ import {
   UnmatchedReason,
 } from '@pioneer/interop/pathbuilder';
 import { briarRoseExport, mordredExport } from '@pioneer/interop/pathbuilder/testing';
-import { AncestryId, Attribute, AttributeModifier } from '@pioneer/rules/sdk';
+import { AncestryId, Attribute, AttributeModifier, ChoiceValue } from '@pioneer/rules/sdk';
 import { ContentPackBuilder, fixedContent } from '@pioneer/rules/sdk/testing';
 import {
   FIRST_VERSION,
@@ -40,6 +41,7 @@ const kyra = CharacterName.parse('Kyra');
 const amiri = UserId.parse(newId());
 const ezren = UserId.parse(newId());
 const byName = { sort: CharacterSort.Name, direction: SortDirection.Asc } as const;
+const human = ChoiceValue.parse(humanAncestryId);
 
 /** An edit to a character still at its first version. */
 function firstVersion(patch: CharacterPatch): PatchCharacterBody {
@@ -76,7 +78,8 @@ describe('CharacterService', () => {
     const created = await service.create(amiri, { name: kyra, ancestry: humanAncestryId });
     const edits: readonly CharacterPatch[] = [
       { field: CharacterPatchField.Name, value: CharacterName.parse('Kyra the Bold') },
-      { field: CharacterPatchField.Ancestry, value: humanAncestryId },
+      { field: CharacterPatchField.SelectSlot, slot: ANCESTRY_SLOT, selection: human },
+      { field: CharacterPatchField.ClearSlot, slot: ANCESTRY_SLOT },
       { field: CharacterPatchField.Level, value: CharacterLevel.parse(2) },
       { field: CharacterPatchField.Attribute, attribute: Attribute.Wisdom, value: AttributeModifier.parse(1) },
     ];
@@ -88,7 +91,8 @@ describe('CharacterService', () => {
     expect(repository.audits).toStrictEqual([
       { actor: amiri, command: CharacterCommand.CreateCharacter },
       { actor: amiri, command: CharacterCommand.RenameCharacter },
-      { actor: amiri, command: CharacterCommand.SetAncestry },
+      { actor: amiri, command: CharacterCommand.SelectSlot },
+      { actor: amiri, command: CharacterCommand.ClearSlot },
       { actor: amiri, command: CharacterCommand.SetLevel },
       { actor: amiri, command: CharacterCommand.SetAttribute },
     ]);
@@ -158,7 +162,11 @@ describe('CharacterService ownership', () => {
   test('another user’s character cannot be patched, even with an invalid edit', async () => {
     const theirs = await service.create(ezren, { name: kyra, ancestry: humanAncestryId });
     const unknownAncestry = AncestryId.parse(newId());
-    const edit = firstVersion({ field: CharacterPatchField.Ancestry, value: unknownAncestry });
+    const edit = firstVersion({
+      field: CharacterPatchField.SelectSlot,
+      slot: ANCESTRY_SLOT,
+      selection: ChoiceValue.parse(unknownAncestry),
+    });
     const edited = service.patch(amiri, theirs.id, edit);
     expect(await rejection(edited)).toBeInstanceOf(NotFoundError);
     const unchanged = await service.get(ezren, theirs.id);

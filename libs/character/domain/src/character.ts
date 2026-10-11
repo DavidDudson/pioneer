@@ -1,5 +1,5 @@
-import { AncestryId, AttributeModifiers, ChoiceValue, SlotKey } from '@pioneer/rules/sdk';
-import type { Attribute, AttributeModifier } from '@pioneer/rules/sdk';
+import { AncestryId, AttributeModifiers, ChoiceValue } from '@pioneer/rules/sdk';
+import type { Attribute, AttributeModifier, SlotKey } from '@pioneer/rules/sdk';
 import { FIRST_VERSION, InstantCodec, Version } from '@pioneer/shared/kernel';
 import type { Temporal, UserId } from '@pioneer/shared/kernel';
 import * as z from 'zod';
@@ -11,9 +11,7 @@ import { CHARACTER_LEVEL_MIN, CharacterLevel } from './character-fields';
 import type { CharacterId, CharacterName } from './character-fields';
 import { CharacterPatchField } from './character-patch';
 import type { CharacterPatch } from './character-patch';
-
-/** The slot the character's ancestry is picked in (character-model.md, "Choice slots"). */
-const ANCESTRY_SLOT = SlotKey.parse('ancestry');
+import { ANCESTRY_SLOT } from './character-slots';
 
 /**
  * JSON shape of a character on the wire: its document at the current schema version, plus the row's version and
@@ -126,7 +124,7 @@ export class Character {
     return this.attributes.get(attribute);
   }
 
-  /** Apply one field-level edit. Version bump is the repository's job. */
+  /** Apply one edit. Version bump is the repository's job. */
   public apply(patch: CharacterPatch, now: Temporal.Instant): Character {
     return new Character({ ...this.toProps(), ...this.#changes(patch), updatedAt: now });
   }
@@ -136,14 +134,17 @@ export class Character {
       case CharacterPatchField.Name: {
         return { document: { ...this.document, name: patch.value } };
       }
-      case CharacterPatchField.Ancestry: {
-        return { document: this.#choose(ANCESTRY_SLOT, ChoiceValue.parse(patch.value)) };
-      }
       case CharacterPatchField.Level: {
         return { document: { ...this.document, level: patch.value } };
       }
       case CharacterPatchField.Attribute: {
         return { attributes: this.attributes.with(patch.attribute, patch.value) };
+      }
+      case CharacterPatchField.SelectSlot: {
+        return { document: this.#choose(patch.slot, patch.selection) };
+      }
+      case CharacterPatchField.ClearSlot: {
+        return { document: this.#clear(patch.slot) };
       }
       default: {
         const unreachable: never = patch;
@@ -155,6 +156,13 @@ export class Character {
   #choose(slot: SlotKey, value: ChoiceValue): CharacterDocument {
     const { build } = this.document;
     return { ...this.document, build: { ...build, choices: { ...build.choices, [slot]: value } } };
+  }
+
+  /** The document without a selection for `slot`; every other pick, shown or hidden, stays. */
+  #clear(slot: SlotKey): CharacterDocument {
+    const { build } = this.document;
+    const { [slot]: _cleared, ...choices } = build.choices;
+    return { ...this.document, build: { ...build, choices } };
   }
 
   public withVersion(version: Version): Character {

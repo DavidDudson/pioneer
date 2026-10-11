@@ -84,6 +84,13 @@ The character stores `SlotKey → Selection` only. Consequences:
   with the reason. It is never deleted silently.
 - Retraining is changing a selection; the audit log keeps the history.
 
+The player picks with `selectSlot { slot, selection }` and empties a slot with `clearSlot { slot }`, each a PATCH
+audited by name. `selectSlot` resolves the character's grants over its other picks at every level from 20 down,
+with `ancestry` as a root slot (`CHARACTER_ROOT_SLOTS`), and refuses with a reason when the slot is open at no level
+up to 20 (`character.validation.slotNotOpen`) or offers the selection at none
+(`character.validation.selectionNotOffered`). Only a new selection is checked: one already stored stays, however
+the level or content changes.
+
 ### Archetype dedications
 
 After a dedication feat, a character can't take another dedication until they have two other feats from that

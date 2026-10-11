@@ -1,8 +1,8 @@
 import { HttpTestingController } from '@angular/common/http/testing';
 import { ApplicationRef } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { CharacterId, CharacterLevel, CharacterPatchField } from '@pioneer/character/domain';
-import { contentId, PackId, Slug } from '@pioneer/rules/sdk';
+import { ANCESTRY_SLOT, CharacterId, CharacterLevel, CharacterPatchField } from '@pioneer/character/domain';
+import { ChoiceValue, contentId, PackId, Slug } from '@pioneer/rules/sdk';
 import { ApiError } from '@pioneer/shared/web';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
@@ -69,6 +69,26 @@ describe(CharacterStore, () => {
     request.flush(wire(2, 2));
     await pending;
     expect(store.selected()?.version).toBe(2);
+  });
+
+  it('selectSlot and clearSlot send slot edits', async () => {
+    await loadSelected();
+    const human = ChoiceValue.parse(contentId(PackId.parse('player-core'), Slug.parse('human')));
+    const selecting = store.selectSlot(ANCESTRY_SLOT, human);
+    const select = http.expectOne({ method: 'PATCH', url: `/api/characters/${id}` });
+    expect(select.request.body).toStrictEqual({
+      expectedVersion: 1,
+      patch: { field: 'selectSlot', slot: 'ancestry', selection: human },
+    });
+    select.flush(wire(2, 1));
+    await selecting;
+
+    const clearing = store.clearSlot(ANCESTRY_SLOT);
+    const clear = http.expectOne({ method: 'PATCH', url: `/api/characters/${id}` });
+    expect(clear.request.body).toStrictEqual({ expectedVersion: 2, patch: { field: 'clearSlot', slot: 'ancestry' } });
+    clear.flush(wire(3, 1));
+    await clearing;
+    expect(store.selected()?.version).toBe(3);
   });
 
   it('a conflict rethrows and reloads the latest version', async () => {

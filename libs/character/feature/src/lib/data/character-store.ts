@@ -1,9 +1,10 @@
 import { computed, inject, Injectable, linkedSignal, signal } from '@angular/core';
 import type { Signal } from '@angular/core';
-import { CharacterContract } from '@pioneer/character/domain';
+import { CharacterContract, CharacterPatchField } from '@pioneer/character/domain';
 import type { Character, CharacterId, CharacterPatch, CreateCharacterBody } from '@pioneer/character/domain';
 import { PathbuilderImportContract } from '@pioneer/interop/pathbuilder';
 import type { CharacterImportReport } from '@pioneer/interop/pathbuilder';
+import type { ChoiceValue, SlotKey } from '@pioneer/rules/sdk';
 import { ApiClient, ApiError } from '@pioneer/shared/web';
 import { injectQuery, QueryClient } from '@tanstack/angular-query-experimental';
 
@@ -98,7 +99,7 @@ export class CharacterStore {
     });
   }
 
-  /** One field edit. On success the cached character becomes the server's new version. */
+  /** One edit. On success the cached character becomes the server's new version. */
   public async patch(patch: CharacterPatch): Promise<void> {
     const current = this.selected();
     if (current === undefined) {
@@ -121,5 +122,15 @@ export class CharacterStore {
       }
       throw error;
     }
+  }
+
+  /** Picks `selection` in `slot`. The server refuses a slot the character has at no level, or an option it doesn't offer. */
+  public async selectSlot(slot: SlotKey, selection: ChoiceValue): Promise<void> {
+    await this.patch({ field: CharacterPatchField.SelectSlot, slot, selection });
+  }
+
+  /** Empties `slot`, keeping every other pick. */
+  public async clearSlot(slot: SlotKey): Promise<void> {
+    await this.patch({ field: CharacterPatchField.ClearSlot, slot });
   }
 }

@@ -153,6 +153,31 @@ describe('CharacterSheetPage', () => {
     ]);
   });
 
+  it('saves an ancestry edit as a pick in the ancestry slot', async () => {
+    const { root } = await openSheet();
+    const http = TestBed.inject(HttpTestingController);
+    const field = present(
+      [...root.querySelectorAll<HTMLElement>('fr-inline-field')].find(
+        (each) => each.querySelector('fr-text')?.textContent.trim() === 'Ancestry',
+      ),
+    );
+    present(field.querySelector<HTMLElement>('button')).click();
+    await TestBed.inject(ApplicationRef).whenStable();
+    present(field.querySelector<HTMLElement>('[frInlineEditor] button')).click();
+    await TestBed.inject(ApplicationRef).whenStable();
+
+    const other = await vi.waitFor(() =>
+      present(document.querySelector<HTMLElement>('[role="option"]:not([aria-selected="true"])')),
+    );
+    other.click();
+
+    const request = await vi.waitFor(() => http.expectOne({ method: 'PATCH', url: `/api/characters/${id}` }));
+    const { patch } = request.request.body as { patch: { field: string; slot: string; selection: string } };
+    expect(patch.field).toBe('selectSlot');
+    expect(patch.slot).toBe('ancestry');
+    expect(patch.selection).not.toBe(MERISIEL.build.choices.ancestry);
+  });
+
   it('shows the defences the engine derives, each list empty until rule elements are in play', async () => {
     const { root } = await openSheet();
     const defences = present(root.querySelector('section[aria-labelledby="sheet-defences"]'));

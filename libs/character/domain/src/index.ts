@@ -1,5 +1,6 @@
 export { Character, CharacterWire } from './character';
 export { CharacterCommand, PATCH_COMMANDS } from './character-command';
+export { ANCESTRY_SLOT, CHARACTER_ROOT_SLOTS } from './character-slots';
 export { CharacterContract, CharacterListQuery, CharacterSort, CreateCharacterBody } from './character-contract';
 export {
   CHARACTER_LEVEL_MAX,

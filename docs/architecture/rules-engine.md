@@ -441,6 +441,11 @@ any kind of entry can grant any other.
 
 - Roots are the character's direct entries, each with the hop that put it there (a `choice` slot, a `condition`, an
   `effect`). They are visited in entry id order, so the result does not depend on the order they are given in.
+- **Root slots** are the slots the character has itself (`ancestry`; heritage, background and class to come), each
+  a key and a content kind. One offers every entry of its kind, sorted by name. A pick that is an entry of that kind
+  answers it and becomes a root behind a `choice` hop; a pick of anything else is an error and the slot is open. They
+  read no facts, so they are read once, before the rounds. `registryLookup` reads the content registry as grants do
+  (ancestries for now), so the server resolves a character's slots over loaded content.
 - A fixed `GrantItem` adds its entry with a `grant` hop naming the granter and the rule index. Each item's origin is
   the hops from the character down to it, with the item itself as `entry`.
 - A grant of an entry already on the character is skipped and reported as a duplicate, unless `allowDuplicate`.
