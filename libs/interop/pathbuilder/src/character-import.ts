@@ -16,7 +16,7 @@ export const UnmatchedReason = {
 export type UnmatchedReason = ValueOf<typeof UnmatchedReason>;
 
 /**
- * Parts of an export the character model can't hold yet: every import kind but the ancestry, plus lores. They
+ * Parts of an export the character model can't hold yet: every import kind but the ancestry, plus lores and boosts. They
  * light up as the builder stories (#308-#311) give the character somewhere to keep them.
  */
 export const UncarriedField = {
@@ -31,6 +31,8 @@ export const UncarriedField = {
   Item: ImportKind.Item,
   Language: ImportKind.Language,
   Lore: 'lore',
+  /** Which attribute each boost went to: the export has them, and the boost slots take them in #420. */
+  Boosts: 'boosts',
 } as const;
 export type UncarriedField = ValueOf<typeof UncarriedField>;
 
@@ -61,7 +63,10 @@ function unmatchedGroups(value: PathbuilderImport, lookup: ContentLookup): Unmat
 }
 
 function notCarried(value: PathbuilderImport): UncarriedField[] {
-  const present = new Set<ImportKind | UncarriedField>(value.names.map((name) => name.kind));
+  const present = new Set<ImportKind | UncarriedField>([
+    ...value.names.map((name) => name.kind),
+    UncarriedField.Boosts,
+  ]);
   if (value.lores.length > 0) {
     present.add(UncarriedField.Lore);
   }

@@ -481,6 +481,21 @@
       "failed": "Failed",
       "pinned": "Pinned",
       "computed": "computed {computed}"
+    },
+    "attributes": {
+      "str": "Strength",
+      "dex": "Dexterity",
+      "con": "Constitution",
+      "int": "Intelligence",
+      "wis": "Wisdom",
+      "cha": "Charisma",
+      "openBoosts": "Boosts still to place",
+      "boost": {
+        "ancestry": "Ancestry boost",
+        "background": "Background boost",
+        "class": "Class key attribute",
+        "free": "Level {level} boost"
+      }
     }
   }
 }

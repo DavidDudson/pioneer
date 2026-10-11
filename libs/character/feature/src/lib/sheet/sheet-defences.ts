@@ -14,5 +14,5 @@ const NO_DEFENCES: Defences = { immunities: [], weaknesses: [], resistances: [] 
  */
 export function sheetDefences(registry: ContentRegistry, character: Character): Defences {
   const content = statisticContent(registry);
-  return content === undefined ? NO_DEFENCES : deriveDefences(content, statisticInputsOf(character));
+  return content === undefined ? NO_DEFENCES : deriveDefences(content, statisticInputsOf(registry, character));
 }

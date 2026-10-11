@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { AncestryId, Attribute, ChoiceValue, contentId, EntrySlug, PackId, SlotKey } from '@pioneer/rules/sdk';
+import { AncestryId, ChoiceValue, contentId, EntrySlug, PackId, SlotKey } from '@pioneer/rules/sdk';
 import { fixedClock, FixtureNamespace, derivedId } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
@@ -23,7 +23,7 @@ describe('Character', () => {
   test('codec round-trips to wire JSON and back to a class', () => {
     const wire = z.encode(Character.codec, new CharacterBuilder().build());
     expect(wire.createdAt).toBe('2026-01-01T00:00:00.000Z');
-    expect(wire.attributes).toStrictEqual({ str: 0, dex: 0, con: 0, int: 0, wis: 0, cha: 0 });
+    expect(wire).not.toHaveProperty('attributes');
     const decoded = Character.codec.parse(structuredClone(wire));
     expect(decoded).toBeInstanceOf(Character);
     expect(decoded.name).toBe(CharacterName.parse('Valeros'));
@@ -37,10 +37,11 @@ describe('Character', () => {
     expect(original.name).toBe(CharacterName.parse('Valeros'));
   });
 
-  test('stores its ancestry as the ancestry slot’s selection, and nothing derived', () => {
-    const valeros = new CharacterBuilder().withAttribute(Attribute.Strength, 4).build();
+  test('stores its ancestry and boosts as slot selections, and nothing derived', () => {
+    const valeros = new CharacterBuilder().picking('boost:1:free:0', 'str').build();
     expect(Object.entries(valeros.document.build.choices)).toStrictEqual([
       ['ancestry', ChoiceValue.parse(humanAncestryId)],
+      ['boost:1:free:0', ChoiceValue.parse('str')],
     ]);
     expect(valeros.document).not.toHaveProperty('attributes');
     expect(valeros.ancestry).toBe(humanAncestryId);
@@ -55,7 +56,6 @@ describe('Character', () => {
         build: { ...original.document.build, choices: { ...original.document.build.choices, [featSlot]: planned } },
       },
       version: original.version,
-      attributes: original.attributes,
       createdAt: original.createdAt,
       updatedAt: original.updatedAt,
     });
@@ -97,7 +97,6 @@ describe('Character', () => {
     const unpicked = new Character({
       document: { ...original.document, build: { choices: {}, boons: [] } },
       version: original.version,
-      attributes: original.attributes,
       createdAt: original.createdAt,
       updatedAt: original.updatedAt,
     });

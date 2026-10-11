@@ -19,7 +19,7 @@ import {
   UnmatchedReason,
 } from '@pioneer/interop/pathbuilder';
 import { briarRoseExport, mordredExport } from '@pioneer/interop/pathbuilder/testing';
-import { AncestryId, Attribute, AttributeModifier, ChoiceValue } from '@pioneer/rules/sdk';
+import { AncestryId, ChoiceValue, SlotKey } from '@pioneer/rules/sdk';
 import { ContentPackBuilder, fixedContent } from '@pioneer/rules/sdk/testing';
 import {
   FIRST_VERSION,
@@ -81,7 +81,11 @@ describe('CharacterService', () => {
       { field: CharacterPatchField.SelectSlot, slot: ANCESTRY_SLOT, selection: human },
       { field: CharacterPatchField.ClearSlot, slot: ANCESTRY_SLOT },
       { field: CharacterPatchField.Level, value: CharacterLevel.parse(2) },
-      { field: CharacterPatchField.Attribute, attribute: Attribute.Wisdom, value: AttributeModifier.parse(1) },
+      {
+        field: CharacterPatchField.SelectSlot,
+        slot: SlotKey.parse('boost:1:free:0'),
+        selection: ChoiceValue.parse('wis'),
+      },
     ];
     let version = FIRST_VERSION;
     for (const patch of edits) {
@@ -94,7 +98,7 @@ describe('CharacterService', () => {
       { actor: amiri, command: CharacterCommand.SelectSlot },
       { actor: amiri, command: CharacterCommand.ClearSlot },
       { actor: amiri, command: CharacterCommand.SetLevel },
-      { actor: amiri, command: CharacterCommand.SetAttribute },
+      { actor: amiri, command: CharacterCommand.SelectSlot },
     ]);
   });
 
@@ -184,14 +188,13 @@ describe('CharacterService.importPathbuilder', () => {
     service = new CharacterService(repository, content, fixedClock('2026-10-07T10:00:00Z'));
   });
 
-  test('creates the character with name, ancestry, level and modifiers, owned by the actor', async () => {
+  test('creates the character with name, ancestry and level, owned by the actor, its boosts not yet placed', async () => {
     const { character } = await service.importPathbuilder(amiri, mordredExport);
     expect(character.name).toBe(CharacterName.parse('Mordred (Dual Class)'));
     expect(character.ownerId).toBe(amiri);
     expect(character.ancestry).toBe(humanAncestryId);
     expect(character.level).toBe(CharacterLevel.parse(12));
-    const modifiers: Readonly<Record<string, number>> = character.attributes.toWire();
-    expect(modifiers).toStrictEqual({ str: 4, dex: 0, con: 2, int: 1, wis: 3, cha: 6 });
+    expect(character.document.build.choices).toStrictEqual({ [ANCESTRY_SLOT]: ChoiceValue.parse(humanAncestryId) });
     expect(await service.get(amiri, character.id)).toStrictEqual(character);
   });
 
@@ -218,6 +221,7 @@ describe('CharacterService.importPathbuilder', () => {
     ]);
     expect(report.notCarried).toContain(UncarriedField.Heritage);
     expect(report.notCarried).toContain(UncarriedField.Lore);
+    expect(report.notCarried).toContain(UncarriedField.Boosts);
     expect(report.notCarried).not.toContain(UncarriedField.Deity);
   });
 

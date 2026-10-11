@@ -1,7 +1,26 @@
 export { Character, CharacterWire } from './character';
 export { CharacterCommand, PATCH_COMMANDS } from './character-command';
-export { ANCESTRY_SLOT, CHARACTER_ROOT_SLOTS } from './character-slots';
-export { type SlotContent, type SlotPick, type SlotRefusal, SlotRefusalField, slotRefusal } from './slot-offer';
+export {
+  type AncestryBoosts,
+  attributeModifiers,
+  type Boost,
+  type BoostContent,
+  boostContent,
+  type BoostSet,
+  boostSets,
+  type BoostSlot,
+  boostSlots,
+  BoostSource,
+} from './attribute-boosts';
+export { ANCESTRY_SLOT, BACKGROUND_SLOT, CHARACTER_ROOT_SLOTS, CLASS_SLOT } from './character-slots';
+export {
+  type SlotContent,
+  slotContent,
+  type SlotPick,
+  type SlotRefusal,
+  SlotRefusalField,
+  slotRefusal,
+} from './slot-offer';
 export { CharacterContract, CharacterListQuery, CharacterSort, CreateCharacterBody } from './character-contract';
 export {
   CHARACTER_LEVEL_MAX,

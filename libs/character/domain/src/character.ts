@@ -1,5 +1,5 @@
-import { AncestryId, AttributeModifiers, ChoiceValue } from '@pioneer/rules/sdk';
-import type { Attribute, AttributeModifier, SlotKey } from '@pioneer/rules/sdk';
+import { AncestryId, ChoiceValue } from '@pioneer/rules/sdk';
+import type { SlotKey } from '@pioneer/rules/sdk';
 import { FIRST_VERSION, InstantCodec, Version } from '@pioneer/shared/kernel';
 import type { Temporal, UserId } from '@pioneer/shared/kernel';
 import * as z from 'zod';
@@ -15,11 +15,10 @@ import { ANCESTRY_SLOT } from './character-slots';
 
 /**
  * JSON shape of a character on the wire: its document at the current schema version, plus the row's version and
- * timestamps. `attributes` is stored apart until #418 works the modifiers out from boost picks.
+ * timestamps. Nothing derived is in it: attribute modifiers are worked out from the boost picks (`attributeModifiers`).
  */
 export const CharacterWire = CharacterDocumentSchema.omit({ schemaVersion: true }).extend({
   version: Version,
-  attributes: AttributeModifiers.codec,
   createdAt: InstantCodec,
   updatedAt: InstantCodec,
 });
@@ -28,7 +27,6 @@ interface CharacterProps {
   /** The player's inputs; id, owner, name and level live here and are copied to the row for list queries. */
   readonly document: CharacterDocument;
   readonly version: Version;
-  readonly attributes: AttributeModifiers;
   readonly createdAt: Temporal.Instant;
   readonly updatedAt: Temporal.Instant;
 }
@@ -48,11 +46,10 @@ function ancestryOf(document: CharacterDocument): AncestryId | undefined {
  */
 export class Character {
   public static readonly codec = z.codec(CharacterWire, z.instanceof(Character), {
-    decode: ({ version, attributes, createdAt, updatedAt, ...document }) =>
+    decode: ({ version, createdAt, updatedAt, ...document }) =>
       new Character({
         document: { ...document, schemaVersion: CURRENT_SCHEMA_VERSION },
         version,
-        attributes,
         createdAt,
         updatedAt,
       }),
@@ -61,7 +58,6 @@ export class Character {
       return {
         ...document,
         version: character.version,
-        attributes: character.attributes,
         createdAt: character.createdAt,
         updatedAt: character.updatedAt,
       };
@@ -76,7 +72,6 @@ export class Character {
   public readonly name: CharacterName;
   public readonly ancestry: AncestryId | undefined;
   public readonly level: CharacterLevel;
-  public readonly attributes: AttributeModifiers;
   public readonly createdAt: Temporal.Instant;
   public readonly updatedAt: Temporal.Instant;
 
@@ -88,7 +83,6 @@ export class Character {
     this.name = props.document.name;
     this.ancestry = ancestryOf(props.document);
     this.level = props.document.level;
-    this.attributes = props.attributes;
     this.createdAt = props.createdAt;
     this.updatedAt = props.updatedAt;
   }
@@ -100,8 +94,6 @@ export class Character {
     readonly ancestry: AncestryId;
     /** Level 1 unless given, as when importing a built character. */
     readonly level?: CharacterLevel;
-    /** All +0 unless given. */
-    readonly attributes?: AttributeModifiers;
     readonly now: Temporal.Instant;
   }): Character {
     return new Character({
@@ -114,14 +106,9 @@ export class Character {
         build: { choices: { [ANCESTRY_SLOT]: ChoiceValue.parse(input.ancestry) } },
       }),
       version: FIRST_VERSION,
-      attributes: input.attributes ?? AttributeModifiers.none,
       createdAt: input.now,
       updatedAt: input.now,
     });
-  }
-
-  public modifier(attribute: Attribute): AttributeModifier {
-    return this.attributes.get(attribute);
   }
 
   /** Apply one edit. Version bump is the repository's job. */
@@ -136,9 +123,6 @@ export class Character {
       }
       case CharacterPatchField.Level: {
         return { document: { ...this.document, level: patch.value } };
-      }
-      case CharacterPatchField.Attribute: {
-        return { attributes: this.attributes.with(patch.attribute, patch.value) };
       }
       case CharacterPatchField.SelectSlot: {
         return { document: this.#choose(patch.slot, patch.selection) };
@@ -173,7 +157,6 @@ export class Character {
     return {
       document: this.document,
       version: this.version,
-      attributes: this.attributes,
       createdAt: this.createdAt,
       updatedAt: this.updatedAt,
     };

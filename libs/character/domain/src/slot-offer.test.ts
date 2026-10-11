@@ -8,7 +8,7 @@ import type { CharacterDocument } from './character-document';
 import { ANCESTRY_SLOT } from './character-slots';
 import { SlotRefusalField, slotRefusal } from './slot-offer';
 import type { SlotContent, SlotRefusal } from './slot-offer';
-import { CharacterBuilder } from './testing';
+import { BOOST_FIXTURES, boostFixtureId, CharacterBuilder } from './testing';
 
 /** Only up to 5th level. */
 const LOW_LEVEL = [{ lte: ['self:level', 5] }];
@@ -33,7 +33,7 @@ const elf = {
 };
 const human = { ...entry('human'), kind: ContentKind.Ancestry };
 
-const content: SlotContent = { lookup: lookupOf([elf, human]), namespaces: CORE_NAMESPACES };
+const content: SlotContent = { lookup: lookupOf([elf, human]), namespaces: CORE_NAMESPACES, boosts: BOOST_FIXTURES };
 const earlySlot = slotOf('elf', 0);
 const skillSlot = slotOf('elf', 1);
 
@@ -84,5 +84,42 @@ describe('slotRefusal', () => {
     const humanDocument = new CharacterBuilder().withAncestry(AncestryId.parse(idOf('human'))).build().document;
     const pick = { slot: skillSlot, selection: ChoiceValue.parse('athletics') };
     expect(slotRefusal(humanDocument, content, pick)?.field).toBe(SlotRefusalField.Slot);
+  });
+});
+
+describe('slotRefusal on a boost slot', () => {
+  const dwarf = new CharacterBuilder()
+    .withAncestry(AncestryId.parse(boostFixtureId('ancestry:dwarf')))
+    .picking('boost:1:free:0', 'str')
+    .build().document;
+
+  function boostRefusal(slot: string, selection: string): SlotRefusal | undefined {
+    return slotRefusal(dwarf, content, { slot: SlotKey.parse(slot), selection: ChoiceValue.parse(selection) });
+  }
+
+  test('takes an attribute the boost allows, at any level up to 20th', () => {
+    expect(boostRefusal('boost:1:ancestry:2', 'str')).toBeUndefined();
+    expect(boostRefusal('boost:20:free:3', 'cha')).toBeUndefined();
+  });
+
+  test('refuses what the boost doesn’t offer: a fixed boost’s attribute, or no attribute at all', () => {
+    expect(boostRefusal('boost:1:ancestry:2', 'con')).toStrictEqual(notOffered);
+    expect(boostRefusal('boost:1:free:1', 'forest')).toStrictEqual(notOffered);
+  });
+
+  test('refuses an attribute another boost of the same set already raises', () => {
+    expect(boostRefusal('boost:1:free:1', 'str')).toStrictEqual({
+      field: SlotRefusalField.Selection,
+      message: { key: 'character.validation.boostTaken' },
+    });
+    expect(boostRefusal('boost:1:free:0', 'str')).toBeUndefined();
+    expect(boostRefusal('boost:5:free:0', 'str')).toBeUndefined();
+  });
+
+  test('refuses a boost slot the character doesn’t have, blaming the slot', () => {
+    expect(boostRefusal('boost:1:background:0', 'con')).toStrictEqual({
+      field: SlotRefusalField.Slot,
+      message: { key: 'character.validation.slotNotOpen' },
+    });
   });
 });

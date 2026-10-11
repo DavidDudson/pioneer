@@ -29,6 +29,7 @@ export const UNCARRIED_KEYS: Readonly<Record<UncarriedField, string>> = {
   [UncarriedField.Item]: KIND_KEYS[ImportKind.Item],
   [UncarriedField.Language]: KIND_KEYS[ImportKind.Language],
   [UncarriedField.Lore]: 'character.import.kind.lore',
+  [UncarriedField.Boosts]: 'character.import.kind.boosts',
 };
 
 export const STATUS_KEYS: Readonly<Record<MatchStatus, string>> = {

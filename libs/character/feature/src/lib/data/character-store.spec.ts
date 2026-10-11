@@ -1,8 +1,8 @@
 import { HttpTestingController } from '@angular/common/http/testing';
 import { ApplicationRef } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { ANCESTRY_SLOT, CharacterId, CharacterLevel, CharacterPatchField } from '@pioneer/character/domain';
-import { ChoiceValue, contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
+import { ANCESTRY_SLOT, Character, CharacterId, CharacterLevel, CharacterPatchField } from '@pioneer/character/domain';
+import { ChoiceValue, contentId, EntrySlug, PackId, SlotKey } from '@pioneer/rules/sdk';
 import { ApiError } from '@pioneer/shared/web';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
@@ -23,9 +23,13 @@ function wire(version: number, level: number): WireCharacter & Record<string, un
     version,
     ownerId: '8f6d2c1a-0b3e-4f5a-9c7d-1e2f3a4b5c6d',
     name: 'Merisiel',
-    build: { choices: { ancestry: contentId(PackId.parse('player-core'), EntrySlug.parse('ancestry:elf')) } },
+    build: {
+      choices: {
+        ancestry: contentId(PackId.parse('player-core'), EntrySlug.parse('ancestry:elf')),
+        'boost:1:free:0': 'dex',
+      },
+    },
     level,
-    attributes: { str: 0, dex: 4, con: 1, int: 0, wis: 0, cha: 1 },
     createdAt: '2026-10-07T10:00:00.000Z',
     updatedAt: '2026-10-07T10:00:00.000Z',
   };
@@ -58,7 +62,8 @@ describe(CharacterStore, () => {
 
   it('decodes the selected character into a class', async () => {
     await loadSelected();
-    expect(store.selected()?.modifier('dex')).toBe(4);
+    expect(store.selected()).toBeInstanceOf(Character);
+    expect(store.selected()?.document.build.choices[SlotKey.parse('boost:1:free:0')]).toBe('dex');
   });
 
   it('patch sends the expected version and adopts the server result', async () => {

@@ -29,11 +29,8 @@ import {
   Grid,
   InlineEdit,
   InlineField,
-  LocaleFormat,
   NumberInput,
   Page,
-  RovingFocus,
-  RovingFocusItem,
   Section,
   SectionIndex,
   SectionLink,
@@ -44,16 +41,9 @@ import {
   TextInput,
 } from '@pioneer/frontier';
 import { ContentLoader } from '@pioneer/rules/data-access';
-import {
-  ATTRIBUTE_MODIFIER_MAX,
-  ATTRIBUTE_MODIFIER_MIN,
-  AncestryId,
-  Attribute,
-  AttributeModifier,
-  ChoiceValue,
-} from '@pioneer/rules/sdk';
+import { AncestryId, ChoiceValue } from '@pioneer/rules/sdk';
 import type { ContentId } from '@pioneer/rules/sdk';
-import { DefencesView, StatisticsView } from '@pioneer/rules/ui';
+import { AttributesView, DefencesView, StatisticsView } from '@pioneer/rules/ui';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 import { ApiError } from '@pioneer/shared/web';
@@ -61,10 +51,10 @@ import { injectQuery } from '@tanstack/angular-query-experimental';
 import type * as z from 'zod';
 
 import { AncestryOptions } from '../../data/ancestry-options';
-import { ATTRIBUTE_LABEL_KEYS } from '../../data/attribute-label-keys';
 import { CharacterStore } from '../../data/character-store';
 import { CHARACTER_CONTENT_KINDS, contentRegistryQuery } from '../../data/content-registry-query';
 import { ImportResult } from '../../import/import-result/import-result.component';
+import { sheetAttributes } from '../sheet-attributes';
 import { sheetDefences } from '../sheet-defences';
 import { sheetEntryNames } from '../sheet-entry-names';
 import { SHEET_SECTION_ORDER, SHEET_SECTIONS } from '../sheet-sections';
@@ -91,13 +81,10 @@ function describeSaveError(error: unknown): MessageDescriptor {
   return issue?.message ?? message('character.sheet.saveFailed');
 }
 
-/** PF2e modifiers always show their sign, `+0` included. */
-const SIGNED: Intl.NumberFormatOptions = { signDisplay: 'always' };
-
 /**
  * Character sheet: fixed sections in page order, each a region under its level 2 heading, reached from the section
- * index. Every chosen value is its own inline edit with its own state; the attribute grid is one Tab stop, with
- * arrow keys between its values.
+ * index. Every chosen value is its own inline edit with its own state. Attribute modifiers are worked out from the
+ * boost picks, so they are read-only, with the boosts still to place listed beneath them.
  */
 @Component({
   selector: 'pio-character-sheet-page',
@@ -106,14 +93,13 @@ const SIGNED: Intl.NumberFormatOptions = { signDisplay: 'always' };
     AsyncPending,
     AsyncRegion,
     DateDisplay,
+    AttributesView,
     DefencesView,
     Grid,
     ImportResult,
     InlineField,
     NumberInput,
     Page,
-    RovingFocus,
-    RovingFocusItem,
     Section,
     SectionIndex,
     SectionLink,
@@ -132,7 +118,6 @@ export class CharacterSheetPage {
   /** Route param, bound by `withComponentInputBinding`. */
   public readonly id = input.required({ transform: (id: string): CharacterId => CharacterId.parse(id) });
 
-  readonly #format = inject(LocaleFormat);
   readonly #injector = inject(Injector);
   readonly #content = inject(ContentLoader);
   private readonly identity = viewChild.required<string, ElementRef<HTMLElement>>('identity', { read: ElementRef });
@@ -141,13 +126,16 @@ export class CharacterSheetPage {
   protected readonly character = this.store.selected;
   protected readonly levelMin = CHARACTER_LEVEL_MIN;
   protected readonly levelMax = CHARACTER_LEVEL_MAX;
-  protected readonly modifierMin = ATTRIBUTE_MODIFIER_MIN;
-  protected readonly modifierMax = ATTRIBUTE_MODIFIER_MAX;
   protected readonly sections = SHEET_SECTIONS;
   protected readonly sectionOrder = SHEET_SECTION_ORDER;
   protected readonly title = computed(() => this.character()?.name);
   /** The registry the engine reads, shared with the ancestry options, so it loads once. */
   protected readonly registry = injectQuery(() => contentRegistryQuery(this.#content, CHARACTER_CONTENT_KINDS));
+  protected readonly attributeView = computed(() => {
+    const registry = this.registry.data();
+    const character = this.character();
+    return registry === undefined || character === undefined ? undefined : sheetAttributes(registry, character);
+  });
   protected readonly defences = computed(() => {
     const registry = this.registry.data();
     const character = this.character();
@@ -183,19 +171,6 @@ export class CharacterSheetPage {
     schema: CharacterLevel,
     save: async (value) => this.store.patch({ field: CharacterPatchField.Level, value: CharacterLevel.parse(value) }),
   });
-  protected readonly attributes = Object.values(Attribute).map((attribute) => ({
-    attribute,
-    labelKey: ATTRIBUTE_LABEL_KEYS[attribute],
-    edit: this.#field<number>({
-      read: (character) => character.modifier(attribute),
-      empty: 0,
-      schema: AttributeModifier,
-      save: async (value) =>
-        this.store.patch({ field: CharacterPatchField.Attribute, attribute, value: AttributeModifier.parse(value) }),
-      format: (value) => this.#format.number(value, SIGNED),
-    }),
-  }));
-
   public constructor() {
     effect(() => {
       this.store.select(this.id());

@@ -32,4 +32,17 @@ describe('grantLookup', () => {
     expect(lookup.ofKind(ContentKind.Ancestry).map((entry) => String(entry.slug))).toEqual(['human', 'elf']);
     expect(lookup.ofKind(ContentKind.Feat)).toEqual([]);
   });
+
+  test('finds backgrounds and classes, the other kinds a character picks in a root slot', () => {
+    const registry = new ContentRegistry();
+    registry.register(
+      new ContentPackBuilder()
+        .withBackground('farmhand', [['con']])
+        .withClass('fighter', ['str'])
+        .build(),
+    );
+    const lookup = grantLookup(registry);
+    expect(lookup.ofKind(ContentKind.Background).map((entry) => String(entry.slug))).toEqual(['farmhand']);
+    expect(lookup.ofKind(ContentKind.Class).map((entry) => String(entry.slug))).toEqual(['fighter']);
+  });
 });

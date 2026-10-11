@@ -21,9 +21,16 @@ const MERISIEL = {
   version: 1,
   ownerId: '8f6d2c1a-0b3e-4f5a-9c7d-1e2f3a4b5c6d',
   name: 'Merisiel',
-  build: { choices: { ancestry: contentId(PackId.parse('player-core'), EntrySlug.parse('ancestry:elf')) } },
+  build: {
+    choices: {
+      ancestry: contentId(PackId.parse('player-core'), EntrySlug.parse('ancestry:elf')),
+      'boost:1:ancestry:2': 'con',
+      'boost:1:free:0': 'dex',
+      'boost:1:free:1': 'con',
+      'boost:1:free:2': 'wis',
+    },
+  },
   level: 1,
-  attributes: { str: 0, dex: 4, con: 1, int: 0, wis: 0, cha: 1 },
   createdAt: '2026-10-07T10:00:00.000Z',
   updatedAt: '2026-10-07T10:00:00.000Z',
 };
@@ -89,18 +96,6 @@ async function pickAncestry(root: HTMLElement, name: string): Promise<HTMLElemen
   return field;
 }
 
-function keydown(key: string): KeyboardEvent {
-  return new KeyboardEvent('keydown', { key, bubbles: true, cancelable: true });
-}
-
-/** The attribute grid's value buttons, in order. */
-function attributeButtons(root: HTMLElement): HTMLElement[] {
-  const grid = present(root.querySelector<HTMLElement>('[role="toolbar"]'));
-  return [...grid.querySelectorAll<HTMLElement>('fr-inline-field button')].filter(
-    (button) => button.closest('fr-save-status') === null,
-  );
-}
-
 describe('CharacterSheetPage', () => {
   it('shows identity, attributes, defences and statistics in that order, each a region under a level 2 heading', async () => {
     const { root } = await openSheet();
@@ -134,47 +129,45 @@ describe('CharacterSheetPage', () => {
     expect(document.activeElement?.tagName).toBe('H2');
   });
 
-  it('makes the attribute grid one Tab stop, with arrow keys between its values', async () => {
+  it('shows the modifiers the boost picks give: the elf’s fixed boosts and flaw, then each pick', async () => {
     const { root } = await openSheet();
-    const buttons = attributeButtons(root);
+    const attributes = present(root.querySelector('section[aria-labelledby="sheet-attributes"]'));
+
     await vi.waitFor(() => {
-      expect(buttons.map((button) => button.getAttribute('tabindex'))).toStrictEqual([
-        '0',
-        '-1',
-        '-1',
-        '-1',
-        '-1',
-        '-1',
+      expect(
+        [...attributes.querySelectorAll('fr-description-item')].map((item) => [
+          item.querySelector('[role="term"]')?.textContent.trim(),
+          item.querySelector('[role="definition"]')?.textContent.trim(),
+        ]),
+      ).toStrictEqual([
+        ['Strength', '+0'],
+        ['Dexterity', '+2'],
+        ['Constitution', '+1'],
+        ['Intelligence', '+1'],
+        ['Wisdom', '+1'],
+        ['Charisma', '+0'],
       ]);
     });
-
-    buttons[0]?.focus();
-    buttons[0]?.dispatchEvent(keydown('ArrowRight'));
-
-    expect(document.activeElement).toBe(buttons[1]);
   });
 
-  it('names the attribute grid after its section', async () => {
+  it('lists the boosts still to place up to the character’s level, and none planned above it', async () => {
     const { root } = await openSheet();
-    expect(root.querySelector('[role="toolbar"]')?.getAttribute('aria-label')).toBe('Attributes');
+    const attributes = present(root.querySelector('section[aria-labelledby="sheet-attributes"]'));
+
+    await vi.waitFor(() => {
+      expect(attributes.textContent).toContain('Boosts still to place');
+    });
+    expect([...attributes.querySelectorAll('fr-list-item')].map((item) => item.textContent.trim())).toStrictEqual([
+      'Level 1 boost',
+    ]);
   });
 
-  it('edits only the chosen inputs inline: name, ancestry, level and attribute modifiers', async () => {
+  it('edits only the chosen inputs inline: name, ancestry and level', async () => {
     const { root } = await openSheet();
     const labels = [...root.querySelectorAll('fr-inline-field')].map((field) =>
       present(field.querySelector('fr-text')).textContent.trim(),
     );
-    expect(labels).toStrictEqual([
-      'Name',
-      'Ancestry',
-      'Level',
-      'Strength',
-      'Dexterity',
-      'Constitution',
-      'Intelligence',
-      'Wisdom',
-      'Charisma',
-    ]);
+    expect(labels).toStrictEqual(['Name', 'Ancestry', 'Level']);
   });
 
   it('saves an ancestry edit as a pick in the ancestry slot', async () => {
@@ -245,10 +238,10 @@ describe('CharacterSheetPage', () => {
         [...statistics.querySelectorAll('summary')].map((summary) =>
           summary.textContent.replaceAll(/\s+/gu, ' ').trim(),
         ),
-      ).toStrictEqual(['Armor Class 14', 'Fortitude +1', 'Reflex +4', 'Will +0', 'Perception +0']);
+      ).toStrictEqual(['Armor Class 12', 'Fortitude +1', 'Reflex +2', 'Will +1', 'Perception +1']);
     });
     const ac = present(statistics.querySelector('pio-breakdown'));
-    expect(ac.textContent).toContain('Base 14');
+    expect(ac.textContent).toContain('Base 12');
     expect(ac.textContent).toContain('No modifiers.');
   });
 });

@@ -86,10 +86,29 @@ The character stores `SlotKey → Selection` only. Consequences:
 
 The player picks with `selectSlot { slot, selection }` and empties a slot with `clearSlot { slot }`, each a PATCH
 audited by name. `selectSlot` resolves the character's grants over its other picks at every level from 20 down,
-with `ancestry` as a root slot (`CHARACTER_ROOT_SLOTS`), and refuses with a reason when the slot is open at no level
-up to 20 (`character.validation.slotNotOpen`) or offers the selection at none
+with `ancestry`, `background` and `class` as root slots (`CHARACTER_ROOT_SLOTS`), and refuses with a reason when the
+slot is open at no level up to 20 (`character.validation.slotNotOpen`) or offers the selection at none
 (`character.validation.selectionNotOffered`). Only a new selection is checked: one already stored stays, however
 the level or content changes.
+
+### Attribute boosts
+
+Attribute modifiers are never stored: `attributeModifiers` works them out from the boosts on every read, so changing
+ancestry, background or class changes them. Each boost with a choice is a slot keyed `boost:<level>:<source>:<n>`,
+`n` its place in the content's list, and its selection is the attribute it raises:
+
+- **Ancestry** (`boost:1:ancestry:<n>`): `Ancestry.boosts`, with its `flaws` lowering their attributes by one.
+- **Background** (`boost:1:background:<n>`): `Background.boosts`.
+- **Class** (`boost:1:class:0`): the key attribute, `CharacterClass.keyAttribute`.
+- **Free** (`boost:<level>:free:0` to `3`): four at 1st, 5th, 10th, 15th and 20th level.
+
+A boost that allows one attribute (a dwarf's Constitution, a wizard's Intelligence) is fixed: nothing to choose, so
+no slot and nothing stored. A slot offers what its boost allows less what its set's fixed boosts raise, and the boosts
+of one set go to different attributes, so `selectSlot` refuses an attribute another boost of the set already raises
+(`character.validation.boostTaken`). Each attribute starts at +0; a boost raises it by one, or, at +4 or more, is
+partial, and the second partial boost raises it by one (Player Core). Boosts above the character's level are the
+plan and don't count yet, and a stored pick its slot no longer offers (left from another ancestry, or after an errata)
+counts for nothing until it is changed. `setAttribute` is gone: a boost pick is the only way to change a modifier.
 
 ### Archetype dedications
 
@@ -127,9 +146,10 @@ characters        id, owner_id, name, level, version, schema_version, document j
 `name`, `level` and `owner_id` are copies of the document's, written with it in one statement, so lists sort and
 filter on indexed columns. `schema_version` mirrors the document's `schemaVersion`. A read decodes the document with
 `decodeCharacterDocument`, upgrading an older one; the next save writes it back at the current version, so old rows
-are upgraded as they are touched, never by a bulk rewrite. The ancestry is the `ancestry` slot's selection. Until
-[#418](https://github.com/DavidDudson/pioneer/issues/418) works attribute modifiers out from boost picks, the stored
-modifiers stay in an `attributes` column outside the document: they are derived and can't be turned back into boosts.
+are upgraded as they are touched, never by a bulk rewrite. The ancestry, background and class are their root slots'
+selections. Characters stored before boost slots (migration 0014) lost their stored modifiers, which are derived and
+can't be turned back into boosts: their boost slots start empty. Imports don't carry boosts yet; once
+[#420](https://github.com/DavidDudson/pioneer/issues/420) lands, a Pathbuilder re-import fills them.
 
 The document is one aggregate, validated by zod and versioned with the existing `expectedVersion` PATCH pattern.
 Edits stay field-level commands (`selectSlot`, `addItem`, `setHp`, `addCondition`), so the API stays small and each
@@ -174,9 +194,9 @@ characters; the player sees them.
   [#52](https://github.com/DavidDudson/pioneer/issues/52); `libs/interop/pathbuilder` holds a real export
   (`fixtures/briar-rose.json`) as the reference sheet. Creating a character posts the raw export to
   `POST /characters/import/pathbuilder`, which reads it again rather than trusting the preview, refuses an ancestry
-  that matches no loaded content, and inserts name, ancestry, level and attribute modifiers in one write audited as
-  `importPathbuilder`. Its import report (unmatched names by kind, and the filled fields the character can't hold
-  yet) is returned, not stored: the sheet shows it until dismissed or reloaded.
+  that matches no loaded content, and inserts name, ancestry and level in one write audited as `importPathbuilder`.
+  Its import report (unmatched names by kind, and the filled fields the character can't hold yet, boosts among them
+  until #420) is returned, not stored: the sheet shows it until dismissed or reloaded.
 - **Pioneer JSON:** the `CharacterDocument` plus the ids and versions of packs used. Homebrew entries referenced by
   the character are embedded so the file is portable.
 - **Foundry export:** see [play-and-campaigns.md](play-and-campaigns.md#foundry-export).
