@@ -263,7 +263,8 @@
         "canEither": "Can be holy or unholy",
         "mustHoly": "Must be holy",
         "mustUnholy": "Must be unholy",
-        "none": "None"
+        "none": "None",
+        "mustEither": "Must be holy or unholy"
       },
       "font": {
         "heal": "Heal",

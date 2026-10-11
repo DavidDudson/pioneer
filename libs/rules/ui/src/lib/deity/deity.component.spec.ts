@@ -49,6 +49,19 @@ describe(DeityView, () => {
     expect(description).toContain('create undead, lie');
   });
 
+  it.each([
+    ['can', ['holy'], 'Can be holy'],
+    ['can', ['unholy'], 'Can be unholy'],
+    ['can', ['holy', 'unholy'], 'Can be holy or unholy'],
+    ['must', ['holy'], 'Must be holy'],
+    ['must', ['unholy'], 'Must be unholy'],
+    ['must', ['holy', 'unholy'], 'Must be holy or unholy'],
+  ] as const)('reads a deity that %s be %j as %s', async (modal, what, read) => {
+    const fixture = await render({ ...SARENRAE, sanctification: { modal, what } });
+
+    expect(terms(fixture)[1]).toStrictEqual([read]);
+  });
+
   it('reads none for what a philosophy lacks', async () => {
     const fixture = await render(PROPHECIES_OF_KALISTRADE);
 
@@ -59,7 +72,7 @@ describe(DeityView, () => {
     expect(host(await render(undefined)).textContent).toContain('No deity');
   });
 
-  it('shows placeholders while the character loads', async () => {
-    expect(host(await render(undefined, true)).querySelectorAll('fr-skeleton')).toHaveLength(2);
+  it('shows placeholders shaped like the block while the character loads: name, a value per term, description', async () => {
+    expect(host(await render(undefined, true)).querySelectorAll('fr-skeleton')).toHaveLength(9);
   });
 });

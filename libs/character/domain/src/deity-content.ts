@@ -16,8 +16,17 @@ export interface DeityContent {
   readonly weaponName: (weapon: BaseWeapon) => ContentText | undefined;
 }
 
-/** The registry's deities, and its weapons by base, for a favoured weapon's name. */
+/** Deity content already read, by registry: a registry's packs never change once loaded. */
+const READ = new WeakMap<ContentRegistry, DeityContent>();
+
+/** The registry's deities, and its weapons by base, for a favoured weapon's name; read once per registry. */
 export function deityContent(registry: ContentRegistry): DeityContent {
+  const read = READ.get(registry) ?? readDeities(registry);
+  READ.set(registry, read);
+  return read;
+}
+
+function readDeities(registry: ContentRegistry): DeityContent {
   const entries = registry.packs.flatMap((pack) => pack.otherEntries);
   const deities = new Map(
     entries.flatMap((entry): [ContentId, DeityRead][] =>

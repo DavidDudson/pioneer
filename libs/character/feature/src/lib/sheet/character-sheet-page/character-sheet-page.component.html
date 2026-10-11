@@ -96,7 +96,12 @@
     </fr-section>
 
     <fr-section [anchor]="sections.deity.anchor" [heading]="sections.deity.headingKey | transloco">
-      <pio-sheet-deity-section [field]="deity" [options]="deityOptions()" [registry]="registry.data()" />
+      <fr-async-region>
+        <ng-template frAsyncPending><pio-deity loading /></ng-template>
+        <ng-template let-content [frAsyncData]="registry">
+          <pio-sheet-deity-section [field]="deity" [options]="deityOptions()" [registry]="content" />
+        </ng-template>
+      </fr-async-region>
     </fr-section>
 
     <fr-section [anchor]="sections.attributes.anchor" [heading]="sections.attributes.headingKey | transloco">

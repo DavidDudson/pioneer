@@ -16,6 +16,7 @@ export const DeityMessage = {
   CanEither: 'rules.deity.sanctification.canEither',
   MustHoly: 'rules.deity.sanctification.mustHoly',
   MustUnholy: 'rules.deity.sanctification.mustUnholy',
+  MustEither: 'rules.deity.sanctification.mustEither',
   NoSanctification: 'rules.deity.sanctification.none',
 } as const;
 

@@ -1,6 +1,14 @@
 @let shown = deity();
 @if (loading()) {
-  <fr-stack gap="sm"><fr-skeleton width="md" /><fr-skeleton width="lg" /></fr-stack>
+  <fr-stack gap="md">
+    <fr-skeleton width="sm" />
+    <fr-description-list>
+      @for (term of loadingTerms; track term) {
+        <fr-description-item [term]="term | transloco"><fr-skeleton width="md" /></fr-description-item>
+      }
+    </fr-description-list>
+    <fr-skeleton shape="block" width="full" />
+  </fr-stack>
 } @else if (shown === undefined) {
   <fr-empty-state [title]="Message.None | transloco" />
 } @else {

@@ -107,10 +107,11 @@ The deity slot is optional ([ADR-0046](../adr/0046-deity-is-an-optional-root-slo
 deity, and an empty slot is listed under Choices only while something needs it, a cleric's Deity feature. A deity sets
 what its follower's features read: `deity:primary:font:heal`, `deity:primary:sanctification:can:holy`,
 `deity:primary:favored-weapon:scimitar`. So a cleric's Divine Font offers the fonts its deity has, and its
-sanctification choice holy or unholy as the deity allows, or none unless the deity requires one; neither offers a
-font or a sanctification before a deity is picked. The sheet's Deity section, after Build, picks the deity by name and
-shows the one the server read (`CharacterSheet.deity`): its divine font, sanctification, domains and alternate
-domains, favoured weapons, divine attributes and skills, then its description, which holds its edicts and anathema.
+sanctification choice holy or unholy as the deity allows, or none unless the deity requires one. Before a deity is
+picked, Divine Font offers nothing and the sanctification choice only none. The sheet's Deity section, after Build,
+picks the deity by name and shows the one the server read (`CharacterSheet.deity`): its divine font, sanctification,
+domains and alternate domains, favoured weapons, divine attributes and skills, then its description, which holds its
+edicts and anathema.
 
 The class slot's pick grants its class features by level and opens the slots its features ask for. The subclass slot
 is the `ChoiceSet` among them that queries class features tagged with the class's `subclass` (a cleric's doctrine, a

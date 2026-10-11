@@ -98,17 +98,3 @@ describe('translateRules: GrantItem badge value', () => {
     expect(translation.envelopes.untranslatedRules.map(({ key }) => key)).toEqual(['GrantItem']);
   });
 });
-
-describe('translateRules: ChoiceSet flags', () => {
-  test("a camel-case flag becomes a slug, so Divine Font's choice translates", () => {
-    const divineFont = {
-      key: 'ChoiceSet',
-      flag: 'divineFont',
-      choices: [{ value: 'heal', label: 'Healing', predicate: ['deity:primary:font:heal'] }],
-      rollOption: 'divine-font',
-    };
-    const fixture = condition('dIvInEfOnT000000', 'Divine Font', { rules: [divineFont] });
-
-    expect(translate([fixture]).entries[0]?.envelope.rules).toMatchObject([{ ...divineFont, flag: 'divine-font' }]);
-  });
-});

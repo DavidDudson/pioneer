@@ -42,6 +42,23 @@ function api(): AnyElysia {
 }
 
 describe('character routes: the deity', () => {
+  test('a pick no loaded pack has puts no deity on the sheet, and reads invalid', async () => {
+    const routes = api();
+    const createdResponse = await routes.handle(
+      request('POST', '/characters', { name: 'Kyra', ancestry: humanAncestryId }),
+    );
+    const { id } = (await createdResponse.json()) as Created;
+    const gone = new ContentPackBuilder().withId('gone').withDeity('vanished').idOf(ContentKind.Deity, 'vanished');
+    const patch = { expectedVersion: 1, patch: { field: 'selectSlot', slot: 'deity', selection: gone } };
+
+    const refused = await routes.handle(request('PATCH', `/characters/${id}`, patch));
+    const response = await routes.handle(request('GET', `/characters/${id}`));
+    const sheet = CharacterSheet.parse(await response.json());
+
+    expect(refused.status).toBe(422);
+    expect(sheet.deity).toBeUndefined();
+  });
+
   test('a picked deity is on the sheet with its description, and opens a cleric its divine font', async () => {
     const routes = api();
     const createdResponse = await routes.handle(

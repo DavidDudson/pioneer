@@ -20,6 +20,17 @@ interface DeityValue {
   readonly name?: string;
 }
 
+/** The terms the block lists, in order: shown with placeholder values while the deity loads. */
+const TERMS = [
+  DeityMessage.Font,
+  DeityMessage.Sanctification,
+  DeityMessage.Domains,
+  DeityMessage.AlternateDomains,
+  DeityMessage.FavoredWeapons,
+  DeityMessage.Attributes,
+  DeityMessage.Skills,
+] as const;
+
 const keyed = (key: string): DeityValue => ({ key });
 const named = (name: string): DeityValue => ({ name });
 
@@ -29,11 +40,12 @@ function sanctificationOf(sanctification: DeitySanctificationLine | undefined): 
     return keyed(DeityMessage.NoSanctification);
   }
   const { modal, what } = sanctification;
+  const must = modal === SanctificationModal.Must;
   if (what.length > 1) {
-    return keyed(DeityMessage.CanEither);
+    return keyed(must ? DeityMessage.MustEither : DeityMessage.CanEither);
   }
   const holy = what.includes(Sanctification.Holy);
-  if (modal === SanctificationModal.Must) {
+  if (must) {
     return keyed(holy ? DeityMessage.MustHoly : DeityMessage.MustUnholy);
   }
   return keyed(holy ? DeityMessage.CanHoly : DeityMessage.CanUnholy);
@@ -86,5 +98,6 @@ export class DeityView {
     return deity === undefined ? [] : termsOf(deity);
   });
   protected readonly Message = DeityMessage;
+  protected readonly loadingTerms = TERMS;
   protected readonly HeadingLevel = HeadingLevel;
 }

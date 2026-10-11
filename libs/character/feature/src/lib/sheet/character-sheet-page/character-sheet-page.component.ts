@@ -55,6 +55,7 @@ import {
   ChoicesView,
   ClassFeaturesView,
   DefencesView,
+  DeityView,
   SpellcastingView,
   StatisticsView,
 } from '@pioneer/rules/ui';
@@ -103,6 +104,7 @@ function focusField(field: ElementRef<HTMLElement>): void {
     ClassFeaturesView,
     DateDisplay,
     DefencesView,
+    DeityView,
     Grid,
     Heading,
     ImportResult,
