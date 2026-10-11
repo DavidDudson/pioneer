@@ -1,4 +1,13 @@
-import { ContentId, ContentKind, ContentLicense, ContentPack, contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
+import {
+  ContentEntry,
+  ContentId,
+  ContentKind,
+  ContentLicense,
+  ContentPack,
+  contentId,
+  EntrySlug,
+  PackId,
+} from '@pioneer/rules/sdk';
 
 import entries from './player-core-classes.json';
 
@@ -63,4 +72,9 @@ export function playerCoreId(kind: ContentKind, name: string): ContentId {
 /** The id of a Player Core class. */
 export function playerCoreClassId(name: PlayerCoreClass): ContentId {
   return playerCoreId(ContentKind.Class, name);
+}
+
+/** The classes and their 1st-level class features as entries, to add to a Player Core pack that lacks them. */
+export function playerCoreClassEntries(): readonly ContentEntry[] {
+  return entries.map((entry) => ContentEntry.parse(entry));
 }

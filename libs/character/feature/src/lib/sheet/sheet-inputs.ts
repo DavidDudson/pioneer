@@ -1,4 +1,12 @@
-import { attributeModifiers, boostContent } from '@pioneer/character/domain';
+import {
+  attributeModifiers,
+  boostContent,
+  characterGrants,
+  characterRanks,
+  classContent,
+  classInputs,
+  slotContent,
+} from '@pioneer/character/domain';
 import type { Character } from '@pioneer/character/domain';
 import type { StatisticInputs } from '@pioneer/rules/engine';
 import type { ContentRegistry } from '@pioneer/rules/sdk';
@@ -13,15 +21,22 @@ function ancestryInputs(registry: ContentRegistry, character: Character): Pick<S
   return { ancestry: { hitPoints, speed } };
 }
 
+/** What the class gives: `@class.hp` and the key attribute. Nothing until the class and its key attribute are known. */
+function classInputsOf(registry: ContentRegistry, character: Character): Pick<StatisticInputs, 'class'> {
+  const inputs = classInputs(character.document, slotContent(registry), classContent(registry));
+  return inputs === undefined ? {} : { class: inputs };
+}
+
 /**
- * What the engine reads of a character so far: level, the modifiers its boosts give and its ancestry's Hit Points and
- * speed, every rank untrained.
+ * What the engine reads of a character so far: level, the modifiers its boosts give, the ranks its class, background
+ * and features raise, and what its ancestry and class give.
  */
 export function statisticInputsOf(registry: ContentRegistry, character: Character): StatisticInputs {
   return {
     level: character.level,
     attributes: attributeModifiers(character.document, boostContent(registry)),
-    ranks: new Map(),
+    ranks: characterRanks(characterGrants(character.document, slotContent(registry))),
     ...ancestryInputs(registry, character),
+    ...classInputsOf(registry, character),
   };
 }

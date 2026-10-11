@@ -7,6 +7,7 @@ import { RouterTestingHarness } from '@angular/router/testing';
 import { CharacterId } from '@pioneer/character/domain';
 import { frontierMessages } from '@pioneer/frontier';
 import { contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
+import type { PackContentsLoader } from '@pioneer/rules/sdk';
 import { provideI18n } from '@pioneer/shared/web';
 import { expect, onTestFinished, vi } from 'vitest';
 
@@ -70,6 +71,12 @@ function sheetOf(character: object, slots: readonly object[] = MERISIEL_SLOTS): 
   return { character, slots };
 }
 
+/** What else a sheet opens with: the slots the server read, and the content packs served. */
+export interface SheetOptions {
+  readonly slots?: readonly object[];
+  readonly packs?: readonly PackContentsLoader[];
+}
+
 /** The server's answer to an edit of Merisiel: her sheet, and the picks the edit cleared. */
 export function patchedOf(character: object, slots: readonly object[], cleared: readonly object[] = []): object {
   return { character, slots, cleared };
@@ -88,11 +95,11 @@ export interface OpenSheet {
 }
 
 /** Opens Merisiel's sheet (or `character`'s) in the document, so focus can move, and waits until it has loaded. */
-export async function openSheet(character: object = MERISIEL): Promise<OpenSheet> {
+export async function openSheet(character: object = MERISIEL, { slots, packs }: SheetOptions = {}): Promise<OpenSheet> {
   TestBed.configureTestingModule({
     providers: [
       provideRouter([{ path: 'characters', children: characterRoutes }], withComponentInputBinding()),
-      ...provideServerStateTesting(),
+      ...provideServerStateTesting([], packs),
       provideI18n({ en: async () => frontierMessages }),
     ],
   });
@@ -106,7 +113,7 @@ export async function openSheet(character: object = MERISIEL): Promise<OpenSheet
     host.remove();
   });
   await vi.waitFor(() => {
-    TestBed.inject(HttpTestingController).expectOne(`/api/characters/${id}`).flush(sheetOf(character));
+    TestBed.inject(HttpTestingController).expectOne(`/api/characters/${id}`).flush(sheetOf(character, slots));
   });
   const root = present(harness.routeNativeElement);
   await vi.waitFor(async () => {

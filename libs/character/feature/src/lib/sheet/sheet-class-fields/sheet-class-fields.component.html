@@ -1,0 +1,39 @@
+<fr-grid [columns]="3">
+  <fr-inline-field [label]="'character.sheet.class' | transloco" [edit]="classField()">
+    <fr-select
+      frInlineEditor
+      [ariaLabel]="'character.sheet.class' | transloco"
+      [options]="classOptions()"
+      [value]="classField().draft()"
+      (valueChange)="classField().change($event)"
+      (committed)="classField().flushSoon()"
+      (cancelled)="classField().cancel()"
+    />
+  </fr-inline-field>
+  @if (picks().subclass(); as subclass) {
+    <fr-inline-field [label]="'character.sheet.subclass' | transloco" [edit]="picks().subclassField">
+      <fr-select
+        frInlineEditor
+        [ariaLabel]="'character.sheet.subclass' | transloco"
+        [options]="subclass.options"
+        [value]="picks().subclassField.draft()"
+        (valueChange)="picks().subclassField.change($event)"
+        (committed)="picks().subclassField.flushSoon()"
+        (cancelled)="picks().subclassField.cancel()"
+      />
+    </fr-inline-field>
+  }
+  @if (picks().keyAttribute()) {
+    <fr-inline-field [label]="'character.sheet.keyAttribute' | transloco" [edit]="picks().keyAttributeField">
+      <fr-select
+        frInlineEditor
+        [ariaLabel]="'character.sheet.keyAttribute' | transloco"
+        [options]="picks().keyAttributeOptions()"
+        [value]="picks().keyAttributeField.draft()"
+        (valueChange)="picks().keyAttributeField.change($event)"
+        (committed)="picks().keyAttributeField.flushSoon()"
+        (cancelled)="picks().keyAttributeField.cancel()"
+      />
+    </fr-inline-field>
+  }
+</fr-grid>

@@ -6,7 +6,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { HUMAN, id, MERISIEL, openSheet, patchedOf, pickAncestry, present } from '../../testing/sheet-page-harness';
 
 describe('CharacterSheetPage', () => {
-  it('shows identity, build, attributes, defences, statistics, choices and inventory in that order, each a region under a level 2 heading', async () => {
+  it('shows identity, build, attributes, defences, statistics, choices, class features and inventory in that order, each a region under a level 2 heading', async () => {
     const { root } = await openSheet();
 
     const regions = [...root.querySelectorAll('section')].map((region) => {
@@ -16,6 +16,7 @@ describe('CharacterSheetPage', () => {
     expect(regions).toStrictEqual([
       ['Identity', true],
       ['Build', true],
+      ['Class features', true],
       ['Attributes', true],
       ['Defences', true],
       ['Statistics', true],
@@ -31,6 +32,7 @@ describe('CharacterSheetPage', () => {
     expect(links.map((link) => link.textContent.trim())).toStrictEqual([
       'Identity',
       'Build',
+      'Class features',
       'Attributes',
       'Defences',
       'Statistics',
@@ -38,7 +40,7 @@ describe('CharacterSheetPage', () => {
       'Inventory',
     ]);
 
-    links[2]?.click();
+    links[3]?.click();
 
     expect(document.activeElement?.textContent.trim()).toBe('Attributes');
     expect(document.activeElement?.tagName).toBe('H2');
@@ -93,13 +95,13 @@ describe('CharacterSheetPage', () => {
     ]);
   });
 
-  it('edits only the chosen inputs inline: name, ancestry, heritage, background and level', async () => {
+  it('edits only the chosen inputs inline: name, ancestry, heritage, background, level and class', async () => {
     const { root } = await openSheet();
     // The inventory's item and coin edits are its own (inventory-section spec).
     const labels = [...root.querySelectorAll('section:not([aria-labelledby="sheet-inventory"]) fr-inline-field')].map(
       (field) => present(field.querySelector('fr-text')).textContent.trim(),
     );
-    expect(labels).toStrictEqual(['Name', 'Ancestry', 'Heritage', 'Background', 'Level']);
+    expect(labels).toStrictEqual(['Name', 'Ancestry', 'Heritage', 'Background', 'Level', 'Class']);
   });
 
   it('saves an ancestry edit as a pick in the ancestry slot', async () => {
