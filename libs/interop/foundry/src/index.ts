@@ -36,7 +36,7 @@ export {
   type SkippedEntry,
 } from './select-entries';
 export { fromFoundryFormula } from './foundry-formula';
-export { entrySlugOf, entrySlugs, FOUNDRY_TYPE_KINDS } from './entry-slugs';
+export { documentKind, entrySlugOf, entrySlugs, FOUNDRY_TYPE_KINDS } from './entry-slugs';
 export { asciiSlug, foundrySlug, slugify } from './foundry-slug';
 export {
   compendiumUuid,

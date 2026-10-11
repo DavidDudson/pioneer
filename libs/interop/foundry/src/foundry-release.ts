@@ -1,10 +1,12 @@
+import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { CONFIG_MODULES } from './foundry-config';
 import { FoundryDocument } from './foundry-document';
+import { FoundryJournal } from './foundry-journal';
 
 /**
- * A foundryvtt/pf2e source archive, read: the documents of its item packs and its English lang table. The CLI
+ * A foundryvtt/pf2e source archive, read: the documents of its item packs, its journals, and its English lang table. The CLI
  * extracts the files matching `RELEASE_FILES` and passes their text in; this module never touches the archive. The
  * config modules among them are the CLI's to load (`foundry-config.ts`).
  */
@@ -51,6 +53,13 @@ export interface PackDocument {
   readonly document: FoundryDocument;
 }
 
+/** A journal of a journal pack (the archetypes journal), by the same path. */
+export interface JournalDocument {
+  readonly pack: FoundryPack;
+  readonly path: string;
+  readonly journal: FoundryJournal;
+}
+
 /** A pack source file that is not valid JSON or lacks a field the importer reads. */
 export interface UnreadableDocument {
   readonly pack: FoundryPack;
@@ -60,6 +69,7 @@ export interface UnreadableDocument {
 
 export interface FoundryRelease {
   readonly documents: readonly PackDocument[];
+  readonly journals: readonly JournalDocument[];
   readonly unreadable: readonly UnreadableDocument[];
   readonly lang: FoundryLang;
 }
@@ -88,12 +98,27 @@ function readDocument(pack: FoundryPack, path: string, text: string): PackDocume
   }
 }
 
-/** Item packs by source directory. */
-function itemPacks(files: ReadonlyMap<string, string>): ReadonlyMap<string, FoundryPack> {
+function readJournal(pack: FoundryPack, path: string, text: string): JournalDocument | UnreadableDocument {
+  try {
+    const journal = FoundryJournal.safeParse(JSON.parse(text));
+    return journal.success
+      ? { pack, path, journal: journal.data }
+      : { pack, path, error: z.prettifyError(journal.error) };
+  } catch (error) {
+    return { pack, path, error: String(error) };
+  }
+}
+
+/** Foundry's pack types the importer reads. */
+const PackType = { Item: 'Item', Journal: 'JournalEntry' } as const;
+type PackType = ValueOf<typeof PackType>;
+
+/** Packs of `type` by source directory. */
+function packsOf(files: ReadonlyMap<string, string>, type: PackType): ReadonlyMap<string, FoundryPack> {
   const manifest = Manifest.parse(JSON.parse(required(files, MANIFEST)));
   return new Map(
     manifest.packs
-      .filter((pack) => pack.type === 'Item')
+      .filter((pack) => pack.type === type)
       .map((pack) => {
         const directory = pack.path.slice(pack.path.lastIndexOf('/') + 1);
         return [directory, { name: pack.name, directory }];
@@ -109,20 +134,26 @@ function packOf(packs: ReadonlyMap<string, FoundryPack>, path: string): FoundryP
 }
 
 /**
- * Reads the item packs and lang table out of an archive's files, keyed by their archive path (top-level
- * directory included). Packs of other document types (actors, journals, macros, tables) are not read.
+ * Reads the item packs, journals and lang table out of an archive's files, keyed by their archive path (top-level
+ * directory included). Packs of other document types (actors, macros, tables) are not read.
  */
 export function readFoundryRelease(archiveFiles: ReadonlyMap<string, string>): FoundryRelease {
   const files = new Map([...archiveFiles].map(([path, text]) => [withoutRoot(path), text]));
-  const packs = itemPacks(files);
+  const items = packsOf(files, PackType.Item);
+  const journals = packsOf(files, PackType.Journal);
   const reads = [...files]
     .toSorted(([left], [right]) => left.localeCompare(right))
-    .flatMap(([path, text]) => {
-      const pack = packOf(packs, path);
-      return pack === undefined ? [] : [readDocument(pack, path, text)];
+    .flatMap(([path, text]): (PackDocument | JournalDocument | UnreadableDocument)[] => {
+      const itemPack = packOf(items, path);
+      const journalPack = packOf(journals, path);
+      if (itemPack !== undefined) {
+        return [readDocument(itemPack, path, text)];
+      }
+      return journalPack === undefined ? [] : [readJournal(journalPack, path, text)];
     });
   return {
     documents: reads.filter((read) => 'document' in read),
+    journals: reads.filter((read) => 'journal' in read),
     unreadable: reads.filter((read) => 'error' in read),
     lang: FoundryLang.parse(JSON.parse(required(files, LANG))),
   };

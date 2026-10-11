@@ -21,6 +21,13 @@ const remaster = { title: 'Pathfinder Player Core', license: 'ORC', remaster: tr
 const PACKS: Readonly<Record<string, FoundryPack>> = {
   action: { name: 'actionspf2e', directory: 'actions' },
   ancestry: { name: 'ancestries', directory: 'ancestries' },
+  background: { name: 'backgrounds', directory: 'backgrounds' },
+  class: { name: 'classes', directory: 'classes' },
+  deity: { name: 'deities', directory: 'deities' },
+  equipment: { name: 'equipment-srd', directory: 'equipment' },
+  backpack: { name: 'equipment-srd', directory: 'equipment' },
+  kit: { name: 'equipment-srd', directory: 'equipment' },
+  spell: { name: 'spells-srd', directory: 'spells' },
   condition: { name: 'conditionitems', directory: 'conditions' },
   effect: { name: 'equipment-effects', directory: 'equipment-effects' },
   feat: { name: 'feats-srd', directory: 'feats' },
@@ -32,13 +39,15 @@ export interface DocumentFixture {
   readonly name: string;
   readonly type: string;
   readonly system?: object;
+  /** Foundry's pack, when not the one its type usually lives in (a class feature in `classfeatures`). */
+  readonly pack?: FoundryPack;
 }
 
-function selected({ id, name, type, system = {} }: DocumentFixture): SelectedEntry {
+function selected({ id, name, type, system = {}, pack: given }: DocumentFixture): SelectedEntry {
   if (!isFoundryItemType(type)) {
     throw new Error(`${type} is not a Foundry item type`);
   }
-  const foundryPack = PACKS[type] ?? { name: `${type}-srd`, directory: type };
+  const foundryPack = given ?? PACKS[type] ?? { name: `${type}-srd`, directory: type };
   return {
     pack: foundryPack,
     path: `packs/pf2e/${foundryPack.directory}/${id}.json`,

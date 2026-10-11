@@ -1,3 +1,4 @@
+import { RuleElement } from '@pioneer/rules/sdk';
 import type { ContentId } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import type * as z from 'zod';
@@ -5,6 +6,7 @@ import type * as z from 'zod';
 import type { EntryReferences } from './entry-references';
 import type { FoundryDocument } from './foundry-document';
 import type { ImportedEnvelope } from './imported-envelope';
+import type { ArchetypeLink } from './translate-archetype';
 
 /** What a kind translator could not carry over from a document, reported against its entry. */
 
@@ -39,12 +41,18 @@ export interface GapLog {
   readonly gaps: KindDataGap[];
 }
 
-/** What a kind translator reads: the document, its envelope as translated, the import's references, and the log. */
+/**
+ * What a kind translator reads: the document, its envelope as translated, the import's references, and the log;
+ * and where it puts the rule elements its fields add.
+ */
 export interface KindInput {
   readonly document: FoundryDocument;
   readonly envelope: ImportedEnvelope;
   readonly references: EntryReferences;
   readonly log: GapLog;
+  readonly rules: RuleElement[];
+  /** The archetypes whose journal pages link each feat (`importArchetypes`). */
+  readonly archetypes: ReadonlyMap<ContentId, readonly ArchetypeLink[]>;
 }
 
 export function report(log: GapLog, gap: GapFields): void {
@@ -86,6 +94,19 @@ export function reportUnmapped(
     if (!handled.has(field) && isSet(value)) {
       report(log, { reason: KindDataGapReason.UnmappedField, field, raw: value });
     }
+  }
+}
+
+/**
+ * Adds a rule element a kind's field stands for (a class's starting proficiency), once it parses; one that does
+ * not is reported against `field`, so a mapping bug never drops it silently.
+ */
+export function addRule({ rules, log }: KindInput, field: string, raw: object): void {
+  const element = RuleElement.safeParse(raw);
+  if (element.success) {
+    rules.push(element.data);
+  } else {
+    report(log, { reason: KindDataGapReason.InvalidData, field, raw });
   }
 }
 

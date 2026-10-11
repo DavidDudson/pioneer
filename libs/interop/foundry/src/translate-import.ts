@@ -5,10 +5,13 @@ import { entryReferences } from './entry-references';
 import type { KnownEntry } from './entry-references';
 import { entrySlugs } from './entry-slugs';
 import type { FoundryConfig } from './foundry-config';
-import type { FoundryLang, PackDocument } from './foundry-release';
+import { foundryLinks } from './foundry-links';
+import type { FoundryLang, JournalDocument, PackDocument } from './foundry-release';
 import type { ImportedEnvelope } from './imported-envelope';
 import type { KindDataGap } from './kind-data-gaps';
 import type { SelectedEntry } from './select-entries';
+import { importArchetypes } from './translate-archetype';
+import type { ArchetypeEntry } from './translate-archetype';
 import { translateEnvelopes } from './translate-envelope';
 import type { EnvelopeTranslation } from './translate-envelope';
 import { translateKindData } from './translate-kind-data';
@@ -35,6 +38,8 @@ export interface ImportContext {
   readonly known: readonly KnownEntry[];
   /** The release's item documents, naming link targets outside the import; without them such links read as labels. */
   readonly documents?: readonly PackDocument[];
+  /** The release's journals, for the archetypes Foundry keeps as journal pages; without them none are imported. */
+  readonly journals?: readonly JournalDocument[];
 }
 
 export interface ImportedEntry {
@@ -47,6 +52,8 @@ export interface ImportedEntry {
 export interface ImportTranslation {
   readonly envelopes: EnvelopeTranslation;
   readonly entries: readonly ImportedEntry[];
+  /** Archetypes from the archetypes journal, whose dedications the import brings in. */
+  readonly archetypes: readonly ArchetypeEntry[];
   readonly vocabulary: readonly VocabularyEntry[];
   readonly vocabularyGaps: readonly VocabularyGap[];
   readonly kindDataGaps: readonly KindDataGap[];
@@ -72,11 +79,22 @@ export function translateImport(selected: readonly SelectedEntry[], context: Imp
     references,
     ...(documents === undefined ? {} : { documents }),
   });
-  const translated = envelopes.entries.map(({ source, envelope }) => ({
-    source,
-    envelope,
-    ...translateKindData(source, envelope, references),
-  }));
+  const archetypes = importArchetypes(context.journals ?? [], {
+    pack,
+    references,
+    envelopes: new Map(envelopes.entries.map(({ envelope }) => [envelope.id, envelope])),
+    links: foundryLinks(
+      documents ?? [],
+      envelopes.entries.map(({ source, envelope }) => ({ source, id: envelope.id })),
+    ),
+  });
+  const translated = envelopes.entries.map(({ source, envelope }) => {
+    const { rules, ...rest } = translateKindData(source, envelope, {
+      references,
+      archetypes: archetypes.byFeat,
+    });
+    return { source, envelope: { ...envelope, rules: [...envelope.rules, ...rules] }, ...rest };
+  });
   return {
     envelopes,
     entries: translated.map(({ source, envelope, kindData }) => ({
@@ -84,8 +102,9 @@ export function translateImport(selected: readonly SelectedEntry[], context: Imp
       envelope,
       ...(kindData === undefined ? {} : { kindData }),
     })),
+    archetypes: archetypes.entries,
     vocabulary: vocabulary.entries,
     vocabularyGaps: vocabulary.gaps,
-    kindDataGaps: translated.flatMap(({ gaps }) => gaps),
+    kindDataGaps: [...archetypes.gaps, ...translated.flatMap(({ gaps }) => gaps)],
   };
 }

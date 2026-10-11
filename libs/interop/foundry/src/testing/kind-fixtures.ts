@@ -1,7 +1,9 @@
 import { slugName, SourceKind } from '@pioneer/rules/sdk';
 
+import type { ImportedEnvelope } from '../imported-envelope';
 import type { GapFields } from '../kind-data-gaps';
 import type { ImportedEntry, ImportTranslation } from '../translate-import';
+import type { ImportedKindData } from '../translate-kind-data';
 import { playerCore, translate } from './import-fixtures';
 import type { DocumentFixture } from './import-fixtures';
 
@@ -94,8 +96,14 @@ export function dataOf(documents: readonly DocumentFixture[], slug: string): unk
   return entryOf(translate(documents), slug)?.kindData?.data;
 }
 
+/** An imported entry or an archetype: an envelope and its kind data. */
+interface Translated {
+  readonly envelope: ImportedEnvelope;
+  readonly kindData?: ImportedKindData;
+}
+
 /** The entry as `ContentEntry` takes it, with a located source in place of the import's book-only one. */
-export function contentEntry(entry: ImportedEntry | undefined): unknown {
+export function contentEntry(entry: Translated | undefined): unknown {
   return (
     entry?.kindData && {
       ...entry.envelope,

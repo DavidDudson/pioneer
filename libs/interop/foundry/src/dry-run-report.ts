@@ -123,12 +123,16 @@ function kindCounts(kinds: readonly ContentKind[]): readonly KindCount[] {
 
 export function kindDataReport({
   entries,
+  archetypes,
   vocabulary,
   kindDataGaps,
   vocabularyGaps,
 }: ImportTranslation): KindDataReport {
   return {
-    kindData: kindCounts(entries.flatMap(({ kindData }) => (kindData === undefined ? [] : [kindData.kind]))),
+    kindData: kindCounts([
+      ...entries.flatMap(({ kindData }) => (kindData === undefined ? [] : [kindData.kind])),
+      ...archetypes.map(({ kindData }) => kindData.kind),
+    ]),
     vocabulary: kindCounts(vocabulary.map(({ kindData }) => kindData.kind)),
     kindDataGaps: keyCounts(kindDataGaps.map(({ reason, field }) => `${reason} ${field}`)),
     vocabularyGaps: keyCounts(vocabularyGaps.map(({ kind, reason }) => `${kind} ${reason}`)),
