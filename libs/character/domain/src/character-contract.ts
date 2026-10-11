@@ -7,6 +7,7 @@ import { Character } from './character';
 import { CharacterId, CharacterName } from './character-fields';
 import { PatchCharacterBody } from './character-patch';
 import { CharacterSlot } from './character-slot';
+import { ClearedPick } from './dependent-picks';
 
 const ById = z.object({ id: CharacterId });
 
@@ -27,6 +28,13 @@ export type CreateCharacterBody = z.infer<typeof CreateCharacterBody>;
  */
 export const CharacterSheet = z.object({ character: Character.codec, slots: z.array(CharacterSlot).readonly() });
 export type CharacterSheet = z.output<typeof CharacterSheet>;
+
+/**
+ * A PATCH's answer: the sheet, and the picks the edit cleared because a slot they are within changed (a heritage of
+ * the old ancestry). Reported once, here; a later read has no record of them.
+ */
+export const PatchedCharacterSheet = CharacterSheet.extend({ cleared: z.array(ClearedPick).readonly() });
+export type PatchedCharacterSheet = z.output<typeof PatchedCharacterSheet>;
 
 /** The character HTTP API, shared by `character-infrastructure` and `character-feature`. */
 export const CharacterContract = {
@@ -60,6 +68,6 @@ export const CharacterContract = {
     params: ById,
     query: NoQuery,
     body: PatchCharacterBody,
-    response: CharacterSheet,
+    response: PatchedCharacterSheet,
   }),
 } as const;

@@ -42,7 +42,7 @@ describe.skipIf(adminUrl === undefined)('selectSlot and clearSlot (postgres)', (
       name: CharacterName.parse('Merisiel'),
       ancestry: humanAncestryId,
     });
-    const selected = await service.patch(fixtureOwnerId, created.id, {
+    const { character: selected } = await service.patch(fixtureOwnerId, created.id, {
       expectedVersion: FIRST_VERSION,
       patch: { field: CharacterPatchField.SelectSlot, slot: ANCESTRY_SLOT, selection: elf },
     });

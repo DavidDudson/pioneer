@@ -12,7 +12,8 @@ export {
   boostSlots,
   BoostSource,
 } from './attribute-boosts';
-export { ANCESTRY_SLOT, BACKGROUND_SLOT, CHARACTER_ROOT_SLOTS, CLASS_SLOT } from './character-slots';
+export { ANCESTRY_SLOT, BACKGROUND_SLOT, CHARACTER_ROOT_SLOTS, CLASS_SLOT, HERITAGE_SLOT } from './character-slots';
+export { ClearedPick, unfitPicks } from './dependent-picks';
 export { CharacterSlot, SlotInvalidMessage, SlotStatus, SlotSubject, SlotSubjectKind } from './character-slot';
 export { characterSlots } from './character-slot-status';
 export {
@@ -22,6 +23,7 @@ export {
   type SlotRefusal,
   SlotRefusalField,
   slotRefusal,
+  rootSlotOptions,
 } from './slot-offer';
 export {
   CharacterContract,
@@ -29,6 +31,7 @@ export {
   CharacterSheet,
   CharacterSort,
   CreateCharacterBody,
+  PatchedCharacterSheet,
 } from './character-contract';
 export {
   CHARACTER_LEVEL_MAX,

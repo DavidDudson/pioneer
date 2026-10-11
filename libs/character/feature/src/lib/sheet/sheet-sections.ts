@@ -10,6 +10,7 @@ export interface SheetSection {
  */
 export const SHEET_SECTIONS = {
   identity: { anchor: 'sheet-identity', headingKey: 'character.sheet.identityHeading' },
+  build: { anchor: 'sheet-build', headingKey: 'character.sheet.buildHeading' },
   attributes: { anchor: 'sheet-attributes', headingKey: 'character.sheet.attributesHeading' },
   defences: { anchor: 'sheet-defences', headingKey: 'character.sheet.defencesHeading' },
   statistics: { anchor: 'sheet-statistics', headingKey: 'character.sheet.statisticsHeading' },

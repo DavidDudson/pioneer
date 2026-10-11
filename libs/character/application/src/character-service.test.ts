@@ -62,7 +62,7 @@ describe('CharacterService', () => {
     const created = await service.create(amiri, { name: kyra, ancestry: humanAncestryId });
     expect(created.id[14]).toBe('4');
     expect(created.ownerId).toBe(amiri);
-    const patched = await service.patch(
+    const { character: patched } = await service.patch(
       amiri,
       created.id,
       firstVersion({
@@ -90,7 +90,8 @@ describe('CharacterService', () => {
     let version = FIRST_VERSION;
     for (const patch of edits) {
       // oxlint-disable-next-line no-await-in-loop -- each edit needs the version the previous one saved
-      ({ version } = await service.patch(amiri, created.id, { expectedVersion: version, patch }));
+      const { character } = await service.patch(amiri, created.id, { expectedVersion: version, patch });
+      ({ version } = character);
     }
     expect(repository.audits).toStrictEqual([
       { actor: amiri, command: CharacterCommand.CreateCharacter },

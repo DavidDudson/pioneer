@@ -86,10 +86,21 @@ The character stores `SlotKey → Selection` only. Consequences:
 
 The player picks with `selectSlot { slot, selection }` and empties a slot with `clearSlot { slot }`, each a PATCH
 audited by name. `selectSlot` resolves the character's grants over its other picks at every level from 20 down,
-with `ancestry`, `background` and `class` as root slots (`CHARACTER_ROOT_SLOTS`), and refuses with a reason when the
-slot is open at no level up to 20 (`character.validation.slotNotOpen`) or offers the selection at none
+with `ancestry`, `heritage`, `background` and `class` as root slots (`CHARACTER_ROOT_SLOTS`), and refuses with a
+reason when the slot is open at no level up to 20 (`character.validation.slotNotOpen`) or offers the selection at none
 (`character.validation.selectionNotOffered`). Only a new selection is checked: one already stored stays, however
 the level or content changes.
+
+The heritage slot is `within` the ancestry slot: it offers the heritages whose `ancestry` is the picked one, and the
+versatile heritages, which have none. An edit that leaves a heritage its new ancestry doesn't offer (picking another
+ancestry, or clearing it) clears that heritage in the same write, audited as the edit's own command, and the PATCH
+answer names it under `cleared`, once: the sheet shows it until dismissed or the next edit. This is the one
+exception to keeping picks: the heritage belongs to the ancestry the player just replaced, so keeping it would only
+flag a choice they already undid. A heritage that stops fitting without an edit (an errata, content not loaded) stays
+and reads invalid, like any other pick.
+
+The sheet's Build section summarises the character: class, subclass, ancestry, heritage, background, deity, key
+attribute and size, each empty part saying what to pick, with Edit build taking focus to the pickers.
 
 Each slot's status is worked out on every read, never stored (`characterSlots`,
 [ADR-0035](../adr/0035-character-reads-carry-slot-status.md)). `GET` and `PATCH /characters/:id` answer with the

@@ -141,3 +141,17 @@ export function slotRefusal(
   }
   return open ? NOT_OFFERED : { field: SlotRefusalField.Slot, message: message('character.validation.slotNotOpen') };
 }
+
+/**
+ * What one of the character's own slots offers over its other picks, by name: every background, or the heritages of
+ * its ancestry and the versatile ones. Empty for a slot that isn't one of its own.
+ */
+export function rootSlotOptions(
+  document: CharacterDocument,
+  content: SlotContent,
+  slot: SlotKey,
+): readonly OfferedOption[] {
+  const picks = new Map(Object.entries(document.build.choices).map(([key, value]) => [SlotKey.parse(key), value]));
+  const { rootSlots } = resolveSlotsAt(Level.parse(document.level), { ...content, picks });
+  return rootSlots.find((each) => each.key === slot)?.options ?? [];
+}

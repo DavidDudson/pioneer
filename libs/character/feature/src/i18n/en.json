@@ -40,7 +40,16 @@
     "updated": "· updated",
     "version": "· version {version}",
     "conflict": "Someone else changed this character. Showing their latest version.",
-    "saveFailed": "Could not save. Try again."
+    "saveFailed": "Could not save. Try again.",
+    "buildHeading": "Build",
+    "heritage": "Heritage",
+    "background": "Background",
+    "cleared": {
+      "heading": "Cleared by your last change",
+      "heritage": "{name} doesn’t belong to the new ancestry, so your heritage was cleared. Pick another.",
+      "dismiss": "Dismiss"
+    },
+    "notChosen": "Not chosen"
   },
   "validation": {
     "unknownAncestry": "That ancestry is not available. Choose another.",

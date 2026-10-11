@@ -20,6 +20,7 @@ const STATES: Readonly<Record<SlotStatus, ChoiceState>> = {
 /** What each of the character's own slots is called. */
 const ROOT_LABEL_KEYS: ReadonlyMap<ContentKind, string> = new Map([
   [ContentKind.Ancestry, 'rules.choices.slot.ancestry'],
+  [ContentKind.Heritage, 'rules.choices.slot.heritage'],
   [ContentKind.Background, 'rules.choices.slot.background'],
   [ContentKind.Class, 'rules.choices.slot.class'],
 ]);

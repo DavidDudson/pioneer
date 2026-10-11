@@ -47,6 +47,11 @@ function sheet(version: number, level: number): Record<string, unknown> {
   };
 }
 
+/** A PATCH's answer: the sheet, and the picks the edit cleared. */
+function patched(version: number, level: number, cleared: readonly object[] = []): Record<string, unknown> {
+  return { ...sheet(version, level), cleared };
+}
+
 async function settle(): Promise<void> {
   await TestBed.inject(ApplicationRef).whenStable();
 }
@@ -88,7 +93,7 @@ describe(CharacterStore, () => {
     const pending = store.patch({ field: CharacterPatchField.Level, value: CharacterLevel.parse(2) });
     const request = http.expectOne({ method: 'PATCH', url: `/api/characters/${id}` });
     expect(request.request.body).toStrictEqual({ expectedVersion: 1, patch: { field: 'level', value: 2 } });
-    request.flush(sheet(2, 2));
+    request.flush(patched(2, 2));
     await pending;
     expect(store.selected()?.version).toBe(2);
   });
@@ -102,15 +107,34 @@ describe(CharacterStore, () => {
       expectedVersion: 1,
       patch: { field: 'selectSlot', slot: 'ancestry', selection: human },
     });
-    select.flush(sheet(2, 1));
+    select.flush(patched(2, 1));
     await selecting;
 
     const clearing = store.clearSlot(ANCESTRY_SLOT);
     const clear = http.expectOne({ method: 'PATCH', url: `/api/characters/${id}` });
     expect(clear.request.body).toStrictEqual({ expectedVersion: 2, patch: { field: 'clearSlot', slot: 'ancestry' } });
-    clear.flush(sheet(3, 1));
+    clear.flush(patched(3, 1));
     await clearing;
     expect(store.selected()?.version).toBe(3);
+  });
+
+  it('keeps the picks an edit cleared until dismissed, and drops them with the next edit', async () => {
+    await loadSelected();
+    const rockDwarf = { key: 'heritage', selection: 'rock-dwarf', selectionName: 'Rock Dwarf' };
+    const selecting = store.selectSlot(ANCESTRY_SLOT, ChoiceValue.parse('elf'));
+    http.expectOne({ method: 'PATCH' }).flush(patched(2, 1, [rockDwarf]));
+    await selecting;
+    expect(store.cleared()).toStrictEqual([rockDwarf]);
+    store.dismissCleared();
+    expect(store.cleared()).toStrictEqual([]);
+
+    const again = store.selectSlot(ANCESTRY_SLOT, ChoiceValue.parse('dwarf'));
+    http.expectOne({ method: 'PATCH' }).flush(patched(3, 1, [rockDwarf]));
+    await again;
+    const levelling = store.patch({ field: CharacterPatchField.Level, value: CharacterLevel.parse(2) });
+    http.expectOne({ method: 'PATCH' }).flush(patched(4, 2));
+    await levelling;
+    expect(store.cleared()).toStrictEqual([]);
   });
 
   it('a conflict rethrows and reloads the latest version', async () => {
@@ -125,5 +149,23 @@ describe(CharacterStore, () => {
     });
     await expect(pending).rejects.toSatisfy((error: unknown) => ApiError.isConflict(error));
     expect(store.selected()?.version).toBe(3);
+  });
+
+  it('drops a cleared-pick notice when the next edit is refused', async () => {
+    await loadSelected();
+    const selecting = store.selectSlot(ANCESTRY_SLOT, ChoiceValue.parse('elf'));
+    http
+      .expectOne({ method: 'PATCH' })
+      .flush(patched(2, 1, [{ key: 'heritage', selection: 'rock-dwarf', selectionName: 'Rock Dwarf' }]));
+    await selecting;
+    const pending = store.patch({ field: CharacterPatchField.Level, value: CharacterLevel.parse(2) });
+    http
+      .expectOne({ method: 'PATCH' })
+      .flush({ type: 'version-conflict', title: 'Changed', status: 409 }, { status: 409, statusText: 'Conflict' });
+    await vi.waitFor(() => {
+      http.expectOne({ method: 'GET', url: `/api/characters/${id}` }).flush(sheet(3, 5));
+    });
+    await expect(pending).rejects.toSatisfy((error: unknown) => ApiError.isConflict(error));
+    expect(store.cleared()).toStrictEqual([]);
   });
 });

@@ -7,7 +7,9 @@ import type {
   CharacterPatch,
   CharacterSheet,
   CharacterSlot,
+  ClearedPick,
   CreateCharacterBody,
+  PatchedCharacterSheet,
 } from '@pioneer/character/domain';
 import { PathbuilderImportContract } from '@pioneer/interop/pathbuilder';
 import type { CharacterImportReport } from '@pioneer/interop/pathbuilder';
@@ -34,6 +36,7 @@ export class CharacterStore {
   readonly #client = inject(QueryClient);
   readonly #selectedId = signal<CharacterId | undefined>(undefined);
   readonly #importReports = signal<ReadonlyMap<CharacterId, CharacterImportReport>>(new Map());
+  readonly #cleared = signal<readonly ClearedPick[]>([]);
 
   public readonly list = injectQuery(() => ({
     queryKey: characterKeys.list(),
@@ -68,6 +71,9 @@ export class CharacterStore {
   public readonly slots: Signal<readonly CharacterSlot[] | undefined> = computed(() => this.#current()?.slots);
 
   public select(id: CharacterId): void {
+    if (id !== this.#selectedId()) {
+      this.#cleared.set([]);
+    }
     this.#selectedId.set(id);
   }
 
@@ -108,19 +114,30 @@ export class CharacterStore {
     });
   }
 
+  /**
+   * The picks the last edit cleared because a slot they are within changed (a heritage of the old ancestry), until
+   * dismissed or the next edit. Held here, not stored: the server reports them once.
+   */
+  public readonly cleared: Signal<readonly ClearedPick[]> = this.#cleared.asReadonly();
+
+  public dismissCleared(): void {
+    this.#cleared.set([]);
+  }
+
   /** One edit. On success the cached sheet becomes the server's new version, slots read again. */
   public async patch(patch: CharacterPatch): Promise<void> {
     const current = this.selected();
     if (current === undefined) {
       throw new Error('No character selected');
     }
+    // A notice describes the last edit only: any new edit, saved or refused, retires it.
+    this.#cleared.set([]);
     try {
       const saved = await this.#api.call(CharacterContract.patch, {
         params: { id: current.id },
         body: { expectedVersion: current.version, patch },
       });
-      this.#client.setQueryData(characterKeys.detail(saved.character.id), saved);
-      this.#current.set(saved);
+      this.#saved(saved);
       // The list shows names and levels; mark it stale without refetching the sheet.
       await this.#client.invalidateQueries({ queryKey: characterKeys.list(), refetchType: 'none' });
     } catch (error: unknown) {
@@ -131,6 +148,13 @@ export class CharacterStore {
       }
       throw error;
     }
+  }
+
+  /** The cached sheet becomes the server's answer to an edit, and its cleared picks the ones to show. */
+  #saved({ cleared, ...sheet }: PatchedCharacterSheet): void {
+    this.#client.setQueryData(characterKeys.detail(sheet.character.id), sheet);
+    this.#current.set(sheet);
+    this.#cleared.set(cleared);
   }
 
   /** Picks `selection` in `slot`. The server refuses a slot the character has at no level, or an option it doesn't offer. */

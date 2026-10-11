@@ -1,0 +1,24 @@
+<fr-stack gap="md">
+  @if (parts(); as shownParts) {
+    <fr-description-list>
+      @for (item of shownParts; track item.part) {
+        <fr-description-item [term]="item.labelKey | transloco">
+          @if (item.name !== undefined) {
+            <fr-text>{{ item.name }}</fr-text>
+          } @else if (item.valueKey; as key) {
+            <fr-text [tone]="item.tone">{{ key | transloco }}</fr-text>
+          }
+        </fr-description-item>
+      }
+    </fr-description-list>
+  } @else {
+    <fr-description-list>
+      @for (labelKey of loadingTerms; track labelKey) {
+        <fr-description-item [term]="labelKey | transloco"><fr-skeleton width="sm" /></fr-description-item>
+      }
+    </fr-description-list>
+  }
+  <fr-stack direction="horizontal">
+    <fr-button (pressed)="edit.emit()">{{ Message.Edit | transloco }}</fr-button>
+  </fr-stack>
+</fr-stack>

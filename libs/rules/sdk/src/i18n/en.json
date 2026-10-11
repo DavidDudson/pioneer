@@ -515,12 +515,44 @@
         "class": "Class",
         "choice": "{entry}: {prompt}",
         "choiceOf": "{entry} choice",
-        "unknown": "A choice the character no longer has"
+        "unknown": "A choice the character no longer has",
+        "heritage": "Heritage"
       },
       "invalid": {
         "notOffered": "This choice no longer offers that option, so it counts for nothing. Choose another.",
         "contentNotLoaded": "The content picked here is not loaded, so it counts for nothing.",
         "boostTaken": "A boost given with this one already raises that attribute, so it counts for nothing. Choose another."
+      }
+    },
+    "build": {
+      "edit": "Edit build",
+      "part": {
+        "class": "Class",
+        "subclass": "Subclass",
+        "ancestry": "Ancestry",
+        "heritage": "Heritage",
+        "background": "Background",
+        "deity": "Deity",
+        "keyAttribute": "Key attribute",
+        "size": "Size"
+      },
+      "empty": {
+        "class": "Pick a class",
+        "subclass": "Pick a subclass",
+        "ancestry": "Pick an ancestry",
+        "heritage": "Pick a heritage",
+        "background": "Pick a background",
+        "deity": "Pick a deity",
+        "keyAttribute": "Pick a class and its key attribute",
+        "size": "Pick an ancestry for its size"
+      },
+      "size": {
+        "tiny": "Tiny",
+        "small": "Small",
+        "medium": "Medium",
+        "large": "Large",
+        "huge": "Huge",
+        "gargantuan": "Gargantuan"
       }
     }
   }
