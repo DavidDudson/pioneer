@@ -402,6 +402,31 @@
       "byAuthor": " by {author}",
       "byUnknownAuthor": " by an unknown author",
       "separator": "; "
+    },
+    "defences": {
+      "immunities": "Immunities",
+      "weaknesses": "Weaknesses",
+      "resistances": "Resistances",
+      "noImmunities": "No immunities.",
+      "noWeaknesses": "No weaknesses.",
+      "noResistances": "No resistances.",
+      "immunity": "Immunity {target}",
+      "weakness": "Weakness{hasValue, select, yes { {value}} other {}} {target}{hasExceptions, select, yes {, except {exceptions}} other {}}",
+      "resistance": "Resistance{hasValue, select, yes { {value}} other {}} {target}{hasExceptions, select, yes {, except {exceptions}} other {}}",
+      "groupTypes": "{group} ({types})",
+      "group": {
+        "all": "all damage",
+        "physical": "physical",
+        "energy": "energy"
+      },
+      "status": {
+        "conditional": "Conditional",
+        "superseded": "Superseded",
+        "failed": "Failed"
+      },
+      "appliesWhen": "Applies when {summary}.",
+      "supersededBy": "{name} counts instead.",
+      "from": "From {name}."
     }
   }
 }
