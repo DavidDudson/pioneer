@@ -649,9 +649,9 @@ flowchart LR
     damage or healing (`untyped` is reported and left out), and a scroll's or wand's embedded spell as its `spell`
     entry by slug at the rank Foundry casts it. Ammunition is fired as the kinds Foundry crafts it as, or its own
     kind; it fits any weapon that doesn't take a magazine when Foundry names none. `canBeAmmo` is reported.
-  - Equipment's usage and apex attribute; a container's capacity, the Bulk it ignores worn, and its Bulk held when
-    that differs from worn. A capacity of 0 and a container whose contents Foundry does not stow (`stowing: false`,
-    a sack) are reported. Treasure keeps its category.
+  - Equipment's usage and apex attribute; a container's capacity, the Bulk it ignores however it is carried, and its
+    Bulk held when that differs from worn. A capacity of 0 and a container whose contents Foundry does not stow
+    (`stowing: false`, a sack) are reported. Treasure keeps its category.
   - A rune is fundamental when its slug is one of the potency, striking, resilient or reinforcing grades
     (`striking-greater` is grade 2), else property. Its usage gives the item it is etched onto and a restriction
     spelled out (`etched-onto-med-heavy-armor` is armour, `medium-or-heavy`); one naming an item and a restriction

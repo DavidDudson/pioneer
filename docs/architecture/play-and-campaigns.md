@@ -250,7 +250,9 @@ Conditions are content with values (frightened 2), implied conditions as `GrantI
 blinded and off-guard), overrides (_off-guard_ is one condition no matter how many sources), and durations:
 rounds, until start or end of a turn, until removed, sustained. The engine treats active conditions and effects as
 items in the effective set, so they show in breakdowns like anything else ("−2 status, frightened 2, from
-Demoralize by Goblin Warrior, round 3").
+Demoralize by Goblin Warrior, round 3"). A condition the character's stored inputs bring, such as encumbered, is
+worked out on every read rather than stored, and play sync leaves it out
+([ADR-0039](../adr/0039-derived-conditions-are-grant-roots.md)).
 
 End-of-turn bookkeeping (frightened decreasing, persistent damage flat checks, effect expiry) is a pure function
 over play state and the turn event, so it can run in the browser and on the server identically.

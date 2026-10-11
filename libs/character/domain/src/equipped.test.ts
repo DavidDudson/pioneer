@@ -148,7 +148,7 @@ describe('equippedRules', () => {
     expect(equippedRules(withInventory(cloak), content, slots).rules).toStrictEqual([]);
   });
 
-  test('carrying more than 5 Bulk at Strength +0 puts the encumbered condition in play, with a condition hop', () => {
+  test('carrying more than 5 Bulk at Strength +0 puts the encumbered condition in play, over the maximum too', () => {
     const condition = encumberedFixtureId();
 
     expect(equippedRules(anvils(2), content, slots).rules).toStrictEqual([]);
@@ -157,6 +157,10 @@ describe('equippedRules', () => {
         element: { key: 'FlatModifier', selectors: ['ac'], type: 'status', value: -1 },
         origin: { hops: [{ kind: OriginHopKind.Condition, condition }], entry: condition },
       },
+    ]);
+    // 12 Bulk is over the maximum of 10, and still encumbered.
+    expect(equippedRules(anvils(6), content, slots).rules).toMatchObject([
+      { origin: { hops: [{ kind: OriginHopKind.Condition, condition }], entry: condition } },
     ]);
   });
 

@@ -11,11 +11,13 @@
     <fr-stack direction="horizontal" gap="xs" align="center" wrap>
       <fr-text variant="caption">{{ Message.Carried | transloco: shown.carried }}</fr-text>
       @if (shown.badge; as badge) {
-        <fr-badge [tone]="badge.tone">{{ badge.message | transloco }}</fr-badge>
+        <fr-badge variant="solid" [tone]="badge.tone">{{ badge.message | transloco }}</fr-badge>
       }
     </fr-stack>
     <fr-text variant="caption" tone="subtle">{{ Message.Limits | transloco: shown.limits }}</fr-text>
   } @else {
+    <fr-skeleton width="full" />
     <fr-skeleton width="md" />
+    <fr-skeleton width="lg" />
   }
 </fr-stack>

@@ -43,6 +43,7 @@ Accepted. To change a decision, add a new ADR that supersedes the old one; do no
 | [0036](0036-class-names-its-subclass-by-tag.md)               | A class names its subclass by the tag its options carry                           |
 | [0037](0037-item-carry-stored-on-inventory-items.md)          | How an item is carried is stored on the inventory item                            |
 | [0038](0038-skill-slots-come-from-class-data.md)              | Skill slots come from class data, opened by the character domain                  |
+| [0039](0039-derived-conditions-are-grant-roots.md)            | Conditions the character's inputs bring are grant roots, not play state           |
 
 Template:
 

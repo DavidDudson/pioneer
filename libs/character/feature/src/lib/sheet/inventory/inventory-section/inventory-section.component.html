@@ -21,7 +21,7 @@
     <fr-heading variant="subheading" [level]="3">{{ 'character.sheet.inventory.bulkHeading' | transloco }}</fr-heading>
     <fr-async-region [errorMessage]="'character.sheet.inventory.loadError' | transloco">
       <ng-template frAsyncPending><pio-bulk [bulk]="undefined" /></ng-template>
-      <ng-template [frAsyncData]="items"><pio-bulk [bulk]="bulk()" /></ng-template>
+      <ng-template [frAsyncData]="attributes"><pio-bulk [bulk]="bulk()" /></ng-template>
     </fr-async-region>
   </fr-stack>
   <fr-stack gap="sm">

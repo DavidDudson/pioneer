@@ -245,8 +245,9 @@ version 3, #472). `inventory.coins` holds platinum, gold, silver and copper, eac
   hold, weigh nothing, and so does an item no loaded pack has. The limits drop the fraction: a character carrying
   more than 5 plus its Strength modifier is encumbered, and more than 10 plus it is over its maximum
   (`inventoryBulk`). Over the maximum is shown, never refused, since a drop in Strength or a Foundry sync can put a
-  character there. While encumbered, the packs' `condition:encumbered` is a grant root with a `condition` hop, so its
-  rule elements reach the statistics beside the active items' (`equippedRules`); with no such entry loaded, the
+  character there. While encumbered, the packs' `condition:encumbered` is a grant root with a `condition` hop, never stored
+  ([ADR-0039](../adr/0039-derived-conditions-are-grant-roots.md)), so its rule elements reach the statistics beside
+  the active items' (`equippedRules`); with no such entry loaded, the
   meter still says encumbered.
 
 ## Shop

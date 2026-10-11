@@ -18,7 +18,7 @@ export type LightBulk = z.infer<typeof LightBulk>;
 export const WholeBulk = z.int().nonnegative().brand<'WholeBulk'>();
 export type WholeBulk = z.infer<typeof WholeBulk>;
 
-/** A Bulk limit: 5 or 10 plus the Strength modifier, never below 0. */
+/** A Bulk limit: 5 or 10 plus the Strength modifier, which is never below -5. */
 export const BulkLimit = z.int().nonnegative().brand<'BulkLimit'>();
 export type BulkLimit = z.infer<typeof BulkLimit>;
 
@@ -80,13 +80,13 @@ interface Weighed {
 
 /**
  * What `item` holds, less the Bulk the container ignores (a backpack's first 2) however it is carried. Nothing is
- * ignored once it holds more than its capacity, as Foundry pf2e has it.
+ * ignored once it holds more whole Bulk than its capacity, light items dropped, as Foundry pf2e has it.
  */
 function contentsBulk(context: BulkContext, { item, entry }: Weighed): LightBulk {
   const inside = context.contents.get(item.id) ?? [];
   const container = containerOf(entry);
   const held = levelBulk(context, inside);
-  const overfilled = container?.capacity !== undefined && held > container.capacity * ONE_BULK;
+  const overfilled = container?.capacity !== undefined && wholeBulk(held) > container.capacity;
   const ignored = overfilled ? NO_BULK : (container?.ignored ?? 0) * ONE_BULK;
   return LightBulk.parse(Math.max(held - ignored, 0));
 }
@@ -121,15 +121,18 @@ function isBatched({ entry }: Weighed): boolean {
 /**
  * The Bulk of `items` side by side, in one container or loose. Lines of the same content sold in batches add up first
  * (`batchedBulk`), so 5 arrows and 5 more are light; each other line counts on its own with what it holds. An item no
- * loaded pack has weighs nothing.
+ * loaded pack has weighs nothing itself, but what it holds still counts, none of it ignored.
  */
 function levelBulk(context: BulkContext, items: readonly InventoryItem[]): LightBulk {
   const weighed = items.flatMap((item): Weighed[] => {
     const entry = context.content.get(item.item);
     return entry === undefined ? [] : [{ item, entry }];
   });
+  const unknown = items
+    .filter((item) => !context.content.has(item.item))
+    .map((item) => levelBulk(context, context.contents.get(item.id) ?? []));
   const single = weighed.filter((each) => !isBatched(each)).map((each) => lineBulk(context, each));
-  return sum([...single, batchedBulk(weighed.filter((each) => isBatched(each)))]);
+  return sum([...single, ...unknown, batchedBulk(weighed.filter((each) => isBatched(each)))]);
 }
 
 /** Coins weigh 1 Bulk a thousand, of every kind together; fewer weigh nothing. */
@@ -180,7 +183,7 @@ export interface InventoryBulk {
 }
 
 function limit(base: BulkLimit, strength: AttributeModifier): BulkLimit {
-  return BulkLimit.parse(Math.max(base + strength, 0));
+  return BulkLimit.parse(base + strength);
 }
 
 function encumbranceOf(carried: WholeBulk, encumberedAfter: BulkLimit, maximum: BulkLimit): Encumbrance {

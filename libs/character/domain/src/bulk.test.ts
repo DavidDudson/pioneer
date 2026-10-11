@@ -45,12 +45,24 @@ function light(count: number): LightBulk {
   return LightBulk.parse(count);
 }
 
+const WORN = { state: 'worn' };
+const DROPPED = { state: 'dropped' };
+const ONE_HAND = { state: 'held', hands: 1 };
+
 /** A backpack carried as `carry`, holding an anvil and a rope. */
 function packed(carry: object): readonly object[] {
   return [
     line(ItemFixture.Backpack, { id: PACK, carry }),
     line(ItemFixture.Anvil, { container: PACK }),
     line(ItemFixture.Rope, { container: PACK }),
+  ];
+}
+
+/** A worn backpack holding `items`, each moved into it. */
+function inWornPack(items: readonly object[]): readonly object[] {
+  return [
+    line(ItemFixture.Backpack, { id: PACK, carry: WORN }),
+    ...items.map((each) => ({ ...each, container: PACK })),
   ];
 }
 
@@ -62,10 +74,6 @@ function against(modifier: number, items: readonly object[]): InventoryBulk {
 function anvils(count: number): object {
   return line(ItemFixture.Anvil, { quantity: count });
 }
-
-const WORN = { state: 'worn' };
-const DROPPED = { state: 'dropped' };
-const ONE_HAND = { state: 'held', hands: 1 };
 
 describe('lightBulk', () => {
   test('counts negligible as 0, light as 1 and whole Bulk in tens', () => {
@@ -112,14 +120,20 @@ describe('carriedBulk', () => {
     expect(bulkOf(packed(ONE_HAND))).toBe(light(2));
   });
 
-  test('ignores nothing in a container holding more than its capacity', () => {
-    const items = [
-      line(ItemFixture.Backpack, { id: PACK, carry: WORN }),
-      line(ItemFixture.Anvil, { container: PACK, quantity: 2 }),
-      line(ItemFixture.Rope, { container: PACK }),
-    ];
+  test('ignores nothing in a container holding more whole Bulk than its capacity, light items dropped', () => {
+    const full = inWornPack([anvils(2)]);
+    const andRope = inWornPack([anvils(2), line(ItemFixture.Rope)]);
+    const andSword = inWornPack([anvils(2), line(ItemFixture.Longsword)]);
 
-    expect(bulkOf(items)).toBe(light(41));
+    expect(bulkOf(full)).toBe(light(20));
+    expect(bulkOf(andRope)).toBe(light(21));
+    expect(bulkOf(andSword)).toBe(light(50));
+  });
+
+  test('weighs what a container no loaded pack has holds, ignoring none of it', () => {
+    const lost = { id: PACK, item: '5b0e3c4a-0000-5000-8000-000000000000', quantity: 1 };
+
+    expect(bulkOf([lost, line(ItemFixture.Anvil, { container: PACK })])).toBe(light(20));
   });
 
   test('weighs a bag of holding as itself, whatever it holds up to its capacity', () => {
@@ -167,10 +181,9 @@ describe('inventoryBulk', () => {
     expect(against(0, [anvils(5)]).encumbrance).toBe(Encumbrance.Encumbered);
   });
 
-  test('never limits below 0, whatever the Strength', () => {
-    const bulk = against(-5, []);
-
-    expect(bulk.encumberedAfter).toBe(BulkLimit.parse(0));
-    expect(bulk.encumbrance).toBe(Encumbrance.Unencumbered);
+  test('is encumbered past 0 Bulk at Strength -5, the lowest modifier', () => {
+    expect(against(-5, []).encumberedAfter).toBe(BulkLimit.parse(0));
+    expect(against(-5, [line(ItemFixture.Rope, { quantity: 9 })]).encumbrance).toBe(Encumbrance.Unencumbered);
+    expect(against(-5, [line(ItemFixture.Longsword)]).encumbrance).toBe(Encumbrance.Encumbered);
   });
 });

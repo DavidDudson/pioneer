@@ -46,7 +46,7 @@ import {
   Text,
   TextInput,
 } from '@pioneer/frontier';
-import { AncestryId, Attribute, ChoiceValue } from '@pioneer/rules/sdk';
+import { AncestryId, ChoiceValue } from '@pioneer/rules/sdk';
 import type { ContentId, ContentRegistry } from '@pioneer/rules/sdk';
 import {
   AttributesView,
@@ -151,8 +151,6 @@ export class CharacterSheetPage {
     const character = this.character();
     return registry === undefined || character === undefined ? undefined : sheetAttributes(registry, character);
   });
-  /** The Strength modifier the inventory's Bulk limits read; undefined while the registry loads. */
-  protected readonly strength = computed(() => this.attributeView()?.modifiers.get(Attribute.Strength));
   protected readonly defences = computed(() => {
     const registry = this.registry.data();
     const character = this.character();
