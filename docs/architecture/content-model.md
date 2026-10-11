@@ -585,8 +585,9 @@ flowchart LR
     from the class features that raise them, as in Foundry. Ancestry feat slots are the ancestry's, so a class
     whose `ancestryFeatLevels` depart from Player Core's is reported. A class's `skillIncreaseLevels` is kept as data
     (Player Core's when Foundry gives none); attribute boosts are the character's own slots. `spellcasting` is
-    reported, as its rank is per tradition (`spellcasting:<tradition>`), which a class feature names. `attacks.other` (a named
-    weapon group) is reported. Player Core's classes name their `subclass` tag, which Foundry marks nowhere.
+    reported, as its rank is per tradition (`spellcasting:<tradition>`), which a class feature names.
+    `attacks.other` (a named weapon group) is reported. Player Core's classes name their `subclass` tag, which
+    Foundry marks nowhere.
   - A feat's `category`, `prerequisites` as one paragraph of their text, `onlyLevel1`, `maxTakable` (Foundry's
     explicit `null` is `unlimited`, absent once), and `action` when it is used as one, read as an `action` item is
     with `actionCategory` as its category; action data its schema rejects (a reaction whose trigger has links) is
