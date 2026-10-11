@@ -136,7 +136,6 @@ function archetypeOf(system: FoundryFeatSystem, { envelope, archetypes, log }: K
 
 /** The feat's data, unparsed; undefined when its `system` is not shaped as a feat's or its category has no slot. */
 export function featData(input: KindInput): object | undefined {
-  spellcastingRules(input);
   const system = systemOf(FoundryFeatSystem, input);
   if (system === undefined) {
     return undefined;
@@ -146,6 +145,7 @@ export function featData(input: KindInput): object | undefined {
     report(input.log, { reason: KindDataGapReason.UnmappedValue, field: 'category', raw: system.category });
     return undefined;
   }
+  spellcastingRules(input);
   return {
     category: category.data,
     ...setFields({
@@ -160,7 +160,10 @@ export function featData(input: KindInput): object | undefined {
 
 /** The class feature's data, unparsed: its `action` data when it is itself an action, and its tags. */
 export function classFeatureData(input: KindInput): object | undefined {
-  spellcastingRules(input);
   const system = systemOf(FoundryFeatSystem, input);
-  return system === undefined ? undefined : { ...actionOf(system, input), ...tagsOf(system, input) };
+  if (system === undefined) {
+    return undefined;
+  }
+  spellcastingRules(input);
+  return { ...actionOf(system, input), ...tagsOf(system, input) };
 }

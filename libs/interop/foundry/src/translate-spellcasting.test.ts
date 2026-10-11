@@ -106,6 +106,18 @@ describe('translateKindData: spellcasting entries', () => {
     });
   });
 
+  test('a caster feature whose data is invalid gains no spellcasting rules', () => {
+    const broken = translate([
+      { ...WIZARD_SPELLCASTING, system: { ...WIZARD_SPELLCASTING.system, category: 'nonsense' } },
+    ]);
+    const dedication = translate([
+      { ...WIZARD_DEDICATION, system: { ...WIZARD_DEDICATION.system, category: 'nonsense' } },
+    ]);
+
+    expect(rulesIn(broken, 'wizard-spellcasting')).toEqual([]);
+    expect(rulesIn(dedication, 'wizard-dedication')).toEqual([]);
+  });
+
   test('a feature that casts nothing gains nothing', () => {
     expect(rulesIn(translate([FIGHTER_FEATURE]), 'reactive-strike')).toEqual([]);
   });
