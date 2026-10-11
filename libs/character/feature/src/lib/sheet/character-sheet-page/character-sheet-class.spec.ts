@@ -11,6 +11,13 @@ import { id, MERISIEL, openSheet, present } from '../../testing/sheet-page-harne
 const CLERIC = playerCoreClassId('cleric');
 const DOCTRINE = `${playerCoreId(ContentKind.ClassFeature, 'doctrine')}:0`;
 const WARPRIEST = playerCoreId(ContentKind.ClassFeature, 'warpriest');
+const RACKET = `${playerCoreId(ContentKind.ClassFeature, 'rogues-racket')}:0`;
+
+/** Merisiel as a rogue, with `racket` picked when given. */
+function rogue(racket?: string): object {
+  const picks = racket === undefined ? {} : { [RACKET]: playerCoreId(ContentKind.ClassFeature, racket) };
+  return { ...MERISIEL, build: { choices: { class: playerCoreClassId('rogue'), ...picks } } };
+}
 
 /** Merisiel as a cleric, with `choices` picked besides. */
 function cleric(choices: Readonly<Record<string, string>> = {}): object {
@@ -78,6 +85,28 @@ describe('CharacterSheetPage class', () => {
       expect(labels(root)).toContain('Key attribute');
     });
     expect(labels(root)).not.toContain('Subclass');
+  });
+
+  it('asks a thief rogue for no key attribute: Dexterity is its only one', async () => {
+    const { root } = await openSheet(rogue('thief'));
+
+    await vi.waitFor(() => {
+      expect(labels(root)).toContain('Subclass');
+    });
+    expect(labels(root)).not.toContain('Key attribute');
+  });
+
+  it('asks a ruffian rogue for a key attribute, which its racket widens to Strength', async () => {
+    const { root } = await openSheet(rogue('ruffian'));
+    const field = await vi.waitFor(() => fieldNamed(root, 'Key attribute'));
+    await pickIn(field, 'Strength');
+
+    const request = await vi.waitFor(() =>
+      TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: `/api/characters/${id}` }),
+    );
+    expect(request.request.body).toMatchObject({
+      patch: { field: 'selectSlot', slot: 'boost:1:class:0', selection: 'str' },
+    });
   });
 
   it('lists the class features, each with the class and level it came from', async () => {
