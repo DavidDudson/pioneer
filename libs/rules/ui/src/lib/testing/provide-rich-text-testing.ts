@@ -4,15 +4,30 @@ import { provideRouter } from '@angular/router';
 import { TranslocoTestingModule } from '@jsverse/transloco';
 import { provideTranslocoMessageformat } from '@jsverse/transloco-messageformat';
 import { frontierMessages } from '@pioneer/frontier';
+import { engineMessages } from '@pioneer/rules/engine';
+import { formulaMessages } from '@pioneer/rules/formula';
+import { predicateMessages } from '@pioneer/rules/predicate';
 import { rulesMessages } from '@pioneer/rules/sdk';
 import { kernelMessages } from '@pioneer/shared/kernel';
 
-/** The `en` messages rules UI renders with, preloaded with the ICU transpiler, for specs and stories. */
+/**
+ * The `en` messages rules UI renders with, engine output's errors and predicate summaries included, preloaded with
+ * the ICU transpiler, for specs and stories.
+ */
 export function provideRulesUiI18nTesting(): EnvironmentProviders[] {
   return [
     importProvidersFrom(
       TranslocoTestingModule.forRoot({
-        langs: { en: { ...kernelMessages, ...frontierMessages, ...rulesMessages } },
+        langs: {
+          en: {
+            ...kernelMessages,
+            ...frontierMessages,
+            ...rulesMessages,
+            ...formulaMessages,
+            ...predicateMessages,
+            ...engineMessages,
+          },
+        },
         preloadLangs: true,
         translocoConfig: { availableLangs: ['en'], defaultLang: 'en' },
       }),

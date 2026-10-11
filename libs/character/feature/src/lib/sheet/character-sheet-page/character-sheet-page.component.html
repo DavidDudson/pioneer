@@ -72,10 +72,10 @@
     </fr-section>
 
     <fr-section [anchor]="sections.defences.anchor" [heading]="sections.defences.headingKey | transloco">
-      <fr-empty-state
-        [title]="'character.sheet.defencesEmpty' | transloco"
-        [description]="'character.sheet.defencesEmptyHint' | transloco"
-      />
+      <fr-async-region>
+        <ng-template frAsyncPending><pio-defences [defences]="undefined" /></ng-template>
+        <ng-template [frAsyncData]="registry"><pio-defences [defences]="defences()" /></ng-template>
+      </fr-async-region>
     </fr-section>
 
     @if (character(); as character) {

@@ -156,6 +156,11 @@ The defences panel lists the character's immunities, weaknesses and resistances 
   fire, conditional: while raging".
 - Each entry names its origin ("from Fire Resistance Ring"), so the panel explains itself before the breakdown
   inspector lands.
+- A superseded entry says which one counts instead, and a failed one says why, with no value.
+
+The panel is `pio-defences` in `libs/rules/ui`, fed the engine's `Defences` and the display names of the entries,
+immunities and exceptions it names. The sheet derives them with `deriveDefences` over the content registry; until
+the builder puts the character's rule elements in play, every list is empty.
 
 ## Sheet modes
 
