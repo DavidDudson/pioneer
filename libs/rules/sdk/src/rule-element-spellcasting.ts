@@ -1,10 +1,11 @@
 import type { ValueOf } from '@pioneer/shared/kernel';
-import { issueParams, message } from '@pioneer/shared/kernel';
+import { issueParams, message, Pg } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { AttributeSchema } from './attribute';
 import { RulesMessage } from './messages';
 import { RuleElementKey, ruleElementBase, RuleSlug } from './rule-element-base';
+import { SpellRank } from './spell-rank';
 import { MagicTraditionSchema } from './spellcasting-tradition';
 import { SOURCE_SLUG_MAX } from './statistic';
 
@@ -39,3 +40,34 @@ export const SpellcastingEntryElement = z.strictObject({
   ...ruleElementBase,
 });
 export type SpellcastingEntryElement = z.infer<typeof SpellcastingEntryElement>;
+
+/** The most spell slots of one rank, or cantrips, an entry or pool counts; more is clamped here. */
+export const SLOT_COUNT_MAX = 99;
+
+/** How many spell slots or cantrips a `SpellSlots` element adds, or an entry has of one rank. */
+export const SlotCount = Pg.smallint().min(1).max(SLOT_COUNT_MAX).brand<'SlotCount'>();
+export type SlotCount = z.infer<typeof SlotCount>;
+
+/** The ranks a `SpellSlots` element names besides 1 to 10: cantrips, and the entry's highest rank of slots. */
+export const SlotRank = {
+  Cantrip: 'cantrip',
+  Highest: 'highest',
+} as const;
+export type SlotRank = ValueOf<typeof SlotRank>;
+
+/**
+ * Adds spell slots of one rank, or cantrips, to a spellcasting entry: to its own slots, or to a `pool` of slots kept
+ * apart because only some spells go in them (a cleric's divine font, a wizard's curriculum). `highest` is the highest
+ * rank the entry's own slots reach. Counts add up per entry, pool and rank, so a class's table is one element per rank
+ * and level the count changes at, read with level predicates. One for an entry not in play adds nothing. A Pioneer
+ * element with no Foundry counterpart, like `SpellcastingEntry` (ADR-0041).
+ */
+export const SpellSlotsElement = z.strictObject({
+  key: z.literal(RuleElementKey.SpellSlots),
+  entry: EntrySourceSlug,
+  rank: z.union([z.enum(SlotRank), SpellRank]),
+  value: SlotCount,
+  pool: RuleSlug.optional(),
+  ...ruleElementBase,
+});
+export type SpellSlotsElement = z.infer<typeof SpellSlotsElement>;

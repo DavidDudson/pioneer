@@ -70,4 +70,112 @@ describe('spellcastingInPlay', () => {
   test('other rule elements give none', () => {
     expect(entriesOf([[{ key: 'Proficiency', selector: 'spellcasting', rank: 'expert' }, 'feat']])).toEqual([]);
   });
+  test('an entry with no spell slots elements has no slots', () => {
+    const [wizard] = entriesOf([[entry('wizard', 'arcane'), 'wizard-spellcasting']]);
+
+    expect(wizard?.slots).toEqual({ ranks: [] });
+    expect(wizard?.pools).toEqual([]);
+  });
+});
+
+const slots = (entrySlug: string, [rank, value]: readonly [number | string, number], extra: object = {}): object => ({
+  key: 'SpellSlots',
+  entry: entrySlug,
+  rank,
+  value,
+  ...extra,
+});
+
+const AT_THIRD = { predicate: [{ gte: ['self:level', 3] }] };
+const AT_FIFTH = { predicate: [{ gte: ['self:level', 5] }] };
+
+describe('spellcastingInPlay slots', () => {
+  test('counts add up per rank, cantrips apart, lowest rank first, for the elements whose predicates hold', () => {
+    const [wizard] = entriesOf(
+      [
+        [entry('wizard', 'arcane'), 'wizard-spellcasting'],
+        [slots('wizard', [2, 2], AT_THIRD), 'wizard-spellcasting'],
+        [slots('wizard', ['cantrip', 5]), 'wizard-spellcasting'],
+        [slots('wizard', [1, 2]), 'wizard-spellcasting'],
+        [slots('wizard', [1, 1], { predicate: [{ gte: ['self:level', 2] }] }), 'wizard-spellcasting'],
+        [slots('wizard', [3, 2], AT_FIFTH), 'wizard-spellcasting'],
+      ],
+      ['self:level:3'],
+    );
+
+    expect<object | undefined>(wizard?.slots).toEqual({
+      cantrips: 5,
+      ranks: [
+        { rank: 1, count: 3 },
+        { rank: 2, count: 2 },
+      ],
+    });
+  });
+
+  test('slots for an entry not in play add nothing to the others', () => {
+    const entries = entriesOf([
+      [entry('wizard', 'arcane'), 'wizard-spellcasting'],
+      [slots('wizard', [1, 2]), 'wizard-spellcasting'],
+      [slots('cleric', [1, 1]), 'basic-cleric-spellcasting'],
+    ]);
+
+    expect(entries.map(({ slug, slots: own }): [string, object] => [slug, own])).toEqual([
+      ['wizard', { ranks: [{ rank: 1, count: 2 }] }],
+    ]);
+  });
+
+  test('a pool keeps its slots apart, named by the first entry that adds to it', () => {
+    const curriculumCantrip = slots('wizard', ['cantrip', 1], { pool: 'curriculum' });
+    const [wizard] = entriesOf([
+      [entry('wizard', 'arcane'), 'wizard-spellcasting'],
+      [slots('wizard', [1, 2]), 'wizard-spellcasting'],
+      [curriculumCantrip, 'school-of-battle-magic'],
+      [slots('wizard', [1, 1], { pool: 'curriculum' }), 'school-of-battle-magic'],
+      [slots('wizard', [1, 1], { pool: 'bonded' }), 'bonded-item'],
+    ]);
+
+    expect<object | undefined>(wizard?.slots).toEqual({ ranks: [{ rank: 1, count: 2 }] });
+    expect(wizard?.pools.map(({ pool, cantrips, ranks }): object => ({ pool, cantrips, ranks }))).toEqual([
+      { pool: 'bonded', cantrips: undefined, ranks: [{ rank: 1, count: 1 }] },
+      { pool: 'curriculum', cantrips: 1, ranks: [{ rank: 1, count: 1 }] },
+    ]);
+    expect(wizard?.pools[1]?.origin).toEqual(inPlay(curriculumCantrip, 'school-of-battle-magic', { rule: 2 }).origin);
+  });
+
+  test('the highest rank is the highest the entry’s own slots reach, whatever order the elements come in', () => {
+    const [cleric] = entriesOf(
+      [
+        [entry('cleric', 'divine'), 'cleric-spellcasting'],
+        [slots('cleric', ['highest', 4], { pool: 'divine-font' }), 'divine-font'],
+        [slots('cleric', ['highest', 1], { pool: 'divine-font', ...AT_FIFTH }), 'divine-font'],
+        [slots('cleric', [1, 3]), 'cleric-spellcasting'],
+        [slots('cleric', [2, 2], AT_THIRD), 'cleric-spellcasting'],
+        [slots('cleric', ['highest', 1]), 'cleric-spellcasting'],
+        [slots('cleric', ['cantrip', 5]), 'cleric-spellcasting'],
+      ],
+      ['self:level:3'],
+    );
+
+    expect<object | undefined>(cleric?.slots).toEqual({
+      cantrips: 5,
+      ranks: [
+        { rank: 1, count: 3 },
+        { rank: 2, count: 3 },
+      ],
+    });
+    expect(cleric?.pools.map(({ pool, ranks }): object => ({ pool, ranks }))).toEqual([
+      { pool: 'divine-font', ranks: [{ rank: 2, count: 4 }] },
+    ]);
+  });
+
+  test('the highest rank adds nothing to an entry with no slots of its own', () => {
+    const [cleric] = entriesOf([
+      [entry('cleric', 'divine'), 'cleric-dedication'],
+      [slots('cleric', ['cantrip', 2]), 'cleric-dedication'],
+      [slots('cleric', ['highest', 4], { pool: 'divine-font' }), 'divine-font'],
+    ]);
+
+    expect<object | undefined>(cleric?.slots).toEqual({ cantrips: 2, ranks: [] });
+    expect(cleric?.pools).toEqual([]);
+  });
 });

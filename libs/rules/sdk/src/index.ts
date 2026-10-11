@@ -253,8 +253,15 @@ export {
   TraitAlterationMode,
 } from './rule-element-item-alteration';
 export { DefenceValue, ImmunityElement, ResistanceElement, WeaknessElement } from './rule-element-defences';
-export { SpellcastingEntryElement, SpellPreparation } from './rule-element-spellcasting';
 export { SenseElement } from './rule-element-sense';
+export {
+  SLOT_COUNT_MAX,
+  SlotCount,
+  SlotRank,
+  SpellcastingEntryElement,
+  SpellPreparation,
+  SpellSlotsElement,
+} from './rule-element-spellcasting';
 export {
   ArmorCategory,
   MartialCategory,
