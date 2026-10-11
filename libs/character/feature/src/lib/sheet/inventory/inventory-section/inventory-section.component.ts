@@ -4,13 +4,11 @@ import { TranslocoPipe } from '@jsverse/transloco';
 import { INVENTORY_KINDS, itemContent } from '@pioneer/character/domain';
 import type { ItemContent } from '@pioneer/character/domain';
 import { AsyncData, AsyncPending, AsyncRegion, Divider, Heading, Stack } from '@pioneer/frontier';
-import { ContentLoader } from '@pioneer/rules/data-access';
 import { InventoryView } from '@pioneer/rules/ui';
 import type { InventoryGroup } from '@pioneer/rules/ui';
-import { injectQuery } from '@tanstack/angular-query-experimental';
 
 import { CharacterStore } from '../../../data/character-store';
-import { contentRegistryQuery } from '../../../data/content-registry-query';
+import { injectContentRegistry } from '../../../data/content-registry-query';
 import { AddItem } from '../add-item/add-item.component';
 import { CoinsEdit } from '../coins-edit/coins-edit.component';
 import { ItemEdits } from '../item-edits/item-edits.component';
@@ -41,9 +39,8 @@ import { sheetInventory } from '../sheet-inventory';
 })
 export class InventorySection {
   readonly #store = inject(CharacterStore);
-  readonly #loader = inject(ContentLoader);
 
-  protected readonly items = injectQuery(() => contentRegistryQuery(this.#loader, INVENTORY_KINDS));
+  protected readonly items = injectContentRegistry(INVENTORY_KINDS);
   protected readonly content: Signal<ItemContent | undefined> = computed(() => {
     const registry = this.items.data();
     return registry === undefined ? undefined : itemContent(registry);

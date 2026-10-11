@@ -46,7 +46,7 @@ describe('CharacterService inventory edits', () => {
 
   /** Applies `patch` to the character at its current version and keeps the result. */
   async function edit(patch: CharacterPatch): Promise<Character> {
-    character = await service.patch(amiri, character.id, { expectedVersion: character.version, patch });
+    ({ character } = await service.patch(amiri, character.id, { expectedVersion: character.version, patch }));
     return character;
   }
 
@@ -155,7 +155,7 @@ describe('CharacterService inventory limits and staleness', () => {
   test('refuses the item past the limit, so no edit can store a document that reads as corrupt', async () => {
     for (let count = 0; count < INVENTORY_ITEMS_MAX; count += 1) {
       // oxlint-disable-next-line no-await-in-loop -- each add needs the version the previous one saved
-      character = await service.patch(amiri, character.id, { expectedVersion: character.version, patch: rope });
+      ({ character } = await service.patch(amiri, character.id, { expectedVersion: character.version, patch: rope }));
     }
     const error = await rejection(
       service.patch(amiri, character.id, { expectedVersion: character.version, patch: rope }),
@@ -170,7 +170,7 @@ describe('CharacterService inventory limits and staleness', () => {
 
   test('a stale edit is a conflict, not a refusal of the item it names', async () => {
     const stale = character.version;
-    const added = await service.patch(amiri, character.id, { expectedVersion: stale, patch: rope });
+    const { character: added } = await service.patch(amiri, character.id, { expectedVersion: stale, patch: rope });
     const removal: CharacterPatch = { field: CharacterPatchField.RemoveItem, id: onlyItem(added) };
     await service.patch(amiri, character.id, { expectedVersion: added.version, patch: removal });
     // A second tab, still at the version before the removal, removes the same item.

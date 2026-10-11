@@ -58,7 +58,7 @@ import {
   ValidationError,
   VersionConflictError,
 } from '@pioneer/shared/kernel';
-import type { Clock, FieldIssue, UserId } from '@pioneer/shared/kernel';
+import type { Clock, FieldIssue, UserId, Version } from '@pioneer/shared/kernel';
 
 import { mayAccessCharacter } from './character-policy';
 import type { CharacterRepository } from './character-repository';
@@ -238,14 +238,7 @@ export class CharacterService {
     { expectedVersion, patch }: PatchCharacterBody,
   ): Promise<PatchedCharacter> {
     const current = await this.get(actor, id);
-    // A stale edit is a conflict before it is anything else: refusals read the latest version, which the client hasn't seen.
-    if (current.version !== expectedVersion) {
-      throw new VersionConflictError('Character', id);
-    }
-    if (patch.field === CharacterPatchField.SelectSlot) {
-      await this.#assertSlotOffers(current, patch);
-    }
-    await this.#assertInventoryAllows(current, patch);
+    await this.#assertAllowed(current, expectedVersion, patch);
     const now = this.#clock.now();
     const edited = current.apply(patch, now, InventoryItemId.parse(newId()));
     const cleared = await this.#unfitPicks(current, edited, patch);
@@ -258,6 +251,20 @@ export class CharacterService {
       command: PATCH_COMMANDS[patch.field],
     });
     return { character, cleared };
+  }
+
+  /**
+   * Refuses `patch` before anything is written. A stale edit is a conflict before it is anything else: the refusals
+   * read the latest version, which the client hasn't seen.
+   */
+  async #assertAllowed(current: Character, expectedVersion: Version, patch: CharacterPatch): Promise<void> {
+    if (current.version !== expectedVersion) {
+      throw new VersionConflictError('Character', current.id);
+    }
+    if (patch.field === CharacterPatchField.SelectSlot) {
+      await this.#assertSlotOffers(current, patch);
+    }
+    await this.#assertInventoryAllows(current, patch);
   }
 
   /** The picks a slot edit left in slots within the edited one that no longer offer them; none for any other edit. */

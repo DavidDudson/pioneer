@@ -58,12 +58,12 @@ describe.skipIf(adminUrl === undefined)('inventory edits (postgres)', () => {
       name: CharacterName.parse('Merisiel'),
       ancestry: humanAncestryId,
     });
-    const packed = await service.patch(fixtureOwnerId, created.id, {
+    const { character: packed } = await service.patch(fixtureOwnerId, created.id, {
       expectedVersion: FIRST_VERSION,
       patch: { field: CharacterPatchField.AddItem, item: itemFixtureId(ItemFixture.Backpack), quantity: one },
     });
     const [backpack] = packed.document.inventory.items;
-    const stowed = await service.patch(fixtureOwnerId, created.id, {
+    const { character: stowed } = await service.patch(fixtureOwnerId, created.id, {
       expectedVersion: packed.version,
       patch: {
         field: CharacterPatchField.AddItem,

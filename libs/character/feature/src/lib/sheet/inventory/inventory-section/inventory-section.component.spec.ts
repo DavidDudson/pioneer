@@ -252,7 +252,7 @@ describe('InventorySection', () => {
       expectedVersion: 3,
       patch: { field: 'addItem', item: itemFixtureId(ItemFixture.Diamond), quantity: 1 },
     });
-    request.flush({ character: { ...VALEROS, version: 4 }, slots: [] });
+    request.flush({ character: { ...VALEROS, version: 4 }, slots: [], cleared: [] });
     await vi.waitFor(async () => {
       await settle();
       expect(present(form.querySelector<HTMLInputElement>('input[role="combobox"]')).value).toBe('');

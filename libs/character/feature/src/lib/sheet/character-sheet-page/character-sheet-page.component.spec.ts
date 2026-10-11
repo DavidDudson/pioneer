@@ -96,8 +96,8 @@ describe('CharacterSheetPage', () => {
   it('edits only the chosen inputs inline: name, ancestry, heritage, background and level', async () => {
     const { root } = await openSheet();
     // The inventory's item and coin edits are its own (inventory-section spec).
-    const labels = [...root.querySelectorAll('section:not([aria-labelledby="sheet-inventory"]) fr-inline-field')].map((field) =>
-      present(field.querySelector('fr-text')).textContent.trim(),
+    const labels = [...root.querySelectorAll('section:not([aria-labelledby="sheet-inventory"]) fr-inline-field')].map(
+      (field) => present(field.querySelector('fr-text')).textContent.trim(),
     );
     expect(labels).toStrictEqual(['Name', 'Ancestry', 'Heritage', 'Background', 'Level']);
   });
