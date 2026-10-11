@@ -61,7 +61,8 @@ export const RuleElement: z.ZodType<RuleElement> = z
   .pipe(Element);
 export type RuleElement = z.output<typeof Element>;
 
-const RULES_MAX = 64;
+/** A class carries its whole progression as rule elements: Player Core's rogue has 102. */
+const RULES_MAX = 256;
 
 /** A content entry's `rules`: its elements in order (an origin's `RuleIndex` points into it). */
 export const RuleElements = z.array(RuleElement).max(RULES_MAX);

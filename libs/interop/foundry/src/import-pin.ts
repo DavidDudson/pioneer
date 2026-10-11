@@ -1,5 +1,7 @@
 import * as z from 'zod';
 
+import { BacklogItem } from './import-backlog';
+
 /**
  * A pack's Foundry pin (ADR-0031): the foundryvtt/pf2e release tag it is imported from and the SHA-256 of that
  * tag's source archive. Committed in `content/import/<pack>.json` beside the pack's backlog; moving the pin is a
@@ -28,13 +30,10 @@ export type ImportPin = z.infer<typeof ImportPin>;
 
 const BACKLOG_MAX = 100_000;
 
-/**
- * `content/import/<pack>.json`: the pin and the pack's backlog. Backlog items are written by the translation
- * stories; until then the backlog is empty and each item is only required to be an object.
- */
+/** `content/import/<pack>.json`: the pin and the pack's backlog, which pack output writes (`importBacklog`). */
 export const ImportFile = z.strictObject({
   pin: ImportPin,
-  backlog: z.array(z.looseObject({})).max(BACKLOG_MAX).readonly(),
+  backlog: z.array(BacklogItem).max(BACKLOG_MAX).readonly(),
 });
 export type ImportFile = z.infer<typeof ImportFile>;
 

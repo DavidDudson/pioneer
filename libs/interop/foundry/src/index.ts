@@ -48,12 +48,7 @@ export {
   translateEnvelopes,
   type UnknownTrait,
 } from './translate-envelope';
-export {
-  type EnvelopeFields,
-  type FoundryExternalIds,
-  type ImportedEnvelope,
-  type UnlocatedBookSource,
-} from './imported-envelope';
+export { type EnvelopeFields, type FoundryExternalIds, type ImportedEnvelope } from './imported-envelope';
 export { type UnknownMarkup, type UntranslatedEnricher } from './describe-entries';
 export { type FoundryLinks } from './enricher-context';
 export { htmlToRichText, OVERSIZED_MARKUP, type RichTextTranslation } from './html-rich-text';
@@ -96,3 +91,15 @@ export { type KindDataGap, KindDataGapReason } from './kind-data-gaps';
 export { type ImportContext, type ImportedEntry, type ImportTranslation, translateImport } from './translate-import';
 export { importVocabulary, type Vocabulary, type VocabularyEntry, type VocabularyGap } from './vocabulary';
 export { type VocabularyContext, VocabularyGapReason } from './vocabulary-items';
+export {
+  BacklogGap,
+  BacklogGapType,
+  type BacklogEntryItem,
+  BacklogItem,
+  BacklogItemType,
+  LeftOutReason,
+  stripArt,
+} from './import-backlog';
+export { type PackFile, packFiles, packOutput, type PackOutput, type PackOutputContext } from './pack-output';
+export { referencedIds } from './pack-references';
+export { importCoverage, type KindCoverage } from './import-coverage';
