@@ -19,7 +19,7 @@ interface ShownInvestment {
 }
 
 /** Message keys the investment panel renders with, spelled out so the key check sees them. */
-export const InvestmentMessage = {
+const InvestmentMessage = {
   Meter: 'rules.investments.meter',
   Count: 'rules.investments.count',
   None: 'rules.investments.none',

@@ -111,6 +111,7 @@ describe(itemOptions, () => {
     expect(itemOptions(content, 'ARM', compare).map((option) => option.label)).toStrictEqual([
       'Hide-armor',
       'Leather-armor',
+      'Rune-armor',
     ]);
     expect(itemOptions(content, 'ro', compare).map((option) => option.label)).toStrictEqual(['Rope']);
   });

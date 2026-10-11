@@ -161,6 +161,10 @@ export class CharacterSheetPage {
   protected readonly equipment = injectContentRegistry(EQUIPMENT_CONTENT_KINDS, () =>
     carriesEquipment(this.character()),
   );
+  /** The query the engine's registry comes from, so the regions that wait on it show its pending and failed states. */
+  protected readonly engineQuery = computed(() =>
+    carriesEquipment(this.character()) ? this.equipment : this.registry,
+  );
   /** The registry the engine reads: with the item kinds once the character has equipment, undefined while they load. */
   readonly #engineRegistry = computed((): ContentRegistry | undefined =>
     carriesEquipment(this.character()) ? this.equipment.data() : this.registry.data(),

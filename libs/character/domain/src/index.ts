@@ -107,6 +107,7 @@ export {
 } from './inventory';
 export {
   activeState,
+  equippedState,
   handsNeeded,
   INVENTORY_KINDS,
   type InventoryKind,

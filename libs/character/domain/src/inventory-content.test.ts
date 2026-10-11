@@ -79,7 +79,7 @@ const ONE = ONE_HAND;
 const TWO = Hands.parse(2);
 const WORN: Carry = { state: CarryState.Worn };
 
-/** `carried` with leather and hide armour, a greatsword and a cloak, all stowed loose. */
+/** The ids and fixtures `kitted` adds: leather and hide armour, a greatsword and a cloak. */
 const KIT: readonly (readonly [InventoryItemId, ItemFixture])[] = [
   [armorId, ItemFixture.LeatherArmor],
   [hideId, ItemFixture.HideArmor],
@@ -96,6 +96,7 @@ function kitted(): Inventory {
   return stock;
 }
 const kit = kitted();
+
 describe('itemRefusal: carrying', () => {
   test('wears armour and worn items, and holds anything', () => {
     expect(itemRefusal(content, kit, { id: armorId, carry: WORN })).toBe(undefined);
@@ -131,8 +132,16 @@ describe('itemRefusal: carrying', () => {
 });
 
 describe('itemRefusal: investing', () => {
-  test('invests an item with the invested trait', () => {
-    expect(itemRefusal(content, kit, { id: cloakId, invested: true })).toBe(undefined);
+  test('invests an item with the invested trait while it is worn', () => {
+    const wearing = carryItem(kit, cloakId, WORN);
+    expect(itemRefusal(content, wearing, { id: cloakId, invested: true })).toBe(undefined);
+  });
+
+  test('refuses investing an item that is not worn', () => {
+    expect(itemRefusal(content, kit, { id: cloakId, invested: true })).toMatchObject({
+      field: InventoryRefusalField.Invested,
+      message: { key: 'character.validation.investNotWorn' },
+    });
   });
 
   test('refuses investing an item without it, but always allows taking investment off', () => {

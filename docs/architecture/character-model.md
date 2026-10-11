@@ -189,22 +189,24 @@ version 3, #472). `inventory.coins` holds platinum, gold, silver and copper, eac
   has as an item (`unknownItem`) and stowing in an item that holds nothing (`notAContainer`).
 - **Removing a container** moves what it held out to where the container was, so nothing inside is lost.
 - **Carrying.** `carry` is `worn`, `held` with `hands` (1 or 2), `stowed` (the default, and a new item's) or
-  `dropped`. It is build data, not play state, so it works in every sync mode and maps to Foundry pf2e's
-  `system.equipped`. `carryItem { id, carry }` sets it: worn, held or dropped, an item comes out of its container;
-  `moveItem` into a container stows it, and an item inside a container is always stowed. Removing a dropped
+  `dropped`. It lives on the item, as Foundry pf2e's `system.equipped` does, but stays a play-state field whose
+  owner depends on the sync mode ([ADR-0037](../adr/0037-item-carry-stored-on-inventory-items.md)).
+  `carryItem { id, carry }` sets it: worn, held or dropped, an item comes out of its container; `moveItem` into a
+  container stows it, and an item inside a container is always stowed. Removing a dropped
   container leaves what it held on the ground. The document holds no more than two hands' worth, and the server
   refuses holding past that (`handsFull`), wearing what isn't armour or worn (`notWearable`), a second suit of armour
   (`armorWorn`) and a two-handed item in one hand (`needsTwoHands`).
-- **Investing.** `investItem { id, invested }` invests an item with the `invested` trait (`notInvestable` otherwise),
-  at most 10 (`investmentFull`). An invested item taken off stays invested and counts against the limit, but does
-  nothing until it is worn or held again.
+- **Investing.** `investItem { id, invested }` invests an item with the `invested` trait (`notInvestable` otherwise)
+  while it is worn or held as it is used (`investNotWorn`), at most 10 (`investmentFull`). An invested item taken off
+  stays invested and counts against the limit, but does nothing until it is worn or held again.
 - **In play.** An item works on the character while it is carried as it is used: armour worn, a shield or weapon
-  held (a two-handed one in both hands), otherwise as its `usage` says, and, with the `invested` trait, only while
-  invested (`activeState`). Each working item is a grant root with an `inventory` hop whose state is `worn`,
-  `held` or `invested`, so its rule elements, and those of what it grants, are in play with that origin
-  (`equippedRules`). Worn armour adds its bonus, with its potency rune's, to AC as an `item` line named by the
-  armour and sets the Dexterity cap; each held weapon is a Strike input (`equippedInputs`). Armour penalties and
-  Strikes on the sheet are [#473](https://github.com/DavidDudson/pioneer/issues/473) and
+  held (a two-handed one in both hands), anything on the body (worn, tattooed, implanted, affixed) worn, and an item
+  with no usage either way (`equippedState`). Its physical benefits need only that. Its magic, with the `invested`
+  trait, also needs it invested (`activeState`). Each item whose magic works is a grant root with an `inventory`
+  hop whose state is `worn`, `held` or `invested`, so its rule elements, and those of what it grants, are in play
+  with that origin (`equippedRules`). Worn armour adds its bonus, with its potency rune's, to AC as an `item` line
+  named by the armour and sets the Dexterity cap; each held weapon is a Strike input (`equippedInputs`). Armour
+  penalties and Strikes on the sheet are [#473](https://github.com/DavidDudson/pioneer/issues/473) and
   [#482](https://github.com/DavidDudson/pioneer/issues/482).
 - **Grouping.** The sheet lists loose items worn, held, stowed and dropped as they are carried, and each container's
   contents beneath it. The investments panel counts invested items against the limit and lists the breakdown lines

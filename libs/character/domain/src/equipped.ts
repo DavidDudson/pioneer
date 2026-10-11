@@ -20,7 +20,7 @@ import type { ContentId, ItemState, OriginHop } from '@pioneer/rules/sdk';
 import type { CharacterDocument } from './character-document';
 import { CHARACTER_ROOT_SLOTS } from './character-slots';
 import type { Inventory, InventoryItem } from './inventory';
-import { activeState } from './inventory-content';
+import { activeState, equippedState } from './inventory-content';
 import type { ItemContent, ItemEntry } from './inventory-content';
 import type { SlotContent } from './slot-offer';
 
@@ -31,13 +31,20 @@ export interface ActiveItem {
   readonly state: ItemState;
 }
 
-/** The items that work on the character, in inventory order (`activeState`). */
-export function activeItems(inventory: Inventory, content: ItemContent): readonly ActiveItem[] {
+/** How an item is in play: equipped (its physical benefits) or active (its magic). */
+type StateOf = (item: InventoryItem, entry: ItemEntry | undefined) => ItemState | undefined;
+
+function itemsIn(inventory: Inventory, content: ItemContent, stateOf: StateOf): readonly ActiveItem[] {
   return inventory.items.flatMap((item): ActiveItem[] => {
     const entry = content.get(item.item);
-    const state = activeState(item, entry);
+    const state = stateOf(item, entry);
     return entry === undefined || state === undefined ? [] : [{ item, entry, state }];
   });
+}
+
+/** The items whose magic works on the character, in inventory order (`activeState`). */
+export function activeItems(inventory: Inventory, content: ItemContent): readonly ActiveItem[] {
+  return itemsIn(inventory, content, activeState);
 }
 
 function inventoryHop({ item, state }: ActiveItem): OriginHop {
@@ -107,10 +114,11 @@ function weaponInputs(active: readonly ActiveItem[]): readonly WeaponInputs[] {
 
 /**
  * What the character's equipment gives its statistics: the worn armour's bonus and Dexterity cap, and a Strike for
- * each held weapon. Stowed and dropped items, and items not carried as they are used, give nothing.
+ * each held weapon. These are physical benefits, so an invested-trait item gives them uninvested (`equippedState`).
+ * Stowed and dropped items, and items not carried as they are used, give nothing.
  */
 export function equippedInputs(inventory: Inventory, content: ItemContent): EquippedInputs {
-  const active = activeItems(inventory, content);
+  const active = itemsIn(inventory, content, equippedState);
   const worn = active.find(({ entry }) => entry.kind === ContentKind.Armor);
   return { ...armorInputs(worn), weapons: weaponInputs(active) };
 }

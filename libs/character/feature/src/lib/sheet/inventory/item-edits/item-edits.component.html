@@ -48,6 +48,7 @@
       <fr-inline-field [label]="'character.sheet.inventory.investOf' | transloco: { name: name() }" [edit]="invest">
         <fr-toggle-button
           frInlineEditor
+          [ariaLabel]="'character.sheet.inventory.investOf' | transloco: { name: name() }"
           [value]="invest.draft()"
           (valueChange)="invest.change($event)"
           (committed)="invest.flushSoon()"

@@ -33,6 +33,8 @@ export const ItemFixture = {
   HideArmor: 'hide-armor',
   /** A worn cloak with the invested trait that gives +1 item to Perception. */
   Cloak: 'cloak',
+  /** Specific magic armour with the invested trait: its bonus to AC needs no investing, its rules do. */
+  RuneArmor: 'rune-armor',
 } as const;
 export type ItemFixture = (typeof ItemFixture)[keyof typeof ItemFixture];
 
@@ -90,6 +92,12 @@ const ITEMS: Readonly<Record<ItemFixture, ItemFixtureFields>> = {
     data: { bulk: 'light', usage: { type: 'worn', slot: 'cloak' } },
     traits: ['invested', 'magical'],
     rules: [{ key: 'FlatModifier', selectors: ['perception'], type: 'item', value: 1 }],
+  },
+  [ItemFixture.RuneArmor]: {
+    kind: ContentKind.Armor,
+    data: { bulk: 1, category: 'light', group: 'leather', acBonus: 2, dexCap: 3 },
+    traits: ['invested', 'magical'],
+    rules: [{ key: 'FlatModifier', selectors: ['fortitude'], type: 'item', value: 1 }],
   },
 };
 

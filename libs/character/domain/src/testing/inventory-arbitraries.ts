@@ -3,9 +3,10 @@ import type { Arbitrary } from 'fast-check';
 
 import { InventorySchema } from '../inventory';
 import type { Inventory } from '../inventory';
-import { CarryState, HANDS_MAX } from '../item-carry';
+import { CarryState, HANDS_MAX, INVESTED_MAX } from '../item-carry';
 
-const ITEMS_MAX = 8;
+/** Past the investment limit, so the cap is reached. */
+const ITEMS_MAX = 12;
 const QUANTITY_MAX = 999;
 const COINS_MAX = 100_000;
 
@@ -47,7 +48,7 @@ function carryOf({ carry, hands }: Line, contained: boolean, handsFree: number):
 
 /**
  * JSON of a valid inventory: unique ids, each item either loose or inside one listed before it, so containers nest
- * and never loop; only loose items worn, held or dropped, no more held than two hands hold, and fewer invested than
+ * and never loop; only loose items worn, held or dropped, no more held than two hands hold, and no more invested than
  * the limit.
  */
 export const inventoryJson: Arbitrary<unknown> = record({
@@ -55,8 +56,13 @@ export const inventoryJson: Arbitrary<unknown> = record({
   coins: oneof(constant({}), coins),
 }).map(({ lines, coins: purse }) => {
   let handsFree: number = HANDS_MAX;
+  let investable: number = INVESTED_MAX;
   const items = lines.map((each, index) => {
-    const { id, item, quantity, holder, invested } = each;
+    const { id, item, quantity, holder } = each;
+    const invested = each.invested && investable > 0;
+    if (invested) {
+      investable -= 1;
+    }
     const container = holder === undefined || index === 0 ? undefined : lines[holder % index]?.id;
     const carry = carryOf(each, container !== undefined, handsFree);
     if ('hands' in carry && typeof carry.hands === 'number') {

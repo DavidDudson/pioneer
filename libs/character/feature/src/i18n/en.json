@@ -114,7 +114,8 @@
     "notWearable": "That item isn't worn. Hold it, stow it or drop it instead.",
     "armorWorn": "This character already wears armor. Take it off first.",
     "needsTwoHands": "That item takes two hands to hold.",
-    "notInvestable": "That item doesn't have the invested trait, so it can't be invested."
+    "notInvestable": "That item doesn't have the invested trait, so it can't be invested.",
+    "investNotWorn": "An item is invested while it is worn or held as it is used. Put it on first."
   },
   "import": {
     "title": "Import from Pathbuilder",

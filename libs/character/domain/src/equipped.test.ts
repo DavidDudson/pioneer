@@ -4,7 +4,7 @@ import { AttributeModifier, ItemState, OriginHopKind, Slug } from '@pioneer/rule
 import { installRulesFakes } from '@pioneer/rules/sdk/testing';
 
 import type { CharacterDocument } from './character-document';
-import { equippedInputs, equippedRules } from './equipped';
+import { activeItems, equippedInputs, equippedRules } from './equipped';
 import { addItem, carryItem, EMPTY_INVENTORY, investItem, InventoryItemId, ItemQuantity } from './inventory';
 import type { Inventory } from './inventory';
 import { CarryState, Hands, ONE_HAND } from './item-carry';
@@ -70,7 +70,7 @@ describe('equippedInputs', () => {
     });
   });
 
-  test('a two-handed weapon in one hand, or a stowed one, is no Strike', () => {
+  test('a two-handed weapon in one hand, or a dropped one, is no Strike', () => {
     const twoHanded = carrying(
       [ItemFixture.Greatsword, ONE_HANDED],
       [ItemFixture.Longsword, { state: CarryState.Dropped }],
@@ -78,6 +78,19 @@ describe('equippedInputs', () => {
     expect(equippedInputs(twoHanded, content).weapons).toStrictEqual([]);
     const both = carrying([ItemFixture.Greatsword, { state: CarryState.Held, hands: Hands.parse(2) }]);
     expect(equippedInputs(both, content).weapons).toHaveLength(1);
+  });
+});
+
+describe('equippedInputs of an invested-trait item', () => {
+  test('gives its physical benefits uninvested, while its magic waits for investing', () => {
+    const armor = carrying([ItemFixture.RuneArmor, WORN]);
+    expect(equippedInputs(armor, content).armor).toMatchObject({
+      bonus: 2,
+      origin: { hops: [{ kind: OriginHopKind.Inventory, item: idAt(0), state: ItemState.Worn }] },
+    });
+    expect(activeItems(armor, content)).toStrictEqual([]);
+    const invested = activeItems(investItem(armor, idAt(0), true), content);
+    expect(invested.map(({ state }) => state)).toStrictEqual([ItemState.Invested]);
   });
 });
 

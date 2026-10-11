@@ -4,6 +4,8 @@ import { TranslocoPipe } from '@jsverse/transloco';
 import { INVENTORY_KINDS, INVESTED_MAX, itemContent } from '@pioneer/character/domain';
 import type { ItemContent } from '@pioneer/character/domain';
 import { AsyncData, AsyncPending, AsyncRegion, Divider, Heading, Stack } from '@pioneer/frontier';
+import type { AsyncQuery } from '@pioneer/frontier';
+import type { ContentRegistry } from '@pioneer/rules/sdk';
 import { InventoryView, InvestmentsView } from '@pioneer/rules/ui';
 import type { InventoryGroup, Investment } from '@pioneer/rules/ui';
 
@@ -16,8 +18,8 @@ import { sheetInventory } from '../sheet-inventory';
 
 /**
  * The sheet's inventory: items grouped worn, held, stowed and dropped with each item's edits beside it, a form to
- * add an item, the investments against their limit with what each turns on, and the coins. The item kinds load here, apart from the sheet's registry, so a sheet that never scrolls this far
- * never fetches them.
+ * add an item, the investments against their limit with what each turns on, and the coins. The item kinds for the
+ * list and its edits load here; the sheet page loads them for the engine too once the character has equipment.
  */
 @Component({
   selector: 'pio-inventory-section',
@@ -41,6 +43,8 @@ import { sheetInventory } from '../sheet-inventory';
 export class InventorySection {
   /** The invested items and what each turns on, worked out with the sheet's statistics; undefined while they load. */
   public readonly investments = input<readonly Investment[] | undefined>();
+  /** The query the investments' registry comes from, so a failure shows in place of the panel. */
+  public readonly engine = input.required<AsyncQuery<ContentRegistry>>();
 
   readonly #store = inject(CharacterStore);
   protected readonly investedMax = INVESTED_MAX;

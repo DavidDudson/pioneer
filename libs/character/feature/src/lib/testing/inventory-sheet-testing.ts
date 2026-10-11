@@ -15,7 +15,7 @@ import { characterRoutes } from '../character.routes';
 import { provideServerStateTesting } from './provide-server-state-testing';
 
 export const id = CharacterId.parse('0d9f7c1e-3b7a-4c55-9d1f-2a8f2b9c6e10');
-export const BACKPACK = '11111111-1111-4111-8111-111111111111';
+const BACKPACK = '11111111-1111-4111-8111-111111111111';
 export const ROPE = '33333333-3333-4333-8333-333333333333';
 export const SWORD = '44444444-4444-4444-8444-444444444444';
 export const CLOAK = '77777777-7777-4777-8777-777777777777';

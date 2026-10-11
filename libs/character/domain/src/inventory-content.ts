@@ -56,9 +56,13 @@ export interface ItemEdit {
 
 const INVESTED = Trait.parse('invested');
 
-/** Whether `entry` is worn as it is used: armour, or an item whose usage is worn. */
+/**
+ * Whether `entry` is worn as it is used: armour, or an item with a usage other than held. Worn stands in for the
+ * usages that are on the body rather than in a hand (tattooed, implanted, affixed to armour), so they take no hand.
+ */
 export function isWearable(entry: ItemEntry): boolean {
-  return entry.kind === ContentKind.Armor || usageOf(entry)?.type === UsageType.Worn;
+  const usage = usageOf(entry);
+  return entry.kind === ContentKind.Armor || (usage !== undefined && usage.type !== UsageType.Held);
 }
 
 /** Whether `entry` has the invested trait, and so works only while invested. */
@@ -151,6 +155,19 @@ function carryRefusal(
   return undefined;
 }
 
+/** Refuses investing an item without the invested trait, or one not worn or held as it is used. */
+function investRefusal(content: ItemContent, inventory: Inventory, id: InventoryItemId): InventoryRefusal | undefined {
+  const item = inventory.items.find((each) => each.id === id);
+  const entry = item === undefined ? undefined : content.get(item.item);
+  if (!isInvestable(entry)) {
+    return { field: InventoryRefusalField.Invested, message: message('character.validation.notInvestable') };
+  }
+  if (item === undefined || equippedState(item, entry) === undefined) {
+    return { field: InventoryRefusalField.Invested, message: message('character.validation.investNotWorn') };
+  }
+  return undefined;
+}
+
 function contentOf(content: ItemContent, inventory: Inventory, id: InventoryItemId): ItemEntry | undefined {
   const item = inventory.items.find((each) => each.id === id);
   return item === undefined ? undefined : content.get(item.item);
@@ -170,45 +187,48 @@ export function itemRefusal(
   if (item !== undefined && !content.has(item)) {
     return { field: InventoryRefusalField.Item, message: message('character.validation.unknownItem') };
   }
-  const refused = id === undefined || carry === undefined ? undefined : carryRefusal(content, inventory, { id, carry });
-  if (refused !== undefined) {
-    return refused;
-  }
-  if (id !== undefined && invested === true && !isInvestable(contentOf(content, inventory, id))) {
-    return { field: InventoryRefusalField.Invested, message: message('character.validation.notInvestable') };
-  }
-  return containerRefusal(content, inventory, container);
+  const carried = id === undefined || carry === undefined ? undefined : carryRefusal(content, inventory, { id, carry });
+  const investing = id === undefined || invested !== true ? undefined : investRefusal(content, inventory, id);
+  return carried ?? investing ?? containerRefusal(content, inventory, container);
 }
 
-/** Whether `carry` is how `entry` is used: armour worn, a shield or weapon held, otherwise as its usage says. */
+/**
+ * Whether `carry` is how `entry` is used: a shield or weapon held (in both hands when it takes two), armour and
+ * anything else worn on the body worn, and an item with no usage either way.
+ */
 function carriedAsUsed(entry: ItemEntry, carry: Carry): boolean {
-  if (entry.kind === ContentKind.Armor) {
-    return carry.state === CarryState.Worn;
-  }
   if (entry.kind === ContentKind.Shield) {
     return carry.state === CarryState.Held;
   }
-  const usage = usageOf(entry);
-  if (usage?.type === UsageType.Worn) {
-    return carry.state === CarryState.Worn;
-  }
-  if (usage?.type === UsageType.Held) {
+  if (usageOf(entry)?.type === UsageType.Held) {
     return carry.state === CarryState.Held && carry.hands >= handsNeeded(entry);
+  }
+  if (isWearable(entry)) {
+    return carry.state === CarryState.Worn;
   }
   return carry.state === CarryState.Worn || carry.state === CarryState.Held;
 }
 
 /**
- * How an item works on the character, as its origin hop says: invested for an item with the invested trait, else
- * worn or held. Undefined while it does nothing: stowed or dropped, not worn or held as it is used, an invested-trait
- * item that isn't invested, or content no loaded pack has.
+ * How an item is equipped: worn or held as it is used. Its physical benefits, such as armour's bonus to AC or a
+ * weapon's Strike, need only this. Undefined while stowed, dropped, carried another way, or its content is gone.
  */
-export function activeState(item: InventoryItem, entry: ItemEntry | undefined): ItemState | undefined {
+export function equippedState(item: InventoryItem, entry: ItemEntry | undefined): ItemState | undefined {
   if (entry === undefined || !carriedAsUsed(entry, item.carry)) {
     return undefined;
   }
-  if (isInvestable(entry)) {
-    return item.invested === true ? ItemState.Invested : undefined;
-  }
   return item.carry.state === CarryState.Worn ? ItemState.Worn : ItemState.Held;
+}
+
+/**
+ * How an item's magic works on the character, as its rule elements' origin hop says: invested for an item with the
+ * invested trait, else worn or held. Undefined while it does nothing: not equipped (`equippedState`), or an
+ * invested-trait item that isn't invested, whose magic needs investing though its physical benefits don't.
+ */
+export function activeState(item: InventoryItem, entry: ItemEntry | undefined): ItemState | undefined {
+  const equipped = equippedState(item, entry);
+  if (equipped === undefined || !isInvestable(entry)) {
+    return equipped;
+  }
+  return item.invested === true ? ItemState.Invested : undefined;
 }

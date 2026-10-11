@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import type { Signal } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import {
   CharacterPatchField,
@@ -21,6 +22,7 @@ import {
   TextInput,
   ToggleButton,
 } from '@pioneer/frontier';
+import { filter, merge } from 'rxjs';
 import * as z from 'zod';
 
 import { CharacterStore } from '../../../data/character-store';
@@ -36,6 +38,12 @@ const CarryDraft = z.enum(CarryChoice);
 const InvestedDraft = z.boolean();
 
 const NO_QUANTITY = 1;
+
+/** The invest field's read view, invested or not. */
+interface InvestLabels {
+  readonly on: string;
+  readonly off: string;
+}
 
 /**
  * One item's edits beside it on the sheet: how many, the player's name for it, the container it is in, how it is
@@ -60,6 +68,16 @@ export class ItemEdits {
   readonly #store = inject(CharacterStore);
   readonly #format = inject(LocaleFormat);
   readonly #i18n = inject(TranslocoService);
+  readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
+  readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
+  /** "Invested" and "Not invested", re-read when the language changes or the messages load. */
+  readonly #investLabels = computed((): InvestLabels => {
+    this.#messages();
+    return {
+      on: this.#i18n.translate('character.sheet.inventory.invested'),
+      off: this.#i18n.translate('character.sheet.inventory.notInvested'),
+    };
+  });
   readonly #item: Signal<InventoryItem | undefined> = computed(() =>
     this.#store.selected()?.document.inventory.items.find((each) => each.id === this.id()),
   );
@@ -142,8 +160,7 @@ export class ItemEdits {
     schema: InvestedDraft,
     save: async (value) =>
       this.#store.patch({ field: CharacterPatchField.InvestItem, id: this.id(), invested: InvestedDraft.parse(value) }),
-    format: (value) =>
-      this.#i18n.translate(value ? 'character.sheet.inventory.invested' : 'character.sheet.inventory.notInvested'),
+    format: (value) => this.#investLabels()[value ? 'on' : 'off'],
   });
 
   protected readonly remove = async (): Promise<void> => {
