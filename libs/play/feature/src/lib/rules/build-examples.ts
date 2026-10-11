@@ -122,7 +122,7 @@ export const reactiveStrike = {
   level: FIRST_LEVEL,
   traits: ['fighter'],
   // The feature is passive: it grants the Reactive Strike action, as Foundry pf2e does.
-  rules: [{ key: 'GrantItem', item: playerCoreId('action:reactive-strike-action') }],
+  rules: [{ key: 'GrantItem', item: playerCoreId('action:reactive-strike') }],
   data: {},
 };
 

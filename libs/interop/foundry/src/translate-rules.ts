@@ -1,4 +1,4 @@
-import { RuleElement, RuleElementKey } from '@pioneer/rules/sdk';
+import { ContentKind, RuleElement, RuleElementKey } from '@pioneer/rules/sdk';
 import type { ContentId } from '@pioneer/rules/sdk';
 import * as z from 'zod';
 
@@ -38,13 +38,40 @@ function withPioneerFormula(raw: unknown): unknown {
 const GRANT_FIELDS_REPLACED: ReadonlySet<string> = new Set(['uuid', 'inMemoryOnly', 'onDeleteActions']);
 
 /**
- * Foundry's delete actions a derived grant already has: the grant goes with its granter (`cascade`, the default for an
- * item that is not physical) and cannot be removed alone (`restrict`). Any other (`detach`: the grantee stays when
- * its granter goes, as Prone after Unconscious) has no Pioneer meaning, so the element is kept for the backlog.
+ * Foundry's delete actions, as a derived grant reads them. The granter side decides: `cascade` (the grant goes with
+ * its granter) is a derived grant, `detach` (the grantee stays, as Prone after Unconscious) is not, and Foundry
+ * defaults to `detach` for a physical item and `cascade` for anything else. The grantee side (`restrict`, `detach`:
+ * whether the grantee can be removed alone) has no Pioneer meaning, as a granted entry is never removed alone;
+ * `cascade` there (removing the grantee removes its granter) is kept for the backlog.
  */
-const DERIVED_DELETE_ACTIONS = z
-  .strictObject({ granter: z.literal('cascade').optional(), grantee: z.literal('restrict').optional() })
+const FoundryDeleteActions = z
+  .strictObject({
+    granter: z.enum(['cascade', 'detach', 'restrict']).optional(),
+    grantee: z.enum(['cascade', 'detach', 'restrict']).optional(),
+  })
   .optional();
+
+/** The kinds Foundry files as physical items, whose grants detach from their granter unless they say otherwise. */
+const PHYSICAL_KINDS: ReadonlySet<ContentKind> = new Set([
+  ContentKind.Armor,
+  ContentKind.Consumable,
+  ContentKind.Equipment,
+  ContentKind.Shield,
+  ContentKind.Treasure,
+  ContentKind.Weapon,
+]);
+
+/** Whether a grant of `item` with Foundry's `onDeleteActions` goes with its granter and only with it. */
+function isDerivedGrant(deletes: unknown, item: ContentId, references: EntryReferences): boolean {
+  const actions = FoundryDeleteActions.safeParse(deletes);
+  if (!actions.success) {
+    return false;
+  }
+  const kind = references.kinds.get(item);
+  const physical = kind !== undefined && PHYSICAL_KINDS.has(kind);
+  const granter = actions.data?.granter ?? (physical ? 'detach' : 'cascade');
+  return granter === 'cascade' && actions.data?.grantee !== 'cascade';
+}
 
 /**
  * A `GrantItem` naming its item by compendium UUID, granting the entry that UUID resolves to instead. Foundry's
@@ -58,7 +85,7 @@ function withGrantedId(raw: unknown, references: EntryReferences): unknown {
   }
   const deletes = 'onDeleteActions' in raw ? raw.onDeleteActions : undefined;
   const item = typeof raw.uuid === 'string' ? resolveUuid(references, raw.uuid) : undefined;
-  if (item === undefined || !DERIVED_DELETE_ACTIONS.safeParse(deletes).success) {
+  if (item === undefined || !isDerivedGrant(deletes, item, references)) {
     return raw;
   }
   const rest = Object.entries(raw).filter(([field]) => !GRANT_FIELDS_REPLACED.has(field));

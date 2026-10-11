@@ -100,7 +100,7 @@ const reactiveStrike = {
   ...entry('class-feature:reactive-strike', 'Reactive Strike'),
   kind: 'class-feature',
   level: 1,
-  rules: [{ key: 'GrantItem', item: idOf('action:reactive-strike-action') }],
+  rules: [{ key: 'GrantItem', item: idOf('action:reactive-strike') }],
   data: {},
 };
 

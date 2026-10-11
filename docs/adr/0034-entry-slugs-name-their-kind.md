@@ -35,3 +35,8 @@ Foundry spells them but leaves slugs ambiguous wherever they are shown or typed;
 - Two entries of one kind and name in one pack still collide and are reported.
 - The rules playground keeps its typed short names (`bravery`), since its picks syntax reads a colon; its ids are
   internal to it.
+- An entry's kind is part of its permanent identity: re-filing an entry under another kind changes its id and needs a
+  remap migration like 0013. The importer therefore settles each document's kind (a feat that is a class feature, a
+  spell that is a ritual) before a pack is committed (#401), not after.
+- Migration 0013 rewrites ids in place rather than expanding and contracting (ADR-0011): there is no production
+  database yet, so this change is fixed forward, never rolled back by image.

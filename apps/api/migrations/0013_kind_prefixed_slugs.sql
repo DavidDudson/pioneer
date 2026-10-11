@@ -1,4 +1,5 @@
 -- Content ids are UUIDv5 of <pack>/<kind>:<name> (ADR-0034): every slug gained its kind, so every id changed.
+-- In place, not expand-then-contract (ADR-0011): there is no production database yet, so this is fixed forward.
 -- A character document names content by id (its build choices), so each old id in it becomes the new one. One
 -- UPDATE per pair: an UPDATE ... FROM changes a row once, and a document can name several entries.
 DO $$

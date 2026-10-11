@@ -117,6 +117,14 @@ describe('ContentEntry', () => {
     ]);
   });
 
+  test('rejects a slug naming another kind, saying the slug it should have', () => {
+    const misfiled = { ...human, slug: 'trait:human', id: idOf('trait:human') };
+
+    expect(issues(misfiled)).toStrictEqual([
+      { path: ['slug'], message: message(RulesMessage.EntrySlugKindMismatch, { expected: 'ancestry:human' }) },
+    ]);
+  });
+
   test('needs at least one source', () => {
     expect(issues({ ...human, sources: [] })).toStrictEqual([
       { path: ['sources'], message: message(ValidationMessage.TooSmall, { origin: 'array', minimum: 1 }) },

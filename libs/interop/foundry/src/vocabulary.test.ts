@@ -4,6 +4,7 @@ import { ContentEntry, ContentKind, KIND_DATA, Rarity, slugName, SourceKind } fr
 
 import { coreRules, coreRulesEntry, coreRulesId, known, playerCore, translate } from './testing/import-fixtures';
 import { DWARF, KEEN_NOSE, plain, slugsOf, vocabularyOf } from './testing/vocabulary-fixtures';
+import type { VocabularyEntry } from './vocabulary';
 import { VocabularyGapReason } from './vocabulary-items';
 
 describe('importVocabulary: traits', () => {
@@ -157,12 +158,17 @@ describe('importVocabulary: damage types', () => {
   });
 
   test('the fire damage type and the fire trait are two slugs', () => {
-    const damageTypes = slugsOf(
-      translate([{ id: 'fIrEbOlT00000000', name: 'Fireball', type: 'spell', system: { traits: { value: ['fire'] } } }]),
-      ContentKind.DamageType,
-    );
+    const translation = translate([
+      { id: 'fIrEbOlT00000000', name: 'Fireball', type: 'spell', system: { traits: { value: ['fire'] } } },
+    ]);
+    const fireOf = (kind: ContentKind): VocabularyEntry | undefined =>
+      vocabularyOf(translation, kind).find(({ envelope }) => slugName(envelope.slug) === 'fire');
+    const trait = fireOf(ContentKind.Trait);
+    const damageType = fireOf(ContentKind.DamageType);
 
-    expect(damageTypes).toEqual(['bludgeoning', 'fire']);
+    expect(plain(trait?.envelope.slug)).toBe('trait:fire');
+    expect(plain(damageType?.envelope.slug)).toBe('damage-type:fire');
+    expect(trait?.envelope.id).not.toBe(damageType?.envelope.id);
   });
 
   test('untyped damage has no Pioneer damage type and is reported', () => {
