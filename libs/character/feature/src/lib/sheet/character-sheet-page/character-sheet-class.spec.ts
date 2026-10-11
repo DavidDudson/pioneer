@@ -25,8 +25,10 @@ const CLERIC_SLOT = {
   selectionName: 'Cleric',
 };
 
+/** The labels of the Identity section's inline fields. */
 function labels(root: HTMLElement): string[] {
-  return [...root.querySelectorAll('fr-inline-field')].map((field) =>
+  const identity = present(root.querySelector('section[aria-labelledby="sheet-identity"]'));
+  return [...identity.querySelectorAll('fr-inline-field')].map((field) =>
     present(field.querySelector('fr-text')).textContent.trim(),
   );
 }
