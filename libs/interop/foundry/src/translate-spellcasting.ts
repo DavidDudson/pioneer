@@ -6,7 +6,7 @@ import type { KindInput } from './kind-data-gaps';
 /**
  * The spellcasting entries and spellcasting rank raises of Player Core's class features and feats. Foundry has no rule
  * element for either: a spellcasting entry is an item the player adds by hand, and its rank is the actor's. The
- * importer adds them by entry slug (ADR-0037), as it names a class's subclass tag; a later book's casters are added
+ * importer adds them by entry slug (ADR-0040), as it names a class's subclass tag; a later book's casters are added
  * with its import, or by hand in the pack (ADR-0031).
  */
 

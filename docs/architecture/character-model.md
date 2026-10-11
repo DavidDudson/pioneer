@@ -115,7 +115,7 @@ raise (`ranksInPlay`, the highest raise winning): the class's starting ranks, a 
 later raise. Armor Class takes the unarmored defence rank until armour is worn.
 
 A caster's spellcasting entries come from the effective set too (`characterSpellcasting`,
-[ADR-0037](../adr/0037-spellcasting-entries-are-rule-elements.md)): each `SpellcastingEntry` element in play is one
+[ADR-0040](../adr/0040-spellcasting-entries-are-rule-elements.md)): each `SpellcastingEntry` element in play is one
 entry, from a class's spellcasting feature, a witch's patron (which names the tradition) or a multiclass dedication.
 Nothing about them is stored, so changing class or patron changes them. A character has one spellcasting rank,
 `spellcasting`, which every entry reads whatever its tradition: a caster class starts trained, and so does anyone

@@ -585,7 +585,7 @@ flowchart LR
     from the class features that raise them, as in Foundry. Ancestry feat slots are the ancestry's, so a class
     whose `ancestryFeatLevels` depart from Player Core's is reported. A class's `skillIncreaseLevels` is kept as data
     (Player Core's when Foundry gives none); attribute boosts are the character's own slots. `spellcasting` is the
-    starting rank of the character's one spellcasting rank (ADR-0037). `attacks.other` (a named weapon group) is
+    starting rank of the character's one spellcasting rank (ADR-0040). `attacks.other` (a named weapon group) is
     reported. Player Core's classes name their `subclass` tag, which Foundry marks nowhere.
   - A feat's `category`, `prerequisites` as one paragraph of their text, `onlyLevel1`, `maxTakable` (Foundry's
     explicit `null` is `unlimited`, absent once), and `action` when it is used as one, read as an `action` item is
@@ -596,7 +596,7 @@ flowchart LR
     Feature categories with no kind (`ancestryfeature`, `calling`, and the rest) are reported and have no data;
     `subfeatures` are reported.
   - Player Core's casters get their spellcasting entries and rank raises by entry slug, since Foundry records neither
-    ([ADR-0037](../adr/0037-spellcasting-entries-are-rule-elements.md)): a `SpellcastingEntry` on the bard, cleric,
+    ([ADR-0040](../adr/0040-spellcasting-entries-are-rule-elements.md)): a `SpellcastingEntry` on the bard, cleric,
     druid and wizard spellcasting features, each witch patron (in its tradition) and the bard, cleric, druid and
     wizard dedications; `Proficiency` raises keyed to the Spellcaster features, a cleric's doctrine and level, and the
     archetypes' Expert and Master Spellcasting feats. A witch dedication's tradition is its patron's, which Foundry

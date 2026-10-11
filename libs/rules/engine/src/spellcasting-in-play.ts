@@ -14,7 +14,7 @@ export interface SpellcastingInPlay extends SpellcastingInputs {
 }
 
 /**
- * The spellcasting entries the `SpellcastingEntry` elements in play give (ADR-0037): one per slug, from the first
+ * The spellcasting entries the `SpellcastingEntry` elements in play give (ADR-0040): one per slug, from the first
  * element with that slug whose predicate holds, in slug order. One that depends on the situation gives none on the
  * sheet. Each is a source `StatisticInputs.spellcasting` derives a spell attack and DC for.
  */

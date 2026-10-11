@@ -28,7 +28,7 @@ const EntrySourceSlug = RuleSlug.refine(
  * spells are prepared. Each entry in play has its own `spell-attack:<slug>` and `spell-dc:<slug>`, and makes the
  * character trained in `spellcasting`, the one rank every entry reads; a `Proficiency` element raises it further. Two in play with
  * one slug are one entry. A Pioneer element with no Foundry counterpart: Foundry's spellcasting entries are items the
- * player adds by hand (ADR-0037).
+ * player adds by hand (ADR-0040).
  */
 export const SpellcastingEntryElement = z.strictObject({
   key: z.literal(RuleElementKey.SpellcastingEntry),

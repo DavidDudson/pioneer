@@ -1,4 +1,4 @@
-# 0037. Spellcasting entries are rule elements
+# 0040. Spellcasting entries are rule elements
 
 - Status: Proposed
 - Date: 2026-10-11

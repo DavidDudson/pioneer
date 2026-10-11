@@ -110,7 +110,7 @@ The entries are the `SpellcastingEntry` elements in play (`spellcastingInPlay`),
 - The base may read the source: `@weapon.attr` (Dexterity for a ranged weapon, the higher of Strength and Dexterity
   for a finesse one, else Strength, as Player Core's "Attack Rolls" has it), `@weapon.prof` (the bonus for
   `attack:<category>`), `@spellcasting.attr` and `@spellcasting.prof` (the bonus for `spellcasting`, the character's
-  one spellcasting rank, whatever the entry's tradition; ADR-0037).
+  one spellcasting rank, whatever the entry's tradition; ADR-0040).
 - A weapon's potency (its potency rune, or a bomb's own item bonus) is not a base term. The engine adds it to the
   weapon's `strike:<slug>` as a synthetic `item` modifier with the slug `weapon-potency`, labelled by a message and
   with the weapon's origin, so it stacks with other item bonuses to attack rolls (a mutagen's): only the highest
@@ -417,7 +417,7 @@ Defences group, `Immunity`, `Weakness` and `Resistance` are in the SDK too (see 
 Strikes, Creature and Actions groups, and the rest of Defences, land with their Epic 2.6 translator stories, so each
 schema arrives with the Foundry content that exercises it.
 
-`SpellcastingEntry` is Pioneer's own too ([ADR-0037](../adr/0037-spellcasting-entries-are-rule-elements.md)): Foundry
+`SpellcastingEntry` is Pioneer's own too ([ADR-0040](../adr/0040-spellcasting-entries-are-rule-elements.md)): Foundry
 has no element for an entry, which its player adds by hand. While its predicate holds it gives the character an entry
 (`slug`, `tradition`, `attribute`, and `preparation`: prepared, spontaneous or innate), and makes them trained in
 `spellcasting`, the one rank every entry reads; a `Proficiency` raises it further. Two in play with one slug are one

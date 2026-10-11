@@ -49,7 +49,7 @@ Option 3 for the definition, option 2 for the references.
   ("Attack Rolls"): Dexterity at range, the higher of Strength and Dexterity with finesse, else Strength.
   `@weapon.prof` and `@spellcasting.prof` read the bonus for `attack:<category>` and `spellcasting:<tradition>`.
   Foundry has no spellings for these; `actor.system.proficiencies.traditions.<tradition>.rank` translates to
-  `@rank.spellcasting.<tradition>`. (Amended by [0037](0037-spellcasting-entries-are-rule-elements.md): one
+  `@rank.spellcasting.<tradition>`. (Amended by [0040](0040-spellcasting-entries-are-rule-elements.md): one
   `spellcasting` rank for every entry, and Foundry's `actor.system.proficiencies.spellcasting.rank` translates to
   `@rank.spellcasting`.)
 - Inside an instance, `@stat.<family>` naming another family derived per the same kind of source reads that

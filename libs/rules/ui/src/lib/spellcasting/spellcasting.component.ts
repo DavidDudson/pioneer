@@ -12,7 +12,7 @@ import { PREPARATION_MESSAGES, SpellcastingMessage, TRADITION_MESSAGES } from '.
 const LOADING_ROWS = 2;
 
 /**
- * A character's spellcasting entries (ADR-0037): each one's tradition, how it casts (prepared, spontaneous or innate)
+ * A character's spellcasting entries (ADR-0040): each one's tradition, how it casts (prepared, spontaneous or innate)
  * and where it came from ("from Wizard Spellcasting"), with its spell attack and spell DC, each expanding in place to
  * its breakdown as any statistic does.
  *

@@ -138,7 +138,7 @@ function startingRanks(system: FoundryClassSystem): (readonly [string, number])[
     ['defense:light', defenses.light],
     ['defense:medium', defenses.medium],
     ['defense:heavy', defenses.heavy],
-    // One rank for all of the character's spellcasting, as Foundry keeps it (ADR-0037).
+    // One rank for all of the character's spellcasting, as Foundry keeps it (ADR-0040).
     ['spellcasting', system.spellcasting],
     [CLASS_DC, 1],
   ];
