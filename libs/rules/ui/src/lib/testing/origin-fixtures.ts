@@ -1,4 +1,13 @@
-import { ContentId, contentId, EventRef, InventoryItemId, Origin, PackId, SlotKey, Slug } from '@pioneer/rules/sdk';
+import {
+  ContentId,
+  contentId,
+  EntrySlug,
+  EventRef,
+  InventoryItemId,
+  Origin,
+  PackId,
+  SlotKey,
+} from '@pioneer/rules/sdk';
 import { Temporal, UserId } from '@pioneer/shared/kernel';
 
 import type { OriginNames } from '../origin-chain/origin-names';
@@ -6,13 +15,13 @@ import type { OriginNames } from '../origin-chain/origin-names';
 const PLAYER_CORE = PackId.parse('player-core');
 const GM_CORE = PackId.parse('gm-core');
 
-const entry = (pack: PackId, slug: string): ContentId => ContentId.parse(contentId(pack, Slug.parse(slug)));
+const entry = (pack: PackId, slug: string): ContentId => ContentId.parse(contentId(pack, EntrySlug.parse(slug)));
 
-const FIGHTER = entry(PLAYER_CORE, 'fighter');
-const SHIELD_BLOCK = entry(PLAYER_CORE, 'shield-block');
-const FRIGHTENED = entry(PLAYER_CORE, 'frightened');
-const RAISE_A_SHIELD = entry(PLAYER_CORE, 'raise-a-shield');
-const WITHOUT_LEVEL = entry(GM_CORE, 'proficiency-without-level');
+const FIGHTER = entry(PLAYER_CORE, 'class:fighter');
+const SHIELD_BLOCK = entry(PLAYER_CORE, 'feat:shield-block');
+const FRIGHTENED = entry(PLAYER_CORE, 'condition:frightened');
+const RAISE_A_SHIELD = entry(PLAYER_CORE, 'action:raise-a-shield');
+const WITHOUT_LEVEL = entry(GM_CORE, 'variant-rule:proficiency-without-level');
 const SLOT = SlotKey.parse('class');
 const SHIELD_ITEM = InventoryItemId.parse('5b0d3c1e-8a7f-4e2b-9c4d-1f6e2a3b4c5d');
 const DEMORALIZE = EventRef.parse('7c1e2d3f-4a5b-4c6d-8e7f-9a0b1c2d3e4f');

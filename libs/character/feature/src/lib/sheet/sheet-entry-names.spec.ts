@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { ContentLoader } from '@pioneer/rules/data-access';
-import { ContentId, contentId, PackId, Slug } from '@pioneer/rules/sdk';
+import { ContentId, contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import { describe, expect, it } from 'vitest';
 
 import { CHARACTER_CONTENT_KINDS } from '../data/content-registry-query';
@@ -8,7 +8,7 @@ import { provideServerStateTesting } from '../testing/provide-server-state-testi
 import { sheetEntryNames } from './sheet-entry-names';
 
 function id(pack: string, slug: string): ContentId {
-  return ContentId.parse(contentId(PackId.parse(pack), Slug.parse(slug)));
+  return ContentId.parse(contentId(PackId.parse(pack), EntrySlug.parse(slug)));
 }
 
 describe(sheetEntryNames, () => {
@@ -18,7 +18,7 @@ describe(sheetEntryNames, () => {
 
     const names = sheetEntryNames(registry);
 
-    expect(names.get(id('player-core', 'elf'))).toBe('Elf');
-    expect(names.get(id('core-rules', 'armor-class'))).toBe('Armor Class');
+    expect(names.get(id('player-core', 'ancestry:elf'))).toBe('Elf');
+    expect(names.get(id('core-rules', 'statistic:armor-class'))).toBe('Armor Class');
   });
 });
