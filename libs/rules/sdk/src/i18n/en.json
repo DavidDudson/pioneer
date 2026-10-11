@@ -496,6 +496,30 @@
         "class": "Class key attribute",
         "free": "Level {level} boost"
       }
+    },
+    "choices": {
+      "none": "No choices yet.",
+      "state": {
+        "open": "Not chosen",
+        "filled": "Chosen",
+        "planned": "Planned for level {level}",
+        "hidden": "Kept, not on the character",
+        "invalid": "Needs a new choice",
+        "invalidAt": "Needs a new choice at level {level}"
+      },
+      "slot": {
+        "ancestry": "Ancestry",
+        "background": "Background",
+        "class": "Class",
+        "choice": "{entry}: {prompt}",
+        "choiceOf": "{entry} choice",
+        "unknown": "A choice the character no longer has"
+      },
+      "invalid": {
+        "notOffered": "This choice no longer offers that option, so it counts for nothing. Choose another.",
+        "contentNotLoaded": "The content picked here is not loaded, so it counts for nothing.",
+        "boostTaken": "A boost given with this one already raises that attribute, so it counts for nothing. Choose another."
+      }
     }
   }
 }

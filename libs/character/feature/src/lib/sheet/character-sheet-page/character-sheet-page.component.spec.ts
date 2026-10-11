@@ -35,6 +35,40 @@ const MERISIEL = {
   updatedAt: '2026-10-07T10:00:00.000Z',
 };
 
+const ELF = contentId(PackId.parse('player-core'), EntrySlug.parse('ancestry:elf'));
+
+/** The slots the server read for Merisiel: a filled ancestry, a planned boost, and a boost it no longer offers. */
+const MERISIEL_SLOTS = [
+  {
+    status: 'filled',
+    key: 'ancestry',
+    subject: { kind: 'root', content: 'ancestry' },
+    selection: ELF,
+    selectionName: 'Elf',
+  },
+  { status: 'open', key: 'background', subject: { kind: 'root', content: 'background' } },
+  {
+    status: 'invalid',
+    key: 'boost:1:ancestry:2',
+    subject: { kind: 'boost', source: 'ancestry', level: 1 },
+    selection: 'con',
+    reason: { key: 'rules.choices.invalid.notOffered' },
+  },
+  {
+    status: 'planned',
+    key: 'boost:5:free:0',
+    subject: { kind: 'boost', source: 'free', level: 5 },
+    level: 5,
+    selection: 'str',
+  },
+  { status: 'planned', key: 'boost:5:free:1', subject: { kind: 'boost', source: 'free', level: 5 }, level: 5 },
+];
+
+/** Merisiel as the server sends her sheet. */
+function sheetOf(character: object, slots: readonly object[] = MERISIEL_SLOTS): object {
+  return { character, slots };
+}
+
 function present<TValue>(value: TValue | null | undefined): TValue {
   if (value === null || value === undefined) {
     throw new Error('Expected element to be rendered');
@@ -63,7 +97,7 @@ async function openSheet(): Promise<OpenSheet> {
     host.remove();
   });
   await vi.waitFor(() => {
-    TestBed.inject(HttpTestingController).expectOne(`/api/characters/${id}`).flush(MERISIEL);
+    TestBed.inject(HttpTestingController).expectOne(`/api/characters/${id}`).flush(sheetOf(MERISIEL));
   });
   const root = present(harness.routeNativeElement);
   await vi.waitFor(async () => {
@@ -97,7 +131,7 @@ async function pickAncestry(root: HTMLElement, name: string): Promise<HTMLElemen
 }
 
 describe('CharacterSheetPage', () => {
-  it('shows identity, attributes, defences and statistics in that order, each a region under a level 2 heading', async () => {
+  it('shows identity, attributes, defences, statistics and choices in that order, each a region under a level 2 heading', async () => {
     const { root } = await openSheet();
 
     const regions = [...root.querySelectorAll('section')].map((region) => {
@@ -109,6 +143,7 @@ describe('CharacterSheetPage', () => {
       ['Attributes', true],
       ['Defences', true],
       ['Statistics', true],
+      ['Choices', true],
     ]);
   });
 
@@ -121,12 +156,29 @@ describe('CharacterSheetPage', () => {
       'Attributes',
       'Defences',
       'Statistics',
+      'Choices',
     ]);
 
     links[1]?.click();
 
     expect(document.activeElement?.textContent.trim()).toBe('Attributes');
     expect(document.activeElement?.tagName).toBe('H2');
+  });
+
+  it('lists every choice with its status, flagging a planned pick and an invalid one with its reason', async () => {
+    const { root } = await openSheet();
+    const choices = present(root.querySelector('section[aria-labelledby="sheet-choices"]'));
+
+    expect(
+      [...choices.querySelectorAll('fr-list-item')].map((item) =>
+        [...item.querySelectorAll('fr-text, fr-badge')].map((part) => part.textContent.trim()).join(' '),
+      ),
+    ).toStrictEqual([
+      'Ancestry Elf Chosen',
+      'Background Not chosen',
+      'Ancestry boost Constitution Needs a new choice This choice no longer offers that option, so it counts for nothing. Choose another.',
+      'Level 5 boost Strength Planned for level 5',
+    ]);
   });
 
   it('shows the modifiers the boost picks give: the elf’s fixed boosts and flaw, then each pick', async () => {
@@ -181,7 +233,7 @@ describe('CharacterSheetPage', () => {
       expectedVersion: 1,
       patch: { field: 'selectSlot', slot: 'ancestry', selection: HUMAN },
     });
-    request.flush({ ...MERISIEL, version: 2, build: { choices: { ancestry: HUMAN } } });
+    request.flush(sheetOf({ ...MERISIEL, version: 2, build: { choices: { ancestry: HUMAN } } }, []));
     await vi.waitFor(async () => {
       await TestBed.inject(ApplicationRef).whenStable();
       expect(field.textContent).toContain('Human');

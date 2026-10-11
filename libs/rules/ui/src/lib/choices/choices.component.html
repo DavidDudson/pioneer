@@ -1,0 +1,17 @@
+@if (lines(); as choices) {
+  @if (choices.length === 0) {
+    <fr-empty-state [title]="Message.None | transloco" />
+  } @else {
+    <fr-list gap="xs">
+      @for (choice of choices; track choice.key) {
+        <fr-list-item><pio-choice-row [line]="choice" /></fr-list-item>
+      }
+    </fr-list>
+  }
+} @else {
+  <fr-list gap="xs">
+    @for (row of loadingRows; track row) {
+      <fr-list-item><fr-skeleton width="md" /></fr-list-item>
+    }
+  </fr-list>
+}

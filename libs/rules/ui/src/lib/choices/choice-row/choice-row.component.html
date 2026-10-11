@@ -1,0 +1,14 @@
+<fr-stack gap="3xs">
+  <fr-stack direction="horizontal" gap="xs" align="center" wrap>
+    <fr-text weight="medium">{{ shown().label.key | transloco: shown().label.params }}</fr-text>
+    @if (shown().selectionKey; as key) {
+      <fr-text>{{ key | transloco }}</fr-text>
+    } @else if (shown().selectionName; as name) {
+      <fr-text>{{ name }}</fr-text>
+    }
+    <fr-badge [tone]="shown().tone">{{ shown().badge.key | transloco: shown().badge.params }}</fr-badge>
+  </fr-stack>
+  @if (shown().reason; as reason) {
+    <fr-text variant="caption" tone="danger">{{ reason.key | transloco: reason.params }}</fr-text>
+  }
+</fr-stack>

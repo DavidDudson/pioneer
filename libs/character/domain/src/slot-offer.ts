@@ -47,8 +47,8 @@ export interface SlotRefusal {
   readonly message: MessageDescriptor;
 }
 
-/** What the slot is checked against: the character's other picks and the content. */
-interface SlotContext extends SlotContent {
+/** What slots are read against: the character's picks and the content. */
+export interface SlotContext extends SlotContent {
   readonly picks: ReadonlyMap<SlotKey, ChoiceValue>;
 }
 
@@ -61,7 +61,8 @@ function offerAt(resolution: GrantResolution, slot: SlotKey): readonly OfferedOp
   return slots.find((each) => each.key === slot)?.options;
 }
 
-function resolveAt(level: Level, { picks, lookup, namespaces }: SlotContext): GrantResolution {
+/** The character's grants at `level` over `picks`, with its own slots as roots. */
+export function resolveSlotsAt(level: Level, { picks, lookup, namespaces }: SlotContext): GrantResolution {
   return resolveGrants({
     roots: [],
     lookup,
@@ -132,7 +133,7 @@ export function slotRefusal(
   };
   let open = false;
   for (const level of levelsDown()) {
-    const options = offerAt(resolveAt(level, context), slot);
+    const options = offerAt(resolveSlotsAt(level, context), slot);
     if (options?.some((option) => option.value === selection) === true) {
       return undefined;
     }

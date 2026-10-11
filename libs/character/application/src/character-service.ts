@@ -3,11 +3,18 @@ import {
   CharacterCommand,
   CharacterId,
   CharacterPatchField,
+  characterSlots,
   PATCH_COMMANDS,
   slotContent,
   slotRefusal,
 } from '@pioneer/character/domain';
-import type { CharacterListQuery, CreateCharacterBody, PatchCharacterBody, SlotPick } from '@pioneer/character/domain';
+import type {
+  CharacterListQuery,
+  CharacterSheet,
+  CreateCharacterBody,
+  PatchCharacterBody,
+  SlotPick,
+} from '@pioneer/character/domain';
 import {
   characterImportReport,
   ImportKind,
@@ -61,6 +68,15 @@ export class CharacterService {
       throw new NotFoundError('Character', id);
     }
     return character;
+  }
+
+  /**
+   * `character` with every slot it has and the slot's status, read over the loaded content (#419). Worked out on each
+   * read, never stored. The caller has already applied the access policy (`get`, `patch`).
+   */
+  public async sheet(character: Character): Promise<CharacterSheet> {
+    const content = await this.#content.registry();
+    return { character, slots: characterSlots(character.document, slotContent(content)) };
   }
 
   /** A new character, owned by the actor. */

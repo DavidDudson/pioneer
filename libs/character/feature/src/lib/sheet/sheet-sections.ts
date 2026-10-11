@@ -13,6 +13,7 @@ export const SHEET_SECTIONS = {
   attributes: { anchor: 'sheet-attributes', headingKey: 'character.sheet.attributesHeading' },
   defences: { anchor: 'sheet-defences', headingKey: 'character.sheet.defencesHeading' },
   statistics: { anchor: 'sheet-statistics', headingKey: 'character.sheet.statisticsHeading' },
+  choices: { anchor: 'sheet-choices', headingKey: 'character.sheet.choicesHeading' },
 } as const satisfies Readonly<Record<string, SheetSection>>;
 
 /** The sections in page order, for the section index. */
