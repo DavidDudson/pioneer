@@ -1,6 +1,6 @@
 import { CharacterRepository } from '@pioneer/character/application';
 import type { CharacterAudit } from '@pioneer/character/application';
-import { Character } from '@pioneer/character/domain';
+import { Character, decodeCharacterDocument } from '@pioneer/character/domain';
 import type { CharacterId, CharacterListQuery, CharacterSort } from '@pioneer/character/domain';
 import { AttributeModifiers } from '@pioneer/rules/sdk';
 import { nextVersion, SortDirection, Temporal, VersionConflictError } from '@pioneer/shared/kernel';
@@ -24,27 +24,26 @@ const SORT_COLUMNS = {
 
 function toCharacter(row: Row): Character {
   return new Character({
-    id: row.id,
+    document: decodeCharacterDocument(row.document),
     version: row.version,
-    ownerId: row.ownerId,
-    name: row.name,
-    ancestry: row.ancestry,
-    level: row.level,
     attributes: AttributeModifiers.codec.parse(row.attributes),
     createdAt: Temporal.Instant.from(row.createdAt),
     updatedAt: Temporal.Instant.from(row.updatedAt),
   });
 }
 
+/** The row for `character`: its document at the current schema version, with the list columns copied from it. */
 function toRow(character: Character): Row {
+  const { document } = character;
   return {
-    id: character.id,
+    id: document.id,
     version: character.version,
-    ownerId: character.ownerId,
-    name: character.name,
-    ancestry: character.ancestry,
-    level: character.level,
+    ownerId: document.ownerId,
+    name: document.name,
+    level: document.level,
     attributes: character.attributes.toWire(),
+    schemaVersion: document.schemaVersion,
+    document,
     createdAt: character.createdAt.toString(),
     updatedAt: character.updatedAt.toString(),
   };

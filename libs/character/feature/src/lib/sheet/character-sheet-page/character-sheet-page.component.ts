@@ -159,7 +159,7 @@ export class CharacterSheetPage {
     empty: undefined,
     schema: AncestryId,
     toPatch: (value) => ({ field: CharacterPatchField.Ancestry, value: AncestryId.parse(value) }),
-    format: (value) => (value === undefined ? '' : this.ancestries.name(value)),
+    format: (value) => this.ancestries.name(value),
   });
   protected readonly level = this.#field<number>({
     read: (character) => character.level,

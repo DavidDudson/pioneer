@@ -1,5 +1,6 @@
 import { afterAll, beforeAll, describe, expect, test } from 'bun:test';
 
+import { Character } from '@pioneer/character/domain';
 import { fixtureOwnerId, humanAncestryId } from '@pioneer/character/domain/testing';
 import { mordredExport } from '@pioneer/interop/pathbuilder/testing';
 import { fixedClock } from '@pioneer/shared/kernel';
@@ -60,7 +61,7 @@ describe.skipIf(adminUrl === undefined)('character routes on seeded content (pos
 
     const created = await api.handle(request('/characters', { name: 'Ezren', ancestry: humanAncestryId }));
     expect(created.status).toBe(200);
-    expect(((await created.json()) as { ancestry: string }).ancestry).toBe(humanAncestryId);
+    expect(Character.codec.parse(await created.json()).ancestry).toBe(humanAncestryId);
   });
 
   test('a Pathbuilder import resolves its ancestry against the seeded packs', async () => {
@@ -69,7 +70,7 @@ describe.skipIf(adminUrl === undefined)('character routes on seeded content (pos
     const response = await api.handle(request('/characters/import/pathbuilder', mordredExport));
 
     expect(response.status).toBe(200);
-    const { character } = (await response.json()) as { character: { ancestry: string } };
-    expect(character.ancestry).toBe(humanAncestryId);
+    const { character } = (await response.json()) as { character: unknown };
+    expect(Character.codec.parse(character).ancestry).toBe(humanAncestryId);
   });
 });

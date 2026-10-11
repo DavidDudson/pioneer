@@ -1,70 +1,95 @@
-import { AncestryId, AttributeModifiers } from '@pioneer/rules/sdk';
+import { AncestryId, AttributeModifiers, ChoiceValue, SlotKey } from '@pioneer/rules/sdk';
 import type { Attribute, AttributeModifier } from '@pioneer/rules/sdk';
-import { FIRST_VERSION, InstantCodec, UserId, Version } from '@pioneer/shared/kernel';
-import type { Temporal } from '@pioneer/shared/kernel';
+import { FIRST_VERSION, InstantCodec, Version } from '@pioneer/shared/kernel';
+import type { Temporal, UserId } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
-import { CHARACTER_LEVEL_MIN, CharacterId, CharacterLevel, CharacterName } from './character-fields';
+import { CharacterDocumentSchema } from './character-document';
+import type { CharacterDocument } from './character-document';
+import { CURRENT_SCHEMA_VERSION } from './character-document-upgrades';
+import { CHARACTER_LEVEL_MIN, CharacterLevel } from './character-fields';
+import type { CharacterId, CharacterName } from './character-fields';
 import { CharacterPatchField } from './character-patch';
 import type { CharacterPatch } from './character-patch';
 
-/** JSON shape of a character on the wire and in storage. */
-export const CharacterWire = z.object({
-  id: CharacterId,
+/** The slot the character's ancestry is picked in (character-model.md, "Choice slots"). */
+const ANCESTRY_SLOT = SlotKey.parse('ancestry');
+
+/**
+ * JSON shape of a character on the wire: its document at the current schema version, plus the row's version and
+ * timestamps. `attributes` is stored apart until #418 works the modifiers out from boost picks.
+ */
+export const CharacterWire = CharacterDocumentSchema.omit({ schemaVersion: true }).extend({
   version: Version,
-  ownerId: UserId,
-  name: CharacterName,
-  ancestry: AncestryId,
-  level: CharacterLevel,
   attributes: AttributeModifiers.codec,
   createdAt: InstantCodec,
   updatedAt: InstantCodec,
 });
 
 interface CharacterProps {
-  readonly id: CharacterId;
+  /** The player's inputs; id, owner, name and level live here and are copied to the row for list queries. */
+  readonly document: CharacterDocument;
   readonly version: Version;
-  /** The user who created it; only they may see or change it. */
-  readonly ownerId: UserId;
-  readonly name: CharacterName;
-  readonly ancestry: AncestryId;
-  readonly level: CharacterLevel;
   readonly attributes: AttributeModifiers;
   readonly createdAt: Temporal.Instant;
   readonly updatedAt: Temporal.Instant;
 }
 
+/** The ancestry picked in the ancestry slot, or `undefined` while the slot is empty. */
+function ancestryOf(document: CharacterDocument): AncestryId | undefined {
+  const picked = AncestryId.safeParse(document.build.choices[ANCESTRY_SLOT]);
+  return picked.success ? picked.data : undefined;
+}
+
 /**
- * Character aggregate root. Immutable: every change returns a new instance,
- * which is what Angular signals want and what keeps server-side invariants
- * in one place.
+ * Character aggregate root, stored as its `CharacterDocument`. Immutable: every change returns a new instance,
+ * which is what Angular signals want and what keeps server-side invariants in one place.
  *
  * Serialization: `Character.codec` decodes wire JSON into a `Character` and
  * encodes it back. Use `Character.codec.parse(unknown)` at trust boundaries.
  */
 export class Character {
   public static readonly codec = z.codec(CharacterWire, z.instanceof(Character), {
-    decode: (wire) => new Character(wire),
-    encode: (character) => character.toProps(),
+    decode: ({ version, attributes, createdAt, updatedAt, ...document }) =>
+      new Character({
+        document: { ...document, schemaVersion: CURRENT_SCHEMA_VERSION },
+        version,
+        attributes,
+        createdAt,
+        updatedAt,
+      }),
+    encode: (character) => {
+      const { schemaVersion: _current, ...document } = character.document;
+      return {
+        ...document,
+        version: character.version,
+        attributes: character.attributes,
+        createdAt: character.createdAt,
+        updatedAt: character.updatedAt,
+      };
+    },
   });
 
-  public readonly id: CharacterId;
+  public readonly document: CharacterDocument;
   public readonly version: Version;
+  public readonly id: CharacterId;
+  /** The user who created it; only they may see or change it. */
   public readonly ownerId: UserId;
   public readonly name: CharacterName;
-  public readonly ancestry: AncestryId;
+  public readonly ancestry: AncestryId | undefined;
   public readonly level: CharacterLevel;
   public readonly attributes: AttributeModifiers;
   public readonly createdAt: Temporal.Instant;
   public readonly updatedAt: Temporal.Instant;
 
   public constructor(props: CharacterProps) {
-    this.id = props.id;
+    this.document = props.document;
     this.version = props.version;
-    this.ownerId = props.ownerId;
-    this.name = props.name;
-    this.ancestry = props.ancestry;
-    this.level = props.level;
+    this.id = props.document.id;
+    this.ownerId = props.document.ownerId;
+    this.name = props.document.name;
+    this.ancestry = ancestryOf(props.document);
+    this.level = props.document.level;
     this.attributes = props.attributes;
     this.createdAt = props.createdAt;
     this.updatedAt = props.updatedAt;
@@ -82,12 +107,15 @@ export class Character {
     readonly now: Temporal.Instant;
   }): Character {
     return new Character({
-      id: input.id,
+      document: CharacterDocumentSchema.parse({
+        schemaVersion: CURRENT_SCHEMA_VERSION,
+        id: input.id,
+        ownerId: input.ownerId,
+        name: input.name,
+        level: input.level ?? CharacterLevel.parse(CHARACTER_LEVEL_MIN),
+        build: { choices: { [ANCESTRY_SLOT]: ChoiceValue.parse(input.ancestry) } },
+      }),
       version: FIRST_VERSION,
-      ownerId: input.ownerId,
-      name: input.name,
-      ancestry: input.ancestry,
-      level: input.level ?? CharacterLevel.parse(CHARACTER_LEVEL_MIN),
       attributes: input.attributes ?? AttributeModifiers.none,
       createdAt: input.now,
       updatedAt: input.now,
@@ -106,13 +134,13 @@ export class Character {
   #changes(patch: CharacterPatch): Partial<CharacterProps> {
     switch (patch.field) {
       case CharacterPatchField.Name: {
-        return { name: patch.value };
+        return { document: { ...this.document, name: patch.value } };
       }
       case CharacterPatchField.Ancestry: {
-        return { ancestry: patch.value };
+        return { document: this.#choose(ANCESTRY_SLOT, ChoiceValue.parse(patch.value)) };
       }
       case CharacterPatchField.Level: {
-        return { level: patch.value };
+        return { document: { ...this.document, level: patch.value } };
       }
       case CharacterPatchField.Attribute: {
         return { attributes: this.attributes.with(patch.attribute, patch.value) };
@@ -124,18 +152,19 @@ export class Character {
     }
   }
 
+  #choose(slot: SlotKey, value: ChoiceValue): CharacterDocument {
+    const { build } = this.document;
+    return { ...this.document, build: { ...build, choices: { ...build.choices, [slot]: value } } };
+  }
+
   public withVersion(version: Version): Character {
     return new Character({ ...this.toProps(), version });
   }
 
   private toProps(): CharacterProps {
     return {
-      id: this.id,
+      document: this.document,
       version: this.version,
-      ownerId: this.ownerId,
-      name: this.name,
-      ancestry: this.ancestry,
-      level: this.level,
       attributes: this.attributes,
       createdAt: this.createdAt,
       updatedAt: this.updatedAt,

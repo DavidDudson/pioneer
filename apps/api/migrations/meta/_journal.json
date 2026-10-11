@@ -85,6 +85,13 @@
       "when": 1791640636679,
       "tag": "0011_content",
       "breakpoints": true
+    },
+    {
+      "idx": 12,
+      "version": "7",
+      "when": 1791680910679,
+      "tag": "0012_character_document",
+      "breakpoints": true
     }
   ]
 }

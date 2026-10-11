@@ -36,7 +36,11 @@ export class AncestryOptions {
       .toSorted((left, right) => this.#format.compare(left.label, right.label));
   });
 
-  public name(id: AncestryId): string {
+  /** The ancestry's name, its id while content loads, or empty while the ancestry slot is unpicked. */
+  public name(id: AncestryId | undefined): string {
+    if (id === undefined) {
+      return '';
+    }
     return this.#registry.data()?.ancestry(id)?.definition.name ?? id;
   }
 }

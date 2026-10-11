@@ -117,6 +117,13 @@ characters        id, owner_id, name, level, version, schema_version, document j
                   created_at, updated_at      -- audited, optimistic concurrency on version
 ```
 
+`name`, `level` and `owner_id` are copies of the document's, written with it in one statement, so lists sort and
+filter on indexed columns. `schema_version` mirrors the document's `schemaVersion`. A read decodes the document with
+`decodeCharacterDocument`, upgrading an older one; the next save writes it back at the current version, so old rows
+are upgraded as they are touched, never by a bulk rewrite. The ancestry is the `ancestry` slot's selection. Until
+[#418](https://github.com/DavidDudson/pioneer/issues/418) works attribute modifiers out from boost picks, the stored
+modifiers stay in an `attributes` column outside the document: they are derived and can't be turned back into boosts.
+
 The document is one aggregate, validated by zod and versioned with the existing `expectedVersion` PATCH pattern.
 Edits stay field-level commands (`selectSlot`, `addItem`, `setHp`, `addCondition`), so the API stays small and each
 command is auditable: its name (`CharacterCommand`) lands in `audit.log.command`, so a gift reads apart from a

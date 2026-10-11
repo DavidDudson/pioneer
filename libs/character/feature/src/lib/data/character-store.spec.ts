@@ -23,7 +23,7 @@ function wire(version: number, level: number): WireCharacter & Record<string, un
     version,
     ownerId: '8f6d2c1a-0b3e-4f5a-9c7d-1e2f3a4b5c6d',
     name: 'Merisiel',
-    ancestry: contentId(PackId.parse('player-core'), Slug.parse('elf')),
+    build: { choices: { ancestry: contentId(PackId.parse('player-core'), Slug.parse('elf')) } },
     level,
     attributes: { str: 0, dex: 4, con: 1, int: 0, wis: 0, cha: 1 },
     createdAt: '2026-10-07T10:00:00.000Z',
