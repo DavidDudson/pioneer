@@ -538,9 +538,9 @@ flowchart LR
     `@Localize` without a label are dropped. Parameters that only change how Foundry shows a roll (`showDC`, `name`,
     `immutable`, `targetOwner`, `shortLabel`) are ignored.
 - **Kind data.** Every Foundry type is filed under a kind (`FOUNDRY_TYPE_KINDS`), a feat of category `classfeature`
-  under `class-feature` and a spell with `ritual` data under `ritual` (`documentKind`); kind data is built for the
-  kinds with a translator (`TRANSLATORS`): the rules core kinds `action` and `condition`, and the build, magic and
-  effect kinds below. The other kinds' stories add theirs. An
+  under `class-feature`, a spell with `ritual` data under `ritual` and equipment with an `etched-onto-…` usage under
+  `rune` (`documentKind`); kind data is built for the kinds with a translator (`TRANSLATORS`): the rules core kinds
+  `action` and `condition`, and the build, magic, effect and equipment kinds below. An
   action's cost comes from `actionType` and `actions`, its frequency period from Foundry's words or ISO 8601
   durations (`PT1H` is `hour`), and its `trigger` and `requirements` from the description's labelled paragraphs when
   they are plain words. A condition's `implies` is its unpredicated `GrantItem`s of conditions, so it lists exactly
@@ -602,6 +602,37 @@ flowchart LR
     `sustained`, `encounter` or `unlimited`; a count of none (until the end of the turn) is reported. A counter
     badge carries over, and a formula badge's `value` is its `formula`. `start`, `tokenIcon`, `unidentified`
     and `context` are play state and are not carried.
+- **Equipment kind data.** Foundry's `ammo` items are consumables of the `ammunition` category, its `backpack` items
+  equipment with a `container`, and equipment with an `etched-onto-…` usage a `rune` (ADR-0023).
+  - Every physical kind: the price's paid coins, with `per` for a batch; Bulk 0 as `negligible`, 0.1 as `light` and
+    a whole number as itself (any other value leaves the item without data), with `bulkPer` the stack Foundry keeps in
+    code (ten arrows, bolts, sling bullets, blowgun darts, wooden taws or rounds; a thousand coins; two thousand gems);
+    a size other than medium, hardness and Hit Points above 0, and a precious material. `quantity`, `containerId`,
+    `equipped`, `identification`, `temporary` and current Hit Points are play state.
+  - Usage: `held-in-one-hand`, `held-in-one-plus-hands` and `held-in-two-hands`; `worn` and `worn<slot>`
+    (`worncloak` is slot `cloak`); `affixed-to-`, `attached-to-`, `applied-to-`, `installed-in-` and `installed-on-`
+    with what follows as `to`; and `tattooed-on-the-body`, `implanted`, `carried` and `other`. Any other usage
+    (`bonded`, `held-in-one-or-two-hands`) is reported.
+  - A weapon's category, group, base item and damage (an empty `die` is flat damage; a bomb's persistent damage as
+    a formula), splash damage, range, reload (`-` is none) and `ammo` as `ammunition`. `bonus` is a bomb's
+    `itemBonus`; on a specific weapon it repeats the potency rune and says nothing, and one that differs is reported.
+    `bonusDamage`, an `expend` other than 1 and `grade` are reported.
+  - Armour's category, group, base item, AC bonus, Dexterity cap and Strength, with penalties negated. A shield's AC
+    bonus, hardness and Hit Points (a shield with none has no data) and a reinforcing rune; property runes on one
+    are reported. A specific weapon's or armour's fundamental grades and property runes, each Foundry key
+    (`greaterFlaming`) resolved to its `rune` entry (`rune:flaming-greater`); `specific` repeats them and is not read.
+  - A consumable's category, uses (more than one), `kept` when Foundry does not destroy it once spent (a wand), its
+    damage or healing (`untyped` is reported and left out), and a scroll's or wand's embedded spell as its `spell`
+    entry by slug at the rank Foundry casts it. Ammunition is fired as the kinds Foundry crafts it as, or its own
+    kind; it fits any weapon that doesn't take a magazine when Foundry names none. `canBeAmmo` is reported.
+  - Equipment's usage and apex attribute; a container's capacity, the Bulk it ignores worn, and its Bulk held when
+    that differs from worn. A capacity of 0 and a container whose contents Foundry does not stow (`stowing: false`,
+    a sack) are reported. Treasure keeps its category.
+  - A rune is fundamental when its slug is one of the potency, striking, resilient or reinforcing grades
+    (`striking-greater` is grade 2), else property. Its usage gives the item it is etched onto and a restriction
+    spelled out (`etched-onto-med-heavy-armor` is armour, `medium-or-heavy`); one naming an item and a restriction
+    with no slug (`weapon-wo-holy-rune`) is reported and etched onto the item, and one naming no item leaves the rune
+    without data. What a property rune does Foundry keeps in code, so its `rules` are not imported.
 - **Archetypes.** Foundry keeps them as pages of the `Archetypes` journal, not items. A page whose dedication (a
   linked feat with the `dedication` trait and the page's name, so another archetype's dedication cited as a
   prerequisite is not taken) is imported becomes an `archetype` entry in the target pack: the page name, the page's

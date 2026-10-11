@@ -41,13 +41,6 @@ describe('translateKindData: one fixture per kind, translated and parsed', () =>
     });
     expect(translation.kindDataGaps).toEqual([]);
   });
-
-  test('a document of a type without a kind translator yet has no kind data and no gaps', () => {
-    const translation = translate([{ id: 'r0pE000000000001', name: 'Rope', type: 'equipment' }]);
-
-    expect(entryOf(translation, 'rope')?.kindData).toBeUndefined();
-    expect(translation.kindDataGaps).toEqual([]);
-  });
 });
 
 describe('kindDataReport', () => {

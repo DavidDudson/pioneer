@@ -20,8 +20,10 @@ import type * as z from 'zod';
 
 import type { EntryReferences } from './entry-references';
 import { documentKind } from './entry-slugs';
+import { EQUIPMENT_TRANSLATORS } from './equipment-kind-data';
+import type { EquipmentKindData } from './equipment-kind-data';
 import type { ImportedEnvelope } from './imported-envelope';
-import { issuePath, KindDataGapReason, report, reportUnmapped } from './kind-data-gaps';
+import { parsedWith } from './kind-data-gaps';
 import type { GapLog, KindDataGap, KindInput } from './kind-data-gaps';
 import type { SelectedEntry } from './select-entries';
 import { ACTION_FIELDS, actionData } from './translate-action';
@@ -66,7 +68,8 @@ export type ImportedKindData =
   | { readonly kind: typeof ContentKind.Sense; readonly data: SenseData }
   | { readonly kind: typeof ContentKind.Spell; readonly data: SpellData }
   | { readonly kind: typeof ContentKind.Statistic; readonly data: StatisticData }
-  | { readonly kind: typeof ContentKind.Trait; readonly data: TraitData };
+  | { readonly kind: typeof ContentKind.Trait; readonly data: TraitData }
+  | EquipmentKindData;
 
 export interface KindDataTranslation {
   readonly kindData?: ImportedKindData;
@@ -78,25 +81,8 @@ export interface KindDataTranslation {
 /** What a kind translator makes of a document: its kind data, when it has any. */
 type KindTranslator = (input: KindInput) => ImportedKindData | undefined;
 
-/** How one kind's data is built: the schema it must meet, the `system` fields it reads, and the builder. */
-interface KindBuilder<Data> {
-  readonly schema: z.ZodType<Data>;
-  readonly fields: ReadonlySet<string>;
-  readonly build: (input: KindInput) => object | undefined;
-}
-
-/** The data `build` makes, parsed against `schema`; reported and undefined when the schema rejects it. */
-function parsedWith<Data>({ schema, fields, build }: KindBuilder<Data>, input: KindInput): Data | undefined {
-  reportUnmapped(input.document.system, fields, input.log);
-  const data = build(input);
-  const parsed = data === undefined ? undefined : schema.safeParse(data);
-  if (parsed?.success === false) {
-    report(input.log, { reason: KindDataGapReason.InvalidData, field: issuePath(parsed.error), raw: data });
-  }
-  return parsed?.success === true ? parsed.data : undefined;
-}
-
 const TRANSLATORS: Readonly<Partial<Record<ContentKind, KindTranslator>>> = {
+  ...EQUIPMENT_TRANSLATORS,
   [ContentKind.Action]: (input) => {
     const data = parsedWith({ schema: ActionData, fields: ACTION_FIELDS, build: actionData }, input);
     return data && { kind: ContentKind.Action, data };
@@ -171,7 +157,7 @@ export interface KindDataContext {
 
 /**
  * The kind data of a translated document, when its kind has a translator (`TRANSLATORS`), with the rule elements
- * its fields add and what it could not carry over. Other kinds get none yet; their kind stories add them.
+ * its fields add and what it could not carry over. Every Foundry type's kind has one; a kind without one gets none.
  */
 export function translateKindData(
   entry: SelectedEntry,

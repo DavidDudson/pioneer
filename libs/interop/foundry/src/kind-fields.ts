@@ -1,4 +1,4 @@
-import { AttributeSchema, ContentKind, RuleElementKey } from '@pioneer/rules/sdk';
+import { AttributeSchema, ContentKind, RuleElementKey, Size } from '@pioneer/rules/sdk';
 import type { Attribute } from '@pioneer/rules/sdk';
 import * as z from 'zod';
 
@@ -12,6 +12,16 @@ const FIELD_MAX = 64;
 const NAME_MAX = 500;
 const ENTRIES_MAX = 64;
 const LEVEL_MAX = 20;
+
+/** Foundry's sizes, by its abbreviation: an ancestry's, and a physical item's. */
+export const FOUNDRY_SIZES: ReadonlyMap<string, Size> = new Map([
+  ['tiny', Size.Tiny],
+  ['sm', Size.Small],
+  ['med', Size.Medium],
+  ['lg', Size.Large],
+  ['huge', Size.Huge],
+  ['grg', Size.Gargantuan],
+]);
 
 /** Most entries any Foundry record the build kinds read holds: a kit's items, a class's features, a deity's spells. */
 const RECORD_ENTRIES_MAX = 128;
