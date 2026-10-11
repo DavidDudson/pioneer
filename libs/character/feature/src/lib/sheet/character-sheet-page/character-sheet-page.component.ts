@@ -51,7 +51,7 @@ import {
   AttributeModifier,
   ContentKind,
 } from '@pioneer/rules/sdk';
-import { DefencesView } from '@pioneer/rules/ui';
+import { DefencesView, StatisticsView } from '@pioneer/rules/ui';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 import { ApiError } from '@pioneer/shared/web';
@@ -65,6 +65,7 @@ import { contentRegistryQuery } from '../../data/content-registry-query';
 import { ImportResult } from '../../import/import-result/import-result.component';
 import { sheetDefences } from '../sheet-defences';
 import { SHEET_SECTION_ORDER, SHEET_SECTIONS } from '../sheet-sections';
+import { sheetStatistics } from '../sheet-statistics';
 
 /** How one sheet value maps to the aggregate and back. */
 interface FieldSpec<TValue> {
@@ -115,6 +116,7 @@ const SIGNED: Intl.NumberFormatOptions = { signDisplay: 'always' };
     Select,
     Skeleton,
     Stack,
+    StatisticsView,
     Text,
     TextInput,
     TranslocoPipe,
@@ -140,12 +142,22 @@ export class CharacterSheetPage {
   protected readonly sections = SHEET_SECTIONS;
   protected readonly sectionOrder = SHEET_SECTION_ORDER;
   protected readonly title = computed(() => this.character()?.name);
-  /** The registry the engine reads, shared with the ancestry options, so it loads once. */
-  protected readonly registry = injectQuery(() => contentRegistryQuery(this.#content, [ContentKind.Ancestry]));
+  /**
+   * The registry the engine reads: ancestries and statistics. The loader keeps each kind's bundles, so the ancestry
+   * options' registry fetches nothing twice.
+   */
+  protected readonly registry = injectQuery(() =>
+    contentRegistryQuery(this.#content, [ContentKind.Ancestry, ContentKind.Statistic]),
+  );
   protected readonly defences = computed(() => {
     const registry = this.registry.data();
     const character = this.character();
     return registry === undefined || character === undefined ? undefined : sheetDefences(registry, character);
+  });
+  protected readonly statistics = computed(() => {
+    const registry = this.registry.data();
+    const character = this.character();
+    return registry === undefined || character === undefined ? undefined : sheetStatistics(registry, character);
   });
 
   protected readonly name = this.#field<string>({

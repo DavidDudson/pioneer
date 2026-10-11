@@ -78,7 +78,7 @@ function attributeButtons(root: HTMLElement): HTMLElement[] {
 }
 
 describe('CharacterSheetPage', () => {
-  it('shows identity, attributes and defences in that order, each a region under a level 2 heading', async () => {
+  it('shows identity, attributes, defences and statistics in that order, each a region under a level 2 heading', async () => {
     const { root } = await openSheet();
 
     const regions = [...root.querySelectorAll('section')].map((region) => {
@@ -89,6 +89,7 @@ describe('CharacterSheetPage', () => {
       ['Identity', true],
       ['Attributes', true],
       ['Defences', true],
+      ['Statistics', true],
     ]);
   });
 
@@ -96,7 +97,12 @@ describe('CharacterSheetPage', () => {
     const { root } = await openSheet();
     const nav = present(root.querySelector('nav[aria-label="Sheet sections"]'));
     const links = [...nav.querySelectorAll('a')];
-    expect(links.map((link) => link.textContent.trim())).toStrictEqual(['Identity', 'Attributes', 'Defences']);
+    expect(links.map((link) => link.textContent.trim())).toStrictEqual([
+      'Identity',
+      'Attributes',
+      'Defences',
+      'Statistics',
+    ]);
 
     links[1]?.click();
 
@@ -149,7 +155,7 @@ describe('CharacterSheetPage', () => {
 
   it('shows the defences the engine derives, each list empty until rule elements are in play', async () => {
     const { root } = await openSheet();
-    const defences = present([...root.querySelectorAll('section')].at(-1));
+    const defences = present(root.querySelector('section[aria-labelledby="sheet-defences"]'));
 
     await vi.waitFor(() => {
       expect(
@@ -163,5 +169,27 @@ describe('CharacterSheetPage', () => {
         'No resistances.',
       ]);
     });
+  });
+
+  it('lists AC, saves and Perception from the engine, each opening its breakdown in place', async () => {
+    const { root } = await openSheet();
+    const statistics = present(root.querySelector('section[aria-labelledby="sheet-statistics"]'));
+
+    await vi.waitFor(() => {
+      expect(
+        [...statistics.querySelectorAll('fr-description-item')].map((item) =>
+          [item.querySelector('[role="term"]'), item.querySelector('summary')].map((part) => part?.textContent.trim()),
+        ),
+      ).toStrictEqual([
+        ['Armor Class', '14'],
+        ['Fortitude', '+1'],
+        ['Reflex', '+4'],
+        ['Will', '+0'],
+        ['Perception', '+0'],
+      ]);
+    });
+    const ac = present(statistics.querySelector('pio-breakdown'));
+    expect(ac.textContent).toContain('Base 14');
+    expect(ac.textContent).toContain('No modifiers.');
   });
 });
