@@ -99,6 +99,13 @@
       "when": 1791688570622,
       "tag": "0013_kind_prefixed_slugs",
       "breakpoints": true
+    },
+    {
+      "idx": 14,
+      "version": "7",
+      "when": 1791690825144,
+      "tag": "0014_drop_character_attributes",
+      "breakpoints": true
     }
   ]
 }

@@ -7,7 +7,6 @@ export const CharacterCommand = {
   CreateCharacter: 'createCharacter',
   RenameCharacter: 'renameCharacter',
   SetLevel: 'setLevel',
-  SetAttribute: 'setAttribute',
   SelectSlot: 'selectSlot',
   ClearSlot: 'clearSlot',
   /** A character created from a Pathbuilder export, so an import reads apart from a manual create. */
@@ -19,7 +18,6 @@ export type CharacterCommand = ValueOf<typeof CharacterCommand>;
 export const PATCH_COMMANDS = {
   [CharacterPatchField.Name]: CharacterCommand.RenameCharacter,
   [CharacterPatchField.Level]: CharacterCommand.SetLevel,
-  [CharacterPatchField.Attribute]: CharacterCommand.SetAttribute,
   [CharacterPatchField.SelectSlot]: CharacterCommand.SelectSlot,
   [CharacterPatchField.ClearSlot]: CharacterCommand.ClearSlot,
 } as const satisfies Record<CharacterPatchField, CharacterCommand>;

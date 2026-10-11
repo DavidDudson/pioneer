@@ -5,7 +5,6 @@ import type {
   CharacterSchemaVersion,
   StoredCharacterDocument,
 } from '@pioneer/character/domain';
-import type { AttributeModifiersWire } from '@pioneer/rules/sdk';
 import type { UserId, Version } from '@pioneer/shared/kernel';
 import { index, integer, jsonb, pgTable, smallint, text, timestamp, uuid } from 'drizzle-orm/pg-core';
 
@@ -29,8 +28,6 @@ export const characters = pgTable(
     ownerId: uuid().$type<UserId>().notNull(),
     name: text().$type<CharacterName>().notNull(),
     level: smallint().$type<CharacterLevel>().notNull(),
-    // Derived modifiers, kept until #418 works them out from boost picks and drops the column.
-    attributes: jsonb().$type<AttributeModifiersWire>().notNull(),
     // The document's own `schemaVersion`, as a column so old rows can be counted without reading documents.
     schemaVersion: smallint().$type<CharacterSchemaVersion>().notNull(),
     // Decoded with `decodeCharacterDocument`, which upgrades an older version; saves write the current one.

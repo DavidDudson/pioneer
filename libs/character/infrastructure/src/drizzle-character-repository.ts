@@ -2,7 +2,6 @@ import { CharacterRepository } from '@pioneer/character/application';
 import type { CharacterAudit } from '@pioneer/character/application';
 import { Character, decodeCharacterDocument } from '@pioneer/character/domain';
 import type { CharacterId, CharacterListQuery, CharacterSort } from '@pioneer/character/domain';
-import { AttributeModifiers } from '@pioneer/rules/sdk';
 import { nextVersion, SortDirection, Temporal, VersionConflictError } from '@pioneer/shared/kernel';
 import type { UserId, Version } from '@pioneer/shared/kernel';
 import { stampAudit } from '@pioneer/shared/server';
@@ -26,7 +25,6 @@ function toCharacter(row: Row): Character {
   return new Character({
     document: decodeCharacterDocument(row.document),
     version: row.version,
-    attributes: AttributeModifiers.codec.parse(row.attributes),
     createdAt: Temporal.Instant.from(row.createdAt),
     updatedAt: Temporal.Instant.from(row.updatedAt),
   });
@@ -41,7 +39,6 @@ function toRow(character: Character): Row {
     ownerId: document.ownerId,
     name: document.name,
     level: document.level,
-    attributes: character.attributes.toWire(),
     schemaVersion: document.schemaVersion,
     document,
     createdAt: character.createdAt.toString(),

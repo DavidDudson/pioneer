@@ -13,7 +13,6 @@ import {
 } from '@pioneer/character/domain';
 import type { Character, CharacterId } from '@pioneer/character/domain';
 import { CharacterBuilder, fixtureOwnerId, humanAncestryId, PAST_DOCUMENTS } from '@pioneer/character/domain/testing';
-import { Attribute, AttributeModifier } from '@pioneer/rules/sdk';
 import {
   FIRST_VERSION,
   fixedClock,
@@ -238,14 +237,15 @@ describe.skipIf(adminUrl === undefined)('DrizzleCharacterRepository (postgres)',
 
 describe.skipIf(adminUrl === undefined)('0012_character_document backfill (postgres)', () => {
   let database: PartlyMigratedDatabase;
-  const ezren = new CharacterBuilder().named('Ezren').atLevel(5).withAttribute(Attribute.Intelligence, 4).build();
+  const ezren = new CharacterBuilder().named('Ezren').atLevel(5).build();
+  const storedModifiers = { str: 0, dex: 1, con: 1, int: 4, wis: 2, cha: 0 };
 
   beforeAll(async () => {
     database = await createTestDatabaseBefore(adminUrl ?? '', '0012_character_document');
     await insertUser(database, fixtureOwnerId);
     const at = later.toString();
     await database.db.execute(
-      sql`insert into characters (id, version, owner_id, name, ancestry, level, attributes, created_at, updated_at) values (${ezren.id}, 4, ${fixtureOwnerId}, 'Ezren', ${humanAncestryId}, 5, ${JSON.stringify(ezren.attributes.toWire())}::jsonb, ${at}, ${at})`,
+      sql`insert into characters (id, version, owner_id, name, ancestry, level, attributes, created_at, updated_at) values (${ezren.id}, 4, ${fixtureOwnerId}, 'Ezren', ${humanAncestryId}, 5, ${JSON.stringify(storedModifiers)}::jsonb, ${at}, ${at})`,
     );
     await database.migrateRest();
   });
@@ -263,12 +263,14 @@ describe.skipIf(adminUrl === undefined)('0012_character_document backfill (postg
     expect(found?.document.schemaVersion).toBe(CURRENT_SCHEMA_VERSION);
   });
 
-  test('stored modifiers stay out of the document', async () => {
-    const found = await new DrizzleCharacterRepository(database.db).findById(ezren.id);
-    expect(found?.modifier(Attribute.Intelligence)).toBe(AttributeModifier.parse(4));
+  test('stored modifiers never enter the document, and their column is gone', async () => {
     const rows = await database.db.execute(
       sql`select document ? 'attributes' as present, document->'build'->'choices' as choices from characters where id = ${ezren.id}`,
     );
     expect(rows[0]).toStrictEqual({ present: false, choices: { ancestry: humanAncestryId } });
+    const columns = await database.db.execute(
+      sql`select column_name from information_schema.columns where table_name = 'characters' and column_name = 'attributes'`,
+    );
+    expect(columns).toHaveLength(0);
   });
 });

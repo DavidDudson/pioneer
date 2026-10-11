@@ -1,5 +1,4 @@
-import { AncestryId, AttributeModifier, AttributeModifiers, contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
-import type { Attribute } from '@pioneer/rules/sdk';
+import { AncestryId, ChoiceValue, contentId, EntrySlug, PackId, SlotKey } from '@pioneer/rules/sdk';
 import { installRulesFakes } from '@pioneer/rules/sdk/testing';
 import {
   derivedId,
@@ -16,6 +15,7 @@ import * as z from 'zod';
 
 import { Character } from '../character';
 import { CharacterId, CharacterLevel, CharacterName } from '../character-fields';
+import { CharacterPatchField } from '../character-patch';
 
 /** The fields `CharacterBuilder.random` fakes. */
 const RandomFields = z.object({
@@ -24,7 +24,6 @@ const RandomFields = z.object({
   level: CharacterLevel,
   version: Version,
   ownerId: UserId,
-  attributes: AttributeModifiers.codec,
   createdAt: InstantCodec,
 });
 
@@ -51,7 +50,7 @@ export class CharacterBuilder {
   #level: CharacterLevel = CharacterLevel.parse(1);
   #version: Version = FIRST_VERSION;
   #ownerId: UserId = fixtureOwnerId;
-  #attributes = AttributeModifiers.none;
+  readonly #picks = new Map<SlotKey, ChoiceValue>();
   #at: Temporal.Instant = fixedClock('2026-01-01T00:00:00Z').now();
 
   /** Every field from a seeded fake (zod-schema-faker); same seed, same character. */
@@ -65,7 +64,6 @@ export class CharacterBuilder {
       .atVersion(fake.version)
       .ownedBy(fake.ownerId)
       .createdAt(fake.createdAt);
-    builder.#attributes = fake.attributes;
     return builder;
   }
 
@@ -94,8 +92,9 @@ export class CharacterBuilder {
     return this;
   }
 
-  public withAttribute(attribute: Attribute, modifier: number): this {
-    this.#attributes = this.#attributes.with(attribute, AttributeModifier.parse(modifier));
+  /** Picks `selection` in `slot`, as `selectSlot` would, without checking the slot offers it. */
+  public picking(slot: string, selection: string): this {
+    this.#picks.set(SlotKey.parse(slot), ChoiceValue.parse(selection));
     return this;
   }
 
@@ -105,14 +104,18 @@ export class CharacterBuilder {
   }
 
   public build(): Character {
-    return Character.create({
+    const created = Character.create({
       id: CharacterId.parse(derivedId(FixtureNamespace, `character:${this.#name}`)),
       ownerId: this.#ownerId,
       name: this.#name,
       ancestry: this.#ancestry,
       level: this.#level,
-      attributes: this.#attributes,
       now: this.#at,
-    }).withVersion(this.#version);
+    });
+    let picked = created;
+    for (const [slot, selection] of this.#picks) {
+      picked = picked.apply({ field: CharacterPatchField.SelectSlot, slot, selection }, this.#at);
+    }
+    return picked.withVersion(this.#version);
   }
 }

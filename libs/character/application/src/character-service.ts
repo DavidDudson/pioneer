@@ -4,6 +4,7 @@ import {
   CharacterId,
   CharacterPatchField,
   PATCH_COMMANDS,
+  slotContent,
   slotRefusal,
 } from '@pioneer/character/domain';
 import type { CharacterListQuery, CreateCharacterBody, PatchCharacterBody, SlotPick } from '@pioneer/character/domain';
@@ -15,7 +16,6 @@ import {
   registryLookup,
 } from '@pioneer/interop/pathbuilder';
 import type { PathbuilderImportResponse, PathbuilderReadFailure } from '@pioneer/interop/pathbuilder';
-import { grantLookup } from '@pioneer/rules/grants';
 import { AncestryId } from '@pioneer/rules/sdk';
 import type { ContentSource } from '@pioneer/rules/sdk';
 import { fieldIssues, message, newId, NotFoundError, ValidationError } from '@pioneer/shared/kernel';
@@ -78,8 +78,8 @@ export class CharacterService {
   }
 
   /**
-   * A new character from a Pathbuilder export: name, ancestry, level and attribute modifiers, written in one
-   * insert. The export is read again here, never taken from the client's preview. Refused, with nothing saved,
+   * A new character from a Pathbuilder export: name, ancestry and level, written in one insert. Its boosts wait for
+   * the slots to be filled (#420). The export is read again here, never taken from the client's preview. Refused, with nothing saved,
    * when it can't be read or its ancestry isn't loaded.
    */
   public async importPathbuilder(actor: UserId, raw: unknown): Promise<PathbuilderImportResponse> {
@@ -105,7 +105,6 @@ export class CharacterService {
       name: value.name,
       ancestry: AncestryId.parse(match.id),
       level: value.level,
-      attributes: value.attributes,
       now: this.#clock.now(),
     });
     const saved = await this.#repository.insert(character, { actor, command: CharacterCommand.ImportPathbuilder });
@@ -134,8 +133,7 @@ export class CharacterService {
    */
   async #assertSlotOffers(character: Character, pick: SlotPick): Promise<void> {
     const content = await this.#content.registry();
-    const slotContent = { lookup: grantLookup(content), namespaces: content.rollOptionNamespaces() };
-    const refusal = slotRefusal(character.document, slotContent, pick);
+    const refusal = slotRefusal(character.document, slotContent(content), pick);
     if (refusal !== undefined) {
       throw new ValidationError([{ path: ['patch', refusal.field], message: refusal.message }]);
     }

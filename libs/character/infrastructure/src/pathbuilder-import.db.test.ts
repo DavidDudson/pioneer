@@ -36,7 +36,7 @@ describe.skipIf(adminUrl === undefined)('Pathbuilder import (postgres)', () => {
     await database.drop();
   });
 
-  test('create, level and attributes land in one write, logged as importPathbuilder', async () => {
+  test('create and level land in one write, logged as importPathbuilder, with no boost placed', async () => {
     const { character } = await service.importPathbuilder(fixtureOwnerId, mordredExport);
     const entries = await database.db.select().from(auditLog).where(eq(auditLog.rowId, character.id));
     expect(entries.map((entry) => [entry.action, entry.rowVersion, entry.actorId, entry.command])).toStrictEqual([
@@ -44,8 +44,7 @@ describe.skipIf(adminUrl === undefined)('Pathbuilder import (postgres)', () => {
     ]);
     expect(entries[0]?.after).toMatchObject({ name: 'Mordred (Dual Class)', level: 12 });
     const stored = await service.get(fixtureOwnerId, character.id);
-    const modifiers: Readonly<Record<string, number>> = stored.attributes.toWire();
-    expect(modifiers).toStrictEqual({ str: 4, dex: 0, con: 2, int: 1, wis: 3, cha: 6 });
+    expect(Object.keys(stored.document.build.choices)).toStrictEqual(['ancestry']);
   });
 
   test('a refused import writes nothing', async () => {

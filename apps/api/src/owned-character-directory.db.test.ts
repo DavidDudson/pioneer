@@ -31,7 +31,7 @@ describe.skipIf(adminUrl === undefined)('OwnedCharacterDirectory (postgres)', ()
 
   async function insertCharacter({ id, ownerId, name, level }: CharacterRow): Promise<void> {
     await database.db.execute(
-      sql`insert into characters (id, version, owner_id, name, level, attributes, schema_version, document, created_at, updated_at) values (${id}, 1, ${ownerId}, ${name}, ${level}, '{}'::jsonb, 1, ${JSON.stringify({ schemaVersion: 1, id, ownerId, name, level })}::jsonb, ${at}, ${at})`,
+      sql`insert into characters (id, version, owner_id, name, level, schema_version, document, created_at, updated_at) values (${id}, 1, ${ownerId}, ${name}, ${level}, 1, ${JSON.stringify({ schemaVersion: 1, id, ownerId, name, level })}::jsonb, ${at}, ${at})`,
     );
   }
 

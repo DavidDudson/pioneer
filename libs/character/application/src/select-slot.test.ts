@@ -81,3 +81,45 @@ describe('CharacterService selectSlot', () => {
     expect(patched.document.build.choices[featSlot]).toBe(planned);
   });
 });
+
+describe('CharacterService selectSlot on boost slots', () => {
+  let service: CharacterService;
+
+  beforeEach(() => {
+    const pack = new ContentPackBuilder()
+      .withId('player-core')
+      .withAncestry('human', { boosts: [['str', 'dex', 'con', 'int', 'wis', 'cha']] })
+      .withClass('fighter', ['str', 'dex'])
+      .build();
+    service = new CharacterService(new InMemoryCharacterRepository(), fixedContent(pack), clock);
+  });
+
+  test('a boost pick is the only way to change a modifier: it lands in the slot, and its class slot opens with the class', async () => {
+    const created = await service.create(amiri, { name: kyra, ancestry: humanAncestryId });
+    const fighter = ChoiceValue.parse(contentId(PackId.parse('player-core'), Slug.parse('fighter')));
+    const withClass = await service.patch(
+      amiri,
+      created.id,
+      firstVersion({ field: CharacterPatchField.SelectSlot, slot: SlotKey.parse('class'), selection: fighter }),
+    );
+    const keyAttribute = SlotKey.parse('boost:1:class:0');
+    const patched = await service.patch(amiri, created.id, {
+      expectedVersion: withClass.version,
+      patch: { field: CharacterPatchField.SelectSlot, slot: keyAttribute, selection: ChoiceValue.parse('dex') },
+    });
+    expect(patched.document.build.choices[keyAttribute]).toBe(ChoiceValue.parse('dex'));
+  });
+
+  test('refuses a boost to an attribute its boost does not allow', async () => {
+    const created = await service.create(amiri, { name: kyra, ancestry: humanAncestryId });
+    const edit = firstVersion({
+      field: CharacterPatchField.SelectSlot,
+      slot: SlotKey.parse('boost:1:ancestry:0'),
+      selection: ChoiceValue.parse('luck'),
+    });
+    const error = await rejection(service.patch(amiri, created.id, edit));
+    expect((error as ValidationError).issues).toStrictEqual([
+      { path: ['patch', 'selection'], message: { key: 'character.validation.selectionNotOffered' } },
+    ]);
+  });
+});
