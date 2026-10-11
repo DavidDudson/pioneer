@@ -34,7 +34,7 @@ export interface SheetPreparedSlot {
 }
 
 /** The slots of one rank on an entry, under a heading that says the rank its spells are cast at. */
-export interface SheetPreparedRank {
+interface SheetPreparedRank {
   /** Unique within the entry: `cantrip`, or the rank. */
   readonly key: string;
   readonly heading: MessageDescriptor;
@@ -125,7 +125,7 @@ export function spellMatches(options: readonly SelectOption<string>[], query: st
 }
 
 /** A spell the build lists access to, by name; an id no loaded spell has reads as the id. */
-export interface SpellAccessLine {
+interface SpellAccessLine {
   readonly spell: ContentId;
   readonly name: string;
 }

@@ -12,7 +12,7 @@ import type { SpellContent, SpellOption } from './spell-content';
 import { characterSpellcasting } from './spellcasting-build';
 
 /** Every prepared slot's key starts so: `prepared:wizard:cantrip:0`, `prepared:wizard:3:1`. */
-export const PREPARED_PREFIX = 'prepared:';
+const PREPARED_PREFIX = 'prepared:';
 
 /** The rank of a prepared slot: cantrips, or 1 to 10. */
 export type PreparedRank = SpellRank | typeof SlotRank.Cantrip;

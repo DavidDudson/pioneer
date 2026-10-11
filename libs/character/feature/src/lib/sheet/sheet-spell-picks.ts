@@ -24,7 +24,7 @@ export interface SpellPickSources {
 }
 
 /** A prepared slot as an inline pick: the spells matching what was typed, and why its pick counts for nothing. */
-export interface PreparedField {
+interface PreparedField {
   readonly key: SlotKey;
   readonly label: MessageDescriptor;
   readonly matches: Signal<readonly SelectOption<string>[]>;
@@ -34,7 +34,7 @@ export interface PreparedField {
 }
 
 /** The pickers of one rank on an entry. */
-export interface PreparedRankFields {
+interface PreparedRankFields {
   readonly key: string;
   /** Reads anew as the level changes: cantrips are cast at half the level. */
   readonly heading: Signal<MessageDescriptor>;
