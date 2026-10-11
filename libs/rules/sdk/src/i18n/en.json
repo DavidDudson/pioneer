@@ -592,6 +592,15 @@
       "nothingShown": "Nothing it turns on shows on the sheet yet.",
       "effect": "{statistic} {value}",
       "effectMarked": "{statistic} {value} ({status})"
+    },
+    "bulk": {
+      "meter": "Bulk carried",
+      "carried": "{light, plural, =0 {Carrying {whole} Bulk} one {Carrying {whole} Bulk and # light item} other {Carrying {whole} Bulk and # light items}}",
+      "limits": "Encumbered over {encumberedAfter} Bulk; can carry no more than {maximum} Bulk.",
+      "status": {
+        "encumbered": "Encumbered",
+        "overMaximum": "Over the maximum"
+      }
     }
   }
 }

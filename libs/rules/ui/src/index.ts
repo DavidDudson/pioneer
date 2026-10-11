@@ -19,4 +19,6 @@ export { type InventoryGroup, type InventoryLine, InventoryPlacement } from './l
 export { InventoryView } from './lib/inventory/inventory.component';
 export { type Investment, type InvestmentEffect } from './lib/inventory/investments/investment';
 export { InvestmentsView } from './lib/inventory/investments/investments.component';
+export { BulkStatus, type CarriedBulk } from './lib/inventory/bulk/carried-bulk';
+export { BulkView } from './lib/inventory/bulk/bulk.component';
 export { type InventoryLineContext } from './lib/inventory/inventory-row/inventory-row.component';
