@@ -23,8 +23,8 @@ export const SlotStatus = {
 } as const;
 export type SlotStatus = ValueOf<typeof SlotStatus>;
 
-/** What kind of slot it is: one the character has itself, an attribute boost, or a `ChoiceSet` on an entry. */
-export const SlotSubjectKind = { Root: 'root', Boost: 'boost', Choice: 'choice' } as const;
+/** What kind of slot it is: one the character has itself, an attribute boost or flaw, or a `ChoiceSet` on an entry. */
+export const SlotSubjectKind = { Root: 'root', Boost: 'boost', Flaw: 'flaw', Choice: 'choice' } as const;
 export type SlotSubjectKind = ValueOf<typeof SlotSubjectKind>;
 
 /** What a slot is for, so the sheet can name it. */
@@ -32,6 +32,8 @@ export const SlotSubject = z.discriminatedUnion('kind', [
   /** The ancestry, background or class slot: its key names it. */
   z.strictObject({ kind: z.literal(SlotSubjectKind.Root), content: ContentKindSchema }),
   z.strictObject({ kind: z.literal(SlotSubjectKind.Boost), source: z.enum(BoostSource), level: Level }),
+  /** A voluntary ancestry flaw: its key numbers it. */
+  z.strictObject({ kind: z.literal(SlotSubjectKind.Flaw) }),
   /** A `ChoiceSet` on `entry`, asking `prompt`. */
   z.strictObject({
     kind: z.literal(SlotSubjectKind.Choice),
@@ -43,8 +45,8 @@ export const SlotSubject = z.discriminatedUnion('kind', [
 export type SlotSubject = z.output<typeof SlotSubject>;
 
 /**
- * One slot as the sheet shows it. `selectionName` names an entry or listed option picked; an attribute boost's pick is
- * its attribute. `level` is where a planned slot opens, or where a planned pick that stopped being valid is flagged.
+ * One slot as the sheet shows it. `selectionName` names an entry or listed option picked; an attribute boost's or flaw's
+ * pick is its attribute. `level` is where a planned slot opens, or where a planned pick that stopped being valid is flagged.
  */
 export const CharacterSlot = z.discriminatedUnion('status', [
   z.strictObject({ status: z.literal(SlotStatus.Open), key: SlotKey, subject: SlotSubject }),
@@ -85,4 +87,5 @@ export const SlotInvalidMessage = {
   NotOffered: 'rules.choices.invalid.notOffered',
   ContentNotLoaded: 'rules.choices.invalid.contentNotLoaded',
   BoostTaken: 'rules.choices.invalid.boostTaken',
+  FlawTaken: 'rules.choices.invalid.flawTaken',
 } as const;

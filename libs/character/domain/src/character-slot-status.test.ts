@@ -194,3 +194,29 @@ describe('characterSlots for boosts', () => {
     });
   });
 });
+
+describe('characterSlots for voluntary flaws', () => {
+  test('lists no empty flaw slot: a voluntary flaw is optional', () => {
+    expect(slotsOf(aDwarf()).filter((each) => each.key.startsWith('flaw:'))).toStrictEqual([]);
+  });
+
+  test('a flaw taken is filled, after the boosts; one the ancestry has, or one taken twice, is invalid', () => {
+    const builder = aDwarf()
+      .picking('flaw:1:ancestry:0', 'int')
+      .picking('flaw:1:ancestry:1', 'cha')
+      .picking('flaw:1:ancestry:2', 'int');
+    const flaws = slotsOf(builder).filter((each) => each.key.startsWith('flaw:'));
+    expect(flaws[0]).toStrictEqual(
+      CharacterSlot.parse({
+        status: SlotStatus.Filled,
+        key: 'flaw:1:ancestry:0',
+        subject: { kind: 'flaw' },
+        selection: 'int',
+      }),
+    );
+    expect(flaws[1]).toMatchObject({ status: SlotStatus.Invalid, reason: { key: 'rules.choices.invalid.notOffered' } });
+    expect(flaws[2]).toMatchObject({ status: SlotStatus.Invalid, reason: { key: 'rules.choices.invalid.flawTaken' } });
+    const keys = slotsOf(builder).map((each) => each.key);
+    expect(keys.indexOf('flaw:1:ancestry:0')).toBeGreaterThan(keys.indexOf('boost:20:free:3'));
+  });
+});

@@ -3,7 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import { AncestryId, Attribute, ContentId, contentId, ContentRegistry, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
 
-import { attributeModifiers, boostContent, boostSlots, BoostSource } from './attribute-boosts';
+import { attributeModifiers, boostContent, boostSlots, BoostSource, flawSlots } from './attribute-boosts';
 import type { CharacterDocument } from './character-document';
 import { BACKGROUND_SLOT, CLASS_SLOT } from './character-slots';
 import { BOOST_FIXTURES, boostFixtureId, CharacterBuilder } from './testing';
@@ -151,5 +151,52 @@ describe('boostContent', () => {
     expect(content.background(testPackId('background:farmhand'))).toStrictEqual([['con', 'wis']]);
     expect(content.keyAttribute(testPackId('class:fighter'))).toStrictEqual(['str', 'dex']);
     expect(content.background(testPackId('class:fighter'))).toBeUndefined();
+  });
+});
+
+describe('flawSlots', () => {
+  test('gives a voluntary flaw slot per attribute the ancestry doesn’t flaw already, each offering those', () => {
+    const slots = flawSlots(dwarfFighter(1), BOOST_FIXTURES);
+    expect(slots.map((slot) => String(slot.key))).toStrictEqual([0, 1, 2, 3, 4].map((n) => `flaw:1:ancestry:${n}`));
+    expect(slots[0]?.options).not.toContain(Attribute.Charisma);
+    const human = new CharacterBuilder()
+      .withAncestry(AncestryId.parse(boostFixtureId('ancestry:human')))
+      .build().document;
+    expect(flawSlots(human, BOOST_FIXTURES)).toHaveLength(Object.values(Attribute).length);
+  });
+
+  test('has none while the ancestry isn’t loaded', () => {
+    expect(flawSlots(new CharacterBuilder().build().document, BOOST_FIXTURES)).toStrictEqual([]);
+  });
+
+  test('reads each pick, and nothing from one the slot doesn’t offer', () => {
+    const picked = dwarfFighter(1, { 'flaw:1:ancestry:0': 'int', 'flaw:1:ancestry:1': 'cha' });
+    expect(flawSlots(picked, BOOST_FIXTURES).map((slot) => slot.pick)).toStrictEqual([
+      Attribute.Intelligence,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+    ]);
+  });
+});
+
+describe('attributeModifiers with voluntary flaws', () => {
+  test('a voluntary flaw lowers its attribute by one, as an ancestry flaw does', () => {
+    const flawed = dwarfFighter(1, { 'flaw:1:ancestry:0': 'int', 'flaw:1:ancestry:1': 'str' });
+    expect(modifiers(flawed)).toStrictEqual({ ...ZERO, con: 1, wis: 1, cha: -1, int: -1, str: -1 });
+  });
+
+  test('a flaw the ancestry has already, or one taken twice, lowers nothing more', () => {
+    const twice = dwarfFighter(1, {
+      'flaw:1:ancestry:0': 'cha',
+      'flaw:1:ancestry:1': 'int',
+      'flaw:1:ancestry:2': 'int',
+    });
+    expect(modifiers(twice)).toMatchObject({ cha: -1, int: -1 });
+  });
+
+  test('boosts raise a flawed attribute from -1', () => {
+    expect(modifiers(dwarfFighter(1, { 'flaw:1:ancestry:0': 'str', 'boost:1:class:0': 'str' })).str).toBe(0);
   });
 });

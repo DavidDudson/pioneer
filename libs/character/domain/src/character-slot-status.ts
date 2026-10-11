@@ -4,7 +4,7 @@ import type { ChoiceValue, ContentText } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
-import { boostSets } from './attribute-boosts';
+import { boostSets, flawSlots } from './attribute-boosts';
 import type { BoostSet, BoostSlot } from './attribute-boosts';
 import type { CharacterDocument } from './character-document';
 import { CHARACTER_LEVEL_MAX } from './character-fields';
@@ -154,6 +154,30 @@ function boostStatuses(
   );
 }
 
+/**
+ * Each voluntary flaw taken, filled or invalid: invalid when its pick isn't on offer (the ancestry flaws it already),
+ * or an earlier flaw took the attribute. An empty flaw slot is optional, so it isn't listed.
+ */
+function flawStatuses(
+  document: CharacterDocument,
+  { boosts }: SlotContent,
+  picks: ReadonlyMap<SlotKey, ChoiceValue>,
+): CharacterSlot[] {
+  const slots = flawSlots(document, boosts);
+  return slots.flatMap((slot, index): CharacterSlot[] => {
+    const stored = picks.get(slot.key);
+    if (stored === undefined) {
+      return [];
+    }
+    const read: SlotRead = { key: slot.key, subject: { kind: SlotSubjectKind.Flaw }, stored, planned: undefined };
+    if (slot.pick === undefined) {
+      return [invalidSlot(read, stored, message(SlotInvalidMessage.NotOffered))];
+    }
+    const taken = slots.slice(0, index).some((other) => other.pick === slot.pick);
+    return [taken ? invalidSlot(read, stored, message(SlotInvalidMessage.FlawTaken)) : validSlot(read, undefined)];
+  });
+}
+
 /** The character's level and every level above it, lowest first. */
 function levelsUpFrom(level: Level): Level[] {
   return Array.from({ length: CHARACTER_LEVEL_MAX - level + 1 }, (_unused, index) => Level.parse(level + index));
@@ -209,9 +233,9 @@ function hiddenPicks(context: SlotContext, listed: readonly CharacterSlot[]): Ch
 }
 
 /**
- * Every slot the character has, with its status (#419): its own slots, then its boosts by level, then the `ChoiceSet`
- * slots its entries grant, then picks kept for slots it no longer has. A slot on the character at its level reads as
- * open, filled or invalid there; one that opens only above it reads at the lowest level it opens, as planned, or
+ * Every slot the character has, with its status (#419): its own slots, then its boosts by level and the voluntary
+ * flaws it took (#550), then the `ChoiceSet` slots its entries grant, then picks kept for slots it no longer has. A
+ * slot on the character at its level reads as open, filled or invalid there; one that opens only above it reads at the lowest level it opens, as planned, or
  * invalid at that level. A stored pick for a slot found at neither is hidden. Nothing is dropped: every stored pick is
  * in the list.
  */
@@ -219,6 +243,7 @@ export function characterSlots(document: CharacterDocument, content: SlotContent
   const picks = new Map(Object.entries(document.build.choices).map(([key, value]) => [SlotKey.parse(key), value]));
   const context: SlotContext = { ...content, picks };
   const { roots, choices } = grantStatuses(Level.parse(document.level), context);
-  const listed = [...roots, ...boostStatuses(document, content, picks), ...choices];
+  const boosts = boostStatuses(document, content, picks);
+  const listed = [...roots, ...boosts, ...flawStatuses(document, content, picks), ...choices];
   return [...listed, ...hiddenPicks(context, listed)];
 }
