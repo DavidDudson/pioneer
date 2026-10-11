@@ -1,6 +1,7 @@
 import type { ResolveReference } from '@pioneer/rules/formula';
 import type { Level, ProficiencyBonusTable, Selector, StatisticDefinition } from '@pioneer/rules/sdk';
 
+import { armorBonus } from './armor-bonus';
 import { changeRules } from './change';
 import { collectLines } from './collect';
 import { modifierRules } from './modifier';
@@ -24,7 +25,8 @@ export interface StatisticContent {
  * Every statistic's breakdown (rules-engine.md, steps 4 to 6). The base phase evaluates each base formula in
  * dependency order and runs its `Change`s (`StatisticBases`); the modifier phase then collects the modifiers that
  * reach each statistic, gates them by predicate and stacks them (`collectLines`); last, set overrides may pin the
- * total. Each weapon's potency joins the modifiers as an `item` line on its Strike (`weaponPotencies`). Modifier
+ * total. Each weapon's potency joins the modifiers as an `item` line on its Strike (`weaponPotencies`), and worn
+ * armour's bonus as an `item` line on AC (`armorBonus`). Modifier
  * formulas read the inputs, statistics' bases through `@stat.<selector>`, and the level of the item they are on.
  * `@prof.<selector>` reads the proficiency bonus table, unless a `ProficiencyBonus` element in play (a variant rule)
  * replaces it. Never throws: a statistic's failure, or a line's, is reported in the result. The result does not
@@ -40,7 +42,8 @@ export function deriveStatistics(
   const values = { inputs, proficiency: proficiencyBonuses(proficiencyBonus, { rules, facts, level: inputs.level }) };
   const bases = new StatisticBases(definitions, values, { changes: changes.base, facts });
   const fromRules = modifierRules(rules);
-  const modifiers = { ...fromRules, modifiers: [...fromRules.modifiers, ...weaponPotencies(inputs.weapons ?? [])] };
+  const synthetic = [...weaponPotencies(inputs.weapons ?? []), ...armorBonus(inputs.armor)];
+  const modifiers = { ...fromRules, modifiers: [...fromRules.modifiers, ...synthetic] };
   const context = {
     facts,
     resolve: (itemLevel: Level | undefined): ResolveReference =>
