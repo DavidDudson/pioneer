@@ -13,6 +13,7 @@ import { TranslocoPipe } from '@jsverse/transloco';
 import { Button } from '../../actions/button/button.component';
 import { Message, MessageTone } from '../../feedback/message/message.component';
 import { Skeleton } from '../../feedback/skeleton/skeleton.component';
+import { uniqueId } from '../../ids';
 import { Stack } from '../../layout/stack/stack.component';
 import { Text } from '../../text/text/text.component';
 import type { InlineEdit } from '../inline-edit';
@@ -44,6 +45,10 @@ const FOCUSABLE = 'input, select, textarea, button, [tabindex]:not([tabindex="-1
 export class InlineField<TValue> {
   public readonly label = input.required<string>();
   public readonly edit = input.required<InlineEdit<TValue>>();
+  /** A warning about the value as it stands (a pick that counts for nothing), shown under it and read with it. */
+  public readonly notice = input<string | undefined>(undefined);
+
+  protected readonly noticeId = uniqueId('fr-inline-notice');
 
   protected readonly Status = InlineEditStatus;
   protected readonly status = computed(() => this.edit().status());

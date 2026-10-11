@@ -101,6 +101,14 @@ export const Conflict: InlineFieldStory = {
 };
 
 /** Each field owns its own state: loading, saving and errors are per field, not per form. */
+/** A value that stands but counts for nothing says why, under it and in what the edit button reads out. */
+export const Notice: InlineFieldStory = {
+  render: () => ({
+    props: { name: nameEdit('Valeros') },
+    template: NAME_FIELD.replace('[edit]="name"', '[edit]="name" notice="This name is taken in the campaign."'),
+  }),
+};
+
 export const SeveralFields: InlineFieldStory = {
   render: () => ({
     props: { name: nameEdit('Valeros'), level: levelEdit(3) },

@@ -639,6 +639,11 @@
         "spontaneous": "Spontaneous",
         "innate": "Innate"
       }
+    },
+    "spellAccess": {
+      "none": "No access to uncommon, rare or unique spells yet.",
+      "remove": "Remove {name}",
+      "unknownSpell": "Unknown spell"
     }
   }
 }

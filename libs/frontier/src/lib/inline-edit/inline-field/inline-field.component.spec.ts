@@ -29,13 +29,15 @@ interface Options {
   readonly loading?: boolean;
   /** What a save does; defaults to storing the value like the server would. */
   readonly save?: (value: string) => Promise<void>;
+  /** A warning about the value as it stands. */
+  readonly notice?: string;
 }
 
 /**
  * Renders `fr-inline-field` labelled "Name" with an `fr-text-input` editor wired to the edit the way the
  * component's docs show, in the document so focus moves.
  */
-async function render({ loading = false, save }: Options = {}): Promise<Rendered> {
+async function render({ loading = false, save, notice }: Options = {}): Promise<Rendered> {
   TestBed.configureTestingModule({ providers: [...provideFrontierI18nTesting()] });
   const environmentInjector = TestBed.inject(EnvironmentInjector);
   const appRef = TestBed.inject(ApplicationRef);
@@ -75,6 +77,7 @@ async function render({ loading = false, save }: Options = {}): Promise<Rendered
   });
   field.setInput('label', 'Name');
   field.setInput('edit', edit);
+  field.setInput('notice', notice);
   const host = field.location.nativeElement as HTMLElement;
   document.body.append(host);
   appRef.attachView(editor.hostView);
@@ -260,5 +263,19 @@ describe(InlineField, () => {
     await rendered.edit.settled();
     await rendered.stable();
     expect(rendered.host.hasAttribute('aria-busy')).toBe(false);
+  });
+
+  it('shows a notice under the value, read out with the edit button', async () => {
+    const rendered = await render({ notice: 'Counts for nothing' });
+    const message = rendered.host.querySelector('fr-message');
+    expect(message?.textContent.trim()).toBe('Counts for nothing');
+    const describedBy = readButton(rendered)?.getAttribute('aria-describedby');
+    expect(describedBy).toBe(message?.querySelector('span')?.id);
+    expect(document.querySelector(`#${String(describedBy)}`)?.textContent.trim()).toBe('Counts for nothing');
+  });
+
+  it('leaves the edit button undescribed without a notice', async () => {
+    const rendered = await render();
+    expect(readButton(rendered)?.hasAttribute('aria-describedby')).toBe(false);
   });
 });

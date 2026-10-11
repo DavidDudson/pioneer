@@ -10,6 +10,7 @@ import type { Character, CharacterSlot, PreparedSlot, SpellOption } from '@pione
 import type { SelectOption } from '@pioneer/frontier';
 import { ContentKind, SlotRank } from '@pioneer/rules/sdk';
 import type { ContentId, ContentRegistry, MagicTradition, SlotKey, Slug } from '@pioneer/rules/sdk';
+import type { SpellAccessLine } from '@pioneer/rules/ui';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
@@ -124,12 +125,6 @@ export function spellMatches(options: readonly SelectOption<string>[], query: st
   return options.filter((option) => option.label.toLocaleLowerCase().includes(needle)).slice(0, SPELL_MATCHES_MAX);
 }
 
-/** A spell the build lists access to, by name; an id no loaded spell has reads as the id. */
-interface SpellAccessLine {
-  readonly spell: ContentId;
-  readonly name: string;
-}
-
 /** The uncommon and rare spells the build has access to, and those it may add. */
 export interface SheetSpellAccess {
   readonly granted: readonly SpellAccessLine[];
@@ -153,7 +148,7 @@ export function sheetSpellAccess(registry: ContentRegistry, character: Character
     .filter((spell) => spell.traditions.some((tradition) => traditions.has(tradition)))
     .map((spell) => optionOf(spell));
   return {
-    granted: spellAccess.map((spell) => ({ spell, name: content.spells.spell(spell)?.name ?? spell })),
+    granted: spellAccess.map((spell) => ({ spell, name: content.spells.spell(spell)?.name })),
     offered,
   };
 }

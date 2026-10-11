@@ -15,10 +15,26 @@ const SPELL_PACKS = cutTo(SPELL_CONTENT_KINDS);
 /** Player Core's Detect Magic, a cantrip of every tradition. */
 const DETECT_MAGIC = 'c91ac947-a9ec-5f07-b5f9-a054617eb571';
 
-/** Merisiel as a class, with `choices` picked besides. */
-function as(name: 'fighter' | 'wizard'): object {
-  return { ...MERISIEL, build: { choices: { ...MERISIEL.build.choices, class: playerCoreClassId(name) } } };
+/** Merisiel as a class, with `choices` picked besides and `spellAccess` listed, at `level`. */
+function as(
+  name: 'fighter' | 'wizard',
+  { level = MERISIEL.level, choices = {}, spellAccess = [] }: CasterOptions = {},
+): object {
+  return {
+    ...MERISIEL,
+    level,
+    build: { choices: { ...MERISIEL.build.choices, class: playerCoreClassId(name), ...choices }, spellAccess },
+  };
 }
+
+interface CasterOptions {
+  readonly level?: number;
+  readonly choices?: Readonly<Record<string, string>>;
+  readonly spellAccess?: readonly string[];
+}
+
+/** Player Core's Detect Scrying, an uncommon arcane spell. */
+const DETECT_SCRYING = '08432692-cd15-5da6-a49b-6f27a80307b3';
 
 function textOf(element: Element): string {
   return element.textContent.replaceAll(/\s+/gu, ' ').trim();
@@ -97,7 +113,7 @@ describe('CharacterSheetPage spellcasting', () => {
     const rankHeadings = [...prepared.querySelectorAll('fr-heading')].map((heading) => textOf(heading));
     expect(rankHeadings).toStrictEqual(['Prepared spells: Arcane', 'Cantrips, cast at 1st rank', '1st rank']);
     const access = present(section(root).querySelector('pio-spell-access'));
-    expect(textOf(access)).toContain('No access to uncommon or rare spells yet.');
+    expect(textOf(access)).toContain('No access to uncommon, rare or unique spells yet.');
   });
 
   it('prepares a cantrip by searching for it', async () => {
@@ -138,5 +154,48 @@ describe('CharacterSheetPage spellcasting', () => {
     expect(request.request.body).toMatchObject({
       patch: { field: 'selectSlot', slot: 'prepared:wizard:cantrip:0', selection: DETECT_MAGIC },
     });
+  });
+
+  it('heads the cantrips with the rank they are cast at, half the level rounded up', async () => {
+    const { root } = await openSheet(as('wizard', { level: 5 }));
+
+    await vi.waitFor(() => {
+      const ranks = [...section(root).querySelectorAll('pio-sheet-prepared-spells fr-heading')];
+      expect(ranks.map((heading) => textOf(heading))).toContain('Cantrips, cast at 3rd rank');
+    });
+  });
+
+  it('says why a prepared pick counts for nothing, under its picker', async () => {
+    const slot = 'prepared:wizard:1:0';
+    const invalid = {
+      status: 'invalid',
+      key: slot,
+      subject: { kind: 'spell', entry: 'wizard', rank: 1 },
+      selection: DETECT_SCRYING,
+      reason: { key: 'rules.choices.invalid.spellNoAccess' },
+    };
+    const { root } = await openSheet(as('wizard', { choices: { [slot]: DETECT_SCRYING } }), {
+      slots: [invalid],
+      packs: SPELL_PACKS,
+    });
+
+    await vi.waitFor(() => {
+      expect(textOf(section(root))).toContain('the character no longer has access to it');
+    });
+  });
+
+  it('removes access to a spell and moves focus to the spell picker', async () => {
+    const { root } = await openSheet(as('wizard', { spellAccess: [DETECT_SCRYING] }), { packs: SPELL_PACKS });
+    const remove = await vi.waitFor(() =>
+      present(
+        section(root).querySelector<HTMLElement>('pio-spell-access-list button[aria-label="Remove Detect Scrying"]'),
+      ),
+    );
+
+    remove.click();
+    const request = await vi.waitFor(() =>
+      TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: `/api/characters/${id}` }),
+    );
+    expect(request.request.body).toMatchObject({ patch: { field: 'revokeSpellAccess', spell: DETECT_SCRYING } });
   });
 });

@@ -79,7 +79,8 @@ function preparedField(
       if (value === undefined || value === NOT_CHOSEN) {
         return sources.translate('character.sheet.notChosen');
       }
-      return options().find((option) => option.value === value)?.label ?? slot()?.storedName ?? value;
+      const named = options().find((option) => option.value === value)?.label ?? slot()?.storedName;
+      return named ?? sources.translate('character.sheet.prepared.unknownSpell');
     },
   });
   return {

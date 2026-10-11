@@ -8,24 +8,24 @@
         <fr-heading [level]="4">{{ rank.heading().key | transloco: rank.heading().params }}</fr-heading>
         <fr-grid [columns]="3">
           @for (slot of rank.fields; track slot.key) {
-            <fr-stack gap="2xs">
-              <fr-inline-field [label]="slot.label.key | transloco: slot.label.params" [edit]="slot.field">
-                <fr-combobox
-                  frInlineEditor
-                  [ariaLabel]="slot.label.key | transloco: slot.label.params"
-                  [placeholder]="'character.sheet.prepared.placeholder' | transloco"
-                  [options]="slot.matches()"
-                  [value]="slot.field.draft()"
-                  (valueChange)="slot.field.change($event)"
-                  (searched)="slot.search($event)"
-                  (committed)="slot.field.flushSoon()"
-                  (cancelled)="slot.field.cancel()"
-                />
-              </fr-inline-field>
-              @if (slot.reason(); as reason) {
-                <fr-text variant="caption" tone="warning">{{ reason.key | transloco: reason.params }}</fr-text>
-              }
-            </fr-stack>
+            @let reason = slot.reason();
+            <fr-inline-field
+              [label]="slot.label.key | transloco: slot.label.params"
+              [edit]="slot.field"
+              [notice]="reason === undefined ? undefined : (reason.key | transloco: reason.params)"
+            >
+              <fr-combobox
+                frInlineEditor
+                [ariaLabel]="slot.label.key | transloco: slot.label.params"
+                [placeholder]="'character.sheet.prepared.placeholder' | transloco"
+                [options]="slot.matches()"
+                [value]="slot.field.draft()"
+                (valueChange)="slot.field.change($event)"
+                (searched)="slot.search($event)"
+                (committed)="slot.field.flushSoon()"
+                (cancelled)="slot.field.cancel()"
+              />
+            </fr-inline-field>
           }
         </fr-grid>
       </fr-stack>
