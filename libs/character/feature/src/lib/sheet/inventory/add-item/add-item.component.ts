@@ -71,7 +71,7 @@ export class AddItem {
   protected readonly add = async (value: AddItemModel): Promise<void> => {
     const { item, quantity, container } = AddItemForm.parse(value);
     await this.#store.patch({
-      field: CharacterPatchField.AddItem,
+      field: CharacterPatchField.GiftItem,
       item,
       quantity,
       ...(container === LOOSE ? {} : { container }),

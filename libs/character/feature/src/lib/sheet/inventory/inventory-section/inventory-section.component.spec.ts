@@ -156,7 +156,7 @@ describe('InventorySection', () => {
     const request = await patchSent();
     expect(request.request.body).toStrictEqual({
       expectedVersion: 3,
-      patch: { field: 'addItem', item: itemFixtureId(ItemFixture.Diamond), quantity: 1 },
+      patch: { field: 'giftItem', item: itemFixtureId(ItemFixture.Diamond), quantity: 1 },
     });
     request.flush({ character: { ...VALEROS, version: 4 }, slots: [], cleared: [] });
     await vi.waitFor(async () => {

@@ -77,13 +77,13 @@ describe.skipIf(adminUrl === undefined)('inventory edits (postgres)', () => {
     });
     const { character: packed } = await service.patch(fixtureOwnerId, created.id, {
       expectedVersion: FIRST_VERSION,
-      patch: { field: CharacterPatchField.AddItem, item: itemFixtureId(ItemFixture.Backpack), quantity: one },
+      patch: { field: CharacterPatchField.GiftItem, item: itemFixtureId(ItemFixture.Backpack), quantity: one },
     });
     const [backpack] = packed.document.inventory.items;
     const { character: stowed } = await service.patch(fixtureOwnerId, created.id, {
       expectedVersion: packed.version,
       patch: {
-        field: CharacterPatchField.AddItem,
+        field: CharacterPatchField.GiftItem,
         item: itemFixtureId(ItemFixture.Rope),
         quantity: one,
         container: backpack?.id,
@@ -114,8 +114,8 @@ describe.skipIf(adminUrl === undefined)('inventory edits (postgres)', () => {
       .orderBy(asc(auditLog.changedAt));
     expect(entries.map((entry) => entry.command)).toStrictEqual([
       CharacterCommand.CreateCharacter,
-      CharacterCommand.AddItem,
-      CharacterCommand.AddItem,
+      CharacterCommand.GiftItem,
+      CharacterCommand.GiftItem,
       CharacterCommand.SetCoins,
     ]);
   });
@@ -127,7 +127,7 @@ describe.skipIf(adminUrl === undefined)('inventory edits (postgres)', () => {
     });
     const { character: added } = await service.patch(fixtureOwnerId, created.id, {
       expectedVersion: FIRST_VERSION,
-      patch: { field: CharacterPatchField.AddItem, item: itemFixtureId(ItemFixture.Cloak), quantity: one },
+      patch: { field: CharacterPatchField.GiftItem, item: itemFixtureId(ItemFixture.Cloak), quantity: one },
     });
     const cloak = onlyItem(added);
     const worn = { state: CarryState.Worn } as const;
@@ -151,7 +151,7 @@ describe.skipIf(adminUrl === undefined)('inventory edits (postgres)', () => {
     });
     const { character: added } = await service.patch(fixtureOwnerId, created.id, {
       expectedVersion: FIRST_VERSION,
-      patch: { field: CharacterPatchField.AddItem, item: itemFixtureId(ItemFixture.Longsword), quantity: one },
+      patch: { field: CharacterPatchField.GiftItem, item: itemFixtureId(ItemFixture.Longsword), quantity: one },
     });
     const sword = onlyItem(added);
     const { character: potent } = await service.patch(fixtureOwnerId, created.id, {

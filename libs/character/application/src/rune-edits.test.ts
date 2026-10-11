@@ -53,7 +53,7 @@ describe('CharacterService rune edits', () => {
   }
 
   async function add(name: ItemFixture): Promise<InventoryItemId> {
-    const saved = await edit({ field: CharacterPatchField.AddItem, item: itemFixtureId(name), quantity: one });
+    const saved = await edit({ field: CharacterPatchField.GiftItem, item: itemFixtureId(name), quantity: one });
     const added = saved.document.inventory.items.at(-1);
     if (added === undefined) {
       throw new Error('Nothing was added');

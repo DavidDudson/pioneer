@@ -115,19 +115,28 @@ export const FLAG_LABELS: ReadonlyMap<FacetValue, FacetLabel> = new Map([
   [NO, FacetMessage.No],
 ]);
 
+/** The ids of the facets every kind has, for presets that pick them. */
+export const CommonFacet = {
+  Level: FacetId.parse('level'),
+  Rarity: FacetId.parse('rarity'),
+  Traits: FacetId.parse('traits'),
+  Book: FacetId.parse('book'),
+  Pack: FacetId.parse('pack'),
+} as const;
+
 /** Facets every kind has, from the envelope. */
 export const COMMON_FACETS: readonly FacetDefinition[] = [
-  { id: FacetId.parse('level'), type: FacetType.Range, path: ['level'], label: FacetMessage.Level },
+  { id: CommonFacet.Level, type: FacetType.Range, path: ['level'], label: FacetMessage.Level },
   {
-    id: FacetId.parse('rarity'),
+    id: CommonFacet.Rarity,
     type: FacetType.Set,
     path: ['rarity'],
     label: FacetMessage.Rarity,
     values: RARITY_LABELS,
   },
-  { id: FacetId.parse('traits'), type: FacetType.Set, path: ['traits'], label: FacetMessage.Traits },
-  { id: FacetId.parse('book'), type: FacetType.Set, path: ['sources', 'book'], label: FacetMessage.Book },
-  { id: FacetId.parse('pack'), type: FacetType.Set, path: ['pack'], label: FacetMessage.Pack },
+  { id: CommonFacet.Traits, type: FacetType.Set, path: ['traits'], label: FacetMessage.Traits },
+  { id: CommonFacet.Book, type: FacetType.Set, path: ['sources', 'book'], label: FacetMessage.Book },
+  { id: CommonFacet.Pack, type: FacetType.Set, path: ['pack'], label: FacetMessage.Pack },
 ];
 
 /** What a field path finds: the leaves it reaches, `undefined` where a step was missing. */

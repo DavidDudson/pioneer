@@ -18,8 +18,11 @@ export const CharacterPatchField = {
   /** Pick an option in any slot the engine offers. */
   SelectSlot: 'selectSlot',
   ClearSlot: 'clearSlot',
-  /** An item from content joins the inventory, loose or in a container; the server gives it its id. */
-  AddItem: 'addItem',
+  /**
+   * An item from content joins the inventory without paying (loot, a GM's reward, starting gear), loose or in a
+   * container; the server gives it its id. Its audit rows name `giftItem`, apart from a purchase.
+   */
+  GiftItem: 'giftItem',
   /** An item leaves the inventory; what it held moves out to where it was. */
   RemoveItem: 'removeItem',
   SetItemQuantity: 'setItemQuantity',
@@ -47,7 +50,7 @@ export const CharacterPatchSchema = z.discriminatedUnion('field', [
   z.object({ field: z.literal(CharacterPatchField.SelectSlot), slot: SlotKey, selection: ChoiceValue }),
   z.object({ field: z.literal(CharacterPatchField.ClearSlot), slot: SlotKey }),
   z.object({
-    field: z.literal(CharacterPatchField.AddItem),
+    field: z.literal(CharacterPatchField.GiftItem),
     item: ContentId,
     quantity: ItemQuantity,
     container: InventoryItemId.optional(),
@@ -149,7 +152,7 @@ function runeTarget(patch: RunePatch): InventoryTarget {
 /** What `patch` touches in the inventory; undefined for an edit outside it. Coins touch no item. */
 export function inventoryTarget(patch: CharacterPatch): InventoryTarget | undefined {
   switch (patch.field) {
-    case CharacterPatchField.AddItem: {
+    case CharacterPatchField.GiftItem: {
       return { item: patch.item, container: patch.container };
     }
     case CharacterPatchField.MoveItem: {

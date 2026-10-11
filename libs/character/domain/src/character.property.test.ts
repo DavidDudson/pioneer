@@ -71,7 +71,7 @@ function aimed(patch: CharacterPatch, items: readonly InventoryItem[], { index, 
   const container = target === undefined ? undefined : itemAt(items, target);
   const stowed = container === undefined ? {} : { container };
   switch (patch.field) {
-    case CharacterPatchField.AddItem: {
+    case CharacterPatchField.GiftItem: {
       return { field: patch.field, item: patch.item, quantity: patch.quantity, ...stowed };
     }
     case CharacterPatchField.MoveItem: {

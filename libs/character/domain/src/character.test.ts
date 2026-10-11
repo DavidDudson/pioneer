@@ -116,7 +116,7 @@ describe('Character inventory edits', () => {
   const one = ItemQuantity.parse(1);
 
   function withBackpack(): Character {
-    const added = { field: CharacterPatchField.AddItem, item: itemFixtureId(ItemFixture.Backpack), quantity: one };
+    const added = { field: CharacterPatchField.GiftItem, item: itemFixtureId(ItemFixture.Backpack), quantity: one };
     return new CharacterBuilder().build().apply(added, later, backpackId);
   }
 
@@ -129,7 +129,7 @@ describe('Character inventory edits', () => {
   test('stows a new item in a container, then takes it out', () => {
     const rope = itemFixtureId(ItemFixture.Rope);
     const stowed = withBackpack().apply(
-      { field: CharacterPatchField.AddItem, item: rope, quantity: one, container: backpackId },
+      { field: CharacterPatchField.GiftItem, item: rope, quantity: one, container: backpackId },
       later,
       ropeId,
     );
@@ -145,7 +145,7 @@ describe('Character inventory edits', () => {
   });
 
   test('throws on an added item with no id: the caller mints it, as it gives the time', () => {
-    const added = { field: CharacterPatchField.AddItem, item: itemFixtureId(ItemFixture.Rope), quantity: one };
+    const added = { field: CharacterPatchField.GiftItem, item: itemFixtureId(ItemFixture.Rope), quantity: one };
     expect(() => new CharacterBuilder().build().apply(added, later)).toThrow('needs the id');
   });
 
