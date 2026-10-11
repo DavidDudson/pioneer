@@ -1,0 +1,4335 @@
+[
+  {
+    "id": "43db02a1-2463-5f0f-ba1d-d5fe2901263a",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:arbalest",
+    "name": "Arbalest",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["backstabber"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This large and well-made crossbow requires some training to use effectively, but it's assembled with a cutting-edge firing mechanism that maximizes its speed, power, and accuracy."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.K3qNqWRvBhnlwE3Q"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 8
+        }
+      },
+      "bulk": 2,
+      "category": "martial",
+      "group": "crossbow",
+      "baseItem": "arbalest",
+      "damage": {
+        "dice": 1,
+        "die": "d10",
+        "damageType": "piercing"
+      },
+      "range": 110,
+      "reload": 1,
+      "ammunition": {
+        "type": "bolts",
+        "capacity": 1
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "57aa94ba-0a8c-5120-a4d4-a5439f9ba49d",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:bastard-sword",
+    "name": "Bastard Sword",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["two-hand-d12"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This broad-bladed sword, sometimes called the hand-and-a-half sword, has a longer grip so it can be held in one hand or used with two hands to provide extra slashing power."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.6KWYmeRMxsQfWhhJ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": 1,
+      "category": "martial",
+      "group": "sword",
+      "baseItem": "bastard-sword",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "a01c234f-33e9-5193-9c78-1974df35ea95",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:battle-axe",
+    "name": "Battle Axe",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["sweep"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These axes are designed explicitly as weapons, rather than tools. They typically weigh less, with a shaft reinforced with metal bands or bolts, and have a sharper blade, making them ideal for chopping limbs rather than wood."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.War0uyLBx1jA0Ge7"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1
+        }
+      },
+      "bulk": 1,
+      "category": "martial",
+      "group": "axe",
+      "baseItem": "battle-axe",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "69bda7ce-de01-5f06-866e-b63ebd677008",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:blowgun",
+    "name": "Blowgun",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["agile", "nonlethal"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This long, narrow tube is used for shooting blowgun darts, using only the power of a forcefully exhaled breath."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.FPwsiGqMCNPLHmjX"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 1
+        }
+      },
+      "bulk": "light",
+      "category": "simple",
+      "group": "dart",
+      "baseItem": "blowgun",
+      "damage": {
+        "dice": 1,
+        "damageType": "piercing"
+      },
+      "range": 20,
+      "reload": 1,
+      "ammunition": {
+        "type": "blowgun-darts",
+        "capacity": 1
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "d1945732-3155-55e7-a75a-85a2ebc7205d",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:bo-staff",
+    "name": "Bo Staff",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["monk", "parry", "reach", "trip"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This strong but slender staff is tapered at the ends and well balanced. It's designed to be an offensive and defensive weapon."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.hMYdSFmMWzidzHih"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 2
+        }
+      },
+      "bulk": 2,
+      "category": "martial",
+      "group": "club",
+      "baseItem": "bo-staff",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "ccd0ed99-3eb3-51ef-9502-7d4ae2173e1e",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:bola",
+    "name": "Bola",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["nonlethal", "ranged-trip", "thrown"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This throwing weapon consists of weights tied to the end of long cords, which can be used to entangle foes."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.YUzPv0i8d8p2J9yx"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 5
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "sling",
+      "baseItem": "bola",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "bludgeoning"
+      },
+      "range": 20,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "a303cd49-4675-5408-920e-00889455fb25",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:clan-dagger",
+    "name": "Clan Dagger",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["agile", "dwarf", "parry", "versatile-b"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This broad dagger is carried by dwarves as a weapon, tool, and designation of clan. Losing or having to surrender a clan dagger is considered a mark of embarrassment to most dwarves."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.kJJvKm80KwWXPukV"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2
+        }
+      },
+      "bulk": "light",
+      "category": "simple",
+      "group": "knife",
+      "baseItem": "clan-dagger",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "08215153-1f81-5cde-bae9-392affe48173",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:club",
+    "name": "Club",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["thrown-10"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This is a piece of stout wood shaped or repurposed to bludgeon an enemy. Clubs can be intricately carved pieces of martial art or as simple as a tree branch or piece of wood."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.c58wczIzH2gzeXQL"
+    },
+    "data": {
+      "bulk": 1,
+      "category": "simple",
+      "group": "club",
+      "baseItem": "club",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "7b6af176-5515-58b8-8072-9f8f3f5e918f",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:composite-longbow",
+    "name": "Composite Longbow",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["deadly-d10", "propulsive", "volley-30"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This projectile weapon is made from horn, wood, and sinew laminated together to increase the power of its pull and the force of its projectile. Like all longbows, its great size also increases the bow's range and power. You must use two hands to fire it, and it cannot be used while mounted. Any time an ability is specifically restricted to a longbow, such as Erastil's favored weapon, it also applies to composite longbows unless otherwise stated."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.dUC8Fsa6FZtVikS3"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 20
+        }
+      },
+      "bulk": 2,
+      "category": "martial",
+      "group": "bow",
+      "baseItem": "composite-longbow",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "piercing"
+      },
+      "range": 100,
+      "reload": 0,
+      "ammunition": {
+        "type": "arrows"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one-plus"
+      }
+    }
+  },
+  {
+    "id": "b6e9e0c1-942f-5339-8af5-61531664e411",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:composite-shortbow",
+    "name": "Composite Shortbow",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["deadly-d10", "propulsive"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This shortbow is made from horn, wood, and sinew laminated together to increase the power of its pull and the force of its projectile. Its compact size and power make it a favorite of mounted archers. Any time an ability is specifically restricted to a shortbow, it also applies to composite shortbows unless otherwise stated."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.e4NwsnPnpQKbDZ9F"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 14
+        }
+      },
+      "bulk": 1,
+      "category": "martial",
+      "group": "bow",
+      "baseItem": "composite-shortbow",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "piercing"
+      },
+      "range": 60,
+      "reload": 0,
+      "ammunition": {
+        "type": "arrows"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one-plus"
+      }
+    }
+  },
+  {
+    "id": "d2cc3864-d2af-594f-8c80-0fb1b8c0f561",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:crossbow",
+    "name": "Crossbow",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This ranged weapon has a bow-like assembly mounted on a handled frame called a tiller. The tiller has a mechanism to lock the bowstring in place, attached to a trigger mechanism that releases the tension and launches a bolt."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.62nnVQvGhoVLLl2K"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3
+        }
+      },
+      "bulk": 1,
+      "category": "simple",
+      "group": "crossbow",
+      "baseItem": "crossbow",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "piercing"
+      },
+      "range": 120,
+      "reload": 1,
+      "ammunition": {
+        "type": "bolts",
+        "capacity": 1
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "aea5fd3d-cb47-57b8-9622-601490152a97",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:dagger",
+    "name": "Dagger",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["agile", "finesse", "thrown-10", "versatile-s"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This small, bladed weapon is held in one hand and used to stab a creature in close combat. It can also be thrown."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.rQWaJhI5Bko5x14Z"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 2
+        }
+      },
+      "bulk": "light",
+      "category": "simple",
+      "group": "knife",
+      "baseItem": "dagger",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "32036cd1-4a7d-56fc-80ad-f405ce6451fb",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:dart",
+    "name": "Dart",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["agile", "thrown"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This thrown weapon is larger than an arrow but shorter than a javelin. It typically has a short shaft of wood ending in a metal tip and is sometimes stabilized by feathers or fur."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Tt4Qw64fwrxhr5gT"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "cp": 1
+        }
+      },
+      "bulk": "light",
+      "category": "simple",
+      "group": "dart",
+      "baseItem": "dart",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "piercing"
+      },
+      "range": 20,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "2403c726-d123-5c14-baef-ff4aea1ba022",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:dogslicer",
+    "name": "Dogslicer",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["agile", "backstabber", "finesse", "goblin"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This short, curved, and crude makeshift blade often has holes drilled into it to reduce its weight. It's a favored weapon of goblins."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.olwngGXM3hpgoLEP"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 1
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "sword",
+      "baseItem": "dogslicer",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "e20c7628-a3e3-5625-9b28-30ec6f3edbfc",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:dwarven-war-axe",
+    "name": "Dwarven War Axe",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["dwarf", "sweep", "two-hand-d12"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This favored weapon of the dwarves has a large, ornate head mounted on a thick handle. This powerful axe can be wielded with one hand or two."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.MYnh7w7EL3AcQT41"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3
+        }
+      },
+      "bulk": 2,
+      "category": "advanced",
+      "group": "axe",
+      "baseItem": "dwarven-war-axe",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "b682d8e1-86fa-510b-9214-c4690ea8d77b",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:elven-curve-blade",
+    "name": "Elven Curve Blade",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["elf", "finesse", "forceful"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Essentially a longer version of the scimitar, this traditional elven weapon has a thinner blade than its cousin."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.mgrabKkyLmvxgLBK"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": 2,
+      "category": "martial",
+      "group": "sword",
+      "baseItem": "elven-curve-blade",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "7c02db1b-bf90-59c0-86e2-ca0b33ff003c",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:falchion",
+    "name": "Falchion",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["forceful", "sweep"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This weapon is a heavier, two-handed version of the curved-bladed scimitar. It is weighted toward the blade's end, making it a powerful slashing weapon."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.XGtIUZ4ZNKuFx1uL"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3
+        }
+      },
+      "bulk": 2,
+      "category": "martial",
+      "group": "sword",
+      "baseItem": "falchion",
+      "damage": {
+        "dice": 1,
+        "die": "d10",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "1b9e1b02-507b-5bdb-9fd4-d55d7caf7ae2",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:filchers-fork",
+    "name": "Filcher's Fork",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["agile", "backstabber", "deadly-d6", "finesse", "halfling", "thrown-20"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This halfling weapon looks like a long, two-pronged fork and is used as both a weapon and a cooking implement."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.CVTgOpNuRE7hsnc1"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "spear",
+      "baseItem": "filchers-fork",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "ffebfab3-46fe-5e43-bc92-05749eeef14b",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:flail",
+    "name": "Flail",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["disarm", "sweep", "trip"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This weapon consists of a wooden handle attached to a spiked ball or cylinder by a chain, rope, or strap of leather."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.t5FbyZtRL4qV0V7k"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 8
+        }
+      },
+      "bulk": 1,
+      "category": "martial",
+      "group": "flail",
+      "baseItem": "flail",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "07c2247c-8e1a-56c1-847d-d1ee80cc5263",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:gauntlet",
+    "name": "Gauntlet",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["agile", "free-hand"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A pair of these metal gloves comes with full plate, half plate, and splint armor; they can also be purchased separately and worn with other types of armor. They not only protect your hands but also transform your hands into lethal weapons."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Ix2vicchE79d6Cl3"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 2
+        }
+      },
+      "bulk": "light",
+      "category": "simple",
+      "group": "brawling",
+      "baseItem": "gauntlet",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "6b3496fb-d934-53f4-a613-17be4c607bd0",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:glaive",
+    "name": "Glaive",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["deadly-d8", "forceful", "reach"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This polearm consists of a long, single-edged blade on the end of a 7-foot pole. It is extremely effective at delivering lethal cuts at a distance."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.vlnzTSsRmWeSkt9O"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1
+        }
+      },
+      "bulk": 2,
+      "category": "martial",
+      "group": "polearm",
+      "baseItem": "glaive",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "306b1f97-cf04-5f91-9d70-e838f6c2b0a2",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:gnome-flickmace",
+    "name": "Gnome Flickmace",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["gnome", "reach", "sweep"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "More a flail than a mace, this weapon has a short handle attached to a length of chain with a ball at the end. The ball is propelled to its reach with the flick of the wrist, the momentum of which brings the ball back to the wielder after the strike."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.oSQET5hKn9q4xlrl"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3
+        }
+      },
+      "bulk": 1,
+      "category": "advanced",
+      "group": "flail",
+      "baseItem": "gnome-flickmace",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "913d0602-a8db-5911-8726-4258c9cd4da5",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:gnome-hooked-hammer",
+    "name": "Gnome Hooked Hammer",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["gnome", "trip", "two-hand-d10", "versatile-p"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This gnome tool and weapon features a hammer at one end and a curved pick on the other. It's such a strange and awkward weapon that others think the gnomes are slightly erratic for using it."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.1U7Laa7Yt7i3G77L"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2
+        }
+      },
+      "bulk": 1,
+      "category": "martial",
+      "group": "hammer",
+      "baseItem": "gnome-hooked-hammer",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "56860e3f-5bd7-5ada-b769-323e0b01dbab",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:greataxe",
+    "name": "Greataxe",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["sweep"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This large battle axe is too heavy to wield with only one hand. Many greataxes incorporate two blades, and they are often \"bearded,\" having a hook at the bottom to increase the strength of their chopping power."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.8COlYvHe6hKCXY8x"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2
+        }
+      },
+      "bulk": 2,
+      "category": "martial",
+      "group": "axe",
+      "baseItem": "greataxe",
+      "damage": {
+        "dice": 1,
+        "die": "d12",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "ad535860-5047-5df4-ab17-20a1ea246b01",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:greatclub",
+    "name": "Greatclub",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["backswing", "shove"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While many greatclubs are intricately carved, others are little more than a sturdy tree branch. These massive clubs are too heavy to wield with only one hand."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.kdGqnqbrwPzQfTsm"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1
+        }
+      },
+      "bulk": 2,
+      "category": "martial",
+      "group": "club",
+      "baseItem": "greatclub",
+      "damage": {
+        "dice": 1,
+        "die": "d10",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "1da5101c-3567-5126-b326-5351500c623f",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:greatpick",
+    "name": "Greatpick",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["fatal-d12"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This pick has a longer handle and broader head than a regular pick. It is too heavy to wield in one hand."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.3Zv5hSXXtlaDatUv"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1
+        }
+      },
+      "bulk": 2,
+      "category": "martial",
+      "group": "pick",
+      "baseItem": "greatpick",
+      "damage": {
+        "dice": 1,
+        "die": "d10",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "7b54c2e1-3404-5ca4-b007-7ec849c5c133",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:greatsword",
+    "name": "Greatsword",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["versatile-p"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This immense two-handed sword is nearly as tall as its wielder. Its lower blade is often somewhat dulled to allow it to be gripped for extra leverage in close-quarter fights."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.UX71GkWBL9g41VwM"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2
+        }
+      },
+      "bulk": 2,
+      "category": "martial",
+      "group": "sword",
+      "baseItem": "greatsword",
+      "damage": {
+        "dice": 1,
+        "die": "d12",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "63752750-b877-5143-aecd-e4a19f71bdc9",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:guisarme",
+    "name": "Guisarme",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["reach", "trip"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This polearm bears a long, often one-sided, curved blade with a hook protruding from the blunt side of the blade, which can allow its wielder to trip opponents at a distance. Its shaft is usually 8 feet long."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.TT0pJz9odKApfq6D"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2
+        }
+      },
+      "bulk": 2,
+      "category": "martial",
+      "group": "polearm",
+      "baseItem": "guisarme",
+      "damage": {
+        "dice": 1,
+        "die": "d10",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "77421382-2e1e-5a1e-893b-6a98de69c3fe",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:halberd",
+    "name": "Halberd",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["reach", "versatile-s"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This polearm has a relatively short, 5-foot shaft. The business end is a long spike with an axe blade attached."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.dgWxsYm0DWHb27h6"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2
+        }
+      },
+      "bulk": 2,
+      "category": "martial",
+      "group": "polearm",
+      "baseItem": "halberd",
+      "damage": {
+        "dice": 1,
+        "die": "d10",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "d1b8c3a0-fa2e-533a-8279-4c3da9e780da",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:halfling-sling-staff",
+    "name": "Halfling Sling Staff",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["halfling", "propulsive"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This staff ends in a Y-shaped split that cradles a sling. The length of the staff provides excellent leverage when used two-handed to fling rocks or bullets from the sling."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.DV4qelKHrviM0O5i"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5
+        }
+      },
+      "bulk": 1,
+      "category": "martial",
+      "group": "sling",
+      "baseItem": "halfling-sling-staff",
+      "damage": {
+        "dice": 1,
+        "die": "d10",
+        "damageType": "bludgeoning"
+      },
+      "range": 80,
+      "reload": 1,
+      "ammunition": {
+        "type": "sling-bullets",
+        "capacity": 1
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "51394e89-d32f-5157-a8c8-4a26df55ef20",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:hand-crossbow",
+    "name": "Hand Crossbow",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sometimes referred to as an alley bow by rogues or ruffians, this small crossbow fires small bolts that are sometimes used to deliver poison to the target. It's small enough to be shot one-handed, but it still requires two hands to load."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.XyA6PKV46aNlLXOd"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3
+        }
+      },
+      "bulk": "light",
+      "category": "simple",
+      "group": "crossbow",
+      "baseItem": "hand-crossbow",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "piercing"
+      },
+      "range": 60,
+      "reload": 1,
+      "ammunition": {
+        "type": "bolts",
+        "capacity": 1
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "604a7784-333f-5957-97b6-69aea31522c7",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:hatchet",
+    "name": "Hatchet",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["agile", "sweep", "thrown-10"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This small axe can be used in close combat or thrown."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.LGgvev6AV0So8tP9"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 4
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "axe",
+      "baseItem": "hatchet",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "71a1d447-26fb-57a5-9075-8a9946bc4df3",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:heavy-crossbow",
+    "name": "Heavy Crossbow",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This large crossbow is harder to load and more substantial than a regular crossbow, but it packs a greater punch."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.giO4LwIKGzJZoaxa"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": 2,
+      "category": "simple",
+      "group": "crossbow",
+      "baseItem": "heavy-crossbow",
+      "damage": {
+        "dice": 1,
+        "die": "d10",
+        "damageType": "piercing"
+      },
+      "range": 120,
+      "reload": 2,
+      "ammunition": {
+        "type": "bolts",
+        "capacity": 1
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "07aa578f-3b7d-5174-9fe8-47caad880e81",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:horsechopper",
+    "name": "Horsechopper",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["goblin", "reach", "trip", "versatile-p"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Created by goblins to battle horses, this weapon is essentially a long shaft ending in a blade with a large hook."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.YnwEttFE1bJacLDh"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 9
+        }
+      },
+      "bulk": 2,
+      "category": "martial",
+      "group": "polearm",
+      "baseItem": "horsechopper",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "9ef2bee7-8e09-57cd-bbc3-0969d4e40ff0",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:javelin",
+    "name": "Javelin",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["thrown"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This thin spear is well balanced for throwing but is not designed for melee use."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.JNt7GmLCCVz5BiEI"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 1
+        }
+      },
+      "bulk": "light",
+      "category": "simple",
+      "group": "dart",
+      "baseItem": "javelin",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "piercing"
+      },
+      "range": 30,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "e39a13ac-ffb2-5a58-acee-b78ce0f6a574",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:kama",
+    "name": "Kama",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["agile", "monk", "trip"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Similar to a sickle and used in some regions to reap grain, a kama has a short, slightly curved blade and a wooden handle."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.zSAoyzcf3nSeZCiF"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "knife",
+      "baseItem": "kama",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "6dd53131-ba9e-51cf-9400-5b154adba445",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:katana",
+    "name": "Katana",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["deadly-d8", "two-hand-d10", "versatile-p"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A katana is a curved, single-edged sword known for its wickedly sharped blade."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Y1dkRsRd1Z7Jf2y6"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2
+        }
+      },
+      "bulk": 1,
+      "category": "martial",
+      "group": "sword",
+      "baseItem": "katana",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "6ff02513-f19f-5fd5-9403-97fc884fa196",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:katar",
+    "name": "Katar",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["agile", "deadly-d6", "monk"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Also known as punching daggers, katars are characterized by their H-shaped hand grip that allows the blade to jut out from the knuckles."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Fg3GkCDkszj5WtgQ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 3
+        }
+      },
+      "bulk": "light",
+      "category": "simple",
+      "group": "knife",
+      "baseItem": "katar",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "56d4489c-9417-5787-97b3-d7ddb98a2742",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:khakkhara",
+    "name": "Khakkhara",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["shove", "two-hand-d10", "versatile-p"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This staff is topped by a pointed metal circle from which hang several smaller rings that jingle and clang noisily as the staff is moved, allowing you to announce your presence and scare off wild animals as you walk."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.KgKSX95uVSg8iBBA"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2
+        }
+      },
+      "bulk": 1,
+      "category": "martial",
+      "group": "club",
+      "baseItem": "khakkhara",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "adfdd4cc-1691-5948-9b8c-fff1b65538a3",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:kukri",
+    "name": "Kukri",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["agile", "finesse", "trip"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The blade of this foot-long knife curves inward and lacks a cross guard at the hilt."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.TDrO7Xdyn7juFy3c"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 6
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "knife",
+      "baseItem": "kukri",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "e81e770c-47c2-5e2f-9da1-421236a0ba83",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:lance",
+    "name": "Lance",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["deadly-d8", "jousting-d6", "reach"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This spear-like weapon is used by a mounted creature to deal a great deal of damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.OPMzQdM9rZznMGhW"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1
+        }
+      },
+      "bulk": 2,
+      "category": "martial",
+      "group": "spear",
+      "baseItem": "lance",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "f6499663-1cbf-5b9d-bb10-8b5e930c324c",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:light-hammer",
+    "name": "Light Hammer",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["agile", "thrown-20"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This smaller version of the warhammer has a wooden or metal shaft ending in a metal head. Unlike its heavier cousin, it is light enough to throw."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.FibwLZ12EIEwLGhw"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 3
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "hammer",
+      "baseItem": "light-hammer",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "7a7c8f89-8b03-5673-8a48-735960aef421",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:light-mace",
+    "name": "Light Mace",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["agile", "finesse", "shove"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A light mace has a short wooden or metal shaft ending with a dense metal head. Used much like a club, it delivers heavy bludgeoning blows, but with extra power derived from the head's metal ridges or spikes."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.x1TOpwH755Ami5bC"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 4
+        }
+      },
+      "bulk": "light",
+      "category": "simple",
+      "group": "club",
+      "baseItem": "light-mace",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "1a92733b-26e8-5efc-846f-93e3ce11a453",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:light-pick",
+    "name": "Light Pick",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["agile", "fatal-d8"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A light pick is a modified mining implement with a wooden shaft ending in a pick head crafted more to pierce armor and flesh than chip rocks."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.RbM4HvPyrZ4YJxRc"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 4
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "pick",
+      "baseItem": "light-pick",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "cb5c6d7f-6f80-5069-8d4d-c7bd7023b30e",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:longbow",
+    "name": "Longbow",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["deadly-d10", "volley-30"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This 5-foot-tall bow, usually made of a single piece of elm, hickory, or yew, has a powerful draw and is excellent at propelling arrows with great force and at an extreme distance. You must use two hands to fire a longbow, and it can't be used while mounted."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.MVAWttmT0QDa7LsV"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 6
+        }
+      },
+      "bulk": 2,
+      "category": "martial",
+      "group": "bow",
+      "baseItem": "longbow",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "piercing"
+      },
+      "range": 100,
+      "reload": 0,
+      "ammunition": {
+        "type": "arrows"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one-plus"
+      }
+    }
+  },
+  {
+    "id": "42e09772-4c36-5b7d-9a92-b8ed4cbe2021",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:longspear",
+    "name": "Longspear",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["reach"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This very long spear, sometimes called a pike, is purely for thrusting rather than throwing. Used by many soldiers and city watch for crowd control and defense against charging enemies, it must be wielded with two hands."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.aXuJh4i8HqSu6NYV"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 5
+        }
+      },
+      "bulk": 2,
+      "category": "simple",
+      "group": "spear",
+      "baseItem": "longspear",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "e38c39d9-c59f-5dd5-9739-8a3b9b5a3eba",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:longsword",
+    "name": "Longsword",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["versatile-p"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Longswords, also known as arming swords, can be one-edged or two-edged swords. Their blades are heavy and they're between 3 and 4 feet in length."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.LJdbVTOZog39EEbi"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1
+        }
+      },
+      "bulk": 1,
+      "category": "martial",
+      "group": "sword",
+      "baseItem": "longsword",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "3bac8a5f-c4f9-5194-bf37-27be1f93b3e6",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:mace",
+    "name": "Mace",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["shove"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "With a stout haft and a heavy metal head, a mace is sturdy and allows its wielder to deliver powerful blows and dent armor."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.9iDqOLNFKxiTcFKE"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1
+        }
+      },
+      "bulk": 1,
+      "category": "simple",
+      "group": "club",
+      "baseItem": "mace",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "e9169515-7187-552d-9bc4-522aa8862cb2",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:main-gauche",
+    "name": "Main-Gauche",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["agile", "disarm", "finesse", "parry", "versatile-s"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This parrying dagger features a robust guard to protect the wielder's hand."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.iWcw1sFLAzByVLBP"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 5
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "knife",
+      "baseItem": "main-gauche",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "49c0f60d-bd2e-5214-950b-0d01a9516b20",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:maul",
+    "name": "Maul",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["shove"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Mauls are massive warhammers that must be swung with two hands."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.mlrmkpOlwpnGkw4I"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3
+        }
+      },
+      "bulk": 2,
+      "category": "martial",
+      "group": "hammer",
+      "baseItem": "maul",
+      "damage": {
+        "dice": 1,
+        "die": "d12",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "3200dc7f-03bd-50bf-96e2-1893f46612d1",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:morningstar",
+    "name": "Morningstar",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["versatile-p"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This weapon has a short shaft ending in a metal ball studded with spikes."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.5fu6dCtqhdBnHNqh"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1
+        }
+      },
+      "bulk": 1,
+      "category": "simple",
+      "group": "club",
+      "baseItem": "morningstar",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "21946ed4-97e7-5b23-aa20-57bdbc388b5b",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:nunchaku",
+    "name": "Nunchaku",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["backswing", "disarm", "finesse", "monk"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The nunchaku is constructed of two wooden or metal bars connected by a short length of rope or chain."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.LA8wwpQBi6tylE6z"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 2
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "club",
+      "baseItem": "nunchaku",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "171c8c09-5978-51db-a503-a25d1a2b7bf4",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:orc-knuckle-dagger",
+    "name": "Orc Knuckle Dagger",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["agile", "disarm", "orc"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This stout, metal blade of orc design has a horizontal basket hilt with blades jutting from each end, or sometimes one blade like that of a katar."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.sAjzLXgA2LnIwpBM"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 7
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "knife",
+      "baseItem": "orc-knuckle-dagger",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "040e4386-f1c2-5298-9aa1-c6d3c8a45924",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:orc-necksplitter",
+    "name": "Orc Necksplitter",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["forceful", "orc", "sweep"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This single-bladed bearded axe has a jagged blade that's perfect for separating bone from tendon and cartilage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.J6H5UbLVsSXShoTs"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2
+        }
+      },
+      "bulk": 1,
+      "category": "advanced",
+      "group": "axe",
+      "baseItem": "orc-necksplitter",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "28803908-6913-5bd7-867e-ea01812e4d57",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:pick",
+    "name": "Pick",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["fatal-d10"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A pick designed solely for combat has a sturdy wooden shaft and a heavy, pointed head to deliver devastating blows."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.6I4YJAQUbTAqbpsI"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 7
+        }
+      },
+      "bulk": 1,
+      "category": "martial",
+      "group": "pick",
+      "baseItem": "pick",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "0c603e66-d7e0-5126-b604-0b281da794a3",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:ranseur",
+    "name": "Ranseur",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["disarm", "reach"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This polearm is a long trident with a central prong that's longer than the other two."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.UfurZQK6H6SgOjqe"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2
+        }
+      },
+      "bulk": 2,
+      "category": "martial",
+      "group": "polearm",
+      "baseItem": "ranseur",
+      "damage": {
+        "dice": 1,
+        "die": "d10",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "e7f55096-1e75-5c6a-80e9-b32baeb75ed3",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:rapier",
+    "name": "Rapier",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["deadly-d8", "disarm", "finesse"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The rapier is a long and thin piercing blade with a basket hilt. It is prized among many as a dueling weapon."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.tH5GirEy7YB3ZgCk"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2
+        }
+      },
+      "bulk": 1,
+      "category": "martial",
+      "group": "sword",
+      "baseItem": "rapier",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "9cd4f81c-690e-5faa-9f10-f2afc0a84a63",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:sai",
+    "name": "Sai",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["agile", "disarm", "finesse", "monk", "versatile-b"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This piercing dagger is a metal spike flanked by a pair of prongs that can be used to trap an enemy's weapon."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.u2u6dkr01AB34tyA"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 6
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "knife",
+      "baseItem": "sai",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "01d52b79-3964-59ed-ba54-ba1d79bbc689",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:sap",
+    "name": "Sap",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["agile", "nonlethal"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A sap has a soft wrapping around a dense core, typically a leather sheath around a lead rod. Its head is wider than its grip to disperse the force of a blow, as the weapon's purpose is to knock out its victim rather than to draw blood."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.TLQErnOpM9Luy7rL"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 1
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "club",
+      "baseItem": "sap",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "cc4abb8c-663d-50a2-a14c-7c197c426df3",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:sawtooth-saber",
+    "name": "Sawtooth Saber",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["agile", "finesse", "twin"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The signature weapon of the Red Mantis assassins, this curved blade is serrated like a saw, hence the name."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.wkzxLpSe7LN6c5Ld"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5
+        }
+      },
+      "bulk": "light",
+      "category": "advanced",
+      "group": "sword",
+      "baseItem": "sawtooth-saber",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "1b6601dc-34b8-5e5d-a3e2-d565836389dd",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:scimitar",
+    "name": "Scimitar",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["forceful", "sweep"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This one-handed curved blade is sharp on one side."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.grmaV4GdoGD7sKbn"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1
+        }
+      },
+      "bulk": 1,
+      "category": "martial",
+      "group": "sword",
+      "baseItem": "scimitar",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "13bd3b3c-70a7-57c1-a9a1-cc8b1fd5c3d7",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:scythe",
+    "name": "Scythe",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["deadly-d10", "trip"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Derived from a farming tool used to mow down long grains and cereals, this weapon has a long wooden shaft with protruding handles, capped with a curved blade set at a right angle."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.H74vYwHJ8XT4qOPI"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2
+        }
+      },
+      "bulk": 2,
+      "category": "martial",
+      "group": "polearm",
+      "baseItem": "scythe",
+      "damage": {
+        "dice": 1,
+        "die": "d10",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "d9310437-1fde-54b7-8683-23916f458a87",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:shield-boss",
+    "name": "Shield Boss",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["attached-to-shield"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Typically a round, convex, or conical piece of thick metal attached to the center of a shield, a shield boss increases the bludgeoning damage of a shield bash."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.dfum7DpOEkwxwTsT"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 5
+        }
+      },
+      "bulk": "negligible",
+      "category": "martial",
+      "group": "shield",
+      "baseItem": "shield-boss",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "bbe81ce4-2fd6-5e24-a413-eb4c666c0fd3",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:shield-spikes",
+    "name": "Shield Spikes",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["attached-to-shield"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These metal spikes are strategically placed on the defensive side of the shield to deal piercing damage with a shield bash."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.nSO0Z662LkkLfa2u"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 5
+        }
+      },
+      "bulk": "negligible",
+      "category": "martial",
+      "group": "shield",
+      "baseItem": "shield-spikes",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "22033d3f-8f51-58ca-9fc4-4eccb68055dd",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:shortbow",
+    "name": "Shortbow",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["deadly-d10"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This smaller bow is made of a single piece of wood and favored by skirmishers and cavalry."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.hIgqLgH3YcLZBeoT"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3
+        }
+      },
+      "bulk": 1,
+      "category": "martial",
+      "group": "bow",
+      "baseItem": "shortbow",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "piercing"
+      },
+      "range": 60,
+      "reload": 0,
+      "ammunition": {
+        "type": "arrows"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one-plus"
+      }
+    }
+  },
+  {
+    "id": "5cff4768-7afd-5f34-af65-fafa5d6f08dd",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:shortsword",
+    "name": "Shortsword",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["agile", "finesse", "versatile-s"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These blades come in a variety of shapes and styles, but they are typically 2 feet long."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.7tKkkF8eZ4iCLJtp"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 9
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "sword",
+      "baseItem": "shortsword",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "d5ee459b-fbfd-5ebb-b976-6bf699e06644",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:shuriken",
+    "name": "Shuriken",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["agile", "monk", "thrown"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This \"throwing star\" is a small piece of flat metal with sharp edges, designed to be flung with a flick of the wrist."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.fjkwYZ0hRmBztwBG"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "cp": 1
+        }
+      },
+      "bulk": "negligible",
+      "category": "martial",
+      "group": "dart",
+      "baseItem": "shuriken",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "piercing"
+      },
+      "range": 20,
+      "reload": 0,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "569330b9-cabb-5801-8fe9-85f0cfb25450",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:sickle",
+    "name": "Sickle",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["agile", "finesse", "trip"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Originally a farming tool used for reaping grain, this one-handed weapon has a short wooden handle ending in a curved blade, sometimes sharpened on both sides."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ynnBwzkzsR6B73iO"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 2
+        }
+      },
+      "bulk": "light",
+      "category": "simple",
+      "group": "knife",
+      "baseItem": "sickle",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "be1f1e76-3a87-57f1-8be1-21fcf8ecb20f",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:sling",
+    "name": "Sling",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["propulsive"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Little more than a leather cup attached to a pair of straps, a sling can be used to fling smooth stones or sling bullets at a range."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.UCH4myuFnokGv0vF"
+    },
+    "data": {
+      "bulk": "light",
+      "category": "simple",
+      "group": "sling",
+      "baseItem": "sling",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "bludgeoning"
+      },
+      "range": 50,
+      "reload": 1,
+      "ammunition": {
+        "type": "sling-bullets",
+        "capacity": 1
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "349aff85-baf7-56af-b98b-59f5576e979c",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:spear",
+    "name": "Spear",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["monk", "thrown-20"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A long metal shaft ending with a metal spike, a spear can be used one-handed as a melee weapon and can be thrown."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.tOhoGvmCMw4JpWcS"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 1
+        }
+      },
+      "bulk": 1,
+      "category": "simple",
+      "group": "spear",
+      "baseItem": "spear",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "678e34f3-5f98-55b3-9fc7-3485e8480449",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:spiked-chain",
+    "name": "Spiked Chain",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["disarm", "finesse", "trip"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This 4-foot-long length of chain is covered with barbs and has spikes on one or both ends. Some feature metal hoops used as handgrips."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.zi9ovfoRp2fMhfpO"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3
+        }
+      },
+      "bulk": 1,
+      "category": "martial",
+      "group": "flail",
+      "baseItem": "spiked-chain",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "0765b1da-a01e-5d2d-8383-3bf12f81aeb6",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:spiked-gauntlet",
+    "name": "Spiked Gauntlet",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["agile", "free-hand"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Providing the same defensive function as a standard gauntlet, this version has a group of spikes protruding from the knuckles."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.YFfG2fMyaIAXkmtr"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 3
+        }
+      },
+      "bulk": "light",
+      "category": "simple",
+      "group": "brawling",
+      "baseItem": "spiked-gauntlet",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "60667521-c259-5a78-a22b-4eec12f99701",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:staff",
+    "name": "Staff",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["monk", "two-hand-d8"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This long piece of wood can aid in walking and deliver a mighty blow."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.FVjTuBCIefAgloUU"
+    },
+    "data": {
+      "bulk": 1,
+      "category": "simple",
+      "group": "club",
+      "baseItem": "staff",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "96370563-573f-5cc7-97aa-c96ba8da498a",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:starknife",
+    "name": "Starknife",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["agile", "deadly-d6", "finesse", "thrown-20", "versatile-s"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "From a central metal ring, four tapering metal blades extend like points on a compass rose. When gripping a starknife from the center, the wielder can use it as a melee weapon. It can also be thrown short distances."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Mv2I6M70bagbaBPn"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "knife",
+      "baseItem": "starknife",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "1a3c3da9-6c12-5f4b-bd2a-c7f8260f3cdc",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:sword-cane",
+    "name": "Sword Cane",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["agile", "concealable", "finesse"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This slender, rapier-like sword is concealed within a wooden or metal cane that serves as a sheath, making it an inconspicuous weapon easy to slip past inspections or into high-society events. A sword cane is typically 4 feet long when sheathed, and its hilt is usually capped with a wooden or metal decoration."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.VitLIpdIAmKlGb7i"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5
+        }
+      },
+      "bulk": 1,
+      "category": "martial",
+      "group": "sword",
+      "baseItem": "sword-cane",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "2c2b2ffe-f72a-5578-a1a9-26a5e6f16de7",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:temple-sword",
+    "name": "Temple Sword",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["monk", "trip"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This heavy blade is favored by guardians of religious sites. It has a distinctive, crescent-shaped blade that seems to be a mix of a sickle and sword. It often has holes drilled into the blade or the pommel so that bells or other holy trinkets can be affixed to the weapon."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.NIsxR5zXtVa3PuyU"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2
+        }
+      },
+      "bulk": 1,
+      "category": "martial",
+      "group": "sword",
+      "baseItem": "temple-sword",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "8a0a4d15-8bd1-54ef-8ee8-34e14bf87daf",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:tiger-fork",
+    "name": "Tiger Fork",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["disarm", "grapple", "magical", "thrown-20"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The tiger fork is a "
+          },
+          {
+            "type": "text",
+            "text": "+1 trident",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " with the disarm and grapple traits. It has wide, flaring prongs that can be used to fend off deadly beasts and entrap opponents during combat. While you have another creature Grabbed with the "
+          },
+          {
+            "type": "text",
+            "text": "tiger fork",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", you gain a +1 circumstance bonus to saves against forced movement effects."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Fork Grip",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your last action was a successful Strike against a creature"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can activate the "
+          },
+          {
+            "type": "text",
+            "text": "tiger fork",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " to attempt to "
+          },
+          {
+            "type": "ref",
+            "id": "380d34f1-f6f6-5820-b9dd-c01ee4e19fd5"
+          },
+          {
+            "type": "text",
+            "text": " the creature. This attempt uses the same multiple attack penalty as the required Strike."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.uGu3NWhpPowH0zkR"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 275
+        }
+      },
+      "bulk": 1,
+      "category": "martial",
+      "group": "spear",
+      "baseItem": "trident",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "a65d278e-f59e-5aa1-bd00-1ac00b7c135c",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:trident",
+    "name": "Trident",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["thrown-20"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This three-pronged, spear-like weapon typically has a 4-foot shaft. Like a spear, it can be wielded with one hand or thrown."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.FJrsDoaIXksVjld9"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1
+        }
+      },
+      "bulk": 1,
+      "category": "martial",
+      "group": "spear",
+      "baseItem": "trident",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "29774cc4-d5b0-5861-b8fa-0fc00e8b4466",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:wakizashi",
+    "name": "Wakizashi",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["agile", "deadly-d8", "finesse", "versatile-p"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This short-bladed, single-edged sword is typically carried as part of a pair alongside a "
+          },
+          {
+            "type": "ref",
+            "id": "6dd53131-ba9e-51cf-9400-5b154adba445"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.YOpopjoWgU7bkmwh"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "sword",
+      "baseItem": "wakizashi",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "832976f2-1547-507b-8d64-0359a959b9be",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:war-flail",
+    "name": "War Flail",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["disarm", "sweep", "trip"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This large flail has a long shaft connected to a shorter piece of stout wood or metal that's sometimes inlaid with spikes."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.mVxA9E2ernBL6fM6"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2
+        }
+      },
+      "bulk": 2,
+      "category": "martial",
+      "group": "flail",
+      "baseItem": "war-flail",
+      "damage": {
+        "dice": 1,
+        "die": "d10",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "55d4d53c-06dd-59ad-86b4-113d31611e52",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:warhammer",
+    "name": "Warhammer",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["shove"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This weapon has a wooden shaft ending in a large, heavy metal head. The head of the hammer might be single-sided or double-sided, but it's always capable of delivering powerful bludgeoning blows."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.rXt4629QSg7KDTgJ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1
+        }
+      },
+      "bulk": 1,
+      "category": "martial",
+      "group": "hammer",
+      "baseItem": "warhammer",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "0eccc9d5-6b58-5835-8101-db0500c0276f",
+    "pack": "player-core",
+    "kind": "weapon",
+    "slug": "weapon:whip",
+    "name": "Whip",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["disarm", "finesse", "nonlethal", "reach", "trip"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This long strand of thick leather, often braided, delivers a painful but nonlethal slash at a distance, usually accompanied by a distinctive cracking sound."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.f1gwoTkf3Nn0v3PN"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 1
+        }
+      },
+      "bulk": 1,
+      "category": "martial",
+      "group": "flail",
+      "baseItem": "whip",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  }
+]

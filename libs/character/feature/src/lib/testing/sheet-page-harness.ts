@@ -12,7 +12,7 @@ import { provideI18n } from '@pioneer/shared/web';
 import { expect, onTestFinished, vi } from 'vitest';
 
 import { characterRoutes } from '../character.routes';
-import { provideServerStateTesting } from './provide-server-state-testing';
+import { prebuildServerStateTesting, provideServerStateTesting } from './provide-server-state-testing';
 
 export const id = CharacterId.parse('0d9f7c1e-3b7a-4c55-9d1f-2a8f2b9c6e10');
 
@@ -101,6 +101,7 @@ export interface OpenSheet {
 
 /** Opens Merisiel's sheet (or `character`'s) in the document, so focus can move, and waits until it has loaded. */
 export async function openSheet(character: object = MERISIEL, { slots, packs }: SheetOptions = {}): Promise<OpenSheet> {
+  await prebuildServerStateTesting([], packs);
   TestBed.configureTestingModule({
     providers: [
       provideRouter([{ path: 'characters', children: characterRoutes }], withComponentInputBinding()),

@@ -1,0 +1,272 @@
+[
+  {
+    "id": "c23f0c92-1559-5421-b37d-83f05b9cc24b",
+    "pack": "core-rules",
+    "kind": "damage-type",
+    "slug": "damage-type:acid",
+    "name": "Acid",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "b2c32165-6042-528c-94a6-7d851e171f39",
+    "pack": "core-rules",
+    "kind": "damage-type",
+    "slug": "damage-type:bleed",
+    "name": "Bleed",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "3ac2f421-1e0f-52ed-b758-920d80d89430",
+    "pack": "core-rules",
+    "kind": "damage-type",
+    "slug": "damage-type:bludgeoning",
+    "name": "Bludgeoning",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "731dea15-1fea-5011-b663-7a12a994b9de",
+    "pack": "core-rules",
+    "kind": "damage-type",
+    "slug": "damage-type:cold",
+    "name": "Cold",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "3dbb29a2-1f70-578d-8395-217afb43e9bb",
+    "pack": "core-rules",
+    "kind": "damage-type",
+    "slug": "damage-type:electricity",
+    "name": "Electricity",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "e3f0ea70-fbea-5926-9016-ce2ba9fca79b",
+    "pack": "core-rules",
+    "kind": "damage-type",
+    "slug": "damage-type:fire",
+    "name": "Fire",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "07577a11-2817-5c63-adce-a9f3030ed371",
+    "pack": "core-rules",
+    "kind": "damage-type",
+    "slug": "damage-type:force",
+    "name": "Force",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "099a7a80-84e2-5568-9117-33cfa9a8a492",
+    "pack": "core-rules",
+    "kind": "damage-type",
+    "slug": "damage-type:mental",
+    "name": "Mental",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "eb940efc-03bc-5d46-9d64-897cf1475275",
+    "pack": "core-rules",
+    "kind": "damage-type",
+    "slug": "damage-type:piercing",
+    "name": "Piercing",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "66b16bca-ee21-5ac0-bb63-fdb9692748f7",
+    "pack": "core-rules",
+    "kind": "damage-type",
+    "slug": "damage-type:poison",
+    "name": "Poison",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "09119f5c-c447-5ec2-a80c-da2b136e9884",
+    "pack": "core-rules",
+    "kind": "damage-type",
+    "slug": "damage-type:slashing",
+    "name": "Slashing",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "42d526a9-994b-52cb-8f13-61f3fb3e0af0",
+    "pack": "core-rules",
+    "kind": "damage-type",
+    "slug": "damage-type:sonic",
+    "name": "Sonic",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "1128f82e-a276-5488-ab3d-1e1dd0383239",
+    "pack": "core-rules",
+    "kind": "damage-type",
+    "slug": "damage-type:spirit",
+    "name": "Spirit",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "77ea5490-e774-5a8b-9674-03891557de87",
+    "pack": "core-rules",
+    "kind": "damage-type",
+    "slug": "damage-type:vitality",
+    "name": "Vitality",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "aa782e98-604d-538f-9870-9bf0fccfe317",
+    "pack": "core-rules",
+    "kind": "damage-type",
+    "slug": "damage-type:void",
+    "name": "Void",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  }
+]

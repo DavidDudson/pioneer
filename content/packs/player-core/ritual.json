@@ -1,0 +1,2921 @@
+[
+  {
+    "id": "5f2d3ec4-f4ef-57a8-9dd3-e62b05c659dd",
+    "pack": "player-core",
+    "kind": "ritual",
+    "slug": "ritual:animate-object",
+    "name": "Animate Object",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You transform the target into an animated object with a level up to that allowed by the Creature Creation Rituals table and of a type corresponding to the object (so a broom would become an animated broom)."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target becomes an animated object of the appropriate type. If it's at least 4 levels lower than you, you can make it a minion. This gives it the minion trait, meaning it can use 2 actions when you command it, and commanding it is a single action that has the auditory and concentrate traits. You can have a maximum of four minions under your control. If it doesn't become a minion, you can give it one simple command. It pursues that goal single-mindedly, ignoring any of your subsequent commands."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As critical success, except an animated object that doesn't become your minion stays in place and attacks anyone that attacks it or tries to steal or move it, rather than following your command."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail to create the animated object."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You create the animated object, but it goes berserk and attempts to destroy you."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Creatures Creation Rituals"
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "Creature Level"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "Spell Rank Required"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "Cost"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "-1 or 0"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "15 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "1"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "60 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "105 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "3"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "180 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "4"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "4"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "300 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "5"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "4"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "480 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "6"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "750 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "7"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1,080 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "8"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "6"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1,500 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "9"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "6"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2,100 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "10"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "7"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3,000 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "11"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "7"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "4,200 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "12"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "8"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "6,000 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "13"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "8"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "9,000 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "14"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "9"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "13,500 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "15"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "9"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "19,500 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "16"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "10"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "30,000 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "17"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "10"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "45,000 gp"
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.sLzPzk7DJnfuORJ0"
+    },
+    "data": {
+      "rank": 2,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 10
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "object"
+          }
+        ]
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "rare oils, see Creature Creation Rituals"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:arcana"],
+        "proficiency": "expert"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:crafting"]
+          }
+        ],
+        "casters": 1
+      }
+    }
+  },
+  {
+    "id": "9d9bcb19-2e96-528a-8a38-2af47debe616",
+    "pack": "player-core",
+    "kind": "ritual",
+    "slug": "ritual:blight",
+    "name": "Blight",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["plant", "void"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Area",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1/2-mile-radius circle centered on you"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You twist and stunt plants in the area, causing them to wither. In addition to other dangers from failing plant life, this decreases the crop yield for farms. If you cast this ritual in an area affected by "
+          },
+          {
+            "type": "text",
+            "text": "plant growth",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "text",
+            "text": "blight",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " attempts to counteract "
+          },
+          {
+            "type": "text",
+            "text": "plant growth",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " instead of producing its usual effect."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Completely spoil the crop yield in the area, or decrease the yield by half in an area with up to a 1-mile radius."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Decrease the crop yield in the area by half."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ritual has no effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The flora in the area changes in an unexpected way, determined by the GM but generally as contradictory to your true desires as possible (for instance, enriching crops when you would prefer to blight them)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.7yWXx3qC4eFNHhxD"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "year"
+      },
+      "primary": {
+        "skills": ["skill:nature"],
+        "proficiency": "expert"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:survival"]
+          }
+        ],
+        "casters": 1
+      }
+    }
+  },
+  {
+    "id": "39a76fbf-320c-5beb-9457-d1766960ab18",
+    "pack": "player-core",
+    "kind": "ritual",
+    "slug": "ritual:collective-memories",
+    "name": "Collective Memories",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You tap into other mortals' memories, knowledge, legends, tales, and lore about a subject. The subject must be an important person, place, or thing. If the subject is present, increase the degree of success of your primary skill check by one step. If you have only vague information about the subject before attempting the ritual, decrease the degree of success of your primary skill check by one step. These modifiers cancel each other out if you have a subject present with little to no baseline information."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " For 1 hour after the ritual ends, you sort through memories that are mostly coherent, emphasizing more accurate or useful information over misremembered knowledge or exaggerated tales."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " For 1 hour after the ritual ends, you learn useful information for further inquiry that remains generally incomplete or enigmatic. As is the nature of mortal memory and stories, you are likely to learn multiple contradictory versions."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail to learn any useful legends."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your mind becomes overwhelmed with the vast array of knowledge at your disposal. You can't sense or respond to anything in the present for 1 week except to perform necessities like breathing and sleeping. When you recover, however, you can retrain one of your skills into a Lore based on the knowledge of a subject you were accessing, as if you had spent 1 week retraining."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.hp6Q64dl7xbdn4gQ"
+    },
+    "data": {
+      "rank": 7,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "rare incense worth a total value of 300 gp"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:occultism"],
+        "proficiency": "master"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:performance"]
+          },
+          {
+            "skills": ["skill:society"]
+          }
+        ],
+        "casters": 2
+      }
+    }
+  },
+  {
+    "id": "0832907d-38e1-525d-a17a-2d12262ea5e3",
+    "pack": "player-core",
+    "kind": "ritual",
+    "slug": "ritual:consecrate",
+    "name": "Consecrate",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["consecration"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Area",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 40-foot-radius burst around an immobile altar, shrine, or fixture of your deity"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Secondary Casters",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 2, must be worshippers of your religion"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You consecrate a site to your deity, chanting praises and creating a sacred space. While within the area, worshippers of your deity gain a +1 status bonus to attack rolls, skill checks, saving throws, and Perception checks, and creatures anathema to your deity (such as undead for Pharasma or Sarenrae) take a -1 status penalty to those rolls. If your deity's divine sanctification allows you to choose holy or unholy, you can choose to make the consecrated site holy or unholy as well. If the deity's sanctification "
+          },
+          {
+            "type": "text",
+            "text": "must",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " be holy or unholy, you must make the site match that sanctification. Strikes made by worshippers of your deity within the area gain the site's sanctification trait, if any."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The consecration succeeds, and it either lasts for 10 years instead of 1 or covers an area with twice the radius. Occasionally, with your deity's favor, this might produce an even more amazing effect, such as a permanently consecrated area or the effect covering an entire cathedral."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The consecration succeeds."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The consecration fails."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The consecration fails spectacularly and angers your deity, who sends a sign of displeasure. For at least 1 year, further attempts to consecrate the site fail."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (7th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The consecrated area also gains the effects of the "
+          },
+          {
+            "type": "text",
+            "text": "planar seal",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " spell, but the effect doesn't attempt to counteract teleportation by worshippers of your deity. The cost increases to 200 gp × the spell rank."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.Dbd5W6G8U2vzWolN"
+    },
+    "data": {
+      "rank": 2,
+      "time": {
+        "type": "time",
+        "count": 3,
+        "unit": "day"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 40
+      },
+      "area": {
+        "shape": "burst",
+        "size": 40
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "year"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "rare incense and offerings worth a total value of 20 gp × the spell rank"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:religion"]
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:crafting"]
+          },
+          {
+            "skills": ["skill:performance"]
+          }
+        ],
+        "casters": 2
+      }
+    }
+  },
+  {
+    "id": "fe4ef142-7418-523f-be2c-fe081a636fce",
+    "pack": "player-core",
+    "kind": "ritual",
+    "slug": "ritual:control-weather",
+    "name": "Control Weather",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Area",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 2-mile-radius circle centered on you"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You alter the weather, making it calm and normal for the season or choosing up to two effects based on the season."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Spring",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " drizzle, heat, hurricane, sleet, thunderstorm, tornado"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Summer",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " drizzle, downpour, extreme heat, hail, heat"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Autumn",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " cold weather, fog, mild heat, sleet"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Winter",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " blizzard, mild cold, extreme cold, thaw"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can't specifically control the manifestations, such as the exact path of a tornado or the targets of lightning strikes."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You change the weather as desired and can affect a larger area (up to a 5-mile-radius circle), or a longer duration (any number of additional d12 hours, up to 16d12)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You change the weather as desired."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail to change the weather as desired."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The weather changes in an unanticipated way, determined by the GM but generally as contradictory to your true desires as possible (for instance, a terrible storm emerges when you would prefer good weather)."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (9th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can create unseasonable weather and contradictory weather effects, such as extreme cold and a hurricane. You can make the weather calm and normal weather for a different season or choose weather effects from any season's list."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.XkDCzMIyc0YOjw05"
+    },
+    "data": {
+      "rank": 8,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "primary": {
+        "skills": ["skill:nature"],
+        "proficiency": "master"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:survival"]
+          }
+        ],
+        "casters": 1
+      }
+    }
+  },
+  {
+    "id": "c12f8f7f-3639-52b1-9876-47c37db13938",
+    "pack": "player-core",
+    "kind": "ritual",
+    "slug": "ritual:create-undead",
+    "name": "Create Undead",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["unholy"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You transform the target into an undead creature with a level up to that allowed in the Creature Creation Rituals table. There are many versions of this ritual, each specific to a particular type of undead (one ritual for all zombies, one for skeletons, one for ghouls, and so on), and the rituals that create rare undead are also rare. Some forms of undead, such as liches, form using their own unique methods and can't be created with a version of "
+          },
+          {
+            "type": "text",
+            "text": "create undead",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target becomes an undead creature of the appropriate type. If it's at least 4 levels lower than you, you can make it a minion. This gives it the minion trait, meaning it can use 2 actions when you command it, and commanding it is a single action that has the auditory and concentrate traits. You can have a maximum of four minions under your control. If it's intelligent and doesn't become a minion, the undead is helpful to you for awakening it, though it's still a horrid and evil creature. If it's unintelligent and doesn't become a minion, you can give it one simple command. It pursues that goal single-mindedly, ignoring any of your subsequent commands."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As critical success, except an intelligent undead that doesn't become your minion is only friendly to you, and an unintelligent undead that doesn't become your minion leaves you alone unless you attack it. It marauds the local area rather than following your command."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail to create the undead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You create the undead, but its soul, tortured by your foul necromancy, is full of nothing but hatred for you. It attempts to destroy you."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Creatures Creation Rituals"
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "Creature Level"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "Spell Rank Required"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "Cost"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "-1 or 0"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "15 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "1"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "60 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "105 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "3"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "180 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "4"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "4"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "300 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "5"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "4"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "480 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "6"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "750 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "7"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1,080 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "8"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "6"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1,500 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "9"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "6"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2,100 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "10"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "7"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3,000 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "11"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "7"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "4,200 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "12"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "8"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "6,000 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "13"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "8"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "9,000 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "14"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "9"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "13,500 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "15"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "9"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "19,500 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "16"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "10"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "30,000 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "17"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "10"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "45,000 gp"
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.c3b6LdLlQDPngNIb"
+    },
+    "data": {
+      "rank": 2,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 10
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "black onyx, see Creature Creation Rituals table"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:arcana", "skill:occultism", "skill:religion"],
+        "proficiency": "expert"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:religion"]
+          }
+        ],
+        "casters": 1
+      }
+    }
+  },
+  {
+    "id": "7e85a1ac-f426-579c-bdf8-13484861d9d2",
+    "pack": "player-core",
+    "kind": "ritual",
+    "slug": "ritual:geas",
+    "name": "Geas",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["curse", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You enforce a magic rule on a willing target, forcing it to either perform or refrain from carrying out a certain act. A "
+          },
+          {
+            "type": "text",
+            "text": "geas",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " to perform an act is usually conditional, such as, \"Always offer hospitality to strangers seeking a place to stay.\" An unconditional "
+          },
+          {
+            "type": "text",
+            "text": "geas",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " to perform a certain act doesn't require the target to perform that act exclusively, though it must prioritize the task above all leisurely pursuits. The most common "
+          },
+          {
+            "type": "text",
+            "text": "geas",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " to refrain from carrying out an act is a specification to avoid violating a contract. In those cases, the secondary caster usually takes charge of making sure the wording of the contract is attuned correctly with the ritual's magic. Because the target is willing, "
+          },
+          {
+            "type": "text",
+            "text": "geas",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can have a duration that lasts for as long as the target agrees to. If the target is unable to fulfill the "
+          },
+          {
+            "type": "text",
+            "text": "geas",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", it becomes "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": ", and the sickened condition increases by 1 for each consecutive day it is prevented from following the "
+          },
+          {
+            "type": "text",
+            "text": "geas",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", to a maximum of sickened 4. The sickened condition ends immediately when it follows the "
+          },
+          {
+            "type": "text",
+            "text": "geas",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " again; it can't remove the sickened condition in any other way. Only powerful magic such as a "
+          },
+          {
+            "type": "ref",
+            "id": "0f1f01cd-bf9a-5147-bc44-1697e6548675"
+          },
+          {
+            "type": "text",
+            "text": " ritual can remove the effects of "
+          },
+          {
+            "type": "text",
+            "text": "geas",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " from a willing target."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "geas",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " succeeds, and the target receives a +1 status bonus to skill checks that directly uphold the "
+          },
+          {
+            "type": "text",
+            "text": "geas",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " (at the GM's discretion)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "geas",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " succeeds."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "geas",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " fails."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "geas",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " fails, and you are instead affected by the "
+          },
+          {
+            "type": "text",
+            "text": "geas",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " you were attempting to place on the target. You are considered an unwilling target, so the "
+          },
+          {
+            "type": "text",
+            "text": "geas",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can be counteracted with a "
+          },
+          {
+            "type": "ref",
+            "id": "9495e90b-a69c-5eaf-a472-b6b536856f28"
+          },
+          {
+            "type": "text",
+            "text": " spell."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (5th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can use "
+          },
+          {
+            "type": "text",
+            "text": "geas",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " on an unwilling creature; it can attempt a Will save to negate the effect. If the target fails this Will save, the "
+          },
+          {
+            "type": "text",
+            "text": "geas",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " lasts up to 1 week. A "
+          },
+          {
+            "type": "text",
+            "text": "cleanse affliction",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " spell can counteract a "
+          },
+          {
+            "type": "text",
+            "text": "geas",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " on an unwilling creature, in addition to powerful magic such as a "
+          },
+          {
+            "type": "text",
+            "text": "wish",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " ritual. A clever unwilling creature can subvert the "
+          },
+          {
+            "type": "text",
+            "text": "geas",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " by contriving situations that prevent it from complying, but in that case it becomes "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8"
+          },
+          {
+            "type": "text",
+            "text": " (as described above)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (7th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As 5th rank, but the "
+          },
+          {
+            "type": "text",
+            "text": "geas",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " lasts for up to 1 year on an unwilling creature."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (9th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As 5th rank, but the "
+          },
+          {
+            "type": "text",
+            "text": "geas",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " lasts for a duration you choose (even unlimited) on an unwilling creature."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.Q690d3mw3TUrKX7E"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 10
+      },
+      "primary": {
+        "skills": ["skill:arcana", "skill:occultism", "skill:religion"],
+        "proficiency": "expert"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:society", "skill:lore:legal"]
+          }
+        ],
+        "casters": 1
+      }
+    }
+  },
+  {
+    "id": "814760ac-4a39-53aa-bd8c-180a8f98978a",
+    "pack": "player-core",
+    "kind": "ritual",
+    "slug": "ritual:planar-servitor",
+    "name": "Planar Servitor",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You call upon a deity (or other divine power) to grant you aid in the form of a divine servitor of your deity's choice, with a level no greater than double the ritual's spell rank. The secondary casters explain what sort of assistance you need and why you need it; if the task is incredibly fitting to the deity, the GM can grant a circumstance bonus to the secondary Diplomacy check or rule that the check is automatically a critical success. If you use the ritual without good reason, the result is automatically a critical failure."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If the ritual succeeds, you must offer the servitor payment depending on factors such as the duration and danger of the task. Payment always costs at least as much as a consumable item of the creature's level, and often costs as much as a permanent magic item of the creature's level to persuade a creature to fight alongside you. Your offerings should align with the personal tastes of the deity."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can alternatively name a being native to the deity's realm that you know personally, with the same level restriction. Such a creature might request something they personally want as payment."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The deity sends a servitor, and the servitor's payment costs only half as much as normal. If you ask for a particular servitor by name, the deity is likely to send that servitor unless the servitor is busy."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your deity sends a servitor."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your deity does not send a servitor."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The deity is offended and sends a sign of displeasure or possibly even a servitor to scold or attack you, depending on your deity's nature. A deity might also opt to strip divine powers from its followers who participated until they atone"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.vgy00hnqxN9VoeoF"
+    },
+    "data": {
+      "rank": 5,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "rare incense and offerings worth a total value of 2 gp × the spell rank × the target's level, see text for more details"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:religion"],
+        "proficiency": "expert"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:diplomacy"]
+          }
+        ],
+        "casters": 2
+      }
+    }
+  },
+  {
+    "id": "cd184fc3-4251-5b32-9650-cc23c765982b",
+    "pack": "player-core",
+    "kind": "ritual",
+    "slug": "ritual:plant-growth",
+    "name": "Plant Growth",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["plant", "vitality", "wood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Area",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1/2-mile-radius circle centered on you"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You cause the plants within the area to be healthier and more fruitful. In addition to other benefits of healthy plants, this increases the crop yield for farms, depending on your success. If you cast it in the area of a "
+          },
+          {
+            "type": "ref",
+            "id": "9d9bcb19-2e96-528a-8a38-2af47debe616"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "text",
+            "text": "plant growth",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " attempts to counteract the "
+          },
+          {
+            "type": "text",
+            "text": "blight",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " instead of producing its usual effect."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Double the crop yield in the area, or increase the area to a 1-mile radius."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Increase the crop yield in the area by one-third."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ritual has no effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The flora in the area changes in an unanticipated way, determined by the GM but generally as contradictory to your true desires as possible (for instance, blighting crops when you would prefer to enrich them)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.ZhJ8d9Uk4lwIx86b"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "year"
+      },
+      "primary": {
+        "skills": ["skill:nature"],
+        "proficiency": "expert"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:lore:farming", "skill:survival"]
+          }
+        ],
+        "casters": 1
+      }
+    }
+  },
+  {
+    "id": "7599fd65-1def-57d7-bba2-abf4b0d16026",
+    "pack": "player-core",
+    "kind": "ritual",
+    "slug": "ritual:primal-call",
+    "name": "Primal Call",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This functions as "
+          },
+          {
+            "type": "ref",
+            "id": "814760ac-4a39-53aa-bd8c-180a8f98978a"
+          },
+          {
+            "type": "text",
+            "text": " except you craft a faerie circle and call an animal, beast, fey, fungus, or plant from within 100 miles."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.pZc8ZwtsyWnxUUW0"
+    },
+    "data": {
+      "rank": 6,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "faerie circle ingredients worth a total value of 1 gp × the spell rank × the target's level"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:nature"],
+        "proficiency": "master"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:crafting"]
+          },
+          {
+            "skills": ["skill:diplomacy"]
+          },
+          {
+            "skills": ["skill:survival"]
+          }
+        ],
+        "casters": 4
+      }
+    }
+  },
+  {
+    "id": "ffb89230-3939-5733-83a2-d20bbd4d33db",
+    "pack": "player-core",
+    "kind": "ritual",
+    "slug": "ritual:resurrect",
+    "name": "Resurrect",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["healing"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You attempt to call forth the target's soul and return it to its body. This requires the target's body to be present and relatively intact. The target must have died within the past year. If Pharasma has decided that the target's time has come or the target doesn't wish to return, this ritual automatically fails, but you discover this after the successful Religion check and can end the ritual without paying the cost."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You resurrect the target. They return to life with full Hit Points and the same spells prepared and points in their pools they had when they died, and still suffering from any long-term debilitations of the old body. The target meets an agent of their deity during the resurrection who inspires them, granting them a +1 status bonus to attack rolls, Perception, saving throws, and skill checks for 1 week. The target is also permanently changed in some way by their time in the afterlife, such as gaining a slight personality shift, a streak of white in the hair, or a strange new birthmark."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As critical success, except the target returns to life with 1 Hit Point and no spells prepared or points in any pools, and still is affected by any long-term debilitations of the old body. Instead of inspiring them, the character's time in the Boneyard has left them temporarily debilitated. The target is "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 1"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 1"
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 1"
+          },
+          {
+            "type": "text",
+            "text": " for 1 week; these conditions can't be removed or reduced by any means until the week has passed."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your attempt is unsuccessful."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Something goes horribly wrong-an evil spirit possesses the body, the body transforms into a special kind of undead, or some worse fate befalls the target."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (6th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can resurrect a target of up to 12th level, and the base cost is 125 gp."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (7th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can use "
+          },
+          {
+            "type": "text",
+            "text": "resurrect",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " even with only a small portion of the body; the ritual creates a new body on a success or critical success. The target must have died within the past decade. The ritual requires four secondary casters, each of whom must be at least half the target's level. The target can be up to 14th level, and the base cost is 200 gp."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (8th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As 7th rank, but the target can be up to 16th level and the base cost is 300 gp."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (9th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can use "
+          },
+          {
+            "type": "text",
+            "text": "resurrect",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " even without the body as long as you know the target's name and have touched a portion of its body at any time. The target must have died within the past century, and it doesn't gain the negative conditions on a success. The ritual requires eight secondary casters, each of whom must be at least half the target's level. The target can be up to 18th level, and the base cost is 600 gp."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (10th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As 9th rank, except it doesn't matter how long ago the target died. The ritual requires 16 secondary casters, each of whom must be at least half the target's level. The target can be up to 20th level, and the ritual's base cost is 1,000 gp."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.kqhPt9344UkcGVYO"
+    },
+    "data": {
+      "rank": 5,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 10
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "gemstones worth a total value of 75 gp × the target's level"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:religion"],
+        "proficiency": "expert"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:medicine"]
+          },
+          {
+            "skills": ["skill:society"]
+          }
+        ],
+        "casters": 2
+      }
+    }
+  },
+  {
+    "id": "0f1f01cd-bf9a-5147-bc44-1697e6548675",
+    "pack": "player-core",
+    "kind": "ritual",
+    "slug": "ritual:wish",
+    "name": "Wish",
+    "level": 10,
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You weave the fabric of reality itself to grant the target's greatest desire. The target declares their wish in a loud voice at the start of the ritual and again at the end. The target's wish can be anything, ranging from simpler wishes such as vast riches or the casting of a certain spell or ritual, to greater wishes like the destruction of an entire kingdom or ascension to divinity. The GM might decide a wish draws the attention of deities or other powerful creatures, leading to interference with the ritual or attempts to undo the wish. The power of the ritual alters reality to such a degree that even deities can't outright undo the wish, but they can react to the wish by sending servitors to take away the newly acquired riches, for example."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The wish is granted without complication or drawbacks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The wish is granted, but with unintended consequences or side effects, such as taking riches from a well-known criminal, stirring a damaged kingdom to war, or angering rival gods."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The wish fails and has no result. The GM can instead have the wish be partially granted, but to such a lesser degree that the target will be eternally unsatisfied."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The wish is corrupted, resulting in a cruel fulfillment. The GM determines the full results, but the outcome is generally ironic in some nature, such as becoming trapped in an underground vault full of riches, being transported to the kingdom as it's destroyed, or achieving divinity within an inaccessible demiplane."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.6dDtGIUerazSHIOu"
+    },
+    "data": {
+      "rank": 10,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 10
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "fine ash, magically imbued pigments, and a gem in a marquise cut worth 100,000 gp in total"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:arcana", "skill:nature", "skill:occultism", "skill:religion"],
+        "proficiency": "legendary"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:crafting"]
+          },
+          {
+            "skills": ["skill:diplomacy"]
+          }
+        ],
+        "casters": 2
+      }
+    }
+  }
+]

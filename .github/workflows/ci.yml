@@ -86,12 +86,22 @@ jobs:
           SCRIPT: ${{ matrix.script }}
           ARGS: ${{ matrix.args }}
 
+  # `ci:test` split by project group so each job stays near the others: the character feature (its specs open pages
+  # over Player Core's import), the other web projects (Angular unit tests), and the Bun projects, which hold the
+  # DB tests and so need Postgres. Together the groups cover every project with a test target.
   test:
-    name: Check (test)
+    name: Check (test ${{ matrix.name }})
     runs-on: ubuntu-24.04
     timeout-minutes: 10
     permissions:
       contents: read
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { name: character, id: character, args: --projects=character-feature }
+          - { name: web, id: web, args: '--projects=tag:platform:web --exclude=character-feature' }
+          - { name: server and domain, id: server, args: '--exclude=tag:platform:web' }
     services:
       postgres:
         # Same major/minor as the devshell's postgresql_18.
@@ -133,12 +143,17 @@ jobs:
           path: |
             .nx/cache
             .nx/workspace-data/*.db
-          key: nx-${{ runner.os }}-test-${{ github.sha }}
-          restore-keys: nx-${{ runner.os }}-test-
+          key: nx-${{ runner.os }}-test-${{ matrix.id }}-${{ github.sha }}
+          restore-keys: nx-${{ runner.os }}-test-${{ matrix.id }}-
       - name: Install
         run: bun install --frozen-lockfile
       - name: Test
-        run: bun run ci:test
+        run: |
+          # ARGS holds several nx flags, so it is split on spaces.
+          # shellcheck disable=SC2086
+          bun run ci:test $ARGS
+        env:
+          ARGS: ${{ matrix.args }}
 
   workflows:
     name: Workflow lint

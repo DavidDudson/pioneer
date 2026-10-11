@@ -2,9 +2,10 @@
  * One-off Foundry import (ADR-0031, content-model.md "Foundry import"): `just content-import --pack <pack>
  * --book <book>... [--dry-run]`. Downloads the pack's pinned foundryvtt/pf2e release into a gitignored cache, checks
  * its SHA-256, reads the item packs, journals and config vocabularies, selects entries, translates them, validates
- * the result (`packOutput`), and reports what the import brings in, what it could not translate and its coverage.
- * Without `--dry-run` it then writes the pack, the vocabulary it adds to `core-rules` and the backlog
- * (`write-output.ts`), and names the files to register in the catalog.
+ * the result (`packOutput`), carries over the page numbers and AoN links of the entries it replaces
+ * (`carrySources`), and reports what the import brings in, what it could not translate and its coverage. Without
+ * `--dry-run` it then writes the pack, the vocabulary it adds to `core-rules` and the backlog (`write-output.ts`), and
+ * names the files to register in the catalog.
  */
 import { mkdir, rename } from 'node:fs/promises';
 import path from 'node:path';
@@ -12,6 +13,7 @@ import { parseArgs } from 'node:util';
 
 import {
   archiveUrl,
+  carrySources,
   BacklogItemType,
   FOUNDRY_BOOK_TITLES,
   dryRunReport,
@@ -46,7 +48,7 @@ import { BookId, PackId } from '@pioneer/rules/sdk';
 import { formatCoverage } from './coverage-table.ts';
 import { loadFoundryConfig } from './foundry-config-loader';
 import type { PackTargets } from './pack-writes.ts';
-import { previousImport, registrationReport, writeOutput } from './write-output.ts';
+import { committedEntries, previousImport, registrationReport, writeOutput } from './write-output.ts';
 
 const ROOT = path.resolve(import.meta.dir, '../..');
 const CACHE = path.join(ROOT, '.data/foundry');
@@ -250,7 +252,9 @@ const translation = translateImport(selection.selected, {
 });
 console.log(formatTranslation(translation.envelopes));
 console.log(formatKindData(translation));
-const output = packOutput(translation, { known });
+const generated = packOutput(translation, { known });
+// Page numbers and AoN links on the entries the import replaces carry over to the imported entry with the same slug.
+const output = { ...generated, entries: carrySources(generated.entries, await committedEntries(targets)) };
 console.log(formatLeftOut(output.backlog));
 console.log(formatCoverage(importCoverage(output.entries, output.backlog)));
 if (!dryRun) {

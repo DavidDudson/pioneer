@@ -1,0 +1,2348 @@
+[
+  {
+    "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7",
+    "pack": "player-core",
+    "kind": "condition",
+    "slug": "condition:blinded",
+    "name": "Blinded",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can't see. All normal terrain is difficult terrain to you. You can't detect anything using vision. You automatically critically fail Perception checks that require you to be able to see, and if vision is your only precise sense, you take a –4 status penalty to Perception checks. You are immune to visual effects. Blinded overrides "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.conditionitems.Item.XgEqL1kFApUbl5Z2"
+    },
+    "data": {
+      "valued": false,
+      "group": "senses",
+      "overrides": ["943dfd55-ad09-5abf-9138-95a6149d3302"],
+      "implies": []
+    }
+  },
+  {
+    "id": "c945a9c5-1053-552c-8cc3-ac4832741d0f",
+    "pack": "player-core",
+    "kind": "condition",
+    "slug": "condition:broken",
+    "name": "Broken",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Broken is a condition that affects only objects. An object is broken when damage has reduced its Hit Points to equal or less than its Broken Threshold. A broken object can't be used for its normal function, nor does it grant bonuses—with the exception of armor. Broken armor still grants its item bonus to AC, but it also imparts a status penalty to AC depending on its category: –1 for broken light armor, –2 for broken medium armor, or –3 for broken heavy armor."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A broken item still imposes penalties and limitations normally incurred by carrying, holding, or wearing it. For example, broken armor would still impose its Dexterity modifier cap, check penalty, and so forth. If an effect makes an item broken automatically and the item has more HP than its Broken Threshold, that effect also reduces the item's current HP to the Broken Threshold."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.conditionitems.Item.6dNUvdb1dhToNDj3"
+    },
+    "data": {
+      "valued": false,
+      "overrides": [],
+      "implies": []
+    }
+  },
+  {
+    "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+    "pack": "player-core",
+    "kind": "condition",
+    "slug": "condition:clumsy",
+    "name": "Clumsy",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your movements become clumsy and inexact. Clumsy always includes a value. You take a status penalty equal to the condition value to Dexterity-based rolls and DCs, including AC, Reflex saves, ranged attack rolls, and skill checks using Acrobatics, Stealth, and Thievery."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.conditionitems.Item.i3OJZU2nk64Df3xm"
+    },
+    "data": {
+      "valued": true,
+      "group": "abilities",
+      "overrides": [],
+      "implies": []
+    }
+  },
+  {
+    "id": "f410da96-b56a-5c7c-857b-7096defec0a1",
+    "pack": "player-core",
+    "kind": "condition",
+    "slug": "condition:concealed",
+    "name": "Concealed",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are difficult for one or more creatures to see due to thick fog or some other obscuring feature. You can be concealed to some creatures but not others. While concealed, you can still be "
+          },
+          {
+            "type": "ref",
+            "id": "a861c051-d5ee-5a52-9334-b7289778180f"
+          },
+          {
+            "type": "text",
+            "text": ", but you're tougher to target. A creature that you're concealed from must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 5
+          },
+          {
+            "type": "text",
+            "text": " when targeting you with an attack, spell, or other effect. If the check fails, you aren't affected. Area effects aren't subject to this flat check."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.conditionitems.Item.DmAIPqOBomZ7H95W"
+    },
+    "data": {
+      "valued": false,
+      "group": "senses",
+      "overrides": [],
+      "implies": []
+    }
+  },
+  {
+    "id": "6f53a234-670f-5b02-a986-7cce57585fc8",
+    "pack": "player-core",
+    "kind": "condition",
+    "slug": "condition:confused",
+    "name": "Confused",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You don't have your wits about you, and you attack wildly. You are "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": ", you don't treat anyone as your ally (though they might still treat you as theirs), and you can't Delay, Ready, or use reactions."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You use all your actions to Strike or cast offensive cantrips, though the GM can have you use other actions to facilitate attack, such as draw a weapon, move so target is in reach, and so forth. Your targets are determined randomly by the GM. If you have no other viable targets, you target yourself, automatically hitting but not scoring a critical hit. If it's impossible for you to attack or cast spells, you babble incoherently, wasting your actions."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each time you take damage from an attack or spell, you can attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 11
+          },
+          {
+            "type": "text",
+            "text": " to recover from your confusion and end the condition."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "target:ally",
+        "value": false
+      },
+      {
+        "key": "RollOption",
+        "option": "origin:ally",
+        "value": false
+      },
+      {
+        "key": "GrantItem",
+        "item": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.conditionitems.Item.yblD8fOR1J8rDwEQ"
+    },
+    "data": {
+      "valued": false,
+      "overrides": [],
+      "implies": ["071324e5-bb4c-5ed2-9e2f-28185b65ded7"]
+    }
+  },
+  {
+    "id": "3f5dc8b4-dcc0-5a99-8501-aff382e8d341",
+    "pack": "player-core",
+    "kind": "condition",
+    "slug": "condition:controlled",
+    "name": "Controlled",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have been commanded, magically dominated, or otherwise had your will subverted. The controller dictates how you act and can make you use any of your actions, including attacks, reactions, or even "
+          },
+          {
+            "type": "ref",
+            "id": "2f6fd775-86ac-5588-a1d8-f87644035144"
+          },
+          {
+            "type": "text",
+            "text": ". The controller usually doesn't have to spend their own actions when controlling you."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.conditionitems.Item.9qGBRpbX9NEwtAAr"
+    },
+    "data": {
+      "valued": false,
+      "overrides": [],
+      "implies": []
+    }
+  },
+  {
+    "id": "943dfd55-ad09-5abf-9138-95a6149d3302",
+    "pack": "player-core",
+    "kind": "condition",
+    "slug": "condition:dazzled",
+    "name": "Dazzled",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eyes are overstimulated or your vision is swimming. If vision is your only precise sense, all creatures and objects are "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": " from you."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.conditionitems.Item.TkIyaNPgTZFBCCuh"
+    },
+    "data": {
+      "valued": false,
+      "group": "senses",
+      "overrides": [],
+      "implies": []
+    }
+  },
+  {
+    "id": "4271da2e-7225-5aa7-9807-c499d8af6a5a",
+    "pack": "player-core",
+    "kind": "condition",
+    "slug": "condition:deafened",
+    "name": "Deafened",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can't hear. You automatically critically fail Perception checks that require you to be able to hear. You take a –2 status penalty to Perception checks for initiative and checks that involve sound but also rely on other senses. If you perform an action that has the auditory trait, you must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 5
+          },
+          {
+            "type": "text",
+            "text": " or the action is lost; attempt the check after spending the action but before any effects are applied. You are immune to auditory effects while deafened."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.conditionitems.Item.9PR9y0bi4JPKnHPR"
+    },
+    "data": {
+      "valued": false,
+      "group": "senses",
+      "overrides": [],
+      "implies": []
+    }
+  },
+  {
+    "id": "cd164d22-2d8e-5fd2-b8b2-03e1360df1e7",
+    "pack": "player-core",
+    "kind": "condition",
+    "slug": "condition:doomed",
+    "name": "Doomed",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your soul has been gripped by a powerful force that calls you closer to death. Doomed always includes a value. The "
+          },
+          {
+            "type": "ref",
+            "id": "c0cd649a-7029-5174-a5b4-678f51598dec"
+          },
+          {
+            "type": "text",
+            "text": " value at which you die is reduced by your doomed value. If your maximum dying value is reduced to 0, you instantly die. When you die, you're no longer doomed."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your doomed value decreases by 1 each time you get a full night's rest."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.conditionitems.Item.3uh1r86TzbQvosxv"
+    },
+    "data": {
+      "valued": true,
+      "group": "death",
+      "overrides": [],
+      "implies": []
+    }
+  },
+  {
+    "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+    "pack": "player-core",
+    "kind": "condition",
+    "slug": "condition:drained",
+    "name": "Drained",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your health and vitality have been depleted as you've lost blood, life force, or some other essence. Drained always includes a value. You take a status penalty equal to your drained value on Constitution-based rolls and DCs, such as Fortitude saves. You also lose a number of Hit Points equal to your level (minimum 1) times the drained value, and your maximum Hit Points are reduced by the same amount. For example, if you become drained 3 and you're a 3rd-level character, you lose 9 Hit Points and reduce your maximum Hit Points by 9. Losing these Hit Points doesn't count as taking damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each time you get a full night's rest, your drained value decreases by 1. This increases your maximum Hit Points, but you don't immediately recover the lost Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.conditionitems.Item.4D2KBtexWXa6oUMR"
+    },
+    "data": {
+      "valued": true,
+      "group": "abilities",
+      "overrides": [],
+      "implies": []
+    }
+  },
+  {
+    "id": "c0cd649a-7029-5174-a5b4-678f51598dec",
+    "pack": "player-core",
+    "kind": "condition",
+    "slug": "condition:dying",
+    "name": "Dying",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are bleeding out or otherwise at death's door. While you have this condition, you are "
+          },
+          {
+            "type": "ref",
+            "id": "e1a78dad-4887-518e-9120-e58b7009ebfd"
+          },
+          {
+            "type": "text",
+            "text": ". Dying always includes a value, and if it ever reaches dying 4, you die. When you're dying, you must attempt a recovery check at the start of your turn each round to determine whether you get better or worse. Your dying condition increases by 1 if you take damage while dying, or by 2 if you take damage from an enemy's critical hit or a critical failure on your save."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you lose the dying condition by succeeding at a recovery check and are still at 0 Hit Points, you remain unconscious, but you can wake up as described in that condition. You lose the dying condition automatically and wake up if you ever have 1 Hit Point or more. Any time you lose the dying condition, you gain the "
+          },
+          {
+            "type": "ref",
+            "id": "6c4e09a7-469d-5668-8c1b-92f87de94d27",
+            "label": "Wounded 1"
+          },
+          {
+            "type": "text",
+            "text": " condition, or increase your wounded condition value by 1 if you already have that condition."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "e1a78dad-4887-518e-9120-e58b7009ebfd"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.conditionitems.Item.yZRUzMqrMmfLu0V1"
+    },
+    "data": {
+      "valued": true,
+      "group": "death",
+      "overrides": [],
+      "implies": ["e1a78dad-4887-518e-9120-e58b7009ebfd"]
+    }
+  },
+  {
+    "id": "c7876f7b-3d87-55d8-af48-a396b2676415",
+    "pack": "player-core",
+    "kind": "condition",
+    "slug": "condition:encumbered",
+    "name": "Encumbered",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are carrying more weight than you can manage. While you're encumbered, you're "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 1"
+          },
+          {
+            "type": "text",
+            "text": " and take a 10-foot penalty to all your Speeds. As with all penalties to your Speed, this can't reduce your Speed below 5 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "69f88e3c-d871-5fb9-82c6-120348a7c0e8"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.conditionitems.Item.D5mg6Tc7Jzrj6ro7"
+    },
+    "data": {
+      "valued": false,
+      "overrides": [],
+      "implies": ["69f88e3c-d871-5fb9-82c6-120348a7c0e8"]
+    }
+  },
+  {
+    "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+    "pack": "player-core",
+    "kind": "condition",
+    "slug": "condition:enfeebled",
+    "name": "Enfeebled",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're physically weakened. Enfeebled always includes a value. When you are enfeebled, you take a status penalty equal to the condition value to Strength-based rolls and DCs, including Strength-based melee attack rolls, Strength-based damage rolls, and Athletics checks."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.conditionitems.Item.MIRkyAjyBeXivMa7"
+    },
+    "data": {
+      "valued": true,
+      "group": "abilities",
+      "overrides": [],
+      "implies": []
+    }
+  },
+  {
+    "id": "88ca1b7b-d5de-5978-9ff4-258c9aadef1a",
+    "pack": "player-core",
+    "kind": "condition",
+    "slug": "condition:fascinated",
+    "name": "Fascinated",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're compelled to focus your attention on something, distracting you from whatever else is going on around you. You take a –2 status penalty to Perception and skill checks, and you can't use concentrate actions unless they (or their intended consequences) are related to the subject of your fascination, as determined by the GM. For instance, you might be able to "
+          },
+          {
+            "type": "ref",
+            "id": "d45207be-e539-50ce-9463-f4edc3671076"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "3c873e49-a1c4-53b5-9694-66b860d94d43"
+          },
+          {
+            "type": "text",
+            "text": " about the subject, but you likely couldn't cast a spell targeting a different creature. This condition ends if a creature uses hostile actions against you or any of your allies."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.conditionitems.Item.AdPVz7rbaVSRxHFg"
+    },
+    "data": {
+      "valued": false,
+      "overrides": [],
+      "implies": []
+    }
+  },
+  {
+    "id": "5e3582c3-701c-5169-9c69-4221096722c2",
+    "pack": "player-core",
+    "kind": "condition",
+    "slug": "condition:fatigued",
+    "name": "Fatigued",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're tired and can't summon much energy. You take a –1 status penalty to AC and saving throws. You can't use exploration activities performed while traveling."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You recover from fatigue after a full night's rest."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.conditionitems.Item.HL2l2VRSaQHu9lUw"
+    },
+    "data": {
+      "valued": false,
+      "overrides": [],
+      "implies": []
+    }
+  },
+  {
+    "id": "f7fea8f9-c457-5b9f-9283-f567fa557184",
+    "pack": "player-core",
+    "kind": "condition",
+    "slug": "condition:fleeing",
+    "name": "Fleeing",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're forced to run away due to fear or some other compulsion. On your turn, you must spend each of your actions trying to escape the source of the fleeing condition as expediently as possible (such as by using move actions to flee, or opening doors barring your escape). The source is usually the effect or creature that gave you the condition, though some effects might define something else as the source. You can't "
+          },
+          {
+            "type": "ref",
+            "id": "2f6fd775-86ac-5588-a1d8-f87644035144"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "aecdd3d6-3593-554c-940c-34a4beadea87"
+          },
+          {
+            "type": "text",
+            "text": " while fleeing."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.conditionitems.Item.sDPxOjQ9kx2RZE8D"
+    },
+    "data": {
+      "valued": false,
+      "overrides": [],
+      "implies": []
+    }
+  },
+  {
+    "id": "ef3f130c-50e8-51b3-be54-5d0d0ecbc970",
+    "pack": "player-core",
+    "kind": "condition",
+    "slug": "condition:friendly",
+    "name": "Friendly",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This condition reflects a creature's disposition toward a particular character, and only supernatural effects (like a spell) can impose this condition on a PC. A creature that is friendly to a character likes that character. It is likely to agree to "
+          },
+          {
+            "type": "ref",
+            "id": "bd7385d5-c754-542c-9518-060942de3701",
+            "label": "Requests"
+          },
+          {
+            "type": "text",
+            "text": " from that character as long as they are simple, safe, and don't cost too much to fulfill. If the character (or one of their allies) uses hostile actions against the creature, the creature gains a worse attitude condition depending on the severity of the hostile action, as determined by the GM."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.conditionitems.Item.v66R7FdOf11l94im"
+    },
+    "data": {
+      "valued": false,
+      "group": "attitudes",
+      "overrides": [
+        "3f0ec457-8edb-5a4d-b6b9-bafc0ee9311f",
+        "44d39747-aad3-5b73-a493-af78cda98eef",
+        "f71f2666-3e15-5d4b-9bc5-7047a68e1018",
+        "2546bdb8-3708-5414-ada6-f17e73d81768"
+      ],
+      "implies": []
+    }
+  },
+  {
+    "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+    "pack": "player-core",
+    "kind": "condition",
+    "slug": "condition:frightened",
+    "name": "Frightened",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're gripped by fear and struggle to control your nerves. The frightened condition always includes a value. You take a status penalty equal to this value to all your checks and DCs. Unless specified otherwise, at the end of each of your turns, the value of your frightened condition decreases by 1."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.conditionitems.Item.TBSHQspnbcqxsmjL"
+    },
+    "data": {
+      "valued": true,
+      "overrides": [],
+      "implies": []
+    }
+  },
+  {
+    "id": "cab530ff-ca20-5f0a-8a5e-b9fdb322b146",
+    "pack": "player-core",
+    "kind": "condition",
+    "slug": "condition:grabbed",
+    "name": "Grabbed",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're held in place by another creature, giving you the "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "64278392-4910-5a32-b819-56f6e54952dd"
+          },
+          {
+            "type": "text",
+            "text": " conditions. If you attempt a manipulate action while grabbed, you must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 5
+          },
+          {
+            "type": "text",
+            "text": " or it is lost; roll the check after spending the action, but before any effects are applied."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+      },
+      {
+        "key": "GrantItem",
+        "item": "64278392-4910-5a32-b819-56f6e54952dd"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.conditionitems.Item.kWc1fhmv9LBiTuei"
+    },
+    "data": {
+      "valued": false,
+      "overrides": [],
+      "implies": ["071324e5-bb4c-5ed2-9e2f-28185b65ded7", "64278392-4910-5a32-b819-56f6e54952dd"]
+    }
+  },
+  {
+    "id": "3f0ec457-8edb-5a4d-b6b9-bafc0ee9311f",
+    "pack": "player-core",
+    "kind": "condition",
+    "slug": "condition:helpful",
+    "name": "Helpful",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This condition reflects a creature's disposition toward a particular character, and only supernatural effects (like a spell) can impose this condition on a PC. A creature that is helpful to a character wishes to actively aid that character. It will accept reasonable "
+          },
+          {
+            "type": "ref",
+            "id": "bd7385d5-c754-542c-9518-060942de3701",
+            "label": "Requests"
+          },
+          {
+            "type": "text",
+            "text": " from that character, as long as such requests aren't at the expense of the helpful creature's goals or quality of life. If the character (or one of their allies) uses a hostile action against the creature, the creature gains a worse attitude condition depending on the severity of the hostile action, as determined by the GM."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.conditionitems.Item.v44P3WUcU1j0115l"
+    },
+    "data": {
+      "valued": false,
+      "group": "attitudes",
+      "overrides": [
+        "ef3f130c-50e8-51b3-be54-5d0d0ecbc970",
+        "44d39747-aad3-5b73-a493-af78cda98eef",
+        "f71f2666-3e15-5d4b-9bc5-7047a68e1018",
+        "2546bdb8-3708-5414-ada6-f17e73d81768"
+      ],
+      "implies": []
+    }
+  },
+  {
+    "id": "d851e3ca-be0d-55a7-a4d1-d7ed8b7ecafa",
+    "pack": "player-core",
+    "kind": "condition",
+    "slug": "condition:hidden",
+    "name": "Hidden",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While you're hidden from a creature, that creature knows the space you're in but can't tell precisely where you are. You typically become hidden by using Stealth to "
+          },
+          {
+            "type": "ref",
+            "id": "5a86b7d0-fc0e-52a6-9b0d-fb58ed15233d"
+          },
+          {
+            "type": "text",
+            "text": ". When "
+          },
+          {
+            "type": "ref",
+            "id": "d45207be-e539-50ce-9463-f4edc3671076",
+            "label": "Seeking"
+          },
+          {
+            "type": "text",
+            "text": " a creature using only imprecise senses, it remains hidden, rather than "
+          },
+          {
+            "type": "ref",
+            "id": "a861c051-d5ee-5a52-9334-b7289778180f"
+          },
+          {
+            "type": "text",
+            "text": ". A creature you're hidden from is "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " to you, and it must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 11
+          },
+          {
+            "type": "text",
+            "text": " when targeting you with an attack, spell, or other effect or it fails to affect you. Area effects aren't subject to this flat check."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A creature might be able to use the seek action to try to observe you."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.conditionitems.Item.iU0fEDdBp3rXpTMC"
+    },
+    "data": {
+      "valued": false,
+      "group": "detection",
+      "overrides": [],
+      "implies": []
+    }
+  },
+  {
+    "id": "2546bdb8-3708-5414-ada6-f17e73d81768",
+    "pack": "player-core",
+    "kind": "condition",
+    "slug": "condition:hostile",
+    "name": "Hostile",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This condition reflects a creature's disposition toward a particular character, and only supernatural effects (like a spell) can impose on a PC. A creature hostile to a character actively seeks to harm that character. It doesn't necessarily attack, but it won't accept "
+          },
+          {
+            "type": "ref",
+            "id": "bd7385d5-c754-542c-9518-060942de3701",
+            "label": "Requests"
+          },
+          {
+            "type": "text",
+            "text": " from the character."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.conditionitems.Item.ud7gTLwPeklzYSXG"
+    },
+    "data": {
+      "valued": false,
+      "group": "attitudes",
+      "overrides": [
+        "3f0ec457-8edb-5a4d-b6b9-bafc0ee9311f",
+        "ef3f130c-50e8-51b3-be54-5d0d0ecbc970",
+        "44d39747-aad3-5b73-a493-af78cda98eef",
+        "f71f2666-3e15-5d4b-9bc5-7047a68e1018"
+      ],
+      "implies": []
+    }
+  },
+  {
+    "id": "64278392-4910-5a32-b819-56f6e54952dd",
+    "pack": "player-core",
+    "kind": "condition",
+    "slug": "condition:immobilized",
+    "name": "Immobilized",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are incapable of movement. You can't use any actions that have the move trait. If you're immobilized by something holding you in place and an external force would move you out of your space, the force must succeed at a check against either the DC of the effect holding you in place or the relevant defense (usually Fortitude DC) of the monster holding you in place."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.conditionitems.Item.eIcWbB5o3pP6OIMe"
+    },
+    "data": {
+      "valued": false,
+      "overrides": [],
+      "implies": []
+    }
+  },
+  {
+    "id": "44d39747-aad3-5b73-a493-af78cda98eef",
+    "pack": "player-core",
+    "kind": "condition",
+    "slug": "condition:indifferent",
+    "name": "Indifferent",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This condition reflects a creature's disposition toward a particular character, and only supernatural effects (like a spell) can impose this condition on a PC. A creature that is indifferent to a character doesn't really care one way or the other about that character. Assume a creature's attitude to a given character is indifferent unless specified otherwise."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.conditionitems.Item.fuG8dgthlDWfWjIA"
+    },
+    "data": {
+      "valued": false,
+      "group": "attitudes",
+      "overrides": [
+        "3f0ec457-8edb-5a4d-b6b9-bafc0ee9311f",
+        "ef3f130c-50e8-51b3-be54-5d0d0ecbc970",
+        "f71f2666-3e15-5d4b-9bc5-7047a68e1018",
+        "2546bdb8-3708-5414-ada6-f17e73d81768"
+      ],
+      "implies": []
+    }
+  },
+  {
+    "id": "53cf375b-c3fa-5d92-afde-135a3c001674",
+    "pack": "player-core",
+    "kind": "condition",
+    "slug": "condition:invisible",
+    "name": "Invisible",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can't be seen. You're "
+          },
+          {
+            "type": "ref",
+            "id": "61f1fec4-1bb4-585d-9c12-6059d15dd74b"
+          },
+          {
+            "type": "text",
+            "text": " to everyone. Creatures can "
+          },
+          {
+            "type": "ref",
+            "id": "d45207be-e539-50ce-9463-f4edc3671076"
+          },
+          {
+            "type": "text",
+            "text": " to detect you; if a creature succeeds at its Perception check against your Stealth DC, you become "
+          },
+          {
+            "type": "ref",
+            "id": "d851e3ca-be0d-55a7-a4d1-d7ed8b7ecafa"
+          },
+          {
+            "type": "text",
+            "text": " to that creature until you "
+          },
+          {
+            "type": "ref",
+            "id": "7e4e48de-b626-5513-9518-73261c58b5f4"
+          },
+          {
+            "type": "text",
+            "text": " to become undetected again. If you become invisible while someone can already see you, you start out hidden to them (instead of undetected) until you successfully Sneak. You can't become "
+          },
+          {
+            "type": "ref",
+            "id": "a861c051-d5ee-5a52-9334-b7289778180f"
+          },
+          {
+            "type": "text",
+            "text": " while invisible except via special abilities or magic."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.conditionitems.Item.zJxUflt9np0q4yML"
+    },
+    "data": {
+      "valued": false,
+      "group": "senses",
+      "overrides": [],
+      "implies": []
+    }
+  },
+  {
+    "id": "a861c051-d5ee-5a52-9334-b7289778180f",
+    "pack": "player-core",
+    "kind": "condition",
+    "slug": "condition:observed",
+    "name": "Observed",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anything in plain view is observed by you. If a creature takes measures to avoid detection, such as by using Stealth to "
+          },
+          {
+            "type": "ref",
+            "id": "5a86b7d0-fc0e-52a6-9b0d-fb58ed15233d"
+          },
+          {
+            "type": "text",
+            "text": ", it can become "
+          },
+          {
+            "type": "ref",
+            "id": "d851e3ca-be0d-55a7-a4d1-d7ed8b7ecafa"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "61f1fec4-1bb4-585d-9c12-6059d15dd74b"
+          },
+          {
+            "type": "text",
+            "text": " instead of observed. If you have another precise sense besides sight, you might be able to observe a creature or object using that sense instead. You can observe a creature with only your precise senses. When "
+          },
+          {
+            "type": "ref",
+            "id": "d45207be-e539-50ce-9463-f4edc3671076",
+            "label": "Seeking"
+          },
+          {
+            "type": "text",
+            "text": " a creature using only imprecise senses, it remains hidden, rather than observed."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.conditionitems.Item.1wQY3JYyhMYeeV2G"
+    },
+    "data": {
+      "valued": false,
+      "group": "detection",
+      "overrides": [],
+      "implies": []
+    }
+  },
+  {
+    "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7",
+    "pack": "player-core",
+    "kind": "condition",
+    "slug": "condition:off-guard",
+    "name": "Off-Guard",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're distracted or otherwise unable to focus your full attention on defense. You take a –2 circumstance penalty to AC. Some effects give you the off-guard condition only to certain creatures or against certain attacks. Others—especially conditions—can make you off-guard against everything. If a rule doesn't specify that the condition applies only to certain circumstances, it applies to all of them, such as \"The target is off-guard.\""
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.conditionitems.Item.AJh5ex99aV6VTggg"
+    },
+    "data": {
+      "valued": false,
+      "overrides": [],
+      "implies": []
+    }
+  },
+  {
+    "id": "7802f1d9-5ced-5b9b-8a08-98ec0adb9947",
+    "pack": "player-core",
+    "kind": "condition",
+    "slug": "condition:paralyzed",
+    "name": "Paralyzed",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're frozen in place. You have the "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " condition and can't act except to "
+          },
+          {
+            "type": "ref",
+            "id": "3c873e49-a1c4-53b5-9694-66b860d94d43"
+          },
+          {
+            "type": "text",
+            "text": " and use actions that require only your mind (as determined by the GM). Your senses still function, but only in the areas you can perceive without moving, so you can't "
+          },
+          {
+            "type": "ref",
+            "id": "d45207be-e539-50ce-9463-f4edc3671076"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.conditionitems.Item.6uEgoh53GbXuHpTF"
+    },
+    "data": {
+      "valued": false,
+      "overrides": [],
+      "implies": ["071324e5-bb4c-5ed2-9e2f-28185b65ded7"]
+    }
+  },
+  {
+    "id": "03f09f32-a6d0-56f8-995b-b80986c1e1dc",
+    "pack": "player-core",
+    "kind": "condition",
+    "slug": "condition:persistent-damage",
+    "name": "Persistent Damage",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are taking damage from an ongoing effect, such as from being lit on fire. This appears as \"X persistent [type] damage,\" where \"X\" is the amount of damage dealt and \"[type]\" is the damage type. Like normal damage, it can be doubled or halved based on the results of an attack roll or saving throw. Instead of taking persistent damage immediately, you take it at the end of each of your turns as long as you have the condition, rolling any damage dice anew each time. After you take persistent damage, roll a "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 15
+          },
+          {
+            "type": "text",
+            "text": " to see if you recover from the persistent damage. If you succeed, the condition ends."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.conditionitems.Item.lDVqvLKA6eF3Df60"
+    },
+    "data": {
+      "valued": false,
+      "overrides": [],
+      "implies": []
+    }
+  },
+  {
+    "id": "3d9defdb-7a92-5ba7-817e-e95b3811cf7f",
+    "pack": "player-core",
+    "kind": "condition",
+    "slug": "condition:petrified",
+    "name": "Petrified",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have been turned to stone. You can't act, nor can you sense anything. You become an object with a Bulk double your normal Bulk (typically 12 for a petrified Medium creature or 6 for a petrified Small creature), AC 9, Hardness 8, and the same current Hit Points you had when alive. You don't have a Broken Threshold. When the petrified condition ends, you have the same number of Hit Points you had as a statue. If the statue is destroyed, you immediately die. While petrified, your mind and body are in stasis, so you don't age or notice the passing of time."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.conditionitems.Item.dTwPJuKgBQCMxixg"
+    },
+    "data": {
+      "valued": false,
+      "overrides": [],
+      "implies": []
+    }
+  },
+  {
+    "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759",
+    "pack": "player-core",
+    "kind": "condition",
+    "slug": "condition:prone",
+    "name": "Prone",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're lying on the ground. You are "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " and take a –2 circumstance penalty to attack rolls. The only move actions you can use while you're prone are "
+          },
+          {
+            "type": "ref",
+            "id": "fe112db5-30e6-5a96-94a1-2356a4820452"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "667bebee-bb47-5bf2-b54e-7955517106a6"
+          },
+          {
+            "type": "text",
+            "text": ". Standing up ends the prone condition. You can "
+          },
+          {
+            "type": "ref",
+            "id": "ef51d835-6ab6-513d-b582-80753efde13b"
+          },
+          {
+            "type": "text",
+            "text": " while prone to hunker down and gain greater cover against ranged attacks, even if you don't have an object to get behind, which grants you a +4 circumstance bonus to AC against ranged attacks (but you remain off-guard)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you would be knocked prone while you're "
+          },
+          {
+            "type": "ref",
+            "id": "d26ec2df-83bd-5f2f-988e-e922681de6ba",
+            "label": "Climbing"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "825ea55f-742d-5046-af5a-8a5ae80f2e79",
+            "label": "Flying"
+          },
+          {
+            "type": "text",
+            "text": ", you fall. You can't be knocked prone when "
+          },
+          {
+            "type": "ref",
+            "id": "890ca16b-87be-53af-b93c-ffddb037a2f8",
+            "label": "Swimming"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.conditionitems.Item.j91X7x0XSomq8d60"
+    },
+    "data": {
+      "valued": false,
+      "overrides": [],
+      "implies": ["071324e5-bb4c-5ed2-9e2f-28185b65ded7"]
+    }
+  },
+  {
+    "id": "6517bbf2-8085-534b-be6a-187d52739fa0",
+    "pack": "player-core",
+    "kind": "condition",
+    "slug": "condition:quickened",
+    "name": "Quickened",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're able to act more quickly. You gain 1 additional action at the start of your turn each round. Many effects that make you quickened require you use this extra action only in certain ways. If you become quickened from multiple sources, you can use the extra action you've been granted for any single action allowed by any of the effects that made you quickened. Because quickened has its effect at the start of your turn, you don't immediately gain actions if you become quickened during your turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.conditionitems.Item.nlCjDvLMf2EkV2dl"
+    },
+    "data": {
+      "valued": false,
+      "overrides": [],
+      "implies": []
+    }
+  },
+  {
+    "id": "b374c4c9-d230-5167-8878-38e08932a071",
+    "pack": "player-core",
+    "kind": "condition",
+    "slug": "condition:restrained",
+    "name": "Restrained",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're tied up and can barely move, or a creature has you pinned. You have the "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "64278392-4910-5a32-b819-56f6e54952dd"
+          },
+          {
+            "type": "text",
+            "text": " conditions, and you can't use any attack or manipulate actions except to attempt to "
+          },
+          {
+            "type": "ref",
+            "id": "2ae74030-e87a-55ee-955c-fb9870392d44"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "26c3977f-44da-54f1-aaac-9dde108ba609"
+          },
+          {
+            "type": "text",
+            "text": " your bonds. Restrained overrides "
+          },
+          {
+            "type": "ref",
+            "id": "cab530ff-ca20-5f0a-8a5e-b9fdb322b146"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+      },
+      {
+        "key": "GrantItem",
+        "item": "64278392-4910-5a32-b819-56f6e54952dd"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.conditionitems.Item.VcDeM8A5oI6VqhbM"
+    },
+    "data": {
+      "valued": false,
+      "overrides": ["cab530ff-ca20-5f0a-8a5e-b9fdb322b146"],
+      "implies": ["071324e5-bb4c-5ed2-9e2f-28185b65ded7", "64278392-4910-5a32-b819-56f6e54952dd"]
+    }
+  },
+  {
+    "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+    "pack": "player-core",
+    "kind": "condition",
+    "slug": "condition:sickened",
+    "name": "Sickened",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You feel ill. Sickened always includes a value. You take a status penalty equal to this value on all your checks and DCs. You can't willingly ingest anything-including elixirs and potions-while sickened."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can spend a single action retching in an attempt to recover, which lets you immediately attempt a Fortitude save against the DC of the effect that made you sickened. On a success, you reduce your sickened value by 1 (or by 2 on a critical success)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.conditionitems.Item.fesd1n5eVhpCSS18"
+    },
+    "data": {
+      "valued": true,
+      "overrides": [],
+      "implies": []
+    }
+  },
+  {
+    "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+    "pack": "player-core",
+    "kind": "condition",
+    "slug": "condition:slowed",
+    "name": "Slowed",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have fewer actions. Slowed always includes a value. When you regain your actions, reduce the number of actions regained by your slowed value. Because you regain actions at the start of your turn, you don't immediately lose actions if you become slowed during your turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.conditionitems.Item.xYTAsEpcJE1Ccni3"
+    },
+    "data": {
+      "valued": true,
+      "overrides": [],
+      "implies": []
+    }
+  },
+  {
+    "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+    "pack": "player-core",
+    "kind": "condition",
+    "slug": "condition:stunned",
+    "name": "Stunned",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've become senseless. You can't act. Stunned usually includes a value, which indicates how many total actions you lose, possibly over multiple turns, from being stunned. Each time you regain actions, reduce the number you regain by your stunned value, then reduce your stunned value by the number of actions you lost. For example, if you were stunned 4, you would lose all 3 of your actions on your turn, reducing you to stunned 1; on your next turn, you would lose 1 more action, and then be able to use your remaining 2 actions normally. Stunned might also have a duration instead, such as \"stunned for 1 minute,\" causing you to lose all your actions for the duration."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stunned overrides "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e"
+          },
+          {
+            "type": "text",
+            "text": ". If the duration of your stunned condition ends while you are slowed, you count the actions lost to the stunned condition toward those lost to being slowed. So, if you were stunned 1 and slowed 2 at the beginning of your turn, you would lose 1 action from stunned, and then lose only 1 additional action by being slowed, so you would still have 1 action remaining to use that turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.conditionitems.Item.dfCMdR4wnpbYNTix"
+    },
+    "data": {
+      "valued": true,
+      "overrides": ["13584c6a-a624-511c-a5de-0c36a9136b9e"],
+      "implies": []
+    }
+  },
+  {
+    "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+    "pack": "player-core",
+    "kind": "condition",
+    "slug": "condition:stupefied",
+    "name": "Stupefied",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your thoughts and instincts are clouded. Stupefied always includes a value. You take a status penalty equal to this value on Intelligence-, Wisdom-, and Charisma-based rolls and DCs, including Will saving throws, spell attack modifiers, spell DCs, and skill checks that use these attribute modifiers. Any time you attempt to "
+          },
+          {
+            "type": "ref",
+            "id": "5e7b32f6-95d4-5b66-9956-03c679d22fa2"
+          },
+          {
+            "type": "text",
+            "text": " while stupefied, the spell is disrupted unless you succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "flat"
+          },
+          {
+            "type": "text",
+            "text": " with a DC equal to 5 + your stupefied value."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.conditionitems.Item.e1XGnhKNSQIm5IXg"
+    },
+    "data": {
+      "valued": true,
+      "group": "abilities",
+      "overrides": [],
+      "implies": []
+    }
+  },
+  {
+    "id": "e1a78dad-4887-518e-9120-e58b7009ebfd",
+    "pack": "player-core",
+    "kind": "condition",
+    "slug": "condition:unconscious",
+    "name": "Unconscious",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're sleeping or have been knocked out. You can't act. You take a –4 status penalty to AC, Perception, and Reflex saves, and you have the "
+          },
+          {
+            "type": "ref",
+            "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " conditions. When you gain this condition, you fall "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": " and drop items you're holding unless the effect states otherwise or the GM determines you're positioned so you wouldn't."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you're unconscious because you're "
+          },
+          {
+            "type": "ref",
+            "id": "c0cd649a-7029-5174-a5b4-678f51598dec"
+          },
+          {
+            "type": "text",
+            "text": ", you can't wake up while you have 0 Hit Points. If you are restored to 1 Hit Point or more, you lose the dying and unconscious conditions and can act normally on your next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you are unconscious and at 0 Hit Points, but not dying, you return to 1 Hit Point and awaken after sufficient time passes. The GM determines how long you remain unconscious, from a minimum of 10 minutes to several hours. If you are healed, you lose the unconscious condition and can act normally on your next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you're unconscious and have more than 1 Hit Point (typically because you are asleep or unconscious due to an effect), you wake up in one of the following ways."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "You take damage, though if the damage reduces you to 0 Hit Points, you remain unconscious and gain the dying condition as normal."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "You receive healing, other than the natural healing you get from resting."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Someone shakes you awake with an "
+                },
+                {
+                  "type": "ref",
+                  "id": "f87b0582-e87a-5335-b480-28482fa849b1"
+                },
+                {
+                  "type": "text",
+                  "text": " action."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Loud noise around you might wake you. At the start of your turn, you automatically attempt a Perception check against the noise's DC (or the lowest DC if there is more than one noise), waking up if you succeed. If creatures are attempting to stay quiet around you, this Perception check uses their Stealth DCs. Some effects make you sleep so deeply that they don't allow you this Perception check."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "If you are simply asleep, the GM decides you wake up either because you have had a restful night's sleep or something disrupted that rest."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+      },
+      {
+        "key": "GrantItem",
+        "item": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.conditionitems.Item.fBnFDH2MTzgFijKf"
+    },
+    "data": {
+      "valued": false,
+      "group": "death",
+      "overrides": [],
+      "implies": ["5d63458a-cde5-5d64-8fea-b920f04f36b7", "071324e5-bb4c-5ed2-9e2f-28185b65ded7"]
+    }
+  },
+  {
+    "id": "61f1fec4-1bb4-585d-9c12-6059d15dd74b",
+    "pack": "player-core",
+    "kind": "condition",
+    "slug": "condition:undetected",
+    "name": "Undetected",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you are undetected by a creature, that creature can't see you at all, has no idea what space you occupy, and can't target you, though you still can be affected by abilities that target an area. When you're undetected by a creature, that creature is "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " to you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A creature you're undetected by can guess which square you're in to try targeting you. It must pick a square and attempt an attack. This works like targeting a "
+          },
+          {
+            "type": "ref",
+            "id": "d851e3ca-be0d-55a7-a4d1-d7ed8b7ecafa"
+          },
+          {
+            "type": "text",
+            "text": " creature (requiring a "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 11
+          },
+          {
+            "type": "text",
+            "text": "), but the flat check and attack roll are rolled in secret by the GM, who doesn't reveal whether the attack missed due to failing the flat check, failing the attack roll, or choosing the wrong square. They can "
+          },
+          {
+            "type": "ref",
+            "id": "d45207be-e539-50ce-9463-f4edc3671076"
+          },
+          {
+            "type": "text",
+            "text": " to try to find you."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.conditionitems.Item.VRSef5y1LmL2Hkjf"
+    },
+    "data": {
+      "valued": false,
+      "group": "detection",
+      "overrides": [],
+      "implies": []
+    }
+  },
+  {
+    "id": "f71f2666-3e15-5d4b-9bc5-7047a68e1018",
+    "pack": "player-core",
+    "kind": "condition",
+    "slug": "condition:unfriendly",
+    "name": "Unfriendly",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This condition reflects a creature's disposition toward a particular character, and only supernatural effects (like a spell) can impose this condition on a PC. A creature that is unfriendly to a character dislikes and distrusts that character. The unfriendly creature won't accept "
+          },
+          {
+            "type": "ref",
+            "id": "bd7385d5-c754-542c-9518-060942de3701",
+            "label": "Requests"
+          },
+          {
+            "type": "text",
+            "text": " from the character."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.conditionitems.Item.I1ffBVISxLr2gC4u"
+    },
+    "data": {
+      "valued": false,
+      "group": "attitudes",
+      "overrides": [
+        "3f0ec457-8edb-5a4d-b6b9-bafc0ee9311f",
+        "ef3f130c-50e8-51b3-be54-5d0d0ecbc970",
+        "44d39747-aad3-5b73-a493-af78cda98eef",
+        "2546bdb8-3708-5414-ada6-f17e73d81768"
+      ],
+      "implies": []
+    }
+  },
+  {
+    "id": "fb2f276b-359e-5305-94d6-45249b045a75",
+    "pack": "player-core",
+    "kind": "condition",
+    "slug": "condition:unnoticed",
+    "name": "Unnoticed",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you're unnoticed by a creature, that creature has no idea you're present. When you're unnoticed, you're also "
+          },
+          {
+            "type": "ref",
+            "id": "61f1fec4-1bb4-585d-9c12-6059d15dd74b"
+          },
+          {
+            "type": "text",
+            "text": ". This matters for abilities that can be used only against targets totally unaware of your presence."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.conditionitems.Item.9evPzg9E6muFcoSk"
+    },
+    "data": {
+      "valued": false,
+      "group": "detection",
+      "overrides": [],
+      "implies": []
+    }
+  },
+  {
+    "id": "6c4e09a7-469d-5668-8c1b-92f87de94d27",
+    "pack": "player-core",
+    "kind": "condition",
+    "slug": "condition:wounded",
+    "name": "Wounded",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have been seriously injured. If you lose the "
+          },
+          {
+            "type": "ref",
+            "id": "c0cd649a-7029-5174-a5b4-678f51598dec"
+          },
+          {
+            "type": "text",
+            "text": " condition and do not already have the wounded condition, you become wounded 1. If you already have the wounded condition when you lose the dying condition, your wounded condition value increases by 1. If you gain the dying condition while wounded, increase your dying condition value by your wounded value."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The wounded condition ends if someone successfully restores Hit Points to you using "
+          },
+          {
+            "type": "ref",
+            "id": "18c1b923-595b-5203-a0be-010205e51c44"
+          },
+          {
+            "type": "text",
+            "text": ", or if you are restored to full Hit Points by any means and rest for 10 minutes."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.conditionitems.Item.Yl48xTdMh3aeQYL2"
+    },
+    "data": {
+      "valued": true,
+      "group": "death",
+      "overrides": [],
+      "implies": []
+    }
+  }
+]

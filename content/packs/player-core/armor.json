@@ -1,0 +1,1056 @@
+[
+  {
+    "id": "34cfad64-b36c-5ee0-b132-24104f3b3f8a",
+    "pack": "player-core",
+    "kind": "armor",
+    "slug": "armor:armorskin-robes-of-air",
+    "name": "Armorskin Robes of Air",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["comfort", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+1 resilient explorer's clothing",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is woven with thread spun by an elemental, and it sparkles with radiant color. A strong breeze wafts from the thread, blowing attacks off course. You gain resistance 5 to electricity damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Elemental Sheath",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The elemental threads cover your skin, further protecting you but limiting mobility. For 10 minutes, you gain resistance 5 to slashing and piercing damage but take a –5-foot status penalty to all Speeds. While activated, you gain a +1 status bonus to your AC against physical ranged attacks."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.HHqBGkHQDpQu0bMK"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 700
+        }
+      },
+      "bulk": "light",
+      "category": "unarmored",
+      "group": "cloth",
+      "baseItem": "explorers-clothing",
+      "acBonus": 0,
+      "dexCap": 5,
+      "runes": {
+        "potency": 1,
+        "property": [],
+        "resilient": 1
+      }
+    }
+  },
+  {
+    "id": "30803311-0723-5bc5-990e-b0161b68dcc8",
+    "pack": "player-core",
+    "kind": "armor",
+    "slug": "armor:armorskin-robes-of-fire",
+    "name": "Armorskin Robes of Fire",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["comfort", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+1 resilient explorer's clothing",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is woven with thread spun by an elemental, and it sparkles with radiant color. The thread is hot as fire. You gain resistance 5 to fire damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Elemental Sheath",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The elemental threads cover your skin, further protecting you but limiting mobility. For 10 minutes, you gain resistance 5 to slashing and piercing damage but take a –5-foot status penalty to all Speeds. While activated, any creature that touches you or damages you with an unarmed attack or melee weapon without the reach trait takes 1d6 fire damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.wxiwAGxbEt2Qzo7m"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 700
+        }
+      },
+      "bulk": "light",
+      "category": "unarmored",
+      "group": "cloth",
+      "baseItem": "explorers-clothing",
+      "acBonus": 0,
+      "dexCap": 5,
+      "runes": {
+        "potency": 1,
+        "property": [],
+        "resilient": 1
+      }
+    }
+  },
+  {
+    "id": "f6d15651-2215-5c14-9f69-a0ccb0224281",
+    "pack": "player-core",
+    "kind": "armor",
+    "slug": "armor:armorskin-robes-of-water",
+    "name": "Armorskin Robes of Water",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["comfort", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+1 resilient explorer's clothing",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is woven with thread spun by an elemental, and it sparkles with radiant color. The thread is slippery to the touch. You gain resistance 5 to cold damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Elemental Sheath",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The elemental threads cover your skin, further protecting you but limiting mobility. For 10 minutes, you gain resistance 5 to slashing and piercing damage but take a –5-foot status penalty to all Speeds. While activated, you gain a +1 item bonus to Acrobatics checks to Escape and Squeeze."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.XPXoUbp3VwdAa5VH"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 700
+        }
+      },
+      "bulk": "light",
+      "category": "unarmored",
+      "group": "cloth",
+      "baseItem": "explorers-clothing",
+      "acBonus": 0,
+      "dexCap": 5,
+      "runes": {
+        "potency": 1,
+        "property": [],
+        "resilient": 1
+      }
+    }
+  },
+  {
+    "id": "38f083f6-86b7-5043-bd38-4257665ce391",
+    "pack": "player-core",
+    "kind": "armor",
+    "slug": "armor:breastplate",
+    "name": "Breastplate",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Though referred to as a breastplate, this type of armor consists of several pieces of plate or "
+          },
+          {
+            "type": "ref",
+            "id": "6c6438b9-b581-59d9-8ffa-c23d7a23d501"
+          },
+          {
+            "type": "text",
+            "text": " armor that protect the torso, chest, neck, and sometimes the hips and lower legs. It strategically grants some of the protection of plate while allowing greater flexibility and speed."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.r0ifJfoz8aqf0mwk"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 8
+        }
+      },
+      "bulk": 2,
+      "category": "medium",
+      "group": "plate",
+      "baseItem": "breastplate",
+      "acBonus": 4,
+      "dexCap": 1,
+      "checkPenalty": 2,
+      "speedPenalty": 5,
+      "strength": 3
+    }
+  },
+  {
+    "id": "042d7804-1d2e-58b8-a148-45ea3d9822a6",
+    "pack": "player-core",
+    "kind": "armor",
+    "slug": "armor:chain-mail",
+    "name": "Chain Mail",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["flexible", "noisy"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A suit of chain mail consists of several pieces of armor composed of small metal rings linked together in a protective mesh. It typically includes a chain shirt, leggings, a pair of arms, and a coif, collectively protecting most of the body."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Kf4eJEXnFPuAsseP"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 6
+        }
+      },
+      "bulk": 2,
+      "category": "medium",
+      "group": "chain",
+      "baseItem": "chain-mail",
+      "acBonus": 4,
+      "dexCap": 1,
+      "checkPenalty": 2,
+      "speedPenalty": 5,
+      "strength": 3
+    }
+  },
+  {
+    "id": "876b57d5-e44e-58f1-b040-ab19eb6bd5b2",
+    "pack": "player-core",
+    "kind": "armor",
+    "slug": "armor:chain-shirt",
+    "name": "Chain Shirt",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["flexible", "noisy"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sometimes called a hauberk, this is a long shirt constructed of the same metal rings as chain mail. However, it is much lighter than chain mail and protects only the torso, upper arms, and upper legs of its wearer."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.MPcM4Wt6KmWE2kGL"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5
+        }
+      },
+      "bulk": 1,
+      "category": "light",
+      "group": "chain",
+      "baseItem": "chain-shirt",
+      "acBonus": 2,
+      "dexCap": 3,
+      "checkPenalty": 1,
+      "strength": 1
+    }
+  },
+  {
+    "id": "ca91efd7-5930-5a55-8d86-bc70391e3693",
+    "pack": "player-core",
+    "kind": "armor",
+    "slug": "armor:explorers-clothing",
+    "name": "Explorer's Clothing",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["comfort"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Adventurers who don't wear armor travel in durable clothing. Though it's not armor and uses your unarmored defense proficiency, it still has a Dex Cap and can grant an item bonus to AC if etched with potency runes."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.dDIPA1WE9ESF67EB"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 1
+        }
+      },
+      "bulk": "light",
+      "category": "unarmored",
+      "group": "cloth",
+      "baseItem": "explorers-clothing",
+      "acBonus": 0,
+      "dexCap": 5
+    }
+  },
+  {
+    "id": "25f6cde4-3c35-515a-b41b-0a634380ca7f",
+    "pack": "player-core",
+    "kind": "armor",
+    "slug": "armor:full-plate",
+    "name": "Full Plate",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["bulwark"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Plate mail consists of interlocking plates that encase nearly the entire body in a carapace of steel. It is costly and heavy, and the wearer often requires help to don it correctly, but it provides some of the best defense armor can supply. A suit of this armor comes with an undercoat of "
+          },
+          {
+            "type": "ref",
+            "id": "cef60f0a-33c3-5ffd-b6f9-50ad09183782"
+          },
+          {
+            "type": "text",
+            "text": " and a pair of "
+          },
+          {
+            "type": "ref",
+            "id": "07c2247c-8e1a-56c1-847d-d1ee80cc5263",
+            "label": "gauntlets"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Gq1cZWSKOtJhKd2p"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 30
+        }
+      },
+      "bulk": 4,
+      "category": "heavy",
+      "group": "plate",
+      "baseItem": "full-plate",
+      "acBonus": 6,
+      "dexCap": 0,
+      "checkPenalty": 3,
+      "speedPenalty": 10,
+      "strength": 4
+    }
+  },
+  {
+    "id": "6c6438b9-b581-59d9-8ffa-c23d7a23d501",
+    "pack": "player-core",
+    "kind": "armor",
+    "slug": "armor:half-plate",
+    "name": "Half Plate",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Half plate consists of most of the upper body plates used in full plate, with lighter or sparser steel plate protection for the arms and legs. This provides some of the protection of full plate with greater flexibility and speed. A suit of this armor comes with an undercoat of "
+          },
+          {
+            "type": "ref",
+            "id": "cef60f0a-33c3-5ffd-b6f9-50ad09183782"
+          },
+          {
+            "type": "text",
+            "text": " and a pair of "
+          },
+          {
+            "type": "ref",
+            "id": "07c2247c-8e1a-56c1-847d-d1ee80cc5263",
+            "label": "gauntlets"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.pRoikbRo5HFW6YUB"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 18
+        }
+      },
+      "bulk": 3,
+      "category": "heavy",
+      "group": "plate",
+      "baseItem": "half-plate",
+      "acBonus": 5,
+      "dexCap": 1,
+      "checkPenalty": 3,
+      "speedPenalty": 10,
+      "strength": 3
+    }
+  },
+  {
+    "id": "98dd0151-1e7c-564e-bbd1-88771c93fa0a",
+    "pack": "player-core",
+    "kind": "armor",
+    "slug": "armor:heavy-barding-large",
+    "name": "Heavy Barding (Large)",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["barding", "companion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.MUtAHJXf22SiVBeH"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 25
+        }
+      },
+      "bulk": 4,
+      "size": "large",
+      "category": "heavy-barding",
+      "acBonus": 3,
+      "dexCap": 3,
+      "checkPenalty": 3,
+      "speedPenalty": 10,
+      "strength": 5
+    }
+  },
+  {
+    "id": "c3edcc34-f47b-5277-aadb-b57d600e44f7",
+    "pack": "player-core",
+    "kind": "armor",
+    "slug": "armor:heavy-barding-small-or-medium",
+    "name": "Heavy Barding (Small or Medium)",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["barding", "companion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.juQGJI9deskAVfm7"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 25
+        }
+      },
+      "bulk": 4,
+      "category": "heavy-barding",
+      "acBonus": 3,
+      "dexCap": 3,
+      "checkPenalty": 3,
+      "speedPenalty": 10,
+      "strength": 5
+    }
+  },
+  {
+    "id": "0cf9e7e6-43c0-564f-977d-24782f91ef6b",
+    "pack": "player-core",
+    "kind": "armor",
+    "slug": "armor:hide-armor",
+    "name": "Hide Armor",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A mix of furs, sturdy hide, and sometimes molded boiled leather, this armor provides protection due to its layers of leather, though its bulkiness slows the wearer down and decreases mobility."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.AnwzlOs0njF9Jqnr"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2
+        }
+      },
+      "bulk": 2,
+      "category": "medium",
+      "group": "leather",
+      "baseItem": "hide-armor",
+      "acBonus": 3,
+      "dexCap": 2,
+      "checkPenalty": 2,
+      "speedPenalty": 5,
+      "strength": 2
+    }
+  },
+  {
+    "id": "3966e322-a2d1-57e9-a938-eb314e1948b8",
+    "pack": "player-core",
+    "kind": "armor",
+    "slug": "armor:leather-armor",
+    "name": "Leather Armor",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A mix of flexible and molded boiled leather, a suit of this type of armor provides some protection with maximum flexibility."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.4tIVTg9wj56RrveA"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2
+        }
+      },
+      "bulk": 1,
+      "category": "light",
+      "group": "leather",
+      "baseItem": "leather-armor",
+      "acBonus": 1,
+      "dexCap": 4,
+      "checkPenalty": 1,
+      "strength": 0
+    }
+  },
+  {
+    "id": "96b12c5e-def3-51bc-bfc4-6f73a189eac9",
+    "pack": "player-core",
+    "kind": "armor",
+    "slug": "armor:light-barding",
+    "name": "Light Barding",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["barding", "companion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.5yL2D3GPAggadZQN"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": 2,
+      "category": "light-barding",
+      "acBonus": 1,
+      "dexCap": 5,
+      "checkPenalty": 1,
+      "speedPenalty": 5,
+      "strength": 3
+    }
+  },
+  {
+    "id": "cef60f0a-33c3-5ffd-b6f9-50ad09183782",
+    "pack": "player-core",
+    "kind": "armor",
+    "slug": "armor:padded-armor",
+    "name": "Padded Armor",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["comfort"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This armor is simply a layer of heavy, quilted cloth, but it is sometimes used because it's so inexpensive. Padded armor is easier to damage and destroy than other types of armor. Heavy armor comes with a padded armor undercoat included in its Price, though it loses the comfort trait when worn under heavy armor. You can wear just that padded armor undercoat to sleep in, if your heavy armor is destroyed, or when otherwise not wearing the full heavy armor. This allows you to keep magic armor invested and benefit from the power of any runes on the associated heavy armor, but no one else can wear your heavy armor without the padded undercoat."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.zBYEU9E7034ENCmh"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 2
+        }
+      },
+      "bulk": "light",
+      "category": "light",
+      "group": "cloth",
+      "baseItem": "padded-armor",
+      "acBonus": 1,
+      "dexCap": 3,
+      "strength": 0
+    }
+  },
+  {
+    "id": "8e279ab8-dd61-5af1-b3f5-39090e448195",
+    "pack": "player-core",
+    "kind": "armor",
+    "slug": "armor:scale-mail",
+    "name": "Scale Mail",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Scale mail consists of many metal scales sewn onto a reinforced leather backing, often in the form of a long shirt that protects the torso, arms, and legs."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.YMQr577asquZIP65"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": 2,
+      "category": "medium",
+      "group": "composite",
+      "baseItem": "scale-mail",
+      "acBonus": 3,
+      "dexCap": 2,
+      "checkPenalty": 2,
+      "speedPenalty": 5,
+      "strength": 2
+    }
+  },
+  {
+    "id": "08ac81e2-dbc4-597c-805d-9466ef2fcb28",
+    "pack": "player-core",
+    "kind": "armor",
+    "slug": "armor:splint-mail",
+    "name": "Splint Mail",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This type of armor is chain mail reinforced with flexible, interlocking metal plates, typically located on the wearer's torso, upper arms, and legs. A suit of this armor comes with an undercoat of "
+          },
+          {
+            "type": "ref",
+            "id": "cef60f0a-33c3-5ffd-b6f9-50ad09183782"
+          },
+          {
+            "type": "text",
+            "text": " and a pair of "
+          },
+          {
+            "type": "ref",
+            "id": "07c2247c-8e1a-56c1-847d-d1ee80cc5263",
+            "label": "gauntlets"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.6AhDKX1dwRwFpQsU"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 13
+        }
+      },
+      "bulk": 3,
+      "category": "heavy",
+      "group": "composite",
+      "baseItem": "splint-mail",
+      "acBonus": 5,
+      "dexCap": 1,
+      "checkPenalty": 3,
+      "speedPenalty": 10,
+      "strength": 3
+    }
+  },
+  {
+    "id": "6e8f688e-e8af-5f14-8d19-78961b746e8c",
+    "pack": "player-core",
+    "kind": "armor",
+    "slug": "armor:studded-leather-armor",
+    "name": "Studded Leather Armor",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This leather armor is reinforced with metal studs and sometimes small metal plates, providing most of the flexibility of leather armor with more robust protection."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ewQZ0VeL38v3qFnN"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3
+        }
+      },
+      "bulk": 1,
+      "category": "light",
+      "group": "leather",
+      "baseItem": "studded-leather-armor",
+      "acBonus": 2,
+      "dexCap": 3,
+      "checkPenalty": 1,
+      "strength": 1
+    }
+  }
+]

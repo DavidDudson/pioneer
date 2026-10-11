@@ -1,4 +1,5 @@
-import { describe, expect, it, vi } from 'vitest';
+import { ITEM_FIXTURE_FILES } from '@pioneer/character/domain/testing';
+import { beforeAll, describe, expect, it, vi } from 'vitest';
 
 import {
   button,
@@ -12,8 +13,14 @@ import {
   settle,
   SWORD,
 } from '../../../testing/inventory-sheet-testing';
+import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../../testing/provide-server-state-testing';
 
 describe('InventorySection carrying and investing', () => {
+  // Loads and bundles the packs once, outside every test's timeout.
+  beforeAll(async () => {
+    await prebuildServerStateTesting([ITEM_FIXTURE_FILES]);
+  }, PREBUILD_TIMEOUT);
+
   it('holds the sword in two hands by sending how it is carried', async () => {
     const section = await openInventory();
     const carry = field(row(section, 'Longsword'), 'How Longsword is carried');
@@ -61,9 +68,13 @@ describe('InventorySection carrying and investing', () => {
   it('counts the investments against the limit', async () => {
     const section = await openInventory();
     const panel = present(section.querySelector('pio-investments'));
-    await vi.waitFor(async () => {
-      await settle();
-      expect(panel.textContent).toContain('1 of 10 invested');
-    });
+    // The panel waits on the derived statistics, which read the core rules and Player Core's import.
+    await vi.waitFor(
+      async () => {
+        await settle();
+        expect(panel.textContent).toContain('1 of 10 invested');
+      },
+      { timeout: 3000 },
+    );
   });
 });

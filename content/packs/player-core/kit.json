@@ -1,0 +1,88 @@
+[
+  {
+    "id": "8c1902f4-ae5a-5023-8f07-6598f2746aed",
+    "pack": "player-core",
+    "kind": "kit",
+    "slug": "kit:adventurers-pack",
+    "name": "Adventurer's Pack",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This item is the starter kit for an adventurer, containing the essential items for exploration and survival. The Bulk value is for the entire pack together, but see the descriptions of individual items as necessary."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The pack contains the following items: a backpack, a bedroll, 10 pieces of chalk, flint and steel, 50 feet of rope, 2 weeks' rations, soap, 5 torches, and a waterskin."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.2req0jGaxz8hScdB"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 15
+        }
+      },
+      "items": [
+        {
+          "item": "91a9a00e-54db-58e8-9a07-a1747cdb8d59",
+          "quantity": 1,
+          "contents": [
+            {
+              "item": "d1bf4239-d05d-502b-9229-ecf03e296c9c",
+              "quantity": 1
+            },
+            {
+              "item": "b7b946f1-2028-57ec-acd6-d8aec5c85efd",
+              "quantity": 1
+            },
+            {
+              "item": "8956f8fe-63fb-5211-92bd-31cd5d460115",
+              "quantity": 10
+            },
+            {
+              "item": "995ccdb3-a3e9-599a-82e8-511a55d03847",
+              "quantity": 1
+            },
+            {
+              "item": "21c8c797-ee6f-5887-b1ba-511761dfd6c5",
+              "quantity": 2
+            },
+            {
+              "item": "e58cead6-6304-5f35-8f34-cfa035d6fd1f",
+              "quantity": 5
+            },
+            {
+              "item": "42be926a-8d9e-553a-82df-a49b07eebf27",
+              "quantity": 1
+            },
+            {
+              "item": "410a99df-053f-58a5-87b8-638e24bc535f",
+              "quantity": 1
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

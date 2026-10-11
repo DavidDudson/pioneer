@@ -17,9 +17,13 @@ import { LineStatusKind } from '@pioneer/rules/engine';
 import type { StatisticValue } from '@pioneer/rules/engine';
 import type { ContentRegistry } from '@pioneer/rules/sdk';
 import type { NamedStatistic } from '@pioneer/rules/ui';
-import { describe, expect, it } from 'vitest';
+import { beforeAll, describe, expect, it } from 'vitest';
 
-import { provideServerStateTesting } from '../testing/provide-server-state-testing';
+import {
+  PREBUILD_TIMEOUT,
+  prebuildServerStateTesting,
+  provideServerStateTesting,
+} from '../testing/provide-server-state-testing';
 import { carriesEquipment, EQUIPMENT_CONTENT_KINDS, sheetInvestments } from './sheet-equipment';
 import { sheetStatistics } from './sheet-statistics';
 
@@ -66,6 +70,11 @@ function changed(character: Character, change: (inventory: Inventory) => Invento
 }
 
 describe(carriesEquipment, () => {
+  // Loads and bundles the packs once, outside every test's timeout.
+  beforeAll(async () => {
+    await prebuildServerStateTesting([ITEM_FIXTURE_FILES]);
+  }, PREBUILD_TIMEOUT);
+
   it('is true once anything is worn, held or invested', () => {
     const armored = carrying(wearing([ARMOR, ItemFixture.LeatherArmor]));
     expect(carriesEquipment(armored)).toBe(true);

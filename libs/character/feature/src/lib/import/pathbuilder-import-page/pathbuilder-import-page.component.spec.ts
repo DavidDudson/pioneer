@@ -10,10 +10,14 @@ import { MemoryBundleStore } from '@pioneer/rules/data-access';
 import { provideContentTesting, TestContentDelivery } from '@pioneer/rules/data-access/testing';
 import { contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import { IDLE_SCHEDULER, provideI18n } from '@pioneer/shared/web';
-import { describe, expect, it, vi } from 'vitest';
+import { beforeAll, describe, expect, it, vi } from 'vitest';
 
 import { characterRoutes } from '../../character.routes';
-import { provideServerStateTesting } from '../../testing/provide-server-state-testing';
+import {
+  PREBUILD_TIMEOUT,
+  prebuildServerStateTesting,
+  provideServerStateTesting,
+} from '../../testing/provide-server-state-testing';
 
 function present<TValue>(value: TValue | null | undefined): TValue {
   if (value === null || value === undefined) {
@@ -54,6 +58,12 @@ async function paste(harness: RouterTestingHarness, root: HTMLElement, text: str
 const noIdleWork: Provider = { provide: IDLE_SCHEDULER, useValue: (): void => undefined };
 
 describe('PathbuilderImportPage', () => {
+  // Loads and bundles the packs once, outside every test's timeout.
+  beforeAll(async () => {
+    await prebuildServerStateTesting();
+    await prebuildServerStateTesting([], officialPacks);
+  }, PREBUILD_TIMEOUT);
+
   it('shows what it read from a pasted export', async () => {
     const { harness, root } = await openPage();
 

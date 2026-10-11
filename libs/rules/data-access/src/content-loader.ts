@@ -1,9 +1,10 @@
 import { inject, Injectable } from '@angular/core';
-import { ContentKind, contentPackFromBundles, ContentRegistry } from '@pioneer/rules/sdk';
+import { bundlePath, ContentKind, contentPackFromBundles, ContentRegistry } from '@pioneer/rules/sdk';
 import type { ContentManifest, ContentPack, FetchedKind, KindBundles, PackBundles, PackId } from '@pioneer/rules/sdk';
 import { IDLE_SCHEDULER } from '@pioneer/shared/web';
 
 import { ContentBundleCache } from './content-bundle-cache';
+import { CONTENT_PACK_CACHE } from './content-pack-cache';
 
 /**
  * Kinds a page is likely to need after one it loaded: the next steps of building a character. Prefetched when idle,
@@ -30,11 +31,13 @@ function kindsIn(pack: PackBundles, kinds: readonly ContentKind[]): readonly Kin
 /**
  * Builds `ContentRegistry`s in the browser from the content bundles: every pack the manifest names, with only the
  * kinds asked for, so a page fetches only what its engine reads (spells only when a caster needs them).
+ * A pack built from the same bundles before is reused from `CONTENT_PACK_CACHE` rather than checked again.
  */
 @Injectable({ providedIn: 'root' })
 export class ContentLoader {
   readonly #cache = inject(ContentBundleCache);
   readonly #whenIdle = inject(IDLE_SCHEDULER);
+  readonly #packs = inject(CONTENT_PACK_CACHE);
 
   /**
    * A registry of every official pack with the entries of `kinds`, then the likely next kinds prefetched when idle.
@@ -62,15 +65,22 @@ export class ContentLoader {
   }
 
   async #pack(pack: PackBundles, kinds: readonly ContentKind[]): Promise<ContentPack> {
+    const used = kindsIn(pack, kinds).flatMap(({ mechanics, names }) => [mechanics, names]);
     const [file, ...fetched] = await Promise.all([
       this.#cache.bundle(pack.id, pack.file),
       ...kindsIn(pack, kinds).map(async (bundles) => this.#kind(pack.id, bundles)),
     ]);
+    const key = [pack.file, ...used].map((each) => bundlePath(pack.id, each)).join('\n');
+    const built = this.#packs.get(key);
+    if (built !== undefined) {
+      return built;
+    }
     try {
-      return contentPackFromBundles(file, fetched);
+      const contentPack = contentPackFromBundles(file, fetched);
+      this.#packs.set(key, contentPack);
+      return contentPack;
     } catch (error) {
       // A kept body that no longer reads (a truncated record) must not stick: drop it, so the retry fetches it again.
-      const used = kindsIn(pack, kinds).flatMap(({ mechanics, names }) => [mechanics, names]);
       await this.#cache.forget(pack.id, [pack.file, ...used]);
       throw error;
     }

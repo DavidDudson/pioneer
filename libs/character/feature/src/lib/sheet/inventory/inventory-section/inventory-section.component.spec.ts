@@ -1,7 +1,7 @@
 import { HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
-import { ItemFixture, itemFixtureId } from '@pioneer/character/domain/testing';
-import { describe, expect, it, onTestFinished, vi } from 'vitest';
+import { ItemFixture, itemFixtureId, ITEM_FIXTURE_FILES } from '@pioneer/character/domain/testing';
+import { beforeAll, describe, expect, it, onTestFinished, vi } from 'vitest';
 
 import {
   button,
@@ -20,8 +20,14 @@ import {
   typeInto,
   VALEROS,
 } from '../../../testing/inventory-sheet-testing';
+import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../../testing/provide-server-state-testing';
 
 describe('InventorySection', () => {
+  // Loads and bundles the packs once, outside every test's timeout.
+  beforeAll(async () => {
+    await prebuildServerStateTesting([ITEM_FIXTURE_FILES]);
+  }, PREBUILD_TIMEOUT);
+
   it('lists the backpack worn with the rope inside it, the sword held, and the coins the character has', async () => {
     const section = await openInventory();
     const headings = [...section.querySelectorAll('fr-heading')].map((heading) => heading.textContent.trim());

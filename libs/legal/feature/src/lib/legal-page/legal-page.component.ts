@@ -3,6 +3,7 @@ import { TranslocoPipe } from '@jsverse/transloco';
 import { Heading, Link, List, ListItem, Page, Stack, Surface, Text } from '@pioneer/frontier';
 
 import { LEGAL_BOOKS } from './legal-books';
+import { LEGAL_IMPORTS } from './legal-imports';
 import { ORC_ATTRIBUTION } from './orc-attribution';
 
 /**
@@ -18,4 +19,5 @@ import { ORC_ATTRIBUTION } from './orc-attribution';
 export class LegalPage {
   protected readonly attribution = ORC_ATTRIBUTION;
   protected readonly books = LEGAL_BOOKS;
+  protected readonly imports = LEGAL_IMPORTS;
 }

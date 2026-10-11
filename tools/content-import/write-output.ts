@@ -10,7 +10,7 @@ import path from 'node:path';
 import { ImportFile, packFiles } from '@pioneer/interop/foundry';
 import type { ImportPin, PackOutput } from '@pioneer/interop/foundry';
 import { ContentEntryFile } from '@pioneer/rules/sdk';
-import type { ContentId } from '@pioneer/rules/sdk';
+import type { ContentEntry, ContentId } from '@pioneer/rules/sdk';
 import { Glob } from 'bun';
 
 import { backlogPath, importedDirectory, missing, PACKS_DIRECTORY, packWrites, unregistered } from './pack-writes.ts';
@@ -39,6 +39,16 @@ export async function previousImport(targets: PackTargets): Promise<ReadonlySet<
     files.map(async (file) => ContentEntryFile.parse(await Bun.file(path.join(ROOT, file)).json())),
   );
   return new Set(entries.flat().map(({ id }) => id));
+}
+
+/** The entries committed in the target pack, which this run replaces; its page numbers and AoN links carry over. */
+export async function committedEntries({ pack }: PackTargets): Promise<readonly ContentEntry[]> {
+  const files = await scan('*.json', path.posix.join(PACKS_DIRECTORY, pack));
+  const entryFiles = files.filter((file) => path.posix.basename(file) !== MANIFEST);
+  const entries = await Promise.all(
+    entryFiles.map(async (file) => ContentEntryFile.parse(await Bun.file(path.join(ROOT, file)).json())),
+  );
+  return entries.flat();
 }
 
 async function removeReplaced(targets: PackTargets): Promise<void> {

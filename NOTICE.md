@@ -60,6 +60,14 @@ Pioneer contributors (ADR-0031). The app's public Legal page, linked from every
 page footer, states this, links the Foundry release each pack was imported
 from, and offers the content caches for download without an account.
 
+| Pack          | Imported from                                                                              |
+| ------------- | ------------------------------------------------------------------------------------------ |
+| `player-core` | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
+
+The vocabulary each import adds to `core-rules` (traits, senses, damage types,
+Lore statistics), under `content/packs/core-rules/imported/<pack>/`, comes from
+the same release; the rest of `core-rules` is written by hand.
+
 Only remastered, ORC-licensed entries are imported. Pioneer is not affiliated
 with Foundry Gaming LLC or the pf2e system maintainers.
 

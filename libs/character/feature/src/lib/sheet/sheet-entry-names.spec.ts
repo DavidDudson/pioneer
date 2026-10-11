@@ -1,10 +1,14 @@
 import { TestBed } from '@angular/core/testing';
 import { ContentLoader } from '@pioneer/rules/data-access';
 import { ContentId, contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
-import { describe, expect, it } from 'vitest';
+import { beforeAll, describe, expect, it } from 'vitest';
 
 import { CHARACTER_CONTENT_KINDS } from '../data/content-registry-query';
-import { provideServerStateTesting } from '../testing/provide-server-state-testing';
+import {
+  PREBUILD_TIMEOUT,
+  prebuildServerStateTesting,
+  provideServerStateTesting,
+} from '../testing/provide-server-state-testing';
 import { sheetEntryNames } from './sheet-entry-names';
 
 function id(pack: string, slug: string): ContentId {
@@ -12,6 +16,11 @@ function id(pack: string, slug: string): ContentId {
 }
 
 describe(sheetEntryNames, () => {
+  // Loads and bundles the packs once, outside every test's timeout.
+  beforeAll(async () => {
+    await prebuildServerStateTesting();
+  }, PREBUILD_TIMEOUT);
+
   it('names every entry the sheet registry holds by its display name', async () => {
     TestBed.configureTestingModule({ providers: provideServerStateTesting() });
     const registry = await TestBed.inject(ContentLoader).registry(CHARACTER_CONTENT_KINDS);

@@ -3,9 +3,9 @@ import { ApplicationRef } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { playerCoreClassId, playerCoreId } from '@pioneer/character/domain/testing';
 import { ContentKind } from '@pioneer/rules/sdk';
-import { describe, expect, it, vi } from 'vitest';
+import { beforeAll, describe, expect, it, vi } from 'vitest';
 
-import { PACKS_WITH_CLASSES } from '../../testing/provide-server-state-testing';
+import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { id, MERISIEL, openSheet, present } from '../../testing/sheet-page-harness';
 
 const CLERIC = playerCoreClassId('cleric');
@@ -56,8 +56,13 @@ async function pickIn(field: HTMLElement, name: string): Promise<void> {
 }
 
 describe('CharacterSheetPage class', () => {
+  // Loads and bundles the packs once, outside every test's timeout.
+  beforeAll(async () => {
+    await prebuildServerStateTesting();
+  }, PREBUILD_TIMEOUT);
+
   it('offers the class’s subclass beneath it, and no key attribute when the class allows one', async () => {
-    const { root } = await openSheet(cleric(), { slots: [CLERIC_SLOT], packs: PACKS_WITH_CLASSES });
+    const { root } = await openSheet(cleric(), { slots: [CLERIC_SLOT] });
 
     await vi.waitFor(() => {
       expect(labels(root)).toStrictEqual(['Name', 'Ancestry', 'Heritage', 'Background', 'Level', 'Class', 'Subclass']);
@@ -67,7 +72,7 @@ describe('CharacterSheetPage class', () => {
 
   it('asks a fighter for a key attribute, with no subclass', async () => {
     const fighter = { ...MERISIEL, build: { choices: { class: playerCoreClassId('fighter') } } };
-    const { root } = await openSheet(fighter, { packs: PACKS_WITH_CLASSES });
+    const { root } = await openSheet(fighter);
 
     await vi.waitFor(() => {
       expect(labels(root)).toContain('Key attribute');
@@ -76,7 +81,7 @@ describe('CharacterSheetPage class', () => {
   });
 
   it('lists the class features, each with the class and level it came from', async () => {
-    const { root } = await openSheet(cleric({ [DOCTRINE]: WARPRIEST }), { packs: PACKS_WITH_CLASSES });
+    const { root } = await openSheet(cleric({ [DOCTRINE]: WARPRIEST }));
     const features = present(root.querySelector('section[aria-labelledby="sheet-features"]'));
 
     await vi.waitFor(() => {
@@ -97,7 +102,6 @@ describe('CharacterSheetPage class', () => {
     };
     const { root } = await openSheet(cleric({ [DOCTRINE]: WARPRIEST }), {
       slots: [CLERIC_SLOT, doctrine],
-      packs: PACKS_WITH_CLASSES,
     });
     const build = present(root.querySelector('section[aria-labelledby="sheet-build"]'));
 
@@ -110,7 +114,7 @@ describe('CharacterSheetPage class', () => {
   });
 
   it('picks a subclass in the slot the class feature opens', async () => {
-    const { root } = await openSheet(cleric(), { packs: PACKS_WITH_CLASSES });
+    const { root } = await openSheet(cleric());
     const field = await vi.waitFor(() => fieldNamed(root, 'Subclass'));
 
     await pickIn(field, 'Warpriest');
@@ -125,7 +129,7 @@ describe('CharacterSheetPage class', () => {
 
   it('picks a fighter’s key attribute in its class boost slot, from the attributes it allows', async () => {
     const fighter = { ...MERISIEL, build: { choices: { class: playerCoreClassId('fighter') } } };
-    const { root } = await openSheet(fighter, { packs: PACKS_WITH_CLASSES });
+    const { root } = await openSheet(fighter);
     const field = await vi.waitFor(() => fieldNamed(root, 'Key attribute'));
 
     await pickIn(field, 'Dexterity');

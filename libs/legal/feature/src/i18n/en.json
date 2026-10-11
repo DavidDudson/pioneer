@@ -37,6 +37,8 @@
   "foundry": {
     "heading": "Foundry VTT pf2e system",
     "derived": "All official content in Pioneer is derived from the data in the Foundry VTT pf2e system, whose code is Apache-2.0. Pioneer imports only its remastered, ORC-licensed entries.",
+    "edited": "Official packs are imported once from the Foundry release listed for each, then corrected and enriched by Pioneer contributors.",
+    "release": "Foundry release {release}",
     "affiliation": "Pioneer is not affiliated with Foundry Gaming LLC or the pf2e system maintainers.",
     "repositoryLink": "foundryvtt/pf2e on GitHub"
   }

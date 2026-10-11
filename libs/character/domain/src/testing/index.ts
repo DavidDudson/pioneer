@@ -20,7 +20,6 @@ export {
   PLAYER_CORE_CLASSES,
   type PlayerCoreClass,
   playerCoreClasses,
-  playerCoreClassEntries,
   playerCoreClassId,
   playerCoreId,
 } from './player-core-classes';
