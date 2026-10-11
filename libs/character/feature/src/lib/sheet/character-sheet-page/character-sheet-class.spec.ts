@@ -3,8 +3,9 @@ import { ApplicationRef } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { playerCoreClassId, playerCoreId } from '@pioneer/character/domain/testing';
 import { ContentKind } from '@pioneer/rules/sdk';
-import { describe, expect, it, vi } from 'vitest';
+import { beforeAll, describe, expect, it, vi } from 'vitest';
 
+import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { id, MERISIEL, openSheet, present } from '../../testing/sheet-page-harness';
 
 const CLERIC = playerCoreClassId('cleric');
@@ -55,6 +56,11 @@ async function pickIn(field: HTMLElement, name: string): Promise<void> {
 }
 
 describe('CharacterSheetPage class', () => {
+  // Loads and bundles the packs once, outside every test's timeout.
+  beforeAll(async () => {
+    await prebuildServerStateTesting();
+  }, PREBUILD_TIMEOUT);
+
   it('offers the class’s subclass beneath it, and no key attribute when the class allows one', async () => {
     const { root } = await openSheet(cleric(), { slots: [CLERIC_SLOT] });
 

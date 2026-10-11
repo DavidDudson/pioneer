@@ -1,8 +1,9 @@
 import { HttpTestingController } from '@angular/common/http/testing';
 import { ApplicationRef } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { describe, expect, it, vi } from 'vitest';
+import { beforeAll, describe, expect, it, vi } from 'vitest';
 
+import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { HUMAN, id, MERISIEL, openSheet, patchedOf, pickAncestry, present } from '../../testing/sheet-page-harness';
 
 /** The label of the inline field holding focus. */
@@ -11,6 +12,11 @@ function focusedField(): string | undefined {
 }
 
 describe('CharacterSheetPage build', () => {
+  // Loads and bundles the packs once, outside every test's timeout.
+  beforeAll(async () => {
+    await prebuildServerStateTesting();
+  }, PREBUILD_TIMEOUT);
+
   it('summarises the build, each empty part saying what to pick', async () => {
     const { root } = await openSheet();
     const build = present(root.querySelector('section[aria-labelledby="sheet-build"]'));

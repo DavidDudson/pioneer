@@ -1,11 +1,17 @@
 import { HttpTestingController } from '@angular/common/http/testing';
 import { ApplicationRef } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { describe, expect, it, vi } from 'vitest';
+import { beforeAll, describe, expect, it, vi } from 'vitest';
 
+import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { HUMAN, id, MERISIEL, openSheet, patchedOf, pickAncestry, present } from '../../testing/sheet-page-harness';
 
 describe('CharacterSheetPage', () => {
+  // Loads and bundles the packs once, outside every test's timeout.
+  beforeAll(async () => {
+    await prebuildServerStateTesting();
+  }, PREBUILD_TIMEOUT);
+
   it('shows identity, build, attributes, defences, statistics, choices, class features and inventory in that order, each a region under a level 2 heading', async () => {
     const { root } = await openSheet();
 

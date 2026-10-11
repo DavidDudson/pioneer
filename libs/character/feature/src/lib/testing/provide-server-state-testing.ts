@@ -30,3 +30,9 @@ export async function prebuildServerStateTesting(
 ): Promise<void> {
   await prebuildContentTesting([...base, ...extraPacks]);
 }
+
+/**
+ * How long a spec's `beforeAll` may take to run `prebuildServerStateTesting`: loading, checking and bundling the
+ * official packs takes seconds on a busy CI runner, longer than a test's own timeout.
+ */
+export const PREBUILD_TIMEOUT = 60_000;

@@ -5,10 +5,14 @@ import { RouterTestingHarness } from '@angular/router/testing';
 import { frontierMessages, Select } from '@pioneer/frontier';
 import { contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import { provideI18n } from '@pioneer/shared/web';
-import { describe, expect, it, vi } from 'vitest';
+import { beforeAll, describe, expect, it, vi } from 'vitest';
 
 import { characterRoutes } from '../../character.routes';
-import { provideServerStateTesting } from '../../testing/provide-server-state-testing';
+import {
+  PREBUILD_TIMEOUT,
+  prebuildServerStateTesting,
+  provideServerStateTesting,
+} from '../../testing/provide-server-state-testing';
 
 const id = '0d9f7c1e-3b7a-4c55-9d1f-2a8f2b9c6e10';
 const elf = contentId(PackId.parse('player-core'), EntrySlug.parse('ancestry:elf'));
@@ -21,6 +25,11 @@ function present<TValue>(value: TValue | null | undefined): TValue {
 }
 
 describe('CharacterListPage', () => {
+  // Loads and bundles the packs once, outside every test's timeout.
+  beforeAll(async () => {
+    await prebuildServerStateTesting();
+  }, PREBUILD_TIMEOUT);
+
   it('opens the new character under the feature route after create', async () => {
     TestBed.configureTestingModule({
       providers: [
