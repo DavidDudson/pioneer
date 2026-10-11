@@ -36,10 +36,10 @@ export const MERISIEL = {
   updatedAt: '2026-10-07T10:00:00.000Z',
 };
 
-export const ELF = contentId(PackId.parse('player-core'), EntrySlug.parse('ancestry:elf'));
+const ELF = contentId(PackId.parse('player-core'), EntrySlug.parse('ancestry:elf'));
 
 /** The slots the server read for Merisiel: a filled ancestry, a planned boost, and a boost it no longer offers. */
-export const MERISIEL_SLOTS = [
+const MERISIEL_SLOTS = [
   {
     status: 'filled',
     key: 'ancestry',
@@ -66,7 +66,7 @@ export const MERISIEL_SLOTS = [
 ];
 
 /** Merisiel as the server sends her sheet. */
-export function sheetOf(character: object, slots: readonly object[] = MERISIEL_SLOTS): object {
+function sheetOf(character: object, slots: readonly object[] = MERISIEL_SLOTS): object {
   return { character, slots };
 }
 
