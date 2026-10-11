@@ -10,7 +10,7 @@ export {
   AttributeSchema,
 } from './attribute';
 export { DeityCategory, DivineFont } from './deity';
-export { EffectCategory, EffectData } from './effect';
+export { EffectBadgeType, EffectCategory, EffectData, EffectDurationType } from './effect';
 export { RitualData } from './ritual';
 export { ArmorData, ArmorGroup, ArmorItemCategory, ShieldData } from './armor';
 export { ConsumableCategory, ConsumableData } from './consumable';
@@ -30,7 +30,9 @@ export {
 } from './physical-item';
 export { FundamentalRune, ReinforcingGrade, RuneData, RunedItem, RuneGrade, RuneType } from './rune';
 export { AmmunitionType, BaseWeapon, DieSize, WeaponData, WeaponGroup } from './weapon';
-export { SpellData } from './spell';
+export { HeighteningType, SpellData } from './spell';
+export { CastTimeType, SpellDurationEnd, SpellDurationType, SpellRangeType, SpellTimeUnit } from './spell-casting';
+export { TargetKind, TargetQualifier, TurnOwner } from './spell-casting';
 export { SPELL_RANK_MAX, SpellRank } from './spell-rank';
 export { MagicTradition, MagicTraditionSchema, SpellcastingTraditionData } from './spellcasting-tradition';
 export { FeatCategory, UNLIMITED } from './feat';
@@ -77,15 +79,8 @@ export {
   packContentsFromFiles,
 } from './content-pack-file';
 export type { PackContents, PackContentsLoader } from './content-pack-file';
-export {
-  DisplayCategory,
-  DisplayCategorySchema,
-  DisplayHints,
-  ExternalId,
-  ExternalIds,
-  Rarity,
-  RaritySchema,
-} from './entry-fields';
+export { DisplayCategory, DisplayCategorySchema, DisplayHints, ExternalId, ExternalIds } from './entry-fields';
+export { Rarity, RaritySchema } from './entry-fields';
 export { KIND_DATA, REGISTERED_KINDS, type RegisteredKind } from './kind-data';
 export {
   COMMON_FACETS,

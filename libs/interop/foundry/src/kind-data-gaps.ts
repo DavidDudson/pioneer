@@ -5,6 +5,7 @@ import type * as z from 'zod';
 
 import type { EntryReferences } from './entry-references';
 import type { FoundryDocument } from './foundry-document';
+import type { FoundryPack } from './foundry-release';
 import type { ImportedEnvelope } from './imported-envelope';
 import type { ArchetypeLink } from './translate-archetype';
 
@@ -47,6 +48,8 @@ export interface GapLog {
  */
 export interface KindInput {
   readonly document: FoundryDocument;
+  /** The pack it comes from, which is all that says what an effect is about. */
+  readonly pack: FoundryPack;
   readonly envelope: ImportedEnvelope;
   readonly references: EntryReferences;
   readonly log: GapLog;

@@ -1,4 +1,12 @@
-import { ActionData, ConditionData, ContentKind, KIND_DATA } from '@pioneer/rules/sdk';
+import {
+  ActionData,
+  ConditionData,
+  ContentKind,
+  EffectData,
+  KIND_DATA,
+  RitualData,
+  SpellData,
+} from '@pioneer/rules/sdk';
 import type {
   ContentId,
   DamageTypeData,
@@ -23,12 +31,14 @@ import { BACKGROUND_FIELDS, backgroundData } from './translate-background';
 import { CLASS_FIELDS, classData } from './translate-class';
 import { CONDITION_FIELDS, conditionData } from './translate-condition';
 import { DEITY_FIELDS, deityData } from './translate-deity';
+import { EFFECT_FIELDS, effectData } from './translate-effect';
 import { classFeatureData, FEAT_FIELDS, featData } from './translate-feat';
 import { KIT_FIELDS, kitData } from './translate-kit';
+import { RITUAL_FIELDS, ritualData, SPELL_FIELDS, spellData } from './translate-spell';
 
 /**
- * Kind `data` for the kinds the packs hold, from their Foundry `system` fields (content-model.md, "Rules core data"
- * and "Build data"). A field with no place in the schema, a value with no mapping, and a reference that resolves to
+ * Kind `data` for the kinds the packs hold, from their Foundry `system` fields (content-model.md, "Rules core data",
+ * "Build data" and "Magic and play data"). A field with no place in the schema, a value with no mapping, and a reference that resolves to
  * nothing are reported against the entry, never guessed; the entry keeps what did translate. Data the schema rejects
  * as a whole is reported and the entry has none. Some kinds also add rule elements Foundry keeps as fields (a
  * class's starting proficiencies, the features it grants by level).
@@ -47,11 +57,14 @@ export type ImportedKindData =
   | { readonly kind: typeof ContentKind.Condition; readonly data: ConditionData }
   | { readonly kind: typeof ContentKind.DamageType; readonly data: DamageTypeData }
   | { readonly kind: typeof ContentKind.Deity; readonly data: DataOf<typeof ContentKind.Deity> }
+  | { readonly kind: typeof ContentKind.Effect; readonly data: EffectData }
   | { readonly kind: typeof ContentKind.Feat; readonly data: DataOf<typeof ContentKind.Feat> }
   | { readonly kind: typeof ContentKind.Heritage; readonly data: DataOf<typeof ContentKind.Heritage> }
   | { readonly kind: typeof ContentKind.Kit; readonly data: DataOf<typeof ContentKind.Kit> }
   | { readonly kind: typeof ContentKind.Language; readonly data: LanguageData }
+  | { readonly kind: typeof ContentKind.Ritual; readonly data: RitualData }
   | { readonly kind: typeof ContentKind.Sense; readonly data: SenseData }
+  | { readonly kind: typeof ContentKind.Spell; readonly data: SpellData }
   | { readonly kind: typeof ContentKind.Statistic; readonly data: StatisticData }
   | { readonly kind: typeof ContentKind.Trait; readonly data: TraitData };
 
@@ -121,6 +134,10 @@ const TRANSLATORS: Readonly<Partial<Record<ContentKind, KindTranslator>>> = {
     const data = parsedWith({ schema: KIND_DATA[ContentKind.Deity], fields: DEITY_FIELDS, build: deityData }, input);
     return data && { kind: ContentKind.Deity, data };
   },
+  [ContentKind.Effect]: (input) => {
+    const data = parsedWith({ schema: EffectData, fields: EFFECT_FIELDS, build: effectData }, input);
+    return data && { kind: ContentKind.Effect, data };
+  },
   [ContentKind.Feat]: (input) => {
     const data = parsedWith({ schema: KIND_DATA[ContentKind.Feat], fields: FEAT_FIELDS, build: featData }, input);
     return data && { kind: ContentKind.Feat, data };
@@ -135,6 +152,14 @@ const TRANSLATORS: Readonly<Partial<Record<ContentKind, KindTranslator>>> = {
   [ContentKind.Kit]: (input) => {
     const data = parsedWith({ schema: KIND_DATA[ContentKind.Kit], fields: KIT_FIELDS, build: kitData }, input);
     return data && { kind: ContentKind.Kit, data };
+  },
+  [ContentKind.Ritual]: (input) => {
+    const data = parsedWith({ schema: RitualData, fields: RITUAL_FIELDS, build: ritualData }, input);
+    return data && { kind: ContentKind.Ritual, data };
+  },
+  [ContentKind.Spell]: (input) => {
+    const data = parsedWith({ schema: SpellData, fields: SPELL_FIELDS, build: spellData }, input);
+    return data && { kind: ContentKind.Spell, data };
   },
 };
 
@@ -159,6 +184,7 @@ export function translateKindData(
   }
   const log: GapLog = { entry: envelope.id, gaps: [] };
   const rules: RuleElement[] = [];
-  const kindData = translator({ document: entry.document, envelope, references, log, rules, archetypes });
+  const { document, pack } = entry;
+  const kindData = translator({ document, pack, envelope, references, log, rules, archetypes });
   return { ...(kindData === undefined ? {} : { kindData }), rules, gaps: log.gaps };
 }

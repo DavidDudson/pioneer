@@ -32,6 +32,7 @@ export const SHIELD_RAISED: DocumentFixture = {
   id: '2YRDYVnC1eljaXKK',
   name: 'Effect: Raise a Shield',
   type: 'effect',
+  system: { duration: { expiry: 'turn-start', sustained: false, unit: 'rounds', value: 1 } },
 };
 
 export const AID: DocumentFixture = {

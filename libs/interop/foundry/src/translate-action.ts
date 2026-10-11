@@ -162,11 +162,10 @@ type UsageField = keyof typeof USAGE_PARAGRAPHS;
 const MARKUP = /[<>&@[\]{}]/u;
 
 /**
- * A usage paragraph as rich text (`<p><strong>Trigger</strong> Your turn begins.</p>`), when it is plain words.
- * One with links or markup is reported for the rich text stories.
+ * Text as one paragraph of rich text, when it is plain words; blank text is none. Text with links or markup is
+ * reported against `field` for the rich text stories.
  */
-function usageOf(field: UsageField, { description }: FoundryActionSystem, log: GapLog): RichText | undefined {
-  const text = USAGE_PARAGRAPHS[field].exec(description?.value ?? '')?.groups?.['text']?.trim() ?? '';
+export function plainWords(field: string, text: string, log: GapLog): RichText | undefined {
   const words = RichTextString.safeParse(text);
   if (!words.success) {
     return undefined;
@@ -176,6 +175,12 @@ function usageOf(field: UsageField, { description }: FoundryActionSystem, log: G
     return undefined;
   }
   return [{ type: BlockKind.Paragraph, content: [{ type: InlineKind.Text, text: words.data }] }];
+}
+
+/** A usage paragraph as rich text (`<p><strong>Trigger</strong> Your turn begins.</p>`), when it is plain words. */
+function usageOf(field: UsageField, { description }: FoundryActionSystem, log: GapLog): RichText | undefined {
+  const text = USAGE_PARAGRAPHS[field].exec(description?.value ?? '')?.groups?.['text']?.trim() ?? '';
+  return plainWords(field, text, log);
 }
 
 /** Every field but the cost, the ones that are set. */

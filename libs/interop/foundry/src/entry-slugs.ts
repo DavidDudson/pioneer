@@ -12,7 +12,7 @@ import type { SelectedEntry } from './select-entries';
 
 /**
  * The kind each Foundry item type's entries are filed under; `documentKind` refines feats by category (a class
- * feature). The magic story refines spells (a ritual) the same way.
+ * feature) and spells by their ritual data (a ritual).
  */
 export const FOUNDRY_TYPE_KINDS: Readonly<Record<FoundryItemType, ContentKind>> = {
   [FoundryItemType.Action]: ContentKind.Action,
@@ -39,11 +39,19 @@ export const FOUNDRY_TYPE_KINDS: Readonly<Record<FoundryItemType, ContentKind>> 
 /** Foundry's feat `category` for a class feature, which is its own kind. */
 const CLASS_FEATURE_CATEGORY = 'classfeature';
 
-/** The kind a selected document's entry is: its type's, or `class-feature` for a feat Foundry files as one. */
+/**
+ * The kind a selected document's entry is: its type's, `class-feature` for a feat Foundry files as one, or `ritual`
+ * for a spell with ritual data, as Foundry stores rituals.
+ */
 export function documentKind({ type, document }: SelectedEntry): ContentKind {
-  return type === FoundryItemType.Feat && document.system['category'] === CLASS_FEATURE_CATEGORY
-    ? ContentKind.ClassFeature
-    : FOUNDRY_TYPE_KINDS[type];
+  const { category, ritual } = document.system;
+  if (type === FoundryItemType.Feat && category === CLASS_FEATURE_CATEGORY) {
+    return ContentKind.ClassFeature;
+  }
+  if (type === FoundryItemType.Spell && ritual !== undefined && ritual !== null) {
+    return ContentKind.Ritual;
+  }
+  return FOUNDRY_TYPE_KINDS[type];
 }
 
 /** A selected document's slug text; translation checks it is an entry slug. */

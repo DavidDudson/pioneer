@@ -9,6 +9,7 @@ import type { FoundryConfig, TraitList } from './foundry-config';
 import { FoundryItemType } from './foundry-document';
 import { loreSelector, loreSlugTopic, loreTopic } from './foundry-lore';
 import type { FoundryLang } from './foundry-release';
+import { FoundryRitual, loresNamed } from './ritual-checks';
 import type { SelectedEntry } from './select-entries';
 import { FoundryTrainedSkills } from './translate-background';
 import type { ImportedKindData } from './translate-kind-data';
@@ -202,7 +203,7 @@ export function damageTypeItem(slug: string, book: BookId): Item | Gap {
   };
 }
 
-/** A Lore a background trains: its statistic's slug name (`scribing-lore`) and Foundry's name for it. */
+/** A Lore a background trains or a ritual checks: its statistic's slug name (`scribing-lore`) and Foundry's name for it. */
 export interface LoreUse {
   readonly slug: string;
   readonly name: string;
@@ -211,16 +212,23 @@ export interface LoreUse {
 const TrainedSkillsField = z.looseObject({ trainedSkills: FoundryTrainedSkills.optional() });
 const LORE_DOMAINS = ['check', 'skill-check', 'int-based', 'lore'];
 
-export function loresOf({ type, document }: SelectedEntry): readonly LoreUse[] {
-  if (type !== FoundryItemType.Background) {
-    return [];
+const RitualChecksField = z.looseObject({ ritual: FoundryRitual.nullish() });
+
+/** The Lores a background trains, or a ritual's checks name, by Foundry's name for each. */
+function loreNamesOf({ type, document }: SelectedEntry): readonly string[] {
+  if (type === FoundryItemType.Background) {
+    const fields = TrainedSkillsField.safeParse(document.system);
+    return fields.success ? (fields.data.trainedSkills?.lore ?? []) : [];
   }
-  const fields = TrainedSkillsField.safeParse(document.system);
-  const names = fields.success ? (fields.data.trainedSkills?.lore ?? []) : [];
-  return names.map((name) => ({ slug: `${loreTopic(name)}-lore`, name }));
+  const ritual = type === FoundryItemType.Spell ? RitualChecksField.safeParse(document.system).data?.ritual : undefined;
+  return ritual ? [...loresNamed(ritual.primary.check), ...loresNamed(ritual.secondary.checks)] : [];
 }
 
-/** Each Lore's name by slug, as the first background training it spells it. */
+export function loresOf(entry: SelectedEntry): readonly LoreUse[] {
+  return loreNamesOf(entry).map((name) => ({ slug: `${loreTopic(name)}-lore`, name }));
+}
+
+/** Each Lore's name by slug, as the first document naming it spells it. */
 export function loreNames(selected: readonly SelectedEntry[]): ReadonlyMap<string, string> {
   const names = new Map<string, string>();
   for (const { slug, name } of selected.flatMap((entry) => loresOf(entry))) {
