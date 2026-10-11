@@ -237,9 +237,9 @@ invested or identified is play state, not content.
   (`damage` or `healing`). `spell` is the spell a scroll or wand holds, by `ContentId`, and the `rank` it casts it
   at. Only ammunition has `ammunition`, the kinds it can be fired as (`arrows`, `bolts`), or a magazine's one
   kind; ammunition that names none fits any weapon that doesn't take a magazine.
-- **Equipment.** `container` is its `capacity` in Bulk (no limit when absent), how much is `ignored` when worn
-  (a backpack's first 2), and its `heldBulk` when held or stowed differs from its `bulk` worn (a backpack is
-  negligible worn, light carried).
+- **Equipment.** `container` is its `capacity` in Bulk (no limit when absent), how much of what it holds is `ignored`
+  however it is carried (a backpack's first 2), and its `heldBulk` when held or stowed differs from its `bulk` worn
+  (a backpack is negligible worn, light carried).
   `apex` is the attribute an apex item raises.
 - **Kits.** `items` are `ContentId`s with a `quantity`, and a container in a kit lists its `contents` the same
   way. A kit has no level or Bulk; a class kit carries its class's trait.
