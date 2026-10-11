@@ -55,6 +55,26 @@
       "dismiss": "Dismiss"
     },
     "notChosen": "Not chosen",
+    "runes": {
+      "heading": "Runes on {name}",
+      "potencyOf": "Potency rune on {name}",
+      "strikingOf": "Striking rune on {name}",
+      "resilientOf": "Resilient rune on {name}",
+      "reinforcingOf": "Reinforcing rune on {name}",
+      "none": "None",
+      "asMade": "{grade} (as made)",
+      "propertyOf": "Property rune to etch onto {name}",
+      "etch": "Etch",
+      "etching": "Etching…",
+      "erase": "Erase {rune} from {name}",
+      "erasing": "Erasing…",
+      "needsPotency": "Etch a higher potency rune to make room for another property rune.",
+      "moveRuneOf": "Rune to move off {name}",
+      "moveOnto": "Onto",
+      "move": "Move",
+      "moving": "Moving…",
+      "failed": "The rune couldn't be changed. Try again."
+    },
     "inventory": {
       "heading": "Inventory",
       "loadError": "The items could not be loaded. Try again.",

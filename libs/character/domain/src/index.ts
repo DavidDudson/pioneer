@@ -157,6 +157,7 @@ export {
 export { eraseRune, etchRune, RuneAction, type RuneEdit, type RuneTransfer, transferRune } from './rune-edits';
 export { runeRefusal } from './rune-refusal';
 export {
+  FUNDAMENTAL_GRADE_MAX,
   type ItemRunes,
   ItemRunesSchema,
   NO_RUNES,

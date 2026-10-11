@@ -1,9 +1,21 @@
-import { CarryState, isContainer } from '@pioneer/character/domain';
-import type { Inventory, InventoryItem, InventoryItemId, ItemContent } from '@pioneer/character/domain';
+import { CarryState, hasRunes, INVENTORY_KINDS, isContainer, isSpecific, itemRunes } from '@pioneer/character/domain';
+import type {
+  Inventory,
+  InventoryItem,
+  InventoryItemId,
+  ItemContent,
+  ItemEntry,
+  RunedContent,
+  RuneContent,
+} from '@pioneer/character/domain';
 import type { SelectOption } from '@pioneer/frontier';
+import { ContentKind, FundamentalRune } from '@pioneer/rules/sdk';
 import type { ContentId } from '@pioneer/rules/sdk';
 import { InventoryPlacement } from '@pioneer/rules/ui';
-import type { InventoryGroup, InventoryLine } from '@pioneer/rules/ui';
+import type { GradedRune, GradedRuneLine, InventoryGroup, InventoryLine, LineRunes } from '@pioneer/rules/ui';
+
+/** The kinds the inventory section reads: those a character carries, and the runes etched onto them. */
+export const INVENTORY_CONTENT_KINDS: readonly ContentKind[] = [...INVENTORY_KINDS, ContentKind.Rune];
 
 /** The groups in sheet order. */
 const STATES: readonly CarryState[] = [CarryState.Worn, CarryState.Held, CarryState.Stowed, CarryState.Dropped];
@@ -26,14 +38,47 @@ function contentsByContainer(items: readonly InventoryItem[]): ReadonlyMap<Inven
   return contents;
 }
 
+/** The fundamental runes an item's name gives by grade, in the order the rules write them. */
+const GRADED_RUNES: readonly GradedRune[] = [
+  FundamentalRune.Striking,
+  FundamentalRune.Resilient,
+  FundamentalRune.Reinforcing,
+];
+
+/**
+ * The runes `item`'s name reads: its potency, its other fundamental runes by grade, and its property runes by name, a
+ * rune no loaded pack has left out. None for an item with no runes, or a specific item, whose name has them.
+ */
+export function lineRunes(
+  item: InventoryItem,
+  entry: ItemEntry | undefined,
+  runes: RuneContent,
+): LineRunes | undefined {
+  const etched = itemRunes(item, entry);
+  if (isSpecific(entry) || !hasRunes(etched)) {
+    return undefined;
+  }
+  return {
+    potency: etched.potency,
+    fundamental: GRADED_RUNES.flatMap((rune): GradedRuneLine[] => {
+      const grade = etched[rune];
+      return grade === undefined ? [] : [{ rune, grade }];
+    }),
+    property: etched.property.flatMap((id) => {
+      const name = runes.get(id)?.name;
+      return name === undefined ? [] : [name];
+    }),
+  };
+}
+
 /**
  * The inventory as the sheet lists it: loose items grouped worn, held, stowed and dropped as they are carried, each
- * container with what it holds beneath it. Empty groups are left out.
+ * container with what it holds beneath it, and each item named with its runes. Empty groups are left out.
  */
-export function sheetInventory(inventory: Inventory, content: ItemContent): readonly InventoryGroup[] {
+export function sheetInventory(inventory: Inventory, { items, runes }: RunedContent): readonly InventoryGroup[] {
   const contents = contentsByContainer(inventory.items);
   const lineOf = (item: InventoryItem): InventoryLine => {
-    const entry = content.get(item.item);
+    const entry = items.get(item.item);
     return {
       id: item.id,
       name: item.name ?? entry?.name,
@@ -43,6 +88,7 @@ export function sheetInventory(inventory: Inventory, content: ItemContent): read
       bulkPer: entry?.data.bulkPer,
       hands: item.carry.state === CarryState.Held ? item.carry.hands : undefined,
       invested: item.invested === true,
+      runes: lineRunes(item, entry, runes),
       contents: (contents.get(item.id) ?? []).map((inside) => lineOf(inside)),
     };
   };

@@ -38,3 +38,14 @@ export const RuneEtchingSchema = z.union([
   z.strictObject({ type: z.literal(RuneType.Property), rune: ContentId }),
 ]);
 export type RuneEtching = z.infer<typeof RuneEtchingSchema>;
+
+const RUNE_GRADE_MAX = ReinforcingGrade.parse(4);
+const REINFORCING_GRADE_MAX = ReinforcingGrade.parse(6);
+
+/** The highest grade of each fundamental rune: 4, but 6 for reinforcing. */
+export const FUNDAMENTAL_GRADE_MAX: Readonly<Record<FundamentalRune, ReinforcingGrade>> = {
+  [FundamentalRune.Potency]: RUNE_GRADE_MAX,
+  [FundamentalRune.Striking]: RUNE_GRADE_MAX,
+  [FundamentalRune.Resilient]: RUNE_GRADE_MAX,
+  [FundamentalRune.Reinforcing]: REINFORCING_GRADE_MAX,
+};

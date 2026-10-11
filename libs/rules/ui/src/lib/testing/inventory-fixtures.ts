@@ -1,4 +1,4 @@
-import { BulkCount, BulkWeight } from '@pioneer/rules/sdk';
+import { BulkCount, BulkWeight, FundamentalRune } from '@pioneer/rules/sdk';
 
 import { InventoryPlacement } from '../inventory/inventory-line';
 import type { InventoryGroup, InventoryLine } from '../inventory/inventory-line';
@@ -19,20 +19,25 @@ function line(id: string, name: string | undefined, overrides: Partial<Inventory
     bulkPer: undefined,
     hands: undefined,
     invested: false,
+    runes: undefined,
     contents: [],
     ...overrides,
   };
 }
 
 /**
- * A fighter's gear: armour, an invested cloak and a backpack holding a pouch of chalk, a sword in one hand, loose
+ * A fighter's gear: +1 resilient armour, an invested cloak and a backpack holding a pouch of chalk, a +1 greater striking flaming sword in one hand, loose
  * treasure and arrows, and a shield dropped.
  */
 export const FIGHTER_INVENTORY: readonly InventoryGroup[] = [
   {
     placement: InventoryPlacement.Worn,
     lines: [
-      line('armor', 'Leather Armor', { bulk: ONE_BULK }),
+      line('armor', 'Leather Armor', {
+        bulk: ONE_BULK,
+        invested: true,
+        runes: { potency: 1, fundamental: [{ rune: FundamentalRune.Resilient, grade: 1 }], property: [] },
+      }),
       line('cloak', 'Cloak of Elvenkind', { invested: true }),
       line('backpack', 'Backpack', {
         bulk: BulkWeight.Negligible,
@@ -46,7 +51,16 @@ export const FIGHTER_INVENTORY: readonly InventoryGroup[] = [
       }),
     ],
   },
-  { placement: InventoryPlacement.Held, lines: [line('longsword', 'Longsword', { bulk: ONE_BULK, hands: 1 })] },
+  {
+    placement: InventoryPlacement.Held,
+    lines: [
+      line('longsword', 'Longsword', {
+        bulk: ONE_BULK,
+        hands: 1,
+        runes: { potency: 1, fundamental: [{ rune: FundamentalRune.Striking, grade: 2 }], property: ['Flaming'] },
+      }),
+    ],
+  },
   {
     placement: InventoryPlacement.Stowed,
     lines: [

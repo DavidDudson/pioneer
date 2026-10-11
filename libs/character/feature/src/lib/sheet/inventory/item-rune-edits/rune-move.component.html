@@ -1,0 +1,19 @@
+@if (runes().length > 0 && targets().length > 0) {
+  <fr-async-form [form]="form" [action]="move" [describeError]="describeError">
+    <fr-stack direction="horizontal" gap="sm" align="end">
+      <fr-select-field
+        [label]="'character.sheet.runes.moveRuneOf' | transloco: { name: name() }"
+        [options]="runes()"
+        [formField]="form.rune"
+      />
+      <fr-select-field
+        [label]="'character.sheet.runes.moveOnto' | transloco"
+        [options]="targets()"
+        [formField]="form.to"
+      />
+      <fr-async-button type="submit" size="sm" [pendingLabel]="'character.sheet.runes.moving' | transloco">
+        {{ 'character.sheet.runes.move' | transloco }}
+      </fr-async-button>
+    </fr-stack>
+  </fr-async-form>
+}
