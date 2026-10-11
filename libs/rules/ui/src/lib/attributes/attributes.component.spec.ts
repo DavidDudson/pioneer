@@ -40,10 +40,17 @@ describe(AttributesView, () => {
     ]);
   });
 
-  it('shows a placeholder while the modifiers load', async () => {
+  it('names the six attributes with a placeholder each while the modifiers load', async () => {
     const host = await render(undefined);
-    expect(pairs(host)).toStrictEqual([]);
-    expect(host.querySelector('fr-skeleton')).not.toBeNull();
+    expect(pairs(host).map(([term]) => term)).toStrictEqual([
+      'Strength',
+      'Dexterity',
+      'Constitution',
+      'Intelligence',
+      'Wisdom',
+      'Charisma',
+    ]);
+    expect(host.querySelectorAll('fr-description-item fr-skeleton')).toHaveLength(6);
   });
 
   it('lists the boosts still to place, by name, and nothing when every boost is placed', async () => {

@@ -8,7 +8,11 @@
       }
     </fr-description-list>
   } @else {
-    <fr-skeleton width="lg" />
+    <fr-description-list>
+      @for (labelKey of loadingTerms; track labelKey) {
+        <fr-description-item [term]="labelKey | transloco"><fr-skeleton width="xs" /></fr-description-item>
+      }
+    </fr-description-list>
   }
   @if (open().length > 0) {
     <fr-stack gap="xs">

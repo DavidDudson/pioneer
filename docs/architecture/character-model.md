@@ -148,8 +148,8 @@ filter on indexed columns. `schema_version` mirrors the document's `schemaVersio
 `decodeCharacterDocument`, upgrading an older one; the next save writes it back at the current version, so old rows
 are upgraded as they are touched, never by a bulk rewrite. The ancestry, background and class are their root slots'
 selections. Characters stored before boost slots (migration 0014) lost their stored modifiers, which are derived and
-can't be turned back into boosts: their boost slots start empty, and a Pathbuilder re-import fills them
-([#420](https://github.com/DavidDudson/pioneer/issues/420)).
+can't be turned back into boosts: their boost slots start empty. Imports don't carry boosts yet; once
+[#420](https://github.com/DavidDudson/pioneer/issues/420) lands, a Pathbuilder re-import fills them.
 
 The document is one aggregate, validated by zod and versioned with the existing `expectedVersion` PATCH pattern.
 Edits stay field-level commands (`selectSlot`, `addItem`, `setHp`, `addCondition`), so the API stays small and each

@@ -57,6 +57,8 @@ export class AttributesView {
 
   readonly #format = inject(LocaleFormat);
   protected readonly Message = AttributesMessage;
+  /** The six names, shown with a placeholder each while the modifiers load. */
+  protected readonly loadingTerms = Object.values(ATTRIBUTE_MESSAGES);
   protected readonly shown = computed((): readonly ShownModifier[] | undefined => {
     const modifiers = this.modifiers();
     return modifiers === undefined
