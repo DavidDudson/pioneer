@@ -6506,25 +6506,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "condition:clumsy",
-      "foundry": "Compendium.pf2e.conditionitems.Item.i3OJZU2nk64Df3xm",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "dex-based",
-            "slug": "clumsy",
-            "type": "status",
-            "value": "-@item.badge.value"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "condition:confused",
       "foundry": "Compendium.pf2e.conditionitems.Item.yblD8fOR1J8rDwEQ",
       "gaps": [
@@ -6693,24 +6674,6 @@
             "key": "LoseHitPoints",
             "reevaluateOnUpdate": true,
             "value": "max(1,@actor.level) * @item.badge.value"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "condition:encumbered",
-      "foundry": "Compendium.pf2e.conditionitems.Item.D5mg6Tc7Jzrj6ro7",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "all-speeds",
-            "slug": "encumbered",
-            "value": -10
           }
         }
       ]
