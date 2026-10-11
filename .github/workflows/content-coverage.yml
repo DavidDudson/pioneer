@@ -1,0 +1,56 @@
+name: Content coverage
+
+# The coverage report over the committed packs and their import backlogs (content-model.md, "Coverage report"), on
+# every pull request that changes content. It reports, as the job summary and an artefact; it never fails the build.
+on:
+  pull_request:
+    paths:
+      - 'content/**'
+
+permissions: {}
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  coverage:
+    name: Content coverage
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    defaults:
+      run:
+        # Same toolchain as local: every step runs inside the flake devshell.
+        shell: nix develop --command bash -euo pipefail {0}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: cachix/install-nix-action@13d8dd58da0234aa297dedd986986ccb8e7f3e24 # v31.11.1
+        with:
+          github_access_token: ${{ github.token }}
+      - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ~/.bun/install/cache
+          key: bun-${{ runner.os }}-${{ hashFiles('bun.lock') }}
+      - name: Install
+        run: bun install --frozen-lockfile
+      - name: Report
+        # A report, never a gate: even a crash leaves the build green.
+        continue-on-error: true
+        run: |
+          bun run --silent content:coverage | tee content-coverage.txt
+          {
+            echo '## Content coverage'
+            echo '```text'
+            cat content-coverage.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: always()
+        with:
+          name: content-coverage
+          path: content-coverage.txt
+          if-no-files-found: ignore

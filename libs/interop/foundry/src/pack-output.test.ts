@@ -144,7 +144,6 @@ describe('packOutput: references to an entry left out', () => {
         entry: 'player-core/feat:granted',
         element: { key: RuleElementKey.GrantItem, item: idOf('feat:granted') },
       },
-      { type: BacklogGapType.Reference, entry: 'player-core/feat:granted', element: { type: InlineKind.Ref } },
     ]);
   });
 
@@ -159,6 +158,9 @@ describe('packOutput: references to an entry left out', () => {
           { type: InlineKind.Text, text: '.' },
         ],
       },
+    ]);
+    expect(gapsOf(backlog, 'feat:granter').filter(({ type }) => type === BacklogGapType.Link)).toMatchObject([
+      { entry: 'player-core/feat:granted', element: { type: InlineKind.Ref, id: idOf('feat:granted') } },
     ]);
   });
 });

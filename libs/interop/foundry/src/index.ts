@@ -102,3 +102,4 @@ export {
 } from './import-backlog';
 export { type PackFile, packFiles, packOutput, type PackOutput, type PackOutputContext } from './pack-output';
 export { referencedIds } from './pack-references';
+export { importCoverage, type KindCoverage } from './import-coverage';

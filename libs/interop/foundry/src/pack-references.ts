@@ -110,7 +110,7 @@ function unlink(value: unknown, check: Check, gaps: BacklogGap[]): unknown {
     return value;
   }
   if (isRefNode(value) && isMissing(value.id, check)) {
-    gaps.push({ type: BacklogGapType.Reference, entry: keyOf(value.id, check), element: value });
+    gaps.push({ type: BacklogGapType.Link, entry: keyOf(value.id, check), element: value });
     return { type: InlineKind.Text, text: value.label ?? check.resolution.names.get(value.id) ?? '' };
   }
   return Object.fromEntries(Object.entries(value).map(([key, each]) => [key, unlink(each, check, gaps)]));

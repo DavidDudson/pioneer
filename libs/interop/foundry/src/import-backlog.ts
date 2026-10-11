@@ -33,6 +33,8 @@ export const BacklogGapType = {
   Trait: 'trait',
   /** A translated rule element dropped because the entry it references was left out of the pack. */
   Reference: 'reference',
+  /** A link in rich text to an entry left out of the pack, which reads as text instead. */
+  Link: 'link',
 } as const;
 export type BacklogGapType = ValueOf<typeof BacklogGapType>;
 
@@ -48,8 +50,10 @@ export const BacklogGap = z.discriminatedUnion('type', [
   z.strictObject({ type: z.literal(BacklogGapType.Enricher), enricher: Text }),
   z.strictObject({ type: z.literal(BacklogGapType.Markup), markup: Text }),
   z.strictObject({ type: z.literal(BacklogGapType.Trait), trait: Text }),
-  /** `entry` is the missing entry's `<pack>/<slug>`; `element` is Pioneer's, as translated. */
+  /** `entry` is the missing entry's `<pack>/<slug>`; `element` is Pioneer's rule element, as translated. */
   z.strictObject({ type: z.literal(BacklogGapType.Reference), entry: Text, element: z.unknown() }),
+  /** `entry` is the missing entry's `<pack>/<slug>`; `element` is the `Ref` node. */
+  z.strictObject({ type: z.literal(BacklogGapType.Link), entry: Text, element: z.unknown() }),
 ]);
 export type BacklogGap = z.infer<typeof BacklogGap>;
 
