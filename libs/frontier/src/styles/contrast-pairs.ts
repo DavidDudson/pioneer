@@ -28,12 +28,12 @@ export const CONTRAST_PAIRS: readonly ContrastPair[] = [
     background: [`${role}-subtle`, ...SURFACES],
     minimum: ContrastMinimum.Text,
   })),
-  // Both fr-button's primary and danger variants use accent-on-solid, in every state.
-  {
-    foreground: ['accent-on-solid'],
-    background: ['accent-solid', 'accent-solid-hover', 'accent-solid-active', 'danger-solid', 'danger-solid-hover'],
+  // Solid fills (fr-button's primary and danger variants), in every state.
+  ...ROLES.map((role) => ({
+    foreground: [`${role}-on-solid`],
+    background: [`${role}-solid`, `${role}-solid-hover`, `${role}-solid-active`],
     minimum: ContrastMinimum.Text,
-  },
+  })),
   ...ROLES.map((role) => ({
     foreground: [`${role}-on-emphasis`],
     background: [`${role}-emphasis`],
