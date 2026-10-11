@@ -6,50 +6,61 @@ import { entryReferences, resolveUuid } from './entry-references';
 import type { KnownEntry } from './entry-references';
 import { entrySlugs } from './entry-slugs';
 import { FoundryItemType } from './foundry-document';
-import type { FoundryDocument } from './foundry-document';
+import type { PackDocument } from './foundry-release';
 import type { SelectedEntry } from './select-entries';
 
 const DIVINE_MYSTERIES = PackId.parse('divine-mysteries');
-const SPELLS = { name: 'spells-srd', directory: 'spells' };
+const PLAYER_CORE = PackId.parse('player-core');
+const DIVINE_MYSTERIES_BOOK = BookId.parse('divine-mysteries');
 
-function spell(name: string, book: string): SelectedEntry {
-  const document = { _id: `${name}Id`, name, type: 'spell', img: 'icon.webp', system: { rules: [] } };
+function document(pack: string, name: string, documentId: string): PackDocument {
   return {
-    pack: SPELLS,
-    path: `packs/pf2e/spells/${name}.json`,
-    document: document as unknown as FoundryDocument,
-    type: FoundryItemType.Spell,
-    book: BookId.parse(book),
+    pack: { name: pack, directory: pack },
+    path: `packs/pf2e/${pack}/${documentId}.json`,
+    document: { _id: documentId, name, type: 'spell', img: 'icon.webp', system: { rules: [] } },
   };
 }
 
-const heal: KnownEntry = {
-  id: ContentId.parse(contentId(PackId.parse('player-core'), EntrySlug.parse('spell:heal'))),
-  pack: PackId.parse('player-core'),
-  kind: ContentKind.Spell,
-  slug: EntrySlug.parse('spell:heal'),
-};
+function known(slug: string, foundry?: string): KnownEntry {
+  const entrySlug = EntrySlug.parse(slug);
+  return {
+    id: ContentId.parse(contentId(PLAYER_CORE, entrySlug)),
+    pack: PLAYER_CORE,
+    kind: ContentKind.Spell,
+    slug: entrySlug,
+    ...(foundry === undefined ? {} : { foundry }),
+  };
+}
 
-const uuid = (idOrName: string): string => `Compendium.pf2e.spells-srd.Item.${idOrName}`;
+const uuid = (pack: string, idOrName: string): string => `Compendium.pf2e.${pack}.Item.${idOrName}`;
+
+const heal = known('spell:heal', uuid('spells-srd', 'healId'));
+const healDocument = document('spells-srd', 'Heal', 'healId');
 
 describe('entryReferences', () => {
-  test("resolves another registered book's document to the known entry with its slug, by id and by name", () => {
-    const references = entryReferences(DIVINE_MYSTERIES, new Map(), [heal], [spell('Heal', 'player-core')]);
+  test('resolves a release document an earlier import brought in to its entry, by id and by name', () => {
+    const references = entryReferences(DIVINE_MYSTERIES, new Map(), { known: [heal], release: [healDocument] });
 
-    expect(resolveUuid(references, uuid('HealId'))).toBe(heal.id);
-    expect(resolveUuid(references, uuid('Heal'))).toBe(heal.id);
+    expect(resolveUuid(references, uuid('spells-srd', 'healId'))).toBe(heal.id);
+    expect(resolveUuid(references, uuid('spells-srd', 'Heal'))).toBe(heal.id);
   });
 
-  test('leaves a document of another book unresolved when no known entry has its slug', () => {
-    const references = entryReferences(DIVINE_MYSTERIES, new Map(), [heal], [spell('Protector Tree', 'player-core-2')]);
+  test('never resolves a document to a known entry it was not imported from, whatever its name', () => {
+    const glossary = document('bestiary-ability-glossary-srd', 'Heal', 'glossaryId');
+    const references = entryReferences(DIVINE_MYSTERIES, new Map(), {
+      known: [heal, known('spell:shield')],
+      release: [glossary, document('spells-srd', 'Shield', 'shieldId')],
+    });
 
-    expect(resolveUuid(references, uuid('Protector Tree'))).toBeUndefined();
+    expect(resolveUuid(references, uuid('bestiary-ability-glossary-srd', 'Heal'))).toBeUndefined();
+    expect(resolveUuid(references, uuid('spells-srd', 'Shield'))).toBeUndefined();
   });
 
   test("resolves the import's own document to its entry over a known one", () => {
-    const own = spell('Heal', 'divine-mysteries');
-    const references = entryReferences(DIVINE_MYSTERIES, entrySlugs([own]), [heal], [spell('Heal', 'player-core')]);
+    const own: SelectedEntry = { ...healDocument, type: FoundryItemType.Spell, book: DIVINE_MYSTERIES_BOOK };
+    const references = entryReferences(DIVINE_MYSTERIES, entrySlugs([own]), { known: [heal], release: [healDocument] });
+    const ownId = ContentId.parse(contentId(DIVINE_MYSTERIES, EntrySlug.parse('spell:heal')));
 
-    expect(resolveUuid(references, uuid('HealId'))).toBe(contentId(DIVINE_MYSTERIES, EntrySlug.parse('spell:heal')));
+    expect(resolveUuid(references, uuid('spells-srd', 'healId'))).toBe(ownId);
   });
 });

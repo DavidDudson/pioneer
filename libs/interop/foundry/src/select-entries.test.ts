@@ -5,7 +5,7 @@ import { BookId } from '@pioneer/rules/sdk';
 import { dryRunReport } from './dry-run-report';
 import { readFoundryRelease } from './foundry-release';
 import type { FoundryRelease } from './foundry-release';
-import { registeredEntries, selectEntries, SkipReason } from './select-entries';
+import { selectEntries, SkipReason } from './select-entries';
 
 const ROOT = 'pf2e-pf2e-8.6.0';
 const playerCore = BookId.parse('player-core');
@@ -140,15 +140,6 @@ describe('selectEntries', () => {
     const { selected } = selectEntries(release(), new Set([playerCore, gmCore]));
 
     expect(names(selected)).toContain('staff.json');
-  });
-});
-
-describe('registeredEntries', () => {
-  test('keeps the documents selection keeps for any registered book', () => {
-    const registered = registeredEntries(release().documents);
-
-    expect(names(registered).toSorted()).toEqual(['longsword.json', 'power-attack.json', 'staff.json', 'toughness.json']);
-    expect(registered.find(({ path }) => path.endsWith('staff.json'))?.book).toBe(gmCore);
   });
 });
 

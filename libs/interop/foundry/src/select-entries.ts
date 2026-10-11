@@ -106,16 +106,3 @@ export function selectEntries(release: FoundryRelease, targets: ReadonlySet<Book
   }
   return { selected, skipped };
 }
-
-const REGISTERED_BOOKS: ReadonlySet<BookId> = new Set(FOUNDRY_BOOK_TITLES.values());
-
-/**
- * The documents selection keeps for any registered book: those another import of the same release brought in, or
- * will. References to them resolve to the entries of the packs already imported.
- */
-export function registeredEntries(documents: readonly PackDocument[]): SelectedEntry[] {
-  return documents.flatMap((entry) => {
-    const selection = select(entry, REGISTERED_BOOKS);
-    return 'reason' in selection ? [] : [selection];
-  });
-}

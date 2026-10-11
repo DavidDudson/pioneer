@@ -9,7 +9,6 @@ import { foundryLinks } from './foundry-links';
 import type { FoundryLang, JournalDocument, PackDocument } from './foundry-release';
 import type { ImportedEnvelope } from './imported-envelope';
 import type { KindDataGap } from './kind-data-gaps';
-import { registeredEntries } from './select-entries';
 import type { SelectedEntry } from './select-entries';
 import { importArchetypes } from './translate-archetype';
 import type { ArchetypeEntry } from './translate-archetype';
@@ -69,7 +68,7 @@ export function translateImport(selected: readonly SelectedEntry[], context: Imp
   const vocabulary = importVocabulary(selected, { ...context, pack: vocabularyPack });
   const all = [...known, ...vocabulary.entries.map((entry) => knownOf(entry))];
   const slugs = entrySlugs(selected);
-  const references = entryReferences(pack, slugs, all, registeredEntries(context.documents ?? []));
+  const references = entryReferences(pack, slugs, { known: all, release: context.documents ?? [] });
   const traits = new Set(
     all.filter(({ kind }) => kind === ContentKind.Trait).map(({ slug }) => Trait.parse(slugName(slug))),
   );

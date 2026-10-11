@@ -72,6 +72,7 @@ describe('LegalPage', () => {
       'https://paizo.com',
       'https://paizo.com/orclicense',
       'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
+      'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
       'https://github.com/foundryvtt/pf2e',
     ]);
   });
@@ -84,6 +85,7 @@ describe('LegalPage', () => {
       'GM Core',
       'Monster Core',
       'Player Core 2',
+      'Lost Omens Divine Mysteries',
     ]);
     for (const book of books) {
       expect(book.textContent).toContain('Paizo · ORC License');
@@ -94,7 +96,10 @@ describe('LegalPage', () => {
     const root = await renderLegalPage();
     const foundry = section(root, 'Foundry VTT pf2e system');
     const packs = [...foundry.querySelectorAll('[role="listitem"]')].map((item) => item.textContent.trim());
-    expect(packs).toStrictEqual([expect.stringMatching(/^Player Core\s*Foundry release pf2e-8\.6\.0$/u)]);
+    expect(packs).toStrictEqual([
+      expect.stringMatching(/^Player Core\s*Foundry release pf2e-8\.6\.0$/u),
+      expect.stringMatching(/^Lost Omens Divine Mysteries\s*Foundry release pf2e-8\.6\.0$/u),
+    ]);
     expect(foundry.textContent).toContain('then corrected and enriched by Pioneer contributors');
   });
 });
