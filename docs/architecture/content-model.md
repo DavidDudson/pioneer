@@ -594,7 +594,9 @@ flowchart LR
     `ChoiceSet` (a filter of `item:tag:` terms alone, with a `GrantItem` of `{item|flags.system.rulesSelections.<flag>}`)
     becomes a class-feature query and a grant of its pick, its camel-case flag a slug.
     Feature categories with no kind (`ancestryfeature`, `calling`, and the rest) are reported and have no data;
-    `subfeatures` are reported.
+    a feat's or class feature's `subfeatures.senses` become `Sense` elements, as a `Sense` rule does (below); its
+    other `subfeatures` (proficiencies, key attribute options, languages) are reported by name
+    (`subfeatures.proficiencies`).
   - Player Core's casters get their spellcasting entries and rank raises by entry slug, since Foundry records neither
     ([ADR-0040](../adr/0040-spellcasting-entries-are-rule-elements.md)): a `SpellcastingEntry` on the bard, cleric,
     druid and wizard spellcasting features, each witch patron (in its tradition) and the bard, cleric, druid and
@@ -678,20 +680,23 @@ flowchart LR
   A grant whose only alteration overrides the granted condition's value with a number
   (`{ mode: override, property: badge-value, value: 2 }`) gets that number as its `value`; any other alteration, or a
   value read from a pick or the item, leaves it untranslated.
+  A `Sense` rule's `selector` resolves to its `sense` entry as `sense`; Foundry ignores the acuity of a sense that
+  fixes one and the range of an unlimited one, so those are left off. An unknown sense, a range read from a formula, or
+  `force: true` leaves it untranslated.
 - **Vocabulary.** Traits, languages, senses and damage types are not pack documents: Foundry defines them in config
   modules (`src/scripts/config/traits.ts`, `src/module/actor/creature/values.ts`, `src/module/system/damage/values.ts`),
   which build their tables with spreads and remeda. The CLI runs them with Bun from the verified archive, standing in
   for remeda and Foundry's build-time `SYSTEM_ID`. Only what the selected documents use is imported: their traits,
-  ancestry languages, ancestry and heritage vision and `Sense` elements, and every Foundry damage type that is a
-  Pioneer `DamageType`. Names come from `lang/*en.json`; each cites the book of the first document using it (damage
-  types, the first target book). Vocabulary entries go into `core-rules`, beside the hand-authored rules core entries,
-  slugged by kind like every entry (`trait:goblin`, `language:goblin`). One another official pack already has of the
-  kind and name (the hand-authored languages and senses, or an earlier run's) is left to that entry. Secret
-  languages (Wildsong) have no Pioneer rarity and `untyped` damage no `DamageType`; both are reported. Each Lore a
-  background trains or a ritual checks, which Foundry keeps nowhere, gets its `statistic` entry the same way
-  (`statistic:scribing-lore`, named as the first document naming it does; rules-engine.md, "Statistics are
-  content"). Pack output writes the new entries to `core-rules/imported/<pack>/<kind>.json`, beside, never into,
-  the hand-authored `core-rules` files ([ADR-0033](../adr/0033-foundry-vocabularies-imported-into-core-rules.md)).
+  ancestry languages, ancestry and heritage vision, `Sense` elements and feats' `subfeatures.senses`, and every Foundry
+  damage type that is a Pioneer `DamageType`. Names come from `lang/*en.json`; each cites the book of the first document
+  using it (damage types, the first target book). Vocabulary entries go into `core-rules`, beside the hand-authored
+  rules core entries, slugged by kind like every entry (`trait:goblin`, `language:goblin`). One another official pack
+  already has of the kind and name (the hand-authored languages and senses, or an earlier run's) is left to that entry.
+  Secret languages (Wildsong) have no Pioneer rarity and `untyped` damage no `DamageType`; both are reported. Each Lore
+  a background trains or a ritual checks, which Foundry keeps nowhere, gets its `statistic` entry the same way
+  (`statistic:scribing-lore`, named as the first document naming it does; rules-engine.md, "Statistics are content").
+  Pack output writes the new entries to `core-rules/imported/<pack>/<kind>.json`, beside, never into, the hand-authored
+  `core-rules` files ([ADR-0033](../adr/0033-foundry-vocabularies-imported-into-core-rules.md)).
 - **Later translators.** A translator that lands after its pack is imported is applied to the backlog: a command,
   built by Epic 2.6 (#21), translates the items it now covers into the committed entries and removes them from the
   backlog, keeping hand edits.
