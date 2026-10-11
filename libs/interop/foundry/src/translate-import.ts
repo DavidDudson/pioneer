@@ -5,11 +5,12 @@ import { entryReferences } from './entry-references';
 import type { KnownEntry } from './entry-references';
 import { entrySlugs } from './entry-slugs';
 import type { FoundryConfig } from './foundry-config';
-import type { FoundryLang } from './foundry-release';
+import type { FoundryLang, PackDocument } from './foundry-release';
+import type { ImportedEnvelope } from './imported-envelope';
 import type { KindDataGap } from './kind-data-gaps';
 import type { SelectedEntry } from './select-entries';
 import { translateEnvelopes } from './translate-envelope';
-import type { EnvelopeTranslation, ImportedEnvelope } from './translate-envelope';
+import type { EnvelopeTranslation } from './translate-envelope';
 import { translateKindData } from './translate-kind-data';
 import type { ImportedKindData } from './translate-kind-data';
 import { importVocabulary } from './vocabulary';
@@ -32,6 +33,8 @@ export interface ImportContext {
   readonly lang: FoundryLang;
   /** The entries of the other official packs (the target pack's own are replaced by the import). */
   readonly known: readonly KnownEntry[];
+  /** The release's item documents, naming link targets outside the import; without them such links read as labels. */
+  readonly documents?: readonly PackDocument[];
 }
 
 export interface ImportedEntry {
@@ -62,7 +65,13 @@ export function translateImport(selected: readonly SelectedEntry[], context: Imp
   const traits = new Set(
     all.filter(({ kind }) => kind === ContentKind.Trait).map(({ slug }) => Trait.parse(slugName(slug))),
   );
-  const envelopes = translateEnvelopes(selected, { pack, traits, references });
+  const { documents } = context;
+  const envelopes = translateEnvelopes(selected, {
+    pack,
+    traits,
+    references,
+    ...(documents === undefined ? {} : { documents }),
+  });
   const translated = envelopes.entries.map(({ source, envelope }) => ({
     source,
     envelope,

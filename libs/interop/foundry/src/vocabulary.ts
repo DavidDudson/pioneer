@@ -3,8 +3,8 @@ import type { BookId } from '@pioneer/rules/sdk';
 
 import type { KnownEntry } from './entry-references';
 import { langLabel } from './foundry-config';
+import type { EnvelopeFields } from './imported-envelope';
 import type { SelectedEntry } from './select-entries';
-import type { EnvelopeFields } from './translate-envelope';
 import type { ImportedKindData } from './translate-kind-data';
 import {
   damageTypeItem,

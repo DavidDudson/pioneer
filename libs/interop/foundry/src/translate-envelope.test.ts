@@ -16,9 +16,10 @@ import {
 import { translationReport } from './dry-run-report';
 import { FoundryDocument, FoundryItemType } from './foundry-document';
 import type { FoundryPack } from './foundry-release';
+import type { ImportedEnvelope } from './imported-envelope';
 import type { SelectedEntry } from './select-entries';
 import { EnvelopeFailureReason, translateEnvelopes } from './translate-envelope';
-import type { EnvelopeContext, EnvelopeTranslation, ImportedEnvelope } from './translate-envelope';
+import type { EnvelopeContext, EnvelopeTranslation } from './translate-envelope';
 
 const playerCore = BookId.parse('player-core');
 const pack = PackId.parse('player-core');

@@ -10,7 +10,7 @@ import {
   SourceKind,
   Trait,
 } from '@pioneer/rules/sdk';
-import type { BookId, PackId, RichText, RuleElement } from '@pioneer/rules/sdk';
+import type { PackId } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
 
 import { describeEntries } from './describe-entries';
@@ -20,6 +20,7 @@ import { entrySlugOf } from './entry-slugs';
 import type { FoundryDocument } from './foundry-document';
 import { itemUuid } from './foundry-links';
 import type { FoundryPack, PackDocument } from './foundry-release';
+import type { ImportedEnvelope } from './imported-envelope';
 import type { SelectedEntry } from './select-entries';
 import { translateRules } from './translate-rules';
 import type { UntranslatedRule } from './translate-rules';
@@ -41,41 +42,6 @@ export interface EnvelopeContext {
   /** The release's item documents, naming link targets outside the import; without them such links read as labels. */
   readonly documents?: readonly PackDocument[];
   readonly references?: EntryReferences;
-}
-
-export interface FoundryExternalIds {
-  readonly foundry: ExternalId;
-}
-
-/**
- * A book source as the import knows it: the book, with no page or AoN link. `SourceRef` requires one of the two
- * (ADR-0005), so this is its own type until enrichment (#22) adds them; how pack output treats it is #400's call.
- */
-export interface UnlocatedBookSource {
-  readonly kind: typeof SourceKind.Book;
-  readonly book: BookId;
-}
-
-/**
- * The envelope fields of `ContentEntry`, as the import fills them. Not parsed against `ContentEntry` here: kind
- * `data` is beside it, and its source is an `UnlocatedBookSource`.
- */
-export interface EnvelopeFields {
-  readonly id: ContentId;
-  readonly pack: PackId;
-  readonly slug: EntrySlug;
-  readonly name: ContentText;
-  readonly level?: ContentLevel;
-  readonly rarity: Rarity;
-  readonly traits: readonly Trait[];
-  readonly sources: readonly UnlocatedBookSource[];
-  readonly description: RichText;
-  readonly rules: readonly RuleElement[];
-}
-
-/** The envelope of an entry translated from a Foundry document, which carries its compendium UUID. */
-export interface ImportedEnvelope extends EnvelopeFields {
-  readonly externalIds: FoundryExternalIds;
 }
 
 export interface TranslatedEntry {

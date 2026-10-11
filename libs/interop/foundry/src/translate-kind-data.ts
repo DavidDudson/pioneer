@@ -3,12 +3,12 @@ import type { DamageTypeData, LanguageData, SenseData, TraitData } from '@pionee
 
 import type { EntryReferences } from './entry-references';
 import { FoundryItemType } from './foundry-document';
+import type { ImportedEnvelope } from './imported-envelope';
 import { issuePath, KindDataGapReason, report, reportUnmapped } from './kind-data-gaps';
 import type { GapLog, KindDataGap, KindInput } from './kind-data-gaps';
 import type { SelectedEntry } from './select-entries';
 import { ACTION_FIELDS, actionData } from './translate-action';
 import { CONDITION_FIELDS, conditionData } from './translate-condition';
-import type { ImportedEnvelope } from './translate-envelope';
 
 /**
  * Kind `data` for the rules core kinds the packs hold, actions and conditions, from their Foundry `system` fields

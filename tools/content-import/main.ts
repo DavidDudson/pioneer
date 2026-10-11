@@ -219,6 +219,7 @@ const translation = translateImport(selection.selected, {
   config,
   lang: release.lang,
   known,
+  documents: release.documents,
 });
 console.log(formatTranslation(translation.envelopes));
 console.log(formatKindData(translation));

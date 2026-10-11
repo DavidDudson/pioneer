@@ -1,13 +1,13 @@
 import { describe, expect, test } from 'bun:test';
 
-import { ContentId, contentId, PackId, Slug } from '@pioneer/rules/sdk';
+import { ContentId, contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 
 import type { FoundryLinks } from './enricher-context';
 import { enrichedRun } from './translate-enricher';
 
 const pack = PackId.parse('player-core');
-const offGuard = ContentId.parse(contentId(pack, Slug.parse('off-guard')));
-const trip = ContentId.parse(contentId(pack, Slug.parse('trip')));
+const offGuard = ContentId.parse(contentId(pack, EntrySlug.parse('condition:off-guard')));
+const trip = ContentId.parse(contentId(pack, EntrySlug.parse('action:trip')));
 const OFF_GUARD_UUID = 'Compendium.pf2e.conditionitems.Item.AJh5ex99aV6VTggg';
 
 const links: FoundryLinks = {

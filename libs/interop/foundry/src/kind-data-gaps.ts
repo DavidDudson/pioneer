@@ -4,7 +4,7 @@ import type * as z from 'zod';
 
 import type { EntryReferences } from './entry-references';
 import type { FoundryDocument } from './foundry-document';
-import type { ImportedEnvelope } from './translate-envelope';
+import type { ImportedEnvelope } from './imported-envelope';
 
 /** What a kind translator could not carry over from a document, reported against its entry. */
 
