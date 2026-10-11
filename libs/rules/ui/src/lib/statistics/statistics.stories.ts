@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@analogjs/storybook-angular';
 import { StatisticKind } from '@pioneer/rules/sdk';
 import { expect, within } from 'storybook/test';
 
-import { CYCLE, ENTRY_NAMES, FIGHTER_STATISTICS } from '../testing/breakdown-fixtures';
+import { CONDITIONAL_STATISTICS, CYCLE, ENTRY_NAMES, FIGHTER_STATISTICS } from '../testing/breakdown-fixtures';
 import { PINNED_STATISTICS } from '../testing/override-fixtures';
 import { StatisticsView } from './statistics.component';
 
@@ -54,5 +54,15 @@ export const Pinned: StatisticsStory = {
 export const Failed: StatisticsStory = {
   args: {
     statistics: [...FIGHTER_STATISTICS, { name: 'Perception', kind: StatisticKind.Check, result: CYCLE }],
+  },
+};
+
+/** Stealth with lines that apply only in some situations: each summarised under the total, worded when it can be. */
+export const Conditional: StatisticsStory = {
+  args: { statistics: CONDITIONAL_STATISTICS },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByText('+1 circumstance when you are in darkness (Gloom Walker)')).toBeVisible();
+    await expect(canvas.getByText('+2 status in some situations (Unseen)')).toBeVisible();
   },
 };

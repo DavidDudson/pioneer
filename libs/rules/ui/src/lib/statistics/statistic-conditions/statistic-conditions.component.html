@@ -1,0 +1,7 @@
+@if (conditions().length > 0) {
+  <fr-stack gap="3xs">
+    @for (condition of conditions(); track $index) {
+      <fr-text variant="caption" tone="muted">{{ condition }}</fr-text>
+    }
+  </fr-stack>
+}

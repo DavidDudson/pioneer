@@ -193,6 +193,13 @@ A total a set override pinned is flagged in text wherever it appears, and the co
 it: the summary reads "Armor Class 22 Pinned computed 20", and the breakdown opens with the override that pinned it
 ("Set by the GM pins it to 22; computed 20.").
 
+Under each disclosure, outside its summary so the trigger stays named by the statistic and total alone, every modifier
+line the engine marks conditional reads as its signed, typed value, when it holds and its name, in the engine's
+order: "+2 circumstance when your shield is raised (Steel Shield)", or "in some situations" when the predicate
+summary has no words for it (rules-engine.md, "Predicates and conditional modifiers"). The breakdown still lists them
+in full. Conditional `Change`s and set overrides appear only in the breakdown. `pio-statistics` does this for any
+statistic it is given, so a skills list gets it too.
+
 The breakdown is given the statistic's kind, so it formats its numbers as the summary does: a check's base, pinned
 and computed totals and override values carry a sign ("Base +6", "override +6 → +9"); a DC's or value's do not.
 
