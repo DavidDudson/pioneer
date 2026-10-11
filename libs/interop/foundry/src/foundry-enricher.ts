@@ -61,7 +61,7 @@ interface Labelled {
 }
 
 /** A `{label}` right at `at`, and where the enricher then ends. */
-function labelAt(text: string, at: number): Labelled {
+export function labelAt(text: string, at: number): Labelled {
   if (text.charAt(at) !== OPEN_BRACE) {
     return { end: at };
   }

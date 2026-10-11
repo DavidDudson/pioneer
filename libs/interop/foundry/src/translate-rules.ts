@@ -5,10 +5,13 @@ import * as z from 'zod';
 import { NO_REFERENCES, resolveUuid } from './entry-references';
 import type { EntryReferences } from './entry-references';
 import { fromFoundryFormula } from './foundry-formula';
+import { isLangKey, isUnresolved, localize } from './foundry-lang';
+import type { LangValues, UnresolvedKey, UnresolvedText } from './foundry-lang';
+import type { FoundryLang } from './foundry-release';
 
 /**
  * An entry's Foundry rule elements, each run through `RuleElement`. One that fails is kept aside with its raw JSON
- * for the backlog, and the entry is imported without it.
+ * for the backlog, and the entry is imported without it. Lang keys in an element are resolved to English first.
  */
 
 /** A Foundry rule element `RuleElement` rejects: the backlog item Epic 2.6 (#21) works through. */
@@ -92,25 +95,80 @@ function withGrantedId(raw: unknown, references: EntryReferences): unknown {
   return { ...Object.fromEntries(rest), item };
 }
 
+/** A field or array item left out because its lang key did not resolve. */
+const OMITTED = Symbol('omitted');
+
+/** A string's text when it is a lang key, else the string; `OMITTED`, reported, when the key does not resolve. */
+function localizedString(value: string, context: RuleContext, unresolved: UnresolvedKey[]): string | typeof OMITTED {
+  if (!isLangKey(value)) {
+    return value;
+  }
+  const text = localize(context.lang, value, context.values);
+  if (isUnresolved(text)) {
+    unresolved.push(text);
+    return OMITTED;
+  }
+  return text.text;
+}
+
+/** `value` with each lang key in it resolved; one that does not resolve is reported and its field or item left out. */
+function localized(value: unknown, context: RuleContext, unresolved: UnresolvedKey[]): unknown {
+  if (typeof value === 'string') {
+    return localizedString(value, context, unresolved);
+  }
+  if (Array.isArray(value)) {
+    return value.map((item) => localized(item, context, unresolved)).filter((item) => item !== OMITTED);
+  }
+  if (typeof value !== 'object' || value === null) {
+    return value;
+  }
+  return Object.fromEntries(
+    Object.entries(value)
+      .map(([field, item]) => [field, localized(item, context, unresolved)])
+      .filter(([, item]) => item !== OMITTED),
+  );
+}
+
+/**
+ * `raw` with Foundry's base `label`, which names what the element produces on the sheet (a modifier's breakdown line,
+ * a toggle), as Pioneer's `display.label`.
+ */
+function withDisplayLabel(raw: unknown): unknown {
+  if (typeof raw !== 'object' || raw === null || !('label' in raw) || typeof raw.label !== 'string') {
+    return raw;
+  }
+  const { label, ...rest } = raw;
+  const display = 'display' in raw && typeof raw.display === 'object' ? raw.display : {};
+  return { ...rest, display: { ...display, label } };
+}
+
+/** How an entry's elements resolve: references to other entries, and lang keys with the entry's own name. */
+export interface RuleContext {
+  readonly references?: EntryReferences;
+  readonly lang: FoundryLang;
+  readonly values: LangValues;
+}
+
 export interface RuleTranslation {
   readonly rules: readonly RuleElement[];
   readonly untranslated: readonly UntranslatedRule[];
+  /** Lang keys in the elements, translated or not, that had no English text. */
+  readonly unresolvedText: readonly UnresolvedText[];
 }
 
-export function translateRules(
-  entry: ContentId,
-  raws: readonly unknown[],
-  references: EntryReferences = NO_REFERENCES,
-): RuleTranslation {
+export function translateRules(entry: ContentId, raws: readonly unknown[], context: RuleContext): RuleTranslation {
   const rules: RuleElement[] = [];
   const untranslated: UntranslatedRule[] = [];
+  const unresolved: UnresolvedKey[] = [];
+  const references = context.references ?? NO_REFERENCES;
   for (const raw of raws) {
-    const element = RuleElement.safeParse(withGrantedId(withPioneerFormula(raw), references));
+    const text = withDisplayLabel(localized(raw, context, unresolved));
+    const element = RuleElement.safeParse(withGrantedId(withPioneerFormula(text), references));
     if (element.success) {
       rules.push(element.data);
     } else {
       untranslated.push({ entry, key: keyOf(raw), raw });
     }
   }
-  return { rules, untranslated };
+  return { rules, untranslated, unresolvedText: unresolved.map(({ key, reason }) => ({ entry, key, reason })) };
 }

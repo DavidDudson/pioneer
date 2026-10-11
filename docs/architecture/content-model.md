@@ -483,7 +483,7 @@ merges, the committed JSON is the source of truth, and enrichment, corrections a
 flowchart LR
   F[Foundry pf2e packs<br/>pinned tag] --> S[Select<br/>remaster, target books]
   S --> T[Translate<br/>schema + rule elements]
-  T --> L[Resolve i18n labels<br/>lang/en.json]
+  T --> L[Resolve i18n labels<br/>lang/*en.json]
   L --> R[HTML + enrichers<br/>to RichText]
   R --> V[Validate<br/>zod, refs resolve]
   V --> O[content/packs JSON<br/>+ content/import backlog]
@@ -504,6 +504,17 @@ flowchart LR
   links, and fields with no place in a schema go to the pack's backlog, `content/import/<pack>.json`, with the
   entry and Foundry's raw JSON; the entry is imported without them. The backlog is committed with the pack and is
   the work list for engine and translator stories.
+- **Labels.** Foundry writes much of its text as lang keys (`PF2E.SpecificRule.Prompt.Skill`). They resolve against
+  Foundry's English lang tables, every `en` file `system.pf2e.json` lists (`en.json`, `action-en.json`,
+  `re-en.json`, `kingmaker-en.json`), merged in that order as Foundry loads them, a later string winning and dotted
+  keys nested. Any string in a rule element that is wholly a key is resolved before the element is translated:
+  ChoiceSet prompts and choice labels, RollOption suboption labels, and Foundry's base `label`, which becomes
+  `display.label`. `@Localize[key]` in a description is replaced by the key's text before the HTML is read, as
+  Foundry inlines it, enrichers and all. Foundry fills `{item}` with the document's name, and so does the import;
+  `{actor}`, `{origin}` and a key built from an injected property (`{actor|class.slug}`) are only known at play. A
+  key with no English text, or only play can fill, is reported by reason and key and its text left out (a
+  `@Localize` keeps its label), never written as the key; an element that needs that text, such as a choice
+  without its label, goes to the backlog as it was. The backlog keeps Foundry's raw JSON, keys included.
 - **Descriptions.** Foundry's HTML becomes rich text (`htmlToRichText`): paragraphs, headings (`h4` and deeper
   clamped to level 3), lists, tables (a `thead` row, or a first row of only `th`, is the header), rules, line
   breaks, and `strong`/`b` and `em`/`i` marks. Whitespace collapses as a browser would. Any other element
@@ -532,11 +543,11 @@ flowchart LR
   - An inline roll of a whole number of rounds, minutes, hours or days is a `Duration`. Any other roll reads as its
     label, else its formula, since rich text has no roll node; one whose formula reads the actor or item is reported.
   - What has no place in a node (`traits`, unnamespaced `options`, an untranslatable reference or damage type, a
-    shape Pioneer lacks, `@Embed`, `@Localize`) is reported by enricher and parameter (`@Check[traits]`,
-    `@UUID[spell-effects]`). An enricher that does not translate keeps its label as text, else what Foundry would
-    show: the target's name, the statistic's words, the area (`10-foot square`) or the formula. Only `@Embed` and
-    `@Localize` without a label are dropped. Parameters that only change how Foundry shows a roll (`showDC`, `name`,
-    `immutable`, `targetOwner`, `shortLabel`) are ignored.
+    shape Pioneer lacks, `@Embed`) is reported by enricher and parameter (`@Check[traits]`, `@UUID[spell-effects]`).
+    An enricher that does not translate keeps its label as text, else what Foundry would show: the target's name,
+    the statistic's words, the area (`10-foot square`) or the formula. Only `@Embed` without a label is dropped.
+    `@Localize` is inlined before this pass (Labels, above). Parameters that only change how Foundry shows a roll
+    (`showDC`, `name`, `immutable`, `targetOwner`, `shortLabel`) are ignored.
 - **Kind data.** Every Foundry type is filed under a kind (`FOUNDRY_TYPE_KINDS`), a feat of category `classfeature`
   under `class-feature`, a spell with `ritual` data under `ritual` and equipment with an `etched-onto-…` usage under
   `rune` (`documentKind`); kind data is built for the kinds with a translator (`TRANSLATORS`): the rules core kinds
@@ -651,7 +662,7 @@ flowchart LR
   which build their tables with spreads and remeda. The CLI runs them with Bun from the verified archive, standing in
   for remeda and Foundry's build-time `SYSTEM_ID`. Only what the selected documents use is imported: their traits,
   ancestry languages, ancestry and heritage vision and `Sense` elements, and every Foundry damage type that is a
-  Pioneer `DamageType`. Names come from `lang/en.json`; each cites the book of the first document using it (damage
+  Pioneer `DamageType`. Names come from `lang/*en.json`; each cites the book of the first document using it (damage
   types, the first target book). Vocabulary entries go into `core-rules`, beside the hand-authored rules core entries,
   slugged by kind like every entry (`trait:goblin`, `language:goblin`). One another official pack already has of the
   kind and name (the hand-authored languages and senses, or an earlier run's) is left to that entry. Secret

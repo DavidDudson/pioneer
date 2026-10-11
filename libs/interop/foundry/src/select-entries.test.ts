@@ -17,6 +17,7 @@ const manifest = {
     { name: 'equipment-srd', path: 'packs/equipment', type: 'Item' },
     { name: 'pathfinder-bestiary', path: 'packs/pathfinder-bestiary', type: 'Actor' },
   ],
+  languages: [{ lang: 'en', name: 'Main (English)', path: 'lang/en.json' }],
 };
 
 function item(name: string, type: string, publication?: object): object {

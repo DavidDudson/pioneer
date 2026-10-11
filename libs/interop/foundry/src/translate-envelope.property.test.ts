@@ -48,7 +48,7 @@ describe('translateEnvelopes ids', () => {
         const pack = PackId.parse(each.pack);
         const slug = entrySlug(ContentKind.Feat, Slug.parse(each.slug));
         const expected = ContentId.parse(contentId(pack, slug));
-        const { entries } = translateEnvelopes([selected(each)], { pack, traits: new Set() });
+        const { entries } = translateEnvelopes([selected(each)], { pack, traits: new Set(), lang: {} });
 
         expect(entries[0]?.envelope.id).toBe(expected);
       }),

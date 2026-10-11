@@ -24,7 +24,11 @@ import type { EnvelopeContext, EnvelopeTranslation } from './translate-envelope'
 const playerCore = BookId.parse('player-core');
 const pack = PackId.parse('player-core');
 const feats: FoundryPack = { name: 'feats-srd', directory: 'feats' };
-const context: EnvelopeContext = { pack, traits: new Set(['general', 'skill'].map((trait) => Trait.parse(trait))) };
+const context: EnvelopeContext = {
+  pack,
+  traits: new Set(['general', 'skill'].map((trait) => Trait.parse(trait))),
+  lang: {},
+};
 
 const remaster = { title: 'Pathfinder Player Core', license: 'ORC', remaster: true };
 
@@ -257,11 +261,15 @@ describe('translateEnvelopes: rule elements', () => {
 });
 
 describe('translationReport', () => {
-  test('counts envelopes, failures, rule element keys, traits and markup, most frequent first', () => {
+  test('counts envelopes, failures, rule element keys, traits, markup and lang keys, most frequent first', () => {
     const foundryShaped = { key: 'FlatModifier', selector: 'hp', value: 1 };
     const translation = translateEnvelopes(
       [
-        selected({ traits: { value: ['fortune', 'mental'] }, rules: [foundryShaped, { key: 'Note' }] }, 'One', 'a'),
+        selected(
+          { traits: { value: ['fortune', 'mental'] }, rules: [foundryShaped, { key: 'Note', text: 'PF2E.Nope' }] },
+          'One',
+          'a',
+        ),
         selected(
           { traits: { value: ['fortune'] }, rules: [foundryShaped], description: { value: '<div>Hi</div>' } },
           'Two',
@@ -285,6 +293,7 @@ describe('translationReport', () => {
       ],
       unknownMarkup: [{ key: 'div', count: 1 }],
       untranslatedEnrichers: [],
+      unresolvedText: [{ key: 'missing-key PF2E.Nope', count: 1 }],
     });
   });
 });

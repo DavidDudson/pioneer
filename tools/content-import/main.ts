@@ -154,7 +154,7 @@ function formatCounts(counts: readonly KeyCount[]): string[] {
 }
 
 function formatTranslation(translation: EnvelopeTranslation): string {
-  const { entries, failures, untranslatedRules, unknownTraits, unknownMarkup, untranslatedEnrichers } =
+  const { entries, failures, untranslatedRules, unknownTraits, unknownMarkup, untranslatedEnrichers, unresolvedText } =
     translationReport(translation);
   return [
     `Translated ${entries} envelopes; ${sumOf(failures)} failed:`,
@@ -170,6 +170,8 @@ function formatTranslation(translation: EnvelopeTranslation): string {
     ...formatCounts(unknownMarkup),
     'Description enrichers kept as text or dropped, by entries using them:',
     ...formatCounts(untranslatedEnrichers),
+    `Lang keys left out of the text ${sumOf(unresolvedText)}, by reason and key:`,
+    ...formatCounts(unresolvedText),
   ].join('\n');
 }
 

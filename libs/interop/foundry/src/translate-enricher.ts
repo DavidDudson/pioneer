@@ -123,7 +123,8 @@ function namedRun({ name, params, label }: NamedEnricher, context: EnricherConte
       return templateRun(params, label, context);
     }
     default: {
-      // `@Embed` pulls in another document's text and `@Localize` a lang entry: neither is text of this one.
+      // `@Embed` pulls in another document's text. A `@Localize` that reaches this pass was nested deeper than
+      // `expandLocalize` expands.
       context.report(`@${name}`);
       return textRun(label, context);
     }
