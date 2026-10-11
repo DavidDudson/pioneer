@@ -4,7 +4,7 @@
     <fr-empty-state [title]="list().empty" />
   } @else {
     <fr-list gap="xs">
-      @for (defence of list().defences; track defence.key) {
+      @for (defence of list().defences; track $index) {
         <fr-list-item>
           <fr-stack gap="3xs">
             <fr-stack direction="horizontal" gap="xs" align="center" wrap>

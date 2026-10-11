@@ -258,6 +258,16 @@ describe(DefencesView, () => {
       ]);
     });
 
+    it('shows two copies of one item as two lines', async () => {
+      const ring = adjustment(FIRE_RING, 'fire', { value: 10 });
+      const { resistances } = await render({ ...NO_DEFENCES, resistances: [ring, ring] });
+
+      expect(resistances.items).toStrictEqual([
+        'Resistance 10 fire | From Fire Resistance Ring.',
+        'Resistance 10 fire | From Fire Resistance Ring.',
+      ]);
+    });
+
     it('names an origin without a display name by its entry id', async () => {
       const { weaknesses } = await render(
         { ...NO_DEFENCES, weaknesses: [adjustment(GOLEM_FORM, 'cold', { value: 5 })] },

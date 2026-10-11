@@ -6,9 +6,11 @@ export interface Standing {
   readonly details: readonly string[];
 }
 
-/** A defence as shown: what it is, and how it stands. */
+/**
+ * A defence as shown: what it is, and how it stands. Rows are tracked by position, since two copies of one item give
+ * lines with the same rule id and type.
+ */
 export interface ShownDefence extends Standing {
-  readonly key: string;
   readonly text: string;
 }
 

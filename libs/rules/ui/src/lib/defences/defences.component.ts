@@ -118,7 +118,6 @@ export class DefencesView {
       ? this.#i18n.translate(DAMAGE_TYPE_MESSAGES[damageType.data])
       : (context.names.immunities.get(line.type) ?? line.type);
     return {
-      key: `${line.id}-${line.type}`,
       text: this.#i18n.translate(DefencesMessage.Immunity, { target }),
       ...this.#standing(line, context),
     };
@@ -127,7 +126,6 @@ export class DefencesView {
   #adjustment(key: string, line: AdjustmentLine, context: ListContext): ShownDefence {
     const exceptions = line.exceptions.map((exception) => context.names.exceptions.get(exception) ?? exception);
     return {
-      key: `${line.id}-${line.type}`,
       text: this.#i18n.translate(key, {
         hasValue: line.value === undefined ? 'no' : 'yes',
         value: line.value === undefined ? '' : this.#format.number(line.value),
