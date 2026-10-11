@@ -347,6 +347,12 @@
       "rules": { "pioneer/no-magic-numbers": "off" }
     },
     {
+      // A library's public API is one export per module it exposes; its length is the size of the API, not
+      // complexity, and capping it pushed exports behind KIND_DATA and packed export lines.
+      "files": ["**/index.ts"],
+      "rules": { "eslint/max-lines": "off" }
+    },
+    {
       // Process entry points: Bun supports top-level await; logging is the point.
       "files": [
         "apps/api/src/main.ts",

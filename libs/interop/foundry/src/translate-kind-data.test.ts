@@ -43,9 +43,9 @@ describe('translateKindData: one fixture per kind, translated and parsed', () =>
   });
 
   test('a document of a type without a kind translator yet has no kind data and no gaps', () => {
-    const translation = translate([SHIELD_RAISED]);
+    const translation = translate([{ id: 'r0pE000000000001', name: 'Rope', type: 'equipment' }]);
 
-    expect(entryOf(translation, 'effect-raise-a-shield')?.kindData).toBeUndefined();
+    expect(entryOf(translation, 'rope')?.kindData).toBeUndefined();
     expect(translation.kindDataGaps).toEqual([]);
   });
 });

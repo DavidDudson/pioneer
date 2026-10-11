@@ -538,8 +538,9 @@ flowchart LR
     `@Localize` without a label are dropped. Parameters that only change how Foundry shows a roll (`showDC`, `name`,
     `immutable`, `targetOwner`, `shortLabel`) are ignored.
 - **Kind data.** Every Foundry type is filed under a kind (`FOUNDRY_TYPE_KINDS`), a feat of category `classfeature`
-  under `class-feature` (`documentKind`); kind data is built for the kinds with a translator (`TRANSLATORS`): the
-  rules core kinds `action` and `condition`, and the build kinds below. The other kinds' stories add theirs. An
+  under `class-feature` and a spell with `ritual` data under `ritual` (`documentKind`); kind data is built for the
+  kinds with a translator (`TRANSLATORS`): the rules core kinds `action` and `condition`, and the build, magic and
+  effect kinds below. The other kinds' stories add theirs. An
   action's cost comes from `actionType` and `actions`, its frequency period from Foundry's words or ISO 8601
   durations (`PT1H` is `hour`), and its `trigger` and `requirements` from the description's labelled paragraphs when
   they are plain words. A condition's `implies` is its unpredicated `GrantItem`s of conditions, so it lists exactly
@@ -575,6 +576,32 @@ flowchart LR
     keyed by rank, to one `spell` entry each.
   - A kit's items by UUID with their quantities, a container's one level deep (deeper is reported), and its price
     with the coins it charges.
+- **Magic and effect kind data.** Foundry writes a spell's casting time, range, targets and duration as English;
+  each maps when its whole wording does, and otherwise is reported and left out (ADR-0021). A casting time that does
+  not map leaves the spell without data.
+  - Casting times are glyph counts (`2`), `reaction`, `free`, a choice (`1 to 3`, `1 or 2`) or a count of rounds
+    to years. Ranges are feet, `touch`, `planetary` or `unlimited`; miles and `varies` are reported. Targets are
+    counts (`up to`, `one`) of creatures, objects, allies, corpses, weapons, items and spell effects, with the
+    qualifiers `willing`, `living`, `unattended` and `magic`, alternatives joined by `or` (a later one without a
+    count takes the first's), `undead` as a creature with the trait, and `you and …` as `includesYou`. Durations
+    are a count of a unit (sustained up to it when Foundry's `sustained` is set), `sustained` alone, `unlimited`, or
+    one of the `until` wordings. An area is Foundry's `type` and `value`; `square` and `details` are reported.
+  - A spell's `save` becomes a `save:` selector, and its `passive` defence `against` (`ac`, or `<save>-dc` as the
+    save's selector). Traditions are `traits.traditions`. Damage parts keep Foundry's record key, lower-cased to a
+    slug; a part whose type Pioneer lacks (`untyped`) is reported and left out, with what heightening adds to it, and
+    `applyMod` and `materials` are reported. Interval heightening carries over (an area step of 0 is none); fixed
+    heightening maps each rank's range, area, target, duration and damage (laid over the spell's part of the same
+    key), and reports anything else it changes (`time`, `traits`). `cost` and `requirements` are rich text when
+    they are plain words. `overlays` are reported.
+  - A ritual's casting fields map as a spell's. Its primary check is the skills Foundry lists (a Lore by topic,
+    `Legal Lore` is `skill:lore:legal`) at the one rank they name; its secondary checks are separated by commas,
+    each a choice of skills joined by `or`. Ranks that differ, a DC, or a note in the parentheses
+    (`whichever isn't used`) are reported and leave the ritual without data.
+  - An effect's `category` is its pack's (`spell-effects` is `spell`, likewise `feat`, `equipment` and `other`);
+    one from any other pack is reported. Its duration is a count of rounds to days with Foundry's `expiry` and
+    `sustained`, `encounter` or `unlimited`; a count of none (until the end of the turn) is reported. A counter
+    badge carries over, and a formula badge's `value` is its `formula`. `start`, `tokenIcon`, `unidentified`
+    and `context` are play state and are not carried.
 - **Archetypes.** Foundry keeps them as pages of the `Archetypes` journal, not items. A page whose dedication (a
   linked feat with the `dedication` trait and the page's name, so another archetype's dedication cited as a
   prerequisite is not taken) is imported becomes an `archetype` entry in the target pack: the page name, the page's
@@ -598,9 +625,9 @@ flowchart LR
   slugged by kind like every entry (`trait:goblin`, `language:goblin`). One another official pack already has of the
   kind and name (the hand-authored languages and senses, or an earlier run's) is left to that entry. Secret
   languages (Wildsong) have no Pioneer rarity and `untyped` damage no `DamageType`; both are reported. Each Lore a
-  background trains, which Foundry keeps nowhere, gets its `statistic` entry the same way (`statistic:scribing-lore`,
-  named as the background names it; rules-engine.md, "Statistics are content"). Pack output
-  (#400) writes the new entries beside, never into, the hand-authored `core-rules` files ([ADR-0033](../adr/0033-foundry-vocabularies-imported-into-core-rules.md)).
+  background trains or a ritual checks, which Foundry keeps nowhere, gets its `statistic` entry the same way
+  (`statistic:scribing-lore`, named as the first document naming it does; rules-engine.md, "Statistics are
+  content"). Pack output (#400) writes the new entries beside, never into, the hand-authored `core-rules` files ([ADR-0033](../adr/0033-foundry-vocabularies-imported-into-core-rules.md)).
 - **Later translators.** A translator that lands after its pack is imported is applied to the backlog: a command,
   built by Epic 2.6 (#21), translates the items it now covers into the committed entries and removes them from the
   backlog, keeping hand edits.
