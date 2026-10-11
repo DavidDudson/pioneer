@@ -12,6 +12,8 @@ const ID_MAX = 64;
 const NAME_MAX = 500;
 const TYPE_MAX = 64;
 const TITLE_MAX = 500;
+const TRAITS_MAX = 100;
+const RULES_MAX = 500;
 
 /** Foundry's `system.publication`: which book an entry comes from, its licence, and whether it is remaster. */
 export const FoundryPublication = z.looseObject({
@@ -22,12 +24,30 @@ export const FoundryPublication = z.looseObject({
 });
 export type FoundryPublication = z.infer<typeof FoundryPublication>;
 
+/** Foundry's `system.traits`: trait slugs as Foundry spells them, and a rarity (absent on a few item types). */
+export const FoundryTraits = z.looseObject({
+  value: z.array(z.string().max(TYPE_MAX)).max(TRAITS_MAX).default([]),
+  rarity: z.string().max(TYPE_MAX).optional(),
+});
+export type FoundryTraits = z.infer<typeof FoundryTraits>;
+
+/** Foundry's `system.level`; for a spell, its rank. */
+const FoundryLevel = z.looseObject({ value: z.number() });
+
+const FoundryRules = z.array(z.unknown()).max(RULES_MAX);
+
 export const FoundryDocument = z.looseObject({
   _id: z.string().min(1).max(ID_MAX),
   name: z.string().max(NAME_MAX),
   type: z.string().min(1).max(TYPE_MAX),
   system: z.looseObject({
     publication: FoundryPublication.optional(),
+    /** Set on a handful of documents; Foundry derives the rest from the name (`foundrySlug`). */
+    slug: z.string().max(NAME_MAX).nullish(),
+    level: FoundryLevel.optional(),
+    traits: FoundryTraits.optional(),
+    /** Raw rule elements, each checked against Pioneer's `RuleElement` when the entry is translated. */
+    rules: FoundryRules.default([]),
   }),
 });
 export type FoundryDocument = z.infer<typeof FoundryDocument>;
