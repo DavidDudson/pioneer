@@ -130,6 +130,11 @@
       "cantrips": "Cantrips, cast at {rank, selectordinal, one {#st} two {#nd} few {#rd} other {#th}} rank",
       "cantripSlot": "Cantrip {number}",
       "rankSlot": "{rank, selectordinal, one {#st} two {#nd} few {#rd} other {#th}} rank slot {number}",
+      "poolCantrips": "{pool} cantrips, cast at {rank, selectordinal, one {#st} two {#nd} few {#rd} other {#th}} rank",
+      "poolRank": "{pool}, {rank, selectordinal, one {#st} two {#nd} few {#rd} other {#th}} rank",
+      "poolCantripSlot": "{pool} cantrip {number}",
+      "poolRankSlot": "{pool} {rank, selectordinal, one {#st} two {#nd} few {#rd} other {#th}} rank slot {number}",
+      "poolEmpty": "These slots take no spell yet. Make the {pool} choice under Choices first.",
       "placeholder": "Search spells by name",
       "unknownSpell": "Unknown spell"
     },

@@ -33,11 +33,13 @@ interface PreparedField {
   readonly field: InlineEdit<string | undefined>;
 }
 
-/** The pickers of one rank on an entry. */
+/** The pickers of one rank on an entry, or of one rank of one of its pools. */
 interface PreparedRankFields {
   readonly key: string;
   /** Reads anew as the level changes: cantrips are cast at half the level. */
   readonly heading: Signal<MessageDescriptor>;
+  /** Reads anew as the character's choices change: a font's slots wait on the font. */
+  readonly note: Signal<MessageDescriptor | undefined>;
   readonly fields: readonly PreparedField[];
 }
 
@@ -116,16 +118,19 @@ export function preparedFieldsOf(sources: SpellPickSources): Signal<readonly Pre
       (entries() ?? []).map((entry) => ({
         key: entry.key,
         tradition: entry.tradition,
-        ranks: entry.ranks.map((rank) => ({
-          key: rank.key,
-          heading: computed(
-            () =>
-              entries()
-                ?.find((each) => each.key === entry.key)
-                ?.ranks.find((each) => each.key === rank.key)?.heading ?? rank.heading,
-          ),
-          fields: rank.slots.map((slot) => preparedField(sources, entries, slot)),
-        })),
+        ranks: entry.ranks.map((rank) => {
+          const current = computed(() =>
+            entries()
+              ?.find((each) => each.key === entry.key)
+              ?.ranks.find((each) => each.key === rank.key),
+          );
+          return {
+            key: rank.key,
+            heading: computed(() => current()?.heading ?? rank.heading),
+            note: computed(() => current()?.note),
+            fields: rank.slots.map((slot) => preparedField(sources, entries, slot)),
+          };
+        }),
       })),
     );
   });

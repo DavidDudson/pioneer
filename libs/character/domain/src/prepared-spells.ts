@@ -33,10 +33,14 @@ export const PreparedPickProblem = {
 } as const;
 export type PreparedPickProblem = ValueOf<typeof PreparedPickProblem>;
 
-/** A pool of slots kept apart from an entry's own (ADR-0045): its slug, and the entry whose slots first added to it. */
+/**
+ * A pool of slots kept apart from an entry's own (ADR-0045): its slug, the entry whose slots first added to it, and the
+ * spells it takes, none while they wait on a choice (a divine font's font).
+ */
 export interface PreparedPool {
   readonly slug: RuleSlug;
   readonly origin: Origin;
+  readonly spells: readonly ContentId[];
 }
 
 /**
@@ -132,7 +136,7 @@ function placesOf(slots: SpellSlots, home: SlotHome): SlotPlace[] {
 
 /** The slots of one of an entry's pools, each taking the pool's spells. */
 function poolPlaces(entry: Slug, tradition: MagicTradition, slotPool: SlotPool): SlotPlace[] {
-  const pool = { slug: slotPool.pool, origin: slotPool.origin };
+  const pool = { slug: slotPool.pool, origin: slotPool.origin, spells: slotPool.spells };
   const home = { entry, tradition, pool, takes: new Set(slotPool.spells) };
   return placesOf(slotPool, home);
 }

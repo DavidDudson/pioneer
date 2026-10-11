@@ -6,6 +6,10 @@
     @for (rank of entry.ranks; track rank.key) {
       <fr-stack gap="2xs">
         <fr-heading [level]="4">{{ rank.heading().key | transloco: rank.heading().params }}</fr-heading>
+        @let note = rank.note();
+        @if (note !== undefined) {
+          <fr-text element="p" variant="caption" tone="subtle">{{ note.key | transloco: note.params }}</fr-text>
+        }
         <fr-grid [columns]="3">
           @for (slot of rank.fields; track slot.key) {
             @let reason = slot.reason();
