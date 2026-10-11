@@ -1,7 +1,7 @@
 import * as z from 'zod';
 
 import { ContentEntry } from './content-entry';
-import type { PackId, Slug } from './content-id';
+import type { EntrySlug, PackId } from './content-id';
 import { ContentKind } from './content-kind';
 import { ContentPack, ContentPackManifest } from './content-pack';
 import type { PackAncestry, PackCreature, PackStatistic } from './content-pack';
@@ -49,9 +49,9 @@ function addDefinition(definitions: PackDefinitions, entry: ContentEntry): void 
 
 /**
  * Throws unless `entry` belongs in `pack` under a slug no earlier entry took. The id is UUIDv5 of `<pack>/<slug>`
- * whatever the kind, so a `goblin` language beside a `goblin` ancestry would share its id.
+ * and a slug names its kind, so only two entries of one kind and name collide.
  */
-function checkPlacement(pack: PackId, entry: ContentEntry, taken: Set<Slug>): void {
+function checkPlacement(pack: PackId, entry: ContentEntry, taken: Set<EntrySlug>): void {
   if (entry.pack !== pack) {
     throw new Error(`Entry "${entry.pack}/${entry.slug}" is filed under pack "${pack}"`);
   }
@@ -80,7 +80,7 @@ export interface PackContentsLoader {
 export function packContentsFromFiles(packFile: unknown, entryFiles: readonly unknown[]): PackContents {
   const file = ContentPackFile.parse(packFile);
   const entries = entryFiles.flatMap((entryFile) => ContentEntryFile.parse(entryFile));
-  const taken = new Set<Slug>();
+  const taken = new Set<EntrySlug>();
   for (const entry of entries) {
     checkPlacement(file.id, entry, taken);
   }

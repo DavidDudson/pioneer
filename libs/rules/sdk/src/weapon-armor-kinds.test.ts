@@ -4,7 +4,7 @@ import { fieldIssues, message, ValidationMessage } from '@pioneer/shared/kernel'
 import type { FieldIssue } from '@pioneer/shared/kernel';
 
 import { ContentEntry } from './content-entry';
-import { contentId, PackId, Slug } from './content-id';
+import { contentId, EntrySlug, PackId } from './content-id';
 import { RulesMessage } from './messages';
 
 function issues(value: unknown): readonly FieldIssue[] {
@@ -20,7 +20,7 @@ function found(value: unknown): readonly string[] {
 }
 
 const PACK = 'player-core';
-const idOf = (slug: string): string => contentId(PackId.parse(PACK), Slug.parse(slug));
+const idOf = (slug: string): string => contentId(PackId.parse(PACK), EntrySlug.parse(slug));
 const prose = (text: string): unknown[] => [{ type: 'paragraph', content: [{ type: 'text', text }] }];
 
 /** The envelope of a Player Core item at `level`, without its kind and data. */
@@ -42,7 +42,7 @@ function item(slug: string, name: string, level: number): object {
 /* Foundry pf2e's Player Core and GM Core items, in Pioneer's words. */
 
 const longsword = {
-  ...item('longsword', 'Longsword', 0),
+  ...item('weapon:longsword', 'Longsword', 0),
   kind: 'weapon',
   traits: ['versatile-p'],
   data: {
@@ -57,7 +57,7 @@ const longsword = {
 };
 
 const shortbow = {
-  ...item('shortbow', 'Shortbow', 0),
+  ...item('weapon:shortbow', 'Shortbow', 0),
   kind: 'weapon',
   traits: ['deadly-d10'],
   data: {
@@ -75,7 +75,7 @@ const shortbow = {
 };
 
 const blowgun = {
-  ...item('blowgun', 'Blowgun', 0),
+  ...item('weapon:blowgun', 'Blowgun', 0),
   kind: 'weapon',
   traits: ['agile', 'nonlethal'],
   data: {
@@ -93,7 +93,7 @@ const blowgun = {
 };
 
 const alchemistsFire = {
-  ...item('alchemists-fire-lesser', 'Alchemist’s Fire (Lesser)', 1),
+  ...item('weapon:alchemists-fire-lesser', 'Alchemist’s Fire (Lesser)', 1),
   kind: 'weapon',
   traits: ['alchemical', 'bomb', 'consumable', 'fire', 'splash'],
   data: {
@@ -109,7 +109,7 @@ const alchemistsFire = {
 };
 
 const spellguardBlade = {
-  ...item('spellguard-blade', 'Spellguard Blade', 7),
+  ...item('weapon:spellguard-blade', 'Spellguard Blade', 7),
   kind: 'weapon',
   traits: ['agile', 'disarm', 'finesse', 'magical', 'parry', 'versatile-s'],
   data: {
@@ -125,7 +125,7 @@ const spellguardBlade = {
 };
 
 const fullPlate = {
-  ...item('full-plate', 'Full Plate', 2),
+  ...item('armor:full-plate', 'Full Plate', 2),
   kind: 'armor',
   traits: ['bulwark'],
   data: {
@@ -143,7 +143,7 @@ const fullPlate = {
 };
 
 const leatherArmor = {
-  ...item('leather-armor', 'Leather Armor', 0),
+  ...item('armor:leather-armor', 'Leather Armor', 0),
   kind: 'armor',
   data: {
     price: { coins: { gp: 2 } },
@@ -158,7 +158,7 @@ const leatherArmor = {
 };
 
 const sturdyShield = {
-  ...item('sturdy-shield-minor', 'Sturdy Shield (Minor)', 4),
+  ...item('shield:sturdy-shield-minor', 'Sturdy Shield (Minor)', 4),
   kind: 'shield',
   traits: ['magical'],
   data: {
@@ -182,7 +182,7 @@ describe('weapon, armor and shield kinds', () => {
     ],
     [
       'a specific weapon with a property rune and no potency rune',
-      { ...spellguardBlade, data: { ...spellguardBlade.data, runes: { property: [idOf('returning')] } } },
+      { ...spellguardBlade, data: { ...spellguardBlade.data, runes: { property: [idOf('rune:returning')] } } },
     ],
     ['an alchemical bomb with persistent and splash damage', alchemistsFire],
     ['a specific magic weapon with its runes', spellguardBlade],
@@ -197,7 +197,7 @@ describe('weapon, armor and shield kinds', () => {
       'a shield with runes on its integrated weapon',
       {
         ...sturdyShield,
-        data: { ...sturdyShield.data, integratedRunes: { potency: 1, striking: 1, property: [idOf('wounding')] } },
+        data: { ...sturdyShield.data, integratedRunes: { potency: 1, striking: 1, property: [idOf('rune:wounding')] } },
       },
     ],
   ])('accepts %s', (_name, value) => {
@@ -215,12 +215,12 @@ describe('weapon, armor and shield kinds', () => {
   });
 
   test("a specific item's property runes are each listed once, up to five", () => {
-    const flamingId = idOf('flaming');
+    const flamingId = idOf('rune:flaming');
     const repeated = {
       ...fullPlate,
       data: { ...fullPlate.data, runes: { potency: 2, property: [flamingId, flamingId] } },
     };
-    const six = ['a', 'b', 'c', 'd', 'e', 'f'].map((slug) => idOf(slug));
+    const six = ['a', 'b', 'c', 'd', 'e', 'f'].map((name) => idOf(`rune:${name}`));
 
     expect(found({ ...fullPlate, data: { ...fullPlate.data, runes: { property: six } } })).toStrictEqual([
       `data.runes.property ${ValidationMessage.TooBig}`,

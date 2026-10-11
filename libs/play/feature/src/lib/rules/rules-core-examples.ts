@@ -1,4 +1,4 @@
-import { ContentKind, contentId, PackId, SenseAcuity, Slug } from '@pioneer/rules/sdk';
+import { contentId, ContentKind, EntrySlug, PackId, SenseAcuity } from '@pioneer/rules/sdk';
 
 const PLAYER_CORE = PackId.parse('player-core');
 const GM_CORE = PackId.parse('gm-core');
@@ -8,7 +8,7 @@ const playerCorePage = { kind: 'book', book: 'player-core', page: 1 };
 const gmCorePage = { kind: 'book', book: 'gm-core', page: 1 };
 
 const paragraph = (text: string): unknown => ({ type: 'paragraph', content: [{ type: 'text', text }] });
-const playerCoreId = (slug: string): string => contentId(PLAYER_CORE, Slug.parse(slug));
+const playerCoreId = (slug: string): string => contentId(PLAYER_CORE, EntrySlug.parse(slug));
 
 /** The envelope fields every Player Core example shares. */
 function playerCore(slug: string, name: string, description: string): object {
@@ -24,12 +24,12 @@ function playerCore(slug: string, name: string, description: string): object {
   };
 }
 
-const offGuard = playerCoreId('off-guard');
-const immobilized = playerCoreId('immobilized');
+const offGuard = playerCoreId('condition:off-guard');
+const immobilized = playerCoreId('condition:immobilized');
 
 export const grabbed = {
   ...playerCore(
-    'grabbed',
+    'condition:grabbed',
     'Grabbed',
     "You're held in place by another creature, giving you the off-guard and immobilized conditions.",
   ),
@@ -42,7 +42,7 @@ export const grabbed = {
 };
 
 export const aid = {
-  ...playerCore('aid', 'Aid', 'You try to help your ally with a task.'),
+  ...playerCore('action:aid', 'Aid', 'You try to help your ally with a task.'),
   kind: ContentKind.Action,
   rules: [],
   data: {
@@ -53,7 +53,7 @@ export const aid = {
 };
 
 export const fire = {
-  ...playerCore('fire', 'Fire', 'Fire damage burns through heat and combustion.'),
+  ...playerCore('damage-type:fire', 'Fire', 'Fire damage burns through heat and combustion.'),
   kind: ContentKind.DamageType,
   traits: ['energy'],
   rules: [],
@@ -62,7 +62,7 @@ export const fire = {
 
 export const darkvision = {
   ...playerCore(
-    'darkvision',
+    'sense:darkvision',
     'Darkvision',
     'You can see in darkness and dim light just as well as you can see in bright light, though your vision in darkness is in black and white.',
   ),
@@ -72,7 +72,7 @@ export const darkvision = {
 };
 
 export const draconic = {
-  ...playerCore('draconic', 'Draconic', 'The language of dragons and dragonkin.'),
+  ...playerCore('language:draconic', 'Draconic', 'The language of dragons and dragonkin.'),
   kind: ContentKind.Language,
   rules: [],
   data: {},
@@ -80,7 +80,7 @@ export const draconic = {
 
 export const manipulate = {
   ...playerCore(
-    'manipulate',
+    'trait:manipulate',
     'Manipulate',
     'You must physically manipulate an item or make gestures to use an action with this trait.',
   ),
@@ -90,10 +90,10 @@ export const manipulate = {
 };
 
 export const freeArchetype = {
-  id: contentId(GM_CORE, Slug.parse('free-archetype')),
+  id: contentId(GM_CORE, EntrySlug.parse('variant-rule:free-archetype')),
   pack: GM_CORE,
   kind: ContentKind.VariantRule,
-  slug: 'free-archetype',
+  slug: 'variant-rule:free-archetype',
   name: 'Free Archetype',
   rarity: 'common',
   traits: [],

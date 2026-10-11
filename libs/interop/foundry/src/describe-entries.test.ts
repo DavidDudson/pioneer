@@ -1,12 +1,12 @@
 import { describe, expect, test } from 'bun:test';
 
-import { BookId, ContentId, contentId, PackId, Slug } from '@pioneer/rules/sdk';
+import { BookId, ContentId, contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 
 import { describeEntries } from './describe-entries';
+import { entrySlugOf } from './entry-slugs';
 import { FoundryDocument, FoundryItemType } from './foundry-document';
 import type { LinkedEntry } from './foundry-links';
 import type { FoundryPack, PackDocument } from './foundry-release';
-import { asciiSlug } from './foundry-slug';
 
 const pack = PackId.parse('player-core');
 const playerCore = BookId.parse('player-core');
@@ -33,8 +33,9 @@ function documentOf(foundryPack: FoundryPack, documentId: string, document: obje
 }
 
 function linked(document: PackDocument, type: FoundryItemType): LinkedEntry {
-  const slug = Slug.parse(asciiSlug(document.document));
-  return { source: { ...document, type, book: playerCore }, id: ContentId.parse(contentId(pack, slug)) };
+  const source = { ...document, type, book: playerCore };
+  const slug = EntrySlug.parse(entrySlugOf(source));
+  return { source, id: ContentId.parse(contentId(pack, slug)) };
 }
 
 const frightened = documentOf(conditions, 'TBSHQspnbcqxsmjL', {

@@ -11,7 +11,7 @@ import type {
   PackId,
   PackVisibility,
   Rarity,
-  Slug,
+  EntrySlug,
   Trait,
 } from '@pioneer/rules/sdk';
 import type { UserId, Uuid, Version } from '@pioneer/shared/kernel';
@@ -62,7 +62,7 @@ export const contentEntries = pgTable(
       .notNull()
       .references(() => contentPacks.id, { onDelete: 'cascade' }),
     kind: text().$type<ContentKind>().notNull(),
-    slug: text().$type<Slug>().notNull(),
+    slug: text().$type<EntrySlug>().notNull(),
     name: text().$type<ContentText>().notNull(),
     // A creature's level runs from -1; every other kind's from 0.
     level: smallint().$type<ContentLevel | Level>(),

@@ -3,23 +3,24 @@ import {
   contentId,
   ContentLevel,
   ContentText,
+  EntrySlug,
   ExternalId,
   Rarity,
   RaritySchema,
-  Slug,
   SourceKind,
   Trait,
 } from '@pioneer/rules/sdk';
-import type { BookId, PackId, RichText, RuleElement } from '@pioneer/rules/sdk';
+import type { PackId } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
 
 import { describeEntries } from './describe-entries';
 import type { UnknownMarkup, UntranslatedEnricher } from './describe-entries';
-import { entrySlugs } from './entry-slugs';
+import type { EntryReferences } from './entry-references';
+import { entrySlugOf } from './entry-slugs';
 import type { FoundryDocument } from './foundry-document';
 import { itemUuid } from './foundry-links';
 import type { FoundryPack, PackDocument } from './foundry-release';
-import { asciiSlug } from './foundry-slug';
+import type { ImportedEnvelope } from './imported-envelope';
 import type { SelectedEntry } from './select-entries';
 import { translateRules } from './translate-rules';
 import type { UntranslatedRule } from './translate-rules';
@@ -31,43 +32,16 @@ import type { UntranslatedRule } from './translate-rules';
  * resolve once every selected document has an id.
  */
 
-/** The Pioneer pack the entries go into, and the traits Pioneer knows (its `trait` entries). */
+/**
+ * The Pioneer pack the entries go into, the traits Pioneer knows (its `trait` entries), and how references to other
+ * documents resolve.
+ */
 export interface EnvelopeContext {
   readonly pack: PackId;
   readonly traits: ReadonlySet<Trait>;
   /** The release's item documents, naming link targets outside the import; without them such links read as labels. */
   readonly documents?: readonly PackDocument[];
-}
-
-export interface FoundryExternalIds {
-  readonly foundry: ExternalId;
-}
-
-/**
- * A book source as the import knows it: the book, with no page or AoN link. `SourceRef` requires one of the two
- * (ADR-0005), so this is its own type until enrichment (#22) adds them; how pack output treats it is #400's call.
- */
-export interface UnlocatedBookSource {
-  readonly kind: typeof SourceKind.Book;
-  readonly book: BookId;
-}
-
-/**
- * The envelope fields of `ContentEntry`, as the import fills them. Not parsed against `ContentEntry` here: kind
- * `data` is missing, and its source is an `UnlocatedBookSource`.
- */
-export interface ImportedEnvelope {
-  readonly id: ContentId;
-  readonly pack: PackId;
-  readonly slug: Slug;
-  readonly name: ContentText;
-  readonly level?: ContentLevel;
-  readonly rarity: Rarity;
-  readonly traits: readonly Trait[];
-  readonly sources: readonly UnlocatedBookSource[];
-  readonly description: RichText;
-  readonly rules: readonly RuleElement[];
-  readonly externalIds: FoundryExternalIds;
+  readonly references?: EntryReferences;
 }
 
 export interface TranslatedEntry {
@@ -89,7 +63,7 @@ export const EnvelopeFailureReason = {
   /** `system.level.value` is outside a content entry's levels. */
   InvalidLevel: 'invalid-level',
   InvalidRarity: 'invalid-rarity',
-  /** An earlier document of the same type has the same slug, so both would get the same id. */
+  /** An earlier document of the same kind has the same name, so both would get the same id. */
   DuplicateSlug: 'duplicate-slug',
 } as const;
 export type EnvelopeFailureReason = ValueOf<typeof EnvelopeFailureReason>;
@@ -155,7 +129,7 @@ function translateTraits(entry: ContentId, values: readonly string[], known: Rea
 }
 
 interface Scalars {
-  readonly slug: Slug;
+  readonly slug: EntrySlug;
   readonly name: ContentText;
   readonly level?: ContentLevel;
   readonly rarity: Rarity;
@@ -165,8 +139,8 @@ function failed(value: unknown): value is Failed {
   return typeof value === 'object' && value !== null && 'reason' in value;
 }
 
-function slugOf(text: string): Slug | Failed {
-  const slug = Slug.safeParse(text);
+function slugOf(text: string): EntrySlug | Failed {
+  const slug = EntrySlug.safeParse(text);
   return slug.success ? slug.data : { reason: EnvelopeFailureReason.InvalidSlug, detail: text };
 }
 
@@ -191,7 +165,7 @@ function rarityOf({ system }: FoundryDocument): Rarity | Failed {
 }
 
 interface Identity {
-  readonly slug: Slug;
+  readonly slug: EntrySlug;
   readonly name: ContentText;
 }
 
@@ -233,7 +207,7 @@ function translate({ source, slug }: Slugged, context: EnvelopeContext): Transla
   const { _id: documentId, system } = document;
   const id = ContentId.parse(contentId(context.pack, fields.slug));
   const traits = translateTraits(id, system.traits?.value ?? [], context.traits);
-  const rules = translateRules(id, system.rules);
+  const rules = translateRules(id, system.rules, context.references);
   return {
     envelope: {
       id,
@@ -254,7 +228,7 @@ interface Done extends Translated {
 }
 
 /** The document translated, or why not, with the document kept for the backlog; claims its slug in `taken`. */
-function outcome(slugged: Slugged, context: EnvelopeContext, taken: Set<Slug>): Done | EnvelopeFailure {
+function outcome(slugged: Slugged, context: EnvelopeContext, taken: Set<EntrySlug>): Done | EnvelopeFailure {
   const { source } = slugged;
   const { pack, path, document } = source;
   const result = translate(slugged, context);
@@ -271,15 +245,12 @@ function outcome(slugged: Slugged, context: EnvelopeContext, taken: Set<Slug>): 
 
 /**
  * Each selected document's envelope, in selection order, with what could not be translated. Slugs come from
- * `entrySlugs`; a document whose slug is still taken (two of one type) fails, since ids are UUIDv5 of
+ * `entrySlugs`; a document whose slug is taken (two of one kind and name) fails, since ids are UUIDv5 of
  * `<pack>/<slug>` and must stay unique.
  */
 export function translateEnvelopes(selected: readonly SelectedEntry[], context: EnvelopeContext): EnvelopeTranslation {
-  const slugs = entrySlugs(selected);
-  const taken = new Set<Slug>();
-  const outcomes = selected.map((source) =>
-    outcome({ source, slug: slugs.get(source) ?? asciiSlug(source.document) }, context, taken),
-  );
+  const taken = new Set<EntrySlug>();
+  const outcomes = selected.map((source) => outcome({ source, slug: entrySlugOf(source) }, context, taken));
   const done = outcomes.filter((each): each is Done => !failed(each));
   const { descriptions, unknownMarkup, untranslatedEnrichers } = describeEntries(
     done.map(({ source, envelope }) => ({ source, id: envelope.id })),

@@ -6,9 +6,9 @@ import {
   BundleFile,
   contentId,
   ContentManifest,
-  PackId,
+  EntrySlug,
   packContentsFromFiles,
-  Slug,
+  PackId,
 } from '@pioneer/rules/sdk';
 import type { KindBundles, PackBundles, PackContents, PackContentsLoader } from '@pioneer/rules/sdk';
 import { fixedClock } from '@pioneer/shared/kernel';
@@ -39,10 +39,10 @@ function ignore(): void {
 
 function ancestryEntry(slug: string, name: string): object {
   return {
-    id: contentId(PACK, Slug.parse(slug)),
+    id: contentId(PACK, EntrySlug.parse(`ancestry:${slug}`)),
     pack: PACK,
     kind: 'ancestry',
-    slug,
+    slug: `ancestry:${slug}`,
     name,
     rarity: 'common',
     traits: [slug, 'humanoid'],
@@ -139,7 +139,7 @@ describe.skipIf(adminUrl === undefined)('content routes (postgres)', () => {
     const mechanicsResponse = await api.handle(get(`/content/bundles/${PACK}/${mechanics}`));
     const namesResponse = await api.handle(get(`/content/bundles/${PACK}/${names}`));
 
-    const dwarf = AncestryId.parse(contentId(PACK, Slug.parse('dwarf')));
+    const dwarf = AncestryId.parse(contentId(PACK, EntrySlug.parse('ancestry:dwarf')));
     const entries = (await mechanicsResponse.json()) as readonly object[];
     expect(entries).toHaveLength(1);
     expect(entries[0]).not.toHaveProperty('name');

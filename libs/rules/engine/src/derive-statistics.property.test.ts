@@ -28,7 +28,7 @@ const selectorOf = (index: number): string => `stat-${index}`;
 function definition(index: number, terms: readonly string[]): StatisticDefinition {
   const selector = selectorOf(index);
   return StatisticDefinition.parse({
-    slug: selector,
+    slug: `statistic:${selector}`,
     name: selector,
     selector,
     domains: [],

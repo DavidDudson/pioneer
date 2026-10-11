@@ -1,4 +1,13 @@
-import { contentId, PackId, Slug, StatisticDefinition, StatisticKind } from '@pioneer/rules/sdk';
+import {
+  contentId,
+  ContentKind,
+  EntrySlug,
+  entrySlug,
+  PackId,
+  Slug,
+  StatisticDefinition,
+  StatisticKind,
+} from '@pioneer/rules/sdk';
 
 import { RuleInPlay } from '../rule-in-play';
 
@@ -13,7 +22,7 @@ const OVERRIDE_HOP = {
 /** A check statistic with no domains unless given. */
 export function statistic(selector: string, base: string, domains: readonly string[] = []): StatisticDefinition {
   return StatisticDefinition.parse({
-    slug: selector.replaceAll(':', '-'),
+    slug: `statistic:${selector.replaceAll(':', '-')}`,
     name: selector,
     selector,
     domains,
@@ -30,13 +39,14 @@ interface Placement {
   readonly override?: boolean;
 }
 
-/** A rule element on the test pack's entry `entry`. */
+/** A rule element on the test pack's entry named `entry`; ids are opaque to the engine, so every one is an effect. */
 export function inPlay(element: unknown, entry: string, { rule = 0, itemLevel, override }: Placement = {}): RuleInPlay {
+  const slug = entrySlug(ContentKind.Effect, Slug.parse(entry));
   return RuleInPlay.parse({
     element,
     origin: {
       hops: override === true ? [OVERRIDE_HOP] : [],
-      entry: contentId(TEST_PACK, Slug.parse(entry)),
+      entry: contentId(TEST_PACK, slug),
       sources: [{ kind: 'book', book: 'player-core', page: 1 }],
     },
     rule,
@@ -63,7 +73,7 @@ export function wielded<Weapon extends { readonly slug: string }>(weapon: Weapon
     ...weapon,
     origin: {
       hops: [],
-      entry: contentId(TEST_PACK, Slug.parse(weapon.slug)),
+      entry: contentId(TEST_PACK, EntrySlug.parse(`weapon:${weapon.slug}`)),
       sources: [{ kind: 'book', book: 'player-core', page: 1 }],
     },
   };

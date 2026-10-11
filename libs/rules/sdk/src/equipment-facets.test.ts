@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 
 import { ContentEntry } from './content-entry';
-import { contentId, PackId, Slug } from './content-id';
+import { contentId, EntrySlug, PackId, slugName } from './content-id';
 import { EQUIPMENT_FACETS } from './equipment-facets';
 import { facetValues, UNKNOWN } from './facet';
 import type { FacetDefinition } from './facet';
@@ -12,7 +12,7 @@ import { facetsFor } from './kind-facets';
 
 const PACK = 'player-core';
 const prose = [{ type: 'paragraph', content: [{ type: 'text', text: 'An item.' }] }];
-const idOf = (slug: string): string => contentId(PackId.parse(PACK), Slug.parse(slug));
+const idOf = (slug: string): string => contentId(PackId.parse(PACK), EntrySlug.parse(slug));
 
 interface ItemFields {
   readonly kind: string;
@@ -39,7 +39,7 @@ function item({ traits = [], ...fields }: ItemFields): ContentEntry {
 
 const longsword = item({
   kind: 'weapon',
-  slug: 'longsword',
+  slug: 'weapon:longsword',
   traits: ['versatile-p'],
   data: {
     price: { coins: { gp: 1 } },
@@ -52,7 +52,7 @@ const longsword = item({
 });
 const alchemistsFire = item({
   kind: 'weapon',
-  slug: 'alchemists-fire',
+  slug: 'weapon:alchemists-fire',
   traits: ['alchemical', 'bomb', 'consumable', 'fire', 'splash'],
   data: {
     price: { coins: { gp: 3 } },
@@ -70,33 +70,33 @@ const alchemistsFire = item({
 });
 const leatherArmor = item({
   kind: 'armor',
-  slug: 'leather-armor',
+  slug: 'armor:leather-armor',
   data: { price: { coins: { gp: 2 } }, bulk: 1, category: 'light', group: 'leather', acBonus: 1 },
 });
 const steelShield = item({
   kind: 'shield',
-  slug: 'steel-shield',
+  slug: 'shield:steel-shield',
   data: { price: { coins: { gp: 2 } }, bulk: 1, acBonus: 2, hardness: 5, hitPoints: 20 },
 });
 const backpack = item({
   kind: 'equipment',
-  slug: 'backpack',
+  slug: 'equipment:backpack',
   data: { price: { coins: { sp: 1 } }, bulk: 'negligible', usage: { type: 'worn', slot: 'backpack' } },
 });
 const healingPotion = item({
   kind: 'consumable',
-  slug: 'minor-healing-potion',
+  slug: 'consumable:minor-healing-potion',
   traits: ['consumable', 'healing', 'magical', 'potion'],
   data: { price: { coins: { gp: 4 } }, bulk: 'light', category: 'potion', usage: { type: 'held', hands: 'one' } },
 });
 const arrows = item({
   kind: 'consumable',
-  slug: 'arrows',
+  slug: 'consumable:arrows',
   data: { price: { coins: { sp: 1 }, per: 10 }, bulk: 'light', bulkPer: 10, category: 'ammunition' },
 });
 const striking = item({
   kind: 'rune',
-  slug: 'striking',
+  slug: 'rune:striking',
   traits: ['magical'],
   data: {
     price: { coins: { gp: 65 } },
@@ -109,17 +109,17 @@ const striking = item({
 });
 const diamond = item({
   kind: 'treasure',
-  slug: 'diamond',
+  slug: 'treasure:diamond',
   data: { price: { coins: { pp: 1, gp: 5 } }, bulk: 'negligible', category: 'gem' },
 });
 const adventurersPack = item({
   kind: 'kit',
-  slug: 'adventurers-pack',
-  data: { price: { coins: { sp: 15 } }, items: [{ item: idOf('backpack'), quantity: 1 }] },
+  slug: 'kit:adventurers-pack',
+  data: { price: { coins: { sp: 15 } }, items: [{ item: idOf('equipment:backpack'), quantity: 1 }] },
 });
 const fireball = ContentEntry.parse({
-  id: idOf('fireball'),
-  slug: 'fireball',
+  id: idOf('spell:fireball'),
+  slug: 'spell:fireball',
   pack: PACK,
   kind: 'spell',
   name: 'Fireball',
@@ -164,7 +164,7 @@ function valueOf(subject: ContentEntry, id: string): readonly string[] {
 /** The ids of the facets a list of one kind gets. */
 const facetIds = (kind: RegisteredKind): readonly string[] => facetsFor([kind]).map((facet) => facet.id);
 
-const slugs = (entries: readonly ContentEntry[]): readonly string[] => entries.map((each) => each.slug);
+const slugs = (entries: readonly ContentEntry[]): readonly string[] => entries.map((each) => slugName(each.slug));
 
 function filter(entries: readonly ContentEntry[], query: Record<string, string>): readonly string[] {
   const facets = facetsFor([...new Set(entries.map((each) => each.kind))]);
@@ -197,7 +197,7 @@ describe('equipment facet values', () => {
   test('magical comes from the magical or a tradition trait, consumable from the kind or the trait', () => {
     const holyWater = item({
       kind: 'consumable',
-      slug: 'holy-water',
+      slug: 'consumable:holy-water',
       traits: ['consumable', 'divine', 'holy', 'splash'],
       data: { bulk: 'light', category: 'other' },
     });
@@ -209,14 +209,15 @@ describe('equipment facet values', () => {
 
   test('a weapon that deals no damage gives no damage type but its persistent one', () => {
     const glue = { dice: 0, die: 'd6', damageType: 'bludgeoning' };
-    const glueBomb = item({ kind: 'weapon', slug: 'glue-bomb', data: { ...longsword.data, damage: glue } });
+    const glueBomb = item({ kind: 'weapon', slug: 'weapon:glue-bomb', data: { ...longsword.data, damage: glue } });
     const sticky = { ...glue, persistent: { formula: '1', damageType: 'acid' } };
-    const stickyBomb = item({ kind: 'weapon', slug: 'sticky-bomb', data: { ...longsword.data, damage: sticky } });
+    const stickyData = { ...longsword.data, damage: sticky };
+    const stickyBomb = item({ kind: 'weapon', slug: 'weapon:sticky-bomb', data: stickyData });
     expect([valueOf(glueBomb, 'damage-type'), valueOf(stickyBomb, 'damage-type')]).toEqual([[], ['acid']]);
   });
 
   test('a price adds its coins in copper; a batch compares at its printed price; no price is unknown', () => {
-    const unpriced = item({ kind: 'treasure', slug: 'old-coin', data: { bulk: 'negligible' } });
+    const unpriced = item({ kind: 'treasure', slug: 'treasure:old-coin', data: { bulk: 'negligible' } });
     const prices = [diamond, arrows, adventurersPack, unpriced].map((each) => valueOf(each, 'price'));
     expect(prices).toEqual([['1500'], ['10'], ['150'], [UNKNOWN]]);
     expect(filter([diamond, unpriced], { 'f.price': '..2000' })).toEqual(['diamond']);
@@ -238,7 +239,7 @@ describe('equipment facet values', () => {
   });
 
   test('a weapon without a group is unknown', () => {
-    const fist = item({ kind: 'weapon', slug: 'improvised', data: { ...longsword.data, group: undefined } });
+    const fist = item({ kind: 'weapon', slug: 'weapon:improvised', data: { ...longsword.data, group: undefined } });
     expect(valueOf(fist, 'weapon-group')).toEqual([UNKNOWN]);
   });
 

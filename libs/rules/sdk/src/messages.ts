@@ -26,6 +26,7 @@ export const RulesMessage = {
   ProficiencyBonusReference: 'rules.proficiencyBonus.reference',
   EntryUnknownKind: 'rules.entry.unknownKind',
   EntryIdMismatch: 'rules.entry.idMismatch',
+  EntrySlugKindMismatch: 'rules.entry.slugKindMismatch',
   EntryDuplicateTrait: 'rules.entry.duplicateTrait',
   EntrySupersedesSelf: 'rules.entry.supersedesSelf',
   ActionReactionTrigger: 'rules.action.reactionTrigger',

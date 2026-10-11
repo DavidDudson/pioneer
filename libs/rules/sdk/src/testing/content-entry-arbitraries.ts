@@ -16,7 +16,7 @@ import type { Arbitrary } from 'fast-check';
 import { ActionCategory, FrequencyPeriod, UP_TO_MAX } from '../action';
 import { Attribute, ATTRIBUTE_MODIFIER_MAX, ATTRIBUTE_MODIFIER_MIN } from '../attribute';
 import { ConditionGroup } from '../condition';
-import { contentId, PackId, Slug } from '../content-id';
+import { contentId, entrySlug, PackId, Slug } from '../content-id';
 import { ContentKind } from '../content-kind';
 import { DisplayCategory, Rarity } from '../entry-fields';
 import { FeatCategory, UNLIMITED } from '../feat';
@@ -198,18 +198,19 @@ const source: Arbitrary<object> = oneof(
   withOptional(webPage, { title: contentText }),
 );
 
-/** The parts of an entry that are its identity: pack and slug, with the id derived from them. */
+/** The parts of an entry that are its identity: pack and slug (`<kind>:<name>`), with the id derived from them. */
 interface EntryIdentity {
   readonly id: string;
   readonly pack: string;
   readonly slug: string;
 }
 
-const identity: Arbitrary<EntryIdentity> = tuple(slugText, slugText).map(([pack, slug]) => ({
-  id: contentId(PackId.parse(pack), Slug.parse(slug)),
-  pack,
-  slug,
-}));
+function identity(kind: RegisteredKind): Arbitrary<EntryIdentity> {
+  return tuple(slugText, slugText).map(([pack, name]) => {
+    const slug = entrySlug(kind, Slug.parse(name));
+    return { id: contentId(PackId.parse(pack), slug), pack, slug };
+  });
+}
 
 /** A condition grants each condition it implies; other kinds have no `implies`, so nothing. */
 function impliedGrants(data: object): object[] {
@@ -229,7 +230,7 @@ export function contentEntryJson(kind: RegisteredKind): Arbitrary<object> {
   const dataAndRules: Arbitrary<DataAndRules> = tuple(data, array(ruleElementJson, { maxLength: LIST_MAX })).map(
     ([picked, rules]) => ({ data: picked, rules: [...rules, ...impliedGrants(picked)] }),
   );
-  const required = tuple(identity, dataAndRules).chain(([{ id, pack, slug }, kindFields]) =>
+  const required = tuple(identity(kind), dataAndRules).chain(([{ id, pack, slug }, kindFields]) =>
     record({
       id: constant(id),
       pack: constant(pack),

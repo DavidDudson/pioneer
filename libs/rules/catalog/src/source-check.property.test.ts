@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { BookId, PackId, RulesMessage, Slug, SourceKind, SourceRef } from '@pioneer/rules/sdk';
+import { BookId, EntrySlug, PackId, RulesMessage, SourceKind, SourceRef } from '@pioneer/rules/sdk';
 import { slugText } from '@pioneer/rules/sdk/testing';
 import { message } from '@pioneer/shared/kernel';
 import { assert, constantFrom, integer, property, record } from 'fast-check';
@@ -30,7 +30,7 @@ function citing(books: Arbitrary<string>): Arbitrary<Citation> {
 function entry({ pack, slug, book, page }: Citation): SourcedEntry {
   return {
     pack: PackId.parse(pack),
-    slug: Slug.parse(slug),
+    slug: EntrySlug.parse(`statistic:${slug}`),
     sources: [SourceRef.parse({ kind: SourceKind.Book, book, page })],
   };
 }
@@ -51,7 +51,7 @@ describe('source checks (properties)', () => {
         expect(sourceIssues(entry(citation), bookRegistry)).toStrictEqual([
           {
             path: ['sources', 0, 'book'],
-            message: message(RulesMessage.SourceUnknownBook, { entry: `${pack}/${slug}`, index: 0, book }),
+            message: message(RulesMessage.SourceUnknownBook, { entry: `${pack}/statistic:${slug}`, index: 0, book }),
           },
         ]);
       }),

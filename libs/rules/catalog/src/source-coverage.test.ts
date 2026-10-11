@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { BookId, ContentKey, PackId, Slug, SourceKind, SourceRef } from '@pioneer/rules/sdk';
+import { BookId, ContentKey, EntrySlug, PackId, SourceKind, SourceRef } from '@pioneer/rules/sdk';
 
 import { bookRegistry } from './book-registry';
 import type { SourcedEntry } from './source-check';
@@ -11,7 +11,7 @@ const AON = 'https://2e.aonprd.com/Feats.aspx?ID=1';
 function entry(slug: string, ...sources: readonly Record<string, unknown>[]): SourcedEntry {
   return {
     pack: PackId.parse('player-core'),
-    slug: Slug.parse(slug),
+    slug: EntrySlug.parse(`feat:${slug}`),
     sources: sources.map((source) => SourceRef.parse(source)),
   };
 }
@@ -30,7 +30,7 @@ describe('source coverage', () => {
     expect(coverage.find((book) => book.book === BookId.parse('player-core'))).toStrictEqual({
       book: BookId.parse('player-core'),
       cited: 3,
-      missingPage: ['player-core/fleet', 'player-core/toughness'].map((key) => ContentKey.parse(key)),
+      missingPage: ['player-core/feat:fleet', 'player-core/feat:toughness'].map((key) => ContentKey.parse(key)),
     });
     expect(coverage.find((book) => book.book === BookId.parse('gm-core'))).toStrictEqual({
       book: BookId.parse('gm-core'),

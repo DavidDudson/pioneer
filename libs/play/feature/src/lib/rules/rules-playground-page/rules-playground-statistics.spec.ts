@@ -90,7 +90,7 @@ describe('RulesPlaygroundPage statistics', () => {
     await chooseSchema(harness, 'Statistics');
     await typeJson(
       harness,
-      '[{ "slug": "ac", "name": "AC", "selector": "ac", "domains": [], "base": "10 + @stat.ac", "kind": "dc" }]',
+      '[{ "slug": "statistic:ac", "name": "AC", "selector": "ac", "domains": [], "base": "10 + @stat.ac", "kind": "dc" }]',
     );
 
     const text = pageText(harness);

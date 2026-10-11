@@ -1,4 +1,4 @@
-import { AncestryId, AttributeModifier, AttributeModifiers, contentId, PackId, Slug } from '@pioneer/rules/sdk';
+import { AncestryId, AttributeModifier, AttributeModifiers, contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import type { Attribute } from '@pioneer/rules/sdk';
 import { installRulesFakes } from '@pioneer/rules/sdk/testing';
 import {
@@ -30,7 +30,7 @@ const RandomFields = z.object({
 
 /** `player-core/human`, the default ancestry for fixtures. */
 export const humanAncestryId: AncestryId = AncestryId.parse(
-  contentId(PackId.parse('player-core'), Slug.parse('human')),
+  contentId(PackId.parse('player-core'), EntrySlug.parse('ancestry:human')),
 );
 
 /** Owner of fixtures unless `ownedBy` says otherwise; same id in every run. */

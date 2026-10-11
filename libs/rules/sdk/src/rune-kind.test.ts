@@ -4,7 +4,7 @@ import { fieldIssues, message, ValidationMessage } from '@pioneer/shared/kernel'
 import type { FieldIssue } from '@pioneer/shared/kernel';
 
 import { ContentEntry } from './content-entry';
-import { contentId, PackId, Slug } from './content-id';
+import { contentId, EntrySlug, PackId } from './content-id';
 import { RulesMessage } from './messages';
 
 function issues(value: unknown): readonly FieldIssue[] {
@@ -20,7 +20,7 @@ function found(value: unknown): readonly string[] {
 }
 
 const PACK = 'player-core';
-const idOf = (slug: string): string => contentId(PackId.parse(PACK), Slug.parse(slug));
+const idOf = (slug: string): string => contentId(PackId.parse(PACK), EntrySlug.parse(slug));
 const prose = (text: string): unknown[] => [{ type: 'paragraph', content: [{ type: 'text', text }] }];
 
 /** The envelope of a Player Core item at `level`, without its kind and data. */
@@ -42,7 +42,7 @@ function item(slug: string, name: string, level: number): object {
 /* Foundry pf2e's Player Core and GM Core runes, in Pioneer's words. */
 
 const striking = {
-  ...item('striking', 'Striking', 4),
+  ...item('rune:striking', 'Striking', 4),
   kind: 'rune',
   traits: ['magical'],
   data: {
@@ -56,14 +56,14 @@ const striking = {
 };
 
 const flaming = {
-  ...item('flaming', 'Flaming', 8),
+  ...item('rune:flaming', 'Flaming', 8),
   kind: 'rune',
   traits: ['fire', 'magical'],
   data: { price: { coins: { gp: 500 } }, bulk: 'negligible', type: 'property', etchedOnto: { item: 'weapon' } },
 };
 
 const reinforcing = {
-  ...item('reinforcing-rune-minor', 'Reinforcing Rune (Minor)', 4),
+  ...item('rune:reinforcing-rune-minor', 'Reinforcing Rune (Minor)', 4),
   kind: 'rune',
   traits: ['magical'],
   data: {

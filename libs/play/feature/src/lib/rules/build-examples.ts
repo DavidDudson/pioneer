@@ -1,13 +1,13 @@
 import {
   ActionCost,
   Attribute,
-  ContentKind,
   contentId,
+  ContentKind,
   DeityCategory,
   DivineFont,
+  EntrySlug,
   FeatCategory,
   PackId,
-  Slug,
 } from '@pioneer/rules/sdk';
 
 const PLAYER_CORE = PackId.parse('player-core');
@@ -16,7 +16,7 @@ const PLAYER_CORE = PackId.parse('player-core');
 const playerCorePage = { kind: 'book', book: 'player-core', page: 1 };
 
 const paragraph = (text: string): unknown => ({ type: 'paragraph', content: [{ type: 'text', text }] });
-const playerCoreId = (slug: string): string => contentId(PLAYER_CORE, Slug.parse(slug));
+const playerCoreId = (slug: string): string => contentId(PLAYER_CORE, EntrySlug.parse(slug));
 
 /** The envelope fields every Player Core example shares. */
 function playerCore(slug: string, name: string, description: string): object {
@@ -46,15 +46,19 @@ const FOURTH_RANK = 4;
 const FREE_BOOST = Object.values(Attribute);
 
 export const skilledHuman = {
-  ...playerCore('skilled-human', 'Skilled Human', 'Your ingenuity allows you to train in a wide variety of skills.'),
+  ...playerCore(
+    'heritage:skilled-human',
+    'Skilled Human',
+    'Your ingenuity allows you to train in a wide variety of skills.',
+  ),
   kind: ContentKind.Heritage,
   rules: [],
-  data: { ancestry: playerCoreId('human') },
+  data: { ancestry: playerCoreId('ancestry:human') },
 };
 
 export const farmhand = {
   ...playerCore(
-    'farmhand',
+    'background:farmhand',
     'Farmhand',
     'With a strong back and an understanding of seasonal cycles, you tilled the land.',
   ),
@@ -63,7 +67,7 @@ export const farmhand = {
     { key: 'Proficiency', selector: 'skill:athletics', rank: 'trained' },
     { key: 'Proficiency', selector: 'skill:lore-farming', rank: 'trained' },
     // Foundry preselects Athletics for Assurance's skill choice; GrantItem has no way to say so yet.
-    { key: 'GrantItem', item: playerCoreId('assurance') },
+    { key: 'GrantItem', item: playerCoreId('feat:assurance') },
   ],
   data: { boosts: [[Attribute.Constitution, Attribute.Wisdom], FREE_BOOST] },
 };
@@ -79,7 +83,7 @@ function fighterFeat(level: number): object {
 }
 
 export const fighter = {
-  ...playerCore('fighter', 'Fighter', 'Fighting for honor, greed, loyalty, or simply the thrill of battle.'),
+  ...playerCore('class:fighter', 'Fighter', 'Fighting for honor, greed, loyalty, or simply the thrill of battle.'),
   kind: ContentKind.Class,
   rules: [
     { key: 'Proficiency', selector: 'perception', rank: 'expert' },
@@ -96,10 +100,14 @@ export const fighter = {
     { key: 'Proficiency', selector: 'defense:heavy', rank: 'trained' },
     { key: 'Proficiency', selector: 'class-dc', rank: 'trained' },
     // Acrobatics or Athletics is the player's pick, beside the three additional skills.
-    { key: 'GrantItem', item: playerCoreId('reactive-strike') },
+    { key: 'GrantItem', item: playerCoreId('class-feature:reactive-strike') },
     fighterFeat(FIRST_LEVEL),
     fighterFeat(SECOND_LEVEL),
-    { key: 'GrantItem', item: playerCoreId('bravery'), predicate: [{ gte: ['self:level', BRAVERY_LEVEL] }] },
+    {
+      key: 'GrantItem',
+      item: playerCoreId('class-feature:bravery'),
+      predicate: [{ gte: ['self:level', BRAVERY_LEVEL] }],
+    },
   ],
   data: {
     keyAttribute: [Attribute.Strength, Attribute.Dexterity],
@@ -109,17 +117,17 @@ export const fighter = {
 };
 
 export const reactiveStrike = {
-  ...playerCore('reactive-strike', 'Reactive Strike', 'You lash out at a foe that leaves an opening.'),
+  ...playerCore('class-feature:reactive-strike', 'Reactive Strike', 'You lash out at a foe that leaves an opening.'),
   kind: ContentKind.ClassFeature,
   level: FIRST_LEVEL,
   traits: ['fighter'],
   // The feature is passive: it grants the Reactive Strike action, as Foundry pf2e does.
-  rules: [{ key: 'GrantItem', item: playerCoreId('reactive-strike-action') }],
+  rules: [{ key: 'GrantItem', item: playerCoreId('action:reactive-strike') }],
   data: {},
 };
 
 export const suddenCharge = {
-  ...playerCore('sudden-charge', 'Sudden Charge', 'With a quick sprint, you dash up to your foe and swing.'),
+  ...playerCore('feat:sudden-charge', 'Sudden Charge', 'With a quick sprint, you dash up to your foe and swing.'),
   kind: ContentKind.Feat,
   level: FIRST_LEVEL,
   traits: ['fighter', 'flourish', 'open'],
@@ -128,14 +136,18 @@ export const suddenCharge = {
 };
 
 export const fighterArchetype = {
-  ...playerCore('fighter-archetype', 'Fighter', 'You have trained carefully to improve your skill with weapons.'),
+  ...playerCore(
+    'archetype:fighter-archetype',
+    'Fighter',
+    'You have trained carefully to improve your skill with weapons.',
+  ),
   kind: ContentKind.Archetype,
   rules: [],
-  data: { dedication: playerCoreId('fighter-dedication'), multiclass: playerCoreId('fighter') },
+  data: { dedication: playerCoreId('feat:fighter-dedication'), multiclass: playerCoreId('class:fighter') },
 };
 
 export const pharasma = {
-  ...playerCore('pharasma', 'Pharasma', 'The Lady of Graves judges every soul that passes through the Boneyard.'),
+  ...playerCore('deity:pharasma', 'Pharasma', 'The Lady of Graves judges every soul that passes through the Boneyard.'),
   kind: ContentKind.Deity,
   rules: [],
   data: {
@@ -146,9 +158,9 @@ export const pharasma = {
     skills: ['skill:medicine'],
     weapons: ['dagger'],
     spells: [
-      { rank: FIRST_RANK, spell: playerCoreId('mindlink') },
-      { rank: THIRD_RANK, spell: playerCoreId('ghostly-weapon') },
-      { rank: FOURTH_RANK, spell: playerCoreId('vision-of-death') },
+      { rank: FIRST_RANK, spell: playerCoreId('spell:mindlink') },
+      { rank: THIRD_RANK, spell: playerCoreId('spell:ghostly-weapon') },
+      { rank: FOURTH_RANK, spell: playerCoreId('spell:vision-of-death') },
     ],
   },
 };

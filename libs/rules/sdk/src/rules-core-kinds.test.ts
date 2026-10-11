@@ -4,7 +4,7 @@ import { fieldIssues, message, ValidationMessage } from '@pioneer/shared/kernel'
 import type { FieldIssue } from '@pioneer/shared/kernel';
 
 import { ContentEntry } from './content-entry';
-import { contentId, PackId, Slug } from './content-id';
+import { contentId, EntrySlug, PackId } from './content-id';
 import { RulesMessage } from './messages';
 
 function issues(value: unknown): readonly FieldIssue[] {
@@ -20,7 +20,7 @@ function found(value: unknown): readonly string[] {
 }
 
 const PACK = 'player-core';
-const idOf = (slug: string): string => contentId(PackId.parse(PACK), Slug.parse(slug));
+const idOf = (slug: string): string => contentId(PackId.parse(PACK), EntrySlug.parse(slug));
 const prose = (text: string): unknown[] => [{ type: 'paragraph', content: [{ type: 'text', text }] }];
 
 /** The envelope of a Player Core entry, without its kind and data. */
@@ -38,10 +38,10 @@ function entry(slug: string, name: string): object {
   };
 }
 
-const offGuard = idOf('off-guard');
-const immobilized = idOf('immobilized');
+const offGuard = idOf('condition:off-guard');
+const immobilized = idOf('condition:immobilized');
 const grabbed = {
-  ...entry('grabbed', 'Grabbed'),
+  ...entry('condition:grabbed', 'Grabbed'),
   kind: 'condition',
   rules: [
     { key: 'GrantItem', item: offGuard },
@@ -51,20 +51,20 @@ const grabbed = {
 };
 
 const frightened = {
-  ...entry('frightened', 'Frightened'),
+  ...entry('condition:frightened', 'Frightened'),
   kind: 'condition',
   rules: [{ key: 'FlatModifier', selectors: ['all'], type: 'status', value: -1 }],
   data: { valued: true, overrides: [], implies: [] },
 };
 
 const blinded = {
-  ...entry('blinded', 'Blinded'),
+  ...entry('condition:blinded', 'Blinded'),
   kind: 'condition',
-  data: { valued: false, group: 'senses', overrides: [idOf('dazzled')], implies: [] },
+  data: { valued: false, group: 'senses', overrides: [idOf('condition:dazzled')], implies: [] },
 };
 
 const aidAction = {
-  ...entry('aid', 'Aid'),
+  ...entry('action:aid', 'Aid'),
   kind: 'action',
   data: {
     cost: 'reaction',
@@ -74,23 +74,23 @@ const aidAction = {
 };
 
 const raiseAShield = {
-  ...entry('raise-a-shield', 'Raise a Shield'),
+  ...entry('action:raise-a-shield', 'Raise a Shield'),
   kind: 'action',
-  data: { cost: 'one', category: 'defensive', selfEffect: idOf('effect-raise-a-shield') },
+  data: { cost: 'one', category: 'defensive', selfEffect: idOf('effect:effect-raise-a-shield') },
 };
 /** Raise a Shield with `data` merged over its own. */
 const variable = (data: object): object => ({ ...raiseAShield, data: { ...raiseAShield.data, ...data } });
 
-const fire = { ...entry('fire', 'Fire'), kind: 'damage-type', data: {} };
+const fire = { ...entry('damage-type:fire', 'Fire'), kind: 'damage-type', data: {} };
 const darkvision = {
-  ...entry('darkvision', 'Darkvision'),
+  ...entry('sense:darkvision', 'Darkvision'),
   kind: 'sense',
   data: { acuity: 'precise', unlimitedRange: true },
 };
-const draconic = { ...entry('draconic', 'Draconic'), kind: 'language', data: {} };
-const freeArchetype = { ...entry('free-archetype', 'Free Archetype'), kind: 'variant-rule', data: {} };
+const draconic = { ...entry('language:draconic', 'Draconic'), kind: 'language', data: {} };
+const freeArchetype = { ...entry('variant-rule:free-archetype', 'Free Archetype'), kind: 'variant-rule', data: {} };
 const manipulate = {
-  ...entry('manipulate', 'Manipulate'),
+  ...entry('trait:manipulate', 'Manipulate'),
   kind: 'trait',
   data: { appliesTo: ['action', 'feat'] },
 };

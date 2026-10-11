@@ -2,7 +2,7 @@ import { HttpTestingController } from '@angular/common/http/testing';
 import { ApplicationRef } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { ANCESTRY_SLOT, CharacterId, CharacterLevel, CharacterPatchField } from '@pioneer/character/domain';
-import { ChoiceValue, contentId, PackId, Slug } from '@pioneer/rules/sdk';
+import { ChoiceValue, contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import { ApiError } from '@pioneer/shared/web';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
@@ -23,7 +23,7 @@ function wire(version: number, level: number): WireCharacter & Record<string, un
     version,
     ownerId: '8f6d2c1a-0b3e-4f5a-9c7d-1e2f3a4b5c6d',
     name: 'Merisiel',
-    build: { choices: { ancestry: contentId(PackId.parse('player-core'), Slug.parse('elf')) } },
+    build: { choices: { ancestry: contentId(PackId.parse('player-core'), EntrySlug.parse('ancestry:elf')) } },
     level,
     attributes: { str: 0, dex: 4, con: 1, int: 0, wis: 0, cha: 1 },
     createdAt: '2026-10-07T10:00:00.000Z',
@@ -73,7 +73,7 @@ describe(CharacterStore, () => {
 
   it('selectSlot and clearSlot send slot edits', async () => {
     await loadSelected();
-    const human = ChoiceValue.parse(contentId(PackId.parse('player-core'), Slug.parse('human')));
+    const human = ChoiceValue.parse(contentId(PackId.parse('player-core'), EntrySlug.parse('ancestry:human')));
     const selecting = store.selectSlot(ANCESTRY_SLOT, human);
     const select = http.expectOne({ method: 'PATCH', url: `/api/characters/${id}` });
     expect(select.request.body).toStrictEqual({

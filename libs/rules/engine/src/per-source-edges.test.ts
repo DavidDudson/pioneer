@@ -17,7 +17,7 @@ import { flatModifier, inPlay, wielded } from './testing';
 
 function perSource(selector: string, per: string, base: string): StatisticDefinition {
   return StatisticDefinition.parse({
-    slug: selector,
+    slug: `statistic:${selector}`,
     name: selector,
     selector,
     domains: [],

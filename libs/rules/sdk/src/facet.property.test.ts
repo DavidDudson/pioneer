@@ -4,7 +4,7 @@ import { array, assert, constantFrom, integer, option, property, record, subarra
 import type { Arbitrary } from 'fast-check';
 
 import { ContentEntry } from './content-entry';
-import { contentId, PackId, Slug } from './content-id';
+import { contentId, EntrySlug, PackId } from './content-id';
 import { ContentKind } from './content-kind';
 import { Rarity } from './entry-fields';
 import { COMMON_FACETS, FacetType, facetValues, FacetValue, RangeBound } from './facet';
@@ -40,10 +40,10 @@ const shape: Arbitrary<EntryShape> = record({
 const entries: Arbitrary<readonly ContentEntry[]> = array(shape, { maxLength: ENTRIES_MAX }).map((shapes) =>
   shapes.map(({ level, rarity, traits, books, pack }, index) =>
     ContentEntry.parse({
-      id: contentId(PackId.parse(pack), Slug.parse(`entry-${index}`)),
+      id: contentId(PackId.parse(pack), EntrySlug.parse(`trait:entry-${index}`)),
       pack,
       kind: ContentKind.Trait,
-      slug: `entry-${index}`,
+      slug: `trait:entry-${index}`,
       name: `Entry ${index}`,
       ...(level === undefined ? {} : { level }),
       rarity,

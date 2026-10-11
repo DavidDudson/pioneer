@@ -5,7 +5,7 @@ import type { Arbitrary } from 'fast-check';
 
 import type { CanonicalJson } from './content-bundle';
 import { BundleHash, contentBundles } from './content-bundle';
-import { contentId, PackId, Slug } from './content-id';
+import { contentId, EntrySlug, PackId } from './content-id';
 import { packContentsFromFiles } from './content-pack-file';
 import { REGISTERED_KINDS } from './kind-data';
 import type { RegisteredKind } from './kind-data';
@@ -23,7 +23,7 @@ function sha256(json: CanonicalJson): BundleHash {
 /** Valid entries of `kind` filed under one pack, with distinct slugs. */
 function packEntries(kind: RegisteredKind): Arbitrary<readonly object[]> {
   const rehomed = contentEntryJson(kind).map((json) => {
-    const slug = Slug.parse(Reflect.get(json, 'slug'));
+    const slug = EntrySlug.parse(Reflect.get(json, 'slug'));
     return Object.assign(json, { pack: PACK, id: contentId(PACK, slug) });
   });
   return uniqueArray(rehomed, {

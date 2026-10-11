@@ -1,9 +1,9 @@
 [
   {
-    "id": "9ef5b9f3-c3b1-57aa-a847-25f68ca30427",
+    "id": "444a2133-3e11-55b6-b57a-1f11ebe8e12b",
     "pack": "core-rules",
     "kind": "language",
-    "slug": "common",
+    "slug": "language:common",
     "name": "Common",
     "rarity": "common",
     "traits": [],
@@ -20,10 +20,10 @@
     "data": {}
   },
   {
-    "id": "1367029e-6456-5a80-9772-2846e6747883",
+    "id": "17635451-e596-5045-8af5-47f581cd1a40",
     "pack": "core-rules",
     "kind": "language",
-    "slug": "draconic",
+    "slug": "language:draconic",
     "name": "Draconic",
     "rarity": "common",
     "traits": [],
@@ -40,10 +40,10 @@
     "data": {}
   },
   {
-    "id": "a54fbd03-5614-5607-87f9-e5a40846321f",
+    "id": "c49a86a0-8e49-56c1-86f9-eaa50a3297e3",
     "pack": "core-rules",
     "kind": "language",
-    "slug": "dwarven",
+    "slug": "language:dwarven",
     "name": "Dwarven",
     "rarity": "common",
     "traits": [],
@@ -60,10 +60,10 @@
     "data": {}
   },
   {
-    "id": "02d4ab36-444f-57c6-aea7-6f2ff6a09b22",
+    "id": "3128d8af-f464-563e-ac8d-ac86a7e9408b",
     "pack": "core-rules",
     "kind": "language",
-    "slug": "elven",
+    "slug": "language:elven",
     "name": "Elven",
     "rarity": "common",
     "traits": [],
@@ -80,10 +80,10 @@
     "data": {}
   },
   {
-    "id": "c2275701-b366-57f6-a6d8-b24f143ef9aa",
+    "id": "30b3a33b-b3f0-5ba1-9e46-aed5301bb2ce",
     "pack": "core-rules",
     "kind": "language",
-    "slug": "fey",
+    "slug": "language:fey",
     "name": "Fey",
     "rarity": "common",
     "traits": [],
@@ -100,10 +100,10 @@
     "data": {}
   },
   {
-    "id": "c5896f47-3872-5363-b5f9-01d6e6fe2568",
+    "id": "d2200e11-b3e5-5878-be67-4f4492c1f76d",
     "pack": "core-rules",
     "kind": "language",
-    "slug": "gnomish",
+    "slug": "language:gnomish",
     "name": "Gnomish",
     "rarity": "common",
     "traits": [],
@@ -120,10 +120,10 @@
     "data": {}
   },
   {
-    "id": "c3522b95-89e6-575b-8591-02cbf7cbd645",
+    "id": "cc56a173-7e20-50ca-b027-1a5aca98fe4b",
     "pack": "core-rules",
     "kind": "language",
-    "slug": "goblin",
+    "slug": "language:goblin",
     "name": "Goblin",
     "rarity": "common",
     "traits": [],
@@ -140,10 +140,10 @@
     "data": {}
   },
   {
-    "id": "2a3cd6da-1de8-57fd-9550-5f3e7a7998d6",
+    "id": "6901cc04-49bb-5344-bcaa-a4a99712d566",
     "pack": "core-rules",
     "kind": "language",
-    "slug": "halfling",
+    "slug": "language:halfling",
     "name": "Halfling",
     "rarity": "common",
     "traits": [],
@@ -160,10 +160,10 @@
     "data": {}
   },
   {
-    "id": "0e759640-34b7-5999-91b4-d7c86a0e3875",
+    "id": "315eced7-9fa5-595b-bdab-002877559cff",
     "pack": "core-rules",
     "kind": "language",
-    "slug": "jotun",
+    "slug": "language:jotun",
     "name": "Jotun",
     "rarity": "common",
     "traits": [],
@@ -180,10 +180,10 @@
     "data": {}
   },
   {
-    "id": "9390a12d-a784-57d7-8af0-58fed47caf4a",
+    "id": "4d4fb5fa-160d-553f-b657-24105dc56050",
     "pack": "core-rules",
     "kind": "language",
-    "slug": "orcish",
+    "slug": "language:orcish",
     "name": "Orcish",
     "rarity": "common",
     "traits": [],
@@ -200,10 +200,10 @@
     "data": {}
   },
   {
-    "id": "21afbe07-694e-5bd6-89ac-9b92206f50f5",
+    "id": "da0478dc-3e4f-5abb-9b5f-79be74bf143e",
     "pack": "core-rules",
     "kind": "language",
-    "slug": "sakvroth",
+    "slug": "language:sakvroth",
     "name": "Sakvroth",
     "rarity": "common",
     "traits": [],
@@ -220,10 +220,10 @@
     "data": {}
   },
   {
-    "id": "39cf7542-e68c-5298-8ab1-5c4b9f4efe43",
+    "id": "c60a69f8-1fae-5452-9c94-4cf2bd4662b1",
     "pack": "core-rules",
     "kind": "language",
-    "slug": "empyrean",
+    "slug": "language:empyrean",
     "name": "Empyrean",
     "rarity": "uncommon",
     "traits": [],
@@ -240,10 +240,10 @@
     "data": {}
   },
   {
-    "id": "2f1eaa2b-d2ed-5095-9136-d10fb7ba7ccd",
+    "id": "1fb509e8-a33a-5a44-85ab-733764797c61",
     "pack": "core-rules",
     "kind": "language",
-    "slug": "kholo",
+    "slug": "language:kholo",
     "name": "Kholo",
     "rarity": "uncommon",
     "traits": [],
@@ -260,10 +260,10 @@
     "data": {}
   },
   {
-    "id": "d11e6f74-1846-5d0f-a28c-b67e7fe850a3",
+    "id": "ff9d8655-df77-52bc-852f-ee4669509e08",
     "pack": "core-rules",
     "kind": "language",
-    "slug": "petran",
+    "slug": "language:petran",
     "name": "Petran",
     "rarity": "uncommon",
     "traits": [],

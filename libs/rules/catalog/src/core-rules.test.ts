@@ -4,14 +4,14 @@ import { deriveStatistics, RuleInPlay, StatisticInputsJson } from '@pioneer/rule
 import { wielded } from '@pioneer/rules/engine/testing';
 import {
   Attribute,
+  contentId,
   ContentLicense,
   ContentPack,
-  contentId,
   ContentRegistry,
+  EntrySlug,
   HitPoints,
   Proficiency,
   Selector,
-  Slug,
   StatisticKind,
   VariantRuleId,
 } from '@pioneer/rules/sdk';
@@ -51,7 +51,7 @@ const farmingLore = ContentPack.define({
   creatures: [],
   statistics: [
     {
-      slug: 'farming-lore',
+      slug: 'statistic:farming-lore',
       name: 'Farming Lore',
       selector: 'skill:lore:farming',
       domains: ['check', 'skill-check', 'int-based', 'lore'],
@@ -69,7 +69,7 @@ function bonusTo(target: string): RuleInPlay {
     element: { key: 'FlatModifier', type: 'status', value: 1, selectors: [target] },
     origin: {
       hops: [],
-      entry: contentId(coreRules.id, Slug.parse('test-bonus')),
+      entry: contentId(coreRules.id, EntrySlug.parse('statistic:test-bonus')),
       sources: [{ kind: 'book', book: 'player-core', page: 1 }],
     },
     rule: 0,
@@ -108,7 +108,7 @@ describe('core rules pack', () => {
       expect(registry.statisticsFor(Selector.parse(selector))).toHaveLength(1);
     }
     expect(registry.statistics()).toHaveLength(selectors.length);
-    const withoutLevel = contentId(coreRules.id, Slug.parse('proficiency-without-level'));
+    const withoutLevel = contentId(coreRules.id, EntrySlug.parse('variant-rule:proficiency-without-level'));
     expect(registry.variantRules().map(({ id }) => id)).toStrictEqual([VariantRuleId.parse(withoutLevel)]);
   });
 

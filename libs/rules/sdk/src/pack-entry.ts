@@ -1,14 +1,14 @@
 import type { Uuid } from '@pioneer/shared/kernel';
 
 import { contentId, contentKey } from './content-id';
-import type { ContentKey, Slug } from './content-id';
+import type { ContentKey, EntrySlug } from './content-id';
 import type { ContentPack } from './content-pack';
 
 /**
  * One piece of content plus the pack it came from, as `ContentRegistry` holds it. Retired with `ContentPack` when
  * packs move onto the `ContentEntry` envelope (Epic 2.3).
  */
-export class PackEntry<TId extends Uuid, TDefinition extends { readonly slug: Slug }> {
+export class PackEntry<TId extends Uuid, TDefinition extends { readonly slug: EntrySlug }> {
   /** Stored identity: UUIDv5 of `key`. */
   public readonly id: TId;
   /** Readable `<pack>/<slug>`, for logs and debugging only. */

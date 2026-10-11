@@ -1,4 +1,4 @@
-import { ContentKind, contentId, PackId, Slug } from '@pioneer/rules/sdk';
+import { contentId, ContentKind, EntrySlug, PackId } from '@pioneer/rules/sdk';
 
 const PLAYER_CORE = PackId.parse('player-core');
 
@@ -6,7 +6,7 @@ const PLAYER_CORE = PackId.parse('player-core');
 const playerCorePage = { kind: 'book', book: 'player-core', page: 1 };
 
 const paragraph = (text: string): unknown => ({ type: 'paragraph', content: [{ type: 'text', text }] });
-const idOf = (slug: string): string => contentId(PLAYER_CORE, Slug.parse(slug));
+const idOf = (slug: string): string => contentId(PLAYER_CORE, EntrySlug.parse(slug));
 
 /** The envelope fields every Player Core example shares. */
 function playerCore(slug: string, name: string, description: string): object {
@@ -39,7 +39,7 @@ const PACK_RATIONS = 2;
 const PACK_TORCHES = 5;
 
 export const longsword = {
-  ...playerCore('longsword', 'Longsword', 'A long, straight blade.'),
+  ...playerCore('weapon:longsword', 'Longsword', 'A long, straight blade.'),
   kind: ContentKind.Weapon,
   level: 0,
   traits: ['versatile-p'],
@@ -55,7 +55,7 @@ export const longsword = {
 };
 
 export const leatherArmor = {
-  ...playerCore('leather-armor', 'Leather Armor', 'Armour of boiled and shaped leather.'),
+  ...playerCore('armor:leather-armor', 'Leather Armor', 'Armour of boiled and shaped leather.'),
   kind: ContentKind.Armor,
   level: 0,
   data: {
@@ -71,7 +71,7 @@ export const leatherArmor = {
 };
 
 export const steelShield = {
-  ...playerCore('steel-shield', 'Steel Shield', 'A sturdy metal shield.'),
+  ...playerCore('shield:steel-shield', 'Steel Shield', 'A sturdy metal shield.'),
   kind: ContentKind.Shield,
   level: 0,
   data: {
@@ -85,7 +85,7 @@ export const steelShield = {
 };
 
 export const backpack = {
-  ...playerCore('backpack', 'Backpack', 'Holds up to 4 Bulk of gear.'),
+  ...playerCore('equipment:backpack', 'Backpack', 'Holds up to 4 Bulk of gear.'),
   kind: ContentKind.Equipment,
   level: 0,
   data: {
@@ -97,7 +97,7 @@ export const backpack = {
 };
 
 export const minorHealingPotion = {
-  ...playerCore('healing-potion-minor', 'Healing Potion (Minor)', 'A vial that heals whoever drinks it.'),
+  ...playerCore('consumable:healing-potion-minor', 'Healing Potion (Minor)', 'A vial that heals whoever drinks it.'),
   kind: ContentKind.Consumable,
   level: 1,
   traits: ['consumable', 'healing', 'magical', 'potion', 'vitality'],
@@ -111,7 +111,7 @@ export const minorHealingPotion = {
 };
 
 export const striking = {
-  ...playerCore('striking', 'Striking', 'Adds a damage die to the weapon it is etched on.'),
+  ...playerCore('rune:striking', 'Striking', 'Adds a damage die to the weapon it is etched on.'),
   kind: ContentKind.Rune,
   level: STRIKING_LEVEL,
   traits: ['magical'],
@@ -126,16 +126,16 @@ export const striking = {
 };
 
 export const smallDiamond = {
-  ...playerCore('diamond-small', 'Diamond (Small)', 'A small, clear gem.'),
+  ...playerCore('treasure:diamond-small', 'Diamond (Small)', 'A small, clear gem.'),
   kind: ContentKind.Treasure,
   level: 0,
   data: { price: { coins: { gp: DIAMOND_PRICE } }, bulk: 'negligible', category: 'gem' },
 };
 
-const contained = (slug: string, quantity: number): object => ({ item: idOf(slug), quantity });
+const contained = (name: string, quantity: number): object => ({ item: idOf(`equipment:${name}`), quantity });
 
 export const adventurersPack = {
-  ...playerCore('adventurers-pack', 'Adventurer’s Pack', 'The gear most adventurers set out with.'),
+  ...playerCore('kit:adventurers-pack', 'Adventurer’s Pack', 'The gear most adventurers set out with.'),
   kind: ContentKind.Kit,
   data: {
     price: { coins: { sp: PACK_PRICE } },

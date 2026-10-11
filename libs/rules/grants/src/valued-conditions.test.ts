@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { ConditionValue, contentId, ContentId, ContentKind, PackId } from '@pioneer/rules/sdk';
+import { ConditionValue, contentId, ContentId, ContentKind, entrySlug, PackId } from '@pioneer/rules/sdk';
 import { array, assert, constant, integer, oneof, property, shuffledSubarray } from 'fast-check';
 import type { Arbitrary } from 'fast-check';
 
@@ -70,17 +70,18 @@ describe('a valued condition', () => {
     ];
     const at = (...values: number[]): string[] => {
       const roots = [picked('steady'), ...values.map((value) => afflicted('frightened', value))];
-      return namesOf(resolve(content, roots).items);
+      // Which entries are granted, in name order: the walk's order follows ids.
+      return namesOf(resolve(content, roots).items).toSorted();
     };
-    expect(at(2)).toEqual(['frightened', 'steady', 'shaken']);
-    expect(at(1)).toEqual(['frightened', 'steady', 'composed']);
-    expect(at(1, 2)).toEqual(['frightened', 'steady', 'shaken']);
+    expect(at(2)).toEqual(['frightened', 'shaken', 'steady']);
+    expect(at(1)).toEqual(['composed', 'frightened', 'steady']);
+    expect(at(1, 2)).toEqual(['frightened', 'shaken', 'steady']);
   });
 
   test('from two packs under one slug, sets the highest value of either alone', () => {
     const homebrew: GrantEntry = {
       ...frightened,
-      id: ContentId.parse(contentId(PackId.parse('homebrew'), frightened.slug)),
+      id: ContentId.parse(contentId(PackId.parse('homebrew'), entrySlug(ContentKind.Condition, frightened.slug))),
     };
     const roots: GrantRoot[] = [
       afflicted('frightened', 3),

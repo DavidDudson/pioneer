@@ -1,5 +1,5 @@
 import { EngineMessage } from '@pioneer/rules/engine';
-import { contentId, PackId, Slug } from '@pioneer/rules/sdk';
+import { contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
 import { describe, expect, it } from 'vitest';
 
@@ -8,7 +8,7 @@ import type { StatisticsCheck } from './statistics-check';
 
 /** A statistic derived once per `per`, with no domains. */
 const perSource = (selector: string, per: string, base: string): object => ({
-  slug: selector,
+  slug: `statistic:${selector.replaceAll(':', '-')}`,
   name: selector,
   selector,
   domains: [],
@@ -29,7 +29,11 @@ function check(definitions: readonly object[]): StatisticsCheck {
 
 describe('checkStatistics per source', () => {
   it('shows an instance a later family wins under the family, with its base, not under the earlier plain one', () => {
-    const plain = { ...perSource('strike:longsword', 'weapon', '@level'), slug: 'plain-strike', per: undefined };
+    const plain = {
+      ...perSource('strike:longsword', 'weapon', '@level'),
+      slug: 'statistic:plain-strike',
+      per: undefined,
+    };
     const strike = perSource('strike', 'weapon', '@weapon.attr + @weapon.prof');
     expect(check([plain, strike])).toMatchObject({
       status: StatisticsStatus.Valid,
@@ -41,7 +45,11 @@ describe('checkStatistics per source', () => {
   });
 
   it('shows a plain statistic that shares the family’s prefix once, under its own definition', () => {
-    const custom = { ...perSource('strike:custom', 'weapon', '@level'), slug: 'custom-strike', per: undefined };
+    const custom = {
+      ...perSource('strike:custom', 'weapon', '@level'),
+      slug: 'statistic:custom-strike',
+      per: undefined,
+    };
     const result = checkStatistics(
       {
         definitions: JSON.stringify([perSource('strike', 'weapon', '@weapon.attr'), custom]),
@@ -98,7 +106,7 @@ describe('checkStatistics per source', () => {
 const POTENCY_LABEL = { message: { key: EngineMessage.WeaponPotency, params: { weapon: 'longsword' } } };
 const POTENCY_ID = 'weapon:longsword#weapon-potency';
 /** The made-up entry the playground puts typed rule elements on. */
-const RULES_ENTRY = contentId(PackId.parse('playground'), Slug.parse('rule-elements'));
+const RULES_ENTRY = contentId(PackId.parse('playground'), EntrySlug.parse('effect:rule-elements'));
 
 /** The example inputs with the longsword's potency set to `grade`. */
 function withPotency(grade: number): string {

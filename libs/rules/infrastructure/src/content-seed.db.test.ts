@@ -4,10 +4,10 @@ import {
   ContentEntry,
   contentId,
   contentPackId,
-  PackId,
+  EntrySlug,
   packContentsFromFiles,
+  PackId,
   PackVisibility,
-  Slug,
 } from '@pioneer/rules/sdk';
 import type { PackContents, PackContentsLoader } from '@pioneer/rules/sdk';
 import { fixedClock, FIRST_VERSION, newId, nextVersion } from '@pioneer/shared/kernel';
@@ -46,10 +46,10 @@ const ELVEN: Language = { slug: 'elven', name: 'Elven' };
 
 function languageEntry(pack: string, { slug, name }: Language): object {
   return {
-    id: contentId(PackId.parse(pack), Slug.parse(slug)),
+    id: contentId(PackId.parse(pack), EntrySlug.parse(`language:${slug}`)),
     pack,
     kind: 'language',
-    slug,
+    slug: `language:${slug}`,
     name,
     rarity: 'common',
     traits: ['humanoid'],
@@ -199,7 +199,7 @@ describe.skipIf(adminUrl === undefined)('seedContentPacks (postgres)', () => {
     await database.db.execute(sql`
       create function refuse_elven() returns trigger language plpgsql as $$
       begin
-        if new.slug = 'elven' then raise exception 'elven refused'; end if;
+        if new.slug = 'language:elven' then raise exception 'elven refused'; end if;
         return new;
       end $$;
       create trigger refuse_elven before insert on content_entries for each row execute function refuse_elven();

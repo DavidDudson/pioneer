@@ -2,7 +2,7 @@ import { describe, expect, test } from 'bun:test';
 
 import { FEAT_FACETS } from './action-facets';
 import { ContentEntry } from './content-entry';
-import { contentId, PackId, Slug } from './content-id';
+import { contentId, entrySlug, PackId, Slug, slugName } from './content-id';
 import { ContentKind } from './content-kind';
 import { COMMON_FACETS, FacetId, FacetType, facetValues, FacetValue, RangeBound, UNKNOWN } from './facet';
 import type { FacetDefinition } from './facet';
@@ -33,11 +33,12 @@ function entry({
   books = ['player-core'],
   pack = 'player-core',
 }: EntryShape): ContentEntry {
+  const traitSlug = entrySlug(ContentKind.Trait, Slug.parse(slug));
   return ContentEntry.parse({
-    id: contentId(PackId.parse(pack), Slug.parse(slug)),
+    id: contentId(PackId.parse(pack), traitSlug),
     pack,
     kind: ContentKind.Trait,
-    slug,
+    slug: traitSlug,
     name: slug,
     ...(level === undefined ? {} : { level }),
     rarity,
@@ -58,7 +59,7 @@ function facet(id: string): FacetDefinition {
 }
 
 const values = (...texts: string[]): FacetValue[] => texts.map((text) => FacetValue.parse(text));
-const slugs = (entries: readonly ContentEntry[]): readonly string[] => entries.map((each) => each.slug);
+const slugs = (entries: readonly ContentEntry[]): readonly string[] => entries.map((each) => slugName(each.slug));
 const include = (...texts: string[]): FacetSelection => ({
   kind: SelectionKind.Values,
   include: values(...texts),

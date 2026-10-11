@@ -6,9 +6,9 @@ import {
   contentId,
   ContentKey,
   ContentText,
+  EntrySlug,
   PackId,
   RichText,
-  Slug,
   TriggerEvent,
 } from '@pioneer/rules/sdk';
 
@@ -16,8 +16,8 @@ import { matchTrigger, triggerMatches } from './trigger-matcher';
 import type { RefNames } from './trigger-matcher';
 
 const PACK = 'player-core';
-const idOf = (slug: string): ContentId => ContentId.parse(contentId(PackId.parse(PACK), Slug.parse(slug)));
-const STRIKE = idOf('strike');
+const idOf = (slug: string): ContentId => ContentId.parse(contentId(PackId.parse(PACK), EntrySlug.parse(slug)));
+const STRIKE = idOf('action:strike');
 const NAMES: RefNames = new Map([[STRIKE, ContentText.parse('Strike')]]);
 
 const text = (words: string): object => ({ type: 'text', text: words });
@@ -26,7 +26,7 @@ const trigger = (...blocks: readonly object[]): RichText => RichText.parse(block
 const prose = (words: string): RichText => trigger(paragraph(text(words)));
 const ref = (id: ContentId, label?: string): object => ({ type: 'ref', id, ...(label === undefined ? {} : { label }) });
 
-const OTHER = idOf('other');
+const OTHER = idOf('action:other');
 const TWO_PARAGRAPHS = trigger(paragraph(text('Your turn begins.')), paragraph(text('Your turn ends.')));
 const WITH_GLYPH = trigger(paragraph(text('You cast a spell '), { type: 'action-cost', cost: 'one' }));
 
@@ -84,12 +84,13 @@ describe('trigger matcher', () => {
 });
 
 /** A Player Core entry of `kind` with `data`. */
-function entry(slug: string, kind: string, data: object): ContentEntry {
+function entry(name: string, kind: string, data: object): ContentEntry {
+  const slug = `${kind}:${name}`;
   return ContentEntry.parse({
     id: idOf(slug),
     pack: PACK,
     slug,
-    name: slug,
+    name,
     rarity: 'common',
     traits: [],
     sources: [{ kind: 'book', book: 'player-core', page: 1 }],
@@ -116,10 +117,10 @@ describe('trigger matches', () => {
     ];
 
     expect(triggerMatches(entries, NAMES)).toStrictEqual([
-      { entry: ContentKey.parse('player-core/steady'), triggerEvent: event({ event: 'turn-start' }) },
-      { entry: ContentKey.parse('player-core/swift'), triggerEvent: event({ event: 'initiative' }) },
+      { entry: ContentKey.parse('player-core/action:steady'), triggerEvent: event({ event: 'turn-start' }) },
+      { entry: ContentKey.parse('player-core/feat:swift'), triggerEvent: event({ event: 'initiative' }) },
       {
-        entry: ContentKey.parse('player-core/focused'),
+        entry: ContentKey.parse('player-core/class-feature:focused'),
         triggerEvent: event({ event: 'cast-spell', predicate: ['item:trait:focus'] }),
       },
     ]);

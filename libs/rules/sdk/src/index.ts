@@ -46,7 +46,8 @@ export {
   PackStatistic,
   PackVisibility,
 } from './content-pack';
-export { contentId, ContentId, ContentKey, contentKey, ContentPackId, contentPackId, PackId, Slug } from './content-id';
+export { contentId, ContentId, ContentKey, contentKey, ContentPackId, contentPackId } from './content-id';
+export { EntrySlug, entrySlug, PackId, Slug, slugKind, slugName } from './content-id';
 export { ContentText } from './content-text';
 export {
   DAMAGE_GROUP_TYPES,
@@ -64,7 +65,6 @@ export { DamageException, Immunity, Trait, TraitData } from './trait';
 export { LanguageData } from './language';
 export { SenseAcuity, SenseData } from './sense';
 export { VariantRuleData, VariantRuleDefinition, VariantRuleId } from './variant-rule';
-export { PackEntry } from './pack-entry';
 export { ContentEntry } from './content-entry';
 export { BundleBody, BundleFile, BundleHash, bundlePath, ContentContract, ContentManifest } from './content-bundle';
 export { CanonicalJson, canonicalJson, contentBundles, contentPackFromBundles } from './content-bundle';

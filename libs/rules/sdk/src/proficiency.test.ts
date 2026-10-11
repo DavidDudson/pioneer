@@ -4,7 +4,7 @@ import { fieldIssues, message } from '@pioneer/shared/kernel';
 import type { FieldIssue } from '@pioneer/shared/kernel';
 import type * as z from 'zod';
 
-import { ContentId, contentId, PackId, Slug } from './content-id';
+import { ContentId, contentId, EntrySlug, PackId } from './content-id';
 import { ContentPack, ContentPackSchema } from './content-pack';
 import { ContentRegistry } from './content-registry';
 import { RulesMessage } from './messages';
@@ -27,7 +27,7 @@ function issuesFrom(schema: z.ZodType, json: unknown): readonly FieldIssue[] {
 }
 
 const variant = {
-  slug: 'without-level',
+  slug: 'variant-rule:without-level',
   name: 'Without Level',
   sources: [{ kind: 'book', book: 'gm-core', page: 85 }],
   rules: [{ key: 'ProficiencyBonus', table: { ...PLAYER_CORE, trained: '2' } }],
@@ -122,7 +122,9 @@ describe('variant rules in packs', () => {
     );
     registry.register(homebrew);
     expect(registry.proficiencyBonus()).toStrictEqual(homebrew.proficiencyBonus);
-    const id = VariantRuleId.parse(contentId(PackId.parse('variant-test'), Slug.parse('without-level')));
+    const id = VariantRuleId.parse(
+      contentId(PackId.parse('variant-test'), EntrySlug.parse('variant-rule:without-level')),
+    );
     expect(registry.variantRule(id)?.definition.name).toBe(withVariant.variantRules[0]?.name);
     expect(registry.variantRules().map((entry) => ContentId.parse(entry.id))).toStrictEqual([ContentId.parse(id)]);
   });

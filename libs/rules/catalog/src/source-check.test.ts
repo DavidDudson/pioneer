@@ -1,13 +1,13 @@
 import { describe, expect, test } from 'bun:test';
 
 import {
+  contentId,
   ContentLicense,
   ContentPack,
-  contentId,
   contentPackFromFiles,
+  EntrySlug,
   PackId,
   RulesMessage,
-  Slug,
   SourceKind,
   SourceRef,
 } from '@pioneer/rules/sdk';
@@ -26,7 +26,7 @@ const AUTHOR = '00000000-0000-4000-8000-000000000002';
 function issuesCiting(...sources: readonly z.input<typeof SourceRef>[]): readonly FieldIssue[] {
   const entry: SourcedEntry = {
     pack: PackId.parse('homebrew'),
-    slug: Slug.parse('sanity'),
+    slug: EntrySlug.parse('statistic:sanity'),
     sources: sources.map((source) => SourceRef.parse(source)),
   };
   return sourceIssues(entry, bookRegistry);
@@ -64,7 +64,7 @@ describe('source checks', () => {
       {
         path: ['sources', 1, 'book'],
         message: message(RulesMessage.SourceUnknownBook, {
-          entry: 'homebrew/sanity',
+          entry: 'homebrew/statistic:sanity',
           index: 1,
           book: 'core-rulebook',
         }),
@@ -77,7 +77,7 @@ describe('source checks', () => {
       {
         path: ['sources', 0, 'pack'],
         message: message(RulesMessage.SourceHomebrewPack, {
-          entry: 'homebrew/sanity',
+          entry: 'homebrew/statistic:sanity',
           index: 0,
           pack: 'homebrew',
           sourcePack: 'someone-else',
@@ -98,7 +98,7 @@ describe('source checks', () => {
       .withStatistic('sanity', { sources: [homebrew('someone-else')] })
       .withStatistic('luck')
       .build();
-    expect(rejected(pack)).toStrictEqual(['homebrew/lizardfolk', 'homebrew/sanity']);
+    expect(rejected(pack)).toStrictEqual(['homebrew/ancestry:lizardfolk', 'homebrew/statistic:sanity']);
   });
 
   test('checks variant rules too', () => {
@@ -106,9 +106,9 @@ describe('source checks', () => {
       manifest: { id: 'homebrew', title: 'Homebrew', publisher: 'Tests', license: ContentLicense.Homebrew },
       ancestries: [],
       creatures: [],
-      variantRules: [{ slug: 'gritty', name: 'Gritty', sources: [book('core-rulebook')], rules: [] }],
+      variantRules: [{ slug: 'variant-rule:gritty', name: 'Gritty', sources: [book('core-rulebook')], rules: [] }],
     });
-    expect(rejected(pack)).toStrictEqual(['homebrew/gritty']);
+    expect(rejected(pack)).toStrictEqual(['homebrew/variant-rule:gritty']);
   });
 
   test('checks entries of kinds the registry does not hold yet', () => {
@@ -117,10 +117,10 @@ describe('source checks', () => {
       [
         [
           {
-            id: contentId(PackId.parse('homebrew'), Slug.parse('lizard')),
+            id: contentId(PackId.parse('homebrew'), EntrySlug.parse('language:lizard')),
             pack: 'homebrew',
             kind: 'language',
-            slug: 'lizard',
+            slug: 'language:lizard',
             name: 'Lizard',
             rarity: 'common',
             traits: [],
@@ -132,6 +132,6 @@ describe('source checks', () => {
         ],
       ],
     );
-    expect(rejected(pack)).toStrictEqual(['homebrew/lizard']);
+    expect(rejected(pack)).toStrictEqual(['homebrew/language:lizard']);
   });
 });

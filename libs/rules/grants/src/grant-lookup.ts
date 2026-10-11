@@ -1,4 +1,4 @@
-import { contentId, ContentId, ContentKind, RollOption } from '@pioneer/rules/sdk';
+import { contentId, ContentId, ContentKind, RollOption, slugName } from '@pioneer/rules/sdk';
 import type { ContentPack, ContentRegistry, PackAncestry } from '@pioneer/rules/sdk';
 
 import type { ContentLookup, GrantEntry } from './grant-entry';
@@ -12,7 +12,7 @@ function ancestryEntry(pack: ContentPack, ancestry: PackAncestry): GrantEntry | 
   return {
     id: ContentId.parse(contentId(pack.id, ancestry.slug)),
     kind: ContentKind.Ancestry,
-    slug: ancestry.slug,
+    slug: slugName(ancestry.slug),
     name: ancestry.name,
     rules: [],
     sources: [source, ...sources],

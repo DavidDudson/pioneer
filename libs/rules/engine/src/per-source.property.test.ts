@@ -35,7 +35,7 @@ const RANK_BONUS: Readonly<Record<Proficiency, number>> = {
 };
 
 const STRIKE = StatisticDefinition.parse({
-  slug: 'strike',
+  slug: 'statistic:strike',
   name: 'Strike',
   selector: 'strike',
   domains: ['attack-roll'],

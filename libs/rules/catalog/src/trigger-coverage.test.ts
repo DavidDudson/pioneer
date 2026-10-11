@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { ContentEntry, contentId, ContentKey, PackId, Slug } from '@pioneer/rules/sdk';
+import { ContentEntry, contentId, ContentKey, EntrySlug, PackId } from '@pioneer/rules/sdk';
 
 import { triggerCoverage } from './trigger-coverage';
 
@@ -8,12 +8,13 @@ const PACK = 'player-core';
 const prose = (words: string): unknown[] => [{ type: 'paragraph', content: [{ type: 'text', text: words }] }];
 
 /** A Player Core entry of `kind` with `data`. */
-function entry(slug: string, kind: string, data: object): ContentEntry {
+function entry(name: string, kind: string, data: object): ContentEntry {
+  const slug = `${kind}:${name}`;
   return ContentEntry.parse({
-    id: contentId(PackId.parse(PACK), Slug.parse(slug)),
+    id: contentId(PackId.parse(PACK), EntrySlug.parse(slug)),
     pack: PACK,
     slug,
-    name: slug,
+    name,
     rarity: 'common',
     traits: [],
     sources: [{ kind: 'book', book: 'player-core', page: 1 }],
@@ -41,7 +42,7 @@ describe('trigger coverage', () => {
 
     expect(triggerCoverage(entries)).toStrictEqual({
       triggered: 4,
-      withoutEvent: ['player-core/aid', 'player-core/swift'].map((key) => ContentKey.parse(key)),
+      withoutEvent: ['player-core/action:aid', 'player-core/feat:swift'].map((key) => ContentKey.parse(key)),
     });
   });
 

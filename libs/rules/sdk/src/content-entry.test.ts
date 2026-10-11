@@ -4,7 +4,7 @@ import { fieldIssues, message, ValidationMessage } from '@pioneer/shared/kernel'
 import type { FieldIssue } from '@pioneer/shared/kernel';
 
 import { ContentEntry } from './content-entry';
-import { contentId, PackId, Slug } from './content-id';
+import { contentId, EntrySlug, PackId } from './content-id';
 import { RulesMessage } from './messages';
 
 function issues(value: unknown): readonly FieldIssue[] {
@@ -13,17 +13,17 @@ function issues(value: unknown): readonly FieldIssue[] {
 }
 
 const PACK = 'player-core';
-const idOf = (slug: string): string => contentId(PackId.parse(PACK), Slug.parse(slug));
+const idOf = (slug: string): string => contentId(PackId.parse(PACK), EntrySlug.parse(slug));
 const playerCorePage = { kind: 'book', book: 'player-core', page: 42 };
 /** A free boost: any of the six. */
 const ALL_ATTRIBUTES = ['str', 'dex', 'con', 'int', 'wis', 'cha'];
 const description = [{ type: 'paragraph', content: [{ type: 'text', text: 'Short and adaptable.' }] }];
 
 const human = {
-  id: idOf('human'),
+  id: idOf('ancestry:human'),
   pack: PACK,
   kind: 'ancestry',
-  slug: 'human',
+  slug: 'ancestry:human',
   name: 'Human',
   rarity: 'common',
   traits: ['human', 'humanoid'],
@@ -36,17 +36,17 @@ const human = {
     speed: 25,
     boosts: [ALL_ATTRIBUTES, ALL_ATTRIBUTES],
     flaws: [],
-    languages: [idOf('common')],
+    languages: [idOf('language:common')],
     additionalLanguages: { count: 1, options: [] },
     reach: 5,
   },
 };
 
 const giantRat = {
-  id: contentId(PackId.parse('monster-core'), Slug.parse('giant-rat')),
+  id: contentId(PackId.parse('monster-core'), EntrySlug.parse('creature:giant-rat')),
   pack: 'monster-core',
   kind: 'creature',
-  slug: 'giant-rat',
+  slug: 'creature:giant-rat',
   name: 'Giant Rat',
   level: -1,
   rarity: 'common',
@@ -70,10 +70,10 @@ const giantRat = {
 };
 
 const fortitude = {
-  id: idOf('fortitude'),
+  id: idOf('statistic:fortitude'),
   pack: PACK,
   kind: 'statistic',
-  slug: 'fortitude',
+  slug: 'statistic:fortitude',
   name: 'Fortitude',
   rarity: 'common',
   traits: [],
@@ -110,10 +110,18 @@ describe('ContentEntry', () => {
   });
 
   test('rejects an id that is not derived from pack and slug', () => {
-    const expected = idOf('human');
+    const expected = idOf('ancestry:human');
 
-    expect(issues({ ...human, id: idOf('elf') })).toStrictEqual([
-      { path: ['id'], message: message(RulesMessage.EntryIdMismatch, { expected, key: 'player-core/human' }) },
+    expect(issues({ ...human, id: idOf('ancestry:elf') })).toStrictEqual([
+      { path: ['id'], message: message(RulesMessage.EntryIdMismatch, { expected, key: 'player-core/ancestry:human' }) },
+    ]);
+  });
+
+  test('rejects a slug naming another kind, saying the slug it should have', () => {
+    const misfiled = { ...human, slug: 'trait:human', id: idOf('trait:human') };
+
+    expect(issues(misfiled)).toStrictEqual([
+      { path: ['slug'], message: message(RulesMessage.EntrySlugKindMismatch, { expected: 'ancestry:human' }) },
     ]);
   });
 
@@ -179,7 +187,7 @@ describe('ContentEntry', () => {
   });
 
   test('never supersedes itself', () => {
-    expect(issues({ ...human, supersedes: [idOf('legacy-human'), human.id] })).toStrictEqual([
+    expect(issues({ ...human, supersedes: [idOf('ancestry:legacy-human'), human.id] })).toStrictEqual([
       { path: ['supersedes', 1], message: message(RulesMessage.EntrySupersedesSelf) },
     ]);
   });

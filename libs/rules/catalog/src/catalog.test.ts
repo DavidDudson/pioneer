@@ -5,12 +5,12 @@ import {
   contentId,
   ContentRegistry,
   CreatureId,
+  EntrySlug,
   HitPoints,
   Level,
-  PackId,
   packContentsFromFiles,
+  PackId,
   Selector,
-  Slug,
 } from '@pioneer/rules/sdk';
 
 import { checkedLoader, contentCatalog } from './index';
@@ -19,8 +19,8 @@ import { SourceCheckError } from './source-check';
 const coreRules = PackId.parse('core-rules');
 const playerCore = PackId.parse('player-core');
 const monsterCore = PackId.parse('monster-core');
-const humanId = AncestryId.parse(contentId(playerCore, Slug.parse('human')));
-const zombieId = CreatureId.parse(contentId(monsterCore, Slug.parse('zombie-shambler')));
+const humanId = AncestryId.parse(contentId(playerCore, EntrySlug.parse('ancestry:human')));
+const zombieId = CreatureId.parse(contentId(monsterCore, EntrySlug.parse('creature:zombie-shambler')));
 
 describe('content catalog', () => {
   test('every pack loads and validates', async () => {
@@ -37,7 +37,7 @@ describe('content catalog', () => {
 
   test('a pack that cites an unregistered book fails to load', async () => {
     const homebrew = PackId.parse('homebrew');
-    const slug = Slug.parse('iruxi');
+    const slug = EntrySlug.parse('language:iruxi');
     const language = {
       id: contentId(homebrew, slug),
       pack: homebrew,

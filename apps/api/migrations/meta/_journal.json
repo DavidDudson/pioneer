@@ -92,6 +92,13 @@
       "when": 1791680910679,
       "tag": "0012_character_document",
       "breakpoints": true
+    },
+    {
+      "idx": 13,
+      "version": "7",
+      "when": 1791688570622,
+      "tag": "0013_kind_prefixed_slugs",
+      "breakpoints": true
     }
   ]
 }

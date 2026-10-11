@@ -10,10 +10,10 @@ Every entry, of every kind, shares one envelope. Kind-specific data hangs off it
 
 ```ts
 interface ContentEntry<K extends ContentKind> {
-  id: ContentId; // UUIDv5 of `<pack>/<slug>` (existing scheme, unchanged)
+  id: ContentId; // UUIDv5 of `<pack>/<slug>`
   pack: PackId;
   kind: K;
-  slug: Slug; // permanent once published
+  slug: EntrySlug; // `<kind>:<name>` (`ancestry:human`), permanent once published (ADR-0034)
   name: string;
   level?: number; // 0 to 30; a creature always has one, from -1 to 25
   rarity: 'common' | 'uncommon' | 'rare' | 'unique';
@@ -30,11 +30,11 @@ interface ContentEntry<K extends ContentKind> {
 
 `ContentEntry` in `libs/rules/sdk` (`content-entry.ts`) is this envelope as a zod schema. `kind` picks the `data`
 schema from a kind registry (`KIND_DATA`, `kind-data.ts`); a kind with no schema yet is an error naming it. On top
-of the field schemas it checks that `id` is UUIDv5 of `<pack>/<slug>`, that there is at least one source, that
-traits are unique, and that `supersedes` never holds the entry's own id. The rules playground's "Content entry"
-mode loads an example per registered kind. Packs are stored as entries (see "Packs and storage"); until the
-registry serves entries directly, `contentPackFromFiles` (`content-pack-file.ts`) turns them into the definitions it
-holds today and wraps each in `PackEntry`.
+of the field schemas it checks that `id` is UUIDv5 of `<pack>/<slug>`, that the slug names the entry's `kind`,
+that there is at least one source, that traits are unique, and that `supersedes` never holds the entry's own id.
+The rules playground's "Content entry" mode loads an example per registered kind. Packs are stored as entries (see
+"Packs and storage"); until the registry serves entries directly, `contentPackFromFiles` (`content-pack-file.ts`)
+turns them into the definitions it holds today and wraps each in `PackEntry`.
 
 ### Kinds
 
@@ -369,9 +369,8 @@ and homebrew cannot use that path. A pack directory holds:
 The hand-authored packs (`core-rules`, and the `player-core` and `monster-core` entries transcribed before the
 importer exists) live there too. `libs/rules/catalog` loads them lazily and checks every entry against its schema
 and the book registry, so a malformed or wrongly sourced entry fails `bun run affected`. Ids are stored on
-characters, so changing an entry's slug is a data migration; a catalog test pins every id that exists. The id
-ignores the kind, so a slug is unique across every kind in its pack: rules core kinds (languages, senses) live in
-`core-rules`, where they cannot collide with an ancestry such as `goblin`.
+characters, so changing an entry's slug, its kind included, is a data migration; a catalog test pins every id that
+exists. The slug names its kind (ADR-0034), so only two entries of one kind and name in a pack collide.
 
 ### Delivery to the browser
 
@@ -536,6 +535,31 @@ flowchart LR
     show: the target's name, the statistic's words, the area (`10-foot square`) or the formula. Only `@Embed` and
     `@Localize` without a label are dropped. Parameters that only change how Foundry shows a roll (`showDC`, `name`,
     `immutable`, `targetOwner`, `shortLabel`) are ignored.
+- **Kind data.** Every Foundry type is filed under a kind (`FOUNDRY_TYPE_KINDS`); kind data is built for the types with
+  a translator (`TRANSLATORS`), so far `action` and `condition`; the other kinds' stories add theirs. An action's cost
+  comes from `actionType` and `actions`, its frequency period from Foundry's words or ISO 8601 durations (`PT1H` is
+  `hour`), and its `trigger` and `requirements` from the description's labelled paragraphs when they are plain words. A
+  condition's `implies` is its unpredicated `GrantItem`s of conditions, so it lists exactly what its rules grant; its
+  duration, active and removable flags are instance state and Foundry's back links are derived, so neither is carried. A
+  set `system` field with no place in the schema, a value with no mapping, usage text with links or enrichers, a
+  reference to nothing selected, and data the kind's schema rejects are reported against the entry, never guessed.
+- **References.** Foundry links an item by compendium UUID ending in its id or its name
+  (`Compendium.pf2e.conditionitems.Item.Off-Guard`), and a condition names what it overrides by slug. Both resolve
+  to the selected documents' ids. A `GrantItem`'s `uuid` becomes its `item`, and Foundry's `inMemoryOnly` and
+  `onDeleteActions` are dropped when the grant goes with its granter (`granter: cascade`, Foundry's default for an item
+  that is not physical), since a grant is always derived. One that resolves to nothing, whose grantee outlives its
+  granter (`detach`, the default for a physical item), or whose grantee takes its granter with it, stays untranslated.
+- **Vocabulary.** Traits, languages, senses and damage types are not pack documents: Foundry defines them in config
+  modules (`src/scripts/config/traits.ts`, `src/module/actor/creature/values.ts`, `src/module/system/damage/values.ts`),
+  which build their tables with spreads and remeda. The CLI runs them with Bun from the verified archive, standing in
+  for remeda and Foundry's build-time `SYSTEM_ID`. Only what the selected documents use is imported: their traits,
+  ancestry languages, ancestry and heritage vision and `Sense` elements, and every Foundry damage type that is a
+  Pioneer `DamageType`. Names come from `lang/en.json`; each cites the book of the first document using it (damage
+  types, the first target book). Vocabulary entries go into `core-rules`, beside the hand-authored rules core entries,
+  slugged by kind like every entry (`trait:goblin`, `language:goblin`). One another official pack already has of the
+  kind and name (the hand-authored languages and senses, or an earlier run's) is left to that entry. Secret
+  languages (Wildsong) have no Pioneer rarity and `untyped` damage no `DamageType`; both are reported. Pack output
+  (#400) writes the new entries beside, never into, the hand-authored `core-rules` files ([ADR-0033](../adr/0033-foundry-vocabularies-imported-into-core-rules.md)).
 - **Later translators.** A translator that lands after its pack is imported is applied to the backlog: a command,
   built by Epic 2.6 (#21), translates the items it now covers into the committed entries and removes them from the
   backlog, keeping hand edits.
@@ -548,11 +572,10 @@ flowchart LR
   the backlog, entries with page numbers, entries with AoN URLs, and actions with a `trigger` but no `triggerEvent`.
   CI reports it on PRs touching `content/` and never fails on it. Milestone exit criteria are written against these numbers.
 - **Ids.** Our ids stay UUIDv5 of `<pack>/<slug>`. The Foundry compendium UUID goes in `externalIds.foundry`,
-  which is what makes Foundry export possible. The slug is Foundry's (`system.slug`, else its slugified name) with
-  diacritics folded (`deja-vu`), since Pioneer slugs are ASCII. Foundry slugs are unique per compendium, not per
-  book, so documents of different types can share one (the Fly spell and action): the type first in the
-  importer's precedence (actions, conditions, feats, spells, then the rest) keeps the slug and each other gets its
-  Foundry type as a suffix (`fly-spell`). Two documents of one type with one slug are reported, not guessed.
+  which is what makes Foundry export possible. The slug is the kind its Foundry type is filed under
+  (`FOUNDRY_TYPE_KINDS`), then Foundry's slug (`system.slug`, else its slugified name) with diacritics folded
+  (`feat:deja-vu`), since Pioneer slugs are ASCII ([ADR-0034](../adr/0034-entry-slugs-name-their-kind.md)). The Fly
+  spell and action are `spell:fly` and `action:fly`. Two documents of one kind and name are reported, not guessed.
 - **Sources.** Each envelope cites its target book with no page or AoN link (`UnlocatedBookSource`), which
   `SourceRef` does not accept yet (ADR-0005); pack output (#400) decides how that is resolved.
 - **Source enrichment.** Foundry has the book title but no page numbers or AoN links. They are added to the

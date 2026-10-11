@@ -6,6 +6,8 @@ import type { Arbitrary } from 'fast-check';
 import * as z from 'zod';
 
 import { ContentEntry } from './content-entry';
+import { contentId, EntrySlug, PackId } from './content-id';
+import { ContentKind } from './content-kind';
 import { REGISTERED_KINDS } from './kind-data';
 import type { RegisteredKind } from './kind-data';
 import { RulesMessage } from './messages';
@@ -30,10 +32,28 @@ describe('content entries (properties)', () => {
     assert(
       property(renames(kind), ([json, slug]) => {
         const original: unknown = Reflect.get(json, 'slug');
-        const renamed = { ...json, slug: slug === original ? `${slug}-renamed` : slug };
+        const candidate = `${kind}:${slug}`;
+        const renamed = { ...json, slug: candidate === original ? `${candidate}-renamed` : candidate };
         const rejected = fieldIssues(ContentEntry.safeParse(renamed).error?.issues ?? []);
         expect(rejected.map((issue) => [issue.path, issue.message.key])).toStrictEqual([
           [['id'], RulesMessage.EntryIdMismatch],
+        ]);
+      }),
+    );
+  });
+});
+
+describe('content entry slugs (properties)', () => {
+  test.each([...REGISTERED_KINDS])('a %s entry whose slug names another kind is rejected', (kind) => {
+    const other = kind === ContentKind.Trait ? ContentKind.Language : ContentKind.Trait;
+    assert(
+      property(contentEntryJson(kind), (json) => {
+        const name = String(Reflect.get(json, 'slug')).split(':')[1] ?? '';
+        const slug = EntrySlug.parse(`${other}:${name}`);
+        const id = contentId(PackId.parse(Reflect.get(json, 'pack')), slug);
+        const rejected = fieldIssues(ContentEntry.safeParse({ ...json, slug, id }).error?.issues ?? []);
+        expect(rejected.map((issue) => [issue.path, issue.message.key])).toStrictEqual([
+          [['slug'], RulesMessage.EntrySlugKindMismatch],
         ]);
       }),
     );

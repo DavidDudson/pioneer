@@ -10,7 +10,7 @@ import { StatisticData, StatisticDefinition, StatisticKind, StatisticPer } from 
 import { ContentPackBuilder } from './testing';
 
 const armorClass = {
-  slug: 'armor-class',
+  slug: 'statistic:armor-class',
   name: 'Armor Class',
   selector: 'ac',
   domains: ['dex-based'],
@@ -140,7 +140,7 @@ describe('statistics in a pack', () => {
       creatures: [],
       statistics: [
         { ...armorClass, sources },
-        { ...armorClass, slug: 'other-armor-class', sources },
+        { ...armorClass, slug: 'statistic:other-armor-class', sources },
       ],
     };
     expect(issuesFrom(ContentPackSchema, pack)).toStrictEqual([
@@ -153,7 +153,10 @@ describe('statistics in a pack', () => {
       manifest: { id: 'test-pack', title: 'Test', publisher: 'Tests', license: 'homebrew' },
       ancestries: [],
       creatures: [],
-      statistics: [armorClass, { ...armorClass, slug: 'other-armor-class', selector: 'other-ac', sources: [] }],
+      statistics: [
+        armorClass,
+        { ...armorClass, slug: 'statistic:other-armor-class', selector: 'other-ac', sources: [] },
+      ],
     };
     expect(issuesFrom(ContentPackSchema, pack)).toStrictEqual([
       { path: ['statistics', 0, 'sources'], message: message(ValidationMessage.InvalidType, { expected: 'array' }) },

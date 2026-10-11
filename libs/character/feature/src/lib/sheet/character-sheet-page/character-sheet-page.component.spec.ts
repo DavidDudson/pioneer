@@ -5,7 +5,7 @@ import { provideRouter, withComponentInputBinding } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
 import { CharacterId } from '@pioneer/character/domain';
 import { frontierMessages } from '@pioneer/frontier';
-import { contentId, PackId, Slug } from '@pioneer/rules/sdk';
+import { contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import { provideI18n } from '@pioneer/shared/web';
 import { describe, expect, it, onTestFinished, vi } from 'vitest';
 
@@ -14,14 +14,14 @@ import { provideServerStateTesting } from '../../testing/provide-server-state-te
 
 const id = CharacterId.parse('0d9f7c1e-3b7a-4c55-9d1f-2a8f2b9c6e10');
 
-const HUMAN = contentId(PackId.parse('player-core'), Slug.parse('human'));
+const HUMAN = contentId(PackId.parse('player-core'), EntrySlug.parse('ancestry:human'));
 
 const MERISIEL = {
   id,
   version: 1,
   ownerId: '8f6d2c1a-0b3e-4f5a-9c7d-1e2f3a4b5c6d',
   name: 'Merisiel',
-  build: { choices: { ancestry: contentId(PackId.parse('player-core'), Slug.parse('elf')) } },
+  build: { choices: { ancestry: contentId(PackId.parse('player-core'), EntrySlug.parse('ancestry:elf')) } },
   level: 1,
   attributes: { str: 0, dex: 4, con: 1, int: 0, wis: 0, cha: 1 },
   createdAt: '2026-10-07T10:00:00.000Z',

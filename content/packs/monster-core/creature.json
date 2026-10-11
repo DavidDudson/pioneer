@@ -1,9 +1,9 @@
 [
   {
-    "id": "8302a500-eb59-5cf8-812d-5c742447e1ae",
+    "id": "3ae2bd31-47ee-52f1-ba35-f3d2e23db3c9",
     "pack": "monster-core",
     "kind": "creature",
-    "slug": "zombie-shambler",
+    "slug": "creature:zombie-shambler",
     "name": "Zombie Shambler",
     "level": -1,
     "rarity": "common",

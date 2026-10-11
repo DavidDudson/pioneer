@@ -14,7 +14,7 @@ import type { StatisticResult } from './statistic-result';
 
 function statistic(selector: string, base: string): StatisticDefinition {
   return StatisticDefinition.parse({
-    slug: selector.replaceAll(':', '-'),
+    slug: `statistic:${selector.replaceAll(':', '-')}`,
     name: selector,
     selector,
     domains: [],

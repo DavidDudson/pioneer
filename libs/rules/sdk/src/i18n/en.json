@@ -57,6 +57,7 @@
     "entry": {
       "unknownKind": "“{kind}” is not a content kind Pioneer has a schema for yet.",
       "idMismatch": "The id must be the one derived from {key}: {expected}.",
+      "slugKindMismatch": "The slug must name the entry's kind first, as in {expected}.",
       "duplicateTrait": "The trait {trait} is listed more than once.",
       "supersedesSelf": "An entry cannot supersede itself."
     },

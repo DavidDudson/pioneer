@@ -39,10 +39,10 @@ export class ContentPackBuilder {
     return this;
   }
 
-  public withAncestry(slug: string, overrides: Partial<Sourceable<typeof AncestryDefinition>> = {}): this {
+  public withAncestry(name: string, overrides: Partial<Sourceable<typeof AncestryDefinition>> = {}): this {
     this.#ancestries.push({
-      slug,
-      name: slug.charAt(0).toUpperCase() + slug.slice(1),
+      slug: `ancestry:${name}`,
+      name: name.charAt(0).toUpperCase() + name.slice(1),
       hitPoints: 8,
       size: Size.Medium,
       speed: 25,
@@ -57,12 +57,12 @@ export class ContentPackBuilder {
     return this;
   }
 
-  /** A check whose selector is its slug, with a base formula of `0` unless overridden. */
-  public withStatistic(slug: string, overrides: Partial<Sourceable<typeof StatisticDefinition>> = {}): this {
+  /** A check whose selector is its name, with a base formula of `0` unless overridden. */
+  public withStatistic(name: string, overrides: Partial<Sourceable<typeof StatisticDefinition>> = {}): this {
     this.#statistics.push({
-      slug,
-      name: slug.charAt(0).toUpperCase() + slug.slice(1),
-      selector: slug,
+      slug: `statistic:${name}`,
+      name: name.charAt(0).toUpperCase() + name.slice(1),
+      selector: name,
       domains: [],
       base: '0',
       kind: StatisticKind.Check,

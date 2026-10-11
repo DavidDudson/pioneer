@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { contentId, PackId, packContentsFromFiles, Slug } from '@pioneer/rules/sdk';
+import { contentId, EntrySlug, packContentsFromFiles, PackId } from '@pioneer/rules/sdk';
 import type { PackContents } from '@pioneer/rules/sdk';
 
 import { contentHash } from './content-hash';
@@ -12,10 +12,10 @@ const packFile = { id: PACK, title: 'Core Rules', publisher: 'Paizo Inc.', licen
 
 function language(slug: string, name: string): object {
   return {
-    id: contentId(PACK, Slug.parse(slug)),
+    id: contentId(PACK, EntrySlug.parse(`language:${slug}`)),
     pack: PACK,
     kind: 'language',
-    slug,
+    slug: `language:${slug}`,
     name,
     rarity: 'common',
     traits: [],

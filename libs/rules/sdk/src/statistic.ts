@@ -4,7 +4,7 @@ import { issueParams, message, Uuid } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { AttributeSchema } from './attribute';
-import { Slug } from './content-id';
+import { EntrySlug } from './content-id';
 import { ContentText } from './content-text';
 import { ReferenceScope } from './formula-reference';
 import { scopeProblems, StatisticFormulaSource } from './formula-source';
@@ -47,7 +47,7 @@ export const SOURCE_SLUG_MAX = 64;
 const FAMILY_SELECTOR_MAX = 63;
 
 const statisticFields = {
-  slug: Slug,
+  slug: EntrySlug,
   name: ContentText,
   /**
    * The stable key modifiers and references use (`ac`, `save:fortitude`); unique within a pack. A statistic derived

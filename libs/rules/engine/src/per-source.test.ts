@@ -24,7 +24,15 @@ interface Family {
 
 /** A family derived per source: a check with no domains unless given. */
 function family({ selector, per, base, domains = [], kind = StatisticKind.Check }: Family): StatisticDefinition {
-  return StatisticDefinition.parse({ slug: selector, name: selector, selector, domains, base, kind, per });
+  return StatisticDefinition.parse({
+    slug: `statistic:${selector}`,
+    name: selector,
+    selector,
+    domains,
+    base,
+    kind,
+    per,
+  });
 }
 
 const STRIKE = family({

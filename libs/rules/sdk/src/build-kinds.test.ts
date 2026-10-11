@@ -4,7 +4,7 @@ import { fieldIssues, message, ValidationMessage } from '@pioneer/shared/kernel'
 import type { FieldIssue } from '@pioneer/shared/kernel';
 
 import { ContentEntry } from './content-entry';
-import { contentId, PackId, Slug } from './content-id';
+import { contentId, EntrySlug, PackId } from './content-id';
 import { RulesMessage } from './messages';
 
 function issues(value: unknown): readonly FieldIssue[] {
@@ -20,7 +20,7 @@ function found(value: unknown): readonly string[] {
 }
 
 const PACK = 'player-core';
-const idOf = (slug: string): string => contentId(PackId.parse(PACK), Slug.parse(slug));
+const idOf = (slug: string): string => contentId(PackId.parse(PACK), EntrySlug.parse(slug));
 const prose = (text: string): unknown[] => [{ type: 'paragraph', content: [{ type: 'text', text }] }];
 
 /** The envelope of a Player Core entry, without its kind and data. */
@@ -41,7 +41,7 @@ function entry(slug: string, name: string): object {
 const FREE = ['str', 'dex', 'con', 'int', 'wis', 'cha'];
 
 const elf = {
-  ...entry('elf', 'Elf'),
+  ...entry('ancestry:elf', 'Elf'),
   kind: 'ancestry',
   traits: ['elf', 'humanoid'],
   data: {
@@ -50,23 +50,27 @@ const elf = {
     speed: 30,
     boosts: [['dex'], ['int'], FREE],
     flaws: ['con'],
-    languages: [idOf('common'), idOf('elven')],
-    additionalLanguages: { count: 1, options: [idOf('draconic'), idOf('gnomish')] },
-    vision: idOf('low-light-vision'),
+    languages: [idOf('language:common'), idOf('language:elven')],
+    additionalLanguages: { count: 1, options: [idOf('language:draconic'), idOf('language:gnomish')] },
+    vision: idOf('sense:low-light-vision'),
     reach: 5,
   },
 };
 
-const ancientElf = { ...entry('ancient-elf', 'Ancient Elf'), kind: 'heritage', data: { ancestry: idOf('elf') } };
-const changeling = { ...entry('changeling', 'Changeling'), kind: 'heritage', data: {} };
+const ancientElf = {
+  ...entry('heritage:ancient-elf', 'Ancient Elf'),
+  kind: 'heritage',
+  data: { ancestry: idOf('ancestry:elf') },
+};
+const changeling = { ...entry('heritage:changeling', 'Changeling'), kind: 'heritage', data: {} };
 
 const farmhand = {
-  ...entry('farmhand', 'Farmhand'),
+  ...entry('background:farmhand', 'Farmhand'),
   kind: 'background',
   rules: [
     { key: 'Proficiency', selector: 'skill:athletics', rank: 'trained' },
     { key: 'Proficiency', selector: 'skill:lore-farming', rank: 'trained' },
-    { key: 'GrantItem', item: idOf('assurance') },
+    { key: 'GrantItem', item: idOf('feat:assurance') },
   ],
   data: { boosts: [['con', 'wis'], FREE] },
 };
@@ -79,29 +83,29 @@ const classFeats = (level: number): object => ({
 });
 
 const fighter = {
-  ...entry('fighter', 'Fighter'),
+  ...entry('class:fighter', 'Fighter'),
   kind: 'class',
   rules: [
     { key: 'Proficiency', selector: 'perception', rank: 'expert' },
     { key: 'Proficiency', selector: 'save:fortitude', rank: 'expert' },
-    { key: 'GrantItem', item: idOf('reactive-strike') },
+    { key: 'GrantItem', item: idOf('class-feature:reactive-strike') },
     classFeats(1),
     classFeats(2),
-    { key: 'GrantItem', item: idOf('bravery'), predicate: [{ gte: ['self:level', 3] }] },
+    { key: 'GrantItem', item: idOf('class-feature:bravery'), predicate: [{ gte: ['self:level', 3] }] },
   ],
   data: { keyAttribute: ['str', 'dex'], hitPoints: 10, additionalSkills: 3 },
 };
 
 const reactiveStrike = {
-  ...entry('reactive-strike', 'Reactive Strike'),
+  ...entry('class-feature:reactive-strike', 'Reactive Strike'),
   kind: 'class-feature',
   level: 1,
-  rules: [{ key: 'GrantItem', item: idOf('reactive-strike-action') }],
+  rules: [{ key: 'GrantItem', item: idOf('action:reactive-strike') }],
   data: {},
 };
 
 const suddenCharge = {
-  ...entry('sudden-charge', 'Sudden Charge'),
+  ...entry('feat:sudden-charge', 'Sudden Charge'),
   kind: 'feat',
   level: 1,
   traits: ['fighter', 'flourish', 'open'],
@@ -109,7 +113,7 @@ const suddenCharge = {
 };
 
 const additionalLore = {
-  ...entry('additional-lore', 'Additional Lore'),
+  ...entry('feat:additional-lore', 'Additional Lore'),
   kind: 'feat',
   level: 1,
   traits: ['general', 'skill'],
@@ -118,13 +122,13 @@ const additionalLore = {
 };
 
 const fighterArchetype = {
-  ...entry('fighter-archetype', 'Fighter'),
+  ...entry('archetype:fighter-archetype', 'Fighter'),
   kind: 'archetype',
-  data: { dedication: idOf('fighter-dedication'), multiclass: idOf('fighter') },
+  data: { dedication: idOf('feat:fighter-dedication'), multiclass: idOf('class:fighter') },
 };
 
 const pharasma = {
-  ...entry('pharasma', 'Pharasma'),
+  ...entry('deity:pharasma', 'Pharasma'),
   kind: 'deity',
   data: {
     category: 'deity',
@@ -134,9 +138,9 @@ const pharasma = {
     skills: ['skill:medicine'],
     weapons: ['dagger'],
     spells: [
-      { rank: 1, spell: idOf('mindlink') },
-      { rank: 3, spell: idOf('ghostly-weapon') },
-      { rank: 4, spell: idOf('vision-of-death') },
+      { rank: 1, spell: idOf('spell:mindlink') },
+      { rank: 3, spell: idOf('spell:ghostly-weapon') },
+      { rank: 4, spell: idOf('spell:vision-of-death') },
     ],
   },
 };
@@ -171,7 +175,7 @@ describe('build kinds', () => {
   });
 
   test('lists name each language and attribute once', () => {
-    const common = idOf('common');
+    const common = idOf('language:common');
     const repeated = { ...elf, data: { ...elf.data, flaws: ['con', 'con'], languages: [common, common] } };
 
     expect(found(repeated)).toStrictEqual([
@@ -210,7 +214,7 @@ describe('build kinds', () => {
   test('a deity grants one spell per rank', () => {
     const twice = {
       ...pharasma,
-      data: { ...pharasma.data, spells: [...pharasma.data.spells, { rank: 1, spell: idOf('spirit-link') }] },
+      data: { ...pharasma.data, spells: [...pharasma.data.spells, { rank: 1, spell: idOf('spell:spirit-link') }] },
     };
 
     expect(issues(twice)).toStrictEqual([
@@ -226,7 +230,7 @@ describe('build kinds', () => {
         category: 'demigod',
         font: ['heal', 'heal'],
         sanctification: { modal: 'may', what: [] },
-        spells: [{ rank: 11, spell: idOf('heal') }],
+        spells: [{ rank: 11, spell: idOf('spell:heal') }],
       },
     };
 

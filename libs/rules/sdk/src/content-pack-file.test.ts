@@ -1,11 +1,11 @@
 import { describe, expect, test } from 'bun:test';
 
-import { contentId, PackId, Slug } from './content-id';
+import { contentId, EntrySlug, PackId } from './content-id';
 import { contentPackFromFiles } from './content-pack-file';
 import { ProficiencyBonusTable } from './proficiency';
 
 const PACK = 'homebrew';
-const idOf = (slug: string, pack: string = PACK): string => contentId(PackId.parse(pack), Slug.parse(slug));
+const idOf = (slug: string, pack: string = PACK): string => contentId(PackId.parse(pack), EntrySlug.parse(slug));
 const page = [{ kind: 'book', book: 'player-core', page: 1 }];
 const packFile = { id: PACK, title: 'Homebrew', publisher: 'Someone', license: 'homebrew' };
 
@@ -21,7 +21,7 @@ function entry({ kind, slug, data }: EntryFields, extra: object = {}): object {
     pack: PACK,
     kind,
     slug,
-    name: slug,
+    name: slug.split(':')[1],
     rarity: 'common',
     traits: [],
     sources: page,
@@ -35,14 +35,14 @@ function entry({ kind, slug, data }: EntryFields, extra: object = {}): object {
 const ancestry = entry(
   {
     kind: 'ancestry',
-    slug: 'lizardfolk',
+    slug: 'ancestry:lizardfolk',
     data: {
       hitPoints: 8,
       size: 'medium',
       speed: 25,
       boosts: [['str'], ['wis']],
       flaws: ['int'],
-      languages: [idOf('common')],
+      languages: [idOf('language:common')],
       additionalLanguages: { count: 0, options: [] },
       reach: 5,
     },
@@ -52,7 +52,7 @@ const ancestry = entry(
 const creature = entry(
   {
     kind: 'creature',
-    slug: 'mud-crab',
+    slug: 'creature:mud-crab',
     data: {
       size: 'small',
       perception: 3,
@@ -70,7 +70,7 @@ const creature = entry(
 );
 const statistic = entry({
   kind: 'statistic',
-  slug: 'swim-check',
+  slug: 'statistic:swim-check',
   data: {
     selector: 'skill:athletics',
     domains: ['check'],
@@ -80,7 +80,7 @@ const statistic = entry({
   },
 });
 const variantRule = entry(
-  { kind: 'variant-rule', slug: 'flat-bonus', data: {} },
+  { kind: 'variant-rule', slug: 'variant-rule:flat-bonus', data: {} },
   {
     rules: [
       {
@@ -90,19 +90,29 @@ const variantRule = entry(
     ],
   },
 );
-const language = entry({ kind: 'language', slug: 'common', data: {} });
+const language = entry({ kind: 'language', slug: 'language:common', data: {} });
 
 describe('contentPackFromFiles', () => {
   test('each kind the registry serves becomes its definition, with the envelope fields', () => {
     const pack = contentPackFromFiles(packFile, [[ancestry, language], [creature], [statistic, variantRule]]);
     expect(pack.id).toBe(PackId.parse(PACK));
     expect(pack.ancestries).toMatchObject([
-      { slug: 'lizardfolk', name: 'lizardfolk', traits: ['humanoid', 'lizardfolk'], hitPoints: 8, sources: page },
+      {
+        slug: 'ancestry:lizardfolk',
+        name: 'lizardfolk',
+        traits: ['humanoid', 'lizardfolk'],
+        hitPoints: 8,
+        sources: page,
+      },
     ]);
-    expect(pack.creatures).toMatchObject([{ slug: 'mud-crab', level: 1, traits: ['animal'], armorClass: 16 }]);
-    expect(pack.statistics).toMatchObject([{ slug: 'swim-check', selector: 'skill:athletics', sources: page }]);
-    expect(pack.variantRules).toMatchObject([{ slug: 'flat-bonus', rules: [{ key: 'ProficiencyBonus' }] }]);
-    expect(pack.otherEntries).toMatchObject([{ kind: 'language', slug: 'common' }]);
+    expect(pack.creatures).toMatchObject([{ slug: 'creature:mud-crab', level: 1, traits: ['animal'], armorClass: 16 }]);
+    expect(pack.statistics).toMatchObject([
+      { slug: 'statistic:swim-check', selector: 'skill:athletics', sources: page },
+    ]);
+    expect(pack.variantRules).toMatchObject([
+      { slug: 'variant-rule:flat-bonus', rules: [{ key: 'ProficiencyBonus' }] },
+    ]);
+    expect(pack.otherEntries).toMatchObject([{ kind: 'language', slug: 'language:common' }]);
   });
 
   test('the proficiency bonus table comes from pack.json', () => {
@@ -112,8 +122,10 @@ describe('contentPackFromFiles', () => {
   });
 
   test('an entry filed under another pack is refused', () => {
-    const stray = { ...language, id: idOf('common', 'player-core'), pack: 'player-core' };
-    expect(() => contentPackFromFiles(packFile, [[stray]])).toThrow('Entry "player-core/common" is filed under pack');
+    const stray = { ...language, id: idOf('language:common', 'player-core'), pack: 'player-core' };
+    expect(() => contentPackFromFiles(packFile, [[stray]])).toThrow(
+      'Entry "player-core/language:common" is filed under pack',
+    );
   });
 
   test('an invalid entry or pack.json fails to parse', () => {
@@ -121,11 +133,11 @@ describe('contentPackFromFiles', () => {
     expect(() => contentPackFromFiles({ ...packFile, extra: true }, [])).toThrow();
   });
 
-  test('two entries with one slug are refused, whatever their kinds', () => {
-    expect(() => contentPackFromFiles(packFile, [[ancestry], [ancestry]])).toThrow('Slug "lizardfolk" is used twice');
-    const lizardfolkLanguage = entry({ kind: 'language', slug: 'lizardfolk', data: {} });
-    expect(() => contentPackFromFiles(packFile, [[ancestry], [lizardfolkLanguage]])).toThrow(
-      'Slug "lizardfolk" is used twice in pack "homebrew"',
+  test('two entries with one slug are refused; one name in two kinds is two slugs', () => {
+    expect(() => contentPackFromFiles(packFile, [[ancestry], [ancestry]])).toThrow(
+      'Slug "ancestry:lizardfolk" is used twice',
     );
+    const lizardfolkLanguage = entry({ kind: 'language', slug: 'language:lizardfolk', data: {} });
+    expect(contentPackFromFiles(packFile, [[ancestry], [lizardfolkLanguage]]).ancestries).toHaveLength(1);
   });
 });

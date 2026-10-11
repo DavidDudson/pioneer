@@ -1,9 +1,11 @@
-import type { BookId } from '@pioneer/rules/sdk';
+import { ContentKindSchema } from '@pioneer/rules/sdk';
+import type { BookId, ContentKind } from '@pioneer/rules/sdk';
 
 import type { FoundryItemType } from './foundry-document';
 import type { Selection, SkipReason } from './select-entries';
 import { SkipReason as Reason } from './select-entries';
 import type { EnvelopeTranslation } from './translate-envelope';
+import type { ImportTranslation } from './translate-import';
 
 /** What an import would bring in, by Foundry type and book, and what it would leave out, by reason. */
 
@@ -97,5 +99,38 @@ export function translationReport({
     unknownTraits: keyCounts(unknownTraits.map(({ trait }) => trait)),
     unknownMarkup: keyCounts(unknownMarkup.map(({ markup }) => markup)),
     untranslatedEnrichers: keyCounts(untranslatedEnrichers.map(({ enricher }) => enricher)),
+  };
+}
+
+export interface KindCount {
+  readonly kind: ContentKind;
+  readonly count: number;
+}
+
+/** What building kind data and vocabulary entries brought in and left over, each list most frequent first. */
+export interface KindDataReport {
+  readonly kindData: readonly KindCount[];
+  readonly vocabulary: readonly KindCount[];
+  /** By reason and field (`unmapped-field deathNote`). */
+  readonly kindDataGaps: readonly KeyCount[];
+  /** By kind and reason (`language unmapped-value`). */
+  readonly vocabularyGaps: readonly KeyCount[];
+}
+
+function kindCounts(kinds: readonly ContentKind[]): readonly KindCount[] {
+  return keyCounts(kinds).map(({ key, count }) => ({ kind: ContentKindSchema.parse(key), count }));
+}
+
+export function kindDataReport({
+  entries,
+  vocabulary,
+  kindDataGaps,
+  vocabularyGaps,
+}: ImportTranslation): KindDataReport {
+  return {
+    kindData: kindCounts(entries.flatMap(({ kindData }) => (kindData === undefined ? [] : [kindData.kind]))),
+    vocabulary: kindCounts(vocabulary.map(({ kindData }) => kindData.kind)),
+    kindDataGaps: keyCounts(kindDataGaps.map(({ reason, field }) => `${reason} ${field}`)),
+    vocabularyGaps: keyCounts(vocabularyGaps.map(({ kind, reason }) => `${kind} ${reason}`)),
   };
 }

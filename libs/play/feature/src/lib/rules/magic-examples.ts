@@ -1,4 +1,4 @@
-import { ContentKind, contentId, PackId, Slug } from '@pioneer/rules/sdk';
+import { contentId, ContentKind, EntrySlug, PackId } from '@pioneer/rules/sdk';
 
 const PLAYER_CORE = PackId.parse('player-core');
 
@@ -10,7 +10,7 @@ const paragraph = (text: string): unknown => ({ type: 'paragraph', content: [{ t
 /** The envelope fields every Player Core example shares. */
 function playerCore(slug: string, name: string, description: string): object {
   return {
-    id: contentId(PLAYER_CORE, Slug.parse(slug)),
+    id: contentId(PLAYER_CORE, EntrySlug.parse(slug)),
     pack: PLAYER_CORE,
     slug,
     name,
@@ -33,7 +33,7 @@ const HEROISM_LEVEL = 3;
 const HEROISM_MINUTES = 10;
 
 export const fireball = {
-  ...playerCore('fireball', 'Fireball', 'A roaring blast of fire detonates at a spot you designate.'),
+  ...playerCore('spell:fireball', 'Fireball', 'A roaring blast of fire detonates at a spot you designate.'),
   kind: ContentKind.Spell,
   traits: ['concentrate', 'fire', 'manipulate'],
   rules: [],
@@ -50,7 +50,7 @@ export const fireball = {
 };
 
 export const consecrate = {
-  ...playerCore('consecrate', 'Consecrate', 'You enshrine an area as a holy or unholy site.'),
+  ...playerCore('ritual:consecrate', 'Consecrate', 'You enshrine an area as a holy or unholy site.'),
   kind: ContentKind.Ritual,
   rarity: 'uncommon',
   traits: ['consecration'],
@@ -71,14 +71,18 @@ export const consecrate = {
 };
 
 export const arcane = {
-  ...playerCore('arcane', 'Arcane', 'Arcane magic comes from study of the universe’s logical patterns.'),
+  ...playerCore(
+    'spellcasting-tradition:arcane',
+    'Arcane',
+    'Arcane magic comes from study of the universe’s logical patterns.',
+  ),
   kind: ContentKind.SpellcastingTradition,
   rules: [],
   data: { skill: 'skill:arcana' },
 };
 
 export const heroism = {
-  ...playerCore('spell-effect-heroism', 'Spell Effect: Heroism', 'Granted by the Heroism spell.'),
+  ...playerCore('effect:spell-effect-heroism', 'Spell Effect: Heroism', 'Granted by the Heroism spell.'),
   kind: ContentKind.Effect,
   level: HEROISM_LEVEL,
   rules: [

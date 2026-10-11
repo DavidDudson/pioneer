@@ -112,7 +112,7 @@ const variantPack = ContentPack.define({
   proficiencyBonus: FLAT_TEN,
   variantRules: [
     {
-      slug: 'flat',
+      slug: 'variant-rule:flat',
       name: 'Flat',
       sources: [{ kind: 'book', book: 'gm-core', page: 1 }],
       rules: [{ key: 'ProficiencyBonus', table: WITHOUT_LEVEL }],

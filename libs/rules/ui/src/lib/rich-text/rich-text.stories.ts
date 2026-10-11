@@ -1,14 +1,14 @@
 import { applicationConfig } from '@analogjs/storybook-angular';
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
 import { HeadingLevel } from '@pioneer/frontier';
-import { ContentText, contentId, PackId, RichText, Slug } from '@pioneer/rules/sdk';
+import { contentId, ContentText, EntrySlug, PackId, RichText } from '@pioneer/rules/sdk';
 import type { ContentId } from '@pioneer/rules/sdk';
 
 import { provideRichTextLinks } from './rich-text-links';
 import type { RichTextLinks } from './rich-text-links';
 import { RichTextView } from './rich-text.component';
 
-const OFF_GUARD = contentId(PackId.parse('player-core'), Slug.parse('off-guard'));
+const OFF_GUARD = contentId(PackId.parse('player-core'), EntrySlug.parse('condition:off-guard'));
 const STATISTIC_NAMES: ReadonlyMap<string, ContentText> = new Map([['save:reflex', ContentText.parse('Reflex')]]);
 
 /** A page that can open Off-Guard and knows the Reflex save. */

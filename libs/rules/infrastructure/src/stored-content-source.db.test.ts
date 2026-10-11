@@ -5,9 +5,9 @@ import {
   contentId,
   contentPackId,
   ContentText,
-  PackId,
+  EntrySlug,
   packContentsFromFiles,
-  Slug,
+  PackId,
 } from '@pioneer/rules/sdk';
 import type { PackContents, PackContentsLoader } from '@pioneer/rules/sdk';
 import { fixedClock } from '@pioneer/shared/kernel';
@@ -30,10 +30,10 @@ const PACK = 'stored-ancestries';
 
 function ancestryEntry(slug: string, name: string): object {
   return {
-    id: contentId(PackId.parse(PACK), Slug.parse(slug)),
+    id: contentId(PackId.parse(PACK), EntrySlug.parse(`ancestry:${slug}`)),
     pack: PACK,
     kind: 'ancestry',
-    slug,
+    slug: `ancestry:${slug}`,
     name,
     rarity: 'common',
     traits: [slug, 'humanoid'],
@@ -60,7 +60,7 @@ function ancestryPack(ancestries: readonly (readonly [string, string])[]): PackC
 }
 
 function ancestryId(slug: string): AncestryId {
-  return AncestryId.parse(contentId(PackId.parse(PACK), Slug.parse(slug)));
+  return AncestryId.parse(contentId(PackId.parse(PACK), EntrySlug.parse(`ancestry:${slug}`)));
 }
 
 function loader(contents: PackContents): PackContentsLoader {

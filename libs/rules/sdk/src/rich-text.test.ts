@@ -4,7 +4,7 @@ import { fieldIssues, message, ValidationMessage } from '@pioneer/shared/kernel'
 import type { FieldIssue } from '@pioneer/shared/kernel';
 import type * as z from 'zod';
 
-import { contentId, PackId, Slug } from './content-id';
+import { contentId, EntrySlug, PackId } from './content-id';
 import { DamageFormula } from './damage-formula';
 import { RulesMessage } from './messages';
 import { RICH_TEXT_CONTAINERS_MAX, RICH_TEXT_DEPTH_MAX, RichText } from './rich-text';
@@ -14,7 +14,7 @@ function issues(schema: z.ZodType, value: unknown): readonly FieldIssue[] {
   return result.success ? [] : fieldIssues(result.error.issues);
 }
 
-const offGuard = contentId(PackId.parse('player-core'), Slug.parse('off-guard'));
+const offGuard = contentId(PackId.parse('player-core'), EntrySlug.parse('condition:off-guard'));
 
 const paragraph = (text: string): unknown => ({ type: 'paragraph', content: [{ type: 'text', text }] });
 

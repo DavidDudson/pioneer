@@ -1,6 +1,6 @@
 import { ruleIdOf } from '@pioneer/rules/engine';
 import type { RuleId, RuleInPlay } from '@pioneer/rules/engine';
-import { contentId, Origin, PackId, RuleIndex, Slug } from '@pioneer/rules/sdk';
+import { contentId, EntrySlug, Origin, PackId, RuleIndex } from '@pioneer/rules/sdk';
 import type { RuleElement } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
 
@@ -24,19 +24,19 @@ const SOURCES = [{ kind: 'book', book: 'player-core', page: 1 }];
 const ORIGINS: Readonly<Record<RuleSource, Origin>> = {
   [RuleSource.Rule]: Origin.parse({
     hops: [],
-    entry: contentId(PLAYGROUND, Slug.parse('rule-elements')),
+    entry: contentId(PLAYGROUND, EntrySlug.parse('effect:rule-elements')),
     sources: SOURCES,
   }),
   [RuleSource.Override]: Origin.parse({
     hops: [{ kind: 'override', by: '00000000-0000-4000-8000-000000000000', at: '2026-01-01T00:00:00.000Z' }],
-    entry: contentId(PLAYGROUND, Slug.parse('overrides')),
+    entry: contentId(PLAYGROUND, EntrySlug.parse('effect:overrides')),
     sources: SOURCES,
   }),
 };
 
 /** A weapon in the example inputs, on a made-up playground entry of its slug, as the inventory will supply it. */
 export function weaponOrigin(slug: string): Origin {
-  return Origin.parse({ hops: [], entry: contentId(PLAYGROUND, Slug.parse(slug)), sources: SOURCES });
+  return Origin.parse({ hops: [], entry: contentId(PLAYGROUND, EntrySlug.parse(`weapon:${slug}`)), sources: SOURCES });
 }
 
 /** The typed rule elements from one box as rules in play, each at its index in the array. */

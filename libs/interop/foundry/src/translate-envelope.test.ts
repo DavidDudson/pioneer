@@ -6,19 +6,20 @@ import {
   contentId,
   ContentLevel,
   ContentText,
+  EntrySlug,
   ExternalId,
   PackId,
   RuleElement,
-  Slug,
   Trait,
 } from '@pioneer/rules/sdk';
 
 import { translationReport } from './dry-run-report';
 import { FoundryDocument, FoundryItemType } from './foundry-document';
 import type { FoundryPack } from './foundry-release';
+import type { ImportedEnvelope } from './imported-envelope';
 import type { SelectedEntry } from './select-entries';
 import { EnvelopeFailureReason, translateEnvelopes } from './translate-envelope';
-import type { EnvelopeContext, EnvelopeTranslation, ImportedEnvelope } from './translate-envelope';
+import type { EnvelopeContext, EnvelopeTranslation } from './translate-envelope';
 
 const playerCore = BookId.parse('player-core');
 const pack = PackId.parse('player-core');
@@ -51,13 +52,13 @@ function envelopeOf(system: object, name?: string): ImportedEnvelope | undefined
   return translateOne(system, name).entries[0]?.envelope;
 }
 
-const toughnessId = ContentId.parse(contentId(pack, Slug.parse('toughness')));
+const toughnessId = ContentId.parse(contentId(pack, EntrySlug.parse('feat:toughness')));
 
 describe('translateEnvelopes: address', () => {
-  test('id is UUIDv5 of <pack>/<slug>, slug sluggified from the name', () => {
+  test('id is UUIDv5 of <pack>/<slug>, slug the kind and the sluggified name', () => {
     const envelope = envelopeOf({}, 'Champion’s Reaction');
 
-    const slug = Slug.parse('champions-reaction');
+    const slug = EntrySlug.parse('feat:champions-reaction');
 
     expect(envelope?.slug).toBe(slug);
     expect(envelope?.id).toBe(ContentId.parse(contentId(pack, slug)));
@@ -65,7 +66,9 @@ describe('translateEnvelopes: address', () => {
   });
 
   test("Foundry's own slug wins over the name", () => {
-    expect(envelopeOf({ slug: 'power-attack' }, 'Power Attack (Fighter)')?.slug).toBe(Slug.parse('power-attack'));
+    expect(envelopeOf({ slug: 'power-attack' }, 'Power Attack (Fighter)')?.slug).toBe(
+      EntrySlug.parse('feat:power-attack'),
+    );
   });
 
   test('externalIds.foundry is the compendium UUID', () => {
@@ -75,17 +78,17 @@ describe('translateEnvelopes: address', () => {
   });
 
   test('folds diacritics into an ASCII slug', () => {
-    expect(envelopeOf({}, 'Déjà Vu')?.slug).toBe(Slug.parse('deja-vu'));
+    expect(envelopeOf({}, 'Déjà Vu')?.slug).toBe(EntrySlug.parse('feat:deja-vu'));
   });
 
   test('fails a slug that is not a Pioneer slug even folded', () => {
     const { entries, failures } = translateOne({}, 'Ωmega');
 
     expect(entries).toEqual([]);
-    expect(failures).toMatchObject([{ reason: EnvelopeFailureReason.InvalidSlug, detail: 'ωmega' }]);
+    expect(failures).toMatchObject([{ reason: EnvelopeFailureReason.InvalidSlug, detail: 'feat:ωmega' }]);
   });
 
-  test('fails the later of two documents of one type with one slug, keeping the document', () => {
+  test('fails the later of two documents of one kind with one name, keeping the document', () => {
     const { entries, failures } = translateEnvelopes(
       [selected({}, 'Shield', 'first'), selected({}, 'Shield', 'second')],
       context,
@@ -97,7 +100,7 @@ describe('translateEnvelopes: address', () => {
         path: 'packs/pf2e/feats/second.json',
         document: { _id: 'second' },
         reason: EnvelopeFailureReason.DuplicateSlug,
-        detail: 'shield',
+        detail: 'feat:shield',
       },
     ]);
   });
@@ -114,16 +117,16 @@ function ofType(name: string, type: FoundryItemType, directory: string): Selecte
   };
 }
 
-describe('translateEnvelopes: shared slugs across types', () => {
-  test('the type first in precedence keeps the slug, the other gets its type as a suffix, in any order', () => {
+describe('translateEnvelopes: one name in two kinds', () => {
+  test('is two slugs, each naming its kind', () => {
     const spell = ofType('Fly', FoundryItemType.Spell, 'spells');
     const action = ofType('Fly', FoundryItemType.Action, 'actions');
     const { entries, failures } = translateEnvelopes([spell, action], context);
 
     expect(failures).toEqual([]);
     expect(entries.map(({ source, envelope }) => `${source.type} ${envelope.slug}`)).toEqual([
-      'spell fly-spell',
-      'action fly',
+      'spell spell:fly',
+      'action action:fly',
     ]);
   });
 });

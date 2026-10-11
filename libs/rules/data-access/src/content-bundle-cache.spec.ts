@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { bundlePath, contentId, PackId, packContentsFromFiles, Slug } from '@pioneer/rules/sdk';
+import { bundlePath, contentId, EntrySlug, packContentsFromFiles, PackId } from '@pioneer/rules/sdk';
 import type { BundleFile, ContentManifest, PackContents, PackContentsLoader } from '@pioneer/rules/sdk';
 import { describe, expect, it } from 'vitest';
 
@@ -11,13 +11,14 @@ import { provideContentTesting, TestContentDelivery } from './testing';
 const PACK = PackId.parse('homebrew');
 const packFile = { id: PACK, title: 'Homebrew', publisher: 'Someone', license: 'homebrew' };
 
-function language(slug: string, name: string): object {
+function language(name: string, label: string): object {
+  const slug = `language:${name}`;
   return {
-    id: contentId(PACK, Slug.parse(slug)),
+    id: contentId(PACK, EntrySlug.parse(slug)),
     pack: PACK,
     kind: 'language',
     slug,
-    name,
+    name: label,
     rarity: 'common',
     traits: [],
     sources: [{ kind: 'book', book: 'player-core', page: 89 }],
@@ -69,7 +70,7 @@ describe(ContentBundleCache, () => {
 
     const body = await cache.bundle(PACK, names);
 
-    expect(body).toStrictEqual({ [contentId(PACK, Slug.parse('common'))]: { name: 'Common' } });
+    expect(body).toStrictEqual({ [contentId(PACK, EntrySlug.parse('language:common'))]: { name: 'Common' } });
     expect(delivery.requests).toStrictEqual(['manifest', `${PACK}/${names}`]);
     await expect(store.read(bundlePath(PACK, names))).resolves.toStrictEqual(body);
   });

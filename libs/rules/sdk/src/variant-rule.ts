@@ -1,7 +1,7 @@
 import { Uuid } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
-import { Slug } from './content-id';
+import { EntrySlug } from './content-id';
 import { ContentText } from './content-text';
 import { RuleElements } from './rule-element';
 import { SourceRef } from './source-ref';
@@ -25,7 +25,7 @@ const SOURCES_MAX = 16;
  * written, since every breakdown line it explains cites them.
  */
 export const VariantRuleDefinition = z.strictObject({
-  slug: Slug,
+  slug: EntrySlug,
   name: ContentText,
   sources: z.array(SourceRef).min(1).max(SOURCES_MAX),
   rules: RuleElements,

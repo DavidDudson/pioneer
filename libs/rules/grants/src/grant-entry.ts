@@ -18,7 +18,10 @@ import type { MessageDescriptor } from '@pioneer/shared/kernel';
 export interface GrantEntry {
   readonly id: ContentId;
   readonly kind: ContentKind;
-  /** The slug within its pack, which the roll option its kind sets names it by: `feat:shield-block`. */
+  /**
+   * Its name within its kind, the entry slug less its kind (`shield-block` of `feat:shield-block`), which the roll
+   * option its kind sets names it by: `feat:shield-block`.
+   */
   readonly slug: Slug;
   readonly name: ContentText;
   readonly rules: readonly RuleElement[];

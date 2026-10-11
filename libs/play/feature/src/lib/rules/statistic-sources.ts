@@ -3,7 +3,7 @@ import { contentCatalog } from '@pioneer/rules/catalog';
 import { statisticContent, variantRulesInPlay } from '@pioneer/rules/engine';
 import type { RuleInPlay } from '@pioneer/rules/engine';
 import type { NamespaceTable } from '@pioneer/rules/predicate';
-import { contentId, ContentRegistry, PackId, Slug, VariantRuleId } from '@pioneer/rules/sdk';
+import { contentId, ContentRegistry, EntrySlug, PackId, VariantRuleId } from '@pioneer/rules/sdk';
 import type { ProficiencyBonusTable } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
 
@@ -67,7 +67,7 @@ export interface CoreRules {
 }
 
 const CORE_RULES_PACK = PackId.parse('core-rules');
-const WITHOUT_LEVEL = Slug.parse('proficiency-without-level');
+const WITHOUT_LEVEL = EntrySlug.parse('variant-rule:proficiency-without-level');
 
 /** The core rules pack's proficiency bonus table, Proficiency Without Level and namespaces, read through a registry. */
 async function loadCoreRules(): Promise<CoreRules> {
