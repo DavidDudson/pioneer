@@ -10,7 +10,8 @@ const ARTIFACT = FacetValue.parse('artifact');
 /**
  * The shop's **Available to you** preset (character-model.md, "Shop") for a character of `level`: items of that
  * level or lower, unique items and `artifact` items hidden. Uncommon and rare items stay, shown with their badge.
- * A list applies it before the player's own filters, so turning it off leaves theirs as they were.
+ * It is a starting point (content-model.md, "Filters"): the filter state a list opens with, every facet of which the
+ * player can then change.
  */
 export function availableItems(level: Level): FilterState {
   return new Map([

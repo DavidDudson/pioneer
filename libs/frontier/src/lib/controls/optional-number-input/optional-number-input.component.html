@@ -1,8 +1,8 @@
 <input
   #control
   type="number"
-  inputmode="numeric"
-  step="1"
+  [attr.inputmode]="inputMode()"
+  [step]="step()"
   [class]="classes"
   [attr.id]="id() ?? null"
   [value]="value() ?? ''"

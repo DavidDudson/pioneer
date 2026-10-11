@@ -18,19 +18,23 @@
             <fr-optional-number-input
               [ariaLabel]="Message.Min | transloco: { facet: facetLabel }"
               [placeholder]="Message.Any | transloco"
+              [step]="row.step"
               [value]="row.min"
               (valueChange)="bound(row.facet, Side.Min, $event)"
             />
             <fr-optional-number-input
               [ariaLabel]="Message.Max | transloco: { facet: facetLabel }"
               [placeholder]="Message.Any | transloco"
+              [step]="row.step"
               [value]="row.max"
               (valueChange)="bound(row.facet, Side.Max, $event)"
             />
           </fr-grid>
-          <fr-text element="p" variant="caption" tone="muted">{{
-            Message.Span | transloco: { lowest: number(row.lowest), highest: number(row.highest) }
-          }}</fr-text>
+          @if (row.span; as span) {
+            <fr-text element="p" variant="caption" tone="muted">{{
+              Message.Span | transloco: { lowest: number(span.lowest), highest: number(span.highest) }
+            }}</fr-text>
+          }
         </fr-stack>
       }
     </fr-disclosure>

@@ -37,6 +37,7 @@ describe(ShopOffersView, () => {
       ['Arrows', 'Level 0 · 1 sp for 10'],
       ['Staff of Fire', 'Uncommon', 'Level 3 · 60 gp 5 sp'],
       ['Lucky Stone', 'Rare', 'Level 1 · No price'],
+      ['Trade Goods', '5 cp'],
     ]);
   });
 

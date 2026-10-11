@@ -4,6 +4,7 @@
     <ng-template frAsyncPending><pio-shop-offers [offers]="undefined" /></ng-template>
     <ng-template [frAsyncData]="items">
       @if (content(); as content) {
+        @let shown = list();
         <fr-stack gap="md">
           <fr-search-input
             [ariaLabel]="'character.sheet.shop.search' | transloco"
@@ -12,20 +13,20 @@
           />
           <fr-stack gap="xs">
             <fr-stack direction="horizontal">
-              <fr-toggle-button [(value)]="everything">{{
+              <fr-toggle-button [value]="everything()" (valueChange)="showEverything($event)">{{
                 'character.sheet.shop.everything' | transloco
               }}</fr-toggle-button>
             </fr-stack>
-            @if (!everything() && level() !== undefined) {
+            @if (preset() && level() !== undefined) {
               <fr-text element="p" variant="caption" tone="muted">{{
                 'character.sheet.shop.available' | transloco: { level: level() }
               }}</fr-text>
             }
           </fr-stack>
-          <pio-facet-filter [counts]="list().counts" [state]="state()" (stateChange)="filter($event)" />
-          <pio-shop-offers [offers]="list().offers" [(picked)]="picked" />
-          @if (pickedItem(); as item) {
-            <pio-shop-gift [content]="content" [item]="item" (gifted)="cleared()" />
+          <pio-facet-filter [counts]="shown?.counts ?? []" [state]="state()" (stateChange)="filter($event)" />
+          <pio-shop-offers [offers]="shown?.offers" [(picked)]="picked" />
+          @for (item of pickedItems(); track item.id) {
+            <pio-shop-gift [content]="content" [item]="item" />
           }
         </fr-stack>
       }

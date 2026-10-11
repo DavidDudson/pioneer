@@ -1,5 +1,6 @@
 import type { ItemContent, ItemEntry } from '@pioneer/character/domain';
 import {
+  availableItems,
   CommonFacet,
   ContentEntry,
   ContentKind,
@@ -8,6 +9,7 @@ import {
   FacetValue,
   Level,
   PackId,
+  RangeBound,
   SelectionKind,
 } from '@pioneer/rules/sdk';
 import type { FilterState } from '@pioneer/rules/sdk';
@@ -60,18 +62,27 @@ const content: ItemContent = new Map(
 );
 
 const byName = (left: string, right: string): number => left.localeCompare(right);
-const QUERY: ShopQuery = { level: Level.parse(2), everything: false, search: '', state: new Map() };
+const AVAILABLE = availableItems(Level.parse(2));
+const QUERY: ShopQuery = { search: '', state: AVAILABLE };
 
 const names = (query: Partial<ShopQuery> = {}): readonly string[] =>
   shopList(content, { ...QUERY, ...query }, byName).offers.map((offer) => offer.name);
 
 describe(shopList, () => {
-  it('opens on Available to you: up to the character’s level, uncommon and rare kept, unique and artifacts hidden', () => {
+  it('on Available to you: up to the character’s level, uncommon and rare kept, unique and artifacts hidden', () => {
     expect(names()).toStrictEqual(['Lantern', 'Rope', 'Wayfinder']);
   });
 
-  it('shows every item when the preset is off', () => {
-    expect(names({ everything: true })).toStrictEqual(['Boots', 'Crown', 'Lantern', 'Orb', 'Rope', 'Wayfinder']);
+  it('shows every item with no filters', () => {
+    expect(names({ state: new Map() })).toStrictEqual(['Boots', 'Crown', 'Lantern', 'Orb', 'Rope', 'Wayfinder']);
+  });
+
+  it('lets the player change a facet of the preset and keep the rest', () => {
+    const higher: FilterState = new Map([
+      ...AVAILABLE,
+      [CommonFacet.Level, { kind: SelectionKind.Range, min: undefined, max: RangeBound.parse(5) }],
+    ]);
+    expect(names({ state: higher })).toStrictEqual(['Boots', 'Lantern', 'Rope', 'Wayfinder']);
   });
 
   it('narrows by name, ignoring case, and by the player’s filters', () => {
@@ -79,16 +90,16 @@ describe(shopList, () => {
     const magical: FilterState = new Map([
       [CommonFacet.Traits, { kind: SelectionKind.Values, include: [FacetValue.parse('magical')], exclude: [] }],
     ]);
-    expect(names({ state: magical })).toStrictEqual(['Wayfinder']);
-    expect(names({ state: magical, everything: true })).toStrictEqual(['Boots', 'Wayfinder']);
+    expect(names({ state: magical })).toStrictEqual(['Boots', 'Wayfinder']);
   });
 
-  it('counts each value over what the preset and search leave', () => {
+  it('counts each value over what the other facets and the search leave, an excluded one at 0 so it can be picked', () => {
     const rarity = shopList(content, QUERY, byName).counts.find(({ facet }) => facet.id === CommonFacet.Rarity);
     expect(rarity?.values.map(({ value, count }) => [value, count])).toStrictEqual([
       ['common', 1],
       ['rare', 1],
       ['uncommon', 1],
+      ['unique', 0],
     ]);
   });
 

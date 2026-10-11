@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, inject, input, output, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, input, signal } from '@angular/core';
 import type { Signal } from '@angular/core';
 import { form, FormField, validateStandardSchema } from '@angular/forms/signals';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
@@ -26,8 +26,6 @@ export class ShopGift {
   /** The items the loaded packs offer, for the containers the item can go in. */
   public readonly content = input.required<ItemContent>();
   public readonly item = input.required<ItemEntry>();
-  /** The item was added. */
-  public readonly gifted = output();
 
   readonly #store = inject(CharacterStore);
   readonly #i18n = inject(TranslocoService);
@@ -48,7 +46,6 @@ export class ShopGift {
       ...(container === LOOSE ? {} : { container }),
     });
     this.model.set(EMPTY_GIFT);
-    this.gifted.emit();
   };
 
   protected readonly describeError = (): string => this.#i18n.translate('character.sheet.shop.giftFailed');

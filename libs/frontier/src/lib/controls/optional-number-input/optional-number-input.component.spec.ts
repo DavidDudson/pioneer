@@ -63,6 +63,14 @@ describe(OptionalNumberInput, () => {
     expect(rendered.fixture.componentInstance.value()).toBe(3);
   });
 
+  it('takes a fraction when its step is one, with the decimal keypad', () => {
+    const rendered = render({ step: 0.1 });
+    expect(rendered.input.step).toBe('0.1');
+    expect(rendered.input.inputMode).toBe('decimal');
+    type(rendered, '0.1');
+    expect(rendered.fixture.componentInstance.value()).toBe(0.1);
+  });
+
   it('commits on Enter', () => {
     const rendered = render();
     rendered.input.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true, cancelable: true }));

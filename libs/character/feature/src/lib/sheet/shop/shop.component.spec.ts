@@ -12,6 +12,17 @@ const offered = (shop: HTMLElement): string[] =>
     present(item.querySelector('fr-text')).textContent.trim(),
   );
 
+/** Types `text` into the shop's search and waits for the list to follow it. */
+async function search(shop: HTMLElement, text: string): Promise<void> {
+  const box = present(shop.querySelector<HTMLInputElement>('fr-search-input input'));
+  box.value = text;
+  box.dispatchEvent(new Event('input'));
+  await vi.waitFor(async () => {
+    await settle();
+    expect(offered(shop).every((name) => name.toLowerCase().includes(text))).toBe(true);
+  });
+}
+
 /** The chip whose label starts with `label`, inside the facet filter. */
 const chip = (shop: HTMLElement, label: string): HTMLElement =>
   present(
@@ -39,7 +50,7 @@ describe('Shop', () => {
     expect(shop.textContent).not.toContain('Available to you');
   });
 
-  it('adds a picked item without paying as giftItem, loose, then clears the pick', async () => {
+  it('adds a picked item without paying as giftItem, loose, and shows it was added', async () => {
     const shop = await openShop();
     present(shop.querySelector<HTMLElement>('button[aria-label="Pick Diamond"]')).click();
     await settle();
@@ -54,33 +65,46 @@ describe('Shop', () => {
     request.flush({ character: { ...VALEROS, version: 4 }, slots: [], cleared: [] });
     await vi.waitFor(async () => {
       await settle();
-      expect(shop.querySelector('pio-shop-gift')).toBeNull();
+      expect(present(shop.querySelector('pio-shop-gift')).textContent).toContain('Added');
     });
   });
 
-  it('keeps the filters in the URL, and opens from a link with them', async () => {
+  it('drops the picked item’s form once the list no longer offers it', async () => {
     const shop = await openShop();
+    present(shop.querySelector<HTMLElement>('button[aria-label="Pick Diamond"]')).click();
+    await settle();
+    expect(shop.querySelector('pio-shop-gift')).not.toBeNull();
+    await search(shop, 'rop');
+    expect(shop.querySelector('pio-shop-gift')).toBeNull();
+  });
+
+  it('keeps the filters in the URL, and takes a facet out of it once nothing in it is picked', async () => {
+    const shop = await openShop();
+    const router = TestBed.inject(Router);
     chip(shop, 'Armor').click();
     await vi.waitFor(async () => {
       await settle();
-      expect(TestBed.inject(Router).url).toContain('f.item-kind=armor');
+      expect(router.url).toContain('f.item-kind=armor');
     });
+    expect(router.url).toContain('f.level=..1');
     expect(offered(shop)).toStrictEqual(['Hide-armor', 'Leather-armor', 'Rune-armor']);
+    chip(shop, 'Armor').click();
+    await vi.waitFor(async () => {
+      await settle();
+      expect(router.url).not.toContain('f.item-kind');
+    });
+    expect(offered(shop)).toContain('Rope');
   });
 
-  it('opens with the filters a link carries', async () => {
+  it('opens with the filters a link carries, in place of the preset', async () => {
     const shop = await openShop('?f.item-kind=shield');
     expect(offered(shop)).toStrictEqual(['Steel-shield']);
+    expect(shop.textContent).not.toContain('Available to you');
   });
 
   it('narrows the list by name', async () => {
     const shop = await openShop();
-    const search = present(shop.querySelector<HTMLInputElement>('fr-search-input input'));
-    search.value = 'rop';
-    search.dispatchEvent(new Event('input'));
-    await vi.waitFor(async () => {
-      await settle();
-      expect(offered(shop)).toStrictEqual(['Rope']);
-    });
+    await search(shop, 'rop');
+    expect(offered(shop)).toStrictEqual(['Rope']);
   });
 });

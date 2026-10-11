@@ -39,14 +39,21 @@ export interface ChipsRow {
   readonly selected: ReadonlySet<FacetValue>;
 }
 
-/** A `range` facet: its bounds and the lowest and highest values in the list, in the unit it is shown in. */
+/** The lowest and highest values of a range in the list, in the unit it is shown in. */
+interface RangeSpan {
+  readonly lowest: number;
+  readonly highest: number;
+}
+
+/** A `range` facet: its bounds, and its values' span; no span when nothing in the list has a value for it. */
 interface RangeRow {
   readonly kind: typeof FacetRowKind.Range;
   readonly facet: FacetDefinition;
   readonly min: number | undefined;
   readonly max: number | undefined;
-  readonly lowest: number;
-  readonly highest: number;
+  readonly span: RangeSpan | undefined;
+  /** The smallest step a bound takes in the unit it is shown in: a tenth for Bulk, so light can be picked. */
+  readonly step: number;
 }
 
 export type FacetRow = ChipsRow | RangeRow;
@@ -90,8 +97,8 @@ function rangeRow({ facet, values }: FacetCounts, selection: FacetSelection | un
     facet,
     min: range?.min === undefined ? undefined : range.min / scale,
     max: range?.max === undefined ? undefined : range.max / scale,
-    lowest: Math.min(...shown),
-    highest: Math.max(...shown),
+    span: shown.length === 0 ? undefined : { lowest: Math.min(...shown), highest: Math.max(...shown) },
+    step: 1 / scale,
   };
 }
 
@@ -122,10 +129,14 @@ function withSelection(state: FilterState, id: FacetId, selection: FacetSelectio
   return next;
 }
 
-/** `state` with `facet` picking `include`; values it excludes (from a link) stay excluded. */
+/**
+ * `state` with `facet` picking `include`. Values it excludes (from a link or a preset) stay excluded, unless picked:
+ * picking an excluded value (Unique, under Available to you) lifts its exclusion.
+ */
 export function withValues(state: FilterState, facet: FacetDefinition, include: ReadonlySet<FacetValue>): FilterState {
   const current = state.get(facet.id);
-  const exclude = current?.kind === SelectionKind.Values ? current.exclude : [];
+  const excluded = current?.kind === SelectionKind.Values ? current.exclude : [];
+  const exclude = excluded.filter((value) => !include.has(value));
   const empty = include.size === 0 && exclude.length === 0;
   return withSelection(
     state,

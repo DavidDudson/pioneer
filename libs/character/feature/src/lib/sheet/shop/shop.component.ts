@@ -16,7 +16,7 @@ import {
   Text,
   ToggleButton,
 } from '@pioneer/frontier';
-import { filterFromQuery, filterToQuery, Level } from '@pioneer/rules/sdk';
+import { availableItems, filterFromQuery, filterToQuery, Level } from '@pioneer/rules/sdk';
 import type { ContentId, FilterState, QueryParams } from '@pioneer/rules/sdk';
 import { FacetFilterView, ShopOffersView } from '@pioneer/rules/ui';
 
@@ -28,7 +28,6 @@ import { SHOP_FACETS, shopList } from './shop-list';
 import type { ShopList } from './shop-list';
 
 const NO_PARAMS: QueryParams = {};
-const EMPTY_LIST: ShopList = { counts: [], offers: [] };
 
 /** Every facet's query param cleared, so a facet the new state drops leaves the URL. */
 const CLEARED: Readonly<Record<string, undefined>> = Object.fromEntries(
@@ -82,39 +81,68 @@ export class Shop {
     const level = this.#store.selected()?.document.level;
     return level === undefined ? undefined : Level.parse(level);
   });
-  protected readonly state: Signal<FilterState> = computed(() => filterFromQuery(this.#params(), SHOP_FACETS));
+  /** Whether the URL holds the player's own filters, rather than the shop opening fresh. */
+  readonly #linked = computed(() => filterFromQuery(this.#params(), SHOP_FACETS).size > 0);
+  /** The preset is in force: no filters of the player's yet, and everything isn't shown. */
+  protected readonly preset = computed(() => !this.#linked() && !this.everything());
 
-  protected readonly list: Signal<ShopList> = computed(() => {
-    const content = this.content();
+  /**
+   * The filters in force: the URL's, else **Available to you** as a starting point whose every facet the player can
+   * change (content-model.md, "Filters"), else none once everything is shown.
+   */
+  protected readonly state: Signal<FilterState> = computed(() => {
     const level = this.level();
-    if (content === undefined || level === undefined) {
-      return EMPTY_LIST;
+    if (this.preset() && level !== undefined) {
+      return availableItems(level);
     }
-    const query = { level, everything: this.everything(), search: this.#search(), state: this.state() };
+    return filterFromQuery(this.#params(), SHOP_FACETS);
+  });
+
+  /** Undefined while the items or the character load: the preset needs the character's level. */
+  protected readonly list: Signal<ShopList | undefined> = computed(() => {
+    const content = this.content();
+    const waiting = this.preset() && this.level() === undefined;
+    if (content === undefined || waiting) {
+      return undefined;
+    }
+    const query = { search: this.#search(), state: this.state() };
     return shopList(content, query, (left, right) => this.#format.compare(left, right));
   });
 
-  /** The picked item while the list still offers it. */
-  protected readonly pickedItem: Signal<ItemEntry | undefined> = computed(() => {
+  /**
+   * The picked item while the list still offers it, as a list of at most one, so its form is made afresh for each
+   * item (`track` by id) rather than carrying the last item's quantity or error over. The form stays after a gift,
+   * so its tick shows and focus stays on its button.
+   */
+  protected readonly pickedItems: Signal<readonly ItemEntry[]> = computed(() => {
     const id = this.picked();
-    const offered = this.list().offers.some((offer) => offer.id === id);
-    return id === undefined || !offered ? undefined : this.content()?.get(id);
+    const offered = this.list()?.offers.some((offer) => offer.id === id) === true;
+    const item = id === undefined || !offered ? undefined : this.content()?.get(id);
+    return item === undefined ? [] : [item];
   });
 
   protected search(query: string): void {
     this.#search.set(query);
   }
 
+  /** The player's filters replace the preset; with none left, the shop shows everything. */
   protected async filter(state: FilterState): Promise<void> {
+    this.everything.set(state.size === 0);
+    await this.#write(state);
+  }
+
+  /** Shows everything, or goes back to the preset: either way the player's filters are dropped. */
+  protected async showEverything(on: boolean): Promise<void> {
+    this.everything.set(on);
+    await this.#write(new Map());
+  }
+
+  async #write(state: FilterState): Promise<void> {
     await this.#router.navigate([], {
       relativeTo: this.#route,
       queryParams: { ...CLEARED, ...filterToQuery(state, SHOP_FACETS) },
       queryParamsHandling: 'merge',
       replaceUrl: true,
     });
-  }
-
-  protected cleared(): void {
-    this.picked.set(undefined);
   }
 }

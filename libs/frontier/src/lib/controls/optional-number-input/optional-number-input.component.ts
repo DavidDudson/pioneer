@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, input, model, viewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input, model, viewChild } from '@angular/core';
 import type { ElementRef } from '@angular/core';
 
 import { injectCommitKeys } from '../commit-keys';
@@ -6,9 +6,9 @@ import { Control } from '../control';
 import { controlVariants } from '../control.variants';
 
 /**
- * Plain integer control that may be left empty: `value` is undefined while the box is empty, as for an open bound
- * of a range ("any level"). Mid-edit text that isn't a whole number (`-`, `2.5`) keeps the last value. When empty
- * means 0, use `fr-number-input`.
+ * Plain number control that may be left empty: `value` is undefined while the box is empty, as for an open bound
+ * of a range ("any level"). Whole numbers only unless `step` is a fraction; mid-edit text that doesn't read (`-`, or
+ * `2.5` in a whole-number box) keeps the last value. When empty means 0, use `fr-number-input`.
  */
 @Component({
   selector: 'fr-optional-number-input',
@@ -22,8 +22,12 @@ export class OptionalNumberInput extends Control {
   public readonly max = input<number | undefined>(undefined);
   /** What the empty box says it means ("Any"). */
   public readonly placeholder = input<string | undefined>(undefined);
+  /** The smallest change: 1 takes whole numbers only; 0.1 takes tenths too (a tenth of a Bulk is light). */
+  public readonly step = input(1);
 
   protected readonly classes = controlVariants({ numeric: true });
+  /** A whole-number box shows the numeric keypad; one with fractions needs the decimal point. */
+  protected readonly inputMode = computed(() => (Number.isInteger(this.step()) ? 'numeric' : 'decimal'));
   protected readonly control = viewChild<ElementRef<HTMLInputElement>>('control');
 
   public constructor() {
@@ -44,7 +48,8 @@ export class OptionalNumberInput extends Control {
       return;
     }
     const parsed = Number(raw);
-    if (Number.isInteger(parsed)) {
+    const fits = Number.isInteger(this.step()) ? Number.isInteger(parsed) : Number.isFinite(parsed);
+    if (fits) {
       this.value.set(parsed);
     }
   }

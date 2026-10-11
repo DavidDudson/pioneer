@@ -1,4 +1,4 @@
-import { inject, Injectable, InjectionToken, signal } from '@angular/core';
+import { computed, inject, Injectable, InjectionToken, signal } from '@angular/core';
 import type { Signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoService } from '@jsverse/transloco';
@@ -65,8 +65,11 @@ export class LocaleFormat {
     return `${first(words[0])}${last}`.toLocaleUpperCase(locale);
   }
 
+  /** Built once per locale: a sort compares thousands of pairs (a shop's items). */
+  readonly #collator = computed(() => new Intl.Collator(this.locale()));
+
   /** Locale-aware ordering for sorting labels. */
   public compare(left: string, right: string): number {
-    return new Intl.Collator(this.locale()).compare(left, right);
+    return this.#collator().compare(left, right);
   }
 }

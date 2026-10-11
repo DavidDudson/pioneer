@@ -5,7 +5,7 @@ import type { ShopOffer } from '../shop/shop-offer';
 interface OfferFields {
   readonly id: string;
   readonly name: string;
-  readonly level: ContentLevel;
+  readonly level: ContentLevel | undefined;
   readonly rarity: Rarity;
   readonly price: Price | undefined;
 }
@@ -48,8 +48,19 @@ const LUCKY_STONE = offer({
   price: undefined,
 });
 
-/** A few offers: a common item, one sold in a batch, an uncommon one with a two-coin price and a rare one with none. */
-export const SHOP_OFFERS: readonly ShopOffer[] = [LONGSWORD, ARROWS, STAFF_OF_FIRE, LUCKY_STONE];
+const TRADE_GOODS = offer({
+  id: '7b0c3a52-3f43-4f0e-9a3c-1f1b8f0c0005',
+  name: 'Trade Goods',
+  level: undefined,
+  rarity: Rarity.Common,
+  price: Price.parse({ coins: { cp: 5 } }),
+});
+
+/**
+ * A few offers: a common item, one sold in a batch, an uncommon one with a two-coin price, a rare one with none and
+ * one with no level.
+ */
+export const SHOP_OFFERS: readonly ShopOffer[] = [LONGSWORD, ARROWS, STAFF_OF_FIRE, LUCKY_STONE, TRADE_GOODS];
 
 /** More offers than the list shows at once. */
 const MANY = 60;
