@@ -4,6 +4,7 @@ import { StatisticKind } from '@pioneer/rules/sdk';
 import { describe, expect, it } from 'vitest';
 
 import { CYCLE, ENTRY_NAMES, FIGHTER_STATISTICS } from '../testing/breakdown-fixtures';
+import { PINNED_STATISTICS, PINNED_WILL } from '../testing/override-fixtures';
 import { provideRulesUiI18nTesting } from '../testing/provide-rich-text-testing';
 import type { NamedStatistic } from './statistics.component';
 import { StatisticsView } from './statistics.component';
@@ -56,6 +57,29 @@ describe(StatisticsView, () => {
     const host = hostOf(await render(FIGHTER_STATISTICS));
 
     expect(rows(host)).toStrictEqual(['Armor Class 20', 'Fortitude +10', 'Will +6']);
+  });
+
+  it('marks a pinned total in its summary, with the computed value beside it', async () => {
+    const host = hostOf(await render(PINNED_STATISTICS));
+
+    expect(rows(host)).toStrictEqual(['Armor Class 22 Pinned computed 20', 'Fortitude +10', 'Will +6']);
+  });
+
+  it('signs a pinned check and its computed value', async () => {
+    const host = hostOf(await render([{ name: 'Will', kind: StatisticKind.Check, result: PINNED_WILL }]));
+
+    expect(rows(host)).toStrictEqual(['Will +9 Pinned computed +6']);
+  });
+
+  it('names the set override that pinned a total in its breakdown', async () => {
+    const fixture = await render(PINNED_STATISTICS);
+    const ac = present(hostOf(fixture).querySelector('details'));
+
+    present(ac.querySelector('summary')).click();
+    await fixture.whenStable();
+
+    const breakdown = present(ac.querySelector('pio-breakdown'));
+    expect(textOf(breakdown)).toContain('Set by the GM pins it to 22; computed 20.');
   });
 
   it('expands a total in place to its breakdown', async () => {

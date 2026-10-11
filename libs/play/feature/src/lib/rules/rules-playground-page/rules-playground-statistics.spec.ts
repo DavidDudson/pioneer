@@ -47,10 +47,10 @@ describe('RulesPlaygroundPage statistics', () => {
     const text = pageText(harness);
     const expected = [
       'Pinned',
-      'Computed 15; Override 2 pinned it to 18.',
+      'Set by the GM pins it to 18; computed 15.',
+      'Changes and overrides',
+      'override 15 → 18',
       'Set by hand',
-      'Set by the GM',
-      'set: 15 to 18',
       'GM blessing',
     ];
     expect(expected.filter((shown) => !text.includes(shown))).toStrictEqual([]);

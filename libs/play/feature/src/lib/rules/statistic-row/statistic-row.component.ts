@@ -1,14 +1,17 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { Badge, LocaleFormat, Stack, Text } from '@pioneer/frontier';
+import { BreakdownView } from '@pioneer/rules/ui';
 
-import { StatisticBreakdown } from '../statistic-breakdown/statistic-breakdown.component';
 import type { StatisticRow as Row } from '../statistics-check';
 
-/** One statistic: its selector and total, flagged when a set override pinned it, then its breakdown; or its error. */
+/**
+ * One statistic: its selector and total, flagged when a set override pinned it, then the shared inspector's
+ * breakdown, which names the override and keeps the computed value in view; or its error.
+ */
 @Component({
   selector: 'pio-statistic-row',
-  imports: [Badge, Stack, StatisticBreakdown, Text, TranslocoPipe],
+  imports: [Badge, BreakdownView, Stack, Text, TranslocoPipe],
   templateUrl: './statistic-row.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

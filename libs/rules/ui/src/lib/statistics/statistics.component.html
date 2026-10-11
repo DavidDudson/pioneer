@@ -8,8 +8,8 @@
           @if (row.ok) {
             <fr-disclosure>
               <fr-text frDisclosureSummary
-                >{{ row.name }} <fr-text numeric>{{ row.total }}</fr-text></fr-text
-              >
+                >{{ row.name }} <pio-statistic-total [total]="row.total" [computed]="row.computed"
+              /></fr-text>
               <pio-breakdown [statistic]="row.statistic" [entryNames]="entryNames()" />
             </fr-disclosure>
           } @else {

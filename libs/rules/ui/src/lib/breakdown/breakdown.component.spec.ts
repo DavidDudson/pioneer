@@ -21,6 +21,7 @@ import {
   term,
   WITHOUT_LEVEL,
 } from '../testing/breakdown-fixtures';
+import { OVERRIDE_STATUSES, PINNED_AC } from '../testing/override-fixtures';
 import { provideRulesUiI18nTesting } from '../testing/provide-rich-text-testing';
 import { BreakdownView } from './breakdown.component';
 
@@ -34,6 +35,7 @@ interface Rendered {
   readonly captions: readonly string[];
   readonly terms: readonly string[];
   readonly lines: readonly string[];
+  readonly overrides: readonly string[];
 }
 
 function textOf(element: Element): string {
@@ -66,6 +68,7 @@ async function render(value: StatisticValue, { entryNames = ENTRY_NAMES, ruleNam
       .map((caption) => textOf(caption)),
     terms: items('pio-base-terms'),
     lines: items('pio-breakdown-lines'),
+    overrides: items('pio-override-lines'),
   };
 }
 
@@ -161,6 +164,46 @@ describe(BreakdownView, () => {
     expect(lines).toStrictEqual([
       'Breastplate | +4 item',
       'Breastplate | +4 item | Suppressed | Breastplate counts instead.',
+    ]);
+  });
+
+  it('says which set override pinned the total, and the computed value it hides', async () => {
+    const { captions } = await render(PINNED_AC);
+
+    expect(captions).toStrictEqual([
+      'Set by the GM pins it to 22; computed 20.',
+      'Base 16',
+      'Modifiers',
+      'Changes and overrides',
+    ]);
+  });
+
+  it('lists overrides after the modifiers in the order they ran, with what each replaced and left', async () => {
+    const { overrides } = await render(PINNED_AC);
+
+    expect(overrides).toStrictEqual([
+      'Golem Form | upgrade 16 → 16 | Inactive | Does not apply: its condition does not hold.',
+      'Earlier ruling | override 20 → 20 | Set by hand | Replaced | Set by the GM replaces it.',
+      'Set by the GM | override 20 → 22 | Set by hand',
+    ]);
+  });
+
+  it('marks nothing pinned and has no overrides caption when there are none', async () => {
+    const { captions, overrides } = await render(FIGHTER_AC);
+
+    expect(captions).toStrictEqual(['Base 16', 'Modifiers']);
+    expect(overrides).toStrictEqual([]);
+  });
+
+  it('words each mode, explains a conditional or failed override, and bases on what an applied Change left', async () => {
+    const { captions, overrides } = await render(OVERRIDE_STATUSES);
+
+    expect(captions).toContain('Base 8');
+    expect(overrides).toStrictEqual([
+      'Breastplate | add 10 → 10 | Conditional | Applies when you are in darkness.',
+      'Golem Form | multiply 10 → 10 | Failed | “@item.level” at position 1 has no value.',
+      'Mage Armor | downgrade 10 → 8',
+      'Mage Armor | add 8 → 8 | Inactive | Does not apply: its condition does not hold.',
     ]);
   });
 

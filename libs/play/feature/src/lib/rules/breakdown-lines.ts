@@ -1,9 +1,8 @@
-import { OverrideStatusKind, ruleIdOf } from '@pioneer/rules/engine';
-import type { ModifierLabel, OverrideLine, RuleId, RuleInPlay } from '@pioneer/rules/engine';
-import type { PredicateSummary } from '@pioneer/rules/predicate';
-import { contentId, Origin, OriginHopKind, PackId, RuleIndex, Slug } from '@pioneer/rules/sdk';
-import type { ChangeMode, RuleElement } from '@pioneer/rules/sdk';
-import type { MessageDescriptor, ValueOf } from '@pioneer/shared/kernel';
+import { ruleIdOf } from '@pioneer/rules/engine';
+import type { RuleId, RuleInPlay } from '@pioneer/rules/engine';
+import { contentId, Origin, PackId, RuleIndex, Slug } from '@pioneer/rules/sdk';
+import type { RuleElement } from '@pioneer/rules/sdk';
+import type { ValueOf } from '@pioneer/shared/kernel';
 
 /** Where a typed rule element came from: the rule elements box, or the overrides box. */
 export const RuleSource = { Rule: 'rule', Override: 'override' } as const;
@@ -54,84 +53,8 @@ export function ruleNames(rules: readonly RuleInPlay[]): ReadonlyMap<RuleId, Rul
   return new Map(rules.map((rule) => [ruleIdOf(rule), { source: sourceOf(rule), number: rule.rule + 1 }]));
 }
 
-const UNKNOWN_RULE: RuleName = { source: RuleSource.Rule, number: 0 };
-
 /** Message keys naming a rule element by its box, spelled out so the key check sees them. */
 export const RULE_NAME_KEYS: Readonly<Record<RuleSource, string>> = {
   [RuleSource.Rule]: 'play.rules.ruleNumber',
   [RuleSource.Override]: 'play.rules.overrideNumber',
 };
-
-function labelText(label: ModifierLabel): string | undefined {
-  return 'text' in label ? label.text : undefined;
-}
-
-/** How an override line stands, with rule elements named by box and number. */
-export type OverrideState =
-  | { readonly kind: typeof OverrideStatusKind.Applied }
-  | { readonly kind: typeof OverrideStatusKind.Replaced; readonly by: RuleName }
-  | { readonly kind: typeof OverrideStatusKind.Conditional; readonly summary: PredicateSummary | undefined }
-  | { readonly kind: typeof OverrideStatusKind.Inactive }
-  | { readonly kind: typeof OverrideStatusKind.Failed; readonly error: MessageDescriptor };
-
-/** One `Change` or set override as the playground shows it: what it did to which value. */
-export interface OverrideRow {
-  readonly name: RuleName;
-  readonly label: string | undefined;
-  readonly mode: ChangeMode;
-  readonly replaced: number;
-  readonly result: number;
-  /** Whether a user set it by hand: an override hop in its origin. */
-  readonly manual: boolean;
-  readonly state: OverrideState;
-}
-
-export const OVERRIDE_STATE_KEYS: Readonly<Record<OverrideStatusKind, string>> = {
-  [OverrideStatusKind.Applied]: 'play.rules.line.applied',
-  [OverrideStatusKind.Replaced]: 'play.rules.line.replaced',
-  [OverrideStatusKind.Conditional]: 'play.rules.line.conditional',
-  [OverrideStatusKind.Inactive]: 'play.rules.line.inactive',
-  [OverrideStatusKind.Failed]: 'play.rules.line.failed',
-};
-
-export const OVERRIDE_STATE_TONES = {
-  [OverrideStatusKind.Applied]: 'success',
-  [OverrideStatusKind.Replaced]: 'neutral',
-  [OverrideStatusKind.Conditional]: 'warning',
-  [OverrideStatusKind.Inactive]: 'neutral',
-  [OverrideStatusKind.Failed]: 'danger',
-} as const satisfies Readonly<Record<OverrideStatusKind, string>>;
-
-function overrideStateOf(line: OverrideLine, names: ReadonlyMap<RuleId, RuleName>): OverrideState {
-  const { status } = line;
-  switch (status.kind) {
-    case OverrideStatusKind.Replaced: {
-      return { kind: status.kind, by: names.get(status.by) ?? UNKNOWN_RULE };
-    }
-    case OverrideStatusKind.Conditional: {
-      return { kind: status.kind, summary: status.summary };
-    }
-    case OverrideStatusKind.Failed: {
-      return { kind: status.kind, error: status.error };
-    }
-    case OverrideStatusKind.Applied:
-    case OverrideStatusKind.Inactive: {
-      return { kind: status.kind };
-    }
-    default: {
-      return status satisfies never;
-    }
-  }
-}
-
-export function overrideRow(line: OverrideLine, names: ReadonlyMap<RuleId, RuleName>): OverrideRow {
-  return {
-    name: names.get(line.id) ?? UNKNOWN_RULE,
-    label: labelText(line.label),
-    mode: line.mode,
-    replaced: line.replaced,
-    result: line.result,
-    manual: line.origin.hops.some(({ kind }) => kind === OriginHopKind.Override),
-    state: overrideStateOf(line, names),
-  };
-}

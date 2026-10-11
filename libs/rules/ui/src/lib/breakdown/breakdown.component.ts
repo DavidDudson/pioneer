@@ -2,9 +2,20 @@ import { ChangeDetectionStrategy, Component, computed, inject, input } from '@an
 import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { LocaleFormat, Stack, Text } from '@pioneer/frontier';
-import { BaseTermKind, LineStatusKind, SuppressionReason, TermSign } from '@pioneer/rules/engine';
-import type { BaseTerm, BreakdownLine, LineStatus, RuleId, StatisticValue } from '@pioneer/rules/engine';
+import { BaseTermKind, LineStatusKind, OverrideStatusKind, SuppressionReason, TermSign } from '@pioneer/rules/engine';
+import type {
+  BaseTerm,
+  BreakdownLine,
+  LineStatus,
+  ModifierLabel,
+  OverrideLine,
+  OverrideStatus,
+  RuleId,
+  StatisticValue,
+} from '@pioneer/rules/engine';
 import { formatSummary } from '@pioneer/rules/predicate';
+import type { PredicateSummary } from '@pioneer/rules/predicate';
+import { OriginHopKind } from '@pioneer/rules/sdk';
 import type { ContentId } from '@pioneer/rules/sdk';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 import { filter, merge } from 'rxjs';
@@ -12,7 +23,8 @@ import { filter, merge } from 'rxjs';
 import { BaseTerms } from './base-terms/base-terms.component';
 import { BreakdownLines } from './breakdown-lines/breakdown-lines.component';
 import { BreakdownMessage, LINE_STATUS_ORDER, MODIFIER_TYPE_MESSAGES } from './breakdown-messages';
-import type { ShownBreakdown, ShownLine, ShownTerm } from './shown-breakdown';
+import { OverrideLines } from './override-lines/override-lines.component';
+import type { ShownBreakdown, ShownLine, ShownOverride, ShownTerm } from './shown-breakdown';
 
 /** PF2e modifiers always show their sign, `+0` included. */
 const SIGNED: Intl.NumberFormatOptions = { signDisplay: 'always' };
@@ -23,16 +35,24 @@ interface Placed {
   readonly index: number;
 }
 
+/** A rule as the breakdown names it: its id and the label it carries. */
+interface Labelled {
+  readonly id: RuleId;
+  readonly label: ModifierLabel;
+}
+
 function rank(status: LineStatus): number {
   return LINE_STATUS_ORDER.indexOf(status.kind);
 }
 
 /**
- * A statistic's breakdown (rules-engine.md, "Modifiers and stacking"): its base and the terms of the base formula
- * that give it, then every modifier that reaches it. Lines are listed applied first, then conditional, suppressed,
- * inactive and failed; each reads as its name, signed value and type ("+1 status"), and one that does not simply
- * apply is marked in text with what explains it: the line that beat or removed it, when it would hold, or why it
- * failed.
+ * A statistic's breakdown (rules-engine.md, "Modifiers and stacking" and "Overrides"): its base and the terms of the
+ * base formula that give it, then every modifier that reaches it, then its `Change`s and set overrides. Lines are
+ * listed applied first, then conditional, suppressed, inactive and failed; each reads as its name, signed value and
+ * type ("+1 status"), and one that does not simply apply is marked in text with what explains it: the line that beat
+ * or removed it, when it would hold, or why it failed. Override lines keep the order they ran in and read as what
+ * they did ("override 18 → 20"). When a set override pinned the total, a note above the base names it and keeps the
+ * computed value in view.
  *
  * Read-only and presentational (ADR-0028): the caller passes the engine's `StatisticValue` and the display names of
  * the entries its lines and terms come from. A line is called by its `display.label`, else by the name the caller
@@ -45,7 +65,7 @@ function rank(status: LineStatus): number {
  */
 @Component({
   selector: 'pio-breakdown',
-  imports: [BaseTerms, BreakdownLines, Stack, Text, TranslocoPipe],
+  imports: [BaseTerms, BreakdownLines, OverrideLines, Stack, Text, TranslocoPipe],
   templateUrl: './breakdown.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -68,19 +88,43 @@ export class BreakdownView {
     this.#messages();
     this.#format.locale();
     const statistic = this.statistic();
-    const placed = statistic.lines.map((line, index): Placed => ({ line, index }));
+    const rules: readonly Labelled[] = [
+      ...statistic.lines.map(({ modifier }): Labelled => modifier),
+      ...statistic.overrides,
+    ];
+    const placed = statistic.lines.map((line, index): Placed => ({
+      line,
+      index,
+    }));
     const ordered = placed.toSorted(
       (left, right) => rank(left.line.status) - rank(right.line.status) || left.index - right.index,
     );
     return {
-      base: this.#i18n.translate(BreakdownMessage.Base, { value: this.#format.number(statistic.baseValue) }),
+      pinned: this.#pinned(statistic, rules),
+      base: this.#i18n.translate(BreakdownMessage.Base, {
+        value: this.#format.number(statistic.baseValue),
+      }),
       terms: statistic.base.map((term, index) => this.#term(term, index)),
-      lines: ordered.map(({ line }) => this.#line(line, statistic.lines)),
+      lines: ordered.map(({ line }) => this.#line(line, rules)),
+      overrides: statistic.overrides.map((line) => this.#override(line, rules)),
     };
   });
 
+  #pinned(statistic: StatisticValue, rules: readonly Labelled[]): string | undefined {
+    if (statistic.pinnedBy === undefined) {
+      return undefined;
+    }
+    return this.#i18n.translate(BreakdownMessage.Pinned, {
+      name: this.#ruleName(statistic.pinnedBy, rules),
+      total: this.#format.number(statistic.total),
+      computed: this.#format.number(statistic.computed),
+    });
+  }
+
   #term(term: BaseTerm, index: number): ShownTerm {
-    const value = this.#i18n.translate(BreakdownMessage.TermValue, { value: this.#format.number(term.value) });
+    const value = this.#i18n.translate(BreakdownMessage.TermValue, {
+      value: this.#format.number(term.value),
+    });
     if (term.kind === BaseTermKind.Rounding) {
       return { code: undefined, value, variant: undefined };
     }
@@ -88,14 +132,20 @@ export class BreakdownView {
     const variant =
       term.origin === undefined
         ? undefined
-        : this.#i18n.translate(BreakdownMessage.TermVariant, { name: this.#entryName(term.origin.entry) });
-    return { code: leading ? term.formula : `${term.sign} ${term.formula}`, value, variant };
+        : this.#i18n.translate(BreakdownMessage.TermVariant, {
+            name: this.#entryName(term.origin.entry),
+          });
+    return {
+      code: leading ? term.formula : `${term.sign} ${term.formula}`,
+      value,
+      variant,
+    };
   }
 
-  #line(line: BreakdownLine, lines: readonly BreakdownLine[]): ShownLine {
+  #line(line: BreakdownLine, rules: readonly Labelled[]): ShownLine {
     const { modifier, value, status } = line;
     const shown = {
-      name: this.#lineName(line),
+      name: this.#name(modifier),
       value: this.#i18n.translate(BreakdownMessage.LineValue, {
         hasValue: value === undefined ? 'no' : 'yes',
         value: value === undefined ? '' : this.#format.number(value, SIGNED),
@@ -105,28 +155,27 @@ export class BreakdownView {
     if (status.kind === LineStatusKind.Applied) {
       return { ...shown, status: undefined, detail: undefined };
     }
-    return { ...shown, status: status.kind, detail: this.#detail(status, lines) };
+    return {
+      ...shown,
+      status: status.kind,
+      detail: this.#detail(status, rules),
+    };
   }
 
   #detail(
     status: Exclude<LineStatus, { readonly kind: typeof LineStatusKind.Applied }>,
-    lines: readonly BreakdownLine[],
+    rules: readonly Labelled[],
   ): string | undefined {
     switch (status.kind) {
       case LineStatusKind.Suppressed: {
         const key =
           status.reason === SuppressionReason.Stacking ? BreakdownMessage.SuppressedBy : BreakdownMessage.RemovedBy;
-        return this.#i18n.translate(key, { name: this.#ruleName(status.by, lines) });
+        return this.#i18n.translate(key, {
+          name: this.#ruleName(status.by, rules),
+        });
       }
       case LineStatusKind.Conditional: {
-        if (status.summary === undefined) {
-          return undefined;
-        }
-        const summary = formatSummary(status.summary, {
-          message: (descriptor) => this.#translate(descriptor),
-          list: (items, style): string => this.#format.list(items, style),
-        });
-        return this.#i18n.translate(BreakdownMessage.AppliesWhen, { summary });
+        return this.#appliesWhen(status.summary);
       }
       case LineStatusKind.Inactive: {
         return this.#i18n.translate(BreakdownMessage.Inactive);
@@ -140,17 +189,76 @@ export class BreakdownView {
     }
   }
 
-  /** The rule a line is suppressed by: the line it made, by name; else the caller's name for it; else its id. */
-  #ruleName(id: RuleId, lines: readonly BreakdownLine[]): string {
-    const line = lines.find((candidate) => candidate.modifier.id === id);
-    if (line !== undefined) {
-      return this.#lineName(line);
+  #override(line: OverrideLine, rules: readonly Labelled[]): ShownOverride {
+    const { status } = line;
+    const shown = {
+      name: this.#name(line),
+      effect: this.#i18n.translate(BreakdownMessage.OverrideEffect, {
+        mode: line.mode,
+        replaced: this.#format.number(line.replaced),
+        result: this.#format.number(line.result),
+      }),
+      byHand: line.origin.hops.some(({ kind }) => kind === OriginHopKind.Override),
+    };
+    if (status.kind === OverrideStatusKind.Applied) {
+      return { ...shown, status: undefined, detail: undefined };
+    }
+    return {
+      ...shown,
+      status: status.kind,
+      detail: this.#overrideDetail(status, rules),
+    };
+  }
+
+  #overrideDetail(
+    status: Exclude<OverrideStatus, { readonly kind: typeof OverrideStatusKind.Applied }>,
+    rules: readonly Labelled[],
+  ): string | undefined {
+    switch (status.kind) {
+      case OverrideStatusKind.Replaced: {
+        return this.#i18n.translate(BreakdownMessage.ReplacedBy, {
+          name: this.#ruleName(status.by, rules),
+        });
+      }
+      case OverrideStatusKind.Conditional: {
+        return this.#appliesWhen(status.summary);
+      }
+      case OverrideStatusKind.Inactive: {
+        return this.#i18n.translate(BreakdownMessage.Inactive);
+      }
+      case OverrideStatusKind.Failed: {
+        return this.#translate(status.error);
+      }
+      default: {
+        return status satisfies never;
+      }
+    }
+  }
+
+  #appliesWhen(summary: PredicateSummary | undefined): string | undefined {
+    if (summary === undefined) {
+      return undefined;
+    }
+    const text = formatSummary(summary, {
+      message: (descriptor) => this.#translate(descriptor),
+      list: (items, style): string => this.#format.list(items, style),
+    });
+    return this.#i18n.translate(BreakdownMessage.AppliesWhen, {
+      summary: text,
+    });
+  }
+
+  /** A rule a line names (the one that beat, removed, replaced or pinned it): by its name; else the caller's; else its id. */
+  #ruleName(id: RuleId, rules: readonly Labelled[]): string {
+    const rule = rules.find((candidate) => candidate.id === id);
+    if (rule !== undefined) {
+      return this.#name(rule);
     }
     const named = this.ruleNames().get(id);
     return named === undefined ? id : this.#translate(named);
   }
 
-  #lineName({ modifier: { id, label } }: BreakdownLine): string {
+  #name({ id, label }: Labelled): string {
     if ('text' in label) {
       return label.text;
     }

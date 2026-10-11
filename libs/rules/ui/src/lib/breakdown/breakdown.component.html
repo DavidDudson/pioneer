@@ -1,5 +1,8 @@
 @let breakdown = shown();
 <fr-stack gap="xs">
+  @if (breakdown.pinned; as pinned) {
+    <fr-text>{{ pinned }}</fr-text>
+  }
   <fr-text variant="caption" tone="muted">{{ breakdown.base }}</fr-text>
   <pio-base-terms [terms]="breakdown.terms" />
   <fr-text variant="caption" tone="muted">{{ Message.Modifiers | transloco }}</fr-text>
@@ -8,4 +11,5 @@
   } @else {
     <pio-breakdown-lines [lines]="breakdown.lines" />
   }
+  <pio-override-lines [lines]="breakdown.overrides" />
 </fr-stack>

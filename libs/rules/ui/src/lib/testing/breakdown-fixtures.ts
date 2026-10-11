@@ -3,6 +3,8 @@ import {
   EngineMessage,
   InactiveReason,
   LineStatusKind,
+  OverridePhase,
+  OverrideStatusKind,
   RuleId,
   SuppressionReason,
   TermSign,
@@ -12,11 +14,13 @@ import type {
   BreakdownLine,
   LineStatus,
   ModifierLabel,
+  OverrideLine,
   StatisticFailure,
   StatisticValue,
 } from '@pioneer/rules/engine';
 import { FormulaMessage, FormulaText, FormulaValue, TextPosition } from '@pioneer/rules/formula';
 import { Negated, PredicateMessage, SummaryKind } from '@pioneer/rules/predicate';
+import type { PredicateSummary } from '@pioneer/rules/predicate';
 import {
   ContentId,
   ContentText,
@@ -30,6 +34,7 @@ import {
   StatisticKind,
 } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
+import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 import type { NamedStatistic } from '../statistics/statistics.component';
 
@@ -53,12 +58,13 @@ export const ENTRY_NAMES: ReadonlyMap<ContentId, string> = new Map([
   [WITHOUT_LEVEL, 'Proficiency Without Level'],
 ]);
 
-function origin(entry: ContentId): Origin {
+export function origin(entry: ContentId): Origin {
   return Origin.parse({ hops: [], entry, sources: [{ kind: 'book', book: 'player-core', page: 1 }] });
 }
 
-function ruleId(entry: ContentId): RuleId {
-  return RuleId.parse(`${entry}#0`);
+/** The id of the `rule`th rule element on an entry. */
+export function ruleId(entry: ContentId, rule = 0): RuleId {
+  return RuleId.parse(`${entry}#${rule}`);
 }
 
 interface LineOptions {
@@ -101,24 +107,36 @@ export function term(formula: string, value: number, sign: TermSign = TermSign.P
 interface StatisticOptions {
   readonly base: readonly BaseTerm[];
   readonly lines?: readonly BreakdownLine[];
+  /** `Change`s and set overrides in the order they ran; the last applied set override pins the total. */
+  readonly overrides?: readonly OverrideLine[];
 }
 
-/** A statistic whose base and total add up from its terms and applied lines, with no overrides. */
-export function statistic(selector: string, { base, lines = [] }: StatisticOptions): StatisticValue {
-  const baseValue = base.reduce((sum, { value }) => sum + value, 0);
+/**
+ * A statistic whose base is what its terms add up to, or what its last applied `Change` left; its computed total is
+ * that base plus its applied lines, and an applied set override pins the total to the value it left.
+ */
+export function statistic(selector: string, { base, lines = [], overrides = [] }: StatisticOptions): StatisticValue {
+  const formulaValue = base.reduce((sum, { value }) => sum + value, 0);
+  const changed = overrides.findLast(
+    ({ phase, status }) => phase === OverridePhase.Base && status.kind === OverrideStatusKind.Applied,
+  );
+  const baseValue = changed?.result ?? formulaValue;
   const applied = lines.filter(({ status }) => status.kind === LineStatusKind.Applied);
   const computed = applied.reduce((sum, { value }) => sum + (value ?? 0), baseValue);
+  const pin = overrides.findLast(
+    ({ phase, status }) => phase === OverridePhase.Total && status.kind === OverrideStatusKind.Applied,
+  );
   return {
     ok: true,
     selector: Selector.parse(selector),
     base,
-    formulaValue: FormulaValue.parse(baseValue),
+    formulaValue: FormulaValue.parse(formulaValue),
     baseValue: FormulaValue.parse(baseValue),
     lines,
     computed: FormulaValue.parse(computed),
-    total: FormulaValue.parse(computed),
-    overrides: [],
-    pinnedBy: undefined,
+    total: pin?.result ?? FormulaValue.parse(computed),
+    overrides,
+    pinnedBy: pin?.id,
   };
 }
 
@@ -129,20 +147,29 @@ const WHILE_RAISED: LineStatus = {
   summary: { kind: SummaryKind.Authored, text: ContentText.parse('your shield is raised') },
 };
 
+/** A generated phrase: "you are in darkness". */
+export const IN_DARKNESS_SUMMARY: PredicateSummary = {
+  kind: SummaryKind.Phrase,
+  message: message(PredicateMessage.Lighting, { negated: Negated.No, name: 'darkness' }),
+};
+
 /** Conditional on a generated phrase. */
 export const IN_DARKNESS: LineStatus = {
   kind: LineStatusKind.Conditional,
   when: Predicate.parse(['lighting:darkness']),
-  summary: {
-    kind: SummaryKind.Phrase,
-    message: message(PredicateMessage.Lighting, { negated: Negated.No, name: 'darkness' }),
-  },
+  summary: IN_DARKNESS_SUMMARY,
 };
+
+/** A formula that reads `@item.level` where it has no value. */
+export const UNKNOWN_LEVEL: MessageDescriptor = message(FormulaMessage.UnknownReference, {
+  found: '@item.level',
+  position: 1,
+});
 
 /** A line whose formula reads a reference with no value. */
 const UNKNOWN_REFERENCE: LineStatus = {
   kind: LineStatusKind.Failed,
-  error: message(FormulaMessage.UnknownReference, { found: '@item.level', position: 1 }),
+  error: UNKNOWN_LEVEL,
   position: TextPosition.parse(1),
 };
 

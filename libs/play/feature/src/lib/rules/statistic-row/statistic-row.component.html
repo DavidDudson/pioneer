@@ -5,16 +5,17 @@
     @if (!shown.ok) {
       <fr-badge variant="solid" tone="danger">{{ 'play.rules.statisticFailed' | transloco }}</fr-badge>
     } @else {
-      <fr-badge variant="solid" [tone]="shown.pinnedBy === undefined ? 'success' : 'warning'">{{
+      @let pinned = shown.statistic.pinnedBy !== undefined;
+      <fr-badge variant="solid" [tone]="pinned ? 'warning' : 'success'">{{
         'play.rules.statisticTotal' | transloco: { total: total() }
       }}</fr-badge>
-      @if (shown.pinnedBy !== undefined) {
+      @if (pinned) {
         <fr-badge tone="warning">{{ 'play.rules.pinnedFlag' | transloco }}</fr-badge>
       }
     }
   </fr-stack>
   @if (shown.ok) {
-    <pio-statistic-breakdown [row]="shown" />
+    <pio-breakdown [statistic]="shown.statistic" [ruleNames]="shown.ruleNames" [entryNames]="shown.entryNames" />
   } @else {
     <fr-text element="p">{{ shown.error.key | transloco: shown.error.params }}</fr-text>
     <fr-text element="pre">{{ shown.pointer }}</fr-text>

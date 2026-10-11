@@ -1,0 +1,6 @@
+<fr-text numeric>{{ total() }}</fr-text>
+@if (computed(); as unpinned) {
+  <!-- &ngsp; keeps the spaces Angular strips between elements, so the summary reads as words. -->
+  &ngsp;<fr-badge tone="warning">{{ Pinned | transloco }}</fr-badge
+  >&ngsp;<fr-text tone="muted" numeric>{{ unpinned }}</fr-text>
+}

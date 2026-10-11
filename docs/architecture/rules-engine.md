@@ -279,8 +279,7 @@ join the catalogue when the engine can supply their values. Formulas inside Foun
 
 ## Modifiers and stacking
 
-`libs/rules/engine` (`breakdown.ts`) defines these types. Overrides and roll notes join the breakdown with their own
-stories.
+`libs/rules/engine` (`breakdown.ts`) defines these types. Roll notes join the breakdown with their own story.
 
 ```ts
 interface Modifier {

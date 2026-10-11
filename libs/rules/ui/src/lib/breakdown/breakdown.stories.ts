@@ -11,6 +11,7 @@ import {
   statistic,
   term,
 } from '../testing/breakdown-fixtures';
+import { OVERRIDE_STATUSES, PINNED_AC } from '../testing/override-fixtures';
 import { BreakdownView } from './breakdown.component';
 
 type BreakdownStory = StoryObj<BreakdownView>;
@@ -40,6 +41,16 @@ export const Conditional: BreakdownStory = {
       lines: [line(BREASTPLATE, { type: ModifierType.Circumstance, value: 2, status: IN_DARKNESS })],
     }),
   },
+};
+
+/** A GM's set override pins AC to 22, replacing an earlier one; a form's `Change` is not in effect. */
+export const Pinned: BreakdownStory = {
+  args: { statistic: PINNED_AC },
+};
+
+/** `Change`s that are conditional, failed, applied and inactive; the applied downgrade sets the base. */
+export const OverrideStatuses: BreakdownStory = {
+  args: { statistic: OVERRIDE_STATUSES },
 };
 
 /** With no entry names, lines show their entry ids. */

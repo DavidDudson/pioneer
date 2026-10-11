@@ -8,8 +8,8 @@ import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor, ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
-import { overrideRow, RULE_NAME_KEYS, ruleNames, RuleSource, rulesInPlay, weaponOrigin } from './breakdown-lines';
-import type { OverrideRow, RuleName } from './breakdown-lines';
+import { RULE_NAME_KEYS, ruleNames, RuleSource, rulesInPlay, weaponOrigin } from './breakdown-lines';
+import type { RuleName } from './breakdown-lines';
 import { pointAt } from './point-at';
 import { parseFacts } from './predicate-verdict';
 import { CheckStatus, readJson } from './rules-check';
@@ -108,24 +108,18 @@ export const EXAMPLE_OVERRIDES = JSON.stringify(
   JSON_INDENT,
 );
 
-/** A statistic that derived. */
-export type DerivedRow = Extract<StatisticRow, { readonly ok: true }>;
-
 /**
- * A statistic's base terms, lines, overrides and totals, or its error with a caret under the reference or node
+ * A statistic's breakdown and the names it reads its lines by, or its error with a caret under the reference or node
  * that failed.
  */
 export type StatisticRow =
   | {
       readonly ok: true;
       readonly selector: Selector;
-      /** The engine's breakdown, which the shared inspector shows. */
+      /** The engine's breakdown, totals and overrides included, which the shared inspector shows. */
       readonly statistic: StatisticValue;
-      readonly computed: number;
+      /** The total the row's header shows: the computed one, or the value a set override pinned it to. */
       readonly total: number;
-      /** The set override that pinned the total, if one did. */
-      readonly pinnedBy: RuleName | undefined;
-      readonly overrides: readonly OverrideRow[];
       /** Each typed rule element's name by box and number, for lines with no label of their own. */
       readonly ruleNames: ReadonlyMap<RuleId, MessageDescriptor>;
       /** The variant rule in play by name, for a term whose proficiency bonus it sets. */
@@ -162,16 +156,14 @@ export type StatisticsCheck =
       readonly factLines: readonly number[];
     };
 
-/** How a row names things: rule elements by box and number, as names and as messages, and the variant rule's name. */
+/** How a row names things: rule elements by box and number, and the variant rule's name. */
 interface RowNames {
-  readonly rules: ReadonlyMap<RuleId, RuleName>;
   readonly messages: ReadonlyMap<RuleId, MessageDescriptor>;
   readonly entries: ReadonlyMap<ContentId, string>;
 }
 
 function rowNames(rules: ReadonlyMap<RuleId, RuleName>, variant: VariantInPlay | undefined): RowNames {
   return {
-    rules,
     messages: new Map([...rules].map(([id, { source, number }]) => [id, message(RULE_NAME_KEYS[source], { number })])),
     entries: new Map((variant?.rules ?? []).map(({ origin }) => [origin.entry, variant?.name ?? origin.entry])),
   };
@@ -185,10 +177,7 @@ function rowOf(result: StatisticResult, base: string, names: RowNames): Statisti
     ok: true,
     selector: result.selector,
     statistic: result,
-    computed: result.computed,
     total: result.total,
-    pinnedBy: result.pinnedBy === undefined ? undefined : names.rules.get(result.pinnedBy),
-    overrides: result.overrides.map((line) => overrideRow(line, names.rules)),
     ruleNames: names.messages,
     entryNames: names.entries,
   };

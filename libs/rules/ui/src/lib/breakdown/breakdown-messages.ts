@@ -1,4 +1,4 @@
-import { LineStatusKind } from '@pioneer/rules/engine';
+import { LineStatusKind, OverrideStatusKind } from '@pioneer/rules/engine';
 import { ModifierType } from '@pioneer/rules/sdk';
 
 /** Message keys the breakdown inspector renders with, spelled out so the key check sees them. */
@@ -20,6 +20,15 @@ export const BreakdownMessage = {
   RemovedBy: 'rules.breakdown.removedBy',
   AppliesWhen: 'rules.breakdown.appliesWhen',
   Inactive: 'rules.breakdown.inactive',
+  /** "Set by the GM pins it to 20; computed 18.": the set override that pinned the total, and what it hides. */
+  Pinned: 'rules.breakdown.pinned',
+  Overrides: 'rules.breakdown.overrides',
+  /** "override 18 → 20": what an override line did, the value it replaced and the value it left. */
+  OverrideEffect: 'rules.breakdown.overrideEffect',
+  /** A set override that a later one replaced. */
+  ReplacedBy: 'rules.breakdown.replacedBy',
+  /** An override line a user set by hand: an `override` hop in its origin. */
+  SetByHand: 'rules.breakdown.setByHand',
 } as const;
 
 /** The status a line that does not simply apply is marked with. */
@@ -47,6 +56,23 @@ export const LINE_STATUS_ORDER: readonly LineStatusKind[] = [
   LineStatusKind.Inactive,
   LineStatusKind.Failed,
 ];
+
+/** The status an override line that does not simply apply is marked with. */
+export type MarkedOverrideStatus = Exclude<OverrideStatusKind, typeof OverrideStatusKind.Applied>;
+
+export const OVERRIDE_STATUS_MESSAGES: Readonly<Record<MarkedOverrideStatus, string>> = {
+  [OverrideStatusKind.Replaced]: 'rules.breakdown.status.replaced',
+  [OverrideStatusKind.Conditional]: 'rules.breakdown.status.conditional',
+  [OverrideStatusKind.Inactive]: 'rules.breakdown.status.inactive',
+  [OverrideStatusKind.Failed]: 'rules.breakdown.status.failed',
+};
+
+export const OVERRIDE_STATUS_TONES = {
+  [OverrideStatusKind.Replaced]: 'neutral',
+  [OverrideStatusKind.Conditional]: 'warning',
+  [OverrideStatusKind.Inactive]: 'neutral',
+  [OverrideStatusKind.Failed]: 'danger',
+} as const satisfies Readonly<Record<MarkedOverrideStatus, string>>;
 
 export const MODIFIER_TYPE_MESSAGES: Readonly<Record<ModifierType, string>> = {
   [ModifierType.Untyped]: 'rules.breakdown.modifierType.untyped',
