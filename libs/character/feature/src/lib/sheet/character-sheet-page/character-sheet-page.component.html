@@ -117,7 +117,7 @@
       <fr-async-region>
         <ng-template frAsyncPending><pio-statistics [statistics]="undefined" /></ng-template>
         <ng-template [frAsyncData]="engineQuery()"
-          ><pio-statistics [statistics]="statistics()" [entryNames]="entryNames()"
+          ><pio-statistics [statistics]="picks.statistics()" [entryNames]="entryNames()"
         /></ng-template>
       </fr-async-region>
     </fr-section>

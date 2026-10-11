@@ -72,7 +72,6 @@ import { carriesEquipment, EQUIPMENT_CONTENT_KINDS, sheetInvestments } from '../
 import { sheetField } from '../sheet-field';
 import { SHEET_SECTION_ORDER, SHEET_SECTIONS } from '../sheet-sections';
 import { SheetSkillFields } from '../sheet-skill-fields/sheet-skill-fields.component';
-import { sheetStatistics } from '../sheet-statistics';
 
 /** Focuses an inline field by its read view's button, which scrolls it into view. */
 function focusField(field: ElementRef<HTMLElement>): void {
@@ -172,16 +171,11 @@ export class CharacterSheetPage {
   readonly #engineRegistry = computed((): ContentRegistry | undefined =>
     carriesEquipment(this.character()) ? this.equipment.data() : this.registry.data(),
   );
-  protected readonly statistics = computed(() => {
-    const registry = this.#engineRegistry();
-    const character = this.character();
-    return registry === undefined || character === undefined ? undefined : sheetStatistics(registry, character);
-  });
   /** The invested items and what each turns on, from the statistics; undefined while they load. */
   protected readonly investments = computed((): readonly Investment[] | undefined => {
     const registry = this.#engineRegistry();
     const character = this.character();
-    const statistics = this.statistics();
+    const statistics = this.picks.statistics();
     return registry === undefined || character === undefined || statistics === undefined
       ? undefined
       : sheetInvestments(character, itemContent(registry), statistics);
@@ -208,6 +202,7 @@ export class CharacterSheetPage {
   /** The root slot, subclass and key attribute pickers, the build summary and the class features. */
   protected readonly picks = sheetBuildPicks({
     registry: this.registry.data,
+    engineRegistry: this.#engineRegistry,
     character: this.character,
     slots: this.store.slots,
     select: async (slot, selection) => this.store.selectSlot(slot, selection),

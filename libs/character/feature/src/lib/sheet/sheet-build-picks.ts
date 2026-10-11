@@ -21,10 +21,13 @@ import type { SheetKeyAttribute, SheetSubclass } from './sheet-build';
 import { sheetChoices } from './sheet-choices';
 import { sheetField } from './sheet-field';
 import { sheetSkills, sheetSkillSlots } from './sheet-skills';
+import { sheetStatistics } from './sheet-statistics';
 
 /** What the build picks read and write through. */
 export interface BuildPickSources {
   readonly registry: Signal<ContentRegistry | undefined>;
+  /** The registry the engine derives from: with the item kinds once the character carries equipment. */
+  readonly engineRegistry: Signal<ContentRegistry | undefined>;
   readonly character: Signal<Character | undefined>;
   /** The slots as the server read them. */
   readonly slots: Signal<readonly CharacterSlot[] | undefined>;
@@ -62,6 +65,8 @@ export interface BuildPicks {
   readonly buildLines: Signal<readonly BuildLine[] | undefined>;
   /** Every choice with its status, as the server read the slots; undefined while the character loads. */
   readonly choices: Signal<readonly ChoiceLine[] | undefined>;
+  /** AC, the saves and Perception from the engine; undefined while the character or the content loads. */
+  readonly statistics: Signal<readonly NamedStatistic[] | undefined>;
   /** Every skill and Lore with what the engine derives for it; undefined while the character or the content loads. */
   readonly skills: Signal<readonly NamedStatistic[] | undefined>;
   /** One pick per trained skill and skill increase up to the character's level, in the order they are read. */
@@ -193,7 +198,8 @@ export function sheetBuildPicks(sources: BuildPickSources): BuildPicks {
       const slots = sources.slots();
       return slots === undefined ? undefined : sheetChoices(slots);
     }),
-    skills: loaded(sources, sheetSkills),
+    statistics: loaded({ ...sources, registry: sources.engineRegistry }, sheetStatistics),
+    skills: loaded({ ...sources, registry: sources.engineRegistry }, sheetSkills),
     skillFields: skillFieldsOf(sources),
   };
 }
