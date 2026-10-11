@@ -56,10 +56,10 @@ const ENTRIES: readonly RuleInPlay[] = rulesOf(
   SLUGS.map((slug): Placed => ({ entry: true, slug, tradition: 'arcane', rank: 'trained', gated: false })),
 );
 
-/** A `SpellSlots` element with a fixed rank or cantrips, maybe in a pool, for an entry or for one not in play. */
+/** A `SpellSlots` element of a fixed rank, cantrips or `highest`, maybe in a pool, maybe for an entry not in play. */
 interface PlacedSlots {
   readonly entry: (typeof SLUGS)[number] | 'druid';
-  readonly rank: number | 'cantrip';
+  readonly rank: number | 'cantrip' | 'highest';
   readonly value: number;
   readonly pool: (typeof POOLS)[number] | undefined;
   readonly gated: boolean;
@@ -67,7 +67,7 @@ interface PlacedSlots {
 
 const placedSlots: Arbitrary<PlacedSlots> = record({
   entry: constantFrom(...SLUGS, 'druid'),
-  rank: oneof(integer({ min: 1, max: RANK_MAX }), constantFrom('cantrip' as const)),
+  rank: oneof(integer({ min: 1, max: RANK_MAX }), constantFrom('cantrip' as const, 'highest' as const)),
   value: integer({ min: 1, max: VALUE_MAX }),
   pool: option(constantFrom(...POOLS), { nil: undefined }),
   gated: boolean(),
@@ -79,6 +79,46 @@ function slotRulesOf(elements: readonly PlacedSlots[]): RuleInPlay[] {
     const predicate = gated ? { predicate: AT_FIFTH } : {};
     return inPlay({ key: 'SpellSlots', entry, rank, value, ...inPool, ...predicate }, 'feature', { rule });
   });
+}
+
+/** Slots as the model writes them: cantrips when there are any, then counts by rank. */
+interface Modelled {
+  readonly cantrips?: number;
+  readonly ranks: readonly { readonly rank: number; readonly count: number }[];
+}
+
+function slotsWith(cantrips: number | undefined, ranks: Modelled['ranks']): Modelled {
+  return cantrips === undefined ? { ranks } : { cantrips, ranks };
+}
+
+/** The key the model keeps an entry's own slots under, apart from its pools. */
+const OWN = '';
+
+/**
+ * What an entry's ungated elements should give, worked out plainly: `highest` is the highest fixed own rank below
+ * 10th, or nothing without one; counts add up per pool and rank.
+ */
+function modelSlots(live: readonly PlacedSlots[]): Map<string, Modelled> {
+  const fixedOwn = live.flatMap(({ pool, rank }) => (pool === undefined && typeof rank === 'number' ? [rank] : []));
+  const belowTenth = fixedOwn.filter((rank) => rank < RANK_MAX);
+  const highest = belowTenth.length === 0 ? undefined : Math.max(...belowTenth);
+  const tallies = new Map<string, Map<number | 'cantrip', number>>();
+  for (const { pool, rank, value } of live) {
+    const resolved = rank === 'highest' ? highest : rank;
+    if (resolved !== undefined) {
+      const tally = tallies.get(pool ?? OWN) ?? new Map<number | 'cantrip', number>();
+      tally.set(resolved, (tally.get(resolved) ?? 0) + value);
+      tallies.set(pool ?? OWN, tally);
+    }
+  }
+  return new Map(
+    [...tallies].map(([pool, tally]): [string, Modelled] => {
+      const ranks = [...tally]
+        .flatMap(([rank, count]) => (rank === 'cantrip' ? [] : [{ rank, count }]))
+        .toSorted((left, right) => left.rank - right.rank);
+      return [pool, slotsWith(tally.get('cantrip'), ranks)];
+    }),
+  );
 }
 
 describe('spellcastingInPlay (properties)', () => {
@@ -115,27 +155,14 @@ describe('spellcastingInPlay (properties)', () => {
         const entries = spellcastingInPlay({ rules: [...ENTRIES, ...slotRulesOf(placedList)], facts });
 
         for (const { slug, slots, pools } of entries) {
-          const live = placedList.filter((each) => each.entry === slug && !each.gated);
-          const totalOf = (pool: string | undefined, rank: number | 'cantrip'): number =>
-            live.filter((each) => each.pool === pool && each.rank === rank).reduce((sum, { value }) => sum + value, 0);
-          const ownRanks = live.flatMap(({ pool, rank }) => (pool === undefined && rank !== 'cantrip' ? [rank] : []));
-          const cantrips = totalOf(undefined, 'cantrip');
+          const expected = modelSlots(placedList.filter((each) => each.entry === slug && !each.gated));
 
-          expect<number | undefined>(slots.cantrips).toBe(cantrips === 0 ? undefined : cantrips);
-          expect<number[]>(slots.ranks.map(({ rank }) => rank)).toEqual(
-            [...new Set(ownRanks)].toSorted((left, right) => left - right),
+          expect<Modelled>(slots).toEqual(expected.get(OWN) ?? { ranks: [] });
+          expect<[string, Modelled][]>(
+            pools.map(({ pool, cantrips, ranks }) => [pool, slotsWith(cantrips, ranks)]),
+          ).toEqual(
+            [...expected].filter(([pool]) => pool !== OWN).toSorted(([left], [right]) => (left < right ? -1 : 1)),
           );
-          for (const { rank, count } of slots.ranks) {
-            expect<number>(count).toBe(totalOf(undefined, rank));
-          }
-          expect<string[]>(pools.map(({ pool }) => pool)).toEqual(
-            [...new Set(live.flatMap(({ pool }) => (pool === undefined ? [] : [pool])))].toSorted(),
-          );
-          for (const { pool, ranks } of pools) {
-            for (const { rank, count } of ranks) {
-              expect<number>(count).toBe(totalOf(pool, rank));
-            }
-          }
         }
       }),
     );

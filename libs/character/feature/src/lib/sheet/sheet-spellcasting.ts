@@ -13,10 +13,11 @@ import { sheetSlotContent } from './sheet-slot-content';
 const FAMILIES: readonly Selector[] = ['spell-attack', 'spell-dc'].map((family) => Selector.parse(family));
 
 /**
- * A character's spellcasting entries, each with its spell attack and spell DC from the engine, its slots and pools, named by the family that
- * applies (the last pack's definition), and the name of the entry that gave it. The rule elements of the items it wears,
- * holds or has invested are in play, as for the sheet's other statistics. A family no registered pack defines is
- * left out; without a proficiency bonus table nothing can be derived, so there are no entries to show either.
+ * A character's spellcasting entries, each with its spell attack and spell DC from the engine, named by the family that
+ * applies (the last pack's definition), its slots and pools, and the name of the entry that gave it. The rule elements
+ * of the items it wears, holds or has invested are in play, as for the sheet's other statistics. A family no registered
+ * pack defines is left out; without a proficiency bonus table nothing can be derived, so there are no entries to show
+ * either.
  */
 export function sheetSpellcasting(registry: ContentRegistry, character: Character): readonly SpellcastingEntryLine[] {
   const content = statisticContent(registry);

@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 
 import { PredicateFacts } from '@pioneer/rules/predicate';
-import { RollOption } from '@pioneer/rules/sdk';
+import { RollOption, SLOT_COUNT_MAX } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
 
 import { spellcastingInPlay } from './spellcasting-in-play';
@@ -187,5 +187,14 @@ describe('spellcastingInPlay slots', () => {
     ]);
 
     expect<object | undefined>(wizard?.pools.map(({ ranks }) => ranks)).toEqual([[{ rank: 9, count: 1 }]]);
+  });
+  test('a count past the most one rank holds is clamped there', () => {
+    const many = Array.from({ length: 11 }, (_unused, rule): [object, string] => [
+      slots('wizard', [1, 9]),
+      `feat-${rule}`,
+    ]);
+    const [wizard] = entriesOf([[entry('wizard', 'arcane'), 'wizard-spellcasting'], ...many]);
+
+    expect<object | undefined>(wizard?.slots).toEqual({ ranks: [{ rank: 1, count: SLOT_COUNT_MAX }] });
   });
 });

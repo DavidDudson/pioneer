@@ -47,3 +47,6 @@ Alternatives:
 - Divine font is one pool whatever the deity's font; which spell goes in it waits on the font choice, which the importer
   does not translate yet.
 - A witch dedication still has no entry (ADR-0040), so its archetype feats add no slots.
+- This narrows ADR-0008 again: `SpellSlots` has no Foundry counterpart, so the Foundry export (roadmap) writes each
+  entry's own counts as its spellcasting entry item's slot maximums, and each pool as a spellcasting entry item of its
+  own, as Foundry players keep a divine font.

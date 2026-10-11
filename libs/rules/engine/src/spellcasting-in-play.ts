@@ -41,7 +41,10 @@ interface EntryInPlay extends SpellcastingInputs {
   readonly origin: Origin;
 }
 
-/** A spellcasting entry on the character: what its spell attack and DC read, how it casts, why it is there, its slots. */
+/**
+ * A spellcasting entry on the character: what its spell attack and DC read, how it casts, why it is there, and its
+ * slots.
+ */
 export interface SpellcastingInPlay extends EntryInPlay, EntrySlots {}
 
 /** `items` in the code-unit order of their slugs, so a result never depends on the host's locale. */
@@ -108,8 +111,8 @@ function fixedOwnSlots(placed: readonly PlacedSlots[]): Tally {
 
 /**
  * An entry's own slots and pools from the `SpellSlots` elements that name it. Counts add up per pool and rank;
- * `highest` is the highest rank below 10th its own fixed slots reach, so it is read once those are counted, and adds nothing to an
- * entry with none.
+ * `highest` is the highest rank below 10th its own fixed slots reach, so it is read once those are counted, and adds
+ * nothing to an entry with none.
  */
 function entrySlots(placed: readonly PlacedSlots[]): EntrySlots {
   const own = fixedOwnSlots(placed);
