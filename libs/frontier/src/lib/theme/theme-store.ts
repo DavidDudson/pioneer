@@ -36,10 +36,6 @@ export class ThemeStore {
     });
   }
 
-  public toggleMode(): void {
-    this.mode.update((mode) => (mode === ColorMode.Dark ? ColorMode.Light : ColorMode.Dark));
-  }
-
   #openStorage(): Storage | undefined {
     try {
       return this.#document.defaultView?.localStorage;
