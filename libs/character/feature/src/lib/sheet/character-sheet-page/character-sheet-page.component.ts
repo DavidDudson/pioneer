@@ -21,8 +21,10 @@ import {
 } from '@pioneer/character/domain';
 import type { Character, CharacterPatch } from '@pioneer/character/domain';
 import {
+  AsyncData,
+  AsyncPending,
+  AsyncRegion,
   DateDisplay,
-  EmptyState,
   Grid,
   InlineEdit,
   InlineField,
@@ -40,22 +42,28 @@ import {
   Text,
   TextInput,
 } from '@pioneer/frontier';
+import { ContentLoader } from '@pioneer/rules/data-access';
 import {
   ATTRIBUTE_MODIFIER_MAX,
   ATTRIBUTE_MODIFIER_MIN,
   AncestryId,
   Attribute,
   AttributeModifier,
+  ContentKind,
 } from '@pioneer/rules/sdk';
+import { DefencesView } from '@pioneer/rules/ui';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 import { ApiError } from '@pioneer/shared/web';
+import { injectQuery } from '@tanstack/angular-query-experimental';
 import type * as z from 'zod';
 
 import { AncestryOptions } from '../../data/ancestry-options';
 import { ATTRIBUTE_LABEL_KEYS } from '../../data/attribute-label-keys';
 import { CharacterStore } from '../../data/character-store';
+import { contentRegistryQuery } from '../../data/content-registry-query';
 import { ImportResult } from '../../import/import-result/import-result.component';
+import { sheetDefences } from '../sheet-defences';
 import { SHEET_SECTION_ORDER, SHEET_SECTIONS } from '../sheet-sections';
 
 /** How one sheet value maps to the aggregate and back. */
@@ -89,8 +97,11 @@ const SIGNED: Intl.NumberFormatOptions = { signDisplay: 'always' };
 @Component({
   selector: 'pio-character-sheet-page',
   imports: [
+    AsyncData,
+    AsyncPending,
+    AsyncRegion,
     DateDisplay,
-    EmptyState,
+    DefencesView,
     Grid,
     ImportResult,
     InlineField,
@@ -117,6 +128,7 @@ export class CharacterSheetPage {
 
   readonly #format = inject(LocaleFormat);
   readonly #injector = inject(Injector);
+  readonly #content = inject(ContentLoader);
   private readonly identity = viewChild.required<string, ElementRef<HTMLElement>>('identity', { read: ElementRef });
   protected readonly store = inject(CharacterStore);
   protected readonly ancestries = inject(AncestryOptions);
@@ -128,6 +140,13 @@ export class CharacterSheetPage {
   protected readonly sections = SHEET_SECTIONS;
   protected readonly sectionOrder = SHEET_SECTION_ORDER;
   protected readonly title = computed(() => this.character()?.name);
+  /** The registry the engine reads, shared with the ancestry options, so it loads once. */
+  protected readonly registry = injectQuery(() => contentRegistryQuery(this.#content, [ContentKind.Ancestry]));
+  protected readonly defences = computed(() => {
+    const registry = this.registry.data();
+    const character = this.character();
+    return registry === undefined || character === undefined ? undefined : sheetDefences(registry, character);
+  });
 
   protected readonly name = this.#field<string>({
     read: (character) => character.name,

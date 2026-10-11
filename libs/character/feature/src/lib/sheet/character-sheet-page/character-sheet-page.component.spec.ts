@@ -146,4 +146,20 @@ describe('CharacterSheetPage', () => {
       'Charisma',
     ]);
   });
+
+  it('shows the defences the engine derives, each list empty until rule elements are in play', async () => {
+    const { root } = await openSheet();
+    const defences = present([...root.querySelectorAll('section')].at(-1));
+
+    await vi.waitFor(() => {
+      expect([...defences.querySelectorAll('h3, p')].map((element) => element.textContent.trim())).toStrictEqual([
+        'Immunities',
+        'No immunities.',
+        'Weaknesses',
+        'No weaknesses.',
+        'Resistances',
+        'No resistances.',
+      ]);
+    });
+  });
 });
