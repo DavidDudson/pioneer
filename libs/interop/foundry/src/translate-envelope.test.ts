@@ -214,11 +214,11 @@ describe('translateEnvelopes: description', () => {
 
   test('reports markup it keeps only the text of, against the entry', () => {
     const { unknownMarkup } = translateOne({
-      description: { value: '<p>Stride <span class="action-glyph">1</span></p>' },
+      description: { value: '<p>Stride <span style="float:right">1</span></p>' },
     });
 
     expect(unknownMarkup).toEqual([
-      { entry: toughnessId, markup: 'span[class]' },
+      { entry: toughnessId, markup: 'span[style]' },
       { entry: toughnessId, markup: 'span' },
     ]);
   });
@@ -281,6 +281,7 @@ describe('translationReport', () => {
         { key: 'mental', count: 1 },
       ],
       unknownMarkup: [{ key: 'div', count: 1 }],
+      untranslatedEnrichers: [],
     });
   });
 });
