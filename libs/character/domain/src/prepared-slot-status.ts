@@ -23,7 +23,12 @@ export function preparedStatuses(document: CharacterDocument, content: SlotConte
   return preparedSlots(document, preparedReads(document, content)).map((slot) => {
     const read: SlotRead = {
       key: slot.key,
-      subject: { kind: SlotSubjectKind.Spell, entry: slot.entry, rank: slot.rank },
+      subject: {
+        kind: SlotSubjectKind.Spell,
+        entry: slot.entry,
+        ...(slot.pool === undefined ? {} : { pool: slot.pool.slug }),
+        rank: slot.rank,
+      },
       stored: slot.stored,
       planned: undefined,
     };

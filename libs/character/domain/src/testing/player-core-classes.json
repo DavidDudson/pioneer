@@ -2641,6 +2641,22 @@
     ],
     "rules": [
       {
+        "key": "ChoiceSet",
+        "flag": "divine-font",
+        "choices": [
+          {
+            "value": "heal",
+            "label": "Healing"
+          },
+          {
+            "value": "harm",
+            "label": "Harmful"
+          }
+        ],
+        "prompt": "Select a Divine Font.",
+        "rollOption": "divine-font"
+      },
+      {
         "key": "SpellSlots",
         "entry": "cleric",
         "rank": "highest",
@@ -2670,6 +2686,20 @@
             "gte": ["self:level", 15]
           }
         ]
+      },
+      {
+        "key": "PoolSpells",
+        "entry": "cleric",
+        "pool": "divine-font",
+        "spells": ["949e0a89-f44b-598d-8adb-3d9d31db900e"],
+        "predicate": ["divine-font:heal"]
+      },
+      {
+        "key": "PoolSpells",
+        "entry": "cleric",
+        "pool": "divine-font",
+        "spells": ["1330902b-a95f-54ea-9a07-3764617bd887"],
+        "predicate": ["divine-font:harm"]
       }
     ],
     "externalIds": {
@@ -10164,6 +10194,33 @@
             "gte": ["self:level", 17]
           }
         ]
+      },
+      {
+        "key": "PoolSpells",
+        "entry": "wizard",
+        "pool": "curriculum",
+        "spells": [
+          "6dee4f5d-f584-5402-af2a-d3738ec685b3",
+          "ed1f3941-7c08-5015-b12a-2017b44f68e3",
+          "14e2abdf-052f-5a62-a6a0-8b4191474b38",
+          "1c97409b-bd67-5df2-a7d3-a49aff4d3896",
+          "7c5ef7d9-d7ac-5654-b88c-5504257ec3f7",
+          "1871511d-f694-5e6b-b49d-1e7388909900",
+          "d54ee3a3-6742-53c8-9070-17edcb0cae19",
+          "3cddd734-8a89-5de8-9c13-65748a0c7c32",
+          "989ec875-261d-5d4f-a181-fedf889f9d4b",
+          "12b87fec-1e48-544a-8e02-78d8f5b1e78b",
+          "b0ec9594-b2b6-5d97-99b8-41cc7ffab5d0",
+          "03bdda38-13a1-546c-a4e9-871558602823",
+          "efcbeb7d-28bc-5644-abad-cbccad85de79",
+          "088c1f48-de0f-5b8a-83b3-24ce61a928bc",
+          "e4628be0-93e0-58ba-adb1-d9e656f43da5",
+          "7c9cae9d-6b33-5c97-91e7-787d78e8ec45",
+          "ad19fa16-a5bd-513e-9a73-32f05671fb03",
+          "bd06ad4f-c772-5cf5-b681-ac85bf76f690",
+          "0ffdc954-c422-5590-a4f2-c72d060baf98",
+          "6096b768-43d9-56ca-a7f1-8317781601df"
+        ]
       }
     ],
     "externalIds": {
@@ -10299,6 +10356,33 @@
           {
             "gte": ["self:level", 17]
           }
+        ]
+      },
+      {
+        "key": "PoolSpells",
+        "entry": "wizard",
+        "pool": "curriculum",
+        "spells": [
+          "d4cea589-6319-5d13-9109-319b4bbcc6e1",
+          "bb65f478-400b-518d-a697-75f634f6dbc1",
+          "c9d16d82-fcfd-5431-9d05-06caca157602",
+          "52547c94-24db-549b-961f-07a2350befdc",
+          "d67d6680-3ff4-55d5-87da-65012569387d",
+          "d7720a54-bc70-5d59-bdb1-d50d8eb0dac9",
+          "52cd674f-3e49-5527-b0c9-8a4137bc9c08",
+          "e1c0e972-837b-5c7f-99cc-2e70ee68c645",
+          "0474b135-7232-52c1-beff-221dccc82e78",
+          "57a0b3be-ec46-56cd-99e6-c5c0988b0285",
+          "e25a3eab-3b7d-56fd-90e2-98d892fdc8fd",
+          "b2355f5f-2795-58d8-a713-df34a0257e46",
+          "5acfec50-394e-5699-9d71-1b03aa194da5",
+          "fdafb7f2-fde7-571a-89b5-7c2aba17e259",
+          "b346ac8d-e3aa-5131-af4a-9cbae1f72ff8",
+          "56b4d7c9-6277-5134-9f36-3eb0511762f2",
+          "3e61b605-c274-5409-a4e1-9cb72132821d",
+          "9cbca3a7-5a5f-55f3-b53c-29e1dabc9ac2",
+          "5cd8e86f-9a06-59b4-a2fd-7a1cc14b4c3e",
+          "3c286698-36f2-5124-bba1-f2d740ffa9ca"
         ]
       }
     ],
@@ -10436,6 +10520,33 @@
             "gte": ["self:level", 17]
           }
         ]
+      },
+      {
+        "key": "PoolSpells",
+        "entry": "wizard",
+        "pool": "curriculum",
+        "spells": [
+          "411dc034-1932-5468-960c-2c3f40ec20ec",
+          "5ad9a64e-8b2e-5db4-8526-bc713e07778c",
+          "69ad403d-0767-5998-bc5d-8071fbe3580b",
+          "2e1a723b-ad9f-53b0-bee3-21b8401988f0",
+          "193cd153-9b8b-5415-8d18-949ff386cd16",
+          "b76d119e-0d8d-52ad-8cca-1a224c3077ae",
+          "6a92fc43-23d9-559f-a7fd-f25a6735ef9a",
+          "180df159-6732-56a6-858a-5dfbb9a88be2",
+          "2a6f1cc9-99b9-5354-a4d0-56e69c15ff17",
+          "2e797ff1-fcb3-5e23-af04-bc8fc9271425",
+          "1bf15f4b-9369-5136-b3f1-cd18d01b9233",
+          "877e8c19-8f14-5568-8d0b-4b9c520e07ea",
+          "f3141756-1e05-510a-b997-772d9ada7ecd",
+          "9a703ca8-ffd2-5cfd-82c2-b323c835ac03",
+          "86c529b1-5a2f-5bac-9c74-674544b5bd32",
+          "49df8d74-a119-5bf7-a977-c5b5bc8f0224",
+          "0f8f5ea1-c5bb-5a67-9a8f-9354c4348c25",
+          "0ffdc954-c422-5590-a4f2-c72d060baf98",
+          "c9e1a46f-ea98-5d01-935a-1d7035a3833b",
+          "a38c5303-30ba-573f-ba85-624c5dc04dc1"
+        ]
       }
     ],
     "externalIds": {
@@ -10571,6 +10682,34 @@
           {
             "gte": ["self:level", 17]
           }
+        ]
+      },
+      {
+        "key": "PoolSpells",
+        "entry": "wizard",
+        "pool": "curriculum",
+        "spells": [
+          "c319a7b8-ee8e-5f50-97c7-16151916ad80",
+          "161eed43-e585-5c4f-a01f-3a11431b5e75",
+          "15904512-5f17-5bba-b1a0-1f892989912c",
+          "3d63b411-a7ae-5d54-bcc3-b6426386412e",
+          "0326fd8f-6c36-5184-940b-a36b47e8c4a8",
+          "1e70918d-066f-5a32-938b-48362d1d669e",
+          "b434b2d9-47e5-519e-a542-6dae12c51157",
+          "80285128-e7a0-55e7-a386-1f845f6d09aa",
+          "ed8ad89d-b5e6-5f93-9e80-1368a1e0b8dc",
+          "3c7ef298-5d47-58c4-a650-2bec5d4bda5d",
+          "25a3d838-3162-5afd-a28e-bccf51fbd742",
+          "06dcb2ac-6b0e-512e-bcc4-7dd4abe5d503",
+          "3c2ab746-3091-512f-9309-804440742c21",
+          "055bd3d8-a0b8-539f-84f8-4baab9936d67",
+          "fcd3c0c1-a3b8-5747-bbad-0ca5e7f7c495",
+          "ef577445-0666-5e29-869e-6783ca9b096a",
+          "43055a38-2f08-5fbf-b5bc-4766acc9cd14",
+          "8845ac04-b934-5119-92b8-e7831092fe04",
+          "9cbca3a7-5a5f-55f3-b53c-29e1dabc9ac2",
+          "5cd8e86f-9a06-59b4-a2fd-7a1cc14b4c3e",
+          "2ba1a22a-6c4c-53c2-96ed-c1f5393a02b4"
         ]
       }
     ],
@@ -10708,6 +10847,33 @@
             "gte": ["self:level", 17]
           }
         ]
+      },
+      {
+        "key": "PoolSpells",
+        "entry": "wizard",
+        "pool": "curriculum",
+        "spells": [
+          "bb73ff19-7c70-5f9f-8c0e-dbd71c099926",
+          "02c769dd-dba8-5437-8189-28b9800afaac",
+          "34da213b-dfe6-5e19-b7f5-bfc627cadded",
+          "52287400-110e-575d-8cd6-4b91f499cd69",
+          "ed3b944d-39c4-5b33-82c2-8f1bf8bd02e7",
+          "3597aeb0-883c-562a-82ca-37e92210633d",
+          "62b9b05e-2f86-5c8b-bc12-2500cd4d9959",
+          "6c93157e-4fb6-5e3e-aef5-23f59651c049",
+          "30234e3f-a8be-5813-adf9-a56c58ee261c",
+          "04ad7d29-a93e-5d13-9563-5e013d6ca611",
+          "3f76db0d-3598-5ec4-bdd4-9f568f4f8973",
+          "07ae3cd7-dcbd-519c-a9f0-6c9c385a5139",
+          "1516123c-bc37-5053-be15-24201abb1d02",
+          "e4628be0-93e0-58ba-adb1-d9e656f43da5",
+          "062680d1-edd9-5d3d-b358-fc861d29d3ff",
+          "0e5984dc-6b02-5ee0-81df-9b1749de8f65",
+          "99651215-11b0-5244-8514-74c05a562385",
+          "1001faa9-fabc-5445-b281-5716b5ccab6d",
+          "6acb56d4-91ce-5efb-b591-d1c2aa5af766",
+          "fb2cc36e-8e1c-5149-a202-43938814f46a"
+        ]
       }
     ],
     "externalIds": {
@@ -10843,6 +11009,33 @@
           {
             "gte": ["self:level", 17]
           }
+        ]
+      },
+      {
+        "key": "PoolSpells",
+        "entry": "wizard",
+        "pool": "curriculum",
+        "spells": [
+          "0964edfe-0384-5444-908b-fe24653c28f5",
+          "d32836d8-9eeb-52c0-a7f8-6e0bc64ed7c7",
+          "ce5ba457-89bd-5a85-8d45-2faa300f9d49",
+          "2912dc70-d45f-5b60-bdb4-919d43f7e199",
+          "566a10d1-097c-5ee1-b473-4e0ab1475228",
+          "0af1f62f-c028-5e01-ba52-4b9c00f83890",
+          "8a83becc-07c0-52c9-92ce-77546175cc07",
+          "d6b0d1ae-f695-5de3-a7ba-b3eef2060313",
+          "9aed7b61-843a-5ec7-b205-94e5369630f3",
+          "2b65b470-1daa-53ca-ab03-e8816b93c235",
+          "50de9888-d8e7-5733-b97c-4f360205e33f",
+          "888ee328-702c-5823-8023-5f7b1c6f813c",
+          "d894e516-941a-5425-aad2-92f58eeaccac",
+          "1ca1f242-df46-5466-a3e1-3ae1e1069c1f",
+          "8863d56b-38f3-5724-80df-c0c7f9a8652f",
+          "a3f9a255-5673-5df8-91ea-24b02bb4d503",
+          "1748638c-efed-5899-a084-68570d86b128",
+          "c162b2c7-aa54-5201-ab21-a2909f5790b3",
+          "2044ae9b-f82e-5da7-9208-fef06297ca5a",
+          "e551a4eb-8b73-5a89-979e-a15f470a28ce"
         ]
       }
     ],

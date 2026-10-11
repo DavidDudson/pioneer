@@ -32,6 +32,7 @@ export {
   cantripRank,
   isPreparedKey,
   type PreparedRank,
+  type PreparedPool,
   type PreparedSlot,
   PreparedPickProblem,
   preparedSlots,
