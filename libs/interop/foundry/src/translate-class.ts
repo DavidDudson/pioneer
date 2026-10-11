@@ -9,8 +9,8 @@ import { FoundryTrainedSkills, trainSkills } from './translate-background';
 /**
  * A class's `data` from Foundry's `class` item, and its progression as rule elements (content-model.md, "Class
  * progression"): a `Proficiency` per starting rank, a `GrantItem` per class feature from its level, and a class feat
- * slot (`ChoiceSet` and the `GrantItem` of its pick) at each class, general and skill feat level. Later ranks come from the class
- * features that raise them, as in Foundry.
+ * slot (`ChoiceSet` and the `GrantItem` of its pick) at each class, general and skill feat level. Its skill increase levels
+ * stay data, as the builder opens their slots. Later ranks come from the class features that raise them, as in Foundry.
  */
 
 const FIELD_MAX = 64;
@@ -165,16 +165,14 @@ function sameLevels(levels: readonly number[], schedule: readonly number[]): boo
 }
 
 /**
- * The shared slots a class cannot open itself: ancestry feats, which the ancestry entry opens on Player Core's
- * schedule (a class off it is reported), and skill increases, which have no rule element yet (always reported).
+ * The ancestry feat slots, which a class cannot open itself: the ancestry entry opens them on Player Core's schedule,
+ * so a class off it is reported.
  */
-function reportShared(system: FoundryClassSystem, { log }: KindInput): void {
+function reportAncestryFeatLevels(system: FoundryClassSystem, { log }: KindInput): void {
   const ancestryLevels = system.ancestryFeatLevels?.value ?? ANCESTRY_FEAT_LEVELS;
   if (!sameLevels(ancestryLevels, ANCESTRY_FEAT_LEVELS)) {
     report(log, { reason: KindDataGapReason.UnmappedValue, field: 'ancestryFeatLevels', raw: ancestryLevels });
   }
-  const increases = system.skillIncreaseLevels?.value ?? SHARED_SLOT_LEVELS.skillIncreaseLevels;
-  report(log, { reason: KindDataGapReason.UnmappedField, field: 'skillIncreaseLevels', raw: increases });
 }
 
 /** The class's data, unparsed; undefined when its `system` is not shaped as a class's. */
@@ -192,6 +190,7 @@ export function classData(input: KindInput): object | undefined {
     keyAttribute,
     hitPoints: system.hp,
     additionalSkills: system.trainedSkills.additional,
+    skillIncreaseLevels: system.skillIncreaseLevels?.value ?? SHARED_SLOT_LEVELS.skillIncreaseLevels,
     ...(subclass === undefined ? {} : { subclass }),
   };
 }
@@ -212,5 +211,5 @@ function slots(system: FoundryClassSystem, input: KindInput): void {
   );
   const skill = system.skillFeatLevels?.value ?? SHARED_SLOT_LEVELS.skillFeatLevels;
   featSlots({ slot: 'skill-feat', trait: 'skill', prompt: 'Skill feat', field: 'skillFeatLevels' }, skill, input);
-  reportShared(system, input);
+  reportAncestryFeatLevels(system, input);
 }

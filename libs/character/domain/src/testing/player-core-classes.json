@@ -850,6 +850,7 @@
       "keyAttribute": ["cha"],
       "hitPoints": 8,
       "additionalSkills": 4,
+      "skillIncreaseLevels": [3, 5, 7, 9, 11, 13, 15, 17, 19],
       "subclass": "bard-muse"
     }
   },
@@ -1901,6 +1902,7 @@
       "keyAttribute": ["wis"],
       "hitPoints": 8,
       "additionalSkills": 2,
+      "skillIncreaseLevels": [3, 5, 7, 9, 11, 13, 15, 17, 19],
       "subclass": "cleric-doctrine"
     }
   },
@@ -2939,6 +2941,7 @@
       "keyAttribute": ["wis"],
       "hitPoints": 8,
       "additionalSkills": 2,
+      "skillIncreaseLevels": [3, 5, 7, 9, 11, 13, 15, 17, 19],
       "subclass": "druid-order"
     }
   },
@@ -4063,7 +4066,8 @@
     "data": {
       "keyAttribute": ["dex", "str"],
       "hitPoints": 10,
-      "additionalSkills": 3
+      "additionalSkills": 3,
+      "skillIncreaseLevels": [3, 5, 7, 9, 11, 13, 15, 17, 19]
     }
   },
   {
@@ -4952,6 +4956,7 @@
       "keyAttribute": ["dex", "str"],
       "hitPoints": 10,
       "additionalSkills": 4,
+      "skillIncreaseLevels": [3, 5, 7, 9, 11, 13, 15, 17, 19],
       "subclass": "ranger-hunters-edge"
     }
   },
@@ -6244,6 +6249,7 @@
       "keyAttribute": ["dex"],
       "hitPoints": 8,
       "additionalSkills": 7,
+      "skillIncreaseLevels": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
       "subclass": "rogue-racket"
     }
   },
@@ -7263,6 +7269,7 @@
       "keyAttribute": ["int"],
       "hitPoints": 6,
       "additionalSkills": 3,
+      "skillIncreaseLevels": [3, 5, 7, 9, 11, 13, 15, 17, 19],
       "subclass": "witch-patron"
     }
   },
@@ -8385,6 +8392,7 @@
       "keyAttribute": ["int"],
       "hitPoints": 6,
       "additionalSkills": 2,
+      "skillIncreaseLevels": [3, 5, 7, 9, 11, 13, 15, 17, 19],
       "subclass": "wizard-arcane-school"
     }
   },
