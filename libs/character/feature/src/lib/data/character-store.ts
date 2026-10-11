@@ -130,6 +130,8 @@ export class CharacterStore {
     if (current === undefined) {
       throw new Error('No character selected');
     }
+    // A notice describes the last edit only: any new edit, saved or refused, retires it.
+    this.#cleared.set([]);
     try {
       const saved = await this.#api.call(CharacterContract.patch, {
         params: { id: current.id },

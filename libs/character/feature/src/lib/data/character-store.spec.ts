@@ -150,4 +150,22 @@ describe(CharacterStore, () => {
     await expect(pending).rejects.toSatisfy((error: unknown) => ApiError.isConflict(error));
     expect(store.selected()?.version).toBe(3);
   });
+
+  it('drops a cleared-pick notice when the next edit is refused', async () => {
+    await loadSelected();
+    const selecting = store.selectSlot(ANCESTRY_SLOT, ChoiceValue.parse('elf'));
+    http
+      .expectOne({ method: 'PATCH' })
+      .flush(patched(2, 1, [{ key: 'heritage', selection: 'rock-dwarf', selectionName: 'Rock Dwarf' }]));
+    await selecting;
+    const pending = store.patch({ field: CharacterPatchField.Level, value: CharacterLevel.parse(2) });
+    http
+      .expectOne({ method: 'PATCH' })
+      .flush({ type: 'version-conflict', title: 'Changed', status: 409 }, { status: 409, statusText: 'Conflict' });
+    await vi.waitFor(() => {
+      http.expectOne({ method: 'GET', url: `/api/characters/${id}` }).flush(sheet(3, 5));
+    });
+    await expect(pending).rejects.toSatisfy((error: unknown) => ApiError.isConflict(error));
+    expect(store.cleared()).toStrictEqual([]);
+  });
 });
