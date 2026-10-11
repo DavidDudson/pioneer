@@ -73,7 +73,7 @@ describe(CharacterStore, () => {
 
   it('selectSlot and clearSlot send slot edits', async () => {
     await loadSelected();
-    const human = ChoiceValue.parse(contentId(PackId.parse('player-core'), Slug.parse('human')));
+    const human = ChoiceValue.parse(contentId(PackId.parse('player-core'), EntrySlug.parse('ancestry:human')));
     const selecting = store.selectSlot(ANCESTRY_SLOT, human);
     const select = http.expectOne({ method: 'PATCH', url: `/api/characters/${id}` });
     expect(select.request.body).toStrictEqual({

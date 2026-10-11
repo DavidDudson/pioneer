@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { AncestryId, Attribute, ChoiceValue, contentId, PackId, Slug, SlotKey } from '@pioneer/rules/sdk';
+import { AncestryId, Attribute, ChoiceValue, contentId, EntrySlug, PackId, SlotKey } from '@pioneer/rules/sdk';
 import { fixedClock, FixtureNamespace, derivedId } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
@@ -59,7 +59,7 @@ describe('Character', () => {
       createdAt: original.createdAt,
       updatedAt: original.updatedAt,
     });
-    const elf = AncestryId.parse(contentId(PackId.parse('player-core'), Slug.parse('elf')));
+    const elf = AncestryId.parse(contentId(PackId.parse('player-core'), EntrySlug.parse('ancestry:elf')));
     const changed = withPlan.apply(
       { field: CharacterPatchField.SelectSlot, slot: ANCESTRY_SLOT, selection: ChoiceValue.parse(elf) },
       later,

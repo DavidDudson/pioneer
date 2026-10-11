@@ -1,5 +1,5 @@
 import { EngineMessage, LineStatusKind, RuleInPlay } from '@pioneer/rules/engine';
-import { ContentId, contentId, PackId, Slug } from '@pioneer/rules/sdk';
+import { ContentId, contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
 import { message } from '@pioneer/shared/kernel';
 import { describe, expect, it } from 'vitest';
@@ -36,7 +36,7 @@ const FLAT_TEN_ENTRY = ContentId.parse('00000000-0000-4000-8000-000000000002');
 
 /** The made-up entry the playground puts a box's typed rule elements on. */
 function playgroundEntry(box: string): ContentId {
-  return ContentId.parse(contentId(PackId.parse('playground'), Slug.parse(box)));
+  return ContentId.parse(contentId(PackId.parse('playground'), EntrySlug.parse(`effect:${box}`)));
 }
 
 /** A variant that makes every proficiency bonus 10, as a pack would put it in play. */

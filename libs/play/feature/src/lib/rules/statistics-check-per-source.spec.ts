@@ -1,5 +1,5 @@
 import { EngineMessage } from '@pioneer/rules/engine';
-import { contentId, PackId, Slug } from '@pioneer/rules/sdk';
+import { contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
 import { describe, expect, it } from 'vitest';
 
@@ -106,7 +106,7 @@ describe('checkStatistics per source', () => {
 const POTENCY_LABEL = { message: { key: EngineMessage.WeaponPotency, params: { weapon: 'longsword' } } };
 const POTENCY_ID = 'weapon:longsword#weapon-potency';
 /** The made-up entry the playground puts typed rule elements on. */
-const RULES_ENTRY = contentId(PackId.parse('playground'), Slug.parse('rule-elements'));
+const RULES_ENTRY = contentId(PackId.parse('playground'), EntrySlug.parse('effect:rule-elements'));
 
 /** The example inputs with the longsword's potency set to `grade`. */
 function withPotency(grade: number): string {

@@ -4,12 +4,12 @@ import { FormulaValue } from '@pioneer/rules/formula';
 import {
   ChangeMode,
   ContentId,
-  ContentText,
   contentId,
+  ContentText,
+  EntrySlug,
   Origin,
   PackId,
   RuleNumber,
-  Slug,
   StatisticKind,
 } from '@pioneer/rules/sdk';
 
@@ -30,7 +30,7 @@ import {
 } from './breakdown-fixtures';
 
 /** The rule elements a user set on the character by hand. */
-const OVERRIDES = ContentId.parse(contentId(PackId.parse('character'), Slug.parse('overrides')));
+const OVERRIDES = ContentId.parse(contentId(PackId.parse('character'), EntrySlug.parse('effect:overrides')));
 
 /** A rule element a user set on the character by hand, with the `override` hop naming them. */
 function byHand(entry: ContentId): Origin {

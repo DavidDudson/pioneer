@@ -3,7 +3,7 @@ import { beforeEach, describe, expect, test } from 'bun:test';
 import { ANCESTRY_SLOT, CharacterCommand, CharacterName, CharacterPatchField } from '@pioneer/character/domain';
 import type { CharacterPatch, PatchCharacterBody } from '@pioneer/character/domain';
 import { humanAncestryId } from '@pioneer/character/domain/testing';
-import { AncestryId, ChoiceValue, contentId, PackId, Slug, SlotKey } from '@pioneer/rules/sdk';
+import { AncestryId, ChoiceValue, contentId, EntrySlug, PackId, SlotKey } from '@pioneer/rules/sdk';
 import { ContentPackBuilder, fixedContent } from '@pioneer/rules/sdk/testing';
 import { FIRST_VERSION, fixedClock, newId, UserId, ValidationError } from '@pioneer/shared/kernel';
 import { rejection } from '@pioneer/shared/kernel/testing';
@@ -13,7 +13,7 @@ import { InMemoryCharacterRepository } from './in-memory-character-repository';
 
 const kyra = CharacterName.parse('Kyra');
 const amiri = UserId.parse(newId());
-const elf = ChoiceValue.parse(contentId(PackId.parse('player-core'), Slug.parse('elf')));
+const elf = ChoiceValue.parse(contentId(PackId.parse('player-core'), EntrySlug.parse('ancestry:elf')));
 const featSlot = SlotKey.parse('feat:class:2');
 const clock = fixedClock('2026-10-07T10:00:00Z');
 

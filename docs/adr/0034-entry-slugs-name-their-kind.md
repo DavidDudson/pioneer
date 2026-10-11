@@ -1,4 +1,4 @@
-# 0033. Entry slugs name their kind
+# 0034. Entry slugs name their kind
 
 - Status: Proposed
 - Date: 2026-10-11
@@ -26,8 +26,8 @@ Foundry spells them but leaves slugs ambiguous wherever they are shown or typed;
 - References to a trait stay the trait's name (`traits: ['goblin']`), as Foundry's roll options spell them
   (`item:trait:goblin`); the trait entry is `trait:goblin`. Roll options an entry sets name it by its name
   (`feat:shield-block`), not its whole slug.
-- Every committed id changed. The packs were rewritten in one change, and migration `0012_kind_prefixed_slugs` maps
-  the ancestry ids stored on characters to the new ones.
+- Every committed id changed. The packs were rewritten in one change, and migration `0013_kind_prefixed_slugs` maps
+  the content ids stored in character documents to the new ones.
 
 ## Consequences
 

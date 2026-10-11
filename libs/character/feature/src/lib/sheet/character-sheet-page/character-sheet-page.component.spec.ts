@@ -14,7 +14,7 @@ import { provideServerStateTesting } from '../../testing/provide-server-state-te
 
 const id = CharacterId.parse('0d9f7c1e-3b7a-4c55-9d1f-2a8f2b9c6e10');
 
-const HUMAN = contentId(PackId.parse('player-core'), Slug.parse('human'));
+const HUMAN = contentId(PackId.parse('player-core'), EntrySlug.parse('ancestry:human'));
 
 const MERISIEL = {
   id,

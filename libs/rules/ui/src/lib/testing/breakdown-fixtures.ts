@@ -23,14 +23,14 @@ import { Negated, PredicateMessage, SummaryKind } from '@pioneer/rules/predicate
 import type { PredicateSummary } from '@pioneer/rules/predicate';
 import {
   ContentId,
-  ContentText,
   contentId,
+  ContentText,
+  EntrySlug,
   ModifierType,
   Origin,
   PackId,
   Predicate,
   Selector,
-  Slug,
   StatisticKind,
 } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
@@ -41,12 +41,14 @@ import type { NamedStatistic } from '../statistics/statistics.component';
 const PLAYER_CORE = PackId.parse('player-core');
 const CORE_RULES = PackId.parse('core-rules');
 
-export const BREASTPLATE = ContentId.parse(contentId(PLAYER_CORE, Slug.parse('breastplate')));
-const SHIELD = ContentId.parse(contentId(PLAYER_CORE, Slug.parse('steel-shield')));
-const FRIGHTENED = ContentId.parse(contentId(PLAYER_CORE, Slug.parse('frightened')));
-export const GOLEM_FORM = ContentId.parse(contentId(PLAYER_CORE, Slug.parse('golem-form')));
-export const MAGE_ARMOR = ContentId.parse(contentId(PLAYER_CORE, Slug.parse('mage-armor')));
-export const WITHOUT_LEVEL = ContentId.parse(contentId(CORE_RULES, Slug.parse('proficiency-without-level')));
+export const BREASTPLATE = ContentId.parse(contentId(PLAYER_CORE, EntrySlug.parse('armor:breastplate')));
+const SHIELD = ContentId.parse(contentId(PLAYER_CORE, EntrySlug.parse('shield:steel-shield')));
+const FRIGHTENED = ContentId.parse(contentId(PLAYER_CORE, EntrySlug.parse('condition:frightened')));
+export const GOLEM_FORM = ContentId.parse(contentId(PLAYER_CORE, EntrySlug.parse('spell:golem-form')));
+export const MAGE_ARMOR = ContentId.parse(contentId(PLAYER_CORE, EntrySlug.parse('spell:mage-armor')));
+export const WITHOUT_LEVEL = ContentId.parse(
+  contentId(CORE_RULES, EntrySlug.parse('variant-rule:proficiency-without-level')),
+);
 
 /** Display names for the fixtures' entries, as a container resolves them from the registry. */
 export const ENTRY_NAMES: ReadonlyMap<ContentId, string> = new Map([

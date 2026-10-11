@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 import { frontierMessages } from '@pioneer/frontier';
-import { AncestryId, contentId, PackId, Slug } from '@pioneer/rules/sdk';
+import { AncestryId, contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import { provideI18n } from '@pioneer/shared/web';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { provideServerStateTesting } from '../testing/provide-server-state-testing';
 import { AncestryOptions } from './ancestry-options';
 
-const elf = AncestryId.parse(contentId(PackId.parse('player-core'), Slug.parse('elf')));
+const elf = AncestryId.parse(contentId(PackId.parse('player-core'), EntrySlug.parse('ancestry:elf')));
 
 describe(AncestryOptions, () => {
   let ancestries: AncestryOptions;

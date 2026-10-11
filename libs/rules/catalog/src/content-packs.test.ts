@@ -6,7 +6,7 @@ import type { ContentEntry, ContentId } from '@pioneer/rules/sdk';
 import { contentCatalog } from './index';
 
 /**
- * Every id the TypeScript packs had when they moved to `content/packs` (#323), as kind-prefixed slugs (ADR-0033)
+ * Every id the TypeScript packs had when they moved to `content/packs` (#323), as kind-prefixed slugs (ADR-0034)
  * renamed them. Ids are stored on characters, so a pack edit that changes one is a data migration, not a JSON change.
  */
 const PINNED_IDS: Readonly<Record<string, string>> = {

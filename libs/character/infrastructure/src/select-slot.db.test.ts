@@ -3,7 +3,7 @@ import { afterAll, beforeAll, describe, expect, test } from 'bun:test';
 import { CharacterService } from '@pioneer/character/application';
 import { ANCESTRY_SLOT, CharacterCommand, CharacterName, CharacterPatchField } from '@pioneer/character/domain';
 import { fixtureOwnerId, humanAncestryId } from '@pioneer/character/domain/testing';
-import { ChoiceValue, contentId, PackId, Slug } from '@pioneer/rules/sdk';
+import { ChoiceValue, contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import { ContentPackBuilder, fixedContent } from '@pioneer/rules/sdk/testing';
 import { FIRST_VERSION, fixedClock, newId } from '@pioneer/shared/kernel';
 import { rejection } from '@pioneer/shared/kernel/testing';
@@ -17,7 +17,7 @@ import { DrizzleCharacterRepository } from './drizzle-character-repository';
 /** Slot edits against a throwaway Postgres database; skipped when TEST_DATABASE_URL is unset. */
 const adminUrl = testDatabaseUrl();
 const clock = fixedClock('2026-10-07T10:00:00Z');
-const elf = ChoiceValue.parse(contentId(PackId.parse('player-core'), Slug.parse('elf')));
+const elf = ChoiceValue.parse(contentId(PackId.parse('player-core'), EntrySlug.parse('ancestry:elf')));
 
 describe.skipIf(adminUrl === undefined)('selectSlot and clearSlot (postgres)', () => {
   let database: TestDatabase;

@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { contentId, ContentId, ContentKind, ContentRegistry, PackId, RollOption, Slug } from '@pioneer/rules/sdk';
+import { contentId, ContentId, ContentKind, ContentRegistry, EntrySlug, PackId, RollOption } from '@pioneer/rules/sdk';
 import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
 
 import { grantLookup } from './grant-lookup';
@@ -18,7 +18,7 @@ function registryOf(...slugs: readonly string[]): ContentRegistry {
 describe('grantLookup', () => {
   test("finds each ancestry by the registry's id, as an ancestry with its traits and sources", () => {
     const registry = registryOf('human');
-    const human = ContentId.parse(contentId(PackId.parse('test-pack'), Slug.parse('human')));
+    const human = ContentId.parse(contentId(PackId.parse('test-pack'), EntrySlug.parse('ancestry:human')));
     const found = grantLookup(registry).entry(human);
     expect(found?.kind).toBe(ContentKind.Ancestry);
     expect(String(found?.name)).toBe('Human');

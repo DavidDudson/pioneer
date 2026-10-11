@@ -13,7 +13,7 @@ interface ContentEntry<K extends ContentKind> {
   id: ContentId; // UUIDv5 of `<pack>/<slug>`
   pack: PackId;
   kind: K;
-  slug: EntrySlug; // `<kind>:<name>` (`ancestry:human`), permanent once published (ADR-0033)
+  slug: EntrySlug; // `<kind>:<name>` (`ancestry:human`), permanent once published (ADR-0034)
   name: string;
   level?: number; // 0 to 30; a creature always has one, from -1 to 25
   rarity: 'common' | 'uncommon' | 'rare' | 'unique';
@@ -559,7 +559,7 @@ flowchart LR
   slugged by kind like every entry (`trait:goblin`, `language:goblin`). One another official pack already has of the
   kind and name (the hand-authored languages and senses, or an earlier run's) is left to that entry. Secret
   languages (Wildsong) have no Pioneer rarity and `untyped` damage no `DamageType`; both are reported. Pack output
-  (#400) writes the new entries beside, never into, the hand-authored `core-rules` files ([ADR-0032](../adr/0032-foundry-vocabularies-imported-into-core-rules.md)).
+  (#400) writes the new entries beside, never into, the hand-authored `core-rules` files ([ADR-0033](../adr/0033-foundry-vocabularies-imported-into-core-rules.md)).
 - **Later translators.** A translator that lands after its pack is imported is applied to the backlog: a command,
   built by Epic 2.6 (#21), translates the items it now covers into the committed entries and removes them from the
   backlog, keeping hand edits.
@@ -574,7 +574,7 @@ flowchart LR
 - **Ids.** Our ids stay UUIDv5 of `<pack>/<slug>`. The Foundry compendium UUID goes in `externalIds.foundry`,
   which is what makes Foundry export possible. The slug is the kind its Foundry type is filed under
   (`FOUNDRY_TYPE_KINDS`), then Foundry's slug (`system.slug`, else its slugified name) with diacritics folded
-  (`feat:deja-vu`), since Pioneer slugs are ASCII ([ADR-0033](../adr/0033-entry-slugs-name-their-kind.md)). The Fly
+  (`feat:deja-vu`), since Pioneer slugs are ASCII ([ADR-0034](../adr/0034-entry-slugs-name-their-kind.md)). The Fly
   spell and action are `spell:fly` and `action:fly`. Two documents of one kind and name are reported, not guessed.
 - **Sources.** Each envelope cites its target book with no page or AoN link (`UnlocatedBookSource`), which
   `SourceRef` does not accept yet (ADR-0005); pack output (#400) decides how that is resolved.
