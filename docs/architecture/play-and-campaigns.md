@@ -187,6 +187,9 @@ A total a set override pinned is flagged in text wherever it appears, and the co
 it: the summary reads "Armor Class 22 Pinned computed 20", and the breakdown opens with the override that pinned it
 ("Set by the GM pins it to 22; computed 20.").
 
+The breakdown is given the statistic's kind, so it formats its numbers as the summary does: a check's base, pinned
+and computed totals and override values carry a sign ("Base +6", "override +6 → +9"); a DC's or value's do not.
+
 The list is `pio-statistics` and the breakdown `pio-breakdown`, both in `libs/rules/ui` and fed the engine's
 `StatisticResult`s; the rules playground shows its statistics with the same `pio-breakdown`. The sheet derives them
 with `deriveStatistics` over the content registry. Until the builder puts the character's rule elements in play and

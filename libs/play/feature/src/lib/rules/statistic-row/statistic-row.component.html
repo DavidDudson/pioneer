@@ -15,7 +15,12 @@
     }
   </fr-stack>
   @if (shown.ok) {
-    <pio-breakdown [statistic]="shown.statistic" [ruleNames]="shown.ruleNames" [entryNames]="shown.entryNames" />
+    <pio-breakdown
+      [statistic]="shown.statistic"
+      [kind]="shown.kind"
+      [ruleNames]="shown.ruleNames"
+      [entryNames]="shown.entryNames"
+    />
   } @else {
     <fr-text element="p">{{ shown.error.key | transloco: shown.error.params }}</fr-text>
     <fr-text element="pre">{{ shown.pointer }}</fr-text>
