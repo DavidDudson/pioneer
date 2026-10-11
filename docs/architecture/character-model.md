@@ -245,8 +245,10 @@ characters; the player sees them.
   (`fixtures/briar-rose.json`) as the reference sheet. Creating a character posts the raw export to
   `POST /characters/import/pathbuilder`, which reads it again rather than trusting the preview, refuses an ancestry
   that matches no loaded content, and inserts one write audited as `importPathbuilder`: name, level, ancestry, the
-  background and first class when they match loaded content, and every boost in its slot
-  ([#420](https://github.com/DavidDudson/pioneer/issues/420)). Each set Pathbuilder recorded (`ancestryBoosts` and
+  background and first class when they match loaded content, the heritage when it matches one the imported ancestry
+  offers (its own or a versatile one; [#555](https://github.com/DavidDudson/pioneer/issues/555)), and every boost in
+  its slot ([#420](https://github.com/DavidDudson/pioneer/issues/420)). A loaded heritage of another ancestry is not
+  written: the report lists it as "not offered". Each set Pathbuilder recorded (`ancestryBoosts` and
   `ancestryFree` together, `backgroundBoosts`, `classBoosts`, `mapLevelledBoosts`) goes to the set of the same source
   and level; gradual boosts join the next free set (2nd to 5th go to 5th, and so on). No modifier is stored:
   Pathbuilder's scores are only a check. The import report (unmatched names by kind, the filled fields the character

@@ -88,12 +88,13 @@ function envelopeEntries(registry: ContentRegistry, kind: ContentKind): LookupEn
 }
 
 /**
- * A lookup over the packs in a `ContentRegistry`: ancestries, and the backgrounds and classes the packs hold as
- * envelope entries. Every other kind reports as not loaded until content storage (Epic 2.3) indexes it.
+ * A lookup over the packs in a `ContentRegistry`: ancestries, and the heritages, backgrounds and classes the packs
+ * hold as envelope entries. Every other kind reports as not loaded until content storage (Epic 2.3) indexes it.
  */
 export function registryLookup(registry: ContentRegistry): ContentLookup {
   return entryLookup({
     [ImportKind.Ancestry]: registry.ancestries().map((entry) => ({ id: entry.id, name: entry.definition.name })),
+    [ImportKind.Heritage]: envelopeEntries(registry, ContentKind.Heritage),
     [ImportKind.Background]: envelopeEntries(registry, ContentKind.Background),
     [ImportKind.Class]: envelopeEntries(registry, ContentKind.Class),
   });

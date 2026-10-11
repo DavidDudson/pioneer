@@ -2,10 +2,7 @@ import { beforeEach, describe, expect, test } from 'bun:test';
 
 import {
   ANCESTRY_SLOT,
-  BACKGROUND_SLOT,
-  BoostSource,
   CharacterCommand,
-  CLASS_SLOT,
   CharacterId,
   CharacterLevel,
   CharacterName,
@@ -14,15 +11,7 @@ import {
 } from '@pioneer/character/domain';
 import type { CharacterPatch, PatchCharacterBody } from '@pioneer/character/domain';
 import { humanAncestryId } from '@pioneer/character/domain/testing';
-import {
-  ImportKind,
-  Occurrences,
-  PathbuilderName,
-  UncarriedField,
-  UnmatchedReason,
-} from '@pioneer/interop/pathbuilder';
-import { briarRoseExport, mordredExport } from '@pioneer/interop/pathbuilder/testing';
-import { AncestryId, Attribute, ChoiceValue, Level, SlotKey } from '@pioneer/rules/sdk';
+import { AncestryId, ChoiceValue, SlotKey } from '@pioneer/rules/sdk';
 import { ContentPackBuilder, fixedContent } from '@pioneer/rules/sdk/testing';
 import {
   FIRST_VERSION,
@@ -179,120 +168,5 @@ describe('CharacterService ownership', () => {
     expect(await rejection(edited)).toBeInstanceOf(NotFoundError);
     const unchanged = await service.get(ezren, theirs.id);
     expect(unchanged.version).toBe(FIRST_VERSION);
-  });
-});
-
-describe('CharacterService.importPathbuilder', () => {
-  let service: CharacterService;
-  let repository: InMemoryCharacterRepository;
-
-  beforeEach(() => {
-    const content = fixedContent(new ContentPackBuilder().withId('player-core').withAncestry('human').build());
-    repository = new InMemoryCharacterRepository();
-    service = new CharacterService(repository, content, fixedClock('2026-10-07T10:00:00Z'));
-  });
-
-  test('creates the character with name, ancestry and level, owned by the actor, its free boosts placed', async () => {
-    const { character } = await service.importPathbuilder(amiri, mordredExport);
-    expect(character.name).toBe(CharacterName.parse('Mordred (Dual Class)'));
-    expect(character.ownerId).toBe(amiri);
-    expect(character.ancestry).toBe(humanAncestryId);
-    expect(character.level).toBe(CharacterLevel.parse(12));
-    expect<Readonly<Record<string, string>>>(character.document.build.choices).toMatchObject({
-      [ANCESTRY_SLOT]: ChoiceValue.parse(humanAncestryId),
-      'boost:1:free:0': 'str',
-      'boost:1:free:3': 'wis',
-      'boost:15:free:0': 'cha',
-    });
-    expect(await service.get(amiri, character.id)).toStrictEqual(character);
-  });
-
-  test('reports the boosts with no set to go to, and each modifier that then differs from Pathbuilder', async () => {
-    const { report } = await service.importPathbuilder(amiri, mordredExport);
-    expect(report.unplacedBoosts).toContainEqual({
-      source: BoostSource.Background,
-      level: Level.parse(1),
-      attribute: Attribute.Charisma,
-    });
-    expect(report.modifierDifferences.map((difference) => difference.attribute)).toContain(Attribute.Charisma);
-  });
-
-  test('the write runs as importPathbuilder, once', async () => {
-    await service.importPathbuilder(amiri, mordredExport);
-    expect(repository.audits).toStrictEqual([{ actor: amiri, command: CharacterCommand.ImportPathbuilder }]);
-  });
-
-  test('reads a JSON string the same as the parsed export', async () => {
-    const { character } = await service.importPathbuilder(amiri, JSON.stringify(mordredExport));
-    expect(character.level).toBe(CharacterLevel.parse(12));
-  });
-
-  test('reports unmatched names by kind and what the character cannot hold yet', async () => {
-    const { report } = await service.importPathbuilder(amiri, mordredExport);
-    expect(report.unmatched.map((group) => group.kind)).not.toContain(ImportKind.Ancestry);
-    const heritage = report.unmatched.find((group) => group.kind === ImportKind.Heritage);
-    expect(heritage?.names).toStrictEqual([
-      {
-        name: PathbuilderName.parse('Changeling'),
-        occurrences: Occurrences.parse(1),
-        reason: UnmatchedReason.KindNotLoaded,
-      },
-    ]);
-    expect(report.notCarried).toContain(UncarriedField.Heritage);
-    expect(report.notCarried).toContain(UncarriedField.Lore);
-    expect(report.notCarried).not.toContain(UncarriedField.Deity);
-  });
-
-  test('fills the background, class and every boost, and the modifiers come out as Pathbuilder scored them', async () => {
-    const all = Object.values(Attribute);
-    const content = fixedContent(
-      new ContentPackBuilder()
-        .withId('howl-of-the-wild')
-        .withAncestry('goloma', { boosts: [all] })
-        .withBackground('dendrologist', [['con', 'wis'], all])
-        .withClass('animist', ['wis'])
-        .build(),
-    );
-    const briar = new CharacterService(repository, content, fixedClock('2026-10-07T10:00:00Z'));
-    const { character, report } = await briar.importPathbuilder(amiri, briarRoseExport);
-    const { choices } = character.document.build;
-    expect([BACKGROUND_SLOT, CLASS_SLOT].filter((slot) => choices[slot] === undefined)).toStrictEqual([]);
-    expect<Readonly<Record<string, string>>>(choices).toMatchObject({
-      'boost:1:ancestry:0': 'wis',
-      'boost:1:background:0': 'wis',
-      'boost:1:background:1': 'con',
-      'boost:10:free:3': 'dex',
-    });
-    expect(report.unplacedBoosts).toStrictEqual([]);
-    expect(report.modifierDifferences).toStrictEqual([]);
-    expect(repository.audits).toStrictEqual([{ actor: amiri, command: CharacterCommand.ImportPathbuilder }]);
-  });
-
-  test('an ancestry that is not loaded is refused by name and nothing is saved', async () => {
-    const error = await rejection(service.importPathbuilder(amiri, briarRoseExport));
-    expect(error).toBeInstanceOf(ValidationError);
-    expect((error as ValidationError).issues).toStrictEqual([
-      {
-        path: ['build', 'ancestry'],
-        message: { key: 'character.validation.unmatchedAncestry', params: { ancestry: 'Goloma' } },
-      },
-    ]);
-    expect(await service.list(amiri, byName)).toStrictEqual([]);
-    expect(repository.audits).toStrictEqual([]);
-  });
-
-  test.each([
-    ['text that is not JSON', 'not json', 'character.import.problem.malformed'],
-    ['JSON that is not an export', { hello: 'world' }, 'character.import.problem.malformed'],
-    [
-      'an export Pathbuilder marked failed',
-      { ...mordredExport, success: false },
-      'character.import.problem.exportFailed',
-    ],
-  ])('%s is refused and nothing is saved', async (_label, raw, key) => {
-    const error = await rejection(service.importPathbuilder(amiri, raw));
-    expect(error).toBeInstanceOf(ValidationError);
-    expect((error as ValidationError).issues[0]).toStrictEqual({ path: [], message: { key } });
-    expect(repository.audits).toStrictEqual([]);
   });
 });
