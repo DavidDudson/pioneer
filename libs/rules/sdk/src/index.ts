@@ -33,7 +33,7 @@ export { AmmunitionType, BaseWeapon, DieSize, WeaponData, WeaponGroup } from './
 export { SpellData } from './spell';
 export { SPELL_RANK_MAX, SpellRank } from './spell-rank';
 export { MagicTradition, MagicTraditionSchema, SpellcastingTraditionData } from './spellcasting-tradition';
-export { FeatCategory } from './feat';
+export { FeatCategory, UNLIMITED } from './feat';
 export { ConditionData, ConditionGroup } from './condition';
 export { ContentKind, ContentKindSchema } from './content-kind';
 export {

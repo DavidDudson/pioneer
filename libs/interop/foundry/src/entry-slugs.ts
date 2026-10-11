@@ -11,8 +11,8 @@ import type { SelectedEntry } from './select-entries';
  */
 
 /**
- * The kind each Foundry item type's entries are filed under. The kind stories refine some by category (a feat that
- * is a class feature, a spell that is a ritual); until then this is the kind their slug names.
+ * The kind each Foundry item type's entries are filed under; `documentKind` refines feats by category (a class
+ * feature). The magic story refines spells (a ritual) the same way.
  */
 export const FOUNDRY_TYPE_KINDS: Readonly<Record<FoundryItemType, ContentKind>> = {
   [FoundryItemType.Action]: ContentKind.Action,
@@ -36,9 +36,19 @@ export const FOUNDRY_TYPE_KINDS: Readonly<Record<FoundryItemType, ContentKind>> 
   [FoundryItemType.Weapon]: ContentKind.Weapon,
 };
 
+/** Foundry's feat `category` for a class feature, which is its own kind. */
+const CLASS_FEATURE_CATEGORY = 'classfeature';
+
+/** The kind a selected document's entry is: its type's, or `class-feature` for a feat Foundry files as one. */
+export function documentKind({ type, document }: SelectedEntry): ContentKind {
+  return type === FoundryItemType.Feat && document.system['category'] === CLASS_FEATURE_CATEGORY
+    ? ContentKind.ClassFeature
+    : FOUNDRY_TYPE_KINDS[type];
+}
+
 /** A selected document's slug text; translation checks it is an entry slug. */
-export function entrySlugOf({ type, document }: SelectedEntry): string {
-  return `${FOUNDRY_TYPE_KINDS[type]}:${asciiSlug(document)}`;
+export function entrySlugOf(entry: SelectedEntry): string {
+  return `${documentKind(entry)}:${asciiSlug(entry.document)}`;
 }
 
 /** The slug text of each selected document. */

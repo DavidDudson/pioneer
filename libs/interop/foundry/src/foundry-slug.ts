@@ -38,5 +38,14 @@ const MARKS = /\p{Mark}/gu;
  * place an imported slug departs from Foundry's; `externalIds.foundry` keeps the link to the document.
  */
 export function asciiSlug(document: FoundryDocument): string {
-  return foundrySlug(document).normalize('NFKD').replace(MARKS, '');
+  return folded(foundrySlug(document));
+}
+
+function folded(slug: string): string {
+  return slug.normalize('NFKD').replace(MARKS, '');
+}
+
+/** A name slugified as Foundry does it, diacritics folded: for what Foundry names but keeps no item for (a journal page). */
+export function asciiNameSlug(name: string): string {
+  return folded(slugify(name));
 }

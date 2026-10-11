@@ -42,7 +42,7 @@ export type ToggleKey = z.infer<typeof ToggleKey>;
 const SKILL_PREFIX = 'skill:';
 const SAVE_PREFIX = 'save:';
 
-/** A skill's selector (`skill:medicine`, `skill:lore-boneyard`): a divine skill, a ritual check. */
+/** A skill's selector (`skill:medicine`, `skill:lore:boneyard`): a divine skill, a ritual check. */
 export const SkillSelector = Selector.refine((selector) => selector.startsWith(SKILL_PREFIX), {
   ...issueParams(message(RulesMessage.SkillSelector)),
 });

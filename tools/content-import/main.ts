@@ -1,7 +1,7 @@
 /**
  * One-off Foundry import (ADR-0031, content-model.md "Foundry import"): `just content-import --pack <pack>
  * --book <book>... --dry-run`. Downloads the pack's pinned foundryvtt/pf2e release into a gitignored cache, checks
- * its SHA-256, reads the item packs and config vocabularies, selects entries, translates their envelopes and the
+ * its SHA-256, reads the item packs, journals and config vocabularies, selects entries, translates their envelopes and the
  * kind data built so far, and reports what the import would bring in and what it could not translate. Only
  * `--dry-run` exists so far; the other kinds, enrichers and pack output land in later stories of Epic 2.5.
  */
@@ -220,6 +220,7 @@ const translation = translateImport(selection.selected, {
   lang: release.lang,
   known,
   documents: release.documents,
+  journals: release.journals,
 });
 console.log(formatTranslation(translation.envelopes));
 console.log(formatKindData(translation));

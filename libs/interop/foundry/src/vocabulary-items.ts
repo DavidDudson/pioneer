@@ -1,4 +1,4 @@
-import { ContentKind, DamageType, Rarity, slugName } from '@pioneer/rules/sdk';
+import { Attribute, ContentKind, DamageType, Rarity, slugName, StatisticData, StatisticKind } from '@pioneer/rules/sdk';
 import type { BookId, PackId } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
@@ -7,8 +7,10 @@ import type { KnownEntry } from './entry-references';
 import { bactrian, FoundryLanguageRarity, TRAIT_LIST_KINDS } from './foundry-config';
 import type { FoundryConfig, TraitList } from './foundry-config';
 import { FoundryItemType } from './foundry-document';
+import { loreSelector, loreSlugTopic, loreTopic } from './foundry-lore';
 import type { FoundryLang } from './foundry-release';
 import type { SelectedEntry } from './select-entries';
+import { FoundryTrainedSkills } from './translate-background';
 import type { ImportedKindData } from './translate-kind-data';
 
 /** The vocabulary items the selected documents use, before they have slugs: what `vocabulary.ts` builds entries of. */
@@ -41,11 +43,14 @@ export interface Gap {
   readonly detail: string;
 }
 
+/** An item's name: a lang key for what Foundry's config names, or Foundry's own words (a Lore's name). */
+type ItemLabel = { readonly key: string } | { readonly text: string };
+
 /** A vocabulary item before it has a slug: what its envelope and data need. */
 export interface Item {
   readonly kind: ContentKind;
   readonly slug: string;
-  readonly labelKey: string;
+  readonly label: ItemLabel;
   readonly rarity: Rarity;
   readonly book: BookId;
   readonly kindData: ImportedKindData;
@@ -110,7 +115,7 @@ export function traitItems(selected: readonly SelectedEntry[], { config, known }
       {
         kind: ContentKind.Trait,
         slug,
-        labelKey: first[1].get(slug) ?? '',
+        label: { key: first[1].get(slug) ?? '' },
         rarity: Rarity.Common,
         book,
         kindData: { kind: ContentKind.Trait, data: { appliesTo } },
@@ -157,7 +162,7 @@ export function languageItem(slug: string, book: BookId, config: FoundryConfig):
   return {
     kind: ContentKind.Language,
     slug,
-    labelKey: `PF2E.Actor.Creature.Language.${slug}`,
+    label: { key: `PF2E.Actor.Creature.Language.${slug}` },
     rarity,
     book,
     kindData: { kind: ContentKind.Language, data: {} },
@@ -176,7 +181,7 @@ export function senseItem(slug: string, book: BookId, config: FoundryConfig): It
   return {
     kind: ContentKind.Sense,
     slug,
-    labelKey: `PF2E.Actor.Creature.Sense.Type.${bactrian(slug)}`,
+    label: { key: `PF2E.Actor.Creature.Sense.Type.${bactrian(slug)}` },
     rarity: Rarity.Common,
     book,
     kindData: { kind: ContentKind.Sense, data },
@@ -190,9 +195,67 @@ export function damageTypeItem(slug: string, book: BookId): Item | Gap {
   return {
     kind: ContentKind.DamageType,
     slug,
-    labelKey: `PF2E.Trait${bactrian(slug)}`,
+    label: { key: `PF2E.Trait${bactrian(slug)}` },
     rarity: Rarity.Common,
     book,
     kindData: { kind: ContentKind.DamageType, data: {} },
+  };
+}
+
+/** A Lore a background trains: its statistic's slug name (`scribing-lore`) and Foundry's name for it. */
+export interface LoreUse {
+  readonly slug: string;
+  readonly name: string;
+}
+
+const TrainedSkillsField = z.looseObject({ trainedSkills: FoundryTrainedSkills.optional() });
+const LORE_DOMAINS = ['check', 'skill-check', 'int-based', 'lore'];
+
+export function loresOf({ type, document }: SelectedEntry): readonly LoreUse[] {
+  if (type !== FoundryItemType.Background) {
+    return [];
+  }
+  const fields = TrainedSkillsField.safeParse(document.system);
+  const names = fields.success ? (fields.data.trainedSkills?.lore ?? []) : [];
+  return names.map((name) => ({ slug: `${loreTopic(name)}-lore`, name }));
+}
+
+/** Each Lore's name by slug, as the first background training it spells it. */
+export function loreNames(selected: readonly SelectedEntry[]): ReadonlyMap<string, string> {
+  const names = new Map<string, string>();
+  for (const { slug, name } of selected.flatMap((entry) => loresOf(entry))) {
+    if (!names.has(slug)) {
+      names.set(slug, name);
+    }
+  }
+  return names;
+}
+
+/**
+ * A Lore's statistic (rules-engine.md, "Statistics are content"): an Intelligence check at the Lore's own
+ * proficiency, reached by the `lore` domain beside every skill check's.
+ */
+export function loreItem(slug: string, names: ReadonlyMap<string, string>, book: BookId): Item | Gap {
+  const topic = loreSlugTopic(slug);
+  const data =
+    topic === undefined
+      ? undefined
+      : StatisticData.safeParse({
+          selector: loreSelector(topic),
+          domains: LORE_DOMAINS,
+          base: `@attr.int + @prof.skill.lore.${topic}`,
+          kind: StatisticKind.Check,
+          keyAttribute: Attribute.Intelligence,
+        });
+  if (data?.success !== true) {
+    return { reason: VocabularyGapReason.Invalid, detail: slug };
+  }
+  return {
+    kind: ContentKind.Statistic,
+    slug,
+    label: { text: names.get(slug) ?? slug },
+    rarity: Rarity.Common,
+    book,
+    kindData: { kind: ContentKind.Statistic, data: data.data },
   };
 }
