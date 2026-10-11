@@ -143,7 +143,7 @@
     </fr-section>
 
     <fr-section [anchor]="sections.inventory.anchor" [heading]="sections.inventory.headingKey | transloco">
-      <pio-inventory-section [investments]="investments()" [engine]="engineQuery()" />
+      <pio-inventory-section [investments]="investments()" [engine]="engineQuery()" [strength]="strength()" />
     </fr-section>
 
     @if (character(); as character) {

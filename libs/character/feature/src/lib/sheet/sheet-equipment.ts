@@ -1,21 +1,27 @@
-import { activeState, CarryState, INVENTORY_KINDS } from '@pioneer/character/domain';
+import { activeState, coinBulk, INVENTORY_KINDS } from '@pioneer/character/domain';
 import type { Character, InventoryItem, ItemContent } from '@pioneer/character/domain';
-import { OriginHopKind } from '@pioneer/rules/sdk';
-import type { ContentKind } from '@pioneer/rules/sdk';
+import { ContentKind, OriginHopKind } from '@pioneer/rules/sdk';
 import type { Investment, InvestmentEffect, NamedStatistic } from '@pioneer/rules/ui';
 
 import { CHARACTER_CONTENT_KINDS } from '../data/content-registry-query';
 
-/** The registry kinds the sheet's engine reads once the character has equipment: its own and the item kinds. */
-export const EQUIPMENT_CONTENT_KINDS: readonly ContentKind[] = [...CHARACTER_CONTENT_KINDS, ...INVENTORY_KINDS];
+/**
+ * The registry kinds the sheet's engine reads once the character carries anything: its own, the item kinds, and
+ * conditions for the encumbered condition its Bulk can bring.
+ */
+export const EQUIPMENT_CONTENT_KINDS: readonly ContentKind[] = [
+  ...CHARACTER_CONTENT_KINDS,
+  ...INVENTORY_KINDS,
+  ContentKind.Condition,
+];
 
-/** Whether anything `character` carries could work on it: an item worn, held or invested. */
-export function carriesEquipment(character: Character | undefined): boolean {
-  return (
-    character?.document.inventory.items.some(
-      ({ carry, invested }) => carry.state === CarryState.Worn || carry.state === CarryState.Held || invested === true,
-    ) === true
-  );
+/**
+ * Whether `character` carries anything the engine reads: any item, which may work on it worn, held or invested and
+ * weighs on its Bulk, or coins enough to weigh 1 Bulk.
+ */
+export function carriesAnything(character: Character | undefined): boolean {
+  const inventory = character?.document.inventory;
+  return inventory !== undefined && (inventory.items.length > 0 || coinBulk(inventory.coins) > 0);
 }
 
 /** The lines `item` adds to the statistics, each with its statistic's name. */

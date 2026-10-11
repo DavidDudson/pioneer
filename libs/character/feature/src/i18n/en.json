@@ -76,6 +76,7 @@
       "invest": "Invested",
       "invested": "Invested",
       "notInvested": "Not invested",
+      "bulkHeading": "Bulk",
       "investmentsHeading": "Investments",
       "remove": "Remove {name}",
       "removeConfirm": "Remove {name}? Press again",
