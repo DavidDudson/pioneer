@@ -73,6 +73,8 @@ import { SheetLanguagesSection } from '../sheet-languages-section/sheet-language
 import { SHEET_SECTION_ORDER, SHEET_SECTIONS } from '../sheet-sections';
 import { SheetSkillFields } from '../sheet-skill-fields/sheet-skill-fields.component';
 import { SheetSpells } from '../sheet-spells/sheet-spells.component';
+// oxlint-disable-next-line import/max-dependencies -- one container per sheet section until mode tabs split the page (#495)
+import { Shop } from '../shop/shop.component';
 
 /** Focuses an inline field by its read view's button, which scrolls it into view. */
 function focusField(field: ElementRef<HTMLElement>): void {
@@ -106,6 +108,7 @@ function focusField(field: ElementRef<HTMLElement>): void {
     Message,
     InlineField,
     InventorySection,
+    Shop,
     NumberInput,
     Page,
     Section,

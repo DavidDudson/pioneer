@@ -190,7 +190,7 @@ export class Character {
       case CharacterPatchField.ClearSlot: {
         return { document: this.#clear(patch.slot) };
       }
-      case CharacterPatchField.AddItem:
+      case CharacterPatchField.GiftItem:
       case CharacterPatchField.RemoveItem:
       case CharacterPatchField.SetItemQuantity:
       case CharacterPatchField.MoveItem:
@@ -219,7 +219,7 @@ export class Character {
   /** The inventory edits, each checked by `#stock`. */
   #stockChanges(patch: InventoryPatch, newItemId: InventoryItemId | undefined): Partial<CharacterProps> {
     switch (patch.field) {
-      case CharacterPatchField.AddItem: {
+      case CharacterPatchField.GiftItem: {
         if (newItemId === undefined) {
           throw new TypeError('An added item needs the id its caller gives it');
         }

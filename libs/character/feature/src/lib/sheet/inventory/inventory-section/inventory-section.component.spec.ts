@@ -1,14 +1,12 @@
 import { HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
-import { ItemFixture, itemFixtureId, ITEM_FIXTURE_FILES } from '@pioneer/character/domain/testing';
-import { beforeAll, describe, expect, it, onTestFinished, vi } from 'vitest';
+import { ITEM_FIXTURE_FILES } from '@pioneer/character/domain/testing';
+import { beforeAll, describe, expect, it, vi } from 'vitest';
 
 import {
   button,
   field,
   id,
-  LISTBOX_PX,
-  OPTION_PX,
   openInventory,
   patchSent,
   pick,
@@ -18,7 +16,6 @@ import {
   settle,
   SWORD,
   typeInto,
-  VALEROS,
 } from '../../../testing/inventory-sheet-testing';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../../testing/provide-server-state-testing';
 
@@ -123,45 +120,6 @@ describe('InventorySection', () => {
     expect(sent.request.body).toStrictEqual({
       expectedVersion: 3,
       patch: { field: 'setCoins', coins: { pp: 0, gp: 15, sp: 7, cp: 0 } },
-    });
-  });
-
-  it('adds a picked item loose, sending no container, then clears the form', async () => {
-    const section = await openInventory();
-    const form = present(section.querySelector<HTMLElement>('pio-add-item'));
-    // Nothing is laid out in jsdom: give the virtualised listbox a height and each option a row, as frontier's own specs do.
-    vi.spyOn(HTMLElement.prototype, 'offsetHeight', 'get').mockReturnValue(LISTBOX_PX);
-    vi.spyOn(HTMLElement.prototype, 'getBoundingClientRect').mockReturnValue(
-      DOMRect.fromRect({ width: LISTBOX_PX, height: OPTION_PX }),
-    );
-    onTestFinished(() => {
-      vi.restoreAllMocks();
-    });
-    const search = present(form.querySelector<HTMLInputElement>('input[role="combobox"]'));
-    search.value = 'Dia';
-    search.dispatchEvent(new InputEvent('input', { inputType: 'insertText' }));
-    search.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowDown', bubbles: true, cancelable: true }));
-    const diamond = await vi.waitFor(
-      () =>
-        present(
-          [...document.querySelectorAll<HTMLElement>('[role="option"]')].find(
-            (each) => each.textContent.trim() === 'Diamond',
-          ),
-        ),
-      { timeout: 3000 },
-    );
-    diamond.click();
-    await settle();
-    button(form, 'Add').click();
-    const request = await patchSent();
-    expect(request.request.body).toStrictEqual({
-      expectedVersion: 3,
-      patch: { field: 'addItem', item: itemFixtureId(ItemFixture.Diamond), quantity: 1 },
-    });
-    request.flush({ character: { ...VALEROS, version: 4 }, slots: [], cleared: [], languages: { known: [], open: 0 } });
-    await vi.waitFor(async () => {
-      await settle();
-      expect(present(form.querySelector<HTMLInputElement>('input[role="combobox"]')).value).toBe('');
     });
   });
 });

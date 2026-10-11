@@ -29,6 +29,7 @@ export type { LoadMoreQuery, PageFetch } from './lib/async/load-more/load-more-q
 export { DateInput } from './lib/controls/date-input/date-input.component';
 export { FilterChips } from './lib/controls/filter-chips/filter-chips.component';
 export { NumberInput } from './lib/controls/number-input/number-input.component';
+export { OptionalNumberInput } from './lib/controls/optional-number-input/optional-number-input.component';
 export { SearchInput } from './lib/controls/search-input/search-input.component';
 export { Segmented } from './lib/controls/segmented/segmented.component';
 export { Select, type SelectOption } from './lib/controls/select/select.component';

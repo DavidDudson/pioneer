@@ -1,0 +1,17 @@
+<input
+  #control
+  type="number"
+  [attr.inputmode]="inputMode()"
+  [step]="step()"
+  [class]="classes"
+  [attr.id]="id() ?? null"
+  [value]="value() ?? ''"
+  [attr.min]="min() ?? null"
+  [attr.max]="max() ?? null"
+  [attr.placeholder]="placeholder() ?? null"
+  [disabled]="disabled()"
+  [attr.aria-label]="ariaLabel() ?? null"
+  [attr.aria-describedby]="describedBy() ?? null"
+  [attr.aria-invalid]="ariaInvalid() || null"
+  (input)="onInput(control.value)"
+/>

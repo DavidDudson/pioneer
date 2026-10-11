@@ -1,10 +1,10 @@
 import { describe, expect, test } from 'bun:test';
 
 import { CharacterService, InMemoryCharacterRepository } from '@pioneer/character/application';
-import { CharacterSheet, ClearedPick, PatchedCharacterSheet } from '@pioneer/character/domain';
+import { CharacterSheet, ClearedPick, CoinsSchema, PatchedCharacterSheet } from '@pioneer/character/domain';
 import { humanAncestryId } from '@pioneer/character/domain/testing';
 import { briarRoseExport, mordredExport } from '@pioneer/interop/pathbuilder/testing';
-import { ContentKind } from '@pioneer/rules/sdk';
+import { ContentKind, contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import { ContentPackBuilder, fixedContent } from '@pioneer/rules/sdk/testing';
 import { FIRST_VERSION, fixedClock, newId, UserId, Version } from '@pioneer/shared/kernel';
 import type { Problem } from '@pioneer/shared/kernel';
@@ -19,7 +19,13 @@ const amiri = UserId.parse(newId());
 const ezren = UserId.parse(newId());
 
 function app(): AnyElysia {
-  const content = fixedContent(new ContentPackBuilder().withId('player-core').withAncestry('human').build());
+  const content = fixedContent(
+    new ContentPackBuilder()
+      .withId('player-core')
+      .withAncestry('human')
+      .withItem(ContentKind.Equipment, 'rope', { bulk: 'light', price: { coins: { sp: 5 } } })
+      .build(),
+  );
   const service = new CharacterService(new InMemoryCharacterRepository(), content, fixedClock('2026-10-07T10:00:00Z'));
   return new Elysia().use(problemHandler).use(characterRoutes(service, new FakeAuthenticator()));
 }
@@ -141,7 +147,7 @@ describe('character routes', () => {
   test('an item no loaded pack has is a 422 on the patch item, and the character is unchanged', async () => {
     const api = app();
     const { id } = await create(api, amiri, 'Kyra');
-    const body = { expectedVersion: 1, patch: { field: 'addItem', item: newId(), quantity: 1 } };
+    const body = { expectedVersion: 1, patch: { field: 'giftItem', item: newId(), quantity: 1 } };
     const response = await api.handle(request('PATCH', `/characters/${id}`, { body }));
     expect(response.status).toBe(422);
     expect(((await response.json()) as Problem).issues).toStrictEqual([
@@ -149,6 +155,24 @@ describe('character routes', () => {
     ]);
     const got = await api.handle(request('GET', `/characters/${id}`));
     expect(CharacterSheet.parse(await got.json()).character.version).toBe(FIRST_VERSION);
+  });
+
+  test('a gift adds the item without paying and bumps the version; a stale version is a 409', async () => {
+    const api = app();
+    const { id } = await create(api, amiri, 'Kyra');
+    const rope = contentId(PackId.parse('player-core'), EntrySlug.parse('equipment:rope'));
+    const body = { expectedVersion: 1, patch: { field: 'giftItem', item: rope, quantity: 2 } };
+    const gifted = await api.handle(request('PATCH', `/characters/${id}`, { body }));
+    expect(gifted.status).toBe(200);
+    const { character } = CharacterSheet.parse(await gifted.json());
+    expect(character.version).toBe(Version.parse(2));
+    expect(
+      character.document.inventory.items.map(({ item, quantity }) => [String(item), Number(quantity)]),
+    ).toStrictEqual([[rope, 2]]);
+    expect(character.document.inventory.coins).toStrictEqual(CoinsSchema.parse({}));
+
+    const stale = await api.handle(request('PATCH', `/characters/${id}`, { body }));
+    expect(stale.status).toBe(409);
   });
 
   test('an item held in three hands is a 422 on its carry', async () => {
@@ -207,6 +231,10 @@ describe('character routes across users', () => {
     const patch = { expectedVersion: 1, patch: { field: 'level', value: 5 } };
     const patched = await api.handle(request('PATCH', `/characters/${theirs.id}`, { body: patch }));
     expect(patched.status).toBe(404);
+    const rope = contentId(PackId.parse('player-core'), EntrySlug.parse('equipment:rope'));
+    const gift = { expectedVersion: 1, patch: { field: 'giftItem', item: rope, quantity: 1 } };
+    const gifted = await api.handle(request('PATCH', `/characters/${theirs.id}`, { body: gift }));
+    expect(gifted.status).toBe(404);
 
     const listed = await api.handle(request('GET', '/characters'));
     const names = ((await listed.json()) as { name: string }[]).map((character) => character.name);

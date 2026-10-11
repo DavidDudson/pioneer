@@ -54,8 +54,8 @@ export async function settle(): Promise<void> {
   await TestBed.inject(ApplicationRef).whenStable();
 }
 
-/** Opens Valeros's sheet with the item fixtures loaded and waits for the inventory to list his items. */
-export async function openInventory(): Promise<HTMLElement> {
+/** Opens Valeros's sheet at `url` with the item fixtures loaded, once his character has loaded. */
+async function openSheet(url: string): Promise<HTMLElement> {
   await prebuildServerStateTesting([ITEM_FIXTURE_FILES]);
   TestBed.configureTestingModule({
     providers: [
@@ -64,7 +64,7 @@ export async function openInventory(): Promise<HTMLElement> {
       provideI18n({ en: async () => frontierMessages }),
     ],
   });
-  const harness = await RouterTestingHarness.create(`/characters/${id}`);
+  const harness = await RouterTestingHarness.create(url);
   const host: unknown = harness.fixture.nativeElement;
   if (!(host instanceof HTMLElement)) {
     throw new TypeError('The sheet did not render');
@@ -78,7 +78,13 @@ export async function openInventory(): Promise<HTMLElement> {
       .expectOne(`/api/characters/${id}`)
       .flush({ character: VALEROS, slots: [], languages: { known: [], open: 0 } });
   });
-  const section = present(present(harness.routeNativeElement).querySelector<HTMLElement>('pio-inventory-section'));
+  return present(harness.routeNativeElement);
+}
+
+/** Opens Valeros's sheet with the item fixtures loaded and waits for the inventory to list his items. */
+export async function openInventory(): Promise<HTMLElement> {
+  const sheet = await openSheet(`/characters/${id}`);
+  const section = present(sheet.querySelector<HTMLElement>('pio-inventory-section'));
   await vi.waitFor(async () => {
     await settle();
     expect(section.querySelectorAll('pio-inventory-row')).toHaveLength(VALEROS.inventory.items.length);
@@ -136,4 +142,15 @@ export async function patchSent(): Promise<TestRequest> {
   return vi.waitFor(() =>
     TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: `/api/characters/${id}` }),
   );
+}
+
+/** Opens Valeros's sheet, with `query` in the URL when given, and waits for the shop to list what it offers. */
+export async function openShop(query = ''): Promise<HTMLElement> {
+  const sheet = await openSheet(`/characters/${id}${query}`);
+  const shop = present(sheet.querySelector<HTMLElement>('pio-shop'));
+  await vi.waitFor(async () => {
+    await settle();
+    expect(shop.querySelectorAll('pio-shop-offers fr-toggle-button').length).toBeGreaterThan(0);
+  });
+  return shop;
 }

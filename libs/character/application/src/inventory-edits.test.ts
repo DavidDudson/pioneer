@@ -56,7 +56,7 @@ describe('CharacterService inventory edits', () => {
 
   async function add(name: ItemFixture, container?: InventoryItemId): Promise<InventoryItemId> {
     const item = itemFixtureId(name);
-    const saved = await edit({ field: CharacterPatchField.AddItem, item, quantity: one, container });
+    const saved = await edit({ field: CharacterPatchField.GiftItem, item, quantity: one, container });
     const added = saved.document.inventory.items.at(-1);
     if (added === undefined) {
       throw new Error('Nothing was added');
@@ -93,8 +93,8 @@ describe('CharacterService inventory edits', () => {
     });
     expect(repository.audits.map(({ command }) => command)).toStrictEqual([
       CharacterCommand.CreateCharacter,
-      CharacterCommand.AddItem,
-      CharacterCommand.AddItem,
+      CharacterCommand.GiftItem,
+      CharacterCommand.GiftItem,
       CharacterCommand.RenameItem,
       CharacterCommand.SetItemQuantity,
       CharacterCommand.MoveItem,
@@ -111,7 +111,7 @@ describe('CharacterService inventory edits', () => {
 
   test('refuses content no loaded pack has as an item', async () => {
     const unknown = ContentId.parse(newId());
-    expect(await refusal({ field: CharacterPatchField.AddItem, item: unknown, quantity: one })).toStrictEqual([
+    expect(await refusal({ field: CharacterPatchField.GiftItem, item: unknown, quantity: one })).toStrictEqual([
       { path: ['patch', 'item'], message: { key: 'character.validation.unknownItem' } },
     ]);
   });
@@ -120,7 +120,7 @@ describe('CharacterService inventory edits', () => {
     const rope = await add(ItemFixture.Rope);
     const sword = itemFixtureId(ItemFixture.Longsword);
     expect(
-      await refusal({ field: CharacterPatchField.AddItem, item: sword, quantity: one, container: rope }),
+      await refusal({ field: CharacterPatchField.GiftItem, item: sword, quantity: one, container: rope }),
     ).toStrictEqual([{ path: ['patch', 'container'], message: { key: 'character.validation.notAContainer' } }]);
   });
 
@@ -221,7 +221,7 @@ describe('CharacterService inventory limits and staleness', () => {
   });
 
   const rope: CharacterPatch = {
-    field: CharacterPatchField.AddItem,
+    field: CharacterPatchField.GiftItem,
     item: itemFixtureId(ItemFixture.Rope),
     quantity: one,
   };

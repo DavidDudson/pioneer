@@ -103,6 +103,7 @@ export { KIND_DATA, REGISTERED_KINDS, type RegisteredKind } from './kind-data';
 export { SkillCount } from './character-class';
 export {
   COMMON_FACETS,
+  CommonFacet,
   type FacetDefinition,
   FacetId,
   FacetLabel,
@@ -117,6 +118,7 @@ export {
   type FacetDerive,
   UNKNOWN,
 } from './facet';
+export { availableItems } from './available-items';
 export { facetsFor } from './kind-facets';
 export { AreaValue, CastActions, DefenseValue, DurationValue, RangeBand, TargetValue } from './spell-facet-values';
 export { SPELL_FACETS, SpellFacetMessage } from './spell-facets';

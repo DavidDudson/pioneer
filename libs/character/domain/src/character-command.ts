@@ -11,7 +11,7 @@ export const CharacterCommand = {
   ClearSlot: 'clearSlot',
   /** A character created from a Pathbuilder export, so an import reads apart from a manual create. */
   ImportPathbuilder: 'importPathbuilder',
-  AddItem: 'addItem',
+  GiftItem: 'giftItem',
   RemoveItem: 'removeItem',
   SetItemQuantity: 'setItemQuantity',
   MoveItem: 'moveItem',
@@ -33,7 +33,7 @@ export const PATCH_COMMANDS = {
   [CharacterPatchField.Level]: CharacterCommand.SetLevel,
   [CharacterPatchField.SelectSlot]: CharacterCommand.SelectSlot,
   [CharacterPatchField.ClearSlot]: CharacterCommand.ClearSlot,
-  [CharacterPatchField.AddItem]: CharacterCommand.AddItem,
+  [CharacterPatchField.GiftItem]: CharacterCommand.GiftItem,
   [CharacterPatchField.RemoveItem]: CharacterCommand.RemoveItem,
   [CharacterPatchField.SetItemQuantity]: CharacterCommand.SetItemQuantity,
   [CharacterPatchField.MoveItem]: CharacterCommand.MoveItem,

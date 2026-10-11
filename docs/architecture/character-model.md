@@ -267,10 +267,11 @@ version 3, #472). `inventory.coins` holds platinum, gold, silver and copper, eac
 
 - **Containers.** An item can go in another item whose content is equipment with a `container` (a backpack), and
   containers nest. The document refuses an item in one it hasn't and containers that hold each other.
-- **Commands.** `addItem { item, quantity, container? }` (the server gives the item its id), `removeItem { id }`,
-  `setItemQuantity`, `moveItem { id, container? }` (no container takes it out), `renameItem { id, name? }` (no name
-  goes back to the content's) and `setCoins { coins }`. Each is a PATCH audited by name. The server refuses an item
-  the character hasn't (`character.validation.itemNotFound`), a container that isn't there
+- **Commands.** `giftItem { item, quantity, container? }` (adds without paying; the server gives the item its id),
+  `removeItem { id }`, `setItemQuantity`, `moveItem { id, container? }` (no container takes it out),
+  `renameItem { id, name? }` (no name goes back to the content's) and `setCoins { coins }`. Each is a PATCH audited
+  by name. The server refuses an item the character hasn't (`character.validation.itemNotFound`), a container that
+  isn't there
   (`containerNotFound`), one inside itself or something it holds (`containerInsideItself`), content no loaded pack
   has as an item (`unknownItem`) and stowing in an item that holds nothing (`notAContainer`).
 - **Removing a container** moves what it held out to where the container was, so nothing inside is lost.
@@ -350,7 +351,7 @@ can't be turned back into boosts: their boost slots start empty; a Pathbuilder r
 ([#420](https://github.com/DavidDudson/pioneer/issues/420)).
 
 The document is one aggregate, validated by zod and versioned with the existing `expectedVersion` PATCH pattern.
-Edits stay field-level commands (`selectSlot`, `addItem`, `setHp`, `addCondition`), so the API stays small and each
+Edits stay field-level commands (`selectSlot`, `giftItem`, `setHp`, `addCondition`), so the API stays small and each
 command is auditable: its name (`CharacterCommand`) lands in `audit.log.command`, so a gift reads apart from a
 purchase. List queries use the scalar columns; the document is never queried into.
 

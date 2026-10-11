@@ -3,7 +3,7 @@ import type { Signal } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { attributeModifiers, boostContent, INVESTED_MAX, itemContent, runeContent } from '@pioneer/character/domain';
 import type { ItemContent, RunedContent } from '@pioneer/character/domain';
-import { AsyncData, AsyncPending, AsyncRegion, Divider, Heading, Stack } from '@pioneer/frontier';
+import { AsyncData, AsyncPending, AsyncRegion, Heading, Stack } from '@pioneer/frontier';
 import type { AsyncQuery } from '@pioneer/frontier';
 import { Attribute } from '@pioneer/rules/sdk';
 import type { AttributeModifier, ContentRegistry } from '@pioneer/rules/sdk';
@@ -12,7 +12,6 @@ import type { CarriedBulk, InventoryGroup, Investment } from '@pioneer/rules/ui'
 
 import { CharacterStore } from '../../../data/character-store';
 import { CHARACTER_CONTENT_KINDS, injectContentRegistry } from '../../../data/content-registry-query';
-import { AddItem } from '../add-item/add-item.component';
 import { CoinsEdit } from '../coins-edit/coins-edit.component';
 import { ItemEdits } from '../item-edits/item-edits.component';
 import { injectItemNames } from '../item-names';
@@ -21,22 +20,20 @@ import { sheetBulk } from '../sheet-bulk';
 import { INVENTORY_CONTENT_KINDS, sheetInventory } from '../sheet-inventory';
 
 /**
- * The sheet's inventory: items grouped worn, held, stowed and dropped with each item's edits and runes beside it, a form to
- * add an item, the Bulk carried against the limits Strength sets, the investments against their limit with what each
- * turns on, and the coins. The item kinds for the list, its edits and the Bulk load here, with the character's own kinds
+ * The sheet's inventory: items grouped worn, held, stowed and dropped with each item's edits and runes beside it, the
+ * Bulk carried against the limits Strength sets, the investments against their limit with what each turns on, and the
+ * coins. Items are added from the shop, in the Downtime section. The item kinds for the list, its edits and the Bulk load here, with the character's own kinds
  * for the Strength the Bulk limits read (the sheet page's query, so they load once); the sheet page loads the item
  * kinds for the engine too once the character carries anything.
  */
 @Component({
   selector: 'pio-inventory-section',
   imports: [
-    AddItem,
     AsyncData,
     AsyncPending,
     AsyncRegion,
     BulkView,
     CoinsEdit,
-    Divider,
     Heading,
     InventoryView,
     InvestmentsView,

@@ -640,6 +640,28 @@
         "innate": "Innate"
       }
     },
+    "facetFilter": {
+      "chip": "{value} ({count})",
+      "summary": "{facet}",
+      "summaryPicked": "{facet}: {count} picked",
+      "summaryBounded": "{facet}: limited",
+      "min": "Lowest {facet}",
+      "max": "Highest {facet}",
+      "any": "Any",
+      "span": "{lowest} to {highest} in this list"
+    },
+    "shop": {
+      "coin": "{count} {coin, select, pp {pp} gp {gp} sp {sp} other {cp}}",
+      "pricePer": "{price} for {per}",
+      "noPrice": "No price",
+      "line": "Level {level} · {price}",
+      "pick": "Pick",
+      "pickNamed": "Pick {name}",
+      "more": "Showing {shown} of {total}. Narrow the filters to see the rest.",
+      "noneTitle": "No items match",
+      "noneDescription": "Change the filters or the search, or show everything.",
+      "lineNoLevel": "{price}"
+    },
     "spellAccess": {
       "none": "No access to uncommon, rare or unique spells yet.",
       "remove": "Remove {name}",

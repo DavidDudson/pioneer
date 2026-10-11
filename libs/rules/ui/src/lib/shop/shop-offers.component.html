@@ -1,0 +1,44 @@
+@if (offers(); as offers) {
+  @if (offers.length === 0) {
+    <fr-empty-state
+      [icon]="emptyIcon"
+      [title]="Message.NoneTitle | transloco"
+      [description]="Message.NoneDescription | transloco"
+    />
+  } @else {
+    <fr-stack gap="sm">
+      <fr-list gap="xs">
+        @for (row of rows(); track row.offer.id) {
+          <fr-list-item>
+            <pio-shop-offer-row
+              [offer]="row.offer"
+              [badge]="row.badge"
+              [line]="row.line"
+              [picked]="picked() === row.offer.id"
+              (pickedChange)="pick(row.offer.id, $event)"
+            />
+          </fr-list-item>
+        }
+      </fr-list>
+      @if (hidden() > 0) {
+        <fr-text element="p" variant="caption" tone="muted">{{
+          Message.More | transloco: { shown: number(rows().length), total: number(offers.length) }
+        }}</fr-text>
+      }
+    </fr-stack>
+  }
+} @else {
+  <fr-list gap="xs">
+    @for (row of loadingRows; track row) {
+      <fr-list-item>
+        <fr-stack direction="horizontal" justify="between" align="center" gap="sm">
+          <fr-stack gap="3xs">
+            <fr-skeleton width="md" />
+            <fr-skeleton width="sm" />
+          </fr-stack>
+          <fr-skeleton shape="block" width="xs" />
+        </fr-stack>
+      </fr-list-item>
+    }
+  </fr-list>
+}

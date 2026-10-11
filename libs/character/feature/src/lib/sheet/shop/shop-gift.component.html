@@ -1,0 +1,23 @@
+<fr-async-form [form]="form" [action]="gift" [describeError]="describeError">
+  <fr-stack gap="sm">
+    <fr-heading variant="subheading" [level]="4">{{ name() }}</fr-heading>
+    <fr-grid [columns]="2">
+      <fr-number-field [label]="'character.sheet.inventory.quantity' | transloco" [formField]="form.quantity" />
+      <fr-select-field
+        [label]="'character.sheet.inventory.place' | transloco"
+        [options]="places()"
+        [formField]="form.container"
+      />
+    </fr-grid>
+    <fr-stack direction="horizontal" justify="end">
+      <fr-async-button
+        type="submit"
+        variant="primary"
+        [pendingLabel]="'character.sheet.shop.gifting' | transloco"
+        [successLabel]="'character.sheet.shop.gifted' | transloco"
+      >
+        {{ 'character.sheet.shop.gift' | transloco }}
+      </fr-async-button>
+    </fr-stack>
+  </fr-stack>
+</fr-async-form>

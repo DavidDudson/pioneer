@@ -10,7 +10,6 @@ import type {
 } from '@pioneer/character/domain';
 import type { SelectOption } from '@pioneer/frontier';
 import { ContentKind, FundamentalRune } from '@pioneer/rules/sdk';
-import type { ContentId } from '@pioneer/rules/sdk';
 import { InventoryPlacement } from '@pioneer/rules/ui';
 import type { GradedRune, GradedRuneLine, InventoryGroup, InventoryLine, LineRunes } from '@pioneer/rules/ui';
 
@@ -131,20 +130,4 @@ function heldBy(items: readonly InventoryItem[], id: InventoryItemId): ReadonlyS
     }
   }
   return held;
-}
-
-const ITEM_MATCHES_MAX = 50;
-
-/** The items whose name contains `query`, ignoring case, by name; at most `ITEM_MATCHES_MAX`. */
-export function itemOptions(
-  content: ItemContent,
-  query: string,
-  compare: (left: string, right: string) => number,
-): readonly SelectOption<ContentId>[] {
-  const needle = query.trim().toLocaleLowerCase();
-  return [...content.values()]
-    .filter((entry) => entry.name.toLocaleLowerCase().includes(needle))
-    .toSorted((left, right) => compare(left.name, right.name))
-    .slice(0, ITEM_MATCHES_MAX)
-    .map((entry) => ({ value: entry.id, label: entry.name }));
 }
