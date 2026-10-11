@@ -16,6 +16,9 @@ import type { ItemContent } from '../inventory-content';
 
 const ITEM_PACK = 'item-fixtures';
 
+/** The encumbered condition, which the fixtures give a status penalty to AC so the sheet shows it. */
+const ENCUMBERED = 'encumbered';
+
 /** Player Core numbers (Foundry pf2e) for the items the inventory tests carry. */
 const BACKPACK_CAPACITY = 4;
 const BACKPACK_IGNORED = 2;
@@ -135,12 +138,13 @@ const ITEMS: Readonly<Record<ItemFixture, ItemFixtureFields>> = {
   },
 };
 
-/** A pack of one item of every carried kind, a backpack among them to stow things in. */
+/** A pack of one item of every carried kind, a backpack among them to stow things in, and the encumbered condition. */
 function itemPack(): ContentPack {
   const builder = new ContentPackBuilder().withId(ITEM_PACK);
   for (const [name, fields] of Object.entries(ITEMS)) {
     builder.withMagicItem(fields.kind, name, fields);
   }
+  builder.withCondition(ENCUMBERED, [{ key: 'FlatModifier', selectors: ['ac'], type: 'status', value: -1 }]);
   return builder.build();
 }
 
@@ -149,6 +153,11 @@ export const ITEM_FIXTURES: ContentPack = itemPack();
 /** The id of the fixture item `name`. */
 export function itemFixtureId(name: ItemFixture): ContentId {
   return ContentId.parse(contentId(PackId.parse(ITEM_PACK), EntrySlug.parse(`${ITEMS[name].kind}:${name}`)));
+}
+
+/** The id of the fixture encumbered condition. */
+export function encumberedFixtureId(): ContentId {
+  return ContentId.parse(contentId(PackId.parse(ITEM_PACK), EntrySlug.parse(`condition:${ENCUMBERED}`)));
 }
 
 /** A registry holding `ITEM_FIXTURES`. */

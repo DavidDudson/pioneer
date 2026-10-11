@@ -1,8 +1,9 @@
 import { RuleInPlay } from '@pioneer/rules/engine';
 import type { ArmorInputs, ModifierInputs, WeaponInputs } from '@pioneer/rules/engine';
 import { resolveGrants } from '@pioneer/rules/grants';
-import type { GrantRoot } from '@pioneer/rules/grants';
+import type { ContentLookup, GrantRoot } from '@pioneer/rules/grants';
 import {
+  Attribute,
   AttributeModifier,
   ContentKind,
   Level,
@@ -17,6 +18,8 @@ import {
 } from '@pioneer/rules/sdk';
 import type { ContentId, ItemState, OriginHop } from '@pioneer/rules/sdk';
 
+import { attributeModifiers } from './attribute-boosts';
+import { Encumbrance, inventoryBulk } from './bulk';
 import type { CharacterDocument } from './character-document';
 import { CHARACTER_ROOT_SLOTS } from './character-slots';
 import type { Inventory, InventoryItem } from './inventory';
@@ -129,19 +132,47 @@ export function equippedInputs(inventory: Inventory, content: ItemContent): Equi
   return { ...armorInputs(worn), weapons: weaponInputs(active) };
 }
 
+/** The encumbered condition, by its name within its kind. */
+const ENCUMBERED = Slug.parse('encumbered');
+
+function conditionNamed(lookup: ContentLookup, name: Slug): ContentId | undefined {
+  return lookup.ofKind(ContentKind.Condition).findLast((entry) => entry.slug === name)?.id;
+}
+
 /**
- * The rule elements of the character's active items, and of what they grant, each with an origin that starts at the
- * item's inventory hop, and the facts their predicates are read against. Grants are resolved with the character's
- * picks, so an item's predicate sees its ancestry and class. Rule elements of the build itself arrive with the
- * builder (Epic 3.3).
+ * The encumbered condition as a root with a condition hop while the character carries more Bulk than 5 plus its
+ * Strength modifier (`inventoryBulk`); none while it doesn't, or while no loaded pack has the condition. The last
+ * pack's entry wins, as in the registry.
  */
-export function equippedRules(
-  document: CharacterDocument,
-  content: ItemContent,
-  { lookup, namespaces }: SlotContent,
-): ModifierInputs {
+function encumberedRoots(document: CharacterDocument, content: ItemContent, slots: SlotContent): readonly GrantRoot[] {
+  const strength = attributeModifiers(document, slots.boosts).get(Attribute.Strength);
+  const { encumbrance } = inventoryBulk(document.inventory, content, strength);
+  const condition = conditionNamed(slots.lookup, ENCUMBERED);
+  if (encumbrance === Encumbrance.Unencumbered || condition === undefined) {
+    return [];
+  }
+  return [{ entry: condition, hop: { kind: OriginHopKind.Condition, condition } }];
+}
+
+/** Whether a resolved entry is in play through the inventory: an active item, or the condition its Bulk brings. */
+function fromInventory(origin: Origin): boolean {
+  const kind = origin.hops[0]?.kind;
+  return kind === OriginHopKind.Inventory || kind === OriginHopKind.Condition;
+}
+
+/**
+ * The rule elements of the character's active items, of the encumbered condition while it carries too much
+ * (`encumberedRoots`), and of what they grant, each with an origin that starts at its inventory or condition hop, and
+ * the facts their predicates are read against. Grants are resolved with the character's picks, so an item's
+ * predicate sees its ancestry and class. Rule elements of the build itself arrive with the builder (Epic 3.3).
+ */
+export function equippedRules(document: CharacterDocument, content: ItemContent, slots: SlotContent): ModifierInputs {
+  const { lookup, namespaces } = slots;
   const active = activeItems(document.inventory, content);
-  const roots: GrantRoot[] = active.map((each) => ({ entry: each.entry.id, hop: inventoryHop(each) }));
+  const roots: GrantRoot[] = [
+    ...active.map((each) => ({ entry: each.entry.id, hop: inventoryHop(each) })),
+    ...encumberedRoots(document, content, slots),
+  ];
   const resolution = resolveGrants({
     roots,
     lookup,
@@ -153,7 +184,7 @@ export function equippedRules(
     namespaces,
   });
   const rules = resolution.items
-    .filter(({ origin }) => origin.hops[0]?.kind === OriginHopKind.Inventory)
+    .filter(({ origin }) => fromInventory(origin))
     .flatMap(({ entry, origin }) =>
       entry.rules.map((element, rule) =>
         RuleInPlay.parse({ element, origin, rule, itemLevel: itemLevelOf(content, entry.id) }),

@@ -10,7 +10,15 @@ import type { Inventory } from './inventory';
 import { CarryState, Hands, ONE_HAND } from './item-carry';
 import type { Carry } from './item-carry';
 import { slotContent } from './slot-offer';
-import { CharacterBuilder, ItemFixture, itemFixtureContent, itemFixtureId, itemFixtureRegistry } from './testing';
+import type { SlotContent } from './slot-offer';
+import {
+  CharacterBuilder,
+  encumberedFixtureId,
+  ItemFixture,
+  itemFixtureContent,
+  itemFixtureId,
+  itemFixtureRegistry,
+} from './testing';
 
 installRulesFakes();
 const content = itemFixtureContent();
@@ -35,6 +43,18 @@ function carrying(...items: readonly (readonly [ItemFixture, Carry])[]): Invento
 /** A character's document carrying `inventory`. */
 function withInventory(inventory: Inventory): CharacterDocument {
   return { ...new CharacterBuilder().build().document, inventory };
+}
+
+/** A character carrying `count` anvils, 2 Bulk each. */
+function anvils(count: number): CharacterDocument {
+  return withInventory(
+    addItem(EMPTY_INVENTORY, {
+      id: idAt(0),
+      item: itemFixtureId(ItemFixture.Anvil),
+      quantity: ItemQuantity.parse(count),
+      container: undefined,
+    }),
+  );
 }
 
 describe('equippedInputs', () => {
@@ -126,5 +146,24 @@ describe('equippedRules', () => {
 
   test('an invested-trait item not invested puts nothing in play', () => {
     expect(equippedRules(withInventory(cloak), content, slots).rules).toStrictEqual([]);
+  });
+
+  test('carrying more than 5 Bulk at Strength +0 puts the encumbered condition in play, with a condition hop', () => {
+    const condition = encumberedFixtureId();
+
+    expect(equippedRules(anvils(2), content, slots).rules).toStrictEqual([]);
+    expect(equippedRules(anvils(3), content, slots).rules).toMatchObject([
+      {
+        element: { key: 'FlatModifier', selectors: ['ac'], type: 'status', value: -1 },
+        origin: { hops: [{ kind: OriginHopKind.Condition, condition }], entry: condition },
+      },
+    ]);
+  });
+
+  test('puts nothing in play for encumbrance when no loaded pack has the condition', () => {
+    const heavy = anvils(10);
+    const withoutConditions: SlotContent = { ...slots, lookup: { ...slots.lookup, ofKind: () => [] } };
+
+    expect(equippedRules(heavy, content, withoutConditions).rules).toStrictEqual([]);
   });
 });

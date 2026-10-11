@@ -172,6 +172,17 @@ export class ContentPackBuilder {
     return this;
   }
 
+  /** A condition with no value, slugged `condition:<name>`, and `rules` as JSON: what it does to statistics. */
+  public withCondition(name: string, rules: readonly object[] = []): this {
+    this.#entries.push({
+      kind: ContentKind.Condition,
+      name,
+      data: { valued: false, overrides: [], implies: [] },
+      rules,
+    });
+    return this;
+  }
+
   public withNamespace(namespace: string, kind: NamespaceKind): this {
     this.#namespaces[namespace] = kind;
     return this;
