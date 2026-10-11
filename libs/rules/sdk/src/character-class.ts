@@ -6,7 +6,8 @@ import { Slug } from './content-id';
 import { HitPoints } from './units';
 
 /** How many skills a class trains beyond its fixed ones; the Intelligence modifier adds to it. */
-const SkillCount = Pg.smallint().nonnegative().brand<'SkillCount'>();
+export const SkillCount = Pg.smallint().nonnegative().brand<'SkillCount'>();
+export type SkillCount = z.infer<typeof SkillCount>;
 
 const CLASS_LEVEL_MIN = 1;
 const CLASS_LEVEL_MAX = 20;

@@ -24,3 +24,4 @@ export {
   playerCoreClassId,
   playerCoreId,
 } from './player-core-classes';
+export { NO_SKILLS, type SkillFixture, skillFixtureId, skillFixtures } from './skill-fixtures';

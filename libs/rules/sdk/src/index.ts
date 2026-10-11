@@ -89,6 +89,7 @@ export {
   RaritySchema,
 } from './entry-fields';
 export { KIND_DATA, REGISTERED_KINDS, type RegisteredKind } from './kind-data';
+export { SkillCount } from './character-class';
 export {
   COMMON_FACETS,
   type FacetDefinition,

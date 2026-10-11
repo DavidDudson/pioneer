@@ -11,6 +11,10 @@ import type { BoostContent, BoostSet, BoostSlot, FlawSlot } from './attribute-bo
 import type { CharacterDocument } from './character-document';
 import { CHARACTER_LEVEL_MAX, CHARACTER_LEVEL_MIN } from './character-fields';
 import { CHARACTER_ROOT_SLOTS } from './character-slots';
+import { skillContent } from './skill-content';
+import type { SkillContent } from './skill-content';
+import { SkillSlotKind, skillSlots } from './skill-training';
+import type { GrantsAt, SkillReads, SkillSlot } from './skill-training';
 
 /** A selection for a slot, as `selectSlot` asks for it. */
 export interface SlotPick {
@@ -20,12 +24,13 @@ export interface SlotPick {
 
 /**
  * The content a slot's offer is read from: entries by id and kind, how roll option namespaces read, and the boosts
- * of each ancestry, background and class.
+ * of each ancestry, background and class, and the skills and Lores a skill slot offers.
  */
 export interface SlotContent {
   readonly lookup: ContentLookup;
   readonly namespaces: NamespaceTable;
   readonly boosts: BoostContent;
+  readonly skills: SkillContent;
 }
 
 /** The slot content a registry gives. */
@@ -34,6 +39,7 @@ export function slotContent(registry: ContentRegistry): SlotContent {
     lookup: grantLookup(registry),
     namespaces: registry.rollOptionNamespaces(),
     boosts: boostContent(registry),
+    skills: skillContent(registry),
   };
 }
 
@@ -73,6 +79,23 @@ export function resolveSlotsAt(level: Level, { picks, lookup, namespaces }: Slot
     rootSlots: CHARACTER_ROOT_SLOTS,
     namespaces,
   });
+}
+
+/** The character's picks, by slot. */
+function picksOf(document: CharacterDocument): ReadonlyMap<SlotKey, ChoiceValue> {
+  return new Map(Object.entries(document.build.choices).map(([key, value]) => [SlotKey.parse(key), value]));
+}
+
+/** What skill slots read: the skills and boosts content, and the character's grants at each level, each resolved once. */
+export function skillReads(document: CharacterDocument, content: SlotContent): SkillReads {
+  const context: SlotContext = { ...content, picks: picksOf(document) };
+  const resolved = new Map<Level, GrantResolution>();
+  const grantsAt: GrantsAt = (level) => {
+    const resolution = resolved.get(level) ?? resolveSlotsAt(level, context);
+    resolved.set(level, resolution);
+    return resolution;
+  };
+  return { skills: content.skills, boosts: content.boosts, grantsAt };
 }
 
 /** Every character level, highest first: most slots are open at 20th, so a valid pick is usually found at once. */
@@ -132,6 +155,36 @@ function flawRefusal({ slots, flaw }: FlawSlotIn, selection: ChoiceValue): SlotR
   return taken ? { field: SlotRefusalField.Selection, message: message('character.validation.flawTaken') } : undefined;
 }
 
+/** The refusal for each reason a loaded skill isn't on offer. */
+const SKILL_REFUSALS: Readonly<Record<SkillSlotKind, SlotRefusal>> = {
+  [SkillSlotKind.Training]: {
+    field: SlotRefusalField.Selection,
+    message: message('character.validation.skillTrained'),
+  },
+  [SkillSlotKind.Increase]: {
+    field: SlotRefusalField.Selection,
+    message: message('character.validation.skillRankCapped'),
+  },
+};
+
+/**
+ * Why `selection` can't go in the skill slot, read with the slot itself empty: a trained skill slot takes a skill or
+ * Lore not trained yet, a skill increase one it may raise a rank at its level.
+ */
+function skillRefusal(slot: SkillSlot, skills: SkillContent, selection: ChoiceValue): SlotRefusal | undefined {
+  if (slot.options.some((skill) => skill.id === selection)) {
+    return undefined;
+  }
+  return skills.skills.some((skill) => skill.id === selection) ? SKILL_REFUSALS[slot.kind] : NOT_OFFERED;
+}
+
+/** The skill slot `slot`, read with its own pick left out, if it is one the character has at some level. */
+function skillSlotIn(document: CharacterDocument, content: SlotContent, slot: SlotKey): SkillSlot | undefined {
+  const { [slot]: _own, ...choices } = document.build.choices;
+  const without: CharacterDocument = { ...document, build: { ...document.build, choices } };
+  return skillSlots(without, skillReads(without, content)).find((each) => each.key === slot);
+}
+
 /**
  * Why `selection` can't go in `slot`, a root or `ChoiceSet` slot: it must be open at some level up to 20, and offer
  * `selection` there. The slot's own pick is left out, so it is checked as if empty; the other picks stay, so a slot an
@@ -160,8 +213,8 @@ function grantRefusal(
 
 /**
  * Why `selection` can't go in `slot`, or undefined when it can. A boost slot takes an attribute its boost allows and
- * no other boost of its set raises; a voluntary flaw slot, one neither its ancestry nor another flaw lowers. Any other
- * slot must offer `selection` at some level up to 20.
+ * no other boost of its set raises; a voluntary flaw slot, one neither its ancestry nor another flaw lowers; a skill
+ * slot, a skill or Lore it may train or raise. Any other slot must offer `selection` at some level up to 20.
  */
 export function slotRefusal(
   document: CharacterDocument,
@@ -173,7 +226,13 @@ export function slotRefusal(
     return boostRefusal(boost, pick.selection);
   }
   const flaw = flawSlotIn(document, content.boosts, pick.slot);
-  return flaw === undefined ? grantRefusal(document, content, pick) : flawRefusal(flaw, pick.selection);
+  if (flaw !== undefined) {
+    return flawRefusal(flaw, pick.selection);
+  }
+  const skill = skillSlotIn(document, content, pick.slot);
+  return skill === undefined
+    ? grantRefusal(document, content, pick)
+    : skillRefusal(skill, content.skills, pick.selection);
 }
 
 /**
@@ -185,7 +244,7 @@ export function rootSlotOptions(
   content: SlotContent,
   slot: SlotKey,
 ): readonly OfferedOption[] {
-  const picks = new Map(Object.entries(document.build.choices).map(([key, value]) => [SlotKey.parse(key), value]));
+  const picks = picksOf(document);
   const { rootSlots } = resolveSlotsAt(Level.parse(document.level), { ...content, picks });
   return rootSlots.find((each) => each.key === slot)?.options ?? [];
 }

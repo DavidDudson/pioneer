@@ -25,7 +25,8 @@ import type {
 import { boostSets, BoostSource } from './attribute-boosts';
 import type { CharacterDocument } from './character-document';
 import { CLASS_SLOT } from './character-slots';
-import { resolveSlotsAt } from './slot-offer';
+import { pickedSkillRanks, withSkillPicks } from './skill-training';
+import { resolveSlotsAt, skillReads } from './slot-offer';
 import type { SlotContent } from './slot-offer';
 
 /** What the builder reads of a class beyond its rule elements: its Hit Points and the tag of its subclass options. */
@@ -191,4 +192,13 @@ export function subclassSlot(
   }
   const slots: readonly ChoiceSlot[] = [...resolution.answered, ...resolution.open];
   return slots.find((slot) => queriesTag(lookup.entry(slot.origin.entry)?.rules[slot.rule], tag));
+}
+
+/**
+ * Every rank the build gives at the character's level: those its effective set raises (`characterRanks`), and the
+ * skills its trained skill and skill increase picks raise, the higher of the two for each.
+ */
+export function buildRanks(document: CharacterDocument, content: SlotContent): ReadonlyMap<Selector, Proficiency> {
+  const granted = characterRanks(characterGrants(document, content));
+  return withSkillPicks(granted, pickedSkillRanks(document, skillReads(document, content)));
 }

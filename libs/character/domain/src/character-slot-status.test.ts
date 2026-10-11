@@ -8,7 +8,7 @@ import { CharacterSlot, SlotStatus } from './character-slot';
 import { characterSlots } from './character-slot-status';
 import { ANCESTRY_SLOT, BACKGROUND_SLOT, CLASS_SLOT, HERITAGE_SLOT } from './character-slots';
 import type { SlotContent } from './slot-offer';
-import { BOOST_FIXTURES, boostFixtureId, CharacterBuilder } from './testing';
+import { BOOST_FIXTURES, NO_SKILLS, boostFixtureId, CharacterBuilder } from './testing';
 
 const LOW_LEVEL = [{ lte: ['self:level', 5] }];
 const FROM_FIFTH = [{ gte: ['self:level', 5] }];
@@ -42,7 +42,12 @@ const dwarf = {
   kind: ContentKind.Ancestry,
 };
 
-const content: SlotContent = { lookup: lookupOf([elf, dwarf]), namespaces: CORE_NAMESPACES, boosts: BOOST_FIXTURES };
+const content: SlotContent = {
+  lookup: lookupOf([elf, dwarf]),
+  namespaces: CORE_NAMESPACES,
+  boosts: BOOST_FIXTURES,
+  skills: NO_SKILLS,
+};
 const earlySlot = slotOf('elf', 0);
 const skillSlot = slotOf('elf', 1);
 const lateSlot = slotOf('elf', 2);

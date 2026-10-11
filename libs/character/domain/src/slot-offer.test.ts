@@ -8,7 +8,7 @@ import type { CharacterDocument } from './character-document';
 import { ANCESTRY_SLOT } from './character-slots';
 import { SlotRefusalField, slotRefusal } from './slot-offer';
 import type { SlotContent, SlotRefusal } from './slot-offer';
-import { BOOST_FIXTURES, boostFixtureId, CharacterBuilder } from './testing';
+import { BOOST_FIXTURES, NO_SKILLS, boostFixtureId, CharacterBuilder } from './testing';
 
 /** Only up to 5th level. */
 const LOW_LEVEL = [{ lte: ['self:level', 5] }];
@@ -33,7 +33,12 @@ const elf = {
 };
 const human = { ...entry('human'), kind: ContentKind.Ancestry };
 
-const content: SlotContent = { lookup: lookupOf([elf, human]), namespaces: CORE_NAMESPACES, boosts: BOOST_FIXTURES };
+const content: SlotContent = {
+  lookup: lookupOf([elf, human]),
+  namespaces: CORE_NAMESPACES,
+  boosts: BOOST_FIXTURES,
+  skills: NO_SKILLS,
+};
 const earlySlot = slotOf('elf', 0);
 const skillSlot = slotOf('elf', 1);
 
