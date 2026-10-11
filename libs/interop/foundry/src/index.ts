@@ -33,7 +33,8 @@ export {
   type SkippedEntry,
 } from './select-entries';
 export { fromFoundryFormula } from './foundry-formula';
-export { foundrySlug, slugify } from './foundry-slug';
+export { entrySlugs } from './entry-slugs';
+export { asciiSlug, foundrySlug, slugify } from './foundry-slug';
 export {
   compendiumUuid,
   type EnvelopeContext,
@@ -43,6 +44,7 @@ export {
   type FoundryExternalIds,
   type ImportedEnvelope,
   type TranslatedEntry,
+  type UnlocatedBookSource,
   translateEnvelopes,
   type UnknownTrait,
 } from './translate-envelope';

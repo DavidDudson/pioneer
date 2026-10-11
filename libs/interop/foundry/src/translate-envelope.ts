@@ -10,12 +10,13 @@ import {
   SourceKind,
   Trait,
 } from '@pioneer/rules/sdk';
-import type { PackId, RichText, RuleElement, SourceRef } from '@pioneer/rules/sdk';
+import type { BookId, PackId, RichText, RuleElement } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
 
+import { entrySlugs } from './entry-slugs';
 import type { FoundryDocument } from './foundry-document';
 import type { FoundryPack } from './foundry-release';
-import { foundrySlug } from './foundry-slug';
+import { asciiSlug } from './foundry-slug';
 import type { SelectedEntry } from './select-entries';
 import { translateRules } from './translate-rules';
 import type { UntranslatedRule } from './translate-rules';
@@ -37,8 +38,17 @@ export interface FoundryExternalIds {
 }
 
 /**
+ * A book source as the import knows it: the book, with no page or AoN link. `SourceRef` requires one of the two
+ * (ADR-0005), so this is its own type until enrichment (#22) adds them; how pack output treats it is #400's call.
+ */
+export interface UnlocatedBookSource {
+  readonly kind: typeof SourceKind.Book;
+  readonly book: BookId;
+}
+
+/**
  * The envelope fields of `ContentEntry`, as the import fills them. Not parsed against `ContentEntry` here: kind
- * `data` is missing, and a book source has no page or AoN link until enrichment (#22); pack output validates.
+ * `data` is missing, and its source is an `UnlocatedBookSource`.
  */
 export interface ImportedEnvelope {
   readonly id: ContentId;
@@ -48,7 +58,7 @@ export interface ImportedEnvelope {
   readonly level?: ContentLevel;
   readonly rarity: Rarity;
   readonly traits: readonly Trait[];
-  readonly sources: readonly SourceRef[];
+  readonly sources: readonly UnlocatedBookSource[];
   readonly description: RichText;
   readonly rules: readonly RuleElement[];
   readonly externalIds: FoundryExternalIds;
@@ -67,13 +77,13 @@ export interface UnknownTrait {
 
 /** Why a selected document yields no entry. */
 export const EnvelopeFailureReason = {
-  /** Its Foundry slug is not a Pioneer slug (an accented letter, say). */
+  /** Its slug, diacritics folded, is still not a Pioneer slug (a symbol Foundry keeps, say). */
   InvalidSlug: 'invalid-slug',
   InvalidName: 'invalid-name',
   /** `system.level.value` is outside a content entry's levels. */
   InvalidLevel: 'invalid-level',
   InvalidRarity: 'invalid-rarity',
-  /** An earlier document (by archive path) has the same slug, so both would get the same id. */
+  /** An earlier document of the same type has the same slug, so both would get the same id. */
   DuplicateSlug: 'duplicate-slug',
 } as const;
 export type EnvelopeFailureReason = ValueOf<typeof EnvelopeFailureReason>;
@@ -82,6 +92,8 @@ export interface EnvelopeFailure {
   readonly pack: FoundryPack;
   readonly path: string;
   readonly reason: EnvelopeFailureReason;
+  /** The document, kept so a backlog can carry it. */
+  readonly document: FoundryDocument;
   /** The value the reason is about. */
   readonly detail: string;
 }
@@ -143,8 +155,7 @@ function failed(value: unknown): value is Failed {
   return typeof value === 'object' && value !== null && 'reason' in value;
 }
 
-function slugOf(document: FoundryDocument): Slug | Failed {
-  const text = foundrySlug(document);
+function slugOf(text: string): Slug | Failed {
   const slug = Slug.safeParse(text);
   return slug.success ? slug.data : { reason: EnvelopeFailureReason.InvalidSlug, detail: text };
 }
@@ -174,8 +185,8 @@ interface Identity {
   readonly name: ContentText;
 }
 
-function identityOf(document: FoundryDocument): Identity | Failed {
-  const slug = slugOf(document);
+function identityOf(document: FoundryDocument, slugText: string): Identity | Failed {
+  const slug = slugOf(slugText);
   const name = nameOf(document);
   if (failed(slug)) {
     return slug;
@@ -184,8 +195,8 @@ function identityOf(document: FoundryDocument): Identity | Failed {
 }
 
 /** The envelope's single-valued fields, or the first that fails. */
-function scalars(document: FoundryDocument): Scalars | Failed {
-  const identity = identityOf(document);
+function scalars(document: FoundryDocument, slugText: string): Scalars | Failed {
+  const identity = identityOf(document, slugText);
   const level = levelOf(document);
   const rarity = rarityOf(document);
   if (failed(identity)) {
@@ -197,11 +208,15 @@ function scalars(document: FoundryDocument): Scalars | Failed {
   return failed(rarity) ? rarity : { ...identity, rarity, ...(level === undefined ? {} : { level }) };
 }
 
-function translate(
-  { pack: foundryPack, document, book }: SelectedEntry,
-  context: EnvelopeContext,
-): Translated | Failed {
-  const fields = scalars(document);
+/** A selected document and the slug `entrySlugs` gave it. */
+interface Slugged {
+  readonly source: SelectedEntry;
+  readonly slug: string;
+}
+
+function translate({ source, slug }: Slugged, context: EnvelopeContext): Translated | Failed {
+  const { pack: foundryPack, document, book } = source;
+  const fields = scalars(document, slug);
   if (failed(fields)) {
     return fields;
   }
@@ -229,28 +244,33 @@ interface Done extends Translated {
   readonly source: SelectedEntry;
 }
 
-/** `source` translated, or why not; claims its slug in `taken`. */
-function outcome(source: SelectedEntry, context: EnvelopeContext, taken: Set<Slug>): Done | EnvelopeFailure {
-  const { pack, path } = source;
-  const result = translate(source, context);
+/** The document translated, or why not, with the document kept for the backlog; claims its slug in `taken`. */
+function outcome(slugged: Slugged, context: EnvelopeContext, taken: Set<Slug>): Done | EnvelopeFailure {
+  const { source } = slugged;
+  const { pack, path, document } = source;
+  const result = translate(slugged, context);
   if (failed(result)) {
-    return { pack, path, ...result };
+    return { pack, path, document, ...result };
   }
   const { slug } = result.envelope;
   if (taken.has(slug)) {
-    return { pack, path, reason: EnvelopeFailureReason.DuplicateSlug, detail: slug };
+    return { pack, path, document, reason: EnvelopeFailureReason.DuplicateSlug, detail: slug };
   }
   taken.add(slug);
   return { source, ...result };
 }
 
 /**
- * Each selected document's envelope, in selection order, with what could not be translated. A document whose slug
- * an earlier one already took fails, since ids are UUIDv5 of `<pack>/<slug>` and must stay unique.
+ * Each selected document's envelope, in selection order, with what could not be translated. Slugs come from
+ * `entrySlugs`; a document whose slug is still taken (two of one type) fails, since ids are UUIDv5 of
+ * `<pack>/<slug>` and must stay unique.
  */
 export function translateEnvelopes(selected: readonly SelectedEntry[], context: EnvelopeContext): EnvelopeTranslation {
+  const slugs = entrySlugs(selected);
   const taken = new Set<Slug>();
-  const outcomes = selected.map((source) => outcome(source, context, taken));
+  const outcomes = selected.map((source) =>
+    outcome({ source, slug: slugs.get(source) ?? asciiSlug(source.document) }, context, taken),
+  );
   const done = outcomes.filter((each): each is Done => !failed(each));
   return {
     entries: done.map(({ source, envelope }) => ({ source, envelope })),

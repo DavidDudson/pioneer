@@ -30,3 +30,13 @@ export function slugify(text: string): string {
 export function foundrySlug(document: FoundryDocument): string {
   return document.system.slug ?? slugify(document.name);
 }
+
+const MARKS = /\p{Mark}/gu;
+
+/**
+ * A document's Foundry slug with diacritics folded (`déjà-vu` to `deja-vu`), since Pioneer slugs are ASCII. The one
+ * place an imported slug departs from Foundry's; `externalIds.foundry` keeps the link to the document.
+ */
+export function asciiSlug(document: FoundryDocument): string {
+  return foundrySlug(document).normalize('NFKD').replace(MARKS, '');
+}

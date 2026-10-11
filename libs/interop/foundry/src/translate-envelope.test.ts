@@ -74,14 +74,18 @@ describe('translateEnvelopes: address', () => {
     );
   });
 
-  test('fails a slug that is not a Pioneer slug', () => {
-    const { entries, failures } = translateOne({}, 'Élan');
-
-    expect(entries).toEqual([]);
-    expect(failures).toMatchObject([{ reason: EnvelopeFailureReason.InvalidSlug, detail: 'élan' }]);
+  test('folds diacritics into an ASCII slug', () => {
+    expect(envelopeOf({}, 'Déjà Vu')?.slug).toBe(Slug.parse('deja-vu'));
   });
 
-  test('fails the later of two documents with one slug, keeping the first', () => {
+  test('fails a slug that is not a Pioneer slug even folded', () => {
+    const { entries, failures } = translateOne({}, 'Ωmega');
+
+    expect(entries).toEqual([]);
+    expect(failures).toMatchObject([{ reason: EnvelopeFailureReason.InvalidSlug, detail: 'ωmega' }]);
+  });
+
+  test('fails the later of two documents of one type with one slug, keeping the document', () => {
     const { entries, failures } = translateEnvelopes(
       [selected({}, 'Shield', 'first'), selected({}, 'Shield', 'second')],
       context,
@@ -89,7 +93,37 @@ describe('translateEnvelopes: address', () => {
 
     expect(entries.map(({ source }) => source.path)).toEqual(['packs/pf2e/feats/first.json']);
     expect(failures).toMatchObject([
-      { path: 'packs/pf2e/feats/second.json', reason: EnvelopeFailureReason.DuplicateSlug, detail: 'shield' },
+      {
+        path: 'packs/pf2e/feats/second.json',
+        document: { _id: 'second' },
+        reason: EnvelopeFailureReason.DuplicateSlug,
+        detail: 'shield',
+      },
+    ]);
+  });
+});
+
+function ofType(name: string, type: FoundryItemType, directory: string): SelectedEntry {
+  const document = FoundryDocument.parse({ _id: `${directory}Id`, name, type, system: { publication: remaster } });
+  return {
+    pack: { name: `${directory}-srd`, directory },
+    path: `packs/pf2e/${directory}/fly.json`,
+    document,
+    type,
+    book: playerCore,
+  };
+}
+
+describe('translateEnvelopes: shared slugs across types', () => {
+  test('the type first in precedence keeps the slug, the other gets its type as a suffix, in any order', () => {
+    const spell = ofType('Fly', FoundryItemType.Spell, 'spells');
+    const action = ofType('Fly', FoundryItemType.Action, 'actions');
+    const { entries, failures } = translateEnvelopes([spell, action], context);
+
+    expect(failures).toEqual([]);
+    expect(entries.map(({ source, envelope }) => `${source.type} ${envelope.slug}`)).toEqual([
+      'spell fly-spell',
+      'action fly',
     ]);
   });
 });
