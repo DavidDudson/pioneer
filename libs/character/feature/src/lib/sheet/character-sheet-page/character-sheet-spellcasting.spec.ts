@@ -15,7 +15,11 @@ function textOf(element: Element): string {
 
 /** The entry headings' texts: tradition, preparation and where each came from, leaving the statistics out. */
 function headings(root: HTMLElement): string[] {
-  return [...section(root).querySelectorAll('pio-spellcasting fr-text, pio-spellcasting fr-badge')]
+  return [
+    ...section(root).querySelectorAll(
+      'pio-spellcasting fr-heading, pio-spellcasting fr-text, pio-spellcasting fr-badge',
+    ),
+  ]
     .filter((part) => part.closest('pio-statistics') === null)
     .map((part) => textOf(part));
 }

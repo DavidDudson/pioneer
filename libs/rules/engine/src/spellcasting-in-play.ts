@@ -30,5 +30,11 @@ export function spellcastingInPlay({ rules, facts }: ModifierInputs): readonly S
       entries.set(slug, { slug, tradition, attribute, preparation, origin });
     }
   }
-  return [...entries.values()].toSorted((left, right) => left.slug.localeCompare(right.slug));
+  // Code-unit order, so the result never depends on the host's locale.
+  return [...entries.values()].toSorted((left, right) => {
+    if (left.slug === right.slug) {
+      return 0;
+    }
+    return left.slug < right.slug ? -1 : 1;
+  });
 }

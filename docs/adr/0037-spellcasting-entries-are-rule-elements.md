@@ -46,5 +46,5 @@ Alternatives:
   in its pack (ADR-0031).
 - Innate entries use the same element with `preparation: innate`; Player Core's innate ancestry feats are not filled
   in yet.
-- The Foundry export (roadmap) has to turn each entry into a spellcasting entry item, as Foundry has no element to
-  carry it.
+- This narrows ADR-0008: `SpellcastingEntry` has no Foundry counterpart, so the Foundry export (roadmap) turns each
+  entry into a spellcasting entry item rather than a rule element.

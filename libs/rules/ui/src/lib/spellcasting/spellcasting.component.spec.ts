@@ -29,7 +29,7 @@ function hostOf(fixture: ComponentFixture<SpellcastingView>): HTMLElement {
 function headings(host: HTMLElement): string[][] {
   const entries = [...host.querySelectorAll('fr-list-item')].filter((item) => item.closest('pio-statistics') === null);
   return entries.map((item) =>
-    [...item.querySelectorAll('fr-text, fr-badge')]
+    [...item.querySelectorAll('fr-heading, fr-text, fr-badge')]
       .filter((part) => part.closest('pio-statistics') === null)
       .map((part) => textOf(part)),
   );

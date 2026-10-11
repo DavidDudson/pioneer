@@ -8,7 +8,7 @@
           <fr-stack gap="2xs">
             <fr-stack gap="none">
               <fr-stack direction="horizontal" gap="xs" align="center" wrap>
-                <fr-text weight="semibold">{{ traditions[entry.tradition] | transloco }}</fr-text>
+                <fr-heading [level]="3">{{ traditions[entry.tradition] | transloco }}</fr-heading>
                 <fr-badge>{{ preparations[entry.preparation] | transloco }}</fr-badge>
               </fr-stack>
               <fr-text variant="caption" tone="subtle">{{
@@ -25,7 +25,9 @@
   <fr-list gap="sm">
     @for (row of loadingRows; track row) {
       <fr-list-item>
-        <fr-stack gap="2xs"><fr-skeleton width="sm" /><fr-skeleton width="md" /><fr-skeleton width="md" /></fr-stack>
+        <fr-stack gap="2xs"
+          ><fr-skeleton width="sm" /><fr-skeleton width="md" /><fr-skeleton width="md" /><fr-skeleton width="md"
+        /></fr-stack>
       </fr-list-item>
     }
   </fr-list>

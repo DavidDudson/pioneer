@@ -15,7 +15,7 @@ const SLUGS = ['bard', 'cleric', 'witch', 'wizard'] as const;
 const TRADITIONS = ['arcane', 'divine', 'occult', 'primal'] as const;
 const RANKS = ['trained', 'expert', 'master', 'legendary'] as const;
 const ELEMENTS_MAX = 12;
-/** Holds for a 1st-level character; fails for one below 5th. */
+/** Holds from 5th level, so fails for the 1st-level character these properties use. */
 const AT_FIFTH = [{ gte: ['self:level', 5] }];
 const facts = new PredicateFacts([RollOption.parse('self:level:1')], CORE_NAMESPACES);
 

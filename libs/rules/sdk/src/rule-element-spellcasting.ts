@@ -15,7 +15,7 @@ export const SpellPreparation = {
   Innate: 'innate',
 } as const;
 export type SpellPreparation = ValueOf<typeof SpellPreparation>;
-export const SpellPreparationSchema = z.enum(SpellPreparation);
+const SpellPreparationSchema = z.enum(SpellPreparation);
 
 /** An entry's slug, short enough that its `spell-attack:<slug>` and `spell-dc:<slug>` stay selectors. */
 const EntrySourceSlug = RuleSlug.refine(

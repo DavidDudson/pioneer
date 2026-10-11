@@ -26,7 +26,7 @@ export {
 export { statisticContent, variantRulesInPlay } from './statistic-content';
 export { EngineMessage } from './messages';
 export { type ModifierInputs, RuleId, ruleIdOf, RuleInPlay } from './rule-in-play';
-export { ranksInPlay, spellcastingSelector } from './ranks-in-play';
+export { ranksInPlay } from './ranks-in-play';
 export { type SpellcastingInPlay, spellcastingInPlay } from './spellcasting-in-play';
 export { type StatisticFailure, type StatisticResult, type StatisticValue } from './statistic-result';
 export { type ClassInputs, type StatisticInputs, StatisticInputsJson } from './statistic-inputs';

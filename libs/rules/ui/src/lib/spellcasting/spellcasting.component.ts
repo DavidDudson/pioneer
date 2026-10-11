@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { Badge, EmptyState, List, ListItem, Skeleton, Stack, Text } from '@pioneer/frontier';
+import { Badge, EmptyState, Heading, List, ListItem, Skeleton, Stack, Text } from '@pioneer/frontier';
 import type { ContentId } from '@pioneer/rules/sdk';
 
 import { NO_ORIGIN_NAMES } from '../origin-chain/origin-names';
@@ -26,7 +26,7 @@ const LOADING_ROWS = 2;
  */
 @Component({
   selector: 'pio-spellcasting',
-  imports: [Badge, EmptyState, List, ListItem, Skeleton, Stack, StatisticsView, Text, TranslocoPipe],
+  imports: [Badge, EmptyState, Heading, List, ListItem, Skeleton, Stack, StatisticsView, Text, TranslocoPipe],
   templateUrl: './spellcasting.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
