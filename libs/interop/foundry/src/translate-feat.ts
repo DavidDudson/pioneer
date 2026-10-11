@@ -11,11 +11,12 @@ import {
 import type { ContentId, RichText } from '@pioneer/rules/sdk';
 import * as z from 'zod';
 
-import { issuePath, KindDataGapReason, report } from './kind-data-gaps';
+import { addRule, isSet, issuePath, KindDataGapReason, report } from './kind-data-gaps';
 import type { KindInput } from './kind-data-gaps';
 import { setFields, systemOf } from './kind-fields';
 import { ACTION_FIELDS, actionData } from './translate-action';
 import type { ArchetypeLink } from './translate-archetype';
+import { senseElement } from './translate-senses';
 import { spellcastingRules } from './translate-spellcasting';
 
 /**
@@ -30,6 +31,7 @@ export const FEAT_FIELDS: ReadonlySet<string> = new Set([
   'maxTakable',
   'onlyLevel1',
   'prerequisites',
+  'subfeatures',
 ]);
 
 const FIELD_MAX = 64;
@@ -50,8 +52,52 @@ const FoundryFeatSystem = z.looseObject({
   onlyLevel1: z.boolean().optional(),
   maxTakable: z.number().int().positive().nullish(),
   traits: z.looseObject({ otherTags: FoundryTags.optional() }).optional(),
+  subfeatures: z.looseObject({}).optional(),
 });
 type FoundryFeatSystem = z.infer<typeof FoundryFeatSystem>;
+
+const SENSES_MAX = 16;
+
+/** A feat's `subfeatures.senses`: each sense it gives by Foundry's slug, with an acuity and range. */
+const FoundrySubfeatureSenses = z.record(
+  z.string().max(FIELD_MAX),
+  z.looseObject({ acuity: z.unknown().optional(), range: z.unknown().optional() }),
+);
+
+/**
+ * The senses a feat's `subfeatures` give, as `Sense` elements; a sense outside the vocabulary is reported. Its other
+ * subfeatures (proficiencies, key attribute options, languages) are reported until stories read them.
+ */
+/** Reports each set subfeature but `senses`, by its own name. */
+function reportOtherSubfeatures(others: object, { log }: KindInput): void {
+  for (const [field, value] of Object.entries(others)) {
+    if (isSet(value)) {
+      report(log, { reason: KindDataGapReason.UnmappedField, field: `subfeatures.${field}`, raw: value });
+    }
+  }
+}
+
+function subfeatureRules(system: FoundryFeatSystem, input: KindInput): void {
+  const { senses, ...others } = system.subfeatures ?? {};
+  reportOtherSubfeatures(others, input);
+  const parsed = FoundrySubfeatureSenses.safeParse(senses ?? {});
+  if (!parsed.success || Object.keys(parsed.data).length > SENSES_MAX) {
+    report(input.log, { reason: KindDataGapReason.InvalidData, field: 'subfeatures.senses', raw: senses });
+    return;
+  }
+  for (const [slug, fields] of Object.entries(parsed.data)) {
+    const element = senseElement(slug, fields, input);
+    if (element === undefined) {
+      report(input.log, {
+        reason: KindDataGapReason.UnresolvedReference,
+        field: `subfeatures.senses.${slug}`,
+        raw: fields,
+      });
+    } else {
+      addRule(input, `subfeatures.senses.${slug}`, element);
+    }
+  }
+}
 
 /** A class feature's `otherTags` as tags (`cleric-doctrine`); a tag that is no slug is reported and left off. */
 function tagsOf(system: FoundryFeatSystem, { log }: KindInput): object {
@@ -146,6 +192,7 @@ export function featData(input: KindInput): object | undefined {
     return undefined;
   }
   spellcastingRules(input);
+  subfeatureRules(system, input);
   return {
     category: category.data,
     ...setFields({
@@ -165,5 +212,6 @@ export function classFeatureData(input: KindInput): object | undefined {
     return undefined;
   }
   spellcastingRules(input);
+  subfeatureRules(system, input);
   return { ...actionOf(system, input), ...tagsOf(system, input) };
 }

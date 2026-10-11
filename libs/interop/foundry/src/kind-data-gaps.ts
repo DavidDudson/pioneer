@@ -8,6 +8,7 @@ import type { FoundryDocument } from './foundry-document';
 import type { FoundryPack } from './foundry-release';
 import type { ImportedEnvelope } from './imported-envelope';
 import type { ArchetypeLink } from './translate-archetype';
+import type { FoundrySenses } from './translate-senses';
 
 /** What a kind translator could not carry over from a document, reported against its entry. */
 
@@ -56,6 +57,8 @@ export interface KindInput {
   readonly rules: RuleElement[];
   /** The archetypes whose journal pages link each feat (`importArchetypes`). */
   readonly archetypes: ReadonlyMap<ContentId, readonly ArchetypeLink[]>;
+  /** What each Foundry sense fixes; without it a feat's senses keep the acuity and range they give. */
+  readonly senses?: FoundrySenses;
 }
 
 export function report(log: GapLog, gap: GapFields): void {
@@ -77,7 +80,7 @@ export const ENVELOPE_FIELDS: readonly string[] = [
 ];
 
 /** A value Foundry leaves at its default says nothing, so only set fields are reported as unmapped. */
-function isSet(value: unknown): boolean {
+export function isSet(value: unknown): boolean {
   if (Array.isArray(value)) {
     return value.length > 0;
   }

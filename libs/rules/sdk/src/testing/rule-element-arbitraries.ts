@@ -23,6 +23,7 @@ import { NumericAlterationMode, NumericItemProperty, TraitAlterationMode } from 
 import { AdjustMode, ChangeMode } from '../rule-element-numbers';
 import { ArmorCategory, MartialKind, WeaponCategory } from '../rule-element-proficiency';
 import { SpellPreparation } from '../rule-element-spellcasting';
+import { SenseAcuity } from '../sense';
 import { MagicTradition } from '../spellcasting-tradition';
 import { keyPathText, predicateJson, rollOptionText, validFormulaText } from './arbitraries';
 
@@ -190,6 +191,12 @@ const spellcastingEntry = element('SpellcastingEntry', {
   preparation: anyOf(SpellPreparation),
 });
 
+const sense = element(
+  'Sense',
+  { sense: uuid() },
+  { acuity: anyOf(SenseAcuity), range: integer({ min: 1, max: SMALLINT_MAX }) },
+);
+
 /**
  * Valid rule elements of every `key` the SDK knows, as plain JSON (unparsed). Use with
  * `RuleElement.parse` to get the typed value.
@@ -216,4 +223,5 @@ export const ruleElementJson: Arbitrary<object> = oneof(
   weakness,
   resistance,
   spellcastingEntry,
+  sense,
 );

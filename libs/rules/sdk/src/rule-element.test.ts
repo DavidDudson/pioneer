@@ -102,6 +102,14 @@ const examples: object[] = [
     predicate: ['class:witch'],
   },
   { key: 'SpellcastingEntry', slug: 'first-world-magic', tradition: 'primal', attribute: 'cha', preparation: 'innate' },
+  { key: 'Sense', sense: '67979b6a-4b24-5be5-b7ea-94783c497bcb' },
+  {
+    key: 'Sense',
+    sense: '279973df-e7b9-5fa1-9bb6-1cfdc54b82b6',
+    acuity: 'imprecise',
+    range: 30,
+    predicate: ['familiar-of-keen-senses:scent'],
+  },
 ];
 
 describe('RuleElement', () => {
@@ -260,5 +268,12 @@ describe('RuleElement', () => {
     expect(issues({ ...entry, tradition: 'elemental' })).toStrictEqual([
       { path: ['tradition'], message: message(ValidationMessage.InvalidValue) },
     ]);
+  });
+
+  test('a sense names a sense entry by id, with a known acuity and a range above 0', () => {
+    const sense = { key: 'Sense', sense: '279973df-e7b9-5fa1-9bb6-1cfdc54b82b6' };
+    expect(issues({ ...sense, sense: 'scent' })).toMatchObject([{ path: ['sense'] }]);
+    expect(issues({ ...sense, acuity: 'keen' })).toMatchObject([{ path: ['acuity'] }]);
+    expect(issues({ ...sense, range: 0 })).toMatchObject([{ path: ['range'] }]);
   });
 });

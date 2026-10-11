@@ -80,6 +80,24 @@
     }
   },
   {
+    "id": "12f27f53-38a4-5437-979d-048af3cd2dfb",
+    "pack": "core-rules",
+    "kind": "sense",
+    "slug": "sense:spiritsense",
+    "name": "Spiritsense",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
     "id": "367b9fa7-8944-5208-9949-9457984b7c59",
     "pack": "core-rules",
     "kind": "sense",

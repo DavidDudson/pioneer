@@ -25,6 +25,7 @@ import type { ImportedEnvelope } from './imported-envelope';
 import type { SelectedEntry } from './select-entries';
 import { translateRules } from './translate-rules';
 import type { UntranslatedRule } from './translate-rules';
+import type { FoundrySenses } from './translate-senses';
 
 /**
  * The entry envelope of each selected Foundry document (content-model.md, "Foundry import"): address, names,
@@ -44,6 +45,8 @@ export interface EnvelopeContext {
   /** The release's item documents, naming link targets outside the import; without them such links read as labels. */
   readonly documents?: readonly PackDocument[];
   readonly references?: EntryReferences;
+  /** What each Foundry sense fixes, for the `Sense` elements (`RuleContext`). */
+  readonly senses?: FoundrySenses;
 }
 
 export interface TranslatedEntry {
@@ -212,11 +215,12 @@ function translate({ source, slug }: Slugged, context: EnvelopeContext): Transla
   const { _id: documentId, system } = document;
   const id = ContentId.parse(contentId(context.pack, fields.slug));
   const traits = translateTraits(id, system.traits?.value ?? [], context.traits);
-  const { references, lang } = context;
+  const { references, lang, senses } = context;
   const rules = translateRules(id, system.rules, {
     lang,
     values: { item: document.name },
     ...(references === undefined ? {} : { references }),
+    ...(senses === undefined ? {} : { senses }),
   });
   return {
     envelope: {

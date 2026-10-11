@@ -417,9 +417,10 @@ selector, weapon and armour categories included (`attack:martial`), standing in 
 `ActiveEffectLike` upgrades. `ProficiencyBonus` is Pioneer's own: it replaces the proficiency bonus table,
 as a variant rule does (ADR-0026). `MartialProficiency` keeps Foundry's schema and defaults: a new proficiency for the
 weapons or armour a predicate defines, whose rank can follow a category's (`sameAs`) up to `maxRank`. From the
-Defences group, `Immunity`, `Weakness` and `Resistance` are in the SDK too (see "Defences" below). The Checks,
-Strikes, Creature and Actions groups, and the rest of Defences, land with their Epic 2.6 translator stories, so each
-schema arrives with the Foundry content that exercises it.
+Defences group, `Immunity`, `Weakness` and `Resistance` are in the SDK too (see "Defences" below), and from the
+Creature group `Sense` (see "Senses" below). The Checks, Strikes and Actions groups, and the rest of Defences and
+Creature, land with their Epic 2.6 translator stories, so each schema arrives with the Foundry content that exercises
+it.
 
 `SpellcastingEntry` is Pioneer's own too ([ADR-0040](../adr/0040-spellcasting-entries-are-rule-elements.md)): Foundry
 has no element for an entry, which its player adds by hand. While its predicate holds it gives the character an entry
@@ -616,6 +617,22 @@ Not read yet, so the schemas reject them rather than apply a defence wrongly:
 - `exceptions` on `Immunity`: `DamageTarget`'s immunities are bare slugs with no room for them.
 - Foundry's `mode` on `Immunity` (removing one), `doubleVs` on `Resistance`, and `override` on weaknesses and
   resistances. The Epic 2.6 translator reports content that uses them as untranslated.
+
+### Senses
+
+A `Sense` element names a `sense` entry of the `core-rules` vocabulary (darkvision, scent, tremorsense) by id, with
+Foundry's optional `acuity` and `range` in feet. `sensesInPlay` in `libs/rules/engine` collects the character's senses
+from the ancestry's `vision` (precise, unlimited) and the `Sense` elements whose predicate holds; one that depends on
+the situation gives none on the sheet. As in Foundry, a sense with no acuity is precise and one with no range is
+unlimited. Of the grants of one sense, one that another grant beats on acuity or range, without being worse on the
+other, is dropped; grants that read alike are one sense with every origin. Where one grant is best on both, it alone
+remains. Where neither beats the other (imprecise scent 30 feet, vague scent with no range), both remain, as the rules
+read: imprecise within 30 feet, vague beyond. Foundry instead keeps whichever grant is better on either, which can
+lose the better acuity. The result is in order of sense id, then the more acute and the farther first.
+
+The engine reads an element's acuity and range as written. A sense whose definition fixes them (`SenseData`:
+darkvision is precise and unlimited) should not give them; the importer leaves them off, as Foundry ignores them.
+Foundry's `force` (a sense replacing a better one) is not read, so the importer keeps such elements in the backlog.
 
 ## Predicates and conditional modifiers
 

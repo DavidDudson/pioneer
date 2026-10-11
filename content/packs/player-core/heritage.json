@@ -24,7 +24,12 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "16b42c38-9373-58ec-a7ac-2221bb17a71c"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.heritages.Item.N36ZR4lh9eCazDaN"
     },
@@ -287,7 +292,12 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.heritages.Item.NfIAGatB1KIzt8G7"
     },
@@ -353,7 +363,12 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "16b42c38-9373-58ec-a7ac-2221bb17a71c"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.heritages.Item.EKY9v7SF1hVsUdbH"
     },
@@ -513,7 +528,12 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "16b42c38-9373-58ec-a7ac-2221bb17a71c"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.heritages.Item.tLd8Qg82AwEbbmgX"
     },
@@ -657,7 +677,12 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.heritages.Item.87h0jepQuzIbN7jN"
     },
@@ -1071,7 +1096,12 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "16b42c38-9373-58ec-a7ac-2221bb17a71c"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.heritages.Item.1oLMOmLpurfWTTff"
     },
@@ -1472,7 +1502,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "279973df-e7b9-5fa1-9bb6-1cfdc54b82b6",
+        "acuity": "imprecise",
+        "range": 30
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.heritages.Item.tXC5Gwn9D5x0ouJh"
     },
@@ -1604,7 +1641,12 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "16b42c38-9373-58ec-a7ac-2221bb17a71c"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.heritages.Item.cCy8vsZENlwiAyZ6"
     },
@@ -1637,7 +1679,12 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.heritages.Item.d0bNxgGqvaCkFlhN"
     },

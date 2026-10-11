@@ -14,6 +14,7 @@ import {
   MultipleAttackPenaltyElement,
 } from './rule-element-numbers';
 import { MartialProficiencyElement, ProficiencyBonusElement, ProficiencyElement } from './rule-element-proficiency';
+import { SenseElement } from './rule-element-sense';
 import { SpellcastingEntryElement } from './rule-element-spellcasting';
 import { ChoiceSetElement, GrantItemElement, RollOptionElement } from './rule-element-structure';
 
@@ -37,6 +38,7 @@ const Element = z.discriminatedUnion('key', [
   WeaknessElement,
   ResistanceElement,
   SpellcastingEntryElement,
+  SenseElement,
 ]);
 
 /** Names the `key` when the value is an object whose `key` is a string Pioneer does not know. */
