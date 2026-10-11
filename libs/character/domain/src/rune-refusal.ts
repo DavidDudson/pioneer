@@ -1,8 +1,9 @@
-import { ContentKind, EtchingRestriction, FUNDAMENTAL_RUNE_ITEMS, RuneType } from '@pioneer/rules/sdk';
+import { FUNDAMENTAL_RUNE_ITEMS, RuneType } from '@pioneer/rules/sdk';
 import type { ContentId, RunedItem } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
+import { meetsRestriction } from './etching-restriction';
 import { InventoryRefusalField } from './inventory';
 import type { Inventory, InventoryItem, InventoryItemId, InventoryRefusal } from './inventory';
 import type { ItemEntry } from './inventory-content';
@@ -51,19 +52,6 @@ function fundamentalRefusal(
   return printed !== undefined && grade <= printed
     ? runeRefused(message('character.validation.runeNotHigher', { grade: printed }))
     : undefined;
-}
-
-/** The etching restrictions a weapon's content answers; any other isn't checked. */
-const MELEE = EtchingRestriction.parse('melee');
-const RANGED = EtchingRestriction.parse('ranged');
-
-/** Whether an item meets a property rune's restriction: only a weapon's melee or ranged is known. */
-function meetsRestriction(entry: ItemEntry | undefined, restriction: EtchingRestriction | undefined): boolean {
-  if (entry?.kind !== ContentKind.Weapon) {
-    return true;
-  }
-  const ranged = entry.data.range !== undefined && !entry.traits.some((trait) => trait.startsWith('thrown'));
-  return (restriction !== MELEE || !ranged) && (restriction !== RANGED || ranged);
 }
 
 /** Refuses a property rune no loaded pack has, and one for another kind of item or whose restriction it doesn't meet. */
@@ -142,6 +130,10 @@ function transferRefusal(runes: RuneContent, { from, to }: TransferLines, rune: 
   const moving = etchingOf(from.item.runes ?? NO_RUNES, rune);
   if (moving === undefined) {
     return etchedRefusal(from, rune);
+  }
+  // Weapon and armour potency are separate runes: a rune moves only onto the kind of item it was etched for.
+  if (from.runed !== to.runed) {
+    return runeRefused(message('character.validation.runeNotForItem'));
   }
   if (moving.type === RuneType.Fundamental && to.item.runes?.[moving.rune] !== undefined) {
     return runeRefused(message('character.validation.runeEtched'));

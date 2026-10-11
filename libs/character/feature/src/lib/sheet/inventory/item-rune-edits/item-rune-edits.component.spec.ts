@@ -124,7 +124,7 @@ describe('InventorySection runes', () => {
     });
   });
 
-  it('moves a rune onto another item of the same kind', async () => {
+  it('moves a rune onto another item of the same kind, and shows a refusal in the form', async () => {
     const section = await openInventory();
     await etchedAs(section, RUNED_PAIR);
     const move = await vi.waitFor(async () => {
@@ -144,6 +144,20 @@ describe('InventorySection runes', () => {
         to: SPARE,
         rune: { type: 'property', rune: runeFixtureId(RuneFixture.Flaming) },
       },
+    });
+    sent.flush(
+      {
+        type: 'validation',
+        title: 'Validation failed',
+        status: 422,
+        message: { key: 'problem.validation' },
+        issues: [{ path: ['patch', 'rune'], message: { key: 'character.validation.runeEtched' } }],
+      },
+      { status: 422, statusText: 'Unprocessable Content' },
+    );
+    await vi.waitFor(async () => {
+      await settle();
+      expect(move.textContent).toContain('This item already has that rune.');
     });
   });
 });

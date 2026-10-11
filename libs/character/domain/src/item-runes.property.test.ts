@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 
 import { FundamentalRune, RuneGrade, RuneType } from '@pioneer/rules/sdk';
-import { assert, constantFrom, integer, oneof, property, record, subarray } from 'fast-check';
+import { assert, constantFrom, integer, oneof, property, record, subarray, tuple } from 'fast-check';
 import type { Arbitrary } from 'fast-check';
 
 import { InventoryItemId, InventorySchema } from './inventory';
@@ -61,6 +61,15 @@ const anyRune: Arbitrary<RuneRef> = oneof(
   constantFrom(...WEAPON_RUNES).map((rune): RuneRef => ({ type: RuneType.Property, rune })),
 );
 
+/**
+ * Two swords and a rune the rules let move from the first onto the second. Most random pairs are refused (the rune
+ * isn't etched, or the second sword has it or has no room), so only the allowed ones are kept.
+ */
+const allowed = tuple(armoury, anyRune).filter(
+  ([inventory, rune]) =>
+    runeRefusal(runed, inventory, { action: RuneAction.Transfer, id: FROM, rune, to: TO }) === undefined,
+);
+
 /** Every rune on the two swords, as `kind:grade` or the property rune's id, sorted. */
 function allRunes(inventory: Inventory): readonly string[] {
   return inventory.items
@@ -80,11 +89,7 @@ function allRunes(inventory: Inventory): readonly string[] {
 describe('transferRune (properties)', () => {
   test('an allowed transfer moves the rune: the two items hold the same runes between them', () => {
     assert(
-      property(armoury, anyRune, (inventory, rune) => {
-        const refused = runeRefusal(runed, inventory, { action: RuneAction.Transfer, id: FROM, rune, to: TO });
-        if (refused !== undefined) {
-          return;
-        }
+      property(allowed, ([inventory, rune]) => {
         const moved = transferRune(inventory, { from: FROM, to: TO, rune });
         expect(allRunes(moved)).toStrictEqual(allRunes(inventory));
         expect(InventorySchema.safeParse(moved).success).toBe(true);
@@ -94,11 +99,7 @@ describe('transferRune (properties)', () => {
 
   test('an allowed transfer takes the rune off one item and puts it on the other', () => {
     assert(
-      property(armoury, anyRune, (inventory, rune) => {
-        const refused = runeRefusal(runed, inventory, { action: RuneAction.Transfer, id: FROM, rune, to: TO });
-        if (refused !== undefined) {
-          return;
-        }
+      property(allowed, ([inventory, rune]) => {
         const moved = transferRune(inventory, { from: FROM, to: TO, rune });
         const [from, to] = moved.items;
         const on = (etched: InventoryItem | undefined): boolean =>
@@ -113,11 +114,7 @@ describe('transferRune (properties)', () => {
 
   test('moving a rune back undoes the transfer', () => {
     assert(
-      property(armoury, anyRune, (inventory, rune) => {
-        const refused = runeRefusal(runed, inventory, { action: RuneAction.Transfer, id: FROM, rune, to: TO });
-        if (refused !== undefined) {
-          return;
-        }
+      property(allowed, ([inventory, rune]) => {
         const back = transferRune(transferRune(inventory, { from: FROM, to: TO, rune }), { from: TO, to: FROM, rune });
         expect(allRunes(back)).toStrictEqual(allRunes(inventory));
         const grade = (each: Inventory): RuneGrade | undefined =>

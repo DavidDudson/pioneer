@@ -101,10 +101,7 @@ describe(etchedRunes, () => {
 
 describe(transferTargets, () => {
   it('offers the other items of the same kind, not specific ones', () => {
-    expect(transferTargets(armoury(), content, Armoury.Sword).map(({ value }) => value)).toStrictEqual([
-      Armoury.Bow,
-      Armoury.Axe,
-    ]);
+    expect(transferTargets(armoury(), content, Armoury.Sword)).toStrictEqual([Armoury.Bow, Armoury.SpareSword]);
     expect(transferTargets(armoury(), content, Armoury.Rope)).toStrictEqual([]);
   });
 });

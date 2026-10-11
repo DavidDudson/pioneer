@@ -18,7 +18,7 @@ export const Armoury = {
   Tongue: InventoryItemId.parse('55555555-5555-4555-8555-555555555555'),
   Rope: InventoryItemId.parse('66666666-6666-4666-8666-666666666666'),
   /** A second longsword, to move runes onto. */
-  Axe: InventoryItemId.parse('77777777-7777-4777-8777-777777777777'),
+  SpareSword: InventoryItemId.parse('77777777-7777-4777-8777-777777777777'),
 } as const;
 
 const STOCK: readonly (readonly [InventoryItemId, ItemFixture])[] = [
@@ -28,7 +28,7 @@ const STOCK: readonly (readonly [InventoryItemId, ItemFixture])[] = [
   [Armoury.Bow, ItemFixture.Shortbow],
   [Armoury.Tongue, ItemFixture.FlameTongue],
   [Armoury.Rope, ItemFixture.Rope],
-  [Armoury.Axe, ItemFixture.Longsword],
+  [Armoury.SpareSword, ItemFixture.Longsword],
 ];
 
 const ONE = ItemQuantity.parse(1);

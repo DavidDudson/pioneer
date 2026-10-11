@@ -99,23 +99,20 @@ export function etchedRunes(item: InventoryItem, entry: ItemEntry | undefined): 
 
 /**
  * The items `id`'s runes can move onto: every other item of the same kind (weapon, armour or shield) that isn't a
- * specific item, by the name the player gave it or its content's.
+ * specific item.
  */
 export function transferTargets(
   inventory: Inventory,
   { items }: RunedContent,
   id: InventoryItemId,
-): readonly SelectOption<InventoryItemId>[] {
+): readonly InventoryItemId[] {
   const from = inventory.items.find((each) => each.id === id);
   const runed = from === undefined ? undefined : runedItemOf(items.get(from.item));
   if (runed === undefined) {
     return [];
   }
-  return inventory.items.flatMap((each): SelectOption<InventoryItemId>[] => {
+  return inventory.items.flatMap((each): InventoryItemId[] => {
     const entry = items.get(each.item);
-    if (each.id === id || isSpecific(entry) || runedItemOf(entry) !== runed) {
-      return [];
-    }
-    return [{ value: each.id, label: each.name ?? entry?.name ?? each.id }];
+    return each.id === id || isSpecific(entry) || runedItemOf(entry) !== runed ? [] : [each.id];
   });
 }

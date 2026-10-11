@@ -18,7 +18,7 @@ export function runeLabel(
   { rune, grade }: { readonly rune: RuneRef; readonly grade: number | undefined },
 ): string {
   if (rune.type === RuneType.Property) {
-    return runes.get(rune.rune)?.name ?? rune.rune;
+    return runes.get(rune.rune)?.name ?? i18n.translate('character.sheet.runes.unknownRune');
   }
   return grade === undefined ? rune.rune : gradeLabel(i18n, rune.rune, grade);
 }

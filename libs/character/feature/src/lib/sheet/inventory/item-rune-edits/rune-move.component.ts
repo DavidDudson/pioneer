@@ -12,6 +12,7 @@ import { filter, merge } from 'rxjs';
 import * as z from 'zod';
 
 import { CharacterStore } from '../../../data/character-store';
+import { injectItemNames } from '../item-names';
 import { etchedRunes, runeKey, runeOfKey, transferTargets } from './rune-options';
 import { describeRuneError, runeLabel } from './rune-text';
 
@@ -66,9 +67,18 @@ export class RuneMove {
     }));
   });
 
+  readonly #names = injectItemNames(this.content);
+
+  /** The items the rune can move onto, by the names their rows show, so two longswords read apart. */
   protected readonly targets: Signal<readonly SelectOption<InventoryItemId>[]> = computed(() => {
     const character = this.#store.selected();
-    return character === undefined ? [] : transferTargets(character.document.inventory, this.content(), this.id());
+    const names = this.#names();
+    return character === undefined
+      ? []
+      : transferTargets(character.document.inventory, this.content(), this.id()).map((id) => ({
+          value: id,
+          label: names.get(id) ?? id,
+        }));
   });
 
   protected readonly model = signal<MoveRuneModel>(EMPTY_MOVE);

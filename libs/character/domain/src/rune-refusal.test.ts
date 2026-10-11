@@ -54,7 +54,11 @@ function erase(id: InventoryItemId, rune: RuneRef): RuneEdit {
   return { action: RuneAction.Erase, id, rune };
 }
 
-function transfer(rune: RuneRef, to: InventoryItemId = Armoury.Axe, from: InventoryItemId = Armoury.Sword): RuneEdit {
+function transfer(
+  rune: RuneRef,
+  to: InventoryItemId = Armoury.SpareSword,
+  from: InventoryItemId = Armoury.Sword,
+): RuneEdit {
   return { action: RuneAction.Transfer, id: from, rune, to };
 }
 
@@ -164,8 +168,12 @@ describe('runeRefusal: transferring', () => {
     expect(refused(runedSword(), transfer(FLAMING))).toBe('character.validation.propertyRunesFull');
   });
 
+  test('refuses moving weapon potency onto armour: they are separate runes', () => {
+    expect(refused(runedSword(), transfer(POTENCY, Armoury.Armor))).toBe('character.validation.runeNotForItem');
+  });
+
   test('refuses moving a fundamental rune onto an item that has one', () => {
-    const both = etched(runedSword(), Armoury.Axe, POTENCY_1);
+    const both = etched(runedSword(), Armoury.SpareSword, POTENCY_1);
     expect(refused(both, transfer(POTENCY))).toBe('character.validation.runeEtched');
   });
 

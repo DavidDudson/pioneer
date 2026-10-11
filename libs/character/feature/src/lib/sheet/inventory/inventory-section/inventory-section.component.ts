@@ -15,6 +15,7 @@ import { CHARACTER_CONTENT_KINDS, injectContentRegistry } from '../../../data/co
 import { AddItem } from '../add-item/add-item.component';
 import { CoinsEdit } from '../coins-edit/coins-edit.component';
 import { ItemEdits } from '../item-edits/item-edits.component';
+import { injectItemNames } from '../item-names';
 import { ItemRuneEdits } from '../item-rune-edits/item-rune-edits.component';
 import { sheetBulk } from '../sheet-bulk';
 import { INVENTORY_CONTENT_KINDS, sheetInventory } from '../sheet-inventory';
@@ -84,6 +85,8 @@ export class InventorySection {
       ? undefined
       : sheetBulk(character.document.inventory, content, strength);
   });
+  /** Each item by the name its row shows, so every control's label names it. */
+  protected readonly names = injectItemNames(this.runed);
   protected readonly groups: Signal<readonly InventoryGroup[] | undefined> = computed(() => {
     const runed = this.runed();
     const character = this.#store.selected();

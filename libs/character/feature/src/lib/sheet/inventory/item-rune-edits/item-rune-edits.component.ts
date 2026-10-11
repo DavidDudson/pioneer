@@ -141,7 +141,7 @@ export class ItemRuneEdits {
     const item = this.#item();
     const etched = item === undefined ? [] : etchedRunes(item, this.#entry());
     return etched.flatMap((rune): PropertyRow[] =>
-      rune.type === RuneType.Property ? [{ rune, name: this.content().runes.get(rune.rune)?.name ?? rune.rune }] : [],
+      rune.type === RuneType.Property ? [{ rune, name: this.#runeName(rune.rune) }] : [],
     );
   });
 
@@ -186,6 +186,11 @@ export class ItemRuneEdits {
       this.#store.patch({ field: CharacterPatchField.EraseRune, id: this.id(), rune });
 
   protected readonly describeError = (error: unknown): string => describeRuneError(this.#i18n, error);
+
+  /** A property rune's name, or that no loaded content has it. */
+  #runeName(id: ContentId): string {
+    return this.content().runes.get(id)?.name ?? this.#i18n.translate('character.sheet.runes.unknownRune');
+  }
 
   /** A fundamental rune's select: its grade etched, or none (a specific item's: as it comes). */
   #gradeField(rune: FundamentalRune): InlineEdit<string | undefined> {

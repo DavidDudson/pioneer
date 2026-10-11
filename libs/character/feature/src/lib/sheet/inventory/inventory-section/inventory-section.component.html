@@ -9,13 +9,13 @@
             <fr-stack gap="xs">
               <pio-item-edits
                 [id]="line.id"
-                [name]="line.name ?? ('rules.inventory.unknownItem' | transloco)"
+                [name]="names().get(line.id) ?? ('rules.inventory.unknownItem' | transloco)"
                 [content]="content"
               />
               @if (runed(); as runed) {
                 <pio-item-rune-edits
                   [id]="line.id"
-                  [name]="line.name ?? ('rules.inventory.unknownItem' | transloco)"
+                  [name]="names().get(line.id) ?? ('rules.inventory.unknownItem' | transloco)"
                   [content]="runed"
                 />
               }

@@ -19,7 +19,7 @@
       }
     </fr-grid>
     @for (property of properties(); track property.name) {
-      <fr-stack direction="horizontal" gap="sm" align="center">
+      <fr-stack direction="horizontal" gap="sm" align="center" wrap>
         <fr-text>{{ property.name }}</fr-text>
         <fr-async-button
           size="sm"
@@ -36,14 +36,14 @@
     }
     @if (propertyChoices().length > 0) {
       <fr-async-form [form]="form" [action]="add" [describeError]="describeError">
-        <fr-stack direction="horizontal" gap="sm" align="end">
+        <fr-stack direction="horizontal" gap="sm" align="end" wrap>
           <fr-select-field
             [label]="'character.sheet.runes.propertyOf' | transloco: { name: name() }"
             [options]="propertyChoices()"
             [formField]="form.rune"
           />
           <fr-async-button type="submit" size="sm" [pendingLabel]="'character.sheet.runes.etching' | transloco">
-            {{ 'character.sheet.runes.etch' | transloco }}
+            {{ 'character.sheet.runes.etch' | transloco: { name: name() } }}
           </fr-async-button>
         </fr-stack>
       </fr-async-form>

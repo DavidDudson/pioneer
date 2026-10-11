@@ -24,14 +24,17 @@ was etched over the content's, or keep runes as their own inventory lines etched
   Erasing an etched rune on a specific item leaves it as it comes.
 - Edits are `etchRune`, `eraseRune` and `transferRune`, each a patch field and an audited command. The domain refuses
   what the rules don't allow with the item content and the rune content (`runeRefusal`): a rune on the wrong kind of
-  item or one whose restriction it doesn't meet (melee or ranged only), a specific item's property runes, a grade no
-  higher than a specific item comes with, a property rune past the potency grade, and moving onto an item that already
-  has that fundamental rune. The patch schema refuses a grade past 4 (6 for reinforcing).
+  item or one whose restriction it doesn't meet (melee, thrown, damage type, armour category, metal), a specific
+  item's property runes, a grade no higher than a specific item comes with, a property rune past the potency grade,
+  and moving onto another kind of item (weapon and armour potency are separate runes) or one that already has that
+  fundamental rune. The patch schema refuses a grade past 4 (6 for reinforcing).
 - Etched runes are build state, not play state: a play sync ([ADR-0022](0022-foundry-module-and-sync-model.md)) leaves
   them alone, and a build sync writes them.
 - Armour with runes needs investing for them to work, as the remaster says: it counts as investable
   (`isInvestable`), and its potency, resilient and property runes work only while it is worn and invested. Its own
   bonus to AC needs only wearing.
+- Erasing or moving armour's last rune leaves it invested, still taking a slot; the sheet keeps offering the invest
+  toggle while an item is invested, so the player frees the slot.
 
 ## Alternatives
 

@@ -85,14 +85,14 @@ describe('etching runes', () => {
 
 describe('transferring runes', () => {
   test('moves a fundamental rune at its grade, and a property rune', () => {
-    let inventory = transferRune(runedSword(), { from: Armoury.Sword, to: Armoury.Axe, rune: POTENCY });
-    inventory = transferRune(inventory, { from: Armoury.Sword, to: Armoury.Axe, rune: FLAMING });
+    let inventory = transferRune(runedSword(), { from: Armoury.Sword, to: Armoury.SpareSword, rune: POTENCY });
+    inventory = transferRune(inventory, { from: Armoury.Sword, to: Armoury.SpareSword, rune: FLAMING });
     expect(runesOf(inventory, Armoury.Sword)).toStrictEqual(runes({ striking: 1, property: [] }));
-    expect(runesOf(inventory, Armoury.Axe)).toStrictEqual(runes({ potency: 2, property: [FLAMING_ID] }));
+    expect(runesOf(inventory, Armoury.SpareSword)).toStrictEqual(runes({ potency: 2, property: [FLAMING_ID] }));
   });
 
   test('leaves the inventory as it was for a rune that is not etched', () => {
-    const moved = transferRune(armoury(), { from: Armoury.Sword, to: Armoury.Axe, rune: POTENCY });
+    const moved = transferRune(armoury(), { from: Armoury.Sword, to: Armoury.SpareSword, rune: POTENCY });
     expect(moved).toStrictEqual(armoury());
   });
 });

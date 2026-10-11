@@ -93,8 +93,14 @@ export class ItemEdits {
 
   protected readonly places = injectPlaceOptions(this.content, this.id);
   protected readonly carries = injectCarryOptions(this.#entry);
-  /** Whether the item works only invested (the invested trait, or armour with runes), so investing it is offered. */
-  protected readonly investable = computed(() => isInvestable(this.#item(), this.#entry()));
+  /**
+   * Whether investing is offered: the item works only invested (the invested trait, or armour with runes), or it is
+   * invested already, as armour stays once its last rune is erased or moved, so its slot can be freed.
+   */
+  protected readonly investable = computed(() => {
+    const item = this.#item();
+    return isInvestable(item, this.#entry()) || item?.invested === true;
+  });
   /** Whether removing loses what adding again can't restore: the player's name, or where its contents were. */
   protected readonly lossy = computed((): boolean => {
     const item = this.#item();
