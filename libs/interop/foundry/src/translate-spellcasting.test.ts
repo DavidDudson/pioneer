@@ -15,8 +15,16 @@ import {
   WIZARD_DEDICATION,
   WIZARD_SPELLCASTING,
 } from './testing/spellcasting-fixtures';
+import type { ImportTranslation } from './translate-import';
 
-const { SpellcastingEntry: Entry, Proficiency } = RuleElementKey;
+const { SpellcastingEntry: Entry, Proficiency, SpellSlots } = RuleElementKey;
+
+/** The rules an entry gains, less its spell slots (`translate-spell-slots.test.ts`). */
+function castingRules(translation: ImportTranslation, name: string): unknown[] {
+  return rulesIn(translation, name).filter(
+    (rule) => !(typeof rule === 'object' && rule !== null && 'key' in rule && rule.key === SpellSlots),
+  );
+}
 
 /** Holds for a cleric of `doctrine` from `level` on. */
 function from(doctrine: string, level: number): object {
@@ -27,7 +35,7 @@ describe('translateKindData: spellcasting entries', () => {
   test("a caster's spellcasting feature gives its entry, raised by the Spellcaster features", () => {
     const wizard = translate([WIZARD_SPELLCASTING]);
 
-    expect(rulesIn(wizard, 'wizard-spellcasting')).toEqual([
+    expect(castingRules(wizard, 'wizard-spellcasting')).toEqual([
       { key: Entry, slug: 'wizard', tradition: 'arcane', attribute: 'int', preparation: 'prepared' },
       { key: Proficiency, selector: 'spellcasting', rank: 'expert', predicate: ['feature:expert-spellcaster'] },
       { key: Proficiency, selector: 'spellcasting', rank: 'master', predicate: ['feature:master-spellcaster'] },
@@ -41,7 +49,7 @@ describe('translateKindData: spellcasting entries', () => {
   });
 
   test("a cleric's entry rises with its doctrine and level", () => {
-    const [cleric, ...raises] = rulesIn(translate([CLERIC_SPELLCASTING]), 'cleric-spellcasting');
+    const [cleric, ...raises] = castingRules(translate([CLERIC_SPELLCASTING]), 'cleric-spellcasting');
 
     expect(cleric).toEqual({
       key: Entry,
@@ -87,10 +95,10 @@ describe('translateKindData: spellcasting entries', () => {
   test("a multiclass dedication casts like its class, and the archetype's Expert Spellcasting feat raises it", () => {
     const multiclass = translate([WIZARD_DEDICATION, EXPERT_WIZARD_SPELLCASTING]);
 
-    expect(rulesIn(multiclass, 'wizard-dedication')).toEqual([
+    expect(castingRules(multiclass, 'wizard-dedication')).toEqual([
       { key: Entry, slug: 'wizard', tradition: 'arcane', attribute: 'int', preparation: 'prepared' },
     ]);
-    expect(rulesIn(multiclass, 'expert-wizard-spellcasting')).toEqual([
+    expect(castingRules(multiclass, 'expert-wizard-spellcasting')).toEqual([
       { key: Proficiency, selector: 'spellcasting', rank: 'expert' },
     ]);
   });
