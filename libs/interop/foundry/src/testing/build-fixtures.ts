@@ -97,7 +97,7 @@ const REACTIVE_STRIKE: DocumentFixture = {
   },
 };
 
-const BRAVERY: DocumentFixture = {
+export const BRAVERY: DocumentFixture = {
   id: 'cLaSsFeAtUrE0002',
   name: 'Bravery',
   type: 'feat',
@@ -207,10 +207,10 @@ export const PHARASMA: DocumentFixture = {
   },
 };
 
-const ROPE: DocumentFixture = { id: 'eQuIp00000000001', name: 'Rope', type: 'equipment' };
-const BACKPACK: DocumentFixture = { id: 'eQuIp00000000002', name: 'Backpack', type: 'backpack' };
+export const ROPE: DocumentFixture = { id: 'eQuIp00000000001', name: 'Rope', type: 'equipment' };
+export const BACKPACK: DocumentFixture = { id: 'eQuIp00000000002', name: 'Backpack', type: 'backpack' };
 
-const ADVENTURERS_PACK: DocumentFixture = {
+export const ADVENTURERS_PACK: DocumentFixture = {
   id: 'kIt0000000000001',
   name: "Adventurer's Pack",
   type: 'kit',

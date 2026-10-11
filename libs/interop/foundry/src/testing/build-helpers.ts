@@ -52,3 +52,10 @@ export function grantsIn(translation: ImportTranslation, name: string): unknown[
 export function gapKeys({ kindDataGaps }: ImportTranslation): string[] {
   return kindDataGaps.map(({ reason, field }) => `${reason} ${field}`);
 }
+
+/** The flags of the entry's `ChoiceSet` slots whose flag starts with `slot` (`general-feat`). */
+export function slotFlagsIn(translation: ImportTranslation, name: string, slot: string): string[] {
+  return (entryOf(translation, name)?.envelope.rules ?? []).flatMap((rule) =>
+    rule.key === RuleElementKey.ChoiceSet && rule.flag.startsWith(`${slot}-`) ? [String(rule.flag)] : [],
+  );
+}

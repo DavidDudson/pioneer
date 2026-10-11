@@ -3,7 +3,7 @@ import * as z from 'zod';
 import { resolveUuid } from './entry-references';
 import { ENVELOPE_FIELDS, KindDataGapReason, report } from './kind-data-gaps';
 import type { KindInput } from './kind-data-gaps';
-import { setFields, systemOf } from './kind-fields';
+import { boundedRecord, setFields, systemOf } from './kind-fields';
 
 /**
  * A deity's `data` from Foundry's `deity` item. Foundry's field names are singular (`attribute`, `skill`) and its
@@ -37,7 +37,7 @@ const FoundryDeitySystem = z.looseObject({
   attribute: Slugs.default([]),
   skill: Slugs.nullish(),
   weapons: Slugs.default([]),
-  spells: z.record(z.string().max(FIELD_MAX), z.string().max(NAME_MAX)).default({}),
+  spells: boundedRecord(z.string().max(NAME_MAX)).default({}),
 });
 
 interface DeitySpell {

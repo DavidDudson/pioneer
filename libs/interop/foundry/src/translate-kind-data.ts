@@ -129,16 +129,16 @@ const TRANSLATORS: Readonly<Partial<Record<ContentKind, KindTranslator>>> = {
   },
 };
 
-/**
- * The kind data of a translated document, when its kind has a translator (`TRANSLATORS`), with the rule elements
- * its fields add and what it could not carry over. Other kinds get none yet; their kind stories add them.
- */
 /** What a document's data may refer to: the import's references, and the archetypes linking each feat. */
 export interface KindDataContext {
   readonly references: EntryReferences;
   readonly archetypes: ReadonlyMap<ContentId, readonly ArchetypeLink[]>;
 }
 
+/**
+ * The kind data of a translated document, when its kind has a translator (`TRANSLATORS`), with the rule elements
+ * its fields add and what it could not carry over. Other kinds get none yet; their kind stories add them.
+ */
 export function translateKindData(
   entry: SelectedEntry,
   envelope: ImportedEnvelope,

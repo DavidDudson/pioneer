@@ -5,6 +5,7 @@ import { ContentEntry, ContentKind, KIND_DATA, RuleElementKey } from '@pioneer/r
 import { KindDataGapReason } from './kind-data-gaps';
 import {
   ACOLYTE,
+  BRAVERY,
   ANCESTRY_OUTSIDE,
   ARCHETYPES_JOURNAL,
   BUILD,
@@ -12,7 +13,7 @@ import {
   DWARF,
   FIGHTER,
 } from './testing/build-fixtures';
-import { dataIn, entryOfKind, gapKeys, grantsIn, ranksIn, rulesIn } from './testing/build-helpers';
+import { dataIn, entryOfKind, gapKeys, grantsIn, ranksIn, rulesIn, slotFlagsIn } from './testing/build-helpers';
 import { coreRulesEntry, coreRulesId, idOf, known, translate } from './testing/import-fixtures';
 import { contentEntry, gapsOf } from './testing/kind-fixtures';
 
@@ -60,14 +61,68 @@ describe('translateKindData: ancestries and heritages', () => {
   });
 
   test("an ancestry's features become GrantItem elements; unresolved ones are reported", () => {
-    expect(rulesIn(translate([DWARF, CLAN_DAGGER]), 'dwarf')).toEqual([
-      { key: RuleElementKey.GrantItem, item: idOf('feat:clan-dagger') },
-    ]);
+    expect(rulesIn(translate([DWARF, CLAN_DAGGER]), 'dwarf')[0]).toEqual({
+      key: RuleElementKey.GrantItem,
+      item: idOf('feat:clan-dagger'),
+    });
     expect(gapsOf(translation)).toContainEqual({
       reason: KindDataGapReason.UnresolvedReference,
       field: 'items',
       raw: 'Compendium.pf2e.ancestryfeatures.Item.Clan Dagger',
     });
+  });
+
+  test("an ancestry opens its ancestry feat slots on Player Core's schedule, feats with its trait", () => {
+    const rules = rulesIn(translation, 'dwarf');
+
+    expect(slotFlagsIn(translation, 'dwarf', 'ancestry-feat')).toEqual([
+      'ancestry-feat-1',
+      'ancestry-feat-5',
+      'ancestry-feat-9',
+      'ancestry-feat-13',
+      'ancestry-feat-17',
+    ]);
+    expect(rules).toContainEqual({
+      key: RuleElementKey.ChoiceSet,
+      flag: 'ancestry-feat-5',
+      prompt: 'Dwarf feat',
+      choices: { kind: ContentKind.Feat, filter: ['item:trait:dwarf', { lte: ['item:level', 'self:level'] }] },
+      predicate: [{ gte: ['self:level', 5] }],
+    });
+    expect(rules).toContainEqual({
+      key: RuleElementKey.GrantItem,
+      item: { choice: 'ancestry-feat-5' },
+      predicate: [{ gte: ['self:level', 5] }],
+    });
+  });
+
+  test('language free text, unknown languages and senses are reported; normal vision is none', () => {
+    const odd = translate([
+      {
+        ...DWARF,
+        system: {
+          ...DWARF.system,
+          languages: { custom: 'Gnomish dialect', value: ['common', 'sylvan-x'] },
+          vision: 'normal',
+        },
+      },
+    ]);
+    const blind = translate([{ ...DWARF, system: { ...DWARF.system, vision: 'tremorsense-x' } }]);
+
+    expect(dataIn(odd, 'dwarf')).toMatchObject({ languages: [coreRulesId('language:common')] });
+    expect(dataIn(odd, 'dwarf')).not.toHaveProperty('vision');
+    expect(gapKeys(odd)).toContain('unmapped-field languages.custom');
+    expect(gapKeys(odd)).toContain('unresolved-reference languages.value');
+    expect(gapKeys(blind)).toContain('unresolved-reference vision');
+  });
+
+  test('an attribute Pioneer does not have is reported and dropped, leaving no empty boost', () => {
+    const lucky = translate([
+      { ...DWARF, system: { ...DWARF.system, boosts: { '0': { value: ['con'] }, '1': { value: ['luck'] } } } },
+    ]);
+
+    expect(dataIn(lucky, 'dwarf')).toMatchObject({ boosts: [['con']] });
+    expect(gapsOf(lucky)).toContainEqual({ reason: KindDataGapReason.UnmappedValue, field: 'boosts.1', raw: 'luck' });
   });
 
   test('an unknown size, or hands other than two, is reported', () => {
@@ -141,7 +196,7 @@ describe('translateKindData: classes', () => {
     const atSecond = { predicate: [{ gte: ['self:level', 2] }] };
     const choices = { kind: ContentKind.Feat, filter: ['item:trait:fighter', { lte: ['item:level', 'self:level'] }] };
 
-    expect(grantsIn(translation, 'fighter')).toEqual([
+    expect(grantsIn(translation, 'fighter').slice(0, 6)).toEqual([
       { key: RuleElementKey.GrantItem, item: idOf('class-feature:reactive-strike') },
       { key: RuleElementKey.GrantItem, item: idOf('class-feature:bravery'), predicate: [{ gte: ['self:level', 3] }] },
       { key: RuleElementKey.ChoiceSet, flag: 'class-feat-1', prompt: 'Fighter feat', choices },
@@ -151,26 +206,60 @@ describe('translateKindData: classes', () => {
     ]);
   });
 
-  test('a spellcasting rank trains both spell statistics', () => {
-    const caster = translate([{ ...FIGHTER, system: { ...FIGHTER.system, spellcasting: 1 } }]);
+  test("general and skill feat slots follow Foundry's levels, else Player Core's", () => {
+    const rogue = translate([{ ...FIGHTER, system: { ...FIGHTER.system, skillFeatLevels: { value: [1, 2, 3] } } }]);
 
-    expect(ranksIn(caster, 'fighter')).toContainEqual(['spell-attack', 'trained']);
-    expect(ranksIn(caster, 'fighter')).toContainEqual(['spell-dc', 'trained']);
+    expect(slotFlagsIn(translation, 'fighter', 'general-feat')).toEqual([
+      'general-feat-3',
+      'general-feat-7',
+      'general-feat-11',
+      'general-feat-15',
+      'general-feat-19',
+    ]);
+    expect(slotFlagsIn(translation, 'fighter', 'skill-feat')).toHaveLength(10);
+    expect(slotFlagsIn(rogue, 'fighter', 'skill-feat')).toEqual(['skill-feat-1', 'skill-feat-2', 'skill-feat-3']);
+    expect(rulesIn(translation, 'fighter')).toContainEqual({
+      key: RuleElementKey.ChoiceSet,
+      flag: 'skill-feat-2',
+      prompt: 'Skill feat',
+      choices: { kind: ContentKind.Feat, filter: ['item:trait:skill', { lte: ['item:level', 'self:level'] }] },
+      predicate: [{ gte: ['self:level', 2] }],
+    });
   });
 
-  test("shared slot levels off Player Core's schedule, and a named weapon group, are reported", () => {
+  test('a spellcasting rank is reported, as its tradition comes from a feature, not the class', () => {
+    const caster = translate([{ ...FIGHTER, system: { ...FIGHTER.system, spellcasting: 1 } }]);
+
+    expect(ranksIn(caster, 'fighter').map(([selector]) => selector)).not.toContain('spell-attack');
+    expect(gapsOf(caster)).toContainEqual({ reason: KindDataGapReason.UnmappedField, field: 'spellcasting', raw: 1 });
+  });
+
+  test('a granted item whose level Foundry writes as text still grants from that level', () => {
+    const items = { b1: { level: '3', name: 'Bravery', uuid: 'Compendium.pf2e.classfeatures.Item.Bravery' } };
+    const texty = translate([{ ...FIGHTER, system: { ...FIGHTER.system, items } }, BRAVERY]);
+
+    expect(rulesIn(texty, 'fighter')).toContainEqual({
+      key: RuleElementKey.GrantItem,
+      item: idOf('class-feature:bravery'),
+      predicate: [{ gte: ['self:level', 3] }],
+    });
+    expect(gapKeys(texty)).not.toContain('invalid-data ');
+  });
+
+  test("ancestry feat levels off Player Core's schedule, skill increases and a named weapon group are reported", () => {
     const odd = translate([
       {
         ...FIGHTER,
         system: {
           ...FIGHTER.system,
-          skillFeatLevels: { value: [1, 2, 3] },
+          ancestryFeatLevels: { value: [1, 3] },
           attacks: { advanced: 0, martial: 0, simple: 1, unarmed: 1, other: { name: 'Firearms', rank: 1 } },
         },
       },
     ]);
 
-    expect(gapKeys(odd)).toContain('unmapped-value skillFeatLevels');
+    expect(gapKeys(odd)).toContain('unmapped-value ancestryFeatLevels');
+    expect(gapKeys(odd)).toContain('unmapped-field skillIncreaseLevels');
     expect(gapKeys(odd)).toContain('unmapped-field attacks.other');
   });
 });

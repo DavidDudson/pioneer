@@ -549,18 +549,22 @@ flowchart LR
 - **Build kind data.** Fields Foundry and Pioneer spell alike carry over and the schema checks them; the rest map:
   - An ancestry's sizes (`med` is `medium`), boosts and flaws (Foundry's numbered slots, in order), and its
     languages and vision as `language` and `sense` entries by slug (`normal` vision is none). Its `items` (ancestry
-    features) are `GrantItem`s. `hands` is reported unless it is two. A heritage's ancestry resolves by UUID among
+    features) are `GrantItem`s, and it opens its ancestry feat slots (`ancestry-feat-<level>`, feats with its trait)
+    on Player Core's schedule. `hands` is reported unless it is two. A heritage's ancestry resolves by UUID among
     the selected documents, else by slug among the other packs'; a versatile heritage has none.
   - A background's boosts; its `trainedSkills` become `Proficiency` elements (`Scribing Lore` is
     `skill:lore-scribing`) and its `items` (the skill feat) `GrantItem`s.
   - A class's `keyAbility`, `hp` and `trainedSkills.additional`, and its progression as rule elements: a
-    `Proficiency` per starting rank above untrained (perception, saves, attack and defence categories, skills,
-    `spell-attack` and `spell-dc` from `spellcasting`, and `class-dc` trained, which Foundry gives every class),
-    a `GrantItem` per class feature from its level, and at each `classFeatLevels` level a `ChoiceSet` flagged
-    `class-feat-<level>` querying feats with the class's trait up to the character's level, with the `GrantItem` of
-    its pick. Later ranks come from the class features that raise them, as in Foundry. The ancestry, general and
-    skill feat and skill increase levels are slots the builder opens itself on Player Core's schedule; a class
-    that departs from it is reported. `attacks.other` (a named weapon group) is reported.
+    `Proficiency` per starting rank above untrained (perception, saves, attack and defence categories, skills, and
+    `class-dc` trained, which Foundry gives every class), a `GrantItem` per class feature from its level, and feat
+    slots: at each level of `classFeatLevels`, `generalFeatLevels` and `skillFeatLevels` (Player Core's when
+    Foundry gives none) a `ChoiceSet` flagged `<class|general|skill>-feat-<level>` querying feats with the class's
+    trait, `general` or `skill` up to the character's level, with the `GrantItem` of its pick. Later ranks come
+    from the class features that raise them, as in Foundry. Ancestry feat slots are the ancestry's, so a class
+    whose `ancestryFeatLevels` depart from Player Core's is reported. Skill increases have no rule element yet and
+    are reported on every class; attribute boosts are the character's own slots. `spellcasting` is reported, as its
+    rank is per tradition (`spellcasting:<tradition>`), which a class feature names. `attacks.other` (a named
+    weapon group) is reported.
   - A feat's `category`, `prerequisites` as one paragraph of their text, `onlyLevel1`, `maxTakable` (Foundry's
     explicit `null` is `unlimited`, absent once), and `action` when it is used as one, read as an `action` item is
     with `actionCategory` as its category; action data its schema rejects (a reaction whose trigger has links) is

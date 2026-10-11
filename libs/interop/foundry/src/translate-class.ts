@@ -1,15 +1,15 @@
-import { ContentKind, Proficiency, RuleElementKey, slugName } from '@pioneer/rules/sdk';
+import { Proficiency, RuleElementKey, slugName } from '@pioneer/rules/sdk';
 import * as z from 'zod';
 
 import { addRule, ENVELOPE_FIELDS, KindDataGapReason, report } from './kind-data-gaps';
 import type { KindInput } from './kind-data-gaps';
-import { attributeSlots, FoundryGrantedItems, fromLevel, grantItems, systemOf } from './kind-fields';
+import { attributeSlots, featSlots, FoundryGrantedItems, grantItems, systemOf } from './kind-fields';
 import { FoundryTrainedSkills, trainSkills } from './translate-background';
 
 /**
  * A class's `data` from Foundry's `class` item, and its progression as rule elements (content-model.md, "Class
  * progression"): a `Proficiency` per starting rank, a `GrantItem` per class feature from its level, and a class feat
- * slot (`ChoiceSet` and the `GrantItem` of its pick) at each class feat level. Later ranks come from the class
+ * slot (`ChoiceSet` and the `GrantItem` of its pick) at each class, general and skill feat level. Later ranks come from the class
  * features that raise them, as in Foundry.
  */
 
@@ -71,12 +71,12 @@ function everyLevel(first: number, step: number): readonly number[] {
   return Array.from({ length: Math.floor((LEVELS_MAX - first) / step) + 1 }, (_value, at) => first + at * step);
 }
 
-/**
- * Player Core's level schedule for the slots every class shares. The builder opens these itself (character-model.md,
- * "Choice slots"), so a class on the schedule needs nothing more; one that differs is reported, never dropped.
- */
+/** Player Core's ancestry feat levels: the ancestry entry opens these slots (`translate-ancestry.ts`). */
+export const ANCESTRY_FEAT_LEVELS: readonly number[] = everyLevel(ANCESTRY_FEAT_FIRST, FEAT_STEP);
+
+/** Player Core's schedule for the slots every class shares, used when Foundry gives a class none. */
 const SHARED_SLOT_LEVELS = {
-  ancestryFeatLevels: everyLevel(ANCESTRY_FEAT_FIRST, FEAT_STEP),
+  ancestryFeatLevels: ANCESTRY_FEAT_LEVELS,
   generalFeatLevels: everyLevel(GENERAL_FEAT_FIRST, FEAT_STEP),
   skillFeatLevels: everyLevel(SKILL_FEAT_FIRST, SKILL_STEP),
   skillIncreaseLevels: everyLevel(SKILL_INCREASE_FIRST, SKILL_STEP),
@@ -107,9 +107,6 @@ export const CLASS_FIELDS: ReadonlySet<string> = new Set([
 /** Every class is trained in its class DC at 1st level; Foundry sets it for the actor rather than the class. */
 const CLASS_DC = 'class-dc';
 
-/** The statistics Foundry's spellcasting rank covers. */
-const SPELLCASTING_SELECTORS = ['spell-attack', 'spell-dc'] as const;
-
 /** Each statistic the class starts above untrained in, by selector, with Foundry's rank. */
 function startingRanks(system: FoundryClassSystem): (readonly [string, number])[] {
   const { savingThrows, attacks, defenses } = system;
@@ -127,7 +124,6 @@ function startingRanks(system: FoundryClassSystem): (readonly [string, number])[
     ['defense:medium', defenses.medium],
     ['defense:heavy', defenses.heavy],
     [CLASS_DC, 1],
-    ...SPELLCASTING_SELECTORS.map((selector) => [selector, system.spellcasting] as const),
   ];
 }
 
@@ -138,6 +134,10 @@ function proficiencies(system: FoundryClassSystem, input: KindInput): void {
       addRule(input, selector, { key: RuleElementKey.Proficiency, selector, rank: raised });
     }
   }
+  // Spellcasting ranks are per tradition (`spellcasting:arcane`), which a class feature or choice names, not the class.
+  if (system.spellcasting > 0) {
+    report(input.log, { reason: KindDataGapReason.UnmappedField, field: 'spellcasting', raw: system.spellcasting });
+  }
   const { other } = system.attacks;
   if (other !== undefined && other.rank > 0) {
     report(input.log, { reason: KindDataGapReason.UnmappedField, field: 'attacks.other', raw: other });
@@ -145,34 +145,21 @@ function proficiencies(system: FoundryClassSystem, input: KindInput): void {
   trainSkills(system.trainedSkills, input);
 }
 
-/**
- * A class feat slot at each level: a feat with the class's trait of the character's level or lower, and the grant
- * of the pick. Each slot's flag names its level, so picks keep their slot however the levels change.
- */
-function classFeatSlots(levels: readonly number[], input: KindInput): void {
-  const trait = slugName(input.envelope.slug);
-  for (const level of levels) {
-    const flag = `class-feat-${level}`;
-    const filter = [`item:trait:${trait}`, { lte: ['item:level', 'self:level'] }];
-    addRule(input, 'classFeatLevels', {
-      key: RuleElementKey.ChoiceSet,
-      flag,
-      prompt: `${input.envelope.name} feat`,
-      choices: { kind: ContentKind.Feat, filter },
-      ...fromLevel(level),
-    });
-    addRule(input, 'classFeatLevels', { key: RuleElementKey.GrantItem, item: { choice: flag }, ...fromLevel(level) });
-  }
+function sameLevels(levels: readonly number[], schedule: readonly number[]): boolean {
+  return levels.length === schedule.length && levels.every((level, at) => level === schedule[at]);
 }
 
-function sharedSlots(system: FoundryClassSystem, input: KindInput): void {
-  for (const field of SHARED_SLOTS) {
-    const schedule = SHARED_SLOT_LEVELS[field];
-    const levels = system[field]?.value ?? schedule;
-    if (levels.length !== schedule.length || levels.some((level, at) => level !== schedule[at])) {
-      report(input.log, { reason: KindDataGapReason.UnmappedValue, field, raw: levels });
-    }
+/**
+ * The shared slots a class cannot open itself: ancestry feats, which the ancestry entry opens on Player Core's
+ * schedule (a class off it is reported), and skill increases, which have no rule element yet (always reported).
+ */
+function reportShared(system: FoundryClassSystem, { log }: KindInput): void {
+  const ancestryLevels = system.ancestryFeatLevels?.value ?? ANCESTRY_FEAT_LEVELS;
+  if (!sameLevels(ancestryLevels, ANCESTRY_FEAT_LEVELS)) {
+    report(log, { reason: KindDataGapReason.UnmappedValue, field: 'ancestryFeatLevels', raw: ancestryLevels });
   }
+  const increases = system.skillIncreaseLevels?.value ?? SHARED_SLOT_LEVELS.skillIncreaseLevels;
+  report(log, { reason: KindDataGapReason.UnmappedField, field: 'skillIncreaseLevels', raw: increases });
 }
 
 /** The class's data, unparsed; undefined when its `system` is not shaped as a class's. */
@@ -183,8 +170,26 @@ export function classData(input: KindInput): object | undefined {
   }
   proficiencies(system, input);
   grantItems(system.items, 'items', input);
-  classFeatSlots(system.classFeatLevels.value, input);
-  sharedSlots(system, input);
+  slots(system, input);
   const [keyAttribute = []] = attributeSlots({ '0': system.keyAbility }, 'keyAbility', input.log);
   return { keyAttribute, hitPoints: system.hp, additionalSkills: system.trainedSkills.additional };
+}
+
+/** The class, general and skill feat slots, at Foundry's levels (Player Core's when Foundry gives none). */
+function slots(system: FoundryClassSystem, input: KindInput): void {
+  const trait = slugName(input.envelope.slug);
+  featSlots(
+    { slot: 'class-feat', trait, prompt: `${input.envelope.name} feat`, field: 'classFeatLevels' },
+    system.classFeatLevels.value,
+    input,
+  );
+  const general = system.generalFeatLevels?.value ?? SHARED_SLOT_LEVELS.generalFeatLevels;
+  featSlots(
+    { slot: 'general-feat', trait: 'general', prompt: 'General feat', field: 'generalFeatLevels' },
+    general,
+    input,
+  );
+  const skill = system.skillFeatLevels?.value ?? SHARED_SLOT_LEVELS.skillFeatLevels;
+  featSlots({ slot: 'skill-feat', trait: 'skill', prompt: 'Skill feat', field: 'skillFeatLevels' }, skill, input);
+  reportShared(system, input);
 }

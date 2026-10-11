@@ -5,7 +5,7 @@ import * as z from 'zod';
 import { resolveUuid } from './entry-references';
 import { ENVELOPE_FIELDS, KindDataGapReason, report } from './kind-data-gaps';
 import type { KindInput } from './kind-data-gaps';
-import { systemOf } from './kind-fields';
+import { boundedRecord, systemOf } from './kind-fields';
 
 /**
  * A kit's `data` from Foundry's `kit` item: its items by content id, with what a container holds, and its price.
@@ -14,25 +14,17 @@ import { systemOf } from './kind-fields';
 
 export const KIT_FIELDS: ReadonlySet<string> = new Set([...ENVELOPE_FIELDS, 'items', 'price']);
 
-const FIELD_MAX = 64;
 const NAME_MAX = 500;
 
-interface FoundryKitItem {
-  readonly uuid: string;
-  readonly quantity: number;
-  readonly items: Readonly<Record<string, FoundryKitItem>>;
-}
+const kitItem = { uuid: z.string().max(NAME_MAX), quantity: z.number() };
 
-const FoundryKitItem: z.ZodType<FoundryKitItem> = z.looseObject({
-  uuid: z.string().max(NAME_MAX),
-  quantity: z.number(),
-  get items() {
-    return z.record(z.string().max(FIELD_MAX), FoundryKitItem).default({});
-  },
-});
+/** An item inside a container; what it holds in turn is only counted, as a kit goes one level deep. */
+const FoundryInnerItem = z.looseObject({ ...kitItem, items: boundedRecord(z.unknown()).default({}) });
+const FoundryKitItem = z.looseObject({ ...kitItem, items: boundedRecord(FoundryInnerItem).default({}) });
+type FoundryInnerItem = z.infer<typeof FoundryInnerItem>;
 
-const FoundryKitItems = z.record(z.string().max(FIELD_MAX), FoundryKitItem);
-const FoundryCoins = z.record(z.string().max(FIELD_MAX), z.number());
+const FoundryKitItems = boundedRecord(FoundryKitItem);
+const FoundryCoins = boundedRecord(z.number());
 
 const FoundryKitSystem = z.looseObject({
   items: FoundryKitItems.default({}),
@@ -46,7 +38,7 @@ interface KitItem {
   readonly quantity: number;
 }
 
-function itemOf({ uuid, quantity }: FoundryKitItem, field: string, { references, log }: KindInput): KitItem[] {
+function itemOf({ uuid, quantity }: FoundryInnerItem, field: string, { references, log }: KindInput): KitItem[] {
   const item = resolveUuid(references, uuid);
   if (item === undefined) {
     report(log, { reason: KindDataGapReason.UnresolvedReference, field, raw: uuid });
@@ -55,7 +47,7 @@ function itemOf({ uuid, quantity }: FoundryKitItem, field: string, { references,
 }
 
 /** A container's contents, one level deep; a container inside it is reported. */
-function contentsOf(items: Readonly<Record<string, FoundryKitItem>>, input: KindInput): object {
+function contentsOf(items: Readonly<Record<string, FoundryInnerItem>>, input: KindInput): object {
   const contents = Object.values(items).flatMap((inner) => {
     if (Object.keys(inner.items).length > 0) {
       report(input.log, { reason: KindDataGapReason.UnmappedValue, field: 'items.items.items', raw: inner.uuid });

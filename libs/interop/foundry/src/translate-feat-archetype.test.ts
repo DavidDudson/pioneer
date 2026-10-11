@@ -6,11 +6,15 @@ import type { FoundryJournalPage } from './foundry-journal';
 import type { JournalDocument } from './foundry-release';
 import { KindDataGapReason } from './kind-data-gaps';
 import {
+  ADVENTURERS_PACK,
   ARCHETYPES_JOURNAL,
+  BACKPACK,
   BASIC_MANEUVER,
   BUILD,
+  FIGHTER,
   FIGHTER_DEDICATION,
   PHARASMA,
+  ROPE,
   SUDDEN_CHARGE,
 } from './testing/build-fixtures';
 import { dataIn, gapKeys, kindDataOf, slugIn } from './testing/build-helpers';
@@ -56,6 +60,14 @@ describe('translateKindData: feats and class features', () => {
       maxTakable: 'unlimited',
       prerequisites: paragraph('trained in Lore'),
     });
+  });
+
+  test('a numeric maxTakable above one is kept; one is the default and left out', () => {
+    const twice = translate([{ ...SUDDEN_CHARGE, system: { ...SUDDEN_CHARGE.system, maxTakable: 2 } }]);
+    const once = translate([{ ...SUDDEN_CHARGE, system: { ...SUDDEN_CHARGE.system, maxTakable: 1 } }]);
+
+    expect(dataIn(twice, 'sudden-charge')).toMatchObject({ maxTakable: 2 });
+    expect(dataIn(once, 'sudden-charge')).not.toHaveProperty('maxTakable');
   });
 
   test('a feature category with no kind is reported and the entry has no data', () => {
@@ -115,6 +127,53 @@ describe('translateKindData: deities and kits', () => {
   });
 });
 
+describe('translateKindData: kits at their limits', () => {
+  /** The Adventurer's Pack with its Backpack holding a pouch that holds rope, and a lantern outside the import. */
+  const deep = {
+    ...ADVENTURERS_PACK,
+    system: {
+      items: {
+        mca3x: {
+          name: 'Backpack',
+          quantity: 1,
+          uuid: 'Compendium.pf2e.equipment-srd.Item.Backpack',
+          items: {
+            p1: {
+              name: 'Rope',
+              quantity: 1,
+              uuid: 'Compendium.pf2e.equipment-srd.Item.Rope',
+              items: { r1: { name: 'Rope', quantity: 1, uuid: 'Compendium.pf2e.equipment-srd.Item.Rope' } },
+            },
+          },
+        },
+        l1: { name: 'Lantern', quantity: 1, uuid: 'Compendium.pf2e.equipment-srd.Item.Lantern', items: {} },
+      },
+    },
+  };
+  const kit = translate([deep, BACKPACK, ROPE]);
+
+  test('a container inside a container is reported, the inner container kept as contents', () => {
+    expect(dataIn(kit, 'adventurers-pack')).toEqual({
+      items: [
+        { item: idOf('equipment:backpack'), quantity: 1, contents: [{ item: idOf('equipment:rope'), quantity: 1 }] },
+      ],
+    });
+    expect(gapsOf(kit)).toContainEqual({
+      reason: KindDataGapReason.UnmappedValue,
+      field: 'items.items.items',
+      raw: 'Compendium.pf2e.equipment-srd.Item.Rope',
+    });
+  });
+
+  test('an item outside the import is reported and left out', () => {
+    expect(gapsOf(kit)).toContainEqual({
+      reason: KindDataGapReason.UnresolvedReference,
+      field: 'items',
+      raw: 'Compendium.pf2e.equipment-srd.Item.Lantern',
+    });
+  });
+});
+
 describe('importArchetypes', () => {
   test('a page whose dedication is imported is an archetype, multiclass linking its class', () => {
     const [archetype] = translation.archetypes;
@@ -130,6 +189,22 @@ describe('importArchetypes', () => {
     expect(archetype?.kindData).toEqual({
       kind: ContentKind.Archetype,
       data: { dedication: idOf('feat:fighter-dedication'), multiclass: idOf('class:fighter') },
+    });
+  });
+
+  test('a multiclass archetype whose class is outside the import is reported, without multiclass', () => {
+    const classless = translate(
+      BUILD.filter(({ id }) => id !== FIGHTER.id),
+      { journals: [ARCHETYPES_JOURNAL] },
+    );
+    const [archetype] = classless.archetypes;
+
+    expect(archetype?.kindData.data).toEqual({ dedication: idOf('feat:fighter-dedication') });
+    expect(classless.kindDataGaps).toContainEqual({
+      entry: idOf('archetype:fighter'),
+      reason: KindDataGapReason.UnresolvedReference,
+      field: 'multiclass',
+      raw: 'Fighter',
     });
   });
 
@@ -166,26 +241,42 @@ describe('importArchetypes', () => {
     expect(dataIn(linked, 'fighter-dedication')).toMatchObject({ archetype: idOf('archetype:fighter') });
   });
 
+  /** A second archetype page linking Basic Maneuver, and its dedication. */
+  const martial = {
+    _id: 'pAgEtWiN00000001',
+    name: 'Martial Artist',
+    type: 'text',
+    text: {
+      content:
+        '<p>@Embed[Compendium.pf2e.feats-srd.Item.fEaT000000000099 inline]</p>' +
+        '<h2>@UUID[Compendium.pf2e.feats-srd.Item.Basic Maneuver]</h2>',
+    },
+  };
+  const dedication = {
+    ...FIGHTER_DEDICATION,
+    id: 'fEaT000000000099',
+    name: 'Martial Artist Dedication',
+    system: { ...FIGHTER_DEDICATION.system, traits: { rarity: 'common', value: ['archetype', 'dedication'] } },
+  };
+
   test('a feat two pages link belongs to the archetype whose dedication its prerequisites name', () => {
-    const martial = {
-      _id: 'pAgEtWiN00000001',
-      name: 'Martial Artist',
-      type: 'text',
-      text: {
-        content:
-          '<p>@Embed[Compendium.pf2e.feats-srd.Item.fEaT000000000099 inline]</p>' +
-          '<h2>@UUID[Compendium.pf2e.feats-srd.Item.Basic Maneuver]</h2>',
-      },
-    };
-    const dedication = {
-      ...FIGHTER_DEDICATION,
-      id: 'fEaT000000000099',
-      name: 'Martial Artist Dedication',
-      system: { ...FIGHTER_DEDICATION.system, traits: { rarity: 'common', value: ['archetype', 'dedication'] } },
-    };
     const both = translate([...BUILD, dedication], { journals: [withPages(martial)] });
 
     expect(archetypeSlugs(both)).toEqual(['archetype:martial-artist', 'archetype:fighter']);
     expect(dataIn(both, 'basic-maneuver')).toMatchObject({ archetype: idOf('archetype:fighter') });
+  });
+
+  test('a feat two pages link, its prerequisites naming neither dedication, is reported with no archetype', () => {
+    const unnamed = { ...BASIC_MANEUVER, system: { ...BASIC_MANEUVER.system, prerequisites: { value: [] } } };
+    const both = translate([...BUILD.filter(({ id }) => id !== BASIC_MANEUVER.id), unnamed, dedication], {
+      journals: [withPages(martial)],
+    });
+
+    expect(dataIn(both, 'basic-maneuver')).not.toHaveProperty('archetype');
+    expect(gapsOf(both)).toContainEqual({
+      reason: KindDataGapReason.UnmappedValue,
+      field: 'archetype',
+      raw: ['Martial Artist Dedication', 'Fighter Dedication'],
+    });
   });
 });

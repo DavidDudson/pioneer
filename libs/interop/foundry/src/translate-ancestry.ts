@@ -1,11 +1,19 @@
-import { ContentKind, Size } from '@pioneer/rules/sdk';
+import { ContentKind, Size, slugName } from '@pioneer/rules/sdk';
 import type { ContentId } from '@pioneer/rules/sdk';
 import * as z from 'zod';
 
 import { resolveSlug, resolveUuid } from './entry-references';
 import { ENVELOPE_FIELDS, KindDataGapReason, report } from './kind-data-gaps';
-import type { KindInput } from './kind-data-gaps';
-import { attributeSlots, FoundryAttributeSlots, FoundryGrantedItems, grantItems, systemOf } from './kind-fields';
+import type { GapLog, KindInput } from './kind-data-gaps';
+import {
+  attributeSlots,
+  featSlots,
+  FoundryAttributeSlots,
+  FoundryGrantedItems,
+  grantItems,
+  systemOf,
+} from './kind-fields';
+import { ANCESTRY_FEAT_LEVELS } from './translate-class';
 
 /**
  * An ancestry's `data` from Foundry's `ancestry` item, and a heritage's from its `heritage` item. Languages and vision
@@ -68,6 +76,7 @@ const FoundryAncestrySystem = z.looseObject({
   items: FoundryGrantedItems.default({}),
 });
 type FoundryLanguages = z.infer<typeof FoundryLanguages>;
+type FoundryAncestrySystem = z.infer<typeof FoundryAncestrySystem>;
 
 /** The `language` entries Foundry's slugs name; free text Foundry allows beside them is reported. */
 function languagesOf({ value, custom }: FoundryLanguages, field: string, { references, log }: KindInput): ContentId[] {
@@ -94,6 +103,25 @@ function visionOf(vision: string, { references, log }: KindInput): object {
   return sense === undefined ? {} : { vision: sense };
 }
 
+/** Foundry's size, mapped; an unknown size, or hands other than two, is reported. */
+function sizeOf({ size, hands }: FoundryAncestrySystem, log: GapLog): Size | undefined {
+  const mapped = FOUNDRY_SIZES.get(size);
+  if (mapped === undefined) {
+    report(log, { reason: KindDataGapReason.UnmappedValue, field: 'size', raw: size });
+  }
+  if (hands !== undefined && hands !== HANDS) {
+    report(log, { reason: KindDataGapReason.UnmappedValue, field: 'hands', raw: hands });
+  }
+  return mapped;
+}
+
+/** Ancestry feat slots on Player Core's schedule: feats with the ancestry's trait. */
+function ancestryFeatSlots(input: KindInput): void {
+  const trait = slugName(input.envelope.slug);
+  const prompt = `${input.envelope.name} feat`;
+  featSlots({ slot: 'ancestry-feat', trait, prompt, field: 'ancestryFeatLevels' }, ANCESTRY_FEAT_LEVELS, input);
+}
+
 /** The ancestry's data, unparsed; undefined when its `system` is not shaped as an ancestry's. */
 export function ancestryData(input: KindInput): object | undefined {
   const system = systemOf(FoundryAncestrySystem, input);
@@ -101,17 +129,11 @@ export function ancestryData(input: KindInput): object | undefined {
     return undefined;
   }
   const { log } = input;
-  const size = FOUNDRY_SIZES.get(system.size);
-  if (size === undefined) {
-    report(log, { reason: KindDataGapReason.UnmappedValue, field: 'size', raw: system.size });
-  }
-  if (system.hands !== undefined && system.hands !== HANDS) {
-    report(log, { reason: KindDataGapReason.UnmappedValue, field: 'hands', raw: system.hands });
-  }
   grantItems(system.items, 'items', input);
+  ancestryFeatSlots(input);
   return {
     hitPoints: system.hp,
-    size,
+    size: sizeOf(system, log),
     speed: system.speed,
     reach: system.reach,
     boosts: attributeSlots(system.boosts, 'boosts', log),

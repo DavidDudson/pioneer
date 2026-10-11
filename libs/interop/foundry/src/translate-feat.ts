@@ -72,12 +72,12 @@ function prerequisitesOf({ prerequisites }: FoundryFeatSystem): RichText | undef
     : undefined;
 }
 
-/** Once when absent, as in Foundry; Foundry's explicit `null` is any number of times. */
-function maxTakableOf(system: FoundryFeatSystem, raw: Readonly<Record<string, unknown>>): number | string | undefined {
-  if (system.maxTakable === null) {
-    return Object.hasOwn(raw, 'maxTakable') ? UNLIMITED : undefined;
+/** Once when absent or 1, as in Foundry; Foundry's explicit `null` is any number of times. */
+function maxTakableOf({ maxTakable }: FoundryFeatSystem): number | string | undefined {
+  if (maxTakable === null) {
+    return UNLIMITED;
   }
-  return system.maxTakable === 1 ? undefined : system.maxTakable;
+  return maxTakable === 1 ? undefined : maxTakable;
 }
 
 const ARCHETYPE = Trait.parse('archetype');
@@ -124,7 +124,7 @@ export function featData(input: KindInput): object | undefined {
     ...setFields({
       prerequisites: prerequisitesOf(system),
       onlyLevel1: system.onlyLevel1 === true ? true : undefined,
-      maxTakable: maxTakableOf(system, input.document.system),
+      maxTakable: maxTakableOf(system),
       archetype: archetypeOf(system, input),
     }),
     ...actionOf(system, input),

@@ -1,4 +1,4 @@
-import { AttributeSchema, RuleElementKey } from '@pioneer/rules/sdk';
+import { AttributeSchema, ContentKind, RuleElementKey } from '@pioneer/rules/sdk';
 import type { Attribute } from '@pioneer/rules/sdk';
 import * as z from 'zod';
 
@@ -13,9 +13,19 @@ const NAME_MAX = 500;
 const ENTRIES_MAX = 64;
 const LEVEL_MAX = 20;
 
+/** Most entries any Foundry record the build kinds read holds: a kit's items, a class's features, a deity's spells. */
+const RECORD_ENTRIES_MAX = 128;
+
+/** A Foundry record keyed by a short id or number, its size bounded like every other collection the importer reads. */
+export function boundedRecord<Value extends z.ZodType>(value: Value): z.ZodType<Record<string, z.infer<Value>>> {
+  return z
+    .record(z.string().max(FIELD_MAX), value)
+    .refine((record) => Object.keys(record).length <= RECORD_ENTRIES_MAX, { message: 'too many entries' });
+}
+
 /** Foundry's attribute slots, keyed `"0"`, `"1"` and so on: `{ "0": { "value": ["dex"] } }`. */
 const FoundryAttributeSlot = z.looseObject({ value: z.array(z.string().max(FIELD_MAX)).max(ENTRIES_MAX) });
-export const FoundryAttributeSlots = z.record(z.string().max(FIELD_MAX), FoundryAttributeSlot);
+export const FoundryAttributeSlots = boundedRecord(FoundryAttributeSlot);
 export type FoundryAttributeSlots = z.infer<typeof FoundryAttributeSlots>;
 
 /** An item Foundry grants by compendium UUID (an ancestry feature, a class feature, a background's skill feat). */
@@ -27,7 +37,7 @@ const FoundryGrantedItem = z.looseObject({
 });
 
 /** Foundry's `items`: what an ancestry, background or class grants, keyed by a random id. */
-export const FoundryGrantedItems = z.record(z.string().max(FIELD_MAX), FoundryGrantedItem);
+export const FoundryGrantedItems = boundedRecord(FoundryGrantedItem);
 export type FoundryGrantedItems = z.infer<typeof FoundryGrantedItems>;
 
 /** The `system` parsed as a kind reads it; reported and undefined when it is not shaped as that kind's. */
@@ -59,7 +69,7 @@ export function attributeSlots(slots: FoundryAttributeSlots, field: string, log:
 const FIRST_LEVEL = 1;
 
 /** `{ "gte": ["self:level", level] }` for a level above 1st, as the element's predicate; nothing at 1st or below. */
-export function fromLevel(level: number | undefined): object {
+function fromLevel(level: number | undefined): object {
   return level === undefined || level <= FIRST_LEVEL ? {} : { predicate: [{ gte: ['self:level', level] }] };
 }
 
@@ -78,6 +88,29 @@ export function grantItems(items: FoundryGrantedItems, field: string, input: Kin
     } else {
       addRule(input, field, { key: RuleElementKey.GrantItem, item, ...fromLevel(level) });
     }
+  }
+}
+
+/** A kind of feat slot: its flag prefix, the trait its feats have, its prompt, and the field its levels come from. */
+export interface FeatSlot {
+  readonly slot: string;
+  readonly trait: string;
+  readonly prompt: string;
+  readonly field: string;
+}
+
+/**
+ * A feat slot at each level: a `ChoiceSet` of feats with the trait, of the character's level or lower, and the
+ * `GrantItem` of the pick, both from that level. Each flag names its level (`class-feat-2`), so picks keep their
+ * slot however the levels change.
+ */
+export function featSlots({ slot, trait, prompt, field }: FeatSlot, levels: readonly number[], input: KindInput): void {
+  for (const level of levels) {
+    const flag = `${slot}-${level}`;
+    const filter = [`item:trait:${trait}`, { lte: ['item:level', 'self:level'] }];
+    const choices = { kind: ContentKind.Feat, filter };
+    addRule(input, field, { key: RuleElementKey.ChoiceSet, flag, prompt, choices, ...fromLevel(level) });
+    addRule(input, field, { key: RuleElementKey.GrantItem, item: { choice: flag }, ...fromLevel(level) });
   }
 }
 
