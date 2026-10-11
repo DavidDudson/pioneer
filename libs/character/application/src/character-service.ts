@@ -4,7 +4,9 @@ import {
   CharacterCommand,
   CharacterId,
   CharacterPatchField,
+  characterDeity,
   characterLanguages,
+  deityContent,
   characterSlots,
   InventoryItemId,
   PATCH_COMMANDS,
@@ -80,16 +82,19 @@ export class CharacterService {
   }
 
   /**
-   * `character` with every slot it has and the slot's status (#419), and its languages (#470), read over the loaded content. Worked out on each
-   * read, never stored. The caller has already applied the access policy (`get`, `patch`).
+   * `character` with every slot it has and the slot's status (#419), its languages (#470) and its deity (#469), read
+   * over the loaded content. Worked out on each read, never stored. The caller has already applied the access policy
+   * (`get`, `patch`).
    */
   public async sheet(character: Character): Promise<CharacterSheet> {
     const content = await this.#content.registry();
     const slots = slotContent(content);
+    const deity = characterDeity(character.document, slots, deityContent(content));
     return {
       character,
       slots: characterSlots(character.document, slots),
       languages: characterLanguages(character.document, slots),
+      ...(deity === undefined ? {} : { deity }),
     };
   }
 

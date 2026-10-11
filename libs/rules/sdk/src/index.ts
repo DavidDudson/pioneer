@@ -9,7 +9,7 @@ export {
   AttributeModifiersWire,
   AttributeSchema,
 } from './attribute';
-export { DeityCategory, DeityDomain, DivineFont, Sanctification, SanctificationModal } from './deity';
+export { DeityCategory, DeityData, DeityDomain, DivineFont, Sanctification, SanctificationModal } from './deity';
 export { EffectBadgeType, EffectCategory, EffectData, EffectDurationType } from './effect';
 export { RitualData } from './ritual';
 export { ArmorData, ArmorGroup, ArmorItemCategory, ShieldData } from './armor';

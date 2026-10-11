@@ -3,10 +3,13 @@ import { describe, expect, test } from 'bun:test';
 import { ContentId, ContentKind, ContentRegistry, RuleSlug } from '@pioneer/rules/sdk';
 import { ContentPackBuilder, CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
 
+import { characterDeity } from './character-deity';
+import type { SheetDeity } from './character-deity';
 import { SlotStatus } from './character-slot';
 import { characterSlots } from './character-slot-status';
 import { DEITY_SLOT } from './character-slots';
 import { characterGrants } from './class-build';
+import { deityContent } from './deity-content';
 import { slotContent } from './slot-offer';
 import { CharacterBuilder, playerCoreClasses, playerCoreClassId } from './testing';
 import type { PlayerCoreClass } from './testing';
@@ -15,7 +18,15 @@ const deities = new ContentPackBuilder()
   .withId('deities')
   .withDeity('sarenrae', { sanctification: { modal: 'can', what: ['holy'] }, font: ['heal'], weapons: ['scimitar'] })
   .withDeity('zon-kuthon', { sanctification: { modal: 'must', what: ['unholy'] }, font: ['harm'] })
-  .withDeity('pharasma', { font: ['heal'] });
+  .withDeity('pharasma', { font: ['heal'] })
+  .withItem(ContentKind.Weapon, 'scimitar', {
+    baseItem: 'scimitar',
+    category: 'martial',
+    group: 'sword',
+    damage: { dice: 1, die: 'd6', damageType: 'slashing' },
+    bulk: 1,
+    usage: { type: 'held', hands: 'one' },
+  });
 const registry = new ContentRegistry();
 registry.register(playerCoreClasses());
 registry.register(deities.build());
@@ -69,6 +80,25 @@ describe('the deity slot', () => {
       'deity:primary:sanctification:can:holy',
       'deity:primary:sarenrae',
     ]);
+  });
+});
+
+/** A fighter's deity as the sheet reads it. */
+function deityOf(deity?: ContentId): SheetDeity | undefined {
+  return characterDeity(level1('fighter', deity).build().document, content, deityContent(registry));
+}
+
+describe('the deity on the sheet', () => {
+  test('is the picked deity, its favoured weapons named by the loaded weapon of their base', () => {
+    expect(deityOf(SARENRAE)).toMatchObject({
+      id: SARENRAE,
+      name: 'Sarenrae',
+      favoredWeapons: [{ weapon: 'scimitar', name: 'Scimitar' }],
+    });
+  });
+
+  test('is absent without a pick', () => {
+    expect(deityOf()).toBeUndefined();
   });
 });
 
