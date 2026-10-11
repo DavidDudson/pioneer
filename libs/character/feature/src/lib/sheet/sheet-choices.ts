@@ -25,9 +25,13 @@ const ROOT_LABEL_KEYS: ReadonlyMap<ContentKind, string> = new Map([
   [ContentKind.Class, 'rules.choices.slot.class'],
 ]);
 
+const FLAW_LABEL = 'rules.choices.slot.flaw';
 const UNKNOWN_LABEL = 'rules.choices.slot.unknown';
 
-/** "Ancestry", "Level 5 boost", "Elf: Skill" ("Elf choice" without a prompt). */
+/** Slots whose pick is an attribute. */
+const ATTRIBUTE_SUBJECTS: ReadonlySet<SlotSubjectKind> = new Set([SlotSubjectKind.Boost, SlotSubjectKind.Flaw]);
+
+/** "Ancestry", "Level 5 boost", "Voluntary flaw", "Elf: Skill" ("Elf choice" without a prompt). */
 function labelOf(subject: SlotSubject | undefined): MessageDescriptor {
   switch (subject?.kind) {
     case SlotSubjectKind.Root: {
@@ -35,6 +39,9 @@ function labelOf(subject: SlotSubject | undefined): MessageDescriptor {
     }
     case SlotSubjectKind.Boost: {
       return message(BOOST_LABEL_KEYS[subject.source], { level: subject.level });
+    }
+    case SlotSubjectKind.Flaw: {
+      return message(FLAW_LABEL);
     }
     case SlotSubjectKind.Choice: {
       if (subject.entryName === undefined) {
@@ -54,15 +61,15 @@ function labelOf(subject: SlotSubject | undefined): MessageDescriptor {
   }
 }
 
-/** A boost's pick is its attribute; anything else shows by the name the server gave it, or not at all. */
+/** A boost's or flaw's pick is its attribute; anything else shows by the name the server gave it, or not at all. */
 function selectionOf(slot: CharacterSlot): ChoiceSelection | undefined {
   const selection: ChoiceValue | undefined = 'selection' in slot ? slot.selection : undefined;
   if (selection === undefined) {
     return undefined;
   }
   const attribute = AttributeSchema.safeParse(selection);
-  const isBoost = 'subject' in slot && slot.subject.kind === SlotSubjectKind.Boost;
-  if (isBoost && attribute.success) {
+  const isAttribute = 'subject' in slot && ATTRIBUTE_SUBJECTS.has(slot.subject.kind);
+  if (isAttribute && attribute.success) {
     return { attribute: attribute.data };
   }
   const name = 'selectionName' in slot ? slot.selectionName : undefined;

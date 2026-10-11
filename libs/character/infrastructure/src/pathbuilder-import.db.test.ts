@@ -64,6 +64,19 @@ describe.skipIf(adminUrl === undefined)('Pathbuilder import (postgres)', () => {
     });
   });
 
+  test('voluntary flaws are stored as picks and read back lowering their attributes', async () => {
+    const { build } = briarRoseExport;
+    const { abilities } = build;
+    const breakdown = { ...abilities.breakdown, ancestryFlaws: ['Str'] };
+    const flawed = { ...briarRoseExport, build: { ...build, abilities: { ...abilities, str: 8, breakdown } } };
+    const { character, report } = await briarService.importPathbuilder(fixtureOwnerId, flawed);
+    const stored = await briarService.get(fixtureOwnerId, character.id);
+    expect<Readonly<Record<string, string>>>(stored.document.build.choices).toMatchObject({
+      'flaw:1:ancestry:0': 'str',
+    });
+    expect(report.modifierDifferences).toStrictEqual([]);
+  });
+
   test('a refused import writes nothing', async () => {
     const before = await database.db.select().from(auditLog);
     await rejection(service.importPathbuilder(fixtureOwnerId, briarRoseExport));

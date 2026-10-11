@@ -123,3 +123,38 @@ describe('slotRefusal on a boost slot', () => {
     });
   });
 });
+
+describe('slotRefusal on a voluntary flaw slot', () => {
+  const dwarf = new CharacterBuilder()
+    .withAncestry(AncestryId.parse(boostFixtureId('ancestry:dwarf')))
+    .picking('flaw:1:ancestry:0', 'int')
+    .build().document;
+
+  function flawRefusal(slot: string, selection: string): SlotRefusal | undefined {
+    return slotRefusal(dwarf, content, { slot: SlotKey.parse(slot), selection: ChoiceValue.parse(selection) });
+  }
+
+  test('takes an attribute the ancestry doesn’t flaw, and its own pick again', () => {
+    expect(flawRefusal('flaw:1:ancestry:1', 'str')).toBeUndefined();
+    expect(flawRefusal('flaw:1:ancestry:0', 'int')).toBeUndefined();
+  });
+
+  test('refuses the ancestry’s own flaw, or no attribute at all', () => {
+    expect(flawRefusal('flaw:1:ancestry:1', 'cha')).toStrictEqual(notOffered);
+    expect(flawRefusal('flaw:1:ancestry:1', 'forest')).toStrictEqual(notOffered);
+  });
+
+  test('refuses an attribute another voluntary flaw already lowers', () => {
+    expect(flawRefusal('flaw:1:ancestry:1', 'int')).toStrictEqual({
+      field: SlotRefusalField.Selection,
+      message: { key: 'character.validation.flawTaken' },
+    });
+  });
+
+  test('refuses a flaw slot past one per attribute the ancestry leaves, blaming the slot', () => {
+    expect(flawRefusal('flaw:1:ancestry:5', 'str')).toStrictEqual({
+      field: SlotRefusalField.Slot,
+      message: { key: 'character.validation.slotNotOpen' },
+    });
+  });
+});

@@ -30,6 +30,7 @@ export const MERISIEL = {
       'boost:1:free:0': 'dex',
       'boost:1:free:1': 'con',
       'boost:1:free:2': 'wis',
+      'flaw:1:ancestry:0': 'int',
     },
   },
   level: 1,
@@ -39,7 +40,10 @@ export const MERISIEL = {
 
 const ELF = contentId(PackId.parse('player-core'), EntrySlug.parse('ancestry:elf'));
 
-/** The slots the server read for Merisiel: a filled ancestry, a planned boost, and a boost it no longer offers. */
+/**
+ * The slots the server read for Merisiel: a filled ancestry, a planned boost, a boost it no longer offers and a
+ * voluntary flaw.
+ */
 const MERISIEL_SLOTS = [
   {
     status: 'filled',
@@ -64,6 +68,7 @@ const MERISIEL_SLOTS = [
     selection: 'str',
   },
   { status: 'planned', key: 'boost:5:free:1', subject: { kind: 'boost', source: 'free', level: 5 }, level: 5 },
+  { status: 'filled', key: 'flaw:1:ancestry:0', subject: { kind: 'flaw' }, selection: 'int' },
 ];
 
 /** Merisiel as the server sends her sheet. */

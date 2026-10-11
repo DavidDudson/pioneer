@@ -53,6 +53,18 @@ export interface BoostSlot {
   readonly pick: Attribute | undefined;
 }
 
+/**
+ * A voluntary ancestry flaw (Player Core): one slot keyed `flaw:1:ancestry:<n>`, the attributes it may lower, and what
+ * it lowers. Taking one is optional, so an empty flaw slot is never missing.
+ */
+export interface FlawSlot {
+  readonly key: SlotKey;
+  /** Every attribute but those the ancestry flaws already. */
+  readonly options: readonly Attribute[];
+  /** Undefined while the slot is empty, or holds something it doesn't offer. */
+  readonly pick: Attribute | undefined;
+}
+
 /** Boosts given together, which must each raise a different attribute: those with one option, and the slots. */
 export interface BoostSet {
   readonly level: Level;
@@ -167,6 +179,28 @@ export function boostSlots(document: CharacterDocument, content: BoostContent): 
   return boostSets(document, content).flatMap((set) => set.slots);
 }
 
+/** The flaws of the character's ancestry; undefined while it has none picked, or its content isn't loaded. */
+function ancestryFlaws(document: CharacterDocument, content: BoostContent): readonly Attribute[] | undefined {
+  const ancestry = pickedId(document, ANCESTRY_SLOT);
+  return ancestry === undefined ? undefined : content.ancestry(ancestry)?.flaws;
+}
+
+/**
+ * The character's voluntary flaw slots: one per attribute its ancestry doesn't flaw already, so each lowers a different
+ * one. None until its ancestry is picked and loaded.
+ */
+export function flawSlots(document: CharacterDocument, content: BoostContent): readonly FlawSlot[] {
+  const own = ancestryFlaws(document, content);
+  if (own === undefined) {
+    return [];
+  }
+  const options = ATTRIBUTES.filter((attribute) => !own.includes(attribute));
+  return options.map((_option, index): FlawSlot => {
+    const key = SlotKey.parse(`flaw:${FIRST_LEVEL}:${BoostSource.Ancestry}:${index}`);
+    return { key, options, pick: offeredPick(document.build.choices[key], options) };
+  });
+}
+
 /** What one set raises: its fixed attributes and its slots' picks, each once. */
 function raised(set: BoostSet): ReadonlySet<Attribute> {
   return new Set([...set.fixed, ...set.slots.flatMap((slot) => slot.pick ?? [])]);
@@ -192,15 +226,15 @@ function modifierOf(attribute: Attribute, flawed: boolean, sets: readonly BoostS
 }
 
 /**
- * The attribute modifiers the character's picks give at its level, from its ancestry's flaws and every boost. Sets
- * above the character's level are the plan, and don't count yet.
+ * The attribute modifiers the character's picks give at its level, from its ancestry's flaws, its voluntary flaws and
+ * every boost. Sets above the character's level are the plan, and don't count yet.
  */
 export function attributeModifiers(document: CharacterDocument, content: BoostContent): AttributeModifiers {
-  const ancestry = pickedId(document, ANCESTRY_SLOT);
-  const flaws = ancestry === undefined ? [] : (content.ancestry(ancestry)?.flaws ?? []);
+  const voluntary = flawSlots(document, content).flatMap((slot) => slot.pick ?? []);
+  const flaws = new Set([...(ancestryFlaws(document, content) ?? []), ...voluntary]);
   const current = boostSets(document, content).filter((set) => set.level <= document.level);
   const wire = Object.fromEntries(
-    ATTRIBUTES.map((attribute) => [attribute, modifierOf(attribute, flaws.includes(attribute), current)]),
+    ATTRIBUTES.map((attribute) => [attribute, modifierOf(attribute, flaws.has(attribute), current)]),
   );
   return new AttributeModifiers(AttributeModifiersWire.parse(wire));
 }

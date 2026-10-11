@@ -11,6 +11,8 @@ export {
   type BoostSlot,
   boostSlots,
   BoostSource,
+  type FlawSlot,
+  flawSlots,
 } from './attribute-boosts';
 export { ANCESTRY_SLOT, BACKGROUND_SLOT, CHARACTER_ROOT_SLOTS, CLASS_SLOT, HERITAGE_SLOT } from './character-slots';
 export { ClearedPick, unfitPicks } from './dependent-picks';

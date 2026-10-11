@@ -6,8 +6,8 @@ import type { ChoiceValue, ContentRegistry } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor, ValueOf } from '@pioneer/shared/kernel';
 
-import { boostContent, boostSets } from './attribute-boosts';
-import type { BoostContent, BoostSet, BoostSlot } from './attribute-boosts';
+import { boostContent, boostSets, flawSlots } from './attribute-boosts';
+import type { BoostContent, BoostSet, BoostSlot, FlawSlot } from './attribute-boosts';
 import type { CharacterDocument } from './character-document';
 import { CHARACTER_LEVEL_MAX, CHARACTER_LEVEL_MIN } from './character-fields';
 import { CHARACTER_ROOT_SLOTS } from './character-slots';
@@ -111,21 +111,37 @@ function boostRefusal({ set, boost }: BoostSlotIn, selection: ChoiceValue): Slot
   return taken ? { field: SlotRefusalField.Selection, message: message('character.validation.boostTaken') } : undefined;
 }
 
+/** The voluntary flaw slot `slot` and the character's other flaw slots, if it is one the character has. */
+interface FlawSlotIn {
+  readonly slots: readonly FlawSlot[];
+  readonly flaw: FlawSlot;
+}
+
+function flawSlotIn(document: CharacterDocument, boosts: BoostContent, slot: SlotKey): FlawSlotIn | undefined {
+  const slots = flawSlots(document, boosts);
+  const flaw = slots.find((each) => each.key === slot);
+  return flaw === undefined ? undefined : { slots, flaw };
+}
+
+/** Why `selection` can't go in the flaw slot: neither the ancestry nor another voluntary flaw may lower it already. */
+function flawRefusal({ slots, flaw }: FlawSlotIn, selection: ChoiceValue): SlotRefusal | undefined {
+  if (!flaw.options.some((attribute) => attribute === selection)) {
+    return NOT_OFFERED;
+  }
+  const taken = slots.some((other) => other.key !== flaw.key && other.pick === selection);
+  return taken ? { field: SlotRefusalField.Selection, message: message('character.validation.flawTaken') } : undefined;
+}
+
 /**
- * Why `selection` can't go in `slot`, or undefined when it can. A boost slot takes an attribute its boost allows and
- * no other boost of its set raises. Any other slot must be open at some level up to 20, and offer `selection` there.
- * The slot's own pick is left out, so it is checked as if empty; the other picks stay, so a slot an earlier pick
- * opened is found.
+ * Why `selection` can't go in `slot`, a root or `ChoiceSet` slot: it must be open at some level up to 20, and offer
+ * `selection` there. The slot's own pick is left out, so it is checked as if empty; the other picks stay, so a slot an
+ * earlier pick opened is found.
  */
-export function slotRefusal(
+function grantRefusal(
   document: CharacterDocument,
   content: SlotContent,
   { slot, selection }: SlotPick,
 ): SlotRefusal | undefined {
-  const boost = boostSlotIn(document, content.boosts, slot);
-  if (boost !== undefined) {
-    return boostRefusal(boost, selection);
-  }
   const others = Object.entries(document.build.choices).filter(([key]) => key !== slot);
   const context: SlotContext = {
     ...content,
@@ -140,6 +156,24 @@ export function slotRefusal(
     open ||= options !== undefined;
   }
   return open ? NOT_OFFERED : { field: SlotRefusalField.Slot, message: message('character.validation.slotNotOpen') };
+}
+
+/**
+ * Why `selection` can't go in `slot`, or undefined when it can. A boost slot takes an attribute its boost allows and
+ * no other boost of its set raises; a voluntary flaw slot, one neither its ancestry nor another flaw lowers. Any other
+ * slot must offer `selection` at some level up to 20.
+ */
+export function slotRefusal(
+  document: CharacterDocument,
+  content: SlotContent,
+  pick: SlotPick,
+): SlotRefusal | undefined {
+  const boost = boostSlotIn(document, content.boosts, pick.slot);
+  if (boost !== undefined) {
+    return boostRefusal(boost, pick.selection);
+  }
+  const flaw = flawSlotIn(document, content.boosts, pick.slot);
+  return flaw === undefined ? grantRefusal(document, content, pick) : flawRefusal(flaw, pick.selection);
 }
 
 /**

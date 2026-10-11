@@ -519,12 +519,14 @@
         "choice": "{entry}: {prompt}",
         "choiceOf": "{entry} choice",
         "unknown": "A choice the character no longer has",
-        "heritage": "Heritage"
+        "heritage": "Heritage",
+        "flaw": "Voluntary flaw"
       },
       "invalid": {
         "notOffered": "This choice no longer offers that option, so it counts for nothing. Choose another.",
         "contentNotLoaded": "The content picked here is not loaded, so it counts for nothing.",
-        "boostTaken": "A boost given with this one already raises that attribute, so it counts for nothing. Choose another."
+        "boostTaken": "A boost given with this one already raises that attribute, so it counts for nothing. Choose another.",
+        "flawTaken": "Another voluntary flaw already lowers that attribute, so this one counts for nothing. Choose another."
       }
     },
     "build": {

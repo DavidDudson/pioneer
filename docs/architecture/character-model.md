@@ -71,9 +71,9 @@ answers 500, never a 422 that blames the request.
 ### Choice slots
 
 The engine produces the list of open slots from content: `ancestry`, `heritage`, `background`, `class`,
-`boost:1:ancestry:0`, `feat:class:2`, `skill-increase:3`, `choice:<entry>:<flag>` for a `ChoiceSet` on any
-granted item. Each slot has its origin, its allowed options (a predicate over content, e.g. "level ≤ 2 fighter
-feats you meet the prerequisites of"), and its current selection.
+`boost:1:ancestry:0`, `flaw:1:ancestry:0` (a voluntary flaw, optional), `feat:class:2`, `skill-increase:3`,
+`choice:<entry>:<flag>` for a `ChoiceSet` on any granted item. Each slot has its origin, its allowed options (a
+predicate over content, e.g. "level ≤ 2 fighter feats you meet the prerequisites of"), and its current selection.
 
 The character stores `SlotKey → Selection` only. Consequences:
 
@@ -149,7 +149,16 @@ of one set go to different attributes, so `selectSlot` refuses an attribute anot
 (`character.validation.boostTaken`). Each attribute starts at +0; a boost raises it by one, or, at +4 or more, is
 partial, and the second partial boost raises it by one (Player Core). Boosts above the character's level are the
 plan and don't count yet, and a stored pick its slot no longer offers (left from another ancestry, or after an errata)
-counts for nothing until it is changed. `setAttribute` is gone: a boost pick is the only way to change a modifier.
+counts for nothing until it is changed. `setAttribute` is gone: a boost or flaw pick is the only way to change a
+modifier.
+
+**Voluntary flaws** ([#550](https://github.com/DavidDudson/pioneer/issues/550)) are picks too (`flawSlots`): one slot
+per attribute the ancestry doesn't flaw already, keyed `flaw:1:ancestry:<n>`, its selection the attribute it lowers
+by one, as an ancestry flaw does. Each lowers a different attribute, so `selectSlot` refuses the ancestry's own flaw
+(`selectionNotOffered`) and one another voluntary flaw lowers (`character.validation.flawTaken`). A flaw is optional,
+so an empty flaw slot is never open: `characterSlots` lists only the flaws taken (subject `flaw`), filled or invalid,
+and the sheet's Choices section shows them as "Voluntary flaw". They bring no extra boost; the variant that trades two
+flaws for a free boost belongs with the variant rules ([#51](https://github.com/DavidDudson/pioneer/issues/51)).
 
 ### Archetype dedications
 
@@ -259,16 +268,17 @@ characters; the player sees them.
   `POST /characters/import/pathbuilder`, which reads it again rather than trusting the preview, refuses an ancestry
   that matches no loaded content, and inserts one write audited as `importPathbuilder`: name, level, ancestry, the
   background and first class when they match loaded content, the heritage when it matches one the imported ancestry
-  offers (its own or a versatile one; [#555](https://github.com/DavidDudson/pioneer/issues/555)), and every boost in
-  its slot ([#420](https://github.com/DavidDudson/pioneer/issues/420)). A loaded heritage of another ancestry is not
+  offers (its own or a versatile one; [#555](https://github.com/DavidDudson/pioneer/issues/555)), every boost in its
+  slot ([#420](https://github.com/DavidDudson/pioneer/issues/420)) and the voluntary flaws
+  ([#550](https://github.com/DavidDudson/pioneer/issues/550)). A loaded heritage of another ancestry is not
   written: the report lists it as "not offered". Each set Pathbuilder recorded (`ancestryBoosts` and
   `ancestryFree` together, `backgroundBoosts`, `classBoosts`, `mapLevelledBoosts`) goes to the set of the same source
-  and level; gradual boosts join the next free set (2nd to 5th go to 5th, and so on). No modifier is stored:
+  and level; gradual boosts join the next free set (2nd to 5th go to 5th, and so on). Each attribute in
+  `ancestryFlaws` the ancestry doesn't flaw already takes a flaw slot, once, in export order. No modifier is stored:
   Pathbuilder's scores are only a check. The import report (unmatched names by kind, the filled fields the character
   can't hold yet, the boosts no slot took, and each attribute whose derived modifier differs from Pathbuilder's) is
   returned, not stored: the sheet shows it until dismissed or reloaded. A dual class
-  ([#549](https://github.com/DavidDudson/pioneer/issues/549)) and voluntary flaws
-  ([#550](https://github.com/DavidDudson/pioneer/issues/550)) aren't carried yet.
+  ([#549](https://github.com/DavidDudson/pioneer/issues/549)) isn't carried yet.
 - **Pioneer JSON:** the `CharacterDocument` plus the ids and versions of packs used. Homebrew entries referenced by
   the character are embedded so the file is portable.
 - **Foundry export:** see [play-and-campaigns.md](play-and-campaigns.md#foundry-export).

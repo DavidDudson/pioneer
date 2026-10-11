@@ -89,6 +89,7 @@
     "selectionNotOffered": "That option is not available for this choice at any level. Choose another.",
     "unmatchedAncestry": "No loaded content has the ancestry {ancestry}, so this character can't be imported yet.",
     "boostTaken": "A boost given with this one already raises that attribute. Choose another.",
+    "flawTaken": "Another voluntary flaw already lowers that attribute. Choose another.",
     "itemNotFound": "This character no longer has that item. Reload to see their inventory as it is.",
     "containerNotFound": "This character no longer has that container. Reload to see their inventory as it is.",
     "containerInsideItself": "A container can't go inside itself or inside something it holds. Choose another place.",

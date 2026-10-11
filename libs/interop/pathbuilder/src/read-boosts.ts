@@ -20,7 +20,7 @@ const FIRST_LEVEL = Level.parse(1);
 const FREE_BOOST_INTERVAL = 5;
 
 /** Pathbuilder's attribute abbreviations ("Str", "Dex") as attributes; anything else is left out. */
-function boostedAttributes(names: readonly string[]): Attribute[] {
+function namedAttributes(names: readonly string[]): Attribute[] {
   return names.flatMap((name) => {
     const parsed = AttributeSchema.safeParse(name.trim().toLowerCase());
     return parsed.success ? [parsed.data] : [];
@@ -42,7 +42,7 @@ function freeBoosts(levelled: Readonly<Record<string, readonly string[]>>): Impo
   const bySet = new Map<Level, Attribute[]>();
   for (const { level, names } of levels) {
     const set = freeSetLevel(level);
-    bySet.set(set, [...(bySet.get(set) ?? []), ...boostedAttributes(names)]);
+    bySet.set(set, [...(bySet.get(set) ?? []), ...namedAttributes(names)]);
   }
   return [...bySet].map(([level, attributes]) => ({ source: BoostSource.Free, level, attributes }));
 }
@@ -60,9 +60,17 @@ export function readBoosts(build: PathbuilderBuild): ImportedBoosts[] {
   ];
   return [
     ...firstLevel.flatMap(([source, names]): ImportedBoosts[] => {
-      const attributes = boostedAttributes(names);
+      const attributes = namedAttributes(names);
       return attributes.length === 0 ? [] : [{ source, level: FIRST_LEVEL, attributes }];
     }),
     ...freeBoosts(breakdown.mapLevelledBoosts),
   ];
+}
+
+/**
+ * The attributes Pathbuilder flawed at 1st level, in export order: voluntary flaws, and possibly the ancestry's own.
+ * None for an export without a breakdown.
+ */
+export function readFlaws(build: PathbuilderBuild): Attribute[] {
+  return namedAttributes(build.abilities.breakdown?.ancestryFlaws ?? []);
 }

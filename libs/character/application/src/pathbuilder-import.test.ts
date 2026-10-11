@@ -22,6 +22,7 @@ import {
 import type { CharacterImportReport, UnmatchedName } from '@pioneer/interop/pathbuilder';
 import { briarRoseExport, mordredExport } from '@pioneer/interop/pathbuilder/testing';
 import { Attribute, ChoiceValue, ContentKind, Level } from '@pioneer/rules/sdk';
+import type { ContentSource } from '@pioneer/rules/sdk';
 import { ContentPackBuilder, fixedContent } from '@pioneer/rules/sdk/testing';
 import { fixedClock, newId, SortDirection, UserId, ValidationError } from '@pioneer/shared/kernel';
 import { rejection } from '@pioneer/shared/kernel/testing';
@@ -33,6 +34,20 @@ const amiri = UserId.parse(newId());
 const byName = { sort: CharacterSort.Name, direction: SortDirection.Asc } as const;
 const changeling = PathbuilderName.parse('Changeling');
 const clock = fixedClock('2026-10-07T10:00:00Z');
+
+/** Briar Rose's goloma animist, everything her export names loaded: a free ancestry boost and no ancestry flaw. */
+function briarContent(): ContentSource {
+  const all = Object.values(Attribute);
+  return fixedContent(
+    new ContentPackBuilder()
+      .withId('howl-of-the-wild')
+      .withAncestry('goloma', { boosts: [all] })
+      .withHeritage('vigilant-goloma', 'goloma')
+      .withBackground('dendrologist', [['con', 'wis'], all])
+      .withClass('animist', ['wis'])
+      .build(),
+  );
+}
 
 /** The heritage names an import left behind, if any. */
 function unmatchedHeritage(report: CharacterImportReport): readonly UnmatchedName[] | undefined {
@@ -128,17 +143,7 @@ describe('CharacterService.importPathbuilder', () => {
   });
 
   test('fills the heritage, background, class and every boost; the modifiers come out as Pathbuilder scored them', async () => {
-    const all = Object.values(Attribute);
-    const content = fixedContent(
-      new ContentPackBuilder()
-        .withId('howl-of-the-wild')
-        .withAncestry('goloma', { boosts: [all] })
-        .withHeritage('vigilant-goloma', 'goloma')
-        .withBackground('dendrologist', [['con', 'wis'], all])
-        .withClass('animist', ['wis'])
-        .build(),
-    );
-    const briar = new CharacterService(repository, content, clock);
+    const briar = new CharacterService(repository, briarContent(), clock);
     const { character, report } = await briar.importPathbuilder(amiri, briarRoseExport);
     const { choices } = character.document.build;
     const slots = [HERITAGE_SLOT, BACKGROUND_SLOT, CLASS_SLOT];
@@ -153,6 +158,30 @@ describe('CharacterService.importPathbuilder', () => {
     expect(report.unplacedBoosts).toStrictEqual([]);
     expect(report.modifierDifferences).toStrictEqual([]);
     expect(repository.audits).toStrictEqual([{ actor: amiri, command: CharacterCommand.ImportPathbuilder }]);
+  });
+
+  test('writes the voluntary flaws as picks; the modifiers they lower come out as Pathbuilder scored them', async () => {
+    const { build } = briarRoseExport;
+    const { abilities } = build;
+    const flawed = {
+      ...briarRoseExport,
+      build: {
+        ...build,
+        abilities: {
+          ...abilities,
+          str: abilities.str - 2,
+          cha: abilities.cha - 2,
+          breakdown: { ...abilities.breakdown, ancestryFlaws: ['Str', 'Cha'] },
+        },
+      },
+    };
+    const briar = new CharacterService(repository, briarContent(), clock);
+    const { character, report } = await briar.importPathbuilder(amiri, flawed);
+    expect<Readonly<Record<string, string>>>(character.document.build.choices).toMatchObject({
+      'flaw:1:ancestry:0': 'str',
+      'flaw:1:ancestry:1': 'cha',
+    });
+    expect(report.modifierDifferences).toStrictEqual([]);
   });
 
   test('an ancestry that is not loaded is refused by name and nothing is saved', async () => {

@@ -7,7 +7,7 @@ import type * as z from 'zod';
 import { ImportKind, PathbuilderName } from './import-kind';
 import type { ImportedName } from './import-kind';
 import { PathbuilderBuild, PathbuilderExport } from './pathbuilder-export';
-import { readBoosts } from './read-boosts';
+import { readBoosts, readFlaws } from './read-boosts';
 import type { ImportedBoosts } from './read-boosts';
 
 /** Why an export could not be read. The UI maps each to a message key. */
@@ -46,6 +46,8 @@ export interface PathbuilderImport {
   /** Pathbuilder's modifiers, from its scores: compared with what the boosts give, never stored (ADR-0004). */
   readonly attributes: AttributeModifiers;
   readonly boosts: readonly ImportedBoosts[];
+  /** The attributes Pathbuilder flawed: voluntary flaws, and possibly the ancestry's own. */
+  readonly flaws: readonly Attribute[];
   readonly identity: PathbuilderIdentity;
   /** Every reference to a content entry, in export order, repeats kept. */
   readonly names: readonly ImportedName[];
@@ -189,6 +191,7 @@ function toImport(build: PathbuilderBuild): PathbuilderReadResult {
     level: CharacterLevel.parse(build.level),
     attributes: attributeModifiers(build),
     boosts: readBoosts(build),
+    flaws: readFlaws(build),
     identity: identity(build, ancestry),
     names: contentNames(build),
     lores: lores(build),

@@ -5,7 +5,7 @@ import type { BoostContent, CharacterDocument } from '@pioneer/character/domain'
 import { BOOST_FIXTURES, boostFixtureId, CharacterBuilder } from '@pioneer/character/domain/testing';
 import { AncestryId, Attribute, AttributeModifiers, AttributeModifiersWire, Level } from '@pioneer/rules/sdk';
 
-import { modifierDifferences, placeBoosts } from './boost-placement';
+import { modifierDifferences, placeBoosts, placeFlaws } from './boost-placement';
 import type { ImportedBoosts } from './read-boosts';
 
 const { Strength: STR, Dexterity: DEX, Constitution: CON, Intelligence: INT, Wisdom: WIS, Charisma: CHA } = Attribute;
@@ -113,6 +113,34 @@ describe('placeBoosts', () => {
     ]);
     expect<Readonly<Record<string, string>>>(choices).toStrictEqual({});
     expect(unplaced).toStrictEqual([{ source: BoostSource.Ancestry, level: Level.parse(1), attribute: WIS }]);
+  });
+});
+
+describe('placeFlaws', () => {
+  test('puts each voluntary flaw in a flaw slot, in export order, past the ancestry’s own', () => {
+    expect<Readonly<Record<string, string>>>(placeFlaws(dwarf(1), BOOST_FIXTURES, [CHA, INT, STR])).toStrictEqual({
+      'flaw:1:ancestry:0': INT,
+      'flaw:1:ancestry:1': STR,
+    });
+  });
+
+  test('takes an attribute once, however many times Pathbuilder lists it', () => {
+    expect<Readonly<Record<string, string>>>(placeFlaws(dwarf(1), BOOST_FIXTURES, [INT, INT])).toStrictEqual({
+      'flaw:1:ancestry:0': INT,
+    });
+  });
+
+  test('places nothing when the export has no flaws beyond the ancestry’s, or the ancestry isn’t loaded', () => {
+    expect(placeFlaws(dwarf(1), BOOST_FIXTURES, [CHA])).toStrictEqual({});
+    expect(placeFlaws(dwarf(1), BOOST_FIXTURES, [])).toStrictEqual({});
+    expect(placeFlaws(new CharacterBuilder().build().document, BOOST_FIXTURES, [INT])).toStrictEqual({});
+  });
+
+  test('the placed flaws lower their attributes', () => {
+    const document = dwarf(1);
+    const choices = placeFlaws(document, BOOST_FIXTURES, [CHA, DEX]);
+    const flawed = { ...document, build: { ...document.build, choices: { ...document.build.choices, ...choices } } };
+    expect<number>(attributeModifiers(flawed, BOOST_FIXTURES).get(DEX)).toBe(-1);
   });
 });
 
