@@ -2,7 +2,7 @@ import type { Bulk } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
 
 /** Where an item is on the character, as the inventory groups it (character-model.md, "Inventory"). */
-export const InventoryPlacement = { Worn: 'worn', Held: 'held', Stowed: 'stowed' } as const;
+export const InventoryPlacement = { Worn: 'worn', Held: 'held', Stowed: 'stowed', Dropped: 'dropped' } as const;
 export type InventoryPlacement = ValueOf<typeof InventoryPlacement>;
 
 /** One item as the inventory lists it, with what it holds when it is a container. */
@@ -18,11 +18,14 @@ export interface InventoryLine {
    * content isn't loaded. */
   readonly bulk: Bulk | undefined;
   readonly bulkPer: number | undefined;
+  /** The hands a held item is held in; undefined for one that isn't held. */
+  readonly hands: number | undefined;
+  readonly invested: boolean;
   /** What it holds, when it is a container: listed beneath it. */
   readonly contents: readonly InventoryLine[];
 }
 
-/** The items carried one way: worn, held or stowed loose. */
+/** The items carried one way: worn, held, stowed loose or dropped. */
 export interface InventoryGroup {
   readonly placement: InventoryPlacement;
   readonly lines: readonly InventoryLine[];

@@ -5,15 +5,16 @@
       <fr-text tone="subtle">{{ Message.ContentName | transloco: { name: contentName } }}</fr-text>
     }
     <fr-text>{{ Message.Quantity | transloco: { quantity: shown().quantity } }}</fr-text>
+    @for (note of shown().notes; track note.key) {
+      <fr-text variant="caption" tone="subtle">{{ note.key | transloco: note.params }}</fr-text>
+    }
     @if (shown().bulk; as bulk) {
       <fr-text variant="caption" tone="subtle">{{
         bulk.key | transloco: { bulk: bulk.value.key | transloco: bulk.value.params, count: bulk.per }
       }}</fr-text>
     }
   </fr-stack>
-  @if (actions(); as template) {
-    <ng-container [ngTemplateOutlet]="template" [ngTemplateOutletContext]="{ $implicit: line() }" />
-  }
+  <ng-container [ngTemplateOutlet]="actions() ?? null" [ngTemplateOutletContext]="{ $implicit: line() }" />
   @if (line().contents.length > 0) {
     <fr-list gap="xs" markers>
       @for (inside of line().contents; track inside.id) {

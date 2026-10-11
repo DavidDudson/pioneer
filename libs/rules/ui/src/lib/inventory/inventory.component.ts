@@ -11,8 +11,8 @@ import type { InventoryLineContext } from './inventory-row/inventory-row.compone
 const LOADING_ROWS = 3;
 
 /**
- * What a character carries, grouped worn, held and stowed, each item with how many and its Bulk and a container's
- * contents beneath it. Groups with nothing in them are left out.
+ * What a character carries, grouped worn, held, stowed and dropped, each item with how many, its hands and
+ * investment, and its Bulk, and a container's contents beneath it. Groups with nothing in them are left out.
  *
  * Presentational (ADR-0028): the caller groups the inventory, or passes undefined while it loads, and may pass
  * `actions`, a template shown beside every line with the line as its context, for the line's edits.

@@ -27,17 +27,23 @@ function rows(host: HTMLElement): string[][] {
 }
 
 describe(InventoryView, () => {
-  it('groups items under worn, held and stowed', async () => {
+  it('groups items under worn, held, stowed and dropped', async () => {
     const host = await render(FIGHTER_INVENTORY);
     const headings = [...host.querySelectorAll('fr-heading')].map((heading) => heading.textContent.trim());
-    expect(headings).toStrictEqual(['Worn', 'Held', 'Stowed']);
+    expect(headings).toStrictEqual(['Worn', 'Held', 'Stowed', 'Dropped']);
   });
 
   it('shows each item with how many and its Bulk, the rules way', async () => {
     const shown = rows(await render(FIGHTER_INVENTORY));
     expect(shown[0]).toStrictEqual(['Leather Armor', '× 1', 'Bulk 1']);
-    expect(shown[1]).toStrictEqual(['Backpack', '× 1', 'Bulk —']);
-    expect(shown[2]).toStrictEqual(['Climbing rope', '(Rope)', '× 1', 'Bulk L']);
+    expect(shown[2]).toStrictEqual(['Backpack', '× 1', 'Bulk —']);
+    expect(shown[3]).toStrictEqual(['Climbing rope', '(Rope)', '× 1', 'Bulk L']);
+  });
+
+  it('says how many hands a held item takes, and marks an invested one', async () => {
+    const shown = rows(await render(FIGHTER_INVENTORY));
+    expect(shown[1]).toStrictEqual(['Cloak of Elvenkind', '× 1', 'Invested', 'Bulk L']);
+    expect(shown.find(([name]) => name === 'Longsword')).toStrictEqual(['Longsword', '× 1', 'in 1 hand', 'Bulk 1']);
   });
 
   it('lists what a container holds beneath it, nested as deep as it goes', async () => {
@@ -49,11 +55,11 @@ describe(InventoryView, () => {
   });
 
   it('gives the Bulk of a batch with its size, as the rules price arrows', async () => {
-    expect(rows(await render(FIGHTER_INVENTORY)).at(-2)).toStrictEqual(['Arrows', '× 50', 'Bulk L per 10']);
+    expect(rows(await render(FIGHTER_INVENTORY)).at(-3)).toStrictEqual(['Arrows', '× 50', 'Bulk L per 10']);
   });
 
   it('names an item whose content is gone as such, with no Bulk', async () => {
-    expect(rows(await render(FIGHTER_INVENTORY)).at(-1)).toStrictEqual(['An item no loaded content has', '× 1']);
+    expect(rows(await render(FIGHTER_INVENTORY)).at(-2)).toStrictEqual(['An item no loaded content has', '× 1']);
   });
 
   it('shows placeholders while loading, and an empty state with nothing carried', async () => {

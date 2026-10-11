@@ -28,11 +28,13 @@ interface ShownLine {
   readonly nameTone: Tone;
   readonly quantity: string;
   readonly bulk: ShownBulk | undefined;
+  /** How it is carried, when that says more than its group: the hands it is held in, and whether it is invested. */
+  readonly notes: readonly MessageDescriptor[];
 }
 
 /**
- * One item: its name (and the content's, when the player renamed it), how many, its Bulk, then whatever the caller
- * puts beside it, and what it holds beneath it.
+ * One item: its name (and the content's, when the player renamed it), how many, the hands it is held in, whether it
+ * is invested, its Bulk, then whatever the caller puts beside it, and what it holds beneath it.
  */
 @Component({
   selector: 'pio-inventory-row',
@@ -48,12 +50,16 @@ export class InventoryRow {
   readonly #format = inject(LocaleFormat);
   protected readonly Message = InventoryMessage;
   protected readonly shown = computed((): ShownLine => {
-    const { name, quantity, bulk, bulkPer } = this.line();
+    const { name, quantity, bulk, bulkPer, hands, invested } = this.line();
     return {
       name,
       nameTone: name === undefined ? Tone.Subtle : Tone.Default,
       quantity: this.#format.number(quantity),
       bulk: bulk === undefined ? undefined : this.#bulk(bulk, bulkPer),
+      notes: [
+        ...(hands === undefined ? [] : [message(InventoryMessage.Hands, { count: hands })]),
+        ...(invested ? [message(InventoryMessage.Invested)] : []),
+      ],
     };
   });
 

@@ -17,17 +17,23 @@ function line(id: string, name: string | undefined, overrides: Partial<Inventory
     quantity: 1,
     bulk: BulkWeight.Light,
     bulkPer: undefined,
+    hands: undefined,
+    invested: false,
     contents: [],
     ...overrides,
   };
 }
 
-/** A fighter's gear: armour and a backpack holding a pouch of chalk, a sword in hand, loose treasure and arrows. */
+/**
+ * A fighter's gear: armour, an invested cloak and a backpack holding a pouch of chalk, a sword in one hand, loose
+ * treasure and arrows, and a shield dropped.
+ */
 export const FIGHTER_INVENTORY: readonly InventoryGroup[] = [
   {
     placement: InventoryPlacement.Worn,
     lines: [
       line('armor', 'Leather Armor', { bulk: ONE_BULK }),
+      line('cloak', 'Cloak of Elvenkind', { invested: true }),
       line('backpack', 'Backpack', {
         bulk: BulkWeight.Negligible,
         contents: [
@@ -40,7 +46,7 @@ export const FIGHTER_INVENTORY: readonly InventoryGroup[] = [
       }),
     ],
   },
-  { placement: InventoryPlacement.Held, lines: [line('longsword', 'Longsword', { bulk: ONE_BULK })] },
+  { placement: InventoryPlacement.Held, lines: [line('longsword', 'Longsword', { bulk: ONE_BULK, hands: 1 })] },
   {
     placement: InventoryPlacement.Stowed,
     lines: [
@@ -49,4 +55,5 @@ export const FIGHTER_INVENTORY: readonly InventoryGroup[] = [
       line('lost', undefined, { bulk: undefined }),
     ],
   },
+  { placement: InventoryPlacement.Dropped, lines: [line('shield', 'Steel Shield', { bulk: ONE_BULK })] },
 ];

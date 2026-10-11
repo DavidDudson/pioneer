@@ -17,4 +17,6 @@ export { type ClassFeatureLine } from './lib/class-features/class-feature-line';
 export { ClassFeaturesView } from './lib/class-features/class-features.component';
 export { type InventoryGroup, type InventoryLine, InventoryPlacement } from './lib/inventory/inventory-line';
 export { InventoryView } from './lib/inventory/inventory.component';
+export { type Investment, type InvestmentEffect } from './lib/inventory/investments/investment';
+export { InvestmentsView } from './lib/inventory/investments/investments.component';
 export { type InventoryLineContext } from './lib/inventory/inventory-row/inventory-row.component';

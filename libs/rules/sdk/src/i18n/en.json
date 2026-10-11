@@ -565,7 +565,8 @@
       "placement": {
         "worn": "Worn",
         "held": "Held",
-        "stowed": "Stowed"
+        "stowed": "Stowed",
+        "dropped": "Dropped"
       },
       "quantity": "× {quantity}",
       "bulk": "Bulk {bulk}",
@@ -574,7 +575,18 @@
       "bulkLight": "L",
       "bulkNegligible": "—",
       "contentName": "({name})",
-      "unknownItem": "An item no loaded content has"
+      "unknownItem": "An item no loaded content has",
+      "hands": "{count, plural, one {in # hand} other {in # hands}}",
+      "invested": "Invested"
+    },
+    "investments": {
+      "meter": "Invested items",
+      "count": "{count} of {maximum} invested",
+      "none": "Nothing invested.",
+      "off": "Not worn or held, so it does nothing.",
+      "nothingShown": "Nothing it turns on shows on the sheet yet.",
+      "effect": "{statistic} {value}",
+      "effectMarked": "{statistic} {value} ({status})"
     }
   }
 }
