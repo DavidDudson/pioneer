@@ -9,13 +9,14 @@ const PACK = 'player-core';
 const prose = (words: string): unknown[] => [{ type: 'paragraph', content: [{ type: 'text', text: words }] }];
 
 /** A Player Core entry's JSON, as a pack file holds it. */
-function entry(slug: string, kind: string, data: object): object {
+function entry(name: string, kind: string, data: object): object {
+  const slug = `${kind}:${name}`;
   return {
     id: contentId(PackId.parse(PACK), EntrySlug.parse(slug)),
     pack: PACK,
     slug,
     kind,
-    name: slug,
+    name,
     rarity: 'common',
     traits: [],
     sources: [{ kind: 'book', book: 'player-core', page: 1 }],
