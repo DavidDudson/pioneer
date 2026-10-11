@@ -70,9 +70,10 @@ answers 500, never a 422 that blames the request.
 ### Choice slots
 
 The engine produces the list of open slots from content: `ancestry`, `heritage`, `background`, `class`,
-`boost:1:ancestry:0`, `flaw:1:ancestry:0` (a voluntary flaw, optional), `feat:class:2`, `skill-training:1:0`, `skill-increase:3`,
-`choice:<entry>:<flag>` for a `ChoiceSet` on any granted item. Each slot has its origin, its allowed options (a
-predicate over content, e.g. "level ≤ 2 fighter feats you meet the prerequisites of"), and its current selection.
+`boost:1:ancestry:0`, `flaw:1:ancestry:0` (a voluntary flaw, optional), `feat:class:2`, `skill-training:1:0`,
+`skill-increase:3`, `language:1:0`, `choice:<entry>:<flag>` for a `ChoiceSet` on any granted item. Each slot has its
+origin, its allowed options (a predicate over content, e.g. "level ≤ 2 fighter feats you meet the prerequisites of"),
+and its current selection.
 
 The character stores `SlotKey → Selection` only. Consequences:
 
@@ -202,6 +203,36 @@ picked rank for each skill.
 
 The sheet's Skills section lists every skill and Lore with its total, and a picker for each trained skill and skill
 increase up to the character's level.
+
+### Languages
+
+Languages are never stored either: the ancestry's `languages` and the `Language` elements of what the character has
+grant theirs, and the player picks the rest ([#470](https://github.com/DavidDudson/pioneer/issues/470),
+[ADR-0043](../adr/0043-languages-are-a-rule-element-and-domain-slots.md)). A pick is a `language` entry. Once an
+ancestry is picked:
+
+- **The ancestry's and Intelligence's** (`language:<level>:<n>`): at 1st level, the ancestry's
+  `additionalLanguages.count` plus the Intelligence modifier if positive, and one more for each point a boost raises a
+  positive Intelligence modifier past the highest it was, at its level. Each offers the common languages and the
+  ancestry's `additionalLanguages.options`.
+- **A feature's** (`language:<entry>:<rule>:<n>`): a `Language` element's `slots`, from the lowest level its entry is
+  on the character and its predicate holds. The predicate reads the character's skill ranks at that level as Foundry
+  writes them (`skill:society:rank:3`), so Multilingual's slot at master in Society opens when a skill increase gets
+  there. Each offers the ancestry's list and the languages no rarer than the element's `access` (common when absent;
+  Multilingual's uncommon).
+
+The slots are read in order by level, each over the languages known at its level and the picks before it, then over
+what features grant at the character's level and every other slot's pick. A slot offers the languages not known yet;
+`selectSlot` refuses one known already (`character.validation.languageKnown`) and one rarer than it offers
+(`character.validation.selectionNotOffered`). A pick its slot no longer offers reads invalid and counts for nothing,
+as does one a feature taken since now grants; its slot is open again. A pick past the slots the character has
+(Intelligence lowered, a feat removed) reads hidden.
+
+The sheet's answer carries the languages as the server reads them (`CharacterSheet.languages`): each one known at the
+character's level with the ancestry or feature it came from, or the slot of a pick; how many slots up to that level are
+open (empty, or holding a pick that counts for nothing); and the next of them with what it offers. The sheet's
+Languages section lists them, removes a pick, and has Add language while slots are open, which fills the next one;
+each saves in place, and focus stays in the section.
 
 ### Archetype dedications
 

@@ -32,7 +32,7 @@ const UNKNOWN_LABEL = 'rules.choices.slot.unknown';
 /** Slots whose pick is an attribute. */
 const ATTRIBUTE_SUBJECTS: ReadonlySet<SlotSubjectKind> = new Set([SlotSubjectKind.Boost, SlotSubjectKind.Flaw]);
 
-/** "Ancestry", "Level 5 boost", "Voluntary flaw", "Level 3 skill increase", "Elf: Skill" ("Elf choice" without a prompt). */
+/** "Ancestry", "Level 5 boost", "Voluntary flaw", "Level 3 skill increase", "Language from Multilingual", "Elf: Skill" ("Elf choice" without a prompt). */
 function labelOf(subject: SlotSubject | undefined): MessageDescriptor {
   switch (subject?.kind) {
     case SlotSubjectKind.Root: {
@@ -46,6 +46,11 @@ function labelOf(subject: SlotSubject | undefined): MessageDescriptor {
     }
     case SlotSubjectKind.Skill: {
       return message(SKILL_SLOT_LABEL_KEYS[subject.source], { level: subject.level });
+    }
+    case SlotSubjectKind.Language: {
+      return subject.entryName === undefined
+        ? message('rules.choices.slot.language', { level: subject.level })
+        : message('rules.choices.slot.languageFrom', { entry: subject.entryName });
     }
     case SlotSubjectKind.Choice: {
       if (subject.entryName === undefined) {

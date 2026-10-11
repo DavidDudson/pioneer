@@ -47,6 +47,7 @@ Accepted. To change a decision, add a new ADR that supersedes the old one; do no
 | [0040](0040-spellcasting-entries-are-rule-elements.md)        | Spellcasting entries are rule elements                                            |
 | [0041](0041-spell-slots-are-rule-elements.md)                 | Spell slots are rule elements                                                     |
 | [0042](0042-etched-runes-stored-over-content.md)              | Etched runes are stored on the inventory item, over the content's                 |
+| [0043](0043-languages-are-a-rule-element-and-domain-slots.md) | Languages are a rule element, their slots opened by the character domain          |
 
 Template:
 

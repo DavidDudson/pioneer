@@ -1,6 +1,9 @@
 import { argsToTemplate } from '@analogjs/storybook-angular';
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
+import { LucideX } from '@lucide/angular';
+import { expect, within } from 'storybook/test';
 
+import { Icon } from '../../icon/icon.component';
 import { failSlowly, succeedSlowly } from '../../testing/story-actions';
 import { Size } from '../../tokens';
 import { ButtonType, ButtonVariant } from '../button/button.component';
@@ -67,5 +70,18 @@ export const AsksFirst: AsyncButtonStory = {
     confirmLabel: 'Remove Ezren? Press again',
     pendingLabel: 'Removing',
     successLabel: 'Removed',
+  },
+};
+
+/** A square icon button, named by its `ariaLabel`: a remove beside a list row. */
+export const IconOnly: AsyncButtonStory = {
+  args: { variant: ButtonVariant.Ghost, iconOnly: true, ariaLabel: 'Remove Goblin' },
+  render: ({ label: _label, ...args }) => ({
+    props: { ...args, remove: LucideX },
+    template: `<fr-async-button ${argsToTemplate(args)}><fr-icon [icon]="remove" /></fr-async-button>`,
+    moduleMetadata: { imports: [Icon] },
+  }),
+  play: async ({ canvasElement }) => {
+    await expect(within(canvasElement).getByRole('button', { name: 'Remove Goblin' })).toBeVisible();
   },
 };

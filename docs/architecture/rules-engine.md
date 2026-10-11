@@ -421,9 +421,11 @@ selector, weapon and armour categories included (`attack:martial`), standing in 
 as a variant rule does (ADR-0026). `MartialProficiency` keeps Foundry's schema and defaults: a new proficiency for the
 weapons or armour a predicate defines, whose rank can follow a category's (`sameAs`) up to `maxRank`. From the
 Defences group, `Immunity`, `Weakness` and `Resistance` are in the SDK too (see "Defences" below), and from the
-Creature group `Sense` (see "Senses" below). The Checks, Strikes and Actions groups, and the rest of Defences and
-Creature, land with their Epic 2.6 translator stories, so each schema arrives with the Foundry content that exercises
-it.
+Creature group `Sense` (see "Senses" below) and `Language`: it grants languages and opens slots to pick them in, each
+offering languages no rarer than its `access`, standing in for Foundry's `subfeatures.languages` and its
+`ActiveEffectLike` on `system.build.languages.max` (ADR-0043). The Checks, Strikes and Actions groups, and the rest of
+Defences and Creature, land with their Epic 2.6 translator stories, so each schema arrives with the Foundry content
+that exercises it.
 
 `SpellcastingEntry` is Pioneer's own too ([ADR-0040](../adr/0040-spellcasting-entries-are-rule-elements.md)): Foundry
 has no element for an entry, which its player adds by hand. While its predicate holds it gives the character an entry

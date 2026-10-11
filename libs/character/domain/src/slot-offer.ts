@@ -4,17 +4,25 @@ import type { NamespaceTable } from '@pioneer/rules/predicate';
 import { Level, SlotKey } from '@pioneer/rules/sdk';
 import type { ChoiceValue, ContentRegistry } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
-import type { MessageDescriptor, ValueOf } from '@pioneer/shared/kernel';
 
-import { boostContent, boostSets, flawSlots } from './attribute-boosts';
-import type { BoostContent, BoostSet, BoostSlot, FlawSlot } from './attribute-boosts';
+import { boostContent } from './attribute-boosts';
+import type { BoostContent } from './attribute-boosts';
 import type { CharacterDocument } from './character-document';
 import { CHARACTER_LEVEL_MAX, CHARACTER_LEVEL_MIN } from './character-fields';
 import { CHARACTER_ROOT_SLOTS } from './character-slots';
+import { languageContent } from './language-content';
+import type { LanguageContent } from './language-content';
+import type { LanguageReads } from './language-levels';
+import { LanguagePickProblem, languageSlots, problemOf } from './languages';
+import type { LanguageSlot } from './languages';
 import { skillContent } from './skill-content';
 import type { SkillContent } from './skill-content';
 import { SkillSlotKind, skillSlots } from './skill-training';
 import type { GrantsAt, SkillReads, SkillSlot } from './skill-training';
+import { boostRefusal, boostSlotIn, flawRefusal, flawSlotIn, NOT_OFFERED, SlotRefusalField } from './slot-refusals';
+import type { SlotRefusal } from './slot-refusals';
+
+export { SlotRefusalField, type SlotRefusal } from './slot-refusals';
 
 /** A selection for a slot, as `selectSlot` asks for it. */
 export interface SlotPick {
@@ -24,13 +32,14 @@ export interface SlotPick {
 
 /**
  * The content a slot's offer is read from: entries by id and kind, how roll option namespaces read, and the boosts
- * of each ancestry, background and class, and the skills and Lores a skill slot offers.
+ * of each ancestry, background and class, the skills and Lores a skill slot offers, and the languages.
  */
 export interface SlotContent {
   readonly lookup: ContentLookup;
   readonly namespaces: NamespaceTable;
   readonly boosts: BoostContent;
   readonly skills: SkillContent;
+  readonly languages: LanguageContent;
 }
 
 /** The slot content a registry gives. */
@@ -40,17 +49,8 @@ export function slotContent(registry: ContentRegistry): SlotContent {
     namespaces: registry.rollOptionNamespaces(),
     boosts: boostContent(registry),
     skills: skillContent(registry),
+    languages: languageContent(registry),
   };
-}
-
-/** The part of a pick a refusal blames. */
-export const SlotRefusalField = { Slot: 'slot', Selection: 'selection' } as const;
-export type SlotRefusalField = ValueOf<typeof SlotRefusalField>;
-
-/** Why a pick is refused, and which part of it is wrong. */
-export interface SlotRefusal {
-  readonly field: SlotRefusalField;
-  readonly message: MessageDescriptor;
 }
 
 /** What slots are read against: the character's picks and the content. */
@@ -112,61 +112,15 @@ export function skillReads(document: CharacterDocument, content: SlotContent): S
   return { skills: content.skills, boosts: content.boosts, grantsAt };
 }
 
+/** What language slots read: the languages content and namespaces, and the skill reads, grants resolved once. */
+export function languageReads(document: CharacterDocument, content: SlotContent): LanguageReads {
+  return { languages: content.languages, namespaces: content.namespaces, skills: skillReads(document, content) };
+}
+
 /** Every character level, highest first: most slots are open at 20th, so a valid pick is usually found at once. */
 function levelsDown(): Level[] {
   const count = CHARACTER_LEVEL_MAX - CHARACTER_LEVEL_MIN + 1;
   return Array.from({ length: count }, (_unused, index) => Level.parse(CHARACTER_LEVEL_MAX - index));
-}
-
-const NOT_OFFERED: SlotRefusal = {
-  field: SlotRefusalField.Selection,
-  message: message('character.validation.selectionNotOffered'),
-};
-
-/** The boost slot `slot` and its set, if it is one the character has. */
-interface BoostSlotIn {
-  readonly set: BoostSet;
-  readonly boost: BoostSlot;
-}
-
-function boostSlotIn(document: CharacterDocument, boosts: BoostContent, slot: SlotKey): BoostSlotIn | undefined {
-  for (const set of boostSets(document, boosts)) {
-    const boost = set.slots.find((each) => each.key === slot);
-    if (boost !== undefined) {
-      return { set, boost };
-    }
-  }
-  return undefined;
-}
-
-/** Why `selection` can't go in the boost slot: its boost must allow it, and no other boost of its set raise it. */
-function boostRefusal({ set, boost }: BoostSlotIn, selection: ChoiceValue): SlotRefusal | undefined {
-  if (!boost.options.some((attribute) => attribute === selection)) {
-    return NOT_OFFERED;
-  }
-  const taken = set.slots.some((other) => other.key !== boost.key && other.pick === selection);
-  return taken ? { field: SlotRefusalField.Selection, message: message('character.validation.boostTaken') } : undefined;
-}
-
-/** The voluntary flaw slot `slot` and the character's other flaw slots, if it is one the character has. */
-interface FlawSlotIn {
-  readonly slots: readonly FlawSlot[];
-  readonly flaw: FlawSlot;
-}
-
-function flawSlotIn(document: CharacterDocument, boosts: BoostContent, slot: SlotKey): FlawSlotIn | undefined {
-  const slots = flawSlots(document, boosts);
-  const flaw = slots.find((each) => each.key === slot);
-  return flaw === undefined ? undefined : { slots, flaw };
-}
-
-/** Why `selection` can't go in the flaw slot: neither the ancestry nor another voluntary flaw may lower it already. */
-function flawRefusal({ slots, flaw }: FlawSlotIn, selection: ChoiceValue): SlotRefusal | undefined {
-  if (!flaw.options.some((attribute) => attribute === selection)) {
-    return NOT_OFFERED;
-  }
-  const taken = slots.some((other) => other.key !== flaw.key && other.pick === selection);
-  return taken ? { field: SlotRefusalField.Selection, message: message('character.validation.flawTaken') } : undefined;
 }
 
 /** The refusal for each reason a loaded skill isn't on offer. */
@@ -200,6 +154,40 @@ function skillSlotIn(document: CharacterDocument, content: SlotContent, slot: Sl
   return skillSlots(without, skillReads(without, content)).find((each) => each.key === slot);
 }
 
+/** Every language slot's key starts so: `language:1:0`, `language:<entry>:<rule>:0`. */
+const LANGUAGE_SLOT_PREFIX = 'language:';
+
+/** The refusal for each reason a loaded language isn't on offer. */
+const LANGUAGE_REFUSALS: Readonly<Record<LanguagePickProblem, SlotRefusal>> = {
+  [LanguagePickProblem.Known]: {
+    field: SlotRefusalField.Selection,
+    message: message('character.validation.languageKnown'),
+  },
+  [LanguagePickProblem.Rare]: NOT_OFFERED,
+};
+
+/**
+ * Why `selection` can't go in the language slot, read with the slot itself empty: a language the character doesn't
+ * know yet, no rarer than the slot offers unless the ancestry lists it.
+ */
+function languageRefusal(slot: LanguageSlot, content: SlotContent, selection: ChoiceValue): SlotRefusal | undefined {
+  const named = content.languages.language(selection);
+  if (named === undefined) {
+    return NOT_OFFERED;
+  }
+  if (slot.options.some((language) => language.id === named.id)) {
+    return undefined;
+  }
+  return LANGUAGE_REFUSALS[problemOf(named, slot.known)];
+}
+
+/** The language slot `slot`, read with its own pick left out, if it is one the character has at some level. */
+function languageSlotIn(document: CharacterDocument, content: SlotContent, slot: SlotKey): LanguageSlot | undefined {
+  const { [slot]: _own, ...choices } = document.build.choices;
+  const without: CharacterDocument = { ...document, build: { ...document.build, choices } };
+  return languageSlots(without, languageReads(without, content)).find((each) => each.key === slot);
+}
+
 /**
  * Why `selection` can't go in `slot`, a root or `ChoiceSet` slot: it must be open at some level up to 20, and offer
  * `selection` there. The slot's own pick is left out, so it is checked as if empty; the other picks stay, so a slot an
@@ -229,7 +217,7 @@ function grantRefusal(
 /**
  * Why `selection` can't go in `slot`, or undefined when it can. A boost slot takes an attribute its boost allows and
  * no other boost of its set raises; a voluntary flaw slot, one neither its ancestry nor another flaw lowers; a skill
- * slot, a skill or Lore it may train or raise. Any other slot must offer `selection` at some level up to 20.
+ * slot, a skill or Lore it may train or raise; a language slot, a language not known yet that it offers. Any other slot must offer `selection` at some level up to 20.
  */
 export function slotRefusal(
   document: CharacterDocument,
@@ -245,9 +233,15 @@ export function slotRefusal(
     return flawRefusal(flaw, pick.selection);
   }
   const skill = skillSlotIn(document, content, pick.slot);
-  return skill === undefined
+  if (skill !== undefined) {
+    return skillRefusal(skill, content.skills, pick.selection);
+  }
+  const language = pick.slot.startsWith(LANGUAGE_SLOT_PREFIX)
+    ? languageSlotIn(document, content, pick.slot)
+    : undefined;
+  return language === undefined
     ? grantRefusal(document, content, pick)
-    : skillRefusal(skill, content.skills, pick.selection);
+    : languageRefusal(language, content, pick.selection);
 }
 
 /**

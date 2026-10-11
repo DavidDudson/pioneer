@@ -112,6 +112,8 @@ Lists of attributes, slugs and ids name each item once.
   lists up to four, a background two (Farmhand: Constitution or Wisdom, then free). `flaws` are fixed attributes.
 - **Languages.** `languages` and `additionalLanguages.options` are `language` entries by `ContentId`;
   `additionalLanguages.count` is the number picked beyond those granted, before the Intelligence modifier.
+  A feat, heritage or class feature teaches languages with `Language` elements, which the character model reads
+  (character-model.md, "Languages").
   `vision` is the `sense` entry an ancestry sees with (darkvision, low-light vision), absent for ordinary vision.
 - **Class progression.** Perception, save, attack, defence, skill and class DC ranks are `Proficiency` elements,
   later ranks behind a level predicate (`{ "gte": ["self:level", 7] }`). Each class feature is a `GrantItem`, and
@@ -594,8 +596,10 @@ flowchart LR
     `ChoiceSet` (a filter of `item:tag:` terms alone, with a `GrantItem` of `{item|flags.system.rulesSelections.<flag>}`)
     becomes a class-feature query and a grant of its pick, its camel-case flag a slug.
     Feature categories with no kind (`ancestryfeature`, `calling`, and the rest) are reported and have no data;
-    a feat's or class feature's `subfeatures.senses` become `Sense` elements, as a `Sense` rule does (below); its
-    other `subfeatures` (proficiencies, key attribute options, languages) are reported by name
+    a feat's or class feature's `subfeatures.senses` become `Sense` elements, as a `Sense` rule does (below), and its
+    `subfeatures.languages` a `Language` element, as does an `ActiveEffectLike` adding a whole number to
+    `system.build.languages.max` (one adding a formula stays in the backlog), with no `access`, so common until set by
+    hand; its other `subfeatures` (proficiencies, key attribute options) are reported by name
     (`subfeatures.proficiencies`).
   - Player Core's casters get their spellcasting entries and rank raises by entry slug, since Foundry records neither
     ([ADR-0040](../adr/0040-spellcasting-entries-are-rule-elements.md)): a `SpellcastingEntry` on the bard, cleric,

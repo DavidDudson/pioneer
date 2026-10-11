@@ -72,19 +72,28 @@ const MERISIEL_SLOTS = [
 ];
 
 /** Merisiel as the server sends her sheet. */
-function sheetOf(character: object, slots: readonly object[] = MERISIEL_SLOTS): object {
-  return { character, slots };
+/** A sheet's languages before an ancestry grants any: none known, none to add. */
+const NO_LANGUAGES = { known: [], open: 0 } as const;
+
+function sheetOf(
+  character: object,
+  slots: readonly object[] = MERISIEL_SLOTS,
+  languages: object = NO_LANGUAGES,
+): object {
+  return { character, slots, languages };
 }
 
 /** What else a sheet opens with: the slots the server read, and the content packs served. */
 export interface SheetOptions {
   readonly slots?: readonly object[];
+  /** The languages the server read; none by default. */
+  readonly languages?: object;
   readonly packs?: readonly PackContentsLoader[];
 }
 
 /** The server's answer to an edit of Merisiel: her sheet, and the picks the edit cleared. */
 export function patchedOf(character: object, slots: readonly object[], cleared: readonly object[] = []): object {
-  return { character, slots, cleared };
+  return { character, slots, cleared, languages: NO_LANGUAGES };
 }
 
 export function present<TValue>(value: TValue | null | undefined): TValue {
@@ -100,7 +109,10 @@ export interface OpenSheet {
 }
 
 /** Opens Merisiel's sheet (or `character`'s) in the document, so focus can move, and waits until it has loaded. */
-export async function openSheet(character: object = MERISIEL, { slots, packs }: SheetOptions = {}): Promise<OpenSheet> {
+export async function openSheet(
+  character: object = MERISIEL,
+  { slots, packs, languages }: SheetOptions = {},
+): Promise<OpenSheet> {
   await prebuildServerStateTesting([], packs);
   TestBed.configureTestingModule({
     providers: [
@@ -119,7 +131,9 @@ export async function openSheet(character: object = MERISIEL, { slots, packs }: 
     host.remove();
   });
   await vi.waitFor(() => {
-    TestBed.inject(HttpTestingController).expectOne(`/api/characters/${id}`).flush(sheetOf(character, slots));
+    TestBed.inject(HttpTestingController)
+      .expectOne(`/api/characters/${id}`)
+      .flush(sheetOf(character, slots, languages));
   });
   const root = present(harness.routeNativeElement);
   await vi.waitFor(async () => {

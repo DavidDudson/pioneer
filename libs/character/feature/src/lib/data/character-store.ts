@@ -4,6 +4,7 @@ import { CharacterContract, CharacterPatchField } from '@pioneer/character/domai
 import type {
   Character,
   CharacterId,
+  CharacterLanguages,
   CharacterPatch,
   CharacterSheet,
   CharacterSlot,
@@ -69,6 +70,9 @@ export class CharacterStore {
 
   /** Every slot of the open character with its status, as the server read it; `undefined` while loading. */
   public readonly slots: Signal<readonly CharacterSlot[] | undefined> = computed(() => this.#current()?.slots);
+
+  /** The open character's languages, as the server read them; `undefined` while loading. */
+  public readonly languages: Signal<CharacterLanguages | undefined> = computed(() => this.#current()?.languages);
 
   public select(id: CharacterId): void {
     if (id !== this.#selectedId()) {

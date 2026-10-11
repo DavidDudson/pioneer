@@ -30,8 +30,19 @@ export {
 export { characterSpellcasting } from './spellcasting-build';
 export { CharacterSlot, SlotInvalidMessage, SlotStatus, SlotSubject, SlotSubjectKind } from './character-slot';
 export { characterSlots } from './character-slot-status';
+export { CharacterLanguages, characterLanguages, SheetLanguage } from './character-languages';
 export { type SkillContent, skillContent, type SkillOption } from './skill-content';
 export { type SkillSlot, SkillSlotKind, skillSlots } from './skill-training';
+export { type LanguageContent, languageContent, type LanguageOption } from './language-content';
+export {
+  type KnownLanguage,
+  type LanguageSlot,
+  LanguageSource,
+  knownLanguages,
+  languageSlots,
+  openLanguageSlots,
+} from './languages';
+export { type LanguageFeature, type LanguageReads } from './language-levels';
 export {
   type SlotContent,
   slotContent,
@@ -40,6 +51,7 @@ export {
   SlotRefusalField,
   slotRefusal,
   rootSlotOptions,
+  languageReads,
   skillReads,
 } from './slot-offer';
 export {

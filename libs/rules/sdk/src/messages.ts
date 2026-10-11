@@ -15,6 +15,7 @@ export const RulesMessage = {
   SuboptionsNeedToggle: 'rules.element.suboptionsNeedToggle',
   AdjustModeOrSuppress: 'rules.element.adjustModeOrSuppress',
   SpellcastingSlugLength: 'rules.element.spellcastingSlugLength',
+  LanguageGrantOrSlots: 'rules.element.languageGrantOrSlots',
   UnknownReference: 'rules.formula.unknownReference',
   FoundryReference: 'rules.formula.foundryReference',
   ReferenceOutOfScope: 'rules.formula.referenceOutOfScope',

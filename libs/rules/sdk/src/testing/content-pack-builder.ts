@@ -32,6 +32,8 @@ interface EnvelopeFields {
   readonly level?: number;
   /** Its traits; none when absent. */
   readonly traits?: readonly string[];
+  /** Common when absent. */
+  readonly rarity?: string;
 }
 
 /** An item's kind `data`, with the traits (`invested`) and rule elements as JSON a magic item has. */
@@ -132,6 +134,12 @@ export class ContentPackBuilder {
     return this;
   }
 
+  /** A language of `rarity`, slugged `language:<name>`, as the core rules pack has them. */
+  public withLanguage(name: string, rarity = 'common'): this {
+    this.#entries.push({ kind: ContentKind.Language, name, data: {}, rarity });
+    return this;
+  }
+
   /** A skill feat. */
   public withFeat(name: string): this {
     this.#entries.push({ kind: ContentKind.Feat, name, data: { category: 'skill' }, level: 1 });
@@ -211,13 +219,13 @@ export class ContentPackBuilder {
       creatures: this.#creatures.map((creature) => ({ sources, ...creature })),
       statistics: this.#statistics.map((statistic) => ({ sources, ...statistic })),
       rollOptionNamespaces: this.#namespaces,
-      otherEntries: this.#entries.map(({ kind, name, data, rules = [], level, traits = [] }) => ({
+      otherEntries: this.#entries.map(({ kind, name, data, rules = [], level, traits = [], rarity = 'common' }) => ({
         id: this.idOf(kind, name),
         pack: this.#id,
         kind,
         slug: `${kind}:${name}`,
         name: name.charAt(0).toUpperCase() + name.slice(1),
-        rarity: 'common',
+        rarity,
         traits,
         sources,
         description: [],
