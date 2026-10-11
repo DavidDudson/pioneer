@@ -134,7 +134,7 @@ export const keenEyes = {
   rules: [
     {
       key: 'FlatModifier',
-      selector: 'perception',
+      selectors: ['perception'],
       type: 'circumstance',
       value: 2,
       predicate: ['action:seek', { or: ['target:condition:hidden', 'target:condition:undetected'] }],

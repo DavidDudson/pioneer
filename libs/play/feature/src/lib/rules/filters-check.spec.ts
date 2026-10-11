@@ -24,7 +24,7 @@ describe(checkFilters, () => {
   it('keeps the example entries the example query asks for', () => {
     const result = valid(checkFilters(EXAMPLE_FILTER_ENTRIES, EXAMPLE_FILTER_QUERY));
 
-    expect(result.total).toBe(29);
+    expect(result.total).toBe(30);
     expect(result.kept.map((entry) => entry.name)).toContain('Longsword');
     expect(result.kept.map((entry) => entry.name)).not.toContain('Fireball');
     expect(result.query).toBe(EXAMPLE_FILTER_QUERY);

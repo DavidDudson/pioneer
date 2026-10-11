@@ -9,7 +9,7 @@ import { ChoiceValue, ContentKind, ContentRegistry, Level, RollOption, Selector,
 import { ContentPackBuilder, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
 
 import { ANCESTRY_SLOT, HERITAGE_SLOT } from './character-slots';
-import { grantedRules } from './class-build';
+import { grantedRules } from './granted-rules';
 import { resolveSlotsAt, slotContent } from './slot-offer';
 
 /** Keen Eyes, as Player Core has it: +2 circumstance to Seek hidden or undetected creatures within 30 feet. */
@@ -88,7 +88,7 @@ describe('ancestry features', () => {
     ]);
   });
 
-  test("a heritage granting Keen Eyes gives the character its Seek bonus, only while Seeking a hidden creature", () => {
+  test('a heritage granting Keen Eyes gives the character its Seek bonus, only while Seeking a hidden creature', () => {
     const resolution = grantsOf({
       [ANCESTRY_SLOT]: pack.idOf(ContentKind.Ancestry, 'human'),
       [HERITAGE_SLOT]: pack.idOf(ContentKind.Heritage, 'sharp-eyed-human'),
@@ -96,8 +96,11 @@ describe('ancestry features', () => {
     const seeking = perception(resolution, ['action:seek', 'target:distance:20', 'target:condition:hidden']);
     const tooFar = perception(resolution, ['action:seek', 'target:distance:40', 'target:condition:hidden']);
 
-    expect(seeking).toMatchObject({ ok: true, total: KEEN_EYES_BONUS });
-    expect(seeking?.ok === true && seeking.lines.map(({ status }) => status.kind)).toEqual([LineStatusKind.Applied]);
+    expect(seeking).toMatchObject({
+      ok: true,
+      total: KEEN_EYES_BONUS,
+      lines: [{ status: { kind: LineStatusKind.Applied } }],
+    });
     expect(tooFar).toMatchObject({ ok: true, total: 0 });
   });
 
