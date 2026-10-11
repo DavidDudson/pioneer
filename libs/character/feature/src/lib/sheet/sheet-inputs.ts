@@ -2,6 +2,8 @@ import {
   attributeModifiers,
   boostContent,
   buildRanks,
+  characterGrants,
+  characterSpellcasting,
   classContent,
   classInputs,
   equippedInputs,
@@ -34,6 +36,7 @@ function readInputs(registry: ContentRegistry, character: Character): StatisticI
     level: character.level,
     attributes: attributeModifiers(character.document, boostContent(registry)),
     ranks: buildRanks(character.document, sheetSlotContent(registry)),
+    spellcasting: characterSpellcasting(characterGrants(character.document, sheetSlotContent(registry))),
     ...ancestryInputs(registry, character),
     ...classInputsOf(registry, character),
     ...equippedInputs(character.document.inventory, itemContent(registry)),
@@ -45,8 +48,9 @@ const READ = new WeakMap<ContentRegistry, WeakMap<Character, StatisticInputs>>()
 
 /**
  * What the engine reads of a character so far: level, the modifiers its boosts give, the ranks its class, background,
- * features and skill picks raise, what its ancestry and class give, and its worn armour and held weapons when the
- * registry holds the item kinds. Read once per registry and character.
+ * features and skill picks raise, what its ancestry and class give, the spellcasting entries its spell attacks and DCs
+ * are derived for, and its worn armour and held weapons when the registry holds the item kinds. Read once per registry
+ * and character.
  */
 export function statisticInputsOf(registry: ContentRegistry, character: Character): StatisticInputs {
   const byCharacter = READ.get(registry) ?? new WeakMap<Character, StatisticInputs>();

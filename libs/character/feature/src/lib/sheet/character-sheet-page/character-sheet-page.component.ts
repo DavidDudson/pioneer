@@ -54,6 +54,7 @@ import {
   ChoicesView,
   ClassFeaturesView,
   DefencesView,
+  SpellcastingView,
   StatisticsView,
 } from '@pioneer/rules/ui';
 import type { Investment } from '@pioneer/rules/ui';
@@ -72,6 +73,7 @@ import { carriesAnything, EQUIPMENT_CONTENT_KINDS, sheetInvestments } from '../s
 import { sheetField } from '../sheet-field';
 import { SHEET_SECTION_ORDER, SHEET_SECTIONS } from '../sheet-sections';
 import { SheetSkillFields } from '../sheet-skill-fields/sheet-skill-fields.component';
+import { sheetSpellcasting } from '../sheet-spellcasting';
 
 /** Focuses an inline field by its read view's button, which scrolls it into view. */
 function focusField(field: ElementRef<HTMLElement>): void {
@@ -114,6 +116,7 @@ function focusField(field: ElementRef<HTMLElement>): void {
     SheetSkillFields,
     Skeleton,
     Stack,
+    SpellcastingView,
     StatisticsView,
     Surface,
     Text,
@@ -177,6 +180,11 @@ export class CharacterSheetPage {
     return registry === undefined || character === undefined || statistics === undefined
       ? undefined
       : sheetInvestments(character, itemContent(registry), statistics);
+  });
+  protected readonly spellcasting = computed(() => {
+    const registry = this.registry.data();
+    const character = this.character();
+    return registry === undefined || character === undefined ? undefined : sheetSpellcasting(registry, character);
   });
   /** Names for the entries the defences and statistics lines come from. */
   protected readonly entryNames = computed((): ReadonlyMap<ContentId, string> => {
