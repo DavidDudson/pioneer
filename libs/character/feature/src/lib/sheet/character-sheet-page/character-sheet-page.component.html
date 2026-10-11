@@ -138,6 +138,15 @@
       <pio-choices [lines]="picks.choices()" />
     </fr-section>
 
+    <fr-section [anchor]="sections.spellcasting.anchor" [heading]="sections.spellcasting.headingKey | transloco">
+      <fr-async-region>
+        <ng-template frAsyncPending><pio-spellcasting [entries]="undefined" /></ng-template>
+        <ng-template [frAsyncData]="registry"
+          ><pio-spellcasting [entries]="picks.spellcasting()" [entryNames]="entryNames()"
+        /></ng-template>
+      </fr-async-region>
+    </fr-section>
+
     <fr-section [anchor]="sections.features.anchor" [heading]="sections.features.headingKey | transloco">
       <pio-class-features [lines]="picks.features()" />
     </fr-section>

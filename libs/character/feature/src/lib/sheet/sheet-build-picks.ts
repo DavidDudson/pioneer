@@ -5,7 +5,7 @@ import type { InlineEdit, SelectOption } from '@pioneer/frontier';
 import { ChoiceValue } from '@pioneer/rules/sdk';
 import type { ContentRegistry, SlotKey } from '@pioneer/rules/sdk';
 import { ATTRIBUTE_MESSAGES } from '@pioneer/rules/ui';
-import type { BuildLine, ChoiceLine, ClassFeatureLine, NamedStatistic } from '@pioneer/rules/ui';
+import type { BuildLine, ChoiceLine, ClassFeatureLine, NamedStatistic, SpellcastingEntryLine } from '@pioneer/rules/ui';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 import {
@@ -21,6 +21,7 @@ import type { SheetKeyAttribute, SheetSubclass } from './sheet-build';
 import { sheetChoices } from './sheet-choices';
 import { sheetField } from './sheet-field';
 import { sheetSkills, sheetSkillSlots } from './sheet-skills';
+import { sheetSpellcasting } from './sheet-spellcasting';
 import { sheetStatistics } from './sheet-statistics';
 
 /** What the build picks read and write through. */
@@ -41,7 +42,17 @@ export interface BuildPickSources {
  * attribute the class asks for, each shown only when the class has it, and what the build summary and class features
  * list show, and the Choices section's lines.
  */
-export interface BuildPicks {
+/** What the sheet reads from the engine, over the registry with the item kinds once anything is carried. */
+interface EngineReads {
+  /** AC, the saves and Perception from the engine; undefined while the character or the content loads. */
+  readonly statistics: Signal<readonly NamedStatistic[] | undefined>;
+  /** Every skill and Lore with what the engine derives for it; undefined while the character or the content loads. */
+  readonly skills: Signal<readonly NamedStatistic[] | undefined>;
+  /** Each spellcasting entry with its spell attack and DC; undefined while the character or the content loads. */
+  readonly spellcasting: Signal<readonly SpellcastingEntryLine[] | undefined>;
+}
+
+export interface BuildPicks extends EngineReads {
   /** The picker options of one of the character's own slots; none while it or the content loads. */
   readonly rootOptions: (slot: SlotKey) => Signal<readonly SelectOption<string>[]>;
   /** One of the character's own slots as an inline pick, named by `options`. */
@@ -65,10 +76,6 @@ export interface BuildPicks {
   readonly buildLines: Signal<readonly BuildLine[] | undefined>;
   /** Every choice with its status, as the server read the slots; undefined while the character loads. */
   readonly choices: Signal<readonly ChoiceLine[] | undefined>;
-  /** AC, the saves and Perception from the engine; undefined while the character or the content loads. */
-  readonly statistics: Signal<readonly NamedStatistic[] | undefined>;
-  /** Every skill and Lore with what the engine derives for it; undefined while the character or the content loads. */
-  readonly skills: Signal<readonly NamedStatistic[] | undefined>;
   /** One pick per trained skill and skill increase up to the character's level, in the order they are read. */
   readonly skillFields: Signal<readonly SkillField[]>;
 }
@@ -152,6 +159,15 @@ function fieldPerSlot(
   });
 }
 
+function engineReads(sources: BuildPickSources): EngineReads {
+  const engine = { ...sources, registry: sources.engineRegistry };
+  return {
+    statistics: loaded(engine, sheetStatistics),
+    skills: loaded(engine, sheetSkills),
+    spellcasting: loaded(engine, sheetSpellcasting),
+  };
+}
+
 /** The sheet's build pickers over `sources`, each reading the registry, the character and its slots as they load. */
 export function sheetBuildPicks(sources: BuildPickSources): BuildPicks {
   const subclass = loaded(sources, sheetSubclass);
@@ -198,8 +214,7 @@ export function sheetBuildPicks(sources: BuildPickSources): BuildPicks {
       const slots = sources.slots();
       return slots === undefined ? undefined : sheetChoices(slots);
     }),
-    statistics: loaded({ ...sources, registry: sources.engineRegistry }, sheetStatistics),
-    skills: loaded({ ...sources, registry: sources.engineRegistry }, sheetSkills),
+    ...engineReads(sources),
     skillFields: skillFieldsOf(sources),
   };
 }

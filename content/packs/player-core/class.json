@@ -73,6 +73,11 @@
       },
       {
         "key": "Proficiency",
+        "selector": "spellcasting",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
         "selector": "class-dc",
         "rank": "trained"
       },
@@ -1026,6 +1031,11 @@
       },
       {
         "key": "Proficiency",
+        "selector": "spellcasting",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
         "selector": "class-dc",
         "rank": "trained"
       },
@@ -1957,6 +1967,11 @@
       {
         "key": "Proficiency",
         "selector": "defense:medium",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting",
         "rank": "trained"
       },
       {
@@ -6207,6 +6222,11 @@
       },
       {
         "key": "Proficiency",
+        "selector": "spellcasting",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
         "selector": "class-dc",
         "rank": "trained"
       },
@@ -7119,6 +7139,11 @@
       {
         "key": "Proficiency",
         "selector": "defense:unarmored",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting",
         "rank": "trained"
       },
       {

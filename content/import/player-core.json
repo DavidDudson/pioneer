@@ -6172,12 +6172,6 @@
       "gaps": [
         {
           "type": "field",
-          "reason": "unmapped-field",
-          "field": "spellcasting",
-          "raw": 1
-        },
-        {
-          "type": "field",
           "reason": "unresolved-reference",
           "field": "items",
           "raw": "Compendium.pf2e.classfeatures.Item.Reflex Expertise"
@@ -6206,12 +6200,6 @@
       "slug": "class:cleric",
       "foundry": "Compendium.pf2e.classes.Item.EizrWvUPMS67Pahd",
       "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "spellcasting",
-          "raw": 1
-        },
         {
           "type": "field",
           "reason": "unmapped-field",
@@ -6257,12 +6245,6 @@
       "slug": "class:druid",
       "foundry": "Compendium.pf2e.classes.Item.7s57JDCaiYYCAdFx",
       "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "spellcasting",
-          "raw": 1
-        },
         {
           "type": "field",
           "reason": "unresolved-reference",
@@ -6430,12 +6412,6 @@
       "gaps": [
         {
           "type": "field",
-          "reason": "unmapped-field",
-          "field": "spellcasting",
-          "raw": 1
-        },
-        {
-          "type": "field",
           "reason": "unresolved-reference",
           "field": "items",
           "raw": "Compendium.pf2e.classfeatures.Item.Reflex Expertise"
@@ -6470,12 +6446,6 @@
       "slug": "class:wizard",
       "foundry": "Compendium.pf2e.classes.Item.RwjIZzIxzPpUglnK",
       "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "spellcasting",
-          "raw": 1
-        },
         {
           "type": "field",
           "reason": "unresolved-reference",
@@ -28722,6 +28692,12 @@
         {
           "type": "enricher",
           "enricher": "@UUID[journals]"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "spellcasting",
+          "raw": "feat:expert-witch-spellcasting"
         }
       ]
     },
@@ -32050,6 +32026,12 @@
         {
           "type": "enricher",
           "enricher": "@UUID[journals]"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "spellcasting",
+          "raw": "feat:master-witch-spellcasting"
         }
       ]
     },
@@ -38124,6 +38106,12 @@
         {
           "type": "enricher",
           "enricher": "@UUID[journals]"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "spellcasting",
+          "raw": "feat:witch-dedication"
         }
       ]
     },

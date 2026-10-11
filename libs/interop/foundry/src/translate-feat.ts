@@ -16,6 +16,7 @@ import type { KindInput } from './kind-data-gaps';
 import { setFields, systemOf } from './kind-fields';
 import { ACTION_FIELDS, actionData } from './translate-action';
 import type { ArchetypeLink } from './translate-archetype';
+import { spellcastingRules } from './translate-spellcasting';
 
 /**
  * A feat's `data` from Foundry's `feat` item, and a class feature's from a `feat` item of category `classfeature`
@@ -144,6 +145,7 @@ export function featData(input: KindInput): object | undefined {
     report(input.log, { reason: KindDataGapReason.UnmappedValue, field: 'category', raw: system.category });
     return undefined;
   }
+  spellcastingRules(input);
   return {
     category: category.data,
     ...setFields({
@@ -159,5 +161,9 @@ export function featData(input: KindInput): object | undefined {
 /** The class feature's data, unparsed: its `action` data when it is itself an action, and its tags. */
 export function classFeatureData(input: KindInput): object | undefined {
   const system = systemOf(FoundryFeatSystem, input);
-  return system === undefined ? undefined : { ...actionOf(system, input), ...tagsOf(system, input) };
+  if (system === undefined) {
+    return undefined;
+  }
+  spellcastingRules(input);
+  return { ...actionOf(system, input), ...tagsOf(system, input) };
 }

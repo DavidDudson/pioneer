@@ -31,7 +31,7 @@ export const EXAMPLE_STATISTIC_INPUTS = JSON.stringify(
     ranks: {
       ac: 'trained',
       'save:fortitude': 'expert',
-      'spellcasting:arcane': 'trained',
+      spellcasting: 'trained',
       'class-dc': 'trained',
       'attack:simple': 'expert',
       'attack:martial': 'expert',

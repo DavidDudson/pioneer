@@ -138,6 +138,8 @@ function startingRanks(system: FoundryClassSystem): (readonly [string, number])[
     ['defense:light', defenses.light],
     ['defense:medium', defenses.medium],
     ['defense:heavy', defenses.heavy],
+    // One rank for all of the character's spellcasting, as Foundry keeps it (ADR-0040).
+    ['spellcasting', system.spellcasting],
     [CLASS_DC, 1],
   ];
 }
@@ -148,10 +150,6 @@ function proficiencies(system: FoundryClassSystem, input: KindInput): void {
     if (raised !== undefined) {
       addRule(input, selector, { key: RuleElementKey.Proficiency, selector, rank: raised });
     }
-  }
-  // Spellcasting ranks are per tradition (`spellcasting:arcane`), which a class feature or choice names, not the class.
-  if (system.spellcasting > 0) {
-    report(input.log, { reason: KindDataGapReason.UnmappedField, field: 'spellcasting', raw: system.spellcasting });
   }
   const { other } = system.attacks;
   if (other !== undefined && other.rank > 0) {

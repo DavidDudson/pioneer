@@ -59,7 +59,7 @@ function character(json: object = {}): StatisticInputs {
   return StatisticInputsJson.parse({
     level: 3,
     attributes: { str: 1, dex: 4, con: 2, int: 3, wis: 1, cha: 0 },
-    ranks: { 'attack:simple': 'expert', 'attack:martial': 'trained', 'spellcasting:arcane': 'trained' },
+    ranks: { 'attack:simple': 'expert', 'attack:martial': 'trained', spellcasting: 'trained' },
     ...json,
   });
 }
@@ -154,12 +154,12 @@ describe('statistics derived per spellcasting entry', () => {
 
   test("each entry gets a spell attack and a DC, and the DC reads its own entry's attack base", () => {
     const results = derive([SPELL_ATTACK, SPELL_DC], character({ spellcasting: entries }));
-    // Arcane: Intelligence 3 + trained 5. Innate divine: Charisma 0 + untrained 0.
+    // One spellcasting rank for both, trained 5. Arcane: Intelligence 3. Innate divine: Charisma 0.
     expect(totals(results)).toStrictEqual({
       'spell-attack:arcane': 8,
-      'spell-attack:innate': 0,
+      'spell-attack:innate': 5,
       'spell-dc:arcane': 18,
-      'spell-dc:innate': 10,
+      'spell-dc:innate': 15,
     });
   });
 

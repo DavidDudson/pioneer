@@ -42,7 +42,7 @@ const ARCANE = { slug: 'arcane', tradition: 'arcane', attribute: 'int' };
 const CHARACTER = {
   level: 3,
   attributes: { str: 1, dex: 4, con: 0, int: 3, wis: 0, cha: 0 },
-  ranks: { 'attack:martial': 'trained', 'spellcasting:arcane': 'trained' },
+  ranks: { 'attack:martial': 'trained', spellcasting: 'trained' },
 };
 
 function derive(

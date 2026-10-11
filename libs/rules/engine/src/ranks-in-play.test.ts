@@ -48,4 +48,30 @@ describe('ranksInPlay', () => {
   test('other rule elements raise nothing', () => {
     expect(ranksOf([{ key: 'FlatModifier', type: 'item', value: 1, selectors: ['ac'] }])).toEqual({});
   });
+
+  test('a spellcasting entry makes the character trained in spellcasting, and a raise lifts it further', () => {
+    const entry = {
+      key: 'SpellcastingEntry',
+      slug: 'cleric',
+      tradition: 'divine',
+      attribute: 'wis',
+      preparation: 'prepared',
+    };
+
+    expect(ranksOf([entry])).toEqual({ spellcasting: 'trained' });
+    expect(ranksOf([proficiency('spellcasting', 'expert'), entry])).toEqual({ spellcasting: 'expert' });
+  });
+
+  test('a spellcasting entry whose predicate fails trains nothing', () => {
+    const entry = {
+      key: 'SpellcastingEntry',
+      slug: 'wizard',
+      tradition: 'arcane',
+      attribute: 'int',
+      preparation: 'prepared',
+      predicate: ['class:wizard'],
+    };
+
+    expect(ranksOf([entry], ['class:cleric'])).toEqual({});
+  });
 });

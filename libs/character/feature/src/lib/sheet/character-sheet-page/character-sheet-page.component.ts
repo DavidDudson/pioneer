@@ -54,6 +54,7 @@ import {
   ChoicesView,
   ClassFeaturesView,
   DefencesView,
+  SpellcastingView,
   StatisticsView,
 } from '@pioneer/rules/ui';
 import type { Investment } from '@pioneer/rules/ui';
@@ -114,6 +115,7 @@ function focusField(field: ElementRef<HTMLElement>): void {
     SheetSkillFields,
     Skeleton,
     Stack,
+    SpellcastingView,
     StatisticsView,
     Surface,
     Text,

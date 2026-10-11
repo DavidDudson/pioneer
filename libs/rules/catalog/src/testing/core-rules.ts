@@ -68,7 +68,7 @@ export const fighter: StatisticInputs = StatisticInputsJson.parse({
 export const wizard: StatisticInputs = StatisticInputsJson.parse({
   level: 3,
   attributes: { str: 0, dex: 2, con: 1, int: 4, wis: 1, cha: 1 },
-  ranks: { 'spellcasting:arcane': 'trained', 'spellcasting:occult': 'trained' },
+  ranks: { spellcasting: 'trained' },
   ancestry: { hitPoints: 6, speed: 30 },
   class: { hitPoints: 6, keyAttribute: 'int' },
   spellcasting: [

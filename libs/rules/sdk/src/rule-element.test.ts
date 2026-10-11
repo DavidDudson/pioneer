@@ -7,6 +7,7 @@ import * as z from 'zod';
 
 import { RulesMessage } from './messages';
 import { RuleElement } from './rule-element';
+import { SOURCE_SLUG_MAX } from './statistic';
 
 function issues(value: unknown): readonly FieldIssue[] {
   const result = RuleElement.safeParse(value);
@@ -91,6 +92,16 @@ const examples: object[] = [
     predicate: ['self:effect:rage'],
     display: { label: 'Draconic rage' },
   },
+  { key: 'SpellcastingEntry', slug: 'cleric', tradition: 'divine', attribute: 'wis', preparation: 'prepared' },
+  {
+    key: 'SpellcastingEntry',
+    slug: 'witch',
+    tradition: 'occult',
+    attribute: 'int',
+    preparation: 'prepared',
+    predicate: ['class:witch'],
+  },
+  { key: 'SpellcastingEntry', slug: 'first-world-magic', tradition: 'primal', attribute: 'cha', preparation: 'innate' },
 ];
 
 describe('RuleElement', () => {
@@ -234,5 +245,20 @@ describe('RuleElement', () => {
 
   test('a defence names at least one type', () => {
     expect(issues({ key: 'Immunity', type: [] })).toMatchObject([{ path: ['type'] }]);
+  });
+
+  test('a spellcasting entry slug leaves room in its statistics selectors', () => {
+    const entry = { key: 'SpellcastingEntry', tradition: 'arcane', attribute: 'int', preparation: 'prepared' };
+    expect(issues({ ...entry, slug: 'a'.repeat(SOURCE_SLUG_MAX) })).toStrictEqual([]);
+    expect(issues({ ...entry, slug: 'a'.repeat(SOURCE_SLUG_MAX + 1) })).toStrictEqual([
+      { path: ['slug'], message: message(RulesMessage.SpellcastingSlugLength, { maximum: SOURCE_SLUG_MAX }) },
+    ]);
+  });
+
+  test('a spellcasting entry names one of the four traditions', () => {
+    const entry = { key: 'SpellcastingEntry', slug: 'elemental', attribute: 'cha', preparation: 'innate' };
+    expect(issues({ ...entry, tradition: 'elemental' })).toStrictEqual([
+      { path: ['tradition'], message: message(ValidationMessage.InvalidValue) },
+    ]);
   });
 });
