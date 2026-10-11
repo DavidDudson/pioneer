@@ -33,6 +33,7 @@ export const ReferenceKind = {
   ProficiencyRank: 'proficiency-rank',
   Statistic: 'statistic',
   ItemLevel: 'item-level',
+  ItemValue: 'item-value',
   WeaponAttributeModifier: 'weapon-attribute-modifier',
   WeaponProficiencyBonus: 'weapon-proficiency-bonus',
   SpellcastingAttributeModifier: 'spellcasting-attribute-modifier',
@@ -53,6 +54,7 @@ export type KnownReference =
   | { readonly kind: typeof ReferenceKind.ProficiencyRank; readonly selector: Selector }
   | { readonly kind: typeof ReferenceKind.Statistic; readonly selector: Selector }
   | { readonly kind: typeof ReferenceKind.ItemLevel }
+  | { readonly kind: typeof ReferenceKind.ItemValue }
   | SourceReference;
 
 /** The kinds that read a weapon or a spellcasting entry: only a statistic derived per that source has one. */
@@ -119,6 +121,7 @@ export const REFERENCE_CATALOGUE: Readonly<Record<ReferenceKind, ReferenceDefini
   [ReferenceKind.ProficiencyRank]: reference('rank.<selector>', ACTOR, RulesMessage.ReferenceProficiencyRank),
   [ReferenceKind.Statistic]: reference('stat.<selector>', ACTOR, RulesMessage.ReferenceStatistic),
   [ReferenceKind.ItemLevel]: reference('item.level', ITEM, RulesMessage.ReferenceItemLevel),
+  [ReferenceKind.ItemValue]: reference('item.value', ITEM, RulesMessage.ReferenceItemValue),
   [ReferenceKind.WeaponAttributeModifier]: reference(
     'weapon.attr',
     WEAPON,
@@ -213,6 +216,7 @@ function referenceOf(kind: ReferenceKind, captures: Captures): KnownReference | 
     case ReferenceKind.AncestrySpeed:
     case ReferenceKind.ClassHitPoints:
     case ReferenceKind.ItemLevel:
+    case ReferenceKind.ItemValue:
     case ReferenceKind.WeaponAttributeModifier:
     case ReferenceKind.WeaponProficiencyBonus:
     case ReferenceKind.SpellcastingAttributeModifier:

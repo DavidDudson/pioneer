@@ -2,7 +2,7 @@ import { ModifierTarget, ModifierType, RuleSlug } from '@pioneer/rules/sdk';
 import type { Modifier as ModifierAmount, Origin } from '@pioneer/rules/sdk';
 
 import type { ModifierSource } from './modifier';
-import { RuleId } from './rule-in-play';
+import { NO_ITEM, RuleId } from './rule-in-play';
 
 /** Worn armour, as AC reads it. */
 export interface ArmorInputs {
@@ -38,7 +38,7 @@ export function armorBonus(armor: ArmorInputs | undefined): readonly ModifierSou
         origin: armor.origin,
       },
       value: armor.bonus,
-      itemLevel: undefined,
+      item: NO_ITEM,
       summary: undefined,
     },
   ];

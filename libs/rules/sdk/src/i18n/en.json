@@ -146,6 +146,7 @@
       "proficiencyRank": "The proficiency rank for that statistic, from 0 (untrained) to 4 (legendary).",
       "statistic": "The base of that statistic, before its modifiers, such as the spell attack modifier in a spell DC.",
       "itemLevel": "The level of the item the rule element is on.",
+      "itemValue": "The value of the condition the rule element is on: 2 on Frightened 2.",
       "weaponAttributeModifier": "The modifier the weapon attacks with: Strength, Dexterity for a ranged weapon, or the higher of the two for a finesse weapon.",
       "weaponProficiencyBonus": "The proficiency bonus for the weapon’s category: simple, martial, advanced or unarmed.",
       "spellcastingAttributeModifier": "The modifier for the spellcasting entry’s attribute.",

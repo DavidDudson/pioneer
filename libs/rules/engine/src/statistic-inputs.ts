@@ -23,6 +23,8 @@ import * as z from 'zod';
 import type { ArmorInputs } from './armor-bonus';
 import { EngineMessage } from './messages';
 import type { ProficiencyBonuses } from './proficiency-bonuses';
+import { NO_ITEM } from './rule-in-play';
+import type { ItemScope } from './rule-in-play';
 import { sourceValue, SpellcastingJson, WeaponsJson } from './source-inputs';
 import type { SourceInputs, SpellcastingInputs, WeaponInputs } from './source-inputs';
 
@@ -153,7 +155,8 @@ function inputValue(
       return FormulaValue.parse(RANK_ORDER.indexOf(rankOf(inputs, reference.selector)));
     }
     case ReferenceKind.Statistic:
-    case ReferenceKind.ItemLevel: {
+    case ReferenceKind.ItemLevel:
+    case ReferenceKind.ItemValue: {
       return undefined;
     }
     default: {
@@ -185,7 +188,8 @@ export function missingInput(reference: KnownReference, inputs: StatisticInputs)
     case ReferenceKind.ProficiencyBonus:
     case ReferenceKind.ProficiencyRank:
     case ReferenceKind.Statistic:
-    case ReferenceKind.ItemLevel: {
+    case ReferenceKind.ItemLevel:
+    case ReferenceKind.ItemValue: {
       return undefined;
     }
     default: {
@@ -205,20 +209,20 @@ export interface CharacterValues {
 
 /** What a formula is evaluated for besides the character: the item a rule element is on, or a statistic's source. */
 export interface ResolverScope {
-  readonly itemLevel?: Level | undefined;
+  readonly item?: ItemScope | undefined;
   readonly source?: SourceInputs | undefined;
 }
 
 /**
  * Resolves a formula's references from the inputs, `@prof.<selector>` from the proficiency bonuses in force,
- * `@stat.<selector>` from `statistics`, `@item.level` from `itemLevel` (the level of the item a rule element is on,
- * which a statistic's base formula never has), and `@weapon` and `@spellcasting` references from `source`, the
+ * `@stat.<selector>` from `statistics`, `@item.level` and `@item.value` from `item` (the level of the item a rule element
+ * is on and the value of the condition it is on, which a statistic's base formula never has), and `@weapon` and `@spellcasting` references from `source`, the
  * weapon or entry a statistic derived per source is derived for.
  */
 export function resolverFor(
   { inputs, proficiency }: CharacterValues,
   statistics: StatisticValues,
-  { itemLevel, source }: ResolverScope = {},
+  { item = NO_ITEM, source }: ResolverScope = {},
 ): ResolveReference {
   const reading = {
     attributes: inputs.attributes,
@@ -233,7 +237,10 @@ export function resolverFor(
       return statistics(reference.selector);
     }
     if (reference.kind === ReferenceKind.ItemLevel) {
-      return itemLevel === undefined ? undefined : FormulaValue.parse(itemLevel);
+      return item.level === undefined ? undefined : FormulaValue.parse(item.level);
+    }
+    if (reference.kind === ReferenceKind.ItemValue) {
+      return item.value === undefined ? undefined : FormulaValue.parse(item.value);
     }
     return isSourceReference(reference)
       ? sourceValue(reference, source, reading)

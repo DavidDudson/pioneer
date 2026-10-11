@@ -4,7 +4,6 @@ import { ChangeMode, OriginHopKind, RuleElementKey } from '@pioneer/rules/sdk';
 import type {
   ChangeElement,
   ContentText,
-  Level,
   Origin,
   Predicate,
   RulePriority,
@@ -16,8 +15,8 @@ import { InactiveReason, OverridePhase, OverrideStatusKind } from './breakdown';
 import type { ModifierLabel, OverrideLine, OverrideStatus } from './breakdown';
 import { EngineMessage } from './messages';
 import { DEFAULT_PRIORITY, labelOf } from './modifier';
-import { ruleIdOf } from './rule-in-play';
-import type { RuleId, RuleInPlay } from './rule-in-play';
+import { itemScopeOf, ruleIdOf } from './rule-in-play';
+import type { ItemScope, RuleId, RuleInPlay } from './rule-in-play';
 import { changed, outOfRange, truthOf, valueOf } from './rule-value';
 import type { RuleContext } from './rule-value';
 
@@ -32,7 +31,7 @@ export interface ChangeSource {
   readonly predicate: Predicate | undefined;
   readonly summary: ContentText | undefined;
   readonly priority: RulePriority;
-  readonly itemLevel: Level | undefined;
+  readonly item: ItemScope;
 }
 
 /** The `Change`s in play by selector: those for the base phase, and set overrides for the total. */
@@ -61,7 +60,7 @@ function changeSource(rule: RuleInPlay, element: ChangeElement): ChangeSource {
     predicate: element.predicate,
     summary: element.display?.summary,
     priority: element.priority ?? DEFAULT_PRIORITY,
-    itemLevel: rule.itemLevel,
+    item: itemScopeOf(rule),
   };
 }
 
@@ -135,7 +134,7 @@ function lineFor({ source, current, phase }: Acting, context: RuleContext): Over
   const { id, label, origin, mode } = source;
   const common = { id, label, origin, phase, mode, replaced: current };
   const blocked = gate(source, context);
-  const outcome = valueOf(source.value, context.resolve(source.itemLevel));
+  const outcome = valueOf(source.value, context.resolve(source.item));
   if (!outcome.ok) {
     const failure = { kind: OverrideStatusKind.Failed, error: outcome.error, position: outcome.position } as const;
     return { ...common, value: undefined, result: current, status: blocked ?? failure };

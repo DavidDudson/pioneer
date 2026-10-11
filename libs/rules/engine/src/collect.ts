@@ -51,7 +51,7 @@ class Collection {
   /** The line for one modifier before stacking: applied, inactive, conditional, failed or suppressed by adjustment. */
   public line(source: ModifierSource): BreakdownLine {
     const { modifier } = source;
-    const outcome = valueOf(source.value, this.#context.resolve(source.itemLevel));
+    const outcome = valueOf(source.value, this.#context.resolve(source.item));
     if (!outcome.ok) {
       return { modifier, value: undefined, adjustedBy: [], status: failed(outcome) };
     }
@@ -82,7 +82,7 @@ class Collection {
         status: { kind: LineStatusKind.Suppressed, by: adjustment.id, reason: SuppressionReason.Adjustment },
       };
     }
-    const outcome = valueOf(change.value, this.#context.resolve(adjustment.itemLevel));
+    const outcome = valueOf(change.value, this.#context.resolve(adjustment.item));
     if (!outcome.ok) {
       return { value: undefined, status: failed(outcome) };
     }

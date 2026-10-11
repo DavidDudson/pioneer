@@ -242,6 +242,7 @@ Statistic base formulas and rule element values share one vocabulary of referenc
 | `@rank.<selector>`   | actor        | The proficiency rank for a statistic, 0 (untrained) to 4 (legendary)                        |
 | `@stat.<selector>`   | actor        | Another statistic's base, before its modifiers, such as the spell attack in a spell DC      |
 | `@item.level`        | item         | The level of the item the rule element is on                                                |
+| `@item.value`        | item         | The value of the condition the rule element is on: 2 on Frightened 2                        |
 | `@weapon.attr`       | weapon       | The modifier the weapon attacks with: Strength, Dexterity at range, the higher with finesse |
 | `@weapon.prof`       | weapon       | The proficiency bonus for the weapon's category, `attack:<category>`                        |
 | `@spellcasting.attr` | spellcasting | The modifier for the spellcasting entry's attribute                                         |
@@ -280,6 +281,7 @@ The catalogue also holds the Foundry spellings the importer translates (`FOUNDRY
 | `@actor.system.proficiencies.defenses.<category>.rank`                        | `@rank.defense.<category>` |
 | `@actor.system.proficiencies.spellcasting.rank`                               | `@rank.spellcasting`       |
 | `@item.level`, `@item.system.level.value`                                     | `@item.level`              |
+| `@item.badge.value`, `@item.system.value.value`                               | `@item.value`              |
 
 The importer reports any other Foundry path as untranslatable. The exporter writes the first spelling listed. Paths
 join the catalogue when the engine can supply their values. Formulas inside Foundry's bracketed values and
@@ -360,8 +362,10 @@ each statistic:
 1. **Collect.** A `FlatModifier` in play becomes a modifier. It reaches a statistic when one of its targets is the
    statistic's selector, one of its `domains`, or `all`.
 2. **Value.** A number is used as written. A formula is evaluated with the character's inputs, `@stat.<selector>`
-   (another statistic's base) and `@item.level` (the level of the item the element is on). A failure makes the line
-   `failed`; it never throws.
+   (another statistic's base), `@item.level` (the level of the item the element is on) and `@item.value` (the value
+   the condition it is on arrived with, as grants report it: Clumsy 1 from Encumbered). A failure makes the line
+   `failed`; it never throws. `@item.value` has no value on an element of anything but a valued condition; effect
+   badges join with effects in play (#349).
 3. **Adjust.** Each `AdjustModifier` that reaches the statistic and whose predicate is known to hold runs, in
    priority order (Foundry's default 100) and then id order, on the modifiers with its `slug` (all of them when it
    has none). `add`, `subtract`, `multiply`, `upgrade` (at least), `downgrade` (at most) and `override` change the

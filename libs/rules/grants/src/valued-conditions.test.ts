@@ -136,7 +136,10 @@ describe('a valued condition', () => {
   });
 
   test('a grant of an entry that is no condition gives it no value', () => {
-    const content = [condition('curse', [{ ...grantOf('weakness'), value: 2 }]), { ...entry('weakness'), valued: true }];
+    const content = [
+      condition('curse', [{ ...grantOf('weakness'), value: 2 }]),
+      { ...entry('weakness'), valued: true },
+    ];
     const [weakness] = resolve(content, [afflicted('curse')]).items.filter((item) => item.entry.slug === 'weakness');
     expect(weakness?.value).toBeUndefined();
   });

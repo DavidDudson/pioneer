@@ -4,7 +4,6 @@ import type {
   AdjustModifierElement,
   ContentText,
   FlatModifierElement,
-  Level,
   ModifierTarget,
   ModifierValue,
   Predicate,
@@ -13,14 +12,14 @@ import type {
 } from '@pioneer/rules/sdk';
 
 import type { Modifier, ModifierLabel } from './breakdown';
-import { ruleIdOf } from './rule-in-play';
-import type { RuleId, RuleInPlay } from './rule-in-play';
+import { itemScopeOf, ruleIdOf } from './rule-in-play';
+import type { ItemScope, RuleId, RuleInPlay } from './rule-in-play';
 
-/** A modifier with what its value needs: the value as written and the level of the item it is on. */
+/** A modifier with what its value needs: the value as written and the item it is on. */
 export interface ModifierSource {
   readonly modifier: Modifier;
   readonly value: ModifierValue;
-  readonly itemLevel: Level | undefined;
+  readonly item: ItemScope;
   /** The authored wording of when it applies, for a conditional line. */
   readonly summary: ContentText | undefined;
 }
@@ -39,7 +38,7 @@ export interface Adjustment {
   readonly predicate: Predicate | undefined;
   readonly priority: RulePriority;
   readonly change: AdjustmentChange;
-  readonly itemLevel: Level | undefined;
+  readonly item: ItemScope;
 }
 
 /** The rule elements in play that bear on statistics' modifiers. */
@@ -68,7 +67,7 @@ function modifierSource(rule: RuleInPlay, element: FlatModifierElement): Modifie
       origin: rule.origin,
     },
     value: element.value,
-    itemLevel: rule.itemLevel,
+    item: itemScopeOf(rule),
     summary: element.display?.summary,
   };
 }
@@ -86,7 +85,7 @@ function adjustment(rule: RuleInPlay, element: AdjustModifierElement): Adjustmen
     predicate: element.predicate,
     priority: element.priority ?? DEFAULT_PRIORITY,
     change: changeOf(element),
-    itemLevel: rule.itemLevel,
+    item: itemScopeOf(rule),
   };
 }
 

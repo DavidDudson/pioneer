@@ -40,6 +40,8 @@ const FOUNDRY_SPELLINGS = [
   ['actor.system.proficiencies.spellcasting.rank', 'rank.spellcasting'],
   ['item.level', 'item.level'],
   ['item.system.level.value', 'item.level'],
+  ['item.badge.value', 'item.value'],
+  ['item.system.value.value', 'item.value'],
 ] as const;
 
 /**
