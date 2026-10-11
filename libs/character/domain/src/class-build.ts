@@ -66,7 +66,7 @@ export function characterGrants(document: CharacterDocument, content: SlotConten
 }
 
 /** Each rule element of each entry in the effective set, with the entry's origin and its place in the entry's rules. */
-function grantedRules(resolution: GrantResolution): readonly RuleInPlay[] {
+export function grantedRules(resolution: GrantResolution): readonly RuleInPlay[] {
   return resolution.items.flatMap(({ entry, origin }) =>
     entry.rules.map((element, rule) => ({ element, origin, rule: RuleIndex.parse(rule) })),
   );

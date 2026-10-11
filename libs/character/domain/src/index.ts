@@ -27,6 +27,7 @@ export {
   classInputs,
   subclassSlot,
 } from './class-build';
+export { characterSpellcasting } from './spellcasting-build';
 export { CharacterSlot, SlotInvalidMessage, SlotStatus, SlotSubject, SlotSubjectKind } from './character-slot';
 export { characterSlots } from './character-slot-status';
 export { type SkillContent, skillContent, type SkillOption } from './skill-content';

@@ -91,6 +91,33 @@
         "item": "313f4f5c-9e6d-59c3-b2e9-90343f12b70e"
       },
       {
+        "key": "GrantItem",
+        "item": "b3c71b46-0e68-5539-9c94-c8999085be0e",
+        "predicate": [
+          {
+            "gte": ["self:level", 7]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "cf49b5b0-1f58-57cc-a8c2-e2a23e384915",
+        "predicate": [
+          {
+            "gte": ["self:level", 15]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "ea5a7667-1fe7-50f8-ac3b-1076e77434cb",
+        "predicate": [
+          {
+            "gte": ["self:level", 19]
+          }
+        ]
+      },
+      {
         "key": "ChoiceSet",
         "flag": "class-feat-2",
         "choices": {
@@ -1054,7 +1081,33 @@
         "page": 1
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "SpellcastingEntry",
+        "slug": "bard",
+        "tradition": "occult",
+        "attribute": "cha",
+        "preparation": "spontaneous"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting:occult",
+        "rank": "expert",
+        "predicate": ["feature:expert-spellcaster"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting:occult",
+        "rank": "master",
+        "predicate": ["feature:master-spellcaster"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting:occult",
+        "rank": "legendary",
+        "predicate": ["feature:legendary-spellcaster"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.fEOj0eOBe34qYdAa"
     },
@@ -1944,7 +1997,84 @@
         "page": 1
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "SpellcastingEntry",
+        "slug": "cleric",
+        "tradition": "divine",
+        "attribute": "wis",
+        "preparation": "prepared"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting:divine",
+        "rank": "expert",
+        "predicate": [
+          {
+            "or": [
+              {
+                "and": [
+                  "feature:cloistered-cleric",
+                  {
+                    "gte": ["self:level", 7]
+                  }
+                ]
+              },
+              {
+                "and": [
+                  "feature:warpriest",
+                  {
+                    "gte": ["self:level", 11]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting:divine",
+        "rank": "master",
+        "predicate": [
+          {
+            "or": [
+              {
+                "and": [
+                  "feature:cloistered-cleric",
+                  {
+                    "gte": ["self:level", 15]
+                  }
+                ]
+              },
+              {
+                "and": [
+                  "feature:warpriest",
+                  {
+                    "gte": ["self:level", 19]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting:divine",
+        "rank": "legendary",
+        "predicate": [
+          {
+            "and": [
+              "feature:cloistered-cleric",
+              {
+                "gte": ["self:level", 19]
+              }
+            ]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.AvNbdGSOTWNRgcxs"
     },
@@ -2180,6 +2310,33 @@
       {
         "key": "GrantItem",
         "item": "10855253-1636-5cd0-af92-0271c017bdcd"
+      },
+      {
+        "key": "GrantItem",
+        "item": "b3c71b46-0e68-5539-9c94-c8999085be0e",
+        "predicate": [
+          {
+            "gte": ["self:level", 7]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "cf49b5b0-1f58-57cc-a8c2-e2a23e384915",
+        "predicate": [
+          {
+            "gte": ["self:level", 15]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "ea5a7667-1fe7-50f8-ac3b-1076e77434cb",
+        "predicate": [
+          {
+            "gte": ["self:level", 19]
+          }
+        ]
       },
       {
         "key": "ChoiceSet",
@@ -2983,7 +3140,33 @@
         "page": 1
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "SpellcastingEntry",
+        "slug": "druid",
+        "tradition": "primal",
+        "attribute": "wis",
+        "preparation": "prepared"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting:primal",
+        "rank": "expert",
+        "predicate": ["feature:expert-spellcaster"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting:primal",
+        "rank": "master",
+        "predicate": ["feature:master-spellcaster"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting:primal",
+        "rank": "legendary",
+        "predicate": ["feature:legendary-spellcaster"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.b8pnRxGuNzG0buuh"
     },
@@ -6510,6 +6693,33 @@
         "item": "a5a6a3ca-899b-5dec-9f88-a854513fb868"
       },
       {
+        "key": "GrantItem",
+        "item": "b3c71b46-0e68-5539-9c94-c8999085be0e",
+        "predicate": [
+          {
+            "gte": ["self:level", 7]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "cf49b5b0-1f58-57cc-a8c2-e2a23e384915",
+        "predicate": [
+          {
+            "gte": ["self:level", 15]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "ea5a7667-1fe7-50f8-ac3b-1076e77434cb",
+        "predicate": [
+          {
+            "gte": ["self:level", 19]
+          }
+        ]
+      },
+      {
         "key": "ChoiceSet",
         "flag": "class-feat-2",
         "choices": {
@@ -7396,7 +7606,33 @@
         "page": 1
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "SpellcastingEntry",
+        "slug": "witch",
+        "tradition": "primal",
+        "attribute": "int",
+        "preparation": "prepared"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting:primal",
+        "rank": "expert",
+        "predicate": ["feature:expert-spellcaster"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting:primal",
+        "rank": "master",
+        "predicate": ["feature:master-spellcaster"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting:primal",
+        "rank": "legendary",
+        "predicate": ["feature:legendary-spellcaster"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.9c57R18pfgfqlBCD"
     },
@@ -7421,7 +7657,33 @@
         "page": 1
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "SpellcastingEntry",
+        "slug": "witch",
+        "tradition": "arcane",
+        "attribute": "int",
+        "preparation": "prepared"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting:arcane",
+        "rank": "expert",
+        "predicate": ["feature:expert-spellcaster"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting:arcane",
+        "rank": "master",
+        "predicate": ["feature:master-spellcaster"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting:arcane",
+        "rank": "legendary",
+        "predicate": ["feature:legendary-spellcaster"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.FdLx4VODZEYLGOK9"
     },
@@ -7446,7 +7708,33 @@
         "page": 1
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "SpellcastingEntry",
+        "slug": "witch",
+        "tradition": "occult",
+        "attribute": "int",
+        "preparation": "prepared"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting:occult",
+        "rank": "expert",
+        "predicate": ["feature:expert-spellcaster"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting:occult",
+        "rank": "master",
+        "predicate": ["feature:master-spellcaster"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting:occult",
+        "rank": "legendary",
+        "predicate": ["feature:legendary-spellcaster"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.r2ZPRAw9c3VGZi8A"
     },
@@ -7471,7 +7759,33 @@
         "page": 1
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "SpellcastingEntry",
+        "slug": "witch",
+        "tradition": "occult",
+        "attribute": "int",
+        "preparation": "prepared"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting:occult",
+        "rank": "expert",
+        "predicate": ["feature:expert-spellcaster"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting:occult",
+        "rank": "master",
+        "predicate": ["feature:master-spellcaster"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting:occult",
+        "rank": "legendary",
+        "predicate": ["feature:legendary-spellcaster"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.9OwWgOP8ZWxTAqbg"
     },
@@ -7496,7 +7810,33 @@
         "page": 1
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "SpellcastingEntry",
+        "slug": "witch",
+        "tradition": "divine",
+        "attribute": "int",
+        "preparation": "prepared"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting:divine",
+        "rank": "expert",
+        "predicate": ["feature:expert-spellcaster"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting:divine",
+        "rank": "master",
+        "predicate": ["feature:master-spellcaster"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting:divine",
+        "rank": "legendary",
+        "predicate": ["feature:legendary-spellcaster"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.mFqMSQoNl0NMDklv"
     },
@@ -7521,7 +7861,33 @@
         "page": 1
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "SpellcastingEntry",
+        "slug": "witch",
+        "tradition": "occult",
+        "attribute": "int",
+        "preparation": "prepared"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting:occult",
+        "rank": "expert",
+        "predicate": ["feature:expert-spellcaster"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting:occult",
+        "rank": "master",
+        "predicate": ["feature:master-spellcaster"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting:occult",
+        "rank": "legendary",
+        "predicate": ["feature:legendary-spellcaster"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.ghIsqhEsJTvjJiNl"
     },
@@ -7546,7 +7912,33 @@
         "page": 1
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "SpellcastingEntry",
+        "slug": "witch",
+        "tradition": "primal",
+        "attribute": "int",
+        "preparation": "prepared"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting:primal",
+        "rank": "expert",
+        "predicate": ["feature:expert-spellcaster"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting:primal",
+        "rank": "master",
+        "predicate": ["feature:master-spellcaster"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting:primal",
+        "rank": "legendary",
+        "predicate": ["feature:legendary-spellcaster"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.e0VhUyjz1clW3sC4"
     },
@@ -7631,6 +8023,33 @@
       {
         "key": "GrantItem",
         "item": "75bfdb66-9efa-5ab0-a8cb-2909b824ed9f"
+      },
+      {
+        "key": "GrantItem",
+        "item": "b3c71b46-0e68-5539-9c94-c8999085be0e",
+        "predicate": [
+          {
+            "gte": ["self:level", 7]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "cf49b5b0-1f58-57cc-a8c2-e2a23e384915",
+        "predicate": [
+          {
+            "gte": ["self:level", 15]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "ea5a7667-1fe7-50f8-ac3b-1076e77434cb",
+        "predicate": [
+          {
+            "gte": ["self:level", 19]
+          }
+        ]
       },
       {
         "key": "ChoiceSet",
@@ -8411,7 +8830,33 @@
         "page": 1
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "SpellcastingEntry",
+        "slug": "wizard",
+        "tradition": "arcane",
+        "attribute": "int",
+        "preparation": "prepared"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting:arcane",
+        "rank": "expert",
+        "predicate": ["feature:expert-spellcaster"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting:arcane",
+        "rank": "master",
+        "predicate": ["feature:master-spellcaster"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting:arcane",
+        "rank": "legendary",
+        "predicate": ["feature:legendary-spellcaster"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.S6WW4Yyg4XonXGHD"
     },
@@ -8819,5 +9264,74 @@
     "data": {
       "tags": ["wizard-arcane-thesis"]
     }
+  },
+  {
+    "id": "b3c71b46-0e68-5539-9c94-c8999085be0e",
+    "pack": "player-core",
+    "slug": "class-feature:expert-spellcaster",
+    "name": "Expert Spellcaster",
+    "rarity": "common",
+    "level": 7,
+    "traits": ["animist", "bard", "druid", "magus", "oracle", "psychic", "sorcerer", "summoner", "witch", "wizard"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 1
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.cD3nSupdCvONuHiE"
+    },
+    "description": [],
+    "kind": "class-feature",
+    "data": {}
+  },
+  {
+    "id": "ea5a7667-1fe7-50f8-ac3b-1076e77434cb",
+    "pack": "player-core",
+    "slug": "class-feature:legendary-spellcaster",
+    "name": "Legendary Spellcaster",
+    "rarity": "common",
+    "level": 19,
+    "traits": ["animist", "bard", "druid", "oracle", "psychic", "sorcerer", "witch", "wizard"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 1
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.Hfaa7TuLn3nE8lr3"
+    },
+    "description": [],
+    "kind": "class-feature",
+    "data": {}
+  },
+  {
+    "id": "cf49b5b0-1f58-57cc-a8c2-e2a23e384915",
+    "pack": "player-core",
+    "slug": "class-feature:master-spellcaster",
+    "name": "Master Spellcaster",
+    "rarity": "common",
+    "level": 15,
+    "traits": ["animist", "bard", "druid", "magus", "oracle", "psychic", "sorcerer", "summoner", "witch", "wizard"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 1
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.l1InYvhnQSz6Ucxc"
+    },
+    "description": [],
+    "kind": "class-feature",
+    "data": {}
   }
 ]

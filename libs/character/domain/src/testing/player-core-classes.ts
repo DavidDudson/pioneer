@@ -5,10 +5,12 @@ import entries from './player-core-classes.json';
 /**
  * Player Core's eight classes as the importer translates them from `pf2e-8.6.0` (`content/import/player-core.json`):
  * each class with its starting ranks, every rule element the import translates, and the class features it grants at
- * 1st level; each subclass feature with the Player Core options its tag query offers. Descriptions are left out, and
- * every source is page 1 of Player Core, a placeholder the import tests' `contentEntry` gives to pass the source check:
- * test data only, never a pack's source. Regenerate it with the importer rather than editing it by hand; domain tests
- * use it because they cannot load the committed `player-core` pack.
+ * 1st level, with the Expert, Master and Legendary Spellcaster features that raise a caster's rank later (a class's
+ * grants of features left out are dropped); each subclass feature with the Player Core options its tag query offers.
+ * Descriptions are left out, and every source is page 1 of Player Core, a placeholder the import tests'
+ * `contentEntry` gives to pass the source check: test data only, never a pack's source. Regenerate it with the
+ * importer rather than editing it by hand; domain tests use it because they cannot load the committed `player-core`
+ * pack.
  */
 export const PLAYER_CORE_CLASS_PACK = PackId.parse('player-core');
 
