@@ -3,11 +3,11 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { Badge, Disclosure, EmptyState, List, ListItem, LocaleFormat, Skeleton, Stack, Text } from '@pioneer/frontier';
 import type { StatisticResult, StatisticValue } from '@pioneer/rules/engine';
-import { StatisticKind } from '@pioneer/rules/sdk';
-import type { ContentId, Selector } from '@pioneer/rules/sdk';
+import type { ContentId, Selector, StatisticKind } from '@pioneer/rules/sdk';
 import { filter, merge } from 'rxjs';
 
 import { BreakdownView } from '../breakdown/breakdown.component';
+import { numberStyle } from '../breakdown/number-style';
 import { StatisticTotal } from './statistic-total/statistic-total.component';
 import { StatisticsMessage } from './statistics-messages';
 
@@ -27,17 +27,10 @@ type ShownStatistic =
       readonly total: string;
       /** "computed 18" when a set override pinned the total; undefined otherwise. */
       readonly computed: string | undefined;
+      readonly kind: StatisticKind;
       readonly statistic: StatisticValue;
     }
-  | {
-      readonly ok: false;
-      readonly key: Selector;
-      readonly name: string;
-      readonly error: string;
-    };
-
-/** A check reads as the modifier you roll, so it always has a sign; a DC or a plain value has none. */
-const CHECK: Intl.NumberFormatOptions = { signDisplay: 'always' };
+  | { readonly ok: false; readonly key: Selector; readonly name: string; readonly error: string };
 
 /** Rows of placeholders while the statistics load: the core rules' AC, three saves and Perception. */
 const LOADING_ROWS = 5;
@@ -100,22 +93,13 @@ export class StatisticsView {
           error: this.#i18n.translate(result.error.key, result.error.params),
         };
       }
-      const style = kind === StatisticKind.Check ? CHECK : {};
+      const style = numberStyle(kind);
       const total = this.#format.number(result.total, style);
       const unpinned =
         result.pinnedBy === undefined
           ? undefined
-          : this.#i18n.translate(StatisticsMessage.Computed, {
-              computed: this.#format.number(result.computed, style),
-            });
-      return {
-        ok: true,
-        key: result.selector,
-        name,
-        total,
-        computed: unpinned,
-        statistic: result,
-      };
+          : this.#i18n.translate(StatisticsMessage.Computed, { computed: this.#format.number(result.computed, style) });
+      return { ok: true, key: result.selector, name, total, computed: unpinned, kind, statistic: result };
     });
   });
 }
