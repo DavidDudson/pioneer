@@ -26,6 +26,7 @@ export const RuleElementKey = {
   Weakness: 'Weakness',
   Resistance: 'Resistance',
   SpellcastingEntry: 'SpellcastingEntry',
+  Sense: 'Sense',
 } as const;
 export type RuleElementKey = ValueOf<typeof RuleElementKey>;
 

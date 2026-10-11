@@ -254,6 +254,7 @@ export {
 } from './rule-element-item-alteration';
 export { DefenceValue, ImmunityElement, ResistanceElement, WeaknessElement } from './rule-element-defences';
 export { SpellcastingEntryElement, SpellPreparation } from './rule-element-spellcasting';
+export { SenseElement } from './rule-element-sense';
 export {
   ArmorCategory,
   MartialCategory,
