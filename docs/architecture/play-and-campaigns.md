@@ -186,7 +186,7 @@ every number explains itself without a modal:
   that entry's sources through `pio-source-line`. Each hop is in words: `chosen for {slot}`, `granted by {entry}`,
   `{item}, worn`, `{condition} {value}, applied by {event}`, `{effect}`, `set by {user} {time ago}, “{note}”`, or
   the variant rule's name. Containers pass the names they can resolve (`OriginNames`: users, slots, items, events,
-  packs); a missing one falls back to the slot key, "an item", "a user" or the entry id, and an unknown event is
+  packs); a missing one falls back to the slot key, "an item", "a user" or "an entry", and an unknown event is
   left out.
 
 A total a set override pinned is flagged in text wherever it appears, and the computed value stays in view beside

@@ -21,4 +21,5 @@ export const OriginChainMessage = {
   Note: 'rules.originChain.note',
   UnknownUser: 'rules.originChain.unknownUser',
   UnknownItem: 'rules.originChain.unknownItem',
+  UnknownEntry: 'rules.originChain.unknownEntry',
 } as const;

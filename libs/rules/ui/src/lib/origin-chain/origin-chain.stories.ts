@@ -28,7 +28,7 @@ export const SetByHand: OriginChainStory = {
   args: { origin: SET_BY_HAND },
 };
 
-/** Nothing named: the slot key, "an item", "a user", no event, and the entry id. */
+/** Nothing named: the slot key, "an item", "a user", "an entry", and no event. */
 export const WithoutNames: OriginChainStory = {
   args: { origin: EVERY_HOP, entryNames: new Map(), names: NO_ORIGIN_NAMES },
 };

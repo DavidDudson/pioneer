@@ -74,14 +74,18 @@
     <fr-section [anchor]="sections.defences.anchor" [heading]="sections.defences.headingKey | transloco">
       <fr-async-region>
         <ng-template frAsyncPending><pio-defences [defences]="undefined" /></ng-template>
-        <ng-template [frAsyncData]="registry"><pio-defences [defences]="defences()" /></ng-template>
+        <ng-template [frAsyncData]="registry"
+          ><pio-defences [defences]="defences()" [entryNames]="entryNames()"
+        /></ng-template>
       </fr-async-region>
     </fr-section>
 
     <fr-section [anchor]="sections.statistics.anchor" [heading]="sections.statistics.headingKey | transloco">
       <fr-async-region>
         <ng-template frAsyncPending><pio-statistics [statistics]="undefined" /></ng-template>
-        <ng-template [frAsyncData]="registry"><pio-statistics [statistics]="statistics()" /></ng-template>
+        <ng-template [frAsyncData]="registry"
+          ><pio-statistics [statistics]="statistics()" [entryNames]="entryNames()"
+        /></ng-template>
       </fr-async-region>
     </fr-section>
 

@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoService } from '@jsverse/transloco';
-import { DateDisplay, Stack, Text } from '@pioneer/frontier';
+import { DateDisplay, LocaleFormat, Stack, Text } from '@pioneer/frontier';
 import { OriginHopKind } from '@pioneer/rules/sdk';
 import type { ContentId, EventRef, Origin, OriginHop, PackId } from '@pioneer/rules/sdk';
 import type { Temporal, UserId, ValueOf } from '@pioneer/shared/kernel';
@@ -28,13 +28,44 @@ function text(value: string): Segment {
   return { kind: SegmentKind.Text, text: value };
 }
 
+/** The content entry a hop is, when it is one: a variant rule, a condition or an effect. */
+function entryOf(hop: OriginHop): ContentId | undefined {
+  switch (hop.kind) {
+    case OriginHopKind.Variant: {
+      return hop.rule;
+    }
+    case OriginHopKind.Condition: {
+      return hop.condition;
+    }
+    case OriginHopKind.Effect: {
+      return hop.effect;
+    }
+    case OriginHopKind.Choice:
+    case OriginHopKind.Grant:
+    case OriginHopKind.Inventory:
+    case OriginHopKind.Override: {
+      return undefined;
+    }
+    default: {
+      return hop satisfies never;
+    }
+  }
+}
+
+/** Whether the last hop is the entry holding the rule element, so the chain names it once. */
+function endsAtEntry({ hops, entry }: Origin): boolean {
+  const last = hops.at(-1);
+  return last !== undefined && entryOf(last) === entry;
+}
+
 /**
  * Where a line comes from (rules-engine.md, "Provenance"): its origin's hops, outermost first, each in words ("chosen
  * for class", "granted by Fighter", "Breastplate, worn", "Frightened 1, applied by Demoralize", "set by Ada 2 days
- * ago, “House rule”"), then the entry holding the rule element, as one sentence; then that entry's sources.
+ * ago, “House rule”"), then the entry holding the rule element, as one sentence; then that entry's sources. When the
+ * last hop is that entry (a variant rule, or a condition or effect on the character), it is not named twice.
  *
  * Read-only and presentational (ADR-0028): the caller passes the origin, the display names of the entries it names,
- * and the other names it resolved. A missing entry name shows its id, a missing user reads "a user", a missing slot
+ * and the other names it resolved. A missing entry reads "an entry", a missing user reads "a user", a missing slot
  * shows its key, a missing item reads "an item", and an unknown event is left out.
  *
  * ```html
@@ -58,14 +89,17 @@ export class OriginChainView {
   protected readonly packs = computed((): ReadonlyMap<PackId, string> => this.names().packs ?? new Map());
 
   readonly #i18n = inject(TranslocoService);
+  readonly #format = inject(LocaleFormat);
   /** Ticks when the locale changes or the `rules` scope finishes loading. */
   readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
   readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
 
   protected readonly segments = computed((): readonly Segment[] => {
     this.#messages();
-    const { hops, entry } = this.origin();
-    const steps = [...hops.map((hop) => this.#hop(hop)), [text(this.#entry(entry))]];
+    this.#format.locale();
+    const origin = this.origin();
+    const holder = endsAtEntry(origin) ? [] : [[text(this.#entry(origin.entry))]];
+    const steps = [...origin.hops.map((hop) => this.#hop(hop)), ...holder];
     const then = text(this.#i18n.translate(OriginChainMessage.Then));
     const segments: Segment[] = [];
     for (const step of steps) {
@@ -112,7 +146,7 @@ export class OriginChainView {
     const condition = this.#i18n.translate(OriginChainMessage.Condition, {
       name: this.#entry(hop.condition),
       hasValue: hop.value === undefined ? 'no' : 'yes',
-      value: hop.value ?? '',
+      value: hop.value === undefined ? '' : this.#format.number(hop.value),
     });
     return this.#appliedBy(condition, hop.appliedBy);
   }
@@ -137,6 +171,6 @@ export class OriginChainView {
   }
 
   #entry(entry: ContentId): string {
-    return this.entryNames().get(entry) ?? entry;
+    return this.entryNames().get(entry) ?? this.#i18n.translate(OriginChainMessage.UnknownEntry);
   }
 }

@@ -2,7 +2,18 @@ import { TestBed } from '@angular/core/testing';
 import type { Origin } from '@pioneer/rules/sdk';
 import { describe, expect, it } from 'vitest';
 
-import { DIRECT, ENTRY_NAMES, EVERY_HOP, ORIGIN_NAMES, PLAIN_CONDITION, SET_BY_HAND } from '../testing/origin-fixtures';
+import {
+  CONDITION_ON_CHARACTER,
+  DIRECT,
+  ENTRY_NAMES,
+  EVERY_HOP,
+  fromItem,
+  ORIGIN_NAMES,
+  PLAIN_CONDITION,
+  SET_BY_HAND,
+  SET_WITHOUT_NOTE,
+  VARIANT_RULE,
+} from '../testing/origin-fixtures';
 import { provideRulesUiI18nTesting } from '../testing/provide-rich-text-testing';
 import { OriginChainView } from './origin-chain.component';
 import { NO_ORIGIN_NAMES } from './origin-names';
@@ -56,20 +67,45 @@ describe(OriginChainView, () => {
     expect(chain).toBe('set by Ada 2 days ago, “House rule” → Shield Block');
   });
 
+  it('leaves the note out when there is none', async () => {
+    const { chain } = await render(SET_WITHOUT_NOTE);
+
+    expect(chain).toBe('set by Ada 2 days ago → Shield Block');
+  });
+
   it('reads a condition without a value or a known event as its name', async () => {
     const { chain } = await render(PLAIN_CONDITION);
 
     expect(chain).toBe('Frightened → Shield Block');
   });
 
-  it('falls back when names are missing: the slot key, an item, no event, the entry id', async () => {
+  it.each(['worn', 'held', 'invested'])('says the item is %s', async (state) => {
+    const { chain } = await render(fromItem(state));
+
+    expect(chain).toBe(`Steel Shield, ${state} → Shield Block`);
+  });
+
+  it.each([
+    { origin: VARIANT_RULE, chain: 'Proficiency Without Level' },
+    { origin: CONDITION_ON_CHARACTER, chain: 'Frightened 2' },
+  ])('names the entry once when the last hop is it: $chain', async ({ origin, chain }) => {
+    await expect(render(origin)).resolves.toMatchObject({ chain });
+  });
+
+  it('falls back when names are missing: the slot key, an item, an entry, no event', async () => {
     const { chain } = await render(EVERY_HOP, new Map(), NO_ORIGIN_NAMES);
 
-    const [slot, , item] = chain.split(' → ');
-    expect(slot).toBe('chosen for class');
-    expect(item).toBe('an item, held');
-    expect(chain).not.toContain('applied by');
-    expect(chain.endsWith(EVERY_HOP.entry)).toBe(true);
+    expect(chain).toBe(
+      [
+        'chosen for class',
+        'granted by an entry',
+        'an item, held',
+        'an entry 2',
+        'an entry',
+        'an entry',
+        'an entry',
+      ].join(' → '),
+    );
   });
 
   it('calls a user it cannot name a user, never by id', async () => {

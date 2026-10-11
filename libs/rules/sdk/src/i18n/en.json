@@ -473,7 +473,8 @@
       "setBy": "set by {user} ",
       "note": ", “{note}”",
       "unknownUser": "a user",
-      "unknownItem": "an item"
+      "unknownItem": "an item",
+      "unknownEntry": "an entry"
     },
     "statistics": {
       "none": "No statistics.",

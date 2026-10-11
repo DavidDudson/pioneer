@@ -267,13 +267,13 @@ describe(DefencesView, () => {
       expect(resistances.items).toStrictEqual(['Resistance 10 fire', 'Resistance 10 fire']);
     });
 
-    it('names an origin without a display name by its entry id', async () => {
+    it('calls an origin without a display name an entry, never by id', async () => {
       const { origins } = await render(
         { ...NO_DEFENCES, weaknesses: [adjustment(GOLEM_FORM, 'cold', { value: 5 })] },
         { entries: new Map() },
       );
 
-      expect(origins).toStrictEqual([GOLEM_FORM]);
+      expect(origins).toStrictEqual(['an entry']);
     });
   });
 });

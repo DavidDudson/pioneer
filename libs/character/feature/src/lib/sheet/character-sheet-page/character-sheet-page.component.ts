@@ -52,6 +52,7 @@ import {
   AttributeModifier,
   ChoiceValue,
 } from '@pioneer/rules/sdk';
+import type { ContentId } from '@pioneer/rules/sdk';
 import { DefencesView, StatisticsView } from '@pioneer/rules/ui';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
@@ -65,6 +66,7 @@ import { CharacterStore } from '../../data/character-store';
 import { CHARACTER_CONTENT_KINDS, contentRegistryQuery } from '../../data/content-registry-query';
 import { ImportResult } from '../../import/import-result/import-result.component';
 import { sheetDefences } from '../sheet-defences';
+import { sheetEntryNames } from '../sheet-entry-names';
 import { SHEET_SECTION_ORDER, SHEET_SECTIONS } from '../sheet-sections';
 import { sheetStatistics } from '../sheet-statistics';
 
@@ -155,6 +157,11 @@ export class CharacterSheetPage {
     const registry = this.registry.data();
     const character = this.character();
     return registry === undefined || character === undefined ? undefined : sheetStatistics(registry, character);
+  });
+  /** Names for the entries the defences and statistics lines come from. */
+  protected readonly entryNames = computed((): ReadonlyMap<ContentId, string> => {
+    const registry = this.registry.data();
+    return registry === undefined ? new Map() : sheetEntryNames(registry);
   });
 
   protected readonly name = this.#field<string>({

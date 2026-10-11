@@ -47,7 +47,8 @@ const LOADING_LISTS = ['immunities', 'weaknesses', 'resistances'] as const;
  * superseded with what counts instead, or failed with why, and every line shows its origin chain and sources.
  *
  * Read-only and presentational (ADR-0028): the caller passes the engine's `Defences`, or undefined while they load,
- * and the display names of the entries, immunities and exceptions it names. A missing name shows its id.
+ * and the display names of the entries, immunities and exceptions it names. A missing name shows its id, except in
+ * an origin chain, where a missing entry reads "an entry".
  *
  * ```html
  * <pio-defences [defences]="defences()" [entryNames]="names()" />

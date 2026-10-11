@@ -18,8 +18,11 @@ const SHIELD_ITEM = InventoryItemId.parse('5b0d3c1e-8a7f-4e2b-9c4d-1f6e2a3b4c5d'
 const DEMORALIZE = EventRef.parse('7c1e2d3f-4a5b-4c6d-8e7f-9a0b1c2d3e4f');
 const GM = UserId.parse('00000000-0000-4000-8000-00000000de01');
 
-/** Two days before now, so the override reads "2 days ago" whenever the story or spec runs. */
-const TWO_DAYS_AGO: Temporal.Instant = Temporal.Now.instant().subtract({ hours: 48 });
+/**
+ * Two calendar days before now in the local zone, so the override reads "2 days ago" whenever the story or spec runs,
+ * a daylight saving change included.
+ */
+const TWO_DAYS_AGO: Temporal.Instant = Temporal.Now.zonedDateTimeISO().subtract({ days: 2 }).toInstant();
 
 const SOURCES = [{ kind: 'book', book: 'player-core', page: 266 }];
 
@@ -45,8 +48,27 @@ export const SET_BY_HAND: Origin = origin([
   { kind: 'override', by: GM, at: TWO_DAYS_AGO.toString({ smallestUnit: 'millisecond' }), note: 'House rule' },
 ]);
 
+/** An override with no note. */
+export const SET_WITHOUT_NOTE: Origin = origin([
+  { kind: 'override', by: GM, at: TWO_DAYS_AGO.toString({ smallestUnit: 'millisecond' }) },
+]);
+
 /** A condition with no value, put on without a campaign event. */
 export const PLAIN_CONDITION: Origin = origin([{ kind: 'condition', condition: FRIGHTENED }]);
+
+/** Shield Block from the shield, worn, held or invested. */
+export function fromItem(state: string): Origin {
+  return origin([{ kind: 'inventory', item: SHIELD_ITEM, state }]);
+}
+
+/** A variant rule's own rule element, as `variantRulesInPlay` builds it: the hop names the entry holding it. */
+export const VARIANT_RULE: Origin = origin([{ kind: 'variant', rule: WITHOUT_LEVEL }], WITHOUT_LEVEL);
+
+/** A condition on the character, as grant roots build it: the hop names the entry holding the rule element. */
+export const CONDITION_ON_CHARACTER: Origin = origin(
+  [{ kind: 'condition', condition: FRIGHTENED, value: 2 }],
+  FRIGHTENED,
+);
 
 /** Names a container resolves from the registry and the campaign. */
 export const ENTRY_NAMES: ReadonlyMap<ContentId, string> = new Map([
