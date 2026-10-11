@@ -78,8 +78,8 @@ export class FacetFilterView {
   }
 
   #chipOption({ value, key, shown, count }: ChipValue): SelectOption<FacetValue> {
-    const name = key === undefined ? shown : this.#i18n.translate<string>(key);
-    const label = this.#i18n.translate<string>(FacetFilterMessage.Chip, {
+    const name = key === undefined ? shown : this.#i18n.translate(key);
+    const label = this.#i18n.translate(FacetFilterMessage.Chip, {
       value: name,
       count: this.#format.number(count),
     });

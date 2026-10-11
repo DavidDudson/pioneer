@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 
 import { CharacterService, InMemoryCharacterRepository } from '@pioneer/character/application';
-import { CharacterSheet, ClearedPick, PatchedCharacterSheet } from '@pioneer/character/domain';
+import { CharacterSheet, ClearedPick, CoinsSchema, PatchedCharacterSheet } from '@pioneer/character/domain';
 import { humanAncestryId } from '@pioneer/character/domain/testing';
 import { briarRoseExport, mordredExport } from '@pioneer/interop/pathbuilder/testing';
 import { ContentKind, contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
@@ -162,13 +162,14 @@ describe('character routes', () => {
     const { id } = await create(api, amiri, 'Kyra');
     const rope = contentId(PackId.parse('player-core'), EntrySlug.parse('equipment:rope'));
     const body = { expectedVersion: 1, patch: { field: 'giftItem', item: rope, quantity: 2 } };
-
     const gifted = await api.handle(request('PATCH', `/characters/${id}`, { body }));
     expect(gifted.status).toBe(200);
     const { character } = CharacterSheet.parse(await gifted.json());
     expect(character.version).toBe(Version.parse(2));
-    expect(character.document.inventory.items.map(({ item, quantity }) => [item, quantity])).toStrictEqual([[rope, 2]]);
-    expect(character.document.inventory.coins).toStrictEqual({ pp: 0, gp: 0, sp: 0, cp: 0 });
+    expect(
+      character.document.inventory.items.map(({ item, quantity }) => [String(item), Number(quantity)]),
+    ).toStrictEqual([[rope, 2]]);
+    expect(character.document.inventory.coins).toStrictEqual(CoinsSchema.parse({}));
 
     const stale = await api.handle(request('PATCH', `/characters/${id}`, { body }));
     expect(stale.status).toBe(409);

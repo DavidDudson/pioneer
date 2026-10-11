@@ -1,0 +1,18 @@
+<fr-stack direction="horizontal" justify="between" align="center" gap="sm">
+  <fr-stack gap="3xs">
+    <fr-stack direction="horizontal" align="center" gap="xs" wrap>
+      <fr-text>{{ offer().name }}</fr-text>
+      @if (badge(); as badge) {
+        <fr-badge [tone]="badge.tone">{{ badge.key | transloco }}</fr-badge>
+      }
+    </fr-stack>
+    <fr-text variant="caption" tone="muted">{{ line() }}</fr-text>
+  </fr-stack>
+  <fr-toggle-button
+    size="sm"
+    [ariaLabel]="Message.PickNamed | transloco: { name: offer().name }"
+    [value]="picked()"
+    (valueChange)="pickedChange.emit($event)"
+    >{{ Message.Pick | transloco }}</fr-toggle-button
+  >
+</fr-stack>

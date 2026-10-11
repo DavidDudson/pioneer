@@ -40,7 +40,7 @@ export interface ChipsRow {
 }
 
 /** A `range` facet: its bounds and the lowest and highest values in the list, in the unit it is shown in. */
-export interface RangeRow {
+interface RangeRow {
   readonly kind: typeof FacetRowKind.Range;
   readonly facet: FacetDefinition;
   readonly min: number | undefined;

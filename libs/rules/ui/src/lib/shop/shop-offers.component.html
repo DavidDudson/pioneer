@@ -10,24 +10,13 @@
       <fr-list gap="xs">
         @for (row of rows(); track row.offer.id) {
           <fr-list-item>
-            <fr-stack direction="horizontal" justify="between" align="center" gap="sm">
-              <fr-stack gap="3xs">
-                <fr-stack direction="horizontal" align="center" gap="xs" wrap>
-                  <fr-text>{{ row.offer.name }}</fr-text>
-                  @if (row.badge; as badge) {
-                    <fr-badge [tone]="badge.tone">{{ badge.key | transloco }}</fr-badge>
-                  }
-                </fr-stack>
-                <fr-text variant="caption" tone="muted">{{ row.line }}</fr-text>
-              </fr-stack>
-              <fr-toggle-button
-                size="sm"
-                [ariaLabel]="Message.PickNamed | transloco: { name: row.offer.name }"
-                [value]="picked() === row.offer.id"
-                (valueChange)="pick(row.offer.id, $event)"
-                >{{ Message.Pick | transloco }}</fr-toggle-button
-              >
-            </fr-stack>
+            <pio-shop-offer-row
+              [offer]="row.offer"
+              [badge]="row.badge"
+              [line]="row.line"
+              [picked]="picked() === row.offer.id"
+              (pickedChange)="pick(row.offer.id, $event)"
+            />
           </fr-list-item>
         }
       </fr-list>

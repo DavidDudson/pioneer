@@ -3,22 +3,13 @@ import type { Signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { LucidePackageSearch } from '@lucide/angular';
-import {
-  Badge,
-  EmptyState,
-  List,
-  ListItem,
-  LocaleFormat,
-  Skeleton,
-  Stack,
-  Text,
-  ToggleButton,
-} from '@pioneer/frontier';
+import { EmptyState, List, ListItem, LocaleFormat, Skeleton, Stack, Text } from '@pioneer/frontier';
 import type { ContentId } from '@pioneer/rules/sdk';
 import { filter, merge } from 'rxjs';
 
 import { priceCoins, RARITY_BADGES, ShopMessage } from './shop-offer';
 import type { RarityBadge, ShopOffer } from './shop-offer';
+import { ShopOfferRow } from './shop-offer-row/shop-offer-row.component';
 
 /** How many offers the list shows; past it, the player narrows the filters. */
 const SHOWN_MAX = 50;
@@ -39,7 +30,7 @@ interface OfferRow {
  */
 @Component({
   selector: 'pio-shop-offers',
-  imports: [Badge, EmptyState, List, ListItem, Skeleton, Stack, Text, ToggleButton, TranslocoPipe],
+  imports: [EmptyState, List, ListItem, ShopOfferRow, Skeleton, Stack, Text, TranslocoPipe],
   templateUrl: './shop-offers.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -66,8 +57,8 @@ export class ShopOffersView {
         badge: RARITY_BADGES[offer.rarity],
         line:
           offer.level === undefined
-            ? this.#i18n.translate<string>(ShopMessage.LineNoLevel, { price })
-            : this.#i18n.translate<string>(ShopMessage.Line, { level: this.#format.number(offer.level), price }),
+            ? this.#i18n.translate(ShopMessage.LineNoLevel, { price })
+            : this.#i18n.translate(ShopMessage.Line, { level: this.#format.number(offer.level), price }),
       };
     });
   });
@@ -84,15 +75,13 @@ export class ShopOffersView {
 
   #priceText({ price }: ShopOffer): string {
     if (price === undefined) {
-      return this.#i18n.translate<string>(ShopMessage.NoPrice);
+      return this.#i18n.translate(ShopMessage.NoPrice);
     }
     const coins = priceCoins(price)
-      .map(({ coin, count }) =>
-        this.#i18n.translate<string>(ShopMessage.Coin, { coin, count: this.#format.number(count) }),
-      )
+      .map(({ coin, count }) => this.#i18n.translate(ShopMessage.Coin, { coin, count: this.#format.number(count) }))
       .join(' ');
     return price.per === undefined
       ? coins
-      : this.#i18n.translate<string>(ShopMessage.PricePer, { price: coins, per: this.#format.number(price.per) });
+      : this.#i18n.translate(ShopMessage.PricePer, { price: coins, per: this.#format.number(price.per) });
   }
 }

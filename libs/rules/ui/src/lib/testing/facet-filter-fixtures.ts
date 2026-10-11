@@ -19,9 +19,6 @@ function counts(id: FacetId, values: Readonly<Record<string, number>>): FacetCou
   return { facet: facet(id), values: rows, unknown: EntryCount.parse(0) };
 }
 
-export const LEVEL_FACET = facet(CommonFacet.Level);
-export const RARITY_FACET = facet(CommonFacet.Rarity);
-export const TRAITS_FACET = facet(CommonFacet.Traits);
 const ITEM_KIND = FacetId.parse('item-kind');
 const MAGICAL = FacetId.parse('magical');
 const WEAPON_GROUP = FacetId.parse('weapon-group');

@@ -227,8 +227,9 @@ version 3, #472). `inventory.coins` holds platinum, gold, silver and copper, eac
   containers nest. The document refuses an item in one it hasn't and containers that hold each other.
 - **Commands.** `giftItem { item, quantity, container? }` (adds without paying; the server gives the item its id),
   `removeItem { id }`, `setItemQuantity`, `moveItem { id, container? }` (no container takes it out),
-  `renameItem { id, name? }` (no name goes back to the content's) and `setCoins { coins }`. Each is a PATCH audited by name. The server refuses an item
-  the character hasn't (`character.validation.itemNotFound`), a container that isn't there
+  `renameItem { id, name? }` (no name goes back to the content's) and `setCoins { coins }`. Each is a PATCH audited
+  by name. The server refuses an item the character hasn't (`character.validation.itemNotFound`), a container that
+  isn't there
   (`containerNotFound`), one inside itself or something it holds (`containerInsideItself`), content no loaded pack
   has as an item (`unknownItem`) and stowing in an item that holds nothing (`notAContainer`).
 - **Removing a container** moves what it held out to where the container was, so nothing inside is lost.

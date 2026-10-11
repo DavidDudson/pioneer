@@ -26,7 +26,7 @@ export const LONGSWORD = offer({
   rarity: Rarity.Common,
   price: Price.parse({ coins: { gp: 1 } }),
 });
-export const ARROWS = offer({
+const ARROWS = offer({
   id: '7b0c3a52-3f43-4f0e-9a3c-1f1b8f0c0002',
   name: 'Arrows',
   level: LEVEL_0,
@@ -40,7 +40,7 @@ export const STAFF_OF_FIRE = offer({
   rarity: Rarity.Uncommon,
   price: Price.parse({ coins: { gp: 60, sp: 5 } }),
 });
-export const LUCKY_STONE = offer({
+const LUCKY_STONE = offer({
   id: '7b0c3a52-3f43-4f0e-9a3c-1f1b8f0c0004',
   name: 'Lucky Stone',
   level: LEVEL_1,

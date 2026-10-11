@@ -19,8 +19,6 @@ const BACKPACK = '11111111-1111-4111-8111-111111111111';
 export const ROPE = '33333333-3333-4333-8333-333333333333';
 export const SWORD = '44444444-4444-4444-8444-444444444444';
 export const CLOAK = '77777777-7777-4777-8777-777777777777';
-export const LISTBOX_PX = 400;
-export const OPTION_PX = 44;
 
 /** Valeros with a worn backpack holding his climbing rope, a longsword in hand, an invested cloak, and some gold. */
 export const VALEROS = {

@@ -12,7 +12,7 @@ describe('CharacterSheetPage', () => {
     await prebuildServerStateTesting();
   }, PREBUILD_TIMEOUT);
 
-  it('shows identity, build, attributes, defences, statistics, choices, spellcasting, class features and inventory in that order, each a region under a level 2 heading', async () => {
+  it('shows identity, build, attributes, defences, statistics, choices, spellcasting, class features, inventory and downtime in that order, each a region under a level 2 heading', async () => {
     const { root } = await openSheet();
 
     const regions = [...root.querySelectorAll('section')].map((region) => {
@@ -30,6 +30,7 @@ describe('CharacterSheetPage', () => {
       ['Spellcasting', true],
       ['Class features', true],
       ['Inventory', true],
+      ['Downtime', true],
     ]);
   });
 
@@ -48,6 +49,7 @@ describe('CharacterSheetPage', () => {
       'Spellcasting',
       'Class features',
       'Inventory',
+      'Downtime',
     ]);
 
     links[2]?.click();
