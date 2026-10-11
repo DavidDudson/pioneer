@@ -178,4 +178,14 @@ describe('spellcastingInPlay slots', () => {
     expect<object | undefined>(cleric?.slots).toEqual({ cantrips: 2, ranks: [] });
     expect(cleric?.pools).toEqual([]);
   });
+  test('the highest rank is never 10th: 10th-rank slots take no abilities that add slots', () => {
+    const [wizard] = entriesOf([
+      [entry('wizard', 'arcane'), 'wizard-spellcasting'],
+      [slots('wizard', [9, 3]), 'wizard-spellcasting'],
+      [slots('wizard', [10, 1]), 'archwizards-spellcraft'],
+      [slots('wizard', ['highest', 1], { pool: 'bonded' }), 'bonded-item'],
+    ]);
+
+    expect<object | undefined>(wizard?.pools.map(({ ranks }) => ranks)).toEqual([[{ rank: 9, count: 1 }]]);
+  });
 });

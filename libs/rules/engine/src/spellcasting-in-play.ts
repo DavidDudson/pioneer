@@ -1,6 +1,6 @@
 import { Truth } from '@pioneer/rules/predicate';
 import type { PredicateFacts } from '@pioneer/rules/predicate';
-import { RuleElementKey, SLOT_COUNT_MAX, SlotCount, SlotRank, SpellRank } from '@pioneer/rules/sdk';
+import { RuleElementKey, SLOT_COUNT_MAX, SlotCount, SlotRank, SPELL_RANK_MAX, SpellRank } from '@pioneer/rules/sdk';
 import type { Origin, RuleSlug, Slug, SpellPreparation, SpellSlotsElement } from '@pioneer/rules/sdk';
 
 import type { ModifierInputs, RuleInPlay } from './rule-in-play';
@@ -74,8 +74,14 @@ function slotsOf(tally: Tally): SpellSlots {
   return cantrips === undefined ? { ranks } : { cantrips, ranks };
 }
 
+/**
+ * The highest rank of the entry's own slots that abilities giving more slots can use: 10th-rank slots never count
+ * (Player Core: "you can't use 10th-rank slots with abilities that give you more spell slots").
+ */
 function highestRank(tally: Tally): SpellRank | undefined {
-  const ranks = [...tally.keys()].filter((rank) => rank !== SlotRank.Cantrip);
+  const ranks = [...tally.keys()]
+    .filter((rank): rank is SpellRank => rank !== SlotRank.Cantrip)
+    .filter((rank) => rank < SPELL_RANK_MAX);
   return ranks.length === 0 ? undefined : SpellRank.parse(Math.max(...ranks));
 }
 
@@ -102,7 +108,7 @@ function fixedOwnSlots(placed: readonly PlacedSlots[]): Tally {
 
 /**
  * An entry's own slots and pools from the `SpellSlots` elements that name it. Counts add up per pool and rank;
- * `highest` is the highest rank its own fixed slots reach, so it is read once those are counted, and adds nothing to an
+ * `highest` is the highest rank below 10th its own fixed slots reach, so it is read once those are counted, and adds nothing to an
  * entry with none.
  */
 function entrySlots(placed: readonly PlacedSlots[]): EntrySlots {

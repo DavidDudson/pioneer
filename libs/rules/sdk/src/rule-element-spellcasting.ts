@@ -58,9 +58,10 @@ export type SlotRank = ValueOf<typeof SlotRank>;
 /**
  * Adds spell slots of one rank, or cantrips, to a spellcasting entry: to its own slots, or to a `pool` of slots kept
  * apart because only some spells go in them (a cleric's divine font, a wizard's curriculum). `highest` is the highest
- * rank the entry's own slots reach. Counts add up per entry, pool and rank, so a class's table is one element per rank
- * and level the count changes at, read with level predicates. One for an entry not in play adds nothing. A Pioneer
- * element with no Foundry counterpart, like `SpellcastingEntry` (ADR-0041).
+ * rank below 10th the entry's own slots reach, since 10th-rank slots never take abilities that add slots. Counts add
+ * up per entry, pool and rank, so a class's table is one element per rank and level the count changes at, read with
+ * level predicates. One for an entry not in play adds nothing. A Pioneer element with no Foundry counterpart, like
+ * `SpellcastingEntry` (ADR-0041).
  */
 export const SpellSlotsElement = z.strictObject({
   key: z.literal(RuleElementKey.SpellSlots),

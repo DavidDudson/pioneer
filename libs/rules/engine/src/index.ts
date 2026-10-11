@@ -28,7 +28,13 @@ export { EngineMessage } from './messages';
 export { type ModifierInputs, RuleId, ruleIdOf, RuleInPlay } from './rule-in-play';
 export { ranksInPlay } from './ranks-in-play';
 export { type AncestryVision, type SenseInPlay, sensesInPlay } from './senses-in-play';
-export { type SpellcastingInPlay, spellcastingInPlay } from './spellcasting-in-play';
+export {
+  type RankSlots,
+  type SlotPool,
+  type SpellcastingInPlay,
+  type SpellSlots,
+  spellcastingInPlay,
+} from './spellcasting-in-play';
 export { type StatisticFailure, type StatisticResult, type StatisticValue } from './statistic-result';
 export { type ClassInputs, type StatisticInputs, StatisticInputsJson } from './statistic-inputs';
 export { type WeaponInputs } from './source-inputs';
