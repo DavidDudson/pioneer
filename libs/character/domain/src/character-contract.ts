@@ -10,6 +10,7 @@ import { CharacterLanguages } from './character-languages';
 import { PatchCharacterBody } from './character-patch';
 import { CharacterSlot } from './character-slot';
 import { ClearedPick } from './dependent-picks';
+import { SetSheetModeBody, SheetModeChoice } from './sheet-mode';
 
 const ById = z.object({ id: CharacterId });
 
@@ -76,5 +77,23 @@ export const CharacterContract = {
     query: NoQuery,
     body: PatchCharacterBody,
     response: PatchedCharacterSheet,
+  }),
+  /** The tab the signed-in user last had open on this character's sheet, if any. */
+  sheetMode: new Endpoint({
+    method: HttpMethod.Get,
+    path: '/characters/:id/sheet-mode',
+    params: ById,
+    query: NoQuery,
+    body: NoBody,
+    response: SheetModeChoice,
+  }),
+  /** Remembers the tab the signed-in user switched to. Not a character edit: the version stays the same. */
+  setSheetMode: new Endpoint({
+    method: HttpMethod.Patch,
+    path: '/characters/:id/sheet-mode',
+    params: ById,
+    query: NoQuery,
+    body: SetSheetModeBody,
+    response: SheetModeChoice,
   }),
 } as const;
