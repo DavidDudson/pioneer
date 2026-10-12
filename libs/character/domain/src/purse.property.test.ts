@@ -6,7 +6,7 @@ import type { Arbitrary } from 'fast-check';
 
 import { CoinsSchema } from './inventory';
 import type { Coins } from './inventory';
-import { coinsValue, payCost } from './purse';
+import { coinsOf, coinsValue, payCost } from './purse';
 
 const COINS = [Coin.Platinum, Coin.Gold, Coin.Silver, Coin.Copper] as const;
 const COUNT_MAX = 6;
@@ -55,6 +55,10 @@ describe('payCost properties', () => {
     assert(
       property(coins, cost, (purse, price) => (payCost(purse, price) === undefined) === coinsValue(purse) < price),
     );
+  });
+
+  test('coinsOf gives coins worth the value', () => {
+    assert(property(cost, (value) => coinsValue(coinsOf(value)) === value));
   });
 
   test('takes nothing for a free item', () => {

@@ -9,12 +9,25 @@ const LARGEST_FIRST: readonly Coin[] = [Coin.Platinum, Coin.Gold, Coin.Silver, C
 
 const FREE = CopperValue.parse(0);
 const ONE_COIN = CoinAmount.parse(1);
+const NO_COINS: Coins = CoinsSchema.parse({});
 /** How many items a price is for when it names no batch. */
 const SINGLE = ItemCount.parse(1);
 
 /** What the purse is worth in copper. */
 export function coinsValue(coins: Coins): CopperValue {
   return CopperValue.parse(LARGEST_FIRST.reduce((total, coin) => total + coins[coin] * COPPER_PER_COIN[coin], 0));
+}
+
+/** `value` in as few coins as it takes, the largest first: 150 cp is 1 gp 5 sp. */
+export function coinsOf(value: CopperValue): Coins {
+  let left = value;
+  const coins: Coins = { ...NO_COINS };
+  for (const coin of LARGEST_FIRST) {
+    const worth = COPPER_PER_COIN[coin];
+    coins[coin] = CoinAmount.parse(Math.floor(left / worth));
+    left = CopperValue.parse(left - coins[coin] * worth);
+  }
+  return coins;
 }
 
 /**
@@ -55,12 +68,6 @@ export function payCost(coins: Coins, cost: CopperValue): Coins | undefined {
     throw new TypeError('A purse worth the cost holds a coin that covers what is left');
   }
   left[broken] = CoinAmount.parse(left[broken] - ONE_COIN);
-  let change = COPPER_PER_COIN[broken] - owed;
-  for (const coin of LARGEST_FIRST) {
-    const worth = COPPER_PER_COIN[coin];
-    const given = Math.floor(change / worth);
-    left[coin] = CoinAmount.parse(left[coin] + given);
-    change -= given * worth;
-  }
-  return CoinsSchema.parse(left);
+  const change = coinsOf(CopperValue.parse(COPPER_PER_COIN[broken] - owed));
+  return CoinsSchema.parse(Object.fromEntries(LARGEST_FIRST.map((coin) => [coin, left[coin] + change[coin]])));
 }

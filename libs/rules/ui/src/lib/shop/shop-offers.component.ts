@@ -7,7 +7,7 @@ import { EmptyState, List, ListItem, LocaleFormat, Skeleton, Stack, Text } from 
 import type { ContentId } from '@pioneer/rules/sdk';
 import { filter, merge } from 'rxjs';
 
-import { priceCoins, RARITY_BADGES, ShopMessage } from './shop-offer';
+import { coinsText, priceCoins, RARITY_BADGES, ShopMessage } from './shop-offer';
 import type { RarityBadge, ShopOffer } from './shop-offer';
 import { ShopOfferRow } from './shop-offer-row/shop-offer-row.component';
 
@@ -77,9 +77,9 @@ export class ShopOffersView {
     if (price === undefined) {
       return this.#i18n.translate(ShopMessage.NoPrice);
     }
-    const coins = priceCoins(price)
-      .map(({ coin, count }) => this.#i18n.translate(ShopMessage.Coin, { coin, count: this.#format.number(count) }))
-      .join(' ');
+    const coins = coinsText(priceCoins(price), (coin, count) =>
+      this.#i18n.translate(ShopMessage.Coin, { coin, count: this.#format.number(count) }),
+    );
     return price.per === undefined
       ? coins
       : this.#i18n.translate(ShopMessage.PricePer, { price: coins, per: this.#format.number(price.per) });
