@@ -39,6 +39,14 @@
             "selector": "swim",
             "value": 25
           }
+        },
+        {
+          "type": "rule",
+          "key": "ActorTraits",
+          "raw": {
+            "add": ["amphibious"],
+            "key": "ActorTraits"
+          }
         }
       ]
     },
@@ -163,6 +171,22 @@
     {
       "type": "entry",
       "pack": "player-core",
+      "slug": "action:construct",
+      "foundry": "Compendium.pf2e.familiar-abilities.Item.5eqcXtPsYunphMOZ",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActorTraits",
+          "raw": {
+            "add": ["construct"],
+            "key": "ActorTraits"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "player-core",
       "slug": "action:cover-tracks",
       "foundry": "Compendium.pf2e.actionspf2e.Item.SB7cMECVtE06kByk",
       "gaps": [
@@ -240,6 +264,22 @@
         {
           "type": "enricher",
           "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "player-core",
+      "slug": "action:dragon",
+      "foundry": "Compendium.pf2e.familiar-abilities.Item.embGS7NjgydDw8KO",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActorTraits",
+          "raw": {
+            "add": ["dragon"],
+            "key": "ActorTraits"
+          }
         }
       ]
     },
@@ -325,6 +365,22 @@
             "key": "BaseSpeed",
             "selector": "fly",
             "value": 25
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "player-core",
+      "slug": "action:fungus",
+      "foundry": "Compendium.pf2e.familiar-abilities.Item.jew52aXGdNyR4N5B",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActorTraits",
+          "raw": {
+            "add": ["fungus"],
+            "key": "ActorTraits"
           }
         }
       ]
@@ -456,6 +512,22 @@
         {
           "type": "markup",
           "markup": "h2[class]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "player-core",
+      "slug": "action:plant",
+      "foundry": "Compendium.pf2e.familiar-abilities.Item.lLWkoGiNLNIEm5Sp",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActorTraits",
+          "raw": {
+            "add": ["plant"],
+            "key": "ActorTraits"
+          }
         }
       ]
     },

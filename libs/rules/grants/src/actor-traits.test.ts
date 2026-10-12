@@ -38,6 +38,14 @@ describe('the character traits', () => {
     expect(traitsOf([HUMAN, leshy], roots)).toEqual(['self:trait:human', 'self:trait:plant']);
   });
 
+  test('lose a trait one element removes though another adds it, in either order', () => {
+    const adds = entry('holy-boon', [{ key: 'ActorTraits', add: ['holy'] }]);
+    const removes = entry('unholy-curse', [{ key: 'ActorTraits', remove: ['holy'] }]);
+    const roots = [picked('holy-boon', 'boon'), picked('unholy-curse', 'curse')];
+    expect(traitsOf([adds, removes], roots)).toEqual([]);
+    expect(traitsOf([adds, removes], roots.toReversed())).toEqual([]);
+  });
+
   test("add a trait only while the element's predicate holds", () => {
     expect(traitsOf([sanctified('sanctification:holy')], [picked('deity-cleric')])).toEqual(['self:trait:holy']);
     expect(traitsOf([sanctified('sanctification:none')], [picked('deity-cleric')])).toEqual([]);

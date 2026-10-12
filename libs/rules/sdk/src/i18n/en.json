@@ -583,7 +583,7 @@
     },
     "statistics": {
       "none": "No statistics.",
-      "noStrikes": "No Strikes. Hold a weapon to Strike with it.",
+      "noStrikes": "No Strikes listed yet. Hold a weapon to add its Strike.",
       "fist": "Fist",
       "failed": "Failed",
       "pinned": "Pinned",

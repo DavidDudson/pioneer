@@ -1,31 +1,54 @@
-import { equippedRules, itemContent, slotContent } from '@pioneer/character/domain';
+import { equippedRules, itemContent } from '@pioneer/character/domain';
 import type { Character } from '@pioneer/character/domain';
 import { deriveStatistics, statisticContent } from '@pioneer/rules/engine';
+import type { StatisticResult } from '@pioneer/rules/engine';
 import { Selector } from '@pioneer/rules/sdk';
 import type { ContentRegistry } from '@pioneer/rules/sdk';
 import type { NamedStatistic } from '@pioneer/rules/ui';
 
 import { statisticInputsOf } from './sheet-inputs';
+import { sheetSlotContent } from './sheet-slot-content';
 
-/** The statistics the sheet lists, in order: Armor Class, the three saves, then Perception. */
+/** The sheet's statistics, in order: Armor Class, the three saves, then Perception. */
 const SHEET_STATISTICS: readonly Selector[] = ['ac', 'save:fortitude', 'save:reflex', 'save:will', 'perception'].map(
   (selector) => Selector.parse(selector),
 );
 
+/** Everything the engine derives for a character, by statistic or instance selector. */
+export type SheetDerivation = ReadonlyMap<Selector, StatisticResult>;
+
+/** Derivations already made, by registry and character: the statistics, Strikes and spellcasting each read them. */
+const DERIVED = new WeakMap<ContentRegistry, WeakMap<Character, SheetDerivation>>();
+
 /**
- * A character's AC, saves and Perception from the engine, each named by the statistic that applies: the last pack's
- * definition of its selector, as the engine chooses. The rule elements of the items the character wears, holds or has
- * invested are in play when the registry holds the item kinds; those of its ancestry, class and feats arrive with the
- * builder (Epic 3.3), and every rank is untrained.
- * A statistic no registered pack defines is left out; without a proficiency bonus table nothing can be derived.
+ * Every statistic the engine derives for a character, with the rule elements of the items it wears, holds or has
+ * invested in play when the registry holds the item kinds. Derived once per registry and character; empty without a
+ * proficiency bonus table, as nothing can be derived.
  */
-export function sheetStatistics(registry: ContentRegistry, character: Character): readonly NamedStatistic[] {
+export function sheetDerivation(registry: ContentRegistry, character: Character): SheetDerivation {
+  const byCharacter = DERIVED.get(registry) ?? new WeakMap<Character, SheetDerivation>();
+  DERIVED.set(registry, byCharacter);
+  const derived = byCharacter.get(character) ?? derive(registry, character);
+  byCharacter.set(character, derived);
+  return derived;
+}
+
+function derive(registry: ContentRegistry, character: Character): SheetDerivation {
   const content = statisticContent(registry);
   if (content === undefined) {
-    return [];
+    return new Map();
   }
-  const rules = equippedRules(character.document, itemContent(registry), slotContent(registry));
-  const results = deriveStatistics(content, statisticInputsOf(registry, character), rules);
+  const rules = equippedRules(character.document, itemContent(registry), sheetSlotContent(registry));
+  return deriveStatistics(content, statisticInputsOf(registry, character), rules);
+}
+
+/**
+ * A character's AC, saves and Perception from the engine (`sheetDerivation`), each named by the statistic that applies:
+ * the last pack's definition of its selector, as the engine chooses. A statistic no registered pack defines is left
+ * out.
+ */
+export function sheetStatistics(registry: ContentRegistry, character: Character): readonly NamedStatistic[] {
+  const results = sheetDerivation(registry, character);
   return SHEET_STATISTICS.flatMap((selector): NamedStatistic[] => {
     const result = results.get(selector);
     const entry = registry.statisticsFor(selector).at(-1);

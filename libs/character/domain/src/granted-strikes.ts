@@ -11,7 +11,8 @@ const FIST_TRAITS: readonly Trait[] = ['agile', 'finesse', 'nonlethal'].map((tra
 
 /**
  * The Strikes the character's grants give (ADR-0047): a fist for each `Strike` element in its fist form whose predicate
- * holds, once however many give one, with the origin of the first. A favoured weapon when the deity favours the fist.
+ * holds, once however many give one, with the origin of the first the grants list. A favoured weapon when the deity
+ * favours the fist.
  */
 export function grantedStrikes(
   { items, facts }: GrantResolution,

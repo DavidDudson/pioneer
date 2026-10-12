@@ -1,8 +1,6 @@
 import type { DocumentFixture } from './import-fixtures';
 import { FOUNDRY_NULL } from './kind-fixtures';
 
-/** Player Core's Deity (Cleric), with the rule elements `pf2e-8.6.0` gives it. */
-
 const CLASS_FEATURES = { name: 'classfeatures', directory: 'class-features' };
 
 const SANCTIFICATION_CHOICE = {
@@ -31,6 +29,7 @@ const SANCTIFICATION_CHOICE = {
   slug: 'sanctification',
 };
 
+/** Player Core's Deity (Cleric), with the rule elements `pf2e-8.6.0` gives it. */
 export const DEITY_CLERIC: DocumentFixture = {
   id: 'DutW12WMFPHBoLTH',
   name: 'Deity (Cleric)',

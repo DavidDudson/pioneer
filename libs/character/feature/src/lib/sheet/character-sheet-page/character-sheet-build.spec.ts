@@ -43,7 +43,7 @@ describe('CharacterSheetPage build', () => {
         ['Deity', 'Pick a deity'],
         ['Key attribute', 'Pick a class and its key attribute'],
         ['Size', 'Medium'],
-        ['Traits', 'ElfHumanoid'],
+        ['Traits', 'Elf Humanoid'],
       ]);
     });
   });

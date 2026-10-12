@@ -52,7 +52,8 @@ Alternatives:
   gets one for `cleric`, predicated on `class:cleric`.
 - **Traits.** `ActorTraits { add, remove }` keeps Foundry's schema. A character's traits are its ancestry's, with each
   trait an element in play adds and without each one removes, and each sets `self:trait:<trait>`. The backlog's
-  `ActorTraits` are spliced into the packs, but for one whose predicate reads `{item|level}`. The build summary names the
+  `ActorTraits` are spliced into the packs, but for one whose predicate reads `{item|level}` and the familiar abilities',
+  which Foundry applies to the familiar, not the character, and which wait for familiars. The build summary names the
   traits by the trait vocabulary, which the character pages now load.
 - **Fist.** `Strike` is read in its `fist` form only: `{ fist: true }` with a predicate. Each character with one in play
   has one fist Strike, an unarmed weapon of the `fist` base, so the favoured weapon rank reaches it. The backlog's two
@@ -67,5 +68,5 @@ Alternatives:
 - `self:trait:<trait>` is set from the ancestry and `ActorTraits` only. A heritage's or class's own traits, and the
   mode of being Foundry derives from `construct` and `undead`, are not.
 - A removal wins over every addition, whatever their order, where Foundry applies them by priority.
-- Foundry's sanctification `ChoiceSet` guard and the deity's `ChoiceSet` and `GrantItem` stay in the backlog, as
-  ADR-0046 replaced them.
+- Foundry's sanctification `ChoiceSet` guard and the deity's `ChoiceSet` and `GrantItem` are not in Pioneer's rules
+  nor its backlog: ADR-0046 dropped them, as the root slot replaces them.

@@ -89,10 +89,10 @@ function daggerStrike(attributes: object): number | undefined {
   return totals(derive([STRIKE], character({ attributes, weapons: [DAGGER] })))['strike:dagger'];
 }
 
-/** A scimitar's Strike for a character trained in martial weapons and `favoredRank` in favoured ones. */
-function scimitarStrike(favored: boolean, favoredRank: string): number | undefined {
+/** A scimitar's Strike for a character `martialRank` in martial weapons and `favoredRank` in favoured ones. */
+function scimitarStrike(favored: boolean, favoredRank: string, martialRank = 'trained'): number | undefined {
   const scimitar = wielded({ slug: 'scimitar', category: 'martial', traits: [], favored });
-  const ranks = { 'attack:martial': 'trained', 'attack:favored-weapon': favoredRank };
+  const ranks = { 'attack:martial': martialRank, 'attack:favored-weapon': favoredRank };
   const results = derive([STRIKE], character({ weapons: [scimitar], ranks }));
   return totals(results)['strike:scimitar'];
 }
@@ -147,6 +147,8 @@ describe('statistics derived per weapon', () => {
     expect(scimitarStrike(true, 'master')).toBe(1 + 9);
     expect(scimitarStrike(false, 'master')).toBe(1 + 5);
     expect(scimitarStrike(true, 'trained')).toBe(1 + 5);
+    // A category rank above the favoured one wins: master 9 over trained 5.
+    expect(scimitarStrike(true, 'trained', 'master')).toBe(1 + 9);
   });
 
   test('an unarmed attack is a weapon like any other, in the unarmed category', () => {

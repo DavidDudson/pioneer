@@ -535,7 +535,9 @@ grants as above against the facts of the round before, then derives the facts ag
   a toggle while it is on. A toggle's state comes from input keyed `<entry id>:<rule index>`, else its `value`; while
   on it also sets `<option>:<suboption>` for the picked suboption if offered, else the first offered. Options in
   other domains only reach rolls in them, so grants never read them;
-- each answered slot's `<rollOption>:<pick>`, with every namespace a `ChoiceSet` on the set writes to made known.
+- each answered slot's `<rollOption>:<pick>`, with every namespace a `ChoiceSet` on the set writes to made known;
+- each of the character's traits, as `self:trait:<trait>`: its ancestry's, and those `ActorTraits` elements whose
+  predicate holds add, less those any of them removes (ADR-0047).
 
 The supplied situation (`terrain:forest`) is added on top. Facts are rebuilt from scratch every round, so an entry
 whose predicate stops holding drops out with what it set. Once a round's set derives the facts it read, it has

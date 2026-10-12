@@ -131,18 +131,6 @@
       </fr-async-region>
     </fr-section>
 
-    <fr-section [anchor]="sections.strikes.anchor" [heading]="sections.strikes.headingKey | transloco">
-      <fr-async-region>
-        <ng-template frAsyncPending><pio-statistics [statistics]="undefined" /></ng-template>
-        <ng-template [frAsyncData]="engineQuery()"
-          ><pio-statistics
-            [statistics]="picks.strikes()"
-            [entryNames]="picks.entryNames()"
-            [noneKey]="statisticsMessage.NoStrikes"
-        /></ng-template>
-      </fr-async-region>
-    </fr-section>
-
     <fr-section [anchor]="sections.skills.anchor" [heading]="sections.skills.headingKey | transloco">
       <fr-stack gap="md">
         <fr-async-region>
@@ -153,6 +141,18 @@
         </fr-async-region>
         <pio-sheet-skill-fields [fields]="picks.skillFields()" />
       </fr-stack>
+    </fr-section>
+
+    <fr-section [anchor]="sections.strikes.anchor" [heading]="sections.strikes.headingKey | transloco">
+      <fr-async-region>
+        <ng-template frAsyncPending><pio-statistics [statistics]="undefined" /></ng-template>
+        <ng-template [frAsyncData]="engineQuery()"
+          ><pio-statistics
+            [statistics]="picks.strikes()"
+            [entryNames]="picks.entryNames()"
+            [noneKey]="statisticsMessage.NoStrikes"
+        /></ng-template>
+      </fr-async-region>
     </fr-section>
 
     <fr-section [anchor]="sections.languages.anchor" [heading]="sections.languages.headingKey | transloco">

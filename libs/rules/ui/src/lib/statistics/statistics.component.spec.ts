@@ -177,7 +177,7 @@ describe(StatisticsView, () => {
     await fixture.whenStable();
 
     const empty = present(hostOf(fixture).querySelector('fr-empty-state'));
-    expect(textOf(empty)).toBe('No Strikes. Hold a weapon to Strike with it.');
+    expect(textOf(empty)).toBe('No Strikes listed yet. Hold a weapon to add its Strike.');
   });
 
   it('names a statistic by its message key when it has one, as a fist Strike', async () => {

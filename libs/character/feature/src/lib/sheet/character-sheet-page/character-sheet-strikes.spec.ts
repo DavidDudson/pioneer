@@ -37,7 +37,7 @@ describe('CharacterSheetPage Strikes', () => {
     const { root } = await openSheet();
 
     await vi.waitFor(() => {
-      expect(textOf(strikesSection(root))).toContain('No Strikes. Hold a weapon to Strike with it.');
+      expect(textOf(strikesSection(root))).toContain('No Strikes listed yet. Hold a weapon to add its Strike.');
     });
   });
 });
