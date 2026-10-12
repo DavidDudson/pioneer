@@ -21,6 +21,7 @@ describe('CharacterSheetPage', () => {
       ['Build', true],
       ['Attributes', true],
       ['Choices', true],
+      ['Feats', true],
       ['Class features', true],
     ]);
     await openTab(root, 'Encounter', 'Defences');
@@ -49,6 +50,7 @@ describe('CharacterSheetPage', () => {
       'Build',
       'Attributes',
       'Choices',
+      'Feats',
       'Class features',
     ]);
 
@@ -108,12 +110,20 @@ describe('CharacterSheetPage', () => {
     ]);
   });
 
-  it('edits only the chosen inputs inline on Plan: name, ancestry, heritage, background, level and class', async () => {
+  it('edits only the chosen inputs inline on Plan: name, ancestry, heritage, background, level, class and feats', async () => {
     const { root } = await openSheet();
     const labels = [...root.querySelectorAll('section fr-inline-field')].map((field) =>
       present(field.querySelector('fr-text')).textContent.trim(),
     );
-    expect(labels).toStrictEqual(['Name', 'Ancestry', 'Heritage', 'Background', 'Level', 'Class']);
+    expect(labels).toStrictEqual([
+      'Name',
+      'Ancestry',
+      'Heritage',
+      'Background',
+      'Level',
+      'Class',
+      'Elf feat, level 1',
+    ]);
   });
 
   it('saves an ancestry edit as a pick in the ancestry slot', async () => {

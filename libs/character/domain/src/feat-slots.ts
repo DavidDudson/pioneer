@@ -42,7 +42,7 @@ const STATUSES: Readonly<Record<Truth, PrerequisiteStatus>> = {
  * How `feat`'s prerequisites read against `facts`: by its predicate; unknown when it has printed prerequisites the
  * importer couldn't parse; met when it has none.
  */
-export function prerequisiteStatus(feat: FeatRead | undefined, facts: PredicateFacts): PrerequisiteStatus {
+function prerequisiteStatus(feat: FeatRead | undefined, facts: PredicateFacts): PrerequisiteStatus {
   if (feat?.predicate !== undefined) {
     return STATUSES[evaluatePredicate(feat.predicate, facts)];
   }
@@ -117,7 +117,7 @@ function levelsUp(): Level[] {
 }
 
 /** Whether `slot` is a `ChoiceSet` querying feats: an ancestry, class, skill or general feat slot, or a feature's. */
-export function isFeatSlot(slot: ChoiceSlot, lookup: ContentLookup): boolean {
+function isFeatSlot(slot: ChoiceSlot, lookup: ContentLookup): boolean {
   const element = lookup.entry(slot.origin.entry)?.rules[slot.rule];
   return (
     element?.key === RuleElementKey.ChoiceSet &&

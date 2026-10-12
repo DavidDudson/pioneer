@@ -30,17 +30,23 @@ function classFeatSlot(level: number): object[] {
 }
 
 const FIGHTER = ['fighter'];
+/** Features the fighter gains at 8th level: one with a feat slot of its own, one that grants Power Attack. */
+const AT_8 = { predicate: [{ gte: ['self:level', 8] }] };
 const rules = [
   { key: 'Proficiency', selector: 'skill:athletics', rank: 'trained' },
   { key: 'Proficiency', selector: 'perception', rank: 'expert' },
   ...classFeatSlot(1),
   ...classFeatSlot(2),
   ...classFeatSlot(4),
+  { key: 'GrantItem', item: builder.idOf(ContentKind.ClassFeature, 'bonus-feat'), ...AT_8 },
+  { key: 'GrantItem', item: builder.idOf(ContentKind.ClassFeature, 'veteran'), ...AT_8 },
 ];
 /** The slot each class feat slot is keyed by: the class and the rule index of its `ChoiceSet`. */
 const LEVEL_1 = SlotKey.parse(`${classId}:2`);
 const LEVEL_2 = SlotKey.parse(`${classId}:4`);
 const LEVEL_4 = SlotKey.parse(`${classId}:6`);
+/** The feat slot of the feature the fighter gains at 8th level: its `ChoiceSet`, which has no prompt. */
+const BONUS = SlotKey.parse(`${builder.idOf(ContentKind.ClassFeature, 'bonus-feat')}:0`);
 
 const prerequisites = (text: string): object[] => [{ type: 'paragraph', content: [{ type: 'text', text }] }];
 
@@ -60,7 +66,18 @@ builder
   .withFeat('brutish-shove', { level: 2, traits: FIGHTER, data: { prerequisitePredicate: ['feat:power-attack'] } })
   .withFeat('lunge', { level: 2, traits: FIGHTER })
   .withFeat('knockdown', { level: 4, traits: FIGHTER })
-  .withFeat('assurance');
+  .withFeat('assurance')
+  .withClassFeature('bonus-feat', {
+    rules: [
+      {
+        key: 'ChoiceSet',
+        flag: 'bonus-feat',
+        choices: { kind: 'feat', filter: ['item:trait:fighter', { lte: ['item:level', 'self:level'] }] },
+      },
+      { key: 'GrantItem', item: { choice: 'bonus-feat' } },
+    ],
+  })
+  .withClassFeature('veteran', { rules: [{ key: 'GrantItem', item: idOf('power-attack') }] });
 
 const registry = new ContentRegistry();
 registry.register(skillFixtures());
@@ -86,10 +103,11 @@ function slotOf(character: CharacterBuilder, slot: SlotKey): unknown {
 describe('featSlots', () => {
   test('lists each feat slot up to 20th level at the level it opens, lowest first', () => {
     const slots = featSlots(fighter(2).build().document, content);
-    expect(slots.map((slot) => [slot.key, slot.level])).toEqual([
-      [LEVEL_1, 1],
-      [LEVEL_2, 2],
-      [LEVEL_4, 4],
+    expect(slots.map((slot) => `${slot.key} at ${slot.level}`)).toEqual([
+      `${LEVEL_1} at 1`,
+      `${LEVEL_2} at 2`,
+      `${LEVEL_4} at 4`,
+      `${BONUS} at 8`,
     ]);
   });
 
@@ -127,6 +145,26 @@ describe('featSlots', () => {
     expect(offered(earlier, LEVEL_2)['brutish-shove']).toBe(PrerequisiteStatus.Met);
     const later = fighter(4).picking(LEVEL_4, idOf('power-attack'));
     expect(offered(later, LEVEL_2)['brutish-shove']).toBe(PrerequisiteStatus.Unmet);
+  });
+
+  test("opens a feature's own feat slot at the level the feature is gained, with no prompt", () => {
+    const bonus = featSlots(fighter(8).build().document, content).find((slot) => slot.key === BONUS);
+    expect(bonus).toMatchObject({ level: 8, prompt: undefined });
+    const offers = offered(fighter(8), BONUS);
+    expect(Object.keys(offers)).toContain('knockdown');
+  });
+
+  test('meets a feat prerequisite with a feat a feature grants, with no pick', () => {
+    expect(offered(fighter(8), BONUS)['brutish-shove']).toBe(PrerequisiteStatus.Met);
+    expect(offered(fighter(8), LEVEL_4)['brutish-shove']).toBe(PrerequisiteStatus.Unmet);
+  });
+
+  test('meets an attribute minimum once the modifier reaches it at the slot level', () => {
+    // Strength +1 from the key attribute, +2 with a free boost too.
+    const keyed = offered(fighter().picking('boost:1:class:0', 'str'), LEVEL_1);
+    const strong = fighter().picking('boost:1:class:0', 'str').picking('boost:1:free:0', 'str');
+    expect(keyed['brawn']).toBe(PrerequisiteStatus.Unmet);
+    expect(offered(strong, LEVEL_1)['brawn']).toBe(PrerequisiteStatus.Met);
   });
 });
 
@@ -192,10 +230,11 @@ describe('slotRefusal for feat slots', () => {
   });
 
   test("reads the slot as if empty, so a feat it replaces doesn't count toward its own prerequisites", () => {
-    const character = fighter(2).picking(LEVEL_1, idOf('power-attack'));
-    expect(refusal(character, LEVEL_2, 'brutish-shove')).toBeUndefined();
-    expect(refusal(character, LEVEL_1, 'brawn')).toMatchObject({
+    const character = fighter(2).picking(LEVEL_2, idOf('power-attack'));
+    expect(refusal(character, LEVEL_2, 'brutish-shove')).toMatchObject({
       message: { key: 'character.validation.prerequisitesNotMet' },
     });
+    const earlier = character.picking(LEVEL_1, idOf('power-attack'));
+    expect(refusal(earlier, LEVEL_2, 'brutish-shove')).toBeUndefined();
   });
 });

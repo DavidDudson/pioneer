@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import {
   AsyncData,
@@ -15,6 +16,7 @@ import {
   Text,
 } from '@pioneer/frontier';
 import { Combobox } from '@pioneer/frontier/data';
+import { filter, merge } from 'rxjs';
 
 import { CharacterStore } from '../../data/character-store';
 import { injectContentRegistry } from '../../data/content-registry-query';
@@ -56,6 +58,9 @@ export class SheetFeats {
 
   readonly #store = inject(CharacterStore);
   readonly #i18n = inject(TranslocoService);
+  readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
+  /** Changes when the language changes or the messages load, so the pickers' descriptions are read again. */
+  readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
 
   /** The registry with the feats. */
   protected readonly feats = injectContentRegistry(FEAT_CONTENT_KINDS);
@@ -67,5 +72,6 @@ export class SheetFeats {
     select: async (slot, selection) => this.#store.selectSlot(slot, selection),
     clear: async (slot) => this.#store.clearSlot(slot),
     translate: (key, params) => this.#i18n.translate(key, params),
+    messages: this.#messages,
   });
 }

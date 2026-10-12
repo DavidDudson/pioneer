@@ -22,10 +22,12 @@ export interface FeatPickSources {
   readonly select: (slot: SlotKey, selection: ChoiceValue) => Promise<void>;
   readonly clear: (slot: SlotKey) => Promise<void>;
   readonly translate: (key: string, params?: object) => string;
+  /** Changes when the language changes or the messages load, so translated text is read again. */
+  readonly messages: Signal<unknown>;
 }
 
 /** A feat slot as an inline pick: the feats matching what was typed, and why its pick counts for nothing. */
-export interface FeatField {
+interface FeatField {
   readonly key: SlotKey;
   readonly label: MessageDescriptor;
   readonly matches: Signal<readonly ComboboxOption<string>[]>;
@@ -66,7 +68,10 @@ function featField(sources: FeatPickSources, feats: Signal<SheetFeats | undefine
   return {
     key,
     label,
-    matches: computed(() => featMatches(options(), query(), sources.translate)),
+    matches: computed(() => {
+      sources.messages();
+      return featMatches(options(), query(), sources.translate);
+    }),
     search: (typed) => {
       query.set(typed);
     },

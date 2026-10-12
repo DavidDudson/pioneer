@@ -98,6 +98,22 @@ describe(Combobox, () => {
     expect(rendered.commits()).toBe(0);
   });
 
+  it('reaches a disabled option with the arrow keys, so its description is read, but Enter does not pick it', async () => {
+    const rendered = render([
+      { value: 'power-attack', label: 'Power Attack' },
+      { value: 'sudden-charge', label: 'Sudden Charge', description: 'Needs expert in Athletics', disabled: true },
+    ]);
+    await press(rendered, 'ArrowDown');
+    await press(rendered, 'ArrowDown');
+    await vi.waitFor(() => {
+      expect(highlighted(rendered)?.textContent).toContain('Needs expert in Athletics');
+    });
+    await press(rendered, 'Enter');
+    await settle(rendered);
+    expect(rendered.fixture.componentInstance.value()).toBeUndefined();
+    expect(rendered.commits()).toBe(0);
+  });
+
   it('clears its text when a form resets the value to the empty string', async () => {
     const rendered = render();
     await press(rendered, 'ArrowDown');
