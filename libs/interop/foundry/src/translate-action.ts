@@ -10,8 +10,10 @@ import {
 import type { ContentId, Frequency, RichText } from '@pioneer/rules/sdk';
 import * as z from 'zod';
 
+import type { FoundryLinks } from './enricher-context';
 import { resolveUuid } from './entry-references';
 import type { EntryReferences } from './entry-references';
+import { htmlToRichText } from './html-rich-text';
 import { ENVELOPE_FIELDS, KindDataGapReason, report } from './kind-data-gaps';
 import type { GapLog, KindInput } from './kind-data-gaps';
 
@@ -177,18 +179,27 @@ export function plainWords(field: string, text: string, log: GapLog): RichText |
   return [{ type: BlockKind.Paragraph, content: [{ type: InlineKind.Text, text: words.data }] }];
 }
 
-/** A usage paragraph as rich text (`<p><strong>Trigger</strong> Your turn begins.</p>`), when it is plain words. */
-function usageOf(field: UsageField, { description }: FoundryActionSystem, log: GapLog): RichText | undefined {
+/**
+ * A usage paragraph as rich text (`<p><strong>Trigger</strong> Your turn begins.</p>`), translated as descriptions
+ * are, so its links and inline checks stay; blank text is none. Markup and enrichers it cannot map are reported with
+ * the description, which holds the same paragraph.
+ */
+function usageOf(
+  field: UsageField,
+  { description }: FoundryActionSystem,
+  links: FoundryLinks | undefined,
+): RichText | undefined {
   const text = USAGE_PARAGRAPHS[field].exec(description?.value ?? '')?.groups?.['text']?.trim() ?? '';
-  return plainWords(field, text, log);
+  const { richText } = htmlToRichText(text, links);
+  return richText.length === 0 ? undefined : richText;
 }
 
 /** Every field but the cost, the ones that are set. */
-function usage(fields: FoundryActionSystem, references: EntryReferences, log: GapLog): object {
+function usage(fields: FoundryActionSystem, { references, links, log }: KindInput): object {
   const set = {
     category: categoryOf(fields, log),
-    requirements: usageOf('requirements', fields, log),
-    trigger: usageOf('trigger', fields, log),
+    requirements: usageOf('requirements', fields, links),
+    trigger: usageOf('trigger', fields, links),
     frequency: frequencyOf(fields, log),
     selfEffect: selfEffectOf(fields, references, log),
   };
@@ -199,12 +210,13 @@ function usage(fields: FoundryActionSystem, references: EntryReferences, log: Ga
  * The action's data, unparsed; undefined when its `system` is not shaped as an action's or its cost cannot be
  * mapped.
  */
-export function actionData({ document, references, log }: KindInput): object | undefined {
+export function actionData(input: KindInput): object | undefined {
+  const { document, log } = input;
   const system = FoundryActionSystem.safeParse(document.system);
   if (!system.success) {
     report(log, { reason: KindDataGapReason.InvalidData, field: '', raw: z.prettifyError(system.error) });
     return undefined;
   }
   const costed = actionCost(system.data, log);
-  return costed && { ...costed, ...usage(system.data, references, log) };
+  return costed && { ...costed, ...usage(system.data, input) };
 }

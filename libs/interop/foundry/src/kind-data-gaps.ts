@@ -3,6 +3,7 @@ import type { ContentId } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import type * as z from 'zod';
 
+import type { FoundryLinks } from './enricher-context';
 import type { EntryReferences } from './entry-references';
 import type { FoundryDocument } from './foundry-document';
 import type { FoundryPack } from './foundry-release';
@@ -59,6 +60,8 @@ export interface KindInput {
   readonly archetypes: ReadonlyMap<ContentId, readonly ArchetypeLink[]>;
   /** What each Foundry sense fixes; without it a feat's senses keep the acuity and range they give. */
   readonly senses?: FoundrySenses;
+  /** What links in rich text fields resolve against (`foundryLinks`); without them every link stays text. */
+  readonly links?: FoundryLinks;
 }
 
 export function report(log: GapLog, gap: GapFields): void {

@@ -18,6 +18,7 @@ import type {
 } from '@pioneer/rules/sdk';
 import type * as z from 'zod';
 
+import type { FoundryLinks } from './enricher-context';
 import type { EntryReferences } from './entry-references';
 import { documentKind } from './entry-slugs';
 import { EQUIPMENT_TRANSLATORS } from './equipment-kind-data';
@@ -164,6 +165,8 @@ export interface KindDataContext {
   readonly archetypes: ReadonlyMap<ContentId, readonly ArchetypeLink[]>;
   /** What each Foundry sense fixes, for the `Sense` elements a feat's `subfeatures` add. */
   readonly senses?: FoundrySenses;
+  /** What links in an action's trigger and requirements resolve against. */
+  readonly links?: FoundryLinks;
 }
 
 /**
@@ -173,7 +176,7 @@ export interface KindDataContext {
 export function translateKindData(
   entry: SelectedEntry,
   envelope: ImportedEnvelope,
-  { references, archetypes, senses }: KindDataContext,
+  { references, archetypes, senses, links }: KindDataContext,
 ): KindDataTranslation {
   const translator = TRANSLATORS[documentKind(entry)];
   if (translator === undefined) {
@@ -182,7 +185,16 @@ export function translateKindData(
   const log: GapLog = { entry: envelope.id, gaps: [] };
   const rules: RuleElement[] = [];
   const { document, pack } = entry;
-  const input = { document, pack, envelope, references, log, rules, archetypes };
-  const kindData = translator(senses === undefined ? input : { ...input, senses });
+  const kindData = translator({
+    document,
+    pack,
+    envelope,
+    references,
+    log,
+    rules,
+    archetypes,
+    ...(senses === undefined ? {} : { senses }),
+    ...(links === undefined ? {} : { links }),
+  });
   return { ...(kindData === undefined ? {} : { kindData }), rules, gaps: log.gaps };
 }

@@ -81,20 +81,22 @@ export function translateImport(selected: readonly SelectedEntry[], context: Imp
     senses: context.config.senses,
     ...(documents === undefined ? {} : { documents }),
   });
+  const links = foundryLinks(
+    documents ?? [],
+    envelopes.entries.map(({ source, envelope }) => ({ source, id: envelope.id })),
+  );
   const archetypes = importArchetypes(context.journals ?? [], {
     pack,
     references,
     envelopes: new Map(envelopes.entries.map(({ envelope }) => [envelope.id, envelope])),
-    links: foundryLinks(
-      documents ?? [],
-      envelopes.entries.map(({ source, envelope }) => ({ source, id: envelope.id })),
-    ),
+    links,
   });
   const translated = envelopes.entries.map(({ source, envelope }) => {
     const { rules, ...rest } = translateKindData(source, envelope, {
       references,
       archetypes: archetypes.byFeat,
       senses: context.config.senses,
+      links,
     });
     return { source, envelope: { ...envelope, rules: [...envelope.rules, ...rules] }, ...rest };
   });

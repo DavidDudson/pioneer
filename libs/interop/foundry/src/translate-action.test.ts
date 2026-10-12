@@ -11,6 +11,7 @@ import {
   entryOf,
   FOUNDRY_NULL,
   gapsOf,
+  OFF_GUARD,
   RAISE_A_SHIELD,
   SHIELD_RAISED,
 } from './testing/kind-fixtures';
@@ -129,15 +130,54 @@ describe('translateKindData: action values', () => {
     });
   });
 
-  test('usage text with an enricher is left for rich text, and a reaction without its trigger has no data', () => {
+  test('a link in the trigger becomes a ref to the entry it names', () => {
     const description = {
       value: '<p><strong>Trigger</strong> An @UUID[Compendium.pf2e.conditionitems.Item.Off-Guard] foe moves.</p>',
     };
-    const translation = translate([action({ actionType: { value: 'reaction' }, description })]);
+    const translation = translate([action({ actionType: { value: 'reaction' }, description }), OFF_GUARD]);
+
+    expect(entryOf(translation, 'test-action')?.kindData?.data).toEqual({
+      cost: ActionCost.Reaction,
+      trigger: [
+        {
+          type: 'paragraph',
+          content: [
+            { type: 'text', text: 'An ' },
+            { type: 'ref', id: idOf('condition:off-guard') },
+            { type: 'text', text: ' foe moves.' },
+          ],
+        },
+      ],
+    });
+    expect(gapsOf(translation)).toEqual([]);
+  });
+
+  test('requirements keep an inline check, and a link outside the import reads as its label', () => {
+    const description = {
+      value:
+        '<p><strong>Requirements</strong> You hold @UUID[Compendium.pf2e.equipment-srd.Item.Thieves Toolkit]{thieves’ tools} and pass a @Check[thievery|dc:15].</p>',
+    };
+
+    expect(dataOf([action({ actions: { value: 1 }, description })], 'test-action')).toEqual({
+      cost: ActionCost.One,
+      requirements: [
+        {
+          type: 'paragraph',
+          content: [
+            { type: 'text', text: 'You hold thieves’ tools and pass a ' },
+            { type: 'check', statistic: 'skill:thievery', dc: 15 },
+            { type: 'text', text: '.' },
+          ],
+        },
+      ],
+    });
+  });
+
+  test('a reaction without a trigger paragraph has no data', () => {
+    const translation = translate([action({ actionType: { value: 'reaction' } })]);
 
     expect(entryOf(translation, 'test-action')?.kindData).toBeUndefined();
-    expect(translation.kindDataGaps.map(({ reason, field }) => [reason, field])).toEqual([
-      [KindDataGapReason.NeedsRichText, 'trigger'],
+    expect(gapsOf(translation).map(({ reason, field }) => [reason, field])).toEqual([
       [KindDataGapReason.InvalidData, 'trigger'],
     ]);
   });
