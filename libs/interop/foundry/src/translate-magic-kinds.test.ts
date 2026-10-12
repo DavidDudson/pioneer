@@ -2,21 +2,10 @@ import { describe, expect, test } from 'bun:test';
 
 import { ContentEntry, ContentKind, KIND_DATA } from '@pioneer/rules/sdk';
 
-import { KindDataGapReason } from './kind-data-gaps';
 import { dataIn, entryOfKind, gapKeys, slugIn } from './testing/build-helpers';
 import { coreRulesId, translate } from './testing/import-fixtures';
 import { contentEntry, FOUNDRY_NULL, gapsOf } from './testing/kind-fixtures';
-import {
-  BLESS_EFFECT,
-  COMMAND,
-  CONSECRATE,
-  damagePart,
-  FIREBALL,
-  HEAL,
-  MAGIC,
-  RAGE_EFFECT,
-  spell,
-} from './testing/magic-fixtures';
+import { BLESS_EFFECT, COMMAND, CONSECRATE, FIREBALL, HEAL, MAGIC, RAGE_EFFECT, spell } from './testing/magic-fixtures';
 
 const translation = translate(MAGIC);
 

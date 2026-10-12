@@ -39,14 +39,12 @@ const DEFAULT_KINDS = ['damage'];
 /** Foundry's type for damage of no type. */
 const UNTYPED = 'untyped';
 
+/** What an overlay sets in a damage part: its type, when the caster chooses it. */
+const FoundryOverlayPart = z.looseObject({ type: z.string().max(FIELD_MAX).optional() });
+const FoundryOverlaySystem = z.looseObject({ damage: boundedRecord(FoundryOverlayPart).optional() });
+
 /** The part types Foundry's overlays set, by overlay and then by part key. */
-const FoundryOverlays = boundedRecord(
-  z.looseObject({
-    system: z
-      .looseObject({ damage: boundedRecord(z.looseObject({ type: z.string().max(FIELD_MAX).optional() })).optional() })
-      .optional(),
-  }),
-);
+const FoundryOverlays = boundedRecord(z.looseObject({ system: FoundryOverlaySystem.optional() }));
 
 /**
  * The keys of the parts whose type an overlay sets: the caster chooses it, so Foundry's `untyped` there is a
