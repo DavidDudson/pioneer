@@ -43,7 +43,7 @@ export {
 export { AmmunitionType, BaseWeapon, DieSize, WeaponData, WeaponGroup } from './weapon';
 export { HeighteningType, SpellData } from './spell';
 export { CastTimeType, SpellDurationEnd, SpellDurationType, SpellRangeType, SpellTimeUnit } from './spell-casting';
-export { TargetKind, TargetQualifier, TurnOwner } from './spell-casting';
+export { TargetCountWord, TargetKind, TargetQualifier, TargetWithin, TargetYou, TurnOwner } from './spell-casting';
 export { SPELL_RANK_MAX, SpellRank } from './spell-rank';
 export { uniqueItems } from './unique-items';
 export { MagicTradition, MagicTraditionSchema, SpellcastingTraditionData } from './spellcasting-tradition';

@@ -120,9 +120,11 @@ export function targetValues({ targets }: SpellFields): readonly TargetValue[] {
   if (targets === undefined) {
     return [TargetValue.None];
   }
-  const values = new Set<TargetValue>(targets.includesYou === true ? [TargetValue.Self] : []);
+  const values = new Set<TargetValue>(targets.you === undefined ? [] : [TargetValue.Self]);
   for (const target of targets.any) {
-    values.add(target.count > 1 ? TargetValue.Multiple : TargetValue.Single);
+    values.add(target.count === 1 && targets.plus === undefined ? TargetValue.Single : TargetValue.Multiple);
+  }
+  for (const target of [...targets.any, ...(targets.plus ?? [])]) {
     if (target.of === TargetKind.Ally) {
       values.add(TargetValue.Allies);
     }

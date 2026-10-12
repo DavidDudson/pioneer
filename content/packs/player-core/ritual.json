@@ -1739,6 +1739,15 @@
         "type": "feet",
         "feet": 10
       },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature",
+            "qualifiers": ["dead"]
+          }
+        ]
+      },
       "cost": [
         {
           "type": "paragraph",
@@ -2504,6 +2513,35 @@
         "type": "time",
         "count": 1,
         "unit": "day"
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature",
+            "traits": ["animal"]
+          },
+          {
+            "count": 1,
+            "of": "creature",
+            "traits": ["beast"]
+          },
+          {
+            "count": 1,
+            "of": "creature",
+            "traits": ["fey"]
+          },
+          {
+            "count": 1,
+            "of": "creature",
+            "traits": ["fungus"]
+          },
+          {
+            "count": 1,
+            "of": "creature",
+            "traits": ["plant"]
+          }
+        ]
       },
       "cost": [
         {

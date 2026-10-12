@@ -285,7 +285,9 @@
       "heightenAbove": "A heightened entry is for a rank above the spell’s own, {rank}.",
       "heightenEmpty": "A heightened entry changes at least one of damage, range, area, targets or duration; describe other changes in the text.",
       "against": "A spell is against AC or a save’s DC, like ac or save:will.",
-      "durationOwner": "Only a turn has an owner; daily preparations are the caster’s."
+      "durationOwner": "Only a turn has an owner; daily preparations are the caster’s.",
+      "targetUpTo": "Only a number of targets can be “up to”; leave upTo out for any or all.",
+      "targetWithin": "Say where the targets are with all, and only with all: in the area or within range."
     },
     "effect": {
       "badgeRange": "The counter starts between its minimum and maximum."

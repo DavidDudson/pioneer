@@ -37384,12 +37384,6 @@
       "foundry": "Compendium.pf2e.spells-srd.Item.c3b6LdLlQDPngNIb",
       "gaps": [
         {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "target.value",
-          "raw": "1 dead creature"
-        },
-        {
           "type": "markup",
           "markup": "table[class]"
         }
@@ -37522,12 +37516,6 @@
           "reason": "unmapped-value",
           "field": "range.value",
           "raw": "100 miles"
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "target.value",
-          "raw": "1 animal, beast, fey, fungus, or plant"
         },
         {
           "type": "field",
@@ -37704,20 +37692,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "spell:air-bubble",
-      "foundry": "Compendium.pf2e.spells-srd.Item.W69zswpj0Trdy5rj",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "target.value",
-          "raw": "the triggering creature"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "spell:animal-form",
       "foundry": "Compendium.pf2e.spells-srd.Item.wp09USMB3GIW1qbp",
       "gaps": [
@@ -37779,20 +37753,6 @@
         {
           "type": "enricher",
           "enricher": "@Check[traits]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "spell:bane",
-      "foundry": "Compendium.pf2e.spells-srd.Item.7ZinJNzxq0XF0oMx",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "target.value",
-          "raw": "enemies in the area"
         }
       ]
     },
@@ -37900,26 +37860,6 @@
               }
             }
           }
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "target.value",
-          "raw": "1 or more creatures"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "spell:bless",
-      "foundry": "Compendium.pf2e.spells-srd.Item.XSujb7EsSwKl19Uu",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "target.value",
-          "raw": "you and allies in the area"
         }
       ]
     },
@@ -37929,12 +37869,6 @@
       "slug": "spell:blood-vendetta",
       "foundry": "Compendium.pf2e.spells-srd.Item.TaaMEYdZXQXF0Sks",
       "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "target.value",
-          "raw": "The triggering creature"
-        },
         {
           "type": "field",
           "reason": "unmapped-value",
@@ -37952,12 +37886,6 @@
       "slug": "spell:breath-of-life",
       "foundry": "Compendium.pf2e.spells-srd.Item.Hnc7eGi7vyZenAIm",
       "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "target.value",
-          "raw": "the triggering creature"
-        },
         {
           "type": "field",
           "reason": "unmapped-value",
@@ -38230,20 +38158,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "spell:desiccate",
-      "foundry": "Compendium.pf2e.spells-srd.Item.M0jQlpQYUr0pp2Sv",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "target.value",
-          "raw": "any number of living creatures"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "spell:disintegrate",
       "foundry": "Compendium.pf2e.spells-srd.Item.r7ihOgKv19eJQnik",
       "gaps": [
@@ -38338,20 +38252,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "spell:dreaming-potential",
-      "foundry": "Compendium.pf2e.spells-srd.Item.y0Vy7iNL3ET8K00C",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "target.value",
-          "raw": "1 willing sleeping creature"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "spell:duplicate-foe",
       "foundry": "Compendium.pf2e.spells-srd.Item.73rToy0v5Ra9NvL6",
       "gaps": [
@@ -38369,12 +38269,6 @@
       "slug": "spell:earthbind",
       "foundry": "Compendium.pf2e.spells-srd.Item.gPvtmKMRpg9I9D7H",
       "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "target.value",
-          "raw": "1 flying creature"
-        },
         {
           "type": "field",
           "reason": "unmapped-value",
@@ -38401,20 +38295,6 @@
         {
           "type": "enricher",
           "enricher": "@Check[traits]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "spell:electric-arc",
-      "foundry": "Compendium.pf2e.spells-srd.Item.kBhaPuzLUSwS6vVf",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "target.value",
-          "raw": "1 or 2 creatures"
         }
       ]
     },
@@ -38454,20 +38334,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "spell:enlarge-companion",
-      "foundry": "Compendium.pf2e.spells-srd.Item.8rj45fKzCFcB0fxs",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "target.value",
-          "raw": "your animal companion"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "spell:entangling-flora",
       "foundry": "Compendium.pf2e.spells-srd.Item.J6vNvrUT3b1hx2iA",
       "gaps": [
@@ -38476,20 +38342,6 @@
           "reason": "unmapped-field",
           "field": "area.details",
           "raw": "all squares in a 20-foot-radius burst that contain plants"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "spell:enthrall",
-      "foundry": "Compendium.pf2e.spells-srd.Item.IihxWhRfpsBgQ5jS",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "target.value",
-          "raw": "all creatures in range"
         }
       ]
     },
@@ -38693,20 +38545,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "spell:forbidding-ward",
-      "foundry": "Compendium.pf2e.spells-srd.Item.RA7VKcen3p56rVyZ",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "target.value",
-          "raw": "1 ally and 1 enemy"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "spell:fortify-summoning",
       "foundry": "Compendium.pf2e.spells-srd.Item.tWzxuJdbXqvskdIo",
       "gaps": [
@@ -38727,20 +38565,6 @@
         {
           "type": "enricher",
           "enricher": "@Check[against]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "spell:gentle-landing",
-      "foundry": "Compendium.pf2e.spells-srd.Item.TTwOKGqmZeKSyNMH",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "target.value",
-          "raw": "1 falling creature"
         }
       ]
     },
@@ -39148,12 +38972,6 @@
         {
           "type": "field",
           "reason": "unmapped-value",
-          "field": "target.value",
-          "raw": "1 willing living animal"
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-value",
           "field": "damage.0.type",
           "raw": "untyped"
         }
@@ -39219,12 +39037,6 @@
           "reason": "unmapped-value",
           "field": "range.value",
           "raw": "touch or 30 feet"
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "target.value",
-          "raw": "your animal companion"
         },
         {
           "type": "field",
@@ -39312,12 +39124,6 @@
       "slug": "spell:hymn-of-healing",
       "foundry": "Compendium.pf2e.spells-srd.Item.gSUQlTDYoLDGAsCP",
       "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "target.value",
-          "raw": "you or 1 ally"
-        },
         {
           "type": "field",
           "reason": "unmapped-value",
@@ -39411,28 +39217,8 @@
         {
           "type": "field",
           "reason": "unmapped-value",
-          "field": "target.value",
-          "raw": "1 corporeal creature"
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-value",
           "field": "damage.0.type",
           "raw": "untyped"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "spell:infuse-vitality",
-      "foundry": "Compendium.pf2e.spells-srd.Item.2iQKhCQBijhj5Rf3",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "target.value",
-          "raw": "1 to 3 willing creatures"
         }
       ]
     },
@@ -39507,34 +39293,6 @@
           "reason": "unmapped-value",
           "field": "target.value",
           "raw": "1 lock, or a door or container with a latch"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "spell:loremasters-etude",
-      "foundry": "Compendium.pf2e.spells-srd.Item.5Pc55FGGqVpIAJ62",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "target.value",
-          "raw": "you or the triggering ally"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "spell:magic-hide",
-      "foundry": "Compendium.pf2e.spells-srd.Item.u2uSeH6YSbK1ajTy",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "target.value",
-          "raw": "your animal companion"
         }
       ]
     },
@@ -39691,20 +39449,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "spell:needle-of-vengeance",
-      "foundry": "Compendium.pf2e.spells-srd.Item.aEitTTb9PnOyidRf",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "target.value",
-          "raw": "1 enemy"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "spell:never-mind",
       "foundry": "Compendium.pf2e.spells-srd.Item.5BbU1V6wGSGbrmRD",
       "gaps": [
@@ -39730,20 +39474,6 @@
           "reason": "unmapped-value",
           "field": "target.value",
           "raw": "1 creature you know by name"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "spell:ode-to-ouroboros",
-      "foundry": "Compendium.pf2e.spells-srd.Item.DgCS456mXKw97vNy",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "target.value",
-          "raw": "the triggering creature"
         }
       ]
     },
@@ -39787,12 +39517,6 @@
       "slug": "spell:overwhelming-presence",
       "foundry": "Compendium.pf2e.spells-srd.Item.fkDeKktdmbeplYRY",
       "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "target.value",
-          "raw": "any number of creatures"
-        },
         {
           "type": "field",
           "reason": "unmapped-value",
@@ -39848,20 +39572,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "spell:pet-cache",
-      "foundry": "Compendium.pf2e.spells-srd.Item.F1nlmqOIucch3Cmt",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "target.value",
-          "raw": "1 willing creature that is your companion"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "spell:petrify",
       "foundry": "Compendium.pf2e.spells-srd.Item.znv4ECL7ZtuiagtA",
       "gaps": [
@@ -39885,40 +39595,12 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "spell:phantasmagoria",
-      "foundry": "Compendium.pf2e.spells-srd.Item.MJx7DmjsWYzDZ3a4",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "target.value",
-          "raw": "any number of creatures"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "spell:phantasmal-minion",
       "foundry": "Compendium.pf2e.spells-srd.Item.xqmHD8JIjak15lRk",
       "gaps": [
         {
           "type": "enricher",
           "enricher": "@UUID[pathfinder-bestiary]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "spell:phase-familiar",
-      "foundry": "Compendium.pf2e.spells-srd.Item.rMOI8JFJ0nT2mrCF",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "target.value",
-          "raw": "your familiar"
         }
       ]
     },
@@ -40013,12 +39695,6 @@
       "slug": "spell:read-aura",
       "foundry": "Compendium.pf2e.spells-srd.Item.OhD2Z6rIGGD5ocZA",
       "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "heightening.levels.6.target.value",
-          "raw": "any number of objects"
-        },
         {
           "type": "link",
           "entry": "player-core/effect:spell-effect-read-aura",
@@ -40130,20 +39806,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "spell:retributive-pain",
-      "foundry": "Compendium.pf2e.spells-srd.Item.SSsUC7rZo0CwayPn",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "target.value",
-          "raw": "the triggering creature"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "spell:revealing-light",
       "foundry": "Compendium.pf2e.spells-srd.Item.0qaqksrGGDj74HXE",
       "gaps": [
@@ -40189,20 +39851,6 @@
           "reason": "unmapped-value",
           "field": "target.value",
           "raw": "1 weapon that is unattended or wielded by a willing creature"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "spell:safeguard-secret",
-      "foundry": "Compendium.pf2e.spells-srd.Item.OsrtOeG0TvDNnEFH",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "target.value",
-          "raw": "you and any number of willing allies"
         }
       ]
     },
@@ -40457,20 +40105,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "spell:stabilize",
-      "foundry": "Compendium.pf2e.spells-srd.Item.SnjhtQYexDtNDdEg",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "target.value",
-          "raw": "1 dying creature"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "spell:storm-lord",
       "foundry": "Compendium.pf2e.spells-srd.Item.XYhU3Wi94n1RKxTa",
       "gaps": [
@@ -40696,20 +40330,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "spell:symphony-of-the-unfettered-heart",
-      "foundry": "Compendium.pf2e.spells-srd.Item.ZAX0OOcKtYMQlquR",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "target.value",
-          "raw": "you or 1 ally"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "spell:telekinetic-hand",
       "foundry": "Compendium.pf2e.spells-srd.Item.pwzdSlJgYqN7bs2w",
       "gaps": [
@@ -40827,20 +40447,6 @@
           "reason": "unmapped-value",
           "field": "target.value",
           "raw": "you and up to 4 targets touched, either willing creatures or objects roughly the size of a creature."
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "spell:tempt-fate",
-      "foundry": "Compendium.pf2e.spells-srd.Item.GqvKSxzN7A7kuFk4",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "target.value",
-          "raw": "the triggering creature"
         }
       ]
     },
@@ -41118,20 +40724,6 @@
           "reason": "unmapped-value",
           "field": "target.value",
           "raw": "1 weapon you're wielding"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "spell:zeal-for-battle",
-      "foundry": "Compendium.pf2e.spells-srd.Item.I8CPe9Pp7GABqOyB",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "target.value",
-          "raw": "you and the triggering ally"
         }
       ]
     },

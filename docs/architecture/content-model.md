@@ -175,9 +175,13 @@ its damage is its description, and the effects it applies are `effect` entries.
 - **Casting fields.** `rank` 1 to 10. `time` is `actions` with a glyph `cost`, and `upTo` for a range ("one to
   three actions", Heal), or `time` with a `count` of rounds to years ("3 days"). `range?` is feet, `touch`,
   `planetary` or `unlimited`. `area?` is a `shape` and `size`, with a `width` on a line. `targets?` lists the
-  alternatives in `any` ("1 willing living creature or 1 undead"), each a `count` (`upTo` for "up to"), what it
-  is (`creature`, `object`, `ally`, `corpse`, `weapon`, `item`, `spell-effect`), `qualifiers` (`willing`,
-  `living`, `unattended`, `magical`) and `traits`; `includesYou` for "you and up to 4 allies". `duration?` is a
+  alternatives in `any` ("1 willing living creature or 1 undead"), and in `plus` targets taken as well ("1 ally and
+  1 enemy"). Each has a `count`: a number (`upTo` for "up to"), `any` ("any number of creatures") or `all` with
+  where they are, `within` the `area` or `range` ("enemies in the area"); `triggering` for "the triggering
+  creature"; what it is (`creature`, `object`, `ally`, `enemy`, `corpse`, `weapon`, `item`, `spell-effect`, or the
+  caster's `companion`, `animal-companion`, `familiar`, `eidolon`); `qualifiers` (`willing`, `living`, `dead`,
+  `dying`, `sleeping`, `falling`, `flying`, `corporeal`, `unattended`, `magical`) and `traits` ("1 extraplanar
+  creature", "1 animal"). `you` is `and` for "you and up to 4 allies", `or` for "you or 1 ally". `duration?` is a
   `time` (with `sustained` for "sustained up to 1 minute"), `sustained`, `until` the end of this turn, the start
   or end of the next (the caster's, or the target's `of: target`) or the next daily preparations, or `unlimited`;
   an instant spell has none. `defense?` is a `save` (a `save:` selector and `basic`), the passive defence it is
@@ -649,9 +653,14 @@ flowchart LR
   not map leaves the spell without data.
   - Casting times are glyph counts (`2`), `reaction`, `free`, a choice (`1 to 3`, `1 or 2`) or a count of rounds
     to years. Ranges are feet, `touch`, `planetary` or `unlimited`; miles and `varies` are reported. Targets are
-    counts (`up to`, `one`) of creatures, objects, allies, corpses, weapons, items and spell effects, with the
-    qualifiers `willing`, `living`, `unattended` and `magic`, alternatives joined by `or` (a later one without a
-    count takes the first's), `undead` as a creature with the trait, and `you and …` as `includesYou`. Durations
+    counts (`up to`, `one`, `1 to 3` and `1 or 2` as up to, `any number of` and `1 or more` as `any`, `all … in
+range` and `… in the area` as `all`, `the triggering`) of creatures, objects, allies, enemies, corpses,
+    weapons, items, spell effects and the caster's companions (`your animal companion`, `your familiar`), with the
+    qualifiers `willing`, `living`, `dead`, `dying`, `sleeping`, `falling`, `flying`, `corporeal`, `unattended` and
+    `magic`, alternatives joined by `or` (a later one without a count takes the first's), creature types and
+    planar traits as a creature with the trait (`1 animal`, `1 extraplanar creature`), `you and …` and `you or …`
+    as `you`, and `… and …` as `plus`. Wordings with a condition the schema can't hold (`1 creature you know by
+name`, `of 13th level or lower`) and `1 or 10` (two counts, not a range) are reported. Durations
     are a count of a unit (sustained up to it when Foundry's `sustained` is set), `sustained` alone, `unlimited`, or
     one of the `until` wordings. An area is Foundry's `type` and `value`; `square` and `details` are reported.
   - A spell's `save` becomes a `save:` selector, and its `passive` defence `against` (`ac`, or `<save>-dc` as the
