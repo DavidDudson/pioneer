@@ -443,6 +443,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feat:basic-arcana"],
       "maxTakable": "unlimited",
       "archetype": "d0214297-fa79-5c10-9c13-6b52aa145d74"
     }
@@ -507,6 +508,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feat:basic-dogma"],
       "maxTakable": "unlimited",
       "archetype": "6ce27fae-331e-541f-8fc0-4b6c10f17a40"
     }
@@ -571,6 +573,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feat:domain-initiate"],
       "maxTakable": "unlimited"
     }
   },
@@ -639,6 +642,11 @@
               "text": "master in Medicine"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:medicine:rank", 3]
         }
       ]
     }
@@ -755,6 +763,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feat:basic-hunters-trick"],
       "maxTakable": "unlimited",
       "archetype": "f4915953-a349-556c-9c96-34aff718c6a8"
     }
@@ -819,6 +828,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feat:basic-maneuver"],
       "maxTakable": "unlimited",
       "archetype": "f4edf378-c3db-5b2e-a2fa-2c1dba8e634a"
     }
@@ -883,6 +893,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feat:basic-muses-whispers"],
       "maxTakable": "unlimited",
       "archetype": "ae1dba90-2df5-5f63-a5d9-5b5ac92bd707"
     }
@@ -992,6 +1003,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feat:basic-trickery"],
       "maxTakable": "unlimited",
       "archetype": "cae4783f-e934-5f95-83cc-eddb198f8eff"
     }
@@ -1092,6 +1104,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feat:initiate-warden"],
       "maxTakable": "unlimited"
     }
   },
@@ -1189,6 +1202,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feat:basic-wilding"],
       "maxTakable": "unlimited",
       "archetype": "e8b78952-b6d8-5ffc-9f8e-5d0904534353"
     }
@@ -1253,6 +1267,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feat:basic-witchcraft"],
       "maxTakable": "unlimited",
       "archetype": "443a7966-be33-5a2c-a35c-1f635e0b8f2f"
     }
@@ -1539,6 +1554,11 @@
               "text": "trained in Crafting"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:crafting:rank", 1]
         }
       ]
     }
@@ -2396,6 +2416,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feat:bard-dedication"],
       "archetype": "ae1dba90-2df5-5f63-a5d9-5b5ac92bd707"
     }
   },
@@ -2457,7 +2478,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:untamed-form"]
     }
   },
   {
@@ -2510,6 +2532,11 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:stealth:rank", 2]
+        }
       ]
     }
   },
@@ -2556,6 +2583,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feat:basic-wizard-spellcasting"],
       "archetype": "d0214297-fa79-5c10-9c13-6b52aa145d74"
     }
   },
@@ -2610,6 +2638,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feat:wizard-dedication"],
       "archetype": "d0214297-fa79-5c10-9c13-6b52aa145d74"
     }
   },
@@ -2662,6 +2691,11 @@
               "text": "trained in Arcana"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:arcana:rank", 1]
         }
       ]
     }
@@ -3435,6 +3469,11 @@
           ]
         }
       ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["attribute:cha:mod", 2]
+        }
+      ],
       "archetype": "ae1dba90-2df5-5f63-a5d9-5b5ac92bd707"
     }
   },
@@ -3541,6 +3580,11 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:diplomacy:rank", 1]
+        }
       ]
     }
   },
@@ -3645,6 +3689,11 @@
           ]
         }
       ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:athletics:rank", 1]
+        }
+      ],
       "action": {
         "cost": "two"
       }
@@ -3693,6 +3742,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feat:wizard-dedication"],
       "archetype": "d0214297-fa79-5c10-9c13-6b52aa145d74"
     }
   },
@@ -3773,6 +3823,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feat:bard-dedication"],
       "archetype": "ae1dba90-2df5-5f63-a5d9-5b5ac92bd707"
     }
   },
@@ -3853,6 +3904,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feat:cleric-dedication"],
       "archetype": "6ce27fae-331e-541f-8fc0-4b6c10f17a40"
     }
   },
@@ -3899,6 +3951,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feat:cleric-dedication"],
       "archetype": "6ce27fae-331e-541f-8fc0-4b6c10f17a40"
     }
   },
@@ -3979,6 +4032,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feat:druid-dedication"],
       "archetype": "e8b78952-b6d8-5ffc-9f8e-5d0904534353"
     }
   },
@@ -4025,6 +4079,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feat:ranger-dedication"],
       "archetype": "f4915953-a349-556c-9c96-34aff718c6a8"
     }
   },
@@ -4105,6 +4160,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feat:fighter-dedication"],
       "archetype": "f4edf378-c3db-5b2e-a2fa-2c1dba8e634a"
     }
   },
@@ -4151,6 +4207,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feat:bard-dedication"],
       "archetype": "ae1dba90-2df5-5f63-a5d9-5b5ac92bd707"
     }
   },
@@ -4197,6 +4254,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feat:rogue-dedication"],
       "archetype": "cae4783f-e934-5f95-83cc-eddb198f8eff"
     }
   },
@@ -4243,6 +4301,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feat:druid-dedication"],
       "archetype": "e8b78952-b6d8-5ffc-9f8e-5d0904534353"
     }
   },
@@ -4289,6 +4348,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feat:witch-dedication"],
       "archetype": "443a7966-be33-5a2c-a35c-1f635e0b8f2f"
     }
   },
@@ -4335,6 +4395,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feat:witch-dedication"],
       "archetype": "443a7966-be33-5a2c-a35c-1f635e0b8f2f"
     }
   },
@@ -4415,6 +4476,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feat:wizard-dedication"],
       "archetype": "d0214297-fa79-5c10-9c13-6b52aa145d74"
     }
   },
@@ -4475,6 +4537,11 @@
               "text": "master in Intimidation"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:intimidation:rank", 3]
         }
       ]
     }
@@ -4553,6 +4620,11 @@
               "text": "trained in Medicine"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:medicine:rank", 1]
         }
       ],
       "action": {
@@ -4771,6 +4843,11 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:occultism:rank", 3]
+        }
       ]
     }
   },
@@ -4937,6 +5014,11 @@
               "text": "legendary in Deception"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:deception:rank", 4]
         }
       ]
     }
@@ -5135,6 +5217,11 @@
               "text": "master in Perception"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["perception:rank", 3]
         }
       ]
     }
@@ -5430,6 +5517,11 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:nature:rank", 2]
+        }
       ]
     }
   },
@@ -5555,6 +5647,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feat:rock-runner"],
       "action": {
         "cost": "two"
       }
@@ -5775,6 +5868,18 @@
             {
               "type": "text",
               "text": "master in Occultism or Religion"
+            }
+          ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "or": [
+            {
+              "gte": ["skill:occultism:rank", 3]
+            },
+            {
+              "gte": ["skill:religion:rank", 3]
             }
           ]
         }
@@ -6565,6 +6670,11 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:stealth:rank", 3]
+        }
       ]
     }
   },
@@ -6851,7 +6961,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:divine-castigation"]
     }
   },
   {
@@ -6895,6 +7006,11 @@
               "text": "trained in Acrobatics"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:acrobatics:rank", 1]
         }
       ]
     }
@@ -7111,7 +7227,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:distracting-shadows"]
     }
   },
   {
@@ -7619,7 +7736,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:shield-block"]
     }
   },
   {
@@ -7679,6 +7797,11 @@
               "text": "trained in Deception"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:deception:rank", 1]
         }
       ]
     }
@@ -7851,6 +7974,11 @@
           ]
         }
       ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["attribute:wis:mod", 2]
+        }
+      ],
       "archetype": "6ce27fae-331e-541f-8fc0-4b6c10f17a40"
     }
   },
@@ -7921,7 +8049,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:counterspell-prepared", "feat:quick-recognition"]
     }
   },
   {
@@ -8291,6 +8420,11 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:athletics:rank", 4]
+        }
       ]
     }
   },
@@ -8335,6 +8469,11 @@
               "text": "legendary in Acrobatics"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:acrobatics:rank", 4]
         }
       ]
     }
@@ -8540,6 +8679,11 @@
               "text": "trained in Athletics"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:athletics:rank", 1]
         }
       ]
     }
@@ -8797,6 +8941,11 @@
               "text": "expert in Crafting"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:crafting:rank", 2]
         }
       ]
     }
@@ -9068,6 +9217,11 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:deception:rank", 2]
+        }
       ]
     }
   },
@@ -9120,6 +9274,11 @@
               "text": "expert in Medicine"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:medicine:rank", 2]
         }
       ]
     }
@@ -9204,6 +9363,11 @@
               "text": "expert in Deception"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:deception:rank", 2]
         }
       ],
       "action": {
@@ -9361,6 +9525,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feat:bard-dedication"],
       "archetype": "ae1dba90-2df5-5f63-a5d9-5b5ac92bd707"
     }
   },
@@ -9609,6 +9774,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feat:courageous-advance", "feat:courageous-assault"],
       "action": {
         "cost": "one"
       }
@@ -9663,6 +9829,11 @@
               "text": "trained in Society"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:society:rank", 1]
         }
       ]
     }
@@ -9811,6 +9982,11 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:crafting:rank", 4]
+        }
       ]
     }
   },
@@ -9881,7 +10057,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:slam-down"]
     }
   },
   {
@@ -10435,7 +10612,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:step-lively"]
     }
   },
   {
@@ -11133,7 +11311,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:orc-ferocity"]
     }
   },
   {
@@ -11245,6 +11424,11 @@
           ]
         }
       ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:intimidation:rank", 1]
+        }
+      ],
       "action": {
         "cost": "one"
       }
@@ -11292,7 +11476,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:advanced-domain"]
     }
   },
   {
@@ -11865,6 +12050,11 @@
           ]
         }
       ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:athletics:rank", 1]
+        }
+      ],
       "action": {
         "cost": "one",
         "requirements": [
@@ -11995,6 +12185,11 @@
               "text": "trained in Athletics"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:athletics:rank", 1]
         }
       ],
       "action": {
@@ -12607,6 +12802,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feat:basic-cleric-spellcasting"],
       "archetype": "6ce27fae-331e-541f-8fc0-4b6c10f17a40"
     }
   },
@@ -12676,6 +12872,11 @@
               "text": "holy or unholy trait"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "or": ["self:trait:holy", "self:trait:unholy"]
         }
       ]
     }
@@ -12814,6 +13015,11 @@
               "text": "legendary in Religion"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:religion:rank", 4]
         }
       ]
     }
@@ -13213,7 +13419,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:cauldron"]
     }
   },
   {
@@ -13464,7 +13671,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:soaring-shape"]
     }
   },
   {
@@ -13630,6 +13838,11 @@
               "text": "Wisdom +2"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["attribute:wis:mod", 2]
         }
       ],
       "archetype": "e8b78952-b6d8-5ffc-9f8e-5d0904534353"
@@ -13813,6 +14026,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feat:dueling-parry"],
       "action": {
         "cost": "one",
         "requirements": [
@@ -13986,6 +14200,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feat:dueling-parry"],
       "action": {
         "cost": "reaction",
         "requirements": [
@@ -14169,6 +14384,11 @@
               "text": "expert in Crafting"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:crafting:rank", 2]
         }
       ]
     }
@@ -14430,6 +14650,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feat:versatile-font"],
       "action": {
         "cost": "one"
       }
@@ -14664,7 +14885,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:esoteric-polymath"]
     }
   },
   {
@@ -14789,6 +15011,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feat:well-versed"],
       "action": {
         "cost": "reaction",
         "trigger": [
@@ -14937,7 +15160,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:untamed-form"]
     }
   },
   {
@@ -15342,7 +15566,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:emblazon-armament"]
     }
   },
   {
@@ -15541,7 +15766,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:emblazon-armament"]
     }
   },
   {
@@ -15930,7 +16156,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:assured-knowledge"]
     }
   },
   {
@@ -16037,7 +16264,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["self:trait:unholy"]
     }
   },
   {
@@ -16090,7 +16318,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["self:trait:holy"]
     }
   },
   {
@@ -16201,7 +16430,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:divine-wings"]
     }
   },
   {
@@ -16357,6 +16587,11 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["perception:rank", 3]
+        }
       ]
     }
   },
@@ -16472,6 +16707,11 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:stealth:rank", 1]
+        }
       ]
     }
   },
@@ -16524,6 +16764,11 @@
               "text": "trained in Survival"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:survival:rank", 1]
         }
       ]
     }
@@ -16608,6 +16853,12 @@
               "text": "Basic Bard Spellcasting; master in Occultism"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        "feat:basic-bard-spellcasting",
+        {
+          "gte": ["skill:occultism:rank", 3]
         }
       ],
       "archetype": "ae1dba90-2df5-5f63-a5d9-5b5ac92bd707"
@@ -16695,6 +16946,12 @@
           ]
         }
       ],
+      "prerequisitePredicate": [
+        "feat:basic-cleric-spellcasting",
+        {
+          "gte": ["skill:religion:rank", 3]
+        }
+      ],
       "archetype": "6ce27fae-331e-541f-8fc0-4b6c10f17a40"
     }
   },
@@ -16780,6 +17037,12 @@
           ]
         }
       ],
+      "prerequisitePredicate": [
+        "feat:basic-druid-spellcasting",
+        {
+          "gte": ["skill:nature:rank", 3]
+        }
+      ],
       "archetype": "e8b78952-b6d8-5ffc-9f8e-5d0904534353"
     }
   },
@@ -16842,7 +17105,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:ancestral-longevity"]
     }
   },
   {
@@ -16977,6 +17241,12 @@
               "text": "Basic Wizard Spellcasting; master in Arcana"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        "feat:basic-wizard-spellcasting",
+        {
+          "gte": ["skill:arcana:rank", 3]
         }
       ],
       "archetype": "d0214297-fa79-5c10-9c13-6b52aa145d74"
@@ -17438,6 +17708,11 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:performance:rank", 1]
+        }
       ]
     }
   },
@@ -17570,6 +17845,11 @@
               "text": "Constitution +2"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["attribute:con:mod", 2]
         }
       ]
     }
@@ -17948,6 +18228,11 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["attribute:dex:mod", 2]
+        }
       ]
     }
   },
@@ -18164,6 +18449,18 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "or": [
+            {
+              "or": ["feat:animal-companion", "feat:animal-companion-ranger"]
+            },
+            "feat:pet",
+            "feat:bonded-animal"
+          ]
+        },
+        "feat:orc-ferocity"
       ]
     }
   },
@@ -18225,7 +18522,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:untamed-form"]
     }
   },
   {
@@ -18556,6 +18854,14 @@
           ]
         }
       ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["attribute:str:mod", 2]
+        },
+        {
+          "gte": ["attribute:dex:mod", 2]
+        }
+      ],
       "archetype": "f4edf378-c3db-5b2e-a2fa-2c1dba8e634a"
     }
   },
@@ -18853,6 +19159,11 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "or": ["feat:aggressive-block", "feat:brutish-shove"]
+        }
       ]
     }
   },
@@ -19072,6 +19383,11 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:stealth:rank", 3]
+        }
       ]
     }
   },
@@ -19202,6 +19518,11 @@
               "text": "trained in Survival"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:survival:rank", 1]
         }
       ]
     }
@@ -19374,6 +19695,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feat:untamed-form"],
       "action": {
         "cost": "one"
       }
@@ -19558,7 +19880,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:vicious-swing"]
     }
   },
   {
@@ -19797,6 +20120,11 @@
               "text": "expert in Diplomacy"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:diplomacy:rank", 2]
         }
       ]
     }
@@ -20279,6 +20607,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feat:double-slice"],
       "action": {
         "cost": "one"
       }
@@ -20371,7 +20700,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:distracting-shot"]
     }
   },
   {
@@ -20566,6 +20896,11 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:intimidation:rank", 1]
+        }
       ]
     }
   },
@@ -20618,6 +20953,11 @@
               "text": "trained in Diplomacy"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:diplomacy:rank", 1]
         }
       ]
     }
@@ -20903,7 +21243,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:halfling-luck"]
     }
   },
   {
@@ -20964,7 +21305,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:dueling-riposte"]
     }
   },
   {
@@ -21984,6 +22326,11 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:athletics:rank", 1]
+        }
       ]
     }
   },
@@ -22388,6 +22735,11 @@
           ]
         }
       ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:stealth:rank", 4]
+        }
+      ],
       "action": {
         "cost": "reaction",
         "trigger": [
@@ -22523,6 +22875,11 @@
               "text": "trained in Diplomacy"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:diplomacy:rank", 1]
         }
       ]
     }
@@ -23071,6 +23428,12 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:crafting:rank", 3]
+        },
+        "feat:specialty-crafting"
       ]
     }
   },
@@ -23133,6 +23496,12 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:acrobatics:rank", 4]
+        },
+        "feat:quick-squeeze"
       ],
       "action": {
         "cost": "two",
@@ -23200,7 +23569,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:predictive-purchase-rogue"]
     }
   },
   {
@@ -23335,6 +23705,22 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "or": [
+            {
+              "gte": ["skill:arcana:rank", 1]
+            },
+            {
+              "gte": ["skill:nature:rank", 1]
+            },
+            {
+              "gte": ["skill:religion:rank", 1]
+            }
+          ]
+        },
+        "feat:esoteric-polymath"
       ]
     }
   },
@@ -23396,7 +23782,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:sly-striker"]
     }
   },
   {
@@ -23532,6 +23919,11 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:performance:rank", 1]
+        }
       ]
     }
   },
@@ -23593,7 +23985,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:dueling-riposte"]
     }
   },
   {
@@ -23659,7 +24052,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:poison-weapon"]
     }
   },
   {
@@ -23738,7 +24132,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:swift-banishment"]
     }
   },
   {
@@ -23799,7 +24194,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:twin-riposte"]
     }
   },
   {
@@ -23868,7 +24264,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:twin-riposte"]
     }
   },
   {
@@ -24023,6 +24420,11 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "or": ["feat:mature-animal-companion-druid", "feat:mature-animal-companion-ranger"]
+        }
       ]
     }
   },
@@ -24067,6 +24469,11 @@
               "text": "Mature Animal Companion"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "or": ["feat:mature-animal-companion-druid", "feat:mature-animal-companion-ranger"]
         }
       ]
     }
@@ -24158,7 +24565,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:enhanced-familiar"]
     }
   },
   {
@@ -24203,7 +24611,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:orc-ferocity"]
     }
   },
   {
@@ -24280,6 +24689,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feat:clever-improviser"],
       "action": {
         "cost": "free",
         "trigger": [
@@ -24376,6 +24786,11 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["attribute:cha:mod", 3]
+        }
       ]
     }
   },
@@ -24430,6 +24845,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feat:incredible-aim"],
       "action": {
         "cost": "one"
       }
@@ -24615,7 +25031,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:untamed-form"]
     }
   },
   {
@@ -24949,6 +25366,11 @@
           ]
         }
       ],
+      "prerequisitePredicate": [
+        {
+          "or": ["feat:animal-companion", "feat:animal-companion-ranger"]
+        }
+      ],
       "action": {
         "cost": "free",
         "trigger": [
@@ -25015,6 +25437,11 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:intimidation:rank", 1]
+        }
       ]
     }
   },
@@ -25075,6 +25502,14 @@
               "text": "Strength +3; expert in Intimidation"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["attribute:str:mod", 3]
+        },
+        {
+          "gte": ["skill:intimidation:rank", 2]
         }
       ]
     }
@@ -25185,6 +25620,11 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:crafting:rank", 2]
+        }
       ]
     }
   },
@@ -25285,7 +25725,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:wind-caller"]
     }
   },
   {
@@ -25531,6 +25972,11 @@
           ]
         }
       ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:acrobatics:rank", 3]
+        }
+      ],
       "action": {
         "cost": "free"
       }
@@ -25683,7 +26129,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:sanctify-armament"]
     }
   },
   {
@@ -25735,6 +26182,11 @@
               "text": "expert in Intimidation"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:intimidation:rank", 2]
         }
       ]
     }
@@ -25866,6 +26318,11 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:society:rank", 4]
+        }
       ]
     }
   },
@@ -25911,6 +26368,12 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:society:rank", 4]
+        },
+        "feat:multilingual"
       ]
     }
   },
@@ -25988,6 +26451,11 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:medicine:rank", 4]
+        }
       ]
     }
   },
@@ -26049,6 +26517,12 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:nature:rank", 4]
+        },
+        "feat:master-monster-hunter"
       ]
     }
   },
@@ -26111,6 +26585,11 @@
           ]
         }
       ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:diplomacy:rank", 4]
+        }
+      ],
       "action": {
         "cost": "three"
       }
@@ -26166,6 +26645,12 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:performance:rank", 4]
+        },
+        "feat:virtuosic-performer"
       ]
     }
   },
@@ -26356,6 +26841,12 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:stealth:rank", 4]
+        },
+        "feat:swift-sneak"
       ]
     }
   },
@@ -26400,6 +26891,11 @@
               "text": "legendary in Survival"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:survival:rank", 4]
         }
       ]
     }
@@ -26462,6 +26958,12 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:thievery:rank", 4]
+        },
+        "feat:pickpocket"
       ]
     }
   },
@@ -26522,6 +27024,11 @@
               "text": "trained in Deception"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:deception:rank", 1]
         }
       ]
     }
@@ -26739,6 +27246,11 @@
               "text": "leaf leshy heritage or Cat Fall skill feat"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "or": ["heritage:leaf-leshy", "feat:cat-fall"]
         }
       ]
     }
@@ -26971,6 +27483,11 @@
               "text": "trained in Deception"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:deception:rank", 1]
         }
       ]
     }
@@ -27347,7 +27864,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:goblin-song"]
     }
   },
   {
@@ -27400,7 +27918,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:leshy-superstition"]
     }
   },
   {
@@ -27611,7 +28130,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:healing-hands"]
     }
   },
   {
@@ -27782,6 +28302,11 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:crafting:rank", 2]
+        }
       ]
     }
   },
@@ -27841,6 +28366,24 @@
             {
               "type": "text",
               "text": "expert in Arcana, Nature, Occultism, or Religion"
+            }
+          ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "or": [
+            {
+              "gte": ["skill:arcana:rank", 2]
+            },
+            {
+              "gte": ["skill:nature:rank", 2]
+            },
+            {
+              "gte": ["skill:occultism:rank", 2]
+            },
+            {
+              "gte": ["skill:religion:rank", 2]
             }
           ]
         }
@@ -28298,6 +28841,12 @@
           ]
         }
       ],
+      "prerequisitePredicate": [
+        "feat:expert-bard-spellcasting",
+        {
+          "gte": ["skill:occultism:rank", 4]
+        }
+      ],
       "archetype": "ae1dba90-2df5-5f63-a5d9-5b5ac92bd707"
     }
   },
@@ -28372,6 +28921,12 @@
           ]
         }
       ],
+      "prerequisitePredicate": [
+        "feat:expert-cleric-spellcasting",
+        {
+          "gte": ["skill:religion:rank", 4]
+        }
+      ],
       "archetype": "6ce27fae-331e-541f-8fc0-4b6c10f17a40"
     }
   },
@@ -28444,6 +28999,12 @@
               "text": "Expert Druid Spellcasting; legendary in Nature"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        "feat:expert-druid-spellcasting",
+        {
+          "gte": ["skill:nature:rank", 4]
         }
       ],
       "archetype": "e8b78952-b6d8-5ffc-9f8e-5d0904534353"
@@ -28524,6 +29085,12 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:nature:rank", 3]
+        },
+        "feat:monster-hunter"
       ]
     }
   },
@@ -28652,6 +29219,12 @@
           ]
         }
       ],
+      "prerequisitePredicate": [
+        "feat:ranger-dedication",
+        {
+          "gte": ["perception:rank", 2]
+        }
+      ],
       "archetype": "f4915953-a349-556c-9c96-34aff718c6a8"
     }
   },
@@ -28776,6 +29349,12 @@
               "text": "Expert Wizard Spellcasting; legendary in Arcana"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        "feat:expert-wizard-spellcasting",
+        {
+          "gte": ["skill:arcana:rank", 4]
         }
       ],
       "archetype": "d0214297-fa79-5c10-9c13-6b52aa145d74"
@@ -28920,6 +29499,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feat:initiate-warden"],
       "maxTakable": "unlimited"
     }
   },
@@ -28974,6 +29554,11 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "or": ["feat:animal-companion", "feat:animal-companion-ranger"]
+        }
       ]
     }
   },
@@ -29027,6 +29612,11 @@
               "text": "Animal Companion"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "or": ["feat:animal-companion", "feat:animal-companion-ranger"]
         }
       ]
     }
@@ -29544,6 +30134,11 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:survival:rank", 3]
+        }
       ]
     }
   },
@@ -29657,7 +30252,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:monster-hunter"]
     }
   },
   {
@@ -29735,7 +30331,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:untamed-form"]
     }
   },
   {
@@ -30103,6 +30700,11 @@
           ]
         }
       ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:society:rank", 1]
+        }
+      ],
       "maxTakable": "unlimited"
     }
   },
@@ -30183,6 +30785,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feat:double-shot"],
       "action": {
         "cost": "one",
         "requirements": [
@@ -30428,6 +31031,11 @@
               "text": "trained in Nature"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:nature:rank", 1]
         }
       ]
     }
@@ -30709,6 +31317,11 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:acrobatics:rank", 2]
+        }
       ]
     }
   },
@@ -30946,7 +31559,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:nimble-dodge"]
     }
   },
   {
@@ -31098,6 +31712,11 @@
           ]
         }
       ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:diplomacy:rank", 1]
+        }
+      ],
       "action": {
         "cost": "three"
       }
@@ -31183,6 +31802,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feat:basic-bard-spellcasting"],
       "archetype": "ae1dba90-2df5-5f63-a5d9-5b5ac92bd707"
     }
   },
@@ -31227,6 +31847,11 @@
               "text": "expert in Occultism"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:occultism:rank", 2]
         }
       ]
     }
@@ -31288,6 +31913,11 @@
               "text": "trained in Occultism"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:occultism:rank", 1]
         }
       ]
     }
@@ -31931,6 +32561,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feat:order-explorer"],
       "maxTakable": "unlimited"
     }
   },
@@ -31977,6 +32608,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feat:druid-dedication"],
       "archetype": "e8b78952-b6d8-5ffc-9f8e-5d0904534353"
     }
   },
@@ -32156,6 +32788,11 @@
               "text": "trained in Deception"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:deception:rank", 1]
         }
       ]
     }
@@ -32552,6 +33189,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feat:basic-witch-spellcasting"],
       "archetype": "443a7966-be33-5a2c-a35c-1f635e0b8f2f"
     }
   },
@@ -32762,6 +33400,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feat:initiate-warden"],
       "maxTakable": "unlimited"
     }
   },
@@ -32913,6 +33552,11 @@
           ]
         }
       ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:deception:rank", 4]
+        }
+      ],
       "action": {
         "cost": "one"
       }
@@ -33020,6 +33664,12 @@
               "text": "Form Control; Strength +4"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        "feat:form-control",
+        {
+          "gte": ["attribute:str:mod", 4]
         }
       ]
     }
@@ -33131,7 +33781,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:orc-superstition"]
     }
   },
   {
@@ -33517,6 +34168,11 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:thievery:rank", 1]
+        }
       ]
     }
   },
@@ -33648,6 +34304,11 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:survival:rank", 3]
+        }
       ]
     }
   },
@@ -33744,6 +34405,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feat:pickpocket"],
       "action": {
         "cost": "one"
       }
@@ -34204,6 +34866,11 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:athletics:rank", 2]
+        }
       ]
     }
   },
@@ -34286,6 +34953,11 @@
               "text": "Aggressive Block or Brutish Shove"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "or": ["feat:aggressive-block", "feat:brutish-shove"]
         }
       ]
     }
@@ -34885,7 +35557,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:prescient-planner"]
     }
   },
   {
@@ -35043,6 +35716,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feat:basic-druid-spellcasting"],
       "archetype": "e8b78952-b6d8-5ffc-9f8e-5d0904534353"
     }
   },
@@ -35130,6 +35804,11 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "or": ["feat:incredible-companion-druid", "feat:incredible-companion-ranger"]
+        }
       ]
     }
   },
@@ -35183,7 +35862,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:call-of-the-wild"]
     }
   },
   {
@@ -35241,7 +35921,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:verdant-weapon"]
     }
   },
   {
@@ -35335,6 +36016,11 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:athletics:rank", 3]
+        }
       ]
     }
   },
@@ -35388,6 +36074,11 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:intimidation:rank", 1]
+        }
       ]
     }
   },
@@ -35440,6 +36131,11 @@
               "text": "expert in Deception"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:deception:rank", 2]
         }
       ]
     }
@@ -35523,6 +36219,24 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "or": [
+            {
+              "gte": ["skill:arcana:rank", 1]
+            },
+            {
+              "gte": ["skill:nature:rank", 1]
+            },
+            {
+              "gte": ["skill:occultism:rank", 1]
+            },
+            {
+              "gte": ["skill:religion:rank", 1]
+            }
+          ]
+        }
       ]
     }
   },
@@ -35584,6 +36298,11 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:athletics:rank", 1]
+        }
       ]
     }
   },
@@ -35638,6 +36357,25 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "or": [
+            {
+              "gte": ["skill:arcana:rank", 3]
+            },
+            {
+              "gte": ["skill:nature:rank", 3]
+            },
+            {
+              "gte": ["skill:occultism:rank", 3]
+            },
+            {
+              "gte": ["skill:religion:rank", 3]
+            }
+          ]
+        },
+        "feat:recognize-spell"
       ]
     }
   },
@@ -35690,6 +36428,11 @@
               "text": "trained in Crafting"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:crafting:rank", 1]
         }
       ]
     }
@@ -35809,7 +36552,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:shield-block"]
     }
   },
   {
@@ -35853,6 +36597,11 @@
               "text": "trained in Acrobatics"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:acrobatics:rank", 1]
         }
       ]
     }
@@ -35898,6 +36647,11 @@
               "text": "master in Athletics"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:athletics:rank", 3]
         }
       ]
     }
@@ -35951,6 +36705,11 @@
               "text": "master in Thievery"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:thievery:rank", 3]
         }
       ]
     }
@@ -36118,6 +36877,11 @@
               "text": "expert in Stealth"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:stealth:rank", 2]
         }
       ]
     }
@@ -36383,6 +37147,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feat:orc-ferocity"],
       "action": {
         "cost": "free",
         "trigger": [
@@ -36476,6 +37241,11 @@
               "text": "Dexterity +2"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["attribute:dex:mod", 2]
         }
       ],
       "archetype": "f4915953-a349-556c-9c96-34aff718c6a8"
@@ -36584,6 +37354,11 @@
               "text": "expert in Athletics"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:athletics:rank", 2]
         }
       ]
     }
@@ -36886,6 +37661,12 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:deception:rank", 4]
+        },
+        "feat:perfect-distraction"
       ],
       "action": {
         "cost": "reaction",
@@ -37225,6 +38006,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feat:fighter-dedication"],
       "archetype": "f4edf378-c3db-5b2e-a2fa-2c1dba8e634a"
     }
   },
@@ -37452,6 +38234,12 @@
           ]
         }
       ],
+      "prerequisitePredicate": [
+        "feat:untamed-form",
+        {
+          "or": ["feat:dragon-shape", "feat:elemental-shape", "feat:plant-shape", "feat:soaring-shape"]
+        }
+      ],
       "action": {
         "cost": "reaction",
         "trigger": [
@@ -37525,6 +38313,11 @@
               "text": "trained in Society"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:society:rank", 1]
         }
       ]
     }
@@ -37613,6 +38406,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feat:channel-smite"],
       "action": {
         "cost": "reaction",
         "trigger": [
@@ -37896,6 +38690,24 @@
           ]
         }
       ],
+      "prerequisitePredicate": [
+        {
+          "or": [
+            {
+              "gte": ["skill:arcana:rank", 1]
+            },
+            {
+              "gte": ["skill:nature:rank", 1]
+            },
+            {
+              "gte": ["skill:occultism:rank", 1]
+            },
+            {
+              "gte": ["skill:religion:rank", 1]
+            }
+          ]
+        }
+      ],
       "action": {
         "cost": "reaction",
         "trigger": [
@@ -37997,7 +38809,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:counterspell-prepared"]
     }
   },
   {
@@ -38970,6 +39783,11 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "or": ["feat:ricochet-stance-fighter", "feat:ricochet-stance-rogue"]
+        }
       ]
     }
   },
@@ -39338,6 +40156,11 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:medicine:rank", 2]
+        }
       ]
     }
   },
@@ -39464,6 +40287,11 @@
               "text": "Dexterity +2"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["attribute:dex:mod", 2]
         }
       ],
       "archetype": "cae4783f-e934-5f95-83cc-eddb198f8eff"
@@ -39789,6 +40617,11 @@
           ]
         }
       ],
+      "prerequisitePredicate": [
+        {
+          "or": ["self:trait:holy", "self:trait:unholy"]
+        }
+      ],
       "action": {
         "cost": "one",
         "frequency": {
@@ -39966,6 +40799,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feat:raise-symbol"],
       "action": {
         "cost": "reaction",
         "trigger": [
@@ -40206,6 +41040,11 @@
           ]
         }
       ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:intimidation:rank", 4]
+        }
+      ],
       "action": {
         "cost": "one"
       }
@@ -40277,6 +41116,11 @@
               "text": "trained in Occultism"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:occultism:rank", 1]
         }
       ]
     }
@@ -40554,6 +41398,11 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:crafting:rank", 2]
+        }
       ]
     }
   },
@@ -40620,6 +41469,21 @@
             {
               "type": "text",
               "text": "trained in Alcohol Lore, Cooking Lore, or Crafting"
+            }
+          ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "or": [
+            {
+              "gte": ["skill:lore:alcohol:rank", 1]
+            },
+            {
+              "gte": ["skill:lore:cooking:rank", 1]
+            },
+            {
+              "gte": ["skill:crafting:rank", 1]
             }
           ]
         }
@@ -41128,7 +41992,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:camouflage"]
     }
   },
   {
@@ -41365,6 +42230,11 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:diplomacy:rank", 3]
+        }
       ]
     }
   },
@@ -41426,7 +42296,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:courageous-assault"]
     }
   },
   {
@@ -41488,7 +42359,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:premonition-of-avoidance"]
     }
   },
   {
@@ -41550,7 +42422,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:premonition-of-clarity"]
     }
   },
   {
@@ -41603,7 +42476,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:double-prey", "feat:wardens-boon"]
     }
   },
   {
@@ -41656,7 +42530,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:replenishment-of-war"]
     }
   },
   {
@@ -41864,7 +42739,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:domain-initiate"]
     }
   },
   {
@@ -41917,7 +42793,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:shield-block"]
     }
   },
   {
@@ -42030,6 +42907,11 @@
           ]
         }
       ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:athletics:rank", 1]
+        }
+      ],
       "action": {
         "cost": "free",
         "requirements": [
@@ -42095,6 +42977,11 @@
               "text": "Animal Companion"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "or": ["feat:animal-companion", "feat:animal-companion-ranger"]
         }
       ]
     }
@@ -42259,6 +43146,11 @@
               "text": "trained in Society"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:society:rank", 1]
         }
       ]
     }
@@ -42506,6 +43398,11 @@
           ]
         }
       ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["attribute:int:mod", 1]
+        }
+      ],
       "maxTakable": "unlimited"
     }
   },
@@ -42644,7 +43541,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:goblin-scuttle"]
     }
   },
   {
@@ -42731,6 +43629,11 @@
               "text": "trained in Athletics"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:athletics:rank", 1]
         }
       ],
       "action": {
@@ -42937,6 +43840,11 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:deception:rank", 3]
+        }
       ]
     }
   },
@@ -43111,7 +44019,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:cut-from-the-air"]
     }
   },
   {
@@ -43271,6 +44180,11 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:stealth:rank", 3]
+        }
       ]
     }
   },
@@ -43330,6 +44244,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feat:rogue-dedication"],
       "archetype": "cae4783f-e934-5f95-83cc-eddb198f8eff"
     }
   },
@@ -43482,7 +44397,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:untamed-form"]
     }
   },
   {
@@ -43932,6 +44848,11 @@
           ]
         }
       ],
+      "prerequisitePredicate": [
+        {
+          "or": ["feat:incredible-companion-druid", "feat:incredible-companion-ranger"]
+        }
+      ],
       "maxTakable": 3
     }
   },
@@ -43993,6 +44914,11 @@
               "text": "Incredible Companion"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "or": ["feat:incredible-companion-druid", "feat:incredible-companion-ranger"]
         }
       ]
     }
@@ -44243,6 +45169,11 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:crafting:rank", 1]
+        }
       ]
     }
   },
@@ -44331,7 +45262,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:pervasive-superstition"]
     }
   },
   {
@@ -44523,6 +45455,11 @@
               "text": "trained in Arcana"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:arcana:rank", 1]
         }
       ]
     }
@@ -44859,6 +45796,11 @@
           ]
         }
       ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:athletics:rank", 3]
+        }
+      ],
       "action": {
         "cost": "reaction",
         "trigger": [
@@ -44940,6 +45882,11 @@
               "text": "trained in Acrobatics"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:acrobatics:rank", 1]
         }
       ]
     }
@@ -45037,6 +45984,12 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "or": ["feat:animal-companion", "feat:animal-companion-ranger"]
+        },
+        "feat:camouflage"
       ]
     }
   },
@@ -45282,7 +46235,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:stonewalker"]
     }
   },
   {
@@ -45709,6 +46663,11 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:society:rank", 1]
+        }
       ]
     }
   },
@@ -45839,6 +46798,11 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:religion:rank", 1]
+        }
       ]
     }
   },
@@ -45960,6 +46924,11 @@
               "text": "trained in Thievery"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:thievery:rank", 1]
         }
       ]
     }
@@ -46463,6 +47432,11 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:survival:rank", 1]
+        }
       ]
     }
   },
@@ -46649,6 +47623,11 @@
           ]
         }
       ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:acrobatics:rank", 4]
+        }
+      ],
       "action": {
         "cost": "reaction",
         "trigger": [
@@ -46715,6 +47694,11 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:stealth:rank", 3]
+        }
       ]
     }
   },
@@ -46777,6 +47761,12 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:survival:rank", 2]
+        },
+        "feat:experienced-tracker"
       ]
     }
   },
@@ -47017,6 +48007,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feat:witchs-armaments"],
       "action": {
         "cost": "one",
         "frequency": {
@@ -47068,7 +48059,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:harmonize"]
     }
   },
   {
@@ -47258,6 +48250,11 @@
               "text": "master in Stealth"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:stealth:rank", 3]
         }
       ],
       "action": {
@@ -47456,6 +48453,11 @@
           ]
         }
       ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:survival:rank", 1]
+        }
+      ],
       "maxTakable": "unlimited"
     }
   },
@@ -47509,6 +48511,12 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:survival:rank", 3]
+        },
+        "feat:favored-terrain"
       ]
     }
   },
@@ -47615,6 +48623,11 @@
           ]
         }
       ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:stealth:rank", 1]
+        }
+      ],
       "maxTakable": "unlimited"
     }
   },
@@ -47675,6 +48688,11 @@
               "text": "master in Intimidation"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:intimidation:rank", 3]
         }
       ]
     }
@@ -47771,7 +48789,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:seedpod"]
     }
   },
   {
@@ -47988,6 +49007,11 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:athletics:rank", 1]
+        }
       ]
     }
   },
@@ -48040,6 +49064,11 @@
               "text": "legendary in Survival"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:survival:rank", 4]
         }
       ]
     }
@@ -48094,7 +49123,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:dance-underfoot"]
     }
   },
   {
@@ -48211,6 +49241,11 @@
               "text": "trained in Nature"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:nature:rank", 1]
         }
       ]
     }
@@ -48429,6 +49464,24 @@
           ]
         }
       ],
+      "prerequisitePredicate": [
+        {
+          "or": [
+            {
+              "gte": ["skill:arcana:rank", 1]
+            },
+            {
+              "gte": ["skill:nature:rank", 1]
+            },
+            {
+              "gte": ["skill:occultism:rank", 1]
+            },
+            {
+              "gte": ["skill:religion:rank", 1]
+            }
+          ]
+        }
+      ],
       "action": {
         "cost": "one"
       }
@@ -48484,7 +49537,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:double-shot"]
     }
   },
   {
@@ -48537,7 +49591,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:shared-prey"]
     }
   },
   {
@@ -48786,6 +49841,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feat:dragon-shape", "feat:untamed-form"],
       "action": {
         "cost": "two"
       }
@@ -48981,6 +50037,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feat:twin-feint"],
       "action": {
         "requirements": [
           {
@@ -49382,6 +50439,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feat:twin-parry"],
       "action": {
         "cost": "one",
         "requirements": [
@@ -49865,6 +50923,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feat:rogue-dedication"],
       "archetype": "cae4783f-e934-5f95-83cc-eddb198f8eff"
     }
   },
@@ -50004,6 +51063,11 @@
           ]
         }
       ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:stealth:rank", 1]
+        }
+      ],
       "action": {
         "cost": "two"
       }
@@ -50063,6 +51127,11 @@
               "text": "trained in Athletics"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:athletics:rank", 1]
         }
       ]
     }
@@ -50126,7 +51195,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:orc-ferocity"]
     }
   },
   {
@@ -50287,6 +51357,11 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:arcana:rank", 4]
+        }
       ]
     }
   },
@@ -50366,6 +51441,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feat:ancestral-longevity"],
       "action": {
         "frequency": {
           "max": 1,
@@ -50635,6 +51711,11 @@
               "text": "expert in Medicine"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:medicine:rank", 2]
         }
       ]
     }
@@ -51255,7 +52336,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:very-sneaky"]
     }
   },
   {
@@ -51632,6 +52714,11 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:performance:rank", 1]
+        }
       ]
     }
   },
@@ -51818,6 +52905,11 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:athletics:rank", 3]
+        }
       ]
     }
   },
@@ -51862,6 +52954,11 @@
               "text": "master in Survival"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:survival:rank", 3]
         }
       ]
     }
@@ -51923,6 +53020,11 @@
               "text": "expert in Medicine"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:medicine:rank", 2]
         }
       ]
     }
@@ -52193,6 +53295,11 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:stealth:rank", 3]
+        }
       ]
     }
   },
@@ -52283,6 +53390,11 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:thievery:rank", 2]
+        }
       ]
     }
   },
@@ -52344,6 +53456,11 @@
               "text": "trained in Intimidation"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:intimidation:rank", 1]
         }
       ],
       "action": {
@@ -52735,6 +53852,11 @@
           ]
         }
       ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["attribute:int:mod", 2]
+        }
+      ],
       "archetype": "443a7966-be33-5a2c-a35c-1f635e0b8f2f"
     }
   },
@@ -52912,7 +54034,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:cauldron"]
     }
   },
   {
@@ -53051,7 +54174,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:witchs-charge"]
     }
   },
   {
@@ -53288,6 +54412,11 @@
           ]
         }
       ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["attribute:int:mod", 2]
+        }
+      ],
       "archetype": "d0214297-fa79-5c10-9c13-6b52aa145d74"
     }
   },
@@ -53384,6 +54513,11 @@
               "text": "trained in Intimidation"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:intimidation:rank", 1]
         }
       ],
       "action": {
