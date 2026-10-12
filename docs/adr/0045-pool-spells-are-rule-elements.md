@@ -42,7 +42,8 @@ Alternatives:
 
 - Homebrew and later books add pools the same way: `SpellSlots` with a `pool` for the counts, `PoolSpells` for what
   goes in them.
-- A cleric picks a font under Choices; until then the font slots offer nothing, and the sheet says to make the choice.
+- Until the font is picked the font slots offer nothing, and the sheet says so. The sheet has no picker for a plain
+  `ChoiceSet` yet, so the font is picked through the API until one lands (follow-up).
 - Any cleric can pick either font until the deity lands (#469), which should narrow the font choice to the deity's.
 - A curriculum spell can sit in both a curriculum slot and an own slot; nothing stops a wizard preparing it twice, as
   the rules allow.

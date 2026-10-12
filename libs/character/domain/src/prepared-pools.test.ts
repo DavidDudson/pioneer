@@ -144,7 +144,7 @@ describe('preparedSlots: divine font', () => {
     };
 
     expect(slotRefusal(healing, content, pick)).toMatchObject({ field: 'selection' });
-    expect(slotOf(harmful, 'prepared:cleric:divine-font:1:0')?.problem).toBe('unfit');
+    expect(slotOf(harmful, 'prepared:cleric:divine-font:1:0')?.problem).toBe('notInPool');
     expect(
       characterSlots(harmful, content).find((slot) => slot.key === SlotKey.parse('prepared:cleric:divine-font:1:0'))
         ?.status,

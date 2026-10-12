@@ -139,4 +139,5 @@ export const SlotInvalidMessage = {
   LanguageKnown: 'rules.choices.invalid.languageKnown',
   SpellNoAccess: 'rules.choices.invalid.spellNoAccess',
   SpellUnfit: 'rules.choices.invalid.spellUnfit',
+  SpellNotInPool: 'rules.choices.invalid.spellNotInPool',
 } as const;

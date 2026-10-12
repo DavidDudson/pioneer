@@ -68,9 +68,7 @@ describe('CharacterSheetPage pool spells', () => {
       'Divine Font 1st rank slot 3',
       'Divine Font 1st rank slot 4',
     ]);
-    expect(textOf(prepared)).toContain(
-      'These slots take no spell yet. Make the Divine Font choice under Choices first.',
-    );
+    expect(textOf(prepared)).toContain('These slots take no spell until the Divine Font choice is made.');
   });
 
   it('shows a healing font’s prepared heal by name, with no note once the font is picked', async () => {
@@ -82,7 +80,7 @@ describe('CharacterSheetPage pool spells', () => {
       const font = [...prepared.querySelectorAll('fr-inline-field')].at(-4);
       expect(textOf(present(font))).toContain('Heal');
     });
-    expect(textOf(prepared)).not.toContain('These slots take no spell yet.');
+    expect(textOf(prepared)).not.toContain('These slots take no spell until');
   });
 
   it("asks a wizard for its school's curriculum cantrip and 1st-rank spell, under the school's name", async () => {
@@ -99,6 +97,6 @@ describe('CharacterSheetPage pool spells', () => {
       'School of Battle Magic cantrip 1',
       'School of Battle Magic 1st rank slot 1',
     ]);
-    expect(textOf(prepared)).not.toContain('These slots take no spell yet.');
+    expect(textOf(prepared)).not.toContain('These slots take no spell until');
   });
 });

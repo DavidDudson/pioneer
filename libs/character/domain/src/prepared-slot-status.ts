@@ -13,6 +13,7 @@ import type { SlotRead } from './slot-read';
 const PREPARED_PROBLEMS: Readonly<Record<PreparedPickProblem, string>> = {
   [PreparedPickProblem.NoAccess]: SlotInvalidMessage.SpellNoAccess,
   [PreparedPickProblem.Unfit]: SlotInvalidMessage.SpellUnfit,
+  [PreparedPickProblem.NotInPool]: SlotInvalidMessage.SpellNotInPool,
 };
 
 /**

@@ -25,11 +25,10 @@ export type PreparedRank = SpellRank | typeof SlotRank.Cantrip;
 export const PreparedPickProblem = {
   /** An uncommon or rare spell the build lists no access to; with access it would fit. */
   NoAccess: 'noAccess',
-  /**
-   * A spell of another tradition, too high a rank, a cantrip in a spell slot or a spell in a cantrip slot; in a pool's
-   * slot, a spell the pool doesn't take.
-   */
+  /** A spell of another tradition, too high a rank, a cantrip in a spell slot or a spell in a cantrip slot. */
   Unfit: 'unfit',
+  /** In a pool's slot, a spell the pool doesn't take (a divine font's other font). */
+  NotInPool: 'notInPool',
 } as const;
 export type PreparedPickProblem = ValueOf<typeof PreparedPickProblem>;
 
@@ -181,8 +180,11 @@ export function preparedSlots(document: CharacterDocument, { spells, resolution 
     });
 }
 
-/** Why a loaded spell isn't on offer in `place`: it needs access, or it doesn't fit. */
+/** Why a loaded spell isn't on offer in `place`: the pool doesn't take it, it needs access, or it doesn't fit. */
 function problemOf(spell: SpellOption, place: SlotPlace): PreparedPickProblem {
+  if (place.takes !== undefined && !place.takes.has(spell.id)) {
+    return PreparedPickProblem.NotInPool;
+  }
   return fits(spell, place) ? PreparedPickProblem.NoAccess : PreparedPickProblem.Unfit;
 }
 

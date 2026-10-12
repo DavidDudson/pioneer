@@ -134,7 +134,7 @@
       "poolRank": "{pool}, {rank, selectordinal, one {#st} two {#nd} few {#rd} other {#th}} rank",
       "poolCantripSlot": "{pool} cantrip {number}",
       "poolRankSlot": "{pool} {rank, selectordinal, one {#st} two {#nd} few {#rd} other {#th}} rank slot {number}",
-      "poolEmpty": "These slots take no spell yet. Make the {pool} choice under Choices first.",
+      "poolEmpty": "These slots take no spell until the {pool} choice is made.",
       "placeholder": "Search spells by name",
       "unknownSpell": "Unknown spell"
     },

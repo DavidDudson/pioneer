@@ -550,7 +550,8 @@
         "skillRankCapped": "This increase would raise that skill past the rank its level allows, so it counts for nothing. Choose another.",
         "languageKnown": "The character already knows that language, so this counts for nothing. Choose another.",
         "spellNoAccess": "This spell is uncommon or rare, and the character no longer has access to it, so it counts for nothing. Add it back or choose another.",
-        "spellUnfit": "This slot no longer takes that spell (another tradition, or too high a rank), so it counts for nothing. Choose another."
+        "spellUnfit": "This slot no longer takes that spell (another tradition, or too high a rank), so it counts for nothing. Choose another.",
+        "spellNotInPool": "This slot takes only certain spells (a divine font's, a school's curriculum) and no longer takes that one, so it counts for nothing. Choose another."
       }
     },
     "build": {
