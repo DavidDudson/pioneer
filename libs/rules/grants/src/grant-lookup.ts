@@ -44,8 +44,10 @@ const DEITY_PREFIX = 'deity:primary';
 /**
  * What a deity says of its follower, as Foundry pf2e's `DeityPF2e.prepareActorData` sets it under `deity:primary`:
  * its sanctification (`sanctification:can:holy`, or `sanctification:none`), each favoured weapon and each divine
- * font. Foundry's bare `deity` has no namespace, which a Pioneer roll option needs; `deity:primary:<slug>`, which
- * its kind sets, says as much. `self:deity:slug` is left out, as no rule element Pioneer imports reads it.
+ * font; and, which Foundry keeps elsewhere, each domain, primary (`domain:fire`) or alternate (`alternate-domain:sun`),
+ * which Domain Initiate offers (ADR-0050). Foundry's bare `deity` has no namespace, which a Pioneer roll option needs;
+ * `deity:primary:<slug>`, which its kind sets, says as much. `self:deity:slug` is left out, as no rule element Pioneer
+ * imports reads it.
  *
  * Each divine skill sets `deity:primary:skill:<skill>` too, which Foundry keeps in the actor's data instead, so a
  * cleric's divine skill choice can offer the deity's. Its spells come along for a `DeitySpells` element (ADR-0048).
@@ -54,7 +56,7 @@ function deityFields(entry: ContentEntry): Pick<GrantEntry, 'characterOptions' |
   if (entry.kind !== ContentKind.Deity) {
     return {};
   }
-  const { sanctification, weapons, font, skills, spells } = entry.data;
+  const { sanctification, weapons, font, skills, spells, domains } = entry.data;
   const sanctified =
     sanctification === undefined
       ? ['sanctification:none']
@@ -64,6 +66,8 @@ function deityFields(entry: ContentEntry): Pick<GrantEntry, 'characterOptions' |
     ...weapons.map((weapon) => `favored-weapon:${weapon}`),
     ...font.map((each) => `font:${each}`),
     ...skills,
+    ...domains.primary.map((domain) => `domain:${domain}`),
+    ...domains.alternate.map((domain) => `alternate-domain:${domain}`),
   ];
   const characterOptions = options.map((option) => RollOption.parse(`${DEITY_PREFIX}:${option}`));
   return { characterOptions, deitySpells: spells };

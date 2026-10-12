@@ -64,6 +64,7 @@ describe('grantLookup', () => {
           font: ['heal'],
           skills: ['skill:medicine'],
           weapons: ['scimitar'],
+          domains: { primary: ['fire', 'healing'], alternate: ['sun'] },
         })
         .withDeity('irori', { font: ['heal'], weapons: ['fist'] })
         .build(),
@@ -74,6 +75,9 @@ describe('grantLookup', () => {
       'deity:primary:favored-weapon:scimitar',
       'deity:primary:font:heal',
       'deity:primary:skill:medicine',
+      'deity:primary:domain:fire',
+      'deity:primary:domain:healing',
+      'deity:primary:alternate-domain:sun',
     ]);
     expect(irori?.characterOptions?.map(String)).toEqual([
       'deity:primary:sanctification:none',
