@@ -8,7 +8,8 @@
           } @else if (item.traits.length > 0) {
             <fr-stack direction="horizontal" gap="xs" wrap>
               @for (trait of item.traits; track trait) {
-                <fr-badge>{{ trait }}</fr-badge>&ngsp;
+                <fr-badge>{{ trait }}</fr-badge
+                >&ngsp;
               }
             </fr-stack>
           } @else if (item.valueKey; as key) {
