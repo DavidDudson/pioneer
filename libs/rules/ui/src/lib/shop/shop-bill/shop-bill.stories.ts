@@ -59,6 +59,8 @@ export const UnaffordableKit: ShopBillStory = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    await expect(canvas.getByText("Your coins don't cover the kit's price. Add it without paying instead.")).toBeVisible();
+    await expect(
+      canvas.getByText("Your coins don't cover the kit's price. Add it without paying instead."),
+    ).toBeVisible();
   },
 };

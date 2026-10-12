@@ -162,14 +162,7 @@ export {
   type ItemEntry,
   itemRefusal,
 } from './inventory-content';
-export {
-  type KitContent,
-  kitContent,
-  type KitEntry,
-  kitItems,
-  type KitReads,
-  kitRefusal,
-} from './kit-content';
+export { type KitContent, kitContent, type KitEntry, kitItems, type KitReads, kitRefusal } from './kit-content';
 export {
   type Carried,
   type Carry,

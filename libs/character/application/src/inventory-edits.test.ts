@@ -155,13 +155,14 @@ describe('CharacterService inventory edits', () => {
 
     const { items, coins } = character.document.inventory;
     const backpack = items.find((each) => each.item === itemFixtureId(ItemFixture.Backpack));
-    expect(items.map(({ item, quantity, container }) => ({ item, quantity, inside: container === backpack?.id })))
-      .toStrictEqual([
-        { item: itemFixtureId(ItemFixture.Backpack), quantity: one, inside: false },
-        { item: itemFixtureId(ItemFixture.Rope), quantity: one, inside: true },
-        { item: itemFixtureId(ItemFixture.Arrows), quantity: ItemQuantity.parse(10), inside: true },
-        { item: itemFixtureId(ItemFixture.Longsword), quantity: one, inside: false },
-      ]);
+    expect(
+      items.map(({ item, quantity, container }) => ({ item, quantity, inside: container === backpack?.id })),
+    ).toStrictEqual([
+      { item: itemFixtureId(ItemFixture.Backpack), quantity: one, inside: false },
+      { item: itemFixtureId(ItemFixture.Rope), quantity: one, inside: true },
+      { item: itemFixtureId(ItemFixture.Arrows), quantity: ItemQuantity.parse(10), inside: true },
+      { item: itemFixtureId(ItemFixture.Longsword), quantity: one, inside: false },
+    ]);
     expect(new Set(items.map((each) => each.id)).size).toBe(items.length);
     expect(coins).toStrictEqual(CoinsSchema.parse({}));
     expect(repository.audits.at(-1)?.command).toBe(CharacterCommand.GiftKit);

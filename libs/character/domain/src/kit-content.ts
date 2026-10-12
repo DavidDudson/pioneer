@@ -39,14 +39,12 @@ export function kitItems(
 ): readonly NewItem[] {
   return kit.items.flatMap(({ item, quantity, contents = [] }) => {
     const id = newItemId();
-    const inside = contents.map(
-      (inner): NewItem => ({
-        id: newItemId(),
-        item: inner.item,
-        quantity: ItemQuantity.parse(inner.quantity),
-        container: id,
-      }),
-    );
+    const inside = contents.map((inner): NewItem => ({
+      id: newItemId(),
+      item: inner.item,
+      quantity: ItemQuantity.parse(inner.quantity),
+      container: id,
+    }));
     return [{ id, item, quantity: ItemQuantity.parse(quantity), container }, ...inside];
   });
 }
@@ -62,7 +60,11 @@ export interface KitReads {
  * one whose items would take the inventory past its limit. Where its items go is `inventoryRefusal`'s and
  * `itemRefusal`'s to check.
  */
-export function kitRefusal({ kits, items }: KitReads, inventory: Inventory, kit: ContentId): InventoryRefusal | undefined {
+export function kitRefusal(
+  { kits, items }: KitReads,
+  inventory: Inventory,
+  kit: ContentId,
+): InventoryRefusal | undefined {
   const entry = kits.get(kit);
   if (entry === undefined) {
     return { field: InventoryRefusalField.Kit, message: message('character.validation.unknownKit') };

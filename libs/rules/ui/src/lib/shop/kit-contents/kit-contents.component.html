@@ -5,7 +5,9 @@
       @if (line.contents.length > 0) {
         <fr-list gap="3xs" markers>
           @for (inside of line.contents; track $index) {
-            <fr-list-item><fr-text>{{ text(inside) }}</fr-text></fr-list-item>
+            <fr-list-item
+              ><fr-text>{{ text(inside) }}</fr-text></fr-list-item
+            >
           }
         </fr-list>
       }

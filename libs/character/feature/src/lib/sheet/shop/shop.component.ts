@@ -23,9 +23,9 @@ import { FacetFilterView, ShopOffersView } from '@pioneer/rules/ui';
 import { CharacterStore } from '../../data/character-store';
 import { injectContentRegistry } from '../../data/content-registry-query';
 import { INVENTORY_CONTENT_KINDS } from '../inventory/sheet-inventory';
+import { ShopKits } from './shop-kits.component';
 import { SHOP_FACETS, shopList } from './shop-list';
 import type { ShopList } from './shop-list';
-import { ShopKits } from './shop-kits.component';
 import { ShopOrder } from './shop-order.component';
 
 const NO_PARAMS: QueryParams = {};

@@ -58,7 +58,12 @@ describe('kitItems', () => {
     const lines = kitItems(explorerData(), undefined, ids);
     const [backpack, rope, arrows, sword] = lines.map((line) => line.id);
     expect(lines).toStrictEqual([
-      { id: backpack, item: itemFixtureId(ItemFixture.Backpack), quantity: ItemQuantity.parse(1), container: undefined },
+      {
+        id: backpack,
+        item: itemFixtureId(ItemFixture.Backpack),
+        quantity: ItemQuantity.parse(1),
+        container: undefined,
+      },
       { id: rope, item: itemFixtureId(ItemFixture.Rope), quantity: ItemQuantity.parse(1), container: backpack },
       { id: arrows, item: itemFixtureId(ItemFixture.Arrows), quantity: ItemQuantity.parse(10), container: backpack },
       { id: sword, item: itemFixtureId(ItemFixture.Longsword), quantity: ItemQuantity.parse(1), container: undefined },
@@ -80,10 +85,12 @@ describe('kitItems', () => {
 /** An inventory of `count` diamonds, loose. */
 function holding(count: number): Inventory {
   const item = itemFixtureId(ItemFixture.Diamond);
-  const items = Array.from(
-    { length: count },
-    (): InventoryItem => ({ id: InventoryItemId.parse(newId()), item, quantity: ItemQuantity.parse(1), carry: STOWED }),
-  );
+  const items = Array.from({ length: count }, (): InventoryItem => ({
+    id: InventoryItemId.parse(newId()),
+    item,
+    quantity: ItemQuantity.parse(1),
+    carry: STOWED,
+  }));
   return { ...EMPTY_INVENTORY, items };
 }
 

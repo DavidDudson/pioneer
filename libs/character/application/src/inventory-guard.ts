@@ -46,7 +46,9 @@ export async function assertInventoryAllows(
   }
   const registry = await content.registry();
   const items = itemContent(registry);
-  refuse(target.kit === undefined ? undefined : kitRefusal({ kits: kitContent(registry), items }, inventory, target.kit));
+  refuse(
+    target.kit === undefined ? undefined : kitRefusal({ kits: kitContent(registry), items }, inventory, target.kit),
+  );
   refuse(itemRefusal(items, inventory, target));
   refuse(
     target.rune === undefined
