@@ -2,6 +2,9 @@
   <fr-async-region>
     <ng-template frAsyncPending>
       <fr-stack gap="md">
+        @if (focuses()) {
+          <pio-focus-spells [focus]="undefined" />
+        }
         <fr-stack gap="sm">
           <fr-skeleton width="md" />
           <fr-grid [columns]="3">
@@ -15,6 +18,9 @@
     </ng-template>
     <ng-template [frAsyncData]="spells">
       <fr-stack gap="md">
+        @if (focus(); as focusLine) {
+          <pio-focus-spells [focus]="focusLine" />
+        }
         <pio-sheet-prepared-spells [entries]="prepared()" />
         @if (access(); as spellAccess) {
           <pio-spell-access [access]="spellAccess" />

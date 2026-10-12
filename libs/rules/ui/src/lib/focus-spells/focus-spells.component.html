@@ -1,0 +1,39 @@
+@if (view(); as line) {
+  <fr-stack gap="sm">
+    <fr-stack gap="none">
+      <fr-stack direction="horizontal" gap="xs" align="center" wrap>
+        <fr-heading [level]="3">{{ Message.Heading | transloco }}</fr-heading>
+        <fr-badge>{{ Message.Pool | transloco: { points: line.pool } }}</fr-badge>
+      </fr-stack>
+      <fr-text variant="caption" tone="subtle">{{ Message.CastAt | transloco: { rank: line.rank } }}</fr-text>
+    </fr-stack>
+    @for (entry of line.entries; track entry.key) {
+      <fr-stack gap="2xs">
+        <fr-text weight="semibold">{{ traditions[entry.tradition] | transloco }}</fr-text>
+        @for (title of entry.empty; track title) {
+          <fr-empty-state [title]="title | transloco" />
+        }
+        <fr-list gap="2xs">
+          @for (spell of entry.spells; track spell.key) {
+            <fr-list-item>
+              <fr-stack direction="horizontal" gap="xs" align="center">
+                <fr-text>{{ spell.name }}</fr-text>
+                @for (tag of spell.tags; track tag) {
+                  <fr-badge>{{ tag | transloco }}</fr-badge>
+                }
+              </fr-stack>
+            </fr-list-item>
+          }
+        </fr-list>
+      </fr-stack>
+    }
+  </fr-stack>
+} @else {
+  <fr-stack gap="sm">
+    <fr-skeleton width="sm" />
+    <fr-list gap="2xs">
+      <fr-list-item><fr-skeleton width="md" /></fr-list-item>
+      <fr-list-item><fr-skeleton width="md" /></fr-list-item>
+    </fr-list>
+  </fr-stack>
+}

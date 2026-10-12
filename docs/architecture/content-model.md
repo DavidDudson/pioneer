@@ -652,6 +652,10 @@ flowchart LR
     curriculum by slug.
   - Signature Spells gets a `SignatureSpells` naming the bard's entry, Player Core's only spontaneous class
     ([ADR-0047](../adr/0047-signature-spells-are-rule-elements.md)); later books add their classes' entries (#593).
+  - Player Core's focus spells get a focus entry and `FocusSpells` per feature or feat that grants them, from their text
+    ([ADR-0050](../adr/0050-focus-spells-are-rule-elements.md)); a choice of focus spells (Domain Initiate's domain,
+    a warden spell, Hex Spells' hex) is a `ChoiceSet` with a `FocusSpells` per option. Domains' spells come from the
+    domains journal.
   - A deity's singular fields (`attribute`, `skill`) map to `attributes` and `skills:` selectors, and its spells,
     keyed by rank, to one `spell` entry each.
   - A kit's items by UUID with their quantities, a container's one level deep (deeper is reported), and its price

@@ -139,7 +139,7 @@
             ><pio-statistics [statistics]="picks.skills()" [entryNames]="picks.entryNames()"
           /></ng-template>
         </fr-async-region>
-        <pio-sheet-skill-fields [fields]="picks.skillFields()" />
+        <pio-sheet-pick-fields [fields]="picks.skillFields()" />
       </fr-stack>
     </fr-section>
 
@@ -160,7 +160,10 @@
     </fr-section>
 
     <fr-section [anchor]="sections.choices.anchor" [heading]="sections.choices.headingKey | transloco">
-      <pio-choices [lines]="picks.choices()" />
+      <fr-stack gap="md">
+        <pio-sheet-pick-fields [fields]="picks.choiceFields()" />
+        <pio-choices [lines]="picks.choices()" />
+      </fr-stack>
     </fr-section>
 
     <fr-section [anchor]="sections.spellcasting.anchor" [heading]="sections.spellcasting.headingKey | transloco">
@@ -170,7 +173,7 @@
           ><pio-spellcasting [entries]="picks.spellcasting()" [entryNames]="picks.entryNames()"
         /></ng-template>
       </fr-async-region>
-      <pio-sheet-spells [casts]="(picks.spellcasting()?.length ?? 0) > 0" />
+      <pio-sheet-spells [casts]="casts()" [focuses]="focuses()" />
     </fr-section>
 
     <fr-section [anchor]="sections.features.anchor" [heading]="sections.features.headingKey | transloco">

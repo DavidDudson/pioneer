@@ -47,7 +47,7 @@ import {
   Text,
   TextInput,
 } from '@pioneer/frontier';
-import { AncestryId, ChoiceValue } from '@pioneer/rules/sdk';
+import { AncestryId, ChoiceValue, SpellPreparation } from '@pioneer/rules/sdk';
 import type { ContentRegistry } from '@pioneer/rules/sdk';
 import {
   AttributesView,
@@ -73,8 +73,8 @@ import { SheetDeitySection } from '../sheet-deity-section/sheet-deity-section.co
 import { carriesAnything, EQUIPMENT_CONTENT_KINDS, sheetInvestments } from '../sheet-equipment';
 import { sheetField } from '../sheet-field';
 import { SheetLanguagesSection } from '../sheet-languages-section/sheet-languages-section.component';
+import { SheetPickFields } from '../sheet-pick-fields/sheet-pick-fields.component';
 import { SHEET_SECTION_ORDER, SHEET_SECTIONS } from '../sheet-sections';
-import { SheetSkillFields } from '../sheet-skill-fields/sheet-skill-fields.component';
 import { SheetSpells } from '../sheet-spells/sheet-spells.component';
 // oxlint-disable-next-line import/max-dependencies -- one container per sheet section until mode tabs split the page (#495)
 import { Shop } from '../shop/shop.component';
@@ -122,7 +122,7 @@ function focusField(field: ElementRef<HTMLElement>): void {
     SheetClassFields,
     SheetDeitySection,
     SheetLanguagesSection,
-    SheetSkillFields,
+    SheetPickFields,
     SheetSpells,
     Skeleton,
     Stack,
@@ -206,6 +206,12 @@ export class CharacterSheetPage {
     clear: async (slot) => this.store.clearSlot(slot),
     translate: (key) => this.#i18n.translate(key),
   });
+  /** Whether the character has a spellcasting entry, so its spell picks load. */
+  protected readonly casts = computed(() => (this.picks.spellcasting()?.length ?? 0) > 0);
+  /** Whether one of its entries is a focus entry. */
+  protected readonly focuses = computed(
+    () => this.picks.spellcasting()?.some((entry) => entry.preparation === SpellPreparation.Focus) ?? false,
+  );
   protected readonly heritageOptions = this.picks.rootOptions(HERITAGE_SLOT);
   protected readonly heritage = this.picks.rootField(HERITAGE_SLOT, this.heritageOptions);
   protected readonly backgroundOptions = this.picks.rootOptions(BACKGROUND_SLOT);
