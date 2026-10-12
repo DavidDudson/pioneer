@@ -223,6 +223,8 @@ const actorTraits = oneof(
   element('ActorTraits', { remove: uniqueArray(slugText, { minLength: 1, maxLength: LIST_MAX }) }),
 );
 
+const strike = element('Strike', { fist: constant(true) });
+
 const languageAccess = constantFrom('common', 'uncommon', 'rare');
 const grantedLanguages = uniqueArray(uuid(), { minLength: 1, maxLength: LIST_MAX });
 const languageSlots = integer({ min: 1, max: LIST_MAX });
@@ -263,4 +265,5 @@ export const ruleElementJson: Arbitrary<object> = oneof(
   deitySpells,
   language,
   actorTraits,
+  strike,
 );

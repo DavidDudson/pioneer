@@ -21,6 +21,8 @@ import { StatisticsMessage } from './statistics-messages';
 /** A statistic to list: its display name, what kind it is, and what the engine derived for it. */
 export interface NamedStatistic {
   readonly name: string;
+  /** A message key naming it instead, for one no content names (a fist's Strike). */
+  readonly nameKey?: string | undefined;
   readonly kind: StatisticKind;
   readonly result: StatisticResult;
 }
@@ -92,6 +94,8 @@ export class StatisticsView {
   public readonly entryNames = input<ReadonlyMap<ContentId, string>>(new Map());
   /** Names for what the breakdown lines' origin chains refer to beyond entries. */
   public readonly originNames = input<OriginNames>(NO_ORIGIN_NAMES);
+  /** What an empty list says: no statistics, unless the caller names what it lists (no Strikes). */
+  public readonly noneKey = input<string>(StatisticsMessage.None);
 
   protected readonly Message = StatisticsMessage;
   protected readonly loadingRows = [...Array.from({ length: LOADING_ROWS }).keys()];
@@ -105,7 +109,8 @@ export class StatisticsView {
   protected readonly shown = computed((): readonly ShownStatistic[] | undefined => {
     this.#messages();
     this.#format.locale();
-    return this.statistics()?.map(({ name, kind, result }): ShownStatistic => {
+    return this.statistics()?.map(({ name: contentName, nameKey, kind, result }): ShownStatistic => {
+      const name = nameKey === undefined ? contentName : this.#i18n.translate(nameKey);
       if (!result.ok) {
         return {
           ok: false,

@@ -57,6 +57,7 @@ import {
   DefencesView,
   DeityView,
   SpellcastingView,
+  StatisticsMessage,
   StatisticsView,
 } from '@pioneer/rules/ui';
 import type { Investment } from '@pioneer/rules/ui';
@@ -154,6 +155,7 @@ export class CharacterSheetPage {
   protected readonly levelMin = CHARACTER_LEVEL_MIN;
   protected readonly levelMax = CHARACTER_LEVEL_MAX;
   protected readonly sections = SHEET_SECTIONS;
+  protected readonly statisticsMessage = StatisticsMessage;
   protected readonly sectionOrder = SHEET_SECTION_ORDER;
   protected readonly title = computed(() => this.character()?.name);
   /** The registry the engine reads, shared with the ancestry options, so it loads once. */

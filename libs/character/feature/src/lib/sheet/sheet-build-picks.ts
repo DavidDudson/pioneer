@@ -28,6 +28,7 @@ import { sheetField } from './sheet-field';
 import { sheetSkills, sheetSkillSlots } from './sheet-skills';
 import { sheetSpellcasting } from './sheet-spellcasting';
 import { sheetStatistics } from './sheet-statistics';
+import { sheetStrikes } from './sheet-strikes';
 
 /** What the build picks read and write through. */
 export interface BuildPickSources {
@@ -53,6 +54,8 @@ interface EngineReads {
   readonly statistics: Signal<readonly NamedStatistic[] | undefined>;
   /** Every skill and Lore with what the engine derives for it; undefined while the character or the content loads. */
   readonly skills: Signal<readonly NamedStatistic[] | undefined>;
+  /** Each Strike, held weapons' then a feature's fist; undefined while the character or the content loads. */
+  readonly strikes: Signal<readonly NamedStatistic[] | undefined>;
   /** Each spellcasting entry with its spell attack and DC; undefined while the character or the content loads. */
   readonly spellcasting: Signal<readonly SpellcastingEntryLine[] | undefined>;
   /** Names for the entries the defences, statistics and spellcasting lines come from; none while the content loads. */
@@ -175,6 +178,7 @@ function engineReads(sources: BuildPickSources): EngineReads {
   return {
     statistics: loaded(engine, sheetStatistics),
     skills: loaded(engine, sheetSkills),
+    strikes: loaded(engine, sheetStrikes),
     spellcasting: loaded(engine, sheetSpellcasting),
     entryNames: computed(() => {
       const registry = sources.engineRegistry() ?? sources.registry();

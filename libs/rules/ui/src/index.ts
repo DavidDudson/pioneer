@@ -13,6 +13,7 @@ export { type CoinCount, coinCounts, type ShopOffer } from './lib/shop/shop-offe
 export { ShopBill } from './lib/shop/shop-bill/shop-bill.component';
 export { ShopOffersView } from './lib/shop/shop-offers.component';
 export { type NamedStatistic, StatisticsView } from './lib/statistics/statistics.component';
+export { StatisticsMessage } from './lib/statistics/statistics-messages';
 export { type ChoiceLine, type ChoiceSelection, ChoiceState } from './lib/choices/choice-line';
 export { ChoicesView } from './lib/choices/choices.component';
 export { type BuildLine, BuildPart, type BuildValue } from './lib/build-summary/build-line';

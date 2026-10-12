@@ -1601,23 +1601,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "class-feature:deity-cleric",
-      "foundry": "Compendium.pf2e.classfeatures.Item.DutW12WMFPHBoLTH",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Strike",
-          "raw": {
-            "fist": true,
-            "key": "Strike",
-            "predicate": ["deity:primary:favored-weapon:fist"]
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "class-feature:deny-advantage",
       "foundry": "Compendium.pf2e.classfeatures.Item.PNpmVmD21zViDtGC",
       "gaps": [
@@ -29082,14 +29065,6 @@
       "slug": "feat:iron-fists",
       "foundry": "Compendium.pf2e.feats-srd.Item.JP5pptkl1Fx1JK4m",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "Strike",
-          "raw": {
-            "fist": true,
-            "key": "Strike"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",

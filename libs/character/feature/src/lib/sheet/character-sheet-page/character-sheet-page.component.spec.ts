@@ -12,7 +12,7 @@ describe('CharacterSheetPage', () => {
     await prebuildServerStateTesting();
   }, PREBUILD_TIMEOUT);
 
-  it('shows identity, build, deity, attributes, defences, statistics, skills, languages, choices, spellcasting, class features, inventory and downtime in that order, each a region under a level 2 heading', async () => {
+  it('shows identity, build, deity, attributes, defences, statistics, strikes, skills, languages, choices, spellcasting, class features, inventory and downtime in that order, each a region under a level 2 heading', async () => {
     const { root } = await openSheet();
 
     const regions = [...root.querySelectorAll('section')].map((region) => {
@@ -26,6 +26,7 @@ describe('CharacterSheetPage', () => {
       ['Attributes', true],
       ['Defences', true],
       ['Statistics', true],
+      ['Strikes', true],
       ['Skills', true],
       ['Languages', true],
       ['Choices', true],
@@ -47,6 +48,7 @@ describe('CharacterSheetPage', () => {
       'Attributes',
       'Defences',
       'Statistics',
+      'Strikes',
       'Skills',
       'Languages',
       'Choices',

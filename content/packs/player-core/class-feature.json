@@ -2113,6 +2113,11 @@
         "key": "ActorTraits",
         "add": ["unholy"],
         "predicate": ["sanctification:unholy"]
+      },
+      {
+        "key": "Strike",
+        "fist": true,
+        "predicate": ["deity:primary:favored-weapon:fist"]
       }
     ],
     "externalIds": {

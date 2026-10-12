@@ -23,6 +23,7 @@ import {
   SpellcastingEntryElement,
   SpellSlotsElement,
 } from './rule-element-spellcasting';
+import { StrikeElement } from './rule-element-strike';
 import { ChoiceSetElement, GrantItemElement, RollOptionElement } from './rule-element-structure';
 
 const KNOWN_KEYS: ReadonlySet<unknown> = new Set(Object.values(RuleElementKey));
@@ -51,6 +52,7 @@ const Element = z.discriminatedUnion('key', [
   DeitySpellsElement,
   LanguageElement,
   ActorTraitsElement,
+  StrikeElement,
 ]);
 
 /** Names the `key` when the value is an object whose `key` is a string Pioneer does not know. */

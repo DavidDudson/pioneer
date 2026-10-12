@@ -25314,7 +25314,12 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Strike",
+        "fist": true
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.JP5pptkl1Fx1JK4m"
     },

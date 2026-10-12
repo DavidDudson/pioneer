@@ -583,6 +583,8 @@
     },
     "statistics": {
       "none": "No statistics.",
+      "noStrikes": "No Strikes. Hold a weapon to Strike with it.",
+      "fist": "Fist",
       "failed": "Failed",
       "pinned": "Pinned",
       "computed": "computed {computed}",

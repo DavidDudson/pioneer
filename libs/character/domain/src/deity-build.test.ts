@@ -12,6 +12,7 @@ import { characterTraits } from './character-traits';
 import { buildRanks, characterGrants } from './class-build';
 import { deityContent } from './deity-content';
 import { favoredWeapons } from './favored-weapons';
+import { grantedStrikes } from './granted-strikes';
 import { slotContent } from './slot-offer';
 import { CharacterBuilder, playerCoreClasses, playerCoreClassId } from './testing';
 import type { PlayerCoreClass } from './testing';
@@ -27,6 +28,7 @@ const deities = new ContentPackBuilder()
   .withDeity('shelyn', { font: ['heal'], skills: ['skill:crafting', 'skill:performance'] })
   .withDeity('zon-kuthon', { sanctification: { modal: 'must', what: ['unholy'] }, font: ['harm'] })
   .withDeity('pharasma', { font: ['heal'] })
+  .withDeity('irori', { font: ['heal'], weapons: ['fist'] })
   .withItem(ContentKind.Weapon, 'scimitar', {
     baseItem: 'scimitar',
     category: 'martial',
@@ -44,6 +46,7 @@ const SARENRAE = ContentId.parse(deities.idOf(ContentKind.Deity, 'sarenrae'));
 const ZON_KUTHON = ContentId.parse(deities.idOf(ContentKind.Deity, 'zon-kuthon'));
 const PHARASMA = ContentId.parse(deities.idOf(ContentKind.Deity, 'pharasma'));
 const SHELYN = ContentId.parse(deities.idOf(ContentKind.Deity, 'shelyn'));
+const IRORI = ContentId.parse(deities.idOf(ContentKind.Deity, 'irori'));
 
 function level1(name: PlayerCoreClass, deity?: ContentId): CharacterBuilder {
   const builder = new CharacterBuilder()
@@ -187,5 +190,22 @@ describe("a cleric's sanctification", () => {
   test("picked holy, adds the holy trait to the ancestry's; none adds none", () => {
     expect(sanctifiedTraits('holy')).toEqual(['holy', 'human', 'humanoid']);
     expect(sanctifiedTraits('none')).toEqual(['human', 'humanoid']);
+  });
+});
+
+/** The Strikes a level 1 `name` of `deity` has from its features, by slug and whether favoured. */
+function strikesOf(name: PlayerCoreClass, deity: ContentId): readonly (readonly [string, boolean | undefined])[] {
+  const grants = characterGrants(level1(name, deity).build().document, content);
+  return grantedStrikes(grants, favoredWeapons(grants)).map(({ slug, favored }) => [String(slug), favored] as const);
+}
+
+describe("a cleric's fist", () => {
+  test('is a favoured Strike when the deity favours the fist', () => {
+    expect(strikesOf('cleric', IRORI)).toEqual([['fist', true]]);
+  });
+
+  test("is no Strike of a feature's otherwise, nor a fighter's of the same deity", () => {
+    expect(strikesOf('cleric', SARENRAE)).toEqual([]);
+    expect(strikesOf('fighter', IRORI)).toEqual([]);
   });
 });

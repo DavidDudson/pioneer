@@ -56,3 +56,13 @@ describe('translateKindData: actor traits', () => {
     ]);
   });
 });
+
+describe('translateKindData: a fist Strike', () => {
+  test('Deity (Cleric) gives a fist while the deity favours it, which Foundry writes as Pioneer reads it', () => {
+    expect(keyed(RuleElementKey.Strike, 'deity-cleric', DEITY_CLERIC)).toEqual([
+      { key: RuleElementKey.Strike, fist: true, predicate: ['deity:primary:favored-weapon:fist'] },
+    ]);
+    // Left: the deity's ChoiceSet and GrantItem, which the root slot replaces, and the self-guarded sanctification.
+    expect(untranslatedKeys(DEITY_CLERIC).toSorted()).toEqual(['ChoiceSet', 'ChoiceSet', 'GrantItem']);
+  });
+});
