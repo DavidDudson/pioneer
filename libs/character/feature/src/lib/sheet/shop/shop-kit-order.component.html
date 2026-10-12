@@ -1,0 +1,41 @@
+<fr-async-form [form]="form" [action]="buy" [describeError]="describeError">
+  <fr-stack gap="sm">
+    <fr-heading variant="subheading" [level]="4">{{ name() }}</fr-heading>
+    <pio-kit-contents [lines]="lines()" />
+    <fr-select-field
+      [label]="'character.sheet.inventory.place' | transloco"
+      [options]="places()"
+      [formField]="form.container"
+    />
+    @if (bill(); as bill) {
+      <pio-shop-bill
+        [cost]="bill.cost"
+        [coins]="bill.coins"
+        [affordable]="bill.affordable"
+        [reasonId]="reasonId()"
+        [subject]="billFor"
+      />
+    }
+    <fr-stack direction="horizontal" justify="end" gap="sm" wrap>
+      <fr-async-button
+        [action]="gift"
+        [disabled]="buying()"
+        [describeError]="describeError"
+        [pendingLabel]="'character.sheet.shop.gifting' | transloco"
+        [successLabel]="'character.sheet.shop.gifted' | transloco"
+      >
+        {{ 'character.sheet.shop.gift' | transloco }}
+      </fr-async-button>
+      <fr-async-button
+        type="submit"
+        variant="primary"
+        [disabled]="!affordable() || gifting()"
+        [describedBy]="affordable() ? undefined : reasonId()"
+        [pendingLabel]="'character.sheet.shop.buying' | transloco"
+        [successLabel]="'character.sheet.shop.bought' | transloco"
+      >
+        {{ 'character.sheet.shop.buy' | transloco }}
+      </fr-async-button>
+    </fr-stack>
+  </fr-stack>
+</fr-async-form>

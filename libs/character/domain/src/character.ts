@@ -9,7 +9,7 @@ import type { CharacterDocument } from './character-document';
 import { CURRENT_SCHEMA_VERSION } from './character-document-upgrades';
 import { CHARACTER_LEVEL_MIN, CharacterLevel } from './character-fields';
 import type { CharacterId, CharacterName } from './character-fields';
-import { CharacterPatchField } from './character-patch';
+import { CharacterPatchField, isInventoryPatch } from './character-patch';
 import type { CharacterPatch, InventoryPatch, SpellAccessPatch } from './character-patch';
 import { ANCESTRY_SLOT } from './character-slots';
 import {
@@ -22,7 +22,7 @@ import {
   setItemQuantity,
 } from './inventory';
 import type { Inventory, InventoryEdit } from './inventory';
-import { withAddedItem } from './item-purchase';
+import { withAddedItem, withAddedKit } from './item-purchase';
 import type { EditInputs } from './item-purchase';
 import { eraseRune, etchRune, transferRune } from './rune-edits';
 
@@ -164,10 +164,11 @@ export class Character {
   }
 
   /**
-   * Apply one edit. Version bump is the repository's job. An added item takes `inputs.newItemId` and a bought one costs
-   * `inputs.cost`, which the caller works out, as it gives `now`. An edit that leaves the document invalid (an inventory
-   * edit `inventoryRefusal` refuses, an add with no id, a purchase with no cost or one the coins don't cover) is a
-   * caller's bug and throws before anything is stored; the service checks edits first.
+   * Apply one edit. Version bump is the repository's job. An added item takes `inputs.newItemId`, an added kit adds
+   * `inputs.kitItems` and a bought one costs `inputs.cost`, which the caller works out, as it gives `now`. An edit that
+   * leaves the document invalid (an inventory edit `inventoryRefusal` refuses, an add with no id or lines, a purchase
+   * with no cost or one the coins don't cover) is a caller's bug and throws before anything is stored; the service
+   * checks edits first.
    */
   public apply(patch: CharacterPatch, now: Temporal.Instant, inputs: EditInputs = {}): Character {
     const { document } = { ...this.toProps(), ...this.#changes(patch, inputs) };
@@ -179,6 +180,9 @@ export class Character {
   }
 
   #changes(patch: CharacterPatch, inputs: EditInputs): Partial<CharacterProps> {
+    if (isInventoryPatch(patch)) {
+      return this.#stockChanges(patch, inputs);
+    }
     switch (patch.field) {
       case CharacterPatchField.Name: {
         return { document: { ...this.document, name: patch.value } };
@@ -191,15 +195,6 @@ export class Character {
       }
       case CharacterPatchField.ClearSlot: {
         return { document: this.#clear(patch.slot) };
-      }
-      case CharacterPatchField.GiftItem:
-      case CharacterPatchField.BuyItem:
-      case CharacterPatchField.RemoveItem:
-      case CharacterPatchField.SetItemQuantity:
-      case CharacterPatchField.MoveItem:
-      case CharacterPatchField.RenameItem:
-      case CharacterPatchField.SetCoins: {
-        return this.#stockChanges(patch, inputs);
       }
       case CharacterPatchField.CarryItem:
       case CharacterPatchField.InvestItem:
@@ -225,6 +220,10 @@ export class Character {
       case CharacterPatchField.GiftItem:
       case CharacterPatchField.BuyItem: {
         return this.#stock(patch, (inventory) => withAddedItem(inventory, patch, inputs));
+      }
+      case CharacterPatchField.GiftKit:
+      case CharacterPatchField.BuyKit: {
+        return this.#stock(patch, (inventory) => withAddedKit(inventory, patch, inputs));
       }
       case CharacterPatchField.RemoveItem: {
         return this.#stock(patch, (inventory) => removeItem(inventory, patch.id));

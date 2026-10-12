@@ -17,6 +17,7 @@ import { characterRoutes } from './character-routes';
 const amiri = UserId.parse(newId());
 const ezren = UserId.parse(newId());
 const rope = contentId(PackId.parse('player-core'), EntrySlug.parse('equipment:rope'));
+const climbing = contentId(PackId.parse('player-core'), EntrySlug.parse('kit:climbing'));
 
 function app(): AnyElysia {
   const content = fixedContent(
@@ -24,6 +25,7 @@ function app(): AnyElysia {
       .withId('player-core')
       .withAncestry('human')
       .withItem(ContentKind.Equipment, 'rope', { bulk: 'light', price: { coins: { sp: 5 } } })
+      .withKit('climbing', { price: { coins: { sp: 8 } }, items: [{ item: rope, quantity: 2 }] })
       .build(),
   );
   const service = new CharacterService(new InMemoryCharacterRepository(), content, fixedClock('2026-10-07T10:00:00Z'));
@@ -118,5 +120,49 @@ describe('character routes: the shop', () => {
       patch: { field: 'buyItem', item: rope, quantity: 1 },
     });
     expect(bought.status).toBe(404);
+  });
+});
+
+describe('character routes: kits', () => {
+  test('a kit gift adds its items without paying, as giftKit', async () => {
+    const api = app();
+    const { id } = await create(api, amiri);
+    const gifted = await patch(api, id, { expectedVersion: 1, patch: { field: 'giftKit', kit: climbing } });
+    expect(gifted.status).toBe(200);
+    const { character } = CharacterSheet.parse(await gifted.json());
+    expect(
+      character.document.inventory.items.map(({ item, quantity }) => [String(item), Number(quantity)]),
+    ).toStrictEqual([[rope, 2]]);
+    expect(character.document.inventory.coins).toStrictEqual(CoinsSchema.parse({}));
+  });
+
+  test('a kit purchase pays its price with change and bumps the version; a stale version is a 409', async () => {
+    const api = app();
+    const { id } = await create(api, amiri);
+    await patch(api, id, { expectedVersion: 1, patch: { field: 'setCoins', coins: { gp: 1 } } });
+    const buy = { expectedVersion: 2, patch: { field: 'buyKit', kit: climbing } };
+    const bought = await patch(api, id, buy);
+    expect(bought.status).toBe(200);
+    const { character } = CharacterSheet.parse(await bought.json());
+    expect(character.version).toBe(Version.parse(3));
+    expect(character.document.inventory.coins).toStrictEqual(CoinsSchema.parse({ sp: 2 }));
+
+    const stale = await patch(api, id, buy);
+    expect(stale.status).toBe(409);
+  });
+
+  test('a kit the coins do not cover is a 422 on the kit, and the character is unchanged', async () => {
+    const api = app();
+    const { id } = await create(api, amiri);
+    const refused = await patch(api, id, { expectedVersion: 1, patch: { field: 'buyKit', kit: climbing } });
+    expect(refused.status).toBe(422);
+    const problem = (await refused.json()) as Problem;
+    expect(problem.issues).toStrictEqual([
+      { path: ['patch', 'kit'], message: { key: 'character.validation.cannotAffordKit' } },
+    ]);
+    const got = await api.handle(request('GET', `/characters/${id}`, { as: amiri }));
+    const { character } = CharacterSheet.parse(await got.json());
+    expect(character.version).toBe(Version.parse(1));
+    expect(character.document.inventory.items).toStrictEqual([]);
   });
 });

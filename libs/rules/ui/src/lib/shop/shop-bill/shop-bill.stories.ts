@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@analogjs/storybook-angular';
 import { Coin } from '@pioneer/rules/sdk';
 import { expect, within } from 'storybook/test';
 
+import { ShopBillFor } from '../shop-offer';
 import { ShopBill } from './shop-bill.component';
 
 type ShopBillStory = StoryObj<ShopBill>;
@@ -44,6 +45,22 @@ export const Unaffordable: ShopBillStory = {
     const canvas = within(canvasElement);
     await expect(
       canvas.getByText("Your coins don't cover the cost. Buy fewer, or add it without paying."),
+    ).toBeVisible();
+  },
+};
+
+/** A kit the coins don't cover: it can only be added without paying. */
+export const UnaffordableKit: ShopBillStory = {
+  args: {
+    cost: [{ coin: Coin.Silver, count: 15 }],
+    coins: [{ coin: Coin.Silver, count: 9 }],
+    affordable: false,
+    subject: ShopBillFor.Kit,
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(
+      canvas.getByText("Your coins don't cover the kit's price. Add it without paying instead."),
     ).toBeVisible();
   },
 };

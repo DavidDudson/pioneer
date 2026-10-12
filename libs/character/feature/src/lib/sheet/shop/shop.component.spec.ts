@@ -1,16 +1,47 @@
 import { TestBed } from '@angular/core/testing';
 import { Router } from '@angular/router';
-import { ITEM_FIXTURE_FILES, ItemFixture, itemFixtureId } from '@pioneer/character/domain/testing';
+import { ItemFixture, itemFixtureId, KitFixture, kitFixtureId } from '@pioneer/character/domain/testing';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
-import { button, openShop, patchSent, present, settle, VALEROS } from '../../testing/inventory-sheet-testing';
+import {
+  button,
+  openShop,
+  patchSent,
+  present,
+  settle,
+  SHEET_PACKS,
+  VALEROS,
+} from '../../testing/inventory-sheet-testing';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 
-/** The names the shop lists, in order. */
+/** The names the shop lists in `scope`, in order; a row still loading has none. */
+const listed = (scope: Element): string[] =>
+  [...scope.querySelectorAll('pio-shop-offers fr-list-item')].flatMap((item) => {
+    const name = item.querySelector('fr-text');
+    return name === null ? [] : [name.textContent.trim()];
+  });
+
+/** The items the shop lists, in order, leaving out its kits. */
 const offered = (shop: HTMLElement): string[] =>
-  [...shop.querySelectorAll('pio-shop-offers fr-list-item')].map((item) =>
-    present(item.querySelector('fr-text')).textContent.trim(),
-  );
+  listed(shop).filter((name) => !listed(present(shop.querySelector('pio-shop-kits'))).includes(name));
+
+/** The shop's kits section, once its kits have loaded. */
+async function kitsOf(shop: HTMLElement): Promise<HTMLElement> {
+  await vi.waitFor(async () => {
+    await settle();
+    const kits = present(shop.querySelector('pio-shop-kits'));
+    expect(listed(kits)).not.toHaveLength(0);
+  });
+  return present(shop.querySelector<HTMLElement>('pio-shop-kits'));
+}
+
+/** Picks the kit `name` and returns its order form. */
+async function pickKit(shop: HTMLElement, name: string): Promise<HTMLElement> {
+  const kits = await kitsOf(shop);
+  present(kits.querySelector<HTMLElement>(`button[aria-label="Pick ${name}"]`)).click();
+  await settle();
+  return present(kits.querySelector<HTMLElement>('pio-shop-kit-order'));
+}
 
 /** Types `text` into the shop's search and waits for the list to follow it. */
 async function search(shop: HTMLElement, text: string): Promise<void> {
@@ -48,7 +79,7 @@ const bill = (order: HTMLElement): string[] =>
 describe('Shop', () => {
   // Loads and bundles the packs once, outside every test's timeout.
   beforeAll(async () => {
-    await prebuildServerStateTesting([ITEM_FIXTURE_FILES]);
+    await prebuildServerStateTesting(SHEET_PACKS);
   }, PREBUILD_TIMEOUT);
 
   it('opens on Available to you, hiding items above the character’s level until everything is shown', async () => {
@@ -168,6 +199,82 @@ describe('Shop', () => {
     const shop = await openShop('?f.item-kind=shield');
     expect(offered(shop)).toStrictEqual(['Steel-shield']);
     expect(shop.textContent).not.toContain('Available to you');
+  });
+
+  it('lists the kits apart from the items, by name with their price', async () => {
+    const shop = await openShop();
+    const kits = await kitsOf(shop);
+    expect(listed(kits)).toStrictEqual(['Explorer', 'Keepsake', 'Smithy']);
+    expect(kits.textContent).toContain('2 gp');
+    expect(offered(shop)).not.toContain('Explorer');
+  });
+
+  it('shows what a picked kit holds and its price, and adds it without paying as giftKit', async () => {
+    const shop = await openShop();
+    const order = await pickKit(shop, 'Explorer');
+    const contents = [...order.querySelectorAll('pio-kit-contents fr-text')].map((text) => text.textContent.trim());
+    expect(contents).toStrictEqual(['Backpack', 'Rope', '10 × Arrows', 'Longsword']);
+    expect(bill(order)).toStrictEqual(['Cost: 2 gp', 'Your coins: 15 gp']);
+    button(order, 'Add without paying').click();
+    const request = await patchSent();
+    expect(request.request.body).toStrictEqual({
+      expectedVersion: 3,
+      patch: { field: 'giftKit', kit: kitFixtureId(KitFixture.Explorer) },
+    });
+    request.flush({ character: { ...VALEROS, version: 4 }, slots: [], cleared: [], languages: { known: [], open: 0 } });
+    await vi.waitFor(async () => {
+      await settle();
+      expect(present(shop.querySelector('pio-shop-kit-order')).textContent).toContain('Added');
+    });
+  });
+
+  it('buys a picked kit as buyKit', async () => {
+    const shop = await openShop();
+    const order = await pickKit(shop, 'Explorer');
+    button(order, 'Buy').click();
+    const request = await patchSent();
+    expect(request.request.body).toStrictEqual({
+      expectedVersion: 3,
+      patch: { field: 'buyKit', kit: kitFixtureId(KitFixture.Explorer) },
+    });
+    request.flush({ character: { ...VALEROS, version: 4 }, slots: [], cleared: [], languages: { known: [], open: 0 } });
+    await vi.waitFor(async () => {
+      await settle();
+      expect(present(shop.querySelector('pio-shop-kit-order')).textContent).toContain('Bought');
+    });
+  });
+
+  it('shows the server’s reason under Buy when it refuses the kit', async () => {
+    const shop = await openShop();
+    const order = await pickKit(shop, 'Explorer');
+    button(order, 'Buy').click();
+    const request = await patchSent();
+    request.flush(
+      {
+        type: 'validation',
+        title: 'Validation failed',
+        status: 422,
+        message: { key: 'problem.validation' },
+        issues: [{ path: ['patch', 'kit'], message: { key: 'character.validation.cannotAffordKit' } }],
+      },
+      { status: 422, statusText: 'Unprocessable Content' },
+    );
+    await vi.waitFor(async () => {
+      await settle();
+      expect(order.textContent).toContain("This character can't afford that kit");
+    });
+  });
+
+  it('disables Buy for a kit the coins do not cover, saying it can only be added without paying', async () => {
+    const shop = await openShop();
+    const order = await pickKit(shop, 'Smithy');
+    expect(bill(order)).toStrictEqual(['Cost: 20 gp', 'Your coins: 15 gp']);
+    const buy = button(order, 'Buy');
+    expect(buy.hasAttribute('disabled')).toBe(true);
+    const reasonId = present(buy.getAttribute('aria-describedby'));
+    const reason = present(order.querySelector(`#${reasonId}`));
+    expect(reason.textContent).toContain("Your coins don't cover the kit's price.");
+    expect(button(order, 'Add without paying').hasAttribute('disabled')).toBe(false);
   });
 
   it('narrows the list by name', async () => {

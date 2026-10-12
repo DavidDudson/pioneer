@@ -19,6 +19,9 @@ import {
   ITEM_FIXTURES,
   ItemFixture,
   itemFixtureId,
+  KIT_FIXTURES,
+  KitFixture,
+  kitFixtureId,
   propertyRune,
   RuneFixture,
   runeFixtureId,
@@ -61,7 +64,7 @@ describe.skipIf(adminUrl === undefined)('inventory edits (postgres)', () => {
     const core = new ContentPackBuilder().withId('player-core').withAncestry('human').build();
     service = new CharacterService(
       new DrizzleCharacterRepository(database.db),
-      fixedContent(core, ITEM_FIXTURES),
+      fixedContent(core, ITEM_FIXTURES, KIT_FIXTURES),
       clock,
     );
   });
@@ -123,6 +126,38 @@ describe.skipIf(adminUrl === undefined)('inventory edits (postgres)', () => {
       CharacterCommand.SetCoins,
       CharacterCommand.BuyItem,
     ]);
+  });
+
+  test('stores a bought kit in one write, its backpack holding what it holds, audited as buyKit', async () => {
+    const created = await service.create(fixtureOwnerId, {
+      name: CharacterName.parse('Kyra'),
+      ancestry: humanAncestryId,
+    });
+    const { character: paid } = await service.patch(fixtureOwnerId, created.id, {
+      expectedVersion: FIRST_VERSION,
+      patch: { field: CharacterPatchField.SetCoins, coins: CoinsSchema.parse({ gp: 5 }) },
+    });
+    const { character: bought } = await service.patch(fixtureOwnerId, created.id, {
+      expectedVersion: paid.version,
+      patch: { field: CharacterPatchField.BuyKit, kit: kitFixtureId(KitFixture.Explorer) },
+    });
+
+    const stored = await service.get(fixtureOwnerId, created.id);
+    expect(stored).toStrictEqual(bought);
+    const [backpack] = stored.document.inventory.items;
+    expect(stored.document.inventory.items.map((each) => [each.item, each.container])).toStrictEqual([
+      [itemFixtureId(ItemFixture.Backpack), undefined],
+      [itemFixtureId(ItemFixture.Rope), backpack?.id],
+      [itemFixtureId(ItemFixture.Arrows), backpack?.id],
+      [itemFixtureId(ItemFixture.Longsword), undefined],
+    ]);
+    expect(stored.document.inventory.coins).toStrictEqual(CoinsSchema.parse({ gp: 3 }));
+    const entries = await database.db
+      .select({ command: auditLog.command })
+      .from(auditLog)
+      .where(eq(auditLog.rowId, created.id))
+      .orderBy(asc(auditLog.changedAt));
+    expect(entries.map((entry) => entry.command).at(-1)).toBe(CharacterCommand.BuyKit);
   });
 
   test('stores how items are carried and what is invested, read back as written', async () => {

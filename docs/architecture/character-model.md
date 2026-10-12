@@ -296,14 +296,15 @@ version 3, #472). `inventory.coins` holds platinum, gold, silver and copper, eac
   containers nest. The document refuses an item in one it hasn't and containers that hold each other.
 - **Commands.** `giftItem { item, quantity, container? }` (adds without paying; the server gives the item its id),
   `buyItem { item, quantity, container? }` (adds and pays with change made; the server works out the cost from
-  content, see [Shop](#shop)),
+  content, see [Shop](#shop)), `giftKit { kit, container? }` and `buyKit { kit, container? }` (add every item in a
+  kit; see [Shop](#shop)),
   `removeItem { id }`, `setItemQuantity`, `moveItem { id, container? }` (no container takes it out),
   `renameItem { id, name? }` (no name goes back to the content's) and `setCoins { coins }`. Each is a PATCH audited
   by name. The server refuses an item the character hasn't (`character.validation.itemNotFound`), a container that
   isn't there
   (`containerNotFound`), one inside itself or something it holds (`containerInsideItself`), content no loaded pack
-  has as an item (`unknownItem`), stowing in an item that holds nothing (`notAContainer`) and a purchase the coins
-  don't cover (`cannotAfford`).
+  has as an item (`unknownItem`) or as a kit (`unknownKit`), stowing in an item that holds nothing (`notAContainer`)
+  and a purchase the coins don't cover (`cannotAfford`, `cannotAffordKit`).
 - **Removing a container** moves what it held out to where the container was, so nothing inside is lost.
 - **Carrying.** `carry` is `worn`, `held` with `hands` (1 or 2), `stowed` (the default, and a new item's) or
   `dropped`. It lives on the item, as Foundry pf2e's `system.equipped` does, but stays a play-state field whose
@@ -365,6 +366,15 @@ Buying and gifts are inventory commands, so they work in every sync mode (invent
   they fall short.
 - **Add without paying**: the same picker, no coins move. For loot, a GM's reward or starting gear. The audit log
   records it as a gift, apart from a purchase.
+- **Kits** sit in their own list below the items: every kit the loaded packs offer, with its price. Picking one
+  shows what it holds, a container's contents under it. Buying it (`buyKit`) or adding it without paying
+  (`giftKit`) adds every item in it in one write, each its own line: loose or in the container picked, and what a
+  container in the kit holds stowed inside that container (the Adventurer's Pack's backpack holds the rest). A kit
+  is one purchase at its own price, not the sum of its items, and is added whole or not at all: a kit holding an
+  item no loaded pack has is refused (`unknownKitItem`), as is one whose lines would take the inventory past its
+  limit (`kitOverfills`), or one that packs items inside an item that holds nothing (`kitNotAContainer`). The shop
+  leaves out any kit it would refuse whatever the inventory holds. Foundry pf2e (`pf2e-8.6.0`) has no class kits,
+  so the Player Core import offers only the Adventurer's Pack; a pack that adds class kits needs no change here.
 
 The picker is the item kinds' filters ([content-model.md](content-model.md#filters)) and opens on **Available to
 you**: item level at most the character's, unique items and `artifact` items hidden, uncommon and rare shown with

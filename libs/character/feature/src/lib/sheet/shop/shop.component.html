@@ -28,6 +28,7 @@
           @for (item of pickedItems(); track item.id) {
             <pio-shop-order [content]="content" [item]="item" />
           }
+          <pio-shop-kits [content]="content" />
         </fr-stack>
       }
     </ng-template>

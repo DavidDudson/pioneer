@@ -203,6 +203,12 @@ export class ContentPackBuilder {
     return this;
   }
 
+  /** A kit slugged `kit:<name>`, with its `data` (`{ items: [...], price? }`); a kit has no level. */
+  public withKit(name: string, data: object): this {
+    this.#entries.push({ kind: ContentKind.Kit, name, data });
+    return this;
+  }
+
   /**
    * A condition slugged `condition:<name>`, with `rules` as JSON: what it does to statistics. It carries no value
    * unless `valued` (Clumsy 1).

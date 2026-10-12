@@ -20,6 +20,7 @@ export {
   runeFixtureContent,
   runeFixtureId,
 } from './item-content';
+export { KIT_FIXTURE_FILES, KIT_FIXTURES, KitFixture, kitFixtureContent, kitFixtureId } from './kit-fixtures';
 export {
   PLAYER_CORE_CLASS_PACK,
   PLAYER_CORE_CLASSES,

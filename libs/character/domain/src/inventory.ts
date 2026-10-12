@@ -202,13 +202,15 @@ export function renameItem(inventory: Inventory, id: InventoryItemId, name: Inve
 }
 
 /**
- * An inventory edit, as the refusal reads it: the item it changes, the container it puts something in, how it carries
- * the item and whether it invests it.
+ * An inventory edit, as the refusal reads it: the item it changes, the item or kit it adds, the container it puts
+ * something in, how it carries the item and whether it invests it.
  */
 export interface InventoryEdit {
   readonly id?: InventoryItemId | undefined;
   /** The content an added item is. */
   readonly item?: ContentId | undefined;
+  /** The kit whose items an edit adds. */
+  readonly kit?: ContentId | undefined;
   readonly container?: InventoryItemId | undefined;
   readonly carry?: Carry | undefined;
   readonly invested?: boolean | undefined;
@@ -220,6 +222,8 @@ export interface InventoryEdit {
 export const InventoryRefusalField = {
   Id: 'id',
   Item: 'item',
+  /** The kit an edit adds. */
+  Kit: 'kit',
   Container: 'container',
   Carry: 'carry',
   Invested: 'invested',
@@ -235,15 +239,16 @@ export interface InventoryRefusal {
 }
 
 /**
- * Refuses an item added to a full inventory, an edit to an item the inventory hasn't (or a rune moved onto one), holding more than two hands
+ * Refuses an item or kit added to a full inventory, an edit to an item the inventory hasn't (or a rune moved onto one), holding more than two hands
  * hold, investing past the limit, a move into an item the inventory hasn't, and a move of an item into itself or into
  * something it holds. Which items can hold others, be worn or be invested is content's to say (`itemRefusal`).
  */
 export function inventoryRefusal(inventory: Inventory, edit: InventoryEdit): InventoryRefusal | undefined {
-  const { id, item } = edit;
-  if (item !== undefined && inventory.items.length >= INVENTORY_ITEMS_MAX) {
+  const { id, item, kit } = edit;
+  const adds = item !== undefined || kit !== undefined;
+  if (adds && inventory.items.length >= INVENTORY_ITEMS_MAX) {
     return {
-      field: InventoryRefusalField.Item,
+      field: kit === undefined ? InventoryRefusalField.Item : InventoryRefusalField.Kit,
       message: message('character.validation.inventoryFull', { maximum: INVENTORY_ITEMS_MAX }),
     };
   }

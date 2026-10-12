@@ -125,7 +125,10 @@
       "bought": "Bought",
       "gift": "Add without paying",
       "gifting": "Adding…",
-      "gifted": "Added"
+      "gifted": "Added",
+      "kits": "Kits",
+      "kitsHint": "A kit adds every item in it at once, what its backpack holds packed inside.",
+      "kitsLoadError": "The kits could not be loaded. Try again."
     },
     "prepared": {
       "heading": "Prepared spells: {tradition}",
@@ -175,6 +178,11 @@
     "containerInsideItself": "A container can't go inside itself or inside something it holds. Choose another place.",
     "unknownItem": "That item is not available. Choose another.",
     "cannotAfford": "This character can't afford that: its coins are worth less than the cost. Buy fewer, or add it without paying.",
+    "cannotAffordKit": "This character can't afford that kit: its coins are worth less than its price. Add it without paying instead.",
+    "unknownKit": "That kit is not available. Choose another.",
+    "unknownKitItem": "That kit holds an item no loaded content has, so it can't be added. Choose another kit.",
+    "kitNotAContainer": "That kit packs items inside one that can't hold anything, so it can't be added. Choose another kit.",
+    "kitOverfills": "That kit's items would take this character past {maximum} items, the most an inventory holds. Remove some first.",
     "notAContainer": "That item can't hold other items. Choose a container.",
     "inventoryFull": "This character carries {maximum} items already, the most an inventory holds. Remove one first.",
     "handsFull": "Hands are full: this character holds things in {maximum} hands already. Stow or drop something first.",

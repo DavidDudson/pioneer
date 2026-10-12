@@ -23,6 +23,7 @@ import { FacetFilterView, ShopOffersView } from '@pioneer/rules/ui';
 import { CharacterStore } from '../../data/character-store';
 import { injectContentRegistry } from '../../data/content-registry-query';
 import { INVENTORY_CONTENT_KINDS } from '../inventory/sheet-inventory';
+import { ShopKits } from './shop-kits.component';
 import { SHOP_FACETS, shopList } from './shop-list';
 import type { ShopList } from './shop-list';
 import { ShopOrder } from './shop-order.component';
@@ -37,8 +38,8 @@ const CLEARED: Readonly<Record<string, undefined>> = Object.fromEntries(
 /**
  * The shop (character-model.md, "Shop"): the items the loaded packs offer, opening on **Available to you** for this
  * character, with a toggle that shows everything, a name search and the equipment filters, whose state is in the URL
- * (`f.<facet>`), so a filtered shop can be linked. Pick an item, then buy it or add it without paying. The Downtime
- * tab adopts it when sheet modes land (#517).
+ * (`f.<facet>`), so a filtered shop can be linked. Pick an item, then buy it or add it without paying. Kits sit below
+ * the items, each bought or added whole (`pio-shop-kits`). The Downtime tab adopts it when sheet modes land (#517).
  */
 @Component({
   selector: 'pio-shop',
@@ -49,6 +50,7 @@ const CLEARED: Readonly<Record<string, undefined>> = Object.fromEntries(
     FacetFilterView,
     Heading,
     SearchInput,
+    ShopKits,
     ShopOffersView,
     ShopOrder,
     Stack,

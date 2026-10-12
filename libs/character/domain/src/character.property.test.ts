@@ -10,14 +10,15 @@ import * as z from 'zod';
 import { Character } from './character';
 import { CharacterPatchField, CharacterPatchSchema, inventoryTarget } from './character-patch';
 import type { CharacterPatch } from './character-patch';
-import { InventoryItemId, inventoryRefusal } from './inventory';
-import type { InventoryEdit, InventoryItem } from './inventory';
+import { InventoryItemId, inventoryRefusal, ItemQuantity } from './inventory';
+import type { InventoryEdit, InventoryItem, NewItem } from './inventory';
 import { CharacterBuilder, inventory } from './testing';
 
 installRulesFakes();
 const later = fixedClock('2030-01-01T00:00:00Z').now();
 /** A purchase the property exercises costs nothing, so any purse covers it. */
 const FREE = CopperValue.parse(0);
+const ONE = ItemQuantity.parse(1);
 const character = nat().map((seed) => CharacterBuilder.random(seed).build());
 
 /** A random character carrying a random inventory, containers nested. */
@@ -106,6 +107,10 @@ function aimed(patch: CharacterPatch, items: readonly InventoryItem[], { index, 
     case CharacterPatchField.BuyItem: {
       return { field: patch.field, item: patch.item, quantity: patch.quantity, ...stowed };
     }
+    case CharacterPatchField.GiftKit:
+    case CharacterPatchField.BuyKit: {
+      return { field: patch.field, kit: patch.kit, ...stowed };
+    }
     case CharacterPatchField.MoveItem: {
       return id === undefined ? patch : { field: patch.field, id, ...stowed };
     }
@@ -126,6 +131,12 @@ function aimed(patch: CharacterPatch, items: readonly InventoryItem[], { index, 
       throw new TypeError(`Unhandled item patch: ${JSON.stringify(unreachable)}`);
     }
   }
+}
+
+/** The one line a kit edit adds under `id`, stowed where the edit says, standing in for what `kitItems` expands. */
+function kitLines(patch: CharacterPatch, id: InventoryItemId): readonly NewItem[] | undefined {
+  const isKit = patch.field === CharacterPatchField.GiftKit || patch.field === CharacterPatchField.BuyKit;
+  return isKit ? [{ id, item: patch.kit, quantity: ONE, container: patch.container }] : undefined;
 }
 
 /** What an inventory edit touches, as `inventoryRefusal` reads it. */
@@ -152,7 +163,7 @@ describe('Character (properties)', () => {
         const patch = aimed(fakeSeeded(CharacterPatchSchema, seed), items, { index, target });
         // Only a move of a container into itself or what it holds is left for the service to refuse.
         pre(inventoryRefusal(original.document.inventory, touched(patch)) === undefined);
-        const next = original.apply(patch, later, { newItemId, cost: FREE });
+        const next = original.apply(patch, later, { newItemId, kitItems: kitLines(patch, newItemId), cost: FREE });
         expect(next.id).toBe(original.id);
         expect(next.version).toBe(original.version);
         expect(next.createdAt.equals(original.createdAt)).toBe(true);
