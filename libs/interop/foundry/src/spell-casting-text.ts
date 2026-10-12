@@ -24,7 +24,7 @@ const EITHER = SpellRangeType.Either;
 /** Each side of an "or", parsed; undefined unless there are two or more and every one maps. */
 function eitherOf(value: string, parse: (text: string) => object | undefined): object | undefined {
   const parts = value.split(OR);
-  const options = parts.map(parse).filter((option) => option !== undefined);
+  const options = parts.map((part) => parse(part)).filter((option) => option !== undefined);
   return parts.length > 1 && options.length === parts.length ? { type: EITHER, options } : undefined;
 }
 

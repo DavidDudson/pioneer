@@ -4,8 +4,9 @@ import type { ContentEntry } from './content-entry';
 import type { ContentKind } from './content-kind';
 import { ActionCost, AreaShape } from './rich-text';
 import type { Selector } from './selector';
-import { CastTimeType, SpellDurationType, SpellRangeType, SpellTimeUnit, TargetKind } from './spell-casting';
+import { CastTimeType, SpellDurationType, SpellRangeType, SpellTimeUnit } from './spell-casting';
 import type { SingleDuration, SingleRange } from './spell-casting';
+import { TargetKind } from './spell-targets';
 import { Trait } from './trait';
 import { Feet } from './units';
 
@@ -105,17 +106,10 @@ function feetBand(feet: Feet): RangeBand {
 }
 
 function singleBand(range: SingleRange): RangeBand {
-  switch (range.type) {
-    case SpellRangeType.Feet: {
-      return feetBand(range.feet);
-    }
-    case SpellRangeType.Miles: {
-      return RangeBand.Long;
-    }
-    default: {
-      return range.type;
-    }
+  if (range.type === SpellRangeType.Feet) {
+    return feetBand(range.feet);
   }
+  return range.type === SpellRangeType.Miles ? RangeBand.Long : range.type;
 }
 
 /** A range's band, or each option's when the caster picks one. */
@@ -124,7 +118,7 @@ export function rangeBands({ range }: SpellFields): readonly RangeBand[] {
     return [RangeBand.None];
   }
   const ranges = range.type === SpellRangeType.Either ? range.options : [range];
-  return [...new Set(ranges.map(singleBand))];
+  return [...new Set(ranges.map((each) => singleBand(each)))];
 }
 
 export function castActions({ time }: SpellFields): readonly CastActions[] {
@@ -171,15 +165,8 @@ export function defenseValues(entry: SpellEntry): readonly DefenseValue[] {
 }
 
 function singleDurationValue(duration: SingleDuration): DurationValue {
-  switch (duration.type) {
-    case SpellDurationType.Time:
-    case SpellDurationType.Rolled: {
-      return TIME_DURATIONS[duration.unit];
-    }
-    default: {
-      return duration.type;
-    }
-  }
+  const isCounted = duration.type === SpellDurationType.Time || duration.type === SpellDurationType.Rolled;
+  return isCounted ? TIME_DURATIONS[duration.unit] : duration.type;
 }
 
 /** The durations a spell has: one, or each option's when the caster picks one. */
@@ -192,7 +179,9 @@ function durationsOf({ duration }: SpellFields): readonly SingleDuration[] {
 
 export function durationValues(data: SpellFields): readonly DurationValue[] {
   const durations = durationsOf(data);
-  return durations.length === 0 ? [DurationValue.Instant] : [...new Set(durations.map(singleDurationValue))];
+  return durations.length === 0
+    ? [DurationValue.Instant]
+    : [...new Set(durations.map((each) => singleDurationValue(each)))];
 }
 
 /** Sustained with no limit, or up to a time; for a choice, when any option is. */

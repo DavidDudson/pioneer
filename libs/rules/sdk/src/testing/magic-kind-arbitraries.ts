@@ -22,14 +22,10 @@ import {
   SpellDurationType,
   SpellRangeType,
   SpellTimeUnit,
-  TargetCountWord,
-  TargetKind,
-  TargetQualifier,
-  TargetWithin,
-  TargetYou,
   TurnOwner,
 } from '../spell-casting';
 import { SPELL_RANK_MAX } from '../spell-rank';
+import { TargetCountWord, TargetKind, TargetQualifier, TargetWithin, TargetYou } from '../spell-targets';
 import { MagicTradition } from '../spellcasting-tradition';
 import { DieSize } from '../weapon';
 import { saveSelectorText, skillSelectorText, withTrigger } from './arbitraries';

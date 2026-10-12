@@ -168,8 +168,13 @@ describe('translateKindData: spells', () => {
     expect(dataIn(result, 'flora')).toMatchObject({
       area: { shape: 'burst', size: 20, details: [{ type: 'paragraph', content: [{ type: 'text', text: narrowed }] }] },
     });
-    expect(dataIn(result, 'storm')).toMatchObject({ area: { shape: 'burst', size: 20 } });
-    expect(dataIn(result, 'storm')?.['area']).not.toHaveProperty('details');
+    expect(dataIn(result, 'storm')).toEqual({
+      rank: 4,
+      time: { type: 'actions', cost: 'two' },
+      area: { shape: 'burst', size: 20 },
+      traditions: [],
+      damage: [],
+    });
     expect(dataIn(result, 'flame')).toMatchObject({ area: { shape: 'square', size: 5 } });
     expect(gapKeys(result)).toEqual([]);
   });
