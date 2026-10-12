@@ -257,8 +257,7 @@ describe('spellcastingInPlay slots', () => {
       [bard, 'bard-spellcasting'],
       [signatures, 'signature-spells'],
     ];
-    const signaturesOf = (options: readonly string[]): boolean | undefined =>
-      entriesOf(placed, options)[0]?.signatures;
+    const signaturesOf = (options: readonly string[]): boolean | undefined => entriesOf(placed, options)[0]?.signatures;
 
     expect(signaturesOf(['feature:signature-spells'])).toBe(true);
     expect(signaturesOf([])).toBe(false);

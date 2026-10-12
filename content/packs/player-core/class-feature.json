@@ -11136,7 +11136,12 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "SignatureSpells",
+        "entry": "bard"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.VKRjmXxBFLrJK01c"
     },

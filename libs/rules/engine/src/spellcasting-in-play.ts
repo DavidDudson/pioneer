@@ -9,14 +9,7 @@ import {
   SpellPreparation,
   SpellRank,
 } from '@pioneer/rules/sdk';
-import type {
-  ContentId,
-  Origin,
-  PoolSpellsElement,
-  RuleSlug,
-  Slug,
-  SpellSlotsElement,
-} from '@pioneer/rules/sdk';
+import type { ContentId, Origin, PoolSpellsElement, RuleSlug, Slug, SpellSlotsElement } from '@pioneer/rules/sdk';
 
 import type { ModifierInputs, RuleInPlay } from './rule-in-play';
 import { truthOf } from './rule-value';
