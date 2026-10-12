@@ -160,5 +160,9 @@ describe('character routes: kits', () => {
     expect(problem.issues).toStrictEqual([
       { path: ['patch', 'kit'], message: { key: 'character.validation.cannotAffordKit' } },
     ]);
+    const got = await api.handle(request('GET', `/characters/${id}`, { as: amiri }));
+    const { character } = CharacterSheet.parse(await got.json());
+    expect(character.version).toBe(Version.parse(1));
+    expect(character.document.inventory.items).toStrictEqual([]);
   });
 });
