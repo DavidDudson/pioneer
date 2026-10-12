@@ -25,12 +25,12 @@ export const SheetModeSchema = z.enum(SheetMode);
 export const DEFAULT_SHEET_MODE: SheetMode = SheetMode.Plan;
 
 /**
- * The tab a user last had open on a character's sheet: a display preference (ADR-0013), absent until they first
+ * The tab a user last had open on a character's sheet: a display preference (ADR-0050), absent until they first
  * switch tabs.
  */
 export const SheetModeChoice = z.strictObject({ mode: SheetModeSchema.optional() });
 export type SheetModeChoice = z.output<typeof SheetModeChoice>;
 
-/** A switch to `mode`; a choice is changed, never removed (ADR-0013). */
+/** A switch to `mode`; a choice is changed, never removed (ADR-0050). */
 export const SetSheetModeBody = z.strictObject({ mode: SheetModeSchema });
 export type SetSheetModeBody = z.output<typeof SetSheetModeBody>;

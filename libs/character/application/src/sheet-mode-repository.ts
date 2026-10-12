@@ -8,7 +8,7 @@ export interface SheetModeKey {
 }
 
 /**
- * Port for the tab each user last had open on each character's sheet (ADR-0013). A user who never switched tabs on a
+ * Port for the tab each user last had open on each character's sheet (ADR-0050). A user who never switched tabs on a
  * character has none stored. Adapters live in `character-infrastructure`; `InMemorySheetModeRepository` is for tests.
  */
 export abstract class SheetModeRepository {

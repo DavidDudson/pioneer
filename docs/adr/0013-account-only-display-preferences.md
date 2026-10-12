@@ -2,6 +2,7 @@
 
 - Status: Accepted
 - Date: 2026-10-09
+- Amended by: [0050](0050-character-scoped-display-preferences.md) (preferences scoped to a character)
 
 ## Context
 

@@ -47,7 +47,7 @@ export const characters = pgTable(
 );
 
 /**
- * The tab each user last had open on each character's sheet (ADR-0013), one row once they first switch tabs. Not part
+ * The tab each user last had open on each character's sheet (ADR-0050), one row once they first switch tabs. Not part
  * of the character: switching tabs never bumps its version. `id` is the row's own, for the audit trail; lookups and
  * the upsert go through the unique (user, character) index. The user's foreign key to users (on delete cascade) is in
  * the migration, as for `owner_id`; deleting the character deletes its rows too.

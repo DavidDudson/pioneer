@@ -18,9 +18,11 @@ import type {
 import { PathbuilderImportContract } from '@pioneer/interop/pathbuilder';
 import type { CharacterImportReport } from '@pioneer/interop/pathbuilder';
 import type { ChoiceValue, SlotKey } from '@pioneer/rules/sdk';
-import type { ValueOf } from '@pioneer/shared/kernel';
 import { ApiClient, ApiError } from '@pioneer/shared/web';
 import { injectMutation, injectQuery, QueryClient } from '@tanstack/angular-query-experimental';
+
+import { EditTracker } from './edit-tracker';
+import type { SaveState } from './edit-tracker';
 
 /** TanStack Query keys for the character feature. */
 const characterKeys = {
@@ -30,28 +32,10 @@ const characterKeys = {
   sheetMode: (id: CharacterId | undefined) => [...characterKeys.all, 'sheet-mode', id] as const,
 };
 
-/** How the open character's edits stand, for the sheet header. */
-export const SaveState = {
-  /** Nothing waiting: every edit made has saved, or none was made. */
-  Saved: 'saved',
-  Saving: 'saving',
-  /** The last edit failed and can be sent again. */
-  Failed: 'failed',
-  /** The last edit lost to someone else's; their version is showing, and resending would overwrite it. */
-  Conflict: 'conflict',
-} as const;
-export type SaveState = ValueOf<typeof SaveState>;
-
 /** A switch of the character's sheet to another tab. */
 interface SheetModeSwitch {
   readonly id: CharacterId;
   readonly mode: SheetMode;
-}
-
-/** The last edit that failed, kept so the header can send it again. */
-interface FailedEdit {
-  readonly patch: CharacterPatch;
-  readonly conflict: boolean;
 }
 
 /**
@@ -67,9 +51,7 @@ export class CharacterStore {
   readonly #selectedId = signal<CharacterId | undefined>(undefined);
   readonly #importReports = signal<ReadonlyMap<CharacterId, CharacterImportReport>>(new Map());
   readonly #cleared = signal<readonly ClearedPick[]>([]);
-  /** Edits sent and not yet answered. */
-  readonly #saving = signal(0);
-  readonly #failed = signal<FailedEdit | undefined>(undefined);
+  readonly #edits = new EditTracker(this.#selectedId.asReadonly());
 
   public readonly list = injectQuery(() => ({
     queryKey: characterKeys.list(),
@@ -119,6 +101,8 @@ export class CharacterStore {
         return this.#api.call(CharacterContract.sheetMode, { params: { id }, body: undefined });
       },
       enabled: id !== undefined,
+      // A preference that can't be read falls back to the default at once, rather than holding the sheet up.
+      retry: false,
     };
   });
 
@@ -154,21 +138,15 @@ export class CharacterStore {
     this.#setSheetMode.mutate({ id, mode });
   }
 
-  /** How the open character's edits stand: saving while any is in flight, else how the last one ended. */
-  public readonly saveState: Signal<SaveState> = computed(() => {
-    if (this.#saving() > 0) {
-      return SaveState.Saving;
-    }
-    const failed = this.#failed();
-    if (failed === undefined) {
-      return SaveState.Saved;
-    }
-    return failed.conflict ? SaveState.Conflict : SaveState.Failed;
-  });
+  /** How the open character's edits stand: saving while any is in flight, else whether one failed. */
+  public readonly saveState: Signal<SaveState> = this.#edits.state;
 
-  /** Sends the last failed edit again, against the current version. Does nothing after a conflict, or with none. */
+  /**
+   * Sends the open character's latest failed edit again, against its current version. Does nothing after a conflict,
+   * or with none.
+   */
   public async retry(): Promise<void> {
-    const failed = this.#failed();
+    const failed = this.#edits.failed();
     if (failed === undefined || failed.conflict) {
       return;
     }
@@ -178,7 +156,6 @@ export class CharacterStore {
   public select(id: CharacterId): void {
     if (id !== this.#selectedId()) {
       this.#cleared.set([]);
-      this.#failed.set(undefined);
     }
     this.#selectedId.set(id);
   }
@@ -235,23 +212,21 @@ export class CharacterStore {
    * and kept when it fails, for the header's save state and Retry.
    */
   public async patch(patch: CharacterPatch): Promise<void> {
-    this.#saving.update((count) => count + 1);
-    try {
-      await this.#send(patch);
-      this.#failed.set(undefined);
-    } catch (error: unknown) {
-      this.#failed.set({ patch, conflict: ApiError.isConflict(error) });
-      throw error;
-    } finally {
-      this.#saving.update((count) => count - 1);
-    }
-  }
-
-  async #send(patch: CharacterPatch): Promise<void> {
     const current = this.selected();
     if (current === undefined) {
       throw new Error('No character selected');
     }
+    const edit = this.#edits.begin(current.id, patch);
+    try {
+      await this.#send(current, patch);
+      this.#edits.saved(edit);
+    } catch (error: unknown) {
+      this.#edits.failedWith(edit, ApiError.isConflict(error));
+      throw error;
+    }
+  }
+
+  async #send(current: Character, patch: CharacterPatch): Promise<void> {
     // A notice describes the last edit only: any new edit, saved or refused, retires it.
     this.#cleared.set([]);
     try {

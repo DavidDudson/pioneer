@@ -2,15 +2,25 @@
   <fr-stack gap="lg">
     <fr-stack gap="sm">
       <fr-stack direction="horizontal" justify="between" align="center" gap="sm" wrap>
-        @if (sheet.identity(); as identity) {
-          <fr-text tone="muted">{{ 'character.sheet.header.identity' | transloco: identity }}</fr-text>
-        } @else {
-          <fr-skeleton width="md" />
-        }
+        <fr-async-region>
+          <ng-template frAsyncPending><fr-skeleton width="md" /></ng-template>
+          <ng-template [frAsyncData]="sheet.registry">
+            @if (sheet.identity(); as identity) {
+              <fr-text tone="muted">{{ 'character.sheet.header.identity' | transloco: identity }}</fr-text>
+            } @else {
+              <fr-skeleton width="md" />
+            }
+          </ng-template>
+        </fr-async-region>
         <pio-sheet-save-status />
       </fr-stack>
       <!-- Hit Points (#343), hero points (#345), conditions (#348) and the last roll (#342) join the header here. -->
-      <pio-vitals [vitals]="sheet.vitals()" [entryNames]="sheet.picks.entryNames()" />
+      <fr-async-region>
+        <ng-template frAsyncPending><pio-vitals [vitals]="undefined" /></ng-template>
+        <ng-template [frAsyncData]="sheet.engineQuery()">
+          <pio-vitals [vitals]="sheet.vitals()" [entryNames]="sheet.picks.entryNames()" />
+        </ng-template>
+      </fr-async-region>
     </fr-stack>
 
     <fr-tabs [label]="'character.sheet.tabs.label' | transloco">

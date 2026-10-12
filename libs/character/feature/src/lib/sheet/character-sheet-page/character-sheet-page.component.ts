@@ -2,7 +2,18 @@ import { ChangeDetectionStrategy, Component, computed, effect, inject, input } f
 import { RouterOutlet } from '@angular/router';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { CharacterId } from '@pioneer/character/domain';
-import { DateDisplay, Page, Skeleton, Stack, Tab, Tabs, Text } from '@pioneer/frontier';
+import {
+  AsyncData,
+  AsyncPending,
+  AsyncRegion,
+  DateDisplay,
+  Page,
+  Skeleton,
+  Stack,
+  Tab,
+  Tabs,
+  Text,
+} from '@pioneer/frontier';
 import { VitalsView } from '@pioneer/rules/ui';
 
 import { SheetSaveStatus } from '../sheet-save-status/sheet-save-status.component';
@@ -18,6 +29,9 @@ import { SheetState } from '../sheet-state';
 @Component({
   selector: 'pio-character-sheet-page',
   imports: [
+    AsyncData,
+    AsyncPending,
+    AsyncRegion,
     DateDisplay,
     Page,
     RouterOutlet,

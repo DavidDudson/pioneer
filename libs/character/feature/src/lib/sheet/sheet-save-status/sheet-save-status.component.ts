@@ -2,7 +2,8 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { AsyncButton, Message, Spinner, Stack, Text } from '@pioneer/frontier';
 
-import { CharacterStore, SaveState } from '../../data/character-store';
+import { CharacterStore } from '../../data/character-store';
+import { SaveState } from '../../data/edit-tracker';
 
 /**
  * How the open character's edits stand, for the sheet header: "All changes saved", a spinner while any edit is
