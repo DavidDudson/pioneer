@@ -31,6 +31,8 @@ Alternatives:
 - Player Core's Divine Font and Deity (Cleric) carry Foundry's divine font and sanctification `ChoiceSet`s, given by
   hand from the backlog (ADR-0031) without the cleric's deity `ChoiceSet` and `GrantItem`, which the root slot
   replaces, and without the sanctification choice's guard against itself.
+- The importer keeps Divine Font's predicates on the deity's fonts, which ADR-0045 dropped until a character had a
+  deity, so the font choice offers only the deity's.
 - Cleric domains are a closed set, Foundry's config keys, so the sheet can name each with a message key.
 - The server reads the sheet's deity (`CharacterSheet.deity`): the entry with its description and data, and each
   favoured weapon by the name of a loaded weapon of its base.

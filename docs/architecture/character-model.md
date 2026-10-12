@@ -157,7 +157,7 @@ its entries' traditions.
 A pool's slots are prepared the same way, `prepared:<entry>:<pool>:<cantrip|rank>:<n>`, after the entry's own
 ([ADR-0045](../adr/0045-pool-spells-are-rule-elements.md)): each offers the spells the pool's `PoolSpells` elements
 name that fit its rank, whatever their tradition or rarity. A divine font takes heal or harm once the font is picked
-(Divine Font's choice, both fonts offered until the deity lands, #469), a curriculum its school's spells. The sheet
+(Divine Font's choice, of the deity's fonts), a curriculum its school's spells. The sheet
 lists them after the entry's own under the name of what gave the pool, and says when a pool takes nothing yet.
 
 Each slot's status is worked out on every read, never stored (`characterSlots`,
