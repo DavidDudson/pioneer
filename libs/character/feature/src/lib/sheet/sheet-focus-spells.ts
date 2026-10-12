@@ -6,7 +6,7 @@ import type { FocusLine } from '@pioneer/rules/ui';
 import { sheetSlotContent } from './sheet-slot-content';
 
 /**
- * The character's focus spells as the sheet lists them (ADR-0048): each focus entry's spells by name, the rank they
+ * The character's focus spells as the sheet lists them (ADR-0050): each focus entry's spells by name, the rank they
  * are cast at and the focus pool; undefined for a character with no focus entry. `registry` must hold the spells, or
  * every entry reads as having none.
  */

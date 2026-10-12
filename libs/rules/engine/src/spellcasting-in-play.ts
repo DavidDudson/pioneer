@@ -59,7 +59,7 @@ interface EntrySignatures {
 }
 
 /** The focus spells the `FocusSpells` elements in play give a focus entry, each once in the order they name them; none
- * for any other entry (ADR-0048). */
+ * for any other entry (ADR-0050). */
 interface EntryFocusSpells {
   readonly focusSpells: readonly ContentId[];
 }

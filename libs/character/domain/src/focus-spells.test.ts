@@ -35,7 +35,7 @@ function contentOf(registry: ContentRegistry): SlotContent {
 }
 
 /**
- * A cleric's domain spells as the importer gives Domain Initiate them (ADR-0048), shrunk to three domains: a focus
+ * A cleric's domain spells as the importer gives Domain Initiate them (ADR-0050), shrunk to three domains: a focus
  * entry, a choice of the deity's domains, and each domain's initial domain spell while it is picked.
  */
 const clerics = new ContentPackBuilder().withId('focus');

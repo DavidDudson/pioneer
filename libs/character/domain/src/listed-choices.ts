@@ -10,7 +10,7 @@ export interface ListedChoice {
 
 /**
  * The character's `ChoiceSet` slots that list their options, answered or open, at the level `resolution` was read
- * at: Divine Font's font, Domain Initiate's domain, Initiate Warden's warden spell (#596, ADR-0048). A slot whose
+ * at: Divine Font's font, Domain Initiate's domain, Initiate Warden's warden spell (#596, ADR-0050). A slot whose
  * options are a query of content (a feat slot, a subclass) has a picker of its own, or none yet (#466), so it is left
  * out.
  */

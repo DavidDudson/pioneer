@@ -13,7 +13,7 @@ import { uniqueItems } from './unique-items';
 
 /**
  * How an entry's spells are cast: prepared each day, from a repertoire, innate, or as focus spells for Focus Points
- * (ADR-0048).
+ * (ADR-0050).
  */
 export const SpellPreparation = {
   Prepared: 'prepared',
@@ -127,7 +127,7 @@ export type SignatureSpellsElement = z.infer<typeof SignatureSpellsElement>;
 const FOCUS_SPELLS_MAX = 8;
 
 /**
- * Gives a focus entry focus spells (ADR-0048): a domain spell, a composition, a hex, an order or school spell, focus
+ * Gives a focus entry focus spells (ADR-0050): a domain spell, a composition, a hex, an order or school spell, focus
  * cantrips included. They are cast heightened to half the character's level rounded up, with the entry's spell attack
  * and DC. Those of every element in play for an entry add up, each spell once; one for an entry not in play, or for
  * one that isn't a focus entry, gives none. The focus pool follows from them, one Focus Point per focus spell that

@@ -33,7 +33,7 @@ function viewOf(focus: FocusLine): FocusView {
 }
 
 /**
- * A character's focus spells (ADR-0048): the focus pool, the rank every focus spell is cast at (half the level,
+ * A character's focus spells (ADR-0050): the focus pool, the rank every focus spell is cast at (half the level,
  * rounded up), and each focus entry's spells by its tradition, a focus cantrip marked as such. An entry with no spells
  * yet says a choice may still be open (a cleric's domain).
  *

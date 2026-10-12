@@ -2,7 +2,7 @@
 
 - Status: Proposed; the font choice offered whatever the deity amended by
   [0046](0046-deity-is-an-optional-root-slot.md); the font picked through the API amended by
-  [0048](0048-focus-spells-are-rule-elements.md)
+  [0050](0050-focus-spells-are-rule-elements.md)
 - Date: 2026-10-12
 
 ## Context

@@ -139,7 +139,7 @@ export interface SheetChoiceSlot {
 
 /**
  * The character's `ChoiceSet` slots that list their options, each offering what it offers at the character's level,
- * by the entry asking: Divine Font's font, Domain Initiate's domain (ADR-0048). A pick no longer offered shows by the
+ * by the entry asking: Divine Font's font, Domain Initiate's domain (ADR-0050). A pick no longer offered shows by the
  * name the server read, as any inline pick's does.
  */
 export function sheetChoiceSlots(registry: ContentRegistry, character: Character): readonly SheetChoiceSlot[] {

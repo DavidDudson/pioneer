@@ -49,7 +49,7 @@ function slotBlocks(entry: SpellcastingEntryLine): readonly SlotBlock[] {
  * A character's spellcasting entries (ADR-0040): each one's tradition, how it casts (prepared, spontaneous, innate or
  * focus) and where it came from ("from Wizard Spellcasting"), with its spell attack and spell DC, each expanding in
  * place to its breakdown as any statistic does, then its cantrips and spell slots per rank and any pools of slots kept
- * apart (ADR-0041): a divine font, a curriculum. A focus entry casts with Focus Points, so it shows no slots (ADR-0048).
+ * apart (ADR-0041): a divine font, a curriculum. A focus entry casts with Focus Points, so it shows no slots (ADR-0050).
  *
  * Read-only and presentational (ADR-0028): the caller works out the lines from the character's entries and the
  * engine's statistics, or passes undefined while they load, and the display names of the entries breakdown lines come

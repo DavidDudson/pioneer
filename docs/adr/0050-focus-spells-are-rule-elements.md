@@ -1,4 +1,4 @@
-# 0048. Focus spells are a rule element, and the focus pool follows from them
+# 0050. Focus spells are a rule element, and the focus pool follows from them
 
 - Status: Proposed
 - Date: 2026-10-12

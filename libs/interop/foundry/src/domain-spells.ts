@@ -3,7 +3,7 @@
  * (`packs/pf2e/journals/domains.json`) links them at `pf2e-8.6.0`: by domain key, as `DeityDomain` has it, the initial
  * domain spell, then the advanced one when Player Core prints it. Sun's advanced spell (Vital Luminance) isn't in
  * Player Core, and a domain whose spells only another book prints joins with that book's import. Domain Initiate and
- * Advanced Domain offer them (ADR-0048).
+ * Advanced Domain offer them (ADR-0050).
  */
 export const DOMAIN_SPELLS: ReadonlyMap<string, readonly [string, string?]> = new Map([
   ['air', ['pushing-gust', 'disperse-into-air']],

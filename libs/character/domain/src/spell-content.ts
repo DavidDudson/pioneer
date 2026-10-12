@@ -22,7 +22,7 @@ export interface SpellOption {
 /**
  * What prepared slots and spell access are read from: every spell that goes in a slot, by name, and the one a pick
  * names. Focus spells are cast from the focus pool, never a slot, so they are left out of both; `anySpell` finds any
- * spell, focus spells included, for the focus spells a character has (ADR-0048).
+ * spell, focus spells included, for the focus spells a character has (ADR-0050).
  */
 export interface SpellContent {
   readonly spells: readonly SpellOption[];

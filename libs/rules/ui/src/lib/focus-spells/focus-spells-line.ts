@@ -16,7 +16,7 @@ export interface FocusEntryLine {
   readonly spells: readonly FocusSpellLine[];
 }
 
-/** A character's focus spells (ADR-0048): the rank they are cast at, the focus pool, and each focus entry's spells. */
+/** A character's focus spells (ADR-0050): the rank they are cast at, the focus pool, and each focus entry's spells. */
 export interface FocusLine {
   readonly rank: SpellRank;
   readonly pool: FocusPoints;

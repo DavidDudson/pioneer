@@ -17,7 +17,7 @@ const LOADING_SLOTS = 3;
 
 /**
  * The open character's spell picks under its spellcasting entries (#478): a pick per prepared slot, its focus spells
- * (ADR-0048), and the uncommon and rare spells it has access to. The spells load only once the character has an entry, so a sheet without one never
+ * (ADR-0050), and the uncommon and rare spells it has access to. The spells load only once the character has an entry, so a sheet without one never
  * fetches them.
  */
 @Component({

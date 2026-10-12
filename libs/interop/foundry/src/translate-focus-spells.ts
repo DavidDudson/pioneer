@@ -5,7 +5,7 @@ import { DOMAIN_SPELLS } from './domain-spells';
 
 /**
  * The focus entries and focus spells of Player Core's class features and feats, as `SpellcastingEntry` elements with
- * preparation `focus` and `FocusSpells` elements by the entry slug they go on (ADR-0048). Foundry grants no focus
+ * preparation `focus` and `FocusSpells` elements by the entry slug they go on (ADR-0050). Foundry grants no focus
  * spell by rule element: the player drags each into a focus entry by hand, and Domain Initiate's `ChoiceSet` picks a
  * domain that grants nothing. The importer adds them from the features' text, and the domains' spells from Foundry's
  * domains journal, at `pf2e-8.6.0`. Spells are named by slug, in the pack being imported; a later book's focus spells

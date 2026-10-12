@@ -12,7 +12,7 @@ export interface FocusEntrySpells {
   readonly spells: readonly SpellOption[];
 }
 
-/** What the character's focus spells come to (ADR-0048). */
+/** What the character's focus spells come to (ADR-0050). */
 export interface CharacterFocus {
   /** Each focus entry with its spells, in slug order. */
   readonly entries: readonly FocusEntrySpells[];
