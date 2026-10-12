@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { ContentId, ContentKind, ContentRegistry, RuleSlug } from '@pioneer/rules/sdk';
+import { ContentId, ContentKind, ContentRegistry, RuleSlug, Selector } from '@pioneer/rules/sdk';
 import { ContentPackBuilder, CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
 
 import { characterDeity } from './character-deity';
@@ -8,7 +8,7 @@ import type { SheetDeity } from './character-deity';
 import { SlotStatus } from './character-slot';
 import { characterSlots } from './character-slot-status';
 import { DEITY_SLOT } from './character-slots';
-import { characterGrants } from './class-build';
+import { buildRanks, characterGrants } from './class-build';
 import { deityContent } from './deity-content';
 import { slotContent } from './slot-offer';
 import { CharacterBuilder, playerCoreClasses, playerCoreClassId } from './testing';
@@ -16,7 +16,13 @@ import type { PlayerCoreClass } from './testing';
 
 const deities = new ContentPackBuilder()
   .withId('deities')
-  .withDeity('sarenrae', { sanctification: { modal: 'can', what: ['holy'] }, font: ['heal'], weapons: ['scimitar'] })
+  .withDeity('sarenrae', {
+    sanctification: { modal: 'can', what: ['holy'] },
+    font: ['heal'],
+    skills: ['skill:medicine'],
+    weapons: ['scimitar'],
+  })
+  .withDeity('shelyn', { font: ['heal'], skills: ['skill:crafting', 'skill:performance'] })
   .withDeity('zon-kuthon', { sanctification: { modal: 'must', what: ['unholy'] }, font: ['harm'] })
   .withDeity('pharasma', { font: ['heal'] })
   .withItem(ContentKind.Weapon, 'scimitar', {
@@ -35,6 +41,7 @@ const content = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 const SARENRAE = ContentId.parse(deities.idOf(ContentKind.Deity, 'sarenrae'));
 const ZON_KUTHON = ContentId.parse(deities.idOf(ContentKind.Deity, 'zon-kuthon'));
 const PHARASMA = ContentId.parse(deities.idOf(ContentKind.Deity, 'pharasma'));
+const SHELYN = ContentId.parse(deities.idOf(ContentKind.Deity, 'shelyn'));
 
 function level1(name: PlayerCoreClass, deity?: ContentId): CharacterBuilder {
   const builder = new CharacterBuilder()
@@ -79,6 +86,7 @@ describe('the deity slot', () => {
       'deity:primary:font:heal',
       'deity:primary:sanctification:can:holy',
       'deity:primary:sarenrae',
+      'deity:primary:skill:medicine',
     ]);
   });
 });
@@ -120,5 +128,33 @@ describe("a cleric's divine font and sanctification", () => {
 
   test('offer only none when the deity has no sanctification', () => {
     expect(offered('cleric', PHARASMA, 'sanctification')).toEqual(['none']);
+  });
+});
+
+/** The key of the cleric's open slot under `flag`, with `deity` picked. */
+function slotKey(deity: ContentId, flag: string): string {
+  const { document } = level1('cleric', deity).build();
+  const slot = characterGrants(document, content).open.find((each) => each.flag === RuleSlug.parse(flag));
+  return String(slot?.key);
+}
+
+describe("a cleric's divine skill", () => {
+  test("is offered from the deity's divine skills, and nothing before a deity", () => {
+    expect(offered('cleric', undefined, 'divine-skill')).toEqual([]);
+    expect(offered('cleric', SARENRAE, 'divine-skill')).toEqual(['medicine']);
+    expect(offered('cleric', SHELYN, 'divine-skill')).toEqual(['crafting', 'performance']);
+  });
+
+  test('picked, trains the cleric in it', () => {
+    const skill = Selector.parse('skill:performance');
+    const before = level1('cleric', SHELYN).build().document;
+    const after = level1('cleric', SHELYN).picking(slotKey(SHELYN, 'divine-skill'), 'performance').build().document;
+
+    expect(buildRanks(before, content).get(skill)).toBeUndefined();
+    expect(buildRanks(after, content).get(skill)).toBe('trained');
+  });
+
+  test("is not a fighter's, who has no Deity feature", () => {
+    expect(offered('fighter', SARENRAE, 'divine-skill')).toBeUndefined();
   });
 });
