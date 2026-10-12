@@ -578,10 +578,10 @@ flowchart LR
   with a translator (`TRANSLATORS`): the rules core kinds `action` and `condition`, and the build, magic, effect and
   equipment kinds below. An action's cost comes from `actionType` and `actions`, its frequency period from Foundry's
   words or ISO 8601 durations (`PT1H` is `hour`), and its `trigger` and `requirements` from the description's labelled
-  paragraphs when they are plain words. A condition's `implies` is its unpredicated `GrantItem`s of conditions, so it
+  paragraphs, translated as descriptions are so their links and inline checks stay. A condition's `implies` is its unpredicated `GrantItem`s of conditions, so it
   lists exactly what its rules grant; its duration, active and removable flags are instance state and Foundry's back
   links are derived, so neither is carried. A set `system` field with no place in the schema, a value with no mapping,
-  usage text with links or enrichers, a reference to nothing selected, and data the kind's schema rejects are reported
+  a spell's cost or requirements with links or enrichers, a reference to nothing selected, and data the kind's schema rejects are reported
   against the entry, never guessed.
 - **Build kind data.** Fields Foundry and Pioneer spell alike carry over and the schema checks them; the rest map:
   - An ancestry's sizes (`med` is `medium`), boosts and flaws (Foundry's numbered slots, in order), and its
@@ -604,7 +604,7 @@ flowchart LR
     reported. Player Core's classes name their `subclass` tag, which Foundry marks nowhere.
   - A feat's `category`, `prerequisites` as one paragraph of their text, `onlyLevel1`, `maxTakable` (Foundry's
     explicit `null` is `unlimited`, absent once), and `action` when it is used as one, read as an `action` item is
-    with `actionCategory` as its category; action data its schema rejects (a reaction whose trigger has links) is
+    with `actionCategory` as its category; action data its schema rejects (a reaction with no trigger) is
     reported and left off, the feat kept. A class feature has `action`, its `otherTags` as `tags` and its
     `subfeatures.keyOptions` as `keyAttributeOptions`; a subclass
     `ChoiceSet` (a filter of `item:tag:` terms alone, with a `GrantItem` of `{item|flags.system.rulesSelections.<flag>}`)
