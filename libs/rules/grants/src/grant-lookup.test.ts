@@ -62,6 +62,7 @@ describe('grantLookup', () => {
         .withDeity('sarenrae', {
           sanctification: { modal: 'can', what: ['holy'] },
           font: ['heal'],
+          skills: ['skill:medicine'],
           weapons: ['scimitar'],
         })
         .withDeity('irori', { font: ['heal'], weapons: ['fist'] })
@@ -72,6 +73,7 @@ describe('grantLookup', () => {
       'deity:primary:sanctification:can:holy',
       'deity:primary:favored-weapon:scimitar',
       'deity:primary:font:heal',
+      'deity:primary:skill:medicine',
     ]);
     expect(irori?.characterOptions?.map(String)).toEqual([
       'deity:primary:sanctification:none',

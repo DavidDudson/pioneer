@@ -143,6 +143,18 @@
       </fr-stack>
     </fr-section>
 
+    <fr-section [anchor]="sections.strikes.anchor" [heading]="sections.strikes.headingKey | transloco">
+      <fr-async-region>
+        <ng-template frAsyncPending><pio-statistics [statistics]="undefined" /></ng-template>
+        <ng-template [frAsyncData]="engineQuery()"
+          ><pio-statistics
+            [statistics]="picks.strikes()"
+            [entryNames]="picks.entryNames()"
+            [noneKey]="statisticsMessage.NoStrikes"
+        /></ng-template>
+      </fr-async-region>
+    </fr-section>
+
     <fr-section [anchor]="sections.languages.anchor" [heading]="sections.languages.headingKey | transloco">
       <pio-sheet-languages-section />
     </fr-section>

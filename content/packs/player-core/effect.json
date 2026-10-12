@@ -12755,6 +12755,11 @@
         "key": "Sense",
         "sense": "16b42c38-9373-58ec-a7ac-2221bb17a71c",
         "predicate": ["vision-type:low-light-vision"]
+      },
+      {
+        "key": "ActorTraits",
+        "add": ["humanoid"],
+        "remove": []
       }
     ],
     "externalIds": {

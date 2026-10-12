@@ -7,6 +7,8 @@ import type { ValueOf } from '@pioneer/shared/kernel';
 import { SPELL_ACCESS_MAX } from './character-document';
 import type { CharacterDocument } from './character-document';
 import type { CharacterLevel } from './character-fields';
+import { deityRanks, NO_DEITY_SPELLS } from './deity-ranks';
+import type { DeityRanks } from './deity-ranks';
 import type { SlotPick } from './slot-offer';
 import { needsAccess } from './spell-content';
 import type { SpellContent, SpellOption } from './spell-content';
@@ -110,6 +112,11 @@ interface SlotHome {
   readonly pool: PreparedPool | undefined;
   /** The spells a pool's slot takes; undefined for one of the entry's own, which takes its tradition's. */
   readonly takes: ReadonlySet<ContentId> | undefined;
+  /**
+   * The deity's spells an entry's own slot takes besides its tradition's, by the lowest rank each goes in (ADR-0048):
+   * none in a pool's slot, or for an entry no `DeitySpells` element names.
+   */
+  readonly deity: DeityRanks;
 }
 
 /** A slot before it is read: where it is, its key and its rank. */
@@ -127,9 +134,22 @@ function fitsRank(spell: SpellOption, rank: PreparedRank): boolean {
  * Whether `spell` fits `place`, access aside: in an entry's own slot, a spell of its tradition that fits the rank; in a
  * pool's, a spell the pool takes that fits the rank, whatever its tradition.
  */
-function fits(spell: SpellOption, { tradition, rank, takes }: SlotPlace): boolean {
+function fits(spell: SpellOption, place: SlotPlace): boolean {
+  const { tradition, rank, takes } = place;
   const taken = takes === undefined ? spell.traditions.includes(tradition) : takes.has(spell.id);
-  return taken && fitsRank(spell, rank);
+  return (taken && fitsRank(spell, rank)) || fitsAsDeitySpell(spell, place);
+}
+
+/**
+ * Whether `spell` goes in `place` as one of the deity's: a spell the deity grants, in a slot of the rank it grants it
+ * at or higher (a cantrip in a cantrip slot), whatever its tradition.
+ */
+function fitsAsDeitySpell(spell: SpellOption, { rank, deity }: SlotPlace): boolean {
+  const granted = deity.get(spell.id);
+  if (granted === undefined || !fitsRank(spell, rank)) {
+    return false;
+  }
+  return rank === SlotRank.Cantrip || rank >= granted;
 }
 
 /**
@@ -155,7 +175,7 @@ function placesOf(slots: SpellSlots, home: SlotHome): SlotPlace[] {
 /** The slots of one of an entry's pools, each taking the pool's spells. */
 function poolPlaces(own: SlotHome, slotPool: SlotPool): SlotPlace[] {
   const pool = { slug: slotPool.pool, origin: slotPool.origin, spells: slotPool.spells };
-  return placesOf(slotPool, { ...own, pool, takes: new Set(slotPool.spells) });
+  return placesOf(slotPool, { ...own, pool, takes: new Set(slotPool.spells), deity: NO_DEITY_SPELLS });
 }
 
 /**
@@ -163,10 +183,12 @@ function poolPlaces(own: SlotHome, slotPool: SlotPool): SlotPlace[] {
  * its pools' (#581) in pool order, the same way.
  */
 function entryPlaces(
-  { slug, tradition, slots, pools }: SpellcastingInPlay,
+  { slug, tradition, slots, pools, deitySpells }: SpellcastingInPlay,
   preparation: PickedPreparation,
+  deity: DeityRanks,
 ): SlotPlace[] {
-  const home = { entry: slug, preparation, tradition, pool: undefined, takes: undefined };
+  const own = deitySpells ? deity : NO_DEITY_SPELLS;
+  const home = { entry: slug, preparation, tradition, pool: undefined, takes: undefined, deity: own };
   return [...placesOf(slots, home), ...pools.flatMap((pool) => poolPlaces(home, pool))];
 }
 
@@ -179,14 +201,17 @@ function entryPlaces(
  * lower level, another class) is hidden, never planned. An entry's own slot offers the spells of its tradition that fit it: cantrips in a cantrip slot, any
  * other spell in a slot of its rank or higher (heightened), common ones always, uncommon and rare ones once the build
  * lists access to them. A pool's slot offers the spells the pool takes that fit it, whatever their tradition or
- * rarity, since the feature names them (ADR-0045). Focus spells never go in a slot.
+ * rarity, since the feature names them (ADR-0045). An entry a `DeitySpells` element names also offers the deity's spells
+ * in its own slots of the rank the deity grants each at or higher, whatever their tradition or rarity (ADR-0048). Focus
+ * spells never go in a slot.
  */
 export function preparedSlots(document: CharacterDocument, { spells, resolution }: PreparedReads): PreparedSlot[] {
   const access = new Set<ContentId>(document.build.spellAccess);
-  const accessible = (spell: SpellOption, { pool }: SlotPlace): boolean =>
-    pool !== undefined || !needsAccess(spell.rarity) || access.has(spell.id);
+  const accessible = (spell: SpellOption, place: SlotPlace): boolean =>
+    place.pool !== undefined || fitsAsDeitySpell(spell, place) || !needsAccess(spell.rarity) || access.has(spell.id);
+  const deity = deityRanks(resolution);
   return characterSpellcasting(resolution)
-    .flatMap((entry) => (isPicked(entry.preparation) ? entryPlaces(entry, entry.preparation) : []))
+    .flatMap((entry) => (isPicked(entry.preparation) ? entryPlaces(entry, entry.preparation, deity) : []))
     .map((place): PreparedSlot => {
       const { key, entry, preparation, tradition, pool, rank } = place;
       const options = spells.spells.filter((spell) => fits(spell, place) && accessible(spell, place));
@@ -232,7 +257,8 @@ export function preparedRefusal(
   if (named === undefined || slot.pool !== undefined) {
     return PreparedRefusal.NotOffered;
   }
-  const noAccess = problemOf(named, { ...slot, takes: undefined }) === PreparedPickProblem.NoAccess;
+  const noAccess =
+    problemOf(named, { ...slot, takes: undefined, deity: NO_DEITY_SPELLS }) === PreparedPickProblem.NoAccess;
   return noAccess ? PreparedRefusal.NoAccess : PreparedRefusal.NotOffered;
 }
 

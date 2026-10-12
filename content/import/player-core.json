@@ -1673,52 +1673,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "class-feature:deity-cleric",
-      "foundry": "Compendium.pf2e.classfeatures.Item.DutW12WMFPHBoLTH",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ActorTraits",
-          "raw": {
-            "add": ["holy"],
-            "key": "ActorTraits",
-            "predicate": ["sanctification:holy"]
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ActorTraits",
-          "raw": {
-            "add": ["unholy"],
-            "key": "ActorTraits",
-            "predicate": ["sanctification:unholy"]
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Strike",
-          "raw": {
-            "fist": true,
-            "key": "Strike",
-            "predicate": ["deity:primary:favored-weapon:fist"]
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "flags.system.favoredWeaponRank",
-            "predicate": ["class:cleric"],
-            "value": 1
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "class-feature:deny-advantage",
       "foundry": "Compendium.pf2e.classfeatures.Item.PNpmVmD21zViDtGC",
       "gaps": [
@@ -2347,24 +2301,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "class-feature:final-doctrine-warpriest",
-      "foundry": "Compendium.pf2e.classfeatures.Item.N1ugDqZlslxbp3Uy",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "flags.system.favoredWeaponRank",
-            "value": 3
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "class-feature:first-doctrine",
       "foundry": "Compendium.pf2e.classfeatures.Item.Qejo7FUWQtPTpgWH",
       "gaps": [
@@ -2579,16 +2515,6 @@
       "slug": "class-feature:fourth-doctrine-cloistered-cleric",
       "foundry": "Compendium.pf2e.classfeatures.Item.vxOf4LXZcqUG3P7a",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "flags.system.favoredWeaponRank",
-            "value": 2
-          }
-        },
         {
           "type": "rule",
           "key": "CriticalSpecialization",
@@ -4330,16 +4256,6 @@
       "slug": "class-feature:third-doctrine-warpriest",
       "foundry": "Compendium.pf2e.classfeatures.Item.Zp81uTBItG1xlH4O",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "flags.system.favoredWeaponRank",
-            "value": 2
-          }
-        },
         {
           "type": "rule",
           "key": "CriticalSpecialization",
@@ -16922,15 +16838,6 @@
         },
         {
           "type": "rule",
-          "key": "ActorTraits",
-          "raw": {
-            "add": ["humanoid"],
-            "key": "ActorTraits",
-            "remove": []
-          }
-        },
-        {
-          "type": "rule",
           "key": "RollOption",
           "raw": {
             "key": "RollOption",
@@ -29232,14 +29139,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "Strike",
-          "raw": {
-            "fist": true,
-            "key": "Strike"
-          }
-        },
-        {
-          "type": "rule",
           "key": "ItemAlteration",
           "raw": {
             "itemId": "xxxxxxFISTxxxxxx",
@@ -35049,23 +34948,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:verdant-metamorphosis",
-      "foundry": "Compendium.pf2e.feats-srd.Item.orjVLLoziFTmf1mz",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ActorTraits",
-          "raw": {
-            "add": ["plant"],
-            "key": "ActorTraits",
-            "remove": ["animal", "beast", "humanoid", "construct"]
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:verdant-weapon",
       "foundry": "Compendium.pf2e.feats-srd.Item.qPFWEyihvbWsCcUv",
       "gaps": [
@@ -35900,14 +35782,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "ActorTraits",
-          "raw": {
-            "add": ["elf"],
-            "key": "ActorTraits"
-          }
-        },
-        {
-          "type": "rule",
           "key": "ActiveEffectLike",
           "raw": {
             "key": "ActiveEffectLike",
@@ -36162,14 +36036,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "ActorTraits",
-          "raw": {
-            "add": ["orc"],
-            "key": "ActorTraits"
-          }
-        },
-        {
-          "type": "rule",
           "key": "ActiveEffectLike",
           "raw": {
             "key": "ActiveEffectLike",
@@ -36203,22 +36069,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "heritage:fey-touched-gnome",
-      "foundry": "Compendium.pf2e.heritages.Item.D3hTAqgwSank8OyO",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ActorTraits",
-          "raw": {
-            "add": ["fey"],
-            "key": "ActorTraits"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "heritage:forge-dwarf",
       "foundry": "Compendium.pf2e.heritages.Item.5CqsBKCZuGON53Hk",
       "gaps": [
@@ -36229,23 +36079,6 @@
             "key": "Resistance",
             "type": "fire",
             "value": "max(1,floor(@actor.level/2))"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "heritage:fungus-leshy",
-      "foundry": "Compendium.pf2e.heritages.Item.87h0jepQuzIbN7jN",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ActorTraits",
-          "raw": {
-            "add": ["fungus"],
-            "key": "ActorTraits",
-            "remove": ["plant"]
           }
         }
       ]

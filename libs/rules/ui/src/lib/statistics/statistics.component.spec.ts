@@ -13,6 +13,7 @@ import {
 import { BEATEN_STATISTICS } from '../testing/conditional-fixtures';
 import { PINNED_STATISTICS, PINNED_WILL } from '../testing/override-fixtures';
 import { provideRulesUiI18nTesting } from '../testing/provide-rich-text-testing';
+import { StatisticsMessage } from './statistics-messages';
 import type { NamedStatistic } from './statistics.component';
 import { StatisticsView } from './statistics.component';
 
@@ -168,6 +169,23 @@ describe(StatisticsView, () => {
 
     const empty = present(host.querySelector('fr-empty-state'));
     expect(textOf(empty)).toBe('No statistics.');
+  });
+
+  it('says what the caller lists is empty, when it names that', async () => {
+    const fixture = await render([]);
+    fixture.componentRef.setInput('noneKey', StatisticsMessage.NoStrikes);
+    await fixture.whenStable();
+
+    const empty = present(hostOf(fixture).querySelector('fr-empty-state'));
+    expect(textOf(empty)).toBe('No Strikes listed yet. Hold a weapon to add its Strike.');
+  });
+
+  it('names a statistic by its message key when it has one, as a fist Strike', async () => {
+    const [armorClass] = FIGHTER_STATISTICS;
+    const fist = { ...present(armorClass), name: 'fist', nameKey: StatisticsMessage.Fist };
+    const host = hostOf(await render([fist]));
+
+    expect(rows(host)).toStrictEqual(['Fist 20']);
   });
 
   it('shows a placeholder row per statistic while loading', async () => {

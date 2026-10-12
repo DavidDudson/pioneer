@@ -2,6 +2,7 @@ import { describe, expect, test } from 'bun:test';
 
 import {
   AttributeModifier,
+  BaseWeapon,
   ConditionValue,
   FundamentalRune,
   ItemState,
@@ -114,6 +115,13 @@ describe('equippedInputs', () => {
       category: 'martial',
       origin: { hops: [{ kind: OriginHopKind.Inventory, item: idAt(0), state: ItemState.Held }] },
     });
+  });
+
+  test("a weapon whose base the deity favours is marked favoured; another isn't", () => {
+    const held = carrying([ItemFixture.Longsword, ONE_HANDED]);
+    const longsword = new Set([BaseWeapon.parse('longsword')]);
+    expect(equippedInputs(held, content, longsword).weapons[0]?.favored).toBe(true);
+    expect(equippedInputs(held, content).weapons[0]?.favored).toBe(false);
   });
 
   test('a two-handed weapon in one hand, or a dropped one, is no Strike', () => {

@@ -25314,7 +25314,12 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Strike",
+        "fist": true
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.JP5pptkl1Fx1JK4m"
     },
@@ -50864,6 +50869,11 @@
       {
         "key": "GrantItem",
         "item": "4e95c086-8fef-5a7e-a736-799e580398bd"
+      },
+      {
+        "key": "ActorTraits",
+        "add": ["plant"],
+        "remove": ["animal", "beast", "humanoid", "construct"]
       }
     ],
     "externalIds": {

@@ -2266,6 +2266,216 @@
         ],
         "prompt": "Select a sanctification.",
         "rollOption": "sanctification"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "divine-skill",
+        "choices": [
+          {
+            "value": "acrobatics",
+            "label": "Acrobatics",
+            "predicate": ["deity:primary:skill:acrobatics"]
+          },
+          {
+            "value": "arcana",
+            "label": "Arcana",
+            "predicate": ["deity:primary:skill:arcana"]
+          },
+          {
+            "value": "athletics",
+            "label": "Athletics",
+            "predicate": ["deity:primary:skill:athletics"]
+          },
+          {
+            "value": "crafting",
+            "label": "Crafting",
+            "predicate": ["deity:primary:skill:crafting"]
+          },
+          {
+            "value": "deception",
+            "label": "Deception",
+            "predicate": ["deity:primary:skill:deception"]
+          },
+          {
+            "value": "diplomacy",
+            "label": "Diplomacy",
+            "predicate": ["deity:primary:skill:diplomacy"]
+          },
+          {
+            "value": "intimidation",
+            "label": "Intimidation",
+            "predicate": ["deity:primary:skill:intimidation"]
+          },
+          {
+            "value": "medicine",
+            "label": "Medicine",
+            "predicate": ["deity:primary:skill:medicine"]
+          },
+          {
+            "value": "nature",
+            "label": "Nature",
+            "predicate": ["deity:primary:skill:nature"]
+          },
+          {
+            "value": "occultism",
+            "label": "Occultism",
+            "predicate": ["deity:primary:skill:occultism"]
+          },
+          {
+            "value": "performance",
+            "label": "Performance",
+            "predicate": ["deity:primary:skill:performance"]
+          },
+          {
+            "value": "religion",
+            "label": "Religion",
+            "predicate": ["deity:primary:skill:religion"]
+          },
+          {
+            "value": "society",
+            "label": "Society",
+            "predicate": ["deity:primary:skill:society"]
+          },
+          {
+            "value": "stealth",
+            "label": "Stealth",
+            "predicate": ["deity:primary:skill:stealth"]
+          },
+          {
+            "value": "survival",
+            "label": "Survival",
+            "predicate": ["deity:primary:skill:survival"]
+          },
+          {
+            "value": "thievery",
+            "label": "Thievery",
+            "predicate": ["deity:primary:skill:thievery"]
+          }
+        ],
+        "prompt": "Select a divine skill.",
+        "rollOption": "divine-skill"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:acrobatics",
+        "rank": "trained",
+        "predicate": ["divine-skill:acrobatics"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:arcana",
+        "rank": "trained",
+        "predicate": ["divine-skill:arcana"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:athletics",
+        "rank": "trained",
+        "predicate": ["divine-skill:athletics"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:crafting",
+        "rank": "trained",
+        "predicate": ["divine-skill:crafting"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:deception",
+        "rank": "trained",
+        "predicate": ["divine-skill:deception"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:diplomacy",
+        "rank": "trained",
+        "predicate": ["divine-skill:diplomacy"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:intimidation",
+        "rank": "trained",
+        "predicate": ["divine-skill:intimidation"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:medicine",
+        "rank": "trained",
+        "predicate": ["divine-skill:medicine"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:nature",
+        "rank": "trained",
+        "predicate": ["divine-skill:nature"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:occultism",
+        "rank": "trained",
+        "predicate": ["divine-skill:occultism"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:performance",
+        "rank": "trained",
+        "predicate": ["divine-skill:performance"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:religion",
+        "rank": "trained",
+        "predicate": ["divine-skill:religion"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:society",
+        "rank": "trained",
+        "predicate": ["divine-skill:society"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:stealth",
+        "rank": "trained",
+        "predicate": ["divine-skill:stealth"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:survival",
+        "rank": "trained",
+        "predicate": ["divine-skill:survival"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:thievery",
+        "rank": "trained",
+        "predicate": ["divine-skill:thievery"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "attack:favored-weapon",
+        "rank": "trained",
+        "predicate": ["class:cleric"]
+      },
+      {
+        "key": "DeitySpells",
+        "entry": "cleric",
+        "predicate": ["class:cleric"]
+      },
+      {
+        "key": "ActorTraits",
+        "add": ["holy"],
+        "predicate": ["sanctification:holy"]
+      },
+      {
+        "key": "ActorTraits",
+        "add": ["unholy"],
+        "predicate": ["sanctification:unholy"]
+      },
+      {
+        "key": "Strike",
+        "fist": true,
+        "predicate": ["deity:primary:favored-weapon:fist"]
       }
     ],
     "externalIds": {

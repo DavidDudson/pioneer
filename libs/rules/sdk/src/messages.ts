@@ -16,6 +16,7 @@ export const RulesMessage = {
   AdjustModeOrSuppress: 'rules.element.adjustModeOrSuppress',
   SpellcastingSlugLength: 'rules.element.spellcastingSlugLength',
   LanguageGrantOrSlots: 'rules.element.languageGrantOrSlots',
+  ActorTraitsAddOrRemove: 'rules.element.actorTraitsAddOrRemove',
   UnknownReference: 'rules.formula.unknownReference',
   FoundryReference: 'rules.formula.foundryReference',
   ReferenceOutOfScope: 'rules.formula.referenceOutOfScope',

@@ -39,7 +39,8 @@
       "suboptionsNeedToggle": "Only a toggle (toggleable: true) can offer suboptions.",
       "adjustModeOrSuppress": "Give a mode and a value, or suppress: true, but not both.",
       "spellcastingSlugLength": "A spellcasting entry’s slug may be at most {maximum} characters.",
-      "languageGrantOrSlots": "Grant at least one language, or give slots to pick them in, or both."
+      "languageGrantOrSlots": "Grant at least one language, or give slots to pick them in, or both.",
+      "actorTraitsAddOrRemove": "Add at least one trait, or remove one, or both."
     },
     "formula": {
       "unknownReference": "“{found}” at position {position} is not a reference Pioneer knows. References look like @level, @attr.str or @prof.skill.athletics.",
@@ -584,6 +585,8 @@
     },
     "statistics": {
       "none": "No statistics.",
+      "noStrikes": "No Strikes listed yet. Hold a weapon to add its Strike.",
+      "fist": "Fist",
       "failed": "Failed",
       "pinned": "Pinned",
       "computed": "computed {computed}",
@@ -669,7 +672,8 @@
         "background": "Background",
         "deity": "Deity",
         "keyAttribute": "Key attribute",
-        "size": "Size"
+        "size": "Size",
+        "traits": "Traits"
       },
       "empty": {
         "class": "Pick a class",
@@ -679,7 +683,8 @@
         "background": "Pick a background",
         "deity": "Pick a deity",
         "keyAttribute": "Pick a class and its key attribute",
-        "size": "Pick an ancestry for its size"
+        "size": "Pick an ancestry for its size",
+        "traits": "Pick an ancestry for its traits"
       },
       "size": {
         "tiny": "Tiny",

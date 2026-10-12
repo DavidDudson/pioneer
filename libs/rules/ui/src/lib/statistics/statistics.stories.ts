@@ -5,6 +5,7 @@ import { expect, within } from 'storybook/test';
 import { CONDITIONAL_STATISTICS, CYCLE, ENTRY_NAMES, FIGHTER_STATISTICS } from '../testing/breakdown-fixtures';
 import { BEATEN_STATISTICS } from '../testing/conditional-fixtures';
 import { PINNED_STATISTICS } from '../testing/override-fixtures';
+import { StatisticsMessage } from './statistics-messages';
 import { StatisticsView } from './statistics.component';
 
 type StatisticsStory = StoryObj<StatisticsView>;
@@ -81,4 +82,19 @@ export const Beaten: StatisticsStory = {
     await userEvent.click(canvas.getByText('+10'));
     await expect(canvas.getByText('Applies when you Climb, but Steady Grip already counts for as much.')).toBeVisible();
   },
+};
+
+/** Armor Class's derivation, standing in for a fist's: the story shows the row's name, not its maths. */
+const FIST_RESULT = FIGHTER_STATISTICS[0]?.result ?? CYCLE;
+
+/** A Strikes list: a fist, named by its message key since no content names it. */
+export const Strikes: StatisticsStory = {
+  args: {
+    statistics: [{ name: 'fist', nameKey: StatisticsMessage.Fist, kind: StatisticKind.Check, result: FIST_RESULT }],
+  },
+};
+
+/** No Strikes: the caller names what the empty list lacks. */
+export const EmptyStrikes: StatisticsStory = {
+  args: { statistics: [], noneKey: StatisticsMessage.NoStrikes },
 };

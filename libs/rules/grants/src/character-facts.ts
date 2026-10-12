@@ -1,6 +1,7 @@
+import { evaluatePredicate, Truth } from '@pioneer/rules/predicate';
 import type { PredicateFacts } from '@pioneer/rules/predicate';
 import { ContentKind, RollOptionNamespace, RuleElementKey } from '@pioneer/rules/sdk';
-import type { ConditionValue, ContentId, Level, RollOption } from '@pioneer/rules/sdk';
+import type { ConditionValue, ContentId, Level, RollOption, Trait } from '@pioneer/rules/sdk';
 
 import type { AnsweredSlot } from './choices';
 import type { GrantEntry } from './grant-entry';
@@ -12,6 +13,9 @@ import type { PlacedEntry, ToggleSlot, ToggleStates } from './toggles';
 
 /** Where the level is written: `self:level:5`. */
 const LEVEL_PREFIX = 'self:level';
+
+/** Where each of the character's traits is written: `self:trait:humanoid`, `self:trait:holy`. */
+const TRAIT_PREFIX = 'self:trait';
 
 /**
  * Where each kind of entry says it is on the character, as Foundry pf2e writes it: `class:fighter`,
@@ -122,6 +126,9 @@ class FactCollector {
   readonly #known = new Set<RollOptionNamespace>();
   readonly #toggles: ToggleSlot[] = [];
   readonly #valued = new Map<RollOption, Valued>();
+  /** The character's traits so far, each with the first entry that gave it; and those an `ActorTraits` removes. */
+  readonly #traits = new Map<Trait, ContentId>();
+  readonly #removedTraits = new Map<Trait, ContentId>();
 
   public constructor(sources: FactSources) {
     this.#sources = sources;
@@ -150,6 +157,38 @@ class FactCollector {
     this.#toggles.push(...set.toggles);
     for (const namespace of pickNamespaces(entry)) {
       this.#known.add(namespace);
+    }
+    this.#actorTraits(entry);
+  }
+
+  /** The traits an ancestry gives, and those the entry's `ActorTraits` elements add or remove while they hold. */
+  #actorTraits(entry: GrantEntry): void {
+    const given = (traits: readonly Trait[], into: Map<Trait, ContentId>): void => {
+      for (const trait of traits) {
+        if (!into.has(trait)) {
+          into.set(trait, entry.id);
+        }
+      }
+    };
+    given(entry.actorTraits ?? [], this.#traits);
+    for (const element of entry.rules) {
+      const holds =
+        element.key === RuleElementKey.ActorTraits &&
+        (element.predicate === undefined || evaluatePredicate(element.predicate, this.#sources.facts) === Truth.True);
+      if (holds) {
+        given(element.add ?? [], this.#traits);
+        given(element.remove ?? [], this.#removedTraits);
+      }
+    }
+  }
+
+  /** `self:trait:<trait>` for each of the character's traits that no `ActorTraits` removes. */
+  public traits(): void {
+    for (const [trait, entry] of this.#traits) {
+      const option = this.#removedTraits.has(trait) ? undefined : optionOf(TRAIT_PREFIX, trait);
+      if (option !== undefined) {
+        tally(this.#setBy, option, entry);
+      }
     }
   }
 
@@ -191,6 +230,9 @@ class FactCollector {
  * A condition put on with a value (_frightened 2_), or a valued condition granted by another entry (at the grant's
  * value, else 1), also sets `self:condition:<slug>:<value>`. One that arrives twice keeps its highest value alone, as
  * comparisons hold if any value does.
+ *
+ * Each of the character's traits sets `self:trait:<trait>`: its ancestry's, and those `ActorTraits` elements add, less
+ * those they remove (ADR-0048).
  */
 export function characterFacts(walk: GrantWalk, sources: FactSources): CharacterFacts {
   const collector = new FactCollector(sources);
@@ -202,6 +244,7 @@ export function characterFacts(walk: GrantWalk, sources: FactSources): Character
     collector.value(duplicate);
   }
   collector.valued();
+  collector.traits();
   for (const slot of walk.answered) {
     collector.answered(slot);
   }

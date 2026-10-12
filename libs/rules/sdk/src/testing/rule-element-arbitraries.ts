@@ -216,6 +216,14 @@ const poolSpells = element('PoolSpells', {
   spells: uniqueArray(uuid(), { minLength: 1, maxLength: LIST_MAX }),
 });
 
+const deitySpells = element('DeitySpells', { entry: slugText });
+
+const actorTraits = oneof(
+  element('ActorTraits', { add: uniqueArray(slugText, { minLength: 1, maxLength: LIST_MAX }) }),
+  element('ActorTraits', { remove: uniqueArray(slugText, { minLength: 1, maxLength: LIST_MAX }) }),
+);
+
+const strike = element('Strike', { fist: constant(true) });
 const signatureSpells = element('SignatureSpells', { entry: slugText });
 
 const languageAccess = constantFrom('common', 'uncommon', 'rare');
@@ -255,6 +263,9 @@ export const ruleElementJson: Arbitrary<object> = oneof(
   sense,
   spellSlots,
   poolSpells,
+  deitySpells,
   signatureSpells,
   language,
+  actorTraits,
+  strike,
 );

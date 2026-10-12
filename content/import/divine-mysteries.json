@@ -551,16 +551,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "flags.system.favoredWeaponRank",
-            "value": 2
-          }
-        },
-        {
-          "type": "rule",
           "key": "CriticalSpecialization",
           "raw": {
             "key": "CriticalSpecialization",
@@ -575,16 +565,6 @@
       "slug": "class-feature:major-creed",
       "foundry": "Compendium.pf2e.classfeatures.Item.kpdb5TJ0F5uCTX0F",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "flags.system.favoredWeaponRank",
-            "value": 3
-          }
-        },
         {
           "type": "rule",
           "key": "AdjustDegreeOfSuccess",
@@ -4671,14 +4651,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "ActorTraits",
-          "raw": {
-            "add": ["celestial"],
-            "key": "ActorTraits"
-          }
-        },
-        {
-          "type": "rule",
           "key": "BaseSpeed",
           "raw": {
             "key": "BaseSpeed",
@@ -5026,14 +4998,6 @@
       "slug": "feat:fiendish-form",
       "foundry": "Compendium.pf2e.feats-srd.Item.CYSH4aFmzH9PM3sm",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ActorTraits",
-          "raw": {
-            "add": ["fiend"],
-            "key": "ActorTraits"
-          }
-        },
         {
           "type": "rule",
           "key": "BaseSpeed",
@@ -5538,24 +5502,6 @@
             "prompt": "PF2E.SpecificRule.Prompt.Sanctification",
             "rollOption": "sanctification",
             "slug": "sanctification"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ActorTraits",
-          "raw": {
-            "add": ["holy"],
-            "key": "ActorTraits",
-            "predicate": ["sanctification:holy"]
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ActorTraits",
-          "raw": {
-            "add": ["unholy"],
-            "key": "ActorTraits",
-            "predicate": ["sanctification:unholy"]
           }
         },
         {

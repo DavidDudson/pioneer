@@ -37,6 +37,9 @@ const poolSpells = (fields: PoolSpellsFields, extra: object = {}): object => ({
 const fontSpell = (spell: string, option: string): object =>
   poolSpells({ entry: 'cleric', pool: 'divine-font', spells: [spell] }, { predicate: [option] });
 
+/** The cleric's `DeitySpells`, while `predicate` holds. */
+const deitySpells = (predicate: string): object => ({ key: 'DeitySpells', entry: 'cleric', predicate: [predicate] });
+
 function entriesOf(
   placed: readonly (readonly [object, string])[],
   options: readonly string[] = [],
@@ -95,6 +98,22 @@ describe('spellcastingInPlay', () => {
 
     expect(wizard?.slots).toEqual({ ranks: [] });
     expect(wizard?.pools).toEqual([]);
+  });
+
+  test("a DeitySpells element in play adds the deity's spells to the entry it names, and only while it holds", () => {
+    const cleric = [entry('cleric', 'divine'), 'cleric-spellcasting'] as const;
+    const placed = [
+      cleric,
+      [entry('wizard', 'arcane'), 'wizard-dedication'],
+      [deitySpells('class:cleric'), 'deity'],
+    ] as const;
+    const takes = entriesOf(placed, ['class:cleric']).map(({ slug, deitySpells: own }) => [String(slug), own]);
+
+    expect(takes).toEqual([
+      ['cleric', true],
+      ['wizard', false],
+    ]);
+    expect(entriesOf([cleric, [deitySpells('class:cleric'), 'deity']])[0]?.deitySpells).toBe(false);
   });
 });
 

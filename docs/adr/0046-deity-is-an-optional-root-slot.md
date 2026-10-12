@@ -1,6 +1,6 @@
 # 0046. A deity is an optional root slot, and the sheet reads it from the server
 
-- Status: Proposed
+- Status: Proposed; what a cleric's deity grants brought by [0048](0048-a-clerics-deity-grants-through-rule-elements.md)
 - Date: 2026-10-12
 
 ## Context
@@ -42,7 +42,8 @@ Alternatives:
 - A philosophy is on offer to a cleric too, though Foundry's cleric `ChoiceSet` leaves philosophies out; nothing flags
   it yet.
 - The deity's divine skill and favoured weapon proficiency for a cleric, its spells on the cleric's list, its Strike
-  with a fist and the holy or unholy trait stay in the backlog.
+  with a fist and the holy or unholy trait stay in the backlog; [ADR-0048](0048-a-clerics-deity-grants-through-rule-elements.md)
+  brings them.
 - A champion's deity is needed by its Deity and Cause feature once Player Core 2 is imported; it joins
   `OPTIONAL_ROOT_SLOTS` then.
 - A favoured weapon from a book not imported yet has no name; the sheet says it is not in the loaded content.

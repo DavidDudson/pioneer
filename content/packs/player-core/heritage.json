@@ -28,6 +28,10 @@
       {
         "key": "Sense",
         "sense": "16b42c38-9373-58ec-a7ac-2221bb17a71c"
+      },
+      {
+        "key": "ActorTraits",
+        "add": ["elf"]
       }
     ],
     "externalIds": {
@@ -532,6 +536,10 @@
       {
         "key": "Sense",
         "sense": "16b42c38-9373-58ec-a7ac-2221bb17a71c"
+      },
+      {
+        "key": "ActorTraits",
+        "add": ["orc"]
       }
     ],
     "externalIds": {
@@ -564,7 +572,12 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ActorTraits",
+        "add": ["fey"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.heritages.Item.D3hTAqgwSank8OyO"
     },
@@ -681,6 +694,11 @@
       {
         "key": "Sense",
         "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+      },
+      {
+        "key": "ActorTraits",
+        "add": ["fungus"],
+        "remove": ["plant"]
       }
     ],
     "externalIds": {

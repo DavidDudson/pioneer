@@ -9,7 +9,15 @@ import {
   SpellPreparation,
   SpellRank,
 } from '@pioneer/rules/sdk';
-import type { ContentId, Origin, PoolSpellsElement, RuleSlug, Slug, SpellSlotsElement } from '@pioneer/rules/sdk';
+import type {
+  ContentId,
+  Origin,
+  PoolSpellsElement,
+  RuleElement,
+  RuleSlug,
+  Slug,
+  SpellSlotsElement,
+} from '@pioneer/rules/sdk';
 
 import type { ModifierInputs, RuleInPlay } from './rule-in-play';
 import { truthOf } from './rule-value';
@@ -60,7 +68,10 @@ interface EntryInPlay extends SpellcastingInputs {
  * A spellcasting entry on the character: what its spell attack and DC read, how it casts, why it is there, and its
  * slots.
  */
-export interface SpellcastingInPlay extends EntryInPlay, EntrySlots, EntrySignatures {}
+export interface SpellcastingInPlay extends EntryInPlay, EntrySlots, EntrySignatures {
+  /** Whether a `DeitySpells` element in play adds the character's deity's spells to its list (ADR-0048). */
+  readonly deitySpells: boolean;
+}
 
 /** `items` in the code-unit order of their slugs, so a result never depends on the host's locale. */
 function bySlug<Item>(items: readonly Item[], slugOf: (item: Item) => Slug): readonly Item[] {
@@ -168,6 +179,8 @@ interface Gathered {
   readonly entries: Map<Slug, EntryInPlay>;
   readonly slots: Map<Slug, PlacedSlots[]>;
   readonly poolSpells: Map<Slug, Map<RuleSlug, ContentId[]>>;
+  /** The entries a `DeitySpells` element names. */
+  readonly deitySpells: Set<Slug>;
   /** The entries a `SignatureSpells` element names. */
   readonly signatures: Set<Slug>;
 }
@@ -182,7 +195,7 @@ function addPoolSpells({ poolSpells }: Gathered, { entry, pool, spells }: PoolSp
 
 /**
  * Adds what one rule in play gives, if it holds: an entry the first time its slug holds, slots, pool spells, or
- * signature spells.
+ * the entries deity or signature spells name.
  */
 function gather(gathered: Gathered, rule: RuleInPlay, facts: PredicateFacts): void {
   const { element, origin } = rule;
@@ -199,8 +212,16 @@ function gather(gathered: Gathered, rule: RuleInPlay, facts: PredicateFacts): vo
   if (element.key === RuleElementKey.PoolSpells) {
     addPoolSpells(gathered, element);
   }
+  addNamed(gathered, element);
+}
+
+/** Records the entry a `DeitySpells` or `SignatureSpells` element names. */
+function addNamed({ deitySpells, signatures }: Gathered, element: RuleElement): void {
+  if (element.key === RuleElementKey.DeitySpells) {
+    deitySpells.add(element.entry);
+  }
   if (element.key === RuleElementKey.SignatureSpells) {
-    gathered.signatures.add(element.entry);
+    signatures.add(element.entry);
   }
 }
 
@@ -209,20 +230,29 @@ function gather(gathered: Gathered, rule: RuleInPlay, facts: PredicateFacts): vo
  * element with that slug whose predicate holds, in slug order. One that depends on the situation gives none on the
  * sheet. Each is a source `StatisticInputs.spellcasting` derives a spell attack and DC for, with the slots the
  * `SpellSlots` elements in play give it (ADR-0041) and the spells the `PoolSpells` elements in play give its pools
- * (ADR-0045). A spontaneous entry a `SignatureSpells` element in play names has signature spells (ADR-0047); a prepared
- * or innate one never does.
+ * (ADR-0045), and whether a `DeitySpells` element in play adds the deity's spells to its list (ADR-0048). A spontaneous
+ * entry a `SignatureSpells` element in play names has signature spells (ADR-0047); a prepared or innate one never does.
  */
 export function spellcastingInPlay({ rules, facts }: ModifierInputs): readonly SpellcastingInPlay[] {
-  const gathered: Gathered = { entries: new Map(), slots: new Map(), poolSpells: new Map(), signatures: new Set() };
+  const gathered: Gathered = {
+    entries: new Map(),
+    slots: new Map(),
+    poolSpells: new Map(),
+    deitySpells: new Set(),
+    signatures: new Set(),
+  };
   for (const rule of rules) {
     gather(gathered, rule, facts);
   }
-  const { entries, slots, poolSpells, signatures } = gathered;
+  const { entries, slots, poolSpells, deitySpells, signatures } = gathered;
   return bySlug(
     [...entries.values()].map((entry): SpellcastingInPlay => {
       const spontaneous = entry.preparation === SpellPreparation.Spontaneous;
       const counted = entrySlots(slots.get(entry.slug) ?? [], poolSpells.get(entry.slug) ?? NO_POOL_SPELLS);
-      return Object.assign(counted, entry, { signatures: spontaneous && signatures.has(entry.slug) });
+      return Object.assign(counted, entry, {
+        deitySpells: deitySpells.has(entry.slug),
+        signatures: spontaneous && signatures.has(entry.slug),
+      });
     }),
     ({ slug }) => slug,
   );

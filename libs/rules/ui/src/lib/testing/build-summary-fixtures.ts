@@ -11,9 +11,10 @@ export const DWARF_BUILD: readonly BuildLine[] = [
   { part: BuildPart.Deity, value: undefined },
   { part: BuildPart.KeyAttribute, value: undefined },
   { part: BuildPart.Size, value: { size: 'medium' } },
+  { part: BuildPart.Traits, value: { traits: ['Dwarf', 'Humanoid'] } },
 ];
 
-/** A fighter elf with every part picked. */
+/** A fighter elf with every part picked, a follower of Iomedae. */
 export const FIGHTER_BUILD: readonly BuildLine[] = [
   { part: BuildPart.Class, value: { name: 'Fighter' } },
   { part: BuildPart.Subclass, value: { name: 'Shield Fighter' } },
@@ -23,4 +24,11 @@ export const FIGHTER_BUILD: readonly BuildLine[] = [
   { part: BuildPart.Deity, value: { name: 'Iomedae' } },
   { part: BuildPart.KeyAttribute, value: { attribute: 'dex' } },
   { part: BuildPart.Size, value: { size: 'medium' } },
+  { part: BuildPart.Traits, value: { traits: ['Elf', 'Humanoid'] } },
 ];
+
+/** A character with nothing picked yet: no ancestry, so no size or traits either. */
+export const NO_ANCESTRY_BUILD: readonly BuildLine[] = Object.values(BuildPart).map((part) => ({
+  part,
+  value: undefined,
+}));

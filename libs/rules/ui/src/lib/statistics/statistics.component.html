@@ -1,6 +1,6 @@
 @if (shown(); as statistics) {
   @if (statistics.length === 0) {
-    <fr-empty-state [title]="Message.None | transloco" />
+    <fr-empty-state [title]="noneKey() | transloco" />
   } @else {
     <fr-list gap="3xs">
       @for (row of statistics; track row.key) {

@@ -17,6 +17,7 @@ export const BUILD_PART_MESSAGES: Readonly<Record<BuildPart, string>> = {
   [BuildPart.Deity]: 'rules.build.part.deity',
   [BuildPart.KeyAttribute]: 'rules.build.part.keyAttribute',
   [BuildPart.Size]: 'rules.build.part.size',
+  [BuildPart.Traits]: 'rules.build.part.traits',
 };
 
 /** What an empty part asks the player to pick. */
@@ -29,6 +30,7 @@ export const BUILD_EMPTY_MESSAGES: Readonly<Record<BuildPart, string>> = {
   [BuildPart.Deity]: 'rules.build.empty.deity',
   [BuildPart.KeyAttribute]: 'rules.build.empty.keyAttribute',
   [BuildPart.Size]: 'rules.build.empty.size',
+  [BuildPart.Traits]: 'rules.build.empty.traits',
 };
 
 export const SIZE_MESSAGES: Readonly<Record<Size, string>> = {

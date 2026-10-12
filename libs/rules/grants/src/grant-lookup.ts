@@ -46,12 +46,15 @@ const DEITY_PREFIX = 'deity:primary';
  * its sanctification (`sanctification:can:holy`, or `sanctification:none`), each favoured weapon and each divine
  * font. Foundry's bare `deity` has no namespace, which a Pioneer roll option needs; `deity:primary:<slug>`, which
  * its kind sets, says as much. `self:deity:slug` is left out, as no rule element Pioneer imports reads it.
+ *
+ * Each divine skill sets `deity:primary:skill:<skill>` too, which Foundry keeps in the actor's data instead, so a
+ * cleric's divine skill choice can offer the deity's. Its spells come along for a `DeitySpells` element (ADR-0048).
  */
-function deityOptions(entry: ContentEntry): Pick<GrantEntry, 'characterOptions'> {
+function deityFields(entry: ContentEntry): Pick<GrantEntry, 'characterOptions' | 'deitySpells'> {
   if (entry.kind !== ContentKind.Deity) {
     return {};
   }
-  const { sanctification, weapons, font } = entry.data;
+  const { sanctification, weapons, font, skills, spells } = entry.data;
   const sanctified =
     sanctification === undefined
       ? ['sanctification:none']
@@ -60,8 +63,10 @@ function deityOptions(entry: ContentEntry): Pick<GrantEntry, 'characterOptions'>
     ...sanctified,
     ...weapons.map((weapon) => `favored-weapon:${weapon}`),
     ...font.map((each) => `font:${each}`),
+    ...skills,
   ];
-  return { characterOptions: options.map((option) => RollOption.parse(`${DEITY_PREFIX}:${option}`)) };
+  const characterOptions = options.map((option) => RollOption.parse(`${DEITY_PREFIX}:${option}`));
+  return { characterOptions, deitySpells: spells };
 }
 
 function traitOptions(traits: readonly Trait[]): RollOption[] {
@@ -88,6 +93,7 @@ function ancestryEntry(pack: ContentPack, ancestry: PackAncestry): GrantEntry | 
     rules: ancestry.rules ?? [],
     sources: [source, ...sources],
     rollOptions: traitOptions(ancestry.traits),
+    actorTraits: ancestry.traits,
   };
 }
 
@@ -107,7 +113,7 @@ function envelopeEntry(entry: ContentEntry): GrantEntry | undefined {
     rollOptions: [...traitOptions(entry.traits), ...tagOptions(entry)],
     ...belongsTo(entry),
     ...valued(entry),
-    ...deityOptions(entry),
+    ...deityFields(entry),
   };
 }
 

@@ -133,7 +133,8 @@ const DeityDomains = z.strictObject({
 });
 
 /** A spell the deity grants its clerics at a rank. */
-const DeitySpell = z.strictObject({ rank: SpellRank, spell: ContentId });
+export const DeitySpell = z.strictObject({ rank: SpellRank, spell: ContentId });
+export type DeitySpell = z.infer<typeof DeitySpell>;
 
 /** A deity's spells, at most one per rank (Foundry pf2e keys them by rank). */
 const DeitySpells = z

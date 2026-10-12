@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { ContentId, ContentKind, ContentRegistry, RuleSlug } from '@pioneer/rules/sdk';
+import { ContentId, ContentKind, ContentRegistry, RuleSlug, Selector } from '@pioneer/rules/sdk';
 import { ContentPackBuilder, CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
 
 import { characterDeity } from './character-deity';
@@ -8,17 +8,27 @@ import type { SheetDeity } from './character-deity';
 import { SlotStatus } from './character-slot';
 import { characterSlots } from './character-slot-status';
 import { DEITY_SLOT } from './character-slots';
-import { characterGrants } from './class-build';
+import { characterTraits } from './character-traits';
+import { buildRanks, characterGrants } from './class-build';
 import { deityContent } from './deity-content';
+import { favoredWeapons } from './favored-weapons';
+import { grantedStrikes } from './granted-strikes';
 import { slotContent } from './slot-offer';
 import { CharacterBuilder, playerCoreClasses, playerCoreClassId } from './testing';
 import type { PlayerCoreClass } from './testing';
 
 const deities = new ContentPackBuilder()
   .withId('deities')
-  .withDeity('sarenrae', { sanctification: { modal: 'can', what: ['holy'] }, font: ['heal'], weapons: ['scimitar'] })
+  .withDeity('sarenrae', {
+    sanctification: { modal: 'can', what: ['holy'] },
+    font: ['heal'],
+    skills: ['skill:medicine'],
+    weapons: ['scimitar'],
+  })
+  .withDeity('shelyn', { font: ['heal'], skills: ['skill:crafting', 'skill:performance'] })
   .withDeity('zon-kuthon', { sanctification: { modal: 'must', what: ['unholy'] }, font: ['harm'] })
   .withDeity('pharasma', { font: ['heal'] })
+  .withDeity('irori', { font: ['heal'], weapons: ['fist'] })
   .withItem(ContentKind.Weapon, 'scimitar', {
     baseItem: 'scimitar',
     category: 'martial',
@@ -35,6 +45,8 @@ const content = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 const SARENRAE = ContentId.parse(deities.idOf(ContentKind.Deity, 'sarenrae'));
 const ZON_KUTHON = ContentId.parse(deities.idOf(ContentKind.Deity, 'zon-kuthon'));
 const PHARASMA = ContentId.parse(deities.idOf(ContentKind.Deity, 'pharasma'));
+const SHELYN = ContentId.parse(deities.idOf(ContentKind.Deity, 'shelyn'));
+const IRORI = ContentId.parse(deities.idOf(ContentKind.Deity, 'irori'));
 
 function level1(name: PlayerCoreClass, deity?: ContentId): CharacterBuilder {
   const builder = new CharacterBuilder()
@@ -79,6 +91,7 @@ describe('the deity slot', () => {
       'deity:primary:font:heal',
       'deity:primary:sanctification:can:holy',
       'deity:primary:sarenrae',
+      'deity:primary:skill:medicine',
     ]);
   });
 });
@@ -120,5 +133,79 @@ describe("a cleric's divine font and sanctification", () => {
 
   test('offer only none when the deity has no sanctification', () => {
     expect(offered('cleric', PHARASMA, 'sanctification')).toEqual(['none']);
+  });
+});
+
+/** The key of the cleric's open slot under `flag`, with `deity` picked. */
+function slotKey(deity: ContentId, flag: string): string {
+  const { document } = level1('cleric', deity).build();
+  const slot = characterGrants(document, content).open.find((each) => each.flag === RuleSlug.parse(flag));
+  return String(slot?.key);
+}
+
+describe("a cleric's divine skill", () => {
+  test("is offered from the deity's divine skills, and nothing before a deity", () => {
+    expect(offered('cleric', undefined, 'divine-skill')).toEqual([]);
+    expect(offered('cleric', SARENRAE, 'divine-skill')).toEqual(['medicine']);
+    expect(offered('cleric', SHELYN, 'divine-skill')).toEqual(['crafting', 'performance']);
+  });
+
+  test('picked, trains the cleric in it', () => {
+    const skill = Selector.parse('skill:performance');
+    const before = level1('cleric', SHELYN).build().document;
+    const after = level1('cleric', SHELYN).picking(slotKey(SHELYN, 'divine-skill'), 'performance').build().document;
+
+    expect(buildRanks(before, content).get(skill)).toBeUndefined();
+    expect(buildRanks(after, content).get(skill)).toBe('trained');
+  });
+
+  test("is not a fighter's, who has no Deity feature", () => {
+    expect(offered('fighter', SARENRAE, 'divine-skill')).toBeUndefined();
+  });
+});
+
+describe("a cleric's favoured weapon", () => {
+  const favored = Selector.parse('attack:favored-weapon');
+
+  test("is trained for a cleric, whose Strikes with the deity's favoured weapons read it", () => {
+    const { document } = level1('cleric', SARENRAE).build();
+    expect(buildRanks(document, content).get(favored)).toBe('trained');
+    expect([...favoredWeapons(characterGrants(document, content))].map(String)).toEqual(['scimitar']);
+  });
+
+  test('is no rank for a fighter, whose deity favours the weapon all the same', () => {
+    const { document } = level1('fighter', SARENRAE).build();
+    expect(buildRanks(document, content).get(favored)).toBeUndefined();
+    expect([...favoredWeapons(characterGrants(document, content))].map(String)).toEqual(['scimitar']);
+  });
+});
+
+/** A human cleric of Sarenrae's traits, with `sanctification` picked. */
+function sanctifiedTraits(sanctification: string): readonly string[] {
+  const builder = level1('cleric', SARENRAE).picking(slotKey(SARENRAE, 'sanctification'), sanctification);
+  return characterTraits(characterGrants(builder.build().document, content)).map(String);
+}
+
+describe("a cleric's sanctification", () => {
+  test("picked holy, adds the holy trait to the ancestry's; none adds none", () => {
+    expect(sanctifiedTraits('holy')).toEqual(['holy', 'human', 'humanoid']);
+    expect(sanctifiedTraits('none')).toEqual(['human', 'humanoid']);
+  });
+});
+
+/** The Strikes a level 1 `name` of `deity` has from its features, by slug and whether favoured. */
+function strikesOf(name: PlayerCoreClass, deity: ContentId): readonly (readonly [string, boolean | undefined])[] {
+  const grants = characterGrants(level1(name, deity).build().document, content);
+  return grantedStrikes(grants, favoredWeapons(grants)).map(({ slug, favored }) => [String(slug), favored] as const);
+}
+
+describe("a cleric's fist", () => {
+  test('is a favoured Strike when the deity favours the fist', () => {
+    expect(strikesOf('cleric', IRORI)).toEqual([['fist', true]]);
+  });
+
+  test("is no Strike of a feature's otherwise, nor a fighter's of the same deity", () => {
+    expect(strikesOf('cleric', SARENRAE)).toEqual([]);
+    expect(strikesOf('fighter', IRORI)).toEqual([]);
   });
 });

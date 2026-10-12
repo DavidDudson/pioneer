@@ -89,6 +89,14 @@ function daggerStrike(attributes: object): number | undefined {
   return totals(derive([STRIKE], character({ attributes, weapons: [DAGGER] })))['strike:dagger'];
 }
 
+/** A scimitar's Strike for a character `martialRank` in martial weapons and `favoredRank` in favoured ones. */
+function scimitarStrike(favored: boolean, favoredRank: string, martialRank = 'trained'): number | undefined {
+  const scimitar = wielded({ slug: 'scimitar', category: 'martial', traits: [], favored });
+  const ranks = { 'attack:martial': martialRank, 'attack:favored-weapon': favoredRank };
+  const results = derive([STRIKE], character({ weapons: [scimitar], ranks }));
+  return totals(results)['strike:scimitar'];
+}
+
 describe('statistics derived per weapon', () => {
   test('each weapon gets its own Strike, under strike:<slug>', () => {
     const results = derive([STRIKE], character({ weapons: [LONGSWORD, DAGGER, SHORTBOW] }));
@@ -132,6 +140,15 @@ describe('statistics derived per weapon', () => {
     const results = derive([STRIKE], character({ weapons: [LONGSWORD, SHORTBOW] }), rules);
     // The longsword's +1 potency loses to the +3 item bonus: only the highest item bonus applies.
     expect(totals(results)).toStrictEqual({ 'strike:longsword': 6 + 1 + 3, 'strike:shortbow': 9 + 1 + 2 });
+  });
+
+  test("a favoured weapon reads the better of its category's rank and the favoured weapon rank", () => {
+    // Strength 1 + trained 5, or master 9 as a favoured weapon; a weapon that isn't one keeps its category's rank.
+    expect(scimitarStrike(true, 'master')).toBe(1 + 9);
+    expect(scimitarStrike(false, 'master')).toBe(1 + 5);
+    expect(scimitarStrike(true, 'trained')).toBe(1 + 5);
+    // A category rank above the favoured one wins: master 9 over trained 5.
+    expect(scimitarStrike(true, 'trained', 'master')).toBe(1 + 9);
   });
 
   test('an unarmed attack is a weapon like any other, in the unarmed category', () => {
