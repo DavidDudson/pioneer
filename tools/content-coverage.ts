@@ -4,6 +4,7 @@
  * left in the backlog, entries with a page number and with an AoN link, and entries the import left out. Sources
  * ("Books and source references"): per registered book, how many entries cite it and which still lack a page.
  * Triggers (play-and-campaigns.md, "Triggered abilities"): which actions have a trigger but no `triggerEvent`.
+ * Prerequisites (content-model.md, "Prerequisites"): which feats have prerequisites but no `prerequisitePredicate`.
  * Reports only; never fails. CI runs it on pull requests touching `content/`.
  */
 import path from 'node:path';
@@ -15,10 +16,11 @@ import {
   contentCatalog,
   officialPacks,
   packEntries,
+  prerequisiteCoverage,
   sourceCoverage,
   triggerCoverage,
 } from '@pioneer/rules/catalog';
-import type { BookCoverage, TriggerCoverage } from '@pioneer/rules/catalog';
+import type { BookCoverage, PrerequisiteCoverage, TriggerCoverage } from '@pioneer/rules/catalog';
 import { ContentRegistry } from '@pioneer/rules/sdk';
 import { Glob } from 'bun';
 
@@ -37,6 +39,11 @@ function formatList(entries: readonly string[]): string[] {
 function formatBook({ book, cited, missingPage }: BookCoverage): string {
   const heading = `${book}: ${cited} cited, ${missingPage.length} without a page`;
   return [heading, ...formatList(missingPage)].join('\n');
+}
+
+function formatPrerequisites({ withPrerequisites, withoutPredicate }: PrerequisiteCoverage): string {
+  const heading = `prerequisites: ${withPrerequisites} feats with prerequisites, ${withoutPredicate.length} without a predicate`;
+  return [heading, ...formatList(withoutPredicate)].join('\n');
 }
 
 function formatTriggers({ triggered, withoutEvent }: TriggerCoverage): string {
@@ -70,3 +77,4 @@ const coverage = sourceCoverage(
 );
 console.log(coverage.map((book) => formatBook(book)).join('\n'));
 console.log(formatTriggers(triggerCoverage(entries)));
+console.log(formatPrerequisites(prerequisiteCoverage(entries)));

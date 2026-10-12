@@ -12,9 +12,15 @@ export type { FoundryImport } from './foundry-imports';
 export type { MissourcedEntry, SourcedEntry } from './source-check';
 export { sourceCoverage } from './source-coverage';
 export type { BookCoverage } from './source-coverage';
+export { prerequisiteCoverage } from './prerequisite-coverage';
+export type { PrerequisiteCoverage } from './prerequisite-coverage';
 export { triggerCoverage } from './trigger-coverage';
 export type { TriggerCoverage } from './trigger-coverage';
 export { entryAction, matchTrigger, triggerMatches } from './trigger-matcher';
+export { prerequisiteMatches, readPrerequisites } from './prerequisite-matcher';
+export { prerequisiteNames } from './prerequisite-names';
+export type { PrerequisiteMatch, PrerequisiteReading } from './prerequisite-matcher';
+export type { NamedEntry, PrerequisiteNames } from './prerequisite-names';
 export type { RefNames, TriggerMatch } from './trigger-matcher';
 
 /**
