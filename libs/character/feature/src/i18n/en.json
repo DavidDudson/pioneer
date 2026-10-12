@@ -48,6 +48,7 @@
     "class": "Class",
     "subclass": "Subclass",
     "keyAttribute": "Key attribute",
+    "featsHeading": "Feats",
     "featuresHeading": "Class features",
     "cleared": {
       "heading": "Cleared by your last change",
@@ -129,6 +130,17 @@
       "kits": "Kits",
       "kitsHint": "A kit adds every item in it at once, what its backpack holds packed inside.",
       "kitsLoadError": "The kits could not be loaded. Try again."
+    },
+    "feats": {
+      "slot": "{prompt}, level {level}",
+      "slotFrom": "Feat from {entry}, level {level}",
+      "placeholder": "Search feats by name",
+      "unknownFeat": "Unknown feat",
+      "unmet": "Prerequisites not met: {prerequisites}",
+      "unknown": "Prerequisites can't be checked: {prerequisites}",
+      "granted": "From features",
+      "from": "From {entry}",
+      "none": "No feat slots yet. Pick a class and ancestry first."
     },
     "prepared": {
       "heading": "Prepared spells: {tradition}",

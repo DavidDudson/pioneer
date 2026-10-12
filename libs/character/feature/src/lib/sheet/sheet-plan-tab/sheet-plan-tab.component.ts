@@ -45,6 +45,7 @@ import { AttributesView, BuildSummaryView, ChoicesView, ClassFeaturesView } from
 import { AncestryOptions } from '../../data/ancestry-options';
 import { ImportResult } from '../../import/import-result/import-result.component';
 import { SheetClassFields } from '../sheet-class-fields/sheet-class-fields.component';
+import { SheetFeats } from '../sheet-feats/sheet-feats.component';
 import { sheetField } from '../sheet-field';
 import { SheetPickFields } from '../sheet-pick-fields/sheet-pick-fields.component';
 import { SHEET_SECTIONS, SHEET_TAB_SECTIONS } from '../sheet-sections';
@@ -83,6 +84,7 @@ function focusField(field: ElementRef<HTMLElement>): void {
     SectionLink,
     Select,
     SheetClassFields,
+    SheetFeats,
     SheetPickFields,
     Stack,
     Surface,
