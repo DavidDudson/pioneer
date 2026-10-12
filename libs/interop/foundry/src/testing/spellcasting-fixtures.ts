@@ -46,6 +46,24 @@ function archetypeFeat({ id, name, level, traits }: Fixture): DocumentFixture {
   };
 }
 
+/** A class feat, as Foundry keeps one: Domain Initiate, Initiate Warden. */
+function classFeat({ id, name, level, traits }: Fixture, rules: readonly object[] = []): DocumentFixture {
+  return {
+    id,
+    name,
+    type: 'feat',
+    pack: FEATS,
+    system: {
+      rules,
+      category: 'class',
+      actionType: { value: 'passive' },
+      actions: { value: FOUNDRY_NULL },
+      level: { value: level },
+      traits: { rarity: 'common', value: traits },
+    },
+  };
+}
+
 const DEDICATION = ['dedication', 'multiclass'];
 
 export const WIZARD_SPELLCASTING = classFeature({
@@ -145,4 +163,39 @@ export const SIGNATURE_SPELLS = classFeature({
   name: 'Signature Spells',
   level: 3,
   traits: ['bard', 'oracle', 'psychic', 'sorcerer', 'summoner'],
+});
+
+/** Composition Spells: Counter Performance and Courageous Anthem, which `pf2e-8.6.0` grants by no rule element. */
+export const COMPOSITION_SPELLS = classFeature({
+  id: 'sPeLlCaStInG0016',
+  name: 'Composition Spells',
+  level: 1,
+  traits: ['bard'],
+});
+
+/** Domain Initiate, with the `ChoiceSet` over the deity's domains Foundry gives it, which grants nothing. */
+export const DOMAIN_INITIATE = classFeat(
+  { id: 'sPeLlCaStInG0017', name: 'Domain Initiate', level: 1, traits: ['cleric'] },
+  [
+    {
+      key: 'ChoiceSet',
+      choices: 'system.details.deities.domains',
+      flag: 'domainInitiate',
+      prompt: 'PF2E.SpecificRule.Prompt.DeitysDomain',
+    },
+  ],
+);
+
+export const ADVANCED_DOMAIN = classFeat({
+  id: 'sPeLlCaStInG0018',
+  name: 'Advanced Domain',
+  level: 8,
+  traits: ['cleric'],
+});
+
+export const INITIATE_WARDEN = classFeat({
+  id: 'sPeLlCaStInG0019',
+  name: 'Initiate Warden',
+  level: 1,
+  traits: ['ranger'],
 });
