@@ -156,7 +156,7 @@ Lists of attributes, slugs and ids name each item once.
   selectors, `weapons` base weapon slugs (a weapon's `baseItem`), and `spells` one spell per rank from 1 to 10. A
   philosophy has no font, domains or spells, and divine skills must be `skill:` selectors. A deity on a character
   sets `deity:primary:<slug>`, and under `deity:primary` its sanctification, favoured weapons and fonts, as Foundry
-  does (ADR-0046).
+  does (ADR-0046), and its divine skills (`deity:primary:skill:medicine`, ADR-0047).
 
 #### Magic and play data
 

@@ -101,7 +101,9 @@ flag a choice they already undid. A heritage that stops fitting without an edit 
 and reads invalid, like any other pick.
 
 The sheet's Build section summarises the character: class, subclass, ancestry, heritage, background, deity, key
-attribute and size, each empty part saying what to pick, with Edit build taking focus to the pickers.
+attribute, size and traits, each empty part saying what to pick, with Edit build taking focus to the pickers. The
+traits are the ancestry's, with those `ActorTraits` elements add and without those they remove (a holy cleric's,
+a versatile heritage's).
 
 The deity slot is optional ([ADR-0046](../adr/0046-deity-is-an-optional-root-slot.md)): any character may pick a
 deity, and an empty slot is listed under Choices only while something needs it, a cleric's Deity feature. A deity sets
@@ -112,6 +114,13 @@ picked, Divine Font offers nothing and the sanctification choice only none. The 
 picks the deity by name and shows the one the server read (`CharacterSheet.deity`): its divine font, sanctification,
 domains and alternate domains, favoured weapons, divine attributes and skills, then its description, which holds its
 edicts and anathema.
+
+A cleric's deity grants through Deity (Cleric)'s rule elements
+([ADR-0047](../adr/0047-a-clerics-deity-grants-through-rule-elements.md)): a divine skill, picked from the deity's
+(`deity:primary:skill:<skill>`) and trained; trained proficiency in its favoured weapons (`attack:favored-weapon`,
+which a doctrine raises); its spells in the cleric's own prepared slots at the ranks it grants them; the holy or unholy
+trait its sanctification picks; and a fist Strike when the deity favours the fist. The sheet's Strikes section lists
+each held weapon's Strike, then such a fist.
 
 The class slot's pick grants its class features by level and opens the slots its features ask for. The subclass slot
 is the `ChoiceSet` among them that queries class features tagged with the class's `subclass` (a cleric's doctrine, a
@@ -313,9 +322,10 @@ version 3, #472). `inventory.coins` holds platinum, gold, silver and copper, eac
   hop whose state is `worn`, `held` or `invested`, so its rule elements, and those of what it grants, are in play
   with that origin (`equippedRules`). Worn armour adds its bonus to AC as an `item` line named by the armour and sets
   the Dexterity cap; while it is invested, its potency rune adds to that line and its resilient rune adds an `item`
-  line to every save. Each held weapon is a Strike input with its potency and striking grades (`equippedInputs`).
-  Strikes on the sheet are [#482](https://github.com/DavidDudson/pioneer/issues/482); armour's check and Speed
-  penalties wait for skills and Speed on the sheet.
+  line to every save. Each held weapon is a Strike input with its potency and striking grades (`equippedInputs`),
+  marked favoured when the deity favours its base (ADR-0047). The sheet's Strikes section lists each Strike's attack
+  with its breakdown; MAP steps, damage and traits are [#482](https://github.com/DavidDudson/pioneer/issues/482).
+  Armour's check and Speed penalties wait for skills and Speed on the sheet.
 - **Runes.** An item's `runes` are those etched onto it, over those its content comes with
   ([ADR-0042](../adr/0042-etched-runes-stored-over-content.md)). `etchRune { id, rune }` etches a fundamental rune at
   a grade (potency and striking on a weapon, potency and resilient on armour, reinforcing on a shield; 1 to 4, 6 for
