@@ -8,15 +8,10 @@ import { newId } from '@pioneer/shared/kernel';
 import { EMPTY_INVENTORY, INVENTORY_ITEMS_MAX, InventoryItemId, ItemQuantity } from './inventory';
 import type { Inventory, InventoryItem } from './inventory';
 import { STOWED } from './item-carry';
-import { kitContent, kitItems, kitRefusal } from './kit-content';
-import {
-  ItemFixture,
-  itemFixtureContent,
-  itemFixtureId,
-  KitFixture,
-  kitFixtureContent,
-  kitFixtureId,
-} from './testing/item-content';
+import { isKitAddable, kitContent, kitItems, kitRefusal } from './kit-content';
+import type { KitEntry, KitReads } from './kit-content';
+import { ItemFixture, itemFixtureContent, itemFixtureId } from './testing/item-content';
+import { KitFixture, kitFixtureContent, kitFixtureId } from './testing/kit-fixtures';
 
 const reads = { kits: kitFixtureContent(), items: itemFixtureContent() };
 const explorer = kitFixtureId(KitFixture.Explorer);
@@ -54,20 +49,15 @@ describe('kitContent', () => {
 
 describe('kitItems', () => {
   test('expands a kit into its items, what a container holds inside it', () => {
-    const ids = sequentialIds();
-    const lines = kitItems(explorerData(), undefined, ids);
-    const [backpack, rope, arrows, sword] = lines.map((line) => line.id);
-    expect(lines).toStrictEqual([
-      {
-        id: backpack,
-        item: itemFixtureId(ItemFixture.Backpack),
-        quantity: ItemQuantity.parse(1),
-        container: undefined,
-      },
-      { id: rope, item: itemFixtureId(ItemFixture.Rope), quantity: ItemQuantity.parse(1), container: backpack },
-      { id: arrows, item: itemFixtureId(ItemFixture.Arrows), quantity: ItemQuantity.parse(10), container: backpack },
-      { id: sword, item: itemFixtureId(ItemFixture.Longsword), quantity: ItemQuantity.parse(1), container: undefined },
+    const lines = kitItems(explorerData(), undefined, sequentialIds());
+    const [backpack] = lines;
+    expect(lines.map(({ item, quantity, container }) => [item, Number(quantity), container])).toStrictEqual([
+      [itemFixtureId(ItemFixture.Backpack), 1, undefined],
+      [itemFixtureId(ItemFixture.Rope), 1, backpack?.id],
+      [itemFixtureId(ItemFixture.Arrows), 10, backpack?.id],
+      [itemFixtureId(ItemFixture.Longsword), 1, undefined],
     ]);
+    expect(new Set(lines.map((line) => line.id)).size).toBe(lines.length);
   });
 
   test('stows what the kit holds in the container given', () => {
@@ -94,34 +84,54 @@ function holding(count: number): Inventory {
   return { ...EMPTY_INVENTORY, items };
 }
 
+/** The one kit of a pack holding `items`. */
+function oneKit(items: readonly object[]): KitEntry {
+  const registry = new ContentRegistry();
+  registry.register(new ContentPackBuilder().withId('odd-kits').withKit('odd', { items }).build());
+  const [kit] = kitContent(registry).values();
+  if (kit === undefined) {
+    throw new Error('Expected the kit');
+  }
+  return kit;
+}
+
+/** The fixture items, and `kit` as the only kit. */
+function readsWith(kit: KitEntry): KitReads {
+  return { kits: new Map([[kit.id, kit]]), items: reads.items };
+}
+
 describe('kitRefusal', () => {
   test('allows a loaded kit whose items are all loaded', () => {
     expect(kitRefusal(reads, EMPTY_INVENTORY, explorer)).toBe(undefined);
   });
 
   test('refuses a kit no loaded pack has', () => {
-    expect(kitRefusal(reads, EMPTY_INVENTORY, ContentId.parse(newId()))).toStrictEqual({
+    const unknown = ContentId.parse(newId());
+    expect(kitRefusal(reads, EMPTY_INVENTORY, unknown)).toStrictEqual({
       field: 'kit',
       message: { key: 'character.validation.unknownKit' },
     });
   });
 
   test('refuses a kit holding an item no loaded pack has, even inside a container', () => {
-    const backpack = itemFixtureId(ItemFixture.Backpack);
-    const lost = ContentId.parse(newId());
-    const pack = new ContentPackBuilder()
-      .withId('lost-kits')
-      .withKit('lost', { items: [{ item: backpack, quantity: 1, contents: [{ item: lost, quantity: 1 }] }] })
-      .build();
-    const registry = new ContentRegistry();
-    registry.register(pack);
-    const kits = kitContent(registry);
-    const [kit] = kits.keys();
-    expect(kit).toBeDefined();
-    expect(kitRefusal({ kits, items: reads.items }, EMPTY_INVENTORY, kit ?? lost)).toStrictEqual({
+    const lost = { item: ContentId.parse(newId()), quantity: 1 };
+    const kit = oneKit([{ item: itemFixtureId(ItemFixture.Backpack), quantity: 1, contents: [lost] }]);
+    expect(kitRefusal(readsWith(kit), EMPTY_INVENTORY, kit.id)).toStrictEqual({
       field: 'kit',
       message: { key: 'character.validation.unknownKitItem' },
     });
+    expect(isKitAddable(kit.data, reads.items)).toBe(false);
+  });
+
+  test('refuses a kit that packs items inside one that holds nothing, which the shop then leaves out', () => {
+    const rope = { item: itemFixtureId(ItemFixture.Rope), quantity: 1 };
+    const kit = oneKit([{ ...rope, contents: [rope] }]);
+    expect(kitRefusal(readsWith(kit), EMPTY_INVENTORY, kit.id)).toStrictEqual({
+      field: 'kit',
+      message: { key: 'character.validation.kitNotAContainer' },
+    });
+    expect(isKitAddable(kit.data, reads.items)).toBe(false);
+    expect(isKitAddable(explorerData(), reads.items)).toBe(true);
   });
 
   test('refuses a kit whose items would take the inventory past its limit', () => {

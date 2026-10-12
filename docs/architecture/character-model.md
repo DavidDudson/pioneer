@@ -355,14 +355,15 @@ Buying and gifts are inventory commands, so they work in every sync mode (invent
   they fall short.
 - **Add without paying**: the same picker, no coins move. For loot, a GM's reward or starting gear. The audit log
   records it as a gift, apart from a purchase.
-- **Kits** sit in their own list above the items: every kit the loaded packs offer, with its price. Picking one
+- **Kits** sit in their own list below the items: every kit the loaded packs offer, with its price. Picking one
   shows what it holds, a container's contents under it. Buying it (`buyKit`) or adding it without paying
   (`giftKit`) adds every item in it in one write, each its own line: loose or in the container picked, and what a
   container in the kit holds stowed inside that container (the Adventurer's Pack's backpack holds the rest). A kit
   is one purchase at its own price, not the sum of its items, and is added whole or not at all: a kit holding an
   item no loaded pack has is refused (`unknownKitItem`), as is one whose lines would take the inventory past its
-  limit (`kitOverfills`). Foundry pf2e (`pf2e-8.6.0`) has no class kits, so the Player Core import offers only the
-  Adventurer's Pack; a pack that adds class kits needs no change here.
+  limit (`kitOverfills`), or one that packs items inside an item that holds nothing (`kitNotAContainer`). The shop
+  leaves out any kit it would refuse whatever the inventory holds. Foundry pf2e (`pf2e-8.6.0`) has no class kits,
+  so the Player Core import offers only the Adventurer's Pack; a pack that adds class kits needs no change here.
 
 The picker is the item kinds' filters ([content-model.md](content-model.md#filters)) and opens on **Available to
 you**: item level at most the character's, unique items and `artifact` items hidden, uncommon and rare shown with

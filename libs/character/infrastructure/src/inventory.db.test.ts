@@ -19,6 +19,7 @@ import {
   ITEM_FIXTURES,
   ItemFixture,
   itemFixtureId,
+  KIT_FIXTURES,
   KitFixture,
   kitFixtureId,
   propertyRune,
@@ -63,7 +64,7 @@ describe.skipIf(adminUrl === undefined)('inventory edits (postgres)', () => {
     const core = new ContentPackBuilder().withId('player-core').withAncestry('human').build();
     service = new CharacterService(
       new DrizzleCharacterRepository(database.db),
-      fixedContent(core, ITEM_FIXTURES),
+      fixedContent(core, ITEM_FIXTURES, KIT_FIXTURES),
       clock,
     );
   });

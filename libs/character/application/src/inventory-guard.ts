@@ -8,8 +8,14 @@ import {
   runeContent,
   runeRefusal,
 } from '@pioneer/character/domain';
-import type { Character, CharacterPatch, InventoryRefusal } from '@pioneer/character/domain';
-import type { ContentSource } from '@pioneer/rules/sdk';
+import type {
+  Character,
+  CharacterPatch,
+  Inventory,
+  InventoryRefusal,
+  InventoryTarget,
+} from '@pioneer/character/domain';
+import type { ContentRegistry, ContentSource } from '@pioneer/rules/sdk';
 import { ValidationError } from '@pioneer/shared/kernel';
 
 /** Throws a refused inventory edit as a 422 on the patch field it blames. */
@@ -17,6 +23,22 @@ function refuse(refusal: InventoryRefusal | undefined): void {
   if (refusal !== undefined) {
     throw new ValidationError([{ path: ['patch', refusal.field], message: refusal.message }]);
   }
+}
+
+/** The first refusal content gives `target`: its kit (`kitRefusal`), its item (`itemRefusal`), then its rune. */
+function contentRefusal(
+  registry: ContentRegistry,
+  inventory: Inventory,
+  target: InventoryTarget,
+): InventoryRefusal | undefined {
+  const items = itemContent(registry);
+  const kit =
+    target.kit === undefined ? undefined : kitRefusal({ kits: kitContent(registry), items }, inventory, target.kit);
+  const rune =
+    target.rune === undefined
+      ? undefined
+      : runeRefusal({ items, runes: runeContent(registry) }, inventory, target.rune);
+  return kit ?? itemRefusal(items, inventory, target) ?? rune;
 }
 
 /**
@@ -45,14 +67,5 @@ export async function assertInventoryAllows(
     return;
   }
   const registry = await content.registry();
-  const items = itemContent(registry);
-  refuse(
-    target.kit === undefined ? undefined : kitRefusal({ kits: kitContent(registry), items }, inventory, target.kit),
-  );
-  refuse(itemRefusal(items, inventory, target));
-  refuse(
-    target.rune === undefined
-      ? undefined
-      : runeRefusal({ items, runes: runeContent(registry) }, inventory, target.rune),
-  );
+  refuse(contentRefusal(registry, inventory, target));
 }

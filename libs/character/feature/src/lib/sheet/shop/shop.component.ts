@@ -38,7 +38,7 @@ const CLEARED: Readonly<Record<string, undefined>> = Object.fromEntries(
 /**
  * The shop (character-model.md, "Shop"): the items the loaded packs offer, opening on **Available to you** for this
  * character, with a toggle that shows everything, a name search and the equipment filters, whose state is in the URL
- * (`f.<facet>`), so a filtered shop can be linked. Pick an item, then buy it or add it without paying. Kits sit above
+ * (`f.<facet>`), so a filtered shop can be linked. Pick an item, then buy it or add it without paying. Kits sit below
  * the items, each bought or added whole (`pio-shop-kits`). The Downtime tab adopts it when sheet modes land (#517).
  */
 @Component({

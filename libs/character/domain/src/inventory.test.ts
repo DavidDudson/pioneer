@@ -17,7 +17,7 @@ import {
   setItemQuantity,
 } from './inventory';
 import type { Inventory } from './inventory';
-import { ItemFixture, itemFixtureId } from './testing';
+import { ItemFixture, itemFixtureId, KitFixture, kitFixtureId } from './testing';
 
 const backpackId = InventoryItemId.parse('11111111-1111-4111-8111-111111111111');
 const pouchId = InventoryItemId.parse('22222222-2222-4222-8222-222222222222');
@@ -122,6 +122,10 @@ describe('inventoryRefusal', () => {
     }
     expect(inventoryRefusal(full, { item: itemFixtureId(ItemFixture.Rope) })).toMatchObject({
       field: InventoryRefusalField.Item,
+      message: { key: 'character.validation.inventoryFull', params: { maximum: INVENTORY_ITEMS_MAX } },
+    });
+    expect(inventoryRefusal(full, { kit: kitFixtureId(KitFixture.Explorer) })).toMatchObject({
+      field: InventoryRefusalField.Kit,
       message: { key: 'character.validation.inventoryFull', params: { maximum: INVENTORY_ITEMS_MAX } },
     });
     expect(inventoryRefusal(packed(), { item: itemFixtureId(ItemFixture.Rope) })).toBeUndefined();

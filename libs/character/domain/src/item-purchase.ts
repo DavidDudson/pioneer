@@ -1,7 +1,7 @@
 import type { CopperValue } from '@pioneer/rules/sdk';
 
 import { CharacterPatchField } from './character-patch';
-import type { CharacterPatch } from './character-patch';
+import type { CharacterPatch, KitPatch } from './character-patch';
 import { addItem } from './inventory';
 import type { Inventory, InventoryItemId, NewItem } from './inventory';
 import { payCost } from './purse';
@@ -20,12 +20,6 @@ export interface EditInputs {
 export type AddPatch = Extract<
   CharacterPatch,
   { readonly field: typeof CharacterPatchField.GiftItem | typeof CharacterPatchField.BuyItem }
->;
-
-/** The edits that add a kit's items: a gift, or a purchase. */
-export type KitPatch = Extract<
-  CharacterPatch,
-  { readonly field: typeof CharacterPatchField.GiftKit | typeof CharacterPatchField.BuyKit }
 >;
 
 /** `inventory` with `cost` paid from its coins. A missing cost, or one the coins don't cover, is a caller's bug. */
@@ -58,6 +52,9 @@ export function withAddedKit(inventory: Inventory, patch: KitPatch, { kitItems, 
   if (kitItems === undefined) {
     throw new TypeError('An added kit needs the lines its caller expands it into');
   }
-  const added = kitItems.reduce((stock, line) => addItem(stock, line), inventory);
+  let added = inventory;
+  for (const line of kitItems) {
+    added = addItem(added, line);
+  }
   return patch.field === CharacterPatchField.GiftKit ? added : paid(added, cost);
 }

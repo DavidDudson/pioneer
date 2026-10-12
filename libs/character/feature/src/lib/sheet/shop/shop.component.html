@@ -6,7 +6,6 @@
       @if (content(); as content) {
         @let shown = list();
         <fr-stack gap="md">
-          <pio-shop-kits [content]="content" />
           <fr-search-input
             [ariaLabel]="'character.sheet.shop.search' | transloco"
             [placeholder]="'character.sheet.shop.search' | transloco"
@@ -29,6 +28,7 @@
           @for (item of pickedItems(); track item.id) {
             <pio-shop-order [content]="content" [item]="item" />
           }
+          <pio-shop-kits [content]="content" />
         </fr-stack>
       }
     </ng-template>

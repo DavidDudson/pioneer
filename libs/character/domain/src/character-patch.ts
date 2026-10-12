@@ -139,6 +139,39 @@ export type InventoryPatch = Exclude<
   }
 >;
 
+/** The edits that add a kit's items: a gift, or a purchase. */
+export type KitPatch = Extract<
+  CharacterPatch,
+  { readonly field: typeof CharacterPatchField.GiftKit | typeof CharacterPatchField.BuyKit }
+>;
+
+const KIT_FIELDS: ReadonlySet<CharacterPatchField> = new Set<KitPatch['field']>([
+  CharacterPatchField.GiftKit,
+  CharacterPatchField.BuyKit,
+]);
+
+/** Whether `patch` adds a kit's items (`KitPatch`). */
+export function isKitPatch(patch: CharacterPatch): patch is KitPatch {
+  return KIT_FIELDS.has(patch.field);
+}
+
+const INVENTORY_FIELDS: ReadonlySet<CharacterPatchField> = new Set<InventoryPatch['field']>([
+  CharacterPatchField.GiftItem,
+  CharacterPatchField.BuyItem,
+  CharacterPatchField.GiftKit,
+  CharacterPatchField.BuyKit,
+  CharacterPatchField.RemoveItem,
+  CharacterPatchField.SetItemQuantity,
+  CharacterPatchField.MoveItem,
+  CharacterPatchField.RenameItem,
+  CharacterPatchField.SetCoins,
+]);
+
+/** Whether `patch` changes what the inventory holds (`InventoryPatch`). */
+export function isInventoryPatch(patch: CharacterPatch): patch is InventoryPatch {
+  return INVENTORY_FIELDS.has(patch.field);
+}
+
 /**
  * What an inventory edit touches, for the refusals: the item it changes, the content or kit it adds, where it stows
  * it, how it carries it, whether it invests it, and the rune it etches, erases or moves (and where to).
@@ -186,14 +219,13 @@ function runeTarget(patch: RunePatch): InventoryTarget {
 
 /** What `patch` touches in the inventory; undefined for an edit outside it. Coins touch no item. */
 export function inventoryTarget(patch: CharacterPatch): InventoryTarget | undefined {
+  if (isKitPatch(patch)) {
+    return { kit: patch.kit, container: patch.container };
+  }
   switch (patch.field) {
     case CharacterPatchField.GiftItem:
     case CharacterPatchField.BuyItem: {
       return { item: patch.item, container: patch.container };
-    }
-    case CharacterPatchField.GiftKit:
-    case CharacterPatchField.BuyKit: {
-      return { kit: patch.kit, container: patch.container };
     }
     case CharacterPatchField.MoveItem: {
       return { id: patch.id, container: patch.container };
@@ -226,8 +258,7 @@ export function inventoryTarget(patch: CharacterPatch): InventoryTarget | undefi
       return undefined;
     }
     default: {
-      const unreachable: never = patch;
-      throw new TypeError(`Unhandled character patch: ${JSON.stringify(unreachable)}`);
+      return patch satisfies never;
     }
   }
 }

@@ -5,7 +5,7 @@ import { TestBed } from '@angular/core/testing';
 import { provideRouter, withComponentInputBinding } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
 import { CharacterId } from '@pioneer/character/domain';
-import { ITEM_FIXTURE_FILES, ItemFixture, itemFixtureId } from '@pioneer/character/domain/testing';
+import { ITEM_FIXTURE_FILES, ItemFixture, itemFixtureId, KIT_FIXTURE_FILES } from '@pioneer/character/domain/testing';
 import { frontierMessages } from '@pioneer/frontier';
 import { contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import { provideI18n } from '@pioneer/shared/web';
@@ -54,13 +54,16 @@ export async function settle(): Promise<void> {
   await TestBed.inject(ApplicationRef).whenStable();
 }
 
-/** Opens Valeros's sheet at `url` with the item fixtures loaded, once his character has loaded. */
+/** The packs the sheet loads in these tests: the item fixtures and kits of them. */
+export const SHEET_PACKS = [ITEM_FIXTURE_FILES, KIT_FIXTURE_FILES];
+
+/** Opens Valeros's sheet at `url` with the item fixtures and kits loaded, once his character has loaded. */
 async function openSheet(url: string): Promise<HTMLElement> {
-  await prebuildServerStateTesting([ITEM_FIXTURE_FILES]);
+  await prebuildServerStateTesting(SHEET_PACKS);
   TestBed.configureTestingModule({
     providers: [
       provideRouter([{ path: 'characters', children: characterRoutes }], withComponentInputBinding()),
-      ...provideServerStateTesting([ITEM_FIXTURE_FILES]),
+      ...provideServerStateTesting(SHEET_PACKS),
       provideI18n({ en: async () => frontierMessages }),
     ],
   });

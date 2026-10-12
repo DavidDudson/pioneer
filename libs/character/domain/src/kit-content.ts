@@ -1,9 +1,11 @@
 import { ContentKind } from '@pioneer/rules/sdk';
 import type { ContentEntry, ContentId, ContentRegistry, KitData } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
+import type { ValueOf } from '@pioneer/shared/kernel';
 
 import { INVENTORY_ITEMS_MAX, InventoryRefusalField, ItemQuantity } from './inventory';
 import type { Inventory, InventoryItemId, InventoryRefusal, NewItem } from './inventory';
+import { isContainer } from './inventory-content';
 import type { ItemContent } from './inventory-content';
 
 /** A kit content entry: the items it holds and what it costs as one purchase. */
@@ -55,10 +57,36 @@ export interface KitReads {
   readonly items: ItemContent;
 }
 
+/** Why a kit can't be added whatever the inventory holds, as the message key that says so. */
+const KitUnfit = {
+  UnknownItem: 'character.validation.unknownKitItem',
+  NotAContainer: 'character.validation.kitNotAContainer',
+} as const;
+type KitUnfit = ValueOf<typeof KitUnfit>;
+
 /**
- * Refuses a kit no loaded pack has, one holding an item no loaded pack has (a kit is added whole or not at all), and
- * one whose items would take the inventory past its limit. Where its items go is `inventoryRefusal`'s and
- * `itemRefusal`'s to check.
+ * Why `kit` can't be added whatever the inventory holds: it holds an item no loaded pack has, or
+ * puts items inside one whose content holds nothing. Undefined when it can.
+ */
+function kitContentRefusal(kit: KitData, items: ItemContent): KitUnfit | undefined {
+  if (kitItemIds(kit).some((id) => !items.has(id))) {
+    return KitUnfit.UnknownItem;
+  }
+  const holdsInNothing = kit.items.some(
+    ({ item, contents = [] }) => contents.length > 0 && !isContainer(items.get(item)),
+  );
+  return holdsInNothing ? KitUnfit.NotAContainer : undefined;
+}
+
+/** Whether `kit` can be added at all with the loaded `items`; the shop offers only those. */
+export function isKitAddable(kit: KitData, items: ItemContent): boolean {
+  return kitContentRefusal(kit, items) === undefined;
+}
+
+/**
+ * Refuses a kit no loaded pack has, one holding an item no loaded pack has or holding items inside one that holds
+ * nothing (a kit is added whole or not at all), and one whose items would take the inventory past its limit. Where
+ * its items go is `inventoryRefusal`'s and `itemRefusal`'s to check.
  */
 export function kitRefusal(
   { kits, items }: KitReads,
@@ -69,11 +97,11 @@ export function kitRefusal(
   if (entry === undefined) {
     return { field: InventoryRefusalField.Kit, message: message('character.validation.unknownKit') };
   }
-  const ids = kitItemIds(entry.data);
-  if (ids.some((id) => !items.has(id))) {
-    return { field: InventoryRefusalField.Kit, message: message('character.validation.unknownKitItem') };
+  const unfit = kitContentRefusal(entry.data, items);
+  if (unfit !== undefined) {
+    return { field: InventoryRefusalField.Kit, message: message(unfit) };
   }
-  if (inventory.items.length + ids.length > INVENTORY_ITEMS_MAX) {
+  if (inventory.items.length + kitItemIds(entry.data).length > INVENTORY_ITEMS_MAX) {
     return {
       field: InventoryRefusalField.Kit,
       message: message('character.validation.kitOverfills', { maximum: INVENTORY_ITEMS_MAX }),

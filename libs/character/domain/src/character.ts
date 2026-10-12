@@ -9,7 +9,7 @@ import type { CharacterDocument } from './character-document';
 import { CURRENT_SCHEMA_VERSION } from './character-document-upgrades';
 import { CHARACTER_LEVEL_MIN, CharacterLevel } from './character-fields';
 import type { CharacterId, CharacterName } from './character-fields';
-import { CharacterPatchField } from './character-patch';
+import { CharacterPatchField, isInventoryPatch } from './character-patch';
 import type { CharacterPatch, InventoryPatch, SpellAccessPatch } from './character-patch';
 import { ANCESTRY_SLOT } from './character-slots';
 import {
@@ -180,6 +180,9 @@ export class Character {
   }
 
   #changes(patch: CharacterPatch, inputs: EditInputs): Partial<CharacterProps> {
+    if (isInventoryPatch(patch)) {
+      return this.#stockChanges(patch, inputs);
+    }
     switch (patch.field) {
       case CharacterPatchField.Name: {
         return { document: { ...this.document, name: patch.value } };
@@ -192,17 +195,6 @@ export class Character {
       }
       case CharacterPatchField.ClearSlot: {
         return { document: this.#clear(patch.slot) };
-      }
-      case CharacterPatchField.GiftItem:
-      case CharacterPatchField.BuyItem:
-      case CharacterPatchField.GiftKit:
-      case CharacterPatchField.BuyKit:
-      case CharacterPatchField.RemoveItem:
-      case CharacterPatchField.SetItemQuantity:
-      case CharacterPatchField.MoveItem:
-      case CharacterPatchField.RenameItem:
-      case CharacterPatchField.SetCoins: {
-        return this.#stockChanges(patch, inputs);
       }
       case CharacterPatchField.CarryItem:
       case CharacterPatchField.InvestItem:

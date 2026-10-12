@@ -1,22 +1,25 @@
 import { TestBed } from '@angular/core/testing';
 import { Router } from '@angular/router';
-import {
-  ITEM_FIXTURE_FILES,
-  ItemFixture,
-  itemFixtureId,
-  KitFixture,
-  kitFixtureId,
-} from '@pioneer/character/domain/testing';
+import { ItemFixture, itemFixtureId, KitFixture, kitFixtureId } from '@pioneer/character/domain/testing';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
-import { button, openShop, patchSent, present, settle, VALEROS } from '../../testing/inventory-sheet-testing';
+import {
+  button,
+  openShop,
+  patchSent,
+  present,
+  settle,
+  SHEET_PACKS,
+  VALEROS,
+} from '../../testing/inventory-sheet-testing';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 
-/** The names the shop lists in `scope`, in order. */
+/** The names the shop lists in `scope`, in order; a row still loading has none. */
 const listed = (scope: Element): string[] =>
-  [...scope.querySelectorAll('pio-shop-offers fr-list-item')].map((item) =>
-    present(item.querySelector('fr-text')).textContent.trim(),
-  );
+  [...scope.querySelectorAll('pio-shop-offers fr-list-item')].flatMap((item) => {
+    const name = item.querySelector('fr-text');
+    return name === null ? [] : [name.textContent.trim()];
+  });
 
 /** The items the shop lists, in order, leaving out its kits. */
 const offered = (shop: HTMLElement): string[] =>
@@ -26,7 +29,8 @@ const offered = (shop: HTMLElement): string[] =>
 async function kitsOf(shop: HTMLElement): Promise<HTMLElement> {
   await vi.waitFor(async () => {
     await settle();
-    expect(listed(present(shop.querySelector('pio-shop-kits')))).not.toHaveLength(0);
+    const kits = present(shop.querySelector('pio-shop-kits'));
+    expect(listed(kits)).not.toHaveLength(0);
   });
   return present(shop.querySelector<HTMLElement>('pio-shop-kits'));
 }
@@ -75,7 +79,7 @@ const bill = (order: HTMLElement): string[] =>
 describe('Shop', () => {
   // Loads and bundles the packs once, outside every test's timeout.
   beforeAll(async () => {
-    await prebuildServerStateTesting([ITEM_FIXTURE_FILES]);
+    await prebuildServerStateTesting(SHEET_PACKS);
   }, PREBUILD_TIMEOUT);
 
   it('opens on Available to you, hiding items above the character’s level until everything is shown', async () => {
@@ -233,6 +237,32 @@ describe('Shop', () => {
       expectedVersion: 3,
       patch: { field: 'buyKit', kit: kitFixtureId(KitFixture.Explorer) },
     });
+    request.flush({ character: { ...VALEROS, version: 4 }, slots: [], cleared: [], languages: { known: [], open: 0 } });
+    await vi.waitFor(async () => {
+      await settle();
+      expect(present(shop.querySelector('pio-shop-kit-order')).textContent).toContain('Bought');
+    });
+  });
+
+  it('shows the server’s reason under Buy when it refuses the kit', async () => {
+    const shop = await openShop();
+    const order = await pickKit(shop, 'Explorer');
+    button(order, 'Buy').click();
+    const request = await patchSent();
+    request.flush(
+      {
+        type: 'validation',
+        title: 'Validation failed',
+        status: 422,
+        message: { key: 'problem.validation' },
+        issues: [{ path: ['patch', 'kit'], message: { key: 'character.validation.cannotAffordKit' } }],
+      },
+      { status: 422, statusText: 'Unprocessable Content' },
+    );
+    await vi.waitFor(async () => {
+      await settle();
+      expect(order.textContent).toContain("This character can't afford that kit");
+    });
   });
 
   it('disables Buy for a kit the coins do not cover, saying it can only be added without paying', async () => {
@@ -241,7 +271,8 @@ describe('Shop', () => {
     expect(bill(order)).toStrictEqual(['Cost: 20 gp', 'Your coins: 15 gp']);
     const buy = button(order, 'Buy');
     expect(buy.hasAttribute('disabled')).toBe(true);
-    const reason = present(order.querySelector(`#${present(buy.getAttribute('aria-describedby'))}`));
+    const reasonId = present(buy.getAttribute('aria-describedby'));
+    const reason = present(order.querySelector(`#${reasonId}`));
     expect(reason.textContent).toContain("Your coins don't cover the kit's price.");
     expect(button(order, 'Add without paying').hasAttribute('disabled')).toBe(false);
   });
