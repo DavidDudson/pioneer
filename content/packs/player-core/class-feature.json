@@ -2092,6 +2092,12 @@
         "selector": "skill:thievery",
         "rank": "trained",
         "predicate": ["divine-skill:thievery"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "attack:favored-weapon",
+        "rank": "trained",
+        "predicate": ["class:cleric"]
       }
     ],
     "externalIds": {
@@ -3923,6 +3929,11 @@
         "key": "Proficiency",
         "selector": "spellcasting",
         "rank": "master"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "attack:favored-weapon",
+        "rank": "master"
       }
     ],
     "externalIds": {
@@ -4333,6 +4344,11 @@
       {
         "key": "Proficiency",
         "selector": "attack:unarmed",
+        "rank": "expert"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "attack:favored-weapon",
         "rank": "expert"
       }
     ],
@@ -12925,6 +12941,11 @@
       {
         "key": "Proficiency",
         "selector": "attack:unarmed",
+        "rank": "expert"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "attack:favored-weapon",
         "rank": "expert"
       }
     ],

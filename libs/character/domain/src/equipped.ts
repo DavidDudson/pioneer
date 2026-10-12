@@ -16,7 +16,7 @@ import {
   slugName,
   SOURCE_SLUG_MAX,
 } from '@pioneer/rules/sdk';
-import type { ContentId, ItemState, OriginHop } from '@pioneer/rules/sdk';
+import type { BaseWeapon, ContentId, ItemState, OriginHop } from '@pioneer/rules/sdk';
 
 import { attributeModifiers } from './attribute-boosts';
 import { Encumbrance, inventoryBulk } from './bulk';
@@ -111,9 +111,9 @@ function uniqueSlug(name: Slug, taken: ReadonlySet<Slug>): Slug {
 
 /**
  * Each held weapon as its Strike reads it: its potency is its rune's, or a bomb's own item bonus, and its striking
- * rune adds damage dice.
+ * rune adds damage dice. One whose base the character's deity favours is marked so (ADR-0047).
  */
-function weaponInputs(active: readonly ActiveItem[]): readonly WeaponInputs[] {
+function weaponInputs(active: readonly ActiveItem[], favored: ReadonlySet<BaseWeapon>): readonly WeaponInputs[] {
   const taken = new Set<Slug>();
   return active.flatMap((each): WeaponInputs[] => {
     const { entry } = each;
@@ -132,6 +132,7 @@ function weaponInputs(active: readonly ActiveItem[]): readonly WeaponInputs[] {
         range: entry.data.range,
         potency: potency === undefined ? undefined : RuneGrade.parse(potency),
         striking: runes.striking,
+        favored: entry.data.baseItem !== undefined && favored.has(entry.data.baseItem),
         origin: originOf(each),
       },
     ];
@@ -141,12 +142,17 @@ function weaponInputs(active: readonly ActiveItem[]): readonly WeaponInputs[] {
 /**
  * What the character's equipment gives its statistics: the worn armour's bonus and Dexterity cap, and a Strike for
  * each held weapon. These are physical benefits, so an invested-trait item gives them uninvested (`equippedState`).
- * Stowed and dropped items, and items not carried as they are used, give nothing.
+ * Stowed and dropped items, and items not carried as they are used, give nothing. `favored` are the base weapons the
+ * character's deity favours (`favoredWeapons`).
  */
-export function equippedInputs(inventory: Inventory, content: ItemContent): EquippedInputs {
+export function equippedInputs(
+  inventory: Inventory,
+  content: ItemContent,
+  favored: ReadonlySet<BaseWeapon> = new Set(),
+): EquippedInputs {
   const active = itemsIn(inventory, content, equippedState);
   const worn = active.find(({ entry }) => entry.kind === ContentKind.Armor);
-  return { ...armorInputs(worn), weapons: weaponInputs(active) };
+  return { ...armorInputs(worn), weapons: weaponInputs(active, favored) };
 }
 
 /** The encumbered condition, by its name within its kind. */

@@ -2413,6 +2413,12 @@
         "selector": "skill:thievery",
         "rank": "trained",
         "predicate": ["divine-skill:thievery"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "attack:favored-weapon",
+        "rank": "trained",
+        "predicate": ["class:cleric"]
       }
     ],
     "externalIds": {

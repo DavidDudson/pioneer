@@ -280,6 +280,7 @@ export {
 } from './rule-element-spellcasting';
 export {
   ArmorCategory,
+  FAVORED_WEAPON,
   MartialCategory,
   MartialKind,
   MartialProficiencyElement,

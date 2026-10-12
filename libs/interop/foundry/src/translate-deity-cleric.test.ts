@@ -1,0 +1,49 @@
+import { describe, expect, test } from 'bun:test';
+
+import { RuleElementKey } from '@pioneer/rules/sdk';
+
+import { rulesIn } from './testing/build-helpers';
+import { DEITY_CLERIC, THIRD_DOCTRINE_WARPRIEST } from './testing/deity-fixtures';
+import { translate } from './testing/import-fixtures';
+import type { DocumentFixture } from './testing/import-fixtures';
+
+const { Proficiency } = RuleElementKey;
+
+function keyed(key: string, name: string, fixture: DocumentFixture): unknown[] {
+  return rulesIn(translate([fixture]), name).filter(
+    (rule) => typeof rule === 'object' && rule !== null && 'key' in rule && rule.key === key,
+  );
+}
+
+/** The `key`s of the Foundry elements an entry's import leaves for the backlog. */
+function untranslatedKeys(fixture: DocumentFixture): readonly string[] {
+  return translate([fixture]).envelopes.untranslatedRules.map(({ key }) => key);
+}
+
+describe('translateKindData: the favoured weapon rank', () => {
+  test("Deity (Cleric) makes a cleric trained in the deity's favoured weapons", () => {
+    expect(keyed(Proficiency, 'deity-cleric', DEITY_CLERIC)).toEqual([
+      { key: Proficiency, selector: 'attack:favored-weapon', rank: 'trained', predicate: ['class:cleric'] },
+    ]);
+    expect(untranslatedKeys(DEITY_CLERIC)).not.toContain('ActiveEffectLike');
+  });
+
+  test("a warpriest's doctrine raises it, by Foundry's number for the rank", () => {
+    expect(keyed(Proficiency, 'third-doctrine-warpriest', THIRD_DOCTRINE_WARPRIEST)).toEqual([
+      { key: Proficiency, selector: 'attack:favored-weapon', rank: 'expert' },
+    ]);
+  });
+
+  test('a formula for the rank is left for the backlog', () => {
+    const formula: DocumentFixture = {
+      ...THIRD_DOCTRINE_WARPRIEST,
+      system: {
+        ...THIRD_DOCTRINE_WARPRIEST.system,
+        rules: [
+          { key: 'ActiveEffectLike', mode: 'upgrade', path: 'flags.system.favoredWeaponRank', value: '@actor.level' },
+        ],
+      },
+    };
+    expect(untranslatedKeys(formula)).toEqual(['ActiveEffectLike']);
+  });
+});

@@ -551,16 +551,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "flags.system.favoredWeaponRank",
-            "value": 2
-          }
-        },
-        {
-          "type": "rule",
           "key": "CriticalSpecialization",
           "raw": {
             "key": "CriticalSpecialization",
@@ -575,16 +565,6 @@
       "slug": "class-feature:major-creed",
       "foundry": "Compendium.pf2e.classfeatures.Item.kpdb5TJ0F5uCTX0F",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "flags.system.favoredWeaponRank",
-            "value": 3
-          }
-        },
         {
           "type": "rule",
           "key": "AdjustDegreeOfSuccess",

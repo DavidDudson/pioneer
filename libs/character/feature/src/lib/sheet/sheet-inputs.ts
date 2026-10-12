@@ -7,6 +7,7 @@ import {
   classContent,
   classInputs,
   equippedInputs,
+  favoredWeapons,
   itemContent,
 } from '@pioneer/character/domain';
 import type { Character } from '@pioneer/character/domain';
@@ -32,14 +33,15 @@ function classInputsOf(registry: ContentRegistry, character: Character): Pick<St
 }
 
 function readInputs(registry: ContentRegistry, character: Character): StatisticInputs {
+  const grants = characterGrants(character.document, sheetSlotContent(registry));
   return {
     level: character.level,
     attributes: attributeModifiers(character.document, boostContent(registry)),
     ranks: buildRanks(character.document, sheetSlotContent(registry)),
-    spellcasting: characterSpellcasting(characterGrants(character.document, sheetSlotContent(registry))),
+    spellcasting: characterSpellcasting(grants),
     ...ancestryInputs(registry, character),
     ...classInputsOf(registry, character),
-    ...equippedInputs(character.document.inventory, itemContent(registry)),
+    ...equippedInputs(character.document.inventory, itemContent(registry), favoredWeapons(grants)),
   };
 }
 

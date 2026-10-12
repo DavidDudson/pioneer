@@ -41,6 +41,12 @@ const RankOrFormula: z.ZodType<RaisedRank | FormulaSource> = z
   })
   .pipe(z.union([RaisedRank, FormulaSource]));
 
+/**
+ * The selector a deity's favoured weapons read their rank from (Foundry's `favoredWeaponRank`): a Strike with one uses
+ * it when it is better than its category's (ADR-0047).
+ */
+export const FAVORED_WEAPON = Selector.parse('attack:favored-weapon');
+
 /** Whether a martial proficiency covers weapons and unarmed attacks, or armour (Foundry's `kind`). */
 export const MartialKind = {
   Attack: 'attack',

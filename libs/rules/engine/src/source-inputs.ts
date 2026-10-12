@@ -2,6 +2,7 @@ import { FormulaValue } from '@pioneer/rules/formula';
 import {
   Attribute,
   AttributeSchema,
+  FAVORED_WEAPON,
   Feet,
   MagicTraditionSchema,
   Origin,
@@ -37,6 +38,11 @@ export interface WeaponInputs {
   readonly potency?: RuneGrade | undefined;
   /** Its striking rune's grade: the damage dice it adds, which its Strike's damage reads (#481). */
   readonly striking?: RuneGrade | undefined;
+  /**
+   * Whether it is one of the character's deity's favoured weapons: its Strike then reads the better of its category's
+   * proficiency and `attack:favored-weapon` (ADR-0047).
+   */
+  readonly favored?: boolean | undefined;
   /** Why the character has it: its entry and how it got there (an inventory hop). Its potency line's origin. */
   readonly origin: Origin;
 }
@@ -88,6 +94,7 @@ const WeaponInputsJson = z.strictObject({
   range: Feet.optional(),
   potency: RuneGrade.optional(),
   striking: RuneGrade.optional(),
+  favored: z.boolean().optional(),
   origin: Origin,
 });
 
@@ -119,10 +126,30 @@ export function sourceAttribute(source: SourceInputs, attributes: AttributeModif
   return source.per === StatisticPer.Weapon ? weaponAttribute(source.weapon, attributes) : source.entry.attribute;
 }
 
+/** The proficiency bonus a selector's rank gives; undefined when there is none to read. */
+type BonusOf = (selector: Selector) => FormulaValue | undefined;
+
 /** What reading a source reference needs besides the source: the attribute modifiers and a proficiency bonus. */
 export interface SourceReading {
   readonly attributes: AttributeModifiers;
-  readonly bonus: (selector: Selector) => FormulaValue | undefined;
+  readonly bonus: BonusOf;
+}
+
+/** The higher of two bonuses; either alone when the other is undefined. */
+function better(left: FormulaValue | undefined, right: FormulaValue | undefined): FormulaValue | undefined {
+  if (left === undefined || right === undefined) {
+    return left ?? right;
+  }
+  return right > left ? right : left;
+}
+
+/**
+ * A weapon's proficiency bonus: its category's (`attack:martial`), or for a favoured weapon the better of that and
+ * `attack:favored-weapon`, as Foundry raises a favoured weapon's own proficiency to the favoured weapon rank.
+ */
+function weaponProficiencyBonus(weapon: WeaponInputs, bonus: BonusOf): FormulaValue | undefined {
+  const category = bonus(Selector.parse(`attack:${weapon.category}`));
+  return weapon.favored === true ? better(category, bonus(FAVORED_WEAPON)) : category;
 }
 
 function weaponValue(
@@ -133,7 +160,7 @@ function weaponValue(
   if (kind === ReferenceKind.WeaponAttributeModifier) {
     return FormulaValue.parse(attributes.get(weaponAttribute(weapon, attributes)));
   }
-  return kind === ReferenceKind.WeaponProficiencyBonus ? bonus(Selector.parse(`attack:${weapon.category}`)) : undefined;
+  return kind === ReferenceKind.WeaponProficiencyBonus ? weaponProficiencyBonus(weapon, bonus) : undefined;
 }
 
 function entryValue(

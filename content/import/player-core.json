@@ -1702,17 +1702,6 @@
             "key": "Strike",
             "predicate": ["deity:primary:favored-weapon:fist"]
           }
-        },
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "flags.system.favoredWeaponRank",
-            "predicate": ["class:cleric"],
-            "value": 1
-          }
         }
       ]
     },
@@ -2347,24 +2336,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "class-feature:final-doctrine-warpriest",
-      "foundry": "Compendium.pf2e.classfeatures.Item.N1ugDqZlslxbp3Uy",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "flags.system.favoredWeaponRank",
-            "value": 3
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "class-feature:first-doctrine",
       "foundry": "Compendium.pf2e.classfeatures.Item.Qejo7FUWQtPTpgWH",
       "gaps": [
@@ -2579,16 +2550,6 @@
       "slug": "class-feature:fourth-doctrine-cloistered-cleric",
       "foundry": "Compendium.pf2e.classfeatures.Item.vxOf4LXZcqUG3P7a",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "flags.system.favoredWeaponRank",
-            "value": 2
-          }
-        },
         {
           "type": "rule",
           "key": "CriticalSpecialization",
@@ -4330,16 +4291,6 @@
       "slug": "class-feature:third-doctrine-warpriest",
       "foundry": "Compendium.pf2e.classfeatures.Item.Zp81uTBItG1xlH4O",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "flags.system.favoredWeaponRank",
-            "value": 2
-          }
-        },
         {
           "type": "rule",
           "key": "CriticalSpecialization",

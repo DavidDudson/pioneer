@@ -10,6 +10,7 @@ import { characterSlots } from './character-slot-status';
 import { DEITY_SLOT } from './character-slots';
 import { buildRanks, characterGrants } from './class-build';
 import { deityContent } from './deity-content';
+import { favoredWeapons } from './favored-weapons';
 import { slotContent } from './slot-offer';
 import { CharacterBuilder, playerCoreClasses, playerCoreClassId } from './testing';
 import type { PlayerCoreClass } from './testing';
@@ -156,5 +157,21 @@ describe("a cleric's divine skill", () => {
 
   test("is not a fighter's, who has no Deity feature", () => {
     expect(offered('fighter', SARENRAE, 'divine-skill')).toBeUndefined();
+  });
+});
+
+describe("a cleric's favoured weapon", () => {
+  const favored = Selector.parse('attack:favored-weapon');
+
+  test("is trained for a cleric, whose Strikes with the deity's favoured weapons read it", () => {
+    const { document } = level1('cleric', SARENRAE).build();
+    expect(buildRanks(document, content).get(favored)).toBe('trained');
+    expect([...favoredWeapons(characterGrants(document, content))].map(String)).toEqual(['scimitar']);
+  });
+
+  test('is no rank for a fighter, whose deity favours the weapon all the same', () => {
+    const { document } = level1('fighter', SARENRAE).build();
+    expect(buildRanks(document, content).get(favored)).toBeUndefined();
+    expect([...favoredWeapons(characterGrants(document, content))].map(String)).toEqual(['scimitar']);
   });
 });

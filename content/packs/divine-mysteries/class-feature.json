@@ -2633,6 +2633,11 @@
         "key": "Proficiency",
         "selector": "attack:unarmed",
         "rank": "expert"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "attack:favored-weapon",
+        "rank": "expert"
       }
     ],
     "externalIds": {
@@ -2670,6 +2675,11 @@
       {
         "key": "Proficiency",
         "selector": "save:fortitude",
+        "rank": "master"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "attack:favored-weapon",
         "rank": "master"
       }
     ],

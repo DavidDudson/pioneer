@@ -138,6 +138,7 @@ const ITEMS: Readonly<Record<ItemFixture, ItemFixtureFields>> = {
   [ItemFixture.Longsword]: {
     kind: ContentKind.Weapon,
     data: {
+      baseItem: 'longsword',
       bulk: 1,
       price: { coins: { gp: 1 } },
       category: 'martial',

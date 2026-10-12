@@ -52,6 +52,7 @@ export { CharacterSlot, SlotInvalidMessage, SlotStatus, SlotSubject, SlotSubject
 export { characterSlots } from './character-slot-status';
 export { characterDeity, SheetDeity } from './character-deity';
 export { deityContent } from './deity-content';
+export { favoredWeapons } from './favored-weapons';
 export type { DeityContent, DeityRead } from './deity-content';
 export { CharacterLanguages, characterLanguages, SheetLanguage } from './character-languages';
 export { type SkillContent, skillContent, type SkillOption } from './skill-content';
