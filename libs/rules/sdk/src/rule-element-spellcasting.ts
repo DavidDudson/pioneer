@@ -141,3 +141,10 @@ export const FocusSpellsElement = z.strictObject({
   ...ruleElementBase,
 });
 export type FocusSpellsElement = z.infer<typeof FocusSpellsElement>;
+
+/** The most Focus Points a focus pool holds, however many focus spells feed it (Player Core). */
+export const FOCUS_POOL_MAX = 3;
+
+/** A number of Focus Points: a focus pool's maximum, or the points in it. */
+export const FocusPoints = Pg.smallint().min(0).max(FOCUS_POOL_MAX).brand<'FocusPoints'>();
+export type FocusPoints = z.infer<typeof FocusPoints>;

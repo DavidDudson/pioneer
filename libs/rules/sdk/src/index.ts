@@ -283,6 +283,8 @@ export { ActorTraitsElement } from './rule-element-actor-traits';
 export { StrikeElement } from './rule-element-strike';
 export {
   DeitySpellsElement,
+  FOCUS_POOL_MAX,
+  FocusPoints,
   FocusSpellsElement,
   PoolSpellsElement,
   SignatureSpellsElement,
