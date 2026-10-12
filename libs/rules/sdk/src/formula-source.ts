@@ -88,7 +88,7 @@ export function scopeProblems(text: FormulaText, scopes: ReadonlySet<ReferenceSc
 
 /**
  * A rule element sits on a content entry that may or may not be an item, so its formulas may read either. Weapon and
- * spellcasting references belong to statistics derived per source.
+ * spellcasting references belong to statistics derived per source, and spellcasting ones to a spell's damage too.
  */
 const RULE_ELEMENT_SCOPES: ReadonlySet<ReferenceScope> = new Set([ReferenceScope.Actor, ReferenceScope.Item]);
 

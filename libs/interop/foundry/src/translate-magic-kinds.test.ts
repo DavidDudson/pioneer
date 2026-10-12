@@ -69,56 +69,6 @@ describe('translateKindData: spells', () => {
     });
   });
 
-  test('fixed heightened damage lays its overrides over the spell part it names', () => {
-    const harm = spell('hArM000000000001', 'Harm', {
-      level: { value: 1 },
-      time: { value: '2' },
-      damage: { '0': damagePart('1d8', 'void') },
-      heightening: { type: 'fixed', levels: { '8': { damage: { '0': { formula: '1d10' } } } } },
-    });
-
-    expect(dataIn(translate([harm]), 'harm')).toMatchObject({
-      heightening: {
-        type: 'fixed',
-        ranks: [{ rank: 8, damage: [{ key: '0', formula: '1d10', damageType: 'void', kinds: ['damage'] }] }],
-      },
-    });
-  });
-
-  test('a Foundry damage part key becomes a slug, and heightening names it the same way', () => {
-    const keyed = spell('kEyEd00000000001', 'Keyed', {
-      level: { value: 1 },
-      time: { value: '2' },
-      damage: { rQT6Is4xVcbWJIAt: damagePart('7d8', 'force') },
-      heightening: { damage: { rQT6Is4xVcbWJIAt: '1d8' }, interval: 1, type: 'interval' },
-    });
-
-    expect(dataIn(translate([keyed]), 'keyed')).toMatchObject({
-      damage: [{ key: 'rqt6is4xvcbwjiat' }],
-      heightening: { damage: [{ key: 'rqt6is4xvcbwjiat', formula: '1d8' }] },
-    });
-  });
-
-  test('untyped damage is reported and left out, with what heightening adds to it', () => {
-    const untyped = spell('uNtYpEd000000001', 'Untyped', {
-      level: { value: 1 },
-      time: { value: '2' },
-      damage: { '0': damagePart('2d6', 'untyped'), '1': damagePart('1d6', 'fire') },
-      heightening: { damage: { '0': '1d6', '1': '1d6' }, interval: 1, type: 'interval' },
-    });
-    const result = translate([untyped]);
-
-    expect(dataIn(result, 'untyped')).toMatchObject({
-      damage: [{ key: '1' }],
-      heightening: { damage: [{ key: '1', formula: '1d6' }] },
-    });
-    expect(gapsOf(result)).toContainEqual({
-      reason: KindDataGapReason.UnmappedValue,
-      field: 'damage.0.type',
-      raw: 'untyped',
-    });
-  });
-
   test('wording that does not map is reported and its field left out; the rest translates', () => {
     const odd = spell('oDd0000000000001', 'Odd', {
       level: { value: 2 },

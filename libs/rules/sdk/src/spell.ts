@@ -4,13 +4,14 @@ import * as z from 'zod';
 
 import { Slug } from './content-id';
 import { DamageTypeSchema } from './damage';
-import { DamageFormula } from './damage-formula';
+import { DamageFormula, SpellDamageFormula } from './damage-formula';
 import { RulesMessage } from './messages';
 import { DamageCategorySchema } from './rich-text';
 import { castingFields, SpellArea, SpellDuration, SpellRange } from './spell-casting';
 import { SPELL_RANK_MAX, SpellRank } from './spell-rank';
 import { SpellTargets } from './spell-targets';
 import { MagicTraditionSchema } from './spellcasting-tradition';
+import { DamageException } from './trait';
 import { uniqueItems } from './unique-items';
 import { Feet } from './units';
 
@@ -20,18 +21,24 @@ export type DamageKind = ValueOf<typeof DamageKind>;
 
 const DAMAGE_KINDS = Object.keys(DamageKind).length;
 const DAMAGE_PARTS_MAX = 8;
+const MATERIALS_MAX = 4;
 
 /** Names a damage part so heightening can add to it (Foundry pf2e's damage record key, `0`). */
 const DamagePartKey = Slug.brand<'DamagePartKey'>();
 type DamagePartKey = z.infer<typeof DamagePartKey>;
 
-/** One part of a spell's damage ("6d6 fire"). */
+/**
+ * One part of a spell's damage ("6d6 fire"). With no `damageType` it is untyped (Disintegrate's damage, Breath of
+ * Life's healing), not a type the caster chooses. Its formula may add the caster's spellcasting attribute modifier (`@spellcasting.attr`).
+ */
 const SpellDamage = z.strictObject({
   key: DamagePartKey,
-  formula: DamageFormula,
-  damageType: DamageTypeSchema,
+  formula: SpellDamageFormula,
+  damageType: DamageTypeSchema.optional(),
   category: DamageCategorySchema.optional(),
   kinds: z.array(z.enum(DamageKind)).min(1).max(DAMAGE_KINDS).readonly().check(uniqueItems),
+  /** The materials the damage counts as (Moonbeam's silver), for weaknesses and resistances that name one. */
+  materials: z.array(DamageException).min(1).max(MATERIALS_MAX).readonly().check(uniqueItems).optional(),
 });
 type SpellDamage = z.infer<typeof SpellDamage>;
 

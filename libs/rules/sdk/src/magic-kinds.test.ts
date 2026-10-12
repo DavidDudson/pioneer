@@ -139,6 +139,11 @@ const dispelMagic = {
   },
 };
 
+/** Fireball with `part` as its only damage part. */
+function withPart(part: object): object {
+  return { ...fireball, data: { ...fireball.data, damage: [part] } };
+}
+
 describe('spell kind', () => {
   test.each([
     ['a spell with damage heightened by interval', fireball],
@@ -218,6 +223,21 @@ describe('spell kind', () => {
         message: message(RulesMessage.SpellDamageKey, { key: 'splash' }),
       },
     ]);
+  });
+
+  test('a damage part may be untyped, add the spellcasting modifier, and count as materials', () => {
+    expect(issues(withPart({ key: '0', formula: '5d8', kinds: ['healing'] }))).toStrictEqual([]);
+    expect(
+      issues(withPart({ key: '0', formula: '1d4 + @spellcasting.attr', damageType: 'fire', kinds: ['damage'] })),
+    ).toStrictEqual([]);
+    expect(
+      issues(
+        withPart({ key: '0', formula: '8d6', damageType: 'piercing', kinds: ['damage'], materials: ['cold-iron'] }),
+      ),
+    ).toStrictEqual([]);
+    expect(
+      found(withPart({ key: '0', formula: '8d6', damageType: 'piercing', kinds: ['damage'], materials: [] })),
+    ).toStrictEqual([expect.stringMatching(/^data\.damage\.0\.materials /u)]);
   });
 
   test('fixed heightening names each rank once, above the spell, and changes something', () => {

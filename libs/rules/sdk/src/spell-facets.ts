@@ -120,7 +120,8 @@ export const DAMAGE_TYPE_FACET: FacetDefinition = {
         (type) => type !== undefined,
       );
     }
-    return entry.kind === ContentKind.Spell ? entry.data.damage.map((part) => part.damageType) : [];
+    // An untyped part has no damage type to filter by.
+    return entry.kind === ContentKind.Spell ? entry.data.damage.flatMap((part) => part.damageType ?? []) : [];
   },
 };
 
