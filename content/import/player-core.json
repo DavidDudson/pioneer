@@ -25762,6 +25762,60 @@
     {
       "type": "entry",
       "pack": "player-core",
+      "slug": "feat:divine-weapon",
+      "foundry": "Compendium.pf2e.feats-srd.Item.Trj5azJlaOk5jgBi",
+      "leftOut": {
+        "reason": "unresolved-reference",
+        "detail": "player-core/effect:effect-divine-weapon"
+      },
+      "gaps": [],
+      "document": {
+        "_id": "Trj5azJlaOk5jgBi",
+        "name": "Divine Weapon",
+        "type": "feat",
+        "system": {
+          "publication": {
+            "title": "Pathfinder Player Core",
+            "license": "ORC",
+            "remaster": true
+          },
+          "level": {
+            "value": 6
+          },
+          "traits": {
+            "value": ["cleric"],
+            "rarity": "common"
+          },
+          "description": {
+            "value": "<p><strong>Frequency</strong> once per turn</p>\n<p><strong>Trigger</strong> You finish Casting a Spell using one of your divine spell slots on your turn.</p>\n<hr />\n<p>You siphon residual spell energy into a weapon you're wielding. Until the end of your turn, the weapon deals an additional 1d4 spirit damage. If you are holy or unholy, Strikes with the weapon also gain that trait, and the additional damage increases to 2d4 against creatures of the opposing trait.</p>"
+          },
+          "rules": [],
+          "actionType": {
+            "value": "free"
+          },
+          "actions": {
+            "value": null
+          },
+          "category": "class",
+          "frequency": {
+            "max": 1,
+            "per": "turn",
+            "value": 1
+          },
+          "prerequisites": {
+            "value": []
+          },
+          "selfEffect": {
+            "name": "Effect: Divine Weapon",
+            "uuid": "Compendium.pf2e.feat-effects.Item.Effect: Divine Weapon"
+          }
+        },
+        "folder": "7lOz2qjHsSKpU7HO"
+      }
+    },
+    {
+      "type": "entry",
+      "pack": "player-core",
       "slug": "feat:domain-initiate",
       "foundry": "Compendium.pf2e.feats-srd.Item.hT4INKGtly4QY8KN",
       "gaps": [
@@ -31914,6 +31968,55 @@
           }
         }
       ]
+    },
+    {
+      "type": "entry",
+      "pack": "player-core",
+      "slug": "feat:restorative-strike",
+      "foundry": "Compendium.pf2e.feats-srd.Item.xUlRLkWnfZ7reej6",
+      "leftOut": {
+        "reason": "unresolved-reference",
+        "detail": "player-core/effect:effect-restorative-strike"
+      },
+      "gaps": [],
+      "document": {
+        "_id": "xUlRLkWnfZ7reej6",
+        "name": "Restorative Strike",
+        "type": "feat",
+        "system": {
+          "publication": {
+            "title": "Pathfinder Player Core",
+            "license": "ORC",
+            "remaster": true
+          },
+          "level": {
+            "value": 4
+          },
+          "traits": {
+            "value": ["cleric"],
+            "rarity": "common"
+          },
+          "description": {
+            "value": "<p><strong>Requirements</strong> You have a @UUID[Compendium.pf2e.spells-srd.Item.Harm] or @UUID[Compendium.pf2e.spells-srd.Item.Heal] spell you can cast.</p>\n<hr />\n<p>You balance both sides of the scales, restoring yourself while striking a foe. Cast a 1-action <em>harm</em> or <em>heal</em> spell to heal yourself, expending the spell normally. It loses the manipulate trait when cast this way. Then make a melee Strike. If you make this Strike with your deity's favored weapon, you gain a +1 status bonus to the attack roll.</p>\n<p>If the Strike hits, you can target a second willing creature to heal the same amount from the spell. This creature can be outside of the spell's range, provided it's adjacent to the enemy you hit.</p>"
+          },
+          "rules": [],
+          "actionType": {
+            "value": "action"
+          },
+          "actions": {
+            "value": 2
+          },
+          "category": "class",
+          "prerequisites": {
+            "value": []
+          },
+          "selfEffect": {
+            "name": "Effect: Restorative Strike",
+            "uuid": "Compendium.pf2e.feat-effects.Item.Effect: Restorative Strike"
+          }
+        },
+        "folder": "pC8dQPctCUzx96WH"
+      }
     },
     {
       "type": "entry",
