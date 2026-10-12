@@ -2468,6 +2468,17 @@
       ],
       "action": {
         "cost": "free",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You successfully Demoralize an enemy."
+              }
+            ]
+          }
+        ],
         "frequency": {
           "max": 1,
           "per": "ten-minutes"
@@ -2937,7 +2948,26 @@
         }
       ],
       "action": {
-        "cost": "one"
+        "cost": "one",
+        "requirements": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Your last action was a Strike made with a weapon or unarmed attack empowered by "
+              },
+              {
+                "type": "ref",
+                "id": "71fd9b9d-7909-5a49-a955-fba3a4c841cf"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          }
+        ]
       },
       "archetype": "9d647c89-0686-5a25-921c-87078b3bc13a"
     }
@@ -3981,6 +4011,25 @@
       ],
       "action": {
         "cost": "one",
+        "requirements": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You're under the effects of "
+              },
+              {
+                "type": "ref",
+                "id": "81aa3ccc-cd6e-5c91-b959-fe848a771f99"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          }
+        ],
         "selfEffect": "f40ef1c0-c020-5a69-bda7-6d5729d8b28e"
       },
       "archetype": "81e1aa36-c4c5-5897-af13-6d4cf9faa6a1"
@@ -4143,6 +4192,25 @@
       ],
       "action": {
         "cost": "one",
+        "requirements": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You're under the effects of "
+              },
+              {
+                "type": "ref",
+                "id": "81aa3ccc-cd6e-5c91-b959-fe848a771f99"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          }
+        ],
         "selfEffect": "b1d5874e-9ec8-5d8b-b3dc-2a1eefd7fc8a"
       },
       "archetype": "81e1aa36-c4c5-5897-af13-6d4cf9faa6a1"

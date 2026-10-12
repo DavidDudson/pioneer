@@ -21114,8 +21114,8 @@
             "text": " creatures or when flanked. In addition, you gain the following reaction: "
           },
           {
-            "type": "text",
-            "text": "Foresight"
+            "type": "ref",
+            "id": "baddfcdf-0c1b-5e97-84e7-c05424ad1e3e"
           }
         ]
       },

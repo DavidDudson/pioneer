@@ -11,12 +11,6 @@
       "foundry": "Compendium.pf2e.actionspf2e.Item.MHLuKy4nQO2Z4Am1",
       "gaps": [
         {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "requirements",
-          "raw": "You're wearing or holding a @UUID[Compendium.pf2e.equipment-srd.Item.Healer's Toolkit]."
-        },
-        {
           "type": "enricher",
           "enricher": "[[/act]][variant]"
         }
@@ -378,61 +372,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "action:foresight",
-      "foundry": "Compendium.pf2e.actionspf2e.Item.VOEWhPQfN3lvHivK",
-      "leftOut": {
-        "reason": "no-kind-data",
-        "detail": ""
-      },
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "trigger",
-          "raw": "The target of @UUID[Compendium.pf2e.spells-srd.Item.Foresight] defends against a hostile creature or other danger."
-        },
-        {
-          "type": "field",
-          "reason": "invalid-data",
-          "field": "trigger",
-          "raw": {
-            "cost": "reaction",
-            "category": "defensive"
-          }
-        }
-      ],
-      "document": {
-        "_id": "VOEWhPQfN3lvHivK",
-        "name": "Foresight",
-        "type": "action",
-        "system": {
-          "publication": {
-            "title": "Pathfinder Player Core",
-            "license": "ORC",
-            "remaster": true
-          },
-          "traits": {
-            "value": [],
-            "rarity": "common"
-          },
-          "description": {
-            "value": "<p><strong>Trigger</strong> The target of @UUID[Compendium.pf2e.spells-srd.Item.Foresight] defends against a hostile creature or other danger.</p>\n<hr />\n<p><strong>Effect</strong> If the hostile creature or danger forces the target to roll dice (a saving throw, for example), the target rolls twice and uses the higher result, and this spell gains the fortune trait. But if the hostile creature or danger is rolling against the target (an attack roll or skill check, for example), that hostile creature or danger rolls twice and uses the lower result, and this spell gains the misfortune trait.</p>"
-          },
-          "rules": [],
-          "actionType": {
-            "value": "reaction"
-          },
-          "actions": {
-            "value": null
-          },
-          "category": "defensive"
-        },
-        "folder": "03q1RFVyw2oVh0F7"
-      }
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "action:fungus",
       "foundry": "Compendium.pf2e.familiar-abilities.Item.jew52aXGdNyR4N5B",
       "gaps": [
@@ -487,20 +426,6 @@
             "type": "circumstance",
             "value": 2
           }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "action:identify-alchemy",
-      "foundry": "Compendium.pf2e.actionspf2e.Item.Q4kdWVOf2ztIBFg1",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "requirements",
-          "raw": "You're holding or wearing an @UUID[Compendium.pf2e.equipment-srd.Item.Alchemist's Toolkit]."
         }
       ]
     },
@@ -573,20 +498,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "action:master-strike",
-      "foundry": "Compendium.pf2e.actionspf2e.Item.Rlp7ND33yYfxiEWi",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "trigger",
-          "raw": "Your Strike hits an @UUID[Compendium.pf2e.conditionitems.Item.Off-Guard] creature and deals damage."
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "action:perform",
       "foundry": "Compendium.pf2e.actionspf2e.Item.EEDElIyin4z60PXx",
       "gaps": [
@@ -601,20 +512,6 @@
         {
           "type": "markup",
           "markup": "h2[class]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "action:pick-a-lock",
-      "foundry": "Compendium.pf2e.actionspf2e.Item.2EE4aF4SZpYf0R6H",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "requirements",
-          "raw": "You're holding or wearing a @UUID[Compendium.pf2e.equipment-srd.Item.Thieves' Toolkit]."
         }
       ]
     },
@@ -647,20 +544,6 @@
         {
           "type": "enricher",
           "enricher": "@Check[options]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "action:repair",
-      "foundry": "Compendium.pf2e.actionspf2e.Item.bT3skovyLUtP22ME",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "requirements",
-          "raw": "You are holding or wearing a @UUID[Compendium.pf2e.equipment-srd.Item.Repair Toolkit]{Repair Kit}"
         }
       ]
     },
@@ -880,20 +763,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "action:take-cover",
-      "foundry": "Compendium.pf2e.actionspf2e.Item.ust1jJSCZQUhBZIz",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "requirements",
-          "raw": "You are benefiting from standard cover, are near a feature that allows you to take cover, or are @UUID[Compendium.pf2e.conditionitems.Item.Prone]."
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "action:tough",
       "foundry": "Compendium.pf2e.familiar-abilities.Item.Le8UWr5BU8rV3iBf",
       "gaps": [
@@ -932,60 +801,12 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "action:treat-disease",
-      "foundry": "Compendium.pf2e.actionspf2e.Item.TC7OcDa7JlWbqMaN",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "requirements",
-          "raw": "You're wearing or holding a @UUID[Compendium.pf2e.equipment-srd.Item.Healer's Toolkit]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "action:treat-poison",
-      "foundry": "Compendium.pf2e.actionspf2e.Item.KjoCEEmPGTeFE4hh",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "requirements",
-          "raw": "You're wearing or holding a @UUID[Compendium.pf2e.equipment-srd.Item.Healer's Toolkit]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "action:treat-wounds",
       "foundry": "Compendium.pf2e.actionspf2e.Item.1kGNdIIhuglAjIp9",
       "gaps": [
         {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "requirements",
-          "raw": "You're wearing or holding a @UUID[Compendium.pf2e.equipment-srd.Item.Healer's Toolkit]."
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[feat-effects]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "action:true-shapeshift",
-      "foundry": "Compendium.pf2e.actionspf2e.Item.pn557VVMaNJyq0jX",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "requirements",
-          "raw": "You're under the effects of @UUID[Compendium.pf2e.spells-srd.Item.Untamed Form]"
         }
       ]
     },
@@ -17559,14 +17380,6 @@
             "path": "system.attributes.flanking.flankable",
             "value": false
           }
-        },
-        {
-          "type": "reference",
-          "entry": "player-core/action:foresight",
-          "element": {
-            "key": "GrantItem",
-            "item": "baddfcdf-0c1b-5e97-84e7-c05424ad1e3e"
-          }
         }
       ]
     },
@@ -23335,20 +23148,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:additional-recollection",
-      "foundry": "Compendium.pf2e.feats-srd.Item.nU0r77AZXMXIlti6",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "trigger",
-          "raw": "You succeed or critically succeed at a check to @UUID[Compendium.pf2e.actionspf2e.Item.Recall Knowledge] on your hunted prey."
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:adopted-ancestry",
       "foundry": "Compendium.pf2e.feats-srd.Item.ihN8gkHSdPG9Trte",
       "gaps": [
@@ -23666,28 +23465,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:all-in-my-head",
-      "foundry": "Compendium.pf2e.feats-srd.Item.wqAdzjRUOvTpKFKq",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "trigger",
-          "raw": "You would take damage from a Strike or spell that doesn't have the death trait or otherwise cause instant death (such as @UUID[Compendium.pf2e.spells-srd.Item.Disintegrate])."
-        },
-        {
-          "type": "field",
-          "reason": "invalid-data",
-          "field": "action.trigger",
-          "raw": {
-            "cost": "reaction"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:analyze-weakness",
       "foundry": "Compendium.pf2e.feats-srd.Item.3PHHiZjX16Dwyt65",
       "gaps": [
@@ -23712,12 +23489,6 @@
             "predicate": ["analyze-weakness"],
             "selector": "strike-damage"
           }
-        },
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "requirements",
-          "raw": "You have identified a creature with @UUID[Compendium.pf2e.actionspf2e.Item.Recall Knowledge]."
         }
       ]
     },
@@ -24129,34 +23900,6 @@
             "type": "ref",
             "id": "9b234ac7-30e8-5b71-bead-b0092b5641e8"
           }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:avatars-protection",
-      "foundry": "Compendium.pf2e.feats-srd.Item.MivOI7Eo6x10rtsg",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "requirements",
-          "raw": "You have an @UUID[Compendium.pf2e.spells-srd.Item.Avatar] spell prepared."
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:avenge-ally",
-      "foundry": "Compendium.pf2e.feats-srd.Item.LTcpBbnngfuYTdB0",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "requirements",
-          "raw": "You are within 30 feet of an ally with the @UUID[Compendium.pf2e.conditionitems.Item.Dying] condition."
         }
       ]
     },
@@ -25169,12 +24912,6 @@
             ],
             "toggleable": true
           }
-        },
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "requirements",
-          "raw": "The last action you used was to Cast a Spell enabled by @UUID[Compendium.pf2e.actionspf2e.Item.Drain Bonded Item]."
         }
       ]
     },
@@ -25187,20 +24924,6 @@
         {
           "type": "enricher",
           "enricher": "@Check[against]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:bounce-back",
-      "foundry": "Compendium.pf2e.feats-srd.Item.MR4X38qgBj5tmkMw",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "trigger",
-          "raw": "You lose the @UUID[Compendium.pf2e.conditionitems.Item.Dying] condition."
         }
       ]
     },
@@ -26013,28 +25736,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:clever-gambit",
-      "foundry": "Compendium.pf2e.feats-srd.Item.D1o7GUraoFFzjaub",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "trigger",
-          "raw": "Your Strike critically hits and deals damage to a creature you've identified with @UUID[Compendium.pf2e.actionspf2e.Item.Recall Knowledge]."
-        },
-        {
-          "type": "field",
-          "reason": "invalid-data",
-          "field": "action.trigger",
-          "raw": {
-            "cost": "reaction"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:combat-assessment",
       "foundry": "Compendium.pf2e.feats-srd.Item.5FyvwI24mnROzh61",
       "gaps": [
@@ -26460,12 +26161,6 @@
             "type": "circumstance",
             "value": 4
           }
-        },
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "requirements",
-          "raw": "You're aware of the attack, not @UUID[Compendium.pf2e.conditionitems.Item.Off-Guard] against it, and either have a hand free or are wielding a melee weapon."
         }
       ]
     },
@@ -26507,12 +26202,6 @@
             "text": "PF2E.SpecificRule.Fighter.DazingBlow.Note",
             "title": "{item|name}"
           }
-        },
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "requirements",
-          "raw": "You have a creature @UUID[Compendium.pf2e.conditionitems.Item.Grabbed]."
         },
         {
           "type": "enricher",
@@ -27552,20 +27241,6 @@
             "slug": "parry-bonus",
             "value": 0
           }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:dueling-riposte",
-      "foundry": "Compendium.pf2e.feats-srd.Item.mf2cdCRV8uowOMOm",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "requirements",
-          "raw": "You are benefiting from @UUID[Compendium.pf2e.feats-srd.Item.Dueling Parry]."
         }
       ]
     },
@@ -30074,32 +29749,6 @@
         {
           "type": "enricher",
           "enricher": "@UUID[feat-effects]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:hidden-paragon",
-      "foundry": "Compendium.pf2e.feats-srd.Item.Kl1O0WK37KMTumv1",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "trigger",
-          "raw": "You successfully use Stealth to @UUID[Compendium.pf2e.actionspf2e.Item.Hide] and become @UUID[Compendium.pf2e.conditionitems.Item.Hidden] from all of your current foes, or use Stealth to @UUID[Compendium.pf2e.actionspf2e.Item.Sneak] and become @UUID[Compendium.pf2e.conditionitems.Item.Undetected] to all your current foes."
-        },
-        {
-          "type": "field",
-          "reason": "invalid-data",
-          "field": "action.trigger",
-          "raw": {
-            "cost": "reaction",
-            "frequency": {
-              "max": 1,
-              "per": "hour"
-            }
-          }
         }
       ]
     },
@@ -33121,20 +32770,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:rampaging-ferocity",
-      "foundry": "Compendium.pf2e.feats-srd.Item.9eaUS0jJCpxuNXO5",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "trigger",
-          "raw": "You use @UUID[Compendium.pf2e.feats-srd.Item.Orc Ferocity]."
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:ranger-dedication",
       "foundry": "Compendium.pf2e.feats-srd.Item.R00qiDE5pBctgtyU",
       "gaps": [
@@ -33316,20 +32951,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:reactive-distraction",
-      "foundry": "Compendium.pf2e.feats-srd.Item.LDIZtE7saDLSBduG",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "requirements",
-          "raw": "You have @UUID[Compendium.pf2e.feats-srd.Item.Perfect Distraction] ready to use."
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:reactive-striker",
       "foundry": "Compendium.pf2e.feats-srd.Item.OqU6QXkMrZqToEEi",
       "gaps": [
@@ -33341,28 +32962,6 @@
             "mode": "add",
             "path": "flags.system.fighterDedicationCount",
             "value": 1
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:rebounding-smite",
-      "foundry": "Compendium.pf2e.feats-srd.Item.Q0gFkEoJDmbRaaiU",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "trigger",
-          "raw": "You miss with your Strike during @UUID[Compendium.pf2e.feats-srd.Item.Channel Smite]."
-        },
-        {
-          "type": "field",
-          "reason": "invalid-data",
-          "field": "action.trigger",
-          "raw": {
-            "cost": "reaction"
           }
         }
       ]
@@ -33407,20 +33006,6 @@
             "type": "circumstance",
             "value": 1
           }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:reflexive-courage",
-      "foundry": "Compendium.pf2e.feats-srd.Item.nEmaHLsZEBru1Jjv",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "requirements",
-          "raw": "You are affected by @UUID[Compendium.pf2e.spells-srd.Item.Courageous Anthem]."
         }
       ]
     },
@@ -33564,14 +33149,7 @@
         "reason": "unresolved-reference",
         "detail": "player-core/effect:effect-restorative-strike"
       },
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "requirements",
-          "raw": "You have a @UUID[Compendium.pf2e.spells-srd.Item.Harm] or @UUID[Compendium.pf2e.spells-srd.Item.Heal] spell you can cast."
-        }
-      ],
+      "gaps": [],
       "document": {
         "_id": "xUlRLkWnfZ7reej6",
         "name": "Restorative Strike",
@@ -34298,42 +33876,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:sense-the-unseen",
-      "foundry": "Compendium.pf2e.feats-srd.Item.DM9rjXZrmx2MFX7k",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "trigger",
-          "raw": "You fail a check to @UUID[Compendium.pf2e.actionspf2e.Item.Seek]."
-        },
-        {
-          "type": "field",
-          "reason": "invalid-data",
-          "field": "action.trigger",
-          "raw": {
-            "cost": "reaction"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:shadow-self",
-      "foundry": "Compendium.pf2e.feats-srd.Item.7YvOqcdp9Z0RALMp",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "trigger",
-          "raw": "You successfully use Stealth to @UUID[Compendium.pf2e.actionspf2e.Item.Hide] and become @UUID[Compendium.pf2e.conditionitems.Item.Hidden] from all your current foes, or use Stealth to @UUID[Compendium.pf2e.actionspf2e.Item.Sneak] and become undetected to all your current foes."
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:shared-clarity",
       "foundry": "Compendium.pf2e.feats-srd.Item.ybrx1nsg5J0L8d3j",
       "gaps": [
@@ -34401,20 +33943,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:shatter-defenses",
-      "foundry": "Compendium.pf2e.feats-srd.Item.zbxqYhmn7KbqR2Sb",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "requirements",
-          "raw": "A @UUID[Compendium.pf2e.conditionitems.Item.Frightened] creature is in your melee reach."
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:shield-of-faith",
       "foundry": "Compendium.pf2e.feats-srd.Item.w3qyriA1YnzXaas3",
       "gaps": [
@@ -34433,20 +33961,6 @@
               }
             ]
           }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:shove-down",
-      "foundry": "Compendium.pf2e.feats-srd.Item.z5fUX9jeqfAViOd8",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "requirements",
-          "raw": "Your last action was a successful @UUID[Compendium.pf2e.actionspf2e.Item.Shove]."
         }
       ]
     },
@@ -35265,20 +34779,6 @@
       "foundry": "Compendium.pf2e.feats-srd.Item.2KBKXkRthBXpw48X",
       "gaps": [
         {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "trigger",
-          "raw": "A @UUID[Compendium.pf2e.conditionitems.Item.Prone] foe within your reach Stands."
-        },
-        {
-          "type": "field",
-          "reason": "invalid-data",
-          "field": "action.trigger",
-          "raw": {
-            "cost": "reaction"
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@Check[against]"
         }
@@ -35628,40 +35128,12 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:swift-banishment",
-      "foundry": "Compendium.pf2e.feats-srd.Item.t3unBu3PX6AO0uIW",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "requirements",
-          "raw": "You have a @UUID[Compendium.pf2e.spells-srd.Item.Banishment] spell prepared."
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:swift-elusion",
       "foundry": "Compendium.pf2e.feats-srd.Item.TqODgJL1VS3eokhX",
       "gaps": [
         {
           "type": "enricher",
           "enricher": "@Check[against]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:swipe-souvenir",
-      "foundry": "Compendium.pf2e.feats-srd.Item.efDtyZhdNjxt50PD",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "requirements",
-          "raw": "You're @UUID[Compendium.pf2e.conditionitems.Item.Grabbed] or @UUID[Compendium.pf2e.conditionitems.Item.Restrained] by a creature."
         }
       ]
     },
@@ -36281,29 +35753,9 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:twin-riposte",
-      "foundry": "Compendium.pf2e.feats-srd.Item.GJIAecRq1bD2r8O0",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "requirements",
-          "raw": "You are benefiting from @UUID[Compendium.pf2e.feats-srd.Item.Twin Parry]."
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:twist-the-knife",
       "foundry": "Compendium.pf2e.feats-srd.Item.5Jc2ySGLVi053qpz",
       "gaps": [
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "requirements",
-          "raw": "Your last action was a melee Strike that dealt sneak attack damage to an @UUID[Compendium.pf2e.conditionitems.Item.Off-Guard] target."
-        },
         {
           "type": "enricher",
           "enricher": "@Damage[formula]"
@@ -40458,22 +39910,6 @@
           "reason": "unmapped-value",
           "field": "target.value",
           "raw": "1 ally and 1 enemy"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "spell:foresight",
-      "foundry": "Compendium.pf2e.spells-srd.Item.qsNeG9KZpODSACMq",
-      "gaps": [
-        {
-          "type": "link",
-          "entry": "player-core/action:foresight",
-          "element": {
-            "type": "ref",
-            "id": "baddfcdf-0c1b-5e97-84e7-c05424ad1e3e"
-          }
         }
       ]
     },

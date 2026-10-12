@@ -5163,12 +5163,6 @@
       "foundry": "Compendium.pf2e.feats-srd.Item.9OVRsU45zCOvRQ9q",
       "gaps": [
         {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "trigger",
-          "raw": "You successfully @UUID[Compendium.pf2e.actionspf2e.Item.Demoralize] an enemy."
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[actionspf2e]"
         },
@@ -5221,12 +5215,6 @@
       "slug": "feat:following-smite",
       "foundry": "Compendium.pf2e.feats-srd.Item.uyZ3gY7gtKCLiywR",
       "gaps": [
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "requirements",
-          "raw": "Your last action was a Strike made with a weapon or unarmed attack empowered by @UUID[Compendium.pf2e.feats-srd.Item.Herald's Weapon]."
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[conditionitems]"
@@ -5432,34 +5420,6 @@
         {
           "type": "enricher",
           "enricher": "@UUID[actionspf2e]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "divine-mysteries",
-      "slug": "feat:invoke-defense",
-      "foundry": "Compendium.pf2e.feats-srd.Item.iBdvNOWazhiXeUUa",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "requirements",
-          "raw": "You're under the effects of @UUID[Compendium.pf2e.actionspf2e.Item.Enter Spirit Trance]."
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "divine-mysteries",
-      "slug": "feat:invoke-offense",
-      "foundry": "Compendium.pf2e.feats-srd.Item.EEtezGRTZSHayQDR",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "requirements",
-          "raw": "You're under the effects of @UUID[Compendium.pf2e.actionspf2e.Item.Enter Spirit Trance]."
         }
       ]
     },
