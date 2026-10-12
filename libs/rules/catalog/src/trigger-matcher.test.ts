@@ -72,6 +72,13 @@ describe('trigger matcher', () => {
     expect(matchTrigger(unnamed, NAMES)).toBeUndefined();
   });
 
+  test('reads marked words as their text', () => {
+    const focus = { type: 'text', text: 'focus', marks: ['emphasis'] };
+    const marked = trigger(paragraph(text('You cast a '), focus, text(' spell.')));
+
+    expect(matchTrigger(marked, NAMES)).toStrictEqual(event({ event: 'cast-spell', predicate: ['item:trait:focus'] }));
+  });
+
   test.each([
     ['a condition the event cannot carry', prose('You Strike a creature that is off-guard.')],
     ['another creature’s action', prose('A creature within your reach uses a move action.')],

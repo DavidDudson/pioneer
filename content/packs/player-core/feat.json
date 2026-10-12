@@ -326,7 +326,26 @@
     "data": {
       "category": "class",
       "action": {
-        "cost": "free"
+        "cost": "free",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You succeed or critically succeed at a check to "
+              },
+              {
+                "type": "ref",
+                "id": "3c873e49-a1c4-53b5-9694-66b860d94d43"
+              },
+              {
+                "type": "text",
+                "text": " on your hunted prey."
+              }
+            ]
+          }
+        ]
       }
     }
   },
@@ -1580,7 +1599,29 @@
       "foundry": "Compendium.pf2e.feats-srd.Item.wqAdzjRUOvTpKFKq"
     },
     "data": {
-      "category": "class"
+      "category": "class",
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You would take damage from a Strike or spell that doesn't have the death trait or otherwise cause instant death (such as "
+              },
+              {
+                "type": "ref",
+                "id": "e4628be0-93e0-58ba-adb1-d9e656f43da5"
+              },
+              {
+                "type": "text",
+                "text": ")."
+              }
+            ]
+          }
+        ]
+      }
     }
   },
   {
@@ -1703,7 +1744,26 @@
         }
       ],
       "action": {
-        "cost": "one"
+        "cost": "one",
+        "requirements": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You have identified a creature with "
+              },
+              {
+                "type": "ref",
+                "id": "3c873e49-a1c4-53b5-9694-66b860d94d43"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          }
+        ]
       }
     }
   },
@@ -3172,6 +3232,25 @@
       "category": "class",
       "action": {
         "cost": "reaction",
+        "requirements": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You have an "
+              },
+              {
+                "type": "ref",
+                "id": "512e2cb2-1417-5a87-bf87-3de50988af3e"
+              },
+              {
+                "type": "text",
+                "text": " spell prepared."
+              }
+            ]
+          }
+        ],
         "trigger": [
           {
             "type": "paragraph",
@@ -3259,6 +3338,25 @@
       "category": "ancestry",
       "action": {
         "cost": "one",
+        "requirements": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are within 30 feet of an ally with the "
+              },
+              {
+                "type": "ref",
+                "id": "c0cd649a-7029-5174-a5b4-678f51598dec"
+              },
+              {
+                "type": "text",
+                "text": " condition."
+              }
+            ]
+          }
+        ],
         "frequency": {
           "max": 1,
           "per": "ten-minutes"
@@ -5228,7 +5326,26 @@
         }
       ],
       "action": {
-        "cost": "one"
+        "cost": "one",
+        "requirements": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The last action you used was to Cast a Spell enabled by "
+              },
+              {
+                "type": "ref",
+                "id": "f6e3c0a0-98cf-5bd9-9750-569f60044bec"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          }
+        ]
       }
     }
   },
@@ -5519,6 +5636,25 @@
       "category": "ancestry",
       "action": {
         "cost": "free",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You lose the "
+              },
+              {
+                "type": "ref",
+                "id": "c0cd649a-7029-5174-a5b4-678f51598dec"
+              },
+              {
+                "type": "text",
+                "text": " condition."
+              }
+            ]
+          }
+        ],
         "frequency": {
           "max": 1,
           "per": "day"
@@ -7845,7 +7981,29 @@
             }
           ]
         }
-      ]
+      ],
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Your Strike critically hits and deals damage to a creature you've identified with "
+              },
+              {
+                "type": "ref",
+                "id": "3c873e49-a1c4-53b5-9694-66b860d94d43"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          }
+        ]
+      }
     }
   },
   {
@@ -10184,6 +10342,25 @@
       "category": "class",
       "action": {
         "cost": "reaction",
+        "requirements": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You're aware of the attack, not "
+              },
+              {
+                "type": "ref",
+                "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+              },
+              {
+                "type": "text",
+                "text": " against it, and either have a hand free or are wielding a melee weapon."
+              }
+            ]
+          }
+        ],
         "trigger": [
           {
             "type": "paragraph",
@@ -10471,7 +10648,26 @@
     "data": {
       "category": "class",
       "action": {
-        "cost": "one"
+        "cost": "one",
+        "requirements": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You have a creature "
+              },
+              {
+                "type": "ref",
+                "id": "cab530ff-ca20-5f0a-8a5e-b9fdb322b146"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          }
+        ]
       }
     }
   },
@@ -13761,6 +13957,25 @@
       ],
       "action": {
         "cost": "reaction",
+        "requirements": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are benefiting from "
+              },
+              {
+                "type": "ref",
+                "id": "5a9b2284-f42c-5f2c-9166-3cafad81bffa"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          }
+        ],
         "trigger": [
           {
             "type": "paragraph",
@@ -22118,7 +22333,57 @@
             }
           ]
         }
-      ]
+      ],
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You successfully use Stealth to "
+              },
+              {
+                "type": "ref",
+                "id": "5a86b7d0-fc0e-52a6-9b0d-fb58ed15233d"
+              },
+              {
+                "type": "text",
+                "text": " and become "
+              },
+              {
+                "type": "ref",
+                "id": "d851e3ca-be0d-55a7-a4d1-d7ed8b7ecafa"
+              },
+              {
+                "type": "text",
+                "text": " from all of your current foes, or use Stealth to "
+              },
+              {
+                "type": "ref",
+                "id": "7e4e48de-b626-5513-9518-73261c58b5f4"
+              },
+              {
+                "type": "text",
+                "text": " and become "
+              },
+              {
+                "type": "ref",
+                "id": "61f1fec4-1bb4-585d-9c12-6059d15dd74b"
+              },
+              {
+                "type": "text",
+                "text": " to all your current foes."
+              }
+            ]
+          }
+        ],
+        "frequency": {
+          "max": 1,
+          "per": "hour"
+        }
+      }
     }
   },
   {
@@ -36048,7 +36313,26 @@
         }
       ],
       "action": {
-        "cost": "free"
+        "cost": "free",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You use "
+              },
+              {
+                "type": "ref",
+                "id": "9ea21395-7a73-595a-b64f-5c44bd818484"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          }
+        ]
       }
     }
   },
@@ -36529,6 +36813,25 @@
       ],
       "action": {
         "cost": "reaction",
+        "requirements": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You have "
+              },
+              {
+                "type": "ref",
+                "id": "08ff9cc8-d6cd-5022-9160-e79340c123fc"
+              },
+              {
+                "type": "text",
+                "text": " ready to use."
+              }
+            ]
+          }
+        ],
         "trigger": [
           {
             "type": "paragraph",
@@ -37233,7 +37536,29 @@
             }
           ]
         }
-      ]
+      ],
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You miss with your Strike during "
+              },
+              {
+                "type": "ref",
+                "id": "a605dc99-7d79-53d9-b3de-eedb788e710e"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          }
+        ]
+      }
     }
   },
   {
@@ -37683,6 +38008,25 @@
       ],
       "action": {
         "cost": "reaction",
+        "requirements": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are affected by "
+              },
+              {
+                "type": "ref",
+                "id": "2d7bbf89-5f41-521b-b422-283f3a19c058"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          }
+        ],
         "trigger": [
           {
             "type": "paragraph",
@@ -40623,7 +40967,29 @@
       "foundry": "Compendium.pf2e.feats-srd.Item.DM9rjXZrmx2MFX7k"
     },
     "data": {
-      "category": "class"
+      "category": "class",
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You fail a check to "
+              },
+              {
+                "type": "ref",
+                "id": "d45207be-e539-50ce-9463-f4edc3671076"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          }
+        ]
+      }
     }
   },
   {
@@ -40829,6 +41195,41 @@
         }
       ],
       "action": {
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You successfully use Stealth to "
+              },
+              {
+                "type": "ref",
+                "id": "5a86b7d0-fc0e-52a6-9b0d-fb58ed15233d"
+              },
+              {
+                "type": "text",
+                "text": " and become "
+              },
+              {
+                "type": "ref",
+                "id": "d851e3ca-be0d-55a7-a4d1-d7ed8b7ecafa"
+              },
+              {
+                "type": "text",
+                "text": " from all your current foes, or use Stealth to "
+              },
+              {
+                "type": "ref",
+                "id": "7e4e48de-b626-5513-9518-73261c58b5f4"
+              },
+              {
+                "type": "text",
+                "text": " and become undetected to all your current foes."
+              }
+            ]
+          }
+        ],
         "frequency": {
           "max": 1,
           "per": "hour"
@@ -41238,7 +41639,26 @@
     "data": {
       "category": "class",
       "action": {
-        "cost": "one"
+        "cost": "one",
+        "requirements": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "A "
+              },
+              {
+                "type": "ref",
+                "id": "4218b8f3-1756-50cd-a914-6ce750659a62"
+              },
+              {
+                "type": "text",
+                "text": " creature is in your melee reach."
+              }
+            ]
+          }
+        ]
       }
     }
   },
@@ -41525,7 +41945,26 @@
         }
       ],
       "action": {
-        "cost": "free"
+        "cost": "free",
+        "requirements": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Your last action was a successful "
+              },
+              {
+                "type": "ref",
+                "id": "082b982f-3ed4-5d9c-9722-9ab10198523a"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          }
+        ]
       }
     }
   },
@@ -44333,7 +44772,29 @@
             }
           ]
         }
-      ]
+      ],
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "A "
+              },
+              {
+                "type": "ref",
+                "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+              },
+              {
+                "type": "text",
+                "text": " foe within your reach Stands."
+              }
+            ]
+          }
+        ]
+      }
     }
   },
   {
@@ -46001,6 +46462,25 @@
       "category": "class",
       "action": {
         "cost": "reaction",
+        "requirements": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You have a "
+              },
+              {
+                "type": "ref",
+                "id": "b2355f5f-2795-58d8-a713-df34a0257e46"
+              },
+              {
+                "type": "text",
+                "text": " spell prepared."
+              }
+            ]
+          }
+        ],
         "trigger": [
           {
             "type": "paragraph",
@@ -46342,7 +46822,34 @@
     "data": {
       "category": "class",
       "action": {
-        "cost": "two"
+        "cost": "two",
+        "requirements": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You're "
+              },
+              {
+                "type": "ref",
+                "id": "cab530ff-ca20-5f0a-8a5e-b9fdb322b146"
+              },
+              {
+                "type": "text",
+                "text": " or "
+              },
+              {
+                "type": "ref",
+                "id": "b374c4c9-d230-5167-8878-38e08932a071"
+              },
+              {
+                "type": "text",
+                "text": " by a creature."
+              }
+            ]
+          }
+        ]
       }
     }
   },
@@ -48623,6 +49130,25 @@
       "category": "class",
       "action": {
         "cost": "reaction",
+        "requirements": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are benefiting from "
+              },
+              {
+                "type": "ref",
+                "id": "54d7d08d-1a3f-5d66-8bc3-63261d89f5d4"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          }
+        ],
         "trigger": [
           {
             "type": "paragraph",
@@ -48845,7 +49371,26 @@
     "data": {
       "category": "class",
       "action": {
-        "cost": "one"
+        "cost": "one",
+        "requirements": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Your last action was a melee Strike that dealt sneak attack damage to an "
+              },
+              {
+                "type": "ref",
+                "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+              },
+              {
+                "type": "text",
+                "text": " target."
+              }
+            ]
+          }
+        ]
       }
     }
   },

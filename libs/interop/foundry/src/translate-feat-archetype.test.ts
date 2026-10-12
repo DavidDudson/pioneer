@@ -83,13 +83,23 @@ describe('translateKindData: feats and class features', () => {
     });
   });
 
-  test('a reaction whose trigger was left for rich text keeps the feat without its action', () => {
-    const trigger = '<p><strong>Trigger</strong> @UUID[Compendium.pf2e.x.Item.y]</p>';
+  test("a reaction feat's trigger keeps its link as rich text", () => {
+    const trigger = '<p><strong>Trigger</strong> You cast @UUID[Compendium.pf2e.spells-srd.Item.Heal]{heal}.</p>';
     const reaction = translate([
       {
         ...SUDDEN_CHARGE,
         system: { ...SUDDEN_CHARGE.system, actionType: { value: 'reaction' }, description: { value: trigger } },
       },
+    ]);
+
+    expect(dataIn(reaction, 'sudden-charge')).toMatchObject({
+      action: { cost: 'reaction', trigger: paragraph('You cast heal.') },
+    });
+  });
+
+  test('a reaction feat with no trigger keeps the feat without its action', () => {
+    const reaction = translate([
+      { ...SUDDEN_CHARGE, system: { ...SUDDEN_CHARGE.system, actionType: { value: 'reaction' }, description: {} } },
     ]);
 
     expect(dataIn(reaction, 'sudden-charge')).toEqual({ category: 'class' });

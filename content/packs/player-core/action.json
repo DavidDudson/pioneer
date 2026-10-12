@@ -258,7 +258,26 @@
       "foundry": "Compendium.pf2e.actionspf2e.Item.MHLuKy4nQO2Z4Am1"
     },
     "data": {
-      "cost": "two"
+      "cost": "two",
+      "requirements": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You're wearing or holding a "
+            },
+            {
+              "type": "ref",
+              "id": "050458fd-ce2e-53a2-ac9d-e9a790d70513"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -6229,6 +6248,89 @@
     }
   },
   {
+    "id": "baddfcdf-0c1b-5e97-84e7-c05424ad1e3e",
+    "pack": "player-core",
+    "kind": "action",
+    "slug": "action:foresight",
+    "name": "Foresight",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target of "
+          },
+          {
+            "type": "ref",
+            "id": "fb2cc36e-8e1c-5149-a202-43938814f46a"
+          },
+          {
+            "type": "text",
+            "text": " defends against a hostile creature or other danger."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " If the hostile creature or danger forces the target to roll dice (a saving throw, for example), the target rolls twice and uses the higher result, and this spell gains the fortune trait. But if the hostile creature or danger is rolling against the target (an attack roll or skill check, for example), that hostile creature or danger rolls twice and uses the lower result, and this spell gains the misfortune trait."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.VOEWhPQfN3lvHivK"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "defensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The target of "
+            },
+            {
+              "type": "ref",
+              "id": "fb2cc36e-8e1c-5149-a202-43938814f46a"
+            },
+            {
+              "type": "text",
+              "text": " defends against a hostile creature or other danger."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
     "id": "76c34d2b-5f41-5de2-871a-a50af4423f99",
     "pack": "player-core",
     "kind": "action",
@@ -7241,7 +7343,26 @@
       "foundry": "Compendium.pf2e.actionspf2e.Item.Q4kdWVOf2ztIBFg1"
     },
     "data": {
-      "category": "interaction"
+      "category": "interaction",
+      "requirements": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You're holding or wearing an "
+            },
+            {
+              "type": "ref",
+              "id": "fa6fa403-567c-5444-b0a7-92dc8bbedbd2"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -9318,7 +9439,26 @@
     },
     "data": {
       "cost": "free",
-      "category": "offensive"
+      "category": "offensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Your Strike hits an "
+            },
+            {
+              "type": "ref",
+              "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+            },
+            {
+              "type": "text",
+              "text": " creature and deals damage."
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -10258,7 +10398,26 @@
     },
     "data": {
       "cost": "two",
-      "category": "interaction"
+      "category": "interaction",
+      "requirements": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You're holding or wearing a "
+            },
+            {
+              "type": "ref",
+              "id": "297ef808-c89f-52c9-be6e-f1b1fb2cef8d"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -11071,7 +11230,23 @@
       "foundry": "Compendium.pf2e.actionspf2e.Item.bT3skovyLUtP22ME"
     },
     "data": {
-      "category": "interaction"
+      "category": "interaction",
+      "requirements": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You are holding or wearing a "
+            },
+            {
+              "type": "ref",
+              "id": "9eafb125-de05-59df-ad19-4b30c8ec6a82",
+              "label": "Repair Kit"
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -13833,6 +14008,25 @@
     "data": {
       "cost": "one",
       "category": "interaction",
+      "requirements": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You are benefiting from standard cover, are near a feature that allows you to take cover, or are "
+            },
+            {
+              "type": "ref",
+              "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ],
       "selfEffect": "c0248e28-d9b3-5268-b561-75129e943a39"
     }
   },
@@ -14250,7 +14444,22 @@
       "foundry": "Compendium.pf2e.actionspf2e.Item.TC7OcDa7JlWbqMaN"
     },
     "data": {
-      "category": "interaction"
+      "category": "interaction",
+      "requirements": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You're wearing or holding a "
+            },
+            {
+              "type": "ref",
+              "id": "050458fd-ce2e-53a2-ac9d-e9a790d70513"
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -14368,7 +14577,22 @@
     },
     "data": {
       "cost": "one",
-      "category": "interaction"
+      "category": "interaction",
+      "requirements": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You're wearing or holding a "
+            },
+            {
+              "type": "ref",
+              "id": "050458fd-ce2e-53a2-ac9d-e9a790d70513"
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -14553,7 +14777,26 @@
       "foundry": "Compendium.pf2e.actionspf2e.Item.1kGNdIIhuglAjIp9"
     },
     "data": {
-      "category": "interaction"
+      "category": "interaction",
+      "requirements": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You're wearing or holding a "
+            },
+            {
+              "type": "ref",
+              "id": "050458fd-ce2e-53a2-ac9d-e9a790d70513"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -14760,6 +15003,21 @@
     "data": {
       "cost": "two",
       "category": "offensive",
+      "requirements": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You're under the effects of "
+            },
+            {
+              "type": "ref",
+              "id": "cefde006-5aec-54a0-a09a-a0478af94eb2"
+            }
+          ]
+        }
+      ],
       "frequency": {
         "max": 1,
         "per": "hour"

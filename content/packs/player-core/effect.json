@@ -12057,7 +12057,12 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "baddfcdf-0c1b-5e97-84e7-c05424ad1e3e"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.X9Na6IK8FSPcTuoc"
     },

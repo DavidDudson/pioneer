@@ -8,7 +8,6 @@ import {
   SpellData,
 } from '@pioneer/rules/sdk';
 import type {
-  ContentId,
   DamageTypeData,
   LanguageData,
   RuleElement,
@@ -18,7 +17,6 @@ import type {
 } from '@pioneer/rules/sdk';
 import type * as z from 'zod';
 
-import type { EntryReferences } from './entry-references';
 import { documentKind } from './entry-slugs';
 import { EQUIPMENT_TRANSLATORS } from './equipment-kind-data';
 import type { EquipmentKindData } from './equipment-kind-data';
@@ -28,7 +26,6 @@ import type { GapLog, KindDataGap, KindInput } from './kind-data-gaps';
 import type { SelectedEntry } from './select-entries';
 import { ACTION_FIELDS, actionData } from './translate-action';
 import { ANCESTRY_FIELDS, ancestryData, HERITAGE_FIELDS, heritageData } from './translate-ancestry';
-import type { ArchetypeLink } from './translate-archetype';
 import { BACKGROUND_FIELDS, backgroundData } from './translate-background';
 import { CLASS_FIELDS, classData } from './translate-class';
 import { CONDITION_FIELDS, conditionData } from './translate-condition';
@@ -36,7 +33,6 @@ import { DEITY_FIELDS, deityData } from './translate-deity';
 import { EFFECT_FIELDS, effectData } from './translate-effect';
 import { ancestryFeatureData, classFeatureData, FEAT_FIELDS, featData } from './translate-feat';
 import { KIT_FIELDS, kitData } from './translate-kit';
-import type { FoundrySenses } from './translate-senses';
 import { RITUAL_FIELDS, ritualData, SPELL_FIELDS, spellData } from './translate-spell';
 
 /**
@@ -158,13 +154,11 @@ const TRANSLATORS: Readonly<Partial<Record<ContentKind, KindTranslator>>> = {
   },
 };
 
-/** What a document's data may refer to: the import's references, and the archetypes linking each feat. */
-export interface KindDataContext {
-  readonly references: EntryReferences;
-  readonly archetypes: ReadonlyMap<ContentId, readonly ArchetypeLink[]>;
-  /** What each Foundry sense fixes, for the `Sense` elements a feat's `subfeatures` add. */
-  readonly senses?: FoundrySenses;
-}
+/**
+ * What a document's data may refer to: the import's references, the archetypes linking each feat, what each Foundry
+ * sense fixes, and what links in an action's trigger and requirements resolve against.
+ */
+export type KindDataContext = Pick<KindInput, 'references' | 'archetypes' | 'senses' | 'links'>;
 
 /**
  * The kind data of a translated document, when its kind has a translator (`TRANSLATORS`), with the rule elements
@@ -173,7 +167,7 @@ export interface KindDataContext {
 export function translateKindData(
   entry: SelectedEntry,
   envelope: ImportedEnvelope,
-  { references, archetypes, senses }: KindDataContext,
+  { references, archetypes, senses, links }: KindDataContext,
 ): KindDataTranslation {
   const translator = TRANSLATORS[documentKind(entry)];
   if (translator === undefined) {
@@ -182,7 +176,16 @@ export function translateKindData(
   const log: GapLog = { entry: envelope.id, gaps: [] };
   const rules: RuleElement[] = [];
   const { document, pack } = entry;
-  const input = { document, pack, envelope, references, log, rules, archetypes };
-  const kindData = translator(senses === undefined ? input : { ...input, senses });
+  const kindData = translator({
+    document,
+    pack,
+    envelope,
+    references,
+    log,
+    rules,
+    archetypes,
+    ...(senses === undefined ? {} : { senses }),
+    ...(links === undefined ? {} : { links }),
+  });
   return { ...(kindData === undefined ? {} : { kindData }), rules, gaps: log.gaps };
 }
