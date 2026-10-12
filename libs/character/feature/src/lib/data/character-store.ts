@@ -5,6 +5,7 @@ import type {
   Character,
   CharacterId,
   CharacterLanguages,
+  SheetDeity,
   CharacterPatch,
   CharacterSheet,
   CharacterSlot,
@@ -73,6 +74,8 @@ export class CharacterStore {
 
   /** The open character's languages, as the server read them; `undefined` while loading. */
   public readonly languages: Signal<CharacterLanguages | undefined> = computed(() => this.#current()?.languages);
+  /** The open character's deity, as the server read it; `undefined` with none, or while loading. */
+  public readonly deity: Signal<SheetDeity | undefined> = computed(() => this.#current()?.deity);
 
   public select(id: CharacterId): void {
     if (id !== this.#selectedId()) {

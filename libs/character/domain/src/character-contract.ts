@@ -4,6 +4,7 @@ import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { Character } from './character';
+import { SheetDeity } from './character-deity';
 import { CharacterId, CharacterName } from './character-fields';
 import { CharacterLanguages } from './character-languages';
 import { PatchCharacterBody } from './character-patch';
@@ -23,14 +24,15 @@ export const CreateCharacterBody = z.object({ name: CharacterName, ancestry: Anc
 export type CreateCharacterBody = z.infer<typeof CreateCharacterBody>;
 
 /**
- * One character as its sheet reads it: the character, every slot it has with its status (#419), and its languages
- * (#470). The statuses and languages are worked out from the picks and the server's content on each read, never stored, so the character's wire stays inputs
- * only.
+ * One character as its sheet reads it: the character, every slot it has with its status (#419), its languages (#470)
+ * and its deity (#469), with the description the browser's content has no copy of. They are worked out from the picks
+ * and the server's content on each read, never stored, so the character's wire stays inputs only.
  */
 export const CharacterSheet = z.object({
   character: Character.codec,
   slots: z.array(CharacterSlot).readonly(),
   languages: CharacterLanguages,
+  deity: SheetDeity.optional(),
 });
 export type CharacterSheet = z.output<typeof CharacterSheet>;
 

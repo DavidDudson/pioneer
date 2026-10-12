@@ -16,7 +16,7 @@ function keyed(key: string, name: string, fixture: DocumentFixture): unknown[] {
 }
 
 describe('translateKindData: pool spells', () => {
-  test("Divine Font's font choice offers both fonts whatever the deity, and its pool takes the font's spell", () => {
+  test("Divine Font's font choice offers the deity's fonts, and its pool takes the font's spell", () => {
     expect(keyed(ChoiceSet, 'divine-font', DIVINE_FONT)).toEqual([
       {
         key: ChoiceSet,
@@ -24,8 +24,8 @@ describe('translateKindData: pool spells', () => {
         prompt: 'Select a Divine Font.',
         rollOption: 'divine-font',
         choices: [
-          { label: 'Healing', value: 'heal' },
-          { label: 'Harmful', value: 'harm' },
+          { label: 'Healing', value: 'heal', predicate: ['deity:primary:font:heal'] },
+          { label: 'Harmful', value: 'harm', predicate: ['deity:primary:font:harm'] },
         ],
       },
     ]);

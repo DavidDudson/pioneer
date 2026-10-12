@@ -1,6 +1,6 @@
 import type { AnsweredSlot, ChoiceSlot, ContentLookup, GrantResolution, RootSlot } from '@pioneer/rules/grants';
 import { ContentId, Level, SlotKey } from '@pioneer/rules/sdk';
-import type { ChoiceValue, ContentText } from '@pioneer/rules/sdk';
+import type { ChoiceValue, ContentText, RollOption } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
 
 import { boostSets, flawSlots } from './attribute-boosts';
@@ -9,6 +9,7 @@ import type { CharacterDocument } from './character-document';
 import { CHARACTER_LEVEL_MAX } from './character-fields';
 import { SlotInvalidMessage, SlotStatus, SlotSubjectKind } from './character-slot';
 import type { CharacterSlot, SlotSubject } from './character-slot';
+import { OPTIONAL_ROOT_SLOTS } from './character-slots';
 import { languageStatuses } from './language-slot-status';
 import { preparedStatuses } from './prepared-slot-status';
 import { SkillPickProblem, skillSlots } from './skill-training';
@@ -60,9 +61,16 @@ interface ResolvedSlots {
   readonly choices: readonly CharacterSlot[];
 }
 
+/** Whether a root slot is listed: always, unless it is optional, empty, and nothing on the character needs it. */
+function isListed(slot: RootSlot, picks: ReadonlyMap<SlotKey, ChoiceValue>, options: readonly RollOption[]): boolean {
+  const neededBy = OPTIONAL_ROOT_SLOTS.get(slot.key);
+  return neededBy === undefined || picks.has(slot.key) || neededBy.some((option) => options.includes(option));
+}
+
 function resolvedSlots(resolution: GrantResolution, context: SlotContext, planned: Level | undefined): ResolvedSlots {
   const { picks, lookup } = context;
-  const roots = resolution.rootSlots.map((slot) =>
+  const listedRoots = resolution.rootSlots.filter((slot) => isListed(slot, picks, resolution.rollOptions));
+  const roots = listedRoots.map((slot) =>
     rootStatus(
       slot,
       {

@@ -77,10 +77,9 @@ const NO_LANGUAGES = { known: [], open: 0 } as const;
 
 function sheetOf(
   character: object,
-  slots: readonly object[] = MERISIEL_SLOTS,
-  languages: object = NO_LANGUAGES,
+  { slots = MERISIEL_SLOTS, languages = NO_LANGUAGES, deity }: SheetOptions = {},
 ): object {
-  return { character, slots, languages };
+  return { character, slots, languages, ...(deity === undefined ? {} : { deity }) };
 }
 
 /** What else a sheet opens with: the slots the server read, and the content packs served. */
@@ -88,6 +87,8 @@ export interface SheetOptions {
   readonly slots?: readonly object[];
   /** The languages the server read; none by default. */
   readonly languages?: object;
+  /** The deity the server read; none by default. */
+  readonly deity?: object;
   readonly packs?: readonly PackContentsLoader[];
 }
 
@@ -109,15 +110,12 @@ export interface OpenSheet {
 }
 
 /** Opens Merisiel's sheet (or `character`'s) in the document, so focus can move, and waits until it has loaded. */
-export async function openSheet(
-  character: object = MERISIEL,
-  { slots, packs, languages }: SheetOptions = {},
-): Promise<OpenSheet> {
-  await prebuildServerStateTesting([], packs);
+export async function openSheet(character: object = MERISIEL, options: SheetOptions = {}): Promise<OpenSheet> {
+  await prebuildServerStateTesting([], options.packs);
   TestBed.configureTestingModule({
     providers: [
       provideRouter([{ path: 'characters', children: characterRoutes }], withComponentInputBinding()),
-      ...provideServerStateTesting([], packs),
+      ...provideServerStateTesting([], options.packs),
       provideI18n({ en: async () => frontierMessages }),
     ],
   });
@@ -131,9 +129,7 @@ export async function openSheet(
     host.remove();
   });
   await vi.waitFor(() => {
-    TestBed.inject(HttpTestingController)
-      .expectOne(`/api/characters/${id}`)
-      .flush(sheetOf(character, slots, languages));
+    TestBed.inject(HttpTestingController).expectOne(`/api/characters/${id}`).flush(sheetOf(character, options));
   });
   const root = present(harness.routeNativeElement);
   await vi.waitFor(async () => {

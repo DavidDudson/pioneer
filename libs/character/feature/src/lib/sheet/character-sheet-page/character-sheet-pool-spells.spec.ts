@@ -1,4 +1,5 @@
 import { playerCoreClassId } from '@pioneer/character/domain/testing';
+import { contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
@@ -16,6 +17,8 @@ const SCHOOL_SLOT = '6efbc394-745c-5c78-8df1-8a3ebe1cdec2:0';
 const BATTLE_MAGIC = 'cf527c20-a4c9-5301-96f8-fa4da6be9af7';
 /** Player Core's heal. */
 const HEAL = '949e0a89-f44b-598d-8adb-3d9d31db900e';
+/** Sarenrae, whose font is healing, so a cleric of hers may pick it. */
+const SARENRAE = contentId(PackId.parse('divine-mysteries'), EntrySlug.parse('deity:sarenrae'));
 
 /** Merisiel as a 1st-level `name`, with `choices` picked besides. */
 function as(name: 'cleric' | 'wizard', choices: Readonly<Record<string, string>> = {}): object {
@@ -72,7 +75,7 @@ describe('CharacterSheetPage pool spells', () => {
   });
 
   it('shows a healing font’s prepared heal by name, with no note once the font is picked', async () => {
-    const choices = { [FONT_SLOT]: 'heal', 'prepared:cleric:divine-font:1:0': HEAL };
+    const choices = { deity: SARENRAE, [FONT_SLOT]: 'heal', 'prepared:cleric:divine-font:1:0': HEAL };
     const { root } = await openSheet(as('cleric', choices), { packs: SPELL_PACKS });
     const prepared = await preparedOf(root);
 

@@ -12,6 +12,14 @@ import { SourceKind } from '../source-ref';
 import type { SourceRef } from '../source-ref';
 import type { StatisticDefinition } from '../statistic';
 import { StatisticKind } from '../statistic';
+import type {
+  ClassFeatureFields,
+  ClassFields,
+  ConditionFields,
+  DeityFields,
+  MagicItemFields,
+  SpellFields,
+} from './content-pack-fields';
 
 /** Who wrote the test pack's homebrew; a fixed id so packs built twice are equal. */
 const TEST_AUTHOR = '00000000-0000-4000-8000-000000000001';
@@ -34,47 +42,12 @@ interface EnvelopeFields {
   readonly traits?: readonly string[];
   /** Common when absent. */
   readonly rarity?: string;
-}
-
-/** An item's kind `data`, with the traits (`invested`) and rule elements as JSON a magic item has. */
-export interface MagicItemFields {
-  readonly data: object;
-  readonly traits?: readonly string[];
-  readonly rules?: readonly object[];
-  /** Its item level, 0 when left out. */
-  readonly level?: number;
-}
-
-/** What a test condition has beyond its rule elements. */
-export interface ConditionFields {
-  /** Whether it carries a value (Clumsy 1). */
-  readonly valued?: boolean;
-}
-
-/** What a test spell has: its rank and traditions, and its traits (`cantrip`, `focus`) and rarity. */
-interface SpellFields {
-  readonly rank: number;
-  readonly traditions: readonly string[];
-  readonly traits?: readonly string[];
-  readonly rarity?: string;
-}
-
-/** What a test class has beyond its key attribute. */
-interface ClassFields {
-  readonly hitPoints?: number;
-  readonly rules?: readonly object[];
+  /** Rich text as JSON; none when absent. */
+  readonly description?: readonly object[];
 }
 
 /** A test ancestry: its definition, with `rules` as JSON (the ancestry features it grants). */
 type AncestryFields = Sourceable<typeof AncestryDefinition> & { readonly rules?: readonly object[] };
-
-/** What a test class feature has. */
-interface ClassFeatureFields {
-  readonly tags?: readonly string[];
-  readonly rules?: readonly object[];
-  /** Attributes it adds to its class's key attribute options (a rogue's racket). */
-  readonly keyAttributeOptions?: readonly string[];
-}
 
 /**
  * Test builder for content packs. Defaults to a valid, empty homebrew pack whose entries cite it as their homebrew
@@ -162,6 +135,22 @@ export class ContentPackBuilder {
   /** A skill feat. */
   public withFeat(name: string): this {
     this.#entries.push({ kind: ContentKind.Feat, name, data: { category: 'skill' }, level: 1 });
+    return this;
+  }
+
+  /** A deity, empty but for `fields`: no domains, font, skills, weapons or spells unless given. */
+  public withDeity(name: string, { description, ...fields }: DeityFields = {}): this {
+    const data = {
+      category: 'deity',
+      domains: { primary: [], alternate: [] },
+      font: [],
+      attributes: [],
+      skills: [],
+      weapons: [],
+      spells: [],
+      ...fields,
+    };
+    this.#entries.push({ kind: ContentKind.Deity, name, data, ...(description === undefined ? {} : { description }) });
     return this;
   }
 
@@ -255,20 +244,22 @@ export class ContentPackBuilder {
       creatures: this.#creatures.map((creature) => ({ sources, ...creature })),
       statistics: this.#statistics.map((statistic) => ({ sources, ...statistic })),
       rollOptionNamespaces: this.#namespaces,
-      otherEntries: this.#entries.map(({ kind, name, data, rules = [], level, traits = [], rarity = 'common' }) => ({
-        id: this.idOf(kind, name),
-        pack: this.#id,
-        kind,
-        slug: `${kind}:${name}`,
-        name: name.charAt(0).toUpperCase() + name.slice(1),
-        rarity,
-        traits,
-        sources,
-        description: [],
-        rules,
-        data,
-        ...(level === undefined ? {} : { level }),
-      })),
+      otherEntries: this.#entries.map(
+        ({ kind, name, data, rules = [], level, traits = [], rarity = 'common', description = [] }) => ({
+          id: this.idOf(kind, name),
+          pack: this.#id,
+          kind,
+          slug: `${kind}:${name}`,
+          name: name.charAt(0).toUpperCase() + name.slice(1),
+          rarity,
+          traits,
+          sources,
+          description,
+          rules,
+          data,
+          ...(level === undefined ? {} : { level }),
+        }),
+      ),
     });
   }
 }

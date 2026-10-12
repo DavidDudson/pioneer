@@ -144,6 +144,13 @@
       "add": "Add access",
       "adding": "Adding…",
       "added": "Added"
+    },
+    "deity": {
+      "heading": "Deity",
+      "label": "Deity",
+      "placeholder": "Search deities by name",
+      "none": "No deity",
+      "unlistedWeapon": "{weapon} (not in the loaded content)"
     }
   },
   "validation": {

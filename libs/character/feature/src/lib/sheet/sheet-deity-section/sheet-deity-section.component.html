@@ -1,0 +1,16 @@
+<fr-stack gap="md">
+  <fr-inline-field [label]="'character.sheet.deity.label' | transloco" [edit]="field()">
+    <fr-combobox
+      frInlineEditor
+      [ariaLabel]="'character.sheet.deity.label' | transloco"
+      [placeholder]="'character.sheet.deity.placeholder' | transloco"
+      [options]="matches()"
+      [value]="field().draft()"
+      (valueChange)="field().change($event)"
+      (searched)="search($event)"
+      (committed)="field().flushSoon()"
+      (cancelled)="field().cancel()"
+    />
+  </fr-inline-field>
+  <pio-deity [deity]="line()" [loading]="loading()" />
+</fr-stack>

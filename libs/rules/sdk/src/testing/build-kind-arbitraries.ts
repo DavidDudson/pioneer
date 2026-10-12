@@ -12,7 +12,7 @@ import {
 import type { Arbitrary } from 'fast-check';
 
 import { Attribute } from '../attribute';
-import { DeityCategory, DivineFont, Sanctification, SanctificationModal } from '../deity';
+import { DeityCategory, DeityDomain, DivineFont, Sanctification, SanctificationModal } from '../deity';
 import { SPELL_RANK_MAX } from '../spell-rank';
 import { skillSelectorText } from './arbitraries';
 import { contentIdJson, LIST_MAX, size, slugText, smallint, withOptional } from './json-arbitraries';
@@ -57,6 +57,8 @@ const slugs: Arbitrary<string[]> = uniqueArray(slugText, { maxLength: LIST_MAX }
 const deityCategory: Arbitrary<string> = constantFrom(
   ...Object.values(DeityCategory).filter((category) => category !== DeityCategory.Philosophy),
 );
+const DOMAINS_MAX = 16;
+const domains: Arbitrary<string[]> = shuffledSubarray(Object.values(DeityDomain), { maxLength: DOMAINS_MAX });
 const fonts: Arbitrary<string[]> = shuffledSubarray(Object.values(DivineFont));
 const skills: Arbitrary<string[]> = uniqueArray(skillSelectorText, { maxLength: LIST_MAX });
 const SPELL_RANKS = Array.from({ length: SPELL_RANK_MAX }, (_unused, index) => index + 1);
@@ -70,7 +72,7 @@ const sanctified: Arbitrary<string[]> = shuffledSubarray(Object.values(Sanctific
 const deityData: Arbitrary<object> = withOptional(
   record({
     category: deityCategory,
-    domains: record({ primary: slugs, alternate: slugs }),
+    domains: record({ primary: domains, alternate: domains }),
     font: fonts,
     attributes,
     skills,

@@ -21,6 +21,7 @@ import {
   CHARACTER_LEVEL_MIN,
   CharacterPatchField,
   CLASS_SLOT,
+  DEITY_SLOT,
   HERITAGE_SLOT,
   itemContent,
 } from '@pioneer/character/domain';
@@ -47,13 +48,14 @@ import {
   TextInput,
 } from '@pioneer/frontier';
 import { AncestryId, ChoiceValue } from '@pioneer/rules/sdk';
-import type { ContentId, ContentRegistry } from '@pioneer/rules/sdk';
+import type { ContentRegistry } from '@pioneer/rules/sdk';
 import {
   AttributesView,
   BuildSummaryView,
   ChoicesView,
   ClassFeaturesView,
   DefencesView,
+  DeityView,
   SpellcastingView,
   StatisticsView,
 } from '@pioneer/rules/ui';
@@ -66,7 +68,7 @@ import { ImportResult } from '../../import/import-result/import-result.component
 import { InventorySection } from '../inventory/inventory-section/inventory-section.component';
 import { sheetBuildPicks } from '../sheet-build-picks';
 import { SheetClassFields } from '../sheet-class-fields/sheet-class-fields.component';
-import { sheetEntryNames } from '../sheet-entry-names';
+import { SheetDeitySection } from '../sheet-deity-section/sheet-deity-section.component';
 import { carriesAnything, EQUIPMENT_CONTENT_KINDS, sheetInvestments } from '../sheet-equipment';
 import { sheetField } from '../sheet-field';
 import { SheetLanguagesSection } from '../sheet-languages-section/sheet-languages-section.component';
@@ -102,6 +104,7 @@ function focusField(field: ElementRef<HTMLElement>): void {
     ClassFeaturesView,
     DateDisplay,
     DefencesView,
+    DeityView,
     Grid,
     Heading,
     ImportResult,
@@ -116,6 +119,7 @@ function focusField(field: ElementRef<HTMLElement>): void {
     SectionLink,
     Select,
     SheetClassFields,
+    SheetDeitySection,
     SheetLanguagesSection,
     SheetSkillFields,
     SheetSpells,
@@ -176,11 +180,6 @@ export class CharacterSheetPage {
       ? undefined
       : sheetInvestments(character, itemContent(registry), statistics);
   });
-  /** Names for the entries the defences and statistics lines come from. */
-  protected readonly entryNames = computed((): ReadonlyMap<ContentId, string> => {
-    const registry = this.#engineRegistry() ?? this.registry.data();
-    return registry === undefined ? new Map() : sheetEntryNames(registry);
-  });
 
   protected readonly name = sheetField<string>(this.character, {
     read: (character) => character.name,
@@ -209,6 +208,8 @@ export class CharacterSheetPage {
   protected readonly heritage = this.picks.rootField(HERITAGE_SLOT, this.heritageOptions);
   protected readonly backgroundOptions = this.picks.rootOptions(BACKGROUND_SLOT);
   protected readonly background = this.picks.rootField(BACKGROUND_SLOT, this.backgroundOptions);
+  protected readonly deityOptions = this.picks.rootOptions(DEITY_SLOT);
+  protected readonly deity = this.picks.rootField(DEITY_SLOT, this.deityOptions);
   protected readonly classOptions = this.picks.rootOptions(CLASS_SLOT);
   protected readonly characterClass = this.picks.rootField(CLASS_SLOT, this.classOptions);
   protected readonly level = sheetField<number>(this.character, {

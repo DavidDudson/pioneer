@@ -14,22 +14,18 @@ const FoundryFontChoice = z.looseObject({
 /** The flag Pioneer stores the font under, Foundry's `divineFont` as a slug; its `rollOption` is the same. */
 const FONT_FLAG = 'divine-font';
 
-/** A deity's font, as Foundry's Divine Font predicates on it: `deity:primary:font:heal`. */
-const DEITY_FONT = /^deity:primary:font:[a-z]+$/u;
-
 /**
- * Divine Font's `ChoiceSet` with a slug flag, and both fonts offered whatever the deity (ADR-0045): a character has no
- * deity to read the font from until #469, and Pioneer knows the `deity` namespace, so Foundry's predicates on it would
- * hide both. Its icons (`img`) are dropped as a display concern. Any other element is left as it is.
+ * Divine Font's `ChoiceSet` with a slug flag, each font offered while the character's deity has it, as Foundry's
+ * predicates on `deity:primary:font:<font>` say (ADR-0045, ADR-0046). Its icons (`img`) are dropped as a display
+ * concern. Any other element is left as it is.
  */
 export function withFontChoice(raw: unknown): unknown {
   const font = FoundryFontChoice.safeParse(raw);
   if (!font.success) {
     return raw;
   }
-  const choices = font.data.choices.map(({ value, label, predicate }) => {
-    const kept = (predicate ?? []).filter((atom) => !DEITY_FONT.test(atom));
-    return kept.length === 0 ? { value, label } : { value, label, predicate: kept };
-  });
+  const choices = font.data.choices.map(({ value, label, predicate }) =>
+    predicate === undefined ? { value, label } : { value, label, predicate },
+  );
   return { ...font.data, flag: FONT_FLAG, choices };
 }

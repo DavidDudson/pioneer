@@ -3,7 +3,7 @@ import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { Attributes } from './attribute';
-import { ContentId, Slug } from './content-id';
+import { ContentId } from './content-id';
 import { RulesMessage } from './messages';
 import { SkillSelector } from './selector';
 import { SPELL_RANK_MAX, SpellRank } from './spell-rank';
@@ -31,8 +31,89 @@ export type Sanctification = ValueOf<typeof Sanctification>;
 export const DivineFont = { Harm: 'harm', Heal: 'heal' } as const;
 export type DivineFont = ValueOf<typeof DivineFont>;
 
-/** A cleric domain (`fire`, `healing`). Foundry pf2e keeps the set in config, so it is a brand. */
-const DeityDomain = Slug.brand<'DeityDomain'>();
+/**
+ * A cleric domain, as Foundry pf2e's config keys them (`CONFIG.PF2E.deityDomains`), apocryphal variants included.
+ * The remaster renamed three without changing the key: `delirium` is Disorientation, `void` Nothingness and
+ * `wyrmkin` Dragon.
+ */
+export const DeityDomain = {
+  Abomination: 'abomination',
+  Air: 'air',
+  AirApocryphal: 'air-apocryphal',
+  Ambition: 'ambition',
+  AmbitionApocryphal: 'ambition-apocryphal',
+  Change: 'change',
+  Cities: 'cities',
+  Cold: 'cold',
+  Confidence: 'confidence',
+  ConfidenceApocryphal: 'confidence-apocryphal',
+  Creation: 'creation',
+  Darkness: 'darkness',
+  DarknessApocryphal: 'darkness-apocryphal',
+  Death: 'death',
+  DeathApocryphal: 'death-apocryphal',
+  Decay: 'decay',
+  Delirium: 'delirium',
+  Destruction: 'destruction',
+  Dreams: 'dreams',
+  Dust: 'dust',
+  Duty: 'duty',
+  Earth: 'earth',
+  Family: 'family',
+  Fate: 'fate',
+  FateApocryphal: 'fate-apocryphal',
+  Fire: 'fire',
+  FireApocryphal: 'fire-apocryphal',
+  Freedom: 'freedom',
+  Glyph: 'glyph',
+  Healing: 'healing',
+  Indulgence: 'indulgence',
+  IndulgenceApocryphal: 'indulgence-apocryphal',
+  Introspection: 'introspection',
+  Knowledge: 'knowledge',
+  KnowledgeApocryphal: 'knowledge-apocryphal',
+  Lightning: 'lightning',
+  Luck: 'luck',
+  Magic: 'magic',
+  Metal: 'metal',
+  Might: 'might',
+  MightApocryphal: 'might-apocryphal',
+  Moon: 'moon',
+  Naga: 'naga',
+  Nature: 'nature',
+  Nightmares: 'nightmares',
+  Pain: 'pain',
+  Passion: 'passion',
+  Perfection: 'perfection',
+  Plague: 'plague',
+  Protection: 'protection',
+  Repose: 'repose',
+  Secrecy: 'secrecy',
+  SecrecyApocryphal: 'secrecy-apocryphal',
+  Sorrow: 'sorrow',
+  Soul: 'soul',
+  Star: 'star',
+  Sun: 'sun',
+  Swarm: 'swarm',
+  Time: 'time',
+  Toil: 'toil',
+  Travel: 'travel',
+  TravelApocryphal: 'travel-apocryphal',
+  Trickery: 'trickery',
+  Truth: 'truth',
+  Tyranny: 'tyranny',
+  Undeath: 'undeath',
+  Vigil: 'vigil',
+  Void: 'void',
+  Water: 'water',
+  WaterApocryphal: 'water-apocryphal',
+  Wealth: 'wealth',
+  Wood: 'wood',
+  Wyrmkin: 'wyrmkin',
+  Zeal: 'zeal',
+} as const;
+export type DeityDomain = ValueOf<typeof DeityDomain>;
+const DeityDomainSchema = z.enum(DeityDomain);
 
 const SANCTIFICATIONS = Object.keys(Sanctification).length;
 const FONTS = Object.keys(DivineFont).length;
@@ -47,8 +128,8 @@ const DeitySanctification = z.strictObject({
 });
 
 const DeityDomains = z.strictObject({
-  primary: z.array(DeityDomain).max(DOMAINS_MAX).readonly().check(uniqueItems),
-  alternate: z.array(DeityDomain).max(DOMAINS_MAX).readonly().check(uniqueItems),
+  primary: z.array(DeityDomainSchema).max(DOMAINS_MAX).readonly().check(uniqueItems),
+  alternate: z.array(DeityDomainSchema).max(DOMAINS_MAX).readonly().check(uniqueItems),
 });
 
 /** A spell the deity grants its clerics at a rank. */

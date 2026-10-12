@@ -17,6 +17,7 @@ const ENVELOPE_KINDS: ReadonlySet<ContentKind> = new Set([
   ContentKind.ClassFeature,
   ContentKind.Condition,
   ContentKind.Consumable,
+  ContentKind.Deity,
   ContentKind.Equipment,
   ContentKind.Feat,
   ContentKind.Heritage,
@@ -35,6 +36,32 @@ function belongsTo(entry: ContentEntry): Pick<GrantEntry, 'belongsTo'> {
 /** Whether a condition carries a value; nothing for any other kind. */
 function valued(entry: ContentEntry): Pick<GrantEntry, 'valued'> {
   return entry.kind === ContentKind.Condition ? { valued: entry.data.valued } : {};
+}
+
+/** Where a deity's options go: Foundry's `deity:primary`, as a character has one deity. */
+const DEITY_PREFIX = 'deity:primary';
+
+/**
+ * What a deity says of its follower, as Foundry pf2e's `DeityPF2e.prepareActorData` sets it under `deity:primary`:
+ * its sanctification (`sanctification:can:holy`, or `sanctification:none`), each favoured weapon and each divine
+ * font. Foundry's bare `deity` has no namespace, which a Pioneer roll option needs; `deity:primary:<slug>`, which
+ * its kind sets, says as much. `self:deity:slug` is left out, as no rule element Pioneer imports reads it.
+ */
+function deityOptions(entry: ContentEntry): Pick<GrantEntry, 'characterOptions'> {
+  if (entry.kind !== ContentKind.Deity) {
+    return {};
+  }
+  const { sanctification, weapons, font } = entry.data;
+  const sanctified =
+    sanctification === undefined
+      ? ['sanctification:none']
+      : sanctification.what.map((what) => `sanctification:${sanctification.modal}:${what}`);
+  const options = [
+    ...sanctified,
+    ...weapons.map((weapon) => `favored-weapon:${weapon}`),
+    ...font.map((each) => `font:${each}`),
+  ];
+  return { characterOptions: options.map((option) => RollOption.parse(`${DEITY_PREFIX}:${option}`)) };
 }
 
 function traitOptions(traits: readonly Trait[]): RollOption[] {
@@ -80,6 +107,7 @@ function envelopeEntry(entry: ContentEntry): GrantEntry | undefined {
     rollOptions: [...traitOptions(entry.traits), ...tagOptions(entry)],
     ...belongsTo(entry),
     ...valued(entry),
+    ...deityOptions(entry),
   };
 }
 

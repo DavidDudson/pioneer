@@ -1,6 +1,6 @@
 # 0045. The spells a pool of slots takes are a rule element
 
-- Status: Proposed
+- Status: Proposed; the font choice offered whatever the deity amended by [0046](0046-deity-is-an-optional-root-slot.md)
 - Date: 2026-10-12
 
 ## Context

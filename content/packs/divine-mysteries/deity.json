@@ -4095,7 +4095,7 @@
         "what": ["holy"]
       },
       "domains": {
-        "primary": ["creation", "dragon", "protection", "travel"],
+        "primary": ["creation", "wyrmkin", "protection", "travel"],
         "alternate": ["freedom", "introspection"]
       },
       "font": ["heal"],
@@ -12504,7 +12504,7 @@
       },
       "domains": {
         "primary": ["darkness", "fate", "freedom", "moon"],
-        "alternate": ["nothingness", "star"]
+        "alternate": ["void", "star"]
       },
       "font": ["harm", "heal"],
       "attributes": ["cha", "dex"],
@@ -13438,7 +13438,7 @@
         "what": ["unholy"]
       },
       "domains": {
-        "primary": ["dragon", "destruction", "fire", "zeal"],
+        "primary": ["wyrmkin", "destruction", "fire", "zeal"],
         "alternate": []
       },
       "font": ["harm"],
@@ -14359,7 +14359,7 @@
       },
       "domains": {
         "primary": ["dreams", "luck", "moon", "travel"],
-        "alternate": ["nothingness", "repose", "star"]
+        "alternate": ["void", "repose", "star"]
       },
       "font": ["heal"],
       "attributes": ["cha", "dex"],
@@ -18106,7 +18106,7 @@
       },
       "domains": {
         "primary": ["ambition", "dreams", "fate", "luck"],
-        "alternate": ["change", "disorientation"]
+        "alternate": ["change", "delirium"]
       },
       "font": ["heal"],
       "attributes": ["cha", "int"],
@@ -20871,7 +20871,7 @@
         "what": ["unholy"]
       },
       "domains": {
-        "primary": ["darkness", "destruction", "nightmares", "nothingness"],
+        "primary": ["darkness", "destruction", "nightmares", "void"],
         "alternate": ["decay"]
       },
       "font": ["harm"],
@@ -36740,7 +36740,7 @@
       },
       "domains": {
         "primary": ["destruction", "knowledge", "magic", "protection"],
-        "alternate": ["disorientation", "glyph"]
+        "alternate": ["delirium", "glyph"]
       },
       "font": ["harm", "heal"],
       "attributes": ["int", "wis"],
@@ -44175,7 +44175,7 @@
       },
       "domains": {
         "primary": ["air", "destruction", "earth", "zeal"],
-        "alternate": ["nothingness", "swarm"]
+        "alternate": ["void", "swarm"]
       },
       "font": ["harm"],
       "attributes": ["con", "str"],
@@ -45849,7 +45849,7 @@
       },
       "domains": {
         "primary": ["ambition", "darkness", "secrecy", "trickery"],
-        "alternate": ["disorientation"]
+        "alternate": ["delirium"]
       },
       "font": ["harm"],
       "attributes": ["cha", "int"],
@@ -46891,7 +46891,7 @@
       },
       "domains": {
         "primary": ["duty", "perfection", "sun", "vigil"],
-        "alternate": ["dragon", "sorrow"]
+        "alternate": ["wyrmkin", "sorrow"]
       },
       "font": ["heal"],
       "attributes": ["str", "wis"],
@@ -51287,7 +51287,7 @@
         "what": ["unholy"]
       },
       "domains": {
-        "primary": ["destruction", "nothingness", "star", "zeal"],
+        "primary": ["destruction", "void", "star", "zeal"],
         "alternate": ["change", "freedom"]
       },
       "font": ["harm"],
@@ -52173,7 +52173,7 @@
     "data": {
       "category": "covenant",
       "domains": {
-        "primary": ["change", "disorientation", "luck", "trickery"],
+        "primary": ["change", "delirium", "luck", "trickery"],
         "alternate": ["dreams", "nightmares"]
       },
       "font": ["harm", "heal"],
@@ -63099,7 +63099,7 @@
       },
       "domains": {
         "primary": ["ambition", "darkness", "destruction", "pain"],
-        "alternate": ["nothingness"]
+        "alternate": ["void"]
       },
       "font": ["harm"],
       "attributes": ["con", "wis"],

@@ -40,6 +40,21 @@ const FoundryDeitySystem = z.looseObject({
   spells: boundedRecord(z.string().max(NAME_MAX)).default({}),
 });
 
+/**
+ * Domains some deities name by their remaster label rather than Foundry's config key, which the remaster kept:
+ * Disorientation is `delirium`, Nothingness `void` and Dragon `wyrmkin`. Foundry shows such a domain by its raw
+ * name; Pioneer files it under the key, so a deity offers one domain whichever name it uses.
+ */
+const DOMAIN_KEYS: Readonly<Record<string, string>> = {
+  disorientation: 'delirium',
+  dragon: 'wyrmkin',
+  nothingness: 'void',
+};
+
+function domainKeys(domains: readonly string[]): string[] {
+  return [...new Set(domains.map((domain) => DOMAIN_KEYS[domain] ?? domain))];
+}
+
 interface DeitySpell {
   readonly rank: number;
   readonly spell: string;
@@ -68,7 +83,7 @@ export function deityData(input: KindInput): object | undefined {
   return {
     category: system.category,
     ...setFields({ sanctification: sanctification ?? undefined }),
-    domains: system.domains,
+    domains: { primary: domainKeys(system.domains.primary), alternate: domainKeys(system.domains.alternate) },
     font: system.font,
     attributes: system.attribute,
     skills: (system.skill ?? []).map((skill) => `skill:${skill}`),

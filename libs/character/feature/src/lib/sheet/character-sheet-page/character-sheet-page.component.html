@@ -95,6 +95,15 @@
       <pio-build-summary [lines]="picks.buildLines()" (edit)="editBuild()" />
     </fr-section>
 
+    <fr-section [anchor]="sections.deity.anchor" [heading]="sections.deity.headingKey | transloco">
+      <fr-async-region>
+        <ng-template frAsyncPending><pio-deity loading /></ng-template>
+        <ng-template let-content [frAsyncData]="registry">
+          <pio-sheet-deity-section [field]="deity" [options]="deityOptions()" [registry]="content" />
+        </ng-template>
+      </fr-async-region>
+    </fr-section>
+
     <fr-section [anchor]="sections.attributes.anchor" [heading]="sections.attributes.headingKey | transloco">
       <fr-async-region>
         <ng-template frAsyncPending><pio-attributes [modifiers]="undefined" /></ng-template>
@@ -108,7 +117,7 @@
       <fr-async-region>
         <ng-template frAsyncPending><pio-defences [defences]="undefined" /></ng-template>
         <ng-template [frAsyncData]="registry"
-          ><pio-defences [defences]="picks.defences()" [entryNames]="entryNames()"
+          ><pio-defences [defences]="picks.defences()" [entryNames]="picks.entryNames()"
         /></ng-template>
       </fr-async-region>
     </fr-section>
@@ -117,7 +126,7 @@
       <fr-async-region>
         <ng-template frAsyncPending><pio-statistics [statistics]="undefined" /></ng-template>
         <ng-template [frAsyncData]="engineQuery()"
-          ><pio-statistics [statistics]="picks.statistics()" [entryNames]="entryNames()"
+          ><pio-statistics [statistics]="picks.statistics()" [entryNames]="picks.entryNames()"
         /></ng-template>
       </fr-async-region>
     </fr-section>
@@ -127,7 +136,7 @@
         <fr-async-region>
           <ng-template frAsyncPending><pio-statistics [statistics]="undefined" /></ng-template>
           <ng-template [frAsyncData]="engineQuery()"
-            ><pio-statistics [statistics]="picks.skills()" [entryNames]="entryNames()"
+            ><pio-statistics [statistics]="picks.skills()" [entryNames]="picks.entryNames()"
           /></ng-template>
         </fr-async-region>
         <pio-sheet-skill-fields [fields]="picks.skillFields()" />
@@ -146,7 +155,7 @@
       <fr-async-region>
         <ng-template frAsyncPending><pio-spellcasting [entries]="undefined" /></ng-template>
         <ng-template [frAsyncData]="registry"
-          ><pio-spellcasting [entries]="picks.spellcasting()" [entryNames]="entryNames()"
+          ><pio-spellcasting [entries]="picks.spellcasting()" [entryNames]="picks.entryNames()"
         /></ng-template>
       </fr-async-region>
       <pio-sheet-spells [casts]="(picks.spellcasting()?.length ?? 0) > 0" />

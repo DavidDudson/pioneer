@@ -7,6 +7,7 @@ import { ContentPackBuilder, CORE_NAMESPACES } from '@pioneer/rules/sdk/testing'
 import type { CharacterDocument } from './character-document';
 import { SlotStatus } from './character-slot';
 import { characterSlots } from './character-slot-status';
+import { DEITY_SLOT } from './character-slots';
 import { characterGrants, classContent, subclassSlot } from './class-build';
 import { preparedSlots } from './prepared-spells';
 import type { PreparedSlot } from './prepared-spells';
@@ -19,7 +20,7 @@ import type { PlayerCoreClass } from './testing';
  * The Player Core class fixtures with a few of the book's spells beside them, under the book's ids, since the divine
  * font's and the curricula's `PoolSpells` name them so: heal and harm; Battle Magic's cantrips Shield and Telekinetic
  * Projectile and its Force Barrage and Fireball; Mentalism's uncommon Mind Reading; and Daze and Sleep, of no
- * Battle Magic curriculum.
+ * Battle Magic curriculum. Beside them a deity of each font, since the font choice offers only the deity's.
  */
 function playerCoreWithSpells(): ContentPack {
   const classes = playerCoreClasses();
@@ -34,6 +35,8 @@ function playerCoreWithSpells(): ContentPack {
     .withSpell('sleep', { rank: 1, traditions: ['arcane', 'occult'] })
     .withSpell('fireball', { rank: 3, traditions: ['arcane', 'primal'] })
     .withSpell('mind-reading', { rank: 3, traditions: ['arcane', 'occult'], rarity: 'uncommon' })
+    .withDeity('sarenrae', { font: ['heal'] })
+    .withDeity('zon-kuthon', { font: ['harm'] })
     .build();
   return ContentPack.define({
     manifest: classes.manifest,
@@ -69,9 +72,15 @@ function subclassed(name: PlayerCoreClass, level: number, option: string): Chara
   return builder.picking(String(slot?.key), playerCoreId(ContentKind.ClassFeature, option));
 }
 
-/** A cleric at `level` with the font `font` picked, or none. */
+/** A deity whose only font is each font. */
+const FONT_DEITY = {
+  heal: playerCoreId(ContentKind.Deity, 'sarenrae'),
+  harm: playerCoreId(ContentKind.Deity, 'zon-kuthon'),
+} as const;
+
+/** A cleric at `level` of a deity of the font `font` (healing when none), with that font picked, or none. */
 function cleric(level: number, font?: 'heal' | 'harm'): CharacterBuilder {
-  const builder = caster('cleric', level);
+  const builder = caster('cleric', level).picking(String(DEITY_SLOT), FONT_DEITY[font ?? 'heal']);
   return font === undefined ? builder : builder.picking(FONT_SLOT, font);
 }
 
@@ -128,7 +137,7 @@ describe('preparedSlots: divine font', () => {
     expect(offered(cleric(7).build().document, 'prepared:cleric:divine-font:4:0')).toStrictEqual([]);
   });
 
-  test('the font choice offers both fonts whatever the deity', () => {
+  test('the font choice is open for a cleric with a deity', () => {
     const { document } = cleric(1).build();
     const font = characterSlots(document, content).find((slot) => slot.key === SlotKey.parse(FONT_SLOT));
 
@@ -140,7 +149,10 @@ describe('preparedSlots: divine font', () => {
     const pick: SlotPick = { slot: SlotKey.parse('prepared:cleric:divine-font:1:0'), selection: spellId('harm') };
     const harmful = {
       ...healing,
-      build: { ...healing.build, choices: { ...healing.build.choices, [FONT_SLOT]: 'harm' } },
+      build: {
+        ...healing.build,
+        choices: { ...healing.build.choices, [String(DEITY_SLOT)]: FONT_DEITY.harm, [FONT_SLOT]: 'harm' },
+      },
     };
 
     expect(slotRefusal(healing, content, pick)).toMatchObject({ field: 'selection' });

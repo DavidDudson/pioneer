@@ -20,6 +20,8 @@ export { type ClassFeatureLine } from './lib/class-features/class-feature-line';
 export { ClassFeaturesView } from './lib/class-features/class-features.component';
 export { type SlotPoolLine, type SpellcastingEntryLine } from './lib/spellcasting/spellcasting-entry-line';
 export { SpellcastingView } from './lib/spellcasting/spellcasting.component';
+export { DeityView } from './lib/deity/deity.component';
+export type { DeityLine, DeitySanctificationLine } from './lib/deity/deity-line';
 export { type LanguageLine } from './lib/languages/language-line';
 export { LanguagesView, type RemoveLanguage } from './lib/languages/languages.component';
 export { type AddLanguage, LanguageAdd } from './lib/languages/language-add.component';
