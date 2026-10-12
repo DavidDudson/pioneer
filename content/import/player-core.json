@@ -37196,23 +37196,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "ritual:control-weather",
-      "foundry": "Compendium.pf2e.spells-srd.Item.XkDCzMIyc0YOjw05",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "duration",
-          "raw": {
-            "value": "4d12 hours",
-            "sustained": false
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "ritual:create-undead",
       "foundry": "Compendium.pf2e.spells-srd.Item.c3b6LdLlQDPngNIb",
       "gaps": [
@@ -37233,15 +37216,6 @@
           "reason": "unmapped-value",
           "field": "target.value",
           "raw": "1 creature of a level no greater than double the geas ritual's rank"
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "duration",
-          "raw": {
-            "value": "see text",
-            "sustained": false
-          }
         }
       ]
     },
@@ -37320,46 +37294,6 @@
         },
         "folder": "6JF73zNhT8zbp1qC"
       }
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "ritual:planar-servitor",
-      "foundry": "Compendium.pf2e.spells-srd.Item.vgy00hnqxN9VoeoF",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "duration",
-          "raw": {
-            "value": "see text",
-            "sustained": false
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "ritual:primal-call",
-      "foundry": "Compendium.pf2e.spells-srd.Item.pZc8ZwtsyWnxUUW0",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "range.value",
-          "raw": "100 miles"
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "duration",
-          "raw": {
-            "value": "see text",
-            "sustained": false
-          }
-        }
-      ]
     },
     {
       "type": "entry",
@@ -37537,23 +37471,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "spell:animal-messenger",
-      "foundry": "Compendium.pf2e.spells-srd.Item.yhz9fF69uwRhnHix",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "duration",
-          "raw": {
-            "value": "see text",
-            "sustained": false
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "spell:aqueous-orb",
       "foundry": "Compendium.pf2e.spells-srd.Item.oUDNCArkQTdhllxD",
       "gaps": [
@@ -37699,23 +37616,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "spell:blood-vendetta",
-      "foundry": "Compendium.pf2e.spells-srd.Item.TaaMEYdZXQXF0Sks",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "duration",
-          "raw": {
-            "value": "varies",
-            "sustained": false
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "spell:breath-of-life",
       "foundry": "Compendium.pf2e.spells-srd.Item.Hnc7eGi7vyZenAIm",
       "gaps": [
@@ -37724,23 +37624,6 @@
           "reason": "unmapped-value",
           "field": "damage.0.type",
           "raw": "untyped"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "spell:canticle-of-everlasting-grief",
-      "foundry": "Compendium.pf2e.spells-srd.Item.qlxM7Ik3uUeUIOcv",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "duration",
-          "raw": {
-            "value": "varies",
-            "sustained": false
-          }
         }
       ]
     },
@@ -37839,15 +37722,6 @@
       "foundry": "Compendium.pf2e.spells-srd.Item.xTpp8dHZsNMDm75B",
       "gaps": [
         {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "duration",
-          "raw": {
-            "value": "varies",
-            "sustained": false
-          }
-        },
-        {
           "type": "markup",
           "markup": "table[class]"
         }
@@ -37945,46 +37819,12 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "spell:cursed-metamorphosis",
-      "foundry": "Compendium.pf2e.spells-srd.Item.dN8QBNuTiaBHCKUe",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "duration",
-          "raw": {
-            "value": "varies",
-            "sustained": false
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "spell:darkvision",
       "foundry": "Compendium.pf2e.spells-srd.Item.pZTqGY1MLRjgKasV",
       "gaps": [
         {
           "type": "enricher",
           "enricher": "@UUID[spell-effects]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "spell:delusional-pride",
-      "foundry": "Compendium.pf2e.spells-srd.Item.J8pL8yTshga8QOk8",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "duration",
-          "raw": {
-            "value": "varies",
-            "sustained": false
-          }
         }
       ]
     },
@@ -38005,40 +37845,6 @@
           "reason": "unmapped-value",
           "field": "damage.0.type",
           "raw": "untyped"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "spell:divine-decree",
-      "foundry": "Compendium.pf2e.spells-srd.Item.sX2o0HH4RjJDAZ8C",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "duration",
-          "raw": {
-            "value": "varies",
-            "sustained": false
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "spell:dizzying-colors",
-      "foundry": "Compendium.pf2e.spells-srd.Item.UKsIOWmMx4hSpafl",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "duration",
-          "raw": {
-            "value": "1 or more rounds (see below)",
-            "sustained": false
-          }
         }
       ]
     },
@@ -38099,32 +37905,9 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "spell:earthbind",
-      "foundry": "Compendium.pf2e.spells-srd.Item.gPvtmKMRpg9I9D7H",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "duration",
-          "raw": {
-            "value": "varies",
-            "sustained": false
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "spell:earthquake",
       "foundry": "Compendium.pf2e.spells-srd.Item.x7SPrsRxGb2Vy2nu",
       "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "heightening.levels.10.range.value",
-          "raw": "half a mile"
-        },
         {
           "type": "enricher",
           "enricher": "@Check[traits]"
@@ -38144,37 +37927,6 @@
             "type": "ref",
             "id": "89699e5b-84d0-56b3-8bfa-4ef1dcb4cf7c"
           }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "spell:enfeeble",
-      "foundry": "Compendium.pf2e.spells-srd.Item.J7Y7tl0bbdz7TcCc",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "duration",
-          "raw": {
-            "value": "varies",
-            "sustained": false
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "spell:entangling-flora",
-      "foundry": "Compendium.pf2e.spells-srd.Item.J6vNvrUT3b1hx2iA",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "area.details",
-          "raw": "all squares in a 20-foot-radius burst that contain plants"
         }
       ]
     },
@@ -38227,23 +37979,6 @@
                 }
               }
             }
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "spell:fabricated-truth",
-      "foundry": "Compendium.pf2e.spells-srd.Item.6s0UW4bujggma9TC",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "duration",
-          "raw": {
-            "value": "varies",
-            "sustained": false
           }
         }
       ]
@@ -38321,23 +38056,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "spell:fear",
-      "foundry": "Compendium.pf2e.spells-srd.Item.4koZzrnMXhhosn0D",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "duration",
-          "raw": {
-            "value": "varies",
-            "sustained": false
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "spell:fire-ray",
       "foundry": "Compendium.pf2e.spells-srd.Item.oJKZi8OQgmVXHOc0",
       "gaps": [
@@ -38358,20 +38076,6 @@
           "reason": "unmapped-value",
           "field": "target.value",
           "raw": "the creature that would take fire damage"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "spell:floating-flame",
-      "foundry": "Compendium.pf2e.spells-srd.Item.2ZdHjnpEQJuqOYSG",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "area.type",
-          "raw": "square"
         }
       ]
     },
@@ -38868,12 +38572,6 @@
         {
           "type": "field",
           "reason": "unmapped-value",
-          "field": "range.value",
-          "raw": "touch or 30 feet"
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-value",
           "field": "damage.0.type",
           "raw": "untyped"
         }
@@ -39234,40 +38932,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "spell:message",
-      "foundry": "Compendium.pf2e.spells-srd.Item.vLzFcIaSXs7YTIqJ",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "duration",
-          "raw": {
-            "value": "see below",
-            "sustained": false
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "spell:mind-reading",
-      "foundry": "Compendium.pf2e.spells-srd.Item.KHnhPHL4x1AQHfbC",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "duration",
-          "raw": {
-            "value": "1 round or sustained up to 1 minute",
-            "sustained": true
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "spell:moonbeam",
       "foundry": "Compendium.pf2e.spells-srd.Item.SuBtUJiU6DbSJYIw",
       "gaps": [
@@ -39276,23 +38940,6 @@
           "reason": "unmapped-field",
           "field": "damage.0.materials",
           "raw": ["silver"]
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "spell:never-mind",
-      "foundry": "Compendium.pf2e.spells-srd.Item.5BbU1V6wGSGbrmRD",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "duration",
-          "raw": {
-            "value": "varies",
-            "sustained": false
-          }
         }
       ]
     },
@@ -39313,40 +38960,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "spell:one-with-plants",
-      "foundry": "Compendium.pf2e.spells-srd.Item.dileJ0Yxqg76LMvu",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "duration",
-          "raw": {
-            "value": "10 minutes or 8 hours",
-            "sustained": false
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "spell:one-with-stone",
-      "foundry": "Compendium.pf2e.spells-srd.Item.vh1RpbWfqdNC4L3P",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "duration",
-          "raw": {
-            "value": "10 minutes or 8 hours",
-            "sustained": false
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "spell:overwhelming-presence",
       "foundry": "Compendium.pf2e.spells-srd.Item.fkDeKktdmbeplYRY",
       "gaps": [
@@ -39356,23 +38969,6 @@
           "field": "duration",
           "raw": {
             "value": "until full tribute is paid",
-            "sustained": false
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "spell:paralyze",
-      "foundry": "Compendium.pf2e.spells-srd.Item.DCQHaLrYXMI37dvW",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "duration",
-          "raw": {
-            "value": "varies",
             "sustained": false
           }
         }
@@ -39413,15 +39009,6 @@
           "reason": "unmapped-value",
           "field": "target.value",
           "raw": "1 creature made of organic material"
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "duration",
-          "raw": {
-            "value": "varies",
-            "sustained": false
-          }
         }
       ]
     },
@@ -39434,23 +39021,6 @@
         {
           "type": "enricher",
           "enricher": "@UUID[pathfinder-bestiary]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "spell:planar-tether",
-      "foundry": "Compendium.pf2e.spells-srd.Item.ksLCg62cLOojw3gN",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "duration",
-          "raw": {
-            "value": "varies",
-            "sustained": false
-          }
         }
       ]
     },
@@ -39479,32 +39049,6 @@
           "reason": "unmapped-value",
           "field": "target.value",
           "raw": "1 object (cook, lift, or tidy only)"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "spell:pulse-of-civilization",
-      "foundry": "Compendium.pf2e.spells-srd.Item.ivKnEtI1z4UqEKIA",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "range.value",
-          "raw": "25 miles"
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "heightening.levels.5.range.value",
-          "raw": "100 miles"
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "heightening.levels.7.range.value",
-          "raw": "500 miles"
         }
       ]
     },
@@ -39633,23 +39177,6 @@
           "reason": "unmapped-value",
           "field": "range.value",
           "raw": "emanation up to 40-feet"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "spell:revealing-light",
-      "foundry": "Compendium.pf2e.spells-srd.Item.0qaqksrGGDj74HXE",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "duration",
-          "raw": {
-            "value": "varies",
-            "sustained": false
-          }
         }
       ]
     },
@@ -39786,23 +39313,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "spell:shared-nightmare",
-      "foundry": "Compendium.pf2e.spells-srd.Item.skvgOWNTitLehL0b",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "duration",
-          "raw": {
-            "value": "varies",
-            "sustained": false
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "spell:soothe",
       "foundry": "Compendium.pf2e.spells-srd.Item.szIyEsvihc5e1w8n",
       "gaps": [
@@ -39932,71 +39442,6 @@
           "reason": "unmapped-value",
           "field": "damage.0Uok2pip94aNbBFd.type",
           "raw": "untyped"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "spell:storm-lord",
-      "foundry": "Compendium.pf2e.spells-srd.Item.XYhU3Wi94n1RKxTa",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "area.details",
-          "raw": "100-foot emanation which affects you."
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "spell:stupefy",
-      "foundry": "Compendium.pf2e.spells-srd.Item.CQb8HtQ1BPeZmu9h",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "duration",
-          "raw": {
-            "value": "varies",
-            "sustained": false
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "spell:subconscious-suggestion",
-      "foundry": "Compendium.pf2e.spells-srd.Item.GP3wewkQXEPrLxYj",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "duration",
-          "raw": {
-            "value": "varies",
-            "sustained": false
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "spell:suggestion",
-      "foundry": "Compendium.pf2e.spells-srd.Item.qwlh6aDgi86U3Q7H",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "duration",
-          "raw": {
-            "value": "varies",
-            "sustained": false
-          }
         }
       ]
     },
@@ -40272,45 +39717,8 @@
         {
           "type": "field",
           "reason": "unmapped-value",
-          "field": "range.value",
-          "raw": "100 miles"
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-value",
           "field": "target.value",
           "raw": "you and up to 4 targets touched, either willing creatures or objects roughly the size of a creature."
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "spell:touch-of-obedience",
-      "foundry": "Compendium.pf2e.spells-srd.Item.MmQiEc7aM9PDLO2J",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "duration",
-          "raw": {
-            "value": "varies",
-            "sustained": false
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "spell:translocate",
-      "foundry": "Compendium.pf2e.spells-srd.Item.VlNcjmYyu95vOUe8",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "heightening.levels.5.range.value",
-          "raw": "1 mile"
         }
       ]
     },
@@ -40325,23 +39733,6 @@
           "reason": "unmapped-value",
           "field": "target.value",
           "raw": "you and up to 10 willing creatures touched"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "spell:uncontrollable-dance",
-      "foundry": "Compendium.pf2e.spells-srd.Item.Jvyy6oVIQsD34MHB",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "duration",
-          "raw": {
-            "value": "varies",
-            "sustained": false
-          }
         }
       ]
     },
@@ -40396,32 +39787,6 @@
           "reason": "unmapped-value",
           "field": "target.value",
           "raw": "1 creature or object tracked and up to 5 other willing creatures"
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "duration",
-          "raw": {
-            "value": "varies",
-            "sustained": false
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "spell:untamed-form",
-      "foundry": "Compendium.pf2e.spells-srd.Item.8RWfKConLYFZpQ9X",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "duration",
-          "raw": {
-            "value": "varies",
-            "sustained": false
-          }
         }
       ]
     },
@@ -40472,40 +39837,6 @@
         {
           "type": "enricher",
           "enricher": "@Damage[formula]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "spell:waking-nightmare",
-      "foundry": "Compendium.pf2e.spells-srd.Item.DU5daB09xwfE1y38",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "duration",
-          "raw": {
-            "value": "varies",
-            "sustained": false
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "spell:wave-of-despair",
-      "foundry": "Compendium.pf2e.spells-srd.Item.GaRQlC9Yw1BGKHfN",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "duration",
-          "raw": {
-            "value": "1 or more rounds",
-            "sustained": false
-          }
         }
       ]
     },

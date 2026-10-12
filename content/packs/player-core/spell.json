@@ -2370,6 +2370,9 @@
         "type": "feet",
         "feet": 120
       },
+      "duration": {
+        "type": "varies"
+      },
       "traditions": ["primal"],
       "damage": []
     }
@@ -6036,6 +6039,9 @@
           }
         ]
       },
+      "duration": {
+        "type": "varies"
+      },
       "defense": {
         "save": {
           "statistic": "save:will",
@@ -6740,6 +6746,9 @@
             "of": "creature"
           }
         ]
+      },
+      "duration": {
+        "type": "varies"
       },
       "defense": {
         "save": {
@@ -9942,6 +9951,9 @@
         "shape": "burst",
         "size": 5
       },
+      "duration": {
+        "type": "varies"
+      },
       "defense": {
         "save": {
           "statistic": "save:will",
@@ -10594,6 +10606,9 @@
             "of": "creature"
           }
         ]
+      },
+      "duration": {
+        "type": "varies"
       },
       "defense": {
         "save": {
@@ -11481,6 +11496,9 @@
             "of": "creature"
           }
         ]
+      },
+      "duration": {
+        "type": "varies"
       },
       "defense": {
         "save": {
@@ -13429,6 +13447,9 @@
         "shape": "emanation",
         "size": 40
       },
+      "duration": {
+        "type": "varies"
+      },
       "defense": {
         "save": {
           "statistic": "save:fortitude",
@@ -14052,6 +14073,9 @@
       "area": {
         "shape": "cone",
         "size": 15
+      },
+      "duration": {
+        "type": "varies"
       },
       "defense": {
         "save": {
@@ -16486,6 +16510,9 @@
           }
         ]
       },
+      "duration": {
+        "type": "varies"
+      },
       "defense": {
         "save": {
           "statistic": "save:fortitude",
@@ -16684,6 +16711,10 @@
         "ranks": [
           {
             "rank": 10,
+            "range": {
+              "type": "miles",
+              "miles": 0.5
+            },
             "area": {
               "shape": "burst",
               "size": 1320
@@ -18169,6 +18200,9 @@
           }
         ]
       },
+      "duration": {
+        "type": "varies"
+      },
       "defense": {
         "save": {
           "statistic": "save:fortitude",
@@ -18470,7 +18504,18 @@
       },
       "area": {
         "shape": "burst",
-        "size": 20
+        "size": 20,
+        "details": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "all squares in a 20-foot-radius burst that contain plants"
+              }
+            ]
+          }
+        ]
       },
       "duration": {
         "type": "time",
@@ -19186,6 +19231,9 @@
           }
         ]
       },
+      "duration": {
+        "type": "varies"
+      },
       "defense": {
         "save": {
           "statistic": "save:will",
@@ -19821,6 +19869,9 @@
             "of": "creature"
           }
         ]
+      },
+      "duration": {
+        "type": "varies"
       },
       "defense": {
         "save": {
@@ -20790,6 +20841,10 @@
       "range": {
         "type": "feet",
         "feet": 30
+      },
+      "area": {
+        "shape": "square",
+        "size": 5
       },
       "duration": {
         "type": "time",
@@ -23710,6 +23765,18 @@
         "type": "actions",
         "cost": "one",
         "upTo": "two"
+      },
+      "range": {
+        "type": "either",
+        "options": [
+          {
+            "type": "touch"
+          },
+          {
+            "type": "feet",
+            "feet": 30
+          }
+        ]
       },
       "targets": {
         "any": [
@@ -30497,6 +30564,9 @@
           }
         ]
       },
+      "duration": {
+        "type": "varies"
+      },
       "traditions": ["arcane", "divine", "occult"],
       "damage": [],
       "heightening": {
@@ -30857,6 +30927,22 @@
           {
             "count": 1,
             "of": "creature"
+          }
+        ]
+      },
+      "duration": {
+        "type": "either",
+        "options": [
+          {
+            "type": "time",
+            "count": 1,
+            "unit": "round"
+          },
+          {
+            "type": "time",
+            "count": 1,
+            "unit": "minute",
+            "sustained": true
           }
         ]
       },
@@ -33200,6 +33286,9 @@
           }
         ]
       },
+      "duration": {
+        "type": "varies"
+      },
       "defense": {
         "save": {
           "statistic": "save:will",
@@ -33815,6 +33904,21 @@
         "type": "actions",
         "cost": "two"
       },
+      "duration": {
+        "type": "either",
+        "options": [
+          {
+            "type": "time",
+            "count": 10,
+            "unit": "minute"
+          },
+          {
+            "type": "time",
+            "count": 8,
+            "unit": "hour"
+          }
+        ]
+      },
       "traditions": ["primal"],
       "damage": []
     }
@@ -33901,6 +34005,21 @@
       "time": {
         "type": "actions",
         "cost": "two"
+      },
+      "duration": {
+        "type": "either",
+        "options": [
+          {
+            "type": "time",
+            "count": 10,
+            "unit": "minute"
+          },
+          {
+            "type": "time",
+            "count": 8,
+            "unit": "hour"
+          }
+        ]
       },
       "traditions": ["arcane", "primal"],
       "damage": []
@@ -34466,6 +34585,9 @@
             "of": "creature"
           }
         ]
+      },
+      "duration": {
+        "type": "varies"
       },
       "defense": {
         "save": {
@@ -35543,6 +35665,9 @@
         "type": "feet",
         "feet": 120
       },
+      "duration": {
+        "type": "varies"
+      },
       "defense": {
         "save": {
           "statistic": "save:fortitude",
@@ -36600,6 +36725,9 @@
             "of": "creature"
           }
         ]
+      },
+      "duration": {
+        "type": "varies"
       },
       "defense": {
         "save": {
@@ -37967,13 +38095,36 @@
         "type": "actions",
         "cost": "two"
       },
+      "range": {
+        "type": "miles",
+        "miles": 25
+      },
       "duration": {
         "type": "time",
         "count": 8,
         "unit": "hour"
       },
       "traditions": [],
-      "damage": []
+      "damage": [],
+      "heightening": {
+        "type": "fixed",
+        "ranks": [
+          {
+            "rank": 5,
+            "range": {
+              "type": "miles",
+              "miles": 100
+            }
+          },
+          {
+            "rank": 7,
+            "range": {
+              "type": "miles",
+              "miles": 500
+            }
+          }
+        ]
+      }
     }
   },
   {
@@ -39885,6 +40036,9 @@
       "area": {
         "shape": "burst",
         "size": 10
+      },
+      "duration": {
+        "type": "varies"
       },
       "defense": {
         "save": {
@@ -42204,6 +42358,9 @@
             "of": "creature"
           }
         ]
+      },
+      "duration": {
+        "type": "varies"
       },
       "defense": {
         "save": {
@@ -45601,7 +45758,18 @@
       },
       "area": {
         "shape": "emanation",
-        "size": 100
+        "size": 100,
+        "details": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "100-foot emanation which affects you."
+              }
+            ]
+          }
+        ]
       },
       "duration": {
         "type": "time",
@@ -45859,6 +46027,9 @@
           }
         ]
       },
+      "duration": {
+        "type": "varies"
+      },
       "defense": {
         "save": {
           "statistic": "save:will",
@@ -45992,6 +46163,9 @@
             "of": "creature"
           }
         ]
+      },
+      "duration": {
+        "type": "varies"
       },
       "defense": {
         "save": {
@@ -46212,6 +46386,9 @@
             "of": "creature"
           }
         ]
+      },
+      "duration": {
+        "type": "varies"
       },
       "defense": {
         "save": {
@@ -49109,6 +49286,10 @@
         "count": 10,
         "unit": "minute"
       },
+      "range": {
+        "type": "miles",
+        "miles": 100
+      },
       "traditions": ["arcane", "occult"],
       "damage": []
     }
@@ -49683,6 +49864,9 @@
           }
         ]
       },
+      "duration": {
+        "type": "varies"
+      },
       "defense": {
         "save": {
           "statistic": "save:will",
@@ -50242,7 +50426,19 @@
         "feet": 120
       },
       "traditions": ["arcane", "occult"],
-      "damage": []
+      "damage": [],
+      "heightening": {
+        "type": "fixed",
+        "ranks": [
+          {
+            "rank": 5,
+            "range": {
+              "type": "miles",
+              "miles": 1
+            }
+          }
+        ]
+      }
     }
   },
   {
@@ -51005,6 +51201,9 @@
           }
         ]
       },
+      "duration": {
+        "type": "varies"
+      },
       "defense": {
         "save": {
           "statistic": "save:will",
@@ -51706,6 +51905,9 @@
         "shape": "burst",
         "size": 20
       },
+      "duration": {
+        "type": "varies"
+      },
       "traditions": ["arcane", "occult"],
       "damage": []
     }
@@ -51832,6 +52034,9 @@
       "time": {
         "type": "actions",
         "cost": "two"
+      },
+      "duration": {
+        "type": "varies"
       },
       "traditions": [],
       "damage": []
@@ -53902,6 +54107,9 @@
           }
         ]
       },
+      "duration": {
+        "type": "varies"
+      },
       "defense": {
         "save": {
           "statistic": "save:will",
@@ -54949,6 +55157,9 @@
       "area": {
         "shape": "cone",
         "size": 30
+      },
+      "duration": {
+        "type": "varies"
       },
       "defense": {
         "save": {
