@@ -1,4 +1,4 @@
-export { Character, CharacterWire } from './character';
+export { Character, CharacterWire, type EditInputs } from './character';
 export { CharacterCommand, PATCH_COMMANDS } from './character-command';
 export {
   type AncestryBoosts,
@@ -203,3 +203,4 @@ export {
   WholeBulk,
   wholeBulk,
 } from './bulk';
+export { coinsValue, payCost, purchaseCost } from './purse';

@@ -15,6 +15,7 @@ export { RitualData } from './ritual';
 export { ArmorData, ArmorGroup, ArmorItemCategory, ShieldData } from './armor';
 export { ConsumableCategory, ConsumableData } from './consumable';
 export { EquipmentData, type ItemContainer, KitData, TreasureCategory, TreasureData } from './equipment';
+export { COPPER_PER_COIN, CopperValue, priceInCopper } from './equipment-facet-values';
 export {
   Bulk,
   BulkCount,

@@ -1,5 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
+import { CopperValue } from '@pioneer/rules/sdk';
 import { installRulesFakes } from '@pioneer/rules/sdk/testing';
 import { fixedClock } from '@pioneer/shared/kernel';
 import { fakeSeeded } from '@pioneer/shared/kernel/testing';
@@ -15,6 +16,8 @@ import { CharacterBuilder, inventory } from './testing';
 
 installRulesFakes();
 const later = fixedClock('2030-01-01T00:00:00Z').now();
+/** A purchase the property exercises costs nothing, so any purse covers it. */
+const FREE = CopperValue.parse(0);
 const character = nat().map((seed) => CharacterBuilder.random(seed).build());
 
 /** A random character carrying a random inventory, containers nested. */
@@ -99,7 +102,8 @@ function aimed(patch: CharacterPatch, items: readonly InventoryItem[], { index, 
   const container = target === undefined ? undefined : itemAt(items, target);
   const stowed = container === undefined ? {} : { container };
   switch (patch.field) {
-    case CharacterPatchField.GiftItem: {
+    case CharacterPatchField.GiftItem:
+    case CharacterPatchField.BuyItem: {
       return { field: patch.field, item: patch.item, quantity: patch.quantity, ...stowed };
     }
     case CharacterPatchField.MoveItem: {
@@ -148,7 +152,7 @@ describe('Character (properties)', () => {
         const patch = aimed(fakeSeeded(CharacterPatchSchema, seed), items, { index, target });
         // Only a move of a container into itself or what it holds is left for the service to refuse.
         pre(inventoryRefusal(original.document.inventory, touched(patch)) === undefined);
-        const next = original.apply(patch, later, newItemId);
+        const next = original.apply(patch, later, { newItemId, cost: FREE });
         expect(next.id).toBe(original.id);
         expect(next.version).toBe(original.version);
         expect(next.createdAt.equals(original.createdAt)).toBe(true);
