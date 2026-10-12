@@ -257,6 +257,18 @@
             "or": ["class:druid", "feat:order-explorer:animal-order"]
           }
         ]
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "druid-focus",
+        "tradition": "primal",
+        "attribute": "wis",
+        "preparation": "focus"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "druid-focus",
+        "spells": ["cec5d01b-a4d4-5eb5-9d47-20069a964fac"]
       }
     ],
     "externalIds": {
@@ -1692,7 +1704,20 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "SpellcastingEntry",
+        "slug": "bard-focus",
+        "tradition": "occult",
+        "attribute": "cha",
+        "preparation": "focus"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "bard-focus",
+        "spells": ["275b73cd-5c8d-5062-924b-65eebeaa7bbc", "2d7bbf89-5f41-521b-b422-283f3a19c058"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.s0VbbQJNlSgPocui"
     },
@@ -3522,6 +3547,18 @@
         "selector": "spellcasting",
         "rank": "legendary",
         "predicate": ["feature:legendary-spellcaster"]
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "witch-focus",
+        "tradition": "divine",
+        "attribute": "int",
+        "preparation": "focus"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "witch-focus",
+        "spells": ["af8fc818-e0c5-5457-bee9-a2628e72691c"]
       }
     ],
     "externalIds": {
@@ -4671,7 +4708,36 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "hex-spells",
+        "choices": [
+          {
+            "value": "patrons-puppet",
+            "label": "Patron's Puppet"
+          },
+          {
+            "value": "phase-familiar",
+            "label": "Phase Familiar"
+          }
+        ],
+        "prompt": "Select a hex.",
+        "rollOption": "hex-spells"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "witch-focus",
+        "spells": ["9cbd7bd3-7a60-5eeb-baab-2ee8ecafdb17"],
+        "predicate": ["hex-spells:patrons-puppet"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "witch-focus",
+        "spells": ["54390530-8f4f-534f-8666-ccd613945013"],
+        "predicate": ["hex-spells:phase-familiar"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.9uLh5z2uPo6LDFRY"
     },
@@ -5005,6 +5071,18 @@
             "or": ["class:druid", "feat:order-explorer:leaf-order"]
           }
         ]
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "druid-focus",
+        "tradition": "primal",
+        "attribute": "wis",
+        "preparation": "focus"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "druid-focus",
+        "spells": ["3a58c6de-a5f2-5276-9f44-4ccb246152c5"]
       }
     ],
     "externalIds": {
@@ -5197,7 +5275,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FocusSpells",
+        "entry": "witch-focus",
+        "spells": ["6bb572e8-9321-5997-b426-4236d411dd1b"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.wRHeY7tCN6HFFF3a"
     },
@@ -5247,7 +5331,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FocusSpells",
+        "entry": "witch-focus",
+        "spells": ["25c0d7f0-3805-5b8c-86b5-70e3a28bab43"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.evKUM58ymuuypRn9"
     },
@@ -5321,7 +5411,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FocusSpells",
+        "entry": "witch-focus",
+        "spells": ["671bb195-73d2-59b7-96fa-dffafdd6c2d1"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.FuOHRoEU8nHOXZnk"
     },
@@ -5371,7 +5467,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FocusSpells",
+        "entry": "witch-focus",
+        "spells": ["95559232-c870-5ab2-9e23-e984e3900c1e"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.HbREpzudMXPscgCj"
     },
@@ -5421,7 +5523,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FocusSpells",
+        "entry": "witch-focus",
+        "spells": ["658f20a2-1c5b-5c96-b792-fb3d5bce3b54"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.XBgBh3xZhgGQP7lF"
     },
@@ -5471,7 +5579,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FocusSpells",
+        "entry": "witch-focus",
+        "spells": ["9efdfba7-c75b-51c1-a6c2-06ba5bc7184f"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.KHKe3PmctOFUeh85"
     },
@@ -5521,7 +5635,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FocusSpells",
+        "entry": "witch-focus",
+        "spells": ["387dfccb-1572-5779-85d2-a03c342dc2d4"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.7Y2XDqr4gRisjiAG"
     },
@@ -5571,7 +5691,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FocusSpells",
+        "entry": "witch-focus",
+        "spells": ["5c700669-7202-5332-9491-7411deee6fae"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.YSxymsAe2Dvq47f2"
     },
@@ -5621,7 +5747,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FocusSpells",
+        "entry": "witch-focus",
+        "spells": ["bbe1cd8a-161a-55aa-ba3f-1d3aa8d6d2e1"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.rECRfbkVwHuG06vO"
     },
@@ -5671,7 +5803,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FocusSpells",
+        "entry": "witch-focus",
+        "spells": ["cf4510b4-3bd9-5441-b7c7-8818bff02d76"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.DtmKrCvsmutVLAhH"
     },
@@ -8460,6 +8598,24 @@
           "5cd8e86f-9a06-59b4-a2fd-7a1cc14b4c3e",
           "2ba1a22a-6c4c-53c2-96ed-c1f5393a02b4"
         ]
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "wizard-focus",
+        "tradition": "arcane",
+        "attribute": "int",
+        "preparation": "focus"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "wizard-focus",
+        "spells": ["fef1ce77-5045-5330-845e-e3b0fb2c8fb1"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "wizard-focus",
+        "spells": ["3f3de6f5-5b7a-5a5c-b47b-6b15138bbc41"],
+        "predicate": ["feat:advanced-school-spell"]
       }
     ],
     "externalIds": {
@@ -8954,6 +9110,24 @@
           "0ffdc954-c422-5590-a4f2-c72d060baf98",
           "6096b768-43d9-56ca-a7f1-8317781601df"
         ]
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "wizard-focus",
+        "tradition": "arcane",
+        "attribute": "int",
+        "preparation": "focus"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "wizard-focus",
+        "spells": ["de29237a-f0d9-5846-b61e-05728566d476"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "wizard-focus",
+        "spells": ["20f9fee2-1e2d-516d-bff4-2dc24e57a384"],
+        "predicate": ["feat:advanced-school-spell"]
       }
     ],
     "externalIds": {
@@ -9448,6 +9622,24 @@
           "6acb56d4-91ce-5efb-b591-d1c2aa5af766",
           "fb2cc36e-8e1c-5149-a202-43938814f46a"
         ]
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "wizard-focus",
+        "tradition": "arcane",
+        "attribute": "int",
+        "preparation": "focus"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "wizard-focus",
+        "spells": ["b3013de5-1da8-568b-bcea-f381a476a610"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "wizard-focus",
+        "spells": ["63b28b3f-4f01-5a15-9d13-9295e5c417c0"],
+        "predicate": ["feat:advanced-school-spell"]
       }
     ],
     "externalIds": {
@@ -9942,6 +10134,24 @@
           "2044ae9b-f82e-5da7-9208-fef06297ca5a",
           "e551a4eb-8b73-5a89-979e-a15f470a28ce"
         ]
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "wizard-focus",
+        "tradition": "arcane",
+        "attribute": "int",
+        "preparation": "focus"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "wizard-focus",
+        "spells": ["d933461f-9f96-5a68-9f81-eacbf5ff42ca"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "wizard-focus",
+        "spells": ["f4704f21-7b09-5b7f-8db2-24db5456969e"],
+        "predicate": ["feat:advanced-school-spell"]
       }
     ],
     "externalIds": {
@@ -10436,6 +10646,24 @@
           "c9e1a46f-ea98-5d01-935a-1d7035a3833b",
           "a38c5303-30ba-573f-ba85-624c5dc04dc1"
         ]
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "wizard-focus",
+        "tradition": "arcane",
+        "attribute": "int",
+        "preparation": "focus"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "wizard-focus",
+        "spells": ["e60321ec-64b1-50c3-9a7b-7cdbac1a20b3"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "wizard-focus",
+        "spells": ["4091ca06-3975-5b7f-8afa-c2ce76dc74b1"],
+        "predicate": ["feat:advanced-school-spell"]
       }
     ],
     "externalIds": {
@@ -10930,6 +11158,24 @@
           "5cd8e86f-9a06-59b4-a2fd-7a1cc14b4c3e",
           "3c286698-36f2-5124-bba1-f2d740ffa9ca"
         ]
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "wizard-focus",
+        "tradition": "arcane",
+        "attribute": "int",
+        "preparation": "focus"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "wizard-focus",
+        "spells": ["ab47e30a-7406-57da-aa0c-925ee0310ad0"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "wizard-focus",
+        "spells": ["f8dc55ba-da0e-51cb-be53-3efb18fb4fab"],
+        "predicate": ["feat:advanced-school-spell"]
       }
     ],
     "externalIds": {
@@ -11022,7 +11268,26 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "SpellcastingEntry",
+        "slug": "wizard-focus",
+        "tradition": "arcane",
+        "attribute": "int",
+        "preparation": "focus"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "wizard-focus",
+        "spells": ["f94cc7d2-307e-53da-b7cb-0d092570703d"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "wizard-focus",
+        "spells": ["b21f8430-9c22-58f6-81ab-77b75b231db8"],
+        "predicate": ["feat:advanced-school-spell"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.xYYhJtGhFSWNifcO"
     },
@@ -11499,6 +11764,18 @@
         "selector": "spellcasting",
         "rank": "legendary",
         "predicate": ["feature:legendary-spellcaster"]
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "witch-focus",
+        "tradition": "primal",
+        "attribute": "int",
+        "preparation": "focus"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "witch-focus",
+        "spells": ["ed86a157-0e01-5ec4-8b0f-6952e32cc320"]
       }
     ],
     "externalIds": {
@@ -12056,6 +12333,18 @@
         "selector": "spellcasting",
         "rank": "legendary",
         "predicate": ["feature:legendary-spellcaster"]
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "witch-focus",
+        "tradition": "occult",
+        "attribute": "int",
+        "preparation": "focus"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "witch-focus",
+        "spells": ["60ba1458-0dc1-5f02-95d6-7e01f8cae648"]
       }
     ],
     "externalIds": {
@@ -12274,6 +12563,18 @@
         "selector": "spellcasting",
         "rank": "legendary",
         "predicate": ["feature:legendary-spellcaster"]
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "witch-focus",
+        "tradition": "occult",
+        "attribute": "int",
+        "preparation": "focus"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "witch-focus",
+        "spells": ["5fa71f39-f51f-5c51-a21b-3cd561210f5f"]
       }
     ],
     "externalIds": {
@@ -12383,6 +12684,18 @@
             "or": ["class:druid", "feat:order-explorer:storm-order"]
           }
         ]
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "druid-focus",
+        "tradition": "primal",
+        "attribute": "wis",
+        "preparation": "focus"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "druid-focus",
+        "spells": ["61f84b31-8da0-5b2f-89a8-9ae353d08524"]
       }
     ],
     "externalIds": {
@@ -12633,6 +12946,18 @@
         "selector": "spellcasting",
         "rank": "legendary",
         "predicate": ["feature:legendary-spellcaster"]
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "witch-focus",
+        "tradition": "arcane",
+        "attribute": "int",
+        "preparation": "focus"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "witch-focus",
+        "spells": ["739223bd-213c-5fde-8da3-7556c7f50b22"]
       }
     ],
     "externalIds": {
@@ -12765,6 +13090,18 @@
         "selector": "spellcasting",
         "rank": "legendary",
         "predicate": ["feature:legendary-spellcaster"]
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "witch-focus",
+        "tradition": "occult",
+        "attribute": "int",
+        "preparation": "focus"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "witch-focus",
+        "spells": ["edd9a7ea-dc86-539c-9c6d-c35ac38a45c4"]
       }
     ],
     "externalIds": {
@@ -13150,6 +13487,18 @@
             "or": ["class:druid", "feat:order-explorer:untamed-order"]
           }
         ]
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "druid-focus",
+        "tradition": "primal",
+        "attribute": "wis",
+        "preparation": "focus"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "druid-focus",
+        "spells": ["a57b5d2f-8af8-51d0-8819-828f863e14f3"]
       }
     ],
     "externalIds": {
@@ -14043,6 +14392,18 @@
         "selector": "spellcasting",
         "rank": "legendary",
         "predicate": ["feature:legendary-spellcaster"]
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "witch-focus",
+        "tradition": "primal",
+        "attribute": "int",
+        "preparation": "focus"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "witch-focus",
+        "spells": ["d075969b-7fbe-5aa6-8992-b5b09681f388"]
       }
     ],
     "externalIds": {

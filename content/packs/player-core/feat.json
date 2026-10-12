@@ -556,7 +556,412 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "advanced-domain",
+        "choices": [
+          {
+            "value": "air",
+            "label": "Air",
+            "predicate": ["domain-initiate:air"]
+          },
+          {
+            "value": "ambition",
+            "label": "Ambition",
+            "predicate": ["domain-initiate:ambition"]
+          },
+          {
+            "value": "cities",
+            "label": "Cities",
+            "predicate": ["domain-initiate:cities"]
+          },
+          {
+            "value": "confidence",
+            "label": "Confidence",
+            "predicate": ["domain-initiate:confidence"]
+          },
+          {
+            "value": "creation",
+            "label": "Creation",
+            "predicate": ["domain-initiate:creation"]
+          },
+          {
+            "value": "darkness",
+            "label": "Darkness",
+            "predicate": ["domain-initiate:darkness"]
+          },
+          {
+            "value": "death",
+            "label": "Death",
+            "predicate": ["domain-initiate:death"]
+          },
+          {
+            "value": "destruction",
+            "label": "Destruction",
+            "predicate": ["domain-initiate:destruction"]
+          },
+          {
+            "value": "dreams",
+            "label": "Dreams",
+            "predicate": ["domain-initiate:dreams"]
+          },
+          {
+            "value": "earth",
+            "label": "Earth",
+            "predicate": ["domain-initiate:earth"]
+          },
+          {
+            "value": "family",
+            "label": "Family",
+            "predicate": ["domain-initiate:family"]
+          },
+          {
+            "value": "fate",
+            "label": "Fate",
+            "predicate": ["domain-initiate:fate"]
+          },
+          {
+            "value": "fire",
+            "label": "Fire",
+            "predicate": ["domain-initiate:fire"]
+          },
+          {
+            "value": "freedom",
+            "label": "Freedom",
+            "predicate": ["domain-initiate:freedom"]
+          },
+          {
+            "value": "healing",
+            "label": "Healing",
+            "predicate": ["domain-initiate:healing"]
+          },
+          {
+            "value": "indulgence",
+            "label": "Indulgence",
+            "predicate": ["domain-initiate:indulgence"]
+          },
+          {
+            "value": "knowledge",
+            "label": "Knowledge",
+            "predicate": ["domain-initiate:knowledge"]
+          },
+          {
+            "value": "luck",
+            "label": "Luck",
+            "predicate": ["domain-initiate:luck"]
+          },
+          {
+            "value": "magic",
+            "label": "Magic",
+            "predicate": ["domain-initiate:magic"]
+          },
+          {
+            "value": "might",
+            "label": "Might",
+            "predicate": ["domain-initiate:might"]
+          },
+          {
+            "value": "moon",
+            "label": "Moon",
+            "predicate": ["domain-initiate:moon"]
+          },
+          {
+            "value": "nature",
+            "label": "Nature",
+            "predicate": ["domain-initiate:nature"]
+          },
+          {
+            "value": "nightmares",
+            "label": "Nightmares",
+            "predicate": ["domain-initiate:nightmares"]
+          },
+          {
+            "value": "pain",
+            "label": "Pain",
+            "predicate": ["domain-initiate:pain"]
+          },
+          {
+            "value": "passion",
+            "label": "Passion",
+            "predicate": ["domain-initiate:passion"]
+          },
+          {
+            "value": "perfection",
+            "label": "Perfection",
+            "predicate": ["domain-initiate:perfection"]
+          },
+          {
+            "value": "protection",
+            "label": "Protection",
+            "predicate": ["domain-initiate:protection"]
+          },
+          {
+            "value": "secrecy",
+            "label": "Secrecy",
+            "predicate": ["domain-initiate:secrecy"]
+          },
+          {
+            "value": "travel",
+            "label": "Travel",
+            "predicate": ["domain-initiate:travel"]
+          },
+          {
+            "value": "trickery",
+            "label": "Trickery",
+            "predicate": ["domain-initiate:trickery"]
+          },
+          {
+            "value": "truth",
+            "label": "Truth",
+            "predicate": ["domain-initiate:truth"]
+          },
+          {
+            "value": "tyranny",
+            "label": "Tyranny",
+            "predicate": ["domain-initiate:tyranny"]
+          },
+          {
+            "value": "undeath",
+            "label": "Undeath",
+            "predicate": ["domain-initiate:undeath"]
+          },
+          {
+            "value": "water",
+            "label": "Water",
+            "predicate": ["domain-initiate:water"]
+          },
+          {
+            "value": "wealth",
+            "label": "Wealth",
+            "predicate": ["domain-initiate:wealth"]
+          },
+          {
+            "value": "zeal",
+            "label": "Zeal",
+            "predicate": ["domain-initiate:zeal"]
+          }
+        ],
+        "prompt": "Select a domain.",
+        "rollOption": "advanced-domain"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["419527f8-46c8-5921-95ab-e53ece3b72fb"],
+        "predicate": ["advanced-domain:air"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["4239a1e0-2b6b-506f-8eab-916d18c9a173"],
+        "predicate": ["advanced-domain:ambition"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["6ac83d1d-3426-5f54-bbcb-34437ed6663f"],
+        "predicate": ["advanced-domain:cities"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["d5f36ee8-a692-5f7b-93cd-727a19c1a9a9"],
+        "predicate": ["advanced-domain:confidence"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["c4a96aef-cf63-5a34-875d-64e4daf24ecc"],
+        "predicate": ["advanced-domain:creation"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["c801fb7d-8245-577f-a15e-03baeb3e23e4"],
+        "predicate": ["advanced-domain:darkness"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["581dd42d-8b26-5c69-9b47-8050223e48b8"],
+        "predicate": ["advanced-domain:death"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["4fcbb9d5-3719-591c-ad07-f2eeb8962d2d"],
+        "predicate": ["advanced-domain:destruction"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["93ec689c-655f-5e47-9a4f-c2091c5d3e19"],
+        "predicate": ["advanced-domain:dreams"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["cde69302-e5f1-5984-86cc-eed803597ddc"],
+        "predicate": ["advanced-domain:earth"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["82b86f82-dcc9-5140-b36c-ed9c258bf9bd"],
+        "predicate": ["advanced-domain:family"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["ec84a7c5-c0e5-5aa1-965f-b5cfa7600536"],
+        "predicate": ["advanced-domain:fate"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["36508989-7366-5ab6-b063-b064a5f7e061"],
+        "predicate": ["advanced-domain:fire"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["0167eff5-4abf-5d0a-838b-f9cdb0e221ea"],
+        "predicate": ["advanced-domain:freedom"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["f9abea3c-683d-59b0-9622-a922a984025c"],
+        "predicate": ["advanced-domain:healing"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["905d9a31-06d5-5b8f-b05e-23672015be36"],
+        "predicate": ["advanced-domain:indulgence"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["a78df970-7d5a-5c63-a260-7108aaf0db6d"],
+        "predicate": ["advanced-domain:knowledge"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["b0b2b4b1-4e52-53d8-a2fd-a9fa14f3229a"],
+        "predicate": ["advanced-domain:luck"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["ad31cc0a-d5e6-5230-a290-ec0c3270f8d5"],
+        "predicate": ["advanced-domain:magic"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["efd32359-5aca-5b0b-b7e9-c5ee45c49c30"],
+        "predicate": ["advanced-domain:might"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["dac265fd-9aac-5965-8a71-8c51081ace1a"],
+        "predicate": ["advanced-domain:moon"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["fd3d0744-4681-5012-a870-e4f53fd747fb"],
+        "predicate": ["advanced-domain:nature"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["e06888a3-85df-5671-9cfd-728d751b0f0d"],
+        "predicate": ["advanced-domain:nightmares"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["85a05d0d-4b76-5e53-98d5-829ac02333a9"],
+        "predicate": ["advanced-domain:pain"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["313c11ff-3959-5152-b6f8-247cf4a8f9f6"],
+        "predicate": ["advanced-domain:passion"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["6a02c774-8314-5f91-8917-38e707a54c29"],
+        "predicate": ["advanced-domain:perfection"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["85cb88ea-8aba-5dfd-9852-6c94bc2faa88"],
+        "predicate": ["advanced-domain:protection"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["cd374f60-c396-55ec-9adf-25360f9232e4"],
+        "predicate": ["advanced-domain:secrecy"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["d7cdd292-4499-537b-a6a0-97984b2365a5"],
+        "predicate": ["advanced-domain:travel"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["3b05a034-dae4-53d7-8b6e-78db78a9e9cb"],
+        "predicate": ["advanced-domain:trickery"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["7bf00d3b-de83-5b45-81bf-6f0812a78e1d"],
+        "predicate": ["advanced-domain:truth"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["32ac1a11-2157-50c2-bddf-62b050799a76"],
+        "predicate": ["advanced-domain:tyranny"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["ffd4de42-45f6-5d01-915f-43de52f9ea40"],
+        "predicate": ["advanced-domain:undeath"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["8430391b-5917-5983-8fed-0fe8d43fb733"],
+        "predicate": ["advanced-domain:water"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["6542a1c8-0202-5980-9594-a17835593295"],
+        "predicate": ["advanced-domain:wealth"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["48abeee9-4024-50a3-957e-b5209f4ff629"],
+        "predicate": ["advanced-domain:zeal"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.uR44wELN9OlU68cL"
     },
@@ -1087,7 +1492,63 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "SpellcastingEntry",
+        "slug": "ranger-focus",
+        "tradition": "primal",
+        "attribute": "wis",
+        "preparation": "focus"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "advanced-warden",
+        "choices": [
+          {
+            "value": "animal-feature",
+            "label": "Animal Feature"
+          },
+          {
+            "value": "enlarge-companion",
+            "label": "Enlarge Companion"
+          },
+          {
+            "value": "hunters-luck",
+            "label": "Hunter's Luck"
+          },
+          {
+            "value": "soothing-mist",
+            "label": "Soothing Mist"
+          }
+        ],
+        "prompt": "Select a warden spell.",
+        "rollOption": "advanced-warden"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "ranger-focus",
+        "spells": ["8fe42a3c-1e56-5d7f-b167-cab7234c5569"],
+        "predicate": ["advanced-warden:animal-feature"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "ranger-focus",
+        "spells": ["bfa40459-f588-5e9f-badf-6156c8fc3eff"],
+        "predicate": ["advanced-warden:enlarge-companion"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "ranger-focus",
+        "spells": ["a2dd9ee1-08e2-5421-8a4b-ba9ceac569d5"],
+        "predicate": ["advanced-warden:hunters-luck"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "ranger-focus",
+        "spells": ["78a1fc0c-39d8-547f-adde-ad76a1b79bdb"],
+        "predicate": ["advanced-warden:soothing-mist"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.it2i6OXfGIizokpg"
     },
@@ -1678,7 +2139,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FocusSpells",
+        "entry": "bard-focus",
+        "spells": ["44840958-035f-5670-a8e6-b38e77fec27e"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.rOx7r8ygmPHPC6qF"
     },
@@ -6321,7 +6788,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FocusSpells",
+        "entry": "witch-focus",
+        "spells": ["0c438cd7-97cc-5fdd-82f2-a80d29f258d0"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.0BR61rW4JFOfO7T7"
     },
@@ -11974,7 +12447,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FocusSpells",
+        "entry": "bard-focus",
+        "spells": ["d2695fbf-eecc-5c23-b182-ceeaa8c5a6dc"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.vWrGwqy4AhHMPz8V"
     },
@@ -13368,7 +13847,578 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "SpellcastingEntry",
+        "slug": "cleric-focus",
+        "tradition": "divine",
+        "attribute": "wis",
+        "preparation": "focus"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "domain-initiate",
+        "choices": [
+          {
+            "value": "air",
+            "label": "Air",
+            "predicate": [
+              {
+                "or": ["deity:primary:domain:air", "deity:primary:alternate-domain:air"]
+              }
+            ]
+          },
+          {
+            "value": "ambition",
+            "label": "Ambition",
+            "predicate": [
+              {
+                "or": ["deity:primary:domain:ambition", "deity:primary:alternate-domain:ambition"]
+              }
+            ]
+          },
+          {
+            "value": "cities",
+            "label": "Cities",
+            "predicate": [
+              {
+                "or": ["deity:primary:domain:cities", "deity:primary:alternate-domain:cities"]
+              }
+            ]
+          },
+          {
+            "value": "confidence",
+            "label": "Confidence",
+            "predicate": [
+              {
+                "or": ["deity:primary:domain:confidence", "deity:primary:alternate-domain:confidence"]
+              }
+            ]
+          },
+          {
+            "value": "creation",
+            "label": "Creation",
+            "predicate": [
+              {
+                "or": ["deity:primary:domain:creation", "deity:primary:alternate-domain:creation"]
+              }
+            ]
+          },
+          {
+            "value": "darkness",
+            "label": "Darkness",
+            "predicate": [
+              {
+                "or": ["deity:primary:domain:darkness", "deity:primary:alternate-domain:darkness"]
+              }
+            ]
+          },
+          {
+            "value": "death",
+            "label": "Death",
+            "predicate": [
+              {
+                "or": ["deity:primary:domain:death", "deity:primary:alternate-domain:death"]
+              }
+            ]
+          },
+          {
+            "value": "destruction",
+            "label": "Destruction",
+            "predicate": [
+              {
+                "or": ["deity:primary:domain:destruction", "deity:primary:alternate-domain:destruction"]
+              }
+            ]
+          },
+          {
+            "value": "dreams",
+            "label": "Dreams",
+            "predicate": [
+              {
+                "or": ["deity:primary:domain:dreams", "deity:primary:alternate-domain:dreams"]
+              }
+            ]
+          },
+          {
+            "value": "earth",
+            "label": "Earth",
+            "predicate": [
+              {
+                "or": ["deity:primary:domain:earth", "deity:primary:alternate-domain:earth"]
+              }
+            ]
+          },
+          {
+            "value": "family",
+            "label": "Family",
+            "predicate": [
+              {
+                "or": ["deity:primary:domain:family", "deity:primary:alternate-domain:family"]
+              }
+            ]
+          },
+          {
+            "value": "fate",
+            "label": "Fate",
+            "predicate": [
+              {
+                "or": ["deity:primary:domain:fate", "deity:primary:alternate-domain:fate"]
+              }
+            ]
+          },
+          {
+            "value": "fire",
+            "label": "Fire",
+            "predicate": [
+              {
+                "or": ["deity:primary:domain:fire", "deity:primary:alternate-domain:fire"]
+              }
+            ]
+          },
+          {
+            "value": "freedom",
+            "label": "Freedom",
+            "predicate": [
+              {
+                "or": ["deity:primary:domain:freedom", "deity:primary:alternate-domain:freedom"]
+              }
+            ]
+          },
+          {
+            "value": "healing",
+            "label": "Healing",
+            "predicate": [
+              {
+                "or": ["deity:primary:domain:healing", "deity:primary:alternate-domain:healing"]
+              }
+            ]
+          },
+          {
+            "value": "indulgence",
+            "label": "Indulgence",
+            "predicate": [
+              {
+                "or": ["deity:primary:domain:indulgence", "deity:primary:alternate-domain:indulgence"]
+              }
+            ]
+          },
+          {
+            "value": "knowledge",
+            "label": "Knowledge",
+            "predicate": [
+              {
+                "or": ["deity:primary:domain:knowledge", "deity:primary:alternate-domain:knowledge"]
+              }
+            ]
+          },
+          {
+            "value": "luck",
+            "label": "Luck",
+            "predicate": [
+              {
+                "or": ["deity:primary:domain:luck", "deity:primary:alternate-domain:luck"]
+              }
+            ]
+          },
+          {
+            "value": "magic",
+            "label": "Magic",
+            "predicate": [
+              {
+                "or": ["deity:primary:domain:magic", "deity:primary:alternate-domain:magic"]
+              }
+            ]
+          },
+          {
+            "value": "might",
+            "label": "Might",
+            "predicate": [
+              {
+                "or": ["deity:primary:domain:might", "deity:primary:alternate-domain:might"]
+              }
+            ]
+          },
+          {
+            "value": "moon",
+            "label": "Moon",
+            "predicate": [
+              {
+                "or": ["deity:primary:domain:moon", "deity:primary:alternate-domain:moon"]
+              }
+            ]
+          },
+          {
+            "value": "nature",
+            "label": "Nature",
+            "predicate": [
+              {
+                "or": ["deity:primary:domain:nature", "deity:primary:alternate-domain:nature"]
+              }
+            ]
+          },
+          {
+            "value": "nightmares",
+            "label": "Nightmares",
+            "predicate": [
+              {
+                "or": ["deity:primary:domain:nightmares", "deity:primary:alternate-domain:nightmares"]
+              }
+            ]
+          },
+          {
+            "value": "pain",
+            "label": "Pain",
+            "predicate": [
+              {
+                "or": ["deity:primary:domain:pain", "deity:primary:alternate-domain:pain"]
+              }
+            ]
+          },
+          {
+            "value": "passion",
+            "label": "Passion",
+            "predicate": [
+              {
+                "or": ["deity:primary:domain:passion", "deity:primary:alternate-domain:passion"]
+              }
+            ]
+          },
+          {
+            "value": "perfection",
+            "label": "Perfection",
+            "predicate": [
+              {
+                "or": ["deity:primary:domain:perfection", "deity:primary:alternate-domain:perfection"]
+              }
+            ]
+          },
+          {
+            "value": "protection",
+            "label": "Protection",
+            "predicate": [
+              {
+                "or": ["deity:primary:domain:protection", "deity:primary:alternate-domain:protection"]
+              }
+            ]
+          },
+          {
+            "value": "secrecy",
+            "label": "Secrecy",
+            "predicate": [
+              {
+                "or": ["deity:primary:domain:secrecy", "deity:primary:alternate-domain:secrecy"]
+              }
+            ]
+          },
+          {
+            "value": "sun",
+            "label": "Sun",
+            "predicate": [
+              {
+                "or": ["deity:primary:domain:sun", "deity:primary:alternate-domain:sun"]
+              }
+            ]
+          },
+          {
+            "value": "travel",
+            "label": "Travel",
+            "predicate": [
+              {
+                "or": ["deity:primary:domain:travel", "deity:primary:alternate-domain:travel"]
+              }
+            ]
+          },
+          {
+            "value": "trickery",
+            "label": "Trickery",
+            "predicate": [
+              {
+                "or": ["deity:primary:domain:trickery", "deity:primary:alternate-domain:trickery"]
+              }
+            ]
+          },
+          {
+            "value": "truth",
+            "label": "Truth",
+            "predicate": [
+              {
+                "or": ["deity:primary:domain:truth", "deity:primary:alternate-domain:truth"]
+              }
+            ]
+          },
+          {
+            "value": "tyranny",
+            "label": "Tyranny",
+            "predicate": [
+              {
+                "or": ["deity:primary:domain:tyranny", "deity:primary:alternate-domain:tyranny"]
+              }
+            ]
+          },
+          {
+            "value": "undeath",
+            "label": "Undeath",
+            "predicate": [
+              {
+                "or": ["deity:primary:domain:undeath", "deity:primary:alternate-domain:undeath"]
+              }
+            ]
+          },
+          {
+            "value": "water",
+            "label": "Water",
+            "predicate": [
+              {
+                "or": ["deity:primary:domain:water", "deity:primary:alternate-domain:water"]
+              }
+            ]
+          },
+          {
+            "value": "wealth",
+            "label": "Wealth",
+            "predicate": [
+              {
+                "or": ["deity:primary:domain:wealth", "deity:primary:alternate-domain:wealth"]
+              }
+            ]
+          },
+          {
+            "value": "zeal",
+            "label": "Zeal",
+            "predicate": [
+              {
+                "or": ["deity:primary:domain:zeal", "deity:primary:alternate-domain:zeal"]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select a domain.",
+        "rollOption": "domain-initiate"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["8405c742-9ed1-5825-a63b-64eea7bdd00b"],
+        "predicate": ["domain-initiate:air"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["c887301c-a938-5984-ac70-655db0f34af1"],
+        "predicate": ["domain-initiate:ambition"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["879e573a-f3da-5293-a18b-22d91eb2157e"],
+        "predicate": ["domain-initiate:cities"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["86a57df8-744c-52ca-b4a3-a66542dfce68"],
+        "predicate": ["domain-initiate:confidence"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["9173cde2-9f9e-5681-a5ff-c12daecd39da"],
+        "predicate": ["domain-initiate:creation"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["255481ad-86d6-55d4-8d42-f17cad08a231"],
+        "predicate": ["domain-initiate:darkness"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["e44bf97c-2c78-553a-b190-fe9ff3f2353e"],
+        "predicate": ["domain-initiate:death"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["0629bdd2-9278-53b8-9ec6-b843f3b379e9"],
+        "predicate": ["domain-initiate:destruction"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["3babe564-493a-5830-bd54-0fb4d5f1e349"],
+        "predicate": ["domain-initiate:dreams"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["2842b2ae-e644-5b80-997a-332ef25f3c0c"],
+        "predicate": ["domain-initiate:earth"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["e6e8ab8a-ca1b-53eb-86f4-e5be4abdc056"],
+        "predicate": ["domain-initiate:family"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["e102fad4-b74b-569f-b813-fdae0e3aee17"],
+        "predicate": ["domain-initiate:fate"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["fb3fad1b-a26d-5cfe-8ec3-d5d8889176cc"],
+        "predicate": ["domain-initiate:fire"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["cd8fe223-f0a3-52b1-a173-a9c5d888de07"],
+        "predicate": ["domain-initiate:freedom"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["281b0528-38d8-5b12-a99d-64bf1af504f5"],
+        "predicate": ["domain-initiate:healing"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["74d1e3b1-2acd-5276-9f8f-aa634410ef3f"],
+        "predicate": ["domain-initiate:indulgence"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["09d6e493-a1df-57ab-b99c-6977c8b84968"],
+        "predicate": ["domain-initiate:knowledge"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["ad675918-5dd7-58a6-8818-1c1eb24b3228"],
+        "predicate": ["domain-initiate:luck"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["140a54af-5479-53e9-bb81-319210dbb628"],
+        "predicate": ["domain-initiate:magic"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["a1afb3c1-4241-521e-b458-79b7d0b6e420"],
+        "predicate": ["domain-initiate:might"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["0461db92-5a1c-5572-bdd9-54b7fb6d4804"],
+        "predicate": ["domain-initiate:moon"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["55e8560b-c02f-5b21-9518-96052fee9f07"],
+        "predicate": ["domain-initiate:nature"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["c717a797-4991-5a2d-8495-0aeed031faf0"],
+        "predicate": ["domain-initiate:nightmares"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["f7bdb64d-38fc-51c8-824e-14bd69e1c543"],
+        "predicate": ["domain-initiate:pain"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["f6115fa4-414d-5ec2-88b0-6532c3880111"],
+        "predicate": ["domain-initiate:passion"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["0a1d1434-f6fc-5f1f-9000-fb57d6edd8b2"],
+        "predicate": ["domain-initiate:perfection"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["12bd2b2c-f1a5-5fb5-9019-537347375066"],
+        "predicate": ["domain-initiate:protection"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["9679dd31-767f-574d-ba20-2bc1c371ff67"],
+        "predicate": ["domain-initiate:secrecy"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["ed738ff6-31d4-5abd-b34c-d55a9ab1d707"],
+        "predicate": ["domain-initiate:sun"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["fbd2a757-c567-55d0-9440-c67ac15536fd"],
+        "predicate": ["domain-initiate:travel"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["24f63c86-5103-5e14-bb6f-d084221e9190"],
+        "predicate": ["domain-initiate:trickery"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["e53d311e-560f-54e9-976c-85657821770f"],
+        "predicate": ["domain-initiate:truth"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["1d0cf281-3a1f-56fa-b807-02f392ac7135"],
+        "predicate": ["domain-initiate:tyranny"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["fdf75df2-2c55-5eff-bb7e-bb7c6def621f"],
+        "predicate": ["domain-initiate:undeath"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["f6191882-e6ce-5212-a3ef-e9e1d3007d75"],
+        "predicate": ["domain-initiate:water"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["866e671b-d814-5c60-8453-9b24637b9c6f"],
+        "predicate": ["domain-initiate:wealth"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "cleric-focus",
+        "spells": ["e7b43921-a822-5482-b46f-1a7784b49e1a"],
+        "predicate": ["domain-initiate:zeal"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.hT4INKGtly4QY8KN"
     },
@@ -17888,7 +18938,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FocusSpells",
+        "entry": "bard-focus",
+        "spells": ["62e898c1-77a6-574c-a07e-049c5a689e4f"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.3w2SktSOZdG8f6Qr"
     },
@@ -19777,7 +20833,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FocusSpells",
+        "entry": "bard-focus",
+        "spells": ["049f9ba8-ecc9-587a-b148-483aec1081a2"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.FjuuX0vUWlYchRNM"
     },
@@ -23122,7 +24184,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FocusSpells",
+        "entry": "bard-focus",
+        "spells": ["7c6ec55c-9339-5ecf-98fa-16b70b5e6190"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.dutiFC41YFllm8fM"
     },
@@ -23274,7 +24342,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FocusSpells",
+        "entry": "bard-focus",
+        "spells": ["0219af4e-93e8-5444-9666-1a92c44fca9d"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.jGTRRCqxn1FIBxE2"
     },
@@ -23359,7 +24433,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FocusSpells",
+        "entry": "druid-focus",
+        "spells": ["5fcf9c93-f90d-5bf1-8205-1557c31f8d32"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.urYHB6VHhqvPMSy7"
     },
@@ -24955,7 +26035,53 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "SpellcastingEntry",
+        "slug": "ranger-focus",
+        "tradition": "primal",
+        "attribute": "wis",
+        "preparation": "focus"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "initiate-warden",
+        "choices": [
+          {
+            "value": "gravity-weapon",
+            "label": "Gravity Weapon"
+          },
+          {
+            "value": "heal-companion",
+            "label": "Heal Companion"
+          },
+          {
+            "value": "magic-hide",
+            "label": "Magic Hide"
+          }
+        ],
+        "prompt": "Select a warden spell.",
+        "rollOption": "initiate-warden"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "ranger-focus",
+        "spells": ["a7c1bb14-2aca-5e0a-982f-f6b0a8513c3f"],
+        "predicate": ["initiate-warden:gravity-weapon"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "ranger-focus",
+        "spells": ["b1e83576-c8e8-5f0d-9802-1a184750737b"],
+        "predicate": ["initiate-warden:heal-companion"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "ranger-focus",
+        "spells": ["0d6ea132-2b4a-58bf-a611-9fcc5995b9e8"],
+        "predicate": ["initiate-warden:magic-hide"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.iT39wlCEC1aWaSx7"
     },
@@ -25709,7 +26835,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FocusSpells",
+        "entry": "druid-focus",
+        "spells": ["0db05314-e629-5541-acab-d790a6fb68f7"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.2RaDe6Fi4t7S2IDF"
     },
@@ -27690,7 +28822,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FocusSpells",
+        "entry": "bard-focus",
+        "spells": ["92c4fd7a-25c6-5508-a3d8-53f3c64254b3"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.sVjATEo8eqkAosNp"
     },
@@ -27803,7 +28941,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FocusSpells",
+        "entry": "bard-focus",
+        "spells": ["d9a34227-aa73-541f-8907-0dd3f3f520cd"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.VToVEOxiyy53AcEp"
     },
@@ -29482,7 +30626,43 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "SpellcastingEntry",
+        "slug": "ranger-focus",
+        "tradition": "primal",
+        "attribute": "wis",
+        "preparation": "focus"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "masterful-warden",
+        "choices": [
+          {
+            "value": "ephemeral-tracking",
+            "label": "Ephemeral Tracking"
+          },
+          {
+            "value": "rangers-bramble",
+            "label": "Ranger's Bramble"
+          }
+        ],
+        "prompt": "Select a warden spell.",
+        "rollOption": "masterful-warden"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "ranger-focus",
+        "spells": ["d5ab1408-7b1f-5913-8ea5-759814f6dec5"],
+        "predicate": ["masterful-warden:ephemeral-tracking"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "ranger-focus",
+        "spells": ["db953827-2d4f-56cc-a2aa-7eaf7b487f38"],
+        "predicate": ["masterful-warden:rangers-bramble"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.BBN5G6epRWXGwZHv"
     },
@@ -31956,7 +33136,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FocusSpells",
+        "entry": "bard-focus",
+        "spells": ["9e88af26-265b-5907-89e9-5117c1b1a507"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.cvo3DIL0BIRrDkQ6"
     },
@@ -33383,7 +34569,43 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "SpellcastingEntry",
+        "slug": "ranger-focus",
+        "tradition": "primal",
+        "attribute": "wis",
+        "preparation": "focus"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "peerless-warden",
+        "choices": [
+          {
+            "value": "hunters-vision",
+            "label": "Hunter's Vision"
+          },
+          {
+            "value": "terrain-transposition",
+            "label": "Terrain Transposition"
+          }
+        ],
+        "prompt": "Select a warden spell.",
+        "rollOption": "peerless-warden"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "ranger-focus",
+        "spells": ["092c3243-0305-529a-a00f-e9ab4ca9eabb"],
+        "predicate": ["peerless-warden:hunters-vision"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "ranger-focus",
+        "spells": ["97b65eaf-ac9e-54f7-a51a-01c35158031f"],
+        "predicate": ["peerless-warden:terrain-transposition"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.W7aT1UJOVFkYdQti"
     },
@@ -34210,7 +35432,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FocusSpells",
+        "entry": "bard-focus",
+        "spells": ["a3b9a36a-7fe7-5008-bd8e-7ce147c13e63"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.UOxDJt8Y7SiCR4xq"
     },
@@ -35846,7 +37074,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FocusSpells",
+        "entry": "druid-focus",
+        "spells": ["93188b0a-74eb-5f84-ba0b-0725cabfcfbc"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.I00uuseTfPypVgLQ"
     },
@@ -37071,7 +38305,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FocusSpells",
+        "entry": "bard-focus",
+        "spells": ["d3031825-3385-5035-a683-0088d20624dd"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.sahJHnojXO9eEXVE"
     },
@@ -44532,7 +45772,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FocusSpells",
+        "entry": "bard-focus",
+        "spells": ["420abf67-b90c-5459-a943-b30676264b70"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.0zSoSPwC4cpqRewj"
     },
@@ -44574,7 +45820,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FocusSpells",
+        "entry": "bard-focus",
+        "spells": ["8f45b75d-f8c5-5448-bd87-a7ab4b389713"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.FkN9QX1W2Iv56bkn"
     },
@@ -44627,7 +45879,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FocusSpells",
+        "entry": "bard-focus",
+        "spells": ["01af21d7-2743-5449-acc6-530cb822e535"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.LmdOWCDffhBiyzM3"
     },
@@ -48097,7 +49355,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FocusSpells",
+        "entry": "bard-focus",
+        "spells": ["3ff1c06b-e145-5302-a0e7-e66107acab3e"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.VJl2xHDKr0HxTUrs"
     },
@@ -49629,7 +50893,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FocusSpells",
+        "entry": "bard-focus",
+        "spells": ["fe6baaa0-276d-5d8b-864b-0ae0bb8fcee0"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.B0T6p3kcrOfSvLqQ"
     },
@@ -51529,7 +52799,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FocusSpells",
+        "entry": "druid-focus",
+        "spells": ["cefde006-5aec-54a0-a09a-a0478af94eb2"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.VaIHQzOE5ibmbtqU"
     },
@@ -51805,7 +53081,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FocusSpells",
+        "entry": "bard-focus",
+        "spells": ["7173bb42-3e0e-5d2d-8642-bdbe708b6689"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.eUXgY8W3fShlW7pd"
     },
@@ -53737,7 +55019,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FocusSpells",
+        "entry": "druid-focus",
+        "spells": ["f404293b-2dad-5707-90f3-aee2edf6ce8b"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.Jj6sVfIX81tgvSY4"
     },
