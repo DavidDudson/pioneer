@@ -283,6 +283,7 @@ export { ActorTraitsElement } from './rule-element-actor-traits';
 export { StrikeElement } from './rule-element-strike';
 export {
   DeitySpellsElement,
+  FocusSpellsElement,
   PoolSpellsElement,
   SignatureSpellsElement,
   SLOT_COUNT_MAX,

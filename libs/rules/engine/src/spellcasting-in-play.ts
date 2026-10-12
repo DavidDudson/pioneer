@@ -12,6 +12,7 @@ import {
 import type {
   ContentId,
   Origin,
+  FocusSpellsElement,
   PoolSpellsElement,
   RuleElement,
   RuleSlug,
@@ -57,6 +58,12 @@ interface EntrySignatures {
   readonly signatures: boolean;
 }
 
+/** The focus spells the `FocusSpells` elements in play give a focus entry, each once in the order they name them; none
+ * for any other entry (ADR-0048). */
+interface EntryFocusSpells {
+  readonly focusSpells: readonly ContentId[];
+}
+
 /** An entry as its `SpellcastingEntry` element gives it, before its slots are counted. */
 interface EntryInPlay extends SpellcastingInputs {
   readonly preparation: SpellPreparation;
@@ -68,7 +75,7 @@ interface EntryInPlay extends SpellcastingInputs {
  * A spellcasting entry on the character: what its spell attack and DC read, how it casts, why it is there, and its
  * slots.
  */
-export interface SpellcastingInPlay extends EntryInPlay, EntrySlots, EntrySignatures {
+export interface SpellcastingInPlay extends EntryInPlay, EntrySlots, EntrySignatures, EntryFocusSpells {
   /** Whether a `DeitySpells` element in play adds the character's deity's spells to its list (ADR-0048). */
   readonly deitySpells: boolean;
 }
@@ -183,6 +190,8 @@ interface Gathered {
   readonly deitySpells: Set<Slug>;
   /** The entries a `SignatureSpells` element names. */
   readonly signatures: Set<Slug>;
+  /** The spells the `FocusSpells` elements give, by the entry they name. */
+  readonly focusSpells: Map<Slug, ContentId[]>;
 }
 
 /** Adds `spells` to what `pool` of `entry` takes, each spell once. */
@@ -193,9 +202,31 @@ function addPoolSpells({ poolSpells }: Gathered, { entry, pool, spells }: PoolSp
   poolSpells.set(entry, pools);
 }
 
+/** Adds `spells` to the focus spells of `entry`, each spell once. */
+function addFocusSpells({ focusSpells }: Gathered, { entry, spells }: FocusSpellsElement): void {
+  const known = focusSpells.get(entry) ?? [];
+  focusSpells.set(entry, [...known, ...spells.filter((spell) => !known.includes(spell))]);
+}
+
+/** Adds the spells an element names an entry: its pool spells, deity spells, signature spells or focus spells. */
+function gatherSpells(gathered: Gathered, element: RuleElement): void {
+  if (element.key === RuleElementKey.PoolSpells) {
+    addPoolSpells(gathered, element);
+  }
+  if (element.key === RuleElementKey.DeitySpells) {
+    gathered.deitySpells.add(element.entry);
+  }
+  if (element.key === RuleElementKey.SignatureSpells) {
+    gathered.signatures.add(element.entry);
+  }
+  if (element.key === RuleElementKey.FocusSpells) {
+    addFocusSpells(gathered, element);
+  }
+}
+
 /**
- * Adds what one rule in play gives, if it holds: an entry the first time its slug holds, slots, pool spells, or
- * the entries deity or signature spells name.
+ * Adds what one rule in play gives, if it holds: an entry the first time its slug holds, slots, pool spells, the
+ * entries deity or signature spells name, or focus spells.
  */
 function gather(gathered: Gathered, rule: RuleInPlay, facts: PredicateFacts): void {
   const { element, origin } = rule;
@@ -209,20 +240,7 @@ function gather(gathered: Gathered, rule: RuleInPlay, facts: PredicateFacts): vo
   if (element.key === RuleElementKey.SpellSlots) {
     gathered.slots.set(element.entry, [...(gathered.slots.get(element.entry) ?? []), { element, origin }]);
   }
-  if (element.key === RuleElementKey.PoolSpells) {
-    addPoolSpells(gathered, element);
-  }
-  addNamed(gathered, element);
-}
-
-/** Records the entry a `DeitySpells` or `SignatureSpells` element names. */
-function addNamed({ deitySpells, signatures }: Gathered, element: RuleElement): void {
-  if (element.key === RuleElementKey.DeitySpells) {
-    deitySpells.add(element.entry);
-  }
-  if (element.key === RuleElementKey.SignatureSpells) {
-    signatures.add(element.entry);
-  }
+  gatherSpells(gathered, element);
 }
 
 /**
@@ -232,6 +250,7 @@ function addNamed({ deitySpells, signatures }: Gathered, element: RuleElement): 
  * `SpellSlots` elements in play give it (ADR-0041) and the spells the `PoolSpells` elements in play give its pools
  * (ADR-0045), and whether a `DeitySpells` element in play adds the deity's spells to its list (ADR-0048). A spontaneous
  * entry a `SignatureSpells` element in play names has signature spells (ADR-0047); a prepared or innate one never does.
+ * A focus entry has the spells the `FocusSpells` elements in play name it (ADR-0050); any other entry has none.
  */
 export function spellcastingInPlay({ rules, facts }: ModifierInputs): readonly SpellcastingInPlay[] {
   const gathered: Gathered = {
@@ -240,18 +259,21 @@ export function spellcastingInPlay({ rules, facts }: ModifierInputs): readonly S
     poolSpells: new Map(),
     deitySpells: new Set(),
     signatures: new Set(),
+    focusSpells: new Map(),
   };
   for (const rule of rules) {
     gather(gathered, rule, facts);
   }
-  const { entries, slots, poolSpells, deitySpells, signatures } = gathered;
+  const { entries, slots, poolSpells, deitySpells, signatures, focusSpells } = gathered;
   return bySlug(
     [...entries.values()].map((entry): SpellcastingInPlay => {
       const spontaneous = entry.preparation === SpellPreparation.Spontaneous;
       const counted = entrySlots(slots.get(entry.slug) ?? [], poolSpells.get(entry.slug) ?? NO_POOL_SPELLS);
+      const focus = entry.preparation === SpellPreparation.Focus ? (focusSpells.get(entry.slug) ?? []) : [];
       return Object.assign(counted, entry, {
         deitySpells: deitySpells.has(entry.slug),
         signatures: spontaneous && signatures.has(entry.slug),
+        focusSpells: focus,
       });
     }),
     ({ slug }) => slug,
