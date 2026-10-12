@@ -1,68 +1,38 @@
-import { grantLookup, resolveGrants } from '@pioneer/rules/grants';
-import type { ContentLookup, GrantResolution, OfferedOption } from '@pioneer/rules/grants';
-import type { NamespaceTable } from '@pioneer/rules/predicate';
+import type { GrantResolution, OfferedOption } from '@pioneer/rules/grants';
 import { Level, SlotKey } from '@pioneer/rules/sdk';
-import type { ChoiceValue, ContentRegistry } from '@pioneer/rules/sdk';
+import type { ChoiceValue } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
 
-import { boostContent } from './attribute-boosts';
-import type { BoostContent } from './attribute-boosts';
 import type { CharacterDocument } from './character-document';
 import { CHARACTER_LEVEL_MAX, CHARACTER_LEVEL_MIN } from './character-fields';
-import { CHARACTER_ROOT_SLOTS } from './character-slots';
-import { languageContent } from './language-content';
-import type { LanguageContent } from './language-content';
-import type { LanguageReads } from './language-levels';
+import { FeatPickProblem } from './feat-content';
+import { featPickProblem, prerequisiteReads } from './feat-slots';
 import { LanguagePickProblem, languageSlots, problemOf } from './languages';
 import type { LanguageSlot } from './languages';
-import type { PreparedReads } from './prepared-spells';
-import { skillContent } from './skill-content';
 import type { SkillContent } from './skill-content';
 import { SkillSlotKind, skillSlots } from './skill-training';
-import type { GrantsAt, SkillReads, SkillSlot } from './skill-training';
+import type { SkillSlot } from './skill-training';
+import { languageReads, picksOf, preparedReads, resolveSlotsAt, skillReads } from './slot-reads';
+import type { SlotContent, SlotContext } from './slot-reads';
 import { boostRefusal, boostSlotIn, flawRefusal, flawSlotIn, NOT_OFFERED, SlotRefusalField } from './slot-refusals';
 import type { SlotRefusal } from './slot-refusals';
-import { spellContent } from './spell-content';
-import type { SpellContent } from './spell-content';
 import { isSpellPickKey, spellPickRefusal } from './spell-pick-refusal';
 
 export { SlotRefusalField, type SlotRefusal } from './slot-refusals';
+export {
+  languageReads,
+  preparedReads,
+  resolveSlotsAt,
+  skillReads,
+  type SlotContent,
+  slotContent,
+  type SlotContext,
+} from './slot-reads';
 
 /** A selection for a slot, as `selectSlot` asks for it. */
 export interface SlotPick {
   readonly slot: SlotKey;
   readonly selection: ChoiceValue;
-}
-
-/**
- * The content a slot's offer is read from: entries by id and kind, how roll option namespaces read, and the boosts
- * of each ancestry, background and class, the skills and Lores a skill slot offers, the languages, and the spells a
- * prepared slot offers.
- */
-export interface SlotContent {
-  readonly lookup: ContentLookup;
-  readonly namespaces: NamespaceTable;
-  readonly boosts: BoostContent;
-  readonly skills: SkillContent;
-  readonly languages: LanguageContent;
-  readonly spells: SpellContent;
-}
-
-/** The slot content a registry gives. */
-export function slotContent(registry: ContentRegistry): SlotContent {
-  return {
-    lookup: grantLookup(registry),
-    namespaces: registry.rollOptionNamespaces(),
-    boosts: boostContent(registry),
-    skills: skillContent(registry),
-    languages: languageContent(registry),
-    spells: spellContent(registry),
-  };
-}
-
-/** What slots are read against: the character's picks and the content. */
-export interface SlotContext extends SlotContent {
-  readonly picks: ReadonlyMap<SlotKey, ChoiceValue>;
 }
 
 /**
@@ -72,56 +42,6 @@ export interface SlotContext extends SlotContent {
 function offerAt(resolution: GrantResolution, slot: SlotKey): readonly OfferedOption[] | undefined {
   const slots = [...resolution.rootSlots, ...resolution.open];
   return slots.find((each) => each.key === slot)?.options;
-}
-
-/** The character's grants at `level` over `picks`, with its own slots as roots. */
-export function resolveSlotsAt(level: Level, { picks, lookup, namespaces }: SlotContext): GrantResolution {
-  return resolveGrants({
-    roots: [],
-    lookup,
-    level,
-    situation: [],
-    picks,
-    toggles: new Map(),
-    rootSlots: CHARACTER_ROOT_SLOTS,
-    namespaces,
-  });
-}
-
-/** The character's picks, by slot. */
-function picksOf(document: CharacterDocument): ReadonlyMap<SlotKey, ChoiceValue> {
-  return new Map(Object.entries(document.build.choices).map(([key, value]) => [SlotKey.parse(key), value]));
-}
-
-/** Grants already resolved, by content, document and level: documents and content are never changed in place. */
-const RESOLVED = new WeakMap<SlotContent, WeakMap<CharacterDocument, Map<Level, GrantResolution>>>();
-
-function resolvedFor(document: CharacterDocument, content: SlotContent): Map<Level, GrantResolution> {
-  const byDocument = RESOLVED.get(content) ?? new WeakMap<CharacterDocument, Map<Level, GrantResolution>>();
-  RESOLVED.set(content, byDocument);
-  const resolved = byDocument.get(document) ?? new Map<Level, GrantResolution>();
-  byDocument.set(document, resolved);
-  return resolved;
-}
-
-/**
- * What skill slots read: the skills and boosts content, and the character's grants at each level, each resolved once
- * for the same content and document, however many reads ask.
- */
-export function skillReads(document: CharacterDocument, content: SlotContent): SkillReads {
-  const context: SlotContext = { ...content, picks: picksOf(document) };
-  const resolved = resolvedFor(document, content);
-  const grantsAt: GrantsAt = (level) => {
-    const resolution = resolved.get(level) ?? resolveSlotsAt(level, context);
-    resolved.set(level, resolution);
-    return resolution;
-  };
-  return { skills: content.skills, boosts: content.boosts, grantsAt };
-}
-
-/** What language slots read: the languages content and namespaces, and the skill reads, grants resolved once. */
-export function languageReads(document: CharacterDocument, content: SlotContent): LanguageReads {
-  return { languages: content.languages, namespaces: content.namespaces, skills: skillReads(document, content) };
 }
 
 /** Every character level, highest first: most slots are open at 20th, so a valid pick is usually found at once. */
@@ -194,13 +114,25 @@ function languageSlotIn(document: CharacterDocument, content: SlotContent, slot:
   const without: CharacterDocument = { ...document, build: { ...document.build, choices } };
   return languageSlots(without, languageReads(without, content)).find((each) => each.key === slot);
 }
-/** What prepared slots read: the spells, and the character's grants at its level over every pick it holds. */
-export function preparedReads(document: CharacterDocument, content: SlotContent): PreparedReads {
-  const level = Level.parse(document.level);
-  const resolved = resolvedFor(document, content);
-  const resolution = resolved.get(level) ?? resolveSlotsAt(level, { ...content, picks: picksOf(document) });
-  resolved.set(level, resolution);
-  return { spells: content.spells, resolution };
+/** The refusal for each way a feat on offer at some level can't go in its slot. */
+const FEAT_REFUSALS: Readonly<Record<FeatPickProblem, SlotRefusal>> = {
+  [FeatPickProblem.TooHigh]: NOT_OFFERED,
+  [FeatPickProblem.Prerequisites]: {
+    field: SlotRefusalField.Selection,
+    message: message('character.validation.prerequisitesNotMet'),
+  },
+};
+
+/**
+ * Why a feat can't go in a feat slot (#466), read with the slot itself empty at the level the slot opens: it must be
+ * no higher than that level, and the character must meet its prerequisites there or they must be unknown. Undefined
+ * for any other slot.
+ */
+function featRefusal(document: CharacterDocument, content: SlotContent, pick: SlotPick): SlotRefusal | undefined {
+  const { [pick.slot]: _own, ...choices } = document.build.choices;
+  const without: CharacterDocument = { ...document, build: { ...document.build, choices } };
+  const problem = featPickProblem(prerequisiteReads(without, content), pick);
+  return problem === undefined ? undefined : FEAT_REFUSALS[problem];
 }
 
 /**
@@ -222,7 +154,7 @@ function grantRefusal(
   for (const level of levelsDown()) {
     const options = offerAt(resolveSlotsAt(level, context), slot);
     if (options?.some((option) => option.value === selection) === true) {
-      return undefined;
+      return featRefusal(document, content, { slot, selection });
     }
     open ||= options !== undefined;
   }

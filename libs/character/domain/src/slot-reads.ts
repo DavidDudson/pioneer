@@ -1,0 +1,113 @@
+import { grantLookup, resolveGrants } from '@pioneer/rules/grants';
+import type { ContentLookup, GrantResolution } from '@pioneer/rules/grants';
+import type { NamespaceTable } from '@pioneer/rules/predicate';
+import { Level, SlotKey } from '@pioneer/rules/sdk';
+import type { ChoiceValue, ContentRegistry } from '@pioneer/rules/sdk';
+
+import { boostContent } from './attribute-boosts';
+import type { BoostContent } from './attribute-boosts';
+import type { CharacterDocument } from './character-document';
+import { CHARACTER_ROOT_SLOTS } from './character-slots';
+import { featContent } from './feat-content';
+import type { FeatContent } from './feat-content';
+import { languageContent } from './language-content';
+import type { LanguageContent } from './language-content';
+import type { LanguageReads } from './language-levels';
+import type { PreparedReads } from './prepared-spells';
+import { skillContent } from './skill-content';
+import type { SkillContent } from './skill-content';
+import type { GrantsAt, SkillReads } from './skill-training';
+import { spellContent } from './spell-content';
+import type { SpellContent } from './spell-content';
+
+/**
+ * The content a slot's offer is read from: entries by id and kind, how roll option namespaces read, and the boosts
+ * of each ancestry, background and class, the skills and Lores a skill slot offers, the languages, the spells a
+ * prepared slot offers and the feats a feat slot offers.
+ */
+export interface SlotContent {
+  readonly lookup: ContentLookup;
+  readonly namespaces: NamespaceTable;
+  readonly boosts: BoostContent;
+  readonly skills: SkillContent;
+  readonly languages: LanguageContent;
+  readonly spells: SpellContent;
+  readonly feats: FeatContent;
+}
+
+/** The slot content a registry gives. */
+export function slotContent(registry: ContentRegistry): SlotContent {
+  return {
+    lookup: grantLookup(registry),
+    namespaces: registry.rollOptionNamespaces(),
+    boosts: boostContent(registry),
+    skills: skillContent(registry),
+    languages: languageContent(registry),
+    spells: spellContent(registry),
+    feats: featContent(registry),
+  };
+}
+
+/** What slots are read against: the character's picks and the content. */
+export interface SlotContext extends SlotContent {
+  readonly picks: ReadonlyMap<SlotKey, ChoiceValue>;
+}
+
+/** The character's grants at `level` over `picks`, with its own slots as roots. */
+export function resolveSlotsAt(level: Level, { picks, lookup, namespaces }: SlotContext): GrantResolution {
+  return resolveGrants({
+    roots: [],
+    lookup,
+    level,
+    situation: [],
+    picks,
+    toggles: new Map(),
+    rootSlots: CHARACTER_ROOT_SLOTS,
+    namespaces,
+  });
+}
+
+/** The character's picks, by slot. */
+export function picksOf(document: CharacterDocument): ReadonlyMap<SlotKey, ChoiceValue> {
+  return new Map(Object.entries(document.build.choices).map(([key, value]) => [SlotKey.parse(key), value]));
+}
+
+/** Grants already resolved, by content, document and level: documents and content are never changed in place. */
+const RESOLVED = new WeakMap<SlotContent, WeakMap<CharacterDocument, Map<Level, GrantResolution>>>();
+
+function resolvedFor(document: CharacterDocument, content: SlotContent): Map<Level, GrantResolution> {
+  const byDocument = RESOLVED.get(content) ?? new WeakMap<CharacterDocument, Map<Level, GrantResolution>>();
+  RESOLVED.set(content, byDocument);
+  const resolved = byDocument.get(document) ?? new Map<Level, GrantResolution>();
+  byDocument.set(document, resolved);
+  return resolved;
+}
+
+/**
+ * What skill slots read: the skills and boosts content, and the character's grants at each level, each resolved once
+ * for the same content and document, however many reads ask.
+ */
+export function skillReads(document: CharacterDocument, content: SlotContent): SkillReads {
+  const context: SlotContext = { ...content, picks: picksOf(document) };
+  const resolved = resolvedFor(document, content);
+  const grantsAt: GrantsAt = (level) => {
+    const resolution = resolved.get(level) ?? resolveSlotsAt(level, context);
+    resolved.set(level, resolution);
+    return resolution;
+  };
+  return { skills: content.skills, boosts: content.boosts, grantsAt };
+}
+
+/** What language slots read: the languages content and namespaces, and the skill reads, grants resolved once. */
+export function languageReads(document: CharacterDocument, content: SlotContent): LanguageReads {
+  return { languages: content.languages, namespaces: content.namespaces, skills: skillReads(document, content) };
+}
+
+/** What prepared slots read: the spells, and the character's grants at its level over every pick it holds. */
+export function preparedReads(document: CharacterDocument, content: SlotContent): PreparedReads {
+  const level = Level.parse(document.level);
+  const resolved = resolvedFor(document, content);
+  const resolution = resolved.get(level) ?? resolveSlotsAt(level, { ...content, picks: picksOf(document) });
+  resolved.set(level, resolution);
+  return { spells: content.spells, resolution };
+}

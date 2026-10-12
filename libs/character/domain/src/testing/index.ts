@@ -41,4 +41,5 @@ export {
   languageFixtures,
   languageOrcId,
 } from './language-fixtures';
+export { NO_FEATS } from './feat-fixtures';
 export { NO_SPELLS, type SpellFixture, spellFixtureId, spellFixtures } from './spell-fixtures';

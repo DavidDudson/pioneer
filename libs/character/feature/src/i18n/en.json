@@ -220,6 +220,7 @@
     "skillTrained": "The character is already trained in that skill. Choose another.",
     "skillRankCapped": "That skill can't go up a rank with this increase at its level. Choose another.",
     "languageKnown": "The character already knows that language. Choose another.",
+    "prerequisitesNotMet": "The character doesn't meet that feat's prerequisites at this slot's level. Choose another.",
     "spellNoAccess": "That spell is uncommon or rare, and this character has no access to it yet. Add it to their spell access first.",
     "unknownSpell": "That spell is not available to prepare. Choose another.",
     "spellAccessCommon": "That spell is common, so every caster of its tradition has access to it already.",

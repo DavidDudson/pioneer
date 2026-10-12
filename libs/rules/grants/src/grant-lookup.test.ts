@@ -104,7 +104,7 @@ describe('grantLookup', () => {
     );
     const [cloak] = grantLookup(registry).ofKind(ContentKind.Equipment);
     expect(cloak?.rules).toEqual([RuleElement.parse(perception)]);
-    expect(cloak?.rollOptions).toEqual([RollOption.parse('trait:invested')]);
+    expect(cloak?.rollOptions).toEqual([RollOption.parse('trait:invested'), RollOption.parse('level:0')]);
   });
 
   test('finds ancestry features, and an ancestry with the rule elements that grant them', () => {
@@ -132,14 +132,14 @@ describe('grantLookup', () => {
     ]);
   });
 
-  test('finds feats, which a background grants', () => {
+  test("finds feats, which a background grants, each with its level, which a feat slot's query reads", () => {
     const registry = new ContentRegistry();
     registry.register(new ContentPackBuilder().withFeat('assurance').build());
     expect(
       grantLookup(registry)
         .ofKind(ContentKind.Feat)
-        .map((entry) => String(entry.slug)),
-    ).toEqual(['assurance']);
+        .map((entry) => [String(entry.slug), entry.rollOptions.map(String)]),
+    ).toEqual([['assurance', ['level:1']]]);
   });
 
   test('finds class features, which a class grants, each tag a roll option a subclass query reads', () => {
@@ -150,8 +150,8 @@ describe('grantLookup', () => {
     registry.register(builder.build());
     const features = grantLookup(registry).ofKind(ContentKind.ClassFeature);
     expect(features.map((entry) => [String(entry.slug), entry.rollOptions.map(String)])).toEqual([
-      ['doctrine', []],
-      ['cloistered-cleric', ['tag:cleric-doctrine']],
+      ['doctrine', ['level:1']],
+      ['cloistered-cleric', ['tag:cleric-doctrine', 'level:1']],
     ]);
   });
 

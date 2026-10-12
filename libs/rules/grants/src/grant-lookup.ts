@@ -83,6 +83,15 @@ function tagOptions(entry: ContentEntry): RollOption[] {
   return tags.map((tag) => RollOption.parse(`tag:${tag}`));
 }
 
+/**
+ * `level:<n>` for an entry with a level, which a feat slot's query reads as `item:level` (`{ "lte": ["item:level",
+ * "self:level"] }`), as Foundry pf2e sets it; none for an entry without one.
+ */
+function levelOptions(entry: ContentEntry): RollOption[] {
+  const level = 'level' in entry ? entry.level : undefined;
+  return level === undefined ? [] : [RollOption.parse(`level:${level}`)];
+}
+
 /** An ancestry as grants read it, with its rule elements: the ancestry features and feat slots it grants. */
 function ancestryEntry(pack: ContentPack, ancestry: PackAncestry): GrantEntry | undefined {
   const [source, ...sources] = ancestry.sources;
@@ -114,7 +123,7 @@ function envelopeEntry(entry: ContentEntry): GrantEntry | undefined {
     name: entry.name,
     rules: entry.rules,
     sources: [source, ...sources],
-    rollOptions: [...traitOptions(entry.traits), ...tagOptions(entry)],
+    rollOptions: [...traitOptions(entry.traits), ...tagOptions(entry), ...levelOptions(entry)],
     ...belongsTo(entry),
     ...valued(entry),
     ...deityFields(entry),
