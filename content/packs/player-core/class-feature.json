@@ -25,7 +25,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "save:will",
+        "rank": "master"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.xmZ7oeTDcQVXegUP"
     },
@@ -526,7 +532,28 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "defense:heavy",
+        "rank": "expert"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "defense:light",
+        "rank": "expert"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "defense:medium",
+        "rank": "expert"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "defense:unarmored",
+        "rank": "expert"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.x5jaCJxsmD5sx3KB"
     },
@@ -900,7 +927,23 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "attack:martial",
+        "rank": "expert"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "attack:simple",
+        "rank": "expert"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "attack:unarmed",
+        "rank": "expert"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.4lp8oG9A3zuqhPBS"
     },
@@ -932,7 +975,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "save:fortitude",
+        "rank": "master"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.gdSmSTaGDxf4g2d8"
     },
@@ -964,7 +1013,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "perception",
+        "rank": "master"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.TIvzBALymvb56L79"
     },
@@ -1004,7 +1059,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "save:will",
+        "rank": "expert"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.GJKJafDGuX4BeAeN"
     },
@@ -1709,7 +1770,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "defense:unarmored",
+        "rank": "expert"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.gU7epgcPSm0TD1UK"
     },
@@ -1894,7 +1961,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "defense:unarmored",
+        "rank": "expert"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.0mJTp4LdEHBLInoe"
     },
@@ -2548,7 +2621,18 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "attack:simple",
+        "rank": "expert"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "attack:unarmed",
+        "rank": "expert"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.Ra32tlqBxHzT6fzN"
     },
@@ -2843,7 +2927,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "save:reflex",
+        "rank": "master"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.oa3TJpPnvL98EUHh"
     },
@@ -3049,7 +3139,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting",
+        "rank": "expert"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.cD3nSupdCvONuHiE"
     },
@@ -3354,7 +3450,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting",
+        "rank": "master"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.n9W8MjjRgPpUTvWf"
     },
@@ -3386,7 +3488,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "save:fortitude",
+        "rank": "master"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.kmimy4VOaoEOgOiQ"
     },
@@ -3418,7 +3526,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "class-dc",
+        "rank": "expert"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.bAaI7h937Nr3g93U"
     },
@@ -3544,7 +3658,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting",
+        "rank": "legendary"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.DgGefatQ4v6xT6f9"
     },
@@ -3576,7 +3696,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting",
+        "rank": "master"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.N1ugDqZlslxbp3Uy"
     },
@@ -3747,6 +3873,21 @@
       {
         "key": "GrantItem",
         "item": "5f7d941e-bd11-5acc-94eb-39a8413d4003"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "save:fortitude",
+        "rank": "expert"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "defense:light",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "defense:medium",
+        "rank": "trained"
       }
     ],
     "externalIds": {
@@ -3861,7 +4002,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "save:fortitude",
+        "rank": "expert"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.F57Na5VxfBp56kke"
     },
@@ -3955,7 +4102,18 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "attack:simple",
+        "rank": "expert"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "attack:unarmed",
+        "rank": "expert"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.vxOf4LXZcqUG3P7a"
     },
@@ -3987,7 +4145,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting",
+        "rank": "expert"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.px3gVYp7zlEQIpcl"
     },
@@ -4019,7 +4183,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "save:reflex",
+        "rank": "legendary"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.rpLPCkTXCZlQ51SR"
     },
@@ -4051,7 +4221,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "save:will",
+        "rank": "legendary"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.mRobjNNsABQdUUZq"
     },
@@ -4083,7 +4259,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "save:reflex",
+        "rank": "legendary"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.BTpL6XvMk4jvVYYJ"
     },
@@ -4703,7 +4885,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting",
+        "rank": "legendary"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.Hfaa7TuLn3nE8lr3"
     },
@@ -5259,7 +5447,18 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "defense:light",
+        "rank": "expert"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "defense:unarmored",
+        "rank": "expert"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.pZYkb12t5DSwtts7"
     },
@@ -5291,7 +5490,18 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "defense:light",
+        "rank": "master"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "defense:unarmored",
+        "rank": "master"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.SHpjmM4A3Sw4GgDz"
     },
@@ -5426,7 +5636,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "save:fortitude",
+        "rank": "expert"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.70jqXP2eS4tRZ0Ok"
     },
@@ -5490,7 +5706,23 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "attack:martial",
+        "rank": "master"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "attack:simple",
+        "rank": "master"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "attack:unarmed",
+        "rank": "master"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.i6563IU7x4L9oRgC"
     },
@@ -5653,7 +5885,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting",
+        "rank": "master"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.l1InYvhnQSz6Ucxc"
     },
@@ -5697,6 +5935,11 @@
       {
         "key": "GrantItem",
         "item": "693df87a-4ebc-543e-909a-7f85cd610654"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "class-dc",
+        "rank": "master"
       }
     ],
     "externalIds": {
@@ -5730,7 +5973,23 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "attack:martial",
+        "rank": "master"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "attack:simple",
+        "rank": "master"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "attack:unarmed",
+        "rank": "master"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.myvcir1LEkaVxOlE"
     },
@@ -5869,6 +6128,11 @@
         "key": "GrantItem",
         "item": "a92117b3-0102-5967-83ee-3b45b294b6b6",
         "predicate": ["feature:precision"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "class-dc",
+        "rank": "master"
       }
     ],
     "externalIds": {
@@ -6100,7 +6364,23 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "defense:light",
+        "rank": "expert"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "defense:medium",
+        "rank": "expert"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "defense:unarmored",
+        "rank": "expert"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.FCEp9jjxxgRJDJV3"
     },
@@ -6132,7 +6412,23 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "defense:light",
+        "rank": "master"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "defense:medium",
+        "rank": "master"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "defense:unarmored",
+        "rank": "master"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.cGMSYAErbUG5E8X2"
     },
@@ -6330,7 +6626,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "save:reflex",
+        "rank": "master"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.7dMDxvzGKbqoEAdX"
     },
@@ -6631,7 +6933,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "perception",
+        "rank": "legendary"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.nLwPMPLRne1HnL00"
     },
@@ -6749,7 +7057,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "perception",
+        "rank": "master"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.0npO4rPscGm0dX13"
     },
@@ -6781,7 +7095,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "save:will",
+        "rank": "master"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.nPwYSuMLkJWMB4CH"
     },
@@ -6971,7 +7291,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "save:will",
+        "rank": "master"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.j5TZw3xoIo6Lz0Re"
     },
@@ -7003,7 +7329,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "class-dc",
+        "rank": "expert"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.5likl5SAxQPrQ3KF"
     },
@@ -7035,7 +7367,23 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "attack:martial",
+        "rank": "expert"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "attack:simple",
+        "rank": "expert"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "attack:unarmed",
+        "rank": "expert"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.QhoW8ivPvYmWzyEZ"
     },
@@ -7112,7 +7460,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "save:will",
+        "rank": "master"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.0TjNGzs0FuD7JBf4"
     },
@@ -7144,7 +7498,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "class-dc",
+        "rank": "expert"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.f3Dh32EU4VsHu01b"
     },
@@ -7176,7 +7536,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "save:fortitude",
+        "rank": "expert"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.fMHYzXEUMoWskKMF"
     },
@@ -7327,7 +7693,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "defense:medium",
+        "rank": "trained"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.3KPZ7svIO6kmmEKH"
     },
@@ -10557,7 +10929,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "save:fortitude",
+        "rank": "expert"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.sa7BWfnyCswAvBVa"
     },
@@ -10589,7 +10967,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "attack:martial",
+        "rank": "trained"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.D34mPo29r1J3DPaX"
     },
@@ -10621,7 +11005,23 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "defense:light",
+        "rank": "master"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "defense:medium",
+        "rank": "master"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "defense:unarmored",
+        "rank": "master"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.phwQ2MrDZ13D2HxC"
     },
@@ -11835,7 +12235,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "save:reflex",
+        "rank": "master"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.2ImD2TB0RVic1VUc"
     },
@@ -12245,7 +12651,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting",
+        "rank": "expert"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.s8WEmc4GGZSHSC7q"
     },
@@ -12277,7 +12689,23 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "attack:martial",
+        "rank": "expert"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "attack:simple",
+        "rank": "expert"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "attack:unarmed",
+        "rank": "expert"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.Zp81uTBItG1xlH4O"
     },
@@ -12489,7 +12917,33 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "attack:advanced",
+        "rank": "master"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "class-dc",
+        "rank": "master"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "attack:martial",
+        "rank": "legendary"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "attack:simple",
+        "rank": "legendary"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "attack:unarmed",
+        "rank": "legendary"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.0H2LxtiZTJ275pSD"
     },
@@ -12619,7 +13073,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "save:fortitude",
+        "rank": "master"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.gc6OMDRxTpSfsVtk"
     },
@@ -13011,7 +13471,18 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "attack:simple",
+        "rank": "expert"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "attack:unarmed",
+        "rank": "expert"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.9XLUh9iMepZesdmc"
     },
@@ -13052,7 +13523,28 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "attack:advanced",
+        "rank": "expert"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "attack:martial",
+        "rank": "master"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "attack:simple",
+        "rank": "master"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "attack:unarmed",
+        "rank": "master"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.F5VenhIQMDkeGvmV"
     },
@@ -13092,7 +13584,23 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "attack:martial",
+        "rank": "expert"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "attack:simple",
+        "rank": "expert"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "attack:unarmed",
+        "rank": "expert"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.v8UNEJR5IDKi8yqa"
     },
@@ -13124,7 +13632,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "save:will",
+        "rank": "master"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.yqaRnXFjRnFWsWvY"
     },
@@ -13328,7 +13842,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "save:will",
+        "rank": "master"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.FuVO8ksHI1B5ozVI"
     },
@@ -14647,7 +15167,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "attack:unarmed",
+        "rank": "expert"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.GBsC2cARoFiqMi9V"
     },

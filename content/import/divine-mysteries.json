@@ -508,49 +508,6 @@
     {
       "type": "entry",
       "pack": "divine-mysteries",
-      "slug": "class-feature:final-creed",
-      "foundry": "Compendium.pf2e.classfeatures.Item.11Prk28b1Ux9eBLR",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "cleric": {
-              "attribute": null,
-              "rank": 4
-            },
-            "light": {
-              "rank": 3
-            },
-            "medium": {
-              "rank": 3
-            }
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "divine-mysteries",
-      "slug": "class-feature:greater-creed",
-      "foundry": "Compendium.pf2e.classfeatures.Item.eEh5QHawYBmbRjow",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "spellcasting": {
-              "rank": 2
-            }
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "divine-mysteries",
       "slug": "class-feature:initial-creed",
       "foundry": "Compendium.pf2e.classfeatures.Item.BoZ3nSssFYcwuLIT",
       "gaps": [
@@ -574,25 +531,6 @@
             "path": "system.proficiencies.defenses.medium.rank",
             "predicate": ["feature:divine-defense"],
             "value": 2
-          }
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "fortitude": {
-              "rank": 2
-            },
-            "light": {
-              "rank": 1
-            },
-            "martial": {
-              "rank": 1
-            },
-            "medium": {
-              "rank": 1
-            }
           }
         },
         {
@@ -628,26 +566,6 @@
             "key": "CriticalSpecialization",
             "predicate": ["item:deity-favored"]
           }
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "cleric": {
-              "attribute": null,
-              "rank": 2
-            },
-            "martial": {
-              "rank": 2
-            },
-            "simple": {
-              "rank": 2
-            },
-            "unarmed": {
-              "rank": 2
-            }
-          }
         }
       ]
     },
@@ -676,16 +594,6 @@
             },
             "key": "AdjustDegreeOfSuccess",
             "selector": "fortitude"
-          }
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "fortitude": {
-              "rank": 3
-            }
           }
         }
       ]
@@ -823,16 +731,6 @@
           }
         },
         {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "spellcasting": {
-              "rank": 1
-            }
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[feats-srd]"
         }
@@ -943,28 +841,6 @@
         {
           "type": "enricher",
           "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "divine-mysteries",
-      "slug": "class-feature:true-creed",
-      "foundry": "Compendium.pf2e.classfeatures.Item.QsnIuPG2O8VzRW4d",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "cleric": {
-              "attribute": null,
-              "rank": 3
-            },
-            "will": {
-              "rank": 3
-            }
-          }
         }
       ]
     },
@@ -4933,24 +4809,6 @@
     {
       "type": "entry",
       "pack": "divine-mysteries",
-      "slug": "feat:domain-embodiment",
-      "foundry": "Compendium.pf2e.feats-srd.Item.MLWizLC44RZ3bYAN",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "spellcasting": {
-              "rank": 1
-            }
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "divine-mysteries",
       "slug": "feat:ease-the-burden",
       "foundry": "Compendium.pf2e.feats-srd.Item.bDVx7hVyxjwRAxxG",
       "gaps": [
@@ -5100,16 +4958,6 @@
       "slug": "feat:expert-rivethun-spellcasting",
       "foundry": "Compendium.pf2e.feats-srd.Item.Px476getOIltCeg7",
       "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "spellcasting": {
-              "rank": 2
-            }
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[journals]"
@@ -5279,16 +5127,6 @@
       "gaps": [
         {
           "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "spellcasting": {
-              "rank": 2
-            }
-          }
-        },
-        {
-          "type": "field",
           "reason": "unresolved-reference",
           "field": "archetype",
           "raw": []
@@ -5327,16 +5165,6 @@
             "mode": "upgrade",
             "path": "system.proficiencies.defenses.heavy.rank",
             "value": "max(@actor.system.proficiencies.defenses.unarmored.rank,@actor.system.proficiencies.defenses.light.rank,@actor.system.proficiencies.defenses.medium.rank)"
-          }
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "heavy": {
-              "rank": 1
-            }
           }
         },
         {
@@ -5602,16 +5430,6 @@
       "slug": "feat:master-rivethun-spellcasting",
       "foundry": "Compendium.pf2e.feats-srd.Item.WqAgDITfHmh1uGSm",
       "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "spellcasting": {
-              "rank": 3
-            }
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[journals]"
@@ -6236,16 +6054,6 @@
       "foundry": "Compendium.pf2e.feats-srd.Item.H8w717IWBRyg8ugO",
       "gaps": [
         {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "spellcasting": {
-              "rank": 1
-            }
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[journals]"
         }
@@ -6311,16 +6119,6 @@
             "mode": "upgrade",
             "path": "system.skills.religion.rank",
             "value": 2
-          }
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "spellcasting": {
-              "rank": 1
-            }
           }
         },
         {

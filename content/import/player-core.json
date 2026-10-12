@@ -1110,16 +1110,6 @@
             "key": "AdjustDegreeOfSuccess",
             "selector": "will"
           }
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "will": {
-              "rank": 3
-            }
-          }
         }
       ]
     },
@@ -1299,25 +1289,6 @@
             "type": "critical-hits",
             "value": "6 + @armor.system.runes.potency"
           }
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "heavy": {
-              "rank": 2
-            },
-            "light": {
-              "rank": 2
-            },
-            "medium": {
-              "rank": 2
-            },
-            "unarmored": {
-              "rank": 2
-            }
-          }
         }
       ]
     },
@@ -1349,22 +1320,6 @@
               }
             ]
           }
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "martial": {
-              "rank": 2
-            },
-            "simple": {
-              "rank": 2
-            },
-            "unarmed": {
-              "rank": 2
-            }
-          }
         }
       ]
     },
@@ -1383,16 +1338,6 @@
             },
             "key": "AdjustDegreeOfSuccess",
             "selector": "fortitude"
-          }
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "fortitude": {
-              "rank": 3
-            }
           }
         }
       ]
@@ -1413,16 +1358,6 @@
             "type": "circumstance",
             "value": 2
           }
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "perception": {
-              "rank": 3
-            }
-          }
         }
       ]
     },
@@ -1442,16 +1377,6 @@
             "key": "AdjustDegreeOfSuccess",
             "predicate": ["item:trait:fear"],
             "selector": "will"
-          }
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "will": {
-              "rank": 2
-            }
           }
         }
       ]
@@ -1748,24 +1673,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "class-feature:defensive-robes",
-      "foundry": "Compendium.pf2e.classfeatures.Item.gU7epgcPSm0TD1UK",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "unarmored": {
-              "rank": 2
-            }
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "class-feature:deity-cleric",
       "foundry": "Compendium.pf2e.classfeatures.Item.DutW12WMFPHBoLTH",
       "gaps": [
@@ -1904,24 +1811,6 @@
             "mode": "override",
             "path": "system.attributes.flanking.offGuardable",
             "value": "@actor.level"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "class-feature:divine-defense",
-      "foundry": "Compendium.pf2e.classfeatures.Item.0mJTp4LdEHBLInoe",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "unarmored": {
-              "rank": 2
-            }
           }
         }
       ]
@@ -2251,27 +2140,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "class-feature:druid-weapon-expertise",
-      "foundry": "Compendium.pf2e.classfeatures.Item.Ra32tlqBxHzT6fzN",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "simple": {
-              "rank": 2
-            },
-            "unarmed": {
-              "rank": 2
-            }
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "class-feature:druidic-order",
       "foundry": "Compendium.pf2e.classfeatures.Item.8STJEFVJISujgpMR",
       "gaps": [
@@ -2296,16 +2164,6 @@
             },
             "key": "AdjustDegreeOfSuccess",
             "selector": "reflex"
-          }
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "reflex": {
-              "rank": 3
-            }
           }
         }
       ]
@@ -2369,16 +2227,6 @@
             "mode": "add",
             "property": "traits",
             "value": "{actor|class.slug}"
-          }
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "spellcasting": {
-              "rank": 2
-            }
           }
         },
         {
@@ -2475,24 +2323,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "class-feature:fifth-doctrine-cloistered-cleric",
-      "foundry": "Compendium.pf2e.classfeatures.Item.n9W8MjjRgPpUTvWf",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "spellcasting": {
-              "rank": 3
-            }
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "class-feature:fifth-doctrine-warpriest",
       "foundry": "Compendium.pf2e.classfeatures.Item.kmimy4VOaoEOgOiQ",
       "gaps": [
@@ -2505,35 +2335,6 @@
             },
             "key": "AdjustDegreeOfSuccess",
             "selector": "fortitude"
-          }
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "fortitude": {
-              "rank": 3
-            }
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "class-feature:fighter-expertise",
-      "foundry": "Compendium.pf2e.classfeatures.Item.bAaI7h937Nr3g93U",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "fighter": {
-              "attribute": null,
-              "rank": 2
-            }
           }
         }
       ]
@@ -2627,24 +2428,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "class-feature:final-doctrine-cloistered-cleric",
-      "foundry": "Compendium.pf2e.classfeatures.Item.DgGefatQ4v6xT6f9",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "spellcasting": {
-              "rank": 4
-            }
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "class-feature:final-doctrine-warpriest",
       "foundry": "Compendium.pf2e.classfeatures.Item.N1ugDqZlslxbp3Uy",
       "gaps": [
@@ -2656,16 +2439,6 @@
             "mode": "upgrade",
             "path": "flags.system.favoredWeaponRank",
             "value": 3
-          }
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "spellcasting": {
-              "rank": 3
-            }
           }
         }
       ]
@@ -2722,22 +2495,6 @@
               "feature:divine-defense"
             ],
             "value": 2
-          }
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "fortitude": {
-              "rank": 2
-            },
-            "light": {
-              "rank": 1
-            },
-            "medium": {
-              "rank": 1
-            }
           }
         }
       ]
@@ -2875,16 +2632,6 @@
           }
         },
         {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "fortitude": {
-              "rank": 2
-            }
-          }
-        },
-        {
           "type": "text",
           "reason": "runtime-key",
           "key": "PF2E.SpecificRule.ClassFeatures.FortitudeExpertise.{actor|class.slug}.Description"
@@ -2930,37 +2677,6 @@
             "key": "CriticalSpecialization",
             "predicate": ["item:deity-favored"]
           }
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "simple": {
-              "rank": 2
-            },
-            "unarmed": {
-              "rank": 2
-            }
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "class-feature:fourth-doctrine-warpriest",
-      "foundry": "Compendium.pf2e.classfeatures.Item.px3gVYp7zlEQIpcl",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "spellcasting": {
-              "rank": 2
-            }
-          }
         }
       ]
     },
@@ -2991,16 +2707,6 @@
             "selector": "reflex",
             "text": "PF2E.SpecificRule.SaveCriticalFailureToFailure.FailureHalfDamage.Reflex",
             "title": "{item|name}"
-          }
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "reflex": {
-              "rank": 4
-            }
           }
         }
       ]
@@ -3033,16 +2739,6 @@
             "text": "PF2E.SpecificRule.SaveCriticalFailureToFailure.FailureHalfDamage.Will",
             "title": "{item|name}"
           }
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "will": {
-              "rank": 4
-            }
-          }
         }
       ]
     },
@@ -3073,16 +2769,6 @@
             "selector": "reflex",
             "text": "PF2E.SpecificRule.SaveCriticalFailureToFailure.FailureHalfDamage.Reflex",
             "title": "{item|name}"
-          }
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "reflex": {
-              "rank": 4
-            }
           }
         }
       ]
@@ -3236,61 +2922,9 @@
           }
         },
         {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "spellcasting": {
-              "rank": 4
-            }
-          }
-        },
-        {
           "type": "text",
           "reason": "runtime-key",
           "key": "PF2E.SpecificRule.ClassFeatures.Spellcaster.{actor|class.slug}.Legendary"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "class-feature:light-armor-expertise",
-      "foundry": "Compendium.pf2e.classfeatures.Item.pZYkb12t5DSwtts7",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "light": {
-              "rank": 2
-            },
-            "unarmored": {
-              "rank": 2
-            }
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "class-feature:light-armor-mastery",
-      "foundry": "Compendium.pf2e.classfeatures.Item.SHpjmM4A3Sw4GgDz",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "light": {
-              "rank": 3
-            },
-            "unarmored": {
-              "rank": 3
-            }
-          }
         }
       ]
     },
@@ -3327,43 +2961,9 @@
           }
         },
         {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "fortitude": {
-              "rank": 2
-            }
-          }
-        },
-        {
           "type": "text",
           "reason": "runtime-key",
           "key": "PF2E.SpecificRule.ClassFeatures.MagicalFortitude.{actor|class.slug}.Description"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "class-feature:martial-weapon-mastery",
-      "foundry": "Compendium.pf2e.classfeatures.Item.i6563IU7x4L9oRgC",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "martial": {
-              "rank": 3
-            },
-            "simple": {
-              "rank": 3
-            },
-            "unarmed": {
-              "rank": 3
-            }
-          }
         }
       ]
     },
@@ -3400,62 +3000,9 @@
           }
         },
         {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "spellcasting": {
-              "rank": 3
-            }
-          }
-        },
-        {
           "type": "text",
           "reason": "runtime-key",
           "key": "PF2E.SpecificRule.ClassFeatures.Spellcaster.{actor|class.slug}.Master"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "class-feature:master-strike",
-      "foundry": "Compendium.pf2e.classfeatures.Item.SUUdWG0t33VKa5q4",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "rogue": {
-              "attribute": null,
-              "rank": 3
-            }
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "class-feature:master-tricks",
-      "foundry": "Compendium.pf2e.classfeatures.Item.myvcir1LEkaVxOlE",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "martial": {
-              "rank": 3
-            },
-            "simple": {
-              "rank": 3
-            },
-            "unarmed": {
-              "rank": 3
-            }
-          }
         }
       ]
     },
@@ -3474,17 +3021,6 @@
             "path": "system.proficiencies.spellcasting.rank",
             "predicate": ["feat:initiate-warden"],
             "value": 3
-          }
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "ranger": {
-              "attribute": null,
-              "rank": 3
-            }
           }
         }
       ]
@@ -3757,46 +3293,6 @@
             "property": "traits",
             "value": "{actor|class.slug}"
           }
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "light": {
-              "rank": 2
-            },
-            "medium": {
-              "rank": 2
-            },
-            "unarmored": {
-              "rank": 2
-            }
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "class-feature:medium-armor-mastery",
-      "foundry": "Compendium.pf2e.classfeatures.Item.cGMSYAErbUG5E8X2",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "light": {
-              "rank": 3
-            },
-            "medium": {
-              "rank": 3
-            },
-            "unarmored": {
-              "rank": 3
-            }
-          }
         }
       ]
     },
@@ -3838,16 +3334,6 @@
             },
             "key": "AdjustDegreeOfSuccess",
             "selector": "reflex"
-          }
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "reflex": {
-              "rank": 3
-            }
           }
         }
       ]
@@ -3962,24 +3448,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "class-feature:perception-legend",
-      "foundry": "Compendium.pf2e.classfeatures.Item.nLwPMPLRne1HnL00",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "perception": {
-              "rank": 4
-            }
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "class-feature:perception-mastery",
       "foundry": "Compendium.pf2e.classfeatures.Item.0npO4rPscGm0dX13",
       "gaps": [
@@ -4010,16 +3478,6 @@
           }
         },
         {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "perception": {
-              "rank": 3
-            }
-          }
-        },
-        {
           "type": "text",
           "reason": "runtime-key",
           "key": "PF2E.SpecificRule.ClassFeatures.PerceptionMastery.{actor|class.slug}.Description"
@@ -4041,16 +3499,6 @@
             },
             "key": "AdjustDegreeOfSuccess",
             "selector": "will"
-          }
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "will": {
-              "rank": 3
-            }
           }
         }
       ]
@@ -4182,16 +3630,6 @@
             "key": "AdjustDegreeOfSuccess",
             "selector": "will"
           }
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "will": {
-              "rank": 3
-            }
-          }
         }
       ]
     },
@@ -4215,17 +3653,6 @@
             ],
             "value": 2
           }
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "ranger": {
-              "attribute": null,
-              "rank": 2
-            }
-          }
         }
       ]
     },
@@ -4247,22 +3674,6 @@
               }
             ]
           }
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "martial": {
-              "rank": 2
-            },
-            "simple": {
-              "rank": 2
-            },
-            "unarmed": {
-              "rank": 2
-            }
-          }
         }
       ]
     },
@@ -4282,35 +3693,6 @@
             "key": "AdjustDegreeOfSuccess",
             "selector": "will"
           }
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "will": {
-              "rank": 3
-            }
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "class-feature:rogue-expertise",
-      "foundry": "Compendium.pf2e.classfeatures.Item.f3Dh32EU4VsHu01b",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "rogue": {
-              "attribute": null,
-              "rank": 2
-            }
-          }
         }
       ]
     },
@@ -4329,16 +3711,6 @@
             },
             "key": "AdjustDegreeOfSuccess",
             "selector": "fortitude"
-          }
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "fortitude": {
-              "rank": 2
-            }
           }
         }
       ]
@@ -4441,16 +3813,6 @@
               }
             ]
           }
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "medium": {
-              "rank": 1
-            }
-          }
         }
       ]
     },
@@ -4547,66 +3909,6 @@
           "raw": {
             "key": "GrantItem",
             "uuid": "{actor|flags.system.cleric.secondDoctrine}"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "class-feature:second-doctrine-cloistered-cleric",
-      "foundry": "Compendium.pf2e.classfeatures.Item.sa7BWfnyCswAvBVa",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "fortitude": {
-              "rank": 2
-            }
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "class-feature:second-doctrine-warpriest",
-      "foundry": "Compendium.pf2e.classfeatures.Item.D34mPo29r1J3DPaX",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "martial": {
-              "rank": 1
-            }
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "class-feature:second-skin",
-      "foundry": "Compendium.pf2e.classfeatures.Item.phwQ2MrDZ13D2HxC",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "light": {
-              "rank": 3
-            },
-            "medium": {
-              "rank": 3
-            },
-            "unarmored": {
-              "rank": 3
-            }
           }
         }
       ]
@@ -4963,16 +4265,6 @@
             "key": "AdjustDegreeOfSuccess",
             "selector": "reflex"
           }
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "reflex": {
-              "rank": 3
-            }
-          }
         }
       ]
     },
@@ -5116,24 +4408,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "class-feature:third-doctrine-cloistered-cleric",
-      "foundry": "Compendium.pf2e.classfeatures.Item.s8WEmc4GGZSHSC7q",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "spellcasting": {
-              "rank": 2
-            }
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "class-feature:third-doctrine-warpriest",
       "foundry": "Compendium.pf2e.classfeatures.Item.Zp81uTBItG1xlH4O",
       "gaps": [
@@ -5153,22 +4427,6 @@
           "raw": {
             "key": "CriticalSpecialization",
             "predicate": ["item:deity-favored"]
-          }
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "martial": {
-              "rank": 2
-            },
-            "simple": {
-              "rank": 2
-            },
-            "unarmed": {
-              "rank": 2
-            }
           }
         }
       ]
@@ -5213,37 +4471,6 @@
               }
             ],
             "value": 1
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "class-feature:versatile-legend",
-      "foundry": "Compendium.pf2e.classfeatures.Item.0H2LxtiZTJ275pSD",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "advanced": {
-              "rank": 3
-            },
-            "fighter": {
-              "attribute": null,
-              "rank": 3
-            },
-            "martial": {
-              "rank": 4
-            },
-            "simple": {
-              "rank": 4
-            },
-            "unarmed": {
-              "rank": 4
-            }
           }
         }
       ]
@@ -5297,16 +4524,6 @@
             },
             "key": "AdjustDegreeOfSuccess",
             "selector": "fortitude"
-          }
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "fortitude": {
-              "rank": 3
-            }
           }
         }
       ]
@@ -5409,19 +4626,6 @@
           }
         },
         {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "simple": {
-              "rank": 2
-            },
-            "unarmed": {
-              "rank": 2
-            }
-          }
-        },
-        {
           "type": "text",
           "reason": "runtime-key",
           "key": "PF2E.SpecificRule.ClassFeatures.WeaponExpertise.{actor|class.slug}.Description"
@@ -5472,25 +4676,6 @@
           }
         },
         {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "advanced": {
-              "rank": 2
-            },
-            "martial": {
-              "rank": 3
-            },
-            "simple": {
-              "rank": 3
-            },
-            "unarmed": {
-              "rank": 3
-            }
-          }
-        },
-        {
           "type": "text",
           "reason": "runtime-key",
           "key": "PF2E.SpecificRule.FighterWeaponMasteryLegend.SimpleMartial.{item|flags.system.rulesSelections.weaponLegend}"
@@ -5520,22 +4705,6 @@
               }
             ]
           }
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "martial": {
-              "rank": 2
-            },
-            "simple": {
-              "rank": 2
-            },
-            "unarmed": {
-              "rank": 2
-            }
-          }
         }
       ]
     },
@@ -5554,16 +4723,6 @@
             },
             "key": "AdjustDegreeOfSuccess",
             "selector": "will"
-          }
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "will": {
-              "rank": 3
-            }
           }
         }
       ]
@@ -5632,16 +4791,6 @@
             },
             "key": "AdjustDegreeOfSuccess",
             "selector": "will"
-          }
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "will": {
-              "rank": 3
-            }
           }
         }
       ]
@@ -5720,16 +4869,6 @@
             "mode": "upgrade",
             "path": "system.proficiencies.attacks.weapon-base-staff.rank",
             "value": 2
-          }
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "unarmed": {
-              "rank": 2
-            }
           }
         }
       ]
@@ -23926,16 +23065,6 @@
           }
         },
         {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "spellcasting": {
-              "rank": 1
-            }
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[journals]"
         }
@@ -25688,16 +24817,6 @@
           }
         },
         {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "spellcasting": {
-              "rank": 1
-            }
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[journals]"
         }
@@ -26485,22 +25604,6 @@
             "path": "flags.system.fighterDedicationCount",
             "value": 1
           }
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "advanced": {
-              "rank": 1
-            },
-            "martial": {
-              "rank": 2
-            },
-            "simple": {
-              "rank": 2
-            }
-          }
         }
       ]
     },
@@ -27040,16 +26143,6 @@
           "raw": {
             "key": "GrantItem",
             "uuid": "{item|flags.system.rulesSelections.druidicOrder}"
-          }
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "spellcasting": {
-              "rank": 1
-            }
           }
         },
         {
@@ -27723,24 +26816,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:evasiveness",
-      "foundry": "Compendium.pf2e.feats-srd.Item.VD446AflrQ3kO1al",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "reflex": {
-              "rank": 3
-            }
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:experienced-professional",
       "foundry": "Compendium.pf2e.feats-srd.Item.sMm0UfYxEPpq2Yzd",
       "gaps": [
@@ -27782,16 +26857,6 @@
       "foundry": "Compendium.pf2e.feats-srd.Item.0RB3f3J7gOEv3fni",
       "gaps": [
         {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "spellcasting": {
-              "rank": 2
-            }
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[journals]"
         }
@@ -27804,16 +26869,6 @@
       "foundry": "Compendium.pf2e.feats-srd.Item.PLTOCEAvqBS05pZu",
       "gaps": [
         {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "spellcasting": {
-              "rank": 2
-            }
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[journals]"
         }
@@ -27825,16 +26880,6 @@
       "slug": "feat:expert-druid-spellcasting",
       "foundry": "Compendium.pf2e.feats-srd.Item.saEwTvJuiemEIfLm",
       "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "spellcasting": {
-              "rank": 2
-            }
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[journals]"
@@ -27883,16 +26928,6 @@
       "foundry": "Compendium.pf2e.feats-srd.Item.x7vMKBSrxXmfs5C2",
       "gaps": [
         {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "spellcasting": {
-              "rank": 2
-            }
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[journals]"
         },
@@ -27910,16 +26945,6 @@
       "slug": "feat:expert-wizard-spellcasting",
       "foundry": "Compendium.pf2e.feats-srd.Item.hpCBELEKGA4ynYv4",
       "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "spellcasting": {
-              "rank": 2
-            }
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[journals]"
@@ -28449,20 +27474,6 @@
             "mode": "upgrade",
             "path": "system.proficiencies.attacks.simple.rank",
             "value": 1
-          }
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "fighter": {
-              "attribute": null,
-              "rank": 1
-            },
-            "martial": {
-              "rank": 1
-            }
           }
         },
         {
@@ -30913,16 +29924,6 @@
       "foundry": "Compendium.pf2e.feats-srd.Item.eJNzP21lFPV3zWkm",
       "gaps": [
         {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "spellcasting": {
-              "rank": 3
-            }
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[journals]"
         }
@@ -30935,16 +29936,6 @@
       "foundry": "Compendium.pf2e.feats-srd.Item.bc6tcXSzakyCbQsS",
       "gaps": [
         {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "spellcasting": {
-              "rank": 3
-            }
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[journals]"
         }
@@ -30956,16 +29947,6 @@
       "slug": "feat:master-druid-spellcasting",
       "foundry": "Compendium.pf2e.feats-srd.Item.218WeRqUqdnguRdS",
       "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "spellcasting": {
-              "rank": 3
-            }
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[journals]"
@@ -31015,16 +29996,6 @@
             "path": "flags.system.rangerDedicationCount",
             "value": 1
           }
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "perception": {
-              "rank": 3
-            }
-          }
         }
       ]
     },
@@ -31034,16 +30005,6 @@
       "slug": "feat:master-witch-spellcasting",
       "foundry": "Compendium.pf2e.feats-srd.Item.i7ibUqJCl1GXRFEa",
       "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "spellcasting": {
-              "rank": 3
-            }
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[journals]"
@@ -31062,16 +30023,6 @@
       "slug": "feat:master-wizard-spellcasting",
       "foundry": "Compendium.pf2e.feats-srd.Item.PMckhnGYMyiwUNiL",
       "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "spellcasting": {
-              "rank": 3
-            }
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[journals]"
@@ -32805,17 +31756,6 @@
           }
         },
         {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "ranger": {
-              "attribute": null,
-              "rank": 1
-            }
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[journals]"
         }
@@ -33298,16 +32238,8 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "light": {
-              "rank": 1
-            },
-            "rogue": {
-              "attribute": "dex",
-              "rank": 1
-            }
-          }
+          "field": "subfeatures.proficiencies.rogue.attribute",
+          "raw": "dex"
         },
         {
           "type": "enricher",
@@ -36634,16 +35566,6 @@
             ],
             "value": 2
           }
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "martial": {
-              "rank": 1
-            }
-          }
         }
       ]
     },
@@ -36811,16 +35733,6 @@
           "raw": {
             "key": "GrantItem",
             "uuid": "{item|flags.system.rulesSelections.patron}"
-          }
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "spellcasting": {
-              "rank": 1
-            }
           }
         },
         {
@@ -37000,16 +35912,6 @@
             "mode": "upgrade",
             "path": "system.skills.arcana.rank",
             "value": 1
-          }
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.proficiencies",
-          "raw": {
-            "spellcasting": {
-              "rank": 1
-            }
           }
         },
         {
