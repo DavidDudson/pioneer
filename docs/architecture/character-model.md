@@ -160,6 +160,17 @@ name that fit its rank, whatever their tradition or rarity. A divine font takes 
 (Divine Font's choice, of the deity's fonts), a curriculum its school's spells. The sheet
 lists them after the entry's own under the name of what gave the pool, and says when a pool takes nothing yet.
 
+A spontaneous entry's repertoire is choice slots too, `repertoire:<entry>:<cantrip|rank>:<n>`
+([ADR-0046](../adr/0046-signature-spells-are-rule-elements.md)): as many of each rank as the entry has slots, since the
+repertoire grows as its slots do, each read like a prepared slot. A spell learned in a slot above its own rank is known
+heightened to that rank. Once Signature Spells is in play (a bard's at 3rd level), the entry has a signature slot per
+rank of its slots, `signature:<entry>:<rank>`, offering the spells its repertoire knows at that rank; a signature
+spell is cast at any rank from its own up to the entry's highest, any other repertoire spell only at the rank it was
+learned. A signature pick the repertoire no longer knows at its rank reads invalid
+(`rules.choices.invalid.spellNotInRepertoire`). The sheet lists a spontaneous entry's repertoire rank by rank as
+"Spell repertoire", each rank's signature picker after its spells and a note saying where the signature spell is
+cast.
+
 Each slot's status is worked out on every read, never stored (`characterSlots`,
 [ADR-0035](../adr/0035-character-reads-carry-slot-status.md)). `GET` and `PATCH /characters/:id` answer with the
 character and its slots:
