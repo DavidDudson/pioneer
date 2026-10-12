@@ -32,8 +32,8 @@ export function coinsOf(value: CopperValue): Coins {
 }
 
 /** How many of a coin a cost is written in. Unlike a purse's `CoinAmount`, a big order's gold may pass an int4. */
-export const CoinTally = z.int().nonnegative().brand<'CoinTally'>();
-export type CoinTally = z.infer<typeof CoinTally>;
+const CoinTally = z.int().nonnegative().brand<'CoinTally'>();
+type CoinTally = z.infer<typeof CoinTally>;
 
 /** A cost as written, by coin. */
 export type CostCoins = Readonly<Record<Coin, CoinTally>>;
