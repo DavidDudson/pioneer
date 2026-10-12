@@ -26,9 +26,15 @@ function textOf(element: Element): string {
   return element.textContent.replaceAll(/\s+/gu, ' ').trim();
 }
 
-/** The focus spells list, once it shows. */
+/** The focus spells list once its spells load, past the placeholder shown while they do. */
 async function focusOf(root: HTMLElement): Promise<HTMLElement> {
-  return vi.waitFor(() => present(root.querySelector<HTMLElement>('pio-focus-spells')));
+  return vi.waitFor(() =>
+    present(
+      [...root.querySelectorAll<HTMLElement>('pio-focus-spells')].find(
+        (each) => each.querySelector('fr-heading') !== null,
+      ),
+    ),
+  );
 }
 
 function spellsIn(focus: HTMLElement): string[] {
