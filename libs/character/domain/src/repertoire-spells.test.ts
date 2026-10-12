@@ -117,6 +117,13 @@ describe('signature slots', () => {
     expect(signatureOf(document, 'signature:bard:1')?.castRanks).toStrictEqual(ranks(1, 2, 3));
   });
 
+  test('a signature spell never heightens into the 10th-rank slot, which casts only Magnum Opus spells', () => {
+    const document = bard(19, { 'repertoire:bard:1:0': 'force-barrage', 'signature:bard:1': 'force-barrage' });
+
+    expect(signaturesOf(document).at(-1)?.rank).toBe(SpellRank.parse(10));
+    expect(signatureOf(document, 'signature:bard:1')?.castRanks.at(-1)).toBe(SpellRank.parse(9));
+  });
+
   test('a signature pick the repertoire no longer knows at its rank reads invalid with its own reason', () => {
     const document = bard(5, { 'signature:bard:1': 'force-barrage' });
     const slot = signatureOf(document, 'signature:bard:1');

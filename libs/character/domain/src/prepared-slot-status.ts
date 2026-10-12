@@ -18,8 +18,8 @@ const PREPARED_PROBLEMS: Readonly<Record<PreparedPickProblem, string>> = {
 };
 
 /**
- * Each prepared and repertoire slot at the character's level (#478, #479): a pick is invalid when the slot doesn't take it, an uncommon or
- * rare spell without access saying so. Prepared slots open at the character's level only, so none is planned.
+ * Each prepared and repertoire slot at the character's level (#478, #479): a pick is invalid when the slot doesn't take
+ * it, an uncommon or rare spell without access saying so. They open at the character's level only, so none is planned.
  */
 export function preparedStatuses(document: CharacterDocument, content: SlotContent): CharacterSlot[] {
   return preparedSlots(document, preparedReads(document, content)).map((slot) => {

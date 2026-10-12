@@ -270,7 +270,7 @@ describe('spellcastingInPlay slots', () => {
       [entry('bard', 'occult', { attribute: 'cha', preparation: 'spontaneous' }), 'bard-spellcasting'],
     ]);
 
-    expect(entries.map(({ slug, signatures }) => [slug, signatures])).toStrictEqual([
+    expect(entries.map(({ slug, signatures }) => [String(slug), signatures])).toStrictEqual([
       ['bard', false],
       ['wizard', false],
     ]);

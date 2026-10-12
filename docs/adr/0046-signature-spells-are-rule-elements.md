@@ -29,7 +29,8 @@ Alternatives:
   uncommon ones once the build lists access.
 - An entry with signature spells has a choice slot per rank of its slots, `signature:<entry>:<rank>`, offering the
   spells its repertoire knows at that rank. Its pick is cast at every rank from its own up to the entry's highest
-  (`castRanks`); any other repertoire spell only at the rank it was learned.
+  below 10th (`castRanks`), since a 10th-rank slot casts only Magnum Opus's spells; any other repertoire spell only
+  at the rank it was learned.
 - The importer gives Player Core's Signature Spells a `SignatureSpells` naming the bard's entry, the book's only
   spontaneous class. The shared feature names each class's entry; one not in play adds nothing.
 
@@ -38,5 +39,7 @@ Alternatives:
 - Later books' spontaneous classes add their entry to Signature Spells with their import (#593), and homebrew adds the
   element wherever its feature grants signature spells.
 - A bard dedication's entry has a repertoire but no signature spells until an archetype element says otherwise (#595).
+- A repertoire is as big as the entry's slots at every rank, so Magnum Opus's two 10th-rank spells for one slot need
+  a repertoire count apart from slots (#599).
 - Repertoire picks are freely editable, like prepared ones; the one swap a level allows is not enforced yet (#594).
 - The Foundry export (roadmap) writes no signature flag; Foundry players mark them by hand.

@@ -15,11 +15,12 @@ const HEADINGS: Readonly<Record<PickedPreparation, string>> = {
 };
 
 /**
- * The prepared spell pickers on the sheet (#478): for each prepared entry, its cantrips and slots rank by rank, then its
- * pools' (#581), each an inline pick searching the spells it takes; for each spontaneous entry, its repertoire the same
- * way, each rank's signature spell after its spells, the rank's note saying where the signature spell is cast (#479). A pick the slot no longer takes says why, under it
- * and in what its edit button reads out; a pool whose slots wait on a choice (a divine font's font) says so. Nothing for
- * a character that prepares no spells.
+ * The spell pickers on the sheet (#478): for each prepared entry, its cantrips and slots rank by rank, then its pools'
+ * (#581), each an inline pick searching the spells it takes; for each spontaneous entry, its repertoire the same way,
+ * each rank's signature spell after its spells, the rank's note saying where the signature spell is cast (#479). A pick
+ * the slot no longer takes says why, under it and in what its edit button reads out; a pool whose slots wait on a
+ * choice (a divine font's font) says so, and so does a signature slot whose rank's repertoire is still empty. Nothing
+ * for a character with no prepared or spontaneous entry.
  */
 @Component({
   selector: 'pio-sheet-prepared-spells',

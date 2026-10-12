@@ -69,6 +69,9 @@ describe('CharacterSheetPage spell repertoire', () => {
       '1st rank signature spell',
     ]);
     expect(labels.at(-1)).toBe('2nd rank signature spell');
+    expect(textOf(pickers)).toContain(
+      "Choose this rank's repertoire spells first, then one of them as its signature spell.",
+    );
   });
 
   it('says a signature spell is cast at any rank from its own to the highest', async () => {

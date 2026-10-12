@@ -1,4 +1,4 @@
-import { SlotKey, SpellPreparation, SpellRank } from '@pioneer/rules/sdk';
+import { SlotKey, SPELL_RANK_MAX, SpellPreparation, SpellRank } from '@pioneer/rules/sdk';
 import type { ChoiceValue, ContentId, Slug } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
 
@@ -22,7 +22,8 @@ export type SignaturePickProblem = ValueOf<typeof SignaturePickProblem>;
 /**
  * One signature slot on the character at its level (ADR-0046): a spontaneous entry with signature spells has one per
  * rank of its slots, 1st and up, offering the spells its repertoire knows at that rank. Its pick is cast at every rank
- * from the spell's own up to the entry's highest (`castRanks`).
+ * from the spell's own up to the entry's highest below 10th (`castRanks`): a 10th-rank slot casts only the 10th-rank
+ * spells Magnum Opus adds (Player Core).
  */
 export interface SignatureSlot {
   readonly key: SlotKey;
@@ -45,14 +46,14 @@ export interface KnownSpell {
   /** The rank its repertoire slot learned it at, its own or higher. */
   readonly learned: SpellRank;
   readonly signature: boolean;
-  /** The entry's highest rank of slots. */
+  /** The entry's highest rank of slots below 10th, which never takes a heightened spell. */
   readonly highest: SpellRank;
 }
 
 /**
- * The ranks a repertoire spell is cast at (Player Core, Signature Spells): only the rank it was learned at, unless it is
- * a signature spell, which is cast heightened to any rank up to the entry's highest and at any lower one down to its
- * own, without learning each apart.
+ * The ranks a repertoire spell is cast at (Player Core, Signature Spells): only the rank it was learned at, unless it
+ * is a signature spell, which is cast heightened to any rank up to the entry's highest below 10th and at any lower one
+ * down to its own, without learning each apart.
  */
 export function castRanks({ own, learned, signature, highest }: KnownSpell): readonly SpellRank[] {
   if (!signature) {
@@ -92,7 +93,7 @@ export function signatureSlots(document: CharacterDocument, reads: PreparedReads
   return characterSpellcasting(resolution)
     .filter((entry) => entry.preparation === SpellPreparation.Spontaneous && entry.signatures)
     .flatMap(({ slug, slots }) => {
-      const highest = slots.ranks.at(-1)?.rank;
+      const highest = slots.ranks.findLast(({ rank }) => rank < SPELL_RANK_MAX)?.rank;
       const repertoire = repertoires.filter((slot) => slot.entry === slug);
       return slots.ranks.map(({ rank }): SignatureSlot => {
         const key = SlotKey.parse(`${SIGNATURE_PREFIX}${slug}:${rank}`);
@@ -110,7 +111,9 @@ export function signatureSlots(document: CharacterDocument, reads: PreparedReads
     });
 }
 
-/** Why a signature slot refuses a spell: the character hasn't the slot at its level, or its repertoire lacks the spell. */
+/**
+ * Why a signature slot refuses a spell: the character hasn't the slot at its level, or its repertoire lacks the spell.
+ */
 export const SignatureRefusal = { NotOpen: 'notOpen', NotOffered: 'notOffered' } as const;
 export type SignatureRefusal = ValueOf<typeof SignatureRefusal>;
 

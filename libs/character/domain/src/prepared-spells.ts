@@ -159,8 +159,8 @@ function poolPlaces(own: SlotHome, slotPool: SlotPool): SlotPlace[] {
 }
 
 /**
- * The slots of one prepared or spontaneous entry: its own, cantrips first, then each rank lowest first; then each of its
- * pools' (#581) in pool order, the same way.
+ * The slots of one prepared or spontaneous entry: its own, cantrips first, then each rank lowest first; then each of
+ * its pools' (#581) in pool order, the same way.
  */
 function entryPlaces(
   { slug, tradition, slots, pools }: SpellcastingInPlay,
@@ -175,9 +175,8 @@ function entryPlaces(
  * slot of each prepared entry, read from its class's table and the feats that add to it, then one per slot of each of
  * its pools; and as many of each rank for a spontaneous entry's repertoire, which grows as its slots do (Player Core,
  * Spell Repertoire). A repertoire slot is read like a prepared one: a spell learned at a higher rank than its own is
- * known heightened to that rank. Slots open
- * only at the character's level, so a pick kept for one it no longer has (a lower level, another class) is hidden,
- * never planned. An entry's own slot offers the spells of its tradition that fit it: cantrips in a cantrip slot, any
+ * known heightened to that rank. Slots open only at the character's level, so a pick kept for one it no longer has (a
+ * lower level, another class) is hidden, never planned. An entry's own slot offers the spells of its tradition that fit it: cantrips in a cantrip slot, any
  * other spell in a slot of its rank or higher (heightened), common ones always, uncommon and rare ones once the build
  * lists access to them. A pool's slot offers the spells the pool takes that fit it, whatever their tradition or
  * rarity, since the feature names them (ADR-0045). Focus spells never go in a slot.

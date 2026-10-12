@@ -404,7 +404,7 @@ because that is the dataset we import and the system we export to (see
 | Structure   | `GrantItem`, `ChoiceSet`, `RollOption` (incl. toggles), `ItemAlteration`                                                                                             |
 | Numbers     | `FlatModifier`, `AdjustModifier`, `Change` (add, upgrade, downgrade, override, multiply), `DexterityCap`, `MultipleAttackPenalty`                                    |
 | Proficiency | `Proficiency` (raise a rank), `MartialProficiency`, `ProficiencyBonus` (replace the bonus table)                                                                     |
-| Magic       | `SpellcastingEntry` (a spellcasting entry: tradition, attribute, preparation), `SpellSlots` (slots or cantrips for an entry), `PoolSpells` (the spells a pool takes) |
+| Magic       | `SpellcastingEntry` (a spellcasting entry: tradition, attribute, preparation), `SpellSlots` (slots or cantrips for an entry), `PoolSpells` (the spells a pool takes), `SignatureSpells` (signature spells for a spontaneous entry) |
 | Checks      | `RollTwice`, `SubstituteRoll`, `AdjustDegreeOfSuccess`, `RollNote`                                                                                                   |
 | Strikes     | `Strike`, `AdjustStrike`, `DamageDice`, `DamageAlteration`, `CriticalSpecialization`                                                                                 |
 | Defences    | `Immunity`, `Weakness`, `Resistance`, `TempHitPoints`, `FastHealing`                                                                                                 |

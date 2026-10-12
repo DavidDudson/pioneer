@@ -93,8 +93,14 @@ function signatureLabel(slot: SignatureSlot): MessageDescriptor {
   return message('character.sheet.repertoire.signature', { rank: slot.rank });
 }
 
-/** Where a signature spell is cast: "Cast at any rank from 1st to 4th", or "Cast at 4th rank" when only one. */
+/**
+ * Where a rank's signature spell is cast: "Soothe, the signature spell, is cast at any rank from 1st to 4th.", or "… is
+ * cast at 4th rank." when only one; or, while the rank's repertoire knows no spell, that its spells come first.
+ */
 function signatureNote(slot: SignatureSlot | undefined): MessageDescriptor | undefined {
+  if (slot?.options.length === 0) {
+    return message('character.sheet.repertoire.signatureEmpty');
+  }
   const [low, high] = [slot?.castRanks.at(0), slot?.castRanks.at(-1)];
   if (slot?.pick === undefined || low === undefined || high === undefined) {
     return undefined;
