@@ -778,6 +778,15 @@
         "type": "feet",
         "feet": 60
       },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "triggering": true,
+            "of": "creature"
+          }
+        ]
+      },
       "duration": {
         "type": "time",
         "count": 1,
@@ -5095,6 +5104,15 @@
         "shape": "emanation",
         "size": 10
       },
+      "targets": {
+        "any": [
+          {
+            "count": "all",
+            "within": "area",
+            "of": "enemy"
+          }
+        ]
+      },
       "duration": {
         "type": "time",
         "count": 1,
@@ -5483,6 +5501,14 @@
         "type": "feet",
         "feet": 60
       },
+      "targets": {
+        "any": [
+          {
+            "count": "any",
+            "of": "creature"
+          }
+        ]
+      },
       "traditions": ["arcane", "primal"],
       "damage": []
     }
@@ -5552,6 +5578,16 @@
       "area": {
         "shape": "emanation",
         "size": 15
+      },
+      "targets": {
+        "any": [
+          {
+            "count": "all",
+            "within": "area",
+            "of": "ally"
+          }
+        ],
+        "you": "and"
       },
       "duration": {
         "type": "time",
@@ -5991,6 +6027,15 @@
         "type": "feet",
         "feet": 30
       },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "triggering": true,
+            "of": "creature"
+          }
+        ]
+      },
       "defense": {
         "save": {
           "statistic": "save:will",
@@ -6255,6 +6300,15 @@
       "range": {
         "type": "feet",
         "feet": 60
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "triggering": true,
+            "of": "creature"
+          }
+        ]
       },
       "traditions": ["divine"],
       "damage": [],
@@ -11495,6 +11549,15 @@
         "type": "feet",
         "feet": 500
       },
+      "targets": {
+        "any": [
+          {
+            "count": "any",
+            "of": "creature",
+            "qualifiers": ["living"]
+          }
+        ]
+      },
       "defense": {
         "save": {
           "statistic": "save:fortitude",
@@ -16152,6 +16215,15 @@
       "range": {
         "type": "touch"
       },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature",
+            "qualifiers": ["willing", "sleeping"]
+          }
+        ]
+      },
       "duration": {
         "type": "time",
         "count": 8,
@@ -16404,6 +16476,15 @@
       "range": {
         "type": "feet",
         "feet": 120
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature",
+            "qualifiers": ["flying"]
+          }
+        ]
       },
       "defense": {
         "save": {
@@ -16945,6 +17026,15 @@
       "range": {
         "type": "feet",
         "feet": 30
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 2,
+            "upTo": true,
+            "of": "creature"
+          }
+        ]
       },
       "defense": {
         "save": {
@@ -18296,6 +18386,14 @@
         "type": "feet",
         "feet": 30
       },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "animal-companion"
+          }
+        ]
+      },
       "duration": {
         "type": "time",
         "count": 1,
@@ -18504,6 +18602,15 @@
       "range": {
         "type": "feet",
         "feet": 120
+      },
+      "targets": {
+        "any": [
+          {
+            "count": "all",
+            "within": "range",
+            "of": "creature"
+          }
+        ]
       },
       "duration": {
         "type": "sustained"
@@ -20865,6 +20972,20 @@
         "type": "feet",
         "feet": 30
       },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "ally"
+          }
+        ],
+        "plus": [
+          {
+            "count": 1,
+            "of": "enemy"
+          }
+        ]
+      },
       "duration": {
         "type": "time",
         "count": 1,
@@ -21714,6 +21835,15 @@
       "range": {
         "type": "feet",
         "feet": 60
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature",
+            "qualifiers": ["falling"]
+          }
+        ]
       },
       "duration": {
         "type": "time",
@@ -22944,7 +23074,23 @@
         }
       },
       "traditions": ["arcane", "occult"],
-      "damage": []
+      "damage": [],
+      "heightening": {
+        "type": "fixed",
+        "ranks": [
+          {
+            "rank": 7,
+            "targets": {
+              "any": [
+                {
+                  "count": "any",
+                  "of": "creature"
+                }
+              ]
+            }
+          }
+        ]
+      }
     }
   },
   {
@@ -23482,6 +23628,16 @@
         "cost": "one",
         "upTo": "two"
       },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature",
+            "qualifiers": ["willing", "living"],
+            "traits": ["animal"]
+          }
+        ]
+      },
       "traditions": [],
       "damage": [],
       "heightening": {
@@ -23570,6 +23726,14 @@
         "type": "actions",
         "cost": "one",
         "upTo": "two"
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "animal-companion"
+          }
+        ]
       },
       "traditions": [],
       "damage": [],
@@ -24744,6 +24908,15 @@
       "range": {
         "type": "feet",
         "feet": 30
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "ally"
+          }
+        ],
+        "you": "or"
       },
       "duration": {
         "type": "time",
@@ -26186,6 +26359,15 @@
         "type": "feet",
         "feet": 30
       },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature",
+            "qualifiers": ["corporeal"]
+          }
+        ]
+      },
       "duration": {
         "type": "time",
         "count": 1,
@@ -26331,6 +26513,16 @@
       "range": {
         "type": "feet",
         "feet": 30
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 3,
+            "upTo": true,
+            "of": "creature",
+            "qualifiers": ["willing"]
+          }
+        ]
       },
       "duration": {
         "type": "time",
@@ -28758,6 +28950,16 @@
         "type": "feet",
         "feet": 30
       },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "triggering": true,
+            "of": "ally"
+          }
+        ],
+        "you": "or"
+      },
       "traditions": [],
       "damage": []
     }
@@ -29150,6 +29352,14 @@
       "range": {
         "type": "feet",
         "feet": 30
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "animal-companion"
+          }
+        ]
       },
       "duration": {
         "type": "time",
@@ -30441,7 +30651,7 @@
             "qualifiers": ["willing"]
           }
         ],
-        "includesYou": true
+        "you": "and"
       },
       "duration": {
         "type": "time",
@@ -32840,6 +33050,14 @@
         "type": "feet",
         "feet": 30
       },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "enemy"
+          }
+        ]
+      },
       "duration": {
         "type": "time",
         "count": 1,
@@ -33517,6 +33735,15 @@
         "type": "feet",
         "feet": 60
       },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "triggering": true,
+            "of": "creature"
+          }
+        ]
+      },
       "traditions": [],
       "damage": []
     }
@@ -34096,6 +34323,14 @@
       "area": {
         "shape": "burst",
         "size": 40
+      },
+      "targets": {
+        "any": [
+          {
+            "count": "any",
+            "of": "creature"
+          }
+        ]
       },
       "defense": {
         "save": {
@@ -35172,6 +35407,15 @@
       "range": {
         "type": "touch"
       },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "companion",
+            "qualifiers": ["willing"]
+          }
+        ]
+      },
       "duration": {
         "type": "time",
         "count": 8,
@@ -35444,6 +35688,14 @@
       "range": {
         "type": "feet",
         "feet": 120
+      },
+      "targets": {
+        "any": [
+          {
+            "count": "any",
+            "of": "creature"
+          }
+        ]
       },
       "defense": {
         "save": {
@@ -35891,6 +36143,14 @@
       "range": {
         "type": "feet",
         "feet": 60
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "familiar"
+          }
+        ]
       },
       "traditions": [],
       "damage": []
@@ -38670,6 +38930,17 @@
                 }
               ]
             }
+          },
+          {
+            "rank": 6,
+            "targets": {
+              "any": [
+                {
+                  "count": "any",
+                  "of": "object"
+                }
+              ]
+            }
           }
         ]
       }
@@ -39391,6 +39662,15 @@
       "range": {
         "type": "feet",
         "feet": 30
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "triggering": true,
+            "of": "creature"
+          }
+        ]
       },
       "defense": {
         "save": {
@@ -40474,6 +40754,16 @@
       "range": {
         "type": "feet",
         "feet": 30
+      },
+      "targets": {
+        "any": [
+          {
+            "count": "any",
+            "of": "ally",
+            "qualifiers": ["willing"]
+          }
+        ],
+        "you": "and"
       },
       "duration": {
         "type": "time",
@@ -43520,7 +43810,7 @@
             "of": "ally"
           }
         ],
-        "includesYou": true
+        "you": "and"
       },
       "traditions": [],
       "damage": [],
@@ -45002,6 +45292,15 @@
       "range": {
         "type": "feet",
         "feet": 30
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature",
+            "qualifiers": ["dying"]
+          }
+        ]
       },
       "traditions": ["divine", "primal"],
       "damage": []
@@ -47563,6 +47862,15 @@
         "type": "feet",
         "feet": 30
       },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "ally"
+          }
+        ],
+        "you": "or"
+      },
       "traditions": [],
       "damage": [],
       "heightening": {
@@ -49022,6 +49330,15 @@
       "range": {
         "type": "feet",
         "feet": 120
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "triggering": true,
+            "of": "creature"
+          }
+        ]
       },
       "traditions": [],
       "damage": []
@@ -55526,6 +55843,16 @@
       "range": {
         "type": "feet",
         "feet": 10
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "triggering": true,
+            "of": "ally"
+          }
+        ],
+        "you": "and"
       },
       "traditions": [],
       "damage": []

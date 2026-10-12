@@ -124,7 +124,7 @@ describe('translateKindData: spells', () => {
       level: { value: 2 },
       time: { value: '2' },
       range: { value: 'varies' },
-      target: { value: 'the triggering creature' },
+      target: { value: '1 creature you know by name' },
       duration: { sustained: false, value: 'see text' },
       area: { type: 'square', value: 5, details: 'squares with plants' },
       overlays: { a1: { overlayType: 'override' } },

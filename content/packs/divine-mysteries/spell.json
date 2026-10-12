@@ -2079,6 +2079,15 @@
         "type": "feet",
         "feet": 30
       },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "triggering": true,
+            "of": "creature"
+          }
+        ]
+      },
       "defense": {
         "save": {
           "statistic": "save:will",
@@ -2670,6 +2679,20 @@
       "range": {
         "type": "feet",
         "feet": 30
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "triggering": true,
+            "of": "creature"
+          },
+          {
+            "count": 1,
+            "triggering": true,
+            "of": "object"
+          }
+        ]
       },
       "duration": {
         "type": "time",
@@ -4577,6 +4600,15 @@
         "type": "feet",
         "feet": 30
       },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "triggering": true,
+            "of": "creature"
+          }
+        ]
+      },
       "defense": {
         "save": {
           "statistic": "save:will",
@@ -5498,6 +5530,14 @@
       "time": {
         "type": "actions",
         "cost": "two"
+      },
+      "targets": {
+        "any": [
+          {
+            "count": "any",
+            "of": "creature"
+          }
+        ]
       },
       "defense": {
         "save": {
@@ -7014,6 +7054,15 @@
         "type": "feet",
         "feet": 30
       },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "triggering": true,
+            "of": "creature"
+          }
+        ]
+      },
       "traditions": [],
       "damage": []
     }
@@ -7709,6 +7758,16 @@
       "range": {
         "type": "feet",
         "feet": 30
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "triggering": true,
+            "of": "ally"
+          }
+        ],
+        "you": "and"
       },
       "traditions": [],
       "damage": []
