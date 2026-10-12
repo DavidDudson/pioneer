@@ -20,7 +20,7 @@ export const SignaturePickProblem = {
 export type SignaturePickProblem = ValueOf<typeof SignaturePickProblem>;
 
 /**
- * One signature slot on the character at its level (ADR-0046): a spontaneous entry with signature spells has one per
+ * One signature slot on the character at its level (ADR-0047): a spontaneous entry with signature spells has one per
  * rank of its slots, 1st and up, offering the spells its repertoire knows at that rank. Its pick is cast at every rank
  * from the spell's own up to the entry's highest below 10th (`castRanks`): a 10th-rank slot casts only the 10th-rank
  * spells Magnum Opus adds (Player Core).

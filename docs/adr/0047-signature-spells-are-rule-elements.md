@@ -1,4 +1,4 @@
-# 0046. Signature spells are a rule element
+# 0047. Signature spells are a rule element
 
 - Status: Proposed
 - Date: 2026-10-12

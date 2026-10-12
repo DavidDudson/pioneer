@@ -439,7 +439,7 @@ own slots or to a `pool` kept apart (a divine font, a curriculum). Counts add up
 table is a few elements gated by level; one for an entry not in play adds nothing. `PoolSpells` names the `spells` a
 `pool` of an entry takes ([ADR-0045](../adr/0045-pool-spells-are-rule-elements.md)), adding up per pool and gated by
 its predicate, so a divine font's spell follows the font picked. `SignatureSpells` gives the spontaneous `entry` it names
-signature spells ([ADR-0046](../adr/0046-signature-spells-are-rule-elements.md)); a prepared or innate one never has
+signature spells ([ADR-0047](../adr/0047-signature-spells-are-rule-elements.md)); a prepared or innate one never has
 them. `spellcastingInPlay` gives each entry its slots and pools, each pool with its spells, and whether it has
 signature spells.
 

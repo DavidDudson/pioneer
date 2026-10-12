@@ -94,7 +94,7 @@ const SPELLCASTING: ReadonlyMap<string, readonly object[]> = new Map([
     classEntry({ slug: 'wizard', tradition: 'arcane', attribute: 'int', preparation: 'prepared' }),
   ],
   ['class-feature:cleric-spellcasting', CLERIC],
-  // Signature Spells is shared by every spontaneous class; the bard is Player Core's only one (ADR-0046). A later
+  // Signature Spells is shared by every spontaneous class; the bard is Player Core's only one (ADR-0047). A later
   // Book's spontaneous casters add their entry here with its import (#593).
   ['class-feature:signature-spells', [{ key: RuleElementKey.SignatureSpells, entry: 'bard' }]],
   // Witch Spellcasting names no tradition: the patron the witch picks does.

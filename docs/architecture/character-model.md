@@ -161,7 +161,7 @@ name that fit its rank, whatever their tradition or rarity. A divine font takes 
 lists them after the entry's own under the name of what gave the pool, and says when a pool takes nothing yet.
 
 A spontaneous entry's repertoire is choice slots too, `repertoire:<entry>:<cantrip|rank>:<n>`
-([ADR-0046](../adr/0046-signature-spells-are-rule-elements.md)): as many of each rank as the entry has slots, since the
+([ADR-0047](../adr/0047-signature-spells-are-rule-elements.md)): as many of each rank as the entry has slots, since the
 repertoire grows as its slots do, each read like a prepared slot. A spell learned in a slot above its own rank is known
 heightened to that rank (Magnum Opus's two 10th-rank spells for one slot are not counted yet, #599). Once Signature
 Spells is in play (a bard's at 3rd level), the entry has a signature slot per rank of its slots,

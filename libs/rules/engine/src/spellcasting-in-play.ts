@@ -44,7 +44,7 @@ interface EntrySlots {
   readonly pools: readonly SlotPool[];
 }
 
-/** Whether a `SignatureSpells` element in play names the entry (ADR-0046). */
+/** Whether a `SignatureSpells` element in play names the entry (ADR-0047). */
 interface EntrySignatures {
   readonly signatures: boolean;
 }
@@ -209,7 +209,7 @@ function gather(gathered: Gathered, rule: RuleInPlay, facts: PredicateFacts): vo
  * element with that slug whose predicate holds, in slug order. One that depends on the situation gives none on the
  * sheet. Each is a source `StatisticInputs.spellcasting` derives a spell attack and DC for, with the slots the
  * `SpellSlots` elements in play give it (ADR-0041) and the spells the `PoolSpells` elements in play give its pools
- * (ADR-0045). A spontaneous entry a `SignatureSpells` element in play names has signature spells (ADR-0046); a prepared
+ * (ADR-0045). A spontaneous entry a `SignatureSpells` element in play names has signature spells (ADR-0047); a prepared
  * or innate one never does.
  */
 export function spellcastingInPlay({ rules, facts }: ModifierInputs): readonly SpellcastingInPlay[] {
