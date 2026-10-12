@@ -10,7 +10,7 @@ import { CharacterPatchField, CharacterPatchSchema } from './character-patch';
 import { ANCESTRY_SLOT } from './character-slots';
 import { CoinsSchema, InventoryItemId, ItemQuantity } from './inventory';
 import { STOWED } from './item-carry';
-import { CharacterBuilder, humanAncestryId, ItemFixture, itemFixtureId } from './testing';
+import { CharacterBuilder, humanAncestryId, ItemFixture, itemFixtureId, KitFixture, kitFixtureId } from './testing';
 
 const later = fixedClock('2026-10-07T10:00:00Z').now();
 const featSlot = SlotKey.parse('feat:class:2');
@@ -163,6 +163,39 @@ describe('Character inventory edits', () => {
     const broke = new CharacterBuilder().build();
     expect(() => broke.apply(bought, later, { newItemId: ropeId })).toThrow('needs the cost');
     expect(() => broke.apply(bought, later, { newItemId: ropeId, cost: CopperValue.parse(1) })).toThrow(
+      'needs the cost',
+    );
+  });
+
+  test('adds a kit: every line the caller expanded it into, and pays for it in one edit when bought', () => {
+    const kit = kitFixtureId(KitFixture.Explorer);
+    const lines = [
+      { id: backpackId, item: itemFixtureId(ItemFixture.Backpack), quantity: one, container: undefined },
+      { id: ropeId, item: itemFixtureId(ItemFixture.Rope), quantity: one, container: backpackId },
+    ];
+    const gifted = new CharacterBuilder().build().apply({ field: CharacterPatchField.GiftKit, kit }, later, {
+      kitItems: lines,
+    });
+    expect(gifted.document.inventory.items).toStrictEqual([
+      { id: backpackId, item: itemFixtureId(ItemFixture.Backpack), quantity: one, carry: STOWED },
+      { id: ropeId, item: itemFixtureId(ItemFixture.Rope), quantity: one, container: backpackId, carry: STOWED },
+    ]);
+    const flush = new CharacterBuilder()
+      .build()
+      .apply({ field: CharacterPatchField.SetCoins, coins: CoinsSchema.parse({ gp: 3 }) }, later);
+    const bought = flush.apply({ field: CharacterPatchField.BuyKit, kit }, later, {
+      kitItems: lines,
+      cost: CopperValue.parse(200),
+    });
+    expect(bought.document.inventory.items).toStrictEqual(gifted.document.inventory.items);
+    expect(bought.document.inventory.coins).toStrictEqual(CoinsSchema.parse({ gp: 1 }));
+  });
+
+  test('throws on a kit with no lines, or a bought one with no cost, which the service works out first', () => {
+    const kit = kitFixtureId(KitFixture.Explorer);
+    const broke = new CharacterBuilder().build();
+    expect(() => broke.apply({ field: CharacterPatchField.GiftKit, kit }, later)).toThrow('needs the lines');
+    expect(() => broke.apply({ field: CharacterPatchField.BuyKit, kit }, later, { kitItems: [] })).toThrow(
       'needs the cost',
     );
   });

@@ -22,7 +22,7 @@ import {
   setItemQuantity,
 } from './inventory';
 import type { Inventory, InventoryEdit } from './inventory';
-import { withAddedItem } from './item-purchase';
+import { withAddedItem, withAddedKit } from './item-purchase';
 import type { EditInputs } from './item-purchase';
 import { eraseRune, etchRune, transferRune } from './rune-edits';
 
@@ -164,10 +164,11 @@ export class Character {
   }
 
   /**
-   * Apply one edit. Version bump is the repository's job. An added item takes `inputs.newItemId` and a bought one costs
-   * `inputs.cost`, which the caller works out, as it gives `now`. An edit that leaves the document invalid (an inventory
-   * edit `inventoryRefusal` refuses, an add with no id, a purchase with no cost or one the coins don't cover) is a
-   * caller's bug and throws before anything is stored; the service checks edits first.
+   * Apply one edit. Version bump is the repository's job. An added item takes `inputs.newItemId`, an added kit adds
+   * `inputs.kitItems` and a bought one costs `inputs.cost`, which the caller works out, as it gives `now`. An edit that
+   * leaves the document invalid (an inventory edit `inventoryRefusal` refuses, an add with no id or lines, a purchase
+   * with no cost or one the coins don't cover) is a caller's bug and throws before anything is stored; the service
+   * checks edits first.
    */
   public apply(patch: CharacterPatch, now: Temporal.Instant, inputs: EditInputs = {}): Character {
     const { document } = { ...this.toProps(), ...this.#changes(patch, inputs) };
@@ -194,6 +195,8 @@ export class Character {
       }
       case CharacterPatchField.GiftItem:
       case CharacterPatchField.BuyItem:
+      case CharacterPatchField.GiftKit:
+      case CharacterPatchField.BuyKit:
       case CharacterPatchField.RemoveItem:
       case CharacterPatchField.SetItemQuantity:
       case CharacterPatchField.MoveItem:
@@ -225,6 +228,10 @@ export class Character {
       case CharacterPatchField.GiftItem:
       case CharacterPatchField.BuyItem: {
         return this.#stock(patch, (inventory) => withAddedItem(inventory, patch, inputs));
+      }
+      case CharacterPatchField.GiftKit:
+      case CharacterPatchField.BuyKit: {
+        return this.#stock(patch, (inventory) => withAddedKit(inventory, patch, inputs));
       }
       case CharacterPatchField.RemoveItem: {
         return this.#stock(patch, (inventory) => removeItem(inventory, patch.id));

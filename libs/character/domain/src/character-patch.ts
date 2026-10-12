@@ -28,6 +28,13 @@ export const CharacterPatchField = {
    * the coins are worth less. Its audit rows name `buyItem`.
    */
   BuyItem: 'buyItem',
+  /**
+   * Every item in a kit joins the inventory without paying, loose or in a container, with what a container in the kit
+   * holds inside it; the server gives each its id. Its audit rows name `giftKit`.
+   */
+  GiftKit: 'giftKit',
+  /** A kit's items, as `giftKit` adds them, bought at the kit's price with change made. Its audit rows name `buyKit`. */
+  BuyKit: 'buyKit',
   /** An item leaves the inventory; what it held moves out to where it was. */
   RemoveItem: 'removeItem',
   SetItemQuantity: 'setItemQuantity',
@@ -70,6 +77,8 @@ export const CharacterPatchSchema = z.discriminatedUnion('field', [
     quantity: ItemQuantity,
     container: InventoryItemId.optional(),
   }),
+  z.object({ field: z.literal(CharacterPatchField.GiftKit), kit: ContentId, container: InventoryItemId.optional() }),
+  z.object({ field: z.literal(CharacterPatchField.BuyKit), kit: ContentId, container: InventoryItemId.optional() }),
   z.object({ field: z.literal(CharacterPatchField.RemoveItem), id: InventoryItemId }),
   z.object({ field: z.literal(CharacterPatchField.SetItemQuantity), id: InventoryItemId, quantity: ItemQuantity }),
   z.object({
@@ -131,12 +140,13 @@ export type InventoryPatch = Exclude<
 >;
 
 /**
- * What an inventory edit touches, for the refusals: the item it changes, the content it adds, where it stows it, how
- * it carries it, whether it invests it, and the rune it etches, erases or moves (and where to).
+ * What an inventory edit touches, for the refusals: the item it changes, the content or kit it adds, where it stows
+ * it, how it carries it, whether it invests it, and the rune it etches, erases or moves (and where to).
  */
 export interface InventoryTarget {
   readonly id?: InventoryItemId | undefined;
   readonly item?: ContentId | undefined;
+  readonly kit?: ContentId | undefined;
   readonly container?: InventoryItemId | undefined;
   readonly carry?: Carry | undefined;
   readonly invested?: boolean | undefined;
@@ -180,6 +190,10 @@ export function inventoryTarget(patch: CharacterPatch): InventoryTarget | undefi
     case CharacterPatchField.GiftItem:
     case CharacterPatchField.BuyItem: {
       return { item: patch.item, container: patch.container };
+    }
+    case CharacterPatchField.GiftKit:
+    case CharacterPatchField.BuyKit: {
+      return { kit: patch.kit, container: patch.container };
     }
     case CharacterPatchField.MoveItem: {
       return { id: patch.id, container: patch.container };
