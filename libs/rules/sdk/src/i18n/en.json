@@ -768,6 +768,8 @@
       "free": "Free",
       "noCoins": "No coins",
       "cannotAfford": "Your coins don't cover the cost. Buy fewer, or add it without paying.",
+      "cannotAffordKit": "Your coins don't cover the kit's price. Add it without paying instead.",
+      "kitLine": "{count} × {name}",
       "lineNoLevel": "{price}"
     },
     "spellAccess": {

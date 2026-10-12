@@ -3,6 +3,7 @@ import { Coin } from '@pioneer/rules/sdk';
 import { describe, expect, it } from 'vitest';
 
 import { provideRulesUiI18nTesting } from '../../testing/provide-rich-text-testing';
+import { ShopBillFor } from '../shop-offer';
 import type { CoinCount } from '../shop-offer';
 import { ShopBill } from './shop-bill.component';
 
@@ -10,15 +11,19 @@ interface BillInputs {
   readonly cost: readonly CoinCount[];
   readonly coins: readonly CoinCount[];
   readonly affordable: boolean;
+  readonly subject?: ShopBillFor;
 }
 
-async function render({ cost, coins, affordable }: BillInputs): Promise<HTMLElement> {
+async function render({ cost, coins, affordable, subject }: BillInputs): Promise<HTMLElement> {
   TestBed.configureTestingModule({ providers: [provideRulesUiI18nTesting()] });
   const fixture = TestBed.createComponent(ShopBill);
   fixture.componentRef.setInput('cost', cost);
   fixture.componentRef.setInput('coins', coins);
   fixture.componentRef.setInput('affordable', affordable);
   fixture.componentRef.setInput('reasonId', 'why');
+  if (subject !== undefined) {
+    fixture.componentRef.setInput('subject', subject);
+  }
   await fixture.whenStable();
   return fixture.nativeElement as HTMLElement;
 }
@@ -55,5 +60,15 @@ describe(ShopBill, () => {
   it('says why under the reason id when the coins do not cover the cost', async () => {
     const host = await render({ cost: [{ coin: Coin.Gold, count: 2 }], coins: [], affordable: false });
     expect(host.querySelector('#why')?.textContent).toContain("Your coins don't cover the cost.");
+  });
+
+  it('says a kit the coins do not cover can only be added without paying', async () => {
+    const host = await render({
+      cost: [{ coin: Coin.Gold, count: 2 }],
+      coins: [],
+      affordable: false,
+      subject: ShopBillFor.Kit,
+    });
+    expect(host.querySelector('#why')?.textContent).toContain("Your coins don't cover the kit's price.");
   });
 });

@@ -1,6 +1,7 @@
 import { BadgeTone } from '@pioneer/frontier';
 import { Coin, Rarity } from '@pioneer/rules/sdk';
 import type { ContentId, ContentLevel, ContentText, Price } from '@pioneer/rules/sdk';
+import type { ValueOf } from '@pioneer/shared/kernel';
 
 /** An item the shop offers: what the list shows of it. */
 export interface ShopOffer {
@@ -30,7 +31,20 @@ export const ShopMessage = {
   Free: 'rules.shop.free',
   NoCoins: 'rules.shop.noCoins',
   CannotAfford: 'rules.shop.cannotAfford',
+  CannotAffordKit: 'rules.shop.cannotAffordKit',
+  KitLine: 'rules.shop.kitLine',
 } as const;
+
+/** What a bill is for, which says why the coins fall short: an item's quantity can drop, a kit's can't. */
+export const ShopBillFor = { Item: 'item', Kit: 'kit' } as const;
+export type ShopBillFor = ValueOf<typeof ShopBillFor>;
+
+/** An item a kit holds, by name, with how many, and what it holds when it is a container. */
+export interface KitLine {
+  readonly name: string;
+  readonly quantity: number;
+  readonly contents: readonly KitLine[];
+}
 
 /** A rarity's badge: its name and tone. Common items carry none. */
 export interface RarityBadge {

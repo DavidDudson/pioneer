@@ -5,12 +5,18 @@ import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { DescriptionItem, DescriptionList, LocaleFormat, Stack, Text } from '@pioneer/frontier';
 import { filter, merge } from 'rxjs';
 
-import { coinsText, ShopMessage } from '../shop-offer';
+import { coinsText, ShopBillFor, ShopMessage } from '../shop-offer';
 import type { CoinCount } from '../shop-offer';
 
+/** Why the coins fall short, by what the bill is for. */
+const UNAFFORDABLE: Readonly<Record<ShopBillFor, string>> = {
+  [ShopBillFor.Item]: ShopMessage.CannotAfford,
+  [ShopBillFor.Kit]: ShopMessage.CannotAffordKit,
+};
+
 /**
- * What buying the picked item costs and what the character has to pay with, each in coins, largest first; when they
- * can't afford it, why, under `reasonId` so the Buy button can point at it.
+ * What buying the picked item or kit costs and what the character has to pay with, each in coins, largest first;
+ * when they can't afford it, why, under `reasonId` so the Buy button can point at it.
  */
 @Component({
   selector: 'pio-shop-bill',
@@ -26,6 +32,8 @@ export class ShopBill {
   public readonly affordable = input.required<boolean>();
   /** Id of the reason shown when they can't afford it. */
   public readonly reasonId = input.required<string>();
+  /** What the bill is for: an item, whose quantity can drop, or a kit, which can only be added without paying. */
+  public readonly subject = input<ShopBillFor>(ShopBillFor.Item);
 
   readonly #i18n = inject(TranslocoService);
   readonly #format = inject(LocaleFormat);
@@ -34,6 +42,7 @@ export class ShopBill {
   readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
 
   protected readonly Message = ShopMessage;
+  protected readonly reason: Signal<string> = computed(() => UNAFFORDABLE[this.subject()]);
 
   protected readonly costText: Signal<string> = computed(() => {
     this.#messages();

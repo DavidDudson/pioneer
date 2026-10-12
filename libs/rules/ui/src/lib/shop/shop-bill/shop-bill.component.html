@@ -8,8 +8,6 @@
     </fr-description-item>
   </fr-description-list>
   @if (!affordable()) {
-    <fr-text element="p" variant="caption" tone="danger" [id]="reasonId()">{{
-      Message.CannotAfford | transloco
-    }}</fr-text>
+    <fr-text element="p" variant="caption" tone="danger" [id]="reasonId()">{{ reason() | transloco }}</fr-text>
   }
 </fr-stack>
