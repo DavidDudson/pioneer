@@ -152,7 +152,10 @@ describe('targetsOf', () => {
     ['any number of living creatures', { any: [{ count: 'any', of: 'creature', qualifiers: ['living'] }] }],
     ['1 or more creatures', { any: [{ count: 'any', of: 'creature' }] }],
     ['1 or any number of creatures', { any: [{ count: 'any', of: 'creature' }] }],
-    ['you and any number of willing allies', { any: [{ count: 'any', of: 'ally', qualifiers: ['willing'] }], you: 'and' }],
+    [
+      'you and any number of willing allies',
+      { any: [{ count: 'any', of: 'ally', qualifiers: ['willing'] }], you: 'and' },
+    ],
     ['1 to 3 willing creatures', { any: [{ count: 3, upTo: true, of: 'creature', qualifiers: ['willing'] }] }],
     ['1 or 2 creatures', { any: [{ count: 2, upTo: true, of: 'creature' }] }],
   ])('a count in words: %p', (text, expected) => {

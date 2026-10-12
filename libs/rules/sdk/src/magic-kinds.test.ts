@@ -285,16 +285,17 @@ describe('spell targets', () => {
     ['the triggering creature (Air Bubble)', { any: [{ count: 1, triggering: true, of: 'creature' }] }],
     ['your animal companion (Heal Companion)', { any: [{ count: 1, of: 'animal-companion' }] }],
     ['any number of creatures (Overwhelming Presence)', { any: [{ count: 'any', of: 'creature' }] }],
-    [
-      'you and allies in the area (Bless)',
-      { any: [{ count: 'all', within: 'area', of: 'ally' }], you: 'and' },
-    ],
+    ['you and allies in the area (Bless)', { any: [{ count: 'all', within: 'area', of: 'ally' }], you: 'and' }],
     ['you or 1 ally (Hymn of Healing)', { any: [{ count: 1, of: 'ally' }], you: 'or' }],
     ['1 ally and 1 enemy (Forbidding Ward)', { any: [{ count: 1, of: 'ally' }], plus: [{ count: 1, of: 'enemy' }] }],
     [
       'creature types as traits (Primal Call)',
       {
-        any: ['animal', 'beast', 'fey', 'fungus', 'plant'].map((trait) => ({ count: 1, of: 'creature', traits: [trait] })),
+        any: ['animal', 'beast', 'fey', 'fungus', 'plant'].map((trait) => ({
+          count: 1,
+          of: 'creature',
+          traits: [trait],
+        })),
       },
     ],
     ['1 dead creature (Create Undead)', { any: [{ count: 1, of: 'creature', qualifiers: ['dead'] }] }],

@@ -87,10 +87,7 @@ const targetDetails = { qualifiers: targetQualifiers, traits, triggering: boolea
 const target: Arbitrary<object> = oneof(
   withOptional(record({ count: positive, of: targetKind }), { upTo: boolean(), ...targetDetails }),
   withOptional(record({ count: constant(TargetCountWord.Any), of: targetKind }), targetDetails),
-  withOptional(
-    record({ count: constant(TargetCountWord.All), within: targetWithin, of: targetKind }),
-    targetDetails,
-  ),
+  withOptional(record({ count: constant(TargetCountWord.All), within: targetWithin, of: targetKind }), targetDetails),
 );
 const someTargets: Arbitrary<object[]> = array(target, { minLength: 1, maxLength: LIST_MAX });
 const targets: Arbitrary<object> = withOptional(record({ any: someTargets }), { plus: someTargets, you: targetYou });
