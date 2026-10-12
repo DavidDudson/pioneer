@@ -4,11 +4,19 @@ import {
   needsAccess,
   preparedReads,
   preparedSlots,
+  signatureSlots,
   SlotStatus,
 } from '@pioneer/character/domain';
-import type { Character, CharacterSlot, PreparedSlot, SpellOption } from '@pioneer/character/domain';
+import type {
+  Character,
+  CharacterSlot,
+  PickedPreparation,
+  PreparedSlot,
+  SignatureSlot,
+  SpellOption,
+} from '@pioneer/character/domain';
 import type { SelectOption } from '@pioneer/frontier';
-import { ContentKind, SlotRank } from '@pioneer/rules/sdk';
+import { ContentKind, SlotRank, SpellPreparation } from '@pioneer/rules/sdk';
 import type { ContentId, ContentRegistry, MagicTradition, SlotKey, Slug } from '@pioneer/rules/sdk';
 import type { SpellAccessLine } from '@pioneer/rules/ui';
 import { message } from '@pioneer/shared/kernel';
@@ -47,9 +55,10 @@ interface SheetPreparedRank {
   readonly slots: readonly SheetPreparedSlot[];
 }
 
-/** A prepared entry's slots, rank by rank, then its pools', rank by rank. */
+/** A prepared entry's slots, rank by rank, then its pools', rank by rank; or a spontaneous entry's repertoire. */
 export interface SheetPreparedEntry {
   readonly key: Slug;
+  readonly preparation: PickedPreparation;
   readonly tradition: MagicTradition;
   readonly ranks: readonly SheetPreparedRank[];
 }
@@ -61,16 +70,38 @@ interface NamedSlot {
   readonly pool: string | undefined;
 }
 
-/** "Cantrip 2", "3rd rank slot 1", "Divine Font 4th rank slot 1": each picker named on its own. */
+/**
+ * "Cantrip 2", "3rd rank slot 1", "Divine Font 4th rank slot 1", a repertoire's "3rd rank spell 1": each picker named
+ * on its own.
+ */
 function slotLabel({ slot, pool }: NamedSlot, place: number): MessageDescriptor {
   if (pool !== undefined) {
     return slot.rank === SlotRank.Cantrip
       ? message('character.sheet.prepared.poolCantripSlot', { pool, number: place })
       : message('character.sheet.prepared.poolRankSlot', { pool, rank: slot.rank, number: place });
   }
-  return slot.rank === SlotRank.Cantrip
-    ? message('character.sheet.prepared.cantripSlot', { number: place })
+  if (slot.rank === SlotRank.Cantrip) {
+    return message('character.sheet.prepared.cantripSlot', { number: place });
+  }
+  return slot.preparation === SpellPreparation.Spontaneous
+    ? message('character.sheet.repertoire.rankSpell', { rank: slot.rank, number: place })
     : message('character.sheet.prepared.rankSlot', { rank: slot.rank, number: place });
+}
+
+/** "3rd rank signature spell". */
+function signatureLabel(slot: SignatureSlot): MessageDescriptor {
+  return message('character.sheet.repertoire.signature', { rank: slot.rank });
+}
+
+/** Where a signature spell is cast: "Cast at any rank from 1st to 4th", or "Cast at 4th rank" when only one. */
+function signatureNote(slot: SignatureSlot | undefined): MessageDescriptor | undefined {
+  const [low, high] = [slot?.castRanks.at(0), slot?.castRanks.at(-1)];
+  if (slot?.pick === undefined || low === undefined || high === undefined) {
+    return undefined;
+  }
+  return low === high
+    ? message('character.sheet.repertoire.signatureCastAt', { spell: slot.pick.name, rank: low })
+    : message('character.sheet.repertoire.signatureCastFrom', { spell: slot.pick.name, low, high });
 }
 
 /** "Cantrips, cast at 3rd rank", "3rd rank", "Divine Font, 4th rank". */
@@ -106,10 +137,19 @@ function reasonOf(slots: readonly CharacterSlot[], key: SlotKey): MessageDescrip
   return read?.status === SlotStatus.Invalid ? read.reason : undefined;
 }
 
+/** The signature slot of the rank `named` is in, if its entry has one there: never a cantrip's or a pool's. */
+function signatureIn(signatures: readonly SignatureSlot[], { slot }: NamedSlot): SignatureSlot | undefined {
+  return slot.pool === undefined
+    ? signatures.find((each) => each.entry === slot.entry && each.rank === slot.rank)
+    : undefined;
+}
+
 /**
  * Each prepared entry's slots at the character's level (#478), rank by rank, cantrips first, then each of its pools'
- * (#581) the same way, under the name of the entry that gave the pool: every slot with the spells it offers and, when
- * its pick is invalid, the reason the server read. A registry without spells offers none.
+ * (#581) the same way, under the name of the entry that gave the pool; and each spontaneous entry's repertoire the same
+ * way, each rank's signature spell after its spells (#479), with the ranks it is cast at as the rank's note. Every slot
+ * comes with the spells it offers and, when its pick is invalid, the reason the server read. A registry without spells
+ * offers none.
  */
 export function sheetPreparedSlots(
   registry: ContentRegistry,
@@ -124,19 +164,35 @@ export function sheetPreparedSlots(
     storedName: named.slot.stored === undefined ? undefined : content.spells.spell(named.slot.stored)?.name,
     reason: reasonOf(slots, named.slot.key),
   });
-  const all = preparedSlots(character.document, preparedReads(character.document, content)).map((slot): NamedSlot => ({
+  const signatureSlot = (signature: SignatureSlot): SheetPreparedSlot => ({
+    key: signature.key,
+    label: signatureLabel(signature),
+    options: signature.options.map((spell) => optionOf(spell)),
+    storedName: signature.stored === undefined ? undefined : content.spells.spell(signature.stored)?.name,
+    reason: reasonOf(slots, signature.key),
+  });
+  const reads = preparedReads(character.document, content);
+  const signatures = signatureSlots(character.document, reads);
+  const all = preparedSlots(character.document, reads).map((slot): NamedSlot => ({
     slot,
     pool: slot.pool === undefined ? undefined : (content.lookup.entry(slot.pool.origin.entry)?.name ?? slot.pool.slug),
   }));
   return runs(all, ({ slot }) => slot.entry).map(([first, entrySlots]) => ({
     key: first.slot.entry,
+    preparation: first.slot.preparation,
     tradition: first.slot.tradition,
-    ranks: runs(entrySlots, rankKey).map(([rankFirst, rankSlots]) => ({
-      key: rankKey(rankFirst),
-      heading: rankHeading(rankFirst),
-      note: rankNote(rankFirst),
-      slots: rankSlots.map((slot, index) => sheetSlot(slot, index)),
-    })),
+    ranks: runs(entrySlots, rankKey).map(([rankFirst, rankSlots]) => {
+      const signature = signatureIn(signatures, rankFirst);
+      return {
+        key: rankKey(rankFirst),
+        heading: rankHeading(rankFirst),
+        note: rankNote(rankFirst) ?? signatureNote(signature),
+        slots: [
+          ...rankSlots.map((slot, index) => sheetSlot(slot, index)),
+          ...(signature === undefined ? [] : [signatureSlot(signature)]),
+        ],
+      };
+    }),
   }));
 }
 

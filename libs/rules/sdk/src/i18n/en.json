@@ -640,7 +640,8 @@
         "skillTrainingNumbered": "Level {level} trained skill {number}",
         "language": "Level {level} language",
         "languageFrom": "Language from {entry}",
-        "preparedSpell": "Prepared spell"
+        "preparedSpell": "Prepared spell",
+        "signatureSpell": "Signature spell"
       },
       "invalid": {
         "notOffered": "This choice no longer offers that option, so it counts for nothing. Choose another.",

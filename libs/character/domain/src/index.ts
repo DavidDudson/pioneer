@@ -39,6 +39,7 @@ export { characterSpellcasting } from './spellcasting-build';
 export {
   cantripRank,
   isSpellSlotKey,
+  type PickedPreparation,
   type PreparedRank,
   type PreparedPool,
   type PreparedSlot,
