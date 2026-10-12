@@ -5,6 +5,7 @@ import {
   boostSets,
   BoostSource,
   characterGrants,
+  characterTraits,
   CLASS_SLOT,
   classContent,
   DEITY_SLOT,
@@ -17,11 +18,13 @@ import {
 } from '@pioneer/character/domain';
 import type { Character, CharacterSlot } from '@pioneer/character/domain';
 import type { SelectOption } from '@pioneer/frontier';
-import { ChoiceValue } from '@pioneer/rules/sdk';
+import { ChoiceValue, ContentKind, slugName, Trait } from '@pioneer/rules/sdk';
 import type { Attribute, ContentRegistry, SlotKey } from '@pioneer/rules/sdk';
 import { BuildPart } from '@pioneer/rules/ui';
 import type { BuildLine, BuildValue, ClassFeatureLine } from '@pioneer/rules/ui';
 import * as z from 'zod';
+
+import { sheetSlotContent } from './sheet-slot-content';
 
 /** An empty pick in one of the character's own slots, as the select's placeholder reads it. */
 export const NOT_CHOSEN = '';
@@ -49,9 +52,37 @@ function size(registry: ContentRegistry, character: Character): BuildValue | und
   return ancestry === undefined ? undefined : { size: ancestry.definition.size };
 }
 
+/** Trait names already read, by registry: a registry's packs never change once loaded. */
+const TRAIT_NAMES = new WeakMap<ContentRegistry, ReadonlyMap<Trait, string>>();
+
+/** Each trait's name, by its entry in the trait vocabulary; the last pack's wins, as in the registry. */
+function traitNames(registry: ContentRegistry): ReadonlyMap<Trait, string> {
+  const read =
+    TRAIT_NAMES.get(registry) ??
+    new Map(
+      registry.packs
+        .flatMap((pack) => pack.otherEntries)
+        .flatMap((entry): [Trait, string][] =>
+          entry.kind === ContentKind.Trait ? [[Trait.parse(slugName(entry.slug)), entry.name]] : [],
+        ),
+    );
+  TRAIT_NAMES.set(registry, read);
+  return read;
+}
+
+/**
+ * The character's traits by name (#598): its ancestry's, and those its features add or remove. A trait the vocabulary
+ * doesn't name shows as itself. None while it has none, as before an ancestry is picked.
+ */
+function traits(registry: ContentRegistry, character: Character): BuildValue | undefined {
+  const names = traitNames(registry);
+  const own = characterTraits(characterGrants(character.document, sheetSlotContent(registry)));
+  return own.length === 0 ? undefined : { traits: own.map((trait) => names.get(trait) ?? trait) };
+}
+
 /**
  * What the character is, for the build summary: its class, subclass, ancestry, heritage and background by the names the
- * server read for their slots, its deity likewise, its key attribute and its ancestry's size.
+ * server read for their slots, its deity likewise, its key attribute, its ancestry's size and its traits.
  */
 export function sheetBuildSummary(
   registry: ContentRegistry,
@@ -68,6 +99,7 @@ export function sheetBuildSummary(
     { part: BuildPart.Deity, value: picked(slots, DEITY_SLOT) },
     { part: BuildPart.KeyAttribute, value: keyAttribute(registry, character) },
     { part: BuildPart.Size, value: size(registry, character) },
+    { part: BuildPart.Traits, value: traits(registry, character) },
   ];
 }
 

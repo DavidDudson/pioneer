@@ -3,6 +3,7 @@ import type { MessageDescriptor } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { RulesMessage } from './messages';
+import { ActorTraitsElement } from './rule-element-actor-traits';
 import { RuleElementKey } from './rule-element-base';
 import { ImmunityElement, ResistanceElement, WeaknessElement } from './rule-element-defences';
 import { ItemAlterationElement } from './rule-element-item-alteration';
@@ -49,6 +50,7 @@ const Element = z.discriminatedUnion('key', [
   PoolSpellsElement,
   DeitySpellsElement,
   LanguageElement,
+  ActorTraitsElement,
 ]);
 
 /** Names the `key` when the value is an object whose `key` is a string Pioneer does not know. */

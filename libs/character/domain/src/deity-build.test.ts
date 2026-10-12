@@ -8,6 +8,7 @@ import type { SheetDeity } from './character-deity';
 import { SlotStatus } from './character-slot';
 import { characterSlots } from './character-slot-status';
 import { DEITY_SLOT } from './character-slots';
+import { characterTraits } from './character-traits';
 import { buildRanks, characterGrants } from './class-build';
 import { deityContent } from './deity-content';
 import { favoredWeapons } from './favored-weapons';
@@ -173,5 +174,18 @@ describe("a cleric's favoured weapon", () => {
     const { document } = level1('fighter', SARENRAE).build();
     expect(buildRanks(document, content).get(favored)).toBeUndefined();
     expect([...favoredWeapons(characterGrants(document, content))].map(String)).toEqual(['scimitar']);
+  });
+});
+
+/** A human cleric of Sarenrae's traits, with `sanctification` picked. */
+function sanctifiedTraits(sanctification: string): readonly string[] {
+  const builder = level1('cleric', SARENRAE).picking(slotKey(SARENRAE, 'sanctification'), sanctification);
+  return characterTraits(characterGrants(builder.build().document, content)).map(String);
+}
+
+describe("a cleric's sanctification", () => {
+  test("picked holy, adds the holy trait to the ancestry's; none adds none", () => {
+    expect(sanctifiedTraits('holy')).toEqual(['holy', 'human', 'humanoid']);
+    expect(sanctifiedTraits('none')).toEqual(['human', 'humanoid']);
   });
 });

@@ -15,15 +15,15 @@ async function render(lines: readonly BuildLine[] | undefined): Promise<Componen
   return fixture;
 }
 
-/** Each part as its label and value. */
+/** Each part as its label and value, or its label and each trait. */
 function parts(host: HTMLElement): string[][] {
   return [...host.querySelectorAll('fr-description-item')].map((item) =>
-    [...item.querySelectorAll('[role="term"], fr-text')].map((part) => part.textContent.trim()),
+    [...item.querySelectorAll('[role="term"], fr-text, fr-badge')].map((part) => part.textContent.trim()),
   );
 }
 
 describe(BuildSummaryView, () => {
-  it('names each part, with an attribute and a size by their names', async () => {
+  it('names each part, with an attribute and a size by their names and each trait apart', async () => {
     const fixture = await render(FIGHTER_BUILD);
     const host = fixture.nativeElement as HTMLElement;
     expect(parts(host)).toStrictEqual([
@@ -35,6 +35,7 @@ describe(BuildSummaryView, () => {
       ['Deity', 'Iomedae'],
       ['Key attribute', 'Dexterity'],
       ['Size', 'Medium'],
+      ['Traits', 'Elf', 'Humanoid'],
     ]);
   });
 
@@ -50,6 +51,7 @@ describe(BuildSummaryView, () => {
       'Pick a deity',
       'Pick a class and its key attribute',
       'Medium',
+      'Dwarf',
     ]);
   });
 

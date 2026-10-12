@@ -218,6 +218,11 @@ const poolSpells = element('PoolSpells', {
 
 const deitySpells = element('DeitySpells', { entry: slugText });
 
+const actorTraits = oneof(
+  element('ActorTraits', { add: uniqueArray(slugText, { minLength: 1, maxLength: LIST_MAX }) }),
+  element('ActorTraits', { remove: uniqueArray(slugText, { minLength: 1, maxLength: LIST_MAX }) }),
+);
+
 const languageAccess = constantFrom('common', 'uncommon', 'rare');
 const grantedLanguages = uniqueArray(uuid(), { minLength: 1, maxLength: LIST_MAX });
 const languageSlots = integer({ min: 1, max: LIST_MAX });
@@ -257,4 +262,5 @@ export const ruleElementJson: Arbitrary<object> = oneof(
   poolSpells,
   deitySpells,
   language,
+  actorTraits,
 );

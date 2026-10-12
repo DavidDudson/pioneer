@@ -1,10 +1,17 @@
 import { HttpTestingController } from '@angular/common/http/testing';
 import { ApplicationRef } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
+import { playerCoreClassId } from '@pioneer/character/domain/testing';
+import { contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { HUMAN, id, MERISIEL, openSheet, patchedOf, pickAncestry, present } from '../../testing/sheet-page-harness';
+
+/** Sarenrae, who can be holy. */
+const SARENRAE = contentId(PackId.parse('divine-mysteries'), EntrySlug.parse('deity:sarenrae'));
+/** Player Core's Deity (Cleric), whose sanctification `ChoiceSet` is its first rule. */
+const SANCTIFICATION_SLOT = '1fa11812-c31f-5034-804b-3b86660f2193:0';
 
 /** The label of the inline field holding focus. */
 function focusedField(): string | undefined {
@@ -36,7 +43,19 @@ describe('CharacterSheetPage build', () => {
         ['Deity', 'Pick a deity'],
         ['Key attribute', 'Pick a class and its key attribute'],
         ['Size', 'Medium'],
+        ['Traits', 'ElfHumanoid'],
       ]);
+    });
+  });
+
+  it("names a holy cleric's traits, the ancestry's and the holy trait its sanctification gives", async () => {
+    const choices = { class: playerCoreClassId('cleric'), deity: SARENRAE, [SANCTIFICATION_SLOT]: 'holy' };
+    const { root } = await openSheet({ ...MERISIEL, build: { choices: { ...MERISIEL.build.choices, ...choices } } });
+    const build = present(root.querySelector('section[aria-labelledby="sheet-build"]'));
+
+    await vi.waitFor(() => {
+      const badges = [...build.querySelectorAll('fr-description-item:last-of-type fr-badge')];
+      expect(badges.map((badge) => badge.textContent.trim())).toStrictEqual(['Elf', 'Holy', 'Humanoid']);
     });
   });
 

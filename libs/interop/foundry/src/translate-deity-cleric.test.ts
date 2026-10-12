@@ -47,3 +47,12 @@ describe('translateKindData: the favoured weapon rank', () => {
     expect(untranslatedKeys(formula)).toEqual(['ActiveEffectLike']);
   });
 });
+
+describe('translateKindData: actor traits', () => {
+  test("Deity (Cleric) gives the holy or unholy trait by the cleric's sanctification", () => {
+    expect(keyed(RuleElementKey.ActorTraits, 'deity-cleric', DEITY_CLERIC)).toEqual([
+      { key: RuleElementKey.ActorTraits, add: ['holy'], predicate: ['sanctification:holy'] },
+      { key: RuleElementKey.ActorTraits, add: ['unholy'], predicate: ['sanctification:unholy'] },
+    ]);
+  });
+});

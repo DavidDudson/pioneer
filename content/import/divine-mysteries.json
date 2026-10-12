@@ -4651,14 +4651,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "ActorTraits",
-          "raw": {
-            "add": ["celestial"],
-            "key": "ActorTraits"
-          }
-        },
-        {
-          "type": "rule",
           "key": "BaseSpeed",
           "raw": {
             "key": "BaseSpeed",
@@ -5006,14 +4998,6 @@
       "slug": "feat:fiendish-form",
       "foundry": "Compendium.pf2e.feats-srd.Item.CYSH4aFmzH9PM3sm",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ActorTraits",
-          "raw": {
-            "add": ["fiend"],
-            "key": "ActorTraits"
-          }
-        },
         {
           "type": "rule",
           "key": "BaseSpeed",
@@ -5518,24 +5502,6 @@
             "prompt": "PF2E.SpecificRule.Prompt.Sanctification",
             "rollOption": "sanctification",
             "slug": "sanctification"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ActorTraits",
-          "raw": {
-            "add": ["holy"],
-            "key": "ActorTraits",
-            "predicate": ["sanctification:holy"]
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ActorTraits",
-          "raw": {
-            "add": ["unholy"],
-            "key": "ActorTraits",
-            "predicate": ["sanctification:unholy"]
           }
         },
         {

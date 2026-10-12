@@ -277,6 +277,7 @@ export {
 export { DefenceValue, ImmunityElement, ResistanceElement, WeaknessElement } from './rule-element-defences';
 export { SenseElement } from './rule-element-sense';
 export { LanguageAccess, LanguageCount, LanguageElement } from './rule-element-language';
+export { ActorTraitsElement } from './rule-element-actor-traits';
 export {
   DeitySpellsElement,
   PoolSpellsElement,

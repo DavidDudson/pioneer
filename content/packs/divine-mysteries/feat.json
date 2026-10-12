@@ -317,6 +317,10 @@
       {
         "key": "Sense",
         "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+      },
+      {
+        "key": "ActorTraits",
+        "add": ["celestial"]
       }
     ],
     "externalIds": {
@@ -2525,7 +2529,12 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ActorTraits",
+        "add": ["fiend"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.CYSH4aFmzH9PM3sm"
     },
@@ -5228,7 +5237,18 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ActorTraits",
+        "add": ["holy"],
+        "predicate": ["sanctification:holy"]
+      },
+      {
+        "key": "ActorTraits",
+        "add": ["unholy"],
+        "predicate": ["sanctification:unholy"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.XmvIQ4iJ2euOgLYb"
     },

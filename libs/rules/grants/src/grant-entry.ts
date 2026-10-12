@@ -8,6 +8,7 @@ import type {
   RuleElement,
   Slug,
   SourceRef,
+  Trait,
 } from '@pioneer/rules/sdk';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
@@ -49,6 +50,8 @@ export interface GrantEntry {
    * `deity:primary:favored-weapon:dagger`. Absent for any other kind.
    */
   readonly characterOptions?: readonly RollOption[];
+  /** The traits an ancestry gives the character it is on (`human`, `humanoid`); absent for any other kind. */
+  readonly actorTraits?: readonly Trait[];
   /** A deity's spells for its clerics, at the rank each is granted at, which a `DeitySpells` element reads. */
   readonly deitySpells?: readonly DeitySpell[];
 }

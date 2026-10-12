@@ -11,11 +11,16 @@ export const BuildPart = {
   Deity: 'deity',
   KeyAttribute: 'keyAttribute',
   Size: 'size',
+  Traits: 'traits',
 } as const;
 export type BuildPart = ValueOf<typeof BuildPart>;
 
-/** A part's value: content by its name, an attribute, or a size. */
-export type BuildValue = { readonly name: string } | { readonly attribute: Attribute } | { readonly size: Size };
+/** A part's value: content by its name, an attribute, a size, or traits by their names. */
+export type BuildValue =
+  | { readonly name: string }
+  | { readonly attribute: Attribute }
+  | { readonly size: Size }
+  | { readonly traits: readonly string[] };
 
 /** One part of the build as the summary shows it; an undefined value says what to pick. */
 export interface BuildLine {

@@ -39,14 +39,6 @@
             "selector": "swim",
             "value": 25
           }
-        },
-        {
-          "type": "rule",
-          "key": "ActorTraits",
-          "raw": {
-            "add": ["amphibious"],
-            "key": "ActorTraits"
-          }
         }
       ]
     },
@@ -171,22 +163,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "action:construct",
-      "foundry": "Compendium.pf2e.familiar-abilities.Item.5eqcXtPsYunphMOZ",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ActorTraits",
-          "raw": {
-            "add": ["construct"],
-            "key": "ActorTraits"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "action:cover-tracks",
       "foundry": "Compendium.pf2e.actionspf2e.Item.SB7cMECVtE06kByk",
       "gaps": [
@@ -264,22 +240,6 @@
         {
           "type": "enricher",
           "enricher": "[[/act]]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "action:dragon",
-      "foundry": "Compendium.pf2e.familiar-abilities.Item.embGS7NjgydDw8KO",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ActorTraits",
-          "raw": {
-            "add": ["dragon"],
-            "key": "ActorTraits"
-          }
         }
       ]
     },
@@ -365,22 +325,6 @@
             "key": "BaseSpeed",
             "selector": "fly",
             "value": 25
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "action:fungus",
-      "foundry": "Compendium.pf2e.familiar-abilities.Item.jew52aXGdNyR4N5B",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ActorTraits",
-          "raw": {
-            "add": ["fungus"],
-            "key": "ActorTraits"
           }
         }
       ]
@@ -512,22 +456,6 @@
         {
           "type": "markup",
           "markup": "h2[class]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "action:plant",
-      "foundry": "Compendium.pf2e.familiar-abilities.Item.lLWkoGiNLNIEm5Sp",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ActorTraits",
-          "raw": {
-            "add": ["plant"],
-            "key": "ActorTraits"
-          }
         }
       ]
     },
@@ -1676,24 +1604,6 @@
       "slug": "class-feature:deity-cleric",
       "foundry": "Compendium.pf2e.classfeatures.Item.DutW12WMFPHBoLTH",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ActorTraits",
-          "raw": {
-            "add": ["holy"],
-            "key": "ActorTraits",
-            "predicate": ["sanctification:holy"]
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ActorTraits",
-          "raw": {
-            "add": ["unholy"],
-            "key": "ActorTraits",
-            "predicate": ["sanctification:unholy"]
-          }
-        },
         {
           "type": "rule",
           "key": "Strike",
@@ -16869,15 +16779,6 @@
             },
             "resizeEquipment": true,
             "value": "{item|flags.system.rulesSelections.humanoidForm}"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ActorTraits",
-          "raw": {
-            "add": ["humanoid"],
-            "key": "ActorTraits",
-            "remove": []
           }
         },
         {
@@ -35000,23 +34901,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:verdant-metamorphosis",
-      "foundry": "Compendium.pf2e.feats-srd.Item.orjVLLoziFTmf1mz",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ActorTraits",
-          "raw": {
-            "add": ["plant"],
-            "key": "ActorTraits",
-            "remove": ["animal", "beast", "humanoid", "construct"]
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:verdant-weapon",
       "foundry": "Compendium.pf2e.feats-srd.Item.qPFWEyihvbWsCcUv",
       "gaps": [
@@ -35851,14 +35735,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "ActorTraits",
-          "raw": {
-            "add": ["elf"],
-            "key": "ActorTraits"
-          }
-        },
-        {
-          "type": "rule",
           "key": "ActiveEffectLike",
           "raw": {
             "key": "ActiveEffectLike",
@@ -36113,14 +35989,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "ActorTraits",
-          "raw": {
-            "add": ["orc"],
-            "key": "ActorTraits"
-          }
-        },
-        {
-          "type": "rule",
           "key": "ActiveEffectLike",
           "raw": {
             "key": "ActiveEffectLike",
@@ -36154,22 +36022,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "heritage:fey-touched-gnome",
-      "foundry": "Compendium.pf2e.heritages.Item.D3hTAqgwSank8OyO",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ActorTraits",
-          "raw": {
-            "add": ["fey"],
-            "key": "ActorTraits"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "heritage:forge-dwarf",
       "foundry": "Compendium.pf2e.heritages.Item.5CqsBKCZuGON53Hk",
       "gaps": [
@@ -36180,23 +36032,6 @@
             "key": "Resistance",
             "type": "fire",
             "value": "max(1,floor(@actor.level/2))"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "heritage:fungus-leshy",
-      "foundry": "Compendium.pf2e.heritages.Item.87h0jepQuzIbN7jN",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ActorTraits",
-          "raw": {
-            "add": ["fungus"],
-            "key": "ActorTraits",
-            "remove": ["plant"]
           }
         }
       ]

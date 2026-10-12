@@ -93,6 +93,7 @@ function ancestryEntry(pack: ContentPack, ancestry: PackAncestry): GrantEntry | 
     rules: ancestry.rules ?? [],
     sources: [source, ...sources],
     rollOptions: traitOptions(ancestry.traits),
+    actorTraits: ancestry.traits,
   };
 }
 

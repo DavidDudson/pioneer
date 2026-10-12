@@ -31,6 +31,7 @@ export const RuleElementKey = {
   PoolSpells: 'PoolSpells',
   DeitySpells: 'DeitySpells',
   Language: 'Language',
+  ActorTraits: 'ActorTraits',
 } as const;
 export type RuleElementKey = ValueOf<typeof RuleElementKey>;
 

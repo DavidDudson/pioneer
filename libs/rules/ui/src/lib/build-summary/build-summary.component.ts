@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, input, output } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { Button, DescriptionItem, DescriptionList, Skeleton, Stack, Text, Tone } from '@pioneer/frontier';
+import { Badge, Button, DescriptionItem, DescriptionList, Skeleton, Stack, Text, Tone } from '@pioneer/frontier';
 
 import { ATTRIBUTE_MESSAGES } from '../attributes/attributes-messages';
 import { BuildPart } from './build-line';
@@ -17,6 +17,8 @@ interface ShownPart {
   readonly part: BuildPart;
   readonly labelKey: string;
   readonly name: string | undefined;
+  /** Traits by name, each its own badge; empty for any other part. */
+  readonly traits: readonly string[];
   readonly valueKey: string | undefined;
   /** Muted for an empty part, so what to pick reads apart from what is picked. */
   readonly tone: Tone;
@@ -33,19 +35,21 @@ function valueKey(value: BuildValue): string | undefined {
 function shown({ part, value }: BuildLine): ShownPart {
   const labelKey = BUILD_PART_MESSAGES[part];
   if (value === undefined) {
-    return { part, labelKey, name: undefined, valueKey: BUILD_EMPTY_MESSAGES[part], tone: Tone.Muted };
+    return { part, labelKey, name: undefined, traits: [], valueKey: BUILD_EMPTY_MESSAGES[part], tone: Tone.Muted };
   }
   return {
     part,
     labelKey,
     name: 'name' in value ? value.name : undefined,
+    traits: 'traits' in value ? value.traits : [],
     valueKey: valueKey(value),
     tone: Tone.Default,
   };
 }
 
 /**
- * What the character is at a glance: class, subclass, ancestry, heritage, background, deity, key attribute and size.
+ * What the character is at a glance: class, subclass, ancestry, heritage, background, deity, key attribute, size and
+ * traits.
  * An empty part says what to pick, and Edit build goes to where they are picked.
  *
  * Read-only and presentational (ADR-0028): the caller names each part, or passes undefined while the character loads.
@@ -56,7 +60,7 @@ function shown({ part, value }: BuildLine): ShownPart {
  */
 @Component({
   selector: 'pio-build-summary',
-  imports: [Button, DescriptionItem, DescriptionList, Skeleton, Stack, Text, TranslocoPipe],
+  imports: [Badge, Button, DescriptionItem, DescriptionList, Skeleton, Stack, Text, TranslocoPipe],
   templateUrl: './build-summary.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

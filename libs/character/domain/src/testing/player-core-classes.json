@@ -2424,6 +2424,16 @@
         "key": "DeitySpells",
         "entry": "cleric",
         "predicate": ["class:cleric"]
+      },
+      {
+        "key": "ActorTraits",
+        "add": ["holy"],
+        "predicate": ["sanctification:holy"]
+      },
+      {
+        "key": "ActorTraits",
+        "add": ["unholy"],
+        "predicate": ["sanctification:unholy"]
       }
     ],
     "externalIds": {

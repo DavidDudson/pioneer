@@ -50864,6 +50864,11 @@
       {
         "key": "GrantItem",
         "item": "4e95c086-8fef-5a7e-a736-799e580398bd"
+      },
+      {
+        "key": "ActorTraits",
+        "add": ["plant"],
+        "remove": ["animal", "beast", "humanoid", "construct"]
       }
     ],
     "externalIds": {
