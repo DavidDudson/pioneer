@@ -4,6 +4,7 @@ import * as z from 'zod';
 import { ActionData, Skills, Uses } from './action';
 import { AttributeBoost } from './attribute';
 import { ContentId, Slug } from './content-id';
+import { Predicate } from './predicate';
 import { RichText } from './rich-text';
 import { uniqueItems } from './unique-items';
 
@@ -31,6 +32,12 @@ export const FeatData = z.strictObject({
   category: FeatCategorySchema,
   /** As printed ("trained in Athletics; Shield Block"). */
   prerequisites: RichText.optional(),
+  /**
+   * The prerequisites as a predicate over the character's roll options (`feat:shield-block`,
+   * `{ "gte": ["skill:athletics:rank", 1] }`), where their text parses; absent where it doesn't, so they read as
+   * unknown, never as met (ADR-0002).
+   */
+  prerequisitePredicate: Predicate.optional(),
   /** It can only be taken at 1st level (an ancestry's lineage feats). */
   onlyLevel1: z.boolean().optional(),
   /** How many times a character can take it, or `unlimited` (Additional Lore); absent for once, as in Foundry. */
