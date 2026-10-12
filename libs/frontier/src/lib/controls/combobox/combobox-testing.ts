@@ -3,8 +3,8 @@ import type { ComponentFixture } from '@angular/core/testing';
 import { vi } from 'vitest';
 
 import { provideFrontierI18nTesting } from '../../testing/provide-frontier-i18n-testing';
-import type { SelectOption } from '../select/select.component';
 import { Combobox } from './combobox.component';
+import type { ComboboxOption } from './combobox.component';
 
 /* Shared by the combobox specs. */
 
@@ -12,7 +12,7 @@ const VIEWPORT_PX = 220;
 const ROW_PX = 44;
 export const LONG_LIST = 500;
 
-export const FEATS: readonly SelectOption<string>[] = [
+export const FEATS: readonly ComboboxOption<string>[] = [
   { value: 'power-attack', label: 'Power Attack' },
   { value: 'sudden-charge', label: 'Sudden Charge' },
   { value: 'reactive-shield', label: 'Reactive Shield' },
@@ -26,7 +26,7 @@ export function stubLayout(): void {
   );
 }
 
-export function longList(): readonly SelectOption<string>[] {
+export function longList(): readonly ComboboxOption<string>[] {
   return Array.from({ length: LONG_LIST }, (_entry, index) => ({
     value: `feat-${index}`,
     label: `Feat ${index + 1}`,
@@ -64,7 +64,7 @@ function recordOutputs(combobox: Combobox<string>): Outputs {
   return { searches, commits: (): number => commits, cancels: (): number => cancels };
 }
 
-export function render(options: readonly SelectOption<string>[] = FEATS, value?: string): Rendered {
+export function render(options: readonly ComboboxOption<string>[] = FEATS, value?: string): Rendered {
   TestBed.configureTestingModule({ providers: [...provideFrontierI18nTesting()] });
   const fixture = TestBed.createComponent(Combobox<string>);
   fixture.componentRef.setInput('ariaLabel', 'Feat');

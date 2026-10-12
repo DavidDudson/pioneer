@@ -83,6 +83,21 @@ describe(Combobox, () => {
     expect(rendered.commits()).toBe(1);
   });
 
+  it('shows a description under an option, and keeps a disabled one from being picked', async () => {
+    const rendered = render([
+      { value: 'power-attack', label: 'Power Attack' },
+      { value: 'sudden-charge', label: 'Sudden Charge', description: 'Needs expert in Athletics', disabled: true },
+    ]);
+    await press(rendered, 'ArrowDown');
+    const [, blocked] = optionElements(rendered);
+    expect(blocked?.textContent).toContain('Needs expert in Athletics');
+    expect(blocked?.getAttribute('aria-disabled')).toBe('true');
+    blocked?.click();
+    await settle(rendered);
+    expect(rendered.fixture.componentInstance.value()).toBeUndefined();
+    expect(rendered.commits()).toBe(0);
+  });
+
   it('clears its text when a form resets the value to the empty string', async () => {
     const rendered = render();
     await press(rendered, 'ArrowDown');

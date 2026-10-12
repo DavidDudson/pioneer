@@ -49,12 +49,16 @@
             [class]="optionClasses"
             [value]="option.value"
             [label]="option.label"
+            [disabled]="option.disabled ?? false"
             [attr.data-index]="row.index"
             [attr.aria-setsize]="options().length"
             [attr.aria-posinset]="row.index + 1"
             [style.transform]="translate(row)"
           >
             {{ option.label }}
+            @if (option.description !== undefined) {
+              <span [class]="descriptionClasses">{{ option.description }}</span>
+            }
           </div>
         }
       }

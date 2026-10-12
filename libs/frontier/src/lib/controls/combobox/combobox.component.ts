@@ -26,9 +26,19 @@ import {
   comboboxInputClasses,
   comboboxListboxClasses,
   comboboxOptionClasses,
+  comboboxOptionDescriptionClasses,
   comboboxPopupClasses,
 } from './combobox.variants';
 import { injectOptionVirtualizer, optionOffset } from './option-virtualizer';
+
+/**
+ * A combobox option: a select option that may say more under its label (why it can't be picked, what it needs), and
+ * may be shown but not picked. A disabled option is still reached with the arrow keys, so its description is read out.
+ */
+export interface ComboboxOption<TValue extends string> extends SelectOption<TValue> {
+  readonly description?: string;
+  readonly disabled?: boolean;
+}
 
 interface Picked<TValue extends string> {
   readonly value: TValue | undefined;
@@ -59,7 +69,7 @@ export class Combobox<TValue extends string> extends Control {
   /** The picked value; `undefined` until the user picks. */
   public readonly value = model<TValue | undefined>(undefined);
   /** The matches for the last `searched` query. */
-  public readonly options = input.required<readonly SelectOption<TValue>[]>();
+  public readonly options = input.required<readonly ComboboxOption<TValue>[]>();
   /** Options are loading: the listbox shows skeleton rows. */
   public readonly loading = input(false, { transform: booleanAttribute });
   public readonly placeholder = input('');
@@ -116,6 +126,7 @@ export class Combobox<TValue extends string> extends Control {
   protected readonly popupClasses = comboboxPopupClasses;
   protected readonly listboxClasses = comboboxListboxClasses;
   protected readonly optionClasses = comboboxOptionClasses;
+  protected readonly descriptionClasses = comboboxOptionDescriptionClasses;
   protected readonly translate = optionOffset;
 
   protected readonly scroller = viewChild<ElementRef<HTMLElement>>('scroller');
@@ -207,7 +218,7 @@ export class Combobox<TValue extends string> extends Control {
     });
   }
 
-  protected optionAt(index: number): SelectOption<TValue> | undefined {
+  protected optionAt(index: number): ComboboxOption<TValue> | undefined {
     return this.options()[index];
   }
 

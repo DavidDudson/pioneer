@@ -87,6 +87,26 @@ export const AsyncSource: ComboboxStory = {
   },
 };
 
+/** Options that say more under their label; one is shown but can't be picked, saying why. */
+export const Described: ComboboxStory = {
+  args: {
+    options: [
+      { value: 'power-attack', label: 'Power Attack' },
+      {
+        value: 'sudden-charge',
+        label: 'Sudden Charge',
+        description: 'Prerequisites not met: expert in Athletics',
+        disabled: true,
+      },
+      {
+        value: 'reactive-shield',
+        label: 'Reactive Shield',
+        description: "Prerequisites can't be checked: an animal companion",
+      },
+    ],
+  },
+};
+
 export const Picked: ComboboxStory = { args: { value: 'feat-12' } };
 
 export const Loading: ComboboxStory = { args: { options: [], loading: true } };
