@@ -63,7 +63,7 @@ const heroism = spell('heroism', {
 const bless = spell('bless', {
   traditions: ['divine', 'occult'],
   area: { shape: 'emanation', size: 15 },
-  targets: { any: [{ count: 5, upTo: true, of: 'ally' }], includesYou: true },
+  targets: { any: [{ count: 'all', within: 'area', of: 'ally' }], you: 'and' },
   duration: { type: 'time', count: 1, unit: 'minute', sustained: true },
 });
 
@@ -119,6 +119,16 @@ describe('spell facets', () => {
   test('targets: one, several allies with the caster, or none', () => {
     expect(valuesOf(heroism)['targets']).toStrictEqual(['single']);
     expect(valuesOf(bless)['targets']).toStrictEqual(['self', 'multiple', 'allies']);
+  });
+
+  test('targets: the caster instead of another, or one target as well as another', () => {
+    const hymn = spell('hymn-of-healing', { targets: { any: [{ count: 1, of: 'ally' }], you: 'or' } });
+    const ward = spell('forbidding-ward', {
+      targets: { any: [{ count: 1, of: 'ally' }], plus: [{ count: 1, of: 'enemy' }] },
+    });
+
+    expect(valuesOf(hymn)['targets']).toStrictEqual(['self', 'single', 'allies']);
+    expect(valuesOf(ward)['targets']).toStrictEqual(['multiple', 'allies']);
   });
 
   test('an attack trait is the attack defence; no defence is none', () => {

@@ -22,8 +22,11 @@ import {
   SpellDurationType,
   SpellRangeType,
   SpellTimeUnit,
+  TargetCountWord,
   TargetKind,
   TargetQualifier,
+  TargetWithin,
+  TargetYou,
   TurnOwner,
 } from '../spell-casting';
 import { SPELL_RANK_MAX } from '../spell-rank';
@@ -40,6 +43,8 @@ const AREA_SHAPES_BUT_LINE = Object.values(AreaShape).filter((shape) => shape !=
 const areaShapeButLine: Arbitrary<string> = constantFrom(...AREA_SHAPES_BUT_LINE);
 const targetKind: Arbitrary<string> = constantFrom(...Object.values(TargetKind));
 const targetQualifiers: Arbitrary<string[]> = shuffledSubarray(Object.values(TargetQualifier));
+const targetWithin: Arbitrary<string> = constantFrom(...Object.values(TargetWithin));
+const targetYou: Arbitrary<string> = constantFrom(...Object.values(TargetYou));
 const TURN_ENDS = Object.values(SpellDurationEnd).filter((end) => end !== SpellDurationEnd.DailyPreparations);
 const turnEnd: Arbitrary<string> = constantFrom(...TURN_ENDS);
 const turnOwner: Arbitrary<string> = constantFrom(...Object.values(TurnOwner));
@@ -77,13 +82,18 @@ const area: Arbitrary<object> = oneof(
   withOptional(line, { width: smallint }),
 );
 
-const target: Arbitrary<object> = withOptional(record({ count: positive, of: targetKind }), {
-  upTo: boolean(),
-  qualifiers: targetQualifiers,
-  traits,
-});
-const anyTarget: Arbitrary<object> = record({ any: array(target, { minLength: 1, maxLength: LIST_MAX }) });
-const targets: Arbitrary<object> = withOptional(anyTarget, { includesYou: boolean() });
+const targetDetails = { qualifiers: targetQualifiers, traits, triggering: boolean() };
+/** A number of targets, maybe "up to" it; any number; or all of them, in the area or within range. */
+const target: Arbitrary<object> = oneof(
+  withOptional(record({ count: positive, of: targetKind }), { upTo: boolean(), ...targetDetails }),
+  withOptional(record({ count: constant(TargetCountWord.Any), of: targetKind }), targetDetails),
+  withOptional(
+    record({ count: constant(TargetCountWord.All), within: targetWithin, of: targetKind }),
+    targetDetails,
+  ),
+);
+const someTargets: Arbitrary<object[]> = array(target, { minLength: 1, maxLength: LIST_MAX });
+const targets: Arbitrary<object> = withOptional(record({ any: someTargets }), { plus: someTargets, you: targetYou });
 
 const timedDuration: Arbitrary<object> = record({ type: constant(SpellDurationType.Time), ...spellTime });
 const untilTurn: Arbitrary<object> = record({ type: constant(SpellDurationType.Until), until: turnEnd });
