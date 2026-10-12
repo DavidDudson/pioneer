@@ -4,7 +4,7 @@ import { CopperValue, Price } from '@pioneer/rules/sdk';
 
 import { CoinsSchema, ItemQuantity } from './inventory';
 import type { Coins } from './inventory';
-import { coinsOf, coinsValue, payCost, purchaseCost } from './purse';
+import { coinsOf, coinsValue, costCoins, payCost, purchaseCost } from './purse';
 
 function purse(coins: object): Coins {
   return CoinsSchema.parse(coins);
@@ -28,6 +28,12 @@ describe('coinsOf', () => {
   test('gives a value in the largest coins', () => {
     expect(coinsOf(CopperValue.parse(1234))).toStrictEqual(purse({ pp: 1, gp: 2, sp: 3, cp: 4 }));
     expect(coinsOf(CopperValue.parse(0))).toStrictEqual(purse({}));
+  });
+});
+
+describe('costCoins', () => {
+  test('writes a cost in gold, silver and copper, as prices are', () => {
+    expect(costCoins(CopperValue.parse(16_050))).toStrictEqual(purse({ gp: 160, sp: 5 }));
   });
 });
 

@@ -120,10 +120,12 @@
       "search": "Search items by name",
       "everything": "Show everything",
       "available": "Available to you: level {level} or lower, no unique items or artifacts.",
+      "buy": "Buy",
+      "buying": "Buying…",
+      "bought": "Bought",
       "gift": "Add without paying",
       "gifting": "Adding…",
-      "gifted": "Added",
-      "giftFailed": "The item could not be added. Try again."
+      "gifted": "Added"
     },
     "prepared": {
       "heading": "Prepared spells: {tradition}",

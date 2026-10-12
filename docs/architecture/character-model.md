@@ -328,6 +328,11 @@ Buying and gifts are inventory commands, so they work in every sync mode (invent
 
 - **Buy**: adds the item and pays its `price` times the quantity from `coins`, making change across copper,
   silver, gold and platinum. If the character can't afford it, the purchase is refused, never left in debt.
+  A batch price ("1 sp for 10") is shared over the batch and rounded up to the copper, and an item with no price
+  costs nothing. Payment uses exact coins, largest first, where the purse allows; otherwise it breaks the smallest
+  coin that covers what is still owed and gives the change in the largest coins. The shop shows the cost in gold,
+  silver and copper, as prices are written, beside the character's coins, and disables **Buy** with the reason when
+  they fall short.
 - **Add without paying**: the same picker, no coins move. For loot, a GM's reward or starting gear. The audit log
   records it as a gift, apart from a purchase.
 

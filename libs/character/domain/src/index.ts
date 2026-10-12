@@ -203,4 +203,4 @@ export {
   WholeBulk,
   wholeBulk,
 } from './bulk';
-export { coinsOf, coinsValue, payCost, purchaseCost } from './purse';
+export { costCoins, payCost, purchaseCost } from './purse';

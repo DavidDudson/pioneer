@@ -30,6 +30,13 @@ export function coinsOf(value: CopperValue): Coins {
   return coins;
 }
 
+/** `value` as prices are written: in gold, silver and copper, platinum counted as gold (1,600 gp, not 160 pp). */
+export function costCoins(value: CopperValue): Coins {
+  const coins = coinsOf(value);
+  const gold = coins[Coin.Gold] + (coins[Coin.Platinum] * COPPER_PER_COIN[Coin.Platinum]) / COPPER_PER_COIN[Coin.Gold];
+  return { ...coins, [Coin.Platinum]: NO_COINS[Coin.Platinum], [Coin.Gold]: CoinAmount.parse(gold) };
+}
+
 /**
  * What `quantity` items cost in copper. A batch's price ("1 sp for 10") is shared out over the batch and rounded up to
  * the copper, so 15 arrows cost 15 cp and one dart of a 1 cp batch of 10 costs 1 cp. An item with no price costs nothing.

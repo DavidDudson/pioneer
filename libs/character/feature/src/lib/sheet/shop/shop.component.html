@@ -26,7 +26,7 @@
           <pio-facet-filter [counts]="shown?.counts ?? []" [state]="state()" (stateChange)="filter($event)" />
           <pio-shop-offers [offers]="shown?.offers" [(picked)]="picked" />
           @for (item of pickedItems(); track item.id) {
-            <pio-shop-gift [content]="content" [item]="item" />
+            <pio-shop-order [content]="content" [item]="item" />
           }
         </fr-stack>
       }
