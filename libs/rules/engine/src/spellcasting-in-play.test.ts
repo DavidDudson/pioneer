@@ -249,4 +249,31 @@ describe('spellcastingInPlay slots', () => {
     expect(spellsOf(['divine-font:harm'])).toEqual([HARM]);
     expect(spellsOf([])).toEqual([]);
   });
+
+  test('a spontaneous entry a signature spells element names has signature spells, while the element holds', () => {
+    const bard = entry('bard', 'occult', { attribute: 'cha', preparation: 'spontaneous' });
+    const signatures = { key: 'SignatureSpells', entry: 'bard', predicate: ['feature:signature-spells'] };
+    const placed: (readonly [object, string])[] = [
+      [bard, 'bard-spellcasting'],
+      [signatures, 'signature-spells'],
+    ];
+    const signaturesOf = (options: readonly string[]): boolean | undefined =>
+      entriesOf(placed, options)[0]?.signatures;
+
+    expect(signaturesOf(['feature:signature-spells'])).toBe(true);
+    expect(signaturesOf([])).toBe(false);
+  });
+
+  test('a prepared entry, or one no signature spells element names, has none', () => {
+    const entries = entriesOf([
+      [entry('wizard', 'arcane'), 'wizard-spellcasting'],
+      [{ key: 'SignatureSpells', entry: 'wizard' }, 'wizard-spellcasting'],
+      [entry('bard', 'occult', { attribute: 'cha', preparation: 'spontaneous' }), 'bard-spellcasting'],
+    ]);
+
+    expect(entries.map(({ slug, signatures }) => [slug, signatures])).toStrictEqual([
+      ['bard', false],
+      ['wizard', false],
+    ]);
+  });
 });

@@ -16,7 +16,12 @@ import {
 } from './rule-element-numbers';
 import { MartialProficiencyElement, ProficiencyBonusElement, ProficiencyElement } from './rule-element-proficiency';
 import { SenseElement } from './rule-element-sense';
-import { PoolSpellsElement, SpellcastingEntryElement, SpellSlotsElement } from './rule-element-spellcasting';
+import {
+  PoolSpellsElement,
+  SignatureSpellsElement,
+  SpellcastingEntryElement,
+  SpellSlotsElement,
+} from './rule-element-spellcasting';
 import { ChoiceSetElement, GrantItemElement, RollOptionElement } from './rule-element-structure';
 
 const KNOWN_KEYS: ReadonlySet<unknown> = new Set(Object.values(RuleElementKey));
@@ -42,6 +47,7 @@ const Element = z.discriminatedUnion('key', [
   SenseElement,
   SpellSlotsElement,
   PoolSpellsElement,
+  SignatureSpellsElement,
   LanguageElement,
 ]);
 
