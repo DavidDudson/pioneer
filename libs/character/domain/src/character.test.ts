@@ -146,7 +146,10 @@ describe('Character inventory edits', () => {
 
   test('buys an item: adds it and pays its cost from the coins, with change, in one edit', () => {
     const rope = itemFixtureId(ItemFixture.Rope);
-    const flush = withBackpack().apply({ field: CharacterPatchField.SetCoins, coins: CoinsSchema.parse({ gp: 1 }) }, later);
+    const flush = withBackpack().apply(
+      { field: CharacterPatchField.SetCoins, coins: CoinsSchema.parse({ gp: 1 }) },
+      later,
+    );
     const bought = flush.apply({ field: CharacterPatchField.BuyItem, item: rope, quantity: one }, later, {
       newItemId: ropeId,
       cost: CopperValue.parse(5),

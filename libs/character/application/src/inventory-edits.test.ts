@@ -109,6 +109,47 @@ describe('CharacterService inventory edits', () => {
     expect(first).not.toBe(second);
   });
 
+  test('buys an item at its price times the quantity, with change, audited as buyItem', async () => {
+    await edit({ field: CharacterPatchField.SetCoins, coins: CoinsSchema.parse({ gp: 2 }) });
+    const sword = itemFixtureId(ItemFixture.Longsword);
+    await edit({ field: CharacterPatchField.BuyItem, item: sword, quantity: one });
+    const arrows = itemFixtureId(ItemFixture.Arrows);
+    await edit({ field: CharacterPatchField.BuyItem, item: arrows, quantity: ItemQuantity.parse(15) });
+
+    expect(character.document.inventory.items.map(({ item, quantity }) => ({ item, quantity }))).toStrictEqual([
+      { item: sword, quantity: one },
+      { item: arrows, quantity: ItemQuantity.parse(15) },
+    ]);
+    expect(character.document.inventory.coins).toStrictEqual(CoinsSchema.parse({ sp: 8, cp: 5 }));
+    expect(repository.audits.map(({ command }) => command).slice(-2)).toStrictEqual([
+      CharacterCommand.BuyItem,
+      CharacterCommand.BuyItem,
+    ]);
+  });
+
+  test('buys an item with no price for nothing', async () => {
+    await edit({ field: CharacterPatchField.BuyItem, item: itemFixtureId(ItemFixture.Diamond), quantity: one });
+    expect(character.document.inventory.items).toHaveLength(1);
+    expect(character.document.inventory.coins).toStrictEqual(CoinsSchema.parse({}));
+  });
+
+  test('refuses a purchase the coins are worth less than, and changes nothing', async () => {
+    await edit({ field: CharacterPatchField.SetCoins, coins: CoinsSchema.parse({ sp: 9, cp: 9 }) });
+    const before = character;
+    const sword = itemFixtureId(ItemFixture.Longsword);
+    expect(await refusal({ field: CharacterPatchField.BuyItem, item: sword, quantity: one })).toStrictEqual([
+      { path: ['patch', 'quantity'], message: { key: 'character.validation.cannotAfford' } },
+    ]);
+    expect(await service.get(amiri, character.id)).toStrictEqual(before);
+  });
+
+  test('refuses buying content no loaded pack has as an item', async () => {
+    const unknown = ContentId.parse(newId());
+    expect(await refusal({ field: CharacterPatchField.BuyItem, item: unknown, quantity: one })).toStrictEqual([
+      { path: ['patch', 'item'], message: { key: 'character.validation.unknownItem' } },
+    ]);
+  });
+
   test('refuses content no loaded pack has as an item', async () => {
     const unknown = ContentId.parse(newId());
     expect(await refusal({ field: CharacterPatchField.GiftItem, item: unknown, quantity: one })).toStrictEqual([

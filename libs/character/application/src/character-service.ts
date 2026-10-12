@@ -7,7 +7,10 @@ import {
   characterLanguages,
   characterSlots,
   InventoryItemId,
+  itemContent,
   PATCH_COMMANDS,
+  payCost,
+  purchaseCost,
   slotContent,
   slotRefusal,
   SPELL_ACCESS_MAX,
@@ -28,7 +31,7 @@ import type {
 } from '@pioneer/character/domain';
 import { characterImportReport, modifierDifferences, registryLookup } from '@pioneer/interop/pathbuilder';
 import type { BoostChoices, PathbuilderImportResponse } from '@pioneer/interop/pathbuilder';
-import type { AncestryId, ContentId, ContentSource } from '@pioneer/rules/sdk';
+import type { AncestryId, ContentId, ContentSource, CopperValue } from '@pioneer/rules/sdk';
 import { message, newId, NotFoundError, ValidationError, VersionConflictError } from '@pioneer/shared/kernel';
 import type { Clock, UserId, Version } from '@pioneer/shared/kernel';
 
@@ -150,8 +153,9 @@ export class CharacterService {
   ): Promise<PatchedCharacter> {
     const current = await this.get(actor, id);
     await this.#assertAllowed(current, expectedVersion, patch);
+    const cost = await this.#affordableCost(current, patch);
     const now = this.#clock.now();
-    const edited = current.apply(patch, now, InventoryItemId.parse(newId()));
+    const edited = current.apply(patch, now, { newItemId: InventoryItemId.parse(newId()), cost });
     const cleared = await this.#unfitPicks(current, edited, patch);
     let next = edited;
     for (const pick of cleared) {
@@ -179,6 +183,24 @@ export class CharacterService {
       await this.#assertSpellNeedsAccess(current, patch.spell);
     }
     await assertInventoryAllows(current, patch, this.#content);
+  }
+
+  /**
+   * What a purchase costs (`purchaseCost`), refused when the coins are worth less: a character is never left in debt.
+   * Undefined for any other edit. Runs after `assertInventoryAllows`, so the item is one a loaded pack has.
+   */
+  async #affordableCost(character: Character, patch: CharacterPatch): Promise<CopperValue | undefined> {
+    if (patch.field !== CharacterPatchField.BuyItem) {
+      return undefined;
+    }
+    const content = await this.#content.registry();
+    const cost = purchaseCost(itemContent(content).get(patch.item)?.data.price, patch.quantity);
+    if (payCost(character.document.inventory.coins, cost) === undefined) {
+      throw new ValidationError([
+        { path: ['patch', 'quantity'], message: message('character.validation.cannotAfford') },
+      ]);
+    }
+    return cost;
   }
 
   /** Refuses access to a spell no loaded pack has for a slot (a focus spell among them), a common one, or past the most. */

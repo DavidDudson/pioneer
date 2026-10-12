@@ -175,6 +175,33 @@ describe('character routes', () => {
     expect(stale.status).toBe(409);
   });
 
+  test('a purchase pays from the coins with change and bumps the version; unaffordable is a 422', async () => {
+    const api = app();
+    const { id } = await create(api, amiri, 'Kyra');
+    const rope = contentId(PackId.parse('player-core'), EntrySlug.parse('equipment:rope'));
+    const coins = { expectedVersion: 1, patch: { field: 'setCoins', coins: { gp: 1 } } };
+    expect((await api.handle(request('PATCH', `/characters/${id}`, { body: coins }))).status).toBe(200);
+    const buy = { expectedVersion: 2, patch: { field: 'buyItem', item: rope, quantity: 1 } };
+    const bought = await api.handle(request('PATCH', `/characters/${id}`, { body: buy }));
+    expect(bought.status).toBe(200);
+    const { character } = CharacterSheet.parse(await bought.json());
+    expect(character.version).toBe(Version.parse(3));
+    expect(character.document.inventory.items.map(({ item }) => String(item))).toStrictEqual([rope]);
+    expect(character.document.inventory.coins).toStrictEqual(CoinsSchema.parse({ sp: 5 }));
+
+    const stale = await api.handle(request('PATCH', `/characters/${id}`, { body: buy }));
+    expect(stale.status).toBe(409);
+
+    const tooMany = { expectedVersion: 3, patch: { field: 'buyItem', item: rope, quantity: 2 } };
+    const refused = await api.handle(request('PATCH', `/characters/${id}`, { body: tooMany }));
+    expect(refused.status).toBe(422);
+    expect(((await refused.json()) as Problem).issues).toStrictEqual([
+      { path: ['patch', 'quantity'], message: { key: 'character.validation.cannotAfford' } },
+    ]);
+    const got = await api.handle(request('GET', `/characters/${id}`));
+    expect(CharacterSheet.parse(await got.json()).character.version).toBe(Version.parse(3));
+  });
+
   test('an item held in three hands is a 422 on its carry', async () => {
     const api = app();
     const { id } = await create(api, amiri, 'Kyra');
@@ -235,6 +262,9 @@ describe('character routes across users', () => {
     const gift = { expectedVersion: 1, patch: { field: 'giftItem', item: rope, quantity: 1 } };
     const gifted = await api.handle(request('PATCH', `/characters/${theirs.id}`, { body: gift }));
     expect(gifted.status).toBe(404);
+    const buy = { expectedVersion: 1, patch: { field: 'buyItem', item: rope, quantity: 1 } };
+    const bought = await api.handle(request('PATCH', `/characters/${theirs.id}`, { body: buy }));
+    expect(bought.status).toBe(404);
 
     const listed = await api.handle(request('GET', '/characters'));
     const names = ((await listed.json()) as { name: string }[]).map((character) => character.name);
