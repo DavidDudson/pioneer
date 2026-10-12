@@ -54,6 +54,8 @@ export class AsyncButton {
   /** A square button holding only an icon; give it an `ariaLabel`. */
   public readonly iconOnly = input(false, { transform: booleanAttribute });
   public readonly ariaLabel = input<string | undefined>(undefined);
+  /** Id of text that explains the button, such as why it is disabled; its failure message is added while shown. */
+  public readonly describedBy = input<string | undefined>(undefined);
   public readonly pendingLabel = input<string | undefined>(undefined);
   public readonly successLabel = input<string | undefined>(undefined);
   /** Ask before acting: the label shown after the first press, which a second press confirms. */
@@ -76,6 +78,13 @@ export class AsyncButton {
     this.type() === ButtonType.Submit && this.#form !== undefined ? this.#form.submission : this.#own,
   );
   protected readonly errorId = uniqueId('fr-async-button-error');
+  /** The explanation given, and the failure message while it shows. */
+  protected readonly describedByIds = computed(() => {
+    const ids = [this.describedBy(), this.state().isError() ? this.errorId : undefined].filter(
+      (id) => id !== undefined,
+    );
+    return ids.length === 0 ? undefined : ids.join(' ');
+  });
   /** Pressed once with a `confirmLabel`, waiting for the press that confirms. */
   protected readonly asking = signal(false);
   protected readonly shownVariant = computed(() => (this.asking() ? ButtonVariant.Danger : this.variant()));

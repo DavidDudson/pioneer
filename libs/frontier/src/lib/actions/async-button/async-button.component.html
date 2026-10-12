@@ -7,7 +7,7 @@
     [iconOnly]="iconOnly()"
     [ariaLabel]="ariaLabel()"
     [busy]="state().isPending()"
-    [describedBy]="state().isError() ? errorId : undefined"
+    [describedBy]="describedByIds()"
     (pressed)="press()"
   >
     <fr-async-indicator [status]="state().status()" [pendingLabel]="pendingLabel()" [successLabel]="successLabel()" />
