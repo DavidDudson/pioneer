@@ -1,10 +1,11 @@
-import { Proficiency, RuleElementKey, slugName } from '@pioneer/rules/sdk';
+import { RuleElementKey, slugName } from '@pioneer/rules/sdk';
 import * as z from 'zod';
 
 import { addRule, ENVELOPE_FIELDS, KindDataGapReason, report } from './kind-data-gaps';
 import type { KindInput } from './kind-data-gaps';
 import { attributeSlots, featSlots, FoundryGrantedItems, grantItems, systemOf } from './kind-fields';
 import { FoundryTrainedSkills, trainSkills } from './translate-background';
+import { CLASS_DC, FoundryRank, RANKS } from './translate-proficiencies';
 
 /**
  * A class's `data` from Foundry's `class` item, and its progression as rule elements (content-model.md, "Class
@@ -15,19 +16,6 @@ import { FoundryTrainedSkills, trainSkills } from './translate-background';
 
 const FIELD_MAX = 64;
 const LEVELS_MAX = 20;
-const RANK_MAX = 4;
-
-/** Foundry's rank numbers, 0 (untrained) to 4 (legendary). */
-const FoundryRank = z.number().int().min(0).max(RANK_MAX);
-
-/** The rank Foundry's number names; untrained is every statistic's floor, so it raises nothing. */
-const RANKS: readonly (Proficiency | undefined)[] = [
-  undefined,
-  Proficiency.Trained,
-  Proficiency.Expert,
-  Proficiency.Master,
-  Proficiency.Legendary,
-];
 
 const FoundryLevel = z.number().int().min(1).max(LEVELS_MAX);
 const FoundryLevels = z.looseObject({ value: z.array(FoundryLevel).max(LEVELS_MAX) });
@@ -119,10 +107,10 @@ const SUBCLASS_TAGS: ReadonlyMap<string, string> = new Map([
   ['wizard', 'wizard-arcane-school'],
 ]);
 
-/** Every class is trained in its class DC at 1st level; Foundry sets it for the actor rather than the class. */
-const CLASS_DC = 'class-dc';
-
-/** Each statistic the class starts above untrained in, by selector, with Foundry's rank. */
+/**
+ * Each statistic the class starts above untrained in, by selector, with Foundry's rank. Every class is trained in its
+ * class DC at 1st level; Foundry sets it for the actor rather than the class.
+ */
 function startingRanks(system: FoundryClassSystem): (readonly [string, number])[] {
   const { savingThrows, attacks, defenses } = system;
   return [

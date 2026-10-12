@@ -18,6 +18,7 @@ import { setFields, systemOf } from './kind-fields';
 import { ACTION_FIELDS, actionData } from './translate-action';
 import type { ArchetypeLink } from './translate-archetype';
 import { languageRules } from './translate-languages';
+import { proficiencyRules } from './translate-proficiencies';
 import { senseElement } from './translate-senses';
 import { spellcastingRules } from './translate-spellcasting';
 
@@ -69,12 +70,7 @@ const FoundrySubfeatureSenses = z.record(
   z.looseObject({ acuity: z.unknown().optional(), range: z.unknown().optional() }),
 );
 
-/**
- * The senses a feat's `subfeatures` give, as `Sense` elements, and its languages as a `Language` element; a sense outside
- * the vocabulary is reported. A class feature reads its `keyOptions` itself; other subfeatures (proficiencies) are
- * reported until stories read them.
- */
-/** Reports each set subfeature but `senses`, `languages` and those the kind `read` itself, by its own name. */
+/** Reports each set subfeature but `senses`, `languages`, `proficiencies` and those the kind `read` itself, by name. */
 function reportOtherSubfeatures(others: object, read: readonly string[], { log }: KindInput): void {
   for (const [field, value] of Object.entries(others)) {
     if (isSet(value) && !read.includes(field)) {
@@ -86,10 +82,20 @@ function reportOtherSubfeatures(others: object, read: readonly string[], { log }
 /** Subfeatures only a class feature reads: `keyOptions`, its key attribute options. */
 const CLASS_FEATURE_SUBFEATURES: readonly string[] = ['keyOptions'];
 
+/**
+ * The senses a feat's `subfeatures` give, as `Sense` elements, its languages as a `Language` element and the ranks it
+ * raises as `Proficiency` elements. A class feature reads its `keyOptions` itself; other subfeatures are reported.
+ */
 function subfeatureRules(system: FoundryFeatSystem, input: KindInput, read: readonly string[] = []): void {
-  const { senses, languages, ...others } = system.subfeatures ?? {};
+  const { senses, languages, proficiencies, ...others } = system.subfeatures ?? {};
   reportOtherSubfeatures(others, read, input);
   languageRules(languages, input);
+  proficiencyRules(proficiencies, input);
+  senseRules(senses, input);
+}
+
+/** `subfeatures.senses` as `Sense` elements; a sense outside the vocabulary is reported. */
+function senseRules(senses: unknown, input: KindInput): void {
   const parsed = FoundrySubfeatureSenses.safeParse(senses ?? {});
   if (!parsed.success || Object.keys(parsed.data).length > SENSES_MAX) {
     report(input.log, { reason: KindDataGapReason.InvalidData, field: 'subfeatures.senses', raw: senses });

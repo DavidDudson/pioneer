@@ -3412,6 +3412,11 @@
         "entry": "bard",
         "rank": "cantrip",
         "value": 2
+      },
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting",
+        "rank": "trained"
       }
     ],
     "externalIds": {
@@ -7823,6 +7828,11 @@
         "entry": "cleric",
         "rank": "cantrip",
         "value": 2
+      },
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting",
+        "rank": "trained"
       }
     ],
     "externalIds": {
@@ -12484,7 +12494,23 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "attack:advanced",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "attack:martial",
+        "rank": "expert"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "attack:simple",
+        "rank": "expert"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.pu1U9ZWVVG1Lc94t"
     },
@@ -13583,6 +13609,11 @@
         "entry": "druid",
         "rank": "cantrip",
         "value": 2
+      },
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting",
+        "rank": "trained"
       }
     ],
     "externalIds": {
@@ -16199,7 +16230,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "save:reflex",
+        "rank": "master"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.VD446AflrQ3kO1al"
     },
@@ -16834,7 +16871,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting",
+        "rank": "expert"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.x7vMKBSrxXmfs5C2"
     },
@@ -18485,7 +18528,18 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "class-dc",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "attack:martial",
+        "rank": "trained"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.mvNa9KfQooHYEXoA"
     },
@@ -28570,7 +28624,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "perception",
+        "rank": "master"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.rW1q7x5CMf9Rh1bi"
     },
@@ -28616,7 +28676,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting",
+        "rank": "master"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.i7ibUqJCl1GXRFEa"
     },
@@ -36384,6 +36450,11 @@
         "key": "GrantItem",
         "item": "0e665469-cba1-576d-96bc-02cd3c505a5e",
         "allowDuplicate": false
+      },
+      {
+        "key": "Proficiency",
+        "selector": "class-dc",
+        "rank": "trained"
       }
     ],
     "externalIds": {
@@ -39362,6 +39433,16 @@
       {
         "key": "GrantItem",
         "item": "177544ce-c872-5471-bee4-c1564e363926"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "defense:light",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "class-dc",
+        "rank": "trained"
       }
     ],
     "externalIds": {
@@ -52362,7 +52443,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "attack:martial",
+        "rank": "trained"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.x9wxQ61HNkAVbDHr"
     },
@@ -52615,6 +52702,11 @@
       {
         "key": "GrantItem",
         "item": "f736f9e6-d87b-51c6-9c7e-5137e0289370"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting",
+        "rank": "trained"
       }
     ],
     "externalIds": {
@@ -53163,6 +53255,11 @@
         "entry": "wizard",
         "rank": "cantrip",
         "value": 2
+      },
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting",
+        "rank": "trained"
       }
     ],
     "externalIds": {
