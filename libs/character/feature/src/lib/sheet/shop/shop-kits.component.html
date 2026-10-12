@@ -1,0 +1,13 @@
+@let offered = offers();
+@if (offered === undefined || offered.length > 0) {
+  <fr-stack gap="sm">
+    <fr-stack gap="3xs">
+      <fr-heading variant="subheading" [level]="4">{{ 'character.sheet.shop.kits' | transloco }}</fr-heading>
+      <fr-text element="p" variant="caption" tone="muted">{{ 'character.sheet.shop.kitsHint' | transloco }}</fr-text>
+    </fr-stack>
+    <pio-shop-offers [offers]="offered" [(picked)]="picked" />
+    @for (kit of pickedKits(); track kit.id) {
+      <pio-shop-kit-order [content]="content()" [kit]="kit" />
+    }
+  </fr-stack>
+}

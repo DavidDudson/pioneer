@@ -6,6 +6,7 @@
       @if (content(); as content) {
         @let shown = list();
         <fr-stack gap="md">
+          <pio-shop-kits [content]="content" />
           <fr-search-input
             [ariaLabel]="'character.sheet.shop.search' | transloco"
             [placeholder]="'character.sheet.shop.search' | transloco"

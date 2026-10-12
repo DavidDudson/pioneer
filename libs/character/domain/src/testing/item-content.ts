@@ -226,6 +226,8 @@ export const KitFixture = {
   Explorer: 'explorer',
   /** A kit with no price, holding one diamond. */
   Keepsake: 'keepsake',
+  /** 20 gp for an anvil: more than a starting purse holds. */
+  Smithy: 'smithy',
 } as const;
 export type KitFixture = (typeof KitFixture)[keyof typeof KitFixture];
 
@@ -246,6 +248,7 @@ const KITS: Readonly<Record<KitFixture, object>> = {
     ],
   },
   [KitFixture.Keepsake]: { items: [kitLine(ItemFixture.Diamond, 1)] },
+  [KitFixture.Smithy]: { price: { coins: { gp: 20 } }, items: [kitLine(ItemFixture.Anvil, 1)] },
 };
 
 /** The id of the fixture kit `name`. */

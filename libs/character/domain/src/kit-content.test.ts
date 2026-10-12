@@ -46,7 +46,7 @@ function explorerData(): KitData {
 describe('kitContent', () => {
   test('holds the loaded kits, and no items', () => {
     expect([...reads.kits.keys()].toSorted()).toStrictEqual(
-      [explorer, kitFixtureId(KitFixture.Keepsake)].toSorted(),
+      [explorer, kitFixtureId(KitFixture.Keepsake), kitFixtureId(KitFixture.Smithy)].toSorted(),
     );
     expect(reads.kits.has(itemFixtureId(ItemFixture.Backpack))).toBe(false);
   });

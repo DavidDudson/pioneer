@@ -125,7 +125,9 @@
       "bought": "Bought",
       "gift": "Add without paying",
       "gifting": "Adding…",
-      "gifted": "Added"
+      "gifted": "Added",
+      "kits": "Kits",
+      "kitsHint": "A kit adds every item in it at once, what its backpack holds packed inside."
     },
     "prepared": {
       "heading": "Prepared spells: {tradition}",

@@ -16,3 +16,15 @@ export interface ShopOrderModel {
 }
 
 export const EMPTY_ORDER: ShopOrderModel = { quantity: 1, container: LOOSE };
+
+/** What the kit order form submits: where the kit's items go. */
+export const ShopKitOrderForm = z.object({
+  container: z.union([InventoryItemId, z.literal(LOOSE)]),
+});
+
+/** The kit form's model; "carried loose" is '', as in the item form. */
+export interface ShopKitOrderModel {
+  readonly container: string;
+}
+
+export const EMPTY_KIT_ORDER: ShopKitOrderModel = { container: LOOSE };
