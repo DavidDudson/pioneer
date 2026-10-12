@@ -614,8 +614,13 @@ flowchart LR
     `subfeatures.senses` become `Sense` elements, as a `Sense` rule does (below), and its
     `subfeatures.languages` a `Language` element, as does an `ActiveEffectLike` adding a whole number to
     `system.build.languages.max` (one adding a formula stays in the backlog), with no `access`, so common until set by
-    hand; its other `subfeatures` (proficiencies, and key attribute options on any but a class feature) are
-    reported by name (`subfeatures.proficiencies`).
+    hand. Its `subfeatures.proficiencies` become a `Proficiency` per key, with the class's selectors (armour
+    categories `defense:<category>`, weapon categories `attack:<category>`, saves `save:<save>`, `perception`,
+    `spellcasting`) and rank 1 to 4 as trained to legendary; a class's slug is `class-dc`, and the attribute a
+    dedication's class DC uses instead of the key attribute (Rogue Dedication's `dex`) is reported, since there is one
+    class DC. A key naming no statistic or imported class is reported. Its other `subfeatures`
+    (`suppressedFeatures`, and key attribute options on any but a class feature) are reported by name
+    (`subfeatures.suppressedFeatures`).
   - Player Core's casters get their spellcasting entries and rank raises by entry slug, since Foundry records neither
     ([ADR-0040](../adr/0040-spellcasting-entries-are-rule-elements.md)): a `SpellcastingEntry` on the bard, cleric,
     druid and wizard spellcasting features, each witch patron (in its tradition) and the bard, cleric, druid and
