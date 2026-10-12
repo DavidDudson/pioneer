@@ -256,7 +256,8 @@ Statistic base formulas and rule element values share one vocabulary of referenc
 - Scope says whose value a reference reads. A rule element may sit on any content entry, so its formulas may use
   actor and item references. Statistic base formulas have no item, so they may use actor references, plus weapon or
   spellcasting references when the statistic is derived per that source (`StatisticDefinition` checks the scope
-  against `per`).
+  against `per`). A spell's damage formulas may also read spellcasting references, the entry casting the spell
+  (ADR-0051).
 - `FormulaSource` checks a formula when content is validated: it must parse, and every reference must be in the
   catalogue and in scope. A `<selector>` is checked for shape only. Each problem is a field issue at the
   formula's JSON path. Its descriptor includes `position`, the 1-based position in the formula. A Foundry spelling
