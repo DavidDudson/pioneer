@@ -68,7 +68,7 @@ export function translateImport(selected: readonly SelectedEntry[], context: Imp
   const vocabulary = importVocabulary(selected, { ...context, pack: vocabularyPack });
   const all = [...known, ...vocabulary.entries.map((entry) => knownOf(entry))];
   const slugs = entrySlugs(selected);
-  const references = entryReferences(pack, slugs, all);
+  const references = entryReferences(pack, slugs, { known: all, release: context.documents ?? [] });
   const traits = new Set(
     all.filter(({ kind }) => kind === ContentKind.Trait).map(({ slug }) => Trait.parse(slugName(slug))),
   );

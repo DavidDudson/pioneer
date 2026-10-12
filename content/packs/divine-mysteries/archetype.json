@@ -1,0 +1,398 @@
+[
+  {
+    "id": "9d647c89-0686-5a25-921c-87078b3bc13a",
+    "pack": "divine-mysteries",
+    "kind": "archetype",
+    "slug": "archetype:mortal-herald",
+    "name": "Mortal Herald",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Rare"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When a follower earns the respect and trust of their god, the god sometimes grants that worshipper a great boon in the form of enhanced divine power. This chosen follower becomes a mortal herald, a living instrument for their god. Like a champion or cleric of a deity, a mortal herald has great divine power coursing through them, allowing the individual to enact the god's will within the Universe. Unlike a champion or cleric however, the god recognizes that their chosen mortal herald has skills and abilities that may be unique to them. Not every mortal herald is clad in impenetrable armor or capable of casting divine magic. Instead, the god grants gifts to their mortal herald that best match the individual's strengths. Regardless of who the person was before becoming a mortal herald, they are now a powerful divine being in their own right. Due to the specific needs of a deity and the dedicated nature of a mortal herald, a follower of a covenant or pantheon can't become a mortal herald."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In some cases, the god grants greater potential to their mortal heralds in the form of mythic power. A mythic character can select the mortal herald archetype as their mythic destiny. You must be a mythic character to select feats from this archetype that have the mythic trait. More information about mythic destinies can be found in Pathfinder War of Immortals."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Feats:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "16th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Premonition of Clarity; "
+          },
+          {
+            "type": "text",
+            "text": "18th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Eternal Bane, Eternal Blessing, Resurrectionist; "
+          },
+          {
+            "type": "text",
+            "text": "20th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Divine Apex, Shared Clarity"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.n787ifCmIxuhtcMG"
+    },
+    "data": {
+      "dedication": "d98d1515-2dff-5f31-852d-c4791406a496"
+    }
+  },
+  {
+    "id": "a758c821-86b4-5ed7-8d75-0b9b9e2e1007",
+    "pack": "divine-mysteries",
+    "kind": "archetype",
+    "slug": "archetype:razmiran-priest",
+    "name": "Razmiran Priest",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Uncommon"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are a Razmiran priest, initiated in the 31 Steps, the doctrines of Razmir's religion. You were trained at the Exalted Lodge or another of the temples where the priests specialize in crafting masks that also serve as Razmir's religious symbol, and you are charged with spreading and enforcing Razmir's faith. Razmiran priests are zealous worshippers of their god and use the magical techniques that they are taught to spread his word and his will. You have placed service to the Living God above all other duties and entrusted your wealth, prosperity, and ambitions to his teachings, while availing yourself of the knowledge and wisdom that only his most blessed servants are ever bestowed with, accepting the power and authority that is the right of the Living God's priests. Perhaps this is a pure zealousness, or perhaps you are motivated by Razmir's promises of wealth and authority. Either way, you have donned the mask and wield the power reserved for those who follow in Razmir's footsteps."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.Jfe0vnhKyyxOGMdl"
+    },
+    "data": {
+      "dedication": "71385765-b3a5-50a3-b273-a9e4dd55889b"
+    }
+  },
+  {
+    "id": "a551e35f-bca4-5ba6-a479-bdd1e0b56aaf",
+    "pack": "divine-mysteries",
+    "kind": "archetype",
+    "slug": "archetype:rivethun-emissary",
+    "name": "Rivethun Emissary",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Uncommon"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Rivethun emissaries form bonds with external spirits, using their own spiritual power as an anchor. This is a diplomatic endeavor, not a sycophantic one; they form mutual alliances and bonds of friendship and respect, they don't swear their service. In this way, Rivethun emissaries serve as intermediaries between the Universe and the spirit world."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Feats:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "6th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Enhanced Familiar; "
+          },
+          {
+            "type": "text",
+            "text": "8th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Incredible Familiar"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.mozFKLZrgEO3F7sE"
+    },
+    "data": {
+      "dedication": "6e56e493-4b78-528d-b4c3-f7515a594a00"
+    }
+  },
+  {
+    "id": "81e1aa36-c4c5-5897-af13-6d4cf9faa6a1",
+    "pack": "divine-mysteries",
+    "kind": "archetype",
+    "slug": "archetype:rivethun-invoker",
+    "name": "Rivethun Invoker",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Uncommon"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Rivethun invokers manifest the spirits within their own body, gaining magical powers that bolster their physical form. They can ignore pain, defy death, and gain other powers thematically tied to the spirit they've invoked within their body."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Feats:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "6th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Barreling Charge, Slam Down; "
+          },
+          {
+            "type": "text",
+            "text": "12th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Crashing Slam, Overpowering Charge"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.Svy85xtvHZaSsGaI"
+    },
+    "data": {
+      "dedication": "8d7fed26-0d6e-5fa3-98db-5749270b67ba"
+    }
+  },
+  {
+    "id": "7f98003d-0b5e-513a-9cda-42f8cff955e8",
+    "pack": "divine-mysteries",
+    "kind": "archetype",
+    "slug": "archetype:rivethun-involutionist",
+    "name": "Rivethun Involutionist",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Uncommon"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Rivethun involutionists leverage their connection to the spirit world to cast spells. This magic can also grant them a powerful spirit companion."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Feats:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "6th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Mature Animal Companion; "
+          },
+          {
+            "type": "text",
+            "text": "8th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Incredible Companion"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.1rp1IJXiPTAtJ18n"
+    },
+    "data": {
+      "dedication": "8dbe0612-eee7-529f-b4cd-0488d1b697ec"
+    }
+  }
+]

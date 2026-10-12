@@ -25,6 +25,7 @@ export async function coreRulesPack(): Promise<PackContents> {
     import('@pioneer/content/packs/core-rules/imported/player-core/sense.json'),
     import('@pioneer/content/packs/core-rules/imported/player-core/statistic.json'),
     import('@pioneer/content/packs/core-rules/imported/player-core/trait.json'),
+    import('@pioneer/content/packs/core-rules/imported/divine-mysteries/trait.json'),
   ]);
 }
 
@@ -50,6 +51,19 @@ export async function playerCorePack(): Promise<PackContents> {
     import('@pioneer/content/packs/player-core/spell.json'),
     import('@pioneer/content/packs/player-core/treasure.json'),
     import('@pioneer/content/packs/player-core/weapon.json'),
+  ]);
+}
+
+export async function divineMysteriesPack(): Promise<PackContents> {
+  return pack(import('@pioneer/content/packs/divine-mysteries/pack.json'), [
+    import('@pioneer/content/packs/divine-mysteries/action.json'),
+    import('@pioneer/content/packs/divine-mysteries/archetype.json'),
+    import('@pioneer/content/packs/divine-mysteries/class-feature.json'),
+    import('@pioneer/content/packs/divine-mysteries/deity.json'),
+    import('@pioneer/content/packs/divine-mysteries/effect.json'),
+    import('@pioneer/content/packs/divine-mysteries/equipment.json'),
+    import('@pioneer/content/packs/divine-mysteries/feat.json'),
+    import('@pioneer/content/packs/divine-mysteries/spell.json'),
   ]);
 }
 

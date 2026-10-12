@@ -125,7 +125,12 @@ describe.skipIf(adminUrl === undefined)('content routes (postgres)', () => {
     );
     const responses = await Promise.all(files.map(async (file) => api.handle(get(`/content/bundles/${file}`))));
 
-    expect(packs.map((pack) => String(pack.id))).toStrictEqual(['core-rules', 'monster-core', 'player-core']);
+    expect(packs.map((pack) => String(pack.id))).toStrictEqual([
+      'core-rules',
+      'divine-mysteries',
+      'monster-core',
+      'player-core',
+    ]);
     expect(responses.map((response) => response.status)).toStrictEqual(files.map(() => 200));
     expect(responses.map((response) => response.headers.get('cache-control'))).toStrictEqual(
       files.map(() => BUNDLE_CACHE_CONTROL),

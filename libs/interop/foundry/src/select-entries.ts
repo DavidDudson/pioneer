@@ -14,6 +14,9 @@ export const FOUNDRY_BOOK_TITLES: ReadonlyMap<string, BookId> = new Map([
   ['Pathfinder Player Core 2', BookId.parse('player-core-2')],
   ['Pathfinder GM Core', BookId.parse('gm-core')],
   ['Pathfinder Monster Core', BookId.parse('monster-core')],
+  ['Pathfinder Lost Omens Divine Mysteries', BookId.parse('divine-mysteries')],
+  // The book's free online supplement, filed under the book.
+  ['Pathfinder Lost Omens Divine Mysteries Web Supplement', BookId.parse('divine-mysteries')],
 ]);
 
 /** Why a document in an item pack is not imported, in the order selection checks. */

@@ -22,7 +22,7 @@ describe('content/import', () => {
 // The foundry library cannot import the catalog (type:domain), so the title map is checked against it here.
 describe('FOUNDRY_BOOK_TITLES', () => {
   test('maps a Foundry title to every registered book, and to nothing else', () => {
-    const mapped = [...FOUNDRY_BOOK_TITLES.values()].toSorted();
+    const mapped = [...new Set(FOUNDRY_BOOK_TITLES.values())].toSorted();
     const registered = bookRegistry.books.map(({ id }) => id).toSorted();
 
     expect(mapped).toEqual(registered);

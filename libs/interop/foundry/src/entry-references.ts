@@ -3,6 +3,7 @@ import type { ContentKind, PackId } from '@pioneer/rules/sdk';
 
 import { documentKind } from './entry-slugs';
 import type { FoundryItemType } from './foundry-document';
+import type { PackDocument } from './foundry-release';
 import { asciiSlug } from './foundry-slug';
 import type { SelectedEntry } from './select-entries';
 
@@ -19,6 +20,8 @@ export interface KnownEntry {
   readonly pack: PackId;
   readonly kind: ContentKind;
   readonly slug: EntrySlug;
+  /** The compendium UUID of the Foundry document it was imported from, by id; absent for a hand-authored entry. */
+  readonly foundry?: string;
 }
 
 export interface EntryReferences {
@@ -58,8 +61,8 @@ function addressed(pack: PackId, slugs: ReadonlyMap<SelectedEntry, string>): Add
   });
 }
 
-function uuidsOf({ entry, id }: Addressed): [string, ContentId][] {
-  const { pack, document } = entry;
+/** Both UUIDs Foundry links a document by: its id and its name. */
+function uuidsOf({ pack, document }: PackDocument, id: ContentId): [string, ContentId][] {
   const { _id: documentId, name } = document;
   return [
     [compendiumKey(pack.name, documentId), id],
@@ -71,20 +74,43 @@ function kindOf({ entry, id }: Addressed): [ContentId, ContentKind] {
   return [id, documentKind(entry)];
 }
 
+/** What references may land on besides the import's own documents. */
+export interface ReferenceSources {
+  readonly known: readonly KnownEntry[];
+  /** The release's item documents, for links to entries an earlier import made of them. */
+  readonly release?: readonly PackDocument[];
+}
+
+/**
+ * The UUIDs of the release documents a known entry was imported from, under that entry's id: a Divine Mysteries
+ * deity's Player Core spells. A document matches by its compendium UUID alone, never by name or slug, so a Monster
+ * Core ability never lands on a Player Core action of the same name.
+ */
+function knownUuids(release: readonly PackDocument[], known: readonly KnownEntry[]): [string, ContentId][] {
+  const byFoundry = new Map(
+    known.flatMap(({ foundry, id }) => (foundry === undefined ? [] : [[foundry, id] as const])),
+  );
+  return release.flatMap((each) => {
+    const { _id: documentId } = each.document;
+    const id = byFoundry.get(compendiumKey(each.pack.name, documentId));
+    return id === undefined ? [] : uuidsOf(each, id);
+  });
+}
+
 /**
  * The index for one import: each selected document under its compendium UUIDs and Foundry slug, given the slug it
- * was assigned (`entrySlugs`), and the kind of each known entry. Only documents resolve by UUID or slug; a reference to another pack's entry does
- * not resolve yet. A document whose slug is not a Pioneer slug
- * has no id and is left out; translation reports it.
+ * was assigned (`entrySlugs`), and the kind of each known entry. A release document an earlier import brought in
+ * resolves by UUID to that import's entry; one of this import wins a UUID both name. A document whose slug is not a
+ * Pioneer slug has no id and is left out; translation reports it.
  */
 export function entryReferences(
   pack: PackId,
   slugs: ReadonlyMap<SelectedEntry, string>,
-  known: readonly KnownEntry[],
+  { known, release = [] }: ReferenceSources,
 ): EntryReferences {
   const documents = addressed(pack, slugs);
   return {
-    byUuid: new Map(documents.flatMap((each) => uuidsOf(each))),
+    byUuid: new Map([...knownUuids(release, known), ...documents.flatMap(({ entry, id }) => uuidsOf(entry, id))]),
     byFoundrySlug: new Map(documents.map(({ entry, id }) => [typedKey(entry.type, asciiSlug(entry.document)), id])),
     kinds: new Map([...documents.map((each) => kindOf(each)), ...known.map(({ id, kind }) => [id, kind] as const)]),
     bySlug: new Map([

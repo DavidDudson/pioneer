@@ -34,8 +34,8 @@ describe('FOUNDRY_IMPORTS', () => {
   });
 
   test("links the release's page on GitHub", () => {
-    expect(FOUNDRY_IMPORTS.map((each) => foundryReleaseUrl(each))).toStrictEqual([
-      'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
-    ]);
+    expect(new Set(FOUNDRY_IMPORTS.map((each) => foundryReleaseUrl(each)))).toStrictEqual(
+      new Set(['https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0']),
+    );
   });
 });

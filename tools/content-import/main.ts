@@ -194,9 +194,12 @@ async function knownEntries(targets: PackTargets): Promise<readonly KnownEntry[]
   const packs = await Promise.all(others.map(async ({ load }) => load()));
   const replaced = await previousImport(targets);
   return packs.flatMap(({ entries }) =>
-    entries.flatMap(({ id, pack: entryPack, kind, slug }) =>
-      replaced.has(id) ? [] : [{ id, pack: entryPack, kind, slug }],
-    ),
+    entries.flatMap(({ id, pack: entryPack, kind, slug, externalIds }) => {
+      const foundry = externalIds?.foundry;
+      return replaced.has(id)
+        ? []
+        : [{ id, pack: entryPack, kind, slug, ...(foundry === undefined ? {} : { foundry }) }];
+    }),
   );
 }
 

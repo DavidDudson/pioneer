@@ -1,0 +1,453 @@
+[
+  {
+    "id": "53749a14-f0ed-5df5-a3bc-21d02dfeb80b",
+    "pack": "divine-mysteries",
+    "kind": "action",
+    "slug": "action:animated",
+    "name": "Animated",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "With a bit of magic from your patron, your object familiar can move about on its own. It gains a Speed of 25 feet. You can select this ability only for object familiars."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.familiar-abilities.Item.wcFeaZ0TmoaLtpIQ"
+    },
+    "data": {
+      "category": "familiar"
+    }
+  },
+  {
+    "id": "4c1f86a4-0134-5967-a821-59a69f46e3de",
+    "pack": "divine-mysteries",
+    "kind": "action",
+    "slug": "action:bond-with-spirit",
+    "name": "Bond with Spirit",
+    "rarity": "common",
+    "traits": ["concentrate", "exploration"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can forge a spiritual bond with a creature that is at least friendly toward you or with a terrain that you're currently in. Forming this bond takes 10 minutes, during which time you must remain adjacent to the creature or within that terrain. If the creature is intelligent, this also requires that creature's consent, and that intelligent creature can choose to sever this bond with you at any time as a free action, which has the concentrate trait. This bond lasts as long as you are within a mile of the creature or terrain, until you use Bond with Spirit again, or until you make your daily preparations."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You must be Bonded with a Spirit to cast the "
+          },
+          {
+            "type": "ref",
+            "id": "1aada801-0414-5347-8bf2-fea7717aa760"
+          },
+          {
+            "type": "text",
+            "text": " focus spell."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.4d6QSFBP4lMUYrVK"
+    },
+    "data": {}
+  },
+  {
+    "id": "81aa3ccc-cd6e-5c91-b959-fe848a771f99",
+    "pack": "divine-mysteries",
+    "kind": "action",
+    "slug": "action:enter-spirit-trance",
+    "name": "Enter Spirit Trance",
+    "rarity": "common",
+    "traits": ["concentrate", "divine", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You enter a self-imposed trance that helps you push the physical limits of your body. You gain a number of temporary Hit Points equal to your level plus your Constitution modifier. The trance lasts for 1 minute, until you fall Unconscious, or until you Dismiss it, whichever comes first."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While in this trance, you gain a +1 status bonus to Fortitude and Will saving throws and your melee Strikes deal 1 additional spirit damage. Other abilities may require you to be in a spirit trance. When the trance ends, you lose any remaining temporary Hit Points from Enter Spirit Trance, and you can't Enter a Spirit Trance for 1 minute."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.djULKW76BbSoN3zb"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "selfEffect": "31fb8a06-97ec-5a96-90a3-5b2947025fc2"
+    }
+  },
+  {
+    "id": "387e7521-ea40-5da9-ad0f-f923181a1e07",
+    "pack": "divine-mysteries",
+    "kind": "action",
+    "slug": "action:familiar-of-bolstering-aid",
+    "name": "Familiar of Bolstering Aid",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your familiar knows all manner of tricks that can help! When you Cast or Sustain a hex, and your familiar is adjacent to an ally, that ally gains a +2 status bonus to the next non-attack skill check that ally attempts before the start of your next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "b7338779-82c3-5a07-9d2b-8f772ae0644d"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.familiar-abilities.Item.HNoR0D2sKQaDNh5Z"
+    },
+    "data": {
+      "cost": "one",
+      "category": "familiar"
+    }
+  },
+  {
+    "id": "45f0c96c-946b-5ced-b9b3-fd0f8d42639a",
+    "pack": "divine-mysteries",
+    "kind": "action",
+    "slug": "action:familiar-of-enticing-negotiation",
+    "name": "Familiar of Enticing Negotiation",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your familiar constantly whispers distracting offers of power, wealth, and other temptations to your enemies, even if your familiar normally doesn't have the means of speaking. When you Cast or Sustain a hex and your familiar is within 10 feet of an enemy, the enemy becomes Off-Guard until the start of your next turn. Your familiar can only distract a single enemy per round in this way."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.familiar-abilities.Item.xXMPZXcwQgKRAu38"
+    },
+    "data": {
+      "category": "familiar"
+    }
+  },
+  {
+    "id": "884e8d6e-643d-55c9-8f74-f2f9695589a9",
+    "pack": "divine-mysteries",
+    "kind": "action",
+    "slug": "action:familiar-of-obscuring-snowfall",
+    "name": "Familiar of Obscuring Snowfall",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your familiar is always covered in a thin layer of snow, which it sheds as needed. When you Cast or Sustain a hex, you can cause clinging snow to fall in a "
+          },
+          {
+            "type": "template",
+            "shape": "burst",
+            "size": 5
+          },
+          {
+            "type": "text",
+            "text": " centered on a square of your familiar's space. This snowfall remains until the start of your next turn, and enemies that enter these squares during that period are Dazzled until the start of your next turn."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "PFS Note:",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " For this ability, choose a corner of the familiar's square for the center of the burst."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.familiar-abilities.Item.Fouq5RMNS8P1CDzx"
+    },
+    "data": {
+      "category": "familiar"
+    }
+  },
+  {
+    "id": "4f5afab4-0b60-5852-92e0-b3c4fc5115ed",
+    "pack": "divine-mysteries",
+    "kind": "action",
+    "slug": "action:familiar-of-paired-perplexity",
+    "name": "Familiar of Paired Perplexity",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your familiar has twice as many of a small feature than a normal creature would have, such a second tail or an extra pair of whiskers. When you Cast or Sustain a hex, your familiar seems to double and be in two places at once. One creature you choose within 20 feet of it is Stupefied 1 until the start of your next turn; this is a visual effect."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.familiar-abilities.Item.bhpa7DVdMsaNfodz"
+    },
+    "data": {
+      "category": "familiar"
+    }
+  },
+  {
+    "id": "5f82494f-e6d1-5a35-b451-f052012751e9",
+    "pack": "divine-mysteries",
+    "kind": "action",
+    "slug": "action:familiar-of-swarms-heart",
+    "name": "Familiar of Swarm's Heart",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your familiar is surrounded by a cloud of harmless insects. When you Cast or Sustain a hex, the insects swarm to protect you and your allies. Until the start of your next turn, your familiar grants Concealment to you or any ally while sharing the same space."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.familiar-abilities.Item.t6nzeTpsTJDwAUFZ"
+    },
+    "data": {
+      "category": "familiar"
+    }
+  },
+  {
+    "id": "a9275e60-d942-5185-b81e-392ed43d8aaa",
+    "pack": "divine-mysteries",
+    "kind": "action",
+    "slug": "action:mystic-aegis",
+    "name": "Mystic Aegis",
+    "rarity": "common",
+    "traits": ["concentrate", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature you have successfully Recalled Knowledge about would damage you"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You have a free hand"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You brandish your charm, channeling and shaping the forces within it to protect you against harm. You gain resistance to all damage equal to 2 + half your level rounded up against the triggering effect."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.ur4AfegC9RqRgy3e"
+    },
+    "data": {
+      "cost": "reaction",
+      "requirements": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You have a free hand"
+            }
+          ]
+        }
+      ],
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A creature you have successfully Recalled Knowledge about would damage you"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "56fe35cb-0530-523f-a9e0-fefa6dcb72c0",
+    "pack": "divine-mysteries",
+    "kind": "action",
+    "slug": "action:synchronize-spirit",
+    "name": "Synchronize Spirit",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can synchronize your spiritual energy with that of your familiar to temporarily become part spirit yourself. Once per round, you can Sustain to synchronize your spirit with that of your familiar. You remain synchronized with your spirit until the beginning of your next turn. While synchronized, whenever you Strike or Cast a Spell without a duration that deals damage, you deal spirit damage instead of your normal damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.familiar-abilities.Item.jPvjeX1CsUZQSszu"
+    },
+    "data": {
+      "cost": "one",
+      "category": "familiar"
+    }
+  }
+]
