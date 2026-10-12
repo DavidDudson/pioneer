@@ -1,6 +1,8 @@
 # 0021. Spell casting fields are structured, parsed from Foundry text
 
-- Status: Proposed; the backlog and "migration of nothing" amended by [0031](0031-official-packs-imported-once-from-foundry.md)
+- Status: Proposed; the backlog and "migration of nothing" amended by
+  [0031](0031-official-packs-imported-once-from-foundry.md); the `varies` duration and area `details` by
+  [0049](0049-spell-durations-the-text-gives-vary.md)
 - Date: 2026-10-10
 
 ## Context

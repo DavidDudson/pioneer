@@ -53,6 +53,7 @@ Accepted. To change a decision, add a new ADR that supersedes the old one; do no
 | [0046](0046-deity-is-an-optional-root-slot.md)                | A deity is an optional root slot, and the sheet reads it from the server          |
 | [0047](0047-signature-spells-are-rule-elements.md)            | Signature spells are a rule element                                               |
 | [0048](0048-a-clerics-deity-grants-through-rule-elements.md)  | A cleric's deity grants through rule elements                                     |
+| [0049](0049-spell-durations-the-text-gives-vary.md)           | A spell's duration may be left to its text, as `varies`                           |
 
 Template:
 
