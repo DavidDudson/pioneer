@@ -1,10 +1,12 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import { TranslocoService } from '@jsverse/transloco';
 import { AsyncData, AsyncPending, AsyncRegion, Grid, Skeleton, Stack } from '@pioneer/frontier';
-import { SpellAccessListView } from '@pioneer/rules/ui';
+import { FocusSpellsView, SpellAccessListView } from '@pioneer/rules/ui';
+import type { FocusLine } from '@pioneer/rules/ui';
 
 import { CharacterStore } from '../../data/character-store';
 import { injectContentRegistry } from '../../data/content-registry-query';
+import { sheetFocus } from '../sheet-focus-spells';
 import { sheetSpellAccess, SPELL_CONTENT_KINDS } from '../sheet-prepared-spells';
 import type { SheetSpellAccess } from '../sheet-prepared-spells';
 import { SheetPreparedSpells } from '../sheet-prepared-spells/sheet-prepared-spells.component';
@@ -14,8 +16,8 @@ import { SpellAccess } from '../spell-access/spell-access.component';
 const LOADING_SLOTS = 3;
 
 /**
- * The open character's spell picks under its spellcasting entries (#478): a pick per prepared slot, and the uncommon
- * and rare spells it has access to. The spells load only once the character has an entry, so a sheet without one never
+ * The open character's spell picks under its spellcasting entries (#478): a pick per prepared slot, its focus spells
+ * (ADR-0048), and the uncommon and rare spells it has access to. The spells load only once the character has an entry, so a sheet without one never
  * fetches them.
  */
 @Component({
@@ -24,6 +26,7 @@ const LOADING_SLOTS = 3;
     AsyncData,
     AsyncPending,
     AsyncRegion,
+    FocusSpellsView,
     Grid,
     SheetPreparedSpells,
     Skeleton,
@@ -54,6 +57,12 @@ export class SheetSpells {
     select: async (slot, selection) => this.#store.selectSlot(slot, selection),
     clear: async (slot) => this.#store.clearSlot(slot),
     translate: (key) => this.#i18n.translate(key),
+  });
+  /** The character's focus spells and focus pool; undefined without a focus entry or while the spells load. */
+  protected readonly focus = computed((): FocusLine | undefined => {
+    const registry = this.spells.data();
+    const character = this.#store.selected();
+    return registry === undefined || character === undefined ? undefined : sheetFocus(registry, character);
   });
   /** The uncommon and rare spells the build has access to, and those it may add; undefined while the spells load. */
   protected readonly access = computed((): SheetSpellAccess | undefined => {

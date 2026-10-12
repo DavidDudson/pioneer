@@ -15,6 +15,9 @@
     </ng-template>
     <ng-template [frAsyncData]="spells">
       <fr-stack gap="md">
+        @if (focus(); as focusLine) {
+          <pio-focus-spells [focus]="focusLine" />
+        }
         <pio-sheet-prepared-spells [entries]="prepared()" />
         @if (access(); as spellAccess) {
           <pio-spell-access [access]="spellAccess" />

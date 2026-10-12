@@ -791,6 +791,13 @@
       "none": "No access to uncommon, rare or unique spells yet.",
       "remove": "Remove {name}",
       "unknownSpell": "Unknown spell"
+    },
+    "focusSpells": {
+      "heading": "Focus spells",
+      "pool": "Focus pool: {points, plural, one {# Focus Point} other {# Focus Points}}",
+      "castAt": "Cast at {rank, selectordinal, one {#st} two {#nd} few {#rd} other {#th}} rank, cantrips too",
+      "cantrip": "Cantrip",
+      "none": "No focus spells yet. A choice that grants them may still be open."
     }
   }
 }
