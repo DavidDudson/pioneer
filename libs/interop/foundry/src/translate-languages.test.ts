@@ -27,8 +27,9 @@ const MULTILINGUAL = feat('fEaTlAnGuAgE0001', 'Multilingual', {
 const DWARF_FRIEND = feat('fEaTlAnGuAgE0002', 'Dwarf Friend', {
   subfeatures: { languages: { granted: ['dwarven'], slots: 0 } },
 });
+const FIRST_DOCTRINE = 'Compendium.pf2e.classfeatures.Item.First Doctrine';
 const WILD_TONGUE = feat('fEaTlAnGuAgE0003', 'Wild Tongue', {
-  subfeatures: { languages: { granted: ['wildsong'] }, proficiencies: { perception: { rank: 2 } } },
+  subfeatures: { languages: { granted: ['wildsong'] }, suppressedFeatures: [FIRST_DOCTRINE] },
 });
 const NOMADIC = feat('fEaTlAnGuAgE0004', 'Nomadic', {
   rules: [
@@ -61,7 +62,7 @@ describe('Foundry languages as Language elements', () => {
 
     expect(rulesIn(translation, 'wild-tongue')).toEqual([]);
     expect(gapsOf(translation)).toEqual([
-      { reason: KindDataGapReason.UnmappedField, field: 'subfeatures.proficiencies', raw: { perception: { rank: 2 } } },
+      { reason: KindDataGapReason.UnmappedField, field: 'subfeatures.suppressedFeatures', raw: [FIRST_DOCTRINE] },
       { reason: KindDataGapReason.UnresolvedReference, field: 'subfeatures.languages.granted', raw: 'wildsong' },
     ]);
   });

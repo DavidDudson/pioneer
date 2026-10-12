@@ -92,13 +92,13 @@ describe('translateKindData: subfeature senses', () => {
     ['a class feature', 'classfeature'],
     ['an ancestry feature', 'ancestryfeature'],
   ])("%s's subfeature senses are Sense elements, and its other subfeatures are reported by name", (_case, category) => {
-    const proficiencies = { perception: { rank: 2 } };
-    const subfeatures = { senses: { darkvision: { acuity: 'imprecise', range: 30 } }, proficiencies };
+    const suppressedFeatures = ['Compendium.pf2e.classfeatures.Item.First Doctrine'];
+    const subfeatures = { senses: { darkvision: { acuity: 'imprecise', range: 30 } }, suppressedFeatures };
     const translation = translate([feat(subfeatures, category)]);
 
     expect(rulesIn(translation, 'keen-feat')).toEqual([{ key: Sense, sense: DARKVISION }]);
     expect(gapsOf(translation)).toEqual([
-      { reason: KindDataGapReason.UnmappedField, field: 'subfeatures.proficiencies', raw: proficiencies },
+      { reason: KindDataGapReason.UnmappedField, field: 'subfeatures.suppressedFeatures', raw: suppressedFeatures },
     ]);
   });
 
