@@ -83,11 +83,18 @@ const area: Arbitrary<object> = oneof(
 );
 
 const targetDetails = { qualifiers: targetQualifiers, traits, triggering: boolean() };
+const numbered: Arbitrary<object> = record({ count: positive, of: targetKind });
+const anyNumber: Arbitrary<object> = record({ count: constant(TargetCountWord.Any), of: targetKind });
+const allWithin: Arbitrary<object> = record({
+  count: constant(TargetCountWord.All),
+  within: targetWithin,
+  of: targetKind,
+});
 /** A number of targets, maybe "up to" it; any number; or all of them, in the area or within range. */
 const target: Arbitrary<object> = oneof(
-  withOptional(record({ count: positive, of: targetKind }), { upTo: boolean(), ...targetDetails }),
-  withOptional(record({ count: constant(TargetCountWord.Any), of: targetKind }), targetDetails),
-  withOptional(record({ count: constant(TargetCountWord.All), within: targetWithin, of: targetKind }), targetDetails),
+  withOptional(numbered, { upTo: boolean(), ...targetDetails }),
+  withOptional(anyNumber, targetDetails),
+  withOptional(allWithin, targetDetails),
 );
 const someTargets: Arbitrary<object[]> = array(target, { minLength: 1, maxLength: LIST_MAX });
 const targets: Arbitrary<object> = withOptional(record({ any: someTargets }), { plus: someTargets, you: targetYou });

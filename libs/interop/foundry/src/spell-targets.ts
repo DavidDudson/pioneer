@@ -241,7 +241,11 @@ function alternativesOf(text: string): Target[] | undefined {
 
 /** Text with its counts reworded ("1 to 3" as "up to 3"). */
 function reworded(text: string): string {
-  return REWORDINGS.reduce((words, [pattern, replacement]) => words.replace(pattern, replacement), text);
+  let words = text;
+  for (const [pattern, replacement] of REWORDINGS) {
+    words = words.replace(pattern, replacement);
+  }
+  return words;
 }
 
 /** `targets` without the caster: alternatives, or one target as well as another ("1 ally and 1 enemy"). */
