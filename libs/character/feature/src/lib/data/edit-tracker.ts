@@ -43,6 +43,8 @@ function targetOf(patch: CharacterPatch): string {
 export class EditTracker {
   readonly #inFlight = signal<readonly SentEdit[]>([]);
   readonly #failed = signal<readonly FailedEdit[]>([]);
+  /** The latest edit saved per character and target, so an older edit failing after it is already superseded. */
+  readonly #lastSaved = new Map<string, number>();
   #sent = 0;
   readonly #selectedId: Signal<CharacterId | undefined>;
 
@@ -79,15 +81,23 @@ export class EditTracker {
   public saved(edit: SentEdit): void {
     this.#settle(edit);
     const target = targetOf(edit.patch);
+    const key = `${edit.id}|${target}`;
+    this.#lastSaved.set(key, Math.max(this.#lastSaved.get(key) ?? 0, edit.sequence));
     this.#failed.update((failed) =>
       failed.filter((each) => each.id !== edit.id || each.sequence > edit.sequence || targetOf(each.patch) !== target),
     );
   }
 
-  /** `edit` failed, as a conflict or otherwise; it replaces any earlier failure of its target. */
+  /**
+   * `edit` failed, as a conflict or otherwise; it replaces any earlier failure of its target. A failure that a newer
+   * save of the same target already overtook is dropped: that newer value is what the character holds.
+   */
   public failedWith(edit: SentEdit, conflict: boolean): void {
     this.#settle(edit);
     const target = targetOf(edit.patch);
+    if ((this.#lastSaved.get(`${edit.id}|${target}`) ?? 0) > edit.sequence) {
+      return;
+    }
     this.#failed.update((failed) => [
       ...failed.filter((each) => each.id !== edit.id || targetOf(each.patch) !== target),
       { ...edit, conflict },

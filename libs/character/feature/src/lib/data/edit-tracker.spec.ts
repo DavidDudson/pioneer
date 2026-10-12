@@ -51,6 +51,15 @@ describe(EditTracker, () => {
     expect(edits.state()).toBe(SaveState.Saved);
   });
 
+  it('drops a failure that a newer save of the same target already overtook', () => {
+    const { edits } = tracker();
+    const older = edits.begin(KYRA, rename('Kyra'));
+    const newer = edits.begin(KYRA, rename('Kyra Lightbringer'));
+    edits.saved(newer);
+    edits.failedWith(older, false);
+    expect(edits.state()).toBe(SaveState.Saved);
+  });
+
   it('marks a lost edit as a conflict', () => {
     const { edits } = tracker();
     edits.failedWith(edits.begin(KYRA, rename('Kyra')), true);
