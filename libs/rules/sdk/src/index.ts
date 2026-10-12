@@ -188,6 +188,7 @@ export {
   Level,
   LEVEL_MAX,
   LEVEL_MIN,
+  Miles,
   Modifier,
 } from './units';
 export { RulesMessage } from './messages';

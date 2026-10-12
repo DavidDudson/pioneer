@@ -9,7 +9,8 @@ import { SaveSelector, Selector } from './selector';
 import { SpellRank } from './spell-rank';
 import { Trait } from './trait';
 import { uniqueItems } from './unique-items';
-import { Feet } from './units';
+import { Feet, Miles } from './units';
+import { DieSize } from './weapon';
 
 /** The units a casting time or a duration is counted in, from rounds to years ("3 days", "1 year"). */
 export const SpellTimeUnit = {
@@ -65,23 +66,46 @@ const CastTime = z.discriminatedUnion('type', [
 
 export const SpellRangeType = {
   Feet: 'feet',
+  Miles: 'miles',
   Touch: 'touch',
   Planetary: 'planetary',
+  Interplanar: 'interplanar',
   Unlimited: 'unlimited',
+  /** One of several the caster picks from ("touch or 30 feet"). */
+  Either: 'either',
 } as const;
 export type SpellRangeType = ValueOf<typeof SpellRangeType>;
 
-/** "500 feet", "touch", "planetary", "unlimited". */
-export const SpellRange = z.discriminatedUnion('type', [
+/** The most ranges or durations a caster picks from. */
+const OPTIONS_MAX = 3;
+
+/** "500 feet", "100 miles", "touch", "planetary", "interplanar", "unlimited". */
+const SingleRange = z.discriminatedUnion('type', [
   z.strictObject({ type: z.literal(SpellRangeType.Feet), feet: Feet }),
+  z.strictObject({ type: z.literal(SpellRangeType.Miles), miles: Miles }),
   z.strictObject({ type: z.literal(SpellRangeType.Touch) }),
   z.strictObject({ type: z.literal(SpellRangeType.Planetary) }),
+  z.strictObject({ type: z.literal(SpellRangeType.Interplanar) }),
   z.strictObject({ type: z.literal(SpellRangeType.Unlimited) }),
 ]);
 
-/** "20-foot burst"; a line wider than 5 feet also has a `width` ("60-foot line, 10 feet wide"). */
+export type SingleRange = z.infer<typeof SingleRange>;
+
+/** A range, or one of several the caster picks from ("touch or 30 feet"). */
+export const SpellRange = z.discriminatedUnion('type', [
+  SingleRange,
+  z.strictObject({
+    type: z.literal(SpellRangeType.Either),
+    options: z.array(SingleRange).min(2).max(OPTIONS_MAX).readonly(),
+  }),
+]);
+
+/**
+ * "20-foot burst"; a line wider than 5 feet also has a `width` ("60-foot line, 10 feet wide"). `details` narrows the
+ * area as printed ("all squares in a 20-foot-radius burst that contain plants").
+ */
 export const SpellArea = z
-  .strictObject({ shape: AreaShapeSchema, size: Feet, width: Feet.optional() })
+  .strictObject({ shape: AreaShapeSchema, size: Feet, width: Feet.optional(), details: RichText.optional() })
   .refine((area) => area.width === undefined || area.shape === AreaShape.Line, {
     ...issueParams(message(RulesMessage.RichTextWidthOnLine)),
     path: ['width'],
@@ -177,9 +201,15 @@ export const SpellTargets = z.strictObject({
 
 export const SpellDurationType = {
   Time: 'time',
+  /** Dice of a unit ("4d12 hours"). */
+  Rolled: 'rolled',
   Sustained: 'sustained',
   Until: 'until',
   Unlimited: 'unlimited',
+  /** The text says how long, often by degree of success ("varies", "see text", "1 or more rounds"). */
+  Varies: 'varies',
+  /** One of several the caster picks from ("10 minutes or 8 hours"). */
+  Either: 'either',
 } as const;
 export type SpellDurationType = ValueOf<typeof SpellDurationType>;
 
@@ -208,15 +238,51 @@ const UntilDuration = z
     path: ['of'],
   });
 
+const DURATION_UP_TO = { ...issueParams(message(RulesMessage.SpellDurationUpTo)), path: ['upTo'] };
+
+/** "1 minute", "up to 10 minutes" (`upTo`, ended early at will), "sustained up to 1 minute" (`sustained`). */
+const TimeDuration = z
+  .strictObject({
+    type: z.literal(SpellDurationType.Time),
+    ...SpellTime,
+    upTo: z.boolean().optional(),
+    sustained: z.boolean().optional(),
+  })
+  .refine(({ upTo, sustained }) => upTo === undefined || sustained === undefined, DURATION_UP_TO);
+
+/** How many dice a rolled duration is. */
+const DurationDice = Pg.smallint().positive().brand<'DurationDice'>();
+
 /**
- * "1 minute", "sustained up to 1 minute" (`time` with `sustained`), "sustained" with no limit, "until the end of
- * your turn", "until the end of the target's next turn", "unlimited". An instant spell has none.
+ * A duration that is no choice: a time, rolled dice of a unit, "sustained" with no limit, "until the end of your turn",
+ * "until the end of the target's next turn", "unlimited", or one the text describes (`varies`).
  */
-export const SpellDuration = z.discriminatedUnion('type', [
-  z.strictObject({ type: z.literal(SpellDurationType.Time), ...SpellTime, sustained: z.boolean().optional() }),
+const SingleDuration = z.discriminatedUnion('type', [
+  TimeDuration,
+  z.strictObject({
+    type: z.literal(SpellDurationType.Rolled),
+    dice: DurationDice,
+    die: z.enum(DieSize),
+    unit: SpellTimeUnitSchema,
+  }),
   z.strictObject({ type: z.literal(SpellDurationType.Sustained) }),
   UntilDuration,
   z.strictObject({ type: z.literal(SpellDurationType.Unlimited) }),
+  z.strictObject({ type: z.literal(SpellDurationType.Varies) }),
+]);
+
+export type SingleDuration = z.infer<typeof SingleDuration>;
+
+/**
+ * A duration, or one of several the caster picks from ("10 minutes or 8 hours", "1 round or sustained up to 1
+ * minute"). An instant spell has none.
+ */
+export const SpellDuration = z.discriminatedUnion('type', [
+  SingleDuration,
+  z.strictObject({
+    type: z.literal(SpellDurationType.Either),
+    options: z.array(SingleDuration).min(2).max(OPTIONS_MAX).readonly(),
+  }),
 ]);
 
 /** The save a spell asks for ("basic Reflex"). */

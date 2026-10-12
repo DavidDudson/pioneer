@@ -252,10 +252,14 @@ describe('@Template', () => {
   });
 
   test('a shape Pioneer lacks stays text; a width off a line is reported and dropped', () => {
-    const { run, reported } = enriched('@Template[square|distance:10] @Template[burst|distance:20|width:5]');
+    const { run, reported } = enriched('@Template[hex|distance:10] @Template[burst|distance:20|width:5]');
 
-    expect(run).toEqual([words('10-foot square'), words(' '), { type: 'template', shape: 'burst', size: 20 }]);
-    expect(reported).toEqual(['@Template[type:square]', '@Template[width]']);
+    expect(run).toEqual([words('10-foot hex'), words(' '), { type: 'template', shape: 'burst', size: 20 }]);
+    expect(reported).toEqual(['@Template[type:hex]', '@Template[width]']);
+  });
+
+  test('a square is a template', () => {
+    expect(runOf('@Template[square|distance:10]')).toEqual([{ type: 'template', shape: 'square', size: 10 }]);
   });
 });
 

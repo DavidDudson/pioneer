@@ -51,6 +51,8 @@ export const AreaShape = {
   Cylinder: 'cylinder',
   Emanation: 'emanation',
   Line: 'line',
+  /** A square of the size's side ("5-foot square"). */
+  Square: 'square',
 } as const;
 export type AreaShape = ValueOf<typeof AreaShape>;
 export const AreaShapeSchema = z.enum(AreaShape);

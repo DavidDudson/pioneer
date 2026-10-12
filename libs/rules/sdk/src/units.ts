@@ -8,6 +8,13 @@ import type * as z from 'zod';
 export const Feet = Pg.smallint().nonnegative().brand<'Feet'>();
 export type Feet = z.infer<typeof Feet>;
 
+/** The finest step a range in miles is counted in. */
+const HALF_MILE = 0.5;
+
+/** A long range, in whole or half miles ("100 miles", "half a mile"). */
+export const Miles = Pg.real().positive().multipleOf(HALF_MILE).brand<'Miles'>();
+export type Miles = z.infer<typeof Miles>;
+
 export const HitPoints = Pg.smallint().nonnegative().brand<'HitPoints'>();
 export type HitPoints = z.infer<typeof HitPoints>;
 

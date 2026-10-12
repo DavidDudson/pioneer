@@ -31,13 +31,21 @@ describe('rangeOf', () => {
     ['touch', { type: 'touch' }],
     ['planetary', { type: 'planetary' }],
     ['unlimited', { type: 'unlimited' }],
+    ['interplanar', { type: 'interplanar' }],
+    ['100 miles', { type: 'miles', miles: 100 }],
+    ['1 mile', { type: 'miles', miles: 1 }],
+    ['half a mile', { type: 'miles', miles: 0.5 }],
+    ['touch or 30 feet', { type: 'either', options: [{ type: 'touch' }, { type: 'feet', feet: 30 }] }],
   ])('%p', (text, expected) => {
     expect(rangeOf(text)).toEqual(expected);
   });
 
-  test.each(['varies', 'see text', '100 miles', 'touch or 30 feet', 'interplanar'])('%p does not map', (text) => {
-    expect(rangeOf(text)).toBeUndefined();
-  });
+  test.each(['varies', 'see text', '30-foot cone', 'emanation up to 40-feet', 'touch or varies'])(
+    '%p does not map',
+    (text) => {
+      expect(rangeOf(text)).toBeUndefined();
+    },
+  );
 });
 
 describe('durationOf', () => {
@@ -68,15 +76,48 @@ describe('durationOf', () => {
       { value: 'until the next time you make your daily preparations', sustained: false },
       { type: 'until', until: 'daily-preparations' },
     ],
+    [{ value: 'varies', sustained: false }, { type: 'varies' }],
+    [{ value: 'see text', sustained: false }, { type: 'varies' }],
+    [{ value: 'see below', sustained: false }, { type: 'varies' }],
+    [{ value: '1 or more rounds', sustained: false }, { type: 'varies' }],
+    [{ value: '1 or more rounds (see below)', sustained: false }, { type: 'varies' }],
+    [
+      { value: 'up to 10 minutes', sustained: false },
+      { type: 'time', count: 10, unit: 'minute', upTo: true },
+    ],
+    [
+      { value: '4d12 hours', sustained: false },
+      { type: 'rolled', dice: 4, die: 'd12', unit: 'hour' },
+    ],
+    [
+      { value: '10 minutes or 8 hours', sustained: false },
+      {
+        type: 'either',
+        options: [
+          { type: 'time', count: 10, unit: 'minute' },
+          { type: 'time', count: 8, unit: 'hour' },
+        ],
+      },
+    ],
+    [
+      { value: '1 round or sustained up to 1 minute', sustained: true },
+      {
+        type: 'either',
+        options: [
+          { type: 'time', count: 1, unit: 'round' },
+          { type: 'time', count: 1, unit: 'minute', sustained: true },
+        ],
+      },
+    ],
   ])('%p', (duration, expected) => {
     expect(durationOf(duration)).toEqual(expected);
   });
 
   test.each([
-    { value: 'varies', sustained: false },
-    { value: 'up to 10 minutes', sustained: false },
-    { value: '4d12 hours', sustained: false },
-    { value: '1 round or sustained up to 1 minute', sustained: true },
+    { value: 'varies', sustained: true },
+    { value: '1 minute or until used (see text)', sustained: false },
+    { value: 'until full tribute is paid', sustained: false },
+    { value: '4d20 hours', sustained: false },
   ])('%p does not map', (duration) => {
     expect(durationOf(duration)).toBeUndefined();
   });
