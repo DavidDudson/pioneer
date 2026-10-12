@@ -361,6 +361,7 @@
         "tools/deploy-production.ts",
         "tools/content-coverage.ts",
         "tools/content-import/main.ts",
+        "tools/enrich-prerequisites.ts",
         "tools/enrich-triggers.ts"
       ],
       "rules": { "eslint/no-console": "off" }

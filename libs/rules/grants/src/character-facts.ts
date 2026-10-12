@@ -1,7 +1,7 @@
 import { evaluatePredicate, Truth } from '@pioneer/rules/predicate';
 import type { PredicateFacts } from '@pioneer/rules/predicate';
 import { ContentKind, RollOptionNamespace, RuleElementKey } from '@pioneer/rules/sdk';
-import type { ConditionValue, ContentId, Level, RollOption, Trait } from '@pioneer/rules/sdk';
+import type { ConditionValue, ContentId, Level, RollOption, Slug, Trait } from '@pioneer/rules/sdk';
 
 import type { AnsweredSlot } from './choices';
 import type { GrantEntry } from './grant-entry';
@@ -87,10 +87,18 @@ export function levelOptions(level: Level): RollOption[] {
   return option === undefined ? [] : [option];
 }
 
+/**
+ * The option an entry of `kind` named `slug` sets on the character it is on, `feat:shield-block`; undefined for a kind
+ * that sets none.
+ */
+export function kindOption(kind: ContentKind, slug: Slug): RollOption | undefined {
+  const namespace = KIND_NAMESPACES[kind];
+  return namespace === undefined ? undefined : optionOf(namespace, slug);
+}
+
 /** The option `entry`'s kind sets for it, `feat:<slug>`; none for a kind that sets none. */
 function kindOptions(entry: GrantEntry): RollOption[] {
-  const namespace = KIND_NAMESPACES[entry.kind];
-  const option = namespace === undefined ? undefined : optionOf(namespace, entry.slug);
+  const option = kindOption(entry.kind, entry.slug);
   return option === undefined ? [] : [option];
 }
 

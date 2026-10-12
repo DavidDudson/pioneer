@@ -97,17 +97,17 @@ grant more than it lists.
 The same rule holds for build kinds: `data` is what Foundry pf2e stores, less what rule elements already express.
 Lists of attributes, slugs and ids name each item once.
 
-| Kind               | `data`                                                                                                                              |
-| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------- |
-| `ancestry`         | `hitPoints`, `size`, `speed`, `reach`; `boosts`; `flaws`; `languages`; `additionalLanguages`; `vision?`                             |
-| `ancestry-feature` | `action?`; granted by its ancestry or heritage, never picked                                                                        |
-| `heritage`         | `ancestry?`, absent for a versatile heritage                                                                                        |
-| `background`       | `boosts`; trained skills and lore are `Proficiency` elements, its skill feat a `GrantItem`                                          |
-| `class`            | `keyAttribute`, the attributes it may be; `hitPoints` per level; `additionalSkills`; `skillIncreaseLevels?`; progression in `rules` |
-| `class-feature`    | `action?`; `tags?`; `keyAttributeOptions?`; always has a `level`                                                                    |
-| `feat`             | `category`; `prerequisites?` as rich text; `onlyLevel1?`; `maxTakable?`; `action?`; `skills?`; `archetype?`; always has a `level`   |
-| `archetype`        | `dedication`; `multiclass?`, the class it is the multiclass archetype of                                                            |
-| `deity`            | `category`; `sanctification?`; `domains`; `font`; `attributes`; `skills`; `weapons`; `spells`                                       |
+| Kind               | `data`                                                                                                                                                      |
+| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ancestry`         | `hitPoints`, `size`, `speed`, `reach`; `boosts`; `flaws`; `languages`; `additionalLanguages`; `vision?`                                                     |
+| `ancestry-feature` | `action?`; granted by its ancestry or heritage, never picked                                                                                                |
+| `heritage`         | `ancestry?`, absent for a versatile heritage                                                                                                                |
+| `background`       | `boosts`; trained skills and lore are `Proficiency` elements, its skill feat a `GrantItem`                                                                  |
+| `class`            | `keyAttribute`, the attributes it may be; `hitPoints` per level; `additionalSkills`; `skillIncreaseLevels?`; progression in `rules`                         |
+| `class-feature`    | `action?`; `tags?`; `keyAttributeOptions?`; always has a `level`                                                                                            |
+| `feat`             | `category`; `prerequisites?` as rich text; `prerequisitePredicate?`; `onlyLevel1?`; `maxTakable?`; `action?`; `skills?`; `archetype?`; always has a `level` |
+| `archetype`        | `dedication`; `multiclass?`, the class it is the multiclass archetype of                                                                                    |
+| `deity`            | `category`; `sanctification?`; `domains`; `font`; `attributes`; `skills`; `weapons`; `spells`                                                               |
 
 - **Boosts.** A boost is the attributes it may go to: one for a fixed boost, all six for a free one. An ancestry
   lists up to four, a background two (Farmhand: Constitution or Wisdom, then free). `flaws` are fixed attributes.
@@ -141,10 +141,11 @@ Lists of attributes, slugs and ids name each item once.
   Foundry's feature categories on the same item type go elsewhere:
   `classfeature` is the `class-feature` kind, `ancestryfeature` the `ancestry-feature` kind, and `calling`, `curse`,
   `deityboon` and `pfsboon` have no kind yet, so the importer reports them.
-- **Prerequisites.** `prerequisites` keeps Foundry's text and gains `prerequisitePredicate?`, which the importer
-  derives when it can parse the text ("trained in Medicine", "Champion Dedication", "Strength +2"). A feat with
-  no predicate is offered as unknown under three-valued predicates (ADR-0002): shown with its text, never
-  hidden, never treated as met. The importer's coverage report lists the unparsed prerequisites.
+- **Prerequisites.** `prerequisites` keeps Foundry's text and gains `prerequisitePredicate?`, which the prerequisite
+  pass derives where it can parse the text ("trained in Medicine", "Champion Dedication", "Strength +2"; Foundry
+  import, Prerequisite enrichment). A feat with no predicate is offered as unknown under three-valued predicates
+  (ADR-0002): shown with its text, never hidden, never treated as met. The coverage report lists the unparsed
+  prerequisites.
 - **Archetypes.** Foundry keeps them as journal pages; the importer builds the entry from the page and its
   dedication feat (Foundry import, Archetypes).
   `dedicationLock?` is how many other archetype feats a character needs before another dedication (2 when
@@ -768,9 +769,10 @@ name`, `of 13th level or lower`) and `1 or 10` (two counts, not a range) are rep
   translate. Art (`img`, `texture` and image paths) is stripped throughout.
 - **Coverage report.** Per kind, over the committed packs and their backlog (`importCoverage`): entries, entries with
   every rule element translated (none untranslated or dropped), entries with nothing left in the backlog, entries
-  with a page number, entries with an AoN link, and entries left out; then page coverage per book and actions with a
-  `trigger` but no `triggerEvent`. The importer prints the same table over its output. `bun run content:coverage`
-  prints it, and CI runs it on PRs touching `content/` as the job summary and an artefact, never failing on it.
+  with a page number, entries with an AoN link, and entries left out; then page coverage per book, actions with a
+  `trigger` but no `triggerEvent`, and feats with `prerequisites` but no `prerequisitePredicate`. The importer prints
+  the same table over its output. `bun run content:coverage` prints it, and CI runs it on PRs touching `content/` as
+  the job summary and an artefact, never failing on it.
   Milestone exit criteria are written against these numbers ("fully translated" is nothing left in the backlog).
 - **Ids.** Our ids stay UUIDv5 of `<pack>/<slug>`. The Foundry compendium UUID goes in `externalIds.foundry`,
   which is what makes Foundry export possible. The slug is the kind its Foundry type is filed under
@@ -791,6 +793,29 @@ name`, `of 13th level or lower`) and `1 or 10` (two counts, not a range) are rep
   overwritten. An action with `requirements` is skipped, since the engine can't read them; its event and a predicate
   for them are set by hand. A trigger with any other wording, or anything richer than words and links, is left for a
   hand edit and listed by the coverage report.
+- **Prerequisite enrichment.** Foundry's prerequisites are text only. `bun run content:prerequisites` sets
+  `prerequisitePredicate` on every feat in the committed packs whose prerequisites all parse and that has none yet, so
+  a hand correction is never overwritten. Each `;`-separated clause must hold, and is one of:
+  - a rank in skills, Lores or Perception ("trained in Athletics", "master in Arcana, Nature, or Religion"),
+    `{ "gte": ["skill:athletics:rank", 1] }`, untrained 0 to legendary 4;
+  - an attribute minimum ("Strength +2"), `{ "gte": ["attribute:str:mod", 2] }`, as Foundry writes it;
+  - a level ("8th level"), `{ "gte": ["self:level", 8] }`;
+  - `holy` or `unholy`, `self:trait:holy` (ADR-0048);
+  - the name of a feat, ancestry feature, ancestry, heritage, class or deity: the option its kind sets
+    (`feat:shield-block`, `deity:primary:sarenrae`). Names resolve across every pack, ignoring case. A name several
+    of these entries share is met by any of them, as is a name whose entries add a class in brackets: "Animal
+    Companion" is Animal Companion or Animal Companion (Ranger). A kind word after a name narrows it ("leaf leshy
+    heritage", "Cat Fall skill feat").
+
+  Class features are not named. An archetype gives a muse, order or school without the class feature (Bard
+  Dedication has no muse to pick yet), so `feature:warrior` would read as false for a character who meets "warrior
+  muse"; such a clause stays unparsed. A class feature that is also a feat (the fighter's Shield Block) grants the
+  feat, which names it.
+
+  A list of items is `or` or `and` as it says; one that says both, or neither, does not parse. A feat with any clause
+  that does not parse gets no predicate, since a partial one would read as met; the coverage report lists it. The
+  `attribute` and `perception` namespaces are not in the core table yet, so until the builder sets those facts
+  (#466) a predicate reading them is unknown, never false.
 
 ## Licensing
 

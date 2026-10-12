@@ -26,7 +26,7 @@ import { ActionCost } from '../rich-text';
 import { SenseAcuity } from '../sense';
 import { StatisticKind } from '../statistic';
 import { CONTENT_LEVEL_MAX, LEVEL_MAX, LEVEL_MIN } from '../units';
-import { actorFormulaText, keyPathText, skillSelectorText, withTrigger } from './arbitraries';
+import { actorFormulaText, keyPathText, predicateJson, skillSelectorText, withTrigger } from './arbitraries';
 import {
   ancestryData,
   archetypeData,
@@ -130,6 +130,7 @@ const actionData: Arbitrary<object> = withTrigger(untriggeredAction);
 const featCategory: Arbitrary<string> = constantFrom(...Object.values(FeatCategory));
 const featData: Arbitrary<object> = withOptional(record({ category: featCategory }), {
   prerequisites: richTextJson,
+  prerequisitePredicate: predicateJson,
   onlyLevel1: boolean(),
   skills,
   archetype: contentIdJson,

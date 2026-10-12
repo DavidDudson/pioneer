@@ -3,6 +3,7 @@ export type { OfferedOption } from './offers';
 export type { ContentLookup, GrantEntry, GrantError, GrantRoot } from './grant-entry';
 export type { ConditionalGrant, GrantedItem } from './grant-walk';
 export { GrantsMessage } from './messages';
+export { kindOption } from './character-facts';
 export { grantLookup } from './grant-lookup';
 export { type GrantInputs, type GrantResolution, resolveGrants } from './resolve-grants';
 export type { RootSlot, RootSlotDefinition } from './root-slots';
