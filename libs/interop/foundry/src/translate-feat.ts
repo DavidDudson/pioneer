@@ -1,5 +1,6 @@
 import {
   ActionData,
+  AttributeSchema,
   BlockKind,
   FeatCategory,
   InlineKind,
@@ -8,7 +9,7 @@ import {
   Trait,
   UNLIMITED,
 } from '@pioneer/rules/sdk';
-import type { ContentId, RichText } from '@pioneer/rules/sdk';
+import type { Attribute, ContentId, RichText } from '@pioneer/rules/sdk';
 import * as z from 'zod';
 
 import { addRule, isSet, issuePath, KindDataGapReason, report } from './kind-data-gaps';
@@ -59,6 +60,8 @@ const FoundryFeatSystem = z.looseObject({
 type FoundryFeatSystem = z.infer<typeof FoundryFeatSystem>;
 
 const SENSES_MAX = 16;
+/** Foundry lists each attribute at most once; more than six is no list of attributes. */
+const KEY_OPTIONS_MAX = 6;
 
 /** A feat's `subfeatures.senses`: each sense it gives by Foundry's slug, with an acuity and range. */
 const FoundrySubfeatureSenses = z.record(
@@ -68,21 +71,24 @@ const FoundrySubfeatureSenses = z.record(
 
 /**
  * The senses a feat's `subfeatures` give, as `Sense` elements, and its languages as a `Language` element; a sense outside
- * the vocabulary is reported. Its other subfeatures (proficiencies, key attribute options) are reported until stories
- * read them.
+ * the vocabulary is reported. A class feature reads its `keyOptions` itself; other subfeatures (proficiencies) are
+ * reported until stories read them.
  */
-/** Reports each set subfeature but `senses` and `languages`, by its own name. */
-function reportOtherSubfeatures(others: object, { log }: KindInput): void {
+/** Reports each set subfeature but `senses`, `languages` and those the kind `read` itself, by its own name. */
+function reportOtherSubfeatures(others: object, read: readonly string[], { log }: KindInput): void {
   for (const [field, value] of Object.entries(others)) {
-    if (isSet(value)) {
+    if (isSet(value) && !read.includes(field)) {
       report(log, { reason: KindDataGapReason.UnmappedField, field: `subfeatures.${field}`, raw: value });
     }
   }
 }
 
-function subfeatureRules(system: FoundryFeatSystem, input: KindInput): void {
+/** Subfeatures only a class feature reads: `keyOptions`, its key attribute options. */
+const CLASS_FEATURE_SUBFEATURES: readonly string[] = ['keyOptions'];
+
+function subfeatureRules(system: FoundryFeatSystem, input: KindInput, read: readonly string[] = []): void {
   const { senses, languages, ...others } = system.subfeatures ?? {};
-  reportOtherSubfeatures(others, input);
+  reportOtherSubfeatures(others, read, input);
   languageRules(languages, input);
   const parsed = FoundrySubfeatureSenses.safeParse(senses ?? {});
   if (!parsed.success || Object.keys(parsed.data).length > SENSES_MAX) {
@@ -113,6 +119,30 @@ function tagsOf(system: FoundryFeatSystem, { log }: KindInput): object {
     return slug.success ? [slug.data] : [];
   });
   return tags.length === 0 ? {} : { tags: [...new Set(tags)] };
+}
+
+/**
+ * A class feature's `subfeatures.keyOptions` as the attributes it adds to its class's key attribute options
+ * (Ruffian's `str`); one that is no attribute is reported and left off.
+ */
+function keyAttributeOptionsOf(system: FoundryFeatSystem, { log }: KindInput): object {
+  const raw = system.subfeatures?.['keyOptions'];
+  if (!isSet(raw)) {
+    return {};
+  }
+  const listed = z.array(z.unknown()).max(KEY_OPTIONS_MAX).safeParse(raw);
+  if (!listed.success) {
+    report(log, { reason: KindDataGapReason.InvalidData, field: 'subfeatures.keyOptions', raw });
+    return {};
+  }
+  const options = listed.data.flatMap((each): Attribute[] => {
+    const attribute = AttributeSchema.safeParse(each);
+    if (!attribute.success) {
+      report(log, { reason: KindDataGapReason.UnmappedValue, field: 'subfeatures.keyOptions', raw: each });
+    }
+    return attribute.success ? [attribute.data] : [];
+  });
+  return options.length === 0 ? {} : { keyAttributeOptions: [...new Set(options)] };
 }
 
 /** A passive feat with nothing an action carries: no `action` data. */
@@ -209,15 +239,15 @@ export function featData(input: KindInput): object | undefined {
   };
 }
 
-/** The class feature's data, unparsed: its `action` data when it is itself an action, and its tags. */
+/** The class feature's data, unparsed: its `action` data when it is itself an action, its tags and its key attribute options. */
 export function classFeatureData(input: KindInput): object | undefined {
   const system = systemOf(FoundryFeatSystem, input);
   if (system === undefined) {
     return undefined;
   }
   spellcastingRules(input);
-  subfeatureRules(system, input);
-  return { ...actionOf(system, input), ...tagsOf(system, input) };
+  subfeatureRules(system, input, CLASS_FEATURE_SUBFEATURES);
+  return { ...actionOf(system, input), ...tagsOf(system, input), ...keyAttributeOptionsOf(system, input) };
 }
 
 /** The ancestry feature's data, unparsed: its `action` data when it is itself an action. */

@@ -6,6 +6,7 @@ import {
   integer,
   oneof,
   record,
+  shuffledSubarray,
   stringMatching,
   tuple,
   uniqueArray,
@@ -138,6 +139,7 @@ const featData: Arbitrary<object> = withOptional(record({ category: featCategory
 const classFeatureData: Arbitrary<object> = withOptional(constant({}), {
   action: actionData,
   tags: uniqueArray(slugText, { minLength: 1, maxLength: LIST_MAX }),
+  keyAttributeOptions: shuffledSubarray(Object.values(Attribute), { minLength: 1 }),
 });
 
 const ancestryFeatureData: Arbitrary<object> = withOptional(constant({}), { action: actionData });

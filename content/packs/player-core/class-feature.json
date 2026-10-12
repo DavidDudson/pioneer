@@ -6016,7 +6016,8 @@
       "foundry": "Compendium.pf2e.classfeatures.Item.RyOkmu0W9svavuAB"
     },
     "data": {
-      "tags": ["rogue-racket"]
+      "tags": ["rogue-racket"],
+      "keyAttributeOptions": ["int"]
     }
   },
   {
@@ -7301,7 +7302,8 @@
       "foundry": "Compendium.pf2e.classfeatures.Item.3KPZ7svIO6kmmEKH"
     },
     "data": {
-      "tags": ["rogue-racket"]
+      "tags": ["rogue-racket"],
+      "keyAttributeOptions": ["str"]
     }
   },
   {
@@ -10270,7 +10272,8 @@
       "foundry": "Compendium.pf2e.classfeatures.Item.ZvfxtUMtfIOLYHyg"
     },
     "data": {
-      "tags": ["rogue-racket"]
+      "tags": ["rogue-racket"],
+      "keyAttributeOptions": ["cha"]
     }
   },
   {

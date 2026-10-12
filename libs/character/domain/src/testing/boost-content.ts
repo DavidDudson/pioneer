@@ -29,4 +29,5 @@ export const BOOST_FIXTURES: BoostContent = {
   ancestry: (id) => ANCESTRIES.get(id),
   background: (id) => BACKGROUNDS.get(id),
   keyAttribute: (id) => CLASSES.get(id),
+  keyAttributeOptions: () => [],
 };

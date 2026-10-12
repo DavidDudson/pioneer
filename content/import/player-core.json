@@ -3928,12 +3928,6 @@
             "path": "{item|flags.system.rulesSelections.mastermind}",
             "value": 1
           }
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.keyOptions",
-          "raw": ["int"]
         }
       ]
     },
@@ -4660,12 +4654,6 @@
         {
           "type": "field",
           "reason": "unmapped-field",
-          "field": "subfeatures.keyOptions",
-          "raw": ["str"]
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-field",
           "field": "subfeatures.proficiencies",
           "raw": {
             "medium": {
@@ -4753,12 +4741,6 @@
             "text": "On a critical success, the target is off-guard against all melee attacks until the end of your next turn, not just yours.",
             "title": "{item|name}"
           }
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "subfeatures.keyOptions",
-          "raw": ["cha"]
         }
       ]
     },

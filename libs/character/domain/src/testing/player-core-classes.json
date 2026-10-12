@@ -7174,7 +7174,8 @@
     "description": [],
     "kind": "class-feature",
     "data": {
-      "tags": ["rogue-racket"]
+      "tags": ["rogue-racket"],
+      "keyAttributeOptions": ["str"]
     }
   },
   {
@@ -7224,7 +7225,8 @@
     "description": [],
     "kind": "class-feature",
     "data": {
-      "tags": ["rogue-racket"]
+      "tags": ["rogue-racket"],
+      "keyAttributeOptions": ["cha"]
     }
   },
   {
@@ -7249,7 +7251,8 @@
     "description": [],
     "kind": "class-feature",
     "data": {
-      "tags": ["rogue-racket"]
+      "tags": ["rogue-racket"],
+      "keyAttributeOptions": ["int"]
     }
   },
   {

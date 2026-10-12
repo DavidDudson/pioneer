@@ -2,6 +2,7 @@ import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { ActionData, Skills, Uses } from './action';
+import { AttributeBoost } from './attribute';
 import { ContentId, Slug } from './content-id';
 import { RichText } from './rich-text';
 import { uniqueItems } from './unique-items';
@@ -55,6 +56,11 @@ export const ClassFeatureData = z.strictObject({
    * roll option `tag:<tag>`, which a subclass's `ChoiceSet` filters on (`item:tag:cleric-doctrine`).
    */
   tags: z.array(Slug).min(1).max(TAGS_MAX).readonly().check(uniqueItems).optional(),
+  /**
+   * The attributes it adds to its class's key attribute options (Foundry's `subfeatures.keyOptions`): Strength on
+   * Ruffian, so a ruffian rogue may key Dexterity or Strength.
+   */
+  keyAttributeOptions: AttributeBoost.optional(),
 });
 export type ClassFeatureData = z.infer<typeof ClassFeatureData>;
 
