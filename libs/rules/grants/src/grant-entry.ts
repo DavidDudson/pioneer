@@ -2,6 +2,7 @@ import type {
   ContentId,
   ContentKind,
   ContentText,
+  DeitySpell,
   OriginHop,
   RollOption,
   RuleElement,
@@ -48,6 +49,8 @@ export interface GrantEntry {
    * `deity:primary:favored-weapon:dagger`. Absent for any other kind.
    */
   readonly characterOptions?: readonly RollOption[];
+  /** A deity's spells for its clerics, at the rank each is granted at, which a `DeitySpells` element reads. */
+  readonly deitySpells?: readonly DeitySpell[];
 }
 
 /** The installed content grant resolution reads. */

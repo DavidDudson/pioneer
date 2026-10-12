@@ -92,3 +92,16 @@ export const PoolSpellsElement = z.strictObject({
   ...ruleElementBase,
 });
 export type PoolSpellsElement = z.infer<typeof PoolSpellsElement>;
+
+/**
+ * Adds the character's deity's spells to an entry's list (ADR-0047): each goes in the entry's own slots like a spell of
+ * its tradition, in a slot of the rank the deity grants it at or higher, heightened, whatever its tradition or rarity.
+ * Player Core's Deity (Cleric) gives one for the cleric's entry. One for an entry not in play, or with no deity on the
+ * character, adds nothing. A Pioneer element with no Foundry counterpart, like `SpellSlots`.
+ */
+export const DeitySpellsElement = z.strictObject({
+  key: z.literal(RuleElementKey.DeitySpells),
+  entry: EntrySourceSlug,
+  ...ruleElementBase,
+});
+export type DeitySpellsElement = z.infer<typeof DeitySpellsElement>;

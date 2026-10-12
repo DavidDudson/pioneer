@@ -9,7 +9,15 @@ export {
   AttributeModifiersWire,
   AttributeSchema,
 } from './attribute';
-export { DeityCategory, DeityData, DeityDomain, DivineFont, Sanctification, SanctificationModal } from './deity';
+export {
+  DeityCategory,
+  DeityData,
+  DeityDomain,
+  DeitySpell,
+  DivineFont,
+  Sanctification,
+  SanctificationModal,
+} from './deity';
 export { EffectBadgeType, EffectCategory, EffectData, EffectDurationType } from './effect';
 export { RitualData } from './ritual';
 export { ArmorData, ArmorGroup, ArmorItemCategory, ShieldData } from './armor';
@@ -270,6 +278,7 @@ export { DefenceValue, ImmunityElement, ResistanceElement, WeaknessElement } fro
 export { SenseElement } from './rule-element-sense';
 export { LanguageAccess, LanguageCount, LanguageElement } from './rule-element-language';
 export {
+  DeitySpellsElement,
   PoolSpellsElement,
   SLOT_COUNT_MAX,
   SlotCount,

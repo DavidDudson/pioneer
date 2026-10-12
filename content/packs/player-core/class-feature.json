@@ -2098,6 +2098,11 @@
         "selector": "attack:favored-weapon",
         "rank": "trained",
         "predicate": ["class:cleric"]
+      },
+      {
+        "key": "DeitySpells",
+        "entry": "cleric",
+        "predicate": ["class:cleric"]
       }
     ],
     "externalIds": {

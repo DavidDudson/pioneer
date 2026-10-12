@@ -55,7 +55,10 @@ interface EntryInPlay extends SpellcastingInputs {
  * A spellcasting entry on the character: what its spell attack and DC read, how it casts, why it is there, and its
  * slots.
  */
-export interface SpellcastingInPlay extends EntryInPlay, EntrySlots {}
+export interface SpellcastingInPlay extends EntryInPlay, EntrySlots {
+  /** Whether a `DeitySpells` element in play adds the character's deity's spells to its list (ADR-0047). */
+  readonly deitySpells: boolean;
+}
 
 /** `items` in the code-unit order of their slugs, so a result never depends on the host's locale. */
 function bySlug<Item>(items: readonly Item[], slugOf: (item: Item) => Slug): readonly Item[] {
@@ -163,6 +166,8 @@ interface Gathered {
   readonly entries: Map<Slug, EntryInPlay>;
   readonly slots: Map<Slug, PlacedSlots[]>;
   readonly poolSpells: Map<Slug, Map<RuleSlug, ContentId[]>>;
+  /** The entries a `DeitySpells` element names. */
+  readonly deitySpells: Set<Slug>;
 }
 
 /** Adds `spells` to what `pool` of `entry` takes, each spell once. */
@@ -189,6 +194,9 @@ function gather(gathered: Gathered, rule: RuleInPlay, facts: PredicateFacts): vo
   if (element.key === RuleElementKey.PoolSpells) {
     addPoolSpells(gathered, element);
   }
+  if (element.key === RuleElementKey.DeitySpells) {
+    gathered.deitySpells.add(element.entry);
+  }
 }
 
 /**
@@ -196,18 +204,19 @@ function gather(gathered: Gathered, rule: RuleInPlay, facts: PredicateFacts): vo
  * element with that slug whose predicate holds, in slug order. One that depends on the situation gives none on the
  * sheet. Each is a source `StatisticInputs.spellcasting` derives a spell attack and DC for, with the slots the
  * `SpellSlots` elements in play give it (ADR-0041) and the spells the `PoolSpells` elements in play give its pools
- * (ADR-0045).
+ * (ADR-0045), and whether a `DeitySpells` element in play adds the deity's spells to its list (ADR-0047).
  */
 export function spellcastingInPlay({ rules, facts }: ModifierInputs): readonly SpellcastingInPlay[] {
-  const gathered: Gathered = { entries: new Map(), slots: new Map(), poolSpells: new Map() };
+  const gathered: Gathered = { entries: new Map(), slots: new Map(), poolSpells: new Map(), deitySpells: new Set() };
   for (const rule of rules) {
     gather(gathered, rule, facts);
   }
-  const { entries, slots, poolSpells } = gathered;
+  const { entries, slots, poolSpells, deitySpells } = gathered;
   return bySlug(
-    [...entries.values()].map((entry): SpellcastingInPlay =>
-      Object.assign(entrySlots(slots.get(entry.slug) ?? [], poolSpells.get(entry.slug) ?? NO_POOL_SPELLS), entry),
-    ),
+    [...entries.values()].map((entry): SpellcastingInPlay => {
+      const entrySlotsOf = entrySlots(slots.get(entry.slug) ?? [], poolSpells.get(entry.slug) ?? NO_POOL_SPELLS);
+      return Object.assign(entrySlotsOf, entry, { deitySpells: deitySpells.has(entry.slug) });
+    }),
     ({ slug }) => slug,
   );
 }
