@@ -40,6 +40,8 @@ const LOADING_SLOTS = 3;
 export class SheetSpells {
   /** Whether the character has a spellcasting entry. */
   public readonly casts = input(false);
+  /** Whether one of its entries is a focus entry, so its focus spells show a placeholder while they load. */
+  public readonly focuses = input(false);
 
   /** Placeholder pickers while the spells load: a 1st-level caster's first row. */
   protected readonly loadingSlots = Array.from({ length: LOADING_SLOTS }, (_unused, index) => index);

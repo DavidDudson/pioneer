@@ -6,7 +6,7 @@ import type { CharacterLevel } from './character-fields';
 import { cantripRank } from './prepared-spells';
 import type { SpellContent, SpellOption } from './spell-content';
 
-/** A focus entry's focus spells, as its `FocusSpells` elements name them; one whose content isn't loaded is left out. */
+/** A focus entry's focus spells as its `FocusSpells` elements name them; one whose content isn't loaded is left out. */
 export interface FocusEntrySpells {
   readonly entry: SpellcastingInPlay;
   readonly spells: readonly SpellOption[];

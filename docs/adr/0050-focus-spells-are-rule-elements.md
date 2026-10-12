@@ -15,7 +15,7 @@ focus spell, at most 3 (Domain Initiate: "Your focus pool can hold one Focus Poi
 Foundry keeps almost none of it: a focus entry is a spellcasting entry the player adds by hand, each focus spell an
 item dragged into it, and the pool's maximum a number the player sets. Domain Initiate's `ChoiceSet` picks a domain
 from `system.details.deities.domains`, which grants nothing; which spell a domain grants is only in the domains
-journal. The play state's focus points (#345) need the pool's maximum from the engine.
+journal. The play state's focus points (#345) need the pool's maximum, worked out from the character's focus spells.
 
 Alternatives:
 
@@ -52,6 +52,8 @@ Alternatives:
 
 - Later books, archetypes (#606) and homebrew add focus spells the same way; a feature that adds a Focus Point without
   a spell (a later book's) would need its own element.
+- An order's focus entry and order spell hold unless the order was joined through Order Explorer
+  (`not feat:order-explorer:<order>`), which grants none of its other benefits, as Foundry guards an order's own.
 - Order Magic offers nothing until Order Explorer's choice imports (#604), and a feat taken twice shares its first
   take's choice, so a second Domain Initiate or Initiate Warden picks nothing new (#605).
 - Lesson features carry their hexes, but Basic, Greater and Major Lesson import with no rules, so no lesson reaches a

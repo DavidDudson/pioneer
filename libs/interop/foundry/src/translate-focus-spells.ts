@@ -35,11 +35,6 @@ const CLERIC_ENTRY = focusEntry({ slug: CLERIC, tradition: 'divine', attribute: 
 const DRUID_ENTRY = focusEntry({ slug: DRUID, tradition: 'primal', attribute: 'wis' });
 const RANGER_ENTRY = focusEntry({ slug: RANGER, tradition: 'primal', attribute: 'wis' });
 
-/** A witch's focus entry takes the patron's tradition, like the witch's own entry. */
-function witchEntry(tradition: string): object {
-  return focusEntry({ slug: WITCH, tradition, attribute: 'int' });
-}
-
 const WIZARD_ENTRY = focusEntry({ slug: WIZARD, tradition: 'arcane', attribute: 'int' });
 
 /** A focus spells element's entry, its spells by slug, and the predicate it holds on, if any. */
@@ -159,14 +154,21 @@ function school(initial: string, advanced: string): Planned {
   ];
 }
 
-/** A druid's order: its order spell. Order Explorer grants no order spell (Order Magic does, #604). */
-function order(spell: string): Planned {
-  return [DRUID_ENTRY, { entry: DRUID, spells: [spell] }];
+/**
+ * A druid's order: its order spell, unless the order was joined through Order Explorer, which grants none of its other
+ * benefits (Order Magic grants its spell, #604). Guarded as Foundry guards an order's own benefits.
+ */
+function order(slug: string, spell: string): Planned {
+  const predicate = [{ not: `feat:order-explorer:${slug}` }];
+  return [
+    { ...DRUID_ENTRY, predicate },
+    { entry: DRUID, spells: [spell], predicate },
+  ];
 }
 
-/** A witch's patron: the witch's focus entry in the patron's tradition, and its hex cantrip. */
+/** A witch's patron: the witch's focus entry in the patron's tradition, as its own entry is, and its hex cantrip. */
 function patron(tradition: string, cantrip: string): Planned {
-  return [witchEntry(tradition), { entry: WITCH, spells: [cantrip] }];
+  return [focusEntry({ slug: WITCH, tradition, attribute: 'int' }), { entry: WITCH, spells: [cantrip] }];
 }
 
 /** A lesson's hex. */
@@ -208,10 +210,10 @@ const FOCUS: ReadonlyMap<string, Planned> = new Map([
   ['feat:domain-initiate', DOMAIN_INITIATE_RULES],
   ['feat:advanced-domain', ADVANCED_DOMAIN_RULES],
   // Druid: each order's order spell, and the feats that teach another.
-  ['class-feature:animal-order', order('heal-animal')],
-  ['class-feature:leaf-order', order('cornucopia')],
-  ['class-feature:storm-order', order('tempest-surge')],
-  ['class-feature:untamed-order', order('untamed-shift')],
+  ['class-feature:animal-order', order('animal-order', 'heal-animal')],
+  ['class-feature:leaf-order', order('leaf-order', 'cornucopia')],
+  ['class-feature:storm-order', order('storm-order', 'tempest-surge')],
+  ['class-feature:untamed-order', order('untamed-order', 'untamed-shift')],
   ['feat:impaling-briars', learn(DRUID, 'impaling-briars')],
   ['feat:invoke-disaster', learn(DRUID, 'storm-lord')],
   ['feat:primal-summons', learn(DRUID, 'primal-summons')],

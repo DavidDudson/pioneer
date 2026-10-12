@@ -2,15 +2,21 @@ import { describe, expect, test } from 'bun:test';
 
 import { DeityDomain, RuleElement, RuleElementKey } from '@pioneer/rules/sdk';
 
+import { DOMAIN_SPELLS } from './domain-spells';
 import { rulesIn } from './testing/build-helpers';
 import { idOf, translate } from './testing/import-fixtures';
 import type { DocumentFixture } from './testing/import-fixtures';
 import {
   ADVANCED_DOMAIN,
+  CACKLE,
   COMPOSITION_SPELLS,
   DOMAIN_INITIATE,
+  HEX_SPELLS,
   INITIATE_WARDEN,
+  LESSON_OF_LIFE,
   SCHOOL_OF_BATTLE_MAGIC,
+  THE_RESENTMENT,
+  UNTAMED_ORDER,
   WIZARD_SPELLCASTING,
 } from './testing/spellcasting-fixtures';
 
@@ -30,6 +36,9 @@ function keyed(key: string, name: string, fixture: DocumentFixture): Record<stri
 }
 
 const spell = (slug: string): string => idOf(`spell:${slug}`);
+
+/** The domains Player Core prints an advanced domain spell for. */
+const WITH_ADVANCED = [...DOMAIN_SPELLS].filter(([, [, advanced]]) => advanced !== undefined).map(([domain]) => domain);
 
 describe('translateKindData: focus spells', () => {
   test('Composition Spells makes the bard a focus caster with Counter Performance and Courageous Anthem', () => {
@@ -113,5 +122,77 @@ describe('translateKindData: focus spells', () => {
       }
     }
     expect(keyed(FocusSpells, 'wizard-spellcasting', WIZARD_SPELLCASTING)).toEqual([]);
+  });
+
+  test('Domain Initiate offers every domain, and a focus spells element per domain, gated on it', () => {
+    const domains = [...DOMAIN_SPELLS.keys()];
+    const predicates = keyed(FocusSpells, 'domain-initiate', DOMAIN_INITIATE).map(({ predicate }) => predicate);
+
+    expect(valuesOf(keyed(ChoiceSet, 'domain-initiate', DOMAIN_INITIATE)[0])).toEqual(domains);
+    expect(predicates).toEqual(domains.map((domain) => [`domain-initiate:${domain}`]));
+  });
+
+  test('Advanced Domain offers only the domains Player Core prints an advanced spell for', () => {
+    const offered = valuesOf(keyed(ChoiceSet, 'advanced-domain', ADVANCED_DOMAIN)[0]);
+
+    expect(offered).toEqual(WITH_ADVANCED);
+    expect(offered).not.toContain('sun');
+    expect(keyed(FocusSpells, 'advanced-domain', ADVANCED_DOMAIN)).toHaveLength(offered.length);
+  });
+
+  test("Initiate Warden gives the picked warden spell while it's picked", () => {
+    expect(keyed(FocusSpells, 'initiate-warden', INITIATE_WARDEN)).toEqual(
+      ['gravity-weapon', 'heal-companion', 'magic-hide'].map((name) => ({
+        key: FocusSpells,
+        entry: 'ranger-focus',
+        spells: [spell(name)],
+        predicate: [`initiate-warden:${name}`],
+      })),
+    );
+  });
+
+  test("a druid's order gives its order spell, unless joined through Order Explorer", () => {
+    const predicate = [{ not: 'feat:order-explorer:untamed-order' }];
+
+    expect(keyed(SpellcastingEntry, 'untamed-order', UNTAMED_ORDER)).toEqual([
+      {
+        key: SpellcastingEntry,
+        slug: 'druid-focus',
+        tradition: 'primal',
+        attribute: 'wis',
+        preparation: 'focus',
+        predicate,
+      },
+    ]);
+    expect(keyed(FocusSpells, 'untamed-order', UNTAMED_ORDER)).toEqual([
+      { key: FocusSpells, entry: 'druid-focus', spells: [spell('untamed-shift')], predicate },
+    ]);
+  });
+
+  test("a witch's patron gives a focus entry in its tradition and its hex cantrip", () => {
+    expect(keyed(SpellcastingEntry, 'the-resentment', THE_RESENTMENT)).toContainEqual({
+      key: SpellcastingEntry,
+      slug: 'witch-focus',
+      tradition: 'occult',
+      attribute: 'int',
+      preparation: 'focus',
+    });
+    expect(keyed(FocusSpells, 'the-resentment', THE_RESENTMENT)).toEqual([
+      { key: FocusSpells, entry: 'witch-focus', spells: [spell('evil-eye')] },
+    ]);
+  });
+
+  test('Hex Spells picks one of two hexes; a lesson and Cackle each teach theirs', () => {
+    expect(valuesOf(keyed(ChoiceSet, 'hex-spells', HEX_SPELLS)[0])).toEqual(['patrons-puppet', 'phase-familiar']);
+    expect(keyed(FocusSpells, 'hex-spells', HEX_SPELLS).map(({ predicate }) => predicate)).toEqual([
+      ['hex-spells:patrons-puppet'],
+      ['hex-spells:phase-familiar'],
+    ]);
+    expect(keyed(FocusSpells, 'lesson-of-life', LESSON_OF_LIFE)).toEqual([
+      { key: FocusSpells, entry: 'witch-focus', spells: [spell('life-boost')] },
+    ]);
+    expect(keyed(FocusSpells, 'cackle', CACKLE)).toEqual([
+      { key: FocusSpells, entry: 'witch-focus', spells: [spell('cackle')] },
+    ]);
   });
 });

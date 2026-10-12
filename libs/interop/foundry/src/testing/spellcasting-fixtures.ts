@@ -199,3 +199,21 @@ export const INITIATE_WARDEN = classFeat({
   level: 1,
   traits: ['ranger'],
 });
+
+export const UNTAMED_ORDER = classFeature({
+  id: 'sPeLlCaStInG0020',
+  name: 'Untamed Order',
+  level: 1,
+  traits: ['druid'],
+});
+
+export const HEX_SPELLS = classFeature({ id: 'sPeLlCaStInG0021', name: 'Hex Spells', level: 1, traits: ['witch'] });
+
+export const LESSON_OF_LIFE = classFeature({
+  id: 'sPeLlCaStInG0022',
+  name: 'Lesson of Life',
+  level: 2,
+  traits: ['witch'],
+});
+
+export const CACKLE = classFeat({ id: 'sPeLlCaStInG0023', name: 'Cackle', level: 1, traits: ['witch'] });

@@ -2,6 +2,9 @@
   <fr-async-region>
     <ng-template frAsyncPending>
       <fr-stack gap="md">
+        @if (focuses()) {
+          <pio-focus-spells [focus]="undefined" />
+        }
         <fr-stack gap="sm">
           <fr-skeleton width="md" />
           <fr-grid [columns]="3">

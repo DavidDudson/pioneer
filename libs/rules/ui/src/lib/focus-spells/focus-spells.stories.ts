@@ -39,6 +39,11 @@ export const Bard: FocusSpellsStory = {
   },
 };
 
+/** While the spells load. */
+export const Loading: FocusSpellsStory = {
+  args: { focus: undefined },
+};
+
 /** A cleric who hasn't picked a domain yet. */
 export const NoneYet: FocusSpellsStory = {
   args: {

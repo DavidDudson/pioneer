@@ -47,7 +47,7 @@ import {
   Text,
   TextInput,
 } from '@pioneer/frontier';
-import { AncestryId, ChoiceValue } from '@pioneer/rules/sdk';
+import { AncestryId, ChoiceValue, SpellPreparation } from '@pioneer/rules/sdk';
 import type { ContentRegistry } from '@pioneer/rules/sdk';
 import {
   AttributesView,
@@ -206,6 +206,12 @@ export class CharacterSheetPage {
     clear: async (slot) => this.store.clearSlot(slot),
     translate: (key) => this.#i18n.translate(key),
   });
+  /** Whether the character has a spellcasting entry, so its spell picks load. */
+  protected readonly casts = computed(() => (this.picks.spellcasting()?.length ?? 0) > 0);
+  /** Whether one of its entries is a focus entry. */
+  protected readonly focuses = computed(
+    () => this.picks.spellcasting()?.some((entry) => entry.preparation === SpellPreparation.Focus) ?? false,
+  );
   protected readonly heritageOptions = this.picks.rootOptions(HERITAGE_SLOT);
   protected readonly heritage = this.picks.rootField(HERITAGE_SLOT, this.heritageOptions);
   protected readonly backgroundOptions = this.picks.rootOptions(BACKGROUND_SLOT);
