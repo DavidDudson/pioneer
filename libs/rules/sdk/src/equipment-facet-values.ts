@@ -47,7 +47,8 @@ const COPPER_PER_SILVER = CopperValue.parse(10);
 const COPPER_PER_GOLD = CopperValue.parse(100);
 const COPPER_PER_PLATINUM = CopperValue.parse(1000);
 
-const COPPER_PER_COIN: Readonly<Record<Coin, CopperValue>> = {
+/** What one of each coin is worth in copper. */
+export const COPPER_PER_COIN: Readonly<Record<Coin, CopperValue>> = {
   [Coin.Platinum]: COPPER_PER_PLATINUM,
   [Coin.Gold]: COPPER_PER_GOLD,
   [Coin.Silver]: COPPER_PER_SILVER,

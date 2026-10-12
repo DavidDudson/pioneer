@@ -68,6 +68,26 @@ describe(AsyncForm, () => {
     expect(fixture.componentInstance.submission.status()).toBe(AsyncStatus.Success);
   });
 
+  it.each([
+    { disabled: false, runs: 1 },
+    { disabled: true, runs: 0 },
+  ])('Mod+Enter submits through the submit button, unless it is disabled ($disabled)', async ({ disabled, runs }) => {
+    const action = vi.fn<(value: Model) => Promise<undefined>>(async () => undefined);
+    const fixture = await render('Valeros', action);
+    const element = (fixture.nativeElement as HTMLElement).querySelector('form');
+    const submit = document.createElement('button');
+    submit.type = 'submit';
+    submit.disabled = disabled;
+    element?.append(submit);
+
+    for (const modifier of [{ ctrlKey: true }, { metaKey: true }]) {
+      submit.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true, ...modifier }));
+    }
+    await settle();
+
+    expect(action).toHaveBeenCalledTimes(runs);
+  });
+
   it('reports the action failure through describeError', async () => {
     const fixture = await render('Valeros', async () => {
       throw new Error('500');

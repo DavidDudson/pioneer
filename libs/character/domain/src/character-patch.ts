@@ -23,6 +23,11 @@ export const CharacterPatchField = {
    * container; the server gives it its id. Its audit rows name `giftItem`, apart from a purchase.
    */
   GiftItem: 'giftItem',
+  /**
+   * An item from content bought at its price times the quantity, paid from the coins with change made; refused when
+   * the coins are worth less. Its audit rows name `buyItem`.
+   */
+  BuyItem: 'buyItem',
   /** An item leaves the inventory; what it held moves out to where it was. */
   RemoveItem: 'removeItem',
   SetItemQuantity: 'setItemQuantity',
@@ -55,6 +60,12 @@ export const CharacterPatchSchema = z.discriminatedUnion('field', [
   z.object({ field: z.literal(CharacterPatchField.ClearSlot), slot: SlotKey }),
   z.object({
     field: z.literal(CharacterPatchField.GiftItem),
+    item: ContentId,
+    quantity: ItemQuantity,
+    container: InventoryItemId.optional(),
+  }),
+  z.object({
+    field: z.literal(CharacterPatchField.BuyItem),
     item: ContentId,
     quantity: ItemQuantity,
     container: InventoryItemId.optional(),
@@ -166,7 +177,8 @@ function runeTarget(patch: RunePatch): InventoryTarget {
 /** What `patch` touches in the inventory; undefined for an edit outside it. Coins touch no item. */
 export function inventoryTarget(patch: CharacterPatch): InventoryTarget | undefined {
   switch (patch.field) {
-    case CharacterPatchField.GiftItem: {
+    case CharacterPatchField.GiftItem:
+    case CharacterPatchField.BuyItem: {
       return { item: patch.item, container: patch.container };
     }
     case CharacterPatchField.MoveItem: {

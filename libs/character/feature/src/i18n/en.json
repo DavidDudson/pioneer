@@ -120,10 +120,12 @@
       "search": "Search items by name",
       "everything": "Show everything",
       "available": "Available to you: level {level} or lower, no unique items or artifacts.",
+      "buy": "Buy",
+      "buying": "Buying…",
+      "bought": "Bought",
       "gift": "Add without paying",
       "gifting": "Adding…",
-      "gifted": "Added",
-      "giftFailed": "The item could not be added. Try again."
+      "gifted": "Added"
     },
     "prepared": {
       "heading": "Prepared spells: {tradition}",
@@ -164,6 +166,7 @@
     "containerNotFound": "This character no longer has that container. Reload to see their inventory as it is.",
     "containerInsideItself": "A container can't go inside itself or inside something it holds. Choose another place.",
     "unknownItem": "That item is not available. Choose another.",
+    "cannotAfford": "This character can't afford that: its coins are worth less than the cost. Buy fewer, or add it without paying.",
     "notAContainer": "That item can't hold other items. Choose a container.",
     "inventoryFull": "This character carries {maximum} items already, the most an inventory holds. Remove one first.",
     "handsFull": "Hands are full: this character holds things in {maximum} hands already. Stow or drop something first.",

@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { AncestryId, ChoiceValue, contentId, EntrySlug, PackId, SlotKey } from '@pioneer/rules/sdk';
+import { AncestryId, ChoiceValue, contentId, CopperValue, EntrySlug, PackId, SlotKey } from '@pioneer/rules/sdk';
 import { fixedClock, FixtureNamespace, derivedId } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
@@ -117,7 +117,7 @@ describe('Character inventory edits', () => {
 
   function withBackpack(): Character {
     const added = { field: CharacterPatchField.GiftItem, item: itemFixtureId(ItemFixture.Backpack), quantity: one };
-    return new CharacterBuilder().build().apply(added, later, backpackId);
+    return new CharacterBuilder().build().apply(added, later, { newItemId: backpackId });
   }
 
   test('adds an item with the id it is given', () => {
@@ -131,7 +131,7 @@ describe('Character inventory edits', () => {
     const stowed = withBackpack().apply(
       { field: CharacterPatchField.GiftItem, item: rope, quantity: one, container: backpackId },
       later,
-      ropeId,
+      { newItemId: ropeId },
     );
     expect(stowed.document.inventory.items[1]?.container).toBe(backpackId);
     const loose = stowed.apply({ field: CharacterPatchField.MoveItem, id: ropeId }, later);
@@ -142,6 +142,29 @@ describe('Character inventory edits', () => {
     const coins = CoinsSchema.parse({ gp: 15, sp: 3 });
     const paid = withBackpack().apply({ field: CharacterPatchField.SetCoins, coins }, later);
     expect(paid.document.inventory).toStrictEqual({ items: withBackpack().document.inventory.items, coins });
+  });
+
+  test('buys an item: adds it and pays its cost from the coins, with change, in one edit', () => {
+    const rope = itemFixtureId(ItemFixture.Rope);
+    const flush = withBackpack().apply(
+      { field: CharacterPatchField.SetCoins, coins: CoinsSchema.parse({ gp: 1 }) },
+      later,
+    );
+    const bought = flush.apply({ field: CharacterPatchField.BuyItem, item: rope, quantity: one }, later, {
+      newItemId: ropeId,
+      cost: CopperValue.parse(5),
+    });
+    expect(bought.document.inventory.items[1]).toStrictEqual({ id: ropeId, item: rope, quantity: one, carry: STOWED });
+    expect(bought.document.inventory.coins).toStrictEqual(CoinsSchema.parse({ sp: 9, cp: 5 }));
+  });
+
+  test('throws on a purchase with no cost, or one the coins do not cover, which the service refuses first', () => {
+    const bought = { field: CharacterPatchField.BuyItem, item: itemFixtureId(ItemFixture.Rope), quantity: one };
+    const broke = new CharacterBuilder().build();
+    expect(() => broke.apply(bought, later, { newItemId: ropeId })).toThrow('needs the cost');
+    expect(() => broke.apply(bought, later, { newItemId: ropeId, cost: CopperValue.parse(1) })).toThrow(
+      'needs the cost',
+    );
   });
 
   test('throws on an added item with no id: the caller mints it, as it gives the time', () => {

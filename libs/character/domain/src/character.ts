@@ -13,7 +13,6 @@ import { CharacterPatchField } from './character-patch';
 import type { CharacterPatch, InventoryPatch, SpellAccessPatch } from './character-patch';
 import { ANCESTRY_SLOT } from './character-slots';
 import {
-  addItem,
   carryItem,
   inventoryRefusal,
   investItem,
@@ -22,7 +21,9 @@ import {
   renameItem,
   setItemQuantity,
 } from './inventory';
-import type { Inventory, InventoryEdit, InventoryItemId } from './inventory';
+import type { Inventory, InventoryEdit } from './inventory';
+import { withAddedItem } from './item-purchase';
+import type { EditInputs } from './item-purchase';
 import { eraseRune, etchRune, transferRune } from './rune-edits';
 
 /**
@@ -163,12 +164,13 @@ export class Character {
   }
 
   /**
-   * Apply one edit. Version bump is the repository's job. An added item takes `newItemId`, which the caller gives,
-   * as it gives `now`. An edit that leaves the document invalid (an inventory edit `inventoryRefusal` refuses, an add
-   * with no id) is a caller's bug and throws before anything is stored; the service checks edits first.
+   * Apply one edit. Version bump is the repository's job. An added item takes `inputs.newItemId` and a bought one costs
+   * `inputs.cost`, which the caller works out, as it gives `now`. An edit that leaves the document invalid (an inventory
+   * edit `inventoryRefusal` refuses, an add with no id, a purchase with no cost or one the coins don't cover) is a
+   * caller's bug and throws before anything is stored; the service checks edits first.
    */
-  public apply(patch: CharacterPatch, now: Temporal.Instant, newItemId?: InventoryItemId): Character {
-    const { document } = { ...this.toProps(), ...this.#changes(patch, newItemId) };
+  public apply(patch: CharacterPatch, now: Temporal.Instant, inputs: EditInputs = {}): Character {
+    const { document } = { ...this.toProps(), ...this.#changes(patch, inputs) };
     const checked = CharacterDocumentSchema.safeParse(document);
     if (!checked.success) {
       throw new TypeError(`Edit ${patch.field} leaves the document invalid: ${z.prettifyError(checked.error)}`);
@@ -176,7 +178,7 @@ export class Character {
     return new Character({ ...this.toProps(), document, updatedAt: now });
   }
 
-  #changes(patch: CharacterPatch, newItemId: InventoryItemId | undefined): Partial<CharacterProps> {
+  #changes(patch: CharacterPatch, inputs: EditInputs): Partial<CharacterProps> {
     switch (patch.field) {
       case CharacterPatchField.Name: {
         return { document: { ...this.document, name: patch.value } };
@@ -191,12 +193,13 @@ export class Character {
         return { document: this.#clear(patch.slot) };
       }
       case CharacterPatchField.GiftItem:
+      case CharacterPatchField.BuyItem:
       case CharacterPatchField.RemoveItem:
       case CharacterPatchField.SetItemQuantity:
       case CharacterPatchField.MoveItem:
       case CharacterPatchField.RenameItem:
       case CharacterPatchField.SetCoins: {
-        return this.#stockChanges(patch, newItemId);
+        return this.#stockChanges(patch, inputs);
       }
       case CharacterPatchField.CarryItem:
       case CharacterPatchField.InvestItem:
@@ -217,15 +220,11 @@ export class Character {
   }
 
   /** The inventory edits, each checked by `#stock`. */
-  #stockChanges(patch: InventoryPatch, newItemId: InventoryItemId | undefined): Partial<CharacterProps> {
+  #stockChanges(patch: InventoryPatch, inputs: EditInputs): Partial<CharacterProps> {
     switch (patch.field) {
-      case CharacterPatchField.GiftItem: {
-        if (newItemId === undefined) {
-          throw new TypeError('An added item needs the id its caller gives it');
-        }
-        return this.#stock(patch, (inventory) =>
-          addItem(inventory, { id: newItemId, item: patch.item, quantity: patch.quantity, container: patch.container }),
-        );
+      case CharacterPatchField.GiftItem:
+      case CharacterPatchField.BuyItem: {
+        return this.#stock(patch, (inventory) => withAddedItem(inventory, patch, inputs));
       }
       case CharacterPatchField.RemoveItem: {
         return this.#stock(patch, (inventory) => removeItem(inventory, patch.id));

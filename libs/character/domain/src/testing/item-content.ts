@@ -29,6 +29,8 @@ const CLUMSY = 'clumsy';
 const BACKPACK_CAPACITY = 4;
 const BACKPACK_IGNORED = 2;
 const ARROWS_PER_BULK = 10;
+/** Arrows are sold 10 to a batch: 1 sp for 10. */
+const ARROWS_PER_BATCH = 10;
 const BAG_OF_HOLDING_CAPACITY = 25;
 
 /** The property runes `ITEM_FIXTURES` holds, by name. */
@@ -113,10 +115,15 @@ const ITEMS: Readonly<Record<ItemFixture, ItemFixtureFields>> = {
       container: { capacity: BACKPACK_CAPACITY, ignored: BACKPACK_IGNORED, heldBulk: 'light' },
     },
   },
-  [ItemFixture.Rope]: { kind: ContentKind.Equipment, data: { bulk: 'light' } },
+  [ItemFixture.Rope]: { kind: ContentKind.Equipment, data: { bulk: 'light', price: { coins: { sp: 5 } } } },
   [ItemFixture.Arrows]: {
     kind: ContentKind.Consumable,
-    data: { bulk: 'light', bulkPer: ARROWS_PER_BULK, category: 'ammunition' },
+    data: {
+      bulk: 'light',
+      bulkPer: ARROWS_PER_BULK,
+      price: { coins: { sp: 1 }, per: ARROWS_PER_BATCH },
+      category: 'ammunition',
+    },
   },
   [ItemFixture.BagOfHolding]: {
     kind: ContentKind.Equipment,
@@ -132,6 +139,7 @@ const ITEMS: Readonly<Record<ItemFixture, ItemFixtureFields>> = {
     kind: ContentKind.Weapon,
     data: {
       bulk: 1,
+      price: { coins: { gp: 1 } },
       category: 'martial',
       group: 'sword',
       damage: { dice: 1, die: 'd8', damageType: 'slashing' },

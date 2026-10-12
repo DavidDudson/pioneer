@@ -25,6 +25,11 @@ export const ShopMessage = {
   More: 'rules.shop.more',
   NoneTitle: 'rules.shop.noneTitle',
   NoneDescription: 'rules.shop.noneDescription',
+  Cost: 'rules.shop.cost',
+  Coins: 'rules.shop.coins',
+  Free: 'rules.shop.free',
+  NoCoins: 'rules.shop.noCoins',
+  CannotAfford: 'rules.shop.cannotAfford',
 } as const;
 
 /** A rarity's badge: its name and tone. Common items carry none. */
@@ -52,4 +57,14 @@ export function priceCoins({ coins }: Price): readonly CoinCount[] {
     const count = coins[coin];
     return count === undefined ? [] : [{ coin, count }];
   });
+}
+
+/** A purse or a cost as coin counts, largest first, leaving out the coins it has none of. */
+export function coinCounts(coins: Readonly<Record<Coin, number>>): readonly CoinCount[] {
+  return COINS.flatMap((coin) => (coins[coin] > 0 ? [{ coin, count: coins[coin] }] : []));
+}
+
+/** Coin counts as one line, each coin as `coinText` writes it: "3 gp 5 sp". */
+export function coinsText(counts: readonly CoinCount[], coinText: (coin: Coin, count: number) => string): string {
+  return counts.map(({ coin, count }) => coinText(coin, count)).join(' ');
 }

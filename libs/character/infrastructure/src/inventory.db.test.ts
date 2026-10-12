@@ -70,7 +70,7 @@ describe.skipIf(adminUrl === undefined)('inventory edits (postgres)', () => {
     await database.drop();
   });
 
-  test('stores items in containers and coins, read back as written and audited by command', async () => {
+  test('stores items in containers and coins, and a purchase, read back as written and audited by command', async () => {
     const created = await service.create(fixtureOwnerId, {
       name: CharacterName.parse('Merisiel'),
       ancestry: humanAncestryId,
@@ -89,18 +89,22 @@ describe.skipIf(adminUrl === undefined)('inventory edits (postgres)', () => {
         container: backpack?.id,
       },
     });
-    const coins = CoinsSchema.parse({ gp: 15, cp: 7 });
-    await service.patch(fixtureOwnerId, created.id, {
+    const { character: paid } = await service.patch(fixtureOwnerId, created.id, {
       expectedVersion: stowed.version,
-      patch: { field: CharacterPatchField.SetCoins, coins },
+      patch: { field: CharacterPatchField.SetCoins, coins: CoinsSchema.parse({ gp: 15, cp: 7 }) },
+    });
+    await service.patch(fixtureOwnerId, created.id, {
+      expectedVersion: paid.version,
+      patch: { field: CharacterPatchField.BuyItem, item: itemFixtureId(ItemFixture.Arrows), quantity: one },
     });
 
     const stored = await service.get(fixtureOwnerId, created.id);
     expect(stored.document.inventory.items.map((each) => [each.item, each.container])).toStrictEqual([
       [itemFixtureId(ItemFixture.Backpack), undefined],
       [itemFixtureId(ItemFixture.Rope), backpack?.id],
+      [itemFixtureId(ItemFixture.Arrows), undefined],
     ]);
-    expect(stored.document.inventory.coins).toStrictEqual(coins);
+    expect(stored.document.inventory.coins).toStrictEqual(CoinsSchema.parse({ gp: 15, cp: 6 }));
 
     const [row] = await database.db
       .select({ schemaVersion: characters.schemaVersion })
@@ -117,6 +121,7 @@ describe.skipIf(adminUrl === undefined)('inventory edits (postgres)', () => {
       CharacterCommand.GiftItem,
       CharacterCommand.GiftItem,
       CharacterCommand.SetCoins,
+      CharacterCommand.BuyItem,
     ]);
   });
 

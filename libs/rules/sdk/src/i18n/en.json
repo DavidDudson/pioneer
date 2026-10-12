@@ -763,6 +763,11 @@
       "more": "Showing {shown} of {total}. Narrow the filters to see the rest.",
       "noneTitle": "No items match",
       "noneDescription": "Change the filters or the search, or show everything.",
+      "cost": "Cost",
+      "coins": "Your coins",
+      "free": "Free",
+      "noCoins": "No coins",
+      "cannotAfford": "Your coins don't cover the cost. Buy fewer, or add it without paying.",
       "lineNoLevel": "{price}"
     },
     "spellAccess": {

@@ -116,6 +116,21 @@ describe(AsyncButton, () => {
     await settle();
   });
 
+  it('is described by the text given, and by a failure beside it while it shows', async () => {
+    const fixture = await render(async () => {
+      throw new Error('Server said no');
+    });
+    fixture.componentRef.setInput('describedBy', 'why');
+    TestBed.tick();
+    expect(button(fixture).getAttribute('aria-describedby')).toBe('why');
+
+    button(fixture).click();
+    await settle();
+    const [given, failure] = String(button(fixture).getAttribute('aria-describedby')).split(' ');
+    expect(given).toBe('why');
+    expect(document.querySelector(`#${String(failure)}`)?.textContent).toContain('Server said no');
+  });
+
   it('with a confirmLabel, runs only on the second press, in the same focused button', async () => {
     const action = vi.fn<() => Promise<undefined>>(async () => undefined);
     const fixture = await render(action);

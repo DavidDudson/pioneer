@@ -19,7 +19,7 @@ const formClasses = cva('block')();
  * then runs `action` with the model's value as a TanStack mutation.
  * `fr-async-button type="submit"` inside shows the submission: spinner while
  * pending, a tick on success, the failure inline. Mod+Enter submits from
- * anywhere in the form.
+ * anywhere in the form, unless its submit button is disabled.
  *
  * ```html
  * <fr-async-form [form]="form" [action]="create">
@@ -61,13 +61,26 @@ export class AsyncForm<TModel> {
     injectHotkey(
       'Mod+Enter',
       () => {
-        this.element()?.nativeElement.requestSubmit();
+        this.#submitByKeyboard();
       },
       (): InjectHotkeyOptions => {
         const target = this.element()?.nativeElement;
         return target === undefined ? { enabled: false } : { target, ignoreInputs: false };
       },
     );
+  }
+
+  /**
+   * Mod+Enter submits as Enter would, through the form's submit button: nothing while that button is
+   * disabled, since `requestSubmit()` alone would skip its disabled state.
+   */
+  #submitByKeyboard(): void {
+    const element = this.element()?.nativeElement;
+    const submitter = element?.querySelector<HTMLButtonElement>('button[type="submit"]') ?? undefined;
+    if (submitter?.disabled === true) {
+      return;
+    }
+    element?.requestSubmit(submitter);
   }
 
   protected onSubmit(event: SubmitEvent): void {

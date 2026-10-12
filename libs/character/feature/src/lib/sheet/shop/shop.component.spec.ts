@@ -31,6 +31,20 @@ const chip = (shop: HTMLElement, label: string): HTMLElement =>
     ),
   );
 
+/** Picks the offer `name` and returns its order form. */
+async function pickOffer(shop: HTMLElement, name: string): Promise<HTMLElement> {
+  present(shop.querySelector<HTMLElement>(`button[aria-label="Pick ${name}"]`)).click();
+  await settle();
+  return present(shop.querySelector<HTMLElement>('pio-shop-order'));
+}
+
+/** The bill's rows, each its term and value. */
+const bill = (order: HTMLElement): string[] =>
+  [...order.querySelectorAll('pio-shop-bill fr-description-item')].map((item) => {
+    const value = present(item.querySelector('fr-text')).textContent.trim();
+    return `${item.textContent.replace(value, '').trim()}: ${value}`;
+  });
+
 describe('Shop', () => {
   // Loads and bundles the packs once, outside every test's timeout.
   beforeAll(async () => {
@@ -54,9 +68,9 @@ describe('Shop', () => {
     const shop = await openShop();
     present(shop.querySelector<HTMLElement>('button[aria-label="Pick Diamond"]')).click();
     await settle();
-    const gift = present(shop.querySelector<HTMLElement>('pio-shop-gift'));
-    expect(gift.textContent).toContain('Diamond');
-    button(gift, 'Add without paying').click();
+    const order = present(shop.querySelector<HTMLElement>('pio-shop-order'));
+    expect(order.textContent).toContain('Diamond');
+    button(order, 'Add without paying').click();
     const request = await patchSent();
     expect(request.request.body).toStrictEqual({
       expectedVersion: 3,
@@ -65,7 +79,61 @@ describe('Shop', () => {
     request.flush({ character: { ...VALEROS, version: 4 }, slots: [], cleared: [], languages: { known: [], open: 0 } });
     await vi.waitFor(async () => {
       await settle();
-      expect(present(shop.querySelector('pio-shop-gift')).textContent).toContain('Added');
+      expect(present(shop.querySelector('pio-shop-order')).textContent).toContain('Added');
+    });
+  });
+
+  it('shows the cost against the character’s coins, and buys a picked item as buyItem', async () => {
+    const shop = await openShop();
+    const order = await pickOffer(shop, 'Longsword');
+    expect(bill(order)).toStrictEqual(['Cost: 1 gp', 'Your coins: 15 gp']);
+    button(order, 'Buy').click();
+    const request = await patchSent();
+    expect(request.request.body).toStrictEqual({
+      expectedVersion: 3,
+      patch: { field: 'buyItem', item: itemFixtureId(ItemFixture.Longsword), quantity: 1 },
+    });
+    request.flush({ character: { ...VALEROS, version: 4 }, slots: [], cleared: [], languages: { known: [], open: 0 } });
+    await vi.waitFor(async () => {
+      await settle();
+      expect(present(shop.querySelector('pio-shop-order')).textContent).toContain('Bought');
+    });
+  });
+
+  it('disables Buy, with the reason, when the coins do not cover the quantity', async () => {
+    const shop = await openShop();
+    const order = await pickOffer(shop, 'Longsword');
+    const quantity = present(order.querySelector<HTMLInputElement>('fr-number-field input'));
+    quantity.value = '16';
+    quantity.dispatchEvent(new Event('input'));
+    await settle();
+    expect(bill(order)).toStrictEqual(['Cost: 16 gp', 'Your coins: 15 gp']);
+    const buy = button(order, 'Buy');
+    expect(buy.hasAttribute('disabled')).toBe(true);
+    const reasonId = present(buy.getAttribute('aria-describedby'));
+    const reason = present(order.querySelector(`#${reasonId}`));
+    expect(reason.textContent).toContain("Your coins don't cover the cost.");
+    expect(button(order, 'Add without paying').hasAttribute('disabled')).toBe(false);
+  });
+
+  it('shows the server’s reason under Buy when it refuses the purchase', async () => {
+    const shop = await openShop();
+    const order = await pickOffer(shop, 'Longsword');
+    button(order, 'Buy').click();
+    const request = await patchSent();
+    request.flush(
+      {
+        type: 'validation',
+        title: 'Validation failed',
+        status: 422,
+        message: { key: 'problem.validation' },
+        issues: [{ path: ['patch', 'quantity'], message: { key: 'character.validation.cannotAfford' } }],
+      },
+      { status: 422, statusText: 'Unprocessable Content' },
+    );
+    await vi.waitFor(async () => {
+      await settle();
+      expect(order.textContent).toContain("This character can't afford that");
     });
   });
 
@@ -73,9 +141,9 @@ describe('Shop', () => {
     const shop = await openShop();
     present(shop.querySelector<HTMLElement>('button[aria-label="Pick Diamond"]')).click();
     await settle();
-    expect(shop.querySelector('pio-shop-gift')).not.toBeNull();
+    expect(shop.querySelector('pio-shop-order')).not.toBeNull();
     await search(shop, 'rop');
-    expect(shop.querySelector('pio-shop-gift')).toBeNull();
+    expect(shop.querySelector('pio-shop-order')).toBeNull();
   });
 
   it('keeps the filters in the URL, and takes a facet out of it once nothing in it is picked', async () => {

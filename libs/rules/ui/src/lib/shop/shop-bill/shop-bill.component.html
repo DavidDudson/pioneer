@@ -1,0 +1,15 @@
+<fr-stack gap="xs">
+  <fr-description-list>
+    <fr-description-item [term]="Message.Cost | transloco">
+      <fr-text numeric>{{ costText() }}</fr-text>
+    </fr-description-item>
+    <fr-description-item [term]="Message.Coins | transloco">
+      <fr-text numeric>{{ coinsText() }}</fr-text>
+    </fr-description-item>
+  </fr-description-list>
+  @if (!affordable()) {
+    <fr-text element="p" variant="caption" tone="danger" [id]="reasonId()">{{
+      Message.CannotAfford | transloco
+    }}</fr-text>
+  }
+</fr-stack>
