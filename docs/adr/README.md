@@ -51,6 +51,7 @@ Accepted. To change a decision, add a new ADR that supersedes the old one; do no
 | [0044](0044-prepared-spells-are-choice-slots.md)              | Prepared spells are choice slots; spell access is in the build                    |
 | [0045](0045-pool-spells-are-rule-elements.md)                 | The spells a pool of slots takes are a rule element                               |
 | [0046](0046-deity-is-an-optional-root-slot.md)                | A deity is an optional root slot, and the sheet reads it from the server          |
+| [0047](0047-signature-spells-are-rule-elements.md)            | Signature spells are a rule element                                               |
 
 Template:
 

@@ -18,6 +18,22 @@ import { characterSpellcasting } from './spellcasting-build';
  */
 const PREPARED_PREFIX = 'prepared:';
 
+/** Every repertoire slot's key starts so: `repertoire:bard:cantrip:0`, `repertoire:bard:3:1` (#479). */
+const REPERTOIRE_PREFIX = 'repertoire:';
+
+/** How the entries whose slots are picked cast: prepared each day, or from a repertoire (#479). */
+export type PickedPreparation = typeof SpellPreparation.Prepared | typeof SpellPreparation.Spontaneous;
+
+/** The key prefix of each kind of entry's slots. */
+const PREFIXES: Readonly<Record<PickedPreparation, string>> = {
+  [SpellPreparation.Prepared]: PREPARED_PREFIX,
+  [SpellPreparation.Spontaneous]: REPERTOIRE_PREFIX,
+};
+
+function isPicked(preparation: SpellPreparation): preparation is PickedPreparation {
+  return preparation === SpellPreparation.Prepared || preparation === SpellPreparation.Spontaneous;
+}
+
 /** The rank of a prepared slot: cantrips, or 1 to 10. */
 export type PreparedRank = SpellRank | typeof SlotRank.Cantrip;
 
@@ -43,13 +59,15 @@ export interface PreparedPool {
 }
 
 /**
- * One prepared slot on the character at its level: the entry it belongs to, the pool when it is one of a pool's, its
- * rank, the rank a spell cast from it has (a cantrip's is half the character's level, rounded up), what it offers, and
- * its pick when it offers it.
+ * One prepared or repertoire slot on the character at its level: the entry it belongs to and how it casts, the pool
+ * when it is one of a pool's, its rank, the rank a spell cast from it has (a cantrip's is half the character's level,
+ * rounded up), what it offers, and its pick when it offers it. A repertoire slot is a spell the entry knows at its rank
+ * (#479); a prepared one is a spell prepared in it for the day.
  */
 export interface PreparedSlot {
   readonly key: SlotKey;
   readonly entry: Slug;
+  readonly preparation: PickedPreparation;
   readonly tradition: MagicTradition;
   /** Undefined for one of the entry's own slots. */
   readonly pool: PreparedPool | undefined;
@@ -87,6 +105,7 @@ interface RankCount {
 /** Where a slot is: its entry, tradition and pool, and the spells a pool's slot takes. */
 interface SlotHome {
   readonly entry: Slug;
+  readonly preparation: PickedPreparation;
   readonly tradition: MagicTradition;
   readonly pool: PreparedPool | undefined;
   /** The spells a pool's slot takes; undefined for one of the entry's own, which takes its tradition's. */
@@ -115,11 +134,11 @@ function fits(spell: SpellOption, { tradition, rank, takes }: SlotPlace): boolea
 
 /**
  * The places of `slots` at `home`, cantrips first, then each rank lowest first, keyed `prepared:<entry>:<rank>:<n>`, or
- * `prepared:<entry>:<pool>:<rank>:<n>` in a pool.
+ * `prepared:<entry>:<pool>:<rank>:<n>` in a pool; `repertoire:` for a spontaneous entry's.
  */
 function placesOf(slots: SpellSlots, home: SlotHome): SlotPlace[] {
-  const prefix =
-    home.pool === undefined ? `${PREPARED_PREFIX}${home.entry}` : `${PREPARED_PREFIX}${home.entry}:${home.pool.slug}`;
+  const start = PREFIXES[home.preparation];
+  const prefix = home.pool === undefined ? `${start}${home.entry}` : `${start}${home.entry}:${home.pool.slug}`;
   const counts: RankCount[] = [
     ...(slots.cantrips === undefined ? [] : [{ rank: SlotRank.Cantrip, count: slots.cantrips }]),
     ...slots.ranks,
@@ -134,27 +153,30 @@ function placesOf(slots: SpellSlots, home: SlotHome): SlotPlace[] {
 }
 
 /** The slots of one of an entry's pools, each taking the pool's spells. */
-function poolPlaces(entry: Slug, tradition: MagicTradition, slotPool: SlotPool): SlotPlace[] {
+function poolPlaces(own: SlotHome, slotPool: SlotPool): SlotPlace[] {
   const pool = { slug: slotPool.pool, origin: slotPool.origin, spells: slotPool.spells };
-  const home = { entry, tradition, pool, takes: new Set(slotPool.spells) };
-  return placesOf(slotPool, home);
+  return placesOf(slotPool, { ...own, pool, takes: new Set(slotPool.spells) });
 }
 
 /**
- * The slots of one prepared entry: its own, cantrips first, then each rank lowest first; then each of its pools' (#581)
- * in pool order, the same way.
+ * The slots of one prepared or spontaneous entry: its own, cantrips first, then each rank lowest first; then each of
+ * its pools' (#581) in pool order, the same way.
  */
-function entryPlaces({ slug, tradition, slots, pools }: SpellcastingInPlay): SlotPlace[] {
-  const home = { entry: slug, tradition, pool: undefined, takes: undefined };
-  const own = placesOf(slots, home);
-  return [...own, ...pools.flatMap((pool) => poolPlaces(slug, tradition, pool))];
+function entryPlaces(
+  { slug, tradition, slots, pools }: SpellcastingInPlay,
+  preparation: PickedPreparation,
+): SlotPlace[] {
+  const home = { entry: slug, preparation, tradition, pool: undefined, takes: undefined };
+  return [...placesOf(slots, home), ...pools.flatMap((pool) => poolPlaces(home, pool))];
 }
 
 /**
- * Every prepared slot on the character at its level (#478, #581): one per cantrip and per spell slot of each prepared
- * entry, read from its class's table and the feats that add to it, then one per slot of each of its pools. Slots open
- * only at the character's level, so a pick kept for one it no longer has (a lower level, another class) is hidden,
- * never planned. An entry's own slot offers the spells of its tradition that fit it: cantrips in a cantrip slot, any
+ * Every prepared and repertoire slot on the character at its level (#478, #581, #479): one per cantrip and per spell
+ * slot of each prepared entry, read from its class's table and the feats that add to it, then one per slot of each of
+ * its pools; and as many of each rank for a spontaneous entry's repertoire, which grows as its slots do (Player Core,
+ * Spell Repertoire). A repertoire slot is read like a prepared one: a spell learned at a higher rank than its own is
+ * known heightened to that rank. Slots open only at the character's level, so a pick kept for one it no longer has (a
+ * lower level, another class) is hidden, never planned. An entry's own slot offers the spells of its tradition that fit it: cantrips in a cantrip slot, any
  * other spell in a slot of its rank or higher (heightened), common ones always, uncommon and rare ones once the build
  * lists access to them. A pool's slot offers the spells the pool takes that fit it, whatever their tradition or
  * rarity, since the feature names them (ADR-0045). Focus spells never go in a slot.
@@ -163,20 +185,17 @@ export function preparedSlots(document: CharacterDocument, { spells, resolution 
   const access = new Set<ContentId>(document.build.spellAccess);
   const accessible = (spell: SpellOption, { pool }: SlotPlace): boolean =>
     pool !== undefined || !needsAccess(spell.rarity) || access.has(spell.id);
-  const entries = characterSpellcasting(resolution).filter(
-    ({ preparation }) => preparation === SpellPreparation.Prepared,
-  );
-  return entries
-    .flatMap((entry) => entryPlaces(entry))
+  return characterSpellcasting(resolution)
+    .flatMap((entry) => (isPicked(entry.preparation) ? entryPlaces(entry, entry.preparation) : []))
     .map((place): PreparedSlot => {
-      const { key, entry, tradition, pool, rank } = place;
+      const { key, entry, preparation, tradition, pool, rank } = place;
       const options = spells.spells.filter((spell) => fits(spell, place) && accessible(spell, place));
       const stored = document.build.choices[key];
       const named = stored === undefined ? undefined : spells.spell(stored);
       const pick = options.find((spell) => spell.id === named?.id);
       const problem = named === undefined || pick !== undefined ? undefined : problemOf(named, place);
       const castRank = rank === SlotRank.Cantrip ? cantripRank(document.level) : rank;
-      return { key, entry, tradition, pool, rank, castRank, options, stored, pick, problem };
+      return { key, entry, preparation, tradition, pool, rank, castRank, options, stored, pick, problem };
     });
 }
 
@@ -217,9 +236,9 @@ export function preparedRefusal(
   return noAccess ? PreparedRefusal.NoAccess : PreparedRefusal.NotOffered;
 }
 
-/** Whether `slot` is a prepared slot's key, whether or not the character has it. */
-export function isPreparedKey(slot: SlotKey): boolean {
-  return slot.startsWith(PREPARED_PREFIX);
+/** Whether `slot` is a prepared or repertoire slot's key, whether or not the character has it. */
+export function isSpellSlotKey(slot: SlotKey): boolean {
+  return slot.startsWith(PREPARED_PREFIX) || slot.startsWith(REPERTOIRE_PREFIX);
 }
 
 /** Why a spell can't be added to the build's access: no loaded spell for a slot has the id, it is common, or the list is full. */

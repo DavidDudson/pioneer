@@ -28,10 +28,11 @@ const ROOT_LABEL_KEYS: ReadonlyMap<ContentKind, string> = new Map([
 ]);
 
 const UNKNOWN_LABEL = 'rules.choices.slot.unknown';
-/** Slots whose label names only their kind: a voluntary flaw, a prepared spell slot. */
+/** Slots whose label names only their kind: a voluntary flaw, a prepared or repertoire spell slot, a signature spell. */
 const FIXED_LABEL_KEYS = {
   [SlotSubjectKind.Flaw]: 'rules.choices.slot.flaw',
   [SlotSubjectKind.Spell]: 'rules.choices.slot.preparedSpell',
+  [SlotSubjectKind.Signature]: 'rules.choices.slot.signatureSpell',
 } as const;
 
 /** Slots whose pick is an attribute. */
@@ -55,7 +56,8 @@ function labelOf(subject: SlotSubject | undefined): MessageDescriptor {
         : message('rules.choices.slot.languageFrom', { entry: subject.entryName });
     }
     case SlotSubjectKind.Flaw:
-    case SlotSubjectKind.Spell: {
+    case SlotSubjectKind.Spell:
+    case SlotSubjectKind.Signature: {
       return message(FIXED_LABEL_KEYS[subject.kind]);
     }
     case SlotSubjectKind.Choice: {
@@ -102,12 +104,15 @@ function lineOf(slot: CharacterSlot): ChoiceLine {
   };
 }
 
+/** The spell slots the Spellcasting section shows under their entry instead (#478, #479). */
+const SPELL_SUBJECTS: ReadonlySet<SlotSubjectKind> = new Set([SlotSubjectKind.Spell, SlotSubjectKind.Signature]);
+
 /**
- * A planned slot with nothing picked is the plan's empty space, not a choice to flag. A prepared spell slot shows under
- * its entry in the Spellcasting section instead (#478).
+ * A planned slot with nothing picked is the plan's empty space, not a choice to flag. A prepared, repertoire or
+ * signature spell slot shows under its entry in the Spellcasting section instead.
  */
 function isShown(slot: CharacterSlot): boolean {
-  if ('subject' in slot && slot.subject.kind === SlotSubjectKind.Spell) {
+  if ('subject' in slot && SPELL_SUBJECTS.has(slot.subject.kind)) {
     return false;
   }
   return slot.status !== SlotStatus.Planned || slot.selection !== undefined;
@@ -115,8 +120,8 @@ function isShown(slot: CharacterSlot): boolean {
 
 /**
  * The sheet's choices: every slot the server read, in its order, but the empty ones above the character's level. A
- * planned pick and an invalid one stay, with the level and reason (#419); prepared spell slots are left to the
- * Spellcasting section.
+ * planned pick and an invalid one stay, with the level and reason (#419); spell slots are left to the Spellcasting
+ * section.
  */
 export function sheetChoices(slots: readonly CharacterSlot[]): readonly ChoiceLine[] {
   return slots.filter((slot) => isShown(slot)).map((slot) => lineOf(slot));

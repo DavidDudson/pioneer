@@ -15,7 +15,6 @@ import type { LanguageContent } from './language-content';
 import type { LanguageReads } from './language-levels';
 import { LanguagePickProblem, languageSlots, problemOf } from './languages';
 import type { LanguageSlot } from './languages';
-import { isPreparedKey, PreparedRefusal, preparedRefusal } from './prepared-spells';
 import type { PreparedReads } from './prepared-spells';
 import { skillContent } from './skill-content';
 import type { SkillContent } from './skill-content';
@@ -25,6 +24,7 @@ import { boostRefusal, boostSlotIn, flawRefusal, flawSlotIn, NOT_OFFERED, SlotRe
 import type { SlotRefusal } from './slot-refusals';
 import { spellContent } from './spell-content';
 import type { SpellContent } from './spell-content';
+import { isSpellPickKey, spellPickRefusal } from './spell-pick-refusal';
 
 export { SlotRefusalField, type SlotRefusal } from './slot-refusals';
 
@@ -203,16 +203,6 @@ export function preparedReads(document: CharacterDocument, content: SlotContent)
   return { spells: content.spells, resolution };
 }
 
-/** The refusal for each reason a prepared slot refuses a spell. */
-const PREPARED_REFUSALS: Readonly<Record<PreparedRefusal, SlotRefusal>> = {
-  [PreparedRefusal.NotOpen]: { field: SlotRefusalField.Slot, message: message('character.validation.slotNotOpen') },
-  [PreparedRefusal.NotOffered]: NOT_OFFERED,
-  [PreparedRefusal.NoAccess]: {
-    field: SlotRefusalField.Selection,
-    message: message('character.validation.spellNoAccess'),
-  },
-};
-
 /**
  * Why `selection` can't go in `slot`, a root or `ChoiceSet` slot: it must be open at some level up to 20, and offer
  * `selection` there. The slot's own pick is left out, so it is checked as if empty; the other picks stay, so a slot an
@@ -240,13 +230,12 @@ function grantRefusal(
 }
 
 /**
- * Why `selection` can't go in a slot its key names the kind of: a prepared slot, a language slot, else a root or
- * `ChoiceSet` slot.
+ * Why `selection` can't go in a slot its key names the kind of: a prepared or repertoire slot, a signature slot, a
+ * language slot, else a root or `ChoiceSet` slot.
  */
 function keyedRefusal(document: CharacterDocument, content: SlotContent, pick: SlotPick): SlotRefusal | undefined {
-  if (isPreparedKey(pick.slot)) {
-    const refusal = preparedRefusal(document, preparedReads(document, content), pick);
-    return refusal === undefined ? undefined : PREPARED_REFUSALS[refusal];
+  if (isSpellPickKey(pick.slot)) {
+    return spellPickRefusal(document, preparedReads(document, content), pick);
   }
   const language = pick.slot.startsWith(LANGUAGE_SLOT_PREFIX)
     ? languageSlotIn(document, content, pick.slot)
@@ -260,7 +249,8 @@ function keyedRefusal(document: CharacterDocument, content: SlotContent, pick: S
  * Why `selection` can't go in `slot`, or undefined when it can. A boost slot takes an attribute its boost allows and
  * no other boost of its set raises; a voluntary flaw slot, one neither its ancestry nor another flaw lowers; a skill
  * slot, a skill or Lore it may train or raise; a language slot, a language not known yet that it offers; a prepared
- * slot, a spell it offers at the character's level. Any other slot must offer `selection` at some level up to 20.
+ * or repertoire slot, a spell it offers at the character's level; a signature slot, a spell its repertoire knows at
+ * its rank. Any other slot must offer `selection` at some level up to 20.
  */
 export function slotRefusal(
   document: CharacterDocument,

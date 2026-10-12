@@ -638,6 +638,8 @@ flowchart LR
     ([ADR-0045](../adr/0045-pool-spells-are-rule-elements.md)): heal or harm by the font Divine Font's `ChoiceSet`
     picks (translated with both fonts offered, since the deity predicates would hide them), and each school's
     curriculum by slug.
+  - Signature Spells gets a `SignatureSpells` naming the bard's entry, Player Core's only spontaneous class
+    ([ADR-0047](../adr/0047-signature-spells-are-rule-elements.md)); later books add their classes' entries (#593).
   - A deity's singular fields (`attribute`, `skill`) map to `attributes` and `skills:` selectors, and its spells,
     keyed by rank, to one `spell` entry each.
   - A kit's items by UUID with their quantities, a container's one level deep (deeper is reported), and its price

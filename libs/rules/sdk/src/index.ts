@@ -271,6 +271,7 @@ export { SenseElement } from './rule-element-sense';
 export { LanguageAccess, LanguageCount, LanguageElement } from './rule-element-language';
 export {
   PoolSpellsElement,
+  SignatureSpellsElement,
   SLOT_COUNT_MAX,
   SlotCount,
   SlotRank,

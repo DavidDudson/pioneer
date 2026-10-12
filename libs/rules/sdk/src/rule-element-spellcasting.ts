@@ -92,3 +92,16 @@ export const PoolSpellsElement = z.strictObject({
   ...ruleElementBase,
 });
 export type PoolSpellsElement = z.infer<typeof PoolSpellsElement>;
+
+/**
+ * Gives a spontaneous entry signature spells (ADR-0047): one spell of each rank of its slots, picked from its
+ * repertoire at that rank, which it casts heightened to any rank of its slots, or lower down to its own rank, without
+ * learning each rank apart. One for an entry not in play, or a prepared one, gives none. A Pioneer element with no
+ * Foundry counterpart, like `SpellSlots`.
+ */
+export const SignatureSpellsElement = z.strictObject({
+  key: z.literal(RuleElementKey.SignatureSpells),
+  entry: EntrySourceSlug,
+  ...ruleElementBase,
+});
+export type SignatureSpellsElement = z.infer<typeof SignatureSpellsElement>;
