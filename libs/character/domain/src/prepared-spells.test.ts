@@ -99,6 +99,7 @@ describe('preparedSlots', () => {
   test("a spontaneous caster's slots are its repertoire, and a fighter has none", () => {
     const bard = slotsOf(caster('bard', 5).build().document);
 
+    expect(bard.length).toBeGreaterThan(0);
     expect(bard.every((slot) => slot.key.startsWith('repertoire:bard:'))).toBe(true);
     expect(bard.every((slot) => slot.preparation === 'spontaneous')).toBe(true);
     expect(slotsOf(caster('fighter', 5).build().document)).toStrictEqual([]);
