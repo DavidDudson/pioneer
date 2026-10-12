@@ -37616,20 +37616,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "spell:breath-of-life",
-      "foundry": "Compendium.pf2e.spells-srd.Item.Hnc7eGi7vyZenAIm",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "damage.0.type",
-          "raw": "untyped"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "spell:caustic-blast",
       "foundry": "Compendium.pf2e.spells-srd.Item.thAHF1zxNplLCJPO",
       "gaps": [
@@ -37839,12 +37825,6 @@
           "reason": "unmapped-value",
           "field": "target.value",
           "raw": "1 creature, unattended object, or force construct"
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "damage.0.type",
-          "raw": "untyped"
         }
       ]
     },
@@ -38505,12 +38485,6 @@
           "reason": "unmapped-value",
           "field": "range.value",
           "raw": "varies"
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "damage.0.type",
-          "raw": "untyped"
         }
       ]
     },
@@ -38568,12 +38542,6 @@
               }
             }
           }
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "damage.0.type",
-          "raw": "untyped"
         }
       ]
     },
@@ -38722,34 +38690,6 @@
         {
           "type": "enricher",
           "enricher": "@Damage[formula]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "spell:impaling-spike",
-      "foundry": "Compendium.pf2e.spells-srd.Item.oXeEbcUdgJGWHGEJ",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "damage.0.materials",
-          "raw": ["cold-iron"]
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "spell:implosion",
-      "foundry": "Compendium.pf2e.spells-srd.Item.4WS7HrFjwNvTn8T2",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "damage.0.type",
-          "raw": "untyped"
         }
       ]
     },
@@ -38926,20 +38866,6 @@
           "reason": "unmapped-value",
           "field": "heightening.levels.3.target.value",
           "raw": "non-magical object of 2 Bulk or less, or a magical object of 1 Bulk or less"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "spell:moonbeam",
-      "foundry": "Compendium.pf2e.spells-srd.Item.SuBtUJiU6DbSJYIw",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "damage.0.materials",
-          "raw": ["silver"]
         }
       ]
     },
@@ -39157,12 +39083,6 @@
           "reason": "unmapped-value",
           "field": "target.value",
           "raw": "1 living creature per action spent to Cast this Spell"
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "damage.0.type",
-          "raw": "untyped"
         }
       ]
     },
@@ -39191,12 +39111,6 @@
           "reason": "unmapped-value",
           "field": "target.value",
           "raw": "dead creatures and living creatures of your choice within range"
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "damage.0.type",
-          "raw": "untyped"
         }
       ]
     },
@@ -39313,54 +39227,12 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "spell:soothe",
-      "foundry": "Compendium.pf2e.spells-srd.Item.szIyEsvihc5e1w8n",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "damage.0.type",
-          "raw": "untyped"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "spell:soothing-ballad",
-      "foundry": "Compendium.pf2e.spells-srd.Item.0JigNJDRwevZOyjI",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "damage.0.type",
-          "raw": "untyped"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "spell:soothing-mist",
       "foundry": "Compendium.pf2e.spells-srd.Item.RGBZrVRIEDb2G48h",
       "gaps": [
         {
           "type": "enricher",
           "enricher": "@Damage[formula]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "spell:spirit-link",
-      "foundry": "Compendium.pf2e.spells-srd.Item.yHujiDQPdtXW797e",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "damage.9k8ayqgvgultdghx.type",
-          "raw": "untyped"
         }
       ]
     },

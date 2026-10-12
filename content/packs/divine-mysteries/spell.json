@@ -4789,11 +4789,22 @@
         }
       },
       "traditions": ["arcane", "occult", "primal"],
-      "damage": [],
+      "damage": [
+        {
+          "key": "0",
+          "formula": "1d4",
+          "kinds": ["damage"]
+        }
+      ],
       "heightening": {
         "type": "interval",
         "interval": 1,
-        "damage": []
+        "damage": [
+          {
+            "key": "0",
+            "formula": "1d4"
+          }
+        ]
       }
     }
   },
@@ -6108,7 +6119,8 @@
           "key": "8if8c4kjctnupcu8",
           "formula": "8d10",
           "damageType": "cold",
-          "kinds": ["damage"]
+          "kinds": ["damage"],
+          "materials": ["silver"]
         }
       ],
       "heightening": {
@@ -6253,7 +6265,8 @@
           "key": "z4vh7m14o6f2hazs",
           "formula": "5d6",
           "damageType": "cold",
-          "kinds": ["damage"]
+          "kinds": ["damage"],
+          "materials": ["silver"]
         }
       ],
       "heightening": {
