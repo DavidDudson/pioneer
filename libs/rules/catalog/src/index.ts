@@ -17,10 +17,8 @@ export type { PrerequisiteCoverage } from './prerequisite-coverage';
 export { triggerCoverage } from './trigger-coverage';
 export type { TriggerCoverage } from './trigger-coverage';
 export { entryAction, matchTrigger, triggerMatches } from './trigger-matcher';
-export { prerequisiteMatches, readPrerequisites } from './prerequisite-matcher';
-export { prerequisiteNames } from './prerequisite-names';
-export type { PrerequisiteMatch, PrerequisiteReading } from './prerequisite-matcher';
-export type { NamedEntry, PrerequisiteNames } from './prerequisite-names';
+export { prerequisiteMatches } from './prerequisite-matcher';
+export type { PrerequisiteMatch } from './prerequisite-matcher';
 export type { RefNames, TriggerMatch } from './trigger-matcher';
 
 /**

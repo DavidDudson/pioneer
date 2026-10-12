@@ -42,7 +42,6 @@
           ]
         }
       ],
-      "prerequisitePredicate": ["feat:domain-spirit"],
       "archetype": "a551e35f-bca4-5ba6-a479-bdd1e0b56aaf"
     }
   },
@@ -104,8 +103,7 @@
             }
           ]
         }
-      ],
-      "prerequisitePredicate": ["feat:battle-harbinger-dedication"]
+      ]
     }
   },
   {
@@ -168,7 +166,6 @@
           ]
         }
       ],
-      "prerequisitePredicate": ["feat:battle-harbinger-dedication"],
       "action": {
         "cost": "free",
         "trigger": [
@@ -228,7 +225,6 @@
           ]
         }
       ],
-      "prerequisitePredicate": ["feat:rivethun-involutionist-dedication"],
       "archetype": "7f98003d-0b5e-513a-9cda-42f8cff955e8"
     }
   },
@@ -288,8 +284,7 @@
             }
           ]
         }
-      ],
-      "prerequisitePredicate": ["feature:battle-creed"]
+      ]
     }
   },
   {
@@ -343,8 +338,7 @@
             }
           ]
         }
-      ],
-      "prerequisitePredicate": ["self:trait:holy"]
+      ]
     }
   },
   {
@@ -453,7 +447,6 @@
           ]
         }
       ],
-      "prerequisitePredicate": ["feat:palatine-detective-dedication"],
       "action": {
         "cost": "reaction",
         "requirements": [
@@ -640,7 +633,6 @@
           ]
         }
       ],
-      "prerequisitePredicate": ["feat:fear-of-god"],
       "action": {
         "cost": "two"
       },
@@ -743,7 +735,6 @@
           ]
         }
       ],
-      "prerequisitePredicate": ["feat:rivethun-emissary-dedication"],
       "action": {
         "frequency": {
           "max": 1,
@@ -795,8 +786,7 @@
             }
           ]
         }
-      ],
-      "prerequisitePredicate": ["feat:battle-harbinger-dedication"]
+      ]
     }
   },
   {
@@ -893,7 +883,6 @@
           ]
         }
       ],
-      "prerequisitePredicate": ["feat:palatine-detective-dedication"],
       "action": {
         "frequency": {
           "max": 1,
@@ -1047,7 +1036,6 @@
           ]
         }
       ],
-      "prerequisitePredicate": ["feat:mortal-herald-dedication"],
       "action": {
         "cost": "two",
         "frequency": {
@@ -1118,7 +1106,6 @@
           ]
         }
       ],
-      "prerequisitePredicate": ["feat:rivethun-invoker-dedication"],
       "action": {
         "cost": "reaction",
         "trigger": [
@@ -1196,7 +1183,6 @@
           ]
         }
       ],
-      "prerequisitePredicate": ["feat:mortal-herald-dedication"],
       "action": {
         "cost": "one",
         "frequency": {
@@ -1370,7 +1356,6 @@
           ]
         }
       ],
-      "prerequisitePredicate": ["feat:mortal-herald-dedication"],
       "action": {
         "cost": "one",
         "selfEffect": "e7220608-fb77-5a0c-b3be-b545e86916ff"
@@ -1436,7 +1421,6 @@
           ]
         }
       ],
-      "prerequisitePredicate": ["feat:mortal-herald-dedication"],
       "archetype": "9d647c89-0686-5a25-921c-87078b3bc13a"
     }
   },
@@ -1501,7 +1485,6 @@
           ]
         }
       ],
-      "prerequisitePredicate": ["feat:rivethun-emissary-dedication"],
       "archetype": "a551e35f-bca4-5ba6-a479-bdd1e0b56aaf"
     }
   },
@@ -1578,7 +1561,6 @@
           ]
         }
       ],
-      "prerequisitePredicate": ["feat:mortal-herald-dedication"],
       "action": {
         "cost": "two",
         "frequency": {
@@ -1767,7 +1749,6 @@
           ]
         }
       ],
-      "prerequisitePredicate": ["feat:rivethun-emissary-dedication"],
       "archetype": "a551e35f-bca4-5ba6-a479-bdd1e0b56aaf"
     }
   },
@@ -1854,7 +1835,6 @@
           ]
         }
       ],
-      "prerequisitePredicate": ["feat:tandem-onslaught"],
       "action": {
         "cost": "reaction",
         "trigger": [
@@ -2022,7 +2002,6 @@
           ]
         }
       ],
-      "prerequisitePredicate": ["feat:mortal-herald-dedication"],
       "archetype": "9d647c89-0686-5a25-921c-87078b3bc13a"
     }
   },
@@ -2086,7 +2065,6 @@
           ]
         }
       ],
-      "prerequisitePredicate": ["feat:palatine-detective-dedication"],
       "maxTakable": 2
     }
   },
@@ -2284,8 +2262,7 @@
             }
           ]
         }
-      ],
-      "prerequisitePredicate": ["feat:battle-harbinger-dedication"]
+      ]
     }
   },
   {
@@ -2330,8 +2307,7 @@
             }
           ]
         }
-      ],
-      "prerequisitePredicate": ["feat:domain-initiate"]
+      ]
     }
   },
   {
@@ -2383,12 +2359,6 @@
           ]
         }
       ],
-      "prerequisitePredicate": [
-        "feat:basic-rivethun-spellcasting",
-        {
-          "gte": ["skill:religion:rank", 3]
-        }
-      ],
       "archetype": "7f98003d-0b5e-513a-9cda-42f8cff955e8"
     }
   },
@@ -2435,7 +2405,6 @@
           ]
         }
       ],
-      "prerequisitePredicate": ["feat:mortal-herald-dedication"],
       "archetype": "9d647c89-0686-5a25-921c-87078b3bc13a"
     }
   },
@@ -2513,12 +2482,6 @@
           ]
         }
       ],
-      "prerequisitePredicate": [
-        "feat:mortal-herald-dedication",
-        {
-          "gte": ["skill:intimidation:rank", 2]
-        }
-      ],
       "action": {
         "cost": "free",
         "trigger": [
@@ -2587,8 +2550,7 @@
             }
           ]
         }
-      ],
-      "prerequisitePredicate": ["self:trait:unholy"]
+      ]
     }
   },
   {
@@ -2651,7 +2613,6 @@
           ]
         }
       ],
-      "prerequisitePredicate": ["feat:mortal-herald-dedication"],
       "action": {
         "cost": "free",
         "trigger": [
@@ -2740,7 +2701,6 @@
           ]
         }
       ],
-      "prerequisitePredicate": ["feat:mortal-herald-dedication"],
       "action": {
         "cost": "one",
         "frequency": {
@@ -2811,7 +2771,6 @@
           ]
         }
       ],
-      "prerequisitePredicate": ["feat:mortal-herald-dedication"],
       "action": {
         "cost": "free",
         "trigger": [
@@ -3009,7 +2968,6 @@
           ]
         }
       ],
-      "prerequisitePredicate": ["feat:heralds-weapon"],
       "action": {
         "cost": "one",
         "requirements": [
@@ -3117,7 +3075,6 @@
           ]
         }
       ],
-      "prerequisitePredicate": ["feat:flash-of-omnipresence"],
       "archetype": "9d647c89-0686-5a25-921c-87078b3bc13a"
     }
   },
@@ -3317,8 +3274,7 @@
             }
           ]
         }
-      ],
-      "prerequisitePredicate": ["feat:harbingers-armament"]
+      ]
     }
   },
   {
@@ -3387,7 +3343,6 @@
           ]
         }
       ],
-      "prerequisitePredicate": ["feat:esoteric-spellcasting"],
       "maxTakable": 2
     }
   },
@@ -3477,12 +3432,6 @@
           ]
         }
       ],
-      "prerequisitePredicate": [
-        "feat:mortal-herald-dedication",
-        {
-          "gte": ["skill:diplomacy:rank", 3]
-        }
-      ],
       "action": {
         "cost": "one",
         "frequency": {
@@ -3553,8 +3502,7 @@
             }
           ]
         }
-      ],
-      "prerequisitePredicate": ["feat:battle-harbinger-dedication"]
+      ]
     }
   },
   {
@@ -3605,8 +3553,7 @@
             }
           ]
         }
-      ],
-      "prerequisitePredicate": ["feat:battle-harbinger-dedication"]
+      ]
     }
   },
   {
@@ -3661,7 +3608,6 @@
           ]
         }
       ],
-      "prerequisitePredicate": ["feat:shield-the-faithful"],
       "archetype": "9d647c89-0686-5a25-921c-87078b3bc13a"
     }
   },
@@ -3725,7 +3671,6 @@
           ]
         }
       ],
-      "prerequisitePredicate": ["feat:mortal-herald-dedication"],
       "action": {
         "cost": "one",
         "frequency": {
@@ -3888,7 +3833,6 @@
           ]
         }
       ],
-      "prerequisitePredicate": ["feat:heralds-weapon"],
       "action": {
         "cost": "two"
       },
@@ -3955,7 +3899,6 @@
           ]
         }
       ],
-      "prerequisitePredicate": ["feat:mortal-herald-dedication"],
       "action": {
         "cost": "one",
         "frequency": {
@@ -4017,12 +3960,6 @@
               "text": "Mortal Herald Dedication; master in Stealth"
             }
           ]
-        }
-      ],
-      "prerequisitePredicate": [
-        "feat:mortal-herald-dedication",
-        {
-          "gte": ["skill:stealth:rank", 3]
         }
       ],
       "archetype": "9d647c89-0686-5a25-921c-87078b3bc13a"
@@ -4105,7 +4042,6 @@
           ]
         }
       ],
-      "prerequisitePredicate": ["feat:rivethun-invoker-dedication"],
       "action": {
         "cost": "one",
         "requirements": [
@@ -4192,7 +4128,6 @@
           ]
         }
       ],
-      "prerequisitePredicate": ["feat:rivethun-invoker-dedication"],
       "action": {
         "cost": "one",
         "requirements": [
@@ -4288,7 +4223,6 @@
           ]
         }
       ],
-      "prerequisitePredicate": ["feat:rivethun-invoker-dedication"],
       "action": {
         "cost": "one",
         "requirements": [
@@ -4445,7 +4379,6 @@
           ]
         }
       ],
-      "prerequisitePredicate": ["feat:rivethun-emissary-dedication"],
       "action": {
         "cost": "one"
       },
@@ -4539,7 +4472,6 @@
           ]
         }
       ],
-      "prerequisitePredicate": ["feat:rivethun-invoker-dedication"],
       "action": {
         "cost": "reaction",
         "trigger": [
@@ -4621,7 +4553,6 @@
           ]
         }
       ],
-      "prerequisitePredicate": ["feat:battle-harbinger-dedication"],
       "action": {
         "cost": "one",
         "frequency": {
@@ -4747,12 +4678,6 @@
           ]
         }
       ],
-      "prerequisitePredicate": [
-        "feat:razmiran-priest-dedication",
-        {
-          "gte": ["skill:crafting:rank", 4]
-        }
-      ],
       "archetype": "a758c821-86b4-5ed7-8d75-0b9b9e2e1007"
     }
   },
@@ -4807,7 +4732,6 @@
           ]
         }
       ],
-      "prerequisitePredicate": ["feat:rivethun-emissary-dedication"],
       "action": {
         "cost": "one"
       },
@@ -4857,7 +4781,6 @@
           ]
         }
       ],
-      "prerequisitePredicate": ["feat:mortal-herald-dedication"],
       "action": {
         "cost": "one"
       },
@@ -4986,12 +4909,6 @@
           ]
         }
       ],
-      "prerequisitePredicate": [
-        "feat:razmiran-priest-dedication",
-        {
-          "gte": ["skill:crafting:rank", 2]
-        }
-      ],
       "archetype": "a758c821-86b4-5ed7-8d75-0b9b9e2e1007"
     }
   },
@@ -5112,12 +5029,6 @@
           ]
         }
       ],
-      "prerequisitePredicate": [
-        "feat:razmiran-priest-dedication",
-        {
-          "gte": ["skill:crafting:rank", 3]
-        }
-      ],
       "archetype": "a758c821-86b4-5ed7-8d75-0b9b9e2e1007"
     }
   },
@@ -5170,12 +5081,6 @@
           ]
         }
       ],
-      "prerequisitePredicate": [
-        "feat:expert-rivethun-spellcasting",
-        {
-          "gte": ["skill:religion:rank", 4]
-        }
-      ],
       "archetype": "7f98003d-0b5e-513a-9cda-42f8cff955e8"
     }
   },
@@ -5222,7 +5127,6 @@
           ]
         }
       ],
-      "prerequisitePredicate": ["feat:mortal-herald-dedication"],
       "archetype": "9d647c89-0686-5a25-921c-87078b3bc13a"
     }
   },
@@ -5269,7 +5173,6 @@
           ]
         }
       ],
-      "prerequisitePredicate": ["feat:mortal-herald-dedication"],
       "archetype": "9d647c89-0686-5a25-921c-87078b3bc13a"
     }
   },
@@ -5606,7 +5509,6 @@
           ]
         }
       ],
-      "prerequisitePredicate": ["feat:rivethun-invoker-dedication"],
       "action": {
         "cost": "one",
         "requirements": [
@@ -5698,7 +5600,6 @@
           ]
         }
       ],
-      "prerequisitePredicate": ["feat:palatine-detective-dedication"],
       "action": {
         "cost": "two",
         "frequency": {
@@ -5806,8 +5707,7 @@
             }
           ]
         }
-      ],
-      "prerequisitePredicate": ["feat:palatine-detective-dedication"]
+      ]
     }
   },
   {
@@ -5852,8 +5752,7 @@
             }
           ]
         }
-      ],
-      "prerequisitePredicate": ["feat:palatine-detective-dedication"]
+      ]
     }
   },
   {
@@ -5987,7 +5886,6 @@
           ]
         }
       ],
-      "prerequisitePredicate": ["feat:razmiran-priest-dedication"],
       "archetype": "a758c821-86b4-5ed7-8d75-0b9b9e2e1007"
     }
   },
@@ -6076,14 +5974,6 @@
               "text": "trained in Crafting; trained in Deception"
             }
           ]
-        }
-      ],
-      "prerequisitePredicate": [
-        {
-          "gte": ["skill:crafting:rank", 1]
-        },
-        {
-          "gte": ["skill:deception:rank", 1]
         }
       ],
       "archetype": "a758c821-86b4-5ed7-8d75-0b9b9e2e1007"
@@ -6299,7 +6189,6 @@
           ]
         }
       ],
-      "prerequisitePredicate": ["feat:rivethun-emissary-dedication"],
       "archetype": "a551e35f-bca4-5ba6-a479-bdd1e0b56aaf"
     }
   },
@@ -6398,14 +6287,6 @@
           ]
         }
       ],
-      "prerequisitePredicate": [
-        {
-          "gte": ["skill:diplomacy:rank", 1]
-        },
-        {
-          "gte": ["skill:religion:rank", 1]
-        }
-      ],
       "archetype": "a551e35f-bca4-5ba6-a479-bdd1e0b56aaf"
     }
   },
@@ -6495,14 +6376,6 @@
           ]
         }
       ],
-      "prerequisitePredicate": [
-        {
-          "gte": ["skill:athletics:rank", 1]
-        },
-        {
-          "gte": ["skill:religion:rank", 1]
-        }
-      ],
       "archetype": "81e1aa36-c4c5-5897-af13-6d4cf9faa6a1"
     }
   },
@@ -6581,14 +6454,6 @@
           ]
         }
       ],
-      "prerequisitePredicate": [
-        {
-          "gte": ["skill:nature:rank", 1]
-        },
-        {
-          "gte": ["skill:religion:rank", 1]
-        }
-      ],
       "archetype": "7f98003d-0b5e-513a-9cda-42f8cff955e8"
     }
   },
@@ -6645,8 +6510,7 @@
             }
           ]
         }
-      ],
-      "prerequisitePredicate": ["self:trait:unholy"]
+      ]
     }
   },
   {
@@ -6702,8 +6566,7 @@
             }
           ]
         }
-      ],
-      "prerequisitePredicate": ["self:trait:holy"]
+      ]
     }
   },
   {
@@ -6788,7 +6651,6 @@
           ]
         }
       ],
-      "prerequisitePredicate": ["feat:mortal-herald-dedication"],
       "action": {
         "cost": "one",
         "frequency": {
@@ -6843,7 +6705,6 @@
           ]
         }
       ],
-      "prerequisitePredicate": ["feat:mortal-herald-dedication"],
       "archetype": "9d647c89-0686-5a25-921c-87078b3bc13a"
     }
   },
@@ -6921,12 +6782,6 @@
           ]
         }
       ],
-      "prerequisitePredicate": [
-        "feat:spirit-companion",
-        {
-          "or": ["feat:incredible-companion-druid", "feat:incredible-companion-ranger"]
-        }
-      ],
       "maxTakable": 3,
       "archetype": "7f98003d-0b5e-513a-9cda-42f8cff955e8"
     }
@@ -6974,7 +6829,6 @@
           ]
         }
       ],
-      "prerequisitePredicate": ["feat:rivethun-involutionist-dedication"],
       "archetype": "7f98003d-0b5e-513a-9cda-42f8cff955e8"
     }
   },
@@ -7098,7 +6952,6 @@
           ]
         }
       ],
-      "prerequisitePredicate": ["feat:mortal-herald-dedication"],
       "action": {
         "cost": "reaction",
         "trigger": [
@@ -7158,8 +7011,7 @@
             }
           ]
         }
-      ],
-      "prerequisitePredicate": ["feat:battle-harbinger-dedication"]
+      ]
     }
   },
   {
@@ -7204,8 +7056,7 @@
             }
           ]
         }
-      ],
-      "prerequisitePredicate": ["feat:battle-harbinger-dedication"]
+      ]
     }
   },
   {
@@ -7250,8 +7101,7 @@
             }
           ]
         }
-      ],
-      "prerequisitePredicate": ["feat:palatine-detective-dedication"]
+      ]
     }
   }
 ]

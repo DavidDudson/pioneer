@@ -801,12 +801,16 @@ name`, `of 13th level or lower`) and `1 or 10` (two counts, not a range) are rep
   - an attribute minimum ("Strength +2"), `{ "gte": ["attribute:str:mod", 2] }`, as Foundry writes it;
   - a level ("8th level"), `{ "gte": ["self:level", 8] }`;
   - `holy` or `unholy`, `self:trait:holy` (ADR-0048);
-  - the name of a feat, class or ancestry feature, ancestry, heritage, class or deity: the option its kind sets
+  - the name of a feat, ancestry feature, ancestry, heritage, class or deity: the option its kind sets
     (`feat:shield-block`, `deity:primary:sarenrae`). Names resolve across every pack, ignoring case. A name several
-    entries share (the feat Shield Block and the fighter's class feature) is met by any of them, as is a name whose
-    entries add a class in brackets (Incredible Companion (Druid) and (Ranger)). A kind word after a name narrows it
-    ("leaf leshy heritage", "Cat Fall skill feat"), and a muse, racket or doctrine is its class feature ("warrior
-    muse" is Warrior).
+    of these entries share is met by any of them, as is a name whose entries add a class in brackets: "Animal
+    Companion" is Animal Companion or Animal Companion (Ranger). A kind word after a name narrows it ("leaf leshy
+    heritage", "Cat Fall skill feat").
+
+  Class features are not named. An archetype gives a muse, order or school without the class feature (Bard
+  Dedication has no muse to pick yet), so `feature:warrior` would read as false for a character who meets "warrior
+  muse"; such a clause stays unparsed. A class feature that is also a feat (the fighter's Shield Block) grants the
+  feat, which names it.
 
   A list of items is `or` or `and` as it says; one that says both, or neither, does not parse. A feat with any clause
   that does not parse gets no predicate, since a partial one would read as met; the coverage report lists it. The

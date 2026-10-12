@@ -15,8 +15,7 @@ import { NAMED_KINDS, normalise, prerequisiteNames } from './prerequisite-names'
 import type { PrerequisiteNames } from './prerequisite-names';
 
 /**
- * A word after a name that says which kind it is: "leaf leshy heritage", "Cat Fall skill feat". A bard's muse, a
- * rogue's racket and a cleric's doctrine are class features named without the word ("warrior muse" is Warrior).
+ * A word after a name that says which kind it is: "leaf leshy heritage", "Cat Fall skill feat".
  */
 const KIND_WORDS: ReadonlyMap<string, readonly ContentKind[]> = new Map([
   ['feat', [ContentKind.Feat]],
@@ -27,9 +26,6 @@ const KIND_WORDS: ReadonlyMap<string, readonly ContentKind[]> = new Map([
   ['ancestry', [ContentKind.Ancestry]],
   ['class', [ContentKind.Class]],
   ['deity', [ContentKind.Deity]],
-  ['muse', [ContentKind.ClassFeature]],
-  ['racket', [ContentKind.ClassFeature]],
-  ['doctrine', [ContentKind.ClassFeature]],
 ]);
 
 const ATTRIBUTE_WORDS: ReadonlyMap<string, Attribute> = new Map([
@@ -108,8 +104,8 @@ function rankClause(clause: string, names: PrerequisiteNames): readonly Predicat
   if (rank === undefined || statistics === undefined) {
     return undefined;
   }
-  const value = RANK_WORDS.get(rank) ?? 0;
-  return combined(statistics, (statistic) => rankStatement(statistic, value, names));
+  const value = RANK_WORDS.get(rank);
+  return value === undefined ? undefined : combined(statistics, (statistic) => rankStatement(statistic, value, names));
 }
 
 /** "Strength +2": `{ "gte": ["attribute:str:mod", 2] }`, as Foundry writes it. */
@@ -153,12 +149,12 @@ function namesOf(item: string): readonly NameOf[] {
 }
 
 /**
- * The option a named entry sets, or of several with that name (the feat Shield Block and the fighter's class feature),
- * any of theirs. Undefined when nothing has the name.
+ * The option a named entry sets, or of several with that name any of theirs, its variants with a class in brackets
+ * included (Animal Companion and Animal Companion (Ranger)). Undefined when nothing it may be has the name.
  */
 function nameStatement(item: string, names: PrerequisiteNames): PredicateStatement | undefined {
   for (const { name, kinds } of namesOf(item)) {
-    const options = (names.entries.get(name) ?? names.variants.get(name) ?? [])
+    const options = [...(names.entries.get(name) ?? []), ...(names.variants.get(name) ?? [])]
       .filter(({ kind }) => kinds.includes(kind))
       .map(({ option }) => option);
     const [only] = options;
@@ -169,7 +165,7 @@ function nameStatement(item: string, names: PrerequisiteNames): PredicateStateme
   return undefined;
 }
 
-/** "Shield Block", "Rogue Dedication or Swashbuckler Dedication", "leaf order or Untamed Form". */
+/** "Shield Block", "Rogue Dedication or Swashbuckler Dedication", "Aggressive Block or Brutish Shove". */
 function nameClause(clause: string, names: PrerequisiteNames): readonly PredicateStatement[] | undefined {
   const whole = nameStatement(clause, names);
   return whole === undefined ? combined(clause, (item) => nameStatement(item, names)) : [whole];
@@ -218,10 +214,12 @@ export function readPrerequisites(prerequisites: RichText, names: PrerequisiteNa
     .filter((clause) => clause !== '');
   const read = clauses.map((clause) => ({ clause, statements: clauseStatements(clause, names) }));
   const unparsed = read.flatMap(({ clause, statements }) => (statements === undefined ? [clause] : []));
-  const parsed = Predicate.safeParse(read.flatMap(({ statements }) => statements ?? []));
-  return unparsed.length === 0 && parsed.success
-    ? { predicate: parsed.data, unparsed }
-    : { predicate: undefined, unparsed };
+  // No clause at all says nothing, and an empty predicate would always hold.
+  const predicate =
+    unparsed.length === 0 && read.length > 0
+      ? Predicate.parse(read.flatMap(({ statements }) => statements ?? []))
+      : undefined;
+  return { predicate, unparsed };
 }
 
 /** The predicate the matcher read for one feat. */

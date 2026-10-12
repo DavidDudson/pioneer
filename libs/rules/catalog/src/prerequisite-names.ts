@@ -3,13 +3,14 @@ import { ContentKind, slugName } from '@pioneer/rules/sdk';
 import type { ContentEntry, RollOption } from '@pioneer/rules/sdk';
 
 /**
- * The kinds a prerequisite names by their name: other feats, class and ancestry features, ancestries, heritages,
- * classes and deities. Backgrounds, spells and the rest share names with these (Warrior, Untamed Form) but no
- * prerequisite means them.
+ * The kinds a prerequisite names by their name: other feats, ancestry features, ancestries, heritages, classes and
+ * deities. Backgrounds, spells and the rest share names with these (Warrior, Untamed Form) but no prerequisite means
+ * them. Class features are left out: an archetype gives a muse, order or school without the class feature (Bard
+ * Dedication has no muse to pick yet), so `feature:warrior` would read as false for a character who meets it. A
+ * class feature that is also a feat (Shield Block) grants the feat, which names it.
  */
 export const NAMED_KINDS: readonly ContentKind[] = [
   ContentKind.Feat,
-  ContentKind.ClassFeature,
   ContentKind.AncestryFeature,
   ContentKind.Ancestry,
   ContentKind.Heritage,
