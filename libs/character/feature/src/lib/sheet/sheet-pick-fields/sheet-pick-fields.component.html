@@ -1,0 +1,17 @@
+@if (fields().length > 0) {
+  <fr-grid [columns]="3">
+    @for (pick of fields(); track pick.key) {
+      <fr-inline-field [label]="pick.label.key | transloco: pick.label.params" [edit]="pick.field">
+        <fr-select
+          frInlineEditor
+          [ariaLabel]="pick.label.key | transloco: pick.label.params"
+          [options]="pick.options()"
+          [value]="pick.field.draft()"
+          (valueChange)="pick.field.change($event)"
+          (committed)="pick.field.flushSoon()"
+          (cancelled)="pick.field.cancel()"
+        />
+      </fr-inline-field>
+    }
+  </fr-grid>
+}

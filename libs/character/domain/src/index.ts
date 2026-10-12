@@ -37,6 +37,7 @@ export {
 } from './class-build';
 export { characterSpellcasting } from './spellcasting-build';
 export { type CharacterFocus, characterFocus, type FocusEntrySpells } from './focus-spells';
+export { type ListedChoice, listedChoices } from './listed-choices';
 export {
   cantripRank,
   isSpellSlotKey,

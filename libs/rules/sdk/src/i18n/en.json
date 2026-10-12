@@ -754,7 +754,8 @@
       "preparation": {
         "prepared": "Prepared",
         "spontaneous": "Spontaneous",
-        "innate": "Innate"
+        "innate": "Innate",
+        "focus": "Focus"
       }
     },
     "facetFilter": {

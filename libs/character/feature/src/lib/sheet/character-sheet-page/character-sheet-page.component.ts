@@ -73,8 +73,8 @@ import { SheetDeitySection } from '../sheet-deity-section/sheet-deity-section.co
 import { carriesAnything, EQUIPMENT_CONTENT_KINDS, sheetInvestments } from '../sheet-equipment';
 import { sheetField } from '../sheet-field';
 import { SheetLanguagesSection } from '../sheet-languages-section/sheet-languages-section.component';
+import { SheetPickFields } from '../sheet-pick-fields/sheet-pick-fields.component';
 import { SHEET_SECTION_ORDER, SHEET_SECTIONS } from '../sheet-sections';
-import { SheetSkillFields } from '../sheet-skill-fields/sheet-skill-fields.component';
 import { SheetSpells } from '../sheet-spells/sheet-spells.component';
 // oxlint-disable-next-line import/max-dependencies -- one container per sheet section until mode tabs split the page (#495)
 import { Shop } from '../shop/shop.component';
@@ -122,7 +122,7 @@ function focusField(field: ElementRef<HTMLElement>): void {
     SheetClassFields,
     SheetDeitySection,
     SheetLanguagesSection,
-    SheetSkillFields,
+    SheetPickFields,
     SheetSpells,
     Skeleton,
     Stack,
