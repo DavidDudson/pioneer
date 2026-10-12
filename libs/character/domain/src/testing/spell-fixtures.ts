@@ -5,7 +5,7 @@ import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
 import type { SpellContent } from '../spell-content';
 
 /** No spells: prepared slots offer nothing. For tests about other slots. */
-export const NO_SPELLS: SpellContent = { spells: [], spell: () => undefined };
+export const NO_SPELLS: SpellContent = { spells: [], spell: () => undefined, anySpell: () => undefined };
 
 const SPELL_PACK = 'spell-fixtures';
 

@@ -36,6 +36,7 @@ export {
   subclassSlot,
 } from './class-build';
 export { characterSpellcasting } from './spellcasting-build';
+export { type CharacterFocus, characterFocus, type FocusEntrySpells } from './focus-spells';
 export {
   cantripRank,
   isSpellSlotKey,
