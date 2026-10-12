@@ -134,9 +134,9 @@ describe('translateKindData: action values', () => {
     const description = {
       value: '<p><strong>Trigger</strong> An @UUID[Compendium.pf2e.conditionitems.Item.Off-Guard] foe moves.</p>',
     };
-    const translation = translate([action({ actionType: { value: 'reaction' }, description }), OFF_GUARD]);
+    const documents = [action({ actionType: { value: 'reaction' }, description }), OFF_GUARD];
 
-    expect(entryOf(translation, 'test-action')?.kindData?.data).toEqual({
+    expect(dataOf(documents, 'test-action')).toEqual({
       cost: ActionCost.Reaction,
       trigger: [
         {
@@ -149,7 +149,7 @@ describe('translateKindData: action values', () => {
         },
       ],
     });
-    expect(gapsOf(translation)).toEqual([]);
+    expect(gapsOf(translate(documents))).toEqual([]);
   });
 
   test('requirements keep an inline check, and a link outside the import reads as its label', () => {
