@@ -399,17 +399,17 @@ Rule elements are the only way content changes a character. The vocabulary follo
 because that is the dataset we import and the system we export to (see
 [ADR-0008](../adr/0008-rule-element-vocabulary.md)). Our schema is typed; theirs targets raw data paths.
 
-| Group       | Rule elements                                                                                                                     |
-| ----------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| Structure   | `GrantItem`, `ChoiceSet`, `RollOption` (incl. toggles), `ItemAlteration`                                                          |
-| Numbers     | `FlatModifier`, `AdjustModifier`, `Change` (add, upgrade, downgrade, override, multiply), `DexterityCap`, `MultipleAttackPenalty` |
-| Proficiency | `Proficiency` (raise a rank), `MartialProficiency`, `ProficiencyBonus` (replace the bonus table)                                  |
-| Magic       | `SpellcastingEntry` (a spellcasting entry: tradition, attribute, preparation), `SpellSlots` (slots or cantrips for an entry)      |
-| Checks      | `RollTwice`, `SubstituteRoll`, `AdjustDegreeOfSuccess`, `RollNote`                                                                |
-| Strikes     | `Strike`, `AdjustStrike`, `DamageDice`, `DamageAlteration`, `CriticalSpecialization`                                              |
-| Defences    | `Immunity`, `Weakness`, `Resistance`, `TempHitPoints`, `FastHealing`                                                              |
-| Creature    | `BaseSpeed`, `Sense`, `CreatureSize`, `Language`, `SpecialResource`, `SpecialStatistic`, `Aura`                                   |
-| Actions     | `GrantAction` (an action becomes available, with its own predicate)                                                               |
+| Group       | Rule elements                                                                                                                                                        |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Structure   | `GrantItem`, `ChoiceSet`, `RollOption` (incl. toggles), `ItemAlteration`                                                                                             |
+| Numbers     | `FlatModifier`, `AdjustModifier`, `Change` (add, upgrade, downgrade, override, multiply), `DexterityCap`, `MultipleAttackPenalty`                                    |
+| Proficiency | `Proficiency` (raise a rank), `MartialProficiency`, `ProficiencyBonus` (replace the bonus table)                                                                     |
+| Magic       | `SpellcastingEntry` (a spellcasting entry: tradition, attribute, preparation), `SpellSlots` (slots or cantrips for an entry), `PoolSpells` (the spells a pool takes) |
+| Checks      | `RollTwice`, `SubstituteRoll`, `AdjustDegreeOfSuccess`, `RollNote`                                                                                                   |
+| Strikes     | `Strike`, `AdjustStrike`, `DamageDice`, `DamageAlteration`, `CriticalSpecialization`                                                                                 |
+| Defences    | `Immunity`, `Weakness`, `Resistance`, `TempHitPoints`, `FastHealing`                                                                                                 |
+| Creature    | `BaseSpeed`, `Sense`, `CreatureSize`, `Language`, `SpecialResource`, `SpecialStatistic`, `Aura`                                                                      |
+| Actions     | `GrantAction` (an action becomes available, with its own predicate)                                                                                                  |
 
 Each element is a discriminated union member with its own zod schema in `libs/rules/sdk`. Every element has an
 optional `predicate`, a `priority`, and an optional `display` hint. Unknown keys are a validation error; the
@@ -436,8 +436,10 @@ entry, the first in play.
 `SpellSlots` is Pioneer's own as well ([ADR-0041](../adr/0041-spell-slots-are-rule-elements.md)): it adds `value`
 slots of a `rank`, cantrips, or slots at the entry's `highest` rank below 10th to the entry named `entry`, either to its
 own slots or to a `pool` kept apart (a divine font, a curriculum). Counts add up per entry, pool and rank, so a class's
-table is a few elements gated by level; one for an entry not in play adds nothing. `spellcastingInPlay` gives each
-entry its slots and pools.
+table is a few elements gated by level; one for an entry not in play adds nothing. `PoolSpells` names the `spells` a
+`pool` of an entry takes ([ADR-0045](../adr/0045-pool-spells-are-rule-elements.md)), adding up per pool and gated by
+its predicate, so a divine font's spell follows the font picked. `spellcastingInPlay` gives each entry its slots and
+pools, each pool with its spells.
 
 ## Derivation pipeline
 

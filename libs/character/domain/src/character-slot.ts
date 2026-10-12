@@ -4,6 +4,7 @@ import {
   ContentKindSchema,
   ContentText,
   Level,
+  RuleSlug,
   SlotKey,
   SlotRank,
   Slug,
@@ -75,10 +76,14 @@ export const SlotSubject = z.discriminatedUnion('kind', [
     entryName: ContentText.optional(),
     prompt: ContentText.optional(),
   }),
-  /** A prepared slot of `rank` on the spellcasting entry `entry`: cantrips, or 1 to 10 (#478). */
+  /**
+   * A prepared slot of `rank` on the spellcasting entry `entry`: cantrips, or 1 to 10 (#478); with `pool`, one of the
+   * entry's pool of that slug (#581).
+   */
   z.strictObject({
     kind: z.literal(SlotSubjectKind.Spell),
     entry: Slug,
+    pool: RuleSlug.optional(),
     rank: PreparedRankSchema,
   }),
 ]);
@@ -134,4 +139,5 @@ export const SlotInvalidMessage = {
   LanguageKnown: 'rules.choices.invalid.languageKnown',
   SpellNoAccess: 'rules.choices.invalid.spellNoAccess',
   SpellUnfit: 'rules.choices.invalid.spellUnfit',
+  SpellNotInPool: 'rules.choices.invalid.spellNotInPool',
 } as const;

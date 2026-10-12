@@ -1,7 +1,15 @@
 import { Truth } from '@pioneer/rules/predicate';
 import type { PredicateFacts } from '@pioneer/rules/predicate';
 import { RuleElementKey, SLOT_COUNT_MAX, SlotCount, SlotRank, SPELL_RANK_MAX, SpellRank } from '@pioneer/rules/sdk';
-import type { Origin, RuleSlug, Slug, SpellPreparation, SpellSlotsElement } from '@pioneer/rules/sdk';
+import type {
+  ContentId,
+  Origin,
+  PoolSpellsElement,
+  RuleSlug,
+  Slug,
+  SpellPreparation,
+  SpellSlotsElement,
+} from '@pioneer/rules/sdk';
 
 import type { ModifierInputs, RuleInPlay } from './rule-in-play';
 import { truthOf } from './rule-value';
@@ -25,6 +33,8 @@ export interface SlotPool extends SpellSlots {
   readonly pool: RuleSlug;
   /** The entry whose `SpellSlots` element first added to the pool, and how it got on the character. */
   readonly origin: Origin;
+  /** The spells its slots take, from the `PoolSpells` elements in play for it, each once in the order they name them. */
+  readonly spells: readonly ContentId[];
 }
 
 /** An entry's slots: its own, from its class's table or the feats that grant them, and its other pools. */
@@ -109,12 +119,17 @@ function fixedOwnSlots(placed: readonly PlacedSlots[]): Tally {
   return own;
 }
 
+/** The spells each of an entry's pools takes, by pool. */
+type PoolSpells = ReadonlyMap<RuleSlug, readonly ContentId[]>;
+
+const NO_POOL_SPELLS: PoolSpells = new Map();
+
 /**
- * An entry's own slots and pools from the `SpellSlots` elements that name it. Counts add up per pool and rank;
- * `highest` is the highest rank below 10th its own fixed slots reach, so it is read once those are counted, and adds
- * nothing to an entry with none.
+ * An entry's own slots and pools from the `SpellSlots` elements that name it, each pool with the spells `poolSpells`
+ * gives it. Counts add up per pool and rank; `highest` is the highest rank below 10th its own fixed slots reach, so it
+ * is read once those are counted, and adds nothing to an entry with none.
  */
-function entrySlots(placed: readonly PlacedSlots[]): EntrySlots {
+function entrySlots(placed: readonly PlacedSlots[], poolSpells: PoolSpells): EntrySlots {
   const own = fixedOwnSlots(placed);
   const highest = highestRank(own);
   const pools = new Map<RuleSlug, PoolTally>();
@@ -131,7 +146,9 @@ function entrySlots(placed: readonly PlacedSlots[]): EntrySlots {
   return {
     slots: slotsOf(own),
     pools: bySlug(
-      [...pools].map(([pool, { origin, tally }]): SlotPool => Object.assign(slotsOf(tally), { pool, origin })),
+      [...pools].map(([pool, { origin, tally }]): SlotPool =>
+        Object.assign(slotsOf(tally), { pool, origin, spells: poolSpells.get(pool) ?? [] }),
+      ),
       ({ pool }) => pool,
     ),
   };
@@ -141,28 +158,55 @@ function holds(rule: RuleInPlay, facts: PredicateFacts): boolean {
   return truthOf(rule.element.predicate, facts) === Truth.True;
 }
 
+/** What the rules in play give, by entry slug, as `spellcastingInPlay` reads them. */
+interface Gathered {
+  readonly entries: Map<Slug, EntryInPlay>;
+  readonly slots: Map<Slug, PlacedSlots[]>;
+  readonly poolSpells: Map<Slug, Map<RuleSlug, ContentId[]>>;
+}
+
+/** Adds `spells` to what `pool` of `entry` takes, each spell once. */
+function addPoolSpells({ poolSpells }: Gathered, { entry, pool, spells }: PoolSpellsElement): void {
+  const pools = poolSpells.get(entry) ?? new Map<RuleSlug, ContentId[]>();
+  const taken = pools.get(pool) ?? [];
+  pools.set(pool, [...taken, ...spells.filter((spell) => !taken.includes(spell))]);
+  poolSpells.set(entry, pools);
+}
+
+/** Adds what one rule in play gives, if it holds: an entry the first time its slug holds, slots, or pool spells. */
+function gather(gathered: Gathered, rule: RuleInPlay, facts: PredicateFacts): void {
+  const { element, origin } = rule;
+  if (!holds(rule, facts)) {
+    return;
+  }
+  if (element.key === RuleElementKey.SpellcastingEntry && !gathered.entries.has(element.slug)) {
+    const { slug, tradition, attribute, preparation } = element;
+    gathered.entries.set(slug, { slug, tradition, attribute, preparation, origin });
+  }
+  if (element.key === RuleElementKey.SpellSlots) {
+    gathered.slots.set(element.entry, [...(gathered.slots.get(element.entry) ?? []), { element, origin }]);
+  }
+  if (element.key === RuleElementKey.PoolSpells) {
+    addPoolSpells(gathered, element);
+  }
+}
+
 /**
  * The spellcasting entries the `SpellcastingEntry` elements in play give (ADR-0040): one per slug, from the first
  * element with that slug whose predicate holds, in slug order. One that depends on the situation gives none on the
  * sheet. Each is a source `StatisticInputs.spellcasting` derives a spell attack and DC for, with the slots the
- * `SpellSlots` elements in play give it (ADR-0041).
+ * `SpellSlots` elements in play give it (ADR-0041) and the spells the `PoolSpells` elements in play give its pools
+ * (ADR-0045).
  */
 export function spellcastingInPlay({ rules, facts }: ModifierInputs): readonly SpellcastingInPlay[] {
-  const entries = new Map<Slug, EntryInPlay>();
-  const slots = new Map<Slug, PlacedSlots[]>();
+  const gathered: Gathered = { entries: new Map(), slots: new Map(), poolSpells: new Map() };
   for (const rule of rules) {
-    const { element, origin } = rule;
-    if (element.key === RuleElementKey.SpellcastingEntry && !entries.has(element.slug) && holds(rule, facts)) {
-      const { slug, tradition, attribute, preparation } = element;
-      entries.set(slug, { slug, tradition, attribute, preparation, origin });
-    }
-    if (element.key === RuleElementKey.SpellSlots && holds(rule, facts)) {
-      slots.set(element.entry, [...(slots.get(element.entry) ?? []), { element, origin }]);
-    }
+    gather(gathered, rule, facts);
   }
+  const { entries, slots, poolSpells } = gathered;
   return bySlug(
     [...entries.values()].map((entry): SpellcastingInPlay =>
-      Object.assign(entrySlots(slots.get(entry.slug) ?? []), entry),
+      Object.assign(entrySlots(slots.get(entry.slug) ?? [], poolSpells.get(entry.slug) ?? NO_POOL_SPELLS), entry),
     ),
     ({ slug }) => slug,
   );

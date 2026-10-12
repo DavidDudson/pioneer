@@ -8,6 +8,7 @@ import { fromFoundryFormula } from './foundry-formula';
 import { isLangKey, isUnresolved, localize } from './foundry-lang';
 import type { LangValues, UnresolvedKey, UnresolvedText } from './foundry-lang';
 import type { FoundryLang } from './foundry-release';
+import { withFontChoice } from './translate-font-choice';
 import { withSense } from './translate-senses';
 import type { FoundrySenses } from './translate-senses';
 
@@ -270,7 +271,8 @@ export function translateRules(entry: ContentId, raws: readonly unknown[], conte
     const text = withDisplayLabel(localized(raw, context, unresolved));
     const granted = withGrantedId(withPioneerFormula(text), references);
     const queried = withLanguageSlots(withTagQuery(withGrantValue(granted)));
-    return withSense(queried, { references, senses: context.senses });
+    const font = withFontChoice(queried);
+    return withSense(font, { references, senses: context.senses });
   });
   const declared = new Set(
     shapedRaws.flatMap((shaped) => {

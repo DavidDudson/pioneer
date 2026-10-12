@@ -34,33 +34,66 @@ export interface SheetPreparedSlot {
   readonly reason: MessageDescriptor | undefined;
 }
 
-/** The slots of one rank on an entry, under a heading that says the rank its spells are cast at. */
+/**
+ * The slots of one rank on an entry, or of one rank of one of its pools, under a heading that says the rank its spells
+ * are cast at.
+ */
 interface SheetPreparedRank {
-  /** Unique within the entry: `cantrip`, or the rank. */
+  /** Unique within the entry: `cantrip` or the rank, after the pool's slug for a pool's (`divine-font:4`). */
   readonly key: string;
   readonly heading: MessageDescriptor;
+  /** Why a pool's slots offer nothing: the choice that names its spells isn't made yet. */
+  readonly note: MessageDescriptor | undefined;
   readonly slots: readonly SheetPreparedSlot[];
 }
 
-/** A prepared entry's slots, rank by rank. */
+/** A prepared entry's slots, rank by rank, then its pools', rank by rank. */
 export interface SheetPreparedEntry {
   readonly key: Slug;
   readonly tradition: MagicTradition;
   readonly ranks: readonly SheetPreparedRank[];
 }
 
-/** "Cantrip 2", "3rd rank slot 1": each picker named on its own. */
-function slotLabel(slot: PreparedSlot, place: number): MessageDescriptor {
+/** A prepared slot with the name of the pool it is one of, if any. */
+interface NamedSlot {
+  readonly slot: PreparedSlot;
+  /** The name of the entry that gave the pool ("Divine Font"); undefined for one of the entry's own slots. */
+  readonly pool: string | undefined;
+}
+
+/** "Cantrip 2", "3rd rank slot 1", "Divine Font 4th rank slot 1": each picker named on its own. */
+function slotLabel({ slot, pool }: NamedSlot, place: number): MessageDescriptor {
+  if (pool !== undefined) {
+    return slot.rank === SlotRank.Cantrip
+      ? message('character.sheet.prepared.poolCantripSlot', { pool, number: place })
+      : message('character.sheet.prepared.poolRankSlot', { pool, rank: slot.rank, number: place });
+  }
   return slot.rank === SlotRank.Cantrip
     ? message('character.sheet.prepared.cantripSlot', { number: place })
     : message('character.sheet.prepared.rankSlot', { rank: slot.rank, number: place });
 }
 
-/** "Cantrips, cast at 3rd rank", "3rd rank". */
-function rankHeading(slot: PreparedSlot): MessageDescriptor {
+/** "Cantrips, cast at 3rd rank", "3rd rank", "Divine Font, 4th rank". */
+function rankHeading({ slot, pool }: NamedSlot): MessageDescriptor {
+  if (pool !== undefined) {
+    return slot.rank === SlotRank.Cantrip
+      ? message('character.sheet.prepared.poolCantrips', { pool, rank: slot.castRank })
+      : message('character.sheet.prepared.poolRank', { pool, rank: slot.rank });
+  }
   return slot.rank === SlotRank.Cantrip
     ? message('character.sheet.prepared.cantrips', { rank: slot.castRank })
     : message('rules.spellcasting.rank', { rank: slot.rank });
+}
+
+/** A pool that takes no spell waits on a choice: a divine font, until the font is picked. */
+function rankNote({ slot, pool }: NamedSlot): MessageDescriptor | undefined {
+  const waiting = pool !== undefined && slot.pool?.spells.length === 0;
+  return waiting ? message('character.sheet.prepared.poolEmpty', { pool }) : undefined;
+}
+
+/** A rank's key within its entry: `cantrip` or the rank, after the pool's slug for a pool's (`divine-font:4`). */
+function rankKey({ slot }: NamedSlot): string {
+  return slot.pool === undefined ? String(slot.rank) : `${slot.pool.slug}:${slot.rank}`;
 }
 
 function optionOf(spell: SpellOption): SelectOption<string> {
@@ -74,8 +107,9 @@ function reasonOf(slots: readonly CharacterSlot[], key: SlotKey): MessageDescrip
 }
 
 /**
- * Each prepared entry's slots at the character's level (#478), rank by rank, cantrips first: every slot with the
- * spells it offers and, when its pick is invalid, the reason the server read. A registry without spells offers none.
+ * Each prepared entry's slots at the character's level (#478), rank by rank, cantrips first, then each of its pools'
+ * (#581) the same way, under the name of the entry that gave the pool: every slot with the spells it offers and, when
+ * its pick is invalid, the reason the server read. A registry without spells offers none.
  */
 export function sheetPreparedSlots(
   registry: ContentRegistry,
@@ -83,20 +117,24 @@ export function sheetPreparedSlots(
   slots: readonly CharacterSlot[],
 ): readonly SheetPreparedEntry[] {
   const content = sheetSlotContent(registry);
-  const sheetSlot = (slot: PreparedSlot, index: number): SheetPreparedSlot => ({
-    key: slot.key,
-    label: slotLabel(slot, index + 1),
-    options: slot.options.map((spell) => optionOf(spell)),
-    storedName: slot.stored === undefined ? undefined : content.spells.spell(slot.stored)?.name,
-    reason: reasonOf(slots, slot.key),
+  const sheetSlot = (named: NamedSlot, index: number): SheetPreparedSlot => ({
+    key: named.slot.key,
+    label: slotLabel(named, index + 1),
+    options: named.slot.options.map((spell) => optionOf(spell)),
+    storedName: named.slot.stored === undefined ? undefined : content.spells.spell(named.slot.stored)?.name,
+    reason: reasonOf(slots, named.slot.key),
   });
-  const all = preparedSlots(character.document, preparedReads(character.document, content));
-  return runs(all, (slot) => slot.entry).map(([first, entrySlots]) => ({
-    key: first.entry,
-    tradition: first.tradition,
-    ranks: runs(entrySlots, (slot) => String(slot.rank)).map(([rankFirst, rankSlots]) => ({
-      key: String(rankFirst.rank),
+  const all = preparedSlots(character.document, preparedReads(character.document, content)).map((slot): NamedSlot => ({
+    slot,
+    pool: slot.pool === undefined ? undefined : (content.lookup.entry(slot.pool.origin.entry)?.name ?? slot.pool.slug),
+  }));
+  return runs(all, ({ slot }) => slot.entry).map(([first, entrySlots]) => ({
+    key: first.slot.entry,
+    tradition: first.slot.tradition,
+    ranks: runs(entrySlots, rankKey).map(([rankFirst, rankSlots]) => ({
+      key: rankKey(rankFirst),
       heading: rankHeading(rankFirst),
+      note: rankNote(rankFirst),
       slots: rankSlots.map((slot, index) => sheetSlot(slot, index)),
     })),
   }));

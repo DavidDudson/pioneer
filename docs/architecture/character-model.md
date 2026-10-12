@@ -142,7 +142,13 @@ Common spells are always offered; uncommon, rare and unique ones once `build.spe
 `grantSpellAccess` and `revokeSpellAccess`. A pick whose access is taken away reads invalid with its reason
 (`rules.choices.invalid.spellNoAccess`). The sheet lists each prepared entry's slots rank by rank under its
 Spellcasting entry, a picker each, then the spells the build has access to, with Remove and a picker to add one of
-its entries' traditions. Pools are prepared in #581.
+its entries' traditions.
+
+A pool's slots are prepared the same way, `prepared:<entry>:<pool>:<cantrip|rank>:<n>`, after the entry's own
+([ADR-0045](../adr/0045-pool-spells-are-rule-elements.md)): each offers the spells the pool's `PoolSpells` elements
+name that fit its rank, whatever their tradition or rarity. A divine font takes heal or harm once the font is picked
+(Divine Font's choice, both fonts offered until the deity lands, #469), a curriculum its school's spells. The sheet
+lists them after the entry's own under the name of what gave the pool, and says when a pool takes nothing yet.
 
 Each slot's status is worked out on every read, never stored (`characterSlots`,
 [ADR-0035](../adr/0035-character-reads-carry-slot-status.md)). `GET` and `PATCH /characters/:id` answer with the

@@ -2,6 +2,7 @@ import { RuleElementKey } from '@pioneer/rules/sdk';
 
 import { addRule, KindDataGapReason, report } from './kind-data-gaps';
 import type { KindInput } from './kind-data-gaps';
+import { poolSpellRules } from './translate-pool-spells';
 import { SPELL_SLOTS } from './translate-spell-slots';
 
 /**
@@ -134,10 +135,11 @@ const UNKNOWN_TRADITION: ReadonlySet<string> = new Set([
 
 const FIELD = 'spellcasting';
 
-/** Adds the spellcasting entry, rank raises and spell slots the entry gains, if any, to its rules. */
+/** Adds the spellcasting entry, rank raises, spell slots and pool spells the entry gains, if any, to its rules. */
 export function spellcastingRules(input: KindInput): void {
   const { slug } = input.envelope;
-  for (const element of [...(SPELLCASTING.get(slug) ?? []), ...(SPELL_SLOTS.get(slug) ?? [])]) {
+  const pools = poolSpellRules(slug, input.envelope.pack);
+  for (const element of [...(SPELLCASTING.get(slug) ?? []), ...(SPELL_SLOTS.get(slug) ?? []), ...pools]) {
     addRule(input, FIELD, element);
   }
   if (UNKNOWN_TRADITION.has(slug)) {

@@ -28,6 +28,7 @@ export const RuleElementKey = {
   SpellcastingEntry: 'SpellcastingEntry',
   Sense: 'Sense',
   SpellSlots: 'SpellSlots',
+  PoolSpells: 'PoolSpells',
   Language: 'Language',
 } as const;
 export type RuleElementKey = ValueOf<typeof RuleElementKey>;

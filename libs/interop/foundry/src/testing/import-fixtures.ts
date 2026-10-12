@@ -99,7 +99,12 @@ export const lang: FoundryLang = {
     TraitDwarf: 'Dwarf',
     TraitHumanoid: 'Humanoid',
     TraitBludgeoning: 'Bludgeoning',
-    SpecificRule: { Cleric: { Doctrine: { Prompt: 'Select a doctrine.' } } },
+    SpecificRule: {
+      Cleric: {
+        Doctrine: { Prompt: 'Select a doctrine.' },
+        DivineFont: { Healing: 'Healing', Harmful: 'Harmful', Prompt: 'Select a Divine Font.' },
+      },
+    },
     Actor: {
       Creature: {
         Language: { dwarven: 'Dwarven', petran: 'Petran', aklo: 'Aklo', wildsong: 'Wildsong' },
