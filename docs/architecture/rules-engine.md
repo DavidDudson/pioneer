@@ -432,7 +432,7 @@ land with their Epic 2.6 translator stories, so each schema arrives with the Fou
 
 `SpellcastingEntry` is Pioneer's own too ([ADR-0040](../adr/0040-spellcasting-entries-are-rule-elements.md)): Foundry
 has no element for an entry, which its player adds by hand. While its predicate holds it gives the character an entry
-(`slug`, `tradition`, `attribute`, and `preparation`: prepared, spontaneous or innate), and makes them trained in
+(`slug`, `tradition`, `attribute`, and `preparation`: prepared, spontaneous, innate or focus), and makes them trained in
 `spellcasting`, the one rank every entry reads; a `Proficiency` raises it further. Two in play with one slug are one
 entry, the first in play.
 
