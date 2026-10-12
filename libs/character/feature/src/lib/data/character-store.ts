@@ -1,6 +1,6 @@
 import { computed, inject, Injectable, linkedSignal, signal } from '@angular/core';
 import type { Signal } from '@angular/core';
-import { CharacterContract, CharacterPatchField } from '@pioneer/character/domain';
+import { CharacterContract, CharacterPatchField, DEFAULT_SHEET_MODE } from '@pioneer/character/domain';
 import type {
   Character,
   CharacterId,
@@ -12,19 +12,47 @@ import type {
   ClearedPick,
   CreateCharacterBody,
   PatchedCharacterSheet,
+  SheetMode,
+  SheetModeChoice,
 } from '@pioneer/character/domain';
 import { PathbuilderImportContract } from '@pioneer/interop/pathbuilder';
 import type { CharacterImportReport } from '@pioneer/interop/pathbuilder';
 import type { ChoiceValue, SlotKey } from '@pioneer/rules/sdk';
+import type { ValueOf } from '@pioneer/shared/kernel';
 import { ApiClient, ApiError } from '@pioneer/shared/web';
-import { injectQuery, QueryClient } from '@tanstack/angular-query-experimental';
+import { injectMutation, injectQuery, QueryClient } from '@tanstack/angular-query-experimental';
 
 /** TanStack Query keys for the character feature. */
 const characterKeys = {
   all: ['characters'] as const,
   list: () => [...characterKeys.all, 'list'] as const,
   detail: (id: CharacterId | undefined) => [...characterKeys.all, 'detail', id] as const,
+  sheetMode: (id: CharacterId | undefined) => [...characterKeys.all, 'sheet-mode', id] as const,
 };
+
+/** How the open character's edits stand, for the sheet header. */
+export const SaveState = {
+  /** Nothing waiting: every edit made has saved, or none was made. */
+  Saved: 'saved',
+  Saving: 'saving',
+  /** The last edit failed and can be sent again. */
+  Failed: 'failed',
+  /** The last edit lost to someone else's; their version is showing, and resending would overwrite it. */
+  Conflict: 'conflict',
+} as const;
+export type SaveState = ValueOf<typeof SaveState>;
+
+/** A switch of the character's sheet to another tab. */
+interface SheetModeSwitch {
+  readonly id: CharacterId;
+  readonly mode: SheetMode;
+}
+
+/** The last edit that failed, kept so the header can send it again. */
+interface FailedEdit {
+  readonly patch: CharacterPatch;
+  readonly conflict: boolean;
+}
 
 /**
  * Server state for the character feature, cached by TanStack Query.
@@ -39,6 +67,9 @@ export class CharacterStore {
   readonly #selectedId = signal<CharacterId | undefined>(undefined);
   readonly #importReports = signal<ReadonlyMap<CharacterId, CharacterImportReport>>(new Map());
   readonly #cleared = signal<readonly ClearedPick[]>([]);
+  /** Edits sent and not yet answered. */
+  readonly #saving = signal(0);
+  readonly #failed = signal<FailedEdit | undefined>(undefined);
 
   public readonly list = injectQuery(() => ({
     queryKey: characterKeys.list(),
@@ -77,9 +108,77 @@ export class CharacterStore {
   /** The open character's deity, as the server read it; `undefined` with none, or while loading. */
   public readonly deity: Signal<SheetDeity | undefined> = computed(() => this.#current()?.deity);
 
+  readonly #sheetMode = injectQuery(() => {
+    const id = this.#selectedId();
+    return {
+      queryKey: characterKeys.sheetMode(id),
+      queryFn: async (): Promise<SheetModeChoice> => {
+        if (id === undefined) {
+          throw new Error('No character selected');
+        }
+        return this.#api.call(CharacterContract.sheetMode, { params: { id }, body: undefined });
+      },
+      enabled: id !== undefined,
+    };
+  });
+
+  /**
+   * The tab the user last had open on the open character's sheet, once known: `undefined` while it loads, and the
+   * default tab when none is remembered or it could not be read, since a lost preference shouldn't hold up the sheet.
+   */
+  public readonly rememberedSheetMode: Signal<SheetMode | undefined> = computed(() => {
+    if (this.#sheetMode.isError()) {
+      return DEFAULT_SHEET_MODE;
+    }
+    const choice = this.#sheetMode.data();
+    return choice === undefined ? undefined : (choice.mode ?? DEFAULT_SHEET_MODE);
+  });
+
+  readonly #setSheetMode = injectMutation(() => ({
+    mutationFn: async ({ id, mode }: SheetModeSwitch): Promise<SheetModeChoice> =>
+      this.#api.call(CharacterContract.setSheetMode, { params: { id }, body: { mode } }),
+    onMutate: ({ id, mode }: SheetModeSwitch): void => {
+      this.#client.setQueryData<SheetModeChoice>(characterKeys.sheetMode(id), { mode });
+    },
+    // The tab is a display preference: a failed save is dropped, and the next switch tries again.
+    onError: async (_error: unknown, { id }: SheetModeSwitch): Promise<void> =>
+      this.#client.invalidateQueries({ queryKey: characterKeys.sheetMode(id), refetchType: 'none' }),
+  }));
+
+  /** Remembers `mode` as the open character's tab, unless it already is; the page doesn't wait for it. */
+  public rememberSheetMode(mode: SheetMode): void {
+    const id = this.#selectedId();
+    if (id === undefined || this.#sheetMode.data()?.mode === mode) {
+      return;
+    }
+    this.#setSheetMode.mutate({ id, mode });
+  }
+
+  /** How the open character's edits stand: saving while any is in flight, else how the last one ended. */
+  public readonly saveState: Signal<SaveState> = computed(() => {
+    if (this.#saving() > 0) {
+      return SaveState.Saving;
+    }
+    const failed = this.#failed();
+    if (failed === undefined) {
+      return SaveState.Saved;
+    }
+    return failed.conflict ? SaveState.Conflict : SaveState.Failed;
+  });
+
+  /** Sends the last failed edit again, against the current version. Does nothing after a conflict, or with none. */
+  public async retry(): Promise<void> {
+    const failed = this.#failed();
+    if (failed === undefined || failed.conflict) {
+      return;
+    }
+    await this.patch(failed.patch);
+  }
+
   public select(id: CharacterId): void {
     if (id !== this.#selectedId()) {
       this.#cleared.set([]);
+      this.#failed.set(undefined);
     }
     this.#selectedId.set(id);
   }
@@ -131,8 +230,24 @@ export class CharacterStore {
     this.#cleared.set([]);
   }
 
-  /** One edit. On success the cached sheet becomes the server's new version, slots read again. */
+  /**
+   * One edit. On success the cached sheet becomes the server's new version, slots read again. Counted while in flight,
+   * and kept when it fails, for the header's save state and Retry.
+   */
   public async patch(patch: CharacterPatch): Promise<void> {
+    this.#saving.update((count) => count + 1);
+    try {
+      await this.#send(patch);
+      this.#failed.set(undefined);
+    } catch (error: unknown) {
+      this.#failed.set({ patch, conflict: ApiError.isConflict(error) });
+      throw error;
+    } finally {
+      this.#saving.update((count) => count - 1);
+    }
+  }
+
+  async #send(patch: CharacterPatch): Promise<void> {
     const current = this.selected();
     if (current === undefined) {
       throw new Error('No character selected');

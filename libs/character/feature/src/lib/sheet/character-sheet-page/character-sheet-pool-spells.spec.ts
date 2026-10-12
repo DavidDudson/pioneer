@@ -1,11 +1,14 @@
+import { SheetMode } from '@pioneer/character/domain';
 import { playerCoreClassId } from '@pioneer/character/domain/testing';
 import { contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
-import { MERISIEL, openSheet, present } from '../../testing/sheet-page-harness';
+import { MERISIEL, openerAt, present } from '../../testing/sheet-page-harness';
 import { cutTo } from '../../testing/test-packs';
 import { SPELL_CONTENT_KINDS } from '../sheet-prepared-spells';
+
+const openSheet = openerAt(SheetMode.Encounter);
 
 /** Player Core with its spells, for the spell pickers. */
 const SPELL_PACKS = cutTo(SPELL_CONTENT_KINDS);

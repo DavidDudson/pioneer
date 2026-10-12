@@ -790,6 +790,23 @@
       "none": "No access to uncommon, rare or unique spells yet.",
       "remove": "Remove {name}",
       "unknownSpell": "Unknown spell"
+    },
+    "proficiency": {
+      "untrained": "Untrained",
+      "trained": "Trained",
+      "expert": "Expert",
+      "master": "Master",
+      "legendary": "Legendary",
+      "letter": {
+        "untrained": "U",
+        "trained": "T",
+        "expert": "E",
+        "master": "M",
+        "legendary": "L"
+      }
+    },
+    "vitals": {
+      "unarmored": "Unarmored"
     }
   }
 }

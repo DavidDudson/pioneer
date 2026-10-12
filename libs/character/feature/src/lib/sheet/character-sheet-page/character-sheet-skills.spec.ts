@@ -1,11 +1,14 @@
 import { HttpTestingController } from '@angular/common/http/testing';
 import { ApplicationRef } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
+import { SheetMode } from '@pioneer/character/domain';
 import { playerCoreClassId } from '@pioneer/character/domain/testing';
 import { contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import { describe, expect, it, vi } from 'vitest';
 
-import { id, MERISIEL, openSheet, present } from '../../testing/sheet-page-harness';
+import { id, MERISIEL, openerAt, present } from '../../testing/sheet-page-harness';
+
+const openSheet = openerAt(SheetMode.Encounter);
 
 const ATHLETICS = contentId(PackId.parse('core-rules'), EntrySlug.parse('statistic:athletics'));
 const TRAINING = ['Level 1 trained skill 1', 'Level 1 trained skill 2', 'Level 1 trained skill 3'];
@@ -102,6 +105,7 @@ describe('CharacterSheetPage skills', () => {
     };
     const { root } = await openSheet(fighter({ 'skill-training:1:0': ATHLETICS }), {
       slots: [slot],
+      tab: SheetMode.Plan,
     });
     const choices = present(root.querySelector('section[aria-labelledby="sheet-choices"]'));
 

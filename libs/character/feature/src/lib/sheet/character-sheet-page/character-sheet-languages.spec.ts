@@ -1,10 +1,13 @@
 import { HttpTestingController } from '@angular/common/http/testing';
 import { ApplicationRef } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
+import { SheetMode } from '@pioneer/character/domain';
 import { contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import { describe, expect, it, vi } from 'vitest';
 
-import { id, MERISIEL, openSheet, present } from '../../testing/sheet-page-harness';
+import { id, MERISIEL, openerAt, present } from '../../testing/sheet-page-harness';
+
+const openSheet = openerAt(SheetMode.Exploration);
 
 function language(name: string): string {
   return contentId(PackId.parse('core-rules'), EntrySlug.parse(`language:${name}`));

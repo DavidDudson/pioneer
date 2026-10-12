@@ -30,7 +30,6 @@
     "identityHeading": "Identity",
     "attributesHeading": "Attributes",
     "defencesHeading": "Defences",
-    "statisticsHeading": "Statistics",
     "strikesHeading": "Strikes",
     "choicesHeading": "Choices",
     "spellcastingHeading": "Spellcasting",
@@ -165,6 +164,22 @@
       "placeholder": "Search deities by name",
       "none": "No deity",
       "unlistedWeapon": "{weapon} (not in the loaded content)"
+    },
+    "tabs": {
+      "label": "Sheet mode",
+      "plan": "Plan",
+      "encounter": "Encounter",
+      "exploration": "Exploration",
+      "downtime": "Downtime"
+    },
+    "header": {
+      "identity": "Level {level}{hasAncestry, select, yes { {ancestry}} other {}}{hasClass, select, yes { {class}} other {}}{hasSubclass, select, yes {, {subclass}} other {}}"
+    },
+    "saveState": {
+      "saving": "Saving",
+      "saved": "All changes saved",
+      "failed": "Could not save your last change.",
+      "retry": "Retry"
     }
   },
   "validation": {

@@ -1,0 +1,20 @@
+@switch (store.saveState()) {
+  @case (State.Saving) {
+    <fr-stack direction="horizontal" gap="2xs" align="center">
+      <fr-spinner />
+      <fr-text variant="caption" tone="muted">{{ 'character.sheet.saveState.saving' | transloco }}</fr-text>
+    </fr-stack>
+  }
+  @case (State.Failed) {
+    <fr-stack direction="horizontal" gap="xs" align="center" wrap>
+      <fr-message>{{ 'character.sheet.saveState.failed' | transloco }}</fr-message>
+      <fr-async-button size="sm" [action]="retry">{{ 'character.sheet.saveState.retry' | transloco }}</fr-async-button>
+    </fr-stack>
+  }
+  @case (State.Conflict) {
+    <fr-message tone="warning">{{ 'character.sheet.conflict' | transloco }}</fr-message>
+  }
+  @default {
+    <fr-text variant="caption" tone="muted">{{ 'character.sheet.saveState.saved' | transloco }}</fr-text>
+  }
+}

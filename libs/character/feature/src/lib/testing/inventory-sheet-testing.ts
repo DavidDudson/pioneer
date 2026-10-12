@@ -86,7 +86,7 @@ async function openSheet(url: string): Promise<HTMLElement> {
 
 /** Opens Valeros's sheet with the item fixtures loaded and waits for the inventory to list his items. */
 export async function openInventory(): Promise<HTMLElement> {
-  const sheet = await openSheet(`/characters/${id}`);
+  const sheet = await openSheet(`/characters/${id}/exploration`);
   const section = present(sheet.querySelector<HTMLElement>('pio-inventory-section'));
   await vi.waitFor(async () => {
     await settle();
@@ -149,7 +149,7 @@ export async function patchSent(): Promise<TestRequest> {
 
 /** Opens Valeros's sheet, with `query` in the URL when given, and waits for the shop to list what it offers. */
 export async function openShop(query = ''): Promise<HTMLElement> {
-  const sheet = await openSheet(`/characters/${id}${query}`);
+  const sheet = await openSheet(`/characters/${id}/downtime${query}`);
   const shop = present(sheet.querySelector<HTMLElement>('pio-shop'));
   await vi.waitFor(async () => {
     await settle();

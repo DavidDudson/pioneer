@@ -1,10 +1,13 @@
 import { HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
+import { SheetMode } from '@pioneer/character/domain';
 import { contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import { describe, expect, it, onTestFinished, vi } from 'vitest';
 
 import { LISTBOX_PX, OPTION_PX, settle } from '../../testing/inventory-sheet-testing';
-import { id, MERISIEL, openSheet, present } from '../../testing/sheet-page-harness';
+import { id, MERISIEL, openerAt, present } from '../../testing/sheet-page-harness';
+
+const openSheet = openerAt(SheetMode.Exploration);
 
 const SARENRAE = contentId(PackId.parse('divine-mysteries'), EntrySlug.parse('deity:sarenrae'));
 

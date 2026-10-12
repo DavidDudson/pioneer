@@ -1,0 +1,50 @@
+<fr-stack gap="lg">
+  <fr-section-index [label]="'character.sheet.sections' | transloco">
+    @for (section of sectionOrder; track section.anchor) {
+      <fr-section-link [anchor]="section.anchor">{{ section.headingKey | transloco }}</fr-section-link>
+    }
+  </fr-section-index>
+
+  <fr-section [anchor]="sections.defences.anchor" [heading]="sections.defences.headingKey | transloco">
+    <fr-async-region>
+      <ng-template frAsyncPending><pio-defences [defences]="undefined" /></ng-template>
+      <ng-template [frAsyncData]="sheet.registry"
+        ><pio-defences [defences]="picks.defences()" [entryNames]="picks.entryNames()"
+      /></ng-template>
+    </fr-async-region>
+  </fr-section>
+
+  <fr-section [anchor]="sections.skills.anchor" [heading]="sections.skills.headingKey | transloco">
+    <fr-stack gap="md">
+      <fr-async-region>
+        <ng-template frAsyncPending><pio-statistics [statistics]="undefined" /></ng-template>
+        <ng-template [frAsyncData]="sheet.engineQuery()"
+          ><pio-statistics [statistics]="picks.skills()" [entryNames]="picks.entryNames()"
+        /></ng-template>
+      </fr-async-region>
+      <pio-sheet-skill-fields [fields]="picks.skillFields()" />
+    </fr-stack>
+  </fr-section>
+
+  <fr-section [anchor]="sections.strikes.anchor" [heading]="sections.strikes.headingKey | transloco">
+    <fr-async-region>
+      <ng-template frAsyncPending><pio-statistics [statistics]="undefined" /></ng-template>
+      <ng-template [frAsyncData]="sheet.engineQuery()"
+        ><pio-statistics
+          [statistics]="picks.strikes()"
+          [entryNames]="picks.entryNames()"
+          [noneKey]="statisticsMessage.NoStrikes"
+      /></ng-template>
+    </fr-async-region>
+  </fr-section>
+
+  <fr-section [anchor]="sections.spellcasting.anchor" [heading]="sections.spellcasting.headingKey | transloco">
+    <fr-async-region>
+      <ng-template frAsyncPending><pio-spellcasting [entries]="undefined" /></ng-template>
+      <ng-template [frAsyncData]="sheet.registry"
+        ><pio-spellcasting [entries]="picks.spellcasting()" [entryNames]="picks.entryNames()"
+      /></ng-template>
+    </fr-async-region>
+    <pio-sheet-spells [casts]="(picks.spellcasting()?.length ?? 0) > 0" />
+  </fr-section>
+</fr-stack>

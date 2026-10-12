@@ -1,4 +1,5 @@
 import type { Routes } from '@angular/router';
+import { SheetMode } from '@pioneer/character/domain';
 import { engineMessages } from '@pioneer/rules/engine';
 import { formulaMessages } from '@pioneer/rules/formula';
 import { predicateMessages } from '@pioneer/rules/predicate';
@@ -48,6 +49,45 @@ export const characterRoutes: Routes = [
           const { CharacterSheetPage } = await import('./sheet/character-sheet-page/character-sheet-page.component');
           return CharacterSheetPage;
         }),
+        // One route per tab (play-and-campaigns.md, Sheet modes); the character's own address opens the last one.
+        children: [
+          {
+            path: '',
+            loadComponent: async () => {
+              const { SheetModeRedirect } = await import('./sheet/sheet-mode-redirect/sheet-mode-redirect.component');
+              return SheetModeRedirect;
+            },
+          },
+          {
+            path: SheetMode.Plan,
+            loadComponent: async () => {
+              const { SheetPlanTab } = await import('./sheet/sheet-plan-tab/sheet-plan-tab.component');
+              return SheetPlanTab;
+            },
+          },
+          {
+            path: SheetMode.Encounter,
+            loadComponent: async () => {
+              const { SheetEncounterTab } = await import('./sheet/sheet-encounter-tab/sheet-encounter-tab.component');
+              return SheetEncounterTab;
+            },
+          },
+          {
+            path: SheetMode.Exploration,
+            loadComponent: async () => {
+              const { SheetExplorationTab } =
+                await import('./sheet/sheet-exploration-tab/sheet-exploration-tab.component');
+              return SheetExplorationTab;
+            },
+          },
+          {
+            path: SheetMode.Downtime,
+            loadComponent: async () => {
+              const { SheetDowntimeTab } = await import('./sheet/sheet-downtime-tab/sheet-downtime-tab.component');
+              return SheetDowntimeTab;
+            },
+          },
+        ],
       },
     ],
   },
