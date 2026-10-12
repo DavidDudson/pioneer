@@ -115,6 +115,7 @@ describe('durationOf', () => {
 
   test.each([
     { value: 'varies', sustained: true },
+    { value: '10 minutes or 8 hours', sustained: true },
     { value: '1 minute or until used (see text)', sustained: false },
     { value: 'until full tribute is paid', sustained: false },
     { value: '4d20 hours', sustained: false },

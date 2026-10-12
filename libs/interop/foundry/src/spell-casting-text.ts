@@ -209,7 +209,8 @@ export function durationOf({ value: text, sustained }: FoundryDurationText): obj
   }
   const either = VARIES.has(value) ? undefined : eitherOf(value, singleDurationOf);
   if (either !== undefined) {
-    return either;
+    // Foundry's flag on a choice with no sustained side is a sustain the wording doesn't place.
+    return !sustained || value.includes(SUSTAINED_UP_TO) ? either : undefined;
   }
   if (!sustained) {
     return singleDurationOf(value);
