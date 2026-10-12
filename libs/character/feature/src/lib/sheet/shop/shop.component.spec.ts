@@ -110,9 +110,31 @@ describe('Shop', () => {
     expect(bill(order)).toStrictEqual(['Cost: 16 gp', 'Your coins: 15 gp']);
     const buy = button(order, 'Buy');
     expect(buy.hasAttribute('disabled')).toBe(true);
-    const reason = present(order.querySelector(`#${present(buy.getAttribute('aria-describedby'))}`));
+    const reasonId = present(buy.getAttribute('aria-describedby'));
+    const reason = present(order.querySelector(`#${reasonId}`));
     expect(reason.textContent).toContain("Your coins don't cover the cost.");
     expect(button(order, 'Add without paying').hasAttribute('disabled')).toBe(false);
+  });
+
+  it('shows the server’s reason under Buy when it refuses the purchase', async () => {
+    const shop = await openShop();
+    const order = await pickOffer(shop, 'Longsword');
+    button(order, 'Buy').click();
+    const request = await patchSent();
+    request.flush(
+      {
+        type: 'validation',
+        title: 'Validation failed',
+        status: 422,
+        message: { key: 'problem.validation' },
+        issues: [{ path: ['patch', 'quantity'], message: { key: 'character.validation.cannotAfford' } }],
+      },
+      { status: 422, statusText: 'Unprocessable Content' },
+    );
+    await vi.waitFor(async () => {
+      await settle();
+      expect(order.textContent).toContain("This character can't afford that");
+    });
   });
 
   it('drops the picked item’s form once the list no longer offers it', async () => {

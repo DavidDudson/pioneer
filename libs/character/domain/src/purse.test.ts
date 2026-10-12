@@ -14,7 +14,7 @@ function pay(coins: object, cost: number): Coins | undefined {
   return payCost(purse(coins), CopperValue.parse(cost));
 }
 
-function cost(price: object | undefined, quantity: number): CopperValue {
+function costOf(price: object | undefined, quantity: number): CopperValue {
   return purchaseCost(price === undefined ? undefined : Price.parse(price), ItemQuantity.parse(quantity));
 }
 
@@ -33,23 +33,27 @@ describe('coinsOf', () => {
 
 describe('costCoins', () => {
   test('writes a cost in gold, silver and copper, as prices are', () => {
-    expect(costCoins(CopperValue.parse(16_050))).toStrictEqual(purse({ gp: 160, sp: 5 }));
+    const written = costCoins(CopperValue.parse(16_050));
+    expect([written.pp, written.gp, written.sp, written.cp].map(Number)).toStrictEqual([0, 160, 5, 0]);
+    // 90,000 gp times the most a line holds: more gold than a purse's int4 count.
+    const hoard = costCoins(CopperValue.parse(9_000_000 * 32_767));
+    expect(Number(hoard.gp)).toBe(2_949_030_000);
   });
 });
 
 describe('purchaseCost', () => {
   test('is the price times the quantity', () => {
-    expect(cost({ coins: { gp: 3, sp: 5 } }, 2)).toBe(CopperValue.parse(700));
+    expect(costOf({ coins: { gp: 3, sp: 5 } }, 2)).toBe(CopperValue.parse(700));
   });
 
   test('shares a batch price out over the batch, rounding up to the copper', () => {
-    expect(cost({ coins: { sp: 1 }, per: 10 }, 15)).toBe(CopperValue.parse(15));
-    expect(cost({ coins: { cp: 1 }, per: 10 }, 1)).toBe(CopperValue.parse(1));
-    expect(cost({ coins: { cp: 1 }, per: 10 }, 11)).toBe(CopperValue.parse(2));
+    expect(costOf({ coins: { sp: 1 }, per: 10 }, 15)).toBe(CopperValue.parse(15));
+    expect(costOf({ coins: { cp: 1 }, per: 10 }, 1)).toBe(CopperValue.parse(1));
+    expect(costOf({ coins: { cp: 1 }, per: 10 }, 11)).toBe(CopperValue.parse(2));
   });
 
   test('is nothing for an item with no price', () => {
-    expect(cost(undefined, 5)).toBe(CopperValue.parse(0));
+    expect(costOf(undefined, 5)).toBe(CopperValue.parse(0));
   });
 });
 

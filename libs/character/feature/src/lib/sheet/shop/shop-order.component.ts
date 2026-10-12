@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, inject, input, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, input, signal, viewChild } from '@angular/core';
 import type { Signal } from '@angular/core';
 import { form, FormField, validateStandardSchema } from '@angular/forms/signals';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
@@ -71,9 +71,20 @@ export class ShopOrder {
     await this.#order(CharacterPatchField.BuyItem, value);
   };
 
+  private readonly orderForm = viewChild.required(AsyncForm);
+  /** A purchase is in flight: the gift waits, so the two never race on one version. */
+  protected readonly buying: Signal<boolean> = computed(() => this.orderForm().submission.isPending());
+  /** A gift is in flight: Buy waits, likewise. */
+  protected readonly gifting = signal(false);
+
   /** Beside the form's submit, so it runs only while the form is valid. */
   protected readonly gift = async (): Promise<void> => {
-    await this.#order(CharacterPatchField.GiftItem, this.model());
+    this.gifting.set(true);
+    try {
+      await this.#order(CharacterPatchField.GiftItem, this.model());
+    } finally {
+      this.gifting.set(false);
+    }
   };
 
   /** The server's reason (coins that no longer cover the cost, a conflict), else the sheet's own wording. */

@@ -268,12 +268,15 @@ version 3, #472). `inventory.coins` holds platinum, gold, silver and copper, eac
 - **Containers.** An item can go in another item whose content is equipment with a `container` (a backpack), and
   containers nest. The document refuses an item in one it hasn't and containers that hold each other.
 - **Commands.** `giftItem { item, quantity, container? }` (adds without paying; the server gives the item its id),
+  `buyItem { item, quantity, container? }` (adds and pays with change made; the server works out the cost from
+  content, see [Shop](#shop)),
   `removeItem { id }`, `setItemQuantity`, `moveItem { id, container? }` (no container takes it out),
   `renameItem { id, name? }` (no name goes back to the content's) and `setCoins { coins }`. Each is a PATCH audited
   by name. The server refuses an item the character hasn't (`character.validation.itemNotFound`), a container that
   isn't there
   (`containerNotFound`), one inside itself or something it holds (`containerInsideItself`), content no loaded pack
-  has as an item (`unknownItem`) and stowing in an item that holds nothing (`notAContainer`).
+  has as an item (`unknownItem`), stowing in an item that holds nothing (`notAContainer`) and a purchase the coins
+  don't cover (`cannotAfford`).
 - **Removing a container** moves what it held out to where the container was, so nothing inside is lost.
 - **Carrying.** `carry` is `worn`, `held` with `hands` (1 or 2), `stowed` (the default, and a new item's) or
   `dropped`. It lives on the item, as Foundry pf2e's `system.equipped` does, but stays a play-state field whose

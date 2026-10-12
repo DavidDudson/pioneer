@@ -15,7 +15,7 @@
     <fr-stack direction="horizontal" justify="end" gap="sm" wrap>
       <fr-async-button
         [action]="gift"
-        [disabled]="form().invalid()"
+        [disabled]="form().invalid() || buying()"
         [describeError]="describeError"
         [pendingLabel]="'character.sheet.shop.gifting' | transloco"
         [successLabel]="'character.sheet.shop.gifted' | transloco"
@@ -25,7 +25,7 @@
       <fr-async-button
         type="submit"
         variant="primary"
-        [disabled]="!affordable()"
+        [disabled]="!affordable() || gifting()"
         [describedBy]="affordable() ? undefined : reasonId()"
         [pendingLabel]="'character.sheet.shop.buying' | transloco"
         [successLabel]="'character.sheet.shop.bought' | transloco"

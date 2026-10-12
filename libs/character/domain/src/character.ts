@@ -1,5 +1,5 @@
 import { AncestryId, ChoiceValue } from '@pioneer/rules/sdk';
-import type { CopperValue, SlotKey } from '@pioneer/rules/sdk';
+import type { SlotKey } from '@pioneer/rules/sdk';
 import { FIRST_VERSION, InstantCodec, Version } from '@pioneer/shared/kernel';
 import type { Temporal, UserId } from '@pioneer/shared/kernel';
 import * as z from 'zod';
@@ -13,7 +13,6 @@ import { CharacterPatchField } from './character-patch';
 import type { CharacterPatch, InventoryPatch, SpellAccessPatch } from './character-patch';
 import { ANCESTRY_SLOT } from './character-slots';
 import {
-  addItem,
   carryItem,
   inventoryRefusal,
   investItem,
@@ -22,8 +21,9 @@ import {
   renameItem,
   setItemQuantity,
 } from './inventory';
-import type { Inventory, InventoryEdit, InventoryItemId, NewItem } from './inventory';
-import { payCost } from './purse';
+import type { Inventory, InventoryEdit } from './inventory';
+import { withAddedItem } from './item-purchase';
+import type { EditInputs } from './item-purchase';
 import { eraseRune, etchRune, transferRune } from './rune-edits';
 
 /**
@@ -62,26 +62,6 @@ type EquipmentPatch = Extract<
       | typeof CharacterPatchField.TransferRune;
   }
 >;
-
-/** What the caller works out for an edit: the id an added item takes, and what a purchase costs (`purchaseCost`). */
-export interface EditInputs {
-  readonly newItemId?: InventoryItemId | undefined;
-  readonly cost?: CopperValue | undefined;
-}
-
-/** The edits that add an item from content. */
-type AddPatch = Extract<
-  CharacterPatch,
-  { readonly field: typeof CharacterPatchField.GiftItem | typeof CharacterPatchField.BuyItem }
->;
-
-/** The item `patch` adds, with the id the caller gave it. */
-function newItem({ item, quantity, container }: AddPatch, id: InventoryItemId | undefined): NewItem {
-  if (id === undefined) {
-    throw new TypeError('An added item needs the id its caller gives it');
-  }
-  return { id, item, quantity, container };
-}
 
 /** `inventory` with an equipment edit made. */
 function equipmentChange(inventory: Inventory, patch: EquipmentPatch): Inventory {
@@ -240,19 +220,11 @@ export class Character {
   }
 
   /** The inventory edits, each checked by `#stock`. */
-  #stockChanges(patch: InventoryPatch, { newItemId, cost }: EditInputs): Partial<CharacterProps> {
+  #stockChanges(patch: InventoryPatch, inputs: EditInputs): Partial<CharacterProps> {
     switch (patch.field) {
-      case CharacterPatchField.GiftItem: {
-        const added = newItem(patch, newItemId);
-        return this.#stock(patch, (inventory) => addItem(inventory, added));
-      }
+      case CharacterPatchField.GiftItem:
       case CharacterPatchField.BuyItem: {
-        const added = newItem(patch, newItemId);
-        const coins = cost === undefined ? undefined : payCost(this.document.inventory.coins, cost);
-        if (coins === undefined) {
-          throw new TypeError('A purchase needs the cost its caller works out, and coins that cover it');
-        }
-        return this.#stock(patch, (inventory) => ({ ...addItem(inventory, added), coins }));
+        return this.#stock(patch, (inventory) => withAddedItem(inventory, patch, inputs));
       }
       case CharacterPatchField.RemoveItem: {
         return this.#stock(patch, (inventory) => removeItem(inventory, patch.id));

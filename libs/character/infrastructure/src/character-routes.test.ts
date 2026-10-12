@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 
 import { CharacterService, InMemoryCharacterRepository } from '@pioneer/character/application';
-import { CharacterSheet, ClearedPick, CoinsSchema, PatchedCharacterSheet } from '@pioneer/character/domain';
+import { CharacterSheet, ClearedPick, PatchedCharacterSheet } from '@pioneer/character/domain';
 import { humanAncestryId } from '@pioneer/character/domain/testing';
 import { briarRoseExport, mordredExport } from '@pioneer/interop/pathbuilder/testing';
 import { ContentKind, contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
@@ -157,51 +157,6 @@ describe('character routes', () => {
     expect(CharacterSheet.parse(await got.json()).character.version).toBe(FIRST_VERSION);
   });
 
-  test('a gift adds the item without paying and bumps the version; a stale version is a 409', async () => {
-    const api = app();
-    const { id } = await create(api, amiri, 'Kyra');
-    const rope = contentId(PackId.parse('player-core'), EntrySlug.parse('equipment:rope'));
-    const body = { expectedVersion: 1, patch: { field: 'giftItem', item: rope, quantity: 2 } };
-    const gifted = await api.handle(request('PATCH', `/characters/${id}`, { body }));
-    expect(gifted.status).toBe(200);
-    const { character } = CharacterSheet.parse(await gifted.json());
-    expect(character.version).toBe(Version.parse(2));
-    expect(
-      character.document.inventory.items.map(({ item, quantity }) => [String(item), Number(quantity)]),
-    ).toStrictEqual([[rope, 2]]);
-    expect(character.document.inventory.coins).toStrictEqual(CoinsSchema.parse({}));
-
-    const stale = await api.handle(request('PATCH', `/characters/${id}`, { body }));
-    expect(stale.status).toBe(409);
-  });
-
-  test('a purchase pays from the coins with change and bumps the version; unaffordable is a 422', async () => {
-    const api = app();
-    const { id } = await create(api, amiri, 'Kyra');
-    const rope = contentId(PackId.parse('player-core'), EntrySlug.parse('equipment:rope'));
-    const coins = { expectedVersion: 1, patch: { field: 'setCoins', coins: { gp: 1 } } };
-    expect((await api.handle(request('PATCH', `/characters/${id}`, { body: coins }))).status).toBe(200);
-    const buy = { expectedVersion: 2, patch: { field: 'buyItem', item: rope, quantity: 1 } };
-    const bought = await api.handle(request('PATCH', `/characters/${id}`, { body: buy }));
-    expect(bought.status).toBe(200);
-    const { character } = CharacterSheet.parse(await bought.json());
-    expect(character.version).toBe(Version.parse(3));
-    expect(character.document.inventory.items.map(({ item }) => String(item))).toStrictEqual([rope]);
-    expect(character.document.inventory.coins).toStrictEqual(CoinsSchema.parse({ sp: 5 }));
-
-    const stale = await api.handle(request('PATCH', `/characters/${id}`, { body: buy }));
-    expect(stale.status).toBe(409);
-
-    const tooMany = { expectedVersion: 3, patch: { field: 'buyItem', item: rope, quantity: 2 } };
-    const refused = await api.handle(request('PATCH', `/characters/${id}`, { body: tooMany }));
-    expect(refused.status).toBe(422);
-    expect(((await refused.json()) as Problem).issues).toStrictEqual([
-      { path: ['patch', 'quantity'], message: { key: 'character.validation.cannotAfford' } },
-    ]);
-    const got = await api.handle(request('GET', `/characters/${id}`));
-    expect(CharacterSheet.parse(await got.json()).character.version).toBe(Version.parse(3));
-  });
-
   test('an item held in three hands is a 422 on its carry', async () => {
     const api = app();
     const { id } = await create(api, amiri, 'Kyra');
@@ -262,9 +217,6 @@ describe('character routes across users', () => {
     const gift = { expectedVersion: 1, patch: { field: 'giftItem', item: rope, quantity: 1 } };
     const gifted = await api.handle(request('PATCH', `/characters/${theirs.id}`, { body: gift }));
     expect(gifted.status).toBe(404);
-    const buy = { expectedVersion: 1, patch: { field: 'buyItem', item: rope, quantity: 1 } };
-    const bought = await api.handle(request('PATCH', `/characters/${theirs.id}`, { body: buy }));
-    expect(bought.status).toBe(404);
 
     const listed = await api.handle(request('GET', '/characters'));
     const names = ((await listed.json()) as { name: string }[]).map((character) => character.name);

@@ -126,8 +126,9 @@ describe(AsyncButton, () => {
 
     button(fixture).click();
     await settle();
-    const message = (fixture.nativeElement as HTMLElement).querySelector('[role="alert"]');
-    expect(button(fixture).getAttribute('aria-describedby')).toBe(`why ${message?.id ?? ''}`);
+    const [given, failure] = String(button(fixture).getAttribute('aria-describedby')).split(' ');
+    expect(given).toBe('why');
+    expect(document.querySelector(`#${String(failure)}`)?.textContent).toContain('Server said no');
   });
 
   it('with a confirmLabel, runs only on the second press, in the same focused button', async () => {
