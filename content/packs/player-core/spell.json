@@ -23074,23 +23074,7 @@
         }
       },
       "traditions": ["arcane", "occult"],
-      "damage": [],
-      "heightening": {
-        "type": "fixed",
-        "ranks": [
-          {
-            "rank": 7,
-            "targets": {
-              "any": [
-                {
-                  "count": "any",
-                  "of": "creature"
-                }
-              ]
-            }
-          }
-        ]
-      }
+      "damage": []
     }
   },
   {

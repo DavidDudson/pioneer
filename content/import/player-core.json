@@ -38557,6 +38557,12 @@
           "reason": "unmapped-value",
           "field": "heightening.levels.6.target.value",
           "raw": "1 or 10 creatures"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "heightening.levels.7.target.value",
+          "raw": "1 or any number of creatures"
         }
       ]
     },
