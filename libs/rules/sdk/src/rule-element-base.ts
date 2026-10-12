@@ -30,6 +30,7 @@ export const RuleElementKey = {
   SpellSlots: 'SpellSlots',
   PoolSpells: 'PoolSpells',
   DeitySpells: 'DeitySpells',
+  SignatureSpells: 'SignatureSpells',
   Language: 'Language',
   ActorTraits: 'ActorTraits',
   Strike: 'Strike',

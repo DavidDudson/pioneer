@@ -43,7 +43,7 @@ const RankOrFormula: z.ZodType<RaisedRank | FormulaSource> = z
 
 /**
  * The selector a deity's favoured weapons read their rank from (Foundry's `favoredWeaponRank`): a Strike with one uses
- * it when it is better than its category's (ADR-0047).
+ * it when it is better than its category's (ADR-0048).
  */
 export const FAVORED_WEAPON = Selector.parse('attack:favored-weapon');
 

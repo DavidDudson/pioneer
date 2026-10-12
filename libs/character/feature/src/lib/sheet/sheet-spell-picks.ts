@@ -1,6 +1,6 @@
 import { computed, signal, untracked } from '@angular/core';
 import type { Signal } from '@angular/core';
-import type { Character, CharacterSlot } from '@pioneer/character/domain';
+import type { Character, CharacterSlot, PickedPreparation } from '@pioneer/character/domain';
 import type { InlineEdit, SelectOption } from '@pioneer/frontier';
 import { ChoiceValue } from '@pioneer/rules/sdk';
 import type { ContentRegistry, MagicTradition, SlotKey, Slug } from '@pioneer/rules/sdk';
@@ -43,9 +43,10 @@ interface PreparedRankFields {
   readonly fields: readonly PreparedField[];
 }
 
-/** A prepared entry's pickers, rank by rank. */
+/** A prepared entry's pickers, rank by rank; or a spontaneous entry's repertoire and signature spells (#479). */
 export interface PreparedEntryFields {
   readonly key: Slug;
+  readonly preparation: PickedPreparation;
   readonly tradition: MagicTradition;
   readonly ranks: readonly PreparedRankFields[];
 }
@@ -117,6 +118,7 @@ export function preparedFieldsOf(sources: SpellPickSources): Signal<readonly Pre
     return untracked(() =>
       (entries() ?? []).map((entry) => ({
         key: entry.key,
+        preparation: entry.preparation,
         tradition: entry.tradition,
         ranks: entry.ranks.map((rank) => {
           const current = computed(() =>

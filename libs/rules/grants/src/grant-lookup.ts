@@ -48,7 +48,7 @@ const DEITY_PREFIX = 'deity:primary';
  * its kind sets, says as much. `self:deity:slug` is left out, as no rule element Pioneer imports reads it.
  *
  * Each divine skill sets `deity:primary:skill:<skill>` too, which Foundry keeps in the actor's data instead, so a
- * cleric's divine skill choice can offer the deity's. Its spells come along for a `DeitySpells` element (ADR-0047).
+ * cleric's divine skill choice can offer the deity's. Its spells come along for a `DeitySpells` element (ADR-0048).
  */
 function deityFields(entry: ContentEntry): Pick<GrantEntry, 'characterOptions' | 'deitySpells'> {
   if (entry.kind !== ContentKind.Deity) {

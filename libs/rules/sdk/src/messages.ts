@@ -46,6 +46,8 @@ export const RulesMessage = {
   SpellHeightenEmpty: 'rules.spell.heightenEmpty',
   SpellAgainst: 'rules.spell.against',
   SpellDurationOwner: 'rules.spell.durationOwner',
+  SpellTargetUpTo: 'rules.spell.targetUpTo',
+  SpellTargetWithin: 'rules.spell.targetWithin',
   EffectBadgeRange: 'rules.effect.badgeRange',
   TriggerAutoApplyWithoutEvent: 'rules.trigger.autoApplyWithoutEvent',
   ItemPriceEmpty: 'rules.item.priceEmpty',

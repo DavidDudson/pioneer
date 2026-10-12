@@ -140,3 +140,9 @@ export const WITCH_SPELLCASTING = classFeature({
   level: 1,
   traits: ['witch'],
 });
+export const SIGNATURE_SPELLS = classFeature({
+  id: 'sPeLlCaStInG0015',
+  name: 'Signature Spells',
+  level: 3,
+  traits: ['bard', 'oracle', 'psychic', 'sorcerer', 'summoner'],
+});

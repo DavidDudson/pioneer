@@ -97,6 +97,15 @@
       },
       {
         "key": "GrantItem",
+        "item": "48dbd7d5-49da-5cac-87a3-d3a27f31e87f",
+        "predicate": [
+          {
+            "gte": ["self:level", 3]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
         "item": "b3c71b46-0e68-5539-9c94-c8999085be0e",
         "predicate": [
           {
@@ -904,6 +913,34 @@
     "rules": [],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.1RfnAiyQ5FR7vnuH"
+    },
+    "description": [],
+    "kind": "class-feature",
+    "data": {}
+  },
+  {
+    "id": "48dbd7d5-49da-5cac-87a3-d3a27f31e87f",
+    "pack": "player-core",
+    "slug": "class-feature:signature-spells",
+    "name": "Signature Spells",
+    "rarity": "common",
+    "level": 3,
+    "traits": ["bard", "oracle", "psychic", "sorcerer", "summoner"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 1
+      }
+    ],
+    "rules": [
+      {
+        "key": "SignatureSpells",
+        "entry": "bard"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.VKRjmXxBFLrJK01c"
     },
     "description": [],
     "kind": "class-feature",

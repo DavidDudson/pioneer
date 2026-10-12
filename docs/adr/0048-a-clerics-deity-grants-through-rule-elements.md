@@ -1,4 +1,4 @@
-# 0047. A cleric's deity grants through rule elements
+# 0048. A cleric's deity grants through rule elements
 
 - Status: Proposed
 - Date: 2026-10-12

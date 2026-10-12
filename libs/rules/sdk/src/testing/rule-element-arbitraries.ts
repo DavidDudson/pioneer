@@ -224,6 +224,7 @@ const actorTraits = oneof(
 );
 
 const strike = element('Strike', { fist: constant(true) });
+const signatureSpells = element('SignatureSpells', { entry: slugText });
 
 const languageAccess = constantFrom('common', 'uncommon', 'rare');
 const grantedLanguages = uniqueArray(uuid(), { minLength: 1, maxLength: LIST_MAX });
@@ -263,6 +264,7 @@ export const ruleElementJson: Arbitrary<object> = oneof(
   spellSlots,
   poolSpells,
   deitySpells,
+  signatureSpells,
   language,
   actorTraits,
   strike,

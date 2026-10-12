@@ -101,24 +101,19 @@ describe('spellcastingInPlay', () => {
   });
 
   test("a DeitySpells element in play adds the deity's spells to the entry it names, and only while it holds", () => {
-    const entries = entriesOf(
-      [
-        [entry('cleric', 'divine'), 'cleric-spellcasting'],
-        [entry('wizard', 'arcane'), 'wizard-dedication'],
-        [deitySpells('class:cleric'), 'deity-cleric'],
-      ],
-      ['class:cleric'],
-    );
-    const without = entriesOf([
-      [entry('cleric', 'divine'), 'cleric-spellcasting'],
-      [deitySpells('class:cleric'), 'deity-cleric'],
-    ]);
+    const cleric = [entry('cleric', 'divine'), 'cleric-spellcasting'] as const;
+    const placed = [
+      cleric,
+      [entry('wizard', 'arcane'), 'wizard-dedication'],
+      [deitySpells('class:cleric'), 'deity'],
+    ] as const;
+    const takes = entriesOf(placed, ['class:cleric']).map(({ slug, deitySpells: own }) => [String(slug), own]);
 
-    expect(entries.map(({ slug, deitySpells: takes }) => [String(slug), takes])).toEqual([
+    expect(takes).toEqual([
       ['cleric', true],
       ['wizard', false],
     ]);
-    expect(without[0]?.deitySpells).toBe(false);
+    expect(entriesOf([cleric, [deitySpells('class:cleric'), 'deity']])[0]?.deitySpells).toBe(false);
   });
 });
 
@@ -272,5 +267,31 @@ describe('spellcastingInPlay slots', () => {
 
     expect(spellsOf(['divine-font:harm'])).toEqual([HARM]);
     expect(spellsOf([])).toEqual([]);
+  });
+
+  test('a spontaneous entry a signature spells element names has signature spells, while the element holds', () => {
+    const bard = entry('bard', 'occult', { attribute: 'cha', preparation: 'spontaneous' });
+    const signatures = { key: 'SignatureSpells', entry: 'bard', predicate: ['feature:signature-spells'] };
+    const placed: (readonly [object, string])[] = [
+      [bard, 'bard-spellcasting'],
+      [signatures, 'signature-spells'],
+    ];
+    const signaturesOf = (options: readonly string[]): boolean | undefined => entriesOf(placed, options)[0]?.signatures;
+
+    expect(signaturesOf(['feature:signature-spells'])).toBe(true);
+    expect(signaturesOf([])).toBe(false);
+  });
+
+  test('a prepared entry, or one no signature spells element names, has none', () => {
+    const entries = entriesOf([
+      [entry('wizard', 'arcane'), 'wizard-spellcasting'],
+      [{ key: 'SignatureSpells', entry: 'wizard' }, 'wizard-spellcasting'],
+      [entry('bard', 'occult', { attribute: 'cha', preparation: 'spontaneous' }), 'bard-spellcasting'],
+    ]);
+
+    expect(entries.map(({ slug, signatures }) => [String(slug), signatures])).toStrictEqual([
+      ['bard', false],
+      ['wizard', false],
+    ]);
   });
 });

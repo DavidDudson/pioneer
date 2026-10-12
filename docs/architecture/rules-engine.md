@@ -399,17 +399,17 @@ Rule elements are the only way content changes a character. The vocabulary follo
 because that is the dataset we import and the system we export to (see
 [ADR-0008](../adr/0008-rule-element-vocabulary.md)). Our schema is typed; theirs targets raw data paths.
 
-| Group       | Rule elements                                                                                                                                                                                                                 |
-| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Structure   | `GrantItem`, `ChoiceSet`, `RollOption` (incl. toggles), `ItemAlteration`                                                                                                                                                      |
-| Numbers     | `FlatModifier`, `AdjustModifier`, `Change` (add, upgrade, downgrade, override, multiply), `DexterityCap`, `MultipleAttackPenalty`                                                                                             |
-| Proficiency | `Proficiency` (raise a rank), `MartialProficiency`, `ProficiencyBonus` (replace the bonus table)                                                                                                                              |
-| Magic       | `SpellcastingEntry` (a spellcasting entry: tradition, attribute, preparation), `SpellSlots` (slots or cantrips for an entry), `PoolSpells` (the spells a pool takes), `DeitySpells` (the deity's spells join an entry's list) |
-| Checks      | `RollTwice`, `SubstituteRoll`, `AdjustDegreeOfSuccess`, `RollNote`                                                                                                                                                            |
-| Strikes     | `Strike`, `AdjustStrike`, `DamageDice`, `DamageAlteration`, `CriticalSpecialization`                                                                                                                                          |
-| Defences    | `Immunity`, `Weakness`, `Resistance`, `TempHitPoints`, `FastHealing`                                                                                                                                                          |
-| Creature    | `BaseSpeed`, `Sense`, `CreatureSize`, `Language`, `ActorTraits`, `SpecialResource`, `SpecialStatistic`, `Aura`                                                                                                                |
-| Actions     | `GrantAction` (an action becomes available, with its own predicate)                                                                                                                                                           |
+| Group       | Rule elements                                                                                                                                                                                                                                                                               |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Structure   | `GrantItem`, `ChoiceSet`, `RollOption` (incl. toggles), `ItemAlteration`                                                                                                                                                                                                                    |
+| Numbers     | `FlatModifier`, `AdjustModifier`, `Change` (add, upgrade, downgrade, override, multiply), `DexterityCap`, `MultipleAttackPenalty`                                                                                                                                                           |
+| Proficiency | `Proficiency` (raise a rank), `MartialProficiency`, `ProficiencyBonus` (replace the bonus table)                                                                                                                                                                                            |
+| Magic       | `SpellcastingEntry` (a spellcasting entry: tradition, attribute, preparation), `SpellSlots` (slots or cantrips for an entry), `PoolSpells` (the spells a pool takes), `DeitySpells` (the deity's spells join an entry's list), `SignatureSpells` (signature spells for a spontaneous entry) |
+| Checks      | `RollTwice`, `SubstituteRoll`, `AdjustDegreeOfSuccess`, `RollNote`                                                                                                                                                                                                                          |
+| Strikes     | `Strike`, `AdjustStrike`, `DamageDice`, `DamageAlteration`, `CriticalSpecialization`                                                                                                                                                                                                        |
+| Defences    | `Immunity`, `Weakness`, `Resistance`, `TempHitPoints`, `FastHealing`                                                                                                                                                                                                                        |
+| Creature    | `BaseSpeed`, `Sense`, `CreatureSize`, `Language`, `ActorTraits`, `SpecialResource`, `SpecialStatistic`, `Aura`                                                                                                                                                                              |
+| Actions     | `GrantAction` (an action becomes available, with its own predicate)                                                                                                                                                                                                                         |
 
 Each element is a discriminated union member with its own zod schema in `libs/rules/sdk`. Every element has an
 optional `predicate`, a `priority`, and an optional `display` hint. Unknown keys are a validation error; the
@@ -424,8 +424,8 @@ Defences group, `Immunity`, `Weakness` and `Resistance` are in the SDK too (see 
 Creature group `Sense` (see "Senses" below) and `Language`: it grants languages and opens slots to pick them in, each
 offering languages no rarer than its `access`, standing in for Foundry's `subfeatures.languages` and its
 `ActiveEffectLike` on `system.build.languages.max` (ADR-0043). `ActorTraits` adds traits to the character or removes
-them, each setting `self:trait:<trait>` over its ancestry's (ADR-0047). From the Strikes group, `Strike` is in the SDK
-in its `fist` form only: a fist, an unarmed weapon of the `fist` base (ADR-0047). A deity's favoured weapons read
+them, each setting `self:trait:<trait>` over its ancestry's (ADR-0048). From the Strikes group, `Strike` is in the SDK
+in its `fist` form only: a fist, an unarmed weapon of the `fist` base (ADR-0048). A deity's favoured weapons read
 `attack:favored-weapon`, a `Proficiency` selector standing in for Foundry's `favoredWeaponRank`: a Strike with one uses
 the better of it and its category's rank. The Checks and Actions groups, the rest of Strikes, Defences and Creature,
 land with their Epic 2.6 translator stories, so each schema arrives with the Foundry content that exercises it.
@@ -442,9 +442,11 @@ own slots or to a `pool` kept apart (a divine font, a curriculum). Counts add up
 table is a few elements gated by level; one for an entry not in play adds nothing. `PoolSpells` names the `spells` a
 `pool` of an entry takes ([ADR-0045](../adr/0045-pool-spells-are-rule-elements.md)), adding up per pool and gated by
 its predicate, so a divine font's spell follows the font picked. `DeitySpells` names an `entry` the character's deity's
-spells join ([ADR-0047](../adr/0047-a-clerics-deity-grants-through-rule-elements.md)): its own slots offer each at the
-rank the deity grants it or higher, whatever its tradition. `spellcastingInPlay` gives each entry its slots and pools,
-each pool with its spells, and whether a `DeitySpells` names it.
+spells join ([ADR-0048](../adr/0048-a-clerics-deity-grants-through-rule-elements.md)): its own slots offer each at the
+rank the deity grants it or higher, whatever its tradition. `SignatureSpells` gives the spontaneous `entry` it names
+signature spells ([ADR-0047](../adr/0047-signature-spells-are-rule-elements.md)); a prepared or innate one never has
+them. `spellcastingInPlay` gives each entry its slots and pools, each pool with its spells, whether a `DeitySpells`
+names it, and whether it has signature spells.
 
 ## Derivation pipeline
 
@@ -537,7 +539,7 @@ grants as above against the facts of the round before, then derives the facts ag
   other domains only reach rolls in them, so grants never read them;
 - each answered slot's `<rollOption>:<pick>`, with every namespace a `ChoiceSet` on the set writes to made known;
 - each of the character's traits, as `self:trait:<trait>`: its ancestry's, and those `ActorTraits` elements whose
-  predicate holds add, less those any of them removes (ADR-0047).
+  predicate holds add, less those any of them removes (ADR-0048).
 
 The supplied situation (`terrain:forest`) is added on top. Facts are rebuilt from scratch every round, so an entry
 whose predicate stops holding drops out with what it set. Once a round's set derives the facts it read, it has

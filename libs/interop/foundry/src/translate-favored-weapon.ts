@@ -17,7 +17,7 @@ const FoundryFavoredWeaponRank = z.strictObject({
 /**
  * Foundry's `ActiveEffectLike` upgrading `flags.system.favoredWeaponRank` (Deity (Cleric), a warpriest's doctrines),
  * which `DeityPF2e.setFavoredWeaponRank` applies to each of the deity's favoured weapons, as a `Proficiency` element
- * raising `attack:favored-weapon` (ADR-0047). A formula value or any other field leaves it for the backlog.
+ * raising `attack:favored-weapon` (ADR-0048). A formula value or any other field leaves it for the backlog.
  */
 export function withFavoredWeaponRank(raw: unknown): unknown {
   const raise = FoundryFavoredWeaponRank.safeParse(raw);

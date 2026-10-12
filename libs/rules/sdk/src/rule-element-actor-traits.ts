@@ -12,7 +12,7 @@ const TRAITS_MAX = 8;
 const Traits = z.array(Trait).max(TRAITS_MAX).readonly().check(uniqueItems);
 
 /**
- * Adds traits to the character, or removes them, as Foundry pf2e's `ActorTraits` does (ADR-0047): a cleric's holy or
+ * Adds traits to the character, or removes them, as Foundry pf2e's `ActorTraits` does (ADR-0048): a cleric's holy or
  * unholy trait, a versatile heritage's. The character's traits are its ancestry's, with each added trait and without
  * each removed one; a removal wins over an addition. Each sets `self:trait:<trait>`, which rules read.
  */

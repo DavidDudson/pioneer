@@ -40,7 +40,7 @@ export interface WeaponInputs {
   readonly striking?: RuneGrade | undefined;
   /**
    * Whether it is one of the character's deity's favoured weapons: its Strike then reads the better of its category's
-   * proficiency and `attack:favored-weapon` (ADR-0047).
+   * proficiency and `attack:favored-weapon` (ADR-0048).
    */
   readonly favored?: boolean | undefined;
   /** Why the character has it: its entry and how it got there (an inventory hop). Its potency line's origin. */

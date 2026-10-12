@@ -20,6 +20,7 @@ import { SenseElement } from './rule-element-sense';
 import {
   DeitySpellsElement,
   PoolSpellsElement,
+  SignatureSpellsElement,
   SpellcastingEntryElement,
   SpellSlotsElement,
 } from './rule-element-spellcasting';
@@ -50,6 +51,7 @@ const Element = z.discriminatedUnion('key', [
   SpellSlotsElement,
   PoolSpellsElement,
   DeitySpellsElement,
+  SignatureSpellsElement,
   LanguageElement,
   ActorTraitsElement,
   StrikeElement,

@@ -111,7 +111,7 @@ function uniqueSlug(name: Slug, taken: ReadonlySet<Slug>): Slug {
 
 /**
  * Each held weapon as its Strike reads it: its potency is its rune's, or a bomb's own item bonus, and its striking
- * rune adds damage dice. One whose base the character's deity favours is marked so (ADR-0047).
+ * rune adds damage dice. One whose base the character's deity favours is marked so (ADR-0048).
  */
 function weaponInputs(active: readonly ActiveItem[], favored: ReadonlySet<BaseWeapon>): readonly WeaponInputs[] {
   const taken = new Set<Slug>();

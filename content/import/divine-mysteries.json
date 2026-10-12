@@ -6302,12 +6302,6 @@
       "foundry": "Compendium.pf2e.spells-srd.Item.JkyUu62rLxcNT4K9",
       "gaps": [
         {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "target.value",
-          "raw": "the triggering creature"
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[actionspf2e]"
         },
@@ -6355,20 +6349,6 @@
         {
           "type": "enricher",
           "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "divine-mysteries",
-      "slug": "spell:delay-consequence",
-      "foundry": "Compendium.pf2e.spells-srd.Item.3wmX7htzOXiHLdAn",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "target.value",
-          "raw": "the triggering creature or object"
         }
       ]
     },
@@ -6520,12 +6500,6 @@
         {
           "type": "field",
           "reason": "unmapped-value",
-          "field": "target.value",
-          "raw": "the triggering creature"
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-value",
           "field": "duration",
           "raw": {
             "value": "varies",
@@ -6605,12 +6579,6 @@
           "reason": "unmapped-value",
           "field": "range.value",
           "raw": "30-foot cone"
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "target.value",
-          "raw": "1 or more creatures"
         }
       ]
     },
@@ -6771,12 +6739,6 @@
       "slug": "spell:practice-makes-perfect",
       "foundry": "Compendium.pf2e.spells-srd.Item.HOj2YsTpkoMpYJH9",
       "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "target.value",
-          "raw": "the triggering creature"
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[spell-effects]"
@@ -6987,20 +6949,6 @@
           "raw": {
             "damage": {}
           }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "divine-mysteries",
-      "slug": "spell:share-burden",
-      "foundry": "Compendium.pf2e.spells-srd.Item.cJq5NarY0eOZN74A",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "target.value",
-          "raw": "you and the triggering ally"
         }
       ]
     },

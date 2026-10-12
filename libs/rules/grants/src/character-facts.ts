@@ -232,7 +232,7 @@ class FactCollector {
  * comparisons hold if any value does.
  *
  * Each of the character's traits sets `self:trait:<trait>`: its ancestry's, and those `ActorTraits` elements add, less
- * those they remove (ADR-0047).
+ * those they remove (ADR-0048).
  */
 export function characterFacts(walk: GrantWalk, sources: FactSources): CharacterFacts {
   const collector = new FactCollector(sources);

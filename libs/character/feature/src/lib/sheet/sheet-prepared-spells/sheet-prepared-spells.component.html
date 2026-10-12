@@ -1,7 +1,7 @@
 @for (entry of entries(); track entry.key) {
   <fr-stack gap="sm">
     <fr-heading variant="subheading" [level]="3">{{
-      'character.sheet.prepared.heading' | transloco: { tradition: (traditions[entry.tradition] | transloco) }
+      headings[entry.preparation] | transloco: { tradition: (traditions[entry.tradition] | transloco) }
     }}</fr-heading>
     @for (rank of entry.ranks; track rank.key) {
       <fr-stack gap="2xs">

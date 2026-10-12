@@ -1,7 +1,7 @@
 import type { GrantResolution } from '@pioneer/rules/grants';
 import { Trait } from '@pioneer/rules/sdk';
 
-/** Where each of the character's traits is written: `self:trait:humanoid` (ADR-0047). */
+/** Where each of the character's traits is written: `self:trait:humanoid` (ADR-0048). */
 const TRAIT_PREFIX = 'self:trait:';
 
 /**
