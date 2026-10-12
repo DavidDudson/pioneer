@@ -6181,37 +6181,6 @@
     {
       "type": "entry",
       "pack": "divine-mysteries",
-      "slug": "spell:acid-storm",
-      "foundry": "Compendium.pf2e.spells-srd.Item.ZW8ovbu1etdfMre3",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "area.details",
-          "raw": "20-foot-radius burst"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "divine-mysteries",
-      "slug": "spell:agitate",
-      "foundry": "Compendium.pf2e.spells-srd.Item.r8g7oSumKOHDqJsd",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "duration",
-          "raw": {
-            "value": "varies",
-            "sustained": false
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "divine-mysteries",
       "slug": "spell:animus-mine",
       "foundry": "Compendium.pf2e.spells-srd.Item.fWU7Qjp1JiX9g6eg",
       "gaps": [
@@ -6314,23 +6283,6 @@
     {
       "type": "entry",
       "pack": "divine-mysteries",
-      "slug": "spell:clouded-focus",
-      "foundry": "Compendium.pf2e.spells-srd.Item.XhgMx9WC6NfXd9RP",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "duration",
-          "raw": {
-            "value": "varies",
-            "sustained": false
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "divine-mysteries",
       "slug": "spell:confront-selves",
       "foundry": "Compendium.pf2e.spells-srd.Item.VGK9s6LCMMS027zP",
       "gaps": [
@@ -6349,20 +6301,6 @@
         {
           "type": "enricher",
           "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "divine-mysteries",
-      "slug": "spell:diamond-dust",
-      "foundry": "Compendium.pf2e.spells-srd.Item.wjJW9hWY5CkkMvY5",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "area.details",
-          "raw": "15-foot emanation centered on you"
         }
       ]
     },
@@ -6398,12 +6336,6 @@
       "slug": "spell:dust-storm",
       "foundry": "Compendium.pf2e.spells-srd.Item.K1wmI4qPmRhFczmy",
       "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "area.details",
-          "raw": "20-foot-radius burst"
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
@@ -6443,20 +6375,6 @@
     {
       "type": "entry",
       "pack": "divine-mysteries",
-      "slug": "spell:ephemeral-hazards",
-      "foundry": "Compendium.pf2e.spells-srd.Item.HisaZTk67YAxLGBq",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "area.type",
-          "raw": "square"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "divine-mysteries",
       "slug": "spell:expeditious-excavation",
       "foundry": "Compendium.pf2e.spells-srd.Item.aXoh6OQAL57lgh0a",
       "gaps": [
@@ -6473,15 +6391,6 @@
       "foundry": "Compendium.pf2e.spells-srd.Item.vctIUOOgSmxAF0KG",
       "gaps": [
         {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "duration",
-          "raw": {
-            "value": "varies",
-            "sustained": false
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[conditionitems]"
         },
@@ -6497,15 +6406,6 @@
       "slug": "spell:fearful-feast",
       "foundry": "Compendium.pf2e.spells-srd.Item.0qA4MfMkFklOz2Lk",
       "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "duration",
-          "raw": {
-            "value": "varies",
-            "sustained": false
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[conditionitems]"
@@ -6605,15 +6505,6 @@
       "foundry": "Compendium.pf2e.spells-srd.Item.6GjJtLJnwC18Y0aZ",
       "gaps": [
         {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "duration",
-          "raw": {
-            "value": "varies",
-            "sustained": false
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[conditionitems]"
         }
@@ -6692,20 +6583,6 @@
           "reason": "unmapped-value",
           "field": "target.value",
           "raw": "1 weapon or tool"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "divine-mysteries",
-      "slug": "spell:overflowing-sorrow",
-      "foundry": "Compendium.pf2e.spells-srd.Item.eCniO6INHNfc9Svr",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "area.details",
-          "raw": "15-foot emanation, centered on you"
         }
       ]
     },
@@ -6884,12 +6761,6 @@
       "foundry": "Compendium.pf2e.spells-srd.Item.nrW6lGV4xDMqLS3P",
       "gaps": [
         {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "area.details",
-          "raw": "30-foot-radius emanation centered on you"
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[conditionitems]"
         }
@@ -6915,15 +6786,6 @@
       "slug": "spell:roar-of-the-dragon",
       "foundry": "Compendium.pf2e.spells-srd.Item.FSu6ZKxr3xdS75wq",
       "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "duration",
-          "raw": {
-            "value": "varies",
-            "sustained": false
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[conditionitems]"
@@ -6970,12 +6832,6 @@
       "slug": "spell:shifting-sand",
       "foundry": "Compendium.pf2e.spells-srd.Item.HcIAQZjNXHemoXSU",
       "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "area.details",
-          "raw": "a horizontal earthen or sandy surface within a 20-foot burst"
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[actionspf2e]"
@@ -7123,15 +6979,6 @@
           "reason": "unmapped-value",
           "field": "target.value",
           "raw": "1 creature or up to 1 Bulk of objects"
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "duration",
-          "raw": {
-            "value": "varies",
-            "sustained": false
-          }
         },
         {
           "type": "enricher",

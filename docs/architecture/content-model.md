@@ -174,8 +174,11 @@ its damage is its description, and the effects it applies are `effect` entries.
 | `effect`                 | `category`, `spell`, `feat`, `equipment` or `other` (a GM's); `duration`; `badge?`; `triggerEvent?` and `autoApply?`, as on an action; level is the envelope's |
 
 - **Casting fields.** `rank` 1 to 10. `time` is `actions` with a glyph `cost`, and `upTo` for a range ("one to
-  three actions", Heal), or `time` with a `count` of rounds to years ("3 days"). `range?` is feet, `touch`,
-  `planetary` or `unlimited`. `area?` is a `shape` and `size`, with a `width` on a line. `targets?` lists the
+  three actions", Heal), or `time` with a `count` of rounds to years ("3 days"). `range?` is feet, `miles` (whole
+  or half, "half a mile"), `touch`, `planetary`, `interplanar` or `unlimited`, or `either` of two or three of
+  those the caster picks from ("touch or 30 feet"). `area?` is a `shape` (`burst`, `cone`, `cube`, `cylinder`,
+  `emanation`, `line`, `square`) and `size`, with a `width` on a line and `details` as rich text when the book
+  narrows the area ("all squares in a 20-foot-radius burst that contain plants"). `targets?` lists the
   alternatives in `any` ("1 willing living creature or 1 undead"), and in `plus` targets taken as well ("1 ally and
   1 enemy"). Each has a `count`: a number (`upTo` for "up to"), `any` ("any number of creatures") or `all` with
   where they are, `within` the `area` or `range` ("enemies in the area"); `triggering` for "the triggering
@@ -183,11 +186,14 @@ its damage is its description, and the effects it applies are `effect` entries.
   caster's `companion`, `animal-companion`, `familiar`, `eidolon`); `qualifiers` (`willing`, `living`, `dead`,
   `dying`, `sleeping`, `falling`, `flying`, `corporeal`, `unattended`, `magical`) and `traits` ("1 extraplanar
   creature", "1 animal"). `you` is `and` for "you and up to 4 allies", `or` for "you or 1 ally". `duration?` is a
-  `time` (with `sustained` for "sustained up to 1 minute"), `sustained`, `until` the end of this turn, the start
-  or end of the next (the caster's, or the target's `of: target`) or the next daily preparations, or `unlimited`;
-  an instant spell has none. `defense?` is a `save` (a `save:` selector and `basic`), the passive defence it is
-  `against` (`ac` or a `save:` selector for that save's DC, Foundry's `passive`), or both; a spell attack is marked
-  by the `attack` trait, as in Foundry. `cost?` and `requirements?` are rich text.
+  `time` (with `sustained` for "sustained up to 1 minute", or `upTo` for "up to 10 minutes", never both),
+  `rolled` dice of a unit ("4d12 hours"), `sustained`, `until` the end of this turn, the start or end of the next
+  (the caster's, or the target's `of: target`) or the next daily preparations, `unlimited`, `varies` when the
+  text says how long ([ADR-0049](../adr/0049-spell-durations-the-text-gives-vary.md)), or `either` of two or three
+  of those ("10 minutes or 8 hours", "1 round or sustained up to 1 minute"); an instant spell has none.
+  `defense?` is a `save` (a `save:` selector and `basic`), the passive defence it is `against` (`ac` or a `save:`
+  selector for that save's DC, Foundry's `passive`), or both; a spell attack is marked by the `attack` trait, as in
+  Foundry. `cost?` and `requirements?` are rich text.
 - **Spells.** Cantrips and focus spells are spells with the `cantrip` or `focus` trait, as in Foundry. `traditions`
   are `arcane`, `divine`, `occult`, `primal`. `damage` parts each have a `key` (Foundry's record key), a damage
   formula, a `damageType`, an optional `category` and `kinds` (`damage`, `healing` or both). `heightening` is an
@@ -462,11 +468,12 @@ Behaviour:
 - The engine (`libs/rules/sdk`: `facet.ts`, `facet-filter.ts`, `filter-query.ts`) is pure and runs on parsed
   entries; the rules playground's "Content filters" tool exercises it.
 - A facet reads a field path or derives its values from the entry. Spell facets derive (`spell-facet-values.ts`):
-  range falls into bands (touch, up to 30, 60 and 120 feet, longer, planetary, unlimited, none); a variable
+  range falls into bands (touch, up to 30, 60 and 120 feet, longer, miles counting as longer, planetary,
+  interplanar, unlimited, none), and a choice of ranges or durations gives each option's value; a variable
   casting time gives every action count it spans; targets are single, multiple, allies and self (the caster);
-  defence is attack (the `attack` trait or against AC) or the save; duration is its largest unit, with a week or
-  more as long. Absence is a value (no range, no area, instant), not unknown. Entries of other kinds give a
-  kind's facets no value, so picking one keeps only that kind.
+  defence is attack (the `attack` trait or against AC) or the save; duration is its largest unit, rolled ones
+  included, with a week or more as long, and `varies` as its own value. Absence is a value (no range, no area,
+  instant), not unknown. Entries of other kinds give a kind's facets no value, so picking one keeps only that kind.
 - Feats and actions share the action cost and skill facets, so a mixed list filters both alike. Action cost is a
   glyph, `variable` (any `upTo`) or `passive` (no cost, or a feat without an `action`). Skill reads `skills` (a
   feat's and its action's); every Lore is one `lore`. With none named, a skill feat or an entry with the `skill`
@@ -577,7 +584,7 @@ flowchart LR
   - What has no place in a node (`traits`, unnamespaced `options`, an untranslatable reference or damage type, a
     shape Pioneer lacks, `@Embed`) is reported by enricher and parameter (`@Check[traits]`, `@UUID[spell-effects]`).
     An enricher that does not translate keeps its label as text, else what Foundry would show: the target's name,
-    the statistic's words, the area (`10-foot square`) or the formula. Only `@Embed` without a label is dropped.
+    the statistic's words, the area (`20-foot burst`) or the formula. Only `@Embed` without a label is dropped.
     `@Localize` is inlined before this pass (Labels, above). Parameters that only change how Foundry shows a roll
     (`showDC`, `name`, `immutable`, `targetOwner`, `shortLabel`) are ignored.
 - **Kind data.** Every Foundry type is filed under a kind (`FOUNDRY_TYPE_KINDS`), a feat of category `classfeature`
@@ -653,7 +660,8 @@ flowchart LR
   each maps when its whole wording does, and otherwise is reported and left out (ADR-0021). A casting time that does
   not map leaves the spell without data.
   - Casting times are glyph counts (`2`), `reaction`, `free`, a choice (`1 to 3`, `1 or 2`) or a count of rounds
-    to years. Ranges are feet, `touch`, `planetary` or `unlimited`; miles and `varies` are reported. Targets are
+    to years. Ranges are feet, miles (`1 mile`, `half a mile`), `touch`, `planetary`, `interplanar`, `unlimited`
+    or a choice of them joined by `or`; `varies` and `see text` (variants, #545) are reported. Targets are
     counts (`up to`, `one`, `1 to 3` and `1 or 2` as up to, `any number of` and `1 or more` as `any`, `all … in
 range` and `… in the area` as `all`, `the triggering`) of creatures, objects, allies, enemies, corpses,
     weapons, items, spell effects and the caster's companions (`your animal companion`, `your familiar`), with the
@@ -662,8 +670,12 @@ range` and `… in the area` as `all`, `the triggering`) of creatures, objects, 
     planar traits as a creature with the trait (`1 animal`, `1 extraplanar creature`), `you and …` and `you or …`
     as `you`, and `… and …` as `plus`. Wordings with a condition the schema can't hold (`1 creature you know by
 name`, `of 13th level or lower`) and `1 or 10` (two counts, not a range) are reported. Durations
-    are a count of a unit (sustained up to it when Foundry's `sustained` is set), `sustained` alone, `unlimited`, or
-    one of the `until` wordings. An area is Foundry's `type` and `value`; `square` and `details` are reported.
+    are a count of a unit (sustained up to it when Foundry's `sustained` is set), `up to` one, rolled dice of a
+    unit, `sustained` alone, `unlimited`, one of the `until` wordings, `varies` for `varies`, `see text`, `see
+below` and `1 or more rounds`, or a choice of those joined by `or` (`sustained up to` marking a sustained side).
+    Wordings with a condition (`until used`, `until full tribute is paid`) are reported. An area is Foundry's `type`
+    and `value`, with its `details` as plain rich text unless they only restate the area (`20-foot-radius
+burst`, `15-foot emanation centered on you`); a shape Pioneer lacks is reported.
   - A spell's `save` becomes a `save:` selector, and its `passive` defence `against` (`ac`, or `<save>-dc` as the
     save's selector). Traditions are `traits.traditions`. Damage parts keep Foundry's record key, lower-cased to a
     slug; a part whose type Pioneer lacks (`untyped`) is reported and left out, with what heightening adds to it, and

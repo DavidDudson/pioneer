@@ -8,10 +8,10 @@ import {
   DefenseValue,
   defenseValues,
   DurationValue,
-  durationValue,
+  durationValues,
   isSustained,
   RangeBand,
-  rangeBand,
+  rangeBands,
   TargetValue,
   targetValues,
 } from './spell-facet-values';
@@ -60,6 +60,7 @@ const RANGE_LABELS = facetLabels({
   [RangeBand.UpTo120]: 'rules.facet.range.upTo120',
   [RangeBand.Long]: 'rules.facet.range.long',
   [RangeBand.Planetary]: 'rules.facet.range.planetary',
+  [RangeBand.Interplanar]: 'rules.facet.range.interplanar',
   [RangeBand.Unlimited]: 'rules.facet.range.unlimited',
   [RangeBand.None]: 'rules.facet.range.none',
 });
@@ -71,6 +72,7 @@ const AREA_LABELS = facetLabels({
   [AreaValue.Cylinder]: 'rules.facet.area.cylinder',
   [AreaValue.Emanation]: 'rules.facet.area.emanation',
   [AreaValue.Line]: 'rules.facet.area.line',
+  [AreaValue.Square]: 'rules.facet.area.square',
   [AreaValue.None]: 'rules.facet.area.none',
 });
 
@@ -100,6 +102,7 @@ const DURATION_LABELS = facetLabels({
   [DurationValue.Until]: 'rules.facet.duration.until',
   [DurationValue.Sustained]: 'rules.facet.duration.sustained',
   [DurationValue.Unlimited]: 'rules.facet.duration.unlimited',
+  [DurationValue.Varies]: 'rules.facet.duration.varies',
 });
 
 /** Shared by spells and weapons, so a mixed list filters both by one facet; a weapon's persistent damage counts. */
@@ -148,7 +151,7 @@ export const SPELL_FACETS: readonly FacetDefinition[] = [
     type: FacetType.Set,
     label: SpellFacetMessage.RangeBand,
     values: RANGE_LABELS,
-    derive: ofSpells(({ data }) => [rangeBand(data)]),
+    derive: ofSpells(({ data }) => rangeBands(data)),
   },
   {
     id: FacetId.parse('area'),
@@ -176,7 +179,7 @@ export const SPELL_FACETS: readonly FacetDefinition[] = [
     type: FacetType.Set,
     label: SpellFacetMessage.Duration,
     values: DURATION_LABELS,
-    derive: ofSpells(({ data }) => [durationValue(data)]),
+    derive: ofSpells(({ data }) => durationValues(data)),
   },
   {
     id: FacetId.parse('sustained'),

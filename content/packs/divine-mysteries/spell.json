@@ -643,6 +643,9 @@
           }
         ]
       },
+      "duration": {
+        "type": "varies"
+      },
       "defense": {
         "save": {
           "statistic": "save:will",
@@ -2348,6 +2351,9 @@
           }
         ]
       },
+      "duration": {
+        "type": "varies"
+      },
       "defense": {
         "save": {
           "statistic": "save:will",
@@ -4029,6 +4035,10 @@
         "type": "feet",
         "feet": 60
       },
+      "area": {
+        "shape": "square",
+        "size": 10
+      },
       "duration": {
         "type": "time",
         "count": 1,
@@ -4441,6 +4451,9 @@
           }
         ]
       },
+      "duration": {
+        "type": "varies"
+      },
       "defense": {
         "save": {
           "statistic": "save:fortitude",
@@ -4608,6 +4621,9 @@
             "of": "creature"
           }
         ]
+      },
+      "duration": {
+        "type": "varies"
       },
       "defense": {
         "save": {
@@ -5751,6 +5767,9 @@
       "area": {
         "shape": "emanation",
         "size": 5
+      },
+      "duration": {
+        "type": "varies"
       },
       "defense": {
         "save": {
@@ -7623,6 +7642,9 @@
         "shape": "emanation",
         "size": 30
       },
+      "duration": {
+        "type": "varies"
+      },
       "defense": {
         "save": {
           "statistic": "save:will",
@@ -8232,7 +8254,18 @@
       },
       "area": {
         "shape": "burst",
-        "size": 20
+        "size": 20,
+        "details": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "a horizontal earthen or sandy surface within a 20-foot burst"
+              }
+            ]
+          }
+        ]
       },
       "duration": {
         "type": "time",
@@ -8806,6 +8839,9 @@
       "range": {
         "type": "feet",
         "feet": 30
+      },
+      "duration": {
+        "type": "varies"
       },
       "defense": {
         "save": {

@@ -125,8 +125,8 @@ describe('translateKindData: spells', () => {
       time: { value: '2' },
       range: { value: 'varies' },
       target: { value: '1 creature you know by name' },
-      duration: { sustained: false, value: 'see text' },
-      area: { type: 'square', value: 5, details: 'squares with plants' },
+      duration: { sustained: false, value: 'until full tribute is paid' },
+      area: { type: 'hexagon', value: 5, details: 'hexes with plants' },
       overlays: { a1: { overlayType: 'override' } },
     });
     const result = translate([odd]);
@@ -141,10 +141,42 @@ describe('translateKindData: spells', () => {
       'unmapped-field overlays',
       'unmapped-value range.value',
       'unmapped-value area.type',
-      'unmapped-field area.details',
       'unmapped-value target.value',
       'unmapped-value duration',
     ]);
+  });
+
+  test('an area keeps details that narrow it and drops details that restate it', () => {
+    const flora = spell('fLoRa00000000001', 'Flora', {
+      level: { value: 2 },
+      time: { value: '3' },
+      area: { type: 'burst', value: 20, details: 'all squares in a 20-foot-radius burst that contain plants' },
+    });
+    const storm = spell('sToRm00000000001', 'Storm', {
+      level: { value: 4 },
+      time: { value: '2' },
+      area: { type: 'burst', value: 20, details: '20-foot-radius burst' },
+    });
+    const flame = spell('fLaMe00000000001', 'Flame', {
+      level: { value: 2 },
+      time: { value: '2' },
+      area: { type: 'square', value: 5, details: '' },
+    });
+    const result = translate([flora, storm, flame]);
+    const narrowed = 'all squares in a 20-foot-radius burst that contain plants';
+
+    expect(dataIn(result, 'flora')).toMatchObject({
+      area: { shape: 'burst', size: 20, details: [{ type: 'paragraph', content: [{ type: 'text', text: narrowed }] }] },
+    });
+    expect(dataIn(result, 'storm')).toEqual({
+      rank: 4,
+      time: { type: 'actions', cost: 'two' },
+      area: { shape: 'burst', size: 20 },
+      traditions: [],
+      damage: [],
+    });
+    expect(dataIn(result, 'flame')).toMatchObject({ area: { shape: 'square', size: 5 } });
+    expect(gapKeys(result)).toEqual([]);
   });
 
   test('a casting time that does not map leaves the spell without data', () => {

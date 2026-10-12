@@ -22,15 +22,12 @@ import {
   SpellDurationType,
   SpellRangeType,
   SpellTimeUnit,
-  TargetCountWord,
-  TargetKind,
-  TargetQualifier,
-  TargetWithin,
-  TargetYou,
   TurnOwner,
 } from '../spell-casting';
 import { SPELL_RANK_MAX } from '../spell-rank';
+import { TargetCountWord, TargetKind, TargetQualifier, TargetWithin, TargetYou } from '../spell-targets';
 import { MagicTradition } from '../spellcasting-tradition';
+import { DieSize } from '../weapon';
 import { saveSelectorText, skillSelectorText, withTrigger } from './arbitraries';
 import { damageType, LIST_MAX, positive, slugText, smallint, withOptional } from './json-arbitraries';
 import { damageFormulaText, richTextJson } from './rich-text-arbitraries';
@@ -48,6 +45,8 @@ const targetYou: Arbitrary<string> = constantFrom(...Object.values(TargetYou));
 const TURN_ENDS = Object.values(SpellDurationEnd).filter((end) => end !== SpellDurationEnd.DailyPreparations);
 const turnEnd: Arbitrary<string> = constantFrom(...TURN_ENDS);
 const turnOwner: Arbitrary<string> = constantFrom(...Object.values(TurnOwner));
+const dieSize: Arbitrary<string> = constantFrom(...Object.values(DieSize));
+const MILES_MAX = 1000;
 const passiveDefense: Arbitrary<string> = oneof(constant('ac'), saveSelectorText);
 const damageCategory: Arbitrary<string> = constantFrom(...Object.values(DamageCategory));
 const damageKinds: Arbitrary<string[]> = shuffledSubarray(Object.values(DamageKind), { minLength: 1 });
@@ -68,18 +67,26 @@ const castTime: Arbitrary<object> = oneof(
   record({ type: constant(CastTimeType.Time), ...spellTime }),
 );
 
-const range: Arbitrary<object> = oneof(
+/** Whole and half miles. */
+const miles: Arbitrary<number> = integer({ min: 1, max: MILES_MAX * 2 }).map((halves) => halves / 2);
+const singleRange: Arbitrary<object> = oneof(
   record({ type: constant(SpellRangeType.Feet), feet: smallint }),
+  record({ type: constant(SpellRangeType.Miles), miles }),
   constant({ type: SpellRangeType.Touch }),
   constant({ type: SpellRangeType.Planetary }),
+  constant({ type: SpellRangeType.Interplanar }),
   constant({ type: SpellRangeType.Unlimited }),
+);
+const range: Arbitrary<object> = oneof(
+  singleRange,
+  record({ type: constant(SpellRangeType.Either), options: array(singleRange, { minLength: 2, maxLength: 3 }) }),
 );
 
 const line: Arbitrary<object> = record({ shape: constant(AreaShape.Line), size: smallint });
 /** Only a line has a width. */
 const area: Arbitrary<object> = oneof(
-  record({ shape: areaShapeButLine, size: smallint }),
-  withOptional(line, { width: smallint }),
+  withOptional(record({ shape: areaShapeButLine, size: smallint }), { details: richTextJson }),
+  withOptional(line, { width: smallint, details: richTextJson }),
 );
 
 const targetDetails = { qualifiers: targetQualifiers, traits, triggering: boolean() };
@@ -101,12 +108,27 @@ const targets: Arbitrary<object> = withOptional(record({ any: someTargets }), { 
 
 const timedDuration: Arbitrary<object> = record({ type: constant(SpellDurationType.Time), ...spellTime });
 const untilTurn: Arbitrary<object> = record({ type: constant(SpellDurationType.Until), until: turnEnd });
-const duration: Arbitrary<object> = oneof(
-  withOptional(timedDuration, { sustained: boolean() }),
+const rolledDuration: Arbitrary<object> = record({
+  type: constant(SpellDurationType.Rolled),
+  dice: positive,
+  die: dieSize,
+  unit: spellTimeUnit,
+});
+/** A time is up to it or sustained up to it, never both. */
+const singleDuration: Arbitrary<object> = oneof(
+  timedDuration,
+  record({ type: constant(SpellDurationType.Time), ...spellTime, upTo: boolean() }),
+  record({ type: constant(SpellDurationType.Time), ...spellTime, sustained: boolean() }),
+  rolledDuration,
   constant({ type: SpellDurationType.Sustained }),
   withOptional(untilTurn, { of: turnOwner }),
   constant({ type: SpellDurationType.Until, until: SpellDurationEnd.DailyPreparations }),
   constant({ type: SpellDurationType.Unlimited }),
+  constant({ type: SpellDurationType.Varies }),
+);
+const duration: Arbitrary<object> = oneof(
+  singleDuration,
+  record({ type: constant(SpellDurationType.Either), options: array(singleDuration, { minLength: 2, maxLength: 3 }) }),
 );
 
 const save: Arbitrary<object> = record({ statistic: saveSelectorText, basic: boolean() });

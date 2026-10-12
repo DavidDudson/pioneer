@@ -1,4 +1,5 @@
 import { AreaShapeSchema } from '@pioneer/rules/sdk';
+import type { RichText } from '@pioneer/rules/sdk';
 import * as z from 'zod';
 
 import { ENVELOPE_FIELDS, KindDataGapReason, report } from './kind-data-gaps';
@@ -97,16 +98,33 @@ function parsedText({ field, text, parse }: TextField, log: GapLog): object | un
   return parsed;
 }
 
-/** An area's shape and size; a shape Pioneer lacks (`square`) is reported, and so are Foundry's `details`. */
+/** What details may add to an area and still only restate it: "15-foot emanation, centered on you". */
+const RESTATING = ['.', ' centered on you', ','];
+
+/** Details stripped of what restates the area, and "20-foot-radius" read as "20-foot". */
+function restatement(details: string): string {
+  let text = details.toLowerCase().replace('-foot-radius ', '-foot ');
+  for (const ending of RESTATING) {
+    text = text.endsWith(ending) ? text.slice(0, -ending.length) : text;
+  }
+  return text;
+}
+
+/** Foundry's `details`, unless they say no more than the shape and size do ("20-foot-radius burst"). */
+function areaDetails(area: z.infer<typeof FoundryArea>, field: string, log: GapLog): RichText | undefined {
+  const details = (area.details ?? '').trim();
+  const isRestated = restatement(details) === `${area.value}-foot ${area.type}`;
+  return isRestated ? undefined : plainWords(`${field}.details`, details, log);
+}
+
+/** An area's shape and size, and Foundry's `details` when they narrow it; a shape Pioneer lacks is reported. */
 function areaOf(area: z.infer<typeof FoundryArea>, field: string, log: GapLog): object | undefined {
   const shape = AreaShapeSchema.safeParse(area.type);
   if (!shape.success) {
     report(log, { reason: KindDataGapReason.UnmappedValue, field: `${field}.type`, raw: area.type });
+    return undefined;
   }
-  if (area.details !== undefined && area.details !== null && area.details !== '') {
-    report(log, { reason: KindDataGapReason.UnmappedField, field: `${field}.details`, raw: area.details });
-  }
-  return shape.success ? { shape: shape.data, size: area.value } : undefined;
+  return { shape: shape.data, size: area.value, ...setFields({ details: areaDetails(area, field, log) }) };
 }
 
 /** Foundry's DC statistics for a passive defence: `ac`, and `<save>-dc` for a save's DC. */

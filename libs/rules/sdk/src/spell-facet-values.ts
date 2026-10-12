@@ -4,14 +4,16 @@ import type { ContentEntry } from './content-entry';
 import type { ContentKind } from './content-kind';
 import { ActionCost, AreaShape } from './rich-text';
 import type { Selector } from './selector';
-import { CastTimeType, SpellDurationType, SpellRangeType, SpellTimeUnit, TargetKind } from './spell-casting';
+import { CastTimeType, SpellDurationType, SpellRangeType, SpellTimeUnit } from './spell-casting';
+import type { SingleDuration, SingleRange } from './spell-casting';
+import { TargetKind } from './spell-targets';
 import { Trait } from './trait';
 import { Feet } from './units';
 
 export type SpellEntry = Extract<ContentEntry, { readonly kind: typeof ContentKind.Spell }>;
 type SpellFields = SpellEntry['data'];
 
-/** How far a spell reaches, in the bands a player thinks in. A spell with no range is `none`. */
+/** How far a spell reaches, in the bands a player thinks in; miles are `long`. A spell with no range is `none`. */
 export const RangeBand = {
   Touch: 'touch',
   UpTo30: '30-feet',
@@ -19,6 +21,7 @@ export const RangeBand = {
   UpTo120: '120-feet',
   Long: 'long',
   Planetary: 'planetary',
+  Interplanar: 'interplanar',
   Unlimited: 'unlimited',
   None: 'none',
 } as const;
@@ -59,6 +62,7 @@ export const DurationValue = {
   Until: 'until',
   Sustained: 'sustained',
   Unlimited: 'unlimited',
+  Varies: 'varies',
 } as const;
 export type DurationValue = ValueOf<typeof DurationValue>;
 
@@ -91,20 +95,30 @@ const SAVES: ReadonlyMap<string, DefenseValue> = new Map([
   ['will', DefenseValue.Will],
 ]);
 
-export function rangeBand({ range }: SpellFields): RangeBand {
-  if (range === undefined) {
-    return RangeBand.None;
-  }
-  if (range.type !== SpellRangeType.Feet) {
-    return range.type;
-  }
-  if (range.feet <= BAND_30) {
+function feetBand(feet: Feet): RangeBand {
+  if (feet <= BAND_30) {
     return RangeBand.UpTo30;
   }
-  if (range.feet <= BAND_60) {
+  if (feet <= BAND_60) {
     return RangeBand.UpTo60;
   }
-  return range.feet <= BAND_120 ? RangeBand.UpTo120 : RangeBand.Long;
+  return feet <= BAND_120 ? RangeBand.UpTo120 : RangeBand.Long;
+}
+
+function singleBand(range: SingleRange): RangeBand {
+  if (range.type === SpellRangeType.Feet) {
+    return feetBand(range.feet);
+  }
+  return range.type === SpellRangeType.Miles ? RangeBand.Long : range.type;
+}
+
+/** A range's band, or each option's when the caster picks one. */
+export function rangeBands({ range }: SpellFields): readonly RangeBand[] {
+  if (range === undefined) {
+    return [RangeBand.None];
+  }
+  const ranges = range.type === SpellRangeType.Either ? range.options : [range];
+  return [...new Set(ranges.map((each) => singleBand(each)))];
 }
 
 export function castActions({ time }: SpellFields): readonly CastActions[] {
@@ -150,19 +164,31 @@ export function defenseValues(entry: SpellEntry): readonly DefenseValue[] {
   return found.length === 0 ? [DefenseValue.None] : [...new Set(found)];
 }
 
-export function durationValue({ duration }: SpellFields): DurationValue {
-  if (duration === undefined) {
-    return DurationValue.Instant;
-  }
-  if (duration.type !== SpellDurationType.Time) {
-    return duration.type;
-  }
-  return TIME_DURATIONS[duration.unit];
+function singleDurationValue(duration: SingleDuration): DurationValue {
+  const isCounted = duration.type === SpellDurationType.Time || duration.type === SpellDurationType.Rolled;
+  return isCounted ? TIME_DURATIONS[duration.unit] : duration.type;
 }
 
-export function isSustained({ duration }: SpellFields): boolean {
-  return (
-    duration?.type === SpellDurationType.Sustained ||
-    (duration?.type === SpellDurationType.Time && duration.sustained === true)
+/** The durations a spell has: one, or each option's when the caster picks one. */
+function durationsOf({ duration }: SpellFields): readonly SingleDuration[] {
+  if (duration === undefined) {
+    return [];
+  }
+  return duration.type === SpellDurationType.Either ? duration.options : [duration];
+}
+
+export function durationValues(data: SpellFields): readonly DurationValue[] {
+  const durations = durationsOf(data);
+  return durations.length === 0
+    ? [DurationValue.Instant]
+    : [...new Set(durations.map((each) => singleDurationValue(each)))];
+}
+
+/** Sustained with no limit, or up to a time; for a choice, when any option is. */
+export function isSustained(data: SpellFields): boolean {
+  return durationsOf(data).some(
+    (duration) =>
+      duration.type === SpellDurationType.Sustained ||
+      (duration.type === SpellDurationType.Time && duration.sustained === true),
   );
 }

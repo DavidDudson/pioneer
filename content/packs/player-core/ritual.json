@@ -1221,6 +1221,12 @@
         "count": 1,
         "unit": "day"
       },
+      "duration": {
+        "type": "rolled",
+        "dice": 4,
+        "die": "d12",
+        "unit": "hour"
+      },
       "primary": {
         "skills": ["skill:nature"],
         "proficiency": "master"
@@ -2158,6 +2164,9 @@
         "type": "feet",
         "feet": 10
       },
+      "duration": {
+        "type": "varies"
+      },
       "primary": {
         "skills": ["skill:arcana", "skill:occultism", "skill:religion"],
         "proficiency": "expert"
@@ -2285,6 +2294,9 @@
         "type": "time",
         "count": 1,
         "unit": "day"
+      },
+      "duration": {
+        "type": "varies"
       },
       "cost": [
         {
@@ -2514,6 +2526,10 @@
         "count": 1,
         "unit": "day"
       },
+      "range": {
+        "type": "miles",
+        "miles": 100
+      },
       "targets": {
         "any": [
           {
@@ -2542,6 +2558,9 @@
             "traits": ["plant"]
           }
         ]
+      },
+      "duration": {
+        "type": "varies"
       },
       "cost": [
         {

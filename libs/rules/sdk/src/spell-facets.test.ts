@@ -145,6 +145,37 @@ describe('spell facets', () => {
     expect(valuesOf(bless)['sustained']).toStrictEqual(['yes']);
   });
 
+  test('miles are long; a choice of ranges or durations gives each option', () => {
+    const healCompanion = spell('heal-companion', {
+      range: { type: 'either', options: [{ type: 'touch' }, { type: 'feet', feet: 30 }] },
+    });
+    const primalCall = spell('primal-call', { range: { type: 'miles', miles: 100 } });
+    const mindReading = spell('mind-reading', {
+      duration: {
+        type: 'either',
+        options: [
+          { type: 'time', count: 1, unit: 'round' },
+          { type: 'time', count: 1, unit: 'minute', sustained: true },
+        ],
+      },
+    });
+
+    expect(valuesOf(healCompanion)['range']).toStrictEqual(['touch', '30-feet']);
+    expect(valuesOf(primalCall)['range']).toStrictEqual(['long']);
+    expect(valuesOf(mindReading)['duration']).toStrictEqual(['round', 'minute']);
+    expect(valuesOf(mindReading)['sustained']).toStrictEqual(['yes']);
+  });
+
+  test('a rolled duration counts by its unit; one the text gives varies', () => {
+    const controlWeather = spell('control-weather', {
+      duration: { type: 'rolled', dice: 4, die: 'd12', unit: 'hour' },
+    });
+    const fear = spell('fear', { duration: { type: 'varies' } });
+
+    expect(valuesOf(controlWeather)['duration']).toStrictEqual(['hour']);
+    expect(valuesOf(fear)['duration']).toStrictEqual(['varies']);
+  });
+
   test('entries of other kinds give no spell values', () => {
     const trait = ContentEntry.parse({
       ...structuredClone(fireball),

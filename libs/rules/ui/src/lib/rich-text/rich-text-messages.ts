@@ -66,6 +66,7 @@ export const AREA_SHAPE_MESSAGES: Readonly<Record<AreaShape, string>> = {
   [AreaShape.Cylinder]: 'rules.richText.areaShape.cylinder',
   [AreaShape.Emanation]: 'rules.richText.areaShape.emanation',
   [AreaShape.Line]: 'rules.richText.areaShape.line',
+  [AreaShape.Square]: 'rules.richText.areaShape.square',
 };
 
 /** Each unit's message takes `count` and picks its own plural. */

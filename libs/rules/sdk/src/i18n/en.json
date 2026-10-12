@@ -128,7 +128,8 @@
         "cube": "cube",
         "cylinder": "cylinder",
         "emanation": "emanation",
-        "line": "line"
+        "line": "line",
+        "square": "square"
       },
       "duration": {
         "round": "{count, plural, one {# round} other {# rounds}}",
@@ -287,6 +288,7 @@
       "heightenEmpty": "A heightened entry changes at least one of damage, range, area, targets or duration; describe other changes in the text.",
       "against": "A spell is against AC or a save’s DC, like ac or save:will.",
       "durationOwner": "Only a turn has an owner; daily preparations are the caster’s.",
+      "durationUpTo": "A sustained duration already lasts up to its time; leave upTo out.",
       "targetUpTo": "Only a number of targets can be “up to”; leave upTo out for any or all.",
       "targetWithin": "Say where the targets are with all, and only with all: in the area or within range."
     },
@@ -359,6 +361,7 @@
         "upTo120": "Up to 120 feet",
         "long": "Over 120 feet",
         "planetary": "Planetary",
+        "interplanar": "Interplanar",
         "unlimited": "Unlimited",
         "none": "No range"
       },
@@ -369,6 +372,7 @@
         "cylinder": "Cylinder",
         "emanation": "Emanation",
         "line": "Line",
+        "square": "Square",
         "none": "No area"
       },
       "targets": {
@@ -394,7 +398,8 @@
         "long": "A week or more",
         "until": "Until a set moment",
         "sustained": "Sustained",
-        "unlimited": "Unlimited"
+        "unlimited": "Unlimited",
+        "varies": "Varies"
       },
       "rarity": {
         "common": "Common",

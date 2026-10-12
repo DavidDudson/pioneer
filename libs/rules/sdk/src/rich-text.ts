@@ -51,6 +51,7 @@ export const AreaShape = {
   Cylinder: 'cylinder',
   Emanation: 'emanation',
   Line: 'line',
+  Square: 'square',
 } as const;
 export type AreaShape = ValueOf<typeof AreaShape>;
 export const AreaShapeSchema = z.enum(AreaShape);
@@ -250,10 +251,7 @@ const cells = z.array(cell).min(1).readonly();
 const rows = z.array(cells).min(1).readonly();
 const headingLevel = z.literal(Object.values(RichTextHeadingLevel));
 
-/**
- * One block, unguarded. Private: `RichText` runs the bounds check first, because this recursion has no limit of
- * its own.
- */
+/** One block, unguarded. Private: `RichText` checks bounds first, since this recursion has no limit of its own. */
 const Block: z.ZodType<BlockNode> = z.lazy(() => {
   const item = z.array(Block).min(1).readonly();
   return z.discriminatedUnion('type', [
