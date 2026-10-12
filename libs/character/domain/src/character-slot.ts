@@ -37,7 +37,7 @@ export type SlotStatus = ValueOf<typeof SlotStatus>;
 
 /**
  * What kind of slot it is: one the character has itself, an attribute boost or flaw, a trained skill or skill increase,
- * a `ChoiceSet` on an entry, or a prepared spell slot.
+ * a `ChoiceSet` on an entry, a prepared or repertoire spell slot, or a signature spell slot.
  */
 export const SlotSubjectKind = {
   Root: 'root',
@@ -47,6 +47,7 @@ export const SlotSubjectKind = {
   Language: 'language',
   Choice: 'choice',
   Spell: 'spell',
+  Signature: 'signature',
 } as const;
 export type SlotSubjectKind = ValueOf<typeof SlotSubjectKind>;
 
@@ -86,6 +87,8 @@ export const SlotSubject = z.discriminatedUnion('kind', [
     pool: RuleSlug.optional(),
     rank: PreparedRankSchema,
   }),
+  /** The signature spell of `rank` on the spontaneous entry `entry` (#479). */
+  z.strictObject({ kind: z.literal(SlotSubjectKind.Signature), entry: Slug, rank: SpellRank }),
 ]);
 export type SlotSubject = z.output<typeof SlotSubject>;
 
@@ -140,4 +143,5 @@ export const SlotInvalidMessage = {
   SpellNoAccess: 'rules.choices.invalid.spellNoAccess',
   SpellUnfit: 'rules.choices.invalid.spellUnfit',
   SpellNotInPool: 'rules.choices.invalid.spellNotInPool',
+  SpellNotInRepertoire: 'rules.choices.invalid.spellNotInRepertoire',
 } as const;

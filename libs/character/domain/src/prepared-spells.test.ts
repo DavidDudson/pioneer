@@ -96,8 +96,11 @@ describe('preparedSlots', () => {
     expect(offered(caster('cleric', 1).build().document, 'prepared:cleric:1:0')).toStrictEqual(['Heal']);
   });
 
-  test('a spontaneous caster and a fighter have no prepared slots', () => {
-    expect(slotsOf(caster('bard', 5).build().document)).toStrictEqual([]);
+  test("a spontaneous caster's slots are its repertoire, and a fighter has none", () => {
+    const bard = slotsOf(caster('bard', 5).build().document);
+
+    expect(bard.every((slot) => slot.key.startsWith('repertoire:bard:'))).toBe(true);
+    expect(bard.every((slot) => slot.preparation === 'spontaneous')).toBe(true);
     expect(slotsOf(caster('fighter', 5).build().document)).toStrictEqual([]);
   });
 

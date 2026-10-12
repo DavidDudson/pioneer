@@ -38,7 +38,7 @@ export {
 export { characterSpellcasting } from './spellcasting-build';
 export {
   cantripRank,
-  isPreparedKey,
+  isSpellSlotKey,
   type PreparedRank,
   type PreparedPool,
   type PreparedSlot,
@@ -47,6 +47,13 @@ export {
   SpellAccessProblem,
   spellAccessProblem,
 } from './prepared-spells';
+export {
+  castRanks,
+  isSignatureKey,
+  SignaturePickProblem,
+  type SignatureSlot,
+  signatureSlots,
+} from './signature-spells';
 export { needsAccess, type SpellContent, spellContent, type SpellOption } from './spell-content';
 export { CharacterSlot, SlotInvalidMessage, SlotStatus, SlotSubject, SlotSubjectKind } from './character-slot';
 export { characterSlots } from './character-slot-status';

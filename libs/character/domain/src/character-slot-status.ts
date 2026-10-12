@@ -11,7 +11,7 @@ import { SlotInvalidMessage, SlotStatus, SlotSubjectKind } from './character-slo
 import type { CharacterSlot, SlotSubject } from './character-slot';
 import { OPTIONAL_ROOT_SLOTS } from './character-slots';
 import { languageStatuses } from './language-slot-status';
-import { preparedStatuses } from './prepared-slot-status';
+import { preparedStatuses, signatureStatuses } from './prepared-slot-status';
 import { SkillPickProblem, skillSlots } from './skill-training';
 import { resolveSlotsAt, skillReads } from './slot-offer';
 import type { SlotContent, SlotContext } from './slot-offer';
@@ -252,6 +252,7 @@ export function characterSlots(document: CharacterDocument, content: SlotContent
     ...languages,
     ...choices,
     ...preparedStatuses(document, content),
+    ...signatureStatuses(document, content),
   ];
   return [...listed, ...hiddenPicks(context, listed)];
 }

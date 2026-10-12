@@ -4,6 +4,7 @@ import type { CharacterDocument } from './character-document';
 import { SlotInvalidMessage, SlotSubjectKind } from './character-slot';
 import type { CharacterSlot } from './character-slot';
 import { PreparedPickProblem, preparedSlots } from './prepared-spells';
+import { signatureSlots } from './signature-spells';
 import { preparedReads } from './slot-offer';
 import type { SlotContent } from './slot-offer';
 import { invalidReason, invalidSlot, validSlot } from './slot-read';
@@ -17,7 +18,7 @@ const PREPARED_PROBLEMS: Readonly<Record<PreparedPickProblem, string>> = {
 };
 
 /**
- * Each prepared slot at the character's level (#478): a pick is invalid when the slot doesn't take it, an uncommon or
+ * Each prepared and repertoire slot at the character's level (#478, #479): a pick is invalid when the slot doesn't take it, an uncommon or
  * rare spell without access saying so. Prepared slots open at the character's level only, so none is planned.
  */
 export function preparedStatuses(document: CharacterDocument, content: SlotContent): CharacterSlot[] {
@@ -40,6 +41,29 @@ export function preparedStatuses(document: CharacterDocument, content: SlotConte
       slot.problem === undefined
         ? invalidReason(slot.stored, content.lookup)
         : message(PREPARED_PROBLEMS[slot.problem]);
+    return invalidSlot(read, slot.stored, reason);
+  });
+}
+
+/**
+ * Each signature slot at the character's level (#479): a pick is invalid when the entry's repertoire no longer knows
+ * it at the slot's rank. Like a repertoire's, signature slots open at the character's level only, so none is planned.
+ */
+export function signatureStatuses(document: CharacterDocument, content: SlotContent): CharacterSlot[] {
+  return signatureSlots(document, preparedReads(document, content)).map((slot) => {
+    const read: SlotRead = {
+      key: slot.key,
+      subject: { kind: SlotSubjectKind.Signature, entry: slot.entry, rank: slot.rank },
+      stored: slot.stored,
+      planned: undefined,
+    };
+    if (slot.stored === undefined || slot.pick !== undefined) {
+      return validSlot(read, slot.pick?.name);
+    }
+    const reason =
+      slot.problem === undefined
+        ? invalidReason(slot.stored, content.lookup)
+        : message(SlotInvalidMessage.SpellNotInRepertoire);
     return invalidSlot(read, slot.stored, reason);
   });
 }
