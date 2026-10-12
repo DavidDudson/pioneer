@@ -74,7 +74,7 @@ export function kitRefusal({ kits, items }: KitReads, inventory: Inventory, kit:
   if (inventory.items.length + ids.length > INVENTORY_ITEMS_MAX) {
     return {
       field: InventoryRefusalField.Kit,
-      message: message('character.validation.inventoryFull', { maximum: INVENTORY_ITEMS_MAX }),
+      message: message('character.validation.kitOverfills', { maximum: INVENTORY_ITEMS_MAX }),
     };
   }
   return undefined;

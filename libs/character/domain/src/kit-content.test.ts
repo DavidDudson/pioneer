@@ -122,7 +122,7 @@ describe('kitRefusal', () => {
     expect(kitRefusal(reads, holding(INVENTORY_ITEMS_MAX - 4), explorer)).toBe(undefined);
     expect(kitRefusal(reads, holding(INVENTORY_ITEMS_MAX - 3), explorer)).toStrictEqual({
       field: 'kit',
-      message: { key: 'character.validation.inventoryFull', params: { maximum: INVENTORY_ITEMS_MAX } },
+      message: { key: 'character.validation.kitOverfills', params: { maximum: INVENTORY_ITEMS_MAX } },
     });
   });
 });

@@ -10,6 +10,9 @@ import {
   characterSlots,
   InventoryItemId,
   itemContent,
+  ItemQuantity,
+  kitContent,
+  kitItems,
   PATCH_COMMANDS,
   payCost,
   purchaseCost,
@@ -27,6 +30,7 @@ import type {
   CharacterSheet,
   ClearedPick,
   CreateCharacterBody,
+  EditInputs,
   PatchCharacterBody,
   PatchedCharacterSheet,
   SlotPick,
@@ -48,6 +52,29 @@ const SPELL_ACCESS_REFUSALS: Readonly<Record<SpellAccessProblem, string>> = {
   [SpellAccessProblem.Common]: 'character.validation.spellAccessCommon',
   [SpellAccessProblem.Full]: 'character.validation.spellAccessFull',
 };
+
+/** A kit is bought one at a time, at its price. */
+const ONE_KIT = ItemQuantity.parse(1);
+
+/** Where a purchase the coins don't cover is refused, and why: an item's on its quantity, a kit's on the kit. */
+interface Unaffordable {
+  readonly field: string;
+  readonly key: string;
+}
+
+const UNAFFORDABLE_ITEM: Unaffordable = { field: 'quantity', key: 'character.validation.cannotAfford' };
+const UNAFFORDABLE_KIT: Unaffordable = { field: 'kit', key: 'character.validation.cannotAffordKit' };
+
+/**
+ * `cost`, once the character's coins are found to cover it; refused on its field, with its reason, when they are worth less, so a
+ * character is never left in debt.
+ */
+function affordable(character: Character, cost: CopperValue, { field, key }: Unaffordable): CopperValue {
+  if (payCost(character.document.inventory.coins, cost) === undefined) {
+    throw new ValidationError([{ path: ['patch', field], message: message(key) }]);
+  }
+  return cost;
+}
 
 /** A character as an edit saved it, and the picks the edit cleared (`unfitPicks`). */
 export interface PatchedCharacter {
@@ -158,9 +185,9 @@ export class CharacterService {
   ): Promise<PatchedCharacter> {
     const current = await this.get(actor, id);
     await this.#assertAllowed(current, expectedVersion, patch);
-    const cost = await this.#affordableCost(current, patch);
+    const inputs = await this.#editInputs(current, patch);
     const now = this.#clock.now();
-    const edited = current.apply(patch, now, { newItemId: InventoryItemId.parse(newId()), cost });
+    const edited = current.apply(patch, now, inputs);
     const cleared = await this.#unfitPicks(current, edited, patch);
     let next = edited;
     for (const pick of cleared) {
@@ -191,21 +218,36 @@ export class CharacterService {
   }
 
   /**
-   * What a purchase costs (`purchaseCost`), refused when the coins are worth less: a character is never left in debt.
-   * Undefined for any other edit. Runs after `assertInventoryAllows`, so the item is one a loaded pack has.
+   * What `patch` needs worked out before it applies: a fresh id for an added item, the lines an added kit expands into,
+   * each with a fresh id, and what a purchase costs. Runs after `assertInventoryAllows`, so the item or kit is one a
+   * loaded pack has.
    */
-  async #affordableCost(character: Character, patch: CharacterPatch): Promise<CopperValue | undefined> {
-    if (patch.field !== CharacterPatchField.BuyItem) {
-      return undefined;
+  async #editInputs(character: Character, patch: CharacterPatch): Promise<EditInputs> {
+    const newItemId = (): InventoryItemId => InventoryItemId.parse(newId());
+    switch (patch.field) {
+      case CharacterPatchField.BuyItem: {
+        const content = await this.#content.registry();
+        const cost = purchaseCost(itemContent(content).get(patch.item)?.data.price, patch.quantity);
+        return { newItemId: newItemId(), cost: affordable(character, cost, UNAFFORDABLE_ITEM) };
+      }
+      case CharacterPatchField.GiftKit:
+      case CharacterPatchField.BuyKit: {
+        const content = await this.#content.registry();
+        const kit = kitContent(content).get(patch.kit);
+        if (kit === undefined) {
+          throw new TypeError(`Kit ${patch.kit} passed the refusals but is not loaded`);
+        }
+        const lines = kitItems(kit.data, patch.container, newItemId);
+        if (patch.field === CharacterPatchField.GiftKit) {
+          return { kitItems: lines };
+        }
+        const cost = purchaseCost(kit.data.price, ONE_KIT);
+        return { kitItems: lines, cost: affordable(character, cost, UNAFFORDABLE_KIT) };
+      }
+      default: {
+        return { newItemId: newItemId() };
+      }
     }
-    const content = await this.#content.registry();
-    const cost = purchaseCost(itemContent(content).get(patch.item)?.data.price, patch.quantity);
-    if (payCost(character.document.inventory.coins, cost) === undefined) {
-      throw new ValidationError([
-        { path: ['patch', 'quantity'], message: message('character.validation.cannotAfford') },
-      ]);
-    }
-    return cost;
   }
 
   /** Refuses access to a spell no loaded pack has for a slot (a focus spell among them), a common one, or past the most. */
