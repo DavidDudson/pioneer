@@ -13,7 +13,7 @@ describe('RulesPlaygroundPage content filters', () => {
     await chooseSchema(harness, 'Content filters');
 
     const text = pageText(harness);
-    expect(text).toContain('11 entries of 29 kept.');
+    expect(text).toContain('11 entries of 30 kept.');
     expect(text).toContain('As a link: ?f.level=..5&f.rarity=common,uncommon&f.traits=!fire');
     expect(text).toContain('Longsword (Weapon)');
     expect(text).not.toContain('Fireball (Spell)');
@@ -100,7 +100,7 @@ describe('RulesPlaygroundPage content filters', () => {
     await typeInto(harness, queryInput(harness), '');
 
     expect(pageText(harness)).toContain('No filters: every entry is kept.');
-    expect(pageText(harness)).toContain('29 entries of 29 kept.');
+    expect(pageText(harness)).toContain('30 entries of 30 kept.');
   });
 
   it('shows problems with the entries', async () => {

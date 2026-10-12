@@ -51,7 +51,7 @@ export const TRAIT_LIST_KINDS: Readonly<Record<TraitList, readonly ContentKind[]
   [TraitList.Creature]: [ContentKind.Ancestry, ContentKind.Heritage, ContentKind.Creature],
   [TraitList.Effect]: [ContentKind.Effect, ContentKind.Condition],
   [TraitList.Equipment]: [ContentKind.Equipment],
-  [TraitList.Feat]: [ContentKind.Feat, ContentKind.ClassFeature],
+  [TraitList.Feat]: [ContentKind.Feat, ContentKind.AncestryFeature, ContentKind.ClassFeature],
   [TraitList.Shield]: [ContentKind.Shield],
   [TraitList.Spell]: [ContentKind.Spell, ContentKind.Ritual],
   [TraitList.Weapon]: [ContentKind.Weapon],

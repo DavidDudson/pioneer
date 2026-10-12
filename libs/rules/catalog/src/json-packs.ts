@@ -32,6 +32,7 @@ export async function playerCorePack(): Promise<PackContents> {
   return pack(import('@pioneer/content/packs/player-core/pack.json'), [
     import('@pioneer/content/packs/player-core/action.json'),
     import('@pioneer/content/packs/player-core/ancestry.json'),
+    import('@pioneer/content/packs/player-core/ancestry-feature.json'),
     import('@pioneer/content/packs/player-core/archetype.json'),
     import('@pioneer/content/packs/player-core/armor.json'),
     import('@pioneer/content/packs/player-core/background.json'),

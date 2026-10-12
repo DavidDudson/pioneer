@@ -11,7 +11,7 @@ import { CONTENT_PACK_CACHE } from './content-pack-cache';
  * so the next step is already in the store.
  */
 const LIKELY_NEXT: Readonly<Partial<Record<ContentKind, readonly ContentKind[]>>> = {
-  [ContentKind.Ancestry]: [ContentKind.Heritage, ContentKind.Language],
+  [ContentKind.Ancestry]: [ContentKind.AncestryFeature, ContentKind.Heritage, ContentKind.Language],
   [ContentKind.Heritage]: [ContentKind.Background],
   [ContentKind.Background]: [ContentKind.Class],
   [ContentKind.Class]: [ContentKind.ClassFeature, ContentKind.Feat],

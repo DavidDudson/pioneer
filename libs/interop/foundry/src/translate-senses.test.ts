@@ -90,6 +90,7 @@ describe('translateKindData: subfeature senses', () => {
   test.each([
     ['a feat', 'general'],
     ['a class feature', 'classfeature'],
+    ['an ancestry feature', 'ancestryfeature'],
   ])("%s's subfeature senses are Sense elements, and its other subfeatures are reported by name", (_case, category) => {
     const proficiencies = { perception: { rank: 2 } };
     const subfeatures = { senses: { darkvision: { acuity: 'imprecise', range: 30 } }, proficiencies };

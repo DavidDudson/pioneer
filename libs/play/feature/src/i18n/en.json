@@ -156,6 +156,7 @@
     "contentKind": {
       "action": "Action",
       "ancestry": "Ancestry",
+      "ancestryFeature": "Ancestry feature",
       "archetype": "Archetype",
       "armor": "Armor",
       "background": "Background",

@@ -38,14 +38,14 @@ turns them into the definitions it holds today and wraps each in `PackEntry`.
 
 ### Kinds
 
-| Group      | Kinds                                                                                           |
-| ---------- | ----------------------------------------------------------------------------------------------- |
-| Rules core | `statistic`, `trait`, `condition`, `action`, `damage-type`, `sense`, `language`, `variant-rule` |
-| Build      | `ancestry`, `heritage`, `background`, `class`, `class-feature`, `feat`, `archetype`, `deity`    |
-| Magic      | `spell` (incl. focus spells and cantrips), `ritual`, `spellcasting-tradition`                   |
-| Equipment  | `weapon`, `armor`, `shield`, `equipment`, `consumable`, `rune`, `treasure`, `kit`               |
-| Play       | `effect` (spell and feat effects, GM effects)                                                   |
-| Bestiary   | `creature`, `hazard` (later milestone)                                                          |
+| Group      | Kinds                                                                                                            |
+| ---------- | ---------------------------------------------------------------------------------------------------------------- |
+| Rules core | `statistic`, `trait`, `condition`, `action`, `damage-type`, `sense`, `language`, `variant-rule`                  |
+| Build      | `ancestry`, `ancestry-feature`, `heritage`, `background`, `class`, `class-feature`, `feat`, `archetype`, `deity` |
+| Magic      | `spell` (incl. focus spells and cantrips), `ritual`, `spellcasting-tradition`                                    |
+| Equipment  | `weapon`, `armor`, `shield`, `equipment`, `consumable`, `rune`, `treasure`, `kit`                                |
+| Play       | `effect` (spell and feat effects, GM effects)                                                                    |
+| Bestiary   | `creature`, `hazard` (later milestone)                                                                           |
 
 Class progression (features by level, feat slots, skill increases, boosts) is data on the `class` entry, expressed
 as `GrantItem` and slot-granting rule elements keyed by level, and its skill increase levels. The builder's feat and
@@ -97,16 +97,17 @@ grant more than it lists.
 The same rule holds for build kinds: `data` is what Foundry pf2e stores, less what rule elements already express.
 Lists of attributes, slugs and ids name each item once.
 
-| Kind            | `data`                                                                                                                              |
-| --------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| `ancestry`      | `hitPoints`, `size`, `speed`, `reach`; `boosts`; `flaws`; `languages`; `additionalLanguages`; `vision?`                             |
-| `heritage`      | `ancestry?`, absent for a versatile heritage                                                                                        |
-| `background`    | `boosts`; trained skills and lore are `Proficiency` elements, its skill feat a `GrantItem`                                          |
-| `class`         | `keyAttribute`, the attributes it may be; `hitPoints` per level; `additionalSkills`; `skillIncreaseLevels?`; progression in `rules` |
-| `class-feature` | `action?`; always has a `level`                                                                                                     |
-| `feat`          | `category`; `prerequisites?` as rich text; `onlyLevel1?`; `maxTakable?`; `action?`; `skills?`; `archetype?`; always has a `level`   |
-| `archetype`     | `dedication`; `multiclass?`, the class it is the multiclass archetype of                                                            |
-| `deity`         | `category`; `sanctification?`; `domains`; `font`; `attributes`; `skills`; `weapons`; `spells`                                       |
+| Kind               | `data`                                                                                                                              |
+| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `ancestry`         | `hitPoints`, `size`, `speed`, `reach`; `boosts`; `flaws`; `languages`; `additionalLanguages`; `vision?`                             |
+| `ancestry-feature` | `action?`; granted by its ancestry or heritage, never picked                                                                        |
+| `heritage`         | `ancestry?`, absent for a versatile heritage                                                                                        |
+| `background`       | `boosts`; trained skills and lore are `Proficiency` elements, its skill feat a `GrantItem`                                          |
+| `class`            | `keyAttribute`, the attributes it may be; `hitPoints` per level; `additionalSkills`; `skillIncreaseLevels?`; progression in `rules` |
+| `class-feature`    | `action?`; always has a `level`                                                                                                     |
+| `feat`             | `category`; `prerequisites?` as rich text; `onlyLevel1?`; `maxTakable?`; `action?`; `skills?`; `archetype?`; always has a `level`   |
+| `archetype`        | `dedication`; `multiclass?`, the class it is the multiclass archetype of                                                            |
+| `deity`            | `category`; `sanctification?`; `domains`; `font`; `attributes`; `skills`; `weapons`; `spells`                                       |
 
 - **Boosts.** A boost is the attributes it may go to: one for a fixed boost, all six for a free one. An ancestry
   lists up to four, a background two (Farmhand: Constitution or Wisdom, then free). `flaws` are fixed attributes.
@@ -115,6 +116,10 @@ Lists of attributes, slugs and ids name each item once.
   A feat, heritage or class feature teaches languages with `Language` elements, which the character model reads
   (character-model.md, "Languages").
   `vision` is the `sense` entry an ancestry sees with (darkvision, low-light vision), absent for ordinary vision.
+- **Ancestry features.** Keen Eyes, Plant Nourishment and the like are their own kind, `ancestry-feature`, as class
+  features are, rather than a feat category: an ancestry feat slot queries feats by the ancestry's trait, which its
+  features carry too, so as feats they would be offered there. An ancestry or heritage grants each by `GrantItem` in
+  its `rules`, and its roll option is `feature:<slug>`, as in Foundry.
 - **Class progression.** Perception, save, attack, defence, skill and class DC ranks are `Proficiency` elements,
   later ranks behind a level predicate (`{ "gte": ["self:level", 7] }`). Each class feature is a `GrantItem`, and
   each feat slot a `ChoiceSet` querying feats (`["item:trait:fighter", { "lte": ["item:level", "self:level"] }]`)
@@ -131,8 +136,8 @@ Lists of attributes, slugs and ids name each item once.
   feature used as an action. `skills` are the skills a feat is about (Assurance); `archetype` is the `archetype`
   entry an archetype feat belongs to, by `ContentId`. The sheet placement override is the envelope's `display`.
   Foundry's feature categories on the same item type go elsewhere:
-  `classfeature` is the `class-feature` kind, and `ancestryfeature`, `calling`, `curse`, `deityboon` and `pfsboon`
-  have no kind yet, so the importer reports them.
+  `classfeature` is the `class-feature` kind, `ancestryfeature` the `ancestry-feature` kind, and `calling`, `curse`,
+  `deityboon` and `pfsboon` have no kind yet, so the importer reports them.
 - **Prerequisites.** `prerequisites` keeps Foundry's text and gains `prerequisitePredicate?`, which the importer
   derives when it can parse the text ("trained in Medicine", "Champion Dedication", "Strength +2"). A feat with
   no predicate is offered as unknown under three-valued predicates (ADR-0002): shown with its text, never
@@ -560,15 +565,15 @@ flowchart LR
     `@Localize` is inlined before this pass (Labels, above). Parameters that only change how Foundry shows a roll
     (`showDC`, `name`, `immutable`, `targetOwner`, `shortLabel`) are ignored.
 - **Kind data.** Every Foundry type is filed under a kind (`FOUNDRY_TYPE_KINDS`), a feat of category `classfeature`
-  under `class-feature`, a spell with `ritual` data under `ritual` and equipment with an `etched-onto-…` usage under
-  `rune` (`documentKind`); kind data is built for the kinds with a translator (`TRANSLATORS`): the rules core kinds
-  `action` and `condition`, and the build, magic, effect and equipment kinds below. An
-  action's cost comes from `actionType` and `actions`, its frequency period from Foundry's words or ISO 8601
-  durations (`PT1H` is `hour`), and its `trigger` and `requirements` from the description's labelled paragraphs when
-  they are plain words. A condition's `implies` is its unpredicated `GrantItem`s of conditions, so it lists exactly
-  what its rules grant; its duration, active and removable flags are instance state and Foundry's back links are
-  derived, so neither is carried. A set `system` field with no place in the schema, a value with no mapping, usage
-  text with links or enrichers, a reference to nothing selected, and data the kind's schema rejects are reported
+  under `class-feature`, one of category `ancestryfeature` under `ancestry-feature`, a spell with `ritual` data under
+  `ritual` and equipment with an `etched-onto-…` usage under `rune` (`documentKind`); kind data is built for the kinds
+  with a translator (`TRANSLATORS`): the rules core kinds `action` and `condition`, and the build, magic, effect and
+  equipment kinds below. An action's cost comes from `actionType` and `actions`, its frequency period from Foundry's
+  words or ISO 8601 durations (`PT1H` is `hour`), and its `trigger` and `requirements` from the description's labelled
+  paragraphs when they are plain words. A condition's `implies` is its unpredicated `GrantItem`s of conditions, so it
+  lists exactly what its rules grant; its duration, active and removable flags are instance state and Foundry's back
+  links are derived, so neither is carried. A set `system` field with no place in the schema, a value with no mapping,
+  usage text with links or enrichers, a reference to nothing selected, and data the kind's schema rejects are reported
   against the entry, never guessed.
 - **Build kind data.** Fields Foundry and Pioneer spell alike carry over and the schema checks them; the rest map:
   - An ancestry's sizes (`med` is `medium`), boosts and flaws (Foundry's numbered slots, in order), and its
@@ -595,8 +600,9 @@ flowchart LR
     reported and left off, the feat kept. A class feature has `action` and its `otherTags` as `tags`; a subclass
     `ChoiceSet` (a filter of `item:tag:` terms alone, with a `GrantItem` of `{item|flags.system.rulesSelections.<flag>}`)
     becomes a class-feature query and a grant of its pick, its camel-case flag a slug.
-    Feature categories with no kind (`ancestryfeature`, `calling`, and the rest) are reported and have no data;
-    a feat's or class feature's `subfeatures.senses` become `Sense` elements, as a `Sense` rule does (below), and its
+    An ancestry feature (`ancestryfeature`) has `action`, as a class feature does; feature categories with no kind
+    (`calling` and the rest) are reported and have no data; a feat's, class feature's or ancestry feature's
+    `subfeatures.senses` become `Sense` elements, as a `Sense` rule does (below), and its
     `subfeatures.languages` a `Language` element, as does an `ActiveEffectLike` adding a whole number to
     `system.build.languages.max` (one adding a formula stays in the backlog), with no `access`, so common until set by
     hand; its other `subfeatures` (proficiencies, key attribute options) are reported by name

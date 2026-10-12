@@ -72,14 +72,14 @@ describe('translateKindData: feats and class features', () => {
 
   test('a feature category with no kind is reported and the entry has no data', () => {
     const feature = translate([
-      { id: 'clanDagger000001', name: 'Clan Dagger', type: 'feat', system: { category: 'ancestryfeature' } },
+      { id: 'calling000000001', name: 'Calling', type: 'feat', system: { category: 'calling' } },
     ]);
 
-    expect(kindDataOf(feature, 'clan-dagger')).toBeUndefined();
+    expect(kindDataOf(feature, 'calling')).toBeUndefined();
     expect(gapsOf(feature)).toContainEqual({
       reason: KindDataGapReason.UnmappedValue,
       field: 'category',
-      raw: 'ancestryfeature',
+      raw: 'calling',
     });
   });
 

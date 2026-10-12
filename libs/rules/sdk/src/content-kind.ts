@@ -8,6 +8,7 @@ import * as z from 'zod';
 export const ContentKind = {
   Action: 'action',
   Ancestry: 'ancestry',
+  AncestryFeature: 'ancestry-feature',
   Archetype: 'archetype',
   Armor: 'armor',
   Background: 'background',

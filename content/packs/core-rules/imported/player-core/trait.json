@@ -19,6 +19,7 @@
       "appliesTo": [
         "action",
         "ancestry",
+        "ancestry-feature",
         "armor",
         "class-feature",
         "condition",
@@ -75,6 +76,7 @@
       "appliesTo": [
         "action",
         "ancestry",
+        "ancestry-feature",
         "armor",
         "class-feature",
         "condition",
@@ -108,7 +110,17 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "ancestry", "class-feature", "creature", "equipment", "feat", "heritage", "weapon"]
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
     }
   },
   {
@@ -128,7 +140,7 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
     }
   },
   {
@@ -148,7 +160,7 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
     }
   },
   {
@@ -171,6 +183,7 @@
       "appliesTo": [
         "action",
         "ancestry",
+        "ancestry-feature",
         "armor",
         "class-feature",
         "condition",
@@ -204,7 +217,7 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "class-feature", "feat"]
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "feat"]
     }
   },
   {
@@ -224,7 +237,17 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "ancestry", "class-feature", "creature", "equipment", "feat", "heritage", "weapon"]
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
     }
   },
   {
@@ -264,7 +287,7 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "class-feature", "consumable", "feat", "ritual", "spell"]
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "ritual", "spell"]
     }
   },
   {
@@ -286,6 +309,7 @@
     "data": {
       "appliesTo": [
         "action",
+        "ancestry-feature",
         "armor",
         "class-feature",
         "condition",
@@ -318,6 +342,7 @@
     "data": {
       "appliesTo": [
         "action",
+        "ancestry-feature",
         "armor",
         "class-feature",
         "condition",
@@ -388,7 +413,7 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
     }
   },
   {
@@ -408,7 +433,7 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
     }
   },
   {
@@ -468,7 +493,7 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "class-feature", "consumable", "feat", "ritual", "spell"]
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "ritual", "spell"]
     }
   },
   {
@@ -488,7 +513,7 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
     }
   },
   {
@@ -508,7 +533,17 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "ancestry", "class-feature", "creature", "equipment", "feat", "heritage", "weapon"]
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
     }
   },
   {
@@ -528,7 +563,7 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
     }
   },
   {
@@ -551,6 +586,7 @@
       "appliesTo": [
         "action",
         "ancestry",
+        "ancestry-feature",
         "armor",
         "class-feature",
         "condition",
@@ -604,7 +640,7 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
     }
   },
   {
@@ -644,7 +680,7 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "class-feature", "consumable", "feat", "ritual", "spell"]
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "ritual", "spell"]
     }
   },
   {
@@ -684,7 +720,7 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "class-feature", "consumable", "feat", "ritual", "spell"]
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "ritual", "spell"]
     }
   },
   {
@@ -706,6 +742,7 @@
     "data": {
       "appliesTo": [
         "action",
+        "ancestry-feature",
         "class-feature",
         "condition",
         "consumable",
@@ -754,7 +791,17 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "class-feature", "condition", "consumable", "effect", "feat", "ritual", "spell"]
+      "appliesTo": [
+        "action",
+        "ancestry-feature",
+        "class-feature",
+        "condition",
+        "consumable",
+        "effect",
+        "feat",
+        "ritual",
+        "spell"
+      ]
     }
   },
   {
@@ -776,6 +823,7 @@
     "data": {
       "appliesTo": [
         "action",
+        "ancestry-feature",
         "class-feature",
         "condition",
         "consumable",
@@ -866,6 +914,7 @@
     "data": {
       "appliesTo": [
         "action",
+        "ancestry-feature",
         "class-feature",
         "condition",
         "consumable",
@@ -895,7 +944,7 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "class-feature", "feat"]
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "feat"]
     }
   },
   {
@@ -917,6 +966,7 @@
     "data": {
       "appliesTo": [
         "action",
+        "ancestry-feature",
         "class-feature",
         "condition",
         "consumable",
@@ -965,7 +1015,18 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "class-feature", "condition", "consumable", "effect", "feat", "ritual", "spell", "weapon"]
+      "appliesTo": [
+        "action",
+        "ancestry-feature",
+        "class-feature",
+        "condition",
+        "consumable",
+        "effect",
+        "feat",
+        "ritual",
+        "spell",
+        "weapon"
+      ]
     }
   },
   {
@@ -988,6 +1049,7 @@
       "appliesTo": [
         "action",
         "ancestry",
+        "ancestry-feature",
         "armor",
         "class-feature",
         "condition",
@@ -1021,7 +1083,7 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "class-feature", "condition", "effect", "feat"]
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "condition", "effect", "feat"]
     }
   },
   {
@@ -1041,7 +1103,17 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "ancestry", "class-feature", "creature", "equipment", "feat", "heritage", "weapon"]
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
     }
   },
   {
@@ -1061,7 +1133,7 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
     }
   },
   {
@@ -1081,7 +1153,17 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "ancestry", "class-feature", "creature", "equipment", "feat", "heritage", "weapon"]
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
     }
   },
   {
@@ -1104,6 +1186,7 @@
       "appliesTo": [
         "action",
         "ancestry",
+        "ancestry-feature",
         "armor",
         "class-feature",
         "condition",
@@ -1140,6 +1223,7 @@
       "appliesTo": [
         "action",
         "ancestry",
+        "ancestry-feature",
         "armor",
         "class-feature",
         "condition",
@@ -1173,7 +1257,17 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "ancestry", "class-feature", "creature", "equipment", "feat", "heritage", "weapon"]
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
     }
   },
   {
@@ -1195,6 +1289,7 @@
     "data": {
       "appliesTo": [
         "action",
+        "ancestry-feature",
         "class-feature",
         "condition",
         "consumable",
@@ -1224,7 +1319,7 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
     }
   },
   {
@@ -1244,7 +1339,7 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "class-feature", "consumable", "feat", "ritual", "spell"]
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "ritual", "spell"]
     }
   },
   {
@@ -1266,6 +1361,7 @@
     "data": {
       "appliesTo": [
         "action",
+        "ancestry-feature",
         "armor",
         "class-feature",
         "condition",
@@ -1359,6 +1455,7 @@
     "data": {
       "appliesTo": [
         "action",
+        "ancestry-feature",
         "class-feature",
         "condition",
         "consumable",
@@ -1388,7 +1485,7 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
     }
   },
   {
@@ -1431,6 +1528,7 @@
       "appliesTo": [
         "action",
         "ancestry",
+        "ancestry-feature",
         "armor",
         "class-feature",
         "condition",
@@ -1484,7 +1582,7 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "class-feature", "feat"]
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "feat"]
     }
   },
   {
@@ -1504,7 +1602,7 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "class-feature", "consumable", "feat", "ritual", "spell"]
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "ritual", "spell"]
     }
   },
   {
@@ -1527,6 +1625,7 @@
       "appliesTo": [
         "action",
         "ancestry",
+        "ancestry-feature",
         "armor",
         "class-feature",
         "condition",
@@ -1582,6 +1681,7 @@
     "data": {
       "appliesTo": [
         "action",
+        "ancestry-feature",
         "class-feature",
         "condition",
         "consumable",
@@ -1631,7 +1731,7 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "class-feature", "feat"]
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "feat"]
     }
   },
   {
@@ -1651,7 +1751,17 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "ancestry", "class-feature", "creature", "equipment", "feat", "heritage", "weapon"]
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
     }
   },
   {
@@ -1671,7 +1781,17 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "ancestry", "class-feature", "creature", "equipment", "feat", "heritage", "weapon"]
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
     }
   },
   {
@@ -1691,7 +1811,17 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "ancestry", "class-feature", "creature", "equipment", "feat", "heritage", "weapon"]
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
     }
   },
   {
@@ -1731,7 +1861,7 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
     }
   },
   {
@@ -1751,7 +1881,7 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
     }
   },
   {
@@ -1771,7 +1901,17 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "ancestry", "class-feature", "creature", "equipment", "feat", "heritage", "weapon"]
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
     }
   },
   {
@@ -1793,6 +1933,7 @@
     "data": {
       "appliesTo": [
         "action",
+        "ancestry-feature",
         "armor",
         "class-feature",
         "condition",
@@ -1823,7 +1964,17 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "class-feature", "condition", "consumable", "effect", "feat", "ritual", "spell"]
+      "appliesTo": [
+        "action",
+        "ancestry-feature",
+        "class-feature",
+        "condition",
+        "consumable",
+        "effect",
+        "feat",
+        "ritual",
+        "spell"
+      ]
     }
   },
   {
@@ -1846,6 +1997,7 @@
       "appliesTo": [
         "action",
         "ancestry",
+        "ancestry-feature",
         "armor",
         "class-feature",
         "condition",
@@ -1879,7 +2031,17 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "ancestry", "class-feature", "creature", "equipment", "feat", "heritage", "weapon"]
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
     }
   },
   {
@@ -1922,6 +2084,7 @@
       "appliesTo": [
         "action",
         "ancestry",
+        "ancestry-feature",
         "armor",
         "class-feature",
         "condition",
@@ -1956,6 +2119,7 @@
     "data": {
       "appliesTo": [
         "action",
+        "ancestry-feature",
         "class-feature",
         "condition",
         "consumable",
@@ -1984,7 +2148,7 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
     }
   },
   {
@@ -2024,7 +2188,7 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
     }
   },
   {
@@ -2064,7 +2228,7 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
     }
   },
   {
@@ -2084,7 +2248,17 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "ancestry", "class-feature", "creature", "equipment", "feat", "heritage", "weapon"]
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
     }
   },
   {
@@ -2107,6 +2281,7 @@
       "appliesTo": [
         "action",
         "ancestry",
+        "ancestry-feature",
         "armor",
         "class-feature",
         "condition",
@@ -2140,7 +2315,7 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "class-feature", "feat"]
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "feat"]
     }
   },
   {
@@ -2160,7 +2335,17 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "class-feature", "condition", "consumable", "effect", "feat", "ritual", "spell"]
+      "appliesTo": [
+        "action",
+        "ancestry-feature",
+        "class-feature",
+        "condition",
+        "consumable",
+        "effect",
+        "feat",
+        "ritual",
+        "spell"
+      ]
     }
   },
   {
@@ -2182,6 +2367,7 @@
     "data": {
       "appliesTo": [
         "action",
+        "ancestry-feature",
         "armor",
         "class-feature",
         "condition",
@@ -2213,7 +2399,7 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
     }
   },
   {
@@ -2233,7 +2419,7 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "class-feature", "consumable", "feat", "ritual", "spell"]
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "ritual", "spell"]
     }
   },
   {
@@ -2256,6 +2442,7 @@
       "appliesTo": [
         "action",
         "ancestry",
+        "ancestry-feature",
         "armor",
         "class-feature",
         "condition",
@@ -2292,6 +2479,7 @@
       "appliesTo": [
         "action",
         "ancestry",
+        "ancestry-feature",
         "armor",
         "class-feature",
         "condition",
@@ -2327,6 +2515,7 @@
     "data": {
       "appliesTo": [
         "action",
+        "ancestry-feature",
         "class-feature",
         "condition",
         "consumable",
@@ -2355,7 +2544,17 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "class-feature", "consumable", "feat", "kit", "ritual", "spell", "weapon"]
+      "appliesTo": [
+        "action",
+        "ancestry-feature",
+        "class-feature",
+        "consumable",
+        "feat",
+        "kit",
+        "ritual",
+        "spell",
+        "weapon"
+      ]
     }
   },
   {
@@ -2377,6 +2576,7 @@
     "data": {
       "appliesTo": [
         "action",
+        "ancestry-feature",
         "class-feature",
         "condition",
         "consumable",
@@ -2405,7 +2605,17 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "class-feature", "condition", "consumable", "effect", "feat", "ritual", "spell"]
+      "appliesTo": [
+        "action",
+        "ancestry-feature",
+        "class-feature",
+        "condition",
+        "consumable",
+        "effect",
+        "feat",
+        "ritual",
+        "spell"
+      ]
     }
   },
   {
@@ -2425,7 +2635,7 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "class-feature", "feat"]
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "feat"]
     }
   },
   {
@@ -2445,7 +2655,17 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "ancestry", "class-feature", "creature", "equipment", "feat", "heritage", "weapon"]
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
     }
   },
   {
@@ -2465,7 +2685,7 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
     }
   },
   {
@@ -2485,7 +2705,17 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "ancestry", "class-feature", "creature", "equipment", "feat", "heritage", "weapon"]
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
     }
   },
   {
@@ -2527,6 +2757,7 @@
     "data": {
       "appliesTo": [
         "action",
+        "ancestry-feature",
         "armor",
         "class-feature",
         "condition",
@@ -2561,6 +2792,7 @@
       "appliesTo": [
         "action",
         "ancestry",
+        "ancestry-feature",
         "armor",
         "class-feature",
         "condition",
@@ -2594,7 +2826,18 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "class-feature", "condition", "consumable", "effect", "feat", "ritual", "spell", "weapon"]
+      "appliesTo": [
+        "action",
+        "ancestry-feature",
+        "class-feature",
+        "condition",
+        "consumable",
+        "effect",
+        "feat",
+        "ritual",
+        "spell",
+        "weapon"
+      ]
     }
   },
   {
@@ -2614,7 +2857,7 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
     }
   },
   {
@@ -2634,7 +2877,17 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "ancestry", "class-feature", "creature", "equipment", "feat", "heritage", "weapon"]
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
     }
   },
   {
@@ -2654,7 +2907,17 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "ancestry", "class-feature", "creature", "equipment", "feat", "heritage", "weapon"]
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
     }
   },
   {
@@ -2697,6 +2960,7 @@
       "appliesTo": [
         "action",
         "ancestry",
+        "ancestry-feature",
         "armor",
         "class-feature",
         "condition",
@@ -2733,6 +2997,7 @@
       "appliesTo": [
         "action",
         "ancestry",
+        "ancestry-feature",
         "class-feature",
         "condition",
         "consumable",
@@ -2766,6 +3031,7 @@
     "data": {
       "appliesTo": [
         "action",
+        "ancestry-feature",
         "class-feature",
         "condition",
         "consumable",
@@ -2794,7 +3060,17 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "class-feature", "condition", "consumable", "effect", "feat", "ritual", "spell"]
+      "appliesTo": [
+        "action",
+        "ancestry-feature",
+        "class-feature",
+        "condition",
+        "consumable",
+        "effect",
+        "feat",
+        "ritual",
+        "spell"
+      ]
     }
   },
   {
@@ -2816,6 +3092,7 @@
     "data": {
       "appliesTo": [
         "action",
+        "ancestry-feature",
         "class-feature",
         "condition",
         "consumable",
@@ -2844,7 +3121,7 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "class-feature", "feat"]
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "feat"]
     }
   },
   {
@@ -2867,6 +3144,7 @@
       "appliesTo": [
         "action",
         "ancestry",
+        "ancestry-feature",
         "armor",
         "class-feature",
         "condition",
@@ -2920,7 +3198,7 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
     }
   },
   {
@@ -2960,7 +3238,7 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
     }
   },
   {
@@ -3000,7 +3278,7 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "class-feature", "consumable", "equipment", "feat", "ritual", "spell"]
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "equipment", "feat", "ritual", "spell"]
     }
   },
   {
@@ -3020,7 +3298,7 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
     }
   },
   {
@@ -3040,7 +3318,7 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
     }
   },
   {
@@ -3060,7 +3338,7 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "class-feature", "consumable", "feat", "ritual", "spell"]
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "ritual", "spell"]
     }
   },
   {
@@ -3082,6 +3360,7 @@
     "data": {
       "appliesTo": [
         "action",
+        "ancestry-feature",
         "class-feature",
         "condition",
         "consumable",
@@ -3111,7 +3390,7 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "class-feature", "consumable", "feat", "ritual", "spell"]
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "ritual", "spell"]
     }
   },
   {
@@ -3134,6 +3413,7 @@
       "appliesTo": [
         "action",
         "ancestry",
+        "ancestry-feature",
         "class-feature",
         "condition",
         "consumable",
@@ -3185,7 +3465,7 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "class-feature", "feat"]
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "feat"]
     }
   },
   {
@@ -3207,6 +3487,7 @@
     "data": {
       "appliesTo": [
         "action",
+        "ancestry-feature",
         "class-feature",
         "condition",
         "consumable",
@@ -3238,6 +3519,7 @@
       "appliesTo": [
         "action",
         "ancestry",
+        "ancestry-feature",
         "armor",
         "class-feature",
         "condition",
@@ -3271,7 +3553,7 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
     }
   },
   {
@@ -3291,7 +3573,17 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "class-feature", "condition", "consumable", "effect", "feat", "ritual", "spell"]
+      "appliesTo": [
+        "action",
+        "ancestry-feature",
+        "class-feature",
+        "condition",
+        "consumable",
+        "effect",
+        "feat",
+        "ritual",
+        "spell"
+      ]
     }
   },
   {
@@ -3314,6 +3606,7 @@
       "appliesTo": [
         "action",
         "ancestry",
+        "ancestry-feature",
         "armor",
         "class-feature",
         "condition",
@@ -3347,7 +3640,17 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "class-feature", "condition", "consumable", "effect", "feat", "ritual", "spell"]
+      "appliesTo": [
+        "action",
+        "ancestry-feature",
+        "class-feature",
+        "condition",
+        "consumable",
+        "effect",
+        "feat",
+        "ritual",
+        "spell"
+      ]
     }
   },
   {
@@ -3367,7 +3670,7 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "class-feature", "consumable", "feat", "ritual", "spell"]
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "ritual", "spell"]
     }
   },
   {
@@ -3387,7 +3690,17 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "ancestry", "class-feature", "creature", "equipment", "feat", "heritage", "weapon"]
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
     }
   },
   {
@@ -3407,7 +3720,17 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "class-feature", "condition", "consumable", "effect", "feat", "ritual", "spell"]
+      "appliesTo": [
+        "action",
+        "ancestry-feature",
+        "class-feature",
+        "condition",
+        "consumable",
+        "effect",
+        "feat",
+        "ritual",
+        "spell"
+      ]
     }
   },
   {
@@ -3427,7 +3750,7 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
     }
   },
   {
@@ -3447,7 +3770,7 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
     }
   },
   {
@@ -3487,7 +3810,17 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "ancestry", "class-feature", "creature", "equipment", "feat", "heritage", "weapon"]
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
     }
   },
   {
@@ -3507,7 +3840,17 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "ancestry", "class-feature", "creature", "equipment", "feat", "heritage", "weapon"]
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
     }
   },
   {
@@ -3529,6 +3872,7 @@
     "data": {
       "appliesTo": [
         "action",
+        "ancestry-feature",
         "class-feature",
         "condition",
         "consumable",
@@ -3558,7 +3902,7 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
     }
   },
   {
@@ -3738,7 +4082,17 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "ancestry", "class-feature", "creature", "equipment", "feat", "heritage", "weapon"]
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
     }
   },
   {
@@ -3761,6 +4115,7 @@
       "appliesTo": [
         "action",
         "ancestry",
+        "ancestry-feature",
         "armor",
         "class-feature",
         "condition",
@@ -3856,6 +4211,7 @@
     "data": {
       "appliesTo": [
         "action",
+        "ancestry-feature",
         "armor",
         "class-feature",
         "condition",
@@ -3889,6 +4245,7 @@
       "appliesTo": [
         "action",
         "ancestry",
+        "ancestry-feature",
         "armor",
         "class-feature",
         "condition",
@@ -3925,6 +4282,7 @@
       "appliesTo": [
         "action",
         "ancestry",
+        "ancestry-feature",
         "armor",
         "class-feature",
         "condition",
@@ -3981,6 +4339,7 @@
       "appliesTo": [
         "action",
         "ancestry",
+        "ancestry-feature",
         "armor",
         "class-feature",
         "condition",
@@ -4014,7 +4373,7 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
     }
   },
   {
@@ -4034,7 +4393,7 @@
     "description": [],
     "rules": [],
     "data": {
-      "appliesTo": ["action", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
     }
   },
   {
@@ -4057,6 +4416,7 @@
       "appliesTo": [
         "action",
         "ancestry",
+        "ancestry-feature",
         "armor",
         "class-feature",
         "condition",

@@ -21,9 +21,10 @@ import { senseElement } from './translate-senses';
 import { spellcastingRules } from './translate-spellcasting';
 
 /**
- * A feat's `data` from Foundry's `feat` item, and a class feature's from a `feat` item of category `classfeature`
- * (content-model.md, "Feats"). A feat used as an action carries the `action` kind's data, read as the action
- * translator reads an `action` item. Foundry's other feature categories have no kind yet and are reported.
+ * A feat's `data` from Foundry's `feat` item, and a class or ancestry feature's from a `feat` item of category
+ * `classfeature` or `ancestryfeature` (content-model.md, "Feats"). A feat used as an action carries the `action`
+ * kind's data, read as the action translator reads an `action` item. Foundry's other feature categories have no kind
+ * yet and are reported.
  */
 
 export const FEAT_FIELDS: ReadonlySet<string> = new Set([
@@ -217,4 +218,14 @@ export function classFeatureData(input: KindInput): object | undefined {
   spellcastingRules(input);
   subfeatureRules(system, input);
   return { ...actionOf(system, input), ...tagsOf(system, input) };
+}
+
+/** The ancestry feature's data, unparsed: its `action` data when it is itself an action. */
+export function ancestryFeatureData(input: KindInput): object | undefined {
+  const system = systemOf(FoundryFeatSystem, input);
+  if (system === undefined) {
+    return undefined;
+  }
+  subfeatureRules(system, input);
+  return actionOf(system, input);
 }

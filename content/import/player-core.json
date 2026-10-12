@@ -1052,14 +1052,6 @@
         {
           "type": "enricher",
           "enricher": "@UUID[journals]"
-        },
-        {
-          "type": "reference",
-          "entry": "player-core/feat:keen-eyes",
-          "element": {
-            "key": "GrantItem",
-            "item": "1e14b1f1-0243-5700-b68f-a397d796d74b"
-          }
         }
       ]
     },
@@ -1084,14 +1076,6 @@
         {
           "type": "enricher",
           "enricher": "@UUID[journals]"
-        },
-        {
-          "type": "reference",
-          "entry": "player-core/feat:plant-nourishment",
-          "element": {
-            "key": "GrantItem",
-            "item": "26f11432-c100-551b-9cce-582b3cf99df6"
-          }
         }
       ]
     },
@@ -29459,58 +29443,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:greater-darkvision",
-      "foundry": "Compendium.pf2e.ancestryfeatures.Item.vPhPgzpRjYDMT9Kq",
-      "leftOut": {
-        "reason": "no-kind-data",
-        "detail": ""
-      },
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "category",
-          "raw": "ancestryfeature"
-        }
-      ],
-      "document": {
-        "_id": "vPhPgzpRjYDMT9Kq",
-        "name": "Greater Darkvision",
-        "type": "feat",
-        "system": {
-          "publication": {
-            "title": "Pathfinder Player Core",
-            "license": "ORC",
-            "remaster": true
-          },
-          "level": {
-            "value": 0
-          },
-          "traits": {
-            "value": [],
-            "rarity": "common"
-          },
-          "description": {
-            "value": "<p>You can see in darkness and dim light just as well as you can see in bright light, though your vision in darkness is in black and white. Some forms of magical darkness, such as a 4th-rank @UUID[Compendium.pf2e.spells-srd.Item.Darkness] spell, block normal darkvision. You, however, can see through even these forms of magical darkness.</p>"
-          },
-          "rules": [],
-          "actionType": {
-            "value": "passive"
-          },
-          "actions": {
-            "value": null
-          },
-          "category": "ancestryfeature",
-          "prerequisites": {
-            "value": []
-          }
-        },
-        "folder": "crcu0JPWMqOS2kKZ"
-      }
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:greater-lesson",
       "foundry": "Compendium.pf2e.feats-srd.Item.qDfTqetM9UEpp8ty",
       "gaps": [
@@ -30830,96 +30762,6 @@
           }
         }
       ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:keen-eyes",
-      "foundry": "Compendium.pf2e.ancestryfeatures.Item.y1EmCv2cEb5hXBwx",
-      "leftOut": {
-        "reason": "no-kind-data",
-        "detail": ""
-      },
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              "action:seek",
-              {
-                "lte": ["target:distance", 30]
-              },
-              {
-                "or": ["target:condition:hidden", "target:condition:undetected"]
-              }
-            ],
-            "selector": "perception",
-            "type": "circumstance",
-            "value": 2
-          }
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "category",
-          "raw": "ancestryfeature"
-        }
-      ],
-      "document": {
-        "_id": "y1EmCv2cEb5hXBwx",
-        "name": "Keen Eyes",
-        "type": "feat",
-        "system": {
-          "publication": {
-            "title": "Pathfinder Player Core",
-            "license": "ORC",
-            "remaster": true
-          },
-          "level": {
-            "value": 0
-          },
-          "traits": {
-            "value": ["halfling"],
-            "rarity": "common",
-            "selected": {
-              "halfling": "Halfling"
-            }
-          },
-          "description": {
-            "value": "<p>Your eyes are sharp, allowing you to make out small details about @UUID[Compendium.pf2e.conditionitems.Item.Concealed] or even @UUID[Compendium.pf2e.conditionitems.Item.Invisible] creatures that others might miss. You gain a +2 circumstance bonus when using the @UUID[Compendium.pf2e.actionspf2e.Item.Seek] action to find @UUID[Compendium.pf2e.conditionitems.Item.Hidden] or @UUID[Compendium.pf2e.conditionitems.Item.Undetected] creatures within 30 feet of you. When you target an opponent that is concealed from you or hidden from you, reduce the DC of the flat check to 3 for a concealed target or 9 for a hidden one.</p>"
-          },
-          "rules": [
-            {
-              "key": "FlatModifier",
-              "predicate": [
-                "action:seek",
-                {
-                  "lte": ["target:distance", 30]
-                },
-                {
-                  "or": ["target:condition:hidden", "target:condition:undetected"]
-                }
-              ],
-              "selector": "perception",
-              "type": "circumstance",
-              "value": 2
-            }
-          ],
-          "actionType": {
-            "value": "passive"
-          },
-          "actions": {
-            "value": null
-          },
-          "category": "ancestryfeature",
-          "prerequisites": {
-            "value": []
-          }
-        },
-        "folder": "LIhCSPRG7CNduukf"
-      }
     },
     {
       "type": "entry",
@@ -32834,58 +32676,6 @@
           "enricher": "@Check[against]"
         }
       ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:plant-nourishment",
-      "foundry": "Compendium.pf2e.ancestryfeatures.Item.Sm3tKetM6kddTio3",
-      "leftOut": {
-        "reason": "no-kind-data",
-        "detail": ""
-      },
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "category",
-          "raw": "ancestryfeature"
-        }
-      ],
-      "document": {
-        "_id": "Sm3tKetM6kddTio3",
-        "name": "Plant Nourishment",
-        "type": "feat",
-        "system": {
-          "publication": {
-            "title": "Pathfinder Player Core",
-            "license": "ORC",
-            "remaster": true
-          },
-          "level": {
-            "value": 0
-          },
-          "traits": {
-            "value": ["leshy"],
-            "rarity": "common"
-          },
-          "description": {
-            "value": "<p>You gain nourishment in the same way that the plants or fungi that match your body type normally do, through some combination of photosynthesis, absorbing minerals with your roots, or scavenging decaying matter. You typically do not need to pay for food. If you normally rely on photosynthesis and go without sunlight for 1 week, you begin to starve. You can derive nourishment from specially formulated bottles of sunlight instead of natural sunlight, but these bottles cost 10 times as much as standard rations (or 40 sp).</p>"
-          },
-          "rules": [],
-          "actionType": {
-            "value": "passive"
-          },
-          "actions": {
-            "value": null
-          },
-          "category": "ancestryfeature",
-          "prerequisites": {
-            "value": []
-          }
-        },
-        "folder": "tABdrP6VWoMmZyjX"
-      }
     },
     {
       "type": "entry",

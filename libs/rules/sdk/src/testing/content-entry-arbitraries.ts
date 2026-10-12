@@ -140,6 +140,8 @@ const classFeatureData: Arbitrary<object> = withOptional(constant({}), {
   tags: uniqueArray(slugText, { minLength: 1, maxLength: LIST_MAX }),
 });
 
+const ancestryFeatureData: Arbitrary<object> = withOptional(constant({}), { action: actionData });
+
 const conditionRefs: Arbitrary<string[]> = uniqueArray(contentIdJson, { maxLength: LIST_MAX });
 const conditionData: Arbitrary<object> = withOptional(
   record({ valued: boolean(), overrides: conditionRefs, implies: conditionRefs }),
@@ -170,6 +172,7 @@ interface KindArbitrary {
 const KIND_ARBITRARIES: Readonly<Record<RegisteredKind, KindArbitrary>> = {
   [ContentKind.Action]: { data: actionData },
   [ContentKind.Ancestry]: { data: ancestryData },
+  [ContentKind.AncestryFeature]: { data: ancestryFeatureData },
   [ContentKind.Archetype]: { data: archetypeData },
   [ContentKind.Background]: { data: backgroundData },
   [ContentKind.Class]: { data: classData },

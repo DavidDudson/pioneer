@@ -126,6 +126,23 @@ export const reactiveStrike = {
   data: {},
 };
 
+export const keenEyes = {
+  ...playerCore('ancestry-feature:keen-eyes', 'Keen Eyes', 'Your eyes are sharp.'),
+  kind: ContentKind.AncestryFeature,
+  traits: ['halfling'],
+  // The halfling ancestry grants it; it is never picked.
+  rules: [
+    {
+      key: 'FlatModifier',
+      selectors: ['perception'],
+      type: 'circumstance',
+      value: 2,
+      predicate: ['action:seek', { or: ['target:condition:hidden', 'target:condition:undetected'] }],
+    },
+  ],
+  data: {},
+};
+
 export const suddenCharge = {
   ...playerCore('feat:sudden-charge', 'Sudden Charge', 'With a quick sprint, you dash up to your foe and swing.'),
   kind: ContentKind.Feat,

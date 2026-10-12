@@ -72,6 +72,17 @@ describe('grantLookup', () => {
     expect(cloak?.rollOptions).toEqual([RollOption.parse('trait:invested')]);
   });
 
+  test('finds ancestry features, and an ancestry with the rule elements that grant them', () => {
+    const builder = new ContentPackBuilder().withAncestryFeature('keen-eyes');
+    const grant = { key: 'GrantItem', item: builder.idOf(ContentKind.AncestryFeature, 'keen-eyes') };
+    const registry = new ContentRegistry();
+    registry.register(builder.withAncestry('halfling', { rules: [grant] }).build());
+    const lookup = grantLookup(registry);
+    const [halfling] = lookup.ofKind(ContentKind.Ancestry);
+    expect(halfling?.rules).toEqual([RuleElement.parse(grant)]);
+    expect(lookup.ofKind(ContentKind.AncestryFeature).map((entry) => String(entry.slug))).toEqual(['keen-eyes']);
+  });
+
   test('finds heritages, each belonging to its ancestry, a versatile one to none', () => {
     const builder = new ContentPackBuilder()
       .withAncestry('dwarf')
