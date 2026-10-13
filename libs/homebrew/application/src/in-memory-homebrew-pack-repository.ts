@@ -29,4 +29,12 @@ export class InMemoryHomebrewPackRepository extends HomebrewPackRepository {
     this.#rows.set(pack.id, pack);
     return pack;
   }
+
+  public override async updateVisibility(pack: HomebrewPack): Promise<HomebrewPack | undefined> {
+    if (!this.#rows.has(pack.id)) {
+      return undefined;
+    }
+    this.#rows.set(pack.id, pack);
+    return pack;
+  }
 }

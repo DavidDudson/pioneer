@@ -1,4 +1,4 @@
-import { contentPackId, ContentText, PackId } from '@pioneer/rules/sdk';
+import { contentPackId, ContentText, PackId, PackVisibility } from '@pioneer/rules/sdk';
 import { derivedId, FixtureNamespace, fixedClock, UserId } from '@pioneer/shared/kernel';
 import type { Temporal } from '@pioneer/shared/kernel';
 
@@ -18,6 +18,7 @@ export class HomebrewPackBuilder {
   #slug: PackId = PackId.parse('amiri-feats');
   #title: ContentText = ContentText.parse('Amiri feats');
   #ownerId: UserId = fixtureOwnerId;
+  #visibility: PackVisibility = PackVisibility.Private;
   #at: Temporal.Instant = fixedClock('2026-01-01T00:00:00Z').now();
 
   public slug(slug: string): this {
@@ -35,6 +36,11 @@ export class HomebrewPackBuilder {
     return this;
   }
 
+  public visibleTo(visibility: PackVisibility): this {
+    this.#visibility = visibility;
+    return this;
+  }
+
   public updatedAt(instant: Temporal.Instant): this {
     this.#at = instant;
     return this;
@@ -48,6 +54,6 @@ export class HomebrewPackBuilder {
       publisher: ContentText.parse('Amiri'),
       ownerId: this.#ownerId,
       now: this.#at,
-    });
+    }).withVisibility(this.#visibility, this.#at);
   }
 }

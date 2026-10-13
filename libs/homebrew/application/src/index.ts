@@ -4,3 +4,6 @@ export { HomebrewPackRepository } from './homebrew-pack-repository';
 export { HomebrewPackService } from './homebrew-pack-service';
 export { InMemoryAuthorDirectory } from './in-memory-author-directory';
 export { InMemoryHomebrewPackRepository } from './in-memory-homebrew-pack-repository';
+export { InMemoryPackEnablementDirectory } from './in-memory-pack-enablement-directory';
+export { PackAccessPolicy } from './pack-access-policy';
+export { PackEnablementDirectory } from './pack-enablement-directory';

@@ -2,7 +2,6 @@ import { HomebrewPackRepository } from '@pioneer/homebrew/application';
 import { EntryCount, HomebrewPack } from '@pioneer/homebrew/domain';
 import { contentEntries, contentHash, contentPacks } from '@pioneer/rules/infrastructure';
 import type { ContentPackFile, ContentPackId } from '@pioneer/rules/sdk';
-import { PackVisibility } from '@pioneer/rules/sdk';
 import { Temporal } from '@pioneer/shared/kernel';
 import type { UserId } from '@pioneer/shared/kernel';
 import { stampAudit } from '@pioneer/shared/server';
@@ -11,8 +10,9 @@ import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
 
 type PackRow = typeof contentPacks.$inferSelect;
 
-/** Names the insert on the audit rows it writes, as a service use case names a command. */
+/** Name the commands on the audit rows they write, as a service use case names a command. */
 const CREATE_COMMAND = 'create-homebrew-pack';
+const SET_VISIBILITY_COMMAND = 'set-homebrew-pack-visibility';
 
 /** A pack's owner is always set for homebrew; an official row (no owner) is never read as one. */
 function toPack(row: PackRow, entryCount: EntryCount): HomebrewPack | undefined {
@@ -50,7 +50,7 @@ function toRow(pack: HomebrewPack): PackRow {
     title: pack.title,
     publisher: pack.publisher,
     ownerId: pack.ownerId,
-    visibility: PackVisibility.Private,
+    visibility: pack.visibility,
     license: HomebrewPack.license,
     version: pack.version,
     contentHash: contentHash({ file, entries: [] }),
@@ -101,6 +101,18 @@ export class DrizzleHomebrewPackRepository extends HomebrewPackRepository {
         .returning({ id: contentPacks.id });
     });
     return inserted.length === 0 ? undefined : pack;
+  }
+
+  public override async updateVisibility(pack: HomebrewPack): Promise<HomebrewPack | undefined> {
+    const updated = await this.#db.transaction(async (tx) => {
+      await stampAudit(tx, { actor: pack.ownerId, command: SET_VISIBILITY_COMMAND });
+      return tx
+        .update(contentPacks)
+        .set({ visibility: pack.visibility, updatedAt: pack.updatedAt.toString() })
+        .where(and(eq(contentPacks.id, pack.id), isNotNull(contentPacks.ownerId)))
+        .returning({ id: contentPacks.id });
+    });
+    return updated.length === 0 ? undefined : pack;
   }
 
   async #entryCounts(packIds: readonly ContentPackId[]): Promise<ReadonlyMap<ContentPackId, EntryCount>> {

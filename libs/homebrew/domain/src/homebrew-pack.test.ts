@@ -15,6 +15,16 @@ describe('HomebrewPack', () => {
     expect(pack.version).toBe(FIRST_VERSION);
   });
 
+  test('withVisibility changes only the visibility and the time, leaving the original untouched', () => {
+    const pack = new HomebrewPackBuilder().build();
+    const later = pack.updatedAt.add({ minutes: 5 });
+    const shared = pack.withVisibility(PackVisibility.Public, later);
+    expect(shared.visibility).toBe(PackVisibility.Public);
+    expect(shared.updatedAt).toStrictEqual(later);
+    expect(shared).toMatchObject({ id: pack.id, slug: pack.slug, ownerId: pack.ownerId, version: pack.version });
+    expect(pack.visibility).toBe(PackVisibility.Private);
+  });
+
   test('the codec round-trips through the wire', () => {
     const pack = new HomebrewPackBuilder().slug('ezren-spells').build();
     const wire = HomebrewPack.codec.encode(pack);

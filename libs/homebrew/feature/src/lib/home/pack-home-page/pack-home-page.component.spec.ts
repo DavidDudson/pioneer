@@ -1,8 +1,9 @@
 import { HttpTestingController } from '@angular/common/http/testing';
+import type { DebugElement } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { provideRouter, withComponentInputBinding } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
-import { frontierMessages } from '@pioneer/frontier';
+import { frontierMessages, SelectField } from '@pioneer/frontier';
 import { provideI18n } from '@pioneer/shared/web';
 import { describe, expect, it, vi } from 'vitest';
 
@@ -28,6 +29,34 @@ async function open(): Promise<RouterTestingHarness> {
     ],
   });
   return RouterTestingHarness.create(`/homebrew/${id}`);
+}
+
+const loadedPack = {
+  id,
+  version: 1,
+  slug: 'amiri-feats',
+  title: 'Amiri feats',
+  publisher: 'Amiri',
+  ownerId,
+  visibility: 'private',
+  entryCount: 0,
+  updatedAt: '2026-10-10T10:00:00.000Z',
+};
+
+/** Opens the pack home and answers its load with the pack. */
+async function openLoaded(): Promise<RouterTestingHarness> {
+  const harness = await open();
+  TestBed.inject(HttpTestingController).expectOne(`/api/homebrew/packs/${id}`).flush(loadedPack);
+  await harness.fixture.whenStable();
+  await vi.waitFor(() => {
+    expect(present(harness.routeNativeElement).textContent).toContain('amiri-feats');
+  });
+  return harness;
+}
+
+function visibilityField(harness: RouterTestingHarness): DebugElement {
+  const [field] = harness.fixture.debugElement.queryAll((each) => each.componentInstance instanceof SelectField);
+  return present(field);
 }
 
 describe('PackHomePage', () => {
@@ -64,6 +93,70 @@ describe('PackHomePage', () => {
 
     await vi.waitFor(() => {
       expect(present(harness.routeNativeElement).textContent).toContain('Could not load this pack.');
+    });
+  });
+
+  it('lets the owner choose who can see the pack, and shows the new choice', async () => {
+    const harness = await openLoaded();
+    const http = TestBed.inject(HttpTestingController);
+    visibilityField(harness).triggerEventHandler('valueChange', 'public');
+    const request = http.expectOne(`/api/homebrew/packs/${id}/visibility`);
+    expect(request.request.method).toBe('PATCH');
+    expect(request.request.body).toStrictEqual({ visibility: 'public' });
+    request.flush({ ...loadedPack, visibility: 'public' });
+    await harness.fixture.whenStable();
+
+    await vi.waitFor(() => {
+      expect(present(harness.routeNativeElement).textContent).toContain('Public: everyone signed in');
+    });
+  });
+
+  it('says which campaigns still enable the pack when it cannot go private', async () => {
+    const harness = await openLoaded();
+    const http = TestBed.inject(HttpTestingController);
+
+    visibilityField(harness).triggerEventHandler('valueChange', 'campaign');
+    http.expectOne(`/api/homebrew/packs/${id}/visibility`).flush({ ...loadedPack, visibility: 'campaign' });
+    await harness.fixture.whenStable();
+    await vi.waitFor(() => {
+      expect(present(harness.routeNativeElement).textContent).toContain(
+        'Campaign: members of campaigns that enable it',
+      );
+    });
+    visibilityField(harness).triggerEventHandler('valueChange', 'private');
+    http.expectOne(`/api/homebrew/packs/${id}/visibility`).flush(
+      {
+        type: 'conflict',
+        title: 'Conflict',
+        status: 409,
+        message: { key: 'homebrew.pack.campaignsEnableIt', params: { campaigns: 'Kingmaker, Rise of the Runelords' } },
+      },
+      { status: 409, statusText: 'Conflict' },
+    );
+    await harness.fixture.whenStable();
+
+    await vi.waitFor(() => {
+      const text = present(harness.routeNativeElement).textContent;
+      expect(text).toContain('Kingmaker, Rise of the Runelords');
+      expect(text).toContain('Campaign: members of campaigns that enable it');
+    });
+  });
+
+  it('tells someone who does not own the pack that only the owner can change it', async () => {
+    const harness = await openLoaded();
+    visibilityField(harness).triggerEventHandler('valueChange', 'public');
+    TestBed.inject(HttpTestingController)
+      .expectOne(`/api/homebrew/packs/${id}/visibility`)
+      .flush(
+        { type: 'forbidden', title: 'Forbidden', status: 403, message: { key: 'problem.forbidden' } },
+        { status: 403, statusText: 'Forbidden' },
+      );
+    await harness.fixture.whenStable();
+
+    await vi.waitFor(() => {
+      expect(present(harness.routeNativeElement).textContent).toContain(
+        'Only the pack’s owner can change who can see it.',
+      );
     });
   });
 });

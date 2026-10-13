@@ -18,4 +18,10 @@ export abstract class HomebrewPackRepository {
    * creations racing for one slug cannot both succeed.
    */
   public abstract insert(pack: HomebrewPack): Promise<HomebrewPack | undefined>;
+
+  /**
+   * Store the pack's new visibility and time. Undefined when no homebrew pack has the id (official packs never
+   * do), so an official pack cannot be changed through here.
+   */
+  public abstract updateVisibility(pack: HomebrewPack): Promise<HomebrewPack | undefined>;
 }

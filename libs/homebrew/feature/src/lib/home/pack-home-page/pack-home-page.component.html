@@ -39,6 +39,16 @@
             </fr-description-list>
           </fr-stack>
         </fr-surface>
+        <fr-surface>
+          <fr-select-field
+            [label]="'homebrew.pack.visibilityLabel' | transloco"
+            [hint]="'homebrew.pack.visibilityHint' | transloco"
+            [error]="visibilityError()"
+            [options]="visibilityOptions()"
+            [value]="pack.visibility"
+            (valueChange)="chooseVisibility(pack, $event)"
+          />
+        </fr-surface>
       </ng-template>
     </fr-async-region>
   </fr-stack>
