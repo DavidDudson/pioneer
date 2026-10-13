@@ -211,10 +211,16 @@ function featOptions(slot: ChoiceSlot, content: SlotContent, facts: PredicateFac
   });
 }
 
+/** `document` with `slot` empty: how a slot reads what may go in it, so the pick it would replace counts for nothing. */
+export function withoutPick(document: CharacterDocument, slot: SlotKey): CharacterDocument {
+  const { [slot]: _own, ...choices } = document.build.choices;
+  return { ...document, build: { ...document.build, choices } };
+}
+
 /**
  * Every feat slot the character has up to 20th level, lowest level first, each read at the level it opens: it offers
- * the feats of its kind up to that level, each met, not met or unknown over the character's facts there (#466). A
- * feat whose prerequisites aren't met is still offered, so the picker can say why it can't be taken.
+ * the feats of its kind up to that level, each met, not met or unknown over the character's facts there with the slot itself empty, as `selectSlot`
+ * reads it (#466). A feat whose prerequisites aren't met is still offered, so the picker can say why it can't be taken.
  */
 export function featSlots(document: CharacterDocument, content: SlotContent): readonly FeatSlot[] {
   const reads = prerequisiteReads(document, content);
@@ -235,7 +241,11 @@ export function featSlots(document: CharacterDocument, content: SlotContent): re
           entry: slot.origin.entry,
           prompt: slot.prompt,
           get options(): readonly FeatOption[] {
-            options ??= featOptions(slot, content, reads.factsAt(level));
+            options ??= featOptions(
+              slot,
+              content,
+              prerequisiteReads(withoutPick(document, key), content).factsAt(level),
+            );
             return options;
           },
         },

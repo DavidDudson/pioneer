@@ -1,87 +1,31 @@
 import { describe, expect, test } from 'bun:test';
 
-import { ChoiceValue, ContentKind, ContentRegistry, SlotKey } from '@pioneer/rules/sdk';
-import { ContentPackBuilder, CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
+import { ChoiceValue, ContentRegistry } from '@pioneer/rules/sdk';
+import type { SlotKey } from '@pioneer/rules/sdk';
+import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
 
 import { SlotInvalidMessage, SlotStatus } from './character-slot';
 import { characterSlots } from './character-slot-status';
 import { featSlots, PrerequisiteStatus } from './feat-slots';
 import { slotContent, slotRefusal } from './slot-offer';
-import { CharacterBuilder, skillFixtureId, skillFixtures } from './testing';
+import {
+  CharacterBuilder,
+  FEAT_SLOT_FIGHTER,
+  FEAT_SLOT_FIXTURES,
+  FEAT_SLOT_KEYS,
+  featSlotFixtureId,
+  skillFixtureId,
+  skillFixtures,
+} from './testing';
+import type { FeatSlotFixture } from './testing';
 
-const builder = new ContentPackBuilder().withId('feat-slots');
-const idOf = (name: string): string => builder.idOf(ContentKind.Feat, name);
-const classId = builder.idOf(ContentKind.Class, 'fighter');
-
-/** A class feat slot at `level`, as the importer writes one (`kind-fields.ts`). */
-function classFeatSlot(level: number): object[] {
-  const flag = `class-feat-${level}`;
-  const predicate = level === 1 ? {} : { predicate: [{ gte: ['self:level', level] }] };
-  return [
-    {
-      key: 'ChoiceSet',
-      flag,
-      prompt: 'Fighter feat',
-      choices: { kind: 'feat', filter: ['item:trait:fighter', { lte: ['item:level', 'self:level'] }] },
-      ...predicate,
-    },
-    { key: 'GrantItem', item: { choice: flag }, ...predicate },
-  ];
-}
-
-const FIGHTER = ['fighter'];
-/** Features the fighter gains at 8th level: one with a feat slot of its own, one that grants Power Attack. */
-const AT_8 = { predicate: [{ gte: ['self:level', 8] }] };
-const rules = [
-  { key: 'Proficiency', selector: 'skill:athletics', rank: 'trained' },
-  { key: 'Proficiency', selector: 'perception', rank: 'expert' },
-  ...classFeatSlot(1),
-  ...classFeatSlot(2),
-  ...classFeatSlot(4),
-  { key: 'GrantItem', item: builder.idOf(ContentKind.ClassFeature, 'bonus-feat'), ...AT_8 },
-  { key: 'GrantItem', item: builder.idOf(ContentKind.ClassFeature, 'veteran'), ...AT_8 },
-];
-/** The slot each class feat slot is keyed by: the class and the rule index of its `ChoiceSet`. */
-const LEVEL_1 = SlotKey.parse(`${classId}:2`);
-const LEVEL_2 = SlotKey.parse(`${classId}:4`);
-const LEVEL_4 = SlotKey.parse(`${classId}:6`);
-/** The feat slot of the feature the fighter gains at 8th level: its `ChoiceSet`, which has no prompt. */
-const BONUS = SlotKey.parse(`${builder.idOf(ContentKind.ClassFeature, 'bonus-feat')}:0`);
-
-const prerequisites = (text: string): object[] => [{ type: 'paragraph', content: [{ type: 'text', text }] }];
-
-builder
-  .withClass('fighter', ['str'], { rules })
-  .withFeat('power-attack', { traits: FIGHTER })
-  .withFeat('sudden-charge', {
-    traits: FIGHTER,
-    data: {
-      prerequisites: prerequisites('expert in Athletics'),
-      prerequisitePredicate: [{ gte: ['skill:athletics:rank', 2] }],
-    },
-  })
-  .withFeat('reactive-shield', { traits: FIGHTER, data: { prerequisites: prerequisites('an animal companion') } })
-  .withFeat('keen-eye', { traits: FIGHTER, data: { prerequisitePredicate: [{ gte: ['perception:rank', 2] }] } })
-  .withFeat('brawn', { traits: FIGHTER, data: { prerequisitePredicate: [{ gte: ['attribute:str:mod', 2] }] } })
-  .withFeat('brutish-shove', { level: 2, traits: FIGHTER, data: { prerequisitePredicate: ['feat:power-attack'] } })
-  .withFeat('lunge', { level: 2, traits: FIGHTER })
-  .withFeat('knockdown', { level: 4, traits: FIGHTER })
-  .withFeat('assurance')
-  .withClassFeature('bonus-feat', {
-    rules: [
-      {
-        key: 'ChoiceSet',
-        flag: 'bonus-feat',
-        choices: { kind: 'feat', filter: ['item:trait:fighter', { lte: ['item:level', 'self:level'] }] },
-      },
-      { key: 'GrantItem', item: { choice: 'bonus-feat' } },
-    ],
-  })
-  .withClassFeature('veteran', { rules: [{ key: 'GrantItem', item: idOf('power-attack') }] });
+const idOf = featSlotFixtureId;
+const classId = FEAT_SLOT_FIGHTER;
+const { level1: LEVEL_1, level2: LEVEL_2, level4: LEVEL_4, bonus: BONUS } = FEAT_SLOT_KEYS;
 
 const registry = new ContentRegistry();
 registry.register(skillFixtures());
-registry.register(builder.build());
+registry.register(FEAT_SLOT_FIXTURES);
 const content = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 
 function fighter(level = 1): CharacterBuilder {
@@ -147,6 +91,11 @@ describe('featSlots', () => {
     expect(offered(later, LEVEL_2)['brutish-shove']).toBe(PrerequisiteStatus.Unmet);
   });
 
+  test('reads a slot as if empty, so a feat it would replace meets nothing there', () => {
+    const holding = fighter(2).picking(LEVEL_2, idOf('power-attack'));
+    expect(offered(holding, LEVEL_2)['brutish-shove']).toBe(PrerequisiteStatus.Unmet);
+  });
+
   test("opens a feature's own feat slot at the level the feature is gained, with no prompt", () => {
     const bonus = featSlots(fighter(8).build().document, content).find((slot) => slot.key === BONUS);
     expect(bonus).toMatchObject({ level: 8, prompt: undefined });
@@ -206,7 +155,7 @@ describe('characterSlots with feat prerequisites', () => {
   });
 });
 
-function refusal(character: CharacterBuilder, slot: SlotKey, feat: string): unknown {
+function refusal(character: CharacterBuilder, slot: SlotKey, feat: FeatSlotFixture): unknown {
   return slotRefusal(character.build().document, content, { slot, selection: ChoiceValue.parse(idOf(feat)) });
 }
 

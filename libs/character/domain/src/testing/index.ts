@@ -43,3 +43,10 @@ export {
 } from './language-fixtures';
 export { NO_FEATS } from './feat-fixtures';
 export { NO_SPELLS, type SpellFixture, spellFixtureId, spellFixtures } from './spell-fixtures';
+export {
+  FEAT_SLOT_FIGHTER,
+  FEAT_SLOT_FIXTURES,
+  FEAT_SLOT_KEYS,
+  type FeatSlotFixture,
+  featSlotFixtureId,
+} from './feat-slot-fixtures';

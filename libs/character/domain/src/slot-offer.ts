@@ -6,7 +6,7 @@ import { message } from '@pioneer/shared/kernel';
 import type { CharacterDocument } from './character-document';
 import { CHARACTER_LEVEL_MAX, CHARACTER_LEVEL_MIN } from './character-fields';
 import { FeatPickProblem } from './feat-content';
-import { featPickProblem, prerequisiteReads } from './feat-slots';
+import { featPickProblem, prerequisiteReads, withoutPick } from './feat-slots';
 import { LanguagePickProblem, languageSlots, problemOf } from './languages';
 import type { LanguageSlot } from './languages';
 import type { SkillContent } from './skill-content';
@@ -129,9 +129,7 @@ const FEAT_REFUSALS: Readonly<Record<FeatPickProblem, SlotRefusal>> = {
  * for any other slot.
  */
 function featRefusal(document: CharacterDocument, content: SlotContent, pick: SlotPick): SlotRefusal | undefined {
-  const { [pick.slot]: _own, ...choices } = document.build.choices;
-  const without: CharacterDocument = { ...document, build: { ...document.build, choices } };
-  const problem = featPickProblem(prerequisiteReads(without, content), pick);
+  const problem = featPickProblem(prerequisiteReads(withoutPick(document, pick.slot), content), pick);
   return problem === undefined ? undefined : FEAT_REFUSALS[problem];
 }
 
