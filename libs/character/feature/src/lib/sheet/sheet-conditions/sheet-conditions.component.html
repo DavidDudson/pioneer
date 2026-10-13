@@ -9,7 +9,9 @@
           @for (view of views(); track view.id) {
             <fr-stack gap="2xs">
               <fr-stack direction="horizontal" align="center" gap="sm" wrap>
-                <fr-text weight="semibold">{{ view.name }}</fr-text>
+                <pio-entry-hover [entry]="view.condition">
+                  <fr-text weight="semibold" tabindex="0">{{ view.name }}</fr-text>
+                </pio-entry-hover>
                 @if (view.value !== undefined) {
                   <fr-badge>{{ view.value }}</fr-badge>
                 }

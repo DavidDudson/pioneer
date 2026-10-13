@@ -11,6 +11,7 @@ export {
   ENTRY_PREVIEWS,
   type EntryPreview,
   type EntryPreviews,
+  type PreviewEffect,
   provideEntryPreviews,
 } from './lib/entry-preview/entry-preview';
 export { RichTextView } from './lib/rich-text/rich-text.component';

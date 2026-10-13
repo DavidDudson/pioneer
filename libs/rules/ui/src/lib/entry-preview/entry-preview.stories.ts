@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
 
 import { EntryPreviewView } from './entry-preview.component';
-import { FIREBALL_PREVIEW } from './entry-preview.fixtures';
+import { CLUMSY_PREVIEW, FIREBALL_PREVIEW } from './entry-preview.fixtures';
 
 type EntryPreviewStory = StoryObj<EntryPreviewView>;
 
@@ -18,4 +18,9 @@ export const Spell: EntryPreviewStory = {};
 /** An entry with no level or traits shows its name, summary and source alone. */
 export const Bare: EntryPreviewStory = {
   args: { preview: { ...FIREBALL_PREVIEW, level: undefined, traits: [] } },
+};
+
+/** A condition the character has: its value beside the name, and what it changes with that value applied. */
+export const ConditionWithValue: EntryPreviewStory = {
+  args: { preview: CLUMSY_PREVIEW },
 };

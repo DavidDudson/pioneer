@@ -1,6 +1,22 @@
 import { InjectionToken } from '@angular/core';
 import type { Provider } from '@angular/core';
-import type { ContentId, ContentLevel, ContentText, Level, RichText, SourceRef } from '@pioneer/rules/sdk';
+import type { BreakdownLine } from '@pioneer/rules/engine';
+import type {
+  ConditionValue,
+  ContentId,
+  ContentLevel,
+  ContentText,
+  Level,
+  RichText,
+  SourceRef,
+} from '@pioneer/rules/sdk';
+
+/** One line an entry adds to a statistic of the character the preview is for. */
+export interface PreviewEffect {
+  /** The statistic's name ("Perception"). */
+  readonly statistic: string;
+  readonly line: BreakdownLine;
+}
 
 /** What a preview shows of an entry: enough to recognise it without leaving the page. */
 export interface EntryPreview {
@@ -12,6 +28,13 @@ export interface EntryPreview {
   /** The start of the entry's description, clamped by the preview. */
   readonly summary: RichText;
   readonly sources: readonly SourceRef[];
+  /** The value of a valued condition the character has (frightened 2), shown beside the name. */
+  readonly value?: ConditionValue;
+  /**
+   * The lines the entry adds to the character's statistics, with its value applied. Absent when the preview is not
+   * for an entry the character has; empty when it changes nothing.
+   */
+  readonly effects?: readonly PreviewEffect[];
 }
 
 /** How a preview finds an entry. The page that shows it knows which content is loaded, so it provides this. */

@@ -1,0 +1,14 @@
+<fr-stack gap="3xs">
+  <fr-text weight="medium">{{ Message.Effects | transloco }}</fr-text>
+  <fr-list gap="3xs">
+    @for (effect of worded(); track $index) {
+      <fr-list-item
+        ><fr-text variant="caption">{{ effect }}</fr-text></fr-list-item
+      >
+    } @empty {
+      <fr-list-item
+        ><fr-text variant="caption" tone="muted">{{ Message.NoEffects | transloco }}</fr-text></fr-list-item
+      >
+    }
+  </fr-list>
+</fr-stack>

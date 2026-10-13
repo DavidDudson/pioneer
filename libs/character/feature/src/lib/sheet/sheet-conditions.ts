@@ -32,6 +32,8 @@ interface ImpliedView {
 /** One condition active on the character, as the header shows it. */
 export interface ConditionView {
   readonly id: ConditionInstanceId;
+  /** The condition's content entry, which the header's preview opens. */
+  readonly condition: ContentId;
   readonly name: string;
   readonly valued: boolean;
   readonly value: ConditionValue | undefined;
@@ -84,6 +86,7 @@ export function conditionViews(
     return [
       {
         id: each.id,
+        condition: each.condition,
         name: entry.name,
         valued: entry.data.valued,
         value: each.value,
