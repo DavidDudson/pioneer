@@ -76,7 +76,7 @@ export class SheetState {
     slots: this.store.slots,
     select: async (slot, selection) => this.store.selectSlot(slot, selection),
     clear: async (slot) => this.store.clearSlot(slot),
-    translate: (key) => this.#i18n.translate(key),
+    translate: (key, params) => this.#i18n.translate(key, params),
   });
 
   /** The invested items and what each turns on, from the statistics; undefined while they load. */

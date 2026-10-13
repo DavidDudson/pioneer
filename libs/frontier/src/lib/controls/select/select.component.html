@@ -37,6 +37,9 @@
       @for (option of options(); track option.value) {
         <div ngOption [class]="optionClasses" [value]="option.value" [label]="option.label">
           {{ option.label }}
+          @if (option.description !== undefined) {
+            <span [class]="descriptionClasses">{{ option.description }}</span>
+          }
         </div>
       }
     </div>

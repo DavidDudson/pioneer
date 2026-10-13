@@ -32,6 +32,23 @@ describe(Select, () => {
     });
   });
 
+  it('renders an option description beside its label, and none for an option without one', async () => {
+    const fixture = render(false);
+    fixture.componentRef.setInput('options', [
+      { value: 'elf', label: 'Elf', description: 'Already trained in Religion' },
+      { value: 'dwarf', label: 'Dwarf' },
+    ]);
+    fixture.detectChanges();
+    await fixture.whenStable();
+    (fixture.nativeElement as HTMLElement).querySelector('button')?.click();
+    fixture.detectChanges();
+    await vi.waitFor(() => {
+      const options = [...document.body.querySelectorAll('[role="option"]')];
+      expect(options.map((option) => option.querySelectorAll('span').length)).toStrictEqual([1, 0]);
+      expect(options[0]?.textContent).toContain('Already trained in Religion');
+    });
+  });
+
   it('shows the default placeholder inside a feature message scope, not a scoped key', async () => {
     const fixture = render(true);
     await vi.waitFor(() => {

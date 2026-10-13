@@ -41,3 +41,10 @@ export const Selected: SelectStory = { args: { value: 'elf' } };
 export const CustomPlaceholder: SelectStory = { args: { placeholder: 'Choose an ancestry' } };
 
 export const Disabled: SelectStory = { args: { value: 'human', disabled: true } };
+
+/** An option may say more under its label; it stays selectable. Open the list to read it. */
+export const WithDescriptions: SelectStory = {
+  args: {
+    options: [{ value: 'dwarf', label: 'Dwarf', description: 'Already trained in Religion' }, ...ANCESTRIES.slice(1)],
+  },
+};

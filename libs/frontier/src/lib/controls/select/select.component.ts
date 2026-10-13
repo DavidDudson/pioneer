@@ -5,12 +5,15 @@ import { ChangeDetectionStrategy, Component, computed, input, model, signal } fr
 import { TranslocoPipe } from '@jsverse/transloco';
 import { cva } from 'class-variance-authority';
 
+import { comboboxOptionDescriptionClasses } from '../combobox/combobox.variants';
 import { Control } from '../control';
 import { controlVariants, forcedOptionClasses } from '../control.variants';
 
+/** A select option: a value, its label, and optionally a line under the label saying more (why it is marked). */
 export interface SelectOption<TValue extends string> {
   readonly value: TValue;
   readonly label: string;
+  readonly description?: string;
 }
 
 const listboxClasses = cva(
@@ -59,6 +62,7 @@ export class Select<TValue extends string> extends Control {
   protected readonly listboxClasses = listboxClasses;
   protected readonly optionClasses = optionClasses;
   protected readonly caretClasses = caretClasses;
+  protected readonly descriptionClasses = comboboxOptionDescriptionClasses;
   protected readonly labelClasses = computed(() => placeholderVariants({ empty: this.selected().length === 0 }));
 
   protected choose(values: readonly TValue[]): void {

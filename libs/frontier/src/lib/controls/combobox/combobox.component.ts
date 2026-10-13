@@ -36,7 +36,6 @@ import {
  * may be shown but not picked. A disabled option is still reached with the arrow keys, so its description is read out.
  */
 export interface ComboboxOption<TValue extends string> extends SelectOption<TValue> {
-  readonly description?: string;
   readonly disabled?: boolean;
 }
 
