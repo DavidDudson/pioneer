@@ -1,0 +1,56 @@
+<fr-async-region>
+  <ng-template frAsyncPending>
+    <fr-grid [columns]="3">
+      @for (slot of loadingSlots; track slot) {
+        <fr-stack gap="3xs"><fr-skeleton width="sm" /><fr-skeleton width="md" /></fr-stack>
+      }
+    </fr-grid>
+  </ng-template>
+  <ng-template [frAsyncData]="feats">
+    @if (fields(); as feats) {
+      <fr-stack gap="md">
+        @if (feats.granted.length > 0) {
+          <fr-stack gap="2xs">
+            <fr-heading variant="subheading" [level]="3">{{ 'character.sheet.feats.granted' | transloco }}</fr-heading>
+            <fr-list gap="xs">
+              @for (feat of feats.granted; track feat.id) {
+                <fr-list-item>
+                  <fr-stack gap="none">
+                    <fr-text>{{ feat.name }}</fr-text>
+                    <fr-text variant="caption" tone="subtle">{{
+                      'character.sheet.feats.from' | transloco: { entry: feat.from }
+                    }}</fr-text>
+                  </fr-stack>
+                </fr-list-item>
+              }
+            </fr-list>
+          </fr-stack>
+        }
+        <fr-grid [columns]="3">
+          @for (slot of feats.fields; track slot.key) {
+            @let reason = slot.reason();
+            <fr-inline-field
+              [label]="slot.label.key | transloco: slot.label.params"
+              [edit]="slot.field"
+              [notice]="reason === undefined ? undefined : (reason.key | transloco: reason.params)"
+            >
+              <fr-combobox
+                frInlineEditor
+                [ariaLabel]="slot.label.key | transloco: slot.label.params"
+                [placeholder]="'character.sheet.feats.placeholder' | transloco"
+                [options]="slot.matches()"
+                [value]="slot.field.draft()"
+                (valueChange)="slot.field.change($event)"
+                (searched)="slot.search($event)"
+                (committed)="slot.field.flushSoon()"
+                (cancelled)="slot.field.cancel()"
+              />
+            </fr-inline-field>
+          } @empty {
+            <fr-empty-state [title]="'character.sheet.feats.none' | transloco" />
+          }
+        </fr-grid>
+      </fr-stack>
+    }
+  </ng-template>
+</fr-async-region>

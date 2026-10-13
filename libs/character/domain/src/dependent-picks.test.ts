@@ -9,7 +9,7 @@ import type { CharacterDocument } from './character-document';
 import { ANCESTRY_SLOT, HERITAGE_SLOT } from './character-slots';
 import { ClearedPick, unfitPicks } from './dependent-picks';
 import type { SlotContent } from './slot-offer';
-import { BOOST_FIXTURES, NO_LANGUAGES, NO_SKILLS, NO_SPELLS, CharacterBuilder } from './testing';
+import { BOOST_FIXTURES, NO_FEATS, NO_LANGUAGES, NO_SKILLS, NO_SPELLS, CharacterBuilder } from './testing';
 
 function named(base: GrantEntry, kind: ContentKind, name: string): GrantEntry {
   return { ...base, kind, name: ContentText.parse(name) };
@@ -27,6 +27,7 @@ const content: SlotContent = {
   skills: NO_SKILLS,
   languages: NO_LANGUAGES,
   spells: NO_SPELLS,
+  feats: NO_FEATS,
 };
 
 function document(ancestry: string, heritage: string): CharacterDocument {

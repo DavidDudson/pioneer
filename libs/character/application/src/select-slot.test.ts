@@ -1,11 +1,21 @@
 import { beforeEach, describe, expect, test } from 'bun:test';
 
 import { ANCESTRY_SLOT, CharacterCommand, CharacterName, CharacterPatchField } from '@pioneer/character/domain';
-import type { CharacterPatch, PatchCharacterBody } from '@pioneer/character/domain';
+import type { CharacterId, CharacterPatch, PatchCharacterBody } from '@pioneer/character/domain';
 import { humanAncestryId } from '@pioneer/character/domain/testing';
-import { AncestryId, ChoiceValue, contentId, EntrySlug, PackId, SlotKey } from '@pioneer/rules/sdk';
+import {
+  AncestryId,
+  ChoiceValue,
+  ContentKind,
+  contentId,
+  NamespaceKind,
+  EntrySlug,
+  PackId,
+  SlotKey,
+} from '@pioneer/rules/sdk';
 import { ContentPackBuilder, fixedContent } from '@pioneer/rules/sdk/testing';
 import { FIRST_VERSION, fixedClock, newId, UserId, ValidationError } from '@pioneer/shared/kernel';
+import type { Version } from '@pioneer/shared/kernel';
 import { rejection } from '@pioneer/shared/kernel/testing';
 
 import { CharacterService } from './character-service';
@@ -124,5 +134,91 @@ describe('CharacterService selectSlot on boost slots', () => {
     expect((error as ValidationError).issues).toStrictEqual([
       { path: ['patch', 'selection'], message: { key: 'character.validation.selectionNotOffered' } },
     ]);
+  });
+});
+
+/** A saved character and the version an edit to it expects. */
+interface Saved {
+  readonly id: CharacterId;
+  readonly version: Version;
+}
+
+const prerequisites = (text: string): object[] => [{ type: 'paragraph', content: [{ type: 'text', text }] }];
+
+describe('CharacterService selectSlot on feat slots', () => {
+  const builder = new ContentPackBuilder().withId('player-core');
+  const featId = (name: string): ChoiceValue => ChoiceValue.parse(builder.idOf(ContentKind.Feat, name));
+  const fighter = ChoiceValue.parse(builder.idOf(ContentKind.Class, 'fighter'));
+  /** The fighter's 1st-level class feat slot: its `ChoiceSet`, the class's first rule. */
+  const classFeat = SlotKey.parse(`${fighter}:0`);
+  let service: CharacterService;
+
+  const flag = 'class-feat-1';
+  // Skill ranks read false when absent, as the core rules classify them.
+  const pack = builder
+    .withNamespace('skill', NamespaceKind.Known)
+    .withAncestry('human')
+    .withClass('fighter', ['str'], {
+      rules: [
+        {
+          key: 'ChoiceSet',
+          flag,
+          prompt: 'Fighter feat',
+          choices: { kind: 'feat', filter: ['item:trait:fighter', { lte: ['item:level', 'self:level'] }] },
+        },
+        { key: 'GrantItem', item: { choice: flag } },
+      ],
+    })
+    .withFeat('sudden-charge', {
+      traits: ['fighter'],
+      data: {
+        prerequisites: prerequisites('expert in Athletics'),
+        prerequisitePredicate: [{ gte: ['skill:athletics:rank', 2] }],
+      },
+    })
+    .withFeat('reactive-shield', {
+      traits: ['fighter'],
+      data: { prerequisites: prerequisites('an animal companion') },
+    })
+    .build();
+
+  beforeEach(() => {
+    service = new CharacterService(new InMemoryCharacterRepository(), fixedContent(pack), clock);
+  });
+
+  /** Kyra as a fighter, at the version after the class pick. */
+  async function kyraTheFighter(): Promise<Saved> {
+    const created = await service.create(amiri, { name: kyra, ancestry: humanAncestryId });
+    const edit = firstVersion({
+      field: CharacterPatchField.SelectSlot,
+      slot: SlotKey.parse('class'),
+      selection: fighter,
+    });
+    const { character } = await service.patch(amiri, created.id, edit);
+    return { id: created.id, version: character.version };
+  }
+
+  test('refuses a feat whose prerequisites are not met at the slot level, with the reason', async () => {
+    const { id, version } = await kyraTheFighter();
+    const edit = {
+      expectedVersion: version,
+      patch: { field: CharacterPatchField.SelectSlot, slot: classFeat, selection: featId('sudden-charge') },
+    } as const;
+    const error = await rejection(service.patch(amiri, id, edit));
+    expect(error).toBeInstanceOf(ValidationError);
+    expect((error as ValidationError).issues).toStrictEqual([
+      { path: ['patch', 'selection'], message: { key: 'character.validation.prerequisitesNotMet' } },
+    ]);
+  });
+
+  test('takes a feat whose prerequisites can not be checked: unknown is never refused', async () => {
+    const { id, version } = await kyraTheFighter();
+    const selection = featId('reactive-shield');
+    const edit = {
+      expectedVersion: version,
+      patch: { field: CharacterPatchField.SelectSlot, slot: classFeat, selection },
+    } as const;
+    const { character } = await service.patch(amiri, id, edit);
+    expect(character.document.build.choices[classFeat]).toBe(selection);
   });
 });

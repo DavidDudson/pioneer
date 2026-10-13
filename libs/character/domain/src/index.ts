@@ -249,3 +249,5 @@ export {
   wholeBulk,
 } from './bulk';
 export { costCoins, type CostCoins, payCost, purchaseCost } from './purse';
+export { type FeatContent, featContent, type FeatRead } from './feat-content';
+export { type FeatOption, type FeatSlot, featSlots, PrerequisiteStatus } from './feat-slots';

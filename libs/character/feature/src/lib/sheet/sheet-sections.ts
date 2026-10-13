@@ -18,6 +18,7 @@ export const SHEET_SECTIONS = {
   languages: { anchor: 'sheet-languages', headingKey: 'character.sheet.languagesHeading' },
   choices: { anchor: 'sheet-choices', headingKey: 'character.sheet.choicesHeading' },
   spellcasting: { anchor: 'sheet-spellcasting', headingKey: 'character.sheet.spellcastingHeading' },
+  feats: { anchor: 'sheet-feats', headingKey: 'character.sheet.featsHeading' },
   features: { anchor: 'sheet-features', headingKey: 'character.sheet.featuresHeading' },
   inventory: { anchor: 'sheet-inventory', headingKey: 'character.sheet.inventory.heading' },
   /** The shop, and later crafting and income (#517). */
@@ -35,6 +36,7 @@ export const SHEET_TAB_SECTIONS: Readonly<Record<SheetMode, readonly SheetSectio
     SHEET_SECTIONS.build,
     SHEET_SECTIONS.attributes,
     SHEET_SECTIONS.choices,
+    SHEET_SECTIONS.feats,
     SHEET_SECTIONS.features,
   ],
   [SheetMode.Encounter]: [

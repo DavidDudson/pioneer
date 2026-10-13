@@ -2,6 +2,7 @@ import type { AnsweredSlot, ChoiceSlot, ContentLookup, GrantResolution, RootSlot
 import { ContentId, Level, SlotKey } from '@pioneer/rules/sdk';
 import type { ChoiceValue, ContentText, RollOption } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
+import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 import { boostSets, flawSlots } from './attribute-boosts';
 import type { BoostSet, BoostSlot } from './attribute-boosts';
@@ -10,6 +11,8 @@ import { CHARACTER_LEVEL_MAX } from './character-fields';
 import { SlotInvalidMessage, SlotStatus, SlotSubjectKind } from './character-slot';
 import type { CharacterSlot, SlotSubject } from './character-slot';
 import { OPTIONAL_ROOT_SLOTS } from './character-slots';
+import { FeatPickProblem } from './feat-content';
+import { featPickProblem, prerequisiteReads } from './feat-slots';
 import { languageStatuses } from './language-slot-status';
 import { preparedStatuses, signatureStatuses } from './prepared-slot-status';
 import { SkillPickProblem, skillSlots } from './skill-training';
@@ -67,7 +70,16 @@ function isListed(slot: RootSlot, picks: ReadonlyMap<SlotKey, ChoiceValue>, opti
   return neededBy === undefined || picks.has(slot.key) || neededBy.some((option) => options.includes(option));
 }
 
-function resolvedSlots(resolution: GrantResolution, context: SlotContext, planned: Level | undefined): ResolvedSlots {
+/** Why a `ChoiceSet` slot's pick on offer still reads invalid: a feat above its slot's level, or its prerequisites unmet. */
+type PickCheck = (slot: AnsweredSlot) => MessageDescriptor | undefined;
+
+/** How one resolution's slots are read: the level they are planned at (undefined at the character's), and the check on picks. */
+interface ReadAt {
+  readonly planned: Level | undefined;
+  readonly check: PickCheck;
+}
+
+function resolvedSlots(resolution: GrantResolution, context: SlotContext, { planned, check }: ReadAt): ResolvedSlots {
   const { picks, lookup } = context;
   const listedRoots = resolution.rootSlots.filter((slot) => isListed(slot, picks, resolution.rollOptions));
   const roots = listedRoots.map((slot) =>
@@ -82,12 +94,11 @@ function resolvedSlots(resolution: GrantResolution, context: SlotContext, planne
       lookup,
     ),
   );
-  const answered = resolution.answered.map((slot) =>
-    validSlot(
-      { key: slot.key, subject: choiceSubject(slot, lookup), stored: slot.pick, planned },
-      choiceName(slot, lookup),
-    ),
-  );
+  const answered = resolution.answered.map((slot) => {
+    const read: SlotRead = { key: slot.key, subject: choiceSubject(slot, lookup), stored: slot.pick, planned };
+    const problem = check(slot);
+    return problem === undefined ? validSlot(read, choiceName(slot, lookup)) : invalidSlot(read, slot.pick, problem);
+  });
   const open = resolution.open.map((slot) => {
     const read: SlotRead = {
       key: slot.key,
@@ -173,6 +184,24 @@ function skillStatuses(document: CharacterDocument, content: SlotContent): Chara
   });
 }
 
+/** The reason for each way a feat pick on offer is still wrong. */
+const FEAT_PROBLEMS: Readonly<Record<FeatPickProblem, string>> = {
+  [FeatPickProblem.TooHigh]: SlotInvalidMessage.NotOffered,
+  [FeatPickProblem.Prerequisites]: SlotInvalidMessage.PrerequisitesNotMet,
+};
+
+/**
+ * The check on each answered feat slot (#466), read at the level the slot opens: a feat above that level isn't on
+ * offer there, and one whose prerequisites aren't met there is flagged. Other `ChoiceSet` slots pass.
+ */
+function featCheck(document: CharacterDocument, content: SlotContent): PickCheck {
+  const reads = prerequisiteReads(document, content);
+  return (slot) => {
+    const problem = featPickProblem(reads, { slot: slot.key, selection: slot.pick });
+    return problem === undefined ? undefined : message(FEAT_PROBLEMS[problem]);
+  };
+}
+
 /** The character's level and every level above it, lowest first. */
 function levelsUpFrom(level: Level): Level[] {
   return Array.from({ length: CHARACTER_LEVEL_MAX - level + 1 }, (_unused, index) => Level.parse(level + index));
@@ -198,11 +227,11 @@ function addUnseen(seen: Map<SlotKey, CharacterSlot>, slots: readonly CharacterS
 }
 
 /** The root and `ChoiceSet` slots, each as read at the lowest level from the character's up that has it. */
-function grantStatuses(level: Level, context: SlotContext): ResolvedSlots {
+function grantStatuses(level: Level, context: SlotContext, check: PickCheck): ResolvedSlots {
   const roots = new Map<SlotKey, CharacterSlot>();
   const choices = new Map<SlotKey, CharacterSlot>();
   for (const at of levelsUpFrom(level)) {
-    const read = resolvedSlots(resolveSlotsAt(at, context), context, at > level ? at : undefined);
+    const read = resolvedSlots(resolveSlotsAt(at, context), context, { planned: at > level ? at : undefined, check });
     addUnseen(roots, read.roots);
     addUnseen(choices, read.choices);
   }
@@ -239,7 +268,7 @@ function hiddenPicks(context: SlotContext, listed: readonly CharacterSlot[]): Ch
 export function characterSlots(document: CharacterDocument, content: SlotContent): readonly CharacterSlot[] {
   const picks = new Map(Object.entries(document.build.choices).map(([key, value]) => [SlotKey.parse(key), value]));
   const context: SlotContext = { ...content, picks };
-  const { roots, choices } = grantStatuses(Level.parse(document.level), context);
+  const { roots, choices } = grantStatuses(Level.parse(document.level), context, featCheck(document, content));
   const boosts = boostStatuses(document, content, picks);
   const flaws = flawStatuses(document, content, picks);
   const skills = skillStatuses(document, content);

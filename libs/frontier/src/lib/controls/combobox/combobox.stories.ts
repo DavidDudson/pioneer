@@ -1,10 +1,13 @@
 import { argsToTemplate } from '@analogjs/storybook-angular';
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
 import { signal } from '@angular/core';
+import { expect, waitFor, within } from 'storybook/test';
 
 import { succeedSlowly } from '../../testing/story-actions';
+import { pressKeys } from '../../testing/story-keyboard';
 import type { SelectOption } from '../select/select.component';
 import { Combobox } from './combobox.component';
+import type { ComboboxOption } from './combobox.component';
 
 type ComboboxStory = StoryObj<Combobox<string>>;
 
@@ -84,6 +87,65 @@ export const AsyncSource: ComboboxStory = {
       },
       template: `<fr-combobox [ariaLabel]="ariaLabel" [placeholder]="placeholder" [options]="options()" [loading]="loading()" (searched)="search($event)" />`,
     };
+  },
+};
+
+const DESCRIBED: readonly ComboboxOption<string>[] = [
+  { value: 'power-attack', label: 'Power Attack' },
+  {
+    value: 'sudden-charge',
+    label: 'Sudden Charge',
+    description: 'Prerequisites not met: expert in Athletics',
+    disabled: true,
+  },
+  {
+    value: 'reactive-shield',
+    label: 'Reactive Shield',
+    description: "Prerequisites can't be checked: an animal companion",
+  },
+];
+
+/** Options that say more under their label; one is shown but can't be picked, saying why. Opened, so axe sees them. */
+export const Described: ComboboxStory = {
+  args: { options: DESCRIBED },
+  play: async ({ canvasElement, userEvent }) => {
+    const input = within(canvasElement).getByRole('combobox');
+    await userEvent.click(input);
+    await userEvent.keyboard('{ArrowDown}');
+    await waitFor(async () => {
+      await expect(within(canvasElement).getByRole('option', { name: /Sudden Charge/u })).toHaveAttribute(
+        'aria-disabled',
+        'true',
+      );
+    });
+  },
+};
+
+/**
+ * Keyboard: the arrow keys reach a disabled option, so its description is read out, and Enter on it picks nothing.
+ * Runs only in `nx test-storybook frontier`.
+ */
+export const DescribedKeyboard: ComboboxStory = {
+  // Real key presses need the Vitest runner (testing/story-keyboard.ts), so this story is test-only.
+  tags: ['!dev'],
+  args: { options: DESCRIBED },
+  play: async ({ canvasElement, userEvent }) => {
+    const canvas = within(canvasElement);
+    const input = canvas.getByRole('combobox');
+    await userEvent.click(input);
+    // One key at a time: a second press before the listbox has highlighted its first option is lost.
+    await pressKeys('{ArrowDown}');
+    const first = await canvas.findByRole('option', { name: /Power Attack/u });
+    await waitFor(async () => {
+      await expect(input).toHaveAttribute('aria-activedescendant', first.id);
+    });
+    await pressKeys('{ArrowDown}');
+    const blocked = await canvas.findByRole('option', { name: /Sudden Charge/u });
+    await waitFor(async () => {
+      await expect(input).toHaveAttribute('aria-activedescendant', blocked.id);
+    });
+    await pressKeys('{Enter}');
+    await expect(input).toHaveValue('');
   },
 };
 

@@ -56,7 +56,7 @@ function languageElements({ items }: GrantResolution): PlacedElement[] {
 }
 
 /** `skill:society:rank:3` for each skill rank, as Foundry writes them: untrained 0 to legendary 4. */
-function rankOptions(ranks: ReadonlyMap<Selector, Proficiency>): RollOption[] {
+export function rankOptions(ranks: ReadonlyMap<Selector, Proficiency>): RollOption[] {
   return [...ranks].map(([selector, rank]) => RollOption.parse(`${selector}:rank:${RANKS.indexOf(rank)}`));
 }
 

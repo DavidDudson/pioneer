@@ -108,6 +108,10 @@
     </fr-stack>
   </fr-section>
 
+  <fr-section [anchor]="sections.feats.anchor" [heading]="sections.feats.headingKey | transloco">
+    <pio-sheet-feats />
+  </fr-section>
+
   <fr-section [anchor]="sections.features.anchor" [heading]="sections.features.headingKey | transloco">
     <pio-class-features [lines]="picks.features()" />
   </fr-section>

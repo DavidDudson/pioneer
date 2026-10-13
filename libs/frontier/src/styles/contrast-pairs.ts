@@ -22,6 +22,8 @@ const ROLES = ['accent', ...STATUSES];
 export const CONTRAST_PAIRS: readonly ContrastPair[] = [
   { foreground: ['fg-default', 'fg-muted', 'fg-subtle'], background: SURFACES, minimum: ContrastMinimum.Text },
   { foreground: ['fg-inverse'], background: ['surface-inverse'], minimum: ContrastMinimum.Text },
+  // A combobox option's description, on the selected option's fill.
+  { foreground: ['fg-subtle'], background: ['accent-subtle'], minimum: ContrastMinimum.Text },
   // Links, messages and status text sit on surfaces as well as on their own subtle fill.
   ...ROLES.map((role) => ({
     foreground: [`${role}-fg`],
