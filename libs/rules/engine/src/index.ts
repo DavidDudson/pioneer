@@ -18,6 +18,14 @@ export {
 export { deriveStatistics, type StatisticContent } from './derive-statistics';
 export { damageTargetOf } from './damage-target';
 export {
+  damageDice,
+  deriveStrikes,
+  type MultipleAttackPenalty,
+  multipleAttackPenalty,
+  type Strike,
+  type StrikeDamage,
+} from './strikes';
+export {
   type AdjustmentLine,
   type Defences,
   type DefenceStatus,

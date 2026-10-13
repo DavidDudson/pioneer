@@ -41,7 +41,8 @@ export const DieSize = { D4: 'd4', D6: 'd6', D8: 'd8', D10: 'd10', D12: 'd12' } 
 export type DieSize = ValueOf<typeof DieSize>;
 
 /** How many damage dice a weapon rolls before striking runes add more, or its flat damage when it has no die. */
-const DiceCount = Pg.smallint().nonnegative().brand<'DiceCount'>();
+export const DiceCount = Pg.smallint().nonnegative().brand<'DiceCount'>();
+export type DiceCount = z.infer<typeof DiceCount>;
 
 /** "1d6 fire persistent": a formula, as damage writes it, and its type. */
 const PersistentDamage = z.strictObject({ formula: DamageFormula, damageType: DamageTypeSchema });
@@ -50,12 +51,13 @@ const PersistentDamage = z.strictObject({ formula: DamageFormula, damageType: Da
  * "1d8 slashing"; "1 piercing" (a blowgun) with no `die`, and none at all with no `die` and 0 `dice` (a glue bomb).
  * Bombs add persistent damage ("1d8 fire, 1 persistent fire").
  */
-const WeaponDamage = z.strictObject({
+export const WeaponDamage = z.strictObject({
   dice: DiceCount,
   die: z.enum(DieSize).optional(),
   damageType: DamageTypeSchema,
   persistent: PersistentDamage.optional(),
 });
+export type WeaponDamage = z.infer<typeof WeaponDamage>;
 
 /** A kind of ammunition (`arrows`, `bolts`, `rounds-flintlock-musket`). Foundry pf2e keeps the set in config. */
 export const AmmunitionType = Slug.brand<'AmmunitionType'>();

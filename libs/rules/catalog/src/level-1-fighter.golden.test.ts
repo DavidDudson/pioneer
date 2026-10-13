@@ -157,6 +157,9 @@ function golden({ bonus, mark }: ProficiencyTable): Record<string, Checked> {
     // Melee with Strength; the javelin has a range increment, so it attacks with Dexterity.
     'strike:longsword': statistic([attribute('str', '@weapon.attr'), prof('@weapon.prof', Expert)]),
     'strike:javelin': statistic([attribute('dex', '@weapon.attr'), prof('@weapon.prof', Expert)]),
+    // Strength damage on a melee or thrown weapon, whatever it attacks with.
+    'strike-damage:longsword': statistic([attribute('str', '@weapon.damage')]),
+    'strike-damage:javelin': statistic([attribute('str', '@weapon.damage')]),
     'skill:acrobatics': skill('acrobatics', 'dex', Trained),
     'skill:arcana': skill('arcana', 'int', Untrained),
     'skill:athletics': skill('athletics', 'str', Trained),
@@ -208,6 +211,8 @@ describe('Level 1 Fighter (golden)', () => {
       'class-dc': 17,
       'strike:longsword': 9,
       'strike:javelin': 6,
+      'strike-damage:longsword': 4,
+      'strike-damage:javelin': 4,
       'skill:acrobatics': 4,
       'skill:arcana': 0,
       'skill:athletics': 7,

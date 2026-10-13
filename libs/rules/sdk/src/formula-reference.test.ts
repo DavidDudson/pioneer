@@ -69,7 +69,10 @@ describe('formula reference vocabulary', () => {
   });
 
   test.each([
-    ['weapon', [ReferenceKind.WeaponAttributeModifier, ReferenceKind.WeaponProficiencyBonus]],
+    [
+      'weapon',
+      [ReferenceKind.WeaponAttributeModifier, ReferenceKind.WeaponDamageModifier, ReferenceKind.WeaponProficiencyBonus],
+    ],
     ['spellcasting', [ReferenceKind.SpellcastingAttributeModifier, ReferenceKind.SpellcastingProficiencyBonus]],
   ])('only the %s references read a %s', (scope, kinds) => {
     const scoped = Object.entries(REFERENCE_CATALOGUE)

@@ -55,7 +55,8 @@ Alternatives:
   `ActorTraits` are spliced into the packs, but for one whose predicate reads `{item|level}` and the familiar abilities',
   which Foundry applies to the familiar, not the character, and which wait for familiars. The build summary names the
   traits by the trait vocabulary, which the character pages now load.
-- **Fist.** `Strike` is read in its `fist` form only: `{ fist: true }` with a predicate. Each character with one in play
+- **Fist.** `Strike` is read in its `fist` form first (#481 adds an attack of its own): `{ fist: true }` with a
+  predicate. Each character with one in play
   has one fist Strike, an unarmed weapon of the `fist` base, so the favoured weapon rank reaches it. The backlog's two
   (Deity (Cleric), Iron Fists) are spliced in. The sheet gets a Strikes section listing each held weapon's Strike, then
   the fist.
@@ -64,7 +65,8 @@ Alternatives:
 
 - An uncommon favoured weapon needs no access: nothing in Pioneer restricts an uncommon item yet.
 - A character without a fist `Strike` has no fist on the sheet, though every character can Strike with one. The basic
-  unarmed attack, `Strike`'s other forms, the multiple attack penalty and Strike damage stay with #481.
+  unarmed attack stays with the character model; `Strike`'s other forms, the multiple attack penalty and Strike damage
+  arrived with #481.
 - `self:trait:<trait>` is set from the ancestry and `ActorTraits` only. A heritage's or class's own traits, and the
   mode of being Foundry derives from `construct` and `undead`, are not.
 - A removal wins over every addition, whatever their order, where Foundry applies them by priority.

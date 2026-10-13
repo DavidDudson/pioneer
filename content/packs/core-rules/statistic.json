@@ -231,6 +231,32 @@
     }
   },
   {
+    "id": "f99728ac-3e12-563a-812a-84d82f7f6195",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:strike-damage",
+    "name": "Strike Damage",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 402,
+        "aon": "https://2e.aonprd.com/Rules.aspx?ID=2288"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "strike-damage",
+      "domains": ["damage", "strike-damage"],
+      "base": "@weapon.damage",
+      "kind": "value",
+      "per": "weapon"
+    }
+  },
+  {
     "id": "56a8469b-a0d0-5f3b-96c2-f17e379832a4",
     "pack": "core-rules",
     "kind": "statistic",

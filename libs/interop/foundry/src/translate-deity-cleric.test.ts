@@ -66,3 +66,40 @@ describe('translateKindData: a fist Strike', () => {
     expect(untranslatedKeys(DEITY_CLERIC).toSorted()).toEqual(['ChoiceSet', 'ChoiceSet', 'GrantItem']);
   });
 });
+
+const JAWS: DocumentFixture = {
+  id: 'jAwS000000000000',
+  name: 'Jaws',
+  type: 'feat',
+  system: {
+    rules: [
+      {
+        key: 'Strike',
+        slug: 'jaws',
+        label: 'Jaws',
+        category: 'unarmed',
+        group: 'brawling',
+        damage: { base: { damageType: 'piercing', die: 'd8' } },
+        traits: ['finesse'],
+      },
+    ],
+    traits: { rarity: 'common', value: [] },
+  },
+};
+
+describe('translateKindData: a Strike of its own', () => {
+  test("reads Foundry's damage.base as damage, one die by default, and the label as its display", () => {
+    expect(keyed(RuleElementKey.Strike, 'jaws', JAWS)).toEqual([
+      {
+        key: RuleElementKey.Strike,
+        slug: 'jaws',
+        category: 'unarmed',
+        group: 'brawling',
+        damage: { dice: 1, die: 'd8', damageType: 'piercing' },
+        traits: ['finesse'],
+        display: { label: 'Jaws' },
+      },
+    ]);
+    expect(untranslatedKeys(JAWS)).toEqual([]);
+  });
+});

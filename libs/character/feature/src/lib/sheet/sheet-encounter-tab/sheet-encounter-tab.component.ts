@@ -3,7 +3,7 @@ import { TranslocoPipe } from '@jsverse/transloco';
 import { SheetMode } from '@pioneer/character/domain';
 import { AsyncData, AsyncPending, AsyncRegion, Section, SectionIndex, SectionLink, Stack } from '@pioneer/frontier';
 import { SpellPreparation } from '@pioneer/rules/sdk';
-import { DefencesView, SpellcastingView, StatisticsMessage, StatisticsView } from '@pioneer/rules/ui';
+import { DefencesView, SpellcastingView, StatisticsView, StrikesView } from '@pioneer/rules/ui';
 
 import { SheetPickFields } from '../sheet-pick-fields/sheet-pick-fields.component';
 import { SHEET_SECTIONS, SHEET_TAB_SECTIONS } from '../sheet-sections';
@@ -31,6 +31,7 @@ import { rememberTab } from '../sheet-tab';
     SpellcastingView,
     Stack,
     StatisticsView,
+    StrikesView,
     TranslocoPipe,
   ],
   templateUrl: './sheet-encounter-tab.component.html',
@@ -40,7 +41,6 @@ export class SheetEncounterTab {
   protected readonly sheet = inject(SheetState);
   protected readonly picks = this.sheet.picks;
   protected readonly sections = SHEET_SECTIONS;
-  protected readonly statisticsMessage = StatisticsMessage;
   protected readonly sectionOrder = SHEET_TAB_SECTIONS[SheetMode.Encounter];
   /** Whether the character has a spellcasting entry, so its spell picks load. */
   protected readonly casts = computed(() => (this.picks.spellcasting()?.length ?? 0) > 0);

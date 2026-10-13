@@ -109,9 +109,11 @@ export const LORE_SELECTORS: readonly string[] = coreRules.statistics
 export const PROFICIENCY_SELECTORS = [...DEFENCES, ...SKILL_SELECTORS, 'class-dc'];
 export const SELECTORS = [...PROFICIENCY_SELECTORS, 'hp:max', 'speed:land'];
 /** The statistics derived once per weapon or spellcasting entry, by family selector. */
-export const PER_SOURCE_SELECTORS = ['strike', 'spell-attack', 'spell-dc'];
+export const PER_SOURCE_SELECTORS = ['strike', 'strike-damage', 'spell-attack', 'spell-dc'];
 /** The fighter's Strikes. */
 export const STRIKES = ['strike:longsword', 'strike:dagger'];
+/** The fighter's Strikes' flat damage: Strength, whatever the weapon attacks with. */
+export const STRIKE_DAMAGES = ['strike-damage:longsword', 'strike-damage:dagger'];
 
 /** What a derivation reads from a registry holding `packs`, as an app would load them. */
 export function contentOf(...packs: readonly ContentPack[]): StatisticContent {

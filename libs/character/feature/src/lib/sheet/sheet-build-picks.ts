@@ -12,6 +12,7 @@ import type {
   ClassFeatureLine,
   LevelTimelineRow,
   NamedStatistic,
+  NamedStrike,
   SpellcastingEntryLine,
 } from '@pioneer/rules/ui';
 
@@ -63,7 +64,7 @@ interface EngineReads {
   /** Every skill and Lore with what the engine derives for it; undefined while the character or the content loads. */
   readonly skills: Signal<readonly NamedStatistic[] | undefined>;
   /** Each Strike, held weapons' then a feature's fist; undefined while the character or the content loads. */
-  readonly strikes: Signal<readonly NamedStatistic[] | undefined>;
+  readonly strikes: Signal<readonly NamedStrike[] | undefined>;
   /** Each spellcasting entry with its spell attack and DC; undefined while the character or the content loads. */
   readonly spellcasting: Signal<readonly SpellcastingEntryLine[] | undefined>;
   /** Names for the entries the defences, statistics and spellcasting lines come from; none while the content loads. */

@@ -28,12 +28,9 @@
 
   <fr-section [anchor]="sections.strikes.anchor" [heading]="sections.strikes.headingKey | transloco">
     <fr-async-region>
-      <ng-template frAsyncPending><pio-statistics [statistics]="undefined" /></ng-template>
+      <ng-template frAsyncPending><pio-strikes [strikes]="undefined" /></ng-template>
       <ng-template [frAsyncData]="sheet.engineQuery()"
-        ><pio-statistics
-          [statistics]="picks.strikes()"
-          [entryNames]="picks.entryNames()"
-          [noneKey]="statisticsMessage.NoStrikes"
+        ><pio-strikes [strikes]="picks.strikes()" [entryNames]="picks.entryNames()"
       /></ng-template>
     </fr-async-region>
   </fr-section>

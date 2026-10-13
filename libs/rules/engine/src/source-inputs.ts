@@ -1,6 +1,7 @@
 import { FormulaValue } from '@pioneer/rules/formula';
 import {
   Attribute,
+  ContentText,
   AttributeSchema,
   FAVORED_WEAPON,
   Feet,
@@ -14,6 +15,7 @@ import {
   StatisticPer,
   Trait,
   WeaponCategory,
+  WeaponDamage,
 } from '@pioneer/rules/sdk';
 import type { AttributeModifiers, MagicTradition, SourceReference } from '@pioneer/rules/sdk';
 import { issueParams, message } from '@pioneer/shared/kernel';
@@ -36,8 +38,12 @@ export interface WeaponInputs {
    * its Strike as an `item` modifier, so it competes with other item bonuses (`weaponPotencies`).
    */
   readonly potency?: RuneGrade | undefined;
-  /** Its striking rune's grade: the damage dice it adds, which its Strike's damage reads (#481). */
+  /** Its striking rune's grade: the damage dice it adds, which its Strike's damage reads (`strikeDamage`). */
   readonly striking?: RuneGrade | undefined;
+  /** What the sheet calls it when no item names it: an attack a feature gives (jaws). A fist is named by a message. */
+  readonly label?: ContentText | undefined;
+  /** Its damage before runes and modifiers: dice, die and type. A weapon with none has no damage line. */
+  readonly damage?: WeaponDamage | undefined;
   /**
    * Whether it is one of the character's deity's favoured weapons: its Strike then reads the better of its category's
    * proficiency and `attack:favored-weapon` (ADR-0048).
@@ -94,6 +100,8 @@ const WeaponInputsJson = z.strictObject({
   range: Feet.optional(),
   potency: RuneGrade.optional(),
   striking: RuneGrade.optional(),
+  label: ContentText.optional(),
+  damage: WeaponDamage.optional(),
   favored: z.boolean().optional(),
   origin: Origin,
 });
@@ -119,6 +127,27 @@ function weaponAttribute(weapon: WeaponInputs, attributes: AttributeModifiers): 
   }
   const dexterityHigher = attributes.get(Attribute.Dexterity) > attributes.get(Attribute.Strength);
   return weapon.traits.includes(FINESSE) && dexterityHigher ? Attribute.Dexterity : Attribute.Strength;
+}
+
+const HALF = 2;
+const THROWN_PREFIX = 'thrown';
+const PROPULSIVE = Trait.parse('propulsive');
+
+/** Whether a weapon is thrown: it has a `thrown` or `thrown-<range>` trait. */
+function isThrown(weapon: WeaponInputs): boolean {
+  return weapon.traits.some((trait) => trait === THROWN_PREFIX || trait.startsWith(`${THROWN_PREFIX}-`));
+}
+
+/**
+ * The modifier a Strike adds to damage (Player Core, "Damage Rolls"): Strength for a melee or thrown weapon, half of a
+ * positive Strength (rounded down) for a propulsive one, or all of a negative one, nothing for any other ranged weapon.
+ */
+function weaponDamageModifier(weapon: WeaponInputs, attributes: AttributeModifiers): FormulaValue {
+  const strength = attributes.get(Attribute.Strength);
+  if (weapon.traits.includes(PROPULSIVE) && weapon.range !== undefined) {
+    return FormulaValue.parse(strength > 0 ? Math.floor(strength / HALF) : strength);
+  }
+  return FormulaValue.parse(weapon.range === undefined || isThrown(weapon) ? strength : 0);
 }
 
 /** The attribute a source keys its statistics to: the weapon's attack attribute, or the entry's attribute. */
@@ -159,6 +188,9 @@ function weaponValue(
 ): FormulaValue | undefined {
   if (kind === ReferenceKind.WeaponAttributeModifier) {
     return FormulaValue.parse(attributes.get(weaponAttribute(weapon, attributes)));
+  }
+  if (kind === ReferenceKind.WeaponDamageModifier) {
+    return weaponDamageModifier(weapon, attributes);
   }
   return kind === ReferenceKind.WeaponProficiencyBonus ? weaponProficiencyBonus(weapon, bonus) : undefined;
 }
