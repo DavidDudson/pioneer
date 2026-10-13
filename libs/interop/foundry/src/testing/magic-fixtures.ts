@@ -105,3 +105,9 @@ export const RAGE_EFFECT: DocumentFixture = {
 
 /** Every magic and effect fixture. */
 export const MAGIC: readonly DocumentFixture[] = [FIREBALL, HEAL, COMMAND, CONSECRATE, BLESS_EFFECT, RAGE_EFFECT];
+
+/** Bless with a duration of no rounds, ending as `expiry` says. */
+export function effectOfNoTime(expiry: unknown): DocumentFixture {
+  const { system } = BLESS_EFFECT;
+  return { ...BLESS_EFFECT, system: { ...system, duration: { expiry, sustained: false, unit: 'rounds', value: 0 } } };
+}

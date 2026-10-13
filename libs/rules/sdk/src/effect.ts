@@ -16,10 +16,15 @@ export type EffectCategory = ValueOf<typeof EffectCategory>;
 export const EffectExpiry = { TurnStart: 'turn-start', TurnEnd: 'turn-end', RoundEnd: 'round-end' } as const;
 export type EffectExpiry = ValueOf<typeof EffectExpiry>;
 
-export const EffectDurationType = { Time: 'time', Encounter: 'encounter', Unlimited: 'unlimited' } as const;
+export const EffectDurationType = {
+  Time: 'time',
+  Turn: 'turn',
+  Encounter: 'encounter',
+  Unlimited: 'unlimited',
+} as const;
 export type EffectDurationType = ValueOf<typeof EffectDurationType>;
 
-/** "10 minutes, ending at the start of a turn", "until the encounter ends", "unlimited". */
+/** "10 minutes, ending at the start of a turn", "until the end of the turn", "until the encounter ends", "unlimited". */
 const EffectDuration = z.discriminatedUnion('type', [
   z.strictObject({
     type: z.literal(EffectDurationType.Time),
@@ -27,6 +32,10 @@ const EffectDuration = z.discriminatedUnion('type', [
     unit: DurationUnitSchema,
     expiry: z.enum(EffectExpiry).optional(),
     sustained: z.boolean().optional(),
+  }),
+  z.strictObject({
+    type: z.literal(EffectDurationType.Turn),
+    expiry: z.enum([EffectExpiry.TurnStart, EffectExpiry.TurnEnd]),
   }),
   z.strictObject({ type: z.literal(EffectDurationType.Encounter) }),
   z.strictObject({ type: z.literal(EffectDurationType.Unlimited) }),
