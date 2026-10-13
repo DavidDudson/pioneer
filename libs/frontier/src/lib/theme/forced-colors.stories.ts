@@ -1,11 +1,13 @@
 import { moduleMetadata } from '@analogjs/storybook-angular';
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
-import { expect, userEvent, within } from 'storybook/test';
+import { expect, userEvent, waitFor, within } from 'storybook/test';
 
 import { Button } from '../actions/button/button.component';
+import { Picker } from '../controls/picker/picker.component';
 import { Segmented } from '../controls/segmented/segmented.component';
 import { Select } from '../controls/select/select.component';
 import { ToggleButton } from '../controls/toggle-button/toggle-button.component';
+import { tableSchema } from '../data/table/table-schema';
 import { Meter } from '../feedback/meter/meter.component';
 import { Skeleton } from '../feedback/skeleton/skeleton.component';
 import { Stack } from '../layout/stack/stack.component';
@@ -18,9 +20,34 @@ import { Text } from '../text/text/text.component';
 
 type ForcedColorsStory = StoryObj;
 
+interface Ancestry {
+  readonly value: string;
+  readonly label: string;
+}
+
 /** Points across the bar meter, as fractions of its width: inside its 70% fill, and in the empty track. */
 const FILLED_AT = 0.2;
 const TRACK_AT = 0.9;
+
+const ANCESTRIES: readonly Ancestry[] = [
+  { value: 'dwarf', label: 'Dwarf' },
+  { value: 'elf', label: 'Elf' },
+  { value: 'gnome', label: 'Gnome' },
+  { value: 'human', label: 'Human' },
+];
+
+const PROPS = {
+  units: [
+    { value: 'feet', label: 'Feet' },
+    { value: 'metres', label: 'Metres' },
+  ],
+  ancestries: ANCESTRIES,
+  ancestryColumns: tableSchema<Ancestry>()
+    .addText({ id: 'label', header: 'Ancestry', value: (ancestry) => ancestry.label })
+    .build(),
+  ancestryValue: (ancestry: Ancestry): string => ancestry.value,
+  ancestryLabel: (ancestry: Ancestry): string => ancestry.label,
+};
 
 /**
  * Windows High Contrast replaces every colour with the user's palette, except CSS system colours. Frontier keeps
@@ -31,23 +58,12 @@ const meta: Meta = {
   title: 'Accessibility/Forced Colours',
   decorators: [
     moduleMetadata({
-      imports: [Badge, Button, Meter, Segmented, Select, Skeleton, Stack, Surface, Text, ToggleButton],
+      imports: [Badge, Button, Meter, Picker, Segmented, Select, Skeleton, Stack, Surface, Text, ToggleButton],
     }),
   ],
   parameters: { layout: 'padded' },
   render: () => ({
-    props: {
-      units: [
-        { value: 'feet', label: 'Feet' },
-        { value: 'metres', label: 'Metres' },
-      ],
-      ancestries: [
-        { value: 'dwarf', label: 'Dwarf' },
-        { value: 'elf', label: 'Elf' },
-        { value: 'gnome', label: 'Gnome' },
-        { value: 'human', label: 'Human' },
-      ],
-    },
+    props: PROPS,
     template: `
       <fr-stack gap="md">
         <fr-stack direction="horizontal" gap="sm">
@@ -62,6 +78,14 @@ const meta: Meta = {
         </fr-stack>
         <fr-segmented ariaLabel="Distance unit" [options]="units" value="feet" />
         <fr-select ariaLabel="Ancestry" [options]="ancestries" value="elf" />
+        <fr-picker
+          ariaLabel="Heritage"
+          value="elf"
+          [rows]="ancestries"
+          [columns]="ancestryColumns"
+          [rowValue]="ancestryValue"
+          [rowLabel]="ancestryLabel"
+        />
         <fr-stack direction="horizontal" gap="sm">
           <fr-badge>Subtle</fr-badge>
           <fr-badge tone="danger" variant="solid">Solid</fr-badge>
@@ -168,6 +192,27 @@ async function expectOptions(root: HTMLElement): Promise<void> {
   await pressKeys('{Escape}');
 }
 
+/** In an open picker the keyboard's row fills with Highlight and the picked one is underlined. */
+async function expectPickerRows(root: HTMLElement): Promise<void> {
+  const canvas = within(root);
+  await userEvent.click(canvas.getByRole('button', { name: 'Heritage' }));
+  const elf = await canvas.findByRole('gridcell', { name: 'Elf', selected: true });
+  await pressKeys('{ArrowDown}');
+  const active = await waitFor(() => {
+    const cell = root.querySelector<HTMLElement>('[role="gridcell"][data-active="true"]');
+    if (cell === null) {
+      throw new Error('Expected a highlighted cell');
+    }
+    return cell;
+  });
+  await expect([style(active)?.backgroundColor, style(active)?.color]).toEqual([
+    systemColour('Highlight'),
+    systemColour('HighlightText'),
+  ]);
+  await expect(style(elf)?.textDecorationLine).toBe('underline');
+  await pressKeys('{Escape}');
+}
+
 /**
  * With forced colours on, every state above is checked against the system colours it should use. Runs only in
  * `nx test-storybook frontier`.
@@ -186,6 +231,7 @@ export const Default: ForcedColorsStory = {
     await expectFills(canvasElement);
     await expectBarFilled(canvasElement);
     await expectOptions(canvasElement);
+    await expectPickerRows(canvasElement);
   },
 };
 

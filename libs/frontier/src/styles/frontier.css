@@ -147,6 +147,10 @@
   --spacing-control-md: var(--fr-size-control-md);
   --spacing-control-lg: var(--fr-size-control-lg);
   --spacing-listbox: var(--fr-size-listbox);
+  --spacing-picker: var(--fr-size-picker);
+  --spacing-column-sm: var(--fr-size-column-sm);
+  --spacing-column-md: var(--fr-size-column-md);
+  --spacing-column-lg: var(--fr-size-column-lg);
   --spacing-avatar-sm: var(--fr-size-avatar-sm);
   --spacing-avatar-md: var(--fr-size-avatar-md);
   --spacing-avatar-lg: var(--fr-size-avatar-lg);

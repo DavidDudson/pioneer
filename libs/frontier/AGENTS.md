@@ -151,11 +151,13 @@ otherwise, and say why in the PR when you don't.
     keys, with a clear-all action. Never a checkbox list.
   - **One of 2-3 options:** `fr-segmented` (`fr-segmented-field` in forms),
     every option visible as a button group.
-  - **One of 4 or more:** `fr-select` (`fr-select-field`). Past three, a row
-    of buttons gets cramped on a phone; a dropdown scales.
-  - **One of too many to scroll** (feats, spells, items): `fr-combobox`
-    (`fr-combobox-field`). Typing filters; the feature runs the query from
-    `(searched)` and passes the matches back as `options`.
+  - **One of 4 or more:** `fr-picker` (`fr-picker-field`, `/data`), a table that opens
+    inline, with a search box and sortable columns. It replaces `fr-select` and
+    `fr-combobox` (ADR-0054), which stay until their callers have moved.
+    Columns come from `tableSchema<Row>()`; the feature runs the query from
+    `(searched)`, the order from `(sorted)` and the next rows from `(loadMore)`,
+    and passes the rows back. Scroll to load more, never numbered pages. A short
+    fixed list is a picker whose feature filters the rows it holds.
 - **No confirmation steps** in data entry: values save as they change (see
   [Inline editing](#inline-editing)) and Revert undoes them. Confirmation is
   only for destructive, irreversible actions (rule 4 above).
@@ -324,8 +326,8 @@ story the same way.
 | Icons          | `fr-icon` (Lucide; `[icon]`, `size`, `tone`, `label`, `spin`)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | Media          | `fr-image` (`alt` required, `decorative` for `alt=""`; `size`, `aspect`, `fit`; lazy, shimmers until loaded, `(failed)`), `fr-avatar` (`name`, optional `src`, `size`; initials when there is no image)                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | Locale         | `fr-date` (Temporal values only), `fr-distance` (`[feet]`: a rules distance in the viewer's unit and locale)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| Controls       | Plain: `fr-text-input`, `fr-search-input` (`(searched)` debounced), `fr-text-area`, `fr-number-input`, `fr-optional-number-input` (empty is no value, for an open bound), `fr-date-input`, `fr-toggle-button` (on/off), `fr-filter-chips` (several filters, `[(value)]` a set of keys), `fr-segmented` (2-3 options), `fr-select` (4+, `@angular/aria`); `fr-combobox` (`/data`: type to pick one of hundreds, `(searched)` out, `options` + `loading` in)                                                                                                                                                                                |
-| Forms          | `fr-form`, `fr-async-form`; `fr-text-field`, `fr-text-area-field`, `fr-number-field`, `fr-date-field`, `fr-toggle-button-field`, `fr-segmented-field`, `fr-select-field`, `fr-combobox-field` (`/data`); parts `fr-field`, `fr-label`, `fr-field-hint`, `fr-field-error`                                                                                                                                                                                                                                                                                                                                                                  |
+| Controls       | Plain: `fr-text-input`, `fr-search-input` (`(searched)` debounced), `fr-text-area`, `fr-number-input`, `fr-optional-number-input` (empty is no value, for an open bound), `fr-date-input`, `fr-toggle-button` (on/off), `fr-filter-chips` (several filters, `[(value)]` a set of keys), `fr-segmented` (2-3 options), `fr-select` (4+, `@angular/aria`); `fr-combobox` (`/data`: type to pick one of hundreds, `(searched)` out, `options` + `loading` in); `fr-picker` (`/data`: pick a row of a table schema, opened inline; `(searched)`, `(sorted)`, `(loadMore)` out, `rows`, `loading`, `loadingMore`, `hasMore` in)                |
+| Forms          | `fr-form`, `fr-async-form`; `fr-text-field`, `fr-text-area-field`, `fr-number-field`, `fr-date-field`, `fr-toggle-button-field`, `fr-segmented-field`, `fr-select-field`, `fr-combobox-field` (`/data`), `fr-picker-field` (`/data`); parts `fr-field`, `fr-label`, `fr-field-hint`, `fr-field-error`                                                                                                                                                                                                                                                                                                                                     |
 | Inline edit    | `InlineEdit<T>` controller + `fr-inline-field`, which shows the save status (spinner, Saved, Revert while the window is open)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | Data (`/data`) | `fr-table` (TanStack Table), `fr-chart` (TanStack Charts), `fr-virtual-list` (TanStack Virtual) with `ng-template [frVirtualItem]` for its rows                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 
@@ -436,14 +438,14 @@ shows the form's submission (found through DI).
 
 ## TanStack
 
-| Library | Used for                                                                                                                             |
-| ------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| Query   | Server state: stores use `injectQuery` and update the cache; async components use mutations. Apps call `provideTanStackQuery`.       |
-| Pacer   | `InlineEdit`'s save debounce (`Debouncer`), `fr-search-input`'s and `fr-combobox`'s query debounce.                                  |
-| Hotkeys | Enter / Escape on plain controls (scoped to the control), Mod+Enter in `fr-async-form`.                                              |
-| Table   | `fr-table`: sorting, semantic table, token styling. Build columns with `tableColumns<Row>()`.                                        |
-| Charts  | `fr-chart`: series use `--fr-chart-1…6`, axes use the text colour; both follow dark mode.                                            |
-| Virtual | `fr-virtual-list`: window-scrolled, measured rows; the page scrolls, not the list. `fr-combobox`: options scroll inside the listbox. |
+| Library | Used for                                                                                                                                     |
+| ------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| Query   | Server state: stores use `injectQuery` and update the cache; async components use mutations. Apps call `provideTanStackQuery`.               |
+| Pacer   | `InlineEdit`'s save debounce (`Debouncer`), `fr-search-input`'s, `fr-combobox`'s and `fr-picker`'s query debounce.                           |
+| Hotkeys | Enter / Escape on plain controls (scoped to the control), Mod+Enter in `fr-async-form`.                                                      |
+| Table   | `fr-table`: sorting, semantic table, token styling. Build columns with `tableColumns<Row>()`.                                                |
+| Charts  | `fr-chart`: series use `--fr-chart-1…6`, axes use the text colour; both follow dark mode.                                                    |
+| Virtual | `fr-virtual-list`: window-scrolled, measured rows; the page scrolls, not the list. `fr-combobox`, `fr-picker`: rows scroll inside the panel. |
 
 Store and Form are not used: signals cover client state and signal forms
 cover forms.

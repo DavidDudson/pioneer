@@ -1,0 +1,17 @@
+@for (cell of row().getAllCells(); track cell.id) {
+  <div
+    ngGridCell
+    [class]="cellClasses(cell)"
+    [colIndex]="$index + 1"
+    [disabled]="!pickable()"
+    [selectable]="pickable()"
+    [selected]="picked()"
+    [attr.aria-describedby]="describedBy() ?? null"
+    (selectedChange)="chosen.emit()"
+  >
+    <ng-container *flexRenderCell="cell; let value">{{ value }}</ng-container>
+    @if ($first && !pickable()) {
+      <span [attr.id]="reasonId" [class]="reasonClasses">{{ reason() }}</span>
+    }
+  </div>
+}

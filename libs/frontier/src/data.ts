@@ -22,6 +22,8 @@ export { VirtualItem } from './lib/data/virtual-list/virtual-item.directive';
 export { VirtualEstimate, VirtualList } from './lib/data/virtual-list/virtual-list.component';
 export { Combobox, type ComboboxOption } from './lib/controls/combobox/combobox.component';
 export { ComboboxField } from './lib/forms/combobox-field/combobox-field.component';
+export { Picker, type PickerSort } from './lib/controls/picker/picker.component';
+export { PickerField } from './lib/forms/picker-field/picker-field.component';
 /**
  * A header or cell that renders a component instead of a plain value, for content richer than text:
  * `cell: ({ row }) => tableComponent(RuleText, { inputs: { text: row.original.text } })`.

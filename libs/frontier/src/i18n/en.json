@@ -31,6 +31,10 @@
       "valueText": "{value} of {max}",
       "fraction": "{value}/{max}"
     },
+    "picker": {
+      "placeholder": "Select…",
+      "search": "Search"
+    },
     "searchInput": {
       "clear": "Clear search"
     },

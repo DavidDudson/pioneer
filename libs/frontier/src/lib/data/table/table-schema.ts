@@ -6,8 +6,9 @@ import { DateDisplay, DateFormat } from '../../date/date.component';
 import type { DateValue } from '../../date/date.component';
 import type { BadgeTone } from '../../text/badge/badge.component';
 import { Tag } from '../../text/tag/tag.component';
+import type { Size } from '../../tokens';
 import { tableColumns } from './table-features';
-import type { TableColumn, TableFeatureSet } from './table-features';
+import type { FrontierColumnMeta, TableColumn, TableFeatureSet } from './table-features';
 
 /** What sorting a column compares: text sorts by locale, numbers by size. */
 export type SortValue = number | string;
@@ -17,6 +18,8 @@ export interface ColumnOptions {
   /** Already translated: the schema never holds copy. */
   readonly header: string;
   readonly sortable?: boolean;
+  /** Width in `fr-picker`, where rows are not a table; `fr-table` ignores it. Defaults to `md`. */
+  readonly width?: Size;
 }
 
 /** A column whose cells are a component, for content richer than text. */
@@ -54,6 +57,15 @@ export interface TagColumn<TRow extends RowData> extends ColumnOptions {
   readonly value: (row: TRow) => TagCell;
 }
 
+/** A column's `meta` option: its width, or nothing when the column has none. */
+interface WidthMeta {
+  readonly meta?: FrontierColumnMeta;
+}
+
+function widthMeta(options: ColumnOptions): WidthMeta {
+  return options.width === undefined ? {} : { meta: { width: options.width } };
+}
+
 /** A column of any value type, before `columns()` unifies it with the rest. */
 type AnyColumn<TRow extends RowData> = ColumnDef<TableFeatureSet, TRow, SortValue>;
 
@@ -87,6 +99,7 @@ export class TableSchema<TRow extends RowData> {
         id: options.id,
         header: options.header,
         enableSorting: options.sortable ?? true,
+        ...widthMeta(options),
       }),
     );
   }
@@ -98,6 +111,7 @@ export class TableSchema<TRow extends RowData> {
       id: options.id,
       header: options.header,
       ...(options.sortable === undefined ? {} : { sortable: options.sortable }),
+      ...(options.width === undefined ? {} : { width: options.width }),
       sortValue: (row) => options.value(row).toString(),
       component: DateDisplay,
       inputs: (row) => ({ value: options.value(row), format }),
@@ -110,6 +124,7 @@ export class TableSchema<TRow extends RowData> {
       id: options.id,
       header: options.header,
       ...(options.sortable === undefined ? {} : { sortable: options.sortable }),
+      ...(options.width === undefined ? {} : { width: options.width }),
       sortValue: (row) => options.value(row).label,
       component: Tag,
       inputs: (row) => {
@@ -130,6 +145,7 @@ export class TableSchema<TRow extends RowData> {
         id: options.id,
         header: options.header,
         enableSorting: options.sortable ?? true,
+        ...widthMeta(options),
         cell: ({ row }) => flexRenderComponent(options.component, { inputs: options.inputs(row.original) }),
       }),
     );
