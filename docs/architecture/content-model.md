@@ -208,7 +208,10 @@ its damage is its description, and the effects it applies are `effect` entries.
   list of parts and its `heightening` its whole heightening, so a reader never lays a variant over the spell (Foundry
   does, by part key). Spellcasting-entry `location` has no field yet.
 - **Rituals.** Foundry stores a ritual as a spell with ritual data. A check is one of its `skills` (`skill:`
-  selectors), at a `proficiency` when it names one; each secondary check is its own.
+  selectors; `skill:lore` is any Lore, narrowed by `loreRelatedTo`), at a `proficiency` when it names one, or a
+  `ranked` rank for each skill when they differ. It may have a `dc` of its own and a `pick` that says how its skill is
+  chosen: by the `tradition` of the spell cast, or, for a secondary check, the skill the primary check `primary-used`
+  or `primary-unused`. Each secondary check is its own.
 - **Effects.** `duration` is a `time` of rounds to days with an `expiry` (`turn-start`, `turn-end`,
   `round-end`) and `sustained`, a `turn` (until the `turn-start` or `turn-end` of the turn it is applied in),
   `encounter` or `unlimited`. `badge` is a `counter` starting at `value` between
@@ -703,9 +706,12 @@ burst`, `15-foot emanation centered on you`); a shape Pioneer lacks is reported.
     overlay of any other type. An overlay that sets nothing Pioneer maps is left out. `cost` and `requirements` are
     rich text when they are plain words.
   - A ritual's casting fields map as a spell's. Its primary check is the skills Foundry lists (a Lore by topic,
-    `Legal Lore` is `skill:lore:legal`) at the one rank they name; its secondary checks are separated by commas,
-    each a choice of skills joined by `or`. Ranks that differ, a DC, or a note in the parentheses
-    (`whichever isn't used`) are reported and leave the ritual without data.
+    `Legal Lore` is `skill:lore:legal`; `Lore (any)` is `skill:lore`, `Lore (related to …)` adds `loreRelatedTo`) at
+    the rank they name, or at a rank each when they differ; a leading `DC 30` is its `dc` and `as determined by the
+tradition of spell cast in the ritual` its `pick`. Its secondary checks are separated by `;` where Foundry uses
+    one, else by commas, each a choice of skills joined by `or`; a note `(whichever is used for the primary check)` or
+    `(whichever isn't used …)` is the check's `pick`, and keeps a comma list before it as one check. Any other note
+    (`you must be a demon`) is reported and leaves the ritual without data.
   - An effect's `category` is its pack's (`spell-effects` is `spell`, likewise `feat`, `equipment` and `other`;
     `campaign-effects`, the GM's, is `other` rather than a category of its own); one from any other pack is reported.
     Its duration is a count of rounds to days with Foundry's `expiry` and `sustained`, a `turn` for a count of none

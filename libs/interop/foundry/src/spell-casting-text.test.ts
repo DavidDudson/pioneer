@@ -136,14 +136,32 @@ describe('ritual checks', () => {
       'Cooking Lore (expert) or Crafting (expert)',
       { skills: ['skill:lore:cooking', 'skill:crafting'], proficiency: 'expert' },
     ],
+    [
+      'Arcana (master) or Religion (expert)',
+      {
+        skills: ['skill:arcana', 'skill:religion'],
+        ranked: [
+          { skill: 'skill:arcana', proficiency: 'master' },
+          { skill: 'skill:religion', proficiency: 'expert' },
+        ],
+      },
+    ],
+    ['DC 29 Nature or Religion', { skills: ['skill:nature', 'skill:religion'], dc: 29 }],
+    [
+      'Arcana (expert), Nature (expert), Occultism (expert), or Religion (expert) as determined by the tradition of spell cast in the ritual',
+      {
+        skills: ['skill:arcana', 'skill:nature', 'skill:occultism', 'skill:religion'],
+        proficiency: 'expert',
+        pick: 'tradition',
+      },
+    ],
   ])('primary %p', (text, expected) => {
     expect(primaryCheckOf(text)).toEqual(expected);
   });
 
   test.each([
-    'Arcana (master) or Religion (expert)',
     'Nature (proficiency)',
-    'DC 29 Nature or Religion',
+    'Arcana (master) or Religion (proficiency)',
     'Religion (expert; you must be a demon)',
     'Perception (master)',
   ])('primary %p does not map', (text) => {
@@ -155,14 +173,47 @@ describe('ritual checks', () => {
     ['Crafting', [{ skills: ['skill:crafting'] }]],
     ['Medicine, Society', [{ skills: ['skill:medicine'] }, { skills: ['skill:society'] }]],
     ['Society or Legal Lore', [{ skills: ['skill:society', 'skill:lore:legal'] }]],
+    [
+      'Lore (any), Society, Survival',
+      [{ skills: ['skill:lore'] }, { skills: ['skill:society'] }, { skills: ['skill:survival'] }],
+    ],
+    [
+      'Lore (related to the destination plane), Survival',
+      [{ skills: ['skill:lore'], loreRelatedTo: 'the destination plane' }, { skills: ['skill:survival'] }],
+    ],
+    [
+      'Nature or Religion (whichever is used for the primary check)',
+      [{ skills: ['skill:nature', 'skill:religion'], pick: 'primary-used' }],
+    ],
+    [
+      'Nature, Occultism or Religion (whichever is used for the primary check)',
+      [{ skills: ['skill:nature', 'skill:occultism', 'skill:religion'], pick: 'primary-used' }],
+    ],
+    [
+      'Arcana, Nature, Occultism or Religion (whichever is used for the primary check)',
+      [{ skills: ['skill:arcana', 'skill:nature', 'skill:occultism', 'skill:religion'], pick: 'primary-used' }],
+    ],
+    [
+      "Occultism or Religion (whichever isn't used for the primary check)",
+      [{ skills: ['skill:occultism', 'skill:religion'], pick: 'primary-unused' }],
+    ],
+    [
+      "Diplomacy or Intimidation; Arcana or Occultism (whichever isn't used for the primary check)",
+      [
+        { skills: ['skill:diplomacy', 'skill:intimidation'] },
+        { skills: ['skill:arcana', 'skill:occultism'], pick: 'primary-unused' },
+      ],
+    ],
   ])('secondary %p', (text, expected) => {
     expect(secondaryChecksOf(text)).toEqual(expected);
   });
 
-  test.each(['Lore (any), Society, Survival', "Occultism or Religion (whichever isn't used for the primary check)"])(
-    'secondary %p does not map',
-    (text) => {
-      expect(secondaryChecksOf(text)).toBeUndefined();
-    },
-  );
+  test.each([
+    'Lore (sometimes), Society',
+    'Lore (any), Society, Nature or Religion (whichever is used for the primary check)',
+    'Religion (you must be a demon)',
+    "Nature (whichever is used for the primary check) or Religion (whichever isn't used for the primary check)",
+  ])('secondary %p does not map', (text) => {
+    expect(secondaryChecksOf(text)).toBeUndefined();
+  });
 });

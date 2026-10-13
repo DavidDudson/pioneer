@@ -23,6 +23,8 @@ describe('translateKindData: one fixture per magic and effect kind, translated a
   test.each([
     ['fireball', ContentKind.Spell],
     ['consecrate', ContentKind.Ritual],
+    ['calling', ContentKind.Ritual],
+    ['warding', ContentKind.Ritual],
     ['spell-effect-bless', ContentKind.Effect],
   ] as const)('%s parses against its kind data and as a ContentEntry', (name, kind) => {
     const entry = entryOfKind(translation, kind, name);
@@ -193,6 +195,38 @@ describe('translateKindData: rituals', () => {
     });
   });
 
+  test('a check picked by tradition, any Lore, a Lore by topic, and a pick from the primary check', () => {
+    expect(dataIn(translation, 'calling')).toMatchObject({
+      primary: {
+        skills: ['skill:arcana', 'skill:nature', 'skill:occultism', 'skill:religion'],
+        proficiency: 'expert',
+        pick: 'tradition',
+      },
+      secondary: {
+        checks: [
+          { skills: ['skill:lore', 'skill:society'] },
+          { skills: ['skill:lore', 'skill:survival'], loreRelatedTo: 'the destination plane' },
+          { skills: ['skill:nature', 'skill:religion'], pick: 'primary-unused' },
+        ],
+        casters: 2,
+      },
+    });
+  });
+
+  test('a check with a DC of its own and skills of different ranks', () => {
+    expect(dataIn(translation, 'warding')).toMatchObject({
+      primary: {
+        skills: ['skill:arcana', 'skill:religion'],
+        ranked: [
+          { skill: 'skill:arcana', proficiency: 'master' },
+          { skill: 'skill:religion', proficiency: 'expert' },
+        ],
+        dc: 30,
+      },
+      secondary: { checks: [{ skills: ['skill:nature', 'skill:religion'], pick: 'primary-used' }], casters: 1 },
+    });
+  });
+
   test("a Lore a ritual checks gets its statistic, as a background's does", () => {
     expect(translation.vocabulary.map(({ envelope }) => envelope.id)).toContain(coreRulesId('statistic:legal-lore'));
   });
@@ -202,7 +236,10 @@ describe('translateKindData: rituals', () => {
       ...CONSECRATE,
       system: {
         ...CONSECRATE.system,
-        ritual: { primary: { check: 'Religion (expert)' }, secondary: { casters: 1, checks: 'Lore (any)' } },
+        ritual: {
+          primary: { check: 'Religion (expert)' },
+          secondary: { casters: 1, checks: 'Religion (you must be a demon)' },
+        },
       },
     };
     const result = translate([vague]);
