@@ -12,5 +12,5 @@ export function within(
   resources: ResourceMaxima = NO_RESOURCES,
   counted: CountedMaxima = NO_COUNTED,
 ): PlayLimits {
-  return { hitPoints, resources, counted };
+  return { hitPoints, resources, counted, valued: new Map() };
 }

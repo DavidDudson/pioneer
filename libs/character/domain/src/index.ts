@@ -14,8 +14,6 @@ export {
 } from './death-track';
 export {
   applyPlayCommand,
-  needsMaxHitPoints,
-  needsResourceMaxima,
   type PlayLimits,
   withTempHitPoints,
   CharacterPlay,
@@ -33,6 +31,25 @@ export {
   PlayStateSchema,
   untypedDamage,
 } from './play-state';
+export {
+  type ActiveCondition,
+  ActiveConditionSchema,
+  applyConditionCommand,
+  type ConditionCommand,
+  ConditionCommandField,
+  ConditionCommandSchema,
+  ConditionDurationKind,
+  type ConditionDuration,
+  ConditionInstanceId,
+  ConditionRounds,
+  ConditionProblem,
+  conditionProblem,
+  conditionRoots,
+  isConditionCommand,
+  conditionValued,
+  type ConditionValued,
+  UNLIMITED,
+} from './conditions';
 export {
   applyResourceCommand,
   type ResourceCommand,
@@ -332,3 +349,4 @@ export { costCoins, type CostCoins, payCost, purchaseCost } from './purse';
 export { type ArchetypeRead, type FeatContent, featContent, type FeatRead } from './feat-content';
 export { type FeatOption, type FeatSlot, featSlots, PrerequisiteStatus } from './feat-slots';
 export { CHARACTER_PROSE_MAX_LENGTH, CharacterProseInput, withProse } from './character-prose';
+export { needsConditionContent, needsMaxHitPoints, needsResourceMaxima } from './play-needs';

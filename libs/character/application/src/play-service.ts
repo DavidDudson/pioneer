@@ -7,12 +7,17 @@ import {
   characterSpellcasting,
   characterStatisticInputs,
   characterStatistics,
+  conditionProblem,
+  isConditionCommand,
+  conditionValued,
   maxHitPoints,
+  needsConditionContent,
   needsMaxHitPoints,
   needsResourceMaxima,
   NO_COUNTED,
   NO_RESOURCES,
   PLAY_COMMANDS,
+  ConditionProblem,
   resourceMaxima,
   slotContent,
 } from '@pioneer/character/domain';
@@ -21,6 +26,7 @@ import type {
   CharacterId,
   CharacterPlay,
   PatchPlayBody,
+  ConditionValued,
   PlayCommand,
   PlayLimits,
   PlayState,
@@ -37,6 +43,17 @@ import type { CharacterRepository } from './character-repository';
 
 /** The maximum handed to edits that don't read it, so none has to be derived for them. */
 const NO_MAX_HIT_POINTS = HitPoints.parse(0);
+
+/** The condition content handed to edits that don't read it. */
+const NO_VALUED: ConditionValued = new Map();
+
+/** The message each refused condition edit answers with. */
+const CONDITION_MESSAGES = {
+  [ConditionProblem.Unknown]: 'character.validation.conditionUnknown',
+  [ConditionProblem.Value]: 'character.validation.conditionValue',
+  [ConditionProblem.Missing]: 'character.validation.conditionMissing',
+  [ConditionProblem.Full]: 'character.validation.conditionFull',
+} as const satisfies Record<ConditionProblem, string>;
 
 /**
  * A character's play state (#343): read and edited apart from its build, with its own revision, so a play edit never
@@ -88,10 +105,12 @@ export class PlayService {
    * limit is derived only for the edits that read it.
    */
   async #applied(character: Character, play: PlayState, command: PlayCommand): Promise<PlayState> {
-    const hitPoints = needsMaxHitPoints(command) ? await this.#maxHitPoints(character) : NO_MAX_HIT_POINTS;
+    const hitPoints = needsMaxHitPoints(command) ? await this.#maxHitPoints(character, play) : NO_MAX_HIT_POINTS;
     const resources = needsResourceMaxima(command) ? await this.#resourceMaxima(character) : NO_RESOURCES;
     const counted = needsResourceMaxima(command) ? await this.#counted(character) : NO_COUNTED;
-    const limits: PlayLimits = { hitPoints, resources, counted };
+    const valued = needsConditionContent(command) ? await this.#valued() : NO_VALUED;
+    checkCondition(play, command, valued);
+    const limits: PlayLimits = { hitPoints, resources, counted, valued };
     return applyPlayCommand(play, command, limits);
   }
 
@@ -110,11 +129,16 @@ export class PlayService {
     return characterCounted(grants, abilityFrequencies(registry));
   }
 
-  async #maxHitPoints(character: Character): Promise<HitPoints> {
+  /** Which conditions the server's content has, and which carry a value. */
+  async #valued(): Promise<ConditionValued> {
+    return conditionValued(await this.#content.registry());
+  }
+
+  async #maxHitPoints(character: Character, play: PlayState): Promise<HitPoints> {
     const registry = await this.#content.registry();
     const slots = slotContent(registry);
     const inputs = characterStatisticInputs(registry, character.document, slots);
-    const max = maxHitPoints(characterStatistics(character.document, { registry, slots, inputs }));
+    const max = maxHitPoints(characterStatistics({ ...character.document, play }, { registry, slots, inputs }));
     if (max === undefined) {
       throw new ValidationError([{ path: ['command'], message: message('character.validation.noMaxHitPoints') }]);
     }
@@ -135,5 +159,13 @@ export class PlayService {
       throw new NotFoundError('Character', id);
     }
     return character;
+  }
+}
+
+/** Refuses a condition edit the content or the character's conditions rule out. */
+function checkCondition(play: PlayState, command: PlayCommand, valued: ConditionValued): void {
+  const problem = isConditionCommand(command) ? conditionProblem(play.conditions, command, valued) : undefined;
+  if (problem !== undefined) {
+    throw new ValidationError([{ path: ['command'], message: message(CONDITION_MESSAGES[problem]) }]);
   }
 }

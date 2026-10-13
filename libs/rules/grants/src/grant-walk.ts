@@ -25,6 +25,7 @@ import type {
   EntryChoices,
   GrantTarget,
 } from './choices';
+import { withoutOverridden } from './condition-overrides';
 import type { ContentLookup, GrantEntry, GrantError, GrantRoot } from './grant-entry';
 import { GrantsMessage } from './messages';
 import { byCodeUnit } from './order';
@@ -142,7 +143,7 @@ class Walker {
 
   public get walk(): GrantWalk {
     return {
-      items: this.#items,
+      items: withoutOverridden(this.#items),
       duplicates: this.#duplicates,
       conditional: this.#conditional,
       open: this.#open,

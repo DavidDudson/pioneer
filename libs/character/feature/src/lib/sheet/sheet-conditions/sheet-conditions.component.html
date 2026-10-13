@@ -1,0 +1,62 @@
+<fr-async-region>
+  <ng-template frAsyncPending><fr-skeleton width="lg" /></ng-template>
+  <ng-template [frAsyncData]="registry">
+    <fr-async-region>
+      <ng-template frAsyncPending><fr-skeleton width="lg" /></ng-template>
+      <ng-template [frAsyncData]="playQuery">
+        <fr-stack gap="xs">
+          <fr-text weight="semibold">{{ 'character.sheet.conditions.label' | transloco }}</fr-text>
+          @for (view of views(); track view.id) {
+            <fr-stack gap="2xs">
+              <fr-stack direction="horizontal" align="center" gap="sm" wrap>
+                <fr-text weight="semibold">{{ view.name }}</fr-text>
+                @if (view.value !== undefined) {
+                  <fr-badge>{{ view.value }}</fr-badge>
+                }
+                @if (view.overriddenBy; as overriddenBy) {
+                  <fr-text tone="muted">{{
+                    'character.sheet.conditions.overridden' | transloco: { name: overriddenBy }
+                  }}</fr-text>
+                }
+                @if (view.valued) {
+                  <fr-async-button
+                    size="sm"
+                    [action]="raise(view)"
+                    [disabled]="busy() || (view.value ?? 0) >= valueMax"
+                    [describeError]="describeError"
+                  >
+                    {{ 'character.sheet.conditions.raise' | transloco }}
+                  </fr-async-button>
+                  <fr-async-button
+                    size="sm"
+                    [action]="lower(view)"
+                    [disabled]="busy() || (view.value ?? 0) <= valueMin"
+                    [describeError]="describeError"
+                  >
+                    {{ 'character.sheet.conditions.lower' | transloco }}
+                  </fr-async-button>
+                }
+                <fr-async-button size="sm" [action]="remove(view)" [disabled]="busy()" [describeError]="describeError">
+                  {{ 'character.sheet.conditions.remove' | transloco }}
+                </fr-async-button>
+              </fr-stack>
+              @for (implied of view.implied; track implied.id) {
+                <fr-text tone="muted">{{
+                  'character.sheet.conditions.implied' | transloco: { name: implied.name }
+                }}</fr-text>
+              }
+            </fr-stack>
+          } @empty {
+            <fr-text tone="muted">{{ 'character.sheet.conditions.none' | transloco }}</fr-text>
+          }
+          <pio-sheet-condition-add
+            [options]="options()"
+            [busy]="busy()"
+            [send]="send"
+            [describeError]="describeError"
+          />
+        </fr-stack>
+      </ng-template>
+    </fr-async-region>
+  </ng-template>
+</fr-async-region>
