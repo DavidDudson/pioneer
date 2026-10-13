@@ -637,6 +637,30 @@
       "remove": "Remove {language}",
       "open": "{count, plural, one {# language left to add} other {# languages left to add}}"
     },
+    "featPicker": {
+      "column": {
+        "name": "Name",
+        "level": "Level",
+        "category": "Category",
+        "actions": "Actions",
+        "traits": "Traits",
+        "prerequisites": "Prerequisites",
+        "source": "Source",
+        "notes": "Notes"
+      },
+      "category": {
+        "ancestry": "Ancestry",
+        "class": "Class",
+        "general": "General",
+        "skill": "Skill",
+        "bonus": "Bonus"
+      },
+      "rarity": {
+        "uncommon": "Uncommon",
+        "rare": "Rare",
+        "unique": "Unique"
+      }
+    },
     "timeline": {
       "level": "Level {level}",
       "current": "Current level",
@@ -797,7 +821,8 @@
       },
       "prerequisite": {
         "met": "Met: {prerequisite}",
-        "unmet": "Not met: {prerequisite}"
+        "unmet": "Not met: {prerequisite}",
+        "unknown": "Can't be checked: {prerequisite}"
       },
       "boost": {
         "or": "or",

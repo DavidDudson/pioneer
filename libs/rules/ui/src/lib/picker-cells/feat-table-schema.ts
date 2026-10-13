@@ -1,6 +1,6 @@
 import type { RowData } from '@pioneer/frontier/data';
 
-import { PrerequisiteList } from './prerequisite-list/prerequisite-list.component';
+import { PrerequisiteList, PrerequisiteState } from './prerequisite-list/prerequisite-list.component';
 import type { PrerequisiteLine } from './prerequisite-list/prerequisite-list.component';
 import { RulesTableSchema } from './rules-table-schema';
 import type { CellColumn } from './rules-table-schema';
@@ -11,7 +11,7 @@ export class FeatTableSchema<TRow extends RowData> extends RulesTableSchema<TRow
   public addPrerequisites(options: CellColumn<TRow, readonly PrerequisiteLine[]>): this {
     return this.addComponent({
       ...options,
-      sortValue: (row) => options.value(row).filter(({ met }) => !met).length,
+      sortValue: (row) => options.value(row).filter(({ state }) => state === PrerequisiteState.Unmet).length,
       component: PrerequisiteList,
       inputs: (row) => ({ prerequisites: options.value(row) }),
     });

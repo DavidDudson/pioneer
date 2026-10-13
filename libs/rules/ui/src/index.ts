@@ -29,7 +29,7 @@ export { ChoicesView } from './lib/choices/choices.component';
 export { LevelTimeline } from './lib/level-timeline/level-timeline.component';
 export {
   type LevelTimelineRow,
-  type TimelineCombobox,
+  type TimelineFeat,
   type TimelinePick,
   TimelinePickKind,
   type TimelineSelect,
@@ -79,6 +79,7 @@ export { ActionKind } from './lib/picker-cells/picker-cell-messages';
 export { PriceCell } from './lib/picker-cells/price-cell/price-cell.component';
 export {
   type PrerequisiteLine,
+  PrerequisiteState,
   PrerequisiteList,
 } from './lib/picker-cells/prerequisite-list/prerequisite-list.component';
 export { RankBadge } from './lib/picker-cells/rank-badge/rank-badge.component';
@@ -88,3 +89,5 @@ export { ItemTableSchema } from './lib/picker-cells/item-table-schema';
 export { OriginTableSchema } from './lib/picker-cells/origin-table-schema';
 export { SpellTableSchema } from './lib/picker-cells/spell-table-schema';
 export { SummaryCell } from './lib/picker-cells/summary-cell/summary-cell.component';
+export { FeatPicker } from './lib/feat-picker/feat-picker.component';
+export { FeatPickerColumn, type FeatPickerRow } from './lib/feat-picker/feat-picker-row';

@@ -13,9 +13,8 @@ import {
   Stack,
   ToggleButton,
 } from '@pioneer/frontier';
-import { Combobox } from '@pioneer/frontier/data';
 import type { ContentId } from '@pioneer/rules/sdk';
-import { ENTRY_PREVIEWS } from '@pioneer/rules/ui';
+import { ENTRY_PREVIEWS, FeatPicker } from '@pioneer/rules/ui';
 import type { EntryPreview, EntryPreviews } from '@pioneer/rules/ui';
 import { filter, merge } from 'rxjs';
 
@@ -42,8 +41,8 @@ const LOADING_SLOTS = 3;
     AsyncData,
     AsyncPending,
     AsyncRegion,
-    Combobox,
     EmptyState,
+    FeatPicker,
     Grid,
     InlineField,
     SheetFeatGroupList,

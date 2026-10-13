@@ -114,10 +114,11 @@ function configure(
   }
 }
 
-export function render(rows: readonly Feat[] = FEATS, value?: string): Rendered {
+export function render(rows: readonly Feat[] = FEATS, value?: string, openOnInit = false): Rendered {
   TestBed.configureTestingModule({ providers: [...provideFrontierI18nTesting()] });
   const fixture = TestBed.createComponent(Picker<string, Feat>);
   configure(fixture, rows, value);
+  fixture.componentRef.setInput('openOnInit', openOnInit);
   const outputs = recordOutputs(fixture.componentInstance);
   fixture.detectChanges();
   return { fixture, ...elementsOf(fixture), ...outputs };

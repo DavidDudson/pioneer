@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
 
-import { PrerequisiteList } from './prerequisite-list.component';
+import { PrerequisiteList, PrerequisiteState } from './prerequisite-list.component';
 
 type PrerequisiteStory = StoryObj<PrerequisiteList>;
 
@@ -11,14 +11,21 @@ export default meta;
 export const Mixed: PrerequisiteStory = {
   args: {
     prerequisites: [
-      { label: 'Trained in Athletics', met: true },
-      { label: 'Strength 16', met: false },
+      { label: 'Trained in Athletics', state: PrerequisiteState.Met },
+      { label: 'Strength 16', state: PrerequisiteState.Unmet },
     ],
   },
 };
 
 /** All met. */
-export const AllMet: PrerequisiteStory = { args: { prerequisites: [{ label: 'Trained in Stealth', met: true }] } };
+export const AllMet: PrerequisiteStory = {
+  args: { prerequisites: [{ label: 'Trained in Stealth', state: PrerequisiteState.Met }] },
+};
+
+/** One that can't be checked: neither met nor unmet. */
+export const Unknown: PrerequisiteStory = {
+  args: { prerequisites: [{ label: 'Worships a deity of magic', state: PrerequisiteState.Unknown }] },
+};
 
 /** None. */
 export const None: PrerequisiteStory = { args: { prerequisites: [] } };

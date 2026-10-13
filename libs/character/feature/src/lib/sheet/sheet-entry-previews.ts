@@ -12,13 +12,18 @@ function entriesOf(registry: ContentRegistry): ReadonlyMap<ContentId, ContentEnt
   return indexed;
 }
 
+/** The entry `id` names in a loaded registry, with all it carries; undefined when the registry doesn't hold it. */
+export function sheetEntry(registry: ContentRegistry, id: ContentId): ContentEntry | undefined {
+  return entriesOf(registry).get(id);
+}
+
 /**
  * What the sheet's references and rows preview of an entry: its name, level, traits, description and sources, read
  * from the loaded registry. An entry the registry doesn't hold, or a registry still loading, has no preview, so its
  * reference reads as it did.
  */
 export function sheetEntryPreview(registry: ContentRegistry | undefined, id: ContentId): EntryPreview | undefined {
-  const entry = registry === undefined ? undefined : entriesOf(registry).get(id);
+  const entry = registry === undefined ? undefined : sheetEntry(registry, id);
   return entry === undefined
     ? undefined
     : {

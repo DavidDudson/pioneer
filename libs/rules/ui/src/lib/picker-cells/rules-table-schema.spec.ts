@@ -4,6 +4,7 @@ import { describe, expect, it } from 'vitest';
 import { FeatTableSchema } from './feat-table-schema';
 import { ItemTableSchema } from './item-table-schema';
 import type { ActionKind } from './picker-cell-messages';
+import { PrerequisiteState } from './prerequisite-list/prerequisite-list.component';
 import { RulesTableSchema } from './rules-table-schema';
 import { SpellTableSchema } from './spell-table-schema';
 
@@ -31,7 +32,7 @@ describe('rules table schemas', () => {
     const feats = new FeatTableSchema<Row>().addPrerequisites({
       id: 'prerequisites',
       header,
-      value: (row) => [{ label: 'Trained', met: row.met }],
+      value: () => [{ label: 'Trained', state: PrerequisiteState.Met }],
     });
     const items = new ItemTableSchema<Row>().addPrice({ id: 'price', header, value: (row) => row.price });
     expect([spells, feats, items].map((schema) => schema.build().length)).toStrictEqual([1, 1, 1]);
