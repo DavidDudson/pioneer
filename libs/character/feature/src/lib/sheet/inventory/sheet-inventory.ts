@@ -80,6 +80,7 @@ export function sheetInventory(inventory: Inventory, { items, runes }: RunedCont
     const entry = items.get(item.item);
     return {
       id: item.id,
+      content: item.item,
       name: item.name ?? entry?.name,
       contentName: item.name === undefined ? undefined : entry?.name,
       quantity: item.quantity,

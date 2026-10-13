@@ -1,9 +1,13 @@
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
+import { ContentId, contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import { expect, within } from 'storybook/test';
 
 import { SpellAccessListView } from './spell-access-list.component';
 
 type SpellAccessStory = StoryObj<SpellAccessListView>;
+
+const spellId = (slug: string): ContentId =>
+  ContentId.parse(contentId(PackId.parse('player-core'), EntrySlug.parse(`spell:${slug}`)));
 
 const meta: Meta<SpellAccessListView> = {
   title: 'Rules/Spell Access',
@@ -25,8 +29,8 @@ export const Empty: SpellAccessStory = {
 export const Granted: SpellAccessStory = {
   args: {
     lines: [
-      { spell: 'veil-of-privacy', name: 'Veil of Privacy' },
-      { spell: 'gone', name: undefined },
+      { spell: spellId('veil-of-privacy'), name: 'Veil of Privacy' },
+      { spell: spellId('gone'), name: undefined },
     ],
     remove: async () => undefined,
   },

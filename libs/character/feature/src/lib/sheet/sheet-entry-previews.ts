@@ -1,5 +1,5 @@
 import type { ContentEntry, ContentId, ContentRegistry } from '@pioneer/rules/sdk';
-import type { EntryPreview } from '@pioneer/rules/ui';
+import type { EntryPreview, EntryPreviews } from '@pioneer/rules/ui';
 
 /** Entries by registry: a loaded registry never changes, so each is indexed once. */
 const ENTRIES = new WeakMap<ContentRegistry, ReadonlyMap<ContentId, ContentEntry>>();
@@ -28,4 +28,15 @@ export function sheetEntryPreview(registry: ContentRegistry | undefined, id: Con
         summary: entry.description,
         sources: entry.sources,
       };
+}
+
+/**
+ * The previews a container provides for its rows, read from the registry it has loaded; none while that is loading.
+ *
+ * ```ts
+ * providers: [{ provide: ENTRY_PREVIEWS, useFactory: (): EntryPreviews => inject(Shop).previews }]
+ * ```
+ */
+export function sheetEntryPreviews(registry: () => ContentRegistry | undefined): EntryPreviews {
+  return { preview: (id) => sheetEntryPreview(registry(), id) };
 }

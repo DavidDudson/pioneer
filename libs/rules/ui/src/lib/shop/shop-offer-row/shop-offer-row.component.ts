@@ -2,13 +2,14 @@ import { ChangeDetectionStrategy, Component, input, output } from '@angular/core
 import { TranslocoPipe } from '@jsverse/transloco';
 import { Badge, Stack, Text, ToggleButton } from '@pioneer/frontier';
 
+import { EntryHover } from '../../entry-preview/entry-hover.component';
 import { ShopMessage } from '../shop-offer';
 import type { RarityBadge, ShopOffer } from '../shop-offer';
 
 /** One offer of `pio-shop-offers`: its name, rarity badge, level and price, and the toggle that picks it. */
 @Component({
   selector: 'pio-shop-offer-row',
-  imports: [Badge, Stack, Text, ToggleButton, TranslocoPipe],
+  imports: [EntryHover, Badge, Stack, Text, ToggleButton, TranslocoPipe],
   templateUrl: './shop-offer-row.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

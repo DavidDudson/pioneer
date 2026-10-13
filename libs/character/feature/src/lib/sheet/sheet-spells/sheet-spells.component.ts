@@ -1,11 +1,12 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import { TranslocoService } from '@jsverse/transloco';
 import { AsyncData, AsyncPending, AsyncRegion, Grid, Skeleton, Stack } from '@pioneer/frontier';
-import { FocusSpellsView, SpellAccessListView } from '@pioneer/rules/ui';
-import type { FocusLine } from '@pioneer/rules/ui';
+import { ENTRY_PREVIEWS, FocusSpellsView, SpellAccessListView } from '@pioneer/rules/ui';
+import type { EntryPreviews, FocusLine } from '@pioneer/rules/ui';
 
 import { CharacterStore } from '../../data/character-store';
 import { injectContentRegistry } from '../../data/content-registry-query';
+import { sheetEntryPreviews } from '../sheet-entry-previews';
 import { sheetFocus } from '../sheet-focus-spells';
 import { sheetSpellAccess, SPELL_CONTENT_KINDS } from '../sheet-prepared-spells';
 import type { SheetSpellAccess } from '../sheet-prepared-spells';
@@ -35,6 +36,7 @@ const LOADING_SLOTS = 3;
     Stack,
   ],
   templateUrl: './sheet-spells.component.html',
+  providers: [{ provide: ENTRY_PREVIEWS, useFactory: (): EntryPreviews => inject(SheetSpells).previews }],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SheetSpells {
@@ -51,6 +53,8 @@ export class SheetSpells {
 
   /** The registry with the spells; loads once the character casts. */
   protected readonly spells = injectContentRegistry(SPELL_CONTENT_KINDS, () => this.casts());
+  /** What a spell row previews on hover, read from the loaded spells. */
+  public readonly previews: EntryPreviews = sheetEntryPreviews(() => this.spells.data());
   /** One pick per prepared slot at the character's level, by entry and rank. */
   protected readonly prepared = preparedFieldsOf({
     registry: this.spells.data,

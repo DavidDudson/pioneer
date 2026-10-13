@@ -60,6 +60,7 @@ export class ShopKitOrder {
   protected readonly lines: Signal<readonly KitLine[]> = computed(() => {
     const content = this.content();
     const named = (item: ContentId, quantity: number, contents: readonly KitLine[]): KitLine => ({
+      item,
       name: content.get(item)?.name ?? item,
       quantity,
       contents,

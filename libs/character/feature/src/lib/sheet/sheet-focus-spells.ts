@@ -23,7 +23,7 @@ export function sheetFocus(registry: ContentRegistry, character: Character): Foc
     entries: focus.entries.map(({ entry, spells }) => ({
       key: entry.slug,
       tradition: entry.tradition,
-      spells: spells.map(({ id, name, cantrip }) => ({ key: id, name, cantrip })),
+      spells: spells.map(({ id, name, cantrip }) => ({ key: id, id, name, cantrip })),
     })),
   };
 }

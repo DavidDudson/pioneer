@@ -17,7 +17,9 @@
           @for (spell of entry.spells; track spell.key) {
             <fr-list-item>
               <fr-stack direction="horizontal" gap="xs" align="center">
-                <fr-text>{{ spell.name }}</fr-text>
+                <pio-entry-hover [entry]="spell.id">
+                  <fr-text tabindex="0">{{ spell.name }}</fr-text>
+                </pio-entry-hover>
                 @for (tag of spell.tags; track tag) {
                   <fr-badge>{{ tag | transloco }}</fr-badge>
                 }
