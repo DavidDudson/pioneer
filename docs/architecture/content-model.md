@@ -400,6 +400,9 @@ waits for Epic 2.4.
   again as the files they hold and registered in slug order. Each use of content first reads the stored
   `content_hash` values, so a re-seed rebuilds the registry on the next request without a restart.
 - **Homebrew packs** are created in the app and owned by a user. Visibility is private, campaign or public.
+  `libs/homebrew` creates them: a new pack is an empty `pack.json` under the license `homebrew`, private, with a slug
+  unique across every pack (official ones included, so a homebrew pack never takes an official pack's key). The
+  actor's own packs are listed at `GET /homebrew/packs`; another user's pack is a 404.
 - **Overriding official content** in homebrew is a new entry with `supersedes` pointing at the official one.
   The registry resolves supersession per character or campaign, so a GM can house-rule a feat without touching
   the official row.

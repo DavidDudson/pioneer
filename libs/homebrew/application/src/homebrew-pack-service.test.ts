@@ -1,5 +1,6 @@
 import { beforeEach, describe, expect, test } from 'bun:test';
 
+import { NO_ENTRIES } from '@pioneer/homebrew/domain';
 import { contentPackId, ContentPackId, ContentText, PackId, PackVisibility } from '@pioneer/rules/sdk';
 import { ConflictError, fixedClock, newId, NotFoundError, UserId } from '@pioneer/shared/kernel';
 import { rejection } from '@pioneer/shared/kernel/testing';
@@ -30,9 +31,9 @@ describe('HomebrewPackService', () => {
     const created = await service.create(amiri, feats);
     expect(created.id).toBe(contentPackId(feats.slug));
     expect(created.ownerId).toBe(amiri);
-    expect(created.publisher).toBe('Amiri');
+    expect(created.publisher).toBe(ContentText.parse('Amiri'));
     expect(created.visibility).toBe(PackVisibility.Private);
-    expect(created.entryCount).toBe(0);
+    expect(created.entryCount).toBe(NO_ENTRIES);
     expect(await service.get(amiri, created.id)).toStrictEqual(created);
   });
 

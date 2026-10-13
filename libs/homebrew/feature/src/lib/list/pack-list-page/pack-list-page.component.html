@@ -1,0 +1,61 @@
+<fr-page [title]="'homebrew.list.title' | transloco" [description]="'homebrew.list.description' | transloco">
+  <fr-stack gap="xl">
+    <fr-surface>
+      <fr-async-form [form]="form" [action]="create" [describeError]="describeCreateError">
+        <fr-stack gap="md">
+          <fr-heading variant="subheading" [level]="2">{{ 'homebrew.list.newHeading' | transloco }}</fr-heading>
+          <fr-text-field
+            [label]="'homebrew.list.titleLabel' | transloco"
+            [placeholder]="'homebrew.list.titlePlaceholder' | transloco"
+            [hint]="'homebrew.list.titleHint' | transloco"
+            [formField]="form.title"
+          />
+          <fr-text-field
+            [label]="'homebrew.list.slugLabel' | transloco"
+            [placeholder]="'homebrew.list.slugPlaceholder' | transloco"
+            [hint]="'homebrew.list.slugHint' | transloco"
+            [formField]="form.slug"
+          />
+          <fr-stack direction="horizontal" justify="end">
+            <fr-async-button
+              type="submit"
+              variant="primary"
+              [pendingLabel]="'homebrew.list.creating' | transloco"
+              [successLabel]="'homebrew.list.created' | transloco"
+            >
+              {{ 'homebrew.list.create' | transloco }}
+            </fr-async-button>
+          </fr-stack>
+        </fr-stack>
+      </fr-async-form>
+    </fr-surface>
+
+    <fr-async-region [errorMessage]="'homebrew.list.loadError' | transloco">
+      <ng-template frAsyncPending>
+        <fr-stack gap="md">
+          @for (placeholder of placeholders; track placeholder) {
+            <fr-surface><fr-skeleton width="lg" /></fr-surface>
+          }
+        </fr-stack>
+      </ng-template>
+      <ng-template let-packs [frAsyncData]="store.list">
+        <fr-virtual-list gap="md" estimate="md" [itemKey]="packKey">
+          <ng-template let-pack [frVirtualItem]="packs">
+            <fr-surface>
+              <fr-stack gap="2xs">
+                <fr-link variant="subheading" [to]="[pack.id]">{{ pack.title }}</fr-link>
+                <fr-text tone="muted">{{ 'homebrew.list.entries' | transloco: { count: pack.entryCount } }}</fr-text>
+                <fr-text variant="caption" tone="subtle"
+                  >{{ 'homebrew.list.updated' | transloco }} <fr-date format="relative" [value]="pack.updatedAt"
+                /></fr-text>
+              </fr-stack>
+            </fr-surface>
+          </ng-template>
+        </fr-virtual-list>
+        @if (packs.length === 0) {
+          <fr-text element="p" tone="muted">{{ 'homebrew.list.empty' | transloco }}</fr-text>
+        }
+      </ng-template>
+    </fr-async-region>
+  </fr-stack>
+</fr-page>

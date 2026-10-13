@@ -6,7 +6,7 @@ import * as z from 'zod';
 import { EntryCount, NO_ENTRIES } from './homebrew-fields';
 
 /** JSON shape of a homebrew pack on the wire. */
-export const HomebrewPackWire = z.object({
+const HomebrewPackWire = z.object({
   id: ContentPackId,
   version: Version,
   /** The pack id entries are keyed under; unique across official and homebrew packs. */

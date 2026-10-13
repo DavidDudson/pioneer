@@ -2,7 +2,7 @@ import { afterAll, beforeAll, describe, expect, test } from 'bun:test';
 
 import { fixtureOwnerId, HomebrewPackBuilder } from '@pioneer/homebrew/domain/testing';
 import { seedContentPacks } from '@pioneer/rules/infrastructure';
-import { contentPackId, PackId, packContentsFromFiles } from '@pioneer/rules/sdk';
+import { ContentText, contentPackId, PackId, packContentsFromFiles } from '@pioneer/rules/sdk';
 import type { PackContents, PackContentsLoader } from '@pioneer/rules/sdk';
 import { fixedClock, newId, UserId } from '@pioneer/shared/kernel';
 import { createTestDatabase, QueryRecorder, testDatabaseUrl, unindexedQueries } from '@pioneer/shared/server/testing';
@@ -54,7 +54,7 @@ describe.skipIf(adminUrl === undefined)('DrizzleHomebrewPackRepository (postgres
     await repository.insert(first);
     expect(await repository.insert(second)).toBeUndefined();
     const stored = await repository.findById(first.id);
-    expect(stored?.title).toBe('First');
+    expect(stored?.title).toBe(ContentText.parse('First'));
   });
 
   test('an official pack’s slug is refused and the pack is never read as homebrew', async () => {
@@ -78,7 +78,7 @@ describe.skipIf(adminUrl === undefined)('DrizzleHomebrewPackRepository (postgres
     await repository.insert(older);
     await repository.insert(newer);
     const owned = await repository.listOwnedBy(ezren);
-    expect(owned.map(({ slug }) => slug)).toStrictEqual(['list-newer', 'list-older']);
+    expect(owned.map(({ slug }) => slug)).toStrictEqual([PackId.parse('list-newer'), PackId.parse('list-older')]);
   });
 
   test('every lookup is served by an index', async () => {

@@ -1,0 +1,45 @@
+<fr-page [title]="title() ?? (store.selected.isError() ? ('homebrew.pack.title' | transloco) : undefined)">
+  <fr-stack gap="xl">
+    <fr-async-region [errorMessage]="'homebrew.pack.loadError' | transloco">
+      <ng-template frAsyncPending>
+        <fr-surface>
+          <fr-stack gap="md">
+            <fr-heading variant="subheading" [level]="2">{{ 'homebrew.pack.detailsHeading' | transloco }}</fr-heading>
+            <fr-description-list>
+              <fr-description-item [term]="'homebrew.pack.slug' | transloco"
+                ><fr-skeleton width="sm"
+              /></fr-description-item>
+              <fr-description-item [term]="'homebrew.pack.entries' | transloco"
+                ><fr-skeleton width="sm"
+              /></fr-description-item>
+            </fr-description-list>
+          </fr-stack>
+        </fr-surface>
+      </ng-template>
+      <ng-template let-pack [frAsyncData]="store.selected">
+        <fr-surface>
+          <fr-stack gap="md">
+            <fr-heading variant="subheading" [level]="2">{{ 'homebrew.pack.detailsHeading' | transloco }}</fr-heading>
+            <fr-description-list>
+              <fr-description-item [term]="'homebrew.pack.slug' | transloco">
+                <fr-text>{{ pack.slug }}</fr-text>
+              </fr-description-item>
+              <fr-description-item [term]="'homebrew.pack.publisher' | transloco">
+                <fr-text>{{ pack.publisher }}</fr-text>
+              </fr-description-item>
+              <fr-description-item [term]="'homebrew.pack.visibility' | transloco">
+                <fr-text>{{ visibilityMessages[pack.visibility] | transloco }}</fr-text>
+              </fr-description-item>
+              <fr-description-item [term]="'homebrew.pack.entries' | transloco">
+                <fr-text>{{ 'homebrew.list.entries' | transloco: { count: pack.entryCount } }}</fr-text>
+              </fr-description-item>
+              <fr-description-item [term]="'homebrew.pack.updated' | transloco">
+                <fr-text><fr-date [value]="pack.updatedAt" /></fr-text>
+              </fr-description-item>
+            </fr-description-list>
+          </fr-stack>
+        </fr-surface>
+      </ng-template>
+    </fr-async-region>
+  </fr-stack>
+</fr-page>
