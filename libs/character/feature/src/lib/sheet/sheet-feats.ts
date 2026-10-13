@@ -1,12 +1,14 @@
-import { characterGrants, featSlots, PrerequisiteStatus, SlotStatus } from '@pioneer/character/domain';
+import { featSlots, PrerequisiteStatus, SlotStatus } from '@pioneer/character/domain';
 import type { Character, CharacterSlot, FeatOption, FeatSlot } from '@pioneer/character/domain';
 import type { ComboboxOption } from '@pioneer/frontier/data';
-import { BlockKind, ContentKind, InlineKind, OriginHopKind } from '@pioneer/rules/sdk';
+import { BlockKind, ContentKind, InlineKind } from '@pioneer/rules/sdk';
 import type { ContentId, ContentRegistry, InlineNode, RichText, SlotKey } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 import { CHARACTER_CONTENT_KINDS } from '../data/content-registry-query';
+import { sheetFeatGroups } from './sheet-feat-groups';
+import type { SheetFeatGroup } from './sheet-feat-groups';
 import { sheetSlotContent } from './sheet-slot-content';
 
 /** The kinds the feat pickers read: the character's, so its entries resolve, the feats and their archetypes. */
@@ -49,17 +51,10 @@ export interface SheetFeatOption {
   readonly locked: SheetFeatLock | undefined;
 }
 
-/** A feat the character has from a feature rather than a slot: Shield Block from a warpriest's First Doctrine. */
-export interface SheetGrantedFeat {
-  readonly id: ContentId;
-  readonly name: string;
-  readonly from: string;
-}
-
-/** The feats section: the slots up to the character's level and the feats its features grant. */
+/** The feats section: the slots up to the character's level and the feats the character has, by slot type. */
 export interface SheetFeats {
   readonly slots: readonly SheetFeatSlot[];
-  readonly granted: readonly SheetGrantedFeat[];
+  readonly groups: readonly SheetFeatGroup[];
 }
 
 /** The words of rich text: its text, and each reference by its label or the name of the entry it names. */
@@ -97,22 +92,9 @@ function slotRead(slots: readonly CharacterSlot[], key: SlotKey): CharacterSlot 
   return slots.find((slot) => slot.key === key);
 }
 
-/** Each feat the effective set has whose last hop is a grant, not a pick: a feature gave it. */
-function grantedFeats(registry: ContentRegistry, character: Character): SheetGrantedFeat[] {
-  const content = sheetSlotContent(registry);
-  const nameOf = (id: ContentId): string | undefined => content.lookup.entry(id)?.name;
-  return characterGrants(character.document, content).items.flatMap(({ entry, origin }): SheetGrantedFeat[] => {
-    const hop = origin.hops.at(-1);
-    if (entry.kind !== ContentKind.Feat || hop?.kind !== OriginHopKind.Grant) {
-      return [];
-    }
-    return [{ id: entry.id, name: entry.name, from: nameOf(hop.by) ?? '' }];
-  });
-}
-
 /**
  * The sheet's feats (#466): each feat slot up to the character's level, lowest first, with the feats it offers at its
- * level and whether the character meets their prerequisites there, and the feats its features grant.
+ * level and whether the character meets their prerequisites there, and the feats the character has by slot type (#487).
  */
 export function sheetFeats(
   registry: ContentRegistry,
@@ -133,7 +115,7 @@ export function sheetFeats(
         reason: read?.status === SlotStatus.Invalid ? read.reason : undefined,
       };
     }),
-    granted: grantedFeats(registry, character),
+    groups: sheetFeatGroups(registry, character),
   };
 }
 

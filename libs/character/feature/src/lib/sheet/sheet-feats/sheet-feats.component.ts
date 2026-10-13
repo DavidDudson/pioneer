@@ -7,26 +7,24 @@ import {
   AsyncRegion,
   EmptyState,
   Grid,
-  Heading,
   InlineField,
-  List,
-  ListItem,
   Skeleton,
   Stack,
-  Text,
 } from '@pioneer/frontier';
 import { Combobox } from '@pioneer/frontier/data';
 import { filter, merge } from 'rxjs';
 
 import { CharacterStore } from '../../data/character-store';
 import { injectContentRegistry } from '../../data/content-registry-query';
+import { SheetFeatGroupList } from '../sheet-feat-group/sheet-feat-group.component';
 import { featFieldsOf } from '../sheet-feat-picks';
 import { FEAT_CONTENT_KINDS } from '../sheet-feats';
 
 const LOADING_SLOTS = 3;
 
 /**
- * The open character's feats (#466): the feats its features grant, each with what gave it, then a pick per feat slot
+ * The open character's feats (#466, #487): the feats it has by slot type, each with the level it was taken at, its
+ * display category and a note, then a pick per feat slot
  * up to its level, lowest first. Each picker lists the feats its slot offers at its level; one whose prerequisites the
  * character doesn't meet there is shown but can't be picked, saying what they are, and one whose prerequisites can't be
  * checked says so. A pick whose prerequisites stop holding says why under its slot.
@@ -40,13 +38,10 @@ const LOADING_SLOTS = 3;
     Combobox,
     EmptyState,
     Grid,
-    Heading,
     InlineField,
-    List,
-    ListItem,
+    SheetFeatGroupList,
     Skeleton,
     Stack,
-    Text,
     TranslocoPipe,
   ],
   templateUrl: './sheet-feats.component.html',

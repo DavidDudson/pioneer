@@ -169,4 +169,17 @@ describe('CharacterSheetPage feats', () => {
       expect(granted).toStrictEqual([['Shield Block', 'From Shield Block']]);
     });
   });
+
+  it('groups the feats by slot type with the level taken at and a display category', async () => {
+    const { root } = await openSheet(fighter({ [FIGHTER_FEAT_1]: POWER_ATTACK }), { packs: FIGHTER_PACKS });
+
+    await vi.waitFor(() => {
+      const headings = [...featsSection(root).querySelectorAll('fr-heading')].map((heading) => textOf(heading));
+      expect(headings).toContain('Skill feats');
+    });
+    const row = present(
+      [...featsSection(root).querySelectorAll('fr-list-item')].find((item) => textOf(item).includes('Power-attack')),
+    );
+    expect(textOf(row)).toBe('Level 1Power-attackNarrative');
+  });
 });
