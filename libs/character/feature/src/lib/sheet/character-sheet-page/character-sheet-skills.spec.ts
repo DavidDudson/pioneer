@@ -80,6 +80,23 @@ describe('CharacterSheetPage skills', () => {
     });
   });
 
+  it('says beside the pickers which earlier slot trained a skill they cannot offer', async () => {
+    const { root } = await openSheet(fighter({ 'skill-training:1:0': ATHLETICS }));
+
+    await vi.waitFor(() => {
+      expect(skillsSection(root).textContent).toContain('Already trained in Athletics (from Level 1 trained skill 1)');
+    });
+  });
+
+  it('says nothing about trained skills while none is trained', async () => {
+    const { root } = await openSheet(fighter());
+
+    await vi.waitFor(() => {
+      expect(pickerLabels(root)).toStrictEqual(TRAINING);
+    });
+    expect(skillsSection(root).textContent).not.toContain('Already trained');
+  });
+
   it('totals an untrained skill from its attribute alone', async () => {
     const { root } = await openSheet(fighter());
 

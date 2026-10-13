@@ -12,6 +12,12 @@
           (cancelled)="pick.field.cancel()"
         />
       </fr-inline-field>
+      @for (note of pick.trained(); track note.id) {
+        <fr-text variant="caption" tone="subtle">{{
+          'character.sheet.skillTrainedFrom'
+            | transloco: { skill: note.skill, source: note.source.key | transloco: note.source.params }
+        }}</fr-text>
+      }
     }
   </fr-grid>
 }

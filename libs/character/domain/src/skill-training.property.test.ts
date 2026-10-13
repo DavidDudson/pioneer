@@ -5,7 +5,7 @@ import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
 import { array, assert, constantFrom, integer, option, property } from 'fast-check';
 
 import { buildRanks } from './class-build';
-import { skillSlots } from './skill-training';
+import { SkillSlotKind, skillSlots } from './skill-training';
 import { skillReads, slotContent } from './slot-offer';
 import {
   CharacterBuilder,
@@ -67,6 +67,40 @@ describe('skill ranks', () => {
             const selector = registry.statistic(StatisticId.parse(skillFixtureId(skill)))?.definition.selector;
             const rank = selector === undefined ? undefined : ranks.get(selector);
             expect(RANK_FROM[rank ?? Proficiency.Untrained]).toBeLessThanOrEqual(level);
+          }
+        },
+      ),
+      { numRuns: 50 },
+    );
+  });
+});
+
+describe('trained skills a slot cannot offer', () => {
+  test('are every skill a trained skill slot leaves out, each with a source, whatever the picks', () => {
+    assert(
+      property(
+        constantFrom(...PLAYER_CORE_CLASSES),
+        array(skillPick, { minLength: PICKS_MAX, maxLength: PICKS_MAX }),
+        (name, picks) => {
+          const builder = new CharacterBuilder()
+            .picking('class', playerCoreClassId(name))
+            .picking('boost:1:class:0', 'dex');
+          const empty = builder.build().document;
+          for (const [index, slot] of skillSlots(empty, skillReads(empty, content)).entries()) {
+            const pick = picks[index];
+            if (pick !== undefined) {
+              builder.picking(slot.key, skillFixtureId(pick));
+            }
+          }
+          const { document } = builder.build();
+          for (const slot of skillSlots(document, skillReads(document, content)).filter(
+            ({ kind }) => kind === SkillSlotKind.Training,
+          )) {
+            const offered = slot.options.map(({ id }) => id);
+            const trained = slot.trained.map(({ skill }) => skill.id);
+            expect(trained.filter((id) => offered.includes(id))).toEqual([]);
+            expect(slot.trained.every(({ sources }) => sources.length > 0)).toBe(true);
+            expect(offered.length + trained.length).toBe(content.skills.skills.length);
           }
         },
       ),

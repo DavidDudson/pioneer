@@ -156,6 +156,7 @@ export type { DeityContent, DeityRead } from './deity-content';
 export { CharacterLanguages, characterLanguages, SheetLanguage } from './character-languages';
 export { type SkillContent, skillContent, type SkillOption } from './skill-content';
 export { type SkillSlot, SkillSlotKind, skillSlots } from './skill-training';
+export { type SkillTrainingSource, SkillTrainingSourceKind, type TrainedSkill } from './skill-trained';
 export { type LanguageContent, languageContent, type LanguageOption } from './language-content';
 export {
   type KnownLanguage,

@@ -8,6 +8,7 @@ import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 import { NOT_CHOSEN, RootPick } from './sheet-build';
 import { sheetField } from './sheet-field';
+import type { TrainedNote } from './sheet-skills';
 
 /** What a slot pick reads and writes through. */
 export interface SlotPickSources {
@@ -27,6 +28,8 @@ export interface SlotPickField {
   readonly key: SlotKey;
   readonly label: MessageDescriptor;
   readonly options: Signal<readonly SelectOption<string>[]>;
+  /** The skills the slot can't offer because the character is trained already, and what trains them. */
+  readonly trained: Signal<readonly TrainedNote[]>;
   readonly field: InlineEdit<string | undefined>;
 }
 
@@ -82,6 +85,7 @@ interface PickSlot {
   readonly key: SlotKey;
   readonly label: MessageDescriptor;
   readonly options: readonly SelectOption<string>[];
+  readonly trained?: readonly TrainedNote[];
 }
 
 /**
@@ -100,7 +104,8 @@ export function slotFieldsOf(
         return [];
       }
       const options = computed(() => slots()?.find((slot) => slot.key === key)?.options ?? []);
-      return [{ key, label, options, field: slotField(sources, signal(key), options) }];
+      const trained = computed(() => slots()?.find((slot) => slot.key === key)?.trained ?? []);
+      return [{ key, label, options, trained, field: slotField(sources, signal(key), options) }];
     }),
   );
 }

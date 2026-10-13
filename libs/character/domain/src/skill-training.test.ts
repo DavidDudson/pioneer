@@ -1,12 +1,13 @@
 import { describe, expect, test } from 'bun:test';
 
-import { ContentKind, ContentRegistry, Level, Selector, SlotKey } from '@pioneer/rules/sdk';
-import type { ContentId } from '@pioneer/rules/sdk';
+import { ContentId, ContentKind, ContentRegistry, Level, Selector, SlotKey } from '@pioneer/rules/sdk';
 import { ContentPackBuilder, CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
 
 import { SlotStatus, SlotSubjectKind } from './character-slot';
 import { characterSlots } from './character-slot-status';
 import { buildRanks } from './class-build';
+import { SkillTrainingSourceKind } from './skill-trained';
+import type { SkillTrainingSource } from './skill-trained';
 import { increasedRank, SkillSlotKind, skillSlots } from './skill-training';
 import { skillReads, slotContent, slotRefusal } from './slot-offer';
 import { CharacterBuilder, playerCoreClasses, playerCoreClassId, skillFixtureId, skillFixtures } from './testing';
@@ -46,7 +47,10 @@ function training(level: number, count: number): string[] {
 }
 
 function refusalOf(builder: CharacterBuilder, slot: string, selection: SkillFixture): string | undefined {
-  const pick = { slot: SlotKey.parse(slot), selection: skillFixtureId(selection) };
+  const pick = {
+    slot: SlotKey.parse(slot),
+    selection: skillFixtureId(selection),
+  };
   return slotRefusal(builder.build().document, content, pick)?.message.key;
 }
 
@@ -81,7 +85,11 @@ describe('trained skill slots', () => {
     expect(characterSlots(later.build().document, content).find((slot) => slot.key === 'skill-training:5:0')).toEqual({
       status: SlotStatus.Planned,
       key: SlotKey.parse('skill-training:5:0'),
-      subject: { kind: SlotSubjectKind.Skill, source: SkillSlotKind.Training, level: Level.parse(5) },
+      subject: {
+        kind: SlotSubjectKind.Skill,
+        source: SkillSlotKind.Training,
+        level: Level.parse(5),
+      },
       level: Level.parse(5),
     });
     expect(
@@ -120,7 +128,10 @@ describe('trained skill slots', () => {
   });
 
   test('a pick that is no skill is not offered', () => {
-    const pick = { slot: SlotKey.parse('skill-training:1:0'), selection: playerCoreClassId('wizard') };
+    const pick = {
+      slot: SlotKey.parse('skill-training:1:0'),
+      selection: playerCoreClassId('wizard'),
+    };
 
     expect(slotRefusal(as('fighter').build().document, content, pick)?.message.key).toBe(
       'character.validation.selectionNotOffered',
@@ -169,7 +180,10 @@ describe('skill increase slots', () => {
     const capped = fighter.picking('skill-increase:5', skill('athletics'));
     expect(
       characterSlots(capped.build().document, content).find((slot) => slot.key === 'skill-increase:5'),
-    ).toMatchObject({ status: SlotStatus.Invalid, reason: { key: 'rules.choices.invalid.skillRankCapped' } });
+    ).toMatchObject({
+      status: SlotStatus.Invalid,
+      reason: { key: 'rules.choices.invalid.skillRankCapped' },
+    });
     expect(rankOf(capped, 'skill:athletics')).toBe('expert');
     const master = capped.picking('skill-increase:7', skill('athletics'));
     expect(rankOf(master, 'skill:athletics')).toBe('master');
@@ -206,15 +220,76 @@ describe('skills a later pack restates', () => {
     restated.register(
       new ContentPackBuilder()
         .withId('homebrew-athletics')
-        .withStatistic('athletics', { selector: 'skill:athletics', domains: ['skill-check'] })
+        .withStatistic('athletics', {
+          selector: 'skill:athletics',
+          domains: ['skill-check'],
+        })
         .build(),
     );
-    const restatedContent = { ...slotContent(restated), namespaces: CORE_NAMESPACES };
+    const restatedContent = {
+      ...slotContent(restated),
+      namespaces: CORE_NAMESPACES,
+    };
     const { document } = as('fighter').picking('skill-training:1:0', skill('athletics')).build();
 
     expect(buildRanks(document, restatedContent).get(Selector.parse('skill:athletics'))).toBe('trained');
     expect(characterSlots(document, restatedContent).find((slot) => slot.key === 'skill-training:1:0')).toMatchObject({
       status: SlotStatus.Filled,
     });
+  });
+});
+
+/** A skill a trained skill slot can't offer, by id, with its sources. */
+interface TrainedRead {
+  readonly skill: ContentId;
+  readonly sources: readonly SkillTrainingSource[];
+}
+
+function trainedAt(builder: CharacterBuilder, slot: string): readonly TrainedRead[] {
+  const { document } = builder.build();
+  const found = skillSlots(document, skillReads(document, content)).find((each) => each.key === slot);
+  return (found?.trained ?? []).map(({ skill: each, sources }) => ({
+    skill: each.id,
+    sources,
+  }));
+}
+
+describe('skills a trained skill slot cannot offer', () => {
+  test('name every grant that trains a skill, the class and the background alike', () => {
+    const cleric = as('cleric').picking('background', acolyte);
+
+    const [religion, ...rest] = trainedAt(cleric, 'skill-training:1:0');
+
+    expect(rest).toEqual([]);
+    expect(religion?.skill).toBe(skill('religion'));
+    expect(religion?.sources).toContainEqual({
+      kind: SkillTrainingSourceKind.Entry,
+      entry: playerCoreClassId('cleric'),
+    });
+    expect(religion?.sources).toContainEqual({
+      kind: SkillTrainingSourceKind.Entry,
+      entry: ContentId.parse(acolyte),
+    });
+  });
+
+  test('name the earlier slot that took a skill', () => {
+    const cleric = as('cleric').picking('skill-training:1:0', skill('athletics'));
+
+    expect(trainedAt(cleric, 'skill-training:1:1')).toContainEqual({
+      skill: skill('athletics'),
+      sources: [
+        {
+          kind: SkillTrainingSourceKind.Slot,
+          slot: SlotKey.parse('skill-training:1:0'),
+        },
+      ],
+    });
+    expect(trainedAt(cleric, 'skill-training:1:0').map(({ skill: each }) => each)).not.toContain(skill('athletics'));
+  });
+
+  test('are none for a skill increase, which may raise a trained skill', () => {
+    const fighter = as('fighter').atLevel(3).picking('skill-training:1:0', skill('athletics'));
+
+    expect(trainedAt(fighter, 'skill-increase:3')).toEqual([]);
   });
 });

@@ -324,6 +324,14 @@ picked rank for each skill.
 The sheet's Skills section lists every skill and Lore with its total, and a picker for each trained skill and skill
 increase up to the character's level.
 
+A trained skill slot also reads the skills it cannot offer, with what trains each: the entries of the effective set that
+raise it (the class, the background) and the earlier slots whose pick took it (`SkillSlot.trained`). The sheet shows
+them beside the slot's picker ("Already trained in Religion (from Cleric)"), so the player sees where a training comes
+from before choosing another skill ([#672](https://github.com/DavidDudson/pioneer/issues/672)). Marking the options of
+the background, class, subclass and feat pickers that would train a skill twice, and the notice for a duplicate
+training after 1st level, follow in [#674](https://github.com/DavidDudson/pioneer/issues/674) and
+[#673](https://github.com/DavidDudson/pioneer/issues/673).
+
 ### Languages
 
 Languages are never stored either: the ancestry's `languages` and the `Language` elements of what the character has
