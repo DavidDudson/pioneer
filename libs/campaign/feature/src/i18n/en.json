@@ -98,5 +98,31 @@
     "inOtherCampaign": "That character is already in another campaign. Detach it there first.",
     "noneToAttach": "None of your characters is free to bring. A character is in one campaign at a time.",
     "toCharacters": "Go to your characters"
+  },
+  "packs": {
+    "heading": "Packs",
+    "loadError": "Could not load the packs.",
+    "empty": "No packs are on for this campaign.",
+    "alwaysOn": "Always on",
+    "requiredBy": "Needed by {packs}",
+    "gmOnly": "Only the GM changes which packs the campaign uses.",
+    "disable": "Disable",
+    "disabling": "Disabling",
+    "disabled": "Disabled",
+    "disableFailed": "Could not disable the pack. Try again.",
+    "enableHeading": "Add a pack",
+    "packLabel": "Pack",
+    "privateOption": "{title} (private)",
+    "enable": "Enable pack",
+    "enabling": "Enabling",
+    "enabled": "Enabled",
+    "enableFailed": "Could not enable the pack. Try again.",
+    "noneToEnable": "No more packs to enable. Packs you own, and packs shared with you, appear here.",
+    "toHomebrew": "Go to your packs",
+    "private": "{pack} is private. Set it to campaign visibility first, then enable it.",
+    "dependencyUnreadable": "{pack} extends {dependency}, which you cannot read, so it cannot be enabled.",
+    "alwaysOnRefusal": "Official packs are always on.",
+    "requiredByRefusal": "{packs} still extend this pack. Disable them first.",
+    "changed": "The packs changed while enabling. Try again."
   }
 }

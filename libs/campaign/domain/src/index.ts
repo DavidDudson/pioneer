@@ -3,6 +3,7 @@ export {
   AttachCharacterBody,
   CampaignContract,
   CreateCampaignBody,
+  EnablePackBody,
   IssuedInvite,
   JoinCampaignBody,
   TransferGmBody,
@@ -21,9 +22,12 @@ export {
   InviteToken,
   InviteTokenHash,
   MemberName,
+  PackPublisher,
+  PackTitle,
   PartyCharacterLevel,
   PartyCharacterName,
 } from './campaign-fields';
 export { CampaignInvite, INVITE_LIFETIME, InviteStatus, InviteSummary } from './campaign-invite';
+export { type CampaignPack, CampaignPacks, EnabledPack, PackCandidate, PackListing } from './campaign-packs';
 export { type CampaignCharacter, CampaignParty, OwnedCharacter, PartyCharacter } from './campaign-party';
 export { CampaignRoster, NamedMember } from './campaign-roster';

@@ -4,10 +4,12 @@ import type {
   Campaign,
   CampaignInviteId,
   CampaignMemberId,
+  CampaignPacks,
   CampaignParty,
   CampaignRoster,
   CharacterId,
   CreateCampaignBody,
+  EnabledPackId,
   InviteSummary,
   InviteToken,
   IssuedInvite,
@@ -23,6 +25,7 @@ const campaignKeys = {
   roster: (id: string | undefined) => [...campaignKeys.all, 'roster', id] as const,
   invites: (id: string | undefined) => [...campaignKeys.all, 'invites', id] as const,
   party: (id: string | undefined) => [...campaignKeys.all, 'party', id] as const,
+  packs: (id: string | undefined) => [...campaignKeys.all, 'packs', id] as const,
 };
 
 /** The route's campaign id, parsed; a malformed one fails the query that asked. */
@@ -93,6 +96,17 @@ export class CampaignStore {
       queryKey: campaignKeys.party(id),
       queryFn: async (): Promise<CampaignParty> =>
         this.#api.call(CampaignContract.party, { params: { id: parsedId(id) }, body: undefined }),
+      enabled: id !== undefined,
+    };
+  });
+
+  /** The open campaign's packs, and for its GM the ones they could enable. */
+  public readonly packs = injectQuery(() => {
+    const id = this.#selectedId();
+    return {
+      queryKey: campaignKeys.packs(id),
+      queryFn: async (): Promise<CampaignPacks> =>
+        this.#api.call(CampaignContract.packs, { params: { id: parsedId(id) }, body: undefined }),
       enabled: id !== undefined,
     };
   });
@@ -191,6 +205,28 @@ export class CampaignStore {
     await this.#client.invalidateQueries({ queryKey: campaignKeys.party(id), refetchType: 'none' });
   }
 
+  /** Enables a pack, and the packs it extends, in the open campaign. */
+  public async enablePack(id: CampaignId, packId: EnabledPackId): Promise<void> {
+    const packs = await this.#api.call(CampaignContract.enablePack, { params: { id }, body: { packId } });
+    await this.#client.cancelQueries({ queryKey: campaignKeys.packs(id) });
+    this.#client.setQueryData(campaignKeys.packs(id), packs);
+  }
+
+  /**
+   * Stops the campaign using a pack. Its row stays until the packs next load, so the focused button and its tick
+   * survive; the picker offers the pack again now.
+   */
+  public async disablePack(id: CampaignId, packId: EnabledPackId): Promise<void> {
+    const packs = await this.#api.call(CampaignContract.disablePack, { params: { id, packId }, body: undefined });
+    await this.#client.cancelQueries({ queryKey: campaignKeys.packs(id) });
+    this.#client.setQueryData(campaignKeys.packs(id), (shown: CampaignPacks | undefined) => ({
+      manageable: packs.manageable,
+      enabled: shown?.enabled ?? packs.enabled,
+      candidates: packs.candidates,
+    }));
+    await this.#client.invalidateQueries({ queryKey: campaignKeys.packs(id), refetchType: 'none' });
+  }
+
   /** The user leaves the campaign; nothing of it is theirs to see after. */
   public async leave(id: CampaignId): Promise<void> {
     await this.#api.call(CampaignContract.leave, { params: { id }, body: undefined });
@@ -199,6 +235,7 @@ export class CampaignStore {
       campaignKeys.roster(id),
       campaignKeys.invites(id),
       campaignKeys.party(id),
+      campaignKeys.packs(id),
     ]) {
       this.#client.removeQueries({ queryKey: key });
     }

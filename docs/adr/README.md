@@ -62,6 +62,7 @@ Accepted. To change a decision, add a new ADR that supersedes the old one; do no
 | [0055](0055-campaign-packs-and-the-enablement-port.md)        | Campaigns enable packs through `campaign_packs`; homebrew asks through a port      |
 | [0056](0056-pioneer-character-file-format.md)                 | A character file names content by pack and slug, versioned apart from the document |
 | [0057](0057-pack-dependencies-and-the-visibility-ceiling.md)  | A pack is no more visible than the packs it extends                                |
+| [0058](0058-enabling-a-pack-enables-the-packs-it-extends.md)  | Enabling a pack in a campaign enables the packs it extends                         |
 
 Template:
 

@@ -407,7 +407,8 @@ waits for Epic 2.4.
   The registry resolves supersession per character or campaign, so a GM can house-rule a feat without touching
   the official row.
 - **Enabled packs** are chosen per campaign (and per character outside campaigns). The registry is built from
-  exactly those packs.
+  exactly those packs. A GM enables a homebrew pack they may read, which enables the packs it extends too; official
+  packs are always on (ADR-0058).
 
 Official content is JSON, not TypeScript: thousands of entries as TypeScript would slow typechecking for no benefit,
 and homebrew cannot use that path. A pack directory holds:

@@ -1,14 +1,24 @@
-import { CampaignInviteService, CampaignPartyService, CampaignService } from '@pioneer/campaign/application';
+import {
+  CampaignInviteService,
+  CampaignPackService,
+  CampaignPartyService,
+  CampaignService,
+} from '@pioneer/campaign/application';
 import {
   campaignRoutes,
   DrizzleCampaignInviteRepository,
+  DrizzleCampaignPackRepository,
   DrizzleCampaignPartyRepository,
   DrizzleCampaignRepository,
 } from '@pioneer/campaign/infrastructure';
+import { PackAccessPolicy } from '@pioneer/homebrew/application';
+import { DrizzlePackDependencyRepository, DrizzlePackDirectory } from '@pioneer/homebrew/infrastructure';
 import type { Clock } from '@pioneer/shared/kernel';
 import type { ContractRouter, RequestAuthenticator } from '@pioneer/shared/server';
 
+import { CampaignPackEnablementDirectory } from './campaign-pack-enablement-directory';
 import type { Database } from './database';
+import { HomebrewPackCatalog } from './homebrew-pack-catalog';
 import { OwnedCharacterDirectory } from './owned-character-directory';
 import { UserMemberDirectory } from './user-member-directory';
 
@@ -28,5 +38,15 @@ export function campaigns(db: Database, clock: Clock, authenticator: RequestAuth
     },
     clock,
   );
-  return campaignRoutes({ campaigns: service, invites, party }, authenticator);
+  const access = new PackAccessPolicy(new CampaignPackEnablementDirectory(db));
+  const catalog = new HomebrewPackCatalog(
+    new DrizzlePackDirectory(db),
+    new DrizzlePackDependencyRepository(db),
+    access,
+  );
+  const packs = new CampaignPackService(
+    { campaigns: repository, packs: new DrizzleCampaignPackRepository(db), catalog },
+    clock,
+  );
+  return campaignRoutes({ campaigns: service, invites, party, packs }, authenticator);
 }

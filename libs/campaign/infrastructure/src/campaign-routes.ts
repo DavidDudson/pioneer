@@ -1,4 +1,9 @@
-import type { CampaignInviteService, CampaignPartyService, CampaignService } from '@pioneer/campaign/application';
+import type {
+  CampaignInviteService,
+  CampaignPackService,
+  CampaignPartyService,
+  CampaignService,
+} from '@pioneer/campaign/application';
 import { CampaignContract } from '@pioneer/campaign/domain';
 import { ContractRouter } from '@pioneer/shared/server';
 import type { RequestAuthenticator } from '@pioneer/shared/server';
@@ -8,6 +13,7 @@ export interface CampaignServices {
   readonly campaigns: CampaignService;
   readonly invites: CampaignInviteService;
   readonly party: CampaignPartyService;
+  readonly packs: CampaignPackService;
 }
 
 /**
@@ -15,7 +21,7 @@ export interface CampaignServices {
  * signed-in user (401 otherwise); which campaigns that user may see is the services' policy.
  */
 export function campaignRoutes(
-  { campaigns: service, invites, party }: CampaignServices,
+  { campaigns: service, invites, party, packs }: CampaignServices,
   auth: RequestAuthenticator,
 ): ContractRouter['app'] {
   return new ContractRouter('campaign-routes')
@@ -40,6 +46,13 @@ export function campaignRoutes(
     )
     .handleSignedIn(CampaignContract.detachCharacter, auth, async ({ actor, params }) =>
       party.detach(actor, params.id, params.characterId),
+    )
+    .handleSignedIn(CampaignContract.packs, auth, async ({ actor, params }) => packs.packs(actor, params.id))
+    .handleSignedIn(CampaignContract.enablePack, auth, async ({ actor, params, body }) =>
+      packs.enable(actor, params.id, body),
+    )
+    .handleSignedIn(CampaignContract.disablePack, auth, async ({ actor, params }) =>
+      packs.disable(actor, params.id, params.packId),
     )
     .handleSignedIn(CampaignContract.invites, auth, async ({ actor, params }) => [
       ...(await invites.list(actor, params.id)),
