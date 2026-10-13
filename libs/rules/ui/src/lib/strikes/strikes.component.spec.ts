@@ -4,7 +4,13 @@ import { describe, expect, it } from 'vitest';
 
 import { ENTRY_NAMES } from '../testing/breakdown-fixtures';
 import { provideRulesUiI18nTesting } from '../testing/provide-rich-text-testing';
-import { FAILED_STRIKE, FIGHTER_STRIKES, NO_DAMAGE_STRIKE, STEEL_SHIELD } from '../testing/strike-fixtures';
+import {
+  CONDITIONAL_STRIKE,
+  FAILED_STRIKE,
+  FIGHTER_STRIKES,
+  NO_DAMAGE_STRIKE,
+  STEEL_SHIELD,
+} from '../testing/strike-fixtures';
 import { StrikesView } from './strikes.component';
 import type { NamedStrike } from './strikes.component';
 
@@ -68,6 +74,24 @@ describe(StrikesView, () => {
 
     expect(rows[1]).toContain('Agile');
     expect(rows[1]).toContain('Finesse');
+  });
+
+  it('words the attack and damage lines that hold only in some situations beneath each', async () => {
+    const host = hostOf(await render(CONDITIONAL_STRIKE));
+    const captions = [...host.querySelectorAll('pio-statistic-conditions')].map((conditions) => textOf(conditions));
+
+    expect(captions).toStrictEqual([
+      '+1 circumstance when you are in darkness (Gloom Walker)',
+      '+2 status when you are in darkness (Gloom Walker)',
+    ]);
+  });
+
+  it('words no conditions for a Strike whose lines all apply', async () => {
+    const rows = rowsOf(await render(FIGHTER_STRIKES));
+
+    for (const row of rows) {
+      expect(textOf(row)).not.toContain(' when ');
+    }
   });
 
   it('lists a held shield with its Hardness, Hit Points and Broken Threshold', async () => {

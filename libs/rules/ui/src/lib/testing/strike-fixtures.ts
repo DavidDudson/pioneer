@@ -4,6 +4,8 @@ import { TextPosition } from '@pioneer/rules/formula';
 import {
   ContentId,
   contentId,
+  DiceCount,
+  ModifierType,
   EntrySlug,
   PackId,
   RuneGrade,
@@ -16,7 +18,7 @@ import {
 import { message } from '@pioneer/shared/kernel';
 
 import type { NamedStrike, StrikesShield } from '../strikes/strikes.component';
-import { origin, statistic, term } from './breakdown-fixtures';
+import { GLOOM_WALKER, IN_DARKNESS, line, origin, statistic, term } from './breakdown-fixtures';
 
 const PLAYER_CORE = PackId.parse('player-core');
 const STRENGTH = 4;
@@ -95,6 +97,34 @@ const FAILED_ATTACK = {
 /** A Strike whose attack the engine could not derive: marked failed, with why. */
 export const FAILED_STRIKE: readonly NamedStrike[] = [
   { name: 'Longsword', traits: [], strike: { ...strikeOf(0), attack: FAILED_ATTACK } },
+];
+
+const LONGSWORD_DAMAGE_ROLL = { dice: DiceCount.parse(1), die: 'd8', damageType: 'slashing' } as const;
+const DARKNESS_ATTACK_BONUS = 1;
+const DARKNESS_DAMAGE_BONUS = 2;
+
+/** A longsword whose attack and flat damage each carry a line that holds only in darkness. */
+export const CONDITIONAL_STRIKE: readonly NamedStrike[] = [
+  {
+    name: 'Longsword',
+    traits: [],
+    strike: {
+      ...strikeOf(0),
+      attack: statistic('strike:longsword', {
+        base: [term('@weapon.attr', STRENGTH), term('@weapon.prof', EXPERT_AT_FIRST)],
+        lines: [
+          line(GLOOM_WALKER, { type: ModifierType.Circumstance, value: DARKNESS_ATTACK_BONUS, status: IN_DARKNESS }),
+        ],
+      }),
+      damage: {
+        ...LONGSWORD_DAMAGE_ROLL,
+        bonus: statistic('strike-damage:longsword', {
+          base: [term('@weapon.damage', LONGSWORD_DAMAGE)],
+          lines: [line(GLOOM_WALKER, { type: ModifierType.Status, value: DARKNESS_DAMAGE_BONUS, status: IN_DARKNESS })],
+        }),
+      },
+    },
+  },
 ];
 
 /** A weapon that rolls no damage says so. */

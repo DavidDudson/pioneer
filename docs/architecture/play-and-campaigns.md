@@ -201,6 +201,8 @@ summary has no words for it (rules-engine.md, "Predicates and conditional modifi
 one of its type and direction already beats is left out, since it could never change the total. The breakdown still
 lists them all in full. Conditional `Change`s and set overrides appear only in the breakdown. `pio-statistics` does
 this for any statistic it is given, so a skills list gets it too.
+A Strike row words the same lines beneath its attack steps (the attack's) and beneath its damage (the flat damage
+bonus's). Spell and action rows are not built yet; they take the same `conditionalLines` helper when they are.
 
 The breakdown is given the statistic's kind, so it formats its numbers as the summary does: a check's base, pinned
 and computed totals and override values carry a sign ("Base +6", "override +6 → +9"); a DC's or value's do not.

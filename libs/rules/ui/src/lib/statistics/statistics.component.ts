@@ -2,18 +2,15 @@ import { ChangeDetectionStrategy, Component, computed, inject, input } from '@an
 import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { Badge, Disclosure, EmptyState, List, ListItem, LocaleFormat, Skeleton, Stack, Text } from '@pioneer/frontier';
-import { LineStatusKind } from '@pioneer/rules/engine';
-import type { BreakdownLine, StatisticResult, StatisticValue } from '@pioneer/rules/engine';
-import { formatSummary } from '@pioneer/rules/predicate';
-import type { PredicateSummary } from '@pioneer/rules/predicate';
+import type { StatisticResult, StatisticValue } from '@pioneer/rules/engine';
 import type { ContentId, Selector, StatisticKind } from '@pioneer/rules/sdk';
 import { filter, merge } from 'rxjs';
 
 import { BreakdownView } from '../breakdown/breakdown.component';
-import { labelName, lineValue, summaryFormat } from '../breakdown/line-words';
 import { numberStyle } from '../breakdown/number-style';
 import { NO_ORIGIN_NAMES } from '../origin-chain/origin-names';
 import type { OriginNames } from '../origin-chain/origin-names';
+import { conditionalLines } from './conditional-lines';
 import { StatisticConditions } from './statistic-conditions/statistic-conditions.component';
 import { StatisticTotal } from './statistic-total/statistic-total.component';
 import { StatisticsMessage } from './statistics-messages';
@@ -44,12 +41,6 @@ type ShownStatistic =
       readonly statistic: StatisticValue;
     }
   | { readonly ok: false; readonly key: Selector; readonly name: string; readonly error: string };
-
-/** A line the engine could not settle on the sheet, and when it would hold. */
-interface ConditionalLine {
-  readonly line: BreakdownLine;
-  readonly summary: PredicateSummary | undefined;
-}
 
 /** Rows of placeholders while the statistics load: the core rules' AC, three saves and Perception. */
 const LOADING_ROWS = 5;
@@ -127,13 +118,11 @@ export class StatisticsView {
         result.pinnedBy === undefined
           ? undefined
           : this.#i18n.translate(StatisticsMessage.Computed, { computed: this.#format.number(result.computed, style) });
-      const conditions = result.lines
-        .flatMap((line): ConditionalLine[] =>
-          line.status.kind === LineStatusKind.Conditional && line.status.beatenBy === undefined
-            ? [{ line, summary: line.status.summary }]
-            : [],
-        )
-        .map((conditional) => this.#condition(conditional));
+      const conditions = conditionalLines(result, {
+        i18n: this.#i18n,
+        format: this.#format,
+        names: { entries: this.entryNames(), items: this.originNames().items },
+      });
       return {
         ok: true,
         key: result.selector,
@@ -146,18 +135,4 @@ export class StatisticsView {
       };
     });
   });
-
-  /** "+2 circumstance when your shield is raised (Steel Shield)"; "in some situations" when nothing words when. */
-  #condition({ line, summary }: ConditionalLine): string {
-    return this.#i18n.translate(StatisticsMessage.Conditional, {
-      value: lineValue(line, this.#i18n, this.#format),
-      hasSummary: summary === undefined ? 'no' : 'yes',
-      summary: summary === undefined ? '' : formatSummary(summary, summaryFormat(this.#i18n, this.#format)),
-      name: labelName(
-        line.modifier.label,
-        { entries: this.entryNames(), items: this.originNames().items },
-        (descriptor) => this.#i18n.translate(descriptor.key, descriptor.params),
-      ),
-    });
-  }
 }
