@@ -78,6 +78,25 @@ describe('PlayService', () => {
     expect(saved.play.hp.damage).toBe(HUMAN_HIT_POINTS);
   });
 
+  test('rest heals by the Constitution modifier and level the build gives, and is audited as rest', async () => {
+    const hurt = await play.patch(amiri, kyra.id, { expectedRevision: FIRST_VERSION, command: damage(5) });
+    const rested = await play.patch(amiri, kyra.id, {
+      expectedRevision: hurt.revision,
+      command: { field: PlayCommandField.Rest },
+    });
+    expect(rested.play.hp.damage).toBeLessThan(hurt.play.hp.damage);
+    expect(repository.audits.at(-1)?.command).toBe(CharacterCommand.Rest);
+  });
+
+  test('start of session sets hero points to 1 in one edit', async () => {
+    const started = await play.patch(amiri, kyra.id, {
+      expectedRevision: FIRST_VERSION,
+      command: { field: PlayCommandField.StartSession },
+    });
+    expect(started.play.resources[Resource.HeroPoints]).toBe(ResourceCount.parse(2));
+    expect(repository.audits.at(-1)?.command).toBe(CharacterCommand.StartSession);
+  });
+
   test('a build save leaves play state alone', async () => {
     await play.patch(amiri, kyra.id, { expectedRevision: FIRST_VERSION, command: damage(2) });
     const renamed = await characters.patch(amiri, kyra.id, {

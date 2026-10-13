@@ -356,6 +356,7 @@ export { type FeatOption, type FeatSlot, featSlots, PrerequisiteStatus } from '.
 export { CHARACTER_PROSE_MAX_LENGTH, CharacterProseInput, withProse } from './character-prose';
 export { needsConditionContent, needsMaxHitPoints, needsResourceMaxima, needsRestContent } from './play-needs';
 export { applyRestCommand, preparedDaily, refocused, rested, sessionStarted } from './rest-actions';
+export { RECOVERY_CONDITIONS, restHealing } from './rest-limits';
 export {
   isRestCommand,
   type RecoveryConditions,

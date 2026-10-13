@@ -15,11 +15,14 @@ import {
   needsConditionContent,
   needsMaxHitPoints,
   needsResourceMaxima,
+  needsRestContent,
   NO_COUNTED,
   NO_RESOURCES,
   PLAY_COMMANDS,
+  RECOVERY_CONDITIONS,
   ConditionProblem,
   resourceMaxima,
+  restHealing,
   slotContent,
 } from '@pioneer/character/domain';
 import type {
@@ -111,7 +114,8 @@ export class PlayService {
     const counted = needsResourceMaxima(command) ? await this.#counted(character) : NO_COUNTED;
     const valued = needsConditionContent(command) ? await this.#valued() : NO_VALUED;
     checkCondition(play, command, valued);
-    const limits: PlayLimits = { hitPoints, resources, counted, valued };
+    const healing = needsRestContent(command) ? await this.#healing(character) : NO_MAX_HIT_POINTS;
+    const limits: PlayLimits = { hitPoints, healing, recovery: RECOVERY_CONDITIONS, resources, counted, valued };
     return applyPlayCommand(play, command, limits);
   }
 
@@ -131,6 +135,12 @@ export class PlayService {
       items: character.document.inventory.items,
       activations: itemActivations(registry),
     });
+  }
+
+  /** What Rest heals, from the Constitution modifier and level the build gives. */
+  async #healing(character: Character): Promise<HitPoints> {
+    const registry = await this.#content.registry();
+    return restHealing(characterStatisticInputs(registry, character.document, slotContent(registry)));
   }
 
   /** Which conditions the server's content has, and which carry a value. */
