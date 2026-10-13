@@ -1,0 +1,111 @@
+import { describe, expect, test } from 'bun:test';
+
+import { ContentId, FocusPoints, HitPoints, Slug, SpellRank } from '@pioneer/rules/sdk';
+import { assert, constantFrom, integer, property, record } from 'fast-check';
+
+import { abilityUseKey, Boundary, slotCountKey } from './counted-resources';
+import type { CountedMaxima } from './counted-resources';
+import { FRESH_PLAY } from './play-state';
+import type { PlayState } from './play-state';
+import { Resource, ResourceCount, resourceMaxima } from './resources';
+import { preparedDaily, refocused, rested, sessionStarted } from './rest-actions';
+import type { RestLimits, RestOutcome } from './rest-types';
+
+const MAX = 8;
+const HIT_POINTS_MAX = 60;
+const SLOT = slotCountKey(Slug.parse('wizard'), undefined, SpellRank.parse(1));
+const DAILY = abilityUseKey(ContentId.parse('00000000-0000-4000-8000-000000000001'));
+const SESSION = abilityUseKey(ContentId.parse('00000000-0000-4000-8000-000000000002'));
+
+const COUNTED: CountedMaxima = {
+  slots: new Map([[SLOT, { max: ResourceCount.parse(MAX), boundary: Boundary.Day }]]),
+  uses: new Map([
+    [DAILY, { max: ResourceCount.parse(MAX), boundary: Boundary.Day }],
+    [SESSION, { max: ResourceCount.parse(MAX), boundary: Boundary.Session }],
+  ]),
+};
+
+const LIMITS: RestLimits = {
+  hitPoints: HitPoints.parse(HIT_POINTS_MAX),
+  healing: HitPoints.parse(MAX),
+  recovery: { fatigued: undefined, drained: undefined },
+  resources: resourceMaxima(FocusPoints.parse(2)),
+  counted: COUNTED,
+};
+
+const spent = integer({ min: 0, max: MAX }).map((value) => ResourceCount.parse(value));
+
+/** What a generated play state is built from. */
+interface PlaySpec {
+  readonly damage: number;
+  readonly hero: number;
+  readonly focus: number;
+  readonly slot: ResourceCount;
+  readonly daily: ResourceCount;
+  readonly session: ResourceCount;
+}
+
+function playOf({ damage, hero, focus, slot, daily, session }: PlaySpec): PlayState {
+  return {
+    ...FRESH_PLAY,
+    hp: { damage: HitPoints.parse(damage), temp: HitPoints.parse(0) },
+    resources: {
+      ...FRESH_PLAY.resources,
+      [Resource.HeroPoints]: ResourceCount.parse(hero),
+      [Resource.FocusPoints]: ResourceCount.parse(focus),
+      slots: { [SLOT]: slot },
+      uses: { [DAILY]: daily, [SESSION]: session },
+    },
+  };
+}
+
+const plays = record({
+  damage: integer({ min: 0, max: HIT_POINTS_MAX }),
+  hero: integer({ min: 0, max: 3 }),
+  focus: integer({ min: 0, max: 2 }),
+  slot: spent,
+  daily: spent,
+  session: spent,
+}).map((spec): PlayState => playOf(spec));
+
+const ACTIONS = [rested, preparedDaily, refocused, sessionStarted] as const;
+const IDEMPOTENT = [preparedDaily, sessionStarted] as const;
+
+type Action = (play: PlayState, limits: RestLimits) => RestOutcome<PlayState>;
+
+describe('restoring actions', () => {
+  test('keep Hit Points and every count within 0 and the maximum', () => {
+    assert(
+      property(plays, constantFrom(...ACTIONS), (play, action: Action) => {
+        const after = action(play, LIMITS).play;
+        expect(after.hp.damage).toBeLessThanOrEqual(HIT_POINTS_MAX);
+        expect(after.hp.damage).toBeLessThanOrEqual(play.hp.damage);
+        expect(after.resources[Resource.FocusPoints]).toBeLessThanOrEqual(2);
+        expect(after.resources[Resource.HeroPoints]).toBeLessThanOrEqual(3);
+        expect(after.resources.slots[SLOT] ?? 0).toBeLessThanOrEqual(play.resources.slots[SLOT] ?? 0);
+      }),
+    );
+  });
+
+  test('never spend a count they restore', () => {
+    assert(
+      property(plays, constantFrom(...ACTIONS), (play, action: Action) => {
+        const after = action(play, LIMITS).play;
+        for (const key of [DAILY, SESSION]) {
+          expect(after.resources.uses[key] ?? 0).toBeLessThanOrEqual(play.resources.uses[key] ?? 0);
+        }
+      }),
+    );
+  });
+
+  test('daily preparations and start of session applied twice leave what applying once does', () => {
+    assert(
+      property(plays, constantFrom(...IDEMPOTENT), (play, action: Action) => {
+        const once = action(play, LIMITS);
+        const twice = action(once.play, LIMITS);
+        expect(twice.play).toEqual(once.play);
+        expect(twice.changes).toEqual([]);
+      }),
+    );
+  });
+});

@@ -47,6 +47,10 @@ export const CharacterCommand = {
   AddCondition: 'addCondition',
   SetConditionValue: 'setConditionValue',
   RemoveCondition: 'removeCondition',
+  Rest: 'rest',
+  DailyPreparations: 'dailyPreparations',
+  Refocus: 'refocus',
+  StartSession: 'startSession',
   SetAppearance: 'setAppearance',
   SetPersonality: 'setPersonality',
 } as const;
@@ -98,4 +102,8 @@ export const PLAY_COMMANDS = {
   [PlayCommandField.AddCondition]: CharacterCommand.AddCondition,
   [PlayCommandField.SetConditionValue]: CharacterCommand.SetConditionValue,
   [PlayCommandField.RemoveCondition]: CharacterCommand.RemoveCondition,
+  [PlayCommandField.Rest]: CharacterCommand.Rest,
+  [PlayCommandField.DailyPreparations]: CharacterCommand.DailyPreparations,
+  [PlayCommandField.Refocus]: CharacterCommand.Refocus,
+  [PlayCommandField.StartSession]: CharacterCommand.StartSession,
 } as const satisfies Record<PlayCommandField, CharacterCommand>;
