@@ -51,8 +51,12 @@ export {
   type ResourcesSpent,
   ResourcesSpentSchema,
 } from './resources';
-export { abilityFrequencies, characterCounted } from './ability-frequency';
+export { abilityFrequencies, characterCounted, itemActivations } from './ability-frequency';
+export type { CarriedActivations } from './ability-frequency';
 export {
+  abilityUseKey,
+  activationMaxima,
+  activationUseKey,
   Boundary,
   type CountedMaxima,
   type CountedMaximum,

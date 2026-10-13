@@ -7,6 +7,7 @@ import {
   characterSpellcasting,
   characterStatisticInputs,
   characterStatistics,
+  itemActivations,
   maxHitPoints,
   needsMaxHitPoints,
   needsResourceMaxima,
@@ -107,7 +108,10 @@ export class PlayService {
   async #counted(character: Character): Promise<CountedMaxima> {
     const registry = await this.#content.registry();
     const grants = characterGrants(character.document, slotContent(registry));
-    return characterCounted(grants, abilityFrequencies(registry));
+    return characterCounted(grants, abilityFrequencies(registry), {
+      items: character.document.inventory.items,
+      activations: itemActivations(registry),
+    });
   }
 
   async #maxHitPoints(character: Character): Promise<HitPoints> {

@@ -4,10 +4,21 @@ import {
   characterGrants,
   characterSpellcasting,
   heldCount,
+  itemActivations,
+  itemContent,
   slotCountKey,
+  activationUseKey,
+  abilityUseKey,
 } from '@pioneer/character/domain';
-import type { Boundary, Character, ResourcesSpent, SlotCountKey, UseCountKey } from '@pioneer/character/domain';
-import type { ContentRegistry, Origin, SpellRank } from '@pioneer/rules/sdk';
+import type {
+  Boundary,
+  Character,
+  CountedMaxima,
+  ResourcesSpent,
+  SlotCountKey,
+  UseCountKey,
+} from '@pioneer/character/domain';
+import type { Activation, ContentId, ContentRegistry, Origin, SpellRank } from '@pioneer/rules/sdk';
 
 import { sheetSlotContent } from './sheet-slot-content';
 
@@ -37,11 +48,48 @@ export interface CountedViews {
   readonly uses: readonly UseView[];
 }
 
+/** What the uses of one character are read from. */
+interface UseSource {
+  readonly counted: CountedMaxima;
+  readonly spent: ResourcesSpent;
+  readonly activations: ReadonlyMap<ContentId, readonly Activation[]>;
+}
+
+/** What is held of the use counted under `key`, if the build or content gives it a maximum. */
+function useView({ counted, spent }: UseSource, key: UseCountKey, name: string): UseView[] {
+  const maximum = counted.uses.get(key);
+  return maximum === undefined
+    ? []
+    : [
+        {
+          key,
+          name,
+          boundary: maximum.boundary,
+          current: heldCount({ spent: spent.uses, maxima: counted.uses, key }),
+          max: maximum.max,
+        },
+      ];
+}
+
+/** The uses of each activation with a frequency on the character's items, named by the item and the activation. */
+function activationViews(registry: ContentRegistry, character: Character, used: UseSource): UseView[] {
+  const itemEntries = itemContent(registry);
+  return character.document.inventory.items.flatMap((item) =>
+    (used.activations.get(item.item) ?? []).flatMap(({ slug, name }) => {
+      const itemName = item.name ?? itemEntries.get(item.item)?.name ?? name;
+      const label = itemName === name ? name : `${itemName}: ${name}`;
+      return useView(used, activationUseKey(item.id, slug), label);
+    }),
+  );
+}
+
 /** The slots by entry, pool and rank and the uses by ability, each with what is held after `spent`. */
 export function countedViews(registry: ContentRegistry, character: Character, spent: ResourcesSpent): CountedViews {
   const content = sheetSlotContent(registry);
   const grants = characterGrants(character.document, content);
-  const counted = characterCounted(grants, abilityFrequencies(registry));
+  const activations = itemActivations(registry);
+  const { items } = character.document.inventory;
+  const counted = characterCounted(grants, abilityFrequencies(registry), { items, activations });
   const nameOf = (origin: Origin): string => content.lookup.entry(origin.entry)?.name ?? origin.entry;
   const slotView = ({ key, source, pool, rank }: Omit<SlotView, 'current' | 'max'>): SlotView => ({
     key,
@@ -61,19 +109,8 @@ export function countedViews(registry: ContentRegistry, character: Character, sp
     );
     return [own, pooled].flat();
   });
-  const uses = grants.items.flatMap(({ entry }): UseView[] => {
-    const maximum = counted.uses.get(entry.id);
-    return maximum === undefined
-      ? []
-      : [
-          {
-            key: entry.id,
-            name: entry.name,
-            boundary: maximum.boundary,
-            current: heldCount({ spent: spent.uses, maxima: counted.uses, key: entry.id }),
-            max: maximum.max,
-          },
-        ];
-  });
-  return { slots, uses };
+  const source: UseSource = { counted, spent, activations };
+  const abilityUses = grants.items.flatMap(({ entry }) => useView(source, abilityUseKey(entry.id), entry.name));
+  const itemUses = activationViews(registry, character, source);
+  return { slots, uses: [...abilityUses, ...itemUses] };
 }

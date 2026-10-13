@@ -98,6 +98,16 @@
         }
       },
       "bulk": "light",
+      "activations": [
+        {
+          "slug": "elemental-sheath",
+          "name": "Elemental Sheath",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
       "category": "unarmored",
       "group": "cloth",
       "baseItem": "explorers-clothing",
@@ -105,8 +115,7 @@
       "dexCap": 5,
       "runes": {
         "potency": 1,
-        "property": [],
-        "resilient": 1
+        "property": []
       }
     }
   },
@@ -209,6 +218,16 @@
         }
       },
       "bulk": "light",
+      "activations": [
+        {
+          "slug": "elemental-sheath",
+          "name": "Elemental Sheath",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
       "category": "unarmored",
       "group": "cloth",
       "baseItem": "explorers-clothing",
@@ -216,8 +235,7 @@
       "dexCap": 5,
       "runes": {
         "potency": 1,
-        "property": [],
-        "resilient": 1
+        "property": []
       }
     }
   },
@@ -320,6 +338,16 @@
         }
       },
       "bulk": "light",
+      "activations": [
+        {
+          "slug": "elemental-sheath",
+          "name": "Elemental Sheath",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
       "category": "unarmored",
       "group": "cloth",
       "baseItem": "explorers-clothing",
@@ -327,8 +355,7 @@
       "dexCap": 5,
       "runes": {
         "potency": 1,
-        "property": [],
-        "resilient": 1
+        "property": []
       }
     }
   },

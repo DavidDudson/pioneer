@@ -98,6 +98,8 @@ export const ItemFixture = {
   Shortbow: 'shortbow',
   /** A specific magic weapon at level 8: +1 striking, with the flaming rune printed on it. */
   FlameTongue: 'flame-tongue',
+  /** Worn boots with an activation once per hour, to count its uses. */
+  WingedBoots: 'winged-boots',
 } as const;
 export type ItemFixture = (typeof ItemFixture)[keyof typeof ItemFixture];
 
@@ -208,6 +210,15 @@ const ITEMS: Readonly<Record<ItemFixture, ItemFixtureFields>> = {
       damage: { dice: 1, die: 'd8', damageType: 'slashing' },
       usage: { type: 'held', hands: 'one' },
       runes: { potency: 1, striking: 1, property: [runeFixtureId(RuneFixture.Flaming)] },
+    },
+    traits: ['magical'],
+  },
+  [ItemFixture.WingedBoots]: {
+    kind: ContentKind.Equipment,
+    data: {
+      bulk: 'light',
+      usage: { type: 'worn', slot: 'boots' },
+      activations: [{ slug: 'take-to-the-skies', name: 'Take to the Skies', frequency: { max: 1, per: 'hour' } }],
     },
     traits: ['magical'],
   },

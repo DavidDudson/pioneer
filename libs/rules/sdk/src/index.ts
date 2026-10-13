@@ -1,4 +1,5 @@
 export { ActionCategory, ActionData, Frequency, FrequencyPeriod, TriggerEvent, TriggerEventType, Uses } from './action';
+export { Activation, ActivationName, Activations } from './activation';
 export { AncestryData, AncestryDefinition, AncestryId, LanguageList } from './ancestry';
 export {
   ATTRIBUTE_MODIFIER_MAX,

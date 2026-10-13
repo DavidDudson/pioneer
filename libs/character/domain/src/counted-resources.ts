@@ -1,13 +1,14 @@
 import type { SpellcastingInPlay } from '@pioneer/rules/engine';
-import { ContentId, FrequencyPeriod } from '@pioneer/rules/sdk';
-import type { Frequency, RuleSlug, Slug, SpellRank } from '@pioneer/rules/sdk';
+import { FrequencyPeriod } from '@pioneer/rules/sdk';
+import type { Activation, ContentId, Frequency, RuleSlug, Slug, SpellRank } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
+import type { InventoryItem, InventoryItemId } from './inventory';
 import { ResourceCount } from './resource-count';
 
-/** The longest key a spent slot count is stored under: `<entry>:<pool>:<rank>`. */
-const SLOT_KEY_MAX_LENGTH = 200;
+/** The longest key a spent count is stored under: a slot's `<entry>:<pool>:<rank>`, an activation's `<item>:<slug>`. */
+const COUNT_KEY_MAX_LENGTH = 200;
 
 const NONE = ResourceCount.parse(0);
 
@@ -15,12 +16,15 @@ const NONE = ResourceCount.parse(0);
  * Which slots of an entry a count is for: `<entry>:<rank>` for the entry's own, `<entry>:<pool>:<rank>` for one of its
  * pools (a divine font). Cantrips have no key, since they are not spent.
  */
-export const SlotCountKey = z.string().min(1).max(SLOT_KEY_MAX_LENGTH).brand<'SlotCountKey'>();
+export const SlotCountKey = z.string().min(1).max(COUNT_KEY_MAX_LENGTH).brand<'SlotCountKey'>();
 export type SlotCountKey = z.infer<typeof SlotCountKey>;
 
-/** A feat or action with a `frequency` is counted under its content id. */
-export const UseCountKey = ContentId;
-export type UseCountKey = ContentId;
+/**
+ * What a use is counted under: a feat or action with a `frequency` by its content id, an item activation by the
+ * inventory item it is on and its slug (`<item>:<slug>`), since each item of a character is used up on its own.
+ */
+export const UseCountKey = z.string().min(1).max(COUNT_KEY_MAX_LENGTH).brand<'UseCountKey'>();
+export type UseCountKey = z.infer<typeof UseCountKey>;
 
 /** A key a count is kept under. */
 type CountKey = SlotCountKey | UseCountKey;
@@ -62,6 +66,16 @@ export interface CountedMaxima {
 
 /** No slots and no uses, for a character that has none and for edits that don't read them. */
 export const NO_COUNTED: CountedMaxima = { slots: new Map(), uses: new Map() };
+
+/** The key a feat or action with a frequency is counted under. */
+export function abilityUseKey(id: ContentId): UseCountKey {
+  return UseCountKey.parse(id);
+}
+
+/** The key the uses of an activation of one inventory item are counted under. */
+export function activationUseKey(item: InventoryItemId, activation: Slug): UseCountKey {
+  return UseCountKey.parse(`${item}:${activation}`);
+}
 
 /** The key of the slots of `rank` in an entry, or in one of its pools. */
 export function slotCountKey(entry: Slug, pool: RuleSlug | undefined, rank: SpellRank): SlotCountKey {
@@ -114,8 +128,26 @@ export function useMaxima(
       const frequency = frequencyOf(id);
       return frequency === undefined
         ? []
-        : [[id, { max: ResourceCount.parse(frequency.max), boundary: frequencyBoundary(frequency) }]];
+        : [[abilityUseKey(id), { max: ResourceCount.parse(frequency.max), boundary: frequencyBoundary(frequency) }]];
     }),
+  );
+}
+
+/**
+ * The uses of each activation with a frequency on the character's items. A line of several items has that many uses,
+ * since each one is used up on its own.
+ */
+export function activationMaxima(
+  items: readonly InventoryItem[],
+  activationsOf: (id: ContentId) => readonly Activation[],
+): ReadonlyMap<UseCountKey, CountedMaximum> {
+  return new Map(
+    items.flatMap(({ id, item, quantity }) =>
+      activationsOf(item).map(({ slug, frequency }): [UseCountKey, CountedMaximum] => [
+        activationUseKey(id, slug),
+        { max: ResourceCount.parse(frequency.max * quantity), boundary: frequencyBoundary(frequency) },
+      ]),
+    ),
   );
 }
 

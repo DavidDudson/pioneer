@@ -241,6 +241,9 @@ invested or identified is play state, not content.
   batch; an item with no price has none. `bulk` is `negligible`, `light` or a whole number, for `bulkPer` items
   when not one (10 arrows are light, 1,000 coins are 1 Bulk). `size?` is medium when absent; `hardness?`,
   `hitPoints?` and `material?` (a precious material slug and its `grade`) complete them.
+  `activations?` are the ways to activate it that have a frequency, each a `slug` (its name within the item), a `name`
+  and a `frequency` as an action has. Foundry pf2e keeps no frequency on an item, so the importer reads it from the
+  description's "Activate" and "Frequency" lines; one it cannot read is reported and left out.
 - **Usage.** Foundry's `usage` string split into parts: `held` in `one`, `one-plus` or `two` hands; `worn`, with a
   `slot` slug (`cloak`, `backpack`) or none; `affixed`, `attached`, `applied` or `installed` `to` a slug
   (`armor-or-a-weapon`); or `tattooed`, `implanted`, `carried` or `other`. Armour and shields have none.
