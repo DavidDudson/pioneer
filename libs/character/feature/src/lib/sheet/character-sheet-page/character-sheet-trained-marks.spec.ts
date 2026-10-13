@@ -1,0 +1,181 @@
+import { playerCoreClassId, playerCoreId } from '@pioneer/character/domain/testing';
+import { ContentKind, PackId, packContentsFromFiles } from '@pioneer/rules/sdk';
+import type { PackContents, PackContentsLoader } from '@pioneer/rules/sdk';
+import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
+import { beforeAll, describe, expect, it, onTestFinished, vi } from 'vitest';
+
+import { LISTBOX_PX, OPTION_PX, settle } from '../../testing/inventory-sheet-testing';
+import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
+import { MERISIEL, openSheet, present } from '../../testing/sheet-page-harness';
+import { TEST_PACKS } from '../../testing/test-packs';
+
+const MARKS_PACK = 'trained-marks';
+const FIGHTER = ['fighter'];
+const TRAINS_RELIGION = [{ key: 'Proficiency', selector: 'skill:religion', rank: 'trained' }];
+
+/** A doctrine and a cleric feat that train Religion, which a cleric is trained in, and one of each that train nothing. */
+const marks = new ContentPackBuilder()
+  .withId(MARKS_PACK)
+  .withClassFeature('devout-doctrine', { tags: ['cleric-doctrine'], rules: TRAINS_RELIGION })
+  .withClassFeature('plain-doctrine', { tags: ['cleric-doctrine'] })
+  .withFeat('canon-student', { traits: FIGHTER, rules: TRAINS_RELIGION })
+  .withFeat('plain-feat', { traits: FIGHTER })
+  .build();
+
+const MARKS: PackContentsLoader = {
+  id: PackId.parse(MARKS_PACK),
+  load: async (): Promise<PackContents> =>
+    packContentsFromFiles({ id: MARKS_PACK, title: 'Trained marks', publisher: 'Pioneer tests', license: 'homebrew' }, [
+      marks.otherEntries,
+    ]),
+};
+const PACKS = [...TEST_PACKS, MARKS];
+
+const ACOLYTE = playerCoreId(ContentKind.Background, 'acolyte');
+const MARK = 'Already trained in Religion';
+
+/** The class slot the server reads for a cleric. */
+const CLERIC_SLOT = {
+  status: 'filled',
+  key: 'class',
+  subject: { kind: 'root', content: 'class' },
+  selection: playerCoreClassId('cleric'),
+  selectionName: 'Cleric',
+};
+const AS_CLERIC = { packs: PACKS, slots: [CLERIC_SLOT] };
+
+/** Merisiel as a 1st-level cleric, with `choices` picked besides. */
+function cleric(choices: Readonly<Record<string, string>> = {}): object {
+  return {
+    ...MERISIEL,
+    build: { choices: { ...MERISIEL.build.choices, class: playerCoreClassId('cleric'), ...choices } },
+  };
+}
+
+/** Merisiel as a 1st-level fighter, with `choices` picked besides. */
+function fighter(choices: Readonly<Record<string, string>> = {}): object {
+  return {
+    ...MERISIEL,
+    build: { choices: { ...MERISIEL.build.choices, class: playerCoreClassId('fighter'), ...choices } },
+  };
+}
+
+/** An option of an open listbox: its text and whether it can be picked. */
+type OptionRow = [text: string, disabled: string];
+
+function textOf(element: Element): string {
+  return element.textContent.replaceAll(/\s+/gu, ' ').trim();
+}
+
+async function fieldNamed(root: HTMLElement, label: string): Promise<HTMLElement> {
+  return vi.waitFor(() =>
+    present(
+      [...root.querySelectorAll<HTMLElement>('fr-inline-field')].find(
+        (each) => each.querySelector('fr-text')?.textContent.trim() === label,
+      ),
+    ),
+  );
+}
+
+/** Gives the virtualised listbox of a combobox a height and each option a row; nothing is laid out in jsdom. */
+function layOut(): void {
+  vi.spyOn(HTMLElement.prototype, 'offsetHeight', 'get').mockReturnValue(LISTBOX_PX);
+  vi.spyOn(HTMLElement.prototype, 'getBoundingClientRect').mockReturnValue(
+    DOMRect.fromRect({ width: LISTBOX_PX, height: OPTION_PX }),
+  );
+  onTestFinished(() => {
+    vi.restoreAllMocks();
+  });
+}
+
+/** Every option of the open listbox: its text and whether it can be picked. */
+function shown(): OptionRow[] {
+  return [...document.querySelectorAll<HTMLElement>('[role="option"]')].map((option): OptionRow => [
+    textOf(option),
+    option.getAttribute('aria-disabled') ?? 'false',
+  ]);
+}
+
+/** Opens a select's picker and lists its options. */
+async function selectOptions(field: HTMLElement): Promise<OptionRow[]> {
+  present(field.querySelector<HTMLElement>('button')).click();
+  await settle();
+  present(field.querySelector<HTMLElement>('[frInlineEditor] button')).click();
+  await settle();
+  return vi.waitFor(() => {
+    const options = shown();
+    expect(options.length).toBeGreaterThan(1);
+    return options;
+  });
+}
+
+/** Opens a feat slot's combobox and lists its options. */
+async function comboboxOptions(field: HTMLElement, count: number): Promise<OptionRow[]> {
+  layOut();
+  present(field.querySelector<HTMLElement>('button')).click();
+  await settle();
+  const input = present(field.querySelector<HTMLInputElement>('input[role="combobox"]'));
+  input.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowDown', bubbles: true, cancelable: true }));
+  return vi.waitFor(() => {
+    const options = shown();
+    expect(options).toHaveLength(count);
+    return options;
+  });
+}
+
+describe('CharacterSheetPage options that train a skill again', () => {
+  // Loads and bundles the packs once, outside every test's timeout.
+  beforeAll(async () => {
+    await prebuildServerStateTesting([], PACKS);
+  }, PREBUILD_TIMEOUT);
+
+  it('marks the background that trains a skill the class trains, and leaves it pickable', async () => {
+    const { root } = await openSheet(cleric(), AS_CLERIC);
+
+    const options = await selectOptions(await fieldNamed(root, 'Background'));
+
+    expect(options).toContainEqual([`Acolyte ${MARK}`, 'false']);
+    expect(options.filter(([text]) => text.includes('Already trained'))).toHaveLength(1);
+  });
+
+  it('marks the class that trains a skill the background trains', async () => {
+    const { root } = await openSheet(
+      { ...MERISIEL, build: { choices: { ...MERISIEL.build.choices, background: ACOLYTE } } },
+      { packs: PACKS },
+    );
+
+    const options = await selectOptions(await fieldNamed(root, 'Class'));
+
+    expect(options).toContainEqual([`Cleric ${MARK}`, 'false']);
+    expect(options).toContainEqual(['Fighter', 'false']);
+  });
+
+  it('marks the subclass that trains a skill the class trains', async () => {
+    const { root } = await openSheet(cleric(), AS_CLERIC);
+
+    const options = await selectOptions(await fieldNamed(root, 'Subclass'));
+
+    expect(options).toContainEqual([`Devout-doctrine ${MARK}`, 'false']);
+    expect(options).toContainEqual(['Plain-doctrine', 'false']);
+  });
+
+  it('marks the feat that trains a skill the background trains, and leaves it pickable', async () => {
+    const { root } = await openSheet(fighter({ background: ACOLYTE }), { packs: PACKS });
+    const slot = await vi.waitFor(async () => fieldNamed(root, 'Fighter feat, level 1'));
+
+    const options = await comboboxOptions(slot, 2);
+
+    expect(options).toStrictEqual([
+      [`Canon-student ${MARK}`, 'false'],
+      ['Plain-feat', 'false'],
+    ]);
+  });
+
+  it('marks nothing before the character is trained in the skill', async () => {
+    const { root } = await openSheet(MERISIEL, { packs: PACKS });
+
+    const options = await selectOptions(await fieldNamed(root, 'Background'));
+
+    expect(options.map(([text]) => text).join(' ')).not.toContain('Already trained');
+  });
+});

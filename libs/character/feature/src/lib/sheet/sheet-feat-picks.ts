@@ -76,7 +76,10 @@ function featField(sources: FeatPickSources, feats: Signal<SheetFeats | undefine
     label,
     matches: computed(() => {
       sources.messages();
-      return featMatches(options(), query(), sources.translate);
+      return featMatches(options(), query(), {
+        translate: sources.translate,
+        trainedAgain: slot()?.trainedAgain ?? (() => new Map()),
+      });
     }),
     search: (typed) => {
       query.set(typed);

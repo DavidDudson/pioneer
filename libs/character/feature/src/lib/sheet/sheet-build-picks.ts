@@ -1,5 +1,6 @@
 import { computed, signal } from '@angular/core';
 import type { Signal } from '@angular/core';
+import { BACKGROUND_SLOT, CLASS_SLOT } from '@pioneer/character/domain';
 import type { Character, CharacterSlot } from '@pioneer/character/domain';
 import type { InlineEdit, SelectOption } from '@pioneer/frontier';
 import type { Defences } from '@pioneer/rules/engine';
@@ -28,6 +29,7 @@ import { sheetChoices, sheetChoiceSlots } from './sheet-choices';
 import { sheetDefences } from './sheet-defences';
 import { sheetEntryNames } from './sheet-entry-names';
 import { sheetPlannedSlots } from './sheet-planned-slots';
+import { markTrainedAgain, sheetTrainedAgain } from './sheet-skill-repeats';
 import { sheetSkills, sheetSkillSlots } from './sheet-skills';
 import { slotField, slotFieldsOf } from './sheet-slot-picks';
 import type { SlotPickField } from './sheet-slot-picks';
@@ -46,7 +48,7 @@ export interface BuildPickSources {
   readonly slots: Signal<readonly CharacterSlot[] | undefined>;
   readonly select: (slot: SlotKey, selection: ChoiceValue) => Promise<void>;
   readonly clear: (slot: SlotKey) => Promise<void>;
-  readonly translate: (key: string) => string;
+  readonly translate: (key: string, params?: object) => string;
 }
 
 /**
@@ -151,19 +153,44 @@ function engineReads(sources: BuildPickSources): EngineReads {
   };
 }
 
+/** The root slots whose options say what they would train again (#674): the others don't train skills. */
+const MARKED_ROOT_SLOTS: ReadonlySet<SlotKey> = new Set([BACKGROUND_SLOT, CLASS_SLOT]);
+
 /** The picker options of one of the character's own slots; none while it or the content loads. */
 function rootOptionsOf(sources: BuildPickSources, slot: SlotKey): Signal<readonly SelectOption<string>[]> {
   return computed(() => {
     const registry = sources.registry();
     const character = sources.character();
-    return registry === undefined || character === undefined ? [] : sheetRootOptions(registry, character, slot);
+    if (registry === undefined || character === undefined) {
+      return [];
+    }
+    const options = sheetRootOptions(registry, character, slot);
+    return MARKED_ROOT_SLOTS.has(slot)
+      ? markTrainedAgain(sheetTrainedAgain(registry, character, slot), options, sources.translate)
+      : options;
+  });
+}
+
+/** The subclass picker's options, each marked when it would train a skill again (#674); none while it or the content loads. */
+function subclassOptionsOf(
+  sources: BuildPickSources,
+  subclass: Signal<SheetSubclass | undefined>,
+): Signal<readonly SelectOption<string>[]> {
+  return computed(() => {
+    const registry = sources.registry();
+    const character = sources.character();
+    const read = subclass();
+    if (read === undefined || registry === undefined || character === undefined) {
+      return [];
+    }
+    return markTrainedAgain(sheetTrainedAgain(registry, character, read.key), read.options, sources.translate);
   });
 }
 
 /** The sheet's build pickers over `sources`, each reading the registry, the character and its slots as they load. */
 export function sheetBuildPicks(sources: BuildPickSources): BuildPicks {
   const subclass = loaded(sources, sheetSubclass);
-  const subclassOptions = computed(() => subclass()?.options ?? []);
+  const subclassOptions = subclassOptionsOf(sources, subclass);
   const keyAttribute = loaded(sources, sheetKeyAttribute);
   const keyAttributeOptions = computed((): readonly SelectOption<string>[] =>
     (keyAttribute()?.options ?? []).map((attribute) => ({

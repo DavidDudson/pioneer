@@ -9,6 +9,8 @@ import type { MessageDescriptor } from '@pioneer/shared/kernel';
 import { CHARACTER_CONTENT_KINDS } from '../data/content-registry-query';
 import { sheetFeatGroups } from './sheet-feat-groups';
 import type { SheetFeatGroup } from './sheet-feat-groups';
+import { sheetTrainedAgain, trainedAgainNote } from './sheet-skill-repeats';
+import type { TrainedAgain, Translate } from './sheet-skill-repeats';
 import { sheetSlotContent } from './sheet-slot-content';
 
 /** The kinds the feat pickers read: the character's, so its entries resolve, the feats and their archetypes. */
@@ -28,6 +30,8 @@ export interface SheetFeatSlot {
   readonly options: readonly SheetFeatOption[];
   /** The stored pick's name, so a pick the slot no longer offers still reads by name. */
   readonly storedName: string | undefined;
+  /** What each of some feats would train again, by skill name; reads only the ones asked about. */
+  readonly trainedAgain: TrainedAgain;
   /** The server's reason when the slot's pick is invalid. */
   readonly reason: MessageDescriptor | undefined;
 }
@@ -113,6 +117,7 @@ export function sheetFeats(
       key: slot.key,
       label: labelOf(slot, nameOf),
       options: slot.options.map((option) => optionOf(option, nameOf)),
+      trainedAgain: sheetTrainedAgain(registry, character, slot.key),
       storedName: read !== undefined && 'selectionName' in read ? read.selectionName : undefined,
       reason: read?.status === SlotStatus.Invalid ? read.reason : undefined,
     };
@@ -141,24 +146,36 @@ function descriptionOf(
     : undefined;
 }
 
+/** What a feat picker words its options with: its messages, and what each feat would train again. */
+export interface FeatMatchReads {
+  readonly translate: Translate;
+  readonly trainedAgain: TrainedAgain;
+}
+
 /**
  * `options` whose name holds `query`, ignoring case, up to the most a picker lists, as combobox options: one whose
  * prerequisites are not met, or that is a dedication still locked, is shown but can't be picked, saying why; one
- * whose prerequisites can't be checked says so too, and can be picked, since unknown is never read as not met.
+ * whose prerequisites can't be checked says so too, and can be picked, since unknown is never read as not met. One that
+ * would train a skill the character is trained in already says so as well (#674), and stays pickable.
  */
 export function featMatches(
   options: readonly SheetFeatOption[],
   query: string,
-  translate: (key: string, params: object) => string,
+  { translate, trainedAgain }: FeatMatchReads,
 ): readonly ComboboxOption<string>[] {
   const needle = query.trim().toLocaleLowerCase();
-  return options
+  const listed = options
     .filter((option) => option.label.toLocaleLowerCase().includes(needle))
-    .slice(0, FEAT_MATCHES_MAX)
-    .map((option): ComboboxOption<string> => {
-      const { value, label } = option;
-      const description = descriptionOf(option, translate);
-      const disabled = option.status === PrerequisiteStatus.Unmet || option.locked !== undefined;
-      return description === undefined ? { value, label } : { value, label, description, disabled };
-    });
+    .slice(0, FEAT_MATCHES_MAX);
+  const marks = trainedAgain(listed.map((option) => option.value));
+  return listed.map((option): ComboboxOption<string> => {
+    const { value, label } = option;
+    const skills = marks.get(value);
+    const lines = [
+      descriptionOf(option, translate),
+      skills === undefined ? undefined : trainedAgainNote(skills, translate),
+    ].filter((line) => line !== undefined);
+    const disabled = option.status === PrerequisiteStatus.Unmet || option.locked !== undefined;
+    return lines.length === 0 ? { value, label } : { value, label, description: lines.join(' '), disabled };
+  });
 }
