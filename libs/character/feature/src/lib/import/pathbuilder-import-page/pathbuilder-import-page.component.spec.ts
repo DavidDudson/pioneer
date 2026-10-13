@@ -162,7 +162,7 @@ describe('PathbuilderImportPage create', () => {
     // The sheet route loads lazily, with the engine behind it, which takes longer than a second on a slow runner.
     await vi.waitFor(
       () => {
-        expect(router.url).toBe(`/characters/${id}`);
+        expect(router.url).toBe(`/characters/${id}/plan`);
       },
       { timeout: 3000 },
     );

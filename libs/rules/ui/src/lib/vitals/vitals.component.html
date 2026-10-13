@@ -1,0 +1,25 @@
+<fr-grid minItem="sm" gap="sm">
+  @if (tiles(); as shown) {
+    @for (tile of shown; track tile.key) {
+      <fr-surface padding="sm">
+        <fr-stack gap="3xs">
+          <pio-statistics [statistics]="tile.list" [entryNames]="entryNames()" />
+          <fr-stack direction="horizontal" gap="xs" align="center" wrap>
+            @if (tile.rank; as rank) {
+              <pio-proficiency-rank [rank]="rank" />
+            }
+            @if (tile.armor; as armor) {
+              <fr-text variant="caption" tone="muted">{{ armor }}</fr-text>
+            } @else if (tile.unarmored) {
+              <fr-text variant="caption" tone="muted">{{ Message.Unarmored | transloco }}</fr-text>
+            }
+          </fr-stack>
+        </fr-stack>
+      </fr-surface>
+    }
+  } @else {
+    @for (tile of loadingTiles; track tile) {
+      <fr-surface padding="sm"><fr-skeleton width="md" /></fr-surface>
+    }
+  }
+</fr-grid>

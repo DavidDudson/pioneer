@@ -1,13 +1,16 @@
 import { HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
+import { SheetMode } from '@pioneer/character/domain';
 import { playerCoreClassId } from '@pioneer/character/domain/testing';
 import { beforeAll, describe, expect, it, onTestFinished, vi } from 'vitest';
 
 import { LISTBOX_PX, OPTION_PX, settle } from '../../testing/inventory-sheet-testing';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
-import { id, MERISIEL, openSheet, patchedOf, present } from '../../testing/sheet-page-harness';
+import { id, MERISIEL, openerAt, patchedOf, present } from '../../testing/sheet-page-harness';
 import { cutTo } from '../../testing/test-packs';
 import { SPELL_CONTENT_KINDS } from '../sheet-prepared-spells';
+
+const openSheet = openerAt(SheetMode.Encounter);
 
 /** Player Core with its spells, for the spell pickers. */
 const SPELL_PACKS = cutTo(SPELL_CONTENT_KINDS);

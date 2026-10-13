@@ -49,3 +49,6 @@ export {
   RuneMessage,
   type RunedNamer,
 } from './lib/inventory/rune-name';
+export { ProficiencyRankView } from './lib/proficiency-rank/proficiency-rank.component';
+export { type Vital, type VitalBasis, VitalBasisKind } from './lib/vitals/vital';
+export { VitalsView } from './lib/vitals/vitals.component';

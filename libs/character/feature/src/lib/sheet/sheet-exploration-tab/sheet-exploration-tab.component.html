@@ -1,0 +1,24 @@
+<fr-stack gap="lg">
+  <fr-section-index [label]="'character.sheet.sections' | transloco">
+    @for (section of sectionOrder; track section.anchor) {
+      <fr-section-link [anchor]="section.anchor">{{ section.headingKey | transloco }}</fr-section-link>
+    }
+  </fr-section-index>
+
+  <fr-section [anchor]="sections.deity.anchor" [heading]="sections.deity.headingKey | transloco">
+    <fr-async-region>
+      <ng-template frAsyncPending><pio-deity loading /></ng-template>
+      <ng-template let-content [frAsyncData]="sheet.registry">
+        <pio-sheet-deity-section [field]="deity" [options]="deityOptions()" [registry]="content" />
+      </ng-template>
+    </fr-async-region>
+  </fr-section>
+
+  <fr-section [anchor]="sections.languages.anchor" [heading]="sections.languages.headingKey | transloco">
+    <pio-sheet-languages-section />
+  </fr-section>
+
+  <fr-section [anchor]="sections.inventory.anchor" [heading]="sections.inventory.headingKey | transloco">
+    <pio-inventory-section [investments]="sheet.investments()" [engine]="sheet.engineQuery()" />
+  </fr-section>
+</fr-stack>

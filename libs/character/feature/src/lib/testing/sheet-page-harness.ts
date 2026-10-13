@@ -4,7 +4,7 @@ import { ApplicationRef } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { provideRouter, withComponentInputBinding } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
-import { CharacterId } from '@pioneer/character/domain';
+import { CharacterId, SheetMode } from '@pioneer/character/domain';
 import { frontierMessages } from '@pioneer/frontier';
 import { contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import type { PackContentsLoader } from '@pioneer/rules/sdk';
@@ -82,6 +82,9 @@ function sheetOf(
   return { character, slots, languages, ...(deity === undefined ? {} : { deity }) };
 }
 
+/** Opens a sheet at the character's own address, with no tab named. */
+export const NO_TAB = 'none';
+
 /** What else a sheet opens with: the slots the server read, and the content packs served. */
 export interface SheetOptions {
   readonly slots?: readonly object[];
@@ -90,6 +93,8 @@ export interface SheetOptions {
   /** The deity the server read; none by default. */
   readonly deity?: object;
   readonly packs?: readonly PackContentsLoader[];
+  /** The tab to open, Plan by default; `NO_TAB` opens the character's own address, which opens the last tab. */
+  readonly tab?: SheetMode | typeof NO_TAB;
 }
 
 /** The server's answer to an edit of Merisiel: her sheet, and the picks the edit cleared. */
@@ -104,12 +109,19 @@ export function present<TValue>(value: TValue | null | undefined): TValue {
   return value;
 }
 
+function sheetUrl(tab: SheetMode | typeof NO_TAB = SheetMode.Plan): string {
+  return tab === NO_TAB ? `/characters/${id}` : `/characters/${id}/${tab}`;
+}
+
 export interface OpenSheet {
   readonly harness: RouterTestingHarness;
   readonly root: HTMLElement;
 }
 
-/** Opens Merisiel's sheet (or `character`'s) in the document, so focus can move, and waits until it has loaded. */
+/**
+ * Opens Merisiel's sheet (or `character`'s) at a tab in the document, so focus can move, and waits until it has loaded.
+ * The tab it last had is never answered, so opening a tab never remembers it.
+ */
 export async function openSheet(character: object = MERISIEL, options: SheetOptions = {}): Promise<OpenSheet> {
   await prebuildServerStateTesting([], options.packs);
   TestBed.configureTestingModule({
@@ -119,7 +131,7 @@ export async function openSheet(character: object = MERISIEL, options: SheetOpti
       provideI18n({ en: async () => frontierMessages }),
     ],
   });
-  const harness = await RouterTestingHarness.create(`/characters/${id}`);
+  const harness = await RouterTestingHarness.create(sheetUrl(options.tab));
   const host: unknown = harness.fixture.nativeElement;
   if (!(host instanceof HTMLElement)) {
     throw new TypeError('Expected the harness to render an element');
@@ -138,6 +150,14 @@ export async function openSheet(character: object = MERISIEL, options: SheetOpti
     expect(root.textContent).toContain('Merisiel');
   });
   return { harness, root };
+}
+
+/** Opens a sheet as `openSheet` does. */
+export type SheetOpener = (character?: object, options?: SheetOptions) => Promise<OpenSheet>;
+
+/** `openSheet` at `tab` unless told otherwise, for a spec whose sections are on one tab. */
+export function openerAt(tab: SheetMode): SheetOpener {
+  return async (character = MERISIEL, options = {}) => openSheet(character, { tab, ...options });
 }
 
 /** Opens the ancestry field and picks the option whose label starts with `name`; returns the field. */

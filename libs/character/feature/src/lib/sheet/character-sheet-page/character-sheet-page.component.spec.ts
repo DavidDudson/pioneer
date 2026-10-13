@@ -1,10 +1,11 @@
 import { HttpTestingController } from '@angular/common/http/testing';
-import { ApplicationRef } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
+import { SheetMode } from '@pioneer/character/domain';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { HUMAN, id, MERISIEL, openSheet, patchedOf, pickAncestry, present } from '../../testing/sheet-page-harness';
+import { openTab, regionsOf, settle } from '../../testing/sheet-tabs-testing';
 
 describe('CharacterSheetPage', () => {
   // Loads and bundles the packs once, outside every test's timeout.
@@ -12,53 +13,46 @@ describe('CharacterSheetPage', () => {
     await prebuildServerStateTesting();
   }, PREBUILD_TIMEOUT);
 
-  it('shows identity, build, deity, attributes, defences, statistics, skills, strikes, languages, choices, spellcasting, class features, inventory and downtime in that order, each a region under a level 2 heading', async () => {
+  it('puts each section on its tab, each a region under a level 2 heading', async () => {
     const { root } = await openSheet();
 
-    const regions = [...root.querySelectorAll('section')].map((region) => {
-      const heading = present(region.querySelector('h2'));
-      return [heading.textContent.trim(), region.getAttribute('aria-labelledby') === heading.id];
-    });
-    expect(regions).toStrictEqual([
+    expect(regionsOf(root)).toStrictEqual([
       ['Identity', true],
       ['Build', true],
-      ['Deity', true],
       ['Attributes', true],
+      ['Choices', true],
+      ['Class features', true],
+    ]);
+    await openTab(root, 'Encounter', 'Defences');
+    expect(regionsOf(root)).toStrictEqual([
       ['Defences', true],
-      ['Statistics', true],
       ['Skills', true],
       ['Strikes', true],
-      ['Languages', true],
-      ['Choices', true],
       ['Spellcasting', true],
-      ['Class features', true],
-      ['Inventory', true],
-      ['Downtime', true],
     ]);
+    await openTab(root, 'Exploration', 'Deity');
+    expect(regionsOf(root)).toStrictEqual([
+      ['Deity', true],
+      ['Languages', true],
+      ['Inventory', true],
+    ]);
+    await openTab(root, 'Downtime', 'Downtime');
+    expect(regionsOf(root)).toStrictEqual([['Downtime', true]]);
   });
 
-  it('indexes every section with a skip link that moves focus to its heading', async () => {
+  it("indexes the open tab's sections with skip links that move focus to their headings", async () => {
     const { root } = await openSheet();
     const nav = present(root.querySelector('nav[aria-label="Sheet sections"]'));
     const links = [...nav.querySelectorAll('a')];
     expect(links.map((link) => link.textContent.trim())).toStrictEqual([
       'Identity',
       'Build',
-      'Deity',
       'Attributes',
-      'Defences',
-      'Statistics',
-      'Skills',
-      'Strikes',
-      'Languages',
       'Choices',
-      'Spellcasting',
       'Class features',
-      'Inventory',
-      'Downtime',
     ]);
 
-    links[3]?.click();
+    links[2]?.click();
 
     expect(document.activeElement?.textContent.trim()).toBe('Attributes');
     expect(document.activeElement?.tagName).toBe('H2');
@@ -114,13 +108,12 @@ describe('CharacterSheetPage', () => {
     ]);
   });
 
-  it('edits only the chosen inputs inline: name, ancestry, heritage, background, level, class and deity', async () => {
+  it('edits only the chosen inputs inline on Plan: name, ancestry, heritage, background, level and class', async () => {
     const { root } = await openSheet();
-    // The inventory's item and coin edits are its own (inventory-section spec).
-    const labels = [...root.querySelectorAll('section:not([aria-labelledby="sheet-inventory"]) fr-inline-field')].map(
-      (field) => present(field.querySelector('fr-text')).textContent.trim(),
+    const labels = [...root.querySelectorAll('section fr-inline-field')].map((field) =>
+      present(field.querySelector('fr-text')).textContent.trim(),
     );
-    expect(labels).toStrictEqual(['Name', 'Ancestry', 'Heritage', 'Background', 'Level', 'Class', 'Deity']);
+    expect(labels).toStrictEqual(['Name', 'Ancestry', 'Heritage', 'Background', 'Level', 'Class']);
   });
 
   it('saves an ancestry edit as a pick in the ancestry slot', async () => {
@@ -136,7 +129,7 @@ describe('CharacterSheetPage', () => {
     });
     request.flush(patchedOf({ ...MERISIEL, version: 2, build: { choices: { ancestry: HUMAN } } }, []));
     await vi.waitFor(async () => {
-      await TestBed.inject(ApplicationRef).whenStable();
+      await settle();
       expect(field.textContent).toContain('Human');
     });
   });
@@ -159,13 +152,13 @@ describe('CharacterSheetPage', () => {
       { status: 422, statusText: 'Unprocessable Content' },
     );
     await vi.waitFor(async () => {
-      await TestBed.inject(ApplicationRef).whenStable();
+      await settle();
       expect(field.textContent).toContain('That option is not available for this choice at any level.');
     });
   });
 
-  it('shows the defences the engine derives, each list empty until rule elements are in play', async () => {
-    const { root } = await openSheet();
+  it('shows the defences the engine derives on Encounter, each list empty until rule elements are in play', async () => {
+    const { root } = await openSheet(MERISIEL, { tab: SheetMode.Encounter });
     const defences = present(root.querySelector('section[aria-labelledby="sheet-defences"]'));
 
     await vi.waitFor(() => {
@@ -180,21 +173,5 @@ describe('CharacterSheetPage', () => {
         'No resistances.',
       ]);
     });
-  });
-
-  it('lists AC, saves and Perception from the engine, each opening its breakdown in place', async () => {
-    const { root } = await openSheet();
-    const statistics = present(root.querySelector('section[aria-labelledby="sheet-statistics"]'));
-
-    await vi.waitFor(() => {
-      expect(
-        [...statistics.querySelectorAll('summary')].map((summary) =>
-          summary.textContent.replaceAll(/\s+/gu, ' ').trim(),
-        ),
-      ).toStrictEqual(['Armor Class 12', 'Fortitude +1', 'Reflex +2', 'Will +1', 'Perception +1']);
-    });
-    const ac = present(statistics.querySelector('pio-breakdown'));
-    expect(ac.textContent).toContain('Base 12');
-    expect(ac.textContent).toContain('No modifiers.');
   });
 });

@@ -1,20 +1,18 @@
+import { SheetMode } from '@pioneer/character/domain';
+
 /** One section of the character sheet: the anchor its heading carries and the message key naming it. */
 export interface SheetSection {
   readonly anchor: string;
   readonly headingKey: string;
 }
 
-/**
- * The sheet's sections in their fixed order (play-and-campaigns.md, Sheet layout). Later epics append theirs here:
- * spells, actions, feats and features, inventory, notes.
- */
+/** Every section of the sheet, each on one tab (`SHEET_TAB_SECTIONS`). */
 export const SHEET_SECTIONS = {
   identity: { anchor: 'sheet-identity', headingKey: 'character.sheet.identityHeading' },
   build: { anchor: 'sheet-build', headingKey: 'character.sheet.buildHeading' },
   deity: { anchor: 'sheet-deity', headingKey: 'character.sheet.deity.heading' },
   attributes: { anchor: 'sheet-attributes', headingKey: 'character.sheet.attributesHeading' },
   defences: { anchor: 'sheet-defences', headingKey: 'character.sheet.defencesHeading' },
-  statistics: { anchor: 'sheet-statistics', headingKey: 'character.sheet.statisticsHeading' },
   skills: { anchor: 'sheet-skills', headingKey: 'character.sheet.skillsHeading' },
   strikes: { anchor: 'sheet-strikes', headingKey: 'character.sheet.strikesHeading' },
   languages: { anchor: 'sheet-languages', headingKey: 'character.sheet.languagesHeading' },
@@ -22,9 +20,43 @@ export const SHEET_SECTIONS = {
   spellcasting: { anchor: 'sheet-spellcasting', headingKey: 'character.sheet.spellcastingHeading' },
   features: { anchor: 'sheet-features', headingKey: 'character.sheet.featuresHeading' },
   inventory: { anchor: 'sheet-inventory', headingKey: 'character.sheet.inventory.heading' },
-  /** The shop, and later crafting and income; the Downtime tab adopts it when sheet modes land (#517). */
+  /** The shop, and later crafting and income (#517). */
   downtime: { anchor: 'sheet-downtime', headingKey: 'character.sheet.downtimeHeading' },
 } as const satisfies Readonly<Record<string, SheetSection>>;
 
-/** The sections in page order, for the section index. */
-export const SHEET_SECTION_ORDER: readonly SheetSection[] = Object.values(SHEET_SECTIONS);
+/**
+ * Each tab's sections in page order, for its section index (play-and-campaigns.md, Sheet modes). Later stories add
+ * theirs: actions to Encounter, appearance and exploration activities to Exploration, crafting, income and
+ * retraining to Downtime.
+ */
+export const SHEET_TAB_SECTIONS: Readonly<Record<SheetMode, readonly SheetSection[]>> = {
+  [SheetMode.Plan]: [
+    SHEET_SECTIONS.identity,
+    SHEET_SECTIONS.build,
+    SHEET_SECTIONS.attributes,
+    SHEET_SECTIONS.choices,
+    SHEET_SECTIONS.features,
+  ],
+  [SheetMode.Encounter]: [
+    SHEET_SECTIONS.defences,
+    SHEET_SECTIONS.skills,
+    SHEET_SECTIONS.strikes,
+    SHEET_SECTIONS.spellcasting,
+  ],
+  [SheetMode.Exploration]: [SHEET_SECTIONS.deity, SHEET_SECTIONS.languages, SHEET_SECTIONS.inventory],
+  [SheetMode.Downtime]: [SHEET_SECTIONS.downtime],
+};
+
+/** One tab of the sheet: its route, below the character's, and the message key naming it. */
+export interface SheetTab {
+  readonly mode: SheetMode;
+  readonly labelKey: string;
+}
+
+/** The tabs in order. A tab's path is its mode. */
+export const SHEET_TABS: readonly SheetTab[] = [
+  { mode: SheetMode.Plan, labelKey: 'character.sheet.tabs.plan' },
+  { mode: SheetMode.Encounter, labelKey: 'character.sheet.tabs.encounter' },
+  { mode: SheetMode.Exploration, labelKey: 'character.sheet.tabs.exploration' },
+  { mode: SheetMode.Downtime, labelKey: 'character.sheet.tabs.downtime' },
+];

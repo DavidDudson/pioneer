@@ -1,192 +1,34 @@
 <fr-page [title]="title()">
   <fr-stack gap="lg">
-    @if (store.importReport(); as report) {
-      <pio-import-result [report]="report" (dismissed)="dismissImportReport()" />
-    }
-    @if (cleared().length > 0) {
-      <fr-surface>
-        <fr-stack gap="sm">
-          <fr-stack direction="horizontal" justify="between" align="center" gap="sm">
-            <fr-heading variant="subheading" [level]="2">{{
-              'character.sheet.cleared.heading' | transloco
-            }}</fr-heading>
-            <fr-button variant="ghost" (pressed)="dismissCleared()">{{
-              'character.sheet.cleared.dismiss' | transloco
-            }}</fr-button>
-          </fr-stack>
-          @for (pick of cleared(); track pick.key) {
-            <fr-message tone="warning">{{
-              'character.sheet.cleared.heritage' | transloco: { name: pick.name }
-            }}</fr-message>
-          }
-        </fr-stack>
-      </fr-surface>
-    }
-    <fr-section-index [label]="'character.sheet.sections' | transloco">
-      @for (section of sectionOrder; track section.anchor) {
-        <fr-section-link [anchor]="section.anchor">{{ section.headingKey | transloco }}</fr-section-link>
-      }
-    </fr-section-index>
-
-    <fr-section #identity [anchor]="sections.identity.anchor" [heading]="sections.identity.headingKey | transloco">
-      <fr-stack gap="md">
-        <fr-grid [columns]="3">
-          <fr-inline-field [label]="'character.sheet.name' | transloco" [edit]="name">
-            <fr-text-input
-              frInlineEditor
-              [ariaLabel]="'character.sheet.name' | transloco"
-              [value]="name.draft()"
-              (valueChange)="name.change($event)"
-              (committed)="name.flushSoon()"
-              (cancelled)="name.cancel()"
-            />
-          </fr-inline-field>
-          <fr-inline-field #ancestryField [label]="'character.sheet.ancestry' | transloco" [edit]="ancestry">
-            <fr-select
-              frInlineEditor
-              [ariaLabel]="'character.sheet.ancestry' | transloco"
-              [options]="ancestries.options()"
-              [value]="ancestry.draft()"
-              (valueChange)="ancestry.change($event)"
-              (committed)="ancestry.flushSoon()"
-              (cancelled)="ancestry.cancel()"
-            />
-          </fr-inline-field>
-          <fr-inline-field #heritageField [label]="'character.sheet.heritage' | transloco" [edit]="heritage">
-            <fr-select
-              frInlineEditor
-              [ariaLabel]="'character.sheet.heritage' | transloco"
-              [options]="heritageOptions()"
-              [value]="heritage.draft()"
-              (valueChange)="heritage.change($event)"
-              (committed)="heritage.flushSoon()"
-              (cancelled)="heritage.cancel()"
-            />
-          </fr-inline-field>
-          <fr-inline-field [label]="'character.sheet.background' | transloco" [edit]="background">
-            <fr-select
-              frInlineEditor
-              [ariaLabel]="'character.sheet.background' | transloco"
-              [options]="backgroundOptions()"
-              [value]="background.draft()"
-              (valueChange)="background.change($event)"
-              (committed)="background.flushSoon()"
-              (cancelled)="background.cancel()"
-            />
-          </fr-inline-field>
-          <fr-inline-field [label]="'character.sheet.level' | transloco" [edit]="level">
-            <fr-number-input
-              frInlineEditor
-              [ariaLabel]="'character.sheet.level' | transloco"
-              [min]="levelMin"
-              [max]="levelMax"
-              [value]="level.draft()"
-              (valueChange)="level.change($event)"
-              (committed)="level.flushSoon()"
-              (cancelled)="level.cancel()"
-            />
-          </fr-inline-field>
-        </fr-grid>
-        <pio-sheet-class-fields [picks]="picks" [classField]="characterClass" [classOptions]="classOptions()" />
-      </fr-stack>
-    </fr-section>
-
-    <fr-section [anchor]="sections.build.anchor" [heading]="sections.build.headingKey | transloco">
-      <pio-build-summary [lines]="picks.buildLines()" (edit)="editBuild()" />
-    </fr-section>
-
-    <fr-section [anchor]="sections.deity.anchor" [heading]="sections.deity.headingKey | transloco">
-      <fr-async-region>
-        <ng-template frAsyncPending><pio-deity loading /></ng-template>
-        <ng-template let-content [frAsyncData]="registry">
-          <pio-sheet-deity-section [field]="deity" [options]="deityOptions()" [registry]="content" />
-        </ng-template>
-      </fr-async-region>
-    </fr-section>
-
-    <fr-section [anchor]="sections.attributes.anchor" [heading]="sections.attributes.headingKey | transloco">
-      <fr-async-region>
-        <ng-template frAsyncPending><pio-attributes [modifiers]="undefined" /></ng-template>
-        <ng-template [frAsyncData]="registry">
-          <pio-attributes [modifiers]="picks.attributes()?.modifiers" [open]="picks.attributes()?.open ?? []" />
-        </ng-template>
-      </fr-async-region>
-    </fr-section>
-
-    <fr-section [anchor]="sections.defences.anchor" [heading]="sections.defences.headingKey | transloco">
-      <fr-async-region>
-        <ng-template frAsyncPending><pio-defences [defences]="undefined" /></ng-template>
-        <ng-template [frAsyncData]="registry"
-          ><pio-defences [defences]="picks.defences()" [entryNames]="picks.entryNames()"
-        /></ng-template>
-      </fr-async-region>
-    </fr-section>
-
-    <fr-section [anchor]="sections.statistics.anchor" [heading]="sections.statistics.headingKey | transloco">
-      <fr-async-region>
-        <ng-template frAsyncPending><pio-statistics [statistics]="undefined" /></ng-template>
-        <ng-template [frAsyncData]="engineQuery()"
-          ><pio-statistics [statistics]="picks.statistics()" [entryNames]="picks.entryNames()"
-        /></ng-template>
-      </fr-async-region>
-    </fr-section>
-
-    <fr-section [anchor]="sections.skills.anchor" [heading]="sections.skills.headingKey | transloco">
-      <fr-stack gap="md">
+    <fr-stack gap="sm">
+      <fr-stack direction="horizontal" justify="between" align="center" gap="sm" wrap>
         <fr-async-region>
-          <ng-template frAsyncPending><pio-statistics [statistics]="undefined" /></ng-template>
-          <ng-template [frAsyncData]="engineQuery()"
-            ><pio-statistics [statistics]="picks.skills()" [entryNames]="picks.entryNames()"
-          /></ng-template>
+          <ng-template frAsyncPending><fr-skeleton width="md" /></ng-template>
+          <ng-template [frAsyncData]="sheet.registry">
+            @if (sheet.identity(); as identity) {
+              <fr-text tone="muted">{{ 'character.sheet.header.identity' | transloco: identity }}</fr-text>
+            } @else {
+              <fr-skeleton width="md" />
+            }
+          </ng-template>
         </fr-async-region>
-        <pio-sheet-pick-fields [fields]="picks.skillFields()" />
+        <pio-sheet-save-status />
       </fr-stack>
-    </fr-section>
-
-    <fr-section [anchor]="sections.strikes.anchor" [heading]="sections.strikes.headingKey | transloco">
+      <!-- Hit Points (#343), hero points (#345), conditions (#348) and the last roll (#342) join the header here. -->
       <fr-async-region>
-        <ng-template frAsyncPending><pio-statistics [statistics]="undefined" /></ng-template>
-        <ng-template [frAsyncData]="engineQuery()"
-          ><pio-statistics
-            [statistics]="picks.strikes()"
-            [entryNames]="picks.entryNames()"
-            [noneKey]="statisticsMessage.NoStrikes"
-        /></ng-template>
+        <ng-template frAsyncPending><pio-vitals [vitals]="undefined" /></ng-template>
+        <ng-template [frAsyncData]="sheet.engineQuery()">
+          <pio-vitals [vitals]="sheet.vitals()" [entryNames]="sheet.picks.entryNames()" />
+        </ng-template>
       </fr-async-region>
-    </fr-section>
+    </fr-stack>
 
-    <fr-section [anchor]="sections.languages.anchor" [heading]="sections.languages.headingKey | transloco">
-      <pio-sheet-languages-section />
-    </fr-section>
-
-    <fr-section [anchor]="sections.choices.anchor" [heading]="sections.choices.headingKey | transloco">
-      <fr-stack gap="md">
-        <pio-sheet-pick-fields [fields]="picks.choiceFields()" />
-        <pio-choices [lines]="picks.choices()" />
-      </fr-stack>
-    </fr-section>
-
-    <fr-section [anchor]="sections.spellcasting.anchor" [heading]="sections.spellcasting.headingKey | transloco">
-      <fr-async-region>
-        <ng-template frAsyncPending><pio-spellcasting [entries]="undefined" /></ng-template>
-        <ng-template [frAsyncData]="registry"
-          ><pio-spellcasting [entries]="picks.spellcasting()" [entryNames]="picks.entryNames()"
-        /></ng-template>
-      </fr-async-region>
-      <pio-sheet-spells [casts]="casts()" [focuses]="focuses()" />
-    </fr-section>
-
-    <fr-section [anchor]="sections.features.anchor" [heading]="sections.features.headingKey | transloco">
-      <pio-class-features [lines]="picks.features()" />
-    </fr-section>
-
-    <fr-section [anchor]="sections.inventory.anchor" [heading]="sections.inventory.headingKey | transloco">
-      <pio-inventory-section [investments]="investments()" [engine]="engineQuery()" />
-    </fr-section>
-
-    <fr-section [anchor]="sections.downtime.anchor" [heading]="sections.downtime.headingKey | transloco">
-      <pio-shop />
-    </fr-section>
+    <fr-tabs [label]="'character.sheet.tabs.label' | transloco">
+      @for (tab of tabs; track tab.mode) {
+        <fr-tab [to]="tab.mode">{{ tab.labelKey | transloco }}</fr-tab>
+      }
+    </fr-tabs>
+    <router-outlet />
 
     @if (character(); as character) {
       <fr-text element="p" variant="caption" tone="subtle">

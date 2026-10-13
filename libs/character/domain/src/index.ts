@@ -100,6 +100,14 @@ export {
   PatchedCharacterSheet,
 } from './character-contract';
 export {
+  DEFAULT_SHEET_MODE,
+  SetSheetModeBody,
+  SheetMode,
+  SheetModeChoice,
+  SheetModeId,
+  SheetModeSchema,
+} from './sheet-mode';
+export {
   CHARACTER_LEVEL_MAX,
   CHARACTER_LEVEL_MIN,
   CHARACTER_NAME_MAX_LENGTH,

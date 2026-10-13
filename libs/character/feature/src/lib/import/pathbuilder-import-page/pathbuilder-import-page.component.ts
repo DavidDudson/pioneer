@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@a
 import { form, FormField } from '@angular/forms/signals';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
+import { SheetMode } from '@pioneer/character/domain';
 import {
   AsyncButton,
   DescriptionItem,
@@ -139,10 +140,13 @@ export class PathbuilderImportPage {
       : { matched: rows.filter((row) => row.status === MatchStatus.Matched).length, total: rows.length };
   });
 
-  /** Sends the export itself, not the preview; the server reads and checks it again. */
+  /**
+   * Sends the export itself, not the preview; the server reads and checks it again. Opens the new character on Plan,
+   * where its import report shows.
+   */
   protected readonly create = async (): Promise<void> => {
     const character = await this.#store.importPathbuilder(JSON.parse(this.model().json) as unknown);
-    await this.#router.navigate(['../..', character.id], { relativeTo: this.#route });
+    await this.#router.navigate(['../..', character.id, SheetMode.Plan], { relativeTo: this.#route });
   };
 
   /** The server's reason when it gave one (an ancestry that isn't loaded), else a generic retry. */

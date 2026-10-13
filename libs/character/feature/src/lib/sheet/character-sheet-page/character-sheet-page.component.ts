@@ -1,96 +1,30 @@
-import {
-  afterNextRender,
-  ChangeDetectionStrategy,
-  Component,
-  computed,
-  effect,
-  ElementRef,
-  inject,
-  Injector,
-  input,
-  viewChild,
-} from '@angular/core';
-import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import {
-  ANCESTRY_SLOT,
-  BACKGROUND_SLOT,
-  CharacterId,
-  CharacterLevel,
-  CharacterName,
-  CHARACTER_LEVEL_MAX,
-  CHARACTER_LEVEL_MIN,
-  CharacterPatchField,
-  CLASS_SLOT,
-  DEITY_SLOT,
-  HERITAGE_SLOT,
-  itemContent,
-} from '@pioneer/character/domain';
+import { ChangeDetectionStrategy, Component, computed, effect, inject, input } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { TranslocoPipe } from '@jsverse/transloco';
+import { CharacterId } from '@pioneer/character/domain';
 import {
   AsyncData,
   AsyncPending,
   AsyncRegion,
-  Button,
   DateDisplay,
-  Grid,
-  Heading,
-  Message,
-  InlineField,
-  NumberInput,
   Page,
-  Section,
-  SectionIndex,
-  SectionLink,
-  Select,
   Skeleton,
   Stack,
-  Surface,
+  Tab,
+  Tabs,
   Text,
-  TextInput,
 } from '@pioneer/frontier';
-import { AncestryId, ChoiceValue, SpellPreparation } from '@pioneer/rules/sdk';
-import type { ContentRegistry } from '@pioneer/rules/sdk';
-import {
-  AttributesView,
-  BuildSummaryView,
-  ChoicesView,
-  ClassFeaturesView,
-  DefencesView,
-  DeityView,
-  SpellcastingView,
-  StatisticsMessage,
-  StatisticsView,
-} from '@pioneer/rules/ui';
-import type { Investment } from '@pioneer/rules/ui';
+import { VitalsView } from '@pioneer/rules/ui';
 
-import { AncestryOptions } from '../../data/ancestry-options';
-import { CharacterStore } from '../../data/character-store';
-import { CHARACTER_CONTENT_KINDS, injectContentRegistry } from '../../data/content-registry-query';
-import { ImportResult } from '../../import/import-result/import-result.component';
-import { InventorySection } from '../inventory/inventory-section/inventory-section.component';
-import { sheetBuildPicks } from '../sheet-build-picks';
-import { SheetClassFields } from '../sheet-class-fields/sheet-class-fields.component';
-import { SheetDeitySection } from '../sheet-deity-section/sheet-deity-section.component';
-import { carriesAnything, EQUIPMENT_CONTENT_KINDS, sheetInvestments } from '../sheet-equipment';
-import { sheetField } from '../sheet-field';
-import { SheetLanguagesSection } from '../sheet-languages-section/sheet-languages-section.component';
-import { SheetPickFields } from '../sheet-pick-fields/sheet-pick-fields.component';
-import { SHEET_SECTION_ORDER, SHEET_SECTIONS } from '../sheet-sections';
-import { SheetSpells } from '../sheet-spells/sheet-spells.component';
-// oxlint-disable-next-line import/max-dependencies -- one container per sheet section until mode tabs split the page (#495)
-import { Shop } from '../shop/shop.component';
-
-/** Focuses an inline field by its read view's button, which scrolls it into view. */
-function focusField(field: ElementRef<HTMLElement>): void {
-  field.nativeElement.querySelector<HTMLElement>('button')?.focus();
-}
+import { SheetSaveStatus } from '../sheet-save-status/sheet-save-status.component';
+import { SHEET_TABS } from '../sheet-sections';
+import { SheetState } from '../sheet-state';
 
 /**
- * Character sheet: fixed sections in page order, each a region under its level 2 heading, reached from the section
- * index. Every chosen value is its own inline edit with its own state. Attribute modifiers are worked out from the
- * boost picks, so they are read-only, with the boosts still to place listed beneath them. Choices lists every slot
- * with its status, flagging a planned or invalid pick where it would otherwise vanish. Skills lists every skill and Lore
- * with its total, and a picker for each trained skill and skill increase up to the character's level. Languages lists
- * those the character knows, with Add language while it has any left to add.
+ * Character sheet: one character under four tabs (play-and-campaigns.md, Sheet modes), each its own route below the
+ * character's. The header is the same on every tab: the character's name, a one-line identity, how its edits stand,
+ * and the vitals row; then the tabs, then the open tab's sections. The character's own address opens the tab the user
+ * last had open on it, Plan the first time.
  */
 @Component({
   selector: 'pio-character-sheet-page',
@@ -98,172 +32,34 @@ function focusField(field: ElementRef<HTMLElement>): void {
     AsyncData,
     AsyncPending,
     AsyncRegion,
-    AttributesView,
-    BuildSummaryView,
-    Button,
-    ChoicesView,
-    ClassFeaturesView,
     DateDisplay,
-    DefencesView,
-    DeityView,
-    Grid,
-    Heading,
-    ImportResult,
-    Message,
-    InlineField,
-    InventorySection,
-    Shop,
-    NumberInput,
     Page,
-    Section,
-    SectionIndex,
-    SectionLink,
-    Select,
-    SheetClassFields,
-    SheetDeitySection,
-    SheetLanguagesSection,
-    SheetPickFields,
-    SheetSpells,
+    RouterOutlet,
+    SheetSaveStatus,
     Skeleton,
     Stack,
-    SpellcastingView,
-    StatisticsView,
-    Surface,
+    Tab,
+    Tabs,
     Text,
-    TextInput,
     TranslocoPipe,
+    VitalsView,
   ],
   templateUrl: './character-sheet-page.component.html',
+  providers: [SheetState],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CharacterSheetPage {
   /** Route param, bound by `withComponentInputBinding`. */
   public readonly id = input.required({ transform: (id: string): CharacterId => CharacterId.parse(id) });
 
-  readonly #injector = inject(Injector);
-  readonly #i18n = inject(TranslocoService);
-  private readonly identity = viewChild.required<string, ElementRef<HTMLElement>>('identity', { read: ElementRef });
-  private readonly ancestryField = viewChild.required<string, ElementRef<HTMLElement>>('ancestryField', {
-    read: ElementRef,
-  });
-  private readonly heritageField = viewChild.required<string, ElementRef<HTMLElement>>('heritageField', {
-    read: ElementRef,
-  });
-  protected readonly store = inject(CharacterStore);
-  protected readonly ancestries = inject(AncestryOptions);
-  protected readonly character = this.store.selected;
-  protected readonly levelMin = CHARACTER_LEVEL_MIN;
-  protected readonly levelMax = CHARACTER_LEVEL_MAX;
-  protected readonly sections = SHEET_SECTIONS;
-  protected readonly statisticsMessage = StatisticsMessage;
-  protected readonly sectionOrder = SHEET_SECTION_ORDER;
+  protected readonly sheet = inject(SheetState);
+  protected readonly character = this.sheet.character;
+  protected readonly tabs = SHEET_TABS;
   protected readonly title = computed(() => this.character()?.name);
-  /** The registry the engine reads, shared with the ancestry options, so it loads once. */
-  protected readonly registry = injectContentRegistry(CHARACTER_CONTENT_KINDS);
-  /**
-   * The registry with the item and condition kinds too, so the character's equipment and Bulk reach the engine. It
-   * loads only once the character carries something, so a sheet with nothing carried never fetches them for it.
-   */
-  protected readonly equipment = injectContentRegistry(EQUIPMENT_CONTENT_KINDS, () =>
-    carriesAnything(this.character()),
-  );
-  /** The query the engine's registry comes from, so the regions that wait on it show its pending and failed states. */
-  protected readonly engineQuery = computed(() => (carriesAnything(this.character()) ? this.equipment : this.registry));
-  /** The registry the engine reads: with the item kinds once anything is carried, undefined while they load. */
-  readonly #engineRegistry = computed((): ContentRegistry | undefined =>
-    carriesAnything(this.character()) ? this.equipment.data() : this.registry.data(),
-  );
-  /** The invested items and what each turns on, from the statistics; undefined while they load. */
-  protected readonly investments = computed((): readonly Investment[] | undefined => {
-    const registry = this.#engineRegistry();
-    const character = this.character();
-    const statistics = this.picks.statistics();
-    return registry === undefined || character === undefined || statistics === undefined
-      ? undefined
-      : sheetInvestments(character, itemContent(registry), statistics);
-  });
-
-  protected readonly name = sheetField<string>(this.character, {
-    read: (character) => character.name,
-    empty: '',
-    schema: CharacterName,
-    save: async (value) => this.store.patch({ field: CharacterPatchField.Name, value: CharacterName.parse(value) }),
-  });
-  protected readonly ancestry = sheetField<AncestryId | undefined>(this.character, {
-    read: (character) => character.ancestry,
-    empty: undefined,
-    schema: AncestryId,
-    save: async (value) => this.store.selectSlot(ANCESTRY_SLOT, ChoiceValue.parse(AncestryId.parse(value))),
-    format: (value) => this.ancestries.name(value),
-  });
-  /** The root slot, subclass and key attribute pickers, the build summary and the class features. */
-  protected readonly picks = sheetBuildPicks({
-    registry: this.registry.data,
-    engineRegistry: this.#engineRegistry,
-    character: this.character,
-    slots: this.store.slots,
-    select: async (slot, selection) => this.store.selectSlot(slot, selection),
-    clear: async (slot) => this.store.clearSlot(slot),
-    translate: (key) => this.#i18n.translate(key),
-  });
-  /** Whether the character has a spellcasting entry, so its spell picks load. */
-  protected readonly casts = computed(() => (this.picks.spellcasting()?.length ?? 0) > 0);
-  /** Whether one of its entries is a focus entry. */
-  protected readonly focuses = computed(
-    () => this.picks.spellcasting()?.some((entry) => entry.preparation === SpellPreparation.Focus) ?? false,
-  );
-  protected readonly heritageOptions = this.picks.rootOptions(HERITAGE_SLOT);
-  protected readonly heritage = this.picks.rootField(HERITAGE_SLOT, this.heritageOptions);
-  protected readonly backgroundOptions = this.picks.rootOptions(BACKGROUND_SLOT);
-  protected readonly background = this.picks.rootField(BACKGROUND_SLOT, this.backgroundOptions);
-  protected readonly deityOptions = this.picks.rootOptions(DEITY_SLOT);
-  protected readonly deity = this.picks.rootField(DEITY_SLOT, this.deityOptions);
-  protected readonly classOptions = this.picks.rootOptions(CLASS_SLOT);
-  protected readonly characterClass = this.picks.rootField(CLASS_SLOT, this.classOptions);
-  protected readonly level = sheetField<number>(this.character, {
-    read: (character) => character.level,
-    empty: CHARACTER_LEVEL_MIN,
-    schema: CharacterLevel,
-    save: async (value) => this.store.patch({ field: CharacterPatchField.Level, value: CharacterLevel.parse(value) }),
-  });
-  /** The heritage the last edit cleared, by name, until dismissed. */
-  protected readonly cleared = computed(() =>
-    this.store.cleared().map((pick) => ({ key: pick.key, name: pick.selectionName ?? pick.selection })),
-  );
 
   public constructor() {
     effect(() => {
-      this.store.select(this.id());
+      this.sheet.store.select(this.id());
     });
-  }
-
-  /** Edit build goes to the pickers: focus lands on the ancestry, the first of them, and scrolls it into view. */
-  protected editBuild(): void {
-    focusField(this.ancestryField());
-  }
-
-  /** Dismissing removes the focused Dismiss button with the notice, so focus moves to the heritage picker it names. */
-  protected dismissCleared(): void {
-    this.store.dismissCleared();
-    afterNextRender(
-      () => {
-        focusField(this.heritageField());
-      },
-      { injector: this.#injector },
-    );
-  }
-
-  /**
-   * Dismissing removes the focused Dismiss button with the report, so focus moves to the first identity field rather
-   * than falling to the page body.
-   */
-  protected dismissImportReport(): void {
-    this.store.dismissImportReport();
-    afterNextRender(
-      () => {
-        this.identity().nativeElement.querySelector<HTMLElement>('button')?.focus();
-      },
-      { injector: this.#injector },
-    );
   }
 }

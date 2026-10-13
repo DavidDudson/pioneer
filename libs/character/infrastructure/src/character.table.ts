@@ -3,10 +3,12 @@ import type {
   CharacterLevel,
   CharacterName,
   CharacterSchemaVersion,
+  SheetMode,
+  SheetModeId,
   StoredCharacterDocument,
 } from '@pioneer/character/domain';
 import type { UserId, Version } from '@pioneer/shared/kernel';
-import { index, integer, jsonb, pgTable, smallint, text, timestamp, uuid } from 'drizzle-orm/pg-core';
+import { index, integer, jsonb, pgTable, smallint, text, timestamp, uniqueIndex, uuid } from 'drizzle-orm/pg-core';
 
 /**
  * Drizzle schema for the character aggregate. Migrations live in
@@ -41,5 +43,30 @@ export const characters = pgTable(
     // Asc and desc both use it (backward index scan).
     index('characters_owner_created_at_id_idx').on(table.ownerId, table.createdAt, table.id),
     index('characters_owner_name_id_idx').on(table.ownerId, table.name, table.id),
+  ],
+);
+
+/**
+ * The tab each user last had open on each character's sheet (ADR-0052), one row once they first switch tabs. Not part
+ * of the character: switching tabs never bumps its version. `id` is the row's own, for the audit trail; lookups and
+ * the upsert go through the unique (user, character) index. The user's foreign key to users (on delete cascade) is in
+ * the migration, as for `owner_id`; deleting the character deletes its rows too.
+ */
+export const characterSheetModes = pgTable(
+  'character_sheet_modes',
+  {
+    id: uuid().$type<SheetModeId>().primaryKey(),
+    userId: uuid().$type<UserId>().notNull(),
+    characterId: uuid()
+      .$type<CharacterId>()
+      .notNull()
+      .references(() => characters.id, { onDelete: 'cascade' }),
+    mode: text().$type<SheetMode>().notNull(),
+    updatedAt: timestamp({ withTimezone: true, mode: 'string' }).notNull(),
+  },
+  (table) => [
+    uniqueIndex('character_sheet_modes_user_character_idx').on(table.userId, table.characterId),
+    // Serves the cascade when a character is deleted.
+    index('character_sheet_modes_character_idx').on(table.characterId),
   ],
 );

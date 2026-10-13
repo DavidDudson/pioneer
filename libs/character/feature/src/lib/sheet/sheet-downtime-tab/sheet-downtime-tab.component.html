@@ -1,0 +1,11 @@
+<fr-stack gap="lg">
+  <fr-section-index [label]="'character.sheet.sections' | transloco">
+    @for (section of sectionOrder; track section.anchor) {
+      <fr-section-link [anchor]="section.anchor">{{ section.headingKey | transloco }}</fr-section-link>
+    }
+  </fr-section-index>
+
+  <fr-section [anchor]="sections.downtime.anchor" [heading]="sections.downtime.headingKey | transloco">
+    <pio-shop />
+  </fr-section>
+</fr-stack>
