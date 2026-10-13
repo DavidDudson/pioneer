@@ -47,6 +47,7 @@
         [generation]="generation()"
         (picked)="pick($event)"
         (loadMore)="loadMore.emit()"
+        (dismissed)="cancel()"
       />
     </ng-template>
   </div>

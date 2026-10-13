@@ -19,7 +19,7 @@
     <div role="row" aria-rowindex="1" [class]="headerRowClasses">
       @for (header of headers(); track header.id) {
         <div role="columnheader" [class]="headerClasses(header)" [attr.aria-sort]="ariaSort(header) ?? null">
-          <fr-table-header-cell [header]="header" />
+          <fr-table-header-cell [header]="header" (keydown.escape)="dismissed.emit()" />
         </div>
       }
     </div>

@@ -119,6 +119,19 @@ describe(Picker, () => {
     rendered.host.remove();
   });
 
+  it('closes on Escape pressed on a column sort button', async () => {
+    const rendered = render();
+    document.body.append(rendered.host);
+    await open(rendered);
+    sortButton(headerCells(rendered)[0])?.dispatchEvent(
+      new KeyboardEvent('keydown', { key: 'Escape', bubbles: true, cancelable: true }),
+    );
+    await settle(rendered);
+    expect(rendered.trigger.getAttribute('aria-expanded')).toBe('false');
+    expect(rendered.cancels()).toBe(1);
+    rendered.host.remove();
+  });
+
   it('fires searched once typing goes quiet, and not again for the same query', async () => {
     vi.useFakeTimers();
     const rendered = render();
@@ -188,6 +201,20 @@ describe(Picker, () => {
     rendered.fixture.componentRef.setInput('hasMore', false);
     await settle(rendered);
     expect(rendered.loads()).toBe(1);
+  });
+
+  it('asks again after a load finishes without adding rows', async () => {
+    const rendered = render(FEATS);
+    rendered.fixture.componentRef.setInput('hasMore', true);
+    await open(rendered);
+    expect(rendered.loads()).toBe(1);
+    rendered.fixture.componentRef.setInput('loadingMore', true);
+    await settle(rendered);
+    rendered.fixture.componentRef.setInput('loadingMore', false);
+    await settle(rendered);
+    grid(rendered)?.parentElement?.dispatchEvent(new Event('scroll'));
+    await settle(rendered);
+    expect(rendered.loads()).toBe(2);
   });
 
   it('does not ask for more while the end of a long list is far off', async () => {

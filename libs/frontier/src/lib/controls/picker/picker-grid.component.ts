@@ -73,6 +73,8 @@ export class PickerGrid<TRow extends object> {
   public readonly picked = output<Row<TableFeatureSet, TRow>>();
   /** The end of the loaded rows is near and `hasMore`. */
   public readonly loadMore = output();
+  /** Escape pressed on a column header button, where the search input is not the focus. */
+  public readonly dismissed = output();
 
   protected readonly scrollerClasses = pickerScrollerClasses;
   protected readonly gridClasses = pickerGridClasses;
@@ -139,6 +141,14 @@ export class PickerGrid<TRow extends object> {
         this.#loadedFor = undefined;
         this.virtualizer.scrollToOffset(0);
       });
+    });
+    // A finished load frees the end of the list to ask again, so a failed one is retried on the next scroll.
+    afterRenderEffect(() => {
+      if (!this.loadingMore()) {
+        untracked(() => {
+          this.#loadedFor = undefined;
+        });
+      }
     });
     afterRenderEffect(() => {
       const lastShown = this.virtualizer.range()?.endIndex;
