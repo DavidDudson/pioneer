@@ -1,7 +1,14 @@
 import { describe, expect, test } from 'bun:test';
 
 import { CharacterService, InMemoryCharacterRepository, PlayService } from '@pioneer/character/application';
-import { CharacterName, CharacterPlay, FRESH_PLAY, PlayCommandField, untypedDamage } from '@pioneer/character/domain';
+import {
+  CharacterName,
+  CharacterPlay,
+  FRESH_PLAY,
+  PlayCommandField,
+  ResourceCount,
+  untypedDamage,
+} from '@pioneer/character/domain';
 import { hitPointsContent, humanAncestryId } from '@pioneer/character/domain/testing';
 import { DegreeOfSuccess, HitPoints } from '@pioneer/rules/sdk';
 import { fixedContent } from '@pioneer/rules/sdk/testing';
@@ -93,6 +100,25 @@ describe('play routes', () => {
       request('PATCH', path, { as: amiri, body: { expectedRevision: 2, command: bad } }),
     );
     expect(refused.status).toBe(422);
+  });
+
+  test('spending a hero point is accepted at the next revision, an unknown resource or a negative amount is refused', async () => {
+    const { api, path } = await setUp();
+    const command = { field: PlayCommandField.SpendResource, resource: 'hero-points', amount: 1 };
+    const accepted = await api.handle(request('PATCH', path, { as: amiri, body: { expectedRevision: 1, command } }));
+    expect(accepted.status).toBe(200);
+    const saved = CharacterPlay.parse(await accepted.json());
+    expect(saved.play.resources['hero-points']).toBe(ResourceCount.parse(1));
+    const bad = [
+      { ...command, resource: 'mana' },
+      { ...command, amount: -1 },
+    ];
+    const refused = await Promise.all(
+      bad.map(async (each) =>
+        api.handle(request('PATCH', path, { as: amiri, body: { expectedRevision: 2, command: each } })),
+      ),
+    );
+    expect(refused.map((response) => response.status)).toStrictEqual([422, 422]);
   });
 
   test("signed out is 401; someone else's character is 404", async () => {

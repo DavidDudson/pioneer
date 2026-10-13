@@ -1,6 +1,15 @@
 import { afterAll, beforeAll, describe, expect, test } from 'bun:test';
 
-import { CharacterCommand, CharacterName, Doomed, Dying, FRESH_PLAY, Wounded } from '@pioneer/character/domain';
+import {
+  CharacterCommand,
+  CharacterName,
+  Doomed,
+  Dying,
+  FRESH_PLAY,
+  Resource,
+  ResourceCount,
+  Wounded,
+} from '@pioneer/character/domain';
 import type { Character, PlayState } from '@pioneer/character/domain';
 import { CharacterBuilder } from '@pioneer/character/domain/testing';
 import { HitPoints } from '@pioneer/rules/sdk';
@@ -24,6 +33,7 @@ const WOUNDED: PlayState = {
   dying: Dying.parse(2),
   wounded: Wounded.parse(1),
   doomed: Doomed.parse(1),
+  resources: { ...FRESH_PLAY.resources, [Resource.HeroPoints]: ResourceCount.parse(2) },
 };
 
 describe.skipIf(adminUrl === undefined)('character play state (postgres)', () => {
