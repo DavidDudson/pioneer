@@ -1,5 +1,7 @@
-import { describe, expect, it, vi } from 'vitest';
+import { TestBed } from '@angular/core/testing';
+import { beforeAll, describe, expect, it, vi } from 'vitest';
 
+import { CORE_RULES, STATISTIC_DEFINITIONS, StatisticSource } from '../statistic-sources';
 import {
   chooseSchema,
   openPlayground,
@@ -11,7 +13,16 @@ import {
   typeJson,
 } from './playground-harness';
 
+const WARM_TIMEOUT = 60_000;
+
 describe('RulesPlaygroundPage statistics', () => {
+  // Reading the core rules pack takes seconds on a busy CI runner, longer than a test's own timeout. The pack keeps what it loads.
+  beforeAll(async () => {
+    await TestBed.inject(STATISTIC_DEFINITIONS)(StatisticSource.CoreRules);
+    await TestBed.inject(CORE_RULES)();
+    TestBed.resetTestingModule();
+  }, WARM_TIMEOUT);
+
   it('derives statistics from definitions and inputs, term by term', async () => {
     const harness = await openPlayground();
     await chooseSchema(harness, 'Statistics');

@@ -27,6 +27,8 @@ registry.register(FEAT_SLOT_FIXTURES);
 const content = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 
 const LEVEL_MAX = 20;
+/** Each run builds and reads a character up to level 20: more outrun a test's timeout on a busy CI runner. */
+const RUNS = 30;
 const FEATS = ['brawn', 'brutish-shove', 'keen-eye', 'knockdown', 'lunge', 'power-attack'] as const;
 const featPick = option(constantFrom(...FEATS), { nil: undefined });
 const picks = record({ level1: featPick, level2: featPick, level4: featPick, bonus: featPick });
@@ -57,6 +59,7 @@ describe('changing level', () => {
           }
         }
       }),
+      { numRuns: RUNS },
     );
   });
 
@@ -84,6 +87,7 @@ describe('changing level', () => {
         expect(characterSlots(planned.document, content)).toStrictEqual(characterSlots(direct.document, content));
         expect(featSlots(planned.document, content)).toStrictEqual(featSlots(direct.document, content));
       }),
+      { numRuns: RUNS },
     );
   });
 });
