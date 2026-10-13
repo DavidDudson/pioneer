@@ -210,7 +210,8 @@ its damage is its description, and the effects it applies are `effect` entries.
 - **Rituals.** Foundry stores a ritual as a spell with ritual data. A check is one of its `skills` (`skill:`
   selectors), at a `proficiency` when it names one; each secondary check is its own.
 - **Effects.** `duration` is a `time` of rounds to days with an `expiry` (`turn-start`, `turn-end`,
-  `round-end`) and `sustained`, `encounter` or `unlimited`. `badge` is a `counter` starting at `value` between
+  `round-end`) and `sustained`, a `turn` (until the `turn-start` or `turn-end` of the turn it is applied in),
+  `encounter` or `unlimited`. `badge` is a `counter` starting at `value` between
   `min` and `max`, with `labels` and `loop`, or a rolled `formula` that may `reevaluate` at initiative or a turn's
   start or end. Foundry's `tokenIcon`, `unidentified` and the context of the action that applied it are play
   state, not content.
@@ -705,9 +706,10 @@ burst`, `15-foot emanation centered on you`); a shape Pioneer lacks is reported.
     `Legal Lore` is `skill:lore:legal`) at the one rank they name; its secondary checks are separated by commas,
     each a choice of skills joined by `or`. Ranks that differ, a DC, or a note in the parentheses
     (`whichever isn't used`) are reported and leave the ritual without data.
-  - An effect's `category` is its pack's (`spell-effects` is `spell`, likewise `feat`, `equipment` and `other`);
-    one from any other pack is reported. Its duration is a count of rounds to days with Foundry's `expiry` and
-    `sustained`, `encounter` or `unlimited`; a count of none (until the end of the turn) is reported. A counter
+  - An effect's `category` is its pack's (`spell-effects` is `spell`, likewise `feat`, `equipment` and `other`;
+    `campaign-effects`, the GM's, is `other` rather than a category of its own); one from any other pack is reported.
+    Its duration is a count of rounds to days with Foundry's `expiry` and `sustained`, a `turn` for a count of none
+    that expires at a turn's start or end, `encounter` or `unlimited`; any other count of none is reported. A counter
     badge carries over, and a formula badge's `value` is its `formula`. `start`, `tokenIcon`, `unidentified`
     and `context` are play state and are not carried.
 - **Equipment kind data.** Foundry's `ammo` items are consumables of the `ammunition` category, its `backpack` items

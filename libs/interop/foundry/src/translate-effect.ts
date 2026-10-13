@@ -28,6 +28,7 @@ const PACK_CATEGORIES: ReadonlyMap<string, EffectCategory> = new Map([
   ['feat-effects', EffectCategory.Feat],
   ['equipment-effects', EffectCategory.Equipment],
   ['other-effects', EffectCategory.Other],
+  ['campaign-effects', EffectCategory.Other],
 ]);
 
 /** Foundry's plural duration units, by the unit each is. */
@@ -42,6 +43,9 @@ const UNTIMED: ReadonlyMap<string, EffectDurationType> = new Map([
   ['unlimited', EffectDurationType.Unlimited],
   ['encounter', EffectDurationType.Encounter],
 ]);
+
+/** When a duration of no time ends: at the start or the end of the turn. */
+const TURN_EXPIRIES: ReadonlySet<string> = new Set(['turn-start', 'turn-end']);
 
 const FIELD_MAX = 64;
 const FORMULA_MAX = 200;
@@ -71,8 +75,8 @@ const FoundryEffectSystem = z.looseObject({
 type FoundryEffectSystem = z.infer<typeof FoundryEffectSystem>;
 
 /**
- * A timed duration (rounds to days, with when in the round it ends), `encounter`, or `unlimited`. A count of none
- * ("until the end of the turn") and units Pioneer lacks are reported.
+ * A timed duration (rounds to days, with when in the round it ends), a `turn` (a count of none that ends at a turn's
+ * start or end), `encounter`, or `unlimited`. Any other count of none and units Pioneer lacks are reported.
  */
 function durationOf({ duration }: FoundryEffectSystem, log: GapLog): object | undefined {
   const { value, unit, expiry, sustained } = duration;
@@ -81,6 +85,9 @@ function durationOf({ duration }: FoundryEffectSystem, log: GapLog): object | un
     return { type: untimed };
   }
   const singular = DURATION_UNITS.get(unit);
+  if (singular !== undefined && value === 0 && TURN_EXPIRIES.has(expiry ?? '')) {
+    return { type: EffectDurationType.Turn, expiry };
+  }
   if (singular === undefined || value <= 0) {
     report(log, { reason: KindDataGapReason.UnmappedValue, field: 'duration', raw: duration });
     return undefined;

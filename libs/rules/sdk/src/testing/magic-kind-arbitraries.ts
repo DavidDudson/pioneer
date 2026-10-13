@@ -271,6 +271,10 @@ const effectExpiry: Arbitrary<string> = constantFrom(...Object.values(EffectExpi
 const effectCategory: Arbitrary<string> = constantFrom(...Object.values(EffectCategory));
 const effectDuration: Arbitrary<object> = oneof(
   withOptional(timedEffect, { expiry: effectExpiry, sustained: boolean() }),
+  record({
+    type: constant(EffectDurationType.Turn),
+    expiry: constantFrom(EffectExpiry.TurnStart, EffectExpiry.TurnEnd),
+  }),
   constant({ type: EffectDurationType.Encounter }),
   constant({ type: EffectDurationType.Unlimited }),
 );

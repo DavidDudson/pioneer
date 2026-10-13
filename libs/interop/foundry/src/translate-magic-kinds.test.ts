@@ -5,7 +5,17 @@ import { ContentEntry, ContentKind, KIND_DATA } from '@pioneer/rules/sdk';
 import { dataIn, entryOfKind, gapKeys, slugIn } from './testing/build-helpers';
 import { coreRulesId, translate } from './testing/import-fixtures';
 import { contentEntry, FOUNDRY_NULL, gapsOf } from './testing/kind-fixtures';
-import { BLESS_EFFECT, COMMAND, CONSECRATE, FIREBALL, HEAL, MAGIC, RAGE_EFFECT, spell } from './testing/magic-fixtures';
+import {
+  BLESS_EFFECT,
+  COMMAND,
+  CONSECRATE,
+  effectOfNoTime,
+  FIREBALL,
+  HEAL,
+  MAGIC,
+  RAGE_EFFECT,
+  spell,
+} from './testing/magic-fixtures';
 
 const translation = translate(MAGIC);
 
@@ -219,16 +229,28 @@ describe('translateKindData: effects', () => {
     });
   });
 
-  test("a duration of no time is reported, as is a pack with no category; play state isn't", () => {
-    const instant = {
-      ...BLESS_EFFECT,
-      system: { ...BLESS_EFFECT.system, duration: { expiry: 'turn-end', sustained: false, unit: 'rounds', value: 0 } },
-    };
+  test.each(['turn-start', 'turn-end'])('a duration of no time that ends at %s is a turn', (expiry) => {
+    const turn = effectOfNoTime(expiry);
+
+    expect(dataIn(translate([turn]), 'spell-effect-bless')).toMatchObject({ duration: { type: 'turn', expiry } });
+    expect(gapKeys(translate([turn]))).toEqual([]);
+  });
+
+  test('a campaign effect is an other effect', () => {
     const campaign = { ...RAGE_EFFECT, pack: { name: 'campaign-effects', directory: 'campaign-effects' } };
 
-    expect(dataIn(translate([instant]), 'spell-effect-bless')).toBeUndefined();
-    expect(gapKeys(translate([instant]))).toEqual(['unmapped-value duration']);
-    expect(gapKeys(translate([campaign]))).toEqual(['unmapped-value category']);
+    expect(dataIn(translate([campaign]), 'effect-rage')).toMatchObject({ category: 'other' });
+    expect(gapKeys(translate([campaign]))).toEqual([]);
+  });
+
+  test('a duration of no time with no turn to end at is reported, as is a pack with no category', () => {
+    const unknown = { ...RAGE_EFFECT, pack: { name: 'mystery-effects', directory: 'mystery-effects' } };
+    const roundEnd = translate([effectOfNoTime('round-end')]);
+    const unset = translate([effectOfNoTime(FOUNDRY_NULL)]);
+
+    expect(dataIn(roundEnd, 'spell-effect-bless')).toBeUndefined();
+    expect(gapKeys(unset)).toEqual(['unmapped-value duration']);
+    expect(gapKeys(translate([unknown]))).toEqual(['unmapped-value category']);
   });
 });
 
