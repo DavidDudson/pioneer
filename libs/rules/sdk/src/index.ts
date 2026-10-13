@@ -109,6 +109,7 @@ export {
   Rarity,
   RaritySchema,
 } from './entry-fields';
+export { ArchetypeData, DEDICATION_LOCK_DEFAULT, DedicationLock } from './archetype';
 export { KIND_DATA, REGISTERED_KINDS, type RegisteredKind } from './kind-data';
 export { SkillCount } from './character-class';
 export {

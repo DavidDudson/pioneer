@@ -17,6 +17,8 @@ import type { ValueOf } from '@pioneer/shared/kernel';
 import { attributeModifiers } from './attribute-boosts';
 import type { CharacterDocument } from './character-document';
 import { CHARACTER_LEVEL_MAX, CHARACTER_LEVEL_MIN } from './character-fields';
+import { dedicationWait, dedicationWaits, featsPicked } from './dedication-lock';
+import type { DedicationWait } from './dedication-lock';
 import { FeatPickProblem } from './feat-content';
 import type { FeatContent, FeatRead } from './feat-content';
 import { rankOptions } from './language-levels';
@@ -83,6 +85,8 @@ export interface PrerequisiteReads {
   readonly factsAt: (level: Level) => PredicateFacts;
   /** Each feat slot the character has at some level up to 20th, by the lowest level it opens at. */
   readonly featSlotLevels: ReadonlyMap<SlotKey, Level>;
+  /** The dedications still waiting on their archetype's other feats when `slot` is read (#467). */
+  readonly waitsAt: (slot: SlotKey) => readonly DedicationWait[];
 }
 
 function levelsUp(): Level[] {
@@ -134,22 +138,39 @@ function featSlotLevelsOf(document: CharacterDocument, content: SlotContent): Re
   return levels;
 }
 
+/** The feat slots in the order they are taken: lowest level first, and in the order they are found within a level. */
+function slotsInOrder(levels: ReadonlyMap<SlotKey, Level>): SlotKey[] {
+  return [...levels].toSorted(([, left], [, right]) => left - right).map(([key]) => key);
+}
+
 /** Reads already made, by content and document: documents and content are never changed in place. */
 const READS = new WeakMap<SlotContent, WeakMap<CharacterDocument, PrerequisiteReads>>();
+
+function readPrerequisites(document: CharacterDocument, content: SlotContent): PrerequisiteReads {
+  const featSlotLevels = featSlotLevelsOf(document, content);
+  const order = slotsInOrder(featSlotLevels);
+  const waits = new Map<SlotKey, readonly DedicationWait[]>();
+  const waitsAt = (slot: SlotKey): readonly DedicationWait[] => {
+    const at = order.indexOf(slot);
+    const earlier = at === -1 ? [] : order.slice(0, at);
+    const known =
+      waits.get(slot) ?? dedicationWaits(content.feats, featsPicked(document.build.choices, content.feats, earlier));
+    waits.set(slot, known);
+    return known;
+  };
+  return { feats: content.feats, factsAt: factsByLevel(document, content), featSlotLevels, waitsAt };
+}
 
 /**
  * What the character's feat prerequisites read at each level: its roll options there (its feats, features, ancestry,
  * heritage, class, deity, traits and level), its skill and Lore ranks with its skill picks up to that level, and its
- * attribute modifiers. Read once for the same content and document.
+ * attribute modifiers; and, at each feat slot, the dedications still waiting on their archetype's feats (#467). Read
+ * once for the same content and document.
  */
 export function prerequisiteReads(document: CharacterDocument, content: SlotContent): PrerequisiteReads {
   const byDocument = READS.get(content) ?? new WeakMap<CharacterDocument, PrerequisiteReads>();
   READS.set(content, byDocument);
-  const reads = byDocument.get(document) ?? {
-    feats: content.feats,
-    factsAt: factsByLevel(document, content),
-    featSlotLevels: featSlotLevelsOf(document, content),
-  };
+  const reads = byDocument.get(document) ?? readPrerequisites(document, content);
   byDocument.set(document, reads);
   return reads;
 }
@@ -161,19 +182,23 @@ export interface FeatPick {
 }
 
 /**
- * What is wrong with a pick for a feat slot, read at the level the slot opens: a feat above that level, or one whose
- * prerequisites are not met there. Undefined for a pick that is fine, isn't a loaded feat, or a slot that isn't a feat
+ * What is wrong with a pick for a feat slot, read at the level the slot opens: a feat above that level, a dedication
+ * while an earlier one waits on its archetype's feats (#467), or a feat whose prerequisites are not met there, in that
+ * order, as the picker says them. Undefined for a pick that is fine, isn't a loaded feat, or a slot that isn't a feat
  * slot.
  */
 export function featPickProblem(reads: PrerequisiteReads, { slot, selection }: FeatPick): FeatPickProblem | undefined {
   const level = reads.featSlotLevels.get(slot);
   const id = ContentId.safeParse(selection);
   const feat = level === undefined || !id.success ? undefined : reads.feats.feat(id.data);
-  if (level === undefined || feat === undefined) {
+  if (level === undefined || !id.success || feat === undefined) {
     return undefined;
   }
   if (feat.level > level) {
     return FeatPickProblem.TooHigh;
+  }
+  if (dedicationWait(reads.feats, reads.waitsAt(slot), id.data) !== undefined) {
+    return FeatPickProblem.DedicationLocked;
   }
   const unmet = prerequisiteStatus(feat, reads.factsAt(level)) === PrerequisiteStatus.Unmet;
   return unmet ? FeatPickProblem.Prerequisites : undefined;
@@ -187,6 +212,8 @@ export interface FeatOption {
   readonly status: PrerequisiteStatus;
   /** As printed, for saying what is not met or can't be checked. */
   readonly prerequisites: RichText | undefined;
+  /** The dedication it waits on, for a dedication while an earlier one still needs its archetype's feats (#467). */
+  readonly locked: DedicationWait | undefined;
 }
 
 /** A feat slot: its key, the level it opens at, where it comes from, and the feats it offers there. */
@@ -199,15 +226,20 @@ export interface FeatSlot {
   readonly options: readonly FeatOption[];
 }
 
-function featOptions(slot: ChoiceSlot, content: SlotContent, facts: PredicateFacts): FeatOption[] {
+function featOptions(slot: ChoiceSlot, level: Level, reads: PrerequisiteReads): FeatOption[] {
+  const facts = reads.factsAt(level);
+  const waits = reads.waitsAt(slot.key);
   return slot.options.flatMap((option): FeatOption[] => {
     const id = ContentId.safeParse(option.value);
-    const feat = id.success ? content.feats.feat(id.data) : undefined;
+    const feat = id.success ? reads.feats.feat(id.data) : undefined;
     if (!id.success || feat === undefined) {
       return [];
     }
     const status = prerequisiteStatus(feat, facts);
-    return [{ value: id.data, label: option.label, level: feat.level, status, prerequisites: feat.prerequisites }];
+    const locked = dedicationWait(reads.feats, waits, id.data);
+    return [
+      { value: id.data, label: option.label, level: feat.level, status, prerequisites: feat.prerequisites, locked },
+    ];
   });
 }
 
@@ -241,11 +273,7 @@ export function featSlots(document: CharacterDocument, content: SlotContent): re
           entry: slot.origin.entry,
           prompt: slot.prompt,
           get options(): readonly FeatOption[] {
-            options ??= featOptions(
-              slot,
-              content,
-              prerequisiteReads(withoutPick(document, key), content).factsAt(level),
-            );
+            options ??= featOptions(slot, level, prerequisiteReads(withoutPick(document, key), content));
             return options;
           },
         },

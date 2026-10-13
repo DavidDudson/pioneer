@@ -30,6 +30,14 @@ export {
   playerCoreClassId,
   playerCoreId,
 } from './player-core-classes';
+export {
+  DEDICATION_CLASS,
+  DEDICATION_FIXTURES,
+  dedicationSlot,
+  type DedicationFixture,
+  dedicationArchetypeId,
+  dedicationFixtureId,
+} from './dedication-fixtures';
 export { Armoury, armoury, fundamental, fundamentalRef, lineOf, propertyRune } from './rune-armoury';
 export { NO_SKILLS, type SkillFixture, skillFixtureId, skillFixtures } from './skill-fixtures';
 export {

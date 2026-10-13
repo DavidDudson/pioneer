@@ -9,8 +9,12 @@ import type { MessageDescriptor } from '@pioneer/shared/kernel';
 import { CHARACTER_CONTENT_KINDS } from '../data/content-registry-query';
 import { sheetSlotContent } from './sheet-slot-content';
 
-/** The kinds the feat pickers read: the character's, so its entries resolve, and the feats. */
-export const FEAT_CONTENT_KINDS: readonly ContentKind[] = [...CHARACTER_CONTENT_KINDS, ContentKind.Feat];
+/** The kinds the feat pickers read: the character's, so its entries resolve, the feats and their archetypes. */
+export const FEAT_CONTENT_KINDS: readonly ContentKind[] = [
+  ...CHARACTER_CONTENT_KINDS,
+  ContentKind.Feat,
+  ContentKind.Archetype,
+];
 
 /** The most feats a feat picker lists for one query; typing narrows it. */
 const FEAT_MATCHES_MAX = 50;
@@ -26,13 +30,23 @@ export interface SheetFeatSlot {
   readonly reason: MessageDescriptor | undefined;
 }
 
-/** A feat a slot offers, as its picker shows it: unmet prerequisites shown but not picked, saying what they are. */
+/** A dedication kept out of reach (#467): the archetype it waits on and how many of its feats are still needed. */
+interface SheetFeatLock {
+  readonly archetype: string;
+  readonly needed: number;
+}
+
+/**
+ * A feat a slot offers, as its picker shows it: unmet prerequisites and a dedication lock shown but not picked, saying
+ * what they are.
+ */
 export interface SheetFeatOption {
   readonly value: string;
   readonly label: string;
   readonly status: PrerequisiteStatus;
   /** What the prerequisites are, as printed; none for a feat without any. */
   readonly prerequisites: string | undefined;
+  readonly locked: SheetFeatLock | undefined;
 }
 
 /** A feat the character has from a feature rather than a slot: Shield Block from a warpriest's First Doctrine. */
@@ -64,7 +78,11 @@ function plainText(text: RichText, nameOf: (id: ContentId) => string | undefined
 
 function optionOf(option: FeatOption, nameOf: (id: ContentId) => string | undefined): SheetFeatOption {
   const prerequisites = option.prerequisites === undefined ? undefined : plainText(option.prerequisites, nameOf);
-  return { value: option.value, label: option.label, status: option.status, prerequisites };
+  const locked =
+    option.locked === undefined
+      ? undefined
+      : { archetype: nameOf(option.locked.archetype) ?? '', needed: option.locked.needed };
+  return { value: option.value, label: option.label, status: option.status, prerequisites, locked };
 }
 
 /** "Fighter feat, level 2"; "Feat from Natural Ambition, level 1" for a slot without a prompt. */
@@ -125,6 +143,9 @@ function descriptionOf(
   translate: (key: string, params: object) => string,
 ): string | undefined {
   const prerequisites = option.prerequisites ?? '';
+  if (option.locked !== undefined) {
+    return translate('character.sheet.feats.locked', option.locked);
+  }
   if (option.status === PrerequisiteStatus.Unmet) {
     return translate('character.sheet.feats.unmet', { prerequisites });
   }
@@ -135,8 +156,8 @@ function descriptionOf(
 
 /**
  * `options` whose name holds `query`, ignoring case, up to the most a picker lists, as combobox options: one whose
- * prerequisites are not met is shown but can't be picked, saying what they are; one whose prerequisites can't be
- * checked says so too, and can be picked, since unknown is never read as not met.
+ * prerequisites are not met, or that is a dedication still locked, is shown but can't be picked, saying why; one
+ * whose prerequisites can't be checked says so too, and can be picked, since unknown is never read as not met.
  */
 export function featMatches(
   options: readonly SheetFeatOption[],
@@ -150,7 +171,7 @@ export function featMatches(
     .map((option): ComboboxOption<string> => {
       const { value, label } = option;
       const description = descriptionOf(option, translate);
-      const disabled = option.status === PrerequisiteStatus.Unmet;
+      const disabled = option.status === PrerequisiteStatus.Unmet || option.locked !== undefined;
       return description === undefined ? { value, label } : { value, label, description, disabled };
     });
 }
