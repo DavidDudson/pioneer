@@ -99,6 +99,7 @@ export { ImageAspect, ImageDisplay, ImageFit, ImageLoading, ImageSize } from './
 
 // Text
 export { Badge, BadgeTone, BadgeVariant } from './lib/text/badge/badge.component';
+export { Tag } from './lib/text/tag/tag.component';
 export { Heading, HeadingLevel } from './lib/text/heading/heading.component';
 export { Quote } from './lib/text/quote/quote.component';
 export { LineBreak } from './lib/text/line-break/line-break.component';
