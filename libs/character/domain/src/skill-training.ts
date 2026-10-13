@@ -1,17 +1,6 @@
-import { resolvedRules } from '@pioneer/rules/grants';
 import type { GrantResolution } from '@pioneer/rules/grants';
-import { evaluatePredicate, Truth } from '@pioneer/rules/predicate';
-import {
-  Attribute,
-  ContentId,
-  Level,
-  Proficiency,
-  RuleElementKey,
-  Selector,
-  SkillCount,
-  SlotKey,
-} from '@pioneer/rules/sdk';
-import type { AttributeModifier, ChoiceValue } from '@pioneer/rules/sdk';
+import { Attribute, ContentId, Level, Proficiency, SkillCount, SlotKey } from '@pioneer/rules/sdk';
+import type { AttributeModifier, ChoiceValue, Selector } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
 
 import { attributeModifiers, boostSets } from './attribute-boosts';
@@ -19,13 +8,18 @@ import type { BoostContent } from './attribute-boosts';
 import type { CharacterDocument } from './character-document';
 import { CHARACTER_LEVEL_MIN } from './character-fields';
 import { CLASS_SLOT } from './character-slots';
-import { SKILL_PREFIX } from './skill-content';
 import type { SkillContent, SkillOption } from './skill-content';
+import { duplicateTrainings, grantedSkillRanks, higher, RANKS, trainingEntries } from './skill-raises';
+import { trainedSkills } from './skill-trained';
+import type { TrainedSkill } from './skill-trained';
 
 const FIRST_LEVEL = Level.parse(CHARACTER_LEVEL_MIN);
 
 /** Whether a skill slot trains a new skill or raises one a rank. */
-export const SkillSlotKind = { Training: 'training', Increase: 'increase' } as const;
+export const SkillSlotKind = {
+  Training: 'training',
+  Increase: 'increase',
+} as const;
 export type SkillSlotKind = ValueOf<typeof SkillSlotKind>;
 
 /** Why a skill pick counts for nothing, when it names a skill the content has. */
@@ -52,12 +46,23 @@ export interface SkillSlot {
   readonly rank: Proficiency | undefined;
   /** Why a stored pick naming a loaded skill isn't on offer. */
   readonly problem: SkillPickProblem | undefined;
+  /** For a trained skill slot, the skills it can't offer because the character is trained already, with their sources. */
+  readonly trained: readonly TrainedSkill[];
+}
+
+/** A value read once for each level it is asked at. */
+function byLevel<TValue>(read: (level: Level) => TValue): (level: Level) => TValue {
+  const known = new Map<Level, TValue>();
+  return (level) => {
+    const value = known.get(level) ?? read(level);
+    known.set(level, value);
+    return value;
+  };
 }
 
 /** The character's grants at a level, over every pick it holds. */
 export type GrantsAt = (level: Level) => GrantResolution;
 
-const RANKS: readonly Proficiency[] = Object.values(Proficiency);
 const MASTER_FROM = Level.parse(7);
 const LEGENDARY_FROM = Level.parse(15);
 /** The lowest level a skill increase may raise to each rank (Player Core): master from 7th, legendary from 15th. */
@@ -69,74 +74,10 @@ const RANK_FROM: Readonly<Record<Proficiency, Level>> = {
   [Proficiency.Legendary]: LEGENDARY_FROM,
 };
 
-function higher(left: Proficiency | undefined, right: Proficiency | undefined): Proficiency | undefined {
-  return RANKS.indexOf(right ?? Proficiency.Untrained) > RANKS.indexOf(left ?? Proficiency.Untrained) ? right : left;
-}
-
 /** The rank a skill increase at `level` raises `rank` to; undefined past legendary or past what the level allows. */
 export function increasedRank(rank: Proficiency | undefined, level: Level): Proficiency | undefined {
   const next = RANKS[RANKS.indexOf(rank ?? Proficiency.Untrained) + 1];
   return next !== undefined && RANK_FROM[next] <= level ? next : undefined;
-}
-
-/** A skill rank one entry of the effective set raises, by a `Proficiency` element whose predicate holds. */
-interface SkillRaise {
-  readonly entry: ContentId;
-  readonly selector: Selector;
-  readonly rank: Proficiency;
-}
-
-/** Perception's selector: a prerequisite reads its rank beside the skills' (`perception:rank:2`). */
-const PERCEPTION = Selector.parse('perception');
-
-function isSkill(selector: Selector): boolean {
-  return selector.startsWith(SKILL_PREFIX);
-}
-
-/** The raises the effective set makes of the selectors `ranked` accepts, a choice-driven selector resolved to its pick. */
-function rankRaises(resolution: GrantResolution, ranked: (selector: Selector) => boolean): SkillRaise[] {
-  const { facts } = resolution;
-  return resolvedRules(resolution).flatMap(({ entry, element }): SkillRaise[] => {
-    if (
-      element.key !== RuleElementKey.Proficiency ||
-      typeof element.selector !== 'string' ||
-      !ranked(element.selector)
-    ) {
-      return [];
-    }
-    const holds = element.predicate === undefined || evaluatePredicate(element.predicate, facts) === Truth.True;
-    return holds ? [{ entry: entry.id, selector: element.selector, rank: element.rank }] : [];
-  });
-}
-
-function skillRaises(resolution: GrantResolution): SkillRaise[] {
-  return rankRaises(resolution, isSkill);
-}
-
-/**
- * The skill and Perception ranks the effective set raises: the highest raise of each. Perception's rank is read by
- * prerequisites beside the skills' and set by no slot, so it comes from the raises alone.
- */
-export function grantedSkillRanks(resolution: GrantResolution): ReadonlyMap<Selector, Proficiency> {
-  const ranks = new Map<Selector, Proficiency>();
-  const raises = rankRaises(resolution, (selector) => isSkill(selector) || selector === PERCEPTION);
-  for (const { selector, rank } of raises) {
-    ranks.set(selector, higher(ranks.get(selector), rank) ?? rank);
-  }
-  return ranks;
-}
-
-/**
- * How many skills the grants train twice at 1st level: an entry training a skill another already trains trains
- * another skill instead, the player's choice (Player Core), so each adds a trained skill slot.
- */
-function duplicateTrainings(resolution: GrantResolution): SkillCount {
-  const trainers = Map.groupBy(
-    skillRaises(resolution).filter(({ rank }) => rank === Proficiency.Trained),
-    ({ selector }) => selector,
-  );
-  const twice = [...trainers.values()].map((raises) => new Set(raises.map(({ entry }) => entry)).size - 1);
-  return SkillCount.parse(twice.reduce((total, count) => total + count, 0));
 }
 
 /** A skill slot before it is read: its key, level and kind. */
@@ -224,6 +165,36 @@ export interface SkillReads {
   readonly grantsAt: GrantsAt;
 }
 
+/** What a slot's stored pick comes to: the skill it offers, the rank that reaches, or why it counts for nothing. */
+interface PickRead {
+  readonly pick: SkillOption | undefined;
+  readonly rank: Proficiency | undefined;
+  readonly problem: SkillPickProblem | undefined;
+}
+
+/** A slot's stored pick, what it offers, and the problem to report when it isn't among them. */
+interface PickSource {
+  readonly stored: ChoiceValue | undefined;
+  readonly options: readonly SkillOption[];
+  readonly kind: SkillSlotKind;
+}
+
+function refusalOf(kind: SkillSlotKind): SkillPickProblem {
+  return kind === SkillSlotKind.Training ? SkillPickProblem.Trained : SkillPickProblem.Capped;
+}
+
+function readPick(
+  skills: SkillContent,
+  { stored, options, kind }: PickSource,
+  rankOf: (skill: SkillOption) => Proficiency | undefined,
+): PickRead {
+  const named = stored === undefined ? undefined : skills.skill(stored);
+  const pick = options.find((skill) => skill.id === named?.id);
+  const rank = pick === undefined ? undefined : rankOf(pick);
+  const problem = named !== undefined && pick === undefined ? refusalOf(kind) : undefined;
+  return { pick, rank, problem };
+}
+
 /**
  * Every skill slot up to 20th level, each read over the grants at its level and the picks of the slots before it, so
  * a pick of a skill already trained, or an increase past the rank its level allows, offers nothing and counts for
@@ -231,26 +202,43 @@ export interface SkillReads {
  */
 export function skillSlots(document: CharacterDocument, reads: SkillReads): readonly SkillSlot[] {
   const picked = new Map<Selector, Proficiency>();
-  const granted = new Map<Level, ReadonlyMap<Selector, Proficiency>>();
-  const grantedAt = (level: Level): ReadonlyMap<Selector, Proficiency> => {
-    const known = granted.get(level) ?? grantedSkillRanks(reads.grantsAt(level));
-    granted.set(level, known);
-    return known;
-  };
+  const pickedBy = new Map<Selector, readonly SlotKey[]>();
+  const grantedAt = byLevel((level) => grantedSkillRanks(reads.grantsAt(level)));
+  const entriesAt = byLevel((level) => trainingEntries(reads.grantsAt(level)));
   return skillSlotPlaces(document, reads).map(({ key, level, kind }): SkillSlot => {
     const ranks = grantedAt(level);
     const rankOf = (selector: Selector): Proficiency | undefined => higher(ranks.get(selector), picked.get(selector));
-    const options = reads.skills.skills.filter((skill) => rankFor(kind, level, rankOf(skill.selector)) !== undefined);
+    const open = (skill: SkillOption): boolean => rankFor(kind, level, rankOf(skill.selector)) !== undefined;
+    const options = reads.skills.skills.filter(open);
+    const trained =
+      kind === SkillSlotKind.Training
+        ? trainedSkills(reads.skills.skills, (skill) => !open(skill), {
+            entries: entriesAt(level),
+            slots: pickedBy,
+          })
+        : [];
     const stored = document.build.choices[key];
-    const named = stored === undefined ? undefined : reads.skills.skill(stored);
-    const pick = options.find((skill) => skill.id === named?.id);
-    const rank = pick === undefined ? undefined : rankFor(kind, level, rankOf(pick.selector));
+    const { pick, rank, problem } = readPick(reads.skills, { stored, options, kind }, (skill) =>
+      rankFor(kind, level, rankOf(skill.selector)),
+    );
     if (pick !== undefined && rank !== undefined) {
       picked.set(pick.selector, rank);
+      // Only a pick that trains the skill is a source; an increase raising a trained skill didn't train it.
+      if (rank === Proficiency.Trained) {
+        pickedBy.set(pick.selector, [...(pickedBy.get(pick.selector) ?? []), key]);
+      }
     }
-    const capped = kind === SkillSlotKind.Training ? SkillPickProblem.Trained : SkillPickProblem.Capped;
-    const problem = named !== undefined && pick === undefined ? capped : undefined;
-    return { key, level, kind, options, stored, pick, rank, problem };
+    return {
+      key,
+      level,
+      kind,
+      options,
+      stored,
+      pick,
+      rank,
+      problem,
+      trained,
+    };
   });
 }
 

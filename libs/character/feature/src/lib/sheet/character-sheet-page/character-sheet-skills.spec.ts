@@ -80,6 +80,35 @@ describe('CharacterSheetPage skills', () => {
     });
   });
 
+  it('says beside the pickers which earlier slot trained a skill they cannot offer', async () => {
+    const { root } = await openSheet(fighter({ 'skill-training:1:0': ATHLETICS }));
+
+    await vi.waitFor(() => {
+      expect(skillsSection(root).textContent).toContain('Already trained in Athletics (from Level 1 trained skill 1)');
+    });
+  });
+
+  it('names the class that trained a skill the pickers cannot offer', async () => {
+    const cleric = {
+      ...MERISIEL,
+      build: { choices: { ...MERISIEL.build.choices, class: playerCoreClassId('cleric'), 'boost:1:class:0': 'wis' } },
+    };
+    const { root } = await openSheet(cleric);
+
+    await vi.waitFor(() => {
+      expect(skillsSection(root).textContent).toContain('Already trained in Religion (from Cleric)');
+    });
+  });
+
+  it('says nothing about trained skills while none is trained', async () => {
+    const { root } = await openSheet(fighter());
+
+    await vi.waitFor(() => {
+      expect(pickerLabels(root)).toStrictEqual(TRAINING);
+    });
+    expect(skillsSection(root).textContent).not.toContain('Already trained');
+  });
+
   it('totals an untrained skill from its attribute alone', async () => {
     const { root } = await openSheet(fighter());
 

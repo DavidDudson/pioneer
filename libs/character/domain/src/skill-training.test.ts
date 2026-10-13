@@ -46,7 +46,10 @@ function training(level: number, count: number): string[] {
 }
 
 function refusalOf(builder: CharacterBuilder, slot: string, selection: SkillFixture): string | undefined {
-  const pick = { slot: SlotKey.parse(slot), selection: skillFixtureId(selection) };
+  const pick = {
+    slot: SlotKey.parse(slot),
+    selection: skillFixtureId(selection),
+  };
   return slotRefusal(builder.build().document, content, pick)?.message.key;
 }
 
@@ -81,7 +84,11 @@ describe('trained skill slots', () => {
     expect(characterSlots(later.build().document, content).find((slot) => slot.key === 'skill-training:5:0')).toEqual({
       status: SlotStatus.Planned,
       key: SlotKey.parse('skill-training:5:0'),
-      subject: { kind: SlotSubjectKind.Skill, source: SkillSlotKind.Training, level: Level.parse(5) },
+      subject: {
+        kind: SlotSubjectKind.Skill,
+        source: SkillSlotKind.Training,
+        level: Level.parse(5),
+      },
       level: Level.parse(5),
     });
     expect(
@@ -120,7 +127,10 @@ describe('trained skill slots', () => {
   });
 
   test('a pick that is no skill is not offered', () => {
-    const pick = { slot: SlotKey.parse('skill-training:1:0'), selection: playerCoreClassId('wizard') };
+    const pick = {
+      slot: SlotKey.parse('skill-training:1:0'),
+      selection: playerCoreClassId('wizard'),
+    };
 
     expect(slotRefusal(as('fighter').build().document, content, pick)?.message.key).toBe(
       'character.validation.selectionNotOffered',
@@ -169,7 +179,10 @@ describe('skill increase slots', () => {
     const capped = fighter.picking('skill-increase:5', skill('athletics'));
     expect(
       characterSlots(capped.build().document, content).find((slot) => slot.key === 'skill-increase:5'),
-    ).toMatchObject({ status: SlotStatus.Invalid, reason: { key: 'rules.choices.invalid.skillRankCapped' } });
+    ).toMatchObject({
+      status: SlotStatus.Invalid,
+      reason: { key: 'rules.choices.invalid.skillRankCapped' },
+    });
     expect(rankOf(capped, 'skill:athletics')).toBe('expert');
     const master = capped.picking('skill-increase:7', skill('athletics'));
     expect(rankOf(master, 'skill:athletics')).toBe('master');
@@ -206,10 +219,16 @@ describe('skills a later pack restates', () => {
     restated.register(
       new ContentPackBuilder()
         .withId('homebrew-athletics')
-        .withStatistic('athletics', { selector: 'skill:athletics', domains: ['skill-check'] })
+        .withStatistic('athletics', {
+          selector: 'skill:athletics',
+          domains: ['skill-check'],
+        })
         .build(),
     );
-    const restatedContent = { ...slotContent(restated), namespaces: CORE_NAMESPACES };
+    const restatedContent = {
+      ...slotContent(restated),
+      namespaces: CORE_NAMESPACES,
+    };
     const { document } = as('fighter').picking('skill-training:1:0', skill('athletics')).build();
 
     expect(buildRanks(document, restatedContent).get(Selector.parse('skill:athletics'))).toBe('trained');

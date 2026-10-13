@@ -57,6 +57,8 @@
       "dismiss": "Dismiss"
     },
     "notChosen": "Not chosen",
+    "skillTrainedFrom": "Already trained in {skill} (from {source})",
+    "trainedSource": "{name}",
     "runes": {
       "heading": "Runes on {name}",
       "potencyOf": "Potency rune on {name}",
