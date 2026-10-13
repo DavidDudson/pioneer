@@ -1,7 +1,7 @@
 ---
 name: review
 description: Pioneer's pre-PR code review. Runs only the persona reviewers the diff needs, each a clean-context Sonnet agent, each checking the repo's rules and ADRs, then verifies every finding against the code before reporting or fixing. Use before creating a PR, when the user says "review this", "review my changes", "check this before PR", or when the create-pr, work-issue or pickup skills reach their review step.
-argument-hint: "[base-ref] [--fix]"
+argument-hint: '[base-ref] [--fix]'
 ---
 
 # Pioneer review
@@ -95,9 +95,9 @@ true findings over ten speculative ones.
 ## 3. Verify
 
 Combine the personas' findings, drop duplicates, then verify each one yourself in this session (no verifier
-Agent; only the files a finding names): open the file at the line, read enough surrounding code, and confirm both the evidence and the rule.
-Discard anything that does not hold up. Tag survivors `CONFIRMED`; tag ones that are likely but need a human
-judgement call `PLAUSIBLE`.
+Agent; only the files a finding names): open the file at the line, read enough surrounding code, and confirm both
+the evidence and the rule. Discard anything that does not hold up. Tag survivors `CONFIRMED`; tag ones that are
+likely but need a human judgement call `PLAUSIBLE`.
 
 Then run the mechanical checks, which outrank opinions:
 
