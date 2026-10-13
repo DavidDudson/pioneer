@@ -1,0 +1,12 @@
+@if (price() === undefined) {
+  <fr-text tone="muted">{{ Message.NoPrice | transloco }}</fr-text>
+} @else {
+  <fr-stack direction="horizontal" gap="2xs" align="baseline" wrap>
+    @for (coin of coins(); track coin.coin) {
+      <fr-text>{{ Message.Coin | transloco: coin }}</fr-text>
+    }
+    @if (per(); as per) {
+      <fr-text variant="caption" tone="muted">{{ Message.Per | transloco: { count: per } }}</fr-text>
+    }
+  </fr-stack>
+}

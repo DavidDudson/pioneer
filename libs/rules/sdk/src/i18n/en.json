@@ -789,6 +789,24 @@
       "any": "Any",
       "span": "{lowest} to {highest} in this list"
     },
+    "pickerCell": {
+      "level": "Level {level}",
+      "action": {
+        "variable": { "label": "One to three actions", "glyph": "◆ to ◆◆◆" },
+        "passive": { "label": "Passive", "glyph": "—" }
+      },
+      "prerequisite": {
+        "met": "Met: {prerequisite}",
+        "unmet": "Not met: {prerequisite}"
+      },
+      "boost": {
+        "or": "or",
+        "free": "Free boost"
+      },
+      "per": "per {count}",
+      "count": "{value} of {max}",
+      "none": "—"
+    },
     "shop": {
       "coin": "{count} {coin, select, pp {pp} gp {gp} sp {sp} other {cp}}",
       "pricePer": "{price} for {per}",

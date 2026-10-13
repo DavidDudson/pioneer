@@ -1,0 +1,4 @@
+<fr-stack direction="horizontal" gap="xs" align="center">
+  <fr-meter [label]="label()" [value]="value()" [max]="max()" [variant]="Segmented" />
+  <fr-text variant="caption" tone="muted">{{ Message.Count | transloco: figures() }}</fr-text>
+</fr-stack>

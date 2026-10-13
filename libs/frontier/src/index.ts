@@ -80,6 +80,7 @@ export { Disclosure, DisclosureVariant } from './lib/layout/disclosure/disclosur
 export { HoverCard } from './lib/layout/hover-card/hover-card.component';
 export { HoverCardContent } from './lib/layout/hover-card/hover-card-content.directive';
 export { Divider, DividerOrientation, DividerTone } from './lib/layout/divider/divider.component';
+export { Clamp, ClampLines } from './lib/layout/clamp/clamp.component';
 export { Grid, GridAlign, GridColumns, GridMinItem, GridQuery } from './lib/layout/grid/grid.component';
 export { Page } from './lib/layout/page/page.component';
 export { Section } from './lib/layout/section/section.component';

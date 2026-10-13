@@ -1,0 +1,18 @@
+<fr-stack direction="horizontal" gap="2xs" wrap>
+  @for (boost of shown(); track $index) {
+    <fr-badge>
+      @if (boost.free) {
+        {{ Message.BoostFree | transloco }}
+      } @else {
+        <fr-stack direction="horizontal" gap="3xs">
+          @for (attribute of boost.attributes; track attribute; let last = $last) {
+            <fr-text variant="caption">{{ names[attribute] | transloco }}</fr-text>
+            @if (!last) {
+              <fr-text variant="caption" tone="muted">{{ Message.BoostOr | transloco }}</fr-text>
+            }
+          }
+        </fr-stack>
+      }
+    </fr-badge>
+  }
+</fr-stack>

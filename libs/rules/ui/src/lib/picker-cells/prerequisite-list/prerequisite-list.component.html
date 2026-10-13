@@ -1,0 +1,22 @@
+@if (prerequisites().length === 0) {
+  <fr-text tone="muted">{{ Message.None | transloco }}</fr-text>
+} @else {
+  <fr-list gap="3xs">
+    @for (line of prerequisites(); track line.label) {
+      <fr-list-item>
+        <fr-stack direction="horizontal" gap="2xs" align="center">
+          <fr-icon [icon]="line.met ? Met : Unmet" [tone]="line.met ? Tone.Success : Tone.Danger" />
+          <fr-text [tone]="line.met ? Tone.Default : Tone.Danger"
+            ><fr-glyph
+              [label]="
+                (line.met ? Message.PrerequisiteMet : Message.PrerequisiteUnmet)
+                  | transloco: { prerequisite: line.label }
+              "
+              >{{ line.label }}</fr-glyph
+            ></fr-text
+          >
+        </fr-stack>
+      </fr-list-item>
+    }
+  </fr-list>
+}
