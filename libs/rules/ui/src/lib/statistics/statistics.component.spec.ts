@@ -76,6 +76,16 @@ describe(StatisticsView, () => {
     expect(rows(host)).toStrictEqual(['Armor Class 20', 'Fortitude +10', 'Will +6']);
   });
 
+  it("shows a statistic's note beside its row, and none beside the others", async () => {
+    const [first, ...rest] = FIGHTER_STATISTICS as [NamedStatistic, ...NamedStatistic[]];
+    const note = 'Trained by Acolyte and Cleric; the second training is lost';
+    const host = hostOf(await render([{ ...first, note }, ...rest]));
+
+    const [noted, plain] = itemsOf(host);
+    expect(textOf(present(noted)).endsWith(note)).toBe(true);
+    expect(textOf(present(plain))).not.toContain('Trained by');
+  });
+
   it('marks a pinned total in its summary, with the computed value beside it', async () => {
     const host = hostOf(await render(PINNED_STATISTICS));
 

@@ -1,4 +1,10 @@
-import { skillReads, SkillSlotKind, skillSlots, SkillTrainingSourceKind } from '@pioneer/character/domain';
+import {
+  skillReads,
+  SkillSlotKind,
+  skillSlots,
+  skillsTrainedTwice,
+  SkillTrainingSourceKind,
+} from '@pioneer/character/domain';
 import type { Character, SkillSlot, SkillTrainingSource, TrainedSkill } from '@pioneer/character/domain';
 import type { SelectOption } from '@pioneer/frontier';
 import { deriveStatistics, statisticContent } from '@pioneer/rules/engine';
@@ -9,6 +15,7 @@ import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 import { sheetEntryNames } from './sheet-entry-names';
 import { statisticInputsOf } from './sheet-inputs';
+import type { Translate } from './sheet-skill-repeats';
 import { sheetSlotContent } from './sheet-slot-content';
 
 /** What each skill slot is called, by whether it trains a skill or raises one. */
@@ -26,17 +33,23 @@ const TRAINED_SOURCE_KEY = 'character.sheet.trainedSource';
  * Every skill and Lore the loaded statistics define, by name, each with what the engine derives for it: its rank
  * comes from the class, the background and the skill picks. A skill no pack defines is left out.
  */
-export function sheetSkills(registry: ContentRegistry, character: Character): readonly NamedStatistic[] {
+export function sheetSkills(
+  registry: ContentRegistry,
+  character: Character,
+  translate: Translate,
+): readonly NamedStatistic[] {
   const content = statisticContent(registry);
   if (content === undefined) {
     return [];
   }
   const results = deriveStatistics(content, statisticInputsOf(registry, character));
   const skills = registry.statistics().filter((entry) => entry.definition.selector.startsWith(SKILL_PREFIX));
+  const twice = trainedTwiceNotes(registry, character, translate);
   return skills
     .flatMap((entry): NamedStatistic[] => {
       const result = results.get(entry.definition.selector);
-      return result === undefined ? [] : [{ name: entry.definition.name, kind: entry.definition.kind, result }];
+      const note = twice.get(entry.definition.selector);
+      return result === undefined ? [] : [{ name: entry.definition.name, kind: entry.definition.kind, result, note }];
     })
     .toSorted((left, right) => left.name.localeCompare(right.name));
 }
@@ -96,6 +109,44 @@ function trainedNotes(trained: readonly TrainedSkill[], names: SourceNames): rea
   );
 }
 
+/** What the skill slots and entries are named by, over the slots read. */
+function sourceNamesOf(registry: ContentRegistry, slots: readonly SkillSlot[]): SourceNames {
+  return {
+    entries: sheetEntryNames(registry),
+    slots: new Map(slots.map((slot) => [slot.key, skillSlotLabel(slot, slots)])),
+  };
+}
+
+/**
+ * The notice for each skill two sources train (#673), by the skill's selector: "Trained by Cleric and Acolyte; the
+ * second training is lost".
+ */
+function trainedTwiceNotes(
+  registry: ContentRegistry,
+  character: Character,
+  translate: Translate,
+): ReadonlyMap<string, string> {
+  const content = sheetSlotContent(registry);
+  const names = sourceNamesOf(registry, skillSlots(character.document, skillReads(character.document, content)));
+  const named = (source: SkillTrainingSource): string => {
+    const { key, params } = sourceName(source, names);
+    return translate(key, params ?? {});
+  };
+  return new Map(
+    skillsTrainedTwice(character.document, content).flatMap(({ skill, sources }): [string, string][] => {
+      const [first, second] = sources;
+      return first === undefined || second === undefined
+        ? []
+        : [
+            [
+              skill.selector,
+              translate('character.sheet.skillTrainedTwice', { first: named(first), second: named(second) }),
+            ],
+          ];
+    }),
+  );
+}
+
 /** The skill slots whose level `wanted` accepts, in the order they are read, each with what it offers. */
 function skillSlotsWhere(
   registry: ContentRegistry,
@@ -104,10 +155,7 @@ function skillSlotsWhere(
 ): readonly SheetSkillSlot[] {
   const content = sheetSlotContent(registry);
   const slots = skillSlots(character.document, skillReads(character.document, content));
-  const names: SourceNames = {
-    entries: sheetEntryNames(registry),
-    slots: new Map(slots.map((slot) => [slot.key, skillSlotLabel(slot, slots)])),
-  };
+  const names = sourceNamesOf(registry, slots);
   return slots
     .filter((slot) => wanted(slot.level))
     .map((slot) => ({

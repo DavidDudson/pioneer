@@ -2,8 +2,8 @@ import { HttpTestingController } from '@angular/common/http/testing';
 import { ApplicationRef } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { SheetMode } from '@pioneer/character/domain';
-import { playerCoreClassId } from '@pioneer/character/domain/testing';
-import { contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
+import { playerCoreClassId, playerCoreId } from '@pioneer/character/domain/testing';
+import { contentId, ContentKind, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import { describe, expect, it, vi } from 'vitest';
 
 import { id, MERISIEL, openerAt, present } from '../../testing/sheet-page-harness';
@@ -142,5 +142,27 @@ describe('CharacterSheetPage skills', () => {
       expect(choices.textContent).toContain('Level 1 trained skill');
     });
     expect(choices.textContent).toContain('Athletics');
+  });
+
+  it('notes beside a skill two sources train, naming both and that the second training is lost', async () => {
+    const cleric = {
+      ...MERISIEL,
+      build: {
+        choices: {
+          ...MERISIEL.build.choices,
+          class: playerCoreClassId('cleric'),
+          background: playerCoreId(ContentKind.Background, 'acolyte'),
+          'boost:1:class:0': 'wis',
+        },
+      },
+    };
+    const { root } = await openSheet(cleric);
+
+    await vi.waitFor(() => {
+      expect(skillRow(root, 'Religion')).toMatch(
+        /Trained by (?:Acolyte and Cleric|Cleric and Acolyte); the second training is lost/u,
+      );
+    });
+    expect(skillRow(root, 'Athletics')).not.toContain('Trained by');
   });
 });

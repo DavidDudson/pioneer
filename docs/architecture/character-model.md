@@ -333,8 +333,14 @@ The background, class, subclass and feat pickers mark each option that would tra
 ([#674](https://github.com/DavidDudson/pioneer/issues/674)): `repeatedTrainings` resolves the grants with the option in
 its slot (the slot otherwise empty, as `selectSlot` reads it) and keeps the skills the option adds a trainer of while
 another entry or a trained skill slot's pick trains them already. The option's description reads "Already trained in
-Religion" and it stays selectable. A skill the option leaves to its own `ChoiceSet` is not counted. The notice
-for a duplicate training after 1st level follows in [#673](https://github.com/DavidDudson/pioneer/issues/673).
+Religion" and it stays selectable. A skill the option leaves to its own `ChoiceSet` is not counted.
+
+A skill two sources train anyway is noted beside its row in the Skills section
+([#673](https://github.com/DavidDudson/pioneer/issues/673)): `skillsTrainedTwice` reads the entries of the effective
+set that train each skill at the character's level and the trained skill slots' picks that name it, and keeps those
+with two or more sources. The note names the first two ("Trained by Acolyte and Cleric; the second training is lost");
+a skill is trained once, so the builder adds no substitute trained skill after 1st level. The 1st-level substitute for
+class and background (Player Core) stays, as `duplicateTrainings` gives it.
 
 ### Languages
 

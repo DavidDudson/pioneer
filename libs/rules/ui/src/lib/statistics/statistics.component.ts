@@ -25,6 +25,8 @@ export interface NamedStatistic {
   readonly nameKey?: string | undefined;
   readonly kind: StatisticKind;
   readonly result: StatisticResult;
+  /** A line to show beside it, already worded: the skill two sources train (#673). */
+  readonly note?: string | undefined;
 }
 
 /** A statistic as shown: its total, its conditional lines and breakdown, or why it has none. */
@@ -109,7 +111,7 @@ export class StatisticsView {
   protected readonly shown = computed((): readonly ShownStatistic[] | undefined => {
     this.#messages();
     this.#format.locale();
-    return this.statistics()?.map(({ name: contentName, nameKey, kind, result }): ShownStatistic => {
+    return this.statistics()?.map(({ name: contentName, nameKey, kind, result, note }): ShownStatistic => {
       const name = nameKey === undefined ? contentName : this.#i18n.translate(nameKey);
       if (!result.ok) {
         return {
@@ -132,7 +134,16 @@ export class StatisticsView {
             : [],
         )
         .map((conditional) => this.#condition(conditional));
-      return { ok: true, key: result.selector, name, total, computed: unpinned, conditions, kind, statistic: result };
+      return {
+        ok: true,
+        key: result.selector,
+        name,
+        total,
+        computed: unpinned,
+        conditions: note === undefined ? conditions : [...conditions, note],
+        kind,
+        statistic: result,
+      };
     });
   });
 
