@@ -152,9 +152,19 @@ function castingJson(rank: number): Arbitrary<object> {
   });
 }
 
+/** A spell's damage formula, sometimes adding the caster's spellcasting attribute modifier. */
+const spellDamageFormula: Arbitrary<string> = tuple(damageFormulaText, constantFrom('', ' + @spellcasting.attr')).map(
+  ([formula, modifier]) => `${formula}${modifier}`,
+);
+
+const materials: Arbitrary<string[]> = uniqueArray(constantFrom('silver', 'cold-iron', 'adamantine'), {
+  minLength: 1,
+});
+
+/** A damage part; with no damage type it is untyped. */
 function damagePart(key: string): Arbitrary<object> {
-  const required = record({ key: constant(key), formula: damageFormulaText, damageType, kinds: damageKinds });
-  return withOptional(required, { category: damageCategory });
+  const required = record({ key: constant(key), formula: spellDamageFormula, kinds: damageKinds });
+  return withOptional(required, { damageType, category: damageCategory, materials });
 }
 
 const damageKeys: Arbitrary<string[]> = uniqueArray(slugText, { maxLength: LIST_MAX });

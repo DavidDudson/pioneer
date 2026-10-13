@@ -9,8 +9,11 @@ import { boundedRecord } from './kind-fields';
 
 /**
  * A spell's damage parts and heightening from Foundry's records. A part keeps Foundry's record key, lower-cased to a
- * slug, so heightening names the part it adds to. A part with a damage type Pioneer lacks (`untyped`) is reported and
- * left out, and so is what heightening adds to it.
+ * slug, so heightening names the part it adds to. An `untyped` part has no damage type, a part that adds the caster's
+ * spellcasting attribute modifier (`applyMod`) adds `@spellcasting.attr` to its formula, and its `materials` carry
+ * over. Foundry also writes `untyped` for a type the caster chooses, with an overlay per choice (Gouging Claw's
+ * slashing or piercing); such a part, like one with any other damage type Pioneer lacks, is reported and left out, and
+ * so is what heightening adds to it.
  */
 
 const FIELD_MAX = 64;
@@ -33,6 +36,33 @@ export type FoundryDamage = z.infer<typeof FoundryDamage>;
 /** Foundry's default for a part with no `kinds`. */
 const DEFAULT_KINDS = ['damage'];
 
+/** Foundry's type for damage of no type. */
+const UNTYPED = 'untyped';
+
+/** What an overlay sets in a damage part: its type, when the caster chooses it. */
+const FoundryOverlayPart = z.looseObject({ type: z.string().max(FIELD_MAX).optional() });
+const FoundryOverlaySystem = z.looseObject({ damage: boundedRecord(FoundryOverlayPart).optional() });
+
+/** The part types Foundry's overlays set, by overlay and then by part key. */
+const FoundryOverlays = boundedRecord(z.looseObject({ system: FoundryOverlaySystem.optional() }));
+
+/**
+ * The keys of the parts whose type an overlay sets: the caster chooses it, so Foundry's `untyped` there is a
+ * placeholder, not damage of no type. Overlays that are not shaped as expected set none.
+ */
+export function chosenTypes(overlays: unknown): ReadonlySet<string> {
+  const parsed = FoundryOverlays.safeParse(overlays ?? {});
+  const variants = parsed.success ? Object.values(parsed.data) : [];
+  return new Set(
+    variants.flatMap(({ system }) =>
+      Object.entries(system?.damage ?? {}).flatMap(([key, part]) => (part.type === undefined ? [] : [key])),
+    ),
+  );
+}
+
+/** What `applyMod` adds: the caster's spellcasting attribute modifier. */
+const SPELLCASTING_MODIFIER = ' + @spellcasting.attr';
+
 /** The key a part is named by: Foundry's record key, as a slug (`rQT6Is4x` to `rqt6is4x`). */
 function partKey(key: string): string {
   return key.toLowerCase();
@@ -42,9 +72,24 @@ function partKey(key: string): string {
 export interface DamagePart {
   readonly key: string;
   readonly formula: string;
-  readonly damageType: DamageType;
+  readonly damageType?: DamageType;
   readonly category?: string;
   readonly kinds: readonly string[];
+  readonly materials?: readonly string[];
+}
+
+/** A part's damage type; none when it is untyped. */
+interface PartType {
+  readonly damageType?: DamageType;
+}
+
+/** The part's damage type, none when Foundry's is `untyped` and not chosen, or undefined when Pioneer lacks it. */
+function damageTypeOf(type: string, chosen: boolean): PartType | undefined {
+  if (type === UNTYPED) {
+    return chosen ? undefined : {};
+  }
+  const damageType = DamageTypeSchema.safeParse(type);
+  return damageType.success ? { damageType: damageType.data } : undefined;
 }
 
 /**
@@ -53,33 +98,36 @@ export interface DamagePart {
  */
 function damagePart(
   [key, part]: readonly [string, FoundryDamagePart],
-  damage: string,
+  { field: damage, chosen }: PartsField,
   log: GapLog,
 ): DamagePart | undefined {
   const field = `${damage}.${key}`;
-  const damageType = DamageTypeSchema.safeParse(part.type);
-  if (!damageType.success) {
+  const damageType = damageTypeOf(part.type, chosen.has(key));
+  if (damageType === undefined) {
     report(log, { reason: KindDataGapReason.UnmappedValue, field: `${field}.type`, raw: part.type });
     return undefined;
   }
-  if (part.applyMod === true) {
-    report(log, { reason: KindDataGapReason.UnmappedField, field: `${field}.applyMod`, raw: part.applyMod });
-  }
-  if ((part.materials ?? []).length > 0) {
-    report(log, { reason: KindDataGapReason.UnmappedField, field: `${field}.materials`, raw: part.materials });
-  }
+  const formula = fromFoundryFormula(part.formula);
+  const materials = part.materials ?? [];
   return {
     key: partKey(key),
-    formula: fromFoundryFormula(part.formula),
-    damageType: damageType.data,
+    formula: part.applyMod === true ? `${formula}${SPELLCASTING_MODIFIER}` : formula,
+    ...damageType,
     ...(part.category === null || part.category === undefined ? {} : { category: part.category }),
     kinds: part.kinds ?? DEFAULT_KINDS,
+    ...(materials.length > 0 ? { materials } : {}),
   };
 }
 
+/** Where a spell's damage parts are reported, and the keys of those whose type the caster chooses. */
+export interface PartsField {
+  readonly field: string;
+  readonly chosen: ReadonlySet<string>;
+}
+
 /** The spell's damage parts in Foundry's order, each under `field.<key>`. */
-export function damageParts(damage: FoundryDamage, field: string, log: GapLog): DamagePart[] {
-  return Object.entries(damage).flatMap((entry) => damagePart(entry, field, log) ?? []);
+export function damageParts(damage: FoundryDamage, at: PartsField, log: GapLog): DamagePart[] {
+  return Object.entries(damage).flatMap((entry) => damagePart(entry, at, log) ?? []);
 }
 
 /** What fixed heightening overrides in each damage part, by its key. */
@@ -131,10 +179,11 @@ export interface DamageChanges {
   readonly overrides: FoundryDamageOverrides;
   readonly base: FoundryDamage;
   readonly field: string;
+  readonly chosen: ReadonlySet<string>;
 }
 
 /** Fixed heightening's damage, each part Foundry overrides laid over the spell's own. */
-export function heightenedDamage({ overrides, base, field }: DamageChanges, log: GapLog): DamagePart[] {
+export function heightenedDamage({ overrides, base, field, chosen }: DamageChanges, log: GapLog): DamagePart[] {
   const merged = { ...base };
   for (const [key, override] of Object.entries(overrides)) {
     const part = FoundryDamagePart.safeParse({ ...base[key], ...override });
@@ -144,7 +193,7 @@ export function heightenedDamage({ overrides, base, field }: DamageChanges, log:
       report(log, { reason: KindDataGapReason.InvalidData, field: `${field}.${key}`, raw: override });
     }
   }
-  return damageParts(merged, field, log);
+  return damageParts(merged, { field, chosen }, log);
 }
 
 export interface HeighteningInput {

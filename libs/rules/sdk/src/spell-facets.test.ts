@@ -176,6 +176,14 @@ describe('spell facets', () => {
     expect(valuesOf(fear)['duration']).toStrictEqual(['varies']);
   });
 
+  test('an untyped damage part gives no damage type', () => {
+    const untyped = { key: '0', formula: '5d8', kinds: ['healing'] };
+    const fire = { key: '1', formula: '2d6', damageType: 'fire', kinds: ['damage'] };
+
+    expect(valuesOf(spell('breath-of-life', { damage: [untyped] }))['damage-type']).toStrictEqual([]);
+    expect(valuesOf(spell('mixed', { damage: [untyped, fire] }))['damage-type']).toStrictEqual(['fire']);
+  });
+
   test('entries of other kinds give no spell values', () => {
     const trait = ContentEntry.parse({
       ...structuredClone(fireball),

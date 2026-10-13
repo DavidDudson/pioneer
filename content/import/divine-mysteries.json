@@ -6419,12 +6419,6 @@
       "foundry": "Compendium.pf2e.spells-srd.Item.siU9xRlqWXeKT0mH",
       "gaps": [
         {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "damage.0.type",
-          "raw": "untyped"
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[conditionitems]"
         }
@@ -6531,12 +6525,6 @@
       "foundry": "Compendium.pf2e.spells-srd.Item.Shiuhdb2nO6Qgk3k",
       "gaps": [
         {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "damage.8if8c4kjctnupcu8.materials",
-          "raw": ["silver"]
-        },
-        {
           "type": "enricher",
           "enricher": "@Damage[formula]"
         },
@@ -6563,12 +6551,6 @@
             "predicate": ["target:trait:unholy"],
             "selector": "{item|id}-damage"
           }
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-field",
-          "field": "damage.z4vh7m14o6f2hazs.materials",
-          "raw": ["silver"]
         }
       ]
     },

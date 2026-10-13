@@ -1,6 +1,7 @@
 # 0030. Statistics derived per weapon and spellcasting entry
 
-- Status: Proposed
+- Status: Proposed; the `spellcasting` scope extended to spell damage by
+  [0051](0051-spell-damage-reads-its-spellcasting-entry.md)
 - Date: 2026-10-10
 - Amends: [0016](0016-formula-reference-vocabulary.md) (reference scopes, and what a statistic's base may read)
 
