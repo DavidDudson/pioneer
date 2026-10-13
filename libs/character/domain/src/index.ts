@@ -354,4 +354,18 @@ export { costCoins, type CostCoins, payCost, purchaseCost } from './purse';
 export { type ArchetypeRead, type FeatContent, featContent, type FeatRead } from './feat-content';
 export { type FeatOption, type FeatSlot, featSlots, PrerequisiteStatus } from './feat-slots';
 export { CHARACTER_PROSE_MAX_LENGTH, CharacterProseInput, withProse } from './character-prose';
-export { needsConditionContent, needsMaxHitPoints, needsResourceMaxima } from './play-needs';
+export { needsConditionContent, needsMaxHitPoints, needsResourceMaxima, needsRestContent } from './play-needs';
+export { applyRestCommand, preparedDaily, refocused, rested, sessionStarted } from './rest-actions';
+export { RECOVERY_CONDITIONS, restHealing } from './rest-limits';
+export {
+  isRestCommand,
+  type RecoveryConditions,
+  type RestChange,
+  RestChangeKind,
+  type RestCommand,
+  RestCommandField,
+  RestCommandSchema,
+  type RestLimits,
+  type RestOutcome,
+  type RestPlay,
+} from './rest-types';

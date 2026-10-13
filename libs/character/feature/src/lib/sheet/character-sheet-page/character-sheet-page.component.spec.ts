@@ -39,8 +39,11 @@ describe('CharacterSheetPage', () => {
       ['Languages', true],
       ['Inventory', true],
     ]);
-    await openTab(root, 'Downtime', 'Downtime');
-    expect(regionsOf(root)).toStrictEqual([['Downtime', true]]);
+    await openTab(root, 'Downtime', 'Rest and preparations');
+    expect(regionsOf(root)).toStrictEqual([
+      ['Rest and preparations', true],
+      ['Downtime', true],
+    ]);
   });
 
   it("indexes the open tab's sections with skip links that move focus to their headings", async () => {

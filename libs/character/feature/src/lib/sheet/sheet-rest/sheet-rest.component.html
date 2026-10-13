@@ -1,0 +1,37 @@
+<fr-async-region>
+  <ng-template frAsyncPending><fr-skeleton width="lg" /></ng-template>
+  <ng-template [frAsyncData]="registry">
+    <fr-async-region>
+      <ng-template frAsyncPending><fr-skeleton width="lg" /></ng-template>
+      <ng-template [frAsyncData]="playQuery">
+        <fr-stack gap="md">
+          <fr-stack direction="horizontal" gap="sm" wrap>
+            @for (action of actions; track action.command.field) {
+              <fr-button [disabled]="busy()" (pressed)="choose(action)()">
+                {{ action.labelKey | transloco }}
+              </fr-button>
+            }
+          </fr-stack>
+          @if (preview(); as shown) {
+            <fr-stack gap="xs">
+              <fr-text weight="semibold">{{ shown.action.previewKey | transloco }}</fr-text>
+              @for (line of shown.lines; track $index) {
+                <fr-text>{{ line.key | transloco: line.params }}</fr-text>
+              } @empty {
+                <fr-text tone="muted">{{ 'character.sheet.rest.nothing' | transloco }}</fr-text>
+              }
+              <fr-stack direction="horizontal" gap="sm" wrap>
+                <fr-async-button [action]="confirm" [disabled]="busy()" [describeError]="describeError">
+                  {{ 'character.sheet.rest.confirm' | transloco }}
+                </fr-async-button>
+                <fr-button [variant]="cancelVariant" [disabled]="busy()" (pressed)="cancel()">
+                  {{ 'character.sheet.rest.cancel' | transloco }}
+                </fr-button>
+              </fr-stack>
+            </fr-stack>
+          }
+        </fr-stack>
+      </ng-template>
+    </fr-async-region>
+  </ng-template>
+</fr-async-region>

@@ -262,6 +262,30 @@
       "saved": "All changes saved",
       "failed": "Could not save your last change.",
       "retry": "Retry"
+    },
+    "rest": {
+      "restAction": "Rest",
+      "dailyPreparationsAction": "Daily preparations",
+      "refocusAction": "Refocus",
+      "startSessionAction": "Start of session",
+      "restPreview": "Rest restores:",
+      "dailyPreparationsPreview": "Daily preparations restore:",
+      "refocusPreview": "Refocus restores:",
+      "startSessionPreview": "Start of session sets:",
+      "nothing": "Nothing to restore.",
+      "confirm": "Confirm",
+      "cancel": "Cancel",
+      "hitPoints": "{gained, plural, one {# Hit Point} other {# Hit Points}}",
+      "fatiguedRemoved": "Fatigued is removed",
+      "drainedRemoved": "Drained is removed",
+      "drainedLowered": "Drained goes down to {value}",
+      "doomedLowered": "Doomed goes down to {doomed}",
+      "heroPoints": "Hero Points from {from} to {to}",
+      "focusPoints": "Focus Points from {from} to {to}",
+      "slots": "{amount, plural, one {# {source} rank {rank} slot} other {# {source} rank {rank} slots}}",
+      "poolSlots": "{amount, plural, one {# {source} {pool} rank {rank} slot} other {# {source} {pool} rank {rank} slots}}",
+      "uses": "{amount, plural, one {# use of {name}} other {# uses of {name}}}",
+      "heading": "Rest and preparations"
     }
   },
   "validation": {

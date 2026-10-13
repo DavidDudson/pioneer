@@ -4,14 +4,10 @@ import { Uuid, Version } from '@pioneer/shared/kernel';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
-import {
-  ActiveConditionsSchema,
-  applyConditionCommand,
-  ConditionCommandField,
-  ConditionCommandSchema,
-} from './conditions';
+import { ActiveConditionsSchema, ConditionCommandField, ConditionCommandSchema } from './conditions';
 import type { ConditionValued } from './conditions';
-import type { CountedMaxima } from './counted-resources';
+import { applyCountingCommand, isCountingCommand } from './counting-commands';
+import type { CountingCommand } from './counting-commands';
 import {
   afterRecoveryCheck,
   DeathTrackSchema,
@@ -25,9 +21,10 @@ import {
   Wounded,
 } from './death-track';
 import type { DeathTrack } from './death-track';
-import { applyResourceCommand, ResourceCommandField, ResourceCommandSchema } from './resource-commands';
+import { ResourceCommandField, ResourceCommandSchema } from './resource-commands';
 import { ResourcesSpentSchema } from './resources';
-import type { ResourceMaxima } from './resources';
+import { RestCommandField, RestCommandSchema } from './rest-types';
+import type { RestLimits } from './rest-types';
 
 const NONE = HitPoints.parse(0);
 
@@ -84,20 +81,29 @@ export const PlayCommandField = {
   ...ResourceCommandField,
   /** Conditions added, changed and removed (`conditions.ts`). */
   ...ConditionCommandField,
+  /** Rest, daily preparations, Refocus and start of session (`rest-actions.ts`). */
+  ...RestCommandField,
 } as const;
 export type PlayCommandField = ValueOf<typeof PlayCommandField>;
 
 export const PlayCommandSchema = z.discriminatedUnion('field', [
-  z.object({ field: z.literal(PlayCommandField.Damage), damage: DamageApplication }),
+  z.object({
+    field: z.literal(PlayCommandField.Damage),
+    damage: DamageApplication,
+  }),
   z.object({ field: z.literal(PlayCommandField.Heal), amount: HitPoints }),
   z.object({ field: z.literal(PlayCommandField.SetHp), current: HitPoints }),
   z.object({ field: z.literal(PlayCommandField.SetTempHp), temp: HitPoints }),
-  z.object({ field: z.literal(PlayCommandField.RecoveryCheck), degree: DegreeOfSuccessSchema }),
+  z.object({
+    field: z.literal(PlayCommandField.RecoveryCheck),
+    degree: DegreeOfSuccessSchema,
+  }),
   z.object({ field: z.literal(PlayCommandField.SetDying), dying: Dying }),
   z.object({ field: z.literal(PlayCommandField.SetWounded), wounded: Wounded }),
   z.object({ field: z.literal(PlayCommandField.SetDoomed), doomed: Doomed }),
   ...ResourceCommandSchema.options,
   ...ConditionCommandSchema.options,
+  ...RestCommandSchema.options,
 ]);
 export type PlayCommand = z.infer<typeof PlayCommandSchema>;
 
@@ -116,10 +122,7 @@ export const CharacterPlay = z.object({
 export type CharacterPlay = z.infer<typeof CharacterPlay>;
 
 /** What bounds a play edit, as the build and the rules give it. */
-export interface PlayLimits {
-  readonly hitPoints: HitPoints;
-  readonly resources: ResourceMaxima;
-  readonly counted: CountedMaxima;
+export interface PlayLimits extends RestLimits {
   /** Whether each condition the content has carries a value. */
   readonly valued: ConditionValued;
 }
@@ -146,7 +149,10 @@ export function currentHitPoints(hp: HitPointsState, max: HitPoints): HitPoints 
 
 /** `play` with `temp` temporary Hit Points gained: they don't stack, so the higher of the two is kept. Needs no maximum. */
 export function withTempHitPoints(play: PlayState, temp: HitPoints): PlayState {
-  return { ...play, hp: { ...play.hp, temp: HitPoints.parse(Math.max(play.hp.temp, temp)) } };
+  return {
+    ...play,
+    hp: { ...play.hp, temp: HitPoints.parse(Math.max(play.hp.temp, temp)) },
+  };
 }
 
 /** The death track of `play`. */
@@ -172,7 +178,10 @@ function afterDamage(play: PlayState, application: DamageApplication, max: HitPo
   const absorbed = HitPoints.parse(Math.min(hp.temp, taken));
   const through = DamageTotal.parse(taken - absorbed);
   const damage = plus(atMost(hp.damage, max), through, max);
-  const hurt: PlayState = { ...play, hp: { temp: less(hp.temp, absorbed), damage } };
+  const hurt: PlayState = {
+    ...play,
+    hp: { temp: less(hp.temp, absorbed), damage },
+  };
   const down = through > NONE && currentHitPoints(hurt.hp, max) === NONE;
   return down ? withTrack(hurt, knockedOut(trackOf(hurt), critical)) : hurt;
 }
@@ -180,7 +189,10 @@ function afterDamage(play: PlayState, application: DamageApplication, max: HitPo
 /** `play` after healing `amount`: Hit Points back above 0 end dying. */
 function afterHealing(play: PlayState, amount: HitPoints, max: HitPoints): PlayState {
   const { hp } = play;
-  const healed: PlayState = { ...play, hp: { ...hp, damage: less(atMost(hp.damage, max), amount) } };
+  const healed: PlayState = {
+    ...play,
+    hp: { ...hp, damage: less(atMost(hp.damage, max), amount) },
+  };
   return afterRestoring(healed, currentHitPoints(hp, max), currentHitPoints(healed.hp, max));
 }
 
@@ -188,7 +200,10 @@ function afterHealing(play: PlayState, amount: HitPoints, max: HitPoints): PlayS
 function afterSetting(play: PlayState, current: HitPoints, max: HitPoints): PlayState {
   const { hp } = play;
   const before = currentHitPoints(hp, max);
-  const set: PlayState = { ...play, hp: { ...hp, damage: less(max, atMost(current, max)) } };
+  const set: PlayState = {
+    ...play,
+    hp: { ...hp, damage: less(max, atMost(current, max)) },
+  };
   const after = currentHitPoints(set.hp, max);
   const down = before > NONE && after === NONE;
   return down ? withTrack(set, knockedOut(trackOf(set), false)) : afterRestoring(set, before, after);
@@ -201,15 +216,25 @@ function afterSetting(play: PlayState, current: HitPoints, max: HitPoints): Play
  * its maximum.
  */
 export function applyPlayCommand(play: PlayState, command: PlayCommand, limits: PlayLimits): PlayState {
+  return isCountingCommand(command)
+    ? applyCountingCommand(play, command, limits)
+    : applyHitPointsEdit(play, command, limits.hitPoints);
+}
+
+/** The edits of Hit Points and the death track: every play edit that does not count. */
+type HitPointsCommand = Exclude<PlayCommand, CountingCommand>;
+
+/** `play` after an edit of Hit Points or the death track. */
+function applyHitPointsEdit(play: PlayState, command: HitPointsCommand, max: HitPoints): PlayState {
   switch (command.field) {
     case PlayCommandField.Damage: {
-      return afterDamage(play, command.damage, limits.hitPoints);
+      return afterDamage(play, command.damage, max);
     }
     case PlayCommandField.Heal: {
-      return afterHealing(play, command.amount, limits.hitPoints);
+      return afterHealing(play, command.amount, max);
     }
     case PlayCommandField.SetHp: {
-      return afterSetting(play, command.current, limits.hitPoints);
+      return afterSetting(play, command.current, max);
     }
     case PlayCommandField.SetTempHp: {
       return withTempHitPoints(play, command.temp);
@@ -225,20 +250,6 @@ export function applyPlayCommand(play: PlayState, command: PlayCommand, limits: 
     }
     case PlayCommandField.SetDoomed: {
       return withTrack(play, withDoomed(trackOf(play), command.doomed));
-    }
-    case PlayCommandField.SpendResource:
-    case PlayCommandField.RegainResource:
-    case PlayCommandField.SetResource:
-    case PlayCommandField.SpendSlot:
-    case PlayCommandField.RefundSlot:
-    case PlayCommandField.SpendUse:
-    case PlayCommandField.RefundUse: {
-      return { ...play, ...applyResourceCommand(play, command, { points: limits.resources, counted: limits.counted }) };
-    }
-    case PlayCommandField.AddCondition:
-    case PlayCommandField.SetConditionValue:
-    case PlayCommandField.RemoveCondition: {
-      return { ...play, conditions: [...applyConditionCommand(play.conditions, command)] };
     }
     default: {
       return command satisfies never;

@@ -282,6 +282,13 @@ applies:
 Each resource names the boundary it resets on (`round`, `turn`, `rest`, `day`, `session`), taken from the content's
 `frequency`, so new resources join the right action without code.
 
+The actions sit in the Rest and preparations section of the Downtime tab. Choosing one lists what it would restore
+(nothing, when there is nothing to), and confirming applies it as one command. Each runs only when the player chooses
+it: opening the app or the sheet never starts a session or a rest. Daily preparations restores spell slots, focus
+points and the uses that reset each day; prepared spells, staff charges and re-investing items join it in their own
+stories. Rest gives back Hit Points, fatigued, drained and doomed; the uses that reset by the minute, ten minutes or
+hour come back with the item frequencies story.
+
 ### Staves and charged items
 
 A staff is a spell source with its own list and a charge cost per spell. A held staff's spells appear in the spell

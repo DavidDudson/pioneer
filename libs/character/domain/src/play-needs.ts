@@ -1,8 +1,12 @@
 import { PlayCommandField } from './play-state';
 import type { PlayCommand } from './play-state';
+import { isRestCommand } from './rest-types';
 
 /** Whether `command` reads or moves Hit Points, and so needs the maximum the engine derives. Temp Hit Points and the death track don't. */
 export function needsMaxHitPoints(command: PlayCommand): boolean {
+  if (isRestCommand(command)) {
+    return command.field === PlayCommandField.Rest;
+  }
   switch (command.field) {
     case PlayCommandField.Damage:
     case PlayCommandField.Heal:
@@ -34,6 +38,9 @@ export function needsMaxHitPoints(command: PlayCommand): boolean {
 
 /** Whether `command` moves a pool of points, and so needs the maxima the build and the rules give. */
 export function needsResourceMaxima(command: PlayCommand): boolean {
+  if (isRestCommand(command)) {
+    return true;
+  }
   switch (command.field) {
     case PlayCommandField.SpendResource:
     case PlayCommandField.RegainResource:
@@ -65,6 +72,9 @@ export function needsResourceMaxima(command: PlayCommand): boolean {
 
 /** Whether `command` adds or changes a condition, and so needs to know which conditions the content has and which carry a value. */
 export function needsConditionContent(command: PlayCommand): boolean {
+  if (isRestCommand(command)) {
+    return false;
+  }
   switch (command.field) {
     case PlayCommandField.AddCondition:
     case PlayCommandField.SetConditionValue: {
@@ -92,4 +102,9 @@ export function needsConditionContent(command: PlayCommand): boolean {
       return command satisfies never;
     }
   }
+}
+
+/** Whether `command` is Rest, and so needs the healing and the conditions it eases from the build and the content. */
+export function needsRestContent(command: PlayCommand): boolean {
+  return command.field === PlayCommandField.Rest;
 }

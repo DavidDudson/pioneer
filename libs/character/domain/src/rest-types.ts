@@ -1,0 +1,112 @@
+import type { ConditionValue, ContentId, HitPoints } from '@pioneer/rules/sdk';
+import type { ValueOf } from '@pioneer/shared/kernel';
+import * as z from 'zod';
+
+import type { ActiveCondition } from './conditions';
+import type { CountedMaxima, SlotCountKey, UseCountKey } from './counted-resources';
+import type { DeathTrack, Doomed } from './death-track';
+import type { Resource, ResourceCount, ResourceMaxima, ResourcesSpent } from './resources';
+
+/**
+ * The play edits that restore resources. Each is its own action, optional at the table, and applies as one command
+ * after its changes were previewed; none is ever applied on its own, such as when the app opens.
+ */
+export const RestCommandField = {
+  /** HP (Constitution modifier, at least 1, times level), fatigued removed, drained and doomed down 1. */
+  Rest: 'rest',
+  /** Spell slots, focus points and per-day uses back. */
+  DailyPreparations: 'dailyPreparations',
+  /** One focus point back. */
+  Refocus: 'refocus',
+  /** Hero points to 1, and per-session uses back. */
+  StartSession: 'startSession',
+} as const;
+export type RestCommandField = ValueOf<typeof RestCommandField>;
+
+export const RestCommandSchema = z.discriminatedUnion('field', [
+  z.object({ field: z.literal(RestCommandField.Rest) }),
+  z.object({ field: z.literal(RestCommandField.DailyPreparations) }),
+  z.object({ field: z.literal(RestCommandField.Refocus) }),
+  z.object({ field: z.literal(RestCommandField.StartSession) }),
+]);
+export type RestCommand = z.infer<typeof RestCommandSchema>;
+
+/** What changed, in the terms the preview words; the sheet turns each into a message. */
+export const RestChangeKind = {
+  HitPoints: 'hitPoints',
+  ConditionRemoved: 'conditionRemoved',
+  ConditionLowered: 'conditionLowered',
+  Doomed: 'doomed',
+  Points: 'points',
+  Slots: 'slots',
+  Uses: 'uses',
+} as const;
+export type RestChangeKind = ValueOf<typeof RestChangeKind>;
+
+export type RestChange =
+  | {
+      readonly kind: typeof RestChangeKind.HitPoints;
+      readonly gained: HitPoints;
+    }
+  | {
+      readonly kind: typeof RestChangeKind.ConditionRemoved;
+      readonly condition: ContentId;
+    }
+  | {
+      readonly kind: typeof RestChangeKind.ConditionLowered;
+      readonly condition: ContentId;
+      readonly value: ConditionValue;
+    }
+  | { readonly kind: typeof RestChangeKind.Doomed; readonly doomed: Doomed }
+  | {
+      readonly kind: typeof RestChangeKind.Points;
+      readonly resource: Resource;
+      readonly from: ResourceCount;
+      readonly to: ResourceCount;
+    }
+  | {
+      readonly kind: typeof RestChangeKind.Slots;
+      readonly key: SlotCountKey;
+      readonly amount: ResourceCount;
+    }
+  | {
+      readonly kind: typeof RestChangeKind.Uses;
+      readonly key: UseCountKey;
+      readonly amount: ResourceCount;
+    };
+
+/** The conditions Rest eases, by the id the content gives them; undefined while the content has none. */
+export interface RecoveryConditions {
+  readonly fatigued: ContentId | undefined;
+  readonly drained: ContentId | undefined;
+}
+
+/** What a restoring action reads besides the play state. */
+export interface RestLimits {
+  readonly hitPoints: HitPoints;
+  /** What Rest heals: the Constitution modifier, at least 1, times level. */
+  readonly healing: HitPoints;
+  readonly recovery: RecoveryConditions;
+  readonly resources: ResourceMaxima;
+  readonly counted: CountedMaxima;
+}
+
+/** The part of a play state the restoring actions read and write. */
+export type RestPlay = DeathTrack & {
+  readonly hp: { readonly damage: HitPoints; readonly temp: HitPoints };
+  readonly resources: ResourcesSpent;
+  readonly conditions: readonly ActiveCondition[];
+};
+
+/** The play state an action leaves, and the changes it made, which are none when there was nothing to restore. */
+export interface RestOutcome<Play extends RestPlay> {
+  readonly play: Play;
+  readonly changes: readonly RestChange[];
+}
+
+/** Whether `command` is one of the restoring actions. */
+export function isRestCommand<Command extends { readonly field: unknown }>(
+  command: Command,
+): command is Extract<Command, RestCommand> {
+  return Object.values<unknown>(RestCommandField).includes(command.field);
+}
