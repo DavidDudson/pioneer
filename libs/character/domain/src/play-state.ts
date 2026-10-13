@@ -17,6 +17,9 @@ import {
   Wounded,
 } from './death-track';
 import type { DeathTrack } from './death-track';
+import { applyResourceCommand, ResourceCommandField, ResourceCommandSchema } from './resource-commands';
+import { ResourcesSpentSchema } from './resources';
+import type { ResourceMaxima } from './resources';
 
 const NONE = HitPoints.parse(0);
 
@@ -40,10 +43,12 @@ export type HitPointsState = z.infer<typeof HitPointsStateSchema>;
 
 /**
  * A character's play state: what changes at the table, apart from the build (character-model.md, `PlayState`). The
- * death track (`dying`, `wounded`, `doomed`, `dead`) sits beside Hit Points.
+ * death track (`dying`, `wounded`, `doomed`, `dead`) sits beside Hit Points, and `resources` holds the points spent
+ * from each pool (hero points, focus points).
  */
 export const PlayStateSchema = z.strictObject({
   hp: HitPointsStateSchema.default({ damage: NONE, temp: NONE }),
+  resources: ResourcesSpentSchema.default(ResourcesSpentSchema.parse({})),
   ...DeathTrackSchema.shape,
 });
 export type PlayState = z.infer<typeof PlayStateSchema>;
@@ -66,6 +71,8 @@ export const PlayCommandField = {
   SetDying: 'setDying',
   SetWounded: 'setWounded',
   SetDoomed: 'setDoomed',
+  /** Pool edits: spend, regain and set hero points and focus points (`resource-commands.ts`). */
+  ...ResourceCommandField,
 } as const;
 export type PlayCommandField = ValueOf<typeof PlayCommandField>;
 
@@ -78,6 +85,7 @@ export const PlayCommandSchema = z.discriminatedUnion('field', [
   z.object({ field: z.literal(PlayCommandField.SetDying), dying: Dying }),
   z.object({ field: z.literal(PlayCommandField.SetWounded), wounded: Wounded }),
   z.object({ field: z.literal(PlayCommandField.SetDoomed), doomed: Doomed }),
+  ...ResourceCommandSchema.options,
 ]);
 export type PlayCommand = z.infer<typeof PlayCommandSchema>;
 
@@ -94,6 +102,12 @@ export const CharacterPlay = z.object({
   play: PlayStateSchema,
 });
 export type CharacterPlay = z.infer<typeof CharacterPlay>;
+
+/** What bounds a play edit, as the build and the rules give it. */
+export interface PlayLimits {
+  readonly hitPoints: HitPoints;
+  readonly resources: ResourceMaxima;
+}
 
 /** `value`, or `max` when it is more. */
 function atMost(value: HitPoints, max: HitPoints): HitPoints {
@@ -166,20 +180,21 @@ function afterSetting(play: PlayState, current: HitPoints, max: HitPoints): Play
 }
 
 /**
- * `play` after `command`, against the character's maximum Hit Points. Damage is held within 0 and the maximum, so
- * current Hit Points stay within 0 and the maximum for any sequence of commands. Damage that takes Hit Points to 0, or
- * gets through once they are there, advances dying; Hit Points back above 0 end it.
+ * `play` after `command`, within the character's limits. Damage is held within 0 and the maximum, so current Hit
+ * Points stay within 0 and the maximum for any sequence of commands. Damage that takes Hit Points to 0, or gets
+ * through once they are there, advances dying; Hit Points back above 0 end it. Points held in a pool stay within 0 and
+ * its maximum.
  */
-export function applyPlayCommand(play: PlayState, command: PlayCommand, max: HitPoints): PlayState {
+export function applyPlayCommand(play: PlayState, command: PlayCommand, limits: PlayLimits): PlayState {
   switch (command.field) {
     case PlayCommandField.Damage: {
-      return afterDamage(play, command.damage, max);
+      return afterDamage(play, command.damage, limits.hitPoints);
     }
     case PlayCommandField.Heal: {
-      return afterHealing(play, command.amount, max);
+      return afterHealing(play, command.amount, limits.hitPoints);
     }
     case PlayCommandField.SetHp: {
-      return afterSetting(play, command.current, max);
+      return afterSetting(play, command.current, limits.hitPoints);
     }
     case PlayCommandField.SetTempHp: {
       return withTempHitPoints(play, command.temp);
@@ -195,6 +210,11 @@ export function applyPlayCommand(play: PlayState, command: PlayCommand, max: Hit
     }
     case PlayCommandField.SetDoomed: {
       return withTrack(play, withDoomed(trackOf(play), command.doomed));
+    }
+    case PlayCommandField.SpendResource:
+    case PlayCommandField.RegainResource:
+    case PlayCommandField.SetResource: {
+      return { ...play, ...applyResourceCommand(play, command, limits.resources) };
     }
     default: {
       return command satisfies never;
@@ -223,6 +243,33 @@ export function needsMaxHitPoints(command: PlayCommand): boolean {
     case PlayCommandField.SetHp: {
       return true;
     }
+    case PlayCommandField.SetTempHp:
+    case PlayCommandField.RecoveryCheck:
+    case PlayCommandField.SetDying:
+    case PlayCommandField.SetWounded:
+    case PlayCommandField.SetDoomed:
+    case PlayCommandField.SpendResource:
+    case PlayCommandField.RegainResource:
+    case PlayCommandField.SetResource: {
+      return false;
+    }
+    default: {
+      return command satisfies never;
+    }
+  }
+}
+
+/** Whether `command` moves a pool of points, and so needs the maxima the build and the rules give. */
+export function needsResourceMaxima(command: PlayCommand): boolean {
+  switch (command.field) {
+    case PlayCommandField.SpendResource:
+    case PlayCommandField.RegainResource:
+    case PlayCommandField.SetResource: {
+      return true;
+    }
+    case PlayCommandField.Damage:
+    case PlayCommandField.Heal:
+    case PlayCommandField.SetHp:
     case PlayCommandField.SetTempHp:
     case PlayCommandField.RecoveryCheck:
     case PlayCommandField.SetDying:

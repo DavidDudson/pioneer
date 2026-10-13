@@ -1,12 +1,15 @@
 import { describe, expect, test } from 'bun:test';
 
 import { DegreeOfSuccess, HitPoints } from '@pioneer/rules/sdk';
-import { array, assert, boolean, constant, integer, oneof, property } from 'fast-check';
+import { array, assert, boolean, constant, integer, oneof, property, tuple } from 'fast-check';
 import type { Arbitrary } from 'fast-check';
 
 import { deathThreshold, Doomed, Dying, Wounded } from './death-track';
 import { applyPlayCommand, currentHitPoints, FRESH_PLAY, PlayCommandField, untypedDamage } from './play-state';
 import type { PlayCommand } from './play-state';
+import { currentResource, Resource, ResourceCount } from './resources';
+import type { ResourceMaxima } from './resources';
+import { within } from './testing';
 
 const MAX_HP = 500;
 const AMOUNT_MAX = 1000;
@@ -45,7 +48,7 @@ describe('applyPlayCommand', () => {
       property(max, array(command, { maxLength: COMMANDS_MAX }), (maximum, commands) => {
         let play = FRESH_PLAY;
         for (const each of commands) {
-          play = applyPlayCommand(play, each, maximum);
+          play = applyPlayCommand(play, each, within(maximum));
           const current = currentHitPoints(play.hp, maximum);
           expect(current).toBeGreaterThanOrEqual(0);
           expect(current).toBeLessThanOrEqual(maximum);
@@ -62,12 +65,63 @@ describe('applyPlayCommand', () => {
         let play = FRESH_PLAY;
         for (const each of commands) {
           const before = play;
-          play = applyPlayCommand(play, each, maximum);
+          play = applyPlayCommand(play, each, within(maximum));
           if (!play.dead) {
             expect(play.dying).toBeLessThan(deathThreshold(play.doomed));
           }
           if (before.dead && each.field !== PlayCommandField.SetDying) {
             expect(play.dead).toBe(true);
+          }
+        }
+      }),
+    );
+  });
+});
+
+const POOL_MAX = 6;
+
+const resource: Arbitrary<Resource> = oneof(...Object.values(Resource).map((each) => constant(each)));
+const points: Arbitrary<ResourceCount> = integer({ min: 0, max: POOL_MAX * 2 }).map((value) =>
+  ResourceCount.parse(value),
+);
+const poolMaxima: Arbitrary<ResourceMaxima> = tuple(
+  integer({ min: 0, max: POOL_MAX }),
+  integer({ min: 0, max: POOL_MAX }),
+).map(([hero, focus]): ResourceMaxima => ({
+  [Resource.HeroPoints]: ResourceCount.parse(hero),
+  [Resource.FocusPoints]: ResourceCount.parse(focus),
+}));
+
+const resourceCommand: Arbitrary<PlayCommand> = oneof(
+  tuple(resource, points).map(([each, value]): PlayCommand => ({
+    field: PlayCommandField.SpendResource,
+    resource: each,
+    amount: value,
+  })),
+  tuple(resource, points).map(([each, value]): PlayCommand => ({
+    field: PlayCommandField.RegainResource,
+    resource: each,
+    amount: value,
+  })),
+  tuple(resource, points).map(([each, value]): PlayCommand => ({
+    field: PlayCommandField.SetResource,
+    resource: each,
+    current: value,
+  })),
+  command,
+);
+
+describe('applyPlayCommand resources', () => {
+  test('points held stay within 0 and the pool maximum for any sequence of commands', () => {
+    assert(
+      property(poolMaxima, array(resourceCommand, { maxLength: COMMANDS_MAX }), (maxima, commands) => {
+        let play = FRESH_PLAY;
+        for (const each of commands) {
+          play = applyPlayCommand(play, each, within(HitPoints.parse(MAX_HP), maxima));
+          for (const pool of Object.values(Resource)) {
+            const held = currentResource(play.resources, pool, maxima);
+            expect(held).toBeGreaterThanOrEqual(0);
+            expect(held).toBeLessThanOrEqual(maxima[pool]);
           }
         }
       }),

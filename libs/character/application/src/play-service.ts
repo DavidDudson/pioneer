@@ -1,10 +1,16 @@
 import {
   applyPlayCommand,
+  characterFocus,
+  characterGrants,
+  characterSpellcasting,
   characterStatisticInputs,
   characterStatistics,
   maxHitPoints,
   needsMaxHitPoints,
+  needsResourceMaxima,
+  NO_RESOURCES,
   PLAY_COMMANDS,
+  resourceMaxima,
   slotContent,
 } from '@pioneer/character/domain';
 import type {
@@ -13,7 +19,9 @@ import type {
   CharacterPlay,
   PatchPlayBody,
   PlayCommand,
+  PlayLimits,
   PlayState,
+  ResourceMaxima,
 } from '@pioneer/character/domain';
 import { HitPoints } from '@pioneer/rules/sdk';
 import type { ContentSource } from '@pioneer/rules/sdk';
@@ -71,10 +79,23 @@ export class PlayService {
     });
   }
 
-  /** Temporary Hit Points and the death track need no maximum, so a character without one can still use them. */
+  /**
+   * Temporary Hit Points and the death track need no maximum, so a character without one can still use them. Each
+   * limit is derived only for the edits that read it.
+   */
   async #applied(character: Character, play: PlayState, command: PlayCommand): Promise<PlayState> {
-    const max = needsMaxHitPoints(command) ? await this.#maxHitPoints(character) : NO_MAX_HIT_POINTS;
-    return applyPlayCommand(play, command, max);
+    const hitPoints = needsMaxHitPoints(command) ? await this.#maxHitPoints(character) : NO_MAX_HIT_POINTS;
+    const resources = needsResourceMaxima(command) ? await this.#resourceMaxima(character) : NO_RESOURCES;
+    const limits: PlayLimits = { hitPoints, resources };
+    return applyPlayCommand(play, command, limits);
+  }
+
+  /** Hero points are at most 3; the focus pool comes from the character's focus spells and feats. */
+  async #resourceMaxima(character: Character): Promise<ResourceMaxima> {
+    const registry = await this.#content.registry();
+    const slots = slotContent(registry);
+    const entries = characterSpellcasting(characterGrants(character.document, slots));
+    return resourceMaxima(characterFocus(entries, slots.spells, character.document.level).pool);
   }
 
   async #maxHitPoints(character: Character): Promise<HitPoints> {

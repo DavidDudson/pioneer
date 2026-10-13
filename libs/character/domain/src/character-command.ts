@@ -28,7 +28,7 @@ export const CharacterCommand = {
   SetCoins: 'setCoins',
   GrantSpellAccess: 'grantSpellAccess',
   RevokeSpellAccess: 'revokeSpellAccess',
-  /** Play state (#343, #344): written to `character_play`, never to the build. */
+  /** Play state (#343, #344, #345): written to `character_play`, never to the build. */
   Damage: 'damage',
   Heal: 'heal',
   SetHp: 'setHp',
@@ -37,6 +37,9 @@ export const CharacterCommand = {
   SetDying: 'setDying',
   SetWounded: 'setWounded',
   SetDoomed: 'setDoomed',
+  SpendResource: 'spendResource',
+  RegainResource: 'regainResource',
+  SetResource: 'setResource',
   SetAppearance: 'setAppearance',
   SetPersonality: 'setPersonality',
 } as const;
@@ -78,4 +81,7 @@ export const PLAY_COMMANDS = {
   [PlayCommandField.SetDying]: CharacterCommand.SetDying,
   [PlayCommandField.SetWounded]: CharacterCommand.SetWounded,
   [PlayCommandField.SetDoomed]: CharacterCommand.SetDoomed,
+  [PlayCommandField.SpendResource]: CharacterCommand.SpendResource,
+  [PlayCommandField.RegainResource]: CharacterCommand.RegainResource,
+  [PlayCommandField.SetResource]: CharacterCommand.SetResource,
 } as const satisfies Record<PlayCommandField, CharacterCommand>;

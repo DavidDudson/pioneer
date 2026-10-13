@@ -15,6 +15,8 @@ export {
 export {
   applyPlayCommand,
   needsMaxHitPoints,
+  needsResourceMaxima,
+  type PlayLimits,
   withTempHitPoints,
   CharacterPlay,
   currentHitPoints,
@@ -31,6 +33,24 @@ export {
   PlayStateSchema,
   untypedDamage,
 } from './play-state';
+export {
+  applyResourceCommand,
+  type ResourceCommand,
+  ResourceCommandField,
+  ResourceCommandSchema,
+} from './resource-commands';
+export {
+  currentResource,
+  HERO_POINTS_MAX,
+  NO_RESOURCES,
+  Resource,
+  ResourceCount,
+  type ResourceMaxima,
+  resourceMaxima,
+  ResourceSchema,
+  type ResourcesSpent,
+  ResourcesSpentSchema,
+} from './resources';
 export {
   type AncestryBoosts,
   attributeModifiers,
