@@ -7,7 +7,8 @@ import { attributeModifiers, boostContent } from './attribute-boosts';
 import type { CharacterDocument } from './character-document';
 import { ANCESTRY_SLOT } from './character-slots';
 import { buildRanks, characterGrants, classContent, classInputs } from './class-build';
-import { equippedInputs, equippedRules } from './equipped';
+import type { ActiveCondition } from './conditions';
+import { equippedInputs, rulesInPlay } from './equipped';
 import { favoredWeapons } from './favored-weapons';
 import { grantedStrikes } from './granted-strikes';
 import { itemContent } from './inventory-content';
@@ -71,6 +72,8 @@ export interface StatisticSources {
   readonly registry: ContentRegistry;
   readonly slots: SlotContent;
   readonly inputs: StatisticInputs;
+  /** The conditions active on the character, from its play state; none when not given. */
+  readonly conditions?: readonly ActiveCondition[];
 }
 
 /**
@@ -80,13 +83,17 @@ export interface StatisticSources {
  */
 export function characterStatistics(
   document: CharacterDocument,
-  { registry, slots, inputs }: StatisticSources,
+  { registry, slots, inputs, conditions }: StatisticSources,
 ): ReadonlyMap<Selector, StatisticResult> {
   const content = statisticContent(registry);
   if (content === undefined) {
     return new Map();
   }
-  return deriveStatistics(content, inputs, equippedRules(document, itemContent(registry), slots));
+  return deriveStatistics(
+    content,
+    inputs,
+    rulesInPlay(document, { content: itemContent(registry), slots, conditions: conditions ?? [] }),
+  );
 }
 
 /**
