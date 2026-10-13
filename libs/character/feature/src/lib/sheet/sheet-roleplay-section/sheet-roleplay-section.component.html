@@ -1,0 +1,24 @@
+<fr-stack gap="md">
+  <fr-inline-field [label]="'character.sheet.roleplay.appearance' | transloco" [edit]="appearance">
+    <fr-text-area
+      frInlineEditor
+      [ariaLabel]="'character.sheet.roleplay.appearance' | transloco"
+      [rows]="rows"
+      [value]="appearance.draft()"
+      (valueChange)="appearance.change($event)"
+      (committed)="appearance.flushSoon()"
+      (cancelled)="appearance.cancel()"
+    />
+  </fr-inline-field>
+  <fr-inline-field [label]="'character.sheet.roleplay.personality' | transloco" [edit]="personality">
+    <fr-text-area
+      frInlineEditor
+      [ariaLabel]="'character.sheet.roleplay.personality' | transloco"
+      [rows]="rows"
+      [value]="personality.draft()"
+      (valueChange)="personality.change($event)"
+      (committed)="personality.flushSoon()"
+      (cancelled)="personality.cancel()"
+    />
+  </fr-inline-field>
+</fr-stack>

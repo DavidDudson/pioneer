@@ -90,7 +90,7 @@ describe('CharacterSheetPage modes', () => {
     await vi.waitFor(async () => {
       await settle();
       expect(TestBed.inject(Router).url).toBe(`/characters/${id}/exploration`);
-      expect(regionsOf(root)[0]?.[0]).toBe('Deity');
+      expect(regionsOf(root)[0]?.[0]).toBe('Appearance and personality');
     });
   });
 

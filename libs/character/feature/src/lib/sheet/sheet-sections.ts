@@ -16,6 +16,7 @@ export const SHEET_SECTIONS = {
   skills: { anchor: 'sheet-skills', headingKey: 'character.sheet.skillsHeading' },
   strikes: { anchor: 'sheet-strikes', headingKey: 'character.sheet.strikesHeading' },
   languages: { anchor: 'sheet-languages', headingKey: 'character.sheet.languagesHeading' },
+  roleplay: { anchor: 'sheet-roleplay', headingKey: 'character.sheet.roleplay.heading' },
   choices: { anchor: 'sheet-choices', headingKey: 'character.sheet.choicesHeading' },
   spellcasting: { anchor: 'sheet-spellcasting', headingKey: 'character.sheet.spellcastingHeading' },
   feats: { anchor: 'sheet-feats', headingKey: 'character.sheet.featsHeading' },
@@ -27,7 +28,7 @@ export const SHEET_SECTIONS = {
 
 /**
  * Each tab's sections in page order, for its section index (play-and-campaigns.md, Sheet modes). Later stories add
- * theirs: actions to Encounter, appearance and exploration activities to Exploration, crafting, income and
+ * theirs: actions to Encounter, exploration activities to Exploration, crafting, income and
  * retraining to Downtime.
  */
 export const SHEET_TAB_SECTIONS: Readonly<Record<SheetMode, readonly SheetSection[]>> = {
@@ -45,7 +46,12 @@ export const SHEET_TAB_SECTIONS: Readonly<Record<SheetMode, readonly SheetSectio
     SHEET_SECTIONS.strikes,
     SHEET_SECTIONS.spellcasting,
   ],
-  [SheetMode.Exploration]: [SHEET_SECTIONS.deity, SHEET_SECTIONS.languages, SHEET_SECTIONS.inventory],
+  [SheetMode.Exploration]: [
+    SHEET_SECTIONS.roleplay,
+    SHEET_SECTIONS.deity,
+    SHEET_SECTIONS.languages,
+    SHEET_SECTIONS.inventory,
+  ],
   [SheetMode.Downtime]: [SHEET_SECTIONS.downtime],
 };
 

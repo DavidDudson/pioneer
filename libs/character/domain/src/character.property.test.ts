@@ -18,6 +18,14 @@ installRulesFakes();
 const later = fixedClock('2030-01-01T00:00:00Z').now();
 /** A purchase the property exercises costs nothing, so any purse covers it. */
 const FREE = CopperValue.parse(0);
+/** Rich text has no generator here (`character.test.ts` covers the prose edits), so they are left out of the edits drawn. */
+const PROSE_FIELDS: ReadonlySet<CharacterPatchField> = new Set([
+  CharacterPatchField.SetAppearance,
+  CharacterPatchField.SetPersonality,
+]);
+const GeneratedPatchSchema = z.union(
+  CharacterPatchSchema.options.filter((variant) => !PROSE_FIELDS.has(variant.shape.field.value)),
+);
 const ONE = ItemQuantity.parse(1);
 const character = nat().map((seed) => CharacterBuilder.random(seed).build());
 
@@ -74,7 +82,9 @@ type UnaimedField =
   | typeof CharacterPatchField.ClearSlot
   | typeof CharacterPatchField.SetCoins
   | typeof CharacterPatchField.GrantSpellAccess
-  | typeof CharacterPatchField.RevokeSpellAccess;
+  | typeof CharacterPatchField.RevokeSpellAccess
+  | typeof CharacterPatchField.SetAppearance
+  | typeof CharacterPatchField.SetPersonality;
 type ItemPatch = Exclude<CharacterPatch, { readonly field: UnaimedField }>;
 
 const UNAIMED: ReadonlySet<CharacterPatchField> = new Set<UnaimedField>([
@@ -85,6 +95,8 @@ const UNAIMED: ReadonlySet<CharacterPatchField> = new Set<UnaimedField>([
   CharacterPatchField.SetCoins,
   CharacterPatchField.GrantSpellAccess,
   CharacterPatchField.RevokeSpellAccess,
+  CharacterPatchField.SetAppearance,
+  CharacterPatchField.SetPersonality,
 ]);
 
 function isItemPatch(patch: CharacterPatch): patch is ItemPatch {
@@ -160,7 +172,7 @@ describe('Character (properties)', () => {
     assert(
       property(stocked, edit, (original, { seed, index, target, newItemId }) => {
         const { items } = original.document.inventory;
-        const patch = aimed(fakeSeeded(CharacterPatchSchema, seed), items, { index, target });
+        const patch = aimed(fakeSeeded(GeneratedPatchSchema, seed), items, { index, target });
         // Only a move of a container into itself or what it holds is left for the service to refuse.
         pre(inventoryRefusal(original.document.inventory, touched(patch)) === undefined);
         const next = original.apply(patch, later, { newItemId, kitItems: kitLines(patch, newItemId), cost: FREE });
