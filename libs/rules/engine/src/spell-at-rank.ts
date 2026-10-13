@@ -54,8 +54,25 @@ function increased(base: DamageFormula, step: DamageFormula, steps: HeighteningS
   return DamageFormula.parse([base, ...Array.from({ length: steps }, () => step)].join(' + '));
 }
 
+/** The fields a variant or a fixed rank changes; the rest stay as they are. */
+interface CastOverlay {
+  readonly time?: SpellData['time'] | undefined;
+  readonly range?: SpellData['range'] | undefined;
+  readonly area?: SpellData['area'] | undefined;
+  readonly targets?: SpellData['targets'] | undefined;
+  readonly duration?: SpellData['duration'] | undefined;
+  readonly defense?: SpellData['defense'] | undefined;
+  readonly damage?: SpellData['damage'] | undefined;
+}
+
+/** The fields of `data` that casting reads. */
+function fieldsOf(data: SpellData): CastFields {
+  const { time, range, area, targets, duration, defense, damage } = data;
+  return { time, range, area, targets, duration, defense, damage };
+}
+
 /** `fields` with each field `over` has in place of its own. */
-function laid(fields: CastFields, over: Partial<CastFields>): CastFields {
+function laid(fields: CastFields, over: CastOverlay): CastFields {
   return {
     time: over.time ?? fields.time,
     range: over.range ?? fields.range,
@@ -117,7 +134,7 @@ function heightened(fields: CastFields, heightening: Heightening | undefined, { 
  * laid on top. A cantrip casts at the rank half the character's level rounds up to; the caller passes it.
  */
 export function spellAtRank(data: SpellData, rank: SpellRank): SpellAtRank {
-  const own = laid(data, {});
+  const own = fieldsOf(data);
   const casting: Casting = { from: data.rank, rank };
   const variants: SpellCast[] = [];
   for (const { name, heightening, ...changes } of data.variants ?? []) {
