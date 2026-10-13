@@ -10,7 +10,46 @@
   } @else {
     <fr-list gap="xs">
       @for (line of row().lines; track line.key) {
-        <fr-list-item><pio-choice-row [line]="line" /></fr-list-item>
+        <fr-list-item>
+          <fr-stack gap="3xs">
+            <pio-choice-row [line]="line" />
+            @if (selectOf(line.key); as pick) {
+              @let label = pick.label.key | transloco: pick.label.params;
+              <fr-inline-field [label]="label" [edit]="pick.field">
+                <fr-select
+                  frInlineEditor
+                  [ariaLabel]="label"
+                  [options]="pick.options()"
+                  [value]="pick.field.draft()"
+                  (valueChange)="pick.field.change($event)"
+                  (committed)="pick.field.flushSoon()"
+                  (cancelled)="pick.field.cancel()"
+                />
+              </fr-inline-field>
+            }
+            @if (comboboxOf(line.key); as pick) {
+              @let label = pick.label.key | transloco: pick.label.params;
+              @let reason = pick.reason();
+              <fr-inline-field
+                [label]="label"
+                [edit]="pick.field"
+                [notice]="reason === undefined ? undefined : (reason.key | transloco: reason.params)"
+              >
+                <fr-combobox
+                  frInlineEditor
+                  [ariaLabel]="label"
+                  [placeholder]="Message.Search | transloco"
+                  [options]="pick.matches()"
+                  [value]="pick.field.draft()"
+                  (valueChange)="pick.field.change($event)"
+                  (searched)="pick.search($event)"
+                  (committed)="pick.field.flushSoon()"
+                  (cancelled)="pick.field.cancel()"
+                />
+              </fr-inline-field>
+            }
+          </fr-stack>
+        </fr-list-item>
       }
     </fr-list>
   }

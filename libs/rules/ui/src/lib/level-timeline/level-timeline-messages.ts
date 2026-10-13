@@ -3,4 +3,5 @@ export const LevelTimelineMessage = {
   Level: 'rules.timeline.level',
   Current: 'rules.timeline.current',
   Nothing: 'rules.timeline.nothing',
+  Search: 'rules.timeline.search',
 } as const;

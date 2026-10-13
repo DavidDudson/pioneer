@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
 import { expect, within } from 'storybook/test';
 
-import { BARD_TIMELINE, FIGHTER_TIMELINE } from '../testing/timeline-fixtures';
+import { BARD_TIMELINE, FIGHTER_TIMELINE, PLANNING_TIMELINE } from '../testing/timeline-fixtures';
 import { LevelTimeline } from './level-timeline.component';
 
 type LevelTimelineStory = StoryObj<LevelTimeline>;
@@ -35,5 +35,14 @@ export const Bard: LevelTimelineStory = {
     const canvas = within(canvasElement);
     await expect(canvas.getByText('Force Barrage')).toBeVisible();
     await expect(canvas.getByText('2nd rank spell')).toBeVisible();
+  },
+};
+
+/** A slot above the character's level with a picker, so the pick can be planned ahead. */
+export const Planning: LevelTimelineStory = {
+  args: { rows: PLANNING_TIMELINE },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByText('Planned for level 4')).toBeVisible();
   },
 };

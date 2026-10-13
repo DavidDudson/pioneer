@@ -43,6 +43,8 @@ interface FeatField {
 /** The feat pickers and the feats the character has by slot type; undefined while the feats load. */
 export interface FeatFields {
   readonly fields: readonly FeatField[];
+  /** A pick for each slot above the character's level (#492), offering the feats it will have at the slot's level. */
+  readonly planned: readonly FeatField[];
   readonly groups: readonly SheetFeatGroup[];
   /** Whether the character has a feat that only grants something else, so there is a filter to offer. */
   readonly hasGrantOnly: boolean;
@@ -87,7 +89,7 @@ function featField(sources: FeatPickSources, feats: Signal<SheetFeats | undefine
 }
 
 /**
- * One inline pick per feat slot up to the character's level (#466), made anew only when the slots change (a level up,
+ * One inline pick per feat slot (#466), and per slot above the character's level (#492), made anew only when the slots change (a level up,
  * another class), so an edit in progress keeps its session while the character changes around it; and the feats the
  * character's features grant. Undefined while the feats load.
  */
@@ -101,13 +103,17 @@ export function featFieldsOf(sources: FeatPickSources): Signal<FeatFields | unde
       : sheetFeats(registry, character, slots);
   });
   const keys = computed(() =>
-    feats()
-      ?.slots.map((slot) => slot.key)
-      .join(','),
+    [...(feats()?.slots ?? []), ...(feats()?.planned ?? [])].map((slot) => slot.key).join(','),
   );
   const fields = computed(() => {
     keys();
-    return untracked(() => (feats()?.slots ?? []).map((slot) => featField(sources, feats, slot)));
+    return untracked(() => {
+      const read = feats();
+      return {
+        own: (read?.slots ?? []).map((slot) => featField(sources, feats, slot)),
+        planned: (read?.planned ?? []).map((slot) => featField(sources, feats, slot)),
+      };
+    });
   });
   return computed(() => {
     const read = feats();
@@ -117,6 +123,7 @@ export function featFieldsOf(sources: FeatPickSources): Signal<FeatFields | unde
     const hasGrantOnly = read.groups.some((group) =>
       group.feats.some((feat) => feat.category === DisplayCategory.GrantOnly),
     );
-    return { fields: fields(), groups: visibleFeatGroups(read.groups, sources.showGrantOnly()), hasGrantOnly };
+    const { own, planned } = fields();
+    return { fields: own, planned, groups: visibleFeatGroups(read.groups, sources.showGrantOnly()), hasGrantOnly };
   });
 }

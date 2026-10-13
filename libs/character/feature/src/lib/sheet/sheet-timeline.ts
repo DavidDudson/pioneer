@@ -23,5 +23,6 @@ export function sheetTimeline(registry: ContentRegistry, character: Character): 
     level,
     current: level === character.document.level,
     lines: slots.map((slot) => timelineLine(slot)),
+    picks: [],
   }));
 }

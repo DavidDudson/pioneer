@@ -1,8 +1,9 @@
 import { attributeModifiers, boostContent, boostSlots, BoostSource } from '@pioneer/character/domain';
 import type { Character } from '@pioneer/character/domain';
-import type { AttributeModifiers, ContentRegistry } from '@pioneer/rules/sdk';
+import type { Attribute, AttributeModifiers, ContentRegistry, SlotKey } from '@pioneer/rules/sdk';
 import type { OpenBoostLine } from '@pioneer/rules/ui';
 import { message } from '@pioneer/shared/kernel';
+import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 /** What the sheet's attributes section shows: the modifiers the boosts give, then the boosts not placed yet. */
 export interface SheetAttributes {
@@ -30,4 +31,22 @@ export function sheetAttributes(registry: ContentRegistry, character: Character)
       : [],
   );
   return { modifiers: attributeModifiers(character.document, content), open };
+}
+
+/** A boost slot above the character's level: its label and the attributes it offers once the character is there. */
+export interface SheetPlannedBoost {
+  readonly key: SlotKey;
+  readonly label: MessageDescriptor;
+  readonly options: readonly Attribute[];
+}
+
+/** The boost slots above the character's level (#492), lowest first, each with the attributes it offers. */
+export function sheetPlannedBoosts(registry: ContentRegistry, character: Character): readonly SheetPlannedBoost[] {
+  return boostSlots(character.document, boostContent(registry))
+    .filter((slot) => slot.level > character.level)
+    .map((slot) => ({
+      key: slot.key,
+      label: message(BOOST_LABEL_KEYS[slot.source], { level: slot.level }),
+      options: slot.options,
+    }));
 }

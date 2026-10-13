@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { Grid, InlineField, Select } from '@pioneer/frontier';
 
-import type { SlotPickField } from '../sheet-build-picks';
+import type { SlotPickField } from '../sheet-slot-picks';
 
 /**
  * A grid of slot pickers on the sheet, one inline edit per slot, each offering what its slot offers: the trained skills

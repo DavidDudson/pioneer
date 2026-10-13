@@ -1,9 +1,13 @@
+import { signal } from '@angular/core';
+import { InlineEdit } from '@pioneer/frontier';
 import { Level, SlotKey } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
+import * as z from 'zod';
 
 import { ChoiceState } from '../choices/choice-line';
 import type { ChoiceLine } from '../choices/choice-line';
-import type { LevelTimelineRow } from '../level-timeline/level-timeline-row';
+import { TimelinePickKind } from '../level-timeline/level-timeline-row';
+import type { LevelTimelineRow, TimelinePick } from '../level-timeline/level-timeline-row';
 
 const NONE = { selection: undefined, level: undefined, reason: undefined };
 
@@ -29,13 +33,15 @@ export const FIGHTER_TIMELINE: readonly LevelTimelineRow[] = [
     level: FIRST,
     current: false,
     lines: [featLine('fighter:2', ChoiceState.Filled, { selection: { name: 'Power Attack' } })],
+    picks: [],
   },
-  { level: SECOND, current: true, lines: [featLine('fighter:4', ChoiceState.Open)] },
-  { level: THIRD, current: false, lines: [] },
+  { level: SECOND, current: true, lines: [featLine('fighter:4', ChoiceState.Open)], picks: [] },
+  { level: THIRD, current: false, lines: [], picks: [] },
   {
     level: FOURTH,
     current: false,
     lines: [featLine('fighter:6', ChoiceState.Planned, { selection: { name: 'Lunge' }, level: FOURTH })],
+    picks: [],
   },
 ];
 
@@ -56,11 +62,54 @@ export const BARD_TIMELINE: readonly LevelTimelineRow[] = [
       spellLine('repertoire:bard:1:0', 1, { state: ChoiceState.Filled, selection: { name: 'Force Barrage' } }),
       spellLine('repertoire:bard:1:1', 1, {}),
     ],
+    picks: [],
   },
-  { level: SECOND, current: true, lines: [] },
+  { level: SECOND, current: true, lines: [], picks: [] },
   {
     level: THIRD,
     current: false,
     lines: [spellLine('repertoire:bard:2:0', 2, { level: THIRD })],
+    picks: [],
+  },
+];
+
+const NOT_CHOSEN = '';
+const PlanPick = z.string();
+
+function pickEdit(initial: string): InlineEdit<string | undefined> {
+  const source = signal<string | undefined>(initial);
+  return new InlineEdit<string | undefined>({
+    source,
+    empty: NOT_CHOSEN,
+    schema: PlanPick,
+    save: async (value) => {
+      source.set(value ?? NOT_CHOSEN);
+      await Promise.resolve();
+    },
+  });
+}
+
+const FEAT_PICK: TimelinePick = {
+  kind: TimelinePickKind.Combobox,
+  key: SlotKey.parse('fighter:6'),
+  label: message('rules.choices.slot.choice', { entry: 'Fighter', prompt: 'Fighter feat' }),
+  matches: signal([
+    { value: 'lunge', label: 'Lunge' },
+    { value: 'knockdown', label: 'Knockdown', disabled: true, description: 'Requires 6th level' },
+  ]),
+  search: () => undefined,
+  reason: signal(undefined),
+  field: pickEdit(NOT_CHOSEN),
+};
+
+/** A 2nd-level fighter whose 4th-level feat, still unpicked, can be planned. */
+export const PLANNING_TIMELINE: readonly LevelTimelineRow[] = [
+  { level: FIRST, current: false, lines: [], picks: [] },
+  { level: SECOND, current: true, lines: [], picks: [] },
+  {
+    level: FOURTH,
+    current: false,
+    lines: [featLine('fighter:6', ChoiceState.Planned, { level: FOURTH })],
+    picks: [FEAT_PICK],
   },
 ];

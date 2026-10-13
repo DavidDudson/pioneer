@@ -635,7 +635,8 @@
     "timeline": {
       "level": "Level {level}",
       "current": "Current level",
-      "nothing": "Nothing opens at this level."
+      "nothing": "Nothing opens at this level.",
+      "search": "Search to plan a pick"
     },
     "choices": {
       "none": "No choices yet.",

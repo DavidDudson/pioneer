@@ -252,6 +252,11 @@ character and its slots:
 The sheet's Choices section lists them, but the empty planned slots, with a badge per status and the reason under an
 invalid one.
 
+The level timeline ([#492](https://github.com/DavidDudson/pioneer/issues/492)) is where the plan is made: a feat, skill
+or boost slot above the character's level has a picker on its row, a plain `selectSlot`, so planning then levelling up
+equals picking at the level. A feat's picker offers the feats of its kind as of the slot's level, with the prerequisites
+the character will have met by then. Spell slots are not planned yet: they open at the character's level only.
+
 ### Attribute boosts
 
 Attribute modifiers are never stored: `attributeModifiers` works them out from the boosts on every read, so changing
