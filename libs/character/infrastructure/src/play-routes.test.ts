@@ -3,7 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import { CharacterService, InMemoryCharacterRepository, PlayService } from '@pioneer/character/application';
 import { CharacterName, CharacterPlay, FRESH_PLAY, PlayCommandField, untypedDamage } from '@pioneer/character/domain';
 import { hitPointsContent, humanAncestryId } from '@pioneer/character/domain/testing';
-import { HitPoints } from '@pioneer/rules/sdk';
+import { DegreeOfSuccess, HitPoints } from '@pioneer/rules/sdk';
 import { fixedContent } from '@pioneer/rules/sdk/testing';
 import { fixedClock, newId, nextVersion, UserId } from '@pioneer/shared/kernel';
 import { problemHandler } from '@pioneer/shared/server';
@@ -81,6 +81,18 @@ describe('play routes', () => {
     const body = { expectedRevision: 1, command: { field: 'resurrect' } };
     const response = await api.handle(request('PATCH', path, { as: amiri, body }));
     expect(response.status).toBe(422);
+  });
+
+  test('a recovery check with a degree of success is accepted, an unknown degree is refused', async () => {
+    const { api, path } = await setUp();
+    const command = { field: PlayCommandField.RecoveryCheck, degree: DegreeOfSuccess.Success };
+    const accepted = await api.handle(request('PATCH', path, { as: amiri, body: { expectedRevision: 1, command } }));
+    expect(accepted.status).toBe(200);
+    const bad = { ...command, degree: 'triumph' };
+    const refused = await api.handle(
+      request('PATCH', path, { as: amiri, body: { expectedRevision: 2, command: bad } }),
+    );
+    expect(refused.status).toBe(422);
   });
 
   test("signed out is 401; someone else's character is 404", async () => {

@@ -17,6 +17,7 @@ import {
 import { VitalsView } from '@pioneer/rules/ui';
 
 import { PlayStore } from '../../data/play-store';
+import { SheetDeathTrack } from '../sheet-death-track/sheet-death-track.component';
 import { SheetHitPoints } from '../sheet-hit-points/sheet-hit-points.component';
 import { SheetSaveStatus } from '../sheet-save-status/sheet-save-status.component';
 import { SHEET_TABS } from '../sheet-sections';
@@ -37,6 +38,7 @@ import { SheetState } from '../sheet-state';
     DateDisplay,
     Page,
     RouterOutlet,
+    SheetDeathTrack,
     SheetHitPoints,
     SheetSaveStatus,
     Skeleton,

@@ -1,6 +1,6 @@
 import { afterAll, beforeAll, describe, expect, test } from 'bun:test';
 
-import { CharacterCommand, CharacterName, FRESH_PLAY } from '@pioneer/character/domain';
+import { CharacterCommand, CharacterName, Doomed, Dying, FRESH_PLAY, Wounded } from '@pioneer/character/domain';
 import type { Character, PlayState } from '@pioneer/character/domain';
 import { CharacterBuilder } from '@pioneer/character/domain/testing';
 import { HitPoints } from '@pioneer/rules/sdk';
@@ -18,7 +18,13 @@ import { DrizzleCharacterRepository } from './drizzle-character-repository';
 const adminUrl = testDatabaseUrl();
 const NOW = fixedClock('2026-10-13T10:00:00Z').now();
 
-const WOUNDED: PlayState = { hp: { damage: HitPoints.parse(5), temp: HitPoints.parse(2) } };
+const WOUNDED: PlayState = {
+  ...FRESH_PLAY,
+  hp: { damage: HitPoints.parse(5), temp: HitPoints.parse(2) },
+  dying: Dying.parse(2),
+  wounded: Wounded.parse(1),
+  doomed: Doomed.parse(1),
+};
 
 describe.skipIf(adminUrl === undefined)('character play state (postgres)', () => {
   const recorder = new QueryRecorder();

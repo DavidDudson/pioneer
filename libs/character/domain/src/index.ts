@@ -3,7 +3,18 @@ export { withPlay } from './character-with-play';
 export { type EditInputs } from './item-purchase';
 export { CharacterCommand, PATCH_COMMANDS, PLAY_COMMANDS } from './character-command';
 export {
+  afterRecoveryCheck,
+  deathThreshold,
+  type DeathTrack,
+  DeathTrackSchema,
+  Doomed,
+  Dying,
+  FRESH_DEATH_TRACK,
+  Wounded,
+} from './death-track';
+export {
   applyPlayCommand,
+  needsMaxHitPoints,
   withTempHitPoints,
   CharacterPlay,
   currentHitPoints,

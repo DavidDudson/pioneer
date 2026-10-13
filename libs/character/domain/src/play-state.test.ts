@@ -1,8 +1,16 @@
 import { describe, expect, test } from 'bun:test';
 
-import { HitPoints } from '@pioneer/rules/sdk';
+import { DegreeOfSuccess, HitPoints } from '@pioneer/rules/sdk';
 
-import { applyPlayCommand, currentHitPoints, FRESH_PLAY, PlayCommandField, untypedDamage } from './play-state';
+import { Doomed, Dying, Wounded } from './death-track';
+import {
+  applyPlayCommand,
+  currentHitPoints,
+  FRESH_PLAY,
+  PlayCommandField,
+  PlayStateSchema,
+  untypedDamage,
+} from './play-state';
 import type { PlayState } from './play-state';
 
 const MAX = HitPoints.parse(20);
@@ -11,8 +19,12 @@ function hp(value: number): HitPoints {
   return HitPoints.parse(value);
 }
 
+function dyingState(value: number): PlayState {
+  return { ...FRESH_PLAY, dying: Dying.parse(value) };
+}
+
 function state(damage: number, temp = 0): PlayState {
-  return { hp: { damage: hp(damage), temp: hp(temp) } };
+  return { ...FRESH_PLAY, hp: { damage: hp(damage), temp: hp(temp) } };
 }
 
 describe('applyPlayCommand', () => {
@@ -61,5 +73,105 @@ describe('applyPlayCommand', () => {
 
   test('a raised maximum raises current Hit Points with it', () => {
     expect(currentHitPoints(state(5).hp, hp(30))).toBe(hp(25));
+  });
+});
+
+describe('dying', () => {
+  test('damage that takes Hit Points to 0 gains dying 1', () => {
+    const after = applyPlayCommand(state(15), { field: PlayCommandField.Damage, damage: untypedDamage(hp(5)) }, MAX);
+    expect(after.dying).toBe(Dying.parse(1));
+    expect(currentHitPoints(after.hp, MAX)).toBe(hp(0));
+  });
+
+  test('a critical hit that takes Hit Points to 0 gains dying 2, plus wounded', () => {
+    const wounded: PlayState = { ...state(10), wounded: Wounded.parse(1) };
+    const critical = { ...untypedDamage(hp(30)), critical: true };
+    const after = applyPlayCommand(wounded, { field: PlayCommandField.Damage, damage: critical }, MAX);
+    expect(after.dying).toBe(Dying.parse(3));
+    expect(after.wounded).toBe(Wounded.parse(1));
+  });
+
+  test('damage that temporary Hit Points absorb does not start dying', () => {
+    const after = applyPlayCommand(
+      state(0, 30),
+      { field: PlayCommandField.Damage, damage: untypedDamage(hp(25)) },
+      MAX,
+    );
+    expect(after.dying).toBe(Dying.parse(0));
+  });
+
+  test('damage that leaves Hit Points above 0 does not start dying', () => {
+    const after = applyPlayCommand(state(0), { field: PlayCommandField.Damage, damage: untypedDamage(hp(19)) }, MAX);
+    expect(after.dying).toBe(Dying.parse(0));
+  });
+
+  test('damage that takes a character to 0 from a wounded start can be fatal', () => {
+    const wounded: PlayState = { ...state(0), wounded: Wounded.parse(3) };
+    const after = applyPlayCommand(wounded, { field: PlayCommandField.Damage, damage: untypedDamage(hp(20)) }, MAX);
+    expect(after.dead).toBe(true);
+  });
+
+  test('more damage at 0 Hit Points raises dying', () => {
+    const down: PlayState = { ...state(20), dying: Dying.parse(1) };
+    const after = applyPlayCommand(down, { field: PlayCommandField.Damage, damage: untypedDamage(hp(3)) }, MAX);
+    expect(after.dying).toBe(Dying.parse(2));
+  });
+
+  test('healing above 0 ends dying and gains wounded', () => {
+    const down: PlayState = { ...state(20), dying: Dying.parse(2) };
+    const after = applyPlayCommand(down, { field: PlayCommandField.Heal, amount: hp(4) }, MAX);
+    expect(after.dying).toBe(Dying.parse(0));
+    expect(after.wounded).toBe(Wounded.parse(1));
+    expect(currentHitPoints(after.hp, MAX)).toBe(hp(4));
+  });
+
+  test('healing that leaves Hit Points at 0 keeps dying', () => {
+    const down: PlayState = { ...state(20), dying: Dying.parse(2) };
+    const after = applyPlayCommand(down, { field: PlayCommandField.Heal, amount: hp(0) }, MAX);
+    expect(after.dying).toBe(Dying.parse(2));
+  });
+
+  test('healing a dead character restores Hit Points but not life', () => {
+    const dead: PlayState = { ...state(20), dying: Dying.parse(4), dead: true };
+    const after = applyPlayCommand(dead, { field: PlayCommandField.Heal, amount: hp(6) }, MAX);
+    expect(after.dead).toBe(true);
+    expect(after.dying).toBe(Dying.parse(4));
+  });
+
+  test('setting Hit Points to 0 is a drop to 0, and setting them above 0 ends dying', () => {
+    const down = applyPlayCommand(state(0), { field: PlayCommandField.SetHp, current: hp(0) }, MAX);
+    expect(down.dying).toBe(Dying.parse(1));
+    const up = applyPlayCommand(
+      { ...state(20), dying: Dying.parse(1) },
+      { field: PlayCommandField.SetHp, current: hp(5) },
+      MAX,
+    );
+    expect(up.dying).toBe(Dying.parse(0));
+    expect(up.wounded).toBe(Wounded.parse(1));
+  });
+
+  test('a recovery check moves dying by its degree', () => {
+    const after = applyPlayCommand(
+      dyingState(2),
+      { field: PlayCommandField.RecoveryCheck, degree: DegreeOfSuccess.Failure },
+      MAX,
+    );
+    expect(after.dying).toBe(Dying.parse(3));
+  });
+
+  test('the death track edits set their condition', () => {
+    const doomed = applyPlayCommand(dyingState(0), { field: PlayCommandField.SetDoomed, doomed: Doomed.parse(2) }, MAX);
+    expect(doomed.doomed).toBe(Doomed.parse(2));
+    const wounded = applyPlayCommand(doomed, { field: PlayCommandField.SetWounded, wounded: Wounded.parse(1) }, MAX);
+    expect(wounded.wounded).toBe(Wounded.parse(1));
+    const set = applyPlayCommand(wounded, { field: PlayCommandField.SetDying, dying: Dying.parse(2) }, MAX);
+    expect(set.dead).toBe(true);
+  });
+
+  test('stored play state from before the death track reads as no conditions', () => {
+    expect(PlayStateSchema.parse({ hp: { damage: 3, temp: 0 } })).toStrictEqual({
+      ...FRESH_PLAY,
+      hp: { damage: hp(3), temp: hp(0) },
+    });
   });
 });

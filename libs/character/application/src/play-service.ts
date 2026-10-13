@@ -3,10 +3,9 @@ import {
   characterStatisticInputs,
   characterStatistics,
   maxHitPoints,
+  needsMaxHitPoints,
   PLAY_COMMANDS,
-  PlayCommandField,
   slotContent,
-  withTempHitPoints,
 } from '@pioneer/character/domain';
 import type {
   Character,
@@ -16,12 +15,16 @@ import type {
   PlayCommand,
   PlayState,
 } from '@pioneer/character/domain';
-import type { ContentSource, HitPoints } from '@pioneer/rules/sdk';
+import { HitPoints } from '@pioneer/rules/sdk';
+import type { ContentSource } from '@pioneer/rules/sdk';
 import { message, NotFoundError, ValidationError, VersionConflictError } from '@pioneer/shared/kernel';
 import type { Clock, UserId } from '@pioneer/shared/kernel';
 
 import { mayAccessCharacter } from './character-policy';
 import type { CharacterRepository } from './character-repository';
+
+/** The maximum handed to edits that don't read it, so none has to be derived for them. */
+const NO_MAX_HIT_POINTS = HitPoints.parse(0);
 
 /**
  * A character's play state (#343): read and edited apart from its build, with its own revision, so a play edit never
@@ -68,12 +71,9 @@ export class PlayService {
     });
   }
 
-  /** Temporary Hit Points need no maximum, so a character without one can still gain them. */
+  /** Temporary Hit Points and the death track need no maximum, so a character without one can still use them. */
   async #applied(character: Character, play: PlayState, command: PlayCommand): Promise<PlayState> {
-    if (command.field === PlayCommandField.SetTempHp) {
-      return withTempHitPoints(play, command.temp);
-    }
-    const max = await this.#maxHitPoints(character);
+    const max = needsMaxHitPoints(command) ? await this.#maxHitPoints(character) : NO_MAX_HIT_POINTS;
     return applyPlayCommand(play, command, max);
   }
 

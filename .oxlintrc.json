@@ -263,7 +263,13 @@
           { "sourceTag": "scope:content", "onlyDependOnLibsWithTags": ["scope:rules"] },
           {
             "sourceTag": "scope:character",
-            "onlyDependOnLibsWithTags": ["scope:character", "scope:interop", "scope:rules", "scope:shared"]
+            "onlyDependOnLibsWithTags": [
+              "scope:character",
+              "scope:interop",
+              "scope:play",
+              "scope:rules",
+              "scope:shared"
+            ]
           },
           // Interop reads other tools' files into a character's terms; the character feature calls it.
           {

@@ -1,8 +1,22 @@
 import { DamageApplication, DamageTotal } from '@pioneer/rules/dice';
-import { HitPoints } from '@pioneer/rules/sdk';
+import { DegreeOfSuccessSchema, HitPoints } from '@pioneer/rules/sdk';
 import { Uuid, Version } from '@pioneer/shared/kernel';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
+
+import {
+  afterRecoveryCheck,
+  DeathTrackSchema,
+  Doomed,
+  Dying,
+  knockedOut,
+  recovered,
+  withDoomed,
+  withDying,
+  withWounded,
+  Wounded,
+} from './death-track';
+import type { DeathTrack } from './death-track';
 
 const NONE = HitPoints.parse(0);
 
@@ -24,9 +38,13 @@ export const HitPointsStateSchema = z.strictObject({
 });
 export type HitPointsState = z.infer<typeof HitPointsStateSchema>;
 
-/** A character's play state: what changes at the table, apart from the build (character-model.md, `PlayState`). */
+/**
+ * A character's play state: what changes at the table, apart from the build (character-model.md, `PlayState`). The
+ * death track (`dying`, `wounded`, `doomed`, `dead`) sits beside Hit Points.
+ */
 export const PlayStateSchema = z.strictObject({
   hp: HitPointsStateSchema.default({ damage: NONE, temp: NONE }),
+  ...DeathTrackSchema.shape,
 });
 export type PlayState = z.infer<typeof PlayStateSchema>;
 
@@ -42,6 +60,12 @@ export const PlayCommandField = {
   SetHp: 'setHp',
   /** Temporary Hit Points gained: they don't stack, so the higher of the two is kept. */
   SetTempHp: 'setTempHp',
+  /** A flat check against DC 10 plus dying, rolled from the sheet; its degree moves the dying value. */
+  RecoveryCheck: 'recoveryCheck',
+  /** The three conditions set outright, as when correcting a mistake or taking doomed from an effect. */
+  SetDying: 'setDying',
+  SetWounded: 'setWounded',
+  SetDoomed: 'setDoomed',
 } as const;
 export type PlayCommandField = ValueOf<typeof PlayCommandField>;
 
@@ -50,6 +74,10 @@ export const PlayCommandSchema = z.discriminatedUnion('field', [
   z.object({ field: z.literal(PlayCommandField.Heal), amount: HitPoints }),
   z.object({ field: z.literal(PlayCommandField.SetHp), current: HitPoints }),
   z.object({ field: z.literal(PlayCommandField.SetTempHp), temp: HitPoints }),
+  z.object({ field: z.literal(PlayCommandField.RecoveryCheck), degree: DegreeOfSuccessSchema }),
+  z.object({ field: z.literal(PlayCommandField.SetDying), dying: Dying }),
+  z.object({ field: z.literal(PlayCommandField.SetWounded), wounded: Wounded }),
+  z.object({ field: z.literal(PlayCommandField.SetDoomed), doomed: Doomed }),
 ]);
 export type PlayCommand = z.infer<typeof PlayCommandSchema>;
 
@@ -92,28 +120,81 @@ export function withTempHitPoints(play: PlayState, temp: HitPoints): PlayState {
   return { ...play, hp: { ...play.hp, temp: HitPoints.parse(Math.max(play.hp.temp, temp)) } };
 }
 
+/** The death track of `play`. */
+function trackOf({ dying, wounded, doomed, dead }: PlayState): DeathTrack {
+  return { dying, wounded, doomed, dead };
+}
+
+/** `play` with its death track replaced by `track`. */
+function withTrack(play: PlayState, track: DeathTrack): PlayState {
+  return { ...play, ...track };
+}
+
+/** `play` after Hit Points moved from `before` to `after` without being damaged: coming back above 0 ends dying. */
+function afterRestoring(play: PlayState, before: HitPoints, after: HitPoints): PlayState {
+  const revived = before === NONE && after > NONE;
+  return revived ? withTrack(play, recovered(trackOf(play))) : play;
+}
+
+/** `play` after `application` of damage: temporary Hit Points take it first, and what gets through at 0 advances dying. */
+function afterDamage(play: PlayState, application: DamageApplication, max: HitPoints): PlayState {
+  const { hp } = play;
+  const { taken, critical } = application;
+  const absorbed = HitPoints.parse(Math.min(hp.temp, taken));
+  const through = DamageTotal.parse(taken - absorbed);
+  const damage = plus(atMost(hp.damage, max), through, max);
+  const hurt: PlayState = { ...play, hp: { temp: less(hp.temp, absorbed), damage } };
+  const down = through > NONE && currentHitPoints(hurt.hp, max) === NONE;
+  return down ? withTrack(hurt, knockedOut(trackOf(hurt), critical)) : hurt;
+}
+
+/** `play` after healing `amount`: Hit Points back above 0 end dying. */
+function afterHealing(play: PlayState, amount: HitPoints, max: HitPoints): PlayState {
+  const { hp } = play;
+  const healed: PlayState = { ...play, hp: { ...hp, damage: less(atMost(hp.damage, max), amount) } };
+  return afterRestoring(healed, currentHitPoints(hp, max), currentHitPoints(healed.hp, max));
+}
+
+/** `play` with Hit Points set to `current`: a drop to 0 is knocked out, a rise above it ends dying. */
+function afterSetting(play: PlayState, current: HitPoints, max: HitPoints): PlayState {
+  const { hp } = play;
+  const before = currentHitPoints(hp, max);
+  const set: PlayState = { ...play, hp: { ...hp, damage: less(max, atMost(current, max)) } };
+  const after = currentHitPoints(set.hp, max);
+  const down = before > NONE && after === NONE;
+  return down ? withTrack(set, knockedOut(trackOf(set), false)) : afterRestoring(set, before, after);
+}
+
 /**
  * `play` after `command`, against the character's maximum Hit Points. Damage is held within 0 and the maximum, so
- * current Hit Points stay within 0 and the maximum for any sequence of commands.
+ * current Hit Points stay within 0 and the maximum for any sequence of commands. Damage that takes Hit Points to 0, or
+ * gets through once they are there, advances dying; Hit Points back above 0 end it.
  */
 export function applyPlayCommand(play: PlayState, command: PlayCommand, max: HitPoints): PlayState {
-  const { hp } = play;
-  const damage = atMost(hp.damage, max);
   switch (command.field) {
     case PlayCommandField.Damage: {
-      const { taken } = command.damage;
-      const absorbed = HitPoints.parse(Math.min(hp.temp, taken));
-      const through = DamageTotal.parse(taken - absorbed);
-      return { ...play, hp: { temp: less(hp.temp, absorbed), damage: plus(damage, through, max) } };
+      return afterDamage(play, command.damage, max);
     }
     case PlayCommandField.Heal: {
-      return { ...play, hp: { ...hp, damage: less(damage, command.amount) } };
+      return afterHealing(play, command.amount, max);
     }
     case PlayCommandField.SetHp: {
-      return { ...play, hp: { ...hp, damage: less(max, atMost(command.current, max)) } };
+      return afterSetting(play, command.current, max);
     }
     case PlayCommandField.SetTempHp: {
       return withTempHitPoints(play, command.temp);
+    }
+    case PlayCommandField.RecoveryCheck: {
+      return withTrack(play, afterRecoveryCheck(trackOf(play), command.degree));
+    }
+    case PlayCommandField.SetDying: {
+      return withTrack(play, withDying(trackOf(play), command.dying));
+    }
+    case PlayCommandField.SetWounded: {
+      return withTrack(play, withWounded(trackOf(play), command.wounded));
+    }
+    case PlayCommandField.SetDoomed: {
+      return withTrack(play, withDoomed(trackOf(play), command.doomed));
     }
     default: {
       return command satisfies never;
@@ -132,4 +213,25 @@ export function untypedDamage(amount: HitPoints): DamageApplication {
     taken: total,
     persistentTaken: none,
   };
+}
+
+/** Whether `command` reads or moves Hit Points, and so needs the maximum the engine derives. Temp Hit Points and the death track don't. */
+export function needsMaxHitPoints(command: PlayCommand): boolean {
+  switch (command.field) {
+    case PlayCommandField.Damage:
+    case PlayCommandField.Heal:
+    case PlayCommandField.SetHp: {
+      return true;
+    }
+    case PlayCommandField.SetTempHp:
+    case PlayCommandField.RecoveryCheck:
+    case PlayCommandField.SetDying:
+    case PlayCommandField.SetWounded:
+    case PlayCommandField.SetDoomed: {
+      return false;
+    }
+    default: {
+      return command satisfies never;
+    }
+  }
 }

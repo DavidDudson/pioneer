@@ -1,5 +1,6 @@
 import type { Routes } from '@angular/router';
 import { SheetMode } from '@pioneer/character/domain';
+import { rollCardMessages } from '@pioneer/play/feature';
 import { engineMessages } from '@pioneer/rules/engine';
 import { formulaMessages } from '@pioneer/rules/formula';
 import { predicateMessages } from '@pioneer/rules/predicate';
@@ -12,7 +13,7 @@ import { CharacterStore } from './data/character-store';
 /**
  * Lazy routes for the character bounded context. The sheet renders engine output, so rules text from `rules/sdk`,
  * `rules/formula`, `rules/predicate` and `rules/engine` loads as their own `rules`, `formula`, `predicate` and
- * `engine` scopes.
+ * `engine` scopes; the recovery check's roll card adds the `play` and `dice` ones.
  */
 export const characterRoutes: Routes = [
   {
@@ -20,6 +21,7 @@ export const characterRoutes: Routes = [
     providers: [
       CharacterStore,
       provideMessageScope('character', { [Locale.English]: async () => import('../i18n/en.json') }),
+      ...rollCardMessages,
       provideMessageScope('rules', { [Locale.English]: async () => rulesMessages.rules }),
       provideMessageScope('formula', { [Locale.English]: async () => formulaMessages.formula }),
       provideMessageScope('predicate', { [Locale.English]: async () => predicateMessages.predicate }),
