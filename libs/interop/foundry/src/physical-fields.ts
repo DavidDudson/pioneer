@@ -5,6 +5,7 @@ import * as z from 'zod';
 import { KindDataGapReason, report } from './kind-data-gaps';
 import type { GapLog, KindInput } from './kind-data-gaps';
 import { boundedRecord, FOUNDRY_SIZES, setFields } from './kind-fields';
+import { activationsOf } from './translate-activations';
 
 /**
  * The fields every Foundry physical item has (content-model.md, "Equipment data"): its price in coins, its Bulk, size,
@@ -29,6 +30,8 @@ export const PHYSICAL_FIELDS: readonly string[] = [
 
 const FIELD_MAX = 64;
 const USAGE_MAX = 200;
+/** Ten times the longest description at `pf2e-8.6.0`, as in `foundry-document.ts`. */
+const DESCRIPTION_MAX = 100_000;
 
 const FoundryPrice = z.looseObject({
   value: boundedRecord(z.number()).default({}),
@@ -56,6 +59,7 @@ export const FoundryPhysicalSystem = z.looseObject({
     .looseObject({ type: z.string().max(FIELD_MAX).nullish(), grade: z.string().max(FIELD_MAX).nullish() })
     .nullish(),
   usage: z.looseObject({ value: z.string().max(USAGE_MAX).nullish() }).nullish(),
+  description: z.looseObject({ value: z.string().max(DESCRIPTION_MAX).nullish() }).nullish(),
 });
 export type FoundryPhysicalSystem = z.infer<typeof FoundryPhysicalSystem>;
 
@@ -119,7 +123,8 @@ export function stackSize(group: string | undefined): number | undefined {
  * not map, as every physical kind has one. Medium size, no hardness and no Hit Points are Foundry's defaults and say
  * nothing.
  */
-export function physicalData(system: FoundryPhysicalSystem, { log }: KindInput, bulkPer?: number): object | undefined {
+export function physicalData(system: FoundryPhysicalSystem, input: KindInput, bulkPer?: number): object | undefined {
+  const { log, document } = input;
   const value = system.bulk?.value ?? 0;
   const bulk = bulkOf(value);
   if (bulk === undefined) {
@@ -136,6 +141,7 @@ export function physicalData(system: FoundryPhysicalSystem, { log }: KindInput, 
       hitPoints: (system.hp?.max ?? 0) > 0 ? system.hp?.max : undefined,
       material: materialOf(system.material),
     }),
+    ...activationsOf(system.description?.value ?? '', document.name, log),
   };
 }
 

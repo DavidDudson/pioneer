@@ -2,6 +2,7 @@ import type { ValueOf } from '@pioneer/shared/kernel';
 import { issueParams, message, Pg } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
+import { Activations } from './activation';
 import { Slug } from './content-id';
 import { RulesMessage } from './messages';
 import { SizeSchema } from './size';
@@ -69,6 +70,8 @@ export const physicalFields = {
   hardness: Hardness.optional(),
   hitPoints: HitPoints.optional(),
   material: Material.optional(),
+  /** The ways to activate it that are limited by a frequency; its play state is the uses spent on each. */
+  activations: Activations.optional(),
 };
 
 /** How an item is used, Foundry pf2e's `usage` split into its parts. */

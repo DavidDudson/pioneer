@@ -10,6 +10,7 @@ import {
   conditionProblem,
   isConditionCommand,
   conditionValued,
+  itemActivations,
   maxHitPoints,
   needsConditionContent,
   needsMaxHitPoints,
@@ -126,7 +127,10 @@ export class PlayService {
   async #counted(character: Character): Promise<CountedMaxima> {
     const registry = await this.#content.registry();
     const grants = characterGrants(character.document, slotContent(registry));
-    return characterCounted(grants, abilityFrequencies(registry));
+    return characterCounted(grants, abilityFrequencies(registry), {
+      items: character.document.inventory.items,
+      activations: itemActivations(registry),
+    });
   }
 
   /** Which conditions the server's content has, and which carry a value. */

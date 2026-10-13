@@ -96,6 +96,16 @@
     },
     "data": {
       "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "call-upon-razmirs-benevolence",
+          "name": "Call Upon Razmir's Benevolence",
+          "frequency": {
+            "max": 1,
+            "per": "minute"
+          }
+        }
+      ],
       "usage": {
         "type": "worn",
         "slot": "mask"
@@ -329,6 +339,32 @@
     },
     "data": {
       "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "call-upon-razmirs-benevolence",
+          "name": "Call Upon Razmir's Benevolence",
+          "frequency": {
+            "max": 1,
+            "per": "minute"
+          }
+        },
+        {
+          "slug": "call-upon-razmirs-mercy",
+          "name": "Call Upon Razmir's Mercy",
+          "frequency": {
+            "max": 3,
+            "per": "day"
+          }
+        },
+        {
+          "slug": "call-upon-razmirs-wrath",
+          "name": "Call Upon Razmir's Wrath",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
       "usage": {
         "type": "worn",
         "slot": "mask"
@@ -618,6 +654,40 @@
     },
     "data": {
       "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "call-upon-razmirs-benevolence",
+          "name": "Call Upon Razmir's Benevolence",
+          "frequency": {
+            "max": 1,
+            "per": "minute"
+          }
+        },
+        {
+          "slug": "call-upon-razmirs-mercy",
+          "name": "Call Upon Razmir's Mercy",
+          "frequency": {
+            "max": 3,
+            "per": "day"
+          }
+        },
+        {
+          "slug": "call-upon-razmirs-wrath",
+          "name": "Call Upon Razmir's Wrath",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        },
+        {
+          "slug": "power-of-the-living-god",
+          "name": "Power of the Living God",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
       "usage": {
         "type": "worn",
         "slot": "mask"
@@ -796,6 +866,24 @@
     },
     "data": {
       "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "call-upon-razmirs-benevolence",
+          "name": "Call Upon Razmir's Benevolence",
+          "frequency": {
+            "max": 1,
+            "per": "minute"
+          }
+        },
+        {
+          "slug": "call-upon-razmirs-mercy",
+          "name": "Call Upon Razmir's Mercy",
+          "frequency": {
+            "max": 3,
+            "per": "day"
+          }
+        }
+      ],
       "usage": {
         "type": "worn",
         "slot": "mask"

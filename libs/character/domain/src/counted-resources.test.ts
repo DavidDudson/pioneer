@@ -1,10 +1,22 @@
 import { describe, expect, test } from 'bun:test';
 
 import type { SpellcastingInPlay } from '@pioneer/rules/engine';
-import { ContentId, FrequencyPeriod, HitPoints, RuleSlug, Slug, SlotCount, SpellRank } from '@pioneer/rules/sdk';
-import type { Frequency, Uses } from '@pioneer/rules/sdk';
+import {
+  ActivationName,
+  ContentId,
+  FrequencyPeriod,
+  HitPoints,
+  RuleSlug,
+  Slug,
+  SlotCount,
+  SpellRank,
+} from '@pioneer/rules/sdk';
+import type { Activation, Frequency, Uses } from '@pioneer/rules/sdk';
 
 import {
+  abilityUseKey,
+  activationMaxima,
+  activationUseKey,
   Boundary,
   frequencyBoundary,
   heldCount,
@@ -14,6 +26,8 @@ import {
   useMaxima,
 } from './counted-resources';
 import type { CountedMaxima } from './counted-resources';
+import { InventoryItemId, InventoryItemSchema } from './inventory';
+import type { InventoryItem } from './inventory';
 import { FRESH_PLAY, PlayCommandField, applyPlayCommand } from './play-state';
 import type { PlayCommand, PlayState } from './play-state';
 import { ResourceCount } from './resource-count';
@@ -30,6 +44,8 @@ const FIRST = SpellRank.parse(1);
 const SECOND = SpellRank.parse(2);
 const BLAST = ContentId.parse('00000000-0000-4000-8000-000000000001');
 const OTHER = ContentId.parse('00000000-0000-4000-8000-000000000002');
+const BLAST_USE = abilityUseKey(BLAST);
+const OTHER_USE = abilityUseKey(OTHER);
 
 function frequency(max: number, per: FrequencyPeriod): Frequency {
   return { max: max as Uses, per };
@@ -77,8 +93,8 @@ describe('slot maxima', () => {
 
 describe('use maxima', () => {
   test('only abilities with a frequency are counted, with the frequency as the maximum', () => {
-    expect([...COUNTED.uses.keys()]).toStrictEqual([BLAST]);
-    expect(COUNTED.uses.get(BLAST)?.max).toBe(count(2));
+    expect([...COUNTED.uses.keys()]).toStrictEqual([BLAST_USE]);
+    expect(COUNTED.uses.get(BLAST_USE)?.max).toBe(count(2));
   });
 
   test('a frequency names the boundary its uses come back on', () => {
@@ -123,11 +139,11 @@ describe('spending slots and uses', () => {
   });
 
   test('uses are spent and refunded the same way, and one without a frequency is refused', () => {
-    const spent = applied(FRESH_PLAY, { field: PlayCommandField.SpendUse, use: BLAST });
-    expect(spent.resources.uses[BLAST]).toBe(count(1));
-    const refunded = applied(spent, { field: PlayCommandField.RefundUse, use: BLAST });
-    expect(refunded.resources.uses[BLAST]).toBe(count(0));
-    expect(applied(FRESH_PLAY, { field: PlayCommandField.SpendUse, use: OTHER })).toStrictEqual(FRESH_PLAY);
+    const spent = applied(FRESH_PLAY, { field: PlayCommandField.SpendUse, use: BLAST_USE });
+    expect(spent.resources.uses[BLAST_USE]).toBe(count(1));
+    const refunded = applied(spent, { field: PlayCommandField.RefundUse, use: BLAST_USE });
+    expect(refunded.resources.uses[BLAST_USE]).toBe(count(0));
+    expect(applied(FRESH_PLAY, { field: PlayCommandField.SpendUse, use: OTHER_USE })).toStrictEqual(FRESH_PLAY);
   });
 
   test('with no slots or uses given, nothing is spent', () => {
@@ -137,5 +153,59 @@ describe('spending slots and uses', () => {
       within(HP, undefined, NO_COUNTED),
     );
     expect(next).toStrictEqual(FRESH_PLAY);
+  });
+});
+
+function line(id: InventoryItemId, item: ContentId, quantity: number): InventoryItem {
+  return InventoryItemSchema.parse({ id, item, quantity });
+}
+
+describe('activation maxima', () => {
+  const WINGED = ContentId.parse('00000000-0000-4000-8000-000000000003');
+  const PLAIN = ContentId.parse('00000000-0000-4000-8000-000000000004');
+  const SKIES = Slug.parse('take-to-the-skies');
+  const FIRST_WINGED = InventoryItemId.parse('aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa');
+  const SECOND_WINGED = InventoryItemId.parse('bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb');
+  const activations = (id: ContentId): readonly Activation[] =>
+    id === WINGED
+      ? [
+          {
+            slug: SKIES,
+            name: ActivationName.parse('Take to the Skies'),
+            frequency: frequency(1, FrequencyPeriod.Hour),
+          },
+        ]
+      : [];
+  const maxima = activationMaxima(
+    [
+      line(FIRST_WINGED, WINGED, 1),
+      line(SECOND_WINGED, WINGED, 2),
+      line(InventoryItemId.parse('cccccccc-cccc-4ccc-8ccc-cccccccccccc'), PLAIN, 1),
+    ],
+    activations,
+  );
+
+  test('each inventory line has its own uses, and an item with no activation has none', () => {
+    expect([...maxima.keys()]).toStrictEqual([
+      activationUseKey(FIRST_WINGED, SKIES),
+      activationUseKey(SECOND_WINGED, SKIES),
+    ]);
+  });
+
+  test('a line of several items has a use of each per period, on the boundary of its frequency', () => {
+    expect(maxima.get(activationUseKey(SECOND_WINGED, SKIES))).toStrictEqual({
+      max: count(2),
+      boundary: Boundary.Rest,
+    });
+  });
+
+  test('uses are spent and refunded within the maximum', () => {
+    const limits = within(HP, undefined, { slots: new Map(), uses: maxima });
+    const use = activationUseKey(FIRST_WINGED, SKIES);
+    const spent = (play: PlayState): PlayState =>
+      applyPlayCommand(play, { field: PlayCommandField.SpendUse, use }, limits);
+    expect(spent(spent(FRESH_PLAY)).resources.uses[use]).toBe(count(1));
+    const back = applyPlayCommand(spent(FRESH_PLAY), { field: PlayCommandField.RefundUse, use }, limits);
+    expect(back.resources.uses[use]).toBe(count(0));
   });
 });
