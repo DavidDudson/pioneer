@@ -19,6 +19,7 @@ import type { ElementRef } from '@angular/core';
 import { injectDebouncer } from '@tanstack/angular-pacer';
 
 import { Control } from '../control';
+import { injectOptionVirtualizer, optionOffset } from '../option-virtualizer';
 import { SEARCH_DEBOUNCE } from '../search-input/search-input.component';
 import type { SelectOption } from '../select/select.component';
 import { ComboboxStatus } from './combobox-status.component';
@@ -29,7 +30,6 @@ import {
   comboboxOptionDescriptionClasses,
   comboboxPopupClasses,
 } from './combobox.variants';
-import { injectOptionVirtualizer, optionOffset } from './option-virtualizer';
 
 /**
  * A combobox option: a select option that may say more under its label (why it can't be picked, what it needs), and

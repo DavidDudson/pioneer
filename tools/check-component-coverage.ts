@@ -27,6 +27,16 @@ const EXEMPTIONS: Readonly<Record<string, Exemption>> = {
     spec: 'controls/combobox/combobox.component.spec.ts',
     story: 'controls/combobox/combobox.stories.ts',
   },
+  'controls/picker/picker-grid.component.ts': {
+    reason: "The open panel of fr-picker: its header and virtualised rows, driven by the picker's search box.",
+    spec: 'controls/picker/picker.component.spec.ts',
+    story: 'controls/picker/picker.stories.ts',
+  },
+  'controls/picker/picker-row.component.ts': {
+    reason: "One row of fr-picker's grid; its cells only work inside the grid.",
+    spec: 'controls/picker/picker.component.spec.ts',
+    story: 'controls/picker/picker.stories.ts',
+  },
   'data/table/header-cell/header-cell.component.ts': {
     reason: 'Only renders inside a table header.',
     story: 'data/table/table.stories.ts',

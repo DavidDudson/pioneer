@@ -1,0 +1,54 @@
+<button
+  type="button"
+  aria-haspopup="grid"
+  [class]="triggerClasses"
+  [attr.id]="id() ?? null"
+  [disabled]="disabled()"
+  [attr.aria-expanded]="expanded()"
+  [attr.aria-controls]="expanded() ? panelId : null"
+  [attr.aria-label]="ariaLabel() ?? null"
+  [attr.aria-describedby]="describedBy() ?? null"
+  [attr.aria-invalid]="ariaInvalid() || null"
+  (click)="toggle()"
+  (keydown.escape)="cancel()"
+>
+  <span [class]="labelClasses()">{{ triggerLabel() ?? ('frontier.picker.placeholder' | transloco) }}</span>
+  <fr-icon [icon]="CaretIcon" />
+</button>
+
+@if (expanded()) {
+  <div [attr.id]="panelId" [class]="panelClasses" (mousedown)="keepFocus($event)">
+    <div [class]="searchClasses">
+      <input
+        #search
+        #combobox="ngCombobox"
+        ngCombobox
+        alwaysExpanded
+        type="text"
+        autocomplete="off"
+        [class]="searchInputClasses"
+        [attr.aria-label]="'frontier.picker.search' | transloco"
+        [value]="query()"
+        (valueChange)="type($event)"
+        (keydown.escape)="cancel()"
+      />
+    </div>
+    <ng-template ngComboboxPopup popupType="grid" [combobox]="combobox">
+      <fr-picker-grid
+        [headers]="headers()"
+        [rows]="bodyRows()"
+        [value]="value()"
+        [reasonOf]="rowDisabled()"
+        [loading]="loading()"
+        [loadingMore]="loadingMore()"
+        [hasMore]="hasMore()"
+        [ariaLabel]="ariaLabel()"
+        [labelledBy]="labelledBy()"
+        [generation]="generation()"
+        (picked)="pick($event)"
+        (loadMore)="loadMore.emit()"
+        (dismissed)="cancel()"
+      />
+    </ng-template>
+  </div>
+}

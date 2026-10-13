@@ -1,0 +1,44 @@
+<div #scroller [class]="scrollerClasses">
+  <!-- Inline styles: the virtualizer measures rows at runtime, so the body's height can't be a token. -->
+  <!-- eslint-disable pioneer/no-template-styling, @angular-eslint/template/no-inline-styles -- runtime-measured body height -->
+  <div
+    #grid="ngGrid"
+    ngGrid
+    ngComboboxWidget
+    enableSelection
+    multi
+    focusMode="activedescendant"
+    selectionMode="explicit"
+    [activeDescendant]="grid.activeDescendant()"
+    [class]="gridClasses"
+    [attr.aria-label]="ariaLabel() ?? null"
+    [attr.aria-labelledby]="labelledBy() ?? null"
+    [attr.aria-busy]="busy() || null"
+    [attr.aria-rowcount]="rowCount()"
+  >
+    <div role="row" aria-rowindex="1" [class]="headerRowClasses">
+      @for (header of headers(); track header.id) {
+        <div role="columnheader" [class]="headerClasses(header)" [attr.aria-sort]="ariaSort(header) ?? null">
+          <fr-table-header-cell [header]="header" (keydown.escape)="dismissed.emit()" />
+        </div>
+      }
+    </div>
+    <div [class]="bodyClasses" [style.height.px]="totalSize()">
+      @for (virtualRow of visibleRows(); track virtualRow.key) {
+        @if (rowAt(virtualRow.index); as row) {
+          <fr-picker-row
+            [row]="row"
+            [rowIndex]="virtualRow.index + 1 + headerRowCount"
+            [offset]="translate(virtualRow)"
+            [picked]="row.id === value()"
+            [reason]="reasonFor(row)"
+            [attr.data-index]="virtualRow.index"
+            (chosen)="picked.emit(row)"
+          />
+        }
+      }
+    </div>
+  </div>
+  <!-- eslint-enable pioneer/no-template-styling, @angular-eslint/template/no-inline-styles -->
+  <fr-combobox-status [loading]="busy()" [empty]="empty()" />
+</div>

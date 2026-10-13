@@ -25,6 +25,10 @@
   --fr-size-control-md: 2.5rem;
   --fr-size-control-lg: 3rem;
   --fr-size-listbox: 16rem;
+  --fr-size-picker: 24rem;
+  --fr-size-column-sm: 6rem;
+  --fr-size-column-md: 12rem;
+  --fr-size-column-lg: 20rem;
   --fr-size-placeholder-md: 8rem;
   --fr-size-placeholder-lg: 14rem;
   --fr-size-item-sm: 10rem;
