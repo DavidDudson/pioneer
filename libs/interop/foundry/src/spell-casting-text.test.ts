@@ -190,6 +190,10 @@ describe('ritual checks', () => {
       [{ skills: ['skill:nature', 'skill:occultism', 'skill:religion'], pick: 'primary-used' }],
     ],
     [
+      'Arcana, Nature, Occultism or Religion (whichever is used for the primary check)',
+      [{ skills: ['skill:arcana', 'skill:nature', 'skill:occultism', 'skill:religion'], pick: 'primary-used' }],
+    ],
+    [
       "Occultism or Religion (whichever isn't used for the primary check)",
       [{ skills: ['skill:occultism', 'skill:religion'], pick: 'primary-unused' }],
     ],
@@ -206,6 +210,7 @@ describe('ritual checks', () => {
 
   test.each([
     'Lore (sometimes), Society',
+    'Lore (any), Society, Nature or Religion (whichever is used for the primary check)',
     'Religion (you must be a demon)',
     "Nature (whichever is used for the primary check) or Religion (whichever isn't used for the primary check)",
   ])('secondary %p does not map', (text) => {

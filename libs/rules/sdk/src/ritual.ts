@@ -1,7 +1,8 @@
-import { Pg } from '@pioneer/shared/kernel';
+import { issueParams, message, Pg } from '@pioneer/shared/kernel';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
+import { RulesMessage } from './messages';
 import { ProficiencySchema } from './proficiency';
 import { SkillSelector } from './selector';
 import { castingFields } from './spell-casting';
@@ -39,7 +40,7 @@ const LoreRelatedTo = z.string().min(1).max(LORE_TOPIC_MAX).brand<'LoreRelatedTo
  * each skill its own rank where they differ, in place of `proficiency`. `dc` is the check's own DC; `pick` is how its
  * skill is chosen.
  */
-const RitualCheck = z.strictObject({
+const CheckFields = z.strictObject({
   skills: z.array(SkillSelector).min(1).max(CHECK_SKILLS_MAX).readonly().check(uniqueItems),
   proficiency: ProficiencySchema.optional(),
   ranked: z.array(RankedSkill).min(1).max(CHECK_SKILLS_MAX).readonly().optional(),
@@ -47,6 +48,19 @@ const RitualCheck = z.strictObject({
   dc: Dc.optional(),
   pick: z.enum(RitualCheckPick).optional(),
 });
+
+const RANKED = { ...issueParams(message(RulesMessage.RitualRanked)), path: ['ranked'] };
+
+/** Whether `ranked`, when there, ranks each of the check's skills once, in place of `proficiency`. */
+function isRankedWhole({ skills, ranked, proficiency }: z.infer<typeof CheckFields>): boolean {
+  if (ranked === undefined) {
+    return true;
+  }
+  const named = new Set(ranked.map(({ skill }) => skill));
+  return proficiency === undefined && named.size === skills.length && skills.every((skill) => named.has(skill));
+}
+
+const RitualCheck = CheckFields.refine(isRankedWhole, RANKED);
 
 /** The secondary casters' checks, each its own, and how many casters there are. */
 const SecondaryCasting = z.strictObject({

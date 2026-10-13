@@ -221,23 +221,28 @@ export function primaryCheckOf(text: string): object | undefined {
   return checkOf(text.trim());
 }
 
+/** Whether a part of a comma list is a bare alternative: one skill, with no `or` and no note. */
+function isBare(part: string): boolean {
+  return !part.includes(' or ') && !part.includes('(');
+}
+
 /**
- * The checks Foundry separates by commas, with a group of alternatives that ends in a note ("Nature, Occultism or
- * Religion (whichever is used for the primary check)") kept as one check.
+ * The checks Foundry separates by commas. A group of alternatives that ends in a note ("Nature, Occultism or Religion
+ * (whichever is used for the primary check)") is one check, with every bare alternative before its "or". Where other
+ * checks come before the group, its start is a guess, so the list is undefined.
  */
-function commaChecks(text: string): string[] {
-  const checks: string[] = [];
-  for (const part of text.split(CHECKS)) {
-    const previous = checks.at(-1);
-    const joins =
-      previous !== undefined && PICK_NOTE.test(part) && !previous.includes(' or ') && !previous.includes('(');
-    if (joins) {
-      checks[checks.length - 1] = `${previous}, ${part}`;
-    } else {
-      checks.push(part);
-    }
+function commaChecks(text: string): string[] | undefined {
+  const parts = text.split(CHECKS);
+  const noted = parts.findIndex((part) => PICK_NOTE.test(part) && part.includes(' or '));
+  if (noted === -1) {
+    return parts;
   }
-  return checks;
+  let start = noted;
+  while (start > 0 && isBare(parts[start - 1] ?? '')) {
+    start -= 1;
+  }
+  const group = parts.slice(start, noted + 1).join(', ');
+  return start > 0 && start < noted ? undefined : [...parts.slice(0, start), group, ...parts.slice(noted + 1)];
 }
 
 /** The secondary checks, each its own; blank text is none. */
@@ -247,6 +252,9 @@ export function secondaryChecksOf(text: string): object[] | undefined {
     return [];
   }
   const parts = value.includes(';') ? value.split(CHECKS_SEMICOLON) : commaChecks(value);
+  if (parts === undefined) {
+    return undefined;
+  }
   const checks = parts.flatMap((part) => checkOf(part.trim()) ?? []);
   return checks.length < parts.length ? undefined : checks;
 }

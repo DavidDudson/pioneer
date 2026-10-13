@@ -78,6 +78,19 @@ const heroism = {
   data: { category: 'spell', duration: { type: 'time', count: 10, unit: 'minute', expiry: 'turn-start' } },
 };
 
+const RANKED = [
+  { skill: 'skill:arcana', proficiency: 'master' },
+  { skill: 'skill:religion', proficiency: 'expert' },
+];
+
+/** Consecrate with a primary check of Arcana and Religion, as `check` says. */
+function withRanks(check: object): unknown {
+  return {
+    ...consecrate,
+    data: { ...consecrate.data, primary: { skills: ['skill:arcana', 'skill:religion'], ...check } },
+  };
+}
+
 describe('ritual, tradition and effect kinds', () => {
   test.each([
     ['a ritual', consecrate],
@@ -108,6 +121,18 @@ describe('ritual, tradition and effect kinds', () => {
     expect(found({ ...arcane, data: { skill: 'perception' } })).toStrictEqual([
       `data.skill ${RulesMessage.SkillSelector}`,
     ]);
+  });
+
+  test('a check with a rank for each skill names every skill once and has no single proficiency', () => {
+    const [arcana, religion] = RANKED;
+    const nature = { skill: 'skill:nature', proficiency: 'expert' };
+    const rejected = [`data.primary.ranked ${RulesMessage.RitualRanked}`];
+
+    expect(found(withRanks({ ranked: RANKED }))).toStrictEqual([]);
+    expect(found(withRanks({ ranked: [arcana] }))).toStrictEqual(rejected);
+    expect(found(withRanks({ ranked: [arcana, arcana] }))).toStrictEqual(rejected);
+    expect(found(withRanks({ ranked: [arcana, nature] }))).toStrictEqual(rejected);
+    expect(found(withRanks({ ranked: [arcana, religion], proficiency: 'expert' }))).toStrictEqual(rejected);
   });
 
   test('a counter badge starts between its bounds', () => {

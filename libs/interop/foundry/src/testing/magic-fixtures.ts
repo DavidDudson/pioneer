@@ -76,7 +76,7 @@ export const CONSECRATE = spell('vEkM4Ii8DCoEbRqm', 'Consecrate', {
 });
 
 /** A ritual whose checks use every condition: a pick by tradition, by the primary check, any Lore, and a topic. */
-export const CALLING = spell('cAlL000000000001', 'Calling', {
+const CALLING = spell('cAlL000000000001', 'Calling', {
   level: { value: 4 },
   time: { value: '1 day' },
   range: { value: '30 feet' },
@@ -96,7 +96,7 @@ export const CALLING = spell('cAlL000000000001', 'Calling', {
 });
 
 /** A ritual whose primary check has a DC of its own and skills of different ranks. */
-export const WARDING = spell('wArD000000000001', 'Warding', {
+const WARDING = spell('wArD000000000001', 'Warding', {
   level: { value: 3 },
   time: { value: '1 hour' },
   duration: { sustained: false, value: 'unlimited' },
