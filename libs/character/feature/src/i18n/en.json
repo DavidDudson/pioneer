@@ -24,7 +24,8 @@
     "creating": "Creating",
     "created": "Created",
     "createFailed": "Could not create the character. Try again.",
-    "import": "Import from Pathbuilder"
+    "import": "Import from Pathbuilder",
+    "importPioneer": "Import from Pioneer JSON"
   },
   "sheet": {
     "identityHeading": "Identity",
@@ -398,6 +399,57 @@
       "notCarried": "Characters can't hold these yet, so they weren't kept: {fields}.",
       "groupSummary": "{kind} · {count, number} not carried over",
       "allMatched": "Every name matched content you have loaded."
+    },
+    "pioneer": {
+      "title": "Import from Pioneer JSON",
+      "description": "Choose a Pioneer character file, or paste its text, to see the character it makes and what in it is not in your loaded content. Nothing is created until you say so.",
+      "choose": "Choose a file",
+      "fileLabel": "Pioneer character file (JSON)",
+      "filePlaceholder": "Paste the text of a .pioneer.json file",
+      "problem": {
+        "malformed": "This isn't a Pioneer character file. Choose the .pioneer.json file Export as JSON saved, or paste all of its text.",
+        "newerFormat": "This file was saved by a newer Pioneer than this one, so it cannot be read here yet. Update Pioneer and try again.",
+        "newerCharacter": "This character was saved by a newer Pioneer than this one, so it cannot be read here yet. Update Pioneer and try again.",
+        "invalidCharacter": "This is a Pioneer file, but its character is not valid, so nothing can be imported from it."
+      },
+      "failed": "Could not read or create the character from this file. Try again.",
+      "allFound": "Everything this character uses is in your loaded content.",
+      "unmatchedSummary": "{count, plural, one {# thing} other {# things}} in this file {count, plural, one {is} other {are}} not in your loaded content. The character keeps {count, plural, one {it} other {them}} and they work again once a pack with them is loaded.",
+      "groupSummary": "{kind} · {count, number} not found",
+      "cancel": "Cancel",
+      "create": "Create character",
+      "kind": {
+        "action": "Actions",
+        "ancestry": "Ancestries",
+        "ancestryFeature": "Ancestry features",
+        "archetype": "Archetypes",
+        "armor": "Armor",
+        "background": "Backgrounds",
+        "class": "Classes",
+        "classFeature": "Class features",
+        "condition": "Conditions",
+        "consumable": "Consumables",
+        "creature": "Creatures",
+        "damageType": "Damage types",
+        "deity": "Deities",
+        "effect": "Effects",
+        "equipment": "Equipment",
+        "feat": "Feats",
+        "heritage": "Heritages",
+        "kit": "Kits",
+        "language": "Languages",
+        "ritual": "Rituals",
+        "rune": "Runes",
+        "sense": "Senses",
+        "shield": "Shields",
+        "spell": "Spells",
+        "spellcastingTradition": "Spellcasting traditions",
+        "statistic": "Statistics",
+        "trait": "Traits",
+        "treasure": "Treasure",
+        "variantRule": "Variant rules",
+        "weapon": "Weapons"
+      }
     }
   }
 }

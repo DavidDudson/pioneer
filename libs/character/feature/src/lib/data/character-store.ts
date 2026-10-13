@@ -17,8 +17,8 @@ import type {
 } from '@pioneer/character/domain';
 import { PathbuilderImportContract } from '@pioneer/interop/pathbuilder';
 import type { CharacterImportReport } from '@pioneer/interop/pathbuilder';
-import { PioneerExportContract } from '@pioneer/interop/pioneer';
-import type { PioneerCharacterFile } from '@pioneer/interop/pioneer';
+import { PioneerExportContract, PioneerImportContract } from '@pioneer/interop/pioneer';
+import type { PioneerCharacterFile, PioneerImportPreview } from '@pioneer/interop/pioneer';
 import type { ChoiceValue, SlotKey } from '@pioneer/rules/sdk';
 import { ApiClient, ApiError } from '@pioneer/shared/web';
 import { injectMutation, injectQuery, QueryClient } from '@tanstack/angular-query-experimental';
@@ -188,6 +188,18 @@ export class CharacterStore {
       throw new Error('No character selected');
     }
     return this.#api.call(PioneerExportContract.export, { params: { id }, body: undefined });
+  }
+
+  /** What importing a Pioneer character file would make and what in it no loaded pack has; saves nothing. */
+  public async previewPioneerImport(raw: unknown): Promise<PioneerImportPreview> {
+    return this.#api.call(PioneerImportContract.preview, { params: {}, body: raw });
+  }
+
+  /** A new character from a Pioneer character file (`raw`, the file as read). The server reads it again. */
+  public async importPioneer(raw: unknown): Promise<Character> {
+    const character = await this.#api.call(PioneerImportContract.import, { params: {}, body: raw });
+    await this.#client.invalidateQueries({ queryKey: characterKeys.list(), refetchType: 'none' });
+    return character;
   }
 
   /** The open character's import report, until dismissed; `undefined` for one that wasn't just imported. */

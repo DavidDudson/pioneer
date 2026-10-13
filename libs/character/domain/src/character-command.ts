@@ -12,6 +12,8 @@ export const CharacterCommand = {
   ClearSlot: 'clearSlot',
   /** A character created from a Pathbuilder export, so an import reads apart from a manual create. */
   ImportPathbuilder: 'importPathbuilder',
+  /** A character created from a Pioneer character file. */
+  ImportPioneer: 'importPioneer',
   GiftItem: 'giftItem',
   BuyItem: 'buyItem',
   GiftKit: 'giftKit',

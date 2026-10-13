@@ -1,7 +1,7 @@
 import type { CharacterService } from '@pioneer/character/application';
 import { CharacterContract } from '@pioneer/character/domain';
 import { PathbuilderImportContract } from '@pioneer/interop/pathbuilder';
-import { PioneerExportContract } from '@pioneer/interop/pioneer';
+import { PioneerExportContract, PioneerImportContract } from '@pioneer/interop/pioneer';
 import { ContractRouter } from '@pioneer/shared/server';
 import type { RequestAuthenticator } from '@pioneer/shared/server';
 
@@ -23,6 +23,10 @@ export function characterRoutes(service: CharacterService, auth: RequestAuthenti
     .handleSignedIn(PioneerExportContract.export, auth, async ({ actor, params }) =>
       service.exportPioneer(actor, params.id),
     )
+    .handleSignedIn(PioneerImportContract.preview, auth, async ({ actor, body }) =>
+      service.previewPioneerImport(actor, body),
+    )
+    .handleSignedIn(PioneerImportContract.import, auth, async ({ actor, body }) => service.importPioneer(actor, body))
     .handleSignedIn(CharacterContract.patch, auth, async ({ actor, params, body }) =>
       service.patchedSheet(await service.patch(actor, params.id, body)),
     ).app;
