@@ -145,4 +145,5 @@ export const SlotInvalidMessage = {
   SpellNotInPool: 'rules.choices.invalid.spellNotInPool',
   SpellNotInRepertoire: 'rules.choices.invalid.spellNotInRepertoire',
   PrerequisitesNotMet: 'rules.choices.invalid.prerequisitesNotMet',
+  DedicationLocked: 'rules.choices.invalid.dedicationLocked',
 } as const;

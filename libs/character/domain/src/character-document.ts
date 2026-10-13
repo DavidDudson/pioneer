@@ -44,6 +44,10 @@ export const CharacterDocumentSchema = z.strictObject({
   play: PlayStateSchema.default(FRESH_PLAY),
   overrides: None.default([]),
   notes: RichText.default([]),
+  /** What the character looks like, shown on the Exploration tab (#500). */
+  appearance: RichText.default([]),
+  /** How the character acts and what they care about, shown on the Exploration tab (#500). */
+  personality: RichText.default([]),
 });
 export type CharacterDocument = z.infer<typeof CharacterDocumentSchema>;
 

@@ -1,4 +1,4 @@
-import { ChoiceValue, ContentId, SlotKey } from '@pioneer/rules/sdk';
+import { ChoiceValue, ContentId, RichText, SlotKey } from '@pioneer/rules/sdk';
 import { Version } from '@pioneer/shared/kernel';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
@@ -57,6 +57,10 @@ export const CharacterPatchField = {
   GrantSpellAccess: 'grantSpellAccess',
   /** A spell the character no longer has access to; picks of it stay, invalid. */
   RevokeSpellAccess: 'revokeSpellAccess',
+  /** What the character looks like; empty rich text clears it. */
+  SetAppearance: 'setAppearance',
+  /** How the character acts and what they care about; empty rich text clears it. */
+  SetPersonality: 'setPersonality',
 } as const;
 export type CharacterPatchField = ValueOf<typeof CharacterPatchField>;
 
@@ -104,6 +108,8 @@ export const CharacterPatchSchema = z.discriminatedUnion('field', [
   z.object({ field: z.literal(CharacterPatchField.SetCoins), coins: CoinsSchema }),
   z.object({ field: z.literal(CharacterPatchField.GrantSpellAccess), spell: ContentId }),
   z.object({ field: z.literal(CharacterPatchField.RevokeSpellAccess), spell: ContentId }),
+  z.object({ field: z.literal(CharacterPatchField.SetAppearance), value: RichText }),
+  z.object({ field: z.literal(CharacterPatchField.SetPersonality), value: RichText }),
 ]);
 export type CharacterPatch = z.infer<typeof CharacterPatchSchema>;
 
@@ -120,8 +126,14 @@ export type SpellAccessPatch = Extract<
   { readonly field: typeof CharacterPatchField.GrantSpellAccess | typeof CharacterPatchField.RevokeSpellAccess }
 >;
 
-/** The edits that change what the inventory holds, apart from how items are carried. */
-export type InventoryPatch = Exclude<
+/** The edits that write the appearance or the personality. */
+export type ProsePatch = Extract<
+  CharacterPatch,
+  { readonly field: typeof CharacterPatchField.SetAppearance | typeof CharacterPatchField.SetPersonality }
+>;
+
+/** The edits that touch no inventory item, kit, container or rune: a field, a slot, spell access or prose. */
+type UntargetedPatch = Extract<
   CharacterPatch,
   {
     readonly field:
@@ -129,14 +141,39 @@ export type InventoryPatch = Exclude<
       | typeof CharacterPatchField.Level
       | typeof CharacterPatchField.SelectSlot
       | typeof CharacterPatchField.ClearSlot
-      | typeof CharacterPatchField.CarryItem
-      | typeof CharacterPatchField.InvestItem
-      | typeof CharacterPatchField.EtchRune
-      | typeof CharacterPatchField.EraseRune
-      | typeof CharacterPatchField.TransferRune
       | typeof CharacterPatchField.GrantSpellAccess
-      | typeof CharacterPatchField.RevokeSpellAccess;
+      | typeof CharacterPatchField.RevokeSpellAccess
+      | ProsePatch['field'];
   }
+>;
+
+const UNTARGETED_FIELDS: ReadonlySet<CharacterPatchField> = new Set<UntargetedPatch['field']>([
+  CharacterPatchField.Name,
+  CharacterPatchField.Level,
+  CharacterPatchField.SelectSlot,
+  CharacterPatchField.ClearSlot,
+  CharacterPatchField.GrantSpellAccess,
+  CharacterPatchField.RevokeSpellAccess,
+  CharacterPatchField.SetAppearance,
+  CharacterPatchField.SetPersonality,
+]);
+
+function isUntargetedPatch(patch: CharacterPatch): patch is UntargetedPatch {
+  return UNTARGETED_FIELDS.has(patch.field);
+}
+
+/** The edits that change what the inventory holds, apart from how items are carried. */
+export type InventoryPatch = Exclude<
+  CharacterPatch,
+  | UntargetedPatch
+  | {
+      readonly field:
+        | typeof CharacterPatchField.CarryItem
+        | typeof CharacterPatchField.InvestItem
+        | typeof CharacterPatchField.EtchRune
+        | typeof CharacterPatchField.EraseRune
+        | typeof CharacterPatchField.TransferRune;
+    }
 >;
 
 /** The edits that add a kit's items: a gift, or a purchase. */
@@ -217,11 +254,8 @@ function runeTarget(patch: RunePatch): InventoryTarget {
   }
 }
 
-/** What `patch` touches in the inventory; undefined for an edit outside it. Coins touch no item. */
-export function inventoryTarget(patch: CharacterPatch): InventoryTarget | undefined {
-  if (isKitPatch(patch)) {
-    return { kit: patch.kit, container: patch.container };
-  }
+/** What an edit that is neither a kit nor untargeted touches in the inventory. */
+function itemTarget(patch: Exclude<CharacterPatch, KitPatch | UntargetedPatch>): InventoryTarget {
   switch (patch.field) {
     case CharacterPatchField.GiftItem:
     case CharacterPatchField.BuyItem: {
@@ -249,16 +283,16 @@ export function inventoryTarget(patch: CharacterPatch): InventoryTarget | undefi
     case CharacterPatchField.SetCoins: {
       return {};
     }
-    case CharacterPatchField.Name:
-    case CharacterPatchField.Level:
-    case CharacterPatchField.SelectSlot:
-    case CharacterPatchField.ClearSlot:
-    case CharacterPatchField.GrantSpellAccess:
-    case CharacterPatchField.RevokeSpellAccess: {
-      return undefined;
-    }
     default: {
       return patch satisfies never;
     }
   }
+}
+
+/** What `patch` touches in the inventory; undefined for an edit outside it. Coins touch no item. */
+export function inventoryTarget(patch: CharacterPatch): InventoryTarget | undefined {
+  if (isKitPatch(patch)) {
+    return { kit: patch.kit, container: patch.container };
+  }
+  return isUntargetedPatch(patch) ? undefined : itemTarget(patch);
 }

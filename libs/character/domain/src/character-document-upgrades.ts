@@ -26,6 +26,8 @@ const UPGRADES: readonly UpgradeStep[] = [
   (document) => document,
   /** 4 → 5: Hit Points in play (#343). A version 4 `play` is empty, which reads as full Hit Points. */
   (document) => document,
+  /** 5 → 6: the character's appearance and personality, rich text (#500). A version 5 document has written neither. */
+  (document) => document,
 ];
 
 /** The version a chain of steps upgrades to: one past the last step. */

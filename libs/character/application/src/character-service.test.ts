@@ -11,7 +11,8 @@ import {
 } from '@pioneer/character/domain';
 import type { CharacterPatch, PatchCharacterBody } from '@pioneer/character/domain';
 import { humanAncestryId } from '@pioneer/character/domain/testing';
-import { AncestryId, ChoiceValue, SlotKey } from '@pioneer/rules/sdk';
+import { AncestryId, BlockKind, ChoiceValue, InlineKind, RichTextString, SlotKey } from '@pioneer/rules/sdk';
+import type { RichText } from '@pioneer/rules/sdk';
 import { ContentPackBuilder, fixedContent } from '@pioneer/rules/sdk/testing';
 import {
   FIRST_VERSION,
@@ -32,6 +33,14 @@ import { InMemoryCharacterRepository } from './in-memory-character-repository';
 const kyra = CharacterName.parse('Kyra');
 const amiri = UserId.parse(newId());
 const ezren = UserId.parse(newId());
+
+/** Rich text of one plain paragraph per argument. */
+function paragraphs(...texts: readonly string[]): RichText {
+  return texts.map((text) => ({
+    type: BlockKind.Paragraph,
+    content: [{ type: InlineKind.Text, text: RichTextString.parse(text) }],
+  }));
+}
 const byName = { sort: CharacterSort.Name, direction: SortDirection.Asc } as const;
 const human = ChoiceValue.parse(humanAncestryId);
 
@@ -92,6 +101,26 @@ describe('CharacterService', () => {
       { actor: amiri, command: CharacterCommand.ClearSlot },
       { actor: amiri, command: CharacterCommand.SetLevel },
       { actor: amiri, command: CharacterCommand.SelectSlot },
+    ]);
+  });
+
+  test('writing appearance and personality is audited by name and saved', async () => {
+    const created = await service.create(amiri, { name: kyra, ancestry: humanAncestryId });
+    const appearance = paragraphs('Tall, with a scar over the left eye.');
+    const personality = paragraphs('Dry humour.', 'Loyal to a fault.');
+    const first = await service.patch(amiri, created.id, {
+      expectedVersion: FIRST_VERSION,
+      patch: { field: CharacterPatchField.SetAppearance, value: appearance },
+    });
+    const second = await service.patch(amiri, created.id, {
+      expectedVersion: first.character.version,
+      patch: { field: CharacterPatchField.SetPersonality, value: personality },
+    });
+    expect(second.character.document.appearance).toStrictEqual(appearance);
+    expect(second.character.document.personality).toStrictEqual(personality);
+    expect(repository.audits.slice(1)).toStrictEqual([
+      { actor: amiri, command: CharacterCommand.SetAppearance },
+      { actor: amiri, command: CharacterCommand.SetPersonality },
     ]);
   });
 

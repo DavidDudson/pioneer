@@ -188,6 +188,7 @@ function skillStatuses(document: CharacterDocument, content: SlotContent): Chara
 const FEAT_PROBLEMS: Readonly<Record<FeatPickProblem, string>> = {
   [FeatPickProblem.TooHigh]: SlotInvalidMessage.NotOffered,
   [FeatPickProblem.Prerequisites]: SlotInvalidMessage.PrerequisitesNotMet,
+  [FeatPickProblem.DedicationLocked]: SlotInvalidMessage.DedicationLocked,
 };
 
 /**

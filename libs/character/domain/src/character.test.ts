@@ -1,6 +1,18 @@
 import { describe, expect, test } from 'bun:test';
 
-import { AncestryId, ChoiceValue, contentId, CopperValue, EntrySlug, PackId, SlotKey } from '@pioneer/rules/sdk';
+import {
+  AncestryId,
+  BlockKind,
+  ChoiceValue,
+  contentId,
+  CopperValue,
+  EntrySlug,
+  InlineKind,
+  PackId,
+  RichTextString,
+  SlotKey,
+} from '@pioneer/rules/sdk';
+import type { RichText } from '@pioneer/rules/sdk';
 import { fixedClock, FixtureNamespace, derivedId } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
@@ -14,6 +26,9 @@ import { CharacterBuilder, humanAncestryId, ItemFixture, itemFixtureId, KitFixtu
 
 const later = fixedClock('2026-10-07T10:00:00Z').now();
 const featSlot = SlotKey.parse('feat:class:2');
+const WRITTEN: RichText = [
+  { type: BlockKind.Paragraph, content: [{ type: InlineKind.Text, text: RichTextString.parse('Scarred.') }] },
+];
 
 describe('Character', () => {
   test('builder ids are UUIDv5 of the name, so fixtures are stable', () => {
@@ -37,6 +52,18 @@ describe('Character', () => {
     expect(renamed.name).toBe(CharacterName.parse('Seelah'));
     expect(renamed.updatedAt.equals(later)).toBe(true);
     expect(original.name).toBe(CharacterName.parse('Valeros'));
+  });
+
+  test.each([
+    [CharacterPatchField.SetAppearance, 'appearance', 'personality'],
+    [CharacterPatchField.SetPersonality, 'personality', 'appearance'],
+  ] as const)('%s writes only its own prose field, and empty rich text clears it', (field, key, other) => {
+    const original = new CharacterBuilder().build();
+    const edited = original.apply({ field, value: WRITTEN }, later);
+    expect(edited.document[key]).toStrictEqual(WRITTEN);
+    expect(edited.document[other]).toStrictEqual([]);
+    expect(original.document[key]).toStrictEqual([]);
+    expect(edited.apply({ field, value: [] }, later).document[key]).toStrictEqual([]);
   });
 
   test('stores its ancestry and boosts as slot selections, and nothing derived', () => {

@@ -37,6 +37,8 @@ export const CharacterCommand = {
   SetDying: 'setDying',
   SetWounded: 'setWounded',
   SetDoomed: 'setDoomed',
+  SetAppearance: 'setAppearance',
+  SetPersonality: 'setPersonality',
 } as const;
 export type CharacterCommand = ValueOf<typeof CharacterCommand>;
 
@@ -62,6 +64,8 @@ export const PATCH_COMMANDS = {
   [CharacterPatchField.SetCoins]: CharacterCommand.SetCoins,
   [CharacterPatchField.GrantSpellAccess]: CharacterCommand.GrantSpellAccess,
   [CharacterPatchField.RevokeSpellAccess]: CharacterCommand.RevokeSpellAccess,
+  [CharacterPatchField.SetAppearance]: CharacterCommand.SetAppearance,
+  [CharacterPatchField.SetPersonality]: CharacterCommand.SetPersonality,
 } as const satisfies Record<CharacterPatchField, CharacterCommand>;
 
 /** The command each play-state edit runs as. */

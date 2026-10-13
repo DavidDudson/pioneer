@@ -11,6 +11,7 @@ import { CHARACTER_LEVEL_MIN, CharacterLevel } from './character-fields';
 import type { CharacterId, CharacterName } from './character-fields';
 import { CharacterPatchField, isInventoryPatch } from './character-patch';
 import type { CharacterPatch, InventoryPatch, SpellAccessPatch } from './character-patch';
+import { withProse } from './character-prose';
 import { ANCESTRY_SLOT } from './character-slots';
 import {
   carryItem,
@@ -206,6 +207,10 @@ export class Character {
       case CharacterPatchField.GrantSpellAccess:
       case CharacterPatchField.RevokeSpellAccess: {
         return this.#accessChanges(patch);
+      }
+      case CharacterPatchField.SetAppearance:
+      case CharacterPatchField.SetPersonality: {
+        return { document: withProse(this.document, patch) };
       }
       default: {
         const unreachable: never = patch;

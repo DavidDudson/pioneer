@@ -30,6 +30,8 @@ describe('decodeCharacterDocument', () => {
     expect(document.play).toStrictEqual(FRESH_PLAY);
     expect(document.overrides).toStrictEqual([]);
     expect(document.notes).toStrictEqual([]);
+    expect(document.appearance).toStrictEqual([]);
+    expect(document.personality).toStrictEqual([]);
   });
 
   test('keeps choices by slot key', () => {
@@ -74,5 +76,11 @@ describe('decodeCharacterDocument', () => {
 
   test.each([...PAST_DOCUMENTS])('decodes a version %p document at the current version', (_version, stored) => {
     expect(decodeCharacterDocument(stored).schemaVersion).toBe(CURRENT_SCHEMA_VERSION);
+  });
+
+  test('upgrades a version 5 document to one with an empty appearance and personality', () => {
+    const upgraded = decodeCharacterDocument(PAST_DOCUMENTS.get(CharacterSchemaVersion.parse(5)));
+    expect(upgraded.appearance).toStrictEqual([]);
+    expect(upgraded.personality).toStrictEqual([]);
   });
 });

@@ -60,6 +60,12 @@ const VERSION_4 = {
   play: {},
 };
 
+/** Version 5, before a character had an appearance or a personality (#500): the document had neither field. */
+const VERSION_5 = {
+  ...VERSION_4,
+  schemaVersion: 5,
+};
+
 /**
  * One stored document of every past schema version, in the shape that version wrote. A new upgrade step adds the
  * shape it upgrades from; `character-document.test.ts` fails until it does.
@@ -69,4 +75,5 @@ export const PAST_DOCUMENTS: ReadonlyMap<CharacterSchemaVersion, unknown> = new 
   [CharacterSchemaVersion.parse(2), VERSION_2],
   [CharacterSchemaVersion.parse(VERSION_3.schemaVersion), VERSION_3],
   [CharacterSchemaVersion.parse(VERSION_4.schemaVersion), VERSION_4],
+  [CharacterSchemaVersion.parse(VERSION_5.schemaVersion), VERSION_5],
 ]);
