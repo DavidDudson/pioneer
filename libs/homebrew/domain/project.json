@@ -1,0 +1,7 @@
+{
+  "name": "homebrew-domain",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/homebrew/domain/src",
+  "tags": ["scope:homebrew", "type:domain", "platform:any"]
+}

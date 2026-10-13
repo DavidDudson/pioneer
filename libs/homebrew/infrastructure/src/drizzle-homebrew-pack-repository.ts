@@ -1,0 +1,117 @@
+import { HomebrewPackRepository } from '@pioneer/homebrew/application';
+import { EntryCount, HomebrewPack } from '@pioneer/homebrew/domain';
+import { contentEntries, contentHash, contentPacks } from '@pioneer/rules/infrastructure';
+import type { ContentPackFile, ContentPackId } from '@pioneer/rules/sdk';
+import { PackVisibility } from '@pioneer/rules/sdk';
+import { Temporal } from '@pioneer/shared/kernel';
+import type { UserId } from '@pioneer/shared/kernel';
+import { stampAudit } from '@pioneer/shared/server';
+import { and, count, eq, inArray, isNotNull } from 'drizzle-orm';
+import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
+
+type PackRow = typeof contentPacks.$inferSelect;
+
+/** Names the insert on the audit rows it writes, as a service use case names a command. */
+const CREATE_COMMAND = 'create-homebrew-pack';
+
+/** A pack's owner is always set for homebrew; an official row (no owner) is never read as one. */
+function toPack(row: PackRow, entryCount: EntryCount): HomebrewPack | undefined {
+  if (row.ownerId === null) {
+    return undefined;
+  }
+  return new HomebrewPack({
+    id: row.id,
+    version: row.version,
+    slug: row.slug,
+    title: row.title,
+    publisher: row.publisher,
+    ownerId: row.ownerId,
+    visibility: row.visibility,
+    entryCount,
+    updatedAt: Temporal.Instant.from(row.updatedAt),
+  });
+}
+
+/** Newest first, pack id breaking ties; sorted here so no query needs an index for it. */
+function newestFirst(left: HomebrewPack, right: HomebrewPack): number {
+  return Temporal.Instant.compare(right.updatedAt, left.updatedAt) || left.id.localeCompare(right.id);
+}
+
+function toRow(pack: HomebrewPack): PackRow {
+  const file: ContentPackFile = {
+    id: pack.slug,
+    title: pack.title,
+    publisher: pack.publisher,
+    license: HomebrewPack.license,
+  };
+  return {
+    id: pack.id,
+    slug: pack.slug,
+    title: pack.title,
+    publisher: pack.publisher,
+    ownerId: pack.ownerId,
+    visibility: PackVisibility.Private,
+    license: HomebrewPack.license,
+    version: pack.version,
+    contentHash: contentHash({ file, entries: [] }),
+    data: file,
+    updatedAt: pack.updatedAt.toString(),
+  };
+}
+
+export class DrizzleHomebrewPackRepository extends HomebrewPackRepository {
+  readonly #db: BunSQLDatabase<Record<string, unknown>>;
+
+  public constructor(db: BunSQLDatabase<Record<string, unknown>>) {
+    super();
+    this.#db = db;
+  }
+
+  public override async listOwnedBy(ownerId: UserId): Promise<readonly HomebrewPack[]> {
+    const rows = await this.#db.select().from(contentPacks).where(eq(contentPacks.ownerId, ownerId));
+    const counts = await this.#entryCounts(rows.map((row) => row.id));
+    const packs = rows.flatMap((row): HomebrewPack[] => {
+      const pack = toPack(row, counts.get(row.id) ?? EntryCount.parse(0));
+      return pack === undefined ? [] : [pack];
+    });
+    return packs.toSorted(newestFirst);
+  }
+
+  public override async findById(id: ContentPackId): Promise<HomebrewPack | undefined> {
+    const [row] = await this.#db
+      .select()
+      .from(contentPacks)
+      .where(and(eq(contentPacks.id, id), isNotNull(contentPacks.ownerId)))
+      .limit(1);
+    if (row === undefined) {
+      return undefined;
+    }
+    const counts = await this.#entryCounts([id]);
+    return toPack(row, counts.get(id) ?? EntryCount.parse(0));
+  }
+
+  public override async insert(pack: HomebrewPack): Promise<HomebrewPack | undefined> {
+    const inserted = await this.#db.transaction(async (tx) => {
+      await stampAudit(tx, { actor: pack.ownerId, command: CREATE_COMMAND });
+      // Any pack with the slug stops it, official or not: the unique slug index is the arbiter, so a race has one winner.
+      return tx
+        .insert(contentPacks)
+        .values(toRow(pack))
+        .onConflictDoNothing({ target: contentPacks.slug })
+        .returning({ id: contentPacks.id });
+    });
+    return inserted.length === 0 ? undefined : pack;
+  }
+
+  async #entryCounts(packIds: readonly ContentPackId[]): Promise<ReadonlyMap<ContentPackId, EntryCount>> {
+    if (packIds.length === 0) {
+      return new Map();
+    }
+    const rows = await this.#db
+      .select({ packId: contentEntries.packId, entries: count() })
+      .from(contentEntries)
+      .where(inArray(contentEntries.packId, [...packIds]))
+      .groupBy(contentEntries.packId);
+    return new Map(rows.map((row) => [row.packId, EntryCount.parse(row.entries)]));
+  }
+}
