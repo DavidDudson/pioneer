@@ -2,6 +2,7 @@ import { ProficiencySchema, RitualCheckPick } from '@pioneer/rules/sdk';
 import * as z from 'zod';
 
 import { loreSelector, loreTopic } from './foundry-lore';
+import { SKILLS } from './foundry-skills';
 
 /**
  * A ritual's checks, which Foundry writes as English ("Arcana (expert), Occultism (expert), or Religion (expert)";
@@ -20,25 +21,6 @@ export const FoundryRitual = z.looseObject({
   secondary: z.looseObject({ casters: z.number(), checks: CheckText }),
 });
 export type FoundryRitual = z.infer<typeof FoundryRitual>;
-
-const SKILLS: ReadonlySet<string> = new Set([
-  'acrobatics',
-  'arcana',
-  'athletics',
-  'crafting',
-  'deception',
-  'diplomacy',
-  'intimidation',
-  'medicine',
-  'nature',
-  'occultism',
-  'performance',
-  'religion',
-  'society',
-  'stealth',
-  'survival',
-  'thievery',
-]);
 
 /** The skills of one check: "Arcana, Nature, or Occultism", "Society or Legal Lore". */
 const ALTERNATIVES = /,? or |, /u;

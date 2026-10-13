@@ -623,7 +623,9 @@ flowchart LR
     slots: at each level of `classFeatLevels`, `generalFeatLevels` and `skillFeatLevels` (Player Core's when
     Foundry gives none) a `ChoiceSet` flagged `<class|general|skill>-feat-<level>` querying feats with the class's
     trait, `general` or `skill` up to the character's level, with the `GrantItem` of its pick. Later ranks come
-    from the class features that raise them, as in Foundry. Ancestry feat slots are the ancestry's, so a class
+    from the class features that raise them, as in Foundry. The one Player Core classes grant that is not Player
+    Core's, Perception Expertise (Rage of Elements, no rules of its own), is a `Proficiency` raising `perception` to
+    expert from the level the class grants it. Ancestry feat slots are the ancestry's, so a class
     whose `ancestryFeatLevels` depart from Player Core's is reported. A class's `skillIncreaseLevels` is kept as data
     (Player Core's when Foundry gives none); attribute boosts are the character's own slots. `spellcasting` is the
     starting rank of the character's one spellcasting rank (ADR-0040). `attacks.other` (a named weapon group) is
@@ -644,7 +646,9 @@ flowchart LR
     categories `defense:<category>`, weapon categories `attack:<category>`, saves `save:<save>`, `perception`,
     `spellcasting`) and rank 1 to 4 as trained to legendary; a class's slug is `class-dc`, and the attribute a
     dedication's class DC uses instead of the key attribute (Rogue Dedication's `dex`) is reported, since there is one
-    class DC. A key naming no statistic or imported class is reported. Its other `subfeatures`
+    class DC. A key naming no statistic or imported class is reported. An `ActiveEffectLike` upgrading
+    `system.skills.<skill>.rank` of one of the sixteen skills to a fixed rank is a `Proficiency` on `skill:<skill>`,
+    predicate kept; a Lore, a formula value or a skill picked through a `ChoiceSet` stays in the backlog. Its other `subfeatures`
     (`suppressedFeatures`, and key attribute options on any but a class feature) are reported by name
     (`subfeatures.suppressedFeatures`).
   - Player Core's casters get their spellcasting entries and rank raises by entry slug, since Foundry records neither
