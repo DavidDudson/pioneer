@@ -10,6 +10,7 @@ import {
   PlayCommandField,
   Resource,
   ResourceCount,
+  SlotCountKey,
   untypedDamage,
   Wounded,
 } from '@pioneer/character/domain';
@@ -152,6 +153,13 @@ describe('PlayService', () => {
     };
     const saved = await play.patch(amiri, kyra.id, { expectedRevision: FIRST_VERSION, command: spend });
     expect(saved.play.resources[Resource.FocusPoints]).toBe(ResourceCount.parse(0));
+  });
+
+  test('a slot the build does not give is left alone, and the edit lands in the audit log by name', async () => {
+    const spend: PlayCommand = { field: PlayCommandField.SpendSlot, slot: SlotCountKey.parse('wizard:1') };
+    const saved = await play.patch(amiri, kyra.id, { expectedRevision: FIRST_VERSION, command: spend });
+    expect(saved.play.resources.slots).toStrictEqual({});
+    expect(repository.audits.at(-1)?.command).toBe(CharacterCommand.SpendSlot);
   });
 
   test('spending every hero point while dying stabilises, with no maximum Hit Points needed', async () => {

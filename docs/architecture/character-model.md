@@ -39,7 +39,7 @@ interface PlayState {
   hp: { damage: number; temp: number }; // damage taken since full, never the current total (ADR-0004)
   conditions: readonly ActiveCondition[]; // content ref, value, duration, source event
   effects: readonly ActiveEffect[]; // spell/feat effects, temporary boons: source, lifetime, uses left
-  resources: Record<ResourceKey, number>; // points spent per pool: hero points, focus points (#345); slots, item uses follow
+  resources: Record<ResourceKey, number>; // points spent per pool: hero points, focus points (#345); spell slots and ability uses (#346); item uses follow (#638)
   toggles: Record<RollOptionKey, boolean>; // RollOption toggles (e.g. rage, Double Slice second attack)
   dying: number; // 0 to 4; reaching 4 less doomed is death (#344)
   wounded: number;
@@ -76,6 +76,15 @@ is spent (`currentResource`): 3 hero points, and a focus pool of one per non-can
 `characterFocus`. `spendResource`, `regainResource` and `setResource` hold the points within 0 and the maximum, and
 the maxima are derived only for those edits. Spending every hero point while dying is Heroic Recovery: dying ends and
 wounded stays. Setting hero points to 0 is a correction and does not stabilise.
+
+`resources.slots` and `resources.uses` hold the same kind of input for counted resources ([#346](https://github.com/DavidDudson/pioneer/issues/346)):
+slots spent per spellcasting entry, optional pool and rank (`<entry>:<rank>`, `<entry>:<pool>:<rank>`; cantrips are not
+counted), and uses spent per feat, class feature or action with a `frequency`, keyed by content id. Maxima come from the
+spellcasting build and the content's `frequency`, each with the `Boundary` it comes back on (`round`, `turn`, `rest`,
+`day`, `session` or `manual`). The boundary is derived from the build and content, never stored, so a content change
+moves it with the maximum. `spendSlot`, `refundSlot`, `spendUse` and `refundUse` hold the count within 0 and the
+maximum, and leave a key the build does not give as it was. Item activations carry no frequency in content yet
+([#638](https://github.com/DavidDudson/pioneer/issues/638)).
 
 ### Schema versions
 
