@@ -12,6 +12,7 @@ import { NO_ORIGIN_NAMES } from '../origin-chain/origin-names';
 import type { OriginNames } from '../origin-chain/origin-names';
 import type { Chip } from '../picker-cells/chip-list/chip-list.component';
 import { DAMAGE_TYPE_MESSAGES } from '../rich-text/rich-text-messages';
+import { conditionalLines } from '../statistics/conditional-lines';
 import { StatisticsMessage } from '../statistics/statistics-messages';
 import { StrikeRow } from './strike-row.component';
 import type { ShownAttack, ShownStrike } from './strike-row.component';
@@ -79,6 +80,11 @@ export class StrikesView {
   protected readonly shown = computed((): readonly ShownStrike[] | undefined => {
     this.#messages();
     this.#format.locale();
+    const words = {
+      i18n: this.#i18n,
+      format: this.#format,
+      names: { entries: this.entryNames(), items: this.originNames().items },
+    };
     return this.strikes()?.map(({ name, nameKey, traits, strike }): ShownStrike => {
       const bonus = strike.damage?.bonus;
       return {
@@ -89,6 +95,8 @@ export class StrikesView {
         attacks: this.#attacks(strike),
         damage: this.#damage(strike),
         bonus: bonus?.ok === true ? bonus : undefined,
+        attackConditions: strike.attack?.ok === true ? conditionalLines(strike.attack, words) : [],
+        damageConditions: bonus?.ok === true ? conditionalLines(bonus, words) : [],
         penalty: this.#i18n.translate(StrikesMessage.MultipleAttackPenalty, {
           second: this.#format.number(strike.map.second, SIGNED),
           third: this.#format.number(strike.map.third, SIGNED),

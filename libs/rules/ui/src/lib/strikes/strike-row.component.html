@@ -36,6 +36,8 @@
   @if (row().attacks; as attacks) {
     <fr-text>{{ attacks }}</fr-text>
   }
+  <pio-statistic-conditions [conditions]="row().attackConditions" />
   <fr-text>{{ row().damage }}</fr-text>
+  <pio-statistic-conditions [conditions]="row().damageConditions" />
   <fr-text variant="caption" tone="muted">{{ row().penalty }}</fr-text>
 </fr-stack>
