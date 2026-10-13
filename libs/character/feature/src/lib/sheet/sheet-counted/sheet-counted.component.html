@@ -1,0 +1,65 @@
+<fr-async-region>
+  <ng-template frAsyncPending><fr-skeleton width="lg" /></ng-template>
+  <ng-template [frAsyncData]="registry">
+    <fr-async-region>
+      <ng-template frAsyncPending><fr-skeleton width="lg" /></ng-template>
+      <ng-template [frAsyncData]="playQuery">
+        @if (views(); as counted) {
+          <fr-stack gap="xs">
+            @for (slot of counted.slots; track slot.key) {
+              <fr-stack direction="horizontal" align="center" gap="sm" wrap>
+                <fr-text weight="semibold">{{
+                  (slot.pool === undefined ? 'character.sheet.counted.slot' : 'character.sheet.counted.poolSlot')
+                    | transloco: { source: slot.source, pool: slot.pool, rank: slot.rank }
+                }}</fr-text>
+                <fr-text tone="muted">{{
+                  'character.sheet.resources.held' | transloco: { current: slot.current, max: slot.max }
+                }}</fr-text>
+                <fr-async-button
+                  size="sm"
+                  [action]="spendSlot(slot.key)"
+                  [disabled]="busy() || slot.current === 0"
+                  [describeError]="describeError"
+                >
+                  {{ 'character.sheet.resources.spend' | transloco }}
+                </fr-async-button>
+                <fr-async-button
+                  size="sm"
+                  [action]="refundSlot(slot.key)"
+                  [disabled]="busy() || slot.current === slot.max"
+                  [describeError]="describeError"
+                >
+                  {{ 'character.sheet.counted.refund' | transloco }}
+                </fr-async-button>
+              </fr-stack>
+            }
+            @for (use of counted.uses; track use.key) {
+              <fr-stack direction="horizontal" align="center" gap="sm" wrap>
+                <fr-text weight="semibold">{{ use.name }}</fr-text>
+                <fr-text tone="muted">{{
+                  'character.sheet.resources.held' | transloco: { current: use.current, max: use.max }
+                }}</fr-text>
+                <fr-async-button
+                  size="sm"
+                  [action]="spendUse(use.key)"
+                  [disabled]="busy() || use.current === 0"
+                  [describeError]="describeError"
+                >
+                  {{ 'character.sheet.resources.spend' | transloco }}
+                </fr-async-button>
+                <fr-async-button
+                  size="sm"
+                  [action]="refundUse(use.key)"
+                  [disabled]="busy() || use.current === use.max"
+                  [describeError]="describeError"
+                >
+                  {{ 'character.sheet.counted.refund' | transloco }}
+                </fr-async-button>
+              </fr-stack>
+            }
+          </fr-stack>
+        }
+      </ng-template>
+    </fr-async-region>
+  </ng-template>
+</fr-async-region>

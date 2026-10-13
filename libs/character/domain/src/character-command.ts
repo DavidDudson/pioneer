@@ -40,6 +40,10 @@ export const CharacterCommand = {
   SpendResource: 'spendResource',
   RegainResource: 'regainResource',
   SetResource: 'setResource',
+  SpendSlot: 'spendSlot',
+  RefundSlot: 'refundSlot',
+  SpendUse: 'spendUse',
+  RefundUse: 'refundUse',
   SetAppearance: 'setAppearance',
   SetPersonality: 'setPersonality',
 } as const;
@@ -84,4 +88,8 @@ export const PLAY_COMMANDS = {
   [PlayCommandField.SpendResource]: CharacterCommand.SpendResource,
   [PlayCommandField.RegainResource]: CharacterCommand.RegainResource,
   [PlayCommandField.SetResource]: CharacterCommand.SetResource,
+  [PlayCommandField.SpendSlot]: CharacterCommand.SpendSlot,
+  [PlayCommandField.RefundSlot]: CharacterCommand.RefundSlot,
+  [PlayCommandField.SpendUse]: CharacterCommand.SpendUse,
+  [PlayCommandField.RefundUse]: CharacterCommand.RefundUse,
 } as const satisfies Record<PlayCommandField, CharacterCommand>;

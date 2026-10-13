@@ -3,12 +3,13 @@ import { Pg } from '@pioneer/shared/kernel';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
+import { SpentCountsSchema } from './counted-resources';
+import { ResourceCount } from './resource-count';
+
+export { ResourceCount } from './resource-count';
+
 /** The most hero points a character holds (Player Core). */
 export const HERO_POINTS_MAX = 3;
-
-/** A count of points of one resource: held, spent, or its maximum. */
-export const ResourceCount = Pg.smallint().min(0).brand<'ResourceCount'>();
-export type ResourceCount = z.infer<typeof ResourceCount>;
 
 /** Points held plus or less what an edit moves them by, before they are held within the pool. */
 const PointsSum = Pg.integer().brand<'PointsSum'>();
@@ -32,6 +33,7 @@ export const ResourceSchema = z.enum(Resource);
 export const ResourcesSpentSchema = z.strictObject({
   [Resource.HeroPoints]: ResourceCount.default(NONE),
   [Resource.FocusPoints]: ResourceCount.default(NONE),
+  ...SpentCountsSchema.shape,
 });
 export type ResourcesSpent = z.infer<typeof ResourcesSpentSchema>;
 

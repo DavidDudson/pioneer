@@ -51,6 +51,21 @@ export {
   type ResourcesSpent,
   ResourcesSpentSchema,
 } from './resources';
+export { abilityFrequencies, characterCounted } from './ability-frequency';
+export {
+  Boundary,
+  type CountedMaxima,
+  type CountedMaximum,
+  frequencyBoundary,
+  heldCount,
+  NO_COUNTED,
+  SlotCountKey,
+  slotCountKey,
+  slotMaxima,
+  type SpentCounts,
+  UseCountKey,
+  useMaxima,
+} from './counted-resources';
 export {
   type AncestryBoosts,
   attributeModifiers,

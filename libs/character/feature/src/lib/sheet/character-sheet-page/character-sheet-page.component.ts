@@ -18,6 +18,7 @@ import { VitalsView } from '@pioneer/rules/ui';
 
 import { FeatDisplayStore } from '../../data/feat-display-store';
 import { PlayStore } from '../../data/play-store';
+import { SheetCounted } from '../sheet-counted/sheet-counted.component';
 import { SheetDeathTrack } from '../sheet-death-track/sheet-death-track.component';
 import { SheetHitPoints } from '../sheet-hit-points/sheet-hit-points.component';
 import { SheetResources } from '../sheet-resources/sheet-resources.component';
@@ -41,6 +42,7 @@ import { SheetState } from '../sheet-state';
     Page,
     RouterOutlet,
     SheetDeathTrack,
+    SheetCounted,
     SheetResources,
     SheetHitPoints,
     SheetSaveStatus,

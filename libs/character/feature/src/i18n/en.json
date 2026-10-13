@@ -238,6 +238,11 @@
       "spend": "Spend",
       "regain": "Regain"
     },
+    "counted": {
+      "slot": "{source} rank {rank} slots",
+      "poolSlot": "{source} {pool} rank {rank} slots",
+      "refund": "Refund"
+    },
     "saveState": {
       "saving": "Saving",
       "saved": "All changes saved",

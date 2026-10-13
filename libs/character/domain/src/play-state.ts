@@ -4,6 +4,7 @@ import { Uuid, Version } from '@pioneer/shared/kernel';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
+import type { CountedMaxima } from './counted-resources';
 import {
   afterRecoveryCheck,
   DeathTrackSchema,
@@ -107,6 +108,7 @@ export type CharacterPlay = z.infer<typeof CharacterPlay>;
 export interface PlayLimits {
   readonly hitPoints: HitPoints;
   readonly resources: ResourceMaxima;
+  readonly counted: CountedMaxima;
 }
 
 /** `value`, or `max` when it is more. */
@@ -213,8 +215,12 @@ export function applyPlayCommand(play: PlayState, command: PlayCommand, limits: 
     }
     case PlayCommandField.SpendResource:
     case PlayCommandField.RegainResource:
-    case PlayCommandField.SetResource: {
-      return { ...play, ...applyResourceCommand(play, command, limits.resources) };
+    case PlayCommandField.SetResource:
+    case PlayCommandField.SpendSlot:
+    case PlayCommandField.RefundSlot:
+    case PlayCommandField.SpendUse:
+    case PlayCommandField.RefundUse: {
+      return { ...play, ...applyResourceCommand(play, command, { points: limits.resources, counted: limits.counted }) };
     }
     default: {
       return command satisfies never;
@@ -250,7 +256,11 @@ export function needsMaxHitPoints(command: PlayCommand): boolean {
     case PlayCommandField.SetDoomed:
     case PlayCommandField.SpendResource:
     case PlayCommandField.RegainResource:
-    case PlayCommandField.SetResource: {
+    case PlayCommandField.SetResource:
+    case PlayCommandField.SpendSlot:
+    case PlayCommandField.RefundSlot:
+    case PlayCommandField.SpendUse:
+    case PlayCommandField.RefundUse: {
       return false;
     }
     default: {
@@ -264,7 +274,11 @@ export function needsResourceMaxima(command: PlayCommand): boolean {
   switch (command.field) {
     case PlayCommandField.SpendResource:
     case PlayCommandField.RegainResource:
-    case PlayCommandField.SetResource: {
+    case PlayCommandField.SetResource:
+    case PlayCommandField.SpendSlot:
+    case PlayCommandField.RefundSlot:
+    case PlayCommandField.SpendUse:
+    case PlayCommandField.RefundUse: {
       return true;
     }
     case PlayCommandField.Damage:
