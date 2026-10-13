@@ -2,6 +2,7 @@
   <fr-stack gap="xl">
     <fr-stack direction="horizontal" justify="end">
       <fr-link [to]="['import', 'pathbuilder']">{{ 'character.list.import' | transloco }}</fr-link>
+      <fr-link [to]="['import', 'pioneer']">{{ 'character.list.importPioneer' | transloco }}</fr-link>
     </fr-stack>
     <fr-surface>
       <fr-async-form [form]="form" [action]="create" [describeError]="describeCreateError">

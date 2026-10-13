@@ -118,6 +118,7 @@ const OWNERS: ReadonlyMap<string, readonly string[]> = new Map([
       'controls/optional-number-input/',
       'controls/date-input/',
       'controls/search-input/',
+      'actions/file-button/',
       'controls/combobox/',
       'controls/picker/',
     ],

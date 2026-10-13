@@ -1,0 +1,4 @@
+<fr-button [variant]="variant()" [size]="size()" [disabled]="disabled()" (pressed)="picker.click()">
+  <ng-content />
+</fr-button>
+<input #picker type="file" hidden tabindex="-1" [accept]="accept()" (change)="read(picker)" />

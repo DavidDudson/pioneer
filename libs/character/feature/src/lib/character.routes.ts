@@ -44,6 +44,13 @@ export const characterRoutes: Routes = [
         }),
       },
       {
+        path: 'import/pioneer',
+        loadComponent: loadWithMessages(async () => {
+          const { PioneerImportPage } = await import('./import/pioneer-import-page/pioneer-import-page.component');
+          return PioneerImportPage;
+        }),
+      },
+      {
         path: ':id',
         // Opening a character is the likely next step from the list.
         data: PREFETCH_WHEN_IDLE,

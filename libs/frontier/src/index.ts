@@ -1,6 +1,7 @@
 // Actions
 export { AsyncButton } from './lib/actions/async-button/async-button.component';
 export { Button, ButtonType, ButtonVariant } from './lib/actions/button/button.component';
+export { FileButton } from './lib/actions/file-button/file-button.component';
 export { Link, type LinkTarget } from './lib/actions/link/link.component';
 export { SectionIndex } from './lib/actions/section-index/section-index.component';
 export { SectionLink } from './lib/actions/section-link/section-link.component';

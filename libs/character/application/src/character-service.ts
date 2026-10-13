@@ -29,10 +29,17 @@ import type {
 } from '@pioneer/character/domain';
 import { characterImportReport, modifierDifferences, registryLookup } from '@pioneer/interop/pathbuilder';
 import type { BoostChoices, PathbuilderImportResponse } from '@pioneer/interop/pathbuilder';
-import { exportPioneerCharacter, registryNamer } from '@pioneer/interop/pioneer';
-import type { PioneerCharacterFile } from '@pioneer/interop/pioneer';
+import { exportPioneerCharacter, registryNamer, unmatchedContent } from '@pioneer/interop/pioneer';
+import type { PioneerCharacterFile, PioneerImportPreview } from '@pioneer/interop/pioneer';
 import type { AncestryId, ContentId, ContentSource } from '@pioneer/rules/sdk';
-import { message, newId, NotFoundError, ValidationError, VersionConflictError } from '@pioneer/shared/kernel';
+import {
+  FIRST_VERSION,
+  message,
+  newId,
+  NotFoundError,
+  ValidationError,
+  VersionConflictError,
+} from '@pioneer/shared/kernel';
 import type { Clock, UserId, Version } from '@pioneer/shared/kernel';
 
 import { mayAccessCharacter } from './character-policy';
@@ -40,6 +47,7 @@ import type { CharacterRepository } from './character-repository';
 import { editInputs } from './edit-inputs';
 import { assertInventoryAllows } from './inventory-guard';
 import { importedCharacter, matchedAncestry, readExport } from './pathbuilder-import';
+import { readPioneerFile } from './pioneer-import';
 
 /** Why access to a spell is refused, by the problem. */
 const SPELL_ACCESS_REFUSALS: Readonly<Record<SpellAccessProblem, string>> = {
@@ -158,6 +166,28 @@ export class CharacterService {
       ]);
     }
     return exported.file;
+  }
+
+  /**
+   * What importing a Pioneer character file would make, saved nowhere: the character's name and level, and the content
+   * the file names that no loaded pack has. Refused when the file can't be read.
+   */
+  public async previewPioneerImport(actor: UserId, raw: unknown): Promise<PioneerImportPreview> {
+    const { file, document } = readPioneerFile(raw, actor);
+    const content = await this.#content.registry();
+    return { name: document.name, level: document.level, unmatched: unmatchedContent(file, registryNamer(content)) };
+  }
+
+  /**
+   * A new character of the actor from a Pioneer character file, its stored inputs as the file had them: content no
+   * loaded pack has stays as the ids it hashes to, which a pack that has it brings back. The file is read again here,
+   * never taken from the client's preview. Refused, with nothing saved, when it can't be read.
+   */
+  public async importPioneer(actor: UserId, raw: unknown): Promise<Character> {
+    const { document } = readPioneerFile(raw, actor);
+    const now = this.#clock.now();
+    const character = new Character({ document, version: FIRST_VERSION, createdAt: now, updatedAt: now });
+    return this.#repository.insert(character, { actor, command: CharacterCommand.ImportPioneer });
   }
 
   /** `patched` as its sheet, with the picks its edit cleared. */

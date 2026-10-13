@@ -1,0 +1,82 @@
+<fr-page
+  [title]="'character.import.pioneer.title' | transloco"
+  [description]="'character.import.pioneer.description' | transloco"
+>
+  <fr-stack gap="xl">
+    <fr-surface>
+      <fr-stack gap="md">
+        <fr-stack direction="horizontal" align="center" gap="sm">
+          <fr-file-button accept=".json,application/json" (chosen)="load($event)">
+            {{ 'character.import.pioneer.choose' | transloco }}
+          </fr-file-button>
+        </fr-stack>
+        <fr-text-area-field
+          monospace
+          [label]="'character.import.pioneer.fileLabel' | transloco"
+          [placeholder]="'character.import.pioneer.filePlaceholder' | transloco"
+          [formField]="form.json"
+        />
+        @if (problem(); as text) {
+          <fr-message>{{ text }}</fr-message>
+        }
+      </fr-stack>
+    </fr-surface>
+
+    @if (preview.data(); as character) {
+      <fr-surface>
+        <fr-stack gap="md">
+          <fr-heading variant="subheading" [level]="2">{{ 'character.import.readHeading' | transloco }}</fr-heading>
+          <fr-description-list>
+            <fr-description-item [term]="'character.import.name' | transloco">
+              <fr-text>{{ character.name }}</fr-text>
+            </fr-description-item>
+            <fr-description-item [term]="'character.import.level' | transloco">
+              <fr-text numeric>{{ character.level }}</fr-text>
+            </fr-description-item>
+          </fr-description-list>
+        </fr-stack>
+      </fr-surface>
+
+      <fr-surface>
+        <fr-stack gap="md">
+          <fr-heading variant="subheading" [level]="2">{{ 'character.import.reportHeading' | transloco }}</fr-heading>
+          @if (unmatched().length === 0) {
+            <fr-text tone="muted">{{ 'character.import.pioneer.allFound' | transloco }}</fr-text>
+          } @else {
+            <fr-text tone="muted">{{
+              'character.import.pioneer.unmatchedSummary' | transloco: { count: unmatchedCount() }
+            }}</fr-text>
+            @for (group of unmatched(); track group.kind) {
+              <fr-disclosure>
+                <fr-text frDisclosureSummary>{{
+                  'character.import.pioneer.groupSummary'
+                    | transloco: { kind: group.labelKey | transloco, count: group.entries.length }
+                }}</fr-text>
+                <fr-list>
+                  @for (entry of group.entries; track entry) {
+                    <fr-list-item>
+                      <fr-text>{{ entry }}</fr-text>
+                    </fr-list-item>
+                  }
+                </fr-list>
+              </fr-disclosure>
+            }
+          }
+        </fr-stack>
+      </fr-surface>
+
+      <fr-stack direction="horizontal" justify="end" gap="sm">
+        <fr-button variant="ghost" (pressed)="cancel()">{{ 'character.import.pioneer.cancel' | transloco }}</fr-button>
+        <fr-async-button
+          variant="primary"
+          [action]="create"
+          [describeError]="describeCreateError"
+          [pendingLabel]="'character.import.creating' | transloco"
+          [successLabel]="'character.import.created' | transloco"
+        >
+          {{ 'character.import.pioneer.create' | transloco }}
+        </fr-async-button>
+      </fr-stack>
+    }
+  </fr-stack>
+</fr-page>
