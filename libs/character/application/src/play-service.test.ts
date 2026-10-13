@@ -8,6 +8,8 @@ import {
   Dying,
   FRESH_PLAY,
   PlayCommandField,
+  Resource,
+  ResourceCount,
   untypedDamage,
   Wounded,
 } from '@pioneer/character/domain';
@@ -126,6 +128,42 @@ describe('PlayService', () => {
     const saved = await service.patch(amiri, kyra.id, { expectedRevision: FIRST_VERSION, command });
     expect(saved.play.doomed).toBe(Doomed.parse(1));
     expect(repository.audits.at(-1)?.command).toBe(CharacterCommand.SetDoomed);
+  });
+
+  test('hero points are spent at the next revision, held to 3, and audited by name', async () => {
+    const spend: PlayCommand = {
+      field: PlayCommandField.SpendResource,
+      resource: Resource.HeroPoints,
+      amount: ResourceCount.parse(1),
+    };
+    const saved = await play.patch(amiri, kyra.id, { expectedRevision: FIRST_VERSION, command: spend });
+    expect(saved.play.resources[Resource.HeroPoints]).toBe(ResourceCount.parse(1));
+    expect(repository.audits.at(-1)?.command).toBe(CharacterCommand.SpendResource);
+    const regain: PlayCommand = { ...spend, field: PlayCommandField.RegainResource, amount: ResourceCount.parse(9) };
+    const full = await play.patch(amiri, kyra.id, { expectedRevision: saved.revision, command: regain });
+    expect(full.play.resources[Resource.HeroPoints]).toBe(ResourceCount.parse(0));
+  });
+
+  test('a character with no focus spells has no focus points to spend', async () => {
+    const spend: PlayCommand = {
+      field: PlayCommandField.SpendResource,
+      resource: Resource.FocusPoints,
+      amount: ResourceCount.parse(1),
+    };
+    const saved = await play.patch(amiri, kyra.id, { expectedRevision: FIRST_VERSION, command: spend });
+    expect(saved.play.resources[Resource.FocusPoints]).toBe(ResourceCount.parse(0));
+  });
+
+  test('spending every hero point while dying stabilises, with no maximum Hit Points needed', async () => {
+    const down = await play.patch(amiri, kyra.id, { expectedRevision: FIRST_VERSION, command: damage(50) });
+    const spendAll: PlayCommand = {
+      field: PlayCommandField.SpendResource,
+      resource: Resource.HeroPoints,
+      amount: ResourceCount.parse(3),
+    };
+    const saved = await play.patch(amiri, kyra.id, { expectedRevision: down.revision, command: spendAll });
+    expect(saved.play.dying).toBe(Dying.parse(0));
+    expect(saved.play.wounded).toBe(Wounded.parse(0));
   });
 
   test("someone else's character is not found", async () => {

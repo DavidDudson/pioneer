@@ -113,3 +113,8 @@ export function withWounded(track: DeathTrack, wounded: Wounded): DeathTrack {
 export function withDoomed(track: DeathTrack, doomed: Doomed): DeathTrack {
   return settled({ ...track, doomed });
 }
+
+/** `track` with dying ended and wounded left as it is: what Heroic Recovery does, unlike the recovery that wounds. */
+export function stabilised(track: DeathTrack): DeathTrack {
+  return track.dead || track.dying === NONE ? track : { ...track, dying: Dying.parse(NONE) };
+}

@@ -1,0 +1,46 @@
+<fr-async-region>
+  <ng-template frAsyncPending><fr-skeleton width="lg" /></ng-template>
+  <ng-template [frAsyncData]="playQuery">
+    <fr-async-region>
+      <ng-template frAsyncPending><fr-skeleton width="lg" /></ng-template>
+      <ng-template [frAsyncData]="engineQuery()">
+        @if (rows(); as rows) {
+          <fr-stack gap="xs">
+            @for (row of rows; track row.resource) {
+              <fr-stack direction="horizontal" align="center" gap="sm" wrap>
+                <fr-text weight="semibold">{{ row.labelKey | transloco }}</fr-text>
+                <fr-meter
+                  [label]="row.labelKey | transloco"
+                  [value]="row.current"
+                  [max]="row.max"
+                  [optimum]="row.max"
+                />
+                <fr-text tone="muted">{{
+                  'character.sheet.resources.held' | transloco: { current: row.current, max: row.max }
+                }}</fr-text>
+                <fr-async-button
+                  size="sm"
+                  [action]="spend(row.resource)"
+                  [disabled]="busy() || row.current === 0"
+                  [describeError]="describeError"
+                >
+                  {{ 'character.sheet.resources.spend' | transloco }}
+                </fr-async-button>
+                <fr-async-button
+                  size="sm"
+                  [action]="regain(row.resource)"
+                  [disabled]="busy() || row.current === row.max"
+                  [describeError]="describeError"
+                >
+                  {{ 'character.sheet.resources.regain' | transloco }}
+                </fr-async-button>
+              </fr-stack>
+            }
+          </fr-stack>
+        } @else {
+          <fr-skeleton width="lg" />
+        }
+      </ng-template>
+    </fr-async-region>
+  </ng-template>
+</fr-async-region>

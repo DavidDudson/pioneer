@@ -39,7 +39,7 @@ interface PlayState {
   hp: { damage: number; temp: number }; // damage taken since full, never the current total (ADR-0004)
   conditions: readonly ActiveCondition[]; // content ref, value, duration, source event
   effects: readonly ActiveEffect[]; // spell/feat effects, temporary boons: source, lifetime, uses left
-  resources: Record<ResourceKey, number>; // focus points, hero points, spell slots used, item uses
+  resources: Record<ResourceKey, number>; // points spent per pool: hero points, focus points (#345); slots, item uses follow
   toggles: Record<RollOptionKey, boolean>; // RollOption toggles (e.g. rage, Double Slice second attack)
   dying: number; // 0 to 4; reaching 4 less doomed is death (#344)
   wounded: number;
@@ -69,6 +69,13 @@ Losing dying, by that check or by Hit Points back above 0, gains wounded 1 (or o
 less doomed and recorded in `dead`, which only an explicit `setDying` correction clears. `setWounded` and `setDoomed`
 set the other two conditions by hand, for an effect that gives doomed or a mistake at the table. None of these needs a
 maximum Hit Points value, so a character without a class can still carry the conditions.
+
+`resources` holds the points **spent** from each pool, not the points held, so a pool that grows or shrinks with the build
+keeps what was spent ([#345](https://github.com/DavidDudson/pioneer/issues/345)). Points held are the maximum less what
+is spent (`currentResource`): 3 hero points, and a focus pool of one per non-cantrip focus spell, at most 3, from
+`characterFocus`. `spendResource`, `regainResource` and `setResource` hold the points within 0 and the maximum, and
+the maxima are derived only for those edits. Spending every hero point while dying is Heroic Recovery: dying ends and
+wounded stays. Setting hero points to 0 is a correction and does not stabilise.
 
 ### Schema versions
 
