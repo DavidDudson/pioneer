@@ -6,7 +6,7 @@ import type { Inventory, InventoryItem } from '../inventory';
 import { RuneEtchingSchema } from '../rune-etching';
 import type { RuneEtching, RuneRef } from '../rune-etching';
 import { ItemFixture, itemFixtureId, runeFixtureId } from './item-content';
-import type { RuneFixture } from './item-content';
+import type { RuneFixture } from './rune-fixtures';
 
 /** The items `armoury()` holds, by id. */
 export const Armoury = {

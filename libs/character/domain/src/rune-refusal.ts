@@ -57,7 +57,7 @@ function fundamentalRefusal(
 /** Refuses a property rune no loaded pack has, and one for another kind of item or whose restriction it doesn't meet. */
 function propertyFitRefusal(
   runes: RuneContent,
-  { entry, runed }: RunedLine,
+  { item, entry, runed }: RunedLine,
   id: ContentId,
 ): InventoryRefusal | undefined {
   const rune = runes.get(id);
@@ -65,7 +65,8 @@ function propertyFitRefusal(
     return runeRefused(message('character.validation.unknownRune'));
   }
   const { etchedOnto } = rune.data;
-  return etchedOnto.item === runed && meetsRestriction(entry, etchedOnto.restriction)
+  const etched = new Set(itemRunes(item, entry).property.flatMap((each) => runes.get(each)?.slug ?? []));
+  return etchedOnto.item === runed && meetsRestriction(entry, etchedOnto.restriction, etched)
     ? undefined
     : runeRefused(message('character.validation.runeNotForItem'));
 }

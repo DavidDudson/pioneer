@@ -55,7 +55,7 @@ describe('content/import/gm-core.json', () => {
     const { fields, count } = await gmCoreBacklog();
 
     expect(count).toBeLessThan(46);
-    expect(fields).toEqual(new Set(['description.frequency', 'usage']));
+    expect(fields).toEqual(new Set(['description.frequency']));
   });
 
   test('leaves nothing out of the pack', async () => {

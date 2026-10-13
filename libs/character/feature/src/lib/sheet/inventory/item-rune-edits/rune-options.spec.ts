@@ -70,7 +70,7 @@ describe(propertyRuneOptions, () => {
     const inventory = flamingSword();
     const item = lineOf(inventory, Armoury.Sword);
     const offered = propertyRuneOptions(content, { item, entry: entryOf(inventory, Armoury.Sword) }, compare);
-    expect(offered.map(({ label }) => label)).toStrictEqual(['Frost', 'Keen', 'Shock']);
+    expect(offered.map(({ label }) => label)).toStrictEqual(['Frost', 'Holy', 'Keen', 'Shock', 'Unholy']);
   });
 
   it('offers nothing for a specific item', () => {

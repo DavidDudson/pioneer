@@ -15,6 +15,7 @@ import { itemContent } from '../inventory-content';
 import type { ItemContent } from '../inventory-content';
 import { runeContent } from '../item-runes';
 import type { RuneContent } from '../item-runes';
+import { RUNES, RuneFixture } from './rune-fixtures';
 
 const ITEM_PACK = 'item-fixtures';
 
@@ -32,37 +33,6 @@ const ARROWS_PER_BULK = 10;
 /** Arrows are sold 10 to a batch: 1 sp for 10. */
 const ARROWS_PER_BATCH = 10;
 const BAG_OF_HOLDING_CAPACITY = 25;
-
-/** The property runes `ITEM_FIXTURES` holds, by name. */
-export const RuneFixture = {
-  /** A weapon rune that gives +1 status to Perception, so a test sees its rules work. */
-  Flaming: 'flaming',
-  Frost: 'frost',
-  Shock: 'shock',
-  /** A weapon rune for melee weapons only. */
-  Keen: 'keen',
-  /** An armour rune that gives +1 status to Will. */
-  Shadow: 'shadow',
-} as const;
-export type RuneFixture = (typeof RuneFixture)[keyof typeof RuneFixture];
-
-const PERCEPTION_PLUS_ONE = { key: 'FlatModifier', selectors: ['perception'], type: 'status', value: 1 };
-
-const RUNES: Readonly<Record<RuneFixture, MagicItemFields>> = {
-  [RuneFixture.Flaming]: {
-    data: { bulk: 'negligible', type: 'property', etchedOnto: { item: 'weapon' } },
-    rules: [PERCEPTION_PLUS_ONE],
-  },
-  [RuneFixture.Frost]: { data: { bulk: 'negligible', type: 'property', etchedOnto: { item: 'weapon' } } },
-  [RuneFixture.Shock]: { data: { bulk: 'negligible', type: 'property', etchedOnto: { item: 'weapon' } } },
-  [RuneFixture.Keen]: {
-    data: { bulk: 'negligible', type: 'property', etchedOnto: { item: 'weapon', restriction: 'melee' } },
-  },
-  [RuneFixture.Shadow]: {
-    data: { bulk: 'negligible', type: 'property', etchedOnto: { item: 'armor' } },
-    rules: [{ key: 'FlatModifier', selectors: ['will'], type: 'status', value: 1 }],
-  },
-};
 
 /** The id of the fixture rune `name`. */
 export function runeFixtureId(name: RuneFixture): ContentId {

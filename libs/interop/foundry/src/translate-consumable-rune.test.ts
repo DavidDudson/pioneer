@@ -4,6 +4,7 @@ import { KindDataGapReason } from './kind-data-gaps';
 import { dataIn, gapKeys, slugIn } from './testing/build-helpers';
 import { EQUIPMENT, HEALING_POTION, physical } from './testing/equipment-fixtures';
 import { idOf, translate } from './testing/import-fixtures';
+import type { DocumentFixture } from './testing/import-fixtures';
 
 const translation = translate(EQUIPMENT);
 
@@ -65,6 +66,10 @@ describe('translateKindData: consumables and ammunition', () => {
   });
 });
 
+function alignment(id: string, name: string, usage: string): DocumentFixture {
+  return physical({ id, name, type: 'equipment' }, { usage: { value: usage } });
+}
+
 describe('translateKindData: runes', () => {
   test('equipment etched onto an item is a rune', () => {
     expect(slugIn(translation, 'flaming')).toBe('rune:flaming');
@@ -88,16 +93,18 @@ describe('translateKindData: runes', () => {
     });
   });
 
-  test('a restriction Pioneer has no slug for is reported, the rune etched onto the item', () => {
-    const holy = physical(
-      { id: 'hOlY000000000001', name: 'Holy', type: 'equipment' },
-      {
-        usage: { value: 'etched-onto-weapon-wo-holy-rune' },
-      },
-    );
-    const lone = translate([holy]);
+  test('the alignment runes are etched onto a weapon without the opposite rune (Foundry labels them swapped)', () => {
+    const alignments = translate([
+      alignment('hOlY000000000001', 'Holy', 'etched-onto-weapon-wo-holy-rune'),
+      alignment('uNhOlY0000000001', 'Unholy', 'etched-onto-weapon-wo-unholy-rune'),
+    ]);
 
-    expect(dataIn(lone, 'holy')).toMatchObject({ type: 'property', etchedOnto: { item: 'weapon' } });
-    expect(gapKeys(lone)).toEqual([`${KindDataGapReason.UnmappedValue} usage`]);
+    expect(dataIn(alignments, 'holy')).toMatchObject({
+      etchedOnto: { item: 'weapon', restriction: 'without-unholy-rune' },
+    });
+    expect(dataIn(alignments, 'unholy')).toMatchObject({
+      etchedOnto: { item: 'weapon', restriction: 'without-holy-rune' },
+    });
+    expect(gapKeys(alignments)).toEqual([]);
   });
 });
