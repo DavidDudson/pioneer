@@ -52,9 +52,8 @@ function prerequisiteStatus(feat: FeatRead | undefined, facts: PredicateFacts): 
 
 /**
  * The namespaces prerequisites read that only these facts set, so a missing one is false: `attribute:str:mod:2`. The
- * engine doesn't set it, so it stays unknown in the core table. Perception ranks aren't read at all, so a Perception
- * prerequisite stays unknown: the import drops some features that raise Perception (Perception Expertise), and any
- * rank given would settle the comparison (ADR-0002).
+ * engine doesn't set it, so it stays unknown in the core table. Perception ranks are read with the skills' (ADR-0053),
+ * from every raise the import models.
  */
 const PREREQUISITE_NAMESPACES: readonly RollOptionNamespace[] = [RollOptionNamespace.parse('attribute')];
 

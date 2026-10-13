@@ -9,3 +9,4 @@ export { type GrantInputs, type GrantResolution, resolveGrants } from './resolve
 export type { RootSlot, RootSlotDefinition } from './root-slots';
 export { type ToggleSlot, type ToggleState, type ToggleStates, toggleKeyOf } from './toggles';
 export { default as grantsMessages } from './i18n/en.json';
+export { type ResolvedRule, resolvedRules } from './resolved-rules';

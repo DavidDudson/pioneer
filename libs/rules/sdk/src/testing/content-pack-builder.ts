@@ -47,11 +47,12 @@ interface EnvelopeFields {
   readonly description?: readonly object[];
 }
 
-/** A test feat's level, traits and `data` beyond its category, as JSON. */
+/** A test feat's level, traits, `data` beyond its category and `rules`, as JSON. */
 interface FeatFields {
   readonly level?: number;
   readonly traits?: readonly string[];
   readonly data?: object;
+  readonly rules?: readonly object[];
 }
 
 /** A test ancestry: its definition, with `rules` as JSON (the ancestry features it grants). */
@@ -151,8 +152,8 @@ export class ContentPackBuilder {
    * A 1st-level skill feat, unless `fields` say otherwise: its level, traits, and `data` beyond its category (its
    * prerequisites and their predicate).
    */
-  public withFeat(name: string, { level = 1, traits = [], data = {} }: FeatFields = {}): this {
-    this.#entries.push({ kind: ContentKind.Feat, name, data: { category: 'skill', ...data }, level, traits });
+  public withFeat(name: string, { level = 1, traits = [], data = {}, rules = [] }: FeatFields = {}): this {
+    this.#entries.push({ kind: ContentKind.Feat, name, data: { category: 'skill', ...data }, level, traits, rules });
     return this;
   }
 

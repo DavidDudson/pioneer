@@ -303,6 +303,7 @@ export {
   MartialKind,
   MartialProficiencyElement,
   ProficiencyElement,
+  ChoiceSelector,
   RaisedRank,
   WeaponCategory,
 } from './rule-element-proficiency';

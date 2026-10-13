@@ -648,7 +648,10 @@ flowchart LR
     dedication's class DC uses instead of the key attribute (Rogue Dedication's `dex`) is reported, since there is one
     class DC. A key naming no statistic or imported class is reported. An `ActiveEffectLike` upgrading
     `system.skills.<skill>.rank` of one of the sixteen skills to a fixed rank is a `Proficiency` on `skill:<skill>`,
-    predicate kept; a Lore, a formula value or a skill picked through a `ChoiceSet` stays in the backlog. Its other `subfeatures`
+    predicate kept, or on the skill a `ChoiceSet` on the same item stored when the path is
+    `system.skills.{item|flags.system.rulesSelections.<flag>}.rank`
+    ([ADR-0053](../adr/0053-proficiency-selector-follows-a-choice.md)); a Lore, a formula value (a Lore feat's
+    level-scaled override) or an override stays in the backlog. Its other `subfeatures`
     (`suppressedFeatures`, and key attribute options on any but a class feature) are reported by name
     (`subfeatures.suppressedFeatures`).
   - Player Core's casters get their spellcasting entries and rank raises by entry slug, since Foundry records neither
