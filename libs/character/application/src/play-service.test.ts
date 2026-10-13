@@ -79,14 +79,16 @@ describe('PlayService', () => {
       patch: { field: CharacterPatchField.Name, value: CharacterName.parse('Kyra of Sarenrae') },
     });
     expect(renamed.character.document.play.hp.damage).toBe(HitPoints.parse(2));
-    expect((await play.get(amiri, kyra.id)).revision).toBe(nextVersion(FIRST_VERSION));
+    const after = await play.get(amiri, kyra.id);
+    expect(after.revision).toBe(nextVersion(FIRST_VERSION));
   });
 
   test('a stale revision is a conflict, and nothing is written', async () => {
     await play.patch(amiri, kyra.id, { expectedRevision: FIRST_VERSION, command: damage(1) });
     const stale = rejection(play.patch(amiri, kyra.id, { expectedRevision: FIRST_VERSION, command: damage(4) }));
     expect(await stale).toBeInstanceOf(VersionConflictError);
-    expect((await play.get(amiri, kyra.id)).play.hp.damage).toBe(HitPoints.parse(1));
+    const kept = await play.get(amiri, kyra.id);
+    expect(kept.play.hp.damage).toBe(HitPoints.parse(1));
   });
 
   test('a character whose maximum Hit Points cannot be derived yet is refused', async () => {

@@ -24,7 +24,6 @@ import {
 import type { Inventory, InventoryEdit } from './inventory';
 import { withAddedItem, withAddedKit } from './item-purchase';
 import type { EditInputs } from './item-purchase';
-import type { PlayState } from './play-state';
 import { eraseRune, etchRune, transferRune } from './rune-edits';
 
 /**
@@ -92,8 +91,8 @@ function equipmentChange(inventory: Inventory, patch: EquipmentPatch): Inventory
  * Character aggregate root, stored as its `CharacterDocument`. Immutable: every change returns a new instance,
  * which is what Angular signals want and what keeps server-side invariants in one place.
  *
- * Serialization: `Character.codec` decodes wire JSON into a `Character` and
- * encodes it back. Use `Character.codec.parse(unknown)` at trust boundaries.
+ * Serialization: `Character.codec` decodes wire JSON into a `Character` and encodes it back. Use
+ * `Character.codec.parse(unknown)` at trust boundaries.
  */
 export class Character {
   public static readonly codec = z.codec(CharacterWire, z.instanceof(Character), {
@@ -283,11 +282,6 @@ export class Character {
 
   public withVersion(version: Version): Character {
     return new Character({ ...this.toProps(), version });
-  }
-
-  /** The character with its play state as read from where it is stored apart (`character_play`). */
-  public withPlay(play: PlayState): Character {
-    return new Character({ ...this.toProps(), document: { ...this.document, play } });
   }
 
   private toProps(): CharacterProps {

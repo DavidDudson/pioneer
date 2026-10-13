@@ -6,6 +6,9 @@ import * as z from 'zod';
 
 const NONE = HitPoints.parse(0);
 
+/** The most Hit Points one play edit can damage, heal or set: what a `HitPoints` holds. */
+export const HIT_POINTS_EDIT_MAX: HitPoints = HitPoints.parse(32_767);
+
 /** A `character_play` row's own id, for the audit trail; a character has one row, found by its character id. */
 export const PlayStateId = Uuid.brand<'PlayStateId'>();
 export type PlayStateId = z.infer<typeof PlayStateId>;
@@ -64,14 +67,24 @@ export const CharacterPlay = z.object({
 });
 export type CharacterPlay = z.infer<typeof CharacterPlay>;
 
-/** `value` held within 0 and `max`. */
-function clamp(value: number, max: HitPoints): HitPoints {
-  return HitPoints.parse(Math.min(Math.max(value, 0), max));
+/** `value`, or `max` when it is more. */
+function atMost(value: HitPoints, max: HitPoints): HitPoints {
+  return HitPoints.parse(Math.min(value, max));
+}
+
+/** `from` less `amount`, never below 0. */
+function less(from: HitPoints, amount: HitPoints | DamageTotal): HitPoints {
+  return HitPoints.parse(Math.max(from - amount, 0));
+}
+
+/** `from` plus `amount`, never past `max`. */
+function plus(from: HitPoints, amount: DamageTotal, max: HitPoints): HitPoints {
+  return HitPoints.parse(Math.min(from + amount, max));
 }
 
 /** Current Hit Points: the maximum less the damage taken, never below 0. */
 export function currentHitPoints(hp: HitPointsState, max: HitPoints): HitPoints {
-  return clamp(max - hp.damage, max);
+  return less(max, atMost(hp.damage, max));
 }
 
 /**
@@ -80,18 +93,19 @@ export function currentHitPoints(hp: HitPointsState, max: HitPoints): HitPoints 
  */
 export function applyPlayCommand(play: PlayState, command: PlayCommand, max: HitPoints): PlayState {
   const { hp } = play;
-  const damage = clamp(hp.damage, max);
+  const damage = atMost(hp.damage, max);
   switch (command.field) {
     case PlayCommandField.Damage: {
-      const absorbed = Math.min(hp.temp, command.damage.taken);
-      const temp = HitPoints.parse(hp.temp - absorbed);
-      return { ...play, hp: { temp, damage: clamp(damage + command.damage.taken - absorbed, max) } };
+      const { taken } = command.damage;
+      const absorbed = HitPoints.parse(Math.min(hp.temp, taken));
+      const through = DamageTotal.parse(taken - absorbed);
+      return { ...play, hp: { temp: less(hp.temp, absorbed), damage: plus(damage, through, max) } };
     }
     case PlayCommandField.Heal: {
-      return { ...play, hp: { ...hp, damage: clamp(damage - command.amount, max) } };
+      return { ...play, hp: { ...hp, damage: less(damage, command.amount) } };
     }
     case PlayCommandField.SetHp: {
-      return { ...play, hp: { ...hp, damage: clamp(max - command.current, max) } };
+      return { ...play, hp: { ...hp, damage: less(max, atMost(command.current, max)) } };
     }
     case PlayCommandField.SetTempHp: {
       return { ...play, hp: { ...hp, damage, temp: HitPoints.parse(Math.max(hp.temp, command.temp)) } };

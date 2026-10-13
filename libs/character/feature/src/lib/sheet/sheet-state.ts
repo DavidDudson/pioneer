@@ -1,9 +1,9 @@
 import { computed, inject, Injectable } from '@angular/core';
 import type { Signal } from '@angular/core';
 import { TranslocoService } from '@jsverse/transloco';
-import { itemContent } from '@pioneer/character/domain';
+import { itemContent, maxHitPoints } from '@pioneer/character/domain';
 import type { Character } from '@pioneer/character/domain';
-import type { ContentRegistry } from '@pioneer/rules/sdk';
+import type { ContentRegistry, HitPoints } from '@pioneer/rules/sdk';
 import type { Investment, Vital } from '@pioneer/rules/ui';
 
 import { CharacterStore } from '../data/character-store';
@@ -13,6 +13,7 @@ import type { BuildPicks } from './sheet-build-picks';
 import { carriesAnything, EQUIPMENT_CONTENT_KINDS, sheetInvestments } from './sheet-equipment';
 import { sheetIdentity } from './sheet-identity';
 import type { IdentityParams } from './sheet-identity';
+import { sheetDerivation } from './sheet-statistics';
 import { sheetVitals } from './sheet-vitals';
 
 /**
@@ -69,6 +70,18 @@ export class SheetState {
     return registry === undefined || character === undefined || statistics === undefined
       ? undefined
       : sheetVitals(registry, character, { statistics, entryNames: this.picks.entryNames() });
+  });
+
+  /**
+   * Maximum Hit Points as the engine derives `hp:max`: undefined while the registry loads, and while the character has
+   * no ancestry or class to derive it from.
+   */
+  public readonly maxHitPoints = computed((): HitPoints | undefined => {
+    const registry = this.#engineRegistry();
+    const character = this.character();
+    return registry === undefined || character === undefined
+      ? undefined
+      : maxHitPoints(sheetDerivation(registry, character));
   });
 
   /** The header's one-line identity; undefined while the build loads. */

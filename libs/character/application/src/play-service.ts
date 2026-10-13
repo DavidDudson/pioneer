@@ -51,7 +51,10 @@ export class PlayService {
     }
     const max = await this.#maxHitPoints(character);
     const play = applyPlayCommand(current.play, command, max);
-    return this.#characters.updatePlay(id, play, expectedRevision, {
+    return this.#characters.updatePlay({
+      id,
+      play,
+      expectedRevision,
       audit: { actor, command: PLAY_COMMANDS[command.field] },
       now: this.#clock.now(),
     });

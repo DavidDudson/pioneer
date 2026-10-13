@@ -14,7 +14,8 @@
         </fr-async-region>
         <pio-sheet-save-status />
       </fr-stack>
-      <!-- Hit Points (#343), hero points (#345), conditions (#348) and the last roll (#342) join the header here. -->
+      <pio-sheet-hit-points />
+      <!-- Hero points (#345), conditions (#348) and the last roll (#342) join the header here. -->
       <fr-async-region>
         <ng-template frAsyncPending><pio-vitals [vitals]="undefined" /></ng-template>
         <ng-template [frAsyncData]="sheet.engineQuery()">

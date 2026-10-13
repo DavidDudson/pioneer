@@ -95,6 +95,25 @@ export interface SheetOptions {
   readonly packs?: readonly PackContentsLoader[];
   /** The tab to open, Plan by default; `NO_TAB` opens the character's own address, which opens the last tab. */
   readonly tab?: SheetMode | typeof NO_TAB;
+  /** The play state the server read; undamaged, at revision 1, by default. */
+  readonly play?: object;
+}
+
+/** The play state the server holds, at `revision`. */
+export function playOf(damage: number, temp: number, revision = 1): object {
+  return { revision, play: { hp: { damage, temp } } };
+}
+
+/**
+ * Answers the sheet's read of its play state, made once the character is selected; left unanswered it keeps the
+ * application unstable, so a spec waiting on it never settles.
+ */
+export async function answerPlayRead(play: object = playOf(0, 0)): Promise<void> {
+  await vi.waitFor(() => {
+    TestBed.inject(HttpTestingController)
+      .expectOne({ method: 'GET', url: `/api/characters/${id}/play` })
+      .flush(play);
+  });
 }
 
 /** The server's answer to an edit of Merisiel: her sheet, and the picks the edit cleared. */
@@ -116,6 +135,14 @@ function sheetUrl(tab: SheetMode | typeof NO_TAB = SheetMode.Plan): string {
 export interface OpenSheet {
   readonly harness: RouterTestingHarness;
   readonly root: HTMLElement;
+}
+
+/** Answers the sheet's read of the character and then of its play state. */
+async function answerReads(character: object, options: SheetOptions): Promise<void> {
+  await vi.waitFor(() => {
+    TestBed.inject(HttpTestingController).expectOne(`/api/characters/${id}`).flush(sheetOf(character, options));
+  });
+  await answerPlayRead(options.play);
 }
 
 /**
@@ -140,9 +167,7 @@ export async function openSheet(character: object = MERISIEL, options: SheetOpti
   onTestFinished(() => {
     host.remove();
   });
-  await vi.waitFor(() => {
-    TestBed.inject(HttpTestingController).expectOne(`/api/characters/${id}`).flush(sheetOf(character, options));
-  });
+  await answerReads(character, options);
   const root = present(harness.routeNativeElement);
   await vi.waitFor(async () => {
     // Through the application, not `harness.detectChanges()`, so render hooks (roving focus) run as in the app.

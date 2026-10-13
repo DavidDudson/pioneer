@@ -11,8 +11,11 @@ import type { AuditContext, Temporal, UserId, Version } from '@pioneer/shared/ke
 /** Who wrote a character and with which command; lands on its `audit.log` rows. */
 export type CharacterAudit = AuditContext<CharacterCommand>;
 
-/** Who wrote play state with which command, and when. */
+/** A play-state write: the character, its new play state, the revision it was read at, and who wrote it when. */
 export interface PlayWrite {
+  readonly id: CharacterId;
+  readonly play: PlayState;
+  readonly expectedRevision: Version;
   readonly audit: CharacterAudit;
   readonly now: Temporal.Instant;
 }
@@ -48,10 +51,5 @@ export abstract class CharacterRepository {
    * Persist `play` only if the stored play revision is still `expectedRevision`; returns it at `expectedRevision + 1`.
    * Never touches the character's `version`. Throws `VersionConflictError` otherwise.
    */
-  public abstract updatePlay(
-    id: CharacterId,
-    play: PlayState,
-    expectedRevision: Version,
-    context: PlayWrite,
-  ): Promise<CharacterPlay>;
+  public abstract updatePlay(write: PlayWrite): Promise<CharacterPlay>;
 }

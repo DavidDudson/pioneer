@@ -1,5 +1,5 @@
-import { CharacterSort } from '@pioneer/character/domain';
-import type { Character, CharacterId, CharacterListQuery, CharacterPlay, PlayState } from '@pioneer/character/domain';
+import { CharacterSort, withPlay } from '@pioneer/character/domain';
+import type { Character, CharacterId, CharacterListQuery, CharacterPlay } from '@pioneer/character/domain';
 import { FIRST_VERSION, nextVersion, SortDirection, VersionConflictError } from '@pioneer/shared/kernel';
 import type { UserId, Version } from '@pioneer/shared/kernel';
 
@@ -58,12 +58,7 @@ export class InMemoryCharacterRepository extends CharacterRepository {
     return this.#plays.get(id);
   }
 
-  public override async updatePlay(
-    id: CharacterId,
-    play: PlayState,
-    expectedRevision: Version,
-    { audit }: PlayWrite,
-  ): Promise<CharacterPlay> {
+  public override async updatePlay({ id, play, expectedRevision, audit }: PlayWrite): Promise<CharacterPlay> {
     const stored = this.#plays.get(id);
     if (stored?.revision !== expectedRevision) {
       throw new VersionConflictError('CharacterPlay', id);
@@ -77,6 +72,6 @@ export class InMemoryCharacterRepository extends CharacterRepository {
   /** `character` with the play state stored apart from it, as a read gives it: a build save never writes play state. */
   #withPlay(character: Character): Character {
     const stored = this.#plays.get(character.id);
-    return stored === undefined ? character : character.withPlay(stored.play);
+    return stored === undefined ? character : withPlay(character, stored.play);
   }
 }

@@ -1,4 +1,5 @@
 export { Character, CharacterWire } from './character';
+export { withPlay } from './character-with-play';
 export { type EditInputs } from './item-purchase';
 export { CharacterCommand, PATCH_COMMANDS, PLAY_COMMANDS } from './character-command';
 export {
@@ -6,6 +7,7 @@ export {
   CharacterPlay,
   currentHitPoints,
   FRESH_PLAY,
+  HIT_POINTS_EDIT_MAX,
   type HitPointsState,
   HitPointsStateSchema,
   PatchPlayBody,

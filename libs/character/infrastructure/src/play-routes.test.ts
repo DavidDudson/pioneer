@@ -1,11 +1,11 @@
 import { describe, expect, test } from 'bun:test';
 
 import { CharacterService, InMemoryCharacterRepository, PlayService } from '@pioneer/character/application';
-import { CharacterName, CharacterPlay, PlayCommandField, untypedDamage } from '@pioneer/character/domain';
+import { CharacterName, CharacterPlay, FRESH_PLAY, PlayCommandField, untypedDamage } from '@pioneer/character/domain';
 import { hitPointsContent, humanAncestryId } from '@pioneer/character/domain/testing';
 import { HitPoints } from '@pioneer/rules/sdk';
 import { fixedContent } from '@pioneer/rules/sdk/testing';
-import { fixedClock, newId, UserId } from '@pioneer/shared/kernel';
+import { fixedClock, newId, nextVersion, UserId } from '@pioneer/shared/kernel';
 import { problemHandler } from '@pioneer/shared/server';
 import { actingAs, FakeAuthenticator } from '@pioneer/shared/server/testing';
 import { Elysia } from 'elysia';
@@ -56,15 +56,16 @@ const DAMAGE = { field: PlayCommandField.Damage, damage: untypedDamage(HitPoints
 describe('play routes', () => {
   test('full Hit Points, then damage taken at the next revision', async () => {
     const { api, path } = await setUp();
-    const before = CharacterPlay.parse(await (await api.handle(request('GET', path, { as: amiri }))).json());
-    expect(before.play.hp).toStrictEqual({ damage: 0, temp: 0 });
+    const read = await api.handle(request('GET', path, { as: amiri }));
+    const before = CharacterPlay.parse(await read.json());
+    expect(before.play).toStrictEqual(FRESH_PLAY);
 
     const body = { expectedRevision: before.revision, command: DAMAGE };
     const patched = await api.handle(request('PATCH', path, { as: amiri, body }));
     expect(patched.status).toBe(200);
     const after = CharacterPlay.parse(await patched.json());
-    expect(after.revision).toBe(before.revision + 1);
-    expect(after.play.hp.damage).toBe(3);
+    expect(after.revision).toBe(nextVersion(before.revision));
+    expect(after.play.hp.damage).toBe(HitPoints.parse(3));
   });
 
   test('a stale revision is a 409', async () => {
@@ -84,9 +85,12 @@ describe('play routes', () => {
 
   test("signed out is 401; someone else's character is 404", async () => {
     const { api, path } = await setUp();
-    expect((await api.handle(request('GET', path, { as: undefined }))).status).toBe(401);
-    expect((await api.handle(request('GET', path, { as: ezren }))).status).toBe(404);
+    const signedOut = await api.handle(request('GET', path, { as: undefined }));
+    expect(signedOut.status).toBe(401);
+    const someoneElse = await api.handle(request('GET', path, { as: ezren }));
+    expect(someoneElse.status).toBe(404);
     const body = { expectedRevision: 1, command: DAMAGE };
-    expect((await api.handle(request('PATCH', path, { as: ezren, body }))).status).toBe(404);
+    const edit = await api.handle(request('PATCH', path, { as: ezren, body }));
+    expect(edit.status).toBe(404);
   });
 });

@@ -9,7 +9,7 @@ import { rejection } from '@pioneer/shared/kernel/testing';
 import { auditLog } from '@pioneer/shared/server';
 import { createTestDatabase, QueryRecorder, testDatabaseUrl, unindexedQueries } from '@pioneer/shared/server/testing';
 import type { TestDatabase } from '@pioneer/shared/server/testing';
-import { and, eq, sql } from 'drizzle-orm';
+import { and, asc, eq, inArray, sql } from 'drizzle-orm';
 
 import { characterPlay, characters } from './character.table';
 import { DrizzleCharacterRepository } from './drizzle-character-repository';
@@ -56,14 +56,21 @@ describe.skipIf(adminUrl === undefined)('character play state (postgres)', () =>
     const amiri = await newUser();
     const kyra = await newCharacter(amiri);
     expect(await repository.findPlay(kyra.id)).toStrictEqual({ revision: FIRST_VERSION, play: FRESH_PLAY });
-    expect((await repository.findById(kyra.id))?.document.play).toStrictEqual(FRESH_PLAY);
+    const read = await repository.findById(kyra.id);
+    expect(read?.document.play).toStrictEqual(FRESH_PLAY);
   });
 
   test('a play write bumps the play revision only, is read into the document, and is audited by command', async () => {
     const amiri = await newUser();
     const kyra = await newCharacter(amiri);
     const audit = { actor: amiri, command: CharacterCommand.Damage };
-    const saved = await repository.updatePlay(kyra.id, WOUNDED, FIRST_VERSION, { audit, now: NOW });
+    const saved = await repository.updatePlay({
+      id: kyra.id,
+      play: WOUNDED,
+      expectedRevision: FIRST_VERSION,
+      audit,
+      now: NOW,
+    });
     expect(saved).toStrictEqual({ revision: nextVersion(FIRST_VERSION), play: WOUNDED });
 
     const read = await repository.findById(kyra.id);
@@ -72,14 +79,15 @@ describe.skipIf(adminUrl === undefined)('character play state (postgres)', () =>
     const [listed] = await repository.listForOwner(amiri, { sort: 'name', direction: 'asc' });
     expect(listed?.document.play).toStrictEqual(WOUNDED);
 
-    const [row] = await database.db
+    const playRow = database.db
       .select({ id: characterPlay.id })
       .from(characterPlay)
       .where(eq(characterPlay.characterId, kyra.id));
     const commands = await database.db
       .select({ command: auditLog.command })
       .from(auditLog)
-      .where(and(eq(auditLog.tableName, 'character_play'), eq(auditLog.rowId, row?.id ?? '')));
+      .where(and(eq(auditLog.tableName, 'character_play'), inArray(auditLog.rowId, playRow)))
+      .orderBy(asc(auditLog.changedAt));
     expect(commands.map(({ command }) => command)).toStrictEqual([
       CharacterCommand.CreateCharacter,
       CharacterCommand.Damage,
@@ -89,7 +97,10 @@ describe.skipIf(adminUrl === undefined)('character play state (postgres)', () =>
   test('a build save leaves play state alone and never writes it into the document', async () => {
     const amiri = await newUser();
     const kyra = await newCharacter(amiri);
-    await repository.updatePlay(kyra.id, WOUNDED, FIRST_VERSION, {
+    await repository.updatePlay({
+      id: kyra.id,
+      play: WOUNDED,
+      expectedRevision: FIRST_VERSION,
       audit: { actor: amiri, command: CharacterCommand.Damage },
       now: NOW,
     });
@@ -110,11 +121,17 @@ describe.skipIf(adminUrl === undefined)('character play state (postgres)', () =>
   test('a stale play revision is a conflict, and nothing is written', async () => {
     const amiri = await newUser();
     const kyra = await newCharacter(amiri);
-    const write = { audit: { actor: amiri, command: CharacterCommand.Damage }, now: NOW };
-    await repository.updatePlay(kyra.id, WOUNDED, FIRST_VERSION, write);
-    const stale = await rejection(repository.updatePlay(kyra.id, FRESH_PLAY, FIRST_VERSION, write));
+    const write = {
+      id: kyra.id,
+      expectedRevision: FIRST_VERSION,
+      audit: { actor: amiri, command: CharacterCommand.Damage },
+      now: NOW,
+    };
+    await repository.updatePlay({ ...write, play: WOUNDED });
+    const stale = await rejection(repository.updatePlay({ ...write, play: FRESH_PLAY }));
     expect(stale).toBeInstanceOf(VersionConflictError);
-    expect((await repository.findPlay(kyra.id))?.play).toStrictEqual(WOUNDED);
+    const kept = await repository.findPlay(kyra.id);
+    expect(kept?.play).toStrictEqual(WOUNDED);
   });
 
   test('deleting the character deletes its play row', async () => {

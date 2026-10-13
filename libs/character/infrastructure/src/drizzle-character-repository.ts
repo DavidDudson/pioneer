@@ -43,7 +43,8 @@ const SORT_COLUMNS = {
 
 /** Stored play state, read at the current shape: a field added since it was written takes its default. */
 function decodePlay(stored: unknown): PlayState {
-  const play = PlayStateSchema.safeParse(stored);
+  // A missing row (a left join's null) reads as fresh play state.
+  const play = PlayStateSchema.safeParse(stored ?? {});
   if (!play.success) {
     throw new Error('Stored play state is invalid', { cause: play.error });
   }
@@ -54,7 +55,7 @@ function decodePlay(stored: unknown): PlayState {
 function toCharacter({ character: row, play }: JoinedRow): Character {
   const document = decodeCharacterDocument(row.document);
   return new Character({
-    document: { ...document, play: play === null ? document.play : decodePlay(play) },
+    document: { ...document, play: decodePlay(play) },
     version: row.version,
     createdAt: Temporal.Instant.from(row.createdAt),
     updatedAt: Temporal.Instant.from(row.updatedAt),
@@ -152,7 +153,7 @@ export class DrizzleCharacterRepository extends CharacterRepository {
         .from(characterPlay)
         .where(eq(characterPlay.characterId, character.id))
         .limit(1);
-      return row === undefined ? undefined : { character: row, play: play?.state ?? null };
+      return row === undefined ? undefined : { character: row, play: play?.state };
     });
     if (saved === undefined) {
       throw new VersionConflictError('Character', character.id);
@@ -169,12 +170,7 @@ export class DrizzleCharacterRepository extends CharacterRepository {
     return row === undefined ? undefined : toPlay(row);
   }
 
-  public override async updatePlay(
-    id: CharacterId,
-    play: PlayState,
-    expectedRevision: Version,
-    { audit, now }: PlayWrite,
-  ): Promise<CharacterPlay> {
+  public override async updatePlay({ id, play, expectedRevision, audit, now }: PlayWrite): Promise<CharacterPlay> {
     const [row] = await this.#db.transaction(async (tx) => {
       await stampAudit(tx, audit);
       return tx

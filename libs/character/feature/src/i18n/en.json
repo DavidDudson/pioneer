@@ -187,6 +187,16 @@
     "header": {
       "identity": "Level {level}{hasAncestry, select, yes { {ancestry}} other {}}{hasClass, select, yes { {class}} other {}}{hasSubclass, select, yes {, {subclass}} other {}}"
     },
+    "hp": {
+      "label": "Hit Points",
+      "temp": "+{temp} temporary",
+      "amount": "Amount",
+      "damage": "Damage",
+      "heal": "Heal",
+      "set": "Set HP",
+      "setTemp": "Set temp HP",
+      "noMax": "Hit Points show once the character has an ancestry and a class."
+    },
     "saveState": {
       "saving": "Saving",
       "saved": "All changes saved",
