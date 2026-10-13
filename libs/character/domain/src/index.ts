@@ -211,6 +211,13 @@ export {
 } from './item-carry';
 export { type ActiveItem, activeItems, type EquippedInputs, equippedInputs, equippedRules } from './equipped';
 export {
+  characterStatisticInputs,
+  characterStatistics,
+  MAX_HP_SELECTOR,
+  maxHitPoints,
+  type StatisticSources,
+} from './character-statistics';
+export {
   hasRunes,
   isSpecific,
   itemRunes,

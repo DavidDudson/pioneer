@@ -1,6 +1,5 @@
-import { equippedRules, itemContent } from '@pioneer/character/domain';
+import { characterStatistics } from '@pioneer/character/domain';
 import type { Character } from '@pioneer/character/domain';
-import { deriveStatistics, statisticContent } from '@pioneer/rules/engine';
 import type { StatisticResult } from '@pioneer/rules/engine';
 import { Selector } from '@pioneer/rules/sdk';
 import type { ContentRegistry } from '@pioneer/rules/sdk';
@@ -34,12 +33,11 @@ export function sheetDerivation(registry: ContentRegistry, character: Character)
 }
 
 function derive(registry: ContentRegistry, character: Character): SheetDerivation {
-  const content = statisticContent(registry);
-  if (content === undefined) {
-    return new Map();
-  }
-  const rules = equippedRules(character.document, itemContent(registry), sheetSlotContent(registry));
-  return deriveStatistics(content, statisticInputsOf(registry, character), rules);
+  return characterStatistics(character.document, {
+    registry,
+    slots: sheetSlotContent(registry),
+    inputs: statisticInputsOf(registry, character),
+  });
 }
 
 /**
