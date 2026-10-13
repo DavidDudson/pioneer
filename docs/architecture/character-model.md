@@ -125,7 +125,8 @@ The character stores `SlotKey → Selection` only. Consequences:
 
 - Levelling up opens slots; levelling down returns them to the plan but keeps the selection, so it comes back.
 - The level planner uses the same rule: selections above the current level are the plan, and levelling up turns
-  them on. A planned selection that stops being valid is flagged at its level, like any other invalid choice.
+  them on. It plans feats, skills and boosts; spell slots are a follow-up. A planned selection that stops being
+  valid is flagged at its level, like any other invalid choice.
 - If content changes (errata, a homebrew edit) and a selection becomes invalid, the slot is flagged on the sheet
   with the reason. It is never deleted silently.
 - Retraining is changing a selection; the audit log keeps the history.
@@ -261,6 +262,11 @@ character and its slots:
 
 The sheet's Choices section lists them, but the empty planned slots, with a badge per status and the reason under an
 invalid one.
+
+The level timeline ([#492](https://github.com/DavidDudson/pioneer/issues/492)) is where the plan is made: a feat, skill
+or boost slot above the character's level has a picker on its row, a plain `selectSlot`, so planning then levelling up
+equals picking at the level. A feat's picker offers the feats of its kind as of the slot's level, with the prerequisites
+the character will have met by then. Spell slots are not planned yet: they open at the character's level only.
 
 ### Attribute boosts
 

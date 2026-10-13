@@ -40,13 +40,14 @@ import {
   TextInput,
 } from '@pioneer/frontier';
 import { AncestryId, ChoiceValue } from '@pioneer/rules/sdk';
-import { AttributesView, BuildSummaryView, ChoicesView, ClassFeaturesView, LevelTimeline } from '@pioneer/rules/ui';
+import { AttributesView, BuildSummaryView, ChoicesView, ClassFeaturesView } from '@pioneer/rules/ui';
 
 import { AncestryOptions } from '../../data/ancestry-options';
 import { ImportResult } from '../../import/import-result/import-result.component';
 import { SheetClassFields } from '../sheet-class-fields/sheet-class-fields.component';
 import { SheetFeats } from '../sheet-feats/sheet-feats.component';
 import { sheetField } from '../sheet-field';
+import { SheetLevelPlan } from '../sheet-level-plan/sheet-level-plan.component';
 import { SheetPickFields } from '../sheet-pick-fields/sheet-pick-fields.component';
 import { SHEET_SECTIONS, SHEET_TAB_SECTIONS } from '../sheet-sections';
 import { SheetState } from '../sheet-state';
@@ -75,7 +76,6 @@ function focusField(field: ElementRef<HTMLElement>): void {
     ClassFeaturesView,
     Grid,
     Heading,
-    LevelTimeline,
     ImportResult,
     InlineField,
     Message,
@@ -86,6 +86,7 @@ function focusField(field: ElementRef<HTMLElement>): void {
     Select,
     SheetClassFields,
     SheetFeats,
+    SheetLevelPlan,
     SheetPickFields,
     Stack,
     Surface,

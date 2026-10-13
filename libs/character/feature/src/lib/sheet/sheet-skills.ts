@@ -2,7 +2,7 @@ import { skillReads, SkillSlotKind, skillSlots } from '@pioneer/character/domain
 import type { Character, SkillSlot } from '@pioneer/character/domain';
 import type { SelectOption } from '@pioneer/frontier';
 import { deriveStatistics, statisticContent } from '@pioneer/rules/engine';
-import type { ContentRegistry, SlotKey } from '@pioneer/rules/sdk';
+import type { ContentRegistry, Level, SlotKey } from '@pioneer/rules/sdk';
 import type { NamedStatistic } from '@pioneer/rules/ui';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
@@ -57,18 +57,32 @@ function skillSlotLabel(slot: SkillSlot, slots: readonly SkillSlot[]): MessageDe
   return message('rules.choices.slot.skillTrainingNumbered', { ...level, number: alike.indexOf(slot) + 1 });
 }
 
-/**
- * The trained skill and skill increase slots up to the character's level, in the order they are read, each with what
- * it offers after the grants and the slots before it. Slots above its level are the plan, picked in the planner.
- */
-export function sheetSkillSlots(registry: ContentRegistry, character: Character): readonly SheetSkillSlot[] {
+/** The skill slots whose level `wanted` accepts, in the order they are read, each with what it offers. */
+function skillSlotsWhere(
+  registry: ContentRegistry,
+  character: Character,
+  wanted: (level: Level) => boolean,
+): readonly SheetSkillSlot[] {
   const content = sheetSlotContent(registry);
   const slots = skillSlots(character.document, skillReads(character.document, content));
   return slots
-    .filter((slot) => slot.level <= character.level)
+    .filter((slot) => wanted(slot.level))
     .map((slot) => ({
       key: slot.key,
       label: skillSlotLabel(slot, slots),
       options: slot.options.map((skill) => ({ value: skill.id, label: skill.name })),
     }));
+}
+
+/**
+ * The trained skill and skill increase slots up to the character's level, in the order they are read, each with what
+ * it offers after the grants and the slots before it. Slots above its level are the plan, picked in the timeline.
+ */
+export function sheetSkillSlots(registry: ContentRegistry, character: Character): readonly SheetSkillSlot[] {
+  return skillSlotsWhere(registry, character, (level) => level <= character.level);
+}
+
+/** The skill slots above the character's level (#492), each offering what it will once the character is there. */
+export function sheetPlannedSkillSlots(registry: ContentRegistry, character: Character): readonly SheetSkillSlot[] {
+  return skillSlotsWhere(registry, character, (level) => level > character.level);
 }

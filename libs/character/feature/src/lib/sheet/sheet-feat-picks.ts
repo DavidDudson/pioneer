@@ -31,7 +31,7 @@ export interface FeatPickSources {
 }
 
 /** A feat slot as an inline pick: the feats matching what was typed, and why its pick counts for nothing. */
-interface FeatField {
+export interface FeatField {
   readonly key: SlotKey;
   readonly label: MessageDescriptor;
   readonly matches: Signal<readonly ComboboxOption<string>[]>;
@@ -86,13 +86,9 @@ function featField(sources: FeatPickSources, feats: Signal<SheetFeats | undefine
   };
 }
 
-/**
- * One inline pick per feat slot up to the character's level (#466), made anew only when the slots change (a level up,
- * another class), so an edit in progress keeps its session while the character changes around it; and the feats the
- * character's features grant. Undefined while the feats load.
- */
-export function featFieldsOf(sources: FeatPickSources): Signal<FeatFields | undefined> {
-  const feats = computed(() => {
+/** The feats as read; undefined while the registry, the character or the slots load. */
+function featsOf(sources: FeatPickSources): Signal<SheetFeats | undefined> {
+  return computed(() => {
     const registry = sources.registry();
     const character = sources.character();
     const slots = sources.slots();
@@ -100,15 +96,39 @@ export function featFieldsOf(sources: FeatPickSources): Signal<FeatFields | unde
       ? undefined
       : sheetFeats(registry, character, slots);
   });
+}
+
+/**
+ * An inline pick for each slot `pick` chooses from the feats, made anew only when those slots' keys change (a level up,
+ * another class), so an edit in progress keeps its session while the character changes around it.
+ */
+function fieldsOf(
+  sources: FeatPickSources,
+  feats: Signal<SheetFeats | undefined>,
+  pick: (read: SheetFeats) => readonly SheetFeatSlot[],
+): Signal<readonly FeatField[]> {
+  const slots = (): readonly SheetFeatSlot[] => {
+    const read = feats();
+    return read === undefined ? [] : pick(read);
+  };
   const keys = computed(() =>
-    feats()
-      ?.slots.map((slot) => slot.key)
+    slots()
+      .map((slot) => slot.key)
       .join(','),
   );
-  const fields = computed(() => {
+  return computed(() => {
     keys();
-    return untracked(() => (feats()?.slots ?? []).map((slot) => featField(sources, feats, slot)));
+    return untracked(() => slots().map((slot) => featField(sources, feats, slot)));
   });
+}
+
+/**
+ * One inline pick per feat slot up to the character's level (#466), and the feats the character's features grant.
+ * Undefined while the feats load.
+ */
+export function featFieldsOf(sources: FeatPickSources): Signal<FeatFields | undefined> {
+  const feats = featsOf(sources);
+  const fields = fieldsOf(sources, feats, (read) => read.slots);
   return computed(() => {
     const read = feats();
     if (read === undefined) {
@@ -119,4 +139,12 @@ export function featFieldsOf(sources: FeatPickSources): Signal<FeatFields | unde
     );
     return { fields: fields(), groups: visibleFeatGroups(read.groups, sources.showGrantOnly()), hasGrantOnly };
   });
+}
+
+/**
+ * One inline pick per feat slot above the character's level (#492), offering the feats it will have at the slot's
+ * level. The timeline's alone, so the feats section builds none. Empty while the feats load.
+ */
+export function plannedFeatFieldsOf(sources: FeatPickSources): Signal<readonly FeatField[]> {
+  return fieldsOf(sources, featsOf(sources), (read) => read.planned);
 }

@@ -3,7 +3,7 @@ import type { ComponentFixture } from '@angular/core/testing';
 import { describe, expect, it } from 'vitest';
 
 import { provideRulesUiI18nTesting } from '../testing/provide-rich-text-testing';
-import { BARD_TIMELINE, FIGHTER_TIMELINE } from '../testing/timeline-fixtures';
+import { BARD_TIMELINE, FIGHTER_TIMELINE, PLANNING_TIMELINE } from '../testing/timeline-fixtures';
 import type { LevelTimelineRow } from './level-timeline-row';
 import { LevelTimeline } from './level-timeline.component';
 
@@ -50,6 +50,13 @@ describe(LevelTimeline, () => {
       'Not chosen',
     ]);
     expect(shown.at(2)).toStrictEqual(['Level 3', '2nd rank spell', 'Not chosen']);
+  });
+
+  it('offers a picker under a planned slot that can be planned ahead', async () => {
+    const host = await render(PLANNING_TIMELINE);
+    const shown = [...host.querySelectorAll('pio-level-timeline-level')];
+    expect(shown.at(2)?.querySelectorAll('fr-inline-field')).toHaveLength(1);
+    expect(shown.at(0)?.querySelectorAll('fr-inline-field')).toHaveLength(0);
   });
 
   it('shows placeholders while loading', async () => {

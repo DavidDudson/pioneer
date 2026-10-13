@@ -1,10 +1,9 @@
-import { computed, signal, untracked } from '@angular/core';
+import { computed, signal } from '@angular/core';
 import type { Signal } from '@angular/core';
 import type { Character, CharacterSlot } from '@pioneer/character/domain';
 import type { InlineEdit, SelectOption } from '@pioneer/frontier';
 import type { Defences } from '@pioneer/rules/engine';
-import { ChoiceValue } from '@pioneer/rules/sdk';
-import type { ContentId, ContentRegistry, SlotKey } from '@pioneer/rules/sdk';
+import type { ChoiceValue, ContentId, ContentRegistry, SlotKey } from '@pioneer/rules/sdk';
 import { ATTRIBUTE_MESSAGES } from '@pioneer/rules/ui';
 import type {
   BuildLine,
@@ -14,13 +13,10 @@ import type {
   NamedStatistic,
   SpellcastingEntryLine,
 } from '@pioneer/rules/ui';
-import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 import { sheetAttributes } from './sheet-attributes';
 import type { SheetAttributes } from './sheet-attributes';
 import {
-  NOT_CHOSEN,
-  RootPick,
   sheetBuildSummary,
   sheetClassFeatures,
   sheetKeyAttribute,
@@ -31,8 +27,10 @@ import type { SheetKeyAttribute, SheetSubclass } from './sheet-build';
 import { sheetChoices, sheetChoiceSlots } from './sheet-choices';
 import { sheetDefences } from './sheet-defences';
 import { sheetEntryNames } from './sheet-entry-names';
-import { sheetField } from './sheet-field';
+import { sheetPlannedSlots } from './sheet-planned-slots';
 import { sheetSkills, sheetSkillSlots } from './sheet-skills';
+import { slotField, slotFieldsOf } from './sheet-slot-picks';
+import type { SlotPickField } from './sheet-slot-picks';
 import { sheetSpellcasting } from './sheet-spellcasting';
 import { sheetStatistics } from './sheet-statistics';
 import { sheetStrikes } from './sheet-strikes';
@@ -107,17 +105,8 @@ export interface BuildPicks extends EngineReads {
    * (#596).
    */
   readonly choiceFields: Signal<readonly SlotPickField[]>;
-}
-
-/**
- * A slot as an inline pick, with its label and what it offers: a trained skill or skill increase, or a `ChoiceSet` that
- * lists its options.
- */
-export interface SlotPickField {
-  readonly key: SlotKey;
-  readonly label: MessageDescriptor;
-  readonly options: Signal<readonly SelectOption<string>[]>;
-  readonly field: InlineEdit<string | undefined>;
+  /** One pick per skill and boost slot above the character's level, for the timeline to offer ahead of time (#492). */
+  readonly plannedFields: Signal<readonly SlotPickField[]>;
 }
 
 /** `read` over the loaded registry and character; undefined while either loads. */
@@ -129,49 +118,6 @@ function loaded<TValue>(
     const content = registry();
     const current = character();
     return content === undefined || current === undefined ? undefined : read(content, current);
-  });
-}
-
-/** The name the server read for the pick stored in `slot`, shown when its slot no longer offers it. */
-function storedName({ slots }: BuildPickSources, slot: SlotKey): string | undefined {
-  const read = slots()?.find((each) => each.key === slot);
-  return read !== undefined && 'selectionName' in read ? read.selectionName : undefined;
-}
-
-/**
- * A slot as an inline pick, named by its options, or by the name the server read when its slot no longer offers the
- * pick. An empty slot, or one the character hasn't (its key undefined), reads as `NOT_CHOSEN`, never undefined, which
- * the edit takes for still loading.
- */
-function slotField(
-  sources: BuildPickSources,
-  slot: Signal<SlotKey | undefined>,
-  options: Signal<readonly SelectOption<string>[]>,
-): InlineEdit<string | undefined> {
-  return sheetField<string | undefined>(sources.character, {
-    read: (character) => {
-      const key = slot();
-      return key === undefined ? NOT_CHOSEN : (character.document.build.choices[key] ?? NOT_CHOSEN);
-    },
-    empty: NOT_CHOSEN,
-    schema: RootPick,
-    save: async (value) => {
-      const key = slot();
-      if (key === undefined) {
-        return;
-      }
-      await (value === undefined || value === NOT_CHOSEN
-        ? sources.clear(key)
-        : sources.select(key, ChoiceValue.parse(value)));
-    },
-    format: (value) => {
-      if (value === undefined || value === NOT_CHOSEN) {
-        return sources.translate('character.sheet.notChosen');
-      }
-      const key = slot();
-      const stored = key === undefined ? undefined : storedName(sources, key);
-      return options().find((option) => option.value === value)?.label ?? stored ?? value;
-    },
   });
 }
 
@@ -259,39 +205,18 @@ export function sheetBuildPicks(sources: BuildPickSources): BuildPicks {
     }),
     timeline: loaded(sources, sheetTimeline),
     ...engineReads(sources),
-    skillFields: slotFieldsOf(sources, loaded(sources, sheetSkillSlots)),
-    choiceFields: slotFieldsOf(sources, loaded(sources, sheetChoiceSlots)),
+    ...pickFields(sources),
   };
 }
 
-function sameKeys(left: readonly SlotKey[], right: readonly SlotKey[]): boolean {
-  return left.length === right.length && left.every((key, index) => key === right[index]);
-}
-
-/** A slot a pick field is made for: its key, its label and what it offers. */
-interface PickSlot {
-  readonly key: SlotKey;
-  readonly label: MessageDescriptor;
-  readonly options: readonly SelectOption<string>[];
-}
-
-/**
- * One inline pick per slot, made anew only when the slots change (a class change, an Intelligence boost, a level up, a
- * feat that asks), so an edit in progress keeps its session while the character changes around it.
- */
-function slotFieldsOf(
-  sources: BuildPickSources,
-  slots: Signal<readonly PickSlot[] | undefined>,
-): Signal<readonly SlotPickField[]> {
-  const keys = computed(() => (slots() ?? []).map((slot) => slot.key), { equal: sameKeys });
-  return computed(() =>
-    keys().flatMap((key): SlotPickField[] => {
-      const label = untracked(() => slots()?.find((slot) => slot.key === key)?.label);
-      if (label === undefined) {
-        return [];
-      }
-      const options = computed(() => slots()?.find((slot) => slot.key === key)?.options ?? []);
-      return [{ key, label, options, field: slotField(sources, signal(key), options) }];
-    }),
-  );
+/** The skill, choice and planned slot pickers, each reading its slots as they load. */
+function pickFields(sources: BuildPickSources): Pick<BuildPicks, 'skillFields' | 'choiceFields' | 'plannedFields'> {
+  return {
+    skillFields: slotFieldsOf(sources, loaded(sources, sheetSkillSlots)),
+    choiceFields: slotFieldsOf(sources, loaded(sources, sheetChoiceSlots)),
+    plannedFields: slotFieldsOf(
+      sources,
+      loaded(sources, (registry, character) => sheetPlannedSlots(registry, character, sources.translate)),
+    ),
+  };
 }
