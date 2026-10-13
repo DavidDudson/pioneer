@@ -8,7 +8,8 @@ import { array, assert, constantFrom, option, property } from 'fast-check';
 import type { CharacterDocument } from './character-document';
 import { SlotInvalidMessage, SlotStatus } from './character-slot';
 import { characterSlots } from './character-slot-status';
-import { featSlots } from './feat-slots';
+import { featSlots, PrerequisiteStatus } from './feat-slots';
+import type { FeatOption } from './feat-slots';
 import { slotContent, slotRefusal } from './slot-offer';
 import {
   CharacterBuilder,
@@ -99,6 +100,18 @@ describe('the dedication lock on feat slot offers', () => {
     expect(
       optionOf(taking('scout-dedication', 'scout-basic'), dedicationSlot(3), 'sentinel-dedication'),
     ).toBeUndefined();
+  });
+
+  test('a feat of an archetype no entry describes sets no wait', () => {
+    expect(optionOf(taking('orphan-basic'), dedicationSlot(2), 'sentinel-dedication')).toBeUndefined();
+  });
+
+  test('a dedication that is locked and has unmet prerequisites reads locked in the offer and the refusal', () => {
+    const afterDedication = taking('medic-dedication');
+    expect(optionOf(afterDedication, dedicationSlot(2), 'warden-dedication')).toMatchObject({ needed: 2 });
+    expect(refusal(afterDedication, dedicationSlot(2), 'warden-dedication')).toMatchObject({
+      message: { key: 'character.validation.dedicationLocked' },
+    });
   });
 
   test('only picks in earlier slots count, so a later feat does not lift the lock', () => {
@@ -213,14 +226,19 @@ function refused(document: CharacterDocument, slot: SlotKey, value: ContentId): 
   return slotRefusal(document, content, { slot, selection: ChoiceValue.parse(value) }) !== undefined;
 }
 
+/** Whether an offered feat is locked or has prerequisites that are not met. */
+function isBlocked({ locked, status }: FeatOption): boolean {
+  return locked !== undefined || status === PrerequisiteStatus.Unmet;
+}
+
 describe('the dedication lock, over any picks', () => {
-  test('a slot offers a feat locked exactly when selectSlot refuses it', () => {
+  test('selectSlot refuses exactly the offered feats that are locked or have unmet prerequisites', () => {
     assert(
       property(picks, (chosen) => {
         const document = withPicks(chosen);
         for (const slot of featSlots(document, content)) {
           for (const offered of slot.options) {
-            expect(refused(document, slot.key, offered.value)).toBe(offered.locked !== undefined);
+            expect(refused(document, slot.key, offered.value)).toBe(isBlocked(offered));
           }
         }
       }),

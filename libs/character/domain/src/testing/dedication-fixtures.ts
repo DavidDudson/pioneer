@@ -13,6 +13,8 @@ export type DedicationFixture =
   | 'sentinel-basic'
   | 'scout-dedication'
   | 'scout-basic'
+  | 'warden-dedication'
+  | 'orphan-basic'
   | 'power-attack';
 
 /** The id of the fixture feat `name`. */
@@ -65,9 +67,17 @@ export const DEDICATION_FIXTURES: ContentPack = builder
   .withFeat('sentinel-basic', { traits: ARCHETYPE, data: featData('sentinel') })
   .withFeat('scout-dedication', { traits: [...ARCHETYPE, 'dedication'], data: featData('scout') })
   .withFeat('scout-basic', { traits: ARCHETYPE, data: featData('scout') })
+  .withFeat('warden-dedication', {
+    traits: [...ARCHETYPE, 'dedication'],
+    data: { ...featData('warden'), prerequisitePredicate: ['feat:power-attack'] },
+  })
+  // Belongs to an archetype no entry describes, so it never sets a wait.
+  .withFeat('orphan-basic', { traits: ARCHETYPE, data: featData('ghost') })
+  // Carries the archetype trait only to pass the slots' filter; it belongs to no archetype.
   .withFeat('power-attack', { traits: ARCHETYPE })
   .withItem(ContentKind.Archetype, 'medic', { dedication: builder.idOf(ContentKind.Feat, 'medic-dedication') })
   .withItem(ContentKind.Archetype, 'sentinel', { dedication: builder.idOf(ContentKind.Feat, 'sentinel-dedication') })
+  .withItem(ContentKind.Archetype, 'warden', { dedication: builder.idOf(ContentKind.Feat, 'warden-dedication') })
   .withItem(ContentKind.Archetype, 'scout', {
     dedication: builder.idOf(ContentKind.Feat, 'scout-dedication'),
     dedicationLock: 1,
@@ -75,6 +85,6 @@ export const DEDICATION_FIXTURES: ContentPack = builder
   .build();
 
 /** The id of the fixture archetype `name`: `medic`, `sentinel` or `scout`. */
-export function dedicationArchetypeId(name: 'medic' | 'scout' | 'sentinel'): ContentId {
+export function dedicationArchetypeId(name: 'medic' | 'scout' | 'sentinel' | 'warden'): ContentId {
   return ContentId.parse(archetypeId(name));
 }

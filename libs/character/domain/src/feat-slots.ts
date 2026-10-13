@@ -151,7 +151,8 @@ function readPrerequisites(document: CharacterDocument, content: SlotContent): P
   const order = slotsInOrder(featSlotLevels);
   const waits = new Map<SlotKey, readonly DedicationWait[]>();
   const waitsAt = (slot: SlotKey): readonly DedicationWait[] => {
-    const earlier = order.slice(0, order.indexOf(slot));
+    const at = order.indexOf(slot);
+    const earlier = at === -1 ? [] : order.slice(0, at);
     const known =
       waits.get(slot) ?? dedicationWaits(content.feats, featsPicked(document.build.choices, content.feats, earlier));
     waits.set(slot, known);
@@ -181,8 +182,9 @@ export interface FeatPick {
 }
 
 /**
- * What is wrong with a pick for a feat slot, read at the level the slot opens: a feat above that level, one whose
- * prerequisites are not met there, or a dedication while an earlier one waits on its archetype's feats (#467). Undefined for a pick that is fine, isn't a loaded feat, or a slot that isn't a feat
+ * What is wrong with a pick for a feat slot, read at the level the slot opens: a feat above that level, a dedication
+ * while an earlier one waits on its archetype's feats (#467), or a feat whose prerequisites are not met there, in that
+ * order, as the picker says them. Undefined for a pick that is fine, isn't a loaded feat, or a slot that isn't a feat
  * slot.
  */
 export function featPickProblem(reads: PrerequisiteReads, { slot, selection }: FeatPick): FeatPickProblem | undefined {
@@ -195,11 +197,11 @@ export function featPickProblem(reads: PrerequisiteReads, { slot, selection }: F
   if (feat.level > level) {
     return FeatPickProblem.TooHigh;
   }
-  if (prerequisiteStatus(feat, reads.factsAt(level)) === PrerequisiteStatus.Unmet) {
-    return FeatPickProblem.Prerequisites;
+  if (dedicationWait(reads.feats, reads.waitsAt(slot), id.data) !== undefined) {
+    return FeatPickProblem.DedicationLocked;
   }
-  const locked = dedicationWait(reads.feats, reads.waitsAt(slot), id.data) !== undefined;
-  return locked ? FeatPickProblem.DedicationLocked : undefined;
+  const unmet = prerequisiteStatus(feat, reads.factsAt(level)) === PrerequisiteStatus.Unmet;
+  return unmet ? FeatPickProblem.Prerequisites : undefined;
 }
 
 /** A feat a feat slot offers, with whether the character meets its prerequisites at the slot's level. */

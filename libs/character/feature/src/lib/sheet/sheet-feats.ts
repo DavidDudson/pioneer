@@ -156,8 +156,8 @@ function descriptionOf(
 
 /**
  * `options` whose name holds `query`, ignoring case, up to the most a picker lists, as combobox options: one whose
- * prerequisites are not met, or that is a dedication still locked, is shown but can't be picked, saying why; one whose prerequisites can't be
- * checked says so too, and can be picked, since unknown is never read as not met.
+ * prerequisites are not met, or that is a dedication still locked, is shown but can't be picked, saying why; one
+ * whose prerequisites can't be checked says so too, and can be picked, since unknown is never read as not met.
  */
 export function featMatches(
   options: readonly SheetFeatOption[],
