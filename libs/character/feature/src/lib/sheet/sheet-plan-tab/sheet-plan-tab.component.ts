@@ -40,7 +40,7 @@ import {
   TextInput,
 } from '@pioneer/frontier';
 import { AncestryId, ChoiceValue } from '@pioneer/rules/sdk';
-import { AttributesView, BuildSummaryView, ChoicesView, ClassFeaturesView } from '@pioneer/rules/ui';
+import { AttributesView, BuildSummaryView, ChoicesView, ClassFeaturesView, LevelTimeline } from '@pioneer/rules/ui';
 
 import { AncestryOptions } from '../../data/ancestry-options';
 import { ImportResult } from '../../import/import-result/import-result.component';
@@ -75,6 +75,7 @@ function focusField(field: ElementRef<HTMLElement>): void {
     ClassFeaturesView,
     Grid,
     Heading,
+    LevelTimeline,
     ImportResult,
     InlineField,
     Message,

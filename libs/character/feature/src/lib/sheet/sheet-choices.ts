@@ -95,7 +95,7 @@ function selectionOf(slot: CharacterSlot): ChoiceSelection | undefined {
   return name === undefined ? undefined : { name };
 }
 
-function lineOf(slot: CharacterSlot): ChoiceLine {
+export function lineOf(slot: CharacterSlot): ChoiceLine {
   return {
     key: slot.key,
     label: labelOf('subject' in slot ? slot.subject : undefined),

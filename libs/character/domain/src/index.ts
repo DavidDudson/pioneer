@@ -90,6 +90,7 @@ export {
 export { needsAccess, type SpellContent, spellContent, type SpellOption } from './spell-content';
 export { CharacterSlot, SlotInvalidMessage, SlotStatus, SlotSubject, SlotSubjectKind } from './character-slot';
 export { characterSlots } from './character-slot-status';
+export { levelTimeline, type TimelineRow } from './level-timeline';
 export { characterDeity, SheetDeity } from './character-deity';
 export { deityContent } from './deity-content';
 export { favoredWeapons } from './favored-weapons';

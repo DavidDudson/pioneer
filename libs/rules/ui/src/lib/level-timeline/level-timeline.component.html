@@ -1,0 +1,13 @@
+@if (rows(); as levels) {
+  <fr-list gap="md">
+    @for (row of levels; track row.level) {
+      <fr-list-item><pio-level-timeline-level [row]="row" /></fr-list-item>
+    }
+  </fr-list>
+} @else {
+  <fr-list gap="xs">
+    @for (row of loadingRows; track row) {
+      <fr-list-item><fr-skeleton width="md" /></fr-list-item>
+    }
+  </fr-list>
+}
