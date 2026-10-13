@@ -5,13 +5,14 @@ import { itemContent, maxHitPoints, resourceMaxima, withPlay } from '@pioneer/ch
 import type { ActiveCondition, Character, ResourceMaxima } from '@pioneer/character/domain';
 import { FocusPoints, SpellPreparation } from '@pioneer/rules/sdk';
 import type { ContentRegistry, HitPoints } from '@pioneer/rules/sdk';
-import type { Investment, Vital } from '@pioneer/rules/ui';
+import type { EntryPreviews, Investment, Vital } from '@pioneer/rules/ui';
 
 import { CharacterStore } from '../data/character-store';
 import { CHARACTER_CONTENT_KINDS, injectContentRegistry } from '../data/content-registry-query';
 import { PlayStore } from '../data/play-store';
 import { sheetBuildPicks } from './sheet-build-picks';
 import type { BuildPicks } from './sheet-build-picks';
+import { sheetConditionPreviews } from './sheet-condition-previews';
 import { sameConditions } from './sheet-conditions';
 import { readsEquipment, EQUIPMENT_CONTENT_KINDS, sheetInvestments } from './sheet-equipment';
 import { sheetFocus } from './sheet-focus-spells';
@@ -60,6 +61,12 @@ export class SheetState {
   readonly #engineRegistry = computed((): ContentRegistry | undefined =>
     readsEquipment(this.character()) ? this.equipment.data() : this.registry.data(),
   );
+
+  /**
+   * The previews the header's conditions open: each entry with its value and what it changes for this character, read
+   * from the engine's registry.
+   */
+  public readonly conditionPreviews: EntryPreviews = sheetConditionPreviews(this.#engineRegistry, this.character);
 
   /** The root slot, subclass and key attribute pickers, the build summary, and what the engine derives. */
   public readonly picks: BuildPicks = sheetBuildPicks({

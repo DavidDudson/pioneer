@@ -16,6 +16,7 @@ const PLAY_URL = `/api/characters/${id}/play`;
 const PACKS = cutTo([...CHARACTER_CONTENT_KINDS, ContentKind.Condition]);
 
 const FRIGHTENED = '4218b8f3-1756-50cd-a914-6ce750659a62';
+const CLUMSY = '69f88e3c-d871-5fb9-82c6-120348a7c0e8';
 const GRABBED = 'cab530ff-ca20-5f0a-8a5e-b9fdb322b146';
 const BLINDED = '5d63458a-cde5-5d64-8fea-b920f04f36b7';
 const DAZZLED = '943dfd55-ad09-5abf-9138-95a6149d3302';
@@ -30,6 +31,7 @@ function afflictedWith(conditions: readonly object[], revision = 1): object {
 }
 
 const frightened = (value: number): object => ({ id: FIRST, condition: FRIGHTENED, value, duration: UNLIMITED });
+const clumsy = (value: number): object => ({ id: FIRST, condition: CLUMSY, value, duration: UNLIMITED });
 
 function conditionsOf(root: HTMLElement): HTMLElement {
   return present(root.querySelector<HTMLElement>('pio-sheet-conditions'));
@@ -89,6 +91,23 @@ describe('CharacterSheetPage conditions', () => {
 
     await vi.waitFor(() => {
       expect(textOf(conditionsOf(root))).toContain('Replaced by Blinded');
+    });
+  });
+
+  it('opens a preview of a condition with its value applied, listing the statistics it changes', async () => {
+    const { root } = await openSheet(undefined, { play: afflictedWith([clumsy(2)]), packs: PACKS });
+    const trigger = await vi.waitFor(() =>
+      present(conditionsOf(root).querySelector<HTMLElement>('fr-hover-card [tabindex="0"]')),
+    );
+    trigger.dispatchEvent(new FocusEvent('focusin', { bubbles: true }));
+
+    await vi.waitFor(async () => {
+      await TestBed.inject(ApplicationRef).whenStable();
+      const card = textOf(present(document.querySelector<HTMLElement>('[role="tooltip"]')));
+      expect(card).toMatch(/Clumsy\s*2/u);
+      expect(card).toContain('Changes for this character');
+      expect(card).toContain('Armor Class -2 status');
+      expect(card).toContain('Reflex -2 status');
     });
   });
 

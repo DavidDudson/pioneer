@@ -4,12 +4,15 @@ import { PlayCommandField } from '@pioneer/character/domain';
 import type { PlayCommand } from '@pioneer/character/domain';
 import { AsyncButton, AsyncData, AsyncPending, AsyncRegion, Badge, Skeleton, Stack, Text } from '@pioneer/frontier';
 import { ConditionValue } from '@pioneer/rules/sdk';
+import { ENTRY_PREVIEWS, EntryHover } from '@pioneer/rules/ui';
+import type { EntryPreviews } from '@pioneer/rules/ui';
 
 import { injectContentRegistry } from '../../data/content-registry-query';
 import { PlayStore } from '../../data/play-store';
 import { CONDITION_CONTENT_KINDS, CONDITION_VALUE_MAX, conditionOptions, conditionViews } from '../sheet-conditions';
 import type { ConditionOption, ConditionView } from '../sheet-conditions';
 import { describeSaveError } from '../sheet-field';
+import { SheetState } from '../sheet-state';
 import { SheetConditionAdd } from './sheet-condition-add.component';
 
 const FIRST_VALUE = 1;
@@ -29,12 +32,14 @@ const FIRST_VALUE = 1;
     AsyncPending,
     AsyncRegion,
     Badge,
+    EntryHover,
     Skeleton,
     Stack,
     Text,
     TranslocoPipe,
   ],
   templateUrl: './sheet-conditions.component.html',
+  providers: [{ provide: ENTRY_PREVIEWS, useFactory: (): EntryPreviews => inject(SheetState).conditionPreviews }],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SheetConditions {
