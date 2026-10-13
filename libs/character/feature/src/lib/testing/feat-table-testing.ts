@@ -57,3 +57,15 @@ export async function openFeatTable(field: HTMLElement, count: number): Promise<
     return rows;
   });
 }
+
+/** Opens the inline editor of a picker and lists its rows once at least one shows; the table needn't be of feats. */
+export async function openPickerTable(field: HTMLElement): Promise<FeatTableRow[]> {
+  layOut();
+  present(field.querySelector<HTMLElement>('button')).click();
+  await settle();
+  return vi.waitFor(() => {
+    const rows = rowsIn(field);
+    expect(rows.length).toBeGreaterThan(0);
+    return rows;
+  });
+}

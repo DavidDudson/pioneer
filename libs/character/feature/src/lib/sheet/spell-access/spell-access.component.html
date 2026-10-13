@@ -3,12 +3,17 @@
   <pio-spell-access-list [lines]="access()?.granted" [remove]="revoke" />
   <fr-async-form [form]="form" [action]="grant" [describeError]="describeError">
     <fr-stack gap="sm">
-      <fr-combobox-field
+      <fr-picker-field
         [label]="'character.sheet.spellAccess.spell' | transloco"
         [placeholder]="'character.sheet.prepared.placeholder' | transloco"
-        [options]="spells()"
+        [rows]="shown()"
+        [columns]="columns()"
+        [rowValue]="rowValue"
+        [rowLabel]="rowLabel"
+        [rowDisabled]="rowDisabled"
         [formField]="form.spell"
-        (searched)="search($event)"
+        (searched)="query.set($event)"
+        (sorted)="sorting.set($event)"
       />
       <fr-stack direction="horizontal" justify="end">
         <fr-async-button

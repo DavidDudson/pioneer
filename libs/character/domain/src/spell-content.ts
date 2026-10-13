@@ -1,12 +1,37 @@
-import { ContentId, ContentKind, Rarity, Trait } from '@pioneer/rules/sdk';
-import type { ChoiceValue, ContentRegistry, ContentText, MagicTradition, SpellRank } from '@pioneer/rules/sdk';
+import {
+  AreaValue,
+  castActions,
+  ContentId,
+  ContentKind,
+  defenseValues,
+  durationValues,
+  rangeBands,
+  Rarity,
+  targetValues,
+  Trait,
+} from '@pioneer/rules/sdk';
+import type {
+  CastActions,
+  ChoiceValue,
+  ContentRegistry,
+  ContentText,
+  DefenseValue,
+  DurationValue,
+  MagicTradition,
+  RangeBand,
+  SourceRef,
+  SpellRank,
+  TargetValue,
+} from '@pioneer/rules/sdk';
 
 const CANTRIP = Trait.parse('cantrip');
 const FOCUS = Trait.parse('focus');
 
 /**
  * A spell as a prepared slot reads it: its id, name, rank, traditions and rarity, and whether it is a cantrip. A
- * cantrip is rank 1 with the `cantrip` trait, as in Foundry pf2e.
+ * cantrip is rank 1 with the `cantrip` trait, as in Foundry pf2e. It also carries what a picker table shows to choose
+ * by: the facts the content browser filters on (cast cost, range, area, targets, defence, duration), its traits and
+ * where it is printed.
  */
 export interface SpellOption {
   readonly id: ContentId;
@@ -17,6 +42,17 @@ export interface SpellOption {
   readonly cantrip: boolean;
   /** Whether it has the `focus` trait: cast with a Focus Point, never from a slot. */
   readonly focus: boolean;
+  /** The actions it takes to cast: one, or each of a variable cost. */
+  readonly cast: readonly CastActions[];
+  readonly range: readonly RangeBand[];
+  /** The shape of its area, or none. */
+  readonly area: AreaValue;
+  readonly targets: readonly TargetValue[];
+  /** What it is rolled against: an attack or a save, or none. */
+  readonly defense: readonly DefenseValue[];
+  readonly duration: readonly DurationValue[];
+  readonly traits: readonly Trait[];
+  readonly sources: readonly SourceRef[];
 }
 
 /**
@@ -48,6 +84,14 @@ export function spellContent(registry: ContentRegistry): SpellContent {
         rarity: entry.rarity,
         cantrip: entry.traits.includes(CANTRIP),
         focus: entry.traits.includes(FOCUS),
+        cast: castActions(entry.data),
+        range: rangeBands(entry.data),
+        area: entry.data.area?.shape ?? AreaValue.None,
+        targets: targetValues(entry.data),
+        defense: defenseValues(entry),
+        duration: durationValues(entry.data),
+        traits: entry.traits,
+        sources: entry.sources,
       });
     }
   }

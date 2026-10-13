@@ -34,6 +34,7 @@ const ACTION_ORDER: readonly ActionKind[] = [
   ActionKind.Two,
   ActionKind.Three,
   ActionKind.Variable,
+  ActionKind.Time,
   ActionKind.Passive,
 ];
 

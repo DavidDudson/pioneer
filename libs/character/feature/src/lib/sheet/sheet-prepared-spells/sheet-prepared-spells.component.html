@@ -18,14 +18,13 @@
               [edit]="slot.field"
               [notice]="reason === undefined ? undefined : (reason.key | transloco: reason.params)"
             >
-              <fr-combobox
+              <pio-spell-picker
                 frInlineEditor
                 [ariaLabel]="slot.label.key | transloco: slot.label.params"
                 [placeholder]="'character.sheet.prepared.placeholder' | transloco"
-                [options]="slot.matches()"
+                [rows]="slot.rows()"
                 [value]="slot.field.draft()"
                 (valueChange)="slot.field.change($event)"
-                (searched)="slot.search($event)"
                 (committed)="slot.field.flushSoon()"
                 (cancelled)="slot.field.cancel()"
               />

@@ -134,7 +134,19 @@ export {
 } from './facet';
 export { availableItems } from './available-items';
 export { facetsFor } from './kind-facets';
-export { AreaValue, CastActions, DefenseValue, DurationValue, RangeBand, TargetValue } from './spell-facet-values';
+export {
+  AreaValue,
+  CastActions,
+  castActions,
+  DefenseValue,
+  defenseValues,
+  DurationValue,
+  durationValues,
+  RangeBand,
+  rangeBands,
+  TargetValue,
+  targetValues,
+} from './spell-facet-values';
 export { SPELL_FACETS, SpellFacetMessage } from './spell-facets';
 export {
   EntryCount,
