@@ -7,3 +7,10 @@ export { InMemoryHomebrewPackRepository } from './in-memory-homebrew-pack-reposi
 export { InMemoryPackEnablementDirectory } from './in-memory-pack-enablement-directory';
 export { PackAccessPolicy } from './pack-access-policy';
 export { PackEnablementDirectory } from './pack-enablement-directory';
+export { DependencyUsageDirectory } from './dependency-usage-directory';
+export { InMemoryDependencyUsageDirectory } from './in-memory-dependency-usage-directory';
+export { InMemoryPackDependencyRepository } from './in-memory-pack-dependency-repository';
+export { InMemoryPackDirectory, type OfficialPack } from './in-memory-pack-directory';
+export { PackDependencyRepository } from './pack-dependency-repository';
+export { PackDependencyService, type PackDependencyPorts } from './pack-dependency-service';
+export { PackDirectory, type ListedPack, type ReadablePack } from './pack-directory';

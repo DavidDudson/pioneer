@@ -9,12 +9,17 @@ import { HomebrewMessage } from './homebrew-message';
 import { HomebrewPackService } from './homebrew-pack-service';
 import { InMemoryAuthorDirectory } from './in-memory-author-directory';
 import { InMemoryHomebrewPackRepository } from './in-memory-homebrew-pack-repository';
+import { InMemoryPackDependencyRepository } from './in-memory-pack-dependency-repository';
+import { InMemoryPackDirectory } from './in-memory-pack-directory';
 import { InMemoryPackEnablementDirectory } from './in-memory-pack-enablement-directory';
 
 const amiri = UserId.parse(newId());
 const ezren = UserId.parse(newId());
 const seoni = UserId.parse(newId());
-const feats = { title: ContentText.parse('Amiri feats'), slug: PackId.parse('amiri-feats') };
+const feats = {
+  title: ContentText.parse('Amiri feats'),
+  slug: PackId.parse('amiri-feats'),
+};
 
 async function visibilityOf(service: HomebrewPackService, actor: UserId, id: ContentPackId): Promise<PackVisibility> {
   const pack = await service.get(actor, id);
@@ -24,14 +29,22 @@ async function visibilityOf(service: HomebrewPackService, actor: UserId, id: Con
 describe('HomebrewPackService', () => {
   let service: HomebrewPackService;
   let enablement: InMemoryPackEnablementDirectory;
+  let dependencies: InMemoryPackDependencyRepository;
+  let directory: InMemoryPackDirectory;
+  let packs: InMemoryHomebrewPackRepository;
 
   beforeEach(() => {
     enablement = new InMemoryPackEnablementDirectory();
+    dependencies = new InMemoryPackDependencyRepository();
+    packs = new InMemoryHomebrewPackRepository();
+    directory = new InMemoryPackDirectory(packs);
     service = new HomebrewPackService(
       {
-        packs: new InMemoryHomebrewPackRepository(),
+        packs,
         authors: new InMemoryAuthorDirectory().name(amiri, 'Amiri').name(ezren, 'Ezren'),
         enablement,
+        directory,
+        dependencies,
       },
       fixedClock('2026-10-10T10:00:00Z'),
     );
@@ -51,12 +64,17 @@ describe('HomebrewPackService', () => {
     await service.create(amiri, feats);
     const error = await rejection(service.create(ezren, feats));
     expect(error).toBeInstanceOf(ConflictError);
-    expect((error as ConflictError).descriptor).toStrictEqual({ key: HomebrewMessage.SlugTaken });
+    expect((error as ConflictError).descriptor).toStrictEqual({
+      key: HomebrewMessage.SlugTaken,
+    });
   });
 
   test('list returns only the actor’s packs', async () => {
     const first = await service.create(amiri, feats);
-    await service.create(ezren, { title: ContentText.parse('Ezren spells'), slug: PackId.parse('ezren-spells') });
+    await service.create(ezren, {
+      title: ContentText.parse('Ezren spells'),
+      slug: PackId.parse('ezren-spells'),
+    });
     const mine = await service.list(amiri);
     expect(mine.map(({ id }) => id)).toStrictEqual([first.id]);
   });
@@ -139,15 +157,75 @@ describe('HomebrewPackService', () => {
     });
 
     test('a pack the repository then finds gone is a 404', async () => {
-      const packs = new InMemoryHomebrewPackRepository();
-      spyOn(packs, 'updateVisibility').mockResolvedValue(undefined);
+      const vanishingPacks = new InMemoryHomebrewPackRepository();
+      spyOn(vanishingPacks, 'updateVisibility').mockResolvedValue(undefined);
       const vanishing = new HomebrewPackService(
-        { packs, authors: new InMemoryAuthorDirectory().name(amiri, 'Amiri'), enablement },
+        {
+          packs: vanishingPacks,
+          authors: new InMemoryAuthorDirectory().name(amiri, 'Amiri'),
+          enablement,
+          directory: new InMemoryPackDirectory(vanishingPacks),
+          dependencies,
+        },
         fixedClock('2026-10-10T10:00:00Z'),
       );
       const created = await vanishing.create(amiri, feats);
       const error = await rejection(vanishing.setVisibility(amiri, created.id, PackVisibility.Public));
       expect(error).toBeInstanceOf(NotFoundError);
+    });
+
+    test('widening a pack past one it extends is refused, naming that pack', async () => {
+      const base = await service.create(ezren, {
+        title: ContentText.parse('Ezren base'),
+        slug: PackId.parse('ezren-base'),
+      });
+      await service.setVisibility(ezren, base.id, PackVisibility.Campaign);
+      const created = await service.create(amiri, feats);
+      await dependencies.add(amiri, { pack: created.id, dependsOn: base.id }, async () => {});
+      const error = await rejection(service.setVisibility(amiri, created.id, PackVisibility.Public));
+      expect(error).toBeInstanceOf(ConflictError);
+      expect((error as ConflictError).descriptor).toStrictEqual({
+        key: HomebrewMessage.WiderThanDependencies,
+        params: { packs: 'Ezren base' },
+      });
+      expect(await visibilityOf(service, amiri, created.id)).toBe(PackVisibility.Private);
+    });
+
+    test('widening a pack as far as the ones it extends is allowed', async () => {
+      directory.official({
+        id: contentPackId(PackId.parse('player-core')),
+        slug: PackId.parse('player-core'),
+        title: ContentText.parse('Player Core'),
+        publisher: ContentText.parse('Paizo'),
+      });
+      const created = await service.create(amiri, feats);
+      await dependencies.add(
+        amiri,
+        {
+          pack: created.id,
+          dependsOn: contentPackId(PackId.parse('player-core')),
+        },
+        async () => {},
+      );
+      const widened = await service.setVisibility(amiri, created.id, PackVisibility.Public);
+      expect(widened.visibility).toBe(PackVisibility.Public);
+    });
+
+    test('narrowing a pack under one that extends it is refused, counting those packs', async () => {
+      const base = await service.create(amiri, feats);
+      await service.setVisibility(amiri, base.id, PackVisibility.Public);
+      const extension = await service.create(ezren, {
+        title: ContentText.parse('Ezren more'),
+        slug: PackId.parse('ezren-more'),
+      });
+      await service.setVisibility(ezren, extension.id, PackVisibility.Public);
+      await dependencies.add(amiri, { pack: extension.id, dependsOn: base.id }, async () => {});
+      const error = await rejection(service.setVisibility(amiri, base.id, PackVisibility.Campaign));
+      expect(error).toBeInstanceOf(ConflictError);
+      expect((error as ConflictError).descriptor).toStrictEqual({
+        key: HomebrewMessage.NarrowerThanDependents,
+        params: { count: 1 },
+      });
     });
 
     test('setting the visibility it already has changes nothing', async () => {

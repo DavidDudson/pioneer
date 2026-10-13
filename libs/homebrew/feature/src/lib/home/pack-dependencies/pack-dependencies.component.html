@@ -1,0 +1,49 @@
+<fr-surface>
+  <fr-stack gap="md">
+    <fr-heading variant="subheading" [level]="2">{{ 'homebrew.dependencies.heading' | transloco }}</fr-heading>
+    <fr-text variant="caption" tone="subtle">{{ 'homebrew.dependencies.hint' | transloco }}</fr-text>
+    <fr-async-region [errorMessage]="'homebrew.dependencies.loadError' | transloco">
+      <ng-template frAsyncPending>
+        <fr-stack gap="sm">
+          @for (placeholder of placeholders; track placeholder) {
+            <fr-stack gap="3xs">
+              <fr-skeleton width="sm" />
+              <fr-skeleton width="md" />
+            </fr-stack>
+          }
+        </fr-stack>
+      </ng-template>
+      <ng-template let-result [frAsyncData]="store.dependencies">
+        <fr-stack gap="md">
+          @if (result.dependencies.length === 0) {
+            <fr-empty-state [icon]="emptyIcon" [title]="'homebrew.dependencies.empty' | transloco" />
+          } @else {
+            <fr-list gap="sm">
+              @for (dependency of result.dependencies; track dependency.id) {
+                <fr-list-item>
+                  <fr-stack direction="horizontal" gap="sm" align="center" wrap>
+                    <fr-stack gap="3xs" grow>
+                      <fr-text weight="medium">{{ dependency.title }}</fr-text>
+                      <fr-text variant="caption" tone="subtle">{{
+                        'homebrew.dependencies.byline' | transloco: { publisher: dependency.publisher }
+                      }}</fr-text>
+                    </fr-stack>
+                    <pio-pack-dependency-actions
+                      [packId]="packId()"
+                      [dependency]="dependency"
+                      [editable]="result.editable"
+                    />
+                  </fr-stack>
+                </fr-list-item>
+              }
+            </fr-list>
+          }
+
+          @if (result.editable) {
+            <pio-pack-dependency-adder [packId]="packId()" [candidates]="result.candidates" />
+          }
+        </fr-stack>
+      </ng-template>
+    </fr-async-region>
+  </fr-stack>
+</fr-surface>

@@ -1,6 +1,6 @@
 import { inject, Injectable, signal } from '@angular/core';
 import { HomebrewContract } from '@pioneer/homebrew/domain';
-import type { CreateHomebrewPackBody, HomebrewPack } from '@pioneer/homebrew/domain';
+import type { CreateHomebrewPackBody, HomebrewPack, PackDependencies } from '@pioneer/homebrew/domain';
 import { ContentPackId } from '@pioneer/rules/sdk';
 import type { PackVisibility } from '@pioneer/rules/sdk';
 import { ApiClient } from '@pioneer/shared/web';
@@ -11,6 +11,7 @@ const homebrewKeys = {
   all: ['homebrew'] as const,
   list: () => [...homebrewKeys.all, 'list'] as const,
   detail: (id: string | undefined) => [...homebrewKeys.all, 'detail', id] as const,
+  dependencies: (id: string | undefined) => [...homebrewKeys.all, 'dependencies', id] as const,
 };
 
 /** The route's pack id, parsed; a malformed one fails the query that asked. */
@@ -47,6 +48,17 @@ export class HomebrewStore {
     };
   });
 
+  /** The open pack's dependencies, and the packs its owner could add. */
+  public readonly dependencies = injectQuery(() => {
+    const id = this.#selectedId();
+    return {
+      queryKey: homebrewKeys.dependencies(id),
+      queryFn: async (): Promise<PackDependencies> =>
+        this.#api.call(HomebrewContract.dependencies, { params: { id: parsedId(id) }, body: undefined }),
+      enabled: id !== undefined,
+    };
+  });
+
   public select(id: string): void {
     this.#selectedId.set(id);
   }
@@ -64,5 +76,22 @@ export class HomebrewStore {
     this.#client.setQueryData(homebrewKeys.detail(pack.id), pack);
     await this.#client.invalidateQueries({ queryKey: homebrewKeys.list(), refetchType: 'none' });
     return pack;
+  }
+
+  /** Make the pack extend another. A refusal (404, 409) is thrown for the caller to show. */
+  public async addDependency(id: ContentPackId, dependsOn: ContentPackId): Promise<PackDependencies> {
+    const result = await this.#api.call(HomebrewContract.addDependency, { params: { id }, body: { dependsOn } });
+    this.#client.setQueryData(homebrewKeys.dependencies(id), result);
+    return result;
+  }
+
+  /** Make the pack stop extending another. A refusal (409 while entries use it) is thrown for the caller to show. */
+  public async removeDependency(id: ContentPackId, dependsOn: ContentPackId): Promise<PackDependencies> {
+    const result = await this.#api.call(HomebrewContract.removeDependency, {
+      params: { id, dependsOn },
+      body: undefined,
+    });
+    this.#client.setQueryData(homebrewKeys.dependencies(id), result);
+    return result;
   }
 }

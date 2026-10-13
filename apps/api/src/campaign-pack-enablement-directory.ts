@@ -1,7 +1,7 @@
 import { campaignMembers, campaignPacks, campaigns } from '@pioneer/campaign/infrastructure';
 import { PackEnablementDirectory } from '@pioneer/homebrew/application';
+import type { ReadablePack } from '@pioneer/homebrew/application';
 import { EnablingCampaignName } from '@pioneer/homebrew/domain';
-import type { HomebrewPack } from '@pioneer/homebrew/domain';
 import type { UserId } from '@pioneer/shared/kernel';
 import { and, eq } from 'drizzle-orm';
 import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
@@ -18,7 +18,7 @@ export class CampaignPackEnablementDirectory extends PackEnablementDirectory {
     this.#db = db;
   }
 
-  public override async campaignsEnabling(pack: HomebrewPack): Promise<readonly EnablingCampaignName[]> {
+  public override async campaignsEnabling(pack: ReadablePack): Promise<readonly EnablingCampaignName[]> {
     const rows = await this.#db
       .select({ name: campaigns.name })
       .from(campaignPacks)
@@ -28,7 +28,7 @@ export class CampaignPackEnablementDirectory extends PackEnablementDirectory {
     return rows.map((row) => EnablingCampaignName.parse(row.name)).toSorted((left, right) => left.localeCompare(right));
   }
 
-  public override async belongsToCampaignEnabling(user: UserId, pack: HomebrewPack): Promise<boolean> {
+  public override async belongsToCampaignEnabling(user: UserId, pack: ReadablePack): Promise<boolean> {
     const [row] = await this.#db
       .select({ campaignId: campaignPacks.campaignId })
       .from(campaignPacks)

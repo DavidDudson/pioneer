@@ -1,8 +1,8 @@
 import { EnablingCampaignName } from '@pioneer/homebrew/domain';
-import type { HomebrewPack } from '@pioneer/homebrew/domain';
 import type { ContentPackId } from '@pioneer/rules/sdk';
 import type { UserId } from '@pioneer/shared/kernel';
 
+import type { ReadablePack } from './pack-directory';
 import { PackEnablementDirectory } from './pack-enablement-directory';
 
 interface Enablement {
@@ -25,14 +25,14 @@ export class InMemoryPackEnablementDirectory extends PackEnablementDirectory {
     return this;
   }
 
-  public override async campaignsEnabling(pack: HomebrewPack): Promise<readonly EnablingCampaignName[]> {
+  public override async campaignsEnabling(pack: ReadablePack): Promise<readonly EnablingCampaignName[]> {
     return this.#enablements
       .filter(({ packId }) => packId === pack.id)
       .map(({ campaign }) => campaign)
       .toSorted((left, right) => left.localeCompare(right));
   }
 
-  public override async belongsToCampaignEnabling(user: UserId, pack: HomebrewPack): Promise<boolean> {
+  public override async belongsToCampaignEnabling(user: UserId, pack: ReadablePack): Promise<boolean> {
     return this.#enablements.some(({ packId, members }) => packId === pack.id && members.includes(user));
   }
 }

@@ -1,70 +1,24 @@
 import { describe, expect, test } from 'bun:test';
 
-import {
-  HomebrewPackService,
-  InMemoryAuthorDirectory,
-  InMemoryHomebrewPackRepository,
-  InMemoryPackEnablementDirectory,
-} from '@pioneer/homebrew/application';
+import { InMemoryPackEnablementDirectory } from '@pioneer/homebrew/application';
 import { ContentPackId } from '@pioneer/rules/sdk';
-import { fixedClock, newId, UserId } from '@pioneer/shared/kernel';
+import { newId } from '@pioneer/shared/kernel';
 import type { Problem } from '@pioneer/shared/kernel';
-import { problemHandler } from '@pioneer/shared/server';
-import { actingAs, FakeAuthenticator } from '@pioneer/shared/server/testing';
-import { Elysia } from 'elysia';
-import type { AnyElysia } from 'elysia';
 
-import { homebrewRoutes } from './homebrew-routes';
-
-const amiri = UserId.parse(newId());
-const ezren = UserId.parse(newId());
-
-function app(enablement = new InMemoryPackEnablementDirectory()): AnyElysia {
-  const service = new HomebrewPackService(
-    {
-      packs: new InMemoryHomebrewPackRepository(),
-      authors: new InMemoryAuthorDirectory().name(amiri, 'Amiri').name(ezren, 'Ezren'),
-      enablement,
-    },
-    fixedClock('2026-10-10T10:00:00Z'),
-  );
-  return new Elysia().use(problemHandler).use(homebrewRoutes(service, new FakeAuthenticator()));
-}
-
-/** No signed-in user. */
-const anonymous = Symbol('anonymous');
-
-interface RequestOptions {
-  /** The acting user; `anonymous` sends none. */
-  readonly as?: UserId | typeof anonymous;
-  readonly body?: unknown;
-}
-
-function request(method: string, path: string, { as = amiri, body }: RequestOptions = {}): Request {
-  return new Request(`http://localhost${path}`, {
-    method,
-    headers: { 'content-type': 'application/json', ...(as === anonymous ? {} : actingAs(as)) },
-    ...(body === undefined ? {} : { body: JSON.stringify(body) }),
-  });
-}
-
-interface PackJson {
-  readonly id: string;
-  readonly slug: string;
-  readonly ownerId: string;
-  readonly visibility: string;
-  readonly entryCount: number;
-}
-
-const feats = { title: 'Amiri feats', slug: 'amiri-feats' };
-const shareWithAll = { visibility: 'public' };
-
-async function makePack(api: AnyElysia): Promise<PackJson> {
-  const response = await api.handle(request('POST', '/homebrew/packs', { body: feats }));
-  return (await response.json()) as PackJson;
-}
-
-const visibilityPath = (pack: PackJson): string => `/homebrew/packs/${pack.id}/visibility`;
+import {
+  amiri,
+  anonymous,
+  app,
+  coreDependency,
+  ezren,
+  feats,
+  makePack,
+  playerCore,
+  request,
+  shareWithAll,
+  visibilityPath,
+} from './testing/homebrew-route-fixtures';
+import type { PackJson } from './testing/homebrew-route-fixtures';
 
 describe('homebrew routes', () => {
   test('create, then get and list it', async () => {
@@ -111,8 +65,11 @@ describe('homebrew routes', () => {
       api.handle(request('GET', `/homebrew/packs/${id}`, { as: anonymous })),
       api.handle(request('POST', '/homebrew/packs', { as: anonymous, body: feats })),
       api.handle(request('PATCH', `/homebrew/packs/${id}/visibility`, { as: anonymous, body: shareWithAll })),
+      api.handle(request('GET', `/homebrew/packs/${id}/dependencies`, { as: anonymous })),
+      api.handle(request('POST', `/homebrew/packs/${id}/dependencies`, { as: anonymous, body: coreDependency })),
+      api.handle(request('DELETE', `/homebrew/packs/${id}/dependencies/${playerCore}`, { as: anonymous })),
     ]);
-    expect(responses.map(({ status }) => status)).toStrictEqual([401, 401, 401, 401]);
+    expect(responses.map(({ status }) => status)).toStrictEqual([401, 401, 401, 401, 401, 401, 401]);
   });
 
   describe('PATCH /homebrew/packs/:id/visibility', () => {

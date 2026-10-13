@@ -24,6 +24,7 @@ import { ApiError } from '@pioneer/shared/web';
 import { filter, merge } from 'rxjs';
 
 import { HomebrewStore } from '../../data/homebrew-store';
+import { PackDependenciesPanel } from '../pack-dependencies/pack-dependencies.component';
 
 /** How each visibility reads, as full message keys: what it is, and who can see the pack because of it. */
 const VISIBILITY_MESSAGES = {
@@ -48,6 +49,7 @@ const VISIBILITY_MESSAGES = {
     DescriptionList,
     Heading,
     Page,
+    PackDependenciesPanel,
     SelectField,
     Skeleton,
     Stack,

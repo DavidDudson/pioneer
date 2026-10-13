@@ -3,8 +3,10 @@ import { Endpoint, HttpMethod, NoBody, NoParams, NoQuery } from '@pioneer/shared
 import * as z from 'zod';
 
 import { HomebrewPack } from './homebrew-pack';
+import { PackDependencies } from './pack-summary';
 
 const ById = z.object({ id: ContentPackId });
+const ByDependency = z.object({ id: ContentPackId, dependsOn: ContentPackId });
 
 export const CreateHomebrewPackBody = z.object({
   title: ContentText,
@@ -16,6 +18,10 @@ export const SetPackVisibilityBody = z.object({
   visibility: z.enum(PackVisibility),
 });
 export type SetPackVisibilityBody = z.infer<typeof SetPackVisibilityBody>;
+
+/** Which pack to extend. */
+export const AddPackDependencyBody = z.object({ dependsOn: ContentPackId });
+export type AddPackDependencyBody = z.infer<typeof AddPackDependencyBody>;
 
 /** The homebrew pack HTTP API, shared by `homebrew-infrastructure` and `homebrew-feature`. */
 export const HomebrewContract = {
@@ -57,5 +63,36 @@ export const HomebrewContract = {
     query: NoQuery,
     body: SetPackVisibilityBody,
     response: HomebrewPack.codec,
+  }),
+  /** The packs this one extends, and the ones its owner could add. Readable by anyone who can read the pack. */
+  dependencies: new Endpoint({
+    method: HttpMethod.Get,
+    path: '/homebrew/packs/:id/dependencies',
+    params: ById,
+    query: NoQuery,
+    body: NoBody,
+    response: PackDependencies,
+  }),
+  /**
+   * Owner only (403 for another reader, 404 for anyone who cannot read the pack). The dependency must be readable by
+   * the actor too, else 404. A pack cannot depend on itself, close a cycle, or be wider than what it depends on: each
+   * is a 409. Adding it twice is harmless.
+   */
+  addDependency: new Endpoint({
+    method: HttpMethod.Post,
+    path: '/homebrew/packs/:id/dependencies',
+    params: ById,
+    query: NoQuery,
+    body: AddPackDependencyBody,
+    response: PackDependencies,
+  }),
+  /** Owner only. Entries that still reference the dependency refuse it with a 409 naming them. Removing it twice is harmless. */
+  removeDependency: new Endpoint({
+    method: HttpMethod.Delete,
+    path: '/homebrew/packs/:id/dependencies/:dependsOn',
+    params: ByDependency,
+    query: NoQuery,
+    body: NoBody,
+    response: PackDependencies,
   }),
 } as const;

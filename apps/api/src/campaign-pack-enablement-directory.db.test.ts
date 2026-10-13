@@ -4,7 +4,11 @@ import { HomebrewPackService, InMemoryAuthorDirectory } from '@pioneer/homebrew/
 import { EnablingCampaignName } from '@pioneer/homebrew/domain';
 import type { HomebrewPack } from '@pioneer/homebrew/domain';
 import { HomebrewPackBuilder } from '@pioneer/homebrew/domain/testing';
-import { DrizzleHomebrewPackRepository } from '@pioneer/homebrew/infrastructure';
+import {
+  DrizzleHomebrewPackRepository,
+  DrizzlePackDependencyRepository,
+  DrizzlePackDirectory,
+} from '@pioneer/homebrew/infrastructure';
 import { PackVisibility } from '@pioneer/rules/sdk';
 import { ConflictError, fixedClock, newId, UserId } from '@pioneer/shared/kernel';
 import { rejection } from '@pioneer/shared/kernel/testing';
@@ -139,6 +143,8 @@ describe.skipIf(adminUrl === undefined)('HomebrewPackService over CampaignPackEn
         packs: repository,
         authors: new InMemoryAuthorDirectory(),
         enablement: new CampaignPackEnablementDirectory(database.db),
+        directory: new DrizzlePackDirectory(database.db),
+        dependencies: new DrizzlePackDependencyRepository(database.db),
       },
       clock,
     );

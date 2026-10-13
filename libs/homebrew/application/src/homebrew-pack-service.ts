@@ -1,4 +1,4 @@
-import { HomebrewPack } from '@pioneer/homebrew/domain';
+import { HomebrewPack, isWiderThan } from '@pioneer/homebrew/domain';
 import type { CreateHomebrewPackBody } from '@pioneer/homebrew/domain';
 import { contentPackId, PackVisibility } from '@pioneer/rules/sdk';
 import type { ContentPackId } from '@pioneer/rules/sdk';
@@ -9,6 +9,8 @@ import type { AuthorDirectory } from './author-directory';
 import { HomebrewMessage } from './homebrew-message';
 import type { HomebrewPackRepository } from './homebrew-pack-repository';
 import { PackAccessPolicy } from './pack-access-policy';
+import type { PackDependencyRepository } from './pack-dependency-repository';
+import type { PackDirectory } from './pack-directory';
 import type { PackEnablementDirectory } from './pack-enablement-directory';
 
 /** The ports `HomebrewPackService` works through. */
@@ -16,6 +18,8 @@ export interface HomebrewPackPorts {
   readonly packs: HomebrewPackRepository;
   readonly authors: AuthorDirectory;
   readonly enablement: PackEnablementDirectory;
+  readonly directory: PackDirectory;
+  readonly dependencies: PackDependencyRepository;
 }
 
 /**
@@ -26,13 +30,17 @@ export class HomebrewPackService {
   readonly #packs: HomebrewPackRepository;
   readonly #authors: AuthorDirectory;
   readonly #enablement: PackEnablementDirectory;
+  readonly #directory: PackDirectory;
+  readonly #dependencies: PackDependencyRepository;
   readonly #access: PackAccessPolicy;
   readonly #clock: Clock;
 
-  public constructor({ packs, authors, enablement }: HomebrewPackPorts, clock: Clock) {
+  public constructor({ packs, authors, enablement, directory, dependencies }: HomebrewPackPorts, clock: Clock) {
     this.#packs = packs;
     this.#authors = authors;
     this.#enablement = enablement;
+    this.#directory = directory;
+    this.#dependencies = dependencies;
     this.#access = new PackAccessPolicy(enablement);
     this.#clock = clock;
   }
@@ -85,8 +93,14 @@ export class HomebrewPackService {
       return pack;
     }
     // Checked inside the repository's transaction, with the pack locked, so a campaign cannot enable it in between.
-    const whileLocked =
-      visibility === PackVisibility.Private ? async (): Promise<void> => this.#refuseWhileEnabled(pack) : undefined;
+    // For the same reason no pack starts or stops depending on it.
+    const whileLocked = async (): Promise<void> => {
+      if (visibility === PackVisibility.Private) {
+        await this.#refuseWhileEnabled(pack);
+      }
+      await this.#refuseBeyondDependencies(pack, visibility);
+      await this.#refuseUnderDependents(pack, visibility);
+    };
     const changed = await this.#packs.updateVisibility(pack.withVisibility(visibility, this.#clock.now()), whileLocked);
     if (changed === undefined) {
       throw new NotFoundError('HomebrewPack', id);
@@ -104,6 +118,41 @@ export class HomebrewPackService {
       throw new NotFoundError('HomebrewPack', id);
     }
     return pack;
+  }
+
+  /** A pack may not be visible to more people than any pack it extends. */
+  async #refuseBeyondDependencies(pack: HomebrewPack, visibility: PackVisibility): Promise<void> {
+    const edges = await this.#dependencies.edges();
+    const found = await Promise.all(
+      edges.filter((edge) => edge.pack === pack.id).map(async (edge) => this.#directory.findById(edge.dependsOn)),
+    );
+    const narrower = found.flatMap((dependency) =>
+      dependency !== undefined && isWiderThan(visibility, dependency.visibility) ? [dependency.summary.title] : [],
+    );
+    if (narrower.length > 0) {
+      throw new ConflictError(
+        `Pack ${pack.id} would be visible to more people than ${narrower.join(', ')}`,
+        message(HomebrewMessage.WiderThanDependencies, {
+          packs: narrower.toSorted().join(', '),
+        }),
+      );
+    }
+  }
+
+  /** No pack that extends this one may be visible to more people than it, so narrowing it needs those narrowed first. */
+  async #refuseUnderDependents(pack: HomebrewPack, visibility: PackVisibility): Promise<void> {
+    const dependentIds = await this.#dependencies.dependentsOf(pack.id);
+    const found = await Promise.all(dependentIds.map(async (id) => this.#directory.findById(id)));
+    const wider = found.filter((dependent) => dependent !== undefined && isWiderThan(dependent.visibility, visibility));
+    if (wider.length > 0) {
+      // Counted, not named: the owner of this pack may not be allowed to read the others.
+      throw new ConflictError(
+        `${wider.length} pack(s) extending ${pack.id} are visible to more people than ${visibility}`,
+        message(HomebrewMessage.NarrowerThanDependents, {
+          count: wider.length,
+        }),
+      );
+    }
   }
 
   async #refuseWhileEnabled(pack: HomebrewPack): Promise<void> {

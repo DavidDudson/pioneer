@@ -1,9 +1,9 @@
-import { packContentsFromFiles } from '@pioneer/rules/sdk';
-import type { PackContents, PackId } from '@pioneer/rules/sdk';
+import { loadOrder, packContentsFromFiles } from '@pioneer/rules/sdk';
+import type { ContentPackId, PackContents, PackId } from '@pioneer/rules/sdk';
 import { asc, eq, isNull } from 'drizzle-orm';
 import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
 
-import { contentEntries, contentPacks } from './content.table';
+import { contentEntries, contentPackDeps, contentPacks } from './content.table';
 
 type Database = BunSQLDatabase<Record<string, unknown>>;
 
@@ -52,6 +52,41 @@ export class ContentRepository {
             return packContentsFromFiles(data, [entries.map((entry) => entry.data)]);
           }),
         );
+      },
+      { isolationLevel: 'repeatable read', accessMode: 'read only' },
+    );
+  }
+
+  /**
+   * A pack and every pack it depends on, through any number of packs, each after the packs it extends (`loadOrder`),
+   * so registering them in this order resolves a pack's references as it goes. Official or homebrew alike; one
+   * snapshot, like `loadOfficial`. Empty when the pack does not exist.
+   */
+  public async loadWithDependencies(root: ContentPackId): Promise<readonly PackContents[]> {
+    return this.#db.transaction(
+      async (tx): Promise<readonly PackContents[]> => {
+        const edges = await tx
+          .select({ pack: contentPackDeps.packId, dependsOn: contentPackDeps.dependsOn })
+          .from(contentPackDeps)
+          .orderBy(asc(contentPackDeps.packId), asc(contentPackDeps.dependsOn));
+        const loaded = await Promise.all(
+          loadOrder(edges, root).map(async (id): Promise<PackContents | undefined> => {
+            const [pack] = await tx
+              .select({ data: contentPacks.data })
+              .from(contentPacks)
+              .where(eq(contentPacks.id, id));
+            if (pack === undefined) {
+              return undefined;
+            }
+            const entries = await tx
+              .select({ data: contentEntries.data })
+              .from(contentEntries)
+              .where(eq(contentEntries.packId, id))
+              .orderBy(asc(contentEntries.kind), asc(contentEntries.slug));
+            return packContentsFromFiles(pack.data, [entries.map((entry) => entry.data)]);
+          }),
+        );
+        return loaded.filter((contents) => contents !== undefined);
       },
       { isolationLevel: 'repeatable read', accessMode: 'read only' },
     );

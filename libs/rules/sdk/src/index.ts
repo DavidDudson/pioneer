@@ -74,6 +74,7 @@ export {
 export { contentId, ContentId, ContentKey, contentKey, ContentPackId, contentPackId } from './content-id';
 export { EntrySlug, entrySlug, PackId, Slug, slugKind, slugName } from './content-id';
 export { ContentText } from './content-text';
+export { loadOrder, reaches, wouldCycle, type PackDependencyEdge } from './pack-dependencies';
 export {
   DAMAGE_GROUP_TYPES,
   DamageAdjustment,
