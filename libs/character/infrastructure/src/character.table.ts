@@ -3,6 +3,8 @@ import type {
   CharacterLevel,
   CharacterName,
   CharacterSchemaVersion,
+  FeatDisplayId,
+  FeatDisplaySection,
   PlayState,
   PlayStateId,
   SheetMode,
@@ -10,7 +12,18 @@ import type {
   StoredCharacterDocument,
 } from '@pioneer/character/domain';
 import type { UserId, Version } from '@pioneer/shared/kernel';
-import { index, integer, jsonb, pgTable, smallint, text, timestamp, uniqueIndex, uuid } from 'drizzle-orm/pg-core';
+import {
+  boolean,
+  index,
+  integer,
+  jsonb,
+  pgTable,
+  smallint,
+  text,
+  timestamp,
+  uniqueIndex,
+  uuid,
+} from 'drizzle-orm/pg-core';
 
 /**
  * Drizzle schema for the character aggregate. Migrations live in
@@ -70,6 +83,36 @@ export const characterSheetModes = pgTable(
     uniqueIndex('character_sheet_modes_user_character_idx').on(table.userId, table.characterId),
     // Serves the cascade when a character is deleted.
     index('character_sheet_modes_character_idx').on(table.characterId),
+  ],
+);
+
+/**
+ * Where a user shows a character's grant-only feats (ADR-0052): a row per (user, character, section), a display
+ * preference that is not part of the character document. `id` is the row's own, for the audit trail; lookups and the
+ * upsert go through the unique (user, character, section) index. The user's foreign key to users (on delete cascade)
+ * is in the migration, as for `owner_id`; deleting the character deletes its rows too.
+ */
+export const characterFeatDisplays = pgTable(
+  'character_feat_displays',
+  {
+    id: uuid().$type<FeatDisplayId>().primaryKey(),
+    userId: uuid().$type<UserId>().notNull(),
+    characterId: uuid()
+      .$type<CharacterId>()
+      .notNull()
+      .references(() => characters.id, { onDelete: 'cascade' }),
+    section: text().$type<FeatDisplaySection>().notNull(),
+    showGrantOnly: boolean().notNull(),
+    updatedAt: timestamp({ withTimezone: true, mode: 'string' }).notNull(),
+  },
+  (table) => [
+    uniqueIndex('character_feat_displays_user_character_section_idx').on(
+      table.userId,
+      table.characterId,
+      table.section,
+    ),
+    // Serves the cascade when a character is deleted.
+    index('character_feat_displays_character_idx').on(table.characterId),
   ],
 );
 

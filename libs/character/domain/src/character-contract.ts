@@ -10,6 +10,7 @@ import { CharacterLanguages } from './character-languages';
 import { PatchCharacterBody } from './character-patch';
 import { CharacterSlot } from './character-slot';
 import { ClearedPick } from './dependent-picks';
+import { FeatDisplayChoice, SetFeatDisplayBody } from './feat-display';
 import { CharacterPlay, PatchPlayBody } from './play-state';
 import { SetSheetModeBody, SheetModeChoice } from './sheet-mode';
 
@@ -113,5 +114,23 @@ export const CharacterContract = {
     query: NoQuery,
     body: SetSheetModeBody,
     response: SheetModeChoice,
+  }),
+  /** The sections where the signed-in user shows this character's grant-only feats. */
+  featDisplay: new Endpoint({
+    method: HttpMethod.Get,
+    path: '/characters/:id/feat-display',
+    params: ById,
+    query: NoQuery,
+    body: NoBody,
+    response: FeatDisplayChoice,
+  }),
+  /** Shows or hides the grant-only feats in one section. Not a character edit: the version stays the same. */
+  setFeatDisplay: new Endpoint({
+    method: HttpMethod.Patch,
+    path: '/characters/:id/feat-display',
+    params: ById,
+    query: NoQuery,
+    body: SetFeatDisplayBody,
+    response: FeatDisplayChoice,
   }),
 } as const;

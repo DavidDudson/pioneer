@@ -3,11 +3,12 @@ import type { Signal } from '@angular/core';
 import type { Character, CharacterSlot } from '@pioneer/character/domain';
 import type { InlineEdit } from '@pioneer/frontier';
 import type { ComboboxOption } from '@pioneer/frontier/data';
-import { ChoiceValue } from '@pioneer/rules/sdk';
+import { ChoiceValue, DisplayCategory } from '@pioneer/rules/sdk';
 import type { ContentRegistry, SlotKey } from '@pioneer/rules/sdk';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 import { NOT_CHOSEN, RootPick } from './sheet-build';
+import { visibleFeatGroups } from './sheet-feat-groups';
 import type { SheetFeatGroup } from './sheet-feat-groups';
 import { featMatches, sheetFeats } from './sheet-feats';
 import type { SheetFeats, SheetFeatSlot } from './sheet-feats';
@@ -23,6 +24,8 @@ export interface FeatPickSources {
   readonly select: (slot: SlotKey, selection: ChoiceValue) => Promise<void>;
   readonly clear: (slot: SlotKey) => Promise<void>;
   readonly translate: (key: string, params?: object) => string;
+  /** Whether the user shows the feats that only grant something else; they are folded away until they do. */
+  readonly showGrantOnly: Signal<boolean>;
   /** Changes when the language changes or the messages load, so translated text is read again. */
   readonly messages: Signal<unknown>;
 }
@@ -41,6 +44,8 @@ interface FeatField {
 export interface FeatFields {
   readonly fields: readonly FeatField[];
   readonly groups: readonly SheetFeatGroup[];
+  /** Whether the character has a feat that only grants something else, so there is a filter to offer. */
+  readonly hasGrantOnly: boolean;
 }
 
 /** One feat slot as an inline pick, saved by `selectSlot`, cleared by `clearSlot`. */
@@ -106,6 +111,12 @@ export function featFieldsOf(sources: FeatPickSources): Signal<FeatFields | unde
   });
   return computed(() => {
     const read = feats();
-    return read === undefined ? undefined : { fields: fields(), groups: read.groups };
+    if (read === undefined) {
+      return undefined;
+    }
+    const hasGrantOnly = read.groups.some((group) =>
+      group.feats.some((feat) => feat.category === DisplayCategory.GrantOnly),
+    );
+    return { fields: fields(), groups: visibleFeatGroups(read.groups, sources.showGrantOnly()), hasGrantOnly };
   });
 }

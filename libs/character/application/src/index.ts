@@ -5,3 +5,6 @@ export { InMemorySheetModeRepository } from './in-memory-sheet-mode-repository';
 export { type SheetModeKey, SheetModeRepository } from './sheet-mode-repository';
 export { SheetModeService } from './sheet-mode-service';
 export { PlayService } from './play-service';
+export { FeatDisplayService } from './feat-display-service';
+export { InMemoryFeatDisplayRepository } from './in-memory-feat-display-repository';
+export { type FeatDisplayKey, FeatDisplayRepository, type FeatDisplaySetting } from './feat-display-repository';
