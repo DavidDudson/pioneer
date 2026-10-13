@@ -26,7 +26,7 @@ describe('translateKindData: consumables and ammunition', () => {
     });
   });
 
-  test('untyped healing is reported and left out', () => {
+  test('untyped healing keeps its formula and has no damage type', () => {
     const elixir = physical(
       { id: 'eLiXiR0000000001', name: 'Elixir of Life', type: 'consumable' },
       {
@@ -36,7 +36,19 @@ describe('translateKindData: consumables and ammunition', () => {
     );
     const lone = translate([elixir]);
 
-    expect(dataIn(lone, 'elixir-of-life')).not.toHaveProperty('damage');
+    expect(dataIn(lone, 'elixir-of-life')).toMatchObject({ damage: { formula: '1d6', kind: 'healing' } });
+    expect(dataIn(lone, 'elixir-of-life')).not.toHaveProperty('damage.damageType');
+    expect(gapKeys(lone)).toEqual([]);
+  });
+
+  test('a damage type Pioneer lacks is reported and the damage left out', () => {
+    const elixir = physical(
+      { id: 'eLiXiR0000000002', name: 'Odd Elixir', type: 'consumable' },
+      { ...HEALING_POTION.system, damage: { formula: '1d6', kind: 'healing', type: 'unheard-of' } },
+    );
+    const lone = translate([elixir]);
+
+    expect(dataIn(lone, 'odd-elixir')).not.toHaveProperty('damage');
     expect(gapKeys(lone)).toEqual([`${KindDataGapReason.UnmappedValue} damage.type`]);
   });
 

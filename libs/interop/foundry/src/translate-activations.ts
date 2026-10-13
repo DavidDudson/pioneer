@@ -17,6 +17,11 @@ const NAME_AFTER_ACTIVATE = /^\s*(?:—|&mdash;|–)\s*(?<name>[^<]+?)\s*<\/stro
 const FREQUENCY = /<strong>\s*Frequency\s*<\/strong>\s*(?<text>[^<]*)/iu;
 const NO_NAME = /^\s*<\/strong>/u;
 
+/** Frequencies that name no limit, so there is no use to count. */
+const UNLIMITED = /^(?:at will|any number of times per [a-z0-9 ]+)\.?$/iu;
+/** "once per day, plus overcharge": the frequency, then a way to use it again at a cost the importer does not carry. */
+const OVERCHARGE = /,?\s*plus overcharge\.?\s*$/iu;
+
 const COUNT_WORDS: readonly string[] = ['one', 'two', 'three', 'four', 'five', 'six'];
 
 /** Words that stand for a count without being numbered. */
@@ -66,6 +71,26 @@ function nameOf(section: string, itemName: string): string | undefined {
   return NO_NAME.test(section) ? itemName : NAME_AFTER_ACTIVATE.exec(section)?.groups?.['name'];
 }
 
+/**
+ * The frequency a printed one stands for. One that names no limit has none to count, and "plus overcharge" keeps its
+ * base frequency, with the overcharge reported until it is a concept of its own; a frequency that does not read is
+ * reported.
+ */
+function limitOf(text: string, log: GapLog): Frequency | undefined {
+  if (UNLIMITED.test(text.trim())) {
+    return undefined;
+  }
+  const base = text.replace(OVERCHARGE, '');
+  if (base !== text) {
+    report(log, { reason: KindDataGapReason.NeedsRichText, field: 'description.overcharge', raw: text });
+  }
+  const frequency = printedFrequency(base);
+  if (frequency === undefined) {
+    report(log, { reason: KindDataGapReason.UnmappedValue, field: 'description.frequency', raw: text });
+  }
+  return frequency;
+}
+
 /** The activations of an item with a frequency, unparsed, from its description's HTML. */
 export function activationsOf(html: string, itemName: string, log: GapLog): object {
   const found = html
@@ -74,12 +99,8 @@ export function activationsOf(html: string, itemName: string, log: GapLog): obje
     .flatMap((section) => {
       const text = FREQUENCY.exec(section)?.groups?.['text'];
       const name = nameOf(section, itemName);
-      if (text === undefined || name === undefined) {
-        return [];
-      }
-      const frequency = printedFrequency(text);
-      if (frequency === undefined) {
-        report(log, { reason: KindDataGapReason.UnmappedValue, field: 'description.frequency', raw: text });
+      const frequency = text === undefined || name === undefined ? undefined : limitOf(text, log);
+      if (name === undefined || frequency === undefined) {
         return [];
       }
       const slug = Slug.safeParse(asciiNameSlug(name));

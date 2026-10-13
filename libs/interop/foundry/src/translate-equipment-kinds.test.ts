@@ -82,6 +82,20 @@ describe('translateKindData: weapons', () => {
     expect(data).not.toHaveProperty('itemBonus');
   });
 
+  test('a bonus below the potency rune is not an item bonus and not reported; one above it is reported', () => {
+    const skyHammer = {
+      ...FLAMING_LONGSWORD.system,
+      runes: { potency: 3, striking: 3, property: [] },
+      specific: undefined,
+    };
+    const below = translate([weapon('sKyHaMmEr0000001', 'Sky Hammer', { ...skyHammer, bonus: { value: 1 } })]);
+    const above = translate([weapon('sKyHaMmEr0000001', 'Sky Hammer', { ...skyHammer, bonus: { value: 4 } })]);
+
+    expect(dataIn(below, 'sky-hammer')).not.toHaveProperty('itemBonus');
+    expect(gapKeys(below)).toEqual([]);
+    expect(gapKeys(above)).toEqual([`${KindDataGapReason.UnmappedValue} bonus.value`]);
+  });
+
   test('a property rune with no entry is reported and left off', () => {
     const lone = translate([FLAMING_LONGSWORD]);
 
@@ -204,7 +218,7 @@ describe('translateKindData: equipment and treasure', () => {
   test('a usage Pioneer cannot split and a size other than medium are reported or mapped', () => {
     const mirror = physical(
       { id: 'mIrRoR0000000001', name: 'Mirror', type: 'equipment' },
-      { usage: { value: 'bonded' }, size: 'lg' },
+      { usage: { value: 'touched' }, size: 'lg' },
     );
     const lone = translate([mirror]);
 

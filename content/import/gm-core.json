@@ -501,90 +501,6 @@
     {
       "type": "entry",
       "pack": "gm-core",
-      "slug": "consumable:elixir-of-life-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.mYozcVg9fQY6zO7C",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "damage.type",
-          "raw": "untyped"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:elixir-of-life-lesser",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.TZUskLT7yvP7N2co",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "damage.type",
-          "raw": "untyped"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:elixir-of-life-major",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.AmxSqEoFhRLMYd1W",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "damage.type",
-          "raw": "untyped"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:elixir-of-life-minor",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.hDLbR56Id2OtU318",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "damage.type",
-          "raw": "untyped"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:elixir-of-life-moderate",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.c21stU5rhN4F2fZl",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "damage.type",
-          "raw": "untyped"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:elixir-of-life-true",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.qK964kZz1ALcysOa",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "damage.type",
-          "raw": "untyped"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
       "slug": "consumable:emerald-grasshopper",
       "foundry": "Compendium.pf2e.equipment-srd.Item.3uhaf2YL9hmix3pe",
       "gaps": [
@@ -1225,8 +1141,8 @@
       "gaps": [
         {
           "type": "field",
-          "reason": "unmapped-value",
-          "field": "description.frequency",
+          "reason": "needs-rich-text",
+          "field": "description.overcharge",
           "raw": "once per day, plus overcharge"
         }
       ]
@@ -1239,8 +1155,8 @@
       "gaps": [
         {
           "type": "field",
-          "reason": "unmapped-value",
-          "field": "description.frequency",
+          "reason": "needs-rich-text",
+          "field": "description.overcharge",
           "raw": "once per day, plus overcharge"
         }
       ]
@@ -1253,8 +1169,8 @@
       "gaps": [
         {
           "type": "field",
-          "reason": "unmapped-value",
-          "field": "description.frequency",
+          "reason": "needs-rich-text",
+          "field": "description.overcharge",
           "raw": "once per day, plus overcharge"
         }
       ]
@@ -1267,8 +1183,8 @@
       "gaps": [
         {
           "type": "field",
-          "reason": "unmapped-value",
-          "field": "description.frequency",
+          "reason": "needs-rich-text",
+          "field": "description.overcharge",
           "raw": "once per day, plus overcharge"
         }
       ]
@@ -1281,8 +1197,8 @@
       "gaps": [
         {
           "type": "field",
-          "reason": "unmapped-value",
-          "field": "description.frequency",
+          "reason": "needs-rich-text",
+          "field": "description.overcharge",
           "raw": "once per day, plus overcharge"
         }
       ]
@@ -1295,8 +1211,8 @@
       "gaps": [
         {
           "type": "field",
-          "reason": "unmapped-value",
-          "field": "description.frequency",
+          "reason": "needs-rich-text",
+          "field": "description.overcharge",
           "raw": "once per day, plus overcharge"
         }
       ]
@@ -1309,8 +1225,8 @@
       "gaps": [
         {
           "type": "field",
-          "reason": "unmapped-value",
-          "field": "description.frequency",
+          "reason": "needs-rich-text",
+          "field": "description.overcharge",
           "raw": "once per day, plus overcharge"
         }
       ]
@@ -1323,8 +1239,8 @@
       "gaps": [
         {
           "type": "field",
-          "reason": "unmapped-value",
-          "field": "description.frequency",
+          "reason": "needs-rich-text",
+          "field": "description.overcharge",
           "raw": "once per day, plus overcharge"
         }
       ]
@@ -1337,8 +1253,8 @@
       "gaps": [
         {
           "type": "field",
-          "reason": "unmapped-value",
-          "field": "description.frequency",
+          "reason": "needs-rich-text",
+          "field": "description.overcharge",
           "raw": "once per day, plus overcharge"
         }
       ]
@@ -1916,8 +1832,8 @@
       "gaps": [
         {
           "type": "field",
-          "reason": "unmapped-value",
-          "field": "description.frequency",
+          "reason": "needs-rich-text",
+          "field": "description.overcharge",
           "raw": "Once per day, plus overcharge"
         },
         {
@@ -1934,8 +1850,8 @@
       "gaps": [
         {
           "type": "field",
-          "reason": "unmapped-value",
-          "field": "description.frequency",
+          "reason": "needs-rich-text",
+          "field": "description.overcharge",
           "raw": "Once per day, plus overcharge"
         },
         {
@@ -1952,8 +1868,8 @@
       "gaps": [
         {
           "type": "field",
-          "reason": "unmapped-value",
-          "field": "description.frequency",
+          "reason": "needs-rich-text",
+          "field": "description.overcharge",
           "raw": "Once per day, plus overcharge"
         },
         {
@@ -1970,8 +1886,8 @@
       "gaps": [
         {
           "type": "field",
-          "reason": "unmapped-value",
-          "field": "description.frequency",
+          "reason": "needs-rich-text",
+          "field": "description.overcharge",
           "raw": "Once per day, plus overcharge"
         },
         {
@@ -4600,10 +4516,6 @@
       "pack": "gm-core",
       "slug": "effect:effect-powder-burst",
       "foundry": "Compendium.pf2e.bestiary-effects.Item.6OpwHz0f55wPawHI",
-      "leftOut": {
-        "reason": "no-kind-data",
-        "detail": ""
-      },
       "gaps": [
         {
           "type": "rule",
@@ -4644,78 +4556,8 @@
             "type": "status",
             "value": "@item.flags.system.rulesSelections.penalty"
           }
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "category",
-          "raw": "bestiary-effects"
         }
-      ],
-      "document": {
-        "_id": "6OpwHz0f55wPawHI",
-        "name": "Effect: Powder Burst",
-        "type": "effect",
-        "system": {
-          "publication": {
-            "title": "Pathfinder GM Core",
-            "license": "ORC",
-            "remaster": true
-          },
-          "level": {
-            "value": 1
-          },
-          "traits": {
-            "value": []
-          },
-          "description": {
-            "value": "<p>-2 status penalty to Perception checks and saves against mental effects.</p>"
-          },
-          "rules": [
-            {
-              "choices": [
-                {
-                  "label": "PF2E.Check.Result.Degree.Check.failure",
-                  "value": -2
-                },
-                {
-                  "label": "PF2E.Check.Result.Degree.Check.criticalFailure",
-                  "value": -4
-                }
-              ],
-              "flag": "penalty",
-              "key": "ChoiceSet",
-              "prompt": "PF2E.SpecificRule.Prompt.DegreeOfSuccess"
-            },
-            {
-              "key": "FlatModifier",
-              "predicate": ["mental"],
-              "selector": "saving-throw",
-              "type": "status",
-              "value": "@item.flags.system.rulesSelections.penalty"
-            },
-            {
-              "key": "FlatModifier",
-              "selector": "perception",
-              "type": "status",
-              "value": "@item.flags.system.rulesSelections.penalty"
-            }
-          ],
-          "duration": {
-            "expiry": "turn-start",
-            "sustained": false,
-            "unit": "hours",
-            "value": 4
-          },
-          "start": {
-            "initiative": null,
-            "value": 0
-          },
-          "tokenIcon": {
-            "show": true
-          }
-        }
-      }
+      ]
     },
     {
       "type": "entry",
@@ -7907,12 +7749,6 @@
       "foundry": "Compendium.pf2e.equipment-srd.Item.Ywt7p5Fyx18lK8km",
       "gaps": [
         {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "usage",
-          "raw": "bonded"
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[conditionitems]"
         },
@@ -8009,12 +7845,6 @@
             "predicate": ["obsidian-goggles-greater"],
             "selector": "darkvision"
           }
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "description.frequency",
-          "raw": "any number of times per day"
         }
       ]
     },
@@ -8052,12 +7882,6 @@
             "predicate": ["obsidian-goggles-major"],
             "selector": "greater-darkvision"
           }
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "description.frequency",
-          "raw": "any number of times per day"
         }
       ]
     },
@@ -9021,12 +8845,6 @@
           }
         },
         {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "description.frequency",
-          "raw": "any number of times per day"
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
         }
@@ -9093,8 +8911,8 @@
       "gaps": [
         {
           "type": "field",
-          "reason": "unmapped-value",
-          "field": "description.frequency",
+          "reason": "needs-rich-text",
+          "field": "description.overcharge",
           "raw": "Once per day, plus overcharge"
         }
       ]
@@ -9107,8 +8925,8 @@
       "gaps": [
         {
           "type": "field",
-          "reason": "unmapped-value",
-          "field": "description.frequency",
+          "reason": "needs-rich-text",
+          "field": "description.overcharge",
           "raw": "Once per day, plus overcharge"
         }
       ]
@@ -9121,8 +8939,8 @@
       "gaps": [
         {
           "type": "field",
-          "reason": "unmapped-value",
-          "field": "description.frequency",
+          "reason": "needs-rich-text",
+          "field": "description.overcharge",
           "raw": "Once per day, plus overcharge"
         }
       ]
@@ -9135,8 +8953,8 @@
       "gaps": [
         {
           "type": "field",
-          "reason": "unmapped-value",
-          "field": "description.frequency",
+          "reason": "needs-rich-text",
+          "field": "description.overcharge",
           "raw": "Once per day, plus overcharge"
         }
       ]
@@ -9149,8 +8967,8 @@
       "gaps": [
         {
           "type": "field",
-          "reason": "unmapped-value",
-          "field": "description.frequency",
+          "reason": "needs-rich-text",
+          "field": "description.overcharge",
           "raw": "Once per day, plus overcharge"
         }
       ]
@@ -9163,8 +8981,8 @@
       "gaps": [
         {
           "type": "field",
-          "reason": "unmapped-value",
-          "field": "description.frequency",
+          "reason": "needs-rich-text",
+          "field": "description.overcharge",
           "raw": "Once per day, plus overcharge"
         }
       ]
@@ -9177,8 +8995,8 @@
       "gaps": [
         {
           "type": "field",
-          "reason": "unmapped-value",
-          "field": "description.frequency",
+          "reason": "needs-rich-text",
+          "field": "description.overcharge",
           "raw": "Once per day, plus overcharge"
         }
       ]
@@ -9191,8 +9009,8 @@
       "gaps": [
         {
           "type": "field",
-          "reason": "unmapped-value",
-          "field": "description.frequency",
+          "reason": "needs-rich-text",
+          "field": "description.overcharge",
           "raw": "Once per day, plus overcharge"
         }
       ]
@@ -9274,8 +9092,8 @@
         },
         {
           "type": "field",
-          "reason": "unmapped-value",
-          "field": "description.frequency",
+          "reason": "needs-rich-text",
+          "field": "description.overcharge",
           "raw": "Once per day, plus overcharge"
         }
       ]
@@ -9361,8 +9179,8 @@
         },
         {
           "type": "field",
-          "reason": "unmapped-value",
-          "field": "description.frequency",
+          "reason": "needs-rich-text",
+          "field": "description.overcharge",
           "raw": "Once per day, plus overcharge"
         }
       ]
@@ -9448,8 +9266,8 @@
         },
         {
           "type": "field",
-          "reason": "unmapped-value",
-          "field": "description.frequency",
+          "reason": "needs-rich-text",
+          "field": "description.overcharge",
           "raw": "Once per day, plus overcharge"
         }
       ]
@@ -9535,8 +9353,8 @@
         },
         {
           "type": "field",
-          "reason": "unmapped-value",
-          "field": "description.frequency",
+          "reason": "needs-rich-text",
+          "field": "description.overcharge",
           "raw": "Once per day, plus overcharge"
         }
       ]
@@ -9622,8 +9440,8 @@
         },
         {
           "type": "field",
-          "reason": "unmapped-value",
-          "field": "description.frequency",
+          "reason": "needs-rich-text",
+          "field": "description.overcharge",
           "raw": "Once per day, plus overcharge"
         }
       ]
@@ -9709,8 +9527,8 @@
         },
         {
           "type": "field",
-          "reason": "unmapped-value",
-          "field": "description.frequency",
+          "reason": "needs-rich-text",
+          "field": "description.overcharge",
           "raw": "Once per day, plus overcharge"
         }
       ]
@@ -9796,8 +9614,8 @@
         },
         {
           "type": "field",
-          "reason": "unmapped-value",
-          "field": "description.frequency",
+          "reason": "needs-rich-text",
+          "field": "description.overcharge",
           "raw": "Once per day, plus overcharge"
         }
       ]
@@ -9883,8 +9701,8 @@
         },
         {
           "type": "field",
-          "reason": "unmapped-value",
-          "field": "description.frequency",
+          "reason": "needs-rich-text",
+          "field": "description.overcharge",
           "raw": "Once per day, plus overcharge"
         }
       ]
@@ -9970,8 +9788,8 @@
         },
         {
           "type": "field",
-          "reason": "unmapped-value",
-          "field": "description.frequency",
+          "reason": "needs-rich-text",
+          "field": "description.overcharge",
           "raw": "Once per day, plus overcharge"
         }
       ]
@@ -10289,20 +10107,6 @@
             "type": "circumstance",
             "value": 2
           }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "shield:floating-shield-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.uAs0hUUgROrndceD",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "description.frequency",
-          "raw": "at will"
         }
       ]
     },
@@ -11567,12 +11371,6 @@
       "slug": "weapon:sky-hammer",
       "foundry": "Compendium.pf2e.equipment-srd.Item.ANvbi1zKF1So8bON",
       "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "bonus.value",
-          "raw": 1
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"

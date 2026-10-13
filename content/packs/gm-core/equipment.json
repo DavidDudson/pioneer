@@ -16164,7 +16164,10 @@
       "foundry": "Compendium.pf2e.equipment-srd.Item.Ywt7p5Fyx18lK8km"
     },
     "data": {
-      "bulk": "light"
+      "bulk": "light",
+      "usage": {
+        "type": "other"
+      }
     }
   },
   {
@@ -23617,6 +23620,16 @@
         }
       },
       "bulk": "light",
+      "activations": [
+        {
+          "slug": "wand-of-continuation-1st-rank-spell",
+          "name": "Wand of Continuation (1st-Rank Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
       "usage": {
         "type": "held",
         "hands": "one"
@@ -23766,6 +23779,16 @@
         }
       },
       "bulk": "light",
+      "activations": [
+        {
+          "slug": "wand-of-continuation-2nd-rank-spell",
+          "name": "Wand of Continuation (2nd-Rank Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
       "usage": {
         "type": "held",
         "hands": "one"
@@ -23915,6 +23938,16 @@
         }
       },
       "bulk": "light",
+      "activations": [
+        {
+          "slug": "wand-of-continuation-3rd-rank-spell",
+          "name": "Wand of Continuation (3rd-Rank Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
       "usage": {
         "type": "held",
         "hands": "one"
@@ -24064,6 +24097,16 @@
         }
       },
       "bulk": "light",
+      "activations": [
+        {
+          "slug": "wand-of-continuation-4th-rank-spell",
+          "name": "Wand of Continuation (4th-Rank Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
       "usage": {
         "type": "held",
         "hands": "one"
@@ -24213,6 +24256,16 @@
         }
       },
       "bulk": "light",
+      "activations": [
+        {
+          "slug": "wand-of-continuation-5th-rank-spell",
+          "name": "Wand of Continuation (5th-Rank Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
       "usage": {
         "type": "held",
         "hands": "one"
@@ -24362,6 +24415,16 @@
         }
       },
       "bulk": "light",
+      "activations": [
+        {
+          "slug": "wand-of-continuation-6th-rank-spell",
+          "name": "Wand of Continuation (6th-Rank Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
       "usage": {
         "type": "held",
         "hands": "one"
@@ -24511,6 +24574,16 @@
         }
       },
       "bulk": "light",
+      "activations": [
+        {
+          "slug": "wand-of-continuation-7th-rank-spell",
+          "name": "Wand of Continuation (7th-Rank Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
       "usage": {
         "type": "held",
         "hands": "one"
@@ -24660,6 +24733,16 @@
         }
       },
       "bulk": "light",
+      "activations": [
+        {
+          "slug": "wand-of-continuation-8th-rank-spell",
+          "name": "Wand of Continuation (8th-Rank Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
       "usage": {
         "type": "held",
         "hands": "one"
@@ -24809,6 +24892,16 @@
         }
       },
       "bulk": "light",
+      "activations": [
+        {
+          "slug": "wand-of-widening-1st-rank-spell",
+          "name": "Wand of Widening (1st-Rank Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
       "usage": {
         "type": "held",
         "hands": "one"
@@ -24958,6 +25051,16 @@
         }
       },
       "bulk": "light",
+      "activations": [
+        {
+          "slug": "wand-of-widening-2nd-rank-spell",
+          "name": "Wand of Widening (2nd-Rank Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
       "usage": {
         "type": "held",
         "hands": "one"
@@ -25107,6 +25210,16 @@
         }
       },
       "bulk": "light",
+      "activations": [
+        {
+          "slug": "wand-of-widening-3rd-rank-spell",
+          "name": "Wand of Widening (3rd-Rank Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
       "usage": {
         "type": "held",
         "hands": "one"
@@ -25256,6 +25369,16 @@
         }
       },
       "bulk": "light",
+      "activations": [
+        {
+          "slug": "wand-of-widening-4th-rank-spell",
+          "name": "Wand of Widening (4th-Rank Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
       "usage": {
         "type": "held",
         "hands": "one"
@@ -25405,6 +25528,16 @@
         }
       },
       "bulk": "light",
+      "activations": [
+        {
+          "slug": "wand-of-widening-5th-rank-spell",
+          "name": "Wand of Widening (5th-Rank Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
       "usage": {
         "type": "held",
         "hands": "one"
@@ -25554,6 +25687,16 @@
         }
       },
       "bulk": "light",
+      "activations": [
+        {
+          "slug": "wand-of-widening-6th-rank-spell",
+          "name": "Wand of Widening (6th-Rank Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
       "usage": {
         "type": "held",
         "hands": "one"
@@ -25703,6 +25846,16 @@
         }
       },
       "bulk": "light",
+      "activations": [
+        {
+          "slug": "wand-of-widening-7th-rank-spell",
+          "name": "Wand of Widening (7th-Rank Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
       "usage": {
         "type": "held",
         "hands": "one"
@@ -25852,6 +26005,16 @@
         }
       },
       "bulk": "light",
+      "activations": [
+        {
+          "slug": "wand-of-widening-8th-rank-spell",
+          "name": "Wand of Widening (8th-Rank Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
       "usage": {
         "type": "held",
         "hands": "one"
@@ -26001,6 +26164,16 @@
         }
       },
       "bulk": "light",
+      "activations": [
+        {
+          "slug": "wand-of-widening-9th-rank-spell",
+          "name": "Wand of Widening (9th-Rank Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
       "usage": {
         "type": "held",
         "hands": "one"

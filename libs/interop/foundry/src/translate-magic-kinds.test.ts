@@ -273,11 +273,11 @@ describe('translateKindData: effects', () => {
     expect(gapKeys(translate([turn]))).toEqual([]);
   });
 
-  test('a campaign effect is an other effect', () => {
-    const campaign = { ...RAGE_EFFECT, pack: { name: 'campaign-effects', directory: 'campaign-effects' } };
+  test.each(['campaign-effects', 'bestiary-effects'])('a %s effect is an other effect', (name) => {
+    const other = { ...RAGE_EFFECT, pack: { name, directory: name } };
 
-    expect(dataIn(translate([campaign]), 'effect-rage')).toMatchObject({ category: 'other' });
-    expect(gapKeys(translate([campaign]))).toEqual([]);
+    expect(dataIn(translate([other]), 'effect-rage')).toMatchObject({ category: 'other' });
+    expect(gapKeys(translate([other]))).toEqual([]);
   });
 
   test('a duration of no time with no turn to end at is reported, as is a pack with no category', () => {

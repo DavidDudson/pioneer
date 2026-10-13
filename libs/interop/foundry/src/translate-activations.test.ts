@@ -73,6 +73,34 @@ describe('activationsOf', () => {
     ]);
   });
 
+  test('"plus overcharge" keeps the base frequency and reports the overcharge', () => {
+    const log = freshLog();
+    const html =
+      '<p><strong>Activate—Spark</strong> 1</p><p><strong>Frequency</strong> Once per day, plus overcharge</p>';
+
+    expect(activationsOf(html, 'Spark', log)).toEqual({
+      activations: [{ slug: 'spark', name: 'Spark', frequency: { max: 1, per: 'day' } }],
+    });
+    expect(log.gaps).toMatchObject([
+      {
+        reason: KindDataGapReason.NeedsRichText,
+        field: 'description.overcharge',
+        raw: 'Once per day, plus overcharge',
+      },
+    ]);
+  });
+
+  test.each(['at will', 'any number of times per day'])(
+    '%p names no limit, so nothing is counted or reported',
+    (text) => {
+      const log = freshLog();
+      const html = `<p><strong>Activate—Free</strong> 1</p><p><strong>Frequency</strong> ${text}</p>`;
+
+      expect(activationsOf(html, 'Free', log)).toEqual({});
+      expect(log.gaps).toEqual([]);
+    },
+  );
+
   test('a description with no activation has none', () => {
     expect(activationsOf('<p>A plain rope.</p>', 'Rope', freshLog())).toEqual({});
   });

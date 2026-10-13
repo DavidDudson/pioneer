@@ -175,6 +175,8 @@ const BARE: ReadonlyMap<string, UsageType> = new Map([
   ['implanted', UsageType.Implanted],
   ['carried', UsageType.Carried],
   ['other', UsageType.Other],
+  // Bonded to one character (a mirror): Pioneer has no usage of its own for it yet.
+  ['bonded', UsageType.Other],
 ]);
 
 /** Usages that name what the item goes on after a prefix: `affixed-to-armor`. */
@@ -201,7 +203,7 @@ function simpleUsage(usage: string): object | undefined {
 
 /**
  * Foundry's `usage` split into its parts: held in some hands, worn in a slot, affixed (or attached, applied,
- * installed) to something, or one of the bare usages. Anything else (`bonded`, `held-in-one-or-two-hands`) is
+ * installed) to something, or one of the bare usages. Anything else (`held-in-one-or-two-hands`) is
  * reported.
  */
 export function usageOf(usage: string, log: GapLog): object | undefined {
