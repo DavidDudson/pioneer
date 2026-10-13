@@ -1,0 +1,389 @@
+[
+  {
+    "id": "52f7c251-daa4-5693-9d28-da49211f9f30",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:alchemical",
+    "name": "Alchemical",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "armor",
+        "class-feature",
+        "condition",
+        "consumable",
+        "creature",
+        "effect",
+        "equipment",
+        "feat",
+        "heritage",
+        "shield",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "f6548459-dc84-50ce-a002-890de7fb52a4",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:artifact",
+    "name": "Artifact",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry-feature",
+        "armor",
+        "class-feature",
+        "condition",
+        "consumable",
+        "effect",
+        "equipment",
+        "feat",
+        "shield",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "47fb7859-dd38-563d-8a9f-cd32873c1bf2",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:bomb",
+    "name": "Bomb",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["weapon"]
+    }
+  },
+  {
+    "id": "c0df22c0-4738-5447-b2ad-9dd448c24ef6",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:cursed",
+    "name": "Cursed",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "armor", "condition", "consumable", "effect", "equipment", "weapon"]
+    }
+  },
+  {
+    "id": "9b327e70-82dd-5298-8c57-1f1fe73d0751",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:elixir",
+    "name": "Elixir",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "consumable"]
+    }
+  },
+  {
+    "id": "53b76c0a-6bf5-531f-9a7b-9dc1d9643fc5",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:expandable",
+    "name": "Expandable",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "consumable", "equipment"]
+    }
+  },
+  {
+    "id": "812d3924-2d2f-5afa-a83a-2cb62ec6a436",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:focused",
+    "name": "Focused",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["armor", "equipment"]
+    }
+  },
+  {
+    "id": "7e166e46-5330-5efb-beff-4e0504a5f06f",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:intelligent",
+    "name": "Intelligent",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["armor", "equipment", "weapon"]
+    }
+  },
+  {
+    "id": "784ef4d2-06be-5d5d-903d-81d611cca57c",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:oil",
+    "name": "Oil",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "consumable"]
+    }
+  },
+  {
+    "id": "1b0ae875-dedd-5cba-a4e9-fc8988a05212",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:potion",
+    "name": "Potion",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "consumable"]
+    }
+  },
+  {
+    "id": "244fc5ef-6cdc-5e07-b89b-2415fad951fc",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:precious",
+    "name": "Precious",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "consumable", "equipment"]
+    }
+  },
+  {
+    "id": "b1e18d2b-a331-5024-a376-7b2016e156f5",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:relic",
+    "name": "Relic",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["armor", "equipment", "shield", "weapon"]
+    }
+  },
+  {
+    "id": "61865fa5-0c72-5396-bc4b-63c285385d95",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:scroll",
+    "name": "Scroll",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "consumable"]
+    }
+  },
+  {
+    "id": "b60fd4d0-b1a9-5f71-8c85-46d34783cf2a",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:splash",
+    "name": "Splash",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "consumable", "weapon"]
+    }
+  },
+  {
+    "id": "27ff9f53-c261-5f49-aae1-d123d5608fec",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:staff",
+    "name": "Staff",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["equipment", "weapon"]
+    }
+  },
+  {
+    "id": "a969786d-5503-56ae-8bbc-bd358ac988e6",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:structure",
+    "name": "Structure",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "equipment", "feat", "ritual", "spell"]
+    }
+  },
+  {
+    "id": "1880b88d-98d3-5588-8bfb-926ead7b81ae",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:talisman",
+    "name": "Talisman",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat"]
+    }
+  },
+  {
+    "id": "dd379505-4226-5600-ad61-00f61945eb83",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:wand",
+    "name": "Wand",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "consumable", "equipment", "weapon"]
+    }
+  }
+]

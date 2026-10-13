@@ -1,0 +1,4440 @@
+[
+  {
+    "id": "204202fe-b901-551a-9509-383d7331ee3f",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:agate",
+    "name": "Agate",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.7SPJO9xr89N8E23s"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 5
+        }
+      },
+      "bulk": "negligible",
+      "category": "gem"
+    }
+  },
+  {
+    "id": "5e4253a6-0bca-5046-b88f-9f7f685b9e9c",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:alabaster",
+    "name": "Alabaster",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.nIlx1IQhYJfQtpVF"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 5
+        }
+      },
+      "bulk": "negligible",
+      "category": "gem"
+    }
+  },
+  {
+    "id": "16a7ca4a-971a-561a-bc64-fe0595932873",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:alabaster-and-obsidian-game-set",
+    "name": "Alabaster and obsidian game set",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.hnzNKdD5hjQc1NUx"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "bfe2f1c4-f814-5041-b8d9-7497077584d2",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:alabaster-idol",
+    "name": "Alabaster idol",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.r7QGx0YFZCR0W5iu"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "9922a7ca-c545-50cd-986e-82b0d8b3e845",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:amber",
+    "name": "Amber",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.qFkhYAeCxYci8jgk"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5
+        }
+      },
+      "bulk": "negligible",
+      "category": "gem"
+    }
+  },
+  {
+    "id": "3fa8efc3-4d14-586c-8144-d44eb40f63cd",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:amethyst",
+    "name": "Amethyst",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.epTuWsVDuPzUXMk9"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5
+        }
+      },
+      "bulk": "negligible",
+      "category": "gem"
+    }
+  },
+  {
+    "id": "32e57394-f616-5d02-aab7-f5180d4a9fc9",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:amphora-with-lavish-scenes",
+    "name": "Amphora with lavish scenes",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.JYxnuXg9MV6y1gpQ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "8666a2ed-7e68-5f97-af1a-6c36a315487e",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:ancient-dragon-skull-etched-with-mystic-sigils",
+    "name": "Ancient dragon skull etched with mystic sigils",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.7Uk6LMmzsCxuhhA6"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 250
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "6b0ee175-4014-5fd4-ba6d-c99777c8248e",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:aquamarine",
+    "name": "Aquamarine",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.dBQQZUXaMhCAFkpY"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 50
+        }
+      },
+      "bulk": "negligible",
+      "category": "gem"
+    }
+  },
+  {
+    "id": "a52c18e4-a2c6-5bb7-8f6b-500bd8926663",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:azurite",
+    "name": "Azurite",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.RNnVb83lRRUXg8hG"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 5
+        }
+      },
+      "bulk": "negligible",
+      "category": "gem"
+    }
+  },
+  {
+    "id": "5f51b000-97aa-52dc-82ef-c051f52a9d12",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:bloodstone",
+    "name": "Bloodstone",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.D8gzHTvP0uFxjwyA"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 25
+        }
+      },
+      "bulk": "negligible",
+      "category": "gem"
+    }
+  },
+  {
+    "id": "0308d785-1f02-5869-99c3-14af5e165c34",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:brass-anklet",
+    "name": "Brass anklet",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.uAQKNkgub7KNOHoR"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "51a1663b-8323-5ce1-a12e-ed1ca958cebf",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:brass-scepter-with-amethyst-head",
+    "name": "Brass scepter with amethyst head",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.l6Eifu4DScg0OBxb"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "7e409401-df27-5a53-ac85-f25ae75655cf",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:brass-statuette-of-a-bull",
+    "name": "Brass statuette of a bull",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.rOMPvaCeLqNvT6rJ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "010ffd10-0780-5fb4-bd25-3cebc2bfa1fe",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:bronze-bowl-with-wave-imagery",
+    "name": "Bronze bowl with wave imagery",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.I3KlOUruQ2CZdcJ6"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "3a6c9424-206b-5b5c-b42c-26fd5e312003",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:bronze-brazier-with-asmodean-artwork",
+    "name": "Bronze brazier with Asmodean artwork",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.lvrvCGrmnMmE4TxU"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "40ea313d-5e6e-5e52-9031-114a055b0d66",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:bronze-chalice-with-bloodstones",
+    "name": "Bronze chalice with bloodstones",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ja5rYjVRwwUXWtOd"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "f97fda15-c365-5522-b291-ba35a7243f69",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:carnelian",
+    "name": "Carnelian",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.P2MIJxEQiIWJmV8n"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 25
+        }
+      },
+      "bulk": "negligible",
+      "category": "gem"
+    }
+  },
+  {
+    "id": "29630f71-0273-5953-b762-eb4e190eda93",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:carved-wooden-game-set",
+    "name": "Carved wooden game set",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.xzmYwmvj61br2bRp"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "497feaea-52b8-5f4f-b221-49386f9c7139",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:ceremonial-dagger-with-onyx-hilt",
+    "name": "Ceremonial dagger with onyx hilt",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.VHJM3jYtpzMqZ1wc"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "f9476841-400b-5c49-a180-01a0b5f9b748",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:ceremonial-shortsword-with-spinels",
+    "name": "Ceremonial shortsword with spinels",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.F4YgvB74p8kwif1t"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 25
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "7275623f-5974-5ccc-9353-1c6c6efd1ab1",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:chandelier-crafted-from-dreams",
+    "name": "Chandelier crafted from dreams",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.MK6nnMZNWHmChAXZ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1000
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "084ea812-a4fa-555f-8115-8227af825a93",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:chrysoberyl",
+    "name": "Chrysoberyl",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.uMxXncL2bQI04GZ9"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5
+        }
+      },
+      "bulk": "negligible",
+      "category": "gem"
+    }
+  },
+  {
+    "id": "d60e105a-ea6f-50b7-9fcb-5e3f953f25ce",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:chrysoberyl-symbol-of-an-evil-eye",
+    "name": "Chrysoberyl symbol of an evil eye",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.qgKOCdtdybxwmiEv"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "5136e2e9-79af-583e-8e52-c1ef313c9b15",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:chrysoprase",
+    "name": "Chrysoprase",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.FW1AEh214U1mMWh7"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 25
+        }
+      },
+      "bulk": "negligible",
+      "category": "gem"
+    }
+  },
+  {
+    "id": "08788efd-af74-59b0-bc9c-9b7c2eb08e0b",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:citrine",
+    "name": "Citrine",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.WEnrPya5A8CKi91A"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 25
+        }
+      },
+      "bulk": "negligible",
+      "category": "gem"
+    }
+  },
+  {
+    "id": "bac68ec8-7ffa-5021-be36-3c0f5e132a39",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:colorful-pastoral-tapestry",
+    "name": "Colorful pastoral tapestry",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.noLtrW7wFfRFxSUt"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "257ac59c-93ea-5f51-a8a6-deccc3d7c6db",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:colorful-velvet-half-mask",
+    "name": "Colorful velvet half mask",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Ab8yDhtYDJnFrjI4"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "c35afed0-c7c0-57ba-92f2-f46190b233e3",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:copper-and-spinel-puzzle-box",
+    "name": "Copper and spinel puzzle box",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.PNnmcBhEwZmAKsq9"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 25
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "051c1d90-76c2-5087-a49d-9e84b5354fd0",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:copper-statuette-of-a-salamander",
+    "name": "Copper statuette of a salamander",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.xXo7KXnhp1TfvxRc"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "09d592f8-b92a-5edd-a7ad-d8824fd186eb",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:coral",
+    "name": "Coral",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.u7YrZzA2yem780cP"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5
+        }
+      },
+      "bulk": "negligible",
+      "category": "gem"
+    }
+  },
+  {
+    "id": "938a3670-dbd5-585a-8f54-253a7f1ec023",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:coral-idol-of-an-elemental-lord",
+    "name": "Coral idol of an elemental lord",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.EKgLX0TCyFik3gPS"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 25
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "3cd4d2f9-4226-57af-9683-91b9ea12c97c",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:crystal-dinner-set-fine-silverware",
+    "name": "Crystal dinner set, fine silverware",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ugOCvoAZnVyEuIiN"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 250
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "fc01a305-1d45-579f-af7e-3faa99e7c647",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:crystallized-dragon-heart",
+    "name": "Crystallized dragon heart",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.svhZ61CaSgatn5by"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1000
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "19576134-fc8d-5d98-a70a-3d0e93e312a0",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:diamond-large",
+    "name": "Diamond, large",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.7OuVXvNRbNoKzDSy"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 500
+        }
+      },
+      "bulk": "negligible",
+      "category": "gem"
+    }
+  },
+  {
+    "id": "26bb3b99-4bc7-5e70-b3ab-d49ca8e91c3e",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:diamond-ring-with-platinum-band",
+    "name": "Diamond ring with platinum band",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ZQXCEq8IyGf3WnEj"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1000
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "192a8d9b-6bfb-5fbf-a55e-07b462bf4f4b",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:diamond-small",
+    "name": "Diamond, small",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.z3PT7OgX34TQKAwH"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 100
+        }
+      },
+      "bulk": "negligible",
+      "category": "gem"
+    }
+  },
+  {
+    "id": "88be9d9a-d89c-5731-9e5e-1c54e27940bc",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:divine-art-piece-created-by-shelyn",
+    "name": "Divine art piece created by Shelyn",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.SmN0vRjkPaSaAJZt"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1000
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "b102149d-8f9d-5cc6-aefc-96db060c9f28",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:duskwood-violin-by-a-legend",
+    "name": "Duskwood violin by a legend",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.PTkTPYtxrPwgCzeq"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1000
+        }
+      },
+      "bulk": "negligible"
+    }
+  },
+  {
+    "id": "2ec09811-18bb-55af-abed-26d5af5a4018",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:elegant-cloth-doll",
+    "name": "Elegant cloth doll",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.L8IzHSz2jYGFpp4N"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "c66c9cc0-56ba-5d16-95ca-b0c7e72131e6",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:emerald",
+    "name": "Emerald",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.hMIG86aqKcVYJGsg"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 100
+        }
+      },
+      "bulk": "negligible",
+      "category": "gem"
+    }
+  },
+  {
+    "id": "a5ffe39d-6cc4-5589-97cc-71476a0e3af8",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:emerald-brilliant-green",
+    "name": "Emerald, brilliant green",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.0zVMeeklYZ7hcgXw"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 500
+        }
+      },
+      "bulk": "negligible",
+      "category": "gem"
+    }
+  },
+  {
+    "id": "ec7e2643-67cf-5d81-89a7-bed5c77d60e1",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:engraved-copper-ring",
+    "name": "Engraved copper ring",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Mm3xgz27Q94wZhti"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "d3084bc5-435b-592e-b58b-ed66bd6df6d5",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:enormous-chryselephantine-sculpture-by-a-legend",
+    "name": "Enormous chryselephantine sculpture by a legend",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.rgPjAtKt6J1AZ1Pj"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1000
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "4b456658-adca-566a-b434-3e60c5cf421b",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:enormous-tapestry-of-a-major-battle",
+    "name": "Enormous tapestry of a major battle",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.6wCA8h0jpMnqPbib"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 25
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "64233402-0812-5870-8fc5-7e0245768035",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:etched-copper-ewer",
+    "name": "Etched copper ewer",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.cSBupUqjsHJwivbp"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "51d7ace2-bb0c-55b1-b764-87deb70a6549",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:famous-portrait-by-a-master",
+    "name": "Famous portrait by a master",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.LEfLVcrbhZPmyUyI"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 250
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "bda9fef8-2ffc-5f16-b946-348cadd0da3c",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:fine-gold-spyglass",
+    "name": "Fine gold spyglass",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.x46wlAbSDKFEumvg"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 250
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "1c161e84-044c-5498-be2d-0243cf742276",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:garnet",
+    "name": "Garnet",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.NuX85j3bYLYVcINr"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5
+        }
+      },
+      "bulk": "negligible",
+      "category": "gem"
+    }
+  },
+  {
+    "id": "df809101-05fc-5695-b415-3bd091849966",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:gilded-ceremonial-armor",
+    "name": "Gilded ceremonial armor",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.0b6BUtoFD4DotZHR"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 250
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "d4fa71b5-43b4-5017-93ea-e3b1f9b1e014",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:gilded-scepter-with-sapphire",
+    "name": "Gilded scepter with sapphire",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.K44zDGRTSecRjEv0"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 250
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "3683f45a-9901-55fc-b223-c9027d444a23",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:gold-and-aquamarine-diadem",
+    "name": "Gold and aquamarine diadem",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.e6arpbDxMlmogfee"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 250
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "8fba1af9-d8d1-50a0-aa9c-8b8ef26bf5b4",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:gold-and-garnet-ring",
+    "name": "Gold and garnet ring",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.P7jMpOYmusKse1Yu"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 25
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "bc336c92-bf3b-5b09-adb7-c0c456afceb7",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:gold-and-opal-bracelet",
+    "name": "Gold and opal bracelet",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.x7rEpjFkUNTqmt1t"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 250
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "a6c90a86-daa9-5e5d-8171-e586c91f2540",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:gold-chalice-with-black-pearls",
+    "name": "Gold chalice with black pearls",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ony7u60cfBMtLG8F"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 250
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "17403090-9617-554c-8b6c-80b34ce46757",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:gold-dragon-statuette",
+    "name": "Gold dragon statuette",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.2MPfYdRWfUNnt5JK"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 250
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "553a7911-3712-5f7f-9a11-bab90db83c3f",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:gold-mask-of-a-high-priest",
+    "name": "Gold mask of a high priest",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.tcP4ZKGZr5i4586v"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 250
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "82447aa8-8b0a-5e7a-a353-6e01ccb86def",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:gold-necklace-with-peridots",
+    "name": "Gold necklace with peridots",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.5ix9inqdHLksqeoR"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 25
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "d49a1598-de50-55ba-b46f-c408954ddf97",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:gold-rapier-with-amethysts",
+    "name": "Gold rapier with amethysts",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.9FsyNDq3VOsFumhz"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 250
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "1888b607-bdc9-5765-a06f-33235e2eec97",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:gold-urn-with-scenes-of-judgment",
+    "name": "Gold urn with scenes of judgment",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.H8BXvZ1DUg3uJ53K"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 250
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "dcb402c2-5b3f-5e17-a949-1daf57fd1db9",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:hand-mirror-with-decorated-frame",
+    "name": "Hand mirror with decorated frame",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.JP7G2gOS3OuMNzeE"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "dc2126d0-f69a-5a9d-a1da-5d39f5886571",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:hematite",
+    "name": "Hematite",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.02sF1QlxEx6H6zEP"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 5
+        }
+      },
+      "bulk": "negligible",
+      "category": "gem"
+    }
+  },
+  {
+    "id": "237fdfc1-d3bf-508c-af5a-1b619d0a24b0",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:illuminated-manuscript",
+    "name": "Illuminated manuscript",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.l8dFZIYYngDOIYHb"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "405416b8-6867-58f5-a47f-1f55b17fb342",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:illustrated-book",
+    "name": "Illustrated book",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.G5WuYX1ghrZcJ1J1"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "f4e5c5a6-ef76-5009-b27d-a3dd6f697acc",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:inscribed-crocodile-skull",
+    "name": "Inscribed crocodile skull",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.K7KzNh3YsXBrDlyj"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "69dbaec0-e643-58f5-9528-0c42582f4621",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:intricate-silver-and-gold-music-box",
+    "name": "Intricate silver and gold music box",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.NLcnptEjjiY9teq7"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 250
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "66c6d322-1e17-5b2a-b49e-4ba4d77fe904",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:iron-and-rock-crystal-brazier",
+    "name": "Iron and rock crystal brazier",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.YZsZ6stG0i9GBCZw"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "d98a7baf-d11a-5ab2-95ae-9ea33148f052",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:iron-cauldron-with-gargoyle-faces",
+    "name": "Iron cauldron with gargoyle faces",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.YeMi3otmwQ34W2we"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "e372dbb7-6ce8-50a4-9038-d48f9d1acb73",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:ivory",
+    "name": "Ivory",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.2PXwkWD3ymM7s0Ul"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 25
+        }
+      },
+      "bulk": "negligible",
+      "category": "gem"
+    }
+  },
+  {
+    "id": "b1d02c07-2537-5f6c-899c-e37b6dce4fa3",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:jade",
+    "name": "Jade",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.LyQQvO7COYAvFRNw"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5
+        }
+      },
+      "bulk": "negligible",
+      "category": "gem"
+    }
+  },
+  {
+    "id": "bd1917c6-4831-5f17-8604-6fbb3702a7e5",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:jasper",
+    "name": "Jasper",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.j4DU62QY4lJ4WEPQ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 25
+        }
+      },
+      "bulk": "negligible",
+      "category": "gem"
+    }
+  },
+  {
+    "id": "36fde383-db81-5eb4-a892-049ca1eaf101",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:jet",
+    "name": "Jet",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.CRTNNgrmssD6bQqQ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5
+        }
+      },
+      "bulk": "negligible",
+      "category": "gem"
+    }
+  },
+  {
+    "id": "e7b3433d-3997-50be-a8c1-de9f3ca6a1af",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:jet-and-white-gold-game-set",
+    "name": "Jet and white gold game set",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.DWzoqVeEamX118Qk"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 250
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "bfb5c542-c165-537a-b2a1-3e939deb04f2",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:jewel-encrusted-gold-altar",
+    "name": "Jewel‑encrusted gold altar",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.zRsMLEqh2t2hqSw4"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1000
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "091ed842-22a6-5e0f-b056-c3c049890463",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:jeweled-dawnsilver-crown",
+    "name": "Jeweled dawnsilver crown",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.BlqDXtRZcevCYRNz"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1000
+        }
+      },
+      "bulk": "negligible"
+    }
+  },
+  {
+    "id": "4ee656b4-065f-5a5e-b234-f3be8613da6c",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:jeweled-gold-puzzle-box",
+    "name": "Jeweled gold puzzle box",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.yrVJKmpBS0mqFuO1"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1000
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "cf3b1784-9f7d-5ed1-b3c9-32d5acf9dde4",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:jeweled-orrery-of-the-planes",
+    "name": "Jeweled orrery of the planes",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.hEBNs4mYaVWz3UsX"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 250
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "c10bcdd3-0ed2-5aa5-80d0-c1e498674bcf",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:lapis-lazuli",
+    "name": "Lapis lazuli",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.DE4880DRtsRqax1N"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 5
+        }
+      },
+      "bulk": "negligible",
+      "category": "gem"
+    }
+  },
+  {
+    "id": "38c21ef9-bbe0-52f1-83ae-d41305cea74b",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:lapis-lazuli-pendant",
+    "name": "Lapis lazuli pendant",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.rjHqUOFqUeyTQyin"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "32c95278-41e4-5ed0-91c8-80685b3ef822",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:leather-flagon-with-caydenite-symbol",
+    "name": "Leather flagon with Caydenite symbol",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.dloHmPtGDr8zSwJu"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "1967e131-36ed-52c9-842c-354141758f24",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:life-size-sculpture-by-an-expert",
+    "name": "Life‑size sculpture by an expert",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.zdiHlKtd4Fy1aIPC"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 25
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "67239ff2-5d48-58e7-a1bf-78ccdf0be96a",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:living-flame-shaped-into-a-phoenix",
+    "name": "Living flame shaped into a phoenix",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.PzWETSKeVKisKCyl"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1000
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "c3a0a20b-ea25-5052-a678-c529d9655970",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:major-painting-by-a-legend",
+    "name": "Major Painting by a Legend",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.OzxNhgRFEgdTybFl"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1000
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "8a8987fc-dfe6-55cd-bd94-8861eb0d5b89",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:malachite",
+    "name": "Malachite",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Ds8GJEQyRYamRIiB"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 5
+        }
+      },
+      "bulk": "negligible",
+      "category": "gem"
+    }
+  },
+  {
+    "id": "3203c179-f792-5444-ad69-dcde4d7b0db4",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:marble-altar",
+    "name": "Marble altar",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.TTuRgoLxVR2c6NEx"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 25
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "6a3fdbc8-18e3-5699-894b-8f200065fac2",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:moonstone",
+    "name": "Moonstone",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.vKdjLDfL75SfFGuL"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 25
+        }
+      },
+      "bulk": "negligible",
+      "category": "gem"
+    }
+  },
+  {
+    "id": "d15c70bf-00cd-5516-93f1-f190310a7368",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:moonstone-and-onyx-game-set",
+    "name": "Moonstone and onyx game set",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Mp6StcWjlKCpD8Jx"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 25
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "b15a8804-068a-593c-9bdf-9d81a5fffcc7",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:obsidian",
+    "name": "Obsidian",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.oH7dJGkgAB0Y2Mad"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 5
+        }
+      },
+      "bulk": "negligible",
+      "category": "gem"
+    }
+  },
+  {
+    "id": "eb63154a-264e-56db-8dd1-da7e2858d14c",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:onyx",
+    "name": "Onyx",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.3l30rcsNpDM7moKu"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 25
+        }
+      },
+      "bulk": "negligible",
+      "category": "gem"
+    }
+  },
+  {
+    "id": "e1870b9a-eaf8-5cde-a9ce-5d7b3ce491e4",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:opal",
+    "name": "Opal",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ilnc82SKDYHcoEMH"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 50
+        }
+      },
+      "bulk": "negligible",
+      "category": "gem"
+    }
+  },
+  {
+    "id": "9e5627e7-9c80-5000-98a0-6e6e51d90403",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:original-manuscript-from-a-world-famous-author",
+    "name": "Original manuscript from a world‑famous author",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Oru7cHMGULLXRLV3"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 250
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "a0a062ba-f24d-58e7-9af5-2963082eb593",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:parade-armor-with-flourishes",
+    "name": "Parade armor with flourishes",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.GgwlIaNPJVsyRwzz"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 25
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "c99cf6b7-1739-58e5-9f08-489d97405521",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:pearl-black",
+    "name": "Pearl, black",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.hhJfZgLhPaPh5V7e"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 50
+        }
+      },
+      "bulk": "negligible",
+      "category": "gem"
+    }
+  },
+  {
+    "id": "9c708636-a2fe-5151-87a5-3e5e09593bc8",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:pearl-irregular-freshwater",
+    "name": "Pearl, irregular freshwater",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.RLFxTy0TjMkN6rM2"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 5
+        }
+      },
+      "bulk": "negligible",
+      "category": "gem"
+    }
+  },
+  {
+    "id": "b496f698-b525-5be7-8282-202a57d3fda1",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:pearl-saltwater",
+    "name": "Pearl, saltwater",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.7iVFlnr2ZbBdtOx8"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5
+        }
+      },
+      "bulk": "negligible",
+      "category": "gem"
+    }
+  },
+  {
+    "id": "13212ace-47b6-5b04-9a7b-e84a4400b989",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:peridot",
+    "name": "Peridot",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.oZYu6GMIIoOYW2Nh"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 25
+        }
+      },
+      "bulk": "negligible",
+      "category": "gem"
+    }
+  },
+  {
+    "id": "14852569-399e-5b84-a08a-902b19694264",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:phasing-ether-silk-tapestry",
+    "name": "Phasing ether silk tapestry",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.q72jL8PRcjw3DVoF"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1000
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "72657564-97e2-5146-94e9-95bc10438c05",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:plain-brass-censer",
+    "name": "Plain brass censer",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.dzsJfE1JIWUMCiK4"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "b38856ab-d59a-540d-850d-b63cfa3df7fb",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:platinum-dragon-statuette",
+    "name": "Platinum dragon statuette",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.HMdfNM7ibp1XtcVT"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1000
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "591ba3fd-58f5-50c2-8648-a3ff4dedf470",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:platinum-framed-monocle",
+    "name": "Platinum‑framed monocle",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.nBY7ueX18tcSiica"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 250
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "e72e47ab-b489-56db-84e8-d3d69c3d6e52",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:platinum-image-of-a-fey-noble-with-a-bit-of-orichalcum",
+    "name": "Platinum image of a fey noble with a bit of orichalcum",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.LzHxy9YPEaCueLB9"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1000
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "b4f4e334-fbc5-5c13-8253-757955646a09",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:porcelain-doll-with-amber-eyes",
+    "name": "Porcelain doll with amber eyes",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.z84EQt8kcPf0RXwx"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 25
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "b624e9ff-e5d7-56eb-bc7c-9a1b5edc7924",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:porcelain-vase-inlaid-with-gold",
+    "name": "Porcelain vase inlaid with gold",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.JECXvZ0bKTDr79mo"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 25
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "da7f6296-e24a-5f79-8d5e-faa46b24a3a4",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:previously-lost-volume-from-a-legendary-author",
+    "name": "Previously lost volume from a legendary author",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.laXnb43oznxeSLT9"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1000
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "3b046d92-62bb-536d-be1b-24415de4eebd",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:pyrite",
+    "name": "Pyrite",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.YFokzLQ0HK74Vf6n"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 5
+        }
+      },
+      "bulk": "negligible",
+      "category": "gem"
+    }
+  },
+  {
+    "id": "f4270eda-8ac8-5e94-980c-0e6a5a505bce",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:quality-painting-by-an-unknown",
+    "name": "Quality painting by an unknown",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.iz7Mv2xGwqyicNiA"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "13c43996-9d7a-560c-b923-43275ddc6230",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:quality-sculpture-by-an-unknown",
+    "name": "Quality sculpture by an unknown",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.aGJJwRpFRMgneROG"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "560a4a1f-e339-56c5-a4e5-18d68013fbb5",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:quartz-milky-rose-or-smoky",
+    "name": "Quartz, milky, rose, or smoky",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.PGlNIOpo8yedgTFR"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 25
+        }
+      },
+      "bulk": "negligible",
+      "category": "gem"
+    }
+  },
+  {
+    "id": "934a0ecd-0349-5dfe-8507-0e340ac0aba5",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:quartz-rock-crystal",
+    "name": "Quartz, rock crystal",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.qnK4cIHZ2irCV4BL"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 5
+        }
+      },
+      "bulk": "negligible",
+      "category": "gem"
+    }
+  },
+  {
+    "id": "5c50f261-8187-51e8-b15f-2c4286136d64",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:rhodochrosite",
+    "name": "Rhodochrosite",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Ujaoyu3WE6V7Y8Vg"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 5
+        }
+      },
+      "bulk": "negligible",
+      "category": "gem"
+    }
+  },
+  {
+    "id": "8c79a612-eda5-5794-8792-111c58bd3165",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:ruby-large",
+    "name": "Ruby, large",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.3UOS4sien8IQbPNV"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 500
+        }
+      },
+      "bulk": "negligible",
+      "category": "gem"
+    }
+  },
+  {
+    "id": "2cf25a53-172b-5f0a-b6ac-fd357ee190f3",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:ruby-small",
+    "name": "Ruby, small",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.WuW89GD0TG7RYTLF"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 100
+        }
+      },
+      "bulk": "negligible",
+      "category": "gem"
+    }
+  },
+  {
+    "id": "484e26be-ce89-521c-a8ef-078713a7d775",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:saints-bone-with-lost-scriptures",
+    "name": "Saint's bone with lost scriptures",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.aqhEATP0vu4kx15I"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1000
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "d728967a-92f5-5706-9200-83538ec8b782",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:sapphire",
+    "name": "Sapphire",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.yTYPPB7WrhanBPbu"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 100
+        }
+      },
+      "bulk": "negligible",
+      "category": "gem"
+    }
+  },
+  {
+    "id": "56c2dce2-1490-5e71-bff8-69a486ca7b1b",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:sard",
+    "name": "Sard",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.mixyMNYUClKfqURh"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 25
+        }
+      },
+      "bulk": "negligible",
+      "category": "gem"
+    }
+  },
+  {
+    "id": "720bdbfb-c0f1-50fd-bb80-45dd5c87fa99",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:sardonyx",
+    "name": "Sardonyx",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.AgsZScsqv3puTmZx"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 25
+        }
+      },
+      "bulk": "negligible",
+      "category": "gem"
+    }
+  },
+  {
+    "id": "e0ae222d-a9b6-577e-8c18-34ce9290b884",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:scrimshaw-whale-bone",
+    "name": "Scrimshaw whale bone",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.8P87jwOAC3zMuzoF"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "ba42835b-421c-5d37-9891-3639b226d25a",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:set-of-decorated-ceramic-plates",
+    "name": "Set of decorated ceramic plates",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.RKX4vLWyczPwfsKS"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "aa6df2ea-a482-53bd-af35-895a4a305242",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:set-of-decorated-porcelain-plates",
+    "name": "Set of decorated porcelain plates",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.rVfFUBb0r423IPg8"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "f078617c-5bdb-5c69-82e9-6149a24f6d72",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:set-of-six-ivory-dice",
+    "name": "Set of six ivory dice",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.69IWSryF5BWkwWXY"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "064eb505-3b6a-500f-9d80-2097a20058c3",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:shell",
+    "name": "Shell",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.6vb56WClb06JrpuJ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 5
+        }
+      },
+      "bulk": "negligible",
+      "category": "gem"
+    }
+  },
+  {
+    "id": "0353379a-e602-5cb4-baa5-f4d97f6f1d0d",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:silk-ceremonial-armor",
+    "name": "Silk ceremonial armor",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.fUENXLX3tzi33CcB"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "f1c26283-b85e-5ea4-bd16-0530b3358ce8",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:silk-fan-decorated-with-turquoise",
+    "name": "Silk fan decorated with turquoise",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.vJLb8wwipdwFQDH3"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "47a63452-29e5-5d6f-83c4-db0849594a8e",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:silk-mask-decorated-with-citrines",
+    "name": "Silk mask decorated with citrines",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.8RH0e9UqXIxAPJJG"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "33781d71-2e6b-5bc7-ad26-38530e2f0461",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:silver-and-jade-censer",
+    "name": "Silver and jade censer",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.tMMYXdHps9QakCVn"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 25
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "4ee42984-5b17-58f2-83aa-418e6dba7019",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:silver-coronet-with-peridots",
+    "name": "Silver coronet with peridots",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Gi4vx84LhppOQAxr"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 25
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "ec0108e5-57f1-5a7e-81a6-3e6d009e8a26",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:silver-flagon-inscribed-with-fields",
+    "name": "Silver flagon inscribed with fields",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.FI8PLxBFmHF6o0pH"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 25
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "c97d4813-16a6-5439-b62a-fc9f45b02fba",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:silver-mirror-with-gilded-frame",
+    "name": "Silver mirror with gilded frame",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.5dibOpDYOhJY6Ssn"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 25
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "9f21a21a-4b5a-598e-8d7b-22cd1528f273",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:silver-statuette-of-a-raven",
+    "name": "Silver statuette of a raven",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.5EYlhm8ZbR6dLUHF"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 25
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "2251a98e-c7a6-502b-9ee8-2e6bcc348861",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:simple-painting",
+    "name": "Simple painting",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.bgswgiXV12HW0aEz"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "6f468daf-1986-5bb1-aefa-fc133b42e73a",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:simple-sculpture",
+    "name": "Simple sculpture",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.2T33bWTWXj1v2J03"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "583f576e-12c8-59fd-adbc-b368d001649d",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:simple-silver-circlet",
+    "name": "Simple silver circlet",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.CNLt74pUxM0GGjyl"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "0e8928d0-9c4b-5bf1-92be-3b0169014fb4",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:small-cold-iron-cauldron-with-onyx",
+    "name": "Small cold iron cauldron with onyx",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.yv7OfuEaXTm6YCAc"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 25
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "463095e0-3f70-5c87-91d8-51ddfc4c7325",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:solidified-moment-of-time",
+    "name": "Solidified Moment of Time",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.rIhvmrRVr51VgfKa"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1000
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "c76c5958-d1b1-5020-bbcd-079bce7ff98e",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:spinel-deep-blue",
+    "name": "Spinel, deep blue",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.hJc0dOcHJ2nkJcik"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5
+        }
+      },
+      "bulk": "negligible",
+      "category": "gem"
+    }
+  },
+  {
+    "id": "0aca9d8d-828a-5e34-a51e-745713e22e83",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:spinel-red-or-green",
+    "name": "Spinel, red or green",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.wBoGy4DfKHAvqAko"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 25
+        }
+      },
+      "bulk": "negligible",
+      "category": "gem"
+    }
+  },
+  {
+    "id": "8ac94c21-c872-5c66-a6cd-52676b3b0372",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:splendid-lyre-of-world-famous-lyrist",
+    "name": "Splendid lyre of world‑famous lyrist",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.LJxNB3Yy2sTJaUbd"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 250
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "e28b8ca7-955a-5749-af0f-9c7e45012137",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:star-sapphire",
+    "name": "Star sapphire",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.2Rb9MOLENbZ7yyRL"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 500
+        }
+      },
+      "bulk": "negligible",
+      "category": "gem"
+    }
+  },
+  {
+    "id": "7013fcb8-f378-53b0-beb6-85e34dd4e888",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:star-sapphire-necklace",
+    "name": "Star sapphire necklace",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.FwYqacDEAmXk5jB5"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1000
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "ae897ad7-c417-500c-be2b-07596610c97a",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:tankard-owned-by-cayden-cailean",
+    "name": "Tankard owned by Cayden Cailean",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.HIxtCuH5YXNqit0W"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1000
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "3ad38e10-f24a-5cc0-969a-b1ba706c44af",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:thought-lens-of-astral-essence",
+    "name": "Thought Lens of Astral Essence",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.5CqtgygdvqecMoRU"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1000
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "b1e9c513-6c91-5243-9969-cd04d88aebbd",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:tigers-eye",
+    "name": "Tiger's‑eye",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.DFNmzduKX6NSuPrT"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 5
+        }
+      },
+      "bulk": "negligible",
+      "category": "gem"
+    }
+  },
+  {
+    "id": "2f4fc41e-0b22-5b7e-8299-d5f27d0ccced",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:topaz",
+    "name": "Topaz",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.oyGXxUmS6QcthfRc"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 50
+        }
+      },
+      "bulk": "negligible",
+      "category": "gem"
+    }
+  },
+  {
+    "id": "8a608553-065d-5a86-ac94-2c8a8ac6b75b",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:tourmaline",
+    "name": "Tourmaline",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.m26FikfAdZouHzhq"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5
+        }
+      },
+      "bulk": "negligible",
+      "category": "gem"
+    }
+  },
+  {
+    "id": "d86f5740-0e9f-53ee-a874-d6cde735c17c",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:towering-sculpture-by-a-master",
+    "name": "Towering sculpture by a master",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.eUXQTjezsuJ6EB4u"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 250
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "a71d93d7-966e-5c2b-a0a4-290246e8667a",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:turquoise",
+    "name": "Turquoise",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.8aPckmJTsyUfBndP"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 5
+        }
+      },
+      "bulk": "negligible",
+      "category": "gem"
+    }
+  },
+  {
+    "id": "b9815074-ed94-57a0-ac8c-7113aeb844bb",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:wide-landscape-by-an-expert",
+    "name": "Wide landscape by an expert",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.s6wRFNG5lVEkGGdJ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 25
+        }
+      },
+      "bulk": "negligible",
+      "category": "art-object"
+    }
+  },
+  {
+    "id": "41e863c1-e7ff-554f-a3af-1709835a2cc6",
+    "pack": "gm-core",
+    "kind": "treasure",
+    "slug": "treasure:zircon",
+    "name": "Zircon",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.p3mg6gK5KhpS7plo"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 25
+        }
+      },
+      "bulk": "negligible",
+      "category": "gem"
+    }
+  }
+]

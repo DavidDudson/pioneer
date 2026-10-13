@@ -20,6 +20,7 @@ const coreRules = PackId.parse('core-rules');
 const playerCore = PackId.parse('player-core');
 const monsterCore = PackId.parse('monster-core');
 const divineMysteries = PackId.parse('divine-mysteries');
+const gmCore = PackId.parse('gm-core');
 const humanId = AncestryId.parse(contentId(playerCore, EntrySlug.parse('ancestry:human')));
 const zombieId = CreatureId.parse(contentId(monsterCore, EntrySlug.parse('creature:zombie-shambler')));
 
@@ -30,6 +31,7 @@ describe('content catalog', () => {
     expect(registry.packs.map((pack) => pack.id).toSorted()).toStrictEqual([
       coreRules,
       divineMysteries,
+      gmCore,
       monsterCore,
       playerCore,
     ]);
