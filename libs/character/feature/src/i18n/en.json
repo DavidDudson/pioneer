@@ -257,7 +257,8 @@
     "counted": {
       "slot": "{source} rank {rank} slots",
       "poolSlot": "{source} {pool} rank {rank} slots",
-      "refund": "Refund"
+      "refund": "Refund",
+      "overcharge": "Overcharge"
     },
     "saveState": {
       "saving": "Saving",

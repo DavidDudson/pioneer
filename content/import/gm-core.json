@@ -1136,132 +1136,6 @@
     {
       "type": "entry",
       "pack": "gm-core",
-      "slug": "consumable:magic-wand-1st-rank-spell",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.UJWiN0K3jqVjxvKk",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "description.overcharge",
-          "raw": "once per day, plus overcharge"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:magic-wand-2nd-rank-spell",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.vJZ49cgi8szuQXAD",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "description.overcharge",
-          "raw": "once per day, plus overcharge"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:magic-wand-3rd-rank-spell",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.wrDmWkGxmwzYtfiA",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "description.overcharge",
-          "raw": "once per day, plus overcharge"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:magic-wand-4th-rank-spell",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.Sn7v9SsbEDMUIwrO",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "description.overcharge",
-          "raw": "once per day, plus overcharge"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:magic-wand-5th-rank-spell",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.5BF7zMnrPYzyigCs",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "description.overcharge",
-          "raw": "once per day, plus overcharge"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:magic-wand-6th-rank-spell",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.kiXh4SUWKr166ZeM",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "description.overcharge",
-          "raw": "once per day, plus overcharge"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:magic-wand-7th-rank-spell",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.nmXPj9zuMRQBNT60",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "description.overcharge",
-          "raw": "once per day, plus overcharge"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:magic-wand-8th-rank-spell",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.Qs8RgNH6thRPv2jt",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "description.overcharge",
-          "raw": "once per day, plus overcharge"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:magic-wand-9th-rank-spell",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.Fgv722039TVM5JTc",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "description.overcharge",
-          "raw": "once per day, plus overcharge"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
       "slug": "consumable:marvelous-miniature-boat",
       "foundry": "Compendium.pf2e.equipment-srd.Item.WzsKbMMewXbf1nws",
       "gaps": [
@@ -1831,12 +1705,6 @@
       "foundry": "Compendium.pf2e.equipment-srd.Item.KPWN5tGGkvZR7K3K",
       "gaps": [
         {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "description.overcharge",
-          "raw": "Once per day, plus overcharge"
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
         }
@@ -1848,12 +1716,6 @@
       "slug": "consumable:wand-of-shardstorm-3rd-rank-spell",
       "foundry": "Compendium.pf2e.equipment-srd.Item.3Lexs7KnhbV0HgFh",
       "gaps": [
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "description.overcharge",
-          "raw": "Once per day, plus overcharge"
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
@@ -1867,12 +1729,6 @@
       "foundry": "Compendium.pf2e.equipment-srd.Item.y6if8e8OB3RUywF8",
       "gaps": [
         {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "description.overcharge",
-          "raw": "Once per day, plus overcharge"
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
         }
@@ -1884,12 +1740,6 @@
       "slug": "consumable:wand-of-shardstorm-7th-rank-spell",
       "foundry": "Compendium.pf2e.equipment-srd.Item.WeX7rAO2kAyP0QnG",
       "gaps": [
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "description.overcharge",
-          "raw": "Once per day, plus overcharge"
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
@@ -8906,118 +8756,6 @@
     {
       "type": "entry",
       "pack": "gm-core",
-      "slug": "equipment:wand-of-continuation-1st-rank-spell",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.a60NH7OztaEaGlU8",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "description.overcharge",
-          "raw": "Once per day, plus overcharge"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:wand-of-continuation-2nd-rank-spell",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.5V9bgqgQY1CHLd40",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "description.overcharge",
-          "raw": "Once per day, plus overcharge"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:wand-of-continuation-3rd-rank-spell",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.R88HWv9rw1VNMRer",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "description.overcharge",
-          "raw": "Once per day, plus overcharge"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:wand-of-continuation-4th-rank-spell",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.bCsdAkffuk29ssUg",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "description.overcharge",
-          "raw": "Once per day, plus overcharge"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:wand-of-continuation-5th-rank-spell",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.tDEi3zLVpxwA74qz",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "description.overcharge",
-          "raw": "Once per day, plus overcharge"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:wand-of-continuation-6th-rank-spell",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.35rLqxDWgiDIkL8e",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "description.overcharge",
-          "raw": "Once per day, plus overcharge"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:wand-of-continuation-7th-rank-spell",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.H1XGrl6Z0bzXN2oi",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "description.overcharge",
-          "raw": "Once per day, plus overcharge"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:wand-of-continuation-8th-rank-spell",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.KMqHzKfpPq5H8GOo",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "description.overcharge",
-          "raw": "Once per day, plus overcharge"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
       "slug": "equipment:wand-of-widening-1st-rank-spell",
       "foundry": "Compendium.pf2e.equipment-srd.Item.Zw3BKaJYxxxzNZ0f",
       "gaps": [
@@ -9089,12 +8827,6 @@
             "property": "area-size",
             "value": 10
           }
-        },
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "description.overcharge",
-          "raw": "Once per day, plus overcharge"
         }
       ]
     },
@@ -9176,12 +8908,6 @@
             "property": "area-size",
             "value": 10
           }
-        },
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "description.overcharge",
-          "raw": "Once per day, plus overcharge"
         }
       ]
     },
@@ -9263,12 +8989,6 @@
             "property": "area-size",
             "value": 10
           }
-        },
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "description.overcharge",
-          "raw": "Once per day, plus overcharge"
         }
       ]
     },
@@ -9350,12 +9070,6 @@
             "property": "area-size",
             "value": 10
           }
-        },
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "description.overcharge",
-          "raw": "Once per day, plus overcharge"
         }
       ]
     },
@@ -9437,12 +9151,6 @@
             "property": "area-size",
             "value": 10
           }
-        },
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "description.overcharge",
-          "raw": "Once per day, plus overcharge"
         }
       ]
     },
@@ -9524,12 +9232,6 @@
             "property": "area-size",
             "value": 10
           }
-        },
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "description.overcharge",
-          "raw": "Once per day, plus overcharge"
         }
       ]
     },
@@ -9611,12 +9313,6 @@
             "property": "area-size",
             "value": 10
           }
-        },
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "description.overcharge",
-          "raw": "Once per day, plus overcharge"
         }
       ]
     },
@@ -9698,12 +9394,6 @@
             "property": "area-size",
             "value": 10
           }
-        },
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "description.overcharge",
-          "raw": "Once per day, plus overcharge"
         }
       ]
     },
@@ -9785,12 +9475,6 @@
             "property": "area-size",
             "value": 10
           }
-        },
-        {
-          "type": "field",
-          "reason": "needs-rich-text",
-          "field": "description.overcharge",
-          "raw": "Once per day, plus overcharge"
         }
       ]
     },

@@ -78,6 +78,7 @@ export {
   type CountedMaxima,
   type CountedMaximum,
   frequencyBoundary,
+  overchargeUseKey,
   heldCount,
   NO_COUNTED,
   SlotCountKey,

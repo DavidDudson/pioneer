@@ -14,9 +14,15 @@ export type ActivationName = z.infer<typeof ActivationName>;
 
 /**
  * One way to activate an item that is limited by a `frequency`. Its `slug` is the name within the item, so the uses
- * spent on it stay with it when the content is imported again.
+ * spent on it stay with it when the content is imported again. An `overcharge` activation can be used once more per
+ * period beyond its frequency, at the cost the item's rules give; play counts that use apart from the others.
  */
-export const Activation = z.strictObject({ slug: Slug, name: ActivationName, frequency: Frequency });
+export const Activation = z.strictObject({
+  slug: Slug,
+  name: ActivationName,
+  frequency: Frequency,
+  overcharge: z.literal(true).optional(),
+});
 export type Activation = z.infer<typeof Activation>;
 
 /** An item's activations that have a frequency, each named once. */
