@@ -20,8 +20,12 @@ export abstract class HomebrewPackRepository {
   public abstract insert(pack: HomebrewPack): Promise<HomebrewPack | undefined>;
 
   /**
-   * Store the pack's new visibility and time. Undefined when no homebrew pack has the id (official packs never
-   * do), so an official pack cannot be changed through here.
+   * Store the pack's new visibility and time. Undefined when its owner has no such homebrew pack (official packs
+   * never do), so an official pack cannot be changed through here. `whileLocked` runs once the pack is locked
+   * against concurrent enablement and before the change is stored; if it throws, nothing is stored.
    */
-  public abstract updateVisibility(pack: HomebrewPack): Promise<HomebrewPack | undefined>;
+  public abstract updateVisibility(
+    pack: HomebrewPack,
+    whileLocked?: () => Promise<void>,
+  ): Promise<HomebrewPack | undefined>;
 }

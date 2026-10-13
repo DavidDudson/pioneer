@@ -142,6 +142,23 @@ describe('PackHomePage', () => {
     });
   });
 
+  it('puts the select back on the real visibility when a change fails for any other reason', async () => {
+    const harness = await openLoaded();
+    visibilityField(harness).triggerEventHandler('valueChange', 'public');
+    TestBed.inject(HttpTestingController)
+      .expectOne(`/api/homebrew/packs/${id}/visibility`)
+      .flush({ type: 'internal', title: 'Error', status: 500 }, { status: 500, statusText: 'Server Error' });
+    await harness.fixture.whenStable();
+
+    await vi.waitFor(() => {
+      expect(present(harness.routeNativeElement).textContent).toContain(
+        'Could not change who can see this pack. Try again.',
+      );
+    });
+    const field = visibilityField(harness).componentInstance as SelectField<string>;
+    expect(field.value()).toBe('private');
+  });
+
   it('tells someone who does not own the pack that only the owner can change it', async () => {
     const harness = await openLoaded();
     visibilityField(harness).triggerEventHandler('valueChange', 'public');

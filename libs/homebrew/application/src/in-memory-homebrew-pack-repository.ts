@@ -30,10 +30,14 @@ export class InMemoryHomebrewPackRepository extends HomebrewPackRepository {
     return pack;
   }
 
-  public override async updateVisibility(pack: HomebrewPack): Promise<HomebrewPack | undefined> {
-    if (!this.#rows.has(pack.id)) {
+  public override async updateVisibility(
+    pack: HomebrewPack,
+    whileLocked?: () => Promise<void>,
+  ): Promise<HomebrewPack | undefined> {
+    if (this.#rows.get(pack.id)?.ownerId !== pack.ownerId) {
       return undefined;
     }
+    await whileLocked?.();
     this.#rows.set(pack.id, pack);
     return pack;
   }

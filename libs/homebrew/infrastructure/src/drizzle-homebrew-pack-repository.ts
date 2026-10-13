@@ -103,13 +103,27 @@ export class DrizzleHomebrewPackRepository extends HomebrewPackRepository {
     return inserted.length === 0 ? undefined : pack;
   }
 
-  public override async updateVisibility(pack: HomebrewPack): Promise<HomebrewPack | undefined> {
+  public override async updateVisibility(
+    pack: HomebrewPack,
+    whileLocked?: () => Promise<void>,
+  ): Promise<HomebrewPack | undefined> {
     const updated = await this.#db.transaction(async (tx) => {
       await stampAudit(tx, { actor: pack.ownerId, command: SET_VISIBILITY_COMMAND });
+      // Lock the row first: enabling this pack takes the same lock, so none can slip in mid-change.
+      // The `whileLocked` check therefore sees every enablement that committed.
+      const [locked] = await tx
+        .select({ id: contentPacks.id })
+        .from(contentPacks)
+        .where(and(eq(contentPacks.id, pack.id), eq(contentPacks.ownerId, pack.ownerId)))
+        .for('update');
+      if (locked === undefined) {
+        return [];
+      }
+      await whileLocked?.();
       return tx
         .update(contentPacks)
         .set({ visibility: pack.visibility, updatedAt: pack.updatedAt.toString() })
-        .where(and(eq(contentPacks.id, pack.id), isNotNull(contentPacks.ownerId)))
+        .where(and(eq(contentPacks.id, pack.id), eq(contentPacks.ownerId, pack.ownerId)))
         .returning({ id: contentPacks.id });
     });
     return updated.length === 0 ? undefined : pack;

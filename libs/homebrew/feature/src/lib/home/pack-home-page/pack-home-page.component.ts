@@ -34,8 +34,8 @@ const VISIBILITY_MESSAGES = {
 
 /**
  * One pack's home: its slug, author, visibility and how many entries it holds. Its owner can change the visibility
- * here (anyone else who can read the pack is told so when they try); it saves as it is chosen, and if the server refuses (campaigns still enable the pack) the reason shows on
- * the field and the pack stays as it was.
+ * here and it saves as it is chosen. If the server refuses (campaigns still enable the pack) the reason shows on
+ * the field and the pack stays as it was. Anyone else who can read the pack is told so when they try.
  */
 @Component({
   selector: 'pio-pack-home-page',
@@ -80,6 +80,9 @@ export class PackHomePage {
 
   /** Why the last change was refused, until the next one. */
   protected readonly visibilityError = signal<string | undefined>(undefined);
+  /** The choice being saved, shown until the server answers so a refused one does not linger in the select. */
+  protected readonly chosen = signal<PackVisibility | undefined>(undefined);
+  protected readonly saving = signal(false);
 
   public constructor() {
     effect(() => {
@@ -92,10 +95,15 @@ export class PackHomePage {
       return;
     }
     this.visibilityError.set(undefined);
+    this.chosen.set(visibility);
+    this.saving.set(true);
     try {
       await this.store.setVisibility(pack.id, visibility);
     } catch (error) {
       this.visibilityError.set(this.#describe(error));
+    } finally {
+      this.chosen.set(undefined);
+      this.saving.set(false);
     }
   }
 

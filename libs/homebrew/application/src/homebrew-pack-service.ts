@@ -84,10 +84,10 @@ export class HomebrewPackService {
     if (pack.visibility === visibility) {
       return pack;
     }
-    if (visibility === PackVisibility.Private) {
-      await this.#refuseWhileEnabled(pack);
-    }
-    const changed = await this.#packs.updateVisibility(pack.withVisibility(visibility, this.#clock.now()));
+    // Checked inside the repository's transaction, with the pack locked, so a campaign cannot enable it in between.
+    const whileLocked =
+      visibility === PackVisibility.Private ? async (): Promise<void> => this.#refuseWhileEnabled(pack) : undefined;
+    const changed = await this.#packs.updateVisibility(pack.withVisibility(visibility, this.#clock.now()), whileLocked);
     if (changed === undefined) {
       throw new NotFoundError('HomebrewPack', id);
     }

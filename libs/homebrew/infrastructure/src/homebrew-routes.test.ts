@@ -139,6 +139,18 @@ describe('homebrew routes', () => {
       expect(response.status).toBe(403);
     });
 
+    test('a member of a campaign that enables the pack can read it but not change it: 403', async () => {
+      const enablement = new InMemoryPackEnablementDirectory();
+      const api = app(enablement);
+      const pack = await makePack(api);
+      await api.handle(request('PATCH', visibilityPath(pack), { body: { visibility: 'campaign' } }));
+      enablement.enable(ContentPackId.parse(pack.id), 'Kingmaker', [ezren]);
+      const response = await api.handle(
+        request('PATCH', visibilityPath(pack), { as: ezren, body: { visibility: 'public' } }),
+      );
+      expect(response.status).toBe(403);
+    });
+
     test('someone who cannot read the pack, and a missing pack, are both 404', async () => {
       const api = app();
       const pack = await makePack(api);

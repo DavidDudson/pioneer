@@ -1,4 +1,4 @@
-import { afterAll, beforeAll, describe, expect, test } from 'bun:test';
+import { afterAll, beforeAll, beforeEach, describe, expect, test } from 'bun:test';
 
 import { HomebrewPackService, InMemoryAuthorDirectory } from '@pioneer/homebrew/application';
 import { EnablingCampaignName } from '@pioneer/homebrew/domain';
@@ -75,6 +75,10 @@ describe.skipIf(adminUrl === undefined)('CampaignPackEnablementDirectory (postgr
     await insertCampaign({ id: unrelated, name: 'Abomination Vaults', gm: amiri, players: [] });
   });
 
+  beforeEach(async () => {
+    await database.db.execute(sql`delete from campaign_packs where pack_id = ${pack.id}`);
+  });
+
   afterAll(async () => {
     await database.drop();
   });
@@ -94,20 +98,71 @@ describe.skipIf(adminUrl === undefined)('CampaignPackEnablementDirectory (postgr
   });
 
   test('members of an enabling campaign belong to one, whatever their role; others do not', async () => {
+    await enable(runelords);
     expect(await directory.belongsToCampaignEnabling(ezren, pack)).toBe(true);
     expect(await directory.belongsToCampaignEnabling(seoni, pack)).toBe(true);
     expect(await directory.belongsToCampaignEnabling(amiri, pack)).toBe(false);
   });
 
-  test('the service refuses private while campaigns enable the pack, naming them, and allows it after they let go', async () => {
-    const service = new HomebrewPackService(
+  test('every lookup is served by an index', async () => {
+    await enable(runelords);
+    await directory.campaignsEnabling(pack);
+    await directory.belongsToCampaignEnabling(ezren, pack);
+    expect(await unindexedQueries(database.db, recorder)).toStrictEqual([]);
+  });
+});
+
+describe.skipIf(adminUrl === undefined)('HomebrewPackService over CampaignPackEnablementDirectory (postgres)', () => {
+  const amiri = UserId.parse(newId());
+  const ezren = UserId.parse(newId());
+  const seoni = UserId.parse(newId());
+  const runelords = newId();
+  const kingmaker = newId();
+  let database: TestDatabase;
+  let service: HomebrewPackService;
+  let pack: HomebrewPack;
+
+  beforeAll(async () => {
+    database = await createTestDatabase(adminUrl ?? '', new QueryRecorder());
+    await Promise.all(
+      [amiri, ezren, seoni].map(async (user) =>
+        database.db.execute(
+          sql`insert into users (id, display_name, email_verified, created_at, updated_at) values (${user}, 'User', false, ${at}, ${at})`,
+        ),
+      ),
+    );
+    pack = new HomebrewPackBuilder().slug('amiri-feats').ownedBy(amiri).build();
+    const repository = new DrizzleHomebrewPackRepository(database.db);
+    await repository.insert(pack);
+    service = new HomebrewPackService(
       {
-        packs: new DrizzleHomebrewPackRepository(database.db),
+        packs: repository,
         authors: new InMemoryAuthorDirectory(),
-        enablement: directory,
+        enablement: new CampaignPackEnablementDirectory(database.db),
       },
       clock,
     );
+    const seeds = [
+      [runelords, 'Rise of the Runelords', ezren],
+      [kingmaker, 'Kingmaker', seoni],
+    ] as const;
+    await Promise.all(
+      seeds.map(async ([id, name, gm]) => {
+        await database.db.execute(
+          sql`insert into campaigns (id, version, name, gm_id, created_at) values (${id}, 1, ${name}, ${gm}, ${at})`,
+        );
+        await database.db.execute(
+          sql`insert into campaign_packs (id, campaign_id, pack_id, enabled_at) values (${newId()}, ${id}, ${pack.id}, ${at})`,
+        );
+      }),
+    );
+  });
+
+  afterAll(async () => {
+    await database.drop();
+  });
+
+  test('refuses private while campaigns enable the pack, naming them, and allows it after they let go', async () => {
     await service.setVisibility(amiri, pack.id, PackVisibility.Campaign);
     const error = await rejection(service.setVisibility(amiri, pack.id, PackVisibility.Private));
     expect(error).toBeInstanceOf(ConflictError);
@@ -120,11 +175,5 @@ describe.skipIf(adminUrl === undefined)('CampaignPackEnablementDirectory (postgr
     await database.db.execute(sql`delete from campaign_packs where pack_id = ${pack.id}`);
     const madePrivate = await service.setVisibility(amiri, pack.id, PackVisibility.Private);
     expect(madePrivate.visibility).toBe(PackVisibility.Private);
-  });
-
-  test('every lookup is served by an index', async () => {
-    await directory.campaignsEnabling(pack);
-    await directory.belongsToCampaignEnabling(ezren, pack);
-    expect(await unindexedQueries(database.db, recorder)).toStrictEqual([]);
   });
 });

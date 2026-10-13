@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, test } from 'bun:test';
+import { beforeEach, describe, expect, spyOn, test } from 'bun:test';
 
 import { NO_ENTRIES } from '@pioneer/homebrew/domain';
 import { contentPackId, ContentPackId, ContentText, PackId, PackVisibility } from '@pioneer/rules/sdk';
@@ -136,6 +136,18 @@ describe('HomebrewPackService', () => {
       enablement.enable(created.id, 'Kingmaker', [ezren]);
       const widened = await service.setVisibility(amiri, created.id, PackVisibility.Campaign);
       expect(widened.visibility).toBe(PackVisibility.Campaign);
+    });
+
+    test('a pack the repository then finds gone is a 404', async () => {
+      const packs = new InMemoryHomebrewPackRepository();
+      spyOn(packs, 'updateVisibility').mockResolvedValue(undefined);
+      const vanishing = new HomebrewPackService(
+        { packs, authors: new InMemoryAuthorDirectory().name(amiri, 'Amiri'), enablement },
+        fixedClock('2026-10-10T10:00:00Z'),
+      );
+      const created = await vanishing.create(amiri, feats);
+      const error = await rejection(vanishing.setVisibility(amiri, created.id, PackVisibility.Public));
+      expect(error).toBeInstanceOf(NotFoundError);
     });
 
     test('setting the visibility it already has changes nothing', async () => {

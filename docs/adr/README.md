@@ -59,6 +59,7 @@ Accepted. To change a decision, add a new ADR that supersedes the old one; do no
 | [0052](0052-character-scoped-display-preferences.md)          | Display preferences scoped to a character live beside it, per user                |
 | [0053](0053-proficiency-selector-follows-a-choice.md)         | A `Proficiency` selector can follow a `ChoiceSet` pick                            |
 | [0054](0054-pickers-are-tables.md)                            | Pickers are tables that open inline, searched, sorted and paged by the caller     |
+| [0055](0055-campaign-packs-and-the-enablement-port.md)        | Campaigns enable packs through `campaign_packs`; homebrew asks through a port     |
 
 Template:
 
