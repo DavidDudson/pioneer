@@ -560,6 +560,7 @@ characters; the player sees them.
   can't hold yet, the boosts no slot took, and each attribute whose derived modifier differs from Pathbuilder's) is
   returned, not stored: the sheet shows it until dismissed or reloaded. A dual class
   ([#549](https://github.com/DavidDudson/pioneer/issues/549)) isn't carried yet.
-- **Pioneer JSON:** the `CharacterDocument` plus the ids and versions of packs used. Homebrew entries referenced by
-  the character are embedded so the file is portable.
+- **Pioneer JSON:** the `CharacterDocument` without its id and owner, with content named by pack and slug
+  ([ADR-0056](../adr/0056-pioneer-character-file-format.md)). Homebrew entries referenced by the character are
+  embedded so the file is portable.
 - **Foundry export:** see [play-and-campaigns.md](play-and-campaigns.md#foundry-export).
