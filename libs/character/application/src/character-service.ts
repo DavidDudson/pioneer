@@ -29,6 +29,8 @@ import type {
 } from '@pioneer/character/domain';
 import { characterImportReport, modifierDifferences, registryLookup } from '@pioneer/interop/pathbuilder';
 import type { BoostChoices, PathbuilderImportResponse } from '@pioneer/interop/pathbuilder';
+import { exportPioneerCharacter, registryNamer } from '@pioneer/interop/pioneer';
+import type { PioneerCharacterFile } from '@pioneer/interop/pioneer';
 import type { AncestryId, ContentId, ContentSource } from '@pioneer/rules/sdk';
 import { message, newId, NotFoundError, ValidationError, VersionConflictError } from '@pioneer/shared/kernel';
 import type { Clock, UserId, Version } from '@pioneer/shared/kernel';
@@ -137,6 +139,25 @@ export class CharacterService {
       modifierDifferences: modifierDifferences(value.attributes, attributeModifiers(character.document, slots.boosts)),
     });
     return { character: saved, report };
+  }
+
+  /**
+   * One of the actor's characters as a Pioneer character file: its stored inputs, each content entry named by pack and
+   * slug. Refused when the character uses content no loaded pack has, since the file would lose it.
+   */
+  public async exportPioneer(actor: UserId, id: CharacterId): Promise<PioneerCharacterFile> {
+    const character = await this.get(actor, id);
+    const content = await this.#content.registry();
+    const exported = exportPioneerCharacter(character.document, registryNamer(content));
+    if (!exported.ok) {
+      throw new ValidationError([
+        {
+          path: ['content'],
+          message: message('character.validation.exportUnnamedContent', { count: exported.unnamed.length }),
+        },
+      ]);
+    }
+    return exported.file;
   }
 
   /** `patched` as its sheet, with the picks its edit cleared. */

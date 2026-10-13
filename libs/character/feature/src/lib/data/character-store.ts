@@ -17,6 +17,8 @@ import type {
 } from '@pioneer/character/domain';
 import { PathbuilderImportContract } from '@pioneer/interop/pathbuilder';
 import type { CharacterImportReport } from '@pioneer/interop/pathbuilder';
+import { PioneerExportContract } from '@pioneer/interop/pioneer';
+import type { PioneerCharacterFile } from '@pioneer/interop/pioneer';
 import type { ChoiceValue, SlotKey } from '@pioneer/rules/sdk';
 import { ApiClient, ApiError } from '@pioneer/shared/web';
 import { injectMutation, injectQuery, QueryClient } from '@tanstack/angular-query-experimental';
@@ -177,6 +179,15 @@ export class CharacterStore {
     this.#importReports.update((reports) => new Map(reports).set(character.id, report));
     await this.#client.invalidateQueries({ queryKey: characterKeys.list(), refetchType: 'none' });
     return character;
+  }
+
+  /** The open character as a Pioneer character file, as the server wrote it; refused when none is open. */
+  public async exportPioneer(): Promise<PioneerCharacterFile> {
+    const id = this.#selectedId();
+    if (id === undefined) {
+      throw new Error('No character selected');
+    }
+    return this.#api.call(PioneerExportContract.export, { params: { id }, body: undefined });
   }
 
   /** The open character's import report, until dismissed; `undefined` for one that wasn't just imported. */
