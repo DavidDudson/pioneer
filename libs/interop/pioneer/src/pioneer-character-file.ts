@@ -30,7 +30,7 @@ export const PioneerCharacterHeader = z.looseObject({
 export const PioneerCharacterFile = PioneerCharacterHeader.extend({
   formatVersion: z.literal(CURRENT_FORMAT_VERSION),
   character: z.record(z.string(), z.unknown()),
-  /** The homebrew the character uses, so the file is portable; absent when it uses none (ADR-0058). */
+  /** The homebrew the character uses, so the file is portable; absent when it uses none (ADR-0059). */
   homebrew: z
     .array(EmbeddedPack)
     .min(1)

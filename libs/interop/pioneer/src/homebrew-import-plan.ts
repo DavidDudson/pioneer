@@ -16,7 +16,7 @@ export const HomebrewPackStatus = {
 } as const;
 export type HomebrewPackStatus = ValueOf<typeof HomebrewPackStatus>;
 
-/** What an import does with one embedded entry. A clash is never written over (ADR-0058). */
+/** What an import does with one embedded entry. A clash is never written over (ADR-0059). */
 export const HomebrewEntryOutcome = {
   Create: 'create',
   /** The pack already holds an identical entry. */

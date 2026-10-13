@@ -9,7 +9,7 @@ Characters need to leave Pioneer and come back: a backup, a character moved betw
 friend. The stored document ([0004](0004-store-inputs-not-derived-values.md)) is already the character's inputs and nothing
 derived, but it names content by id, and an id is a UUIDv5 hash of `<pack>/<slug>` ([0034](0034-entry-slugs-name-their-kind.md)).
 A hash tells a reader of the file nothing, and a pack that is not loaded cannot be told from a typo. Embedding homebrew
-in the file builds on this one ([0058](0058-pioneer-files-embed-the-homebrew-they-use.md)).
+in the file builds on this one ([0059](0059-pioneer-files-embed-the-homebrew-they-use.md)).
 
 ## Decision
 
@@ -49,5 +49,5 @@ Two versions, each with one rule:
 - Round trip is the identity for any character whose ids all hash from a pack and slug, which every real one does;
   a property test holds it.
 - The file is readable by eye and diffable, at the cost of size over bare ids.
-- Embedding homebrew ([0058](0058-pioneer-files-embed-the-homebrew-they-use.md)), the sheet's export and import
+- Embedding homebrew ([0059](0059-pioneer-files-embed-the-homebrew-they-use.md)), the sheet's export and import
   actions, and Pathbuilder-style reports are separate stories built on `libs/interop/pioneer`.

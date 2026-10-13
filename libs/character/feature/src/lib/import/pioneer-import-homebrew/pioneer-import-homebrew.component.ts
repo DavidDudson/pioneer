@@ -23,7 +23,7 @@ interface PackView {
 
 /**
  * The homebrew a Pioneer file carries, pack by pack (nothing when it carries none): who made it, what importing does to the pack, and for each entry
- * whether it is added, reused or clashes with a different one already on the server (#667, ADR-0058).
+ * whether it is added, reused or clashes with a different one already on the server (#667, ADR-0059).
  */
 @Component({
   selector: 'pio-pioneer-import-homebrew',

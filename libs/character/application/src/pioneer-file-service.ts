@@ -27,7 +27,7 @@ export interface PioneerFileDeps {
   readonly repository: CharacterRepository;
   readonly content: ContentSource;
   readonly clock: Clock;
-  /** Where a file's embedded homebrew comes from and goes to (ADR-0058). */
+  /** Where a file's embedded homebrew comes from and goes to (ADR-0059). */
   readonly homebrew: EmbeddedHomebrew;
 }
 
@@ -39,7 +39,7 @@ function namerFor(content: ContentRegistry, file: PioneerCharacterFile): Referen
 }
 
 /**
- * Pioneer character file use cases (ADR-0056, ADR-0058): export, and import with a preview. Framework-free, like
+ * Pioneer character file use cases (ADR-0056, ADR-0059): export, and import with a preview. Framework-free, like
  * `CharacterService`, and applies the same access policy here, never in routes.
  */
 export class PioneerFileService {

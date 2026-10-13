@@ -3,7 +3,7 @@ import type { ContentId, PackId } from '@pioneer/rules/sdk';
 import type { UserId } from '@pioneer/shared/kernel';
 
 /**
- * Port to the homebrew a Pioneer character file carries (ADR-0058). Homebrew is its own context, so the Pioneer file
+ * Port to the homebrew a Pioneer character file carries (ADR-0059). Homebrew is its own context, so the Pioneer file
  * service reaches it only through here; the adapter lives in the composition root and `InMemoryEmbeddedHomebrew` is
  * for tests.
  */
