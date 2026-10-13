@@ -7,7 +7,8 @@ import type { ContentId, ContentText, LanguageElement, Predicate, Selector } fro
 import type { CharacterDocument } from './character-document';
 import { CHARACTER_LEVEL_MAX, CHARACTER_LEVEL_MIN } from './character-fields';
 import type { LanguageContent } from './language-content';
-import { grantedSkillRanks, skillSlots, slotSkillRanks, withSkillPicks } from './skill-training';
+import { grantedSkillRanks } from './skill-raises';
+import { skillSlots, slotSkillRanks, withSkillPicks } from './skill-training';
 import type { SkillReads } from './skill-training';
 
 /** A feature whose `Language` element opened or granted something: the entry and its name. */

@@ -13,8 +13,6 @@ import { duplicateTrainings, grantedSkillRanks, higher, RANKS, trainingEntries }
 import { trainedSkills } from './skill-trained';
 import type { TrainedSkill } from './skill-trained';
 
-export { grantedSkillRanks } from './skill-raises';
-
 const FIRST_LEVEL = Level.parse(CHARACTER_LEVEL_MIN);
 
 /** Whether a skill slot trains a new skill or raises one a rank. */
@@ -178,18 +176,22 @@ interface PickRead {
 interface PickSource {
   readonly stored: ChoiceValue | undefined;
   readonly options: readonly SkillOption[];
-  readonly refusal: SkillPickProblem;
+  readonly kind: SkillSlotKind;
+}
+
+function refusalOf(kind: SkillSlotKind): SkillPickProblem {
+  return kind === SkillSlotKind.Training ? SkillPickProblem.Trained : SkillPickProblem.Capped;
 }
 
 function readPick(
   skills: SkillContent,
-  { stored, options, refusal }: PickSource,
+  { stored, options, kind }: PickSource,
   rankOf: (skill: SkillOption) => Proficiency | undefined,
 ): PickRead {
   const named = stored === undefined ? undefined : skills.skill(stored);
   const pick = options.find((skill) => skill.id === named?.id);
   const rank = pick === undefined ? undefined : rankOf(pick);
-  const problem = named !== undefined && pick === undefined ? refusal : undefined;
+  const problem = named !== undefined && pick === undefined ? refusalOf(kind) : undefined;
   return { pick, rank, problem };
 }
 
@@ -206,7 +208,6 @@ export function skillSlots(document: CharacterDocument, reads: SkillReads): read
   return skillSlotPlaces(document, reads).map(({ key, level, kind }): SkillSlot => {
     const ranks = grantedAt(level);
     const rankOf = (selector: Selector): Proficiency | undefined => higher(ranks.get(selector), picked.get(selector));
-    const refusal = kind === SkillSlotKind.Training ? SkillPickProblem.Trained : SkillPickProblem.Capped;
     const open = (skill: SkillOption): boolean => rankFor(kind, level, rankOf(skill.selector)) !== undefined;
     const options = reads.skills.skills.filter(open);
     const trained =
@@ -217,12 +218,15 @@ export function skillSlots(document: CharacterDocument, reads: SkillReads): read
           })
         : [];
     const stored = document.build.choices[key];
-    const { pick, rank, problem } = readPick(reads.skills, { stored, options, refusal }, (skill) =>
+    const { pick, rank, problem } = readPick(reads.skills, { stored, options, kind }, (skill) =>
       rankFor(kind, level, rankOf(skill.selector)),
     );
     if (pick !== undefined && rank !== undefined) {
       picked.set(pick.selector, rank);
-      pickedBy.set(pick.selector, [...(pickedBy.get(pick.selector) ?? []), key]);
+      // Only a pick that trains the skill is a source; an increase raising a trained skill didn't train it.
+      if (rank === Proficiency.Trained) {
+        pickedBy.set(pick.selector, [...(pickedBy.get(pick.selector) ?? []), key]);
+      }
     }
     return {
       key,

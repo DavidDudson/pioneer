@@ -28,7 +28,7 @@ export interface TrainedSkill {
 }
 
 /** What trains each skill so far: the grants' entries at a level, and the slots read before. */
-export interface TrainingSources {
+interface TrainingSources {
   readonly entries: ReadonlyMap<Selector, readonly ContentId[]>;
   readonly slots: ReadonlyMap<Selector, readonly SlotKey[]>;
 }

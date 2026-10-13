@@ -88,6 +88,18 @@ describe('CharacterSheetPage skills', () => {
     });
   });
 
+  it('names the class that trained a skill the pickers cannot offer', async () => {
+    const cleric = {
+      ...MERISIEL,
+      build: { choices: { ...MERISIEL.build.choices, class: playerCoreClassId('cleric'), 'boost:1:class:0': 'wis' } },
+    };
+    const { root } = await openSheet(cleric);
+
+    await vi.waitFor(() => {
+      expect(skillsSection(root).textContent).toContain('Already trained in Religion (from Cleric)');
+    });
+  });
+
   it('says nothing about trained skills while none is trained', async () => {
     const { root } = await openSheet(fighter());
 

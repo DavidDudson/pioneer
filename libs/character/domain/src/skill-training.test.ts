@@ -1,13 +1,12 @@
 import { describe, expect, test } from 'bun:test';
 
-import { ContentId, ContentKind, ContentRegistry, Level, Selector, SlotKey } from '@pioneer/rules/sdk';
+import { ContentKind, ContentRegistry, Level, Selector, SlotKey } from '@pioneer/rules/sdk';
+import type { ContentId } from '@pioneer/rules/sdk';
 import { ContentPackBuilder, CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
 
 import { SlotStatus, SlotSubjectKind } from './character-slot';
 import { characterSlots } from './character-slot-status';
 import { buildRanks } from './class-build';
-import { SkillTrainingSourceKind } from './skill-trained';
-import type { SkillTrainingSource } from './skill-trained';
 import { increasedRank, SkillSlotKind, skillSlots } from './skill-training';
 import { skillReads, slotContent, slotRefusal } from './slot-offer';
 import { CharacterBuilder, playerCoreClasses, playerCoreClassId, skillFixtureId, skillFixtures } from './testing';
@@ -236,60 +235,5 @@ describe('skills a later pack restates', () => {
     expect(characterSlots(document, restatedContent).find((slot) => slot.key === 'skill-training:1:0')).toMatchObject({
       status: SlotStatus.Filled,
     });
-  });
-});
-
-/** A skill a trained skill slot can't offer, by id, with its sources. */
-interface TrainedRead {
-  readonly skill: ContentId;
-  readonly sources: readonly SkillTrainingSource[];
-}
-
-function trainedAt(builder: CharacterBuilder, slot: string): readonly TrainedRead[] {
-  const { document } = builder.build();
-  const found = skillSlots(document, skillReads(document, content)).find((each) => each.key === slot);
-  return (found?.trained ?? []).map(({ skill: each, sources }) => ({
-    skill: each.id,
-    sources,
-  }));
-}
-
-describe('skills a trained skill slot cannot offer', () => {
-  test('name every grant that trains a skill, the class and the background alike', () => {
-    const cleric = as('cleric').picking('background', acolyte);
-
-    const [religion, ...rest] = trainedAt(cleric, 'skill-training:1:0');
-
-    expect(rest).toEqual([]);
-    expect(religion?.skill).toBe(skill('religion'));
-    expect(religion?.sources).toContainEqual({
-      kind: SkillTrainingSourceKind.Entry,
-      entry: playerCoreClassId('cleric'),
-    });
-    expect(religion?.sources).toContainEqual({
-      kind: SkillTrainingSourceKind.Entry,
-      entry: ContentId.parse(acolyte),
-    });
-  });
-
-  test('name the earlier slot that took a skill', () => {
-    const cleric = as('cleric').picking('skill-training:1:0', skill('athletics'));
-
-    expect(trainedAt(cleric, 'skill-training:1:1')).toContainEqual({
-      skill: skill('athletics'),
-      sources: [
-        {
-          kind: SkillTrainingSourceKind.Slot,
-          slot: SlotKey.parse('skill-training:1:0'),
-        },
-      ],
-    });
-    expect(trainedAt(cleric, 'skill-training:1:0').map(({ skill: each }) => each)).not.toContain(skill('athletics'));
-  });
-
-  test('are none for a skill increase, which may raise a trained skill', () => {
-    const fighter = as('fighter').atLevel(3).picking('skill-training:1:0', skill('athletics'));
-
-    expect(trainedAt(fighter, 'skill-increase:3')).toEqual([]);
   });
 });

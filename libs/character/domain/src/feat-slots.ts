@@ -22,7 +22,8 @@ import type { DedicationWait } from './dedication-lock';
 import { FeatPickProblem } from './feat-content';
 import type { FeatContent, FeatRead } from './feat-content';
 import { rankOptions } from './language-levels';
-import { grantedSkillRanks, skillSlots, slotSkillRanks, withSkillPicks } from './skill-training';
+import { grantedSkillRanks } from './skill-raises';
+import { skillSlots, slotSkillRanks, withSkillPicks } from './skill-training';
 import { skillReads } from './slot-reads';
 import type { SlotContent } from './slot-reads';
 
