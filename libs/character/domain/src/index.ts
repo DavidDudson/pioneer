@@ -157,6 +157,7 @@ export { CharacterLanguages, characterLanguages, SheetLanguage } from './charact
 export { type SkillContent, skillContent, type SkillOption } from './skill-content';
 export { type SkillSlot, SkillSlotKind, skillSlots } from './skill-training';
 export { type RepeatQuery, repeatedTrainings } from './skill-repeats';
+export { skillsTrainedTwice } from './skill-twice';
 export { type SkillTrainingSource, SkillTrainingSourceKind, type TrainedSkill } from './skill-trained';
 export { type LanguageContent, languageContent, type LanguageOption } from './language-content';
 export {

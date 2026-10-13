@@ -59,6 +59,7 @@
     "notChosen": "Not chosen",
     "skillTrainedFrom": "Already trained in {skill} (from {source})",
     "optionTrained": "Already trained in {skills}",
+    "skillTrainedTwice": "Trained by {first} and {second}; the second training is lost",
     "trainedSource": "{name}",
     "runes": {
       "heading": "Runes on {name}",

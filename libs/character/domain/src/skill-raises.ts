@@ -73,13 +73,26 @@ export function duplicateTrainings(resolution: GrantResolution): SkillCount {
   return SkillCount.parse(twice.reduce((total, count) => total + count, 0));
 }
 
-/** The entries of the effective set that train each skill, by selector. */
-export function trainingEntries(resolution: GrantResolution): ReadonlyMap<Selector, readonly ContentId[]> {
+/** The entries of the effective set whose raises `wanted` accepts for each skill, by selector. */
+function entriesRaising(
+  resolution: GrantResolution,
+  wanted: (rank: Proficiency) => boolean,
+): ReadonlyMap<Selector, readonly ContentId[]> {
   const trainers = Map.groupBy(
-    skillRaises(resolution).filter(({ rank }) => rank !== Proficiency.Untrained),
+    skillRaises(resolution).filter(({ rank }) => wanted(rank)),
     ({ selector }) => selector,
   );
   return new Map(
     [...trainers].map(([selector, raises]) => [selector, [...new Set(raises.map(({ entry }) => entry))]] as const),
   );
+}
+
+/** The entries of the effective set that train each skill, by selector. */
+export function trainingEntries(resolution: GrantResolution): ReadonlyMap<Selector, readonly ContentId[]> {
+  return entriesRaising(resolution, (rank) => rank !== Proficiency.Untrained);
+}
+
+/** The entries of the effective set that raise each skill to trained exactly, by selector; a higher rank trains nothing. */
+export function trainedEntries(resolution: GrantResolution): ReadonlyMap<Selector, readonly ContentId[]> {
+  return entriesRaising(resolution, (rank) => rank === Proficiency.Trained);
 }

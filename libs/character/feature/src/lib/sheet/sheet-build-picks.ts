@@ -143,7 +143,7 @@ function engineReads(sources: BuildPickSources): EngineReads {
   const engine = { ...sources, registry: sources.engineRegistry };
   return {
     statistics: loaded(engine, sheetStatistics),
-    skills: loaded(engine, sheetSkills),
+    skills: loaded(engine, (registry, character) => sheetSkills(registry, character, sources.translate)),
     strikes: loaded(engine, sheetStrikes),
     spellcasting: loaded(engine, sheetSpellcasting),
     entryNames: computed(() => {
