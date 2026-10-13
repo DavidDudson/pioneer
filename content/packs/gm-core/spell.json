@@ -1,0 +1,86 @@
+[
+  {
+    "id": "c4dfdf84-0d97-5c26-95fc-35a4f59cc7a7",
+    "pack": "gm-core",
+    "kind": "spell",
+    "slug": "spell:hidden-mind",
+    "name": "Hidden Mind",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Powerful wards hide a creature from magic that would spy on it or affect its mind. The target gains a +4 status bonus to saves against mental effects. "
+          },
+          {
+            "type": "text",
+            "text": "Hidden mind",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " attempts to counteract any detection, revelation, and scrying effects as if its spell rank were 1 higher than its actual rank. On a success, the effect functions normally except that it detects nothing about the target and its possessions. For instance, "
+          },
+          {
+            "type": "text",
+            "text": "detect magic",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " would still detect other magic in the area, but not any magic on the target."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "9d7b46e2-172f-5643-8454-a2bdd6e7ca17"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.C2w3YfBKjIRS07DP"
+    },
+    "data": {
+      "rank": 8,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "duration": {
+        "type": "until",
+        "until": "daily-preparations"
+      },
+      "traditions": ["arcane", "occult"],
+      "damage": [],
+      "counteraction": true
+    }
+  }
+]

@@ -1,0 +1,1695 @@
+[
+  {
+    "id": "9d41e3b9-ddb3-508f-ba94-28071c852b83",
+    "pack": "gm-core",
+    "kind": "shield",
+    "slug": "shield:dragonslayers-shield",
+    "name": "Dragonslayer's Shield",
+    "level": 9,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A "
+          },
+          {
+            "type": "text",
+            "text": "dragonslayer's shield",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a steel shield covered with dragonhide from a specific dragon, which visually distinguishes each shield from the others. While raised, this steel shield (Hardness 8, HP 32, BT 16) grants its circumstance bonus to Reflex saves against area effects (as well as to AC, as normal)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While you hold the shield, it also grants you a +2 circumstance bonus to Will saves against a dragon's frightful presence ability. The shield has resistance 10 against the damage type corresponding to the dragon breath of the dragon whose hide was used in its creation (for example, a "
+          },
+          {
+            "type": "text",
+            "text": "dragonslayer's shield",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " made with the hide of a diabolic dragon would grant resistance to fire); this applies after reducing the damage for Hardness, so when you use Shield Block, the "
+          },
+          {
+            "type": "text",
+            "text": "dragonslayer's shield",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " takes 18 less damage from attacks of that damage type. You can use Shield Block against effects that deal damage of that type."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The initial raw materials must include at least 30 gp of dragonhide."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Q8BscHUFiM1a86PO"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 670
+        }
+      },
+      "bulk": 1,
+      "hardness": 8,
+      "hitPoints": 32,
+      "baseItem": "steel-shield",
+      "acBonus": 2
+    }
+  },
+  {
+    "id": "9275b276-b3d0-5d15-88a4-63c3700e6b97",
+    "pack": "gm-core",
+    "kind": "shield",
+    "slug": "shield:floating-shield",
+    "name": "Floating Shield",
+    "level": 11,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A "
+          },
+          {
+            "type": "text",
+            "text": "floating shield",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is usually carved with wing motifs. This buckler (Hardness 6, HP 24, BT 12) can protect you on its own."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Float",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The shield magically releases itself and floats off your arm into the air next to you, granting you its bonus automatically, as if you had Raised the Shield."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Because you're not wielding the shield, you can't use reactions such as Shield Block with the shield, but you gain its benefits even when using both of your hands."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After 1 minute, the shield drops to the ground, ending its floating effect. While the shield is adjacent to you, you can Interact to grasp it, ending its floating effect early."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ydNocKN6afzIyVh6"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1250
+        }
+      },
+      "bulk": "light",
+      "hardness": 6,
+      "hitPoints": 24,
+      "activations": [
+        {
+          "slug": "float",
+          "name": "Float",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "baseItem": "buckler",
+      "acBonus": 1
+    }
+  },
+  {
+    "id": "43dc819d-5e29-5a46-a3af-4d0c2351ed93",
+    "pack": "gm-core",
+    "kind": "shield",
+    "slug": "shield:floating-shield-greater",
+    "name": "Floating Shield (Greater)",
+    "level": 16,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A "
+          },
+          {
+            "type": "text",
+            "text": "floating shield",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is usually carved with wing motifs. This buckler (Hardness 6, HP 24, BT 12) can protect you on its own."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Float",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " at will"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The shield magically releases itself and floats off your arm into the air next to you, granting you its bonus automatically, as if you had Raised the Shield."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Because you're not wielding the shield, you can't use reactions such as Shield Block with the shield, but you gain its benefits even when using both of your hands."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After 1 minute, the shield drops to the ground, ending its floating effect. While the shield is adjacent to you, you can Interact to grasp it, ending its floating effect early."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.uAs0hUUgROrndceD"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 9000
+        }
+      },
+      "bulk": "light",
+      "hardness": 6,
+      "hitPoints": 24,
+      "baseItem": "buckler",
+      "acBonus": 1
+    }
+  },
+  {
+    "id": "6b3265f4-796d-530a-a972-57ab0c7de4e1",
+    "pack": "gm-core",
+    "kind": "shield",
+    "slug": "shield:force-shield",
+    "name": "Force Shield",
+    "level": 9,
+    "rarity": "uncommon",
+    "traits": ["force", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The edges of this elaborately engraved steel shield (Hardness 8, HP 32, BT 16) bear tiny glass tiles set in mosaic patterns."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Force Bubble",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, force)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The shield surrounds you with a bubble of force that protects you from harm, granting you resistance 5 to physical damage for 1 minute. The activation ends if you cease holding the shield."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "063ee2b9-5353-5c53-9adc-3b9e2f152d5d"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.DIzZr0K20eCbNzQo"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 650
+        }
+      },
+      "bulk": "light",
+      "hardness": 8,
+      "hitPoints": 32,
+      "activations": [
+        {
+          "slug": "force-bubble",
+          "name": "Force Bubble",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "baseItem": "steel-shield",
+      "acBonus": 2
+    }
+  },
+  {
+    "id": "9758f243-94dd-501b-80a5-978003549fb4",
+    "pack": "gm-core",
+    "kind": "shield",
+    "slug": "shield:forge-warden",
+    "name": "Forge Warden",
+    "level": 10,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The religious symbol of Torag, the forge god-an ornate hammer of dwarven construction-adorns the face of this "
+          },
+          {
+            "type": "text",
+            "text": "lesser reinforcing steel shield",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " (Hardness 8, HP 72, BT 36). The shield is a religious symbol of Torag."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You and any adjacent allies have fire resistance 5 while you have the shield raised. When used for a Shield Block, the "
+          },
+          {
+            "type": "text",
+            "text": "forge warden",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " rings out like the hammer strike of a blacksmith, and the symbol glows as if lit by the fires of a furnace."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Forge Fires",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, fire)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You use the "
+          },
+          {
+            "type": "text",
+            "text": "forge warden",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " to Shield Block an adjacent creature's attack and the shield takes damage"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The attacking creature takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.NoTUhKkiTY5BQU5T"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 975
+        }
+      },
+      "bulk": 1,
+      "hardness": 10,
+      "hitPoints": 40,
+      "baseItem": "steel-shield",
+      "acBonus": 2
+    }
+  },
+  {
+    "id": "003aa1e2-f2e3-583b-8508-ab19cb58932e",
+    "pack": "gm-core",
+    "kind": "shield",
+    "slug": "shield:indestructible-shield",
+    "name": "Indestructible Shield",
+    "level": 18,
+    "rarity": "rare",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An "
+          },
+          {
+            "type": "text",
+            "text": "indestructible shield",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a "
+          },
+          {
+            "type": "text",
+            "text": "high-grade greater reinforcing adamantine shield",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " (Hardness 17, HP 136) that can withstand just about any damage. It can be damaged only by a Disintegrate spell (roll damage as if against a creature that failed its save) or by an artifact tied to destruction."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The raw materials must include at least 4,400 gp of adamantine."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.SUbYk6B1iPoGyyjh"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 24000
+        }
+      },
+      "bulk": 1,
+      "hardness": 17,
+      "hitPoints": 136,
+      "material": {
+        "type": "adamantine",
+        "grade": "high"
+      },
+      "baseItem": "steel-shield",
+      "acBonus": 2
+    }
+  },
+  {
+    "id": "1109fb7a-f16b-5b52-90e7-bbdb3ee65856",
+    "pack": "gm-core",
+    "kind": "shield",
+    "slug": "shield:lions-shield",
+    "name": "Lion's Shield",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This steel shield (Hardness 6, HP 36, BT 18) is forged into the shape of a roaring lion's head. The lion's head functions as "
+          },
+          {
+            "type": "text",
+            "text": "+1 striking shield boss",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " that can't be removed from the shield."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Lion's Bite",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your shield is raised"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You animate the lion's head, making a melee Strike with it. The shield's biting maw is a martial melee weapon that deals 2d6 piercing damage and has the deadly d6 trait; it can't be enhanced by runes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The shield remains animated for 1 minute, during which time you can Strike with it each time you Raise the Shield, as well as with a Strike action."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "a31fa272-16ea-5faa-8e8d-85e0e0f62abc"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.eMDt5vCQztp7cC6B"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 245
+        }
+      },
+      "bulk": 1,
+      "hardness": 6,
+      "hitPoints": 36,
+      "activations": [
+        {
+          "slug": "lions-bite",
+          "name": "Lion's Bite",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "baseItem": "steel-shield",
+      "acBonus": 2
+    }
+  },
+  {
+    "id": "af56d971-2eb0-5f55-9b2c-f96d3f54fdc6",
+    "pack": "gm-core",
+    "kind": "shield",
+    "slug": "shield:lodestone-shield",
+    "name": "Lodestone Shield",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "moderate reinforcing cold iron shield",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " (Hardness 10, HP 92, BT 46) is inset with lodestones that draw ammunition toward it."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Attract Projectile",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per minute"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A ranged weapon Strike targets a creature within 15 feet of you when you have this shield raised, and the attacker hasn't yet rolled their attack"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The triggering Strike targets you instead of its normal target. If it hits, you gain the effects of the Shield Block reaction."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.kHLvz8icxAW9EAIj"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1350
+        }
+      },
+      "bulk": 1,
+      "hardness": 10,
+      "hitPoints": 92,
+      "material": {
+        "type": "cold-iron",
+        "grade": "standard"
+      },
+      "activations": [
+        {
+          "slug": "attract-projectile",
+          "name": "Attract Projectile",
+          "frequency": {
+            "max": 1,
+            "per": "minute"
+          }
+        }
+      ],
+      "baseItem": "steel-shield",
+      "acBonus": 2
+    }
+  },
+  {
+    "id": "a35f7a0b-862b-5de7-b31f-78a0e933bf74",
+    "pack": "gm-core",
+    "kind": "shield",
+    "slug": "shield:martyrs-shield",
+    "name": "Martyr's Shield",
+    "level": 7,
+    "rarity": "rare",
+    "traits": ["divine", "intelligent"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Perception",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +12; precise vision 30 feet, imprecise hearing 30 feet"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Communication",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " speech (Common and Empyrean)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Skills",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Diplomacy +15, Religion +13"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Int",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +0, "
+          },
+          {
+            "type": "text",
+            "text": "Wis",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +2, "
+          },
+          {
+            "type": "text",
+            "text": "Cha",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +4"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Will",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +15"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A "
+          },
+          {
+            "type": "text",
+            "text": "martyr's shield",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a "
+          },
+          {
+            "type": "text",
+            "text": "lesser sturdy shield",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " imbued with the compassion of a devout champion of a righteous deity, like Iomedae or Vildeis, who sacrificed themself to save an ally. In addition to good-naturedly attempting to convert you to its religion, the "
+          },
+          {
+            "type": "text",
+            "text": "martyr's shield",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can use 1 reaction each round that, when raised, it uses to Shield Block to protect an ally adjacent to you. This follows the rules for Shield Block, but protects your ally instead. The "
+          },
+          {
+            "type": "text",
+            "text": "martyr's shield",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " uses this reaction whether you would prefer it did so or not. The "
+          },
+          {
+            "type": "text",
+            "text": "martyr's shield",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can be upgraded to a stronger form of "
+          },
+          {
+            "type": "text",
+            "text": "sturdy shield",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " by paying the difference in cost between its current type of "
+          },
+          {
+            "type": "text",
+            "text": "sturdy shield",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " and the new type."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.HWQEGY2X0QXj2zfN"
+    },
+    "data": {
+      "bulk": 1,
+      "hardness": 10,
+      "hitPoints": 80,
+      "baseItem": "steel-shield",
+      "acBonus": 2
+    }
+  },
+  {
+    "id": "b971c675-c465-50c7-a127-cda3ba6a51c4",
+    "pack": "gm-core",
+    "kind": "shield",
+    "slug": "shield:reflecting-shield",
+    "name": "Reflecting Shield",
+    "level": 18,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This high-grade silver buckler (Hardness 6, HP 24, BT 12) is polished to a mirrorlike sheen. The shield functions as a "
+          },
+          {
+            "type": "ref",
+            "id": "f4bcd921-1952-5b43-979d-8b9ffd0cd8a8"
+          },
+          {
+            "type": "text",
+            "text": " that can also reflect spells."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Reflect Spell",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're targeted by a spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "reflecting shield",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is raised"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You attempt to reflect the spell on its caster. The shield attempts to counteract the spell, with a counteract rank of 9th and a counteract modifier of +30. If the spell is successfully counteracted, it's turned back on its caster"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The initial raw materials must include at least 2,750 gp of silver."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.La9qYc5NHsg423Jb"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 18000
+        }
+      },
+      "bulk": "light",
+      "hardness": 6,
+      "hitPoints": 24,
+      "material": {
+        "type": "silver",
+        "grade": "high"
+      },
+      "activations": [
+        {
+          "slug": "reflect-spell",
+          "name": "Reflect Spell",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "baseItem": "buckler",
+      "acBonus": 1
+    }
+  },
+  {
+    "id": "f4bcd921-1952-5b43-979d-8b9ffd0cd8a8",
+    "pack": "gm-core",
+    "kind": "shield",
+    "slug": "shield:spellguard-shield",
+    "name": "Spellguard Shield",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This shield bears eldritch glyphs to guard against magic. While you have this steel shield (Hardness 6, HP 24, BT 12) raised, you gain its circumstance bonus to saving throws against spells that target you (as well as to AC), and you can Shield Block spells that target you if you have that action."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.OqDAx4HJ39ojVtvg"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 250
+        }
+      },
+      "bulk": 1,
+      "hardness": 6,
+      "hitPoints": 24,
+      "baseItem": "steel-shield",
+      "acBonus": 2
+    }
+  },
+  {
+    "id": "aaf38ed2-0874-502d-abf7-c14bbf9880c4",
+    "pack": "gm-core",
+    "kind": "shield",
+    "slug": "shield:sturdy-shield-greater",
+    "name": "Sturdy Shield (Greater)",
+    "level": 13,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "With a superior design and excellent craftsmanship, this steel shield has higher Hardness than its non-magical counterparts, making it harder to break and destroy."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The shield has Hardness 15, HP 120, and BT 60."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.rrnWORxT2Ch4pUFb"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3000
+        }
+      },
+      "bulk": 1,
+      "hardness": 15,
+      "hitPoints": 120,
+      "baseItem": "steel-shield",
+      "acBonus": 2
+    }
+  },
+  {
+    "id": "fcae9b41-695c-5190-b06d-7110ea8180f6",
+    "pack": "gm-core",
+    "kind": "shield",
+    "slug": "shield:sturdy-shield-lesser",
+    "name": "Sturdy Shield (Lesser)",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "With a superior design and excellent craftsmanship, this steel shield has higher Hardness than its non-magical counterparts, making it harder to break and destroy."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The shield has Hardness 10, HP 80, and BT 40."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.nDZX25OwoN0Imrq6"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 360
+        }
+      },
+      "bulk": 1,
+      "hardness": 10,
+      "hitPoints": 80,
+      "baseItem": "steel-shield",
+      "acBonus": 2
+    }
+  },
+  {
+    "id": "fc8a920f-5eb8-560a-936c-3fb6bbdbbf2f",
+    "pack": "gm-core",
+    "kind": "shield",
+    "slug": "shield:sturdy-shield-major",
+    "name": "Sturdy Shield (Major)",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "With a superior design and excellent craftsmanship, this steel shield has higher Hardness than its non-magical counterparts, making it harder to break and destroy."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The shield has Hardness 17, HP 136, and BT 68."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.BWQzaHbGVqlBuMww"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10000
+        }
+      },
+      "bulk": 1,
+      "hardness": 17,
+      "hitPoints": 136,
+      "baseItem": "steel-shield",
+      "acBonus": 2
+    }
+  },
+  {
+    "id": "6f0a245f-ec33-5437-b381-7ee03c8aebc6",
+    "pack": "gm-core",
+    "kind": "shield",
+    "slug": "shield:sturdy-shield-minor",
+    "name": "Sturdy Shield (Minor)",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "With a superior design and excellent craftsmanship, this steel shield has higher Hardness than its non-magical counterparts, making it harder to break and destroy."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The shield has Hardness 8, HP 64, and BT 32."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.f9ygr5Cjrmop8LWV"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 100
+        }
+      },
+      "bulk": 1,
+      "hardness": 8,
+      "hitPoints": 64,
+      "baseItem": "steel-shield",
+      "acBonus": 2
+    }
+  },
+  {
+    "id": "4498b531-0d64-51ae-9be9-a8e0bff2f0b2",
+    "pack": "gm-core",
+    "kind": "shield",
+    "slug": "shield:sturdy-shield-moderate",
+    "name": "Sturdy Shield (Moderate)",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "With a superior design and excellent craftsmanship, this steel shield has higher Hardness than its non-magical counterparts, making it harder to break and destroy."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The shield has Hardness 13, HP 104, and BT 52."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.pNQJ9PTOEHxEZCgp"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1000
+        }
+      },
+      "bulk": 1,
+      "hardness": 13,
+      "hitPoints": 104,
+      "baseItem": "steel-shield",
+      "acBonus": 2
+    }
+  },
+  {
+    "id": "6f11c1bd-d3cb-5a5f-932f-2f2171f95883",
+    "pack": "gm-core",
+    "kind": "shield",
+    "slug": "shield:sturdy-shield-supreme",
+    "name": "Sturdy Shield (Supreme)",
+    "level": 19,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "With a superior design and excellent craftsmanship, this steel shield has higher Hardness than its non-magical counterparts, making it harder to break and destroy."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The shield has Hardness 20, HP 160, and BT 80."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.7Z8XXGiUiyyisKOD"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 40000
+        }
+      },
+      "bulk": 1,
+      "hardness": 20,
+      "hitPoints": 160,
+      "baseItem": "steel-shield",
+      "acBonus": 2
+    }
+  }
+]

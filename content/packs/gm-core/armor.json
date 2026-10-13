@@ -1,0 +1,1677 @@
+[
+  {
+    "id": "4c92f3e8-441c-5c3e-86ff-642b78ddb086",
+    "pack": "gm-core",
+    "kind": "armor",
+    "slug": "armor:barding-of-the-zephyr",
+    "name": "Barding of the Zephyr",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["companion", "invested", "primal"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This light barding is covered in stylized wind motifs. When you suit up your animal companion, the barding adjusts to fit your animal companion regardless of its shape."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When your companion falls, wind picks it up from below; it gains the effects of Gentle Landing."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Take Flight",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You trace a finger along the wind motifs on the barding, granting your companion wearing the barding a fly Speed of 30 feet for 10 minutes. Even if the companion doesn't have the mount special ability, it can still Fly while being ridden."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "b15edb2d-a252-51f5-a905-5a6025195958"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.eoI3M6FXtcPWeg7i"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 900
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "take-flight",
+          "name": "Take Flight",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "light-barding",
+      "acBonus": 1,
+      "dexCap": 5,
+      "checkPenalty": 1,
+      "speedPenalty": 5,
+      "strength": 3
+    }
+  },
+  {
+    "id": "1758e36e-80cb-5f1a-8a0f-0596c6412eba",
+    "pack": "gm-core",
+    "kind": "armor",
+    "slug": "armor:electric-eelskin",
+    "name": "Electric Eelskin",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Shining, slippery eelskin covers the plates of this +1 "
+          },
+          {
+            "type": "text",
+            "text": "resilient greater slick leather armor",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". The armor gives you the ability to breathe water and grants you a +2 item bonus to Athletics checks to Swim and Stealth checks you attempt in the water."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Unleash Charge",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast a 2nd-rank Thunderstrike with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 29,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply one casting of "
+          },
+          {
+            "type": "text",
+            "text": "thunderstrike",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.8HxM35X8DDt2gw9d"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 950
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "unleash-charge",
+          "name": "Unleash Charge",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "category": "light",
+      "group": "leather",
+      "baseItem": "leather-armor",
+      "acBonus": 1,
+      "dexCap": 4,
+      "strength": 0,
+      "runes": {
+        "potency": 1,
+        "resilient": 1,
+        "property": ["0aa5920c-6430-5a1a-a4a8-0ca008c4fa86"]
+      }
+    }
+  },
+  {
+    "id": "93a6a3e7-bf1a-5413-801c-686ceeafc46f",
+    "pack": "gm-core",
+    "kind": "armor",
+    "slug": "armor:elven-chain-high-grade",
+    "name": "Elven Chain (High-Grade)",
+    "level": 20,
+    "rarity": "uncommon",
+    "traits": ["flexible"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Elven chain is a Chain Shirt made of dawnsilver that glitters in even the faintest light. Because it's constructed with small, supple rings, it has no check penalty."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Created by elven artisans employing ancient crafting techniques, elven chain is exceptionally quiet. Unlike other chain shirts-even other dawnsilver chain shirts-elven chain does not have the noisy trait. This suit of armor can be etched with runes like any other dawnsilver chain shirt."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The initial raw materials must include dawnsilver worth at least 26,000 gp"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.PuqdH7DmNsN79HyE"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 16800
+        }
+      },
+      "bulk": "light",
+      "material": {
+        "type": "dawnsilver",
+        "grade": "high"
+      },
+      "category": "light",
+      "group": "chain",
+      "acBonus": 2,
+      "dexCap": 3,
+      "strength": 1
+    }
+  },
+  {
+    "id": "1e2ff73d-9d35-5299-8b3e-3ae841e4a748",
+    "pack": "gm-core",
+    "kind": "armor",
+    "slug": "armor:elven-chain-standard-grade",
+    "name": "Elven Chain (Standard-Grade)",
+    "level": 13,
+    "rarity": "uncommon",
+    "traits": ["flexible"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Elven chain is a Chain Shirt made of dawnsilver that glitters in even the faintest light. Because it's constructed with small, supple rings, it has no check penalty."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Created by elven artisans employing ancient crafting techniques, elven chain is exceptionally quiet. Unlike other chain shirts-even other dawnsilver chain shirts-elven chain does not have the noisy trait. This suit of armor can be etched with runes like any other dawnsilver chain shirt."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The initial raw materials must include dawnsilver worth at least 3,125 sp."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.peAvz7u35GEfTXxp"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 740
+        }
+      },
+      "bulk": "light",
+      "material": {
+        "type": "dawnsilver",
+        "grade": "standard"
+      },
+      "category": "light",
+      "group": "chain",
+      "acBonus": 2,
+      "dexCap": 3,
+      "strength": 1
+    }
+  },
+  {
+    "id": "2a01c08d-6cfb-5305-83ba-d8ef54bc3601",
+    "pack": "gm-core",
+    "kind": "armor",
+    "slug": "armor:impenetrable-scale",
+    "name": "Impenetrable Scale",
+    "level": 17,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Made of overlapping, lustrous black scales of standard-grade adamantine, this +2 "
+          },
+          {
+            "type": "text",
+            "text": "greater resilient ",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "ref",
+            "id": "1100f76c-d253-50b6-82c0-c70593e97e10"
+          },
+          {
+            "type": "text",
+            "text": " adamantine scale mail",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " seems to momentarily thicken at the point of impact when hit."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whenever the armor's "
+          },
+          {
+            "type": "text",
+            "text": "fortification",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " rune successfully turns a significant foe's critical hit into a normal hit, one of the scales on the armor turns violet. You gain resistance to physical damage equal to the number of violet scales, to a maximum of 8."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At dawn each day, all the violet scales return to normal."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The initial raw materials must include 1,600 gp of adamantine."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "d6f38c0c-72f7-5b86-948f-0d5667e46f57"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.aLA7pikfeNIAAGLw"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 12800
+        }
+      },
+      "bulk": 3,
+      "material": {
+        "type": "adamantine",
+        "grade": "standard"
+      },
+      "category": "medium",
+      "group": "composite",
+      "baseItem": "scale-mail",
+      "acBonus": 3,
+      "dexCap": 2,
+      "checkPenalty": 2,
+      "speedPenalty": 5,
+      "strength": 2,
+      "runes": {
+        "potency": 2,
+        "resilient": 2,
+        "property": ["1100f76c-d253-50b6-82c0-c70593e97e10"]
+      }
+    }
+  },
+  {
+    "id": "544f6158-2224-5a00-8784-2b0e59697bee",
+    "pack": "gm-core",
+    "kind": "armor",
+    "slug": "armor:life-saver-mail",
+    "name": "Life-Saver Mail",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This suit of "
+          },
+          {
+            "type": "text",
+            "text": "+2 resilient fortification splint mail",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " has a large, green gemstone inset in a prominent location. While wearing the armor, you feel at ease knowing the armor can protect you in even dire circumstances. The gemstone glows with life essence, casting green light as brightly as a torch. You can suppress or resume this light by using a single action, which has the concentrate trait."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Second Chance",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentration)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You would die"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The armor's gemstone turns gray as it shares life energy with you. The armor casts Breath of Life on you."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Shielding Light",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentration, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You tap on the gemstone, producing a protective screen of green light. You cast a 5th-rank Shield spell. As normal with the spell, you can't cast "
+          },
+          {
+            "type": "text",
+            "text": "shield",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " again (using this activation or other means) for 10 minutes if you use it to Shield Block."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.h9sZfo6UmHIOU5wb"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4000
+        }
+      },
+      "bulk": 3,
+      "activations": [
+        {
+          "slug": "second-chance",
+          "name": "Second Chance",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "heavy",
+      "group": "composite",
+      "baseItem": "splint-mail",
+      "acBonus": 5,
+      "dexCap": 1,
+      "checkPenalty": 3,
+      "speedPenalty": 10,
+      "strength": 3,
+      "runes": {
+        "potency": 2,
+        "resilient": 1,
+        "property": ["1100f76c-d253-50b6-82c0-c70593e97e10"]
+      }
+    }
+  },
+  {
+    "id": "fba12234-980a-5ec6-97ca-99dbee69b66b",
+    "pack": "gm-core",
+    "kind": "armor",
+    "slug": "armor:life-saver-mail-greater",
+    "name": "Life-Saver Mail (Greater)",
+    "level": 20,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This suit of "
+          },
+          {
+            "type": "text",
+            "text": "+3 greater resilient greater fortification splint mail",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " has a large, green gemstone inset in a prominent location. While wearing the armor, you feel at ease knowing the armor can protect you in even dire circumstances. The gemstone glows with life essence, casting green light as brightly as a torch. You can suppress or resume this light by using a single action, which has the concentrate trait."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Second Chance",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentration)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You would die"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The armor's gemstone turns gray as it shares life energy with you. The armor casts Breath of Life on you."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Shielding Light",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentration, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You tap on the gemstone, producing a protective screen of green light. You cast a 9th-rank Shield spell. As normal with the spell, you can't cast "
+          },
+          {
+            "type": "text",
+            "text": "shield",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " again (using this activation or other means) for 10 minutes if you use it to Shield Block."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.oRBcuFdQDRCn1pwo"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 52500
+        }
+      },
+      "bulk": 3,
+      "activations": [
+        {
+          "slug": "second-chance",
+          "name": "Second Chance",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "heavy",
+      "group": "composite",
+      "baseItem": "splint-mail",
+      "acBonus": 5,
+      "dexCap": 1,
+      "checkPenalty": 3,
+      "speedPenalty": 10,
+      "strength": 3,
+      "runes": {
+        "potency": 2,
+        "resilient": 2,
+        "property": ["cd04907f-f4ad-540b-8e85-80028195a121"]
+      }
+    }
+  },
+  {
+    "id": "5c52529e-63ff-5393-a328-c68d6d8f98c6",
+    "pack": "gm-core",
+    "kind": "armor",
+    "slug": "armor:lions-armor",
+    "name": "Lion's Armor",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Various parts of this +2 "
+          },
+          {
+            "type": "text",
+            "text": "resilient half plate",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " are forged into the shape of a lion's head. The golden lion heads grant you a commanding presence and seem to actively growl at your enemies, granting you a +2 item bonus to Intimidation."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The lions on the armor work in tandem with the lion on a "
+          },
+          {
+            "type": "text",
+            "text": "lion's shield",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". If you critically hit with the "
+          },
+          {
+            "type": "text",
+            "text": "lion's shield",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " using Lion Bite, the lions on the armor roar in support of the shield, causing the target of the shield's Strike to become Frightened 1."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Roar of the Pride",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The lions on your armor roar, attempting to cow your enemies. Attempt a check to Demoralize each enemy within 30 feet of you. On a critical success, the target is also Fleeing for 1 round."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.EBuQjgVZaQpjQUjc"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2000
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "roar-of-the-pride",
+          "name": "Roar of the Pride",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "heavy",
+      "group": "plate",
+      "baseItem": "half-plate",
+      "acBonus": 5,
+      "dexCap": 1,
+      "checkPenalty": 3,
+      "speedPenalty": 10,
+      "strength": 3,
+      "runes": {
+        "potency": 2,
+        "resilient": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "e6be0e8e-f801-5ca7-9355-b9171b164d1a",
+    "pack": "gm-core",
+    "kind": "armor",
+    "slug": "armor:lions-armor-greater",
+    "name": "Lion's Armor (Greater)",
+    "level": 19,
+    "rarity": "common",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Various parts of this +3 "
+          },
+          {
+            "type": "text",
+            "text": "greater resilient half plate",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " are forged into the shape of a lion's head. The golden lion heads grant you a commanding presence and seem to actively growl at your enemies, granting you a +3 item bonus to Intimidation."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The lions on the armor work in tandem with the lion on a "
+          },
+          {
+            "type": "text",
+            "text": "lion's shield",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". If you critically hit with the "
+          },
+          {
+            "type": "text",
+            "text": "lion's shield",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " using Lion Bite, the lions on the armor roar in support of the shield, causing the target of the shield's Strike to become Frightened 1."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Roar of the Pride",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The lions on your armor roar, attempting to cow your enemies. Attempt a check to Demoralize each enemy within 30 feet of you. On a critical success, the target is also Fleeing for 1 round."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.dmEmxoEVzOeEkscr"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 30500
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "roar-of-the-pride",
+          "name": "Roar of the Pride",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "category": "heavy",
+      "group": "plate",
+      "baseItem": "half-plate",
+      "acBonus": 5,
+      "dexCap": 1,
+      "checkPenalty": 3,
+      "speedPenalty": 10,
+      "strength": 3,
+      "runes": {
+        "potency": 3,
+        "resilient": 2,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "263df21a-b80c-5e28-9af2-230725290203",
+    "pack": "gm-core",
+    "kind": "armor",
+    "slug": "armor:medusa-armor",
+    "name": "Medusa Armor",
+    "level": 14,
+    "rarity": "rare",
+    "traits": ["cursed", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+2 adamantine scale mail",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " appears to have a "
+          },
+          {
+            "type": "text",
+            "text": "fortification",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " rune but grants none of its effects. Whenever you are critically hit, after taking damage, you become petrified for 1 round. Once the curse has activated for the first time, the armor fuses to you."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Iic9QpNemaumfkHc"
+    },
+    "data": {
+      "bulk": 2,
+      "material": {
+        "type": "adamantine",
+        "grade": "standard"
+      },
+      "category": "medium",
+      "group": "composite",
+      "baseItem": "scale-mail",
+      "acBonus": 3,
+      "dexCap": 2,
+      "checkPenalty": 2,
+      "speedPenalty": 5,
+      "strength": 2,
+      "runes": {
+        "potency": 2,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "bb0d342f-b269-5f5b-9178-6e74ce8fd7bd",
+    "pack": "gm-core",
+    "kind": "armor",
+    "slug": "armor:moonlit-chain",
+    "name": "Moonlit Chain",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["flexible", "invested", "magical", "noisy"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+1 silver chain shirt",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " has a collar adorned with stitched images of the phases of the moon. You can see in moonlight as though you had low-light vision."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Dim Sight",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " one per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You touch the stitched image of the new moon on the armor's collar and suppress the Dazzled condition for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The initial raw materials must include 33 gp of silver."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "terrain:moonlight",
+        "toggleable": true,
+        "display": {
+          "label": "In Moonlight"
+        }
+      },
+      {
+        "key": "Sense",
+        "sense": "16b42c38-9373-58ec-a7ac-2221bb17a71c",
+        "predicate": ["terrain:moonlight"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.vHZSx5f093Wrivzn"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 360
+        }
+      },
+      "bulk": 1,
+      "material": {
+        "type": "silver",
+        "grade": "low"
+      },
+      "activations": [
+        {
+          "slug": "dim-sight",
+          "name": "Dim Sight",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "light",
+      "group": "chain",
+      "baseItem": "chain-shirt",
+      "acBonus": 2,
+      "dexCap": 3,
+      "checkPenalty": 1,
+      "strength": 1,
+      "runes": {
+        "potency": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "3ff19f45-ad74-5d78-8ec8-c5bfd265fa72",
+    "pack": "gm-core",
+    "kind": "armor",
+    "slug": "armor:tideplate",
+    "name": "Tideplate",
+    "level": 10,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Rippling water motifs decorate this simple suit of +1 "
+          },
+          {
+            "type": "text",
+            "text": "resilient full plate",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". The plate has been altered for underwater use, so it's check penalty doesn't apply to Acrobatics or Athletics checks in water or similar liquids. While wearing the armor, you gain a +2 item bonus to Athletics checks to Swim, and you can breathe underwater."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Ride the Waves",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ripples on the armor begin to undulate, matching the movement of any nearby water. The armor casts Water Walk on you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Submerge",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate, polymorph)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're in water that covers at least half of your body."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You merge with the water for 10 minutes. While merged, you can't move, you can see through the water if it's clear enough, and you can hear what's going on outside of the water. Water typically can't take damage, but if the water you're merged in is subject to electricity damage or an ability or effect that destroys or dries water, you're expelled from the water and take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "10d6"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage. "
+          },
+          {
+            "type": "text",
+            "text": "Control water",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " expels you without dealing damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.7jGnVnqFt2gFtU1g"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1000
+        }
+      },
+      "bulk": 4,
+      "activations": [
+        {
+          "slug": "ride-the-waves",
+          "name": "Ride the Waves",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        },
+        {
+          "slug": "submerge",
+          "name": "Submerge",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "heavy",
+      "group": "plate",
+      "baseItem": "full-plate",
+      "acBonus": 6,
+      "dexCap": 0,
+      "checkPenalty": 3,
+      "speedPenalty": 10,
+      "strength": 4,
+      "runes": {
+        "potency": 1,
+        "resilient": 1,
+        "property": []
+      }
+    }
+  }
+]

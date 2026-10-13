@@ -26,6 +26,7 @@ export async function coreRulesPack(): Promise<PackContents> {
     import('@pioneer/content/packs/core-rules/imported/player-core/statistic.json'),
     import('@pioneer/content/packs/core-rules/imported/player-core/trait.json'),
     import('@pioneer/content/packs/core-rules/imported/divine-mysteries/trait.json'),
+    import('@pioneer/content/packs/core-rules/imported/gm-core/trait.json'),
   ]);
 }
 
@@ -64,6 +65,21 @@ export async function divineMysteriesPack(): Promise<PackContents> {
     import('@pioneer/content/packs/divine-mysteries/equipment.json'),
     import('@pioneer/content/packs/divine-mysteries/feat.json'),
     import('@pioneer/content/packs/divine-mysteries/spell.json'),
+  ]);
+}
+
+export async function gmCorePack(): Promise<PackContents> {
+  return pack(import('@pioneer/content/packs/gm-core/pack.json'), [
+    import('@pioneer/content/packs/gm-core/action.json'),
+    import('@pioneer/content/packs/gm-core/armor.json'),
+    import('@pioneer/content/packs/gm-core/consumable.json'),
+    import('@pioneer/content/packs/gm-core/effect.json'),
+    import('@pioneer/content/packs/gm-core/equipment.json'),
+    import('@pioneer/content/packs/gm-core/rune.json'),
+    import('@pioneer/content/packs/gm-core/shield.json'),
+    import('@pioneer/content/packs/gm-core/spell.json'),
+    import('@pioneer/content/packs/gm-core/treasure.json'),
+    import('@pioneer/content/packs/gm-core/weapon.json'),
   ]);
 }
 

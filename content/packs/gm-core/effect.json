@@ -1,0 +1,4779 @@
+[
+  {
+    "id": "e24e9f6d-a800-5333-8b30-802eb754c366",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:aura-righteous-call",
+    "name": "Aura: Righteous Call",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "8526c055-2763-5706-9363-9f45afd4e7fb"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Strikes your allies make while they're within 30 feet of you gain the holy trait."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.campaign-effects.Item.3BZisQv0wVLGEvzp"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "2b5d13de-5504-5720-9285-6338c1835f4e",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:aura-searing-blade-greater",
+    "name": "Aura: Searing Blade (Greater)",
+    "level": 17,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "38bbd19c-fa37-50d7-9b20-314af18c1301"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": " of flame radiates from the "
+          },
+          {
+            "type": "text",
+            "text": "greater searing blade",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " for 1 minute. All weapon and unarmed attacks by you and your allies within the area gain the effect of the "
+          },
+          {
+            "type": "text",
+            "text": "flaming",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " property rune."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.4XO5mkjnh5riwZPM"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "87a5203e-376b-5e4e-a7aa-e11ac5bd2319",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:aura-shining-symbol",
+    "name": "Aura: Shining Symbol",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "6bf3aaff-4313-553d-8a2f-45f56688ea3d"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "2d87e402-5bfa-554d-ab3f-35d84e77129f"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "747237c8-10f7-554b-8030-02ed3724b70a"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The light cast by the symbol becomes bright light. Creatures in the light receive a status penalty to Deception and Stealth checks and your enemies gain weakness to spirit damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.NNxguHneoM3NvW1S"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "4c1dbce3-cb74-5df1-b7ca-336cec55a755",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-aeon-stone-resonance-amplifying",
+    "name": "Effect: Aeon Stone Resonance (Amplifying)",
+    "level": 16,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "20b8a041-92a5-519b-b8f9-918c0b07453c"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The resonant power grants you a +2 item bonus to Arcana, Nature, Occultism, or Religion checks-whichever corresponds to the tradition of the last spell you enhanced with this "
+          },
+          {
+            "type": "text",
+            "text": "aeon stone",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "tradition",
+        "choices": [
+          {
+            "value": "arcana",
+            "label": "Arcane"
+          },
+          {
+            "value": "religion",
+            "label": "Divine"
+          },
+          {
+            "value": "occultism",
+            "label": "Occult"
+          },
+          {
+            "value": "nature",
+            "label": "Primal"
+          }
+        ],
+        "prompt": "Select a tradition."
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.kdcVvwVVsttZgX1Y"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "turn",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "23835191-0bd7-5c47-a846-1e19da66b41f",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-aeon-stone-sprouting",
+    "name": "Effect: Aeon Stone (Sprouting)",
+    "level": 6,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "a5585181-8743-5e2c-81d3-bf69b64825fb"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain 8 temporary Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.eyXUwWx5omiQWGZw"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "76fe4a97-d655-5579-b796-900dd1eb9cef",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-alloy-orb-exquisite-high-grade",
+    "name": "Effect: Alloy Orb (Exquisite High-Grade)",
+    "level": 18,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "cb478318-73dc-513c-9fce-e775f70cee46"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you activate the "
+          },
+          {
+            "type": "text",
+            "text": "alloy orb",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", select adamantine, cold iron, or dawnsilver. The affixed weapon functions as the chosen material."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.o6GSF420m6cdTkZo"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "a8b6b58a-a8dc-5b7f-8c6f-00a4f778be08",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-alloy-orb-exquisite-standard-grade",
+    "name": "Effect: Alloy Orb (Exquisite Standard-Grade)",
+    "level": 12,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "7e3d98db-d846-572c-a381-53d0b7b8972c"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you activate the "
+          },
+          {
+            "type": "text",
+            "text": "alloy orb",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", select adamantine, cold iron, or dawnsilver. The affixed weapon functions as the chosen material."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.BjF0eOao5UuOOKMP"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "b843616a-5917-54f1-8e3b-d4531764d172",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-alloy-orb-high-grade",
+    "name": "Effect: Alloy Orb (High-Grade)",
+    "level": 16,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "04c84149-0726-5d05-8ce4-5623a3f29b98"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you activate the "
+          },
+          {
+            "type": "text",
+            "text": "alloy orb",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", select cold iron or silver. The affixed weapon functions as the chosen material."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.15qCI8sWaEwPkWiQ"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "3a9ef045-31b1-5076-9020-112044832742",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-alloy-orb-low-grade",
+    "name": "Effect: Alloy Orb (Low-Grade)",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "e6525124-134f-5362-bef4-5db57525be2e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you activate the "
+          },
+          {
+            "type": "text",
+            "text": "alloy orb",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", select cold iron or silver. The affixed weapon functions as the chosen material."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.9MU9d8tmJg3thkSc"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "d7d7facd-71d2-5eba-9c81-4d6c433b115f",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-alloy-orb-standard-grade",
+    "name": "Effect: Alloy Orb (Standard-Grade)",
+    "level": 8,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "f776edd7-4dcd-58eb-a57c-1723c45cf7b5"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you activate the "
+          },
+          {
+            "type": "text",
+            "text": "alloy orb",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", select cold iron or silver. The affixed weapon functions as the chosen material."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.GXEkmsf4Wre6zqG1"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "545aab06-bf58-5976-b8c6-392ba4f20e2f",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-antidote",
+    "name": "Effect: Antidote",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "8bd60703-f28d-52b4-a75e-62f1691b20cb"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "b210ca89-dc7c-536f-8b4b-e3426838d7e3"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "ffe5f130-7c5f-587d-bd5b-62e257bc07d9"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "acce23a6-ddab-51c7-92dd-f653ba108f5b"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain an item bonus to Fortitude saves against poisons."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.TjBxxlTvb6tJP1jS"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 6,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "3d986111-9f58-5c74-8048-14498181b04d",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-antiplague",
+    "name": "Effect: Antiplague",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "ed1b06aa-6a9d-5601-b235-819d72639db9"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "288451c5-df5e-50c3-80c2-549ecd4a3989"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "370ddd08-3ead-5bf0-8bac-de5f5ef10463"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "d464e71f-16ac-55df-b312-ff75f0b20719"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain an item bonus to Fortitude saves against diseases."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.mVgLCbZgafIylRzh"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 24,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "b15edb2d-a252-51f5-a905-5a6025195958",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-barding-of-the-zephyr",
+    "name": "Effect: Barding of the Zephyr",
+    "level": 10,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "4c92f3e8-441c-5c3e-86ff-642b78ddb086"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You trace a finger along the wind motifs on the barding, granting your companion wearing the barding a fly Speed of 30 feet for 10 minutes. Even if the companion doesn't have the mount special ability, it can still Fly while being ridden."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.P7Y7pO2ulZ5wBgxU"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "bd8c9952-ad69-52cd-a787-ebb96232f98c",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-bloodseeker-beak",
+    "name": "Effect: Bloodseeker Beak",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "4ce43c9e-02c5-586a-af4f-93992b1df225"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "fb887e99-12d0-56ec-bca6-caaa961fe663"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You deal an extra d4 precision damage on your damage roll."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.5XdkHIUgc6psBxQq"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "85098b47-a8ff-58de-aff8-53578f427767",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-bombers-eye-elixir",
+    "name": "Effect: Bomber's Eye Elixir",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "0d7d52b9-6a38-51f2-8990-37c0a7ef0727"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "5518e3c5-30f6-5b69-9231-03f952317eee"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your alchemical bomb Strikes reduce the circumstance bonus to AC your targets gain from cover."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.HmpYVsyiCq8XDlop"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 5,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "a5fc5a2f-4ced-5bb9-a919-be9b35b08f9f",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-bombers-eye-elixir-cover-reduction",
+    "name": "Effect: Bomber's Eye Elixir Cover Reduction",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "85098b47-a8ff-58de-aff8-53578f427767"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your bonus to AC from cover is reduced."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.YlIESAmhjHJHGzmi"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "5c6a7a16-107a-5c3e-944a-07fbdbf484c0",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-bravos-brew",
+    "name": "Effect: Bravo's Brew",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "a2fbf6cf-bdae-5879-a4fb-fc5deda19ac8"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "bd6babde-f428-5a5c-9749-913c2bc4c66b"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "cc4be28f-a064-5897-aa22-e7b52b89a8f7"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain an item bonus to Will saves. This bonus increases when attempting Will saves against fear. If you consumed a "
+          },
+          {
+            "type": "text",
+            "text": "greater bravo's brew",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", when you roll a success on a save against fear, you get a critical success instead."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.eh7EqmDBDW30ShCu"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "020380c4-7d81-5ca5-920c-f23fb366680b",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-bronze-bull-pendant",
+    "name": "Effect: Bronze Bull Pendant",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "f3b3dedb-18c5-5157-8dae-9a27c4dcc160"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 item bonus to attempt an Athletics check to Shove."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.Cxa7MdgMCUoMqbKm"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "b6151b7e-b3a0-5f6c-9c33-8aeba9605611",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-call-upon-the-ancient-life",
+    "name": "Effect: Call Upon the Ancient Life",
+    "level": 9,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "9359db45-9a2e-56c3-b470-8433182dd706"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You recover 15 Hit Points at the start of your turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Note: Adjust duration based on roll results.",
+            "marks": ["emphasis"]
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.TYxcUvcFuuBxWXF2"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 2,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "03a3a6d4-02e4-5a6c-b549-1b6046e1582a",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-cheetahs-elixir-greater",
+    "name": "Effect: Cheetah's Elixir (Greater)",
+    "level": 9,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "ff17f562-af4e-5693-ba8a-43cea6223198"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +10 foot status bonus to your Speed."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.PeuUz7JaabCgl6Yh"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "149ce91c-657b-5cc5-a80a-9804090bab0e",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-cheetahs-elixir-lesser",
+    "name": "Effect: Cheetah's Elixir (Lesser)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "25edd26d-e2b9-5219-a7cc-935cb8d631eb"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +5 foot status bonus to your Speed."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.lNWACCNe9RYgaFxb"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "7458039c-b7b3-5a98-b692-cdf56fb61af6",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-cheetahs-elixir-moderate",
+    "name": "Effect: Cheetah's Elixir (Moderate)",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "431829f3-7db6-5962-ba05-fdeee59ad368"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +10 foot status bonus to your Speed."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.j9zVZwRBVAcnpEkE"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "1a1ec132-1bb4-5ec9-8869-8fbfc1a29bd5",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-clawed-bracers",
+    "name": "Effect: Clawed Bracers",
+    "level": 7,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "36076df1-5606-5fe6-9dcf-a91da8f731b9"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a climb Speed of 20 feet and a claw unarmed attack with the agile and finesse traits that deals 1d6 slashing damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.lh2YM9yNJixOC8RI"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "4373ff4a-6300-5e94-a972-0363fa87b4a4",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-cloak-of-swiftness",
+    "name": "Effect: Cloak of Swiftness",
+    "level": 17,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "ecc4f167-7f2e-5f1c-b28f-5b35957a6da6"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a fly Speed of 30 feet and become concealed."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "f410da96-b56a-5c7c-857b-7096defec0a1"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.Qf7ksK6sjC4x7SWw"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "9af8d5b0-6c88-5187-a4e5-29a253a8f5f9",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-darkvision-elixir-greater",
+    "name": "Effect: Darkvision Elixir (Greater)",
+    "level": 8,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "0ca13a8c-082e-584a-af18-dfe85fe60958"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain Darkvision"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.7vCenP9j6FuHRv5C"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 24,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "f1be36c5-23e7-5ef8-928f-d61dcb348399",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-darkvision-elixir-lesser",
+    "name": "Effect: Darkvision Elixir (Lesser)",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "becdb5a1-bfeb-556c-a8e4-092f5ef39b23"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain Darkvision."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.7UL8belWmo7U5YGM"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "1e91cec4-ef72-5a28-835a-10934e250b65",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-darkvision-elixir-moderate",
+    "name": "Effect: Darkvision Elixir (Moderate)",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "affebfd5-1e5a-56d0-b0d5-d983ce6f65d5"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain Darkvision"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.bcxVvIbuZWOvsKcA"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "aa4513f9-eaa7-5b52-8177-aab4398724df",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-diplomats-badge",
+    "name": "Effect: Diplomat's Badge",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "1f2b1c51-6130-54de-8637-e9bef802663b"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The badge's bonus increases to +2 for Diplomacy checks with creatures of that group for the rest of the day."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.pAMyEbJzWBoYoGhs"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "day",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "2bcef096-7cc2-528c-9e3a-ebaeedc287e4",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-dragon-turtle-scale",
+    "name": "Effect: Dragon Turtle Scale",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "2ac3b126-a9d9-54bb-b993-35cada692d42"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "b782d615-6a6f-5a56-a907-38f19272d7fe"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a swim Speed equal to half your land Speed or equal to your land Speed ("
+          },
+          {
+            "type": "text",
+            "text": "greater",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ")."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.4tepFOJLhZSelPoa"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "35cbd5bb-ffe2-534e-bf83-4e9c4096235f",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-eagle-eye-elixir",
+    "name": "Effect: Eagle Eye Elixir",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "ebe1ac87-0d47-54a8-920c-dae057a6639c"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "28fc3217-1750-56d5-9359-8fd60d5a77c8"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "0e029de6-43af-51b6-89f3-32f67add0749"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "8ffed3c7-1084-596c-9cb2-0127d699ab6b"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain an item bonus to Perception checks that is greater when attempting to find secret doors and traps."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.VOSQ77DV4BnAkP7m"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "cebee817-d1bc-595b-9de3-e1aacf8af972",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-elixir-of-life",
+    "name": "Effect: Elixir of Life",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "931bc474-090d-57e4-b070-4fbe92058f6a"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "50a741e0-2b1b-5a07-89be-6b6e9e70049a"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "5b558f5d-f86b-50fc-aa74-6ee0843c386e"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "f436d452-f762-5ca1-a860-9ab8e217f0d7"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "f8612e2b-1d9c-5ddd-a48d-46393290b8bd"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "4e729e28-620a-51ff-8635-f76cc2277645"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain an item bonus to saving throws against diseases and poisons."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.lPRuIRbu0rHBkoKY"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "063ee2b9-5353-5c53-9adc-3b9e2f152d5d",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-force-shield",
+    "name": "Effect: Force Shield",
+    "level": 9,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "6b3265f4-796d-530a-a972-57ab0c7de4e1"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The shield surrounds you with a bubble of force that protects you from harm, granting you resistance 5 to physical damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.A4FWOpQ8G45LMocX"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "7deb80ad-7b28-5b1e-a5dc-c5a45aeb16fc",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-forge-warden",
+    "name": "Effect: Forge Warden",
+    "level": 10,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "9758f243-94dd-501b-80a5-978003549fb4"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You and any adjacent allies have fire resistance 5 while you have the shield raised."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.IwcnAH2a7JVwskO7"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "259226ee-8e24-5071-a8f2-e86a1a222886",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-forgefathers-seal",
+    "name": "Effect: Forgefather's Seal",
+    "level": 24,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "0b1ca0f6-9c93-54f7-8a72-468a3161ee9c"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain fire resistance 40. You ignore the armor's check penalty and Speed penalty (if any); if the armor is light or medium, increase its item bonus to AC by 1."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "armor:ignore-check-penalty"
+      },
+      {
+        "key": "RollOption",
+        "option": "armor:ignore-speed-penalty"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.0TZLR0PO5TJm9F4l"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "646fbefa-b898-5250-9607-45c190773329",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-forgefathers-seal-stalwart-sacrifice",
+    "name": "Effect: Forgefather's Seal (Stalwart Sacrifice)",
+    "level": 24,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "0b1ca0f6-9c93-54f7-8a72-468a3161ee9c"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The chosen creatures also gain a +4 status bonus to AC and saving throws, and fast healing 15."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.Elj69wSjv91ouC7v"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "d2e42c73-3527-5779-860e-f7ac8e2c9864",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-glow-rod",
+    "name": "Effect: Glow Rod",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "ce804660-1daf-54c2-970e-10cac870ef3c"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The rod sheds bright light in a 20-foot radius (and dim light to the next 40 feet)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.BaosUEePGMqw0nWn"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 6,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "7cd8192d-009e-5882-9c50-c4bd1fdaa688",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-glue-bomb",
+    "name": "Effect: Glue Bomb",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "7fb3c0d9-e471-5331-9133-4ed75a92feeb"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "dea2364c-d75f-547d-ae2e-45d8d7eef06e"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "eebeccdc-9f17-5237-bdc8-2ef08e5d905f"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "63f83aa1-4de7-5754-97df-3c8adf158535"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The target takes a status penalty to its speeds."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.sgQknR94qDt5ILBx"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "b6b7c4ae-43f9-5c49-b27b-7fbf4946dd02",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-horn-of-exorcism-sacred-seeds",
+    "name": "Effect: Horn of Exorcism (Sacred Seeds)",
+    "level": 11,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "c6b78b59-06b0-522a-8fae-f013ccb54821"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The horn grants you the "
+          },
+          {
+            "type": "text",
+            "text": "ghost touch",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " property rune on all of your weapon and unarmed Strikes."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.WBqZA9z7ZbhcR2ye"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "d6f38c0c-72f7-5b86-948f-0d5667e46f57",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-impenetrable-scale",
+    "name": "Effect: Impenetrable Scale",
+    "level": 17,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "2a01c08d-6cfb-5305-83ba-d8ef54bc3601"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance to physical damage equal to the number of violet scales, to a maximum of 8."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.ZRr3fsaw9676L4JT"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "day",
+        "expiry": "turn-start"
+      },
+      "badge": {
+        "type": "counter",
+        "value": 1,
+        "max": 8
+      }
+    }
+  },
+  {
+    "id": "e0410af7-084c-50ad-84ed-239a92683f8b",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-iron-medallion",
+    "name": "Effect: Iron Medallion",
+    "level": 10,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "2a8c3dc6-c42b-5f49-a5e8-224cc9f17648"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 status bonus to the triggering save and other saves against fear."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.xV9rME2l1f10mnF9"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "a31fa272-16ea-5faa-8e8d-85e0e0f62abc",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-lions-bite",
+    "name": "Effect: Lion's Bite",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "1109fb7a-f16b-5b52-90e7-bbdb3ee65856"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The shield's biting maw is a martial melee weapon that deals 2d6 piercing damage and has the deadly d6 trait; it can't be enhanced by runes."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.cP9oWbEa7cJnnK9j"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "6ff68009-9e0a-5726-833a-f93f3b5b1836",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-mummified-bat",
+    "name": "Effect: Mummified Bat",
+    "level": 10,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "da1f0033-60b6-5843-9ba6-f0ef2cf19cd2"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you have the Blind-Fight feat, you gain imprecise echolocation with a range of 30 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "dcc259e0-6067-5c06-87f7-e21937f70801",
+        "range": 30,
+        "predicate": ["feat:blind-fight"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.3dvpk7jwcQbmLsUA"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "0f2c477a-ca7a-5f9e-b49b-9157d133700c",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-obsidian-goggles",
+    "name": "Effect: Obsidian Goggles",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "40e64f96-08b1-5929-94ad-00afba06bd92"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain darkvision for 1 hour."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.KSvkfMqMQ8mlGLiz"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "e2ea83e3-9b3c-54c2-92ee-89f59594ad02",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-obsidian-goggles-greater",
+    "name": "Effect: Obsidian Goggles (Greater)",
+    "level": 11,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "fe060960-9b98-5798-a31a-e9db2dc726e1"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain darkvision until you deactivate it as an Interact action or the item is no longer invested by you, whichever comes first."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.d7BDxmsnM1BUoEeT"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "d102bce9-45bc-55d7-b470-c465689162b5",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-obsidian-goggles-major",
+    "name": "Effect: Obsidian Goggles (Major)",
+    "level": 18,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "c6d639dc-7dfc-5c8a-8d7d-e8dc673abfd8"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain "
+          },
+          {
+            "type": "text",
+            "text": "greater darkvision",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " until you deactivate it as an Interact action or the item is no longer invested by you, whichever comes first."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "d9c41f9d-318a-5062-b129-db87b8f08f5e"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.WXrqEuLT4uP48Bvo"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "401fb499-e334-5b1f-aa7a-3749767fd5b8",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-oil-of-keen-edges",
+    "name": "Effect: Oil of Keen Edges",
+    "level": 11,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "8d28e390-2201-5305-8203-a47e1d258123"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The weapon grows sharper and more dangerous, granting it the benefits of the "
+          },
+          {
+            "type": "text",
+            "text": "keen",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " rune."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.dVvMomZnSTq1wOJd"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "bf847d17-2100-5a59-a1d0-b6d6345debfd",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-oil-of-potency",
+    "name": "Effect: Oil of Potency",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "fc01fa33-84b6-52ed-9e4e-65c630d0e85d"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "b6e07355-fd7c-544e-8312-26d88a43e873"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "e7bffbcd-1f40-5a91-b23a-fd986f5a50ae"
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A weapon temporarily becomes a "
+                },
+                {
+                  "type": "text",
+                  "text": "+1 striking weapon",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": ", a "
+                },
+                {
+                  "type": "text",
+                  "text": "+2 greater striking weapon",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": ", or a "
+                },
+                {
+                  "type": "text",
+                  "text": "+3 major striking weapon",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Armor temporarily becomes "
+                },
+                {
+                  "type": "text",
+                  "text": "+1 resilient armor",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "text",
+                  "text": "+2 greater resilient armor",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": ", or "
+                },
+                {
+                  "type": "text",
+                  "text": "+3 major resilient armor",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.1OLlwExJz7ii2Lu2"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "ceeb3a09-1eb8-5667-9758-a16f0b532a34",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-potency-crystal",
+    "name": "Effect: Potency Crystal",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "39f8188d-f6b3-5f90-bf50-99597de81619"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "a175b564-73b7-53fd-b9fc-cc147db2352a"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "664729cc-61f9-5894-90cf-52e549e0ed3d"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The weapon becomes a "
+          },
+          {
+            "type": "text",
+            "text": "+1 striking weapon",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", a "
+          },
+          {
+            "type": "text",
+            "text": "+2 greater striking weapon",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", or a "
+          },
+          {
+            "type": "text",
+            "text": "+3 major striking weapon",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.R5ugeFK3MPwkbv0s"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "turn",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "ceca9b2e-dfd7-5a27-8ccd-ff555bc081d3",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-potion-of-acid-resistance",
+    "name": "Effect: Potion of Acid Resistance",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "29312055-ee16-58fb-be57-baea80e0a473"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "81b4e2e9-86c8-582c-b764-53d703cbd531"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "276161de-3451-52ed-8e3a-c4bd3a6d30cd"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance against acid damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.k8Gt8zfPOhkYOn1A"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "c2a5ef20-71ea-564a-aca6-3682c630b651",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-potion-of-electricity-resistance",
+    "name": "Effect: Potion of Electricity Resistance",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "7e82d2a4-3cf1-585e-901f-37175657b07b"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "67b36020-86f9-5fe7-8c07-8317e474286a"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "7e82d2a4-3cf1-585e-901f-37175657b07b"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance against electricity damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.DbUEGIKxH6d1GgVw"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "1a0e360e-9631-5a8e-9c56-59f5f4626941",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-potion-of-emergency-escape",
+    "name": "Effect: Potion of Emergency Escape",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "c0a4fc58-7eaa-5376-8569-41b835f5227e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You become fleeing and you gain a +40-foot status bonus to all your Speeds for the duration as long as you are fleeing."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "f7fea8f9-c457-5b9f-9283-f567fa557184"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.EZsHuGGSLER67CiM"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "1fac2fcc-804d-569f-b71a-fdb70cc4315d",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-potion-of-fire-resistance",
+    "name": "Effect: Potion of Fire Resistance",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "80154722-8e69-5db7-beae-fad7b18ec4f6"
+          },
+          {
+            "type": "text",
+            "text": ", Potion of Fire Resistance (Moderate), "
+          },
+          {
+            "type": "ref",
+            "id": "76b9a2da-0291-5007-a4ea-3cd135775bcb"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance to fire damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.34gtdURRTZMS5bDK"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "1db39bd2-38a6-5af5-8382-0dd9fd75967b",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-potion-of-flying-greater",
+    "name": "Effect: Potion of Flying (Greater)",
+    "level": 15,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "32acb4ef-3778-5799-983d-74dc31a93812"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a fly Speed of 40 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.Zdh2uO1vVYJmaqld"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "ad5055c7-111c-507a-9c23-38e46a93fa13",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-potion-of-flying-standard",
+    "name": "Effect: Potion of Flying (Standard)",
+    "level": 8,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "8fa19dbc-02de-5141-8cac-d55622f66665"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a fly Speed of 40 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.Mf9EBLhYmZerf0nS"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "f4f8380f-9910-5eda-8e09-c2c2c3d4781f",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-potion-of-sonic-resistance",
+    "name": "Effect: Potion of Sonic Resistance",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "cca03602-3bfe-5ed5-83bb-50c9bdb82a04"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "419f655c-3fb3-5bcf-9653-6cf9e96f265e"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "622ef7b2-d70f-58d6-9bcd-6b49164ef1fe"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance against sonic damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.nBGodDOQTCWBXjNd"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "e7b9b575-6336-5ec7-8d24-1165199d3a2b",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-potion-of-swimming",
+    "name": "Effect: Potion of Swimming",
+    "level": 6,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "4b1c8da6-3858-5ef2-8955-5d366454cbc7"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a swim Speed equal to your land Speed."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.W3xQBLj5hLOtb6Tj"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "3364b75e-d6c1-5f3a-96e2-5d86c499a1fa",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-potion-of-swimming-greater",
+    "name": "Effect: Potion of Swimming (Greater)",
+    "level": 11,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "5c1d98f7-bbc0-5554-a037-5460c5a1dab3"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a swim Speed equal to your land Speed."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.ModBoFdCi7YQU4gP"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "8f9a1523-b62d-54c5-a327-7e9527a804ba",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-predators-claw",
+    "name": "Effect: Predator's Claw",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "82163ff2-f454-53bf-bb49-ff79c1635e69"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The triggering attack gains the weapon's critical specialization effect."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.Vvl1GFfuvFzvOkbD"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "437a7fb8-bb91-5ae3-a43f-585702185129",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-righteous-call",
+    "name": "Effect: Righteous Call",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "8526c055-2763-5706-9363-9f45afd4e7fb"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your Strikes gain the holy trait."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.campaign-effects.Item.ywrtR63bJqpN0FsK"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "7348059d-938f-5ed8-892d-68b20c93eeae",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-sea-touch-elixir-greater",
+    "name": "Effect: Sea Touch Elixir (Greater)",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "a3e693b9-5053-5a4f-bab0-52dd2fe14edf"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a swim Speed of 20 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.RRusoN3HEGnDO1Dg"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 24,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "0eeeaa55-f33d-593a-8955-038c103561f6",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-sea-touch-elixir-lesser",
+    "name": "Effect: Sea Touch Elixir (Lesser)",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "fb06b3af-947c-56f2-a30a-54bb60d74cb3"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a swim Speed of 20 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.thOpQunbQr77XWdF"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "50b3b678-4951-5bb8-8c95-98f9953ff78f",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-sea-touch-elixir-moderate",
+    "name": "Effect: Sea Touch Elixir (Moderate)",
+    "level": 12,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "d2229e43-0a96-5794-9727-c566a6eab54c"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a swim Speed of 20 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.9keegq0GdS1eSrNr"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "621c03d1-3f94-5a11-82b8-69f0ec44602e",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-searing-blade-greater",
+    "name": "Effect: Searing Blade (Greater)",
+    "level": 17,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "38bbd19c-fa37-50d7-9b20-314af18c1301"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "All weapon and unarmed attacks by you and your allies within the area gain the effect of the "
+          },
+          {
+            "type": "text",
+            "text": "flaming",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " property rune."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.jqbEIA6249vqgqwq"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "c8dddb51-14da-5aa5-8f37-b269426a4c3d",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-shark-tooth-charm",
+    "name": "Effect: Shark Tooth Charm",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "f2b0e101-2bcf-56a9-afd2-e5fbb9247c77"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You receive a +1 item bonus to your attempt to Escape using Acrobatics. If you roll a success, you get a critical success instead (if you roll a critical failure, you get a failure instead)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.YxzBnkm20uEg4HtJ"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "d1aff3d6-41a0-5447-8281-0e26d1744386",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-shining-ammunition",
+    "name": "Effect: Shining Ammunition",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "c7b75edd-e5a9-58bf-b872-1a657200953d"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You shed bright light in a 20-foot radius (and dim light to the next 20 feet)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.Sf6UO6vgCeicggOK"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "a1712e9c-0744-50d1-a9bc-54a4c8274612",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-shining-symbol",
+    "name": "Effect: Shining Symbol",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "6bf3aaff-4313-553d-8a2f-45f56688ea3d"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "2d87e402-5bfa-554d-ab3f-35d84e77129f"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "747237c8-10f7-554b-8030-02ed3724b70a"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Creatures in the light receive a status penalty to Deception and Stealth checks."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.gn7kNxKGUsKwnv1L"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "709521d2-577d-5c5f-81b2-774322bb35aa",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-shining-symbol-weakness",
+    "name": "Effect: Shining Symbol Weakness",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "6bf3aaff-4313-553d-8a2f-45f56688ea3d"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "2d87e402-5bfa-554d-ab3f-35d84e77129f"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "747237c8-10f7-554b-8030-02ed3724b70a"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your enemies gain weakness to spirit damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.MFbOXncTwYaskdfG"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "405cfe90-515b-5d08-81b2-da94424359f5",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-shrinking-potion",
+    "name": "Effect: Shrinking Potion",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "9c7bb025-9a83-58f2-9fe0-85a12783b3c1"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain the effects of the "
+          },
+          {
+            "type": "text",
+            "text": "shrink",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " spell."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.o0baLY5VdjLhdsS7"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "385d63c5-efbe-542e-a820-18e299a2eebd",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-shrinking-potion-greater",
+    "name": "Effect: Shrinking Potion (Greater)",
+    "level": 8,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "3fb6489f-22f5-5154-acb3-5c4607710e08"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain the effects of a 4th-rank "
+          },
+          {
+            "type": "text",
+            "text": "shrink",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " spell and a +2 item bonus to Stealth checks while shrunken."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.zd85Ny1RS46OL0TD"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "e2c973ec-ac7d-56de-b68d-d38f48f99c6c",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-silver-salve",
+    "name": "Effect: Silver Salve",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "f7eaeb6e-9e93-51eb-9ade-fa55f81d5246"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The weapon or ammunition counts as silver instead of its normal material (such as cold iron) for any physical damage it deals."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.dfnhwI5pJgLtXh2k"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      },
+      "badge": {
+        "type": "counter",
+        "value": 10
+      }
+    }
+  },
+  {
+    "id": "380cdf10-64fc-5953-9bf2-0ea0252a5ac6",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-sneaky-key",
+    "name": "Effect: Sneaky Key",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "61c4a3c5-3b01-5ca8-9e76-56d364828288"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to Thievery checks to Pick a Lock."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.ehcAvmjZVzyFJclB"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "e4c6e511-a3f3-5dca-b3c2-86cc198071b6",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-staff-of-illumination",
+    "name": "Effect: Staff of Illumination",
+    "level": 8,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "3a67e314-ea1f-563c-a8d6-bd0b5419885f"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You shed bright light in a 20-foot radius (and dim light to the next 20 feet)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.XgIY3j2VFUSQ5Or9"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "56dfc9a5-afd6-577c-99f9-63679a082958",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-swift-block-cabochon",
+    "name": "Effect: Swift Block Cabochon",
+    "level": 7,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "7463f8ee-b68b-5b55-a594-06587458e9bf"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Increase the shield's Hardness by 5 against the triggering attack."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.4IwCyYdSn2gUYAwL"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "1cebe9c3-4e95-58e1-abdf-aeb0bd6b66d5",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-thurible-of-revelation",
+    "name": "Effect: Thurible of Revelation",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "a8085235-71a0-5feb-bbf5-20d243ca85b9"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "0d8983dc-2901-5e8a-a1e7-e087db13804e"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "a646c510-27f5-5eac-be1d-c250fcb6a6ec"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain an item bonus to Religion checks and any critical failure you roll when you Decipher Writing of a religious nature is a failure instead."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.lO95TwgihBdTilAB"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "50351385-db07-5b88-9aeb-9ca829e63c67",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-tiger-menuki",
+    "name": "Effect: Tiger Menuki",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "71db5220-228e-5850-bb0b-208cdc97597d"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The weapon gains the forceful and sweep traits on the triggering Strike and all other Strikes."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.ci2oacfcvNyjR1Kn"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "0df38fc6-abda-5b93-bc43-3c4b68f6a98f",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-wind-barrier",
+    "name": "Effect: Wind Barrier",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "d5ed7689-0d09-5795-a837-066f2942b5f9"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 circumstance bonus to AC against ranged attacks. At 13th level, this increases to a +3 circumstance bonus to AC against ranged attacks."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.campaign-effects.Item.MH3VWOysJ8XboONX"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "93c12e92-b42a-523e-994d-4898fdfccb1c",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-winged-sandals",
+    "name": "Effect: Winged Sandals",
+    "level": 10,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "34edab93-12e8-563d-b166-86ea6ab5278a"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a fly Speed of 30 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.1S51uIRb9bnZtpFU"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "9d7b46e2-172f-5643-8454-a2bdd6e7ca17",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:spell-effect-hidden-mind",
+    "name": "Spell Effect: Hidden Mind",
+    "level": 8,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "c4dfdf84-0d97-5c26-95fc-35a4f59cc7a7"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +4 status bonus to saves against mental effects."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.DBaMtFHRPEg1JeLs"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "day",
+        "expiry": "turn-start"
+      }
+    }
+  }
+]

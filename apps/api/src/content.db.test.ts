@@ -128,6 +128,7 @@ describe.skipIf(adminUrl === undefined)('content routes (postgres)', () => {
     expect(packs.map((pack) => String(pack.id))).toStrictEqual([
       'core-rules',
       'divine-mysteries',
+      'gm-core',
       'monster-core',
       'player-core',
     ]);

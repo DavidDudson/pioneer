@@ -1,0 +1,3690 @@
+[
+  {
+    "id": "25b614df-8f63-506c-be63-3bcb8dac5834",
+    "pack": "gm-core",
+    "kind": "action",
+    "slug": "action:affix-a-talisman",
+    "name": "Affix a Talisman",
+    "rarity": "common",
+    "traits": ["exploration", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You must use a Repair Toolkit"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You spend 10 minutes affixing a talisman to an item, placing the item on a stable surface and using the repair toolkit with both hands. You can also use this activity to remove a talisman. Attaching more than one talisman to an item deactivates all the talismans. They must be removed and re-affixed before they can be used again."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.UAaQk93a30nx0nYY"
+    },
+    "data": {
+      "requirements": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You must use a Repair Toolkit"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "e597b6e1-667a-5a77-b48e-ac2dd63c758c",
+    "pack": "gm-core",
+    "kind": "action",
+    "slug": "action:apothecarys-garden",
+    "name": "Apothecary's Garden",
+    "rarity": "common",
+    "traits": ["plant"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Aspect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " plant"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your relic grows potent natural medicines. Each night, two medicinal herbs (or other plants) grow from your relic and can be harmlessly harvested during your next daily preparations. A living creature that consumes an herb with an Interact action regains "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d8"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " Hit Points for every 2 relic levels (minimum 1d8). At 9th level, the relic grows three herbs each night, and at 17th level, the relic grows four herbs each night. Herbs wither away 1 day after being harvested."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.a6hGyGd4nR8tS2wE"
+    },
+    "data": {
+      "category": "defensive"
+    }
+  },
+  {
+    "id": "603af103-27dd-528c-9da4-cebe905d5549",
+    "pack": "gm-core",
+    "kind": "action",
+    "slug": "action:blazing-soul",
+    "name": "Blazing Soul",
+    "rarity": "common",
+    "traits": ["fire"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Aspect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " fire"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Fire magic suffuses your body and soul, protecting you from lesser flames and allowing you to kindle even the smallest sparks into powerful infernos. You gain fire resistance 10. The first time each hour you are targeted by a fire effect that would deal damage, you regain "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d8"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " Hit Points per counteract rank of the effect, in addition to taking the damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature within 60 feet is critically hit by or critically fails a save against a fire effect and is not reduced to 0 Hit Points"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Flames roar forth from the triggering creature, dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d6",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to all creatures in a "
+          },
+          {
+            "type": "template",
+            "shape": "burst",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": " centered on it, including that creature ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": {
+              "against": "class-or-spell-dc"
+            },
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": "). You aren't affected by the activation, though your allies are. If this damage reduces the triggering creature to 0 Hit Points, it's reduced to a fine ash, though its gear remains. You can't use this activation again for 1d4 rounds."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.b1zNgSl4rY7xH8qW"
+    },
+    "data": {
+      "category": "offensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A creature within 60 feet is critically hit by or critically fails a save against a fire effect and is not reduced to 0 Hit Points"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "9658ca45-e8d6-5ec4-b4f2-71ae9e7271ed",
+    "pack": "gm-core",
+    "kind": "action",
+    "slug": "action:board",
+    "name": "Board",
+    "rarity": "common",
+    "traits": ["move"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are adjacent to a point of entry on the vehicle you are attempting to board."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You board a vehicle through an open top, a door, a portal, or a hatch; if you're already on board, you can instead use this action to disembark into an empty space adjacent to the vehicle's point of entry. Using this action while the vehicle is in motion is challenging, requiring a successful Acrobatics or Athletics check with a DC equal to the vehicle's AC."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.bG91dbtbgOnw7Ofx"
+    },
+    "data": {
+      "cost": "one",
+      "category": "interaction",
+      "requirements": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You are adjacent to a point of entry on the vehicle you are attempting to board."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "c1554f79-827f-508a-96b5-1d0cc4add22e",
+    "pack": "gm-core",
+    "kind": "action",
+    "slug": "action:bottomless-reservoir",
+    "name": "Bottomless Reservoir",
+    "rarity": "common",
+    "traits": ["water"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Aspect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " water"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your relic can absorb and release water, storing it in an endless reservoir. You either touch your relic to an adjacent body of water and absorb 1 gallon of it into the reservoir, or you release 1 gallon of a liquid from the reservoir. You can add another action to the activation to absorb water from a touched creature made entirely of water, like a water elemental. If you do, it takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage per relic level ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": {
+              "against": "class-or-spell-dc"
+            },
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save)."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are targeted by an acid or water effect"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your relic attempts to counteract the effect, expending 1 gallon of stored liquid. At the GM's discretion, you can use this ability on effects made of other liquids, such as blood."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.b3rRsVrO7qM1kN6c"
+    },
+    "data": {
+      "cost": "one",
+      "category": "defensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You are targeted by an acid or water effect"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "1029259e-9f9d-55b6-a428-0a31b406e812",
+    "pack": "gm-core",
+    "kind": "action",
+    "slug": "action:bribe-contact",
+    "name": "Bribe Contact",
+    "rarity": "common",
+    "traits": ["downtime", "secret"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Cost",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A bribe worth at least one-tenth of the Currency per Additional PC listed on Party Treasure by level. Doubling this amount grants a +2 circumstance bonus to the check."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You've successfully Gained a Contact."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You offer a bribe to your contact to help the heist in some way. Attempt a hard or very hard Deception or Diplomacy check."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The contact accepts the bribe and you gain 1 EP."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You believe you successfully Bribed your Contact and gained 1 EP, but in fact the contact informs the opposition of the attempted bribery, adding 1 AP to the infiltration. The GM can reveal that this Edge Point grants no benefit at any point during the infiltration, as befits the story."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, but adding 2 AP to the infiltration."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.IGPbMkKjnlFW1w1a"
+    },
+    "data": {
+      "category": "interaction",
+      "requirements": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You've successfully Gained a Contact."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "bbd754db-e790-5644-8a1a-9a82d787543c",
+    "pack": "gm-core",
+    "kind": "action",
+    "slug": "action:bullying-press",
+    "name": "Bullying Press",
+    "rarity": "common",
+    "traits": ["flourish"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You attempt a melee Strike against your opponent, but haven't rolled yet."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're in a duel, you're trained in Intimidation, and you rolled an Intimidation check for initiative this round."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you hit, your opponent becomes Frightened 1. If your opponent is using Perception for initiative when this ability is used, they become Frightened 2 instead."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.TXqTIwNGULs3j6CH"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "offensive",
+      "requirements": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You're in a duel, you're trained in Intimidation, and you rolled an Intimidation check for initiative this round."
+            }
+          ]
+        }
+      ],
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You attempt a melee Strike against your opponent, but haven't rolled yet."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "3d6ae7f7-117a-50e6-b22d-5aa7c40dba83",
+    "pack": "gm-core",
+    "kind": "action",
+    "slug": "action:change-tradition-focus",
+    "name": "Change Tradition Focus",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are in a duel and are trained in the skill for the tradition you're changing your focus to (Arcana for arcane, Occultism for occult, Nature for primal, or Religion for divine)."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You change your tradition focus to another magical tradition."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.s4s40hJr5uRLOqix"
+    },
+    "data": {
+      "cost": "one",
+      "category": "interaction",
+      "requirements": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You are in a duel and are trained in the skill for the tradition you're changing your focus to (Arcana for arcane, Occultism for occult, Nature for primal, or Religion for divine)."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "58545853-408b-5c46-a4f7-2d6e79faf11a",
+    "pack": "gm-core",
+    "kind": "action",
+    "slug": "action:death-gaze",
+    "name": "Death Gaze",
+    "rarity": "common",
+    "traits": ["void"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Aspect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " death"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your stare causes a creature's flesh to rot and wither away. Target a creature you can see within 30 feet. Your stare deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "void"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to the creature for every 2 levels the relic has (minimum 1d6; "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": {
+              "against": "class-or-spell-dc"
+            },
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save). An undead creature or other creature with void healing targeted this way is instead healed "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " HP per level of the relic and is temporarily immune to this effect for 10 minutes."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.d8zThGz5nW3rL7vC"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "634906fc-974d-5950-87fa-bef472581165",
+    "pack": "gm-core",
+    "kind": "action",
+    "slug": "action:deceptive-sidestep",
+    "name": "Deceptive Sidestep",
+    "rarity": "common",
+    "traits": ["misfortune"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An opponent hits, but does not critically hit you, with a melee Strike."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're in a duel, you're trained in Deception, and you rolled a Deception check for initiative this round."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You draw your enemy in and pull away at the last moment. The triggering opponent must roll again and take the second result. If your opponent is using Intimidation for initiative when this ability is used, they also take a -2 circumstance penalty to the second attack roll."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.1LDOfV8jEka09eXr"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "defensive",
+      "requirements": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You're in a duel, you're trained in Deception, and you rolled a Deception check for initiative this round."
+            }
+          ]
+        }
+      ],
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "An opponent hits, but does not critically hit you, with a melee Strike."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "04892e52-2b2f-5d8f-88f2-2ef1d394b161",
+    "pack": "gm-core",
+    "kind": "action",
+    "slug": "action:discover",
+    "name": "Discover",
+    "rarity": "common",
+    "traits": ["concentrate", "secret"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You watch or study an NPC to learn more about that NPC's preferences. Attempt a Perception check or an appropriate skill check determined by the GM. The DC is found in the NPC's influence stat block."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Choose two of the options detailed in Success below; you can choose the same option twice to learn two pieces of information from the same category."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Choose one of the following: You learn which skill that can Influence the NPC has the lowest DC (skipping any skills that you already know), one of the NPC's personal biases, one of the NPC's resistances, or one of the NPC's weaknesses."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You learn no information."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Choose a piece of information to learn about, as success, but the information is incorrect."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.JLPY5hl4qiJ1zLi1"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "6d96e8d9-2ea7-55e1-9604-0e05c92bcacc",
+    "pack": "gm-core",
+    "kind": "action",
+    "slug": "action:drive",
+    "name": "Drive",
+    "rarity": "common",
+    "traits": ["move"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are piloting a vehicle."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You pilot your vehicle to move. Decide how many actions you intend to spend before you begin Driving. The effects depend on the number of actions you spend. You can't Drive through spaces occupied by creatures, even if they are allies."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Attempt a piloting check. On a success, the vehicle moves up to its Speed and can turn normally. On a failure, the vehicle moves its Speed in a straight line. On a critical failure, the vehicle moves its Speed in a straight line and becomes uncontrolled"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (reckless) The vehicle moves up to twice its Speed in a straight line at the vehicle's current heading."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " (reckless) You take a –5 penalty on your piloting check to maintain control of the vehicle. The vehicle moves up to three times its Speed in a straight line at the vehicle's current heading."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.uS3qDAgOkZ7b8ERL"
+    },
+    "data": {
+      "cost": "one",
+      "category": "interaction",
+      "requirements": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You are piloting a vehicle."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "4f5fea6d-b1ba-544c-90f8-d2cfc98f6390",
+    "pack": "gm-core",
+    "kind": "action",
+    "slug": "action:dueling-counter",
+    "name": "Dueling Counter",
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your opponent Casts a Spell from the same tradition as your tradition focus."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are in a duel and have a tradition focus."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Expend a prepared spell or spell slot. You then attempt to counteract the triggering spell with the expended spell."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.xGqOIheAOV12RGU4"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "defensive",
+      "requirements": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You are in a duel and have a tradition focus."
+            }
+          ]
+        }
+      ],
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Your opponent Casts a Spell from the same tradition as your tradition focus."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "dc5b223c-e85e-534a-882c-c1b6bd9772de",
+    "pack": "gm-core",
+    "kind": "action",
+    "slug": "action:flowing-footsteps",
+    "name": "Flowing Footsteps",
+    "rarity": "common",
+    "traits": ["water"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Aspect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " water"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your relic ensures no water impedes your movement. You gain the effects of the Water Walk spell, and the ability to breathe water. You also gain a swim Speed equal to your Speed or 15 feet, whichever is higher."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.f9tFsTp6wL4jH2dX"
+    },
+    "data": {
+      "category": "defensive"
+    }
+  },
+  {
+    "id": "be00a786-0a71-5556-bd86-08c8c3b9a9ee",
+    "pack": "gm-core",
+    "kind": "action",
+    "slug": "action:forge-documents",
+    "name": "Forge Documents",
+    "rarity": "common",
+    "traits": ["downtime", "secret"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You prepare forgeries that might serve as convincing props. Attempt a hard or very hard Society check."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You create convincing forgeries and gain 1 EP you can use only when presenting some form of paperwork."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You create unconvincing documents. You gain 1 EP that (unknown to you) grants no benefit when used."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As a failure, but a PC who tries to use the Edge Point gets a critical failure, even if they use the Edge Point after rolling a failure."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.7dq6bpYvLArJ5odx"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "8e216a58-83cd-5371-b5af-d181575a8287",
+    "pack": "gm-core",
+    "kind": "action",
+    "slug": "action:gain-contact",
+    "name": "Gain Contact",
+    "rarity": "common",
+    "traits": ["downtime"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You try to make contact with an individual who can aid you in the infiltration. Attempt a normal, hard, or very hard DC Diplomacy or Society check, or a check using a Lore skill appropriate to your prospective contact."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You make contact and gain 1 EP."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail to make contact."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You insult or spook the contact in some way. Future attempts take a -2 circumstance penalty."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Multiple critical failures might cause the contact to work against the PCs in some way, likely increasing the party's Awareness Points."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.MLchOIG6uLvzK3r0"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "8b43d69e-86c0-548f-a51a-bf252686b774",
+    "pack": "gm-core",
+    "kind": "action",
+    "slug": "action:gossip",
+    "name": "Gossip",
+    "rarity": "common",
+    "traits": ["downtime", "secret"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You seek out rumors about the infiltration's target. Attempt a normal, hard, or very hard Diplomacy check."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain inside information about the location or group you're trying to infiltrate. This grants you a +2 circumstance bonus to future checks you attempt for preparation activities for this infiltration. If you share this information, those you share it with also gain this bonus."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain inside information about the place or group you're attempting to infiltrate that aids your planning."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You learn nothing."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You hear a few mistaken rumors and take a -2 circumstance penalty to your next check for a preparation activity. Word spreads around that you're asking after that group or individual, increasing your Awareness Points by 1."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.BCp3tn2HATUOUEdQ"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "5c4b2f06-8b94-54d8-a294-d43587963de7",
+    "pack": "gm-core",
+    "kind": "action",
+    "slug": "action:grim-specter",
+    "name": "Grim Specter",
+    "rarity": "common",
+    "traits": ["polymorph", "void"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Aspect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " death"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, polymorph, void)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can call upon the terrifying powers that fuel your relic to transform yourself into a specter of death. You become incorporeal, having no physical body. You are immune to effects that require a physical body, including precision damage as well as exposure to most diseases and poisons. You also have resistance to all damage equal to half the relic's level; force damage, "
+          },
+          {
+            "type": "ref",
+            "id": "3e294082-c3ff-58be-ab80-1608b9c6229a"
+          },
+          {
+            "type": "text",
+            "text": " attacks, spirit damage, void damage, and vitality damage ignore this resistance, and the resistance doubles against non-magical damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can move through solid objects. When inside an object, you can't perceive, attack, or Interact with anything outside it, and you're always Slowed 1 on turns you start in an object. Corporeal creatures can pass through you but can't end their movement in your space. You can't attempt Strength-based checks against corporeal creatures or objects, unless those objects have the "
+          },
+          {
+            "type": "text",
+            "text": "ghost touch",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " property rune. Likewise, corporeal creatures can't attempt Strength-based checks against you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can Sustain the activation for up to 1 minute."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.g2mSpCt8rL4vW9nZ"
+    },
+    "data": {
+      "cost": "two",
+      "category": "defensive",
+      "frequency": {
+        "max": 1,
+        "per": "day"
+      }
+    }
+  },
+  {
+    "id": "65d8346e-b09c-5308-b180-1e6170f0c425",
+    "pack": "gm-core",
+    "kind": "action",
+    "slug": "action:healing-wave",
+    "name": "Healing Wave",
+    "rarity": "common",
+    "traits": ["healing", "vitality"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Aspect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " life"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You release a wave of vitality energy in a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": ". You and each living target in the area regain "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d4"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " HP per level of the relic."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.h4vWvNg2tR9mK5pL"
+    },
+    "data": {
+      "cost": "two",
+      "category": "defensive",
+      "frequency": {
+        "max": 1,
+        "per": "hour"
+      }
+    }
+  },
+  {
+    "id": "8db0385f-a3f5-578a-b8ad-1be4c49aa0aa",
+    "pack": "gm-core",
+    "kind": "action",
+    "slug": "action:incandescent-sight",
+    "name": "Incandescent Sight",
+    "rarity": "common",
+    "traits": ["fire"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Aspect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " fire"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your eyes become attuned to heat signatures as your vision extends into the infrared, granting you a heatsight precise sense for 1 minute. Your heatsight can see temperature gradients out to a range of 30 feet, allowing you to detect living creatures and warm objects even in the dark. Warm objects block your heatsight even if they are transparent, such as hot water."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.i2cNdSg1tT9vB4hQ"
+    },
+    "data": {
+      "cost": "two",
+      "category": "defensive",
+      "frequency": {
+        "max": 1,
+        "per": "day"
+      }
+    }
+  },
+  {
+    "id": "beb91951-058d-5933-9214-fe3ec5706e06",
+    "pack": "gm-core",
+    "kind": "action",
+    "slug": "action:inextinguishable",
+    "name": "Inextinguishable",
+    "rarity": "common",
+    "traits": ["vitality"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Aspect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " life"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your connection to life force makes you more difficult to snuff out than others. You die from the Dying condition at dying 5, rather than dying 4. If you roll a success on a save against a death or void effect, you get a critical success instead."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.i7xTnGs6bP3wV2cF"
+    },
+    "data": {
+      "category": "defensive"
+    }
+  },
+  {
+    "id": "56e8b85f-e1c9-53ae-8c58-db0d40e97b15",
+    "pack": "gm-core",
+    "kind": "action",
+    "slug": "action:influence",
+    "name": "Influence",
+    "rarity": "common",
+    "traits": ["concentrate", "linguistic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You attempt to make a favorable impression on an NPC to convince the NPC to support your cause. Attempt a skill check to impress that NPC. The DC and skills which can apply can be found in the NPC's stat block."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain 2 Influence Points with the chosen NPC."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain 1 Influence Point with the chosen NPC."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain no Influence Points with the chosen NPC."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You lose 1 Influence Point with the chosen NPC."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.6Oe9dg3Lu10slyeC"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "f6c5c9fd-fbb6-52d2-87c4-12c11d44b583",
+    "pack": "gm-core",
+    "kind": "action",
+    "slug": "action:invest-an-item",
+    "name": "Invest an Item",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You invest your energy in an item with the invested trait as you don it. This process requires 1 or more Interact actions, usually taking the same amount of time it takes to don the item. Once you've Invested the Item, you benefit from its constant magical abilities as long as you meet its other requirements (for most invested items, the only other requirement is that you must be wearing the item). This investiture lasts until you remove the item."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can invest no more than 10 items per day. If you remove an invested item, it loses its investiture. The item still counts against your daily limit after it loses its investiture. You reset the limit during your daily preparations, at which point you Invest your Items anew. If you're still wearing items you had invested the previous day, you can typically keep them invested on the new day, but they still count against your limit."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.lvqPQDdWT2DDO0k2"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "d5ce0e01-247f-5f37-ba4b-2e92a0063641",
+    "pack": "gm-core",
+    "kind": "action",
+    "slug": "action:jet-propulsion",
+    "name": "Jet Propulsion",
+    "rarity": "common",
+    "traits": ["fire"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Aspect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " fire"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Flames from your relic channel through your body, erupting from your feet, hands, or other limbs with enough force to blast you across the ground and propel you through the air. For 1 minute, you gain a +10-foot status bonus to your Speed and gain a fly Speed equal to your new Speed or 20 feet, whichever is greater. You must end your turn on solid ground, or you fall."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.j8pRtLs0mW6cF3nV"
+    },
+    "data": {
+      "cost": "one",
+      "category": "defensive",
+      "frequency": {
+        "max": 1,
+        "per": "hour"
+      }
+    }
+  },
+  {
+    "id": "8a3bbb84-cc04-55f2-a959-6756f4d0fdde",
+    "pack": "gm-core",
+    "kind": "action",
+    "slug": "action:life-everlasting",
+    "name": "Life Everlasting",
+    "rarity": "common",
+    "traits": ["healing", "vitality"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Aspect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " life"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Massive amounts of vitality energy surge forth. For 1 minute, you emit vitality energy in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": " centered on you. At the end of your turn, you (if you are living) and allied living creatures in the emanation regain "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "10"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " Hit Points. If you or an allied creature would die due to an increased Dying value, you can Dismiss the activation as a free action to prevent the death; if you do, their dying value doesn't increase."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.l3vRvTs8dN1mQ6jK"
+    },
+    "data": {
+      "cost": "two",
+      "category": "defensive",
+      "frequency": {
+        "max": 1,
+        "per": "day"
+      }
+    }
+  },
+  {
+    "id": "6a69d6e5-5b18-519a-a7e1-23666e11759f",
+    "pack": "gm-core",
+    "kind": "action",
+    "slug": "action:living-death",
+    "name": "Living Death",
+    "rarity": "common",
+    "traits": ["void"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Aspect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " death"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You stand on the threshold between the living and the dead. If you attempt a saving throw against an effect that would deal void damage to you, such as Harm, your outcome is one degree of success better than what you rolled. If you roll a critical success and the effect is capable of healing undead, you regain Hit Points equal to half the spell's full damage. Any vitality spell or effect that would heal you has only half the normal effect. All these effects apply only if you are a living creature."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.l9vNgDh6tM2xK8fB"
+    },
+    "data": {
+      "category": "defensive"
+    }
+  },
+  {
+    "id": "43c082a1-7b8c-5036-bbc4-1e19f523f900",
+    "pack": "gm-core",
+    "kind": "action",
+    "slug": "action:monsoon-curtain",
+    "name": "Monsoon Curtain",
+    "rarity": "common",
+    "traits": ["air", "water"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Aspect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " water"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " (attack, concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You call down a curtain of violent rain in a location within 120 feet. The wall is 5 feet thick, 30 feet long, up to 30 feet high, and lasts for 1 minute. The wall stands vertically, but you can shape its path. The wall has the following effects."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "If a fire effect crosses through the wall, it either uses the outcome one degree of success worse than the result of its attack roll or its targets use the outcome one degree of success better than the result of their saving throw, as appropriate."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Creatures with a weakness to water that cross the wall or start their turn in the wall take damage equal to their weakness."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The wall imposes a –2 status penalty to Perception checks to sense creatures or objects on the other side."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.nSs8QmK4vLpT0wHx"
+    },
+    "data": {
+      "cost": "three",
+      "category": "offensive",
+      "frequency": {
+        "max": 1,
+        "per": "day"
+      }
+    }
+  },
+  {
+    "id": "25b56a2c-aeb0-54e6-9e73-fa4237d7e0eb",
+    "pack": "gm-core",
+    "kind": "action",
+    "slug": "action:petal-dance",
+    "name": "Petal Dance",
+    "rarity": "common",
+    "traits": ["plant"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Aspect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " plant"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You discorporate into a cloud of petals and leaves. This grants you the swarm trait, immunity to falling damage, resistance 5 to bludgeoning and slashing damage, and weakness 5 to area and splash damage. You can fit into spaces only a few inches wide, moving your constituent petals through the gap. You don't gain the swarm mind ability, so you're still affected normally by mental effects. As a swarm, you can't speak, cast spells, use manipulate actions requiring your hands, activate your magic items, or make any of your Strikes with your normal body. You remain in this form for 1 minute or until you Dismiss the activation. At 13th level, the relic gains a reaction that triggers when you fall or take damage, applying this gift's resistances, weaknesses, and immunity to falling damage to the triggering effect."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.p2dPlDn9cV7mN4kR"
+    },
+    "data": {
+      "cost": "two",
+      "category": "defensive",
+      "frequency": {
+        "max": 1,
+        "per": "hour"
+      }
+    }
+  },
+  {
+    "id": "36d2851a-15af-5fd9-8ac2-50dadee79f66",
+    "pack": "gm-core",
+    "kind": "action",
+    "slug": "action:pierce-the-veil",
+    "name": "Pierce the Veil",
+    "rarity": "common",
+    "traits": ["void"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Aspect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " death"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Prerequisite",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " living death gift"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The relic allows you to pierce the veil between life and death. While you are holding or wearing the relic, you have the void healing ability (as though you were undead; vitality energy harms you and void energy heals you). In addition, whenever you are healed by a void spell or effect, you gain resistance 5 to all damage (except force, "
+          },
+          {
+            "type": "ref",
+            "id": "3e294082-c3ff-58be-ab80-1608b9c6229a"
+          },
+          {
+            "type": "text",
+            "text": ", spirit, and vitality) until the start of your next turn. Finally, you gain a +2 item bonus to all saves against death effects while you are the bearer of the relic; this increases to a +3 item bonus at 13th level."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.p4cRvVl1nT9wS6hJ"
+    },
+    "data": {
+      "category": "defensive"
+    }
+  },
+  {
+    "id": "d7054a60-6259-5d17-897c-d278ba672262",
+    "pack": "gm-core",
+    "kind": "action",
+    "slug": "action:research",
+    "name": "Research",
+    "rarity": "common",
+    "traits": ["concentrate", "exploration"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You comb through information to learn more about the topic at hand. Choose your research topic, section of the library, or other division depending on the form of research, and attempt a skill check. The skills to use and the DC for the check depend on the specific research task, and the Research activity gains any traits appropriate to the type of research (such as linguistic when perusing books)."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain 2 RP."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain 1 RP."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You make a false discovery and lose 1 RP."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.t5nBkpjroaq7QBGK"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "8526c055-2763-5706-9363-9f45afd4e7fb",
+    "pack": "gm-core",
+    "kind": "action",
+    "slug": "action:righteous-call",
+    "name": "Righteous Call",
+    "rarity": "common",
+    "traits": ["holy"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Aspect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " celestial"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Holy magic fills your armaments, making them true weapons against evil. For 1 minute, your weapons and unarmed attacks gain the holy weapon rune while you hold them. If a weapon is at its limit on property runes, you can choose one property rune on the weapon to go dormant while the holy rune takes effect. In addition, Strikes your allies make while they're within 30 feet of you gain the holy trait."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.EbF9U21iMu0JkTzG"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive",
+      "frequency": {
+        "max": 1,
+        "per": "day"
+      },
+      "selfEffect": "e24e9f6d-a800-5333-8b30-802eb754c366"
+    }
+  },
+  {
+    "id": "26235422-a27f-5693-a64b-e142e49dfde6",
+    "pack": "gm-core",
+    "kind": "action",
+    "slug": "action:ripples-and-waves",
+    "name": "Ripples and Waves",
+    "rarity": "common",
+    "traits": ["water"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Aspect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " water"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You become attuned to the ebb and flow of all things, as if embodying water itself. You gain wavesense 60 feet as a precise sense and can cast 5th-rank Hydraulic Push at will as an innate spell."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Ankle-deep water floods outward from you, filling a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 60
+          },
+          {
+            "type": "text",
+            "text": " centered on you for 1 minute. Enemies within the area without a swim Speed treat the area as difficult terrain for movement on land. While the effect persists, you can have any water effects you generate originate from any point within the emanation, in addition to their normal range and area."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.r5vRpWv3nS8gK7mZ"
+    },
+    "data": {
+      "cost": "two",
+      "category": "defensive",
+      "frequency": {
+        "max": 1,
+        "per": "day"
+      }
+    }
+  },
+  {
+    "id": "9b94c85e-bbbb-52b5-bf17-354b9b4bde34",
+    "pack": "gm-core",
+    "kind": "action",
+    "slug": "action:run-over",
+    "name": "Run Over",
+    "rarity": "common",
+    "traits": ["move"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are piloting a vehicle."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "(reckless) You try to run over creatures with your vehicle, possibly also ramming one larger creature or object. If you maintain control of your vehicle, the vehicle moves up to twice its Speed in a straight line at the vehicle's current heading. You attempt to run over any creatures in your path two sizes smaller than the vehicle or smaller, and you can attempt to ram one target creature or object in your path one size smaller than the vehicle or larger."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each creature in your path, including a rammed target, takes the vehicle's collision damage (basic Reflex save at vehicle's collision DC). If the rammed target is a vehicle, its pilot can attempt a piloting check in place of this Reflex save, with the same results. If the target of your ram takes damage, you and your vehicle each take collision damage (no save) and your movement ends."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.lID4rJHAVZB6tavf"
+    },
+    "data": {
+      "cost": "three",
+      "category": "offensive",
+      "requirements": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You are piloting a vehicle."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "6f5eadb6-ca50-553a-9dd2-a3875b2219fa",
+    "pack": "gm-core",
+    "kind": "action",
+    "slug": "action:scout-location",
+    "name": "Scout Location",
+    "rarity": "common",
+    "traits": ["downtime", "secret"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You spend time observing the place or group you wish to infiltrate. Attempt a normal, hard, or very hard DC Perception, Society or Stealth check."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You make observations that provide 1 EP."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You learn nothing particularly noteworthy."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You misjudge some aspect of what you observed, gaining 1 EP that results in a critical failure instead of a success when used, even if a PC uses the Edge Point after rolling a failure."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.EcDcowQ8vS6cEfXd"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "aac6c117-18c3-5ab3-85b5-16c62b744918",
+    "pack": "gm-core",
+    "kind": "action",
+    "slug": "action:secure-disguises",
+    "name": "Secure Disguises",
+    "rarity": "common",
+    "traits": ["downtime"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You seek to procure or create disguises. Attempt a normal, hard, or very hard Crafting, Deception, Performance, or Society check."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You procure or creates disguises, gaining 1 EP that can be used only to maintain a cover identity."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your efforts result in an unusable disguise."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.iEYZ5PAim5Cvbila"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "f56efda4-3bd4-5641-a9a2-0a707dbfa861",
+    "pack": "gm-core",
+    "kind": "action",
+    "slug": "action:sense-weakness",
+    "name": "Sense Weakness",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You attempt a melee Strike against your opponent, but haven't rolled yet."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're in a duel, you're trained in Perception, and you rolled a Perception check for initiative this round."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You pick a precise moment to attack, giving you an edge. Your opponent is Off-Guard against the attack. If your opponent is using Deception for initiative when this ability is used, they are instead off-guard until the start of their next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.uWTQxEOj2pl45Kns"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "interaction",
+      "requirements": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You're in a duel, you're trained in Perception, and you rolled a Perception check for initiative this round."
+            }
+          ]
+        }
+      ],
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You attempt a melee Strike against your opponent, but haven't rolled yet."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "65440de7-a877-5d0c-b054-8da270fdd8f1",
+    "pack": "gm-core",
+    "kind": "action",
+    "slug": "action:stop",
+    "name": "Stop",
+    "rarity": "common",
+    "traits": ["manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are piloting a vehicle in motion."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You bring the vehicle to a stop."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.9gDMkIfDifh61yLz"
+    },
+    "data": {
+      "cost": "one",
+      "category": "interaction",
+      "requirements": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You are piloting a vehicle in motion."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "1c2be296-6882-5301-a67e-a3bd7cf20f18",
+    "pack": "gm-core",
+    "kind": "action",
+    "slug": "action:take-control",
+    "name": "Take Control",
+    "rarity": "common",
+    "traits": ["manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are aboard the vehicle and adjacent to its controls."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You grab the reins, the wheel, or some other mechanism to control the vehicle. Attempt a piloting check; on a success, you become the vehicle's pilot, or regain control of the vehicle if it was uncontrolled. Some vehicles have complicated controls that cause this action to become a multi-action activity."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.yh9O9BQjwWrAIiuf"
+    },
+    "data": {
+      "cost": "one",
+      "category": "interaction",
+      "requirements": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You are aboard the vehicle and adjacent to its controls."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "558614f4-9f66-5063-9741-0e59440b980d",
+    "pack": "gm-core",
+    "kind": "action",
+    "slug": "action:tidal-crash",
+    "name": "Tidal Crash",
+    "rarity": "common",
+    "traits": ["water"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Aspect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " water"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your relic spews forth a dense sphere of water. Make a spell attack roll against a target within 30 feet. On a success, you deal "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d10",
+                "damageType": "bludgeoning"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage plus "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2",
+                "damageType": "bludgeoning",
+                "category": "splash"
+              }
+            ],
+            "label": "2 bludgeoning splash damage"
+          },
+          {
+            "type": "text",
+            "text": ". At 3rd level and every 2 levels thereafter, increase the initial damage by 1d10 and the splash damage by 1."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.t7cTdWs4LhJ2nF9y"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "6f434174-caf3-590e-8241-cbbd8d59aa8c",
+    "pack": "gm-core",
+    "kind": "action",
+    "slug": "action:tide-of-death",
+    "name": "Tide of Death",
+    "rarity": "common",
+    "traits": ["void"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Aspect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " death"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Prerequisite",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " death gaze gift"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can Activate "
+          },
+          {
+            "type": "ref",
+            "id": "58545853-408b-5c46-a4f7-2d6e79faf11a"
+          },
+          {
+            "type": "text",
+            "text": " with "
+          },
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " actions instead of "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": ". If you do, it targets all living creatures within 30 feet except for you. If you have the void healing ability, you can include yourself to be healed."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.t6dOdDh3vN7mQ5rX"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "dd8031c0-5ef8-5d7e-864b-1b9fe42c31d0",
+    "pack": "gm-core",
+    "kind": "action",
+    "slug": "action:travel",
+    "name": "Travel",
+    "rarity": "common",
+    "traits": ["move"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You progress toward moving into an adjacent hex. In open terrain, like a plain, using 1 Travel activity allows you to move from one hex to an adjacent hex. Traversing a hex with difficult terrain (such as a typical forest or desert) requires 2 Travel activities, and hexes of greater difficult terrain (such as a steep mountain or typical swamp) require 3 Travel activities to traverse. Traveling along a road uses a terrain type one step better than the surrounding terrain. For example, if you are traveling on a road over a mountain pass, the terrain is difficult terrain instead of greater difficult terrain."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The Travel activity assumes you are walking overland. If you are flying or traveling on water, most hexes are open terrain, though there are exceptions. Flying into storms or high winds count as difficult or greater difficult terrain. Traveling down a river is open terrain, but traveling upriver is difficult or greater difficult terrain."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.Z8aa6afUterlfh5i"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "d5ed7689-0d09-5795-a837-066f2942b5f9",
+    "pack": "gm-core",
+    "kind": "action",
+    "slug": "action:wind-barrier",
+    "name": "Wind Barrier",
+    "rarity": "common",
+    "traits": ["air"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Aspect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " air"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " concentrate"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An invisible barrier of air deflects ranged attacks, granting you a +2 circumstance bonus to AC against ranged attacks until the beginning of your next turn. At 13th level, this increases to a +3 circumstance bonus to AC against ranged attacks."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.UEBVXi4VSQf70ggQ"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "selfEffect": "0df38fc6-abda-5b93-bc43-3c4b68f6a98f"
+    }
+  }
+]

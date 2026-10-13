@@ -73,6 +73,7 @@ describe('LegalPage', () => {
       'https://paizo.com/orclicense',
       'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
       'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
+      'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
       'https://github.com/foundryvtt/pf2e',
     ]);
   });
@@ -99,6 +100,7 @@ describe('LegalPage', () => {
     expect(packs).toStrictEqual([
       expect.stringMatching(/^Player Core\s*Foundry release pf2e-8\.6\.0$/u),
       expect.stringMatching(/^Lost Omens Divine Mysteries\s*Foundry release pf2e-8\.6\.0$/u),
+      expect.stringMatching(/^GM Core\s*Foundry release pf2e-8\.6\.0$/u),
     ]);
     expect(foundry.textContent).toContain('then corrected and enriched by Pioneer contributors');
   });
