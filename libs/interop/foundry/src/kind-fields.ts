@@ -1,4 +1,4 @@
-import { AttributeSchema, ContentKind, RuleElementKey, Size } from '@pioneer/rules/sdk';
+import { AttributeSchema, ContentKind, Proficiency, RuleElementKey, Size } from '@pioneer/rules/sdk';
 import type { Attribute } from '@pioneer/rules/sdk';
 import * as z from 'zod';
 
@@ -84,8 +84,16 @@ function fromLevel(level: number | undefined): object {
 }
 
 /**
- * A `GrantItem` per item Foundry grants, from the level it arrives at, in level then name order. An item whose UUID
- * names no entry is reported against `field`.
+ * The class feature Player Core's cleric, druid, witch and wizard grant by name for their Perception rank to expert.
+ * Foundry's entry for it belongs to Rage of Elements and carries no rules (its rank is in `subfeatures`), so the
+ * UUID never resolves in a Player Core import.
+ */
+const PERCEPTION_EXPERTISE = 'Compendium.pf2e.classfeatures.Item.Perception Expertise';
+
+/**
+ * A `GrantItem` per item Foundry grants, from the level it arrives at, in level then name order. Perception Expertise
+ * is a `Proficiency` element raising Perception to expert instead, from the same level. An item whose UUID names no
+ * entry is reported against `field`.
  */
 export function grantItems(items: FoundryGrantedItems, field: string, input: KindInput): void {
   const ordered = Object.values(items).toSorted(
@@ -93,7 +101,14 @@ export function grantItems(items: FoundryGrantedItems, field: string, input: Kin
   );
   for (const { uuid, level } of ordered) {
     const item = resolveUuid(input.references, uuid);
-    if (item === undefined) {
+    if (item === undefined && uuid === PERCEPTION_EXPERTISE) {
+      addRule(input, field, {
+        key: RuleElementKey.Proficiency,
+        selector: 'perception',
+        rank: Proficiency.Expert,
+        ...fromLevel(level),
+      });
+    } else if (item === undefined) {
       report(input.log, { reason: KindDataGapReason.UnresolvedReference, field, raw: uuid });
     } else {
       addRule(input, field, { key: RuleElementKey.GrantItem, item, ...fromLevel(level) });

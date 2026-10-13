@@ -2,7 +2,7 @@ import { describe, expect, test } from 'bun:test';
 
 import { KindDataGapReason } from './kind-data-gaps';
 import { FIGHTER } from './testing/build-fixtures';
-import { ranksIn } from './testing/build-helpers';
+import { ranksIn, rulesIn } from './testing/build-helpers';
 import { translate } from './testing/import-fixtures';
 import type { DocumentFixture } from './testing/import-fixtures';
 import { FOUNDRY_NULL, gapsOf } from './testing/kind-fixtures';
@@ -127,6 +127,46 @@ describe('translateKindData: subfeature proficiencies', () => {
     expect(ranksIn(translation, 'malformed')).toEqual([]);
     expect(gapsOf(translation)).toEqual([
       { reason: KindDataGapReason.InvalidData, field: 'subfeatures.proficiencies', raw: proficiencies },
+    ]);
+  });
+});
+
+describe('translateKindData: Perception Expertise', () => {
+  const EXPERTISE = 'Compendium.pf2e.classfeatures.Item.Perception Expertise';
+  const WIZARD: DocumentFixture = {
+    ...FIGHTER,
+    id: 'cLaSs00000000002',
+    name: 'Wizard',
+    system: {
+      ...FIGHTER.system,
+      perception: 1,
+      items: { p1: { level: 11, name: 'Perception Expertise', uuid: EXPERTISE } },
+    },
+  };
+
+  test("a class's Perception Expertise, which Player Core's import never resolves, is expert from its level", () => {
+    const translation = translate([WIZARD]);
+
+    expect(rulesIn(translation, 'wizard')).toContainEqual({
+      key: 'Proficiency',
+      selector: 'perception',
+      rank: 'expert',
+      predicate: [{ gte: ['self:level', 11] }],
+    });
+    expect(gapsOf(translation)).toEqual([]);
+  });
+
+  test('another feature that resolves to nothing is still reported', () => {
+    const unknown = 'Compendium.pf2e.classfeatures.Item.Perception Mastery';
+    const translation = translate([
+      {
+        ...WIZARD,
+        system: { ...WIZARD.system, items: { p1: { level: 11, name: 'Perception Mastery', uuid: unknown } } },
+      },
+    ]);
+
+    expect(gapsOf(translation)).toEqual([
+      { reason: KindDataGapReason.UnresolvedReference, field: 'items', raw: unknown },
     ]);
   });
 });
