@@ -133,7 +133,13 @@ export const DescribedKeyboard: ComboboxStory = {
     const canvas = within(canvasElement);
     const input = canvas.getByRole('combobox');
     await userEvent.click(input);
-    await pressKeys('{ArrowDown}{ArrowDown}');
+    // One key at a time: a second press before the listbox has highlighted its first option is lost.
+    await pressKeys('{ArrowDown}');
+    const first = await canvas.findByRole('option', { name: /Power Attack/u });
+    await waitFor(async () => {
+      await expect(input).toHaveAttribute('aria-activedescendant', first.id);
+    });
+    await pressKeys('{ArrowDown}');
     const blocked = await canvas.findByRole('option', { name: /Sudden Charge/u });
     await waitFor(async () => {
       await expect(input).toHaveAttribute('aria-activedescendant', blocked.id);
