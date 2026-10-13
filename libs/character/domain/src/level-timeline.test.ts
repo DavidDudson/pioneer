@@ -34,6 +34,8 @@ const THIRD = 3;
 const FOURTH = 4;
 const EIGHTH = 8;
 const FIFTH = 5;
+/** Each run reads the progression at every level, so a few cover the levels. */
+const SPELL_RUNS = 6;
 
 function fighter(level: number): CharacterBuilder {
   return new CharacterBuilder().picking('class', FEAT_SLOT_FIGHTER).atLevel(level);
@@ -145,6 +147,7 @@ describe('level timeline', () => {
           expect(keys).toContain(key);
         }
       }),
+      { numRuns: SPELL_RUNS },
     );
   });
 });
