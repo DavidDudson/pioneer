@@ -58,6 +58,12 @@ const StoredRow = z.object({
 });
 type StoredRow = z.infer<typeof StoredRow>;
 
+/** A document as the `characters` row stores it: encoded, without the play state that lives in `character_play`. */
+function storedForm(document: Character['document']): object {
+  const { play: _apart, ...stored } = z.encode(CharacterDocumentSchema, document);
+  return stored;
+}
+
 /** A bare users row, written as SQL: identity's tables are outside this context's boundary. */
 async function insertUser(database: TestDatabase, id: UserId): Promise<void> {
   const at = later.toString();
@@ -167,7 +173,7 @@ describe.skipIf(adminUrl === undefined)('DrizzleCharacterRepository (postgres)',
       level: 3,
       ownerId: fixtureOwnerId,
       schemaVersion: CURRENT_SCHEMA_VERSION,
-      document: z.encode(CharacterDocumentSchema, renamed.document),
+      document: storedForm(renamed.document),
     });
     const found = await repository.findById(renamed.id);
     expect(found?.document).toStrictEqual(renamed.document);
@@ -189,9 +195,7 @@ describe.skipIf(adminUrl === undefined)('DrizzleCharacterRepository (postgres)',
       levelled,
     );
     const row = await storedRow(lini.id);
-    expect(row.document).toStrictEqual(
-      z.encode(CharacterDocumentSchema, { ...loaded.document, level: CharacterLevel.parse(2) }),
-    );
+    expect(row.document).toStrictEqual(storedForm({ ...loaded.document, level: CharacterLevel.parse(2) }));
   });
 
   test.each([...PAST_DOCUMENTS])(

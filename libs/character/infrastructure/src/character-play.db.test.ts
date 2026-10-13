@@ -9,7 +9,7 @@ import { rejection } from '@pioneer/shared/kernel/testing';
 import { auditLog } from '@pioneer/shared/server';
 import { createTestDatabase, QueryRecorder, testDatabaseUrl, unindexedQueries } from '@pioneer/shared/server/testing';
 import type { TestDatabase } from '@pioneer/shared/server/testing';
-import { and, asc, eq, inArray, sql } from 'drizzle-orm';
+import { and, eq, inArray, sql } from 'drizzle-orm';
 
 import { characterPlay, characters } from './character.table';
 import { DrizzleCharacterRepository } from './drizzle-character-repository';
@@ -83,11 +83,12 @@ describe.skipIf(adminUrl === undefined)('character play state (postgres)', () =>
       .select({ id: characterPlay.id })
       .from(characterPlay)
       .where(eq(characterPlay.characterId, kyra.id));
-    const commands = await database.db
-      .select({ command: auditLog.command })
+    // Ordered here, not by the query: the audit log has no index to sort by, and the query plan guard would flag it.
+    const entries = await database.db
+      .select({ command: auditLog.command, changedAt: auditLog.changedAt })
       .from(auditLog)
-      .where(and(eq(auditLog.tableName, 'character_play'), inArray(auditLog.rowId, playRow)))
-      .orderBy(asc(auditLog.changedAt));
+      .where(and(eq(auditLog.tableName, 'character_play'), inArray(auditLog.rowId, playRow)));
+    const commands = entries.toSorted((left, right) => left.changedAt.localeCompare(right.changedAt));
     expect(commands.map(({ command }) => command)).toStrictEqual([
       CharacterCommand.CreateCharacter,
       CharacterCommand.Damage,
