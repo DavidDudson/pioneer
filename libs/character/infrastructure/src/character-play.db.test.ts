@@ -1,0 +1,148 @@
+import { afterAll, beforeAll, describe, expect, test } from 'bun:test';
+
+import { CharacterCommand, CharacterName, FRESH_PLAY } from '@pioneer/character/domain';
+import type { Character, PlayState } from '@pioneer/character/domain';
+import { CharacterBuilder } from '@pioneer/character/domain/testing';
+import { HitPoints } from '@pioneer/rules/sdk';
+import { FIRST_VERSION, fixedClock, newId, nextVersion, UserId, VersionConflictError } from '@pioneer/shared/kernel';
+import { rejection } from '@pioneer/shared/kernel/testing';
+import { auditLog } from '@pioneer/shared/server';
+import { createTestDatabase, QueryRecorder, testDatabaseUrl, unindexedQueries } from '@pioneer/shared/server/testing';
+import type { TestDatabase } from '@pioneer/shared/server/testing';
+import { and, eq, inArray, sql } from 'drizzle-orm';
+
+import { characterPlay, characters } from './character.table';
+import { DrizzleCharacterRepository } from './drizzle-character-repository';
+
+/** Runs against a throwaway Postgres database (see createTestDatabase); skipped without TEST_DATABASE_URL. */
+const adminUrl = testDatabaseUrl();
+const NOW = fixedClock('2026-10-13T10:00:00Z').now();
+
+const WOUNDED: PlayState = { hp: { damage: HitPoints.parse(5), temp: HitPoints.parse(2) } };
+
+describe.skipIf(adminUrl === undefined)('character play state (postgres)', () => {
+  const recorder = new QueryRecorder();
+  let database: TestDatabase;
+  let repository: DrizzleCharacterRepository;
+  let created = 0;
+
+  /** A fresh user, written as SQL: identity's tables are outside this context's boundary. */
+  async function newUser(): Promise<UserId> {
+    const id = UserId.parse(newId());
+    const at = NOW.toString();
+    await database.db.execute(
+      sql`insert into users (id, display_name, email_verified, created_at, updated_at) values (${id}, 'Owner', false, ${at}, ${at})`,
+    );
+    return id;
+  }
+
+  /** A fresh character, inserted; the builder derives the id from the name, so each gets its own. */
+  async function newCharacter(owner: UserId): Promise<Character> {
+    created += 1;
+    const character = new CharacterBuilder().named(`Kyra ${created}`).ownedBy(owner).build();
+    return repository.insert(character, { actor: owner, command: CharacterCommand.CreateCharacter });
+  }
+
+  beforeAll(async () => {
+    database = await createTestDatabase(adminUrl ?? '', recorder);
+    repository = new DrizzleCharacterRepository(database.db);
+  });
+
+  afterAll(async () => {
+    await database.drop();
+  });
+
+  test('a new character has its play row, fresh, at the first revision', async () => {
+    const amiri = await newUser();
+    const kyra = await newCharacter(amiri);
+    expect(await repository.findPlay(kyra.id)).toStrictEqual({ revision: FIRST_VERSION, play: FRESH_PLAY });
+    const read = await repository.findById(kyra.id);
+    expect(read?.document.play).toStrictEqual(FRESH_PLAY);
+  });
+
+  test('a play write bumps the play revision only, is read into the document, and is audited by command', async () => {
+    const amiri = await newUser();
+    const kyra = await newCharacter(amiri);
+    const audit = { actor: amiri, command: CharacterCommand.Damage };
+    const saved = await repository.updatePlay({
+      id: kyra.id,
+      play: WOUNDED,
+      expectedRevision: FIRST_VERSION,
+      audit,
+      now: NOW,
+    });
+    expect(saved).toStrictEqual({ revision: nextVersion(FIRST_VERSION), play: WOUNDED });
+
+    const read = await repository.findById(kyra.id);
+    expect(read?.version).toBe(kyra.version);
+    expect(read?.document.play).toStrictEqual(WOUNDED);
+    const [listed] = await repository.listForOwner(amiri, { sort: 'name', direction: 'asc' });
+    expect(listed?.document.play).toStrictEqual(WOUNDED);
+
+    const playRow = database.db
+      .select({ id: characterPlay.id })
+      .from(characterPlay)
+      .where(eq(characterPlay.characterId, kyra.id));
+    // Ordered here, not by the query: the audit log has no index to sort by, and the query plan guard would flag it.
+    const entries = await database.db
+      .select({ command: auditLog.command, changedAt: auditLog.changedAt })
+      .from(auditLog)
+      .where(and(eq(auditLog.tableName, 'character_play'), inArray(auditLog.rowId, playRow)));
+    const commands = entries.toSorted((left, right) => left.changedAt.localeCompare(right.changedAt));
+    expect(commands.map(({ command }) => command)).toStrictEqual([
+      CharacterCommand.CreateCharacter,
+      CharacterCommand.Damage,
+    ]);
+  });
+
+  test('a build save leaves play state alone and never writes it into the document', async () => {
+    const amiri = await newUser();
+    const kyra = await newCharacter(amiri);
+    await repository.updatePlay({
+      id: kyra.id,
+      play: WOUNDED,
+      expectedRevision: FIRST_VERSION,
+      audit: { actor: amiri, command: CharacterCommand.Damage },
+      now: NOW,
+    });
+    const renamed = kyra.apply({ field: 'name', value: CharacterName.parse('Kyra the Bold') }, NOW);
+    const saved = await repository.update(renamed, kyra.version, {
+      actor: amiri,
+      command: CharacterCommand.RenameCharacter,
+    });
+    expect(saved.document.play).toStrictEqual(WOUNDED);
+    expect(await repository.findPlay(kyra.id)).toStrictEqual({ revision: nextVersion(FIRST_VERSION), play: WOUNDED });
+    const [stored] = await database.db
+      .select({ document: characters.document })
+      .from(characters)
+      .where(eq(characters.id, kyra.id));
+    expect(stored?.document).not.toHaveProperty('play');
+  });
+
+  test('a stale play revision is a conflict, and nothing is written', async () => {
+    const amiri = await newUser();
+    const kyra = await newCharacter(amiri);
+    const write = {
+      id: kyra.id,
+      expectedRevision: FIRST_VERSION,
+      audit: { actor: amiri, command: CharacterCommand.Damage },
+      now: NOW,
+    };
+    await repository.updatePlay({ ...write, play: WOUNDED });
+    const stale = await rejection(repository.updatePlay({ ...write, play: FRESH_PLAY }));
+    expect(stale).toBeInstanceOf(VersionConflictError);
+    const kept = await repository.findPlay(kyra.id);
+    expect(kept?.play).toStrictEqual(WOUNDED);
+  });
+
+  test('deleting the character deletes its play row', async () => {
+    const amiri = await newUser();
+    const kyra = await newCharacter(amiri);
+    await database.db.delete(characters).where(eq(characters.id, kyra.id));
+    expect(await repository.findPlay(kyra.id)).toBeUndefined();
+  });
+
+  test('every query the repository issued is served by an index', async () => {
+    expect(await unindexedQueries(database.db, recorder)).toStrictEqual([]);
+  });
+});

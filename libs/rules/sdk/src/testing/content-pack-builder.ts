@@ -6,6 +6,7 @@ import { ContentKind } from '../content-kind';
 import { ContentPack } from '../content-pack';
 import type { CreatureDefinition } from '../creature';
 import { ContentLicense } from '../license';
+import type { ProficiencyBonusTable } from '../proficiency';
 import type { NamespaceKind } from '../roll-option-namespace';
 import { Size } from '../size';
 import { SourceKind } from '../source-ref';
@@ -70,6 +71,7 @@ export class ContentPackBuilder {
   readonly #creatures: Sourceable<typeof CreatureDefinition>[] = [];
   readonly #statistics: Sourceable<typeof StatisticDefinition>[] = [];
   readonly #namespaces: Record<string, NamespaceKind> = {};
+  #proficiencyBonus: ProficiencyBonusTable | undefined;
   readonly #entries: EnvelopeFields[] = [];
 
   public withId(id: string): this {
@@ -94,6 +96,12 @@ export class ContentPackBuilder {
 
   public withCreature(definition: Sourceable<typeof CreatureDefinition>): this {
     this.#creatures.push(definition);
+    return this;
+  }
+
+  /** The proficiency bonus table the pack defines, without which the engine derives no statistic. */
+  public withProficiencyBonus(table: ProficiencyBonusTable): this {
+    this.#proficiencyBonus = table;
     return this;
   }
 
@@ -260,6 +268,7 @@ export class ContentPackBuilder {
       creatures: this.#creatures.map((creature) => ({ sources, ...creature })),
       statistics: this.#statistics.map((statistic) => ({ sources, ...statistic })),
       rollOptionNamespaces: this.#namespaces,
+      ...(this.#proficiencyBonus === undefined ? {} : { proficiencyBonus: this.#proficiencyBonus }),
       otherEntries: this.#entries.map(
         ({ kind, name, data, rules = [], level, traits = [], rarity = 'common', description = [] }) => ({
           id: this.idOf(kind, name),

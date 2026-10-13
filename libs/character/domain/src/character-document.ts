@@ -5,12 +5,11 @@ import * as z from 'zod';
 import { CURRENT_SCHEMA_VERSION, StoredCharacterDocument, upgradeDocument } from './character-document-upgrades';
 import { CharacterId, CharacterLevel, CharacterName } from './character-fields';
 import { EMPTY_INVENTORY, InventorySchema } from './inventory';
+import { FRESH_PLAY, PlayStateSchema } from './play-state';
 
 /**
- * Nothing yet. Play state (#38), boons and conditions (#39) and overrides (#34) widen these, each
- * with a new schema version.
+ * Nothing yet. Boons and conditions (#39) and overrides (#34) widen these, each with a new schema version.
  */
-const Empty = z.strictObject({});
 const None = z.tuple([]);
 
 /** The most uncommon and rare spells a build lists access to. */
@@ -41,7 +40,8 @@ export const CharacterDocumentSchema = z.strictObject({
   packs: z.array(PackId).readonly().default([]),
   build: BuildSchema.default({ choices: {}, spellAccess: [], boons: [] }),
   inventory: InventorySchema.default(EMPTY_INVENTORY),
-  play: Empty.default({}),
+  /** Stored apart, in `character_play` (ADR-0022); a build save never writes it. */
+  play: PlayStateSchema.default(FRESH_PLAY),
   overrides: None.default([]),
   notes: RichText.default([]),
 });

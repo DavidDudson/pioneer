@@ -91,8 +91,8 @@ function equipmentChange(inventory: Inventory, patch: EquipmentPatch): Inventory
  * Character aggregate root, stored as its `CharacterDocument`. Immutable: every change returns a new instance,
  * which is what Angular signals want and what keeps server-side invariants in one place.
  *
- * Serialization: `Character.codec` decodes wire JSON into a `Character` and
- * encodes it back. Use `Character.codec.parse(unknown)` at trust boundaries.
+ * Serialization: `Character.codec` decodes wire JSON into a `Character` and encodes it back. Use
+ * `Character.codec.parse(unknown)` at trust boundaries.
  */
 export class Character {
   public static readonly codec = z.codec(CharacterWire, z.instanceof(Character), {

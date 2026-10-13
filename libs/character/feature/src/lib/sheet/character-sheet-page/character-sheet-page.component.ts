@@ -16,6 +16,8 @@ import {
 } from '@pioneer/frontier';
 import { VitalsView } from '@pioneer/rules/ui';
 
+import { PlayStore } from '../../data/play-store';
+import { SheetHitPoints } from '../sheet-hit-points/sheet-hit-points.component';
 import { SheetSaveStatus } from '../sheet-save-status/sheet-save-status.component';
 import { SHEET_TABS } from '../sheet-sections';
 import { SheetState } from '../sheet-state';
@@ -35,6 +37,7 @@ import { SheetState } from '../sheet-state';
     DateDisplay,
     Page,
     RouterOutlet,
+    SheetHitPoints,
     SheetSaveStatus,
     Skeleton,
     Stack,
@@ -45,7 +48,7 @@ import { SheetState } from '../sheet-state';
     VitalsView,
   ],
   templateUrl: './character-sheet-page.component.html',
-  providers: [SheetState],
+  providers: [SheetState, PlayStore],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CharacterSheetPage {

@@ -24,6 +24,8 @@ const UPGRADES: readonly UpgradeStep[] = [
   (document) => document,
   /** 3 → 4: the uncommon and rare spells a build has access to (#478). A version 3 build has access to none. */
   (document) => document,
+  /** 4 → 5: Hit Points in play (#343). A version 4 `play` is empty, which reads as full Hit Points. */
+  (document) => document,
 ];
 
 /** The version a chain of steps upgrades to: one past the last step. */

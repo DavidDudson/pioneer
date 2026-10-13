@@ -4,3 +4,4 @@ export { DrizzleCharacterRepository } from './drizzle-character-repository';
 export { characterSheetModes } from './character.table';
 export { DrizzleSheetModeRepository } from './drizzle-sheet-mode-repository';
 export { sheetModeRoutes } from './sheet-mode-routes';
+export { playRoutes } from './play-routes';

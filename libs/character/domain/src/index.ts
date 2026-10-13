@@ -1,6 +1,25 @@
 export { Character, CharacterWire } from './character';
+export { withPlay } from './character-with-play';
 export { type EditInputs } from './item-purchase';
-export { CharacterCommand, PATCH_COMMANDS } from './character-command';
+export { CharacterCommand, PATCH_COMMANDS, PLAY_COMMANDS } from './character-command';
+export {
+  applyPlayCommand,
+  withTempHitPoints,
+  CharacterPlay,
+  currentHitPoints,
+  FRESH_PLAY,
+  HIT_POINTS_EDIT_MAX,
+  type HitPointsState,
+  HitPointsStateSchema,
+  PatchPlayBody,
+  type PlayCommand,
+  PlayCommandField,
+  PlayCommandSchema,
+  type PlayState,
+  PlayStateId,
+  PlayStateSchema,
+  untypedDamage,
+} from './play-state';
 export {
   type AncestryBoosts,
   attributeModifiers,
@@ -210,6 +229,13 @@ export {
   STOWED,
 } from './item-carry';
 export { type ActiveItem, activeItems, type EquippedInputs, equippedInputs, equippedRules } from './equipped';
+export {
+  characterStatisticInputs,
+  characterStatistics,
+  MAX_HP_SELECTOR,
+  maxHitPoints,
+  type StatisticSources,
+} from './character-statistics';
 export {
   hasRunes,
   isSpecific,

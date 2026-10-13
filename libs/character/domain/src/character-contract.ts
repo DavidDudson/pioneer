@@ -10,6 +10,7 @@ import { CharacterLanguages } from './character-languages';
 import { PatchCharacterBody } from './character-patch';
 import { CharacterSlot } from './character-slot';
 import { ClearedPick } from './dependent-picks';
+import { CharacterPlay, PatchPlayBody } from './play-state';
 import { SetSheetModeBody, SheetModeChoice } from './sheet-mode';
 
 const ById = z.object({ id: CharacterId });
@@ -77,6 +78,23 @@ export const CharacterContract = {
     query: NoQuery,
     body: PatchCharacterBody,
     response: PatchedCharacterSheet,
+  }),
+  /** Play state, apart from the build: its own revision, so build saves and play edits never conflict (#343). */
+  play: new Endpoint({
+    method: HttpMethod.Get,
+    path: '/characters/:id/play',
+    params: ById,
+    query: NoQuery,
+    body: NoBody,
+    response: CharacterPlay,
+  }),
+  patchPlay: new Endpoint({
+    method: HttpMethod.Patch,
+    path: '/characters/:id/play',
+    params: ById,
+    query: NoQuery,
+    body: PatchPlayBody,
+    response: CharacterPlay,
   }),
   /** The tab the signed-in user last had open on this character's sheet, if any. */
   sheetMode: new Endpoint({

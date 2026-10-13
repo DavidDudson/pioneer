@@ -3,6 +3,8 @@ import type {
   CharacterLevel,
   CharacterName,
   CharacterSchemaVersion,
+  PlayState,
+  PlayStateId,
   SheetMode,
   SheetModeId,
   StoredCharacterDocument,
@@ -69,4 +71,25 @@ export const characterSheetModes = pgTable(
     // Serves the cascade when a character is deleted.
     index('character_sheet_modes_character_idx').on(table.characterId),
   ],
+);
+
+/**
+ * A character's play state (#343), apart from its build: play edits bump `play_revision` only, and build saves never
+ * write it (ADR-0022). One row per character, inserted with it. `id` is the row's own, for the audit trail; lookups go
+ * through the unique character index, which also serves the cascade when a character is deleted.
+ */
+export const characterPlay = pgTable(
+  'character_play',
+  {
+    id: uuid().$type<PlayStateId>().primaryKey(),
+    characterId: uuid()
+      .$type<CharacterId>()
+      .notNull()
+      .references(() => characters.id, { onDelete: 'cascade' }),
+    playRevision: integer().$type<Version>().notNull(),
+    state: jsonb().$type<PlayState>().notNull(),
+    createdAt: timestamp({ withTimezone: true, mode: 'string' }).notNull(),
+    updatedAt: timestamp({ withTimezone: true, mode: 'string' }).notNull(),
+  },
+  (table) => [uniqueIndex('character_play_character_idx').on(table.characterId)],
 );

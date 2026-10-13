@@ -187,6 +187,16 @@
     "header": {
       "identity": "Level {level}{hasAncestry, select, yes { {ancestry}} other {}}{hasClass, select, yes { {class}} other {}}{hasSubclass, select, yes {, {subclass}} other {}}"
     },
+    "hp": {
+      "label": "Hit Points",
+      "temp": "+{temp} temporary",
+      "amount": "Amount",
+      "damage": "Damage",
+      "heal": "Heal",
+      "set": "Set HP",
+      "setTemp": "Set temp HP",
+      "noMax": "Hit Points show once the character has an ancestry and a class."
+    },
     "saveState": {
       "saving": "Saving",
       "saved": "All changes saved",
@@ -236,7 +246,8 @@
     "spellNoAccess": "That spell is uncommon or rare, and this character has no access to it yet. Add it to their spell access first.",
     "unknownSpell": "That spell is not available to prepare. Choose another.",
     "spellAccessCommon": "That spell is common, so every caster of its tradition has access to it already.",
-    "spellAccessFull": "This character has access to {maximum} uncommon, rare and unique spells already, the most a build lists. Remove one first."
+    "spellAccessFull": "This character has access to {maximum} uncommon, rare and unique spells already, the most a build lists. Remove one first.",
+    "noMaxHitPoints": "This character's maximum Hit Points can't be worked out until it has an ancestry and a class. Choose them first."
   },
   "import": {
     "title": "Import from Pathbuilder",

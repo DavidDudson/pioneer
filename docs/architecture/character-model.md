@@ -34,7 +34,7 @@ interface Inventory {
 }
 
 interface PlayState {
-  hp: { current: number; temp: number };
+  hp: { damage: number; temp: number }; // damage taken since full, never the current total (ADR-0004)
   conditions: readonly ActiveCondition[]; // content ref, value, duration, source event
   effects: readonly ActiveEffect[]; // spell/feat effects, temporary boons: source, lifetime, uses left
   resources: Record<ResourceKey, number>; // focus points, hero points, spell slots used, item uses
@@ -50,6 +50,12 @@ stored total, is rejected. `inventory` holds items and coins ([Inventory](#inven
 `overrides` start empty and gain their fields with the epics that own them
 ([#38](https://github.com/DavidDudson/pioneer/issues/38), [#39](https://github.com/DavidDudson/pioneer/issues/39),
 [#34](https://github.com/DavidDudson/pioneer/issues/34)). A selection is a `ChoiceValue`: a content id or a slug.
+
+`play.hp` stores the `damage` taken since full and the `temp` Hit Points, never the current total
+([ADR-0004](../adr/0004-store-inputs-not-derived-values.md)): current Hit Points are the derived maximum less the
+damage (`currentHitPoints`), so a level or Constitution change moves them with the maximum. Play state is saved
+apart from the build with its own revision (`PATCH /characters/:id/play`, `PlayCommand`), so a play edit never
+changes the character's version and a build save never touches it.
 
 ### Schema versions
 
