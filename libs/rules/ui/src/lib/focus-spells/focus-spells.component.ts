@@ -2,9 +2,8 @@ import { ChangeDetectionStrategy, Component, computed, input } from '@angular/co
 import { TranslocoPipe } from '@jsverse/transloco';
 import { Badge, EmptyState, Heading, List, ListItem, Skeleton, Stack, Text } from '@pioneer/frontier';
 
-import { EntryHover } from '../entry-preview/entry-hover.component';
-import { SpellDetails } from '../spell-list/spell-details.component';
 import { TRADITION_MESSAGES } from '../spellcasting/spellcasting-messages';
+import { FocusSpellRow } from './focus-spell-row.component';
 import type { FocusEntryLine, FocusLine, FocusSpellLine } from './focus-spells-line';
 import { FocusSpellsMessage } from './focus-spells-messages';
 
@@ -48,7 +47,7 @@ function viewOf(focus: FocusLine): FocusView {
  */
 @Component({
   selector: 'pio-focus-spells',
-  imports: [EntryHover, Badge, EmptyState, Heading, List, ListItem, Skeleton, SpellDetails, Stack, Text, TranslocoPipe],
+  imports: [Badge, EmptyState, FocusSpellRow, Heading, List, ListItem, Skeleton, Stack, Text, TranslocoPipe],
   templateUrl: './focus-spells.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

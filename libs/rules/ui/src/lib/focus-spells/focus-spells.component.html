@@ -16,18 +16,7 @@
         <fr-list gap="2xs">
           @for (spell of entry.spells; track spell.key) {
             <fr-list-item>
-              @if (spell.detail; as detail) {
-                <pio-spell-details [spell]="detail" />
-              } @else {
-                <fr-stack direction="horizontal" gap="xs" align="center">
-                  <pio-entry-hover [entry]="spell.id">
-                    <fr-text tabindex="0">{{ spell.name }}</fr-text>
-                  </pio-entry-hover>
-                  @for (tag of spell.tags; track tag) {
-                    <fr-badge>{{ tag | transloco }}</fr-badge>
-                  }
-                </fr-stack>
-              }
+              <pio-focus-spell-row [spell]="spell" [tags]="spell.tags" />
             </fr-list-item>
           }
         </fr-list>
