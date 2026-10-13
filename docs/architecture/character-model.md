@@ -92,6 +92,19 @@ with a reason when the slot is open at no level up to 20 (`character.validation.
 at none (`character.validation.selectionNotOffered`). Only a new selection is checked: one already stored stays, however
 the level or content changes.
 
+A feat slot (a `ChoiceSet` querying feats, on a class, an ancestry or any granted feature) is read at the level it
+opens, over the picks below it with its own pick left out (#466). It offers the feats of its kind up to that level,
+each with its `prerequisitePredicate` read three-valued against the character's facts there: its roll options, its
+skill and Lore ranks with its skill picks so far, and its attribute modifiers (`attribute:<a>:mod:<n>`, known within
+prerequisites, so a missing one is false). Perception ranks aren't read, so a Perception prerequisite is unknown: the
+import drops some features that raise Perception, and any rank given would settle the comparison. A feat with printed
+prerequisites but no predicate is unknown too. `selectSlot` refuses a feat whose prerequisites are not met
+(`character.validation.prerequisitesNotMet`), and a feat above the slot's level as not offered, though a higher slot
+would take it. Unknown is offered and accepted, never refused. A taken feat whose prerequisites stop holding reads
+invalid at its slot (`rules.choices.invalid.prerequisitesNotMet`). Skill ranks a feature's dropped rules would raise
+(Skill Training, a Lore feat) are missing from the facts, so such a prerequisite reads not met until the import
+models them.
+
 The heritage slot is `within` the ancestry slot: it offers the heritages whose `ancestry` is the picked one, and the
 versatile heritages, which have none. An edit that leaves a heritage its new ancestry doesn't offer (picking another
 ancestry, or clearing it) clears that heritage in the same write, audited as the edit's own command, and the PATCH

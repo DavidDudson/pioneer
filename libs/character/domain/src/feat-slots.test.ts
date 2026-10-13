@@ -127,7 +127,7 @@ describe('featSlots', () => {
   test('reads each prerequisite as met, not met, or unknown when its text did not parse', () => {
     expect(offered(fighter(), LEVEL_1)).toEqual({
       brawn: PrerequisiteStatus.Unmet,
-      'keen-eye': PrerequisiteStatus.Met,
+      'keen-eye': PrerequisiteStatus.Unknown,
       'power-attack': PrerequisiteStatus.Met,
       'reactive-shield': PrerequisiteStatus.Unknown,
       'sudden-charge': PrerequisiteStatus.Unmet,

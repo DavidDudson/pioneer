@@ -1,4 +1,4 @@
-import type { ChoiceSlot, ContentLookup, GrantResolution } from '@pioneer/rules/grants';
+import type { ChoiceSlot, ContentLookup } from '@pioneer/rules/grants';
 import { evaluatePredicate, PredicateFacts, Truth } from '@pioneer/rules/predicate';
 import type { NamespaceTable } from '@pioneer/rules/predicate';
 import {
@@ -7,7 +7,6 @@ import {
   ContentKind,
   Level,
   NamespaceKind,
-  Proficiency,
   RollOption,
   RollOptionNamespace,
   RuleElementKey,
@@ -50,42 +49,17 @@ function prerequisiteStatus(feat: FeatRead | undefined, facts: PredicateFacts): 
 }
 
 /**
- * The namespaces prerequisites read that only these facts set, so a missing one is false: `attribute:str:mod:2` and
- * `perception:rank:3`. The engine sets neither, so they stay unknown in the core table.
+ * The namespaces prerequisites read that only these facts set, so a missing one is false: `attribute:str:mod:2`. The
+ * engine doesn't set it, so it stays unknown in the core table. Perception ranks aren't read at all, so a Perception
+ * prerequisite stays unknown: the import drops some features that raise Perception (Perception Expertise), and any
+ * rank given would settle the comparison (ADR-0002).
  */
-const PREREQUISITE_NAMESPACES: readonly RollOptionNamespace[] = [
-  RollOptionNamespace.parse('attribute'),
-  RollOptionNamespace.parse('perception'),
-];
+const PREREQUISITE_NAMESPACES: readonly RollOptionNamespace[] = [RollOptionNamespace.parse('attribute')];
 
-const RANKS: readonly Proficiency[] = Object.values(Proficiency);
 const ATTRIBUTES: readonly Attribute[] = Object.values(Attribute);
-const PERCEPTION = 'perception';
 
 function prerequisiteNamespaces(namespaces: NamespaceTable): NamespaceTable {
   return new Map([...namespaces, ...PREREQUISITE_NAMESPACES.map((each) => [each, NamespaceKind.Known] as const)]);
-}
-
-/** The higher of two ranks. */
-function higherRank(left: Proficiency | undefined, right: Proficiency): Proficiency {
-  return left === undefined || RANKS.indexOf(right) > RANKS.indexOf(left) ? right : left;
-}
-
-/** `perception:rank:<n>` for the highest rank the effective set's `Proficiency` elements give Perception. */
-function perceptionOptions({ items, facts }: GrantResolution): RollOption[] {
-  let rank: Proficiency | undefined = undefined;
-  for (const { entry } of items) {
-    for (const element of entry.rules) {
-      const raises =
-        element.key === RuleElementKey.Proficiency &&
-        element.selector === PERCEPTION &&
-        (element.predicate === undefined || evaluatePredicate(element.predicate, facts) === Truth.True);
-      if (raises) {
-        rank = higherRank(rank, element.rank);
-      }
-    }
-  }
-  return rank === undefined ? [] : [RollOption.parse(`${PERCEPTION}:rank:${RANKS.indexOf(rank)}`)];
 }
 
 /**
@@ -135,12 +109,7 @@ function factsByLevel(document: CharacterDocument, content: SlotContent): (level
   const read = (level: Level): PredicateFacts => {
     const resolution = skills.grantsAt(level);
     const ranks = withSkillPicks(grantedSkillRanks(resolution), slotSkillRanks(slots, level));
-    const options = [
-      ...resolution.rollOptions,
-      ...rankOptions(ranks),
-      ...perceptionOptions(resolution),
-      ...attributeOptions(document, content, level),
-    ];
+    const options = [...resolution.rollOptions, ...rankOptions(ranks), ...attributeOptions(document, content, level)];
     return new PredicateFacts(options, namespaces);
   };
   return (level) => {
@@ -170,8 +139,8 @@ const READS = new WeakMap<SlotContent, WeakMap<CharacterDocument, PrerequisiteRe
 
 /**
  * What the character's feat prerequisites read at each level: its roll options there (its feats, features, ancestry,
- * heritage, class, deity, traits and level), its skill and Lore ranks with its skill picks up to that level, its
- * Perception rank and its attribute modifiers. Read once for the same content and document.
+ * heritage, class, deity, traits and level), its skill and Lore ranks with its skill picks up to that level, and its
+ * attribute modifiers. Read once for the same content and document.
  */
 export function prerequisiteReads(document: CharacterDocument, content: SlotContent): PrerequisiteReads {
   const byDocument = READS.get(content) ?? new WeakMap<CharacterDocument, PrerequisiteReads>();
