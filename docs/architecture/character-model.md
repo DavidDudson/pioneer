@@ -115,7 +115,8 @@ The character stores `SlotKey → Selection` only. Consequences:
 
 - Levelling up opens slots; levelling down returns them to the plan but keeps the selection, so it comes back.
 - The level planner uses the same rule: selections above the current level are the plan, and levelling up turns
-  them on. It plans feats, skills and boosts; spell slots are a follow-up. A planned selection that stops being valid is flagged at its level, like any other invalid choice.
+  them on. It plans feats, skills and boosts; spell slots are a follow-up. A planned selection that stops being
+  valid is flagged at its level, like any other invalid choice.
 - If content changes (errata, a homebrew edit) and a selection becomes invalid, the slot is flagged on the sheet
   with the reason. It is never deleted silently.
 - Retraining is changing a selection; the audit log keeps the history.
