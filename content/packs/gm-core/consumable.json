@@ -9613,7 +9613,8 @@
           "frequency": {
             "max": 1,
             "per": "day"
-          }
+          },
+          "overcharge": true
         }
       ],
       "category": "wand",
@@ -9740,7 +9741,8 @@
           "frequency": {
             "max": 1,
             "per": "day"
-          }
+          },
+          "overcharge": true
         }
       ],
       "category": "wand",
@@ -9867,7 +9869,8 @@
           "frequency": {
             "max": 1,
             "per": "day"
-          }
+          },
+          "overcharge": true
         }
       ],
       "category": "wand",
@@ -9994,7 +9997,8 @@
           "frequency": {
             "max": 1,
             "per": "day"
-          }
+          },
+          "overcharge": true
         }
       ],
       "category": "wand",
@@ -10121,7 +10125,8 @@
           "frequency": {
             "max": 1,
             "per": "day"
-          }
+          },
+          "overcharge": true
         }
       ],
       "category": "wand",
@@ -10248,7 +10253,8 @@
           "frequency": {
             "max": 1,
             "per": "day"
-          }
+          },
+          "overcharge": true
         }
       ],
       "category": "wand",
@@ -10375,7 +10381,8 @@
           "frequency": {
             "max": 1,
             "per": "day"
-          }
+          },
+          "overcharge": true
         }
       ],
       "category": "wand",
@@ -10502,7 +10509,8 @@
           "frequency": {
             "max": 1,
             "per": "day"
-          }
+          },
+          "overcharge": true
         }
       ],
       "category": "wand",
@@ -10629,7 +10637,8 @@
           "frequency": {
             "max": 1,
             "per": "day"
-          }
+          },
+          "overcharge": true
         }
       ],
       "category": "wand",
@@ -21071,7 +21080,8 @@
           "frequency": {
             "max": 1,
             "per": "day"
-          }
+          },
+          "overcharge": true
         }
       ],
       "category": "wand",
@@ -21216,7 +21226,8 @@
           "frequency": {
             "max": 1,
             "per": "day"
-          }
+          },
+          "overcharge": true
         }
       ],
       "category": "wand",
@@ -21361,7 +21372,8 @@
           "frequency": {
             "max": 1,
             "per": "day"
-          }
+          },
+          "overcharge": true
         }
       ],
       "category": "wand",
@@ -21506,7 +21518,8 @@
           "frequency": {
             "max": 1,
             "per": "day"
-          }
+          },
+          "overcharge": true
         }
       ],
       "category": "wand",

@@ -77,6 +77,11 @@ export function activationUseKey(item: InventoryItemId, activation: Slug): UseCo
   return UseCountKey.parse(`${item}:${activation}`);
 }
 
+/** The key the overcharged use of an activation of one inventory item is counted under, apart from its daily uses. */
+export function overchargeUseKey(item: InventoryItemId, activation: Slug): UseCountKey {
+  return UseCountKey.parse(`${item}:${activation}:overcharge`);
+}
+
 /** The key of the slots of `rank` in an entry, or in one of its pools. */
 export function slotCountKey(entry: Slug, pool: RuleSlug | undefined, rank: SpellRank): SlotCountKey {
   return SlotCountKey.parse(pool === undefined ? `${entry}:${rank}` : `${entry}:${pool}:${rank}`);
@@ -134,8 +139,9 @@ export function useMaxima(
 }
 
 /**
- * The uses of each activation with a frequency on the character's items. A line of several items has that many uses,
- * since each one is used up on its own.
+ * The uses of each activation with a frequency on the character's items, and one overcharged use apart from them for
+ * an activation that can be overcharged. A line of several items has that many uses, since each one is used up on its
+ * own.
  */
 export function activationMaxima(
   items: readonly InventoryItem[],
@@ -143,10 +149,16 @@ export function activationMaxima(
 ): ReadonlyMap<UseCountKey, CountedMaximum> {
   return new Map(
     items.flatMap(({ id, item, quantity }) =>
-      activationsOf(item).map(({ slug, frequency }): [UseCountKey, CountedMaximum] => [
-        activationUseKey(id, slug),
-        { max: ResourceCount.parse(frequency.max * quantity), boundary: frequencyBoundary(frequency) },
-      ]),
+      activationsOf(item).flatMap(({ slug, frequency, overcharge }): [UseCountKey, CountedMaximum][] => {
+        const boundary = frequencyBoundary(frequency);
+        const daily: [UseCountKey, CountedMaximum] = [
+          activationUseKey(id, slug),
+          { max: ResourceCount.parse(frequency.max * quantity), boundary },
+        ];
+        return overcharge === true
+          ? [daily, [overchargeUseKey(id, slug), { max: ResourceCount.parse(quantity), boundary }]]
+          : [daily];
+      }),
     ),
   );
 }

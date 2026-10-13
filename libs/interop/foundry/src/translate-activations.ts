@@ -19,8 +19,14 @@ const NO_NAME = /^\s*<\/strong>/u;
 
 /** Frequencies that name no limit, so there is no use to count. */
 const UNLIMITED = /^(?:at will|any number of times per [a-z0-9 ]+)\.?$/iu;
-/** "once per day, plus overcharge": the frequency, then a way to use it again at a cost the importer does not carry. */
+/** "once per day, plus overcharge": the frequency, then a further use per period at the cost the item gives. */
 const OVERCHARGE = /,?\s*plus overcharge\.?\s*$/iu;
+
+/** A printed frequency read: the limit and whether the item can be overcharged beyond it. */
+interface Limit {
+  readonly frequency: Frequency;
+  readonly overcharge: boolean;
+}
 
 const COUNT_WORDS: readonly string[] = ['one', 'two', 'three', 'four', 'five', 'six'];
 
@@ -72,23 +78,20 @@ function nameOf(section: string, itemName: string): string | undefined {
 }
 
 /**
- * The frequency a printed one stands for. One that names no limit has none to count, and "plus overcharge" keeps its
- * base frequency, with the overcharge reported until it is a concept of its own; a frequency that does not read is
- * reported.
+ * The frequency a printed one stands for, and whether "plus overcharge" adds a further use. One that names no limit
+ * has none to count; a frequency that does not read is reported.
  */
-function limitOf(text: string, log: GapLog): Frequency | undefined {
+function limitOf(text: string, log: GapLog): Limit | undefined {
   if (UNLIMITED.test(text.trim())) {
     return undefined;
   }
   const base = text.replace(OVERCHARGE, '');
-  if (base !== text) {
-    report(log, { reason: KindDataGapReason.NeedsRichText, field: 'description.overcharge', raw: text });
-  }
   const frequency = printedFrequency(base);
   if (frequency === undefined) {
     report(log, { reason: KindDataGapReason.UnmappedValue, field: 'description.frequency', raw: text });
+    return undefined;
   }
-  return frequency;
+  return { frequency, overcharge: base !== text };
 }
 
 /** The activations of an item with a frequency, unparsed, from its description's HTML. */
@@ -99,13 +102,16 @@ export function activationsOf(html: string, itemName: string, log: GapLog): obje
     .flatMap((section) => {
       const text = FREQUENCY.exec(section)?.groups?.['text'];
       const name = nameOf(section, itemName);
-      const frequency = text === undefined || name === undefined ? undefined : limitOf(text, log);
-      if (name === undefined || frequency === undefined) {
+      const limit = text === undefined || name === undefined ? undefined : limitOf(text, log);
+      if (name === undefined || limit === undefined) {
         return [];
       }
       const slug = Slug.safeParse(asciiNameSlug(name));
       const label = ActivationName.safeParse(name);
-      return slug.success && label.success ? [{ slug: slug.data, name: label.data, frequency }] : [];
+      const { frequency, overcharge } = limit;
+      return slug.success && label.success
+        ? [{ slug: slug.data, name: label.data, frequency, ...(overcharge ? { overcharge } : {}) }]
+        : [];
     });
   const distinct = found.filter(({ slug }, index) => found.findIndex((each) => each.slug === slug) === index);
   return setFields({ activations: distinct.length === 0 ? undefined : distinct });

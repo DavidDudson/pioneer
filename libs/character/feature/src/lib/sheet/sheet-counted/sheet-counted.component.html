@@ -36,6 +36,9 @@
             @for (use of counted.uses; track use.key) {
               <fr-stack direction="horizontal" align="center" gap="sm" wrap>
                 <fr-text weight="semibold">{{ use.name }}</fr-text>
+                @if (use.overcharge) {
+                  <fr-text tone="muted">{{ 'character.sheet.counted.overcharge' | transloco }}</fr-text>
+                }
                 <fr-text tone="muted">{{
                   'character.sheet.resources.held' | transloco: { current: use.current, max: use.max }
                 }}</fr-text>

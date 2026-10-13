@@ -21,6 +21,7 @@ import {
   frequencyBoundary,
   heldCount,
   NO_COUNTED,
+  overchargeUseKey,
   slotCountKey,
   slotMaxima,
   useMaxima,
@@ -207,5 +208,37 @@ describe('activation maxima', () => {
     expect(spent(spent(FRESH_PLAY)).resources.uses[use]).toBe(count(1));
     const back = applyPlayCommand(spent(FRESH_PLAY), { field: PlayCommandField.RefundUse, use }, limits);
     expect(back.resources.uses[use]).toBe(count(0));
+  });
+});
+
+describe('overcharge', () => {
+  const CHARGED = ContentId.parse('00000000-0000-4000-8000-000000000005');
+  const SPARK = Slug.parse('spark');
+  const STAFF = InventoryItemId.parse('dddddddd-dddd-4ddd-8ddd-dddddddddddd');
+  const activations = (id: ContentId): readonly Activation[] =>
+    id === CHARGED
+      ? [
+          {
+            slug: SPARK,
+            name: ActivationName.parse('Spark'),
+            frequency: frequency(1, FrequencyPeriod.Day),
+            overcharge: true,
+          },
+        ]
+      : [];
+  const maxima = activationMaxima([line(STAFF, CHARGED, 2)], activations);
+
+  test('an overcharge activation has one overcharged use per item, apart from its daily uses, on the same boundary', () => {
+    expect(maxima.get(activationUseKey(STAFF, SPARK))).toStrictEqual({ max: count(2), boundary: Boundary.Day });
+    expect(maxima.get(overchargeUseKey(STAFF, SPARK))).toStrictEqual({ max: count(2), boundary: Boundary.Day });
+  });
+
+  test('spending the overcharged use leaves the daily uses held', () => {
+    const limits = within(HP, undefined, { slots: new Map(), uses: maxima });
+    const use = overchargeUseKey(STAFF, SPARK);
+    const spent = applyPlayCommand(FRESH_PLAY, { field: PlayCommandField.SpendUse, use }, limits);
+
+    expect(spent.resources.uses[use]).toBe(count(1));
+    expect(spent.resources.uses[activationUseKey(STAFF, SPARK)]).toBeUndefined();
   });
 });
