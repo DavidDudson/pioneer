@@ -77,6 +77,8 @@ export { InlineField } from './lib/inline-edit/inline-field/inline-field.compone
 // Layout
 export { Box, BoxWidth } from './lib/layout/box/box.component';
 export { Disclosure, DisclosureVariant } from './lib/layout/disclosure/disclosure.component';
+export { HoverCard } from './lib/layout/hover-card/hover-card.component';
+export { HoverCardContent } from './lib/layout/hover-card/hover-card-content.directive';
 export { Divider, DividerOrientation, DividerTone } from './lib/layout/divider/divider.component';
 export { Grid, GridAlign, GridColumns, GridMinItem, GridQuery } from './lib/layout/grid/grid.component';
 export { Page } from './lib/layout/page/page.component';

@@ -5,6 +5,14 @@ export { numberStyle } from './lib/breakdown/number-style';
 export { OriginChainView } from './lib/origin-chain/origin-chain.component';
 export { NO_ORIGIN_NAMES, type OriginNames } from './lib/origin-chain/origin-names';
 export { DefencesView } from './lib/defences/defences.component';
+export { EntryHover } from './lib/entry-preview/entry-hover.component';
+export { EntryPreviewView } from './lib/entry-preview/entry-preview.component';
+export {
+  ENTRY_PREVIEWS,
+  type EntryPreview,
+  type EntryPreviews,
+  provideEntryPreviews,
+} from './lib/entry-preview/entry-preview';
 export { RichTextView } from './lib/rich-text/rich-text.component';
 export { provideRichTextLinks, RICH_TEXT_LINKS, type RichTextLinks } from './lib/rich-text/rich-text-links';
 export { SourceLineView } from './lib/source-line/source-line.component';

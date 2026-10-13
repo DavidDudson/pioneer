@@ -1,5 +1,7 @@
-@if (target(); as to) {
-  <fr-link [to]="to">{{ label() ?? (unnamed | transloco) }}</fr-link>
-} @else {
-  <fr-text weight="medium">{{ label() ?? (unnamed | transloco) }}</fr-text>
-}
+<pio-entry-hover [entry]="node().id">
+  @if (target(); as to) {
+    <fr-link [to]="to">{{ label() ?? (unnamed | transloco) }}</fr-link>
+  } @else {
+    <fr-text weight="medium" [attr.tabindex]="previewable() ? 0 : null">{{ label() ?? (unnamed | transloco) }}</fr-text>
+  }
+</pio-entry-hover>

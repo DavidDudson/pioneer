@@ -14,11 +14,15 @@ import {
   ToggleButton,
 } from '@pioneer/frontier';
 import { Combobox } from '@pioneer/frontier/data';
+import type { ContentId } from '@pioneer/rules/sdk';
+import { ENTRY_PREVIEWS } from '@pioneer/rules/ui';
+import type { EntryPreview, EntryPreviews } from '@pioneer/rules/ui';
 import { filter, merge } from 'rxjs';
 
 import { CharacterStore } from '../../data/character-store';
 import { injectContentRegistry } from '../../data/content-registry-query';
 import { FeatDisplayStore } from '../../data/feat-display-store';
+import { sheetEntryPreview } from '../sheet-entry-previews';
 import { SheetFeatGroupList } from '../sheet-feat-group/sheet-feat-group.component';
 import { featFieldsOf } from '../sheet-feat-picks';
 import { FEAT_CONTENT_KINDS } from '../sheet-feats';
@@ -49,9 +53,10 @@ const LOADING_SLOTS = 3;
     TranslocoPipe,
   ],
   templateUrl: './sheet-feats.component.html',
+  providers: [{ provide: ENTRY_PREVIEWS, useFactory: (): EntryPreviews => inject(SheetFeats) }],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SheetFeats {
+export class SheetFeats implements EntryPreviews {
   /** Placeholder pickers while the feats load: a 1st-level character's. */
   protected readonly loadingSlots = Array.from({ length: LOADING_SLOTS }, (_unused, index) => index);
 
@@ -78,6 +83,11 @@ export class SheetFeats {
     messages: this.#messages,
     showGrantOnly: this.shownGrantOnly,
   });
+
+  /** What a feat row previews on hover, read from the loaded registry. */
+  public preview(id: ContentId): EntryPreview | undefined {
+    return sheetEntryPreview(this.feats.data(), id);
+  }
 
   protected showGrantOnly(shown: boolean): void {
     this.#display.show(FeatDisplaySection.Feats, shown);

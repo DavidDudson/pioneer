@@ -64,6 +64,9 @@
       "duplicateTrait": "The trait {trait} is listed more than once.",
       "supersedesSelf": "An entry cannot supersede itself."
     },
+    "entryPreview": {
+      "level": "Level {level}"
+    },
     "richText": {
       "tooDeep": "Rich text can nest at most {maximum} levels deep.",
       "tooLarge": "Rich text can hold at most {maximum} JSON arrays and objects in all; each paragraph, list item and table row takes at least one.",
