@@ -75,6 +75,38 @@ export const CONSECRATE = spell('vEkM4Ii8DCoEbRqm', 'Consecrate', {
   traits: { rarity: 'uncommon', traditions: [], value: ['consecration'] },
 });
 
+/** A ritual whose checks use every condition: a pick by tradition, by the primary check, any Lore, and a topic. */
+export const CALLING = spell('cAlL000000000001', 'Calling', {
+  level: { value: 4 },
+  time: { value: '1 day' },
+  range: { value: '30 feet' },
+  duration: { sustained: false, value: 'unlimited' },
+  ritual: {
+    primary: {
+      check:
+        'Arcana (expert), Nature (expert), Occultism (expert), or Religion (expert) as determined by the tradition of spell cast in the ritual',
+    },
+    secondary: {
+      casters: 2,
+      checks:
+        "Lore (any), Society; Lore (related to the destination plane), Survival; Nature or Religion (whichever isn't used for the primary check)",
+    },
+  },
+  traits: { rarity: 'rare', traditions: [], value: ['conjuration'] },
+});
+
+/** A ritual whose primary check has a DC of its own and skills of different ranks. */
+export const WARDING = spell('wArD000000000001', 'Warding', {
+  level: { value: 3 },
+  time: { value: '1 hour' },
+  duration: { sustained: false, value: 'unlimited' },
+  ritual: {
+    primary: { check: 'DC 30 Arcana (master) or Religion (expert)' },
+    secondary: { casters: 1, checks: 'Nature or Religion (whichever is used for the primary check)' },
+  },
+  traits: { rarity: 'common', traditions: [], value: ['abjuration'] },
+});
+
 export const BLESS_EFFECT: DocumentFixture = {
   id: 'Gqy7K6FnbLtwGpud',
   name: 'Spell Effect: Bless',
@@ -104,7 +136,16 @@ export const RAGE_EFFECT: DocumentFixture = {
 };
 
 /** Every magic and effect fixture. */
-export const MAGIC: readonly DocumentFixture[] = [FIREBALL, HEAL, COMMAND, CONSECRATE, BLESS_EFFECT, RAGE_EFFECT];
+export const MAGIC: readonly DocumentFixture[] = [
+  FIREBALL,
+  HEAL,
+  COMMAND,
+  CONSECRATE,
+  CALLING,
+  WARDING,
+  BLESS_EFFECT,
+  RAGE_EFFECT,
+];
 
 /** Bless with a duration of no rounds, ending as `expiry` says. */
 export function effectOfNoTime(expiry: unknown): DocumentFixture {
