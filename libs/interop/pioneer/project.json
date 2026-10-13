@@ -1,0 +1,7 @@
+{
+  "name": "interop-pioneer",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/interop/pioneer/src",
+  "tags": ["scope:interop", "type:domain", "platform:any"]
+}
