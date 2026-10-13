@@ -35,6 +35,8 @@ const FROST = propertyRune(RuneFixture.Frost);
 const SHOCK = propertyRune(RuneFixture.Shock);
 const KEEN = propertyRune(RuneFixture.Keen);
 const SHADOW = propertyRune(RuneFixture.Shadow);
+const HOLY = propertyRune(RuneFixture.Holy);
+const UNHOLY = propertyRune(RuneFixture.Unholy);
 const POTENCY = fundamentalRef(FundamentalRune.Potency);
 const STRIKING = fundamentalRef(FundamentalRune.Striking);
 
@@ -76,6 +78,16 @@ function runedSword(): Inventory {
 }
 
 describe('runeRefusal: etching', () => {
+  test('refuses an alignment rune on a weapon that has the opposite one, and allows it otherwise', () => {
+    const holy = etched(armoury(), Armoury.Sword, POTENCY_2, HOLY);
+    const unholy = etched(armoury(), Armoury.Sword, POTENCY_2, UNHOLY);
+    const potent = etched(armoury(), Armoury.Sword, POTENCY_2);
+    expect(refused(holy, etch(Armoury.Sword, UNHOLY))).toBe('character.validation.runeNotForItem');
+    expect(refused(unholy, etch(Armoury.Sword, HOLY))).toBe('character.validation.runeNotForItem');
+    expect(refused(potent, etch(Armoury.Sword, HOLY))).toBeUndefined();
+    expect(refused(runedSword(), etch(Armoury.Sword, UNHOLY))).toBeUndefined();
+  });
+
   test('allows each fundamental rune on the item it goes on', () => {
     expect(refused(armoury(), etch(Armoury.Sword, STRIKING_3))).toBeUndefined();
     expect(refused(armoury(), etch(Armoury.Armor, RESILIENT_2))).toBeUndefined();

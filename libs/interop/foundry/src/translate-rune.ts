@@ -87,26 +87,18 @@ const ETCHINGS: ReadonlyMap<string, EtchedOnto> = new Map([
   ['med-heavy-armor', { item: RunedItem.Armor, restriction: 'medium-or-heavy' }],
   ['medium-heavy-metal-armor', { item: RunedItem.Armor, restriction: 'medium-or-heavy-metal' }],
   ['lm-nonmetal-armor', { item: RunedItem.Armor, restriction: 'light-or-medium-nonmetal' }],
+  // Foundry's labels for these two are swapped: the holy rune carries `wo-holy-rune` and goes on a weapon with no unholy rune.
+  ['weapon-wo-holy-rune', { item: RunedItem.Weapon, restriction: 'without-unholy-rune' }],
+  ['weapon-wo-unholy-rune', { item: RunedItem.Weapon, restriction: 'without-holy-rune' }],
 ]);
 
-/**
- * Usages that name the item but a restriction Pioneer has no slug for: an alignment rune goes on a weapon without its
- * opposite (Foundry's labels for these two are swapped). The rune is etched onto the item, and the restriction reported.
- */
-const LOOSE_ETCHINGS: ReadonlyMap<string, EtchedOnto> = new Map([
-  ['weapon-wo-holy-rune', { item: RunedItem.Weapon }],
-  ['weapon-wo-unholy-rune', { item: RunedItem.Weapon }],
-]);
-
-/** What a rune is etched onto; a usage naming no item is reported, as is a loose restriction. */
+/** What a rune is etched onto; a usage naming no item is reported. */
 function etchedOntoOf(usage: string, log: GapLog): EtchedOnto | undefined {
-  const etching = usage.slice(ETCHED_ONTO.length);
-  const exact = ETCHINGS.get(etching);
-  if (exact !== undefined) {
-    return exact;
+  const etched = ETCHINGS.get(usage.slice(ETCHED_ONTO.length));
+  if (etched === undefined) {
+    report(log, { reason: KindDataGapReason.UnmappedValue, field: 'usage', raw: usage });
   }
-  report(log, { reason: KindDataGapReason.UnmappedValue, field: 'usage', raw: usage });
-  return LOOSE_ETCHINGS.get(etching);
+  return etched;
 }
 
 /** The rune's data, unparsed; undefined when its usage names nothing a rune is etched onto. */

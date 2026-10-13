@@ -759,9 +759,10 @@ tradition of spell cast in the ritual` its `pick`. Its secondary checks are sepa
     (`stowing: false`, a sack) are reported. Treasure keeps its category.
   - A rune is fundamental when its slug is one of the potency, striking, resilient or reinforcing grades
     (`striking-greater` is grade 2), else property. Its usage gives the item it is etched onto and a restriction
-    spelled out (`etched-onto-med-heavy-armor` is armour, `medium-or-heavy`); one naming an item and a restriction
-    with no slug (`weapon-wo-holy-rune`) is reported and etched onto the item, and one naming no item leaves the rune
-    without data. What a property rune does Foundry keeps in code, so its `rules` are not imported.
+    spelled out (`etched-onto-med-heavy-armor` is armour, `medium-or-heavy`); an alignment rune goes on a weapon
+    without the opposite rune (`weapon-wo-holy-rune` is `without-unholy-rune`; Foundry's labels are swapped), read
+    against the property runes already etched, and one naming no item leaves the rune without data. What a property
+    rune does Foundry keeps in code, so its `rules` are not imported.
 - **Archetypes.** Foundry keeps them as pages of the `Archetypes` journal, not items. A page whose dedication (a
   linked feat with the `dedication` trait and the page's name, so another archetype's dedication cited as a
   prerequisite is not taken) is imported becomes an `archetype` entry in the target pack: the page name, the page's

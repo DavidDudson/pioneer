@@ -2635,7 +2635,8 @@
       ],
       "type": "property",
       "etchedOnto": {
-        "item": "weapon"
+        "item": "weapon",
+        "restriction": "without-unholy-rune"
       }
     }
   },
@@ -5140,7 +5141,8 @@
       ],
       "type": "property",
       "etchedOnto": {
-        "item": "weapon"
+        "item": "weapon",
+        "restriction": "without-holy-rune"
       }
     }
   },

@@ -1,5 +1,5 @@
-import { ArmorCategory, ArmorGroup, ContentKind, DamageType } from '@pioneer/rules/sdk';
-import type { ArmorItemCategory, EtchingRestriction } from '@pioneer/rules/sdk';
+import { ArmorCategory, ArmorGroup, ContentKind, DamageType, entrySlug, Slug } from '@pioneer/rules/sdk';
+import type { ArmorItemCategory, EntrySlug, EtchingRestriction } from '@pioneer/rules/sdk';
 
 import type { ItemEntry } from './inventory-content';
 
@@ -63,14 +63,26 @@ const ARMOR_CHECKS: Readonly<Record<string, (armor: ArmorEntry) => boolean>> = {
     isCategory(armor, ArmorCategory.Light, ArmorCategory.Medium) && !isMetal(armor),
 };
 
+/** "without-unholy-rune": the item must lack the property rune whose entry slug is `rune:unholy`. */
+const WITHOUT_RUNE = /^without-(?<rune>[a-z0-9-]+)-rune$/u;
+
 /**
  * Whether `entry` meets a property rune's etching restriction, for each restriction the content importer writes:
  * melee or thrown weapons, weapons by damage type (versatile traits count), a clan dagger, and armour by category
- * and metal (chain, composite and plate). A restriction with no check here is not refused.
+ * and metal (chain, composite and plate), and a weapon without a given rune (`without-<rune>-rune`, read against
+ * `etched`, the entry slugs of the property runes already on it). A restriction with no check here is not refused.
  */
-export function meetsRestriction(entry: ItemEntry | undefined, restriction: EtchingRestriction | undefined): boolean {
+export function meetsRestriction(
+  entry: ItemEntry | undefined,
+  restriction: EtchingRestriction | undefined,
+  etched: ReadonlySet<EntrySlug> = new Set(),
+): boolean {
   if (restriction === undefined) {
     return true;
+  }
+  const lacked = WITHOUT_RUNE.exec(restriction)?.groups?.['rune'];
+  if (lacked !== undefined) {
+    return !etched.has(entrySlug(ContentKind.Rune, Slug.parse(lacked)));
   }
   if (entry?.kind === ContentKind.Weapon) {
     return WEAPON_CHECKS[restriction]?.(entry) ?? true;

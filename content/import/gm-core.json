@@ -9650,12 +9650,6 @@
       "foundry": "Compendium.pf2e.equipment-srd.Item.DH0kB9Wbr5pDeunX",
       "gaps": [
         {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "usage",
-          "raw": "etched-onto-weapon-wo-holy-rune"
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[conditionitems]"
         }
@@ -9727,12 +9721,6 @@
       "slug": "rune:unholy",
       "foundry": "Compendium.pf2e.equipment-srd.Item.gmMrJREf4JSHd2dZ",
       "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "usage",
-          "raw": "etched-onto-weapon-wo-unholy-rune"
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[conditionitems]"
