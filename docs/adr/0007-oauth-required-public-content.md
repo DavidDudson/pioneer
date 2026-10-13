@@ -24,6 +24,10 @@ All Paizo material stays reachable without an account:
 
 The account gates our own features (saving, homebrew, campaigns), never the content.
 
+A homebrew pack is `private` (its owner), `campaign` (its owner and members of campaigns that enable it) or
+`public` (every signed-in user); new packs are private. Only the owner changes it, and a pack a campaign still
+enables cannot go private. See [ADR-0055](0055-campaign-packs-and-the-enablement-port.md).
+
 ## Consequences
 
 - Every user-owned table has an owner and authorisation checks in application services. Routes get the acting

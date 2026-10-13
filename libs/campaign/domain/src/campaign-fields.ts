@@ -61,3 +61,14 @@ const LEVEL_MAX = 20;
 /** A character's level, 1-20, as the character context reports it. */
 export const PartyCharacterLevel = z.int().min(LEVEL_MIN).max(LEVEL_MAX).brand<'Level'>();
 export type PartyCharacterLevel = z.infer<typeof PartyCharacterLevel>;
+
+/**
+ * A content pack, as the rules context names it. Same brand as there, so ids pass between the contexts at the
+ * composition root unchanged; the campaign context only refers to packs.
+ */
+export const EnabledPackId = Uuid.brand<'ContentPackId'>();
+export type EnabledPackId = z.infer<typeof EnabledPackId>;
+
+/** Row id of one pack enabled in a campaign; the audit log keys every row by an `id`. */
+export const CampaignPackId = Uuid.brand<'CampaignPackId'>();
+export type CampaignPackId = z.infer<typeof CampaignPackId>;

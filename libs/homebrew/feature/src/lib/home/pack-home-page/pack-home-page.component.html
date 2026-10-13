@@ -39,6 +39,19 @@
             </fr-description-list>
           </fr-stack>
         </fr-surface>
+        <fr-surface>
+          <fr-stack gap="sm">
+            <fr-select-field
+              [label]="'homebrew.pack.visibilityLabel' | transloco"
+              [error]="visibilityError()"
+              [options]="visibilityOptions()"
+              [value]="chosen() ?? pack.visibility"
+              [disabled]="saving()"
+              (valueChange)="chooseVisibility(pack, $event)"
+            />
+            <fr-text>{{ 'homebrew.pack.visibilityHint' | transloco }}</fr-text>
+          </fr-stack>
+        </fr-surface>
       </ng-template>
     </fr-async-region>
   </fr-stack>

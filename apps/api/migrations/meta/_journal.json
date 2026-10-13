@@ -127,6 +127,13 @@
       "when": 1791883581398,
       "tag": "0017_character_feat_displays",
       "breakpoints": true
+    },
+    {
+      "idx": 18,
+      "version": "7",
+      "when": 1791897547434,
+      "tag": "0018_campaign_packs",
+      "breakpoints": true
     }
   ]
 }

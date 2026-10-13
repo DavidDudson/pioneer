@@ -30,6 +30,11 @@
     "updated": "Updated",
     "visibilityPrivate": "Private: only you can see it",
     "visibilityCampaign": "Campaign: members of campaigns that enable it",
-    "visibilityPublic": "Public: everyone signed in"
+    "visibilityPublic": "Public: everyone signed in",
+    "visibilityLabel": "Who can see this pack",
+    "visibilityHint": "Only you can change this. Official packs are always public.",
+    "visibilityForbidden": "Only the pack’s owner can change who can see it.",
+    "visibilityFailed": "Could not change who can see this pack. Try again.",
+    "campaignsEnableIt": "These campaigns still enable this pack: {campaigns}. Remove it from them before making it private."
   }
 }

@@ -91,6 +91,11 @@ export class HomebrewPack {
     });
   }
 
+  /** The same pack with another visibility, stamped as changed at `now`. */
+  public withVisibility(visibility: PackVisibility, now: Temporal.Instant): HomebrewPack {
+    return new HomebrewPack({ ...this.toProps(), visibility, updatedAt: now });
+  }
+
   private toProps(): HomebrewPackProps {
     return {
       id: this.id,

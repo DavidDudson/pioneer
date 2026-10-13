@@ -4,7 +4,9 @@ import {
   HomebrewPackService,
   InMemoryAuthorDirectory,
   InMemoryHomebrewPackRepository,
+  InMemoryPackEnablementDirectory,
 } from '@pioneer/homebrew/application';
+import { ContentPackId } from '@pioneer/rules/sdk';
 import { fixedClock, newId, UserId } from '@pioneer/shared/kernel';
 import type { Problem } from '@pioneer/shared/kernel';
 import { problemHandler } from '@pioneer/shared/server';
@@ -17,11 +19,12 @@ import { homebrewRoutes } from './homebrew-routes';
 const amiri = UserId.parse(newId());
 const ezren = UserId.parse(newId());
 
-function app(): AnyElysia {
+function app(enablement = new InMemoryPackEnablementDirectory()): AnyElysia {
   const service = new HomebrewPackService(
     {
       packs: new InMemoryHomebrewPackRepository(),
       authors: new InMemoryAuthorDirectory().name(amiri, 'Amiri').name(ezren, 'Ezren'),
+      enablement,
     },
     fixedClock('2026-10-10T10:00:00Z'),
   );
@@ -54,6 +57,14 @@ interface PackJson {
 }
 
 const feats = { title: 'Amiri feats', slug: 'amiri-feats' };
+const shareWithAll = { visibility: 'public' };
+
+async function makePack(api: AnyElysia): Promise<PackJson> {
+  const response = await api.handle(request('POST', '/homebrew/packs', { body: feats }));
+  return (await response.json()) as PackJson;
+}
+
+const visibilityPath = (pack: PackJson): string => `/homebrew/packs/${pack.id}/visibility`;
 
 describe('homebrew routes', () => {
   test('create, then get and list it', async () => {
@@ -99,7 +110,94 @@ describe('homebrew routes', () => {
       api.handle(request('GET', '/homebrew/packs', { as: anonymous })),
       api.handle(request('GET', `/homebrew/packs/${id}`, { as: anonymous })),
       api.handle(request('POST', '/homebrew/packs', { as: anonymous, body: feats })),
+      api.handle(request('PATCH', `/homebrew/packs/${id}/visibility`, { as: anonymous, body: shareWithAll })),
     ]);
-    expect(responses.map(({ status }) => status)).toStrictEqual([401, 401, 401]);
+    expect(responses.map(({ status }) => status)).toStrictEqual([401, 401, 401, 401]);
+  });
+
+  describe('PATCH /homebrew/packs/:id/visibility', () => {
+    test('the owner changes it, and a stranger then reads the pack', async () => {
+      const api = app();
+      const pack = await makePack(api);
+      const changed = await api.handle(request('PATCH', visibilityPath(pack), { body: shareWithAll }));
+      expect(changed.status).toBe(200);
+      expect(((await changed.json()) as PackJson).visibility).toBe('public');
+      const read = await api.handle(request('GET', `/homebrew/packs/${pack.id}`, { as: ezren }));
+      expect(read.status).toBe(200);
+    });
+
+    test('someone who can read the pack but does not own it is 403', async () => {
+      const api = app();
+      const pack = await makePack(api);
+      await api.handle(request('PATCH', visibilityPath(pack), { body: shareWithAll }));
+      const response = await api.handle(
+        request('PATCH', visibilityPath(pack), {
+          as: ezren,
+          body: { visibility: 'private' },
+        }),
+      );
+      expect(response.status).toBe(403);
+    });
+
+    test('a member of a campaign that enables the pack can read it but not change it: 403', async () => {
+      const enablement = new InMemoryPackEnablementDirectory();
+      const api = app(enablement);
+      const pack = await makePack(api);
+      await api.handle(request('PATCH', visibilityPath(pack), { body: { visibility: 'campaign' } }));
+      enablement.enable(ContentPackId.parse(pack.id), 'Kingmaker', [ezren]);
+      const response = await api.handle(
+        request('PATCH', visibilityPath(pack), { as: ezren, body: { visibility: 'public' } }),
+      );
+      expect(response.status).toBe(403);
+    });
+
+    test('someone who cannot read the pack, and a missing pack, are both 404', async () => {
+      const api = app();
+      const pack = await makePack(api);
+      const hidden = await api.handle(
+        request('PATCH', visibilityPath(pack), {
+          as: ezren,
+          body: shareWithAll,
+        }),
+      );
+      const unknown = ContentPackId.parse(newId());
+      const missing = await api.handle(
+        request('PATCH', `/homebrew/packs/${unknown}/visibility`, { body: shareWithAll }),
+      );
+      expect([hidden.status, missing.status]).toStrictEqual([404, 404]);
+    });
+
+    test('private while a campaign enables the pack is 409, naming the campaign', async () => {
+      const enablement = new InMemoryPackEnablementDirectory();
+      const api = app(enablement);
+      const pack = await makePack(api);
+      await api.handle(
+        request('PATCH', visibilityPath(pack), {
+          body: { visibility: 'campaign' },
+        }),
+      );
+      enablement.enable(ContentPackId.parse(pack.id), 'Kingmaker', [ezren]);
+      const response = await api.handle(
+        request('PATCH', visibilityPath(pack), {
+          body: { visibility: 'private' },
+        }),
+      );
+      expect(response.status).toBe(409);
+      expect(((await response.json()) as Problem).message).toStrictEqual({
+        key: 'homebrew.pack.campaignsEnableIt',
+        params: { campaigns: 'Kingmaker' },
+      });
+    });
+
+    test('an unknown visibility is 422', async () => {
+      const api = app();
+      const pack = await makePack(api);
+      const response = await api.handle(
+        request('PATCH', visibilityPath(pack), {
+          body: { visibility: 'everyone' },
+        }),
+      );
+      expect(response.status).toBe(422);
+    });
   });
 });

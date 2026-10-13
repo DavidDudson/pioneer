@@ -2,9 +2,10 @@ import { afterAll, beforeAll, describe, expect, test } from 'bun:test';
 
 import { fixtureOwnerId, HomebrewPackBuilder } from '@pioneer/homebrew/domain/testing';
 import { seedContentPacks } from '@pioneer/rules/infrastructure';
-import { ContentText, contentPackId, PackId, packContentsFromFiles } from '@pioneer/rules/sdk';
+import { ContentText, contentPackId, PackId, packContentsFromFiles, PackVisibility } from '@pioneer/rules/sdk';
 import type { PackContents, PackContentsLoader } from '@pioneer/rules/sdk';
 import { fixedClock, newId, UserId } from '@pioneer/shared/kernel';
+import { rejection } from '@pioneer/shared/kernel/testing';
 import { createTestDatabase, QueryRecorder, testDatabaseUrl, unindexedQueries } from '@pioneer/shared/server/testing';
 import type { TestDatabase } from '@pioneer/shared/server/testing';
 import { sql } from 'drizzle-orm';
@@ -81,9 +82,56 @@ describe.skipIf(adminUrl === undefined)('DrizzleHomebrewPackRepository (postgres
     expect(owned.map(({ slug }) => slug)).toStrictEqual([PackId.parse('list-newer'), PackId.parse('list-older')]);
   });
 
+  test('updateVisibility stores the visibility and time, and nothing else', async () => {
+    const pack = new HomebrewPackBuilder().slug('visibility-change').build();
+    await repository.insert(pack);
+    const shared = pack.withVisibility(PackVisibility.Campaign, pack.updatedAt.add({ minutes: 1 }));
+    expect(await repository.updateVisibility(shared)).toStrictEqual(shared);
+    expect(await repository.findById(pack.id)).toStrictEqual(shared);
+  });
+
+  test('updateVisibility finds no pack that does not exist', async () => {
+    const missing = new HomebrewPackBuilder().slug('never-inserted').build();
+    expect(
+      await repository.updateVisibility(missing.withVisibility(PackVisibility.Public, missing.updatedAt)),
+    ).toBeUndefined();
+  });
+
+  test('updateVisibility leaves an official pack public', async () => {
+    const official = contentPackId(PackId.parse('official-pack'));
+    const claim = new HomebrewPackBuilder().slug('official-pack').build();
+    expect(
+      await repository.updateVisibility(claim.withVisibility(PackVisibility.Private, claim.updatedAt)),
+    ).toBeUndefined();
+    const stored = await database.db.execute(sql`select visibility from content_packs where id = ${official}`);
+    expect(stored[0]).toMatchObject({ visibility: PackVisibility.Public });
+  });
+
+  test('updateVisibility holds the pack locked while it checks, and stores nothing if the check throws', async () => {
+    const pack = new HomebrewPackBuilder().slug('visibility-lock').build();
+    await repository.insert(pack);
+    const shared = pack.withVisibility(PackVisibility.Campaign, pack.updatedAt.add({ minutes: 1 }));
+    const refusal = new Error('refused');
+    let lockedWhileChecking = false;
+    const outcome = repository.updateVisibility(shared, async () => {
+      const probe = sql`select id from content_packs where id = ${pack.id} for update nowait`;
+      lockedWhileChecking = await database.db
+        .transaction(async (tx) => tx.execute(probe))
+        .then(
+          () => false,
+          () => true,
+        );
+      throw refusal;
+    });
+    expect(await rejection(outcome)).toBe(refusal);
+    expect(lockedWhileChecking).toBe(true);
+    expect(await repository.findById(pack.id)).toStrictEqual(pack);
+  });
+
   test('every lookup is served by an index', async () => {
     await repository.listOwnedBy(ezren);
     await repository.findById(contentPackId(PackId.parse('amiri-feats')));
+    await repository.updateVisibility(new HomebrewPackBuilder().slug('amiri-feats').build());
     expect(await unindexedQueries(database.db, recorder)).toStrictEqual([]);
   });
 });

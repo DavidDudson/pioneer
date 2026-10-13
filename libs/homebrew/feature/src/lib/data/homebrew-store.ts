@@ -2,6 +2,7 @@ import { inject, Injectable, signal } from '@angular/core';
 import { HomebrewContract } from '@pioneer/homebrew/domain';
 import type { CreateHomebrewPackBody, HomebrewPack } from '@pioneer/homebrew/domain';
 import { ContentPackId } from '@pioneer/rules/sdk';
+import type { PackVisibility } from '@pioneer/rules/sdk';
 import { ApiClient } from '@pioneer/shared/web';
 import { injectQuery, QueryClient } from '@tanstack/angular-query-experimental';
 
@@ -54,6 +55,13 @@ export class HomebrewStore {
     const pack = await this.#api.call(HomebrewContract.create, { params: {}, body });
     this.#client.setQueryData(homebrewKeys.detail(pack.id), pack);
     // Stale, not refetched now: the list refetches when it is next shown, so navigation isn't held up.
+    await this.#client.invalidateQueries({ queryKey: homebrewKeys.list(), refetchType: 'none' });
+    return pack;
+  }
+  /** Change who may read the pack. A refusal (409 while campaigns enable it) is thrown for the caller to show. */
+  public async setVisibility(id: ContentPackId, visibility: PackVisibility): Promise<HomebrewPack> {
+    const pack = await this.#api.call(HomebrewContract.setVisibility, { params: { id }, body: { visibility } });
+    this.#client.setQueryData(homebrewKeys.detail(pack.id), pack);
     await this.#client.invalidateQueries({ queryKey: homebrewKeys.list(), refetchType: 'none' });
     return pack;
   }

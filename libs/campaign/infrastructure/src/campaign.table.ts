@@ -4,8 +4,10 @@ import type {
   CampaignInviteId,
   CampaignMemberId,
   CampaignName,
+  CampaignPackId,
   CampaignRole,
   CharacterId,
+  EnabledPackId,
   InviteTokenHash,
 } from '@pioneer/campaign/domain';
 import type { UserId, Version } from '@pioneer/shared/kernel';
@@ -117,5 +119,29 @@ export const campaignCharacters = pgTable(
     index('campaign_characters_campaign_attached_at_idx').on(table.campaignId, table.attachedAt, table.id),
     // Serves the cascade when a member is removed or leaves.
     index('campaign_characters_member_idx').on(table.memberId),
+  ],
+);
+
+/**
+ * The content packs a campaign has enabled, one row each. The audit log keys rows by `id`, so an enablement has its
+ * own id. The foreign key on `pack_id` (to content_packs, on delete cascade) is in the migration, as the rules
+ * context's tables are outside this one's boundary.
+ */
+export const campaignPacks = pgTable(
+  'campaign_packs',
+  {
+    id: uuid().$type<CampaignPackId>().primaryKey(),
+    campaignId: uuid()
+      .$type<CampaignId>()
+      .notNull()
+      .references(() => campaigns.id, { onDelete: 'cascade' }),
+    packId: uuid().$type<EnabledPackId>().notNull(),
+    enabledAt: timestamp({ withTimezone: true, mode: 'string' }).notNull(),
+  },
+  (table) => [
+    // A pack is enabled in a campaign once; also serves a campaign's packs and the cascade when it is deleted.
+    uniqueIndex('campaign_packs_campaign_pack_idx').on(table.campaignId, table.packId),
+    // The campaigns enabling a pack; also serves the cascade when the pack is deleted.
+    index('campaign_packs_pack_idx').on(table.packId),
   ],
 );
