@@ -57,6 +57,7 @@ describe('usageOf', () => {
     ['implanted', { type: 'implanted' }],
     ['carried', { type: 'carried' }],
     ['other', { type: 'other' }],
+    ['bonded', { type: 'other' }],
   ] as const)('%s', (usage, expected) => {
     const log = freshLog();
 
@@ -64,7 +65,7 @@ describe('usageOf', () => {
     expect(log.gaps).toEqual([]);
   });
 
-  test.each(['bonded', 'held-in-one-or-two-hands', 'touched'])('%s is reported', (usage) => {
+  test.each(['held-in-one-or-two-hands', 'touched'])('%s is reported', (usage) => {
     const log = freshLog();
 
     expect(usageOf(usage, log)).toBeUndefined();

@@ -3703,6 +3703,10 @@
       },
       "bulk": "light",
       "category": "elixir",
+      "damage": {
+        "formula": "7d6+18",
+        "kind": "healing"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -3794,6 +3798,10 @@
       },
       "bulk": "light",
       "category": "elixir",
+      "damage": {
+        "formula": "3d6+6",
+        "kind": "healing"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -3885,6 +3893,10 @@
       },
       "bulk": "light",
       "category": "elixir",
+      "damage": {
+        "formula": "8d6+21",
+        "kind": "healing"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -3976,6 +3988,10 @@
       },
       "bulk": "light",
       "category": "elixir",
+      "damage": {
+        "formula": "1d6",
+        "kind": "healing"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -4067,6 +4083,10 @@
       },
       "bulk": "light",
       "category": "elixir",
+      "damage": {
+        "formula": "5d6+12",
+        "kind": "healing"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -4158,6 +4178,10 @@
       },
       "bulk": "light",
       "category": "elixir",
+      "damage": {
+        "formula": "10d6+27",
+        "kind": "healing"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -9582,6 +9606,16 @@
         }
       },
       "bulk": "light",
+      "activations": [
+        {
+          "slug": "magic-wand-1st-rank-spell",
+          "name": "Magic Wand (1st-Rank Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
       "category": "wand",
       "kept": true,
       "usage": {
@@ -9699,6 +9733,16 @@
         }
       },
       "bulk": "light",
+      "activations": [
+        {
+          "slug": "magic-wand-2nd-rank-spell",
+          "name": "Magic Wand (2nd-Rank Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
       "category": "wand",
       "kept": true,
       "usage": {
@@ -9816,6 +9860,16 @@
         }
       },
       "bulk": "light",
+      "activations": [
+        {
+          "slug": "magic-wand-3rd-rank-spell",
+          "name": "Magic Wand (3rd-Rank Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
       "category": "wand",
       "kept": true,
       "usage": {
@@ -9933,6 +9987,16 @@
         }
       },
       "bulk": "light",
+      "activations": [
+        {
+          "slug": "magic-wand-4th-rank-spell",
+          "name": "Magic Wand (4th-Rank Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
       "category": "wand",
       "kept": true,
       "usage": {
@@ -10050,6 +10114,16 @@
         }
       },
       "bulk": "light",
+      "activations": [
+        {
+          "slug": "magic-wand-5th-rank-spell",
+          "name": "Magic Wand (5th-Rank Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
       "category": "wand",
       "kept": true,
       "usage": {
@@ -10167,6 +10241,16 @@
         }
       },
       "bulk": "light",
+      "activations": [
+        {
+          "slug": "magic-wand-6th-rank-spell",
+          "name": "Magic Wand (6th-Rank Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
       "category": "wand",
       "kept": true,
       "usage": {
@@ -10284,6 +10368,16 @@
         }
       },
       "bulk": "light",
+      "activations": [
+        {
+          "slug": "magic-wand-7th-rank-spell",
+          "name": "Magic Wand (7th-Rank Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
       "category": "wand",
       "kept": true,
       "usage": {
@@ -10401,6 +10495,16 @@
         }
       },
       "bulk": "light",
+      "activations": [
+        {
+          "slug": "magic-wand-8th-rank-spell",
+          "name": "Magic Wand (8th-Rank Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
       "category": "wand",
       "kept": true,
       "usage": {
@@ -10518,6 +10622,16 @@
         }
       },
       "bulk": "light",
+      "activations": [
+        {
+          "slug": "magic-wand-9th-rank-spell",
+          "name": "Magic Wand (9th-Rank Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
       "category": "wand",
       "kept": true,
       "usage": {
@@ -20950,6 +21064,16 @@
         }
       },
       "bulk": "light",
+      "activations": [
+        {
+          "slug": "wand-of-shardstorm-1st-rank-spell",
+          "name": "Wand of Shardstorm (1st-Rank Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
       "category": "wand",
       "kept": true,
       "spell": {
@@ -21085,6 +21209,16 @@
         }
       },
       "bulk": "light",
+      "activations": [
+        {
+          "slug": "wand-of-shardstorm-3rd-rank-spell",
+          "name": "Wand of Shardstorm (3rd-Rank Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
       "category": "wand",
       "kept": true,
       "spell": {
@@ -21220,6 +21354,16 @@
         }
       },
       "bulk": "light",
+      "activations": [
+        {
+          "slug": "wand-of-shardstorm-5th-rank-spell",
+          "name": "Wand of Shardstorm (5th-Rank Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
       "category": "wand",
       "kept": true,
       "spell": {
@@ -21355,6 +21499,16 @@
         }
       },
       "bulk": "light",
+      "activations": [
+        {
+          "slug": "wand-of-shardstorm-7th-rank-spell",
+          "name": "Wand of Shardstorm (7th-Rank Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
       "category": "wand",
       "kept": true,
       "spell": {

@@ -80,8 +80,14 @@ function usesOf(uses: FoundryUses): object {
   return setFields({ uses: max > 1 ? max : undefined, kept: uses?.autoDestroy === false ? true : undefined });
 }
 
-/** The damage or healing it rolls; a type Pioneer lacks (`untyped`) is reported and left out. */
+/** Foundry's name for damage or healing of no type. */
+const UNTYPED = 'untyped';
+
+/** The damage or healing it rolls; `untyped` has no type, and any other type Pioneer lacks is reported and left out. */
 function damageOf(damage: FoundryConsumableDamage, log: GapLog): object | undefined {
+  if (damage.type === UNTYPED) {
+    return { formula: fromFoundryFormula(damage.formula), kind: damage.kind };
+  }
   const damageType = DamageTypeSchema.safeParse(damage.type);
   if (!damageType.success) {
     report(log, { reason: KindDataGapReason.UnmappedValue, field: 'damage.type', raw: damage.type });

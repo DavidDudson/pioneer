@@ -3597,6 +3597,46 @@
     }
   },
   {
+    "id": "2b486adc-6f68-5f83-9373-b0dc41d99c37",
+    "pack": "gm-core",
+    "kind": "effect",
+    "slug": "effect:effect-powder-burst",
+    "name": "Effect: Powder Burst",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "-2 status penalty to Perception checks and saves against mental effects."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.6OpwHz0f55wPawHI"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 4,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
     "id": "8f9a1523-b62d-54c5-a327-7e9527a804ba",
     "pack": "gm-core",
     "kind": "effect",

@@ -34,10 +34,13 @@ export const ConsumableCategory = {
 } as const;
 export type ConsumableCategory = ValueOf<typeof ConsumableCategory>;
 
-/** The damage or healing using it rolls ("1d8 vitality healing", a minor healing potion). */
+/**
+ * The damage or healing using it rolls ("1d8 vitality healing", a minor healing potion). With no `damageType` it is
+ * untyped (an Elixir of Life's Hit Points).
+ */
 const ConsumableDamage = z.strictObject({
   formula: DamageFormula,
-  damageType: DamageTypeSchema,
+  damageType: DamageTypeSchema.optional(),
   kind: z.enum(DamageKind),
 });
 

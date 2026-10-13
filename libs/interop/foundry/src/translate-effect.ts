@@ -29,6 +29,7 @@ const PACK_CATEGORIES: ReadonlyMap<string, EffectCategory> = new Map([
   ['equipment-effects', EffectCategory.Equipment],
   ['other-effects', EffectCategory.Other],
   ['campaign-effects', EffectCategory.Other],
+  ['bestiary-effects', EffectCategory.Other],
 ]);
 
 /** Foundry's plural duration units, by the unit each is. */

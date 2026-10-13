@@ -119,12 +119,13 @@ function ammunitionOf(ammo: FoundryWeaponSystem['ammo']): object | undefined {
 
 /**
  * A bomb's attack bonus. Foundry also writes a specific weapon's potency there; one that matches it says nothing,
- * and one that differs from a potency rune is reported.
+ * and one below it says nothing either, as item bonuses to the same roll do not stack. One above a potency rune is
+ * reported.
  */
 function itemBonusOf({ bonus, runes }: FoundryWeaponSystem, log: GapLog): number | undefined {
   const value = bonus?.value ?? 0;
   const potency = runes?.potency ?? 0;
-  if (value <= 0 || value === potency) {
+  if (value <= 0 || value <= potency) {
     return undefined;
   }
   if (potency > 0) {
