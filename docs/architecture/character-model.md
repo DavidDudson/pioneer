@@ -39,9 +39,10 @@ interface PlayState {
   effects: readonly ActiveEffect[]; // spell/feat effects, temporary boons: source, lifetime, uses left
   resources: Record<ResourceKey, number>; // focus points, hero points, spell slots used, item uses
   toggles: Record<RollOptionKey, boolean>; // RollOption toggles (e.g. rage, Double Slice second attack)
-  dying: number;
+  dying: number; // 0 to 4; reaching 4 less doomed is death (#344)
   wounded: number;
   doomed: number;
+  dead: boolean; // recorded when dying reaches 4 less doomed; a later change to either never undoes it
 }
 ```
 
@@ -56,6 +57,16 @@ stored total, is rejected. `inventory` holds items and coins ([Inventory](#inven
 damage (`currentHitPoints`), so a level or Constitution change moves them with the maximum. Play state is saved
 apart from the build with its own revision (`PATCH /characters/:id/play`, `PlayCommand`), so a play edit never
 changes the character's version and a build save never touches it.
+
+The death track (`dying`, `wounded`, `doomed`, `dead`) sits beside `hp` and follows the same commands
+([#344](https://github.com/DavidDudson/pioneer/issues/344)). Damage that takes a character to 0 Hit Points gains
+dying 1 plus wounded (dying 2 plus wounded on a critical hit); damage that gets through at 0 raises dying by 1 (2 on a
+critical hit) without wounded again. A recovery check is a flat check against DC 10 plus dying, rolled on the sheet's
+roll card: the command carries its degree, which lowers dying by 2 or 1 on a success or raises it by 1 or 2 on a failure.
+Losing dying, by that check or by Hit Points back above 0, gains wounded 1 (or one more). Death is reached at dying 4
+less doomed and recorded in `dead`, which only an explicit `setDying` correction clears. `setWounded` and `setDoomed`
+set the other two conditions by hand, for an effect that gives doomed or a mistake at the table. None of these needs a
+maximum Hit Points value, so a character without a class can still carry the conditions.
 
 ### Schema versions
 
