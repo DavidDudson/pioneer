@@ -8,6 +8,17 @@ import { ProficiencyBonusTable, ProficiencySchema } from './proficiency';
 import { RuleElementKey, ruleElementBase, RuleSlug } from './rule-element-base';
 import { Selector } from './selector';
 
+/**
+ * A selector the player's pick completes: the pick a `ChoiceSet` stored under `choice`, after `prefix` and a colon
+ * (`{ choice: 'skill', prefix: 'skill' }` with Athletics picked is `skill:athletics`). Foundry's
+ * `system.skills.{item|flags.system.rulesSelections.skill}.rank` (ADR-0053).
+ */
+export const ChoiceSelector = z.strictObject({
+  choice: RuleSlug,
+  prefix: Selector,
+});
+export type ChoiceSelector = z.infer<typeof ChoiceSelector>;
+
 /** A rank an element raises to. Untrained is every statistic's floor, so raising to it does nothing. */
 export const RaisedRank = ProficiencySchema.exclude(['Untrained']);
 export type RaisedRank = z.infer<typeof RaisedRank>;
@@ -19,7 +30,7 @@ export type RaisedRank = z.infer<typeof RaisedRank>;
  */
 export const ProficiencyElement = z.strictObject({
   key: z.literal(RuleElementKey.Proficiency),
-  selector: Selector,
+  selector: z.union([Selector, ChoiceSelector]),
   rank: RaisedRank,
   ...ruleElementBase,
 });

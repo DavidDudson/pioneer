@@ -1,5 +1,5 @@
 import { RuleElementKey, slugName } from '@pioneer/rules/sdk';
-import type { ContentKind } from '@pioneer/rules/sdk';
+import type { ChoiceSelector, ContentKind, Selector } from '@pioneer/rules/sdk';
 
 import type { ImportedEntry, ImportTranslation } from '../translate-import';
 import { entryOf } from './kind-fixtures';
@@ -34,10 +34,15 @@ export function slugIn(translation: ImportTranslation, name: string): string {
   return String(entryOf(translation, name)?.envelope.slug);
 }
 
+/** A choice-driven selector as `<prefix>:<choice>`, so a test reads it beside the fixed ones. */
+function selectorText(selector: Selector | ChoiceSelector): string {
+  return typeof selector === 'string' ? selector : `${selector.prefix}:<${selector.choice}>`;
+}
+
 /** Each `Proficiency` element as its selector and rank. */
 export function ranksIn(translation: ImportTranslation, name: string): string[][] {
   return (entryOf(translation, name)?.envelope.rules ?? []).flatMap((rule) =>
-    rule.key === RuleElementKey.Proficiency ? [[String(rule.selector), rule.rank]] : [],
+    rule.key === RuleElementKey.Proficiency ? [[selectorText(rule.selector), rule.rank]] : [],
   );
 }
 

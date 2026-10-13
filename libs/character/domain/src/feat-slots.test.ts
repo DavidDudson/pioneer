@@ -58,10 +58,13 @@ describe('featSlots', () => {
   test('offers the feats of its kind up to its own level, however high the character is', () => {
     const atTen = fighter(10);
     expect(Object.keys(offered(atTen, LEVEL_1)).toSorted()).toEqual([
+      'acrobatic-flourish',
       'brawn',
+      'eagle-eye',
       'keen-eye',
       'power-attack',
       'reactive-shield',
+      'skill-training',
       'sudden-charge',
     ]);
     expect(Object.keys(offered(atTen, LEVEL_2))).toContain('lunge');
@@ -70,12 +73,31 @@ describe('featSlots', () => {
 
   test('reads each prerequisite as met, not met, or unknown when its text did not parse', () => {
     expect(offered(fighter(), LEVEL_1)).toEqual({
+      'acrobatic-flourish': PrerequisiteStatus.Unmet,
       brawn: PrerequisiteStatus.Unmet,
-      'keen-eye': PrerequisiteStatus.Unknown,
+      'eagle-eye': PrerequisiteStatus.Unmet,
+      'keen-eye': PrerequisiteStatus.Met,
       'power-attack': PrerequisiteStatus.Met,
       'reactive-shield': PrerequisiteStatus.Unknown,
+      'skill-training': PrerequisiteStatus.Met,
       'sudden-charge': PrerequisiteStatus.Unmet,
     });
+  });
+
+  test('meets a skill rank a feat raises on the skill its ChoiceSet stored, at the next slot', () => {
+    const training = idOf('skill-training');
+    const trained = fighter(2).picking(LEVEL_1, training).picking(`${training}:0`, 'acrobatics');
+    expect(offered(trained, LEVEL_2)['acrobatic-flourish']).toBe(PrerequisiteStatus.Met);
+    expect(offered(trained, LEVEL_1)['acrobatic-flourish']).toBe(PrerequisiteStatus.Unmet);
+    const otherSkill = fighter(2).picking(LEVEL_1, training).picking(`${training}:0`, 'athletics');
+    expect(offered(otherSkill, LEVEL_2)['acrobatic-flourish']).toBe(PrerequisiteStatus.Unmet);
+    const unanswered = fighter(2).picking(LEVEL_1, training);
+    expect(offered(unanswered, LEVEL_2)['acrobatic-flourish']).toBe(PrerequisiteStatus.Unmet);
+  });
+
+  test('meets a Perception rank at the level a feature raises it, not before', () => {
+    expect(offered(fighter(8), BONUS)['eagle-eye']).toBe(PrerequisiteStatus.Met);
+    expect(offered(fighter(8), LEVEL_4)['eagle-eye']).toBe(PrerequisiteStatus.Unmet);
   });
 
   test('meets a skill rank once a skill increase at or below the slot reaches it', () => {

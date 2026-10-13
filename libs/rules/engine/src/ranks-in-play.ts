@@ -26,6 +26,10 @@ interface Raise {
 /** A `Proficiency` element raises its selector; a `SpellcastingEntry` makes the character trained in spellcasting. */
 function raiseOf(element: RuleElement): Raise | undefined {
   if (element.key === RuleElementKey.Proficiency) {
+    // A selector still waiting on its pick raises nothing (ADR-0053); `resolvedRules` replaces the ones with a pick.
+    if (typeof element.selector !== 'string') {
+      return undefined;
+    }
     return { selector: element.selector, rank: element.rank };
   }
   if (element.key === RuleElementKey.SpellcastingEntry) {

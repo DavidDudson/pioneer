@@ -57,6 +57,7 @@ Accepted. To change a decision, add a new ADR that supersedes the old one; do no
 | [0050](0050-focus-spells-are-rule-elements.md)                | Focus spells are a rule element, and the focus pool follows from them             |
 | [0051](0051-spell-damage-reads-its-spellcasting-entry.md)     | A spell's damage may read the spellcasting entry that casts it                    |
 | [0052](0052-character-scoped-display-preferences.md)          | Display preferences scoped to a character live beside it, per user                |
+| [0053](0053-proficiency-selector-follows-a-choice.md)         | A `Proficiency` selector can follow a `ChoiceSet` pick                            |
 
 Template:
 

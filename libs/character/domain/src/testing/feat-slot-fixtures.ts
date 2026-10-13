@@ -6,14 +6,17 @@ const builder = new ContentPackBuilder().withId('feat-slots');
 
 /** The fixture feats, by name. */
 export type FeatSlotFixture =
+  | 'acrobatic-flourish'
   | 'assurance'
   | 'brawn'
   | 'brutish-shove'
+  | 'eagle-eye'
   | 'keen-eye'
   | 'knockdown'
   | 'lunge'
   | 'power-attack'
   | 'reactive-shield'
+  | 'skill-training'
   | 'sudden-charge';
 
 /** The id of the fixture feat `name`. */
@@ -41,6 +44,8 @@ function classFeatSlot(level: number): object[] {
 }
 
 const FIGHTER = ['fighter'];
+/** A proficiency rank by number, as roll options write it: master (3). */
+const MASTER_RANK = 3;
 /** The levels of the fixture fighter's later feat slots: its 4th-level class feat, and the feature it gains at 8th. */
 const FOURTH = 4;
 const EIGHTH = 8;
@@ -92,6 +97,28 @@ export const FEAT_SLOT_FIXTURES: ContentPack = builder
   .withFeat('lunge', { level: 2, traits: FIGHTER })
   .withFeat('knockdown', { level: 4, traits: FIGHTER })
   .withFeat('assurance')
+  .withFeat('skill-training', {
+    traits: FIGHTER,
+    rules: [
+      {
+        key: 'ChoiceSet',
+        flag: 'skill',
+        choices: [
+          { value: 'acrobatics', label: 'Acrobatics' },
+          { value: 'athletics', label: 'Athletics' },
+        ],
+      },
+      { key: 'Proficiency', selector: { choice: 'skill', prefix: 'skill' }, rank: 'trained' },
+    ],
+  })
+  .withFeat('acrobatic-flourish', {
+    traits: FIGHTER,
+    data: { prerequisitePredicate: [{ gte: ['skill:acrobatics:rank', 1] }] },
+  })
+  .withFeat('eagle-eye', {
+    traits: FIGHTER,
+    data: { prerequisitePredicate: [{ gte: ['perception:rank', MASTER_RANK] }] },
+  })
   .withClassFeature('bonus-feat', {
     rules: [
       {
@@ -102,5 +129,10 @@ export const FEAT_SLOT_FIXTURES: ContentPack = builder
       { key: 'GrantItem', item: { choice: 'bonus-feat' } },
     ],
   })
-  .withClassFeature('veteran', { rules: [{ key: 'GrantItem', item: builder.idOf(ContentKind.Feat, 'power-attack') }] })
+  .withClassFeature('veteran', {
+    rules: [
+      { key: 'GrantItem', item: builder.idOf(ContentKind.Feat, 'power-attack') },
+      { key: 'Proficiency', selector: 'perception', rank: 'master' },
+    ],
+  })
   .build();

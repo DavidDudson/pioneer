@@ -4,6 +4,7 @@ import * as z from 'zod';
 
 import { NO_REFERENCES, resolveUuid } from './entry-references';
 import type { EntryReferences } from './entry-references';
+import { kebab } from './foundry-flags';
 import { fromFoundryFormula } from './foundry-formula';
 import { isLangKey, isUnresolved, localize } from './foundry-lang';
 import type { LangValues, UnresolvedKey, UnresolvedText } from './foundry-lang';
@@ -178,11 +179,6 @@ export interface RuleContext {
   readonly values: LangValues;
   /** What each Foundry sense fixes, for its `Sense` elements; without it they keep the acuity and range they give. */
   readonly senses?: FoundrySenses;
-}
-
-/** A Foundry camel-case flag as a Pioneer slug: `druidicOrder` to `druidic-order`. */
-function kebab(flag: string): string {
-  return flag.replaceAll(/(?<lower>[a-z0-9])(?<upper>[A-Z])/gu, '$<lower>-$<upper>').toLowerCase();
 }
 
 /** A subclass's `ChoiceSet`: Foundry queries class features by tag alone (`item:tag:cleric-doctrine`). */
