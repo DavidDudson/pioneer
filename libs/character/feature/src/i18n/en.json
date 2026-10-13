@@ -230,6 +230,13 @@
       "setWounded": "Set wounded",
       "setDoomed": "Set doomed"
     },
+    "resources": {
+      "heroPoints": "Hero Points",
+      "focusPoints": "Focus Points",
+      "held": "{current} of {max}",
+      "spend": "Spend",
+      "regain": "Regain"
+    },
     "saveState": {
       "saving": "Saving",
       "saved": "All changes saved",

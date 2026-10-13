@@ -20,6 +20,7 @@ import { FeatDisplayStore } from '../../data/feat-display-store';
 import { PlayStore } from '../../data/play-store';
 import { SheetDeathTrack } from '../sheet-death-track/sheet-death-track.component';
 import { SheetHitPoints } from '../sheet-hit-points/sheet-hit-points.component';
+import { SheetResources } from '../sheet-resources/sheet-resources.component';
 import { SheetSaveStatus } from '../sheet-save-status/sheet-save-status.component';
 import { SHEET_TABS } from '../sheet-sections';
 import { SheetState } from '../sheet-state';
@@ -40,6 +41,7 @@ import { SheetState } from '../sheet-state';
     Page,
     RouterOutlet,
     SheetDeathTrack,
+    SheetResources,
     SheetHitPoints,
     SheetSaveStatus,
     Skeleton,

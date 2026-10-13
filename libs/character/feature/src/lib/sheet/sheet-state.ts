@@ -1,8 +1,9 @@
 import { computed, inject, Injectable } from '@angular/core';
 import type { Signal } from '@angular/core';
 import { TranslocoService } from '@jsverse/transloco';
-import { itemContent, maxHitPoints } from '@pioneer/character/domain';
-import type { Character } from '@pioneer/character/domain';
+import { itemContent, maxHitPoints, resourceMaxima } from '@pioneer/character/domain';
+import type { Character, ResourceMaxima } from '@pioneer/character/domain';
+import { FocusPoints, SpellPreparation } from '@pioneer/rules/sdk';
 import type { ContentRegistry, HitPoints } from '@pioneer/rules/sdk';
 import type { Investment, Vital } from '@pioneer/rules/ui';
 
@@ -11,8 +12,10 @@ import { CHARACTER_CONTENT_KINDS, injectContentRegistry } from '../data/content-
 import { sheetBuildPicks } from './sheet-build-picks';
 import type { BuildPicks } from './sheet-build-picks';
 import { carriesAnything, EQUIPMENT_CONTENT_KINDS, sheetInvestments } from './sheet-equipment';
+import { sheetFocus } from './sheet-focus-spells';
 import { sheetIdentity } from './sheet-identity';
 import type { IdentityParams } from './sheet-identity';
+import { SPELL_CONTENT_KINDS } from './sheet-prepared-spells';
 import { sheetDerivation } from './sheet-statistics';
 import { sheetVitals } from './sheet-vitals';
 
@@ -82,6 +85,31 @@ export class SheetState {
     return registry === undefined || character === undefined
       ? undefined
       : maxHitPoints(sheetDerivation(registry, character));
+  });
+
+  /** Whether one of the character's spellcasting entries is a focus entry, so the focus pool needs its spells. */
+  readonly #focuses = computed(
+    () => this.picks.spellcasting()?.some((entry) => entry.preparation === SpellPreparation.Focus) ?? false,
+  );
+  /** The registry with the spells, loaded once the character has a focus entry; the spells tab shares the query. */
+  readonly #spells = injectContentRegistry(SPELL_CONTENT_KINDS, () => this.#focuses());
+
+  /**
+   * The most each pool of points holds (#345): 3 hero points, and a focus pool from the focus spells. Undefined while
+   * the build or the spells a focus pool reads load, so a pool is never shown at a maximum it is about to leave.
+   */
+  public readonly resourceMaxima = computed((): ResourceMaxima | undefined => {
+    const character = this.character();
+    if (character === undefined || this.picks.spellcasting() === undefined) {
+      return undefined;
+    }
+    if (!this.#focuses()) {
+      return resourceMaxima(FocusPoints.parse(0));
+    }
+    const spells = this.#spells.data();
+    return spells === undefined
+      ? undefined
+      : resourceMaxima(sheetFocus(spells, character)?.pool ?? FocusPoints.parse(0));
   });
 
   /** The header's one-line identity; undefined while the build loads. */
