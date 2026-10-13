@@ -5,6 +5,10 @@
     }
   </fr-section-index>
 
+  <fr-section [anchor]="sections.roleplay.anchor" [heading]="sections.roleplay.headingKey | transloco">
+    <pio-sheet-roleplay-section />
+  </fr-section>
+
   <fr-section [anchor]="sections.deity.anchor" [heading]="sections.deity.headingKey | transloco">
     <fr-async-region>
       <ng-template frAsyncPending><pio-deity loading /></ng-template>

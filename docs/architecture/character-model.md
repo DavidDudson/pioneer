@@ -19,6 +19,8 @@ interface CharacterDocument {
   play: PlayState;
   overrides: readonly Override[];
   notes: RichText;
+  appearance: RichText; // plain paragraphs the sheet edits as text (Exploration tab)
+  personality: RichText;
 }
 
 interface Build {

@@ -22,7 +22,9 @@ export const characterDocumentJson: Arbitrary<unknown> = record({
   spellAccess: uniqueArray(uuid({ version: 4 }), { maxLength: LIST_MAX }),
   inventory: inventoryJson,
   notes: richTextJson,
-}).map(({ seed, packs, choices, spellAccess, inventory, notes }) => ({
+  appearance: richTextJson,
+  personality: richTextJson,
+}).map(({ seed, packs, choices, spellAccess, inventory, notes, appearance, personality }) => ({
   schemaVersion: CURRENT_SCHEMA_VERSION,
   id: fakeSeeded(CharacterId, seed),
   ownerId: fixtureOwnerId,
@@ -34,4 +36,6 @@ export const characterDocumentJson: Arbitrary<unknown> = record({
   play: {},
   overrides: [],
   notes,
+  appearance,
+  personality,
 }));

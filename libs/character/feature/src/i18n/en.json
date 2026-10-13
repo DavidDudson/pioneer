@@ -114,6 +114,12 @@
     },
     "skillsHeading": "Skills",
     "languagesHeading": "Languages",
+    "roleplay": {
+      "heading": "Appearance and personality",
+      "appearance": "Appearance",
+      "personality": "Personality",
+      "empty": "Not written yet"
+    },
     "downtimeHeading": "Downtime",
     "shop": {
       "heading": "Shop",

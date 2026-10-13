@@ -7,13 +7,14 @@ import { DeityView } from '@pioneer/rules/ui';
 import { InventorySection } from '../inventory/inventory-section/inventory-section.component';
 import { SheetDeitySection } from '../sheet-deity-section/sheet-deity-section.component';
 import { SheetLanguagesSection } from '../sheet-languages-section/sheet-languages-section.component';
+import { SheetRoleplaySection } from '../sheet-roleplay-section/sheet-roleplay-section.component';
 import { SHEET_SECTIONS, SHEET_TAB_SECTIONS } from '../sheet-sections';
 import { SheetState } from '../sheet-state';
 import { rememberTab } from '../sheet-tab';
 
 /**
- * The Exploration tab: who the character is at the table. Its deity with edicts and anathema, the languages it knows,
- * and its inventory. Appearance, personality and exploration activities join as their stories land.
+ * The Exploration tab: who the character is at the table. Its appearance and personality, the deity with edicts and
+ * anathema, the languages it knows, and its inventory. Exploration activities join as their story lands.
  */
 @Component({
   selector: 'pio-sheet-exploration-tab',
@@ -28,6 +29,7 @@ import { rememberTab } from '../sheet-tab';
     SectionLink,
     SheetDeitySection,
     SheetLanguagesSection,
+    SheetRoleplaySection,
     Stack,
     TranslocoPipe,
   ],

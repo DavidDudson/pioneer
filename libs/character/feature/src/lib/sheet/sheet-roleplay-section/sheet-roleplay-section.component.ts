@@ -1,0 +1,52 @@
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
+import { CharacterPatchField, CharacterProseInput } from '@pioneer/character/domain';
+import type { Character } from '@pioneer/character/domain';
+import { InlineField, Stack, TextArea } from '@pioneer/frontier';
+import type { InlineEdit } from '@pioneer/frontier';
+
+import { sheetField } from '../sheet-field';
+import { proseToRichText, richTextToProse } from '../sheet-prose';
+import { SheetState } from '../sheet-state';
+
+/** Visible lines of an open appearance or personality editor. */
+const EDITOR_ROWS = 6;
+
+/** The prose fields the section edits: the patch that writes one and where the document keeps it. */
+type ProseField = typeof CharacterPatchField.SetAppearance | typeof CharacterPatchField.SetPersonality;
+
+/**
+ * The appearance and personality of the character, for the Exploration tab (#500): each its own inline editor over
+ * plain text, saved as rich text paragraphs. An empty field reads as not written yet.
+ */
+@Component({
+  selector: 'pio-sheet-roleplay-section',
+  imports: [InlineField, Stack, TextArea, TranslocoPipe],
+  templateUrl: './sheet-roleplay-section.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class SheetRoleplaySection {
+  readonly #sheet = inject(SheetState);
+  readonly #i18n = inject(TranslocoService);
+  protected readonly rows = EDITOR_ROWS;
+
+  protected readonly appearance = this.#prose(
+    (character) => richTextToProse(character.document.appearance),
+    CharacterPatchField.SetAppearance,
+  );
+  protected readonly personality = this.#prose(
+    (character) => richTextToProse(character.document.personality),
+    CharacterPatchField.SetPersonality,
+  );
+
+  #prose(read: (character: Character) => string, field: ProseField): InlineEdit<string> {
+    return sheetField<string>(this.#sheet.character, {
+      read,
+      empty: '',
+      schema: CharacterProseInput,
+      save: async (value) =>
+        this.#sheet.store.patch({ field, value: proseToRichText(CharacterProseInput.parse(value)) }),
+      format: (value) => (value === '' ? this.#i18n.translate('character.sheet.roleplay.empty') : value),
+    });
+  }
+}

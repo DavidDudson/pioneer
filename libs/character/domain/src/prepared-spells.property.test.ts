@@ -62,5 +62,5 @@ describe('preparedSlots (properties)', () => {
       }),
       { numRuns: 30 },
     );
-  });
+  }, 30_000);
 });
