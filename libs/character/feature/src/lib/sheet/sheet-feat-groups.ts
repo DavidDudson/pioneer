@@ -8,7 +8,7 @@ import {
   OriginHopKind,
   RuleElementKey,
 } from '@pioneer/rules/sdk';
-import type { ContentEntry, ContentRegistry, RuleElement, SlotKey } from '@pioneer/rules/sdk';
+import type { ContentEntry, ContentRegistry, OriginHop, RuleElement, SlotKey } from '@pioneer/rules/sdk';
 
 import { sheetSlotContent } from './sheet-slot-content';
 
@@ -83,6 +83,30 @@ function featEntries(registry: ContentRegistry): ReadonlyMap<ContentId, FeatEntr
   return new Map(feats.map((entry) => [entry.id, entry]));
 }
 
+/** What `takenAt` reads the origin chain against. */
+interface TakenContext {
+  readonly levels: ReadonlyMap<SlotKey, number>;
+  readonly feats: ReadonlyMap<ContentId, FeatEntry>;
+  readonly nameOf: (id: ContentId) => string | undefined;
+}
+
+/**
+ * The level a slot took a feat at and the entry that granted it, from the chain of hops that put it on the character.
+ * A feat another feat grants was not taken at a slot: it says "from" that feat, so hiding the granting feat loses
+ * nothing.
+ */
+function takenAt(
+  hops: readonly OriginHop[],
+  { levels, feats, nameOf }: TakenContext,
+): Pick<SheetFeatRow, 'level' | 'from'> {
+  const picked = hops.findLast((each) => each.kind === OriginHopKind.Choice && levels.has(each.slot));
+  const last = hops.at(-1);
+  const grant = last?.kind === OriginHopKind.Grant ? last : undefined;
+  const byFeat = grant !== undefined && feats.has(grant.by);
+  const level = picked?.kind === OriginHopKind.Choice && !byFeat ? levels.get(picked.slot) : undefined;
+  return { level, from: grant !== undefined && (picked === undefined || byFeat) ? nameOf(grant.by) : undefined };
+}
+
 /**
  * The character's effective feats grouped by the slot type they fill: ancestry, class, skill, general and bonus, each
  * with the level it was taken at, its display category and a note on what it relates to. A group with no feats is left
@@ -113,9 +137,7 @@ export function sheetFeatGroups(registry: ContentRegistry, character: Character)
     if (feat === undefined) {
       return [];
     }
-    const picked = item.origin.hops.findLast((each) => each.kind === OriginHopKind.Choice && levels.has(each.slot));
-    const hop = item.origin.hops.at(-1);
-    const level = picked?.kind === OriginHopKind.Choice ? levels.get(picked.slot) : undefined;
+    const { level, from } = takenAt(item.origin.hops, { levels, feats: entries, nameOf });
     return [
       {
         category: feat.data.category,
@@ -125,7 +147,7 @@ export function sheetFeatGroups(registry: ContentRegistry, character: Character)
           level,
           category: featDisplayCategory(feat, grantsAction),
           note: noteOf(feat),
-          from: picked === undefined && hop?.kind === OriginHopKind.Grant ? nameOf(hop.by) : undefined,
+          from,
         },
       },
     ];
@@ -155,3 +177,20 @@ export const FEAT_DISPLAY_MESSAGES: Readonly<Record<DisplayCategory, string>> = 
   [DisplayCategory.GrantOnly]: 'character.sheet.feats.display.grantOnly',
   [DisplayCategory.Narrative]: 'character.sheet.feats.display.narrative',
 };
+
+/**
+ * `groups` as the user has them filtered: feats that only grant something else are folded away (their products say
+ * "from Feat X" through their origin) unless the user shows them; a group left with no feats goes too.
+ */
+export function visibleFeatGroups(
+  groups: readonly SheetFeatGroup[],
+  showGrantOnly: boolean,
+): readonly SheetFeatGroup[] {
+  if (showGrantOnly) {
+    return groups;
+  }
+  return groups.flatMap((group): SheetFeatGroup[] => {
+    const feats = group.feats.filter((feat) => feat.category !== DisplayCategory.GrantOnly);
+    return feats.length === 0 ? [] : [{ category: group.category, feats }];
+  });
+}

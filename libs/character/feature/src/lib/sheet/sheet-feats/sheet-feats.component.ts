@@ -1,6 +1,7 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
+import { FeatDisplaySection } from '@pioneer/character/domain';
 import {
   AsyncData,
   AsyncPending,
@@ -10,12 +11,14 @@ import {
   InlineField,
   Skeleton,
   Stack,
+  ToggleButton,
 } from '@pioneer/frontier';
 import { Combobox } from '@pioneer/frontier/data';
 import { filter, merge } from 'rxjs';
 
 import { CharacterStore } from '../../data/character-store';
 import { injectContentRegistry } from '../../data/content-registry-query';
+import { FeatDisplayStore } from '../../data/feat-display-store';
 import { SheetFeatGroupList } from '../sheet-feat-group/sheet-feat-group.component';
 import { featFieldsOf } from '../sheet-feat-picks';
 import { FEAT_CONTENT_KINDS } from '../sheet-feats';
@@ -42,6 +45,7 @@ const LOADING_SLOTS = 3;
     SheetFeatGroupList,
     Skeleton,
     Stack,
+    ToggleButton,
     TranslocoPipe,
   ],
   templateUrl: './sheet-feats.component.html',
@@ -52,10 +56,14 @@ export class SheetFeats {
   protected readonly loadingSlots = Array.from({ length: LOADING_SLOTS }, (_unused, index) => index);
 
   readonly #store = inject(CharacterStore);
+  readonly #display = inject(FeatDisplayStore);
   readonly #i18n = inject(TranslocoService);
   readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
   /** Changes when the language changes or the messages load, so the pickers' descriptions are read again. */
   readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
+
+  /** Whether the user shows this section's grant-only feats. */
+  protected readonly shownGrantOnly = computed(() => this.#display.shownIn().includes(FeatDisplaySection.Feats));
 
   /** The registry with the feats. */
   protected readonly feats = injectContentRegistry(FEAT_CONTENT_KINDS);
@@ -68,5 +76,10 @@ export class SheetFeats {
     clear: async (slot) => this.#store.clearSlot(slot),
     translate: (key, params) => this.#i18n.translate(key, params),
     messages: this.#messages,
+    showGrantOnly: this.shownGrantOnly,
   });
+
+  protected showGrantOnly(shown: boolean): void {
+    this.#display.show(FeatDisplaySection.Feats, shown);
+  }
 }

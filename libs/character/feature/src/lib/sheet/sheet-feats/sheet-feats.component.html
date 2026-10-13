@@ -9,6 +9,11 @@
   <ng-template [frAsyncData]="feats">
     @if (fields(); as feats) {
       <fr-stack gap="md">
+        @if (feats.hasGrantOnly) {
+          <fr-toggle-button [value]="shownGrantOnly()" (valueChange)="showGrantOnly($event)">{{
+            'character.sheet.feats.showGrantOnly' | transloco
+          }}</fr-toggle-button>
+        }
         @for (group of feats.groups; track group.category) {
           <pio-sheet-feat-group [group]="group" />
         }

@@ -159,6 +159,7 @@
         "grantOnly": "Grants only",
         "narrative": "Narrative"
       },
+      "showGrantOnly": "Show feats that only grant something else",
       "from": "From {entry}",
       "none": "No feat slots yet. Pick a class and ancestry first."
     },

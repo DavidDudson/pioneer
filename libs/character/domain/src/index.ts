@@ -130,6 +130,13 @@ export {
   PatchedCharacterSheet,
 } from './character-contract';
 export {
+  FeatDisplayChoice,
+  FeatDisplayId,
+  FeatDisplaySection,
+  FeatDisplaySectionSchema,
+  SetFeatDisplayBody,
+} from './feat-display';
+export {
   DEFAULT_SHEET_MODE,
   SetSheetModeBody,
   SheetMode,

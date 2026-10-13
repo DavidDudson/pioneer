@@ -97,6 +97,8 @@ export interface SheetOptions {
   readonly tab?: SheetMode | typeof NO_TAB;
   /** The play state the server read; undamaged, at revision 1, by default. */
   readonly play?: object;
+  /** The sections where the server has the user showing grant-only feats; none by default. */
+  readonly featDisplay?: object;
 }
 
 /** The play state the server holds, at `revision`. */
@@ -175,6 +177,10 @@ export async function openSheet(character: object = MERISIEL, options: SheetOpti
   await answerReads(character, options);
   const root = present(harness.routeNativeElement);
   await vi.waitFor(async () => {
+    // The feats section reads the user''s feat filter once it renders; other tabs never ask.
+    for (const read of TestBed.inject(HttpTestingController).match(`/api/characters/${id}/feat-display`)) {
+      read.flush(options.featDisplay ?? { showGrantOnly: [] });
+    }
     // Through the application, not `harness.detectChanges()`, so render hooks (roving focus) run as in the app.
     await TestBed.inject(ApplicationRef).whenStable();
     expect(root.textContent).toContain('Merisiel');

@@ -1,9 +1,9 @@
-import { DisplayCategory, RuleElementKey } from '@pioneer/rules/sdk';
-import type { RuleElement } from '@pioneer/rules/sdk';
+import { DisplayCategory, FeatCategory, RuleElementKey } from '@pioneer/rules/sdk';
+import type { ContentId, RuleElement } from '@pioneer/rules/sdk';
 import { describe, expect, it } from 'vitest';
 
-import { featDisplayCategory } from './sheet-feat-groups';
-import type { FeatDerivation } from './sheet-feat-groups';
+import { featDisplayCategory, visibleFeatGroups } from './sheet-feat-groups';
+import type { FeatDerivation, SheetFeatGroup, SheetFeatRow } from './sheet-feat-groups';
 
 type Derivable = FeatDerivation;
 
@@ -41,5 +41,31 @@ describe(featDisplayCategory, () => {
     const overridden = feat({ rules: [MODIFIER], display: { category: DisplayCategory.Narrative } });
 
     expect(featDisplayCategory(overridden, none)).toBe(DisplayCategory.Narrative);
+  });
+});
+
+const row = (name: string, category: DisplayCategory): SheetFeatRow => ({
+  id: name as ContentId,
+  name,
+  level: undefined,
+  category,
+  note: undefined,
+  from: undefined,
+});
+
+describe(visibleFeatGroups, () => {
+  const groups: readonly SheetFeatGroup[] = [
+    { category: FeatCategory.Class, feats: [row('a', DisplayCategory.GrantOnly), row('b', DisplayCategory.Active)] },
+    { category: FeatCategory.Skill, feats: [row('c', DisplayCategory.GrantOnly)] },
+  ];
+
+  it('folds grant-only feats away, and a group left empty with them', () => {
+    const names = visibleFeatGroups(groups, false).map((group) => group.feats.map((each) => each.name));
+
+    expect(names).toStrictEqual([['b']]);
+  });
+
+  it('keeps every feat when the user shows them', () => {
+    expect(visibleFeatGroups(groups, true)).toBe(groups);
   });
 });

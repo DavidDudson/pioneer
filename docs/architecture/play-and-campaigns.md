@@ -241,8 +241,9 @@ spell). Each effective feat gets a display category, derived from its rule eleme
 | `grant-only` | only `GrantItem`/`ChoiceSet`; its products appear elsewhere | hidden, folded under its grants |
 | `narrative`  | no rule elements                                            | shown, collapsed                |
 
-Granted things show "from Feat X" through their origin, so hiding the feat loses nothing. The filter is per user
-and per sheet section.
+Granted things show "from Feat X" through their origin, so hiding the feat loses nothing. Grant-only feats
+are hidden by default. The filter is per user, per character and per sheet section, kept as a display preference
+([ADR-0052](../adr/0052-character-scoped-display-preferences.md)) in `character_feat_displays`.
 
 ## Conditions and effects
 

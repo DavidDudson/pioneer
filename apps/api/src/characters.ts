@@ -1,7 +1,9 @@
-import { CharacterService, PlayService, SheetModeService } from '@pioneer/character/application';
+import { CharacterService, FeatDisplayService, PlayService, SheetModeService } from '@pioneer/character/application';
 import {
   characterRoutes,
+  featDisplayRoutes,
   DrizzleCharacterRepository,
+  DrizzleFeatDisplayRepository,
   DrizzleSheetModeRepository,
   playRoutes,
   sheetModeRoutes,
@@ -21,8 +23,10 @@ export function characters(db: Database, clock: Clock, authenticator: RequestAut
   const repository = new DrizzleCharacterRepository(db);
   const service = new CharacterService(repository, content, clock);
   const sheetModes = new SheetModeService(repository, new DrizzleSheetModeRepository(db), clock);
+  const featDisplay = new FeatDisplayService(repository, new DrizzleFeatDisplayRepository(db), clock);
   const play = new PlayService(repository, content, clock);
   return characterRoutes(service, authenticator)
     .use(sheetModeRoutes(sheetModes, authenticator))
+    .use(featDisplayRoutes(featDisplay, authenticator))
     .use(playRoutes(play, authenticator));
 }
