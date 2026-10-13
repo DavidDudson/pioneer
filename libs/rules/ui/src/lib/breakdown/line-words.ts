@@ -2,7 +2,8 @@ import type { TranslocoService } from '@jsverse/transloco';
 import type { LocaleFormat } from '@pioneer/frontier';
 import type { BreakdownLine, ModifierLabel } from '@pioneer/rules/engine';
 import type { SummaryFormat } from '@pioneer/rules/predicate';
-import type { ContentId } from '@pioneer/rules/sdk';
+import { OriginHopKind } from '@pioneer/rules/sdk';
+import type { ContentId, InventoryItemId, Origin } from '@pioneer/rules/sdk';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 import { BreakdownMessage, MODIFIER_TYPE_MESSAGES } from './breakdown-messages';
@@ -16,19 +17,40 @@ export function summaryFormat(i18n: TranslocoService, format: LocaleFormat): Sum
   };
 }
 
-/** What a label calls its line: its own text, else its entry's name (the id when the entry has none), else a message. */
+/** The display names a label's words come from: content entries, and the inventory items a character holds. */
+export interface LabelNames {
+  readonly entries: ReadonlyMap<ContentId, string>;
+  readonly items?: ReadonlyMap<InventoryItemId, string> | undefined;
+}
+
+/** The name of what an origin points at: the inventory item it came through, else its entry; undefined when unnamed. */
+function originName(origin: Origin, names: LabelNames): string | undefined {
+  const hop = origin.hops.findLast((candidate) => candidate.kind === OriginHopKind.Inventory);
+  const item = hop?.kind === OriginHopKind.Inventory ? names.items?.get(hop.item) : undefined;
+  return item ?? names.entries.get(origin.entry);
+}
+
+/**
+ * What a label calls its line: its own text, else its entry's name (the id when the entry has none), else a message,
+ * whose named parameter takes the name of what the label's origin points at (the message's own value when unnamed).
+ */
 export function labelName(
   label: ModifierLabel,
-  entryNames: ReadonlyMap<ContentId, string>,
+  names: LabelNames,
   translate: (descriptor: MessageDescriptor) => string,
 ): string {
   if ('text' in label) {
     return label.text;
   }
   if ('entry' in label) {
-    return entryNames.get(label.entry) ?? label.entry;
+    return names.entries.get(label.entry) ?? label.entry;
   }
-  return translate(label.message);
+  const { message, named } = label;
+  const name = named === undefined ? undefined : originName(named.origin, names);
+  if (named === undefined || name === undefined) {
+    return translate(message);
+  }
+  return translate({ ...message, params: { ...message.params, [named.param]: name } });
 }
 
 /** "+1 status": a modifier line's signed value and its type; just the type for a failed line, which has no value. */

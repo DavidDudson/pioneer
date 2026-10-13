@@ -2,6 +2,7 @@ import { Modifier as ModifierAmount, ModifierTarget, ModifierType, RuleSlug } fr
 import type { RuneGrade } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
 
+import { LabelParam } from './breakdown';
 import { EngineMessage } from './messages';
 import type { ModifierSource } from './modifier';
 import { NO_ITEM, RuleId } from './rule-in-play';
@@ -19,7 +20,10 @@ function potencyLine(weapon: WeaponInputs, potency: RuneGrade): ModifierSource {
     modifier: {
       id: RuleId.parse(`weapon:${weapon.slug}#${WEAPON_POTENCY}`),
       slug: WEAPON_POTENCY,
-      label: { message: message(EngineMessage.WeaponPotency, { weapon: weapon.slug }) },
+      label: {
+        message: message(EngineMessage.WeaponPotency, { weapon: weapon.slug }),
+        named: { param: LabelParam.Weapon, origin: weapon.origin },
+      },
       type: ModifierType.Item,
       targets: [ModifierTarget.parse(`${STRIKE}:${weapon.slug}`)],
       predicate: undefined,

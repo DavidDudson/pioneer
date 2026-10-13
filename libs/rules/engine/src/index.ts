@@ -3,6 +3,8 @@ export { type BaseTerm, BaseTermKind, TermSign } from './base-term';
 export {
   type BreakdownLine,
   InactiveReason,
+  type LabelName,
+  LabelParam,
   type LineStatus,
   LineStatusKind,
   type Modifier,

@@ -76,7 +76,9 @@ Option 3 for the definition, option 2 for the references.
   engine depends on the core rules pack's Strike family keeping the selector `strike`: a pack that renames or
   replaces that family gets no potency line. A field on `per: weapon` definitions naming which family takes the
   weapon's item bonus would keep that selector data; it waits until a second attack family needs it. The
-  line's label names the weapon by its slug until inventory supplies weapons' content entries; naming it after the
-  weapon is #378.
+  line's label stays an engine message, so the engine does no content lookups (#378): it carries the weapon's
+  `origin` beside the message as `named`, and the UI fills the message's `weapon` parameter with the name of the
+  inventory item the origin goes through, else its entry, else keeps the slug. Suppressed-by captions name the line
+  the same way, since they read its label.
 - One Strike per weapon: a thrown melee weapon's thrown Strike, the multiple attack penalty and damage are out of
   scope here.

@@ -15,14 +15,27 @@ import type { MessageDescriptor, ValueOf } from '@pioneer/shared/kernel';
 
 import type { RuleId } from './rule-in-play';
 
+/** The message parameters the UI fills with a name. */
+export const LabelParam = { Weapon: 'weapon' } as const;
+export type LabelParam = ValueOf<typeof LabelParam>;
+
+/**
+ * A message parameter the UI fills with a name the engine cannot look up: the name of what `origin` points at, the
+ * inventory item it came through, else its entry. The message's own `param` is the fallback when nothing names it.
+ */
+export interface LabelName {
+  readonly param: LabelParam;
+  readonly origin: Origin;
+}
+
 /**
  * What a breakdown line is called: the rule element's own label, the name of the entry it is on, or, for a line the
- * engine adds itself (a weapon's potency), a message.
+ * engine adds itself (a weapon's potency), a message, with the parameter the UI names when it has the content.
  */
 export type ModifierLabel =
   | { readonly text: ContentText }
   | { readonly entry: ContentId }
-  | { readonly message: MessageDescriptor };
+  | { readonly message: MessageDescriptor; readonly named?: LabelName };
 
 /** A typed bonus or penalty aimed at selectors or domains, from a `FlatModifier` (rules-engine.md, "Modifiers"). */
 export interface Modifier {

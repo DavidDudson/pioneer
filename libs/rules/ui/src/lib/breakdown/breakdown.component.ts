@@ -26,6 +26,7 @@ import { BaseTerms } from './base-terms/base-terms.component';
 import { BreakdownLines } from './breakdown-lines/breakdown-lines.component';
 import { BreakdownMessage, LINE_STATUS_ORDER } from './breakdown-messages';
 import { labelName, lineValue, summaryFormat } from './line-words';
+import type { LabelNames } from './line-words';
 import { numberStyle } from './number-style';
 import { OverrideLines } from './override-lines/override-lines.component';
 import type { ShownBreakdown, ShownLine, ShownOverride, ShownTerm } from './shown-breakdown';
@@ -260,7 +261,11 @@ export class BreakdownView {
     if (named !== undefined) {
       return this.#translate(named);
     }
-    return labelName(label, this.entryNames(), (descriptor) => this.#translate(descriptor));
+    return labelName(label, this.#labelNames(), (descriptor) => this.#translate(descriptor));
+  }
+
+  #labelNames(): LabelNames {
+    return { entries: this.entryNames(), items: this.originNames().items };
   }
 
   #entryName(entry: ContentId): string {

@@ -188,7 +188,9 @@ export class DefencesView {
   /** The line a rule id names, by its label; the id itself if no line in the list has it. */
   #ruleName(id: RuleId, { lines, names }: ListContext): string {
     const line = lines.find((candidate) => candidate.id === id);
-    return line === undefined ? id : labelName(line.label, names.entries, (descriptor) => this.#translate(descriptor));
+    return line === undefined
+      ? id
+      : labelName(line.label, { entries: names.entries }, (descriptor) => this.#translate(descriptor));
   }
 
   #translate(descriptor: MessageDescriptor): string {
