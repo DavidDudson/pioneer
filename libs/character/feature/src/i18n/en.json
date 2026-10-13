@@ -418,6 +418,23 @@
       "groupSummary": "{kind} · {count, number} not found",
       "cancel": "Cancel",
       "create": "Create character",
+      "homebrew": {
+        "heading": "Homebrew in this file",
+        "summary": "This character uses homebrew, which the file carries with its author and licence. Importing makes it yours, or reuses an identical copy, and never overwrites an entry that is already here.",
+        "clashes": "{count, plural, one {# entry clashes} other {# entries clash}} with a different entry already here. Those are kept as they are and not imported.",
+        "pack": "{title} by {publisher} ({pack})",
+        "entry": "{name} · {outcome}",
+        "status": {
+          "new": "A new pack, private to you, is made for it.",
+          "own": "You already own this pack. Entries it lacks are added.",
+          "taken": "This pack id is already used here. Nothing is added to it."
+        },
+        "outcome": {
+          "create": "added",
+          "reuse": "already here, reused",
+          "clash": "clashes, not imported"
+        }
+      },
       "kind": {
         "action": "Actions",
         "ancestry": "Ancestries",

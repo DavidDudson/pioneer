@@ -8,3 +8,6 @@ export { PlayService } from './play-service';
 export { FeatDisplayService } from './feat-display-service';
 export { InMemoryFeatDisplayRepository } from './in-memory-feat-display-repository';
 export { type FeatDisplayKey, FeatDisplayRepository, type FeatDisplaySetting } from './feat-display-repository';
+export { EmbeddedHomebrew } from './embedded-homebrew';
+export { PioneerFileService, type PioneerFileDeps } from './pioneer-file-service';
+export { InMemoryEmbeddedHomebrew } from './in-memory-embedded-homebrew';

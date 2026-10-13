@@ -70,6 +70,7 @@ describe('PioneerImportPage', () => {
     request.flush({
       name: 'Kyra',
       level: 3,
+      homebrew: [],
       unmatched: [{ kind: 'weapon', entries: [{ source: 'player-core', slug: 'weapon:longsword' }] }],
     });
 
@@ -80,6 +81,38 @@ describe('PioneerImportPage', () => {
     });
     expect(root.textContent).toContain('Weapons · 1 not found');
     expect(root.textContent).toContain('longsword (player-core)');
+  });
+
+  it('shows the homebrew in the file, with its clashes', async () => {
+    const { harness, root } = await openPage();
+    const http = TestBed.inject(HttpTestingController);
+
+    await paste(harness, root, JSON.stringify(file));
+    http.expectOne({ method: 'POST', url: PREVIEW_URL }).flush({
+      name: 'Kyra',
+      level: 3,
+      homebrew: [
+        {
+          pack: 'moon-brew',
+          title: 'Moon brew',
+          publisher: 'Amiri',
+          status: 'own',
+          entries: [
+            { slug: 'feat:lunar-grace', name: 'Lunar Grace', outcome: 'reuse' },
+            { slug: 'weapon:moon-blade', name: 'Moon Blade', outcome: 'clash' },
+            { slug: 'weapon:moon-dagger', name: 'Moon Dagger', outcome: 'create' },
+          ],
+        },
+      ],
+      unmatched: [],
+    });
+
+    await vi.waitFor(() => {
+      harness.detectChanges();
+      expect(root.textContent).toContain('Homebrew in this file');
+    });
+    expect(root.textContent).toContain('Moon brew by Amiri (moon-brew)');
+    expect(root.textContent).toContain('1 entry clashes with a different entry already here');
   });
 
   it("shows the server's reason when it can't read the file", async () => {
@@ -109,7 +142,7 @@ describe('PioneerImportPage', () => {
     const { harness, root } = await openPage();
     const http = TestBed.inject(HttpTestingController);
     await paste(harness, root, JSON.stringify(file));
-    http.expectOne({ method: 'POST', url: PREVIEW_URL }).flush({ name: 'Kyra', level: 1, unmatched: [] });
+    http.expectOne({ method: 'POST', url: PREVIEW_URL }).flush({ name: 'Kyra', level: 1, homebrew: [], unmatched: [] });
     await vi.waitFor(() => {
       harness.detectChanges();
       expect(root.textContent).toContain('Everything this character uses is in your loaded content');
@@ -126,7 +159,7 @@ describe('PioneerImportPage', () => {
     const { harness, root } = await openPage();
     const http = TestBed.inject(HttpTestingController);
     await paste(harness, root, JSON.stringify(file));
-    http.expectOne({ method: 'POST', url: PREVIEW_URL }).flush({ name: 'Kyra', level: 1, unmatched: [] });
+    http.expectOne({ method: 'POST', url: PREVIEW_URL }).flush({ name: 'Kyra', level: 1, homebrew: [], unmatched: [] });
     await vi.waitFor(() => {
       harness.detectChanges();
       expect(root.textContent).toContain('Create character');

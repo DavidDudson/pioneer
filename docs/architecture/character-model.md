@@ -564,5 +564,6 @@ characters; the player sees them.
   ([#549](https://github.com/DavidDudson/pioneer/issues/549)) isn't carried yet.
 - **Pioneer JSON:** the `CharacterDocument` without its id and owner, with content named by pack and slug
   ([ADR-0056](../adr/0056-pioneer-character-file-format.md)). Homebrew entries referenced by the character are
-  embedded so the file is portable.
+  embedded so the file is portable; an import makes them for the importer or reuses identical ones, and reports a
+  clash instead of overwriting ([ADR-0058](../adr/0058-pioneer-files-embed-the-homebrew-they-use.md)).
 - **Foundry export:** see [play-and-campaigns.md](play-and-campaigns.md#foundry-export).
