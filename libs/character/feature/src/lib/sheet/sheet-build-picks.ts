@@ -13,6 +13,7 @@ import type {
   LevelTimelineRow,
   NamedStatistic,
   NamedStrike,
+  StrikesShield,
   SpellcastingEntryLine,
 } from '@pioneer/rules/ui';
 
@@ -36,7 +37,7 @@ import { slotField, slotFieldsOf } from './sheet-slot-picks';
 import type { SlotPickField } from './sheet-slot-picks';
 import { sheetSpellcasting } from './sheet-spellcasting';
 import { sheetStatistics } from './sheet-statistics';
-import { sheetStrikes } from './sheet-strikes';
+import { sheetShields, sheetStrikes } from './sheet-strikes';
 import { sheetTimeline } from './sheet-timeline';
 
 /** What the build picks read and write through. */
@@ -65,6 +66,8 @@ interface EngineReads {
   readonly skills: Signal<readonly NamedStatistic[] | undefined>;
   /** Each Strike, held weapons' then a feature's fist; undefined while the character or the content loads. */
   readonly strikes: Signal<readonly NamedStrike[] | undefined>;
+  /** The shields held, shown beside the Strikes; none while the character or the content loads. */
+  readonly shields: Signal<readonly StrikesShield[]>;
   /** Each spellcasting entry with its spell attack and DC; undefined while the character or the content loads. */
   readonly spellcasting: Signal<readonly SpellcastingEntryLine[] | undefined>;
   /** Names for the entries the defences, statistics and spellcasting lines come from; none while the content loads. */
@@ -142,10 +145,12 @@ function fieldPerSlot(
 
 function engineReads(sources: BuildPickSources): EngineReads {
   const engine = { ...sources, registry: sources.engineRegistry };
+  const shields = loaded(engine, sheetShields);
   return {
     statistics: loaded(engine, sheetStatistics),
     skills: loaded(engine, (registry, character) => sheetSkills(registry, character, sources.translate)),
     strikes: loaded(engine, sheetStrikes),
+    shields: computed(() => shields() ?? []),
     spellcasting: loaded(engine, sheetSpellcasting),
     entryNames: computed(() => {
       const registry = sources.engineRegistry() ?? sources.registry();

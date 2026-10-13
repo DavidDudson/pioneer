@@ -1,11 +1,13 @@
+import { heldShields, itemContent } from '@pioneer/character/domain';
 import type { Character } from '@pioneer/character/domain';
 import { deriveStrikes } from '@pioneer/rules/engine';
 import type { WeaponInputs } from '@pioneer/rules/engine';
 import { OriginHopKind, Selector } from '@pioneer/rules/sdk';
 import type { ContentId, ContentRegistry } from '@pioneer/rules/sdk';
 import { StatisticsMessage } from '@pioneer/rules/ui';
-import type { NamedStrike } from '@pioneer/rules/ui';
+import type { NamedStrike, StrikesShield } from '@pioneer/rules/ui';
 
+import { traitNames } from './sheet-build';
 import { statisticInputsOf } from './sheet-inputs';
 import { sheetSlotContent } from './sheet-slot-content';
 import { sheetDerivation } from './sheet-statistics';
@@ -39,7 +41,29 @@ export function sheetStrikes(registry: ContentRegistry, character: Character): r
   const slots = sheetSlotContent(registry);
   const nameOf = (entry: ContentId): string | undefined => slots.lookup.entry(entry)?.name;
   const strikes = deriveStrikes(weapons, sheetDerivation(registry, character));
+  const traits = traitNames(registry);
   return strikes.flatMap((strike): NamedStrike[] =>
-    strike.attack === undefined ? [] : [{ ...weaponName(strike.weapon, nameOf), strike }],
+    strike.attack === undefined
+      ? []
+      : [
+          {
+            ...weaponName(strike.weapon, nameOf),
+            traits: strike.weapon.traits.map((trait) => traits.get(trait) ?? trait),
+            strike,
+          },
+        ],
+  );
+}
+
+/** The shields the character holds, by name, with their Hardness, Hit Points and Broken Threshold (`heldShields`). */
+export function sheetShields(registry: ContentRegistry, character: Character): readonly StrikesShield[] {
+  const slots = sheetSlotContent(registry);
+  return heldShields(character.document.inventory, itemContent(registry)).map(
+    ({ entry, hardness, hitPoints, brokenThreshold }): StrikesShield => ({
+      name: slots.lookup.entry(entry)?.name ?? entry,
+      hardness,
+      hitPoints,
+      brokenThreshold,
+    }),
   );
 }

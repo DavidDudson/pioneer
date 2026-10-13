@@ -30,6 +30,12 @@
     </fr-stack>
     <fr-text variant="caption" tone="muted">{{ failure() }}</fr-text>
   }
+  @if (row().traits.length > 0) {
+    <pio-chip-list [chips]="row().traits" />
+  }
+  @if (row().attacks; as attacks) {
+    <fr-text>{{ attacks }}</fr-text>
+  }
   <fr-text>{{ row().damage }}</fr-text>
   <fr-text variant="caption" tone="muted">{{ row().penalty }}</fr-text>
 </fr-stack>

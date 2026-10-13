@@ -10,6 +10,9 @@
       }
     </fr-list>
   }
+  @for (shield of shownShields(); track shield) {
+    <fr-text variant="caption" tone="muted">{{ shield }}</fr-text>
+  }
 } @else {
   <fr-list gap="3xs">
     @for (row of loadingRows; track row) {

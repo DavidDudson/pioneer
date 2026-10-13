@@ -4,7 +4,7 @@ import { describe, expect, it } from 'vitest';
 
 import { ENTRY_NAMES } from '../testing/breakdown-fixtures';
 import { provideRulesUiI18nTesting } from '../testing/provide-rich-text-testing';
-import { FAILED_STRIKE, FIGHTER_STRIKES, NO_DAMAGE_STRIKE } from '../testing/strike-fixtures';
+import { FAILED_STRIKE, FIGHTER_STRIKES, NO_DAMAGE_STRIKE, STEEL_SHIELD } from '../testing/strike-fixtures';
 import { StrikesView } from './strikes.component';
 import type { NamedStrike } from './strikes.component';
 
@@ -54,6 +54,36 @@ describe(StrikesView, () => {
 
     expect(rows[0]).toContain('Multiple attack penalty -5 / -10');
     expect(rows[1]).toContain('Multiple attack penalty -4 / -8');
+  });
+
+  it('shows the attack at each step of the multiple attack penalty, the agile weapon losing less', async () => {
+    const rows = rowsOf(await render(FIGHTER_STRIKES)).map((row) => textOf(row));
+
+    expect(rows[0]).toContain('Attack +9 / +4 / -1');
+    expect(rows[1]).toContain('Attack +9 / +5 / +1');
+  });
+
+  it("names a Strike's traits", async () => {
+    const rows = rowsOf(await render(FIGHTER_STRIKES)).map((row) => textOf(row));
+
+    expect(rows[1]).toContain('Agile');
+    expect(rows[1]).toContain('Finesse');
+  });
+
+  it('lists a held shield with its Hardness, Hit Points and Broken Threshold', async () => {
+    const fixture = await render(FIGHTER_STRIKES);
+    fixture.componentRef.setInput('shields', [STEEL_SHIELD]);
+    await fixture.whenStable();
+
+    expect(textOf(hostOf(fixture))).toContain('Steel Shield: Hardness 5, HP 20, Broken Threshold 10');
+  });
+
+  it('lists a held shield when there are no Strikes', async () => {
+    const fixture = await render([]);
+    fixture.componentRef.setInput('shields', [STEEL_SHIELD]);
+    await fixture.whenStable();
+
+    expect(textOf(hostOf(fixture))).toContain('Steel Shield');
   });
 
   it('opens to the attack roll and the damage bonus', async () => {

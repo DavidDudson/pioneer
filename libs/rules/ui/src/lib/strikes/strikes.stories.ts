@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@analogjs/storybook-angular';
 import { expect, within } from 'storybook/test';
 
 import { ENTRY_NAMES } from '../testing/breakdown-fixtures';
-import { FAILED_STRIKE, FIGHTER_STRIKES, NO_DAMAGE_STRIKE } from '../testing/strike-fixtures';
+import { FAILED_STRIKE, FIGHTER_STRIKES, NO_DAMAGE_STRIKE, STEEL_SHIELD } from '../testing/strike-fixtures';
 import { StrikesView } from './strikes.component';
 
 type StrikesStory = StoryObj<StrikesView>;
@@ -31,6 +31,7 @@ export const Fighter: StrikesStory = {
     const canvas = within(canvasElement);
     await expect(canvas.getByText('1d8+4 slashing')).toBeVisible();
     await expect(canvas.getByText('Multiple attack penalty -4 / -8')).toBeVisible();
+    await expect(canvas.getByText('Attack +9 / +5 / +1')).toBeVisible();
   },
 };
 
@@ -52,4 +53,13 @@ export const Failed: StrikesStory = {
 /** A weapon with no dice and no die does no damage. */
 export const NoDamage: StrikesStory = {
   args: { strikes: NO_DAMAGE_STRIKE },
+};
+
+/** A held shield: its Hardness, Hit Points and Broken Threshold sit with the Strikes. */
+export const WithShield: StrikesStory = {
+  args: { strikes: FIGHTER_STRIKES, shields: [STEEL_SHIELD] },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByText('Steel Shield: Hardness 5, HP 20, Broken Threshold 10')).toBeVisible();
+  },
 };
