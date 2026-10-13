@@ -82,6 +82,7 @@ function pickEdit(initial: string): InlineEdit<string | undefined> {
     source,
     empty: NOT_CHOSEN,
     schema: PlanPick,
+    format: (value) => (value === undefined || value === NOT_CHOSEN ? 'Not chosen' : value),
     save: async (value) => {
       source.set(value ?? NOT_CHOSEN);
       await Promise.resolve();
