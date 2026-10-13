@@ -116,7 +116,8 @@ can be filtered to what matters.
 - **Reference previews**: hovering or focusing a reference in rich text, or a row in a spell, feat or item list,
   opens a popover of the entry. A condition reference carries its value, so "frightened 2" shows frightened and
   what 2 does to this character.
-- **Level planner**: pick selections for future levels ahead of time; levelling up turns the planned slots on. A
+- **Level planner**: pick feats, skills and attribute boosts for future levels ahead of time (spell slots are a
+  follow-up); levelling up turns the planned slots on. A
   planned selection that stops being valid is flagged at the level where it breaks. Each archetype shows its
   feats taken against the dedication lock and the level where the next dedication becomes legal.
 - **Sheet modes**: Plan, Encounter, Exploration and Downtime tabs over the same sheet, with a shared header. Plan

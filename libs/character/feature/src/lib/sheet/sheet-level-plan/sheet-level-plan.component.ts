@@ -7,7 +7,7 @@ import type { LevelTimelineRow, TimelinePick } from '@pioneer/rules/ui';
 import { filter, merge } from 'rxjs';
 
 import { injectContentRegistry } from '../../data/content-registry-query';
-import { featFieldsOf } from '../sheet-feat-picks';
+import { plannedFeatFieldsOf } from '../sheet-feat-picks';
 import { FEAT_CONTENT_KINDS } from '../sheet-feats';
 import { SheetState } from '../sheet-state';
 
@@ -31,7 +31,7 @@ export class SheetLevelPlan {
 
   /** The registry with the feats, shared with the feats section. */
   readonly #feats = injectContentRegistry(FEAT_CONTENT_KINDS);
-  readonly #featFields = featFieldsOf({
+  readonly #featFields = plannedFeatFieldsOf({
     registry: this.#feats.data,
     character: this.#state.character,
     slots: this.#state.store.slots,
@@ -48,7 +48,7 @@ export class SheetLevelPlan {
     for (const { key, label, options, field } of this.#state.picks.plannedFields()) {
       picks.set(key, { kind: TimelinePickKind.Select, key, label, options, field });
     }
-    for (const { key, label, matches, search, reason, field } of this.#featFields()?.planned ?? []) {
+    for (const { key, label, matches, search, reason, field } of this.#featFields()) {
       picks.set(key, { kind: TimelinePickKind.Combobox, key, label, matches, search, reason, field });
     }
     return picks;

@@ -616,7 +616,8 @@
         "ancestry": "Ancestry boost",
         "background": "Background boost",
         "class": "Class key attribute",
-        "free": "Level {level} boost"
+        "free": "Level {level} boost",
+        "freeNumbered": "Level {level} boost {number}"
       }
     },
     "classFeatures": {

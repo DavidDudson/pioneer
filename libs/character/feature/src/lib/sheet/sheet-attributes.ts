@@ -1,5 +1,5 @@
 import { attributeModifiers, boostContent, boostSlots, BoostSource } from '@pioneer/character/domain';
-import type { Character } from '@pioneer/character/domain';
+import type { BoostSlot, Character } from '@pioneer/character/domain';
 import type { Attribute, AttributeModifiers, ContentRegistry, SlotKey } from '@pioneer/rules/sdk';
 import type { OpenBoostLine } from '@pioneer/rules/ui';
 import { message } from '@pioneer/shared/kernel';
@@ -42,11 +42,19 @@ export interface SheetPlannedBoost {
 
 /** The boost slots above the character's level (#492), lowest first, each with the attributes it offers. */
 export function sheetPlannedBoosts(registry: ContentRegistry, character: Character): readonly SheetPlannedBoost[] {
-  return boostSlots(character.document, boostContent(registry))
-    .filter((slot) => slot.level > character.level)
-    .map((slot) => ({
-      key: slot.key,
-      label: message(BOOST_LABEL_KEYS[slot.source], { level: slot.level }),
-      options: slot.options,
-    }));
+  const planned = boostSlots(character.document, boostContent(registry)).filter((slot) => slot.level > character.level);
+  return planned.map((slot) => ({
+    key: slot.key,
+    label: plannedBoostLabel(slot, planned),
+    options: slot.options,
+  }));
+}
+
+/** A planned boost's label, numbered when its level has several of its source ("Level 5 boost 2"), so each picker has a name of its own. */
+function plannedBoostLabel(slot: BoostSlot, planned: readonly BoostSlot[]): MessageDescriptor {
+  const level = { level: slot.level };
+  const alike = planned.filter((each) => each.source === slot.source && each.level === slot.level);
+  return alike.length === 1 || slot.source !== BoostSource.Free
+    ? message(BOOST_LABEL_KEYS[slot.source], level)
+    : message('rules.attributes.boost.freeNumbered', { ...level, number: alike.indexOf(slot) + 1 });
 }

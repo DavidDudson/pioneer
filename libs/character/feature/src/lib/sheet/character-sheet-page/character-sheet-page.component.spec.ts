@@ -142,16 +142,16 @@ describe('CharacterSheetPage', () => {
       present(field.querySelector('fr-text')).textContent.trim(),
     );
     expect(labels).toContain('Elf feat, level 5');
-    expect(labels.filter((label) => label === 'Level 5 boost')).toHaveLength(4);
-    expect(labels).toContain('Level 20 boost');
+    expect(labels.filter((label) => label.startsWith('Level 5 boost'))).toHaveLength(4);
+    expect(labels).toContain('Level 20 boost 1');
   });
 
   it('saves a boost planned from the timeline as a pick in its own slot', async () => {
     const { root } = await openSheet();
     const field = present(
-      [...root.querySelectorAll<HTMLElement>('pio-level-timeline fr-inline-field')].filter(
-        (each) => each.querySelector('fr-text')?.textContent.trim() === 'Level 5 boost',
-      )[1],
+      [...root.querySelectorAll<HTMLElement>('pio-level-timeline fr-inline-field')].find(
+        (each) => each.querySelector('fr-text')?.textContent.trim() === 'Level 5 boost 2',
+      ),
     );
     present(field.querySelector<HTMLElement>('button')).click();
     await settle();
