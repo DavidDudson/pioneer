@@ -7,6 +7,17 @@
 export { Chart, ChartAspect } from './lib/data/chart/chart.component';
 export { Table } from './lib/data/table/table.component';
 export { type TableColumn, tableColumns } from './lib/data/table/table-features';
+export {
+  type ColumnOptions,
+  type ComponentColumn,
+  type DateColumn,
+  type SortValue,
+  TableSchema,
+  type TagCell,
+  type TagColumn,
+  tableSchema,
+  type TextColumn,
+} from './lib/data/table/table-schema';
 export { VirtualItem } from './lib/data/virtual-list/virtual-item.directive';
 export { VirtualEstimate, VirtualList } from './lib/data/virtual-list/virtual-list.component';
 export { Combobox, type ComboboxOption } from './lib/controls/combobox/combobox.component';

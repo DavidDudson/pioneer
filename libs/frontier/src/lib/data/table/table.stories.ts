@@ -1,9 +1,12 @@
 import { argsToTemplate } from '@analogjs/storybook-angular';
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
+import { Temporal } from '@pioneer/shared/kernel';
 
+import { BadgeTone } from '../../text/badge/badge.component';
 import { TableHeaderCell } from './header-cell/header-cell.component';
 import { tableColumns } from './table-features';
 import type { TableColumn } from './table-features';
+import { tableSchema } from './table-schema';
 import { Table } from './table.component';
 
 interface PartyMember {
@@ -60,3 +63,36 @@ export const Default: TableStory = {};
 export const HiddenCaption: TableStory = { args: { hideCaption: true } };
 
 export const Empty: TableStory = { args: { data: [] } };
+
+interface Trait {
+  readonly id: string;
+  readonly name: string;
+  readonly rarity: 'common' | 'uncommon' | 'rare';
+  readonly added: Temporal.PlainDate;
+}
+
+const TRAITS: readonly Trait[] = [
+  { id: 'fire', name: 'Fire', rarity: 'common', added: Temporal.PlainDate.from('2026-01-15') },
+  { id: 'arcane', name: 'Arcane', rarity: 'uncommon', added: Temporal.PlainDate.from('2026-02-03') },
+  { id: 'cursed', name: 'Cursed', rarity: 'rare', added: Temporal.PlainDate.from('2026-03-21') },
+];
+
+const RARITY_TONE = { common: BadgeTone.Neutral, uncommon: BadgeTone.Warning, rare: BadgeTone.Info } as const;
+
+const MIXED_COLUMNS = tableSchema<Trait>()
+  .addText({ id: 'name', header: 'Name', value: (trait) => trait.name })
+  .addTag({
+    id: 'rarity',
+    header: 'Rarity',
+    value: (trait) => ({ label: trait.rarity, tone: RARITY_TONE[trait.rarity] }),
+  })
+  .addDate({ id: 'added', header: 'Added', value: (trait) => trait.added })
+  .build();
+
+/**
+ * Columns come from `tableSchema<Row>()`: chain `addText`, `addTag`, `addDate` or `addComponent`, then `build()`.
+ * A component cell sorts by its own sort value, apart from what it renders.
+ */
+export const BuiltFromSchema: StoryObj<Table<Trait>> = {
+  args: { data: TRAITS, columns: MIXED_COLUMNS, caption: 'Traits', rowId: (trait: Trait): string => trait.id },
+};
