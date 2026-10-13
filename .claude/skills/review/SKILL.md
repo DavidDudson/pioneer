@@ -1,7 +1,7 @@
 ---
 name: review
-description: Pioneer's pre-PR code review. Runs persona reviewers in parallel against the branch diff, each checking the repo's rules and ADRs, then verifies every finding against the code before reporting or fixing. Use before creating a PR, when the user says "review this", "review my changes", "check this before PR", or when the create-pr, work-issue or pickup skills reach their review step.
-argument-hint: '[base-ref] [--fix]'
+description: Pioneer's pre-PR code review. Runs only the persona reviewers the diff needs, each a clean-context Sonnet agent, each checking the repo's rules and ADRs, then verifies every finding against the code before reporting or fixing. Use before creating a PR, when the user says "review this", "review my changes", "check this before PR", or when the create-pr, work-issue or pickup skills reach their review step.
+argument-hint: "[base-ref] [--fix]"
 ---
 
 # Pioneer review
@@ -9,31 +9,58 @@ argument-hint: '[base-ref] [--fix]'
 Review the current branch against `origin/main` (or the given base) before it becomes a PR. The goal is findings
 that are **true**: every one is checked against the code and the repo's written rules before it is reported.
 
-## 1. Gather context
+## 1. Gather context (cheap)
 
 ```sh
 git fetch origin
 base="${1:-origin/main}"
 git diff --stat "$base"...HEAD
-git diff "$base"...HEAD
 git log --oneline "$base"..HEAD
 ```
 
-Also read, so personas can cite them:
-
-- The linked issue and its parent epic (`gh issue view <n>`), if the branch name or commits reference one.
-- `docs/architecture/*.md`, `docs/adr/*.md`, `docs/roadmap.md` (ticket rules), `libs/frontier/AGENTS.md`,
-  `NOTICE.md`.
-- Lint configs that encode rules: `.oxlintrc.json`, `tools/oxlint/pioneer-plugin.ts`, `eslint.config.ts`,
-  `tools/eslint/`, `knip.json`, `bunfig.toml`.
+Read only the stat and the log here, plus the linked issue (`gh issue view <n>`) if the branch name or commits
+reference one. Do **not** read the full diff, the docs or the ADRs in this session: each persona reads what it
+needs in its own context, so loading them here pays for them twice.
 
 If the diff is empty, say so and stop.
 
 ## 2. Run the personas
 
-Launch one Agent per persona **in a single message** so they run in parallel. Give each: the diff (or the list of
-changed files and the base ref so it can run `git diff` itself), the issue text, its persona brief below, and the
-output contract. Personas only read; they never edit.
+### Clean context, Sonnet
+
+Every persona runs in a **clean context**: a fresh `general-purpose` Agent with `model: "sonnet"`. Never use
+`subagent_type: "fork"`, and never put conversation history, earlier findings or your own view of the change in
+the prompt; the persona sees the code cold, as a reviewer would. Personas only read; they never edit.
+
+Prompt each with only: the base ref, the changed files in its area (from the stat), the issue number and its
+acceptance criteria, its brief, its reading list, and the output contract. It runs
+`git diff "$base"...HEAD -- <its files>` itself.
+
+### Pick the fewest personas
+
+Select personas from the changed paths:
+
+| Persona                                  | Runs when the diff touches                                                                              | Reads (only these)                                                                    |
+| ---------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| **Rules engine and PF2e accuracy**       | `libs/rules/**`, `content/**`, `libs/interop/**`, `tools/content-import/**`                             | ADRs cited by the changed code or issue; the rules sources the change quotes          |
+| **Architecture and ADRs**                | More than one lib, a new lib or project, `docs/adr/**`, or a new import between libs                    | `docs/roadmap.md` ticket rules; `ls docs/adr`, then only the ADRs that match the area |
+| **Frontend and frontier**                | `apps/web/**`, `libs/*/feature/**`, `libs/*/ui/**`, `libs/frontier/**`, `*.html`, `en.json`             | `libs/frontier/AGENTS.md`; ADR-0009; ADR-0028                                         |
+| **Data, API and persistence**            | `apps/api/**`, `libs/*/application/**`, `libs/*/infrastructure/**`, `libs/*/data-access/**`, migrations | ADR-0004; ADR-0006; ADR-0007                                                          |
+| **Tests and quality**                    | Any code change                                                                                         | Neighbouring tests of the changed files                                               |
+| **Security, licensing and supply chain** | `package.json`, `bun.lock`, `bunfig.toml`, auth code, content text, `NOTICE.md`, assets                 | `NOTICE.md`; `bunfig.toml`                                                            |
+
+Lint configs (`.oxlintrc.json`, `tools/oxlint/`, `tools/eslint/`, `knip.json`) are not reading material: the
+mechanical checks in step 3 enforce them, so personas skip anything lint already catches.
+
+Cost limits:
+
+- **Small diff** (under ~300 changed lines, or a single area): launch **one** clean-context Sonnet Agent that
+  carries the briefs of every selected persona.
+- **Larger diff**: one Agent per selected persona, all **in a single message** so they run in parallel.
+- **Docs- or config-only diff**: no personas; run the mechanical checks and read the diff inline.
+- Say which personas ran and which were skipped.
+
+Persona briefs:
 
 | Persona                                  | Checks                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -43,9 +70,6 @@ output contract. Personas only read; they never edit.
 | **Data, API and persistence**            | Zod at every trust boundary; codecs used for wire shapes. Migrations are generated, reversible in intent, and new user-data tables call `audit.enable`. Optimistic concurrency with `expectedVersion` and 409 on conflict. List sorts are index-backed. Ownership and authorisation checks in application services (ADR-0007). Campaign events append-only (ADR-0006).                                                                                                                                                                                                          |
 | **Tests and quality**                    | Tests cover the acceptance criteria and the edge cases the change introduces: property tests for engine and dice logic, `*.db.test.ts` for persistence, component specs for UI. Tests assert behaviour (message keys, not English strings). No dead code or unused exports (knip), no commented-out code, naming and comment density match surrounding code.                                                                                                                                                                                                                    |
 | **Security, licensing and supply chain** | No secrets or tokens. New dependencies are pinned exactly, justified, and respect `bunfig.toml` policy. No `bypassSecurityTrust*`, no `innerHTML` with content text. Content licensing per `NOTICE.md`: ORC text only with attribution, no Paizo art or trade dress, nothing Paizo behind sign-in.                                                                                                                                                                                                                                                                              |
-
-Skip a persona only when the diff cannot touch its area (for example, a docs-only change skips Data and API), and
-say which were skipped.
 
 ### Output contract for every persona
 
@@ -70,8 +94,8 @@ true findings over ten speculative ones.
 
 ## 3. Verify
 
-Combine the personas' findings, drop duplicates, then verify each one yourself (or with one verifier Agent for a
-large set): open the file at the line, read enough surrounding code, and confirm both the evidence and the rule.
+Combine the personas' findings, drop duplicates, then verify each one yourself in this session (no verifier
+Agent; only the files a finding names): open the file at the line, read enough surrounding code, and confirm both the evidence and the rule.
 Discard anything that does not hold up. Tag survivors `CONFIRMED`; tag ones that are likely but need a human
 judgement call `PLAUSIBLE`.
 
