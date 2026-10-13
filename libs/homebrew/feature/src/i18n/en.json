@@ -1,0 +1,35 @@
+{
+  "list": {
+    "title": "Homebrew",
+    "description": "Packs of your own content, private until you share them.",
+    "newHeading": "New pack",
+    "titleLabel": "Title",
+    "titlePlaceholder": "Amiri's feats",
+    "titleHint": "What the pack is called when people see it.",
+    "slugLabel": "Slug",
+    "slugPlaceholder": "amiri-feats",
+    "slugHint": "Lowercase letters, digits and dashes. Entries are keyed under it, so it cannot change later.",
+    "create": "Create pack",
+    "creating": "Creating",
+    "created": "Created",
+    "createFailed": "Could not create the pack. Try again.",
+    "loadError": "Could not load your packs.",
+    "entries": "{count, plural, =0 {No entries} one {# entry} other {# entries}}",
+    "updated": "Updated",
+    "empty": "No packs yet. Create one to start writing your own content."
+  },
+  "pack": {
+    "slugTaken": "That slug is already used by another pack. Pick a different one.",
+    "title": "Pack",
+    "loadError": "Could not load this pack.",
+    "detailsHeading": "Pack",
+    "slug": "Slug",
+    "publisher": "Author",
+    "visibility": "Visibility",
+    "entries": "Entries",
+    "updated": "Updated",
+    "visibilityPrivate": "Private: only you can see it",
+    "visibilityCampaign": "Campaign: members of campaigns that enable it",
+    "visibilityPublic": "Public: everyone signed in"
+  }
+}

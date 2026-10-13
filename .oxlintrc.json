@@ -277,6 +277,11 @@
             "onlyDependOnLibsWithTags": ["scope:interop", "scope:character", "scope:rules", "scope:shared"]
           },
           { "sourceTag": "scope:campaign", "onlyDependOnLibsWithTags": ["scope:campaign", "scope:shared"] },
+          // Homebrew packs are content rows: it reads and writes the rules context's pack tables and types.
+          {
+            "sourceTag": "scope:homebrew",
+            "onlyDependOnLibsWithTags": ["scope:homebrew", "scope:rules", "scope:shared"]
+          },
           { "sourceTag": "scope:play", "onlyDependOnLibsWithTags": ["scope:play", "scope:rules", "scope:shared"] },
           { "sourceTag": "scope:identity", "onlyDependOnLibsWithTags": ["scope:identity", "scope:shared"] },
           // Shared libraries, frontier among them, know no Pioneer schemas or feature areas (ADR-0028).

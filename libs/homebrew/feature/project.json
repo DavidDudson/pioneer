@@ -1,0 +1,17 @@
+{
+  "name": "homebrew-feature",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/homebrew/feature/src",
+  "tags": ["scope:homebrew", "type:feature", "platform:web"],
+  "targets": {
+    "test": {
+      "executor": "@angular/build:unit-test",
+      "options": {
+        "buildTarget": "web:build:development",
+        "tsConfig": "libs/homebrew/feature/tsconfig.spec.json",
+        "runner": "vitest"
+      }
+    }
+  }
+}

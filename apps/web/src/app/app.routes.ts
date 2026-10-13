@@ -36,6 +36,16 @@ export const appRoutes: Routes = [
     },
   },
   {
+    path: 'homebrew',
+    // Packs belong to an account.
+    canActivate: [signInRequired],
+    runGuardsAndResolvers: 'always',
+    loadChildren: async () => {
+      const { homebrewRoutes } = await import('@pioneer/homebrew/feature');
+      return homebrewRoutes;
+    },
+  },
+  {
     path: 'account',
     loadChildren: async () => {
       const { identityRoutes } = await import('@pioneer/identity/feature');

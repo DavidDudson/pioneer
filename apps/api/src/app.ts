@@ -8,6 +8,7 @@ import { characters } from './characters';
 import { content } from './content';
 import type { Database } from './database';
 import type { Env } from './env';
+import { homebrew } from './homebrew';
 import { API_PREFIX, csrf, identity } from './identity';
 import type { Identity } from './identity';
 
@@ -30,6 +31,7 @@ export function createApp(db: Database, env: Env, extensions: readonly AppExtens
     .use(identityParts.routes)
     .use(characterRoutes)
     .use(campaigns(db, clock, identityParts.authenticator))
+    .use(homebrew(db, clock, identityParts.authenticator))
     .use(content(db));
   for (const extend of extensions) {
     app = app.use(extend(identityParts));
