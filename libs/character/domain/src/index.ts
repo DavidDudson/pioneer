@@ -4,6 +4,7 @@ export { type EditInputs } from './item-purchase';
 export { CharacterCommand, PATCH_COMMANDS, PLAY_COMMANDS } from './character-command';
 export {
   applyPlayCommand,
+  withTempHitPoints,
   CharacterPlay,
   currentHitPoints,
   FRESH_PLAY,

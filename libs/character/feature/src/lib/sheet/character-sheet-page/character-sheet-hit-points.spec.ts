@@ -96,4 +96,20 @@ describe('CharacterSheetPage Hit Points', () => {
       request.flush(playOf(2, 0, 2));
     });
   });
+
+  it('sets temporary Hit Points to the amount typed', async () => {
+    const { root } = await openSheet(CLERIC_MERISIEL, { play: playOf(0, 0) });
+    await vi.waitFor(() => {
+      expect(meterOf(root).value).toBe(MAX_HP);
+    });
+
+    typeAmount(root, 5);
+    buttonOf(root, 'Set temp HP').click();
+
+    await vi.waitFor(() => {
+      const request = TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: PLAY_URL });
+      expect(request.request.body).toStrictEqual({ expectedRevision: 1, command: { field: 'setTempHp', temp: 5 } });
+      request.flush(playOf(0, 5, 2));
+    });
+  });
 });

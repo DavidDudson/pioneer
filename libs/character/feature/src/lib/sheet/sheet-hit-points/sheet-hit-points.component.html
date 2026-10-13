@@ -1,35 +1,50 @@
-@if (hp(); as hp) {
-  <fr-stack gap="xs">
-    <fr-stack direction="horizontal" justify="between" align="center" gap="sm" wrap>
-      <fr-text weight="semibold">{{ 'character.sheet.hp.label' | transloco }}</fr-text>
-      @if (hp.temp > 0) {
-        <fr-text tone="info">{{ 'character.sheet.hp.temp' | transloco: { temp: hp.temp } }}</fr-text>
-      }
-    </fr-stack>
-    <fr-meter [label]="'character.sheet.hp.label' | transloco" [value]="hp.current" [max]="hp.max" [optimum]="hp.max" />
-    <fr-stack direction="horizontal" align="center" gap="xs" wrap>
-      <fr-number-input
-        [ariaLabel]="'character.sheet.hp.amount' | transloco"
-        [min]="0"
-        [max]="amountMax"
-        [value]="amount()"
-        (valueChange)="amount.set($event)"
-        (completeChange)="complete.set($event)"
-      />
-      <fr-async-button size="sm" [action]="damage" [disabled]="!ready()" [describeError]="describeError">
-        {{ 'character.sheet.hp.damage' | transloco }}
-      </fr-async-button>
-      <fr-async-button size="sm" [action]="heal" [disabled]="!ready()" [describeError]="describeError">
-        {{ 'character.sheet.hp.heal' | transloco }}
-      </fr-async-button>
-      <fr-async-button size="sm" [action]="setHp" [disabled]="!ready()" [describeError]="describeError">
-        {{ 'character.sheet.hp.set' | transloco }}
-      </fr-async-button>
-      <fr-async-button size="sm" [action]="setTempHp" [disabled]="!ready()" [describeError]="describeError">
-        {{ 'character.sheet.hp.setTemp' | transloco }}
-      </fr-async-button>
-    </fr-stack>
-  </fr-stack>
-} @else if (!loading()) {
-  <fr-text tone="muted">{{ 'character.sheet.hp.noMax' | transloco }}</fr-text>
-}
+<fr-async-region>
+  <ng-template frAsyncPending><fr-skeleton width="lg" /></ng-template>
+  <ng-template [frAsyncData]="playQuery">
+    <fr-async-region>
+      <ng-template frAsyncPending><fr-skeleton width="lg" /></ng-template>
+      <ng-template [frAsyncData]="engineQuery()">
+        @if (hp(); as hp) {
+          <fr-stack gap="xs">
+            <fr-stack direction="horizontal" justify="between" align="center" gap="sm" wrap>
+              <fr-text weight="semibold">{{ 'character.sheet.hp.label' | transloco }}</fr-text>
+              @if (hp.temp > 0) {
+                <fr-text tone="info">{{ 'character.sheet.hp.temp' | transloco: { temp: hp.temp } }}</fr-text>
+              }
+            </fr-stack>
+            <fr-meter
+              [label]="'character.sheet.hp.label' | transloco"
+              [value]="hp.current"
+              [max]="hp.max"
+              [optimum]="hp.max"
+            />
+            <fr-stack direction="horizontal" align="center" gap="xs" wrap>
+              <fr-number-input
+                [ariaLabel]="'character.sheet.hp.amount' | transloco"
+                [min]="0"
+                [max]="amountMax"
+                [value]="amount()"
+                (valueChange)="amount.set($event)"
+                (completeChange)="complete.set($event)"
+              />
+              <fr-async-button size="sm" [action]="damage" [disabled]="!ready()" [describeError]="describeError">
+                {{ 'character.sheet.hp.damage' | transloco }}
+              </fr-async-button>
+              <fr-async-button size="sm" [action]="heal" [disabled]="!ready()" [describeError]="describeError">
+                {{ 'character.sheet.hp.heal' | transloco }}
+              </fr-async-button>
+              <fr-async-button size="sm" [action]="setHp" [disabled]="!ready()" [describeError]="describeError">
+                {{ 'character.sheet.hp.set' | transloco }}
+              </fr-async-button>
+              <fr-async-button size="sm" [action]="setTempHp" [disabled]="!ready()" [describeError]="describeError">
+                {{ 'character.sheet.hp.setTemp' | transloco }}
+              </fr-async-button>
+            </fr-stack>
+          </fr-stack>
+        } @else {
+          <fr-text tone="muted">{{ 'character.sheet.hp.noMax' | transloco }}</fr-text>
+        }
+      </ng-template>
+    </fr-async-region>
+  </ng-template>
+</fr-async-region>

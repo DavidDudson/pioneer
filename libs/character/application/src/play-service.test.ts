@@ -98,6 +98,14 @@ describe('PlayService', () => {
     expect(await refused).toBeInstanceOf(ValidationError);
   });
 
+  test('a character with no maximum yet can still gain temporary Hit Points', async () => {
+    const bare = fixedContent(new ContentPackBuilder().withId('player-core').withAncestry('human').build());
+    const service = new PlayService(repository, bare, clock);
+    const command: PlayCommand = { field: PlayCommandField.SetTempHp, temp: HitPoints.parse(4) };
+    const saved = await service.patch(amiri, kyra.id, { expectedRevision: FIRST_VERSION, command });
+    expect(saved.play.hp.temp).toBe(HitPoints.parse(4));
+  });
+
   test("someone else's character is not found", async () => {
     expect(await rejection(play.get(ezren, kyra.id))).toBeInstanceOf(NotFoundError);
     const edit = play.patch(ezren, kyra.id, { expectedRevision: FIRST_VERSION, command: damage(1) });

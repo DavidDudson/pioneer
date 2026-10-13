@@ -4,9 +4,18 @@ import {
   characterStatistics,
   maxHitPoints,
   PLAY_COMMANDS,
+  PlayCommandField,
   slotContent,
+  withTempHitPoints,
 } from '@pioneer/character/domain';
-import type { Character, CharacterId, CharacterPlay, PatchPlayBody } from '@pioneer/character/domain';
+import type {
+  Character,
+  CharacterId,
+  CharacterPlay,
+  PatchPlayBody,
+  PlayCommand,
+  PlayState,
+} from '@pioneer/character/domain';
 import type { ContentSource, HitPoints } from '@pioneer/rules/sdk';
 import { message, NotFoundError, ValidationError, VersionConflictError } from '@pioneer/shared/kernel';
 import type { Clock, UserId } from '@pioneer/shared/kernel';
@@ -49,8 +58,7 @@ export class PlayService {
     if (current.revision !== expectedRevision) {
       throw new VersionConflictError('CharacterPlay', id);
     }
-    const max = await this.#maxHitPoints(character);
-    const play = applyPlayCommand(current.play, command, max);
+    const play = await this.#applied(character, current.play, command);
     return this.#characters.updatePlay({
       id,
       play,
@@ -58,6 +66,15 @@ export class PlayService {
       audit: { actor, command: PLAY_COMMANDS[command.field] },
       now: this.#clock.now(),
     });
+  }
+
+  /** Temporary Hit Points need no maximum, so a character without one can still gain them. */
+  async #applied(character: Character, play: PlayState, command: PlayCommand): Promise<PlayState> {
+    if (command.field === PlayCommandField.SetTempHp) {
+      return withTempHitPoints(play, command.temp);
+    }
+    const max = await this.#maxHitPoints(character);
+    return applyPlayCommand(play, command, max);
   }
 
   async #maxHitPoints(character: Character): Promise<HitPoints> {

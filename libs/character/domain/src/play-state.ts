@@ -87,6 +87,11 @@ export function currentHitPoints(hp: HitPointsState, max: HitPoints): HitPoints 
   return less(max, atMost(hp.damage, max));
 }
 
+/** `play` with `temp` temporary Hit Points gained: they don't stack, so the higher of the two is kept. Needs no maximum. */
+export function withTempHitPoints(play: PlayState, temp: HitPoints): PlayState {
+  return { ...play, hp: { ...play.hp, temp: HitPoints.parse(Math.max(play.hp.temp, temp)) } };
+}
+
 /**
  * `play` after `command`, against the character's maximum Hit Points. Damage is held within 0 and the maximum, so
  * current Hit Points stay within 0 and the maximum for any sequence of commands.
@@ -108,7 +113,7 @@ export function applyPlayCommand(play: PlayState, command: PlayCommand, max: Hit
       return { ...play, hp: { ...hp, damage: less(max, atMost(command.current, max)) } };
     }
     case PlayCommandField.SetTempHp: {
-      return { ...play, hp: { ...hp, damage, temp: HitPoints.parse(Math.max(hp.temp, command.temp)) } };
+      return withTempHitPoints(play, command.temp);
     }
     default: {
       return command satisfies never;

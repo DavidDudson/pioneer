@@ -2,7 +2,17 @@ import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@a
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { currentHitPoints, HIT_POINTS_EDIT_MAX, PlayCommandField, untypedDamage } from '@pioneer/character/domain';
 import type { PlayCommand } from '@pioneer/character/domain';
-import { AsyncButton, Meter, NumberInput, Stack, Text } from '@pioneer/frontier';
+import {
+  AsyncButton,
+  AsyncData,
+  AsyncPending,
+  AsyncRegion,
+  Meter,
+  NumberInput,
+  Skeleton,
+  Stack,
+  Text,
+} from '@pioneer/frontier';
 import { HitPoints } from '@pioneer/rules/sdk';
 
 import { PlayStore } from '../../data/play-store';
@@ -40,7 +50,18 @@ interface HitPointsView {
  */
 @Component({
   selector: 'pio-sheet-hit-points',
-  imports: [AsyncButton, Meter, NumberInput, Stack, Text, TranslocoPipe],
+  imports: [
+    AsyncButton,
+    AsyncData,
+    AsyncPending,
+    AsyncRegion,
+    Meter,
+    NumberInput,
+    Skeleton,
+    Stack,
+    Text,
+    TranslocoPipe,
+  ],
   templateUrl: './sheet-hit-points.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -64,10 +85,14 @@ export class SheetHitPoints {
     return { current: currentHitPoints(read.play.hp, max), max, temp: read.play.hp.temp };
   });
 
-  /** Whether the reads behind Hit Points are still loading, as opposed to there being no maximum to show. */
-  protected readonly loading = computed(() => this.#play.play.isPending() || this.#sheet.engineQuery().isPending());
+  /** The reads behind Hit Points, each shown in its own region so a failure reads as one. */
+  protected readonly playQuery = this.#play.play;
+  protected readonly engineQuery = this.#sheet.engineQuery;
 
-  protected readonly ready = computed(() => this.hp() !== undefined && this.complete());
+  /** Whether an edit is in flight: they share one revision, so a second would meet a conflict nothing caused. */
+  protected readonly busy = signal(false);
+
+  protected readonly ready = computed(() => this.hp() !== undefined && this.complete() && !this.busy());
 
   protected readonly damage = async (): Promise<void> => this.#send(damageOf);
   protected readonly heal = async (): Promise<void> => this.#send(healOf);
@@ -82,6 +107,11 @@ export class SheetHitPoints {
 
   async #send(command: (amount: HitPoints) => PlayCommand): Promise<void> {
     const amount = HitPoints.parse(this.amount());
-    await this.#play.send(command(amount));
+    this.busy.set(true);
+    try {
+      await this.#play.send(command(amount));
+    } finally {
+      this.busy.set(false);
+    }
   }
 }
