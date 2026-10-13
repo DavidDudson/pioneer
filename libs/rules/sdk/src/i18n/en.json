@@ -629,6 +629,11 @@
       "remove": "Remove {language}",
       "open": "{count, plural, one {# language left to add} other {# languages left to add}}"
     },
+    "timeline": {
+      "level": "Level {level}",
+      "current": "Current level",
+      "nothing": "Nothing opens at this level."
+    },
     "choices": {
       "none": "No choices yet.",
       "state": {

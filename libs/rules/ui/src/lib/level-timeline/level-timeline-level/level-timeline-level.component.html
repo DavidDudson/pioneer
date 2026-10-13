@@ -1,0 +1,17 @@
+<fr-stack gap="xs">
+  <fr-stack direction="horizontal" gap="xs" align="center" wrap>
+    <fr-heading variant="subheading" [level]="3">{{ Message.Level | transloco: { level: row().level } }}</fr-heading>
+    @if (row().current) {
+      <fr-badge [tone]="BadgeTone.Info">{{ Message.Current | transloco }}</fr-badge>
+    }
+  </fr-stack>
+  @if (row().lines.length === 0) {
+    <fr-text tone="muted">{{ Message.Nothing | transloco }}</fr-text>
+  } @else {
+    <fr-list gap="xs">
+      @for (line of row().lines; track line.key) {
+        <fr-list-item><pio-choice-row [line]="line" /></fr-list-item>
+      }
+    </fr-list>
+  }
+</fr-stack>

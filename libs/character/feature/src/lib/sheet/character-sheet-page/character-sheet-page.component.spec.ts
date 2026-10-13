@@ -21,6 +21,7 @@ describe('CharacterSheetPage', () => {
       ['Build', true],
       ['Attributes', true],
       ['Choices', true],
+      ['Level timeline', true],
       ['Feats', true],
       ['Class features', true],
     ]);
@@ -51,6 +52,7 @@ describe('CharacterSheetPage', () => {
       'Build',
       'Attributes',
       'Choices',
+      'Level timeline',
       'Feats',
       'Class features',
     ]);
@@ -59,6 +61,21 @@ describe('CharacterSheetPage', () => {
 
     expect(document.activeElement?.textContent.trim()).toBe('Attributes');
     expect(document.activeElement?.tagName).toBe('H2');
+  });
+
+  it('lists a row for each level from 1 to 20 on the Plan tab, marking the current one in text', async () => {
+    const { root } = await openSheet();
+    const timeline = present(root.querySelector('section[aria-labelledby="sheet-timeline"]'));
+    const headings = [...timeline.querySelectorAll('pio-level-timeline-level fr-heading')].map((heading) =>
+      heading.textContent.trim(),
+    );
+
+    expect(headings).toHaveLength(20);
+    expect(headings.at(0)).toBe('Level 1');
+    expect(headings.at(-1)).toBe('Level 20');
+    expect(
+      [...timeline.querySelectorAll('fr-badge')].filter((badge) => badge.textContent.trim() === 'Current level'),
+    ).toHaveLength(1);
   });
 
   it('lists every choice with its status, flagging a planned pick and an invalid one with its reason', async () => {

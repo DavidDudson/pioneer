@@ -6,7 +6,14 @@ import type { Defences } from '@pioneer/rules/engine';
 import { ChoiceValue } from '@pioneer/rules/sdk';
 import type { ContentId, ContentRegistry, SlotKey } from '@pioneer/rules/sdk';
 import { ATTRIBUTE_MESSAGES } from '@pioneer/rules/ui';
-import type { BuildLine, ChoiceLine, ClassFeatureLine, NamedStatistic, SpellcastingEntryLine } from '@pioneer/rules/ui';
+import type {
+  BuildLine,
+  ChoiceLine,
+  ClassFeatureLine,
+  LevelTimelineRow,
+  NamedStatistic,
+  SpellcastingEntryLine,
+} from '@pioneer/rules/ui';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 import { sheetAttributes } from './sheet-attributes';
@@ -29,6 +36,7 @@ import { sheetSkills, sheetSkillSlots } from './sheet-skills';
 import { sheetSpellcasting } from './sheet-spellcasting';
 import { sheetStatistics } from './sheet-statistics';
 import { sheetStrikes } from './sheet-strikes';
+import { sheetTimeline } from './sheet-timeline';
 
 /** What the build picks read and write through. */
 export interface BuildPickSources {
@@ -90,6 +98,8 @@ export interface BuildPicks extends EngineReads {
   readonly buildLines: Signal<readonly BuildLine[] | undefined>;
   /** Every choice with its status, as the server read the slots; undefined while the character loads. */
   readonly choices: Signal<readonly ChoiceLine[] | undefined>;
+  /** One row per level from 1 to 20 with the slots it opens; undefined while the character or the content loads. */
+  readonly timeline: Signal<readonly LevelTimelineRow[] | undefined>;
   /** One pick per trained skill and skill increase up to the character's level, in the order they are read. */
   readonly skillFields: Signal<readonly SlotPickField[]>;
   /**
@@ -247,6 +257,7 @@ export function sheetBuildPicks(sources: BuildPickSources): BuildPicks {
       const slots = sources.slots();
       return slots === undefined ? undefined : sheetChoices(slots);
     }),
+    timeline: loaded(sources, sheetTimeline),
     ...engineReads(sources),
     skillFields: slotFieldsOf(sources, loaded(sources, sheetSkillSlots)),
     choiceFields: slotFieldsOf(sources, loaded(sources, sheetChoiceSlots)),
