@@ -145,7 +145,20 @@
       "unmet": "Prerequisites not met: {prerequisites}",
       "unknown": "Prerequisites can't be checked: {prerequisites}",
       "locked": "Locked until you have {needed, plural, one {# more feat} other {# more feats}} from {archetype}",
-      "granted": "From features",
+      "level": "Level {level}",
+      "group": {
+        "ancestry": "Ancestry feats",
+        "class": "Class feats",
+        "skill": "Skill feats",
+        "general": "General feats",
+        "bonus": "Bonus feats"
+      },
+      "display": {
+        "active": "Active",
+        "modifier": "Modifier",
+        "grantOnly": "Grants only",
+        "narrative": "Narrative"
+      },
       "from": "From {entry}",
       "none": "No feat slots yet. Pick a class and ancestry first."
     },

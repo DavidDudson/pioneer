@@ -8,8 +8,9 @@ import type { ContentRegistry, SlotKey } from '@pioneer/rules/sdk';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 import { NOT_CHOSEN, RootPick } from './sheet-build';
+import type { SheetFeatGroup } from './sheet-feat-groups';
 import { featMatches, sheetFeats } from './sheet-feats';
-import type { SheetFeats, SheetFeatSlot, SheetGrantedFeat } from './sheet-feats';
+import type { SheetFeats, SheetFeatSlot } from './sheet-feats';
 import { sheetField } from './sheet-field';
 
 /** What the feat pickers read and write through. */
@@ -36,10 +37,10 @@ interface FeatField {
   readonly field: InlineEdit<string | undefined>;
 }
 
-/** The feat pickers and the feats features grant; undefined while the feats load. */
+/** The feat pickers and the feats the character has by slot type; undefined while the feats load. */
 export interface FeatFields {
   readonly fields: readonly FeatField[];
-  readonly granted: readonly SheetGrantedFeat[];
+  readonly groups: readonly SheetFeatGroup[];
 }
 
 /** One feat slot as an inline pick, saved by `selectSlot`, cleared by `clearSlot`. */
@@ -105,6 +106,6 @@ export function featFieldsOf(sources: FeatPickSources): Signal<FeatFields | unde
   });
   return computed(() => {
     const read = feats();
-    return read === undefined ? undefined : { fields: fields(), granted: read.granted };
+    return read === undefined ? undefined : { fields: fields(), groups: read.groups };
   });
 }
