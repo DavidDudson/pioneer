@@ -434,10 +434,10 @@ version 3, #472). `inventory.coins` holds platinum, gold, silver and copper, eac
   with that origin (`equippedRules`). Worn armour adds its bonus to AC as an `item` line named by the armour and sets
   the Dexterity cap; while it is invested, its potency rune adds to that line and its resilient rune adds an `item`
   line to every save. Each held weapon is a Strike input with its potency and striking grades (`equippedInputs`),
-  marked favoured when the deity favours its base (ADR-0048). The sheet's Strikes section lists each Strike with its traits, its attack at the first, second and third
-  attack of a turn (agile weapons take -4 and -8), its damage, and the breakdowns of the attack and the damage bonus.
-  A held shield's Hardness, Hit Points and Broken Threshold (half its Hit Points) sit beside them (`heldShields`); a
-  reinforcing rune does not change them yet.
+  marked favoured when the deity favours its base (ADR-0048). The sheet's Strikes section lists each Strike with its
+  traits, its attack at the first, second and third attack of a turn (agile weapons take -4 and -8), its damage, and
+  the breakdowns of the attack and the damage bonus. A held shield's Hardness, Hit Points and Broken Threshold (half
+  its Hit Points) sit beside them (`heldShields`); a reinforcing rune does not change them yet.
   Armour's check and Speed penalties wait for skills and Speed on the sheet.
 - **Runes.** An item's `runes` are those etched onto it, over those its content comes with
   ([ADR-0042](../adr/0042-etched-runes-stored-over-content.md)). `etchRune { id, rune }` etches a fundamental rune at

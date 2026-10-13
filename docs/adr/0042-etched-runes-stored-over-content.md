@@ -52,4 +52,5 @@ was etched over the content's, or keep runes as their own inventory lines etched
 - A property rune's rule elements are a grant root with its host's inventory hop, at its host's item level, so they
   are in play exactly while the host's magic works.
 - Striking grades reach a held weapon's Strike input, where each adds a damage die (`deriveStrikes`, #481).
-  Reinforcing grades are stored and named; the Strikes section shows a shield's content Hardness and Hit Points, which a reinforcing rune does not change yet.
+  Reinforcing grades are stored and named; the Strikes section shows a shield's content Hardness and Hit Points,
+  which a reinforcing rune does not change yet.
