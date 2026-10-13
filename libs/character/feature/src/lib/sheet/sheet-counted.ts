@@ -12,7 +12,7 @@ import type { ContentRegistry, Origin, SpellRank } from '@pioneer/rules/sdk';
 import { sheetSlotContent } from './sheet-slot-content';
 
 /** The spell slots of one rank of an entry or of one of its pools, as the sheet shows them. */
-export interface SlotView {
+interface SlotView {
   readonly key: SlotCountKey;
   /** The name of the entry that gave the spellcasting; a pool's name follows it when the slots are a pool's. */
   readonly source: string;
@@ -23,7 +23,7 @@ export interface SlotView {
 }
 
 /** The uses of one feat or action with a frequency, as the sheet shows them. */
-export interface UseView {
+interface UseView {
   readonly key: UseCountKey;
   readonly name: string;
   readonly boundary: Boundary;
