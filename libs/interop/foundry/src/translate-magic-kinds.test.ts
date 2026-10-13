@@ -66,7 +66,7 @@ describe('translateKindData: spells', () => {
       target: { value: '1 creature you know by name' },
       duration: { sustained: false, value: 'until full tribute is paid' },
       area: { type: 'hexagon', value: 5, details: 'hexes with plants' },
-      overlays: { a1: { overlayType: 'override' } },
+      overlays: { a1: { overlayType: 'override', system: { traits: { value: ['concentrate'] } } } },
     });
     const result = translate([odd]);
 
@@ -77,11 +77,11 @@ describe('translateKindData: spells', () => {
       damage: [],
     });
     expect(gapKeys(result)).toEqual([
-      'unmapped-field overlays',
       'unmapped-value range.value',
       'unmapped-value area.type',
       'unmapped-value target.value',
       'unmapped-value duration',
+      'unmapped-field overlays.a1.traits',
     ]);
   });
 

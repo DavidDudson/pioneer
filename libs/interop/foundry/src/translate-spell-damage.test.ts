@@ -78,28 +78,61 @@ describe('translateKindData: spell damage and heightening', () => {
     expect(KIND_DATA[ContentKind.Spell].safeParse(data).error).toBeUndefined();
   });
 
-  test('an untyped part whose type an overlay sets is chosen by the caster, so it is reported and left out', () => {
+  test('an untyped part whose type an overlay sets stays untyped, and each variant sets its type', () => {
     const claw = spell('gOuGiNg000000001', 'Gouging Claw', {
       level: { value: 1 },
       time: { value: '2' },
       damage: { '0': damagePart('2d6', 'untyped'), '1': damagePart('2', 'bleed') },
       heightening: { damage: { '0': '1d6', '1': '1' }, interval: 1, type: 'interval' },
       overlays: {
-        a1: { overlayType: 'override', system: { damage: { '0': { type: 'slashing' } } } },
-        a2: { overlayType: 'override', system: { damage: { '0': { type: 'piercing' } } } },
+        a2: {
+          name: 'Gouging Claw (Slashing)',
+          overlayType: 'override',
+          sort: 2,
+          system: { damage: { '0': { type: 'slashing' } } },
+        },
+        a1: {
+          name: 'Gouging Claw (Piercing)',
+          overlayType: 'override',
+          sort: 1,
+          system: { damage: { '0': { type: 'piercing' } } },
+        },
       },
     });
     const result = translate([claw]);
+    const data = dataIn(result, 'gouging-claw');
 
-    expect(dataIn(result, 'gouging-claw')).toMatchObject({
-      damage: [{ key: '1', damageType: 'bleed' }],
-      heightening: { damage: [{ key: '1', formula: '1' }] },
+    expect(data).toMatchObject({
+      damage: [
+        { key: '0', formula: '2d6' },
+        { key: '1', damageType: 'bleed' },
+      ],
+      heightening: {
+        damage: [
+          { key: '0', formula: '1d6' },
+          { key: '1', formula: '1' },
+        ],
+      },
+      variants: [
+        {
+          name: 'Gouging Claw (Piercing)',
+          damage: [
+            { key: '0', damageType: 'piercing' },
+            { key: '1', damageType: 'bleed' },
+          ],
+        },
+        {
+          name: 'Gouging Claw (Slashing)',
+          damage: [
+            { key: '0', damageType: 'slashing' },
+            { key: '1', damageType: 'bleed' },
+          ],
+        },
+      ],
     });
-    expect(gapsOf(result)).toContainEqual({
-      reason: KindDataGapReason.UnmappedValue,
-      field: 'damage.0.type',
-      raw: 'untyped',
-    });
+    expect(data).not.toHaveProperty('damage.0.damageType');
+    expect(gapsOf(result)).toEqual([]);
+    expect(KIND_DATA[ContentKind.Spell].safeParse(data).error).toBeUndefined();
   });
 
   test("applyMod adds the caster's spellcasting attribute modifier to the formula", () => {

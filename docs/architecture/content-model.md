@@ -200,8 +200,13 @@ its damage is its description, and the effects it applies are `effect` entries.
   Breath of Life), an optional `category`, `kinds` (`damage`, `healing` or both) and the `materials` it counts as
   (Moonbeam's `silver`). `heightening` is an
   `interval` (every so many ranks, add a formula to named damage parts and feet to the area) or `fixed` (at each
-  listed rank above the spell's, replace at least one of damage, range, area, targets or duration). Foundry's
-  overlays (Heal's action variants) and spellcasting-entry `location` have no field yet.
+  listed rank above the spell's, replace at least one of damage, range, area, targets, duration, casting time or
+  traits; `traits` is the spell's whole list then). `variants` are the ways to cast it (Heal's one-, two- and
+  three-action versions, Gouging Claw's slashing or piercing), Foundry's `override` overlays: each has an optional
+  `name` and at least one of `time`, `range`, `area`, `targets`, `duration`, `defense`, `damage` and
+  `heightening` that it has instead of the spell's, the rest as the spell has it. A variant's `damage` is its whole
+  list of parts and its `heightening` its whole heightening, so a reader never lays a variant over the spell (Foundry
+  does, by part key). Spellcasting-entry `location` has no field yet.
 - **Rituals.** Foundry stores a ritual as a spell with ritual data. A check is one of its `skills` (`skill:`
   selectors), at a `proficiency` when it names one; each secondary check is its own.
 - **Effects.** `duration` is a `time` of rounds to days with an `expiry` (`turn-start`, `turn-end`,
@@ -686,12 +691,16 @@ burst`, `15-foot emanation centered on you`); a shape Pioneer lacks is reported.
     save's selector). Traditions are `traits.traditions`. Damage parts keep Foundry's record key, lower-cased to a
     slug; an `untyped` part has no damage type, `applyMod` adds `@spellcasting.attr` to the formula and `materials`
     carry over. Foundry also writes `untyped` for a type the caster chooses, with an overlay setting each choice
-    (Gouging Claw); such a part, and one with any other type Pioneer lacks, is reported and left out, with what
-    heightening adds to it. Draconic Barrage chooses its type with no overlay and is left out by hand.
-    Interval heightening carries over (an area step of 0 is none); fixed
-    heightening maps each rank's range, area, target, duration and damage (laid over the spell's part of the same
-    key), and reports anything else it changes (`time`, `traits`). `cost` and `requirements` are rich text when
-    they are plain words. `overlays` are reported.
+    (Gouging Claw); such a part stays untyped and each variant sets its type, while one with a type Pioneer lacks is
+    reported and left out, with what heightening adds to it. Draconic Barrage chooses its type with no overlay and is
+    left out by hand.
+    Interval heightening carries over (an area step of 0 is none); fixed heightening maps each rank's casting time,
+    traits, range, area, target, duration and damage (laid over the spell's part of the same key), and reports anything
+    else it changes. `overlays` become `variants`, in Foundry's `sort` order: an `override` overlay maps its time, range,
+    area, target, duration, defence, damage (laid over the spell's parts by key) and heightening (laid over the
+    spell's), and reports the rest (`traits`, `rules`), a defence, range or target it removes (a variant can't), and an
+    overlay of any other type. An overlay that sets nothing Pioneer maps is left out. `cost` and `requirements` are
+    rich text when they are plain words.
   - A ritual's casting fields map as a spell's. Its primary check is the skills Foundry lists (a Lore by topic,
     `Legal Lore` is `skill:lore:legal`) at the one rank they name; its secondary checks are separated by commas,
     each a choice of skills joined by `or`. Ranks that differ, a DC, or a note in the parentheses

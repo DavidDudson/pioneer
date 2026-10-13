@@ -58,7 +58,7 @@ const ActionsCastTime = z
   })
   .refine(({ cost, upTo }) => upTo === undefined || isFewerActions(cost, upTo), CAST_UP_TO);
 
-const CastTime = z.discriminatedUnion('type', [
+export const CastTime = z.discriminatedUnion('type', [
   ActionsCastTime,
   z.strictObject({ type: z.literal(CastTimeType.Time), ...SpellTime }),
 ]);
@@ -212,7 +212,7 @@ const PassiveDefense = Selector.refine(
  * What a spell is resisted with: a `save`, the passive defence it is `against`, or both, as Foundry pf2e stores
  * them. A spell attack is marked by the `attack` trait, not here.
  */
-const SpellDefense = z
+export const SpellDefense = z
   .strictObject({ save: SpellSave.optional(), against: PassiveDefense.optional() })
   .refine((defense) => defense.save !== undefined || defense.against !== undefined, {
     ...issueParams(message(RulesMessage.SpellDefenseEmpty)),
