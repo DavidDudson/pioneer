@@ -71,6 +71,14 @@ describe('spell variants', () => {
     expect(issues(heal({ heightening: { type: 'fixed', ranks: [rank] } }))).toStrictEqual([]);
   });
 
+  test("a variant's fixed heightening is above the spell's rank", () => {
+    const heightening = { type: 'fixed', ranks: [{ rank: 1, time: { type: 'actions', cost: 'three' } }] };
+
+    expect(issues(withVariants([{ heightening }])).map((issue) => issue.path.join('.'))).toStrictEqual([
+      'data.variants.0.heightening.ranks.0.rank',
+    ]);
+  });
+
   test('the variants are a list that is not empty', () => {
     expect(issues(withVariants([])).map((issue) => issue.path.join('.'))).toStrictEqual(['data.variants']);
   });

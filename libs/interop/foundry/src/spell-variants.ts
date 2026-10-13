@@ -96,7 +96,7 @@ function variantDefense({ spell, system, field, log }: OverlayAt): object | unde
     report(log, { reason: KindDataGapReason.UnmappedValue, field: `${field}.defense`, raw: defense });
   }
   const parsed = FoundryDefense.safeParse(defense).data;
-  return parsed && defenseOf(parsed, log);
+  return parsed && defenseOf({ ...spell.defense, ...parsed }, log);
 }
 
 /** A variant's casting fields, defence, damage and heightening. */

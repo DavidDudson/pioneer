@@ -102,6 +102,19 @@ describe('translateKindData: spell variants', () => {
     expect(KIND_DATA[ContentKind.Spell].safeParse(data).error).toBeUndefined();
   });
 
+  test("a variant's defence is laid over the spell's, so a save keeps the passive defence", () => {
+    const burn = spell('bUrN000000000001', 'Burn', {
+      level: { value: 1 },
+      time: { value: '2' },
+      defense: { passive: { statistic: 'ac' }, save: { basic: true, statistic: 'reflex' } },
+      overlays: { a1: { overlayType: 'override', system: { defense: { save: { basic: false, statistic: 'will' } } } } },
+    });
+
+    expect(dataIn(translate([burn]), 'burn')).toMatchObject({
+      variants: [{ defense: { against: 'ac', save: { statistic: 'save:will', basic: false } } }],
+    });
+  });
+
   test('an overlay that is not an override is reported and left out', () => {
     const odd = spell('oDd0000000000001', 'Odd', {
       level: { value: 1 },

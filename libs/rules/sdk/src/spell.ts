@@ -183,21 +183,30 @@ function checkIncreases(context: SpellCheck): void {
   }
 }
 
-/** Fixed heightening names each rank once, above the spell's own. */
-function checkHeightenedRanks(context: SpellCheck): void {
-  const { rank, heightening } = context.value;
+/** Fixed heightening at `path` names each rank once, above the spell's own. */
+function checkRanksAt(context: SpellCheck, path: readonly PropertyKey[], heightening: Heightening | undefined): void {
+  const { rank } = context.value;
   if (heightening?.type !== HeighteningType.Fixed) {
     return;
   }
   const seen = new Set<SpellRank>();
   for (const [index, heightened] of heightening.ranks.entries()) {
-    const path = ['heightening', 'ranks', index, 'rank'];
+    const at = [...path, 'ranks', index, 'rank'];
     if (heightened.rank <= rank) {
-      pushIssue(context, path, message(RulesMessage.SpellHeightenAbove, { rank }));
+      pushIssue(context, at, message(RulesMessage.SpellHeightenAbove, { rank }));
     } else if (seen.has(heightened.rank)) {
-      pushIssue(context, path, message(RulesMessage.ListDuplicate, { value: heightened.rank }));
+      pushIssue(context, at, message(RulesMessage.ListDuplicate, { value: heightened.rank }));
     }
     seen.add(heightened.rank);
+  }
+}
+
+/** The spell's fixed heightening, and each variant's, names each rank once, above the spell's own. */
+function checkHeightenedRanks(context: SpellCheck): void {
+  const { heightening, variants = [] } = context.value;
+  checkRanksAt(context, ['heightening'], heightening);
+  for (const [index, variant] of variants.entries()) {
+    checkRanksAt(context, ['variants', index, 'heightening'], variant.heightening);
   }
 }
 
