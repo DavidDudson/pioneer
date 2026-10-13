@@ -34,6 +34,7 @@
     </fr-async-region>
     <pio-campaign-member-list />
     <pio-campaign-party />
+    <pio-campaign-packs />
     @if (store.isGm() && store.selected.data(); as campaign) {
       <pio-campaign-invite-panel [campaignId]="campaign.id" />
     }

@@ -1,0 +1,29 @@
+<fr-list-item>
+  <fr-stack direction="horizontal" gap="sm" align="center" wrap>
+    <fr-stack gap="3xs" grow>
+      <fr-text weight="medium">{{ pack().title }}</fr-text>
+      <fr-text variant="caption" tone="subtle">{{ pack().publisher }}</fr-text>
+      @if (pack().requiredBy.length > 0) {
+        <fr-text variant="caption" tone="subtle">{{
+          'campaign.packs.requiredBy' | transloco: { packs: pack().requiredBy.join(', ') }
+        }}</fr-text>
+      }
+    </fr-stack>
+    @if (pack().official) {
+      <fr-badge>{{ 'campaign.packs.alwaysOn' | transloco }}</fr-badge>
+    }
+    @if (disabled()) {
+      <fr-badge>{{ 'campaign.packs.disabled' | transloco }}</fr-badge>
+    }
+    @if (pack().removable) {
+      <fr-async-button
+        size="sm"
+        [action]="disable"
+        [describeError]="describeDisableError"
+        [pendingLabel]="'campaign.packs.disabling' | transloco"
+        [successLabel]="'campaign.packs.disabled' | transloco"
+        >{{ 'campaign.packs.disable' | transloco }}</fr-async-button
+      >
+    }
+  </fr-stack>
+</fr-list-item>
