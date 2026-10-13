@@ -37,7 +37,7 @@ describe('CharacterSheetPage modes', () => {
       expect(root.querySelectorAll('pio-vitals fr-surface pio-statistics')).toHaveLength(5);
     });
 
-    await openTab(root, 'Downtime', 'Downtime');
+    await openTab(root, 'Downtime', 'Rest and preparations');
     expect(textOf(root.querySelector('h1'))).toBe('Merisiel');
     expect(root.querySelectorAll('pio-vitals fr-surface pio-statistics')).toHaveLength(5);
   });

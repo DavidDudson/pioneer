@@ -23,6 +23,8 @@ export const SHEET_SECTIONS = {
   feats: { anchor: 'sheet-feats', headingKey: 'character.sheet.featsHeading' },
   features: { anchor: 'sheet-features', headingKey: 'character.sheet.featuresHeading' },
   inventory: { anchor: 'sheet-inventory', headingKey: 'character.sheet.inventory.heading' },
+  /** Rest, daily preparations, Refocus and start of session (#347). */
+  rest: { anchor: 'sheet-rest', headingKey: 'character.sheet.rest.heading' },
   /** The shop, and later crafting and income (#517). */
   downtime: { anchor: 'sheet-downtime', headingKey: 'character.sheet.downtimeHeading' },
 } as const satisfies Readonly<Record<string, SheetSection>>;
@@ -54,7 +56,7 @@ export const SHEET_TAB_SECTIONS: Readonly<Record<SheetMode, readonly SheetSectio
     SHEET_SECTIONS.languages,
     SHEET_SECTIONS.inventory,
   ],
-  [SheetMode.Downtime]: [SHEET_SECTIONS.downtime],
+  [SheetMode.Downtime]: [SHEET_SECTIONS.rest, SHEET_SECTIONS.downtime],
 };
 
 /** One tab of the sheet: its route, below the character's, and the message key naming it. */

@@ -83,13 +83,19 @@ function activationViews(registry: ContentRegistry, character: Character, used: 
   );
 }
 
+/** The most each slot and use of the character holds, as the build and the content give them. */
+export function sheetCounted(registry: ContentRegistry, character: Character): CountedMaxima {
+  const grants = characterGrants(character.document, sheetSlotContent(registry));
+  const { items } = character.document.inventory;
+  return characterCounted(grants, abilityFrequencies(registry), { items, activations: itemActivations(registry) });
+}
+
 /** The slots by entry, pool and rank and the uses by ability, each with what is held after `spent`. */
 export function countedViews(registry: ContentRegistry, character: Character, spent: ResourcesSpent): CountedViews {
   const content = sheetSlotContent(registry);
   const grants = characterGrants(character.document, content);
   const activations = itemActivations(registry);
-  const { items } = character.document.inventory;
-  const counted = characterCounted(grants, abilityFrequencies(registry), { items, activations });
+  const counted = sheetCounted(registry, character);
   const nameOf = (origin: Origin): string => content.lookup.entry(origin.entry)?.name ?? origin.entry;
   const slotView = ({ key, source, pool, rank }: Omit<SlotView, 'current' | 'max'>): SlotView => ({
     key,
