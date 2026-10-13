@@ -1,5 +1,11 @@
-import { HomebrewPackService } from '@pioneer/homebrew/application';
-import { DrizzleHomebrewPackRepository, homebrewRoutes } from '@pioneer/homebrew/infrastructure';
+import { HomebrewPackService, PackDependencyService } from '@pioneer/homebrew/application';
+import {
+  DrizzleDependencyUsageDirectory,
+  DrizzleHomebrewPackRepository,
+  DrizzlePackDependencyRepository,
+  DrizzlePackDirectory,
+  homebrewRoutes,
+} from '@pioneer/homebrew/infrastructure';
 import type { Clock } from '@pioneer/shared/kernel';
 import type { ContractRouter, RequestAuthenticator } from '@pioneer/shared/server';
 
@@ -7,15 +13,22 @@ import { CampaignPackEnablementDirectory } from './campaign-pack-enablement-dire
 import type { Database } from './database';
 import { UserAuthorDirectory } from './user-author-directory';
 
-/** The homebrew context's part of the composition root: service and routes. */
+/** The homebrew context's part of the composition root: services and routes. */
 export function homebrew(db: Database, clock: Clock, authenticator: RequestAuthenticator): ContractRouter['app'] {
+  const packs = new DrizzleHomebrewPackRepository(db);
+  const directory = new DrizzlePackDirectory(db);
+  const dependencies = new DrizzlePackDependencyRepository(db);
+  const enablement = new CampaignPackEnablementDirectory(db);
   const service = new HomebrewPackService(
-    {
-      packs: new DrizzleHomebrewPackRepository(db),
-      authors: new UserAuthorDirectory(db),
-      enablement: new CampaignPackEnablementDirectory(db),
-    },
+    { packs, authors: new UserAuthorDirectory(db), enablement, directory, dependencies },
     clock,
   );
-  return homebrewRoutes(service, authenticator);
+  const dependencyService = new PackDependencyService({
+    packs,
+    directory,
+    dependencies,
+    usage: new DrizzleDependencyUsageDirectory(db),
+    enablement,
+  });
+  return homebrewRoutes({ packs: service, dependencies: dependencyService }, authenticator);
 }

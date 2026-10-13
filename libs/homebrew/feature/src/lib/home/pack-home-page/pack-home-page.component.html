@@ -52,6 +52,7 @@
             <fr-text>{{ 'homebrew.pack.visibilityHint' | transloco }}</fr-text>
           </fr-stack>
         </fr-surface>
+        <pio-pack-dependencies [packId]="pack.id" />
       </ng-template>
     </fr-async-region>
   </fr-stack>

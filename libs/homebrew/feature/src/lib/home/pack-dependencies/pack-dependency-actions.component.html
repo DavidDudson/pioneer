@@ -1,0 +1,13 @@
+@if (dependency().official) {
+  <fr-badge>{{ 'homebrew.dependencies.official' | transloco }}</fr-badge>
+}
+@if (editable()) {
+  <fr-async-button
+    size="sm"
+    [action]="remove"
+    [describeError]="describeRemoveError"
+    [pendingLabel]="'homebrew.dependencies.removing' | transloco"
+    [successLabel]="'homebrew.dependencies.removed' | transloco"
+    >{{ 'homebrew.dependencies.remove' | transloco }}</fr-async-button
+  >
+}

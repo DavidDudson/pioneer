@@ -35,6 +35,33 @@
     "visibilityHint": "Only you can change this. Official packs are always public.",
     "visibilityForbidden": "Only the pack’s owner can change who can see it.",
     "visibilityFailed": "Could not change who can see this pack. Try again.",
-    "campaignsEnableIt": "These campaigns still enable this pack: {campaigns}. Remove it from them before making it private."
+    "campaignsEnableIt": "These campaigns still enable this pack: {campaigns}. Remove it from them before making it private.",
+    "dependsOnItself": "A pack cannot extend itself.",
+    "dependencyCycle": "{dependency} already extends this pack, directly or through other packs, so this pack cannot extend it.",
+    "dependencyNarrower": "This pack is visible to more people than {dependency}. Narrow who can see this pack first.",
+    "dependencyInUse": "These entries still use it: {entries}. Remove those references first.",
+    "widerThanDependencies": "This pack extends {packs}, which fewer people can see. It cannot be visible to more people than what it extends.",
+    "narrowerThanDependents": "{count, plural, one {# pack that extends this one is} other {# packs that extend this one are}} visible to more people than this. Narrow {count, plural, one {it} other {them}} first."
+  },
+  "dependencies": {
+    "heading": "Extends",
+    "hint": "Entries in this pack can reference anything in the packs it extends, and nothing else. A pack cannot be visible to more people than what it extends.",
+    "loadError": "Could not load the packs this one extends.",
+    "empty": "This pack extends nothing.",
+    "byline": "By {publisher}",
+    "official": "Official",
+    "remove": "Remove",
+    "removing": "Removing",
+    "removed": "Removed",
+    "removeFailed": "Could not remove it. Try again.",
+    "noneToAdd": "No other pack can be added right now.",
+    "pickerLabel": "Add a pack",
+    "pickerPlaceholder": "Search packs",
+    "titleColumn": "Pack",
+    "publisherColumn": "Author",
+    "add": "Add",
+    "adding": "Adding",
+    "added": "Added",
+    "addFailed": "Could not add it. Try again."
   }
 }

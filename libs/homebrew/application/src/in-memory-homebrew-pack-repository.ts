@@ -17,6 +17,11 @@ export class InMemoryHomebrewPackRepository extends HomebrewPackRepository {
       );
   }
 
+  /** Every pack, whoever owns it. */
+  public async all(): Promise<readonly HomebrewPack[]> {
+    return [...this.#rows.values()];
+  }
+
   public override async findById(id: ContentPackId): Promise<HomebrewPack | undefined> {
     return this.#rows.get(id);
   }

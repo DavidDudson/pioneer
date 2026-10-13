@@ -379,7 +379,7 @@ content_packs        id, slug, title, publisher, owner_id (null = official), vis
                      content_hash, data jsonb, updated_at
 content_entries      id, pack_id, kind, slug, name, level, rarity, traits text[], data jsonb,
                      search tsvector, updated_at
-content_pack_deps    id, pack_id, depends_on        -- homebrew extending an official pack
+content_pack_deps    id, pack_id, depends_on        -- a homebrew pack extending another pack (ADR-0057)
 ```
 
 There is no `content_books` table: the book registry is code, and a book's title is a message key (ADR-0024).

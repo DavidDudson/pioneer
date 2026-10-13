@@ -1,5 +1,5 @@
 import { contentPackFromContents, ContentRegistry } from '@pioneer/rules/sdk';
-import type { ContentSource } from '@pioneer/rules/sdk';
+import type { ContentPackId, ContentSource } from '@pioneer/rules/sdk';
 
 import type { ContentRepository } from './content-repository';
 import { HashKeyedCache } from './hash-keyed-cache';
@@ -21,6 +21,18 @@ export class StoredContentSource implements ContentSource {
     const hashes = await this.#repository.officialHashes();
     // The build reads after the hashes, so it is never older than the key it is cached under.
     return this.#cache.current(hashes, async () => this.#build());
+  }
+
+  /**
+   * A registry of one pack and the packs it depends on, registered in dependency order. Built on each ask, not cached:
+   * a homebrew pack changes without any official hash changing, and it is read by few.
+   */
+  public async registryWithDependencies(root: ContentPackId): Promise<ContentRegistry> {
+    const registry = new ContentRegistry();
+    for (const contents of await this.#repository.loadWithDependencies(root)) {
+      registry.register(contentPackFromContents(contents));
+    }
+    return registry;
   }
 
   async #build(): Promise<ContentRegistry> {

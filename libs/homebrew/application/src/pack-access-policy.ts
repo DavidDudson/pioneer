@@ -1,7 +1,7 @@
-import type { HomebrewPack } from '@pioneer/homebrew/domain';
 import { PackVisibility } from '@pioneer/rules/sdk';
 import type { UserId } from '@pioneer/shared/kernel';
 
+import type { ReadablePack } from './pack-directory';
 import type { PackEnablementDirectory } from './pack-enablement-directory';
 
 /**
@@ -21,7 +21,7 @@ export class PackAccessPolicy {
     this.#enablement = enablement;
   }
 
-  public async mayRead(actor: UserId, pack: HomebrewPack): Promise<boolean> {
+  public async mayRead(actor: UserId, pack: ReadablePack): Promise<boolean> {
     if (PackAccessPolicy.owns(actor, pack)) {
       return true;
     }
@@ -35,7 +35,7 @@ export class PackAccessPolicy {
   }
 
   /** Only the owner changes a pack, however widely it is shared. */
-  public static owns(actor: UserId, pack: HomebrewPack): boolean {
+  public static owns(actor: UserId, pack: ReadablePack): boolean {
     return pack.ownerId === actor;
   }
 }

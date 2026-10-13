@@ -46,7 +46,14 @@ const loadedPack = {
 /** Opens the pack home and answers its load with the pack. */
 async function openLoaded(): Promise<RouterTestingHarness> {
   const harness = await open();
-  TestBed.inject(HttpTestingController).expectOne(`/api/homebrew/packs/${id}`).flush(loadedPack);
+  const http = TestBed.inject(HttpTestingController);
+  http.expectOne(`/api/homebrew/packs/${id}`).flush(loadedPack);
+  // The dependencies section loads beside the pack and holds the page unstable until it is answered.
+  await vi.waitFor(() => {
+    http
+      .expectOne(`/api/homebrew/packs/${id}/dependencies`)
+      .flush({ editable: true, dependencies: [], candidates: [] });
+  });
   await harness.fixture.whenStable();
   await vi.waitFor(() => {
     expect(present(harness.routeNativeElement).textContent).toContain('amiri-feats');

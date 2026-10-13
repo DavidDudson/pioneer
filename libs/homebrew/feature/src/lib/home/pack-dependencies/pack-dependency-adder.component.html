@@ -1,0 +1,28 @@
+@if (candidates().length === 0) {
+  <fr-text variant="caption" tone="subtle">{{ 'homebrew.dependencies.noneToAdd' | transloco }}</fr-text>
+} @else {
+  <fr-async-form [form]="form" [action]="add" [describeError]="describeAddError">
+    <fr-stack gap="sm">
+      <fr-picker-field
+        [label]="'homebrew.dependencies.pickerLabel' | transloco"
+        [placeholder]="'homebrew.dependencies.pickerPlaceholder' | transloco"
+        [rows]="matching()"
+        [columns]="columns()"
+        [rowValue]="rowValue"
+        [rowLabel]="rowLabel"
+        [formField]="form.dependsOn"
+        (searched)="query.set($event)"
+      />
+      <fr-stack direction="horizontal" justify="start">
+        <fr-async-button
+          type="submit"
+          variant="primary"
+          [pendingLabel]="'homebrew.dependencies.adding' | transloco"
+          [successLabel]="'homebrew.dependencies.added' | transloco"
+        >
+          {{ 'homebrew.dependencies.add' | transloco }}
+        </fr-async-button>
+      </fr-stack>
+    </fr-stack>
+  </fr-async-form>
+}
