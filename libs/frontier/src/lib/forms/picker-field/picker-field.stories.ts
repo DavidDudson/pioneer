@@ -19,6 +19,8 @@ const SPELLS: readonly Spell[] = [
   { id: 'sure-strike', name: 'Sure Strike', rank: 1 },
 ];
 
+const FUNCTION_INPUTS: (keyof PickerField<string, Spell>)[] = ['rowValue', 'rowLabel', 'rowDisabled'];
+
 const COLUMNS = tableSchema<Spell>()
   .addText({ id: 'name', header: 'Spell', value: (spell) => spell.name })
   .addText({ id: 'rank', header: 'Rank', value: (spell) => spell.rank, width: 'sm' })
@@ -52,7 +54,8 @@ const meta: Meta<PickerField<string, Spell>> = {
   },
   render: (args) => ({
     props: args,
-    template: `<fr-picker-field ${argsToTemplate(args)} />`,
+    // `argsToTemplate` turns a function arg into an output binding, so the row functions are bound by hand.
+    template: `<fr-picker-field ${argsToTemplate(args, { exclude: FUNCTION_INPUTS })} [rowValue]="rowValue" [rowLabel]="rowLabel" />`,
   }),
 };
 export default meta;

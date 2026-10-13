@@ -195,7 +195,7 @@ async function expectOptions(root: HTMLElement): Promise<void> {
 /** In an open picker the keyboard's row fills with Highlight and the picked one is underlined. */
 async function expectPickerRows(root: HTMLElement): Promise<void> {
   const canvas = within(root);
-  await userEvent.click(canvas.getByRole('button', { name: 'Heritage' }));
+  await userEvent.click(canvas.getByRole('button', { name: /^Heritage/u }));
   const elf = await canvas.findByRole('gridcell', { name: 'Elf', selected: true });
   await pressKeys('{ArrowDown}');
   const active = await waitFor(() => {
