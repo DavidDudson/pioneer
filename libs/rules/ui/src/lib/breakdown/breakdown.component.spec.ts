@@ -1,16 +1,11 @@
-import { TestBed } from '@angular/core/testing';
 import { BaseTermKind, LineStatusKind, RuleId, SuppressionReason, TermSign } from '@pioneer/rules/engine';
-import type { StatisticValue } from '@pioneer/rules/engine';
 import { FormulaValue } from '@pioneer/rules/formula';
 import { ContentText, ModifierType, OriginHopKind, StatisticKind } from '@pioneer/rules/sdk';
-import type { ContentId } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
-import type { MessageDescriptor } from '@pioneer/shared/kernel';
 import { describe, expect, it } from 'vitest';
 
 import {
   BREASTPLATE,
-  ENTRY_NAMES,
   FIGHTER_AC,
   FIGHTER_WILL,
   GOLEM_FORM,
@@ -24,65 +19,8 @@ import {
 } from '../testing/breakdown-fixtures';
 import { climbing } from '../testing/conditional-fixtures';
 import { OVERRIDE_STATUSES, PINNED_AC, PINNED_WILL } from '../testing/override-fixtures';
-import { provideRulesUiI18nTesting } from '../testing/provide-rich-text-testing';
+import { render } from '../testing/render-breakdown';
 import { BreakdownView } from './breakdown.component';
-
-interface Inputs {
-  readonly kind?: StatisticKind;
-  readonly entryNames?: ReadonlyMap<ContentId, string>;
-  readonly ruleNames?: ReadonlyMap<RuleId, MessageDescriptor>;
-}
-
-/** The breakdown as read: its captions and empty line, its terms, and its lines, each list item's parts joined. */
-interface Rendered {
-  readonly captions: readonly string[];
-  readonly terms: readonly string[];
-  readonly lines: readonly string[];
-  readonly overrides: readonly string[];
-  /** Each line's origin chain as a sentence, modifiers then overrides. */
-  readonly chains: readonly string[];
-}
-
-function textOf(element: Element): string {
-  return element.textContent.replaceAll(/\s+/gu, ' ').trim();
-}
-
-/** An item's texts and badges in order, so the parts stay apart. */
-function partsOf(item: Element): string {
-  return [...item.querySelectorAll('fr-text, fr-badge')]
-    .filter((part) => part.querySelector('fr-text, fr-badge') === null && part.closest('pio-origin-chain') === null)
-    .map((part) => textOf(part))
-    .join(' | ');
-}
-
-async function render(
-  value: StatisticValue,
-  { kind = StatisticKind.Dc, entryNames = ENTRY_NAMES, ruleNames }: Inputs = {},
-): Promise<Rendered> {
-  TestBed.configureTestingModule({ providers: [provideRulesUiI18nTesting()] });
-  const fixture = TestBed.createComponent(BreakdownView);
-  fixture.componentRef.setInput('statistic', value);
-  fixture.componentRef.setInput('kind', kind);
-  fixture.componentRef.setInput('entryNames', entryNames);
-  if (ruleNames !== undefined) {
-    fixture.componentRef.setInput('ruleNames', ruleNames);
-  }
-  await fixture.whenStable();
-  const host = fixture.nativeElement as HTMLElement;
-  const items = (selector: string): string[] =>
-    [...host.querySelectorAll(`${selector} [role="listitem"]`)].map((item) => partsOf(item));
-  return {
-    captions: [...host.querySelectorAll('fr-text')]
-      .filter((caption) => caption.closest('fr-list') === null)
-      .map((caption) => textOf(caption)),
-    terms: items('pio-base-terms'),
-    lines: items('pio-breakdown-lines'),
-    overrides: items('pio-override-lines'),
-    chains: [...host.querySelectorAll('pio-origin-chain')].map((chain) =>
-      textOf(chain.querySelector('fr-text') ?? chain),
-    ),
-  };
-}
 
 describe(BreakdownView, () => {
   it('shows the base and the terms that give it, then says when nothing modifies it', async () => {

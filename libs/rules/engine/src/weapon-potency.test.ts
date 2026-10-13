@@ -65,7 +65,10 @@ describe('weapon potency', () => {
       modifier: {
         id: POTENCY_ID,
         slug: 'weapon-potency',
-        label: { message: message(EngineMessage.WeaponPotency, { weapon: 'longsword' }) },
+        label: {
+          message: message(EngineMessage.WeaponPotency, { weapon: 'longsword' }),
+          named: { param: 'weapon', origin: LONGSWORD.origin },
+        },
         type: 'item',
         targets: ['strike:longsword'],
         predicate: undefined,

@@ -142,8 +142,10 @@ export class StatisticsView {
       value: lineValue(line, this.#i18n, this.#format),
       hasSummary: summary === undefined ? 'no' : 'yes',
       summary: summary === undefined ? '' : formatSummary(summary, summaryFormat(this.#i18n, this.#format)),
-      name: labelName(line.modifier.label, this.entryNames(), (descriptor) =>
-        this.#i18n.translate(descriptor.key, descriptor.params),
+      name: labelName(
+        line.modifier.label,
+        { entries: this.entryNames(), items: this.originNames().items },
+        (descriptor) => this.#i18n.translate(descriptor.key, descriptor.params),
       ),
     });
   }
