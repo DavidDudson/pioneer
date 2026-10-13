@@ -120,3 +120,18 @@ describe('POST /characters/import/pioneer/preview', () => {
     });
   });
 });
+
+describe('a character imported with content no loaded pack has', () => {
+  test('opens as a sheet and lists, keeping the content as ids', async () => {
+    const file = await exportedKyra();
+    const bare = serviceOver(new InMemoryCharacterRepository(), 'other-pack');
+    const app = appOver(bare);
+
+    const created = await app.handle(request('/characters/import/pioneer', file, ezren));
+    const { id } = z.object({ id: CharacterId }).parse(await created.json());
+
+    const sheet = await app.handle(new Request(`http://localhost/characters/${id}`, { headers: actingAs(ezren) }));
+    expect(sheet.status).toBe(200);
+    expect(await bare.list(ezren, everything)).toHaveLength(1);
+  });
+});
