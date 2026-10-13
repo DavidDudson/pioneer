@@ -20,3 +20,5 @@ export {
   type PioneerReadResult,
   readPioneerCharacter,
 } from './read-pioneer-character';
+export { registryNamer } from './registry-namer';
+export { PioneerExportContract } from './pioneer-export-contract';

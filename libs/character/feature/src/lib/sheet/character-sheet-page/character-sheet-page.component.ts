@@ -21,6 +21,7 @@ import { PlayStore } from '../../data/play-store';
 import { SheetConditions } from '../sheet-conditions/sheet-conditions.component';
 import { SheetCounted } from '../sheet-counted/sheet-counted.component';
 import { SheetDeathTrack } from '../sheet-death-track/sheet-death-track.component';
+import { SheetExport } from '../sheet-export/sheet-export.component';
 import { SheetHitPoints } from '../sheet-hit-points/sheet-hit-points.component';
 import { SheetResources } from '../sheet-resources/sheet-resources.component';
 import { SheetSaveStatus } from '../sheet-save-status/sheet-save-status.component';
@@ -44,6 +45,7 @@ import { SheetState } from '../sheet-state';
     RouterOutlet,
     SheetDeathTrack,
     SheetConditions,
+    SheetExport,
     SheetCounted,
     SheetResources,
     SheetHitPoints,
