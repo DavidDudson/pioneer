@@ -17,7 +17,7 @@ import type {
 } from '@pioneer/character/domain';
 import type { SelectOption } from '@pioneer/frontier';
 import { ContentKind, SlotRank, SpellPreparation } from '@pioneer/rules/sdk';
-import type { ContentId, ContentRegistry, MagicTradition, SlotKey, Slug } from '@pioneer/rules/sdk';
+import type { ContentId, ContentRegistry, MagicTradition, SlotKey, Slug, SpellRank } from '@pioneer/rules/sdk';
 import type { SpellAccessLine } from '@pioneer/rules/ui';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
@@ -36,6 +36,12 @@ export interface SheetPreparedSlot {
   readonly key: SlotKey;
   readonly label: MessageDescriptor;
   readonly options: readonly SelectOption<string>[];
+  /** The same spells with the facts a picker table shows. */
+  readonly spells: readonly SpellOption[];
+  /** The rank a spell cast from the slot has; undefined for a signature slot, whose spell is cast at a range of ranks. */
+  readonly castRank: SpellRank | undefined;
+  /** Whether it picks a signature spell from the entry's repertoire: never one the repertoire already holds twice. */
+  readonly signature: boolean;
   /** The stored pick's name, so a pick the slot no longer offers still reads by name. */
   readonly storedName: string | undefined;
   /** The server's reason when the slot's pick is invalid. */
@@ -167,6 +173,9 @@ export function sheetPreparedSlots(
     key: named.slot.key,
     label: slotLabel(named, index + 1),
     options: named.slot.options.map((spell) => optionOf(spell)),
+    spells: named.slot.options,
+    castRank: named.slot.castRank,
+    signature: false,
     storedName: named.slot.stored === undefined ? undefined : content.spells.spell(named.slot.stored)?.name,
     reason: reasonOf(slots, named.slot.key),
   });
@@ -174,6 +183,9 @@ export function sheetPreparedSlots(
     key: signature.key,
     label: signatureLabel(signature),
     options: signature.options.map((spell) => optionOf(spell)),
+    spells: signature.options,
+    castRank: undefined,
+    signature: true,
     storedName: signature.stored === undefined ? undefined : content.spells.spell(signature.stored)?.name,
     reason: reasonOf(slots, signature.key),
   });
@@ -229,7 +241,7 @@ export function spellMatches(options: readonly SelectOption<string>[], query: st
 export interface SheetSpellAccess {
   readonly granted: readonly SpellAccessLine[];
   /** Uncommon and rare spells of the traditions of the character's entries it has no access to yet, by name. */
-  readonly offered: readonly SelectOption<string>[];
+  readonly offered: readonly SpellOption[];
 }
 
 /**
@@ -245,8 +257,7 @@ export function sheetSpellAccess(registry: ContentRegistry, character: Character
   );
   const offered = content.spells.spells
     .filter((spell) => needsAccess(spell.rarity) && !granted.has(spell.id))
-    .filter((spell) => spell.traditions.some((tradition) => traditions.has(tradition)))
-    .map((spell) => optionOf(spell));
+    .filter((spell) => spell.traditions.some((tradition) => traditions.has(tradition)));
   return {
     granted: spellAccess.map((spell) => ({ spell, name: content.spells.spell(spell)?.name })),
     offered,

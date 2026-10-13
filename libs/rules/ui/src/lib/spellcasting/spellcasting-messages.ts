@@ -9,6 +9,9 @@ export const SpellcastingMessage = {
   PoolSlots: 'rules.spellcasting.poolSlots',
   Cantrips: 'rules.spellcasting.cantrips',
   Rank: 'rules.spellcasting.rank',
+  Cantrip: 'rules.spellcasting.cantrip',
+  RankHeightened: 'rules.spellcasting.rankHeightened',
+  CantripHeightened: 'rules.spellcasting.cantripHeightened',
 } as const;
 
 /** Each tradition's name. */

@@ -93,3 +93,12 @@ export { SpellTableSchema } from './lib/picker-cells/spell-table-schema';
 export { SummaryCell } from './lib/picker-cells/summary-cell/summary-cell.component';
 export { FeatPicker } from './lib/feat-picker/feat-picker.component';
 export { FeatPickerColumn, type FeatPickerRow } from './lib/feat-picker/feat-picker-row';
+export { SpellPicker } from './lib/spell-picker/spell-picker.component';
+export { SpellPickerColumn, type SpellPickerRow } from './lib/spell-picker/spell-picker-row';
+export {
+  shownSpellRows,
+  spellPickerColumns,
+  spellRowDisabled,
+  spellRowLabel,
+  spellRowValue,
+} from './lib/spell-picker/spell-picker-table';

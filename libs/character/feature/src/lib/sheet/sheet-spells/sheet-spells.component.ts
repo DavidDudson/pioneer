@@ -1,8 +1,10 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoService } from '@jsverse/transloco';
 import { AsyncData, AsyncPending, AsyncRegion, Grid, Skeleton, Stack } from '@pioneer/frontier';
 import { ENTRY_PREVIEWS, FocusSpellsView, SpellAccessListView } from '@pioneer/rules/ui';
 import type { EntryPreviews, FocusLine } from '@pioneer/rules/ui';
+import { filter, merge } from 'rxjs';
 
 import { CharacterStore } from '../../data/character-store';
 import { injectContentRegistry } from '../../data/content-registry-query';
@@ -50,6 +52,9 @@ export class SheetSpells {
 
   readonly #store = inject(CharacterStore);
   readonly #i18n = inject(TranslocoService);
+  readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
+  /** Changes when the language changes or the messages load, so the pickers' rows are read again. */
+  readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
 
   /** The registry with the spells; loads once the character casts. */
   protected readonly spells = injectContentRegistry(SPELL_CONTENT_KINDS, () => this.casts());
@@ -63,6 +68,7 @@ export class SheetSpells {
     select: async (slot, selection) => this.#store.selectSlot(slot, selection),
     clear: async (slot) => this.#store.clearSlot(slot),
     translate: (key) => this.#i18n.translate(key),
+    messages: this.#messages,
   });
   /** The character's focus spells and focus pool; undefined without a focus entry or while the spells load. */
   protected readonly focus = computed((): FocusLine | undefined => {

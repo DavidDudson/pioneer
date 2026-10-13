@@ -179,6 +179,7 @@
       "poolRankSlot": "{pool} {rank, selectordinal, one {#st} two {#nd} few {#rd} other {#th}} rank slot {number}",
       "poolEmpty": "These slots take no spell until the {pool} choice is made.",
       "placeholder": "Search spells by name",
+      "alreadyKnown": "Already in this repertoire",
       "unknownSpell": "Unknown spell"
     },
     "repertoire": {
