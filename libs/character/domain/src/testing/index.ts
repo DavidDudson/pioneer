@@ -6,6 +6,7 @@ export { CharacterBuilder, fixtureOwnerId, humanAncestryId } from './character-b
 export { characterDocumentJson } from './character-document-arbitraries';
 export { inventory, inventoryJson } from './inventory-arbitraries';
 export { PAST_DOCUMENTS } from './past-documents';
+export { HUMAN_HIT_POINTS, hitPointsContent } from './hit-points-content';
 export { BOOST_FIXTURES, boostFixtureId } from './boost-content';
 export {
   ITEM_FIXTURE_FILES,
