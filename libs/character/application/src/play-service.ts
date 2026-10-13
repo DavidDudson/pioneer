@@ -1,5 +1,7 @@
 import {
+  abilityFrequencies,
   applyPlayCommand,
+  characterCounted,
   characterFocus,
   characterGrants,
   characterSpellcasting,
@@ -8,6 +10,7 @@ import {
   maxHitPoints,
   needsMaxHitPoints,
   needsResourceMaxima,
+  NO_COUNTED,
   NO_RESOURCES,
   PLAY_COMMANDS,
   resourceMaxima,
@@ -22,6 +25,7 @@ import type {
   PlayLimits,
   PlayState,
   ResourceMaxima,
+  CountedMaxima,
 } from '@pioneer/character/domain';
 import { HitPoints } from '@pioneer/rules/sdk';
 import type { ContentSource } from '@pioneer/rules/sdk';
@@ -86,7 +90,8 @@ export class PlayService {
   async #applied(character: Character, play: PlayState, command: PlayCommand): Promise<PlayState> {
     const hitPoints = needsMaxHitPoints(command) ? await this.#maxHitPoints(character) : NO_MAX_HIT_POINTS;
     const resources = needsResourceMaxima(command) ? await this.#resourceMaxima(character) : NO_RESOURCES;
-    const limits: PlayLimits = { hitPoints, resources };
+    const counted = needsResourceMaxima(command) ? await this.#counted(character) : NO_COUNTED;
+    const limits: PlayLimits = { hitPoints, resources, counted };
     return applyPlayCommand(play, command, limits);
   }
 
@@ -96,6 +101,13 @@ export class PlayService {
     const slots = slotContent(registry);
     const entries = characterSpellcasting(characterGrants(character.document, slots));
     return resourceMaxima(characterFocus(entries, slots.spells, character.document.level).pool);
+  }
+
+  /** Spell slots by entry and rank, and ability uses, as the build and the content give them. */
+  async #counted(character: Character): Promise<CountedMaxima> {
+    const registry = await this.#content.registry();
+    const grants = characterGrants(character.document, slotContent(registry));
+    return characterCounted(grants, abilityFrequencies(registry));
   }
 
   async #maxHitPoints(character: Character): Promise<HitPoints> {

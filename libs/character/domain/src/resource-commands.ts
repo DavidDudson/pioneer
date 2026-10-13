@@ -1,6 +1,8 @@
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
+import { CountDelta, spentAfter, SlotCountKey, UseCountKey } from './counted-resources';
+import type { CountedMaxima } from './counted-resources';
 import { stabilised } from './death-track';
 import type { DeathTrack } from './death-track';
 import { heldIn, regainPoints, Resource, ResourceCount, ResourceSchema, setPoints, spendPoints } from './resources';
@@ -15,6 +17,12 @@ export const ResourceCommandField = {
   RegainResource: 'regainResource',
   /** Points held set outright, as when correcting a mistake or at the start of a session. */
   SetResource: 'setResource',
+  /** One spell slot of an entry and rank spent or refunded; a slot costs one. */
+  SpendSlot: 'spendSlot',
+  RefundSlot: 'refundSlot',
+  /** One use of a feat or action with a frequency spent or refunded. */
+  SpendUse: 'spendUse',
+  RefundUse: 'refundUse',
 } as const;
 export type ResourceCommandField = ValueOf<typeof ResourceCommandField>;
 
@@ -22,11 +30,23 @@ export const ResourceCommandSchema = z.discriminatedUnion('field', [
   z.object({ field: z.literal(ResourceCommandField.SpendResource), resource: ResourceSchema, amount: ResourceCount }),
   z.object({ field: z.literal(ResourceCommandField.RegainResource), resource: ResourceSchema, amount: ResourceCount }),
   z.object({ field: z.literal(ResourceCommandField.SetResource), resource: ResourceSchema, current: ResourceCount }),
+  z.object({ field: z.literal(ResourceCommandField.SpendSlot), slot: SlotCountKey }),
+  z.object({ field: z.literal(ResourceCommandField.RefundSlot), slot: SlotCountKey }),
+  z.object({ field: z.literal(ResourceCommandField.SpendUse), use: UseCountKey }),
+  z.object({ field: z.literal(ResourceCommandField.RefundUse), use: UseCountKey }),
 ]);
 export type ResourceCommand = z.infer<typeof ResourceCommandSchema>;
 
 /** The part of a play state a pool edit reads and writes: the points spent, and the death track Heroic Recovery ends. */
 export type ResourcePlay = DeathTrack & { readonly resources: ResourcesSpent };
+
+const SPEND = CountDelta.parse(1);
+const REFUND = CountDelta.parse(-1);
+
+/** `play` with some of its spent slot or use counts replaced. */
+function withCounts(play: ResourcePlay, counts: Partial<Pick<ResourcesSpent, 'slots' | 'uses'>>): ResourcePlay {
+  return { ...play, resources: { ...play.resources, ...counts } };
+}
 
 /** Points spent from one pool. */
 interface Spending {
@@ -42,6 +62,12 @@ function afterSpending(play: ResourcePlay, pools: Pools, { resource, amount }: S
   return resource === Resource.HeroPoints && emptied ? { ...spent, ...stabilised(spent) } : spent;
 }
 
+/** What bounds a pool edit: the points each pool holds at most, and the slots and uses the build and content give. */
+export interface ResourceLimits {
+  readonly points: ResourceMaxima;
+  readonly counted: CountedMaxima;
+}
+
 /**
  * `play` after `command`, with the points held in a pool kept within 0 and its maximum. Spending every hero point of
  * a dying character is Heroic Recovery; setting them to 0 is a correction and is not.
@@ -49,9 +75,9 @@ function afterSpending(play: ResourcePlay, pools: Pools, { resource, amount }: S
 export function applyResourceCommand(
   play: ResourcePlay,
   command: ResourceCommand,
-  maxima: ResourceMaxima,
+  { points, counted }: ResourceLimits,
 ): ResourcePlay {
-  const pools: Pools = { spent: play.resources, maxima };
+  const pools: Pools = { spent: play.resources, maxima: points };
   switch (command.field) {
     case ResourceCommandField.SpendResource: {
       return afterSpending(play, pools, command);
@@ -61,6 +87,26 @@ export function applyResourceCommand(
     }
     case ResourceCommandField.SetResource: {
       return { ...play, resources: setPoints(pools, command.resource, command.current) };
+    }
+    case ResourceCommandField.SpendSlot: {
+      return withCounts(play, {
+        slots: spentAfter({ spent: play.resources.slots, maxima: counted.slots, key: command.slot }, SPEND),
+      });
+    }
+    case ResourceCommandField.RefundSlot: {
+      return withCounts(play, {
+        slots: spentAfter({ spent: play.resources.slots, maxima: counted.slots, key: command.slot }, REFUND),
+      });
+    }
+    case ResourceCommandField.SpendUse: {
+      return withCounts(play, {
+        uses: spentAfter({ spent: play.resources.uses, maxima: counted.uses, key: command.use }, SPEND),
+      });
+    }
+    case ResourceCommandField.RefundUse: {
+      return withCounts(play, {
+        uses: spentAfter({ spent: play.resources.uses, maxima: counted.uses, key: command.use }, REFUND),
+      });
     }
     default: {
       return command satisfies never;
