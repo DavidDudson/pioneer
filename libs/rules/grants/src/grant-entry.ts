@@ -45,6 +45,11 @@ export interface GrantEntry {
    */
   readonly valued?: boolean;
   /**
+   * The conditions this one replaces while it lasts (_blinded_ overrides _dazzled_), as its data says; absent for any
+   * other kind. An overridden condition is suppressed while this one is on the character.
+   */
+  readonly overrides?: readonly ContentId[];
+  /**
    * What the entry says of the character it is on, beyond the option its kind sets, as Foundry pf2e sets them from a
    * deity's data: `deity:primary:font:heal`, `deity:primary:sanctification:can:holy`,
    * `deity:primary:favored-weapon:dagger`. Absent for any other kind.

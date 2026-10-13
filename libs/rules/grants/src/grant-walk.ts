@@ -142,13 +142,19 @@ class Walker {
 
   public get walk(): GrantWalk {
     return {
-      items: this.#items,
+      items: this.#unsuppressed(),
       duplicates: this.#duplicates,
       conditional: this.#conditional,
       open: this.#open,
       answered: this.#answered,
       errors: this.#errors,
     };
+  }
+
+  /** The items on the character, less each condition another one on it overrides. */
+  #unsuppressed(): readonly GrantedItem[] {
+    const overridden = new Set(this.#items.flatMap(({ entry }) => entry.overrides ?? []));
+    return overridden.size === 0 ? this.#items : this.#items.filter(({ entry }) => !overridden.has(entry.id));
   }
 
   public root({ entry, hop }: GrantRoot): void {
