@@ -44,6 +44,23 @@ describe('spellAtRank', () => {
     expect(spellAtRank(spell(mixed), SpellRank.parse(4)).damage.map(({ formula }) => formula)).toEqual(['6d6 + 1d4']);
   });
 
+  test('a flat amount grows with the dice, and a trailing term stays last', () => {
+    const flat = {
+      ...FIREBALL,
+      damage: [{ key: '0', formula: '1d4+1', damageType: 'force', kinds: ['damage'] }],
+      heightening: { type: 'interval', interval: 2, damage: [{ key: '0', formula: '1d4+1' }] },
+    };
+    const attr = {
+      ...FIREBALL,
+      damage: [{ key: '0', formula: '2d6 + @spellcasting.attr', kinds: ['damage'] }],
+    };
+
+    expect(spellAtRank(spell(flat), SpellRank.parse(7)).damage.map(({ formula }) => formula)).toEqual(['3d4+3']);
+    expect(spellAtRank(spell(attr), SpellRank.parse(4)).damage.map(({ formula }) => formula)).toEqual([
+      '4d6 + @spellcasting.attr',
+    ]);
+  });
+
   test('interval heightening grows the area by feet per step', () => {
     const growing = { ...FIREBALL, heightening: { ...FIREBALL.heightening, area: 5 } };
 

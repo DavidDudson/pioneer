@@ -1,16 +1,23 @@
 import { characterFocus, characterGrants, characterSpellcasting } from '@pioneer/character/domain';
 import type { Character } from '@pioneer/character/domain';
 import type { ContentRegistry } from '@pioneer/rules/sdk';
-import type { FocusLine } from '@pioneer/rules/ui';
+import { SpellListMessage } from '@pioneer/rules/ui';
+import type { FocusLine, SpellDetailLine, Translate } from '@pioneer/rules/ui';
 
 import { sheetSlotContent } from './sheet-slot-content';
+import { sheetSpellDetail } from './sheet-spell-details';
 
 /**
  * The character's focus spells as the sheet lists them (ADR-0050): each focus entry's spells by name, the rank they
- * are cast at and the focus pool; undefined for a character with no focus entry. `registry` must hold the spells, or
- * every entry reads as having none.
+ * are cast at and the focus pool; undefined for a character with no focus entry. With `translate` each spell also
+ * carries what casting it takes and does at the focus rank (#484). `registry` must hold the spells, or every entry reads
+ * as having none.
  */
-export function sheetFocus(registry: ContentRegistry, character: Character): FocusLine | undefined {
+export function sheetFocus(
+  registry: ContentRegistry,
+  character: Character,
+  translate?: Translate,
+): FocusLine | undefined {
   const content = sheetSlotContent(registry);
   const entries = characterSpellcasting(characterGrants(character.document, content));
   const focus = characterFocus(entries, content.spells, character.document.level);
@@ -23,7 +30,22 @@ export function sheetFocus(registry: ContentRegistry, character: Character): Foc
     entries: focus.entries.map(({ entry, spells }) => ({
       key: entry.slug,
       tradition: entry.tradition,
-      spells: spells.map(({ id, name, cantrip }) => ({ key: id, id, name, cantrip })),
+      spells: spells.map(({ id, name, cantrip }) => {
+        const detail: SpellDetailLine | undefined =
+          translate === undefined
+            ? undefined
+            : sheetSpellDetail(
+                registry,
+                {
+                  id,
+                  name,
+                  rank: focus.rank,
+                  tags: [cantrip ? SpellListMessage.TagCantrip : SpellListMessage.TagFocus],
+                },
+                translate,
+              );
+        return { key: id, id, name, cantrip, detail };
+      }),
     })),
   };
 }

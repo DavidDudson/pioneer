@@ -17,13 +17,15 @@ import type {
 } from '@pioneer/character/domain';
 import type { SelectOption } from '@pioneer/frontier';
 import { ContentKind, SlotRank, SpellPreparation } from '@pioneer/rules/sdk';
-import type { ContentId, ContentRegistry, MagicTradition, SlotKey, Slug } from '@pioneer/rules/sdk';
+import type { ContentId, ContentRegistry, MagicTradition, SlotKey, Slug, SpellRank } from '@pioneer/rules/sdk';
+import { SpellListMessage } from '@pioneer/rules/ui';
 import type { SpellAccessLine } from '@pioneer/rules/ui';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 import { CHARACTER_CONTENT_KINDS } from '../data/content-registry-query';
 import { sheetSlotContent } from './sheet-slot-content';
+import type { SpellOnSheet } from './sheet-spell-details';
 
 /** The kinds the spell pickers read: the character's, so its entries resolve, and the spells. */
 export const SPELL_CONTENT_KINDS: readonly ContentKind[] = [...CHARACTER_CONTENT_KINDS, ContentKind.Spell];
@@ -38,6 +40,8 @@ export interface SheetPreparedSlot {
   readonly options: readonly SelectOption<string>[];
   /** The stored pick's name, so a pick the slot no longer offers still reads by name. */
   readonly storedName: string | undefined;
+  /** The spell the slot holds, at the rank it is cast; undefined while the slot is empty or holds something it no longer offers. */
+  readonly spell: SpellOnSheet | undefined;
   /** The server's reason when the slot's pick is invalid. */
   readonly reason: MessageDescriptor | undefined;
 }
@@ -86,6 +90,11 @@ function slotLabel({ slot, pool }: NamedSlot, place: number): MessageDescriptor 
   return slot.preparation === SpellPreparation.Spontaneous
     ? message('character.sheet.repertoire.rankSpell', { rank: slot.rank, number: place })
     : message('character.sheet.prepared.rankSlot', { rank: slot.rank, number: place });
+}
+
+/** A slot's pick as the sheet details it, cast at `rank`. */
+function spellOf(pick: SpellOption | undefined, rank: SpellRank, tags: readonly string[]): SpellOnSheet | undefined {
+  return pick === undefined ? undefined : { id: pick.id, name: pick.name, rank, tags };
 }
 
 /** "3rd rank signature spell". */
@@ -169,6 +178,11 @@ export function sheetPreparedSlots(
     options: named.slot.options.map((spell) => optionOf(spell)),
     storedName: named.slot.stored === undefined ? undefined : content.spells.spell(named.slot.stored)?.name,
     reason: reasonOf(slots, named.slot.key),
+    spell: spellOf(
+      named.slot.pick,
+      named.slot.castRank,
+      named.slot.rank === SlotRank.Cantrip ? [SpellListMessage.TagCantrip] : [],
+    ),
   });
   const signatureSlot = (signature: SignatureSlot): SheetPreparedSlot => ({
     key: signature.key,
@@ -176,6 +190,7 @@ export function sheetPreparedSlots(
     options: signature.options.map((spell) => optionOf(spell)),
     storedName: signature.stored === undefined ? undefined : content.spells.spell(signature.stored)?.name,
     reason: reasonOf(slots, signature.key),
+    spell: spellOf(signature.pick, signature.castRanks.at(-1) ?? signature.rank, [SpellListMessage.TagSignature]),
   });
   const reads = preparedReads(character.document, content);
   const signatures = signatureSlots(character.document, reads);

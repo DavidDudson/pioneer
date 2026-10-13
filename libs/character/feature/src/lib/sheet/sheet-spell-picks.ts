@@ -4,12 +4,14 @@ import type { Character, CharacterSlot, PickedPreparation } from '@pioneer/chara
 import type { InlineEdit, SelectOption } from '@pioneer/frontier';
 import { ChoiceValue } from '@pioneer/rules/sdk';
 import type { ContentRegistry, MagicTradition, SlotKey, Slug } from '@pioneer/rules/sdk';
+import type { SpellDetailLine, Translate } from '@pioneer/rules/ui';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 import { NOT_CHOSEN, RootPick } from './sheet-build';
 import { sheetField } from './sheet-field';
 import { sheetPreparedSlots, spellMatches } from './sheet-prepared-spells';
 import type { SheetPreparedEntry, SheetPreparedSlot } from './sheet-prepared-spells';
+import { sheetSpellDetail } from './sheet-spell-details';
 
 /** What the spell pickers read and write through. */
 export interface SpellPickSources {
@@ -20,7 +22,7 @@ export interface SpellPickSources {
   readonly slots: Signal<readonly CharacterSlot[] | undefined>;
   readonly select: (slot: SlotKey, selection: ChoiceValue) => Promise<void>;
   readonly clear: (slot: SlotKey) => Promise<void>;
-  readonly translate: (key: string) => string;
+  readonly translate: Translate;
 }
 
 /** A prepared slot as an inline pick: the spells matching what was typed, and why its pick counts for nothing. */
@@ -30,6 +32,8 @@ interface PreparedField {
   readonly matches: Signal<readonly SelectOption<string>[]>;
   readonly search: (query: string) => void;
   readonly reason: Signal<MessageDescriptor | undefined>;
+  /** The spell the slot holds, with what casting it takes and does at the rank it is cast; undefined while the slot is empty. */
+  readonly detail: Signal<SpellDetailLine | undefined>;
   readonly field: InlineEdit<string | undefined>;
 }
 
@@ -94,6 +98,13 @@ function preparedField(
       query.set(typed);
     },
     reason: computed(() => slot()?.reason),
+    detail: computed(() => {
+      const registry = sources.registry();
+      const spell = slot()?.spell;
+      return registry === undefined || spell === undefined
+        ? undefined
+        : sheetSpellDetail(registry, spell, sources.translate);
+    }),
     field,
   };
 }

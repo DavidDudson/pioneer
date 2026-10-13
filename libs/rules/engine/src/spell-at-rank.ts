@@ -1,4 +1,4 @@
-import { DamageFormula, Feet, HeighteningType } from '@pioneer/rules/sdk';
+import { Feet, HeighteningType, SpellDamageFormula } from '@pioneer/rules/sdk';
 import type { Heightening, SpellDamage, SpellData, SpellRank, SpellVariant } from '@pioneer/rules/sdk';
 import { Pg } from '@pioneer/shared/kernel';
 import type * as z from 'zod';
@@ -6,6 +6,9 @@ import type * as z from 'zod';
 /** How many whole steps of an interval heightening a rank is above the spell's. */
 const HeighteningSteps = Pg.smallint().nonnegative().brand<'HeighteningSteps'>();
 type HeighteningSteps = z.infer<typeof HeighteningSteps>;
+
+/** A damage part's roll. */
+type Formula = SpellDamage['formula'];
 
 type IntervalHeightening = Extract<Heightening, { readonly type: typeof HeighteningType.Interval }>;
 type FixedHeightening = Extract<Heightening, { readonly type: typeof HeighteningType.Fixed }>;
@@ -35,23 +38,57 @@ export interface SpellAtRank extends SpellCast {
   readonly variants: readonly SpellCast[];
 }
 
-/** A dice term alone: `2d6`. */
-const PURE_DICE = /^(?<count>\d+)d(?<die>\d+)$/u;
-/** The dice term a formula starts with: the `2d6` of `2d6 + 3`. */
-const LEADING_DICE = /^(?<count>\d+)d(?<die>\d+)(?<rest>.*)$/u;
+/** Dice: the `2d6` of `2d6+3 + @spellcasting.attr`. */
+const DICE = /^(?<count>\d+)d(?<die>\d+)(?<rest>.*)$/u;
+/** A flat amount at the start of what follows dice: the `+3` of ` + 3 + @spellcasting.attr`. */
+const FLAT = /^ ?\+ ?(?<flat>\d+)(?![\dd@(.])/u;
+const SPACES = /\s+/gu;
+
+/** How many dice a term rolls. */
+const DiceCount = Pg.smallint().nonnegative().brand<'DiceCount'>();
+/** How many faces each die has. */
+const DieFaces = Pg.smallint().positive().brand<'DieFaces'>();
+/** A flat amount added to a roll. */
+const FlatBonus = Pg.smallint().nonnegative().brand<'FlatBonus'>();
+
+/** A step that is dice alone, with a flat amount if it has one: `2d6`, `1d4+1`. */
+interface Step {
+  readonly count: z.infer<typeof DiceCount>;
+  readonly die: z.infer<typeof DieFaces>;
+  readonly flat: z.infer<typeof FlatBonus>;
+}
+
+function stepOf(formula: Formula): Step | undefined {
+  const [dice = '', flat, ...more] = formula.replaceAll(SPACES, '').split('+');
+  const parsed = DICE.exec(dice)?.groups;
+  const isPure = parsed?.['rest'] === '' && more.length === 0 && (flat === undefined || /^\d+$/u.test(flat));
+  if (parsed?.['count'] === undefined || parsed['die'] === undefined || !isPure) {
+    return undefined;
+  }
+  return {
+    count: DiceCount.parse(Number(parsed['count'])),
+    die: DieFaces.parse(Number(parsed['die'])),
+    flat: FlatBonus.parse(Number(flat ?? 0)),
+  };
+}
 
 /**
- * `base` with `step` added `steps` times: `2d6` and `+2d6` three times is `8d6`. A step that is not dice alone, or a base
- * that does not start with the same die, is added term by term.
+ * `base` with `step` added `steps` times: `2d6` and `+2d6` three times is `8d6`, and `1d4+1` and `+1d4+1` once is
+ * `2d4+2`. A step that is not dice alone, or a base that does not start with the same die, is added term by term.
  */
-function increased(base: DamageFormula, step: DamageFormula, steps: HeighteningSteps): DamageFormula {
-  const added = PURE_DICE.exec(step)?.groups;
-  const lead = LEADING_DICE.exec(base)?.groups;
-  if (added?.['count'] !== undefined && lead?.['count'] !== undefined && added['die'] === lead['die']) {
-    const count = Number(lead['count']) + Number(added['count']) * steps;
-    return DamageFormula.parse(`${count}d${lead['die']}${lead['rest'] ?? ''}`);
+function increased(base: Formula, step: Formula, steps: HeighteningSteps): Formula {
+  const added = stepOf(step);
+  const lead = DICE.exec(base)?.groups;
+  if (added !== undefined && lead?.['count'] !== undefined && String(added.die) === lead['die']) {
+    const tail = lead['rest'] ?? '';
+    const leadFlat = FLAT.exec(tail);
+    const rest = leadFlat === null ? tail : tail.slice(leadFlat[0].length);
+    const count = Number(lead['count']) + added.count * steps;
+    const flat = Number(leadFlat?.groups?.['flat'] ?? 0) + added.flat * steps;
+    const bonus = flat === 0 ? '' : `+${flat}`;
+    return SpellDamageFormula.parse(`${count}d${added.die}${bonus}${rest}`);
   }
-  return DamageFormula.parse([base, ...Array.from({ length: steps }, () => step)].join(' + '));
+  return SpellDamageFormula.parse([base, ...Array.from({ length: steps }, () => step)].join(' + '));
 }
 
 /** The fields a variant or a fixed rank changes; the rest stay as they are. */

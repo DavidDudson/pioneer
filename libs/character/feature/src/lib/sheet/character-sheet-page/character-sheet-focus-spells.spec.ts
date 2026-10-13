@@ -40,9 +40,18 @@ async function focusOf(root: HTMLElement): Promise<HTMLElement> {
   );
 }
 
+/** Each spell's name and badges: the first row of its details. */
 function spellsIn(focus: HTMLElement): string[] {
-  return [...focus.querySelectorAll('fr-list-item')].map((item) =>
-    [...item.querySelectorAll('fr-text, fr-badge')].map((part) => textOf(part)).join(' '),
+  return [...focus.querySelectorAll('pio-spell-details')].map((details) =>
+    [...details.querySelectorAll('pio-entry-hover fr-text, fr-badge')].map((part) => textOf(part)).join(' '),
+  );
+}
+
+/** Each spell's labelled fields as "Term: value", under its name. */
+function fieldsOf(focus: HTMLElement, name: string): string[] {
+  const details = [...focus.querySelectorAll('pio-spell-details')].find((each) => textOf(each).startsWith(name));
+  return [...(details?.querySelectorAll('fr-description-item') ?? [])].map((row) =>
+    [...row.querySelectorAll('[role=term], [role=definition]')].map((part) => textOf(part)).join(': '),
   );
 }
 
@@ -52,12 +61,23 @@ describe('CharacterSheetPage focus spells', () => {
     await prebuildServerStateTesting();
   }, PREBUILD_TIMEOUT);
 
+  it("details a bard's composition spells by cost, area and duration", async () => {
+    const { root } = await openSheet(as('bard', 1), { packs: SPELL_PACKS });
+    const focus = await focusOf(root);
+
+    await vi.waitFor(() => {
+      expect(fieldsOf(focus, 'Courageous Anthem')).toStrictEqual(['Area: 60-foot emanation', 'Duration: 1 round']);
+    });
+    expect(textOf(focus)).toContain('Reaction');
+    expect(textOf(focus)).toContain('Single action');
+  });
+
   it("lists a bard's composition spells, the cantrip marked, with a focus pool of 1", async () => {
     const { root } = await openSheet(as('bard', 1), { packs: SPELL_PACKS });
     const focus = await focusOf(root);
 
     await vi.waitFor(() => {
-      expect(spellsIn(focus)).toStrictEqual(['Counter Performance', 'Courageous Anthem Cantrip']);
+      expect(spellsIn(focus)).toStrictEqual(['Counter Performance Focus', 'Courageous Anthem Cantrip']);
     });
     expect(textOf(focus)).toContain('Focus pool: 1 Focus Point');
     expect(textOf(focus)).toContain('Cast at 1st rank, cantrips too');
@@ -69,9 +89,14 @@ describe('CharacterSheetPage focus spells', () => {
     const focus = await focusOf(root);
 
     await vi.waitFor(() => {
-      expect(spellsIn(focus)).toStrictEqual(['Force Bolt']);
+      expect(spellsIn(focus)).toStrictEqual(['Force Bolt Focus']);
     });
     expect(textOf(focus)).toContain('Cast at 3rd rank, cantrips too');
+    expect(fieldsOf(focus, 'Force Bolt')).toStrictEqual([
+      'Range: 30 feet',
+      'Targets: 1 creature',
+      'Effect: 2d4+2 force',
+    ]);
   });
 
   it('shows no focus spells for a character with no focus entry', async () => {

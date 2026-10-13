@@ -62,13 +62,15 @@ export class SheetSpells {
     slots: this.#store.slots,
     select: async (slot, selection) => this.#store.selectSlot(slot, selection),
     clear: async (slot) => this.#store.clearSlot(slot),
-    translate: (key) => this.#i18n.translate(key),
+    translate: (key, params) => this.#i18n.translate(key, params),
   });
   /** The character's focus spells and focus pool; undefined without a focus entry or while the spells load. */
   protected readonly focus = computed((): FocusLine | undefined => {
     const registry = this.spells.data();
     const character = this.#store.selected();
-    return registry === undefined || character === undefined ? undefined : sheetFocus(registry, character);
+    return registry === undefined || character === undefined
+      ? undefined
+      : sheetFocus(registry, character, (key, params) => this.#i18n.translate(key, params));
   });
   /** The uncommon and rare spells the build has access to, and those it may add; undefined while the spells load. */
   protected readonly access = computed((): SheetSpellAccess | undefined => {
