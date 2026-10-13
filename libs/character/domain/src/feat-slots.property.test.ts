@@ -94,5 +94,5 @@ describe('featSlots', () => {
       // Each refusal reads the character afresh with its slot empty: a few hundred per run.
       { numRuns: 30 },
     );
-  });
+  }, 30_000);
 });

@@ -115,15 +115,7 @@ describe('CharacterSheetPage', () => {
     const labels = [...root.querySelectorAll('section fr-inline-field')].map((field) =>
       present(field.querySelector('fr-text')).textContent.trim(),
     );
-    expect(labels).toStrictEqual([
-      'Name',
-      'Ancestry',
-      'Heritage',
-      'Background',
-      'Level',
-      'Class',
-      'Elf feat, level 1',
-    ]);
+    expect(labels).toStrictEqual(['Name', 'Ancestry', 'Heritage', 'Background', 'Level', 'Class', 'Elf feat, level 1']);
   });
 
   it('saves an ancestry edit as a pick in the ancestry slot', async () => {
