@@ -27,7 +27,7 @@ export interface RestLine {
 }
 
 /** What bounds the actions: the maximum Hit Points and the pools, which the sheet derives from the build. */
-export interface RestMaxima {
+interface RestMaxima {
   readonly hitPoints: HitPoints;
   readonly resources: ResourceMaxima;
 }
