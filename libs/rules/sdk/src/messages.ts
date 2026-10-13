@@ -44,6 +44,7 @@ export const RulesMessage = {
   SpellDamageKey: 'rules.spell.damageKey',
   SpellHeightenAbove: 'rules.spell.heightenAbove',
   SpellHeightenEmpty: 'rules.spell.heightenEmpty',
+  SpellVariantEmpty: 'rules.spell.variantEmpty',
   SpellAgainst: 'rules.spell.against',
   SpellDurationOwner: 'rules.spell.durationOwner',
   SpellDurationUpTo: 'rules.spell.durationUpTo',

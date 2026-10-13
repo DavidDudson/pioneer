@@ -3,15 +3,16 @@ import { issueParams, message, Pg } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { Slug } from './content-id';
+import { ContentText } from './content-text';
 import { DamageTypeSchema } from './damage';
 import { DamageFormula, SpellDamageFormula } from './damage-formula';
 import { RulesMessage } from './messages';
 import { DamageCategorySchema } from './rich-text';
-import { castingFields, SpellArea, SpellDuration, SpellRange } from './spell-casting';
+import { CastTime, castingFields, SpellArea, SpellDefense, SpellDuration, SpellRange } from './spell-casting';
 import { SPELL_RANK_MAX, SpellRank } from './spell-rank';
 import { SpellTargets } from './spell-targets';
 import { MagicTraditionSchema } from './spellcasting-tradition';
-import { DamageException } from './trait';
+import { DamageException, Trait } from './trait';
 import { uniqueItems } from './unique-items';
 import { Feet } from './units';
 
@@ -83,10 +84,17 @@ const IntervalHeightening = z.strictObject({
   area: Feet.optional(),
 });
 
-/** "Heightened (4th)": what the spell has instead at that rank and above. */
+const TRAITS_MAX = 16;
+
+/**
+ * "Heightened (4th)": what the spell has instead at that rank and above. `traits` is the spell's whole list of traits
+ * then, as Foundry writes it.
+ */
 const HeightenedRank = z
   .strictObject({
     rank: SpellRank,
+    time: CastTime.optional(),
+    traits: z.array(Trait).max(TRAITS_MAX).readonly().check(uniqueItems).optional(),
     damage: SpellDamageParts.optional(),
     range: SpellRange.optional(),
     area: SpellArea.optional(),
@@ -110,28 +118,68 @@ const Heightening = z.discriminatedUnion('type', [IntervalHeightening, FixedHeig
 type Heightening = z.infer<typeof Heightening>;
 
 const TRADITIONS_MAX = 4;
+const VARIANTS_MAX = 8;
+
+/**
+ * One way to cast a spell (Heal's one-, two- and three-action versions, Gouging Claw's slashing or piercing), as
+ * Foundry's `override` overlays: what it has instead of the spell's own, the rest as the spell has it. `damage` is
+ * the variant's whole list of parts and `heightening` its whole heightening, the spell's laid under the overlay's.
+ */
+const SpellVariant = z
+  .strictObject({
+    name: ContentText.optional(),
+    time: CastTime.optional(),
+    range: SpellRange.optional(),
+    area: SpellArea.optional(),
+    targets: SpellTargets.optional(),
+    duration: SpellDuration.optional(),
+    defense: SpellDefense.optional(),
+    damage: SpellDamageParts.optional(),
+    heightening: Heightening.optional(),
+  })
+  .refine(({ name: _name, ...changes }) => Object.values(changes).some((change) => change !== undefined), {
+    ...issueParams(message(RulesMessage.SpellVariantEmpty)),
+  });
+type SpellVariant = z.infer<typeof SpellVariant>;
 
 type SpellCheck = z.core.ParsePayload<{
   readonly rank: SpellRank;
   readonly damage: readonly SpellDamage[];
   readonly heightening?: Heightening | undefined;
+  readonly variants?: readonly SpellVariant[] | undefined;
 }>;
 
 function pushIssue(context: SpellCheck, path: readonly PropertyKey[], descriptor: MessageDescriptor): void {
   context.issues.push({ code: 'custom', input: context.value, path: [...path], ...issueParams(descriptor) });
 }
 
-/** Interval heightening adds to damage parts the spell has. */
-function checkIncreases(context: SpellCheck): void {
-  const { damage, heightening } = context.value;
+/** The heightening at `path`, and the damage parts it adds to. */
+interface Increases {
+  readonly path: readonly PropertyKey[];
+  readonly heightening: Heightening | undefined;
+  readonly damage: readonly SpellDamage[];
+}
+
+/** Interval heightening adds to damage parts in `damage`. */
+function checkIncreasesAt(context: SpellCheck, { path, heightening, damage }: Increases): void {
   if (heightening?.type !== HeighteningType.Interval) {
     return;
   }
   const keys = new Set(damage.map(({ key }) => key));
   for (const [index, { key }] of heightening.damage.entries()) {
     if (!keys.has(key)) {
-      pushIssue(context, ['heightening', 'damage', index, 'key'], message(RulesMessage.SpellDamageKey, { key }));
+      pushIssue(context, [...path, 'damage', index, 'key'], message(RulesMessage.SpellDamageKey, { key }));
     }
+  }
+}
+
+/** Interval heightening adds to damage parts the spell, or the variant it heightens, has. */
+function checkIncreases(context: SpellCheck): void {
+  const { damage, heightening, variants = [] } = context.value;
+  checkIncreasesAt(context, { path: ['heightening'], heightening, damage });
+  for (const [index, variant] of variants.entries()) {
+    const path = ['variants', index, 'heightening'];
+    checkIncreasesAt(context, { path, heightening: variant.heightening, damage: variant.damage ?? damage });
   }
 }
 
@@ -164,6 +212,7 @@ export const SpellData = z
     traditions: z.array(MagicTraditionSchema).max(TRADITIONS_MAX).readonly().check(uniqueItems),
     damage: SpellDamageParts,
     heightening: Heightening.optional(),
+    variants: z.array(SpellVariant).min(1).max(VARIANTS_MAX).readonly().optional(),
     /** It counteracts (Dispel Magic). */
     counteraction: z.boolean().optional(),
   })
