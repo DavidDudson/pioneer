@@ -408,7 +408,8 @@ waits for Epic 2.4.
   the official row.
 - **Enabled packs** are chosen per campaign (and per character outside campaigns). The registry is built from
   exactly those packs. A GM enables a homebrew pack they may read, which enables the packs it extends too; official
-  packs are always on (ADR-0058).
+  packs are always on (ADR-0058). A character outside campaigns enables its own in `character_packs`, the owner's
+  private packs included; in a campaign it uses the campaign's and its own rows wait (ADR-0060).
 
 Official content is JSON, not TypeScript: thousands of entries as TypeScript would slow typechecking for no benefit,
 and homebrew cannot use that path. A pack directory holds:

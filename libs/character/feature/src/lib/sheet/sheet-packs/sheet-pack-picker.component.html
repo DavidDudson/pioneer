@@ -1,0 +1,29 @@
+<fr-stack gap="sm">
+  <fr-heading variant="label" [level]="3">{{ 'character.packs.enableHeading' | transloco }}</fr-heading>
+  @if (candidates().length === 0) {
+    <fr-empty-state [icon]="emptyIcon" [title]="'character.packs.noneToEnable' | transloco">
+      <fr-link [to]="['/homebrew']">{{ 'character.packs.toHomebrew' | transloco }}</fr-link>
+    </fr-empty-state>
+  }
+  @if (showForm()) {
+    <fr-async-form [form]="form" [action]="enable" [describeError]="describeEnableError">
+      <fr-stack gap="sm">
+        <fr-select-field
+          [label]="'character.packs.packLabel' | transloco"
+          [options]="options()"
+          [formField]="form.packId"
+        />
+        <fr-stack direction="horizontal" justify="start">
+          <fr-async-button
+            type="submit"
+            variant="primary"
+            [pendingLabel]="'character.packs.enabling' | transloco"
+            [successLabel]="'character.packs.enabled' | transloco"
+          >
+            {{ 'character.packs.enable' | transloco }}
+          </fr-async-button>
+        </fr-stack>
+      </fr-stack>
+    </fr-async-form>
+  }
+</fr-stack>

@@ -99,7 +99,12 @@ export interface SheetOptions {
   readonly play?: object;
   /** The sections where the server has the user showing grant-only feats; none by default. */
   readonly featDisplay?: object;
+  /** The packs the server has the character using; only the owner's choice of none by default. */
+  readonly characterPacks?: object;
 }
+
+/** The packs of a character that has enabled none, which its owner may change. */
+const NO_CHARACTER_PACKS = { decidedBy: 'character', manageable: true, enabled: [], candidates: [] };
 
 /** The play state the server holds, at `revision`. */
 export function playOf(damage: number, temp: number, revision = 1): object {
@@ -180,6 +185,10 @@ export async function openSheet(character: object = MERISIEL, options: SheetOpti
     // The feats section reads the user''s feat filter once it renders; other tabs never ask.
     for (const read of TestBed.inject(HttpTestingController).match(`/api/characters/${id}/feat-display`)) {
       read.flush(options.featDisplay ?? { showGrantOnly: [] });
+    }
+    // The packs section reads the character's packs once the Plan tab renders; other tabs never ask.
+    for (const read of TestBed.inject(HttpTestingController).match(`/api/characters/${id}/packs`)) {
+      read.flush(options.characterPacks ?? NO_CHARACTER_PACKS);
     }
     // Through the application, not `harness.detectChanges()`, so render hooks (roving focus) run as in the app.
     await TestBed.inject(ApplicationRef).whenStable();

@@ -9,3 +9,6 @@ export { characterFeatDisplays } from './character.table';
 export { DrizzleFeatDisplayRepository } from './drizzle-feat-display-repository';
 export { featDisplayRoutes } from './feat-display-routes';
 export { pioneerFileRoutes } from './pioneer-file-routes';
+export { characterPacks } from './character.table';
+export { DrizzleCharacterPackRepository } from './drizzle-character-pack-repository';
+export { characterPackRoutes } from './character-pack-routes';

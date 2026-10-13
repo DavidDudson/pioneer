@@ -294,7 +294,8 @@
       "poolSlots": "{amount, plural, one {# {source} {pool} rank {rank} slot} other {# {source} {pool} rank {rank} slots}}",
       "uses": "{amount, plural, one {# use of {name}} other {# uses of {name}}}",
       "heading": "Rest and preparations"
-    }
+    },
+    "packsHeading": "Content packs"
   },
   "validation": {
     "unknownAncestry": "That ancestry is not available. Choose another.",
@@ -468,5 +469,28 @@
         "weapon": "Weapons"
       }
     }
+  },
+  "packs": {
+    "loadError": "Could not load the packs.",
+    "empty": "No packs are on for this character.",
+    "campaignDecides": "{campaign} decides which packs this character uses. Leave the campaign to choose your own.",
+    "alwaysOn": "Always on",
+    "requiredBy": "Needed by {packs}",
+    "disable": "Disable",
+    "disabling": "Disabling",
+    "disabled": "Disabled",
+    "disableFailed": "Could not disable the pack. Try again.",
+    "enableHeading": "Add a pack",
+    "packLabel": "Pack",
+    "privateOption": "{title} (private)",
+    "enable": "Enable pack",
+    "enabling": "Enabling",
+    "enabled": "Enabled",
+    "enableFailed": "Could not enable the pack. Try again.",
+    "noneToEnable": "No more packs to enable. Packs you own, and packs shared with you, appear here.",
+    "toHomebrew": "Go to your packs",
+    "dependencyUnreadable": "{pack} extends {dependency}, which you cannot read, so it cannot be enabled.",
+    "alwaysOnRefusal": "Official packs are always on.",
+    "requiredByRefusal": "{packs} still extend this pack. Disable them first."
   }
 }

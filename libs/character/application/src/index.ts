@@ -11,3 +11,11 @@ export { type FeatDisplayKey, FeatDisplayRepository, type FeatDisplaySetting } f
 export { EmbeddedHomebrew } from './embedded-homebrew';
 export { PioneerFileService, type PioneerFileDeps } from './pioneer-file-service';
 export { InMemoryEmbeddedHomebrew } from './in-memory-embedded-homebrew';
+export { AttachedCampaignPacks, type AttachedCampaign } from './attached-campaign-packs';
+export { InMemoryAttachedCampaignPacks } from './in-memory-attached-campaign-packs';
+export { type CatalogPack, CharacterPackCatalog } from './character-pack-catalog';
+export { InMemoryCharacterPackCatalog, type KnownPack } from './in-memory-character-pack-catalog';
+export { CharacterPackMessage } from './character-pack-message';
+export { CharacterPackRepository } from './character-pack-repository';
+export { InMemoryCharacterPackRepository } from './in-memory-character-pack-repository';
+export { CharacterPackService, type CharacterPackPorts } from './character-pack-service';
