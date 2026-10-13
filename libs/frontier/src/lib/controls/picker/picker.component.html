@@ -1,3 +1,4 @@
+@let shown = triggerLabel() ?? ('frontier.picker.placeholder' | transloco);
 <button
   type="button"
   aria-haspopup="grid"
@@ -6,13 +7,15 @@
   [disabled]="disabled()"
   [attr.aria-expanded]="expanded()"
   [attr.aria-controls]="expanded() ? panelId : null"
-  [attr.aria-label]="ariaLabel() ?? null"
+  [attr.aria-label]="
+    ariaLabel() === undefined ? null : ('frontier.picker.trigger' | transloco: { label: ariaLabel(), value: shown })
+  "
   [attr.aria-describedby]="describedBy() ?? null"
   [attr.aria-invalid]="ariaInvalid() || null"
   (click)="toggle()"
   (keydown.escape)="cancel()"
 >
-  <span [class]="labelClasses()">{{ triggerLabel() ?? ('frontier.picker.placeholder' | transloco) }}</span>
+  <span [class]="labelClasses()">{{ shown }}</span>
   <fr-icon [icon]="CaretIcon" />
 </button>
 

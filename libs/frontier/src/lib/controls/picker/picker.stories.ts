@@ -16,6 +16,7 @@ type PickerStory = StoryObj<Picker<string, Feat>>;
 
 const FEW: readonly Feat[] = FEATS.slice(0, 6);
 const PICKED = 'feat-2';
+const FUNCTION_INPUTS: (keyof Picker<string, Feat>)[] = ['rowValue', 'rowLabel', 'rowDisabled'];
 
 /**
  * Pick one row of a table. The panel opens inline below the trigger, with a search box and sortable columns.
@@ -53,7 +54,8 @@ const meta: Meta<Picker<string, Feat>> = {
   parameters: { layout: 'padded' },
   render: (args) => ({
     props: args,
-    template: `<fr-picker ${argsToTemplate(args)} />`,
+    // `argsToTemplate` turns a function arg into an output binding, so the row functions are bound by hand.
+    template: `<fr-picker ${argsToTemplate(args, { exclude: FUNCTION_INPUTS })} [rowValue]="rowValue" [rowLabel]="rowLabel" [rowDisabled]="rowDisabled" />`,
   }),
 };
 export default meta;

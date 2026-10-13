@@ -36,7 +36,7 @@ describe(Picker, () => {
     const rendered = render();
     expect(rendered.trigger.getAttribute('aria-haspopup')).toBe('grid');
     expect(rendered.trigger.getAttribute('aria-expanded')).toBe('false');
-    expect(rendered.trigger.getAttribute('aria-label')).toBe('Feat');
+    expect(rendered.trigger.getAttribute('aria-label')).toBe('Feat: Select…');
     expect(rendered.trigger.textContent.trim()).toBe('Select…');
     expect(grid(rendered)).toBeNull();
   });

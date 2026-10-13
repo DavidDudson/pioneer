@@ -33,7 +33,8 @@
     },
     "picker": {
       "placeholder": "Select…",
-      "search": "Search"
+      "search": "Search",
+      "trigger": "{label}: {value}"
     },
     "searchInput": {
       "clear": "Clear search"
