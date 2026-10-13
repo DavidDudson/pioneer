@@ -26,7 +26,13 @@ export { StatisticsMessage } from './lib/statistics/statistics-messages';
 export { type ChoiceLine, type ChoiceSelection, ChoiceState } from './lib/choices/choice-line';
 export { ChoicesView } from './lib/choices/choices.component';
 export { LevelTimeline } from './lib/level-timeline/level-timeline.component';
-export { type LevelTimelineRow } from './lib/level-timeline/level-timeline-row';
+export {
+  type LevelTimelineRow,
+  type TimelineCombobox,
+  type TimelinePick,
+  TimelinePickKind,
+  type TimelineSelect,
+} from './lib/level-timeline/level-timeline-row';
 export { type BuildLine, BuildPart, type BuildValue } from './lib/build-summary/build-line';
 export { BuildSummaryView } from './lib/build-summary/build-summary.component';
 export { type ClassFeatureLine } from './lib/class-features/class-feature-line';

@@ -51,9 +51,11 @@ export interface SheetFeatOption {
   readonly locked: SheetFeatLock | undefined;
 }
 
-/** The feats section: the slots up to the character's level and the feats the character has, by slot type. */
+/** The feats section: the slots up to the character's level, those above it, and the feats it has, by slot type. */
 export interface SheetFeats {
   readonly slots: readonly SheetFeatSlot[];
+  /** The slots above the character's level, lowest first, with the feats each offers once the character is there (#492). */
+  readonly planned: readonly SheetFeatSlot[];
   readonly groups: readonly SheetFeatGroup[];
 }
 
@@ -95,6 +97,7 @@ function slotRead(slots: readonly CharacterSlot[], key: SlotKey): CharacterSlot 
 /**
  * The sheet's feats (#466): each feat slot up to the character's level, lowest first, with the feats it offers at its
  * level and whether the character meets their prerequisites there, and the feats the character has by slot type (#487).
+ * Slots above the level are the plan (#492), read the same way at the level they open.
  */
 export function sheetFeats(
   registry: ContentRegistry,
@@ -103,18 +106,20 @@ export function sheetFeats(
 ): SheetFeats {
   const content = sheetSlotContent(registry);
   const nameOf = (id: ContentId): string | undefined => content.lookup.entry(id)?.name;
-  const reads = featSlots(character.document, content).filter((slot) => slot.level <= character.document.level);
+  const reads = featSlots(character.document, content);
+  const slotOf = (slot: FeatSlot): SheetFeatSlot => {
+    const read = slotRead(slots, slot.key);
+    return {
+      key: slot.key,
+      label: labelOf(slot, nameOf),
+      options: slot.options.map((option) => optionOf(option, nameOf)),
+      storedName: read !== undefined && 'selectionName' in read ? read.selectionName : undefined,
+      reason: read?.status === SlotStatus.Invalid ? read.reason : undefined,
+    };
+  };
   return {
-    slots: reads.map((slot) => {
-      const read = slotRead(slots, slot.key);
-      return {
-        key: slot.key,
-        label: labelOf(slot, nameOf),
-        options: slot.options.map((option) => optionOf(option, nameOf)),
-        storedName: read !== undefined && 'selectionName' in read ? read.selectionName : undefined,
-        reason: read?.status === SlotStatus.Invalid ? read.reason : undefined,
-      };
-    }),
+    slots: reads.filter((slot) => slot.level <= character.document.level).map((slot) => slotOf(slot)),
+    planned: reads.filter((slot) => slot.level > character.document.level).map((slot) => slotOf(slot)),
     groups: sheetFeatGroups(registry, character),
   };
 }

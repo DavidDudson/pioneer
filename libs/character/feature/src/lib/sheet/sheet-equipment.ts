@@ -7,7 +7,7 @@ import { CHARACTER_CONTENT_KINDS } from '../data/content-registry-query';
 
 /**
  * The registry kinds the sheet's engine reads once the character carries anything: its own, the item kinds, the runes
- * etched onto them, and conditions for the encumbered condition its Bulk can bring.
+ * etched onto them, and conditions for the encumbered condition its Bulk can bring and the ones active in play.
  */
 export const EQUIPMENT_CONTENT_KINDS: readonly ContentKind[] = [
   ...CHARACTER_CONTENT_KINDS,
@@ -23,6 +23,14 @@ export const EQUIPMENT_CONTENT_KINDS: readonly ContentKind[] = [
 export function carriesAnything(character: Character | undefined): boolean {
   const inventory = character?.document.inventory;
   return inventory !== undefined && (inventory.items.length > 0 || coinBulk(inventory.coins) > 0);
+}
+
+/**
+ * Whether the engine reads the item and condition kinds for `character`: it carries anything (`carriesAnything`), or
+ * has a condition active, whose rule elements the engine puts in play.
+ */
+export function readsEquipment(character: Character | undefined): boolean {
+  return carriesAnything(character) || (character?.document.play.conditions.length ?? 0) > 0;
 }
 
 /** The lines `item` adds to the statistics, each with its statistic's name. */

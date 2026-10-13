@@ -130,10 +130,49 @@ describe('CharacterSheetPage', () => {
 
   it('edits only the chosen inputs inline on Plan: name, ancestry, heritage, background, level, class and feats', async () => {
     const { root } = await openSheet();
-    const labels = [...root.querySelectorAll('section fr-inline-field')].map((field) =>
+    const labels = [...root.querySelectorAll('section fr-inline-field')]
+      .filter((field) => field.closest('pio-level-timeline') === null)
+      .map((field) => present(field.querySelector('fr-text')).textContent.trim());
+    expect(labels).toStrictEqual(['Name', 'Ancestry', 'Heritage', 'Background', 'Level', 'Class', 'Elf feat, level 1']);
+  });
+
+  it('offers a picker on each planned slot of the level timeline', async () => {
+    const { root } = await openSheet();
+    const labels = [...root.querySelectorAll('pio-level-timeline fr-inline-field')].map((field) =>
       present(field.querySelector('fr-text')).textContent.trim(),
     );
-    expect(labels).toStrictEqual(['Name', 'Ancestry', 'Heritage', 'Background', 'Level', 'Class', 'Elf feat, level 1']);
+    expect(labels).toContain('Elf feat, level 5');
+    expect(labels.filter((label) => label.startsWith('Level 5 boost'))).toHaveLength(4);
+    expect(labels).toContain('Level 20 boost 1');
+  });
+
+  it('saves a boost planned from the timeline as a pick in its own slot', async () => {
+    const { root } = await openSheet();
+    const field = present(
+      [...root.querySelectorAll<HTMLElement>('pio-level-timeline fr-inline-field')].find(
+        (each) => each.querySelector('fr-text')?.textContent.trim() === 'Level 5 boost 2',
+      ),
+    );
+    present(field.querySelector<HTMLElement>('button')).click();
+    await settle();
+    present(field.querySelector<HTMLElement>('[frInlineEditor] button')).click();
+    await settle();
+    const option = await vi.waitFor(() =>
+      present(
+        [...document.querySelectorAll<HTMLElement>('[role="option"]')].find((each) =>
+          each.textContent.trim().startsWith('Dexterity'),
+        ),
+      ),
+    );
+    option.click();
+
+    const request = await vi.waitFor(() =>
+      TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: `/api/characters/${id}` }),
+    );
+    expect(request.request.body).toStrictEqual({
+      expectedVersion: 1,
+      patch: { field: 'selectSlot', slot: 'boost:5:free:1', selection: 'dex' },
+    });
   });
 
   it('saves an ancestry edit as a pick in the ancestry slot', async () => {

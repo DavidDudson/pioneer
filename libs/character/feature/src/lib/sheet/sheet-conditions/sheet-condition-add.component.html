@@ -1,0 +1,22 @@
+<fr-stack direction="horizontal" align="center" gap="sm" wrap>
+  <fr-select
+    [ariaLabel]="'character.sheet.conditions.pick' | transloco"
+    [placeholder]="'character.sheet.conditions.pick' | transloco"
+    [options]="choices()"
+    [value]="picked()"
+    (valueChange)="picked.set($event)"
+  />
+  @if (pickedOption()?.valued) {
+    <fr-number-input
+      [ariaLabel]="'character.sheet.conditions.startValue' | transloco"
+      [min]="valueMin"
+      [max]="valueMax"
+      [value]="startValue()"
+      (valueChange)="startValue.set($event)"
+      (completeChange)="startComplete.set($event)"
+    />
+  }
+  <fr-async-button size="sm" [action]="add" [disabled]="busy() || !canAdd()" [describeError]="describeError()">
+    {{ 'character.sheet.conditions.add' | transloco }}
+  </fr-async-button>
+</fr-stack>

@@ -4,6 +4,13 @@ import { Uuid, Version } from '@pioneer/shared/kernel';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
+import {
+  ActiveConditionsSchema,
+  applyConditionCommand,
+  ConditionCommandField,
+  ConditionCommandSchema,
+} from './conditions';
+import type { ConditionValued } from './conditions';
 import type { CountedMaxima } from './counted-resources';
 import {
   afterRecoveryCheck,
@@ -50,6 +57,7 @@ export type HitPointsState = z.infer<typeof HitPointsStateSchema>;
 export const PlayStateSchema = z.strictObject({
   hp: HitPointsStateSchema.default({ damage: NONE, temp: NONE }),
   resources: ResourcesSpentSchema.default(ResourcesSpentSchema.parse({})),
+  conditions: ActiveConditionsSchema,
   ...DeathTrackSchema.shape,
 });
 export type PlayState = z.infer<typeof PlayStateSchema>;
@@ -74,6 +82,8 @@ export const PlayCommandField = {
   SetDoomed: 'setDoomed',
   /** Pool edits: spend, regain and set hero points and focus points (`resource-commands.ts`). */
   ...ResourceCommandField,
+  /** Conditions added, changed and removed (`conditions.ts`). */
+  ...ConditionCommandField,
 } as const;
 export type PlayCommandField = ValueOf<typeof PlayCommandField>;
 
@@ -87,6 +97,7 @@ export const PlayCommandSchema = z.discriminatedUnion('field', [
   z.object({ field: z.literal(PlayCommandField.SetWounded), wounded: Wounded }),
   z.object({ field: z.literal(PlayCommandField.SetDoomed), doomed: Doomed }),
   ...ResourceCommandSchema.options,
+  ...ConditionCommandSchema.options,
 ]);
 export type PlayCommand = z.infer<typeof PlayCommandSchema>;
 
@@ -109,6 +120,8 @@ export interface PlayLimits {
   readonly hitPoints: HitPoints;
   readonly resources: ResourceMaxima;
   readonly counted: CountedMaxima;
+  /** Whether each condition the content has carries a value. */
+  readonly valued: ConditionValued;
 }
 
 /** `value`, or `max` when it is more. */
@@ -222,6 +235,11 @@ export function applyPlayCommand(play: PlayState, command: PlayCommand, limits: 
     case PlayCommandField.RefundUse: {
       return { ...play, ...applyResourceCommand(play, command, { points: limits.resources, counted: limits.counted }) };
     }
+    case PlayCommandField.AddCondition:
+    case PlayCommandField.SetConditionValue:
+    case PlayCommandField.RemoveCondition: {
+      return { ...play, conditions: [...applyConditionCommand(play.conditions, command)] };
+    }
     default: {
       return command satisfies never;
     }
@@ -239,60 +257,4 @@ export function untypedDamage(amount: HitPoints): DamageApplication {
     taken: total,
     persistentTaken: none,
   };
-}
-
-/** Whether `command` reads or moves Hit Points, and so needs the maximum the engine derives. Temp Hit Points and the death track don't. */
-export function needsMaxHitPoints(command: PlayCommand): boolean {
-  switch (command.field) {
-    case PlayCommandField.Damage:
-    case PlayCommandField.Heal:
-    case PlayCommandField.SetHp: {
-      return true;
-    }
-    case PlayCommandField.SetTempHp:
-    case PlayCommandField.RecoveryCheck:
-    case PlayCommandField.SetDying:
-    case PlayCommandField.SetWounded:
-    case PlayCommandField.SetDoomed:
-    case PlayCommandField.SpendResource:
-    case PlayCommandField.RegainResource:
-    case PlayCommandField.SetResource:
-    case PlayCommandField.SpendSlot:
-    case PlayCommandField.RefundSlot:
-    case PlayCommandField.SpendUse:
-    case PlayCommandField.RefundUse: {
-      return false;
-    }
-    default: {
-      return command satisfies never;
-    }
-  }
-}
-
-/** Whether `command` moves a pool of points, and so needs the maxima the build and the rules give. */
-export function needsResourceMaxima(command: PlayCommand): boolean {
-  switch (command.field) {
-    case PlayCommandField.SpendResource:
-    case PlayCommandField.RegainResource:
-    case PlayCommandField.SetResource:
-    case PlayCommandField.SpendSlot:
-    case PlayCommandField.RefundSlot:
-    case PlayCommandField.SpendUse:
-    case PlayCommandField.RefundUse: {
-      return true;
-    }
-    case PlayCommandField.Damage:
-    case PlayCommandField.Heal:
-    case PlayCommandField.SetHp:
-    case PlayCommandField.SetTempHp:
-    case PlayCommandField.RecoveryCheck:
-    case PlayCommandField.SetDying:
-    case PlayCommandField.SetWounded:
-    case PlayCommandField.SetDoomed: {
-      return false;
-    }
-    default: {
-      return command satisfies never;
-    }
-  }
 }

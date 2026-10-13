@@ -88,6 +88,16 @@ count within 0 and the maximum, and leave a key the build does not give as it wa
 many uses of each activation, since each item is used up on its own; an activation on a rune etched onto an item is
 not counted yet.
 
+`conditions` holds one instance per condition put on the character ([#348](https://github.com/DavidDudson/pioneer/issues/348)):
+an instance id, the condition's content id, its value when it is valued, a duration (`rounds`, `untilStartOfTurn`,
+`untilEndOfTurn`, `unlimited` or `sustained`) and the campaign event that applied it. `addCondition`, `setConditionValue`
+and `removeCondition` edit them; the server refuses a condition the content lacks, a valued one with no value, a value on
+one without, and an instance the character does not have. The engine puts each instance in play as a grant root behind a
+`condition` hop that carries the value and the event, so breakdowns name them ("frightened 2, applied by Demoralize").
+Implied conditions come through the condition's own `GrantItem`; a condition another active one `overrides` is
+suppressed while that one lasts; and however many instances of a condition there are, the character has it once, at the
+highest value. Durations are stored, not counted down yet.
+
 ### Schema versions
 
 Every stored document carries `schemaVersion`. `decodeCharacterDocument` upgrades an older document to the current
@@ -117,7 +127,8 @@ The character stores `SlotKey → Selection` only. Consequences:
 
 - Levelling up opens slots; levelling down returns them to the plan but keeps the selection, so it comes back.
 - The level planner uses the same rule: selections above the current level are the plan, and levelling up turns
-  them on. A planned selection that stops being valid is flagged at its level, like any other invalid choice.
+  them on. It plans feats, skills and boosts; spell slots are a follow-up. A planned selection that stops being
+  valid is flagged at its level, like any other invalid choice.
 - If content changes (errata, a homebrew edit) and a selection becomes invalid, the slot is flagged on the sheet
   with the reason. It is never deleted silently.
 - Retraining is changing a selection; the audit log keeps the history.
@@ -253,6 +264,11 @@ character and its slots:
 
 The sheet's Choices section lists them, but the empty planned slots, with a badge per status and the reason under an
 invalid one.
+
+The level timeline ([#492](https://github.com/DavidDudson/pioneer/issues/492)) is where the plan is made: a feat, skill
+or boost slot above the character's level has a picker on its row, a plain `selectSlot`, so planning then levelling up
+equals picking at the level. A feat's picker offers the feats of its kind as of the slot's level, with the prerequisites
+the character will have met by then. Spell slots are not planned yet: they open at the character's level only.
 
 ### Attribute boosts
 

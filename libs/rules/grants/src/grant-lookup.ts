@@ -38,6 +38,13 @@ function valued(entry: ContentEntry): Pick<GrantEntry, 'valued'> {
   return entry.kind === ContentKind.Condition ? { valued: entry.data.valued } : {};
 }
 
+/** The conditions a condition overrides; nothing for any other kind, or for a condition that overrides none. */
+function overrides(entry: ContentEntry): Pick<GrantEntry, 'overrides'> {
+  return entry.kind === ContentKind.Condition && entry.data.overrides.length > 0
+    ? { overrides: entry.data.overrides }
+    : {};
+}
+
 /** Where a deity's options go: Foundry's `deity:primary`, as a character has one deity. */
 const DEITY_PREFIX = 'deity:primary';
 
@@ -126,6 +133,7 @@ function envelopeEntry(entry: ContentEntry): GrantEntry | undefined {
     rollOptions: [...traitOptions(entry.traits), ...tagOptions(entry), ...levelOptions(entry)],
     ...belongsTo(entry),
     ...valued(entry),
+    ...overrides(entry),
     ...deityFields(entry),
   };
 }

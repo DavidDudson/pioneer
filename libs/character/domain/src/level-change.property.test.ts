@@ -9,6 +9,7 @@ import { CharacterLevel } from './character-fields';
 import { CharacterPatchField } from './character-patch';
 import { SlotStatus } from './character-slot';
 import { characterSlots } from './character-slot-status';
+import { featSlots } from './feat-slots';
 import { slotContent } from './slot-offer';
 import {
   CharacterBuilder,
@@ -55,6 +56,33 @@ describe('changing level', () => {
             expect(slot.level).toBeGreaterThan(lowered);
           }
         }
+      }),
+    );
+  });
+
+  test('planning at a lower level then levelling up equals picking at the level (#492)', () => {
+    assert(
+      property(picks, level, level, (chosen, planningAt, levelledTo) => {
+        const build = (at: number): CharacterBuilder => {
+          let builder = new CharacterBuilder()
+            .picking('class', FEAT_SLOT_FIGHTER)
+            .picking('boost:1:class:0', 'str')
+            .atLevel(at);
+          for (const [slot, feat] of Object.entries(chosen)) {
+            if (feat !== undefined) {
+              builder = builder.picking(FEAT_SLOT_KEYS[slot as keyof typeof FEAT_SLOT_KEYS], featSlotFixtureId(feat));
+            }
+          }
+          return builder;
+        };
+        const planned = build(planningAt)
+          .build()
+          .apply({ field: CharacterPatchField.Level, value: CharacterLevel.parse(levelledTo) }, later);
+        const direct = build(levelledTo).build();
+
+        expect(planned.document.build.choices).toStrictEqual(direct.document.build.choices);
+        expect(characterSlots(planned.document, content)).toStrictEqual(characterSlots(direct.document, content));
+        expect(featSlots(planned.document, content)).toStrictEqual(featSlots(direct.document, content));
       }),
     );
   });
