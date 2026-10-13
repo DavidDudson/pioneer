@@ -6,7 +6,7 @@ Architecture, ADRs and the roadmap live in `docs/`; UI rules in `libs/frontier/A
 
 ## Workflow
 
-Project management is GitHub only: milestones M0-M9, epics as issues, stories as sub-issues, board
+Project management is GitHub only: milestones M0-M12 and i18n, epics as issues, stories as sub-issues, board
 "Pioneer" (`users/DavidDudson/projects/2`), dependency order through "blocked by" links.
 
 - Every story is one full-stack vertical slice in one PR: migration, domain/engine, contract, API, Angular

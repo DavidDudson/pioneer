@@ -243,8 +243,14 @@ function featOptions(slot: ChoiceSlot, level: Level, reads: PrerequisiteReads): 
   });
 }
 
-/** `document` with `slot` empty: how a slot reads what may go in it, so the pick it would replace counts for nothing. */
+/**
+ * `document` with `slot` empty: how a slot reads what may go in it, so the pick it would replace counts for nothing.
+ * An empty slot is `document` itself, so its reads (cached per document) are shared rather than made again for each.
+ */
 export function withoutPick(document: CharacterDocument, slot: SlotKey): CharacterDocument {
+  if (!(slot in document.build.choices)) {
+    return document;
+  }
   const { [slot]: _own, ...choices } = document.build.choices;
   return { ...document, build: { ...document.build, choices } };
 }

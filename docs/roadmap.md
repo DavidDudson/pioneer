@@ -17,10 +17,41 @@ flowchart LR
   M4 --> M8[M8 Interop]
   M2 --> M9[M9 Remaster core coverage]
   M7 --> M9
+  M0 --> M10[M10 Continuous deployment]
+  M0 --> M11[M11 Frontier completeness]
+  M5 --> M12[M12 Environments]
+  M9 --> I18N[i18n]
 ```
 
 M1 and M2 overlap: once the M1 schemas land, the importer can be built against them while the engine grows.
 M7 needs M6 only for per-campaign variant rules; the rest of M7, and all of M8, can run alongside M5 and M6.
+M10 and M11 depend only on M0 and run alongside everything else. M12 builds on the conditions and form-aware sheet
+work in M5. The i18n milestone is deliberately last: all content stays internationalised in `en` throughout, but
+other locales wait until then.
+
+## Status
+
+Snapshot of 2026-10-13, from GitHub milestones (closed / total issues). Re-check the milestone pages for live
+numbers, and update this table when a milestone changes state.
+
+| Milestone                     | Closed / total | State                                                                                  |
+| ----------------------------- | -------------- | -------------------------------------------------------------------------------------- |
+| M0 Foundations                | 11 / 11        | Done                                                                                   |
+| M1 Rules engine core          | 37 / 37        | Done                                                                                   |
+| M2 Content platform           | 43 / 47        | Open: translators, source enrichment, public caches, content browser (epics not split) |
+| M3 Builder and accounts       | 49 / 68        | In progress: builder flow 10/13, spellcasting 7/12, document 8/9, filters 4/7          |
+| M4 Sheet and introspection    | 20 / 51        | In progress: sheet modes 2/10, strikes and spells 1/6, level planner 2/4               |
+| M5 Solo play                  | 11 / 78        | Started: play state 4/9; form, downtime and action economy epics not started           |
+| M6 Campaigns and Foundry sync | 12 / 27        | Foundry export 0/5, sync 1/8; item transfer not split. Early epics 6.2-6.6 not planned |
+| M7 Homebrew authoring         | 0 / 5          | Not started (epics not split)                                                          |
+| M8 Interop                    | 2 / 14         | Pathbuilder import 2/8; Pioneer JSON 0/4                                               |
+| M9 Remaster core coverage     | 1 / 27         | Expansion book imports 1/20; core books not split                                      |
+| M10 Continuous deployment     | 8 / 12         | Image and deploy done; production operations 0/2                                       |
+| M11 Frontier completeness     | 38 / 50        | Epics 11.1-11.6 done; table pickers (replace every dropdown) open                      |
+| M12 Environments              | 0 / 8          | Planned, not started                                                                   |
+| i18n                          | 0 / 2          | Deferred                                                                               |
+
+Current focus is M3 (builder flow and spellcasting build), with M4 sheet work following; M5 stories queue behind it.
 
 ## M0 Foundations
 
@@ -57,7 +88,7 @@ the numbers correctly with no engine change.
 ## M2 Content platform
 
 Exit: Player Core imported; every entry validates and has at least one source; at least 90% of entries have all
-rule elements translated; public content browser live.
+rule elements translated; public content browser live. Content localisation moved to the i18n milestone.
 
 - **Content schemas**: envelope plus per-kind schemas for every kind in content-model.md; rich text AST.
 - **Books and sources**: book registry, `SourceRef` validation, source line component.
@@ -70,8 +101,6 @@ rule elements translated; public content browser live.
   pages and URLs written into the committed packs; coverage of pages and URLs.
 - **Public content caches**: official pack bundles downloadable from the Legal page with Foundry release and
   content hash, generated from pack manifests.
-- **Content localisation**: mechanics and per-locale text bundles, sharded descriptions loaded on demand,
-  `content_entry_texts` with per-field `en` fallback, per-locale search.
 - **Content browser** (public, no account): search, filters (kind, level, traits, rarity, book), entry view with
   rich text, live references and source line. Global search: one keyboard-first box across every kind and every
   enabled pack, with instant name matches from the cached bundles ahead of the server's full-text results.
@@ -156,6 +185,15 @@ gain and lose conditions, end the turn with correct bookkeeping.
   paying 1 charge and a slot of the spell's rank or higher; wand once-per-day use and overcharge (DC 10 flat check,
   broken or destroyed); item frequencies reset on their boundary (Start turn, a round countdown in an encounter or
   Reset out of one, daily preparations).
+- **Battle form engine**: a `BattleForm` rule element replaces AC, skills, speeds, senses and size, adds form
+  Strikes, temporary HP, defences, traits and restrictions, with polymorph exclusivity.
+- **Form transformation**: form picker with previews on casting, Untamed Form and shape feats extending the form
+  list as data, the active form as an effect with Dismiss and revert, Untamed Shift to switch forms.
+- **Form-aware sheet**: the form in the header with a base-view toggle; statistics, defences and Strikes in form
+  context; melded gear; forbidden spells and actions shown as unavailable with the reason.
+- **Alternate shapes and non-battle polymorph**: hybrid and persistent forms, disguises and plant shapes.
+- **Downtime activities**: coin ledger, Earn Income, crafting projects and formula book, retraining, learned
+  rituals, permanent boons in the build.
 
 ## M6 Campaigns and Foundry sync
 
@@ -203,7 +241,58 @@ Exit: Player Core, Player Core 2, GM Core and Monster Core imported to the cover
 - **Monster Core** import (creature content).
 - **Translator gap closing**: work through the import backlog.
 - **Source enrichment completion**: page numbers and AoN URLs for all imported entries.
-- **Content translation import**: community Foundry translation modules as text-only packs keyed by Foundry id.
+- **Expansion book imports**: one-off Foundry imports of the remaining books (Lost Omens, adventure paths,
+  player's guides, Pathfinder Society), each as its own pack.
+
+## M10 Continuous deployment
+
+Exit: every merge to main builds one container image (API + web), deploys it to production automatically with
+migrations applied, and can be rolled back; Postgres is backed up nightly and restores are tested.
+
+Depends only on M0; runs alongside M1-M9. See [deployment.md](deployment.md) and [production.md](production.md).
+
+- **Container image**: one image with the API and the web build.
+- **Hosting and automatic deploy**: deploy on merge, migrations applied, rollback.
+- **Production operations**: nightly Postgres backups with a restore drill; uptime monitoring, logs and alerting.
+
+## M11 Frontier completeness
+
+Exit: every semantic native element has one frontier owner or is banned; M2-M5 UI needs (disclosure, description
+list, badge, combobox, filters, meter, tabs) are frontier components; every component has a spec and story; axe,
+visual regression and token contrast checks run in CI across both themes and modes; the shell has active nav, a
+skip link and one main landmark.
+
+Runs alongside M1-M4. See `libs/frontier/AGENTS.md`.
+
+- **Sheet primitives**, **native element ownership** and **browse and track components**.
+- **Quality gates**: axe, visual regression and token contrast in CI.
+- **Shell and navigation accessibility**, **token and guideline cleanup**.
+- **Table pickers**: replace every dropdown.
+
+## M12 Environments
+
+Exit: underwater, light, terrain, weather and similar environments toggle from the sheet, apply their adjustments
+and restrictions (for example no speech underwater), and abilities that override them are respected.
+
+Environments are contexts, not conditions: each bundles adjustments, restrictions with a reason, and escalating
+consequences (held breath, heat, cold), reusing the form-context machinery from M5.
+
+- **Environment contexts**: context model, restriction overrides (swim speed, amphibious, water breathing, Air
+  Bubble), underwater, hold breath and suffocation, light levels and terrain, heat, cold, wind and altitude, and
+  the sheet toggle with restriction text.
+
+## i18n
+
+Exit: non-English locales can be added: per-locale content text bundles with `en` fallback, per-locale search, and
+community Foundry translation modules importable as text-only packs.
+
+Very late, low priority. Every ticket still adds `en` message keys from day one (M0 i18n foundation); only
+languages other than English wait.
+
+- **Content localisation**: mechanics and per-locale text bundles, sharded descriptions loaded on demand,
+  `content_entry_texts` with per-field `en` fallback, per-locale search (moved from M2).
+- **Content translation import**: community Foundry translation modules as text-only packs keyed by Foundry id
+  (moved from M9).
 
 ## Open questions and risks
 
@@ -240,9 +329,10 @@ Issue types are organisation-only, so this personal repository uses labels for t
 - **Labels**
   - Type: `type:epic`, `type:story`, `type:bug`, `type:spike`, `type:content` (data error), `type:chore`.
   - Area: `area:engine`, `area:content`, `area:importer`, `area:builder`, `area:sheet`, `area:play`,
-    `area:campaign`, `area:homebrew`, `area:interop`, `area:identity`, `area:legal`, `area:infra`.
+    `area:campaign`, `area:homebrew`, `area:interop`, `area:identity`, `area:legal`, `area:infra`, `area:i18n`,
+    `area:frontier`.
   - Priority: `p0`, `p1`, `p2`.
-- **Milestones**: M0 to M9 as above, with the exit criteria in the description. No due dates until velocity is
+- **Milestones**: M0 to M12 and i18n as above, with the exit criteria in the description. No due dates until velocity is
   known.
 - **Epics**: one issue per epic bullet, in its milestone, with stories as sub-issues. Epic bodies hold scope,
   out-of-scope, acceptance criteria and blocking epics.
