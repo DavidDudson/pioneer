@@ -1,4 +1,4 @@
-# 0050. Display preferences scoped to a character live beside it, per user
+# 0052. Display preferences scoped to a character live beside it, per user
 
 - Status: Accepted
 - Date: 2026-10-12

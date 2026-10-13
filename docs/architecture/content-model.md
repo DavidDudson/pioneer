@@ -196,7 +196,9 @@ its damage is its description, and the effects it applies are `effect` entries.
   Foundry. `cost?` and `requirements?` are rich text.
 - **Spells.** Cantrips and focus spells are spells with the `cantrip` or `focus` trait, as in Foundry. `traditions`
   are `arcane`, `divine`, `occult`, `primal`. `damage` parts each have a `key` (Foundry's record key), a damage
-  formula, a `damageType`, an optional `category` and `kinds` (`damage`, `healing` or both). `heightening` is an
+  formula that may read the casting entry (`@spellcasting.attr`), a `damageType` (none when untyped: Disintegrate,
+  Breath of Life), an optional `category`, `kinds` (`damage`, `healing` or both) and the `materials` it counts as
+  (Moonbeam's `silver`). `heightening` is an
   `interval` (every so many ranks, add a formula to named damage parts and feet to the area) or `fixed` (at each
   listed rank above the spell's, replace at least one of damage, range, area, targets or duration). Foundry's
   overlays (Heal's action variants) and spellcasting-entry `location` have no field yet.
@@ -652,6 +654,10 @@ flowchart LR
     curriculum by slug.
   - Signature Spells gets a `SignatureSpells` naming the bard's entry, Player Core's only spontaneous class
     ([ADR-0047](../adr/0047-signature-spells-are-rule-elements.md)); later books add their classes' entries (#593).
+  - Player Core's focus spells get a focus entry and `FocusSpells` per feature or feat that grants them, from their text
+    ([ADR-0050](../adr/0050-focus-spells-are-rule-elements.md)); a choice of focus spells (Domain Initiate's domain,
+    a warden spell, Hex Spells' hex) is a `ChoiceSet` with a `FocusSpells` per option. Domains' spells come from the
+    domains journal.
   - A deity's singular fields (`attribute`, `skill`) map to `attributes` and `skills:` selectors, and its spells,
     keyed by rank, to one `spell` entry each.
   - A kit's items by UUID with their quantities, a container's one level deep (deeper is reported), and its price
@@ -678,8 +684,11 @@ below` and `1 or more rounds`, or a choice of those joined by `or` (`sustained u
 burst`, `15-foot emanation centered on you`); a shape Pioneer lacks is reported.
   - A spell's `save` becomes a `save:` selector, and its `passive` defence `against` (`ac`, or `<save>-dc` as the
     save's selector). Traditions are `traits.traditions`. Damage parts keep Foundry's record key, lower-cased to a
-    slug; a part whose type Pioneer lacks (`untyped`) is reported and left out, with what heightening adds to it, and
-    `applyMod` and `materials` are reported. Interval heightening carries over (an area step of 0 is none); fixed
+    slug; an `untyped` part has no damage type, `applyMod` adds `@spellcasting.attr` to the formula and `materials`
+    carry over. Foundry also writes `untyped` for a type the caster chooses, with an overlay setting each choice
+    (Gouging Claw); such a part, and one with any other type Pioneer lacks, is reported and left out, with what
+    heightening adds to it. Draconic Barrage chooses its type with no overlay and is left out by hand.
+    Interval heightening carries over (an area step of 0 is none); fixed
     heightening maps each rank's range, area, target, duration and damage (laid over the spell's part of the same
     key), and reports anything else it changes (`time`, `traits`). `cost` and `requirements` are rich text when
     they are plain words. `overlays` are reported.

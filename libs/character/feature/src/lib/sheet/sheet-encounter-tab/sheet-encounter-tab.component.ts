@@ -1,11 +1,12 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { SheetMode } from '@pioneer/character/domain';
 import { AsyncData, AsyncPending, AsyncRegion, Section, SectionIndex, SectionLink, Stack } from '@pioneer/frontier';
+import { SpellPreparation } from '@pioneer/rules/sdk';
 import { DefencesView, SpellcastingView, StatisticsMessage, StatisticsView } from '@pioneer/rules/ui';
 
+import { SheetPickFields } from '../sheet-pick-fields/sheet-pick-fields.component';
 import { SHEET_SECTIONS, SHEET_TAB_SECTIONS } from '../sheet-sections';
-import { SheetSkillFields } from '../sheet-skill-fields/sheet-skill-fields.component';
 import { SheetSpells } from '../sheet-spells/sheet-spells.component';
 import { SheetState } from '../sheet-state';
 import { rememberTab } from '../sheet-tab';
@@ -25,7 +26,7 @@ import { rememberTab } from '../sheet-tab';
     Section,
     SectionIndex,
     SectionLink,
-    SheetSkillFields,
+    SheetPickFields,
     SheetSpells,
     SpellcastingView,
     Stack,
@@ -41,6 +42,12 @@ export class SheetEncounterTab {
   protected readonly sections = SHEET_SECTIONS;
   protected readonly statisticsMessage = StatisticsMessage;
   protected readonly sectionOrder = SHEET_TAB_SECTIONS[SheetMode.Encounter];
+  /** Whether the character has a spellcasting entry, so its spell picks load. */
+  protected readonly casts = computed(() => (this.picks.spellcasting()?.length ?? 0) > 0);
+  /** Whether one of its entries is a focus entry. */
+  protected readonly focuses = computed(
+    () => this.picks.spellcasting()?.some((entry) => entry.preparation === SpellPreparation.Focus) ?? false,
+  );
 
   public constructor() {
     rememberTab(SheetMode.Encounter);

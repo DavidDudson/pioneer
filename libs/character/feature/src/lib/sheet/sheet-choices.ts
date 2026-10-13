@@ -1,7 +1,8 @@
-import { SlotStatus, SlotSubjectKind } from '@pioneer/character/domain';
-import type { CharacterSlot, SlotSubject } from '@pioneer/character/domain';
+import { characterGrants, listedChoices, SlotStatus, SlotSubjectKind } from '@pioneer/character/domain';
+import type { Character, CharacterSlot, SlotSubject } from '@pioneer/character/domain';
+import type { SelectOption } from '@pioneer/frontier';
 import { AttributeSchema, ContentKind } from '@pioneer/rules/sdk';
-import type { ChoiceValue } from '@pioneer/rules/sdk';
+import type { ChoiceValue, ContentRegistry, SlotKey } from '@pioneer/rules/sdk';
 import { ChoiceState } from '@pioneer/rules/ui';
 import type { ChoiceLine, ChoiceSelection } from '@pioneer/rules/ui';
 import { message } from '@pioneer/shared/kernel';
@@ -9,6 +10,7 @@ import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 import { BOOST_LABEL_KEYS } from './sheet-attributes';
 import { SKILL_SLOT_LABEL_KEYS } from './sheet-skills';
+import { sheetSlotContent } from './sheet-slot-content';
 
 const STATES: Readonly<Record<SlotStatus, ChoiceState>> = {
   [SlotStatus.Open]: ChoiceState.Open,
@@ -125,4 +127,26 @@ function isShown(slot: CharacterSlot): boolean {
  */
 export function sheetChoices(slots: readonly CharacterSlot[]): readonly ChoiceLine[] {
   return slots.filter((slot) => isShown(slot)).map((slot) => lineOf(slot));
+}
+
+/** A `ChoiceSet` that lists its options, as the Choices section's picker for it reads it (#596). */
+export interface SheetChoiceSlot {
+  readonly key: SlotKey;
+  /** "Domain Initiate: Select a domain." */
+  readonly label: MessageDescriptor;
+  readonly options: readonly SelectOption<string>[];
+}
+
+/**
+ * The character's `ChoiceSet` slots that list their options, each offering what it offers at the character's level,
+ * by the entry asking: Divine Font's font, Domain Initiate's domain (ADR-0050). A pick no longer offered shows by the
+ * name the server read, as any inline pick's does.
+ */
+export function sheetChoiceSlots(registry: ContentRegistry, character: Character): readonly SheetChoiceSlot[] {
+  const content = sheetSlotContent(registry);
+  return listedChoices(characterGrants(character.document, content), content.lookup).map(({ slot, entryName }) => ({
+    key: slot.key,
+    label: labelOf({ kind: SlotSubjectKind.Choice, entry: slot.origin.entry, entryName, prompt: slot.prompt }),
+    options: slot.options.map((option) => ({ value: option.value, label: option.label })),
+  }));
 }

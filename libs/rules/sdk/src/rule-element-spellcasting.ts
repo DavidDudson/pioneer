@@ -11,11 +11,15 @@ import { MagicTraditionSchema } from './spellcasting-tradition';
 import { SOURCE_SLUG_MAX } from './statistic';
 import { uniqueItems } from './unique-items';
 
-/** How an entry's spells are cast: prepared each day, from a repertoire, or innate. */
+/**
+ * How an entry's spells are cast: prepared each day, from a repertoire, innate, or as focus spells for Focus Points
+ * (ADR-0050).
+ */
 export const SpellPreparation = {
   Prepared: 'prepared',
   Spontaneous: 'spontaneous',
   Innate: 'innate',
+  Focus: 'focus',
 } as const;
 export type SpellPreparation = ValueOf<typeof SpellPreparation>;
 const SpellPreparationSchema = z.enum(SpellPreparation);
@@ -118,3 +122,29 @@ export const SignatureSpellsElement = z.strictObject({
   ...ruleElementBase,
 });
 export type SignatureSpellsElement = z.infer<typeof SignatureSpellsElement>;
+
+/** The most spells a `FocusSpells` element names: a feature grants one or two. */
+const FOCUS_SPELLS_MAX = 8;
+
+/**
+ * Gives a focus entry focus spells (ADR-0050): a domain spell, a composition, a hex, an order or school spell, focus
+ * cantrips included. They are cast heightened to half the character's level rounded up, with the entry's spell attack
+ * and DC. Those of every element in play for an entry add up, each spell once; one for an entry not in play, or for
+ * one that isn't a focus entry, gives none. The focus pool follows from them, one Focus Point per focus spell that
+ * isn't a cantrip, at most 3, so the element names no points. A Pioneer element with no Foundry counterpart: Foundry's
+ * focus spells are items the player adds to a focus entry by hand.
+ */
+export const FocusSpellsElement = z.strictObject({
+  key: z.literal(RuleElementKey.FocusSpells),
+  entry: EntrySourceSlug,
+  spells: z.array(ContentId).min(1).max(FOCUS_SPELLS_MAX).readonly().check(uniqueItems),
+  ...ruleElementBase,
+});
+export type FocusSpellsElement = z.infer<typeof FocusSpellsElement>;
+
+/** The most Focus Points a focus pool holds, however many focus spells feed it (Player Core). */
+export const FOCUS_POOL_MAX = 3;
+
+/** A number of Focus Points: a focus pool's maximum, or the points in it. */
+export const FocusPoints = Pg.smallint().min(0).max(FOCUS_POOL_MAX).brand<'FocusPoints'>();
+export type FocusPoints = z.infer<typeof FocusPoints>;

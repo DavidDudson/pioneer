@@ -102,7 +102,10 @@
   </fr-section>
 
   <fr-section [anchor]="sections.choices.anchor" [heading]="sections.choices.headingKey | transloco">
-    <pio-choices [lines]="picks.choices()" />
+    <fr-stack gap="md">
+      <pio-sheet-pick-fields [fields]="picks.choiceFields()" />
+      <pio-choices [lines]="picks.choices()" />
+    </fr-stack>
   </fr-section>
 
   <fr-section [anchor]="sections.features.anchor" [heading]="sections.features.headingKey | transloco">

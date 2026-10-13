@@ -8,6 +8,7 @@ import { setFields, systemOf } from './kind-fields';
 import { FoundryRitual, primaryCheckOf, secondaryChecksOf } from './ritual-checks';
 import { castTimeOf, durationOf, rangeOf } from './spell-casting-text';
 import {
+  chosenTypes,
   damageParts,
   FoundryDamage,
   FoundryDamageOverrides,
@@ -73,6 +74,7 @@ const FoundrySpellSystem = z.looseObject({
   requirements: z.string().max(TEXT_MAX).nullish(),
   traits: z.looseObject({ traditions: Traditions }).optional(),
   damage: FoundryDamage.default({}),
+  overlays: z.unknown().optional(),
   heightening: FoundryHeightening.nullish(),
   counteraction: z.boolean().default(false),
   ritual: FoundryRitual.nullish(),
@@ -195,7 +197,7 @@ function castingOf(system: FoundrySpellSystem, log: GapLog): object | undefined 
 const RANK_CHANGES: ReadonlySet<string> = new Set(['area', 'damage', 'duration', 'range', 'target']);
 
 /** How a fixed rank's changes translate: as the spell's own fields, its damage laid over the spell's. */
-function rankChanges(base: FoundryDamage, log: GapLog): RankChanges {
+function rankChanges(base: FoundryDamage, chosen: ReadonlySet<string>, log: GapLog): RankChanges {
   return (changes, field) => {
     const overrides = FoundryDamageOverrides.safeParse(changes['damage']).data;
     for (const key of Object.keys(changes).filter((each) => !RANK_CHANGES.has(each))) {
@@ -203,7 +205,9 @@ function rankChanges(base: FoundryDamage, log: GapLog): RankChanges {
     }
     return {
       ...reachOf(changes, `${field}.`, log),
-      ...setFields({ damage: overrides && heightenedDamage({ overrides, base, field: `${field}.damage` }, log) }),
+      ...setFields({
+        damage: overrides && heightenedDamage({ overrides, base, field: `${field}.damage`, chosen }, log),
+      }),
     };
   };
 }
@@ -216,8 +220,9 @@ export function spellData(input: KindInput): object | undefined {
   if (system === undefined || casting === undefined) {
     return undefined;
   }
-  const damage = damageParts(system.damage, 'damage', log);
-  const changesOf = rankChanges(system.damage, log);
+  const chosen = chosenTypes(system.overlays);
+  const damage = damageParts(system.damage, { field: 'damage', chosen }, log);
+  const changesOf = rankChanges(system.damage, chosen, log);
   const { heightening } = system;
   return {
     ...casting,

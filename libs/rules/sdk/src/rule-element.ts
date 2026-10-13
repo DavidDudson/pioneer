@@ -19,6 +19,7 @@ import { MartialProficiencyElement, ProficiencyBonusElement, ProficiencyElement 
 import { SenseElement } from './rule-element-sense';
 import {
   DeitySpellsElement,
+  FocusSpellsElement,
   PoolSpellsElement,
   SignatureSpellsElement,
   SpellcastingEntryElement,
@@ -52,6 +53,7 @@ const Element = z.discriminatedUnion('key', [
   PoolSpellsElement,
   DeitySpellsElement,
   SignatureSpellsElement,
+  FocusSpellsElement,
   LanguageElement,
   ActorTraitsElement,
   StrikeElement,

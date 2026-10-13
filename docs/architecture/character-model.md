@@ -180,6 +180,13 @@ signature pick the repertoire no longer knows at its rank reads invalid (`rules.
 The sheet lists a spontaneous entry's repertoire rank by rank as "Spell repertoire", each rank's signature picker
 after its spells and a note saying where the signature spell is cast, or that the rank's spells come first.
 
+A focus entry has the focus spells its `FocusSpells` elements name
+([ADR-0050](../adr/0050-focus-spells-are-rule-elements.md)), cast heightened to half the level rounded up, focus
+cantrips too. The focus pool holds one Focus Point per focus spell that isn't a cantrip, at most 3, worked out from
+the spells (`characterFocus`) for the play state's focus points (#345). A choice that grants them (a domain, a warden
+spell) is a listed `ChoiceSet`, picked in Choices. The sheet lists focus spells under Spellcasting, by entry, with the
+pool and the rank they are cast at.
+
 Each slot's status is worked out on every read, never stored (`characterSlots`,
 [ADR-0035](../adr/0035-character-reads-carry-slot-status.md)). `GET` and `PATCH /characters/:id` answer with the
 character and its slots:

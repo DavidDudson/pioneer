@@ -6317,11 +6317,22 @@
         ]
       },
       "traditions": ["divine"],
-      "damage": [],
+      "damage": [
+        {
+          "key": "0",
+          "formula": "5d8",
+          "kinds": ["healing"]
+        }
+      ],
       "heightening": {
         "type": "interval",
         "interval": 1,
-        "damage": []
+        "damage": [
+          {
+            "key": "0",
+            "formula": "1d8"
+          }
+        ]
       }
     }
   },
@@ -13106,11 +13117,22 @@
         }
       },
       "traditions": ["arcane"],
-      "damage": [],
+      "damage": [
+        {
+          "key": "0",
+          "formula": "12d10",
+          "kinds": ["damage"]
+        }
+      ],
       "heightening": {
         "type": "interval",
         "interval": 1,
-        "damage": []
+        "damage": [
+          {
+            "key": "0",
+            "formula": "2d10"
+          }
+        ]
       }
     }
   },
@@ -23678,11 +23700,22 @@
         ]
       },
       "traditions": [],
-      "damage": [],
+      "damage": [
+        {
+          "key": "0",
+          "formula": "1d8",
+          "kinds": ["healing"]
+        }
+      ],
       "heightening": {
         "type": "interval",
         "interval": 1,
-        "damage": []
+        "damage": [
+          {
+            "key": "0",
+            "formula": "1d8"
+          }
+        ]
       }
     }
   },
@@ -23787,11 +23820,22 @@
         ]
       },
       "traditions": [],
-      "damage": [],
+      "damage": [
+        {
+          "key": "0",
+          "formula": "1d10",
+          "kinds": ["healing"]
+        }
+      ],
       "heightening": {
         "type": "interval",
         "interval": 1,
-        "damage": []
+        "damage": [
+          {
+            "key": "0",
+            "formula": "1d10"
+          }
+        ]
       }
     }
   },
@@ -26338,7 +26382,8 @@
           "key": "0",
           "formula": "8d6",
           "damageType": "piercing",
-          "kinds": ["damage"]
+          "kinds": ["damage"],
+          "materials": ["cold-iron"]
         }
       ],
       "heightening": {
@@ -26432,11 +26477,22 @@
         }
       },
       "traditions": ["arcane", "primal"],
-      "damage": [],
+      "damage": [
+        {
+          "key": "0",
+          "formula": "75",
+          "kinds": ["damage"]
+        }
+      ],
       "heightening": {
         "type": "interval",
         "interval": 1,
-        "damage": []
+        "damage": [
+          {
+            "key": "0",
+            "formula": "10"
+          }
+        ]
       }
     }
   },
@@ -32099,7 +32155,8 @@
           "key": "0",
           "formula": "2d6",
           "damageType": "fire",
-          "kinds": ["damage"]
+          "kinds": ["damage"],
+          "materials": ["silver"]
         }
       ],
       "heightening": {
@@ -39259,11 +39316,22 @@
         "size": 20
       },
       "traditions": [],
-      "damage": [],
+      "damage": [
+        {
+          "key": "0",
+          "formula": "3d6",
+          "kinds": ["healing"]
+        }
+      ],
       "heightening": {
         "type": "interval",
         "interval": 1,
-        "damage": []
+        "damage": [
+          {
+            "key": "0",
+            "formula": "1d6"
+          }
+        ]
       }
     }
   },
@@ -40145,7 +40213,13 @@
         "sustained": true
       },
       "traditions": ["divine", "primal"],
-      "damage": []
+      "damage": [
+        {
+          "key": "0",
+          "formula": "10d8+40",
+          "kinds": ["healing"]
+        }
+      ]
     }
   },
   {
@@ -43839,11 +43913,22 @@
         "unit": "minute"
       },
       "traditions": ["occult"],
-      "damage": [],
+      "damage": [
+        {
+          "key": "0",
+          "formula": "1d10+4",
+          "kinds": ["healing"]
+        }
+      ],
       "heightening": {
         "type": "interval",
         "interval": 1,
-        "damage": []
+        "damage": [
+          {
+            "key": "0",
+            "formula": "1d10+4"
+          }
+        ]
       }
     }
   },
@@ -43954,11 +44039,22 @@
         "you": "and"
       },
       "traditions": [],
-      "damage": [],
+      "damage": [
+        {
+          "key": "0",
+          "formula": "7d8",
+          "kinds": ["healing"]
+        }
+      ],
       "heightening": {
         "type": "interval",
         "interval": 1,
-        "damage": []
+        "damage": [
+          {
+            "key": "0",
+            "formula": "1d8"
+          }
+        ]
       },
       "counteraction": true
     }
@@ -45150,11 +45246,22 @@
         "unit": "minute"
       },
       "traditions": ["divine", "occult"],
-      "damage": [],
+      "damage": [
+        {
+          "key": "9k8ayqgvgultdghx",
+          "formula": "2",
+          "kinds": ["healing"]
+        }
+      ],
       "heightening": {
         "type": "interval",
         "interval": 1,
-        "damage": []
+        "damage": [
+          {
+            "key": "9k8ayqgvgultdghx",
+            "formula": "2"
+          }
+        ]
       }
     }
   },

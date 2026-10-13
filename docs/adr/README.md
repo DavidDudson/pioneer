@@ -54,7 +54,9 @@ Accepted. To change a decision, add a new ADR that supersedes the old one; do no
 | [0047](0047-signature-spells-are-rule-elements.md)            | Signature spells are a rule element                                               |
 | [0048](0048-a-clerics-deity-grants-through-rule-elements.md)  | A cleric's deity grants through rule elements                                     |
 | [0049](0049-spell-durations-the-text-gives-vary.md)           | A spell's duration may be left to its text, as `varies`                           |
-| [0050](0050-character-scoped-display-preferences.md)          | Display preferences scoped to a character live beside it, per user                |
+| [0050](0050-focus-spells-are-rule-elements.md)                | Focus spells are a rule element, and the focus pool follows from them             |
+| [0051](0051-spell-damage-reads-its-spellcasting-entry.md)     | A spell's damage may read the spellcasting entry that casts it                    |
+| [0052](0052-character-scoped-display-preferences.md)          | Display preferences scoped to a character live beside it, per user                |
 
 Template:
 

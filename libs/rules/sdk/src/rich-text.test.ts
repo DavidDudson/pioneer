@@ -5,7 +5,7 @@ import type { FieldIssue } from '@pioneer/shared/kernel';
 import type * as z from 'zod';
 
 import { contentId, EntrySlug, PackId } from './content-id';
-import { DamageFormula } from './damage-formula';
+import { DamageFormula, SpellDamageFormula } from './damage-formula';
 import { RulesMessage } from './messages';
 import { RICH_TEXT_CONTAINERS_MAX, RICH_TEXT_DEPTH_MAX, RichText } from './rich-text';
 
@@ -142,6 +142,15 @@ describe('DamageFormula', () => {
 
   test.each(['', '2d6 +', 'd6'])('rejects %p', (value) => {
     expect(DamageFormula.safeParse(value).success).toBe(false);
+  });
+
+  test('reads no spellcasting entry; a spell damage formula may', () => {
+    const [issue] = issues(DamageFormula, '1d4 + @spellcasting.attr');
+
+    expect(issue?.message.key).toBe(RulesMessage.ReferenceNeedsSpellcasting);
+    expect(issue?.message.params).toMatchObject({ position: 7 });
+    expect(SpellDamageFormula.safeParse('1d4 + @spellcasting.attr').success).toBe(true);
+    expect(SpellDamageFormula.safeParse('1d4 + @weapon.attr').success).toBe(false);
   });
 });
 

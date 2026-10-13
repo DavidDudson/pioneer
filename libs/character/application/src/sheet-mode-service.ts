@@ -7,7 +7,7 @@ import type { CharacterRepository } from './character-repository';
 import type { SheetModeRepository } from './sheet-mode-repository';
 
 /**
- * The tab the acting user last had open on a character's sheet, a display preference (ADR-0050). Only a user who may
+ * The tab the acting user last had open on a character's sheet, a display preference (ADR-0052). Only a user who may
  * access the character reads or sets one; anyone else gets the same 404 as for a missing character.
  */
 export class SheetModeService {

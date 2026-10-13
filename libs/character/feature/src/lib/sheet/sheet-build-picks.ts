@@ -21,7 +21,7 @@ import {
   sheetSubclass,
 } from './sheet-build';
 import type { SheetKeyAttribute, SheetSubclass } from './sheet-build';
-import { sheetChoices } from './sheet-choices';
+import { sheetChoices, sheetChoiceSlots } from './sheet-choices';
 import { sheetDefences } from './sheet-defences';
 import { sheetEntryNames } from './sheet-entry-names';
 import { sheetField } from './sheet-field';
@@ -91,11 +91,19 @@ export interface BuildPicks extends EngineReads {
   /** Every choice with its status, as the server read the slots; undefined while the character loads. */
   readonly choices: Signal<readonly ChoiceLine[] | undefined>;
   /** One pick per trained skill and skill increase up to the character's level, in the order they are read. */
-  readonly skillFields: Signal<readonly SkillField[]>;
+  readonly skillFields: Signal<readonly SlotPickField[]>;
+  /**
+   * One pick per `ChoiceSet` that lists its options (a divine font, a domain, a warden spell), by the entry asking
+   * (#596).
+   */
+  readonly choiceFields: Signal<readonly SlotPickField[]>;
 }
 
-/** A trained skill or skill increase slot as an inline pick, with its label and the skills it offers. */
-export interface SkillField {
+/**
+ * A slot as an inline pick, with its label and what it offers: a trained skill or skill increase, or a `ChoiceSet` that
+ * lists its options.
+ */
+export interface SlotPickField {
   readonly key: SlotKey;
   readonly label: MessageDescriptor;
   readonly options: Signal<readonly SelectOption<string>[]>;
@@ -240,7 +248,8 @@ export function sheetBuildPicks(sources: BuildPickSources): BuildPicks {
       return slots === undefined ? undefined : sheetChoices(slots);
     }),
     ...engineReads(sources),
-    skillFields: skillFieldsOf(sources),
+    skillFields: slotFieldsOf(sources, loaded(sources, sheetSkillSlots)),
+    choiceFields: slotFieldsOf(sources, loaded(sources, sheetChoiceSlots)),
   };
 }
 
@@ -248,15 +257,24 @@ function sameKeys(left: readonly SlotKey[], right: readonly SlotKey[]): boolean 
   return left.length === right.length && left.every((key, index) => key === right[index]);
 }
 
+/** A slot a pick field is made for: its key, its label and what it offers. */
+interface PickSlot {
+  readonly key: SlotKey;
+  readonly label: MessageDescriptor;
+  readonly options: readonly SelectOption<string>[];
+}
+
 /**
- * One inline pick per skill slot up to the character's level, made anew only when the slots change (a class change, an
- * Intelligence boost, a level up), so an edit in progress keeps its session while the character changes around it.
+ * One inline pick per slot, made anew only when the slots change (a class change, an Intelligence boost, a level up, a
+ * feat that asks), so an edit in progress keeps its session while the character changes around it.
  */
-function skillFieldsOf(sources: BuildPickSources): Signal<readonly SkillField[]> {
-  const slots = loaded(sources, sheetSkillSlots);
+function slotFieldsOf(
+  sources: BuildPickSources,
+  slots: Signal<readonly PickSlot[] | undefined>,
+): Signal<readonly SlotPickField[]> {
   const keys = computed(() => (slots() ?? []).map((slot) => slot.key), { equal: sameKeys });
   return computed(() =>
-    keys().flatMap((key): SkillField[] => {
+    keys().flatMap((key): SlotPickField[] => {
       const label = untracked(() => slots()?.find((slot) => slot.key === key)?.label);
       if (label === undefined) {
         return [];

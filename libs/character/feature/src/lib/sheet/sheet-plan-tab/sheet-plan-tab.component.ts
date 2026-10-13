@@ -46,6 +46,7 @@ import { AncestryOptions } from '../../data/ancestry-options';
 import { ImportResult } from '../../import/import-result/import-result.component';
 import { SheetClassFields } from '../sheet-class-fields/sheet-class-fields.component';
 import { sheetField } from '../sheet-field';
+import { SheetPickFields } from '../sheet-pick-fields/sheet-pick-fields.component';
 import { SHEET_SECTIONS, SHEET_TAB_SECTIONS } from '../sheet-sections';
 import { SheetState } from '../sheet-state';
 import { rememberTab } from '../sheet-tab';
@@ -82,6 +83,7 @@ function focusField(field: ElementRef<HTMLElement>): void {
     SectionLink,
     Select,
     SheetClassFields,
+    SheetPickFields,
     Stack,
     Surface,
     TextInput,

@@ -24,4 +24,5 @@ export const PREPARATION_MESSAGES: Readonly<Record<Preparation, string>> = {
   [SpellPreparation.Prepared]: 'rules.spellcasting.preparation.prepared',
   [SpellPreparation.Spontaneous]: 'rules.spellcasting.preparation.spontaneous',
   [SpellPreparation.Innate]: 'rules.spellcasting.preparation.innate',
+  [SpellPreparation.Focus]: 'rules.spellcasting.preparation.focus',
 };

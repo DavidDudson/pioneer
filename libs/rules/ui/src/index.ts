@@ -29,6 +29,8 @@ export { type LanguageLine } from './lib/languages/language-line';
 export { LanguagesView, type RemoveLanguage } from './lib/languages/languages.component';
 export { type AddLanguage, LanguageAdd } from './lib/languages/language-add.component';
 export { TRADITION_MESSAGES } from './lib/spellcasting/spellcasting-messages';
+export { type FocusEntryLine, type FocusLine, type FocusSpellLine } from './lib/focus-spells/focus-spells-line';
+export { FocusSpellsView } from './lib/focus-spells/focus-spells.component';
 export { type SpellAccessLine } from './lib/spell-access/spell-access-line';
 export { type RemoveSpellAccess, SpellAccessListView } from './lib/spell-access/spell-access-list.component';
 export { type InventoryGroup, type InventoryLine, InventoryPlacement } from './lib/inventory/inventory-line';

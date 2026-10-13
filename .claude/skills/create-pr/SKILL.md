@@ -41,8 +41,13 @@ Run the `review` skill with fixes enabled. Do not continue while it reports unfi
   ```
 
 - End commit messages with the attribution line given in the session's system reminder, if any.
-- Push: `git push -u origin HEAD`. If GitHub refuses an HTTPS push that touches `.github/workflows` (the token
-  lacks the `workflow` scope), push over SSH instead:
+- Rebase on main last: after the final commit and right before the push, run
+  `git fetch origin && git rebase origin/main` (a stack: `gh stack rebase`), resolving conflicts as the `pickup`
+  skill does. If it brought in new commits, re-run `bun run affected` and `bun run lint:workspace`. Nothing but
+  the push and the PR comes after it.
+- Push: `git push -u origin HEAD` (`--force-with-lease` when the rebase rewrote a pushed branch). If GitHub
+  refuses an HTTPS push that touches `.github/workflows` (the token lacks the `workflow` scope), push over SSH
+  instead:
   `git push -u git@github.com:DavidDudson/pioneer.git HEAD:<branch>`, then
   `git branch -u origin/<branch>` after a fetch.
 

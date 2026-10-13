@@ -256,7 +256,8 @@ Statistic base formulas and rule element values share one vocabulary of referenc
 - Scope says whose value a reference reads. A rule element may sit on any content entry, so its formulas may use
   actor and item references. Statistic base formulas have no item, so they may use actor references, plus weapon or
   spellcasting references when the statistic is derived per that source (`StatisticDefinition` checks the scope
-  against `per`).
+  against `per`). A spell's damage formulas may also read spellcasting references, the entry casting the spell
+  (ADR-0051).
 - `FormulaSource` checks a formula when content is validated: it must parse, and every reference must be in the
   catalogue and in scope. A `<selector>` is checked for shape only. Each problem is a field issue at the
   formula's JSON path. Its descriptor includes `position`, the 1-based position in the formula. A Foundry spelling
@@ -399,17 +400,17 @@ Rule elements are the only way content changes a character. The vocabulary follo
 because that is the dataset we import and the system we export to (see
 [ADR-0008](../adr/0008-rule-element-vocabulary.md)). Our schema is typed; theirs targets raw data paths.
 
-| Group       | Rule elements                                                                                                                                                                                                                                                                               |
-| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Structure   | `GrantItem`, `ChoiceSet`, `RollOption` (incl. toggles), `ItemAlteration`                                                                                                                                                                                                                    |
-| Numbers     | `FlatModifier`, `AdjustModifier`, `Change` (add, upgrade, downgrade, override, multiply), `DexterityCap`, `MultipleAttackPenalty`                                                                                                                                                           |
-| Proficiency | `Proficiency` (raise a rank), `MartialProficiency`, `ProficiencyBonus` (replace the bonus table)                                                                                                                                                                                            |
-| Magic       | `SpellcastingEntry` (a spellcasting entry: tradition, attribute, preparation), `SpellSlots` (slots or cantrips for an entry), `PoolSpells` (the spells a pool takes), `DeitySpells` (the deity's spells join an entry's list), `SignatureSpells` (signature spells for a spontaneous entry) |
-| Checks      | `RollTwice`, `SubstituteRoll`, `AdjustDegreeOfSuccess`, `RollNote`                                                                                                                                                                                                                          |
-| Strikes     | `Strike`, `AdjustStrike`, `DamageDice`, `DamageAlteration`, `CriticalSpecialization`                                                                                                                                                                                                        |
-| Defences    | `Immunity`, `Weakness`, `Resistance`, `TempHitPoints`, `FastHealing`                                                                                                                                                                                                                        |
-| Creature    | `BaseSpeed`, `Sense`, `CreatureSize`, `Language`, `ActorTraits`, `SpecialResource`, `SpecialStatistic`, `Aura`                                                                                                                                                                              |
-| Actions     | `GrantAction` (an action becomes available, with its own predicate)                                                                                                                                                                                                                         |
+| Group       | Rule elements                                                                                                                                                                                                                                                                                                                             |
+| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Structure   | `GrantItem`, `ChoiceSet`, `RollOption` (incl. toggles), `ItemAlteration`                                                                                                                                                                                                                                                                  |
+| Numbers     | `FlatModifier`, `AdjustModifier`, `Change` (add, upgrade, downgrade, override, multiply), `DexterityCap`, `MultipleAttackPenalty`                                                                                                                                                                                                         |
+| Proficiency | `Proficiency` (raise a rank), `MartialProficiency`, `ProficiencyBonus` (replace the bonus table)                                                                                                                                                                                                                                          |
+| Magic       | `SpellcastingEntry` (a spellcasting entry: tradition, attribute, preparation), `SpellSlots` (slots or cantrips for an entry), `PoolSpells` (the spells a pool takes), `DeitySpells` (the deity's spells join an entry's list), `SignatureSpells` (signature spells for a spontaneous entry), `FocusSpells` (a focus entry's focus spells) |
+| Checks      | `RollTwice`, `SubstituteRoll`, `AdjustDegreeOfSuccess`, `RollNote`                                                                                                                                                                                                                                                                        |
+| Strikes     | `Strike`, `AdjustStrike`, `DamageDice`, `DamageAlteration`, `CriticalSpecialization`                                                                                                                                                                                                                                                      |
+| Defences    | `Immunity`, `Weakness`, `Resistance`, `TempHitPoints`, `FastHealing`                                                                                                                                                                                                                                                                      |
+| Creature    | `BaseSpeed`, `Sense`, `CreatureSize`, `Language`, `ActorTraits`, `SpecialResource`, `SpecialStatistic`, `Aura`                                                                                                                                                                                                                            |
+| Actions     | `GrantAction` (an action becomes available, with its own predicate)                                                                                                                                                                                                                                                                       |
 
 Each element is a discriminated union member with its own zod schema in `libs/rules/sdk`. Every element has an
 optional `predicate`, a `priority`, and an optional `display` hint. Unknown keys are a validation error; the
@@ -432,7 +433,7 @@ land with their Epic 2.6 translator stories, so each schema arrives with the Fou
 
 `SpellcastingEntry` is Pioneer's own too ([ADR-0040](../adr/0040-spellcasting-entries-are-rule-elements.md)): Foundry
 has no element for an entry, which its player adds by hand. While its predicate holds it gives the character an entry
-(`slug`, `tradition`, `attribute`, and `preparation`: prepared, spontaneous or innate), and makes them trained in
+(`slug`, `tradition`, `attribute`, and `preparation`: prepared, spontaneous, innate or focus), and makes them trained in
 `spellcasting`, the one rank every entry reads; a `Proficiency` raises it further. Two in play with one slug are one
 entry, the first in play.
 
@@ -445,8 +446,10 @@ its predicate, so a divine font's spell follows the font picked. `DeitySpells` n
 spells join ([ADR-0048](../adr/0048-a-clerics-deity-grants-through-rule-elements.md)): its own slots offer each at the
 rank the deity grants it or higher, whatever its tradition. `SignatureSpells` gives the spontaneous `entry` it names
 signature spells ([ADR-0047](../adr/0047-signature-spells-are-rule-elements.md)); a prepared or innate one never has
-them. `spellcastingInPlay` gives each entry its slots and pools, each pool with its spells, whether a `DeitySpells`
-names it, and whether it has signature spells.
+them. `FocusSpells` gives the focus `entry` it names its focus `spells` ([ADR-0050](../adr/0050-focus-spells-are-rule-elements.md)),
+adding up per entry and gated by its predicate, so a domain's spell follows the domain picked; the focus pool is worked
+out from them, never stated. `spellcastingInPlay` gives each entry its slots and pools, each pool with its spells,
+whether a `DeitySpells` names it, whether it has signature spells, and its focus spells.
 
 ## Derivation pipeline
 

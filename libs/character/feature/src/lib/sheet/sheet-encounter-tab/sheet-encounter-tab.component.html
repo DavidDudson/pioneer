@@ -22,7 +22,7 @@
           ><pio-statistics [statistics]="picks.skills()" [entryNames]="picks.entryNames()"
         /></ng-template>
       </fr-async-region>
-      <pio-sheet-skill-fields [fields]="picks.skillFields()" />
+      <pio-sheet-pick-fields [fields]="picks.skillFields()" />
     </fr-stack>
   </fr-section>
 
@@ -45,6 +45,6 @@
         ><pio-spellcasting [entries]="picks.spellcasting()" [entryNames]="picks.entryNames()"
       /></ng-template>
     </fr-async-region>
-    <pio-sheet-spells [casts]="(picks.spellcasting()?.length ?? 0) > 0" />
+    <pio-sheet-spells [casts]="casts()" [focuses]="focuses()" />
   </fr-section>
 </fr-stack>
