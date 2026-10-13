@@ -3,7 +3,7 @@ import type { ComponentFixture } from '@angular/core/testing';
 import { describe, expect, it } from 'vitest';
 
 import { provideRulesUiI18nTesting } from '../testing/provide-rich-text-testing';
-import { FIGHTER_TIMELINE } from '../testing/timeline-fixtures';
+import { BARD_TIMELINE, FIGHTER_TIMELINE } from '../testing/timeline-fixtures';
 import type { LevelTimelineRow } from './level-timeline-row';
 import { LevelTimeline } from './level-timeline.component';
 
@@ -37,6 +37,19 @@ describe(LevelTimeline, () => {
   it('says so when a level opens nothing', async () => {
     const shown = levels(await render(FIGHTER_TIMELINE));
     expect(shown.at(2)).toStrictEqual(['Level 3', 'Nothing opens at this level.']);
+  });
+
+  it('lists the spell ranks a level opens with what is picked, and a slot not chosen', async () => {
+    const shown = levels(await render(BARD_TIMELINE));
+    expect(shown.at(0)).toStrictEqual([
+      'Level 1',
+      '1st rank spell',
+      'Force Barrage',
+      'Chosen',
+      '1st rank spell',
+      'Not chosen',
+    ]);
+    expect(shown.at(2)).toStrictEqual(['Level 3', '2nd rank spell', 'Not chosen']);
   });
 
   it('shows placeholders while loading', async () => {

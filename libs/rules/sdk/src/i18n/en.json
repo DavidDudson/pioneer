@@ -659,8 +659,9 @@
         "skillTrainingNumbered": "Level {level} trained skill {number}",
         "language": "Level {level} language",
         "languageFrom": "Language from {entry}",
-        "preparedSpell": "Prepared spell",
-        "signatureSpell": "Signature spell"
+        "cantripSpell": "Cantrip",
+        "rankSpell": "{rank, selectordinal, one {#st} two {#nd} few {#rd} other {#th}} rank spell",
+        "rankSignatureSpell": "{rank, selectordinal, one {#st} two {#nd} few {#rd} other {#th}} rank signature spell"
       },
       "invalid": {
         "notOffered": "This choice no longer offers that option, so it counts for nothing. Choose another.",
