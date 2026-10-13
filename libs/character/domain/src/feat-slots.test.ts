@@ -6,7 +6,7 @@ import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
 
 import { SlotInvalidMessage, SlotStatus } from './character-slot';
 import { characterSlots } from './character-slot-status';
-import { featSlots, PrerequisiteStatus } from './feat-slots';
+import { featSlots, PrerequisiteStatus, withoutPick } from './feat-slots';
 import { slotContent, slotRefusal } from './slot-offer';
 import {
   CharacterBuilder,
@@ -207,5 +207,20 @@ describe('slotRefusal for feat slots', () => {
     });
     const earlier = character.picking(LEVEL_1, idOf('power-attack'));
     expect(refusal(earlier, LEVEL_2, 'brutish-shove')).toBeUndefined();
+  });
+});
+
+describe('withoutPick', () => {
+  test('is the document itself for a slot holding no pick, so its cached reads are shared', () => {
+    const { document } = fighter(2).build();
+    expect(withoutPick(document, LEVEL_2)).toBe(document);
+  });
+
+  test('is the document without the pick for a slot holding one, leaving the others', () => {
+    const { document } = fighter(2).picking(LEVEL_1, idOf('power-attack')).picking(LEVEL_2, idOf('lunge')).build();
+    const { choices } = withoutPick(document, LEVEL_2).build;
+    expect(LEVEL_2 in choices).toBe(false);
+    expect(choices[LEVEL_1]).toBe(document.build.choices[LEVEL_1]);
+    expect(LEVEL_2 in document.build.choices).toBe(true);
   });
 });
