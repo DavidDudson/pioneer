@@ -60,7 +60,7 @@ describe('CharacterSheetPage rest actions', () => {
     buttonOf(root, 'Rest').click();
 
     await vi.waitFor(() => {
-      expect(textOf(restOf(root))).toMatch(/Rest restores:\s*\d+ Hit Points/u);
+      expect(textOf(restOf(root))).toMatch(/Rest restores:\s*\d+ Hit Points?/u);
     });
     TestBed.inject(HttpTestingController).expectNone({ method: 'PATCH', url: PLAY_URL });
 

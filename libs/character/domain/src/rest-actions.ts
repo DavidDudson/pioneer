@@ -61,13 +61,13 @@ function withHealing<Play extends RestPlay>(
   return after(outcome, next, { kind: RestChangeKind.HitPoints, gained });
 }
 
-/** One condition after Rest: gone if fatigued, a point lower if drained (gone at 0), else as it was. */
 /** A condition after Rest: what is kept of it, and the change made when there is one. */
 interface EasedCondition {
   readonly kept: readonly ActiveCondition[];
   readonly change: RestChange | undefined;
 }
 
+/** One condition after Rest: gone if fatigued, a point lower if drained (gone at 0), else as it was. */
 function easedCondition(condition: ActiveCondition, { fatigued, drained }: RecoveryConditions): EasedCondition {
   if (condition.condition === fatigued) {
     return {

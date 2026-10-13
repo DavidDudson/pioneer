@@ -79,7 +79,6 @@ function lineOf(change: RestChange, views: CountedViews): RestLine {
   }
 }
 
-/** What `command` would change for the character, in the order the server makes the changes; empty when nothing. */
 /** What an action reads of the character. */
 export interface RestSource {
   readonly registry: ContentRegistry;
@@ -88,6 +87,7 @@ export interface RestSource {
   readonly maxima: RestMaxima;
 }
 
+/** What `command` would change for the character, in the order the server makes the changes; empty when nothing. */
 export function restLines(
   { registry, character, play, maxima }: RestSource,
   command: RestCommand,

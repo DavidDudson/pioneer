@@ -165,7 +165,7 @@ describe('refocus', () => {
 });
 
 describe('start of session', () => {
-  test('sets hero points to 1 from either side and gives back session uses', () => {
+  test('lowers 3 hero points to 1 and gives back session uses', () => {
     const spent = played({
       resources: { ...FRESH_PLAY.resources, [Resource.HeroPoints]: count(3), uses: { [SESSION_USE]: count(1) } },
     });
@@ -178,7 +178,7 @@ describe('start of session', () => {
     ]);
   });
 
-  test('sets three hero points held back to 1', () => {
+  test('lowers 3 hero points to 1', () => {
     const { play, changes } = sessionStarted(FRESH_PLAY, LIMITS);
     expect(play.resources[Resource.HeroPoints]).toBe(count(2));
     expect(changes).toStrictEqual([
