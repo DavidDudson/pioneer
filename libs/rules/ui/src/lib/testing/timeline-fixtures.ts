@@ -38,3 +38,29 @@ export const FIGHTER_TIMELINE: readonly LevelTimelineRow[] = [
     lines: [featLine('fighter:6', ChoiceState.Planned, { selection: { name: 'Lunge' }, level: FOURTH })],
   },
 ];
+
+const spellLine = (key: string, rank: number, pick: Partial<ChoiceLine>): ChoiceLine => ({
+  ...NONE,
+  key: SlotKey.parse(key),
+  label: message('rules.choices.slot.rankSpell', { rank }),
+  state: ChoiceState.Open,
+  ...pick,
+});
+
+/** A 2nd-level bard: a repertoire spell picked at 1st, one not chosen, and a 2nd-rank spell planned for 3rd. */
+export const BARD_TIMELINE: readonly LevelTimelineRow[] = [
+  {
+    level: FIRST,
+    current: false,
+    lines: [
+      spellLine('repertoire:bard:1:0', 1, { state: ChoiceState.Filled, selection: { name: 'Force Barrage' } }),
+      spellLine('repertoire:bard:1:1', 1, {}),
+    ],
+  },
+  { level: SECOND, current: true, lines: [] },
+  {
+    level: THIRD,
+    current: false,
+    lines: [spellLine('repertoire:bard:2:0', 2, { level: THIRD })],
+  },
+];

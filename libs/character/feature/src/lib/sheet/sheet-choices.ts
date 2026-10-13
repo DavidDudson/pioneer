@@ -1,7 +1,7 @@
 import { characterGrants, listedChoices, SlotStatus, SlotSubjectKind } from '@pioneer/character/domain';
 import type { Character, CharacterSlot, SlotSubject } from '@pioneer/character/domain';
 import type { SelectOption } from '@pioneer/frontier';
-import { AttributeSchema, ContentKind } from '@pioneer/rules/sdk';
+import { AttributeSchema, ContentKind, SlotRank } from '@pioneer/rules/sdk';
 import type { ChoiceValue, ContentRegistry, SlotKey } from '@pioneer/rules/sdk';
 import { ChoiceState } from '@pioneer/rules/ui';
 import type { ChoiceLine, ChoiceSelection } from '@pioneer/rules/ui';
@@ -20,6 +20,9 @@ const STATES: Readonly<Record<SlotStatus, ChoiceState>> = {
   [SlotStatus.Invalid]: ChoiceState.Invalid,
 };
 
+/** Slots labelled by their kind: a voluntary flaw, a prepared or repertoire spell slot, a signature spell. */
+type KindSubject = Extract<SlotSubject, { kind: 'flaw' | 'spell' | 'signature' }>;
+
 /** What each of the character's own slots is called. */
 const ROOT_LABEL_KEYS: ReadonlyMap<ContentKind, string> = new Map([
   [ContentKind.Ancestry, 'rules.choices.slot.ancestry'],
@@ -30,15 +33,22 @@ const ROOT_LABEL_KEYS: ReadonlyMap<ContentKind, string> = new Map([
 ]);
 
 const UNKNOWN_LABEL = 'rules.choices.slot.unknown';
-/** Slots whose label names only their kind: a voluntary flaw, a prepared or repertoire spell slot, a signature spell. */
-const FIXED_LABEL_KEYS = {
-  [SlotSubjectKind.Flaw]: 'rules.choices.slot.flaw',
-  [SlotSubjectKind.Spell]: 'rules.choices.slot.preparedSpell',
-  [SlotSubjectKind.Signature]: 'rules.choices.slot.signatureSpell',
-} as const;
 
 /** Slots whose pick is an attribute. */
 const ATTRIBUTE_SUBJECTS: ReadonlySet<SlotSubjectKind> = new Set([SlotSubjectKind.Boost, SlotSubjectKind.Flaw]);
+
+/** "Voluntary flaw", "Cantrip", "3rd rank spell", "3rd rank signature spell". */
+function kindLabelOf(subject: KindSubject): MessageDescriptor {
+  if (subject.kind === SlotSubjectKind.Flaw) {
+    return message('rules.choices.slot.flaw');
+  }
+  if (subject.kind === SlotSubjectKind.Signature) {
+    return message('rules.choices.slot.rankSignatureSpell', { rank: subject.rank });
+  }
+  return subject.rank === SlotRank.Cantrip
+    ? message('rules.choices.slot.cantripSpell')
+    : message('rules.choices.slot.rankSpell', { rank: subject.rank });
+}
 
 /** "Ancestry", "Level 5 boost", "Voluntary flaw", "Level 3 skill increase", "Language from Multilingual", "Elf: Skill" ("Elf choice" without a prompt). */
 function labelOf(subject: SlotSubject | undefined): MessageDescriptor {
@@ -60,7 +70,7 @@ function labelOf(subject: SlotSubject | undefined): MessageDescriptor {
     case SlotSubjectKind.Flaw:
     case SlotSubjectKind.Spell:
     case SlotSubjectKind.Signature: {
-      return message(FIXED_LABEL_KEYS[subject.kind]);
+      return kindLabelOf(subject);
     }
     case SlotSubjectKind.Choice: {
       if (subject.entryName === undefined) {

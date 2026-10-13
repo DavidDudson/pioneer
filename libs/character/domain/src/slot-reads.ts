@@ -103,11 +103,17 @@ export function languageReads(document: CharacterDocument, content: SlotContent)
   return { languages: content.languages, namespaces: content.namespaces, skills: skillReads(document, content) };
 }
 
-/** What prepared slots read: the spells, and the character's grants at its level over every pick it holds. */
-export function preparedReads(document: CharacterDocument, content: SlotContent): PreparedReads {
-  const level = Level.parse(document.level);
+/**
+ * What prepared slots read: the spells, and the character's grants at `at` (its level unless a later one is asked) over
+ * every pick it holds.
+ */
+export function preparedReads(
+  document: CharacterDocument,
+  content: SlotContent,
+  at: Level = Level.parse(document.level),
+): PreparedReads {
   const resolved = resolvedFor(document, content);
-  const resolution = resolved.get(level) ?? resolveSlotsAt(level, { ...content, picks: picksOf(document) });
-  resolved.set(level, resolution);
+  const resolution = resolved.get(at) ?? resolveSlotsAt(at, { ...content, picks: picksOf(document) });
+  resolved.set(at, resolution);
   return { spells: content.spells, resolution };
 }
