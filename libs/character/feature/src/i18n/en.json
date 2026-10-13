@@ -238,6 +238,18 @@
       "spend": "Spend",
       "regain": "Regain"
     },
+    "conditions": {
+      "label": "Conditions",
+      "none": "No conditions",
+      "pick": "Add a condition",
+      "startValue": "Starting value",
+      "add": "Add",
+      "raise": "Raise",
+      "lower": "Lower",
+      "remove": "Remove",
+      "implied": "Also: {name}",
+      "overridden": "Replaced by {name}"
+    },
     "counted": {
       "slot": "{source} rank {rank} slots",
       "poolSlot": "{source} {pool} rank {rank} slots",

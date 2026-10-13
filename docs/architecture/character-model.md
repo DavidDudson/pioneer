@@ -86,6 +86,16 @@ moves it with the maximum. `spendSlot`, `refundSlot`, `spendUse` and `refundUse`
 maximum, and leave a key the build does not give as it was. Item activations carry no frequency in content yet
 ([#638](https://github.com/DavidDudson/pioneer/issues/638)).
 
+`conditions` holds one instance per condition put on the character ([#348](https://github.com/DavidDudson/pioneer/issues/348)):
+an instance id, the condition's content id, its value when it is valued, a duration (`rounds`, `untilStartOfTurn`,
+`untilEndOfTurn`, `unlimited` or `sustained`) and the campaign event that applied it. `addCondition`, `setConditionValue`
+and `removeCondition` edit them; the server refuses a condition the content lacks, a valued one with no value, a value on
+one without, and an instance the character does not have. The engine puts each instance in play as a grant root behind a
+`condition` hop that carries the value and the event, so breakdowns name them ("frightened 2, applied by Demoralize").
+Implied conditions come through the condition's own `GrantItem`; a condition another active one `overrides` is
+suppressed while that one lasts; and however many instances of a condition there are, the character has it once, at the
+highest value. Durations are stored, not counted down yet.
+
 ### Schema versions
 
 Every stored document carries `schemaVersion`. `decodeCharacterDocument` upgrades an older document to the current

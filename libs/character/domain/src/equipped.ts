@@ -23,7 +23,6 @@ import { Encumbrance, inventoryBulk } from './bulk';
 import type { CharacterDocument } from './character-document';
 import { CHARACTER_ROOT_SLOTS } from './character-slots';
 import { conditionRoots } from './conditions';
-import type { ActiveCondition } from './conditions';
 import type { Inventory, InventoryItem } from './inventory';
 import { activeState, equippedState } from './inventory-content';
 import type { ItemContent, ItemEntry } from './inventory-content';
@@ -187,27 +186,12 @@ function fromInventory(origin: Origin): boolean {
 
 /**
  * The rule elements of the character's active items and the property runes working on them (`workingPropertyRunes`),
- * of the encumbered condition while it carries too much
- * (`encumberedRoots`), and of what they grant, each with an origin that starts at its inventory or condition hop, and
+ * of the encumbered condition while it carries too much (`encumberedRoots`), of the conditions active in its play state
+ * (`conditionRoots`), and of what they grant, each with an origin that starts at its inventory or condition hop, and
  * the facts their predicates are read against. Grants are resolved with the character's picks, so an item's
  * predicate sees its ancestry and class. Rule elements of the build itself arrive with the builder (Epic 3.3).
  */
 export function equippedRules(document: CharacterDocument, content: ItemContent, slots: SlotContent): ModifierInputs {
-  return rulesInPlay(document, { content, slots, conditions: [] });
-}
-
-/** What the rule elements in play are read from: the items carried, the build's content and the conditions active. */
-export interface RuleSources {
-  readonly content: ItemContent;
-  readonly slots: SlotContent;
-  readonly conditions: readonly ActiveCondition[];
-}
-
-/**
- * `equippedRules`, and the rule elements of the conditions active on the character (their play state), each behind a
- * condition hop that names its value and the event that applied it.
- */
-export function rulesInPlay(document: CharacterDocument, { content, slots, conditions }: RuleSources): ModifierInputs {
   const { lookup, namespaces } = slots;
   const active = activeItems(document.inventory, content);
   const roots: GrantRoot[] = [
@@ -216,7 +200,7 @@ export function rulesInPlay(document: CharacterDocument, { content, slots, condi
       return [each.entry.id, ...workingPropertyRunes(each.item, each.entry)].map((entry) => ({ entry, hop }));
     }),
     ...encumberedRoots(document, content, slots),
-    ...conditionRoots(conditions),
+    ...conditionRoots(document.play.conditions),
   ];
   const resolution = resolveGrants({
     roots,

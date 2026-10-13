@@ -41,6 +41,7 @@ export {
   ConditionDurationKind,
   type ConditionDuration,
   ConditionInstanceId,
+  ConditionRounds,
   ConditionProblem,
   conditionProblem,
   conditionRoots,

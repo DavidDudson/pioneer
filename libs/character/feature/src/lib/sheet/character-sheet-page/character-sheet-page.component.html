@@ -18,7 +18,8 @@
       <pio-sheet-death-track />
       <pio-sheet-resources />
       <pio-sheet-counted />
-      <!-- Conditions (#348) and the last roll (#342) join the header here. -->
+      <pio-sheet-conditions />
+      <!-- The last roll (#342) joins the header here. -->
       <fr-async-region>
         <ng-template frAsyncPending><pio-vitals [vitals]="undefined" /></ng-template>
         <ng-template [frAsyncData]="sheet.engineQuery()">

@@ -3,6 +3,8 @@ import { afterAll, beforeAll, describe, expect, test } from 'bun:test';
 import {
   CharacterCommand,
   CharacterName,
+  ConditionInstanceId,
+  ConditionRounds,
   Doomed,
   Dying,
   FRESH_PLAY,
@@ -12,7 +14,7 @@ import {
 } from '@pioneer/character/domain';
 import type { Character, PlayState } from '@pioneer/character/domain';
 import { CharacterBuilder } from '@pioneer/character/domain/testing';
-import { HitPoints } from '@pioneer/rules/sdk';
+import { ConditionValue, ContentId, HitPoints } from '@pioneer/rules/sdk';
 import { FIRST_VERSION, fixedClock, newId, nextVersion, UserId, VersionConflictError } from '@pioneer/shared/kernel';
 import { rejection } from '@pioneer/shared/kernel/testing';
 import { auditLog } from '@pioneer/shared/server';
@@ -34,6 +36,14 @@ const WOUNDED: PlayState = {
   wounded: Wounded.parse(1),
   doomed: Doomed.parse(1),
   resources: { ...FRESH_PLAY.resources, [Resource.HeroPoints]: ResourceCount.parse(2) },
+  conditions: [
+    {
+      id: ConditionInstanceId.parse('00000000-0000-4000-8000-000000000001'),
+      condition: ContentId.parse('00000000-0000-4000-8000-0000000000f1'),
+      value: ConditionValue.parse(2),
+      duration: { kind: 'rounds', rounds: ConditionRounds.parse(3) },
+    },
+  ],
 };
 
 describe.skipIf(adminUrl === undefined)('character play state (postgres)', () => {

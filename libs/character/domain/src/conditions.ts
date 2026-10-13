@@ -26,7 +26,7 @@ export const ConditionDurationKind = {
 } as const;
 export type ConditionDurationKind = ValueOf<typeof ConditionDurationKind>;
 
-export const ConditionDurationSchema = z.discriminatedUnion('kind', [
+const ConditionDurationSchema = z.discriminatedUnion('kind', [
   z.strictObject({ kind: z.literal(ConditionDurationKind.Rounds), rounds: ConditionRounds }),
   z.strictObject({ kind: z.literal(ConditionDurationKind.UntilStartOfTurn) }),
   z.strictObject({ kind: z.literal(ConditionDurationKind.UntilEndOfTurn) }),

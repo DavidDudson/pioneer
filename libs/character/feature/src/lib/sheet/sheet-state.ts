@@ -1,17 +1,19 @@
 import { computed, inject, Injectable } from '@angular/core';
 import type { Signal } from '@angular/core';
 import { TranslocoService } from '@jsverse/transloco';
-import { itemContent, maxHitPoints, resourceMaxima } from '@pioneer/character/domain';
-import type { Character, ResourceMaxima } from '@pioneer/character/domain';
+import { itemContent, maxHitPoints, resourceMaxima, withPlay } from '@pioneer/character/domain';
+import type { ActiveCondition, Character, ResourceMaxima } from '@pioneer/character/domain';
 import { FocusPoints, SpellPreparation } from '@pioneer/rules/sdk';
 import type { ContentRegistry, HitPoints } from '@pioneer/rules/sdk';
 import type { Investment, Vital } from '@pioneer/rules/ui';
 
 import { CharacterStore } from '../data/character-store';
 import { CHARACTER_CONTENT_KINDS, injectContentRegistry } from '../data/content-registry-query';
+import { PlayStore } from '../data/play-store';
 import { sheetBuildPicks } from './sheet-build-picks';
 import type { BuildPicks } from './sheet-build-picks';
-import { carriesAnything, EQUIPMENT_CONTENT_KINDS, sheetInvestments } from './sheet-equipment';
+import { sameConditions } from './sheet-conditions';
+import { readsEquipment, EQUIPMENT_CONTENT_KINDS, sheetInvestments } from './sheet-equipment';
 import { sheetFocus } from './sheet-focus-spells';
 import { sheetIdentity } from './sheet-identity';
 import type { IdentityParams } from './sheet-identity';
@@ -28,20 +30,35 @@ import { sheetVitals } from './sheet-vitals';
 export class SheetState {
   readonly #i18n = inject(TranslocoService);
   public readonly store = inject(CharacterStore);
-  public readonly character: Signal<Character | undefined> = this.store.selected;
+  readonly #play = inject(PlayStore);
+  /** The conditions active now: the play state read, which a play edit replaces without touching the build. */
+  readonly #conditions = computed(
+    (): readonly ActiveCondition[] | undefined => this.#play.play.data()?.play.conditions,
+    {
+      equal: sameConditions,
+    },
+  );
+  /** The open character with the conditions active now, so every derivation (statistics, Strikes) reads them. */
+  public readonly character: Signal<Character | undefined> = computed((): Character | undefined => {
+    const selected = this.store.selected();
+    const conditions = this.#conditions();
+    return selected === undefined || conditions === undefined
+      ? selected
+      : withPlay(selected, { ...selected.document.play, conditions: [...conditions] });
+  });
 
   /** The registry the engine reads, shared with the ancestry options, so it loads once. */
   public readonly registry = injectContentRegistry(CHARACTER_CONTENT_KINDS);
   /**
    * The registry with the item and condition kinds too, so the character's equipment and Bulk reach the engine. It
-   * loads only once the character carries something, so a sheet with nothing carried never fetches them for it.
+   * loads only once the character carries something or has a condition, so a sheet with neither never fetches them for it.
    */
-  public readonly equipment = injectContentRegistry(EQUIPMENT_CONTENT_KINDS, () => carriesAnything(this.character()));
+  public readonly equipment = injectContentRegistry(EQUIPMENT_CONTENT_KINDS, () => readsEquipment(this.character()));
   /** The query the engine's registry comes from, so the regions that wait on it show its pending and failed states. */
-  public readonly engineQuery = computed(() => (carriesAnything(this.character()) ? this.equipment : this.registry));
+  public readonly engineQuery = computed(() => (readsEquipment(this.character()) ? this.equipment : this.registry));
   /** The registry the engine reads: with the item kinds once anything is carried, undefined while they load. */
   readonly #engineRegistry = computed((): ContentRegistry | undefined =>
-    carriesAnything(this.character()) ? this.equipment.data() : this.registry.data(),
+    readsEquipment(this.character()) ? this.equipment.data() : this.registry.data(),
   );
 
   /** The root slot, subclass and key attribute pickers, the build summary, and what the engine derives. */

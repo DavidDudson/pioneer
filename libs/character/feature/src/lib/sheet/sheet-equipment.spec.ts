@@ -5,13 +5,16 @@ import {
   carryItem,
   CarryState,
   CoinsSchema,
+  ConditionInstanceId,
   EMPTY_INVENTORY,
   InventoryItemId,
   investItem,
   itemContent,
   ItemQuantity,
+  UNLIMITED,
+  withPlay,
 } from '@pioneer/character/domain';
-import type { Carry, Inventory } from '@pioneer/character/domain';
+import type { ActiveCondition, Carry, Inventory } from '@pioneer/character/domain';
 import {
   CharacterBuilder,
   clumsyFixtureId,
@@ -22,7 +25,7 @@ import {
 import { ContentLoader } from '@pioneer/rules/data-access';
 import { LineStatusKind } from '@pioneer/rules/engine';
 import type { StatisticValue } from '@pioneer/rules/engine';
-import { OriginHopKind } from '@pioneer/rules/sdk';
+import { ConditionValue, OriginHopKind } from '@pioneer/rules/sdk';
 import type { ContentRegistry } from '@pioneer/rules/sdk';
 import type { NamedStatistic } from '@pioneer/rules/ui';
 import { beforeAll, describe, expect, it } from 'vitest';
@@ -32,7 +35,7 @@ import {
   prebuildServerStateTesting,
   provideServerStateTesting,
 } from '../testing/provide-server-state-testing';
-import { carriesAnything, EQUIPMENT_CONTENT_KINDS, sheetInvestments } from './sheet-equipment';
+import { carriesAnything, EQUIPMENT_CONTENT_KINDS, readsEquipment, sheetInvestments } from './sheet-equipment';
 import { sheetStatistics } from './sheet-statistics';
 
 const one = ItemQuantity.parse(1);
@@ -61,6 +64,24 @@ function carrying(inventory: Inventory): Character {
 /** A character with `gold` gold pieces and nothing else. */
 function withGold(gold: number): Character {
   return carrying({ ...EMPTY_INVENTORY, coins: CoinsSchema.parse({ gp: gold }) });
+}
+
+const FIRST_INSTANCE = ConditionInstanceId.parse('00000000-0000-4000-8000-000000000001');
+const SECOND_INSTANCE = ConditionInstanceId.parse('00000000-0000-4000-8000-000000000002');
+
+/** Clumsy at `value`, as the `id` instance of it. */
+function clumsy(value: number, id = FIRST_INSTANCE): ActiveCondition {
+  return { id, condition: clumsyFixtureId(), value: ConditionValue.parse(value), duration: UNLIMITED };
+}
+
+/** The value of the statistic called `name` for `character`. */
+function statisticOf(registry: ContentRegistry, character: Character, name: string): StatisticValue {
+  return valueOf(sheetStatistics(registry, character), name);
+}
+
+/** `character` with exactly `conditions` active. */
+function afflicted(character: Character, conditions: readonly ActiveCondition[]): Character {
+  return withPlay(character, { ...character.document.play, conditions: [...conditions] });
 }
 
 /** A character carrying `count` anvils, 2 Bulk each. */
@@ -111,6 +132,14 @@ describe(carriesAnything, () => {
   });
 });
 
+describe(readsEquipment, () => {
+  it('is true once a condition is active, though nothing is carried', () => {
+    const clumsyCharacter = afflicted(carrying(EMPTY_INVENTORY), [clumsy(1)]);
+    expect(readsEquipment(carrying(EMPTY_INVENTORY))).toBe(false);
+    expect(readsEquipment(clumsyCharacter)).toBe(true);
+  });
+});
+
 describe(sheetStatistics, () => {
   it('adds worn armour to AC and an invested cloak to Perception, each named by its item', async () => {
     const registry = await equipmentRegistry();
@@ -147,6 +176,35 @@ describe(sheetStatistics, () => {
     const unburdened = valueOf(sheetStatistics(registry, anvils(2)), 'Fortitude');
     const encumbered = valueOf(sheetStatistics(registry, anvils(3)), 'Fortitude');
     expect(encumbered.total).toBe(unburdened.total);
+  });
+});
+
+describe('conditions in play', () => {
+  it.each(['Armor Class', 'Reflex'])(
+    "lower %s, a Dexterity-based statistic, by the condition's value, naming the condition",
+    async (name) => {
+      const registry = await equipmentRegistry();
+      const well = statisticOf(registry, carrying(EMPTY_INVENTORY), name);
+      const ill = afflicted(carrying(EMPTY_INVENTORY), [clumsy(2)]);
+      const sick = statisticOf(registry, ill, name);
+      expect(sick.total).toBe(well.total - 2);
+      const hops = sick.lines.map(({ modifier }) => modifier.origin.hops[0]);
+      expect(hops).toMatchObject([{ kind: OriginHopKind.Condition, condition: clumsyFixtureId(), value: 2 }]);
+    },
+  );
+
+  it('count a condition once however many instances, at its highest value', async () => {
+    const registry = await equipmentRegistry();
+    const well = statisticOf(registry, carrying(EMPTY_INVENTORY), 'Armor Class');
+    const twice = afflicted(carrying(EMPTY_INVENTORY), [clumsy(1), clumsy(3, SECOND_INSTANCE)]);
+    expect(statisticOf(registry, twice, 'Armor Class').total).toBe(well.total - 3);
+  });
+
+  it('end with the instance, restoring the statistic', async () => {
+    const registry = await equipmentRegistry();
+    const well = statisticOf(registry, carrying(EMPTY_INVENTORY), 'Armor Class');
+    const cured = afflicted(afflicted(carrying(EMPTY_INVENTORY), [clumsy(2)]), []);
+    expect(statisticOf(registry, cured, 'Armor Class').total).toBe(well.total);
   });
 });
 
