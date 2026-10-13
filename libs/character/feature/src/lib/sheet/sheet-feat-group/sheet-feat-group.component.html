@@ -10,7 +10,9 @@
                 'character.sheet.feats.level' | transloco: { level: feat.level }
               }}</fr-text>
             }
-            <fr-text>{{ feat.name }}</fr-text>
+            <pio-entry-hover [entry]="feat.id">
+              <fr-text tabindex="0">{{ feat.name }}</fr-text>
+            </pio-entry-hover>
             <fr-badge>{{ displayMessages[feat.category] | transloco }}</fr-badge>
           </fr-stack>
           @if (feat.note !== undefined) {

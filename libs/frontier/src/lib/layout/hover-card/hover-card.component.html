@@ -1,0 +1,28 @@
+<!-- The span only listens: pointer and focus events from the projected trigger (a link or text) bubble to it. -->
+<!-- eslint-disable-next-line @angular-eslint/template/interactive-supports-focus -->
+<span
+  #origin="cdkOverlayOrigin"
+  cdkOverlayOrigin
+  [class]="triggerClasses"
+  [attr.aria-describedby]="open() ? id : null"
+  (mouseenter)="pointer(true)"
+  (mouseleave)="pointer(false)"
+  (focusin)="focus(true)"
+  (focusout)="focus(false)"
+  (keydown.escape)="escape()"
+>
+  <ng-content />
+</span>
+
+<ng-template
+  cdkConnectedOverlay
+  [cdkConnectedOverlayOrigin]="origin"
+  [cdkConnectedOverlayOpen]="open()"
+  (overlayKeydown)="$event.key === 'Escape' && escape()"
+>
+  <div role="tooltip" [id]="id" [class]="cardClasses" (mouseenter)="pointer(true)" (mouseleave)="pointer(false)">
+    @if (content(); as card) {
+      <ng-container *ngTemplateOutlet="card.template" />
+    }
+  </div>
+</ng-template>
