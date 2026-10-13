@@ -223,4 +223,19 @@ describe(Picker, () => {
     await open(rendered);
     expect(rendered.loads()).toBe(0);
   });
+
+  it('opens by itself when asked to, so an inline editor starts at the table', async () => {
+    const rendered = render(FEATS, undefined, true);
+    await settle(rendered);
+    expect(rendered.trigger.getAttribute('aria-expanded')).toBe('true');
+    expect(grid(rendered)).not.toBeNull();
+    expect(rowCells(rendered)).toHaveLength(3);
+    expect(rendered.searches).toStrictEqual(['']);
+  });
+
+  it('stays closed until pressed otherwise', async () => {
+    const rendered = render();
+    await settle(rendered);
+    expect(rendered.trigger.getAttribute('aria-expanded')).toBe('false');
+  });
 });

@@ -1,16 +1,16 @@
-import { computed, signal, untracked } from '@angular/core';
+import { computed, untracked } from '@angular/core';
 import type { Signal } from '@angular/core';
 import type { Character, CharacterSlot } from '@pioneer/character/domain';
 import type { InlineEdit } from '@pioneer/frontier';
-import type { ComboboxOption } from '@pioneer/frontier/data';
 import { ChoiceValue, DisplayCategory } from '@pioneer/rules/sdk';
 import type { ContentRegistry, SlotKey } from '@pioneer/rules/sdk';
+import type { FeatPickerRow } from '@pioneer/rules/ui';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 import { NOT_CHOSEN, RootPick } from './sheet-build';
 import { visibleFeatGroups } from './sheet-feat-groups';
 import type { SheetFeatGroup } from './sheet-feat-groups';
-import { featMatches, sheetFeats } from './sheet-feats';
+import { featRows, sheetFeats } from './sheet-feats';
 import type { SheetFeats, SheetFeatSlot } from './sheet-feats';
 import { sheetField } from './sheet-field';
 
@@ -30,12 +30,11 @@ export interface FeatPickSources {
   readonly messages: Signal<unknown>;
 }
 
-/** A feat slot as an inline pick: the feats matching what was typed, and why its pick counts for nothing. */
+/** A feat slot as an inline pick: the feats it offers as table rows, and why its pick counts for nothing. */
 export interface FeatField {
   readonly key: SlotKey;
   readonly label: MessageDescriptor;
-  readonly matches: Signal<readonly ComboboxOption<string>[]>;
-  readonly search: (query: string) => void;
+  readonly rows: Signal<readonly FeatPickerRow[]>;
   readonly reason: Signal<MessageDescriptor | undefined>;
   readonly field: InlineEdit<string | undefined>;
 }
@@ -53,7 +52,6 @@ function featField(sources: FeatPickSources, feats: Signal<SheetFeats | undefine
   const { key, label } = read;
   const slot = computed(() => feats()?.slots.find((each) => each.key === key));
   const options = computed(() => slot()?.options ?? []);
-  const query = signal('');
   const field = sheetField<string | undefined>(sources.character, {
     read: (character) => character.document.build.choices[key] ?? NOT_CHOSEN,
     empty: NOT_CHOSEN,
@@ -74,16 +72,13 @@ function featField(sources: FeatPickSources, feats: Signal<SheetFeats | undefine
   return {
     key,
     label,
-    matches: computed(() => {
+    rows: computed(() => {
       sources.messages();
-      return featMatches(options(), query(), {
+      return featRows(options(), {
         translate: sources.translate,
         trainedAgain: slot()?.trainedAgain ?? (() => new Map()),
       });
     }),
-    search: (typed) => {
-      query.set(typed);
-    },
     reason: computed(() => slot()?.reason),
     field,
   };

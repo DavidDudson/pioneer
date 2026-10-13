@@ -8,6 +8,7 @@ import { ChoiceState } from '../choices/choice-line';
 import type { ChoiceLine } from '../choices/choice-line';
 import { TimelinePickKind } from '../level-timeline/level-timeline-row';
 import type { LevelTimelineRow, TimelinePick } from '../level-timeline/level-timeline-row';
+import { featRow } from './feat-picker-fixtures';
 
 const NONE = { selection: undefined, level: undefined, reason: undefined };
 
@@ -91,14 +92,18 @@ function pickEdit(initial: string): InlineEdit<string | undefined> {
 }
 
 const FEAT_PICK: TimelinePick = {
-  kind: TimelinePickKind.Combobox,
+  kind: TimelinePickKind.Feat,
   key: SlotKey.parse('fighter:6'),
   label: message('rules.choices.slot.choice', { entry: 'Fighter', prompt: 'Fighter feat' }),
-  matches: signal([
-    { value: 'lunge', label: 'Lunge' },
-    { value: 'knockdown', label: 'Knockdown', disabled: true, description: 'Requires 6th level' },
+  rows: signal([
+    featRow({ id: 'lunge', name: 'Lunge', level: 4 }),
+    featRow({
+      id: 'knockdown',
+      name: 'Knockdown',
+      level: 6,
+      disabledReason: 'Requires 6th level',
+    }),
   ]),
-  search: () => undefined,
   reason: signal(undefined),
   field: pickEdit(NOT_CHOSEN),
 };

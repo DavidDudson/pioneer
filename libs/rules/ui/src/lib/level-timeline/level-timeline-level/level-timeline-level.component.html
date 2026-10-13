@@ -27,7 +27,7 @@
                 />
               </fr-inline-field>
             }
-            @if (comboboxOf(line.key); as pick) {
+            @if (featOf(line.key); as pick) {
               @let label = pick.label.key | transloco: pick.label.params;
               @let reason = pick.reason();
               <fr-inline-field
@@ -35,14 +35,13 @@
                 [edit]="pick.field"
                 [notice]="reason === undefined ? undefined : (reason.key | transloco: reason.params)"
               >
-                <fr-combobox
+                <pio-feat-picker
                   frInlineEditor
                   [ariaLabel]="label"
                   [placeholder]="Message.Search | transloco"
-                  [options]="pick.matches()"
+                  [rows]="pick.rows()"
                   [value]="pick.field.draft()"
                   (valueChange)="pick.field.change($event)"
-                  (searched)="pick.search($event)"
                   (committed)="pick.field.flushSoon()"
                   (cancelled)="pick.field.cancel()"
                 />

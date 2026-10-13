@@ -48,8 +48,8 @@ export class SheetLevelPlan {
     for (const { key, label, options, field } of this.#state.picks.plannedFields()) {
       picks.set(key, { kind: TimelinePickKind.Select, key, label, options, field });
     }
-    for (const { key, label, matches, search, reason, field } of this.#featFields()) {
-      picks.set(key, { kind: TimelinePickKind.Combobox, key, label, matches, search, reason, field });
+    for (const { key, label, rows, reason, field } of this.#featFields()) {
+      picks.set(key, { kind: TimelinePickKind.Feat, key, label, rows, reason, field });
     }
     return picks;
   });

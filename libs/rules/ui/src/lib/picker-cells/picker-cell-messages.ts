@@ -8,6 +8,7 @@ export const PickerCellMessage = {
   Level: 'rules.pickerCell.level',
   PrerequisiteMet: 'rules.pickerCell.prerequisite.met',
   PrerequisiteUnmet: 'rules.pickerCell.prerequisite.unmet',
+  PrerequisiteUnknown: 'rules.pickerCell.prerequisite.unknown',
   BoostOr: 'rules.pickerCell.boost.or',
   BoostFree: 'rules.pickerCell.boost.free',
   Per: 'rules.pickerCell.per',

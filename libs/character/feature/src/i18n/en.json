@@ -149,7 +149,6 @@
       "placeholder": "Search feats by name",
       "unknownFeat": "Unknown feat",
       "unmet": "Prerequisites not met: {prerequisites}",
-      "unknown": "Prerequisites can't be checked: {prerequisites}",
       "locked": "Locked until you have {needed, plural, one {# more feat} other {# more feats}} from {archetype}",
       "level": "Level {level}",
       "group": {

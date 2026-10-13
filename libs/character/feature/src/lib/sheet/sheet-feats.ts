@@ -1,12 +1,22 @@
 import { featSlots, PrerequisiteStatus, SlotStatus } from '@pioneer/character/domain';
 import type { Character, CharacterSlot, FeatOption, FeatSlot } from '@pioneer/character/domain';
-import type { ComboboxOption } from '@pioneer/frontier/data';
-import { BlockKind, ContentKind, InlineKind } from '@pioneer/rules/sdk';
-import type { ContentId, ContentRegistry, InlineNode, RichText, SlotKey } from '@pioneer/rules/sdk';
+import { BlockKind, ContentKind, FeatCategory, InlineKind, Rarity } from '@pioneer/rules/sdk';
+import type {
+  ContentEntry,
+  ContentId,
+  ContentRegistry,
+  InlineNode,
+  RichText,
+  SlotKey,
+  SourceRef,
+} from '@pioneer/rules/sdk';
+import { ActionKind, PrerequisiteState } from '@pioneer/rules/ui';
+import type { FeatPickerRow, PrerequisiteLine } from '@pioneer/rules/ui';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 import { CHARACTER_CONTENT_KINDS } from '../data/content-registry-query';
+import { sheetEntry } from './sheet-entry-previews';
 import { sheetFeatGroups } from './sheet-feat-groups';
 import type { SheetFeatGroup } from './sheet-feat-groups';
 import { sheetTrainedAgain, trainedAgainNote } from './sheet-skill-repeats';
@@ -19,9 +29,6 @@ export const FEAT_CONTENT_KINDS: readonly ContentKind[] = [
   ContentKind.Feat,
   ContentKind.Archetype,
 ];
-
-/** The most feats a feat picker lists for one query; typing narrows it. */
-const FEAT_MATCHES_MAX = 50;
 
 /** One feat slot on the sheet: its label, the feats it offers, and why its pick counts for nothing. */
 export interface SheetFeatSlot {
@@ -49,6 +56,12 @@ interface SheetFeatLock {
 export interface SheetFeatOption {
   readonly value: string;
   readonly label: string;
+  readonly level: number;
+  readonly category: FeatCategory;
+  readonly action: ActionKind;
+  readonly rarity: Rarity;
+  readonly traits: readonly string[];
+  readonly sources: readonly SourceRef[];
   readonly status: PrerequisiteStatus;
   /** What the prerequisites are, as printed; none for a feat without any. */
   readonly prerequisites: string | undefined;
@@ -77,13 +90,62 @@ function plainText(text: RichText, nameOf: (id: ContentId) => string | undefined
     .trim();
 }
 
-function optionOf(option: FeatOption, nameOf: (id: ContentId) => string | undefined): SheetFeatOption {
+/** What a feat entry says that the domain's option does not: how it is taken and used, and where it is printed. */
+interface FeatFacts {
+  readonly category: FeatCategory;
+  readonly action: ActionKind;
+  readonly rarity: Rarity;
+  readonly traits: readonly string[];
+  readonly sources: readonly SourceRef[];
+}
+
+/** A feat's cost: its action glyph, a variable one, or none for a passive feat. */
+function actionKindOf(entry: ContentEntry & { readonly kind: typeof ContentKind.Feat }): ActionKind {
+  const { cost, upTo } = entry.data.action ?? {};
+  if (cost === undefined) {
+    return ActionKind.Passive;
+  }
+  return upTo === undefined ? cost : ActionKind.Variable;
+}
+
+function factsOf(entry: ContentEntry | undefined): FeatFacts {
+  if (entry?.kind !== ContentKind.Feat) {
+    return {
+      category: FeatCategory.General,
+      action: ActionKind.Passive,
+      rarity: Rarity.Common,
+      traits: [],
+      sources: [],
+    };
+  }
+  return {
+    category: entry.data.category,
+    action: actionKindOf(entry),
+    rarity: entry.rarity,
+    traits: entry.traits,
+    sources: entry.sources,
+  };
+}
+
+function optionOf(
+  option: FeatOption,
+  nameOf: (id: ContentId) => string | undefined,
+  entryOf: (id: ContentId) => ContentEntry | undefined,
+): SheetFeatOption {
   const prerequisites = option.prerequisites === undefined ? undefined : plainText(option.prerequisites, nameOf);
   const locked =
     option.locked === undefined
       ? undefined
       : { archetype: nameOf(option.locked.archetype) ?? '', needed: option.locked.needed };
-  return { value: option.value, label: option.label, status: option.status, prerequisites, locked };
+  return {
+    value: option.value,
+    label: option.label,
+    level: option.level,
+    ...factsOf(entryOf(option.value)),
+    status: option.status,
+    prerequisites,
+    locked,
+  };
 }
 
 /** "Fighter feat, level 2"; "Feat from Natural Ambition, level 1" for a slot without a prompt. */
@@ -110,13 +172,14 @@ export function sheetFeats(
 ): SheetFeats {
   const content = sheetSlotContent(registry);
   const nameOf = (id: ContentId): string | undefined => content.lookup.entry(id)?.name;
+  const entryOf = (id: ContentId): ContentEntry | undefined => sheetEntry(registry, id);
   const reads = featSlots(character.document, content);
   const slotOf = (slot: FeatSlot): SheetFeatSlot => {
     const read = slotRead(slots, slot.key);
     return {
       key: slot.key,
       label: labelOf(slot, nameOf),
-      options: slot.options.map((option) => optionOf(option, nameOf)),
+      options: slot.options.map((option) => optionOf(option, nameOf, entryOf)),
       trainedAgain: sheetTrainedAgain(registry, character, slot.key),
       storedName: read !== undefined && 'selectionName' in read ? read.selectionName : undefined,
       reason: read?.status === SlotStatus.Invalid ? read.reason : undefined,
@@ -129,53 +192,61 @@ export function sheetFeats(
   };
 }
 
-/** What a feat option says under its name, for one whose prerequisites are not met or can't be checked. */
-function descriptionOf(
-  option: SheetFeatOption,
-  translate: (key: string, params: object) => string,
-): string | undefined {
+/** Why a feat can't be picked, or that its prerequisites can't be checked; undefined for a feat with nothing in the way. */
+function unavailableReason(option: SheetFeatOption, translate: Translate): string | undefined {
   const prerequisites = option.prerequisites ?? '';
   if (option.locked !== undefined) {
     return translate('character.sheet.feats.locked', option.locked);
   }
-  if (option.status === PrerequisiteStatus.Unmet) {
-    return translate('character.sheet.feats.unmet', { prerequisites });
-  }
-  return option.status === PrerequisiteStatus.Unknown
-    ? translate('character.sheet.feats.unknown', { prerequisites })
+  return option.status === PrerequisiteStatus.Unmet
+    ? translate('character.sheet.feats.unmet', { prerequisites })
     : undefined;
 }
 
-/** What a feat picker words its options with: its messages, and what each feat would train again. */
-export interface FeatMatchReads {
+/** What a feat picker words its rows with: its messages, and what each feat would train again. */
+export interface FeatRowReads {
   readonly translate: Translate;
   readonly trainedAgain: TrainedAgain;
 }
 
+/** The prerequisites as the cell shows them: the printed text once, with the state the engine read for the feat. */
+function prerequisiteLines(option: SheetFeatOption): readonly PrerequisiteLine[] {
+  if (option.prerequisites === undefined || option.prerequisites === '') {
+    return [];
+  }
+  const states: Readonly<Record<PrerequisiteStatus, PrerequisiteState>> = {
+    [PrerequisiteStatus.Met]: PrerequisiteState.Met,
+    [PrerequisiteStatus.Unmet]: PrerequisiteState.Unmet,
+    [PrerequisiteStatus.Unknown]: PrerequisiteState.Unknown,
+  };
+  return [{ label: option.prerequisites, state: states[option.status] }];
+}
+
 /**
- * `options` whose name holds `query`, ignoring case, up to the most a picker lists, as combobox options: one whose
- * prerequisites are not met, or that is a dedication still locked, is shown but can't be picked, saying why; one
- * whose prerequisites can't be checked says so too, and can be picked, since unknown is never read as not met. One that
- * would train a skill the character is trained in already says so as well (#674), and stays pickable.
+ * The rows of a feat picker: every feat the slot offers with the facts to choose by. One whose prerequisites are not
+ * met, or that is a dedication still locked, can't be picked, and says why; one whose prerequisites can't be checked
+ * can be, since unknown is never read as not met. One that would train a skill the character is trained in already
+ * says so (#674) and stays pickable.
  */
-export function featMatches(
+export function featRows(
   options: readonly SheetFeatOption[],
-  query: string,
-  { translate, trainedAgain }: FeatMatchReads,
-): readonly ComboboxOption<string>[] {
-  const needle = query.trim().toLocaleLowerCase();
-  const listed = options
-    .filter((option) => option.label.toLocaleLowerCase().includes(needle))
-    .slice(0, FEAT_MATCHES_MAX);
-  const marks = trainedAgain(listed.map((option) => option.value));
-  return listed.map((option): ComboboxOption<string> => {
-    const { value, label } = option;
-    const skills = marks.get(value);
-    const lines = [
-      descriptionOf(option, translate),
-      skills === undefined ? undefined : trainedAgainNote(skills, translate),
-    ].filter((line) => line !== undefined);
-    const disabled = option.status === PrerequisiteStatus.Unmet || option.locked !== undefined;
-    return lines.length === 0 ? { value, label } : { value, label, description: lines.join(' '), disabled };
+  { translate, trainedAgain }: FeatRowReads,
+): readonly FeatPickerRow[] {
+  const marks = trainedAgain(options.map((option) => option.value));
+  return options.map((option): FeatPickerRow => {
+    const skills = marks.get(option.value);
+    return {
+      id: option.value,
+      name: option.label,
+      level: option.level,
+      category: option.category,
+      action: option.action,
+      rarity: option.rarity,
+      traits: option.traits,
+      prerequisites: prerequisiteLines(option),
+      sources: option.sources,
+      disabledReason: unavailableReason(option, translate),
+      note: skills === undefined ? undefined : trainedAgainNote(skills, translate),
+    };
   });
 }

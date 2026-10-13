@@ -97,6 +97,8 @@ export class Picker<TValue extends string, TRow extends object> extends Control 
   public readonly hasMore = input(false, { transform: booleanAttribute });
   /** Defaults to "Select…" in the viewer's locale. */
   public readonly placeholder = input<string | undefined>(undefined);
+  /** Opens the panel once the control has rendered, for an inline editor that exists to pick. */
+  public readonly openOnInit = input(false, { transform: booleanAttribute });
   /** The typed query, debounced; empty on open when the rows are for another query. */
   public readonly searched = output<string>();
   /** The column to order by, or `undefined` for the source's own order. */
@@ -176,6 +178,15 @@ export class Picker<TValue extends string, TRow extends object> extends Control 
     },
     { wait: SEARCH_DEBOUNCE },
   );
+
+  public constructor() {
+    super();
+    afterNextRender(() => {
+      if (this.openOnInit() && !this.disabled()) {
+        this.#open();
+      }
+    });
+  }
 
   protected toggle(): void {
     if (this.expanded()) {
