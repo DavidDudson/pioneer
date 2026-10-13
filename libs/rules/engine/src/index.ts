@@ -37,6 +37,7 @@ export { statisticContent, variantRulesInPlay } from './statistic-content';
 export { EngineMessage } from './messages';
 export { type ModifierInputs, RuleId, ruleIdOf, RuleInPlay } from './rule-in-play';
 export { ranksInPlay } from './ranks-in-play';
+export { type SpellAtRank, type SpellCast, spellAtRank } from './spell-at-rank';
 export { type AncestryVision, type SenseInPlay, sensesInPlay } from './senses-in-play';
 export {
   type RankSlots,

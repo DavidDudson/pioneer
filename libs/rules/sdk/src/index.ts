@@ -52,6 +52,8 @@ export {
 } from './rune';
 export { AmmunitionType, BaseWeapon, DiceCount, DieSize, WeaponDamage, WeaponData, WeaponGroup } from './weapon';
 export { HeighteningType, SpellData } from './spell';
+export type { Heightening, SpellDamage, SpellVariant } from './spell';
+export { DamageFormula, SpellDamageFormula } from './damage-formula';
 export { CastTimeType, SpellDurationEnd, SpellDurationType, SpellRangeType, SpellTimeUnit } from './spell-casting';
 export { TurnOwner } from './spell-casting';
 export { TargetCountWord, TargetKind, TargetQualifier, TargetWithin, TargetYou } from './spell-targets';

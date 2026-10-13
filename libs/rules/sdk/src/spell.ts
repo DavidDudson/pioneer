@@ -41,7 +41,7 @@ const SpellDamage = z.strictObject({
   /** The materials the damage counts as (Moonbeam's silver), for weaknesses and resistances that name one. */
   materials: z.array(DamageException).min(1).max(MATERIALS_MAX).readonly().check(uniqueItems).optional(),
 });
-type SpellDamage = z.infer<typeof SpellDamage>;
+export type SpellDamage = z.infer<typeof SpellDamage>;
 
 /** A spell's damage parts, each key once. */
 const SpellDamageParts = z
@@ -115,7 +115,7 @@ const FixedHeightening = z.strictObject({
 });
 
 const Heightening = z.discriminatedUnion('type', [IntervalHeightening, FixedHeightening]);
-type Heightening = z.infer<typeof Heightening>;
+export type Heightening = z.infer<typeof Heightening>;
 
 const TRADITIONS_MAX = 4;
 const VARIANTS_MAX = 8;
@@ -140,7 +140,7 @@ const SpellVariant = z
   .refine(({ name: _name, ...changes }) => Object.values(changes).some((change) => change !== undefined), {
     ...issueParams(message(RulesMessage.SpellVariantEmpty)),
   });
-type SpellVariant = z.infer<typeof SpellVariant>;
+export type SpellVariant = z.infer<typeof SpellVariant>;
 
 type SpellCheck = z.core.ParsePayload<{
   readonly rank: SpellRank;
