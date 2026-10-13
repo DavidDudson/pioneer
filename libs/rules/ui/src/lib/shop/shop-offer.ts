@@ -41,6 +41,8 @@ export type ShopBillFor = ValueOf<typeof ShopBillFor>;
 
 /** An item a kit holds, by name, with how many, and what it holds when it is a container. */
 export interface KitLine {
+  /** The item's content, which its name previews on hover. */
+  readonly item: ContentId;
   readonly name: string;
   readonly quantity: number;
   readonly contents: readonly KitLine[];

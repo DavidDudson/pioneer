@@ -7,11 +7,12 @@ import { AsyncData, AsyncPending, AsyncRegion, Heading, Stack } from '@pioneer/f
 import type { AsyncQuery } from '@pioneer/frontier';
 import { Attribute } from '@pioneer/rules/sdk';
 import type { AttributeModifier, ContentRegistry } from '@pioneer/rules/sdk';
-import { BulkView, InventoryView, InvestmentsView } from '@pioneer/rules/ui';
-import type { CarriedBulk, InventoryGroup, Investment } from '@pioneer/rules/ui';
+import { BulkView, ENTRY_PREVIEWS, InventoryView, InvestmentsView } from '@pioneer/rules/ui';
+import type { CarriedBulk, EntryPreviews, InventoryGroup, Investment } from '@pioneer/rules/ui';
 
 import { CharacterStore } from '../../../data/character-store';
 import { CHARACTER_CONTENT_KINDS, injectContentRegistry } from '../../../data/content-registry-query';
+import { sheetEntryPreviews } from '../../sheet-entry-previews';
 import { CoinsEdit } from '../coins-edit/coins-edit.component';
 import { ItemEdits } from '../item-edits/item-edits.component';
 import { injectItemNames } from '../item-names';
@@ -43,6 +44,7 @@ import { INVENTORY_CONTENT_KINDS, sheetInventory } from '../sheet-inventory';
     TranslocoPipe,
   ],
   templateUrl: './inventory-section.component.html',
+  providers: [{ provide: ENTRY_PREVIEWS, useFactory: (): EntryPreviews => inject(InventorySection).previews }],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InventorySection {
@@ -55,6 +57,8 @@ export class InventorySection {
   protected readonly investedMax = INVESTED_MAX;
 
   protected readonly items = injectContentRegistry(INVENTORY_CONTENT_KINDS);
+  /** What an item row previews on hover, read from the loaded items. */
+  public readonly previews: EntryPreviews = sheetEntryPreviews(() => this.items.data());
   /** The character's own kinds, for the Strength the Bulk limits read; the Bulk region follows this query. */
   protected readonly attributes = injectContentRegistry(CHARACTER_CONTENT_KINDS);
   readonly #strength = computed((): AttributeModifier | undefined => {

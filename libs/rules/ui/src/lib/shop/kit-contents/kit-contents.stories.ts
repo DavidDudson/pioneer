@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@analogjs/storybook-angular';
 import { expect, within } from 'storybook/test';
 
 import { KitContents } from './kit-contents.component';
+import { kitLine } from './kit-contents.fixtures';
 
 type KitContentsStory = StoryObj<KitContents>;
 
@@ -15,20 +16,16 @@ export default meta;
 export const AdventurersPack: KitContentsStory = {
   args: {
     lines: [
-      {
-        name: 'Backpack',
-        quantity: 1,
-        contents: [
-          { name: 'Bedroll', quantity: 1, contents: [] },
-          { name: 'Chalk', quantity: 10, contents: [] },
-          { name: 'Flint and Steel', quantity: 1, contents: [] },
-          { name: 'Rope', quantity: 1, contents: [] },
-          { name: 'Rations', quantity: 14, contents: [] },
-          { name: 'Soap', quantity: 1, contents: [] },
-          { name: 'Torch', quantity: 5, contents: [] },
-          { name: 'Waterskin', quantity: 1, contents: [] },
-        ],
-      },
+      kitLine('Backpack', 1, [
+        kitLine('Bedroll', 1),
+        kitLine('Chalk', 10),
+        kitLine('Flint and Steel', 1),
+        kitLine('Rope', 1),
+        kitLine('Rations', 14),
+        kitLine('Soap', 1),
+        kitLine('Torch', 5),
+        kitLine('Waterskin', 1),
+      ]),
     ],
   },
   play: async ({ canvasElement }) => {
@@ -41,9 +38,6 @@ export const AdventurersPack: KitContentsStory = {
 /** Loose items, none a container. */
 export const Loose: KitContentsStory = {
   args: {
-    lines: [
-      { name: 'Longsword', quantity: 1, contents: [] },
-      { name: 'Arrows', quantity: 20, contents: [] },
-    ],
+    lines: [kitLine('Longsword', 1), kitLine('Arrows', 20)],
   },
 };

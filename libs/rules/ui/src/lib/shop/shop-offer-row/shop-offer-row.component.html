@@ -1,7 +1,9 @@
 <fr-stack direction="horizontal" justify="between" align="center" gap="sm">
   <fr-stack gap="3xs" align="start">
     <fr-stack direction="horizontal" align="center" gap="xs" wrap>
-      <fr-text>{{ offer().name }}</fr-text>
+      <pio-entry-hover [entry]="offer().id">
+        <fr-text tabindex="0">{{ offer().name }}</fr-text>
+      </pio-entry-hover>
       @if (badge(); as badge) {
         <fr-badge [tone]="badge.tone">{{ badge.key | transloco }}</fr-badge>
       }

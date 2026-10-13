@@ -2,7 +2,9 @@ import { ChangeDetectionStrategy, Component, computed, inject, input } from '@an
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { LucideX } from '@lucide/angular';
 import { AsyncButton, EmptyState, Icon, List, ListItem, Skeleton, Stack, Text } from '@pioneer/frontier';
+import type { ContentId } from '@pioneer/rules/sdk';
 
+import { EntryHover } from '../entry-preview/entry-hover.component';
 import type { SpellAccessLine } from './spell-access-line';
 import { SpellAccessMessage } from './spell-access-messages';
 
@@ -13,7 +15,7 @@ export type RemoveSpellAccess = (spell: string) => Promise<unknown>;
 
 /** A line as the list shows it: by name, or "Unknown spell" when no loaded pack has it, and its Remove. */
 interface AccessRow {
-  readonly spell: string;
+  readonly spell: ContentId;
   readonly name: string;
   readonly remove: () => Promise<unknown>;
 }
@@ -30,7 +32,7 @@ interface AccessRow {
  */
 @Component({
   selector: 'pio-spell-access-list',
-  imports: [AsyncButton, EmptyState, Icon, List, ListItem, Skeleton, Stack, Text, TranslocoPipe],
+  imports: [EntryHover, AsyncButton, EmptyState, Icon, List, ListItem, Skeleton, Stack, Text, TranslocoPipe],
   templateUrl: './spell-access-list.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

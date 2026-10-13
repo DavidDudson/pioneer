@@ -1,6 +1,10 @@
 <fr-stack gap="xs">
   <fr-stack direction="horizontal" gap="xs" align="center" wrap>
-    <fr-text weight="medium" [tone]="shown().nameTone">{{ shown().name ?? (Message.UnknownItem | transloco) }}</fr-text>
+    <pio-entry-hover [entry]="line().content">
+      <fr-text weight="medium" tabindex="0" [tone]="shown().nameTone">{{
+        shown().name ?? (Message.UnknownItem | transloco)
+      }}</fr-text>
+    </pio-entry-hover>
     @if (shown().contentName; as contentName) {
       <fr-text tone="subtle">{{ Message.ContentName | transloco: { name: contentName } }}</fr-text>
     }

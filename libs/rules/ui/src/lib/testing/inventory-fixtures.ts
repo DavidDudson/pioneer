@@ -1,4 +1,4 @@
-import { BulkCount, BulkWeight, FundamentalRune } from '@pioneer/rules/sdk';
+import { BulkCount, BulkWeight, ContentId, contentId, EntrySlug, FundamentalRune, PackId } from '@pioneer/rules/sdk';
 
 import { InventoryPlacement } from '../inventory/inventory-line';
 import type { InventoryGroup, InventoryLine } from '../inventory/inventory-line';
@@ -12,6 +12,7 @@ const ONE_BULK = BulkCount.parse(1);
 function line(id: string, name: string | undefined, overrides: Partial<InventoryLine> = {}): InventoryLine {
   return {
     id,
+    content: ContentId.parse(contentId(PackId.parse('player-core'), EntrySlug.parse(`equipment:${id}`))),
     name,
     contentName: undefined,
     quantity: 1,

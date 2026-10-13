@@ -1,4 +1,4 @@
-import type { Bulk } from '@pioneer/rules/sdk';
+import type { Bulk, ContentId } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
 
 import type { LineRunes } from './rune-name';
@@ -11,6 +11,8 @@ export type InventoryPlacement = ValueOf<typeof InventoryPlacement>;
 export interface InventoryLine {
   /** Stable across edits: the inventory item's id. */
   readonly id: string;
+  /** The content it is an instance of, which its name previews on hover. */
+  readonly content: ContentId;
   /** The player's name for it, else the content's; undefined when no loaded pack has its content. */
   readonly name: string | undefined;
   /** The content's name, shown beside a name the player gave. */

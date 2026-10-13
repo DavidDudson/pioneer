@@ -1,10 +1,13 @@
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
-import { FocusPoints, SpellRank } from '@pioneer/rules/sdk';
+import { ContentId, contentId, EntrySlug, FocusPoints, PackId, SpellRank } from '@pioneer/rules/sdk';
 import { expect, within } from 'storybook/test';
 
 import { FocusSpellsView } from './focus-spells.component';
 
 type FocusSpellsStory = StoryObj<FocusSpellsView>;
+
+const spellId = (slug: string): ContentId =>
+  ContentId.parse(contentId(PackId.parse('player-core'), EntrySlug.parse(`spell:${slug}`)));
 
 const meta: Meta<FocusSpellsView> = {
   title: 'Rules/Focus Spells',
@@ -23,9 +26,19 @@ export const Bard: FocusSpellsStory = {
           key: 'bard-focus',
           tradition: 'occult',
           spells: [
-            { key: 'counter-performance', name: 'Counter Performance', cantrip: false },
-            { key: 'courageous-anthem', name: 'Courageous Anthem', cantrip: true },
-            { key: 'lingering-composition', name: 'Lingering Composition', cantrip: false },
+            {
+              key: 'counter-performance',
+              id: spellId('counter-performance'),
+              name: 'Counter Performance',
+              cantrip: false,
+            },
+            { key: 'courageous-anthem', id: spellId('courageous-anthem'), name: 'Courageous Anthem', cantrip: true },
+            {
+              key: 'lingering-composition',
+              id: spellId('lingering-composition'),
+              name: 'Lingering Composition',
+              cantrip: false,
+            },
           ],
         },
       ],
