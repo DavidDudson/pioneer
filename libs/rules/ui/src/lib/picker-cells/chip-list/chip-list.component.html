@@ -1,0 +1,5 @@
+<fr-stack direction="horizontal" gap="2xs" wrap>
+  @for (chip of chips(); track chip.label) {
+    <fr-tag [label]="chip.label" [tone]="chip.tone ?? 'neutral'" />
+  }
+</fr-stack>

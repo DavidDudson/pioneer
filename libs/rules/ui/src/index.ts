@@ -69,3 +69,22 @@ export {
 export { ProficiencyRankView } from './lib/proficiency-rank/proficiency-rank.component';
 export { type Vital, type VitalBasis, VitalBasisKind } from './lib/vitals/vital';
 export { VitalsView } from './lib/vitals/vitals.component';
+export { ActionCostCell } from './lib/picker-cells/action-cost-cell/action-cost-cell.component';
+export { AttributeBoosts } from './lib/picker-cells/attribute-boosts/attribute-boosts.component';
+export { BulkCell } from './lib/picker-cells/bulk-cell/bulk-cell.component';
+export { type Chip, ChipList, RARITY_TONES } from './lib/picker-cells/chip-list/chip-list.component';
+export { CountMeter } from './lib/picker-cells/count-meter/count-meter.component';
+export { LevelCell } from './lib/picker-cells/level-cell/level-cell.component';
+export { ActionKind } from './lib/picker-cells/picker-cell-messages';
+export { PriceCell } from './lib/picker-cells/price-cell/price-cell.component';
+export {
+  type PrerequisiteLine,
+  PrerequisiteList,
+} from './lib/picker-cells/prerequisite-list/prerequisite-list.component';
+export { RankBadge } from './lib/picker-cells/rank-badge/rank-badge.component';
+export { type CellColumn, type CountColumn, RulesTableSchema } from './lib/picker-cells/rules-table-schema';
+export { FeatTableSchema } from './lib/picker-cells/feat-table-schema';
+export { ItemTableSchema } from './lib/picker-cells/item-table-schema';
+export { OriginTableSchema } from './lib/picker-cells/origin-table-schema';
+export { SpellTableSchema } from './lib/picker-cells/spell-table-schema';
+export { SummaryCell } from './lib/picker-cells/summary-cell/summary-cell.component';

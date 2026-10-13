@@ -7,6 +7,7 @@
 export { Chart, ChartAspect } from './lib/data/chart/chart.component';
 export { Table } from './lib/data/table/table.component';
 export { type TableColumn, tableColumns } from './lib/data/table/table-features';
+export type { RowData } from '@tanstack/angular-table';
 export {
   type ColumnOptions,
   type ComponentColumn,
