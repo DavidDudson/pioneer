@@ -51,5 +51,5 @@ was etched over the content's, or keep runes as their own inventory lines etched
   (`workingPropertyRunes`), so erasing potency never loses a rune.
 - A property rune's rule elements are a grant root with its host's inventory hop, at its host's item level, so they
   are in play exactly while the host's magic works.
-- Striking grades reach a held weapon's Strike input; its damage dice wait for Strikes in the engine (#481).
+- Striking grades reach a held weapon's Strike input, where each adds a damage die (`deriveStrikes`, #481).
   Reinforcing grades are stored and named; a shield's Hardness and Hit Points wait for the Strikes section (#482).

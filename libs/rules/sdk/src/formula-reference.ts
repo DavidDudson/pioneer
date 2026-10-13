@@ -35,6 +35,7 @@ export const ReferenceKind = {
   ItemLevel: 'item-level',
   ItemValue: 'item-value',
   WeaponAttributeModifier: 'weapon-attribute-modifier',
+  WeaponDamageModifier: 'weapon-damage-modifier',
   WeaponProficiencyBonus: 'weapon-proficiency-bonus',
   SpellcastingAttributeModifier: 'spellcasting-attribute-modifier',
   SpellcastingProficiencyBonus: 'spellcasting-proficiency-bonus',
@@ -60,6 +61,7 @@ export type KnownReference =
 /** The kinds that read a weapon or a spellcasting entry: only a statistic derived per that source has one. */
 const SOURCE_KINDS = [
   ReferenceKind.WeaponAttributeModifier,
+  ReferenceKind.WeaponDamageModifier,
   ReferenceKind.WeaponProficiencyBonus,
   ReferenceKind.SpellcastingAttributeModifier,
   ReferenceKind.SpellcastingProficiencyBonus,
@@ -127,6 +129,7 @@ export const REFERENCE_CATALOGUE: Readonly<Record<ReferenceKind, ReferenceDefini
     WEAPON,
     RulesMessage.ReferenceWeaponAttributeModifier,
   ),
+  [ReferenceKind.WeaponDamageModifier]: reference('weapon.damage', WEAPON, RulesMessage.ReferenceWeaponDamageModifier),
   [ReferenceKind.WeaponProficiencyBonus]: reference(
     'weapon.prof',
     WEAPON,
@@ -218,6 +221,7 @@ function referenceOf(kind: ReferenceKind, captures: Captures): KnownReference | 
     case ReferenceKind.ItemLevel:
     case ReferenceKind.ItemValue:
     case ReferenceKind.WeaponAttributeModifier:
+    case ReferenceKind.WeaponDamageModifier:
     case ReferenceKind.WeaponProficiencyBonus:
     case ReferenceKind.SpellcastingAttributeModifier:
     case ReferenceKind.SpellcastingProficiencyBonus: {

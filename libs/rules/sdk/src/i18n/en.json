@@ -40,7 +40,8 @@
       "adjustModeOrSuppress": "Give a mode and a value, or suppress: true, but not both.",
       "spellcastingSlugLength": "A spellcasting entry’s slug may be at most {maximum} characters.",
       "languageGrantOrSlots": "Grant at least one language, or give slots to pick them in, or both.",
-      "actorTraitsAddOrRemove": "Add at least one trait, or remove one, or both."
+      "actorTraitsAddOrRemove": "Add at least one trait, or remove one, or both.",
+      "strikeShape": "A Strike is either a fist, or an attack of its own with a slug, category and damage."
     },
     "formula": {
       "unknownReference": "“{found}” at position {position} is not a reference Pioneer knows. References look like @level, @attr.str or @prof.skill.athletics.",
@@ -159,6 +160,7 @@
       "itemLevel": "The level of the item the rule element is on.",
       "itemValue": "The value of the condition the rule element is on: 2 on Frightened 2.",
       "weaponAttributeModifier": "The modifier the weapon attacks with: Strength, Dexterity for a ranged weapon, or the higher of the two for a finesse weapon.",
+      "weaponDamageModifier": "The modifier a Strike adds to damage: Strength for a melee or thrown weapon, half of a positive Strength (all of a negative one) for a propulsive one, none for any other ranged weapon.",
       "weaponProficiencyBonus": "The proficiency bonus for the weapon’s category: simple, martial, advanced or unarmed.",
       "spellcastingAttributeModifier": "The modifier for the spellcasting entry’s attribute.",
       "spellcastingProficiencyBonus": "The proficiency bonus for the spellcasting entry’s tradition."
@@ -607,6 +609,13 @@
       "pinned": "Pinned",
       "computed": "computed {computed}",
       "conditional": "{value} {hasSummary, select, yes {when {summary}} other {in some situations}} ({name})"
+    },
+    "strikes": {
+      "damage": "{roll} {type}",
+      "multipleAttackPenalty": "Multiple attack penalty {second} / {third}",
+      "attackHeading": "Attack roll",
+      "damageHeading": "Damage bonus",
+      "noDamage": "No damage"
     },
     "attributes": {
       "str": "Strength",

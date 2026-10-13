@@ -133,8 +133,30 @@ The entries are the `SpellcastingEntry` elements in play (`spellcastingInPlay`),
 - A family's selector is at most 63 characters and a source's slug at most 64, so every instance's selector is a
   selector (128 at most). A longer one is a validation issue at the selector or the slug.
 
-Known limits: a thrown melee weapon gets its melee Strike only; the multiple attack penalty and Strike damage come
-later.
+Known limits: a thrown melee weapon gets its melee Strike only; Strike damage is the weapon's dice and type plus the
+flat bonus below, with no damage dice or alterations from rule elements yet (`DamageDice`, `DamageAlteration`), and
+no critical specialisation.
+
+### Strike damage and the multiple attack penalty
+
+A Strike is the pair of statistics `strike:<weapon>` (the attack roll) and `strike-damage:<weapon>` (the flat damage
+it adds), plus what the engine reads off the weapon itself. `deriveStrikes` (step 7) joins them, per weapon, into a
+`Strike` the sheet shows: its attack, its damage and its multiple attack penalty.
+
+- **Flat damage.** `strike-damage` has `@weapon.damage` as its base: Strength for a melee or thrown weapon (a `thrown`
+  or `thrown-<range>` trait), half of a positive Strength, rounded down, or all of a negative one, for a propulsive
+  ranged weapon, and none for any other ranged weapon (Player Core, "Damage Rolls"). Its domains are `damage` and
+  `strike-damage`, and like every per-weapon family it joins its key attribute's `<attribute>-based` domain, so a bonus
+  to damage rolls reaches it as it does any statistic, with the breakdown the attack roll has.
+- **Dice.** A weapon's `damage` (dice, die, type) before runes. A striking rune adds its grade to the dice of a weapon
+  that rolls a die; flat damage (a blowgun's 1 piercing) has none to add to, and a weapon with no dice and no die
+  does no damage (a glue bomb). Persistent damage stays on the weapon's content and is not part of the Strike yet.
+- **Multiple attack penalty.** -5 on a second attack and -10 on a third, or -4 and -8 with an `agile` weapon. It is
+  a pair of numbers on the Strike, not a statistic: a `MultipleAttackPenalty` rule element (already in the SDK)
+  reaches it when the play loop lands, since the penalty applies per turn rather than per Strike.
+- **Strikes a feature gives.** `Strike` has two shapes: `fist: true`, and an attack of its own with a `slug`,
+  `category`, `damage` and optionally `group`, `traits` and `range`, which the engine treats as a held weapon with the
+  element's origin (`display.label` names it on the sheet). The Foundry importer reads `damage.base` as `damage`.
 
 Lore is open-ended, so the core pack defines none. Whatever grants a Lore (a background, a feat) brings its own
 `statistic` entry with the selector `skill:lore:<topic>`, base `@attr.int + @prof.skill.lore.<topic>`, key
@@ -426,7 +448,8 @@ Creature group `Sense` (see "Senses" below) and `Language`: it grants languages 
 offering languages no rarer than its `access`, standing in for Foundry's `subfeatures.languages` and its
 `ActiveEffectLike` on `system.build.languages.max` (ADR-0043). `ActorTraits` adds traits to the character or removes
 them, each setting `self:trait:<trait>` over its ancestry's (ADR-0048). From the Strikes group, `Strike` is in the SDK
-in its `fist` form only: a fist, an unarmed weapon of the `fist` base (ADR-0048). A deity's favoured weapons read
+in two shapes: a fist, an unarmed weapon of the `fist` base (ADR-0048), and an attack of its own (see "Strike
+damage"). A deity's favoured weapons read
 `attack:favored-weapon`, a `Proficiency` selector standing in for Foundry's `favoredWeaponRank`: a Strike with one uses
 the better of it and its category's rank. The Checks and Actions groups, the rest of Strikes, Defences and Creature,
 land with their Epic 2.6 translator stories, so each schema arrives with the Foundry content that exercises it.
@@ -477,7 +500,8 @@ flowchart TD
    boosts). Evaluated in topological order, memoised, cycles reported with the offending formula. Strike attack
    rolls, spell attacks and spell DCs are statistics here, one per weapon or spellcasting entry.
 6. **Modifiers.** Collected per selector through domains, predicates evaluated, stacking applied.
-7. **Synthetics.** Strike damage and the multiple attack penalty, spell lists, the available action list, roll notes.
+7. **Synthetics.** Strikes (`deriveStrikes`: attack, damage and multiple attack penalty), spell lists, the
+   available action list, roll notes.
 
 ### Grant resolution
 

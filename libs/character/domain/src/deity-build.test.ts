@@ -1,6 +1,16 @@
 import { describe, expect, test } from 'bun:test';
 
-import { ContentId, ContentKind, ContentRegistry, RuleSlug, Selector } from '@pioneer/rules/sdk';
+import { multipleAttackPenalty } from '@pioneer/rules/engine';
+import type { WeaponInputs } from '@pioneer/rules/engine';
+import {
+  ContentId,
+  ContentKind,
+  ContentRegistry,
+  Modifier,
+  RuleSlug,
+  Selector,
+  WeaponDamage,
+} from '@pioneer/rules/sdk';
 import { ContentPackBuilder, CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
 
 import { characterDeity } from './character-deity';
@@ -199,6 +209,16 @@ function strikesOf(name: PlayerCoreClass, deity: ContentId): readonly (readonly 
   return grantedStrikes(grants, favoredWeapons(grants)).map(({ slug, favored }) => [String(slug), favored] as const);
 }
 
+/** The fist a level 1 cleric of Irori has from its features. */
+function irorisFist(): WeaponInputs {
+  const grants = characterGrants(level1('cleric', IRORI).build().document, content);
+  const [fist] = grantedStrikes(grants, favoredWeapons(grants));
+  if (fist === undefined) {
+    throw new Error('Expected a fist Strike');
+  }
+  return fist;
+}
+
 describe("a cleric's fist", () => {
   test('is a favoured Strike when the deity favours the fist', () => {
     expect(strikesOf('cleric', IRORI)).toEqual([['fist', true]]);
@@ -207,5 +227,12 @@ describe("a cleric's fist", () => {
   test("is no Strike of a feature's otherwise, nor a fighter's of the same deity", () => {
     expect(strikesOf('cleric', SARENRAE)).toEqual([]);
     expect(strikesOf('fighter', IRORI)).toEqual([]);
+  });
+
+  test('does 1d4 bludgeoning, and its later attacks take the agile penalty', () => {
+    const fist = irorisFist();
+
+    expect(fist.damage).toEqual(WeaponDamage.parse({ dice: 1, die: 'd4', damageType: 'bludgeoning' }));
+    expect(multipleAttackPenalty(fist)).toEqual({ second: Modifier.parse(-4), third: Modifier.parse(-8) });
   });
 });

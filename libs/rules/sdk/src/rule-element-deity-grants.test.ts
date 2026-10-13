@@ -35,8 +35,19 @@ describe("a cleric's deity grant elements", () => {
     expect(issues({ key: 'ActorTraits', add: ['holy', 'holy'] })).toMatchObject([{ path: ['add', 1] }]);
   });
 
-  test('Strike takes only its fist form so far', () => {
+  test('Strike is a fist, or an attack of its own with a slug, category and damage', () => {
+    const jaws = {
+      key: 'Strike',
+      slug: 'jaws',
+      category: 'unarmed',
+      damage: { dice: 1, die: 'd8', damageType: 'piercing' },
+    };
+    expect(issues(jaws)).toStrictEqual([]);
     expect(issues({ key: 'Strike', fist: false })).toMatchObject([{ path: ['fist'] }]);
-    expect(issues({ key: 'Strike', category: 'unarmed' })).not.toStrictEqual([]);
+    expect(issues({ key: 'Strike' })).toStrictEqual([{ path: [], message: message(RulesMessage.StrikeShape) }]);
+    expect(issues({ ...jaws, fist: true })).toStrictEqual([{ path: [], message: message(RulesMessage.StrikeShape) }]);
+    expect(issues({ key: 'Strike', slug: 'jaws', category: 'unarmed' })).toStrictEqual([
+      { path: [], message: message(RulesMessage.StrikeShape) },
+    ]);
   });
 });

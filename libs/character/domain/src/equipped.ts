@@ -133,6 +133,7 @@ function weaponInputs(active: readonly ActiveItem[], favored: ReadonlySet<BaseWe
         range: entry.data.range,
         potency: potency === undefined ? undefined : RuneGrade.parse(potency),
         striking: runes.striking,
+        damage: entry.data.damage,
         favored: entry.data.baseItem !== undefined && favored.has(entry.data.baseItem),
         origin: originOf(each),
       },

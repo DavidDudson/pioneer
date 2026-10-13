@@ -35,6 +35,11 @@ describe('CharacterSheetPage Strikes', () => {
       const rows = [...strikesSection(root).querySelectorAll('[frDisclosureSummary]')];
       expect(rows.map((row) => textOf(row))).toStrictEqual(['Fist +5']);
     });
+
+    // Its damage is a die, 1d4 bludgeoning, and an agile fist's later attacks take -4 and -8.
+    const text = textOf(strikesSection(root));
+    expect(text).toMatch(/1d4(?<bonus>[+−-]\d)? bludgeoning/u);
+    expect(text).toContain('Multiple attack penalty -4 / -8');
   });
 
   it('says there are none without a held weapon or a fist', async () => {

@@ -1,0 +1,19 @@
+@if (shown(); as strikes) {
+  @if (strikes.length === 0) {
+    <fr-empty-state [title]="Statistics.NoStrikes | transloco" />
+  } @else {
+    <fr-list gap="3xs">
+      @for (row of strikes; track row.key) {
+        <fr-list-item
+          ><pio-strike-row [row]="row" [entryNames]="entryNames()" [originNames]="originNames()"
+        /></fr-list-item>
+      }
+    </fr-list>
+  }
+} @else {
+  <fr-list gap="3xs">
+    @for (row of loadingRows; track row) {
+      <fr-list-item><fr-skeleton width="md" /></fr-list-item>
+    }
+  </fr-list>
+}

@@ -1,9 +1,10 @@
 import type { Character } from '@pioneer/character/domain';
+import { deriveStrikes } from '@pioneer/rules/engine';
 import type { WeaponInputs } from '@pioneer/rules/engine';
 import { OriginHopKind, Selector } from '@pioneer/rules/sdk';
 import type { ContentId, ContentRegistry } from '@pioneer/rules/sdk';
 import { StatisticsMessage } from '@pioneer/rules/ui';
-import type { NamedStatistic } from '@pioneer/rules/ui';
+import type { NamedStrike } from '@pioneer/rules/ui';
 
 import { statisticInputsOf } from './sheet-inputs';
 import { sheetSlotContent } from './sheet-slot-content';
@@ -13,21 +14,23 @@ import { sheetDerivation } from './sheet-statistics';
 const STRIKE = Selector.parse('strike');
 
 /** How a Strike is named: a held weapon by its item's name, a fist a feature gives by its message key. */
-type StrikeName = Pick<NamedStatistic, 'name' | 'nameKey'>;
+type StrikeName = Pick<NamedStrike, 'name' | 'nameKey'>;
 
 function weaponName(weapon: WeaponInputs, nameOf: (entry: ContentId) => string | undefined): StrikeName {
   const held = weapon.origin.hops[0]?.kind === OriginHopKind.Inventory;
-  return held
-    ? { name: nameOf(weapon.origin.entry) ?? weapon.slug }
-    : { name: weapon.slug, nameKey: StatisticsMessage.Fist };
+  if (held) {
+    return { name: nameOf(weapon.origin.entry) ?? weapon.slug };
+  }
+  return weapon.label === undefined ? { name: weapon.slug, nameKey: StatisticsMessage.Fist } : { name: weapon.label };
 }
 
 /**
- * A character's Strikes from the engine (#598), in the order the engine reads its weapons: each held weapon's, then
- * those its features give, a fist, from the sheet's one derivation (`sheetDerivation`). None without a Strike
- * definition.
+ * A character's Strikes from the engine (#598, #481), in the order the engine reads its weapons: each held weapon's,
+ * then those its features give, a fist or an attack of their own, from the sheet's one derivation
+ * (`sheetDerivation`). Each carries its attack roll, its damage and its multiple attack penalty (`deriveStrikes`).
+ * None without a Strike definition.
  */
-export function sheetStrikes(registry: ContentRegistry, character: Character): readonly NamedStatistic[] {
+export function sheetStrikes(registry: ContentRegistry, character: Character): readonly NamedStrike[] {
   const definition = registry.statisticsFor(STRIKE).at(-1)?.definition;
   const weapons = statisticInputsOf(registry, character).weapons ?? [];
   if (definition === undefined || weapons.length === 0) {
@@ -35,9 +38,8 @@ export function sheetStrikes(registry: ContentRegistry, character: Character): r
   }
   const slots = sheetSlotContent(registry);
   const nameOf = (entry: ContentId): string | undefined => slots.lookup.entry(entry)?.name;
-  const results = sheetDerivation(registry, character);
-  return weapons.flatMap((weapon): NamedStatistic[] => {
-    const result = results.get(Selector.parse(`${STRIKE}:${weapon.slug}`));
-    return result === undefined ? [] : [{ ...weaponName(weapon, nameOf), kind: definition.kind, result }];
-  });
+  const strikes = deriveStrikes(weapons, sheetDerivation(registry, character));
+  return strikes.flatMap((strike): NamedStrike[] =>
+    strike.attack === undefined ? [] : [{ ...weaponName(strike.weapon, nameOf), strike }],
+  );
 }

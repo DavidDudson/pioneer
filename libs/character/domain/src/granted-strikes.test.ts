@@ -3,11 +3,19 @@ import { describe, expect, test } from 'bun:test';
 import { resolveGrants } from '@pioneer/rules/grants';
 import type { GrantResolution } from '@pioneer/rules/grants';
 import { entry, idOf, inputsOf, picked } from '@pioneer/rules/grants/testing';
-import { BaseWeapon } from '@pioneer/rules/sdk';
+import { BaseWeapon, Trait, WeaponDamage } from '@pioneer/rules/sdk';
 
 import { grantedStrikes } from './granted-strikes';
 
 const FIST = { key: 'Strike', fist: true };
+const JAWS = {
+  key: 'Strike',
+  slug: 'jaws',
+  category: 'unarmed',
+  damage: { dice: 1, die: 'd8', damageType: 'piercing' },
+  traits: ['finesse'],
+  display: { label: 'Jaws' },
+};
 const NO_FAVOURED: ReadonlySet<BaseWeapon> = new Set();
 const FAVOURS_FIST: ReadonlySet<BaseWeapon> = new Set([BaseWeapon.parse('fist')]);
 
@@ -34,5 +42,28 @@ describe('grantedStrikes', () => {
     expect(grantedStrikes(gated, FAVOURS_FIST)).toEqual([]);
     expect(grantedStrikes(always, FAVOURS_FIST)[0]?.favored).toBe(true);
     expect(grantedStrikes(always, NO_FAVOURED)[0]?.favored).toBe(false);
+  });
+
+  test("a fist does 1d4 bludgeoning and is agile, as Foundry's", () => {
+    const [fist] = grantedStrikes(resolved({ 'iron-fists': FIST }), NO_FAVOURED);
+
+    expect(fist?.damage).toEqual(WeaponDamage.parse({ dice: 1, die: 'd4', damageType: 'bludgeoning' }));
+    expect(fist?.traits).toContain(Trait.parse('agile'));
+  });
+
+  test('an element that defines an attack gives it, named by its label, beside the fist', () => {
+    const strikes = grantedStrikes(resolved({ 'iron-fists': FIST, 'beast-form': JAWS }), NO_FAVOURED);
+
+    expect(strikes.map(({ slug }) => String(slug))).toEqual(['fist', 'jaws']);
+    expect(strikes[1]).toMatchObject({ category: 'unarmed', label: 'Jaws' });
+  });
+
+  test('the first attack of a slug wins', () => {
+    const strikes = grantedStrikes(
+      resolved({ 'a-jaws': JAWS, 'b-jaws': { ...JAWS, damage: { dice: 2, die: 'd10', damageType: 'slashing' } } }),
+      NO_FAVOURED,
+    );
+
+    expect(strikes.map(({ damage }) => damage?.die)).toEqual(['d8']);
   });
 });

@@ -31,6 +31,7 @@ import {
   SELECTORS,
   SKILL_SELECTORS,
   SKILLS,
+  STRIKE_DAMAGES,
   STRIKES,
   totals,
   wizard,
@@ -195,7 +196,11 @@ describe('core rules pack', () => {
     expect(reachedBy('check')).toStrictEqual(sorted([...checks, ...LORE_SELECTORS, ...STRIKES]));
     expect(reachedBy('attack-roll')).toStrictEqual(sorted(STRIKES));
     expect(reachedBy('strike-attack-roll')).toStrictEqual(sorted(STRIKES));
-    expect(reachedBy('str-based')).toStrictEqual(sorted([...skillsKeyedTo(Attribute.Strength), ...STRIKES]));
+    expect(reachedBy('str-based')).toStrictEqual(
+      sorted([...skillsKeyedTo(Attribute.Strength), ...STRIKES, ...STRIKE_DAMAGES]),
+    );
+    expect(reachedBy('damage')).toStrictEqual(sorted(STRIKE_DAMAGES));
+    expect(reachedBy('strike-damage')).toStrictEqual(sorted(STRIKE_DAMAGES));
     expect(reachedBy('hp')).toStrictEqual(['hp:max']);
     expect(reachedBy('speed')).toStrictEqual(['speed:land']);
     expect(reachedBy('all-speeds')).toStrictEqual(['speed:land']);
@@ -206,7 +211,7 @@ describe('core rules pack', () => {
       sorted(['save:will', 'perception', ...skillsKeyedTo(Attribute.Wisdom)]),
     );
     expect(reachedBy('int-based')).toStrictEqual(sorted([...skillsKeyedTo(Attribute.Intelligence), ...LORE_SELECTORS]));
-    expect(reachedBy('all')).toStrictEqual(sorted([...SELECTORS, ...LORE_SELECTORS, ...STRIKES]));
+    expect(reachedBy('all')).toStrictEqual(sorted([...SELECTORS, ...LORE_SELECTORS, ...STRIKES, ...STRIKE_DAMAGES]));
   });
 
   test('spell domains route to the spell attack or the DC, and the attribute domain to both', () => {

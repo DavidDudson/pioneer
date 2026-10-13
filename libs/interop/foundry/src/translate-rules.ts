@@ -14,6 +14,7 @@ import { withFontChoice } from './translate-font-choice';
 import { withSense } from './translate-senses';
 import type { FoundrySenses } from './translate-senses';
 import { withSkillRaise } from './translate-skill-raises';
+import { withStrikeDamage } from './translate-strike';
 
 /**
  * An entry's Foundry rule elements, each run through `RuleElement`. One that fails is kept aside with its raw JSON
@@ -268,7 +269,8 @@ export function translateRules(entry: ContentId, raws: readonly unknown[], conte
   const shapedRaws = raws.map((raw) => {
     const text = withDisplayLabel(localized(raw, context, unresolved));
     const granted = withGrantedId(withPioneerFormula(text), references);
-    const queried = withLanguageSlots(withTagQuery(withGrantValue(granted)));
+    const struck = withStrikeDamage(granted);
+    const queried = withLanguageSlots(withTagQuery(withGrantValue(struck)));
     const font = withSkillRaise(withFavoredWeaponRank(withFontChoice(queried)));
     return withSense(font, { references, senses: context.senses });
   });
