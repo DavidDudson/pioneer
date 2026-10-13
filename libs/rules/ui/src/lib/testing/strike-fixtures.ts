@@ -15,7 +15,7 @@ import {
 } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
 
-import type { NamedStrike } from '../strikes/strikes.component';
+import type { NamedStrike, StrikesShield } from '../strikes/strikes.component';
 import { origin, statistic, term } from './breakdown-fixtures';
 
 const PLAYER_CORE = PackId.parse('player-core');
@@ -81,8 +81,8 @@ function strikeOf(index: number): Strike {
 
 /** A longsword, and an agile dagger with a striking rune: 1d8+4 slashing; 2d4 piercing, and the smaller penalty. */
 export const FIGHTER_STRIKES: readonly NamedStrike[] = [
-  { name: 'Longsword', strike: strikeOf(0) },
-  { name: 'Dagger', strike: strikeOf(1) },
+  { name: 'Longsword', traits: [], strike: strikeOf(0) },
+  { name: 'Dagger', traits: ['Agile', 'Finesse'], strike: strikeOf(1) },
 ];
 
 const FAILED_ATTACK = {
@@ -94,8 +94,11 @@ const FAILED_ATTACK = {
 
 /** A Strike whose attack the engine could not derive: marked failed, with why. */
 export const FAILED_STRIKE: readonly NamedStrike[] = [
-  { name: 'Longsword', strike: { ...strikeOf(0), attack: FAILED_ATTACK } },
+  { name: 'Longsword', traits: [], strike: { ...strikeOf(0), attack: FAILED_ATTACK } },
 ];
 
 /** A weapon that rolls no damage says so. */
-export const NO_DAMAGE_STRIKE: readonly NamedStrike[] = [{ name: 'Glue bomb', strike: strikeOf(2) }];
+export const NO_DAMAGE_STRIKE: readonly NamedStrike[] = [{ name: 'Glue bomb', traits: [], strike: strikeOf(2) }];
+
+/** A steel shield held beside the weapons. */
+export const STEEL_SHIELD: StrikesShield = { name: 'Steel Shield', hardness: 5, hitPoints: 20, brokenThreshold: 10 };

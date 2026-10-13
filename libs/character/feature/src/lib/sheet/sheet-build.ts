@@ -56,7 +56,7 @@ function size(registry: ContentRegistry, character: Character): BuildValue | und
 const TRAIT_NAMES = new WeakMap<ContentRegistry, ReadonlyMap<Trait, string>>();
 
 /** Each trait's name, by its entry in the trait vocabulary; the last pack's wins, as in the registry. */
-function traitNames(registry: ContentRegistry): ReadonlyMap<Trait, string> {
+export function traitNames(registry: ContentRegistry): ReadonlyMap<Trait, string> {
   const read =
     TRAIT_NAMES.get(registry) ??
     new Map(

@@ -6,6 +6,7 @@ import {
   Attribute,
   AttributeModifier,
   ContentKind,
+  HitPoints,
   Level,
   Modifier,
   Origin,
@@ -16,7 +17,7 @@ import {
   slugName,
   SOURCE_SLUG_MAX,
 } from '@pioneer/rules/sdk';
-import type { BaseWeapon, ContentId, ItemState, OriginHop } from '@pioneer/rules/sdk';
+import type { BaseWeapon, ContentId, Hardness, ItemState, OriginHop } from '@pioneer/rules/sdk';
 
 import { attributeModifiers } from './attribute-boosts';
 import { Encumbrance, inventoryBulk } from './bulk';
@@ -155,6 +156,38 @@ export function equippedInputs(
   const active = itemsIn(inventory, content, equippedState);
   const worn = active.find(({ entry }) => entry.kind === ContentKind.Armor);
   return { ...armorInputs(worn), weapons: weaponInputs(active, favored) };
+}
+
+/** A shield the character holds: what the sheet shows beside its Strikes. */
+export interface HeldShield {
+  readonly entry: ContentId;
+  readonly hardness: Hardness;
+  readonly hitPoints: HitPoints;
+  /** Half its Hit Points, rounded down: at or below it the shield is broken. */
+  readonly brokenThreshold: HitPoints;
+}
+
+const BROKEN_DIVISOR = 2;
+
+/**
+ * Each shield held, in inventory order, with its Hardness, Hit Points and Broken Threshold from its content. A
+ * reinforcing rune does not change them yet.
+ */
+export function heldShields(inventory: Inventory, content: ItemContent): readonly HeldShield[] {
+  return itemsIn(inventory, content, equippedState).flatMap(({ entry }): HeldShield[] => {
+    if (entry.kind !== ContentKind.Shield) {
+      return [];
+    }
+    const { hardness, hitPoints } = entry.data;
+    return [
+      {
+        entry: entry.id,
+        hardness,
+        hitPoints,
+        brokenThreshold: HitPoints.parse(Math.floor(hitPoints / BROKEN_DIVISOR)),
+      },
+    ];
+  });
 }
 
 /** The encumbered condition, by its name within its kind. */

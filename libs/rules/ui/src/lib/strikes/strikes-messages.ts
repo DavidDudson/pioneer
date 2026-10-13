@@ -10,4 +10,8 @@ export const StrikesMessage = {
   DamageHeading: 'rules.strikes.damageHeading',
   /** A Strike with no damage to roll (a glue bomb). */
   NoDamage: 'rules.strikes.noDamage',
+  /** "Attack +9 / +4 / -1": the attack modifier at the first, second and third attack of a turn. */
+  Attacks: 'rules.strikes.attacks',
+  /** "Steel Shield: Hardness 5, HP 20, Broken Threshold 10": a held shield beside the Strikes. */
+  Shield: 'rules.strikes.shield',
 } as const;

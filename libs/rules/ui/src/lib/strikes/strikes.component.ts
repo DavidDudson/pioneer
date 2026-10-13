@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import { EmptyState, List, ListItem, LocaleFormat, Skeleton } from '@pioneer/frontier';
+import { EmptyState, List, ListItem, LocaleFormat, Skeleton, Text } from '@pioneer/frontier';
 import type { Strike, StatisticResult } from '@pioneer/rules/engine';
 import { StatisticKind } from '@pioneer/rules/sdk';
 import type { ContentId } from '@pioneer/rules/sdk';
@@ -10,6 +10,7 @@ import { filter, merge } from 'rxjs';
 import { SIGNED, numberStyle } from '../breakdown/number-style';
 import { NO_ORIGIN_NAMES } from '../origin-chain/origin-names';
 import type { OriginNames } from '../origin-chain/origin-names';
+import type { Chip } from '../picker-cells/chip-list/chip-list.component';
 import { DAMAGE_TYPE_MESSAGES } from '../rich-text/rich-text-messages';
 import { StatisticsMessage } from '../statistics/statistics-messages';
 import { StrikeRow } from './strike-row.component';
@@ -21,7 +22,17 @@ export interface NamedStrike {
   readonly name: string;
   /** A message key naming it instead, for one no content names (a fist's Strike). */
   readonly nameKey?: string | undefined;
+  /** Its traits by name. */
+  readonly traits: readonly string[];
   readonly strike: Strike;
+}
+
+/** A shield held beside the Strikes: its name and the numbers that matter when it blocks. */
+export interface StrikesShield {
+  readonly name: string;
+  readonly hardness: number;
+  readonly hitPoints: number;
+  readonly brokenThreshold: number;
 }
 
 /** Rows of placeholders while the Strikes load. */
@@ -42,7 +53,7 @@ const LOADING_ROWS = 2;
  */
 @Component({
   selector: 'pio-strikes',
-  imports: [EmptyState, List, ListItem, Skeleton, StrikeRow, TranslocoPipe],
+  imports: [EmptyState, List, ListItem, Skeleton, StrikeRow, Text, TranslocoPipe],
   templateUrl: './strikes.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -53,6 +64,8 @@ export class StrikesView {
   public readonly entryNames = input<ReadonlyMap<ContentId, string>>(new Map());
   /** Names for what the breakdown lines' origin chains refer to beyond entries. */
   public readonly originNames = input<OriginNames>(NO_ORIGIN_NAMES);
+  /** The shields held, each listed with its Hardness, Hit Points and Broken Threshold. */
+  public readonly shields = input<readonly StrikesShield[]>([]);
 
   protected readonly Statistics = StatisticsMessage;
   protected readonly loadingRows = [...Array.from({ length: LOADING_ROWS }).keys()];
@@ -66,12 +79,14 @@ export class StrikesView {
   protected readonly shown = computed((): readonly ShownStrike[] | undefined => {
     this.#messages();
     this.#format.locale();
-    return this.strikes()?.map(({ name, nameKey, strike }): ShownStrike => {
+    return this.strikes()?.map(({ name, nameKey, traits, strike }): ShownStrike => {
       const bonus = strike.damage?.bonus;
       return {
         key: strike.weapon.slug,
         name: nameKey === undefined ? name : this.#i18n.translate(nameKey),
+        traits: traits.map((label): Chip => ({ label })),
         attack: this.#attack(strike.attack),
+        attacks: this.#attacks(strike),
         damage: this.#damage(strike),
         bonus: bonus?.ok === true ? bonus : undefined,
         penalty: this.#i18n.translate(StrikesMessage.MultipleAttackPenalty, {
@@ -81,6 +96,31 @@ export class StrikesView {
       };
     });
   });
+
+  /** "Attack +9 / +4 / -1": the attack modifier at each step of the multiple attack penalty; none without a total. */
+  #attacks({ attack, map }: Strike): string | undefined {
+    if (attack?.ok !== true) {
+      return undefined;
+    }
+    const style = numberStyle(StatisticKind.Check);
+    return this.#i18n.translate(StrikesMessage.Attacks, {
+      first: this.#format.number(attack.total, style),
+      second: this.#format.number(attack.total + map.second, style),
+      third: this.#format.number(attack.total + map.third, style),
+    });
+  }
+
+  /** "Steel Shield: Hardness 5, HP 20, Broken Threshold 10". */
+  protected readonly shownShields = computed((): readonly string[] =>
+    this.shields().map((shield) =>
+      this.#i18n.translate(StrikesMessage.Shield, {
+        name: shield.name,
+        hardness: this.#format.number(shield.hardness),
+        hitPoints: this.#format.number(shield.hitPoints),
+        brokenThreshold: this.#format.number(shield.brokenThreshold),
+      }),
+    ),
+  );
 
   #attack(result: StatisticResult | undefined): ShownAttack {
     if (result === undefined) {

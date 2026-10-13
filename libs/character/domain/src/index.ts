@@ -307,7 +307,15 @@ export {
   ONE_HAND,
   STOWED,
 } from './item-carry';
-export { type ActiveItem, activeItems, type EquippedInputs, equippedInputs, equippedRules } from './equipped';
+export {
+  type ActiveItem,
+  activeItems,
+  type EquippedInputs,
+  equippedInputs,
+  equippedRules,
+  type HeldShield,
+  heldShields,
+} from './equipped';
 export {
   characterStatisticInputs,
   characterStatistics,

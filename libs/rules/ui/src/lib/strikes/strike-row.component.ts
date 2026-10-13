@@ -8,6 +8,8 @@ import type { ContentId } from '@pioneer/rules/sdk';
 import { BreakdownView } from '../breakdown/breakdown.component';
 import { NO_ORIGIN_NAMES } from '../origin-chain/origin-names';
 import type { OriginNames } from '../origin-chain/origin-names';
+import type { Chip } from '../picker-cells/chip-list/chip-list.component';
+import { ChipList } from '../picker-cells/chip-list/chip-list.component';
 import { StatisticTotal } from '../statistics/statistic-total/statistic-total.component';
 import { StatisticsMessage } from '../statistics/statistics-messages';
 import { StrikesMessage } from './strikes-messages';
@@ -31,6 +33,10 @@ export interface ShownStrike {
   readonly key: string;
   readonly name: string;
   readonly attack: ShownAttack;
+  /** Its traits by name. */
+  readonly traits: readonly Chip[];
+  /** "Attack +9 / +4 / -1": the attack at each step of the multiple attack penalty; undefined when it has none. */
+  readonly attacks: string | undefined;
   /** "1d8+4 slashing"; the none message for a weapon that rolls no damage. */
   readonly damage: string;
   /** The flat damage statistic's breakdown, when it derived. */
@@ -46,7 +52,7 @@ export interface ShownStrike {
  */
 @Component({
   selector: 'pio-strike-row',
-  imports: [Badge, BreakdownView, Disclosure, Stack, StatisticTotal, Text, TranslocoPipe],
+  imports: [Badge, BreakdownView, ChipList, Disclosure, Stack, StatisticTotal, Text, TranslocoPipe],
   templateUrl: './strike-row.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

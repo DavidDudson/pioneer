@@ -615,7 +615,9 @@
       "multipleAttackPenalty": "Multiple attack penalty {second} / {third}",
       "attackHeading": "Attack roll",
       "damageHeading": "Damage bonus",
-      "noDamage": "No damage"
+      "noDamage": "No damage",
+      "attacks": "Attack {first} / {second} / {third}",
+      "shield": "{name}: Hardness {hardness}, HP {hitPoints}, Broken Threshold {brokenThreshold}"
     },
     "attributes": {
       "str": "Strength",
