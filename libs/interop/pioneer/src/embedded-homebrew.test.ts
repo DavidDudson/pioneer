@@ -9,6 +9,7 @@ import type { ContentReference } from './content-reference';
 import { EmbeddedPack } from './embedded-homebrew';
 import { exportPioneerCharacter } from './export-pioneer-character';
 import type { PioneerExportResult } from './export-pioneer-character';
+import { CURRENT_FORMAT_VERSION, PIONEER_CHARACTER_FORMAT, PioneerCharacterFile } from './pioneer-character-file';
 import { namedCharacter, TEST_PACK } from './testing/named-character';
 import type { NamedCharacter } from './testing/named-character';
 
@@ -75,6 +76,32 @@ const homebrewSlugs = homebrewIds.map((id) => String(entryFor(id).slug)).toSorte
 function officialOnly(id: ContentId): ContentReference | undefined {
   return id === officialId ? references.get(id) : undefined;
 }
+
+describe('EmbeddedPack', () => {
+  test('refuses an entry filed under another pack than the one that carries it', () => {
+    const [template] = new ContentPackBuilder().withId('other-pack').withFeat('x').build().otherEntries;
+
+    const parsed = EmbeddedPack.safeParse({
+      pack: { id: TEST_PACK, title: 'Test', publisher: 'Me', license: ContentLicense.Homebrew },
+      entries: [required(template)],
+    });
+
+    expect(parsed.error?.issues.map((issue) => issue.path.join('.'))).toStrictEqual(['entries.0.pack']);
+  });
+
+  test('a file refuses two embedded packs with one id', () => {
+    const pack = packOf([unusedEntry]);
+
+    const parsed = PioneerCharacterFile.safeParse({
+      format: PIONEER_CHARACTER_FORMAT,
+      formatVersion: CURRENT_FORMAT_VERSION,
+      character: {},
+      homebrew: [pack, pack],
+    });
+
+    expect(parsed.success).toBe(false);
+  });
+});
 
 describe('exportPioneerCharacter with embedded homebrew', () => {
   test('carries the homebrew entries the character uses, and only those', () => {

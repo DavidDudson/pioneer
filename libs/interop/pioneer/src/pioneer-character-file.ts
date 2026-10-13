@@ -31,6 +31,14 @@ export const PioneerCharacterFile = PioneerCharacterHeader.extend({
   formatVersion: z.literal(CURRENT_FORMAT_VERSION),
   character: z.record(z.string(), z.unknown()),
   /** The homebrew the character uses, so the file is portable; absent when it uses none (ADR-0058). */
-  homebrew: z.array(EmbeddedPack).min(1).readonly().optional(),
+  homebrew: z
+    .array(EmbeddedPack)
+    .min(1)
+    .refine(
+      (packs) => new Set(packs.map(({ pack }) => pack.id)).size === packs.length,
+      'Embedded pack ids must be unique',
+    )
+    .readonly()
+    .optional(),
 }).strict();
 export type PioneerCharacterFile = z.infer<typeof PioneerCharacterFile>;

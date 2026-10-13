@@ -9,10 +9,23 @@ import type { ContentReference, ReferenceNamer } from './content-reference';
  * (ADR-0005), and the entries the character uses. Only homebrew is embedded; official content
  * is named by pack and slug and found in the importer's own packs.
  */
-export const EmbeddedPack = z.strictObject({
-  pack: ContentPackManifest.extend({ license: z.literal(ContentLicense.Homebrew) }),
-  entries: z.array(ContentEntry).min(1).readonly(),
-});
+export const EmbeddedPack = z
+  .strictObject({
+    pack: ContentPackManifest.extend({ license: z.literal(ContentLicense.Homebrew) }),
+    entries: z.array(ContentEntry).min(1).readonly(),
+  })
+  .check((context) => {
+    for (const [index, entry] of context.value.entries.entries()) {
+      if (entry.pack !== context.value.pack.id) {
+        context.issues.push({
+          code: 'custom',
+          input: entry.pack,
+          path: ['entries', index, 'pack'],
+          message: 'An embedded entry must belong to its pack',
+        });
+      }
+    }
+  });
 export type EmbeddedPack = z.infer<typeof EmbeddedPack>;
 
 /** Names each embedded entry by the pack and slug it was written under, as the registry namer does for loaded ones. */
