@@ -52,6 +52,14 @@ const VERSION_3 = {
   },
 };
 
+/** Version 4, before Hit Points in play (#343): `play` was empty. */
+const VERSION_4 = {
+  ...VERSION_3,
+  schemaVersion: 4,
+  build: { ...VERSION_3.build, spellAccess: [] },
+  play: {},
+};
+
 /**
  * One stored document of every past schema version, in the shape that version wrote. A new upgrade step adds the
  * shape it upgrades from; `character-document.test.ts` fails until it does.
@@ -60,4 +68,5 @@ export const PAST_DOCUMENTS: ReadonlyMap<CharacterSchemaVersion, unknown> = new 
   [CharacterSchemaVersion.parse(1), VERSION_1],
   [CharacterSchemaVersion.parse(2), VERSION_2],
   [CharacterSchemaVersion.parse(VERSION_3.schemaVersion), VERSION_3],
+  [CharacterSchemaVersion.parse(VERSION_4.schemaVersion), VERSION_4],
 ]);

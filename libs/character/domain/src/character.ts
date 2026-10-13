@@ -24,6 +24,7 @@ import {
 import type { Inventory, InventoryEdit } from './inventory';
 import { withAddedItem, withAddedKit } from './item-purchase';
 import type { EditInputs } from './item-purchase';
+import type { PlayState } from './play-state';
 import { eraseRune, etchRune, transferRune } from './rune-edits';
 
 /**
@@ -282,6 +283,11 @@ export class Character {
 
   public withVersion(version: Version): Character {
     return new Character({ ...this.toProps(), version });
+  }
+
+  /** The character with its play state as read from where it is stored apart (`character_play`). */
+  public withPlay(play: PlayState): Character {
+    return new Character({ ...this.toProps(), document: { ...this.document, play } });
   }
 
   private toProps(): CharacterProps {

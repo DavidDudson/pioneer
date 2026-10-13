@@ -1,6 +1,22 @@
 export { Character, CharacterWire } from './character';
 export { type EditInputs } from './item-purchase';
-export { CharacterCommand, PATCH_COMMANDS } from './character-command';
+export { CharacterCommand, PATCH_COMMANDS, PLAY_COMMANDS } from './character-command';
+export {
+  applyPlayCommand,
+  CharacterPlay,
+  currentHitPoints,
+  FRESH_PLAY,
+  type HitPointsState,
+  HitPointsStateSchema,
+  PatchPlayBody,
+  type PlayCommand,
+  PlayCommandField,
+  PlayCommandSchema,
+  type PlayState,
+  PlayStateId,
+  PlayStateSchema,
+  untypedDamage,
+} from './play-state';
 export {
   type AncestryBoosts,
   attributeModifiers,

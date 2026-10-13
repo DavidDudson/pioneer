@@ -14,7 +14,8 @@ const READ = new WeakMap<ContentRegistry, WeakMap<Character, StatisticInputs>>()
 export function statisticInputsOf(registry: ContentRegistry, character: Character): StatisticInputs {
   const byCharacter = READ.get(registry) ?? new WeakMap<Character, StatisticInputs>();
   READ.set(registry, byCharacter);
-  const inputs = byCharacter.get(character) ?? characterStatisticInputs(registry, character.document, sheetSlotContent(registry));
+  const inputs =
+    byCharacter.get(character) ?? characterStatisticInputs(registry, character.document, sheetSlotContent(registry));
   byCharacter.set(character, inputs);
   return inputs;
 }

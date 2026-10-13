@@ -1,6 +1,7 @@
 import type { ValueOf } from '@pioneer/shared/kernel';
 
 import { CharacterPatchField } from './character-patch';
+import { PlayCommandField } from './play-state';
 
 /** Every command that writes a character, as named in `audit.log.command`. */
 export const CharacterCommand = {
@@ -27,6 +28,11 @@ export const CharacterCommand = {
   SetCoins: 'setCoins',
   GrantSpellAccess: 'grantSpellAccess',
   RevokeSpellAccess: 'revokeSpellAccess',
+  /** Play state (#343): written to `character_play`, never to the build. */
+  Damage: 'damage',
+  Heal: 'heal',
+  SetHp: 'setHp',
+  SetTempHp: 'setTempHp',
 } as const;
 export type CharacterCommand = ValueOf<typeof CharacterCommand>;
 
@@ -53,3 +59,11 @@ export const PATCH_COMMANDS = {
   [CharacterPatchField.GrantSpellAccess]: CharacterCommand.GrantSpellAccess,
   [CharacterPatchField.RevokeSpellAccess]: CharacterCommand.RevokeSpellAccess,
 } as const satisfies Record<CharacterPatchField, CharacterCommand>;
+
+/** The command each play-state edit runs as. */
+export const PLAY_COMMANDS = {
+  [PlayCommandField.Damage]: CharacterCommand.Damage,
+  [PlayCommandField.Heal]: CharacterCommand.Heal,
+  [PlayCommandField.SetHp]: CharacterCommand.SetHp,
+  [PlayCommandField.SetTempHp]: CharacterCommand.SetTempHp,
+} as const satisfies Record<PlayCommandField, CharacterCommand>;
