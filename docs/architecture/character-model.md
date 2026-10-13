@@ -314,6 +314,14 @@ archetype (Player Core). The count is the `archetype` entry's `dedicationLock` (
 variant archetype can change it. The engine adds this rule to every feat slot's offer: a dedication whose lock is
 unmet is offered as unavailable, with the reason and the archetype it waits on, never hidden.
 
+A feat slot reads the lock over the feats picked in the feat slots before it (lower level first, in the order found
+within a level); a feature's grant is not counted. Every dedication taken so far with fewer than its lock of other
+archetype feats keeps another archetype's dedication out of reach, and the offer names the first such archetype with
+the feats still needed (`FeatOption.locked`). `selectSlot` refuses a locked dedication
+(`character.validation.dedicationLocked`), and a taken one reads invalid at its slot
+(`rules.choices.invalid.dedicationLocked`), so the lock holds across levels, and replacing a feat that lifted it
+flags the dedication after. The sheet's picker shows the dedication disabled, with the archetype and the count.
+
 The engine also reports each archetype the character has: its feats taken, the feats still needed, and the
 earliest planned level at which another dedication becomes legal. The Plan tab shows this per archetype ("Medic:
 1 of 2 feats before your next dedication") and marks the level where the lock clears. A planned dedication above

@@ -51,6 +51,7 @@ export const classData: Arbitrary<object> = withOptional(
 );
 export const archetypeData: Arbitrary<object> = withOptional(record({ dedication: contentIdJson }), {
   multiclass: contentIdJson,
+  dedicationLock: integer({ min: 1, max: 4 }),
 });
 
 const slugs: Arbitrary<string[]> = uniqueArray(slugText, { maxLength: LIST_MAX });

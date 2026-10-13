@@ -121,6 +121,10 @@ const FEAT_REFUSALS: Readonly<Record<FeatPickProblem, SlotRefusal>> = {
     field: SlotRefusalField.Selection,
     message: message('character.validation.prerequisitesNotMet'),
   },
+  [FeatPickProblem.DedicationLocked]: {
+    field: SlotRefusalField.Selection,
+    message: message('character.validation.dedicationLocked'),
+  },
 };
 
 /**
