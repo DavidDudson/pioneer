@@ -1,0 +1,53 @@
+<fr-async-region>
+  <ng-template frAsyncPending><fr-skeleton width="md" /></ng-template>
+  <ng-template [frAsyncData]="playQuery">
+    @if (track(); as track) {
+      <fr-stack gap="xs">
+        <fr-stack direction="horizontal" align="center" gap="xs" wrap>
+          <fr-text weight="semibold">{{ 'character.sheet.death.label' | transloco }}</fr-text>
+          @if (track.dead) {
+            <fr-badge [tone]="badgeTone.Danger" [variant]="badgeVariant.Solid">
+              {{ 'character.sheet.death.dead' | transloco }}
+            </fr-badge>
+          }
+          <fr-badge [tone]="track.dying > 0 ? badgeTone.Danger : badgeTone.Neutral">
+            {{ 'character.sheet.death.dying' | transloco: { value: track.dying } }}
+          </fr-badge>
+          <fr-badge [tone]="track.wounded > 0 ? badgeTone.Warning : badgeTone.Neutral">
+            {{ 'character.sheet.death.wounded' | transloco: { value: track.wounded } }}
+          </fr-badge>
+          <fr-badge [tone]="track.doomed > 0 ? badgeTone.Warning : badgeTone.Neutral">
+            {{ 'character.sheet.death.doomed' | transloco: { value: track.doomed } }}
+          </fr-badge>
+        </fr-stack>
+        <fr-stack direction="horizontal" align="center" gap="xs" wrap>
+          @if (track.recovering) {
+            <fr-async-button size="sm" [action]="recover" [disabled]="!canRoll()" [describeError]="describeError">
+              {{ 'character.sheet.death.recovery' | transloco: { dc: dc() } }}
+            </fr-async-button>
+          }
+          <fr-number-input
+            [ariaLabel]="'character.sheet.death.value' | transloco"
+            [min]="0"
+            [max]="conditionMax"
+            [value]="value()"
+            (valueChange)="value.set($event)"
+            (completeChange)="complete.set($event)"
+          />
+          <fr-async-button size="sm" [action]="setDying" [disabled]="!ready()" [describeError]="describeError">
+            {{ 'character.sheet.death.setDying' | transloco }}
+          </fr-async-button>
+          <fr-async-button size="sm" [action]="setWounded" [disabled]="!ready()" [describeError]="describeError">
+            {{ 'character.sheet.death.setWounded' | transloco }}
+          </fr-async-button>
+          <fr-async-button size="sm" [action]="setDoomed" [disabled]="!ready()" [describeError]="describeError">
+            {{ 'character.sheet.death.setDoomed' | transloco }}
+          </fr-async-button>
+        </fr-stack>
+        @if (lastRoll(); as roll) {
+          <pio-roll-card [roll]="roll" />
+        }
+      </fr-stack>
+    }
+  </ng-template>
+</fr-async-region>

@@ -104,6 +104,11 @@ export function playOf(damage: number, temp: number, revision = 1): object {
   return { revision, play: { hp: { damage, temp } } };
 }
 
+/** The play state of a character at 0 Hit Points with the death track's `track` conditions, at `revision`. */
+export function deathOf(track: object, revision = 1): object {
+  return { revision, play: { hp: { damage: 15, temp: 0 }, ...track } };
+}
+
 /**
  * Answers the sheet's read of its play state, made once the character is selected; left unanswered it keeps the
  * application unstable, so a spec waiting on it never settles.

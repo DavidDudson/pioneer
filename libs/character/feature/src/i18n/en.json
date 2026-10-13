@@ -197,6 +197,18 @@
       "setTemp": "Set temp HP",
       "noMax": "Hit Points show once the character has an ancestry and a class."
     },
+    "death": {
+      "label": "Death",
+      "dead": "Dead",
+      "dying": "Dying {value}",
+      "wounded": "Wounded {value}",
+      "doomed": "Doomed {value}",
+      "recovery": "Recovery check (DC {dc})",
+      "value": "Condition value",
+      "setDying": "Set dying",
+      "setWounded": "Set wounded",
+      "setDoomed": "Set doomed"
+    },
     "saveState": {
       "saving": "Saving",
       "saved": "All changes saved",
